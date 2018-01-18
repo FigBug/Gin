@@ -24,7 +24,7 @@ using juce::MemoryBlock;
 #include "utilities/integrator.cpp"
 #include "utilities/leastsquaresregression.cpp"
 #include "utilities/linearregression.cpp"
-//#include "utilities/mapviewer.cpp"
+#include "utilities/mapviewer.cpp"
 #include "utilities/openstreetmaps.cpp"
 #include "utilities/spline.cpp"
 #include "utilities/util.cpp"

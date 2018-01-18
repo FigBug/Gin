@@ -7,7 +7,8 @@
 
 #pragma once
 
-class MapViewer : public Component
+class MapViewer : public Component,
+                  private OpenStreetMaps::Listener
 {
 public:
     MapViewer();
@@ -21,18 +22,16 @@ protected:
     void resized() override;
     void paint (Graphics& g) override;
     void mouseDown (const MouseEvent& e) override;
-	void mouseUp (const MouseEvent& e) override;
-	void mouseMove (const MouseEvent& e) override;
+	void mouseDrag (const MouseEvent& e) override;
     void mouseWheelMove (const MouseEvent& e, const MouseWheelDetails& wheel) override;
 
-	void tileFetched (int zoom, int x, int y);
+	void tileFetched (int zoom, int x, int y) override;
 	void updateMap();
     void mapUpdated();
     void preferencesChanged();
     void saveSnapshot();
 
 private:
-	void autoZoomAndCenter();
     void updateDoubleBuffer();
     void clearDoubleBuffer();
 
@@ -42,17 +41,14 @@ private:
 	int xoffset;
 	int yoffset;
 
-	int selectedTrack;
-
-	OpenStreetMaps* osm;
+	SharedResourcePointer<OpenStreetMaps> osm;
 
 	Point<double> lastPos;
-
 	Point<double> centerPt;
 
 	bool userAdjusted;
 
 	Point<double> posMarker;
 
-    QImage* doubleBuffer;
+    ScopedPointer<Image> doubleBuffer;
 };

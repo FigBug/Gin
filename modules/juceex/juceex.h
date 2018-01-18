@@ -69,6 +69,6 @@ using juce::Component;
 #include "utilities/spline.h"
 #include "utilities/util.h"
 
-//#include "utilities/mapviewer.h"
+#include "utilities/mapviewer.h"
     
 }
