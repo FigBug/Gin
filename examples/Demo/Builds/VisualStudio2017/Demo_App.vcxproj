@@ -23,6 +23,7 @@
                  Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
     <PlatformToolset>v141</PlatformToolset>
     <PlatformToolset>v141</PlatformToolset>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
@@ -2100,7 +2101,6 @@
     <ClInclude Include="C:\JUCE\modules\juce_data_structures\values\juce_Value.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_data_structures\values\juce_ValueTree.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_data_structures\values\juce_ValueTreeSynchroniser.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_data_structures\values\juce_ValueWithDefault.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_data_structures\juce_data_structures.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_events\broadcasters\juce_ActionBroadcaster.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_events\broadcasters\juce_ActionListener.h"/>
@@ -2148,7 +2148,6 @@
     <ClInclude Include="C:\JUCE\modules\juce_graphics\geometry\juce_BorderSize.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_graphics\geometry\juce_EdgeTable.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_graphics\geometry\juce_Line.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_graphics\geometry\juce_Parallelogram.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_graphics\geometry\juce_Path.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_graphics\geometry\juce_PathIterator.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_graphics\geometry\juce_PathStrokeType.h"/>

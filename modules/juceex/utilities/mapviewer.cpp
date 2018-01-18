@@ -111,8 +111,8 @@ void MapViewer::centerOn (double longCenter, double latCenter)
 {
 	Point<double> p = osm->coordinateToDisplay(Point<double>(longCenter, latCenter), zoom);
 
-	xoffset = jlimit (0.0, double(mapsize - getWidth()),  p.getX() - getWidth() / 2);
-	yoffset = jlimit (0.0, double(mapsize - getHeight()), p.getY() - getHeight() / 2);
+	xoffset = jlimit (0, (mapsize - getWidth()),  int (p.getX()) - getWidth() / 2);
+	yoffset = jlimit (0, (mapsize - getHeight()), int (p.getY()) - getHeight() / 2);
 
 	centerPt = Point<double>(longCenter, latCenter);
 
@@ -123,8 +123,8 @@ void MapViewer::centerUnderPt (Point<double> world, Point<int> view)
 {
 	Point<double> p = osm->coordinateToDisplay (world, zoom);
 
-	xoffset = jlimit (0.0, jmax (1.0, double (mapsize - getWidth())),  p.getX() - view.getX());
-	yoffset = jlimit (0.0, jmax (1.0, double (mapsize - getHeight())), p.getY() - view.getY());
+	xoffset = jlimit (0, jmax (1, (mapsize - getWidth())),  int (p.getX()) - view.getX());
+	yoffset = jlimit (0, jmax (1, (mapsize - getHeight())), int (p.getY()) - view.getY());
 
 	centerPt = osm->displayToCoordinate (Point<double>(xoffset + getWidth() / 2, yoffset + getHeight() / 2), zoom);
 

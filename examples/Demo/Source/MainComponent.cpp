@@ -64,9 +64,9 @@ struct LeastSquaresDemo : public Component
             {
                 double y = a * x * x + b * x + c;
                 if (x == 0)
-                    p.startNewSubPath (x, y);
+                    p.startNewSubPath (x, float (y));
                 else
-                    p.lineTo (x, y);
+                    p.lineTo (x, float (y));
             }
             g.strokePath (p, PathStrokeType (2));
         }
@@ -119,9 +119,9 @@ struct LinearDemo : public Component
             {
                 double y = lr.estimateY (x);
                 if (x == 0)
-                    p.startNewSubPath (x, y);
+                    p.startNewSubPath (x, float (y));
                 else
-                    p.lineTo (x, y);
+                    p.lineTo (x, float (y));
             }
             g.strokePath (p, PathStrokeType (2));
         }
