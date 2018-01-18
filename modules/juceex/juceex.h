@@ -65,7 +65,7 @@ using juce::Component;
 #include "utilities/integrator.h"
 #include "utilities/leastsquaresregression.h"
 #include "utilities/linearregression.h"
-//#include "utilities/openstreetmaps.h"
+#include "utilities/openstreetmaps.h"
 #include "utilities/spline.h"
 #include "utilities/util.h"
 

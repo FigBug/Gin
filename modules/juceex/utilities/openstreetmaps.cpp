@@ -13,14 +13,7 @@ OpenStreetMaps::OpenStreetMaps()
 
 OpenStreetMaps::~OpenStreetMaps()
 {
-    for (int i = 0; i < requests.size(); i++)
-    {
-        if (requests[i].reply)
-        {
-            requests[i].reply->abort();
-            requests[i].reply = NULL;
-        }
-    }
+    requests.clear();
 }
 
 Image OpenStreetMaps::fetchTile (int zoom, int x, int y)
@@ -31,43 +24,43 @@ Image OpenStreetMaps::fetchTile (int zoom, int x, int y)
 
     String fname = String::formatted ("%d-%d-%d-%d.png", (int)tileSource, zoom, x, y);
 
-	QString file = mapTileDir.getChildFile (fname);
+	File file = mapTileDir.getChildFile (fname);
 
 	if (cache.contains (fname))
 	{
-		return cache.value (fname);
+		return cache[fname];
 	}
 	else if (File (file).existsAsFile())
 	{
 		Image img;
-		img.load(file);
+        img = ImageFileFormat::loadFrom (file);
 
-		cache.insert(fname, img);
+		cache.set (fname, img);
 
 		return img;
 	}
 	else
 	{
-		TileReq newReq (zoom, x, y);
+		TileReq* newReq = new TileReq (zoom, x, y);
 
 		bool pending = false;
 		for (int i = 0; i < requests.size(); i++)
 		{
-			if (requests[i] == newReq)
+			if (*requests[i] == *newReq)
 			{
 				pending = true;
 				break;
 			}
 		}
 
-		if (!pending && manager->networkAccessible() != QNetworkAccessManager::NotAccessible)
+		if (! pending)
 		{
-			requests.append(newReq);
+			requests.add (newReq);
 			startRequest();
 		}
 
-		Image img(QSize(256,256), QImage::Format_RGB32);
-		img.fill(0x808080);
+        Image img (Image::ARGB, 256, 256, false);
+        img.clear ({0,0,256,256}, Colour (0xff808080));
 		return img;
 	}
 }
@@ -106,85 +99,85 @@ void OpenStreetMaps::startRequest()
 
     for (int i = 0; i < requests.size(); i++)
     {
-        if (requests[i].reply == NULL)
+        if (requests[i]->reply == nullptr)
         {
             char buffer[1024];
             switch (tileSource)
             {
                 case OpenStreetMap:
-                    sprintf(buffer, "http://%c.tile.openstreetmap.org/%d/%d/%d.png", "abc"[server], requests[i].zoom, requests[i].x, requests[i].y);
+                    sprintf(buffer, "http://%c.tile.openstreetmap.org/%d/%d/%d.png", "abc"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
                     break;
                 case OpenCycleMap:
-                    sprintf(buffer, "http://%c.tile.opencyclemap.org/cycle/%d/%d/%d.png", "abc"[server], requests[i].zoom, requests[i].x, requests[i].y);
+                    sprintf(buffer, "http://%c.tile.opencyclemap.org/cycle/%d/%d/%d.png", "abc"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
                     break;
                 case OpenCycleMapTransport:
-                    sprintf(buffer, "http://%c.tile2.opencyclemap.org/transport/%d/%d/%d.png", "abc"[server], requests[i].zoom, requests[i].x, requests[i].y);
+                    sprintf(buffer, "http://%c.tile2.opencyclemap.org/transport/%d/%d/%d.png", "abc"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
                     break;
                 case OpenCycleMapLandscape:
-                    sprintf(buffer, "http://%c.tile3.opencyclemap.org/landscape/%d/%d/%d.png", "abc"[server], requests[i].zoom, requests[i].x, requests[i].y);
+                    sprintf(buffer, "http://%c.tile3.opencyclemap.org/landscape/%d/%d/%d.png", "abc"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
                     break;
                 case StamenTerrain:
-                    sprintf(buffer, "http://tile.stamen.com/terrain/%d/%d/%d.png", requests[i].zoom, requests[i].x, requests[i].y);
+                    sprintf(buffer, "http://tile.stamen.com/terrain/%d/%d/%d.png", requests[i]->zoom, requests[i]->x, requests[i]->y);
                     break;
                 case MapQuestOSM:
-                    sprintf(buffer, "http://otile%c.mqcdn.com/tiles/1.0.0/map/%d/%d/%d.jpg", "1234"[server], requests[i].zoom, requests[i].x, requests[i].y);
+                    sprintf(buffer, "http://otile%c.mqcdn.com/tiles/1.0.0/map/%d/%d/%d.jpg", "1234"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
                     break;
                 case MapQuestOpenAerial:
-                    sprintf(buffer, "http://otile%c.mqcdn.com/tiles/1.0.0/sat/%d/%d/%d.jpg", "1234"[server], requests[i].zoom, requests[i].x, requests[i].y);
+                    sprintf(buffer, "http://otile%c.mqcdn.com/tiles/1.0.0/sat/%d/%d/%d.jpg", "1234"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
                     break;
                 case MapQuestOpenStreetMap:
-                    sprintf(buffer, "http://%c.tile.openstreetmap.org/%d/%d/%d.png", "abc"[server], requests[i].zoom, requests[i].x, requests[i].y);
+                    sprintf(buffer, "http://%c.tile.openstreetmap.org/%d/%d/%d.png", "abc"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
                     break;
                 default:
-                    Q_ASSERT(false);
+                    jassertfalse;
                     break;
             }
 
-            requests[i].server     = server;
+            requests[i]->server = server;
 
-            serversInUse.append(server);
+            serversInUse.add (server);
 
-            QUrl url = QUrl(QString(buffer));
-            QNetworkRequest nr(url);
-
-            requests[i].reply = manager->get(nr);
+            URL url = URL (String (buffer));
+            
+            File temp = File::getSpecialLocation (File::tempDirectory).getNonexistentChildFile ("osm_tile", ".png");
+            requests[i]->reply = url.downloadToFile (temp, "", this);
+            requests[i]->temp  = temp;
 
             break;
         }
     }
 }
 
-void OpenStreetMaps::replyFinished(QNetworkReply* reply)
+void OpenStreetMaps::finished (URL::DownloadTask* reply, bool success)
 {
     for (int i = 0; i < requests.size(); i++)
     {
-        if (requests[i].reply == reply)
+        if (requests[i]->reply == reply)
         {
-            requests[i].reply->deleteLater();
-            requests[i].reply = NULL;
+            requests[i]->reply = nullptr;
 
-            serversInUse.removeOne(requests[i].server);
-            requests[i].server = -1;
+            serversInUse.removeFirstMatchingValue (requests[i]->server);
+            requests[i]->server = -1;
 
-	        if (reply->error() == QNetworkReply::NoError)
+	        if (success)
 	        {
-		        QByteArray data = reply->readAll();
+		        String fname;
+                fname = String::formatted ("%d-%d-%d-%d.png", (int)tileSource, requests[i]->zoom, requests[i]->x, requests[i]->y);
 
-		        QString fname;
-		        fname.sprintf("%d-%d-%d-%d.png", (int)tileSource, requests[i].zoom, requests[i].x, requests[i].y);
-
-		        QImage img;
-		        if (img.loadFromData(data))
+                Image img = ImageFileFormat::loadFrom (requests[i]->temp);
+		        if (img.isValid())
 		        {
-			        cache.insert(fname, img);
+			        cache.set (fname, img);
 
-                    img.save(mapTileDir.filePath(fname), "PNG");
+                    File dest = mapTileDir.getChildFile (fname);
+                    requests[i]->temp.copyFileTo (dest);
+                    requests[i]->temp.deleteFile();
 
-			        emit tileFetched(requests[i].zoom, requests[i].x, requests[i].y);
+                    listeners.call ([&] (Listener& l) { l.tileFetched (requests[i]->zoom, requests[i]->x, requests[i]->y); });
 		        }
 
-                requests.removeAt(i);
 	        }
+            requests.remove (i);
             break;
         }
     }
@@ -193,8 +186,8 @@ void OpenStreetMaps::replyFinished(QNetworkReply* reply)
 
 int OpenStreetMaps::getMapWidthPixels (int zoom)
 {
-	double numberOfTiles = pow(2.0, zoom);
-	return doubleToInt(numberOfTiles * 256);
+    double numberOfTiles = std::pow (2.0, zoom);
+	return roundToInt (numberOfTiles * 256);
 }
 
 int OpenStreetMaps::getMapWidthTiles (int zoom)
@@ -207,13 +200,13 @@ Point<double> OpenStreetMaps::coordinateToDisplay (Point<double> coordinate, int
     double numberOfTiles = std::pow (2.0, zoom);
 
     // LonToX
-	double x = (coordinate.x() + 180) * (numberOfTiles * tilesize) / 360.0;
+	double x = (coordinate.getX() + 180) * (numberOfTiles * tilesize) / 360.0;
     // LatToY
-    double projection = log(tan(M_PI / 4 + deg2rad(coordinate.y()) /2));
+    double projection = std::log (std::tan (double_Pi / 4 + degreesToRadians (coordinate.getY()) / 2));
 
-    double y = (projection / M_PI);
+    double y = (projection / double_Pi);
     y = 1 - y;
-    y = y /2  * (numberOfTiles*tilesize);
+    y = y /2  * (numberOfTiles * tilesize);
 
     return Point<double> (x, y);
 }
@@ -221,15 +214,15 @@ Point<double> OpenStreetMaps::coordinateToDisplay (Point<double> coordinate, int
 Point<double> OpenStreetMaps::displayToCoordinate (Point<double> point, int zoom)
 {
     // longitude
-    double longitude = (point.x() * (360 / (pow(2.0,zoom) * 256))) - 180;
+    double longitude = (point.getX() * (360 / (std::pow (2.0, zoom) * 256))) - 180;
     // latitude
-    double latitude = point.y() * (2 / (pow(2.0,zoom) * 256));
+    double latitude = point.getY() * (2 / (std::pow (2.0, zoom) * 256));
 
     latitude = 1 - latitude;
-    latitude = latitude * M_PI;
-    latitude = rad2deg(atan(sinh(latitude)));
+    latitude = latitude * double_Pi;
+    latitude = radiansToDegrees (std::atan (std::sinh (latitude)));
     
-    QPointF coord = QPointF(longitude, latitude);
+    Point<double> coord = {longitude, latitude};
     return coord;
 }
 
@@ -237,25 +230,17 @@ Point<double> OpenStreetMaps::tileForCoordinate (double lat, double lng, int zoo
 { 
 	double zn = static_cast<double>(1 << zoom);
 	double tx = (lng + 180.0) / 360.0;
-	double ty = (1.0 - log(tan(lat * M_PI / 180.0) + 1.0 / cos(lat * M_PI / 180.0)) / M_PI) / 2.0; 
-	return QPointF(tx * zn, ty * zn); 
+    double ty = (1.0 - std::log (std::tan (lat * double_Pi / 180.0) + 1.0 / std::cos (lat * double_Pi / 180.0)) / double_Pi) / 2.0;
+    return {tx * zn, ty * zn};
 } 
 
 void OpenStreetMaps::clearQueue()
 {
-	while (requests.size() > 1)
-    {
-        TileReq req = requests.takeLast();
-
-        if (req.server != -1)
-            serversInUse.removeOne(req.server);
-
-        if (req.reply)
-            req.reply->abort();
-    }
+    requests.clear();
+    serversInUse.clear();
 }
 
-TileSource OpenStreetMaps::getFileSource()
+TileSource OpenStreetMaps::getTileSource()
 {
 	return tileSource;
 }
