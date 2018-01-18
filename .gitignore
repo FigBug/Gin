@@ -32,3 +32,5 @@
 *.app
 
 *.xcuserstate
+
+*.xcbkptlist

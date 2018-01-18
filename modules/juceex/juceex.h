@@ -62,12 +62,12 @@ using namespace juce;
 using juce::Rectangle;
 using juce::Component;
     
+#include "utilities/util.h"
 #include "utilities/integrator.h"
 #include "utilities/leastsquaresregression.h"
 #include "utilities/linearregression.h"
 #include "utilities/openstreetmaps.h"
 #include "utilities/spline.h"
-#include "utilities/util.h"
 
 #include "utilities/mapviewer.h"
     

@@ -7,6 +7,8 @@
 
 #pragma once
 
+//==============================================================================*/
+// Draws an OSM lap
 class MapViewer : public Component,
                   private OpenStreetMaps::Listener
 {
@@ -17,6 +19,8 @@ public:
 	void setZoom (int zoom);
 	void centerOn (double longCenter, double latCenter);
 	void centerUnderPt (Point<double> world, Point<int> view);
+    
+    OpenStreetMaps* getOpenStreetMaps() { return osm; }
 
 protected:
     void resized() override;
@@ -40,10 +44,12 @@ private:
 
 	int xoffset;
 	int yoffset;
+    
+    double wheelDelta = 0;
 
 	SharedResourcePointer<OpenStreetMaps> osm;
 
-	Point<double> lastPos;
+	Point<int> lastPos;
 	Point<double> centerPt;
 
 	bool userAdjusted;

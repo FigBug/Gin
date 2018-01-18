@@ -7,24 +7,29 @@
 
 #pragma once
 
-enum TileSource
-{
-	OpenStreetMap,
-	OpenCycleMap,
-	OpenCycleMapTransport,
-	OpenCycleMapLandscape,
-	StamenTerrain,
-    MapQuestOSM,
-    MapQuestOpenAerial,
-    MapQuestOpenStreetMap,
-};
-
-class OpenStreetMaps : private URL::DownloadTask::Listener
+//==============================================================================*/
+// Fetches map files from OSM servers
+class OpenStreetMaps
 {
 public:
+    enum TileSource
+    {
+        OpenStreetMap,
+        OpenCycleMap,
+        OpenCycleMapTransport,
+        OpenCycleMapLandscape,
+        StamenTerrain,
+        MapQuestOSM,
+        MapQuestOpenAerial,
+        MapQuestOpenStreetMap,
+    };
+    
     OpenStreetMaps();
 	~OpenStreetMaps();
 
+    /** Set this or map tiles will be stored in the temp directory */
+    void setMapTileDir (File f) { mapTileDir = f; }
+    
 	Image fetchTile (int zoom, int x, int y);
 
 	int getMapWidthPixels (int zoom);
@@ -51,7 +56,7 @@ public:
     void removeListener (Listener* listener)    { listeners.remove (listener);  }
     
 private:
-    void finished (URL::DownloadTask* task, bool success) override;
+    void finished (AsyncDownload* task, MemoryBlock data, bool success);
     
 	void startRequest();
     int getNumServers();
@@ -73,8 +78,7 @@ private:
 			return zoom == b.zoom && x == b.x && y == b.y;
 		}
 
-        ScopedPointer<URL::DownloadTask> reply;
-        File temp;
+        ScopedPointer<AsyncDownload> reply;
 		int zoom;
 		int x;
 		int y;
@@ -82,6 +86,8 @@ private:
 	};
 
 	OwnedArray<TileReq> requests;
+    OwnedArray<TileReq> cancelledRequests;
+    
 	File mapTileDir;
     HashMap<String, Image> cache;
 	TileSource tileSource;

@@ -25,7 +25,7 @@ public:
     double estimateY (double x) const   { return (a + b * x); }
 
 protected:
-    void calculate();   // calculate coefficients
+    void calculate();       // calculate coefficients
     void addPoint (Point<double> pnt);
 
     int n = 0;              // number of data points input so far

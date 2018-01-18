@@ -67,7 +67,7 @@ void MapViewer::paint (Graphics& g)
 
 void MapViewer::mouseDown (const MouseEvent& e)
 {
-    lastPos = {double (e.position.x), double (e.position.y)};
+    lastPos = e.getPosition();
 }
 
 void MapViewer::mouseDrag (const MouseEvent& e)
@@ -76,12 +76,12 @@ void MapViewer::mouseDrag (const MouseEvent& e)
 
     auto curPos = e.getPosition();
 
-    xoffset = jlimit (0.0, double (mapsize - getWidth()), xoffset - (curPos.getX() - lastPos.getX()));
-    yoffset = jlimit (0.0, double (mapsize - getHeight()), yoffset - (curPos.getY() - lastPos.getY()));
+    xoffset = jlimit (0, mapsize - getWidth(), xoffset - (curPos.getX() - lastPos.getX()));
+    yoffset = jlimit (0, mapsize - getHeight(), yoffset - (curPos.getY() - lastPos.getY()));
 
     centerPt = osm->displayToCoordinate (Point<double>(xoffset + getWidth() / 2, yoffset + getHeight() / 2), zoom);
 
-    lastPos = {double (e.position.x), double (e.position.y)};
+    lastPos = curPos;
 
     mapUpdated();
 }
@@ -89,15 +89,22 @@ void MapViewer::mouseDrag (const MouseEvent& e)
 void MapViewer::mouseWheelMove (const MouseEvent& e, const MouseWheelDetails& wheel)
 {
 	userAdjusted = true;
+    
+    wheelDelta += wheel.deltaY;
+    
+    if (std::abs (wheelDelta) > 0.1 || ! wheel.isSmooth)
+    {
+        wheelDelta = 0;
+        
+        Point<double> centerP = osm->displayToCoordinate (Point<double> (xoffset + e.x, yoffset + e.y), zoom);
 
-	Point<double> centerP = osm->displayToCoordinate (Point<double> (xoffset + e.x, yoffset + e.y), zoom);
+        if (wheel.deltaY < 0)
+            setZoom (zoom - 1);
+        else
+            setZoom (zoom + 1);
 
-	if (wheel.deltaY < 0)
-		setZoom (zoom - 1);
-	else
-		setZoom (zoom + 1);
-
-	centerUnderPt (centerP, e.getPosition());
+        centerUnderPt (centerP, e.getPosition());
+    }
 }
 
 void MapViewer::centerOn (double longCenter, double latCenter)
@@ -114,10 +121,10 @@ void MapViewer::centerOn (double longCenter, double latCenter)
 
 void MapViewer::centerUnderPt (Point<double> world, Point<int> view)
 {
-	Point<double> p = osm->coordinateToDisplay(world, zoom);
+	Point<double> p = osm->coordinateToDisplay (world, zoom);
 
-	xoffset = jlimit (0.0, double(mapsize - getWidth()),  p.getX() - view.getX());
-	yoffset = jlimit (0.0, double(mapsize - getHeight()), p.getY() - view.getY());
+	xoffset = jlimit (0.0, jmax (1.0, double (mapsize - getWidth())),  p.getX() - view.getX());
+	yoffset = jlimit (0.0, jmax (1.0, double (mapsize - getHeight())), p.getY() - view.getY());
 
 	centerPt = osm->displayToCoordinate (Point<double>(xoffset + getWidth() / 2, yoffset + getHeight() / 2), zoom);
 
@@ -129,7 +136,7 @@ void MapViewer::updateDoubleBuffer()
     if (doubleBuffer)
         return;
 
-    Rectangle<int> rc(0, 0, getWidth(), getHeight());
+    Rectangle<int> rc (0, 0, getWidth(), getHeight());
     doubleBuffer = new Image (Image::ARGB, rc.getWidth(), rc.getHeight(), true);
 
 	Graphics g (*doubleBuffer);

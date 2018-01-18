@@ -6,14 +6,16 @@
  ==============================================================================*/
 
 OpenStreetMaps::OpenStreetMaps()
-  : tileSource (OpenCycleMapLandscape)
+  : tileSource (OpenStreetMap)
 {
     mapTileDir = File::getSpecialLocation (File::tempDirectory).getChildFile ("mapTiles");
+    mapTileDir.createDirectory();
 }
 
 OpenStreetMaps::~OpenStreetMaps()
 {
     requests.clear();
+    cancelledRequests.clear();
 }
 
 Image OpenStreetMaps::fetchTile (int zoom, int x, int y)
@@ -41,7 +43,7 @@ Image OpenStreetMaps::fetchTile (int zoom, int x, int y)
 	}
 	else
 	{
-		TileReq* newReq = new TileReq (zoom, x, y);
+		ScopedPointer<TileReq> newReq = new TileReq (zoom, x, y);
 
 		bool pending = false;
 		for (int i = 0; i < requests.size(); i++)
@@ -55,7 +57,7 @@ Image OpenStreetMaps::fetchTile (int zoom, int x, int y)
 
 		if (! pending)
 		{
-			requests.add (newReq);
+			requests.add (newReq.release());
 			startRequest();
 		}
 
@@ -139,23 +141,22 @@ void OpenStreetMaps::startRequest()
 
             URL url = URL (String (buffer));
             
-            File temp = File::getSpecialLocation (File::tempDirectory).getNonexistentChildFile ("osm_tile", ".png");
-            requests[i]->reply = url.downloadToFile (temp, "", this);
-            requests[i]->temp  = temp;
+            requests[i]->reply = new AsyncDownload (buffer, [this] (AsyncDownload* ad,MemoryBlock m, bool ok)
+                                                    {
+                                                        finished (ad, m, ok);
+                                                    });
 
             break;
         }
     }
 }
 
-void OpenStreetMaps::finished (URL::DownloadTask* reply, bool success)
+void OpenStreetMaps::finished (AsyncDownload* reply, MemoryBlock data, bool success)
 {
     for (int i = 0; i < requests.size(); i++)
     {
         if (requests[i]->reply == reply)
         {
-            requests[i]->reply = nullptr;
-
             serversInUse.removeFirstMatchingValue (requests[i]->server);
             requests[i]->server = -1;
 
@@ -164,14 +165,13 @@ void OpenStreetMaps::finished (URL::DownloadTask* reply, bool success)
 		        String fname;
                 fname = String::formatted ("%d-%d-%d-%d.png", (int)tileSource, requests[i]->zoom, requests[i]->x, requests[i]->y);
 
-                Image img = ImageFileFormat::loadFrom (requests[i]->temp);
+                Image img = ImageFileFormat::loadFrom (data.getData(), data.getSize());
 		        if (img.isValid())
 		        {
 			        cache.set (fname, img);
 
                     File dest = mapTileDir.getChildFile (fname);
-                    requests[i]->temp.copyFileTo (dest);
-                    requests[i]->temp.deleteFile();
+                    dest.replaceWithData (data.getData(), data.getSize());
 
                     listeners.call ([&] (Listener& l) { l.tileFetched (requests[i]->zoom, requests[i]->x, requests[i]->y); });
 		        }
@@ -236,11 +236,13 @@ Point<double> OpenStreetMaps::tileForCoordinate (double lat, double lng, int zoo
 
 void OpenStreetMaps::clearQueue()
 {
-    requests.clear();
+    while (requests.size() > 0)
+        cancelledRequests.add (requests.removeAndReturn (0));
+    
     serversInUse.clear();
 }
 
-TileSource OpenStreetMaps::getTileSource()
+OpenStreetMaps::TileSource OpenStreetMaps::getTileSource()
 {
 	return tileSource;
 }

@@ -8,10 +8,36 @@
 
 #include "MainComponent.h"
 
+//==============================================================================
+struct MapDemo : public Component
+{
+    MapDemo()
+    {
+        setName ("OpenStreetMaps");
+        addAndMakeVisible (map);
+    }
+    
+    void resized() override
+    {
+        map.setBounds (getLocalBounds());
+    }
+    
+    juceex::MapViewer map;
+};
 
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
+    demoComponents.add (new MapDemo());
+    
+    for (auto* c : demoComponents)
+        addChildComponent (c);
+    
+    demoList.setModel (this);
+    demoList.updateContent();
+    demoList.selectRow (0);
+    addAndMakeVisible (demoList);
+    
     setSize (600, 400);
 }
 
@@ -21,17 +47,34 @@ MainContentComponent::~MainContentComponent()
 
 void MainContentComponent::paint (Graphics& g)
 {
-    // (Our component is opaque, so we must completely fill the background with a solid colour)
     g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));
-
-    g.setFont (Font (16.0f));
-    g.setColour (Colours::white);
-    g.drawText ("Hello World!", getLocalBounds(), Justification::centred, true);
 }
 
 void MainContentComponent::resized()
 {
-    // This is called when the MainContentComponent is resized.
-    // If you add any child components, this is where you should
-    // update their positions.
+    auto rc = getLocalBounds();
+    
+    demoList.setBounds (rc.removeFromLeft (150));
+    
+    for (auto* c : demoComponents)
+        c->setBounds (rc);
+}
+
+void MainContentComponent::paintListBoxItem (int row, Graphics& g, int w, int h, bool rowIsSelected)
+{
+    Rectangle<int> rc (0, 0, w, h);
+    if (rowIsSelected)
+    {
+        g.setColour (Colours::lightblue);
+        g.fillAll();
+    }
+    
+    g.setColour (findColour (ListBox::textColourId));
+    g.drawText (demoComponents[row]->getName(), rc.reduced (2), Justification::centredLeft);
+}
+
+void MainContentComponent::selectedRowsChanged (int lastRowSelected)
+{
+    for (int i = 0; i < demoComponents.size(); i++)
+        demoComponents[i]->setVisible (i == lastRowSelected);
 }
