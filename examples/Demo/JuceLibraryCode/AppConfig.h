@@ -100,10 +100,6 @@
  //#define JUCE_USE_WINRT_MIDI 1
 #endif
 
-#ifndef    JUCE_DISABLE_AUDIO_MIXING_WITH_OTHER_APPS
- //#define JUCE_DISABLE_AUDIO_MIXING_WITH_OTHER_APPS 1
-#endif
-
 //==============================================================================
 // juce_audio_formats flags:
 

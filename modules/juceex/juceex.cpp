@@ -12,6 +12,18 @@
 //==============================================================================
 #include "juceex.h"
 
+#ifdef  _WIN32
+#include <Windows.h>
+#endif
+#ifdef __linux__
+#include <sys/inotify.h>
+#include <limits.h>
+#include <unistd.h>
+#endif
+#ifdef __APPLE__
+#import <Foundation/Foundation.h>
+#endif
+
 //==============================================================================
 namespace juceex
 {
