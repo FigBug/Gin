@@ -64,16 +64,16 @@ struct LeastSquaresDemo : public Component
             {
                 double y = a * x * x + b * x + c;
                 if (x == 0)
-                    p.startNewSubPath (x, float (y));
+                    p.startNewSubPath (float (x), float (y));
                 else
-                    p.lineTo (x, float (y));
+                    p.lineTo (float (x), float (y));
             }
             g.strokePath (p, PathStrokeType (2));
         }
         
         g.setColour (Colours::yellow);
         for (auto pt : points)
-            g.fillEllipse (pt.getX() - 3, pt.getY() - 3, 6, 6);
+            g.fillEllipse (pt.getX() - 3.0f, pt.getY() - 3.0f, 6.0f, 6.0f);
         
         if (points.isEmpty())
             g.drawText ("Click to add point. Double click to reset.", getLocalBounds(), Justification::centred);
@@ -119,16 +119,16 @@ struct LinearDemo : public Component
             {
                 double y = lr.estimateY (x);
                 if (x == 0)
-                    p.startNewSubPath (x, float (y));
+                    p.startNewSubPath (float (x), float (y));
                 else
-                    p.lineTo (x, float (y));
+                    p.lineTo (float (x), float (y));
             }
             g.strokePath (p, PathStrokeType (2));
         }
         
         g.setColour (Colours::yellow);
         for (auto pt : points)
-            g.fillEllipse (pt.getX() - 3, pt.getY() - 3, 6, 6);
+            g.fillEllipse (pt.getX() - 3.0f, pt.getY() - 3.0f, 6.0f, 6.0f);
         
         if (points.isEmpty())
             g.drawText ("Click to add point. Double click to reset.", getLocalBounds(), Justification::centred);

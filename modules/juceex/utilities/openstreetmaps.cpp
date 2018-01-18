@@ -173,7 +173,7 @@ void OpenStreetMaps::finished (AsyncDownload* reply, MemoryBlock data, bool succ
                     File dest = mapTileDir.getChildFile (fname);
                     dest.replaceWithData (data.getData(), data.getSize());
 
-                    listeners.call ([&] (Listener& l) { l.tileFetched (requests[i]->zoom, requests[i]->x, requests[i]->y); });
+                    listeners.call (&OpenStreetMaps::Listener::tileFetched, requests[i]->zoom, requests[i]->x, requests[i]->y);
 		        }
 
 	        }

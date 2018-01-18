@@ -34,3 +34,7 @@
 *.xcuserstate
 
 *.xcbkptlist
+
+Debug
+Release
+.vs
