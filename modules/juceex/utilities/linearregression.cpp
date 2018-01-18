@@ -5,12 +5,32 @@
  
  ==============================================================================*/
 
-LinearRegression::LinearRegression(Array<Point<double>> points)
+LinearRegression::LinearRegression()
+{
+}
+
+LinearRegression::LinearRegression (Array<Point<double>> points)
 {
     for (auto p : points)
         addPoint (p);
     
     calculate();
+}
+
+void LinearRegression::clear()
+{
+    n = 0;
+    sumX = 0;
+    sumY = 0;
+    sumXsquared = 0;
+    sumYsquared = 0;
+    sumXY = 0;
+
+    a = 0;
+    b = 0;
+    coefD = 0;
+    coefC = 0;
+    stdError = 0;
 }
 
 void LinearRegression::addPoint (Point<double> pnt)
@@ -21,7 +41,6 @@ void LinearRegression::addPoint (Point<double> pnt)
     sumXsquared += pnt.getX() * pnt.getX();
     sumYsquared += pnt.getY() * pnt.getY();
     sumXY += pnt.getX() * pnt.getY();
-    
 }
 
 void LinearRegression::calculate()

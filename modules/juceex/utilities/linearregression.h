@@ -11,8 +11,14 @@
 class LinearRegression
 {
 public:
+    LinearRegression();
     LinearRegression (Array<Point<double>> points);
 
+    void addPoint (Point<double> pnt);
+    void calculate();
+
+    void clear();
+    
     bool haveData() const               { return n > 2; }
     int items() const                   { return n; }
 
@@ -25,8 +31,6 @@ public:
     double estimateY (double x) const   { return (a + b * x); }
 
 protected:
-    void calculate();       // calculate coefficients
-    void addPoint (Point<double> pnt);
 
     int n = 0;              // number of data points input so far
     double sumX = 0;

@@ -22,6 +22,8 @@ public:
     void addPoint (Point<double> point);
     void addPoints (Array<Point<double>> points);
     
+    void clear();
+    
 	bool enoughPoints();
 	Array<double> getTerms();
     

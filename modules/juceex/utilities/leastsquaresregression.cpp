@@ -20,6 +20,11 @@ void LeastSquaresRegression::addPoints (Array<Point<double>> points)
     pointArray.addArray (points);
 }
 
+void LeastSquaresRegression::clear()
+{
+    pointArray.clear();
+}
+
 bool LeastSquaresRegression::enoughPoints()
 {
     return pointArray.size() >= 3;
