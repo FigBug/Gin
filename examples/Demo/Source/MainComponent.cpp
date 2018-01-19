@@ -139,11 +139,68 @@ struct LinearDemo : public Component
 };
 
 //==============================================================================
+struct SplineDemo : public Component
+{
+    SplineDemo()
+    {
+        setName ("Spline");
+    }
+    
+    void mouseDown (const MouseEvent& e) override
+    {
+        if (e.getNumberOfClicks() > 1)
+            points.clear();
+        else if (points.size() == 0 || e.x > points.getLast().getX())
+            points.add (e.getPosition());
+        
+        repaint();
+    }
+    
+    void paint (Graphics& g) override
+    {
+        Array<Point<double>> dpoints;
+        for (auto p : points)
+            dpoints.add ({ double (p.getX()), double (p.getY())});
+        
+        if (dpoints.size() >= 3)
+        {
+            juceex::Spline spline (dpoints);
+            
+            g.setColour (Colours::red);
+            
+            Path p;
+            
+            bool first = true;
+            for (int x = points.getFirst().getX(); x < points.getLast().getX(); x++)
+            {
+                double y = spline.interpolate (x);
+                if (first)
+                    p.startNewSubPath (float (x), float (y));
+                else
+                    p.lineTo (float (x), float (y));
+                first = false;
+            }
+            g.strokePath (p, PathStrokeType (2));
+        }
+        
+        g.setColour (Colours::yellow);
+        for (auto pt : points)
+            g.fillEllipse (pt.getX() - 3.0f, pt.getY() - 3.0f, 6.0f, 6.0f);
+        
+        if (points.isEmpty())
+            g.drawText ("Click from left to right to add points. Double click to reset.", getLocalBounds(), Justification::centred);
+    }
+    
+    Array<Point<int>> points;
+};
+
+//==============================================================================
 MainContentComponent::MainContentComponent()
 {
     demoComponents.add (new MapDemo());
     demoComponents.add (new LeastSquaresDemo());
     demoComponents.add (new LinearDemo());
+    demoComponents.add (new SplineDemo());
 
     for (auto* c : demoComponents)
         addChildComponent (c);

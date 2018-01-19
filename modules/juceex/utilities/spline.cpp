@@ -56,7 +56,7 @@ Spline::Spline (const Array<Point<double>>& points)
         elements.add (Element (points[i].getX(), points[i].getY(), b[i], c[i], d[i]));
 }
 
-double Spline::operator[](double x) const
+double Spline::operator[] (double x) const
 {
     return interpolate (x);
 }
