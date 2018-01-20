@@ -170,16 +170,14 @@ struct SplineDemo : public Component
             
             Path p;
             
-            bool first = true;
+            p.startNewSubPath (points.getFirst().toFloat());
             for (int x = points.getFirst().getX(); x < points.getLast().getX(); x++)
             {
                 double y = spline.interpolate (x);
-                if (first)
-                    p.startNewSubPath (float (x), float (y));
-                else
-                    p.lineTo (float (x), float (y));
-                first = false;
+                p.lineTo (float (x), float (y));
             }
+            p.lineTo (points.getLast().toFloat());
+            
             g.strokePath (p, PathStrokeType (2));
         }
         
