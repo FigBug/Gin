@@ -394,6 +394,9 @@
     <ClCompile Include="..\..\..\..\modules\juceex\utilities\spline.cpp">
       <Filter>Juce Modules\juceex\utilities</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juceex\utilities\systemsemaphore.cpp">
+      <Filter>Juce Modules\juceex\utilities</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juceex\utilities\util.cpp">
       <Filter>Juce Modules\juceex\utilities</Filter>
     </ClCompile>
@@ -2155,6 +2158,9 @@
       <Filter>Juce Modules\juceex\utilities</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\juceex\utilities\spline.h">
+      <Filter>Juce Modules\juceex\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\juceex\utilities\systemsemaphore.h">
       <Filter>Juce Modules\juceex\utilities</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\juceex\utilities\util.h">

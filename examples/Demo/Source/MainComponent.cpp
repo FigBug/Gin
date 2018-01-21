@@ -26,6 +26,79 @@ struct MapDemo : public Component
 };
 
 //==============================================================================
+struct SemaphoreDemo : public Component,
+                       private Button::Listener
+{
+    SemaphoreDemo()
+    {
+        setName ("System Semaphore");
+        addAndMakeVisible (lockA);
+        addAndMakeVisible (unlockA);
+        addAndMakeVisible (lockB);
+        addAndMakeVisible (unlockB);
+
+        lockA.addListener (this);
+        unlockA.addListener (this);
+        lockB.addListener (this);
+        unlockB.addListener (this);
+    }
+    
+    void resized() override
+    {
+        auto rc = getLocalBounds().reduced (8).removeFromLeft (100);
+        
+        lockA.setBounds (rc.removeFromTop (20));
+        rc.removeFromTop (8);
+        unlockA.setBounds (rc.removeFromTop (20));
+        rc.removeFromTop (8);
+        lockB.setBounds (rc.removeFromTop (20));
+        rc.removeFromTop (8);
+        unlockB.setBounds (rc.removeFromTop (20));
+        rc.removeFromTop (8);
+    }
+    
+    void buttonClicked (Button* b) override
+    {
+        if (b == &lockA)
+        {
+            juceex::callInBackground ([this] ()
+                                      {
+                                          if (semA.lock())
+                                              printf ("Locked\n");
+                                      });
+        }
+        else if (b == &unlockA)
+        {
+            juceex::callInBackground ([this] ()
+                                      {
+                                          if (semA.unlock())
+                                              printf ("Unlocked\n");
+                                      });
+        }
+        else if (b == &lockB)
+        {
+            juceex::callInBackground ([this] ()
+                                      {
+                                          if (semB.lock())
+                                              printf ("Locked\n");
+                                      });
+        }
+        else if (b == &unlockB)
+        {
+            juceex::callInBackground ([this] ()
+                                      {
+                                          if (semB.unlock())
+                                              printf ("Unlocked\n");
+                                      });
+        }
+
+    }
+    
+    TextButton lockA {"Lock A"}, unlockA {"Unlock A"}, lockB {"Lock B"}, unlockB {"Unlock B"};
+    juceex::SystemSemaphore semA {"demo_sem"}, semB {"demo_sem"};
+};
+
+//==============================================================================
 struct SharedMemoryDemo : public Component,
                           private TextEditor::Listener,
                           private Timer
@@ -236,6 +309,7 @@ struct SplineDemo : public Component
 MainContentComponent::MainContentComponent()
 {
     demoComponents.add (new MapDemo());
+    demoComponents.add (new SemaphoreDemo());
     demoComponents.add (new SharedMemoryDemo());
     demoComponents.add (new LeastSquaresDemo());
     demoComponents.add (new LinearDemo());

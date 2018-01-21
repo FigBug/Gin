@@ -173,6 +173,9 @@
     <ClCompile Include="..\..\..\..\modules\juceex\utilities\spline.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juceex\utilities\systemsemaphore.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juceex\utilities\util.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1782,6 +1785,7 @@
     <ClInclude Include="..\..\..\..\modules\juceex\utilities\openstreetmaps.h"/>
     <ClInclude Include="..\..\..\..\modules\juceex\utilities\sharedmemory.h"/>
     <ClInclude Include="..\..\..\..\modules\juceex\utilities\spline.h"/>
+    <ClInclude Include="..\..\..\..\modules\juceex\utilities\systemsemaphore.h"/>
     <ClInclude Include="..\..\..\..\modules\juceex\utilities\util.h"/>
     <ClInclude Include="..\..\..\..\modules\juceex\juceex.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>

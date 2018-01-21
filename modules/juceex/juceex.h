@@ -69,6 +69,7 @@ using juce::Component;
 #include "utilities/openstreetmaps.h"
 #include "utilities/sharedmemory.h"
 #include "utilities/spline.h"
+#include "utilities/systemsemaphore.h"
 
 #include "utilities/mapviewer.h"
     

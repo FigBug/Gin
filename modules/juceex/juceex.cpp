@@ -27,6 +27,7 @@
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <semaphore.h>
 
 //==============================================================================
 namespace juceex
@@ -44,6 +45,7 @@ using juce::MemoryBlock;
 #include "utilities/openstreetmaps.cpp"
 #include "utilities/sharedmemory.cpp"
 #include "utilities/spline.cpp"
+#include "utilities/systemsemaphore.cpp"
 #include "utilities/util.cpp"
 
 }
