@@ -24,6 +24,10 @@
 #import <Foundation/Foundation.h>
 #endif
 
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
 //==============================================================================
 namespace juceex
 {
@@ -38,6 +42,7 @@ using juce::MemoryBlock;
 #include "utilities/linearregression.cpp"
 #include "utilities/mapviewer.cpp"
 #include "utilities/openstreetmaps.cpp"
+#include "utilities/sharedmemory.cpp"
 #include "utilities/spline.cpp"
 #include "utilities/util.cpp"
 

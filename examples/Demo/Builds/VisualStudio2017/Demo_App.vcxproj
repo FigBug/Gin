@@ -167,6 +167,9 @@
     <ClCompile Include="..\..\..\..\modules\juceex\utilities\openstreetmaps.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juceex\utilities\sharedmemory.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juceex\utilities\spline.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1777,6 +1780,7 @@
     <ClInclude Include="..\..\..\..\modules\juceex\utilities\linearregression.h"/>
     <ClInclude Include="..\..\..\..\modules\juceex\utilities\mapviewer.h"/>
     <ClInclude Include="..\..\..\..\modules\juceex\utilities\openstreetmaps.h"/>
+    <ClInclude Include="..\..\..\..\modules\juceex\utilities\sharedmemory.h"/>
     <ClInclude Include="..\..\..\..\modules\juceex\utilities\spline.h"/>
     <ClInclude Include="..\..\..\..\modules\juceex\utilities\util.h"/>
     <ClInclude Include="..\..\..\..\modules\juceex\juceex.h"/>

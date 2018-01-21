@@ -26,6 +26,46 @@ struct MapDemo : public Component
 };
 
 //==============================================================================
+struct SharedMemoryDemo : public Component,
+                          private TextEditor::Listener,
+                          private Timer
+{
+    SharedMemoryDemo()
+    {
+        setName ("Shared Memory");
+        addAndMakeVisible (text);
+        text.addListener (this);
+        text.setText ("Launch two copies of the app and then type in this box");
+        
+        startTimerHz (30);
+    }
+    
+    void resized() override
+    {
+        text.setBounds (getLocalBounds());
+    }
+    
+    void textEditorTextChanged (TextEditor&) override
+    {
+        strncpy ((char*)mem.getData(), text.getText().toRawUTF8(), size_t (mem.getSize() - 1));
+    }
+    
+    void timerCallback() override
+    {
+        if (! text.hasKeyboardFocus (true))
+        {
+            String fromMem ((char*)mem.getData(), size_t (mem.getSize()));
+            
+            if (fromMem != text.getText())
+                text.setText (fromMem);
+        }
+    }
+    
+    juceex::SharedMemory mem {"demo", 1024};
+    TextEditor text;
+};
+
+//==============================================================================
 struct LeastSquaresDemo : public Component
 {
     LeastSquaresDemo()
@@ -196,6 +236,7 @@ struct SplineDemo : public Component
 MainContentComponent::MainContentComponent()
 {
     demoComponents.add (new MapDemo());
+    demoComponents.add (new SharedMemoryDemo());
     demoComponents.add (new LeastSquaresDemo());
     demoComponents.add (new LinearDemo());
     demoComponents.add (new SplineDemo());
