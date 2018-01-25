@@ -146,6 +146,19 @@ bool solveLine (Line<T> l, T& m, T& b)
 }
 
 //==============================================================================
+// Fisher-Yates Shuffle
+template <class T>
+void shuffleArray (Random& r, T array)
+{
+    const int n = array.size();
+    for (int i = n - 1; i >= 1; i--)
+    {
+        int j = r.nextInt (i + 1);
+        array.swap (i, j);
+    }
+}
+
+//==============================================================================
 // Keeps a rolling average of a series of numbers
 class RollingAverage
 {
