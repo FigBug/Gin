@@ -70,6 +70,8 @@ using juce::Component;
 #include "utilities/sharedmemory.h"
 #include "utilities/spline.h"
 #include "utilities/systemsemaphore.h"
+    
+#include "images/imageeffects.h"
 
 #include "components/mapviewer.h"
 #include "components/propertycomponents.h"

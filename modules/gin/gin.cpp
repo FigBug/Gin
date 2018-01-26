@@ -46,6 +46,8 @@ using juce::MemoryBlock;
 #include "utilities/systemsemaphore.cpp"
 #include "utilities/util.cpp"
     
+#include "images/imageeffects.cpp"
+    
 #include "components/mapviewer.cpp"
 #include "components/propertycomponents.cpp"
 
