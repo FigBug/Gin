@@ -8,6 +8,28 @@
 #pragma once
 
 //==============================================================================
+inline float calculateRMS (const float* values, int n)
+{
+    float rms = 0;
+    
+    for (int i = 0; i < n; i++)
+        rms += values[i] * values[i];
+    
+    return std::sqrt ((1.0f / n) * rms);
+}
+
+inline float calculateMedian (const float* values, int n)
+{
+    Array<float> f;
+    f.insertArray (0, values, n);
+    f.sort();
+    
+    if (f.size() % 2 == 0)
+        return (f[f.size() / 2] + f[f.size() / 2 - 1]) / 2.0f;
+    return f[f.size()/2];
+}
+
+//==============================================================================
 // Based on reference implementation of Perlin Noise by Ken Perlin
 // http://mrl.nyu.edu/~perlin/paper445.pdf
 template <class T>
