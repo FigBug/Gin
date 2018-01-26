@@ -47,5 +47,6 @@ using juce::MemoryBlock;
 #include "utilities/util.cpp"
     
 #include "components/mapviewer.cpp"
+#include "components/propertycomponents.cpp"
 
 }
