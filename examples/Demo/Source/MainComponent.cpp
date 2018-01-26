@@ -22,7 +22,7 @@ struct MapDemo : public Component
         map.setBounds (getLocalBounds());
     }
     
-    juceex::MapViewer map;
+    gin::MapViewer map;
 };
 
 //==============================================================================
@@ -61,41 +61,41 @@ struct SemaphoreDemo : public Component,
     {
         if (b == &lockA)
         {
-            juceex::callInBackground ([this] ()
-                                      {
-                                          if (semA.lock())
-                                              printf ("Locked\n");
-                                      });
+            gin::callInBackground ([this] ()
+                                   {
+                                       if (semA.lock())
+                                           printf ("Locked\n");
+                                   });
         }
         else if (b == &unlockA)
         {
-            juceex::callInBackground ([this] ()
-                                      {
-                                          if (semA.unlock())
-                                              printf ("Unlocked\n");
-                                      });
+            gin::callInBackground ([this] ()
+                                   {
+                                       if (semA.unlock())
+                                           printf ("Unlocked\n");
+                                   });
         }
         else if (b == &lockB)
         {
-            juceex::callInBackground ([this] ()
-                                      {
-                                          if (semB.lock())
-                                              printf ("Locked\n");
-                                      });
+            gin::callInBackground ([this] ()
+                                   {
+                                       if (semB.lock())
+                                           printf ("Locked\n");
+                                   });
         }
         else if (b == &unlockB)
         {
-            juceex::callInBackground ([this] ()
-                                      {
-                                          if (semB.unlock())
-                                              printf ("Unlocked\n");
-                                      });
+            gin::callInBackground ([this] ()
+                                   {
+                                       if (semB.unlock())
+                                           printf ("Unlocked\n");
+                                   });
         }
 
     }
     
     TextButton lockA {"Lock A"}, unlockA {"Unlock A"}, lockB {"Lock B"}, unlockB {"Unlock B"};
-    juceex::SystemSemaphore semA {"demo_sem"}, semB {"demo_sem"};
+    gin::SystemSemaphore semA {"demo_sem"}, semB {"demo_sem"};
 };
 
 //==============================================================================
@@ -134,7 +134,7 @@ struct SharedMemoryDemo : public Component,
         }
     }
     
-    juceex::SharedMemory mem {"demo", 1024};
+    gin::SharedMemory mem {"demo", 1024};
     TextEditor text;
 };
 
@@ -193,7 +193,7 @@ struct LeastSquaresDemo : public Component
     }
     
     Array<Point<int>> points;
-    juceex::LeastSquaresRegression lsr;
+    gin::LeastSquaresRegression lsr;
 };
 
 //==============================================================================
@@ -248,7 +248,7 @@ struct LinearDemo : public Component
     }
     
     Array<Point<int>> points;
-    juceex::LinearRegression lr;
+    gin::LinearRegression lr;
 };
 
 //==============================================================================
@@ -277,7 +277,7 @@ struct SplineDemo : public Component
         
         if (dpoints.size() >= 3)
         {
-            juceex::Spline spline (dpoints);
+            gin::Spline spline (dpoints);
             
             g.setColour (Colours::red);
             

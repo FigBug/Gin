@@ -15,11 +15,11 @@
 
  BEGIN_JUCE_MODULE_DECLARATION
 
-  ID:               juceex
+  ID:               gin
   vendor:           Roland Rabien
   version:          1.0.0
-  name:             JuceEx
-  description:      JuceEx
+  name:             Gin
+  description:      Gin
   website:          www.rabiensoftware.com
   license:          BSD
 
@@ -32,7 +32,7 @@
 
 #pragma once
 
-#ifndef JUCE_MODULE_AVAILABLE_juceex
+#ifndef JUCE_MODULE_AVAILABLE_gin
  /* If you fail to make sure that all your compile units are building JUCE with the same set of
     option flags, then there's a risk that different compile units will treat the classes as having
     different memory layouts, leading to very nasty memory corruption errors when they all get
@@ -56,7 +56,7 @@
 #include <juce_gui_extra/juce_gui_extra.h>
 #include <juce_audio_utils/juce_audio_utils.h>
 
-namespace juceex
+namespace gin
 {
 using namespace juce;
 using juce::Rectangle;
@@ -71,6 +71,6 @@ using juce::Component;
 #include "utilities/spline.h"
 #include "utilities/systemsemaphore.h"
 
-#include "utilities/mapviewer.h"
+#include "components/mapviewer.h"
     
 }

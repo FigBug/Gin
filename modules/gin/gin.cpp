@@ -10,7 +10,6 @@
 #include "AppConfig.h"
 
 //==============================================================================
-#include "juceex.h"
 
 #ifdef  _WIN32
 #include <Windows.h>
@@ -29,23 +28,24 @@
 #include <fcntl.h>
 #include <semaphore.h>
 
+#include "gin.h"
+
 //==============================================================================
-namespace juceex
+namespace gin
 {
 using namespace juce;
 using juce::Rectangle;
 using juce::MemoryBlock;
     
-#include "juceex.h"
-    
 #include "utilities/integrator.cpp"
 #include "utilities/leastsquaresregression.cpp"
 #include "utilities/linearregression.cpp"
-#include "utilities/mapviewer.cpp"
 #include "utilities/openstreetmaps.cpp"
 #include "utilities/sharedmemory.cpp"
 #include "utilities/spline.cpp"
 #include "utilities/systemsemaphore.cpp"
 #include "utilities/util.cpp"
+    
+#include "components/mapviewer.cpp"
 
 }

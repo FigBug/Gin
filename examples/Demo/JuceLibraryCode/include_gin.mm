@@ -6,4 +6,4 @@
 */
 
 #include "AppConfig.h"
-#include <juceex/juceex.cpp>
+#include <gin/gin.mm>
