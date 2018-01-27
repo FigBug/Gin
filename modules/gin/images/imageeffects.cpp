@@ -89,3 +89,45 @@ Image applyVignette (Image src, float amountIn, float radiusIn, float fallOff)
     }
     return dst;
 }
+
+Image applySepia (Image src)
+{
+    const int w = src.getWidth();
+    const int h = src.getHeight();
+    
+    jassert (src.getFormat() == Image::ARGB);
+    if (src.getFormat() != Image::ARGB)
+        return Image();
+    
+    Image dst (Image::ARGB, w, h, true);
+    
+    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
+    Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
+    
+    for (int y = 0; y < h; y++)
+    {
+        uint8* ps = srcData.getLinePointer (y);
+        uint8* ds = dstData.getLinePointer (y);
+        
+        for (int x = 0; x < w; x++)
+        {
+            PixelARGB* s = (PixelARGB*)ps;
+            PixelARGB* d = (PixelARGB*)ds;
+            
+            uint8 r = s->getRed();
+            uint8 g = s->getGreen();
+            uint8 b = s->getBlue();
+            uint8 a = s->getAlpha();
+            
+            uint8 ro = jlimit (0.0, 255.0, (r * .393) + (g *.769) + (b * .189));
+            uint8 go = jlimit (0.0, 255.0, (r * .349) + (g *.686) + (b * .168));
+            uint8 bo = jlimit (0.0, 255.0, (r * .272) + (g *.534) + (b * .131));
+
+            d->setARGB (a, ro, go, bo);
+            
+            ps += srcData.pixelStride;
+            ds += srcData.pixelStride;
+        }
+    }
+    return dst;
+}

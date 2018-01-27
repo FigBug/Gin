@@ -9,3 +9,5 @@
 
 //==============================================================================
 Image applyVignette (Image src, float amount, float radius, float falloff);
+
+Image applySepia (Image src);

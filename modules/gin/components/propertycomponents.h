@@ -99,6 +99,17 @@ public:
         repaint();
     }
     
+    void paint (Graphics& g) override
+    {
+        PropertyComponent::paint (g);
+        
+        g.setColour (findColour (BooleanPropertyComponent::backgroundColourId));
+        g.fillRect (container.getBounds());
+        
+        g.setColour (findColour (BooleanPropertyComponent::outlineColourId));
+        g.drawRect (container.getBounds());
+    }
+    
 private:
     class Container : public Component
     {
@@ -113,7 +124,7 @@ private:
             Colour c = Colour::fromString (value.toString());
             
             g.setColour (c);
-            g.fillAll();
+            g.fillRect (getLocalBounds().reduced (4));
             
             g.setColour (c.contrasting());
             g.drawText (c.toDisplayString (alpha), getLocalBounds(), Justification::centred);
