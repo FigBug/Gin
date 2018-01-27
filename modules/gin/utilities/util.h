@@ -123,51 +123,6 @@ private:
 };
 
 //==============================================================================
-// Solves for the slope and intercept of a line.
-template <typename T>
-bool solveLine (T x1, T y1, T x2, T y2, T& m, T& b)
-{
-    if (x2 != x1)
-    {
-        m = (y2 - y1) / (x2 - x1);
-        b = y2 - *m * x2;
-        
-        return true;
-    }
-    else
-    {
-        m = 0;
-        b = 0;
-        
-        return false;
-    }
-}
-
-template <typename T>
-bool solveLine (Line<T> l, T& m, T& b)
-{
-    T x1 = l.getStartX();
-    T x2 = l.getEndX();
-    T y1 = l.getStartY();
-    T y2 = l.getEndY();
-
-    if (x2 != x1)
-    {
-        m = (y2 - y1) / (x2 - x1);
-        b = y2 - *m * x2;
-        
-        return true;
-    }
-    else
-    {
-        m = 0;
-        b = 0;
-        
-        return false;
-    }
-}
-
-//==============================================================================
 // Fisher-Yates Shuffle
 template <class T>
 void shuffleArray (Random& r, T array)

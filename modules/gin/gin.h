@@ -72,6 +72,8 @@ using juce::Component;
 #include "utilities/systemsemaphore.h"
     
 #include "images/imageeffects.h"
+    
+#include "geometry/geometry.h"
 
 #include "components/mapviewer.h"
 #include "components/propertycomponents.h"
