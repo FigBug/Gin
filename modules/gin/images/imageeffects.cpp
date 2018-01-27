@@ -5,7 +5,7 @@
  
  ==============================================================================*/
 
-Image applyVignette (Image src, float amountIn, float radiusIn)
+Image applyVignette (Image src, float amountIn, float radiusIn, float fallOff)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
@@ -15,8 +15,6 @@ Image applyVignette (Image src, float amountIn, float radiusIn)
         return Image();
     
     Image dst (Image::ARGB, w, h, true);
-    
-    double fallOff = 0.5;
     
     double outA = w * 0.5 * radiusIn;
     double outB = h * 0.5 * radiusIn;

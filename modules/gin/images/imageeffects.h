@@ -8,4 +8,4 @@
 #pragma once
 
 //==============================================================================
-Image applyVignette (Image src, float amount, float radius);
+Image applyVignette (Image src, float amount, float radius, float falloff);
