@@ -23,10 +23,12 @@
 #import <Foundation/Foundation.h>
 #endif
 
+#ifndef  _WIN32
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <semaphore.h>
+#endif
 
 #include "gin.h"
 

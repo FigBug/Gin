@@ -5,6 +5,38 @@
  
  ==============================================================================*/
 
+#ifdef JUCE_WINDOWS
+class SystemSemaphore::Impl
+{
+public:
+    Impl (String name)
+    {
+        ignoreUnused (name);
+        jassertfalse;
+        // not implemented yet
+    }
+
+    ~Impl()
+    {
+    }
+
+    bool lock()
+    {
+        return false;
+    }
+
+    bool unlock()
+    {
+        return false;
+    }
+
+    bool isValid()
+    {
+        return false;
+    }
+};
+
+#else
 class SystemSemaphore::Impl
 {
 public:
@@ -51,6 +83,7 @@ public:
     sem_t* sem = SEM_FAILED;
     bool locked = false;
 };
+#endif
 
 SystemSemaphore::SystemSemaphore (const String& name)
 {

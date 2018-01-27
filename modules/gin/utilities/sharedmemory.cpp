@@ -5,6 +5,29 @@
  
  ==============================================================================*/
 
+#if JUCE_WINDOWS
+class SharedMemory::Impl
+{
+public:
+    Impl (String name, int sz) : size (sz)
+    {
+        jassertfalse;
+        // not implemented yet
+    }
+
+    ~Impl()
+    {
+    }
+
+    static void remove (const String& name)
+    {
+        ignoreUnused (name);        
+    }
+
+    int size = 0;
+    void* data = nullptr;
+};
+#else
 class SharedMemory::Impl
 {
 public:
@@ -70,6 +93,7 @@ public:
     void* data = nullptr;
     int fd;
 };
+#endif
 
 SharedMemory::SharedMemory (const String& name, int size)
 {

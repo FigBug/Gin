@@ -583,7 +583,7 @@ Image applyHueSaturationLightness (Image src, float hueIn, float saturation, flo
             while (hue < 0.0f)  hue += 1.0f;
             while (hue >= 1.0f) hue -= 1.0f;
             
-            c = Colour::fromHSV (h, c.getSaturation(), c.getBrightness(), a);
+            c = Colour::fromHSV (hue, c.getSaturation(), c.getBrightness(), float (a));
             ro = c.getRed();
             go = c.getGreen();
             bo = c.getBlue();
