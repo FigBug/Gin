@@ -265,6 +265,10 @@ Image applySharpen (Image src)
 
             PixelARGB* d = (PixelARGB*) dstData.getPixelPointer (x, y);
             
+            ro = jlimit (0, 255, ro);
+            go = jlimit (0, 255, go);
+            bo = jlimit (0, 255, bo);
+
             d->setARGB (ao, ro / 9, go / 9, bo / 9);
         }
     }
@@ -343,6 +347,230 @@ Image applyInvert (Image src)
             uint8 ro = 255 - r;
             uint8 go = 255 - g;
             uint8 bo = 255 - b;
+            
+            d->setARGB (a, ro, go, bo);
+            
+            ps += srcData.pixelStride;
+            ds += srcData.pixelStride;
+        }
+    }
+    return dst;
+}
+
+Image applyContrast (Image src, float contrast)
+{
+    const int w = src.getWidth();
+    const int h = src.getHeight();
+    
+    if (src.getFormat() != Image::ARGB)
+        return Image();
+    
+    Image dst (Image::ARGB, w, h, true);
+    
+    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
+    Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
+    
+    for (int y = 0; y < h; y++)
+    {
+        uint8* ps = srcData.getLinePointer (y);
+        uint8* ds = dstData.getLinePointer (y);
+        
+        for (int x = 0; x < w; x++)
+        {
+            PixelARGB* s = (PixelARGB*)ps;
+            PixelARGB* d = (PixelARGB*)ds;
+            
+            uint8 r = s->getRed();
+            uint8 g = s->getGreen();
+            uint8 b = s->getBlue();
+            uint8 a = s->getAlpha();
+            
+            double ro = (double) r / 255.0;
+            ro = ro - 0.5;
+            ro = ro * contrast;
+            ro = ro + 0.5;
+            ro = ro * 255.0;
+            
+            double go = (double) g / 255.0;
+            go = go - 0.5;
+            go = go * contrast;
+            go = go + 0.5;
+            go = go * 255.0;
+            
+            double bo = (double) b / 255.0;
+            bo = bo - 0.5;
+            bo = bo * contrast;
+            bo = bo + 0.5;
+            bo = bo * 255.0;
+            
+            ro = jlimit (0.0, 255.0, ro);
+            go = jlimit (0.0, 255.0, go);
+            bo = jlimit (0.0, 255.0, bo);
+            
+            d->setARGB (a, ro, go, bo);
+            
+            ps += srcData.pixelStride;
+            ds += srcData.pixelStride;
+        }
+    }
+    return dst;
+}
+
+Image applyBrightnessContrast (Image src, float brightness, float contrast)
+{
+    const int w = src.getWidth();
+    const int h = src.getHeight();
+    
+    if (src.getFormat() != Image::ARGB)
+        return Image();
+    
+    Image dst (Image::ARGB, w, h, true);
+    
+    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
+    Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
+
+    double multiply = 1;
+    double divide = 1;
+    
+    if (contrast < 0)
+    {
+        multiply = contrast + 100;
+        divide = 100;
+    }
+    else if (contrast > 0)
+    {
+        multiply = 100;
+        divide = 100 - contrast;
+    }
+    else
+    {
+        multiply = 1;
+        divide = 1;
+    }
+    
+    uint8* rgbTable = new uint8[65536];
+    
+    if (divide == 0)
+    {
+        for (int intensity = 0; intensity < 256; intensity++)
+        {
+            if (intensity + brightness < 128)
+                rgbTable[intensity] = 0;
+            else
+                rgbTable[intensity] = 255;
+        }
+    }
+    else if (divide == 100)
+    {
+        for (int intensity = 0; intensity < 256; intensity++)
+        {
+            int shift = (intensity - 127) * multiply / divide + 127 - intensity + brightness;
+            
+            for (int col = 0; col < 256; col++)
+            {
+                int index = (intensity * 256) + col;
+                rgbTable[index] = jlimit (0, 255, col + shift);
+            }
+        }
+    }
+    else
+    {
+        for (int intensity = 0; intensity < 256; intensity++)
+        {
+            int shift = (intensity - 127 + brightness) * multiply / divide + 127 - intensity;
+            
+            for (int col = 0; col < 256; col++)
+            {
+                int index = (intensity * 256) + col;
+                rgbTable[index] = jlimit (0, 255, col + shift);
+            }
+        }
+    }
+    
+    for (int y = 0; y < h; y++)
+    {
+        uint8* ps = srcData.getLinePointer (y);
+        uint8* ds = dstData.getLinePointer (y);
+        
+        for (int x = 0; x < w; x++)
+        {
+            PixelARGB* s = (PixelARGB*)ps;
+            PixelARGB* d = (PixelARGB*)ds;
+            
+            uint8 r = s->getRed();
+            uint8 g = s->getGreen();
+            uint8 b = s->getBlue();
+            uint8 a = s->getAlpha();
+
+            if (divide == 0)
+            {
+                int i = getIntensity (r, g, b);
+                uint8 c = rgbTable[i];
+                
+                d->setARGB (a, c, c, c);
+            }
+            else
+            {
+                int i = getIntensity (r, g, b);
+                int shiftIndex = i * 256;
+                
+                uint8 ro = rgbTable[shiftIndex + r];
+                uint8 go = rgbTable[shiftIndex + g];
+                uint8 bo = rgbTable[shiftIndex + b];
+            
+                ro = jlimit (0, 255, int (ro));
+                go = jlimit (0, 255, int (go));
+                bo = jlimit (0, 255, int (bo));
+                
+                d->setARGB (a, ro, go, bo);
+            }
+            
+            ps += srcData.pixelStride;
+            ds += srcData.pixelStride;
+        }
+    }
+    
+    delete[] rgbTable;
+    return dst;
+}
+
+Image applyHueSaturationLightness (Image src, float hue, float saturdation, float lightness)
+{
+    const int w = src.getWidth();
+    const int h = src.getHeight();
+    
+    if (src.getFormat() != Image::ARGB)
+        return Image();
+    
+    if (saturation > 100)
+        saturation = ((this.saturation - 100) * 3) + 100;
+
+    
+    Image dst (Image::ARGB, w, h, true);
+    
+    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
+    Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
+    
+    for (int y = 0; y < h; y++)
+    {
+        uint8* ps = srcData.getLinePointer (y);
+        uint8* ds = dstData.getLinePointer (y);
+        
+        for (int x = 0; x < w; x++)
+        {
+            PixelARGB* s = (PixelARGB*)ps;
+            PixelARGB* d = (PixelARGB*)ds;
+            
+            uint8 r = s->getRed();
+            uint8 g = s->getGreen();
+            uint8 b = s->getBlue();
+            uint8 a = s->getAlpha();
+            
+            
+            
+            ro = jlimit (0.0, 255.0, ro);
+            go = jlimit (0.0, 255.0, go);
+            bo = jlimit (0.0, 255.0, bo);
             
             d->setARGB (a, ro, go, bo);
             
