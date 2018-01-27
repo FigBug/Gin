@@ -367,6 +367,9 @@ Image applyContrast (Image src, float contrast)
     
     Image dst (Image::ARGB, w, h, true);
     
+    contrast = (100.0 - contrast) / 100.0;
+    contrast = square (contrast);
+    
     Image::BitmapData srcData (src, Image::BitmapData::readOnly);
     Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
     
@@ -403,9 +406,9 @@ Image applyContrast (Image src, float contrast)
             bo = bo + 0.5;
             bo = bo * 255.0;
             
-            ro = jlimit (0.0, 255.0, ro);
-            go = jlimit (0.0, 255.0, go);
-            bo = jlimit (0.0, 255.0, bo);
+            ro = toByte (ro);
+            go = toByte (go);
+            bo = toByte (bo);
             
             d->setARGB (a, ro, go, bo);
             
@@ -534,7 +537,7 @@ Image applyBrightnessContrast (Image src, float brightness, float contrast)
     return dst;
 }
 
-Image applyHueSaturationLightness (Image src, float hue, float saturdation, float lightness)
+Image applyHueSaturationLightness (Image src, float hue, float saturation, float lightness)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
@@ -543,8 +546,10 @@ Image applyHueSaturationLightness (Image src, float hue, float saturdation, floa
         return Image();
     
     if (saturation > 100)
-        saturation = ((this.saturation - 100) * 3) + 100;
+        saturation = ((saturation - 100) * 3) + 100;
+    saturation = (saturation * 1024) / 100;
 
+    hue /= 360.0f;
     
     Image dst (Image::ARGB, w, h, true);
     
@@ -566,13 +571,33 @@ Image applyHueSaturationLightness (Image src, float hue, float saturdation, floa
             uint8 b = s->getBlue();
             uint8 a = s->getAlpha();
             
+            int intensity = getIntensity (r, g, b);
+            int ro = toByte (int (intensity * 1024 + (r - intensity) * saturation) >> 10);
+            int go = toByte (int (intensity * 1024 + (g - intensity) * saturation) >> 10);
+            int bo = toByte (int (intensity * 1024 + (b - intensity) * saturation) >> 10);
             
+            Colour c (ro, go, bo);
+            float h = c.getHue();
+            h += hue;
             
-            ro = jlimit (0.0, 255.0, ro);
-            go = jlimit (0.0, 255.0, go);
-            bo = jlimit (0.0, 255.0, bo);
+            while (h < 0.0f)  h += 1.0f;
+            while (h >= 1.0f) h -= 1.0f;
+            
+            c = Colour::fromHSV (h, c.getSaturation(), c.getBrightness(), a);
+            ro = c.getRed();
+            go = c.getGreen();
+            bo = c.getBlue();
+            
+            ro = toByte (ro);
+            go = toByte (go);
+            bo = toByte (bo);
             
             d->setARGB (a, ro, go, bo);
+            
+            if (lightness > 0)
+                *d = blend (PixelARGB (toByte ((lightness * 255) / 100), 255, 255, 255), *d);
+            else if (lightness < 0)
+                *d = blend (PixelARGB (toByte ((-lightness * 255) / 100), 0, 0, 0), *d);
             
             ps += srcData.pixelStride;
             ds += srcData.pixelStride;
