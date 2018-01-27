@@ -131,3 +131,224 @@ Image applySepia (Image src)
     }
     return dst;
 }
+
+Image applyGreyScale (Image src)
+{
+    const int w = src.getWidth();
+    const int h = src.getHeight();
+
+    if (src.getFormat() != Image::ARGB)
+        return Image();
+    
+    Image dst (Image::ARGB, w, h, true);
+    
+    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
+    Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
+    
+    for (int y = 0; y < h; y++)
+    {
+        uint8* ps = srcData.getLinePointer (y);
+        uint8* ds = dstData.getLinePointer (y);
+        
+        for (int x = 0; x < w; x++)
+        {
+            PixelARGB* s = (PixelARGB*)ps;
+            PixelARGB* d = (PixelARGB*)ds;
+            
+            uint8 r = s->getRed();
+            uint8 g = s->getGreen();
+            uint8 b = s->getBlue();
+            uint8 a = s->getAlpha();
+            
+            uint8 ro = jlimit (0.0, 255.0, r * 0.30 + 0.5);
+            uint8 go = jlimit (0.0, 255.0, g * 0.59 + 0.5);
+            uint8 bo = jlimit (0.0, 255.0, b * 0.11 + 0.5);
+            
+            d->setARGB (a, ro, go, bo);
+            
+            ps += srcData.pixelStride;
+            ds += srcData.pixelStride;
+        }
+    }
+    return dst;
+}
+
+Image applySoften (Image src)
+{
+    const int w = src.getWidth();
+    const int h = src.getHeight();
+
+    if (src.getFormat() != Image::ARGB)
+        return Image();
+    
+    Image dst (Image::ARGB, w, h, true);
+    
+    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
+    Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
+    
+    for (int y = 1; y < h - 1; y++)
+    {
+        for (int x = 1; x < w - 1; x++)
+        {
+            int ro = 0, go = 0, bo = 0;
+            uint8 a = 0;
+            
+            for (int m = -1; m <= 1; m++)
+            {
+                for (int n = -1; n <= 1; n++)
+                {
+                    PixelARGB* s = (PixelARGB*) srcData.getPixelPointer (x + m, y + n);
+
+                    ro += s->getRed();
+                    go += s->getGreen();
+                    bo += s->getBlue();
+                }
+            }
+            
+            PixelARGB* s = (PixelARGB*) srcData.getPixelPointer (x, y);
+            a = s->getAlpha();
+            
+            PixelARGB* d = (PixelARGB*) dstData.getPixelPointer (x, y);
+            
+            d->setARGB (a, ro / 9, go / 9, bo / 9);
+        }
+    }
+    return dst;
+}
+
+Image applySharpen (Image src)
+{
+    const int w = src.getWidth();
+    const int h = src.getHeight();
+    
+    if (src.getFormat() != Image::ARGB)
+        return Image();
+    
+    Image dst (Image::ARGB, w, h, true);
+    
+    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
+    Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
+    
+    for (int y = 1; y < h - 1; y++)
+    {
+        for (int x = 1; x < w - 1; x++)
+        {
+            int ro = 0, go = 0, bo = 0;
+            uint8 ao = 0;
+            
+            PixelARGB* s = (PixelARGB*) srcData.getPixelPointer (x, y);
+            
+            ro = s->getRed()   * 5;
+            go = s->getGreen() * 5;
+            bo = s->getBlue()  * 5;
+            ao = s->getAlpha();
+            
+            s = (PixelARGB*) srcData.getPixelPointer (x, y - 1);
+            ro -= s->getRed();
+            go -= s->getGreen();
+            bo -= s->getBlue();
+
+            s = (PixelARGB*) srcData.getPixelPointer (x - 1, y);
+            ro -= s->getRed();
+            go -= s->getGreen();
+            bo -= s->getBlue();
+
+            s = (PixelARGB*) srcData.getPixelPointer (x + 1, y);
+            ro -= s->getRed();
+            go -= s->getGreen();
+            bo -= s->getBlue();
+
+            s = (PixelARGB*) srcData.getPixelPointer (x, y + 1);
+            ro -= s->getRed();
+            go -= s->getGreen();
+            bo -= s->getBlue();
+
+            PixelARGB* d = (PixelARGB*) dstData.getPixelPointer (x, y);
+            
+            d->setARGB (ao, ro / 9, go / 9, bo / 9);
+        }
+    }
+    return dst;
+}
+
+Image applyGamma (Image src, float gamma)
+{
+    const int w = src.getWidth();
+    const int h = src.getHeight();
+
+    if (src.getFormat() != Image::ARGB)
+        return Image();
+    
+    Image dst (Image::ARGB, w, h, true);
+    
+    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
+    Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
+    
+    for (int y = 0; y < h; y++)
+    {
+        uint8* ps = srcData.getLinePointer (y);
+        uint8* ds = dstData.getLinePointer (y);
+        
+        for (int x = 0; x < w; x++)
+        {
+            PixelARGB* s = (PixelARGB*)ps;
+            PixelARGB* d = (PixelARGB*)ds;
+            
+            uint8 r = s->getRed();
+            uint8 g = s->getGreen();
+            uint8 b = s->getBlue();
+            uint8 a = s->getAlpha();
+            
+            uint8 ro = std::pow (r / 255.0, gamma) * 255.0 + 0.5;
+            uint8 go = std::pow (g / 255.0, gamma) * 255.0 + 0.5;
+            uint8 bo = std::pow (b / 255.0, gamma) * 255.0 + 0.5;
+            
+            d->setARGB (a, ro, go, bo);
+            
+            ps += srcData.pixelStride;
+            ds += srcData.pixelStride;
+        }
+    }
+    return dst;
+}
+
+Image applyInvert (Image src)
+{
+    const int w = src.getWidth();
+    const int h = src.getHeight();
+
+    if (src.getFormat() != Image::ARGB)
+        return Image();
+    
+    Image dst (Image::ARGB, w, h, true);
+    
+    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
+    Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
+    
+    for (int y = 0; y < h; y++)
+    {
+        uint8* ps = srcData.getLinePointer (y);
+        uint8* ds = dstData.getLinePointer (y);
+        
+        for (int x = 0; x < w; x++)
+        {
+            PixelARGB* s = (PixelARGB*)ps;
+            PixelARGB* d = (PixelARGB*)ds;
+            
+            uint8 r = s->getRed();
+            uint8 g = s->getGreen();
+            uint8 b = s->getBlue();
+            uint8 a = s->getAlpha();
+            
+            uint8 ro = 255 - r;
+            uint8 go = 255 - g;
+            uint8 bo = 255 - b;
+            
+            d->setARGB (a, ro, go, bo);
+            
+            ps += srcData.pixelStride;
+            ds += srcData.pixelStride;
+        }
+    }
+    return dst;
+}

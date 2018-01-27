@@ -74,7 +74,7 @@ bool solveLine (T x1, T y1, T x2, T y2, T& m, T& b)
     if (x2 != x1)
     {
         m = (y2 - y1) / (x2 - x1);
-        b = y2 - *m * x2;
+        b = y2 - m * x2;
         
         return true;
     }
@@ -98,7 +98,7 @@ bool solveLine (Line<T> l, T& m, T& b)
     if (x2 != x1)
     {
         m = (y2 - y1) / (x2 - x1);
-        b = y2 - *m * x2;
+        b = y2 - m * x2;
         
         return true;
     }
