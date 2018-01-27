@@ -309,8 +309,10 @@ struct SplineDemo : public Component
 MainContentComponent::MainContentComponent()
 {
     demoComponents.add (new MapDemo());
+#if !JUCE_WINDOWS
     demoComponents.add (new SemaphoreDemo());
     demoComponents.add (new SharedMemoryDemo());
+#endif
     demoComponents.add (new LeastSquaresDemo());
     demoComponents.add (new LinearDemo());
     demoComponents.add (new SplineDemo());

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="TUv5GT" name="Demo" displaySplashScreen="1" reportAppUsage="1"
+<JUCERPROJECT id="TUv5GT" name="Demo" displaySplashScreen="0" reportAppUsage="0"
               splashScreenColour="Dark" projectType="guiapp" version="1.0.0"
               bundleIdentifier="com.yourcompany.Demo" includeBinaryInAppConfig="1"
               cppLanguageStandard="14" companyCopyright="" jucerVersion="5.2.0">
