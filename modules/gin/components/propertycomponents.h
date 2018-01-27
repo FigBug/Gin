@@ -19,7 +19,7 @@ public:
     }
     
 protected:
-    void valueChanged (Value& value) override
+    void valueChanged (Value&) override
     {
         refresh();
     }

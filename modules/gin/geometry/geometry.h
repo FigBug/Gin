@@ -7,7 +7,7 @@
 
 #pragma once
 
-template <class T>
+template <typename T>
 inline T square (T in)
 {
     return in * in;

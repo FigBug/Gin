@@ -98,7 +98,7 @@ public:
                             lerp (u, grad (p[AB+1], x, y-1, z-1),
                                   grad (p[BB+1], x-1, y-1, z-1))));
         
-        return (res + 1.0) / 2.0;
+        return T ((res + 1.0) / 2.0);
     }
     
 private:

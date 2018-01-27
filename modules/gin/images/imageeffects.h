@@ -13,10 +13,10 @@ inline uint8 toByte (T v)
 {
     if (v < 0)   return 0;
     if (v > 255) return 255;
-    return T (v);
+    return uint8 (v);
 }
 
-inline uint8 getIntensity (uint8 r, uint8 g, int8 b)
+inline uint8 getIntensity (uint8 r, uint8 g, uint8 b)
 {
     return (uint8)((7471 * b + 38470 * g + 19595 * r) >> 16);
 }
@@ -36,7 +36,7 @@ inline PixelARGB blend (const PixelARGB& c1, const PixelARGB& c2)
     int b = ((c2.getBlue()  * invA) + (c1.getBlue()  * a)) / 256;
     uint8 a2 = computeAlpha (c2.getAlpha(), c1.getAlpha());
     
-    return PixelARGB (a2, r, g, b);
+    return PixelARGB (a2, toByte (r), toByte (g), toByte (b));
 }
 
 //==============================================================================

@@ -44,8 +44,8 @@ Image applyVignette (Image src, float amountIn, float radiusIn, float fallOff)
         {
             double dx = x - cx;
 
-            double outside = outE.isPointOutside ({dx, dy});
-            double inside  = inE.isPointInside ({dx, dy});
+            bool outside = outE.isPointOutside ({dx, dy});
+            bool inside  = inE.isPointInside ({dx, dy});
             
             PixelARGB* s = (PixelARGB*)ps;
             PixelARGB* d = (PixelARGB*)ds;
@@ -119,9 +119,9 @@ Image applySepia (Image src)
             uint8 b = s->getBlue();
             uint8 a = s->getAlpha();
             
-            uint8 ro = jlimit (0.0, 255.0, (r * .393) + (g *.769) + (b * .189));
-            uint8 go = jlimit (0.0, 255.0, (r * .349) + (g *.686) + (b * .168));
-            uint8 bo = jlimit (0.0, 255.0, (r * .272) + (g *.534) + (b * .131));
+            uint8 ro = toByte ((r * .393) + (g *.769) + (b * .189));
+            uint8 go = toByte ((r * .349) + (g *.686) + (b * .168));
+            uint8 bo = toByte ((r * .272) + (g *.534) + (b * .131));
 
             d->setARGB (a, ro, go, bo);
             
@@ -160,9 +160,9 @@ Image applyGreyScale (Image src)
             uint8 b = s->getBlue();
             uint8 a = s->getAlpha();
             
-            uint8 ro = jlimit (0.0, 255.0, r * 0.30 + 0.5);
-            uint8 go = jlimit (0.0, 255.0, g * 0.59 + 0.5);
-            uint8 bo = jlimit (0.0, 255.0, b * 0.11 + 0.5);
+            uint8 ro = toByte (r * 0.30 + 0.5);
+            uint8 go = toByte (g * 0.59 + 0.5);
+            uint8 bo = toByte (b * 0.11 + 0.5);
             
             d->setARGB (a, ro, go, bo);
             
@@ -210,7 +210,7 @@ Image applySoften (Image src)
             
             PixelARGB* d = (PixelARGB*) dstData.getPixelPointer (x, y);
             
-            d->setARGB (a, ro / 9, go / 9, bo / 9);
+            d->setARGB (a, toByte (ro / 9), toByte (go / 9), toByte (bo / 9));
         }
     }
     return dst;
@@ -269,7 +269,7 @@ Image applySharpen (Image src)
             go = jlimit (0, 255, go);
             bo = jlimit (0, 255, bo);
 
-            d->setARGB (ao, ro / 9, go / 9, bo / 9);
+            d->setARGB (ao, toByte (ro / 9), toByte (go / 9), toByte (bo / 9));
         }
     }
     return dst;
@@ -303,9 +303,9 @@ Image applyGamma (Image src, float gamma)
             uint8 b = s->getBlue();
             uint8 a = s->getAlpha();
             
-            uint8 ro = std::pow (r / 255.0, gamma) * 255.0 + 0.5;
-            uint8 go = std::pow (g / 255.0, gamma) * 255.0 + 0.5;
-            uint8 bo = std::pow (b / 255.0, gamma) * 255.0 + 0.5;
+            uint8 ro = toByte (std::pow (r / 255.0, gamma) * 255.0 + 0.5);
+            uint8 go = toByte (std::pow (g / 255.0, gamma) * 255.0 + 0.5);
+            uint8 bo = toByte (std::pow (b / 255.0, gamma) * 255.0 + 0.5);
             
             d->setARGB (a, ro, go, bo);
             
@@ -367,7 +367,7 @@ Image applyContrast (Image src, float contrast)
     
     Image dst (Image::ARGB, w, h, true);
     
-    contrast = (100.0 - contrast) / 100.0;
+    contrast = (100.0f - contrast) / 100.0f;
     contrast = square (contrast);
     
     Image::BitmapData srcData (src, Image::BitmapData::readOnly);
@@ -410,7 +410,7 @@ Image applyContrast (Image src, float contrast)
             go = toByte (go);
             bo = toByte (bo);
             
-            d->setARGB (a, ro, go, bo);
+            d->setARGB (a, toByte (ro), toByte (go), toByte (bo));
             
             ps += srcData.pixelStride;
             ds += srcData.pixelStride;
@@ -467,12 +467,12 @@ Image applyBrightnessContrast (Image src, float brightness, float contrast)
     {
         for (int intensity = 0; intensity < 256; intensity++)
         {
-            int shift = (intensity - 127) * multiply / divide + 127 - intensity + brightness;
+            int shift = int ((intensity - 127) * multiply / divide + 127 - intensity + brightness);
             
             for (int col = 0; col < 256; col++)
             {
                 int index = (intensity * 256) + col;
-                rgbTable[index] = jlimit (0, 255, col + shift);
+                rgbTable[index] = toByte (col + shift);
             }
         }
     }
@@ -480,12 +480,12 @@ Image applyBrightnessContrast (Image src, float brightness, float contrast)
     {
         for (int intensity = 0; intensity < 256; intensity++)
         {
-            int shift = (intensity - 127 + brightness) * multiply / divide + 127 - intensity;
+            int shift = int ((intensity - 127 + brightness) * multiply / divide + 127 - intensity);
             
             for (int col = 0; col < 256; col++)
             {
                 int index = (intensity * 256) + col;
-                rgbTable[index] = jlimit (0, 255, col + shift);
+                rgbTable[index] = toByte (col + shift);
             }
         }
     }
@@ -507,23 +507,23 @@ Image applyBrightnessContrast (Image src, float brightness, float contrast)
 
             if (divide == 0)
             {
-                int i = getIntensity (r, g, b);
+                int i = getIntensity (toByte (r), toByte (g), toByte (b));
                 uint8 c = rgbTable[i];
                 
                 d->setARGB (a, c, c, c);
             }
             else
             {
-                int i = getIntensity (r, g, b);
+                int i = getIntensity (toByte (r), toByte (g), toByte (b));
                 int shiftIndex = i * 256;
                 
                 uint8 ro = rgbTable[shiftIndex + r];
                 uint8 go = rgbTable[shiftIndex + g];
                 uint8 bo = rgbTable[shiftIndex + b];
             
-                ro = jlimit (0, 255, int (ro));
-                go = jlimit (0, 255, int (go));
-                bo = jlimit (0, 255, int (bo));
+                ro = toByte (ro);
+                go = toByte (go);
+                bo = toByte (bo);
                 
                 d->setARGB (a, ro, go, bo);
             }
@@ -537,7 +537,7 @@ Image applyBrightnessContrast (Image src, float brightness, float contrast)
     return dst;
 }
 
-Image applyHueSaturationLightness (Image src, float hue, float saturation, float lightness)
+Image applyHueSaturationLightness (Image src, float hueIn, float saturation, float lightness)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
@@ -549,7 +549,7 @@ Image applyHueSaturationLightness (Image src, float hue, float saturation, float
         saturation = ((saturation - 100) * 3) + 100;
     saturation = (saturation * 1024) / 100;
 
-    hue /= 360.0f;
+    hueIn /= 360.0f;
     
     Image dst (Image::ARGB, w, h, true);
     
@@ -571,17 +571,17 @@ Image applyHueSaturationLightness (Image src, float hue, float saturation, float
             uint8 b = s->getBlue();
             uint8 a = s->getAlpha();
             
-            int intensity = getIntensity (r, g, b);
+            int intensity = getIntensity (toByte (r), toByte (g), toByte (b));
             int ro = toByte (int (intensity * 1024 + (r - intensity) * saturation) >> 10);
             int go = toByte (int (intensity * 1024 + (g - intensity) * saturation) >> 10);
             int bo = toByte (int (intensity * 1024 + (b - intensity) * saturation) >> 10);
             
-            Colour c (ro, go, bo);
-            float h = c.getHue();
-            h += hue;
+            Colour c (toByte (ro), toByte (go), toByte (bo));
+            float hue = c.getHue();
+            hue += hueIn;
             
-            while (h < 0.0f)  h += 1.0f;
-            while (h >= 1.0f) h -= 1.0f;
+            while (hue < 0.0f)  hue += 1.0f;
+            while (hue >= 1.0f) hue -= 1.0f;
             
             c = Colour::fromHSV (h, c.getSaturation(), c.getBrightness(), a);
             ro = c.getRed();
@@ -592,7 +592,7 @@ Image applyHueSaturationLightness (Image src, float hue, float saturation, float
             go = toByte (go);
             bo = toByte (bo);
             
-            d->setARGB (a, ro, go, bo);
+            d->setARGB (a, toByte (ro), toByte (go), toByte (bo));
             
             if (lightness > 0)
                 *d = blend (PixelARGB (toByte ((lightness * 255) / 100), 255, 255, 255), *d);
