@@ -388,6 +388,9 @@
     <ClCompile Include="..\..\..\..\modules\gin\components\propertycomponents.cpp">
       <Filter>Juce Modules\gin\components</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin\images\bmpimageformat.cpp">
+      <Filter>Juce Modules\gin\images</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin\images\imageeffects.cpp">
       <Filter>Juce Modules\gin\images</Filter>
     </ClCompile>
@@ -2165,6 +2168,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\gin\geometry\geometry.h">
       <Filter>Juce Modules\gin\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin\images\bmpimageformat.h">
+      <Filter>Juce Modules\gin\images</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\gin\images\imageeffects.h">
       <Filter>Juce Modules\gin\images</Filter>
@@ -4019,6 +4025,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Resources\ballon.bmp">
+      <Filter>Demo\Source\Resources</Filter>
+    </None>
+    <None Include="..\..\Resources\ballon_8bit.bmp">
+      <Filter>Demo\Source\Resources</Filter>
+    </None>
     <None Include="..\..\Resources\pencils.jpeg">
       <Filter>Demo\Source\Resources</Filter>
     </None>

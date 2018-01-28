@@ -8,6 +8,44 @@
 
 #include "MainComponent.h"
 
+
+//==============================================================================
+struct BmpImageDemo : public Component
+{
+    BmpImageDemo()
+    {
+        setName ("BMP Image");
+
+        gin::BMPImageFormat bmp;
+
+        {
+            MemoryBlock mb (BinaryData::ballon_bmp, BinaryData::ballon_bmpSize);
+            MemoryInputStream is (mb, false);
+            
+            source1 = bmp.decodeImage (is);
+        }
+        {
+            MemoryBlock mb (BinaryData::ballon_8bit_bmp, BinaryData::ballon_8bit_bmpSize);
+            MemoryInputStream is (mb, false);
+            
+            source2 = bmp.decodeImage (is);
+        }
+    }
+    
+    void paint (Graphics& g) override
+    {
+        auto rc = getLocalBounds();
+        
+        g.fillAll (Colours::black);
+        if (source1.isValid())
+            g.drawImage (source1, rc.removeFromLeft (rc.getWidth() / 2).toFloat(), RectanglePlacement::centred);
+        if (source2.isValid())
+            g.drawImage (source2, rc.toFloat(), RectanglePlacement::centred);
+    }
+    
+    Image source1, source2;
+};
+
 //==============================================================================
 struct ImageEffectsDemo : public Component
 {
@@ -358,6 +396,7 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
+    demoComponents.add (new BmpImageDemo());
     demoComponents.add (new ImageEffectsDemo());
     demoComponents.add (new MapDemo());
 #if !JUCE_WINDOWS

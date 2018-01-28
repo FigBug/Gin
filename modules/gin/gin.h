@@ -71,6 +71,7 @@ using juce::Component;
 #include "utilities/spline.h"
 #include "utilities/systemsemaphore.h"
     
+#include "images/bmpimageformat.h"
 #include "images/imageeffects.h"
     
 #include "geometry/geometry.h"

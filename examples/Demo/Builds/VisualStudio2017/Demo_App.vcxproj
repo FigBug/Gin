@@ -155,6 +155,9 @@
     <ClCompile Include="..\..\..\..\modules\gin\components\propertycomponents.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin\images\bmpimageformat.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin\images\imageeffects.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1787,6 +1790,7 @@
     <ClInclude Include="..\..\..\..\modules\gin\components\mapviewer.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\components\propertycomponents.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\geometry\geometry.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin\images\bmpimageformat.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\images\imageeffects.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\filesystemwatcher.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\integrator.h"/>
@@ -2406,6 +2410,8 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Resources\ballon.bmp"/>
+    <None Include="..\..\Resources\ballon_8bit.bmp"/>
     <None Include="..\..\Resources\pencils.jpeg"/>
     <None Include="..\..\..\..\modules\gin\README.md"/>
     <None Include="C:\JUCE\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>

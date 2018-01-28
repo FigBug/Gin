@@ -57,6 +57,7 @@
 		4E3C239C3D9D21B7C3C6B4E0 = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = "BUILT_PRODUCTS_DIR"; };
 		5ADF6915CBDE7F40750EC90A = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_audio_formats"; path = "/Users/rrabien/dev.github/JUCE/modules/juce_audio_formats"; sourceTree = "<absolute>"; };
 		5DCC801E6DB08C1557EBB9A9 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		5FDB550DE328824A1D583C7C = {isa = PBXFileReference; lastKnownFileType = file.bmp; name = ballon.bmp; path = ../../Resources/ballon.bmp; sourceTree = "SOURCE_ROOT"; };
 		703818C6778C8D4616CCC66B = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pencils.jpeg; path = ../../Resources/pencils.jpeg; sourceTree = "SOURCE_ROOT"; };
 		755C10DA82151C705A044B6E = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		78E05FCCF8D04310654A3E96 = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_audio_devices"; path = "/Users/rrabien/dev.github/JUCE/modules/juce_audio_devices"; sourceTree = "<absolute>"; };
@@ -90,7 +91,10 @@
 		F32508F5DA6B0AAA23BDEFE7 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JuceHeader.h; path = ../../JuceLibraryCode/JuceHeader.h; sourceTree = "SOURCE_ROOT"; };
 		F433709A9EDEA486C93B3643 = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_audio_basics"; path = "/Users/rrabien/dev.github/JUCE/modules/juce_audio_basics"; sourceTree = "<absolute>"; };
 		F9F9053C098803FC4B882531 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainComponent.h; path = ../../Source/MainComponent.h; sourceTree = "SOURCE_ROOT"; };
+		FBC90B08FB69A1B6F23F5567 = {isa = PBXFileReference; lastKnownFileType = file.bmp; name = "ballon_8bit.bmp"; path = "../../Resources/ballon_8bit.bmp"; sourceTree = "SOURCE_ROOT"; };
 		C62C443BC8BD02973D5E9418 = {isa = PBXGroup; children = (
+					5FDB550DE328824A1D583C7C,
+					FBC90B08FB69A1B6F23F5567,
 					703818C6778C8D4616CCC66B, ); name = Resources; sourceTree = "<group>"; };
 		1AA8BB59BC96F7AF9B0AAD77 = {isa = PBXGroup; children = (
 					C62C443BC8BD02973D5E9418,

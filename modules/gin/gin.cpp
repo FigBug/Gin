@@ -49,6 +49,7 @@ using juce::MemoryBlock;
 #include "utilities/util.cpp"
     
 #include "images/imageeffects.cpp"
+#include "images/bmpimageformat.cpp"
     
 #include "components/mapviewer.cpp"
 #include "components/propertycomponents.cpp"

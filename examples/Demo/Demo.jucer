@@ -7,6 +7,8 @@
   <MAINGROUP id="wLOeL4" name="Demo">
     <GROUP id="{C99AB8C7-9FF4-1BC0-BD5D-C29561B0C802}" name="Source">
       <GROUP id="{942D9F9F-079D-DA91-711F-43B50276712D}" name="Resources">
+        <FILE id="NeK0jf" name="ballon.bmp" compile="0" resource="1" file="Resources/ballon.bmp"/>
+        <FILE id="NM9OrP" name="ballon_8bit.bmp" compile="0" resource="1" file="Resources/ballon_8bit.bmp"/>
         <FILE id="eyCXuY" name="pencils.jpeg" compile="0" resource="1" file="Resources/pencils.jpeg"/>
       </GROUP>
       <FILE id="qSbDPZ" name="MainComponent.cpp" compile="1" resource="0"
