@@ -12,6 +12,8 @@ What's included:
 * Integrator - Calculate integrals
 * LeastSquaresRegression - Fits a curve to data points
 * LinearRegression - Fits a line to data points
+* MapViewer - Displays a map
+* OpenStreetMaps - Fetch tiles frmo various OSM servers
 * SharedMemory - Share a memory block between processes
 * Spline - A smooth curve from a set of discrete points
 * PerlinNoise - Natural looking noise
