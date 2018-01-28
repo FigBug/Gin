@@ -6,6 +6,9 @@
               cppLanguageStandard="14" companyCopyright="" jucerVersion="5.2.0">
   <MAINGROUP id="wLOeL4" name="Demo">
     <GROUP id="{C99AB8C7-9FF4-1BC0-BD5D-C29561B0C802}" name="Source">
+      <GROUP id="{942D9F9F-079D-DA91-711F-43B50276712D}" name="Resources">
+        <FILE id="eyCXuY" name="pencils.jpeg" compile="0" resource="1" file="Resources/pencils.jpeg"/>
+      </GROUP>
       <FILE id="qSbDPZ" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/MainComponent.cpp"/>
       <FILE id="VIcF1H" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>

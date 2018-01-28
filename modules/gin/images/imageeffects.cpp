@@ -5,6 +5,38 @@
  
  ==============================================================================*/
 
+template <typename T>
+inline uint8 toByte (T v)
+{
+    if (v < 0)   return 0;
+    if (v > 255) return 255;
+    return uint8 (v);
+}
+
+inline uint8 getIntensity (uint8 r, uint8 g, uint8 b)
+{
+    return (uint8)((7471 * b + 38470 * g + 19595 * r) >> 16);
+}
+
+inline uint8 computeAlpha (uint8 la, uint8 ra)
+{
+    return (uint8)(((la * (256 - (ra + (ra >> 7)))) >> 8) + ra);
+}
+
+inline PixelARGB blend (const PixelARGB& c1, const PixelARGB& c2)
+{
+    int a = c1.getAlpha();
+    int invA = 255 - a;
+    
+    int r = ((c2.getRed()   * invA) + (c1.getRed()   * a)) / 256;
+    int g = ((c2.getGreen() * invA) + (c1.getGreen() * a)) / 256;
+    int b = ((c2.getBlue()  * invA) + (c1.getBlue()  * a)) / 256;
+    uint8 a2 = computeAlpha (c2.getAlpha(), c1.getAlpha());
+    
+    return PixelARGB (a2, toByte (r), toByte (g), toByte (b));
+}
+
+//==============================================================================
 Image applyVignette (Image src, float amountIn, float radiusIn, float fallOff)
 {
     const int w = src.getWidth();
@@ -56,9 +88,9 @@ Image applyVignette (Image src, float amountIn, float radiusIn, float fallOff)
             }
             else if (outside)
             {
-                uint8 r = (uint8)(0.5 + (s->getRed() * amount));
-                uint8 g = (uint8)(0.5 + (s->getGreen() * amount));
-                uint8 b = (uint8)(0.5 + (s->getBlue() * amount));
+                uint8 r = toByte (0.5 + (s->getRed() * amount));
+                uint8 g = toByte (0.5 + (s->getGreen() * amount));
+                uint8 b = toByte (0.5 + (s->getBlue() * amount));
                 uint8 a = s->getAlpha();
                 
                 d->setARGB (a, r, g, b);
@@ -75,9 +107,9 @@ Image applyVignette (Image src, float amountIn, float radiusIn, float fallOff)
                 
                 double factor = 1.0 - (amountIn * jlimit (0.0, 1.0, l1.getLength() / l2.getLength()));
                 
-                uint8 r = (uint8)(0.5 + (s->getRed() * factor));
-                uint8 g = (uint8)(0.5 + (s->getGreen() * factor));
-                uint8 b = (uint8)(0.5 + (s->getBlue() * factor));
+                uint8 r = toByte (0.5 + (s->getRed()   * factor));
+                uint8 g = toByte (0.5 + (s->getGreen() * factor));
+                uint8 b = toByte (0.5 + (s->getBlue()  * factor));
                 uint8 a = s->getAlpha();
                 
                 d->setARGB (a, r, g, b);
@@ -164,7 +196,10 @@ Image applyGreyScale (Image src)
             uint8 go = toByte (g * 0.59 + 0.5);
             uint8 bo = toByte (b * 0.11 + 0.5);
             
-            d->setARGB (a, ro, go, bo);
+            d->setARGB (a,
+                        toByte (ro + go + bo),
+                        toByte (ro + go + bo),
+                        toByte (ro + go + bo));
             
             ps += srcData.pixelStride;
             ds += srcData.pixelStride;
@@ -186,9 +221,9 @@ Image applySoften (Image src)
     Image::BitmapData srcData (src, Image::BitmapData::readOnly);
     Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
     
-    for (int y = 1; y < h - 1; y++)
+    for (int y = 0; y < h; y++)
     {
-        for (int x = 1; x < w - 1; x++)
+        for (int x = 0; x < w; x++)
         {
             int ro = 0, go = 0, bo = 0;
             uint8 a = 0;
@@ -197,7 +232,10 @@ Image applySoften (Image src)
             {
                 for (int n = -1; n <= 1; n++)
                 {
-                    PixelARGB* s = (PixelARGB*) srcData.getPixelPointer (x + m, y + n);
+                    int cx = jlimit (0, w - 1, x + m);
+                    int cy = jlimit (0, h - 1, y + n);
+                    
+                    PixelARGB* s = (PixelARGB*) srcData.getPixelPointer (cx, cy);
 
                     ro += s->getRed();
                     go += s->getGreen();
@@ -229,47 +267,51 @@ Image applySharpen (Image src)
     Image::BitmapData srcData (src, Image::BitmapData::readOnly);
     Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
     
-    for (int y = 1; y < h - 1; y++)
+    for (int y = 0; y < h; y++)
     {
-        for (int x = 1; x < w - 1; x++)
+        for (int x = 0; x < w; x++)
         {
+            auto getPixelPointer = [&] (int cx, int cy) -> PixelARGB*
+            {
+                cx = jlimit (0, w - 1, cx);
+                cy = jlimit (0, h - 1, cy);
+                
+                return (PixelARGB*) srcData.getPixelPointer (cx, cy);
+            };
+            
             int ro = 0, go = 0, bo = 0;
             uint8 ao = 0;
             
-            PixelARGB* s = (PixelARGB*) srcData.getPixelPointer (x, y);
+            PixelARGB* s = getPixelPointer (x, y);
             
             ro = s->getRed()   * 5;
             go = s->getGreen() * 5;
             bo = s->getBlue()  * 5;
             ao = s->getAlpha();
             
-            s = (PixelARGB*) srcData.getPixelPointer (x, y - 1);
+            s = getPixelPointer (x, y - 1);
             ro -= s->getRed();
             go -= s->getGreen();
             bo -= s->getBlue();
 
-            s = (PixelARGB*) srcData.getPixelPointer (x - 1, y);
+            s = getPixelPointer (x - 1, y);
             ro -= s->getRed();
             go -= s->getGreen();
             bo -= s->getBlue();
 
-            s = (PixelARGB*) srcData.getPixelPointer (x + 1, y);
+            s = getPixelPointer (x + 1, y);
             ro -= s->getRed();
             go -= s->getGreen();
             bo -= s->getBlue();
 
-            s = (PixelARGB*) srcData.getPixelPointer (x, y + 1);
+            s = getPixelPointer (x, y + 1);
             ro -= s->getRed();
             go -= s->getGreen();
             bo -= s->getBlue();
 
             PixelARGB* d = (PixelARGB*) dstData.getPixelPointer (x, y);
             
-            ro = jlimit (0, 255, ro);
-            go = jlimit (0, 255, go);
-            bo = jlimit (0, 255, bo);
-
-            d->setARGB (ao, toByte (ro / 9), toByte (go / 9), toByte (bo / 9));
+            d->setARGB (ao, toByte (ro), toByte (go), toByte (bo));
         }
     }
     return dst;

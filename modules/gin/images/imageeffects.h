@@ -8,38 +8,6 @@
 #pragma once
 
 //==============================================================================
-template <typename T>
-inline uint8 toByte (T v)
-{
-    if (v < 0)   return 0;
-    if (v > 255) return 255;
-    return uint8 (v);
-}
-
-inline uint8 getIntensity (uint8 r, uint8 g, uint8 b)
-{
-    return (uint8)((7471 * b + 38470 * g + 19595 * r) >> 16);
-}
-
-inline uint8 computeAlpha (uint8 la, uint8 ra)
-{
-    return (uint8)(((la * (256 - (ra + (ra >> 7)))) >> 8) + ra);
-}
-
-inline PixelARGB blend (const PixelARGB& c1, const PixelARGB& c2)
-{
-    int a = c1.getAlpha();
-    int invA = 255 - a;
-    
-    int r = ((c2.getRed()   * invA) + (c1.getRed()   * a)) / 256;
-    int g = ((c2.getGreen() * invA) + (c1.getGreen() * a)) / 256;
-    int b = ((c2.getBlue()  * invA) + (c1.getBlue()  * a)) / 256;
-    uint8 a2 = computeAlpha (c2.getAlpha(), c1.getAlpha());
-    
-    return PixelARGB (a2, toByte (r), toByte (g), toByte (b));
-}
-
-//==============================================================================
 /** Apply vignette
  *
  \param amount Amount to darken outside of vignette. 0 no darkening. 1 is black.

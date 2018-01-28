@@ -9,6 +9,56 @@
 #include "MainComponent.h"
 
 //==============================================================================
+struct ImageEffectsDemo : public Component
+{
+    ImageEffectsDemo()
+    {
+        setName ("Image Effects");
+        addAndMakeVisible (effects);
+        effects.addItemList ({"None", "Vignette", "Sepia", "Greyscale", "Soften",
+                              "Sharpen", "Gamma", "Invert", "Contrast",
+                              "Brightness/Contrast", "Hue/Sat/Light"}, 1);
+        effects.setSelectedItemIndex (0);
+        effects.onChange = [this]
+        {
+            repaint();
+        };
+        
+        source = ImageFileFormat::loadFrom (BinaryData::pencils_jpeg, BinaryData::pencils_jpegSize);
+    }
+    
+    void resized() override
+    {
+        effects.setBounds (5, 5, 150, 20);
+    }
+
+    void paint (Graphics& g) override
+    {
+        Image img = source.createCopy();
+        
+        switch (effects.getSelectedItemIndex())
+        {
+            case 1: img = gin::applyVignette (img, 0.7f, 0.9f, 0.4f); break;
+            case 2: img = gin::applySepia (img); break;
+            case 3: img = gin::applyGreyScale (img); break;
+            case 4: img = gin::applySoften (img); break;
+            case 5: img = gin::applySharpen (img); break;
+            case 6: img = gin::applyGamma (img, 0.3f); break;
+            case 7: img = gin::applyInvert (img); break;
+            case 8: img = gin::applyContrast (img, 50); break;
+            case 9: img = gin::applyBrightnessContrast (img, 40, 20); break;
+            case 10: img = gin::applyHueSaturationLightness (img, 170, 60, 50); break;
+        }
+        
+        g.fillAll (Colours::black);
+        g.drawImage (img, getLocalBounds().toFloat(), RectanglePlacement::centred);
+    }
+    
+    Image source;
+    ComboBox effects;
+};
+
+//==============================================================================
 struct MapDemo : public Component
 {
     MapDemo()
@@ -308,6 +358,7 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
+    demoComponents.add (new ImageEffectsDemo());
     demoComponents.add (new MapDemo());
 #if !JUCE_WINDOWS
     demoComponents.add (new SemaphoreDemo());
