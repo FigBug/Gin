@@ -93,7 +93,7 @@ Image BMPImageFormat::decodeImage (InputStream& input)
     int bytesPerPixel = hdr.bitsPerPixel / 8;
     int bytesPerRow = int (std::floor ((hdr.bitsPerPixel * hdr.width + 31) / 32.0) * 4);
 
-    uint8 rowData[bytesPerRow];
+    uint8* rowData = new uint8[bytesPerRow];
     for (int y = 0; y < int (hdr.height); y++)
     {
         input.read (rowData, bytesPerRow);
@@ -109,6 +109,8 @@ Image BMPImageFormat::decodeImage (InputStream& input)
                 p->setARGB (bytesPerPixel == 4 ? d[3] : 255, d[2], d[1], d[0]);
         }
     }
+    delete[] rowData;
+
     return img;
 }
 

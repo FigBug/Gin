@@ -47,7 +47,8 @@ struct BmpImageDemo : public Component
 };
 
 //==============================================================================
-struct ImageEffectsDemo : public Component
+struct ImageEffectsDemo : public Component, 
+                          private Slider::Listener
 {
     ImageEffectsDemo()
     {
@@ -60,9 +61,74 @@ struct ImageEffectsDemo : public Component
         effects.onChange = [this]
         {
             repaint();
+            updateVisibility();
         };
         
         source = ImageFileFormat::loadFrom (BinaryData::pencils_jpeg, BinaryData::pencils_jpegSize);
+        source = source.convertedToFormat (Image::ARGB);
+
+        addAndMakeVisible (vignetteAmount);
+        addAndMakeVisible (vignetteRadius);
+        addAndMakeVisible (vignetteFalloff);
+        addAndMakeVisible (gamma);
+        addAndMakeVisible (contrast);
+        addAndMakeVisible (brightness);
+        addAndMakeVisible (hue);
+        addAndMakeVisible (saturation);
+        addAndMakeVisible (lightness);
+
+        for (int i = 0; i < getNumChildComponents(); i++)
+        {
+            if (auto* s = dynamic_cast<Slider*> (getChildComponent (i)))
+            {
+                s->addListener (this);
+                s->setTextBoxStyle (Slider::NoTextBox, false, 0, 0);
+            }
+        }
+
+        vignetteAmount.setRange (0.01, 0.99);
+        vignetteRadius.setRange (0.01, 0.99);
+        vignetteFalloff.setRange (0.01, 0.99);
+        gamma.setRange (0, 4);
+        contrast.setRange (-100, 100);
+        brightness.setRange (-100, 100);
+        hue.setRange (-180, 180);
+        saturation.setRange (0, 200);
+        lightness.setRange (-100, 100);
+
+        vignetteAmount.setValue (0.5);
+        vignetteRadius.setValue (0.5);
+        vignetteFalloff.setValue (0.5);
+        gamma.setValue (1);
+        saturation.setValue (100);
+
+        updateVisibility();
+    }
+
+    void updateVisibility()
+    {
+        int idx = effects.getSelectedItemIndex();
+        vignetteAmount.setVisible (idx == 1);
+        vignetteRadius.setVisible (idx == 1);
+        vignetteFalloff.setVisible (idx == 1);
+        gamma.setVisible (idx == 6);
+        contrast.setVisible (idx == 8 || idx == 9);
+        brightness.setVisible (idx == 9);
+        hue.setVisible (idx == 10);
+        saturation.setVisible (idx == 10);
+        lightness.setVisible (idx == 10);
+
+        auto rc = getLocalBounds().removeFromBottom (20);
+        int w = rc.getWidth() / 3;
+        for (int i = 0; i < getNumChildComponents(); i++)
+            if (auto* s = dynamic_cast<Slider*> (getChildComponent (i)))
+                if (s->isVisible())
+                    s->setBounds (rc.removeFromLeft (w));
+    }
+
+    void sliderValueChanged (Slider*) override
+    {
+        repaint();
     }
     
     void resized() override
@@ -76,16 +142,16 @@ struct ImageEffectsDemo : public Component
         
         switch (effects.getSelectedItemIndex())
         {
-            case 1: img = gin::applyVignette (img, 0.7f, 0.9f, 0.4f); break;
+            case 1: img = gin::applyVignette (img, (float) vignetteAmount.getValue(), (float) vignetteRadius.getValue(), (float) vignetteFalloff.getValue()); break;
             case 2: img = gin::applySepia (img); break;
             case 3: img = gin::applyGreyScale (img); break;
             case 4: img = gin::applySoften (img); break;
             case 5: img = gin::applySharpen (img); break;
-            case 6: img = gin::applyGamma (img, 0.3f); break;
+            case 6: img = gin::applyGamma (img, (float) gamma.getValue()); break;
             case 7: img = gin::applyInvert (img); break;
-            case 8: img = gin::applyContrast (img, 50); break;
-            case 9: img = gin::applyBrightnessContrast (img, 40, 20); break;
-            case 10: img = gin::applyHueSaturationLightness (img, 170, 60, 50); break;
+            case 8: img = gin::applyContrast (img, (float) contrast.getValue()); break;
+            case 9: img = gin::applyBrightnessContrast (img, (float) brightness.getValue(), (float) contrast.getValue()); break;
+            case 10: img = gin::applyHueSaturationLightness (img, (float) hue.getValue(), (float) saturation.getValue(), (float) lightness.getValue()); break;
         }
         
         g.fillAll (Colours::black);
@@ -94,6 +160,8 @@ struct ImageEffectsDemo : public Component
     
     Image source;
     ComboBox effects;
+
+    Slider vignetteAmount, vignetteRadius, vignetteFalloff, gamma, contrast, brightness, hue, saturation, lightness;
 };
 
 //==============================================================================
@@ -399,10 +467,8 @@ MainContentComponent::MainContentComponent()
     demoComponents.add (new BmpImageDemo());
     demoComponents.add (new ImageEffectsDemo());
     demoComponents.add (new MapDemo());
-#if !JUCE_WINDOWS
-    demoComponents.add (new SemaphoreDemo());
+    //demoComponents.add (new SemaphoreDemo());
     demoComponents.add (new SharedMemoryDemo());
-#endif
     demoComponents.add (new LeastSquaresDemo());
     demoComponents.add (new LinearDemo());
     demoComponents.add (new SplineDemo());

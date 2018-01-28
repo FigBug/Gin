@@ -6,23 +6,63 @@
  ==============================================================================*/
 
 #if JUCE_WINDOWS
+typedef enum _SECTION_INFORMATION_CLASS
+{
+    SectionBasicInformation,
+    SectionImageInformation
+} SECTION_INFORMATION_CLASS;
+
+typedef struct _SECTION_BASIC_INFORMATION {
+    PVOID         base;
+    ULONG         attributes;
+    LARGE_INTEGER size;
+} SECTION_BASIC_INFORMATION;
+
+typedef DWORD (WINAPI* NTQUERYSECTION) (HANDLE, SECTION_INFORMATION_CLASS, PVOID, ULONG, PULONG);
+
 class SharedMemory::Impl
 {
 public:
     Impl (String name, int sz) : size (sz)
     {
-        jassertfalse;
-        // not implemented yet
+        String shareName = "Local\\" + File::createLegalFileName (name);
+
+        fileMapping = OpenFileMappingW (FILE_MAP_ALL_ACCESS, FALSE, shareName.toWideCharPointer()); 
+        if (fileMapping == nullptr)
+            fileMapping =  CreateFileMappingW (INVALID_HANDLE_VALUE, nullptr, PAGE_READWRITE, 0, sz, shareName.toWideCharPointer()); 
+
+        if (HMODULE dll = LoadLibrary ("ntdll.dll"))
+        {
+            NTQUERYSECTION ntQuerySection = (NTQUERYSECTION) GetProcAddress (dll, "NtQuerySection");
+            if (ntQuerySection != nullptr)
+            {
+                SECTION_BASIC_INFORMATION SectionInfo = { 0 };
+                ntQuerySection (fileMapping, SectionBasicInformation, &SectionInfo, sizeof (SectionInfo), 0);
+
+                if (SectionInfo.size.QuadPart > 0)
+                    size = int (SectionInfo.size.QuadPart);
+            }
+            FreeLibrary (dll);
+        }
+
+        data = MapViewOfFile (fileMapping, FILE_MAP_ALL_ACCESS, 0, 0, size);
     }
 
     ~Impl()
     {
+        if (data != nullptr)
+            UnmapViewOfFile (data);
+
+        if (fileMapping != nullptr)
+            CloseHandle (fileMapping);
     }
 
     static void remove (const String& name)
     {
         ignoreUnused (name);        
     }
+
+    HANDLE fileMapping = nullptr;
 
     int size = 0;
     void* data = nullptr;

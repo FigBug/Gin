@@ -7,6 +7,9 @@
 
 #pragma once
 
+/*
+ * This is not finished / implemented
+ */
 class SystemSemaphore
 {
 public:

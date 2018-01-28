@@ -13,7 +13,10 @@
  
     On Unix based OSes, if a process using the block crashes, the block will leak. Clean
     it up later with remove() and it will be deleted when the last process stops using it.
-    (No new processes will be able to attach
+    (No new processes will be able to attach)
+
+    On Windows the memory block will always disappear when the final process closes the 
+    handle / crashes.
  */
 class SharedMemory
 {
