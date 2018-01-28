@@ -13,23 +13,23 @@ public:
     Impl (FileSystemWatcher& o, File f) : owner (o), folder (f)
     {
         NSString* newPath = [NSString stringWithUTF8String:folder.getFullPathName().toRawUTF8()];
-        
+
         paths = [[NSArray arrayWithObject:newPath] retain];
         context.version         = 0L;
         context.info            = this;
         context.retain          = nil;
         context.release         = nil;
         context.copyDescription = nil;
-        
+
         stream = FSEventStreamCreate (kCFAllocatorDefault, callback, &context, (CFArrayRef)paths, kFSEventStreamEventIdSinceNow, 1.0, kFSEventStreamCreateFlagUseCFTypes);
         if (stream)
         {
             FSEventStreamScheduleWithRunLoop (stream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
             FSEventStreamStart (stream);
         }
-        
+
     }
-    
+
     ~Impl()
     {
         if (stream)
@@ -39,17 +39,17 @@ public:
             CFRelease(stream);
         }
     }
-    
+
     static void callback (ConstFSEventStreamRef streamRef, void* clientCallBackInfo, size_t numEvents, void* eventPaths, const FSEventStreamEventFlags* eventFlags,
                    const FSEventStreamEventId* eventIds)
     {
         Impl* impl = (Impl*)clientCallBackInfo;
         impl->owner.folderChanged (impl->folder);
     }
-    
+
     FileSystemWatcher& owner;
     File folder;
-    
+
     NSArray* paths;
     FSEventStreamRef stream;
     struct FSEventStreamContext context;
@@ -216,4 +216,3 @@ void FileSystemWatcher::folderChanged (const File& folder)
 {
     listeners.call (&FileSystemWatcher::Listener::folderChanged, folder);
 }
-

@@ -21,33 +21,33 @@ struct BmpImageDemo : public Component
         {
             MemoryBlock mb (BinaryData::ballon_bmp, BinaryData::ballon_bmpSize);
             MemoryInputStream is (mb, false);
-            
+
             source1 = bmp.decodeImage (is);
         }
         {
             MemoryBlock mb (BinaryData::ballon_8bit_bmp, BinaryData::ballon_8bit_bmpSize);
             MemoryInputStream is (mb, false);
-            
+
             source2 = bmp.decodeImage (is);
         }
     }
-    
+
     void paint (Graphics& g) override
     {
         auto rc = getLocalBounds();
-        
+
         g.fillAll (Colours::black);
         if (source1.isValid())
             g.drawImage (source1, rc.removeFromLeft (rc.getWidth() / 2).toFloat(), RectanglePlacement::centred);
         if (source2.isValid())
             g.drawImage (source2, rc.toFloat(), RectanglePlacement::centred);
     }
-    
+
     Image source1, source2;
 };
 
 //==============================================================================
-struct ImageEffectsDemo : public Component, 
+struct ImageEffectsDemo : public Component,
                           private Slider::Listener
 {
     ImageEffectsDemo()
@@ -63,7 +63,7 @@ struct ImageEffectsDemo : public Component,
             repaint();
             updateVisibility();
         };
-        
+
         source = ImageFileFormat::loadFrom (BinaryData::pencils_jpeg, BinaryData::pencils_jpegSize);
         source = source.convertedToFormat (Image::ARGB);
 
@@ -130,7 +130,7 @@ struct ImageEffectsDemo : public Component,
     {
         repaint();
     }
-    
+
     void resized() override
     {
         effects.setBounds (5, 5, 150, 20);
@@ -139,7 +139,7 @@ struct ImageEffectsDemo : public Component,
     void paint (Graphics& g) override
     {
         Image img = source.createCopy();
-        
+
         switch (effects.getSelectedItemIndex())
         {
             case 1: img = gin::applyVignette (img, (float) vignetteAmount.getValue(), (float) vignetteRadius.getValue(), (float) vignetteFalloff.getValue()); break;
@@ -153,11 +153,11 @@ struct ImageEffectsDemo : public Component,
             case 9: img = gin::applyBrightnessContrast (img, (float) brightness.getValue(), (float) contrast.getValue()); break;
             case 10: img = gin::applyHueSaturationLightness (img, (float) hue.getValue(), (float) saturation.getValue(), (float) lightness.getValue()); break;
         }
-        
+
         g.fillAll (Colours::black);
         g.drawImage (img, getLocalBounds().toFloat(), RectanglePlacement::centred);
     }
-    
+
     Image source;
     ComboBox effects;
 
@@ -172,12 +172,12 @@ struct MapDemo : public Component
         setName ("OpenStreetMaps");
         addAndMakeVisible (map);
     }
-    
+
     void resized() override
     {
         map.setBounds (getLocalBounds());
     }
-    
+
     gin::MapViewer map;
 };
 
@@ -198,11 +198,11 @@ struct SemaphoreDemo : public Component,
         lockB.addListener (this);
         unlockB.addListener (this);
     }
-    
+
     void resized() override
     {
         auto rc = getLocalBounds().reduced (8).removeFromLeft (100);
-        
+
         lockA.setBounds (rc.removeFromTop (20));
         rc.removeFromTop (8);
         unlockA.setBounds (rc.removeFromTop (20));
@@ -212,7 +212,7 @@ struct SemaphoreDemo : public Component,
         unlockB.setBounds (rc.removeFromTop (20));
         rc.removeFromTop (8);
     }
-    
+
     void buttonClicked (Button* b) override
     {
         if (b == &lockA)
@@ -249,7 +249,7 @@ struct SemaphoreDemo : public Component,
         }
 
     }
-    
+
     TextButton lockA {"Lock A"}, unlockA {"Unlock A"}, lockB {"Lock B"}, unlockB {"Unlock B"};
     gin::SystemSemaphore semA {"demo_sem"}, semB {"demo_sem"};
 };
@@ -265,31 +265,31 @@ struct SharedMemoryDemo : public Component,
         addAndMakeVisible (text);
         text.addListener (this);
         text.setText ("Launch two copies of the app and then type in this box");
-        
+
         startTimerHz (30);
     }
-    
+
     void resized() override
     {
         text.setBounds (getLocalBounds());
     }
-    
+
     void textEditorTextChanged (TextEditor&) override
     {
         strncpy ((char*)mem.getData(), text.getText().toRawUTF8(), size_t (mem.getSize() - 1));
     }
-    
+
     void timerCallback() override
     {
         if (! text.hasKeyboardFocus (true))
         {
             String fromMem ((char*)mem.getData(), size_t (mem.getSize()));
-            
+
             if (fromMem != text.getText())
                 text.setText (fromMem);
         }
     }
-    
+
     gin::SharedMemory mem {"demo", 1024};
     TextEditor text;
 };
@@ -301,7 +301,7 @@ struct LeastSquaresDemo : public Component
     {
         setName ("Least Squares");
     }
-    
+
     void mouseDown (const MouseEvent& e) override
     {
         if (e.getNumberOfClicks() > 1)
@@ -316,15 +316,15 @@ struct LeastSquaresDemo : public Component
         }
         repaint();
     }
-    
+
     void paint (Graphics& g) override
     {
         if (lsr.enoughPoints())
         {
             g.setColour (Colours::red);
-            
+
             Path p;
-            
+
             double a = lsr.aTerm();
             double b = lsr.bTerm();
             double c = lsr.cTerm();
@@ -339,15 +339,15 @@ struct LeastSquaresDemo : public Component
             }
             g.strokePath (p, PathStrokeType (2));
         }
-        
+
         g.setColour (Colours::yellow);
         for (auto pt : points)
             g.fillEllipse (pt.getX() - 3.0f, pt.getY() - 3.0f, 6.0f, 6.0f);
-        
+
         if (points.isEmpty())
             g.drawText ("Click to add point. Double click to reset.", getLocalBounds(), Justification::centred);
     }
-    
+
     Array<Point<int>> points;
     gin::LeastSquaresRegression lsr;
 };
@@ -359,7 +359,7 @@ struct LinearDemo : public Component
     {
         setName ("Linear Regression");
     }
-    
+
     void mouseDown (const MouseEvent& e) override
     {
         if (e.getNumberOfClicks() > 1)
@@ -375,15 +375,15 @@ struct LinearDemo : public Component
         }
         repaint();
     }
-    
+
     void paint (Graphics& g) override
     {
         if (lr.haveData())
         {
             g.setColour (Colours::red);
-            
+
             Path p;
-            
+
             for (int x = 0; x < getWidth(); x++)
             {
                 double y = lr.estimateY (x);
@@ -394,15 +394,15 @@ struct LinearDemo : public Component
             }
             g.strokePath (p, PathStrokeType (2));
         }
-        
+
         g.setColour (Colours::yellow);
         for (auto pt : points)
             g.fillEllipse (pt.getX() - 3.0f, pt.getY() - 3.0f, 6.0f, 6.0f);
-        
+
         if (points.isEmpty())
             g.drawText ("Click to add point. Double click to reset.", getLocalBounds(), Justification::centred);
     }
-    
+
     Array<Point<int>> points;
     gin::LinearRegression lr;
 };
@@ -414,31 +414,31 @@ struct SplineDemo : public Component
     {
         setName ("Spline");
     }
-    
+
     void mouseDown (const MouseEvent& e) override
     {
         if (e.getNumberOfClicks() > 1)
             points.clear();
         else if (points.size() == 0 || e.x > points.getLast().getX())
             points.add (e.getPosition());
-        
+
         repaint();
     }
-    
+
     void paint (Graphics& g) override
     {
         Array<Point<double>> dpoints;
         for (auto p : points)
             dpoints.add ({ double (p.getX()), double (p.getY())});
-        
+
         if (dpoints.size() >= 3)
         {
             gin::Spline spline (dpoints);
-            
+
             g.setColour (Colours::red);
-            
+
             Path p;
-            
+
             p.startNewSubPath (points.getFirst().toFloat());
             for (int x = points.getFirst().getX(); x < points.getLast().getX(); x++)
             {
@@ -446,18 +446,18 @@ struct SplineDemo : public Component
                 p.lineTo (float (x), float (y));
             }
             p.lineTo (points.getLast().toFloat());
-            
+
             g.strokePath (p, PathStrokeType (2));
         }
-        
+
         g.setColour (Colours::yellow);
         for (auto pt : points)
             g.fillEllipse (pt.getX() - 3.0f, pt.getY() - 3.0f, 6.0f, 6.0f);
-        
+
         if (points.isEmpty())
             g.drawText ("Click from left to right to add points. Double click to reset.", getLocalBounds(), Justification::centred);
     }
-    
+
     Array<Point<int>> points;
 };
 
@@ -475,12 +475,12 @@ MainContentComponent::MainContentComponent()
 
     for (auto* c : demoComponents)
         addChildComponent (c);
-    
+
     demoList.setModel (this);
     demoList.updateContent();
     demoList.selectRow (0);
     addAndMakeVisible (demoList);
-    
+
     setSize (600, 400);
 }
 
@@ -496,9 +496,9 @@ void MainContentComponent::paint (Graphics& g)
 void MainContentComponent::resized()
 {
     auto rc = getLocalBounds();
-    
+
     demoList.setBounds (rc.removeFromLeft (150));
-    
+
     for (auto* c : demoComponents)
         c->setBounds (rc);
 }
@@ -511,7 +511,7 @@ void MainContentComponent::paintListBoxItem (int row, Graphics& g, int w, int h,
         g.setColour (Colours::lightblue);
         g.fillAll();
     }
-    
+
     g.setColour (findColour (ListBox::textColourId));
     g.drawText (demoComponents[row]->getName(), rc.reduced (2), Justification::centredLeft);
 }

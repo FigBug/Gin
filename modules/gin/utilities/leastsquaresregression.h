@@ -1,8 +1,8 @@
 /*==============================================================================
- 
- Copyright 2018 by Roland Rabien, 2010 by Alex Etchells      
+
+ Copyright 2018 by Roland Rabien, 2010 by Alex Etchells
  For more information visit www.rabiensoftware.com
- 
+
  ==============================================================================*/
 
 #pragma once
@@ -10,7 +10,7 @@
 /**
    See https://www.codeproject.com/Articles/63170/Least-Squares-Regression-for-Quadratic-Curve-Fitti
    for original code
- 
+
    Derive the equation of a quadratic curve from a series of data points. That is to say, to
    determine a, b, and c, where y = ax2 + bx + c. Having determined a, b, and c, I would also
    need a value for R-squared (the coefficient of determination).
@@ -21,17 +21,17 @@ public:
     void addPoint (double x, double y);
     void addPoint (Point<double> point);
     void addPoints (Array<Point<double>> points);
-    
+
     void clear();
-    
-	bool enoughPoints();
-	Array<double> getTerms();
-    
+
+    bool enoughPoints();
+    Array<double> getTerms();
+
     double aTerm();
     double bTerm();
     double cTerm();
     double rSquare();
-   
+
 private:
     double getSx();
     double getSy();
@@ -45,5 +45,5 @@ private:
     double getSSerr();
     double getPredictedY (double x);
 
-	Array<Point<double>> pointArray;
+    Array<Point<double>> pointArray;
 };

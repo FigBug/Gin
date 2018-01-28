@@ -1,8 +1,8 @@
 /*==============================================================================
- 
+
  Copyright 2018 by Roland Rabien
  For more information visit www.rabiensoftware.com
- 
+
  ==============================================================================*/
 
 #pragma once
@@ -11,10 +11,10 @@
 inline float calculateRMS (const float* values, int n)
 {
     float rms = 0;
-    
+
     for (int i = 0; i < n; i++)
         rms += values[i] * values[i];
-    
+
     return std::sqrt ((1.0f / n) * rms);
 }
 
@@ -23,7 +23,7 @@ inline float calculateMedian (const float* values, int n)
     Array<float> f;
     f.insertArray (0, values, n);
     f.sort();
-    
+
     if (f.size() % 2 == 0)
         return (f[f.size() / 2] + f[f.size() / 2 - 1]) / 2.0f;
     return f[f.size()/2];
@@ -50,43 +50,43 @@ public:
             97,228,251,34,242,193,238,210,144,12,191,179,162,241, 81,51,145,235,249,14,239,
             107,49,192,214, 31,181,199,106,157,184, 84,204,176,115,121,50,45,127, 4,150,254,
             138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180 };
-        
+
         p.addArray (p);
     }
-    
+
     PerlinNoise (unsigned int seed)
     {
         Random r (seed);
-        
+
         for (int i = 0; i <= 255; i++)
             p.add (i);
-        
+
         shuffle (r, p);
-        
+
         p.addArray (p);
     }
-    
+
     T noise (T x, T y = 0, T z = 0)
     {
         int X = (int) std::floor (x) & 255;
         int Y = (int) std::floor (y) & 255;
         int Z = (int) std::floor (z) & 255;
-        
+
         x -= std::floor (x);
         y -= std::floor (y);
         z -= std::floor (z);
-        
+
         T u = fade (x);
         T v = fade (y);
         T w = fade (z);
-        
+
         int A  = p[X] + Y;
         int AA = p[A] + Z;
         int AB = p[A + 1] + Z;
         int B  = p[X + 1] + Y;
         int BA = p[B] + Z;
         int BB = p[B + 1] + Z;
-        
+
         // Add blended results from 8 corners of cube
         T res = lerp (w,
                       lerp (v, lerp (u, grad(p[AA], x, y, z),
@@ -97,28 +97,28 @@ public:
                                      grad (p[BA+1], x-1, y, z-1)),
                             lerp (u, grad (p[AB+1], x, y-1, z-1),
                                   grad (p[BB+1], x-1, y-1, z-1))));
-        
+
         return T ((res + 1.0) / 2.0);
     }
-    
+
 private:
     T fade (T t)
     {
         return t * t * t * (t * (t * 6 - 15) + 10);
     }
-    
+
     T lerp (T t, T a, T b)
     {
         return a + t * (b - a);
     }
-    
+
     T grad (int hash, T x, T y, T z)
     {
         int h = hash & 15;
         T u = h < 8 ? x : y, v = h < 4 ? y : h == 12 || h == 14 ? x : z;
         return ((h & 1) == 0 ? u : -u) + ((h & 2) == 0 ? v : -v);
     }
-    
+
     Array<int> p;
 };
 
@@ -148,7 +148,7 @@ public:
 
     double average (double nextValue)
     {
-        return (nextValue + numVals * currAvg) / (double)(numVals + 1); 
+        return (nextValue + numVals * currAvg) / (double)(numVals + 1);
     }
 
     double getAverage()
@@ -181,24 +181,24 @@ public:
     {
         startThread();
     }
-    
+
     ~AsyncDownload()
     {
         stopThread (100);
     }
-    
+
     void run() override
     {
         ok = URL (url).readEntireBinaryStream (data);
         triggerAsyncUpdate();
     }
-    
+
     void handleAsyncUpdate() override
     {
         if (cb)
             cb (this, data, ok);
     }
-    
+
     String url;
     std::function<void (AsyncDownload*, MemoryBlock, bool)> cb;
     bool ok = false;

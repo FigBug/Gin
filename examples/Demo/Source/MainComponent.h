@@ -28,12 +28,12 @@ public:
 
     ListBox demoList;
     OwnedArray<Component> demoComponents;
-    
+
 private:
     int getNumRows() override   { return demoComponents.size(); }
     void paintListBoxItem (int rowNumber, Graphics& g, int width, int height, bool rowIsSelected) override;
     void selectedRowsChanged (int lastRowSelected) override;
-    
+
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainContentComponent)
 };

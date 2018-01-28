@@ -1,8 +1,8 @@
 /*==============================================================================
- 
+
  Copyright 2018 by Roland Rabien, 2010 by 2010 by Alex Etchells
  For more information visit www.rabiensoftware.com
- 
+
  ==============================================================================*/
 
 void LeastSquaresRegression::addPoint (double x, double y)
@@ -44,40 +44,40 @@ Array<double> LeastSquaresRegression::getTerms()
     double s11 = getSxy();  //sum of x*y
     double s01 = getSy();   //sum of y
 
-    double a = (s21*(s20 * s00 - s10 * s10) - 
-            s11*(s30 * s00 - s10 * s20) + 
+    double a = (s21*(s20 * s00 - s10 * s10) -
+            s11*(s30 * s00 - s10 * s20) +
             s01*(s30 * s10 - s20 * s20))
             /
             (s40*(s20 * s00 - s10 * s10) -
-             s30*(s30 * s00 - s10 * s20) + 
-             s20*(s30 * s10 - s20 * s20));	
+             s30*(s30 * s00 - s10 * s20) +
+             s20*(s30 * s10 - s20 * s20));
 
-    double b = (s40*(s11 * s00 - s01 * s10) - 
-            s30*(s21 * s00 - s01 * s20) + 
+    double b = (s40*(s11 * s00 - s01 * s10) -
+            s30*(s21 * s00 - s01 * s20) +
             s20*(s21 * s10 - s11 * s20))
             /
-            (s40 * (s20 * s00 - s10 * s10) - 
-             s30 * (s30 * s00 - s10 * s20) + 
+            (s40 * (s20 * s00 - s10 * s10) -
+             s30 * (s30 * s00 - s10 * s20) +
              s20 * (s30 * s10 - s20 * s20));
 
-	double c = (s40*(s20 * s01 - s10 * s11) - 
-            s30*(s30 * s01 - s10 * s21) + 
+    double c = (s40*(s20 * s01 - s10 * s11) -
+            s30*(s30 * s01 - s10 * s21) +
             s20*(s30 * s11 - s20 * s21))
             /
-            (s40 * (s20 * s00 - s10 * s10) - 
-             s30 * (s30 * s00 - s10 * s20) + 
+            (s40 * (s20 * s00 - s10 * s10) -
+             s30 * (s30 * s00 - s10 * s20) +
              s20 * (s30 * s10 - s20 * s20));
 
-	Array<double> terms;
-	terms.add (a);
-	terms.add (b);
-	terms.add (c);
-	return terms;
+    Array<double> terms;
+    terms.add (a);
+    terms.add (b);
+    terms.add (c);
+    return terms;
 }
 
 double LeastSquaresRegression::aTerm()
 {
-    //notation sjk to mean the sum of x_i^j*y_i^k. 
+    //notation sjk to mean the sum of x_i^j*y_i^k.
     double s40 = getSx4(); //sum of x^4
     double s30 = getSx3(); //sum of x^3
     double s20 = getSx2(); //sum of x^2
@@ -90,12 +90,12 @@ double LeastSquaresRegression::aTerm()
     double s01 = getSy();   //sum of y
 
     //a = Da/D
-    return (s21*(s20 * s00 - s10 * s10) - 
-            s11*(s30 * s00 - s10 * s20) + 
+    return (s21*(s20 * s00 - s10 * s10) -
+            s11*(s30 * s00 - s10 * s20) +
             s01*(s30 * s10 - s20 * s20))
             /
             (s40*(s20 * s00 - s10 * s10) -
-             s30*(s30 * s00 - s10 * s20) + 
+             s30*(s30 * s00 - s10 * s20) +
              s20*(s30 * s10 - s20 * s20));
 }
 
@@ -114,12 +114,12 @@ double LeastSquaresRegression::bTerm()
     double s01 = getSy();   //sum of y
 
     //b = Db/D
-    return (s40*(s11 * s00 - s01 * s10) - 
-            s30*(s21 * s00 - s01 * s20) + 
+    return (s40*(s11 * s00 - s01 * s10) -
+            s30*(s21 * s00 - s01 * s20) +
             s20*(s21 * s10 - s11 * s20))
             /
-            (s40 * (s20 * s00 - s10 * s10) - 
-             s30 * (s30 * s00 - s10 * s20) + 
+            (s40 * (s20 * s00 - s10 * s10) -
+             s30 * (s30 * s00 - s10 * s20) +
              s20 * (s30 * s10 - s20 * s20));
 }
 
@@ -138,12 +138,12 @@ double LeastSquaresRegression::cTerm()
     double s01 = getSy();   //sum of y
 
     //c = Dc/D
-    return (s40*(s20 * s01 - s10 * s11) - 
-            s30*(s30 * s01 - s10 * s21) + 
+    return (s40*(s20 * s01 - s10 * s11) -
+            s30*(s30 * s01 - s10 * s21) +
             s20*(s30 * s11 - s20 * s21))
             /
-            (s40 * (s20 * s00 - s10 * s10) - 
-             s30 * (s30 * s00 - s10 * s20) + 
+            (s40 * (s20 * s00 - s10 * s10) -
+             s30 * (s30 * s00 - s10 * s20) +
              s20 * (s30 * s10 - s20 * s20));
 }
 
@@ -237,7 +237,7 @@ double LeastSquaresRegression::getYMean() // mean value of y
 
 double LeastSquaresRegression::getSStot() // total sum of squares
 {
-    //the sum of the squares of the differences between 
+    //the sum of the squares of the differences between
     //the measured y values and the mean y value
     double ss_tot = 0;
     for (auto it : pointArray)
@@ -249,7 +249,7 @@ double LeastSquaresRegression::getSStot() // total sum of squares
 
 double LeastSquaresRegression::getSSerr() // residual sum of squares
 {
-    //the sum of the squares of te difference between 
+    //the sum of the squares of te difference between
     //the measured y values and the values of y predicted by the equation
     double ss_err = 0;
     for (auto it : pointArray)

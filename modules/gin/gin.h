@@ -61,7 +61,7 @@ namespace gin
 using namespace juce;
 using juce::Rectangle;
 using juce::Component;
-    
+
 #include "utilities/util.h"
 #include "utilities/integrator.h"
 #include "utilities/leastsquaresregression.h"
@@ -70,13 +70,13 @@ using juce::Component;
 #include "utilities/sharedmemory.h"
 #include "utilities/spline.h"
 #include "utilities/systemsemaphore.h"
-    
+
 #include "images/bmpimageformat.h"
 #include "images/imageeffects.h"
-    
+
 #include "geometry/geometry.h"
 
 #include "components/mapviewer.h"
 #include "components/propertycomponents.h"
-    
+
 }

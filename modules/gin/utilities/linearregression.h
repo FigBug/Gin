@@ -1,8 +1,8 @@
 /*==============================================================================
- 
+
  Copyright 2018 by Roland Rabien, 1998 David C. Swaim
  For more information visit www.rabiensoftware.com
- 
+
  ==============================================================================*/
 
 #pragma once
@@ -18,7 +18,7 @@ public:
     void calculate();
 
     void clear();
-    
+
     bool haveData() const               { return n > 2; }
     int items() const                   { return n; }
 

@@ -1,8 +1,8 @@
 /*==============================================================================
- 
+
  Copyright 2018 by Roland Rabien
  For more information visit www.rabiensoftware.com
- 
+
  ==============================================================================*/
 
 struct BMPHeader
@@ -60,36 +60,36 @@ Image BMPImageFormat::decodeImage (InputStream& input)
     hdr.vPixelsPerMeter = int32 (input.readInt());
     hdr.coloursUsed     = uint32 (input.readInt());
     hdr.coloursRequired = uint32 (input.readInt());
-    
+
     if (hdr.compression != 0 || (hdr.bitsPerPixel != 8 && hdr.bitsPerPixel != 24 && hdr.bitsPerPixel != 32))
     {
         jassertfalse; // Unsupported BMP format
         return Image();
     }
-    
+
     if (hdr.bitsPerPixel == 8 && hdr.coloursUsed == 0)
         hdr.coloursUsed = 256;
-    
+
     Array<PixelARGB> colourTable;
-    
+
     for (int i = 0; i < int (hdr.coloursUsed); i++)
     {
         uint8 b = uint8 (input.readByte());
         uint8 g = uint8 (input.readByte());
         uint8 r = uint8 (input.readByte());
         input.readByte();
-        
+
         colourTable.add (PixelARGB (255, r, g, b));
     }
-    
+
     bool bottomUp = hdr.height < 0;
     hdr.height = std::abs (hdr.height);
-    
+
     Image img (Image::ARGB, int (hdr.width), int (hdr.height), true);
     Image::BitmapData data (img, Image::BitmapData::writeOnly);
-    
+
     input.setPosition (hdr.dataOffset);
-    
+
     int bytesPerPixel = hdr.bitsPerPixel / 8;
     int bytesPerRow = int (std::floor ((hdr.bitsPerPixel * hdr.width + 31) / 32.0) * 4);
 
@@ -97,11 +97,11 @@ Image BMPImageFormat::decodeImage (InputStream& input)
     for (int y = 0; y < int (hdr.height); y++)
     {
         input.read (rowData, bytesPerRow);
-        
+
         for (int x = 0; x < int (hdr.width); x++)
         {
             uint8* d = &rowData[x * bytesPerPixel];
-            
+
             PixelARGB* p = (PixelARGB*)data.getPixelPointer (x, int (bottomUp ? y : hdr.height - y - 1));
             if (hdr.bitsPerPixel == 8)
                 *p = colourTable[d[0]];
@@ -117,7 +117,7 @@ Image BMPImageFormat::decodeImage (InputStream& input)
 bool BMPImageFormat::writeImageToStream (const Image& sourceImage, OutputStream& dst)
 {
     Image img = sourceImage.convertedToFormat (Image::ARGB);
-    
+
     dst.writeByte ('B');
     dst.writeByte ('M');
     dst.writeInt (40 + img.getWidth() * img.getHeight() * 4);
@@ -135,7 +135,7 @@ bool BMPImageFormat::writeImageToStream (const Image& sourceImage, OutputStream&
     dst.writeInt (2835);
     dst.writeInt (0);
     dst.writeInt (0);
-    
+
     Image::BitmapData data (img, Image::BitmapData::readOnly);
     for (int y = 0; y < img.getHeight(); y++)
     {
@@ -148,7 +148,6 @@ bool BMPImageFormat::writeImageToStream (const Image& sourceImage, OutputStream&
             dst.writeByte (char (p->getAlpha()));
         }
     }
-    
+
     return true;
 }
-

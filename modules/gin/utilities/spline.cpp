@@ -1,8 +1,8 @@
 /*==============================================================================
- 
+
  Copyright 2018 by Roland Rabien, Devin Lane
  For more information visit www.rabiensoftware.com
- 
+
  ==============================================================================*/
 
 /* "THE BEER-WARE LICENSE" (Revision 42): Devin Lane wrote this file. As long as you retain
@@ -17,7 +17,7 @@ Spline::Spline (const Array<Point<double>>& points)
     int n = points.size() - 1;
 
     Array<double> b, d, a, c, l, u, z, h;
-    
+
     a.resize (n);
     b.resize (n);
     c.resize (n + 1);
@@ -76,5 +76,3 @@ double Spline::interpolate (double x) const
 
     return elements[i].eval (x);
 }
-
-

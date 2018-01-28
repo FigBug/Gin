@@ -1,8 +1,8 @@
 /*==============================================================================
- 
+
  Copyright 2018 by Roland Rabien
  For more information visit www.rabiensoftware.com
- 
+
  ==============================================================================*/
 
 #pragma once
@@ -12,18 +12,18 @@
 class Integrator
 {
 public:
-	void clear();
+    void clear();
 
-	double getIntegral();
+    double getIntegral();
 
-	void addPoint (double x, double y);
+    void addPoint (double x, double y);
     void addPoint (Point<double> point);
     void addPoints (Array<Point<double>> points);
 
 private:
 
-	bool first = true;
-	double oldX = 0;
-	double oldY = 0;
+    bool first = true;
+    double oldX = 0;
+    double oldY = 0;
     double curSum = 0;
 };

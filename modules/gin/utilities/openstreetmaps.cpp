@@ -1,8 +1,8 @@
 /*==============================================================================
- 
+
  Copyright 2018 by Roland Rabien
  For more information visit www.rabiensoftware.com
- 
+
  ==============================================================================*/
 
 OpenStreetMaps::OpenStreetMaps()
@@ -20,67 +20,67 @@ OpenStreetMaps::~OpenStreetMaps()
 
 Image OpenStreetMaps::fetchTile (int zoom, int x, int y)
 {
-	int mw = getMapWidthTiles (zoom);
-	x = x % mw;
-	y = y % mw;
+    int mw = getMapWidthTiles (zoom);
+    x = x % mw;
+    y = y % mw;
 
     String fname = String::formatted ("%d-%d-%d-%d.png", (int)tileSource, zoom, x, y);
 
-	File file = mapTileDir.getChildFile (fname);
+    File file = mapTileDir.getChildFile (fname);
 
-	if (cache.contains (fname))
-	{
-		return cache[fname];
-	}
-	else if (File (file).existsAsFile())
-	{
-		Image img;
+    if (cache.contains (fname))
+    {
+        return cache[fname];
+    }
+    else if (File (file).existsAsFile())
+    {
+        Image img;
         img = ImageFileFormat::loadFrom (file);
 
-		cache.set (fname, img);
+        cache.set (fname, img);
 
-		return img;
-	}
-	else
-	{
-		ScopedPointer<TileReq> newReq = new TileReq (zoom, x, y);
+        return img;
+    }
+    else
+    {
+        ScopedPointer<TileReq> newReq = new TileReq (zoom, x, y);
 
-		bool pending = false;
-		for (int i = 0; i < requests.size(); i++)
-		{
-			if (*requests[i] == *newReq)
-			{
-				pending = true;
-				break;
-			}
-		}
+        bool pending = false;
+        for (int i = 0; i < requests.size(); i++)
+        {
+            if (*requests[i] == *newReq)
+            {
+                pending = true;
+                break;
+            }
+        }
 
-		if (! pending)
-		{
-			requests.add (newReq.release());
-			startRequest();
-		}
+        if (! pending)
+        {
+            requests.add (newReq.release());
+            startRequest();
+        }
 
         Image img (Image::ARGB, 256, 256, false);
         img.clear ({0,0,256,256}, Colour (0xff808080));
-		return img;
-	}
+        return img;
+    }
 }
 
 int OpenStreetMaps::getNumServers()
 {
-	switch (tileSource)
-	{
-		case OpenStreetMap:         return 3;
-		case OpenCycleMap:          return 3;
-		case OpenCycleMapTransport: return 3;
-		case OpenCycleMapLandscape: return 3;
-		case StamenTerrain:         return 1;
+    switch (tileSource)
+    {
+        case OpenStreetMap:         return 3;
+        case OpenCycleMap:          return 3;
+        case OpenCycleMapTransport: return 3;
+        case OpenCycleMapLandscape: return 3;
+        case StamenTerrain:         return 1;
         case MapQuestOSM:           return 4;
         case MapQuestOpenAerial:    return 4;
         case MapQuestOpenStreetMap: return 3;
-		default:                    return 0;
-	}
+        default:                    return 0;
+    }
 }
 
 int OpenStreetMaps::getServer()
@@ -140,7 +140,7 @@ void OpenStreetMaps::startRequest()
             serversInUse.add (server);
 
             URL url = URL (String (buffer));
-            
+
             requests[i]->reply = new AsyncDownload (buffer, [this] (AsyncDownload* ad,MemoryBlock m, bool ok)
                                                     {
                                                         finished (ad, m, ok);
@@ -160,34 +160,34 @@ void OpenStreetMaps::finished (AsyncDownload* reply, MemoryBlock data, bool succ
             serversInUse.removeFirstMatchingValue (requests[i]->server);
             requests[i]->server = -1;
 
-	        if (success)
-	        {
-		        String fname;
+            if (success)
+            {
+                String fname;
                 fname = String::formatted ("%d-%d-%d-%d.png", (int)tileSource, requests[i]->zoom, requests[i]->x, requests[i]->y);
 
                 Image img = ImageFileFormat::loadFrom (data.getData(), data.getSize());
-		        if (img.isValid())
-		        {
-			        cache.set (fname, img);
+                if (img.isValid())
+                {
+                    cache.set (fname, img);
 
                     File dest = mapTileDir.getChildFile (fname);
                     dest.replaceWithData (data.getData(), data.getSize());
 
                     listeners.call (&OpenStreetMaps::Listener::tileFetched, requests[i]->zoom, requests[i]->x, requests[i]->y);
-		        }
+                }
 
-	        }
+            }
             requests.remove (i);
             break;
         }
     }
-	startRequest();
+    startRequest();
 }
 
 int OpenStreetMaps::getMapWidthPixels (int zoom)
 {
     double numberOfTiles = std::pow (2.0, zoom);
-	return roundToInt (numberOfTiles * 256);
+    return roundToInt (numberOfTiles * 256);
 }
 
 int OpenStreetMaps::getMapWidthTiles (int zoom)
@@ -196,11 +196,11 @@ int OpenStreetMaps::getMapWidthTiles (int zoom)
 }
 
 Point<double> OpenStreetMaps::coordinateToDisplay (Point<double> coordinate, int zoom)
-{    
+{
     double numberOfTiles = std::pow (2.0, zoom);
 
     // LonToX
-	double x = (coordinate.getX() + 180) * (numberOfTiles * tilesize) / 360.0;
+    double x = (coordinate.getX() + 180) * (numberOfTiles * tilesize) / 360.0;
     // LatToY
     double projection = std::log (std::tan (double_Pi / 4 + degreesToRadians (coordinate.getY()) / 2));
 
@@ -221,33 +221,33 @@ Point<double> OpenStreetMaps::displayToCoordinate (Point<double> point, int zoom
     latitude = 1 - latitude;
     latitude = latitude * double_Pi;
     latitude = radiansToDegrees (std::atan (std::sinh (latitude)));
-    
+
     Point<double> coord = {longitude, latitude};
     return coord;
 }
 
 Point<double> OpenStreetMaps::tileForCoordinate (double lat, double lng, int zoom)
-{ 
-	double zn = static_cast<double>(1 << zoom);
-	double tx = (lng + 180.0) / 360.0;
+{
+    double zn = static_cast<double>(1 << zoom);
+    double tx = (lng + 180.0) / 360.0;
     double ty = (1.0 - std::log (std::tan (lat * double_Pi / 180.0) + 1.0 / std::cos (lat * double_Pi / 180.0)) / double_Pi) / 2.0;
     return {tx * zn, ty * zn};
-} 
+}
 
 void OpenStreetMaps::clearQueue()
 {
     while (requests.size() > 0)
         cancelledRequests.add (requests.removeAndReturn (0));
-    
+
     serversInUse.clear();
 }
 
 OpenStreetMaps::TileSource OpenStreetMaps::getTileSource()
 {
-	return tileSource;
+    return tileSource;
 }
 
 void OpenStreetMaps::setTileSource(TileSource t)
 {
-	tileSource = t;
+    tileSource = t;
 }

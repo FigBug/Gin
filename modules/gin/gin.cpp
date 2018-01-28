@@ -1,8 +1,8 @@
 /*==============================================================================
- 
+
  Copyright 2018 by Roland Rabien
  For more information visit www.rabiensoftware.com
- 
+
  ==============================================================================*/
 
 // Your project must contain an AppConfig.h file with your project-specific settings in it,
@@ -38,7 +38,7 @@ namespace gin
 using namespace juce;
 using juce::Rectangle;
 using juce::MemoryBlock;
-    
+
 #include "utilities/integrator.cpp"
 #include "utilities/leastsquaresregression.cpp"
 #include "utilities/linearregression.cpp"
@@ -47,10 +47,10 @@ using juce::MemoryBlock;
 #include "utilities/spline.cpp"
 #include "utilities/systemsemaphore.cpp"
 #include "utilities/util.cpp"
-    
+
 #include "images/imageeffects.cpp"
 #include "images/bmpimageformat.cpp"
-    
+
 #include "components/mapviewer.cpp"
 #include "components/propertycomponents.cpp"
 

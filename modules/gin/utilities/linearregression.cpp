@@ -1,8 +1,8 @@
 /*==============================================================================
- 
+
  Copyright 2018 by Roland Rabien, 1998 David C. Swaim
  For more information visit www.rabiensoftware.com
- 
+
  ==============================================================================*/
 
 LinearRegression::LinearRegression()
@@ -13,7 +13,7 @@ LinearRegression::LinearRegression (Array<Point<double>> points)
 {
     for (auto p : points)
         addPoint (p);
-    
+
     calculate();
 }
 

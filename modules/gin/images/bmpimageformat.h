@@ -1,8 +1,8 @@
 /*==============================================================================
- 
+
  Copyright 2018 by Roland Rabien
  For more information visit www.rabiensoftware.com
- 
+
  ==============================================================================*/
 
 #pragma once
@@ -17,13 +17,12 @@ class BMPImageFormat : public ImageFileFormat
 {
 public:
     String getFormatName() override;
-    
+
     bool canUnderstand (InputStream& input) override;
-    
+
     bool usesFileExtension (const File& possibleFile) override;
-    
+
     Image decodeImage (InputStream& input) override;
-    
+
     bool writeImageToStream (const Image& sourceImage, OutputStream& destStream) override;
 };
-

@@ -34,7 +34,7 @@ String getMidiMessageType (const MidiMessage& msg)
     if (msg.isQuarterFrame()) return "Quarter Frame";
     if (msg.isFullFrame()) return "Full Frame";
     if (msg.isMidiMachineControlMessage()) return "MMC";
-    
+
     return "Unknown";
 }
 
@@ -48,23 +48,23 @@ public:
     {
         startThread();
     }
-    
+
     ~BackgroundCaller()
     {
         stopThread (1000);
     }
-    
+
     void run() override
     {
         function();
         triggerAsyncUpdate();
     }
-    
+
     void handleAsyncUpdate() override
     {
         delete this;
     }
-    
+
     std::function<void (void)> function;
 };
 
@@ -72,5 +72,3 @@ void callInBackground (std::function<void (void)> function)
 {
     new BackgroundCaller (function);
 }
-
-
