@@ -74,6 +74,12 @@ using juce::Component;
 #include "images/bmpimageformat.h"
 #include "images/imageeffects.h"
 
+#include "metadata/imagemetadata.h"
+#include "metadata/commentmetadata.h"
+#include "metadata/exifmetadata.h"
+#include "metadata/iptcmetadata.h"
+#include "metadata/xmpmetadata.h"
+    
 #include "geometry/geometry.h"
 
 #include "components/mapviewer.h"

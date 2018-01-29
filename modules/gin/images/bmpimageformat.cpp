@@ -93,7 +93,7 @@ Image BMPImageFormat::decodeImage (InputStream& input)
     int bytesPerPixel = hdr.bitsPerPixel / 8;
     int bytesPerRow = int (std::floor ((hdr.bitsPerPixel * hdr.width + 31) / 32.0) * 4);
 
-    uint8* rowData = new uint8[bytesPerRow];
+    uint8* rowData = new uint8[size_t (bytesPerRow)];
     for (int y = 0; y < int (hdr.height); y++)
     {
         input.read (rowData, bytesPerRow);

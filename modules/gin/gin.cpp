@@ -50,6 +50,12 @@ using juce::MemoryBlock;
 
 #include "images/imageeffects.cpp"
 #include "images/bmpimageformat.cpp"
+    
+#include "metadata/commentmetadata.cpp"
+#include "metadata/exifmetadata.cpp"
+#include "metadata/imagemetadata.cpp"
+#include "metadata/iptcmetadata.cpp"
+#include "metadata/xmpmetadata.cpp"
 
 #include "components/mapviewer.cpp"
 #include "components/propertycomponents.cpp"

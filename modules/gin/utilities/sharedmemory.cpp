@@ -29,7 +29,7 @@ public:
 
         fileMapping = OpenFileMappingW (FILE_MAP_ALL_ACCESS, FALSE, shareName.toWideCharPointer());
         if (fileMapping == nullptr)
-            fileMapping =  CreateFileMappingW (INVALID_HANDLE_VALUE, nullptr, PAGE_READWRITE, 0, sz, shareName.toWideCharPointer());
+            fileMapping = CreateFileMappingW (INVALID_HANDLE_VALUE, nullptr, PAGE_READWRITE, 0, sz, shareName.toWideCharPointer());
 
         if (HMODULE dll = LoadLibrary ("ntdll.dll"))
         {
