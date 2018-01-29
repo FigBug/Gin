@@ -17,6 +17,8 @@ public:
 	String getType() const { return type; }
 
 	virtual StringPairArray getAllMetadata() const = 0;
+    
+    static bool getFromImage (InputStream& is, OwnedArray<ImageMetadata>& metadata);
 
 protected:
 	String type;
