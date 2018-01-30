@@ -205,3 +205,20 @@ public:
     MemoryBlock data;
 };
 
+//==============================================================================
+// Time Profiler -- get a quick idea how long something takes
+class TimeProfiler
+{
+public:
+    TimeProfiler (const String& name_) :
+      name (name_), start (Time::getMillisecondCounterHiRes()) {}
+    
+    ~TimeProfiler()
+    {
+        DBG (name + String::formatted (" %.2fs", (Time::getMillisecondCounterHiRes() - start) / 1000.0));
+    }
+    
+private:
+    String name;
+    double start;
+};

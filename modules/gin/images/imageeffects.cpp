@@ -119,6 +119,7 @@ Image applyVignette (Image src, float amountIn, float radiusIn, float fallOff)
             ds += srcData.pixelStride;
         }
     }
+    
     return dst;
 }
 
