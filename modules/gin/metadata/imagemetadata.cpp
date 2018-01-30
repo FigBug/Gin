@@ -6,35 +6,44 @@
  ==============================================================================*/
 using namespace jpeglibNamespace;
 using namespace pnglibNamespace;
+
 //==============================================================================
-static void silentErrorCallback1 (j_common_ptr)        {}
-static void silentErrorCallback2 (j_common_ptr, int)   {}
-static void silentErrorCallback3 (j_common_ptr, char*) {}
+#define JPEG_RST0    0xD0    /* RST0 marker code */
+#define JPEG_EOI     0xD9    /* EOI marker code */
+#define JPEG_APP0    0xE0    /* APP0 marker code */
+#define JPEG_COM     0xFE    /* COM marker code */
+
+static void dummyCallback1 (j_decompress_ptr) {}
+
+static void jpegSkip (j_decompress_ptr decompStruct, long num)
+{
+    decompStruct->src->next_input_byte += num;
+    
+    num = jmin (num, (long) decompStruct->src->bytes_in_buffer);
+    decompStruct->src->bytes_in_buffer -= (size_t) num;
+}
+
+static boolean jpegFill (j_decompress_ptr)
+{
+    return 0;
+}
+
+static void fatalErrorHandler (j_common_ptr p)          { *((bool*) (p->client_data)) = true; }
+static void silentErrorCallback1 (j_common_ptr)         {}
+static void silentErrorCallback2 (j_common_ptr, int)    {}
+static void silentErrorCallback3 (j_common_ptr, char*)  {}
 
 static void setupSilentErrorHandler (struct jpeg_error_mgr& err)
 {
     zerostruct (err);
     
-    err.error_exit = silentErrorCallback1;
-    err.emit_message = silentErrorCallback2;
-    err.output_message = silentErrorCallback1;
-    err.format_message = silentErrorCallback3;
+    err.error_exit      = fatalErrorHandler;
+    err.emit_message    = silentErrorCallback2;
+    err.output_message  = silentErrorCallback1;
+    err.format_message  = silentErrorCallback3;
     err.reset_error_mgr = silentErrorCallback1;
 }
 
-//==============================================================================
-static void dummyCallback1 (j_decompress_ptr) throw() {}
-static void jpegSkip (j_decompress_ptr decompStruct, long num) throw()
-{
-    decompStruct->src->next_input_byte += num;
-    decompStruct->src->bytes_in_buffer -= size_t (num);
-}
-static boolean jpegFill (j_decompress_ptr) throw()
-{
-    return 0;
-}
-
-//==============================================================================
 bool loadJPEGMetadataFromStream (OwnedArray<ImageMetadata>& metadata, InputStream& input)
 {
     MemoryBlock mb;
@@ -82,8 +91,7 @@ bool loadJPEGMetadataFromStream (OwnedArray<ImageMetadata>& metadata, InputStrea
             
             marker = marker->next;
         }
-        
-        jpeg_destroy_decompress (&jpegDecompStruct);
+
     }
     return metadata.size() > 0;
 }
@@ -121,7 +129,7 @@ bool loadPNGMetadataFromStream (OwnedArray<ImageMetadata>& metadata, InputStream
         
         for (int i = 0; i < pngInfoStruct->num_text; i++)
         {
-            if (! strcmp(pngInfoStruct->text[i].key, "XML:com.adobe.xmp"))
+            if (! strcmp (pngInfoStruct->text[i].key, "XML:com.adobe.xmp"))
             {
                 ImageMetadata* md = XmpMetadata::createFromPng (pngInfoStruct->text[i].text, jmax((int)pngInfoStruct->text[i].text_length, (int)pngInfoStruct->text[i].itxt_length));
                 metadata.add (md);
@@ -147,12 +155,19 @@ bool ImageMetadata::getFromImage (InputStream& is, OwnedArray<ImageMetadata>& me
     JPEGImageFormat jpeg;
     PNGImageFormat png;
     
+    is.setPosition (0);
     if (jpeg.canUnderstand (is))
+    {
+        is.setPosition (0);
         return loadJPEGMetadataFromStream (metadata, is);
+    }
     
     is.setPosition (0);
     if (png.canUnderstand (is))
+    {
+        is.setPosition (0);
         return loadPNGMetadataFromStream (metadata, is);
+    }
     
     return false;
 }

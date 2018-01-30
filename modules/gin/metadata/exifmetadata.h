@@ -20,7 +20,7 @@ public:
 	Image getThumbnailImage();
 
 private:
-	static int sizeofType(int type);
+	static int sizeofType (int type);
 
 	struct MetadataItem
 	{
@@ -41,6 +41,7 @@ private:
 		uint32 swap32 (uint32 a) const;
 		int32 swap32 (int32 a) const;
 	};
+    
 	struct MetadataSection
 	{
 		MetadataSection (int id_, int offset_) { id = id_; offset = offset_; }
@@ -48,6 +49,7 @@ private:
 		int id;
 		int offset;
 	};
+    
 	OwnedArray<MetadataItem> items;
 	char* thumbImg;
 	int thumbNumBytes;

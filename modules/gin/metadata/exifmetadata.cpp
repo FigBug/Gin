@@ -47,6 +47,7 @@ String ExifMetadata::MetadataItem::getName() const
 			case 28: return "GPS Area Information";
 			case 29: return "GPS Date Stamp";
 			case 30: return "GPS Differential";
+            case 0x001f: return "GPS H Positioning Error";
 		}
 	}
 	else
@@ -137,9 +138,15 @@ String ExifMetadata::MetadataItem::getName() const
 			case 41994: return "Sharpness";
 			case 41995: return "Device Settings Description";
 			case 41996: return "Subject Distance Range";
+            case 0xA432: return "Lens Info";
+            case 0xA433: return "Lens Make";
+            case 0xA434: return "Lens Model";
+            case 0xA435: return "Lens Serial Number";
+            case 0x9214: return "Subject Area";
+                
 		}
 	}
-	return String::formatted("Unknown tag: %d", tag);
+	return String::formatted("Unknown tag: %d %X", tag, tag);
 }
 
 String ExifMetadata::MetadataItem::getValue() const
@@ -211,7 +218,7 @@ uint16 ExifMetadata::MetadataItem::swap16 (uint16 a) const
 #endif
 }
 
-int16 ExifMetadata::MetadataItem::swap16(int16 a) const
+int16 ExifMetadata::MetadataItem::swap16 (int16 a) const
 {
 #ifdef JUCE_LITTLE_ENDIAN
 	if (bigEndian)
@@ -301,16 +308,16 @@ ExifMetadata* ExifMetadata::create (const uint8* data, int sz)
 		{
 			MetadataItem* itm = new MetadataItem();
 
-			itm->tag   = uint16 (bigEndian ? is.readShortBigEndian() : is.readShort());
-			itm->type  = uint16 (bigEndian ? is.readShortBigEndian() : is.readShort());
-			itm->count =         bigEndian ? is.readIntBigEndian()   : is.readInt();
+			itm->tag       = uint16 (bigEndian ? is.readShortBigEndian() : is.readShort());
+			itm->type      = uint16 (bigEndian ? is.readShortBigEndian() : is.readShort());
+			itm->count     =         bigEndian ? is.readIntBigEndian()   : is.readInt();
 			itm->bigEndian = bigEndian;
 			itm->section   = ms->id;
 
 			int offsetData = is.readInt();
 
 			int off       = int (bigEndian ? ByteOrder::bigEndianInt (&offsetData) : ByteOrder::littleEndianInt (&offsetData));
-			int dataBytes = itm->count * sizeofType(itm->type);
+			int dataBytes = itm->count * sizeofType (itm->type);
 
 			itm->data = new uint8[size_t (dataBytes)];
 			if (dataBytes <= 4)
@@ -336,8 +343,8 @@ ExifMetadata* ExifMetadata::create (const uint8* data, int sz)
 				delete itm;
 			}
 			else if (itm->tag == 0x8769 || 
-				itm->tag == 0x8825 ||
-				itm->tag == 0xA005)
+				     itm->tag == 0x8825 ||
+				     itm->tag == 0xA005)
 			{
 				ifd.add (new MetadataSection (itm->tag, off));
 				delete itm;
@@ -398,17 +405,17 @@ Image ExifMetadata::getThumbnailImage()
     return {};
 }
 
-int ExifMetadata::sizeofType(int type)
+int ExifMetadata::sizeofType (int type)
 {
 	switch (type)
 	{
-		case 1: return 1;
-		case 2: return 1;
-		case 3: return 2;
-		case 4: return 4;
-		case 5: return 8;
-		case 7: return 1;
-		case 9: return 4;
+		case 1:  return 1;
+		case 2:  return 1;
+		case 3:  return 2;
+		case 4:  return 4;
+		case 5:  return 8;
+		case 7:  return 1;
+		case 9:  return 4;
 		case 10: return 8;
 	}
 	return 0;

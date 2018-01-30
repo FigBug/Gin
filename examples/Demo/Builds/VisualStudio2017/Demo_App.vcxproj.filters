@@ -4067,7 +4067,7 @@
     <None Include="..\..\Resources\ballon_8bit.bmp">
       <Filter>Demo\Source\Resources</Filter>
     </None>
-    <None Include="..\..\Resources\Canon_PowerShot_S40.jpg">
+    <None Include="..\..\Resources\IMG_1883.JPG">
       <Filter>Demo\Source\Resources</Filter>
     </None>
     <None Include="..\..\Resources\pencils.jpeg">

@@ -2436,7 +2436,7 @@
   <ItemGroup>
     <None Include="..\..\Resources\ballon.bmp"/>
     <None Include="..\..\Resources\ballon_8bit.bmp"/>
-    <None Include="..\..\Resources\Canon_PowerShot_S40.jpg"/>
+    <None Include="..\..\Resources\IMG_1883.JPG"/>
     <None Include="..\..\Resources\pencils.jpeg"/>
     <None Include="..\..\..\..\modules\gin\README.md"/>
     <None Include="C:\JUCE\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>

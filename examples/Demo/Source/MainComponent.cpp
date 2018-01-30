@@ -15,7 +15,7 @@ struct MetadataDemo : public Component
     {
         setName ("Metadata");
         
-        MemoryBlock mb (BinaryData::Canon_PowerShot_S40_jpg, BinaryData::Canon_PowerShot_S40_jpgSize);
+        MemoryBlock mb (BinaryData::IMG_1883_JPG, BinaryData::IMG_1883_JPGSize);
         MemoryInputStream is (mb, true);
         
         addAndMakeVisible (panel);
@@ -503,9 +503,9 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
-    //demoComponents.add (new MetadataDemo());
-    demoComponents.add (new BmpImageDemo());
     demoComponents.add (new ImageEffectsDemo());
+    demoComponents.add (new MetadataDemo());
+    demoComponents.add (new BmpImageDemo());
     demoComponents.add (new MapDemo());
     //demoComponents.add (new SemaphoreDemo());
     demoComponents.add (new SharedMemoryDemo());
