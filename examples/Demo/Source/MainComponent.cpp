@@ -8,6 +8,45 @@
 
 #include "MainComponent.h"
 
+//==============================================================================
+struct MetadataDemo : public Component
+{
+    MetadataDemo()
+    {
+        setName ("Metadata");
+        
+        MemoryBlock mb (BinaryData::Canon_PowerShot_S40_jpg, BinaryData::Canon_PowerShot_S40_jpgSize);
+        MemoryInputStream is (mb, true);
+        
+        addAndMakeVisible (panel);
+        
+        OwnedArray<gin::ImageMetadata> metadata;
+        if (gin::ImageMetadata::getFromImage (is, metadata))
+        {
+            for (auto* m : metadata)
+            {
+                Array<PropertyComponent*> comps;
+                StringPairArray values = m->getAllMetadata();
+                
+                for (String key : values.getAllKeys())
+                {
+                    Value v = Value (values [key]);
+                    TextPropertyComponent* tpc = new TextPropertyComponent (v, key, 1000, false, false);
+                    comps.add (tpc);
+                }
+                
+                panel.addSection (m->getType(), comps);
+            }
+        }
+    }
+    
+    void resized() override
+    {
+        panel.setBounds (getLocalBounds());
+    }
+    
+    PropertyPanel panel;
+};
 
 //==============================================================================
 struct BmpImageDemo : public Component
@@ -464,6 +503,7 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
+    //demoComponents.add (new MetadataDemo());
     demoComponents.add (new BmpImageDemo());
     demoComponents.add (new ImageEffectsDemo());
     demoComponents.add (new MapDemo());

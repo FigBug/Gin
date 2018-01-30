@@ -4,25 +4,12 @@
  For more information visit www.rabiensoftware.com
  
  ==============================================================================*/
-
-#define PNGLCONF_H 1
-#define PNG_SEQUENTIAL_READ_SUPPORTED 1
-#define PNG_TEXT_SUPPORTED 1
-#include "juce_graphics/image_formats/jpglib/jpeglib.h"
-#include "juce_graphics/image_formats/pnglib/png.h"
-
+using namespace jpeglibNamespace;
+using namespace pnglibNamespace;
 //==============================================================================
-static void silentErrorCallback1 (j_common_ptr)
-{
-}
-
-static void silentErrorCallback2 (j_common_ptr, int)
-{
-}
-
-static void silentErrorCallback3 (j_common_ptr, char*)
-{
-}
+static void silentErrorCallback1 (j_common_ptr)        {}
+static void silentErrorCallback2 (j_common_ptr, int)   {}
+static void silentErrorCallback3 (j_common_ptr, char*) {}
 
 static void setupSilentErrorHandler (struct jpeg_error_mgr& err)
 {
@@ -36,16 +23,12 @@ static void setupSilentErrorHandler (struct jpeg_error_mgr& err)
 }
 
 //==============================================================================
-static void dummyCallback1 (j_decompress_ptr) throw()
-{
-}
-
+static void dummyCallback1 (j_decompress_ptr) throw() {}
 static void jpegSkip (j_decompress_ptr decompStruct, long num) throw()
 {
     decompStruct->src->next_input_byte += num;
-    decompStruct->src->bytes_in_buffer -= num;
+    decompStruct->src->bytes_in_buffer -= size_t (num);
 }
-
 static boolean jpegFill (j_decompress_ptr) throw()
 {
     return 0;
@@ -71,8 +54,7 @@ bool loadJPEGMetadataFromStream (OwnedArray<ImageMetadata>& metadata, InputStrea
         for (int m = 0; m < 16; m++)
             jpeg_save_markers (&jpegDecompStruct, JPEG_APP0 + m, 0xFFFF);
             
-        jpegDecompStruct.src = (jpeg_source_mgr*)(jpegDecompStruct.mem->alloc_small)
-        ((j_common_ptr)(&jpegDecompStruct), JPOOL_PERMANENT, sizeof (jpeg_source_mgr));
+        jpegDecompStruct.src = (jpeg_source_mgr*)(jpegDecompStruct.mem->alloc_small)((j_common_ptr)(&jpegDecompStruct), JPOOL_PERMANENT, sizeof (jpeg_source_mgr));
         
         jpegDecompStruct.src->init_source       = dummyCallback1;
         jpegDecompStruct.src->fill_input_buffer = jpegFill;
@@ -89,13 +71,13 @@ bool loadJPEGMetadataFromStream (OwnedArray<ImageMetadata>& metadata, InputStrea
         while (marker)
         {
             ImageMetadata* md;
-            if (marker->marker == JPEG_COM && (md = CommentMetadata::create(marker->data, marker->data_length)))
+            if (marker->marker == JPEG_COM && (md = CommentMetadata::create (marker->data, int (marker->data_length))))
                 metadata.add (md);
-            if (marker->marker == JPEG_APP0 + 1 && (md = ExifMetadata::create(marker->data, marker->data_length)))
+            if (marker->marker == JPEG_APP0 + 1 && (md = ExifMetadata::create (marker->data, int (marker->data_length))))
                 metadata.add (md);
-            if (marker->marker == JPEG_APP0 + 1 && (md = XmpMetadata::createFromJpg(marker->data, marker->data_length)))
+            if (marker->marker == JPEG_APP0 + 1 && (md = XmpMetadata::createFromJpg (marker->data, int (marker->data_length))))
                 metadata.add (md);
-            if (marker->marker == JPEG_APP0 + 13 && (md = IptcMetadata::create(marker->data, marker->data_length)))
+            if (marker->marker == JPEG_APP0 + 13 && (md = IptcMetadata::create (marker->data, int (marker->data_length))))
                 metadata.add (md);
             
             marker = marker->next;
@@ -114,7 +96,7 @@ static void pngReadCallback (png_structp pngReadStruct, png_bytep data, png_size
 }
 
 //==============================================================================
-bool juce_loadPNGMetadataFromStream (OwnedArray<ImageMetadata>& metadata, InputStream& in)
+bool loadPNGMetadataFromStream (OwnedArray<ImageMetadata>& metadata, InputStream& in)
 {
     Image* image = 0;
     
@@ -160,7 +142,7 @@ ImageMetadata::~ImageMetadata()
 {
 }
 
-bool getFromImage (InputStream& is, OwnedArray<ImageMetadata>& metadata)
+bool ImageMetadata::getFromImage (InputStream& is, OwnedArray<ImageMetadata>& metadata)
 {
     JPEGImageFormat jpeg;
     PNGImageFormat png;

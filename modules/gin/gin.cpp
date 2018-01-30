@@ -51,6 +51,7 @@ using juce::MemoryBlock;
 #include "images/imageeffects.cpp"
 #include "images/bmpimageformat.cpp"
     
+#include "metadata/libjpegpng.cpp"
 #include "metadata/commentmetadata.cpp"
 #include "metadata/exifmetadata.cpp"
 #include "metadata/imagemetadata.cpp"

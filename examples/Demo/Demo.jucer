@@ -9,6 +9,8 @@
       <GROUP id="{942D9F9F-079D-DA91-711F-43B50276712D}" name="Resources">
         <FILE id="NeK0jf" name="ballon.bmp" compile="0" resource="1" file="Resources/ballon.bmp"/>
         <FILE id="NM9OrP" name="ballon_8bit.bmp" compile="0" resource="1" file="Resources/ballon_8bit.bmp"/>
+        <FILE id="gh7IkL" name="Canon_PowerShot_S40.jpg" compile="0" resource="1"
+              file="Resources/Canon_PowerShot_S40.jpg"/>
         <FILE id="eyCXuY" name="pencils.jpeg" compile="0" resource="1" file="Resources/pencils.jpeg"/>
       </GROUP>
       <FILE id="qSbDPZ" name="MainComponent.cpp" compile="1" resource="0"
