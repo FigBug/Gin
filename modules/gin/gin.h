@@ -70,6 +70,7 @@ using juce::Component;
 #include "utilities/sharedmemory.h"
 #include "utilities/spline.h"
 #include "utilities/systemsemaphore.h"
+#include "utilities/threading.h"
 
 #include "images/bmpimageformat.h"
 #include "images/imageeffects.h"

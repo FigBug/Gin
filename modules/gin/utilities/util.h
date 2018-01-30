@@ -205,6 +205,3 @@ public:
     MemoryBlock data;
 };
 
-//==============================================================================
-// Calls a function in background
-void callInBackground (std::function<void (void)> function);

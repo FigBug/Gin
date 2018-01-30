@@ -46,6 +46,7 @@ using juce::MemoryBlock;
 #include "utilities/sharedmemory.cpp"
 #include "utilities/spline.cpp"
 #include "utilities/systemsemaphore.cpp"
+#include "utilities/threading.cpp"
 #include "utilities/util.cpp"
 
 #include "images/imageeffects.cpp"
