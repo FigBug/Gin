@@ -12,6 +12,9 @@
 void callInBackground (std::function<void (void)> function);
 
 //==============================================================================
+// Run a for loop split between each core.
+// for (int i = 0; i < 10; i++) becomes multiThreadedFor (0, 10, 1, [&] (int i) {});
+// Make sure each iteration of the loop is independant
 template <typename T>
 void multiThreadedFor (T start, T end, T interval, std::function<void (T idx)> callback)
 {
@@ -22,7 +25,7 @@ void multiThreadedFor (T start, T end, T interval, std::function<void (T idx)> c
     for (T i = start; i < end; i += interval)
         todo.add (i);
     
-    int each = std::ceil (todo.size() / float (num));
+    int each = int (std::ceil (todo.size() / float (num)));
     
     WaitableEvent wait;
     
@@ -30,7 +33,7 @@ void multiThreadedFor (T start, T end, T interval, std::function<void (T idx)> c
     
     for (int i = 0; i < num; i++)
     {
-        callInBackground ([&]
+        callInBackground ([i, &callback, &wait, &todo, &threadsRunning, &each]
                           {
                               for (int j = i * each; j < jmin (todo.size(), (i + 1) * each); j++)
                                   callback (todo[j]);

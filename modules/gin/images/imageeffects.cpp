@@ -65,7 +65,7 @@ Image applyVignette (Image src, float amountIn, float radiusIn, float fallOff)
     Ellipse<double> outE { outA, outB };
     Ellipse<double> inE  { inA,  inB  };
 
-    for (int y = 0; y < h; y++)
+    multiThreadedFor<int> (0, h, 1, [&] (int y)
     {
         uint8* ps = srcData.getLinePointer (y);
         uint8* ds = dstData.getLinePointer (y);
@@ -118,7 +118,7 @@ Image applyVignette (Image src, float amountIn, float radiusIn, float fallOff)
             ps += srcData.pixelStride;
             ds += srcData.pixelStride;
         }
-    }
+    });
     
     return dst;
 }
@@ -137,7 +137,7 @@ Image applySepia (Image src)
     Image::BitmapData srcData (src, Image::BitmapData::readOnly);
     Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
 
-    for (int y = 0; y < h; y++)
+    multiThreadedFor<int> (0, h, 1, [&] (int y)
     {
         uint8* ps = srcData.getLinePointer (y);
         uint8* ds = dstData.getLinePointer (y);
@@ -161,7 +161,7 @@ Image applySepia (Image src)
             ps += srcData.pixelStride;
             ds += srcData.pixelStride;
         }
-    }
+    });
     return dst;
 }
 
@@ -178,7 +178,7 @@ Image applyGreyScale (Image src)
     Image::BitmapData srcData (src, Image::BitmapData::readOnly);
     Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
 
-    for (int y = 0; y < h; y++)
+    multiThreadedFor<int> (0, h, 1, [&] (int y)
     {
         uint8* ps = srcData.getLinePointer (y);
         uint8* ds = dstData.getLinePointer (y);
@@ -205,7 +205,7 @@ Image applyGreyScale (Image src)
             ps += srcData.pixelStride;
             ds += srcData.pixelStride;
         }
-    }
+    });
     return dst;
 }
 
@@ -222,7 +222,7 @@ Image applySoften (Image src)
     Image::BitmapData srcData (src, Image::BitmapData::readOnly);
     Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
 
-    for (int y = 0; y < h; y++)
+    multiThreadedFor<int> (0, h, 1, [&] (int y)
     {
         for (int x = 0; x < w; x++)
         {
@@ -251,7 +251,7 @@ Image applySoften (Image src)
 
             d->setARGB (a, toByte (ro / 9), toByte (go / 9), toByte (bo / 9));
         }
-    }
+    });
     return dst;
 }
 
@@ -268,7 +268,7 @@ Image applySharpen (Image src)
     Image::BitmapData srcData (src, Image::BitmapData::readOnly);
     Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
 
-    for (int y = 0; y < h; y++)
+    multiThreadedFor<int> (0, h, 1, [&] (int y)
     {
         for (int x = 0; x < w; x++)
         {
@@ -314,7 +314,7 @@ Image applySharpen (Image src)
 
             d->setARGB (ao, toByte (ro), toByte (go), toByte (bo));
         }
-    }
+    });
     return dst;
 }
 
@@ -331,7 +331,7 @@ Image applyGamma (Image src, float gamma)
     Image::BitmapData srcData (src, Image::BitmapData::readOnly);
     Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
 
-    for (int y = 0; y < h; y++)
+    multiThreadedFor<int> (0, h, 1, [&] (int y)
     {
         uint8* ps = srcData.getLinePointer (y);
         uint8* ds = dstData.getLinePointer (y);
@@ -355,7 +355,7 @@ Image applyGamma (Image src, float gamma)
             ps += srcData.pixelStride;
             ds += srcData.pixelStride;
         }
-    }
+    });
     return dst;
 }
 
@@ -372,7 +372,7 @@ Image applyInvert (Image src)
     Image::BitmapData srcData (src, Image::BitmapData::readOnly);
     Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
 
-    for (int y = 0; y < h; y++)
+    multiThreadedFor<int> (0, h, 1, [&] (int y)
     {
         uint8* ps = srcData.getLinePointer (y);
         uint8* ds = dstData.getLinePointer (y);
@@ -396,7 +396,7 @@ Image applyInvert (Image src)
             ps += srcData.pixelStride;
             ds += srcData.pixelStride;
         }
-    }
+    });
     return dst;
 }
 
@@ -416,7 +416,7 @@ Image applyContrast (Image src, float contrast)
     Image::BitmapData srcData (src, Image::BitmapData::readOnly);
     Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
 
-    for (int y = 0; y < h; y++)
+    multiThreadedFor<int> (0, h, 1, [&] (int y)
     {
         uint8* ps = srcData.getLinePointer (y);
         uint8* ds = dstData.getLinePointer (y);
@@ -458,7 +458,7 @@ Image applyContrast (Image src, float contrast)
             ps += srcData.pixelStride;
             ds += srcData.pixelStride;
         }
-    }
+    });
     return dst;
 }
 
@@ -533,7 +533,7 @@ Image applyBrightnessContrast (Image src, float brightness, float contrast)
         }
     }
 
-    for (int y = 0; y < h; y++)
+    multiThreadedFor<int> (0, h, 1, [&] (int y)
     {
         uint8* ps = srcData.getLinePointer (y);
         uint8* ds = dstData.getLinePointer (y);
@@ -574,7 +574,7 @@ Image applyBrightnessContrast (Image src, float brightness, float contrast)
             ps += srcData.pixelStride;
             ds += srcData.pixelStride;
         }
-    }
+    });
 
     delete[] rgbTable;
     return dst;
@@ -599,7 +599,7 @@ Image applyHueSaturationLightness (Image src, float hueIn, float saturation, flo
     Image::BitmapData srcData (src, Image::BitmapData::readOnly);
     Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
 
-    for (int y = 0; y < h; y++)
+    multiThreadedFor<int> (0, h, 1, [&] (int y)
     {
         uint8* ps = srcData.getLinePointer (y);
         uint8* ds = dstData.getLinePointer (y);
@@ -645,6 +645,6 @@ Image applyHueSaturationLightness (Image src, float hueIn, float saturation, flo
             ps += srcData.pixelStride;
             ds += srcData.pixelStride;
         }
-    }
+    });
     return dst;
 }
