@@ -7,13 +7,14 @@ What's included:
 * ColourPropertyComponent - Colour picker for PropertyComponent
 * Ellipse - Determine if point is on ellipse. Find point at angle on ellipse.
 * FilePropertyComponent - File chooser for PropertyComponent
-* FileSystemWathcer - Get notified when files in directory change
+* FileSystemWatcher - Get notified when files in directory change
 * ImageEffects - Sepia, Vignette, Soften, Sharpen, Invert, Contrast, Hue, Saturation, etc
+* ImageMetadata - Load metadata from jpeg & png
 * Integrator - Calculate integrals
 * LeastSquaresRegression - Fits a curve to data points
 * LinearRegression - Fits a line to data points
 * MapViewer - Displays a map
-* OpenStreetMaps - Fetch tiles frmo various OSM servers
+* OpenStreetMaps - Fetch tiles from various OSM servers
 * SharedMemory - Share a memory block between processes
 * Spline - A smooth curve from a set of discrete points
 * PerlinNoise - Natural looking noise
