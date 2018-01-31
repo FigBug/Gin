@@ -80,13 +80,13 @@ bool loadJPEGMetadataFromStream (OwnedArray<ImageMetadata>& metadata, InputStrea
         while (marker)
         {
             ImageMetadata* md;
-            if (marker->marker == JPEG_COM && (md = CommentMetadata::create (marker->data, int (marker->data_length))))
+            if (marker->marker == JPEG_COM && (md = CommentMetadata::create (marker->data, int (marker->data_length))) != nullptr)
                 metadata.add (md);
-            if (marker->marker == JPEG_APP0 + 1 && (md = ExifMetadata::create (marker->data, int (marker->data_length))))
+            if (marker->marker == JPEG_APP0 + 1 && (md = ExifMetadata::create (marker->data, int (marker->data_length))) != nullptr)
                 metadata.add (md);
-            if (marker->marker == JPEG_APP0 + 1 && (md = XmpMetadata::createFromJpg (marker->data, int (marker->data_length))))
+            if (marker->marker == JPEG_APP0 + 1 && (md = XmpMetadata::createFromJpg (marker->data, int (marker->data_length))) != nullptr)
                 metadata.add (md);
-            if (marker->marker == JPEG_APP0 + 13 && (md = IptcMetadata::create (marker->data, int (marker->data_length))))
+            if (marker->marker == JPEG_APP0 + 13 && (md = IptcMetadata::create (marker->data, int (marker->data_length))) != nullptr)
                 metadata.add (md);
             
             marker = marker->next;
