@@ -124,7 +124,7 @@ private:
 
 //==============================================================================
 // Fisher-Yates Shuffle
-template <class T>
+template <typename T>
 void shuffleArray (Random& r, T array)
 {
     const int n = array.size();
