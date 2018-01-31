@@ -9,6 +9,49 @@
 #include "MainComponent.h"
 
 //==============================================================================
+struct FileSystemWatcherDemo : public Component,
+                               private gin::FileSystemWatcher::Listener
+{
+    FileSystemWatcherDemo()
+    {
+        setName ("File System Watcher");
+        
+        addAndMakeVisible (text);
+        
+        text.setMultiLine (true);
+        
+        File f = File::getSpecialLocation (File::userDesktopDirectory);
+        watcher.addFolder (f);
+        watcher.addListener (this);
+        
+        folderChanged (f);
+    }
+    
+    void resized() override
+    {
+        text.setBounds (getLocalBounds());
+    }
+    
+    void folderChanged (File f) override
+    {
+        Array<File> files;
+        f.findChildFiles (files, File::findFiles, false);
+        files.sort();
+
+        text.clear();
+        
+        String txt;
+        for (auto ff : files)
+            txt += ff.getFileName() + "\n";
+        
+        text.setText (txt);
+    }
+    
+    TextEditor text;
+    gin::FileSystemWatcher watcher;
+};
+
+//==============================================================================
 struct MetadataDemo : public Component
 {
     MetadataDemo()
@@ -504,6 +547,7 @@ struct SplineDemo : public Component
 MainContentComponent::MainContentComponent()
 {
     demoComponents.add (new ImageEffectsDemo());
+    demoComponents.add (new FileSystemWatcherDemo());
     demoComponents.add (new MetadataDemo());
     demoComponents.add (new BmpImageDemo());
     demoComponents.add (new MapDemo());

@@ -39,6 +39,7 @@ using namespace juce;
 using juce::Rectangle;
 using juce::MemoryBlock;
 
+#include "utilities/filesystemwatcher.cpp"
 #include "utilities/integrator.cpp"
 #include "utilities/leastsquaresregression.cpp"
 #include "utilities/linearregression.cpp"

@@ -63,6 +63,7 @@ using juce::Rectangle;
 using juce::Component;
 
 #include "utilities/util.h"
+#include "utilities/filesystemwatcher.h"
 #include "utilities/integrator.h"
 #include "utilities/leastsquaresregression.h"
 #include "utilities/linearregression.h"

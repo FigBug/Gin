@@ -35,14 +35,17 @@ public:
         if (stream)
         {
             FSEventStreamStop (stream);
-            FSEventStreamUnscheduleFromRunLoop(stream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
-            CFRelease(stream);
+            FSEventStreamUnscheduleFromRunLoop (stream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
+            FSEventStreamInvalidate (stream);
+            FSEventStreamRelease (stream);
         }
     }
 
     static void callback (ConstFSEventStreamRef streamRef, void* clientCallBackInfo, size_t numEvents, void* eventPaths, const FSEventStreamEventFlags* eventFlags,
                    const FSEventStreamEventId* eventIds)
     {
+        ignoreUnused (streamRef, numEvents, eventIds, eventPaths, eventFlags);
+        
         Impl* impl = (Impl*)clientCallBackInfo;
         impl->owner.folderChanged (impl->folder);
     }
