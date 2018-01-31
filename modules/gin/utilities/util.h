@@ -30,6 +30,19 @@ inline float calculateMedian (const float* values, int n)
 }
 
 //==============================================================================
+// Fisher-Yates Shuffle
+template <typename T>
+void shuffleArray (Random& r, T array)
+{
+    const int n = array.size();
+    for (int i = n - 1; i >= 1; i--)
+    {
+        int j = r.nextInt (i + 1);
+        array.swap (i, j);
+    }
+}
+
+//==============================================================================
 // Based on reference implementation of Perlin Noise by Ken Perlin
 // http://mrl.nyu.edu/~perlin/paper445.pdf
 template <class T>
@@ -61,7 +74,7 @@ public:
         for (int i = 0; i <= 255; i++)
             p.add (i);
 
-        shuffle (r, p);
+        shuffleArray (r, p);
 
         p.addArray (p);
     }
@@ -121,19 +134,6 @@ private:
 
     Array<int> p;
 };
-
-//==============================================================================
-// Fisher-Yates Shuffle
-template <typename T>
-void shuffleArray (Random& r, T array)
-{
-    const int n = array.size();
-    for (int i = n - 1; i >= 1; i--)
-    {
-        int j = r.nextInt (i + 1);
-        array.swap (i, j);
-    }
-}
 
 //==============================================================================
 // Keeps a rolling average of a series of numbers
