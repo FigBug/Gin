@@ -18,6 +18,8 @@ void callInBackground (std::function<void (void)> function);
 template <typename T>
 void multiThreadedFor (T start, T end, T interval, std::function<void (T idx)> callback)
 {
+    static ThreadPool pool (SystemStats::getNumCpus());
+    
     int num = SystemStats::getNumCpus();
     
     Array<T> todo;
@@ -33,13 +35,13 @@ void multiThreadedFor (T start, T end, T interval, std::function<void (T idx)> c
     
     for (int i = 0; i < num; i++)
     {
-        callInBackground ([i, &callback, &wait, &todo, &threadsRunning, &each]
-                          {
-                              for (int j = i * each; j < jmin (todo.size(), (i + 1) * each); j++)
-                                  callback (todo[j]);
-                              threadsRunning -= 1;
-                              wait.signal();
-                          });
+        pool.addJob ([i, &callback, &wait, &todo, &threadsRunning, &each]
+                     {
+                         for (int j = i * each; j < jmin (todo.size(), (i + 1) * each); j++)
+                             callback (todo[j]);
+                         threadsRunning -= 1;
+                         wait.signal();
+                     });
     }
     
     while (threadsRunning.get() > 0)
