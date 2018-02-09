@@ -116,7 +116,8 @@ IptcMetadata* IptcMetadata::create (const uint8* data, int sz)
 			while (is.getPosition() < start + size)
 			{
 				uint8 marker = (uint8) is.readByte();
-				jassert(marker == 0x1C);
+				jassert (marker == 0x1C);
+                ignoreUnused (marker);
 
 				int cat  = uint8 (is.readByte());
 				int kind = int (is.readByte());
