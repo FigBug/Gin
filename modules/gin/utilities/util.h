@@ -222,3 +222,33 @@ private:
     String name;
     double start;
 };
+
+//==============================================================================
+class LevelTracker
+{
+public:
+    LevelTracker (float decayPerSecond);
+    
+    void trackBuffer (const float* buffer, int numSamples);
+    void trackBuffer (AudioSampleBuffer& buffer);
+    
+    float getLevel();
+    bool getClip()      { return clip;  }
+    void clearClip()    { clip = false; }
+    
+protected:
+    float peakTime  {0.0f};
+    float peakLevel {-100.0f};
+    float decayRate {0.0f};
+    bool clip {false};
+};
+
+
+//==============================================================================
+template <typename T>
+inline bool almostEqual (T a, T b, T precision = T (0.00001))
+{
+    return std::abs (a - b) < precision;
+}
+
+int versionStringToInt (const String& versionString);
