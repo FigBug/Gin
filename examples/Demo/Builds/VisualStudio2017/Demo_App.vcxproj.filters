@@ -469,6 +469,9 @@
     <ClCompile Include="..\..\..\..\modules\gin\utilities\util.cpp">
       <Filter>JUCE Modules\gin\utilities</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin\utilities\valuetreeobject.cpp">
+      <Filter>JUCE Modules\gin\utilities</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin\gin.cpp">
       <Filter>JUCE Modules\gin</Filter>
     </ClCompile>
@@ -2302,6 +2305,9 @@
       <Filter>JUCE Modules\gin\utilities</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\util.h">
+      <Filter>JUCE Modules\gin\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin\utilities\valuetreeobject.h">
       <Filter>JUCE Modules\gin\utilities</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\gin\gin.h">

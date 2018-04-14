@@ -231,6 +231,9 @@
     <ClCompile Include="..\..\..\..\modules\gin\utilities\util.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin\utilities\valuetreeobject.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin\gin.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1872,6 +1875,7 @@
     <ClInclude Include="..\..\..\..\modules\gin\utilities\systemsemaphore.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\threading.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\util.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin\utilities\valuetreeobject.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\gin.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>

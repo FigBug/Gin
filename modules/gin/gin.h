@@ -74,7 +74,8 @@ using juce::Component;
 #include "utilities/spline.h"
 #include "utilities/systemsemaphore.h"
 #include "utilities/threading.h"
-
+#include "utilities/valuetreeobject.h"
+    
 #include "images/bmpimageformat.h"
 #include "images/imageeffects.h"
 
@@ -88,5 +89,13 @@ using juce::Component;
 
 #include "components/mapviewer.h"
 #include "components/propertycomponents.h"
+#include "components/plugincomponents.h"
+#include "components/pluginlookandfeel.h"
+#include "components/singlelinetexteditor.h"
+
+#include "plugin/processor.h"
+#include "plugin/plugineditor.h"
+#include "plugin/program.h"
+#include "plugin/parameter.h"
 
 }
