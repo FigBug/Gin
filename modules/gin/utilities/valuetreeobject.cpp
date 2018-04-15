@@ -14,7 +14,7 @@ ValueTreeObject::ValueTreeObject (const ValueTree& state_)
     {
         if (auto* newObj = factory (c.getType(), c))
         {
-            newObj->parent = nullptr;
+            newObj->parent = this;
             children.add (newObj);
         }
         else
@@ -37,7 +37,7 @@ void ValueTreeObject::valueTreeChildAdded (ValueTree& p, ValueTree& c)
     {
         if (auto* newObj = factory (c.getType(), c))
         {
-            newObj->parent = nullptr;
+            newObj->parent = this;
             children.insert (p.indexOf (c), newObj);
         }
         else
