@@ -21,6 +21,21 @@ public:
     const OwnedArray<ValueTreeObject>& getChildren() const    { return children; }
     
     template <class TargetClass>
+    TargetClass* findParentOfType() const
+    {
+        auto* p = parent;
+        while (p != nullptr)
+        {
+            if (auto* res = dynamic_cast<TargetClass*> (parent))
+                return res;
+            
+            p = p->parent;
+        }
+        
+        return nullptr;
+    }
+    
+    template <class TargetClass>
     Array<TargetClass*> findChildrenOfClass() const
     {
         Array<TargetClass*> res;
@@ -73,6 +88,7 @@ private:
 
 private:
     ValueTree state;
+    ValueTreeObject* parent = nullptr;
     
     OwnedArray<ValueTreeObject> children;
 };

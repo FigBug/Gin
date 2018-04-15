@@ -13,9 +13,14 @@ ValueTreeObject::ValueTreeObject (const ValueTree& state_)
     for (auto c : state)
     {
         if (auto* newObj = factory (c.getType(), c))
+        {
+            newObj->parent = nullptr;
             children.add (newObj);
+        }
         else
+        {
             jassertfalse; // type missing in factory
+        }
     }
     
     state.addListener (this);
@@ -31,9 +36,14 @@ void ValueTreeObject::valueTreeChildAdded (ValueTree& p, ValueTree& c)
     if (p == state)
     {
         if (auto* newObj = factory (c.getType(), c))
+        {
+            newObj->parent = nullptr;
             children.insert (p.indexOf (c), newObj);
+        }
         else
+        {
             jassertfalse; // type missing in factory
+        }
     }
 }
 
