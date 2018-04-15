@@ -21,6 +21,8 @@ GinProcessor::GinProcessor()
     loadAllPrograms();
     
     state = ValueTree (Identifier ("state"));
+    
+    stateUpdated();
 }
 
 GinProcessor::~GinProcessor()
@@ -254,6 +256,8 @@ File GinProcessor::getSettingsFile()
 
 void GinProcessor::getStateInformation (MemoryBlock& destData)
 {
+    updateState();
+    
     ScopedPointer<XmlElement> rootE (new XmlElement ("state"));
     
     if (state.isValid())
@@ -311,5 +315,6 @@ void GinProcessor::setStateInformation (const void* data, int sizeInBytes)
             paramE = paramE->getNextElementWithTagName ("param");
         }
     }
+    stateUpdated();
 }
 

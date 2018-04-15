@@ -13,7 +13,9 @@ class ValueTreeObject : private ValueTree::Listener
 public:
     ValueTreeObject (const ValueTree& state);
     
-    static std::function<ValueTreeObject* (const Identifier&)> factory;
+    ValueTree& getState() { return state; }
+    
+    static std::function<ValueTreeObject* (const Identifier&, const ValueTree&)> factory;
     
 public:
     const OwnedArray<ValueTreeObject>& getChildren() const    { return children; }

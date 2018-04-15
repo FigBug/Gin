@@ -41,6 +41,8 @@ using namespace juce;
 using juce::Rectangle;
 using juce::MemoryBlock;
 
+#include "dsp/audioutil.cpp"
+    
 #include "utilities/filesystemwatcher.cpp"
 #include "utilities/integrator.cpp"
 #include "utilities/leastsquaresregression.cpp"

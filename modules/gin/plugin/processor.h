@@ -61,6 +61,10 @@ public:
     
     ValueTree state;
     
+protected:
+    virtual void stateUpdated() {};
+    virtual void updateState()  {};
+    
 private:
     void updateParams();
     

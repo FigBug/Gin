@@ -63,6 +63,8 @@ namespace gin
 using namespace juce;
 using juce::Rectangle;
 using juce::Component;
+    
+#include "dsp/audioutil.h"
 
 #include "utilities/util.h"
 #include "utilities/filesystemwatcher.h"
