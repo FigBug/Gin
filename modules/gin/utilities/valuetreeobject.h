@@ -7,6 +7,19 @@
 
 #pragma once
 
+class ValueTreeAllListener : public ValueTree::Listener
+{
+public:
+    ~ValueTreeAllListener() {}
+    
+    void valueTreePropertyChanged (ValueTree& treeWhosePropertyHasChanged, const Identifier& property) override {}
+    void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded) override {}
+    void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved, int indexFromWhichChildWasRemoved) override {}
+    void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved, int oldIndex, int newIndex) override {}
+    void valueTreeParentChanged (ValueTree& treeWhoseParentHasChanged) override {}
+    void valueTreeRedirected (ValueTree& treeWhichHasBeenChanged) override {}
+};
+
 /* Mirrors a ValueTree is Objects */
 class ValueTreeObject : private ValueTree::Listener
 {

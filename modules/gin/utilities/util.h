@@ -243,7 +243,6 @@ protected:
     bool clip {false};
 };
 
-
 //==============================================================================
 template <typename T>
 inline bool almostEqual (T a, T b, T precision = T (0.00001))
