@@ -134,3 +134,7 @@ inline double getMidiNoteInHertz (const double noteNumber, const double frequenc
 {
     return frequencyOfA * pow (2.0, (noteNumber - 69) / 12.0);
 }
+
+//==============================================================================
+void applyGain (AudioSampleBuffer& buffer, LinearSmoothedValue<float>& gain);
+
