@@ -136,6 +136,11 @@ int GinProcessor::getCurrentProgram()
 
 void GinProcessor::setCurrentProgram (int index)
 {
+    if (index == getCurrentProgram())
+        return;
+    if (lastStateLoad - Time::getCurrentTime() < RelativeTime::seconds (2))
+        return;
+
     if (index >= 0 && index < programs.size())
     {
         programs[index]->loadProcessor (this);
@@ -316,5 +321,7 @@ void GinProcessor::setStateInformation (const void* data, int sizeInBytes)
         }
     }
     stateUpdated();
+
+    lastStateLoad = Time::getCurrentTime();
 }
 

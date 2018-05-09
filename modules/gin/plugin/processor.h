@@ -72,6 +72,8 @@ private:
     
     int currentProgram {0};
     OwnedArray<GinProgram> programs;
+
+    Time lastStateLoad;
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (GinProcessor)
