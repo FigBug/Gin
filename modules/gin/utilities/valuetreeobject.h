@@ -12,12 +12,12 @@ class ValueTreeAllListener : public ValueTree::Listener
 public:
     ~ValueTreeAllListener() {}
     
-    void valueTreePropertyChanged (ValueTree& treeWhosePropertyHasChanged, const Identifier& property) override {}
-    void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded) override {}
-    void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved, int indexFromWhichChildWasRemoved) override {}
-    void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved, int oldIndex, int newIndex) override {}
-    void valueTreeParentChanged (ValueTree& treeWhoseParentHasChanged) override {}
-    void valueTreeRedirected (ValueTree& treeWhichHasBeenChanged) override {}
+    void valueTreePropertyChanged (ValueTree&, const Identifier&) override {}
+    void valueTreeChildAdded (ValueTree&, ValueTree&) override {}
+    void valueTreeChildRemoved (ValueTree&, ValueTree&, int) override {}
+    void valueTreeChildOrderChanged (ValueTree&, int, int) override {}
+    void valueTreeParentChanged (ValueTree&) override {}
+    void valueTreeRedirected (ValueTree&) override {}
 };
 
 /* Mirrors a ValueTree is Objects */
