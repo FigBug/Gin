@@ -1,4 +1,5 @@
 #include "plugineditor.h"
+#include <time.h>
 
 //==============================================================================
 UpdateChecker::UpdateChecker (GinAudioProcessorEditor& editor_)
