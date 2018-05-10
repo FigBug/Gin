@@ -259,7 +259,7 @@ File GinProcessor::getSettingsFile()
 }
 //==============================================================================
 
-void GinProcessor::getStateInformation (MemoryBlock& destData)
+void GinProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
     updateState();
     

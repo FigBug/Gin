@@ -141,7 +141,7 @@ void OpenStreetMaps::startRequest()
 
             URL url = URL (String (buffer));
 
-            requests[i]->reply = new AsyncDownload (buffer, [this] (AsyncDownload* ad,MemoryBlock m, bool ok)
+            requests[i]->reply = new AsyncDownload (buffer, [this] (AsyncDownload* ad, juce::MemoryBlock m, bool ok)
                                                     {
                                                         finished (ad, m, ok);
                                                     });
@@ -151,7 +151,7 @@ void OpenStreetMaps::startRequest()
     }
 }
 
-void OpenStreetMaps::finished (AsyncDownload* reply, MemoryBlock data, bool success)
+void OpenStreetMaps::finished (AsyncDownload* reply, juce::MemoryBlock data, bool success)
 {
     for (int i = 0; i < requests.size(); i++)
     {

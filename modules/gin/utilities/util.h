@@ -176,7 +176,7 @@ class AsyncDownload : private Thread,
                       private AsyncUpdater
 {
 public:
-    AsyncDownload (String url_, std::function<void (AsyncDownload*,MemoryBlock, bool)> cb_)
+    AsyncDownload (String url_, std::function<void (AsyncDownload*, juce::MemoryBlock, bool)> cb_)
       : Thread ("AsyncDownload"), url (url_), cb (cb_)
     {
         startThread();
@@ -200,9 +200,9 @@ public:
     }
 
     String url;
-    std::function<void (AsyncDownload*, MemoryBlock, bool)> cb;
+    std::function<void (AsyncDownload*, juce::MemoryBlock, bool)> cb;
     bool ok = false;
-    MemoryBlock data;
+    juce::MemoryBlock data;
 };
 
 //==============================================================================

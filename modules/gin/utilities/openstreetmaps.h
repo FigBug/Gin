@@ -56,7 +56,7 @@ public:
     void removeListener (Listener* listener)    { listeners.remove (listener);  }
 
 private:
-    void finished (AsyncDownload* task, MemoryBlock data, bool success);
+    void finished (AsyncDownload* task, juce::MemoryBlock data, bool success);
 
     void startRequest();
     int getNumServers();
