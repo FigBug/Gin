@@ -67,7 +67,7 @@ void GinProgram::saveToDir (File f)
     }
     
     File xmlFile = f.getChildFile (File::createLegalFileName (name) + ".xml");
-    rootE->writeToFile (xmlFile, String::empty);
+    rootE->writeToFile (xmlFile, "");
 }
 
 void GinProgram::deleteFromDir (File f)

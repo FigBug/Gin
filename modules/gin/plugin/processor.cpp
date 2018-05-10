@@ -286,7 +286,7 @@ void GinProcessor::getStateInformation (juce::MemoryBlock& destData)
     }
     
     MemoryOutputStream os (destData, true);
-    rootE->writeToStream (os, String::empty);
+    rootE->writeToStream (os, "");
 }
 
 void GinProcessor::setStateInformation (const void* data, int sizeInBytes)
