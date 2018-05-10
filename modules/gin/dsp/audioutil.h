@@ -138,3 +138,5 @@ inline double getMidiNoteInHertz (const double noteNumber, const double frequenc
 //==============================================================================
 void applyGain (AudioSampleBuffer& buffer, LinearSmoothedValue<float>& gain);
 
+void applyGain (AudioSampleBuffer& buffer, int channel, LinearSmoothedValue<float>& gain);
+

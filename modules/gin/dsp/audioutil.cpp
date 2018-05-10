@@ -31,3 +31,17 @@ void applyGain (AudioSampleBuffer& buffer, LinearSmoothedValue<float>& gain)
         buffer.applyGain (gain.getTargetValue());
     }
 }
+
+void applyGain (AudioSampleBuffer& buffer, int channel, LinearSmoothedValue<float>& gain)
+{
+    if (gain.isSmoothing())
+    {
+        if (float* w = buffer.getWritePointer (channel))
+            for (int s = 0; s < buffer.getNumSamples(); s++)
+                w[s] *= gain.getNextValue();
+    }
+    else
+    {
+        buffer.applyGain (channel, 0, buffer.getNumSamples(), gain.getTargetValue());
+    }
+}
