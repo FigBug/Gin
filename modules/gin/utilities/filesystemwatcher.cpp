@@ -72,17 +72,18 @@ public:
     {
         fd = inotify_init();
 
-        wd = inotify_add_watch (fd, folder.getFullPathName().toRawUTF8(), IN_ALL_EVENTS);
+        wd = inotify_add_watch (fd, folder.getFullPathName().toRawUTF8(), IN_ATTRIB | IN_CREATE | IN_DELETE | IN_DELETE_SELF | IN_MODIFY | IN_MOVE_SELF | IN_MOVED_TO | IN_MOVED_FROM);
 
         startThread();
     }
 
     ~Impl()
     {
+        signalThreadShouldExit();
         inotify_rm_watch (fd, wd);
         close (fd);
 
-        stopThread (1000);
+        waitForThreadToExit (1000);
     }
 
     void run() override
@@ -93,7 +94,7 @@ public:
         {
             int numRead = read (fd, buf, BUF_LEN);
 
-            if (numRead == -1 || threadShouldExit())
+            if (numRead <= 0 || threadShouldExit())
                 break;
 
             triggerAsyncUpdate();
@@ -195,7 +196,7 @@ void FileSystemWatcher::addFolder (const File& folder)
 
 void FileSystemWatcher::removeFolder (const File& folder)
 {
-    for (int i = 0; --i >= 0;)
+    for (int i = watched.size(); --i >= 0;)
     {
         if (watched[i]->folder == folder)
         {
