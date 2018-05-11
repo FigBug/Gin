@@ -66,6 +66,7 @@ using juce::Component;
     
 #include "dsp/audioutil.h"
 
+#include "utilities/equationparser.h"
 #include "utilities/util.h"
 #include "utilities/filesystemwatcher.h"
 #include "utilities/integrator.h"

@@ -36,6 +36,7 @@
 #include "gin.h"
 
 //==============================================================================
+
 namespace gin
 {
 using namespace juce;
@@ -43,7 +44,7 @@ using juce::Rectangle;
 using juce::MemoryBlock;
 
 #include "dsp/audioutil.cpp"
-    
+
 #include "utilities/filesystemwatcher.cpp"
 #include "utilities/integrator.cpp"
 #include "utilities/leastsquaresregression.cpp"
@@ -78,3 +79,12 @@ using juce::MemoryBlock;
 #include "plugin/parameter.cpp"
 
 }
+
+#include "utilities/equationparser.cpp"
+
+#include "3rdparty/muParser/muParser.cpp"
+#include "3rdparty/muParser/muParserBase.cpp"
+#include "3rdparty/muParser/muParserBytecode.cpp"
+#include "3rdparty/muParser/muParserCallback.cpp"
+#include "3rdparty/muParser/muParserError.cpp"
+#include "3rdparty/muParser/muParserTokenReader.cpp"
