@@ -16,5 +16,6 @@ public:
     void deleteFromDir (File f);
     
     String name;
+    String valueTree;
     Array<Parameter::ParamState> states;
 };

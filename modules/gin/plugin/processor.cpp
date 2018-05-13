@@ -138,7 +138,7 @@ void GinProcessor::setCurrentProgram (int index)
 {
     if (index == getCurrentProgram())
         return;
-    if (lastStateLoad - Time::getCurrentTime() < RelativeTime::seconds (2))
+    if ((Time::getCurrentTime() - lastStateLoad) < RelativeTime::seconds (2))
         return;
 
     if (index >= 0 && index < programs.size())
@@ -148,6 +148,7 @@ void GinProcessor::setCurrentProgram (int index)
         
         updateHostDisplay();
         sendChangeMessage();
+        stateUpdated();
     }
 }
 
@@ -193,6 +194,8 @@ void GinProcessor::loadAllPrograms()
 
 void GinProcessor::saveProgram (String name)
 {
+    updateState();
+    
     for (int i = programs.size(); --i >= 0;)
         if (programs[i]->name == name)
             deleteProgram (i);
@@ -295,7 +298,7 @@ void GinProcessor::setStateInformation (const void* data, int sizeInBytes)
     ScopedPointer<XmlElement> rootE (doc.getDocumentElement());
     if (rootE)
     {
-        if (rootE->hasAttribute("valueTree"))
+        if (rootE->hasAttribute ("valueTree"))
         {
             String xml = rootE->getStringAttribute ("valueTree");
             XmlDocument treeDoc (xml);
