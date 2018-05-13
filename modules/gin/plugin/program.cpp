@@ -6,6 +6,13 @@ void GinProgram::loadProcessor (GinProcessor* p)
     for (auto* pp : p->getPluginParameters())
         pp->setUserValueNotifingHost (pp->getUserDefaultValue());
     
+    if (valueTree.isNotEmpty())
+    {
+        XmlDocument treeDoc (valueTree);
+        if (ScopedPointer<XmlElement> vtE = treeDoc.getDocumentElement())
+            p->state = ValueTree::fromXml (*vtE.get());
+    }
+    
     for (Parameter::ParamState state : states)
     {
         if (Parameter* pp = p->getParameter (state.uid))
@@ -17,6 +24,9 @@ void GinProgram::loadProcessor (GinProcessor* p)
 void GinProgram::saveProcessor (GinProcessor* p)
 {
     states.clear();
+    
+    if (p->state.isValid())
+        valueTree = p->state.toXmlString();
     
     Array<Parameter*> params = p->getPluginParameters();
     for (Parameter* param : params)
@@ -33,6 +43,7 @@ void GinProgram::loadFromFile (File f)
         states.clear();
         
         name = rootE->getStringAttribute ("name");
+        valueTree = rootE->getStringAttribute ("valueTree");
         
         XmlElement* paramE = rootE->getChildByName ("param");
         while (paramE)
@@ -55,6 +66,7 @@ void GinProgram::saveToDir (File f)
     ScopedPointer<XmlElement> rootE (new XmlElement ("state"));
     
     rootE->setAttribute("name", name);
+    rootE->setAttribute ("valueTree", valueTree);
     
     for (Parameter::ParamState state : states)
     {
