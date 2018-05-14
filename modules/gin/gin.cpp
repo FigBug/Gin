@@ -13,6 +13,7 @@
 
 #ifdef  _WIN32
 #include <Windows.h>
+#include <ctime>
 #endif
 #ifdef __linux__
 #include <sys/inotify.h>
@@ -28,7 +29,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <semaphore.h>
-#include <time.h>
+#include <ctime>
 #endif
 
 #include <cfloat>
