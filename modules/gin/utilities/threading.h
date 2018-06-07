@@ -13,7 +13,7 @@ void callInBackground (std::function<void (void)> function);
 
 //==============================================================================
 // Run a for loop split between each core.
-// for (int i = 0; i < 10; i++) becomes multiThreadedFor (0, 10, 1, [&] (int i) {});
+// for (int i = 0; i < 10; i++) becomes multiThreadedFor<int> (0, 10, 1, [&] (int i) {});
 // Make sure each iteration of the loop is independant
 template <typename T>
 void multiThreadedFor (T start, T end, T interval, std::function<void (T idx)> callback)
