@@ -63,7 +63,8 @@ namespace gin
 using namespace juce;
 using juce::Rectangle;
 using juce::Component;
-    
+
+#include "dsp/adsr.h"
 #include "dsp/audioutil.h"
 
 #include "utilities/equationparser.h"
