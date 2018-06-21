@@ -22,6 +22,7 @@ public:
     Parameter* getParameter (const String& uid);
     float parameterValue (const String& uid);
     int parameterIntValue (const String& uid);
+    bool parameterBoolValue (const String& uid);
     Array<Parameter*> getPluginParameters();
     
     File getProgramDirectory();
