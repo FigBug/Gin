@@ -57,6 +57,28 @@ void EquationParser::addVariable (juce::String name, double* value)
     {
     }
 }
+    
+void EquationParser::addFunction (juce::String name, double (*fun)(double))
+{
+    try
+    {
+        impl->parser.DefineFun (name.toRawUTF8(), fun);
+    }
+    catch (...)
+    {
+    }
+}
+    
+void EquationParser::addFunction (juce::String name, double (*fun)(double, double))
+{
+    try
+    {
+        impl->parser.DefineFun (name.toRawUTF8(), fun);
+    }
+    catch (...)
+    {
+    }
+}
 
 double EquationParser::evaluate()
 {
