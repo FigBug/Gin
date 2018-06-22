@@ -140,3 +140,55 @@ void applyGain (AudioSampleBuffer& buffer, LinearSmoothedValue<float>& gain);
 
 void applyGain (AudioSampleBuffer& buffer, int channel, LinearSmoothedValue<float>& gain);
 
+//==============================================================================
+template <class T>
+class ValueSmoother
+{
+public:
+    void reset (double sr, double time)
+    {
+        delta = 1.0 / (sr * time);
+    }
+    
+    void updateValue()
+    {
+        if (currentValue < targetValue)
+            currentValue = jmin (targetValue, currentValue + delta);
+        else if (currentValue > targetValue)
+            currentValue = jmax (targetValue, currentValue - delta);
+    }
+    
+    T getNextValue()
+    {
+        if (currentValue < targetValue)
+            currentValue = jmin (targetValue, currentValue + delta);
+        else if (currentValue > targetValue)
+            currentValue = jmax (targetValue, currentValue - delta);
+        return currentValue;
+    }
+    
+    T* getValuePtr()
+    {
+        return &currentValue;
+    }
+    
+    void setValue (T v)
+    {
+        targetValue = v;
+    }
+    
+    void snapToValue()
+    {
+        currentValue = targetValue;
+    }
+    
+    void setValueUnsmoothed (T v)
+    {
+        targetValue = v;
+        currentValue = v;
+    }
+    
+    T delta = 0;
+    T targetValue = 0;
+    T currentValue = 0;
+};

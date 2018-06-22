@@ -58,6 +58,17 @@ void EquationParser::addVariable (juce::String name, double* value)
     }
 }
     
+void EquationParser::addConstant (juce::String name, double value)
+{
+    try
+    {
+        impl->parser.DefineConst (name.toRawUTF8(), value);
+    }
+    catch (...)
+    {
+    }
+}
+    
 void EquationParser::addFunction (juce::String name, double (*fun)())
 {
     try

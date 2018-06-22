@@ -17,6 +17,8 @@ public:
     void setEquation (juce::String equation);
     void addVariable (juce::String name, double* value);
     
+    void addConstant (juce::String name, double value);
+    
     void addFunction (juce::String name, double (*fun)());
     void addFunction (juce::String name, double (*fun)(double));
     void addFunction (juce::String name, double (*fun)(double, double));
