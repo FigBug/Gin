@@ -16,7 +16,7 @@ inline Value findValue (ValueTree& state, Identifier name, var value)
     if (state.hasProperty (name))
         return state.getPropertyAsValue (name, nullptr);
     
-    state.setProperty(name, value, nullptr);
+    state.setProperty (name, value, nullptr);
     return state.getPropertyAsValue (name, nullptr);
 }
 

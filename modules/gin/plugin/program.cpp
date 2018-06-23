@@ -6,12 +6,19 @@ void GinProgram::loadProcessor (GinProcessor* p)
     for (auto* pp : p->getPluginParameters())
         pp->setUserValueNotifingHost (pp->getUserDefaultValue());
     
+    int w = p->state.getProperty ("width", -1);
+    int h = p->state.getProperty ("height", -1);
+    
+    p->state = ValueTree (Identifier ("state"));
     if (valueTree.isNotEmpty())
     {
         XmlDocument treeDoc (valueTree);
         if (ScopedPointer<XmlElement> vtE = treeDoc.getDocumentElement())
             p->state = ValueTree::fromXml (*vtE.get());
     }
+    
+    if (w != -1) p->state.setProperty ("width", w);
+    if (h != -1) p->state.setProperty ("height", h);
     
     for (Parameter::ParamState state : states)
     {
