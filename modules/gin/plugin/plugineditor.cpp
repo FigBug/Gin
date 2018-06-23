@@ -42,7 +42,8 @@ void UpdateChecker::timerCallback()
 void UpdateChecker::run()
 {
    #ifdef JucePlugin_Name
-    XmlDocument doc (URL ("https://socalabs.com/version.xml").readEntireTextStream());
+    URL url = URL ("https://socalabs.com/version.xml").withParameter ("plugin", JucePlugin_Name);
+    XmlDocument doc (url.readEntireTextStream());
     if (ScopedPointer<XmlElement> root = doc.getDocumentElement())
     {
         if (ScopedPointer<PropertiesFile> props = editor.slProc.getSettings())
