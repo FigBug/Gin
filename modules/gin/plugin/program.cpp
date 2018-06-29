@@ -17,8 +17,8 @@ void GinProgram::loadProcessor (GinProcessor* p)
             p->state = ValueTree::fromXml (*vtE.get());
     }
     
-    if (w != -1) p->state.setProperty ("width", w);
-    if (h != -1) p->state.setProperty ("height", h);
+    if (w != -1) p->state.setProperty ("width", w, nullptr);
+    if (h != -1) p->state.setProperty ("height", h, nullptr);
     
     for (Parameter::ParamState state : states)
     {
