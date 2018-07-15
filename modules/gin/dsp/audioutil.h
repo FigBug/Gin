@@ -147,7 +147,7 @@ class ValueSmoother
 public:
     void reset (double sr, double time)
     {
-        delta = 1.0 / (sr * time);
+        delta = 1.0f / float (sr * time);
     }
     
     T getCurrentValue()

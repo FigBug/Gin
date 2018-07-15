@@ -13,17 +13,17 @@
 
 void ADSR::setAttack (float seconds)
 {
-    attackDelta = 1.0 / (seconds * sampleRate);
+    attackDelta = 1.0f / float (seconds * sampleRate);
 }
 
 void ADSR::setDecay (float seconds)
 {
-    decayDelta = 1.0 / (seconds * sampleRate);
+    decayDelta = 1.0f / float (seconds * sampleRate);
 }
 
 void ADSR::setRelease (float seconds)
 {
-    releaseDelta = 1.0 / (seconds * sampleRate);
+    releaseDelta = 1.0f / float (seconds * sampleRate);
 }
 
 void ADSR::setSustainLevel (float level)
@@ -38,7 +38,7 @@ void ADSR::process (AudioSampleBuffer& buffer)
 
 void ADSR::process (AudioSampleBuffer& buffer, int startSample, int numSamples)
 {
-    float* d = buffer.getWritePointer (0);
+    float* d = buffer.getWritePointer (0, startSample);
     for (int i = 0; i < numSamples; i++)
     {
         switch (state)
