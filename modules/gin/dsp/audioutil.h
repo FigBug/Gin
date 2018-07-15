@@ -150,6 +150,18 @@ public:
         delta = 1.0 / (sr * time);
     }
     
+    T getCurrentValue()
+    {
+        return currentValue;
+    }
+    
+    void process (int n)
+    {
+        if (targetValue != currentValue)
+            for (int i = 0; i < n; i++)
+                updateValue();
+    }
+    
     void updateValue()
     {
         if (currentValue < targetValue)
@@ -188,6 +200,7 @@ public:
         currentValue = v;
     }
     
+private:
     T delta = 0;
     T targetValue = 0;
     T currentValue = 0;
