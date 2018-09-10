@@ -41,6 +41,11 @@
 #pragma warning(disable: 4310)
 #endif
 
+#if __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wconversion"
+#endif
+
 namespace mu
 {
 
@@ -962,4 +967,8 @@ namespace mu
 
 #ifdef _WIN32
 #pragma warning(pop)
+#endif
+
+#if __clang__
+#pragma clang diagnostic pop
 #endif

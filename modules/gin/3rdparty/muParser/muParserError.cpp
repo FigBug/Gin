@@ -24,6 +24,10 @@
 */
 #include "muParserError.h"
 
+#if __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wconversion"
+#endif
 
 namespace mu
 {
@@ -335,3 +339,7 @@ namespace mu
     return m_iErrc;
   }
 } // namespace mu
+
+#if __clang__
+#pragma clang diagnostic pop
+#endif

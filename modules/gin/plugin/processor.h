@@ -18,6 +18,8 @@ public:
     PropertiesFile* getSettings();
         
     //==============================================================================
+    using AudioProcessor::getParameter;
+    
     void addPluginParameter (Parameter* parameter);
     Parameter* getParameter (const String& uid);
     float parameterValue (const String& uid);
