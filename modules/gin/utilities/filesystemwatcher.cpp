@@ -181,14 +181,14 @@ public:
     void run() override
     {
         const int heapSize = 16 * 1024;
-        HeapBlock<uint8> buffer (heapSize);
-        memset (buffer.get(), 0, heapSize);
+        HeapBlock<uint8> buffer (heapSize);        
 
         DWORD bytesOut = 0;
 
         while (! threadShouldExit())
         {
-            BOOL success = ReadDirectoryChangesW (folderHandle, buffer.get(), heapSize, false,           
+            memset (buffer.get(), 0, heapSize);
+            BOOL success = ReadDirectoryChangesW (folderHandle, buffer.get(), heapSize, true,           
                 FILE_NOTIFY_CHANGE_FILE_NAME | FILE_NOTIFY_CHANGE_DIR_NAME | FILE_NOTIFY_CHANGE_SIZE | FILE_NOTIFY_CHANGE_LAST_WRITE | FILE_NOTIFY_CHANGE_CREATION,
                 &bytesOut, nullptr, nullptr);
 

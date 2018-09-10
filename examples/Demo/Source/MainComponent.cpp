@@ -574,7 +574,7 @@ MainContentComponent::MainContentComponent()
     demoComponents.add (new MetadataDemo());
     demoComponents.add (new BmpImageDemo());
     demoComponents.add (new MapDemo());
-    demoComponents.add (new SemaphoreDemo());
+    //demoComponents.add (new SemaphoreDemo());
     demoComponents.add (new SharedMemoryDemo());
     demoComponents.add (new LeastSquaresDemo());
     demoComponents.add (new LinearDemo());
