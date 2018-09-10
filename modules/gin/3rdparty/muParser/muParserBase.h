@@ -41,6 +41,10 @@
 #include "muParserBytecode.h"
 #include "muParserError.h"
 
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable: 4310)
+#endif
 
 namespace mu
 {
@@ -312,5 +316,9 @@ private:
 };
 
 } // namespace mu
+
+#ifdef _WIN32
+#pragma warning(pop) 
+#endif
 
 #endif

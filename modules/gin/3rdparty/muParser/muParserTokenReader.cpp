@@ -36,6 +36,10 @@
     \brief This file contains the parser token reader implementation.
 */
 
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable: 4310)
+#endif
 
 namespace mu
 {
@@ -956,3 +960,6 @@ namespace mu
   }
 } // namespace mu
 
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
