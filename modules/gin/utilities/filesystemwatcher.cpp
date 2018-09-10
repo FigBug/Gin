@@ -276,6 +276,9 @@ FileSystemWatcher::~FileSystemWatcher()
 
 void FileSystemWatcher::addFolder (const File& folder)
 {
+    // You can only listen to folders that exist
+    jassert (folder.isDirectory());
+    
     watched.add (new Impl (*this, folder));
 }
 

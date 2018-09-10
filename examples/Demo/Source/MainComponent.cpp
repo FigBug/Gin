@@ -65,7 +65,7 @@ struct FileSystemWatcherDemo : public Component,
         };
 
         events.moveCaretToEnd (false);
-        events.insertTextAtCaret (f.getFileName() + ": " + eventToString (fsEvent) + "\n");
+        events.insertTextAtCaret (f.getFullPathName() + ": " + eventToString (fsEvent) + "\n");
 
         events.scrollEditorToPositionCaret (0, events.getHeight() - 20);
     }
