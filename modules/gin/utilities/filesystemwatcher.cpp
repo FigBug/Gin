@@ -238,7 +238,8 @@ public:
                         break;
                 }
 
-                triggerAsyncUpdate();
+                if (events.size() > 0)
+                    triggerAsyncUpdate();
             }
         }
     }
