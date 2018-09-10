@@ -21,7 +21,8 @@ public:
         context.release         = nil;
         context.copyDescription = nil;
 
-        stream = FSEventStreamCreate (kCFAllocatorDefault, callback, &context, (CFArrayRef)paths, kFSEventStreamEventIdSinceNow, 1.0, kFSEventStreamCreateFlagUseCFTypes);
+        stream = FSEventStreamCreate (kCFAllocatorDefault, callback, &context, (CFArrayRef)paths, kFSEventStreamEventIdSinceNow, 0.05,
+                                      kFSEventStreamCreateFlagNoDefer | kFSEventStreamCreateFlagFileEvents);
         if (stream)
         {
             FSEventStreamScheduleWithRunLoop (stream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
@@ -41,17 +42,35 @@ public:
         }
     }
 
-    static void callback (ConstFSEventStreamRef streamRef, void* clientCallBackInfo, size_t numEvents, void* eventPaths, const FSEventStreamEventFlags* eventFlags,
-                   const FSEventStreamEventId* eventIds)
+    static void callback (ConstFSEventStreamRef streamRef, void* clientCallBackInfo, size_t numEvents, void* eventPaths,
+                          const FSEventStreamEventFlags* eventFlags, const FSEventStreamEventId* eventIds)
     {
         ignoreUnused (streamRef, numEvents, eventIds, eventPaths, eventFlags);
         
         Impl* impl = (Impl*)clientCallBackInfo;
         impl->owner.folderChanged (impl->folder);
+        
+        char** files = (char**)eventPaths;
+        
+        for (int i = 0; i < int (numEvents); i++)
+        {
+            char* file = files[i];
+            FSEventStreamEventFlags evt = eventFlags[i];
+            
+            File path = String::fromUTF8 (file);
+            if (evt & kFSEventStreamEventFlagItemModified)
+                impl->owner.fileChanged (path, FileSystemEvent::fileUpdated);
+            else if (evt & kFSEventStreamEventFlagItemRemoved)
+                impl->owner.fileChanged (path, FileSystemEvent::fileDeleted);
+            else if (evt & kFSEventStreamEventFlagItemRenamed)
+                impl->owner.fileChanged (path, path.existsAsFile() ? FileSystemEvent::fileCreated : FileSystemEvent::fileDeleted);
+            else if (evt & kFSEventStreamEventFlagItemCreated)
+                impl->owner.fileChanged (path, FileSystemEvent::fileCreated);
+        }
     }
 
     FileSystemWatcher& owner;
-    File folder;
+    const File folder;
 
     NSArray* paths;
     FSEventStreamRef stream;
