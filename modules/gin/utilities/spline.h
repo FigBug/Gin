@@ -42,4 +42,6 @@ public:
 
 private:
     Array<Element> elements;
+
+    JUCE_LEAK_DETECTOR (Spline)
 };

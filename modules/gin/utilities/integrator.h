@@ -26,4 +26,6 @@ private:
     double oldX = 0;
     double oldY = 0;
     double curSum = 0;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Integrator)
 };

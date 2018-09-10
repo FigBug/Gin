@@ -95,4 +95,6 @@ private:
     ListenerList<Listener> listeners;
 
     const int tilesize = 256;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (OpenStreetMaps)
 };

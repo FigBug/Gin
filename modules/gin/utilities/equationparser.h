@@ -29,4 +29,6 @@ public:
 private:
     class EquationParserImpl;
     ScopedPointer<EquationParserImpl> impl;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (EquationParser)
 };

@@ -57,4 +57,6 @@ private:
     Point<double> posMarker;
 
     ScopedPointer<Image> doubleBuffer;
+
+
 };

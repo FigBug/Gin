@@ -37,6 +37,8 @@ public:
     }
     
     Parameter* parameter;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginButton)
 };
 //==============================================================================
 class PluginComboBox : public ComboBox,
@@ -74,6 +76,8 @@ public:
     }
     
     Parameter* parameter;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginComboBox)
 };
 //==============================================================================
 class PluginSlider : public Slider,
@@ -139,6 +143,8 @@ public:
     
 private:
     Parameter* parameter;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginSlider)
 };
 
 //==============================================================================
@@ -164,6 +170,8 @@ private:
     SingleLineTextEditor editor;
     
     bool editing = false;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Readout)
 };
 
 //==============================================================================
@@ -176,6 +184,8 @@ public:
     
 private:
     Parameter* parameter = nullptr;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ParamComponent)
 };
 
 //==============================================================================
@@ -190,6 +200,8 @@ private:
     Label name;
     Readout value;
     PluginSlider knob;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Knob)
 };
 //==============================================================================
 class Switch : public ParamComponent
@@ -202,6 +214,8 @@ private:
     
     Label name;
     PluginButton button;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Switch)
 };
 //==============================================================================
 class Select : public ParamComponent
@@ -214,4 +228,6 @@ private:
     
     Label name;
     PluginComboBox comboBox;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Select)
 };

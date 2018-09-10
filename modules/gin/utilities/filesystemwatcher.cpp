@@ -116,67 +116,133 @@ public:
 
 //==============================================================================
 #ifdef _WIN32
-class FileSystemWatcher::Impl : public Thread,
-                                private AsyncUpdater
+class FileSystemWatcher::Impl : private AsyncUpdater,
+                                private Thread
 {
 public:
+    struct Event
+    {
+        File file;
+        FileSystemEvent fsEvent;
+
+        bool operator== (const Event& other) const
+        {
+            return file == other.file && fsEvent == other.fsEvent;
+        }
+    };
+
     Impl (FileSystemWatcher& o, File f)
       : Thread ("FileSystemWatcher::Impl"), owner (o), folder (f)
     {
         WCHAR path[_MAX_PATH] = {0};
         wcsncpy (path, folder.getFullPathName().toWideCharPointer(), _MAX_PATH - 1);
 
-        handleFile = FindFirstChangeNotificationW (path, FALSE, FILE_NOTIFY_CHANGE_FILE_NAME | FILE_NOTIFY_CHANGE_DIR_NAME |
-                                                   FILE_NOTIFY_CHANGE_SIZE | FILE_NOTIFY_CHANGE_LAST_WRITE);
+        folderHandle = CreateFileW (path, FILE_LIST_DIRECTORY, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE, 
+                                    NULL, OPEN_EXISTING, FILE_FLAG_BACKUP_SEMANTICS, NULL);
 
-        handleExit = CreateEvent (NULL, FALSE, FALSE, NULL);
 
-        startThread();
+        if (folderHandle != INVALID_HANDLE_VALUE)
+            startThread();
     }
 
     ~Impl()
     {
-        SetEvent (handleExit);
-        stopThread (1000);
+        if (isThreadRunning())
+        {
+            signalThreadShouldExit();
 
-        CloseHandle (handleExit);
+            CancelIoEx (folderHandle, nullptr);
 
-        if (handleFile != INVALID_HANDLE_VALUE)
-            FindCloseChangeNotification (handleFile);
+            stopThread (1000);
+        }
+
+        CloseHandle (folderHandle);
     }
 
     void run() override
     {
-        while (true)
+        const int heapSize = 16 * 1024;
+        HeapBlock<uint8> buffer (heapSize);
+        memset (buffer.get(), 0, heapSize);
+
+        DWORD bytesOut = 0;
+
+        while (! threadShouldExit())
         {
-            HANDLE handles[] = { handleFile, handleExit };
-            DWORD res = WaitForMultipleObjects (2, handles, FALSE, INFINITE);
+            BOOL success = ReadDirectoryChangesW (folderHandle, buffer.get(), heapSize, false,           
+                FILE_NOTIFY_CHANGE_FILE_NAME | FILE_NOTIFY_CHANGE_DIR_NAME | FILE_NOTIFY_CHANGE_SIZE | FILE_NOTIFY_CHANGE_LAST_WRITE | FILE_NOTIFY_CHANGE_CREATION,
+                &bytesOut, nullptr, nullptr);
 
-            if (threadShouldExit())
-                break;
-
-            if (res == WAIT_OBJECT_0 + 0)
+            if (success && bytesOut > 0)
             {
+                ScopedLock sl (lock);
+
+                uint8* rawData = buffer.get();
+                while (true)
+                {
+                    FILE_NOTIFY_INFORMATION* fni = (FILE_NOTIFY_INFORMATION*)rawData;
+
+                    Event e;
+                    e.file = folder.getChildFile (String (fni->FileName, fni->FileNameLength));
+
+                    switch (fni->Action)
+                    {
+                        case FILE_ACTION_ADDED:
+                        case FILE_ACTION_RENAMED_NEW_NAME:
+                            e.fsEvent = fileCreated;
+                            break;
+                        case FILE_ACTION_MODIFIED:
+                            e.fsEvent = fileUpdated;
+                            break;
+                        case FILE_ACTION_REMOVED:
+                        case FILE_ACTION_RENAMED_OLD_NAME:
+                            e.fsEvent = fileDeleted;
+                            break;
+                    }
+
+                    bool duplicateEvent = false;
+                    for (auto existing : events)
+                    {
+                        if (e == existing)
+                        {
+                            duplicateEvent = true;
+                            break;
+                        }
+                    }
+
+                    if (! duplicateEvent)
+                        events.add (e);
+
+                    if (fni->NextEntryOffset > 0)
+                        rawData += fni->NextEntryOffset;
+                    else
+                        break;
+                }
+
                 triggerAsyncUpdate();
-
-                FindNextChangeNotification (handleFile);
-            }
-            else if (res == WAIT_OBJECT_0 + 1)
-            {
-                break;
             }
         }
     }
 
     void handleAsyncUpdate() override
     {
+        ScopedLock sl (lock);
+
         owner.folderChanged (folder);
+
+        for (auto e : events)
+            owner.fileChanged (e.file, e.fsEvent);
+
+        events.clear();
     }
 
     FileSystemWatcher& owner;
-    File folder;
+    const File folder;
 
-    HANDLE handleFile, handleExit;
+    CriticalSection lock;
+    Array<Event> events;
+
+    HANDLE folderHandle;
 
 };
 #endif
@@ -219,4 +285,9 @@ void FileSystemWatcher::removeListener (Listener* listener)
 void FileSystemWatcher::folderChanged (const File& folder)
 {
     listeners.call (&FileSystemWatcher::Listener::folderChanged, folder);
+}
+
+void FileSystemWatcher::fileChanged (const File& file, FileSystemEvent fsEvent)
+{
+    listeners.call (&FileSystemWatcher::Listener::fileChanged, file, fsEvent);
 }

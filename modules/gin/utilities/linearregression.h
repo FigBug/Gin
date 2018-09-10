@@ -44,4 +44,6 @@ protected:
     double coefD = 0;       // coefficient of determination
     double coefC = 0;       // coefficient of correlation
     double stdError = 0;    // standard error of estimate
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (LinearRegression)
 };

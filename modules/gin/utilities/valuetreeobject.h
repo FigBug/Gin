@@ -104,4 +104,6 @@ private:
     ValueTreeObject* parent = nullptr;
     
     OwnedArray<ValueTreeObject> children;
+
+    JUCE_LEAK_DETECTOR (ValueTreeObject)
 };

@@ -16,9 +16,11 @@ struct FileSystemWatcherDemo : public Component,
     {
         setName ("File System Watcher");
         
-        addAndMakeVisible (text);
+        addAndMakeVisible (contents);
+        addAndMakeVisible (events);
         
-        text.setMultiLine (true);
+        contents.setMultiLine (true);
+        events.setMultiLine (true);
         
         File f = File::getSpecialLocation (File::userDesktopDirectory);
         watcher.addFolder (f);
@@ -29,7 +31,9 @@ struct FileSystemWatcherDemo : public Component,
     
     void resized() override
     {
-        text.setBounds (getLocalBounds());
+        auto rc = getLocalBounds();
+        contents.setBounds (rc.removeFromTop (rc.getHeight() / 2));
+        events.setBounds (rc);
     }
     
     void folderChanged (File f) override
@@ -38,16 +42,35 @@ struct FileSystemWatcherDemo : public Component,
         f.findChildFiles (files, File::findFiles, false);
         files.sort();
 
-        text.clear();
+        contents.clear();
         
         String txt;
         for (auto ff : files)
             txt += ff.getFileName() + "\n";
         
-        text.setText (txt);
+        contents.setText (txt);
+    }
+
+    void fileChanged (File f, gin::FileSystemWatcher::FileSystemEvent fsEvent) override
+    {
+        auto eventToString = [] (gin::FileSystemWatcher::FileSystemEvent evt) -> String
+        {
+            switch (evt)
+            {
+                case gin::FileSystemWatcher::fileCreated: return "Created";
+                case gin::FileSystemWatcher::fileUpdated: return "Updated";
+                case gin::FileSystemWatcher::fileDeleted: return "Deleted";
+                default: jassertfalse; return {};
+            }
+        };
+
+        events.moveCaretToEnd (false);
+        events.insertTextAtCaret (f.getFileName() + ": " + eventToString (fsEvent) + "\n");
+
+        events.scrollEditorToPositionCaret (0, events.getHeight() - 20);
     }
     
-    TextEditor text;
+    TextEditor contents, events;
     gin::FileSystemWatcher watcher;
 };
 
@@ -546,12 +569,12 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
-    demoComponents.add (new ImageEffectsDemo());
     demoComponents.add (new FileSystemWatcherDemo());
+    demoComponents.add (new ImageEffectsDemo());
     demoComponents.add (new MetadataDemo());
     demoComponents.add (new BmpImageDemo());
     demoComponents.add (new MapDemo());
-    //demoComponents.add (new SemaphoreDemo());
+    demoComponents.add (new SemaphoreDemo());
     demoComponents.add (new SharedMemoryDemo());
     demoComponents.add (new LeastSquaresDemo());
     demoComponents.add (new LinearDemo());

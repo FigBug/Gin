@@ -17,12 +17,20 @@ public:
     void addFolder (const File& folder);
     void removeFolder (const File& folder);
 
+    enum FileSystemEvent
+    {
+        fileCreated,
+        fileDeleted,
+        fileUpdated
+    };
+
     class Listener
     {
     public:
         virtual ~Listener()  {}
 
-        virtual void folderChanged (const File)    {}
+        virtual void folderChanged (const File) {}
+        virtual void fileChanged (const File, FileSystemEvent) {}
     };
 
     void addListener (Listener* newListener);
@@ -33,8 +41,11 @@ private:
     class Impl;
 
     void folderChanged (const File& folder);
+    void fileChanged (const File& file, FileSystemEvent fsEvent);
 
     ListenerList<Listener> listeners;
 
     OwnedArray<Impl> watched;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FileSystemWatcher)
 };

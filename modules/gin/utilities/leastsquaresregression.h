@@ -18,6 +18,8 @@
 class LeastSquaresRegression
 {
 public:
+    LeastSquaresRegression() = default;
+
     void addPoint (double x, double y);
     void addPoint (Point<double> point);
     void addPoints (Array<Point<double>> points);
@@ -46,4 +48,6 @@ private:
     double getPredictedY (double x);
 
     Array<Point<double>> pointArray;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (LeastSquaresRegression)
 };
