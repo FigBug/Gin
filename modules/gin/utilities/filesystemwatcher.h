@@ -41,7 +41,9 @@ public:
     {
         fileCreated,
         fileDeleted,
-        fileUpdated
+        fileUpdated,
+        fileRenamedOldName,
+        fileRenamedNewName
     };
 
     //==============================================================================

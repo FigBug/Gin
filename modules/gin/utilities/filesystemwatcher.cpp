@@ -63,7 +63,7 @@ public:
             else if (evt & kFSEventStreamEventFlagItemRemoved)
                 impl->owner.fileChanged (path, FileSystemEvent::fileDeleted);
             else if (evt & kFSEventStreamEventFlagItemRenamed)
-                impl->owner.fileChanged (path, path.existsAsFile() ? FileSystemEvent::fileCreated : FileSystemEvent::fileDeleted);
+                impl->owner.fileChanged (path, path.existsAsFile() ? FileSystemEvent::fileRenamedNewName : FileSystemEvent::fileRenamedOldName);
             else if (evt & kFSEventStreamEventFlagItemCreated)
                 impl->owner.fileChanged (path, FileSystemEvent::fileCreated);
         }
@@ -207,15 +207,19 @@ public:
                     switch (fni->Action)
                     {
                         case FILE_ACTION_ADDED:
-                        case FILE_ACTION_RENAMED_NEW_NAME:
                             e.fsEvent = fileCreated;
+                            break;
+                        case FILE_ACTION_RENAMED_NEW_NAME:
+                            e.fsEvent = fileRenamedNewName;
                             break;
                         case FILE_ACTION_MODIFIED:
                             e.fsEvent = fileUpdated;
                             break;
                         case FILE_ACTION_REMOVED:
-                        case FILE_ACTION_RENAMED_OLD_NAME:
                             e.fsEvent = fileDeleted;
+                            break;
+                        case FILE_ACTION_RENAMED_OLD_NAME:
+                            e.fsEvent = fileRenamedOldName;
                             break;
                     }
 

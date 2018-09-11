@@ -60,6 +60,8 @@ struct FileSystemWatcherDemo : public Component,
                 case gin::FileSystemWatcher::fileCreated: return "Created";
                 case gin::FileSystemWatcher::fileUpdated: return "Updated";
                 case gin::FileSystemWatcher::fileDeleted: return "Deleted";
+                case gin::FileSystemWatcher::fileRenamedOldName: return "Renamed From";
+                case gin::FileSystemWatcher::fileRenamedNewName: return "Renamed To";
                 default: jassertfalse; return {};
             }
         };
