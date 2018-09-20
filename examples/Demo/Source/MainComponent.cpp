@@ -9,6 +9,74 @@
 #include "MainComponent.h"
 
 //==============================================================================
+struct DownloadManagerDemo : public Component,
+                             private Timer
+{
+    DownloadManagerDemo()
+    {
+        setName ("Download Manager");
+    }
+    
+    void resized() override
+    {
+        repaint();
+    }
+    
+    void visibilityChanged() override
+    {
+        if (isVisible())
+            startTimerHz (10);
+        else
+            stopTimer();
+    }
+    
+    void paint (Graphics& g) override
+    {
+        g.fillAll (Colours::black);
+        for (int i = 0; i < 4; i++)
+        {
+            float w = getWidth()  / 2.0f;
+            float h = getHeight() / 2.0f;
+            
+            Rectangle<float> rc;
+            if (i == 0) rc = Rectangle<float> (0, 0, w, h);
+            if (i == 1) rc = Rectangle<float> (w, 0, w, h);
+            if (i == 2) rc = Rectangle<float> (0, h, w, h);
+            if (i == 3) rc = Rectangle<float> (w, h, w, h);
+
+            if (img[i].isValid())
+                g.drawImage (img[i], rc, RectanglePlacement::centred, false);
+        }
+    }
+    
+    void timerCallback() override
+    {
+        String url = String::formatted ("https://picsum.photos/%d/%d/?random", getWidth(), getHeight());
+
+        for (int i = 0; i < 4; i++)
+        {
+            downloadManager.startAsyncDownload (url, [this, i] (gin::DownloadManager::DownloadResult result)
+                                                {
+                                                    DBG(result.url.toString (true) + " downloaded " + (result.ok ? "ok: " : "failed: ") + String (result.httpCode));
+                                                    
+                                                    if (result.ok)
+                                                    {
+                                                        Image newImg = ImageFileFormat::loadFrom (result.data.getData(), result.data.getSize());
+                                                        if (newImg.isValid())
+                                                        {
+                                                            img[i] = newImg;
+                                                            repaint();
+                                                        }
+                                                    }
+                                                });
+        }
+    }
+    
+    Image img[4];
+    gin::DownloadManager downloadManager;
+};
+
+//==============================================================================
 struct FileSystemWatcherDemo : public Component,
                                private gin::FileSystemWatcher::Listener
 {
@@ -571,6 +639,7 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
+    demoComponents.add (new DownloadManagerDemo());
     demoComponents.add (new FileSystemWatcherDemo());
     demoComponents.add (new ImageEffectsDemo());
     demoComponents.add (new MetadataDemo());

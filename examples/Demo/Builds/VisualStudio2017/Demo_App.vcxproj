@@ -227,6 +227,9 @@
     <ClCompile Include="..\..\..\..\modules\gin\plugin\program.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin\utilities\downloadmanager.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin\utilities\equationparser.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1913,6 +1916,7 @@
     <ClInclude Include="..\..\..\..\modules\gin\plugin\plugineditor.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\plugin\processor.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\plugin\program.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin\utilities\downloadmanager.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\equationparser.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\filesystemwatcher.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\integrator.h"/>
