@@ -19,8 +19,11 @@ class DownloadManager
 {
 public:
     //==============================================================================
-    DownloadManager();
+    DownloadManager (int timeout = 30 * 1000);
     ~DownloadManager();
+    
+    /** How long connecting is given before it times out */
+    void setConnectTimeout (int timeout)    { connectTimeout = timeout; }
     
     //==============================================================================
     struct DownloadResult
@@ -69,6 +72,7 @@ private:
     
     //==============================================================================
     int nextId = 0;
+    int connectTimeout = 30 * 1000;
     OwnedArray<Download> downloads;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DownloadManager)

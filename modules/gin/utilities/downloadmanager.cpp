@@ -5,7 +5,8 @@ For more information visit www.rabiensoftware.com
 
 ==============================================================================*/
 
-DownloadManager::DownloadManager()
+DownloadManager::DownloadManager (int timeout)
+    : connectTimeout (timeout)
 {
 }
 
@@ -53,7 +54,7 @@ DownloadManager::Download::~Download()
     
     // Wait a long time before cancelling, WebInputStream could be stuck in
     // connect. Unlikely but possible.
-    stopThread (30 * 1000);
+    stopThread (owner.connectTimeout);
     
     masterReference.clear();
 }
@@ -65,6 +66,8 @@ void DownloadManager::Download::run()
     
     if ((is = new WebInputStream (result.url, post)) != nullptr)
     {
+        is->withConnectionTimeout (owner.connectTimeout);
+        
         if (is->connect (nullptr))
         {
             // Save headers and http response code
