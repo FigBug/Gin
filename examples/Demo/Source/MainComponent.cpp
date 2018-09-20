@@ -51,10 +51,9 @@ struct DownloadManagerDemo : public Component,
     
     void timerCallback() override
     {
-        String url = String::formatted ("https://picsum.photos/%d/%d/?random", getWidth(), getHeight());
-
         for (int i = 0; i < 4; i++)
         {
+            String url = String::formatted ("https://picsum.photos/%d/%d/?image=%d", getWidth(), getHeight(), Random::getSystemRandom().nextInt (500));
             downloadManager.startAsyncDownload (url, [this, i] (gin::DownloadManager::DownloadResult result)
                                                 {
                                                     DBG(result.url.toString (true) + " downloaded " + (result.ok ? "ok: " : "failed: ") + String (result.httpCode));
