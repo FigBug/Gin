@@ -5,8 +5,8 @@ For more information visit www.rabiensoftware.com
 
 ==============================================================================*/
 
-DownloadManager::DownloadManager (int timeout)
-    : connectTimeout (timeout)
+DownloadManager::DownloadManager (int connect, int shutdown)
+    : connectTimeout (connect), shutdownTimeout (shutdown)
 {
 }
 
@@ -54,7 +54,7 @@ DownloadManager::Download::~Download()
     
     // Wait a long time before cancelling, WebInputStream could be stuck in
     // connect. Unlikely but possible.
-    stopThread (owner.connectTimeout);
+    stopThread (owner.shutdownTimeout);
     
     masterReference.clear();
 }

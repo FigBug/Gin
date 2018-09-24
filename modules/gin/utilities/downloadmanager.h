@@ -19,7 +19,7 @@ class DownloadManager
 {
 public:
     //==============================================================================
-    DownloadManager (int timeout = 30 * 1000);
+    DownloadManager (int connectTimeout = 30 * 1000, int shutdownTimeout = 30 * 1000);
     ~DownloadManager();
     
     /** How long connecting is given before it times out */
@@ -73,6 +73,7 @@ private:
     //==============================================================================
     int nextId = 0;
     int connectTimeout = 30 * 1000;
+    int shutdownTimeout = 30 * 1000;
     OwnedArray<Download> downloads;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DownloadManager)

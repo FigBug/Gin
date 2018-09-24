@@ -72,7 +72,7 @@ struct DownloadManagerDemo : public Component,
     }
     
     Image img[4];
-    gin::DownloadManager downloadManager {3 * 1000};
+    gin::DownloadManager downloadManager {3 * 1000, 3 * 1000};
 };
 
 //==============================================================================
