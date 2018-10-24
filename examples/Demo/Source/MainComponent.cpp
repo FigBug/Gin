@@ -230,7 +230,7 @@ struct ImageEffectsDemo : public Component,
         addAndMakeVisible (effects);
         effects.addItemList ({"None", "Vignette", "Sepia", "Greyscale", "Soften",
                               "Sharpen", "Gamma", "Invert", "Contrast",
-                              "Brightness/Contrast", "Hue/Sat/Light"}, 1);
+                              "Brightness/Contrast", "Hue/Sat/Light", "Stack Blur"}, 1);
         effects.setSelectedItemIndex (0);
         effects.onChange = [this]
         {
@@ -250,6 +250,7 @@ struct ImageEffectsDemo : public Component,
         addAndMakeVisible (hue);
         addAndMakeVisible (saturation);
         addAndMakeVisible (lightness);
+        addAndMakeVisible (radius);
 
         for (int i = 0; i < getNumChildComponents(); i++)
         {
@@ -269,6 +270,7 @@ struct ImageEffectsDemo : public Component,
         hue.setRange (-180, 180);
         saturation.setRange (0, 200);
         lightness.setRange (-100, 100);
+        radius.setRange (2, 254);
 
         vignetteAmount.setValue (0.5);
         vignetteRadius.setValue (0.5);
@@ -291,6 +293,7 @@ struct ImageEffectsDemo : public Component,
         hue.setVisible (idx == 10);
         saturation.setVisible (idx == 10);
         lightness.setVisible (idx == 10);
+        radius.setVisible (idx == 11);
 
         auto rc = getLocalBounds().removeFromBottom (20);
         int w = rc.getWidth() / 3;
@@ -326,6 +329,7 @@ struct ImageEffectsDemo : public Component,
             case 8: img = gin::applyContrast (img, (float) contrast.getValue()); break;
             case 9: img = gin::applyBrightnessContrast (img, (float) brightness.getValue(), (float) contrast.getValue()); break;
             case 10: img = gin::applyHueSaturationLightness (img, (float) hue.getValue(), (float) saturation.getValue(), (float) lightness.getValue()); break;
+            case 11: img = gin::applyStackBlur (img, (unsigned int) radius.getValue()); break;
         }
 
         g.fillAll (Colours::black);
@@ -335,7 +339,7 @@ struct ImageEffectsDemo : public Component,
     Image source;
     ComboBox effects;
 
-    Slider vignetteAmount, vignetteRadius, vignetteFalloff, gamma, contrast, brightness, hue, saturation, lightness;
+    Slider vignetteAmount, vignetteRadius, vignetteFalloff, gamma, contrast, brightness, hue, saturation, lightness, radius;
 };
 
 //==============================================================================

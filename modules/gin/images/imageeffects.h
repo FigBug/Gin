@@ -53,3 +53,9 @@ Image applyBrightnessContrast (Image src, float brightness, float contrast);
  \param lightness Amount to adjust lightness -100,100
  */
 Image applyHueSaturationLightness (Image src, float hue, float saturation, float lightness);
+
+/** A very fast blur. This is a compromise between Gaussian Blur and Box blur.
+    It creates much better looking blurs than Box Blur, but is 7x faster than some Gaussian Blur
+    implementations. 
+ */
+Image applyStackBlur (Image src, unsigned int radius);
