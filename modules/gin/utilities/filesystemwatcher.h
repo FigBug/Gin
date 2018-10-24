@@ -31,6 +31,8 @@ public:
     void addFolder (const File& folder);
     /** Removes a folder from being watched */
     void removeFolder (const File& folder);
+    /** Removes all folders from being watched */
+    void removeAllFolders();
 
     /** A set of events that can happen to a file.
         When a file is renamed it will appear as the
