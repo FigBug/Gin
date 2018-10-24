@@ -56,6 +56,8 @@ Image applyHueSaturationLightness (Image src, float hue, float saturation, float
 
 /** A very fast blur. This is a compromise between Gaussian Blur and Box blur.
     It creates much better looking blurs than Box Blur, but is 7x faster than some Gaussian Blur
-    implementations. 
+    implementations.
+ *
+ \param radius from 2 to 254
  */
 Image applyStackBlur (Image src, unsigned int radius);
