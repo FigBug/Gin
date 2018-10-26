@@ -37,16 +37,14 @@ inline PixelARGB blend (const PixelARGB& c1, const PixelARGB& c2)
 }
 
 //==============================================================================
-Image applyVignette (Image src, float amountIn, float radiusIn, float fallOff)
+void applyVignette (Image& src, float amountIn, float radiusIn, float fallOff)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
 
     jassert (src.getFormat() == Image::ARGB);
     if (src.getFormat() != Image::ARGB)
-        return Image();
-
-    Image dst (Image::ARGB, w, h, true);
+        return;
 
     double outA = w * 0.5 * radiusIn;
     double outB = h * 0.5 * radiusIn;
@@ -59,16 +57,14 @@ Image applyVignette (Image src, float amountIn, float radiusIn, float fallOff)
 
     double amount = 1.0 - amountIn;
 
-    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
-    Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
+    Image::BitmapData data (src, Image::BitmapData::readWrite);
 
     Ellipse<double> outE { outA, outB };
     Ellipse<double> inE  { inA,  inB  };
 
     multiThreadedFor<int> (0, h, 1, [&] (int y)
     {
-        uint8* ps = srcData.getLinePointer (y);
-        uint8* ds = dstData.getLinePointer (y);
+        uint8* p = data.getLinePointer (y);
 
         double dy = y - cy;
 
@@ -79,23 +75,18 @@ Image applyVignette (Image src, float amountIn, float radiusIn, float fallOff)
             bool outside = outE.isPointOutside ({dx, dy});
             bool inside  = inE.isPointInside ({dx, dy});
 
-            PixelARGB* s = (PixelARGB*)ps;
-            PixelARGB* d = (PixelARGB*)ds;
+            PixelARGB* s = (PixelARGB*)p;
 
-            if (inside)
-            {
-                d->set (*s);
-            }
-            else if (outside)
+            if (outside)
             {
                 uint8 r = toByte (0.5 + (s->getRed() * amount));
                 uint8 g = toByte (0.5 + (s->getGreen() * amount));
                 uint8 b = toByte (0.5 + (s->getBlue() * amount));
                 uint8 a = s->getAlpha();
 
-                d->setARGB (a, r, g, b);
+                s->setARGB (a, r, g, b);
             }
-            else
+            else if (! inside)
             {
                 double angle = std::atan2 (dy, dx);
 
@@ -112,40 +103,32 @@ Image applyVignette (Image src, float amountIn, float radiusIn, float fallOff)
                 uint8 b = toByte (0.5 + (s->getBlue()  * factor));
                 uint8 a = s->getAlpha();
 
-                d->setARGB (a, r, g, b);
+                s->setARGB (a, r, g, b);
             }
 
-            ps += srcData.pixelStride;
-            ds += srcData.pixelStride;
+            p += data.pixelStride;
         }
     });
-    
-    return dst;
 }
 
-Image applySepia (Image src)
+void applySepia (Image& src)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
 
     jassert (src.getFormat() == Image::ARGB);
     if (src.getFormat() != Image::ARGB)
-        return Image();
+        return;
 
-    Image dst (Image::ARGB, w, h, true);
-
-    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
-    Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
+    Image::BitmapData data (src, Image::BitmapData::readWrite);
 
     multiThreadedFor<int> (0, h, 1, [&] (int y)
     {
-        uint8* ps = srcData.getLinePointer (y);
-        uint8* ds = dstData.getLinePointer (y);
+        uint8* p = data.getLinePointer (y);
 
         for (int x = 0; x < w; x++)
         {
-            PixelARGB* s = (PixelARGB*)ps;
-            PixelARGB* d = (PixelARGB*)ds;
+            PixelARGB* s = (PixelARGB*)p;
 
             uint8 r = s->getRed();
             uint8 g = s->getGreen();
@@ -156,37 +139,30 @@ Image applySepia (Image src)
             uint8 go = toByte ((r * .349) + (g *.686) + (b * .168));
             uint8 bo = toByte ((r * .272) + (g *.534) + (b * .131));
 
-            d->setARGB (a, ro, go, bo);
+            s->setARGB (a, ro, go, bo);
 
-            ps += srcData.pixelStride;
-            ds += srcData.pixelStride;
+            p += data.pixelStride;
         }
     });
-    return dst;
 }
 
-Image applyGreyScale (Image src)
+void applyGreyScale (Image& src)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
 
     if (src.getFormat() != Image::ARGB)
-        return Image();
+        return;
 
-    Image dst (Image::ARGB, w, h, true);
-
-    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
-    Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
+    Image::BitmapData data (src, Image::BitmapData::readWrite);
 
     multiThreadedFor<int> (0, h, 1, [&] (int y)
     {
-        uint8* ps = srcData.getLinePointer (y);
-        uint8* ds = dstData.getLinePointer (y);
+        uint8* p = data.getLinePointer (y);
 
         for (int x = 0; x < w; x++)
         {
-            PixelARGB* s = (PixelARGB*)ps;
-            PixelARGB* d = (PixelARGB*)ds;
+            PixelARGB* s = (PixelARGB*)p;
 
             uint8 r = s->getRed();
             uint8 g = s->getGreen();
@@ -197,25 +173,23 @@ Image applyGreyScale (Image src)
             uint8 go = toByte (g * 0.59 + 0.5);
             uint8 bo = toByte (b * 0.11 + 0.5);
 
-            d->setARGB (a,
+            s->setARGB (a,
                         toByte (ro + go + bo),
                         toByte (ro + go + bo),
                         toByte (ro + go + bo));
 
-            ps += srcData.pixelStride;
-            ds += srcData.pixelStride;
+            p += data.pixelStride;
         }
     });
-    return dst;
 }
 
-Image applySoften (Image src)
+void applySoften (Image& src)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
 
     if (src.getFormat() != Image::ARGB)
-        return Image();
+        return;
 
     Image dst (Image::ARGB, w, h, true);
 
@@ -252,16 +226,16 @@ Image applySoften (Image src)
             d->setARGB (a, toByte (ro / 9), toByte (go / 9), toByte (bo / 9));
         }
     });
-    return dst;
+    src = dst;
 }
 
-Image applySharpen (Image src)
+void applySharpen (Image& src)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
 
     if (src.getFormat() != Image::ARGB)
-        return Image();
+        return;
 
     Image dst (Image::ARGB, w, h, true);
 
@@ -315,31 +289,26 @@ Image applySharpen (Image src)
             d->setARGB (ao, toByte (ro), toByte (go), toByte (bo));
         }
     });
-    return dst;
+    src = dst;
 }
 
-Image applyGamma (Image src, float gamma)
+void applyGamma (Image& src, float gamma)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
 
     if (src.getFormat() != Image::ARGB)
-        return Image();
+        return;
 
-    Image dst (Image::ARGB, w, h, true);
-
-    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
-    Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
+    Image::BitmapData data (src, Image::BitmapData::readWrite);
 
     multiThreadedFor<int> (0, h, 1, [&] (int y)
     {
-        uint8* ps = srcData.getLinePointer (y);
-        uint8* ds = dstData.getLinePointer (y);
+        uint8* p = data.getLinePointer (y);
 
         for (int x = 0; x < w; x++)
         {
-            PixelARGB* s = (PixelARGB*)ps;
-            PixelARGB* d = (PixelARGB*)ds;
+            PixelARGB* s = (PixelARGB*)p;
 
             uint8 r = s->getRed();
             uint8 g = s->getGreen();
@@ -350,37 +319,30 @@ Image applyGamma (Image src, float gamma)
             uint8 go = toByte (std::pow (g / 255.0, gamma) * 255.0 + 0.5);
             uint8 bo = toByte (std::pow (b / 255.0, gamma) * 255.0 + 0.5);
 
-            d->setARGB (a, ro, go, bo);
+            s->setARGB (a, ro, go, bo);
 
-            ps += srcData.pixelStride;
-            ds += srcData.pixelStride;
+            p += data.pixelStride;
         }
     });
-    return dst;
 }
 
-Image applyInvert (Image src)
+void applyInvert (Image& src)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
 
     if (src.getFormat() != Image::ARGB)
-        return Image();
+        return;
 
-    Image dst (Image::ARGB, w, h, true);
-
-    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
-    Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
+    Image::BitmapData data (src, Image::BitmapData::readWrite);
 
     multiThreadedFor<int> (0, h, 1, [&] (int y)
     {
-        uint8* ps = srcData.getLinePointer (y);
-        uint8* ds = dstData.getLinePointer (y);
+        uint8* p = data.getLinePointer (y);
 
         for (int x = 0; x < w; x++)
         {
-            PixelARGB* s = (PixelARGB*)ps;
-            PixelARGB* d = (PixelARGB*)ds;
+            PixelARGB* s = (PixelARGB*)p;
 
             uint8 r = s->getRed();
             uint8 g = s->getGreen();
@@ -391,40 +353,33 @@ Image applyInvert (Image src)
             uint8 go = 255 - g;
             uint8 bo = 255 - b;
 
-            d->setARGB (a, ro, go, bo);
+            s->setARGB (a, ro, go, bo);
 
-            ps += srcData.pixelStride;
-            ds += srcData.pixelStride;
+            p += data.pixelStride;
         }
     });
-    return dst;
 }
 
-Image applyContrast (Image src, float contrast)
+void applyContrast (Image& src, float contrast)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
 
     if (src.getFormat() != Image::ARGB)
-        return Image();
-
-    Image dst (Image::ARGB, w, h, true);
+        return;
 
     contrast = (100.0f - contrast) / 100.0f;
     contrast = square (contrast);
 
-    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
-    Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
+    Image::BitmapData data (src, Image::BitmapData::readWrite);
 
     multiThreadedFor<int> (0, h, 1, [&] (int y)
     {
-        uint8* ps = srcData.getLinePointer (y);
-        uint8* ds = dstData.getLinePointer (y);
+        uint8* p = data.getLinePointer (y);
 
         for (int x = 0; x < w; x++)
         {
-            PixelARGB* s = (PixelARGB*)ps;
-            PixelARGB* d = (PixelARGB*)ds;
+            PixelARGB* s = (PixelARGB*)p;
 
             uint8 r = s->getRed();
             uint8 g = s->getGreen();
@@ -453,27 +408,22 @@ Image applyContrast (Image src, float contrast)
             go = toByte (go);
             bo = toByte (bo);
 
-            d->setARGB (a, toByte (ro), toByte (go), toByte (bo));
+            s->setARGB (a, toByte (ro), toByte (go), toByte (bo));
 
-            ps += srcData.pixelStride;
-            ds += srcData.pixelStride;
+            p += data.pixelStride;
         }
     });
-    return dst;
 }
 
-Image applyBrightnessContrast (Image src, float brightness, float contrast)
+void applyBrightnessContrast (Image& src, float brightness, float contrast)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
 
     if (src.getFormat() != Image::ARGB)
-        return Image();
+        return;
 
-    Image dst (Image::ARGB, w, h, true);
-
-    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
-    Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
+    Image::BitmapData data (src, Image::BitmapData::readWrite);
 
     double multiply = 1;
     double divide = 1;
@@ -535,13 +485,11 @@ Image applyBrightnessContrast (Image src, float brightness, float contrast)
 
     multiThreadedFor<int> (0, h, 1, [&] (int y)
     {
-        uint8* ps = srcData.getLinePointer (y);
-        uint8* ds = dstData.getLinePointer (y);
+        uint8* p = data.getLinePointer (y);
 
         for (int x = 0; x < w; x++)
         {
-            PixelARGB* s = (PixelARGB*)ps;
-            PixelARGB* d = (PixelARGB*)ds;
+            PixelARGB* s = (PixelARGB*)p;
 
             uint8 r = s->getRed();
             uint8 g = s->getGreen();
@@ -553,7 +501,7 @@ Image applyBrightnessContrast (Image src, float brightness, float contrast)
                 int i = getIntensity (toByte (r), toByte (g), toByte (b));
                 uint8 c = rgbTable[i];
 
-                d->setARGB (a, c, c, c);
+                s->setARGB (a, c, c, c);
             }
             else
             {
@@ -568,25 +516,23 @@ Image applyBrightnessContrast (Image src, float brightness, float contrast)
                 go = toByte (go);
                 bo = toByte (bo);
 
-                d->setARGB (a, ro, go, bo);
+                s->setARGB (a, ro, go, bo);
             }
 
-            ps += srcData.pixelStride;
-            ds += srcData.pixelStride;
+            p += data.pixelStride;
         }
     });
 
     delete[] rgbTable;
-    return dst;
 }
 
-Image applyHueSaturationLightness (Image src, float hueIn, float saturation, float lightness)
+void applyHueSaturationLightness (Image& src, float hueIn, float saturation, float lightness)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
 
     if (src.getFormat() != Image::ARGB)
-        return Image();
+        return;
 
     if (saturation > 100)
         saturation = ((saturation - 100) * 3) + 100;
@@ -594,20 +540,15 @@ Image applyHueSaturationLightness (Image src, float hueIn, float saturation, flo
 
     hueIn /= 360.0f;
 
-    Image dst (Image::ARGB, w, h, true);
-
-    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
-    Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
+    Image::BitmapData data (src, Image::BitmapData::readWrite);
 
     multiThreadedFor<int> (0, h, 1, [&] (int y)
     {
-        uint8* ps = srcData.getLinePointer (y);
-        uint8* ds = dstData.getLinePointer (y);
+        uint8* p = data.getLinePointer (y);
 
         for (int x = 0; x < w; x++)
         {
-            PixelARGB* s = (PixelARGB*)ps;
-            PixelARGB* d = (PixelARGB*)ds;
+            PixelARGB* s = (PixelARGB*)p;
 
             uint8 r = s->getRed();
             uint8 g = s->getGreen();
@@ -635,18 +576,16 @@ Image applyHueSaturationLightness (Image src, float hueIn, float saturation, flo
             go = toByte (go);
             bo = toByte (bo);
 
-            d->setARGB (a, toByte (ro), toByte (go), toByte (bo));
+            s->setARGB (a, toByte (ro), toByte (go), toByte (bo));
 
             if (lightness > 0)
-                *d = blend (PixelARGB (toByte ((lightness * 255) / 100), 255, 255, 255), *d);
+                *s = blend (PixelARGB (toByte ((lightness * 255) / 100), 255, 255, 255), *s);
             else if (lightness < 0)
-                *d = blend (PixelARGB (toByte ((-lightness * 255) / 100), 0, 0, 0), *d);
+                *s = blend (PixelARGB (toByte ((-lightness * 255) / 100), 0, 0, 0), *s);
 
-            ps += srcData.pixelStride;
-            ds += srcData.pixelStride;
+            p += data.pixelStride;
         }
     });
-    return dst;
 }
 
 // The Stack Blur Algorithm was invented by Mario Klingemann,
@@ -660,7 +599,7 @@ Image applyHueSaturationLightness (Image src, float hueIn, float saturation, flo
 // https://gist.github.com/benjamin9999/3809142
 // http://www.antigrain.com/__code/include/agg_blur.h.html
 // This version works only with RGBA (32 bit color)
-Image applyStackBlur (Image src, unsigned int radius)
+void applyStackBlur (Image& src, unsigned int radius)
 {
     static unsigned short const stackblur_mul[255] =
     {
@@ -706,12 +645,10 @@ Image applyStackBlur (Image src, unsigned int radius)
     const unsigned int h = (unsigned int)src.getHeight();
     
     if (src.getFormat() != Image::ARGB)
-        return Image();
+        return;
     
-    Image dst = src.createCopy();
+    Image::BitmapData data (src, Image::BitmapData::readWrite);
     
-    Image::BitmapData dstData (dst, Image::BitmapData::readWrite);
-
     radius = jlimit (2u, 254u, radius);
     
     unsigned char    stack[(254 * 2 + 1) * 4];
@@ -738,7 +675,7 @@ Image applyStackBlur (Image src, unsigned int radius)
         sum_in_r = sum_in_g = sum_in_b = sum_in_a =
         sum_out_r = sum_out_g = sum_out_b = sum_out_a = 0;
         
-        src_ptr = dstData.getLinePointer (int (y));
+        src_ptr = data.getLinePointer (int (y));
         
         for (i = 0; i <= radius; ++i)
         {
@@ -782,11 +719,8 @@ Image applyStackBlur (Image src, unsigned int radius)
         if (xp > wm)
             xp = wm;
         
-        //src_ptr = src + 4 * (xp + y * w);    // img.pix_ptr (xp, y);
-        //dst_ptr = src + y * w4;              // img.pix_ptr (0, y);
-        
-        src_ptr = dstData.getLinePointer (int (y)) + (unsigned int)dstData.pixelStride * xp;
-        dst_ptr = dstData.getLinePointer (int (y));
+        src_ptr = data.getLinePointer (int (y)) + (unsigned int)data.pixelStride * xp;
+        dst_ptr = data.getLinePointer (int (y));
         
         for (x = 0; x < w; ++x)
         {
@@ -856,8 +790,7 @@ Image applyStackBlur (Image src, unsigned int radius)
         sum_in_r = sum_in_g = sum_in_b = sum_in_a =
         sum_out_r = sum_out_g = sum_out_b = sum_out_a = 0;
         
-        //src_ptr = src + 4 * x;    // x, 0
-        src_ptr = dstData.getLinePointer (0) + (unsigned int)dstData.pixelStride * x;
+        src_ptr = data.getLinePointer (0) + (unsigned int)data.pixelStride * x;
         
         for (i = 0; i <= radius; ++i)
         {
@@ -901,10 +834,8 @@ Image applyStackBlur (Image src, unsigned int radius)
         if (yp > hm)
             yp = hm;
         
-        //src_ptr = src + 4 * (x + yp * w);    // img.pix_ptr (x, yp);
-        //dst_ptr = src + 4 * x;                // img.pix_ptr (x, 0);
-        src_ptr = dstData.getLinePointer (int (yp)) + (unsigned int)dstData.pixelStride * x;
-        dst_ptr = dstData.getLinePointer (0) + (unsigned int)dstData.pixelStride * x;
+        src_ptr = data.getLinePointer (int (yp)) + (unsigned int)data.pixelStride * x;
+        dst_ptr = data.getLinePointer (0) + (unsigned int)data.pixelStride * x;
         
         for (y = 0; y < h; ++y)
         {
@@ -966,5 +897,4 @@ Image applyStackBlur (Image src, unsigned int radius)
             sum_in_a  -= stack_ptr[3];
         }
     }
-    return dst;
 }

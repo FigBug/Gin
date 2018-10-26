@@ -14,37 +14,37 @@
  \param radius Size of vignette. 1 size of image. 0 is 0 size.
  \param falloff Relative size of inner boundry of vignette 0,1
  */
-Image applyVignette (Image src, float amount, float radius, float falloff);
+void applyVignette (Image& src, float amount, float radius, float falloff);
 
 /** Make it look old */
-Image applySepia (Image src);
+void applySepia (Image& src);
 
 /** Converts image to B/W, heavier weighting towards greens */
-Image applyGreyScale (Image src);
+void applyGreyScale (Image& src);
 
 /** Softens an image */
-Image applySoften (Image src);
+void applySoften (Image& src);
 
 /** Sharpens an image */
-Image applySharpen (Image src);
+void applySharpen (Image& src);
 
-Image applyGamma (Image src, float gamma);
+void applyGamma (Image& src, float gamma);
 
 /** Inverts colours of an image */
-Image applyInvert (Image src);
+void applyInvert (Image& src);
 
 /** Adjust contrast of an image
  *
  \param contrast Amount to adjust contrast. Negative values increase, positive values increase
 */
-Image applyContrast (Image src, float contrast);
+void applyContrast (Image& src, float contrast);
 
 /** Adjust brightness and contrast of an image
  *
  \param brightness Amount to adjust brightness -100,100
  \param contrast Amount to adjust contrast -100,100
  */
-Image applyBrightnessContrast (Image src, float brightness, float contrast);
+void applyBrightnessContrast (Image& src, float brightness, float contrast);
 
 /** Adjust hue, saturation and lightness of an image
  *
@@ -52,7 +52,7 @@ Image applyBrightnessContrast (Image src, float brightness, float contrast);
  \param saturation Amount to adjust saturation 0,200
  \param lightness Amount to adjust lightness -100,100
  */
-Image applyHueSaturationLightness (Image src, float hue, float saturation, float lightness);
+void applyHueSaturationLightness (Image& src, float hue, float saturation, float lightness);
 
 /** A very fast blur. This is a compromise between Gaussian Blur and Box blur.
     It creates much better looking blurs than Box Blur, but is 7x faster than some Gaussian Blur
@@ -60,4 +60,4 @@ Image applyHueSaturationLightness (Image src, float hue, float saturation, float
  *
  \param radius from 2 to 254
  */
-Image applyStackBlur (Image src, unsigned int radius);
+void applyStackBlur (Image& src, unsigned int radius);

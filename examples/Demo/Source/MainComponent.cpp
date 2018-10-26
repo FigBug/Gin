@@ -319,17 +319,17 @@ struct ImageEffectsDemo : public Component,
 
         switch (effects.getSelectedItemIndex())
         {
-            case 1: img = gin::applyVignette (img, (float) vignetteAmount.getValue(), (float) vignetteRadius.getValue(), (float) vignetteFalloff.getValue()); break;
-            case 2: img = gin::applySepia (img); break;
-            case 3: img = gin::applyGreyScale (img); break;
-            case 4: img = gin::applySoften (img); break;
-            case 5: img = gin::applySharpen (img); break;
-            case 6: img = gin::applyGamma (img, (float) gamma.getValue()); break;
-            case 7: img = gin::applyInvert (img); break;
-            case 8: img = gin::applyContrast (img, (float) contrast.getValue()); break;
-            case 9: img = gin::applyBrightnessContrast (img, (float) brightness.getValue(), (float) contrast.getValue()); break;
-            case 10: img = gin::applyHueSaturationLightness (img, (float) hue.getValue(), (float) saturation.getValue(), (float) lightness.getValue()); break;
-            case 11: img = gin::applyStackBlur (img, (unsigned int) radius.getValue()); break;
+            case 1: gin::applyVignette (img, (float) vignetteAmount.getValue(), (float) vignetteRadius.getValue(), (float) vignetteFalloff.getValue()); break;
+            case 2: gin::applySepia (img); break;
+            case 3: gin::applyGreyScale (img); break;
+            case 4: gin::applySoften (img); break;
+            case 5: gin::applySharpen (img); break;
+            case 6: gin::applyGamma (img, (float) gamma.getValue()); break;
+            case 7: gin::applyInvert (img); break;
+            case 8: gin::applyContrast (img, (float) contrast.getValue()); break;
+            case 9: gin::applyBrightnessContrast (img, (float) brightness.getValue(), (float) contrast.getValue()); break;
+            case 10: gin::applyHueSaturationLightness (img, (float) hue.getValue(), (float) saturation.getValue(), (float) lightness.getValue()); break;
+            case 11: gin::applyStackBlur (img, (unsigned int) radius.getValue()); break;
         }
 
         g.fillAll (Colours::black);
