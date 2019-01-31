@@ -63,7 +63,7 @@ public:
             else if (evt & kFSEventStreamEventFlagItemRemoved)
                 impl->owner.fileChanged (path, FileSystemEvent::fileDeleted);
             else if (evt & kFSEventStreamEventFlagItemRenamed)
-                impl->owner.fileChanged (path, path.existsAsFile() ? FileSystemEvent::fileRenamedNewName : FileSystemEvent::fileRenamedOldName);
+                impl->owner.fileChanged (path, path.exists() ? FileSystemEvent::fileRenamedNewName : FileSystemEvent::fileRenamedOldName);
             else if (evt & kFSEventStreamEventFlagItemCreated)
                 impl->owner.fileChanged (path, FileSystemEvent::fileCreated);
         }
