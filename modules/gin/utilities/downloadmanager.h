@@ -22,6 +22,12 @@ public:
     DownloadManager (int connectTimeout = 30 * 1000, int shutdownTimeout = 30 * 1000);
     ~DownloadManager();
     
+    /** This callback is called every time all downloads are finished */
+    void setQueueFinishedCallback (std::function<void ()> callback)
+    {
+        queueFinishedCallback = callback;
+    }
+    
     /** How long connecting is given before it times out */
     void setConnectTimeout (int timeout)    { connectTimeout = timeout; }
     
@@ -32,7 +38,7 @@ public:
     void setRetryDelay (double seconds)     { retryDelay = seconds;     }
     
     /** Maximum number of downloads to allow at once */
-    void setConcurrentDownloadLimit (int l) { maxDownloads = l;         }
+    void setConcurrentDownloadLimit (int l);
     
     /** Number of items in download queue */
     int getNumberOfDownloads()              { return downloads.size();  }
@@ -103,6 +109,7 @@ private:
     };
     
     void downloadFinished (Download*);
+    void triggerNextDownload();
     
     //==============================================================================
     int nextId = 0;
@@ -112,6 +119,7 @@ private:
     double retryDelay = 0.0;
     int runningDownloads = 0, maxDownloads = 100;
     OwnedArray<Download> downloads;
+    std::function<void ()> queueFinishedCallback;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DownloadManager)
 };

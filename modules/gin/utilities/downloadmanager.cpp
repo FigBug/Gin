@@ -15,6 +15,26 @@ DownloadManager::~DownloadManager()
     cancelAllDownloads();
 }
 
+void DownloadManager::setConcurrentDownloadLimit (int limit)
+{
+    maxDownloads = limit;
+    triggerNextDownload();
+}
+
+void DownloadManager::triggerNextDownload()
+{
+    for (int i = 0; i < downloads.size() && runningDownloads < maxDownloads; i++)
+    {
+        auto d = downloads[i];
+        if (! d->started)
+        {
+            runningDownloads++;
+            d->started = true;
+            d->startThread();
+        }
+    }
+}
+
 int DownloadManager::startAsyncDownload (String url, String postData,
                                          std::function<void (DownloadResult)> completionCallback,
                                          std::function<void (int64, int64)> progressCallback)
@@ -34,14 +54,9 @@ int DownloadManager::startAsyncDownload (URL url,
     download->completionCallback = completionCallback;
     download->progressCallback = progressCallback;
     
-    if (runningDownloads < maxDownloads)
-    {
-        download->started = true;
-        download->startThread();
-        runningDownloads++;
-    }
-    
     downloads.add (download);
+    
+    triggerNextDownload();
     
     return download->result.downloadId;
 }
@@ -66,6 +81,11 @@ void DownloadManager::cancelDownload (int downloadId)
                 runningDownloads--;
             
             downloads.remove (i);
+            triggerNextDownload();
+            
+            if (downloads.size() == 0 && queueFinishedCallback)
+                queueFinishedCallback();
+            
             break;
         }
     }
@@ -78,16 +98,10 @@ void DownloadManager::downloadFinished (Download* download)
     runningDownloads--;
     downloads.removeObject (download);
     
-    for (int i = 0; i < downloads.size() && runningDownloads < maxDownloads; i++)
-    {
-        auto d = downloads[i];
-        if (! d->started)
-        {
-            runningDownloads++;
-            d->started = true;
-            d->startThread();
-        }
-    }
+    triggerNextDownload();
+    
+    if (downloads.size() == 0 && queueFinishedCallback)
+        queueFinishedCallback();
 }
 
 //==============================================================================
