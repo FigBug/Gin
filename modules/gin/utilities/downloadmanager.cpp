@@ -36,6 +36,7 @@ int DownloadManager::startAsyncDownload (URL url,
     
     if (runningDownloads < maxDownloads)
     {
+        download->started = true;
         download->startThread();
         runningDownloads++;
     }
@@ -80,9 +81,10 @@ void DownloadManager::downloadFinished (Download* download)
     for (int i = 0; i < downloads.size() && runningDownloads < maxDownloads; i++)
     {
         auto d = downloads[i];
-        if (! d->isThreadRunning())
+        if (! d->started)
         {
             runningDownloads++;
+            d->started = true;
             d->startThread();
         }
     }

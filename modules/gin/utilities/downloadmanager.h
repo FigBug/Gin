@@ -92,6 +92,7 @@ private:
         
         DownloadManager& owner;
         
+        bool started = false;
         uint32 lastProgress = 0;
     
         //==============================================================================
