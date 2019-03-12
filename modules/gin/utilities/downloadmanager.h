@@ -34,6 +34,9 @@ public:
     /** Maximum number of downloads to allow at once */
     void setConcurrentDownloadLimit (int l) { maxDownloads = l;         }
     
+    /** Number of items in download queue */
+    int getNumberOfDownloads()              { return downloads.size();  }
+    
     //==============================================================================
     struct DownloadResult
     {
