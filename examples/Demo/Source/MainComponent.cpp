@@ -154,6 +154,9 @@ struct DownloadManagerDemo : public Component,
                                                             repaint();
                                                         }
                                                     }
+                                                }, [url] (int64 current, int64 total)
+                                                {
+                                                    DBG(url + ": " + String (current) + " of " + String (total) + " downloaded.");
                                                 });
         }
     }
@@ -729,8 +732,8 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
-    demoComponents.add (new BoxBlurDemo());
     demoComponents.add (new DownloadManagerDemo());
+    demoComponents.add (new BoxBlurDemo());
     demoComponents.add (new FileSystemWatcherDemo());
     demoComponents.add (new ImageEffectsDemo());
     demoComponents.add (new MetadataDemo());

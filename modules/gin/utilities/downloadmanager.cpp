@@ -15,18 +15,28 @@ DownloadManager::~DownloadManager()
     cancelAllDownloads();
 }
 
-int DownloadManager::startAsyncDownload (String url, String postData, std::function<void (DownloadResult)> callback)
+int DownloadManager::startAsyncDownload (String url, String postData,
+                                         std::function<void (DownloadResult)> completionCallback,
+                                         std::function<void (int64, int64)> progressCallback)
 {
-    return startAsyncDownload (URL (url).withPOSTData (postData), callback);
+    return startAsyncDownload (URL (url).withPOSTData (postData), completionCallback, progressCallback);
 }
 
-int DownloadManager::startAsyncDownload (URL url, std::function<void (DownloadResult)> callback)
+int DownloadManager::startAsyncDownload (URL url,
+                                         std::function<void (DownloadResult)> completionCallback,
+                                         std::function<void (int64, int64)> progressCallback)
 {
     auto* download = new Download (*this);
     download->result.url = url;
     download->result.downloadId = ++nextId;
-    download->callback = callback;
-    download->startThread();
+    download->completionCallback = completionCallback;
+    download->progressCallback = progressCallback;
+    
+    if (runningDownloads < maxDownloads)
+    {
+        download->startThread();
+        runningDownloads++;
+    }
     
     downloads.add (download);
     
@@ -35,14 +45,39 @@ int DownloadManager::startAsyncDownload (URL url, std::function<void (DownloadRe
 
 void DownloadManager::cancelAllDownloads()
 {
+    runningDownloads = 0;
     downloads.clear();
 }
 
 void DownloadManager::cancelDownload (int downloadId)
 {
     for (int i = downloads.size(); --i >= 0;)
+    {
         if (downloads[i]->result.downloadId == downloadId)
+        {
+            if (downloads[i]->isThreadRunning())
+                runningDownloads--;
+            
             downloads.remove (i);
+            break;
+        }
+    }
+}
+
+void DownloadManager::downloadFinished (Download* download)
+{
+    runningDownloads--;
+    downloads.removeObject (download);
+    
+    for (int i = 0; i < downloads.size() && runningDownloads < maxDownloads; i++)
+    {
+        auto d = downloads[i];
+        if (! d->isThreadRunning())
+        {
+            runningDownloads++;
+            d->startThread();
+        }
+    }
 }
 
 //==============================================================================
@@ -60,6 +95,36 @@ DownloadManager::Download::~Download()
 }
 
 void DownloadManager::Download::run()
+{
+    int attemps = owner.retryLimit + 1;
+    while (attemps-- && ! threadShouldExit())
+    {
+        result.attempts++;
+        if (tryDownload())
+            break;
+        
+        if (owner.retryDelay > 0)
+            wait (roundToInt (owner.retryDelay * 1000));
+    }
+    
+    if (! threadShouldExit())
+    {
+        // Get a weak reference to self, to check if we get deleted before
+        // async call happens.
+        WeakReference<Download> self = this;
+        MessageManager::callAsync ([self]
+                                   {
+                                       if (self != nullptr)
+                                       {
+                                           self->completionCallback (self->result);
+                                           self->owner.downloadFinished (self);
+                                           // DownloadManager has now delete us, don't do anything else
+                                       }
+                                   });
+    }
+}
+
+bool DownloadManager::Download::tryDownload()
 {
     // Use post if we have post data
     const bool post = result.url.getPostData().isNotEmpty();
@@ -95,6 +160,8 @@ void DownloadManager::Download::run()
                     os.write (buffer, size_t (read));
                     downloaded += read;
                     result.ok = is->isExhausted() || downloaded == totalLength;
+                    
+                    updateProgress (downloaded, totalLength);
                 }
                 else
                 {
@@ -105,19 +172,27 @@ void DownloadManager::Download::run()
         }
     }
     
-    if (! threadShouldExit())
+    return result.ok;
+}
+
+void DownloadManager::Download::updateProgress (int64 current, int64 total)
+{
+    if (progressCallback)
     {
-        // Get a weak reference to self, to check if we get deleted before
-        // async call happens.
-        WeakReference<Download> self = this;
-        MessageManager::callAsync ([self]
-                                   {
-                                       if (self != nullptr)
+        // Update progress no more than once per second
+        uint32 now = Time::getApproximateMillisecondCounter();
+        if (now >= lastProgress + 1000)
+        {
+            lastProgress = now;
+            
+            // Get a weak reference to self, to check if we get deleted before
+            // async call happens.
+            WeakReference<Download> self = this;
+            MessageManager::callAsync ([self, current, total]
                                        {
-                                           self->callback (self->result);                                        
-                                           self->owner.downloads.removeObject (self);
-                                           // We have now deleted ourself, don't do anything else
-                                       }
-                                   });
+                                           if (self != nullptr)
+                                               self->progressCallback (current, total);
+                                       });
+        }
     }
 }
