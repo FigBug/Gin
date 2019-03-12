@@ -368,7 +368,7 @@ void applyContrast (Image& src, float contrast)
     if (src.getFormat() != Image::ARGB)
         return;
 
-    contrast = (100.0f - contrast) / 100.0f;
+    contrast = (100.0f + contrast) / 100.0f;
     contrast = square (contrast);
 
     Image::BitmapData data (src, Image::BitmapData::readWrite);
