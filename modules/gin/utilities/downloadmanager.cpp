@@ -216,14 +216,21 @@ void DownloadManager::Download::updateProgress (int64 current, int64 total)
             int64 delta = current - lastBytesSent;
             lastBytesSent = current;
             
-            // Get a weak reference to self, to check if we get deleted before
-            // async call happens.
-            WeakReference<Download> self = this;
-            MessageManager::callAsync ([self, current, total, delta]
-                                       {
-                                           if (self != nullptr)
-                                               self->progressCallback (current, total, delta);
-                                       });
+            if (owner.callbackOnMessageThread)
+            {
+                // Get a weak reference to self, to check if we get deleted before
+                // async call happens.
+                WeakReference<Download> self = this;
+                MessageManager::callAsync ([self, current, total, delta]
+                                           {
+                                               if (self != nullptr)
+                                                   self->progressCallback (current, total, delta);
+                                           });
+            }
+            else
+            {
+                progressCallback (current, total, delta);
+            }
         }
     }
 }

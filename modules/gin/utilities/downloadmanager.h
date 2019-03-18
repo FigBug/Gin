@@ -47,8 +47,8 @@ public:
         already running threads */
     void setThreadPriority (int p)              { priority = p; }
     
-    /** Sets the completion callbacks to be called on download thread or
-        GUI thread. Note: progress callback always happen on GUI thread */
+    /** Sets the completion and progress callbacks to be called on download thread
+        or GUI thread. Note: queue complete callback always happens on GUI thread */
     void setCallbackOnMessageThread (bool b)    { callbackOnMessageThread = b; }
     
     /** Sets minimum time between download progress callbacks in milliseconds */
