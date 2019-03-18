@@ -37,10 +37,11 @@ inline PixelARGB blend (const PixelARGB& c1, const PixelARGB& c2)
 }
 
 //==============================================================================
-void applyVignette (Image& src, float amountIn, float radiusIn, float fallOff)
+void applyVignette (Image& src, float amountIn, float radiusIn, float fallOff, int maxThreads)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
+    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
 
     jassert (src.getFormat() == Image::ARGB);
     if (src.getFormat() != Image::ARGB)
@@ -62,7 +63,7 @@ void applyVignette (Image& src, float amountIn, float radiusIn, float fallOff)
     Ellipse<double> outE { outA, outB };
     Ellipse<double> inE  { inA,  inB  };
 
-    multiThreadedFor<int> (0, h, 1, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
     {
         uint8* p = data.getLinePointer (y);
 
@@ -111,10 +112,11 @@ void applyVignette (Image& src, float amountIn, float radiusIn, float fallOff)
     });
 }
 
-void applySepia (Image& src)
+void applySepia (Image& src, int maxThreads)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
+    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
 
     jassert (src.getFormat() == Image::ARGB);
     if (src.getFormat() != Image::ARGB)
@@ -122,7 +124,7 @@ void applySepia (Image& src)
 
     Image::BitmapData data (src, Image::BitmapData::readWrite);
 
-    multiThreadedFor<int> (0, h, 1, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
     {
         uint8* p = data.getLinePointer (y);
 
@@ -146,17 +148,18 @@ void applySepia (Image& src)
     });
 }
 
-void applyGreyScale (Image& src)
+void applyGreyScale (Image& src, int maxThreads)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
+    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
 
     if (src.getFormat() != Image::ARGB)
         return;
 
     Image::BitmapData data (src, Image::BitmapData::readWrite);
 
-    multiThreadedFor<int> (0, h, 1, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
     {
         uint8* p = data.getLinePointer (y);
 
@@ -183,10 +186,11 @@ void applyGreyScale (Image& src)
     });
 }
 
-void applySoften (Image& src)
+void applySoften (Image& src, int maxThreads)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
+    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
 
     if (src.getFormat() != Image::ARGB)
         return;
@@ -196,7 +200,7 @@ void applySoften (Image& src)
     Image::BitmapData srcData (src, Image::BitmapData::readOnly);
     Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
 
-    multiThreadedFor<int> (0, h, 1, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
     {
         for (int x = 0; x < w; x++)
         {
@@ -229,10 +233,11 @@ void applySoften (Image& src)
     src = dst;
 }
 
-void applySharpen (Image& src)
+void applySharpen (Image& src, int maxThreads)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
+    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
 
     if (src.getFormat() != Image::ARGB)
         return;
@@ -242,7 +247,7 @@ void applySharpen (Image& src)
     Image::BitmapData srcData (src, Image::BitmapData::readOnly);
     Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
 
-    multiThreadedFor<int> (0, h, 1, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
     {
         for (int x = 0; x < w; x++)
         {
@@ -292,17 +297,18 @@ void applySharpen (Image& src)
     src = dst;
 }
 
-void applyGamma (Image& src, float gamma)
+void applyGamma (Image& src, float gamma, int maxThreads)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
+    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
 
     if (src.getFormat() != Image::ARGB)
         return;
 
     Image::BitmapData data (src, Image::BitmapData::readWrite);
 
-    multiThreadedFor<int> (0, h, 1, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
     {
         uint8* p = data.getLinePointer (y);
 
@@ -326,17 +332,18 @@ void applyGamma (Image& src, float gamma)
     });
 }
 
-void applyInvert (Image& src)
+void applyInvert (Image& src, int maxThreads)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
+    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
 
     if (src.getFormat() != Image::ARGB)
         return;
 
     Image::BitmapData data (src, Image::BitmapData::readWrite);
 
-    multiThreadedFor<int> (0, h, 1, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
     {
         uint8* p = data.getLinePointer (y);
 
@@ -360,10 +367,11 @@ void applyInvert (Image& src)
     });
 }
 
-void applyContrast (Image& src, float contrast)
+void applyContrast (Image& src, float contrast, int maxThreads)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
+    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
 
     if (src.getFormat() != Image::ARGB)
         return;
@@ -373,7 +381,7 @@ void applyContrast (Image& src, float contrast)
 
     Image::BitmapData data (src, Image::BitmapData::readWrite);
 
-    multiThreadedFor<int> (0, h, 1, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
     {
         uint8* p = data.getLinePointer (y);
 
@@ -415,10 +423,11 @@ void applyContrast (Image& src, float contrast)
     });
 }
 
-void applyBrightnessContrast (Image& src, float brightness, float contrast)
+void applyBrightnessContrast (Image& src, float brightness, float contrast, int maxThreads)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
+    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
 
     if (src.getFormat() != Image::ARGB)
         return;
@@ -483,7 +492,7 @@ void applyBrightnessContrast (Image& src, float brightness, float contrast)
         }
     }
 
-    multiThreadedFor<int> (0, h, 1, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
     {
         uint8* p = data.getLinePointer (y);
 
@@ -526,10 +535,11 @@ void applyBrightnessContrast (Image& src, float brightness, float contrast)
     delete[] rgbTable;
 }
 
-void applyHueSaturationLightness (Image& src, float hueIn, float saturation, float lightness)
+void applyHueSaturationLightness (Image& src, float hueIn, float saturation, float lightness, int maxThreads)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
+    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
 
     if (src.getFormat() != Image::ARGB)
         return;
@@ -542,7 +552,7 @@ void applyHueSaturationLightness (Image& src, float hueIn, float saturation, flo
 
     Image::BitmapData data (src, Image::BitmapData::readWrite);
 
-    multiThreadedFor<int> (0, h, 1, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
     {
         uint8* p = data.getLinePointer (y);
 

@@ -16,34 +16,34 @@ void callInBackground (std::function<void (void)> function);
 // for (int i = 0; i < 10; i++) becomes multiThreadedFor<int> (0, 10, 1, [&] (int i) {});
 // Make sure each iteration of the loop is independant
 template <typename T>
-void multiThreadedFor (T start, T end, T interval, std::function<void (T idx)> callback)
+void multiThreadedFor (T start, T end, T interval, int maxThreads, std::function<void (T idx)> callback)
 {
     static ThreadPool pool (SystemStats::getNumCpus());
     
-    int num = SystemStats::getNumCpus();
-    
-    Array<T> todo;
-    todo.ensureStorageAllocated ((end - start) / interval);
-    for (T i = start; i < end; i += interval)
-        todo.add (i);
-    
-    int each = int (std::ceil (todo.size() / float (num)));
-    
-    WaitableEvent wait;
-    
-    Atomic<int> threadsRunning (num);
-    
-    for (int i = 0; i < num; i++)
+    const int num = (maxThreads == -1) ? SystemStats::getNumCpus() : maxThreads;
+    if (num == 1)
     {
-        pool.addJob ([i, &callback, &wait, &todo, &threadsRunning, &each]
-                     {
-                         for (int j = i * each; j < jmin (todo.size(), (i + 1) * each); j++)
-                             callback (todo[j]);
-                         threadsRunning -= 1;
-                         wait.signal();
-                     });
+        for (int i = start; i < end; i += interval)
+            callback (i);
     }
-    
-    while (threadsRunning.get() > 0)
+    else
+    {
+        WaitableEvent wait;
+        Atomic<int> threadsRunning (num);
+        
+        for (int i = 0; i < num; i++)
+        {
+            pool.addJob ([i, &callback, &wait, &threadsRunning, start, end, interval, num]
+                         {
+                             for (int j = start + interval * i; j < end; j += interval * num)
+                                 callback (j);
+                             
+                             int stillRunning = --threadsRunning;
+                             if (stillRunning == 0)
+                                 wait.signal();
+                         });
+        }
+        
         wait.wait();
+    }
 }
