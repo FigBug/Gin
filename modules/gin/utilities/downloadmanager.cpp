@@ -37,14 +37,14 @@ void DownloadManager::triggerNextDownload()
 
 int DownloadManager::startAsyncDownload (String url, String postData,
                                          std::function<void (DownloadResult)> completionCallback,
-                                         std::function<void (int64, int64)> progressCallback)
+                                         std::function<void (int64, int64, int64)> progressCallback)
 {
     return startAsyncDownload (URL (url).withPOSTData (postData), completionCallback, progressCallback);
 }
 
 int DownloadManager::startAsyncDownload (URL url,
                                          std::function<void (DownloadResult)> completionCallback,
-                                         std::function<void (int64, int64)> progressCallback)
+                                         std::function<void (int64, int64, int64)> progressCallback)
 {
     JUCE_ASSERT_MESSAGE_MANAGER_IS_LOCKED
     
@@ -133,6 +133,9 @@ void DownloadManager::Download::run()
     
     if (! threadShouldExit())
     {
+        if (! owner.callbackOnMessageThread)
+            completionCallback (result);
+        
         // Get a weak reference to self, to check if we get deleted before
         // async call happens.
         WeakReference<Download> self = this;
@@ -140,7 +143,8 @@ void DownloadManager::Download::run()
                                    {
                                        if (self != nullptr)
                                        {
-                                           self->completionCallback (self->result);
+                                           if (self->owner.callbackOnMessageThread)
+                                               self->completionCallback (self->result);
                                            self->owner.downloadFinished (self);
                                            // DownloadManager has now delete us, don't do anything else
                                        }
@@ -165,6 +169,7 @@ bool DownloadManager::Download::tryDownload()
             
             MemoryOutputStream os (result.data, false);
             
+            lastBytesSent = 0;
             int64 downloaded  = 0;
             int64 totalLength = is->getTotalLength();
             
@@ -173,10 +178,10 @@ bool DownloadManager::Download::tryDownload()
                 totalLength = std::numeric_limits<int64>::max();
             
             // Download all data
+            char buffer[128 * 1000];
             while (! is->isExhausted() && ! threadShouldExit() && downloaded < totalLength)
             {
-                char buffer[128 * 1000];
-                int64 toRead = jmin (int64 (sizeof (buffer)), totalLength - downloaded);
+                int64 toRead = jmin (int64 (sizeof (buffer)), int64 (owner.downloadBlockSize), totalLength - downloaded);
                 
                 int read = is->read (buffer, int (toRead));
                 if (read > 0)
@@ -204,18 +209,20 @@ void DownloadManager::Download::updateProgress (int64 current, int64 total)
     if (progressCallback)
     {
         // Update progress no more than once per second
-        uint32 now = Time::getApproximateMillisecondCounter();
-        if (now >= lastProgress + 1000)
+        uint32 now = Time::getMillisecondCounter();
+        if (now >= lastProgress + uint32 (owner.downloadIntervalMS))
         {
             lastProgress = now;
+            int64 delta = current - lastBytesSent;
+            lastBytesSent = current;
             
             // Get a weak reference to self, to check if we get deleted before
             // async call happens.
             WeakReference<Download> self = this;
-            MessageManager::callAsync ([self, current, total]
+            MessageManager::callAsync ([self, current, total, delta]
                                        {
                                            if (self != nullptr)
-                                               self->progressCallback (current, total);
+                                               self->progressCallback (current, total, delta);
                                        });
         }
     }

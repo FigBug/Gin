@@ -103,6 +103,8 @@ struct DownloadManagerDemo : public Component,
     {
         setName ("Download Manager");
         downloadManager.setConcurrentDownloadLimit (4);
+        downloadManager.setCallbackOnMessageThread (false);
+        downloadManager.setProgressInterval (1);
         downloadManager.setQueueFinishedCallback([] {
             DBG("All done!");
         });
@@ -149,9 +151,11 @@ struct DownloadManagerDemo : public Component,
     {
         for (int i = 0; i < 4; i++)
         {
-            String url = String::formatted ("https://picsum.photos/%d/%d/?image=%d", getWidth(), getHeight(), Random::getSystemRandom().nextInt (500));
+            String url = String::formatted ("https://picsum.photos/%d/%d/?image=%d", getWidth() * 10, getHeight() * 10, Random::getSystemRandom().nextInt (500));
             downloadManager.startAsyncDownload (url, [this, i] (gin::DownloadManager::DownloadResult result)
                                                 {
+                                                    const MessageManagerLock mmLock;
+                                                    
                                                     DBG(result.url.toString (true) + " downloaded " + (result.ok ? "ok: " : "failed: ") + String (result.httpCode));
                                                     
                                                     if (result.ok)
@@ -163,9 +167,10 @@ struct DownloadManagerDemo : public Component,
                                                             repaint();
                                                         }
                                                     }
-                                                }, [url] (int64 current, int64 total)
+                                                }, [url] (int64 current, int64 total, int64 sinceLast)
                                                 {
-                                                    DBG(url + ": " + String (current) + " of " + String (total) + " downloaded.");
+                                                    double percent = double (current) / double (total) * 100;
+                                                    DBG(url + ": " + String (int (percent)) + "% " + String (current) + " of " + String (total) + " downloaded. This block: " + String (sinceLast));
                                                 });
         }
     }
