@@ -43,6 +43,10 @@ public:
     /** Number of items in download queue */
     int getNumberOfDownloads()              { return downloads.size();  }
     
+    /** Set download thread priority. Does not affect priority of
+        already running threads */
+    void setThreadPriority (int p)          { priority = p; }
+    
     //==============================================================================
     struct DownloadResult
     {
@@ -116,6 +120,7 @@ private:
     int connectTimeout = 30 * 1000;
     int shutdownTimeout = 30 * 1000;
     int retryLimit = 0;
+    int priority = 5;
     double retryDelay = 0.0;
     int runningDownloads = 0, maxDownloads = 100;
     OwnedArray<Download> downloads;

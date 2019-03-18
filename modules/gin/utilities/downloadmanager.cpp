@@ -30,7 +30,7 @@ void DownloadManager::triggerNextDownload()
         {
             runningDownloads++;
             d->started = true;
-            d->startThread();
+            d->startThread (priority);
         }
     }
 }
