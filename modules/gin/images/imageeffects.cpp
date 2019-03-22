@@ -659,7 +659,7 @@ static void applyStackBlurBW (Image& src, unsigned int radius)
     
     unsigned int wm = w - 1;
     unsigned int hm = h - 1;
-    unsigned int w1 = w * 1;
+    unsigned int w1 = data.lineStride;
     unsigned int div = (unsigned int)(radius * 2) + 1;
     unsigned int mul_sum = stackblur_mul[radius];
     unsigned char shr_sum = stackblur_shr[radius];
@@ -752,7 +752,7 @@ static void applyStackBlurBW (Image& src, unsigned int radius)
         for (i = 1; i <= radius; ++i)
         {
             if (i <= hm)
-                src_ptr += w1;        // +stride
+                src_ptr += w1;
             
             stack_ptr = &stack[1 * (i + radius)];
             stack_ptr[0] = src_ptr[0];
@@ -785,7 +785,7 @@ static void applyStackBlurBW (Image& src, unsigned int radius)
             
             if (yp < hm)
             {
-                src_ptr += w1;            // stride
+                src_ptr += w1;
                 ++yp;
             }
             
@@ -828,7 +828,7 @@ static void applyStackBlurRGB (Image& src, unsigned int radius)
     
     unsigned int wm = w - 1;
     unsigned int hm = h - 1;
-    unsigned int w3 = w * 3;
+    unsigned int w3 = data.lineStride;
     unsigned int div = (unsigned int)(radius * 2) + 1;
     unsigned int mul_sum = stackblur_mul[radius];
     unsigned char shr_sum = stackblur_shr[radius];
@@ -959,7 +959,7 @@ static void applyStackBlurRGB (Image& src, unsigned int radius)
         for (i = 1; i <= radius; ++i)
         {
             if (i <= hm)
-                src_ptr += w3;        // +stride
+                src_ptr += w3;
             
             stack_ptr = &stack[3 * (i + radius)];
             stack_ptr[0] = src_ptr[0];
@@ -1004,7 +1004,7 @@ static void applyStackBlurRGB (Image& src, unsigned int radius)
             
             if (yp < hm)
             {
-                src_ptr += w3;            // stride
+                src_ptr += w3;
                 ++yp;
             }
             
@@ -1057,7 +1057,7 @@ static void applyStackBlurARGB (Image& src, unsigned int radius)
     
     unsigned int wm = w - 1;
     unsigned int hm = h - 1;
-    unsigned int w4 = w * 4;
+    unsigned int w4 = data.lineStride;
     unsigned int div = (unsigned int)(radius * 2) + 1;
     unsigned int mul_sum = stackblur_mul[radius];
     unsigned char shr_sum = stackblur_shr[radius];
@@ -1205,7 +1205,7 @@ static void applyStackBlurARGB (Image& src, unsigned int radius)
         for (i = 1; i <= radius; ++i)
         {
             if (i <= hm)
-                src_ptr += w4;        // +stride
+                src_ptr += w4;
             
             stack_ptr = &stack[4 * (i + radius)];
             stack_ptr[0] = src_ptr[0];
@@ -1256,7 +1256,7 @@ static void applyStackBlurARGB (Image& src, unsigned int radius)
             
             if (yp < hm)
             {
-                src_ptr += w4;            // stride
+                src_ptr += w4;
                 ++yp;
             }
             
