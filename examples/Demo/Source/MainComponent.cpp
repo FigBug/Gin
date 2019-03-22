@@ -16,27 +16,16 @@ struct BoxBlurDemo : public Component,
     {
         setName ("Box Blur Effects");
         
-        Image source (Image::SingleChannel, 256, 256, true);
-
-        {
-            Path p;
-            p.addRoundedRectangle (32, 32, 256 - 64, 256 - 64, 32);
-
-            Graphics g (source);
-
-            g.fillAll (Colours::transparentBlack);
-            g.setColour (Colours::white);
-            g.fillPath (p);
-        }
-
+        auto source = ImageFileFormat::loadFrom (BinaryData::pencils_jpeg, BinaryData::pencils_jpegSize);
         sourceARGB = source.convertedToFormat (Image::ARGB);
-        sourceBW = source;
+        sourceRGB = source.convertedToFormat (Image::RGB);
+        sourceBW = convertToBW (source);
         
         addAndMakeVisible (radius);
         radius.addListener (this);
         radius.setTextBoxStyle (Slider::NoTextBox, false, 0, 0);
 
-        radius.setRange (1, 254);
+        radius.setRange (2, 254);
     }
     
     void sliderValueChanged (Slider*) override
@@ -53,23 +42,56 @@ struct BoxBlurDemo : public Component,
     
     void paint (Graphics& g) override
     {
-        g.fillAll (Colours::white);
-        g.setColour (Colours::black);
+        g.fillAll (Colours::black);
+        auto rc = getLocalBounds();
+        int w = rc.getWidth() / 3;
 
         {
-            auto img = sourceBW.createCopy();
-            gin::applyStackBlur (img, (unsigned int) radius.getValue());
-            g.drawImageAt (img, 0, 0, true);
-        }
-
-        {
+            Graphics::ScopedSaveState sss (g);
+            g.reduceClipRegion (rc.removeFromLeft (w));
+            
             auto img = sourceARGB.createCopy();
             gin::applyStackBlur (img, (unsigned int) radius.getValue());
-            g.drawImageAt (img, 0, 256, true);
+            g.drawImage (img, getLocalBounds().toFloat(), RectanglePlacement::centred);
+        }
+
+        {
+            Graphics::ScopedSaveState sss (g);
+            g.reduceClipRegion (rc.removeFromLeft (w));
+            
+            auto img = sourceRGB.createCopy();
+            gin::applyStackBlur (img, (unsigned int) radius.getValue());
+            g.drawImage (img, getLocalBounds().toFloat(), RectanglePlacement::centred);
+        }
+
+        {
+            Graphics::ScopedSaveState sss (g);
+            g.reduceClipRegion (rc);
+            
+            auto img = sourceBW.createCopy();
+            gin::applyStackBlur (img, (unsigned int) radius.getValue());
+            g.drawImage (img, getLocalBounds().toFloat(), RectanglePlacement::centred);
         }
     }
-
-    Image sourceARGB, sourceBW;
+    
+    Image convertToBW (const Image& src)
+    {
+        auto dst = Image (Image::SingleChannel, src.getWidth(), src.getHeight(), true);
+       
+        for (int y = 0; y < src.getHeight(); y++)
+        {
+            for (int x = 0; x < src.getWidth(); x++)
+            {
+                auto colour = src.getPixelAt (x, y);
+                uint8 bw = (colour.getRed() + colour.getGreen() + colour.getBlue()) / 3;
+                dst.setPixelAt (x, y, Colour (bw, bw, bw, bw));
+            }
+        }
+        
+        return dst;
+    }
+    
+    Image sourceARGB, sourceRGB, sourceBW;
     Slider radius;
 };
 
@@ -724,9 +746,9 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
-    demoComponents.add (new BoxBlurDemo());
     demoComponents.add (new DownloadManagerDemo());
     demoComponents.add (new ImageEffectsDemo());
+    demoComponents.add (new BoxBlurDemo());
     demoComponents.add (new FileSystemWatcherDemo());
     demoComponents.add (new MetadataDemo());
     demoComponents.add (new BmpImageDemo());
@@ -745,7 +767,7 @@ MainContentComponent::MainContentComponent()
     demoList.selectRow (0);
     addAndMakeVisible (demoList);
 
-    setSize (750, 550);
+    setSize (600, 400);
 }
 
 MainContentComponent::~MainContentComponent()
