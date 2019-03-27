@@ -72,14 +72,7 @@ using juce::MemoryBlock;
 
 #include "components/mapviewer.cpp"
 #include "components/propertycomponents.cpp"
-#include "components/plugincomponents.cpp"
-#include "components/pluginlookandfeel.cpp"
 #include "components/singlelinetexteditor.cpp"
-
-#include "plugin/processor.cpp"
-#include "plugin/plugineditor.cpp"
-#include "plugin/program.cpp"
-#include "plugin/parameter.cpp"
 
 }
 

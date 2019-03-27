@@ -15,15 +15,15 @@
 
  BEGIN_JUCE_MODULE_DECLARATION
 
-  ID:               gin
+  ID:               gin_plugin
   vendor:           Roland Rabien
   version:          1.0.0
-  name:             Gin
-  description:      Gin
+  name:             Gin Plugin
+  description:      GinPlugin Utilities
   website:          www.rabiensoftware.com
   license:          BSD
 
-  dependencies:     juce_core juce_gui_basics juce_audio_basics
+  dependencies:     gin juce_audio_utils
 
  END_JUCE_MODULE_DECLARATION
 
@@ -32,7 +32,7 @@
 
 #pragma once
 
-#ifndef JUCE_MODULE_AVAILABLE_gin
+#ifndef JUCE_MODULE_AVAILABLE_gin_plugin
  /* If you fail to make sure that all your compile units are building JUCE with the same set of
     option flags, then there's a risk that different compile units will treat the classes as having
     different memory layouts, leading to very nasty memory corruption errors when they all get
@@ -64,36 +64,12 @@ using namespace juce;
 using juce::Rectangle;
 using juce::Component;
 
-#include "dsp/adsr.h"
-#include "dsp/audioutil.h"
-
-#include "utilities/downloadmanager.h"
-#include "utilities/equationparser.h"
-#include "utilities/util.h"
-#include "utilities/filesystemwatcher.h"
-#include "utilities/integrator.h"
-#include "utilities/leastsquaresregression.h"
-#include "utilities/linearregression.h"
-#include "utilities/openstreetmaps.h"
-#include "utilities/sharedmemory.h"
-#include "utilities/spline.h"
-#include "utilities/systemsemaphore.h"
-#include "utilities/threading.h"
-#include "utilities/valuetreeobject.h"
+#include "plugin/processor.h"
+#include "plugin/plugineditor.h"
+#include "plugin/program.h"
+#include "plugin/parameter.h"
     
-#include "images/bmpimageformat.h"
-#include "images/imageeffects.h"
-
-#include "metadata/imagemetadata.h"
-#include "metadata/commentmetadata.h"
-#include "metadata/exifmetadata.h"
-#include "metadata/iptcmetadata.h"
-#include "metadata/xmpmetadata.h"
-    
-#include "geometry/geometry.h"
-
-#include "components/mapviewer.h"
-#include "components/propertycomponents.h"
-#include "components/singlelinetexteditor.h"
+#include "components/plugincomponents.h"
+#include "components/pluginlookandfeel.h"
 
 }
