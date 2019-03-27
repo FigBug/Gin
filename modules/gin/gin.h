@@ -23,7 +23,7 @@
   website:          www.rabiensoftware.com
   license:          BSD
 
-  dependencies:     juce_core juce_gui_basics juce_audio_basics juce_events
+  dependencies:     juce_gui_basics juce_gui_extra juce_audio_utils juce_events
 
  END_JUCE_MODULE_DECLARATION
 
