@@ -141,8 +141,7 @@ class RollingAverage
 {
 public:
     RollingAverage (int numVals_)
-      : numVals (numVals_),
-        currAvg (0)
+      : numVals (numVals_)
     {
     }
 
@@ -157,8 +156,8 @@ public:
     }
 
 private:
-    int numVals;
-    double currAvg;
+    int numVals = 0;
+    double currAvg = 0.0;
 };
 
 //==============================================================================
@@ -167,7 +166,7 @@ private:
 Colour goldenRatioColor (int idx);
 
 //==============================================================================
-// Keeps a rolling average of a series of numbers
+// Type string for a midi message
 String getMidiMessageType (const MidiMessage& msg);
 
 //==============================================================================

@@ -44,9 +44,6 @@ using namespace juce;
 using juce::Rectangle;
 using juce::MemoryBlock;
 
-#include "dsp/adsr.cpp"
-#include "dsp/audioutil.cpp"
-
 #include "utilities/downloadmanager.cpp"
 #include "utilities/filesystemwatcher.cpp"
 #include "utilities/integrator.cpp"
