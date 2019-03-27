@@ -1,7 +1,6 @@
 #pragma once
 
 #include "../plugin/parameter.h"
-#include "singlelinetexteditor.h"
 
 //==============================================================================
 class PluginButton : public TextButton,

@@ -46,9 +46,7 @@ int DownloadManager::startAsyncDownload (URL url,
                                          std::function<void (DownloadResult)> completionCallback,
                                          std::function<void (int64, int64, int64)> progressCallback)
 {
-    JUCE_ASSERT_MESSAGE_MANAGER_IS_LOCKED
-    
-    auto* download = new Download (*this);
+    auto download = new Download (*this);
     download->result.url = url;
     download->result.downloadId = ++nextId;
     download->completionCallback = completionCallback;
@@ -63,16 +61,12 @@ int DownloadManager::startAsyncDownload (URL url,
 
 void DownloadManager::cancelAllDownloads()
 {
-    JUCE_ASSERT_MESSAGE_MANAGER_IS_LOCKED
-    
     runningDownloads = 0;
     downloads.clear();
 }
 
 void DownloadManager::cancelDownload (int downloadId)
 {
-    JUCE_ASSERT_MESSAGE_MANAGER_IS_LOCKED
-    
     for (int i = downloads.size(); --i >= 0;)
     {
         if (downloads[i]->result.downloadId == downloadId)
@@ -93,8 +87,6 @@ void DownloadManager::cancelDownload (int downloadId)
 
 void DownloadManager::downloadFinished (Download* download)
 {
-    JUCE_ASSERT_MESSAGE_MANAGER_IS_LOCKED
-    
     runningDownloads--;
     downloads.removeObject (download);
     
