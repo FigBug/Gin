@@ -166,10 +166,6 @@ private:
 Colour goldenRatioColor (int idx);
 
 //==============================================================================
-// Type string for a midi message
-String getMidiMessageType (const MidiMessage& msg);
-
-//==============================================================================
 // Async Download. Doesn't have the main thread pause the URL::downloadToFile has
 class AsyncDownload : private Thread,
                       private AsyncUpdater
@@ -220,26 +216,6 @@ public:
 private:
     String name;
     double start;
-};
-
-//==============================================================================
-class LevelTracker
-{
-public:
-    LevelTracker (float decayPerSecond);
-    
-    void trackBuffer (const float* buffer, int numSamples);
-    void trackBuffer (AudioSampleBuffer& buffer);
-    
-    float getLevel();
-    bool getClip()      { return clip;  }
-    void clearClip()    { clip = false; }
-    
-protected:
-    float peakTime  {0.0f};
-    float peakLevel {-100.0f};
-    float decayRate {0.0f};
-    bool clip {false};
 };
 
 //==============================================================================

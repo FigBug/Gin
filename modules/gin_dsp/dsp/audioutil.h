@@ -205,3 +205,27 @@ private:
     T targetValue = 0;
     T currentValue = 0;
 };
+
+//==============================================================================
+class LevelTracker
+{
+public:
+    LevelTracker (float decayPerSecond);
+    
+    void trackBuffer (const float* buffer, int numSamples);
+    void trackBuffer (AudioSampleBuffer& buffer);
+    
+    float getLevel();
+    bool getClip()      { return clip;  }
+    void clearClip()    { clip = false; }
+    
+protected:
+    float peakTime  {0.0f};
+    float peakLevel {-100.0f};
+    float decayRate {0.0f};
+    bool clip {false};
+};
+
+//==============================================================================
+// Type string for a midi message
+String getMidiMessageType (const MidiMessage& msg);
