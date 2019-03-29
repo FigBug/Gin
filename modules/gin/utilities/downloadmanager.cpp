@@ -37,17 +37,20 @@ void DownloadManager::triggerNextDownload()
 
 int DownloadManager::startAsyncDownload (String url, String postData,
                                          std::function<void (DownloadResult)> completionCallback,
-                                         std::function<void (int64, int64, int64)> progressCallback)
+                                         std::function<void (int64, int64, int64)> progressCallback,
+                                         String extraHeaders)
 {
-    return startAsyncDownload (URL (url).withPOSTData (postData), completionCallback, progressCallback);
+    return startAsyncDownload (URL (url).withPOSTData (postData), completionCallback, progressCallback, extraHeaders);
 }
 
 int DownloadManager::startAsyncDownload (URL url,
                                          std::function<void (DownloadResult)> completionCallback,
-                                         std::function<void (int64, int64, int64)> progressCallback)
+                                         std::function<void (int64, int64, int64)> progressCallback,
+                                         String extraHeaders)
 {
     auto download = new Download (*this);
     download->result.url = url;
+    download->headers = extraHeaders;
     download->result.downloadId = ++nextId;
     download->completionCallback = completionCallback;
     download->progressCallback = progressCallback;
@@ -151,6 +154,7 @@ bool DownloadManager::Download::tryDownload()
     
     if ((is = new WebInputStream (result.url, post)) != nullptr)
     {
+        is->withExtraHeaders (headers);
         is->withConnectionTimeout (owner.connectTimeout);
         
         if (is->connect (nullptr))

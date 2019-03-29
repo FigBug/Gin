@@ -81,11 +81,13 @@ public:
       */
     int startAsyncDownload (String url, String postData,
                             std::function<void (DownloadResult)> completionCallback,
-                            std::function<void (int64, int64, int64)> progressCallback = nullptr);
+                            std::function<void (int64, int64, int64)> progressCallback = nullptr,
+                            String extraHeaders = {});
     
     int startAsyncDownload (URL url,
                             std::function<void (DownloadResult)> completionCallback,
-                            std::function<void (int64, int64, int64)> progressCallback = nullptr);
+                            std::function<void (int64, int64, int64)> progressCallback = nullptr,
+                            String extraHeaders = {});
     
     /** Cancels all downloads */
     void cancelAllDownloads();
@@ -114,6 +116,7 @@ private:
         
         DownloadManager& owner;
         
+        String headers;
         bool started = false;
         uint32 lastProgress = 0;
         int64 lastBytesSent = 0;
