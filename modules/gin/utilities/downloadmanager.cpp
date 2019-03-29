@@ -154,7 +154,8 @@ bool DownloadManager::Download::tryDownload()
     
     if ((is = new WebInputStream (result.url, post)) != nullptr)
     {
-        is->withExtraHeaders (headers);
+        if (headers.isNotEmpty())
+            is->withExtraHeaders (headers);
         is->withConnectionTimeout (owner.connectTimeout);
         
         if (is->connect (nullptr))
