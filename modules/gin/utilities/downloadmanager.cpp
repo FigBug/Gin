@@ -189,6 +189,11 @@ bool DownloadManager::Download::tryDownload()
                     
                     updateProgress (downloaded, totalLength);
                 }
+                else if (read == 0 && is->isExhausted() == true)
+                {
+                    result.ok = true;
+                    break;
+                }
                 else
                 {
                     result.ok = false;
