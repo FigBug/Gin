@@ -154,6 +154,11 @@ public:
     {
         return currAvg;
     }
+    
+    void setAverage (double avg)
+    {
+        currAvg = avg;
+    }
 
 private:
     int numVals = 0;

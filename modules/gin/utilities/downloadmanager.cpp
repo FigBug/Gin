@@ -37,7 +37,7 @@ void DownloadManager::triggerNextDownload()
 
 int DownloadManager::startAsyncDownload (String url, String postData,
                                          std::function<void (DownloadResult)> completionCallback,
-                                         std::function<void (int64, int64, int64)> progressCallback,
+                                         std::function<void (int64, int64, int64, double)> progressCallback,
                                          String extraHeaders)
 {
     return startAsyncDownload (URL (url).withPOSTData (postData), completionCallback, progressCallback, extraHeaders);
@@ -45,7 +45,7 @@ int DownloadManager::startAsyncDownload (String url, String postData,
 
 int DownloadManager::startAsyncDownload (URL url,
                                          std::function<void (DownloadResult)> completionCallback,
-                                         std::function<void (int64, int64, int64)> progressCallback,
+                                         std::function<void (int64, int64, int64, double)> progressCallback,
                                          String extraHeaders)
 {
     auto download = new Download (*this);
@@ -167,12 +167,10 @@ bool DownloadManager::Download::tryDownload()
             auto keys = result.responseHeaders.getAllKeys();
             auto vals = result.responseHeaders.getAllValues();
             
-            for (int i = 0; i < keys.size(); i++)
-                DBG(keys[i] + " " + vals[i]);
-            
             MemoryOutputStream os (result.data, false);
             
             lastBytesSent = 0;
+            lastProgress = Time::getMillisecondCounter();
             int64 downloaded  = 0;
             int64 totalLength = is->getTotalLength();
             
@@ -200,10 +198,10 @@ bool DownloadManager::Download::tryDownload()
                 else if (read == 0 && is->isExhausted())
                 {
                     // For chunked encoding, assume we have it all, otherwise check the length
-                    if (totalLength < std::numeric_limits<int64>::max() || totalLength == downloaded)
-                        result.ok = true;
+                    if (totalLength < std::numeric_limits<int64>::max())
+                        result.ok = totalLength == downloaded;
                     else
-                        result.ok = false;
+                        result.ok = true;
                     
                     break;
                 }
@@ -229,9 +227,19 @@ void DownloadManager::Download::updateProgress (int64 current, int64 total, bool
         uint32 now = Time::getMillisecondCounter();
         if ((now >= lastProgress + uint32 (owner.downloadIntervalMS)) || forceNotification)
         {
-            lastProgress = now;
             int64 delta = current - lastBytesSent;
             lastBytesSent = current;
+            
+            double timeDelta = (now - lastProgress) / 1000.0;
+            double instantaneousSpeed = timeDelta > 0 ? (delta / timeDelta) : 0;
+            double speed = averageSpeed.average (instantaneousSpeed);
+            if (instantaneousSpeed == 0)
+            {
+                speed = 0;
+                averageSpeed.setAverage (0);
+            }
+            
+            lastProgress = now;
             
             if (delta > 0)
             {
@@ -240,15 +248,15 @@ void DownloadManager::Download::updateProgress (int64 current, int64 total, bool
                     // Get a weak reference to self, to check if we get deleted before
                     // async call happens.
                     WeakReference<Download> self = this;
-                    MessageManager::callAsync ([self, current, total, delta]
+                    MessageManager::callAsync ([self, current, total, delta, speed]
                                                {
                                                    if (self != nullptr)
-                                                       self->progressCallback (current, total, delta);
+                                                       self->progressCallback (current, total, delta, speed);
                                                });
                 }
                 else
                 {
-                    progressCallback (current, total, delta);
+                    progressCallback (current, total, delta, speed);
                 }
             }
         }

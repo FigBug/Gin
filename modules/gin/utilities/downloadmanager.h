@@ -7,6 +7,8 @@ For more information visit www.rabiensoftware.com
 
 #pragma once
 
+#include "util.h"
+
 /**
  
   Downloads files to a memory block and then calls a lambda
@@ -81,12 +83,12 @@ public:
       */
     int startAsyncDownload (String url, String postData,
                             std::function<void (DownloadResult)> completionCallback,
-                            std::function<void (int64, int64, int64)> progressCallback = nullptr,
+                            std::function<void (int64, int64, int64, double)> progressCallback = nullptr,
                             String extraHeaders = {});
     
     int startAsyncDownload (URL url,
                             std::function<void (DownloadResult)> completionCallback,
-                            std::function<void (int64, int64, int64)> progressCallback = nullptr,
+                            std::function<void (int64, int64, int64, double)> progressCallback = nullptr,
                             String extraHeaders = {});
     
     /** Cancels all downloads */
@@ -110,7 +112,7 @@ private:
         //==============================================================================
         DownloadResult result;
         std::function<void (DownloadResult)> completionCallback;
-        std::function<void (int64, int64, int64)> progressCallback;
+        std::function<void (int64, int64, int64, double)> progressCallback;
         
         ScopedPointer<WebInputStream> is;
         
@@ -120,6 +122,8 @@ private:
         bool started = false;
         uint32 lastProgress = 0;
         int64 lastBytesSent = 0;
+        
+        RollingAverage averageSpeed {10};
     
         //==============================================================================
         WeakReference<Download>::Master masterReference;
