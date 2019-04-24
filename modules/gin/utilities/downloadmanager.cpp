@@ -185,7 +185,7 @@ bool DownloadManager::Download::tryDownload()
                 int64 toRead = jmin (int64 (sizeof (buffer)), int64 (owner.downloadBlockSize), totalLength - downloaded);
                 
                 int read = is->read (buffer, int (toRead));
-                jassert (read != 0);
+                //jassert (read != 0);
                 
                 if (read > 0)
                 {

@@ -60,6 +60,8 @@ public:
         cancelling downloads can only happen between these blocks. Max size is 128 KB */
     void setDownloadBlockSize (int bs)          { downloadBlockSize = jlimit (1, 128 * 1000, bs); }
     
+    int getNumDownloadsInQueue()                { return downloads.size(); }
+    
     //==============================================================================
     struct DownloadResult
     {
