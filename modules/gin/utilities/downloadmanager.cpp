@@ -197,9 +197,14 @@ bool DownloadManager::Download::tryDownload()
                     
                     updateProgress (downloaded, totalLength, false);
                 }
-                else if (read == 0 && is->isExhausted() == true)
+                else if (read == 0 && is->isExhausted())
                 {
-                    result.ok = true;
+                    // For chunked encoding, assume we have it all, otherwise check the length
+                    if (totalLength < std::numeric_limits<int64>::max() || totalLength == downloaded)
+                        result.ok = true;
+                    else
+                        result.ok = false;
+                    
                     break;
                 }
                 else
@@ -228,20 +233,23 @@ void DownloadManager::Download::updateProgress (int64 current, int64 total, bool
             int64 delta = current - lastBytesSent;
             lastBytesSent = current;
             
-            if (owner.callbackOnMessageThread)
+            if (delta > 0)
             {
-                // Get a weak reference to self, to check if we get deleted before
-                // async call happens.
-                WeakReference<Download> self = this;
-                MessageManager::callAsync ([self, current, total, delta]
-                                           {
-                                               if (self != nullptr)
-                                                   self->progressCallback (current, total, delta);
-                                           });
-            }
-            else
-            {
-                progressCallback (current, total, delta);
+                if (owner.callbackOnMessageThread)
+                {
+                    // Get a weak reference to self, to check if we get deleted before
+                    // async call happens.
+                    WeakReference<Download> self = this;
+                    MessageManager::callAsync ([self, current, total, delta]
+                                               {
+                                                   if (self != nullptr)
+                                                       self->progressCallback (current, total, delta);
+                                               });
+                }
+                else
+                {
+                    progressCallback (current, total, delta);
+                }
             }
         }
     }
