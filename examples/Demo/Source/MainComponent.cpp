@@ -151,7 +151,7 @@ struct DownloadManagerDemo : public Component,
     {
         for (int i = 0; i < 4; i++)
         {
-            String url = String::formatted ("https://picsum.photos/%d/%d/?image=%d", getWidth() * 10, getHeight() * 10, Random::getSystemRandom().nextInt (500));
+            String url = String::formatted ("https://picsum.photos/id/%d/%d/%d/", Random::getSystemRandom().nextInt (500), getWidth(), getHeight());
             downloadManager.startAsyncDownload (url, [this, i] (gin::DownloadManager::DownloadResult result)
                                                 {
                                                     const MessageManagerLock mmLock;
