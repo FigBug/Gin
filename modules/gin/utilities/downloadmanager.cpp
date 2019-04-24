@@ -164,6 +164,12 @@ bool DownloadManager::Download::tryDownload()
             result.httpCode         = is->getStatusCode();
             result.responseHeaders  = is->getResponseHeaders();
             
+            auto keys = result.responseHeaders.getAllKeys();
+            auto vals = result.responseHeaders.getAllValues();
+            
+            for (int i = 0; i < keys.size(); i++)
+                DBG(keys[i] + " " + vals[i]);
+            
             MemoryOutputStream os (result.data, false);
             
             lastBytesSent = 0;
@@ -187,7 +193,7 @@ bool DownloadManager::Download::tryDownload()
                     downloaded += read;
                     result.ok = is->isExhausted() || downloaded == totalLength;
                     
-                    updateProgress (downloaded, totalLength);
+                    updateProgress (downloaded, totalLength, false);
                 }
                 else if (read == 0 && is->isExhausted() == true)
                 {
@@ -200,19 +206,21 @@ bool DownloadManager::Download::tryDownload()
                     break;
                 }
             }
+            
+            updateProgress (downloaded, totalLength, true);
         }
     }
     
     return result.ok;
 }
 
-void DownloadManager::Download::updateProgress (int64 current, int64 total)
+void DownloadManager::Download::updateProgress (int64 current, int64 total, bool forceNotification)
 {
     if (progressCallback)
     {
         // Update progress no more than once per second
         uint32 now = Time::getMillisecondCounter();
-        if (now >= lastProgress + uint32 (owner.downloadIntervalMS))
+        if ((now >= lastProgress + uint32 (owner.downloadIntervalMS)) || forceNotification)
         {
             lastProgress = now;
             int64 delta = current - lastBytesSent;

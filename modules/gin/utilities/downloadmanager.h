@@ -105,7 +105,7 @@ private:
         
         void run() override;
         bool tryDownload();
-        void updateProgress (int64 current, int64 total);
+        void updateProgress (int64 current, int64 total, bool );
         
         //==============================================================================
         DownloadResult result;
