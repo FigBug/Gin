@@ -9,6 +9,53 @@
 #include "MainComponent.h"
 
 //==============================================================================
+struct ElevatedFileCopyDemo : public Component
+{
+public:
+    ElevatedFileCopyDemo()
+    {
+        addAndMakeVisible (srcDir);
+        addAndMakeVisible (dstDir);
+        addAndMakeVisible (copyButton);
+
+        srcDir.setText ("c:\\src");
+        dstDir.setText ("C:\\Program Files\\aaa");
+
+        copyButton.onClick = [this] { copyFiles(); };
+    }
+
+    void copyFiles()
+    {
+        File src (srcDir.getText());
+        File dst (dstDir.getText());
+
+        Array<File> files;
+        src.findChildFiles (files, File::findFiles, false);
+
+        gin::ElevatedFileCopy efc;
+
+        for (auto f :files)
+            efc.addFile (f, dst.getChildFile (f.getFileName()));
+
+        efc.execute();
+    }
+
+    void resized() override
+    {
+        auto rc = getLocalBounds().reduced (8);
+
+        srcDir.setBounds (rc.removeFromTop (25));
+        rc.removeFromTop (4);
+        dstDir.setBounds (rc.removeFromTop (25));
+        rc.removeFromTop (4);
+        copyButton.setBounds (rc.removeFromTop (25).removeFromLeft (100));
+    }
+
+    TextEditor srcDir, dstDir;
+    TextButton copyButton { "Copy" };
+};
+
+//==============================================================================
 struct BoxBlurDemo : public Component,
                      private Slider::Listener
 {
@@ -167,7 +214,7 @@ struct DownloadManagerDemo : public Component,
                                                             repaint();
                                                         }
                                                     }
-                                                }, [url] (int64 current, int64 total, int64 sinceLast)
+                                                }, [url] (int64 current, int64 total, int64 sinceLast, double /*speed*/)
                                                 {
                                                     double percent = double (current) / double (total) * 100;
                                                     DBG(url + ": " + String (int (percent)) + "% " + String (current) + " of " + String (total) + " downloaded. This block: " + String (sinceLast));
@@ -746,6 +793,7 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
+    demoComponents.add (new ElevatedFileCopyDemo());
     demoComponents.add (new DownloadManagerDemo());
     demoComponents.add (new ImageEffectsDemo());
     demoComponents.add (new BoxBlurDemo());

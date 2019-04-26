@@ -68,6 +68,7 @@ using juce::Component;
 #include "utilities/downloadmanager.h"
 #include "utilities/equationparser.h"
 #include "utilities/util.h"
+#include "utilities/elevatedfilecopy.h"
 #include "utilities/filesystemwatcher.h"
 #include "utilities/integrator.h"
 #include "utilities/leastsquaresregression.h"
