@@ -5,6 +5,104 @@
 
  ==============================================================================*/
 
+#if JUCE_MAC
+
+ElevatedFileCopy::Result runWinPermissions (String cmd, StringArray params)
+{
+    OSStatus err = noErr;
+    auto path = cmd.toRawUTF8();
+    
+    Array<const char*> rawParams;
+    for (auto& s : params)
+        rawParams.add (s.toRawUTF8());
+    rawParams.add (nullptr);
+    
+    AuthorizationRef authorizationRef;
+    AuthorizationItem item = { kAuthorizationRightExecute, strlen (path), &path, 0 };
+    AuthorizationRights rights = { 1, &item };
+    AuthorizationFlags flags = kAuthorizationFlagDefaults | kAuthorizationFlagInteractionAllowed | kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights;
+    
+    err = AuthorizationCreate (nullptr, kAuthorizationEmptyEnvironment, kAuthorizationFlagDefaults, &authorizationRef);
+    if (err != errAuthorizationSuccess)
+        return ElevatedFileCopy::failed;
+    
+    err = AuthorizationCopyRights (authorizationRef, &rights, kAuthorizationEmptyEnvironment, flags, nullptr);
+    if (err == errAuthorizationCanceled)
+        return ElevatedFileCopy::cancelled;
+    
+    if (err != errAuthorizationSuccess)
+        return ElevatedFileCopy::nopermissions;
+
+    FILE* outputFile = nullptr;
+    
+   #pragma clang diagnostic push
+   #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    err = AuthorizationExecuteWithPrivileges (authorizationRef, path, kAuthorizationFlagDefaults, (char* const*)rawParams.getRawDataPointer(), &outputFile);
+   #pragma clang diagnostic pop
+    
+    if (err == noErr)
+    {
+        auto processIdentifier = fcntl (fileno (outputFile), F_GETOWN, 0);
+        
+        AuthorizationFree (authorizationRef, kAuthorizationFlagDefaults);
+        
+        int status;
+        pid_t pid = 0;
+        
+        while ((pid = waitpid (processIdentifier, &status, WNOHANG)) == 0)
+            Thread::sleep (10);
+        
+        fclose (outputFile);
+        
+        auto terminationStatus = WEXITSTATUS (status);
+        if (terminationStatus == 0)
+            return ElevatedFileCopy::success;
+        
+        return ElevatedFileCopy::failed;
+    }
+    return ElevatedFileCopy::nopermissions;
+}
+
+static String escape (const String& in)
+{
+    return in.replace (" ", "\\ ");
+}
+
+ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (File script)
+{
+    runWinPermissions ("/bin/sh", { script.getFullPathName() });
+    return success;
+}
+
+File ElevatedFileCopy::createScript (const Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess)
+{
+    auto script = File::getSpecialLocation (File::tempDirectory).getNonexistentChildFile ("copy", ".sh", false);
+    
+    String scriptText;
+    
+    scriptText += "#!/bin/sh\n";
+    
+    Array<File> dirs;
+    for (auto f : filesThatNeedAdminAccess)
+        if (! f.dst.getParentDirectory().isDirectory())
+            dirs.addIfNotAlreadyThere (f.dst.getParentDirectory());
+    
+    for (auto d : dirs)
+        scriptText += "mkdir -p " + escape (d.getFullPathName()) + "\n";
+    
+    scriptText += "\n";
+    
+    for (auto f : filesThatNeedAdminAccess)
+        scriptText += "cp " + escape (f.src.getFullPathName()) + " " + escape (f.dst.getFullPathName()) + " || exit 1\n";
+    
+    script.replaceWithText (scriptText, false, false, "\n");
+    
+    return script;
+}
+
+#endif
+
+#if JUCE_WINDOWS
 static std::wstring toWideString (const std::string& s)
 {
     int len = MultiByteToWideChar (CP_UTF8, 0, s.c_str(), (int)s.length() + 1, 0, 0);
@@ -82,6 +180,7 @@ File ElevatedFileCopy::createScript (const Array<ElevatedFileCopy::FileItem>& fi
 
     return script;
 }
+#endif
 
 void ElevatedFileCopy::addFile (File src, File dst)
 {

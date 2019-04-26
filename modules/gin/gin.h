@@ -24,6 +24,7 @@
   license:          BSD
 
   dependencies:     juce_gui_basics juce_gui_extra juce_events
+  OSXFrameworks:    Security
 
  END_JUCE_MODULE_DECLARATION
 

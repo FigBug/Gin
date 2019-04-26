@@ -18,8 +18,14 @@ public:
         addAndMakeVisible (dstDir);
         addAndMakeVisible (copyButton);
 
+       #ifdef JUCE_MAC
+        srcDir.setText ("/src");
+        dstDir.setText ("/dst");
+       #endif
+       #ifdef JUCE_WINDOWS
         srcDir.setText ("c:\\src");
-        dstDir.setText ("C:\\Program Files\\aaa");
+        dstDir.setText ("d:\\dst");
+       #endif
 
         copyButton.onClick = [this] { copyFiles(); };
     }
