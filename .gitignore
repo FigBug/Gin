@@ -38,3 +38,4 @@
 Debug
 Release
 .vs
+*.user
