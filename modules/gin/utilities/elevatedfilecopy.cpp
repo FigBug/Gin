@@ -93,7 +93,7 @@ File ElevatedFileCopy::createScript (const Array<ElevatedFileCopy::FileItem>& fi
     scriptText += "\n";
     
     for (auto f : filesThatNeedAdminAccess)
-        scriptText += "cp " + escape (f.src.getFullPathName()) + " " + escape (f.dst.getFullPathName()) + " || exit 1\n";
+        scriptText += "cp -p " + escape (f.src.getFullPathName()) + " " + escape (f.dst.getFullPathName()) + " || exit 1\n";
     
     script.replaceWithText (scriptText, false, false, "\n");
     
