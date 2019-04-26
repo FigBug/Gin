@@ -196,6 +196,9 @@
     <ClCompile Include="..\..\..\..\modules\gin\utilities\downloadmanager.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin\utilities\elevatedfilecopy.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin\utilities\equationparser.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1445,6 +1448,7 @@
     <ClInclude Include="..\..\..\..\modules\gin\metadata\iptcmetadata.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\metadata\xmpmetadata.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\downloadmanager.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin\utilities\elevatedfilecopy.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\equationparser.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\filesystemwatcher.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\integrator.h"/>

@@ -25,6 +25,10 @@
 			isa = PBXBuildFile;
 			fileRef = 3CC996E65E7F4767A1EAEB1F;
 		};
+		E6FDCE51C3BB4887906CB36B = {
+			isa = PBXBuildFile;
+			fileRef = 94BAC28228350177EC2DFEB9;
+		};
 		231B431AB5012022636B1771 = {
 			isa = PBXBuildFile;
 			fileRef = 0E3C3CA6A181B0A0D6E44ECC;
@@ -191,6 +195,13 @@
 			name = BinaryData.h;
 			path = ../../JuceLibraryCode/BinaryData.h;
 			sourceTree = "SOURCE_ROOT";
+		};
+		94BAC28228350177EC2DFEB9 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
+			name = Security.framework;
+			path = System/Library/Frameworks/Security.framework;
+			sourceTree = SDKROOT;
 		};
 		A4135EB1F59B216B197145C8 = {
 			isa = PBXFileReference;
@@ -382,6 +393,7 @@
 				E1EEE45CDD0D3AE6A922AF74,
 				09E51893ECC4476FBBB927EA,
 				3CC996E65E7F4767A1EAEB1F,
+				94BAC28228350177EC2DFEB9,
 				0E3C3CA6A181B0A0D6E44ECC,
 			);
 			name = Frameworks;
@@ -643,6 +655,7 @@
 				78F7F0CB89BFCB7B1A1589E5,
 				512B5C27A90383C407E1EB52,
 				CD928067D2963F029EE58E0C,
+				E6FDCE51C3BB4887906CB36B,
 				231B431AB5012022636B1771,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
