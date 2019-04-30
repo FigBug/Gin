@@ -68,8 +68,9 @@ static String escape (const String& in)
     return in.replace (" ", "\\ ");
 }
 
-ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (File script)
+ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (File script, bool launchSelf)
 {
+    ignoreUnused (launchSelf);
     runWinPermissions ("/bin/sh", { script.getFullPathName() });
     return success;
 }
@@ -116,17 +117,31 @@ static std::wstring toWideString (const std::string& s)
     return res;
 }
 
-ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (File script)
+ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (File script, bool launchSelf)
 {
-    String params = "/c \"" + script.getFullPathName() +  "\"";
+    String app;
+    String params;
+    
+    if (launchSelf)
+    {
+        app = File::getSpecialLocation (File::currentExecutableFile).getFullPathName();
+        params = "--elevatedfilecopy \"" + script.getFullPathName() + "\"";
+    }
+    else
+    {
+        app = "cmd.exe";
+        params = "/c \"" + script.getFullPathName() +  "\"";
+    }
+
     auto wideParams = toWideString (params.toRawUTF8());
+    auto wideApp = toWideString (app.toRawUTF8());
 
     SHELLEXECUTEINFOW info;
     memset (&info, 0, sizeof (info));
     info.cbSize = sizeof (info);
     info.fMask = SEE_MASK_NOCLOSEPROCESS;
     info.lpVerb = L"runas";
-    info.lpFile = L"cmd.exe";
+    info.lpFile = wideApp.c_str();
     info.lpParameters = wideParams.c_str();
     info.nShow = SW_HIDE;
     
@@ -187,7 +202,7 @@ void ElevatedFileCopy::addFile (File src, File dst)
 	filesToCopy.add ({ src, dst });
 }
 
-ElevatedFileCopy::Result ElevatedFileCopy::execute()
+ElevatedFileCopy::Result ElevatedFileCopy::execute (bool launchSelf)
 {
 	Array<FileItem> filesThatNeedAdminAccess;
 
@@ -209,13 +224,61 @@ ElevatedFileCopy::Result ElevatedFileCopy::execute()
     if (filesThatNeedAdminAccess.size() > 0)
     {
         File script = createScript (filesThatNeedAdminAccess);
-        auto res = runScriptWithAdminAccess (script);
+        auto res = runScriptWithAdminAccess (script, launchSelf);
         script.deleteFile();
 
         return res;
     }
 
 	return success;
+}
+
+bool ElevatedFileCopy::processCommandLine (juce::String commandLine)
+{
+   #if JUCE_WINDOWS
+    if (commandLine.contains ("--elevatedfilecopy"))
+    {
+        String script = commandLine.fromFirstOccurrenceOf ("--elevatedfilecopy \"", false, false).upToFirstOccurrenceOf ("\"", false, false);
+
+        if (File (script).existsAsFile())
+        {
+            String params = "/c \"" + script + "\"";
+            auto wideParams = toWideString (params.toRawUTF8());
+
+            SHELLEXECUTEINFOW info;
+            memset (&info, 0, sizeof (info));
+            info.cbSize = sizeof (info);
+            info.fMask = SEE_MASK_NOCLOSEPROCESS;
+            info.lpVerb = L"runas";
+            info.lpFile = L"cmd.exe";
+            info.lpParameters = wideParams.c_str();
+            info.nShow = SW_HIDE;
+
+            if (ShellExecuteExW (&info))
+            {
+                WaitForSingleObject (info.hProcess, INFINITE);
+
+                DWORD exitCode = 0;
+                GetExitCodeProcess (info.hProcess, &exitCode);
+                CloseHandle (info.hProcess);
+
+                if (auto inst = JUCEApplication::getInstance())
+                    inst->setApplicationReturnValue (exitCode);
+            }
+            else
+            {
+                if (auto inst = JUCEApplication::getInstance())
+                    inst->setApplicationReturnValue (1);
+            }
+        }
+
+        JUCEApplication::quit();
+        return true;
+    }
+   #else
+    ignoreUnused (commandLine);
+   #endif
+    return false;
 }
 
 void ElevatedFileCopy::clear()

@@ -43,7 +43,7 @@ public:
         for (auto f :files)
             efc.addFile (f, dst.getChildFile (f.getFileName()));
 
-        efc.execute();
+        efc.execute (true);
     }
 
     void resized() override

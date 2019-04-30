@@ -24,9 +24,10 @@ public:
     bool moreThanOneInstanceAllowed() override       { return true; }
 
     //==============================================================================
-    void initialise (const String&) override
+    void initialise (const String& cmdLine) override
     {
-        // This method is where you should put your application's initialisation code..
+        if (gin::ElevatedFileCopy::processCommandLine (cmdLine))
+            return;
 
         mainWindow = new MainWindow (getApplicationName());
     }
