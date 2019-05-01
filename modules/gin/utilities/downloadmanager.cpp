@@ -37,7 +37,7 @@ void DownloadManager::triggerNextDownload()
 
 int DownloadManager::startAsyncDownload (String url, String postData,
                                          std::function<void (DownloadResult)> completionCallback,
-                                         std::function<void (int64, int64, int64, double)> progressCallback,
+                                         std::function<void (int64, int64, int64)> progressCallback,
                                          String extraHeaders)
 {
     return startAsyncDownload (URL (url).withPOSTData (postData), completionCallback, progressCallback, extraHeaders);
@@ -45,7 +45,7 @@ int DownloadManager::startAsyncDownload (String url, String postData,
 
 int DownloadManager::startAsyncDownload (URL url,
                                          std::function<void (DownloadResult)> completionCallback,
-                                         std::function<void (int64, int64, int64, double)> progressCallback,
+                                         std::function<void (int64, int64, int64)> progressCallback,
                                          String extraHeaders)
 {
     auto download = new Download (*this);
@@ -128,9 +128,6 @@ void DownloadManager::Download::run()
     
     if (! threadShouldExit())
     {
-        if (! owner.callbackOnMessageThread)
-            completionCallback (result);
-        
         // Get a weak reference to self, to check if we get deleted before
         // async call happens.
         WeakReference<Download> self = this;
@@ -138,8 +135,7 @@ void DownloadManager::Download::run()
                                    {
                                        if (self != nullptr)
                                        {
-                                           if (self->owner.callbackOnMessageThread)
-                                               self->completionCallback (self->result);
+                                           self->completionCallback (self->result);
                                            self->owner.downloadFinished (self);
                                            // DownloadManager has now delete us, don't do anything else
                                        }
@@ -228,36 +224,19 @@ void DownloadManager::Download::updateProgress (int64 current, int64 total, bool
         if ((now >= lastProgress + uint32 (owner.downloadIntervalMS)) || forceNotification)
         {
             int64 delta = current - lastBytesSent;
-            lastBytesSent = current;
-            
-            double timeDelta = (now - lastProgress) / 1000.0;
-            double instantaneousSpeed = timeDelta > 0 ? (delta / timeDelta) : 0;
-            double speed = averageSpeed.average (instantaneousSpeed);
-            if (instantaneousSpeed == 0)
-            {
-                speed = 0;
-                averageSpeed.setAverage (0);
-            }
-            
+            lastBytesSent = current;                        
             lastProgress = now;
             
             if (delta > 0)
             {
-                if (owner.callbackOnMessageThread)
-                {
-                    // Get a weak reference to self, to check if we get deleted before
-                    // async call happens.
-                    WeakReference<Download> self = this;
-                    MessageManager::callAsync ([self, current, total, delta, speed]
-                                               {
-                                                   if (self != nullptr)
-                                                       self->progressCallback (current, total, delta, speed);
-                                               });
-                }
-                else
-                {
-                    progressCallback (current, total, delta, speed);
-                }
+                // Get a weak reference to self, to check if we get deleted before
+                // async call happens.
+                WeakReference<Download> self = this;
+                MessageManager::callAsync ([self, current, total, delta]
+                                           {
+                                               if (self != nullptr)
+                                                   self->progressCallback (current, total, delta);
+                                           });
             }
         }
     }

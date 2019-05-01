@@ -49,10 +49,6 @@ public:
         already running threads */
     void setThreadPriority (int p)              { priority = p; }
     
-    /** Sets the completion and progress callbacks to be called on download thread
-        or GUI thread. Note: queue complete callback always happens on GUI thread */
-    void setCallbackOnMessageThread (bool b)    { callbackOnMessageThread = b; }
-    
     /** Sets minimum time between download progress callbacks in milliseconds */
     void setProgressInterval (int ms)           { downloadIntervalMS = jmax (1, ms); }
     
@@ -85,12 +81,12 @@ public:
       */
     int startAsyncDownload (String url, String postData,
                             std::function<void (DownloadResult)> completionCallback,
-                            std::function<void (int64, int64, int64, double)> progressCallback = nullptr,
+                            std::function<void (int64, int64, int64)> progressCallback = nullptr,
                             String extraHeaders = {});
     
     int startAsyncDownload (URL url,
                             std::function<void (DownloadResult)> completionCallback,
-                            std::function<void (int64, int64, int64, double)> progressCallback = nullptr,
+                            std::function<void (int64, int64, int64)> progressCallback = nullptr,
                             String extraHeaders = {});
     
     /** Cancels all downloads */
@@ -114,7 +110,7 @@ private:
         //==============================================================================
         DownloadResult result;
         std::function<void (DownloadResult)> completionCallback;
-        std::function<void (int64, int64, int64, double)> progressCallback;
+        std::function<void (int64, int64, int64)> progressCallback;
         
         ScopedPointer<WebInputStream> is;
         
@@ -124,8 +120,6 @@ private:
         bool started = false;
         uint32 lastProgress = 0;
         int64 lastBytesSent = 0;
-        
-        RollingAverage averageSpeed {10};
     
         //==============================================================================
         WeakReference<Download>::Master masterReference;
@@ -144,7 +138,6 @@ private:
     int retryLimit = 0, priority = 5, downloadIntervalMS = 1000, downloadBlockSize = 128 * 1000;
     
     double retryDelay = 0.0;
-    bool callbackOnMessageThread = true;
     int runningDownloads = 0, maxDownloads = 100;
     OwnedArray<Download> downloads;
     std::function<void ()> queueFinishedCallback;

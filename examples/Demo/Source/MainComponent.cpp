@@ -14,6 +14,8 @@ struct ElevatedFileCopyDemo : public Component
 public:
     ElevatedFileCopyDemo()
     {
+        setName ("Elevated File Copy");
+        
         addAndMakeVisible (srcDir);
         addAndMakeVisible (dstDir);
         addAndMakeVisible (copyButton);
@@ -156,7 +158,6 @@ struct DownloadManagerDemo : public Component,
     {
         setName ("Download Manager");
         downloadManager.setConcurrentDownloadLimit (4);
-        downloadManager.setCallbackOnMessageThread (false);
         downloadManager.setProgressInterval (1);
         downloadManager.setQueueFinishedCallback([] {
             DBG("All done!");
@@ -220,7 +221,7 @@ struct DownloadManagerDemo : public Component,
                                                             repaint();
                                                         }
                                                     }
-                                                }, [url] (int64 current, int64 total, int64 sinceLast, double /*speed*/)
+                                                }, [url] (int64 current, int64 total, int64 sinceLast)
                                                 {
                                                     double percent = double (current) / double (total) * 100;
                                                     DBG(url + ": " + String (int (percent)) + "% " + String (current) + " of " + String (total) + " downloaded. This block: " + String (sinceLast));
