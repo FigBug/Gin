@@ -45,11 +45,26 @@
  #pragma clang diagnostic ignored "-Wunused-parameter"
 #endif
 
+#if _MSC_VER
+ #pragma warning (push)
+ #pragma warning (disable: 4100)
+ #pragma warning (disable: 4127)
+ #pragma warning (disable: 4456)
+ #pragma warning (disable: 4457)
+#endif
+
 #include "3rdparty/avir/avir.h"
-#include "3rdparty/avir/avir_float4_sse.h"
+
+#if !defined _MSC_VER
+ #include "3rdparty/avir/avir_float4_sse.h"
+#endif
 
 #if __clang__
  #pragma clang diagnostic pop
+#endif
+
+#if _MSC_VER
+ #pragma warning (pop)
 #endif
 
 namespace gin

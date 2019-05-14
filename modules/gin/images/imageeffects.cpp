@@ -1316,56 +1316,45 @@ Image applyResize (const Image& src, int width, int height)
     Image::BitmapData srcData (src, Image::BitmapData::readOnly);
     Image::BitmapData dstData (dst, Image::BitmapData::readWrite);
     
-    
-    
     int channels = 0;
     if (src.getFormat() == Image::ARGB)                 channels = 4;
     else if (src.getFormat() == Image::RGB)             channels = 3;
     else if (src.getFormat() == Image::SingleChannel)   channels = 1;
     else                                                return {};
     
-    if (src.getFormat() == Image::SingleChannel)
-    {
-        avir::CImageResizer<> imageResizer (8);
+    // JUCE images may have padding at the end of each scan line. 
+    // Avir expects the image data to be packed. So we need to
+    // pack and unpack the image data before and after resizing.
+    HeapBlock<uint8> srcPacked (src.getWidth() * src.getHeight() * channels);
+    HeapBlock<uint8> dstPacked (dst.getWidth() * dst.getHeight() * channels);
         
-        // For single channel images, juce images may have padding at the end of
-        // each scan line. Avir expects the image data to be packed. So we need to
-        // pack and unpack the image data before and after resizing.
-        HeapBlock<uint8> srcPacked (src.getWidth() * src.getHeight());
-        HeapBlock<uint8> dstPacked (dst.getWidth() * dst.getHeight());
+    uint8* rawSrc = srcPacked.getData();
+    uint8* rawDst = dstPacked.getData();
         
-        uint8* rawSrc = srcPacked.getData();
-        uint8* rawDst = dstPacked.getData();
+    for (int y = 0; y < src.getHeight(); y++)
+        memcpy (rawSrc + y * src.getWidth() * channels, 
+                srcData.getLinePointer (y), 
+                (size_t) src.getWidth() * channels);
         
-        for (int y = 0; y < src.getHeight(); y++)
-            memcpy (rawSrc + y * src.getWidth(), srcData.getLinePointer (y), (size_t) src.getWidth());
-        
-        imageResizer.resizeImage (rawSrc, src.getWidth(), src.getHeight(), 0,
-                                  rawDst, dst.getWidth(), dst.getHeight(), channels, 0);
-
-        for (int y = 0; y < dst.getHeight(); y++)
-            memcpy (dstData.getLinePointer (y), rawDst + y * dst.getWidth(), (size_t) dst.getWidth());
-    }
-    else if (SystemStats::hasSSE())
+   #ifdef JUCE_MAC
+    if (SystemStats::hasSSE())
     {
         avir::CImageResizer<avir::fpclass_float4> imageResizer (8);
-        
-        uint8* rawSrc = srcData.getLinePointer (0);
-        uint8* rawDst = dstData.getLinePointer (0);
-        
         imageResizer.resizeImage (rawSrc, src.getWidth(), src.getHeight(), 0,
-                                  rawDst, dst.getWidth(), dst.getHeight(), channels, 0);
+                                    rawDst, dst.getWidth(), dst.getHeight(), channels, 0);
     }
     else
+   #endif
     {
         avir::CImageResizer<> imageResizer (8);
-        
-        uint8* rawSrc = srcData.getLinePointer (0);
-        uint8* rawDst = dstData.getLinePointer (0);
-        
         imageResizer.resizeImage (rawSrc, src.getWidth(), src.getHeight(), 0,
-                                  rawDst, dst.getWidth(), dst.getHeight(), channels, 0);
+                                    rawDst, dst.getWidth(), dst.getHeight(), channels, 0);
     }
+
+    for (int y = 0; y < dst.getHeight(); y++)
+        memcpy (dstData.getLinePointer (y), 
+                rawDst + y * dst.getWidth() * channels, 
+                (size_t) dst.getWidth() * channels);
 
     return dst;
 }
