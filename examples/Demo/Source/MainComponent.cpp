@@ -9,6 +9,73 @@
 #include "MainComponent.h"
 
 //==============================================================================
+struct ImageResizeDemo : public Component,
+                         private Slider::Listener
+{
+    ImageResizeDemo()
+    {
+        setName ("Image Resize");
+        
+        auto source = ImageFileFormat::loadFrom (BinaryData::pencils_jpeg, BinaryData::pencils_jpegSize);
+        source = gin::applyResize (source, 0.97f);
+        
+        sourceARGB = source.convertedToFormat (Image::ARGB);
+        sourceRGB = source.convertedToFormat (Image::RGB);
+        sourceBW = convertToBW (source);
+        
+        addAndMakeVisible (zoom);
+        zoom.addListener (this);
+        zoom.setTextBoxStyle (Slider::NoTextBox, false, 0, 0);
+        
+        zoom.setRange (0.1, 4.0);
+        zoom.setValue (1.0);
+    }
+    
+    void sliderValueChanged (Slider*) override
+    {
+        repaint();
+    }
+    
+    void resized() override
+    {
+        auto rc = getLocalBounds().removeFromBottom (20);
+        int w = rc.getWidth() / 3;
+        zoom.setBounds (rc.removeFromLeft (w));
+    }
+    
+    void paint (Graphics& g) override
+    {
+        g.fillAll (Colours::black);
+        
+        auto zoomed = gin::applyResize (sourceARGB, (float) zoom.getValue());
+        
+        g.drawImageAt (zoomed,
+                       getWidth() / 2 - zoomed.getWidth() / 2,
+                       getHeight() / 2 - zoomed.getHeight() / 2);
+    }
+    
+    Image convertToBW (const Image& src)
+    {
+        auto dst = Image (Image::SingleChannel, src.getWidth(), src.getHeight(), true);
+        
+        for (int y = 0; y < src.getHeight(); y++)
+        {
+            for (int x = 0; x < src.getWidth(); x++)
+            {
+                auto colour = src.getPixelAt (x, y);
+                uint8 bw = (colour.getRed() + colour.getGreen() + colour.getBlue()) / 3;
+                dst.setPixelAt (x, y, Colour (bw, bw, bw, bw));
+            }
+        }
+        
+        return dst;
+    }
+    
+    Image sourceARGB, sourceRGB, sourceBW;
+    Slider zoom;
+};
+
+//==============================================================================
 struct ElevatedFileCopyDemo : public Component
 {
 public:
@@ -800,6 +867,7 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
+    demoComponents.add (new ImageResizeDemo());
     demoComponents.add (new ElevatedFileCopyDemo());
     demoComponents.add (new DownloadManagerDemo());
     demoComponents.add (new ImageEffectsDemo());

@@ -61,3 +61,9 @@ void applyHueSaturationLightness (Image& src, float hue, float saturation, float
  \param radius from 2 to 254
  */
 void applyStackBlur (Image& src, unsigned int radius);
+
+/** A very high quality image resize using a bank of sinc
+ *  function-based fractional delay filters */
+Image applyResize (const Image& src, int width, int height);
+
+Image applyResize (const Image& src, float factor);

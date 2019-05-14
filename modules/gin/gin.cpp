@@ -38,6 +38,20 @@
 
 //==============================================================================
 
+#if __clang__
+ #pragma clang diagnostic push
+ #pragma clang diagnostic ignored "-Wconversion"
+ #pragma clang diagnostic ignored "-Wshadow"
+ #pragma clang diagnostic ignored "-Wunused-parameter"
+#endif
+
+#include "3rdparty/avir/avir.h"
+#include "3rdparty/avir/avir_float4_sse.h"
+
+#if __clang__
+ #pragma clang diagnostic pop
+#endif
+
 namespace gin
 {
 using namespace juce;

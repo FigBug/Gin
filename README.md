@@ -37,5 +37,8 @@ https://shiftedbits.org/2011/01/30/cubic-spline-interpolation/
 JUCE: Roli
 www.juce.com
 
+AVIR: Aleksey Vaneev
+https://github.com/avaneev/avir
+
 Special Thanks to:
 reFX Audio Software Inc.
