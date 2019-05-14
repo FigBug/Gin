@@ -1334,7 +1334,7 @@ Image applyResize (const Image& src, int width, int height)
     for (int y = 0; y < src.getHeight(); y++)
         memcpy (rawSrc + y * src.getWidth() * channels, 
                 srcData.getLinePointer (y), 
-                (size_t) src.getWidth() * channels);
+                (size_t) (src.getWidth() * channels));
         
    #ifdef JUCE_MAC
     if (SystemStats::hasSSE())
@@ -1354,7 +1354,7 @@ Image applyResize (const Image& src, int width, int height)
     for (int y = 0; y < dst.getHeight(); y++)
         memcpy (dstData.getLinePointer (y), 
                 rawDst + y * dst.getWidth() * channels, 
-                (size_t) dst.getWidth() * channels);
+                (size_t) (dst.getWidth() * channels));
 
     return dst;
 }
