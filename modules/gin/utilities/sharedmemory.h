@@ -31,7 +31,7 @@ public:
 
 private:
     class Impl;
-    ScopedPointer<Impl> impl;
+    std::unique_ptr<Impl> impl;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SharedMemory)
 };

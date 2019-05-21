@@ -148,7 +148,7 @@ bool DownloadManager::Download::tryDownload()
     // Use post if we have post data
     const bool post = result.url.getPostData().isNotEmpty();
     
-    if ((is = new WebInputStream (result.url, post)) != nullptr)
+    if ((is = std::make_unique<WebInputStream> (result.url, post)) != nullptr)
     {
         if (headers.isNotEmpty())
             is->withExtraHeaders (headers);

@@ -137,7 +137,7 @@ void MapViewer::updateDoubleBuffer()
         return;
 
     Rectangle<int> rc (0, 0, getWidth(), getHeight());
-    doubleBuffer = new Image (Image::ARGB, rc.getWidth(), rc.getHeight(), true);
+    doubleBuffer = std::make_unique<Image> (Image::ARGB, rc.getWidth(), rc.getHeight(), true);
 
     Graphics g (*doubleBuffer);
 

@@ -874,7 +874,8 @@ SingleLineTextEditor::SingleLineTextEditor (const String& name)
     setOpaque (true);
     setMouseCursor (MouseCursor::IBeamCursor);
 
-    addAndMakeVisible (textHolder = new TextHolderComponent (*this));
+    textHolder = std::make_unique<TextHolderComponent> (*this);
+    addAndMakeVisible (*textHolder);
 
     setWantsKeyboardFocus (true);
     recreateCaret();
@@ -886,7 +887,7 @@ SingleLineTextEditor::~SingleLineTextEditor()
         if (ComponentPeer* const peer = getPeer())
             peer->dismissPendingTextInput();
 
-    textValue.removeListener (textHolder);
+    textValue.removeListener (textHolder.get());
     textValue.referTo (Value());
 
     textHolder = nullptr;
@@ -1002,7 +1003,8 @@ void SingleLineTextEditor::recreateCaret()
     {
         if (caret == nullptr)
         {
-            textHolder->addChildComponent (caret = getLookAndFeel().createCaretComponent (this));
+            caret.reset (getLookAndFeel().createCaretComponent (this));
+            textHolder->addChildComponent (*caret);
             updateCaretPosition();
         }
     }

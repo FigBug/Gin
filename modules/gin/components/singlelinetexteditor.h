@@ -550,7 +550,7 @@ private:
     friend class InsertAction;
     friend class RemoveAction;
 
-    ScopedPointer<TextHolderComponent> textHolder;
+    std::unique_ptr<TextHolderComponent> textHolder;
 
     bool readOnly;
     bool caretVisible;
@@ -563,7 +563,7 @@ private:
     bool consumeEscAndReturnKeys;
 
     UndoManager undoManager;
-    ScopedPointer<CaretComponent> caret;
+    std::unique_ptr<CaretComponent> caret;
     Range<int> selection;
     unsigned int lastTransactionTime;
     Font currentFont;

@@ -87,7 +87,7 @@ public:
 
 SystemSemaphore::SystemSemaphore (const String& name)
 {
-    impl = new Impl (name);
+    impl = std::make_unique<Impl> (name);
 }
 
 SystemSemaphore::~SystemSemaphore()

@@ -29,7 +29,7 @@ public:
         if (gin::ElevatedFileCopy::processCommandLine (cmdLine))
             return;
 
-        mainWindow = new MainWindow (getApplicationName());
+        mainWindow = std::make_unique<MainWindow> (getApplicationName());
     }
 
     void shutdown() override
@@ -94,7 +94,7 @@ public:
     };
 
 private:
-    ScopedPointer<MainWindow> mainWindow;
+    std::unique_ptr<MainWindow> mainWindow;
 };
 
 //==============================================================================

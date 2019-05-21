@@ -16,14 +16,14 @@ public:
 
 EquationParser::EquationParser()
 {
-    impl = new EquationParserImpl();
+    impl = std::make_unique<EquationParserImpl>();
 }
 
 EquationParser::EquationParser (juce::String equation)
 {
     try
     {
-        impl = new EquationParserImpl();
+        impl = std::make_unique<EquationParserImpl>();
         impl->parser.SetExpr (equation.toRawUTF8());
     }
     catch (...)

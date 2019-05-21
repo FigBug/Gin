@@ -112,7 +112,7 @@ private:
         std::function<void (DownloadResult)> completionCallback;
         std::function<void (int64, int64, int64)> progressCallback;
         
-        ScopedPointer<WebInputStream> is;
+        std::unique_ptr<WebInputStream> is;
         
         DownloadManager& owner;
         

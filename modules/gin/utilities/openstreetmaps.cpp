@@ -43,7 +43,7 @@ Image OpenStreetMaps::fetchTile (int zoom, int x, int y)
     }
     else
     {
-        ScopedPointer<TileReq> newReq = new TileReq (zoom, x, y);
+        auto newReq = std::make_unique<TileReq> (zoom, x, y);
 
         bool pending = false;
         for (int i = 0; i < requests.size(); i++)
@@ -141,7 +141,7 @@ void OpenStreetMaps::startRequest()
 
             URL url = URL (String (buffer));
 
-            requests[i]->reply = new AsyncDownload (buffer, [this] (AsyncDownload* ad, juce::MemoryBlock m, bool ok)
+            requests[i]->reply = std::make_unique<AsyncDownload> (buffer, [this] (AsyncDownload* ad, juce::MemoryBlock m, bool ok)
                                                     {
                                                         finished (ad, m, ok);
                                                     });
@@ -155,7 +155,7 @@ void OpenStreetMaps::finished (AsyncDownload* reply, juce::MemoryBlock data, boo
 {
     for (int i = 0; i < requests.size(); i++)
     {
-        if (requests[i]->reply == reply)
+        if (requests[i]->reply.get() == reply)
         {
             serversInUse.removeFirstMatchingValue (requests[i]->server);
             requests[i]->server = -1;

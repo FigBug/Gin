@@ -137,7 +137,7 @@ public:
 
 SharedMemory::SharedMemory (const String& name, int size)
 {
-    impl = new Impl (name, size);
+    impl = std::make_unique<Impl> (name, size);
 }
 
 SharedMemory::~SharedMemory()

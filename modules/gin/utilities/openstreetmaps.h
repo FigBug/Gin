@@ -78,7 +78,7 @@ private:
             return zoom == b.zoom && x == b.x && y == b.y;
         }
 
-        ScopedPointer<AsyncDownload> reply;
+        std::unique_ptr<AsyncDownload> reply;
         int zoom;
         int x;
         int y;

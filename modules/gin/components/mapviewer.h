@@ -56,7 +56,7 @@ private:
 
     Point<double> posMarker;
 
-    ScopedPointer<Image> doubleBuffer;
+    std::unique_ptr<Image> doubleBuffer;
 
 
 };
