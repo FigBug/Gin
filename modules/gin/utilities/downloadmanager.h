@@ -65,7 +65,7 @@ public:
         int downloadId = 0;
         int attempts = 0;
 
-        MemoryBlock data;
+        juce::MemoryBlock data;
 
         bool ok = false;
         int httpCode = 0;
