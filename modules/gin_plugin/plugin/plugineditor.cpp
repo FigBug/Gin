@@ -5,7 +5,7 @@
 UpdateChecker::UpdateChecker (GinAudioProcessorEditor& editor_)
   : Thread ("Update"), editor (editor_)
 {
-    if (ScopedPointer<PropertiesFile> props = editor.slProc.getSettings())
+    if (std::unique_ptr<PropertiesFile> props = editor.slProc.getSettings())
     {
        #ifdef JucePlugin_Name
         String url = props->getValue (JucePlugin_Name "_updateUrl");
@@ -44,9 +44,9 @@ void UpdateChecker::run()
    #ifdef JucePlugin_Name
     URL versionsUrl = URL ("https://socalabs.com/version.xml").withParameter ("plugin", JucePlugin_Name).withParameter ("version", JucePlugin_VersionString);
     XmlDocument doc (versionsUrl.readEntireTextStream());
-    if (ScopedPointer<XmlElement> root = doc.getDocumentElement())
+    if (std::unique_ptr<XmlElement> root = doc.getDocumentElement())
     {
-        if (ScopedPointer<PropertiesFile> props = editor.slProc.getSettings())
+        if (std::unique_ptr<PropertiesFile> props = editor.slProc.getSettings())
         {
             props->setValue (JucePlugin_Name "_lastUpdateCheck", int (time (NULL)));
 
@@ -77,7 +77,7 @@ void UpdateChecker::run()
 NewsChecker::NewsChecker (GinAudioProcessorEditor& editor_)
 : Thread ("News"), editor (editor_)
 {
-    if (ScopedPointer<PropertiesFile> props = editor.slProc.getSettings())
+    if (std::unique_ptr<PropertiesFile> props = editor.slProc.getSettings())
     {
         String url = props->getValue ("newsUrl");
         int last   = props->getIntValue ("lastNewsCheck");
@@ -108,9 +108,9 @@ void NewsChecker::timerCallback()
 void NewsChecker::run()
 {
     XmlDocument doc (URL ("https://socalabs.com/feed/").readEntireTextStream());
-    if (ScopedPointer<XmlElement> root = doc.getDocumentElement())
+    if (std::unique_ptr<XmlElement> root = doc.getDocumentElement())
     {
-        if (ScopedPointer<PropertiesFile> props = editor.slProc.getSettings())
+        if (std::unique_ptr<PropertiesFile> props = editor.slProc.getSettings())
         {
             if (auto* rss = root->getChildByName("channel"))
             {
@@ -175,8 +175,8 @@ GinAudioProcessorEditor::GinAudioProcessorEditor (GinProcessor& p, int cx_, int 
     
     refreshPrograms();
     
-    updateChecker = new UpdateChecker (*this);
-    newsChecker = new NewsChecker (*this);
+    updateChecker = std::make_unique<UpdateChecker> (*this);
+    newsChecker = std::make_unique<NewsChecker> (*this);
 }
 
 GinAudioProcessorEditor::~GinAudioProcessorEditor()
@@ -302,7 +302,7 @@ void GinAudioProcessorEditor::buttonClicked (Button* b)
         updateButton.setVisible (false);
         
        #ifdef JucePlugin_Name
-        if (ScopedPointer<PropertiesFile> props = slProc.getSettings())
+        if (std::unique_ptr<PropertiesFile> props = slProc.getSettings())
             props->setValue (JucePlugin_Name "_updateUrl", "");
        #endif
     }
@@ -315,7 +315,7 @@ void GinAudioProcessorEditor::buttonClicked (Button* b)
         URL (newsUrl).launchInDefaultBrowser();
         newsButton.setVisible (false);
         
-        if (ScopedPointer<PropertiesFile> props = slProc.getSettings())
+        if (std::unique_ptr<PropertiesFile> props = slProc.getSettings())
         {
             props->setValue ("newsUrl", "");
             

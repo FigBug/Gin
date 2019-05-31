@@ -14,7 +14,7 @@ public:
     GinProcessor();
     ~GinProcessor();
     
-    PropertiesFile* getSettings();
+    std::unique_ptr<PropertiesFile> getSettings();
         
     //==============================================================================
     using AudioProcessor::getParameter;
@@ -57,7 +57,7 @@ public:
     OwnedArray<LevelTracker> inputLevels;
     OwnedArray<LevelTracker> outputLevels;
     
-    ScopedPointer<PropertiesFile> properties;
+    std::unique_ptr<PropertiesFile> properties;
     
     std::map<String, Parameter*> parameterMap;
     
