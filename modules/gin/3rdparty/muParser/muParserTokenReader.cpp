@@ -756,13 +756,17 @@ namespace mu
       }
     }
 
+    SParam p;
+    p.id = -1;
+    p.param = nullptr;
+      
     // 3.call the value recognition functions provided by the user
     // Call user defined value recognition functions
     std::list<identfun_type>::const_iterator item = m_vIdentFun.begin();
     for (item = m_vIdentFun.begin(); item!=m_vIdentFun.end(); ++item)
     {
       int iStart = m_iPos;
-      if ( (*item)(m_strFormula.c_str() + m_iPos, &m_iPos, &fVal)==1 )
+      if ( (*item)(p, m_strFormula.c_str() + m_iPos, &m_iPos, &fVal)==1 )
       {
         // 2013-11-27 Issue 2:  https://code.google.com/p/muparser/issues/detail?id=2
         strTok.assign(m_strFormula.c_str(), iStart, m_iPos-iStart);
@@ -865,11 +869,15 @@ namespace mu
       // http://sourceforge.net/tracker/index.php?func=detail&aid=1578779&group_id=137191&atid=737979
       Error(ecUNEXPECTED_VAR, m_iPos - (int)a_Tok.GetAsString().length(), strTok);
     }
+      
+    SParam p;
+    p.id = -1;
+    p.param = nullptr;
 
     // If a factory is available implicitely create new variables
     if (m_pFactory)
     {
-      value_type *fVar = m_pFactory(strTok.c_str(), m_pFactoryData);
+      value_type *fVar = m_pFactory(p, strTok.c_str(), m_pFactoryData);
       a_Tok.SetVar(fVar, strTok );
 
       // Do not use m_pParser->DefineVar( strTok, fVar );

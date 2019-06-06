@@ -19,14 +19,28 @@ public:
     
     void addConstant (juce::String name, double value);
     
-    void addFunction (juce::String name, double (*fun)());
-    void addFunction (juce::String name, double (*fun)(double));
-    void addFunction (juce::String name, double (*fun)(double, double));
-    void addFunction (juce::String name, double (*fun)(double, double, double));
+    void addFunction (juce::String name, std::function<double (int id)> fun);
+    void addFunction (juce::String name, std::function<double (int id, double)> fun);
+    void addFunction (juce::String name, std::function<double (int id, double, double)> fun);
+    void addFunction (juce::String name, std::function<double (int id, double, double, double)> fun);
+    void addFunction (juce::String name, std::function<double (int id, double, double, double, double)> fun);
 
     double evaluate();
     
 private:
+    class Callback
+    {
+    public:
+        virtual ~Callback() = default;
+    };
+    class Callback0;
+    class Callback1;
+    class Callback2;
+    class Callback3;
+    class Callback4;
+    
+    OwnedArray<Callback> callbacks;
+    
     class EquationParserImpl;
     std::unique_ptr<EquationParserImpl> impl;
 

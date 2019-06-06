@@ -50,35 +50,35 @@ namespace mu
 class ParserCallback
 {
 public:
-    ParserCallback(fun_type0  a_pFun, bool a_bAllowOpti);
-    ParserCallback(fun_type1  a_pFun, bool a_bAllowOpti, int a_iPrec = -1, ECmdCode a_iCode=cmFUNC);
-    ParserCallback(fun_type2  a_pFun, bool a_bAllowOpti, int a_iPrec, EOprtAssociativity a_eAssociativity);
-    ParserCallback(fun_type2  a_pFun, bool a_bAllowOpti);
-    ParserCallback(fun_type3  a_pFun, bool a_bAllowOpti);
-    ParserCallback(fun_type4  a_pFun, bool a_bAllowOpti);
-    ParserCallback(fun_type5  a_pFun, bool a_bAllowOpti);
-    ParserCallback(fun_type6  a_pFun, bool a_bAllowOpti);
-    ParserCallback(fun_type7  a_pFun, bool a_bAllowOpti);
-    ParserCallback(fun_type8  a_pFun, bool a_bAllowOpti);
-    ParserCallback(fun_type9  a_pFun, bool a_bAllowOpti);
-    ParserCallback(fun_type10 a_pFun, bool a_bAllowOpti);
+    ParserCallback(fun_type0  a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(fun_type1  a_pFun, void* p, bool a_bAllowOpti, int a_iPrec = -1, ECmdCode a_iCode=cmFUNC);
+    ParserCallback(fun_type2  a_pFun, void* p, bool a_bAllowOpti, int a_iPrec, EOprtAssociativity a_eAssociativity);
+    ParserCallback(fun_type2  a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(fun_type3  a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(fun_type4  a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(fun_type5  a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(fun_type6  a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(fun_type7  a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(fun_type8  a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(fun_type9  a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(fun_type10 a_pFun, void* p, bool a_bAllowOpti);
 
-    ParserCallback(bulkfun_type0  a_pFun, bool a_bAllowOpti);
-    ParserCallback(bulkfun_type1  a_pFun, bool a_bAllowOpti);
-    ParserCallback(bulkfun_type2  a_pFun, bool a_bAllowOpti);
-    ParserCallback(bulkfun_type3  a_pFun, bool a_bAllowOpti);
-    ParserCallback(bulkfun_type4  a_pFun, bool a_bAllowOpti);
-    ParserCallback(bulkfun_type5  a_pFun, bool a_bAllowOpti);
-    ParserCallback(bulkfun_type6  a_pFun, bool a_bAllowOpti);
-    ParserCallback(bulkfun_type7  a_pFun, bool a_bAllowOpti);
-    ParserCallback(bulkfun_type8  a_pFun, bool a_bAllowOpti);
-    ParserCallback(bulkfun_type9  a_pFun, bool a_bAllowOpti);
-    ParserCallback(bulkfun_type10 a_pFun, bool a_bAllowOpti);
+    ParserCallback(bulkfun_type0  a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(bulkfun_type1  a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(bulkfun_type2  a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(bulkfun_type3  a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(bulkfun_type4  a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(bulkfun_type5  a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(bulkfun_type6  a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(bulkfun_type7  a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(bulkfun_type8  a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(bulkfun_type9  a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(bulkfun_type10 a_pFun, void* p, bool a_bAllowOpti);
 
-    ParserCallback(multfun_type a_pFun, bool a_bAllowOpti);
-    ParserCallback(strfun_type1 a_pFun, bool a_bAllowOpti);
-    ParserCallback(strfun_type2 a_pFun, bool a_bAllowOpti);
-    ParserCallback(strfun_type3 a_pFun, bool a_bAllowOpti);
+    ParserCallback(multfun_type a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(strfun_type1 a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(strfun_type2 a_pFun, void* p, bool a_bAllowOpti);
+    ParserCallback(strfun_type3 a_pFun, void* p, bool a_bAllowOpti);
     ParserCallback();
     ParserCallback(const ParserCallback &a_Fun);
     
@@ -86,6 +86,7 @@ public:
 
     bool  IsOptimizable() const;
     void* GetAddr() const;
+    void* GetParam() const;
     ECmdCode  GetCode() const;
     ETypeCode GetType() const;
     int GetPri()  const;
@@ -105,7 +106,8 @@ private:
     EOprtAssociativity m_eOprtAsct; ///< Operator associativity; Valid only for binary operators 
     ECmdCode  m_iCode;
     ETypeCode m_iType;
-    bool  m_bAllowOpti;             ///< Flag indication optimizeability 
+    bool  m_bAllowOpti;             ///< Flag indication optimizeability
+    void* m_param = nullptr;
 };
 
 //------------------------------------------------------------------------------

@@ -362,7 +362,7 @@ namespace mu
       \param a_iArgc Number of arguments, negative numbers indicate multiarg functions.
       \param a_pFun Pointer to function callback.
   */
-  void ParserByteCode::AddFun(generic_fun_type a_pFun, int a_iArgc)
+  void ParserByteCode::AddFun(generic_fun_type a_pFun, void* p, int a_iArgc)
   {
     if (a_iArgc>=0)
     {
@@ -379,6 +379,7 @@ namespace mu
     tok.Cmd = cmFUNC;
     tok.Fun.argc = a_iArgc;
     tok.Fun.ptr = a_pFun;
+    tok.Fun.param = p;
     m_vRPN.push_back(tok);
   }
 
@@ -388,7 +389,7 @@ namespace mu
       \param a_iArgc Number of arguments, negative numbers indicate multiarg functions.
       \param a_pFun Pointer to function callback.
   */
-  void ParserByteCode::AddBulkFun(generic_fun_type a_pFun, int a_iArgc)
+  void ParserByteCode::AddBulkFun(generic_fun_type a_pFun, void* p, int a_iArgc)
   {
     m_iStackPos = m_iStackPos - a_iArgc + 1; 
     m_iMaxStackSize = std::max(m_iMaxStackSize, (size_t)m_iStackPos);
@@ -397,6 +398,8 @@ namespace mu
     tok.Cmd = cmFUNC_BULK;
     tok.Fun.argc = a_iArgc;
     tok.Fun.ptr = a_pFun;
+    tok.Fun.param = p;
+    tok.Fun.id = nextId++;
     m_vRPN.push_back(tok);
   }
 
@@ -408,7 +411,7 @@ namespace mu
       followed by a cmSTRFUNC code, the function pointer and an index into the 
       string buffer maintained by the parser.
   */
-  void ParserByteCode::AddStrFun(generic_fun_type a_pFun, int a_iArgc, int a_iIdx)
+  void ParserByteCode::AddStrFun(generic_fun_type a_pFun, void* p, int a_iArgc, int a_iIdx)
   {
     m_iStackPos = m_iStackPos - a_iArgc + 1;
 
@@ -417,6 +420,7 @@ namespace mu
     tok.Fun.argc = a_iArgc;
     tok.Fun.idx = a_iIdx;
     tok.Fun.ptr = a_pFun;
+    tok.Fun.param = p;
     m_vRPN.push_back(tok);
 
     m_iMaxStackSize = std::max(m_iMaxStackSize, (size_t)m_iStackPos);
