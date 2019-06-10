@@ -380,6 +380,7 @@ namespace mu
     tok.Fun.argc = a_iArgc;
     tok.Fun.ptr = a_pFun;
     tok.Fun.param = p;
+    tok.Fun.id = nextId++;
     m_vRPN.push_back(tok);
   }
 
@@ -421,6 +422,7 @@ namespace mu
     tok.Fun.idx = a_iIdx;
     tok.Fun.ptr = a_pFun;
     tok.Fun.param = p;
+    tok.Fun.id = nextId++;
     m_vRPN.push_back(tok);
 
     m_iMaxStackSize = std::max(m_iMaxStackSize, (size_t)m_iStackPos);
