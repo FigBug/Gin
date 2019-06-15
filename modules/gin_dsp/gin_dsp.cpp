@@ -22,6 +22,7 @@ using juce::Rectangle;
 using juce::MemoryBlock;
 
 #include "dsp/adsr.cpp"
+#include "dsp/analogadsr.cpp"
 #include "dsp/audioutil.cpp"
 
 }
