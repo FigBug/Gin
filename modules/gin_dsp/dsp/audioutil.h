@@ -136,6 +136,13 @@ inline double getMidiNoteInHertz (const double noteNumber, const double frequenc
 }
 
 //==============================================================================
+inline float velocityToGain (float velocity, float sensitivity = 1.0f)
+{
+    float v = velocity * sensitivity + 1.0f - sensitivity;
+    return v * std::pow (25.0f, v) * 0.04f;
+}
+
+//==============================================================================
 void applyGain (AudioSampleBuffer& buffer, LinearSmoothedValue<float>& gain);
 
 void applyGain (AudioSampleBuffer& buffer, int channel, LinearSmoothedValue<float>& gain);
