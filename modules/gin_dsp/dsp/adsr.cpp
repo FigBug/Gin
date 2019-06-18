@@ -1,12 +1,12 @@
 /*
  ==============================================================================
  
- ADSR.h
- Created: 24 Jan 2018 7:06:35pm
- Author:  Roland Rabien
+ This file is part of the GIN library.
+ Copyright (c) 2019 - Roland Rabien.
  
  ==============================================================================
  */
+
 
 #include "adsr.h"
 #include <cmath>
