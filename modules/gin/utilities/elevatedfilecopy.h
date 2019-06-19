@@ -7,6 +7,12 @@
 
 #pragma once
 
+#if JUCE_LINUX
+
+// TODO: no implementation for Linux yet
+
+#else
+
 /** Copies files, creating folders where required
     requesting admin access only if required
   */
@@ -62,3 +68,5 @@ private:
 
     JUCE_LEAK_DETECTOR (ElevatedFileCopy)
 };
+
+#endif
