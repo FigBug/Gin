@@ -123,7 +123,7 @@ BandLimitedLookupTable::BandLimitedLookupTable (std::function<double (double, do
 
 //==============================================================================
 BandLimitedLookupTables::BandLimitedLookupTables (double sampleRate)
-  : sineTable (sine, sampleRate, 128),
+  : sineTable (sine, sampleRate, 64),
     sawUpTable (sawUp, sampleRate, 6),
     sawDownTable (sawDown, sampleRate, 6),
     triangleTable (triangle, sampleRate, 6)
