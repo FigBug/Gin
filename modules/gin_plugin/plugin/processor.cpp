@@ -16,7 +16,7 @@ GinProcessor::GinProcessor()
 {
     LookAndFeel::setDefaultLookAndFeel (&lookAndFeel);
         
-    properties = new PropertiesFile (getSettingsFile(), PropertiesFile::Options());
+    properties = std::make_unique<PropertiesFile> (getSettingsFile(), PropertiesFile::Options());
     
     loadAllPrograms();
     
@@ -31,7 +31,7 @@ GinProcessor::~GinProcessor()
     LookAndFeel::setDefaultLookAndFeel (nullptr);
 }
 
-PropertiesFile* GinProcessor::getSettings()
+std::unique_ptr<PropertiesFile> GinProcessor::getSettings()
 {
 #if JUCE_MAC
     File dir = File::getSpecialLocation (File::userApplicationDataDirectory).getChildFile ("Preferences").getChildFile ("SocaLabs");
@@ -42,7 +42,7 @@ PropertiesFile* GinProcessor::getSettings()
     
     PropertiesFile::Options options;
     
-    return new PropertiesFile (dir.getChildFile ("plugin_settings.xml"), options);
+    return std::make_unique<PropertiesFile> (dir.getChildFile ("plugin_settings.xml"), options);
 }
 
 //==============================================================================
@@ -90,12 +90,11 @@ Array<Parameter*> GinProcessor::getPluginParameters()
 {
     Array<Parameter*> result;
     
-    const OwnedArray<AudioProcessorParameter>& params = getParameters();
-    for (AudioProcessorParameter* p : params)
-    {
-        if (Parameter* pp = dynamic_cast<Parameter*>(p))
+    auto params = getParameters();
+    for (auto p : params)
+        if (auto pp = dynamic_cast<Parameter*>(p))
             result.add (pp);
-    }
+    
     return result;
 }
 
@@ -274,7 +273,7 @@ void GinProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
     updateState();
     
-    ScopedPointer<XmlElement> rootE (new XmlElement ("state"));
+    std::unique_ptr<XmlElement> rootE (new XmlElement ("state"));
     
     if (state.isValid())
         rootE->setAttribute ("valueTree", state.toXmlString());
@@ -297,20 +296,21 @@ void GinProcessor::getStateInformation (juce::MemoryBlock& destData)
     }
     
     MemoryOutputStream os (destData, true);
-    rootE->writeToStream (os, "");
+    auto text = rootE->toString();
+    os.write (text.toRawUTF8(), text.getNumBytesAsUTF8());
 }
 
 void GinProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
-    XmlDocument doc (String ((const char*)data, size_t (sizeInBytes)));
-    ScopedPointer<XmlElement> rootE (doc.getDocumentElement());
+    XmlDocument doc (String::fromUTF8 ((const char*)data, sizeInBytes));
+    std::unique_ptr<XmlElement> rootE (doc.getDocumentElement());
     if (rootE)
     {
         if (rootE->hasAttribute ("valueTree"))
         {
             String xml = rootE->getStringAttribute ("valueTree");
             XmlDocument treeDoc (xml);
-            if (ScopedPointer<XmlElement> vtE = treeDoc.getDocumentElement())
+            if (std::unique_ptr<XmlElement> vtE = treeDoc.getDocumentElement())
                 state = ValueTree::fromXml (*vtE.get());
         }
         

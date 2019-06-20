@@ -23,7 +23,7 @@
   website:          www.rabiensoftware.com
   license:          BSD
 
-  dependencies:     juce_core juce_audio_utils
+  dependencies:     gin juce_core juce_audio_utils juce_dsp
 
  END_JUCE_MODULE_DECLARATION
 
@@ -53,8 +53,12 @@
 
 //==============================================================================
 #include <juce_audio_utils/juce_audio_utils.h>
+#include <juce_dsp/juce_dsp.h>
+#include <gin/gin.h>
 
 #include <map>
+#include <random>
+#include <cmath>
 
 namespace gin
 {
@@ -63,6 +67,10 @@ using juce::Rectangle;
 using juce::Component;
 
 #include "dsp/adsr.h"
+#include "dsp/analogadsr.h"
+#include "dsp/audiofunctions.h"
 #include "dsp/audioutil.h"
+#include "dsp/oscillators.h"
+
 
 }

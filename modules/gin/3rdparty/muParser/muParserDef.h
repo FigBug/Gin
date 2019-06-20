@@ -275,93 +275,98 @@ namespace mu
   typedef std::map<string_type, std::size_t> strmap_type;
 
   // Parser callbacks
+  struct SParam
+  {
+      void* param = nullptr;
+      int id = 0;
+  };
   
   /** \brief Callback type used for functions without arguments. */
-  typedef value_type (*generic_fun_type)();
+  typedef value_type (*generic_fun_type)(SParam);
 
   /** \brief Callback type used for functions without arguments. */
-  typedef value_type (*fun_type0)();
+  typedef value_type (*fun_type0)(SParam);
 
   /** \brief Callback type used for functions with a single arguments. */
-  typedef value_type (*fun_type1)(value_type);
+  typedef value_type (*fun_type1)(SParam, value_type);
 
   /** \brief Callback type used for functions with two arguments. */
-  typedef value_type (*fun_type2)(value_type, value_type);
+  typedef value_type (*fun_type2)(SParam, value_type, value_type);
 
   /** \brief Callback type used for functions with three arguments. */
-  typedef value_type (*fun_type3)(value_type, value_type, value_type);
+  typedef value_type (*fun_type3)(SParam, value_type, value_type, value_type);
 
   /** \brief Callback type used for functions with four arguments. */
-  typedef value_type (*fun_type4)(value_type, value_type, value_type, value_type);
+  typedef value_type (*fun_type4)(SParam, value_type, value_type, value_type, value_type);
 
   /** \brief Callback type used for functions with five arguments. */
-  typedef value_type (*fun_type5)(value_type, value_type, value_type, value_type, value_type);
+  typedef value_type (*fun_type5)(SParam, value_type, value_type, value_type, value_type, value_type);
 
   /** \brief Callback type used for functions with six arguments. */
-  typedef value_type (*fun_type6)(value_type, value_type, value_type, value_type, value_type, value_type);
+  typedef value_type (*fun_type6)(SParam, value_type, value_type, value_type, value_type, value_type, value_type);
 
   /** \brief Callback type used for functions with seven arguments. */
-  typedef value_type (*fun_type7)(value_type, value_type, value_type, value_type, value_type, value_type, value_type);
+  typedef value_type (*fun_type7)(SParam, value_type, value_type, value_type, value_type, value_type, value_type, value_type);
 
   /** \brief Callback type used for functions with eight arguments. */
-  typedef value_type (*fun_type8)(value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type);
+  typedef value_type (*fun_type8)(SParam, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type);
 
   /** \brief Callback type used for functions with nine arguments. */
-  typedef value_type (*fun_type9)(value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type);
+  typedef value_type (*fun_type9)(SParam, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type);
 
   /** \brief Callback type used for functions with ten arguments. */
-  typedef value_type (*fun_type10)(value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type);
+  typedef value_type (*fun_type10)(SParam, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type);
 
   /** \brief Callback type used for functions without arguments. */
-  typedef value_type (*bulkfun_type0)(int, int);
+  typedef value_type (*bulkfun_type0)(SParam, int, int);
 
   /** \brief Callback type used for functions with a single arguments. */
-  typedef value_type (*bulkfun_type1)(int, int, value_type);
+  typedef value_type (*bulkfun_type1)(SParam, int, int, value_type);
 
   /** \brief Callback type used for functions with two arguments. */
-  typedef value_type (*bulkfun_type2)(int, int, value_type, value_type);
+  typedef value_type (*bulkfun_type2)(SParam, int, int, value_type, value_type);
 
   /** \brief Callback type used for functions with three arguments. */
-  typedef value_type (*bulkfun_type3)(int, int, value_type, value_type, value_type);
+  typedef value_type (*bulkfun_type3)(SParam, int, int, value_type, value_type, value_type);
 
   /** \brief Callback type used for functions with four arguments. */
-  typedef value_type (*bulkfun_type4)(int, int, value_type, value_type, value_type, value_type);
+  typedef value_type (*bulkfun_type4)(SParam, int, int, value_type, value_type, value_type, value_type);
 
   /** \brief Callback type used for functions with five arguments. */
-  typedef value_type (*bulkfun_type5)(int, int, value_type, value_type, value_type, value_type, value_type);
+  typedef value_type (*bulkfun_type5)(SParam, int, int, value_type, value_type, value_type, value_type, value_type);
 
   /** \brief Callback type used for functions with six arguments. */
-  typedef value_type (*bulkfun_type6)(int, int, value_type, value_type, value_type, value_type, value_type, value_type);
+  typedef value_type (*bulkfun_type6)(SParam, int, int, value_type, value_type, value_type, value_type, value_type, value_type);
 
   /** \brief Callback type used for functions with seven arguments. */
-  typedef value_type (*bulkfun_type7)(int, int, value_type, value_type, value_type, value_type, value_type, value_type, value_type);
+  typedef value_type (*bulkfun_type7)(SParam, int, int, value_type, value_type, value_type, value_type, value_type, value_type, value_type);
 
   /** \brief Callback type used for functions with eight arguments. */
-  typedef value_type (*bulkfun_type8)(int, int, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type);
+  typedef value_type (*bulkfun_type8)(SParam, int, int, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type);
 
   /** \brief Callback type used for functions with nine arguments. */
-  typedef value_type (*bulkfun_type9)(int, int, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type);
+  typedef value_type (*bulkfun_type9)(SParam, int, int, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type);
 
   /** \brief Callback type used for functions with ten arguments. */
-  typedef value_type (*bulkfun_type10)(int, int, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type);
+  typedef value_type (*bulkfun_type10)(SParam, int, int, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type, value_type);
 
   /** \brief Callback type used for functions with a variable argument list. */
-  typedef value_type (*multfun_type)(const value_type*, int);
+  typedef value_type (*multfun_type)(SParam, const value_type*, int);
 
   /** \brief Callback type used for functions taking a string as an argument. */
-  typedef value_type (*strfun_type1)(const char_type*);
+  typedef value_type (*strfun_type1)(SParam, const char_type*);
 
   /** \brief Callback type used for functions taking a string and a value as arguments. */
-  typedef value_type (*strfun_type2)(const char_type*, value_type);
+  typedef value_type (*strfun_type2)(SParam, const char_type*, value_type);
 
   /** \brief Callback type used for functions taking a string and two values as arguments. */
-  typedef value_type (*strfun_type3)(const char_type*, value_type, value_type);
+  typedef value_type (*strfun_type3)(SParam, const char_type*, value_type, value_type);
 
   /** \brief Callback used for functions that identify values in a string. */
-  typedef int (*identfun_type)(const char_type *sExpr, int *nPos, value_type *fVal);
+  typedef int (*identfun_type)(SParam, const char_type *sExpr, int *nPos, value_type *fVal);
 
   /** \brief Callback used for variable creation factory functions. */
-  typedef value_type* (*facfun_type)(const char_type*, void*);
+  typedef value_type* (*facfun_type)(SParam, const char_type*, void*);
 } // end of namespace
 
 #endif

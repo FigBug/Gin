@@ -337,6 +337,11 @@ namespace mu
         return (m_pCallback.get()) ? (generic_fun_type)m_pCallback->GetAddr() : 0;
       }
 
+      void* GetParam() const
+      {
+        return (m_pCallback.get()) ? m_pCallback->GetParam() : nullptr;
+      }
+      
       //------------------------------------------------------------------------------
       /** \biref Get value of the token.
         

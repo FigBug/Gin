@@ -43,7 +43,7 @@ public:
     
     void makeResizable (int minX, int minY, int maxX, int maxY)
     {
-        addAndMakeVisible (resizer = new ResizableCornerComponent (this, &resizeLimits));
+        addAndMakeVisible (*(resizer = std::make_unique<ResizableCornerComponent> (this, &resizeLimits)));
         resizeLimits.setSizeLimits (minX, minY, maxX, maxY);
         
         ValueTree state (proc.state);
@@ -71,7 +71,7 @@ public:
     
 private:
     GinProcessor& proc;
-    ScopedPointer<ResizableCornerComponent> resizer;
+    std::unique_ptr<ResizableCornerComponent> resizer;
 };
 
 //==============================================================================
@@ -105,8 +105,8 @@ protected:
     int headerHeight = 60;
     int inset = 4;
     
-    ScopedPointer<UpdateChecker> updateChecker;
-    ScopedPointer<NewsChecker> newsChecker;
+    std::unique_ptr<UpdateChecker> updateChecker;
+    std::unique_ptr<NewsChecker> newsChecker;
     
     OwnedArray<ParamComponent> controls;
 

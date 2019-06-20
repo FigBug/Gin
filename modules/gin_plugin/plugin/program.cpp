@@ -13,7 +13,7 @@ void GinProgram::loadProcessor (GinProcessor* p)
     if (valueTree.isNotEmpty())
     {
         XmlDocument treeDoc (valueTree);
-        if (ScopedPointer<XmlElement> vtE = treeDoc.getDocumentElement())
+        if (std::unique_ptr<XmlElement> vtE = treeDoc.getDocumentElement())
             p->state = ValueTree::fromXml (*vtE.get());
     }
     
@@ -44,7 +44,7 @@ void GinProgram::saveProcessor (GinProcessor* p)
 void GinProgram::loadFromFile (File f)
 {
     XmlDocument doc (f);
-    ScopedPointer<XmlElement> rootE (doc.getDocumentElement());
+    std::unique_ptr<XmlElement> rootE (doc.getDocumentElement());
     if (rootE)
     {
         states.clear();
@@ -70,7 +70,7 @@ void GinProgram::loadFromFile (File f)
 
 void GinProgram::saveToDir (File f)
 {
-    ScopedPointer<XmlElement> rootE (new XmlElement ("state"));
+    std::unique_ptr<XmlElement> rootE (new XmlElement ("state"));
     
     rootE->setAttribute("name", name);
     rootE->setAttribute ("valueTree", valueTree);
@@ -86,7 +86,7 @@ void GinProgram::saveToDir (File f)
     }
     
     File xmlFile = f.getChildFile (File::createLegalFileName (name) + ".xml");
-    rootE->writeToFile (xmlFile, "");
+    xmlFile.replaceWithText (rootE->toString());
 }
 
 void GinProgram::deleteFromDir (File f)

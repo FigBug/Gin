@@ -5,18 +5,17 @@
  Copyright (c) 2019 - Roland Rabien.
  
  ==============================================================================
- */
-
+*/
 
 #pragma once
 
-class ADSR
+class AnalogADSR
 {
 public:
-    ADSR()                                      {}
-    ~ADSR()                                     {}
+    AnalogADSR()                                {}
+    ~AnalogADSR()                               {}
     
-    enum State
+    enum class State
     {
         idle,
         attack,
@@ -34,8 +33,8 @@ public:
     float getOutput()                           { return output;        }
     State getState()                            { return state;         }
     
-    void noteOn()                               { state = attack;       }
-    void noteOff()                              { state = release;      }
+    void noteOn();
+    void noteOff();
     
     void setAttack (float seconds);
     void setDecay (float seconds);
@@ -45,9 +44,17 @@ public:
     void reset();
 
 protected:
-	State state = idle;
+    void calculateAttack();
+    void calculateDecay();
+    void calculateRelease();
+    
+    State state = State::idle;
     double sampleRate = 44100.0;
-	float output = 0.0f, attackDelta = 0.0f, decayDelta = 0.0f, releaseDelta = 0.0f, sustainLevel = 0.0f;
+    float attack = 0.0f, decay = 0.0f, sustain = 0.0f, release = 0.0f;
+    float attackCoeff = 0.0f, decayCoeff = 0.0f, releaseCoeff = 0.0f;
+    float attackOffset = 0.0f, decayOffset = 0.0f, releaseOffset = 0.0f;
+
+    float output = 0.0f;
 };
 
 

@@ -5,6 +5,12 @@
 
  ==============================================================================*/
 
+#if JUCE_LINUX
+
+// TODO: no implementation for Linux yet
+
+#else
+
 #if JUCE_MAC
 
 ElevatedFileCopy::Result runWinPermissions (String cmd, StringArray params)
@@ -285,3 +291,5 @@ void ElevatedFileCopy::clear()
 {
 	filesToCopy.clear();
 }
+
+#endif

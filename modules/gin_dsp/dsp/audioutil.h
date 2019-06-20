@@ -1,12 +1,12 @@
 /*
-  ==============================================================================
+ ==============================================================================
+ 
+ This file is part of the GIN library.
+ Copyright (c) 2019 - Roland Rabien.
+ 
+ ==============================================================================
+ */
 
-    AudioUtil.h
-    Created: 24 Jan 2018 7:06:35pm
-    Author:  Roland Rabien
-
-  ==============================================================================
-*/
 
 #pragma once
 
@@ -133,6 +133,13 @@ private:
 inline double getMidiNoteInHertz (const double noteNumber, const double frequencyOfA = 440.0)
 {
     return frequencyOfA * pow (2.0, (noteNumber - 69) / 12.0);
+}
+
+//==============================================================================
+inline float velocityToGain (float velocity, float sensitivity = 1.0f)
+{
+    float v = velocity * sensitivity + 1.0f - sensitivity;
+    return v * std::pow (25.0f, v) * 0.04f;
 }
 
 //==============================================================================

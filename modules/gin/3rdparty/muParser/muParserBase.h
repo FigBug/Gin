@@ -108,7 +108,7 @@ private:
 
     virtual ~ParserBase();
     
-	  value_type  Eval() const;
+    value_type  Eval() const;
     value_type* Eval(int &nStackSize) const;
     void Eval(value_type *results, int nBulkSize);
 
@@ -134,9 +134,9 @@ private:
         \param a_bAllowOpt A flag indicating this function may be optimized
     */
     template<typename T>
-    void DefineFun(const string_type &a_strName, T a_pFun, bool a_bAllowOpt = true)
+    void DefineFun(const string_type &a_strName, T a_pFun, void* param = nullptr, bool a_bAllowOpt = true)
     {
-      AddCallback( a_strName, ParserCallback(a_pFun, a_bAllowOpt), m_FunDef, ValidNameChars() );
+      AddCallback( a_strName, ParserCallback(a_pFun, param, a_bAllowOpt), m_FunDef, ValidNameChars() );
     }
 
     void DefineOprt(const string_type &a_strName, 

@@ -64,6 +64,8 @@ namespace mu
         generic_fun_type ptr;
         int   argc;
         int   idx;
+        int   id;
+        void* param;
       } Fun;
 
       struct //SOprtData
@@ -106,6 +108,8 @@ private:
     bool m_bEnableOptimizer;
 
     void ConstantFolding(ECmdCode a_Oprt);
+    
+    int nextId = 0;
 
 public:
 
@@ -119,9 +123,9 @@ public:
     void AddOp(ECmdCode a_Oprt);
     void AddIfElse(ECmdCode a_Oprt);
     void AddAssignOp(value_type *a_pVar);
-    void AddFun(generic_fun_type a_pFun, int a_iArgc);
-    void AddBulkFun(generic_fun_type a_pFun, int a_iArgc);
-    void AddStrFun(generic_fun_type a_pFun, int a_iArgc, int a_iIdx);
+    void AddFun(generic_fun_type a_pFun, void* p, int a_iArgc);
+    void AddBulkFun(generic_fun_type a_pFun, void* p, int a_iArgc);
+    void AddStrFun(generic_fun_type a_pFun, void* p, int a_iArgc, int a_iIdx);
 
     void EnableOptimizer(bool bStat);
 
