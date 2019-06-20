@@ -1,26 +1,26 @@
 /*
-                 __________                                      
-    _____   __ __\______   \_____  _______  ______  ____ _______ 
+                 __________
+    _____   __ __\______   \_____  _______  ______  ____ _______
    /     \ |  |  \|     ___/\__  \ \_  __ \/  ___/_/ __ \\_  __ \
   |  Y Y  \|  |  /|    |     / __ \_|  | \/\___ \ \  ___/ |  | \/
-  |__|_|  /|____/ |____|    (____  /|__|  /____  > \___  >|__|   
-        \/                       \/            \/      \/        
+  |__|_|  /|____/ |____|    (____  /|__|  /____  > \___  >|__|
+        \/                       \/            \/      \/
   Copyright (C) 2013 Ingo Berg
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy of this 
+  Permission is hereby granted, free of charge, to any person obtaining a copy of this
   software and associated documentation files (the "Software"), to deal in the Software
-  without restriction, including without limitation the rights to use, copy, modify, 
-  merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
+  without restriction, including without limitation the rights to use, copy, modify,
+  merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
   permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-  The above copyright notice and this permission notice shall be included in all copies or 
+  The above copyright notice and this permission notice shall be included in all copies or
   substantial portions of the Software.
 
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
-  NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
-  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
-  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+  NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 #ifndef MU_PARSER_BASE_H
 #define MU_PARSER_BASE_H
@@ -56,26 +56,26 @@ namespace mu
 /** \brief Mathematical expressions parser (base parser engine).
     \author (C) 2013 Ingo Berg
 
-  This is the implementation of a bytecode based mathematical expressions parser. 
-  The formula will be parsed from string and converted into a bytecode. 
+  This is the implementation of a bytecode based mathematical expressions parser.
+  The formula will be parsed from string and converted into a bytecode.
   Future calculations will be done with the bytecode instead the formula string
-  resulting in a significant performance increase. 
-  Complementary to a set of internally implemented functions the parser is able to handle 
-  user defined functions and variables. 
+  resulting in a significant performance increase.
+  Complementary to a set of internally implemented functions the parser is able to handle
+  user defined functions and variables.
 */
-class ParserBase 
+class ParserBase
 {
 friend class ParserTokenReader;
 
 private:
 
-    /** \brief Typedef for the parse functions. 
-    
+    /** \brief Typedef for the parse functions.
+
       The parse function do the actual work. The parser exchanges
-      the function pointer to the parser function depending on 
+      the function pointer to the parser function depending on
       which state it is in. (i.e. bytecode parser vs. string parser)
     */
-    typedef value_type (ParserBase::*ParseFunction)() const;  
+    typedef value_type (ParserBase::*ParseFunction)() const;
 
     /** \brief Type used for storing an array of values. */
     typedef std::vector<value_type> valbuf_type;
@@ -85,7 +85,7 @@ private:
 
     /** \brief Typedef for the token reader. */
     typedef ParserTokenReader token_reader_type;
-    
+
     /** \brief Type used for parser tokens. */
     typedef ParserToken<value_type, string_type> token_type;
 
@@ -94,20 +94,20 @@ private:
 
  public:
 
-    /** \brief Type of the error class. 
-    
+    /** \brief Type of the error class.
+
       Included for backwards compatibility.
     */
     typedef ParserError exception_type;
 
     static void EnableDebugDump(bool bDumpCmd, bool bDumpStack);
 
-    ParserBase(); 
+    ParserBase();
     ParserBase(const ParserBase &a_Parser);
     ParserBase& operator=(const ParserBase &a_Parser);
 
     virtual ~ParserBase();
-    
+
     value_type  Eval() const;
     value_type* Eval(int &nStackSize) const;
     void Eval(value_type *results, int nBulkSize);
@@ -127,7 +127,7 @@ private:
     bool HasBuiltInOprt() const;
     void AddValIdent(identfun_type a_pCallback);
 
-    /** \fn void mu::ParserBase::DefineFun(const string_type &a_strName, fun_type0 a_pFun, bool a_bAllowOpt = true) 
+    /** \fn void mu::ParserBase::DefineFun(const string_type &a_strName, fun_type0 a_pFun, bool a_bAllowOpt = true)
         \brief Define a parser function without arguments.
         \param a_strName Name of the function
         \param a_pFun Pointer to the callback function
@@ -139,9 +139,9 @@ private:
       AddCallback( a_strName, ParserCallback(a_pFun, param, a_bAllowOpt), m_FunDef, ValidNameChars() );
     }
 
-    void DefineOprt(const string_type &a_strName, 
-                    fun_type2 a_pFun, 
-                    unsigned a_iPri=0, 
+    void DefineOprt(const string_type &a_strName,
+                    fun_type2 a_pFun,
+                    unsigned a_iPri=0,
                     EOprtAssociativity a_eAssociativity = oaLEFT,
                     bool a_bAllowOpt = false);
     void DefineConst(const string_type &a_sName, value_type a_fVal);
@@ -157,7 +157,7 @@ private:
     void ClearInfixOprt();
     void ClearPostfixOprt();
     void ClearOprt();
-    
+
     void RemoveVar(const string_type &a_strVarName);
     const varmap_type& GetUsedVar() const;
     const varmap_type& GetVar() const;
@@ -177,23 +177,23 @@ private:
 
     void SetArgSep(char_type cArgSep);
     char_type GetArgSep() const;
-    
-    void  Error(EErrorCodes a_iErrc, 
-                int a_iPos = (int)mu::string_type::npos, 
+
+    void  Error(EErrorCodes a_iErrc,
+                int a_iPos = (int)mu::string_type::npos,
                 const string_type &a_strTok = string_type() ) const;
 
  protected:
-	  
+
     void Init();
 
     virtual void InitCharSets() = 0;
     virtual void InitFun() = 0;
     virtual void InitConst() = 0;
-    virtual void InitOprt() = 0; 
+    virtual void InitOprt() = 0;
 
     virtual void OnDetectVar(string_type *pExpr, int &nStart, int &nEnd);
 
-    static const char_type *c_DefaultOprt[]; 
+    static const char_type *c_DefaultOprt[];
     static std::locale s_locale;  ///< The locale used by the parser
     static bool g_DbgDumpCmdCode;
     static bool g_DbgDumpStack;
@@ -203,16 +203,16 @@ private:
     class change_dec_sep : public std::numpunct<TChar>
     {
     public:
-      
+
       explicit change_dec_sep(char_type cDecSep, char_type cThousandsSep = 0, int nGroup = 3)
         :std::numpunct<TChar>()
         ,m_nGroup(nGroup)
         ,m_cDecPoint(cDecSep)
         ,m_cThousandsSep(cThousandsSep)
       {}
-      
+
     protected:
-      
+
       virtual char_type do_decimal_point() const
       {
         return m_cDecPoint;
@@ -223,20 +223,20 @@ private:
         return m_cThousandsSep;
       }
 
-      virtual std::string do_grouping() const 
-      { 
-		// fix for issue 4: https://code.google.com/p/muparser/issues/detail?id=4
-		// courtesy of Jens Bartsch
-		// original code:
-		//        return std::string(1, (char)m_nGroup); 
-		// new code:
-		return std::string(1, (char)(m_cThousandsSep > 0 ? m_nGroup : CHAR_MAX));
+      virtual std::string do_grouping() const
+      {
+        // fix for issue 4: https://code.google.com/p/muparser/issues/detail?id=4
+        // courtesy of Jens Bartsch
+        // original code:
+        //        return std::string(1, (char)m_nGroup);
+        // new code:
+        return std::string(1, (char)(m_cThousandsSep > 0 ? m_nGroup : CHAR_MAX));
       }
 
     private:
 
       int m_nGroup;
-      char_type m_cDecPoint;  
+      char_type m_cDecPoint;
       char_type m_cThousandsSep;
     };
 
@@ -246,8 +246,8 @@ private:
     void InitTokenReader();
     void ReInit() const;
 
-    void AddCallback( const string_type &a_strName, 
-                      const ParserCallback &a_Callback, 
+    void AddCallback( const string_type &a_strName,
+                      const ParserCallback &a_Callback,
                       funmap_type &a_Storage,
                       const char_type *a_szCharSet );
 
@@ -260,8 +260,8 @@ private:
                      ParserStack<token_type> &a_stVal) const;
 
     void ApplyFunc(ParserStack<token_type> &a_stOpt,
-                   ParserStack<token_type> &a_stVal, 
-                   int iArgCount) const; 
+                   ParserStack<token_type> &a_stVal,
+                   int iArgCount) const;
 
     token_type ApplyStrFunc(const token_type &a_FunTok,
                             const std::vector<token_type> &a_vArg) const;
@@ -271,7 +271,7 @@ private:
 
     void CreateRPN() const;
 
-    value_type ParseString() const; 
+    value_type ParseString() const;
     value_type ParseCmdCode() const;
     value_type ParseCmdCodeBulk(int nOffset, int nThreadID) const;
 
@@ -280,11 +280,11 @@ private:
                     const ParserCallback &a_Callback,
                     const string_type &a_szCharSet) const;
 
-    void StackDump(const ParserStack<token_type > &a_stVal, 
+    void StackDump(const ParserStack<token_type > &a_stVal,
                    const ParserStack<token_type > &a_stOprt) const;
 
-    /** \brief Pointer to the parser function. 
-    
+    /** \brief Pointer to the parser function.
+
       Eval() calls the function whose address is stored there.
     */
     mutable ParseFunction  m_pParseFormula;
@@ -307,7 +307,7 @@ private:
     string_type m_sNameChars;      ///< Charset for names
     string_type m_sOprtChars;      ///< Charset for postfix/ binary operator tokens
     string_type m_sInfixOprtChars; ///< Charset for infix operator tokens
-    
+
     mutable int m_nIfElseCounter;  ///< Internal counter for keeping track of nested if-then-else clauses
 
     // items merely used for caching state information
@@ -318,7 +318,7 @@ private:
 } // namespace mu
 
 #ifdef _WIN32
-#pragma warning(pop) 
+#pragma warning(pop)
 #endif
 
 #endif

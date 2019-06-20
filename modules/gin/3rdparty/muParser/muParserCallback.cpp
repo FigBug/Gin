@@ -1,26 +1,26 @@
 /*
-                 __________                                      
-    _____   __ __\______   \_____  _______  ______  ____ _______ 
+                 __________
+    _____   __ __\______   \_____  _______  ______  ____ _______
    /     \ |  |  \|     ___/\__  \ \_  __ \/  ___/_/ __ \\_  __ \
   |  Y Y  \|  |  /|    |     / __ \_|  | \/\___ \ \  ___/ |  | \/
-  |__|_|  /|____/ |____|    (____  /|__|  /____  > \___  >|__|   
-        \/                       \/            \/      \/        
+  |__|_|  /|____/ |____|    (____  /|__|  /____  > \___  >|__|
+        \/                       \/            \/      \/
   Copyright (C) 2004-2011 Ingo Berg
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy of this 
+  Permission is hereby granted, free of charge, to any person obtaining a copy of this
   software and associated documentation files (the "Software"), to deal in the Software
-  without restriction, including without limitation the rights to use, copy, modify, 
-  merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
+  without restriction, including without limitation the rights to use, copy, modify,
+  merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
   permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-  The above copyright notice and this permission notice shall be included in all copies or 
+  The above copyright notice and this permission notice shall be included in all copies or
   substantial portions of the Software.
 
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
-  NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
-  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
-  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+  NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 #include "muParserCallback.h"
@@ -58,7 +58,7 @@ namespace mu
 
 
   //---------------------------------------------------------------------------
-  /** \brief Constructor for constructing function callbacks taking two arguments. 
+  /** \brief Constructor for constructing function callbacks taking two arguments.
       \throw nothrow
   */
   ParserCallback::ParserCallback(fun_type2 a_pFun, void* p, bool a_bAllowOpti)
@@ -73,16 +73,16 @@ namespace mu
   {}
 
   //---------------------------------------------------------------------------
-  /** \brief Constructor for constructing binary operator callbacks. 
+  /** \brief Constructor for constructing binary operator callbacks.
       \param a_pFun Pointer to a static function taking two arguments
       \param a_bAllowOpti A flag indicating this function can be optimized
       \param a_iPrec The operator precedence
       \param a_eOprtAsct The operators associativity
       \throw nothrow
   */
-  ParserCallback::ParserCallback(fun_type2 a_pFun, 
+  ParserCallback::ParserCallback(fun_type2 a_pFun,
                                  void* p, bool a_bAllowOpti,
-                                 int a_iPrec, 
+                                 int a_iPrec,
                                  EOprtAssociativity a_eOprtAsct)
     :m_pFun((void*)a_pFun)
     ,m_iArgc(2)
@@ -218,7 +218,7 @@ namespace mu
 
 
   //---------------------------------------------------------------------------
-  /** \brief Constructor for constructing function callbacks taking two arguments. 
+  /** \brief Constructor for constructing function callbacks taking two arguments.
       \throw nothrow
   */
   ParserCallback::ParserCallback(bulkfun_type2 a_pFun, void* p, bool a_bAllowOpti)
@@ -384,7 +384,7 @@ namespace mu
 
 
   //---------------------------------------------------------------------------
-  /** \brief Default constructor. 
+  /** \brief Default constructor.
       \throw nothrow
   */
   ParserCallback::ParserCallback()
@@ -400,7 +400,7 @@ namespace mu
 
 
   //---------------------------------------------------------------------------
-  /** \brief Copy constructor. 
+  /** \brief Copy constructor.
       \throw nothrow
   */
   ParserCallback::ParserCallback(const ParserCallback &ref)
@@ -428,25 +428,25 @@ namespace mu
       Conservative functions return always the same result for the same argument.
       \throw nothrow
   */
-  bool ParserCallback::IsOptimizable() const  
-  { 
-    return m_bAllowOpti; 
+  bool ParserCallback::IsOptimizable() const
+  {
+    return m_bAllowOpti;
   }
 
   //---------------------------------------------------------------------------
-  /** \brief Get the callback address for the parser function. 
-  
+  /** \brief Get the callback address for the parser function.
+
       The type of the address is void. It needs to be recasted according to the
       argument number to the right type.
 
       \throw nothrow
       \return #pFun
   */
-  void* ParserCallback::GetAddr() const 
-  { 
-    return m_pFun;  
+  void* ParserCallback::GetAddr() const
+  {
+    return m_pFun;
   }
-    
+
   void* ParserCallback::GetParam() const
   {
       return m_param;
@@ -454,31 +454,31 @@ namespace mu
 
   //---------------------------------------------------------------------------
   /** \brief Return the callback code. */
-  ECmdCode  ParserCallback::GetCode() const 
-  { 
-    return m_iCode; 
+  ECmdCode  ParserCallback::GetCode() const
+  {
+    return m_iCode;
   }
-  
+
   //---------------------------------------------------------------------------
-  ETypeCode ParserCallback::GetType() const 
-  { 
-    return m_iType; 
+  ETypeCode ParserCallback::GetType() const
+  {
+    return m_iType;
   }
 
 
   //---------------------------------------------------------------------------
-  /** \brief Return the operator precedence. 
+  /** \brief Return the operator precedence.
       \throw nothrown
 
      Only valid if the callback token is an operator token (binary or infix).
   */
-  int ParserCallback::GetPri()  const 
-  { 
-    return m_iPri;  
+  int ParserCallback::GetPri()  const
+  {
+    return m_iPri;
   }
 
   //---------------------------------------------------------------------------
-  /** \brief Return the operators associativity. 
+  /** \brief Return the operators associativity.
       \throw nothrown
 
      Only valid if the callback token is a binary operator token.
@@ -490,8 +490,8 @@ namespace mu
 
   //---------------------------------------------------------------------------
   /** \brief Returns the number of function Arguments. */
-  int ParserCallback::GetArgc() const 
-  { 
-    return m_iArgc; 
+  int ParserCallback::GetArgc() const
+  {
+    return m_iArgc;
   }
 } // namespace mu

@@ -1,9 +1,9 @@
 /*
  ==============================================================================
- 
+
  This file is part of the GIN library.
  Copyright (c) 2019 - Roland Rabien.
- 
+
  ==============================================================================
  */
 
@@ -70,7 +70,7 @@ double pulse (double phase, double pw, double freq, double sampleRate)
             sum += std::sin ((2 * i - 1) * (phase * 2 * MathConstants<double>::pi)) / ((2 * i - 1));
             i++;
         }
-        
+
         return float (4.0f / float_Pi * sum);
     }
     else
@@ -89,7 +89,7 @@ double squareWave (double phase, double freq, double sampleRate)
         sum += std::sin ((2 * i - 1) * (phase * 2 * MathConstants<double>::pi)) / ((2 * i - 1));
         i++;
     }
-    
+
     return float (4.0f / float_Pi * sum);
 };
 
@@ -97,10 +97,10 @@ double noise()
 {
     const float mean = 0.0f;
     const float stddev = 0.1f;
-    
+
     static std::default_random_engine generator;
     static std::normal_distribution<float> dist (mean, stddev);
-    
+
     return dist (generator);
 };
 
@@ -111,12 +111,12 @@ BandLimitedLookupTable::BandLimitedLookupTable (std::function<double (double, do
     for (double note = notesPerTable + 0.5; note < 127.0; note += notesPerTable)
     {
         auto freq = getMidiNoteInHertz (note);
-        
+
         auto func = [function, freq, sampleRate] (float phase)
         {
             return function (phase, freq, sampleRate);
         };
-        
+
         tables.add (new juce::dsp::LookupTableTransform<float> (func, 0.0f, 1.0f, (size_t) tableSize));
     }
 }
@@ -128,7 +128,7 @@ BandLimitedLookupTables::BandLimitedLookupTables (double sampleRate)
     sawDownTable (sawDown, sampleRate, 6),
     triangleTable (triangle, sampleRate, 6)
 {
-    
+
 }
 
 float BandLimitedLookupTables::processSine (float phase)
@@ -158,10 +158,10 @@ float BandLimitedLookupTables::processSquare (float note, float phase)
 {
     float phaseUp   = phase + 0.25f;
     float phaseDown = phase - 0.25f;
-    
+
     if (phaseUp   > 1.0f) phaseUp   -= 1.0f;
     if (phaseDown < 0.0f) phaseDown += 1.0f;
-    
+
     int tableIndex = jlimit (0, sawDownTable.tables.size() - 1, int ((note - 0.5) / sawDownTable.notesPerTable));
     return sawDownTable.tables[tableIndex]->processSampleUnchecked (phaseDown) +
            sawUpTable.tables[tableIndex]->processSampleUnchecked (phaseUp);
@@ -171,10 +171,10 @@ float BandLimitedLookupTables::processPulse (float note, float phase, float pw)
 {
     float phaseUp   = phase + 0.5f * pw;
     float phaseDown = phase - 0.5f * pw;
-    
+
     if (phaseUp   > 1.0f) phaseUp   -= 1.0f;
     if (phaseDown < 0.0f) phaseDown += 1.0f;
-    
+
     int tableIndex = jlimit (0, sawDownTable.tables.size() - 1, int ((note - 0.5) / sawDownTable.notesPerTable));
     return sawDownTable.tables[tableIndex]->processSampleUnchecked (phaseDown) +
            sawUpTable.tables[tableIndex]->processSampleUnchecked (phaseUp);

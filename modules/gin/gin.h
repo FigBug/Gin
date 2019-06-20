@@ -80,7 +80,7 @@ using juce::Component;
 #include "utilities/systemsemaphore.h"
 #include "utilities/threading.h"
 #include "utilities/valuetreeobject.h"
-    
+
 #include "images/bmpimageformat.h"
 #include "images/imageeffects.h"
 
@@ -89,7 +89,7 @@ using juce::Component;
 #include "metadata/exifmetadata.h"
 #include "metadata/iptcmetadata.h"
 #include "metadata/xmpmetadata.h"
-    
+
 #include "geometry/geometry.h"
 
 #include "components/mapviewer.h"

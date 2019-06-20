@@ -86,10 +86,10 @@ using juce::MemoryBlock;
 #include "utilities/threading.cpp"
 #include "utilities/util.cpp"
 #include "utilities/valuetreeobject.cpp"
-    
+
 #include "images/imageeffects.cpp"
 #include "images/bmpimageformat.cpp"
-    
+
 #include "metadata/libjpegpng.cpp"
 #include "metadata/commentmetadata.cpp"
 #include "metadata/exifmetadata.cpp"

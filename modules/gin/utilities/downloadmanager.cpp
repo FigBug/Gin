@@ -54,11 +54,11 @@ int DownloadManager::startAsyncDownload (URL url,
     download->result.downloadId = ++nextId;
     download->completionCallback = completionCallback;
     download->progressCallback = progressCallback;
-    
+
     downloads.add (download);
-    
+
     triggerNextDownload();
-    
+
     return download->result.downloadId;
 }
 
@@ -76,13 +76,13 @@ void DownloadManager::cancelDownload (int downloadId)
         {
             if (downloads[i]->isThreadRunning())
                 runningDownloads--;
-            
+
             downloads.remove (i);
             triggerNextDownload();
-            
+
             if (downloads.size() == 0 && queueFinishedCallback)
                 queueFinishedCallback();
-            
+
             break;
         }
     }
@@ -92,9 +92,9 @@ void DownloadManager::downloadFinished (Download* download)
 {
     runningDownloads--;
     downloads.removeObject (download);
-    
+
     triggerNextDownload();
-    
+
     if (downloads.size() == 0 && queueFinishedCallback)
         queueFinishedCallback();
 }
@@ -105,11 +105,11 @@ DownloadManager::Download::~Download()
     // Cancel any blocking reads
     if (is != nullptr)
         is->cancel();
-    
+
     // Wait a long time before cancelling, WebInputStream could be stuck in
     // connect. Unlikely but possible.
     stopThread (owner.shutdownTimeout);
-    
+
     masterReference.clear();
 }
 
@@ -121,11 +121,11 @@ void DownloadManager::Download::run()
         result.attempts++;
         if (tryDownload())
             break;
-        
+
         if (owner.retryDelay > 0)
             wait (roundToInt (owner.retryDelay * 1000));
     }
-    
+
     if (! threadShouldExit())
     {
         // Get a weak reference to self, to check if we get deleted before
@@ -147,48 +147,48 @@ bool DownloadManager::Download::tryDownload()
 {
     // Use post if we have post data
     const bool post = result.url.getPostData().isNotEmpty();
-    
+
     if ((is = std::make_unique<WebInputStream> (result.url, post)) != nullptr)
     {
         if (headers.isNotEmpty())
             is->withExtraHeaders (headers);
         is->withConnectionTimeout (owner.connectTimeout);
-        
+
         if (is->connect (nullptr))
         {
             // Save headers and http response code
             result.httpCode         = is->getStatusCode();
             result.responseHeaders  = is->getResponseHeaders();
-            
+
             auto keys = result.responseHeaders.getAllKeys();
             auto vals = result.responseHeaders.getAllValues();
-            
+
             MemoryOutputStream os (result.data, false);
-            
+
             lastBytesSent = 0;
             lastProgress = Time::getMillisecondCounter();
             int64 downloaded  = 0;
             int64 totalLength = is->getTotalLength();
-            
+
             // For chunked http encoding, overall length may not be given
             if (totalLength < 0)
                 totalLength = std::numeric_limits<int64>::max();
-            
+
             // Download all data
             char buffer[128 * 1000];
             while (! is->isExhausted() && ! threadShouldExit() && downloaded < totalLength)
             {
                 int64 toRead = jmin (int64 (sizeof (buffer)), int64 (owner.downloadBlockSize), totalLength - downloaded);
-                
+
                 int read = is->read (buffer, int (toRead));
                 //jassert (read != 0);
-                
+
                 if (read > 0)
                 {
                     os.write (buffer, size_t (read));
                     downloaded += read;
                     result.ok = is->isExhausted() || downloaded == totalLength;
-                    
+
                     updateProgress (downloaded, totalLength, false);
                 }
                 else if (read == 0 && is->isExhausted())
@@ -198,7 +198,7 @@ bool DownloadManager::Download::tryDownload()
                         result.ok = totalLength == downloaded;
                     else
                         result.ok = true;
-                    
+
                     break;
                 }
                 else
@@ -207,11 +207,11 @@ bool DownloadManager::Download::tryDownload()
                     break;
                 }
             }
-            
+
             updateProgress (downloaded, totalLength, true);
         }
     }
-    
+
     return result.ok;
 }
 
@@ -224,9 +224,9 @@ void DownloadManager::Download::updateProgress (int64 current, int64 total, bool
         if ((now >= lastProgress + uint32 (owner.downloadIntervalMS)) || forceNotification)
         {
             int64 delta = current - lastBytesSent;
-            lastBytesSent = current;                        
+            lastBytesSent = current;
             lastProgress = now;
-            
+
             if (delta > 0)
             {
                 // Get a weak reference to self, to check if we get deleted before

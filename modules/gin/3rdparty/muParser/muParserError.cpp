@@ -1,26 +1,26 @@
 /*
-                 __________                                      
-    _____   __ __\______   \_____  _______  ______  ____ _______ 
+                 __________
+    _____   __ __\______   \_____  _______  ______  ____ _______
    /     \ |  |  \|     ___/\__  \ \_  __ \/  ___/_/ __ \\_  __ \
   |  Y Y  \|  |  /|    |     / __ \_|  | \/\___ \ \  ___/ |  | \/
-  |__|_|  /|____/ |____|    (____  /|__|  /____  > \___  >|__|   
-        \/                       \/            \/      \/        
+  |__|_|  /|____/ |____|    (____  /|__|  /____  > \___  >|__|
+        \/                       \/            \/      \/
   Copyright (C) 2011 Ingo Berg
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy of this 
+  Permission is hereby granted, free of charge, to any person obtaining a copy of this
   software and associated documentation files (the "Software"), to deal in the Software
-  without restriction, including without limitation the rights to use, copy, modify, 
-  merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
+  without restriction, including without limitation the rights to use, copy, modify,
+  merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
   permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-  The above copyright notice and this permission notice shall be included in all copies or 
+  The above copyright notice and this permission notice shall be included in all copies or
   substantial portions of the Software.
 
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
-  NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
-  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
-  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+  NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 #include "muParserError.h"
 
@@ -105,7 +105,7 @@ namespace mu
     m_vErrMsg[ecMISSING_ELSE_CLAUSE]    = _T("If-then-else operator is missing an else clause");
     m_vErrMsg[ecMISPLACED_COLON]        = _T("Misplaced colon at position $POS$");
     m_vErrMsg[ecUNREASONABLE_NUMBER_OF_COMPUTATIONS] = _T("Number of computations to small for bulk mode. (Vectorisation overhead too costly)");
-    
+
     #if defined(_DEBUG)
       for (int i=0; i<ecCOUNT; ++i)
         if (!m_vErrMsg[i].length())
@@ -131,11 +131,11 @@ namespace mu
   }
 
   //------------------------------------------------------------------------------
-  /** \brief This Constructor is used for internal exceptions only. 
-      
+  /** \brief This Constructor is used for internal exceptions only.
+
     It does not contain any information but the error code.
   */
-  ParserError::ParserError(EErrorCodes a_iErrc) 
+  ParserError::ParserError(EErrorCodes a_iErrc)
     :m_strMsg()
     ,m_strFormula()
     ,m_strTok()
@@ -152,7 +152,7 @@ namespace mu
 
   //------------------------------------------------------------------------------
   /** \brief Construct an error from a message text. */
-  ParserError::ParserError(const string_type &sMsg) 
+  ParserError::ParserError(const string_type &sMsg)
     :m_ErrMsg(ParserErrorMsg::Instance())
   {
     Reset();
@@ -160,11 +160,11 @@ namespace mu
   }
 
   //------------------------------------------------------------------------------
-  /** \brief Construct an error object. 
+  /** \brief Construct an error object.
       \param [in] a_iErrc the error code.
       \param [in] sTok The token string related to this error.
       \param [in] sExpr The expression related to the error.
-      \param [in] a_iPos the position in the expression where the error occurred. 
+      \param [in] a_iPos the position in the expression where the error occurred.
   */
   ParserError::ParserError( EErrorCodes iErrc,
                             const string_type &sTok,
@@ -185,12 +185,12 @@ namespace mu
   }
 
   //------------------------------------------------------------------------------
-  /** \brief Construct an error object. 
+  /** \brief Construct an error object.
       \param [in] iErrc the error code.
-      \param [in] iPos the position in the expression where the error occurred. 
+      \param [in] iPos the position in the expression where the error occurred.
       \param [in] sTok The token string related to this error.
   */
-  ParserError::ParserError(EErrorCodes iErrc, int iPos, const string_type &sTok) 
+  ParserError::ParserError(EErrorCodes iErrc, int iPos, const string_type &sTok)
     :m_strMsg()
     ,m_strFormula()
     ,m_strTok(sTok)
@@ -206,12 +206,12 @@ namespace mu
   }
 
   //------------------------------------------------------------------------------
-  /** \brief Construct an error object. 
+  /** \brief Construct an error object.
       \param [in] szMsg The error message text.
       \param [in] iPos the position related to the error.
       \param [in] sTok The token string related to this error.
   */
-  ParserError::ParserError(const char_type *szMsg, int iPos, const string_type &sTok) 
+  ParserError::ParserError(const char_type *szMsg, int iPos, const string_type &sTok)
     :m_strMsg(szMsg)
     ,m_strFormula()
     ,m_strTok(sTok)
@@ -257,7 +257,7 @@ namespace mu
   {}
 
   //------------------------------------------------------------------------------
-  /** \brief Replace all occurrences of a substring with another string. 
+  /** \brief Replace all occurrences of a substring with another string.
       \param strFind The string that shall be replaced.
       \param strReplaceWith The string that should be inserted instead of strFind
   */
@@ -278,7 +278,7 @@ namespace mu
 
       strResult.append(strReplaceWith);
       iPos = iNext + strFind.length();
-    } 
+    }
 
     strSource.swap(strResult);
   }
@@ -293,7 +293,7 @@ namespace mu
     m_iPos = -1;
     m_iErrc = ecUNDEFINED;
   }
-      
+
   //------------------------------------------------------------------------------
   /** \brief Set the expression related to this error. */
   void ParserError::SetFormula(const string_type &a_strFormula)
@@ -303,7 +303,7 @@ namespace mu
 
   //------------------------------------------------------------------------------
   /** \brief gets the expression related tp this error.*/
-  const string_type& ParserError::GetExpr() const 
+  const string_type& ParserError::GetExpr() const
   {
     return m_strFormula;
   }
@@ -316,7 +316,7 @@ namespace mu
   }
 
   //------------------------------------------------------------------------------
-  /** \brief Return the formula position related to the error. 
+  /** \brief Return the formula position related to the error.
 
     If the error is not related to a distinct position this will return -1
   */

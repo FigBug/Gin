@@ -7,7 +7,7 @@ For more information visit www.rabiensoftware.com
 
 #include "../3rdparty/muParser/muParser.h"
 namespace gin {
-    
+
 class EquationParser::Callback0 : public EquationParser::Callback
 {
 public:
@@ -39,7 +39,7 @@ public:
     std::function <double(int, double, double, double, double)> fun;
 };
 
-    
+
 class EquationParser::EquationParserImpl
 {
 public:
@@ -65,7 +65,7 @@ EquationParser::EquationParser (juce::String equation)
 
 EquationParser::~EquationParser()
 {
-    
+
 }
 
 void EquationParser::setEquation (juce::String equation)
@@ -89,7 +89,7 @@ void EquationParser::addVariable (juce::String name, double* value)
     {
     }
 }
-    
+
 void EquationParser::addConstant (juce::String name, double value)
 {
     try
@@ -117,7 +117,7 @@ void EquationParser::addFunction (juce::String name, std::function<double (int i
     {
     }
 }
-    
+
 void EquationParser::addFunction (juce::String name, std::function<double (int id, double)> fun)
 {
     try
@@ -134,7 +134,7 @@ void EquationParser::addFunction (juce::String name, std::function<double (int i
     {
     }
 }
-    
+
 void EquationParser::addFunction (juce::String name, std::function<double (int id, double, double)> fun)
 {
     try
@@ -151,7 +151,7 @@ void EquationParser::addFunction (juce::String name, std::function<double (int i
     {
     }
 }
-    
+
 void EquationParser::addFunction (juce::String name, std::function<double (int id, double, double, double)> fun)
 {
     try
@@ -185,7 +185,7 @@ void EquationParser::addFunction (juce::String name, std::function<double (int i
     {
     }
 }
-    
+
 double EquationParser::evaluate()
 {
     try
@@ -197,5 +197,5 @@ double EquationParser::evaluate()
     }
     return 0;
 }
-    
+
 }

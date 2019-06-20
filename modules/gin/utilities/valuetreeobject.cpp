@@ -22,7 +22,7 @@ ValueTreeObject::ValueTreeObject (const ValueTree& state_)
             jassertfalse; // type missing in factory
         }
     }
-    
+
     state.addListener (this);
 }
 
@@ -50,7 +50,7 @@ void ValueTreeObject::valueTreeChildAdded (ValueTree& p, ValueTree& c)
 void ValueTreeObject::valueTreeChildRemoved (ValueTree& p, ValueTree& c, int i)
 {
     ignoreUnused (c);
-    
+
     if (p == state)
         children.remove (i);
 }

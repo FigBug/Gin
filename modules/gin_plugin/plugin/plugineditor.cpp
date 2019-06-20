@@ -15,7 +15,7 @@ UpdateChecker::UpdateChecker (GinAudioProcessorEditor& editor_)
         String url = "";
         int last = 0;
        #endif
-        
+
         if (url.isNotEmpty())
         {
             editor.updateReady (url);
@@ -56,7 +56,7 @@ void UpdateChecker::run()
                 String name = child->getStringAttribute ("name");
                 String ver  = child->getStringAttribute ("num");
                 String url  = child->getStringAttribute ("url");
-                
+
                 if (name == JucePlugin_Name && versionStringToInt (ver) > versionStringToInt (JucePlugin_VersionString))
                 {
                     props->setValue (JucePlugin_Name "_updateUrl", url);
@@ -65,7 +65,7 @@ void UpdateChecker::run()
                     editor.updateReady (url);
                     break;
                 }
-                
+
                 child = child->getNextElement();
             }
         }
@@ -81,7 +81,7 @@ NewsChecker::NewsChecker (GinAudioProcessorEditor& editor_)
     {
         String url = props->getValue ("newsUrl");
         int last   = props->getIntValue ("lastNewsCheck");
-        
+
         if (url.isNotEmpty())
         {
             editor.newsReady (url);
@@ -119,9 +119,9 @@ void NewsChecker::run()
                     if (auto* link = item->getChildByName("link"))
                     {
                         props->setValue ("lastNewsCheck", int (time (NULL)));
-                        
+
                         String url = link->getAllSubText();
-                        
+
                         StringArray readNews = StringArray::fromTokens (props->getValue ("readNews"), "|", "");
                         if (readNews.isEmpty())
                         {
@@ -132,7 +132,7 @@ void NewsChecker::run()
                         if (! readNews.contains(url))
                         {
                             props->setValue ("newsUrl", url);
-                            
+
                             const MessageManagerLock mmLock;
                             editor.newsReady (url);
                         }
@@ -148,7 +148,7 @@ GinAudioProcessorEditor::GinAudioProcessorEditor (GinProcessor& p, int cx_, int 
   : GinAudioProcessorEditorBase (p), slProc (p), cx (cx_), cy (cy_)
 {
     setLookAndFeel (&lf);
-    
+
     addAndMakeVisible (&programs);
     addAndMakeVisible (&addButton);
     addAndMakeVisible (&deleteButton);
@@ -164,7 +164,7 @@ GinAudioProcessorEditor::GinAudioProcessorEditor (GinProcessor& p, int cx_, int 
     socaButton.addListener (this);
     newsButton.addListener (this);
     updateButton.addListener (this);
-    
+
     programs.setTooltip ("Select Preset");
     addButton.setTooltip ("Add Preset");
     deleteButton.setTooltip ("Delete Preset");
@@ -172,9 +172,9 @@ GinAudioProcessorEditor::GinAudioProcessorEditor (GinProcessor& p, int cx_, int 
     newsButton.setTooltip ("News from SocaLabs");
     socaButton.setTooltip ("Visit www.socalabs.com");
     updateButton.setTooltip ("Update avaliable");
-    
+
     refreshPrograms();
-    
+
     updateChecker = std::make_unique<UpdateChecker> (*this);
     newsChecker = std::make_unique<NewsChecker> (*this);
 }
@@ -192,15 +192,15 @@ void GinAudioProcessorEditor::paint (Graphics& g)
 void GinAudioProcessorEditor::resized()
 {
     GinAudioProcessorEditorBase::resized();
-    
+
     const int pw = 100;
     const int ph = 20;
     const int tw = pw + ph + ph + 10;
-    
+
     programs.setBounds (getWidth() / 2 - tw / 2, 30, pw, ph);
     addButton.setBounds (programs.getRight() + 5, programs.getY(), ph, ph);
     deleteButton.setBounds (addButton.getRight() + 5, programs.getY(), ph, ph);
-    
+
     socaButton.setBounds (5, 5, ph, ph);
     newsButton.setBounds (socaButton.getBounds().translated (ph + 5, 0));
     helpButton.setBounds (getWidth() - ph - 5, 5, ph, ph);
@@ -235,10 +235,10 @@ void GinAudioProcessorEditor::setGridSize (int x, int y)
 void GinAudioProcessorEditor::refreshPrograms()
 {
     programs.clear();
-    
+
     for (int i = 0; i < processor.getNumPrograms(); i++)
         programs.addItem (processor.getProgramName (i), i + 1);
-    
+
     programs.setSelectedItemIndex (slProc.getCurrentProgram(), dontSendNotification);
     deleteButton.setEnabled (slProc.getCurrentProgram() != 0);
 }
@@ -252,7 +252,7 @@ void GinAudioProcessorEditor::buttonClicked (Button* b)
         w.addButton ("OK", 1);
         w.addButton ("Cancel", 0);
         w.setLookAndFeel (&lf);
-        
+
         if (w.runModalLoop())
         {
             String txt = File::createLegalFileName (w.getTextEditor ("name")->getText());
@@ -269,7 +269,7 @@ void GinAudioProcessorEditor::buttonClicked (Button* b)
         w.addButton ("Yes", 1);
         w.addButton ("No", 0);
         w.setLookAndFeel (&lf);
-        
+
         if (w.runModalLoop())
         {
             slProc.deleteProgram (programs.getSelectedItemIndex());
@@ -279,7 +279,7 @@ void GinAudioProcessorEditor::buttonClicked (Button* b)
     else if (b == &helpButton)
     {
         String msg;
-        
+
        #ifdef JucePlugin_VersionString
         msg += JucePlugin_Name " v" JucePlugin_VersionString " (" __DATE__ ")\n\n";
        #endif
@@ -289,18 +289,18 @@ void GinAudioProcessorEditor::buttonClicked (Button* b)
         msg += "\n\n";
         msg += "Copyright ";
         msg += String (__DATE__ + 7);
-        
+
         AlertWindow w ("---- About ----", msg, AlertWindow::NoIcon, this);
         w.addButton ("OK", 1);
         w.setLookAndFeel (&lf);
-        
+
         w.runModalLoop();
     }
     else if (b == &updateButton)
     {
         URL (updateUrl).launchInDefaultBrowser();
         updateButton.setVisible (false);
-        
+
        #ifdef JucePlugin_Name
         if (std::unique_ptr<PropertiesFile> props = slProc.getSettings())
             props->setValue (JucePlugin_Name "_updateUrl", "");
@@ -314,11 +314,11 @@ void GinAudioProcessorEditor::buttonClicked (Button* b)
     {
         URL (newsUrl).launchInDefaultBrowser();
         newsButton.setVisible (false);
-        
+
         if (std::unique_ptr<PropertiesFile> props = slProc.getSettings())
         {
             props->setValue ("newsUrl", "");
-            
+
             StringArray readNews = StringArray::fromTokens (props->getValue ("readNews"), "|", "");
             readNews.add (newsUrl);
             props->setValue("readNews", readNews.joinIntoString ("|"));

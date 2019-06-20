@@ -13,7 +13,7 @@ namespace mu
   //
   //-----------------------------------------------------------------------------------------------
 
-  /** \brief A class singling out integer types at compile time using 
+  /** \brief A class singling out integer types at compile time using
              template meta programming.
   */
   template<typename T>
@@ -98,7 +98,7 @@ namespace mu
     static T ASinh(T v) { return log(v + sqrt(v * v + 1)); }
     static T ACosh(T v) { return log(v + sqrt(v * v - 1)); }
     static T ATanh(T v) { return ((T)0.5 * log((1 + v) / (1 - v))); }
-    static T Log(T v)   { return log(v); } 
+    static T Log(T v)   { return log(v); }
     static T Log2(T v)  { return log(v)/log((T)2); } // Logarithm base 2
     static T Log10(T v) { return log10(v); }         // Logarithm base 10
     static T Exp(T v)   { return exp(v);   }

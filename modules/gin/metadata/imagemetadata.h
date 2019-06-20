@@ -1,8 +1,8 @@
 /*==============================================================================
- 
+
  Copyright 2018 by Roland Rabien
  For more information visit www.rabiensoftware.com
- 
+
  ==============================================================================*/
 
 #pragma once
@@ -10,17 +10,16 @@
 class ImageMetadata
 {
 public:
-	ImageMetadata (const String& type);
+    ImageMetadata (const String& type);
 
-	virtual ~ImageMetadata();
+    virtual ~ImageMetadata();
 
-	String getType() const { return type; }
+    String getType() const { return type; }
 
-	virtual StringPairArray getAllMetadata() const = 0;
-    
+    virtual StringPairArray getAllMetadata() const = 0;
+
     static bool getFromImage (InputStream& is, OwnedArray<ImageMetadata>& metadata);
 
 protected:
-	String type;
+    String type;
 };
-

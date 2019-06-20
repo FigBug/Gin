@@ -8,16 +8,16 @@ For more information visit www.rabiensoftware.com
 #pragma once
 
 /**
- 
+
     Watches a folder in the file system for changes.
- 
+
     Listener callbcks will be called every time a file is
     created, modified, deleted or renamed in the watched
     folder.
- 
+
     FileSystemWatcher will also recursively watch all subfolders on
     macOS and windows and will not on Linux.
- 
+
  */
 class FileSystemWatcher : public ChangeBroadcaster
 {
@@ -59,7 +59,7 @@ public:
            the folder that has changed. For example, use this for a file browser that
            needs to refresh any time a file changes */
         virtual void folderChanged (const File) {}
-        
+
         /* Called for each file that has changed and how it has changed. Use this callback
            if you need to reload a file when it's contents change */
         virtual void fileChanged (const File, FileSystemEvent) {}

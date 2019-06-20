@@ -16,11 +16,11 @@ Readout::Readout (Parameter* parameter_)
 {
     parameter->addListener (this);
     setText (parameter->getUserValueText(), dontSendNotification);
-    
+
     addChildComponent (editor);
     editor.addListener (this);
     editor.setOpaque (false);
-    
+
     setBorderSize (BorderSize<int> (0));
 }
 
@@ -61,7 +61,7 @@ void Readout::sltextEditorReturnKeyPressed (SingleLineTextEditor&)
 {
     float v = editor.getText().getFloatValue();
     parameter->setUserValueAsUserAction (v);
-    
+
     editor.setVisible (false);
     editing = false;
     repaint();
@@ -78,7 +78,7 @@ void Readout::sltextEditorFocusLost (SingleLineTextEditor&)
 {
     float v = editor.getText().getFloatValue();
     parameter->setUserValueAsUserAction (v);
-    
+
     editor.setVisible (false);
     editing = false;
     repaint();
@@ -88,7 +88,7 @@ void Readout::sltextEditorFocusLost (SingleLineTextEditor&)
 ParamComponent::ParamComponent (Parameter* parameter_)
   : Component (""), parameter (parameter_)
 {
-    
+
 }
 //==============================================================================
 Knob::Knob (Parameter* parameter, bool fromCentre)
@@ -99,22 +99,22 @@ Knob::Knob (Parameter* parameter, bool fromCentre)
     addAndMakeVisible (name);
     addAndMakeVisible (value);
     addAndMakeVisible (knob);
- 
+
     knob.setSkewFactor (parameter->getSkew());
     if (fromCentre)
         knob.getProperties().set ("fromCentre", true);
-    
+
     name.setText (parameter->getShortName(), dontSendNotification);
     value.setJustificationType (Justification::centredTop);
     name.setJustificationType (Justification::centredBottom);
-    
+
     value.setFont (value.getFont().withHeight (15.0));
 }
 
 void Knob::resized()
 {
     Rectangle<int> r = getLocalBounds().reduced (4);
-    
+
     name.setBounds (r.removeFromTop (20));
     value.setBounds (r.removeFromBottom (20));
     knob.setBounds (r.reduced (2));
@@ -126,7 +126,7 @@ Switch::Switch (Parameter* parameter)
 {
     addAndMakeVisible (&name);
     addAndMakeVisible (&button);
-    
+
     name.setText (parameter->getShortName(), dontSendNotification);
     name.setJustificationType (Justification::centred);
 }
@@ -134,10 +134,10 @@ Switch::Switch (Parameter* parameter)
 void Switch::resized()
 {
     Rectangle<int> r = getLocalBounds().withSizeKeepingCentre (getWidth() - 10, 20);
-    
+
     button.setBounds (r);
     name.setBounds (r.translated (0, -20));
-    
+
     int y = name.getY();
     if (y <= 0)
     {
@@ -162,10 +162,10 @@ Select::Select (Parameter* parameter)
 void Select::resized()
 {
     Rectangle<int> r = getLocalBounds().withSizeKeepingCentre (getWidth() - 10, 20);
-    
+
     comboBox.setBounds (r);
     name.setBounds (r.translated (0, -20));
-    
+
     int y = name.getY();
     if (y <= 0)
     {

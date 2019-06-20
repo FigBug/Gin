@@ -17,53 +17,53 @@ ElevatedFileCopy::Result runWithPermissions (String cmd, StringArray params)
 {
     OSStatus err = noErr;
     auto path = cmd.toRawUTF8();
-    
+
     Array<const char*> rawParams;
     for (auto& s : params)
         rawParams.add (s.toRawUTF8());
     rawParams.add (nullptr);
-    
+
     AuthorizationRef authorizationRef;
     AuthorizationItem item = { kAuthorizationRightExecute, strlen (path), &path, 0 };
     AuthorizationRights rights = { 1, &item };
     AuthorizationFlags flags = kAuthorizationFlagDefaults | kAuthorizationFlagInteractionAllowed | kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights;
-    
+
     err = AuthorizationCreate (nullptr, kAuthorizationEmptyEnvironment, kAuthorizationFlagDefaults, &authorizationRef);
     if (err != errAuthorizationSuccess)
         return ElevatedFileCopy::failed;
-    
+
     err = AuthorizationCopyRights (authorizationRef, &rights, kAuthorizationEmptyEnvironment, flags, nullptr);
     if (err == errAuthorizationCanceled)
         return ElevatedFileCopy::cancelled;
-    
+
     if (err != errAuthorizationSuccess)
         return ElevatedFileCopy::nopermissions;
 
     FILE* outputFile = nullptr;
-    
+
    #pragma clang diagnostic push
    #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     err = AuthorizationExecuteWithPrivileges (authorizationRef, path, kAuthorizationFlagDefaults, (char* const*)rawParams.getRawDataPointer(), &outputFile);
    #pragma clang diagnostic pop
-    
+
     if (err == noErr)
     {
         auto processIdentifier = fcntl (fileno (outputFile), F_GETOWN, 0);
-        
+
         AuthorizationFree (authorizationRef, kAuthorizationFlagDefaults);
-        
+
         int status;
         pid_t pid = 0;
-        
+
         while ((pid = waitpid (processIdentifier, &status, WNOHANG)) == 0)
             Thread::sleep (10);
-        
+
         fclose (outputFile);
-        
+
         auto terminationStatus = WEXITSTATUS (status);
         if (terminationStatus == 0)
             return ElevatedFileCopy::success;
-        
+
         return ElevatedFileCopy::failed;
     }
     return ElevatedFileCopy::nopermissions;
@@ -84,26 +84,26 @@ ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (File script
 File ElevatedFileCopy::createScript (const Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess)
 {
     auto script = File::getSpecialLocation (File::tempDirectory).getNonexistentChildFile ("copy", ".sh", false);
-    
+
     String scriptText;
-    
+
     scriptText += "#!/bin/sh\n";
-    
+
     Array<File> dirs;
     for (auto f : filesThatNeedAdminAccess)
         if (! f.dst.getParentDirectory().isDirectory())
             dirs.addIfNotAlreadyThere (f.dst.getParentDirectory());
-    
+
     for (auto d : dirs)
         scriptText += "mkdir -p " + escape (d.getFullPathName()) + "\n";
-    
+
     scriptText += "\n";
-    
+
     for (auto f : filesThatNeedAdminAccess)
         scriptText += "cp -p " + escape (f.src.getFullPathName()) + " " + escape (f.dst.getFullPathName()) + " || exit 1\n";
-    
+
     script.replaceWithText (scriptText, false, false, "\n");
-    
+
     return script;
 }
 
@@ -127,7 +127,7 @@ ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (File script
 {
     String app;
     String params;
-    
+
     if (launchSelf)
     {
         app = File::getSpecialLocation (File::currentExecutableFile).getFullPathName();
@@ -150,7 +150,7 @@ ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (File script
     info.lpFile = wideApp.c_str();
     info.lpParameters = wideParams.c_str();
     info.nShow = SW_HIDE;
-    
+
     if (ShellExecuteExW (&info))
     {
         WaitForSingleObject (info.hProcess, INFINITE);
@@ -205,27 +205,27 @@ File ElevatedFileCopy::createScript (const Array<ElevatedFileCopy::FileItem>& fi
 
 void ElevatedFileCopy::addFile (File src, File dst)
 {
-	filesToCopy.add ({ src, dst });
+    filesToCopy.add ({ src, dst });
 }
 
 ElevatedFileCopy::Result ElevatedFileCopy::execute (bool launchSelf)
 {
-	Array<FileItem> filesThatNeedAdminAccess;
+    Array<FileItem> filesThatNeedAdminAccess;
 
-	for (auto f : filesToCopy)
-	{
+    for (auto f : filesToCopy)
+    {
         bool ok = false;
 
-		auto dstDir = f.dst.getParentDirectory();
-		if (! dstDir.isDirectory())
-			dstDir.createDirectory();
+        auto dstDir = f.dst.getParentDirectory();
+        if (! dstDir.isDirectory())
+            dstDir.createDirectory();
 
         if (dstDir.isDirectory())
             ok = f.src.copyFileTo (f.dst);
 
         if (! ok)
             filesThatNeedAdminAccess.add (f);
-	}
+    }
 
     if (filesThatNeedAdminAccess.size() > 0)
     {
@@ -236,7 +236,7 @@ ElevatedFileCopy::Result ElevatedFileCopy::execute (bool launchSelf)
         return res;
     }
 
-	return success;
+    return success;
 }
 
 bool ElevatedFileCopy::processCommandLine (juce::String commandLine)
@@ -289,7 +289,7 @@ bool ElevatedFileCopy::processCommandLine (juce::String commandLine)
 
 void ElevatedFileCopy::clear()
 {
-	filesToCopy.clear();
+    filesToCopy.clear();
 }
 
 #endif

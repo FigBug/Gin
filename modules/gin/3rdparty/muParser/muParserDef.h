@@ -1,26 +1,26 @@
 /*
-                 __________                                      
-    _____   __ __\______   \_____  _______  ______  ____ _______ 
+                 __________
+    _____   __ __\______   \_____  _______  ______  ____ _______
    /     \ |  |  \|     ___/\__  \ \_  __ \/  ___/_/ __ \\_  __ \
   |  Y Y  \|  |  /|    |     / __ \_|  | \/\___ \ \  ___/ |  | \/
-  |__|_|  /|____/ |____|    (____  /|__|  /____  > \___  >|__|   
-        \/                       \/            \/      \/        
+  |__|_|  /|____/ |____|    (____  /|__|  /____  > \___  >|__|
+        \/                       \/            \/      \/
   Copyright (C) 2014 Ingo Berg
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy of this 
+  Permission is hereby granted, free of charge, to any person obtaining a copy of this
   software and associated documentation files (the "Software"), to deal in the Software
-  without restriction, including without limitation the rights to use, copy, modify, 
-  merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
+  without restriction, including without limitation the rights to use, copy, modify,
+  merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
   permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-  The above copyright notice and this permission notice shall be included in all copies or 
+  The above copyright notice and this permission notice shall be included in all copies or
   substantial portions of the Software.
 
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
-  NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
-  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
-  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+  NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 #ifndef MUP_DEF_H
 #define MUP_DEF_H
@@ -51,9 +51,9 @@
 */
 #define MUP_BASETYPE double
 
-/** \brief Activate this option in order to compile with OpenMP support. 
+/** \brief Activate this option in order to compile with OpenMP support.
 
-  OpenMP is used only in the bulk mode it may increase the performance a bit. 
+  OpenMP is used only in the bulk mode it may increase the performance a bit.
 */
 //#define MUP_USE_OPENMP
 
@@ -68,7 +68,7 @@
   #ifndef _T
   #define _T(x) x
   #endif
-  
+
   /** \brief Definition of the basic parser string type. */
   #define MUP_STRING_TYPE std::string
 #endif
@@ -121,8 +121,8 @@ namespace mu
 
 #else
 
-  /** \brief Encapsulate cout. 
-  
+  /** \brief Encapsulate cout.
+
     Used for supporting UNICODE more easily.
   */
   inline std::ostream& console()
@@ -130,7 +130,7 @@ namespace mu
     return std::cout;
   }
 
-  /** \brief Encapsulate cin. 
+  /** \brief Encapsulate cin.
 
     Used for supporting UNICODE more easily.
   */
@@ -184,7 +184,7 @@ namespace mu
     // operators and functions
     cmFUNC,                ///< Code for a generic function item
     cmFUNC_STR,            ///< Code for a function with a string parameter
-    cmFUNC_BULK,           ///< Special callbacks for Bulk mode with an additional parameter for the bulk index 
+    cmFUNC_BULK,           ///< Special callbacks for Bulk mode with an additional parameter for the bulk index
     cmSTRING,              ///< Code for a string token
     cmOPRT_BIN,            ///< user defined binary operator
     cmOPRT_POSTFIX,        ///< code for postfix operators
@@ -240,20 +240,20 @@ namespace mu
   //------------------------------------------------------------------------------
   // basic types
 
-  /** \brief The numeric datatype used by the parser. 
-  
+  /** \brief The numeric datatype used by the parser.
+
     Normally this is a floating point type either single or double precision.
   */
   typedef MUP_BASETYPE value_type;
 
-  /** \brief The stringtype used by the parser. 
+  /** \brief The stringtype used by the parser.
 
     Depends on whether UNICODE is used or not.
   */
   typedef MUP_STRING_TYPE string_type;
 
-  /** \brief The character type used by the parser. 
-  
+  /** \brief The character type used by the parser.
+
     Depends on whether UNICODE is used or not.
   */
   typedef string_type::value_type char_type;
@@ -267,10 +267,10 @@ namespace mu
 
   /** \brief Type used for storing variables. */
   typedef std::map<string_type, value_type*> varmap_type;
-  
+
   /** \brief Type used for storing constants. */
   typedef std::map<string_type, value_type> valmap_type;
-  
+
   /** \brief Type for assigning a string name to an index in the internal string table. */
   typedef std::map<string_type, std::size_t> strmap_type;
 
@@ -280,7 +280,7 @@ namespace mu
       void* param = nullptr;
       int id = 0;
   };
-  
+
   /** \brief Callback type used for functions without arguments. */
   typedef value_type (*generic_fun_type)(SParam);
 
@@ -370,4 +370,3 @@ namespace mu
 } // end of namespace
 
 #endif
-

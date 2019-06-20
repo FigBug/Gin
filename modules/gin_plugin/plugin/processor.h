@@ -13,22 +13,22 @@ public:
     //==============================================================================
     GinProcessor();
     ~GinProcessor();
-    
+
     std::unique_ptr<PropertiesFile> getSettings();
-        
+
     //==============================================================================
     using AudioProcessor::getParameter;
-    
+
     void addPluginParameter (Parameter* parameter);
     Parameter* getParameter (const String& uid);
     float parameterValue (const String& uid);
     int parameterIntValue (const String& uid);
     bool parameterBoolValue (const String& uid);
     Array<Parameter*> getPluginParameters();
-    
+
     File getProgramDirectory();
     File getSettingsFile();
-    
+
     void loadAllPrograms();
 
     //==============================================================================
@@ -56,28 +56,27 @@ public:
 public:
     OwnedArray<LevelTracker> inputLevels;
     OwnedArray<LevelTracker> outputLevels;
-    
+
     std::unique_ptr<PropertiesFile> properties;
-    
+
     std::map<String, Parameter*> parameterMap;
-    
+
     ValueTree state;
-    
+
 protected:
     virtual void stateUpdated() {};
     virtual void updateState()  {};
-    
+
 private:
     void updateParams();
-    
+
     LookAndFeel_V3 lookAndFeel;
-    
+
     int currentProgram {0};
     OwnedArray<GinProgram> programs;
 
     Time lastStateLoad;
-    
+
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (GinProcessor)
 };
-

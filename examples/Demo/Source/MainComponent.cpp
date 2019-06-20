@@ -15,49 +15,49 @@ struct ImageResizeDemo : public Component,
     ImageResizeDemo()
     {
         setName ("Image Resize");
-        
+
         auto source = ImageFileFormat::loadFrom (BinaryData::pencils_jpeg, BinaryData::pencils_jpegSize);
         source = gin::applyResize (source, 0.97f);
-        
+
         sourceARGB = source.convertedToFormat (Image::ARGB);
         sourceRGB = source.convertedToFormat (Image::RGB);
         sourceBW = convertToBW (source);
-        
+
         addAndMakeVisible (zoom);
         zoom.addListener (this);
         zoom.setTextBoxStyle (Slider::NoTextBox, false, 0, 0);
-        
+
         zoom.setRange (0.1, 4.0);
         zoom.setValue (1.0);
     }
-    
+
     void sliderValueChanged (Slider*) override
     {
         repaint();
     }
-    
+
     void resized() override
     {
         auto rc = getLocalBounds().removeFromBottom (20);
         int w = rc.getWidth() / 3;
         zoom.setBounds (rc.removeFromLeft (w));
     }
-    
+
     void paint (Graphics& g) override
     {
         g.fillAll (Colours::black);
-        
+
         auto zoomed = gin::applyResize (sourceARGB, (float) zoom.getValue());
-        
+
         g.drawImageAt (zoomed,
                        getWidth() / 2 - zoomed.getWidth() / 2,
                        getHeight() / 2 - zoomed.getHeight() / 2);
     }
-    
+
     Image convertToBW (const Image& src)
     {
         auto dst = Image (Image::SingleChannel, src.getWidth(), src.getHeight(), true);
-        
+
         for (int y = 0; y < src.getHeight(); y++)
         {
             for (int x = 0; x < src.getWidth(); x++)
@@ -67,10 +67,10 @@ struct ImageResizeDemo : public Component,
                 dst.setPixelAt (x, y, Colour (bw, bw, bw, bw));
             }
         }
-        
+
         return dst;
     }
-    
+
     Image sourceARGB, sourceRGB, sourceBW;
     Slider zoom;
 };
@@ -82,7 +82,7 @@ public:
     ElevatedFileCopyDemo()
     {
         setName ("Elevated File Copy");
-        
+
         addAndMakeVisible (srcDir);
         addAndMakeVisible (dstDir);
         addAndMakeVisible (copyButton);
@@ -137,31 +137,31 @@ struct BoxBlurDemo : public Component,
     BoxBlurDemo()
     {
         setName ("Box Blur Effects");
-        
+
         auto source = ImageFileFormat::loadFrom (BinaryData::pencils_jpeg, BinaryData::pencils_jpegSize);
         sourceARGB = source.convertedToFormat (Image::ARGB);
         sourceRGB = source.convertedToFormat (Image::RGB);
         sourceBW = convertToBW (source);
-        
+
         addAndMakeVisible (radius);
         radius.addListener (this);
         radius.setTextBoxStyle (Slider::NoTextBox, false, 0, 0);
 
         radius.setRange (2, 254);
     }
-    
+
     void sliderValueChanged (Slider*) override
     {
         repaint();
     }
-    
+
     void resized() override
     {
         auto rc = getLocalBounds().removeFromBottom (20);
         int w = rc.getWidth() / 3;
         radius.setBounds (rc.removeFromLeft (w));
     }
-    
+
     void paint (Graphics& g) override
     {
         g.fillAll (Colours::black);
@@ -171,7 +171,7 @@ struct BoxBlurDemo : public Component,
         {
             Graphics::ScopedSaveState sss (g);
             g.reduceClipRegion (rc.removeFromLeft (w));
-            
+
             auto img = sourceARGB.createCopy();
             gin::applyStackBlur (img, (unsigned int) radius.getValue());
             g.drawImage (img, getLocalBounds().toFloat(), RectanglePlacement::centred);
@@ -180,7 +180,7 @@ struct BoxBlurDemo : public Component,
         {
             Graphics::ScopedSaveState sss (g);
             g.reduceClipRegion (rc.removeFromLeft (w));
-            
+
             auto img = sourceRGB.createCopy();
             gin::applyStackBlur (img, (unsigned int) radius.getValue());
             g.drawImage (img, getLocalBounds().toFloat(), RectanglePlacement::centred);
@@ -189,17 +189,17 @@ struct BoxBlurDemo : public Component,
         {
             Graphics::ScopedSaveState sss (g);
             g.reduceClipRegion (rc);
-            
+
             auto img = sourceBW.createCopy();
             gin::applyStackBlur (img, (unsigned int) radius.getValue());
             g.drawImage (img, getLocalBounds().toFloat(), RectanglePlacement::centred);
         }
     }
-    
+
     Image convertToBW (const Image& src)
     {
         auto dst = Image (Image::SingleChannel, src.getWidth(), src.getHeight(), true);
-       
+
         for (int y = 0; y < src.getHeight(); y++)
         {
             for (int x = 0; x < src.getWidth(); x++)
@@ -209,10 +209,10 @@ struct BoxBlurDemo : public Component,
                 dst.setPixelAt (x, y, Colour (bw, bw, bw, bw));
             }
         }
-        
+
         return dst;
     }
-    
+
     Image sourceARGB, sourceRGB, sourceBW;
     Slider radius;
 };
@@ -230,12 +230,12 @@ struct DownloadManagerDemo : public Component,
             DBG("All done!");
         });
     }
-    
+
     void resized() override
     {
         repaint();
     }
-    
+
     void visibilityChanged() override
     {
         if (isVisible())
@@ -243,7 +243,7 @@ struct DownloadManagerDemo : public Component,
         else
             stopTimer();
     }
-    
+
     void paint (Graphics& g) override
     {
         g.fillAll (Colours::black);
@@ -251,7 +251,7 @@ struct DownloadManagerDemo : public Component,
         {
             float w = getWidth()  / 2.0f;
             float h = getHeight() / 2.0f;
-            
+
             Rectangle<float> rc;
             if (i == 0) rc = Rectangle<float> (0, 0, w, h);
             if (i == 1) rc = Rectangle<float> (w, 0, w, h);
@@ -262,12 +262,12 @@ struct DownloadManagerDemo : public Component,
                 g.drawImage (img[i], rc, RectanglePlacement::centred, false);
         }
     }
-    
+
     void timerCallback() override
     {
         downloadImages();
     }
-    
+
     void downloadImages()
     {
         for (int i = 0; i < 4; i++)
@@ -276,9 +276,9 @@ struct DownloadManagerDemo : public Component,
             downloadManager.startAsyncDownload (url, [this, i] (gin::DownloadManager::DownloadResult result)
                                                 {
                                                     const MessageManagerLock mmLock;
-                                                    
+
                                                     DBG(result.url.toString (true) + " downloaded " + (result.ok ? "ok: " : "failed: ") + String (result.httpCode));
-                                                    
+
                                                     if (result.ok)
                                                     {
                                                         Image newImg = ImageFileFormat::loadFrom (result.data.getData(), result.data.getSize());
@@ -295,7 +295,7 @@ struct DownloadManagerDemo : public Component,
                                                 });
         }
     }
-    
+
     Image img[4];
     gin::DownloadManager downloadManager {3 * 1000, 3 * 1000};
 };
@@ -307,27 +307,27 @@ struct FileSystemWatcherDemo : public Component,
     FileSystemWatcherDemo()
     {
         setName ("File System Watcher");
-        
+
         addAndMakeVisible (contents);
         addAndMakeVisible (events);
-        
+
         contents.setMultiLine (true);
         events.setMultiLine (true);
-        
+
         File f = File::getSpecialLocation (File::userDesktopDirectory);
         watcher.addFolder (f);
         watcher.addListener (this);
-        
+
         folderChanged (f);
     }
-    
+
     void resized() override
     {
         auto rc = getLocalBounds();
         contents.setBounds (rc.removeFromTop (rc.getHeight() / 2));
         events.setBounds (rc);
     }
-    
+
     void folderChanged (File f) override
     {
         Array<File> files;
@@ -335,11 +335,11 @@ struct FileSystemWatcherDemo : public Component,
         files.sort();
 
         contents.clear();
-        
+
         String txt;
         for (auto ff : files)
             txt += ff.getFileName() + "\n";
-        
+
         contents.setText (txt);
     }
 
@@ -363,7 +363,7 @@ struct FileSystemWatcherDemo : public Component,
 
         events.scrollEditorToPositionCaret (0, events.getHeight() - 20);
     }
-    
+
     TextEditor contents, events;
     gin::FileSystemWatcher watcher;
 };
@@ -374,12 +374,12 @@ struct MetadataDemo : public Component
     MetadataDemo()
     {
         setName ("Metadata");
-        
+
         MemoryBlock mb (BinaryData::IMG_1883_JPG, BinaryData::IMG_1883_JPGSize);
         MemoryInputStream is (mb, true);
-        
+
         addAndMakeVisible (panel);
-        
+
         OwnedArray<gin::ImageMetadata> metadata;
         if (gin::ImageMetadata::getFromImage (is, metadata))
         {
@@ -387,24 +387,24 @@ struct MetadataDemo : public Component
             {
                 Array<PropertyComponent*> comps;
                 StringPairArray values = m->getAllMetadata();
-                
+
                 for (String key : values.getAllKeys())
                 {
                     Value v = Value (values [key]);
                     TextPropertyComponent* tpc = new TextPropertyComponent (v, key, 1000, false, false);
                     comps.add (tpc);
                 }
-                
+
                 panel.addSection (m->getType(), comps);
             }
         }
     }
-    
+
     void resized() override
     {
         panel.setBounds (getLocalBounds());
     }
-    
+
     PropertyPanel panel;
 };
 

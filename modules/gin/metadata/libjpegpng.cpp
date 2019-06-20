@@ -1,8 +1,8 @@
 /*==============================================================================
- 
+
  Copyright 2018 by Roland Rabien
  For more information visit www.rabiensoftware.com
- 
+
  ==============================================================================*/
 
 //==============================================================================
@@ -37,19 +37,19 @@ namespace gin
 #if ! defined (jmp_buf) || ! defined (longjmp)
  #include <setjmp.h>
 #endif
-    
+
 namespace pnglibNamespace
 {
     using namespace zlibNamespace;
-        
+
 #if JUCE_INCLUDE_PNGLIB_CODE || ! defined (JUCE_INCLUDE_PNGLIB_CODE)
-        
+
 #if _MSC_VER != 1310
     using std::calloc; // (causes conflict in VS.NET 2003)
     using std::malloc;
     using std::free;
 #endif
-        
+
 #if JUCE_CLANG
  #pragma clang diagnostic push
  #pragma clang diagnostic ignored "-Wsign-conversion"
@@ -57,16 +57,16 @@ namespace pnglibNamespace
   #pragma clang diagnostic ignored "-Wcomma"
  #endif
 #endif
-        
+
 #undef check
 using std::abs;
 #define NO_DUMMY_DECL
 #define PNGLCONF_H 1
-        
+
 #if JUCE_ANDROID
  #define PNG_ARM_NEON_SUPPORTED
 #endif
-        
+
 #define PNG_16BIT_SUPPORTED
 #define PNG_ALIGNED_MEMORY_SUPPORTED
 #define PNG_BENIGN_ERRORS_SUPPORTED
@@ -223,13 +223,13 @@ using std::abs;
 #define PNG_tIME_SUPPORTED
 #define PNG_tRNS_SUPPORTED
 #define PNG_zTXt_SUPPORTED
-        
+
 #define PNG_STRING_COPYRIGHT "";
 #define PNG_STRING_NEWLINE "\n"
 #define PNG_LITERAL_SHARP 0x23
 #define PNG_LITERAL_LEFT_SQUARE_BRACKET 0x5b
 #define PNG_LITERAL_RIGHT_SQUARE_BRACKET 0x5d
-        
+
 #define PNG_API_RULE 0
 #define PNG_CALLOC_SUPPORTED
 #define PNG_COST_SHIFT 3
@@ -250,14 +250,14 @@ using std::abs;
 #define PNG_Z_DEFAULT_STRATEGY 1
 #define PNG_sCAL_PRECISION 5
 #define PNG_sRGB_PROFILE_CHECKS 2
-        
+
 #define png_debug(a, b)
 #define png_debug1(a, b, c)
 #define png_debug2(a, b, c, d)
-        
+
 #include "juce_graphics/image_formats/pnglib/png.h"
 #include "juce_graphics/image_formats/pnglib/pngconf.h"
-        
+
 #define PNG_NO_EXTERN
 #include "juce_graphics/image_formats/pnglib/png.c"
 #include "juce_graphics/image_formats/pnglib/pngerror.c"
@@ -274,7 +274,7 @@ using std::abs;
 #include "juce_graphics/image_formats/pnglib/pngwrite.c"
 #include "juce_graphics/image_formats/pnglib/pngwtran.c"
 #include "juce_graphics/image_formats/pnglib/pngwutil.c"
-        
+
 #if JUCE_CLANG
  #pragma clang diagnostic pop
 #endif
@@ -286,15 +286,15 @@ extern "C"
 }
 #endif
 }
-    
+
 #undef max
 #undef min
 #undef fdopen
-    
+
 #if JUCE_MSVC
  #pragma warning (pop)
 #endif
- 
+
 //==============================================================================
 
 #if JUCE_MSVC
@@ -308,7 +308,7 @@ namespace jpeglibNamespace
 #if JUCE_MINGW
     typedef unsigned char boolean;
 #endif
-    
+
 #if JUCE_CLANG
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wconversion"
@@ -317,11 +317,11 @@ namespace jpeglibNamespace
 #pragma clang diagnostic ignored "-Wcomma"
 #endif
 #endif
-    
+
 #define JPEG_INTERNALS
 #undef FAR
 #include "juce_graphics/image_formats/jpglib/jpeglib.h"
-    
+
 #include "juce_graphics/image_formats/jpglib/jcapimin.c"
 #include "juce_graphics/image_formats/jpglib/jcapistd.c"
 #include "juce_graphics/image_formats/jpglib/jccoefct.c"
@@ -390,7 +390,7 @@ namespace jpeglibNamespace
 #include "juce_graphics/image_formats/jpglib/jquant2.c"
 #include "juce_graphics/image_formats/jpglib/jutils.c"
 #include "juce_graphics/image_formats/jpglib/transupp.c"
-    
+
 #if JUCE_CLANG
 #pragma clang diagnostic pop
 #endif

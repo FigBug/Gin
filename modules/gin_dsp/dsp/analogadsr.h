@@ -1,9 +1,9 @@
 /*
  ==============================================================================
- 
+
  This file is part of the GIN library.
  Copyright (c) 2019 - Roland Rabien.
- 
+
  ==============================================================================
 */
 
@@ -14,7 +14,7 @@ class AnalogADSR
 public:
     AnalogADSR()                                {}
     ~AnalogADSR()                               {}
-    
+
     enum class State
     {
         idle,
@@ -23,31 +23,31 @@ public:
         sustain,
         release
     };
-    
+
     void setSampleRate (double sr)              { sampleRate = sr;      }
-    
-	float process();
+
+    float process();
     void process (AudioSampleBuffer& buffer);
     void process (AudioSampleBuffer& buffer, int startSample, int numSamples);
-    
+
     float getOutput()                           { return output;        }
     State getState()                            { return state;         }
-    
+
     void noteOn();
     void noteOff();
-    
+
     void setAttack (float seconds);
     void setDecay (float seconds);
     void setRelease (float seconds);
-	void setSustainLevel (float level);
-    
+    void setSustainLevel (float level);
+
     void reset();
 
 protected:
     void calculateAttack();
     void calculateDecay();
     void calculateRelease();
-    
+
     State state = State::idle;
     double sampleRate = 44100.0;
     float attack = 0.0f, decay = 0.0f, sustain = 0.0f, release = 0.0f;
@@ -56,6 +56,3 @@ protected:
 
     float output = 0.0f;
 };
-
-
-

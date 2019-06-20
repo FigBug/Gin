@@ -14,7 +14,7 @@ Parameter::Parameter (String uid_, String name_, String shortName_, String label
 {
     if (shortName.isEmpty())
         shortName = name;
-    
+
     range = NormalisableRange<float> (minValue, maxValue, intervalValue, skewFactor);
 }
 
@@ -44,7 +44,7 @@ void Parameter::setUserValue (float v)
     if (! almostEqual (value, v))
     {
         value = v;
-        
+
         triggerAsyncUpdate();
     }
 }
@@ -56,7 +56,7 @@ void Parameter::setUserValueNotifingHost (float v)
     {
         value = v;
         setValueNotifyingHost (getValue());
-        
+
         triggerAsyncUpdate();
     }
 }
@@ -100,7 +100,7 @@ void Parameter::beginUserTimedAction()
 {
     if (! isTimerRunning())
         beginUserAction();
-    
+
     startTimer (2000);
 }
 
@@ -148,7 +148,7 @@ void Parameter::setValue (float valueIn)
 {
     valueIn = jlimit (0.0f, 1.0f, valueIn);
     float newValue = range.snapToLegalValue (range.convertFrom0to1 (valueIn));
-    
+
     if (! almostEqual(value, newValue))
     {
         value = newValue;
@@ -207,5 +207,3 @@ bool Parameter::isMetaParameter() const
 {
     return false;
 }
-
-

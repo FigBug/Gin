@@ -15,18 +15,18 @@
 GinProcessor::GinProcessor()
 {
     LookAndFeel::setDefaultLookAndFeel (&lookAndFeel);
-        
+
     properties = std::make_unique<PropertiesFile> (getSettingsFile(), PropertiesFile::Options());
-    
+
     loadAllPrograms();
-    
+
     state = ValueTree (Identifier ("state"));
-    
+
     stateUpdated();
 }
 
 GinProcessor::~GinProcessor()
-{    
+{
     MessageManagerLock mmLock;
     LookAndFeel::setDefaultLookAndFeel (nullptr);
 }
@@ -39,9 +39,9 @@ std::unique_ptr<PropertiesFile> GinProcessor::getSettings()
     File dir = File::getSpecialLocation (File::userApplicationDataDirectory).getChildFile ("SocaLabs");
 #endif
     dir.createDirectory();
-    
+
     PropertiesFile::Options options;
-    
+
     return std::make_unique<PropertiesFile> (dir.getChildFile ("plugin_settings.xml"), options);
 }
 
@@ -49,7 +49,7 @@ std::unique_ptr<PropertiesFile> GinProcessor::getSettings()
 void GinProcessor::addPluginParameter (Parameter* parameter)
 {
     addParameter (parameter);
-    
+
     parameterMap[parameter->getUid()] = parameter;
 }
 
@@ -57,7 +57,7 @@ Parameter* GinProcessor::getParameter (const String& uid)
 {
     if (parameterMap.find (uid) != parameterMap.end())
         return parameterMap[uid];
-    
+
     return nullptr;
 }
 
@@ -65,16 +65,16 @@ float GinProcessor::parameterValue (const String& uid)
 {
     if (parameterMap.find (uid) != parameterMap.end())
         return parameterMap[uid]->getUserValue();
-    
+
     return 0;
-    
+
 }
 
 int GinProcessor::parameterIntValue (const String& uid)
 {
     if (parameterMap.find (uid) != parameterMap.end())
         return int (parameterMap[uid]->getUserValue());
-    
+
     return 0;
 }
 
@@ -82,19 +82,19 @@ bool GinProcessor::parameterBoolValue (const String& uid)
 {
     if (parameterMap.find (uid) != parameterMap.end())
         return parameterMap[uid]->getUserValue() > 0;
-    
+
     return 0;
 }
 
 Array<Parameter*> GinProcessor::getPluginParameters()
 {
     Array<Parameter*> result;
-    
+
     auto params = getParameters();
     for (auto p : params)
         if (auto pp = dynamic_cast<Parameter*>(p))
             result.add (pp);
-    
+
     return result;
 }
 
@@ -152,7 +152,7 @@ void GinProcessor::setCurrentProgram (int index)
     {
         programs[index]->loadProcessor (this);
         currentProgram = index;
-        
+
         updateHostDisplay();
         sendChangeMessage();
         stateUpdated();
@@ -169,7 +169,7 @@ void GinProcessor::changeProgramName (int index, const String& newName)
     programs[index]->deleteFromDir (getProgramDirectory());
     programs[index]->name = newName;
     programs[index]->saveToDir (getProgramDirectory());
-    
+
     updateHostDisplay();
     sendChangeMessage();
 }
@@ -177,20 +177,20 @@ void GinProcessor::changeProgramName (int index, const String& newName)
 void GinProcessor::loadAllPrograms()
 {
     programs.clear();
-    
+
     // create the default program
     GinProgram* defaultProgram = new GinProgram();
     defaultProgram->name = "Default";
     defaultProgram->saveProcessor (this);
-    
+
     programs.add (defaultProgram);
 
     // load programs from disk
     File dir = getProgramDirectory();
-    
+
     Array<File> programFiles;
     dir.findChildFiles (programFiles, File::findFiles, false, "*.xml");
-    
+
     for (File f : programFiles)
     {
         GinProgram* program = new GinProgram();
@@ -202,7 +202,7 @@ void GinProcessor::loadAllPrograms()
 void GinProcessor::saveProgram (String name)
 {
     updateState();
-    
+
     for (int i = programs.size(); --i >= 0;)
         if (programs[i]->name == name)
             deleteProgram (i);
@@ -211,10 +211,10 @@ void GinProcessor::saveProgram (String name)
     newProgram->name = name;
     newProgram->saveProcessor (this);
     newProgram->saveToDir (getProgramDirectory());
-    
+
     programs.add (newProgram);
     currentProgram = programs.size() - 1;
-    
+
     updateHostDisplay();
     sendChangeMessage();
 }
@@ -225,7 +225,7 @@ void GinProcessor::deleteProgram (int index)
     programs.remove (index);
     if (index <= currentProgram)
         currentProgram--;
-    
+
     updateHostDisplay();
     sendChangeMessage();
 }
@@ -243,7 +243,7 @@ File GinProcessor::getProgramDirectory()
     jassertfalse;
     File dir;
   #endif
-    
+
     if (!dir.isDirectory())
         dir.createDirectory();
     return dir;
@@ -272,29 +272,29 @@ File GinProcessor::getSettingsFile()
 void GinProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
     updateState();
-    
+
     std::unique_ptr<XmlElement> rootE (new XmlElement ("state"));
-    
+
     if (state.isValid())
         rootE->setAttribute ("valueTree", state.toXmlString());
-    
+
     rootE->setAttribute("program", currentProgram);
-    
+
     for (Parameter* p : getPluginParameters())
     {
         if (! p->isMetaParameter())
         {
             Parameter::ParamState pstate = p->getState();
-            
+
             XmlElement* paramE = new XmlElement ("param");
-            
+
             paramE->setAttribute ("uid", pstate.uid);
             paramE->setAttribute ("val", pstate.value);
-            
+
             rootE->addChildElement (paramE);
         }
     }
-    
+
     MemoryOutputStream os (destData, true);
     auto text = rootE->toString();
     os.write (text.toRawUTF8(), text.getNumBytesAsUTF8());
@@ -313,21 +313,21 @@ void GinProcessor::setStateInformation (const void* data, int sizeInBytes)
             if (std::unique_ptr<XmlElement> vtE = treeDoc.getDocumentElement())
                 state = ValueTree::fromXml (*vtE.get());
         }
-        
+
         currentProgram = rootE->getIntAttribute ("program");
-        
+
         XmlElement* paramE = rootE->getChildByName ("param");
         while (paramE)
         {
             String uid = paramE->getStringAttribute ("uid");
             float  val = paramE->getStringAttribute ("val").getFloatValue();
-            
+
             if (Parameter* p = getParameter (uid))
             {
                 if (! p->isMetaParameter())
                     p->setUserValue (val);
             }
-            
+
             paramE = paramE->getNextElementWithTagName ("param");
         }
     }
@@ -335,4 +335,3 @@ void GinProcessor::setStateInformation (const void* data, int sizeInBytes)
 
     lastStateLoad = Time::getCurrentTime();
 }
-

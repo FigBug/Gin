@@ -1,9 +1,9 @@
 /*
  ==============================================================================
- 
+
  This file is part of the GIN library.
  Copyright (c) 2019 - Roland Rabien.
- 
+
  ==============================================================================
  */
 
@@ -14,12 +14,12 @@
 void AnalogADSR::noteOn()
 {
     calculateRelease();
-    
+
     if (attack == 0.0f)
         state = State::decay;
     else
         state = State::attack;
-    
+
     output = attack == 0.0 ? 1.0f : 0.0f;
 }
 
@@ -73,7 +73,7 @@ void AnalogADSR::calculateAttack()
 {
     float samples = float (sampleRate * attack);
     float tco = std::exp (-0.5f);
-    
+
     attackCoeff = std::exp (-std::log ((1.0f + tco) / tco) / float (samples));
     attackOffset = (1.0f + tco) * (1.0f - attackCoeff);
 }
@@ -82,7 +82,7 @@ void AnalogADSR::calculateDecay()
 {
     float samples = float (sampleRate * decay);
     float tco = std::exp (-5.0f);
-    
+
     decayCoeff = std::exp (-std::log ((1.0f + tco) / tco) / samples);
     decayOffset = (sustain - tco) * (1.0f - decayCoeff);
 }
@@ -91,7 +91,7 @@ void AnalogADSR::calculateRelease()
 {
     float samples = float (sampleRate * release);
     float tco = std::exp (-5.0f);
-    
+
     releaseCoeff = std::exp (-std::log ((1.0f + tco) / tco) / samples);
     releaseOffset = -tco * (1.0f - releaseCoeff);
 }

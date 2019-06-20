@@ -1,8 +1,8 @@
 /*==============================================================================
- 
+
  Copyright 2018 by Roland Rabien
  For more information visit www.rabiensoftware.com
- 
+
  ==============================================================================*/
 
 Colour goldenRatioColor (int idx)
@@ -18,11 +18,11 @@ int versionStringToInt (const String& versionString)
     parts.addTokens (versionString, ".", "");
     parts.trim();
     parts.removeEmptyStrings();
-    
+
     int res = 0;
-    
+
     for (auto part : parts)
         res = (res << 8) + part.getIntValue();
-    
+
     return res;
 }

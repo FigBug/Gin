@@ -1,26 +1,26 @@
 /*
-                 __________                                      
-    _____   __ __\______   \_____  _______  ______  ____ _______ 
+                 __________
+    _____   __ __\______   \_____  _______  ______  ____ _______
    /     \ |  |  \|     ___/\__  \ \_  __ \/  ___/_/ __ \\_  __ \
   |  Y Y  \|  |  /|    |     / __ \_|  | \/\___ \ \  ___/ |  | \/
-  |__|_|  /|____/ |____|    (____  /|__|  /____  > \___  >|__|   
-        \/                       \/            \/      \/        
+  |__|_|  /|____/ |____|    (____  /|__|  /____  > \___  >|__|
+        \/                       \/            \/      \/
   Copyright (C) 2004-2013 Ingo Berg
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy of this 
+  Permission is hereby granted, free of charge, to any person obtaining a copy of this
   software and associated documentation files (the "Software"), to deal in the Software
-  without restriction, including without limitation the rights to use, copy, modify, 
-  merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
+  without restriction, including without limitation the rights to use, copy, modify,
+  merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
   permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-  The above copyright notice and this permission notice shall be included in all copies or 
+  The above copyright notice and this permission notice shall be included in all copies or
   substantial portions of the Software.
 
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
-  NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
-  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
-  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+  NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 #ifndef MU_PARSER_TOKEN_H
@@ -41,7 +41,7 @@
 
 namespace mu
 {
-  /** \brief Encapsulation of the data for a single formula token. 
+  /** \brief Encapsulation of the data for a single formula token.
 
     Formula token implementation. Part of the Math Parser Package.
     Formula tokens can be either one of the following:
@@ -52,10 +52,10 @@ namespace mu
       <li>functions with a string as argument</li>
       <li>prefix operators</li>
       <li>infix operators</li>
-	    <li>binary operator</li>
+        <li>binary operator</li>
     </ul>
 
-   \author (C) 2004-2013 Ingo Berg 
+   \author (C) 2004-2013 Ingo Berg
   */
   template<typename TBase, typename TString>
   class ParserToken
@@ -68,14 +68,14 @@ namespace mu
       int  m_iIdx;        ///< An otional index to an external buffer storing the token data
       TString m_strTok;   ///< Token string
       TString m_strVal;   ///< Value for string variables
-      value_type m_fVal;  ///< the value 
+      value_type m_fVal;  ///< the value
       std::unique_ptr<ParserCallback> m_pCallback;
 
   public:
 
       //---------------------------------------------------------------------------
       /** \brief Constructor (default).
-        
+
           Sets token to an neutral state of type cmUNKNOWN.
           \throw nothrow
           \sa ECmdCode
@@ -86,14 +86,14 @@ namespace mu
         ,m_pTok(0)
         ,m_iIdx(-1)
         ,m_strTok()
-		,m_strVal()
-		,m_fVal(0)
+        ,m_strVal()
+        ,m_fVal(0)
         ,m_pCallback()
       {}
 
       //------------------------------------------------------------------------------
       /** \brief Create token from another one.
-      
+
           Implemented by calling Assign(...)
           \throw nothrow
           \post m_iType==cmUNKNOWN
@@ -103,10 +103,10 @@ namespace mu
       {
         Assign(a_Tok);
       }
-      
+
       //------------------------------------------------------------------------------
-      /** \brief Assignment operator. 
-      
+      /** \brief Assignment operator.
+
           Copy token state from another token and return this.
           Implemented by calling Assign(...).
           \throw nothrow
@@ -119,7 +119,7 @@ namespace mu
 
       //------------------------------------------------------------------------------
       /** \brief Copy token information from argument.
-      
+
           \throw nothrow
       */
       void Assign(const ParserToken &a_Tok)
@@ -131,14 +131,14 @@ namespace mu
         m_strVal = a_Tok.m_strVal;
         m_iType = a_Tok.m_iType;
         m_fVal = a_Tok.m_fVal;
-        // create new callback object if a_Tok has one 
+        // create new callback object if a_Tok has one
         m_pCallback.reset(a_Tok.m_pCallback.get() ? a_Tok.m_pCallback->Clone() : 0);
       }
 
       //------------------------------------------------------------------------------
-      /** \brief Assign a token type. 
+      /** \brief Assign a token type.
 
-        Token may not be of type value, variable or function. Those have separate set functions. 
+        Token may not be of type value, variable or function. Those have separate set functions.
 
         \pre [assert] a_iType!=cmVAR
         \pre [assert] a_iType!=cmVAL
@@ -175,13 +175,13 @@ namespace mu
 
         m_pTok = 0;
         m_iIdx = -1;
-        
+
         return *this;
       }
 
       //------------------------------------------------------------------------------
-      /** \brief Make this token a value token. 
-      
+      /** \brief Make this token a value token.
+
           Member variables not necessary for value tokens will be invalidated.
           \throw nothrow
       */
@@ -192,7 +192,7 @@ namespace mu
         m_fVal = a_fVal;
         m_strTok = a_strTok;
         m_iIdx = -1;
-        
+
         m_pTok = 0;
         m_pCallback.reset(0);
 
@@ -200,8 +200,8 @@ namespace mu
       }
 
       //------------------------------------------------------------------------------
-      /** \brief make this token a variable token. 
-      
+      /** \brief make this token a variable token.
+
           Member variables not necessary for variable tokens will be invalidated.
           \throw nothrow
       */
@@ -217,8 +217,8 @@ namespace mu
       }
 
       //------------------------------------------------------------------------------
-      /** \brief Make this token a variable token. 
-      
+      /** \brief Make this token a variable token.
+
           Member variables not necessary for variable tokens will be invalidated.
           \throw nothrow
       */
@@ -235,8 +235,8 @@ namespace mu
       }
 
       //------------------------------------------------------------------------------
-      /** \brief Set an index associated with the token related data. 
-      
+      /** \brief Set an index associated with the token related data.
+
           In cmSTRFUNC - This is the index to a string table in the main parser.
           \param a_iIdx The index the string function result will take in the bytecode parser.
           \throw exception_type if #a_iIdx<0 or #m_iType!=cmSTRING
@@ -244,14 +244,14 @@ namespace mu
       void SetIdx(int a_iIdx)
       {
         if (m_iCode!=cmSTRING || a_iIdx<0)
-	        throw ParserError(ecINTERNAL_ERROR);
-        
+            throw ParserError(ecINTERNAL_ERROR);
+
         m_iIdx = a_iIdx;
       }
 
       //------------------------------------------------------------------------------
-      /** \brief Return Index associated with the token related data. 
-      
+      /** \brief Return Index associated with the token related data.
+
           In cmSTRFUNC - This is the index to a string table in the main parser.
 
           \throw exception_type if #m_iIdx<0 or #m_iType!=cmSTRING
@@ -267,7 +267,7 @@ namespace mu
 
       //------------------------------------------------------------------------------
       /** \brief Return the token type.
-      
+
           \return #m_iType
           \throw nothrow
       */
@@ -295,15 +295,15 @@ namespace mu
           return m_iType;
         }
       }
-      
+
       //------------------------------------------------------------------------------
       int GetPri() const
       {
         if ( !m_pCallback.get())
-	        throw ParserError(ecINTERNAL_ERROR);
-            
+            throw ParserError(ecINTERNAL_ERROR);
+
         if ( m_pCallback->GetCode()!=cmOPRT_BIN && m_pCallback->GetCode()!=cmOPRT_INFIX)
-	        throw ParserError(ecINTERNAL_ERROR);
+            throw ParserError(ecINTERNAL_ERROR);
 
         return m_pCallback->GetPri();
       }
@@ -312,7 +312,7 @@ namespace mu
       EOprtAssociativity GetAssociativity() const
       {
         if (m_pCallback.get()==NULL || m_pCallback->GetCode()!=cmOPRT_BIN)
-	        throw ParserError(ecINTERNAL_ERROR);
+            throw ParserError(ecINTERNAL_ERROR);
 
         return m_pCallback->GetAssociativity();
       }
@@ -341,10 +341,10 @@ namespace mu
       {
         return (m_pCallback.get()) ? m_pCallback->GetParam() : nullptr;
       }
-      
+
       //------------------------------------------------------------------------------
       /** \biref Get value of the token.
-        
+
           Only applicable to variable and value tokens.
           \throw exception_type if token is no value/variable token.
       */
@@ -367,13 +367,13 @@ namespace mu
       TBase* GetVar() const
       {
         if (m_iCode!=cmVAR)
-	        throw ParserError(ecINTERNAL_ERROR);
+            throw ParserError(ecINTERNAL_ERROR);
 
         return (TBase*)m_pTok;
       }
 
       //------------------------------------------------------------------------------
-      /** \brief Return the number of function arguments. 
+      /** \brief Return the number of function arguments.
 
         Valid only if m_iType==CmdFUNC.
       */
@@ -382,14 +382,14 @@ namespace mu
         assert(m_pCallback.get());
 
         if (!m_pCallback->GetAddr())
-	        throw ParserError(ecINTERNAL_ERROR);
+            throw ParserError(ecINTERNAL_ERROR);
 
         return m_pCallback->GetArgc();
       }
 
       //------------------------------------------------------------------------------
-      /** \brief Return the token identifier. 
-          
+      /** \brief Return the token identifier.
+
           If #m_iType is cmSTRING the token identifier is the value of the string argument
           for a string function.
           \return #m_strTok

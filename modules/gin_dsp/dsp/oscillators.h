@@ -1,9 +1,9 @@
 /*
  ==============================================================================
- 
+
  This file is part of the GIN library.
  Copyright (c) 2019 - Roland Rabien.
- 
+
  ==============================================================================
  */
 
@@ -24,9 +24,9 @@ class BandLimitedLookupTable
 {
 public:
     BandLimitedLookupTable (std::function<double (double, double, double)> function, double sampleRate, int notesPerTable = 6, int tableSize = 1024);
-    
+
     juce::OwnedArray<juce::dsp::LookupTableTransform<float>> tables;
-    
+
     int notesPerTable = 0;
 };
 
@@ -35,7 +35,7 @@ class BandLimitedLookupTables
 {
 public:
     BandLimitedLookupTables (double sampleRate);
-    
+
     float processSine (float phase);
     float processTriangle (float note, float phase);
     float processSawUp (float note, float phase);

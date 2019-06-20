@@ -1,26 +1,26 @@
 /*
-                 __________                                      
-    _____   __ __\______   \_____  _______  ______  ____ _______ 
+                 __________
+    _____   __ __\______   \_____  _______  ______  ____ _______
    /     \ |  |  \|     ___/\__  \ \_  __ \/  ___/_/ __ \\_  __ \
   |  Y Y  \|  |  /|    |     / __ \_|  | \/\___ \ \  ___/ |  | \/
-  |__|_|  /|____/ |____|    (____  /|__|  /____  > \___  >|__|   
-        \/                       \/            \/      \/        
+  |__|_|  /|____/ |____|    (____  /|__|  /____  > \___  >|__|
+        \/                       \/            \/      \/
   Copyright (C) 2004-2013 Ingo Berg
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy of this 
+  Permission is hereby granted, free of charge, to any person obtaining a copy of this
   software and associated documentation files (the "Software"), to deal in the Software
-  without restriction, including without limitation the rights to use, copy, modify, 
-  merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
+  without restriction, including without limitation the rights to use, copy, modify,
+  merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
   permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-  The above copyright notice and this permission notice shall be included in all copies or 
+  The above copyright notice and this permission notice shall be included in all copies or
   substantial portions of the Software.
 
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
-  NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
-  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
-  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+  NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 #ifndef MU_PARSER_TOKEN_READER_H
@@ -51,7 +51,7 @@ namespace mu
   /** \brief Token reader for the ParserBase class.
 
   */
-  class ParserTokenReader 
+  class ParserTokenReader
   {
   private:
 
@@ -78,23 +78,23 @@ namespace mu
 
   private:
 
-      /** \brief Syntax codes. 
-  	
-	        The syntax codes control the syntax check done during the first time parsing of 
+      /** \brief Syntax codes.
+
+            The syntax codes control the syntax check done during the first time parsing of
           the expression string. They are flags that indicate which tokens are allowed next
           if certain tokens are identified.
-  	  */
+      */
       enum ESynCodes
       {
-        noBO      = 1 << 0,  ///< to avoid i.e. "cos(7)(" 
+        noBO      = 1 << 0,  ///< to avoid i.e. "cos(7)("
         noBC      = 1 << 1,  ///< to avoid i.e. "sin)" or "()"
         noVAL     = 1 << 2,  ///< to avoid i.e. "tan 2" or "sin(8)3.14"
         noVAR     = 1 << 3,  ///< to avoid i.e. "sin a" or "sin(8)a"
         noARG_SEP = 1 << 4,  ///< to avoid i.e. ",," or "+," ...
-        noFUN     = 1 << 5,  ///< to avoid i.e. "sqrt cos" or "(1)sin"	
+        noFUN     = 1 << 5,  ///< to avoid i.e. "sqrt cos" or "(1)sin"
         noOPT     = 1 << 6,  ///< to avoid i.e. "(+)"
         noPOSTOP  = 1 << 7,  ///< to avoid i.e. "(5!!)" "sin!"
-	      noINFIXOP = 1 << 8,  ///< to avoid i.e. "++4" "!!4"
+          noINFIXOP = 1 << 8,  ///< to avoid i.e. "++4" "!!4"
         noEND     = 1 << 9,  ///< to avoid unexpected end of formula
         noSTR     = 1 << 10, ///< to block numeric arguments on string functions
         noASSIGN  = 1 << 11, ///< to block assignment to constant i.e. "4=7"
@@ -102,15 +102,15 @@ namespace mu
         noELSE    = 1 << 13,
         sfSTART_OF_LINE = noOPT | noBC | noPOSTOP | noASSIGN | noIF | noELSE | noARG_SEP,
         noANY     = ~0       ///< All of he above flags set
-      };	
+      };
 
       ParserTokenReader(const ParserTokenReader &a_Reader);
       ParserTokenReader& operator=(const ParserTokenReader &a_Reader);
       void Assign(const ParserTokenReader &a_Reader);
 
       void SetParent(ParserBase *a_pParent);
-      int ExtractToken(const char_type *a_szCharSet, 
-                       string_type &a_strTok, 
+      int ExtractToken(const char_type *a_szCharSet,
+                       string_type &a_strTok,
                        int a_iPos) const;
       int ExtractOperatorToken(string_type &a_sTok, int a_iPos) const;
 
@@ -126,8 +126,8 @@ namespace mu
       bool IsStrVarTok(token_type &a_Tok);
       bool IsUndefVarTok(token_type &a_Tok);
       bool IsString(token_type &a_Tok);
-      void Error(EErrorCodes a_iErrc, 
-                 int a_iPos = -1, 
+      void Error(EErrorCodes a_iErrc,
+                 int a_iPos = -1,
                  const string_type &a_sTok = string_type() ) const;
 
       token_type& SaveBeforeReturn(const token_type &tok);
@@ -157,5 +157,3 @@ namespace mu
 } // namespace mu
 
 #endif
-
-

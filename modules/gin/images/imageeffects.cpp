@@ -642,34 +642,34 @@ static void applyStackBlurBW (Image& src, unsigned int radius)
 {
     const unsigned int w = (unsigned int)src.getWidth();
     const unsigned int h = (unsigned int)src.getHeight();
-    
+
     Image::BitmapData data (src, Image::BitmapData::readWrite);
-    
+
     radius = jlimit (2u, 254u, radius);
-    
+
     unsigned char    stack[(254 * 2 + 1) * 1];
-    
+
     unsigned int x, y, xp, yp, i, sp, stack_start;
-    
+
     unsigned char* stack_ptr = nullptr;
     unsigned char* src_ptr = nullptr;
     unsigned char* dst_ptr = nullptr;
-    
+
     unsigned long sum, sum_in, sum_out;
-    
+
     unsigned int wm = w - 1;
     unsigned int hm = h - 1;
     unsigned int w1 = (unsigned int) data.lineStride;
     unsigned int div = (unsigned int) (radius * 2) + 1;
     unsigned int mul_sum = stackblur_mul[radius];
     unsigned char shr_sum = stackblur_shr[radius];
-    
+
     for (y = 0; y < h; ++y)
     {
         sum = sum_in = sum_out = 0;
-        
+
         src_ptr = data.getLinePointer (int (y));
-        
+
         for (i = 0; i <= radius; ++i)
         {
             stack_ptr    = &stack[i];
@@ -677,70 +677,70 @@ static void applyStackBlurBW (Image& src, unsigned int radius)
             sum += src_ptr[0] * (i + 1);
             sum_out += src_ptr[0];
         }
-        
+
         for (i = 1; i <= radius; ++i)
         {
             if (i <= wm)
                 src_ptr += 1;
-            
+
             stack_ptr = &stack[1 * (i + radius)];
             stack_ptr[0] = src_ptr[0];
             sum += src_ptr[0] * (radius + 1 - i);
             sum_in += src_ptr[0];
         }
-        
+
         sp = radius;
         xp = radius;
         if (xp > wm)
             xp = wm;
-        
+
         src_ptr = data.getLinePointer (int (y)) + (unsigned int)data.pixelStride * xp;
         dst_ptr = data.getLinePointer (int (y));
-        
+
         for (x = 0; x < w; ++x)
         {
             dst_ptr[0] = (unsigned char)((sum * mul_sum) >> shr_sum);
             dst_ptr += 1;
-            
+
             sum -= sum_out;
-            
+
             stack_start = sp + div - radius;
-            
+
             if (stack_start >= div)
                 stack_start -= div;
-            
+
             stack_ptr = &stack[1 * stack_start];
-            
+
             sum_out -= stack_ptr[0];
-            
+
             if (xp < wm)
             {
                 src_ptr += 1;
                 ++xp;
             }
-            
+
             stack_ptr[0] = src_ptr[0];
-            
+
             sum_in += src_ptr[0];
             sum    += sum_in;
-            
+
             ++sp;
             if (sp >= div)
                 sp = 0;
-            
+
             stack_ptr = &stack[sp*1];
-            
+
             sum_out += stack_ptr[0];
             sum_in  -= stack_ptr[0];
         }
     }
-    
+
     for (x = 0; x < w; ++x)
     {
         sum = sum_in = sum_out = 0;
-        
+
         src_ptr = data.getLinePointer (0) + (unsigned int)data.pixelStride * x;
-        
+
         for (i = 0; i <= radius; ++i)
         {
             stack_ptr    = &stack[i * 1];
@@ -748,58 +748,58 @@ static void applyStackBlurBW (Image& src, unsigned int radius)
             sum           += src_ptr[0] * (i + 1);
             sum_out       += src_ptr[0];
         }
-        
+
         for (i = 1; i <= radius; ++i)
         {
             if (i <= hm)
                 src_ptr += w1;
-            
+
             stack_ptr = &stack[1 * (i + radius)];
             stack_ptr[0] = src_ptr[0];
             sum += src_ptr[0] * (radius + 1 - i);
             sum_in += src_ptr[0];
         }
-        
+
         sp = radius;
         yp = radius;
         if (yp > hm)
             yp = hm;
-        
+
         src_ptr = data.getLinePointer (int (yp)) + (unsigned int)data.pixelStride * x;
         dst_ptr = data.getLinePointer (0) + (unsigned int)data.pixelStride * x;
-        
+
         for (y = 0; y < h; ++y)
         {
             dst_ptr[0] = (unsigned char)((sum * mul_sum) >> shr_sum);
             dst_ptr += w1;
-            
+
             sum -= sum_out;
-            
+
             stack_start = sp + div - radius;
             if (stack_start >= div)
                 stack_start -= div;
-            
+
             stack_ptr = &stack[1 * stack_start];
-            
+
             sum_out -= stack_ptr[0];
-            
+
             if (yp < hm)
             {
                 src_ptr += w1;
                 ++yp;
             }
-            
+
             stack_ptr[0] = src_ptr[0];
-            
+
             sum_in += src_ptr[0];
             sum    += sum_in;
-            
+
             ++sp;
             if (sp >= div)
                 sp = 0;
-            
+
             stack_ptr = &stack[sp * 1];
-            
+
             sum_out += stack_ptr[0];
             sum_in  -= stack_ptr[0];
         }
@@ -810,37 +810,37 @@ static void applyStackBlurRGB (Image& src, unsigned int radius)
 {
     const unsigned int w = (unsigned int)src.getWidth();
     const unsigned int h = (unsigned int)src.getHeight();
-    
+
     Image::BitmapData data (src, Image::BitmapData::readWrite);
-    
+
     radius = jlimit (2u, 254u, radius);
-    
+
     unsigned char    stack[(254 * 2 + 1) * 3];
-    
+
     unsigned int x, y, xp, yp, i, sp, stack_start;
-    
+
     unsigned char* stack_ptr = nullptr;
     unsigned char* src_ptr = nullptr;
     unsigned char* dst_ptr = nullptr;
-    
+
     unsigned long sum_r, sum_g, sum_b, sum_in_r, sum_in_g, sum_in_b,
                   sum_out_r, sum_out_g, sum_out_b;
-    
+
     unsigned int wm = w - 1;
     unsigned int hm = h - 1;
     unsigned int w3 = (unsigned int) data.lineStride;
     unsigned int div = (unsigned int)(radius * 2) + 1;
     unsigned int mul_sum = stackblur_mul[radius];
     unsigned char shr_sum = stackblur_shr[radius];
-    
+
     for (y = 0; y < h; ++y)
     {
         sum_r = sum_g = sum_b =
         sum_in_r = sum_in_g = sum_in_b =
         sum_out_r = sum_out_g = sum_out_b = 0;
-        
+
         src_ptr = data.getLinePointer (int (y));
-        
+
         for (i = 0; i <= radius; ++i)
         {
             stack_ptr    = &stack[3 * i];
@@ -854,12 +854,12 @@ static void applyStackBlurRGB (Image& src, unsigned int radius)
             sum_out_g += src_ptr[1];
             sum_out_b += src_ptr[2];
         }
-        
+
         for (i = 1; i <= radius; ++i)
         {
             if (i <= wm)
                 src_ptr += 3;
-            
+
             stack_ptr = &stack[3 * (i + radius)];
             stack_ptr[0] = src_ptr[0];
             stack_ptr[1] = src_ptr[1];
@@ -871,60 +871,60 @@ static void applyStackBlurRGB (Image& src, unsigned int radius)
             sum_in_g += src_ptr[1];
             sum_in_b += src_ptr[2];
         }
-        
+
         sp = radius;
         xp = radius;
         if (xp > wm)
             xp = wm;
-        
+
         src_ptr = data.getLinePointer (int (y)) + (unsigned int)data.pixelStride * xp;
         dst_ptr = data.getLinePointer (int (y));
-        
+
         for (x = 0; x < w; ++x)
         {
             dst_ptr[0] = (unsigned char)((sum_r * mul_sum) >> shr_sum);
             dst_ptr[1] = (unsigned char)((sum_g * mul_sum) >> shr_sum);
             dst_ptr[2] = (unsigned char)((sum_b * mul_sum) >> shr_sum);
             dst_ptr += 3;
-            
+
             sum_r -= sum_out_r;
             sum_g -= sum_out_g;
             sum_b -= sum_out_b;
-            
+
             stack_start = sp + div - radius;
-            
+
             if (stack_start >= div)
                 stack_start -= div;
-            
+
             stack_ptr = &stack[3 * stack_start];
-            
+
             sum_out_r -= stack_ptr[0];
             sum_out_g -= stack_ptr[1];
             sum_out_b -= stack_ptr[2];
-            
+
             if (xp < wm)
             {
                 src_ptr += 3;
                 ++xp;
             }
-            
+
             stack_ptr[0] = src_ptr[0];
             stack_ptr[1] = src_ptr[1];
             stack_ptr[2] = src_ptr[2];
-            
+
             sum_in_r += src_ptr[0];
             sum_in_g += src_ptr[1];
             sum_in_b += src_ptr[2];
             sum_r    += sum_in_r;
             sum_g    += sum_in_g;
             sum_b    += sum_in_b;
-            
+
             ++sp;
             if (sp >= div)
                 sp = 0;
-            
+
             stack_ptr = &stack[sp*3];
-            
+
             sum_out_r += stack_ptr[0];
             sum_out_g += stack_ptr[1];
             sum_out_b += stack_ptr[2];
@@ -933,15 +933,15 @@ static void applyStackBlurRGB (Image& src, unsigned int radius)
             sum_in_b  -= stack_ptr[2];
         }
     }
-    
+
     for (x = 0; x < w; ++x)
     {
         sum_r =    sum_g =    sum_b =
         sum_in_r = sum_in_g = sum_in_b =
         sum_out_r = sum_out_g = sum_out_b = 0;
-        
+
         src_ptr = data.getLinePointer (0) + (unsigned int)data.pixelStride * x;
-        
+
         for (i = 0; i <= radius; ++i)
         {
             stack_ptr    = &stack[i * 3];
@@ -955,12 +955,12 @@ static void applyStackBlurRGB (Image& src, unsigned int radius)
             sum_out_g       += src_ptr[1];
             sum_out_b       += src_ptr[2];
         }
-        
+
         for (i = 1; i <= radius; ++i)
         {
             if (i <= hm)
                 src_ptr += w3;
-            
+
             stack_ptr = &stack[3 * (i + radius)];
             stack_ptr[0] = src_ptr[0];
             stack_ptr[1] = src_ptr[1];
@@ -972,59 +972,59 @@ static void applyStackBlurRGB (Image& src, unsigned int radius)
             sum_in_g += src_ptr[1];
             sum_in_b += src_ptr[2];
         }
-        
+
         sp = radius;
         yp = radius;
         if (yp > hm)
             yp = hm;
-        
+
         src_ptr = data.getLinePointer (int (yp)) + (unsigned int)data.pixelStride * x;
         dst_ptr = data.getLinePointer (0) + (unsigned int)data.pixelStride * x;
-        
+
         for (y = 0; y < h; ++y)
         {
             dst_ptr[0] = (unsigned char)((sum_r * mul_sum) >> shr_sum);
             dst_ptr[1] = (unsigned char)((sum_g * mul_sum) >> shr_sum);
             dst_ptr[2] = (unsigned char)((sum_b * mul_sum) >> shr_sum);
             dst_ptr += w3;
-            
+
             sum_r -= sum_out_r;
             sum_g -= sum_out_g;
             sum_b -= sum_out_b;
-            
+
             stack_start = sp + div - radius;
             if (stack_start >= div)
                 stack_start -= div;
-            
+
             stack_ptr = &stack[3 * stack_start];
-            
+
             sum_out_r -= stack_ptr[0];
             sum_out_g -= stack_ptr[1];
             sum_out_b -= stack_ptr[2];
-            
+
             if (yp < hm)
             {
                 src_ptr += w3;
                 ++yp;
             }
-            
+
             stack_ptr[0] = src_ptr[0];
             stack_ptr[1] = src_ptr[1];
             stack_ptr[2] = src_ptr[2];
-            
+
             sum_in_r += src_ptr[0];
             sum_in_g += src_ptr[1];
             sum_in_b += src_ptr[2];
             sum_r    += sum_in_r;
             sum_g    += sum_in_g;
             sum_b    += sum_in_b;
-            
+
             ++sp;
             if (sp >= div)
                 sp = 0;
-            
+
             stack_ptr = &stack[sp * 3];
-            
+
             sum_out_r += stack_ptr[0];
             sum_out_g += stack_ptr[1];
             sum_out_b += stack_ptr[2];
@@ -1039,37 +1039,37 @@ static void applyStackBlurARGB (Image& src, unsigned int radius)
 {
     const unsigned int w = (unsigned int)src.getWidth();
     const unsigned int h = (unsigned int)src.getHeight();
-    
+
     Image::BitmapData data (src, Image::BitmapData::readWrite);
-    
+
     radius = jlimit (2u, 254u, radius);
-    
+
     unsigned char    stack[(254 * 2 + 1) * 4];
-    
+
     unsigned int x, y, xp, yp, i, sp, stack_start;
-    
+
     unsigned char* stack_ptr = nullptr;
     unsigned char* src_ptr = nullptr;
     unsigned char* dst_ptr = nullptr;
-    
+
     unsigned long sum_r, sum_g, sum_b, sum_a, sum_in_r, sum_in_g, sum_in_b, sum_in_a,
     sum_out_r, sum_out_g, sum_out_b, sum_out_a;
-    
+
     unsigned int wm = w - 1;
     unsigned int hm = h - 1;
     unsigned int w4 = (unsigned int) data.lineStride;
     unsigned int div = (unsigned int)(radius * 2) + 1;
     unsigned int mul_sum = stackblur_mul[radius];
     unsigned char shr_sum = stackblur_shr[radius];
-    
+
     for (y = 0; y < h; ++y)
     {
         sum_r = sum_g = sum_b = sum_a =
         sum_in_r = sum_in_g = sum_in_b = sum_in_a =
         sum_out_r = sum_out_g = sum_out_b = sum_out_a = 0;
-        
+
         src_ptr = data.getLinePointer (int (y));
-        
+
         for (i = 0; i <= radius; ++i)
         {
             stack_ptr    = &stack[4 * i];
@@ -1086,12 +1086,12 @@ static void applyStackBlurARGB (Image& src, unsigned int radius)
             sum_out_b += src_ptr[2];
             sum_out_a += src_ptr[3];
         }
-        
+
         for (i = 1; i <= radius; ++i)
         {
             if (i <= wm)
                 src_ptr += 4;
-            
+
             stack_ptr = &stack[4 * (i + radius)];
             stack_ptr[0] = src_ptr[0];
             stack_ptr[1] = src_ptr[1];
@@ -1106,15 +1106,15 @@ static void applyStackBlurARGB (Image& src, unsigned int radius)
             sum_in_b += src_ptr[2];
             sum_in_a += src_ptr[3];
         }
-        
+
         sp = radius;
         xp = radius;
         if (xp > wm)
             xp = wm;
-        
+
         src_ptr = data.getLinePointer (int (y)) + (unsigned int)data.pixelStride * xp;
         dst_ptr = data.getLinePointer (int (y));
-        
+
         for (x = 0; x < w; ++x)
         {
             dst_ptr[0] = (unsigned char)((sum_r * mul_sum) >> shr_sum);
@@ -1122,35 +1122,35 @@ static void applyStackBlurARGB (Image& src, unsigned int radius)
             dst_ptr[2] = (unsigned char)((sum_b * mul_sum) >> shr_sum);
             dst_ptr[3] = (unsigned char)((sum_a * mul_sum) >> shr_sum);
             dst_ptr += 4;
-            
+
             sum_r -= sum_out_r;
             sum_g -= sum_out_g;
             sum_b -= sum_out_b;
             sum_a -= sum_out_a;
-            
+
             stack_start = sp + div - radius;
-            
+
             if (stack_start >= div)
                 stack_start -= div;
-            
+
             stack_ptr = &stack[4 * stack_start];
-            
+
             sum_out_r -= stack_ptr[0];
             sum_out_g -= stack_ptr[1];
             sum_out_b -= stack_ptr[2];
             sum_out_a -= stack_ptr[3];
-            
+
             if (xp < wm)
             {
                 src_ptr += 4;
                 ++xp;
             }
-            
+
             stack_ptr[0] = src_ptr[0];
             stack_ptr[1] = src_ptr[1];
             stack_ptr[2] = src_ptr[2];
             stack_ptr[3] = src_ptr[3];
-            
+
             sum_in_r += src_ptr[0];
             sum_in_g += src_ptr[1];
             sum_in_b += src_ptr[2];
@@ -1159,13 +1159,13 @@ static void applyStackBlurARGB (Image& src, unsigned int radius)
             sum_g    += sum_in_g;
             sum_b    += sum_in_b;
             sum_a    += sum_in_a;
-            
+
             ++sp;
             if (sp >= div)
                 sp = 0;
-            
+
             stack_ptr = &stack[sp*4];
-            
+
             sum_out_r += stack_ptr[0];
             sum_out_g += stack_ptr[1];
             sum_out_b += stack_ptr[2];
@@ -1176,15 +1176,15 @@ static void applyStackBlurARGB (Image& src, unsigned int radius)
             sum_in_a  -= stack_ptr[3];
         }
     }
-    
+
     for (x = 0; x < w; ++x)
     {
         sum_r =    sum_g =    sum_b =    sum_a =
         sum_in_r = sum_in_g = sum_in_b = sum_in_a =
         sum_out_r = sum_out_g = sum_out_b = sum_out_a = 0;
-        
+
         src_ptr = data.getLinePointer (0) + (unsigned int)data.pixelStride * x;
-        
+
         for (i = 0; i <= radius; ++i)
         {
             stack_ptr    = &stack[i * 4];
@@ -1201,12 +1201,12 @@ static void applyStackBlurARGB (Image& src, unsigned int radius)
             sum_out_b       += src_ptr[2];
             sum_out_a       += src_ptr[3];
         }
-        
+
         for (i = 1; i <= radius; ++i)
         {
             if (i <= hm)
                 src_ptr += w4;
-            
+
             stack_ptr = &stack[4 * (i + radius)];
             stack_ptr[0] = src_ptr[0];
             stack_ptr[1] = src_ptr[1];
@@ -1221,15 +1221,15 @@ static void applyStackBlurARGB (Image& src, unsigned int radius)
             sum_in_b += src_ptr[2];
             sum_in_a += src_ptr[3];
         }
-        
+
         sp = radius;
         yp = radius;
         if (yp > hm)
             yp = hm;
-        
+
         src_ptr = data.getLinePointer (int (yp)) + (unsigned int)data.pixelStride * x;
         dst_ptr = data.getLinePointer (0) + (unsigned int)data.pixelStride * x;
-        
+
         for (y = 0; y < h; ++y)
         {
             dst_ptr[0] = (unsigned char)((sum_r * mul_sum) >> shr_sum);
@@ -1237,34 +1237,34 @@ static void applyStackBlurARGB (Image& src, unsigned int radius)
             dst_ptr[2] = (unsigned char)((sum_b * mul_sum) >> shr_sum);
             dst_ptr[3] = (unsigned char)((sum_a * mul_sum) >> shr_sum);
             dst_ptr += w4;
-            
+
             sum_r -= sum_out_r;
             sum_g -= sum_out_g;
             sum_b -= sum_out_b;
             sum_a -= sum_out_a;
-            
+
             stack_start = sp + div - radius;
             if (stack_start >= div)
                 stack_start -= div;
-            
+
             stack_ptr = &stack[4 * stack_start];
-            
+
             sum_out_r -= stack_ptr[0];
             sum_out_g -= stack_ptr[1];
             sum_out_b -= stack_ptr[2];
             sum_out_a -= stack_ptr[3];
-            
+
             if (yp < hm)
             {
                 src_ptr += w4;
                 ++yp;
             }
-            
+
             stack_ptr[0] = src_ptr[0];
             stack_ptr[1] = src_ptr[1];
             stack_ptr[2] = src_ptr[2];
             stack_ptr[3] = src_ptr[3];
-            
+
             sum_in_r += src_ptr[0];
             sum_in_g += src_ptr[1];
             sum_in_b += src_ptr[2];
@@ -1273,13 +1273,13 @@ static void applyStackBlurARGB (Image& src, unsigned int radius)
             sum_g    += sum_in_g;
             sum_b    += sum_in_b;
             sum_a    += sum_in_a;
-            
+
             ++sp;
             if (sp >= div)
                 sp = 0;
-            
+
             stack_ptr = &stack[sp * 4];
-            
+
             sum_out_r += stack_ptr[0];
             sum_out_g += stack_ptr[1];
             sum_out_b += stack_ptr[2];
@@ -1312,30 +1312,30 @@ void applyStackBlur (Image& src, unsigned int radius)
 Image applyResize (const Image& src, int width, int height)
 {
     Image dst (src.getFormat(), width, height, true);
-    
+
     Image::BitmapData srcData (src, Image::BitmapData::readOnly);
     Image::BitmapData dstData (dst, Image::BitmapData::readWrite);
-    
+
     int channels = 0;
     if (src.getFormat() == Image::ARGB)                 channels = 4;
     else if (src.getFormat() == Image::RGB)             channels = 3;
     else if (src.getFormat() == Image::SingleChannel)   channels = 1;
     else                                                return {};
-    
-    // JUCE images may have padding at the end of each scan line. 
+
+    // JUCE images may have padding at the end of each scan line.
     // Avir expects the image data to be packed. So we need to
     // pack and unpack the image data before and after resizing.
     HeapBlock<uint8> srcPacked (src.getWidth() * src.getHeight() * channels);
     HeapBlock<uint8> dstPacked (dst.getWidth() * dst.getHeight() * channels);
-        
+
     uint8* rawSrc = srcPacked.getData();
     uint8* rawDst = dstPacked.getData();
-        
+
     for (int y = 0; y < src.getHeight(); y++)
-        memcpy (rawSrc + y * src.getWidth() * channels, 
-                srcData.getLinePointer (y), 
+        memcpy (rawSrc + y * src.getWidth() * channels,
+                srcData.getLinePointer (y),
                 (size_t) (src.getWidth() * channels));
-        
+
    #ifdef JUCE_MAC
     if (SystemStats::hasSSE())
     {
@@ -1352,8 +1352,8 @@ Image applyResize (const Image& src, int width, int height)
     }
 
     for (int y = 0; y < dst.getHeight(); y++)
-        memcpy (dstData.getLinePointer (y), 
-                rawDst + y * dst.getWidth() * channels, 
+        memcpy (dstData.getLinePointer (y),
+                rawDst + y * dst.getWidth() * channels,
                 (size_t) (dst.getWidth() * channels));
 
     return dst;

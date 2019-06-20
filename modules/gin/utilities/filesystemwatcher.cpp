@@ -46,17 +46,17 @@ public:
                           const FSEventStreamEventFlags* eventFlags, const FSEventStreamEventId* eventIds)
     {
         ignoreUnused (streamRef, numEvents, eventIds, eventPaths, eventFlags);
-        
+
         Impl* impl = (Impl*)clientCallBackInfo;
         impl->owner.folderChanged (impl->folder);
-        
+
         char** files = (char**)eventPaths;
-        
+
         for (int i = 0; i < int (numEvents); i++)
         {
             char* file = files[i];
             FSEventStreamEventFlags evt = eventFlags[i];
-            
+
             File path = String::fromUTF8 (file);
             if (evt & kFSEventStreamEventFlagItemModified)
                 impl->owner.fileChanged (path, FileSystemEvent::fileUpdated);
@@ -159,7 +159,7 @@ public:
         WCHAR path[_MAX_PATH] = {0};
         wcsncpy (path, folder.getFullPathName().toWideCharPointer(), _MAX_PATH - 1);
 
-        folderHandle = CreateFileW (path, FILE_LIST_DIRECTORY, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE, 
+        folderHandle = CreateFileW (path, FILE_LIST_DIRECTORY, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE,
                                     NULL, OPEN_EXISTING, FILE_FLAG_BACKUP_SEMANTICS, NULL);
 
 
@@ -191,7 +191,7 @@ public:
         while (! threadShouldExit())
         {
             memset (buffer, 0, heapSize);
-            BOOL success = ReadDirectoryChangesW (folderHandle, buffer, heapSize, true,           
+            BOOL success = ReadDirectoryChangesW (folderHandle, buffer, heapSize, true,
                 FILE_NOTIFY_CHANGE_FILE_NAME | FILE_NOTIFY_CHANGE_DIR_NAME | FILE_NOTIFY_CHANGE_SIZE | FILE_NOTIFY_CHANGE_LAST_WRITE | FILE_NOTIFY_CHANGE_CREATION,
                 &bytesOut, nullptr, nullptr);
 
@@ -285,7 +285,7 @@ void FileSystemWatcher::addFolder (const File& folder)
 {
     // You can only listen to folders that exist
     jassert (folder.isDirectory());
-    
+
     watched.add (new Impl (*this, folder));
 }
 
