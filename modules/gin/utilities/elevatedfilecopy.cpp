@@ -13,7 +13,7 @@
 
 #if JUCE_MAC
 
-ElevatedFileCopy::Result runWinPermissions (String cmd, StringArray params)
+ElevatedFileCopy::Result runWithPermissions (String cmd, StringArray params)
 {
     OSStatus err = noErr;
     auto path = cmd.toRawUTF8();
@@ -77,7 +77,7 @@ static String escape (const String& in)
 ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (File script, bool launchSelf)
 {
     ignoreUnused (launchSelf);
-    runWinPermissions ("/bin/sh", { script.getFullPathName() });
+    runWithPermissions ("/bin/sh", { script.getFullPathName() });
     return success;
 }
 
