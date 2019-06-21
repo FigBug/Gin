@@ -1472,7 +1472,7 @@ void applyGradientMap (Image& src, const ColourGradient& gradient, int maxThread
                                    uint8 go = toByte (g * 0.59 + 0.5);
                                    uint8 bo = toByte (b * 0.11 + 0.5);
 
-                                   float proportion = 1.0f - float (ro + go + bo) / 256.0f;
+                                   float proportion = float (ro + go + bo) / 256.0f;
 
                                    auto c = gradient.getColourAtPosition (proportion);
 
