@@ -14,11 +14,11 @@ namespace BinaryData
     extern const char*   ballon_8bit_bmp;
     const int            ballon_8bit_bmpSize = 103478;
 
+    extern const char*   Castle_jpg;
+    const int            Castle_jpgSize = 28750;
+
     extern const char*   IMG_1883_JPG;
     const int            IMG_1883_JPGSize = 1218029;
-
-    extern const char*   keyboard_png;
-    const int            keyboard_pngSize = 21090;
 
     extern const char*   pencils_jpeg;
     const int            pencils_jpegSize = 254617;

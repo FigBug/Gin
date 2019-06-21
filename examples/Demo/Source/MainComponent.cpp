@@ -16,7 +16,7 @@ struct GradientMapDemo : public Component,
     {
         setName ("Gradient Map");
 
-        source = ImageFileFormat::loadFrom (BinaryData::keyboard_png, BinaryData::keyboard_pngSize);
+        source = ImageFileFormat::loadFrom (BinaryData::Castle_jpg, BinaryData::Castle_jpgSize);
 
         selector1.setCurrentColour (Colour (0xffe3c916));
         selector2.setCurrentColour (Colour (0xff0c0d01));

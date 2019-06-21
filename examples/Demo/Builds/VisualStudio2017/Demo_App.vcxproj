@@ -1871,8 +1871,8 @@
   <ItemGroup>
     <None Include="..\..\Resources\ballon.bmp"/>
     <None Include="..\..\Resources\ballon_8bit.bmp"/>
+    <None Include="..\..\Resources\Castle.jpg"/>
     <None Include="..\..\Resources\IMG_1883.JPG"/>
-    <None Include="..\..\Resources\keyboard.png"/>
     <None Include="..\..\Resources\pencils.jpeg"/>
     <None Include="..\..\..\..\modules\gin\3rdparty\avir\README.md"/>
     <None Include="..\..\..\..\modules\gin\README.md"/>

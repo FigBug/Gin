@@ -2972,10 +2972,10 @@
     <None Include="..\..\Resources\ballon_8bit.bmp">
       <Filter>Demo\Source\Resources</Filter>
     </None>
-    <None Include="..\..\Resources\IMG_1883.JPG">
+    <None Include="..\..\Resources\Castle.jpg">
       <Filter>Demo\Source\Resources</Filter>
     </None>
-    <None Include="..\..\Resources\keyboard.png">
+    <None Include="..\..\Resources\IMG_1883.JPG">
       <Filter>Demo\Source\Resources</Filter>
     </None>
     <None Include="..\..\Resources\pencils.jpeg">

@@ -77,13 +77,6 @@
 			isa = PBXBuildFile;
 			fileRef = 317CAE65A6C70572D1A07688;
 		};
-		01D06DDB37EF9194D9C857C4 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = keyboard.png;
-			path = ../../Resources/keyboard.png;
-			sourceTree = "SOURCE_ROOT";
-		};
 		043EE8D4EC780C9EEC2AB78B = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
@@ -194,6 +187,13 @@
 			lastKnownFileType = file.nib;
 			name = RecentFilesMenuTemplate.nib;
 			path = RecentFilesMenuTemplate.nib;
+			sourceTree = "SOURCE_ROOT";
+		};
+		8F138309B9CA06F398656683 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.jpeg;
+			name = Castle.jpg;
+			path = ../../Resources/Castle.jpg;
 			sourceTree = "SOURCE_ROOT";
 		};
 		92187533C0E25662B98FABD7 = {
@@ -327,8 +327,8 @@
 			children = (
 				5FDB550DE328824A1D583C7C,
 				FBC90B08FB69A1B6F23F5567,
+				8F138309B9CA06F398656683,
 				2FA672CE1D97858BD3DA2B0E,
-				01D06DDB37EF9194D9C857C4,
 				703818C6778C8D4616CCC66B,
 			);
 			name = Resources;
