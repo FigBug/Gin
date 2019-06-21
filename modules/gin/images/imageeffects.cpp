@@ -23,7 +23,8 @@ inline uint8 computeAlpha (uint8 la, uint8 ra)
     return (uint8)(((la * (256 - (ra + (ra >> 7)))) >> 8) + ra);
 }
 
-inline PixelARGB blend (const PixelARGB& c1, const PixelARGB& c2)
+template <class T>
+inline T blend (const T& c1, const T& c2)
 {
     int a = c1.getAlpha();
     int invA = 255 - a;
@@ -33,19 +34,26 @@ inline PixelARGB blend (const PixelARGB& c1, const PixelARGB& c2)
     int b = ((c2.getBlue()  * invA) + (c1.getBlue()  * a)) / 256;
     uint8 a2 = computeAlpha (c2.getAlpha(), c1.getAlpha());
 
-    return PixelARGB (a2, toByte (r), toByte (g), toByte (b));
+    T res;
+    res.setARGB (a2, toByte (r), toByte (g), toByte (b));
+    return res;
+}
+
+template <class T1, class T2>
+inline T2 convert (const T1& in)
+{
+    T2 out;
+    out.setARGB (in.getAlpha(), in.getRed(), in.getGreen(), in.getBlue());
+    return out;
 }
 
 //==============================================================================
+template <class T>
 void applyVignette (Image& src, float amountIn, float radiusIn, float fallOff, int maxThreads)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
     const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
-
-    jassert (src.getFormat() == Image::ARGB);
-    if (src.getFormat() != Image::ARGB)
-        return;
 
     double outA = w * 0.5 * radiusIn;
     double outB = h * 0.5 * radiusIn;
@@ -76,7 +84,7 @@ void applyVignette (Image& src, float amountIn, float radiusIn, float fallOff, i
             bool outside = outE.isPointOutside ({dx, dy});
             bool inside  = inE.isPointInside ({dx, dy});
 
-            PixelARGB* s = (PixelARGB*)p;
+            T* s = (T*)p;
 
             if (outside)
             {
@@ -112,15 +120,19 @@ void applyVignette (Image& src, float amountIn, float radiusIn, float fallOff, i
     });
 }
 
+void applyVignette (Image& src, float amountIn, float radiusIn, float fallOff, int maxThreads)
+{
+    if (src.getFormat() == Image::ARGB)          applyVignette<PixelARGB> (src, amountIn, radiusIn, fallOff, maxThreads);
+    else if (src.getFormat() == Image::RGB)      applyVignette<PixelRGB>  (src, amountIn, radiusIn, fallOff, maxThreads);
+    else jassertfalse;
+}
+
+template <class T>
 void applySepia (Image& src, int maxThreads)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
     const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
-
-    jassert (src.getFormat() == Image::ARGB);
-    if (src.getFormat() != Image::ARGB)
-        return;
 
     Image::BitmapData data (src, Image::BitmapData::readWrite);
 
@@ -148,14 +160,19 @@ void applySepia (Image& src, int maxThreads)
     });
 }
 
+void applySepia (Image& src, int maxThreads)
+{
+    if (src.getFormat() == Image::ARGB)          applySepia<PixelARGB> (src, maxThreads);
+    else if (src.getFormat() == Image::RGB)      applySepia<PixelRGB>  (src, maxThreads);
+    else jassertfalse;
+}
+
+template <class T>
 void applyGreyScale (Image& src, int maxThreads)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
     const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
-
-    if (src.getFormat() != Image::ARGB)
-        return;
 
     Image::BitmapData data (src, Image::BitmapData::readWrite);
 
@@ -165,7 +182,7 @@ void applyGreyScale (Image& src, int maxThreads)
 
         for (int x = 0; x < w; x++)
         {
-            PixelARGB* s = (PixelARGB*)p;
+            T* s = (T*)p;
 
             uint8 r = s->getRed();
             uint8 g = s->getGreen();
@@ -186,16 +203,21 @@ void applyGreyScale (Image& src, int maxThreads)
     });
 }
 
+void applyGreyScale (Image& src, int maxThreads)
+{
+    if (src.getFormat() == Image::ARGB)          applyGreyScale<PixelARGB> (src, maxThreads);
+    else if (src.getFormat() == Image::RGB)      applyGreyScale<PixelRGB>  (src, maxThreads);
+    else jassertfalse;
+}
+
+template <class T>
 void applySoften (Image& src, int maxThreads)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
     const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
 
-    if (src.getFormat() != Image::ARGB)
-        return;
-
-    Image dst (Image::ARGB, w, h, true);
+    Image dst (src.getFormat(), w, h, true);
 
     Image::BitmapData srcData (src, Image::BitmapData::readOnly);
     Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
@@ -214,7 +236,7 @@ void applySoften (Image& src, int maxThreads)
                     int cx = jlimit (0, w - 1, x + m);
                     int cy = jlimit (0, h - 1, y + n);
 
-                    PixelARGB* s = (PixelARGB*) srcData.getPixelPointer (cx, cy);
+                    T* s = (T*) srcData.getPixelPointer (cx, cy);
 
                     ro += s->getRed();
                     go += s->getGreen();
@@ -222,10 +244,10 @@ void applySoften (Image& src, int maxThreads)
                 }
             }
 
-            PixelARGB* s = (PixelARGB*) srcData.getPixelPointer (x, y);
+            T* s = (T*) srcData.getPixelPointer (x, y);
             a = s->getAlpha();
 
-            PixelARGB* d = (PixelARGB*) dstData.getPixelPointer (x, y);
+            T* d = (T*) dstData.getPixelPointer (x, y);
 
             d->setARGB (a, toByte (ro / 9), toByte (go / 9), toByte (bo / 9));
         }
@@ -233,16 +255,21 @@ void applySoften (Image& src, int maxThreads)
     src = dst;
 }
 
+void applySoften (Image& src, int maxThreads)
+{
+    if (src.getFormat() == Image::ARGB)          applySoften<PixelARGB> (src, maxThreads);
+    else if (src.getFormat() == Image::RGB)      applySoften<PixelRGB>  (src, maxThreads);
+    else jassertfalse;
+}
+
+template <class T>
 void applySharpen (Image& src, int maxThreads)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
     const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
 
-    if (src.getFormat() != Image::ARGB)
-        return;
-
-    Image dst (Image::ARGB, w, h, true);
+    Image dst (src.getFormat(), w, h, true);
 
     Image::BitmapData srcData (src, Image::BitmapData::readOnly);
     Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
@@ -251,18 +278,18 @@ void applySharpen (Image& src, int maxThreads)
     {
         for (int x = 0; x < w; x++)
         {
-            auto getPixelPointer = [&] (int cx, int cy) -> PixelARGB*
+            auto getPixelPointer = [&] (int cx, int cy) -> T*
             {
                 cx = jlimit (0, w - 1, cx);
                 cy = jlimit (0, h - 1, cy);
 
-                return (PixelARGB*) srcData.getPixelPointer (cx, cy);
+                return (T*) srcData.getPixelPointer (cx, cy);
             };
 
             int ro = 0, go = 0, bo = 0;
             uint8 ao = 0;
 
-            PixelARGB* s = getPixelPointer (x, y);
+            T* s = getPixelPointer (x, y);
 
             ro = s->getRed()   * 5;
             go = s->getGreen() * 5;
@@ -289,7 +316,7 @@ void applySharpen (Image& src, int maxThreads)
             go -= s->getGreen();
             bo -= s->getBlue();
 
-            PixelARGB* d = (PixelARGB*) dstData.getPixelPointer (x, y);
+            T* d = (T*) dstData.getPixelPointer (x, y);
 
             d->setARGB (ao, toByte (ro), toByte (go), toByte (bo));
         }
@@ -297,6 +324,14 @@ void applySharpen (Image& src, int maxThreads)
     src = dst;
 }
 
+void applySharpen (Image& src, int maxThreads)
+{
+    if (src.getFormat() == Image::ARGB)          applySharpen<PixelARGB> (src, maxThreads);
+    else if (src.getFormat() == Image::RGB)      applySharpen<PixelRGB>  (src, maxThreads);
+    else jassertfalse;
+}
+
+template <class T>
 void applyGamma (Image& src, float gamma, int maxThreads)
 {
     const int w = src.getWidth();
@@ -314,7 +349,7 @@ void applyGamma (Image& src, float gamma, int maxThreads)
 
         for (int x = 0; x < w; x++)
         {
-            PixelARGB* s = (PixelARGB*)p;
+            T* s = (T*)p;
 
             uint8 r = s->getRed();
             uint8 g = s->getGreen();
@@ -332,6 +367,14 @@ void applyGamma (Image& src, float gamma, int maxThreads)
     });
 }
 
+void applyGamma (Image& src, float gamma, int maxThreads)
+{
+    if (src.getFormat() == Image::ARGB)          applyGamma<PixelARGB> (src, gamma, maxThreads);
+    else if (src.getFormat() == Image::RGB)      applyGamma<PixelRGB>  (src, gamma, maxThreads);
+    else jassertfalse;
+}
+
+template <class T>
 void applyInvert (Image& src, int maxThreads)
 {
     const int w = src.getWidth();
@@ -349,7 +392,7 @@ void applyInvert (Image& src, int maxThreads)
 
         for (int x = 0; x < w; x++)
         {
-            PixelARGB* s = (PixelARGB*)p;
+            T* s = (T*)p;
 
             uint8 r = s->getRed();
             uint8 g = s->getGreen();
@@ -367,6 +410,14 @@ void applyInvert (Image& src, int maxThreads)
     });
 }
 
+void applyInvert (Image& src, int maxThreads)
+{
+    if (src.getFormat() == Image::ARGB)          applyInvert<PixelARGB> (src, maxThreads);
+    else if (src.getFormat() == Image::RGB)      applyInvert<PixelRGB>  (src, maxThreads);
+    else jassertfalse;
+}
+
+template <class T>
 void applyContrast (Image& src, float contrast, int maxThreads)
 {
     const int w = src.getWidth();
@@ -387,7 +438,7 @@ void applyContrast (Image& src, float contrast, int maxThreads)
 
         for (int x = 0; x < w; x++)
         {
-            PixelARGB* s = (PixelARGB*)p;
+            T* s = (T*)p;
 
             uint8 r = s->getRed();
             uint8 g = s->getGreen();
@@ -423,6 +474,14 @@ void applyContrast (Image& src, float contrast, int maxThreads)
     });
 }
 
+void applyContrast (Image& src, float contrast, int maxThreads)
+{
+    if (src.getFormat() == Image::ARGB)          applyContrast<PixelARGB> (src, contrast, maxThreads);
+    else if (src.getFormat() == Image::RGB)      applyContrast<PixelRGB>  (src, contrast, maxThreads);
+    else jassertfalse;
+}
+
+template <class T>
 void applyBrightnessContrast (Image& src, float brightness, float contrast, int maxThreads)
 {
     const int w = src.getWidth();
@@ -498,7 +557,7 @@ void applyBrightnessContrast (Image& src, float brightness, float contrast, int 
 
         for (int x = 0; x < w; x++)
         {
-            PixelARGB* s = (PixelARGB*)p;
+            T* s = (T*)p;
 
             uint8 r = s->getRed();
             uint8 g = s->getGreen();
@@ -535,6 +594,14 @@ void applyBrightnessContrast (Image& src, float brightness, float contrast, int 
     delete[] rgbTable;
 }
 
+void applyBrightnessContrast (Image& src, float brightness, float contrast, int maxThreads)
+{
+    if (src.getFormat() == Image::ARGB)          applyBrightnessContrast<PixelARGB> (src, brightness, contrast, maxThreads);
+    else if (src.getFormat() == Image::RGB)      applyBrightnessContrast<PixelRGB>  (src, brightness, contrast, maxThreads);
+    else jassertfalse;
+}
+
+template <class T>
 void applyHueSaturationLightness (Image& src, float hueIn, float saturation, float lightness, int maxThreads)
 {
     const int w = src.getWidth();
@@ -558,7 +625,7 @@ void applyHueSaturationLightness (Image& src, float hueIn, float saturation, flo
 
         for (int x = 0; x < w; x++)
         {
-            PixelARGB* s = (PixelARGB*)p;
+            T* s = (T*)p;
 
             uint8 r = s->getRed();
             uint8 g = s->getGreen();
@@ -589,13 +656,26 @@ void applyHueSaturationLightness (Image& src, float hueIn, float saturation, flo
             s->setARGB (a, toByte (ro), toByte (go), toByte (bo));
 
             if (lightness > 0)
-                *s = blend (PixelARGB (toByte ((lightness * 255) / 100), 255, 255, 255), *s);
+            {
+                auto blended = blend (PixelARGB (toByte ((lightness * 255) / 100), 255, 255, 255), convert<T, PixelARGB> (*s));
+                *s = convert<PixelARGB, T> (blended);
+            }
             else if (lightness < 0)
-                *s = blend (PixelARGB (toByte ((-lightness * 255) / 100), 0, 0, 0), *s);
+            {
+                auto blended = blend (PixelARGB (toByte ((-lightness * 255) / 100), 0, 0, 0), convert<T, PixelARGB> (*s));
+                *s = convert<PixelARGB, T> (blended);
+            }
 
             p += data.pixelStride;
         }
     });
+}
+
+void applyHueSaturationLightness (Image& src, float hue, float saturation, float lightness, int maxThreads)
+{
+    if (src.getFormat() == Image::ARGB)          applyHueSaturationLightness<PixelARGB> (src, hue, saturation, lightness, maxThreads);
+    else if (src.getFormat() == Image::RGB)      applyHueSaturationLightness<PixelRGB>  (src, hue, saturation, lightness, maxThreads);
+    else jassertfalse;
 }
 
 static unsigned short const stackblur_mul[255] =
