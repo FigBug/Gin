@@ -67,3 +67,9 @@ void applyStackBlur (Image& src, unsigned int radius);
 Image applyResize (const Image& src, int width, int height);
 
 Image applyResize (const Image& src, float factor);
+
+/** Re-colourise a image. Brightness gets remapped to colour on a gradient.
+  */
+void applyColourise (Image& src, const ColourGradient& gradient, int maxThreads = -1);
+
+void applyColourise (Image& src, const Colour c1, const Colour c2, int maxThreads = -1);

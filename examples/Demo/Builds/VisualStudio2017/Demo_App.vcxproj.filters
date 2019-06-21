@@ -11,6 +11,9 @@
     <Filter Include="Demo">
       <UniqueIdentifier>{2AA76388-655C-D3FB-609C-411B286D972F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="JUCE Modules\gin\3rdparty\avir">
+      <UniqueIdentifier>{786376B8-4206-D109-0FEB-CC1D6E86142B}</UniqueIdentifier>
+    </Filter>
     <Filter Include="JUCE Modules\gin\3rdparty\muParser">
       <UniqueIdentifier>{563D771C-AC89-C3F6-0E82-1768813D2D05}</UniqueIdentifier>
     </Filter>
@@ -1635,6 +1638,18 @@
     <ClInclude Include="..\..\Source\MainComponent.h">
       <Filter>Demo\Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin\3rdparty\avir\avir.h">
+      <Filter>JUCE Modules\gin\3rdparty\avir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin\3rdparty\avir\avir_dil.h">
+      <Filter>JUCE Modules\gin\3rdparty\avir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin\3rdparty\avir\avir_float4_sse.h">
+      <Filter>JUCE Modules\gin\3rdparty\avir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin\3rdparty\avir\avir_float8_avx.h">
+      <Filter>JUCE Modules\gin\3rdparty\avir</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\modules\gin\3rdparty\muParser\muParser.h">
       <Filter>JUCE Modules\gin\3rdparty\muParser</Filter>
     </ClInclude>
@@ -2960,8 +2975,14 @@
     <None Include="..\..\Resources\IMG_1883.JPG">
       <Filter>Demo\Source\Resources</Filter>
     </None>
+    <None Include="..\..\Resources\keyboard.png">
+      <Filter>Demo\Source\Resources</Filter>
+    </None>
     <None Include="..\..\Resources\pencils.jpeg">
       <Filter>Demo\Source\Resources</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin\3rdparty\avir\README.md">
+      <Filter>JUCE Modules\gin\3rdparty\avir</Filter>
     </None>
     <None Include="..\..\..\..\modules\gin\README.md">
       <Filter>JUCE Modules\gin</Filter>

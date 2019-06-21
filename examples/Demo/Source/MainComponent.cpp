@@ -9,6 +9,57 @@
 #include "MainComponent.h"
 
 //==============================================================================
+struct ColouriseDemo : public Component,
+                       private ChangeListener
+{
+    ColouriseDemo()
+    {
+        setName ("Colourise");
+
+        source = ImageFileFormat::loadFrom (BinaryData::keyboard_png, BinaryData::keyboard_pngSize);
+
+        selector1.setCurrentColour (Colour (0xffe3c916));
+        selector2.setCurrentColour (Colour (0xff0c0d01));
+
+        addAndMakeVisible (selector1);
+        addAndMakeVisible (selector2);
+
+        selector1.addChangeListener (this);
+        selector2.addChangeListener (this);
+    }
+
+    void changeListenerCallback (ChangeBroadcaster*) override
+    {
+        repaint();
+    }
+
+    void resized() override
+    {
+        auto rc = getLocalBounds();
+        rc = rc.withTrimmedBottom (rc.getHeight() / 2);
+
+        selector1.setBounds (rc.removeFromLeft (rc.getWidth() / 2));
+        selector2.setBounds (rc.removeFromLeft (rc.getWidth()));
+    }
+
+    void paint (Graphics& g) override
+    {
+        g.fillAll (Colours::black);
+
+        auto rc = getLocalBounds();
+        rc = rc.withTrimmedTop (rc.getHeight() / 2);
+
+        auto img = source.createCopy();
+        gin::applyColourise (img, selector1.getCurrentColour(), selector2.getCurrentColour());
+
+        g.drawImage (img, rc.toFloat(), RectanglePlacement::centred);
+    }
+
+    Image source;
+    ColourSelector selector1, selector2;
+};
+
+//==============================================================================
 struct ImageResizeDemo : public Component,
                          private Slider::Listener
 {
@@ -867,6 +918,7 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
+    demoComponents.add (new ColouriseDemo());
     demoComponents.add (new ImageResizeDemo());
     demoComponents.add (new ElevatedFileCopyDemo());
     demoComponents.add (new DownloadManagerDemo());
@@ -890,7 +942,7 @@ MainContentComponent::MainContentComponent()
     demoList.selectRow (0);
     addAndMakeVisible (demoList);
 
-    setSize (600, 400);
+    setSize (800, 640);
 }
 
 MainContentComponent::~MainContentComponent()

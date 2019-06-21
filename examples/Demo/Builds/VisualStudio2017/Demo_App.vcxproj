@@ -1425,6 +1425,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\MainComponent.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin\3rdparty\avir\avir.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin\3rdparty\avir\avir_dil.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin\3rdparty\avir\avir_float4_sse.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin\3rdparty\avir\avir_float8_avx.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\3rdparty\muParser\muParser.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\3rdparty\muParser\muParserBase.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\3rdparty\muParser\muParserBytecode.h"/>
@@ -1868,7 +1872,9 @@
     <None Include="..\..\Resources\ballon.bmp"/>
     <None Include="..\..\Resources\ballon_8bit.bmp"/>
     <None Include="..\..\Resources\IMG_1883.JPG"/>
+    <None Include="..\..\Resources\keyboard.png"/>
     <None Include="..\..\Resources\pencils.jpeg"/>
+    <None Include="..\..\..\..\modules\gin\3rdparty\avir\README.md"/>
     <None Include="..\..\..\..\modules\gin\README.md"/>
     <None Include="..\..\..\..\..\juce\modules\juce_core\native\java\README.txt"/>
     <None Include="..\..\..\..\..\juce\modules\juce_graphics\image_formats\jpglib\changes to libjpeg for JUCE.txt"/>

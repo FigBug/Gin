@@ -10,6 +10,7 @@
         <FILE id="NeK0jf" name="ballon.bmp" compile="0" resource="1" file="Resources/ballon.bmp"/>
         <FILE id="NM9OrP" name="ballon_8bit.bmp" compile="0" resource="1" file="Resources/ballon_8bit.bmp"/>
         <FILE id="ua0azw" name="IMG_1883.JPG" compile="0" resource="1" file="Resources/IMG_1883.JPG"/>
+        <FILE id="W10mPi" name="keyboard.png" compile="0" resource="1" file="Resources/keyboard.png"/>
         <FILE id="eyCXuY" name="pencils.jpeg" compile="0" resource="1" file="Resources/pencils.jpeg"/>
       </GROUP>
       <FILE id="qSbDPZ" name="MainComponent.cpp" compile="1" resource="0"

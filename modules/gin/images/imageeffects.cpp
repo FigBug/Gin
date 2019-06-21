@@ -1365,3 +1365,59 @@ Image applyResize (const Image& src, float factor)
                         roundToInt (factor * src.getWidth()),
                         roundToInt (factor * src.getHeight()));
 }
+
+template <class T>
+void applyColourise (Image& src, const ColourGradient& gradient, int maxThreads = -1)
+{
+    const int w = src.getWidth();
+    const int h = src.getHeight();
+    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
+
+    Image::BitmapData data (src, Image::BitmapData::readWrite);
+
+    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
+                           {
+                               uint8* p = data.getLinePointer (y);
+
+                               for (int x = 0; x < w; x++)
+                               {
+                                   T* s = (T*)p;
+
+                                   uint8 r = s->getRed();
+                                   uint8 g = s->getGreen();
+                                   uint8 b = s->getBlue();
+                                   uint8 a = s->getAlpha();
+
+                                   uint8 ro = toByte (r * 0.30 + 0.5);
+                                   uint8 go = toByte (g * 0.59 + 0.5);
+                                   uint8 bo = toByte (b * 0.11 + 0.5);
+
+                                   float proportion = 1.0f - float (ro + go + bo) / 256.0f;
+
+                                   auto c = gradient.getColourAtPosition (proportion);
+
+                                   s->setARGB (a,
+                                               c.getRed(),
+                                               c.getGreen(),
+                                               c.getBlue());
+
+                                   p += data.pixelStride;
+                               }
+                           });
+}
+
+void applyColourise (Image& src, const ColourGradient& gradient, int maxThreads)
+{
+    if (src.getFormat() == Image::ARGB)          applyColourise<PixelARGB> (src, gradient, maxThreads);
+    else if (src.getFormat() == Image::RGB)      applyColourise<PixelRGB>  (src, gradient, maxThreads);
+    else jassertfalse;
+}
+
+void applyColourise (Image& src, const Colour c1, const Colour c2, int maxThreads)
+{
+    ColourGradient g;
+    g.addColour (0.0, c1);
+    g.addColour (1.0, c2);
+
+    applyColourise (src, g, maxThreads);
+}
