@@ -9,12 +9,12 @@
 #include "MainComponent.h"
 
 //==============================================================================
-struct ColouriseDemo : public Component,
-                       private ChangeListener
+struct GradientMapDemo : public Component,
+                         private ChangeListener
 {
-    ColouriseDemo()
+    GradientMapDemo()
     {
-        setName ("Colourise");
+        setName ("Gradient Map");
 
         source = ImageFileFormat::loadFrom (BinaryData::keyboard_png, BinaryData::keyboard_pngSize);
 
@@ -50,7 +50,7 @@ struct ColouriseDemo : public Component,
         rc = rc.withTrimmedTop (rc.getHeight() / 2);
 
         auto img = source.createCopy();
-        gin::applyColourise (img, selector1.getCurrentColour(), selector2.getCurrentColour());
+        gin::applyGradientMap (img, selector1.getCurrentColour(), selector2.getCurrentColour());
 
         g.drawImage (img, rc.toFloat(), RectanglePlacement::centred);
     }
@@ -918,7 +918,7 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
-    demoComponents.add (new ColouriseDemo());
+    demoComponents.add (new GradientMapDemo());
     demoComponents.add (new ImageResizeDemo());
     demoComponents.add (new ElevatedFileCopyDemo());
     demoComponents.add (new DownloadManagerDemo());

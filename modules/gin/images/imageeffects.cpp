@@ -1447,7 +1447,7 @@ Image applyResize (const Image& src, float factor)
 }
 
 template <class T>
-void applyColourise (Image& src, const ColourGradient& gradient, int maxThreads = -1)
+void applyGradientMap (Image& src, const ColourGradient& gradient, int maxThreads = -1)
 {
     const int w = src.getWidth();
     const int h = src.getHeight();
@@ -1486,18 +1486,18 @@ void applyColourise (Image& src, const ColourGradient& gradient, int maxThreads 
                            });
 }
 
-void applyColourise (Image& src, const ColourGradient& gradient, int maxThreads)
+void applyGradientMap (Image& src, const ColourGradient& gradient, int maxThreads)
 {
-    if (src.getFormat() == Image::ARGB)          applyColourise<PixelARGB> (src, gradient, maxThreads);
-    else if (src.getFormat() == Image::RGB)      applyColourise<PixelRGB>  (src, gradient, maxThreads);
+    if (src.getFormat() == Image::ARGB)          applyGradientMap<PixelARGB> (src, gradient, maxThreads);
+    else if (src.getFormat() == Image::RGB)      applyGradientMap<PixelRGB>  (src, gradient, maxThreads);
     else jassertfalse;
 }
 
-void applyColourise (Image& src, const Colour c1, const Colour c2, int maxThreads)
+void applyGradientMap (Image& src, const Colour c1, const Colour c2, int maxThreads)
 {
     ColourGradient g;
     g.addColour (0.0, c1);
     g.addColour (1.0, c2);
 
-    applyColourise (src, g, maxThreads);
+    applyGradientMap (src, g, maxThreads);
 }
