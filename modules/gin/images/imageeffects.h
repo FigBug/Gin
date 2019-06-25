@@ -106,4 +106,4 @@ enum BlendMode
     Phoenix,
 };
 
-void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha = 1.0f, int maxThreads = -1);
+void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha = 1.0f, Point<int> position = {}, int maxThreads = -1);
