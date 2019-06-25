@@ -71,7 +71,6 @@ using std::abs;
 #define PNG_ALIGNED_MEMORY_SUPPORTED
 #define PNG_BENIGN_ERRORS_SUPPORTED
 #define PNG_BENIGN_READ_ERRORS_SUPPORTED
-#define PNG_BUILD_GRAYSCALE_PALETTE_SUPPORTED
 #define PNG_CHECK_FOR_INVALID_INDEX_SUPPORTED
 #define PNG_COLORSPACE_SUPPORTED
 #define PNG_CONSOLE_IO_SUPPORTED
@@ -87,7 +86,6 @@ using std::abs;
 #define PNG_INCH_CONVERSIONS_SUPPORTED
 #define PNG_INFO_IMAGE_SUPPORTED
 #define PNG_IO_STATE_SUPPORTED
-#define PNG_MNG_FEATURES_SUPPORTED
 #define PNG_POINTER_INDEXING_SUPPORTED
 #define PNG_PROGRESSIVE_READ_SUPPORTED
 #define PNG_READ_16BIT_SUPPORTED
@@ -251,29 +249,27 @@ using std::abs;
 #define PNG_sCAL_PRECISION 5
 #define PNG_sRGB_PROFILE_CHECKS 2
 
+#define PNG_LINKAGE_API extern
+#define PNG_LINKAGE_FUNCTION extern
+
+#define PNG_ARM_NEON_OPT 0
+
+#if ! defined (PNG_USER_WIDTH_MAX)
+ #define PNG_USER_WIDTH_MAX 1000000
+#endif
+
+#if ! defined (PNG_USER_HEIGHT_MAX)
+ #define PNG_USER_HEIGHT_MAX 1000000
+#endif
+
 #define png_debug(a, b)
 #define png_debug1(a, b, c)
 #define png_debug2(a, b, c, d)
 
 #include "juce_graphics/image_formats/pnglib/png.h"
 #include "juce_graphics/image_formats/pnglib/pngconf.h"
-
-#define PNG_NO_EXTERN
-#include "juce_graphics/image_formats/pnglib/png.c"
-#include "juce_graphics/image_formats/pnglib/pngerror.c"
-#include "juce_graphics/image_formats/pnglib/pngget.c"
-#include "juce_graphics/image_formats/pnglib/pngmem.c"
-#include "juce_graphics/image_formats/pnglib/pngread.c"
-#include "juce_graphics/image_formats/pnglib/pngpread.c"
-#include "juce_graphics/image_formats/pnglib/pngrio.c"
-#include "juce_graphics/image_formats/pnglib/pngrtran.c"
-#include "juce_graphics/image_formats/pnglib/pngrutil.c"
-#include "juce_graphics/image_formats/pnglib/pngset.c"
-#include "juce_graphics/image_formats/pnglib/pngtrans.c"
-#include "juce_graphics/image_formats/pnglib/pngwio.c"
-#include "juce_graphics/image_formats/pnglib/pngwrite.c"
-#include "juce_graphics/image_formats/pnglib/pngwtran.c"
-#include "juce_graphics/image_formats/pnglib/pngwutil.c"
+#include "juce_graphics/image_formats/pnglib/pngstruct.h"
+#include "juce_graphics/image_formats/pnglib/pnginfo.h"
 
 #if JUCE_CLANG
  #pragma clang diagnostic pop
