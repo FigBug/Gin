@@ -183,6 +183,20 @@
 			path = ../../Resources/pencils.jpeg;
 			sourceTree = "SOURCE_ROOT";
 		};
+		722810538E22A43FF0182CE0 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.jpeg;
+			name = mountain.jpg;
+			path = ../../Resources/mountain.jpg;
+			sourceTree = "SOURCE_ROOT";
+		};
+		793162C6BF56F3F91B581CE3 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.jpeg;
+			name = Leaf.jpg;
+			path = ../../Resources/Leaf.jpg;
+			sourceTree = "SOURCE_ROOT";
+		};
 		7D9204324F24600339A829DC = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -351,6 +365,8 @@
 				FBC90B08FB69A1B6F23F5567,
 				8F138309B9CA06F398656683,
 				2FA672CE1D97858BD3DA2B0E,
+				793162C6BF56F3F91B581CE3,
+				722810538E22A43FF0182CE0,
 				703818C6778C8D4616CCC66B,
 			);
 			name = Resources;

@@ -9,6 +9,72 @@
 #include "MainComponent.h"
 
 //==============================================================================
+struct BlendingDemo : public Component,
+                      private ComboBox::Listener,
+                      private Slider::Listener
+{
+    BlendingDemo()
+    {
+        setName ("Blending");
+
+        imgA = ImageFileFormat::loadFrom (BinaryData::Leaf_jpg, BinaryData::Leaf_jpgSize);
+        imgB = ImageFileFormat::loadFrom (BinaryData::mountain_jpg, BinaryData::mountain_jpgSize);
+
+
+        modeBox.addItemList (modeNames, 1);
+        modeBox.setSelectedItemIndex (0);
+        modeBox.addListener (this);
+        addAndMakeVisible (modeBox);
+
+        alphaSlider.setRange (0.0, 1.0);
+        alphaSlider.setValue (1.0);
+        alphaSlider.addListener (this);
+        addAndMakeVisible (alphaSlider);
+    }
+
+    void sliderValueChanged (Slider*) override { repaint(); }
+    void comboBoxChanged (ComboBox*) override  { repaint(); }
+
+    void resized() override
+    {
+        auto rc = getLocalBounds();
+        rc = rc.withTrimmedBottom (rc.getHeight() / 2);
+
+        rc = getLocalBounds().removeFromBottom (20);
+        alphaSlider.setBounds (rc.removeFromLeft (getWidth() / 3));
+
+        modeBox.setBounds (5, 5, 150, 20);
+    }
+
+    void paint (Graphics& g) override
+    {
+        g.fillAll (Colours::black);
+
+        auto rc = getLocalBounds();
+
+        auto img = imgB.createCopy();
+
+        gin::BlendMode blendMode = (gin::BlendMode) modeBox.getSelectedItemIndex();
+        float alpha = float (alphaSlider.getValue());
+
+        gin::applyBlend (img, imgA, blendMode, alpha);
+
+        g.drawImage (img, rc.toFloat(), RectanglePlacement::centred);
+    }
+
+    Image imgA, imgB;
+
+    StringArray modeNames =
+    {
+        "Normal", "Lighten", "Darken", "Multiply", "Average", "Add", "Subtract", "Difference", "Negation", "Screen", "Exclusion", "Overlay", "SoftLight", "HardLight",
+        "ColorDodge", "ColorBurn", "LinearDodge", "LinearBurn", "LinearLight", "VividLight", "PinLight", "HardMix", "Reflect", "Glow", "Phoenix"
+    };
+
+    ComboBox modeBox;
+    Slider alphaSlider;
+};
+
+//==============================================================================
 struct GradientMapDemo : public Component,
                          private ChangeListener
 {
@@ -918,6 +984,7 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
+    demoComponents.add (new BlendingDemo());
     demoComponents.add (new GradientMapDemo());
     demoComponents.add (new ImageResizeDemo());
     demoComponents.add (new ElevatedFileCopyDemo());

@@ -20,11 +20,17 @@ namespace BinaryData
     extern const char*   IMG_1883_JPG;
     const int            IMG_1883_JPGSize = 1218029;
 
+    extern const char*   Leaf_jpg;
+    const int            Leaf_jpgSize = 21912;
+
+    extern const char*   mountain_jpg;
+    const int            mountain_jpgSize = 34917;
+
     extern const char*   pencils_jpeg;
     const int            pencils_jpegSize = 254617;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 5;
+    const int namedResourceListSize = 7;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

@@ -11,6 +11,8 @@
         <FILE id="NM9OrP" name="ballon_8bit.bmp" compile="0" resource="1" file="Resources/ballon_8bit.bmp"/>
         <FILE id="GwWHNn" name="Castle.jpg" compile="0" resource="1" file="Resources/Castle.jpg"/>
         <FILE id="ua0azw" name="IMG_1883.JPG" compile="0" resource="1" file="Resources/IMG_1883.JPG"/>
+        <FILE id="f4GmIo" name="Leaf.jpg" compile="0" resource="1" file="Resources/Leaf.jpg"/>
+        <FILE id="zddIdV" name="mountain.jpg" compile="0" resource="1" file="Resources/mountain.jpg"/>
         <FILE id="eyCXuY" name="pencils.jpeg" compile="0" resource="1" file="Resources/pencils.jpeg"/>
       </GROUP>
       <FILE id="qSbDPZ" name="MainComponent.cpp" compile="1" resource="0"

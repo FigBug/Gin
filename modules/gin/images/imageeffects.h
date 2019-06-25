@@ -73,3 +73,37 @@ Image applyResize (const Image& src, float factor);
 void applyGradientMap (Image& src, const ColourGradient& gradient, int maxThreads = -1);
 
 void applyGradientMap (Image& src, const Colour c1, const Colour c2, int maxThreads = -1);
+
+/** Blend two images
+  */
+
+enum BlendMode
+{
+    Normal,
+    Lighten,
+    Darken,
+    Multiply,
+    Average,
+    Add,
+    Subtract,
+    Difference,
+    Negation,
+    Screen,
+    Exclusion,
+    Overlay,
+    SoftLight,
+    HardLight,
+    ColorDodge,
+    ColorBurn,
+    LinearDodge,
+    LinearBurn,
+    LinearLight,
+    VividLight,
+    PinLight,
+    HardMix,
+    Reflect,
+    Glow,
+    Phoenix,
+};
+
+void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha = 1.0f, int maxThreads = -1);

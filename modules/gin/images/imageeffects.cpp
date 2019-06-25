@@ -1501,3 +1501,124 @@ void applyGradientMap (Image& src, const Colour c1, const Colour c2, int maxThre
 
     applyGradientMap (src, g, maxThreads);
 }
+
+//==============================================================================
+
+inline uint8 channelBlendNormal (int A, int)          { return ((uint8)(A)); }
+inline uint8 channelBlendLighten (int A, int B)       { return ((uint8)((B > A) ? B : A)); }
+inline uint8 channelBlendDarken (int A, int B)        { return ((uint8)((B > A) ? A : B)); }
+inline uint8 channelBlendMultiply (int A, int B)      { return ((uint8)((A * B) / 255)); }
+inline uint8 channelBlendAverage (int A, int B)       { return ((uint8)((A + B) / 2)); }
+inline uint8 channelBlendAdd (int A, int B)           { return ((uint8)(jmin (255, (A + B)))); }
+inline uint8 channelBlendSubtract (int A, int B)      { return ((uint8)((A + B < 255) ? 0 : (A + B - 255))); }
+inline uint8 channelBlendDifference (int A, int B)    { return ((uint8)(std::abs (A - B))); }
+inline uint8 channelBlendNegation (int A, int B)      { return ((uint8)(255 - std::abs (255 - A - B))); }
+inline uint8 channelBlendScreen (int A, int B)        { return ((uint8)(255 - (((255 - A) * (255 - B)) >> 8))); }
+inline uint8 channelBlendExclusion (int A, int B)     { return ((uint8)(A + B - 2 * A * B / 255)); }
+inline uint8 channelBlendOverlay (int A, int B)       { return ((uint8)((B < 128) ? (2 * A * B / 255) : (255 - 2 * (255 - A) * (255 - B) / 255))); }
+inline uint8 channelBlendSoftLight (int A, int B)     { return ((uint8)((B < 128) ? (2 * ((A >> 1) + 64)) * ((float)B / 255) : (255 - (2 * (255 - ((A >> 1) + 64)) * (float)(255 - B) / 255)))); }
+inline uint8 channelBlendHardLight (int A, int B)     { return (channelBlendOverlay (B,A)); }
+inline uint8 channelBlendColorDodge (int A, int B)    { return ((uint8)((B == 255) ? B : jmin (255, ((A << 8 ) / (255 - B))))); }
+inline uint8 channelBlendColorBurn (int A, int B)     { return ((uint8)((B == 0) ? B : jmax (0, (255 - ((255 - A) << 8 ) / B)))); }
+inline uint8 channelBlendLinearDodge (int A, int B)   { return (channelBlendAdd (A, B)); }
+inline uint8 channelBlendLinearBurn (int A, int B)    { return (channelBlendSubtract (A, B)); }
+inline uint8 channelBlendLinearLight (int A, int B)   { return ((uint8)(B < 128) ? channelBlendLinearBurn (A,(2 * B)) : channelBlendLinearDodge (A, (2 * (B - 128)))); }
+inline uint8 channelBlendVividLight (int A, int B)    { return ((uint8)(B < 128) ? channelBlendColorBurn (A,(2 * B)) : channelBlendColorDodge (A, (2 * (B - 128)))); }
+inline uint8 channelBlendPinLight (int A, int B)      { return ((uint8)(B < 128) ? channelBlendDarken (A,(2 * B)) : channelBlendLighten (A, (2 * (B - 128)))); }
+inline uint8 channelBlendHardMix (int A, int B)       { return ((uint8)((channelBlendVividLight (A, B) < 128) ? 0:255)); }
+inline uint8 channelBlendReflect (int A, int B)       { return ((uint8)((B == 255) ? B : jmin (255, (A * A / (255 - B))))); }
+inline uint8 channelBlendGlow (int A, int B)          { return (channelBlendReflect (B, A)); }
+inline uint8 channelBlendPhoenix (int A, int B)       { return ((uint8)(jmin (A, B) - jmax (A, B) + 255)); }
+
+inline uint8 channelBlendAlpha (uint8 A, uint8 B, float O)
+{
+    return ((uint8)(O * A + (1 - O) * B));
+}
+
+template <class T, uint8 (*F)(int, int)>
+void applyBlend (Image& dst, const Image& src, float alpha, int maxThreads)
+{
+    const int w = jmin (src.getWidth(), dst.getWidth());
+    const int h = jmin (src.getHeight(), dst.getWidth());
+    
+    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
+
+    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
+    Image::BitmapData dstData (dst, Image::BitmapData::readWrite);
+
+    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
+                           {
+                               uint8* pSrc = srcData.getLinePointer (y);
+                               uint8* pDst = dstData.getLinePointer (y);
+
+                               for (int x = 0; x < w; x++)
+                               {
+                                   T* a = (T*)pSrc;
+                                   T* b = (T*)pDst;
+
+                                   uint8 ar = a->getRed();
+                                   uint8 ag = a->getGreen();
+                                   uint8 ab = a->getBlue();
+                                   uint8 aa = a->getAlpha();
+
+                                   ignoreUnused (aa);
+
+                                   uint8 br = b->getRed();
+                                   uint8 bg = b->getGreen();
+                                   uint8 bb = b->getBlue();
+                                   uint8 ba = b->getAlpha();
+
+                                   br = channelBlendAlpha (F (ar, br), br, alpha);
+                                   bg = channelBlendAlpha (F (ag, bg), bg, alpha);
+                                   bb = channelBlendAlpha (F (ab, bb), bb, alpha);
+
+                                   b->setARGB (ba, br, bg, bb);
+
+                                   pSrc += srcData.pixelStride;
+                                   pDst += dstData.pixelStride;
+                               }
+                           });
+}
+
+template <class T>
+void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha, int maxThreads)
+{
+    switch (mode)
+    {
+        case Normal: applyBlend<T, channelBlendNormal> (dst, src, alpha, maxThreads); break;
+        case Lighten: applyBlend<T, channelBlendLighten> (dst, src, alpha, maxThreads); break;
+        case Darken: applyBlend<T, channelBlendDarken> (dst, src, alpha, maxThreads); break;
+        case Multiply: applyBlend<T, channelBlendMultiply> (dst, src, alpha, maxThreads); break;
+        case Average: applyBlend<T, channelBlendAverage> (dst, src, alpha, maxThreads); break;
+        case Add: applyBlend<T, channelBlendAdd> (dst, src, alpha, maxThreads); break;
+        case Subtract: applyBlend<T, channelBlendSubtract> (dst, src, alpha, maxThreads); break;
+        case Difference: applyBlend<T, channelBlendDifference> (dst, src, alpha, maxThreads); break;
+        case Negation: applyBlend<T, channelBlendNegation> (dst, src, alpha, maxThreads); break;
+        case Screen: applyBlend<T, channelBlendScreen> (dst, src, alpha, maxThreads); break;
+        case Exclusion: applyBlend<T, channelBlendExclusion> (dst, src, alpha, maxThreads); break;
+        case Overlay: applyBlend<T, channelBlendOverlay> (dst, src, alpha, maxThreads); break;
+        case SoftLight: applyBlend<T, channelBlendSoftLight> (dst, src, alpha, maxThreads); break;
+        case HardLight: applyBlend<T, channelBlendHardLight> (dst, src, alpha, maxThreads); break;
+        case ColorDodge: applyBlend<T, channelBlendColorDodge> (dst, src, alpha, maxThreads); break;
+        case ColorBurn: applyBlend<T, channelBlendColorBurn> (dst, src, alpha, maxThreads); break;
+        case LinearDodge: applyBlend<T, channelBlendLinearDodge> (dst, src, alpha, maxThreads); break;
+        case LinearBurn: applyBlend<T, channelBlendLinearBurn> (dst, src, alpha, maxThreads); break;
+        case LinearLight: applyBlend<T, channelBlendLinearLight> (dst, src, alpha, maxThreads); break;
+        case VividLight: applyBlend<T, channelBlendVividLight> (dst, src, alpha, maxThreads); break;
+        case PinLight: applyBlend<T, channelBlendPinLight> (dst, src, alpha, maxThreads); break;
+        case HardMix: applyBlend<T, channelBlendHardMix> (dst, src, alpha, maxThreads); break;
+        case Reflect: applyBlend<T, channelBlendReflect> (dst, src, alpha, maxThreads); break;
+        case Glow: applyBlend<T, channelBlendGlow> (dst, src, alpha, maxThreads); break;
+        case Phoenix: applyBlend<T, channelBlendPhoenix> (dst, src, alpha, maxThreads); break;
+    }
+}
+
+void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha, int maxThreads)
+{
+    if (src.getFormat() != dst.getFormat())
+        dst = dst.convertedToFormat (src.getFormat());
+
+    if (src.getFormat() == Image::ARGB)          applyBlend<PixelARGB> (dst, src, mode, alpha, maxThreads);
+    else if (src.getFormat() == Image::RGB)      applyBlend<PixelRGB>  (dst, src, mode, alpha, maxThreads);
+    else jassertfalse;
+}

@@ -1682,6 +1682,7 @@
     <ClInclude Include="..\..\..\..\..\juce\modules\juce_graphics\image_formats\jpglib\transupp.h"/>
     <ClInclude Include="..\..\..\..\..\juce\modules\juce_graphics\image_formats\pnglib\png.h"/>
     <ClInclude Include="..\..\..\..\..\juce\modules\juce_graphics\image_formats\pnglib\pngconf.h"/>
+    <ClInclude Include="..\..\..\..\..\juce\modules\juce_graphics\image_formats\pnglib\pngdebug.h"/>
     <ClInclude Include="..\..\..\..\..\juce\modules\juce_graphics\image_formats\pnglib\pnginfo.h"/>
     <ClInclude Include="..\..\..\..\..\juce\modules\juce_graphics\image_formats\pnglib\pngpriv.h"/>
     <ClInclude Include="..\..\..\..\..\juce\modules\juce_graphics\image_formats\pnglib\pngstruct.h"/>
@@ -1873,6 +1874,8 @@
     <None Include="..\..\Resources\ballon_8bit.bmp"/>
     <None Include="..\..\Resources\Castle.jpg"/>
     <None Include="..\..\Resources\IMG_1883.JPG"/>
+    <None Include="..\..\Resources\Leaf.jpg"/>
+    <None Include="..\..\Resources\mountain.jpg"/>
     <None Include="..\..\Resources\pencils.jpeg"/>
     <None Include="..\..\..\..\modules\gin\3rdparty\avir\README.md"/>
     <None Include="..\..\..\..\modules\gin\README.md"/>
