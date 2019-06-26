@@ -1706,9 +1706,110 @@ void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha, Poin
     }
 }
 
+template <class T, uint8 (*F)(int, int)>
+void applyBlend (Image& dst, Colour c, int maxThreads)
+{
+    int w = dst.getWidth();
+    int h = dst.getHeight();
+
+    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
+
+    Image::BitmapData dstData (dst, Image::BitmapData::readWrite);
+
+    uint8 ar = c.getRed();
+    uint8 ag = c.getGreen();
+    uint8 ab = c.getBlue();
+    uint8 aa = c.getAlpha();
+
+    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
+                           {
+                               uint8* pDst = dstData.getLinePointer (y);
+
+                               for (int x = 0; x < w; x++)
+                               {
+                                   T* bc = (T*)pDst;
+
+                                   uint8 br = bc->getRed();
+                                   uint8 bg = bc->getGreen();
+                                   uint8 bb = bc->getBlue();
+                                   uint8 ba = bc->getAlpha();
+
+                                   if (ba == 255)
+                                   {
+                                       float pixelAlpha = aa / 255.0f;
+
+                                       br = channelBlendAlpha (F (ar, br), br, pixelAlpha);
+                                       bg = channelBlendAlpha (F (ag, bg), bg, pixelAlpha);
+                                       bb = channelBlendAlpha (F (ab, bb), bb, pixelAlpha);
+                                   }
+                                   else
+                                   {
+                                       float srcAlpha = aa / 255.0f;
+                                       float dstAlpha = ba / 255.0f;
+
+                                       float outAlpha = srcAlpha + dstAlpha * (1.0f - srcAlpha);
+
+                                       if (outAlpha == 0.0)
+                                       {
+                                           br = 0;
+                                           bg = 0;
+                                           bb = 0;
+                                       }
+                                       else
+                                       {
+                                           uint8 r = F (ar, br);
+                                           uint8 g = F (ag, bg);
+                                           uint8 b = F (ab, bb);
+
+                                           br = uint8 ((r * srcAlpha + br * dstAlpha * (1.0f - srcAlpha)) / outAlpha);
+                                           bg = uint8 ((g * srcAlpha + bg * dstAlpha * (1.0f - srcAlpha)) / outAlpha);
+                                           bb = uint8 ((b * srcAlpha + bb * dstAlpha * (1.0f - srcAlpha)) / outAlpha);
+                                       }
+                                   }
+
+                                   bc->setARGB (ba, br, bg, bb);
+
+                                   pDst += dstData.pixelStride;
+                               }
+                           });
+}
+
+template <class T>
 void applyBlend (Image& dst, BlendMode mode, Colour c, int maxThreads)
 {
-    Image src (dst.getFormat(), dst.getWidth(), dst.getHeight(), false);
-    applyColour (src, c, maxThreads);
-    applyBlend (dst, src, mode, 1.0f, {}, maxThreads);
+    switch (mode)
+    {
+        case Normal: applyBlend<T, channelBlendNormal> (dst, c, maxThreads); break;
+        case Lighten: applyBlend<T, channelBlendLighten> (dst, c, maxThreads); break;
+        case Darken: applyBlend<T, channelBlendDarken> (dst, c, maxThreads); break;
+        case Multiply: applyBlend<T, channelBlendMultiply> (dst, c, maxThreads); break;
+        case Average: applyBlend<T, channelBlendAverage> (dst, c, maxThreads); break;
+        case Add: applyBlend<T, channelBlendAdd> (dst, c, maxThreads); break;
+        case Subtract: applyBlend<T, channelBlendSubtract> (dst, c, maxThreads); break;
+        case Difference: applyBlend<T, channelBlendDifference> (dst, c, maxThreads); break;
+        case Negation: applyBlend<T, channelBlendNegation> (dst, c, maxThreads); break;
+        case Screen: applyBlend<T, channelBlendScreen> (dst, c, maxThreads); break;
+        case Exclusion: applyBlend<T, channelBlendExclusion> (dst, c, maxThreads); break;
+        case Overlay: applyBlend<T, channelBlendOverlay> (dst, c, maxThreads); break;
+        case SoftLight: applyBlend<T, channelBlendSoftLight> (dst, c, maxThreads); break;
+        case HardLight: applyBlend<T, channelBlendHardLight> (dst, c, maxThreads); break;
+        case ColorDodge: applyBlend<T, channelBlendColorDodge> (dst, c, maxThreads); break;
+        case ColorBurn: applyBlend<T, channelBlendColorBurn> (dst, c, maxThreads); break;
+        case LinearDodge: applyBlend<T, channelBlendLinearDodge> (dst, c, maxThreads); break;
+        case LinearBurn: applyBlend<T, channelBlendLinearBurn> (dst, c, maxThreads); break;
+        case LinearLight: applyBlend<T, channelBlendLinearLight> (dst, c, maxThreads); break;
+        case VividLight: applyBlend<T, channelBlendVividLight> (dst, c, maxThreads); break;
+        case PinLight: applyBlend<T, channelBlendPinLight> (dst, c, maxThreads); break;
+        case HardMix: applyBlend<T, channelBlendHardMix> (dst, c, maxThreads); break;
+        case Reflect: applyBlend<T, channelBlendReflect> (dst, c, maxThreads); break;
+        case Glow: applyBlend<T, channelBlendGlow> (dst, c, maxThreads); break;
+        case Phoenix: applyBlend<T, channelBlendPhoenix> (dst, c, maxThreads); break;
+    }
+}
+
+void applyBlend (Image& dst, BlendMode mode, Colour c, int maxThreads)
+{
+    if (dst.getFormat() == Image::ARGB)          applyBlend<PixelARGB> (dst, mode, c, maxThreads);
+    else if (dst.getFormat() == Image::RGB)      applyBlend<PixelRGB>  (dst, mode, c, maxThreads);
+    else jassertfalse;
 }
