@@ -1566,26 +1566,53 @@ void applyBlend (Image& dst, const Image& src, float alpha, Point<int> position,
 
                                for (int x = 0; x < w; x++)
                                {
-                                   T* a = (T*)pSrc;
-                                   T* b = (T*)pDst;
+                                   T* ac = (T*)pSrc;
+                                   T* bc = (T*)pDst;
 
-                                   uint8 ar = a->getRed();
-                                   uint8 ag = a->getGreen();
-                                   uint8 ab = a->getBlue();
-                                   uint8 aa = a->getAlpha();
+                                   uint8 ar = ac->getRed();
+                                   uint8 ag = ac->getGreen();
+                                   uint8 ab = ac->getBlue();
+                                   uint8 aa = ac->getAlpha();
 
-                                   ignoreUnused (aa);
+                                   uint8 br = bc->getRed();
+                                   uint8 bg = bc->getGreen();
+                                   uint8 bb = bc->getBlue();
+                                   uint8 ba = bc->getAlpha();
 
-                                   uint8 br = b->getRed();
-                                   uint8 bg = b->getGreen();
-                                   uint8 bb = b->getBlue();
-                                   uint8 ba = b->getAlpha();
+                                   if (ba == 255)
+                                   {
+                                       float pixelAlpha = alpha * aa / 255.0f;
 
-                                   br = channelBlendAlpha (F (ar, br), br, alpha);
-                                   bg = channelBlendAlpha (F (ag, bg), bg, alpha);
-                                   bb = channelBlendAlpha (F (ab, bb), bb, alpha);
+                                       br = channelBlendAlpha (F (ar, br), br, pixelAlpha);
+                                       bg = channelBlendAlpha (F (ag, bg), bg, pixelAlpha);
+                                       bb = channelBlendAlpha (F (ab, bb), bb, pixelAlpha);
+                                   }
+                                   else
+                                   {
+                                       float srcAlpha = alpha * aa / 255.0f;
+                                       float dstAlpha = ba / 255.0f;
 
-                                   b->setARGB (ba, br, bg, bb);
+                                       float outAlpha = srcAlpha + dstAlpha * (1.0f - srcAlpha);
+
+                                       if (outAlpha == 0.0)
+                                       {
+                                           br = 0;
+                                           bg = 0;
+                                           bb = 0;
+                                       }
+                                       else
+                                       {
+                                           uint8 r = F (ar, br);
+                                           uint8 g = F (ag, bg);
+                                           uint8 b = F (ab, bb);
+
+                                           br = uint8 ((r * srcAlpha + br * dstAlpha * (1.0f - srcAlpha)) / outAlpha);
+                                           bg = uint8 ((g * srcAlpha + bg * dstAlpha * (1.0f - srcAlpha)) / outAlpha);
+                                           bb = uint8 ((b * srcAlpha + bb * dstAlpha * (1.0f - srcAlpha)) / outAlpha);
+                                       }
+                                   }
+
+                                   bc->setARGB (ba, br, bg, bb);
 
                                    pSrc += srcData.pixelStride;
                                    pDst += dstData.pixelStride;
@@ -1629,9 +1656,18 @@ void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha, Poin
 void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha, Point<int> position, int maxThreads)
 {
     if (src.getFormat() != dst.getFormat())
-        dst = dst.convertedToFormat (src.getFormat());
+    {
+        Image copy = src.createCopy();
+        copy = copy.convertedToFormat (dst.getFormat());
 
-    if (src.getFormat() == Image::ARGB)          applyBlend<PixelARGB> (dst, src, mode, alpha, position, maxThreads);
-    else if (src.getFormat() == Image::RGB)      applyBlend<PixelRGB>  (dst, src, mode, alpha, position, maxThreads);
-    else jassertfalse;
+        if (src.getFormat() == Image::ARGB)          applyBlend<PixelARGB> (dst, copy, mode, alpha, position, maxThreads);
+        else if (src.getFormat() == Image::RGB)      applyBlend<PixelRGB>  (dst, copy, mode, alpha, position, maxThreads);
+        else jassertfalse;
+    }
+    else
+    {
+        if (src.getFormat() == Image::ARGB)          applyBlend<PixelARGB> (dst, src, mode, alpha, position, maxThreads);
+        else if (src.getFormat() == Image::RGB)      applyBlend<PixelRGB>  (dst, src, mode, alpha, position, maxThreads);
+        else jassertfalse;
+    }
 }
