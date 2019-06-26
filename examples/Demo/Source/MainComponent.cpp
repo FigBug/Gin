@@ -9,6 +9,81 @@
 #include "MainComponent.h"
 
 //==============================================================================
+struct SolidBlendingDemo : public Component,
+                           private ComboBox::Listener,
+                           private Slider::Listener,
+                           private ChangeListener
+{
+    SolidBlendingDemo()
+    {
+        setName ("Solid Blending");
+
+        img = ImageFileFormat::loadFrom (BinaryData::Leaf_jpg, BinaryData::Leaf_jpgSize);
+
+        modeBox.addItemList (modeNames, 1);
+        modeBox.setSelectedItemIndex (0);
+        modeBox.addListener (this);
+        addAndMakeVisible (modeBox);
+
+        alphaSlider.setRange (0.0, 1.0);
+        alphaSlider.setValue (1.0);
+        alphaSlider.addListener (this);
+        addAndMakeVisible (alphaSlider);
+
+        selector.setCurrentColour (Colour (0xffe3c916));
+        selector.addChangeListener (this);
+        addAndMakeVisible (selector);
+    }
+
+    void sliderValueChanged (Slider*) override                  { repaint(); }
+    void comboBoxChanged (ComboBox*) override                   { repaint(); }
+    void changeListenerCallback (ChangeBroadcaster*) override   { repaint(); }
+
+    void resized() override
+    {
+        auto rc = getLocalBounds();
+
+        auto rcBottom = getLocalBounds().removeFromBottom (20);
+        alphaSlider.setBounds (rcBottom.removeFromLeft (getWidth() / 3));
+
+        selector.setBounds (rc.removeFromRight (rc.getWidth() / 3).removeFromTop (rc.getHeight() / 3));
+
+        modeBox.setBounds (5, 5, 150, 20);
+    }
+
+    void paint (Graphics& g) override
+    {
+        g.fillAll (Colours::black);
+
+        auto rc = getLocalBounds();
+
+        auto copy = img.createCopy();
+
+        gin::BlendMode blendMode = (gin::BlendMode) modeBox.getSelectedItemIndex();
+        float alpha = float (alphaSlider.getValue());
+
+        auto c = selector.getCurrentColour();
+        c = c.withMultipliedAlpha (alpha);
+
+        gin::applyBlend (copy, blendMode, c);
+
+        g.drawImage (copy, rc.toFloat(), RectanglePlacement::centred);
+    }
+
+    Image img;
+
+    StringArray modeNames =
+    {
+        "Normal", "Lighten", "Darken", "Multiply", "Average", "Add", "Subtract", "Difference", "Negation", "Screen", "Exclusion", "Overlay", "Soft Light", "Hard Light",
+        "Color Dodge", "Color Burn", "Linear Dodge", "Linear Burn", "Linear Light", "Vivid Light", "Pin Light", "Hard Mix", "Reflect", "Glow", "Phoenix"
+    };
+
+    ComboBox modeBox;
+    Slider alphaSlider;
+    ColourSelector selector;
+};
+
+//==============================================================================
 struct BlendingDemo : public Component,
                       private ComboBox::Listener,
                       private Slider::Listener
@@ -37,10 +112,7 @@ struct BlendingDemo : public Component,
 
     void resized() override
     {
-        auto rc = getLocalBounds();
-        rc = rc.withTrimmedBottom (rc.getHeight() / 2);
-
-        rc = getLocalBounds().removeFromBottom (20);
+        auto rc = getLocalBounds().removeFromBottom (20);
         alphaSlider.setBounds (rc.removeFromLeft (getWidth() / 3));
 
         modeBox.setBounds (5, 5, 150, 20);
@@ -66,9 +138,10 @@ struct BlendingDemo : public Component,
 
     StringArray modeNames =
     {
-        "Normal", "Lighten", "Darken", "Multiply", "Average", "Add", "Subtract", "Difference", "Negation", "Screen", "Exclusion", "Overlay", "SoftLight", "HardLight",
-        "ColorDodge", "ColorBurn", "LinearDodge", "LinearBurn", "LinearLight", "VividLight", "PinLight", "HardMix", "Reflect", "Glow", "Phoenix"
+        "Normal", "Lighten", "Darken", "Multiply", "Average", "Add", "Subtract", "Difference", "Negation", "Screen", "Exclusion", "Overlay", "Soft Light", "Hard Light",
+        "Color Dodge", "Color Burn", "Linear Dodge", "Linear Burn", "Linear Light", "Vivid Light", "Pin Light", "Hard Mix", "Reflect", "Glow", "Phoenix"
     };
+
 
     ComboBox modeBox;
     Slider alphaSlider;
@@ -984,6 +1057,7 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
+    demoComponents.add (new SolidBlendingDemo());
     demoComponents.add (new BlendingDemo());
     demoComponents.add (new GradientMapDemo());
     demoComponents.add (new ImageResizeDemo());

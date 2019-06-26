@@ -14,37 +14,37 @@
  \param radius Size of vignette. 1 size of image. 0 is 0 size.
  \param falloff Relative size of inner boundry of vignette 0,1
  */
-void applyVignette (Image& src, float amount, float radius, float falloff, int maxThreads = -1);
+void applyVignette (Image& img, float amount, float radius, float falloff, int maxThreads = -1);
 
 /** Make it look old */
-void applySepia (Image& src, int maxThreads = -1);
+void applySepia (Image& img, int maxThreads = -1);
 
 /** Converts image to B/W, heavier weighting towards greens */
-void applyGreyScale (Image& src, int maxThreads = -1);
+void applyGreyScale (Image& img, int maxThreads = -1);
 
 /** Softens an image */
-void applySoften (Image& src, int maxThreads = -1);
+void applySoften (Image& img, int maxThreads = -1);
 
 /** Sharpens an image */
-void applySharpen (Image& src, int maxThreads = -1);
+void applySharpen (Image& img, int maxThreads = -1);
 
-void applyGamma (Image& src, float gamma, int maxThreads = -1);
+void applyGamma (Image& img, float gamma, int maxThreads = -1);
 
 /** Inverts colours of an image */
-void applyInvert (Image& src, int maxThreads = -1);
+void applyInvert (Image& img, int maxThreads = -1);
 
 /** Adjust contrast of an image
  *
  \param contrast Amount to adjust contrast. Negative values increase, positive values increase
 */
-void applyContrast (Image& src, float contrast, int maxThreads = -1);
+void applyContrast (Image& img, float contrast, int maxThreads = -1);
 
 /** Adjust brightness and contrast of an image
  *
  \param brightness Amount to adjust brightness -100,100
  \param contrast Amount to adjust contrast -100,100
  */
-void applyBrightnessContrast (Image& src, float brightness, float contrast, int maxThreads = -1);
+void applyBrightnessContrast (Image& img, float brightness, float contrast, int maxThreads = -1);
 
 /** Adjust hue, saturation and lightness of an image
  *
@@ -52,7 +52,7 @@ void applyBrightnessContrast (Image& src, float brightness, float contrast, int 
  \param saturation Amount to adjust saturation 0,200
  \param lightness Amount to adjust lightness -100,100
  */
-void applyHueSaturationLightness (Image& src, float hue, float saturation, float lightness, int maxThreads = -1);
+void applyHueSaturationLightness (Image& img, float hue, float saturation, float lightness, int maxThreads = -1);
 
 /** A very fast blur. This is a compromise between Gaussian Blur and Box blur.
     It creates much better looking blurs than Box Blur, but is 7x faster than some Gaussian Blur
@@ -60,19 +60,23 @@ void applyHueSaturationLightness (Image& src, float hue, float saturation, float
  *
  \param radius from 2 to 254
  */
-void applyStackBlur (Image& src, unsigned int radius);
+void applyStackBlur (Image& img, unsigned int radius);
 
 /** A very high quality image resize using a bank of sinc
  *  function-based fractional delay filters */
-Image applyResize (const Image& src, int width, int height);
+Image applyResize (const Image& img, int width, int height);
 
-Image applyResize (const Image& src, float factor);
+Image applyResize (const Image& img, float factor);
 
 /** GradientMap a image. Brightness gets remapped to colour on a gradient.
   */
-void applyGradientMap (Image& src, const ColourGradient& gradient, int maxThreads = -1);
+void applyGradientMap (Image& img, const ColourGradient& gradient, int maxThreads = -1);
 
-void applyGradientMap (Image& src, const Colour c1, const Colour c2, int maxThreads = -1);
+void applyGradientMap (Image& img, const Colour c1, const Colour c2, int maxThreads = -1);
+
+/** Set an image to a solid colour
+  */
+void applyColour (Image& img, Colour c, int maxThreads = -1);
 
 /** Blend two images
   */
@@ -107,3 +111,7 @@ enum BlendMode
 };
 
 void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha = 1.0f, Point<int> position = {}, int maxThreads = -1);
+
+void applyBlend (Image& dst, BlendMode mode, Colour c, int maxThreads = -1);
+
+
