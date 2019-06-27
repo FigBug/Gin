@@ -49,6 +49,7 @@
 
 //==============================================================================
 #define JUCE_MODULE_AVAILABLE_gin                       1
+#define JUCE_MODULE_AVAILABLE_gin_metadata              1
 #define JUCE_MODULE_AVAILABLE_juce_core                 1
 #define JUCE_MODULE_AVAILABLE_juce_data_structures      1
 #define JUCE_MODULE_AVAILABLE_juce_events               1

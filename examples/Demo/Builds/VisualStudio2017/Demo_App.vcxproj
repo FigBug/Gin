@@ -238,6 +238,27 @@
     <ClCompile Include="..\..\..\..\modules\gin\gin.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_metadata\metadata\commentmetadata.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_metadata\metadata\exifmetadata.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_metadata\metadata\imagemetadata.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_metadata\metadata\iptcmetadata.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_metadata\metadata\libjpegpng.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_metadata\metadata\xmpmetadata.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_metadata\gin_metadata.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\juce\modules\juce_core\containers\juce_AbstractFifo.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1416,6 +1437,7 @@
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_gin.cpp"/>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_metadata.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_core.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_data_structures.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_events.cpp"/>
@@ -1466,6 +1488,12 @@
     <ClInclude Include="..\..\..\..\modules\gin\utilities\util.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\valuetreeobject.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\gin.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_metadata\metadata\commentmetadata.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_metadata\metadata\exifmetadata.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_metadata\metadata\imagemetadata.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_metadata\metadata\iptcmetadata.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_metadata\metadata\xmpmetadata.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_metadata\gin_metadata.h"/>
     <ClInclude Include="..\..\..\..\..\juce\modules\juce_core\containers\juce_AbstractFifo.h"/>
     <ClInclude Include="..\..\..\..\..\juce\modules\juce_core\containers\juce_Array.h"/>
     <ClInclude Include="..\..\..\..\..\juce\modules\juce_core\containers\juce_ArrayAllocationBase.h"/>
@@ -1879,6 +1907,7 @@
     <None Include="..\..\Resources\pencils.jpeg"/>
     <None Include="..\..\..\..\modules\gin\3rdparty\avir\README.md"/>
     <None Include="..\..\..\..\modules\gin\README.md"/>
+    <None Include="..\..\..\..\modules\gin_metadata\README.md"/>
     <None Include="..\..\..\..\..\juce\modules\juce_core\native\java\README.txt"/>
     <None Include="..\..\..\..\..\juce\modules\juce_graphics\image_formats\jpglib\changes to libjpeg for JUCE.txt"/>
     <None Include="..\..\..\..\..\juce\modules\juce_graphics\image_formats\pnglib\libpng_readme.txt"/>

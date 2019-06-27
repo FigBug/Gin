@@ -15,7 +15,7 @@
 
  BEGIN_JUCE_MODULE_DECLARATION
 
-  ID:               gin
+  ID:               gin_metadata
   vendor:           Roland Rabien
   version:          1.0.0
   name:             Gin
@@ -23,7 +23,7 @@
   website:          www.rabiensoftware.com
   license:          BSD
 
-  dependencies:     juce_gui_basics juce_gui_extra juce_events
+  dependencies:     juce_core juce_graphics gin
   OSXFrameworks:    Security
 
  END_JUCE_MODULE_DECLARATION
@@ -33,7 +33,7 @@
 
 #pragma once
 
-#ifndef JUCE_MODULE_AVAILABLE_gin
+#ifndef JUCE_MODULE_AVAILABLE_gin_metadata
  /* If you fail to make sure that all your compile units are building JUCE with the same set of
     option flags, then there's a risk that different compile units will treat the classes as having
     different memory layouts, leading to very nasty memory corruption errors when they all get
@@ -53,41 +53,19 @@
 #endif
 
 //==============================================================================
-#include <juce_gui_basics/juce_gui_basics.h>
-#include <juce_gui_extra/juce_gui_extra.h>
-#include <juce_audio_utils/juce_audio_utils.h>
-#include <juce_events/juce_events.h>
+#include <juce_core/juce_core.h>
+#include <juce_graphics/juce_graphics.h>
 
 #include <map>
 
 namespace gin
 {
 using namespace juce;
-using juce::Rectangle;
-using juce::Component;
 
-#include "utilities/downloadmanager.h"
-#include "utilities/equationparser.h"
-#include "utilities/util.h"
-#include "utilities/elevatedfilecopy.h"
-#include "utilities/filesystemwatcher.h"
-#include "utilities/integrator.h"
-#include "utilities/leastsquaresregression.h"
-#include "utilities/linearregression.h"
-#include "utilities/openstreetmaps.h"
-#include "utilities/sharedmemory.h"
-#include "utilities/spline.h"
-#include "utilities/systemsemaphore.h"
-#include "utilities/threading.h"
-#include "utilities/valuetreeobject.h"
-
-#include "images/bmpimageformat.h"
-#include "images/imageeffects.h"
-
-#include "geometry/geometry.h"
-
-#include "components/mapviewer.h"
-#include "components/propertycomponents.h"
-#include "components/singlelinetexteditor.h"
+#include "metadata/imagemetadata.h"
+#include "metadata/commentmetadata.h"
+#include "metadata/exifmetadata.h"
+#include "metadata/iptcmetadata.h"
+#include "metadata/xmpmetadata.h"
 
 }

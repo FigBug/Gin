@@ -53,6 +53,10 @@
 			isa = PBXBuildFile;
 			fileRef = EF75EAC5BDB6041845D08EEC;
 		};
+		DD7F48960E0E3F61D8BD6C0F = {
+			isa = PBXBuildFile;
+			fileRef = C85CED3EB9FC8E3ACD22D677;
+		};
 		E2810D73B0129F1A564B19BF = {
 			isa = PBXBuildFile;
 			fileRef = 49A48A58619AB704416E42E5;
@@ -259,6 +263,13 @@
 			path = ../../../../modules/gin;
 			sourceTree = "SOURCE_ROOT";
 		};
+		C85CED3EB9FC8E3ACD22D677 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.objcpp;
+			name = "include_gin_metadata.mm";
+			path = "../../JuceLibraryCode/include_gin_metadata.mm";
+			sourceTree = "SOURCE_ROOT";
+		};
 		C97505A1B46418CAFB0FF643 = {
 			isa = PBXFileReference;
 			lastKnownFileType = text.plist.xml;
@@ -285,6 +296,13 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = AppConfig.h;
 			path = ../../JuceLibraryCode/AppConfig.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		D68FB00134A14059CFCEF8E7 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "gin_metadata";
+			path = "../../../../modules/gin_metadata";
 			sourceTree = "SOURCE_ROOT";
 		};
 		D69A514759A69BE3E79A9FD5 = {
@@ -373,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				BC8DBEDEC8E6CF9BAB5A166B,
+				D68FB00134A14059CFCEF8E7,
 				043EE8D4EC780C9EEC2AB78B,
 				ADCC808A7469AB65E41AD01A,
 				182B7A458E753EC203D3EF7C,
@@ -390,6 +409,7 @@
 				7D9204324F24600339A829DC,
 				92187533C0E25662B98FABD7,
 				EF75EAC5BDB6041845D08EEC,
+				C85CED3EB9FC8E3ACD22D677,
 				49A48A58619AB704416E42E5,
 				82ABF8AB2EA67C1E721F4B7F,
 				D69A514759A69BE3E79A9FD5,
@@ -662,6 +682,7 @@
 				45E4B4A902106850BB8ED4A6,
 				6EB5FFB0ACA487D33B2AAE93,
 				7BEB35AA6F70C5E112FDBD0F,
+				DD7F48960E0E3F61D8BD6C0F,
 				E2810D73B0129F1A564B19BF,
 				4F3BBB2F28058A6B377F3E7E,
 				FE40FAF158174C0C3BF0E67F,

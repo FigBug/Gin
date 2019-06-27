@@ -38,6 +38,7 @@
         <MODULEPATH id="juce_core" path="../../../juce/modules"/>
         <MODULEPATH id="juce_data_structures" path="../../../juce/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../../../juce/modules"/>
+        <MODULEPATH id="gin_metadata" path="../../modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <XCODE_IPHONE targetFolder="Builds/iOS" iosScreenOrientation="portraitlandscape"
@@ -57,6 +58,7 @@
         <MODULEPATH id="juce_core" path="../../../juce/modules"/>
         <MODULEPATH id="juce_data_structures" path="../../../juce/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../../../juce/modules"/>
+        <MODULEPATH id="gin_metadata" path="../../modules"/>
       </MODULEPATHS>
     </XCODE_IPHONE>
     <VS2017 targetFolder="Builds/VisualStudio2017" extraCompilerFlags="/wd4996 /wd4458">
@@ -76,6 +78,7 @@
         <MODULEPATH id="juce_core" path="../../../juce/modules"/>
         <MODULEPATH id="juce_data_structures" path="../../../juce/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../../../juce/modules"/>
+        <MODULEPATH id="gin_metadata" path="../../modules"/>
       </MODULEPATHS>
     </VS2017>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
@@ -93,11 +96,13 @@
         <MODULEPATH id="juce_core" path="../../../juce/modules"/>
         <MODULEPATH id="juce_data_structures" path="../../../juce/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../../../juce/modules"/>
+        <MODULEPATH id="gin_metadata" path="../../modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
   </EXPORTFORMATS>
   <MODULES>
     <MODULE id="gin" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="gin_metadata" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>

@@ -88,14 +88,9 @@ using juce::MemoryBlock;
 #include "utilities/valuetreeobject.cpp"
 
 #include "images/imageeffects.cpp"
+#include "images/imageeffects_blending.cpp"
+#include "images/imageeffects_stackblur.cpp"
 #include "images/bmpimageformat.cpp"
-
-#include "metadata/libjpegpng.cpp"
-#include "metadata/commentmetadata.cpp"
-#include "metadata/exifmetadata.cpp"
-#include "metadata/imagemetadata.cpp"
-#include "metadata/iptcmetadata.cpp"
-#include "metadata/xmpmetadata.cpp"
 
 #include "components/mapviewer.cpp"
 #include "components/propertycomponents.cpp"
