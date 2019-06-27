@@ -249,8 +249,8 @@ using std::abs;
 #define PNG_sCAL_PRECISION 5
 #define PNG_sRGB_PROFILE_CHECKS 2
 
-#define PNG_LINKAGE_API extern
-#define PNG_LINKAGE_FUNCTION extern
+#define PNG_LINKAGE_API inline
+#define PNG_LINKAGE_FUNCTION inline
 
 #define PNG_ARM_NEON_OPT 0
 
@@ -270,6 +270,41 @@ using std::abs;
 #include "juce_graphics/image_formats/pnglib/pngconf.h"
 #include "juce_graphics/image_formats/pnglib/pngstruct.h"
 #include "juce_graphics/image_formats/pnglib/pnginfo.h"
+
+#define PNG_NO_EXTERN
+#include "juce_graphics/image_formats/pnglib/png.c"
+#include "juce_graphics/image_formats/pnglib/pngerror.c"
+#include "juce_graphics/image_formats/pnglib/pngget.c"
+#include "juce_graphics/image_formats/pnglib/pngmem.c"
+#include "juce_graphics/image_formats/pnglib/pngread.c"
+#include "juce_graphics/image_formats/pnglib/pngpread.c"
+#include "juce_graphics/image_formats/pnglib/pngrio.c"
+
+void png_do_expand_palette (png_row_infop, png_bytep, png_const_colorp, png_const_bytep, int);
+void png_do_expand (png_row_infop, png_bytep, png_const_color_16p);
+void png_do_chop (png_row_infop, png_bytep);
+void png_do_quantize (png_row_infop, png_bytep, png_const_bytep, png_const_bytep);
+void png_do_gray_to_rgb (png_row_infop, png_bytep);
+void png_do_unshift (png_row_infop, png_bytep, png_const_color_8p);
+void png_do_unpack (png_row_infop, png_bytep);
+int png_do_rgb_to_gray (png_structrp, png_row_infop, png_bytep);
+void png_do_compose (png_row_infop, png_bytep, png_structrp);
+void png_do_gamma (png_row_infop, png_bytep, png_structrp);
+void png_do_encode_alpha (png_row_infop, png_bytep, png_structrp);
+void png_do_scale_16_to_8 (png_row_infop, png_bytep);
+void png_do_expand_16 (png_row_infop, png_bytep);
+void png_do_read_filler (png_row_infop, png_bytep, png_uint_32, png_uint_32);
+void png_do_read_invert_alpha (png_row_infop, png_bytep);
+void png_do_read_swap_alpha (png_row_infop, png_bytep);
+
+#include "juce_graphics/image_formats/pnglib/pngrtran.c"
+#include "juce_graphics/image_formats/pnglib/pngrutil.c"
+#include "juce_graphics/image_formats/pnglib/pngset.c"
+#include "juce_graphics/image_formats/pnglib/pngtrans.c"
+#include "juce_graphics/image_formats/pnglib/pngwio.c"
+#include "juce_graphics/image_formats/pnglib/pngwrite.c"
+#include "juce_graphics/image_formats/pnglib/pngwtran.c"
+#include "juce_graphics/image_formats/pnglib/pngwutil.c"
 
 #if JUCE_CLANG
  #pragma clang diagnostic pop
