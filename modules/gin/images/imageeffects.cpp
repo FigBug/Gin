@@ -49,11 +49,11 @@ inline T2 convert (const T1& in)
 
 //==============================================================================
 template <class T>
-void applyVignette (Image& img, float amountIn, float radiusIn, float fallOff, int maxThreads)
+void applyVignette (Image& img, float amountIn, float radiusIn, float fallOff, ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
-    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
+    threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
     double outA = w * 0.5 * radiusIn;
     double outB = h * 0.5 * radiusIn;
@@ -71,7 +71,7 @@ void applyVignette (Image& img, float amountIn, float radiusIn, float fallOff, i
     Ellipse<double> outE { outA, outB };
     Ellipse<double> inE  { inA,  inB  };
 
-    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
         uint8* p = data.getLinePointer (y);
 
@@ -120,23 +120,23 @@ void applyVignette (Image& img, float amountIn, float radiusIn, float fallOff, i
     });
 }
 
-void applyVignette (Image& img, float amountIn, float radiusIn, float fallOff, int maxThreads)
+void applyVignette (Image& img, float amountIn, float radiusIn, float fallOff, ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applyVignette<PixelARGB> (img, amountIn, radiusIn, fallOff, maxThreads);
-    else if (img.getFormat() == Image::RGB)      applyVignette<PixelRGB>  (img, amountIn, radiusIn, fallOff, maxThreads);
+    if (img.getFormat() == Image::ARGB)          applyVignette<PixelARGB> (img, amountIn, radiusIn, fallOff, threadPool);
+    else if (img.getFormat() == Image::RGB)      applyVignette<PixelRGB>  (img, amountIn, radiusIn, fallOff, threadPool);
     else jassertfalse;
 }
 
 template <class T>
-void applySepia (Image& img, int maxThreads)
+void applySepia (Image& img, ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
-    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
+    threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
     Image::BitmapData data (img, Image::BitmapData::readWrite);
 
-    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
         uint8* p = data.getLinePointer (y);
 
@@ -160,23 +160,23 @@ void applySepia (Image& img, int maxThreads)
     });
 }
 
-void applySepia (Image& img, int maxThreads)
+void applySepia (Image& img, ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applySepia<PixelARGB> (img, maxThreads);
-    else if (img.getFormat() == Image::RGB)      applySepia<PixelRGB>  (img, maxThreads);
+    if (img.getFormat() == Image::ARGB)          applySepia<PixelARGB> (img, threadPool);
+    else if (img.getFormat() == Image::RGB)      applySepia<PixelRGB>  (img, threadPool);
     else jassertfalse;
 }
 
 template <class T>
-void applyGreyScale (Image& img, int maxThreads)
+void applyGreyScale (Image& img, ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
-    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
+    threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
     Image::BitmapData data (img, Image::BitmapData::readWrite);
 
-    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
         uint8* p = data.getLinePointer (y);
 
@@ -203,26 +203,26 @@ void applyGreyScale (Image& img, int maxThreads)
     });
 }
 
-void applyGreyScale (Image& img, int maxThreads)
+void applyGreyScale (Image& img, ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applyGreyScale<PixelARGB> (img, maxThreads);
-    else if (img.getFormat() == Image::RGB)      applyGreyScale<PixelRGB>  (img, maxThreads);
+    if (img.getFormat() == Image::ARGB)          applyGreyScale<PixelARGB> (img, threadPool);
+    else if (img.getFormat() == Image::RGB)      applyGreyScale<PixelRGB>  (img, threadPool);
     else jassertfalse;
 }
 
 template <class T>
-void applySoften (Image& img, int maxThreads)
+void applySoften (Image& img, ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
-    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
+    threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
     Image dst (img.getFormat(), w, h, true);
 
     Image::BitmapData srcData (img, Image::BitmapData::readOnly);
     Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
 
-    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
         for (int x = 0; x < w; x++)
         {
@@ -255,26 +255,26 @@ void applySoften (Image& img, int maxThreads)
     img = dst;
 }
 
-void applySoften (Image& img, int maxThreads)
+void applySoften (Image& img, ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applySoften<PixelARGB> (img, maxThreads);
-    else if (img.getFormat() == Image::RGB)      applySoften<PixelRGB>  (img, maxThreads);
+    if (img.getFormat() == Image::ARGB)          applySoften<PixelARGB> (img, threadPool);
+    else if (img.getFormat() == Image::RGB)      applySoften<PixelRGB>  (img, threadPool);
     else jassertfalse;
 }
 
 template <class T>
-void applySharpen (Image& img, int maxThreads)
+void applySharpen (Image& img, ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
-    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
+    threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
     Image dst (img.getFormat(), w, h, true);
 
     Image::BitmapData srcData (img, Image::BitmapData::readOnly);
     Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
 
-    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
         for (int x = 0; x < w; x++)
         {
@@ -324,26 +324,26 @@ void applySharpen (Image& img, int maxThreads)
     img = dst;
 }
 
-void applySharpen (Image& img, int maxThreads)
+void applySharpen (Image& img, ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applySharpen<PixelARGB> (img, maxThreads);
-    else if (img.getFormat() == Image::RGB)      applySharpen<PixelRGB>  (img, maxThreads);
+    if (img.getFormat() == Image::ARGB)          applySharpen<PixelARGB> (img, threadPool);
+    else if (img.getFormat() == Image::RGB)      applySharpen<PixelRGB>  (img, threadPool);
     else jassertfalse;
 }
 
 template <class T>
-void applyGamma (Image& img, float gamma, int maxThreads)
+void applyGamma (Image& img, float gamma, ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
-    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
+    threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
     if (img.getFormat() != Image::ARGB)
         return;
 
     Image::BitmapData data (img, Image::BitmapData::readWrite);
 
-    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
         uint8* p = data.getLinePointer (y);
 
@@ -367,26 +367,26 @@ void applyGamma (Image& img, float gamma, int maxThreads)
     });
 }
 
-void applyGamma (Image& img, float gamma, int maxThreads)
+void applyGamma (Image& img, float gamma, ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applyGamma<PixelARGB> (img, gamma, maxThreads);
-    else if (img.getFormat() == Image::RGB)      applyGamma<PixelRGB>  (img, gamma, maxThreads);
+    if (img.getFormat() == Image::ARGB)          applyGamma<PixelARGB> (img, gamma, threadPool);
+    else if (img.getFormat() == Image::RGB)      applyGamma<PixelRGB>  (img, gamma, threadPool);
     else jassertfalse;
 }
 
 template <class T>
-void applyInvert (Image& img, int maxThreads)
+void applyInvert (Image& img, ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
-    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
+    threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
     if (img.getFormat() != Image::ARGB)
         return;
 
     Image::BitmapData data (img, Image::BitmapData::readWrite);
 
-    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
         uint8* p = data.getLinePointer (y);
 
@@ -410,19 +410,19 @@ void applyInvert (Image& img, int maxThreads)
     });
 }
 
-void applyInvert (Image& img, int maxThreads)
+void applyInvert (Image& img, ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applyInvert<PixelARGB> (img, maxThreads);
-    else if (img.getFormat() == Image::RGB)      applyInvert<PixelRGB>  (img, maxThreads);
+    if (img.getFormat() == Image::ARGB)          applyInvert<PixelARGB> (img, threadPool);
+    else if (img.getFormat() == Image::RGB)      applyInvert<PixelRGB>  (img, threadPool);
     else jassertfalse;
 }
 
 template <class T>
-void applyContrast (Image& img, float contrast, int maxThreads)
+void applyContrast (Image& img, float contrast, ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
-    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
+    threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
     if (img.getFormat() != Image::ARGB)
         return;
@@ -432,7 +432,7 @@ void applyContrast (Image& img, float contrast, int maxThreads)
 
     Image::BitmapData data (img, Image::BitmapData::readWrite);
 
-    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
         uint8* p = data.getLinePointer (y);
 
@@ -474,19 +474,19 @@ void applyContrast (Image& img, float contrast, int maxThreads)
     });
 }
 
-void applyContrast (Image& img, float contrast, int maxThreads)
+void applyContrast (Image& img, float contrast, ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applyContrast<PixelARGB> (img, contrast, maxThreads);
-    else if (img.getFormat() == Image::RGB)      applyContrast<PixelRGB>  (img, contrast, maxThreads);
+    if (img.getFormat() == Image::ARGB)          applyContrast<PixelARGB> (img, contrast, threadPool);
+    else if (img.getFormat() == Image::RGB)      applyContrast<PixelRGB>  (img, contrast, threadPool);
     else jassertfalse;
 }
 
 template <class T>
-void applyBrightnessContrast (Image& img, float brightness, float contrast, int maxThreads)
+void applyBrightnessContrast (Image& img, float brightness, float contrast, ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
-    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
+    threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
     if (img.getFormat() != Image::ARGB)
         return;
@@ -551,7 +551,7 @@ void applyBrightnessContrast (Image& img, float brightness, float contrast, int 
         }
     }
 
-    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
         uint8* p = data.getLinePointer (y);
 
@@ -594,19 +594,19 @@ void applyBrightnessContrast (Image& img, float brightness, float contrast, int 
     delete[] rgbTable;
 }
 
-void applyBrightnessContrast (Image& img, float brightness, float contrast, int maxThreads)
+void applyBrightnessContrast (Image& img, float brightness, float contrast, ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applyBrightnessContrast<PixelARGB> (img, brightness, contrast, maxThreads);
-    else if (img.getFormat() == Image::RGB)      applyBrightnessContrast<PixelRGB>  (img, brightness, contrast, maxThreads);
+    if (img.getFormat() == Image::ARGB)          applyBrightnessContrast<PixelARGB> (img, brightness, contrast, threadPool);
+    else if (img.getFormat() == Image::RGB)      applyBrightnessContrast<PixelRGB>  (img, brightness, contrast, threadPool);
     else jassertfalse;
 }
 
 template <class T>
-void applyHueSaturationLightness (Image& img, float hueIn, float saturation, float lightness, int maxThreads)
+void applyHueSaturationLightness (Image& img, float hueIn, float saturation, float lightness, ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
-    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
+    threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
     if (img.getFormat() != Image::ARGB)
         return;
@@ -619,7 +619,7 @@ void applyHueSaturationLightness (Image& img, float hueIn, float saturation, flo
 
     Image::BitmapData data (img, Image::BitmapData::readWrite);
 
-    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
         uint8* p = data.getLinePointer (y);
 
@@ -671,10 +671,10 @@ void applyHueSaturationLightness (Image& img, float hueIn, float saturation, flo
     });
 }
 
-void applyHueSaturationLightness (Image& img, float hue, float saturation, float lightness, int maxThreads)
+void applyHueSaturationLightness (Image& img, float hue, float saturation, float lightness, ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applyHueSaturationLightness<PixelARGB> (img, hue, saturation, lightness, maxThreads);
-    else if (img.getFormat() == Image::RGB)      applyHueSaturationLightness<PixelRGB>  (img, hue, saturation, lightness, maxThreads);
+    if (img.getFormat() == Image::ARGB)          applyHueSaturationLightness<PixelARGB> (img, hue, saturation, lightness, threadPool);
+    else if (img.getFormat() == Image::RGB)      applyHueSaturationLightness<PixelRGB>  (img, hue, saturation, lightness, threadPool);
     else jassertfalse;
 }
 
@@ -736,15 +736,15 @@ Image applyResize (const Image& src, float factor)
 }
 
 template <class T>
-void applyGradientMap (Image& img, const ColourGradient& gradient, int maxThreads = -1)
+void applyGradientMap (Image& img, const ColourGradient& gradient, ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
-    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
+    threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
     Image::BitmapData data (img, Image::BitmapData::readWrite);
 
-    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
                            {
                                uint8* p = data.getLinePointer (y);
 
@@ -775,28 +775,28 @@ void applyGradientMap (Image& img, const ColourGradient& gradient, int maxThread
                            });
 }
 
-void applyGradientMap (Image& img, const ColourGradient& gradient, int maxThreads)
+void applyGradientMap (Image& img, const ColourGradient& gradient, ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applyGradientMap<PixelARGB> (img, gradient, maxThreads);
-    else if (img.getFormat() == Image::RGB)      applyGradientMap<PixelRGB>  (img, gradient, maxThreads);
+    if (img.getFormat() == Image::ARGB)          applyGradientMap<PixelARGB> (img, gradient, threadPool);
+    else if (img.getFormat() == Image::RGB)      applyGradientMap<PixelRGB>  (img, gradient, threadPool);
     else jassertfalse;
 }
 
-void applyGradientMap (Image& img, const Colour c1, const Colour c2, int maxThreads)
+void applyGradientMap (Image& img, const Colour c1, const Colour c2, ThreadPool* threadPool)
 {
     ColourGradient g;
     g.addColour (0.0, c1);
     g.addColour (1.0, c2);
 
-    applyGradientMap (img, g, maxThreads);
+    applyGradientMap (img, g, threadPool);
 }
 
 template <class T>
-void applyColour (Image& img, Colour c, int maxThreads = -1)
+void applyColour (Image& img, Colour c, ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
-    const int numThreads = (w >= 256 || h >= 256) ? maxThreads : 1;
+    threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
     uint8 r = c.getRed();
     uint8 g = c.getGreen();
@@ -805,7 +805,7 @@ void applyColour (Image& img, Colour c, int maxThreads = -1)
 
     Image::BitmapData data (img, Image::BitmapData::readWrite);
 
-    multiThreadedFor<int> (0, h, 1, numThreads, [&] (int y)
+    multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
                            {
                                uint8* p = data.getLinePointer (y);
 
@@ -818,10 +818,10 @@ void applyColour (Image& img, Colour c, int maxThreads = -1)
                            });
 }
 
-void applyColour (Image& img, Colour c, int maxThreads)
+void applyColour (Image& img, Colour c, ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applyColour<PixelARGB> (img, c, maxThreads);
-    else if (img.getFormat() == Image::RGB)      applyColour<PixelRGB>  (img, c, maxThreads);
+    if (img.getFormat() == Image::ARGB)          applyColour<PixelARGB> (img, c, threadPool);
+    else if (img.getFormat() == Image::RGB)      applyColour<PixelRGB>  (img, c, threadPool);
     else jassertfalse;
 }
 

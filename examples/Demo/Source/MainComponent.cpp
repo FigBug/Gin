@@ -8,6 +8,8 @@
 
 #include "MainComponent.h"
 
+static ThreadPool pool (SystemStats::getNumCpus());
+
 //==============================================================================
 struct SolidBlendingDemo : public Component,
                            private ComboBox::Listener,
@@ -65,7 +67,7 @@ struct SolidBlendingDemo : public Component,
         auto c = selector.getCurrentColour();
         c = c.withMultipliedAlpha (alpha);
 
-        gin::applyBlend (copy, blendMode, c);
+        gin::applyBlend (copy, blendMode, c, &pool);
 
         g.drawImage (copy, rc.toFloat(), RectanglePlacement::centred);
     }
@@ -129,7 +131,7 @@ struct BlendingDemo : public Component,
         gin::BlendMode blendMode = (gin::BlendMode) modeBox.getSelectedItemIndex();
         float alpha = float (alphaSlider.getValue());
 
-        gin::applyBlend (img, imgA, blendMode, alpha);
+        gin::applyBlend (img, imgA, blendMode, alpha, {}, &pool);
 
         g.drawImage (img, rc.toFloat(), RectanglePlacement::centred);
     }
@@ -189,7 +191,7 @@ struct GradientMapDemo : public Component,
         rc = rc.withTrimmedTop (rc.getHeight() / 2);
 
         auto img = source.createCopy();
-        gin::applyGradientMap (img, selector1.getCurrentColour(), selector2.getCurrentColour());
+        gin::applyGradientMap (img, selector1.getCurrentColour(), selector2.getCurrentColour(), &pool);
 
         g.drawImage (img, rc.toFloat(), RectanglePlacement::centred);
     }
@@ -734,16 +736,16 @@ struct ImageEffectsDemo : public Component,
 
         switch (effects.getSelectedItemIndex())
         {
-            case 1: gin::applyVignette (img, (float) vignetteAmount.getValue(), (float) vignetteRadius.getValue(), (float) vignetteFalloff.getValue()); break;
-            case 2: gin::applySepia (img); break;
-            case 3: gin::applyGreyScale (img); break;
-            case 4: gin::applySoften (img); break;
-            case 5: gin::applySharpen (img); break;
-            case 6: gin::applyGamma (img, (float) gamma.getValue()); break;
-            case 7: gin::applyInvert (img); break;
-            case 8: gin::applyContrast (img, (float) contrast.getValue()); break;
-            case 9: gin::applyBrightnessContrast (img, (float) brightness.getValue(), (float) contrast.getValue()); break;
-            case 10: gin::applyHueSaturationLightness (img, (float) hue.getValue(), (float) saturation.getValue(), (float) lightness.getValue()); break;
+            case 1: gin::applyVignette (img, (float) vignetteAmount.getValue(), (float) vignetteRadius.getValue(), (float) vignetteFalloff.getValue(), &pool); break;
+            case 2: gin::applySepia (img, &pool); break;
+            case 3: gin::applyGreyScale (img, &pool); break;
+            case 4: gin::applySoften (img, &pool); break;
+            case 5: gin::applySharpen (img, &pool); break;
+            case 6: gin::applyGamma (img, (float) gamma.getValue(), &pool); break;
+            case 7: gin::applyInvert (img, &pool); break;
+            case 8: gin::applyContrast (img, (float) contrast.getValue(), &pool); break;
+            case 9: gin::applyBrightnessContrast (img, (float) brightness.getValue(), (float) contrast.getValue(), &pool); break;
+            case 10: gin::applyHueSaturationLightness (img, (float) hue.getValue(), (float) saturation.getValue(), (float) lightness.getValue(), &pool); break;
             case 11: gin::applyStackBlur (img, (unsigned int) radius.getValue()); break;
         }
 
