@@ -212,6 +212,14 @@ Rectangle<int> GinAudioProcessorEditor::getControlsArea()
     return getLocalBounds();
 }
 
+Rectangle<int> GinAudioProcessorEditor::getFullGridArea()
+{
+    int cols = (getWidth() - inset * 2) / cx;
+    int rows = (getHeight() - headerHeight - inset * 2) / cx;
+
+    return Rectangle<int> (inset, headerHeight + inset, cx * cols, cy * rows);
+}
+
 Rectangle<int> GinAudioProcessorEditor::getGridArea (int x, int y, int w, int h)
 {
     return Rectangle<int> (inset + x * cx, headerHeight + y * cy + inset, w * cx, h * cy);

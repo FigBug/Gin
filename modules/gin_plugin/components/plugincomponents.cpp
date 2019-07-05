@@ -120,6 +120,36 @@ void Knob::resized()
     knob.setBounds (r.reduced (2));
 }
 //==============================================================================
+HorizontalFader::HorizontalFader (Parameter* parameter, bool fromCentre)
+  : ParamComponent (parameter),
+    value (parameter),
+    fader (parameter, Slider::LinearHorizontal, Slider::NoTextBox)
+{
+    addAndMakeVisible (name);
+    addAndMakeVisible (value);
+    addAndMakeVisible (fader);
+
+    fader.setSkewFactor (parameter->getSkew());
+    if (fromCentre)
+        fader.getProperties().set ("fromCentre", true);
+
+    name.setText (parameter->getShortName(), dontSendNotification);
+    value.setJustificationType (Justification::centred);
+    name.setJustificationType (Justification::centredRight);
+
+    name.setFont (value.getFont().withHeight (11.0));
+    value.setFont (value.getFont().withHeight (10.0));
+}
+
+void HorizontalFader::resized()
+{
+    Rectangle<int> r = getLocalBounds().reduced (4);
+
+    name.setBounds (r.removeFromLeft (80));
+    value.setBounds (r.removeFromRight (30));
+    fader.setBounds (r.reduced (2));
+}
+//==============================================================================
 Switch::Switch (Parameter* parameter)
   : ParamComponent (parameter),
     button (parameter)

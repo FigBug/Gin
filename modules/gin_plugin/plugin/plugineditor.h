@@ -97,6 +97,8 @@ protected:
     void comboBoxChanged (ComboBox* c) override;
 
     virtual Rectangle<int> getGridArea (int x, int y, int w = 1, int h = 1);
+    Rectangle<int> getFullGridArea();
+
     void setGridSize (int x, int y);
 
     const int cx;

@@ -203,6 +203,21 @@ private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Knob)
 };
 //==============================================================================
+class HorizontalFader : public ParamComponent
+{
+public:
+    HorizontalFader (Parameter* parameter, bool fromCentre = false);
+
+private:
+    void resized() override;
+
+    Label name;
+    Readout value;
+    PluginSlider fader;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (HorizontalFader)
+};
+//==============================================================================
 class Switch : public ParamComponent
 {
 public:
