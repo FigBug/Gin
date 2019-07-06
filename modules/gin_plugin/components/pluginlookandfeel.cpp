@@ -5,6 +5,7 @@ PluginLookAndFeel::PluginLookAndFeel()
 {
     setColour (Label::textColourId, Colours::white.withAlpha (0.9f));
 
+    setColour (Slider::trackColourId, Colours::white);
     setColour (Slider::rotarySliderFillColourId, Colours::white);
 
     setColour (TextButton::buttonColourId, Colours::black);
@@ -24,8 +25,28 @@ PluginLookAndFeel::PluginLookAndFeel()
 #endif
 }
 
+void PluginLookAndFeel::drawLinearSlider (Graphics& g, int x, int y, int width, int height,
+                                          float sliderPos, float minSliderPos, float maxSliderPos,
+                                          const Slider::SliderStyle, Slider& slider)
+{
+    const bool isMouseOver = slider.isMouseOverOrDragging() && slider.isEnabled();
+    auto rc = Rectangle<int> (x, y, width, height);
+    rc = rc.withSizeKeepingCentre (width, jmin (height, 4));
+
+    g.setColour (slider.findColour (Slider::trackColourId).withAlpha (0.05f));
+    g.fillRect (rc);
+
+    if (slider.isEnabled())
+        g.setColour (slider.findColour (Slider::trackColourId).withAlpha (isMouseOver ? 0.95f : 0.9f));
+
+    if (slider.isHorizontal())
+        g.fillRect (Rectangle<float> (static_cast<float> (rc.getX()), rc.getY() + 0.5f, sliderPos - rc.getX(), rc.getHeight() - 1.0f));
+    else
+        g.fillRect (Rectangle<float> (rc.getX() + 0.5f, sliderPos, rc.getWidth() - 1.0f, rc.getY() + (rc.getHeight() - sliderPos)));
+}
+
 void PluginLookAndFeel::drawRotarySlider (Graphics& g, int x, int y, int width, int height, float sliderPos,
-                                      const float rotaryStartAngleIn, const float rotaryEndAngle, Slider& slider)
+                                          const float rotaryStartAngleIn, const float rotaryEndAngle, Slider& slider)
 {
     float rotaryStartAngle = rotaryStartAngleIn;
     const float radius = jmin (width / 2, height / 2) - 2.0f;

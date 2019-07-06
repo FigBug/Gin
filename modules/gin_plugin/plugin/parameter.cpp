@@ -51,7 +51,7 @@ void Parameter::setUserValue (float v)
 
 void Parameter::setUserValueNotifingHost (float v)
 {
-    v = jlimit(range.start, range.end, range.snapToLegalValue (v));
+    v = jlimit (range.start, range.end, range.snapToLegalValue (v));
     if (! almostEqual (value, v))
     {
         value = v;

@@ -149,13 +149,13 @@ GinAudioProcessorEditor::GinAudioProcessorEditor (GinProcessor& p, int cx_, int 
 {
     setLookAndFeel (&lf);
 
-    addAndMakeVisible (&programs);
-    addAndMakeVisible (&addButton);
-    addAndMakeVisible (&deleteButton);
-    addAndMakeVisible (&helpButton);
-    addAndMakeVisible (&socaButton);
-    addChildComponent (&newsButton);
-    addChildComponent (&updateButton);
+    addAndMakeVisible (programs);
+    addAndMakeVisible (addButton);
+    addAndMakeVisible (deleteButton);
+    addAndMakeVisible (helpButton);
+    addAndMakeVisible (socaButton);
+    addChildComponent (newsButton);
+    addChildComponent (updateButton);
 
     programs.addListener (this);
     addButton.addListener (this);

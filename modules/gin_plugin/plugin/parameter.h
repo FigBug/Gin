@@ -16,9 +16,9 @@ public:
     float getUserValue() const;
     int getUserValueInt() const;
     float getUserDefaultValue() const;
-    void setUserValue(float v);
-    void setUserValueNotifingHost(float f);
-    void setUserValueAsUserAction(float f);
+    void setUserValue (float v);
+    void setUserValueNotifingHost (float f);
+    void setUserValueAsUserAction (float f);
     String getUserValueText() const;
     String userValueToText (float val);
 

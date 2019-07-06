@@ -145,7 +145,7 @@ void HorizontalFader::resized()
 {
     Rectangle<int> r = getLocalBounds().reduced (4);
 
-    name.setBounds (r.removeFromLeft (80));
+    name.setBounds (r.removeFromLeft (90));
     value.setBounds (r.removeFromRight (30));
     fader.setBounds (r.reduced (2));
 }
