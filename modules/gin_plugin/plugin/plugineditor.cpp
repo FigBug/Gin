@@ -149,6 +149,8 @@ GinAudioProcessorEditor::GinAudioProcessorEditor (GinProcessor& p, int cx_, int 
 {
     setLookAndFeel (&lf);
 
+    tooltipWindow->setMillisecondsBeforeTipAppears (2000);
+
     addAndMakeVisible (programs);
     addAndMakeVisible (addButton);
     addAndMakeVisible (deleteButton);

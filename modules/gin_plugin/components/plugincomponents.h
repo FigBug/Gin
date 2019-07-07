@@ -174,12 +174,22 @@ private:
 };
 
 //==============================================================================
-class ParamComponent : public Component
+class ParamComponent : public Component,
+                       public SettableTooltipClient
 {
 public:
     ParamComponent (Parameter* parameter);
 
     String getUid() { return parameter->getUid(); }
+
+    void setTooltip (const String& newTooltip) override
+    {
+        SettableTooltipClient::setTooltip (newTooltip);
+
+        for (auto c : getChildren())
+            if (auto stc = dynamic_cast<SettableTooltipClient*> (c))
+                stc->setTooltip (newTooltip);
+    }
 
 private:
     Parameter* parameter = nullptr;
