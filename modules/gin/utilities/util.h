@@ -231,3 +231,6 @@ inline bool almostEqual (T a, T b, T precision = T (0.00001))
 }
 
 int versionStringToInt (const String& versionString);
+
+//==============================================================================
+void delayedLambda (std::function<void ()> callback, int delayMS);

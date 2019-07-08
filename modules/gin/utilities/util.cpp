@@ -26,3 +26,27 @@ int versionStringToInt (const String& versionString)
 
     return res;
 }
+
+//==============================================================================
+class DelayedLambdaHelper : public Timer
+{
+public:
+    DelayedLambdaHelper (std::function<void ()>& cb, int ms)
+        : callback (cb)
+    {
+        startTimer (ms);
+    }
+
+    void timerCallback() override
+    {
+        callback();
+        delete this;
+    }
+
+    std::function<void ()> callback;
+};
+
+void delayedLambda (std::function<void ()> callback, int delayMS)
+{
+    new DelayedLambdaHelper (callback, delayMS);
+}
