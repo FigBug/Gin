@@ -71,6 +71,6 @@ using juce::Component;
 #include "dsp/audiofunctions.h"
 #include "dsp/audioutil.h"
 #include "dsp/oscillators.h"
-
+#include "dsp/resamplingfifo.h"
 
 }

@@ -26,5 +26,6 @@ using juce::MemoryBlock;
 #include "dsp/audiofunctions.cpp"
 #include "dsp/audioutil.cpp"
 #include "dsp/oscillators.cpp"
+#include "dsp/resamplingfifo.cpp"
 
 }

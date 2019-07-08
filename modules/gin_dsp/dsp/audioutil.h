@@ -24,7 +24,7 @@ inline Value findValue (ValueTree& state, Identifier name, var value)
 class AudioFifo
 {
 public:
-    AudioFifo (int channels, int numSamples)
+    AudioFifo (int channels = 2, int numSamples = 128)
       : fifo (numSamples), buffer (channels, numSamples)
     {
     }
@@ -76,9 +76,9 @@ public:
         return true;
     }
 
-    bool read (AudioSampleBuffer& dest, int startSampleInDestBuffer)
+    bool read (AudioSampleBuffer& dest)
     {
-        return read (dest, startSampleInDestBuffer, dest.getNumSamples());
+        return read (dest, 0, dest.getNumSamples());
     }
 
     bool read (AudioSampleBuffer& dest, int startSampleInDestBuffer, int numSamples)
@@ -99,9 +99,9 @@ public:
         return true;
     }
 
-    bool readAdding (AudioSampleBuffer& dest, int startSampleInDestBuffer)
+    bool readAdding (AudioSampleBuffer& dest)
     {
-        return readAdding (dest, startSampleInDestBuffer, dest.getNumSamples());
+        return readAdding (dest, 0, dest.getNumSamples());
     }
 
     bool readAdding (AudioSampleBuffer& dest, int startSampleInDestBuffer, int numSamples)
