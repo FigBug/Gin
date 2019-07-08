@@ -137,7 +137,7 @@ HorizontalFader::HorizontalFader (Parameter* parameter, bool fromCentre)
     value.setJustificationType (Justification::centred);
     name.setJustificationType (Justification::centredRight);
 
-    name.setFont (value.getFont().withHeight (11.0));
+    name.setFont (name.getFont().withHeight (11.0));
     value.setFont (value.getFont().withHeight (10.0));
 }
 
@@ -191,15 +191,28 @@ Select::Select (Parameter* parameter)
 
 void Select::resized()
 {
-    Rectangle<int> r = getLocalBounds().withSizeKeepingCentre (getWidth() - 10, 20);
-
-    comboBox.setBounds (r);
-    name.setBounds (r.translated (0, -20));
-
-    int y = name.getY();
-    if (y <= 0)
+    if (getWidth() > getHeight() * 2)
     {
-        comboBox.setTopLeftPosition (comboBox.getX(), comboBox.getY() + -y);
-        name.setTopLeftPosition (name.getX(), name.getY() + -y);
+        name.setJustificationType (Justification::centredRight);
+        name.setFont (name.getFont().withHeight (11.0));
+        
+        auto r = getLocalBounds().reduced (4, 0);
+        
+        name.setBounds (r.removeFromLeft (90).reduced (0, 4));
+        comboBox.setBounds (r.reduced (2));
+    }
+    else
+    {
+        auto r = getLocalBounds().withSizeKeepingCentre (getWidth() - 10, 20);
+
+        comboBox.setBounds (r);
+        name.setBounds (r.translated (0, -20));
+
+        int y = name.getY();
+        if (y <= 0)
+        {
+            comboBox.setTopLeftPosition (comboBox.getX(), comboBox.getY() + -y);
+            name.setTopLeftPosition (name.getX(), name.getY() + -y);
+        }
     }
 }

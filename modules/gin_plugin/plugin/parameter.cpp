@@ -79,7 +79,7 @@ String Parameter::userValueToText (float val)
 {
     if (textFunction)
         return textFunction (*this, val);
-    return getText (val, 1000);
+    return getText (range.convertTo0to1 (val), 1000);
 }
 
 void Parameter::beginUserAction()
