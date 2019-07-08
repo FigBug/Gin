@@ -3,29 +3,32 @@
 
 void GinProgram::loadProcessor (GinProcessor* p)
 {
-    for (auto* pp : p->getPluginParameters())
+    for (auto pp : p->getPluginParameters())
         pp->setUserValueNotifingHost (pp->getUserDefaultValue());
 
     int w = p->state.getProperty ("width", -1);
     int h = p->state.getProperty ("height", -1);
 
-    p->state = ValueTree (Identifier ("state"));
+    p->state.removeAllProperties (nullptr);
+    p->state.removeAllChildren (nullptr);
+
     if (valueTree.isNotEmpty())
     {
         XmlDocument treeDoc (valueTree);
         if (std::unique_ptr<XmlElement> vtE = treeDoc.getDocumentElement())
-            p->state = ValueTree::fromXml (*vtE.get());
+        {
+            auto srcState = ValueTree::fromXml (*vtE);
+            p->state.copyPropertiesAndChildrenFrom (srcState, nullptr);
+        }
     }
 
     if (w != -1) p->state.setProperty ("width", w, nullptr);
     if (h != -1) p->state.setProperty ("height", h, nullptr);
 
     for (Parameter::ParamState state : states)
-    {
-        if (Parameter* pp = p->getParameter (state.uid))
+        if (auto pp = p->getParameter (state.uid))
             if (! pp->isMetaParameter())
                 pp->setUserValueNotifingHost (state.value);
-    }
 }
 
 void GinProgram::saveProcessor (GinProcessor* p)
@@ -91,5 +94,5 @@ void GinProgram::saveToDir (File f)
 
 void GinProgram::deleteFromDir (File f)
 {
-    f.getChildFile (File::createLegalFileName(name) + ".xml").deleteFile();
+    f.getChildFile (File::createLegalFileName (name) + ".xml").deleteFile();
 }

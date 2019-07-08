@@ -72,7 +72,7 @@ private:
 
     LookAndFeel_V3 lookAndFeel;
 
-    int currentProgram {0};
+    int currentProgram = 0;
     OwnedArray<GinProgram> programs;
 
     Time lastStateLoad;

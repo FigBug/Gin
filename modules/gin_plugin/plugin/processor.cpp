@@ -253,9 +253,9 @@ File GinProcessor::getSettingsFile()
 {
   #ifdef JucePlugin_Name
    #if JUCE_MAC
-    File file = File::getSpecialLocation(File::userApplicationDataDirectory).getChildFile("Application Support/com.socalabs/" JucePlugin_Name "/settings.xml");
+    File file = File::getSpecialLocation (File::userApplicationDataDirectory).getChildFile ("Application Support/com.socalabs/" JucePlugin_Name "/settings.xml");
    #else
-    File file = File::getSpecialLocation(File::userApplicationDataDirectory).getChildFile("com.socalabs/" JucePlugin_Name "/settings.xml");
+    File file = File::getSpecialLocation (File::userApplicationDataDirectory).getChildFile ("com.socalabs/" JucePlugin_Name "/settings.xml");
    #endif
   #else
     // Shouldn't be using processor in something that isn't a plugin
@@ -278,15 +278,15 @@ void GinProcessor::getStateInformation (juce::MemoryBlock& destData)
     if (state.isValid())
         rootE->setAttribute ("valueTree", state.toXmlString());
 
-    rootE->setAttribute("program", currentProgram);
+    rootE->setAttribute ("program", currentProgram);
 
     for (auto p : getPluginParameters())
     {
         if (! p->isMetaParameter())
         {
-            Parameter::ParamState pstate = p->getState();
+            auto pstate = p->getState();
 
-            XmlElement* paramE = new XmlElement ("param");
+            auto paramE = new XmlElement ("param");
 
             paramE->setAttribute ("uid", pstate.uid);
             paramE->setAttribute ("val", pstate.value);
@@ -312,7 +312,9 @@ void GinProcessor::setStateInformation (const void* data, int sizeInBytes)
             XmlDocument treeDoc (xml);
             if (std::unique_ptr<XmlElement> vtE = treeDoc.getDocumentElement())
             {
-                auto srcState = ValueTree::fromXml (*vtE.get());
+                auto srcState = ValueTree::fromXml (*vtE);
+                state.removeAllProperties (nullptr);
+                state.removeAllChildren (nullptr);
                 state.copyPropertiesAndChildrenFrom (srcState, nullptr);
             }
         }

@@ -111,6 +111,12 @@ void PluginLookAndFeel::drawRotarySlider (Graphics& g, int x, int y, int width, 
 void PluginLookAndFeel::drawButtonBackground (Graphics& g, Button& b, const Colour&,
                                               bool, bool)
 {
+    if (b.isMouseOver() && b.isEnabled())
+    {
+        g.setColour (b.findColour (TextButton::buttonOnColourId).withMultipliedAlpha (0.2f));
+        g.fillRect (b.getLocalBounds());
+    }
+    
     g.setColour (b.findColour (TextButton::buttonOnColourId).withMultipliedAlpha (b.isEnabled() ? 1.0f : 0.5f));
     if (b.getToggleState())
         g.fillRect (b.getLocalBounds());
