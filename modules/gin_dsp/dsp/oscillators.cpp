@@ -112,9 +112,9 @@ BandLimitedLookupTable::BandLimitedLookupTable (std::function<double (double, do
     {
         auto freq = getMidiNoteInHertz (note);
 
-        auto func = [function, freq, sampleRate] (float phase)
+        auto func = [function, freq, sampleRate] (float phase) -> float
         {
-            return function (phase, freq, sampleRate);
+            return float (function (phase, freq, sampleRate));
         };
 
         tables.add (new juce::dsp::LookupTableTransform<float> (func, 0.0f, 1.0f, (size_t) tableSize));

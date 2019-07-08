@@ -28,34 +28,34 @@ struct OscState : public FuncState
 {
     OscState (double sr) : FuncState (sr) {}
 
-    double phase { Random::getSystemRandom().nextDouble() };
+    float phase { Random::getSystemRandom().nextFloat() };
 
-    inline void incPhase (double note)
+    inline void incPhase (float note)
     {
         if (note != lastNote)
         {
             lastNote = note;
 
-            frequency = gin::getMidiNoteInHertz (note);
-            const double period = 1.0 / frequency;
-            const double periodInSamples = period * sampleRate;
-            delta = 1.0 / periodInSamples;
+            frequency = float (gin::getMidiNoteInHertz (note));
+            const float period = 1.0f / frequency;
+            const float periodInSamples = float (period * sampleRate);
+            delta = 1.0f / periodInSamples;
 
             jassert (delta > 0);
         }
         phase += delta;
-        if (phase > 1.0)
-            phase -= 1.0;
+        if (phase > 1.0f)
+            phase -= 1.0f;
 
         jassert (! std::isinf (phase));
     }
 
     void reset() override
     {
-        phase = Random::getSystemRandom().nextDouble();
+        phase = Random::getSystemRandom().nextFloat();
     }
 
-    double lastNote = -1, frequency = -1, delta = -1;
+    float lastNote = -1.0f, frequency = -1.0f, delta = -1.0f;
 };
 
 //==============================================================================
@@ -65,11 +65,11 @@ struct HPState : public FuncState
 
     double process (double v, double freq, double res)
     {
-        float q = 0.70710678118655f / (1.0f - (res / 100.0f) * 0.99f);
+        float q = 0.70710678118655f / (1.0f - (float (res) / 100.0f) * 0.99f);
         auto c = IIRCoefficients::makeHighPass (sampleRate, freq, q);
 
         filter.setCoefficients (c);
-        return filter.processSingleSampleRaw (v);
+        return filter.processSingleSampleRaw (float (v));
     }
 
     void reset() override
@@ -87,11 +87,11 @@ struct BPState : public FuncState
 
     double process (double v, double freq, double res)
     {
-        float q = 0.70710678118655f / (1.0f - (res / 100.0f) * 0.99f);
+        float q = 0.70710678118655f / (1.0f - (float (res) / 100.0f) * 0.99f);
         auto c = IIRCoefficients::makeBandPass (sampleRate, freq, q);
 
         filter.setCoefficients (c);
-        return filter.processSingleSampleRaw (v);
+        return filter.processSingleSampleRaw (float (v));
     }
 
     void reset() override
@@ -109,11 +109,11 @@ struct LPState : public FuncState
 
     double process (double v, double freq, double res)
     {
-        float q = 0.70710678118655f / (1.0f - (res / 100.0f) * 0.99f);
+        float q = 0.70710678118655f / (1.0f - (float (res) / 100.0f) * 0.99f);
         auto c = IIRCoefficients::makeLowPass (sampleRate, freq, q);
 
         filter.setCoefficients (c);
-        return filter.processSingleSampleRaw (v);
+        return filter.processSingleSampleRaw (float (v));
     }
 
     void reset() override
@@ -131,11 +131,11 @@ struct NotchState : public FuncState
 
     double process (double v, double freq, double res)
     {
-        float q = 0.70710678118655f / (1.0f - (res / 100.0f) * 0.99f);
+        float q = 0.70710678118655f / (1.0f - (float (res) / 100.0f) * 0.99f);
         auto c = IIRCoefficients::makeNotchFilter (sampleRate, freq, q);
 
         filter.setCoefficients (c);
-        return filter.processSingleSampleRaw (v);
+        return filter.processSingleSampleRaw (float (v));
     }
 
     void reset() override

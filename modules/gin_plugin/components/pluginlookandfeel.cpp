@@ -34,7 +34,7 @@ PluginLookAndFeel::PluginLookAndFeel()
 }
 
 void PluginLookAndFeel::drawLinearSlider (Graphics& g, int x, int y, int width, int height,
-                                          float sliderPos, float minSliderPos, float maxSliderPos,
+                                          float sliderPos, float /*minSliderPos*/, float /*maxSliderPos*/,
                                           const Slider::SliderStyle, Slider& slider)
 {
     const bool isMouseOver = slider.isMouseOverOrDragging() && slider.isEnabled();

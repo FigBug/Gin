@@ -26,14 +26,14 @@ class LambdaValueTreeListener : public ValueTree::Listener
 {
 public:
     LambdaValueTreeListener (ValueTree& v_)
-        : v (v_)
+        : vt (v_)
     {
-        v.addListener (this);
+        vt.addListener (this);
     }
     
     ~LambdaValueTreeListener()
     {
-        v.removeListener (this);
+        vt.removeListener (this);
     }
 
     std::function<void (ValueTree&, const Identifier&)> onValueTreePropertyChanged;
@@ -81,7 +81,7 @@ private:
             onValueTreeRedirected (v);
     }
     
-    ValueTree& v;
+    ValueTree& vt;
 };
 
 //==============================================================================
@@ -89,14 +89,14 @@ class AsyncLambdaValueTreeListener : public ValueTree::Listener
 {
 public:
     AsyncLambdaValueTreeListener (ValueTree& v_)
-        : v (v_)
+        : vt (v_)
     {
-        v.addListener (this);
+        vt.addListener (this);
     }
     
     ~AsyncLambdaValueTreeListener()
     {
-        v.removeListener (this);
+        vt.removeListener (this);
         
         masterReference.clear();
     }
@@ -178,7 +178,7 @@ private:
                                                   });
     }
     
-    ValueTree& v;
+    ValueTree& vt;
     
     WeakReference<AsyncLambdaValueTreeListener>::Master masterReference;
     friend class WeakReference<AsyncLambdaValueTreeListener>;
