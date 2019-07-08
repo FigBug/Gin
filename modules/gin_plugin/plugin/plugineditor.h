@@ -11,7 +11,7 @@ class UpdateChecker : public Timer,
 {
 public:
     UpdateChecker (GinAudioProcessorEditor& editor_);
-    ~UpdateChecker();
+    ~UpdateChecker() override;
 
     void timerCallback() override;
     void run() override;
@@ -25,7 +25,7 @@ class NewsChecker : public Timer,
 {
 public:
     NewsChecker (GinAudioProcessorEditor& editor_);
-    ~NewsChecker();
+    ~NewsChecker() override;
 
     void timerCallback() override;
     void run() override;
@@ -81,7 +81,7 @@ class GinAudioProcessorEditor : public GinAudioProcessorEditorBase,
 {
 public:
     GinAudioProcessorEditor (GinProcessor&, int cx = 100, int cy = 100) noexcept;
-    ~GinAudioProcessorEditor();
+    ~GinAudioProcessorEditor() override;
 
     void updateReady (String updateUrl);
     void newsReady (String newsUrl);

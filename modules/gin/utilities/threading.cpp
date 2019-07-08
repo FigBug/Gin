@@ -18,7 +18,7 @@ public:
         startThread();
     }
 
-    ~BackgroundCaller()
+    ~BackgroundCaller() override
     {
         stopThread (1000);
     }

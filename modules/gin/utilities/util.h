@@ -182,7 +182,7 @@ public:
         startThread();
     }
 
-    ~AsyncDownload()
+    ~AsyncDownload() override
     {
         stopThread (100);
     }

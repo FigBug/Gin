@@ -388,7 +388,7 @@ namespace mu
       \throw nothrow
   */
   ParserCallback::ParserCallback()
-    :m_pFun(0)
+    :m_pFun(nullptr)
     ,m_iArgc(0)
     ,m_iPri(-1)
     ,m_eOprtAsct(oaNONE)

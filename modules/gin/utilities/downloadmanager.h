@@ -101,7 +101,7 @@ private:
     struct Download : public Thread
     {
         Download (DownloadManager& o) : Thread ("DownloadManager::Download"), owner (o) {}
-        ~Download();
+        ~Download() override;
 
         void run() override;
         bool tryDownload();

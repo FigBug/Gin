@@ -139,7 +139,7 @@ namespace mu
     // If optimization does not apply
     SToken tok;
     tok.Cmd = cmVAL;
-    tok.Val.ptr   = NULL;
+    tok.Val.ptr   = nullptr;
     tok.Val.data  = 0;
     tok.Val.data2 = a_fVal;
     m_vRPN.push_back(tok);

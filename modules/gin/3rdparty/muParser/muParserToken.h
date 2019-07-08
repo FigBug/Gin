@@ -83,7 +83,7 @@ namespace mu
       ParserToken()
         :m_iCode(cmUNKNOWN)
         ,m_iType(tpVOID)
-        ,m_pTok(0)
+        ,m_pTok(nullptr)
         ,m_iIdx(-1)
         ,m_strTok()
         ,m_strVal()
@@ -132,7 +132,7 @@ namespace mu
         m_iType = a_Tok.m_iType;
         m_fVal = a_Tok.m_fVal;
         // create new callback object if a_Tok has one
-        m_pCallback.reset(a_Tok.m_pCallback.get() ? a_Tok.m_pCallback->Clone() : 0);
+        m_pCallback.reset(a_Tok.m_pCallback.get() ? a_Tok.m_pCallback->Clone() : nullptr);
       }
 
       //------------------------------------------------------------------------------
@@ -155,7 +155,7 @@ namespace mu
 
         m_iCode = a_iType;
         m_iType = tpVOID;
-        m_pTok = 0;
+        m_pTok = nullptr;
         m_strTok = a_strTok;
         m_iIdx = -1;
 
@@ -173,7 +173,7 @@ namespace mu
         m_strTok = a_sTok;
         m_pCallback.reset(new ParserCallback(a_pCallback));
 
-        m_pTok = 0;
+        m_pTok = nullptr;
         m_iIdx = -1;
 
         return *this;
@@ -193,8 +193,8 @@ namespace mu
         m_strTok = a_strTok;
         m_iIdx = -1;
 
-        m_pTok = 0;
-        m_pCallback.reset(0);
+        m_pTok = nullptr;
+        m_pCallback.reset(nullptr);
 
         return *this;
       }
@@ -212,7 +212,7 @@ namespace mu
         m_strTok = a_strTok;
         m_iIdx = -1;
         m_pTok = (void*)a_pVar;
-        m_pCallback.reset(0);
+        m_pCallback.reset(nullptr);
         return *this;
       }
 
@@ -229,8 +229,8 @@ namespace mu
         m_strTok = a_strTok;
         m_iIdx = static_cast<int>(a_iSize);
 
-        m_pTok = 0;
-        m_pCallback.reset(0);
+        m_pTok = nullptr;
+        m_pCallback.reset(nullptr);
         return *this;
       }
 
@@ -311,7 +311,7 @@ namespace mu
       //------------------------------------------------------------------------------
       EOprtAssociativity GetAssociativity() const
       {
-        if (m_pCallback.get()==NULL || m_pCallback->GetCode()!=cmOPRT_BIN)
+        if (m_pCallback.get()==nullptr || m_pCallback->GetCode()!=cmOPRT_BIN)
             throw ParserError(ecINTERNAL_ERROR);
 
         return m_pCallback->GetAssociativity();
@@ -334,7 +334,7 @@ namespace mu
       */
       generic_fun_type GetFuncAddr() const
       {
-        return (m_pCallback.get()) ? (generic_fun_type)m_pCallback->GetAddr() : 0;
+        return (m_pCallback.get()) ? (generic_fun_type)m_pCallback->GetAddr() : nullptr;
       }
 
       void* GetParam() const

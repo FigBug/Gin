@@ -46,7 +46,7 @@ public:
     explicit SingleLineTextEditor (const String& componentName = String());
 
     /** Destructor. */
-    ~SingleLineTextEditor();
+    ~SingleLineTextEditor() override;
 
     /** Indicates whether the tab key should be accepted and used to input a tab character,
         or whether it gets ignored.

@@ -125,15 +125,15 @@ namespace mu
     ,m_iPos(0)
     ,m_iSynFlags(0)
     ,m_bIgnoreUndefVar(false)
-    ,m_pFunDef(NULL)
-    ,m_pPostOprtDef(NULL)
-    ,m_pInfixOprtDef(NULL)
-    ,m_pOprtDef(NULL)
-    ,m_pConstDef(NULL)
-    ,m_pStrVarDef(NULL)
-    ,m_pVarDef(NULL)
-    ,m_pFactory(NULL)
-    ,m_pFactoryData(NULL)
+    ,m_pFunDef(nullptr)
+    ,m_pPostOprtDef(nullptr)
+    ,m_pInfixOprtDef(nullptr)
+    ,m_pOprtDef(nullptr)
+    ,m_pConstDef(nullptr)
+    ,m_pStrVarDef(nullptr)
+    ,m_pVarDef(nullptr)
+    ,m_pFactory(nullptr)
+    ,m_pFactoryData(nullptr)
     ,m_vIdentFun()
     ,m_UsedVar()
     ,m_fZero(0)
@@ -892,7 +892,7 @@ namespace mu
     else
     {
       a_Tok.SetVar((value_type*)&m_fZero, strTok);
-      m_UsedVar[strTok] = 0;  // Add variable to used-var-list
+      m_UsedVar[strTok] = nullptr;  // Add variable to used-var-list
     }
 
     m_iPos = iEnd;

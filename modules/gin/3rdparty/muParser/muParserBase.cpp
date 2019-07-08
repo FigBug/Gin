@@ -71,7 +71,7 @@ namespace mu
     _T("+"),  _T("-"),   _T("*"),
     _T("/"),  _T("^"),   _T("&&"),
     _T("||"), _T("="),   _T("("),
-    _T(")"),   _T("?"),  _T(":"), 0
+    _T(")"),   _T("?"),  _T(":"), nullptr
   };
 
   const int ParserBase::s_MaxNumOpenMPThreads = 16;
@@ -345,7 +345,7 @@ namespace mu
                                 funmap_type &a_Storage,
                                 const char_type *a_szCharSet )
   {
-    if (a_Callback.GetAddr()==0)
+    if (a_Callback.GetAddr()==nullptr)
         Error(ecINVALID_FUN_PTR);
 
     const funmap_type *pFunMap = &a_Storage;
@@ -600,7 +600,7 @@ namespace mu
   */
   void ParserBase::DefineVar(const string_type &a_sName, value_type *a_pVar)
   {
-    if (a_pVar==0)
+    if (a_pVar==nullptr)
       Error(ecINVALID_VAR_PTR);
 
     // Test if a constant with that names already exists
@@ -802,7 +802,7 @@ namespace mu
     assert(m_pTokenReader.get());
 
     // Operator stack empty or does not contain tokens with callback functions
-    if (a_stOpt.empty() || a_stOpt.top().GetFuncAddr()==0 )
+    if (a_stOpt.empty() || a_stOpt.top().GetFuncAddr()==nullptr )
       return;
 
     token_type funTok = a_stOpt.pop();
@@ -1292,7 +1292,7 @@ namespace mu
                     if (stOpt.size() &&
                         stOpt.top().GetCode()!=cmOPRT_INFIX &&
                         stOpt.top().GetCode()!=cmOPRT_BIN &&
-                        stOpt.top().GetFuncAddr()!=0)
+                        stOpt.top().GetFuncAddr()!=nullptr)
                     {
                       ApplyFunc(stOpt, stVal, iArgCount);
                     }

@@ -12,7 +12,7 @@ class GinProcessor : public AudioProcessor,
 public:
     //==============================================================================
     GinProcessor();
-    ~GinProcessor();
+    ~GinProcessor() override;
 
     std::unique_ptr<PropertiesFile> getSettings();
 
@@ -64,8 +64,8 @@ public:
     ValueTree state;
 
 protected:
-    virtual void stateUpdated() {};
-    virtual void updateState()  {};
+    virtual void stateUpdated() {}
+    virtual void updateState()  {}
 
 private:
     void updateParams();

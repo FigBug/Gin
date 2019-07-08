@@ -14,7 +14,7 @@ class MapViewer : public Component,
 {
 public:
     MapViewer();
-    ~MapViewer();
+    ~MapViewer() override;
 
     void setZoom (int zoom);
     void centerOn (double longCenter, double latCenter);

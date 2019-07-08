@@ -16,7 +16,7 @@ public:
         parameter->addListener (this);
     }
 
-    ~PluginButton()
+    ~PluginButton() override
     {
         parameter->removeListener (this);
     }
@@ -57,7 +57,7 @@ public:
         addListener (this);
     }
 
-    ~PluginComboBox()
+    ~PluginComboBox() override
     {
         parameter->removeListener (this);
     }
@@ -94,7 +94,7 @@ public:
         parameter->addListener (this);
     }
 
-    ~PluginSlider()
+    ~PluginSlider() override
     {
         parameter->removeListener (this);
     }
@@ -153,7 +153,7 @@ class Readout : public Label,
 {
 public:
     Readout (Parameter* parameter);
-    ~Readout();
+    ~Readout() override;
 
 private:
     void parameterChanged (Parameter* source) override;

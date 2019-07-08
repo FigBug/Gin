@@ -11,7 +11,7 @@
 class ValueTreeAllListener : public ValueTree::Listener
 {
 public:
-    ~ValueTreeAllListener() {}
+    ~ValueTreeAllListener() override {}
 
     void valueTreePropertyChanged (ValueTree&, const Identifier&) override {}
     void valueTreeChildAdded (ValueTree&, ValueTree&) override {}
@@ -31,7 +31,7 @@ public:
         vt.addListener (this);
     }
     
-    ~LambdaValueTreeListener()
+    ~LambdaValueTreeListener() override
     {
         vt.removeListener (this);
     }
@@ -94,7 +94,7 @@ public:
         vt.addListener (this);
     }
     
-    ~AsyncLambdaValueTreeListener()
+    ~AsyncLambdaValueTreeListener() override
     {
         vt.removeListener (this);
         

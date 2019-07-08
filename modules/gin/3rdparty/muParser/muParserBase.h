@@ -115,7 +115,7 @@ private:
     int GetNumResults() const;
 
     void SetExpr(const string_type &a_sExpr);
-    void SetVarFactory(facfun_type a_pFactory, void *pUserData = NULL);
+    void SetVarFactory(facfun_type a_pFactory, void *pUserData = nullptr);
 
     void SetDecSep(char_type cDecSep);
     void SetThousandsSep(char_type cThousandsSep = 0);

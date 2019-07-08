@@ -20,7 +20,7 @@ UpdateChecker::UpdateChecker (GinAudioProcessorEditor& editor_)
         {
             editor.updateReady (url);
         }
-        else if (time (NULL) > last + 86400)
+        else if (time (nullptr) > last + 86400)
         {
             startTimer (Random::getSystemRandom().nextInt ({1500, 2500}));
         }
@@ -48,7 +48,7 @@ void UpdateChecker::run()
     {
         if (std::unique_ptr<PropertiesFile> props = editor.slProc.getSettings())
         {
-            props->setValue (JucePlugin_Name "_lastUpdateCheck", int (time (NULL)));
+            props->setValue (JucePlugin_Name "_lastUpdateCheck", int (time (nullptr)));
 
             auto* child = root->getChildElement (0);
             while (child)
@@ -75,7 +75,7 @@ void UpdateChecker::run()
 
 //==============================================================================
 NewsChecker::NewsChecker (GinAudioProcessorEditor& editor_)
-: Thread ("News"), editor (editor_)
+    : Thread ("News"), editor (editor_)
 {
     if (std::unique_ptr<PropertiesFile> props = editor.slProc.getSettings())
     {
@@ -86,7 +86,7 @@ NewsChecker::NewsChecker (GinAudioProcessorEditor& editor_)
         {
             editor.newsReady (url);
         }
-        else if (time (NULL) > last + 86400)
+        else if (time (nullptr) > last + 86400)
         {
             startTimer (Random::getSystemRandom().nextInt ({1500, 2500}));
         }
@@ -118,7 +118,7 @@ void NewsChecker::run()
                 {
                     if (auto* link = item->getChildByName("link"))
                     {
-                        props->setValue ("lastNewsCheck", int (time (NULL)));
+                        props->setValue ("lastNewsCheck", int (time (nullptr)));
 
                         String url = link->getAllSubText();
 

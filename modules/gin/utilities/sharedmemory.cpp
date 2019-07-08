@@ -104,7 +104,7 @@ public:
 
         size = int (statbuf.st_size);
 
-        data = mmap (0, size_t (size), PROT_WRITE, MAP_SHARED, fd, 0);
+        data = mmap (nullptr, size_t (size), PROT_WRITE, MAP_SHARED, fd, 0);
         jassert (data != nullptr);
 
         if (data != nullptr && needsInit)

@@ -453,8 +453,8 @@ class CBuffer
 {
 public:
     CBuffer()
-        : Data( NULL )
-        , DataAligned( NULL )
+        : Data( nullptr )
+        , DataAligned( nullptr )
         , Capacity( 0 )
         , Alignment( 0 )
     {
@@ -513,8 +513,8 @@ public:
     void free()
     {
         freeData();
-        Data = NULL;
-        DataAligned = NULL;
+        Data = nullptr;
+        DataAligned = nullptr;
         Capacity = 0;
         Alignment = 0;
     }
@@ -2403,7 +2403,7 @@ public:
     CImageResizerVars()
         : ox( 0.0 )
         , oy( 0.0 )
-        , ThreadPool( NULL )
+        , ThreadPool( nullptr )
         , UseSRGBGamma( false )
         , BuildMode( -1 )
         , RndSeed( 0 )
@@ -4294,7 +4294,7 @@ public:
     void resizeImage( const Tin* const SrcBuf, const int SrcWidth,
         const int SrcHeight, int SrcScanlineSize, Tout* const NewBuf,
         const int NewWidth, const int NewHeight, const int ElCountIO,
-        const double k, CImageResizerVars* const aVars = NULL ) const
+        const double k, CImageResizerVars* const aVars = nullptr ) const
     {
         if( SrcWidth == 0 || SrcHeight == 0 )
         {
@@ -4310,10 +4310,10 @@ public:
         }
 
         CImageResizerVars DefVars;
-        CImageResizerVars& Vars = ( aVars == NULL ? DefVars : *aVars );
+        CImageResizerVars& Vars = ( aVars == nullptr ? DefVars : *aVars );
 
         CImageResizerThreadPool DefThreadPool;
-        CImageResizerThreadPool& ThreadPool = ( Vars.ThreadPool == NULL ?
+        CImageResizerThreadPool& ThreadPool = ( Vars.ThreadPool == nullptr ?
             DefThreadPool : *Vars.ThreadPool );
 
         // Define resizing steps, also optionally modify offsets so that
@@ -4834,14 +4834,14 @@ private:
      */
 
     static void allocFilter( CBuffer< fptype >& Flt, const int ReqCapacity,
-        const bool IsModel = false, int* const FltExt = NULL )
+        const bool IsModel = false, int* const FltExt = nullptr )
     {
         int UseCapacity = ( ReqCapacity + fpclass :: elalign - 1 ) &
             ~( fpclass :: elalign - 1 );
 
         int Ext = UseCapacity - ReqCapacity;
 
-        if( FltExt != NULL )
+        if( FltExt != nullptr )
         {
             *FltExt = Ext;
         }
@@ -5311,8 +5311,8 @@ private:
                 DoFltAndIntCombo, IsModel );
 
             IntCutoffMult = FltCutoff * 2.0 / UpsampleFactor;
-            ReuseStep = NULL;
-            ExtFltStep = ( DoFltAndIntCombo ? &fs : NULL );
+            ReuseStep = nullptr;
+            ExtFltStep = ( DoFltAndIntCombo ? &fs : nullptr );
         }
         else
         {
@@ -5369,22 +5369,22 @@ private:
             else
             {
                 IntCutoffMult *= DownsampleFactor;
-                ReuseStep = NULL;
-                ExtFltStep = NULL;
+                ReuseStep = nullptr;
+                ExtFltStep = nullptr;
             }
         }
 
         // Insert resizing and correction steps.
 
-        CFilterStep& fs = ( ReuseStep == NULL ? Steps.add() : *ReuseStep );
+        CFilterStep& fs = ( ReuseStep == nullptr ? Steps.add() : *ReuseStep );
 
         Vars.ResizeStep = Steps.getItemCount() - 1;
         fs.IsUpsample = false;
         fs.ResampleFactor = 0;
-        fs.DCGain = ( ExtFltStep == NULL ? 1.0 : ExtFltStep -> DCGain );
+        fs.DCGain = ( ExtFltStep == nullptr ? 1.0 : ExtFltStep -> DCGain );
 
         initFilterBank( FltBank, IntCutoffMult, ForceHiOrderInt,
-            ( ExtFltStep == NULL ? fs.FltOrig : ExtFltStep -> FltOrig ));
+            ( ExtFltStep == nullptr ? fs.FltOrig : ExtFltStep -> FltOrig ));
 
         if( FltBank == FixedFilterBank )
         {

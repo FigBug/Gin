@@ -277,7 +277,7 @@ public:
         maxDescent (0),
         atomX (0),
         atomRight (0),
-        atom (0),
+        atom (nullptr),
         currentSection (nullptr),
         justification (j),
         sections (sectionList),
@@ -716,13 +716,13 @@ public:
 
     bool perform() override
     {
-        owner.insert (text, insertIndex, font, colour, 0, newCaretPos);
+        owner.insert (text, insertIndex, font, colour, nullptr, newCaretPos);
         return true;
     }
 
     bool undo() override
     {
-        owner.remove (Range<int> (insertIndex, insertIndex + text.length()), 0, oldCaretPos);
+        owner.remove (Range<int> (insertIndex, insertIndex + text.length()), nullptr, oldCaretPos);
         return true;
     }
 
@@ -760,7 +760,7 @@ public:
 
     bool perform() override
     {
-        owner.remove (range, 0, newCaretPos);
+        owner.remove (range, nullptr, newCaretPos);
         return true;
     }
 
@@ -804,7 +804,7 @@ public:
         owner.getTextValue().addListener (this);
     }
 
-    ~TextHolderComponent()
+    ~TextHolderComponent() override
     {
         owner.getTextValue().removeListener (this);
     }
@@ -1073,7 +1073,7 @@ void SingleLineTextEditor::setText (const String& newText,
         const bool cursorWasAtEnd = oldCursorPos >= getTotalNumChars();
 
         clearInternal (nullptr);
-        insert (newText, 0, currentFont, findColour (textColourId), 0, caretPosition);
+        insert (newText, 0, currentFont, findColour (textColourId), nullptr, caretPosition);
 
         if (cursorWasAtEnd)
             oldCursorPos = getTotalNumChars();
