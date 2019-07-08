@@ -280,7 +280,7 @@ void GinProcessor::getStateInformation (juce::MemoryBlock& destData)
 
     rootE->setAttribute("program", currentProgram);
 
-    for (Parameter* p : getPluginParameters())
+    for (auto p : getPluginParameters())
     {
         if (! p->isMetaParameter())
         {
@@ -311,7 +311,10 @@ void GinProcessor::setStateInformation (const void* data, int sizeInBytes)
             String xml = rootE->getStringAttribute ("valueTree");
             XmlDocument treeDoc (xml);
             if (std::unique_ptr<XmlElement> vtE = treeDoc.getDocumentElement())
-                state = ValueTree::fromXml (*vtE.get());
+            {
+                auto srcState = ValueTree::fromXml (*vtE.get());
+                state.copyPropertiesAndChildrenFrom (srcState, nullptr);
+            }
         }
 
         currentProgram = rootE->getIntAttribute ("program");
@@ -322,7 +325,7 @@ void GinProcessor::setStateInformation (const void* data, int sizeInBytes)
             String uid = paramE->getStringAttribute ("uid");
             float  val = paramE->getStringAttribute ("val").getFloatValue();
 
-            if (Parameter* p = getParameter (uid))
+            if (auto p = getParameter (uid))
             {
                 if (! p->isMetaParameter())
                     p->setUserValue (val);

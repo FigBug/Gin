@@ -15,6 +15,14 @@ PluginLookAndFeel::PluginLookAndFeel()
 
     setColour (ComboBox::backgroundColourId, Colours::transparentWhite);
     setColour (ComboBox::outlineColourId, Colours::white);
+    
+    setColour (TextEditor::backgroundColourId, Colours::transparentWhite);
+    setColour (TextEditor::textColourId, Colours::white);
+    setColour (TextEditor::highlightColourId, Colours::white);
+    setColour (TextEditor::highlightedTextColourId, Colours::black);
+    setColour (TextEditor::outlineColourId, Colours::white);
+    setColour (TextEditor::focusedOutlineColourId, Colours::white);
+    setColour (TextEditor::shadowColourId, Colours::transparentWhite);
 
 #if JUCE_LINUX
     Desktop::getInstance().getDefaultLookAndFeel().setDefaultSansSerifTypefaceName ("Verdana");
@@ -101,7 +109,7 @@ void PluginLookAndFeel::drawRotarySlider (Graphics& g, int x, int y, int width, 
 }
 
 void PluginLookAndFeel::drawButtonBackground (Graphics& g, Button& b, const Colour&,
-                                          bool, bool)
+                                              bool, bool)
 {
     g.setColour (b.findColour (TextButton::buttonOnColourId).withMultipliedAlpha (b.isEnabled() ? 1.0f : 0.5f));
     if (b.getToggleState())
@@ -119,8 +127,8 @@ void PluginLookAndFeel::drawButtonText (Graphics& g, TextButton& b, bool, bool)
 }
 
 void PluginLookAndFeel::drawComboBox (Graphics& g, int width, int height, bool /*isButtonDown*/,
-                                  int /*buttonX*/, int /*buttonY*/, int /*buttonW*/, int /*buttonH*/,
-                                  ComboBox& box)
+                                      int /*buttonX*/, int /*buttonY*/, int /*buttonW*/, int /*buttonH*/,
+                                      ComboBox& box)
 {
     const Rectangle<int> boxBounds (0, 0, width, height);
 
@@ -136,4 +144,10 @@ void PluginLookAndFeel::positionComboBoxText (ComboBox& box, Label& label)
     label.setBounds (1, 1, box.getWidth() - 1, box.getHeight() - 1);
     label.setFont (getComboBoxFont (box));
     label.setJustificationType (Justification::centred);
+}
+
+void PluginLookAndFeel::drawTextEditorOutline (Graphics& g, int width, int height, TextEditor&)
+{
+    g.setColour (Colours::white);
+    g.drawRect (0, 0, width, height);
 }

@@ -25,5 +25,6 @@ public:
                        ComboBox&) override;
 
     void positionComboBoxText (ComboBox&, Label&) override;
-
+    
+    void drawTextEditorOutline (Graphics&, int width, int height, TextEditor&) override;
 };
