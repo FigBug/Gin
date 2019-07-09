@@ -58,7 +58,10 @@ public:
 
     int getNumDownloadsInQueue()                { return downloads.size();  }
 
-    /** If enabled, will request the server sends the data compressed */
+    /** If enabled, will request the server sends the data compressed 
+	    This only has effect on windows. On macOS it is handled by the system libraries 
+		and is always on. 
+	  */
     void enableGzipDeflate (bool e)             { gzipDeflate = e;          }
 
     //==============================================================================
@@ -144,7 +147,7 @@ private:
     int runningDownloads = 0, maxDownloads = 100;
     OwnedArray<Download> downloads;
     std::function<void ()> queueFinishedCallback;
-    bool gzipDeflate = false;
+    bool gzipDeflate = true;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DownloadManager)
 };

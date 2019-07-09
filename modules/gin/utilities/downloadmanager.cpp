@@ -48,13 +48,15 @@ int DownloadManager::startAsyncDownload (URL url,
                                          std::function<void (int64, int64, int64)> progressCallback,
                                          String extraHeaders)
 {
-    /*
+   #if JUCE_WINDOWS
+	// macOS does this automatically
     if (gzipDeflate)
     {
         auto headerList = StringArray::fromTokens (extraHeaders, "\n", "");
         headerList.add ("Accept-Encoding: gzip");
         extraHeaders = headerList.joinIntoString ("\n");
-    }*/
+    }
+   #endif
 
     auto download = new Download (*this);
     download->result.url = url;
@@ -219,12 +221,8 @@ bool DownloadManager::Download::tryDownload()
         }
     }
 
-    // decompress the data if required
-    for (auto key : result.responseHeaders.getAllKeys())
-    {
-        DBG(key + ": " + result.responseHeaders[key]);
-    }
-
+   #if JUCE_WINDOWS
+	// Decompress the gzip encoded data. This happens automatically on macOS
     if (result.ok && result.responseHeaders["Content-Encoding"] == "gzip")
     {
         MemoryInputStream mis (result.data, true);
@@ -240,6 +238,7 @@ bool DownloadManager::Download::tryDownload()
                 result.data.append (buffer, size_t (read));
         }
     }
+   #endif
 
     return result.ok;
 }

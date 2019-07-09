@@ -425,7 +425,8 @@ struct DownloadManagerDemo : public Component,
 
         downloadManager.startAsyncDownload (URL ("https://www.rabien.com"), [] (gin::DownloadManager::DownloadResult result)
                                             {
-                                                DBG("Fetched");
+												auto s = result.data.toString();
+												jassert (s.contains ("Audio Focused Mac / iOS / Windows Developer"));
                                             });
     }
 

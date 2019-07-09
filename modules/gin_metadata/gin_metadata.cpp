@@ -9,6 +9,11 @@
 // and your header search path must make it accessible to the module's files.
 #include "AppConfig.h"
 
+#ifdef  _WIN32
+#include <Windows.h>
+#include <ctime>
+#endif
+
 //==============================================================================
 
 #include "gin_metadata.h"
