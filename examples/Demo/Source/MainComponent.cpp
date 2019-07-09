@@ -418,9 +418,15 @@ struct DownloadManagerDemo : public Component,
         setName ("Download Manager");
         downloadManager.setConcurrentDownloadLimit (4);
         downloadManager.setProgressInterval (1);
+        downloadManager.enableGzipDeflate (true);
         downloadManager.setQueueFinishedCallback([] {
             DBG("All done!");
         });
+
+        downloadManager.startAsyncDownload (URL ("https://www.rabien.com"), [] (gin::DownloadManager::DownloadResult result)
+                                            {
+                                                DBG("Fetched");
+                                            });
     }
 
     void resized() override

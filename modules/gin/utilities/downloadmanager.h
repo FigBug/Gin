@@ -56,7 +56,10 @@ public:
         cancelling downloads can only happen between these blocks. Max size is 128 KB */
     void setDownloadBlockSize (int bs)          { downloadBlockSize = jlimit (1, 128 * 1000, bs); }
 
-    int getNumDownloadsInQueue()                { return downloads.size(); }
+    int getNumDownloadsInQueue()                { return downloads.size();  }
+
+    /** If enabled, will request the server sends the data compressed */
+    void enableGzipDeflate (bool e)             { gzipDeflate = e;          }
 
     //==============================================================================
     struct DownloadResult
@@ -141,6 +144,7 @@ private:
     int runningDownloads = 0, maxDownloads = 100;
     OwnedArray<Download> downloads;
     std::function<void ()> queueFinishedCallback;
+    bool gzipDeflate = false;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DownloadManager)
 };

@@ -48,6 +48,14 @@ int DownloadManager::startAsyncDownload (URL url,
                                          std::function<void (int64, int64, int64)> progressCallback,
                                          String extraHeaders)
 {
+    /*
+    if (gzipDeflate)
+    {
+        auto headerList = StringArray::fromTokens (extraHeaders, "\n", "");
+        headerList.add ("Accept-Encoding: gzip");
+        extraHeaders = headerList.joinIntoString ("\n");
+    }*/
+
     auto download = new Download (*this);
     download->result.url = url;
     download->headers = extraHeaders;
@@ -181,13 +189,12 @@ bool DownloadManager::Download::tryDownload()
                 int64 toRead = jmin (int64 (sizeof (buffer)), int64 (owner.downloadBlockSize), totalLength - downloaded);
 
                 int read = is->read (buffer, int (toRead));
-                //jassert (read != 0);
 
                 if (read > 0)
                 {
                     os.write (buffer, size_t (read));
                     downloaded += read;
-                    result.ok = is->isExhausted() || downloaded == totalLength;
+                    result.ok = (is->isExhausted() || downloaded == totalLength) && result.httpCode == 200;
 
                     updateProgress (downloaded, totalLength, false);
                 }
@@ -195,9 +202,9 @@ bool DownloadManager::Download::tryDownload()
                 {
                     // For chunked encoding, assume we have it all, otherwise check the length
                     if (totalLength < std::numeric_limits<int64>::max())
-                        result.ok = totalLength == downloaded;
+                        result.ok = (totalLength == downloaded) && result.httpCode == 200;
                     else
-                        result.ok = true;
+                        result.ok = result.httpCode == 200;
 
                     break;
                 }
@@ -209,6 +216,28 @@ bool DownloadManager::Download::tryDownload()
             }
 
             updateProgress (downloaded, totalLength, true);
+        }
+    }
+
+    // decompress the data if required
+    for (auto key : result.responseHeaders.getAllKeys())
+    {
+        DBG(key + ": " + result.responseHeaders[key]);
+    }
+
+    if (result.ok && result.responseHeaders["Content-Encoding"] == "gzip")
+    {
+        MemoryInputStream mis (result.data, true);
+        GZIPDecompressorInputStream gis (&mis, false, GZIPDecompressorInputStream::gzipFormat);
+
+        result.data.reset();
+
+        while (! gis.isExhausted())
+        {
+            char buffer[10 * 1024];
+            int read = gis.read (buffer, sizeof (buffer));
+            if (read > 0)
+                result.data.append (buffer, size_t (read));
         }
     }
 
