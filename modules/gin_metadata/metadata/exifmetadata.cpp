@@ -7,7 +7,7 @@
 
 ExifMetadata::MetadataItem::~MetadataItem()
 {
-    delete[] data;
+    ::operator delete (data);
 }
 
 String ExifMetadata::MetadataItem::getName() const
@@ -184,7 +184,7 @@ String ExifMetadata::MetadataItem::getValue() const
     else if (type == 7)
     {
         for (int i = 0; i < count; i++)
-            s += String::formatted ("0x%.2X ", data[i]);
+            s += String::formatted ("0x%.2X ", ((uint8*)data)[i]);
         return s.trim();
     }
     else if (type == 9)
@@ -306,7 +306,7 @@ ExifMetadata* ExifMetadata::create (const uint8* data, int sz)
         int records = bigEndian ? is.readShortBigEndian() : is.readShort();
         for (int i = 0; i < records; i++)
         {
-            MetadataItem* itm = new MetadataItem();
+            auto itm = new MetadataItem();
 
             itm->tag       = uint16 (bigEndian ? is.readShortBigEndian() : is.readShort());
             itm->type      = uint16 (bigEndian ? is.readShortBigEndian() : is.readShort());
@@ -319,7 +319,7 @@ ExifMetadata* ExifMetadata::create (const uint8* data, int sz)
             int off       = int (bigEndian ? ByteOrder::bigEndianInt (&offsetData) : ByteOrder::littleEndianInt (&offsetData));
             int dataBytes = itm->count * sizeofType (itm->type);
 
-            itm->data = new uint8[size_t (dataBytes)];
+            itm->data = ::operator new (size_t (dataBytes));
             if (dataBytes <= 4)
             {
                 memcpy (itm->data, &offsetData, size_t (dataBytes));

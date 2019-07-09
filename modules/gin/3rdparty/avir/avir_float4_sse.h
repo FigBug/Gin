@@ -169,7 +169,7 @@ public:
             }
             else
             {
-                _mm_storel_pi( (__m64*) p, value );
+                _mm_storel_pi( (__m64*) (void*) p, value );
                 _mm_store_ss( p + 2, _mm_movehl_ps( value, value ));
             }
         }
@@ -177,7 +177,7 @@ public:
         {
             if( lim == 2 )
             {
-                _mm_storel_pi( (__m64*) p, value );
+                _mm_storel_pi( (__m64*) (void*) p, value );
             }
             else
             {

@@ -31,7 +31,7 @@ private:
         int count;
         int section;
         bool bigEndian;
-        uint8* data;
+        void* data = nullptr;
 
         String getName() const;
         String getValue() const;
@@ -51,6 +51,6 @@ private:
     };
 
     OwnedArray<MetadataItem> items;
-    char* thumbImg;
-    int thumbNumBytes;
+    char* thumbImg = nullptr;
+    int thumbNumBytes = 0;
 };

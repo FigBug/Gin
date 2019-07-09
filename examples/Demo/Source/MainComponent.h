@@ -21,7 +21,7 @@ class MainContentComponent : public Component,
 public:
     //==============================================================================
     MainContentComponent();
-    ~MainContentComponent();
+    ~MainContentComponent() override;
 
     void paint (Graphics&) override;
     void resized() override;

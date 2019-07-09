@@ -106,20 +106,20 @@ static void pngReadCallback (png_structp pngReadStruct, png_bytep data, png_size
 //==============================================================================
 bool loadPNGMetadataFromStream (OwnedArray<ImageMetadata>& metadata, InputStream& in)
 {
-    Image* image = 0;
+    Image* image = nullptr;
 
     png_structp pngReadStruct;
     png_infop pngInfoStruct;
 
-    pngReadStruct = png_create_read_struct (PNG_LIBPNG_VER_STRING, 0, 0, 0);
+    pngReadStruct = png_create_read_struct (PNG_LIBPNG_VER_STRING, nullptr, nullptr, nullptr);
 
-    if (pngReadStruct != 0)
+    if (pngReadStruct != nullptr)
     {
         pngInfoStruct = png_create_info_struct (pngReadStruct);
 
-        if (pngInfoStruct == 0)
+        if (pngInfoStruct == nullptr)
         {
-            png_destroy_read_struct (&pngReadStruct, 0, 0);
+            png_destroy_read_struct (&pngReadStruct, nullptr, nullptr);
             return 0;
         }
 
@@ -135,7 +135,7 @@ bool loadPNGMetadataFromStream (OwnedArray<ImageMetadata>& metadata, InputStream
                 metadata.add (md);
             }
         }
-        png_destroy_read_struct (&pngReadStruct, &pngInfoStruct, 0);
+        png_destroy_read_struct (&pngReadStruct, &pngInfoStruct, nullptr);
     }
 
     return image;

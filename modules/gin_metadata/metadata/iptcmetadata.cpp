@@ -89,7 +89,7 @@ IptcMetadata* IptcMetadata::create (const uint8* data, int sz)
     char header[14];
     is.read (header, 14);
     if (memcmp ("Photoshop 3.0", header, 14) != 0)
-        return NULL;
+        return nullptr;
 
     IptcMetadata* md = new IptcMetadata();
 
@@ -148,7 +148,7 @@ IptcMetadata* IptcMetadata::create (const uint8* data, int sz)
     else
     {
         delete md;
-        return NULL;
+        return nullptr;
     }
 }
 

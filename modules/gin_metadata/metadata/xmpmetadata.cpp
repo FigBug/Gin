@@ -16,7 +16,7 @@ XmpMetadata* XmpMetadata::createFromJpg (const uint8* data, int sz)
     char header[29];
     is.read (header, 29);
     if (memcmp ("http://ns.adobe.com/xap/1.0/", header, 29) != 0)
-        return NULL;
+        return nullptr;
 
     XmpMetadata* md = new XmpMetadata();
 

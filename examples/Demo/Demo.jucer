@@ -26,9 +26,9 @@
                extraCompilerFlags="-Wall -Wextra -Wconversion -Wconstant-conversion -Wint-conversion -Woverloaded-virtual -Wconditional-uninitialized -Wunused-parameter -Wshorten-64-to-32 -Wstrict-aliasing -Wshadow -Wreorder -Wunused-private-field -Wbool-conversion -Wno-missing-field-initializers -Wno-ignored-qualifiers -Wunreachable-code">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" enablePluginBinaryCopyStep="1" isDebug="1" optimisation="1"
-                       linkTimeOptimisation="0" targetName="Demo"/>
+                       linkTimeOptimisation="0" targetName="Demo" recommendedWarnings="LLVM"/>
         <CONFIGURATION name="Release" enablePluginBinaryCopyStep="1" isDebug="0" optimisation="3"
-                       linkTimeOptimisation="1" targetName="Demo"/>
+                       linkTimeOptimisation="1" targetName="Demo" recommendedWarnings="LLVM"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="gin" path="../../modules"/>
@@ -39,6 +39,13 @@
         <MODULEPATH id="juce_data_structures" path="../../../juce/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../../../juce/modules"/>
         <MODULEPATH id="gin_metadata" path="../../modules"/>
+        <MODULEPATH id="gin_dsp" path="../../modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../../juce/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <XCODE_IPHONE targetFolder="Builds/iOS" iosScreenOrientation="portraitlandscape"
@@ -59,6 +66,13 @@
         <MODULEPATH id="juce_data_structures" path="../../../juce/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../../../juce/modules"/>
         <MODULEPATH id="gin_metadata" path="../../modules"/>
+        <MODULEPATH id="gin_dsp" path="../../modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../../juce/modules"/>
       </MODULEPATHS>
     </XCODE_IPHONE>
     <VS2017 targetFolder="Builds/VisualStudio2017" extraCompilerFlags="/wd4996 /wd4458">
@@ -79,6 +93,13 @@
         <MODULEPATH id="juce_data_structures" path="../../../juce/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../../../juce/modules"/>
         <MODULEPATH id="gin_metadata" path="../../modules"/>
+        <MODULEPATH id="gin_dsp" path="../../modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../../juce/modules"/>
       </MODULEPATHS>
     </VS2017>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
@@ -97,14 +118,28 @@
         <MODULEPATH id="juce_data_structures" path="../../../juce/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../../../juce/modules"/>
         <MODULEPATH id="gin_metadata" path="../../modules"/>
+        <MODULEPATH id="gin_dsp" path="../../modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../juce/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../../juce/modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
   </EXPORTFORMATS>
   <MODULES>
     <MODULE id="gin" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="gin_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="gin_metadata" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>

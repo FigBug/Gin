@@ -50,13 +50,22 @@ namespace pnglibNamespace
     using std::free;
 #endif
 
-#if JUCE_CLANG
- #pragma clang diagnostic push
- #pragma clang diagnostic ignored "-Wsign-conversion"
- #if __has_warning("-Wcomma")
-  #pragma clang diagnostic ignored "-Wcomma"
- #endif
-#endif
+  #if JUCE_CLANG
+   #pragma clang diagnostic push
+   #pragma clang diagnostic ignored "-Wsign-conversion"
+   #if __has_warning("-Wzero-as-null-pointer-constant")
+    #pragma clang diagnostic ignored "-Wzero-as-null-pointer-constant"
+   #endif
+   #if __has_warning("-Wcomma")
+    #pragma clang diagnostic ignored "-Wcomma"
+   #endif
+  #endif
+
+  #if JUCE_GCC
+   #pragma GCC diagnostic push
+   #pragma GCC diagnostic ignored "-Wsign-conversion"
+   #pragma GCC diagnostic ignored "-Wzero-as-null-pointer-constant"
+  #endif
 
 #undef check
 using std::abs;
@@ -341,12 +350,26 @@ namespace jpeglibNamespace
 #endif
 
 #if JUCE_CLANG
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wconversion"
-#pragma clang diagnostic ignored "-Wdeprecated-register"
-#if __has_warning("-Wcomma")
-#pragma clang diagnostic ignored "-Wcomma"
+ #pragma clang diagnostic push
+ #pragma clang diagnostic ignored "-Wconversion"
+ #pragma clang diagnostic ignored "-Wdeprecated-register"
+ #pragma clang diagnostic ignored "-Wcast-align"
+ #if __has_warning("-Wzero-as-null-pointer-constant")
+  #pragma clang diagnostic ignored "-Wzero-as-null-pointer-constant"
+ #endif
+ #if __has_warning("-Wcomma")
+  #pragma clang diagnostic ignored "-Wcomma"
+ #endif
 #endif
+
+#if JUCE_GCC
+ #pragma GCC diagnostic push
+ #pragma GCC diagnostic ignored "-Wconversion"
+ #pragma GCC diagnostic ignored "-Wsign-conversion"
+ #pragma GCC diagnostic ignored "-Wzero-as-null-pointer-constant"
+ #if __GNUC__ > 5
+  #pragma GCC diagnostic ignored "-Wshift-negative-value"
+ #endif
 #endif
 
 #define JPEG_INTERNALS
