@@ -7,8 +7,20 @@
  ==============================================================================
  */
 
+void AudioFunctionHost::setSampleRate (double sr)
+{
+    sampleRate = sr;
+    funcStates.clear();
+}
 
-#include "adsr.h"
+void AudioFunctionHost::addConstants (gin::EquationParser& parser)
+{
+    parser.addConstant ("_phi", 1.61803398875); // golden ratio
+    parser.addConstant ("_PHI", 0.6180339887); // golden ratio conjugate
+    parser.addConstant ("_deltaS", 2.41421356237); // silver ratio
+    parser.addConstant ("_rho", 1.324717957244746025960908854); // plastic number
+    parser.addConstant ("_q", 0.70710678118655); // default q
+}
 
 void AudioFunctionHost::addOscillatorFunctions (gin::EquationParser& parser)
 {
@@ -54,30 +66,100 @@ void AudioFunctionHost::addOscillatorFunctions (gin::EquationParser& parser)
                         });
 }
 
-void AudioFunctionHost::addFilterFunctions (gin::EquationParser& parser)
+void AudioFunctionHost::addSynthFilterFunctions (gin::EquationParser& parser)
 {
-    parser.addFunction ("hp", [this] (int id, double v, double freq, double res)
+    parser.addFunction ("hp12", [this] (int id, double v, double freq, double res)
                         {
-                            auto p = getFuncParams<HPState> (id, sampleRate);
+                            auto p = getFuncParams<HP12State> (id, sampleRate);
                             float q = 0.70710678118655f / (1.0f - float (res) * 0.99f);
                             return p->process (v, freq, q);
                         });
-    parser.addFunction ("lp", [this] (int id, double v, double freq, double res)
+    parser.addFunction ("lp12", [this] (int id, double v, double freq, double res)
                         {
-                            auto p = getFuncParams<LPState> (id, sampleRate);
+                            auto p = getFuncParams<LP12State> (id, sampleRate);
                             float q = 0.70710678118655f / (1.0f - float (res) * 0.99f);
                             return p->process (v, freq, q);
                         });
-    parser.addFunction ("notch", [this] (int id, double v, double freq, double res)
+    parser.addFunction ("notch12", [this] (int id, double v, double freq, double res)
                         {
-                            auto p = getFuncParams<NotchState> (id, sampleRate);
+                            auto p = getFuncParams<Notch12State> (id, sampleRate);
                             float q = 0.70710678118655f / (1.0f - float (res) * 0.99f);
                             return p->process (v, freq, q);
                         });
-    parser.addFunction ("bp", [this] (int id, double v, double freq, double res)
+    parser.addFunction ("bp12", [this] (int id, double v, double freq, double res)
                         {
-                            auto p = getFuncParams<BPState> (id, sampleRate);
+                            auto p = getFuncParams<BP12State> (id, sampleRate);
                             float q = 0.70710678118655f / (1.0f - float (res) * 0.99f);
+                            return p->process (v, freq, q);
+                        });
+    
+    parser.addFunction ("hp24", [this] (int id, double v, double freq, double res)
+                        {
+                            auto p = getFuncParams<HP24State> (id, sampleRate);
+                            float q = 0.70710678118655f / (1.0f - float (res) * 0.99f);
+                            return p->process (v, freq, q);
+                        });
+    parser.addFunction ("lp24", [this] (int id, double v, double freq, double res)
+                        {
+                            auto p = getFuncParams<LP24State> (id, sampleRate);
+                            float q = 0.70710678118655f / (1.0f - float (res) * 0.99f);
+                            return p->process (v, freq, q);
+                        });
+    parser.addFunction ("notch24", [this] (int id, double v, double freq, double res)
+                        {
+                            auto p = getFuncParams<Notch24State> (id, sampleRate);
+                            float q = 0.70710678118655f / (1.0f - float (res) * 0.99f);
+                            return p->process (v, freq, q);
+                        });
+    parser.addFunction ("bp24", [this] (int id, double v, double freq, double res)
+                        {
+                            auto p = getFuncParams<BP24State> (id, sampleRate);
+                            float q = 0.70710678118655f / (1.0f - float (res) * 0.99f);
+                            return p->process (v, freq, q);
+                        });
+}
+
+void AudioFunctionHost::addEffectFilterFunctions (gin::EquationParser& parser)
+{
+    parser.addFunction ("hp12", [this] (int id, double v, double freq, double q)
+                        {
+                            auto p = getFuncParams<HP12State> (id, sampleRate);
+                            return p->process (v, freq, q);
+                        });
+    parser.addFunction ("lp12", [this] (int id, double v, double freq, double q)
+                        {
+                            auto p = getFuncParams<LP12State> (id, sampleRate);
+                            return p->process (v, freq, q);
+                        });
+    parser.addFunction ("notch12", [this] (int id, double v, double freq, double q)
+                        {
+                            auto p = getFuncParams<Notch12State> (id, sampleRate);
+                            return p->process (v, freq, q);
+                        });
+    parser.addFunction ("bp12", [this] (int id, double v, double freq, double q)
+                        {
+                            auto p = getFuncParams<BP12State> (id, sampleRate);
+                            return p->process (v, freq, q);
+                        });
+    
+    parser.addFunction ("hp24", [this] (int id, double v, double freq, double q)
+                        {
+                            auto p = getFuncParams<HP24State> (id, sampleRate);
+                            return p->process (v, freq, q);
+                        });
+    parser.addFunction ("lp24", [this] (int id, double v, double freq, double q)
+                        {
+                            auto p = getFuncParams<LP24State> (id, sampleRate);
+                            return p->process (v, freq, q);
+                        });
+    parser.addFunction ("notch24", [this] (int id, double v, double freq, double q)
+                        {
+                            auto p = getFuncParams<Notch24State> (id, sampleRate);
+                            return p->process (v, freq, q);
+                        });
+    parser.addFunction ("bp24", [this] (int id, double v, double freq, double q)
+                        {
+                            auto p = getFuncParams<BP24State> (id, sampleRate);
                             return p->process (v, freq, q);
                         });
 }

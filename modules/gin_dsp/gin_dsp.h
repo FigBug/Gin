@@ -69,6 +69,7 @@ using juce::Component;
 #include "dsp/adsr.h"
 #include "dsp/analogadsr.h"
 #include "dsp/audiofunctions.h"
+#include "dsp/audioequationparser.h"
 #include "dsp/audioutil.h"
 #include "dsp/oscillators.h"
 #include "dsp/resamplingfifo.h"

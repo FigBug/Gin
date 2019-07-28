@@ -24,6 +24,7 @@ using juce::MemoryBlock;
 #include "dsp/adsr.cpp"
 #include "dsp/analogadsr.cpp"
 #include "dsp/audiofunctions.cpp"
+#include "dsp/audioequationparser.cpp"
 #include "dsp/audioutil.cpp"
 #include "dsp/oscillators.cpp"
 #include "dsp/resamplingfifo.cpp"

@@ -59,13 +59,15 @@ struct OscState : public FuncState
 };
 
 //==============================================================================
-struct HPState : public FuncState
+struct HP12State : public FuncState
 {
-    HPState (double sr) : FuncState (sr) {}
+    HP12State (double sr) : FuncState (sr) {}
 
-    double process (double v, double freq, double res)
+    double process (double v, double freq, double q)
     {
-        float q = 0.70710678118655f / (1.0f - (float (res) / 100.0f) * 0.99f);
+        freq = jlimit (8.0, jmin (20000.0, sampleRate / 2.0), freq);
+        q = jmax (0.0000001, q);
+
         auto c = IIRCoefficients::makeHighPass (sampleRate, freq, q);
 
         filter.setCoefficients (c);
@@ -81,13 +83,42 @@ struct HPState : public FuncState
 };
 
 //==============================================================================
-struct BPState : public FuncState
+struct HP24State : public FuncState
 {
-    BPState (double sr) : FuncState (sr) {}
-
-    double process (double v, double freq, double res)
+    HP24State (double sr) : FuncState (sr) {}
+    
+    double process (double v, double freq, double q)
     {
-        float q = 0.70710678118655f / (1.0f - (float (res) / 100.0f) * 0.99f);
+        freq = jlimit (8.0, jmin (20000.0, sampleRate / 2.0), freq);
+        q = jmax (0.0000001, q);
+
+        auto c1 = IIRCoefficients::makeHighPass (sampleRate, freq, q);
+        auto c2 = IIRCoefficients::makeHighPass (sampleRate, freq, 0.70710678118655f);
+
+        filter1.setCoefficients (c1);
+        filter2.setCoefficients (c2);
+        return filter2.processSingleSampleRaw (filter1.processSingleSampleRaw (float (v)));
+    }
+    
+    void reset() override
+    {
+        filter1.reset();
+        filter2.reset();
+    }
+    
+    juce::IIRFilter filter1, filter2;
+};
+
+//==============================================================================
+struct BP12State : public FuncState
+{
+    BP12State (double sr) : FuncState (sr) {}
+
+    double process (double v, double freq, double q)
+    {
+        freq = jlimit (8.0, jmin (20000.0, sampleRate / 2.0), freq);
+        q = jmax (0.0000001, q);
+
         auto c = IIRCoefficients::makeBandPass (sampleRate, freq, q);
 
         filter.setCoefficients (c);
@@ -103,13 +134,42 @@ struct BPState : public FuncState
 };
 
 //==============================================================================
-struct LPState : public FuncState
+struct BP24State : public FuncState
 {
-    LPState (double sr) : FuncState (sr) {}
-
-    double process (double v, double freq, double res)
+    BP24State (double sr) : FuncState (sr) {}
+    
+    double process (double v, double freq, double q)
     {
-        float q = 0.70710678118655f / (1.0f - (float (res) / 100.0f) * 0.99f);
+        freq = jlimit (8.0, jmin (20000.0, sampleRate / 2.0), freq);
+        q = jmax (0.0000001, q);
+
+        auto c1 = IIRCoefficients::makeBandPass (sampleRate, freq, q);
+        auto c2 = IIRCoefficients::makeBandPass (sampleRate, freq, 0.70710678118655f);
+        
+        filter1.setCoefficients (c1);
+        filter2.setCoefficients (c2);
+        return filter2.processSingleSampleRaw (filter1.processSingleSampleRaw (float (v)));
+    }
+    
+    void reset() override
+    {
+        filter1.reset();
+        filter2.reset();
+    }
+    
+    juce::IIRFilter filter1, filter2;
+};
+
+//==============================================================================
+struct LP12State : public FuncState
+{
+    LP12State (double sr) : FuncState (sr) {}
+
+    double process (double v, double freq, double q)
+    {
+        freq = jlimit (8.0, jmin (20000.0, sampleRate / 2.0), freq);
+        q = jmax (0.0000001, q);
+
         auto c = IIRCoefficients::makeLowPass (sampleRate, freq, q);
 
         filter.setCoefficients (c);
@@ -125,13 +185,42 @@ struct LPState : public FuncState
 };
 
 //==============================================================================
-struct NotchState : public FuncState
+struct LP24State : public FuncState
 {
-    NotchState (double sr) : FuncState (sr) {}
-
-    double process (double v, double freq, double res)
+    LP24State (double sr) : FuncState (sr) {}
+    
+    double process (double v, double freq, double q)
     {
-        float q = 0.70710678118655f / (1.0f - (float (res) / 100.0f) * 0.99f);
+        freq = jlimit (8.0, jmin (20000.0, sampleRate / 2.0), freq);
+        q = jmax (0.0000001, q);
+
+        auto c1 = IIRCoefficients::makeLowPass (sampleRate, freq, q);
+        auto c2 = IIRCoefficients::makeLowPass (sampleRate, freq, 0.70710678118655f);
+        
+        filter1.setCoefficients (c1);
+        filter2.setCoefficients (c2);
+        return filter2.processSingleSampleRaw (filter1.processSingleSampleRaw (float (v)));
+    }
+    
+    void reset() override
+    {
+        filter1.reset();
+        filter2.reset();
+    }
+    
+    juce::IIRFilter filter1, filter2;
+};
+
+//==============================================================================
+struct Notch12State : public FuncState
+{
+    Notch12State (double sr) : FuncState (sr) {}
+
+    double process (double v, double freq, double q)
+    {
+        freq = jlimit (8.0, jmin (20000.0, sampleRate / 2.0), freq);
+        q = jmax (0.0000001, q);
+
         auto c = IIRCoefficients::makeNotchFilter (sampleRate, freq, q);
 
         filter.setCoefficients (c);
@@ -147,16 +236,48 @@ struct NotchState : public FuncState
 };
 
 //==============================================================================
+struct Notch24State : public FuncState
+{
+    Notch24State (double sr) : FuncState (sr) {}
+    
+    double process (double v, double freq, double q)
+    {
+        freq = jlimit (8.0, jmin (20000.0, sampleRate / 2.0), freq);
+        q = jmax (0.0000001, q);
+
+        auto c1 = IIRCoefficients::makeNotchFilter (sampleRate, freq, q);
+        auto c2 = IIRCoefficients::makeNotchFilter (sampleRate, freq, 0.70710678118655f);
+        
+        filter1.setCoefficients (c1);
+        filter2.setCoefficients (c2);
+        return filter2.processSingleSampleRaw (filter1.processSingleSampleRaw (float (v)));
+    }
+    
+    void reset() override
+    {
+        filter1.reset();
+        filter2.reset();
+    }
+    
+    juce::IIRFilter filter1, filter2;
+};
+
+//==============================================================================
 class AudioFunctionHost
 {
 public:
     // You must provide a set of lookup tables at the correct sample rate
+    // if you add the oscillator functions
     gin::BandLimitedLookupTables* lookupTables = nullptr;
 
-protected:
+    void setSampleRate (double sr);
+    
+    void addConstants (gin::EquationParser&);
     void addOscillatorFunctions (gin::EquationParser&);
-    void addFilterFunctions (gin::EquationParser&);
+    void addSynthFilterFunctions (gin::EquationParser&);
+    void addEffectFilterFunctions (gin::EquationParser&);
 
+protected:
     std::map<int, std::unique_ptr<FuncState>> funcStates;
     double sampleRate = 44100.0;
 
