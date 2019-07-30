@@ -5,6 +5,8 @@
 
  ==============================================================================*/
 
+#define USE_SSE 1
+
 template <typename T>
 inline uint8 toByte (T v)
 {
@@ -705,20 +707,15 @@ Image applyResize (const Image& src, int width, int height)
                 srcData.getLinePointer (y),
                 (size_t) (src.getWidth() * channels));
 
-   #ifdef JUCE_MAC
-    if (SystemStats::hasSSE())
-    {
-        avir::CImageResizer<avir::fpclass_float4> imageResizer (8);
-        imageResizer.resizeImage (rawSrc, src.getWidth(), src.getHeight(), 0,
+   #if USE_SSE
+    avir::CImageResizer<avir::fpclass_float4> imageResizer (8);
+    imageResizer.resizeImage (rawSrc, src.getWidth(), src.getHeight(), 0,
+                                rawDst, dst.getWidth(), dst.getHeight(), channels, 0);
+   #else
+    avir::CImageResizer<> imageResizer (8);
+    imageResizer.resizeImage (rawSrc, src.getWidth(), src.getHeight(), 0,
                                     rawDst, dst.getWidth(), dst.getHeight(), channels, 0);
-    }
-    else
    #endif
-    {
-        avir::CImageResizer<> imageResizer (8);
-        imageResizer.resizeImage (rawSrc, src.getWidth(), src.getHeight(), 0,
-                                    rawDst, dst.getWidth(), dst.getHeight(), channels, 0);
-    }
 
     for (int y = 0; y < dst.getHeight(); y++)
         memcpy (dstData.getLinePointer (y),
