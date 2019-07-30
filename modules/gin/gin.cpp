@@ -51,13 +51,11 @@
  #pragma warning (disable: 4127)
  #pragma warning (disable: 4456)
  #pragma warning (disable: 4457)
+ #pragma warning (disable: 4244)
 #endif
 
 #include "3rdparty/avir/avir.h"
-
-#if !defined _MSC_VER
- #include "3rdparty/avir/avir_float4_sse.h"
-#endif
+#include "3rdparty/avir/avir_float4_sse.h"
 
 #if __clang__
  #pragma clang diagnostic pop
