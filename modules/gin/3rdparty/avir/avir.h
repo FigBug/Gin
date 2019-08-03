@@ -4573,7 +4573,7 @@ public:
 			{
 				td[ i % ThreadCount ].addScanlineToQueue(
 					&FltBuf[ (size_t) i * ElCount ],
-					(fptype*) &NewBuf[ (size_t) i * ElCount ]);
+					(fptype*) (void*) &NewBuf[ (size_t) i * ElCount ]);
 			}
 
 			ThreadPool.startAllWorkloads();
