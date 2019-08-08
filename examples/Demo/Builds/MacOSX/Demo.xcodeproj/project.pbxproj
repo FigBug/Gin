@@ -713,7 +713,7 @@
 				INFOPLIST_PREPROCESS = NO;
 				INSTALL_PATH = "$(HOME)/Applications";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				OTHER_CPLUSPLUSFLAGS = "-Wall -Wextra -Wconversion -Wconstant-conversion -Wint-conversion -Woverloaded-virtual -Wconditional-uninitialized -Wunused-parameter -Wshorten-64-to-32 -Wstrict-aliasing -Wshadow -Wreorder -Wunused-private-field -Wbool-conversion -Wno-missing-field-initializers -Wno-ignored-qualifiers -Wunreachable-code -Wall -Wshadow-all -Wshorten-64-to-32 -Wstrict-aliasing -Wuninitialized -Wunused-parameter -Wconversion -Wsign-compare -Wint-conversion -Wconditional-uninitialized -Woverloaded-virtual -Wreorder -Wconstant-conversion -Wsign-conversion -Wunused-private-field -Wbool-conversion -Wextra-semi -Wunreachable-code -Wzero-as-null-pointer-constant -Wcast-align -Winconsistent-missing-destructor-override -Wshift-sign-overflow -Wnullable-to-nonnull-conversion -Wno-missing-field-initializers -Wno-ignored-qualifiers";
+				OTHER_CPLUSPLUSFLAGS = "-Wall -Wextra -Wconversion -Wconstant-conversion -Wint-conversion -Woverloaded-virtual -Wconditional-uninitialized -Wunused-parameter -Wshorten-64-to-32 -Wstrict-aliasing -Wshadow -Wreorder -Wunused-private-field -Wbool-conversion -Wno-missing-field-initializers -Wno-ignored-qualifiers -Wunreachable-code";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Demo;
 				PRODUCT_NAME = "Demo";
 				USE_HEADERMAP = NO;
@@ -759,7 +759,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				OTHER_CPLUSPLUSFLAGS = "-Wall -Wextra -Wconversion -Wconstant-conversion -Wint-conversion -Woverloaded-virtual -Wconditional-uninitialized -Wunused-parameter -Wshorten-64-to-32 -Wstrict-aliasing -Wshadow -Wreorder -Wunused-private-field -Wbool-conversion -Wno-missing-field-initializers -Wno-ignored-qualifiers -Wunreachable-code -Wall -Wshadow-all -Wshorten-64-to-32 -Wstrict-aliasing -Wuninitialized -Wunused-parameter -Wconversion -Wsign-compare -Wint-conversion -Wconditional-uninitialized -Woverloaded-virtual -Wreorder -Wconstant-conversion -Wsign-conversion -Wunused-private-field -Wbool-conversion -Wextra-semi -Wunreachable-code -Wzero-as-null-pointer-constant -Wcast-align -Winconsistent-missing-destructor-override -Wshift-sign-overflow -Wnullable-to-nonnull-conversion -Wno-missing-field-initializers -Wno-ignored-qualifiers";
+				OTHER_CPLUSPLUSFLAGS = "-Wall -Wextra -Wconversion -Wconstant-conversion -Wint-conversion -Woverloaded-virtual -Wconditional-uninitialized -Wunused-parameter -Wshorten-64-to-32 -Wstrict-aliasing -Wshadow -Wreorder -Wunused-private-field -Wbool-conversion -Wno-missing-field-initializers -Wno-ignored-qualifiers -Wunreachable-code";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Demo;
 				PRODUCT_NAME = "Demo";
 				USE_HEADERMAP = NO;
@@ -948,7 +948,7 @@
 		272DA04CCA296E913FDAC1A3 = {
 			isa = PBXProject;
 			buildConfigurationList = 981BA4E5A669487E6CB0188A;
-			attributes = { LastUpgradeCheck = 1100; ORGANIZATIONNAME = ""; TargetAttributes = { CA89E5D702037D25E29D7D8B = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; }; }; };
+			attributes = { LastUpgradeCheck = 0930; ORGANIZATIONNAME = ""; TargetAttributes = { CA89E5D702037D25E29D7D8B = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; }; }; };
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
 			mainGroup = 70ABEE781B16B71A2972FD77;
