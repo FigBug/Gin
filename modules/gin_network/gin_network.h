@@ -62,5 +62,6 @@ namespace gin
 {
 using namespace juce;
 
-
+#include "http/http.h"
+#include "http/securestreamingsocket.h"
 }

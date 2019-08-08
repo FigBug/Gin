@@ -64,7 +64,6 @@
 #include "3rdparty/mbedtls/library/version_features.c"
 #include "3rdparty/mbedtls/library/x509_create.c"
 #include "3rdparty/mbedtls/library/x509_crl.c"
-#include "3rdparty/mbedtls/library/x509_crt.c"
 #include "3rdparty/mbedtls/library/x509write_crt.c"
 #include "3rdparty/mbedtls/library/x509write_csr.c"
 #include "3rdparty/mbedtls/library/xtea.c"

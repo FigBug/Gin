@@ -1066,6 +1066,10 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
+    gin::Http http ( URL ("https://rabien.com"));
+    auto res = http.get();
+    DBG(res.data.toString());
+    
     demoComponents.add (new SolidBlendingDemo());
     demoComponents.add (new BlendingDemo());
     demoComponents.add (new GradientMapDemo());
