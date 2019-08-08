@@ -13,7 +13,7 @@ public:
     struct HttpResult
     {
         int statusCode = 0;
-        StringArray headers;
+        StringPairArray headers;
         MemoryBlock data;
     };
     
@@ -22,7 +22,8 @@ public:
     HttpResult get();
     
 private:
-    
+    bool getHeader (SecureStreamingSocket& s, HttpResult& result);
+    bool isChunked (const StringPairArray& headers);
 
     URL url;
 };
