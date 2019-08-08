@@ -23,8 +23,8 @@ static void debug_func (void* ctx, int level,
 class SecureStreamingSocket::Impl
 {
 public:
-    Impl()  { init();     }
-    ~Impl() { shutdown(); }
+    Impl()  { init();  }
+    ~Impl() { close(); }
     
     bool connect (const String& remoteHostname, int remotePortNumber, int timeOutMillisecs)
     {
@@ -79,10 +79,49 @@ public:
         return true;
     }
     
+    bool isConnected() const noexcept
+    {
+        return server_fd.fd > 0;
+    }
+    
+    void close()
+    {
+        if (isConnected())
+            shutdown();
+    }
+    
     int read (void* destBuffer, int maxBytesToRead, bool blockUntilSpecifiedAmountHasArrived)
     {
-        ignoreUnused (blockUntilSpecifiedAmountHasArrived);
-        return mbedtls_ssl_read (&ssl, (unsigned char*)destBuffer, (size_t)maxBytesToRead);
+        if (blockUntilSpecifiedAmountHasArrived)
+        {
+            int todo = maxBytesToRead;
+            while (todo > 0)
+            {
+                int pending = mbedtls_ssl_check_pending (&ssl);
+                if (pending > 0)
+                {
+                    int res = mbedtls_ssl_read (&ssl, (unsigned char*)destBuffer, (size_t)jmin (pending, todo));
+                    if (res > 0)
+                    {
+                        todo -= res;
+                        destBuffer = (char*)destBuffer + res;
+                    }
+                    else
+                    {
+                        return res;
+                    }
+                }
+                else
+                {
+                    Thread::sleep (1);
+                }
+            }
+            return maxBytesToRead - todo;
+        }
+        else
+        {
+            return mbedtls_ssl_read (&ssl, (unsigned char*)destBuffer, (size_t)maxBytesToRead);
+        }
     }
     
     int write (const void* sourceBuffer, int numBytesToWrite)
@@ -145,6 +184,20 @@ bool SecureStreamingSocket::connect (const String& remoteHostname, int remotePor
     if (impl != nullptr)
         return impl->connect (remoteHostname, remotePortNumber, timeOutMillisecs);
     return normalSocket->connect (remoteHostname, remotePortNumber, timeOutMillisecs);
+}
+
+bool SecureStreamingSocket::isConnected () const noexcept
+{
+    if (impl != nullptr)
+        return impl->isConnected();
+    return normalSocket->isConnected();
+}
+
+void SecureStreamingSocket::close()
+{
+    if (impl != nullptr)
+        impl->close();
+    normalSocket->close();
 }
 
 int SecureStreamingSocket::read (void* destBuffer, int maxBytesToRead, bool blockUntilSpecifiedAmountHasArrived)

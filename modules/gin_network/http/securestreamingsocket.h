@@ -13,6 +13,9 @@ public:
     SecureStreamingSocket (bool secure);
 
     bool connect (const String& remoteHostname, int remotePortNumber, int timeOutMillisecs = 3000);
+    void close();
+    
+    bool isConnected () const noexcept;
     
     int read (void* destBuffer, int maxBytesToRead, bool blockUntilSpecifiedAmountHasArrived);
     int write (const void* sourceBuffer, int numBytesToWrite);
