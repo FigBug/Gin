@@ -47,6 +47,81 @@
     <Filter Include="JUCE Modules\gin_metadata">
       <UniqueIdentifier>{FC3D700E-6513-ABA3-33D2-E6DBAC8F77E9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\.github">
+      <UniqueIdentifier>{FD8223A1-A1E4-F700-542C-C018170A15C8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\configs">
+      <UniqueIdentifier>{A6B69A26-26AF-B4EE-2387-8A25D832398C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\doxygen\input">
+      <UniqueIdentifier>{20DE9BD2-1542-020A-BB95-F280C27475FA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\doxygen">
+      <UniqueIdentifier>{C9F0D497-8BEE-409B-9E19-B8EACD5037D8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls">
+      <UniqueIdentifier>{F20E68CA-AC23-74C6-9C93-01BBD74CBE5C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\include">
+      <UniqueIdentifier>{176187D3-B779-43EE-55EB-FC301B0C978A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\library">
+      <UniqueIdentifier>{A363E255-588D-F927-E27E-6ECB9F3AFB44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\programs\aes">
+      <UniqueIdentifier>{A61706A2-B487-A945-9FFF-51BF9FB29704}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\programs\hash">
+      <UniqueIdentifier>{4739BCE1-7B4C-47F3-972F-F1074E6DED08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey">
+      <UniqueIdentifier>{26275B53-9FE1-BF9A-F443-832EAE987A66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\programs\random">
+      <UniqueIdentifier>{17114595-0187-AF9E-99C3-5F1B31DE5F9F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\programs\ssl">
+      <UniqueIdentifier>{DB7CAAF9-6F35-D1AE-7132-590C0B73BE35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\programs\test">
+      <UniqueIdentifier>{3FE8B031-748F-8DB4-4316-C9B1BD46F455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\programs\util">
+      <UniqueIdentifier>{C6B85357-0442-FF1F-35C6-2949BAB69DC0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\programs\x509">
+      <UniqueIdentifier>{737274E5-B12A-88CD-BCB4-4C91521F1CAD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\programs">
+      <UniqueIdentifier>{0EBA7E89-93D2-31B8-109E-88F24D063CF8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\scripts\data_files">
+      <UniqueIdentifier>{5AB7B89A-775C-94DF-6729-54A190DD0F59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\scripts">
+      <UniqueIdentifier>{E0199469-3FE5-9132-137E-8ED50D748615}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\tests\data_files\dir-maxpath">
+      <UniqueIdentifier>{F9433E7D-7E3A-A25D-D44A-F1EBAD5D4ACD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\tests\data_files">
+      <UniqueIdentifier>{897CCDD2-AEB7-F274-6206-010BF7197F6F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\tests\git-scripts">
+      <UniqueIdentifier>{9E7000B6-E9ED-8C5B-CA3C-373EB2D8919F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\tests">
+      <UniqueIdentifier>{556586C3-FBE4-485E-9CA6-D50136FE7B53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls">
+      <UniqueIdentifier>{BCA8C10F-400D-9B09-D608-12C07B72AF7B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty">
+      <UniqueIdentifier>{6C574EEE-96F0-D6D4-02C8-1E7BD8C1B07D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network">
+      <UniqueIdentifier>{0C70F90D-48E2-C925-CB39-D323FA974158}</UniqueIdentifier>
+    </Filter>
     <Filter Include="JUCE Modules\juce_audio_basics\audio_play_head">
       <UniqueIdentifier>{EB58F05A-A968-CEBE-40C4-107CDD8F240F}</UniqueIdentifier>
     </Filter>
@@ -591,6 +666,429 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin_metadata\gin_metadata.mm">
       <Filter>JUCE Modules\gin_metadata</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\aes.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\aesni.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\arc4.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\aria.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\asn1parse.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\asn1write.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\base64.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\bignum.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\blowfish.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\camellia.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ccm.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\certs.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\chacha20.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\chachapoly.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\cipher.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\cipher_wrap.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\cmac.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ctr_drbg.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\debug.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\des.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\dhm.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ecdh.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ecdsa.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ecjpake.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ecp.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ecp_curves.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\entropy.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\entropy_poll.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\error.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\gcm.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\havege.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\hkdf.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\hmac_drbg.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\md.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\md_wrap.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\md2.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\md4.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\md5.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\memory_buffer_alloc.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\net_sockets.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\nist_kw.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\oid.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\padlock.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\pem.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\pk.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\pk_wrap.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\pkcs5.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\pkcs11.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\pkcs12.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\pkparse.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\pkwrite.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\platform.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\platform_util.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\poly1305.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ripemd160.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\rsa.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\rsa_internal.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\sha1.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\sha256.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\sha512.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ssl_cache.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ssl_ciphersuites.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ssl_cli.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ssl_cookie.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ssl_srv.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ssl_ticket.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ssl_tls.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\threading.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\timing.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\version.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\version_features.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\x509.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\x509_create.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\x509_crl.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\x509_crt.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\x509_csr.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\x509write_crt.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\x509write_csr.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\xtea.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\aes\aescrypt2.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\aes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\aes\crypt_and_hash.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\aes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\hash\generic_sum.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\hash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\hash\hello.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\hash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\dh_client.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\dh_genprime.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\dh_server.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\ecdh_curve25519.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\ecdsa.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\gen_key.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\key_app.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\key_app_writer.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\mpi_demo.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\pk_decrypt.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\pk_encrypt.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\pk_sign.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\pk_verify.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\rsa_decrypt.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\rsa_encrypt.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\rsa_genkey.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\rsa_sign.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\rsa_sign_pss.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\rsa_verify.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\rsa_verify_pss.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\random\gen_entropy.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\random</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\random\gen_random_ctr_drbg.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\random</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\random\gen_random_havege.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\random</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\dtls_client.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\dtls_server.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\mini_client.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\query_config.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\ssl_client1.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\ssl_client2.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\ssl_fork_server.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\ssl_mail_client.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\ssl_pthread_server.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\ssl_server.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\ssl_server2.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\test\benchmark.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\test\cpp_dummy_build.cpp">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\test\query_compile_time_config.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\test\selftest.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\test\udp_proxy.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\test\zeroize.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\util\pem2der.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\util\strerror.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\x509\cert_app.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\x509</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\x509\cert_req.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\x509</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\x509\cert_write.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\x509</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\x509\crl_app.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\x509</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\x509\req_app.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\x509</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\wince_main.c">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network.cpp">
+      <Filter>JUCE Modules\gin_network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network.mm">
+      <Filter>JUCE Modules\gin_network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network_mbed1.c">
+      <Filter>JUCE Modules\gin_network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network_mbed2.c">
+      <Filter>JUCE Modules\gin_network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network_mbed3.c">
+      <Filter>JUCE Modules\gin_network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network_mbed4.c">
+      <Filter>JUCE Modules\gin_network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network_mbed5.c">
+      <Filter>JUCE Modules\gin_network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network_mbed6.c">
+      <Filter>JUCE Modules\gin_network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network_mbed7.c">
+      <Filter>JUCE Modules\gin_network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network_mbed8.c">
+      <Filter>JUCE Modules\gin_network</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
@@ -2479,6 +2977,33 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_gin_metadata.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_network.cpp">
+      <Filter>JUCE Library Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_network_mbed1.c">
+      <Filter>JUCE Library Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_network_mbed2.c">
+      <Filter>JUCE Library Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_network_mbed3.c">
+      <Filter>JUCE Library Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_network_mbed4.c">
+      <Filter>JUCE Library Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_network_mbed5.c">
+      <Filter>JUCE Library Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_network_mbed6.c">
+      <Filter>JUCE Library Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_network_mbed7.c">
+      <Filter>JUCE Library Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_network_mbed8.c">
+      <Filter>JUCE Library Code</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
@@ -2669,6 +3194,279 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\gin_metadata\gin_metadata.h">
       <Filter>JUCE Modules\gin_metadata</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\configs\config-ccm-psk-tls1_2.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\configs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\configs\config-mini-tls1_1.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\configs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\configs\config-no-entropy.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\configs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\configs\config-suite-b.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\configs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\configs\config-thread.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\configs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\doxygen\input\doc_encdec.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\doxygen\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\doxygen\input\doc_hashing.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\doxygen\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\doxygen\input\doc_mainpage.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\doxygen\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\doxygen\input\doc_rng.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\doxygen\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\doxygen\input\doc_ssltls.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\doxygen\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\doxygen\input\doc_tcpip.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\doxygen\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\doxygen\input\doc_x509.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\doxygen\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\aes.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\aesni.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\arc4.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\aria.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\asn1.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\asn1write.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\base64.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\bignum.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\blowfish.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\bn_mul.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\camellia.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ccm.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\certs.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\chacha20.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\chachapoly.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\check_config.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\cipher.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\cipher_internal.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\cmac.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\compat-1.3.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\config.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ctr_drbg.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\debug.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\des.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\dhm.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ecdh.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ecdsa.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ecjpake.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ecp.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ecp_internal.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\entropy.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\entropy_poll.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\error.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\gcm.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\havege.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\hkdf.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\hmac_drbg.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\md.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\md_internal.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\md2.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\md4.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\md5.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\memory_buffer_alloc.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\net.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\net_sockets.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\nist_kw.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\oid.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\padlock.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\pem.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\pk.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\pk_internal.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\pkcs5.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\pkcs11.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\pkcs12.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\platform.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\platform_time.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\platform_util.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\poly1305.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ripemd160.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\rsa.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\rsa_internal.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\sha1.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\sha256.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\sha512.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ssl.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ssl_cache.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ssl_ciphersuites.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ssl_cookie.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ssl_internal.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ssl_ticket.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\threading.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\timing.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\version.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\x509.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\x509_crl.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\x509_crt.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\x509_csr.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\xtea.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\gin_network.h">
+      <Filter>JUCE Modules\gin_network</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -4783,6 +5581,90 @@
     </None>
     <None Include="..\..\..\..\modules\gin_metadata\README.md">
       <Filter>JUCE Modules\gin_metadata</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\.github\issue_template.md">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\.github</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\.github\pull_request_template.md">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\.github</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\configs\README.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\configs</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\CMakeLists.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\CMakeLists.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\aes\CMakeLists.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\aes</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\hash\CMakeLists.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\hash</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\CMakeLists.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\dh_prime.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\rsa_priv.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\rsa_pub.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\pkey</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\random\CMakeLists.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\random</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\CMakeLists.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\ssl</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\test\CMakeLists.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\test</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\util\CMakeLists.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\util</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\x509\CMakeLists.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs\x509</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\CMakeLists.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\README.md">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\scripts\data_files\rename-1.3-2.0.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\scripts\data_files</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\tests\data_files\dir-maxpath\Readme.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\tests\data_files\dir-maxpath</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\tests\data_files\Readme-x509.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\tests\data_files</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\tests\git-scripts\README.md">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\tests\git-scripts</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\tests\CMakeLists.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\tests</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\tests\Descriptions.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\tests</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\apache-2.0.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\CMakeLists.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\CONTRIBUTING.md">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\README.md">
+      <Filter>JUCE Modules\gin_network\3rdparty\mbedtls</Filter>
     </None>
     <None Include="..\..\..\..\..\juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt">
       <Filter>JUCE Modules\juce_audio_formats\codecs\flac</Filter>

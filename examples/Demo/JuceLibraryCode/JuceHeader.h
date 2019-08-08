@@ -17,6 +17,7 @@
 #include <gin/gin.h>
 #include <gin_dsp/gin_dsp.h>
 #include <gin_metadata/gin_metadata.h>
+#include <gin_network/gin_network.h>
 #include <juce_audio_basics/juce_audio_basics.h>
 #include <juce_audio_devices/juce_audio_devices.h>
 #include <juce_audio_formats/juce_audio_formats.h>

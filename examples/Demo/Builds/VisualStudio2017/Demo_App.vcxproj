@@ -63,7 +63,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\..\JuceLibraryCode;..\..\..\..\modules;..\..\..\..\..\juce\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\JuceLibraryCode;..\..\..\..\modules;..\..\..\..\modules\gin_network\3rdparty\mbedtls\include;..\..\..\..\..\juce\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCER_VS2017_78A5024=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -105,7 +105,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>..\..\JuceLibraryCode;..\..\..\..\modules;..\..\..\..\..\juce\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\JuceLibraryCode;..\..\..\..\modules;..\..\..\..\modules\gin_network\3rdparty\mbedtls\include;..\..\..\..\..\juce\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2017_78A5024=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -269,6 +269,426 @@
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin_metadata\gin_metadata.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\aes.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\aesni.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\arc4.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\aria.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\asn1parse.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\asn1write.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\base64.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\bignum.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\blowfish.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\camellia.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ccm.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\certs.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\chacha20.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\chachapoly.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\cipher.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\cipher_wrap.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\cmac.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ctr_drbg.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\debug.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\des.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\dhm.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ecdh.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ecdsa.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ecjpake.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ecp.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ecp_curves.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\entropy.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\entropy_poll.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\error.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\gcm.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\havege.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\hkdf.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\hmac_drbg.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\md.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\md_wrap.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\md2.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\md4.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\md5.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\memory_buffer_alloc.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\net_sockets.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\nist_kw.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\oid.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\padlock.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\pem.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\pk.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\pk_wrap.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\pkcs5.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\pkcs11.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\pkcs12.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\pkparse.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\pkwrite.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\platform.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\platform_util.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\poly1305.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ripemd160.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\rsa.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\rsa_internal.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\sha1.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\sha256.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\sha512.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ssl_cache.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ssl_ciphersuites.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ssl_cli.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ssl_cookie.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ssl_srv.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ssl_ticket.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\ssl_tls.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\threading.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\timing.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\version.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\version_features.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\x509.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\x509_create.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\x509_crl.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\x509_crt.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\x509_csr.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\x509write_crt.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\x509write_csr.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\xtea.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\aes\aescrypt2.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\aes\crypt_and_hash.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\hash\generic_sum.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\hash\hello.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\dh_client.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\dh_genprime.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\dh_server.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\ecdh_curve25519.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\ecdsa.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\gen_key.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\key_app.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\key_app_writer.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\mpi_demo.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\pk_decrypt.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\pk_encrypt.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\pk_sign.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\pk_verify.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\rsa_decrypt.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\rsa_encrypt.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\rsa_genkey.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\rsa_sign.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\rsa_sign_pss.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\rsa_verify.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\rsa_verify_pss.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\random\gen_entropy.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\random\gen_random_ctr_drbg.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\random\gen_random_havege.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\dtls_client.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\dtls_server.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\mini_client.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\query_config.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\ssl_client1.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\ssl_client2.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\ssl_fork_server.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\ssl_mail_client.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\ssl_pthread_server.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\ssl_server.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\ssl_server2.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\test\benchmark.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\test\cpp_dummy_build.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\test\query_compile_time_config.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\test\selftest.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\test\udp_proxy.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\test\zeroize.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\util\pem2der.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\util\strerror.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\x509\cert_app.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\x509\cert_req.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\x509\cert_write.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\x509\crl_app.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\x509\req_app.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\wince_main.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network_mbed1.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network_mbed2.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network_mbed3.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network_mbed4.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network_mbed5.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network_mbed6.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network_mbed7.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network_mbed8.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2036,6 +2456,15 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_gin.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_gin_dsp.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_gin_metadata.cpp"/>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_network.cpp"/>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_network_mbed1.c"/>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_network_mbed2.c"/>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_network_mbed3.c"/>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_network_mbed4.c"/>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_network_mbed5.c"/>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_network_mbed6.c"/>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_network_mbed7.c"/>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_network_mbed8.c"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_devices.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_formats.cpp"/>
@@ -2101,6 +2530,97 @@
     <ClInclude Include="..\..\..\..\modules\gin_metadata\metadata\iptcmetadata.h"/>
     <ClInclude Include="..\..\..\..\modules\gin_metadata\metadata\xmpmetadata.h"/>
     <ClInclude Include="..\..\..\..\modules\gin_metadata\gin_metadata.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\configs\config-ccm-psk-tls1_2.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\configs\config-mini-tls1_1.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\configs\config-no-entropy.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\configs\config-suite-b.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\configs\config-thread.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\doxygen\input\doc_encdec.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\doxygen\input\doc_hashing.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\doxygen\input\doc_mainpage.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\doxygen\input\doc_rng.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\doxygen\input\doc_ssltls.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\doxygen\input\doc_tcpip.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\doxygen\input\doc_x509.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\aes.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\aesni.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\arc4.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\aria.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\asn1.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\asn1write.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\base64.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\bignum.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\blowfish.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\bn_mul.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\camellia.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ccm.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\certs.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\chacha20.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\chachapoly.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\check_config.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\cipher.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\cipher_internal.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\cmac.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\compat-1.3.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\config.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ctr_drbg.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\debug.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\des.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\dhm.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ecdh.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ecdsa.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ecjpake.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ecp.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ecp_internal.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\entropy.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\entropy_poll.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\error.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\gcm.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\havege.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\hkdf.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\hmac_drbg.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\md.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\md_internal.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\md2.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\md4.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\md5.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\memory_buffer_alloc.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\net.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\net_sockets.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\nist_kw.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\oid.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\padlock.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\pem.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\pk.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\pk_internal.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\pkcs5.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\pkcs11.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\pkcs12.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\platform.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\platform_time.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\platform_util.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\poly1305.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ripemd160.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\rsa.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\rsa_internal.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\sha1.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\sha256.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\sha512.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ssl.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ssl_cache.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ssl_ciphersuites.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ssl_cookie.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ssl_internal.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\ssl_ticket.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\threading.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\timing.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\version.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\x509.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\x509_crl.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\x509_crt.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\x509_csr.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\xtea.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin_network\gin_network.h"/>
     <ClInclude Include="..\..\..\..\..\juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
@@ -2807,6 +3327,34 @@
     <None Include="..\..\..\..\modules\gin\README.md"/>
     <None Include="..\..\..\..\modules\gin_dsp\README.md"/>
     <None Include="..\..\..\..\modules\gin_metadata\README.md"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\.github\issue_template.md"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\.github\pull_request_template.md"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\configs\README.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\CMakeLists.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\CMakeLists.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\aes\CMakeLists.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\hash\CMakeLists.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\CMakeLists.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\dh_prime.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\rsa_priv.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\pkey\rsa_pub.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\random\CMakeLists.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\ssl\CMakeLists.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\test\CMakeLists.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\util\CMakeLists.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\x509\CMakeLists.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\CMakeLists.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\README.md"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\scripts\data_files\rename-1.3-2.0.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\tests\data_files\dir-maxpath\Readme.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\tests\data_files\Readme-x509.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\tests\git-scripts\README.md"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\tests\CMakeLists.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\tests\Descriptions.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\apache-2.0.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\CMakeLists.txt"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\CONTRIBUTING.md"/>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\README.md"/>
     <None Include="..\..\..\..\..\juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>
     <None Include="..\..\..\..\..\juce\modules\juce_audio_formats\codecs\oggvorbis\Ogg Vorbis Licence.txt"/>
     <None Include="..\..\..\..\..\juce\modules\juce_audio_processors\format_types\VST3_SDK\base\LICENSE.txt"/>

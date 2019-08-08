@@ -35,7 +35,7 @@ ifeq ($(CONFIG),Debug)
     TARGET_ARCH := -march=native
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DDEBUG=1 -D_DEBUG=1 -DJUCER_LINUX_MAKE_6D53C8B4=1 -DJUCE_APP_VERSION=1.0.0 -DJUCE_APP_VERSION_HEX=0x10000 $(shell pkg-config --cflags alsa freetype2 x11 xext xinerama webkit2gtk-4.0 gtk+-x11-3.0 libcurl) -pthread -I../../JuceLibraryCode -I../../../../modules -I../../../../../juce/modules $(CPPFLAGS)
+  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DDEBUG=1 -D_DEBUG=1 -DJUCER_LINUX_MAKE_6D53C8B4=1 -DJUCE_APP_VERSION=1.0.0 -DJUCE_APP_VERSION_HEX=0x10000 $(shell pkg-config --cflags alsa freetype2 x11 xext xinerama webkit2gtk-4.0 gtk+-x11-3.0 libcurl) -pthread -I../../JuceLibraryCode -I../../../../modules -I../../../../modules/gin_network/3rdparty/mbedtls/include -I../../../../../juce/modules $(CPPFLAGS)
   JUCE_CPPFLAGS_APP := -DJucePlugin_Build_VST=0 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=0 -DJucePlugin_Build_Unity=0
   JUCE_TARGET_APP := Demo
 
@@ -56,7 +56,7 @@ ifeq ($(CONFIG),Release)
     TARGET_ARCH := -march=native
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DNDEBUG=1 -DJUCER_LINUX_MAKE_6D53C8B4=1 -DJUCE_APP_VERSION=1.0.0 -DJUCE_APP_VERSION_HEX=0x10000 $(shell pkg-config --cflags alsa freetype2 x11 xext xinerama webkit2gtk-4.0 gtk+-x11-3.0 libcurl) -pthread -I../../JuceLibraryCode -I../../../../modules -I../../../../../juce/modules $(CPPFLAGS)
+  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DNDEBUG=1 -DJUCER_LINUX_MAKE_6D53C8B4=1 -DJUCE_APP_VERSION=1.0.0 -DJUCE_APP_VERSION_HEX=0x10000 $(shell pkg-config --cflags alsa freetype2 x11 xext xinerama webkit2gtk-4.0 gtk+-x11-3.0 libcurl) -pthread -I../../JuceLibraryCode -I../../../../modules -I../../../../modules/gin_network/3rdparty/mbedtls/include -I../../../../../juce/modules $(CPPFLAGS)
   JUCE_CPPFLAGS_APP := -DJucePlugin_Build_VST=0 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=0 -DJucePlugin_Build_Unity=0
   JUCE_TARGET_APP := Demo
 
@@ -74,6 +74,15 @@ OBJECTS_APP := \
   $(JUCE_OBJDIR)/include_gin_8be23c36.o \
   $(JUCE_OBJDIR)/include_gin_dsp_3791f7b8.o \
   $(JUCE_OBJDIR)/include_gin_metadata_68356fe2.o \
+  $(JUCE_OBJDIR)/include_gin_network_8d161ca5.o \
+  $(JUCE_OBJDIR)/include_gin_network_mbed1_80848123.o \
+  $(JUCE_OBJDIR)/include_gin_network_mbed2_808484e4.o \
+  $(JUCE_OBJDIR)/include_gin_network_mbed3_808488a5.o \
+  $(JUCE_OBJDIR)/include_gin_network_mbed4_80848c66.o \
+  $(JUCE_OBJDIR)/include_gin_network_mbed5_80849027.o \
+  $(JUCE_OBJDIR)/include_gin_network_mbed6_808493e8.o \
+  $(JUCE_OBJDIR)/include_gin_network_mbed7_808497a9.o \
+  $(JUCE_OBJDIR)/include_gin_network_mbed8_80849b6a.o \
   $(JUCE_OBJDIR)/include_juce_audio_basics_8a4e984a.o \
   $(JUCE_OBJDIR)/include_juce_audio_devices_63111d02.o \
   $(JUCE_OBJDIR)/include_juce_audio_formats_15f82001.o \
@@ -129,6 +138,51 @@ $(JUCE_OBJDIR)/include_gin_metadata_68356fe2.o: ../../JuceLibraryCode/include_gi
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling include_gin_metadata.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/include_gin_network_8d161ca5.o: ../../JuceLibraryCode/include_gin_network.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling include_gin_network.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/include_gin_network_mbed1_80848123.o: ../../JuceLibraryCode/include_gin_network_mbed1.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling include_gin_network_mbed1.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/include_gin_network_mbed2_808484e4.o: ../../JuceLibraryCode/include_gin_network_mbed2.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling include_gin_network_mbed2.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/include_gin_network_mbed3_808488a5.o: ../../JuceLibraryCode/include_gin_network_mbed3.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling include_gin_network_mbed3.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/include_gin_network_mbed4_80848c66.o: ../../JuceLibraryCode/include_gin_network_mbed4.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling include_gin_network_mbed4.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/include_gin_network_mbed5_80849027.o: ../../JuceLibraryCode/include_gin_network_mbed5.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling include_gin_network_mbed5.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/include_gin_network_mbed6_808493e8.o: ../../JuceLibraryCode/include_gin_network_mbed6.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling include_gin_network_mbed6.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/include_gin_network_mbed7_808497a9.o: ../../JuceLibraryCode/include_gin_network_mbed7.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling include_gin_network_mbed7.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/include_gin_network_mbed8_80849b6a.o: ../../JuceLibraryCode/include_gin_network_mbed8.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling include_gin_network_mbed8.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/include_juce_audio_basics_8a4e984a.o: ../../JuceLibraryCode/include_juce_audio_basics.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)

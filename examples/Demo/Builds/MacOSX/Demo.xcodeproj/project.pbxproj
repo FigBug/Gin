@@ -85,6 +85,42 @@
 			isa = PBXBuildFile;
 			fileRef = C85CED3EB9FC8E3ACD22D677;
 		};
+		E26C735D7447DCA6FA2E4E2A = {
+			isa = PBXBuildFile;
+			fileRef = B2B8745292A24061A7B5EE85;
+		};
+		DBAE64ADE272845AEE0F9009 = {
+			isa = PBXBuildFile;
+			fileRef = 7137F24ED446AC33CFF015B1;
+		};
+		7C057F4FDE4586FF00DAAFBC = {
+			isa = PBXBuildFile;
+			fileRef = 552D80262F177201B10CE252;
+		};
+		3BCA871F046E38E7C5737C4C = {
+			isa = PBXBuildFile;
+			fileRef = 39D412B134A4CE76868B5E1D;
+		};
+		4ABE486DC70B673B0016E1F7 = {
+			isa = PBXBuildFile;
+			fileRef = 9A5B15590CA4738B83CD197D;
+		};
+		B1D7444AE88AA9B49ECE7AF6 = {
+			isa = PBXBuildFile;
+			fileRef = 38150E8B4B122A152644E14B;
+		};
+		67C8F6D18EEB87095057FE42 = {
+			isa = PBXBuildFile;
+			fileRef = 45682D6592794B1CB7C7361C;
+		};
+		2FC99192EFA20A68E04AB5C4 = {
+			isa = PBXBuildFile;
+			fileRef = C7DA78B499086A83C79B1B07;
+		};
+		3C5322319B787AD34370EE40 = {
+			isa = PBXBuildFile;
+			fileRef = 98557953C22DAF4827C7AA1C;
+		};
 		3A8FDB6E33CE7C4C2F59A6B9 = {
 			isa = PBXBuildFile;
 			fileRef = B0E9D6BFE2EA8D6842407C59;
@@ -182,6 +218,20 @@
 			path = "../../JuceLibraryCode/include_juce_gui_extra.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
+		38150E8B4B122A152644E14B = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.c;
+			name = "include_gin_network_mbed5.c";
+			path = "../../JuceLibraryCode/include_gin_network_mbed5.c";
+			sourceTree = "SOURCE_ROOT";
+		};
+		39D412B134A4CE76868B5E1D = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.c;
+			name = "include_gin_network_mbed3.c";
+			path = "../../JuceLibraryCode/include_gin_network_mbed3.c";
+			sourceTree = "SOURCE_ROOT";
+		};
 		3CC996E65E7F4767A1EAEB1F = {
 			isa = PBXFileReference;
 			lastKnownFileType = wrapper.framework;
@@ -210,6 +260,13 @@
 			path = "../../../../modules/gin_dsp";
 			sourceTree = "SOURCE_ROOT";
 		};
+		45682D6592794B1CB7C7361C = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.c;
+			name = "include_gin_network_mbed6.c";
+			path = "../../JuceLibraryCode/include_gin_network_mbed6.c";
+			sourceTree = "SOURCE_ROOT";
+		};
 		49A48A58619AB704416E42E5 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.objcpp;
@@ -231,6 +288,13 @@
 			path = Demo.app;
 			sourceTree = "BUILT_PRODUCTS_DIR";
 		};
+		552D80262F177201B10CE252 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.c;
+			name = "include_gin_network_mbed2.c";
+			path = "../../JuceLibraryCode/include_gin_network_mbed2.c";
+			sourceTree = "SOURCE_ROOT";
+		};
 		5DCC801E6DB08C1557EBB9A9 = {
 			isa = PBXFileReference;
 			lastKnownFileType = wrapper.framework;
@@ -250,6 +314,13 @@
 			lastKnownFileType = image.jpeg;
 			name = pencils.jpeg;
 			path = ../../Resources/pencils.jpeg;
+			sourceTree = "SOURCE_ROOT";
+		};
+		7137F24ED446AC33CFF015B1 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.c;
+			name = "include_gin_network_mbed1.c";
+			path = "../../JuceLibraryCode/include_gin_network_mbed1.c";
 			sourceTree = "SOURCE_ROOT";
 		};
 		722810538E22A43FF0182CE0 = {
@@ -336,6 +407,27 @@
 			path = System/Library/Frameworks/Security.framework;
 			sourceTree = SDKROOT;
 		};
+		98557953C22DAF4827C7AA1C = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.c;
+			name = "include_gin_network_mbed8.c";
+			path = "../../JuceLibraryCode/include_gin_network_mbed8.c";
+			sourceTree = "SOURCE_ROOT";
+		};
+		9A5B15590CA4738B83CD197D = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.c;
+			name = "include_gin_network_mbed4.c";
+			path = "../../JuceLibraryCode/include_gin_network_mbed4.c";
+			sourceTree = "SOURCE_ROOT";
+		};
+		9D2C1A243300E527F24DD71D = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "gin_network";
+			path = "../../../../modules/gin_network";
+			sourceTree = "SOURCE_ROOT";
+		};
 		A1391A8CB34174F91A234B86 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
@@ -378,6 +470,13 @@
 			path = "../../JuceLibraryCode/include_juce_audio_basics.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
+		B2B8745292A24061A7B5EE85 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.objcpp;
+			name = "include_gin_network.mm";
+			path = "../../JuceLibraryCode/include_gin_network.mm";
+			sourceTree = "SOURCE_ROOT";
+		};
 		B4412386AD7CC39079517FF9 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
@@ -397,6 +496,13 @@
 			lastKnownFileType = file;
 			name = gin;
 			path = ../../../../modules/gin;
+			sourceTree = "SOURCE_ROOT";
+		};
+		C7DA78B499086A83C79B1B07 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.c;
+			name = "include_gin_network_mbed7.c";
+			path = "../../JuceLibraryCode/include_gin_network_mbed7.c";
 			sourceTree = "SOURCE_ROOT";
 		};
 		C85CED3EB9FC8E3ACD22D677 = {
@@ -585,6 +691,7 @@
 				BC8DBEDEC8E6CF9BAB5A166B,
 				4378DD765D79C22535D43F05,
 				D68FB00134A14059CFCEF8E7,
+				9D2C1A243300E527F24DD71D,
 				87FE9EE6F260348848AFE46D,
 				3FCBA65991BF7C458F354E01,
 				A26BE049A38837A52F03F5E9,
@@ -610,6 +717,15 @@
 				EF75EAC5BDB6041845D08EEC,
 				F38B6379611CB61566E342BB,
 				C85CED3EB9FC8E3ACD22D677,
+				B2B8745292A24061A7B5EE85,
+				7137F24ED446AC33CFF015B1,
+				552D80262F177201B10CE252,
+				39D412B134A4CE76868B5E1D,
+				9A5B15590CA4738B83CD197D,
+				38150E8B4B122A152644E14B,
+				45682D6592794B1CB7C7361C,
+				C7DA78B499086A83C79B1B07,
+				98557953C22DAF4827C7AA1C,
 				B0E9D6BFE2EA8D6842407C59,
 				404322AEE3DA0EEDE64D0F39,
 				21A9C56047D6CEB07B6A07E3,
@@ -706,6 +822,7 @@
 				HEADER_SEARCH_PATHS = (
 					"../../JuceLibraryCode",
 					"../../../../modules",
+					"../../../../modules/gin_network/3rdparty/mbedtls/include",
 					"../../../../../juce/modules",
 					"$(inherited)",
 				);
@@ -751,6 +868,7 @@
 				HEADER_SEARCH_PATHS = (
 					"../../JuceLibraryCode",
 					"../../../../modules",
+					"../../../../modules/gin_network/3rdparty/mbedtls/include",
 					"../../../../../juce/modules",
 					"$(inherited)",
 				);
@@ -896,6 +1014,15 @@
 				7BEB35AA6F70C5E112FDBD0F,
 				A0C4729F4F0A9B073D066ED0,
 				DD7F48960E0E3F61D8BD6C0F,
+				E26C735D7447DCA6FA2E4E2A,
+				DBAE64ADE272845AEE0F9009,
+				7C057F4FDE4586FF00DAAFBC,
+				3BCA871F046E38E7C5737C4C,
+				4ABE486DC70B673B0016E1F7,
+				B1D7444AE88AA9B49ECE7AF6,
+				67C8F6D18EEB87095057FE42,
+				2FC99192EFA20A68E04AB5C4,
+				3C5322319B787AD34370EE40,
 				3A8FDB6E33CE7C4C2F59A6B9,
 				0070BBED3505691358984F56,
 				540FBC282E6CA5621B4939B4,

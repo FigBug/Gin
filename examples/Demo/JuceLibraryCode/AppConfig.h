@@ -51,6 +51,7 @@
 #define JUCE_MODULE_AVAILABLE_gin                        1
 #define JUCE_MODULE_AVAILABLE_gin_dsp                    1
 #define JUCE_MODULE_AVAILABLE_gin_metadata               1
+#define JUCE_MODULE_AVAILABLE_gin_network                1
 #define JUCE_MODULE_AVAILABLE_juce_audio_basics          1
 #define JUCE_MODULE_AVAILABLE_juce_audio_devices         1
 #define JUCE_MODULE_AVAILABLE_juce_audio_formats         1

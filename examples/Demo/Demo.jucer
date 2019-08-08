@@ -46,6 +46,7 @@
         <MODULEPATH id="juce_audio_formats" path="../../../juce/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../../../juce/modules"/>
         <MODULEPATH id="juce_dsp" path="../../../juce/modules"/>
+        <MODULEPATH id="gin_network" path="../../modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <XCODE_IPHONE targetFolder="Builds/iOS" iosScreenOrientation="portraitlandscape"
@@ -73,6 +74,7 @@
         <MODULEPATH id="juce_audio_formats" path="../../../juce/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../../../juce/modules"/>
         <MODULEPATH id="juce_dsp" path="../../../juce/modules"/>
+        <MODULEPATH id="gin_network" path="../../modules"/>
       </MODULEPATHS>
     </XCODE_IPHONE>
     <VS2017 targetFolder="Builds/VisualStudio2017" extraCompilerFlags="/wd4996 /wd4458">
@@ -100,6 +102,7 @@
         <MODULEPATH id="juce_audio_formats" path="../../../juce/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../../../juce/modules"/>
         <MODULEPATH id="juce_dsp" path="../../../juce/modules"/>
+        <MODULEPATH id="gin_network" path="../../modules"/>
       </MODULEPATHS>
     </VS2017>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
@@ -125,6 +128,7 @@
         <MODULEPATH id="juce_audio_formats" path="../../../juce/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../../../juce/modules"/>
         <MODULEPATH id="juce_dsp" path="../../../juce/modules"/>
+        <MODULEPATH id="gin_network" path="../../modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
   </EXPORTFORMATS>
@@ -132,6 +136,7 @@
     <MODULE id="gin" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="gin_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="gin_metadata" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="gin_network" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
