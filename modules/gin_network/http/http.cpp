@@ -19,17 +19,21 @@ bool Http::isChunked (const StringPairArray& headers)
     return false;
 }
 
+int Http::getContentLength (const StringPairArray& headers)
+{
+    return headers["Content-Length"].getIntValue();
+}
+
 bool Http::getHeader (SecureStreamingSocket& s, HttpResult& result)
 {
     String incoming;
     
-    char buffer[2];
+    char ch;
     int res = 0;
     
-    while ((res = s.read (buffer, sizeof (buffer) - 1, false)) > 0)
+    while ((res = s.read (&ch, 1, false)) > 0)
     {
-        buffer[res] = 0;
-        incoming += buffer;
+        incoming += ch;
         
         if (incoming.endsWith ("\r\n\r\n"))
         {
@@ -62,22 +66,29 @@ bool Http::readChunk (SecureStreamingSocket& s, MemoryBlock& data)
 
     while (! line.endsWith ("\r\n"))
     {
-        s.read (&ch, 1, true);
+        s.read (&ch, 1, false);
         line += ch;
     }
     
     int sz = line.getHexValue32();
     if (sz > 0)
     {
-        HeapBlock<char> buf (sz + 1);
-        s.read (buf.get(), sz, true);
-        buf[sz] = 0;
+        HeapBlock<char> buf (sz);
         
-        data.append (buf.get(), sz);
+        int todo = sz;
+        while (todo > 0)
+        {
+            int done = s.read (buf.get(), todo, false);
+            if (done > 0)
+            {
+                data.append (buf.get(), (size_t) done);
+                todo -= done;
+            }
+        }
     }
     
-    s.read (&ch, 1, true);
-    s.read (&ch, 1, true);
+    s.read (&ch, 1, false);
+    s.read (&ch, 1, false);
     
     return sz > 0;
 }
@@ -110,8 +121,19 @@ Http::HttpResult Http::get()
         }
         else
         {
+            HeapBlock<char> buf (64 * 1024);
             
+            int todo = getContentLength (result.headers);
+            while (todo > 0)
+            {
+                int done = s.read (buf.get(), jmin (64 * 1024, todo), false);
+                if (done > 0)
+                {
+                    result.data.append (buf.get(), (size_t) done);
+                    todo -= done;
+                }
+            }
         }
     }
-    return {};
+    return result;
 }

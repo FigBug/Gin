@@ -24,6 +24,7 @@ public:
 private:
     bool getHeader (SecureStreamingSocket& s, HttpResult& result);
     bool isChunked (const StringPairArray& headers);
+    int getContentLength (const StringPairArray& headers);
     
     bool readChunk (SecureStreamingSocket& s, MemoryBlock& data);
 

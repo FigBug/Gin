@@ -1066,7 +1066,7 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
-    gin::Http http ( URL ("https://rabien.com"));
+    gin::Http http ( URL ("https://figbug.com/darude.html"));
     auto res = http.get();
     DBG(res.data.toString());
     
