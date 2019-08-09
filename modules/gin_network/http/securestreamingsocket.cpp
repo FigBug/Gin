@@ -179,6 +179,10 @@ SecureStreamingSocket::SecureStreamingSocket (bool secure)
         normalSocket = std::make_unique<StreamingSocket>();
 }
 
+SecureStreamingSocket::~SecureStreamingSocket()
+{
+}
+
 bool SecureStreamingSocket::connect (const String& remoteHostname, int remotePortNumber, int timeOutMillisecs)
 {
     if (impl != nullptr)

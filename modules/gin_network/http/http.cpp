@@ -55,6 +55,33 @@ bool Http::getHeader (SecureStreamingSocket& s, HttpResult& result)
     return false;
 }
 
+bool Http::readChunk (SecureStreamingSocket& s, MemoryBlock& data)
+{
+    String line;
+    char ch;
+
+    while (! line.endsWith ("\r\n"))
+    {
+        s.read (&ch, 1, true);
+        line += ch;
+    }
+    
+    int sz = line.getHexValue32();
+    if (sz > 0)
+    {
+        HeapBlock<char> buf (sz + 1);
+        s.read (buf.get(), sz, true);
+        buf[sz] = 0;
+        
+        data.append (buf.get(), sz);
+    }
+    
+    s.read (&ch, 1, true);
+    s.read (&ch, 1, true);
+    
+    return sz > 0;
+}
+
 Http::HttpResult Http::get()
 {
     HttpResult result;
@@ -79,7 +106,7 @@ Http::HttpResult Http::get()
         
         if (isChunked (result.headers))
         {
-            
+            while (readChunk (s, result.data));
         }
         else
         {

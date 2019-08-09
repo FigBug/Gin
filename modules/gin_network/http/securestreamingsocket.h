@@ -10,7 +10,8 @@
 class SecureStreamingSocket
 {
 public:
-    SecureStreamingSocket (bool secure);
+    SecureStreamingSocket (bool secure = true);
+    ~SecureStreamingSocket();
 
     bool connect (const String& remoteHostname, int remotePortNumber, int timeOutMillisecs = 3000);
     void close();
