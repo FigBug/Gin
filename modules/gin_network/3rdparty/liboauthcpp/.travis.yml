@@ -1,0 +1,33 @@
+language: cpp
+
+cache: ccache
+sudo: false
+matrix:
+  include:
+    - os: linux
+      dist: precise
+      compiler: gcc
+    - os: linux
+      dist: trusty
+      compiler: gcc
+    - os: linux
+      dist: precise
+      compiler: clang
+    - os: linux
+      dist: trusty
+      compiler: clang
+    - os: osx
+      compiler: gcc
+    - os: osx
+      compiler: clang
+
+script:
+  - cd build
+  - cmake .
+  - make
+  - make test
+
+# Only build master, and only build PR branches once
+branches:
+  only:
+  - master

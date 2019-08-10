@@ -106,8 +106,11 @@ Http::HttpResult Http::get()
     
     if (s.connect (url.getDomain(), port))
     {
+        String params = url.toString (true).fromFirstOccurrenceOf ("?", true, true);
+        String subpath = url.getSubPath();
+        
         String get;
-        get += "GET /" + url.getSubPath() + " HTTP/1.1\r\n";
+        get += "GET /" + params + subpath + " HTTP/1.1\r\n";
         get += "Host: " + url.getDomain() + "\r\n";
         get += "\r\n";
         

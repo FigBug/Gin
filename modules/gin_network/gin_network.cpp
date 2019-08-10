@@ -13,8 +13,10 @@
 
 #include "gin_network.h"
 
+#include "network/oauth.cpp"
+
 namespace gin
 {
-#include "http/http.cpp"
-#include "http/securestreamingsocket.cpp"
+#include "network/http.cpp"
+#include "network/securestreamingsocket.cpp"
 }
