@@ -7,8 +7,4 @@
 
 #pragma once
 
-class OAuth1
-{
-public:
-    URL signUrl (URL url);
-};
+#include "../3rdparty/liboauthcpp/include/liboauthcpp/liboauthcpp.h"

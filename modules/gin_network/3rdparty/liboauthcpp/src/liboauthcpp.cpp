@@ -171,7 +171,7 @@ time_t Client::testingTimestamp = 0;
 
 void Client::initialize() {
     if(!initialized) {
-        srand( time( NULL ) );
+        srand( (unsigned int) time( nullptr ) );
         initialized = true;
     }
 }
@@ -416,9 +416,9 @@ bool Client::getSignature( const Http::RequestType eType,
     }
 
     objHMACSHA1.HMAC_SHA1( (unsigned char*)sigBase.c_str(),
-                           sigBase.length(),
+                           (int) sigBase.length(),
                            (unsigned char*)secretSigningKey.c_str(),
-                           secretSigningKey.length(),
+                           (int) secretSigningKey.length(),
                            strDigest );
 
     /* Do a base64 encode of signature */

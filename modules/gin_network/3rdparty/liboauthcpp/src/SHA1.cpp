@@ -195,7 +195,7 @@ bool CSHA1::HashFile(char *szFileName)
 	{
 		size_t nread = fread(uData, 1, ulRest, fIn);
                 assert(nread == ulRest);
-		Update((UINT_8 *)uData, ulRest);
+		Update((UINT_8 *)uData, (unsigned int) ulRest);
 	}
 
 	fclose(fIn); fIn = NULL;
