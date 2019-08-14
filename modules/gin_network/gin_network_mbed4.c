@@ -5,6 +5,11 @@
 
  ==============================================================================*/
 
+#ifdef _WIN32
+ #pragma warning(push)
+ #pragma warning(disable: 4245)
+#endif
+
 #include "3rdparty/mbedtls/library/poly1305.c"
 #include "3rdparty/mbedtls/library/ssl_srv.c"
 #include "3rdparty/mbedtls/library/sha256.c"

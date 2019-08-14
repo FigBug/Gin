@@ -5,6 +5,12 @@
 
  ==============================================================================*/
 
+#ifdef _WIN32
+ #pragma warning(push)
+ #pragma warning(disable: 4244)
+ #pragma warning(disable: 4310)
+#endif
+
 #include "3rdparty/mbedtls/library/ssl_ciphersuites.c"
 #include "3rdparty/mbedtls/library/ssl_cli.c"
 #include "3rdparty/mbedtls/library/ripemd160.c"
