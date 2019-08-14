@@ -5,6 +5,19 @@
 
  ==============================================================================*/
 
+#ifdef _WIN32
+#pragma warning(push)
+ #pragma warning(disable: 4267)
+ #pragma warning(disable: 4477)
+ #pragma warning(disable: 4702)
+ #pragma warning(disable: 4244)
+ #pragma warning(disable: 4245)
+ #pragma warning(disable: 4132)
+ #pragma warning(disable: 4459)
+ #pragma warning(disable: 4005)
+ #pragma warning(disable: 4127)
+#endif
+
 #include "3rdparty/mbedtls/library/aes.c"
 #include "3rdparty/mbedtls/library/aesni.c"
 #include "3rdparty/mbedtls/library/arc4.c"
@@ -39,7 +52,6 @@
 #include "3rdparty/mbedtls/library/md4.c"
 #include "3rdparty/mbedtls/library/md_wrap.c"
 #include "3rdparty/mbedtls/library/memory_buffer_alloc.c"
-#include "3rdparty/mbedtls/library/net_sockets.c"
 #include "3rdparty/mbedtls/library/nist_kw.c"
 #include "3rdparty/mbedtls/library/oid.c"
 #include "3rdparty/mbedtls/library/padlock.c"

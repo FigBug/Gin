@@ -18,6 +18,13 @@
  #endif
 #endif
 
+#ifdef _WIN32
+ #pragma warning(push)
+ #pragma warning(disable: 4267)
+ #pragma warning(disable: 4477)
+ #pragma warning(disable: 4702)
+#endif
+
 #include "3rdparty/liboauthcpp/include/liboauthcpp/liboauthcpp.h"
 #include "3rdparty/liboauthcpp/src/base64.cpp"
 #include "3rdparty/liboauthcpp/src/HMAC_SHA1.cpp"

@@ -5,4 +5,10 @@
 
  ==============================================================================*/
 
+#ifdef _WIN32
+ #pragma warning(push)
+ #pragma warning(disable: 4701)
+#endif
+
+#include "3rdparty/mbedtls/library/net_sockets.c"
 #include "3rdparty/mbedtls/library/ssl_cookie.c"
