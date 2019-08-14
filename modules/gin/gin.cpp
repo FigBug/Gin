@@ -71,6 +71,7 @@ using namespace juce;
 using juce::Rectangle;
 using juce::MemoryBlock;
 
+#include "utilities/asyncutilities.cpp"
 #include "utilities/downloadmanager.cpp"
 #include "utilities/elevatedfilecopy.cpp"
 #include "utilities/filesystemwatcher.cpp"

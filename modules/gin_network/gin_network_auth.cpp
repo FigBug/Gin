@@ -5,6 +5,19 @@
 
  ==============================================================================*/
 
+#if defined (__clang__)
+ #pragma clang diagnostic push
+ #pragma clang diagnostic ignored "-Wconversion"
+ #pragma clang diagnostic ignored "-Wshadow"
+ #pragma clang diagnostic ignored "-Wdeprecated-register"
+ #pragma clang diagnostic ignored "-Wshorten-64-to-32"
+ #pragma clang diagnostic ignored "-Wimplicit"
+ #pragma clang diagnostic ignored "-Wimplicit-int"
+ #if __has_warning("-Wzero-as-null-pointer-constant")
+  #pragma clang diagnostic ignored "-Wzero-as-null-pointer-constant"
+ #endif
+#endif
+
 #include "3rdparty/liboauthcpp/include/liboauthcpp/liboauthcpp.h"
 #include "3rdparty/liboauthcpp/src/base64.cpp"
 #include "3rdparty/liboauthcpp/src/HMAC_SHA1.cpp"

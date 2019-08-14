@@ -66,6 +66,7 @@ using namespace juce;
 using juce::Rectangle;
 using juce::Component;
 
+#include "utilities/asyncutilities.h"
 #include "utilities/downloadmanager.h"
 #include "utilities/equationparser.h"
 #include "utilities/util.h"
