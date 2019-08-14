@@ -75,6 +75,7 @@ using juce::MemoryBlock;
 #include "utilities/downloadmanager.cpp"
 #include "utilities/elevatedfilecopy.cpp"
 #include "utilities/filesystemwatcher.cpp"
+#include "utilities/fileutilities.cpp"
 #include "utilities/integrator.cpp"
 #include "utilities/leastsquaresregression.cpp"
 #include "utilities/linearregression.cpp"

@@ -72,6 +72,7 @@ using juce::Component;
 #include "utilities/util.h"
 #include "utilities/elevatedfilecopy.h"
 #include "utilities/filesystemwatcher.h"
+#include "utilities/fileutilities.h"
 #include "utilities/integrator.h"
 #include "utilities/leastsquaresregression.h"
 #include "utilities/linearregression.h"
