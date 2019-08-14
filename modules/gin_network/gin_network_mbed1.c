@@ -16,6 +16,7 @@
  #pragma warning(disable: 4459)
  #pragma warning(disable: 4005)
  #pragma warning(disable: 4127)
+ #pragma warning(disable: 4701)
 #endif
 
 #include "3rdparty/mbedtls/library/aes.c"

@@ -23,6 +23,7 @@
  #pragma warning(disable: 4267)
  #pragma warning(disable: 4477)
  #pragma warning(disable: 4702)
+ #pragma warning(disable: 4189)
 #endif
 
 #include "3rdparty/liboauthcpp/include/liboauthcpp/liboauthcpp.h"
