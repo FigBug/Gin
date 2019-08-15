@@ -12,7 +12,7 @@
 bool overwriteWithText (const juce::File& f, const juce::String& text,
                         bool asUnicode = false,
                         bool writeUnicodeHeaderBytes = false,
-                        const char* lineEndings = "\r\n");
+                        const char* lineEndings = nullptr);
 
 /* Replaces a file with data in one operation without creating a temp file
  */
