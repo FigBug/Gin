@@ -42,7 +42,7 @@ bool overwriteWithData (const juce::File& f, const void* data, size_t size)
 
 int64 getLastModificationTime (const File& f)
 {
-   #if JUCE_MAC
+   #if JUCE_MAC || JUCE_LINUX
     struct stat info;
     stat (f.getFullPathName().toUTF8(), &info);
     return (int64) info.st_mtimespec.tv_sec * 1000 + info.st_mtimespec.tv_nsec / 1000000;
@@ -53,7 +53,7 @@ int64 getLastModificationTime (const File& f)
 
 int64 getLastAccessTime (const File& f)
 {
-   #if JUCE_MAC
+   #if JUCE_MAC || JUCE_LINUX
     struct stat info;
     stat (f.getFullPathName().toUTF8(), &info);
     return (int64) info.st_atimespec.tv_sec * 1000 + info.st_atimespec.tv_nsec / 1000000;
@@ -62,9 +62,9 @@ int64 getLastAccessTime (const File& f)
    #endif
 }
 
-bool getLastModificationTime (const File& f, int64 when)
+bool setLastModificationTime (const File& f, int64 when)
 {
-   #if JUCE_MAC
+   #if JUCE_MAC || JUCE_LINUX
     struct timeval times[2];
     auto accessTime = getLastAccessTime (f);
     times[0].tv_sec  = accessTime / 1000;
