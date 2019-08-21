@@ -19,9 +19,13 @@
 #include <sys/inotify.h>
 #include <limits.h>
 #include <unistd.h>
+#include <sys/stat.h>
+#include <sys/time.h>
 #endif
 #ifdef __APPLE__
 #import <Foundation/Foundation.h>
+#include <sys/stat.h>
+#include <sys/time.h>
 #endif
 
 #ifndef  _WIN32
