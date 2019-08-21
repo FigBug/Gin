@@ -47,7 +47,7 @@ int64 getLastModificationTime (const File& f)
     stat (f.getFullPathName().toUTF8(), &info);
     return (int64) info.st_mtimespec.tv_sec * 1000 + info.st_mtimespec.tv_nsec / 1000000;
    #else
-    return f.getLastModifiedTime().toMilliseconds();
+    return f.getLastModificationTime().toMilliseconds();
    #endif
 }
 
@@ -76,7 +76,7 @@ bool setLastModificationTime (const File& f, int64 when)
     const char* name = f.getFullPathName().toRawUTF8();
     return utimes (name, times) == 0;
    #else
-    return f.setLastModificationTime (f, when);
+    return f.setLastModificationTime (Time (when));
    #endif
 }
 
@@ -94,6 +94,6 @@ bool setLastAccessTime (const File& f, int64 when)
     const char* name = f.getFullPathName().toRawUTF8();
     return utimes (name, times) == 0;
    #else
-    return f.setLastAccessTime (f, when);
+    return f.setLastAccessTime (Time (when));
    #endif
 }
