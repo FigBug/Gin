@@ -114,6 +114,7 @@ class _DummyWebSocket : public easywsclient::WebSocket
 {
   public:
     void poll(int timeout) { }
+    void interrupt() { }
     void send(const std::string& message) { }
     void sendBinary(const std::string& message) { }
     void sendBinary(const std::vector<uint8_t>& message) { }
@@ -171,14 +172,51 @@ class _RealWebSocket : public easywsclient::WebSocket
 
     socket_t sockfd;
     readyStateValues readyState;
+    int interruptIn;
+    int interruptOut;
     bool useMask;
     bool isRxBad;
 
     _RealWebSocket(socket_t sockfd, bool useMask)
             : sockfd(sockfd)
             , readyState(OPEN)
+            , interruptIn(0)
+            , interruptOut(0)
             , useMask(useMask)
             , isRxBad(false) {
+       #ifdef _WIN32
+        SOCKET pipes[2] = {0, 0};
+        if (!dumb_socketpair(pipes, 0))
+        {
+            interruptIn  = pipes[0];
+            interruptOut = pipes[1];
+
+            u_long on = 1;
+            ioctlsocket(interruptIn, FIONBIO, &on);
+        }
+       #else
+                int fd[2] = {0, 0};
+        if (socketpair(PF_LOCAL, SOCK_STREAM, 0, fd) == 0)
+        {
+            interruptIn  = fd[0];
+            interruptOut = fd[1];
+
+            int flags = fcntl(interruptIn, F_GETFL, 0);
+            if (fcntl(interruptIn, F_SETFL, flags | O_NONBLOCK) == -1)
+            {
+                closesocket(interruptIn);
+                closesocket(interruptOut);
+                interruptIn  = 0;
+                interruptOut = 0;
+            }
+        }
+       #endif
+    }
+
+    ~_RealWebSocket()
+    {
+        if (interruptIn)  closesocket(interruptIn);
+        if (interruptOut) closesocket(interruptOut);
     }
 
     readyStateValues getReadyState() const {
@@ -200,9 +238,25 @@ class _RealWebSocket : public easywsclient::WebSocket
             FD_ZERO(&rfds);
             FD_ZERO(&wfds);
             FD_SET(sockfd, &rfds);
+
+            int maxSocket = sockfd;
+            if (interruptIn) {
+                FD_SET(interruptIn, &rfds);
+                maxSocket = std::max(maxSocket, interruptIn);
+            }
+
             if (txbuf.size()) { FD_SET(sockfd, &wfds); }
+
             select(sockfd + 1, &rfds, &wfds, 0, timeout > 0 ? &tv : 0);
         }
+
+        while (true) {
+            char dummy[128] = {0};
+            ssize_t ret = recv(interruptIn, dummy, sizeof(dummy), 0);
+            if (ret <= 0)
+                break;
+        }
+
         while (true) {
             // FD_ISSET(0, &rfds) will be true
             int N = rxbuf.size();
@@ -245,6 +299,12 @@ class _RealWebSocket : public easywsclient::WebSocket
             closesocket(sockfd);
             readyState = CLOSED;
         }
+    }
+
+    void interrupt()
+    {
+        if (interruptOut)
+            ::send(interruptOut, "\0", 1, 0);
     }
 
     // Callable must have signature: void(const std::string & message).
