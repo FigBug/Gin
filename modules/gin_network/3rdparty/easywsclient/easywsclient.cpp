@@ -247,6 +247,7 @@ class _RealWebSocket : public easywsclient::WebSocket
     int interruptOut;
     bool useMask;
     bool isRxBad;
+    bool isBinary;
 
     _RealWebSocket(socket_t sockfd, bool useMask)
             : sockfd(sockfd)
@@ -254,7 +255,8 @@ class _RealWebSocket : public easywsclient::WebSocket
             , interruptIn(0)
             , interruptOut(0)
             , useMask(useMask)
-            , isRxBad(false) {
+            , isRxBad(false)
+            , isBinary(false) {
        #ifdef _WIN32
         SOCKET pipes[2] = {0, 0};
         if (!dumb_socketpair(pipes, 0))
@@ -389,9 +391,10 @@ class _RealWebSocket : public easywsclient::WebSocket
         {
             Callback_Imp& callable;
             CallbackAdapter(Callback_Imp& callable) : callable(callable) { }
-            void operator()(const std::vector<uint8_t>& message) {
+            void operator()(const std::vector<uint8_t>& message, bool isBinary) {
                 std::string stringMessage(message.begin(), message.end());
-                callable(stringMessage);
+                if (!isBinary)
+                    callable(stringMessage);
             }
         };
         CallbackAdapter bytesCallback(callable);
@@ -474,10 +477,11 @@ class _RealWebSocket : public easywsclient::WebSocket
                 || ws.opcode == wsheader_type::BINARY_FRAME
                 || ws.opcode == wsheader_type::CONTINUATION
             ) {
+                isBinary = (ws.opcode == wsheader_type::BINARY_FRAME);
                 if (ws.mask) { for (size_t i = 0; i != ws.N; ++i) { rxbuf[i+ws.header_size] ^= ws.masking_key[i&0x3]; } }
                 receivedData.insert(receivedData.end(), rxbuf.begin()+ws.header_size, rxbuf.begin()+ws.header_size+(size_t)ws.N);// just feed
                 if (ws.fin) {
-                    callable((const std::vector<uint8_t>) receivedData);
+                    callable((const std::vector<uint8_t>) receivedData, isBinary);
                     receivedData.erase(receivedData.begin(), receivedData.end());
                     std::vector<uint8_t> ().swap(receivedData);// free memory
                 }

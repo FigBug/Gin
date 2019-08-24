@@ -14,7 +14,7 @@
 namespace easywsclient {
 
 struct Callback_Imp { virtual void operator()(const std::string& message) = 0; };
-struct BytesCallback_Imp { virtual void operator()(const std::vector<uint8_t>& message) = 0; };
+struct BytesCallback_Imp { virtual void operator()(const std::vector<uint8_t>& message, bool isBinary) = 0; };
 
 class WebSocket {
   public:
@@ -57,7 +57,7 @@ class WebSocket {
         struct _Callback : public BytesCallback_Imp {
             Callable& callable;
             _Callback(Callable& callable) : callable(callable) { }
-            void operator()(const std::vector<uint8_t>& message) { callable(message); }
+            void operator()(const std::vector<uint8_t>& message, bool isBinary) { callable(message, isBinary); }
         };
         _Callback callback(callable);
         _dispatchBinary(callback);

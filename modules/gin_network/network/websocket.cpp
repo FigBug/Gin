@@ -67,8 +67,6 @@ void Websocket::run()
 
         if (impl->socket->getReadyState() != easywsclient::WebSocket::CLOSED)
             impl->socket->close();
-
-
     }
 
     mm.callAsync ([this, weakThis]
@@ -83,23 +81,18 @@ void Websocket::processIncomingData()
     auto& mm = *MessageManager::getInstance();
     WeakReference<Websocket> weakThis = this;
 
-    impl->socket->dispatch ([&] (const std::string& message)
-                            {
-                                std::string messageCopy = message;
-                                mm.callAsync ([this, weakThis, messageCopy]
-                                              {
-                                                  if (weakThis != nullptr && onText)
-                                                      onText (String (messageCopy));
-                                              });
-                            });
-
-    impl->socket->dispatchBinary ([&] (const std::vector<uint8_t>& message)
+    impl->socket->dispatchBinary ([&] (const std::vector<uint8_t>& message, bool isBinary)
                                   {
                                       std::vector<uint8_t> messageCopy = message;
-                                      mm.callAsync ([this, weakThis, messageCopy]
+                                      mm.callAsync ([this, weakThis, messageCopy, isBinary]
                                                     {
-                                                        if (weakThis != nullptr && onBinary)
-                                                            onBinary (MemoryBlock (messageCopy.data(), messageCopy.size()));
+                                                        if (weakThis != nullptr)
+                                                        {
+                                                            if (isBinary && onBinary)
+                                                                onBinary (MemoryBlock (messageCopy.data(), messageCopy.size()));
+                                                            else if (! isBinary && onText)
+                                                                onText (String::fromUTF8 ((char*)messageCopy.data(), int (messageCopy.size())));
+                                                        }
                                                     });
                                   });
 }
