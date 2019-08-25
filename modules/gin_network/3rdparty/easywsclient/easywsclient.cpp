@@ -228,7 +228,7 @@ void WebSocket::poll(int timeout) { // timeout in milliseconds
         if (txbuf.size())
             FD_SET(sockfd, &wfds);
 
-        select(maxSocket + 1, &rfds, &wfds, NULL, &tv);
+        select(maxSocket + 1, &rfds, &wfds, nullptr, &tv);
     }
 
     while (true) {
@@ -253,9 +253,6 @@ void WebSocket::poll(int timeout) { // timeout in milliseconds
             break;
         }
         else {
-            for (int i = 0; i < ret; i++)
-                putchar(*((char*)&rxbuf[0] + i));
-            
             rxbuf.resize(size_t(N + ret));
         }
     }
@@ -571,7 +568,6 @@ WebSocket* WebSocket::from_url(const std::string& url, bool useMask, const std::
             if (socket->read(line+i, 1, true) == 0) {
                 return nullptr;
             }
-            putchar(*(line+i));
         }
         
         line[i] = 0;
@@ -591,7 +587,6 @@ WebSocket* WebSocket::from_url(const std::string& url, bool useMask, const std::
                 if (socket->read(line+i, 1, true) == 0) {
                     return nullptr;
                 }
-                putchar(*(line+i));
             }
             if (line[0] == '\r' && line[1] == '\n') {
                 break;
