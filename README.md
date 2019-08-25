@@ -42,5 +42,14 @@ www.juce.com
 AVIR: Aleksey Vaneev
 https://github.com/avaneev/avir
 
+easywsclient
+https://github.com/dhbaird/easywsclient
+
+mbed TLS
+https://tls.mbed.org/
+
+liboauthcpp
+https://github.com/sirikata/liboauthcpp
+
 Special Thanks to:
 reFX Audio Software Inc.
