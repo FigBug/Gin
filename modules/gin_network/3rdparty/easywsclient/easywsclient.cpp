@@ -68,36 +68,6 @@
 
 namespace easywsclient {
 
-socket_t hostname_connect(const std::string& hostname, int port) {
-    struct addrinfo hints;
-    struct addrinfo *result;
-    struct addrinfo *p;
-    int ret;
-    socket_t sockfd = INVALID_SOCKET;
-    char sport[16];
-    memset(&hints, 0, sizeof(hints));
-    hints.ai_family = AF_UNSPEC;
-    hints.ai_socktype = SOCK_STREAM;
-    snprintf(sport, 16, "%d", port);
-    if ((ret = getaddrinfo(hostname.c_str(), sport, &hints, &result)) != 0)
-    {
-      fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(ret));
-      return 1;
-    }
-    for(p = result; p != NULL; p = p->ai_next)
-    {
-        sockfd = socket(p->ai_family, p->ai_socktype, p->ai_protocol);
-        if (sockfd == INVALID_SOCKET) { continue; }
-        if (connect(sockfd, p->ai_addr, p->ai_addrlen) != SOCKET_ERROR) {
-            break;
-        }
-        closesocket(sockfd);
-        sockfd = INVALID_SOCKET;
-    }
-    freeaddrinfo(result);
-    return sockfd;
-}
-
 #ifdef _WIN32
 /* dumb_socketpair
  * Copyright 2007 by Nathan C. Myers <ncm@cantrip.org>; some rights reserved.
@@ -145,12 +115,12 @@ int dumb_socketpair(SOCKET socks[2], int make_overlapped)
 			break;
 		if (listen(listener, 1) == SOCKET_ERROR)
 			break;
-		socks[0] = WSASocketW(AF_INET, SOCK_STREAM, 0, NULL, 0, flags);
+		socks[0] = WSASocketW(AF_INET, SOCK_STREAM, 0, nullptr, 0, flags);
 		if (socks[0] == INVALID_SOCKET)
 			break;
 		if (connect(socks[0], &a.addr, sizeof(a.inaddr)) == SOCKET_ERROR)
 			break;
-		socks[1] = accept(listener, NULL, NULL);
+		socks[1] = accept(listener, nullptr, nullptr);
 		if (socks[1] == INVALID_SOCKET)
 			break;
 
@@ -189,14 +159,15 @@ int dumb_socketpair(SOCKET socks[2], int make_overlapped)
 // |                     Payload Data continued ...                |
 // +---------------------------------------------------------------+
 
-WebSocket::WebSocket(socket_t sockfd, bool useMask)
-        : sockfd(sockfd)
-        , readyState(OPEN)
-        , interruptIn(0)
-        , interruptOut(0)
-        , useMask(useMask)
-        , isRxBad(false)
-        , isBinary(false) {
+WebSocket::WebSocket(std::unique_ptr<gin::SecureStreamingSocket>&& socket_, bool useMask)
+    : socket(std::move(socket_))
+    , sockfd(socket->getRawSocketHandle())
+    , readyState(OPEN)
+    , interruptIn(0)
+    , interruptOut(0)
+    , useMask(useMask)
+    , isRxBad(false)
+    , isBinary(false) {
    #ifdef _WIN32
     SOCKET pipes[2] = {0, 0};
     if (!dumb_socketpair(pipes, 0))
@@ -240,7 +211,7 @@ void WebSocket::poll(int timeout) { // timeout in milliseconds
     if (readyState == CLOSED) {
         if (timeout > 0) {
             timeval tv = { timeout/1000, (timeout%1000) * 1000 };
-            select(0, NULL, NULL, NULL, &tv);
+            select(0, nullptr, nullptr, nullptr, &tv);
         }
         return;
     }
@@ -272,10 +243,10 @@ void WebSocket::poll(int timeout) { // timeout in milliseconds
 
     while (true) {
         // FD_ISSET(0, &rfds) will be true
-        int N = rxbuf.size();
+        size_t N = rxbuf.size();
         ssize_t ret;
         rxbuf.resize(N + 1500);
-        ret = recv(sockfd, (char*)&rxbuf[0] + N, 1500, 0);
+        ret = socket->read((char*)&rxbuf[0] + N, 1500, false);
         if (false) { }
         else if (ret < 0 && (socketerrno == SOCKET_EWOULDBLOCK || socketerrno == SOCKET_EAGAIN_EINPROGRESS)) {
             rxbuf.resize(N);
@@ -289,11 +260,11 @@ void WebSocket::poll(int timeout) { // timeout in milliseconds
             break;
         }
         else {
-            rxbuf.resize(N + ret);
+            rxbuf.resize(size_t(N + ret));
         }
     }
     while (txbuf.size()) {
-        int ret = ::send(sockfd, (char*)&txbuf[0], txbuf.size(), 0);
+        int ret = socket->write((char*)&txbuf[0], txbuf.size());
         if (false) { } // ??
         else if (ret < 0 && (socketerrno == SOCKET_EWOULDBLOCK || socketerrno == SOCKET_EAGAIN_EINPROGRESS)) {
             break;
@@ -337,7 +308,7 @@ void WebSocket::dispatch(std::function<void (const std::vector<uint8_t>& message
         if (rxbuf.size() < ws.header_size) { return; /* Need: ws.header_size - rxbuf.size() */ }
         int i = 0;
         if (ws.N0 < 126) {
-            ws.N = ws.N0;
+            ws.N = uint64_t (ws.N0);
             i = 2;
         }
         else if (ws.N0 == 126) {
@@ -520,13 +491,30 @@ WebSocket* WebSocket::from_url(const std::string& url, bool useMask, const std::
     char path[512];
     if (url.size() >= 512) {
       fprintf(stderr, "ERROR: url size limit exceeded: %s\n", url.c_str());
-      return NULL;
+      return nullptr;
     }
     if (origin.size() >= 200) {
       fprintf(stderr, "ERROR: origin size limit exceeded: %s\n", origin.c_str());
-      return NULL;
+      return nullptr;
     }
-    if (false) { }
+    
+    bool secure = false;
+    if (sscanf(url.c_str(), "wss://%[^:/]:%d/%s", host, &port, path) == 3) {
+        secure = true;
+    }
+    else if (sscanf(url.c_str(), "wss://%[^:/]/%s", host, path) == 2) {
+        secure = true;
+        port = 443;
+    }
+    else if (sscanf(url.c_str(), "wss://%[^:/]:%d", host, &port) == 2) {
+        secure = true;
+        path[0] = '\0';
+    }
+    else if (sscanf(url.c_str(), "wss://%[^:/]", host) == 1) {
+        secure = true;
+        port = 443;
+        path[0] = '\0';
+    }
     else if (sscanf(url.c_str(), "ws://%[^:/]:%d/%s", host, &port, path) == 3) {
     }
     else if (sscanf(url.c_str(), "ws://%[^:/]/%s", host, path) == 2) {
@@ -539,56 +527,66 @@ WebSocket* WebSocket::from_url(const std::string& url, bool useMask, const std::
         port = 80;
         path[0] = '\0';
     }
+
     else {
         fprintf(stderr, "ERROR: Could not parse WebSocket url: %s\n", url.c_str());
-        return NULL;
+        return nullptr;
     }
     //fprintf(stderr, "easywsclient: connecting: host=%s port=%d path=/%s\n", host, port, path);
-    socket_t sockfd = hostname_connect(host, port);
-    if (sockfd == INVALID_SOCKET) {
+    
+    auto socket = std::make_unique<gin::SecureStreamingSocket>(secure);
+    if (!socket->connect(host, port)) {
         fprintf(stderr, "Unable to connect to %s:%d\n", host, port);
-        return NULL;
+        return nullptr;
     }
+    
+    socket_t sockfd = socket->getRawSocketHandle();
+    
     {
         // XXX: this should be done non-blocking,
         char line[1024];
         int status;
         int i;
-        snprintf(line, 1024, "GET /%s HTTP/1.1\r\n", path); ::send(sockfd, line, strlen(line), 0);
+        
+        snprintf(line, 1024, "GET /%s HTTP/1.1\r\n", path); socket->write(line, strlen(line));;
         if (port == 80) {
-            snprintf(line, 1024, "Host: %s\r\n", host); ::send(sockfd, line, strlen(line), 0);
+            snprintf(line, 1024, "Host: %s\r\n", host); socket->write(line, strlen(line));;
         }
         else {
-            snprintf(line, 1024, "Host: %s:%d\r\n", host, port); ::send(sockfd, line, strlen(line), 0);
+            snprintf(line, 1024, "Host: %s:%d\r\n", host, port); socket->write(line, strlen(line));;
         }
-        snprintf(line, 1024, "Upgrade: websocket\r\n"); ::send(sockfd, line, strlen(line), 0);
-        snprintf(line, 1024, "Connection: Upgrade\r\n"); ::send(sockfd, line, strlen(line), 0);
+        snprintf(line, 1024, "Upgrade: websocket\r\n"); socket->write(line, strlen(line));;
+        snprintf(line, 1024, "Connection: Upgrade\r\n"); socket->write(line, strlen(line));;
         if (!origin.empty()) {
-            snprintf(line, 1024, "Origin: %s\r\n", origin.c_str()); ::send(sockfd, line, strlen(line), 0);
+            snprintf(line, 1024, "Origin: %s\r\n", origin.c_str()); socket->write(line, strlen(line));;
         }
-        snprintf(line, 1024, "Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==\r\n"); ::send(sockfd, line, strlen(line), 0);
-        snprintf(line, 1024, "Sec-WebSocket-Version: 13\r\n"); ::send(sockfd, line, strlen(line), 0);
-        snprintf(line, 1024, "\r\n"); ::send(sockfd, line, strlen(line), 0);
-        for (i = 0; i < 2 || (i < 1023 && line[i-2] != '\r' && line[i-1] != '\n'); ++i) { if (recv(sockfd, line+i, 1, 0) == 0) { return NULL; } }
+        snprintf(line, 1024, "Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==\r\n"); socket->write(line, strlen(line));;
+        snprintf(line, 1024, "Sec-WebSocket-Version: 13\r\n"); socket->write(line, strlen(line));;
+        snprintf(line, 1024, "\r\n"); socket->write(line, strlen(line));
+        for (i = 0; i < 2 || (i < 1023 && line[i-2] != '\r' && line[i-1] != '\n'); ++i) { if (socket->read(line+i, 1, false) == 0) { return nullptr; } }
         line[i] = 0;
-        if (i == 1023) { fprintf(stderr, "ERROR: Got invalid status line connecting to: %s\n", url.c_str()); return NULL; }
-        if (sscanf(line, "HTTP/1.1 %d", &status) != 1 || status != 101) { fprintf(stderr, "ERROR: Got bad status connecting to %s: %s", url.c_str(), line); return NULL; }
+        if (i == 1023) { fprintf(stderr, "ERROR: Got invalid status line connecting to: %s\n", url.c_str()); return nullptr; }
+        if (sscanf(line, "HTTP/1.1 %d", &status) != 1 || status != 101) { fprintf(stderr, "ERROR: Got bad status connecting to %s: %s", url.c_str(), line); return nullptr; }
         // TODO: verify response headers,
         while (true) {
-            for (i = 0; i < 2 || (i < 1023 && line[i-2] != '\r' && line[i-1] != '\n'); ++i) { if (recv(sockfd, line+i, 1, 0) == 0) { return NULL; } }
+            for (i = 0; i < 2 || (i < 1023 && line[i-2] != '\r' && line[i-1] != '\n'); ++i) { if (socket->read(line+i, 1, false) == 0) { return nullptr; } }
             if (line[0] == '\r' && line[1] == '\n') { break; }
         }
     }
     int flag = 1;
     setsockopt(sockfd, IPPROTO_TCP, TCP_NODELAY, (char*) &flag, sizeof(flag)); // Disable Nagle's algorithm
+    
+    /*
 #ifdef _WIN32
     u_long on = 1;
     ioctlsocket(sockfd, FIONBIO, &on);
 #else
     fcntl(sockfd, F_SETFL, O_NONBLOCK);
 #endif
+     */
+    
     //fprintf(stderr, "Connected to: %s\n", url.c_str());
-    return new WebSocket(sockfd, useMask);
+    return new WebSocket(std::move (socket), useMask);
 }
 
 WebSocket* WebSocket::from_url(const std::string& url, const std::string& origin) {

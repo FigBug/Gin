@@ -15,6 +15,12 @@
 
 #include "network/oauth.cpp"
 
+namespace gin
+{
+#include "network/http.cpp"
+#include "network/securestreamingsocket.cpp"
+}
+
 #if _MSC_VER
  #pragma warning (push)
  #pragma warning (disable: 4244)
@@ -23,17 +29,10 @@
  #pragma warning (disable: 4456)
 #elif __clang__
  #pragma clang diagnostic push
- #pragma clang diagnostic ignored "-Wnon-virtual-dtor"
- #pragma clang diagnostic ignored "-Wunused-parameter"
  #pragma clang diagnostic ignored "-Wshadow"
  #pragma clang diagnostic ignored "-Wsign-conversion"
  #pragma clang diagnostic ignored "-Wconversion"
- #if __has_warning("-Wshadow-field")
-  #pragma clang diagnostic ignored "-Wshadow-field"
- #endif
- #if __has_warning("-Wzero-as-null-pointer-constant")
-  #pragma clang diagnostic ignored "-Wzero-as-null-pointer-constant"
- #endif
+ #pragma clang diagnostic ignored "-Wshadow-field"
 #endif
 
 #include "3rdparty/easywsclient/easywsclient.hpp"
@@ -47,7 +46,5 @@
 
 namespace gin
 {
-#include "network/http.cpp"
-#include "network/securestreamingsocket.cpp"
 #include "network/websocket.cpp"
 }

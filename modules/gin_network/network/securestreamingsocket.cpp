@@ -16,11 +16,11 @@
  #endif
 #endif
 
-#include "mbedtls/net.h"
-#include "mbedtls/ssl.h"
-#include "mbedtls/entropy.h"
-#include "mbedtls/ctr_drbg.h"
-#include "mbedtls/debug.h"
+#include <mbedtls/net.h>
+#include <mbedtls/ssl.h>
+#include <mbedtls/entropy.h>
+#include <mbedtls/ctr_drbg.h>
+#include <mbedtls/debug.h>
 
 #if JUCE_CLANG
  #pragma clang diagnostic pop
@@ -144,6 +144,10 @@ public:
         return mbedtls_ssl_write (&ssl, (const unsigned char*)sourceBuffer, (size_t)numBytesToWrite);
     }
     
+    int getRawSocketHandle()
+    {
+        return server_fd.fd;
+    }
 private:
     void init()
     {
@@ -231,4 +235,11 @@ int SecureStreamingSocket::write (const void* sourceBuffer, int numBytesToWrite)
     if (impl != nullptr)
         return impl->write (sourceBuffer, numBytesToWrite);
     return normalSocket->write (sourceBuffer, numBytesToWrite);
+}
+
+int SecureStreamingSocket::getRawSocketHandle() const noexcept
+{
+    if (impl != nullptr)
+        return impl->getRawSocketHandle();
+    return normalSocket->getRawSocketHandle();
 }

@@ -54,7 +54,7 @@ class WebSocket {
     void dispatch(std::function<void (const std::vector<uint8_t>& message, bool isBinary)> callback);
     
 private:
-    WebSocket(int sockfd, bool useMask);
+    WebSocket(std::unique_ptr<gin::SecureStreamingSocket>&& socket_, bool useMask);
     void sendData(wsheader_type::opcode_type type, const std::string& message);
     void sendData(wsheader_type::opcode_type type, const std::vector<uint8_t>& message);
 
@@ -62,6 +62,7 @@ private:
     std::vector<uint8_t> txbuf;
     std::vector<uint8_t> receivedData;
     
+    std::unique_ptr<gin::SecureStreamingSocket> socket;
     int sockfd;
     readyStateValues readyState;
     int interruptIn;

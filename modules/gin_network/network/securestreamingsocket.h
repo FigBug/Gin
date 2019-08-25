@@ -21,6 +21,8 @@ public:
     int read (void* destBuffer, int maxBytesToRead, bool blockUntilSpecifiedAmountHasArrived);
     int write (const void* sourceBuffer, int numBytesToWrite);
 
+    int getRawSocketHandle () const noexcept;
+    
 private:
     class Impl;
     std::unique_ptr<Impl> impl;
