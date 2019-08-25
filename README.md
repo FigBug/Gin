@@ -16,9 +16,11 @@ What's included:
 * LinearRegression - Fits a line to data points
 * MapViewer - Displays a map
 * OpenStreetMaps - Fetch tiles from various OSM servers
+* SecureStreamingSocket - Streaming socket the supports SSL
 * SharedMemory - Share a memory block between processes
 * Spline - A smooth curve from a set of discrete points
 * PerlinNoise - Natural looking noise
+* Websocket - Websocket client
 
 Credits:
 
