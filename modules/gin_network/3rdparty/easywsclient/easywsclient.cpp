@@ -36,6 +36,7 @@
     #include <sys/socket.h>
     #include <sys/time.h>
     #include <sys/types.h>
+    #include <sys/ioctl.h>
     #include <unistd.h>
     #include <stdint.h>
     #ifndef INVALID_SOCKET
@@ -69,7 +70,7 @@ namespace easywsclient {
  * for any reason the author might be held responsible for any consequences
  * of copying or use, license is withheld.
  */
-int dumb_socketpair(SOCKET socks[2], int make_overlapped)
+static int dumb_socketpair(SOCKET socks[2], int make_overlapped)
 {
 	union {
 		struct sockaddr_in inaddr;
@@ -129,6 +130,7 @@ int dumb_socketpair(SOCKET socks[2], int make_overlapped)
 }
 #endif
 
+    
 // http://tools.ietf.org/html/rfc6455#section-5.2  Base Framing Protocol
 //
 //  0                   1                   2                   3
@@ -243,7 +245,7 @@ void WebSocket::poll(int timeout) { // timeout in milliseconds
         ssize_t ret = 0;
         rxbuf.resize(N + 1500);
         
-        if (socket->waitUntilReady (true, 1))
+        if (socket->waitUntilReady(true, 1))
             ret = socket->read((char*)&rxbuf[0] + N, 1500, false);
         
         if (ret <= 0) {

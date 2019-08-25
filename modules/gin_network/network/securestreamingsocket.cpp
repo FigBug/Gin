@@ -112,19 +112,15 @@ public:
             int todo = maxBytesToRead;
             while (todo > 0)
             {
-                int pending = mbedtls_ssl_check_pending (&ssl);
-                if (pending > 0)
+                int res = mbedtls_ssl_read (&ssl, (unsigned char*)destBuffer, (size_t)todo);
+                if (res > 0)
                 {
-                    int res = mbedtls_ssl_read (&ssl, (unsigned char*)destBuffer, (size_t)jmin (pending, todo));
-                    if (res > 0)
-                    {
-                        todo -= res;
-                        destBuffer = (char*)destBuffer + res;
-                    }
-                    else
-                    {
-                        return res;
-                    }
+                    todo -= res;
+                    destBuffer = (char*)destBuffer + res;
+                }
+                else if (res < 0)
+                {
+                    return maxBytesToRead - todo;
                 }
                 else
                 {
@@ -135,7 +131,11 @@ public:
         }
         else
         {
-            return mbedtls_ssl_read (&ssl, (unsigned char*)destBuffer, (size_t)maxBytesToRead);
+            mbedtls_net_set_nonblock (&server_fd);
+            int res = mbedtls_ssl_read (&ssl, (unsigned char*)destBuffer, (size_t)maxBytesToRead);
+            mbedtls_net_set_block (&server_fd);
+            
+            return res;
         }
     }
     
