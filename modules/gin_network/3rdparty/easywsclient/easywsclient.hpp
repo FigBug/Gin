@@ -1,5 +1,4 @@
-#ifndef EASYWSCLIENT_HPP_20120819_MIOFVASDTNUASZDQPLFD
-#define EASYWSCLIENT_HPP_20120819_MIOFVASDTNUASZDQPLFD
+#pragma once
 
 // This code comes from:
 // https://github.com/dhbaird/easywsclient
@@ -12,62 +11,64 @@
 #include <vector>
 
 namespace easywsclient {
-
-struct Callback_Imp { virtual void operator()(const std::string& message) = 0; };
-struct BytesCallback_Imp { virtual void operator()(const std::vector<uint8_t>& message, bool isBinary) = 0; };
+    
+struct wsheader_type {
+    unsigned header_size;
+    bool fin;
+    bool mask;
+    enum opcode_type {
+        CONTINUATION = 0x0,
+        TEXT_FRAME = 0x1,
+        BINARY_FRAME = 0x2,
+        CLOSE = 8,
+        PING = 9,
+        PONG = 0xa,
+    } opcode;
+    int N0;
+    uint64_t N;
+    uint8_t masking_key[4];
+};
 
 class WebSocket {
   public:
-    typedef WebSocket * pointer;
     typedef enum readyStateValues { CLOSING, CLOSED, OPEN } readyStateValues;
 
     // Factories:
-    static pointer create_dummy();
-    static pointer from_url(const std::string& url, const std::string& origin = std::string());
-    static pointer from_url_no_mask(const std::string& url, const std::string& origin = std::string());
+    static WebSocket* from_url(const std::string& url, const std::string& origin = std::string());
+    static WebSocket* from_url_no_mask(const std::string& url, const std::string& origin = std::string());
+    static WebSocket* from_url(const std::string& url, bool useMask, const std::string& origin);
 
-    // Interfaces:
-    virtual ~WebSocket() { }
-    virtual void poll(int timeout = 0) = 0; // timeout in milliseconds
-    virtual void interrupt() = 0; // interrupt polling
-    virtual void send(const std::string& message) = 0;
-    virtual void sendBinary(const std::string& message) = 0;
-    virtual void sendBinary(const std::vector<uint8_t>& message) = 0;
-    virtual void sendPing() = 0;
-    virtual void close() = 0;
-    virtual readyStateValues getReadyState() const = 0;
+    ~WebSocket();
+    
+    void poll(int timeout = 0); // timeout in milliseconds
+    void interrupt(); // interrupt polling
+    
+    void send(const std::string& message);
+    void sendBinary(const std::string& message);
+    void sendBinary(const std::vector<uint8_t>& message);
+    void sendPing();
+    
+    void close();
+    readyStateValues getReadyState() const;
 
-    template<class Callable>
-    void dispatch(Callable callable)
-        // For callbacks that accept a string argument.
-    { // N.B. this is compatible with both C++11 lambdas, functors and C function pointers
-        struct _Callback : public Callback_Imp {
-            Callable& callable;
-            _Callback(Callable& callable) : callable(callable) { }
-            void operator()(const std::string& message) { callable(message); }
-        };
-        _Callback callback(callable);
-        _dispatch(callback);
-    }
+    void dispatch(std::function<void (const std::vector<uint8_t>& message, bool isBinary)> callback);
+    
+private:
+    WebSocket(int sockfd, bool useMask);
+    void sendData(wsheader_type::opcode_type type, const std::string& message);
+    void sendData(wsheader_type::opcode_type type, const std::vector<uint8_t>& message);
 
-    template<class Callable>
-    void dispatchBinary(Callable callable)
-        // For callbacks that accept a std::vector<uint8_t> argument.
-    { // N.B. this is compatible with both C++11 lambdas, functors and C function pointers
-        struct _Callback : public BytesCallback_Imp {
-            Callable& callable;
-            _Callback(Callable& callable) : callable(callable) { }
-            void operator()(const std::vector<uint8_t>& message, bool isBinary) { callable(message, isBinary); }
-        };
-        _Callback callback(callable);
-        _dispatchBinary(callback);
-    }
-
-  protected:
-    virtual void _dispatch(Callback_Imp& callable) = 0;
-    virtual void _dispatchBinary(BytesCallback_Imp& callable) = 0;
+    std::vector<uint8_t> rxbuf;
+    std::vector<uint8_t> txbuf;
+    std::vector<uint8_t> receivedData;
+    
+    int sockfd;
+    readyStateValues readyState;
+    int interruptIn;
+    int interruptOut;
+    bool useMask;
+    bool isRxBad;
+    bool isBinary;
 };
 
 } // namespace easywsclient
-
-#endif /* EASYWSCLIENT_HPP_20120819_MIOFVASDTNUASZDQPLFD */

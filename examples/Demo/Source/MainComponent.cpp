@@ -11,6 +11,66 @@
 static ThreadPool pool (SystemStats::getNumCpus());
 
 //==============================================================================
+struct WebsocketDemo : public Component
+{
+    WebsocketDemo()
+    {
+        setName ("Websocket");
+        
+        addAndMakeVisible (inText);
+        addAndMakeVisible (outText);
+        addAndMakeVisible (sendButton);
+        
+        outText.setText ("Hello World");
+        inText.setMultiLine (true);
+        inText.setReadOnly (true);
+        
+        sendButton.onClick = [this]
+        {
+            websocket.send (outText.getText());
+        };
+        
+        websocket.onConnect = [this]
+        {
+            inText.moveCaretToEnd();
+            inText.insertTextAtCaret ("Connected\n");
+        };
+        websocket.onDisconnect = [this]
+        {
+            inText.moveCaretToEnd();
+            inText.insertTextAtCaret ("Disconnected\n");
+        };
+        websocket.onText = [this] (const String& txt)
+        {
+            inText.moveCaretToEnd();
+            inText.insertTextAtCaret (txt + "\n");
+        };
+        
+        websocket.connect();
+    }
+    
+    void resized() override
+    {
+        auto r = getLocalBounds().reduced (8);
+        
+        auto top = r.removeFromTop (20);
+        
+        sendButton.setBounds (top.removeFromRight (80));
+        top.removeFromRight (8);
+        outText.setBounds (top);
+        
+        r.removeFromTop (8);
+        inText.setBounds (r);
+    }
+
+    TextEditor inText;
+    TextEditor outText;
+    TextButton sendButton {"Send"};
+    
+    gin::Websocket websocket {URL ("ws://demos.kaazing.com/echo") };
+};
+
+//==============================================================================
 struct SolidBlendingDemo : public Component,
                            private ComboBox::Listener,
                            private Slider::Listener,
@@ -422,12 +482,6 @@ struct DownloadManagerDemo : public Component,
         downloadManager.setQueueFinishedCallback([] {
             DBG("All done!");
         });
-
-        downloadManager.startAsyncDownload (URL ("https://www.rabien.com"), [] (gin::DownloadManager::DownloadResult result)
-                                            {
-												auto s = result.data.toString();
-												jassert (s.contains ("Audio Focused Mac / iOS / Windows Developer"));
-                                            });
     }
 
     void resized() override
@@ -1066,10 +1120,7 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
-    gin::Http http ( URL ("https://figbug.com/darude.html"));
-    auto res = http.get();
-    DBG(res.data.toString());
-    
+    demoComponents.add (new WebsocketDemo());
     demoComponents.add (new SolidBlendingDemo());
     demoComponents.add (new BlendingDemo());
     demoComponents.add (new GradientMapDemo());

@@ -40,18 +40,18 @@ void Websocket::connect()
 
 void Websocket::run()
 {
-    auto& mm = *MessageManager::getInstance();
+    using MM = MessageManager;
     WeakReference<Websocket> weakThis = this;
 
     if (auto ws = easywsclient::WebSocket::from_url (url.toString (true).toStdString()))
     {
         impl->socket.reset (ws);
 
-        mm.callAsync ([this, weakThis]
-                      {
-                          if (weakThis != nullptr && onConnect)
-                              onConnect();
-                      });
+        MM::callAsync ([this, weakThis]
+                       {
+                           if (weakThis != nullptr && onConnect)
+                               onConnect();
+                       });
 
         while (! threadShouldExit())
         {
@@ -69,32 +69,32 @@ void Websocket::run()
             impl->socket->close();
     }
 
-    mm.callAsync ([this, weakThis]
-                  {
-                      if (weakThis != nullptr && onDisconnect)
-                          onDisconnect();
-                  });
+    MM::callAsync ([this, weakThis]
+                   {
+                       if (weakThis != nullptr && onDisconnect)
+                           onDisconnect();
+                   });
 }
 
 void Websocket::processIncomingData()
 {
-    auto& mm = *MessageManager::getInstance();
+    using MM = MessageManager;
     WeakReference<Websocket> weakThis = this;
 
-    impl->socket->dispatchBinary ([&] (const std::vector<uint8_t>& message, bool isBinary)
-                                  {
-                                      std::vector<uint8_t> messageCopy = message;
-                                      mm.callAsync ([this, weakThis, messageCopy, isBinary]
-                                                    {
-                                                        if (weakThis != nullptr)
-                                                        {
-                                                            if (isBinary && onBinary)
-                                                                onBinary (MemoryBlock (messageCopy.data(), messageCopy.size()));
-                                                            else if (! isBinary && onText)
-                                                                onText (String::fromUTF8 ((char*)messageCopy.data(), int (messageCopy.size())));
-                                                        }
-                                                    });
-                                  });
+    impl->socket->dispatch ([&] (const std::vector<uint8_t>& message, bool isBinary)
+                            {
+                                std::vector<uint8_t> messageCopy = message;
+                                MM::callAsync ([this, weakThis, messageCopy, isBinary]
+                                               {
+                                                   if (weakThis != nullptr)
+                                                   {
+                                                       if (isBinary && onBinary)
+                                                           onBinary (MemoryBlock (messageCopy.data(), messageCopy.size()));
+                                                       else if (! isBinary && onText)
+                                                           onText (String::fromUTF8 ((char*)messageCopy.data(), int (messageCopy.size())));
+                                                   }
+                                               });
+                            });
 }
 
 void Websocket::processOutgoingData()
