@@ -148,6 +148,13 @@ public:
     {
         return server_fd.fd;
     }
+    
+    int waitUntilReady (bool readyForReading, int timeoutMsecs)
+    {
+        ignoreUnused (readyForReading, timeoutMsecs);
+        return 1;
+    }
+    
 private:
     void init()
     {
@@ -242,4 +249,11 @@ int SecureStreamingSocket::getRawSocketHandle() const noexcept
     if (impl != nullptr)
         return impl->getRawSocketHandle();
     return normalSocket->getRawSocketHandle();
+}
+
+int SecureStreamingSocket::waitUntilReady (bool readyForReading, int timeoutMsecs)
+{
+    if (impl != nullptr)
+        return impl->waitUntilReady (readyForReading, timeoutMsecs);
+    return normalSocket->waitUntilReady (readyForReading, timeoutMsecs);
 }

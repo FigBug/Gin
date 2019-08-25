@@ -52,14 +52,19 @@ void Websocket::run()
                            if (weakThis != nullptr && onConnect)
                                onConnect();
                        });
-
+        
         while (! threadShouldExit())
         {
             impl->socket->poll (10000);
             if (impl->socket->getReadyState() == easywsclient::WebSocket::CLOSED)
                 break;
 
-            impl->socket->sendPing();
+            double now = Time::getMillisecondCounterHiRes() / 1000;
+            if (now - lastPing > 100)
+            {
+                impl->socket->sendPing();
+                lastPing = now;
+            }
 
             processIncomingData();
             processOutgoingData();

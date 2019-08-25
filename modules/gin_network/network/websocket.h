@@ -54,6 +54,7 @@ private:
 
     juce::CriticalSection outgoingQueueLock;
     juce::Array<QueueData> outgoingQueue;
+    double lastPing { juce::Time::getMillisecondCounterHiRes() / 1000 };
 
     //==============================================================================
     JUCE_DECLARE_WEAK_REFERENCEABLE (Websocket)

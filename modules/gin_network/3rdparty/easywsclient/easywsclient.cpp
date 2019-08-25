@@ -1,4 +1,3 @@
-
 #ifdef _WIN32
     #define NOMINMAX
     #if defined(_MSC_VER) && !defined(_CRT_SECURE_NO_WARNINGS)
@@ -20,10 +19,6 @@
         typedef int ssize_t;
         #define _SSIZE_T_DEFINED
     #endif
-    #ifndef _SOCKET_T_DEFINED
-        typedef SOCKET socket_t;
-        #define _SOCKET_T_DEFINED
-    #endif
     #ifndef snprintf
         #define snprintf _snprintf_s
     #endif
@@ -43,10 +38,6 @@
     #include <sys/types.h>
     #include <unistd.h>
     #include <stdint.h>
-    #ifndef _SOCKET_T_DEFINED
-        typedef int socket_t;
-        #define _SOCKET_T_DEFINED
-    #endif
     #ifndef INVALID_SOCKET
         #define INVALID_SOCKET (-1)
     #endif
@@ -209,12 +200,15 @@ WebSocket::readyStateValues WebSocket::getReadyState() const {
 
 void WebSocket::poll(int timeout) { // timeout in milliseconds
     if (readyState == CLOSED) {
-        if (timeout > 0) {
-            timeval tv = { timeout/1000, (timeout%1000) * 1000 };
-            select(0, nullptr, nullptr, nullptr, &tv);
-        }
+        jassertfalse;
         return;
     }
+    
+    if (!socket->isConnected()) {
+        readyState = CLOSED;
+        return;
+    }
+    
     if (timeout != 0) {
         fd_set rfds;
         fd_set wfds;
@@ -229,9 +223,10 @@ void WebSocket::poll(int timeout) { // timeout in milliseconds
             maxSocket = std::max(maxSocket, interruptIn);
         }
 
-        if (txbuf.size()) { FD_SET(sockfd, &wfds); }
+        if (txbuf.size())
+            FD_SET(sockfd, &wfds);
 
-        select(sockfd + 1, &rfds, &wfds, 0, timeout > 0 ? &tv : 0);
+        select(maxSocket + 1, &rfds, &wfds, NULL, &tv);
     }
 
     while (true) {
@@ -241,36 +236,32 @@ void WebSocket::poll(int timeout) { // timeout in milliseconds
             break;
     }
 
+    // Read incoming data
     while (true) {
         // FD_ISSET(0, &rfds) will be true
         size_t N = rxbuf.size();
-        ssize_t ret;
+        ssize_t ret = 0;
         rxbuf.resize(N + 1500);
-        ret = socket->read((char*)&rxbuf[0] + N, 1500, false);
-        if (false) { }
-        else if (ret < 0 && (socketerrno == SOCKET_EWOULDBLOCK || socketerrno == SOCKET_EAGAIN_EINPROGRESS)) {
+        
+        if (socket->waitUntilReady (true, 1))
+            ret = socket->read((char*)&rxbuf[0] + N, 1500, false);
+        
+        if (ret <= 0) {
             rxbuf.resize(N);
-            break;
-        }
-        else if (ret <= 0) {
-            rxbuf.resize(N);
-            closesocket(sockfd);
-            readyState = CLOSED;
-            fputs(ret < 0 ? "Connection error!\n" : "Connection closed!\n", stderr);
             break;
         }
         else {
+            for (int i = 0; i < ret; i++)
+                putchar(*((char*)&rxbuf[0] + i));
+            
             rxbuf.resize(size_t(N + ret));
         }
     }
+    
+    // Write outgoing data
     while (txbuf.size()) {
         int ret = socket->write((char*)&txbuf[0], txbuf.size());
-        if (false) { } // ??
-        else if (ret < 0 && (socketerrno == SOCKET_EWOULDBLOCK || socketerrno == SOCKET_EAGAIN_EINPROGRESS)) {
-            break;
-        }
-        else if (ret <= 0) {
-            closesocket(sockfd);
+        if (ret < 0) {
             readyState = CLOSED;
             fputs(ret < 0 ? "Connection error!\n" : "Connection closed!\n", stderr);
             break;
@@ -280,7 +271,6 @@ void WebSocket::poll(int timeout) { // timeout in milliseconds
         }
     }
     if (!txbuf.size() && readyState == CLOSING) {
-        closesocket(sockfd);
         readyState = CLOSED;
     }
 }
@@ -361,8 +351,7 @@ void WebSocket::dispatch(std::function<void (const std::vector<uint8_t>& message
         if (rxbuf.size() < ws.header_size+ws.N) { return; /* Need: ws.header_size+ws.N - rxbuf.size() */ }
 
         // We got a whole message, now do something with it:
-        if (false) { }
-        else if (
+        if (
                ws.opcode == wsheader_type::TEXT_FRAME
             || ws.opcode == wsheader_type::BINARY_FRAME
             || ws.opcode == wsheader_type::CONTINUATION
@@ -428,8 +417,7 @@ void WebSocket::sendData(wsheader_type::opcode_type type, const std::vector<uint
     std::vector<uint8_t> header;
     header.assign(2 + (message_size >= 126 ? 2 : 0) + (message_size >= 65536 ? 6 : 0) + (useMask ? 4 : 0), 0);
     header[0] = 0x80 | type;
-    if (false) { }
-    else if (message_size < 126) {
+    if (message_size < 126) {
         header[1] = (message_size & 0xff) | (useMask ? 0x80 : 0);
         if (useMask) {
             header[2] = masking_key[0];
@@ -540,37 +528,72 @@ WebSocket* WebSocket::from_url(const std::string& url, bool useMask, const std::
         return nullptr;
     }
     
-    socket_t sockfd = socket->getRawSocketHandle();
+    int sockfd = socket->getRawSocketHandle();
     
     {
         // XXX: this should be done non-blocking,
-        char line[1024];
+        char line[1024] = {0};
         int status;
         int i;
         
-        snprintf(line, 1024, "GET /%s HTTP/1.1\r\n", path); socket->write(line, strlen(line));;
+        snprintf(line, 1024, "GET /%s HTTP/1.1\r\n", path);
+        socket->write(line, strlen(line));
+        
         if (port == 80) {
             snprintf(line, 1024, "Host: %s\r\n", host); socket->write(line, strlen(line));;
         }
         else {
             snprintf(line, 1024, "Host: %s:%d\r\n", host, port); socket->write(line, strlen(line));;
         }
-        snprintf(line, 1024, "Upgrade: websocket\r\n"); socket->write(line, strlen(line));;
-        snprintf(line, 1024, "Connection: Upgrade\r\n"); socket->write(line, strlen(line));;
+        
+        snprintf(line, 1024, "Upgrade: websocket\r\n");
+        socket->write(line, strlen(line));;
+        
+        snprintf(line, 1024, "Connection: Upgrade\r\n");
+        socket->write(line, strlen(line));;
+        
         if (!origin.empty()) {
             snprintf(line, 1024, "Origin: %s\r\n", origin.c_str()); socket->write(line, strlen(line));;
         }
-        snprintf(line, 1024, "Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==\r\n"); socket->write(line, strlen(line));;
-        snprintf(line, 1024, "Sec-WebSocket-Version: 13\r\n"); socket->write(line, strlen(line));;
-        snprintf(line, 1024, "\r\n"); socket->write(line, strlen(line));
-        for (i = 0; i < 2 || (i < 1023 && line[i-2] != '\r' && line[i-1] != '\n'); ++i) { if (socket->read(line+i, 1, false) == 0) { return nullptr; } }
+        
+        snprintf(line, 1024, "Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==\r\n");
+        socket->write(line, strlen(line));
+        
+        snprintf(line, 1024, "Sec-WebSocket-Version: 13\r\n");
+        socket->write(line, strlen(line));
+        
+        snprintf(line, 1024, "\r\n");
+        socket->write(line, strlen(line));
+        
+        for (i = 0; i < 2 || (i < 1023 && line[i-2] != '\r' && line[i-1] != '\n'); ++i) {
+            if (socket->read(line+i, 1, true) == 0) {
+                return nullptr;
+            }
+            putchar(*(line+i));
+        }
+        
         line[i] = 0;
-        if (i == 1023) { fprintf(stderr, "ERROR: Got invalid status line connecting to: %s\n", url.c_str()); return nullptr; }
-        if (sscanf(line, "HTTP/1.1 %d", &status) != 1 || status != 101) { fprintf(stderr, "ERROR: Got bad status connecting to %s: %s", url.c_str(), line); return nullptr; }
+        if (i == 1023) {
+            fprintf(stderr, "ERROR: Got invalid status line connecting to: %s\n", url.c_str());
+            return nullptr;
+        }
+        
+        if (sscanf(line, "HTTP/1.1 %d", &status) != 1 || status != 101) {
+            fprintf(stderr, "ERROR: Got bad status connecting to %s: %s", url.c_str(), line);
+            return nullptr;
+        }
+        
         // TODO: verify response headers,
         while (true) {
-            for (i = 0; i < 2 || (i < 1023 && line[i-2] != '\r' && line[i-1] != '\n'); ++i) { if (socket->read(line+i, 1, false) == 0) { return nullptr; } }
-            if (line[0] == '\r' && line[1] == '\n') { break; }
+            for (i = 0; i < 2 || (i < 1023 && line[i-2] != '\r' && line[i-1] != '\n'); ++i) {
+                if (socket->read(line+i, 1, true) == 0) {
+                    return nullptr;
+                }
+                putchar(*(line+i));
+            }
+            if (line[0] == '\r' && line[1] == '\n') {
+                break;
+            }
         }
     }
     int flag = 1;

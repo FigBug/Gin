@@ -22,6 +22,7 @@ public:
     int write (const void* sourceBuffer, int numBytesToWrite);
 
     int getRawSocketHandle () const noexcept;
+    int waitUntilReady (bool readyForReading, int timeoutMsecs);
     
 private:
     class Impl;
