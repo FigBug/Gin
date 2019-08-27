@@ -90,13 +90,15 @@ public:
                 return false;
             }
         }
+
+        connected = true;
         
         return true;
     }
     
     bool isConnected() const noexcept
     {
-        return server_fd.fd > 0;
+        return connected;
     }
     
     void close()
@@ -194,6 +196,8 @@ private:
     mbedtls_x509_crt cacert;
     mbedtls_ssl_context ssl;
     mbedtls_ssl_config conf;
+
+    bool connected = false;
 };
 
 //==============================================================================

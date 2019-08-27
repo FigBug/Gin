@@ -64,7 +64,7 @@ using namespace juce;
 
 #include "network/securestreamingsocket.h"
 #include "network/http.h"
-#include "network/websocket.h"
+#include "network/asyncwebsocket.h"
     
 }
 

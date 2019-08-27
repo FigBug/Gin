@@ -5,24 +5,24 @@
 
  ==============================================================================*/
 
-struct Websocket::Impl
+struct AsyncWebsocket::Impl
 {
     std::unique_ptr<easywsclient::WebSocket> socket;
 };
 
 //==============================================================================
-Websocket::Websocket (const juce::URL url_)
+AsyncWebsocket::AsyncWebsocket (const juce::URL url_)
     : Thread ("websocket"), url (url_)
 {
     impl = std::make_unique<Impl>();
 }
 
-Websocket::~Websocket()
+AsyncWebsocket::~AsyncWebsocket()
 {
     disconnect();
 }
 
-void Websocket::disconnect()
+void AsyncWebsocket::disconnect()
 {
     signalThreadShouldExit();
 
@@ -33,15 +33,15 @@ void Websocket::disconnect()
     impl->socket = nullptr;
 }
 
-void Websocket::connect()
+void AsyncWebsocket::connect()
 {
     startThread();
 }
 
-void Websocket::run()
+void AsyncWebsocket::run()
 {
     using MM = MessageManager;
-    WeakReference<Websocket> weakThis = this;
+    WeakReference<AsyncWebsocket> weakThis = this;
 
     if (auto ws = easywsclient::WebSocket::from_url (url.toString (true).toStdString()))
     {
@@ -81,10 +81,10 @@ void Websocket::run()
                    });
 }
 
-void Websocket::processIncomingData()
+void AsyncWebsocket::processIncomingData()
 {
     using MM = MessageManager;
-    WeakReference<Websocket> weakThis = this;
+    WeakReference<AsyncWebsocket> weakThis = this;
 
     impl->socket->dispatch ([&] (const std::vector<uint8_t>& message, bool isBinary)
                             {
@@ -102,7 +102,7 @@ void Websocket::processIncomingData()
                             });
 }
 
-void Websocket::processOutgoingData()
+void AsyncWebsocket::processOutgoingData()
 {
     ScopedLock sl (outgoingQueueLock);
     for (auto& data : outgoingQueue)
@@ -122,12 +122,12 @@ void Websocket::processOutgoingData()
     outgoingQueue.clear();
 }
 
-bool Websocket::isConnected()
+bool AsyncWebsocket::isConnected()
 {
     return isThreadRunning();
 }
 
-void Websocket::send (const juce::String& text)
+void AsyncWebsocket::send (const juce::String& text)
 {
     if (impl->socket != nullptr)
     {
@@ -138,7 +138,7 @@ void Websocket::send (const juce::String& text)
     }
 }
 
-void Websocket::send (const juce::MemoryBlock& binary)
+void AsyncWebsocket::send (const juce::MemoryBlock& binary)
 {
     if (impl->socket != nullptr)
     {

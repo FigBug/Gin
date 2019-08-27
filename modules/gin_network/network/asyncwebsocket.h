@@ -8,12 +8,15 @@
 #pragma once
 
 //==============================================================================
-class Websocket : public Thread
+/* Asynchronous access to a Websocket. None of the methods block and
+   all callback happen via lambdas on the message thread
+ */
+class AsyncWebsocket : public Thread
 {
 public:
     //==============================================================================
-    Websocket (const juce::URL url);
-    ~Websocket() override;
+    AsyncWebsocket (const juce::URL url);
+    ~AsyncWebsocket() override;
 
     //==============================================================================
     void connect();
@@ -24,7 +27,8 @@ public:
     void send (const juce::String& text);
     void send (const juce::MemoryBlock& binary);
 
-    std::function<void ()> onConnect, onDisconnect;
+    std::function<void ()> onConnect;
+    std::function<void ()> onDisconnect;
     std::function<void (const juce::String&)> onText;
     std::function<void (const juce::MemoryBlock&)> onBinary;
 
@@ -57,5 +61,5 @@ private:
     double lastPing { juce::Time::getMillisecondCounterHiRes() / 1000 };
 
     //==============================================================================
-    JUCE_DECLARE_WEAK_REFERENCEABLE (Websocket)
+    JUCE_DECLARE_WEAK_REFERENCEABLE (AsyncWebsocket)
 };
