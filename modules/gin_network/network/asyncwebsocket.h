@@ -9,7 +9,7 @@
 
 //==============================================================================
 /* Asynchronous access to a Websocket. None of the methods block and
-   all callback happen via lambdas on the message thread
+   all callbacks happen via lambdas on the message thread
  */
 class AsyncWebsocket : public Thread
 {
