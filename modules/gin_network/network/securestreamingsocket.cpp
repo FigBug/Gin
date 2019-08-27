@@ -133,12 +133,18 @@ public:
         }
         else
         {
-            return sslRead (destBuffer, maxBytesToRead);
+            mbedtls_net_set_nonblock (&server_fd);
+            int res = sslRead (destBuffer, maxBytesToRead);
+            mbedtls_net_set_block (&server_fd);
+            return res;
         }
     }
 
     int sslRead (void* destBuffer, int maxBytesToRead)
     {
+       #if 1
+        return mbedtls_ssl_read (&ssl, (unsigned char*)destBuffer, (size_t)maxBytesToRead);
+       #else
         int tries = 0;
         while (true)
         {
@@ -149,9 +155,7 @@ public:
                 return -1;
             }
 
-            mbedtls_net_set_nonblock (&server_fd);
             int res = mbedtls_ssl_read (&ssl, (unsigned char*)destBuffer, (size_t)maxBytesToRead);
-            mbedtls_net_set_block (&server_fd);
 
             if (res >= 0)
                 return res;
@@ -165,10 +169,14 @@ public:
             connected = false;
             return -1;
         }
+       #endif
     }
     
     int write (const void* sourceBuffer, int numBytesToWrite)
     {
+       #if 0
+        return mbedtls_ssl_write (&ssl, (const unsigned char*)sourceBuffer, (size_t)numBytesToWrite);
+       #else
         int tries = 0;
         while (true)
         {
@@ -192,6 +200,7 @@ public:
             connected = false;
             return -1;
         }
+       #endif
     }
     
     int getRawSocketHandle()

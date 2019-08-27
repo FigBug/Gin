@@ -67,7 +67,7 @@ struct WebsocketDemo : public Component
     TextEditor outText;
     TextButton sendButton {"Send"};
     
-    gin::Websocket websocket {URL ("wss://demos.kaazing.com/echo") };
+    gin::AsyncWebsocket websocket {URL ("wss://demos.kaazing.com/echo") };
 };
 
 //==============================================================================
