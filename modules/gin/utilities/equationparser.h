@@ -26,6 +26,9 @@ public:
     void addFunction (juce::String name, std::function<double (int id, double, double, double, double)> fun);
 
     double evaluate();
+    
+    bool hasError();
+    juce::String getError();
 
 private:
     class Callback
@@ -43,6 +46,7 @@ private:
 
     class EquationParserImpl;
     std::unique_ptr<EquationParserImpl> impl;
+    juce::String errorMessage;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (EquationParser)
 };

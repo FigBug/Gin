@@ -74,8 +74,10 @@ void EquationParser::setEquation (juce::String equation)
     {
         impl->parser.SetExpr (equation.toRawUTF8());
     }
-    catch (...)
+    catch (mu::Parser::exception_type& e)
     {
+        errorMessage = String (e.GetMsg()) + "[" + String (e.GetToken()) +
+                       ":" + String (e.GetPos()) + "]";
     }
 }
 
@@ -192,10 +194,22 @@ double EquationParser::evaluate()
     {
         return impl->parser.Eval();
     }
-    catch (...)
+    catch (mu::Parser::exception_type& e)
     {
+        errorMessage = String (e.GetMsg()) + "[" + String (e.GetToken()) +
+                       ":" + String (e.GetPos()) + "]";
     }
     return 0;
+}
+    
+bool EquationParser::hasError()
+{
+    return errorMessage.isNotEmpty();
+}
+
+juce::String EquationParser::getError()
+{
+    return errorMessage;
 }
 
 }
