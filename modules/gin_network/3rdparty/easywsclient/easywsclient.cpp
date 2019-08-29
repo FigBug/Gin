@@ -596,16 +596,6 @@ WebSocket* WebSocket::from_url(const std::string& url, bool useMask, const std::
     int flag = 1;
     setsockopt(sockfd, IPPROTO_TCP, TCP_NODELAY, (char*) &flag, sizeof(flag)); // Disable Nagle's algorithm
     
-    /*
-#ifdef _WIN32
-    u_long on = 1;
-    ioctlsocket(sockfd, FIONBIO, &on);
-#else
-    fcntl(sockfd, F_SETFL, O_NONBLOCK);
-#endif
-     */
-    
-    //fprintf(stderr, "Connected to: %s\n", url.c_str());
     return new WebSocket(std::move (socket), useMask);
 }
 
