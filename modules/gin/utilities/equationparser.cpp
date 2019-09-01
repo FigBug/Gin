@@ -8,6 +8,7 @@ For more information visit www.rabiensoftware.com
 #include "../3rdparty/muParser/muParser.h"
 namespace gin {
 
+//==============================================================================
 class EquationParser::Callback0 : public EquationParser::Callback
 {
 public:
@@ -39,13 +40,20 @@ public:
     std::function <double(int, double, double, double, double)> fun;
 };
 
+//==============================================================================
+double modFunc(double a, double b)
+{
+    return std::fmod (a, b);
+}
 
+//==============================================================================
 class EquationParser::EquationParserImpl
 {
 public:
     mu::Parser parser;
 };
 
+//==============================================================================
 EquationParser::EquationParser()
 {
     impl = std::make_unique<EquationParserImpl>();
@@ -57,6 +65,8 @@ EquationParser::EquationParser (juce::String equation)
     {
         impl = std::make_unique<EquationParserImpl>();
         impl->parser.SetExpr (equation.toRawUTF8());
+        
+        impl->parser.DefineOprt ("%", modFunc, prMUL_DIV, oaLEFT, false);
     }
     catch (...)
     {
@@ -76,8 +86,7 @@ void EquationParser::setEquation (juce::String equation)
     }
     catch (mu::Parser::exception_type& e)
     {
-        errorMessage = String (e.GetMsg()) + "[" + String (e.GetToken()) +
-                       ":" + String (e.GetPos()) + "]";
+        errorMessage = String (e.GetMsg());
     }
 }
 
