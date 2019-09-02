@@ -205,8 +205,7 @@ double EquationParser::evaluate()
     }
     catch (mu::Parser::exception_type& e)
     {
-        errorMessage = String (e.GetMsg()) + "[" + String (e.GetToken()) +
-                       ":" + String (e.GetPos()) + "]";
+        errorMessage = String (e.GetMsg());
     }
     return 0;
 }
