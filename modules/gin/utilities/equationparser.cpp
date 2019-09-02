@@ -41,7 +41,7 @@ public:
 };
 
 //==============================================================================
-double modFunc(double a, double b)
+double modFunc(mu::SParam, double a, double b)
 {
     return std::fmod (a, b);
 }
@@ -66,7 +66,7 @@ EquationParser::EquationParser (juce::String equation)
         impl = std::make_unique<EquationParserImpl>();
         impl->parser.SetExpr (equation.toRawUTF8());
         
-        impl->parser.DefineOprt ("%", modFunc, prMUL_DIV, oaLEFT, false);
+        impl->parser.DefineOprt ("%", modFunc, mu::prMUL_DIV, mu::oaLEFT, false);
     }
     catch (...)
     {

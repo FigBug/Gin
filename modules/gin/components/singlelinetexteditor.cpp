@@ -1344,9 +1344,12 @@ void SingleLineTextEditor::drawContent (Graphics& g)
     {
         g.setColour (findColour (highlightColourId).withMultipliedAlpha (hasKeyboardFocus (true) ? 1.0f : 0.5f));
 
+        auto s = selection.getStart();
+        auto e = selection.getEnd();
+        
         float x1, y1, x2, y2, h1, h2;
-        getCharPosition (selection.getStart(), x1, y1, h1);
-        getCharPosition (selection.getEnd(), x2, y2, h2);
+        getCharPosition (s, x1, y1, h1);
+        getCharPosition (e, x2, y2, h2);
 
         g.fillRect (x1, y1, x2 - x1, h1);
     }
