@@ -13,6 +13,14 @@ void AudioFunctionHost::setSampleRate (double sr)
     funcStates.clear();
 }
 
+void AudioFunctionHost::addUtilities (gin::EquationParser& parser)
+{
+    parser.addFunction ("midiToHz", [] (int, double noteNumber)
+                        {
+                            return gin::getMidiNoteInHertz (noteNumber);
+                        });
+}
+
 void AudioFunctionHost::addConstants (gin::EquationParser& parser)
 {
     parser.addConstant ("_phi", 1.61803398875); // golden ratio

@@ -273,6 +273,7 @@ public:
     void setSampleRate (double sr);
     
     void addConstants (gin::EquationParser&);
+    void addUtilities (gin::EquationParser&);
     void addOscillatorFunctions (gin::EquationParser&);
     void addSynthFilterFunctions (gin::EquationParser&);
     void addEffectFilterFunctions (gin::EquationParser&);

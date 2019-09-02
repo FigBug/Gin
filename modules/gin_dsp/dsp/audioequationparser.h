@@ -17,6 +17,7 @@ public:
     AudioEquationParser() = default;
     
     void addConstants();
+    void addUtilities();
     void addOscillatorFunctions();
     void addSynthFilterFunctions();
     void addEffectFilterFunctions();

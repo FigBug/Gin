@@ -12,6 +12,11 @@ void AudioEquationParser::addConstants()
     AudioFunctionHost::addConstants (*this);
 }
 
+void AudioEquationParser::addUtilities()
+{
+    AudioFunctionHost::addUtilities (*this);
+}
+
 void AudioEquationParser::addOscillatorFunctions()
 {
     AudioFunctionHost::addOscillatorFunctions (*this);
