@@ -142,65 +142,30 @@ public:
 
     int sslRead (void* destBuffer, int maxBytesToRead)
     {
-       #if 1
-        return mbedtls_ssl_read (&ssl, (unsigned char*)destBuffer, (size_t)maxBytesToRead);
-       #else
-        int tries = 0;
-        while (true)
-        {
-            tries++;
-            if (tries >= 10)
-            {
-                connected = false;
-                return -1;
-            }
+        int res = mbedtls_ssl_read (&ssl, (unsigned char*)destBuffer, (size_t)maxBytesToRead);
 
-            int res = mbedtls_ssl_read (&ssl, (unsigned char*)destBuffer, (size_t)maxBytesToRead);
+        if (res >= 0)
+            return res;
 
-            if (res >= 0)
-                return res;
+         if (res < 0 && (res == MBEDTLS_ERR_SSL_WANT_READ || res == MBEDTLS_ERR_SSL_WANT_WRITE))
+             return 0;
 
-            if (res == MBEDTLS_ERR_SSL_WANT_READ          ||
-                res == MBEDTLS_ERR_SSL_WANT_WRITE         ||
-                res == MBEDTLS_ERR_SSL_ASYNC_IN_PROGRESS  ||
-                res == MBEDTLS_ERR_SSL_CRYPTO_IN_PROGRESS)
-                continue;
-
-            connected = false;
-            return -1;
-        }
-       #endif
+        connected = false;
+        return -1;
     }
     
     int write (const void* sourceBuffer, int numBytesToWrite)
     {
-       #if 0
-        return mbedtls_ssl_write (&ssl, (const unsigned char*)sourceBuffer, (size_t)numBytesToWrite);
-       #else
-        int tries = 0;
-        while (true)
-        {
-            tries++;
-            if (tries >= 10)
-            {
-                connected = false;
-                return -1;
-            }
-
-            int res = mbedtls_ssl_write (&ssl, (const unsigned char*)sourceBuffer, (size_t)numBytesToWrite);
-            if (res >= 0)
-                return res;
-
-            if (res == MBEDTLS_ERR_SSL_WANT_READ          ||
-                res == MBEDTLS_ERR_SSL_WANT_WRITE         ||
-                res == MBEDTLS_ERR_SSL_ASYNC_IN_PROGRESS  ||
-                res == MBEDTLS_ERR_SSL_CRYPTO_IN_PROGRESS)
-                continue;
-
-            connected = false;
-            return -1;
-        }
-       #endif
+        int res = mbedtls_ssl_write (&ssl, (const unsigned char*)sourceBuffer, (size_t)numBytesToWrite);
+        
+        if (res >= 0)
+            return res;
+        
+        if (res < 0 && (res == MBEDTLS_ERR_SSL_WANT_READ || res == MBEDTLS_ERR_SSL_WANT_WRITE))
+            return 0;
+        
+        connected = false;
+        return -1;
     }
     
     int getRawSocketHandle()
@@ -210,27 +175,8 @@ public:
     
     int waitUntilReady (bool readyForReading, int timeoutMsecs)
     {
-       #if 1
         ignoreUnused (readyForReading, timeoutMsecs);
         return 1;
-       #else
-        if (connected)
-        {
-            if (readyForReading)
-            {
-                int res = mbedtls_net_poll (&server_fd, MBEDTLS_NET_POLL_READ, uint32_t (timeoutMsecs));
-                if (res > 0)
-                    return (res | MBEDTLS_NET_POLL_READ) ? 1 : 0;
-            }
-            else
-            {
-                int res = mbedtls_net_poll (&server_fd, MBEDTLS_NET_POLL_WRITE, uint32_t (timeoutMsecs));
-                if (res > 0)
-                    return (res | MBEDTLS_NET_POLL_WRITE) ? 1 : 0;
-            }
-        }
-        return -1;
-       #endif
     }
     
 private:
