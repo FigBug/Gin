@@ -157,7 +157,7 @@ public:
     int write (const void* sourceBuffer, int numBytesToWrite)
     {
         int res = mbedtls_ssl_write (&ssl, (const unsigned char*)sourceBuffer, (size_t)numBytesToWrite);
-        
+
         if (res >= 0)
             return res;
         
@@ -175,8 +175,26 @@ public:
     
     int waitUntilReady (bool readyForReading, int timeoutMsecs)
     {
-        ignoreUnused (readyForReading, timeoutMsecs);
-        return 1;
+        if (connected)
+        {
+            if (readyForReading)
+            {
+                if (mbedtls_ssl_check_pending (&ssl) == 1)
+                    return 1;
+
+                if (mbedtls_ssl_get_bytes_avail (&ssl) >= 1)
+                    return 1;
+
+                int res = mbedtls_net_poll (&server_fd, MBEDTLS_NET_POLL_READ, uint32_t (timeoutMsecs));
+                if (res > 0)
+                    return (res | MBEDTLS_NET_POLL_READ) ? 1 : 0;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+        return -1;
     }
     
 private:

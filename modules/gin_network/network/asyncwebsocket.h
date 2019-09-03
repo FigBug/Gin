@@ -24,8 +24,11 @@ public:
     
     bool isConnected();
 
+    void setPingInterval (int seconds)              { pingInterval = seconds; }
+
     void send (const juce::String& text);
     void send (const juce::MemoryBlock& binary);
+    void sendPing();
 
     std::function<void ()> onConnect;
     std::function<void ()> onDisconnect;
@@ -45,13 +48,21 @@ private:
     URL url;
 
     //==============================================================================
+    enum MessageType
+    {
+        binaryMsg,
+        textMsg,
+        pingMsg
+    };
+
     struct QueueData
     {
         QueueData() = default;
-        QueueData (juce::String text_) : binary (false), text (text_) {}
-        QueueData (juce::MemoryBlock data_) : binary (true), data (data_) {}
+        QueueData (juce::String text_) : type (textMsg), text (text_) {}
+        QueueData (juce::MemoryBlock data_) : type (binaryMsg), data (data_) {}
+        QueueData (MessageType type_) : type (type_) {}
 
-        bool binary = false;
+        MessageType type = textMsg;
         juce::String text;
         juce::MemoryBlock data;
     };
@@ -59,6 +70,7 @@ private:
     juce::CriticalSection outgoingQueueLock;
     juce::Array<QueueData> outgoingQueue;
     double lastPing { juce::Time::getMillisecondCounterHiRes() / 1000 };
+    int pingInterval;
 
     //==============================================================================
     JUCE_DECLARE_WEAK_REFERENCEABLE (AsyncWebsocket)

@@ -39,7 +39,8 @@ class WebSocket {
     static WebSocket* from_url(const std::string& url, bool useMask, const std::string& origin);
 
     ~WebSocket();
-    
+
+    bool readIncoming();
     void poll(int timeout = 0); // timeout in milliseconds
     void interrupt(); // interrupt polling
     

@@ -60,7 +60,7 @@ void AsyncWebsocket::run()
                 break;
 
             double now = Time::getMillisecondCounterHiRes() / 1000;
-            if (now - lastPing > 100)
+            if (now - lastPing > pingInterval)
             {
                 impl->socket->sendPing();
                 lastPing = now;
@@ -93,6 +93,9 @@ void AsyncWebsocket::processIncomingData()
                                                {
                                                    if (weakThis != nullptr)
                                                    {
+                                                       // if we are receiving data we don't need to ping
+                                                       lastPing = Time::getMillisecondCounterHiRes() / 1000;
+
                                                        if (isBinary && onBinary)
                                                            onBinary (MemoryBlock (messageCopy.data(), messageCopy.size()));
                                                        else if (! isBinary && onText)
@@ -107,16 +110,24 @@ void AsyncWebsocket::processOutgoingData()
     ScopedLock sl (outgoingQueueLock);
     for (auto& data : outgoingQueue)
     {
-        if (data.binary)
+        if (data.type == pingMsg)
+        {
+            impl->socket->sendPing();
+        }
+        else if (data.type == binaryMsg)
         {
             std::vector<uint8_t> buf;
             buf.insert (buf.end(), (uint8_t*)data.data.getData(), (uint8_t*)data.data.getData() + data.data.getSize());
 
             impl->socket->sendBinary (buf);
         }
-        else
+        else if (data.type == textMsg)
         {
             impl->socket->send (data.text.toStdString());
+        }
+        else
+        {
+            jassertfalse;
         }
     }
     outgoingQueue.clear();
@@ -145,6 +156,20 @@ void AsyncWebsocket::send (const juce::MemoryBlock& binary)
         ScopedLock sl (outgoingQueueLock);
 
         outgoingQueue.add ({ binary });
+        impl->socket->interrupt();
+    }
+}
+
+void AsyncWebsocket::sendPing()
+{
+    if (impl->socket != nullptr)
+    {
+        ScopedLock sl (outgoingQueueLock);
+
+        // If we are manually sending a ping, delay the automatic pings
+        lastPing = Time::getMillisecondCounterHiRes() / 1000;
+
+        outgoingQueue.add ({ pingMsg });
         impl->socket->interrupt();
     }
 }

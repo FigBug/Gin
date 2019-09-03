@@ -200,6 +200,31 @@ WebSocket::readyStateValues WebSocket::getReadyState() const {
   return readyState;
 }
 
+bool WebSocket::readIncoming()
+{
+    bool foundData = true;
+
+    while (true) {
+        // FD_ISSET(0, &rfds) will be true
+        size_t N = rxbuf.size();
+        ssize_t ret = 0;
+        rxbuf.resize(N + 1500);
+
+        ret = socket->read((char*)&rxbuf[0] + N, 1500, false);
+
+        if (ret <= 0) {
+            rxbuf.resize(N);
+            break;
+        }
+        else {
+            rxbuf.resize(size_t(N + ret));
+            foundData = true;
+        }
+    }
+
+    return foundData;
+}
+
 void WebSocket::poll(int timeout) { // timeout in milliseconds
     if (readyState == CLOSED) {
         jassertfalse;
@@ -210,25 +235,29 @@ void WebSocket::poll(int timeout) { // timeout in milliseconds
         readyState = CLOSED;
         return;
     }
-    
-    if (timeout != 0) {
-        fd_set rfds;
-        fd_set wfds;
-        timeval tv = { timeout/1000, (timeout%1000) * 1000 };
-        FD_ZERO(&rfds);
-        FD_ZERO(&wfds);
-        FD_SET(sockfd, &rfds);
 
-        int maxSocket = sockfd;
-        if (interruptIn) {
-            FD_SET(interruptIn, &rfds);
-            maxSocket = std::max(maxSocket, interruptIn);
+    if (txbuf.size() == 0 && ! readIncoming())
+    {
+        // Only block if we have no data to send and no data to recv
+        if (timeout != 0) {
+            fd_set rfds;
+            fd_set wfds;
+            timeval tv = { timeout/1000, (timeout%1000) * 1000 };
+            FD_ZERO(&rfds);
+            FD_ZERO(&wfds);
+            FD_SET(sockfd, &rfds);
+
+            int maxSocket = sockfd;
+            if (interruptIn) {
+                FD_SET(interruptIn, &rfds);
+                maxSocket = std::max(maxSocket, interruptIn);
+            }
+
+            if (txbuf.size())
+                FD_SET(sockfd, &wfds);
+
+            select(maxSocket + 1, &rfds, &wfds, nullptr, &tv);
         }
-
-        if (txbuf.size())
-            FD_SET(sockfd, &wfds);
-
-        select(maxSocket + 1, &rfds, &wfds, nullptr, &tv);
     }
 
     while (true) {
@@ -239,23 +268,7 @@ void WebSocket::poll(int timeout) { // timeout in milliseconds
     }
 
     // Read incoming data
-    while (true) {
-        // FD_ISSET(0, &rfds) will be true
-        size_t N = rxbuf.size();
-        ssize_t ret = 0;
-        rxbuf.resize(N + 1500);
-        
-        if (socket->waitUntilReady(true, 1))
-            ret = socket->read((char*)&rxbuf[0] + N, 1500, false);
-        
-        if (ret <= 0) {
-            rxbuf.resize(N);
-            break;
-        }
-        else {
-            rxbuf.resize(size_t(N + ret));
-        }
-    }
+    readIncoming();
     
     // Write outgoing data
     while (txbuf.size()) {
