@@ -659,12 +659,12 @@ void applyHueSaturationLightness (Image& img, float hueIn, float saturation, flo
 
             if (lightness > 0)
             {
-                auto blended = blend (PixelARGB (toByte ((lightness * 255) / 100), 255, 255, 255), convert<T, PixelARGB> (*s));
+                auto blended = blend (PixelARGB (toByte ((lightness * 255) / 100 * (a / 255.0)), 255, 255, 255), convert<T, PixelARGB> (*s));
                 *s = convert<PixelARGB, T> (blended);
             }
             else if (lightness < 0)
             {
-                auto blended = blend (PixelARGB (toByte ((-lightness * 255) / 100), 0, 0, 0), convert<T, PixelARGB> (*s));
+                auto blended = blend (PixelARGB (toByte ((-lightness * 255) / 100 * (a / 255.0)), 0, 0, 0), convert<T, PixelARGB> (*s));
                 *s = convert<PixelARGB, T> (blended);
             }
 
