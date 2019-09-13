@@ -9,6 +9,7 @@
  #pragma warning(push)
  #pragma warning(disable: 4244)
  #pragma warning(disable: 4310)
+ #pragma warning(disable: 4242)
 #endif
 
 #include "3rdparty/mbedtls/library/ssl_ciphersuites.c"
