@@ -408,6 +408,7 @@ static var fromData (InputStream& is)
         return -(d & 0x1f);
     }
 
+    jassertfalse;
     return {};
 }
 //==============================================================================

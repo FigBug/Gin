@@ -83,6 +83,7 @@ using juce::Component;
 #include "utilities/systemsemaphore.h"
 #include "utilities/threading.h"
 #include "utilities/valuetreeobject.h"
+#include "utilities/valuetreeutilities.h"
 
 #include "images/bmpimageformat.h"
 #include "images/imageeffects.h"

@@ -91,6 +91,7 @@ using juce::MemoryBlock;
 #include "utilities/threading.cpp"
 #include "utilities/util.cpp"
 #include "utilities/valuetreeobject.cpp"
+#include "utilities/valuetreeutilities.cpp"
 
 #include "images/imageeffects.cpp"
 #include "images/imageutilities.cpp"
