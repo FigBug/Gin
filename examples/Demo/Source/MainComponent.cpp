@@ -11,6 +11,55 @@
 static ThreadPool pool (SystemStats::getNumCpus());
 
 //==============================================================================
+struct MessagePackDemo : public Component,
+                         private TextEditor::Listener
+{
+    MessagePackDemo()
+    {
+        setName ("Message Pack");
+        
+        addAndMakeVisible (jsonIn);
+        addAndMakeVisible (raw);
+        addAndMakeVisible (jsonOut);
+        
+        jsonIn.setTextToShowWhenEmpty ("Add some json here and hit enter", Colours::white.withAlpha (0.5f));
+        raw.setTextToShowWhenEmpty ("Base64 MessagePack will appear here", Colours::white.withAlpha (0.5f));
+        jsonOut.setTextToShowWhenEmpty ("And hopeful original json will reappear here", Colours::white.withAlpha (0.5f));
+
+        jsonIn.setMultiLine (true);
+        raw.setReadOnly (true);
+        jsonOut.setMultiLine (true);
+        jsonOut.setReadOnly (true);
+        
+        jsonIn.addListener (this);
+    }
+    
+    void resized() override
+    {
+        auto rc = getLocalBounds().reduced (8);
+        
+        int h = (rc.getHeight() - 20) / 2;
+        
+        jsonIn.setBounds (rc.removeFromTop (h));
+        jsonOut.setBounds (rc.removeFromBottom (h));
+        raw.setBounds (rc);
+    }
+    
+    void textEditorReturnKeyPressed (TextEditor&) override
+    {
+        var v1 = JSON::parse (jsonIn.getText());
+        auto mb = gin::MessagePack::toMessagePack (v1);
+        
+        raw.setText (Base64::toBase64 (mb.getData(), mb.getSize()), dontSendNotification);
+        
+        var v2 = gin::MessagePack::parse (mb);
+        jsonOut.setText (JSON::toString (v2));
+    }
+  
+    TextEditor jsonIn, raw, jsonOut;
+};
+
+//==============================================================================
 struct SVGDemo : public Component
 {
     SVGDemo()
@@ -1137,6 +1186,7 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
+    demoComponents.add (new MessagePackDemo());
 	demoComponents.add (new SVGDemo());
     demoComponents.add (new WebsocketDemo());
     demoComponents.add (new SolidBlendingDemo());

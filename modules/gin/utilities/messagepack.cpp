@@ -113,7 +113,7 @@ static void toData (OutputStream& os, const juce::var& obj)
             os.write (s, n);
         }
     }
-    else if (obj.isObject())
+    else if (obj.isObject() && obj.getDynamicObject() != nullptr)
     {
         auto& dobj = *obj.getDynamicObject();
         auto& names = dobj.getProperties();
@@ -219,7 +219,9 @@ static var fromMap (InputStream& is, int n)
         var k = fromData (is);
         var v = fromData (is);
         
-        obj->setProperty (k.toString(), v);
+        auto ident = k.toString();
+        if (ident.isNotEmpty())
+            obj->setProperty (ident, v);
     }
     
     return var (obj);
@@ -249,7 +251,7 @@ static var fromData (InputStream& is)
     {
         return fromArray (is, d & 0x0f);
     }
-    else if ((d & 0xe0) == 0x0a)
+    else if ((d & 0xe0) == 0xa0)
     {
         return fromString (is, d & 0x1f);
     }
