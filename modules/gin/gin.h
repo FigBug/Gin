@@ -85,6 +85,7 @@ using juce::Component;
 
 #include "images/bmpimageformat.h"
 #include "images/imageeffects.h"
+#include "images/imageutilities.h"
 
 #include "geometry/geometry.h"
 

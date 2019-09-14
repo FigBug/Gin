@@ -47,6 +47,33 @@
     <Filter Include="JUCE Modules\gin_metadata">
       <UniqueIdentifier>{FC3D700E-6513-ABA3-33D2-E6DBAC8F77E9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\easywsclient\test">
+      <UniqueIdentifier>{D47A7041-A54D-69B0-5D8C-BDA4340A3377}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\easywsclient">
+      <UniqueIdentifier>{53D17925-A81A-C117-E18C-A5FC1A1DA568}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\liboauthcpp\build">
+      <UniqueIdentifier>{8D3A865E-49F9-EC9E-2035-EEC0992464A3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\liboauthcpp\demo">
+      <UniqueIdentifier>{5A186928-5444-A49E-662E-351279346960}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\liboauthcpp\include\liboauthcpp">
+      <UniqueIdentifier>{D9FCB24F-24B4-FBB6-7515-1AF9F67E065B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\liboauthcpp\include">
+      <UniqueIdentifier>{485F05F0-C348-C079-DE6D-ED200CD74F84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\liboauthcpp\src">
+      <UniqueIdentifier>{67CD4C1B-A64B-9238-E0A7-4588C1DD63BC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\liboauthcpp\tests">
+      <UniqueIdentifier>{1CA76885-3686-EAAA-CF66-481436DB6B1F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\3rdparty\liboauthcpp">
+      <UniqueIdentifier>{90F4AF3C-5351-9562-6D01-9A3A233DFA7E}</UniqueIdentifier>
+    </Filter>
     <Filter Include="JUCE Modules\gin_network\3rdparty\mbedtls\.github">
       <UniqueIdentifier>{FD8223A1-A1E4-F700-542C-C018170A15C8}</UniqueIdentifier>
     </Filter>
@@ -118,6 +145,9 @@
     </Filter>
     <Filter Include="JUCE Modules\gin_network\3rdparty">
       <UniqueIdentifier>{6C574EEE-96F0-D6D4-02C8-1E7BD8C1B07D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Modules\gin_network\network">
+      <UniqueIdentifier>{66FD859E-F8FB-81BB-5C72-ADEB608DC062}</UniqueIdentifier>
     </Filter>
     <Filter Include="JUCE Modules\gin_network">
       <UniqueIdentifier>{0C70F90D-48E2-C925-CB39-D323FA974158}</UniqueIdentifier>
@@ -568,6 +598,12 @@
     <ClCompile Include="..\..\..\..\modules\gin\images\imageeffects_stackblur.cpp">
       <Filter>JUCE Modules\gin\images</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin\images\imageutilities.cpp">
+      <Filter>JUCE Modules\gin\images</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin\utilities\asyncutilities.cpp">
+      <Filter>JUCE Modules\gin\utilities</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin\utilities\downloadmanager.cpp">
       <Filter>JUCE Modules\gin\utilities</Filter>
     </ClCompile>
@@ -578,6 +614,9 @@
       <Filter>JUCE Modules\gin\utilities</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin\utilities\filesystemwatcher.cpp">
+      <Filter>JUCE Modules\gin\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin\utilities\fileutilities.cpp">
       <Filter>JUCE Modules\gin\utilities</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin\utilities\integrator.cpp">
@@ -666,6 +705,45 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin_metadata\gin_metadata.mm">
       <Filter>JUCE Modules\gin_metadata</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\easywsclient\test\easywsclient.t.cpp">
+      <Filter>JUCE Modules\gin_network\3rdparty\easywsclient\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\easywsclient\easywsclient.cpp">
+      <Filter>JUCE Modules\gin_network\3rdparty\easywsclient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\easywsclient\example-client-cpp11.cpp">
+      <Filter>JUCE Modules\gin_network\3rdparty\easywsclient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\easywsclient\example-client.cpp">
+      <Filter>JUCE Modules\gin_network\3rdparty\easywsclient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\demo\simple_auth.cpp">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\demo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\demo\simple_request.cpp">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\demo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\src\base64.cpp">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\src\HMAC_SHA1.cpp">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\src\liboauthcpp.cpp">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\src\SHA1.cpp">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\src\urlencode.cpp">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\tests\main.cpp">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\tests\testutil.cpp">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\tests</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\library\aes.c">
       <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\library</Filter>
@@ -1060,10 +1138,25 @@
     <ClCompile Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\programs\wince_main.c">
       <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\programs</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\network\asyncwebsocket.cpp">
+      <Filter>JUCE Modules\gin_network\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\network\http.cpp">
+      <Filter>JUCE Modules\gin_network\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\network\oauth.cpp">
+      <Filter>JUCE Modules\gin_network\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\network\securestreamingsocket.cpp">
+      <Filter>JUCE Modules\gin_network\network</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin_network\gin_network.cpp">
       <Filter>JUCE Modules\gin_network</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin_network\gin_network.mm">
+      <Filter>JUCE Modules\gin_network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin_network\gin_network_auth.cpp">
       <Filter>JUCE Modules\gin_network</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin_network\gin_network_mbed1.c">
@@ -1995,6 +2088,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\juce\modules\juce_data_structures\juce_data_structures.mm">
       <Filter>JUCE Modules\juce_data_structures</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\juce\modules\juce_dsp\containers\juce_AudioBlock_test.cpp">
+      <Filter>JUCE Modules\juce_dsp\containers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\juce\modules\juce_dsp\containers\juce_SIMDRegister_test.cpp">
       <Filter>JUCE Modules\juce_dsp\containers</Filter>
@@ -2980,6 +3076,9 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_gin_network.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\include_gin_network_auth.cpp">
+      <Filter>JUCE Library Code</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\include_gin_network_mbed1.c">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
@@ -3108,6 +3207,12 @@
     <ClInclude Include="..\..\..\..\modules\gin\images\imageeffects.h">
       <Filter>JUCE Modules\gin\images</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin\images\imageutilities.h">
+      <Filter>JUCE Modules\gin\images</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin\utilities\asyncutilities.h">
+      <Filter>JUCE Modules\gin\utilities</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\downloadmanager.h">
       <Filter>JUCE Modules\gin\utilities</Filter>
     </ClInclude>
@@ -3118,6 +3223,9 @@
       <Filter>JUCE Modules\gin\utilities</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\filesystemwatcher.h">
+      <Filter>JUCE Modules\gin\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin\utilities\fileutilities.h">
       <Filter>JUCE Modules\gin\utilities</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\integrator.h">
@@ -3194,6 +3302,42 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\gin_metadata\gin_metadata.h">
       <Filter>JUCE Modules\gin_metadata</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\easywsclient\easywsclient.hpp">
+      <Filter>JUCE Modules\gin_network\3rdparty\easywsclient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\include\liboauthcpp\liboauthcpp.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\include\liboauthcpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\src\base64.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\src\HMAC_SHA1.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\src\SHA1.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\src\urlencode.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\tests\fast_request_test.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\tests\long_request_test.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\tests\parsekeyvaluepairs_test.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\tests\request_test.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\tests\testutil.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\tests\urlencode_test.h">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\tests</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\configs\config-ccm-psk-tls1_2.h">
       <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\configs</Filter>
@@ -3464,6 +3608,18 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\include\mbedtls\xtea.h">
       <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\include\mbedtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\network\asyncwebsocket.h">
+      <Filter>JUCE Modules\gin_network\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\network\http.h">
+      <Filter>JUCE Modules\gin_network\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\network\oauth.h">
+      <Filter>JUCE Modules\gin_network\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\gin_network\network\securestreamingsocket.h">
+      <Filter>JUCE Modules\gin_network\network</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\gin_network\gin_network.h">
       <Filter>JUCE Modules\gin_network</Filter>
@@ -5570,6 +5726,9 @@
     <None Include="..\..\Resources\pencils.jpeg">
       <Filter>Demo\Source\Resources</Filter>
     </None>
+    <None Include="..\..\Resources\SVG_example_markup_grid.svg">
+      <Filter>Demo\Source\Resources</Filter>
+    </None>
     <None Include="..\..\..\..\modules\gin\3rdparty\avir\README.md">
       <Filter>JUCE Modules\gin\3rdparty\avir</Filter>
     </None>
@@ -5581,6 +5740,15 @@
     </None>
     <None Include="..\..\..\..\modules\gin_metadata\README.md">
       <Filter>JUCE Modules\gin_metadata</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\easywsclient\README.md">
+      <Filter>JUCE Modules\gin_network\3rdparty\easywsclient</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\build\CMakeLists.txt">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp\build</Filter>
+    </None>
+    <None Include="..\..\..\..\modules\gin_network\3rdparty\liboauthcpp\README.md">
+      <Filter>JUCE Modules\gin_network\3rdparty\liboauthcpp</Filter>
     </None>
     <None Include="..\..\..\..\modules\gin_network\3rdparty\mbedtls\.github\issue_template.md">
       <Filter>JUCE Modules\gin_network\3rdparty\mbedtls\.github</Filter>

@@ -11,6 +11,23 @@
 static ThreadPool pool (SystemStats::getNumCpus());
 
 //==============================================================================
+struct SVGDemo : public Component
+{
+    SVGDemo()
+    {
+        setName ("SVG");
+    }
+
+	void paint (Graphics& g) override
+	{
+		auto svg = String (BinaryData::SVG_example_markup_grid_svg, BinaryData::SVG_example_markup_grid_svgSize);
+		auto img = gin::rasterizeSVG (svg, getWidth(), getHeight());
+
+		g.drawImageAt (img, 0, 0);
+	}
+};
+
+//==============================================================================
 struct WebsocketDemo : public Component
 {
     WebsocketDemo()
@@ -1120,6 +1137,7 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
+	demoComponents.add (new SVGDemo());
     demoComponents.add (new WebsocketDemo());
     demoComponents.add (new SolidBlendingDemo());
     demoComponents.add (new BlendingDemo());

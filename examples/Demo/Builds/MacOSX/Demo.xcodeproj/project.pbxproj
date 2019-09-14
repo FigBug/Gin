@@ -89,6 +89,10 @@
 			isa = PBXBuildFile;
 			fileRef = B2B8745292A24061A7B5EE85;
 		};
+		7227E33A36B88172A89F2E1E = {
+			isa = PBXBuildFile;
+			fileRef = 36FEB37975B0F0DB81779D07;
+		};
 		DBAE64ADE272845AEE0F9009 = {
 			isa = PBXBuildFile;
 			fileRef = 7137F24ED446AC33CFF015B1;
@@ -218,6 +222,13 @@
 			path = "../../JuceLibraryCode/include_juce_gui_extra.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
+		36FEB37975B0F0DB81779D07 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = "include_gin_network_auth.cpp";
+			path = "../../JuceLibraryCode/include_gin_network_auth.cpp";
+			sourceTree = "SOURCE_ROOT";
+		};
 		38150E8B4B122A152644E14B = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.c;
@@ -293,6 +304,13 @@
 			lastKnownFileType = sourcecode.c.c;
 			name = "include_gin_network_mbed2.c";
 			path = "../../JuceLibraryCode/include_gin_network_mbed2.c";
+			sourceTree = "SOURCE_ROOT";
+		};
+		5C8134508339492CEFD6E156 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = "SVG_example_markup_grid.svg";
+			path = "../../Resources/SVG_example_markup_grid.svg";
 			sourceTree = "SOURCE_ROOT";
 		};
 		5DCC801E6DB08C1557EBB9A9 = {
@@ -662,6 +680,7 @@
 				793162C6BF56F3F91B581CE3,
 				722810538E22A43FF0182CE0,
 				703818C6778C8D4616CCC66B,
+				5C8134508339492CEFD6E156,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -718,6 +737,7 @@
 				F38B6379611CB61566E342BB,
 				C85CED3EB9FC8E3ACD22D677,
 				B2B8745292A24061A7B5EE85,
+				36FEB37975B0F0DB81779D07,
 				7137F24ED446AC33CFF015B1,
 				552D80262F177201B10CE252,
 				39D412B134A4CE76868B5E1D,
@@ -830,7 +850,7 @@
 				INFOPLIST_PREPROCESS = NO;
 				INSTALL_PATH = "$(HOME)/Applications";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				OTHER_CPLUSPLUSFLAGS = "-Wall -Wextra -Wconversion -Wconstant-conversion -Wint-conversion -Woverloaded-virtual -Wconditional-uninitialized -Wunused-parameter -Wshorten-64-to-32 -Wstrict-aliasing -Wshadow -Wreorder -Wunused-private-field -Wbool-conversion -Wno-missing-field-initializers -Wno-ignored-qualifiers -Wunreachable-code";
+				OTHER_CPLUSPLUSFLAGS = "-Wall -Wshadow-all -Wshorten-64-to-32 -Wstrict-aliasing -Wuninitialized -Wunused-parameter -Wconversion -Wsign-compare -Wint-conversion -Wconditional-uninitialized -Woverloaded-virtual -Wreorder -Wconstant-conversion -Wsign-conversion -Wunused-private-field -Wbool-conversion -Wextra-semi -Wunreachable-code -Wzero-as-null-pointer-constant -Wcast-align -Winconsistent-missing-destructor-override -Wshift-sign-overflow -Wnullable-to-nonnull-conversion -Wno-missing-field-initializers -Wno-ignored-qualifiers -Wall -Wextra -Wconversion -Wconstant-conversion -Wint-conversion -Woverloaded-virtual -Wconditional-uninitialized -Wunused-parameter -Wshorten-64-to-32 -Wstrict-aliasing -Wshadow -Wreorder -Wunused-private-field -Wbool-conversion -Wno-missing-field-initializers -Wno-ignored-qualifiers -Wunreachable-code";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Demo;
 				PRODUCT_NAME = "Demo";
 				USE_HEADERMAP = NO;
@@ -877,7 +897,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				OTHER_CPLUSPLUSFLAGS = "-Wall -Wextra -Wconversion -Wconstant-conversion -Wint-conversion -Woverloaded-virtual -Wconditional-uninitialized -Wunused-parameter -Wshorten-64-to-32 -Wstrict-aliasing -Wshadow -Wreorder -Wunused-private-field -Wbool-conversion -Wno-missing-field-initializers -Wno-ignored-qualifiers -Wunreachable-code";
+				OTHER_CPLUSPLUSFLAGS = "-Wall -Wshadow-all -Wshorten-64-to-32 -Wstrict-aliasing -Wuninitialized -Wunused-parameter -Wconversion -Wsign-compare -Wint-conversion -Wconditional-uninitialized -Woverloaded-virtual -Wreorder -Wconstant-conversion -Wsign-conversion -Wunused-private-field -Wbool-conversion -Wextra-semi -Wunreachable-code -Wzero-as-null-pointer-constant -Wcast-align -Winconsistent-missing-destructor-override -Wshift-sign-overflow -Wnullable-to-nonnull-conversion -Wno-missing-field-initializers -Wno-ignored-qualifiers -Wall -Wextra -Wconversion -Wconstant-conversion -Wint-conversion -Woverloaded-virtual -Wconditional-uninitialized -Wunused-parameter -Wshorten-64-to-32 -Wstrict-aliasing -Wshadow -Wreorder -Wunused-private-field -Wbool-conversion -Wno-missing-field-initializers -Wno-ignored-qualifiers -Wunreachable-code";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Demo;
 				PRODUCT_NAME = "Demo";
 				USE_HEADERMAP = NO;
@@ -1015,6 +1035,7 @@
 				A0C4729F4F0A9B073D066ED0,
 				DD7F48960E0E3F61D8BD6C0F,
 				E26C735D7447DCA6FA2E4E2A,
+				7227E33A36B88172A89F2E1E,
 				DBAE64ADE272845AEE0F9009,
 				7C057F4FDE4586FF00DAAFBC,
 				3BCA871F046E38E7C5737C4C,
@@ -1075,7 +1096,7 @@
 		272DA04CCA296E913FDAC1A3 = {
 			isa = PBXProject;
 			buildConfigurationList = 981BA4E5A669487E6CB0188A;
-			attributes = { LastUpgradeCheck = 0930; ORGANIZATIONNAME = ""; TargetAttributes = { CA89E5D702037D25E29D7D8B = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; }; }; };
+			attributes = { LastUpgradeCheck = 1100; ORGANIZATIONNAME = ""; TargetAttributes = { CA89E5D702037D25E29D7D8B = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; }; }; };
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
 			mainGroup = 70ABEE781B16B71A2972FD77;

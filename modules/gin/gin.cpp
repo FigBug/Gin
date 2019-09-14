@@ -92,6 +92,7 @@ using juce::MemoryBlock;
 #include "utilities/valuetreeobject.cpp"
 
 #include "images/imageeffects.cpp"
+#include "images/imageutilities.cpp"
 #include "images/imageeffects_blending.cpp"
 #include "images/imageeffects_stackblur.cpp"
 #include "images/bmpimageformat.cpp"

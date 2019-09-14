@@ -29,8 +29,11 @@ namespace BinaryData
     extern const char*   pencils_jpeg;
     const int            pencils_jpegSize = 254617;
 
+    extern const char*   SVG_example_markup_grid_svg;
+    const int            SVG_example_markup_grid_svgSize = 1851;
+
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 7;
+    const int namedResourceListSize = 8;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
