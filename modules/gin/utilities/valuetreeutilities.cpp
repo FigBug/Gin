@@ -43,7 +43,7 @@ static var toVar (const juce::ValueTree& v)
     return var (obj);
 }
 
-juce::String valuetreeToJSON (const juce::ValueTree& v)
+juce::String valueTreeToJSON (const juce::ValueTree& v)
 {
     auto obj = toVar (v);
     return JSON::toString (obj);
