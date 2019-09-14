@@ -77,6 +77,7 @@ using juce::Component;
 #include "utilities/leastsquaresregression.h"
 #include "utilities/linearregression.h"
 #include "utilities/openstreetmaps.h"
+#include "utilities/messagepack.h"
 #include "utilities/sharedmemory.h"
 #include "utilities/spline.h"
 #include "utilities/systemsemaphore.h"
