@@ -36,13 +36,11 @@ static String getClassName (Component* c)
     auto res = String (demangled);
     free (demangled);
     return res;
-   #elif _MSCVER
-    auto name = typeid (*c).name();
-    char undecorateName[1024] = {0};
-    ::UnDecorateSymbolName (name, undecorateName, sizeof (undecorateName), UNDNAME_COMPLETE);
-    return undecorateName;
    #else
-    return typeid (*c).name();
+    String res = typeid (*c).name();
+	if (res.startsWith ("class ")) res = res.substring (6);
+	if (res.startsWith ("struct ")) res = res.substring (7);
+	return res;
    #endif
 }
 

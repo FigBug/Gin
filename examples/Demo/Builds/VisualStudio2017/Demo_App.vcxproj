@@ -160,6 +160,9 @@
     <ClCompile Include="..\..\..\..\modules\gin\3rdparty\muParser\muParserTokenReader.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin\components\componentviewer.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin\components\mapviewer.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -211,6 +214,9 @@
     <ClCompile Include="..\..\..\..\modules\gin\utilities\linearregression.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin\utilities\messagepack.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin\utilities\openstreetmaps.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -230,6 +236,9 @@
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin\utilities\valuetreeobject.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\gin\utilities\valuetreeutilities.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\gin\gin.cpp">
@@ -2562,6 +2571,7 @@
     <ClInclude Include="..\..\..\..\modules\gin\3rdparty\muParser\muParserTemplateMagic.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\3rdparty\muParser\muParserToken.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\3rdparty\muParser\muParserTokenReader.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin\components\componentviewer.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\components\mapviewer.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\components\propertycomponents.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\components\singlelinetexteditor.h"/>
@@ -2578,6 +2588,7 @@
     <ClInclude Include="..\..\..\..\modules\gin\utilities\integrator.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\leastsquaresregression.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\linearregression.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin\utilities\messagepack.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\openstreetmaps.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\sharedmemory.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\spline.h"/>
@@ -2585,6 +2596,7 @@
     <ClInclude Include="..\..\..\..\modules\gin\utilities\threading.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\util.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\utilities\valuetreeobject.h"/>
+    <ClInclude Include="..\..\..\..\modules\gin\utilities\valuetreeutilities.h"/>
     <ClInclude Include="..\..\..\..\modules\gin\gin.h"/>
     <ClInclude Include="..\..\..\..\modules\gin_dsp\dsp\adsr.h"/>
     <ClInclude Include="..\..\..\..\modules\gin_dsp\dsp\analogadsr.h"/>

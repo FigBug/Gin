@@ -14,7 +14,6 @@
 #ifdef  _WIN32
  #include <Windows.h>
  #include <ctime>
- #pragma comment(lib,"dbghelp.lib")
 #else
  #include <sys/mman.h>
  #include <sys/stat.h>
