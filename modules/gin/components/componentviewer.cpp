@@ -27,6 +27,25 @@ Component* realGetComponentUnderMouse()
     
     return {};
 }
+
+static String getClassName (Component* c)
+{
+   #if __clang__ || __GNUC__
+    int status = 0;
+    char* demangled = abi::__cxa_demangle (typeid (*c).name(), 0, 0, &status);
+    auto res = String (demangled);
+    free (demangled);
+    return res;
+   #elif _MSCVER
+    auto name = typeid (*c).name();
+    char undecorateName[1024] = {0};
+    ::UnDecorateSymbolName (name, undecorateName, sizeof (undecorateName), UNDNAME_COMPLETE);
+    return undecorateName;
+   #else
+    return typeid (*c).name();
+   #endif
+}
+
 //==============================================================================
 class ComponentViewer::Snapshot : public Component
 {
@@ -213,7 +232,7 @@ public:
         {
             String str;
             
-            str += ("[" + String (typeid (*c).name()) + "]").paddedRight (' ', 50);
+            str += ("[" + String (getClassName (c)) + "]").paddedRight (' ', 50);
             str += (" \"" + c->getName() + "\"").paddedRight (' ', 20);
             str += (" (" + c->getBounds().toString() + ")").paddedRight (' ', 20);
             str += String (c->isOpaque() ? " Opaque" : "").paddedRight (' ', 8);

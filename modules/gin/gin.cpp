@@ -12,28 +12,33 @@
 //==============================================================================
 
 #ifdef  _WIN32
-#include <Windows.h>
-#include <ctime>
-#endif
-#ifdef __linux__
-#include <sys/inotify.h>
-#include <limits.h>
-#include <unistd.h>
-#include <sys/stat.h>
-#include <sys/time.h>
-#endif
-#ifdef __APPLE__
-#import <Foundation/Foundation.h>
-#include <sys/stat.h>
-#include <sys/time.h>
+ #include <Windows.h>
+ #include <ctime>
+ #pragma comment(lib,"dbghelp.lib")
+#else
+ #include <sys/mman.h>
+ #include <sys/stat.h>
+ #include <fcntl.h>
+ #include <semaphore.h>
+ #include <ctime>
 #endif
 
-#ifndef  _WIN32
-#include <sys/mman.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <semaphore.h>
-#include <ctime>
+#ifdef __linux__
+ #include <sys/inotify.h>
+ #include <limits.h>
+ #include <unistd.h>
+ #include <sys/stat.h>
+ #include <sys/time.h>
+#endif
+
+#ifdef __APPLE__
+ #import <Foundation/Foundation.h>
+ #include <sys/stat.h>
+ #include <sys/time.h>
+#endif
+
+#if __clang__ || __GNUC__
+ #include <cxxabi.h>
 #endif
 
 #include <cfloat>
