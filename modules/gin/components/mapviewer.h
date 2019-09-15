@@ -8,7 +8,7 @@
 #pragma once
 
 //==============================================================================*/
-// Draws an OSM lap
+// Draws an OSM map
 class MapViewer : public Component,
                   private OpenStreetMaps::Listener
 {

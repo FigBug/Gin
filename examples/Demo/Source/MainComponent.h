@@ -34,6 +34,9 @@ private:
     void paintListBoxItem (int rowNumber, Graphics& g, int width, int height, bool rowIsSelected) override;
     void selectedRowsChanged (int lastRowSelected) override;
 
+    Component::SafePointer<gin::ComponentViewer> componentViewer;
+    TextButton toggleComponentViewer {"Component Viewer"};
+    
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainContentComponent)
 };

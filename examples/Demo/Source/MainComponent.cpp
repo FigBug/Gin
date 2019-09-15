@@ -1266,8 +1266,17 @@ MainContentComponent::MainContentComponent()
     demoList.updateContent();
     demoList.selectRow (0);
     addAndMakeVisible (demoList);
+    addAndMakeVisible (toggleComponentViewer);
 
     setSize (800, 640);
+    
+    toggleComponentViewer.onClick = [this]
+    {
+        if (componentViewer == nullptr)
+            componentViewer = new gin::ComponentViewer (this);
+        else
+            delete componentViewer.getComponent();
+    };
 }
 
 MainContentComponent::~MainContentComponent()
@@ -1283,7 +1292,9 @@ void MainContentComponent::resized()
 {
     auto rc = getLocalBounds();
 
-    demoList.setBounds (rc.removeFromLeft (150));
+    auto col = rc.removeFromLeft (150);
+    toggleComponentViewer.setBounds (col.removeFromBottom (25));
+    demoList.setBounds (col);
 
     for (auto* c : demoComponents)
         c->setBounds (rc);

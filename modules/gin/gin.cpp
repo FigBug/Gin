@@ -99,6 +99,7 @@ using juce::MemoryBlock;
 #include "images/imageeffects_stackblur.cpp"
 #include "images/bmpimageformat.cpp"
 
+#include "components/componentviewer.cpp"
 #include "components/mapviewer.cpp"
 #include "components/propertycomponents.cpp"
 #include "components/singlelinetexteditor.cpp"
