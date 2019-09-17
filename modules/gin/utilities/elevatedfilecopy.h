@@ -53,6 +53,9 @@ public:
         if returns true */
     static bool processCommandLine (juce::String commandLine);
 
+	/** Run a script as root. See execute for the meaning of launch self */
+	static Result runScriptWithAdminAccess (File script, bool launchSelf);
+
 private:
     struct FileItem
     {
@@ -66,8 +69,6 @@ private:
 
     File createScript (const Array<File>& dirsThatNeedAdminAccess, 
 					   const Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess);
-
-    Result runScriptWithAdminAccess (File script, bool launchSelf);
 
     Array<FileItem> filesToCopy;
 	Array<File> dirsToCreate;
