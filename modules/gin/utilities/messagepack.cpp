@@ -7,6 +7,12 @@
 
 #pragma once
 
+#if _MSC_VER
+ #pragma warning (push)
+ #pragma warning (disable: 4310)
+ #pragma warning (disable: 4100)
+#endif 
+
 static void toData (OutputStream& os, const juce::var& obj)
 {
     if (obj.isVoid())
@@ -430,3 +436,7 @@ juce::var MessagePack::parse (const juce::MemoryBlock& data)
     MemoryInputStream is (data, false);
     return fromData (is);
 }
+
+#if _MSC_VER
+ #pragma warning (pop)
+#endif
