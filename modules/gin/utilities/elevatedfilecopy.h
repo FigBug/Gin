@@ -27,9 +27,12 @@ public:
         nopermissions
     };
 
+	/** Add a directory to create */
+	void addDir (const File& dir);
+
     /** Add a file to copy. src and dst must be complete file names,
         neither can be a directory */
-    void addFile (File src, File dst);
+    void addFile (const File& src, const File& dst);
 
     /** Perform the copy
 
@@ -61,10 +64,13 @@ private:
         File dst;
     };
 
-    File createScript (const Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess);
+    File createScript (const Array<File>& dirsThatNeedAdminAccess, 
+					   const Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess);
+
     Result runScriptWithAdminAccess (File script, bool launchSelf);
 
     Array<FileItem> filesToCopy;
+	Array<File> dirsToCreate;
 
     JUCE_LEAK_DETECTOR (ElevatedFileCopy)
 };

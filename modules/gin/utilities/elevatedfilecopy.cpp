@@ -81,7 +81,8 @@ ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (File script
     return success;
 }
 
-File ElevatedFileCopy::createScript (const Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess)
+File ElevatedFileCopy::createScript (const Array<File>& dirsThatNeedAdminAccess,
+									 const Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess)
 {
     auto script = File::getSpecialLocation (File::tempDirectory).getNonexistentChildFile ("copy", ".sh", false);
 
@@ -90,12 +91,19 @@ File ElevatedFileCopy::createScript (const Array<ElevatedFileCopy::FileItem>& fi
     scriptText += "#!/bin/sh\n";
 
     Array<File> dirs;
+
+	for (auto f : dirsThatNeedAdminAccess)
+		dirs.add (f);
+
     for (auto f : filesThatNeedAdminAccess)
         if (! f.dst.getParentDirectory().isDirectory())
             dirs.addIfNotAlreadyThere (f.dst.getParentDirectory());
 
     for (auto d : dirs)
         scriptText += "mkdir -p " + escape (d.getFullPathName()) + "\n";
+
+	for (auto d : dirsThatNeedAdminAccess)
+		scriptText += "chmod 777 " + escape (d.getFullPathName()) + "\n";
 
     scriptText += "\n";
 
@@ -171,7 +179,8 @@ ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (File script
     }
 }
 
-File ElevatedFileCopy::createScript (const Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess)
+File ElevatedFileCopy::createScript (const Array<File>& dirsThatNeedAdminAccess,
+									 const Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess)
 {
     auto script = File::getSpecialLocation (File::tempDirectory).getNonexistentChildFile ("copy", ".bat", false);
 
@@ -203,14 +212,31 @@ File ElevatedFileCopy::createScript (const Array<ElevatedFileCopy::FileItem>& fi
 }
 #endif
 
-void ElevatedFileCopy::addFile (File src, File dst)
+void ElevatedFileCopy::addDir (const File& dir)
+{
+	dirsToCreate.add (dir);
+}
+
+void ElevatedFileCopy::addFile (const File& src, const File& dst)
 {
     filesToCopy.add ({ src, dst });
 }
 
 ElevatedFileCopy::Result ElevatedFileCopy::execute (bool launchSelf)
 {
+	Array<File> dirsThatNeedAdminAccess;
     Array<FileItem> filesThatNeedAdminAccess;
+
+	for (auto f : dirsToCreate)
+	{
+		if (! f.isDirectory())
+			f.createDirectory();
+
+		bool ok = f.isDirectory();
+
+		if (! ok)
+			dirsThatNeedAdminAccess.add (f);
+	}
 
     for (auto f : filesToCopy)
     {
@@ -227,9 +253,9 @@ ElevatedFileCopy::Result ElevatedFileCopy::execute (bool launchSelf)
             filesThatNeedAdminAccess.add (f);
     }
 
-    if (filesThatNeedAdminAccess.size() > 0)
+    if (dirsThatNeedAdminAccess.size() > 0 || filesThatNeedAdminAccess.size() > 0)
     {
-        File script = createScript (filesThatNeedAdminAccess);
+        File script = createScript (dirsThatNeedAdminAccess, filesThatNeedAdminAccess);
         auto res = runScriptWithAdminAccess (script, launchSelf);
         script.deleteFile();
 
