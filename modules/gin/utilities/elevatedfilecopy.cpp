@@ -187,6 +187,10 @@ File ElevatedFileCopy::createScript (const Array<File>& dirsThatNeedAdminAccess,
     String scriptText;
 
     Array<File> dirs;
+
+	for (auto f : dirsThatNeedAdminAccess)
+		dirs.add (f);
+
     for (auto f : filesThatNeedAdminAccess)
         if (! f.dst.getParentDirectory().isDirectory())
             dirs.addIfNotAlreadyThere (f.dst.getParentDirectory());
