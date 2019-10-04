@@ -144,11 +144,10 @@ void DownloadManager::Download::run()
         MessageManager::callAsync ([self]
                                    {
                                        if (self != nullptr)
-                                       {
                                            self->completionCallback (self->result);
+									   if (self != nullptr)
                                            self->owner.downloadFinished (self);
-                                           // DownloadManager has now delete us, don't do anything else
-                                       }
+									   // DownloadManager has now delete us, don't do anything else
                                    });
     }
 }
