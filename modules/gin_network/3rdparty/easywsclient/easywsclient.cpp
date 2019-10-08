@@ -202,7 +202,7 @@ WebSocket::readyStateValues WebSocket::getReadyState() const {
 
 bool WebSocket::readIncoming()
 {
-    bool foundData = true;
+    bool foundData = false;
 
     while (true) {
         // FD_ISSET(0, &rfds) will be true
