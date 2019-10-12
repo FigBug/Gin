@@ -26,7 +26,7 @@ namespace Defaults
 
     const std::string AUTHHEADER_FIELD = "Authorization: ";
     const std::string AUTHHEADER_PREFIX = "OAuth ";
-};
+}
 
 /** std::string -> std::string conversion function */
 typedef std::string(*StringConvertFunction)(const std::string&);

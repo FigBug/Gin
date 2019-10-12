@@ -32,10 +32,13 @@ static String getClassName (Component* c)
 {
    #if __clang__ || __GNUC__
     int status = 0;
-    char* demangled = abi::__cxa_demangle (typeid (*c).name(), 0, 0, &status);
-    auto res = String (demangled);
-    free (demangled);
-    return res;
+    if (char* demangled = abi::__cxa_demangle (typeid (*c).name(), nullptr, nullptr, &status))
+    {
+        auto res = String (demangled);
+        free (demangled);
+        return res;
+    }
+    return {};
    #else
     String res = typeid (*c).name();
 	if (res.startsWith ("class ")) res = res.substring (6);

@@ -405,9 +405,9 @@ Image ExifMetadata::getThumbnailImage()
     return {};
 }
 
-int ExifMetadata::sizeofType (int type)
+int ExifMetadata::sizeofType (int dataType)
 {
-    switch (type)
+    switch (dataType)
     {
         case 1:  return 1;
         case 2:  return 1;

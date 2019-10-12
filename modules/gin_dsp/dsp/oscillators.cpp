@@ -33,7 +33,7 @@ double triangle (double phase, double freq, double sampleRate)
         k += 2;
     }
     return float (8.0f / (float_Pi * float_Pi) * sum);
-};
+}
 
 double sawUp (double phase, double freq, double sampleRate)
 {
@@ -45,7 +45,7 @@ double sawUp (double phase, double freq, double sampleRate)
         k++;
     }
     return float (-2.0f / float_Pi * sum);
-};
+}
 
 double sawDown (double phase, double freq, double sampleRate)
 {
@@ -57,7 +57,7 @@ double sawDown (double phase, double freq, double sampleRate)
         k++;
     }
     return float (2.0f / float_Pi * sum);
-};
+}
 
 double pulse (double phase, double pw, double freq, double sampleRate)
 {
@@ -78,7 +78,7 @@ double pulse (double phase, double pw, double freq, double sampleRate)
         pw = jlimit (0.05, 0.95, pw);
         return sawUp (phase + 0.5 * pw, freq, sampleRate) - sawUp (phase - 0.5 * pw, freq, sampleRate);
     }
-};
+}
 
 double squareWave (double phase, double freq, double sampleRate)
 {
@@ -91,7 +91,7 @@ double squareWave (double phase, double freq, double sampleRate)
     }
 
     return float (4.0f / float_Pi * sum);
-};
+}
 
 double noise()
 {
@@ -102,7 +102,7 @@ double noise()
     static std::normal_distribution<float> dist (mean, stddev);
 
     return dist (generator);
-};
+}
 
 //==============================================================================
 BandLimitedLookupTable::BandLimitedLookupTable (std::function<double (double, double, double)> function, double sampleRate, int notesPerTable_, int tableSize)

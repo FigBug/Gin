@@ -89,6 +89,7 @@ using juce::MemoryBlock;
 #include "utilities/linearregression.cpp"
 #include "utilities/openstreetmaps.cpp"
 #include "utilities/messagepack.cpp"
+#include "utilities/plist.cpp"
 #include "utilities/sharedmemory.cpp"
 #include "utilities/spline.cpp"
 #include "utilities/systemsemaphore.cpp"
