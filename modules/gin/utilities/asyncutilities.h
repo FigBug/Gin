@@ -19,3 +19,5 @@ private:
             onTimer();
     }
 };
+
+void callOnMainThreadBlocking ( std::function<void ()> func );
