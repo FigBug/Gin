@@ -340,9 +340,6 @@ void applyGamma (Image& img, float gamma, ThreadPool* threadPool)
     const int h = img.getHeight();
     threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
-    if (img.getFormat() != Image::ARGB)
-        return;
-
     Image::BitmapData data (img, Image::BitmapData::readWrite);
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
@@ -383,9 +380,6 @@ void applyInvert (Image& img, ThreadPool* threadPool)
     const int h = img.getHeight();
     threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
-    if (img.getFormat() != Image::ARGB)
-        return;
-
     Image::BitmapData data (img, Image::BitmapData::readWrite);
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
@@ -425,9 +419,6 @@ void applyContrast (Image& img, float contrast, ThreadPool* threadPool)
     const int w = img.getWidth();
     const int h = img.getHeight();
     threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
-
-    if (img.getFormat() != Image::ARGB)
-        return;
 
     contrast = (100.0f + contrast) / 100.0f;
     contrast = square (contrast);
@@ -489,9 +480,6 @@ void applyBrightnessContrast (Image& img, float brightness, float contrast, Thre
     const int w = img.getWidth();
     const int h = img.getHeight();
     threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
-
-    if (img.getFormat() != Image::ARGB)
-        return;
 
     Image::BitmapData data (img, Image::BitmapData::readWrite);
 
@@ -609,9 +597,6 @@ void applyHueSaturationLightness (Image& img, float hueIn, float saturation, flo
     const int w = img.getWidth();
     const int h = img.getHeight();
     threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
-
-    if (img.getFormat() != Image::ARGB)
-        return;
 
     if (saturation > 100)
         saturation = ((saturation - 100) * 3) + 100;
