@@ -205,7 +205,7 @@ public:
                     FILE_NOTIFY_INFORMATION* fni = (FILE_NOTIFY_INFORMATION*)rawData;
 
                     Event e;
-                    e.file = folder.getChildFile (String (fni->FileName, fni->FileNameLength));
+                    e.file = folder.getChildFile (String (fni->FileName, fni->FileNameLength / sizeof(wchar_t)));
 
                     switch (fni->Action)
                     {
