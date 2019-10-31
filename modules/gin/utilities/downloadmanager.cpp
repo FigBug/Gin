@@ -109,6 +109,11 @@ void DownloadManager::downloadFinished (Download* download)
         queueFinishedCallback();
 }
 
+void DownloadManager::pauseDownloads (bool p)
+{
+	pause = p;
+}
+
 //==============================================================================
 DownloadManager::Download::~Download()
 {
@@ -134,6 +139,9 @@ void DownloadManager::Download::run()
 
         if (owner.retryDelay > 0)
             wait (roundToInt (owner.retryDelay * 1000));
+		
+		while (owner.pause.get())
+			wait (500);
     }
 
     if (! threadShouldExit())
@@ -191,7 +199,12 @@ bool DownloadManager::Download::tryDownload()
 
                 int read = is->read (buffer, int (toRead));
 
-                if (read > 0)
+				if (owner.pause.get())
+				{
+					result.ok = false;
+					break;
+				}
+                else if (read > 0)
                 {
                     os.write (buffer, size_t (read));
                     downloaded += read;

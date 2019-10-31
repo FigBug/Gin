@@ -63,6 +63,11 @@ public:
 		and is always on. 
 	  */
     void enableGzipDeflate (bool e)             { gzipDeflate = e;          }
+	
+	/** Pause / resume all downloads. This actually stops any running downloads
+	    and then restarts them when unpaused. You will loose some downloaded data
+	    that will need to be redownloaded. */
+	void pauseDownloads (bool);
 
     //==============================================================================
     struct DownloadResult
@@ -148,6 +153,7 @@ private:
     OwnedArray<Download> downloads;
     std::function<void ()> queueFinishedCallback;
     bool gzipDeflate = true;
+	juce::Atomic<bool> pause;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DownloadManager)
 };
