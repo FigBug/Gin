@@ -193,6 +193,14 @@ File ElevatedFileCopy::createScript (const Array<File>& toDelete,
 
     Array<File> dirs;
 
+	for (auto f : toDelete)
+	{
+		if (f.isDirectory())
+			scriptText += "rmdir /s /q " + f.getFullPathName().quoted() + "\r\n";
+		else if (f.existsAsFile())
+			scriptText += "del /f " + f.getFullPathName().quoted() + "\r\n";
+	}
+
 	for (auto f : dirsThatNeedAdminAccess)
 		dirs.add (f);
 
@@ -201,13 +209,13 @@ File ElevatedFileCopy::createScript (const Array<File>& toDelete,
             dirs.addIfNotAlreadyThere (f.dst.getParentDirectory());
 
     for (auto d : dirs)
-        scriptText += "if not exist \"" + d.getFullPathName() +  "\" mkdir \"" + d.getFullPathName() + "\"\r\n";
+        scriptText += "if not exist \"" + d.getFullPathName() +  "\" mkdir " + d.getFullPathName().quoted() + "\r\n";
 
     scriptText += "\r\n";
 
     for (auto f : filesThatNeedAdminAccess)
     {
-        scriptText += "copy \"" + f.src.getFullPathName() + "\" \"" + f.dst.getFullPathName() + "\r\n";
+        scriptText += "copy " + f.src.getFullPathName().quoted() + " " + f.dst.getFullPathName().quoted() + "\r\n";
         scriptText += "if %errorlevel% neq 0 goto :error\r\n";
     }
 
