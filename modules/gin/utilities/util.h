@@ -182,6 +182,12 @@ public:
         startThread();
     }
 
+	AsyncDownload (URL url_, std::function<void (AsyncDownload*, juce::MemoryBlock, bool)> cb_)
+		: Thread ("AsyncDownload"), url (url_), cb (cb_)
+	{
+		startThread();
+	}
+	
     ~AsyncDownload() override
     {
         stopThread (100);
@@ -189,7 +195,7 @@ public:
 
     void run() override
     {
-        ok = URL (url).readEntireBinaryStream (data);
+        ok = url.readEntireBinaryStream (data);
         triggerAsyncUpdate();
     }
 
@@ -199,7 +205,7 @@ public:
             cb (this, data, ok);
     }
 
-    String url;
+    URL url;
     std::function<void (AsyncDownload*, juce::MemoryBlock, bool)> cb;
     bool ok = false;
     juce::MemoryBlock data;
