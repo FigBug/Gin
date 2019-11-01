@@ -28,11 +28,14 @@ public:
     };
 
 	/** Add a directory to create */
-	void addDir (const File& dir);
+	void createDir (const File& dir);
 
     /** Add a file to copy. src and dst must be complete file names,
         neither can be a directory */
-    void addFile (const File& src, const File& dst);
+    void copyFile (const File& src, const File& dst);
+	
+	/** Delete a file or directory */
+	void deleteFile (const File& f);
 
     /** Perform the copy
 
@@ -67,11 +70,13 @@ private:
         File dst;
     };
 
-    File createScript (const Array<File>& dirsThatNeedAdminAccess, 
+    File createScript (const Array<File>& toDelete,
+					   const Array<File>& dirsThatNeedAdminAccess,
 					   const Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess);
 
     Array<FileItem> filesToCopy;
 	Array<File> dirsToCreate;
+	Array<File> filesToDelete;
 
     JUCE_LEAK_DETECTOR (ElevatedFileCopy)
 };
