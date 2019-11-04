@@ -709,9 +709,9 @@ static void applyStackBlurARGB (Image& img, unsigned int radius)
 // C++ implemenation base from:
 // https://gist.github.com/benjamin9999/3809142
 // http://www.antigrain.com/__code/include/agg_blur.h.html
-void applyStackBlur (Image& img, unsigned int radius)
+void applyStackBlur (Image& img, int radius)
 {
-    if (img.getFormat() == Image::ARGB)          applyStackBlurARGB (img, radius);
-    if (img.getFormat() == Image::RGB)           applyStackBlurRGB (img, radius);
-    if (img.getFormat() == Image::SingleChannel) applyStackBlurBW (img, radius);
+    if (img.getFormat() == Image::ARGB)          applyStackBlurARGB (img, (unsigned int)radius);
+    if (img.getFormat() == Image::RGB)           applyStackBlurRGB (img, (unsigned int)radius);
+    if (img.getFormat() == Image::SingleChannel) applyStackBlurBW (img, (unsigned int)radius);
 }
