@@ -12,9 +12,15 @@ juce::Image rasterizeSVG (juce::String svgText, int w, int h)
 
 	if (auto svg = XmlDocument::parse (svgText))
 	{
-        auto drawable = Drawable::createFromSVG (*svg);
-        drawable->setTransformToFit (Rectangle<float> (0.0f, 0.0f, float (w), float (h)), RectanglePlacement::centred);
-        drawable->draw (g, 1.f);
+		std::unique_ptr<Drawable> drawable;
+
+		{
+			const MessageManagerLock mmLock;
+			drawable = Drawable::createFromSVG (*svg);
+			drawable->setTransformToFit (Rectangle<float> (0.0f, 0.0f, float (w), float (h)), RectanglePlacement::centred);
+			drawable->draw (g, 1.f);
+		}
+
     }
 
 	return img;
