@@ -133,9 +133,7 @@ private:
         int64 lastBytesSent = 0;
 
         //==============================================================================
-        WeakReference<Download>::Master masterReference;
-        friend class WeakReference<Download>;
-
+        JUCE_DECLARE_WEAK_REFERENCEABLE (Download)
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Download)
     };
 

@@ -124,8 +124,6 @@ DownloadManager::Download::~Download()
     // Wait a long time before cancelling, WebInputStream could be stuck in
     // connect. Unlikely but possible.
     stopThread (owner.shutdownTimeout);
-
-    masterReference.clear();
 }
 
 void DownloadManager::Download::run()

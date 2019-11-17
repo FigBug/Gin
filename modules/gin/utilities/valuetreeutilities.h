@@ -88,8 +88,6 @@ public:
     ~AsyncLambdaValueTreeListener() override
     {
         vt.removeListener (this);
-        
-        masterReference.clear();
     }
     
     std::function<void (const ValueTree&, const Identifier&)> onValueTreePropertyChanged;
@@ -171,6 +169,5 @@ private:
     
     ValueTree& vt;
     
-    WeakReference<AsyncLambdaValueTreeListener>::Master masterReference;
-    friend class WeakReference<AsyncLambdaValueTreeListener>;
+    JUCE_DECLARE_WEAK_REFERENCEABLE (AsyncLambdaValueTreeListener)
 };
