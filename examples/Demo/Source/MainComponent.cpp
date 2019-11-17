@@ -479,7 +479,7 @@ public:
         gin::ElevatedFileCopy efc;
 
         for (auto f :files)
-            efc.addFile (f, dst.getChildFile (f.getFileName()));
+            efc.copyFile (f, dst.getChildFile (f.getFileName()));
 
         efc.execute (true);
     }
@@ -542,7 +542,7 @@ struct BoxBlurDemo : public Component,
             g.reduceClipRegion (rc.removeFromLeft (w));
 
             auto img = sourceARGB.createCopy();
-            gin::applyStackBlur (img, (unsigned int) radius.getValue());
+            gin::applyStackBlur (img, (int) radius.getValue());
             g.drawImage (img, getLocalBounds().toFloat(), RectanglePlacement::centred);
         }
 
@@ -551,7 +551,7 @@ struct BoxBlurDemo : public Component,
             g.reduceClipRegion (rc.removeFromLeft (w));
 
             auto img = sourceRGB.createCopy();
-            gin::applyStackBlur (img, (unsigned int) radius.getValue());
+            gin::applyStackBlur (img, (int) radius.getValue());
             g.drawImage (img, getLocalBounds().toFloat(), RectanglePlacement::centred);
         }
 
@@ -560,7 +560,7 @@ struct BoxBlurDemo : public Component,
             g.reduceClipRegion (rc);
 
             auto img = sourceBW.createCopy();
-            gin::applyStackBlur (img, (unsigned int) radius.getValue());
+            gin::applyStackBlur (img, (int) radius.getValue());
             g.drawImage (img, getLocalBounds().toFloat(), RectanglePlacement::centred);
         }
     }
@@ -924,7 +924,7 @@ struct ImageEffectsDemo : public Component,
             case 8: gin::applyContrast (img, (float) contrast.getValue(), &pool); break;
             case 9: gin::applyBrightnessContrast (img, (float) brightness.getValue(), (float) contrast.getValue(), &pool); break;
             case 10: gin::applyHueSaturationLightness (img, (float) hue.getValue(), (float) saturation.getValue(), (float) lightness.getValue(), &pool); break;
-            case 11: gin::applyStackBlur (img, (unsigned int) radius.getValue()); break;
+            case 11: gin::applyStackBlur (img, (int) radius.getValue()); break;
         }
 
         g.fillAll (Colours::black);

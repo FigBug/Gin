@@ -13,20 +13,6 @@ juce::String valueTreeToJSON (const juce::ValueTree& v);
 juce::ValueTree valueTreeFromJSON (const juce::String& jsonText);
 
 //==============================================================================
-class ValueTreeAllListener : public ValueTree::Listener
-{
-public:
-    ~ValueTreeAllListener() override {}
-
-    void valueTreePropertyChanged (ValueTree&, const Identifier&) override {}
-    void valueTreeChildAdded (ValueTree&, ValueTree&) override {}
-    void valueTreeChildRemoved (ValueTree&, ValueTree&, int) override {}
-    void valueTreeChildOrderChanged (ValueTree&, int, int) override {}
-    void valueTreeParentChanged (ValueTree&) override {}
-    void valueTreeRedirected (ValueTree&) override {}
-};
-
-//==============================================================================
 class LambdaValueTreeListener : public ValueTree::Listener
 {
 public:
