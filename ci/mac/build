@@ -5,8 +5,6 @@ cd "$ROOT"
 
 git clone https://github.com/WeAreROLI/JUCE.git --branch develop --single-branch juce
 
-ROOT=$(cd "$(dirname "$0")/.."; pwd)
-echo ROOT: "$ROOT"
 cd "$ROOT/juce/extras/Projucer/Builds/MacOSX/"
 xcodebuild -configuration Release || exit 1
 
