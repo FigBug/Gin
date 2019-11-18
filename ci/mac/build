@@ -10,7 +10,7 @@ xcodebuild -configuration Release || exit 1
 
 ./build/Release/Projucer.app/Contents/MacOS/Projucer --resave "$ROOT/examples/Demo/Demo.jucer" --set-global-search-path "$ROOT/juce/modules"
 
-cd "$ROOT/examples/Demo/Builds/MacOSX
+cd "$ROOT/examples/Demo/Builds/MacOSX"
 xcodebuild -configuration Release || exit 1
 
 mkdir "$ROOT/ci/mac/bin"
