@@ -4,7 +4,7 @@ set -x
 ROOT=$(cd "$(dirname "$0")/../.."; pwd)
 cd "$ROOT"
 
-#git clone https://github.com/WeAreROLI/JUCE.git --branch develop --single-branch juce
+git clone https://github.com/WeAreROLI/JUCE.git --branch develop --single-branch juce
 
 cd "$ROOT/juce/extras/Projucer/Builds/MacOSX/"
 xcodebuild -configuration Release || exit 1
