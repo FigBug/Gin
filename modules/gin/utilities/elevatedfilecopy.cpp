@@ -5,12 +5,6 @@
 
  ==============================================================================*/
 
-#if JUCE_LINUX
-
-// TODO: no implementation for Linux yet
-
-#else
-
 #if JUCE_MAC
 
 ElevatedFileCopy::Result runWithPermissions (String cmd, StringArray params)
@@ -228,6 +222,8 @@ File ElevatedFileCopy::createScript (const Array<File>& toDelete,
     return script;
 }
 #endif
+
+#if defined JUCE_MAC || defined JUCE_WINDOWS
 
 void ElevatedFileCopy::createDir (const File& dir)
 {

@@ -137,7 +137,7 @@ public:
 #endif
 
 //==============================================================================
-#ifdef _WIN32
+#ifdef JUCE_WINDOWS
 class FileSystemWatcher::Impl : private AsyncUpdater,
                                 private Thread
 {
@@ -273,6 +273,7 @@ public:
 };
 #endif
 
+#if defined JUCE_MAC || defined JUCE_WINDOWS || defined JUCE_LINUX
 FileSystemWatcher::FileSystemWatcher()
 {
 }
@@ -325,3 +326,4 @@ void FileSystemWatcher::fileChanged (const File& file, FileSystemEvent fsEvent)
 {
     listeners.call (&FileSystemWatcher::Listener::fileChanged, file, fsEvent);
 }
+#endif

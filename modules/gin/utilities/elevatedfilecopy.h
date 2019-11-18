@@ -7,11 +7,9 @@
 
 #pragma once
 
-#if JUCE_LINUX
-
 // TODO: no implementation for Linux yet
 
-#else
+#if defined JUCE_MAC || defined JUCE_WINDOWS
 
 /** Copies files, creating folders where required
     requesting admin access only if required

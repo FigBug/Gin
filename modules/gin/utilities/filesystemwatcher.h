@@ -7,6 +7,8 @@ For more information visit www.rabiensoftware.com
 
 #pragma once
 
+#if defined JUCE_MAC || defined JUCE_WINDOWS || defined JUCE_LINUX
+
 /**
 
     Watches a folder in the file system for changes.
@@ -87,3 +89,5 @@ private:
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FileSystemWatcher)
 };
+
+#endif

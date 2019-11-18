@@ -445,6 +445,7 @@ struct ImageResizeDemo : public Component,
 };
 
 //==============================================================================
+#if defined JUCE_MAC || defined JUCE_WINDOWS
 struct ElevatedFileCopyDemo : public Component
 {
 public:
@@ -498,6 +499,7 @@ public:
     TextEditor srcDir, dstDir;
     TextButton copyButton { "Copy" };
 };
+#endif
 
 //==============================================================================
 struct BoxBlurDemo : public Component,
@@ -671,6 +673,7 @@ struct DownloadManagerDemo : public Component,
 };
 
 //==============================================================================
+#if defined JUCE_MAC || defined JUCE_WINDOWS || defined JUCE_LINUX
 struct FileSystemWatcherDemo : public Component,
                                private gin::FileSystemWatcher::Listener
 {
@@ -737,6 +740,7 @@ struct FileSystemWatcherDemo : public Component,
     TextEditor contents, events;
     gin::FileSystemWatcher watcher;
 };
+#endif
 
 //==============================================================================
 struct MetadataDemo : public Component
@@ -1245,11 +1249,15 @@ MainContentComponent::MainContentComponent()
     demoComponents.add (new BlendingDemo());
     demoComponents.add (new GradientMapDemo());
     demoComponents.add (new ImageResizeDemo());
+   #if defined JUCE_MAC || defined JUCE_WINDOWS
     demoComponents.add (new ElevatedFileCopyDemo());
+   #endif
     demoComponents.add (new DownloadManagerDemo());
     demoComponents.add (new ImageEffectsDemo());
     demoComponents.add (new BoxBlurDemo());
+   #if defined JUCE_MAC || defined JUCE_WINDOWS || defined JUCE_LINUX
     demoComponents.add (new FileSystemWatcherDemo());
+   #endif
     demoComponents.add (new MetadataDemo());
     demoComponents.add (new BmpImageDemo());
     demoComponents.add (new MapDemo());

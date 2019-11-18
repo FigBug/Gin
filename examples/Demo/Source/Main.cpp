@@ -26,8 +26,10 @@ public:
     //==============================================================================
     void initialise (const String& cmdLine) override
     {
+       #if defined JUCE_MAC || defined JUCE_WINDOWS
         if (gin::ElevatedFileCopy::processCommandLine (cmdLine))
             return;
+       #endif
 
         mainWindow = std::make_unique<MainWindow> (getApplicationName());
     }
