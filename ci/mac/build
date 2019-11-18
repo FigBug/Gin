@@ -1,14 +1,16 @@
 #!/bin/sh -e
+set -x
 
 ROOT=$(cd "$(dirname "$0")/../.."; pwd)
 cd "$ROOT"
 
-git clone https://github.com/WeAreROLI/JUCE.git --branch develop --single-branch juce
+#git clone https://github.com/WeAreROLI/JUCE.git --branch develop --single-branch juce
 
 cd "$ROOT/juce/extras/Projucer/Builds/MacOSX/"
 xcodebuild -configuration Release || exit 1
 
-./build/Release/Projucer.app/Contents/MacOS/Projucer --resave "$ROOT/examples/Demo/Demo.jucer" --set-global-search-path "$ROOT/juce/modules"
+./build/Release/Projucer.app/Contents/MacOS/Projucer --set-global-search-path osx defaultJuceModulePath "$ROOT/juce/modules" 
+./build/Release/Projucer.app/Contents/MacOS/Projucer --resave "$ROOT/examples/Demo/Demo.jucer"
 
 cd "$ROOT/examples/Demo/Builds/MacOSX"
 xcodebuild -configuration Release || exit 1
