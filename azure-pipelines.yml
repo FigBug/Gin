@@ -3,12 +3,12 @@ jobs:
   pool:
     vmImage: 'macOS-10.14'
   steps:
-  - script: /ci/mac/build
+  - script: ci/mac/build
     displayName: 'macOS Build'
   - task: PublishPipelineArtifact@0
     inputs:
       artifactName: 'macOS'
-      targetPath: '/ci/mac/bin'
+      targetPath: 'ci/mac/bin'
 #- job: windows
 #  pool:
 #    vmImage: 'vs2017-win2016'
