@@ -5,7 +5,9 @@
 
  ==============================================================================*/
 
-#define USE_SSE 1
+#if JUCE_INTEL
+ #define USE_SSE 1
+#endif
 
 template <typename T>
 inline uint8 toByte (T v)

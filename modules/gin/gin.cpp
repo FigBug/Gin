@@ -63,7 +63,9 @@
 #endif
 
 #include "3rdparty/avir/avir.h"
-#include "3rdparty/avir/avir_float4_sse.h"
+#if JUCE_INTEL
+ #include "3rdparty/avir/avir_float4_sse.h"
+#endif
 
 #if __clang__
  #pragma clang diagnostic pop
