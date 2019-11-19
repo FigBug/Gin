@@ -18,4 +18,4 @@ cd "%ROOT%\examples\Demo\Builds\VisualStudio2017"
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 mkdir "%ROOT%\ci\win\bin"
-copy ./build/Release/Demo.exe "%ROOT%\ci\win\bin"
+copy .\x64\Release\App\Demo.exe "%ROOT%\ci\win\bin"
