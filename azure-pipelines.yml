@@ -9,15 +9,13 @@ jobs:
     inputs:
       artifactName: 'macOS'
       targetPath: 'ci/mac/bin'
-#- job: windows
-#  pool:
-#    vmImage: 'vs2017-win2016'
-#  steps:
-#  - script: |
-#      set MSBUILD_EXE=C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe
-#      Scripts/winci
-#    displayName: 'Windows Build'
-#  - task: PublishPipelineArtifact@0
-#    inputs:
-#      artifactName: 'Windows'
-#      targetPath: '/ci/win/build'
+- job: windows
+  pool:
+    vmImage: 'vs2017-win2016'
+  steps:
+  - script: ci/win/build.bat
+    displayName: 'Windows Build'
+  - task: PublishPipelineArtifact@0
+    inputs:
+      artifactName: 'Windows'
+      targetPath: 'ci/win/build'
