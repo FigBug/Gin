@@ -18,4 +18,4 @@ jobs:
   - task: PublishPipelineArtifact@0
     inputs:
       artifactName: 'Windows'
-      targetPath: 'ci/win/build'
+      targetPath: 'ci/win/bin'
