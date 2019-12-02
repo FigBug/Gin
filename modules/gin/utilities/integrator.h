@@ -17,8 +17,8 @@ public:
     double getIntegral();
 
     void addPoint (double x, double y);
-    void addPoint (Point<double> point);
-    void addPoints (Array<Point<double>> points);
+    void addPoint (juce::Point<double> point);
+    void addPoints (Array<juce::Point<double>> points);
 
 private:
 

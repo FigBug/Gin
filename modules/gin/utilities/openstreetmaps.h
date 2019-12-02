@@ -35,9 +35,9 @@ public:
     int getMapWidthPixels (int zoom);
     int getMapWidthTiles (int zoom);
 
-    Point<double> coordinateToDisplay (Point<double> coordinate, int zoom);
-    Point<double> displayToCoordinate (const Point<double> point, int zoom);
-    Point<double> tileForCoordinate (double lat, double lng, int zoom);
+    juce::Point<double> coordinateToDisplay (juce::Point<double> coordinate, int zoom);
+    juce::Point<double> displayToCoordinate (const juce::Point<double> point, int zoom);
+    juce::Point<double> tileForCoordinate (double lat, double lng, int zoom);
 
     void clearQueue();
 

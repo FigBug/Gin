@@ -18,7 +18,7 @@ public:
 
     void setZoom (int zoom);
     void centerOn (double longCenter, double latCenter);
-    void centerUnderPt (Point<double> world, Point<int> view);
+    void centerUnderPt (juce::Point<double> world, juce::Point<int> view);
 
     OpenStreetMaps* getOpenStreetMaps() { return osm; }
 
@@ -49,12 +49,12 @@ private:
 
     SharedResourcePointer<OpenStreetMaps> osm;
 
-    Point<int> lastPos;
-    Point<double> centerPt;
+    juce::Point<int> lastPos;
+    juce::Point<double> centerPt;
 
     bool userAdjusted;
 
-    Point<double> posMarker;
+    juce::Point<double> posMarker;
 
     std::unique_ptr<Image> doubleBuffer;
 

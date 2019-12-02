@@ -23,22 +23,22 @@ public:
     {
     }
 
-    bool isPointOn (Point<T> pt, T accuracy = 0.00001)
+    bool isPointOn (juce::Point<T> pt, T accuracy = 0.00001)
     {
         return std::abs (1.0 - (square (pt.getX()) / square (a) + square (pt.getY()) / square (b))) < accuracy;
     }
 
-    bool isPointOutside (Point<T> pt)
+    bool isPointOutside (juce::Point<T> pt)
     {
         return (square (pt.getX()) / square (a) + square (pt.getY()) / square (b)) > 1.0;
     }
 
-    bool isPointInside (Point<T> pt)
+    bool isPointInside (juce::Point<T> pt)
     {
         return (square (pt.getX()) / square (a) + square (pt.getY()) / square (b)) < 1.0;
     }
 
-    Point<T> pointAtAngle (T angle)
+    juce::Point<T> pointAtAngle (T angle)
     {
         T x = (a * b) / std::sqrt (square (b) + square (a) * square (std::tan (angle)));
         T y = (a * b) / std::sqrt (square (a) + square (b) / square (std::tan (angle)));

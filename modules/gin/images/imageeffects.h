@@ -110,7 +110,7 @@ enum BlendMode
     Phoenix,
 };
 
-void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha = 1.0f, Point<int> position = {}, ThreadPool* threadPool = nullptr);
+void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha = 1.0f, juce::Point<int> position = {}, ThreadPool* threadPool = nullptr);
 
 void applyBlend (Image& dst, BlendMode mode, Colour c, ThreadPool* threadPool = nullptr);
 
