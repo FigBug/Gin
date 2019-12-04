@@ -21,7 +21,7 @@ For more information visit www.rabiensoftware.com
     macOS and windows and will not on Linux.
 
  */
-class FileSystemWatcher : public ChangeBroadcaster
+class FileSystemWatcher
 {
 public:
     //==============================================================================
