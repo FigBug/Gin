@@ -172,5 +172,7 @@ int main (int argc, char* argv[])
                  
         return output.contains ("The validate action worked!");
 	}
+    
+    return 0;
 }
 
