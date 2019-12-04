@@ -31,3 +31,7 @@ codesign -s "$DEV_APP_ID" -v "Demo.app"
 
 ./notarize Demo.app $1 $2
 
+zip -r Demo.zip Demo.app
+zip notarize.zip notarize
+
+rm -Rf notarize Demo.app
