@@ -24,7 +24,7 @@ xcodebuild -configuration Release || exit 1
 
 mkdir "$ROOT/ci/mac/bin"
 cp -R "$ROOT/examples/Demo/Builds/MacOSX/build/Release/Demo.app" "$ROOT/ci/mac/bin"
-cp -R "$ROOT/tools/notarize/notarize/Builds/MacOSX/build/Release/Demo.app" "$ROOT/ci/mac/bin"
+cp -R "$ROOT/tools/notarize/Builds/MacOSX/build/Release/Demo.app" "$ROOT/ci/mac/bin"
 
 cd "$ROOT/ci/mac/bin"
 codesign -s "$DEV_APP_ID" -v "Demo.app"

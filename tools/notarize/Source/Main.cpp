@@ -89,7 +89,7 @@ int main (int argc, char* argv[])
 	if (path.isDirectory())
 	{
 		// If it's a bundle, zip it up
-		notarizePath = path.withFileExtension(".zip");
+		notarizePath = path.withFileExtension (".zip");
 
         {
             ZipFile::Builder builder;
