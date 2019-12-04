@@ -116,7 +116,7 @@ int main (int argc, char* argv[])
 	// Upload to notarize service
 	String uuid;
 	{
-        printf ("Uploading to noyarization service\n");
+        printf ("Uploading to notarization service\n");
         auto output = execute ("xcrun altool --notarize-app --primary-bundle-id " + bundleId.quoted () + " --username " +
                                username.quoted () + " --password " + password.quoted() + " --file " +
                                notarizePath.getFullPathName().quoted() + " --output-format xml" );
@@ -170,9 +170,14 @@ int main (int argc, char* argv[])
         execute ("xcrun stapler staple " + path.getFullPathName().quoted());
         auto output = execute ("xcrun stapler validate " + path.getFullPathName().quoted());
                  
-        return output.contains ("The validate action worked!");
+        if (output.contains ("The validate action worked!"))
+        {
+            printf ("Staple success\n");
+            return 0;
+        }
+        
+        printf ("Staple failed\n");
+        return 1;
 	}
-    
-    return 0;
 }
 
