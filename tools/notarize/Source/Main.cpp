@@ -122,6 +122,10 @@ int main (int argc, char* argv[])
 			printf ("Notarize upload failed\n");
 			return 1;
 		}
+        else
+        {
+            printf ("Notarize uuid: %s\n", uuid.toRawUTF8());
+        }
 	}
 
 	// Wait for notarize to finish
@@ -136,6 +140,9 @@ int main (int argc, char* argv[])
 			break;
 
         tries++;
+        
+        printf ("Attempt %d of 500\n", tries);
+        
         if (tries == 500)
         {
 			printf ("Notarize failed: %s\n", status.toRawUTF8());

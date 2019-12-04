@@ -1,6 +1,9 @@
 #!/bin/sh -e
 set -x
 
+DEV_APP_ID="Developer ID Application: Roland Rabien (3FS7DJDG38)"
+DEV_INST_ID="Developer ID Installer: Roland Rabien (3FS7DJDG38)"
+
 ROOT=$(cd "$(dirname "$0")/../.."; pwd)
 cd "$ROOT"
 
@@ -11,9 +14,20 @@ xcodebuild -configuration Release || exit 1
 
 ./build/Release/Projucer.app/Contents/MacOS/Projucer --set-global-search-path osx defaultJuceModulePath "$ROOT/juce/modules" 
 ./build/Release/Projucer.app/Contents/MacOS/Projucer --resave "$ROOT/examples/Demo/Demo.jucer"
+./build/Release/Projucer.app/Contents/MacOS/Projucer --resave "$ROOT/tools/notarize/notarize.jucer"
 
 cd "$ROOT/examples/Demo/Builds/MacOSX"
 xcodebuild -configuration Release || exit 1
 
+cd "$ROOT/tools/notarize/notarize/Builds/MacOSX"
+xcodebuild -configuration Release || exit 1
+
 mkdir "$ROOT/ci/mac/bin"
-cp -R ./build/Release/Demo.app "$ROOT/ci/mac/bin"
+cp -R "$ROOT/examples/Demo/Builds/MacOSX/build/Release/Demo.app" "$ROOT/ci/mac/bin"
+cp -R "$ROOT/tools/notarize/notarize/Builds/MacOSX/build/Release/Demo.app" "$ROOT/ci/mac/bin"
+
+cd "$ROOT/ci/mac/bin"
+codesign -s "$DEV_APP_ID" -v "Demo.app"
+
+notarize ./Demo.app $1 $2
+
