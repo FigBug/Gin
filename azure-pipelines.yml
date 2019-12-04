@@ -1,9 +1,21 @@
+variables:
+  - group: Notarize
 jobs:
 - job: macOS
   pool:
     vmImage: 'macOS-10.14'
   steps:
-  - script: ci/mac/build
+    - task: InstallAppleCertificate@2
+    inputs:
+      certSecureFile: 'Application.p12'
+      certPwd: 'pAVuCweV'
+      keychain: 'temp'
+  - task: InstallAppleCertificate@2
+    inputs:
+      certSecureFile: 'Installer.p12'
+      certPwd: 'pAVuCweV'
+      keychain: 'temp'
+  - script: ci/mac/build $(username) $(password)
     displayName: 'macOS Build'
   - task: PublishPipelineArtifact@0
     inputs:

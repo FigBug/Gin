@@ -34,7 +34,12 @@ String execute (String cmd)
 String parseRequestUuid (String xml)
 {
     auto plist = gin::parsePlist (xml);
-    return plist.getProperty ("notarization-upload", "");
+    var obj = plist.getProperty ("notarization-upload", "");
+    if (obj.isObject())
+    {
+        return obj.getProperty ("RequestUUID", "");
+    }
+    return "";
 }
 
 String parseStatus (String xml)
@@ -70,13 +75,16 @@ int main (int argc, char* argv[])
     }
 
     path.getParentDirectory().setAsCurrentWorkingDirectory();
+    
+    auto cwd = path.getParentDirectory().getFullPathName();
+    printf ("Current working dir: %s\n", cwd.toRawUTF8());
 
 	String username = argv[2];
 	String password = argv[3];
     String bundleId = (argc == 5) ? argv[4] : "";
     
     if (bundleId.isEmpty())
-        bundleId = parseBundleId (path);
+        bundleId = parseBundleId (path.getChildFile ("Contents/Info.plist"));
     
     if (bundleId.isEmpty())
     {
@@ -108,9 +116,11 @@ int main (int argc, char* argv[])
 	// Upload to notarize service
 	String uuid;
 	{
+        printf ("Uploading to noyarization service\n");
         auto output = execute ("xcrun altool --notarize-app --primary-bundle-id " + bundleId.quoted () + " --username " +
                                username.quoted () + " --password " + password.quoted() + " --file " +
                                notarizePath.getFullPathName().quoted() + " --output-format xml" );
+        
 
 		uuid = parseRequestUuid (output);
         
@@ -119,7 +129,7 @@ int main (int argc, char* argv[])
 
 		if (uuid.isEmpty())
 		{
-			printf ("Notarize upload failed\n");
+			printf ("Notarize upload failed %s\n", output.toRawUTF8());
 			return 1;
 		}
         else
@@ -137,11 +147,14 @@ int main (int argc, char* argv[])
 
 		auto status = parseStatus (output);
 		if (status == "success")
+        {
+            printf ("Notarize success\n");
 			break;
+        }
 
         tries++;
         
-        printf ("Attempt %d of 500\n", tries);
+        printf ("Checking status: %d of 500\n", tries);
         
         if (tries == 500)
         {
