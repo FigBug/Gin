@@ -5,7 +5,7 @@ jobs:
   pool:
     vmImage: 'macOS-10.14'
   steps:
-    - task: InstallAppleCertificate@2
+  - task: InstallAppleCertificate@2
     inputs:
       certSecureFile: 'Application.p12'
       certPwd: 'pAVuCweV'
