@@ -29,7 +29,7 @@ cp -R "$ROOT/tools/notarize/Builds/MacOSX/build/Release/notarize" "$ROOT/ci/mac/
 cd "$ROOT/ci/mac/bin"
 codesign -s "$DEV_APP_ID" -v "Demo.app"
 
-./notarize Demo.app $1 $2
+./notarize -v Demo.app $1 $2
 
 zip -r Demo.zip Demo.app
 zip notarize.zip notarize

@@ -11,9 +11,12 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 
 //=============================================================================
-String execute (String cmd)
+String execute (String cmd, bool verbose)
 {
 	ChildProcess cp;
+
+    if (verbose)
+        printf ("cmd: %s\n", cmd.toRawUTF8());
 
 	auto tokens = StringArray::fromTokens (cmd, true);
 	StringArray params;
@@ -26,8 +29,15 @@ String execute (String cmd)
 		while (! cp.waitForProcessToFinish (100))
             Thread::sleep (100);
 
-		return cp.readAllProcessOutput();
+		auto output = cp.readAllProcessOutput();
+
+        if (verbose)
+            printf ("output:\n%s\n", output.toRawUTF8());
+
+        return output;
 	}
+
+    printf ("error: failed to launch\n");
     return {};
 }
 
@@ -61,11 +71,27 @@ String parseBundleId (File f)
 //==============================================================================
 int main (int argc, char* argv[])
 {
-	if (argc != 4 && argc != 5)
+	if (argc < 4)
 	{
-		printf ("Usage: notarize PATH USERNAME PASSWORD [BUNDLE_ID]\n");
+		printf ("Usage: notarize PATH [-v] USERNAME PASSWORD [BUNDLE_ID]\n");
         return 0;
 	}
+
+    bool verbose = false;
+
+    StringArray args;
+    for (int i = 0; i < argc; i++)
+    {
+        auto arg = String (argv[i]);
+        if (arg.startsWith ("-"))
+        {
+            if (arg == "-v") verbose = true;
+        }
+        else
+        {
+            args.add (argv[i]);
+        }
+    }
 
 	File path = File::getCurrentWorkingDirectory().getChildFile (argv[1]);
     if (! path.existsAsFile() && ! path.isDirectory())
@@ -105,7 +131,7 @@ int main (int argc, char* argv[])
         }
 
         notarizePath.deleteFile ();
-        execute ("ditto -c -k --keepParent " + path.getFullPathName().quoted() + " " + notarizePath.getFullPathName().quoted());
+        execute ("ditto -c -k --keepParent " + path.getFullPathName().quoted() + " " + notarizePath.getFullPathName().quoted(), verbose);
 	}
 	else
 	{
@@ -119,8 +145,10 @@ int main (int argc, char* argv[])
         printf ("Uploading to notarization service\n");
         auto output = execute ("xcrun altool --notarize-app --primary-bundle-id " + bundleId.quoted () + " --username " +
                                username.quoted () + " --password " + password.quoted() + " --file " +
-                               notarizePath.getFullPathName().quoted() + " --output-format xml" );
-        
+                               notarizePath.getFullPathName().quoted() + " --output-format xml", verbose);
+
+        if (verbose)
+            printf ("%s\n", output.toRawUTF8());
 
 		uuid = parseRequestUuid (output);
         
@@ -143,7 +171,10 @@ int main (int argc, char* argv[])
 	while (true)
 	{
 		auto output = execute ("xcrun altool --notarization-info " + uuid.quoted() + " --username " + username.quoted() +
-                               " --password " + password.quoted() + " --output-format xml");
+                               " --password " + password.quoted() + " --output-format xml", verbose);
+
+        if (verbose)
+            printf ("%s\n", output.toRawUTF8());
 
 		auto status = parseStatus (output);
 		if (status == "success")
@@ -167,9 +198,9 @@ int main (int argc, char* argv[])
 
 	// Staple and verify
 	{
-        execute ("xcrun stapler staple " + path.getFullPathName().quoted());
-        auto output = execute ("xcrun stapler validate " + path.getFullPathName().quoted());
-                 
+        execute ("xcrun stapler staple " + path.getFullPathName().quoted(), verbose);
+        auto output = execute ("xcrun stapler validate " + path.getFullPathName().quoted(), verbose);
+
         if (output.contains ("The validate action worked!"))
         {
             printf ("Staple success\n");
