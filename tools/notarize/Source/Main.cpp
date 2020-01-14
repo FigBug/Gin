@@ -62,6 +62,26 @@ String parseStatus (String xml)
 	return {};
 }
 
+String parseStatusMessage (String xml)
+{
+    auto plist = gin::parsePlist (xml);
+    auto info = plist.getProperty ("notarization-info", "");
+    if (! info.isVoid())
+        return info.getProperty ("Status Message", "");
+
+    return {};
+}
+
+String parseBuildLog (String xml)
+{
+    auto plist = gin::parsePlist (xml);
+    auto info = plist.getProperty ("notarization-info", "");
+    if (! info.isVoid())
+        return info.getProperty ("LogFileURL", "");
+
+    return {};
+}
+
 String parseBundleId (File f)
 {
     auto plist = gin::parsePlist (f);
@@ -71,9 +91,14 @@ String parseBundleId (File f)
 //==============================================================================
 int main (int argc, char* argv[])
 {
+    auto ver = Time::getCompilationDate().toString (true, true);
+
+    printf ("Notarize: version: %s\n", ver.toRawUTF8());
+    printf ("argc %d\n", argc);
+
 	if (argc < 4)
 	{
-		printf ("Usage: notarize PATH [-v] USERNAME PASSWORD [BUNDLE_ID]\n");
+		printf ("Usage: notarize [-v] PATH USERNAME PASSWORD [BUNDLE_ID]\n");
         return 0;
 	}
 
@@ -93,7 +118,7 @@ int main (int argc, char* argv[])
         }
     }
 
-	File path = File::getCurrentWorkingDirectory().getChildFile (argv[1]);
+	File path = File::getCurrentWorkingDirectory().getChildFile (args[1]);
     if (! path.existsAsFile() && ! path.isDirectory())
     {
         printf ("\"%s\" not found\n", path.getFullPathName().toRawUTF8());
@@ -105,9 +130,9 @@ int main (int argc, char* argv[])
     auto cwd = path.getParentDirectory().getFullPathName();
     printf ("Current working dir: %s\n", cwd.toRawUTF8());
 
-	String username = argv[2];
-	String password = argv[3];
-    String bundleId = (argc == 5) ? argv[4] : "";
+	String username = args[2];
+	String password = args[3];
+    String bundleId = (argc == 5) ? args[4] : "";
     
     if (bundleId.isEmpty())
         bundleId = parseBundleId (path.getChildFile ("Contents/Info.plist"));
@@ -181,6 +206,20 @@ int main (int argc, char* argv[])
         {
             printf ("Notarize success\n");
 			break;
+        }
+
+        if (status == "invalid")
+        {
+            auto statusMessage = parseStatusMessage (output);
+            auto buildLog = parseBuildLog (output);
+
+            if (! statusMessage.contains ("UUID"))
+            {
+                printf ("Notarize failed: %s\n", statusMessage.toRawUTF8());
+                printf ("Notarize log: %s\n", buildLog.toRawUTF8());
+
+                return 1;
+            }
         }
 
         tries++;

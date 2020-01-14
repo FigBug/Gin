@@ -7,7 +7,9 @@ DEV_INST_ID="Developer ID Installer: Roland Rabien (3FS7DJDG38)"
 ROOT=$(cd "$(dirname "$0")/../.."; pwd)
 cd "$ROOT"
 
-git clone https://github.com/WeAreROLI/JUCE.git --branch develop --single-branch juce
+if [ ! -d "juce" ]; then
+  git clone https://github.com/WeAreROLI/JUCE.git --branch develop --single-branch juce
+fi
 
 cd "$ROOT/juce/extras/Projucer/Builds/MacOSX/"
 xcodebuild -configuration Release || exit 1
