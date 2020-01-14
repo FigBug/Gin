@@ -24,6 +24,7 @@ xcodebuild -configuration Release || exit 1
 cd "$ROOT/tools/notarize/Builds/MacOSX"
 xcodebuild -configuration Release || exit 1
 
+rm -Rf "$ROOT/ci/mac/bin"
 mkdir -p "$ROOT/ci/mac/bin"
 cp -R "$ROOT/examples/Demo/Builds/MacOSX/build/Release/Demo.app" "$ROOT/ci/mac/bin"
 cp -R "$ROOT/tools/notarize/Builds/MacOSX/build/Release/notarize" "$ROOT/ci/mac/bin"
