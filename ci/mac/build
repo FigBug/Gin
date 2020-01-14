@@ -30,7 +30,7 @@ cp -R "$ROOT/examples/Demo/Builds/MacOSX/build/Release/Demo.app" "$ROOT/ci/mac/b
 cp -R "$ROOT/tools/notarize/Builds/MacOSX/build/Release/notarize" "$ROOT/ci/mac/bin"
 
 cd "$ROOT/ci/mac/bin"
-codesign -s "$DEV_APP_ID" -v "Demo.app"
+codesign --force -s "$DEV_APP_ID" -v "Demo.app" --deep --strict --options=runtime
 
 ./notarize -v Demo.app $1 $2
 
