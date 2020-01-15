@@ -1,6 +1,9 @@
 # Gin
 A few useful extra classes for JUCE (https://juce.com/) that I've come up with over the years.
 
+![Build Windows](https://github.com/FigBug/Gin/workflows/Build%20Windows/badge.svg "Build Windows")
+![Build macOS](https://github.com/FigBug/Gin/workflows/Build%20macOS/badge.svg "Build macOS")
+
 What's included:
 
 * BMPImageFormat - Load and Save Windows Bitmaps
