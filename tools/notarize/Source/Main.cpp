@@ -132,7 +132,7 @@ int main (int argc, char* argv[])
 
 	String username = args[2];
 	String password = args[3];
-    String bundleId = (argc == 5) ? args[4] : "";
+    String bundleId = args[4];
     
     if (bundleId.isEmpty())
         bundleId = parseBundleId (path.getChildFile ("Contents/Info.plist"));
