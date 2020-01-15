@@ -17,5 +17,9 @@ jobs:
           APPLE_USER: ${{ secrets.APPLE_USER }}
       - uses: actions/upload-artifact@v1
         with:
-          name: mac
+          name: Demo.zip
+          path: ci/mac/bin
+      - uses: actions/upload-artifact@v1
+        with:
+          name: notarize.zip
           path: ci/mac/bin
