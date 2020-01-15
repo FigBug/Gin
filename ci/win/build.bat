@@ -1,4 +1,12 @@
-set MSBUILD_EXE=C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe
+setlocal enabledelayedexpansion
+
+set VS_WHERE=%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere
+echo %VS_WHERE%
+
+for /f "usebackq tokens=*" %%i in (`"%VS_WHERE%" -latest -requires Microsoft.Component.MSBuild -find MSBuild\**\Bin\MSBuild.exe`) do (
+  set MSBUILD_EXE=%%i
+)
+echo %MSBUILD_EXE%
 
 echo on
 cd "%~dp0..\..%"

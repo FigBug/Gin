@@ -1,0 +1,12 @@
+name: Build Windows
+on: [push]
+
+jobs:
+  build:
+    name: Build Windows
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: "Run script"
+        run: .\ci\win\build.bat
+        shell: cmd
