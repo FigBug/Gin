@@ -27,3 +27,5 @@ if %errorlevel% neq 0 exit /b %errorlevel%
 
 mkdir "%ROOT%\ci\win\bin"
 copy .\x64\Release\App\Demo.exe "%ROOT%\ci\win\bin"
+"%ROOT%\ci\win\bin"
+zip -r Demo.zip Demo.exe
