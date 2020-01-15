@@ -15,3 +15,7 @@ jobs:
           INSTALLER: ${{ secrets.INSTALLER }}
           APPLE_PASS: ${{ secrets.APPLE_PASS }}
           APPLE_USER: ${{ secrets.APPLE_USER }}
+      - uses: actions/upload-artifact@v1
+        with:
+          name: mac
+          path: ci/mac/bin
