@@ -12,5 +12,5 @@ jobs:
         shell: cmd
       - uses: actions/upload-artifact@v1
         with:
-          name: Demo.zip
+          name: Windows.zip
           path: ci/win/bin

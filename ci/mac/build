@@ -48,8 +48,3 @@ cd "$ROOT/ci/mac/bin"
 codesign --force -s "$DEV_APP_ID" -v "Demo.app" --deep --strict --options=runtime
 
 ./notarize Demo.app $APPLE_USER $APPLE_PASS
-
-zip -r Demo.zip Demo.app
-zip notarize.zip notarize
-
-rm -Rf notarize Demo.app
