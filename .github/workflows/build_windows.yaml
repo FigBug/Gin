@@ -10,3 +10,7 @@ jobs:
       - name: "Run script"
         run: .\ci\win\build.bat
         shell: cmd
+      - uses: actions/upload-artifact@v1
+        with:
+          name: mac
+          path: ci/win/bin
