@@ -98,11 +98,12 @@ int main (int argc, char* argv[])
 
 	if (argc < 4)
 	{
-		printf ("Usage: notarize [-v] PATH USERNAME PASSWORD [BUNDLE_ID]\n");
+		printf ("Usage: notarize [-v] [-ns] PATH USERNAME PASSWORD [BUNDLE_ID]\n");
         return 0;
 	}
 
     bool verbose = false;
+    bool staple = true;
 
     StringArray args;
     for (int i = 0; i < argc; i++)
@@ -111,6 +112,7 @@ int main (int argc, char* argv[])
         if (arg.startsWith ("-"))
         {
             if (arg == "-v") verbose = true;
+            if (arg == "-ns") staple = false;
         }
         else
         {
@@ -236,6 +238,7 @@ int main (int argc, char* argv[])
 	}
 
 	// Staple and verify
+    if (staple)
 	{
         execute ("xcrun stapler staple " + path.getFullPathName().quoted(), verbose);
         auto output = execute ("xcrun stapler validate " + path.getFullPathName().quoted(), verbose);
