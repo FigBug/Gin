@@ -255,3 +255,57 @@ private:
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Select)
 };
+
+//==============================================================================
+class LevelMeter : public Component,
+                   private Timer
+{
+public:
+    LevelMeter (LevelTracker& tracker_) : tracker (tracker_)
+    {
+        setColour (backgroundColourId, Colours::darkgrey);
+        setColour (meterColourId, Colours::yellow);
+        
+        startTimerHz (30);
+    }
+    
+    void setLevel (float level_)
+    {
+        if (std::fabs(level - level_))
+        {
+            level = level_;
+            repaint();
+        }
+    }
+    
+    enum ColourIds
+    {
+        backgroundColourId              = 0x6500000,
+        meterColourId                   = 0x6500001
+    };
+    
+private:
+    void paint (Graphics& g) override
+    {
+        Rectangle<int> r = getLocalBounds();
+        
+        g.setColour (findColour (backgroundColourId));
+        g.fillRect (r);
+        
+        float pos = range.convertTo0to1(jlimit(range.start, range.end, level));
+        
+        r = r.removeFromBottom (roundToInt (pos * getHeight()));
+        
+        g.setColour (findColour (meterColourId));
+        g.fillRect (r);
+    }
+    
+    void timerCallback() override
+    {
+        setLevel (tracker.getLevel());
+    }
+    
+    float level {0};
+    NormalisableRange<float> range {-48.0, 0};
+    LevelTracker& tracker;
+};
