@@ -26,10 +26,10 @@ void AsyncWebsocket::disconnect()
 {
     signalThreadShouldExit();
 
-    if (impl->socket)
+    if (impl->socket != nullptr)
         impl->socket->interrupt();
 
-    stopThread (1000);
+    stopThread (5000);
     impl->socket = nullptr;
 }
 
@@ -53,9 +53,12 @@ void AsyncWebsocket::run()
                                onConnect();
                        });
         
-        while (! threadShouldExit())
+        while (true)
         {
-            impl->socket->poll (10000);
+            if (threadShouldExit())
+                break;
+
+            impl->socket->poll (4000);
             if (impl->socket->getReadyState() == easywsclient::WebSocket::CLOSED)
                 break;
 
@@ -123,7 +126,8 @@ void AsyncWebsocket::processOutgoingData()
         }
         else if (data.type == textMsg)
         {
-            impl->socket->send (data.text.toStdString());
+            auto buf = data.text.toStdString();
+            impl->socket->send (buf);
         }
         else
         {
