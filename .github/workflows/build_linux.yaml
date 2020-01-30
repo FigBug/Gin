@@ -1,0 +1,17 @@
+name: Build Linux
+on: [push]
+
+jobs:
+  build:
+    name: Build Linux
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: "Run script"
+        run: ./ci/linux/build
+        shell: bash
+      - uses: actions/upload-artifact@v1
+        with:
+          name: Linux
+          path: ci/linux/bin
+

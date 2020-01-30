@@ -3,6 +3,7 @@ A few useful extra classes for JUCE (https://juce.com/) that I've come up with o
 
 ![Build Windows](https://github.com/FigBug/Gin/workflows/Build%20Windows/badge.svg "Build Windows")
 ![Build macOS](https://github.com/FigBug/Gin/workflows/Build%20macOS/badge.svg "Build macOS")
+![Build Linux](https://github.com/FigBug/Gin/workflows/Build%20Linux/badge.svg "Build Linux")
 
 What's included:
 
