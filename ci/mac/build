@@ -26,12 +26,29 @@ if [ ! -d "juce" ]; then
   git clone https://github.com/WeAreROLI/JUCE.git --branch develop --single-branch juce
 fi
 
-cd "$ROOT/juce/extras/Projucer/Builds/MacOSX/"
-xcodebuild -configuration Release || exit 1
+# Get the hash
+cd "$ROOT/juce"
+HASH=`git rev-parse HEAD`
+echo "Hash: $HASH"
 
-./build/Release/Projucer.app/Contents/MacOS/Projucer --set-global-search-path osx defaultJuceModulePath "$ROOT/juce/modules" 
-./build/Release/Projucer.app/Contents/MacOS/Projucer --resave "$ROOT/examples/Demo/Demo.jucer"
-./build/Release/Projucer.app/Contents/MacOS/Projucer --resave "$ROOT/tools/notarize/notarize.jucer"
+# Get the Projucer
+mkdir -p "$ROOT/ci/bin"
+cd "$ROOT/ci/bin"
+while true
+do
+  PROJUCER_URL=$(curl -s -S "https://projucer.rabien.com/get_projucer.php?hash=$HASH&os=$OS&key=$APIKEY")
+  echo "Response: $PROJUCER_URL"
+  if [[ $PROJUCER_URL == http* ]]; then
+    curl -s -S $PROJUCER_URL -o "$ROOT/ci/bin/Projucer.zip"
+    unzip Projucer.zip
+    break
+  fi
+  sleep 15
+done
+
+$ROOT/ci/bin/Projucer.app/Contents/MacOS/Projucer --set-global-search-path osx defaultJuceModulePath "$ROOT/juce/modules" 
+$ROOT/ci/bin/Projucer.app/Contents/MacOS/Projucer --resave "$ROOT/examples/Demo/Demo.jucer"
+$ROOT/ci/bin/Projucer.app/Contents/MacOS/Projucer --resave "$ROOT/tools/notarize/notarize.jucer"
 
 cd "$ROOT/examples/Demo/Builds/MacOSX"
 xcodebuild -configuration Release || exit 1
