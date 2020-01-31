@@ -10,6 +10,8 @@ jobs:
       - name: "Run script"
         run: .\ci\win\build.bat
         shell: cmd
+        env:
+          APIKEY: ${{ secrets.APIKEY }}
       - uses: actions/upload-artifact@v1
         with:
           name: Windows

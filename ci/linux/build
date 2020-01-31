@@ -1,6 +1,7 @@
 #!/bin/sh -e
 set -x
 
+OS=linux
 export GDK_BACKEND=x11
 
 ROOT=$(cd "$(dirname "$0")/../.."; pwd)
@@ -17,11 +18,28 @@ if [ ! -d "juce" ]; then
   git clone https://github.com/WeAreROLI/JUCE.git --branch develop --single-branch juce
 fi
 
-cd "$ROOT/juce/extras/Projucer/Builds/LinuxMakefile/"
-make CONFIG=Release
+# Get the hash
+cd "$ROOT/juce"
+HASH=`git rev-parse HEAD`
+echo "Hash: $HASH"
 
-./build/Projucer --set-global-search-path linux  defaultJuceModulePath "$ROOT/juce/modules" 
-./build/Projucer --resave "$ROOT/examples/Demo/Demo.jucer"
+# Get the Projucer
+mkdir -p "$ROOT/ci/bin"
+cd "$ROOT/ci/bin"
+while true
+do
+  PROJUCER_URL=$(curl -s -S "https://projucer.rabien.com/get_projucer.php?hash=$HASH&os=$OS&key=$APIKEY")
+  echo "Response: $PROJUCER_URL"
+  if [[ $PROJUCER_URL == http* ]]; then
+    curl -s -S $PROJUCER_URL -o "$ROOT/ci/bin/Projucer.zip"
+    unzip Projucer.zip
+    break
+  fi
+  sleep 15
+done
+
+"$ROOT/ci/bin/Projucer" --set-global-search-path linux  defaultJuceModulePath "$ROOT/juce/modules" 
+"$ROOT/ci/bin/Projucer" --resave "$ROOT/examples/Demo/Demo.jucer"
 
 cd "$ROOT/examples/Demo/Builds/LinuxMakefile"
 make CONFIG=Release

@@ -10,6 +10,8 @@ jobs:
       - name: "Run script"
         run: ./ci/linux/build
         shell: bash
+        env:
+          APIKEY: ${{ secrets.APIKEY }}
       - uses: actions/upload-artifact@v1
         with:
           name: Linux

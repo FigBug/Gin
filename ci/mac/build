@@ -3,23 +3,25 @@ set -x
 
 OS=mac
 
-echo "Create a keychain"
-security create-keychain -p nr4aGPyz Keys.keychain
+if [[ -n "$APPLICATION" ]]; then
+  echo "Create a keychain"
+  security create-keychain -p nr4aGPyz Keys.keychain
 
-echo $APPLICATION | base64 -D -o /tmp/Application.p12
-echo $INSTALLER | base64 -D -o /tmp/Installer.p12
+  echo $APPLICATION | base64 -D -o /tmp/Application.p12
+  echo $INSTALLER | base64 -D -o /tmp/Installer.p12
 
-security import /tmp/Application.p12 -t agg -k Keys.keychain -P aym9PKWB -A -T /usr/bin/codesign
-security import /tmp/Installer.p12 -t agg -k Keys.keychain -P aym9PKWB -A -T /usr/bin/codesign
+  security import /tmp/Application.p12 -t agg -k Keys.keychain -P aym9PKWB -A -T /usr/bin/codesign
+  security import /tmp/Installer.p12 -t agg -k Keys.keychain -P aym9PKWB -A -T /usr/bin/codesign
 
-security list-keychains -s Keys.keychain
-security default-keychain -s Keys.keychain
-security unlock-keychain -p nr4aGPyz Keys.keychain
-security set-keychain-settings -l -u -t 13600 Keys.keychain
-security set-key-partition-list -S apple-tool:,apple: -s -k nr4aGPyz Keys.keychain
+  security list-keychains -s Keys.keychain
+  security default-keychain -s Keys.keychain
+  security unlock-keychain -p nr4aGPyz Keys.keychain
+  security set-keychain-settings -l -u -t 13600 Keys.keychain
+  security set-key-partition-list -S apple-tool:,apple: -s -k nr4aGPyz Keys.keychain
 
-DEV_APP_ID="Developer ID Application: Roland Rabien (3FS7DJDG38)"
-DEV_INST_ID="Developer ID Installer: Roland Rabien (3FS7DJDG38)"
+  DEV_APP_ID="Developer ID Application: Roland Rabien (3FS7DJDG38)"
+  DEV_INST_ID="Developer ID Installer: Roland Rabien (3FS7DJDG38)"
+fi
 
 ROOT=$(cd "$(dirname "$0")/../.."; pwd)
 cd "$ROOT"
@@ -63,10 +65,12 @@ mkdir -p "$ROOT/ci/mac/bin"
 cp -R "$ROOT/examples/Demo/Builds/MacOSX/build/Release/Demo.app" "$ROOT/ci/mac/bin"
 cp -R "$ROOT/tools/notarize/Builds/MacOSX/build/Release/notarize" "$ROOT/ci/mac/bin"
 
-cd "$ROOT/ci/mac/bin"
-codesign --force -s "$DEV_APP_ID" -v "Demo.app" --deep --strict --options=runtime
+if [[ -n "$APPLICATION" ]]; then
+  cd "$ROOT/ci/mac/bin"
+  codesign --force -s "$DEV_APP_ID" -v "Demo.app" --deep --strict --options=runtime
 
-./notarize Demo.app $APPLE_USER $APPLE_PASS
+  ./notarize Demo.app $APPLE_USER $APPLE_PASS
+fi
 
 zip -r Demo.zip Demo.app
 
