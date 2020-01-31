@@ -1,6 +1,8 @@
 #!/bin/sh -e
 set -x
 
+OS=mac
+
 echo "Create a keychain"
 security create-keychain -p nr4aGPyz Keys.keychain
 
