@@ -50,9 +50,12 @@ public:
         }
     }
 
-    bool write (const AudioSampleBuffer& src)
+    bool write (const AudioSampleBuffer& src, int numSamples = -1)
     {
-        return write (src.getArrayOfReadPointers(), src.getNumSamples());
+        if (numSamples == -1)
+            numSamples = src.getNumSamples();
+        
+        return write (src.getArrayOfReadPointers(), numSamples);
     }
 
     bool write (const float* const* data, int numSamples)

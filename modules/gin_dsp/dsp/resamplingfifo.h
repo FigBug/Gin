@@ -11,48 +11,30 @@
 
 #include "audioutil.h"
 
-/** ResamplingFifo - based on the algorithm from juce::ResamplingAudioSource
+/** ResamplingFifo - uses secret rabbit code
  */
 class ResamplingFifo
 {
 public:
-    ResamplingFifo (int expectedSamplesPerBlock, int numChannels = 2, int maxSamples = 44100);
+    ResamplingFifo (int blockSize, int numChannels = 2, int maxSamples = 44100);
+    ~ResamplingFifo ();
 
     void setResamplingRatio (double inputRate, double outputRate);
-    double getResamplingRatio() const noexcept                      { return ratio; }
 
-    void flushBuffers();
+    void reset();
     int samplesReady()                                              { return outputFifo.getNumReady(); }
 
     void pushAudioBuffer (const AudioSampleBuffer& buffer);
     void popAudioBuffer (AudioSampleBuffer& buffer);
 
 private:
-    void prepare();
-    void process();
-
-    //==============================================================================
-    double ratio = 1.0, lastRatio = 1.0;
-    AudioBuffer<float> buffer, outBuffer;
-    int bufferPos = 0, sampsInBuffer = 0;
-    double subSampleOffset = 0.0;
-    double coefficients[6];
-    const int numChannels, blockSize;
-    HeapBlock<float*> destBuffers;
-    HeapBlock<const float*> srcBuffers;
-
-    AudioFifo inputFifo, outputFifo;
-
-    void setFilterCoefficients (double c1, double c2, double c3, double c4, double c5, double c6);
-    void createLowPass (double proportionalRate);
-
-    struct FilterState
-    {
-        double x1, x2, y1, y2;
-    };
-
-    HeapBlock<FilterState> filterStates;
-    void resetFilters();
-
-    void applyFilter (float* samples, int num, FilterState& fs);
+    void pushAudioBufferInt (const AudioSampleBuffer& buffer);
+    
+    struct Impl;
+    std::unique_ptr<Impl> impl;
+    
+    int numChannels = 0, blockSize = 0;
+    float ratio = 1.0f;
+    AudioFifo outputFifo;
+    AudioSampleBuffer ilInputBuffer, ilOutputBuffer, outputBuffer;
 };

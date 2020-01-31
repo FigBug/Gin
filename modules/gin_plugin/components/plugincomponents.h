@@ -271,7 +271,7 @@ public:
     
     void setLevel (float level_)
     {
-        if (std::fabs(level - level_))
+        if (std::fabs (level - level_) > 0.001f)
         {
             level = level_;
             repaint();
