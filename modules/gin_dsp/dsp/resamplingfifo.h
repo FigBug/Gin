@@ -18,8 +18,11 @@ class ResamplingFifo
 public:
     ResamplingFifo (int blockSize, int numChannels = 2, int maxSamples = 44100);
     ~ResamplingFifo ();
+    
+    void setSize (int blockSize, int numChannels = 2, int maxSamples = 44100);
 
     void setResamplingRatio (double inputRate, double outputRate);
+    void setRatio (float ratio);
 
     void reset();
     int samplesReady()                                              { return outputFifo.getNumReady(); }

@@ -73,5 +73,8 @@ using juce::Component;
 #include "dsp/audioutil.h"
 #include "dsp/oscillators.h"
 #include "dsp/resamplingfifo.h"
+#include "dsp/scratchbuffer.h"
+#include "dsp/sample.h"
+#include "dsp/sampleoscillator.h"
 
 }

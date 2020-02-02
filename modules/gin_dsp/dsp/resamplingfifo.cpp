@@ -33,6 +33,17 @@ ResamplingFifo::~ResamplingFifo ()
     src_delete (impl->state);
 }
 
+void ResamplingFifo::setSize (int bs, int nc, int ms)
+{
+    numChannels = nc;
+    blockSize = bs;
+    outputFifo.setSize (nc, ms);
+    
+    ilInputBuffer.setSize (1, blockSize * numChannels);
+    ilOutputBuffer.setSize (1, 4 * blockSize * numChannels);
+    outputBuffer.setSize (numChannels, 4 * blockSize);
+}
+
 void ResamplingFifo::reset()
 {
     src_reset (impl->state);
@@ -44,6 +55,11 @@ void ResamplingFifo::reset()
 void ResamplingFifo::setResamplingRatio (double inputRate, double outputRate)
 {
     ratio = float (jmax (0.0, outputRate / inputRate));
+}
+
+void ResamplingFifo::setRatio (float r)
+{
+    ratio = r;
 }
 
 void ResamplingFifo::pushAudioBuffer (const AudioSampleBuffer& src)
