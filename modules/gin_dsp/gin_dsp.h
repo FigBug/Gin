@@ -70,11 +70,14 @@ using juce::Component;
 #include "dsp/analogadsr.h"
 #include "dsp/audiofunctions.h"
 #include "dsp/audioequationparser.h"
+#include "dsp/audiofifo.h"
 #include "dsp/audioutil.h"
 #include "dsp/oscillators.h"
 #include "dsp/resamplingfifo.h"
 #include "dsp/scratchbuffer.h"
 #include "dsp/sample.h"
 #include "dsp/sampleoscillator.h"
+
+#include "components/triggeredscope.h"
 
 }

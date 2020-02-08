@@ -57,5 +57,7 @@ using juce::MemoryBlock;
 #include "dsp/sampleoscillator.cpp"
 #include "dsp/sample.cpp"
 
+#include "components/triggeredscope.cpp"
+
 }
 

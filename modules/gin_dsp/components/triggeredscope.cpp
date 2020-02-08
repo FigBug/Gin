@@ -1,0 +1,308 @@
+/*
+  ==============================================================================
+
+  This file is based on part of the dRowAudio JUCE module
+  Copyright 2004-13 by dRowAudio.
+  dRowAudio is provided under the terms of The MIT License (MIT):
+
+  ==============================================================================
+*/
+
+
+TriggeredScope::TriggeredScope (AudioFifo& f) :
+    fifo (f)
+{
+    setNumChannels (1);
+    setColour (lineColourId, Colours::white);
+    setColour (backgroundColourId, Colours::black);
+    
+    for (int i = 0; i < 32; i++)
+        setColour (traceColourId + i, Colours::white);
+    
+    for (auto c : channels)
+    {
+        c->posBuffer.clear ((size_t) c->bufferSize);
+        c->minBuffer.clear ((size_t) c->bufferSize);
+        c->maxBuffer.clear ((size_t) c->bufferSize);
+    }
+
+    startTimerHz (60);
+}
+
+TriggeredScope::~TriggeredScope()
+{
+    stopTimer();
+}
+
+void TriggeredScope::setNumChannels (int num)
+{
+    channels.clear();
+
+    while (channels.size() < num)
+        channels.add (new Channel());
+    
+    for (auto c : channels)
+    {
+        c->posBuffer.clear ((size_t) c->bufferSize);
+        c->minBuffer.clear ((size_t) c->bufferSize);
+        c->maxBuffer.clear ((size_t) c->bufferSize);
+    }
+}
+
+void TriggeredScope::setNumSamplesPerPixel (const float newNumSamplesPerPixel)
+{
+    numSamplesPerPixel = newNumSamplesPerPixel;
+}
+
+void TriggeredScope::setVerticalZoomFactor (const float newVerticalZoomFactor)
+{
+    verticalZoomFactor = newVerticalZoomFactor;
+}
+
+void TriggeredScope::setVerticalZoomOffset (float newVerticalZoomOffset, int ch)
+{
+    if (verticalZoomOffset.size() < ch + 1)
+        verticalZoomOffset.resize (ch + 1);
+    
+    verticalZoomOffset.set (ch, newVerticalZoomOffset);
+}
+
+void TriggeredScope::setTriggerMode (const TriggerMode newTriggerMode)
+{
+    triggerMode = newTriggerMode;
+}
+
+void TriggeredScope::addSamples (const AudioSampleBuffer& buffer)
+{
+    jassert (buffer.getNumChannels() == channels.size());
+    
+    for (int i = 0; i < jmin (buffer.getNumChannels(), channels.size()); i++)
+    {
+        const float* samples = buffer.getReadPointer (i);
+        const int numSamples = buffer.getNumSamples();
+        
+        // if we don't have enough space in the fifo, clear out some old samples
+        const int numFreeInBuffer = channels[i]->samplesToProcess.getFreeSpace();
+        if (numFreeInBuffer < numSamples)
+            channels[i]->samplesToProcess.ensureFreeSpace (buffer.getNumSamples());
+        
+        channels[i]->samplesToProcess.writeMono (samples, numSamples);
+    }
+    needToUpdate = true;
+}
+
+//==============================================================================
+void TriggeredScope::resized()
+{
+    needToRepaint = true;
+}
+
+void TriggeredScope::paint (Graphics& g)
+{
+    if (needToUpdate)
+    {
+        needToUpdate = false;
+        processPendingSamples();
+    }
+    
+    render (g);
+    
+    g.setColour (findColour (lineColourId));
+    g.drawRect (getLocalBounds());
+    
+    g.setColour (findColour (lineColourId).withMultipliedAlpha (0.5f));
+    if (triggerMode != None && drawTriggerPos)
+    {
+        const int w = getWidth();
+        const int h = getHeight();
+        
+        int ch = jmax (0, triggerChannel);
+        const float y = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + triggerLevel)))) * h;
+        
+        g.drawHorizontalLine (roundToInt (y), 0.0f, float (w));
+        g.drawVerticalLine (roundToInt (w * triggerPos), 0.0f, float (h));
+    }
+}
+
+void TriggeredScope::timerCallback()
+{
+    while (fifo.getNumReady() > 0)
+    {
+        ScratchBuffer buffer (2, jmin (512, fifo.getNumReady()));
+        
+        fifo.read (buffer);
+        addSamples (buffer);
+        repaint();
+    }
+}
+
+//==============================================================================
+void TriggeredScope::processPendingSamples()
+{
+    for (auto c : channels)
+    {
+        int numSamples = c->samplesToProcess.getNumReady();
+        c->samplesToProcess.readMono (c->tempProcessingBlock, numSamples);
+        float* samples = c->tempProcessingBlock.getData();
+
+        while (--numSamples >= 0)
+        {
+            const float currentSample = *samples++;
+
+            if (currentSample < c->currentMin)
+                c->currentMin = currentSample;
+            if (currentSample > c->currentMax)
+                c->currentMax = currentSample;
+            
+            c->currentAve += currentSample;
+
+            if (--c->numLeftToAverage <= 0)
+            {
+                c->posBuffer[c->bufferWritePos] = c->currentAve / std::ceil (numSamplesPerPixel);
+                c->minBuffer[c->bufferWritePos] = c->currentMin;
+                c->maxBuffer[c->bufferWritePos] = c->currentMax;
+
+                c->currentMax = -1.0f;
+                c->currentMin = 1.0f;
+                c->currentAve = 0.0;
+
+                ++c->bufferWritePos %= c->bufferSize;
+                c->numLeftToAverage += jmax (1.0f, numSamplesPerPixel);
+            }
+        }
+    }
+}
+
+int TriggeredScope::getTriggerPos()
+{
+    const int w = getWidth();
+    
+    int bufferReadPos = 0;
+    
+    auto minBuffer = [&] (int i) -> float
+    {
+        if (triggerChannel == -1)
+        {
+            float sum = 0;
+            for (auto c : channels)
+                sum += c->minBuffer[i];
+            
+            return sum / channels.size();
+        }
+        else
+        {
+            return channels[triggerChannel]->minBuffer[i];
+        }
+    };
+    
+    auto maxBuffer = [&] (int i) -> float
+    {
+        if (triggerChannel == -1)
+        {
+            float sum = 0;
+            for (auto c : channels)
+                sum += c->maxBuffer[i];
+            
+            return sum / channels.size();
+        }
+        else
+        {
+            return channels[triggerChannel]->maxBuffer[i];
+        }
+    };
+    
+    if (auto c = triggerChannel >= 0 ? channels[triggerChannel] : channels.getFirst())
+    {
+        bufferReadPos = c->bufferWritePos - w;
+        if (bufferReadPos < 0 )
+            bufferReadPos += c->bufferSize;
+        
+        if (triggerMode != None)
+        {
+            int posToTest = bufferReadPos;
+            int numToSearch = c->bufferSize;
+            while (--numToSearch >= 0)
+            {
+                int prevPosToTest = posToTest - 1;
+                if (prevPosToTest < 0)
+                    prevPosToTest += c->bufferSize;
+                
+                if (triggerMode == Up)
+                {
+                    if (minBuffer (prevPosToTest) <= triggerLevel
+                        && maxBuffer (posToTest) > triggerLevel)
+                    {
+                        bufferReadPos = posToTest;
+                        break;
+                    }
+                }
+                else
+                {
+                    if (minBuffer (prevPosToTest) > triggerLevel
+                        && maxBuffer (posToTest) <= triggerLevel)
+                    {
+                        bufferReadPos = posToTest;
+                        break;
+                    }
+                }
+                
+                if (--posToTest < 0)
+                    posToTest += c->bufferSize;
+            }
+        }
+    }
+    return bufferReadPos;
+}
+
+void TriggeredScope::render (Graphics& g)
+{
+    g.fillAll (Colours::transparentBlack);
+
+    const int w = getWidth();
+    const int h = getHeight();
+
+    int bufferReadPos = getTriggerPos();
+    
+    bufferReadPos -= roundToInt (w * triggerPos);
+    if (bufferReadPos < 0 )
+        bufferReadPos += channels[0]->bufferSize;
+    
+    int ch = 0;
+    for (auto c : channels)
+    {
+        Path p;
+        
+        int pos = bufferReadPos;
+        int currentX = 0;
+        
+        g.setColour (findColour (traceColourId + ch).withMultipliedAlpha (0.5f));
+        
+        while (currentX < w)
+        {
+            ++pos;
+            if (pos == c->bufferSize)
+                pos = 0;
+
+            const float top = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + c->maxBuffer[pos])))) * h;
+            const float bottom = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + c->minBuffer[pos])))) * h;
+            const float mid = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + c->posBuffer[pos])))) * h;
+                        
+            if (bottom - top > 2)
+                g.drawVerticalLine (currentX, top, bottom);
+
+            if (currentX == 0)
+                p.startNewSubPath (currentX, mid);
+            else
+                p.lineTo (currentX, mid);
+            
+            currentX++;
+        }
+        
+        g.setColour (findColour (traceColourId + ch));
+        g.strokePath (p, PathStrokeType (1.5f));
+        
+        ch++;
+    }
+
+    needToRepaint = true;
+}
