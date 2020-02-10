@@ -31,6 +31,8 @@ private:
     void componentBeingDeleted (Component&) override;
     void closeButtonPressed() override;
 
+	void lookAndFeelChanged() override;
+
     void moved() override;
     void resized() override;
 

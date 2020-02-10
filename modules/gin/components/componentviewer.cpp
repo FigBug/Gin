@@ -136,21 +136,15 @@ public:
         mouseDetails.setMultiLine (true, false);
         mouseDetails.setFont (f);
         mouseDetails.setReadOnly (true);
-        mouseDetails.setColour (TextEditor::textColourId, Colours::black);
-        mouseDetails.setColour (TextEditor::backgroundColourId, Colours::white);
 
         addAndMakeVisible (componentDetails);
         componentDetails.setFont (f);
         componentDetails.setMultiLine (true, false);
         componentDetails.setReadOnly (true);
-        componentDetails.setColour (TextEditor::textColourId, Colours::black);
-        componentDetails.setColour (TextEditor::backgroundColourId, Colours::white);
-        
+
         addAndMakeVisible (snapshotDetails);
         snapshotDetails.setFont (f);
         snapshotDetails.setReadOnly (true);
-        snapshotDetails.setColour (TextEditor::textColourId, Colours::black);
-        snapshotDetails.setColour (TextEditor::backgroundColourId, Colours::white);
         snapshotDetails.setJustification (Justification::centred);
         
         addAndMakeVisible (zoom);
@@ -341,4 +335,10 @@ void ComponentViewer::componentBeingDeleted (Component&)
         toTrack = nullptr;
 
     delete this;
+}
+
+void ComponentViewer::lookAndFeelChanged()
+{
+	auto& lf = getLookAndFeel ();
+	setBackgroundColour (lf.findColour (ResizableWindow::backgroundColourId));
 }
