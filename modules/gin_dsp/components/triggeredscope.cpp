@@ -92,10 +92,6 @@ void TriggeredScope::addSamples (const AudioSampleBuffer& buffer)
 }
 
 //==============================================================================
-void TriggeredScope::resized()
-{
-    needToRepaint = true;
-}
 
 void TriggeredScope::paint (Graphics& g)
 {
@@ -128,7 +124,7 @@ void TriggeredScope::timerCallback()
 {
     while (fifo.getNumReady() > 0)
     {
-        ScratchBuffer buffer (2, jmin (512, fifo.getNumReady()));
+        ScratchBuffer buffer (channels.size(), jmin (512, fifo.getNumReady()));
         
         fifo.read (buffer);
         addSamples (buffer);
@@ -155,10 +151,11 @@ void TriggeredScope::processPendingSamples()
                 c->currentMax = currentSample;
             
             c->currentAve += currentSample;
+            c->numAveraged++;
 
             if (--c->numLeftToAverage <= 0)
             {
-                c->posBuffer[c->bufferWritePos] = c->currentAve / std::ceil (numSamplesPerPixel);
+                c->posBuffer[c->bufferWritePos] = c->currentAve / c->numAveraged;
                 c->minBuffer[c->bufferWritePos] = c->currentMin;
                 c->maxBuffer[c->bufferWritePos] = c->currentMax;
 
@@ -168,6 +165,7 @@ void TriggeredScope::processPendingSamples()
 
                 ++c->bufferWritePos %= c->bufferSize;
                 c->numLeftToAverage += jmax (1.0f, numSamplesPerPixel);
+                c->numAveraged = 0;
             }
         }
     }
@@ -303,6 +301,4 @@ void TriggeredScope::render (Graphics& g)
         
         ch++;
     }
-
-    needToRepaint = true;
 }

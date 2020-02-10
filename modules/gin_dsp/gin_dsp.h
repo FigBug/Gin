@@ -79,5 +79,6 @@ using juce::Component;
 #include "dsp/sampleoscillator.h"
 
 #include "components/triggeredscope.h"
+#include "components/xyscope.h"
 
 }

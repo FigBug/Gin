@@ -38,6 +38,8 @@ void applyGain (AudioSampleBuffer& buffer, LinearSmoothedValue<float>& gain);
 
 void applyGain (AudioSampleBuffer& buffer, int channel, LinearSmoothedValue<float>& gain);
 
+void clip (AudioSampleBuffer& buffer, float low = -1.0f, float high = 1.0f);
+
 //==============================================================================
 template <class T>
 class ValueSmoother

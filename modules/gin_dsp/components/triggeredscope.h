@@ -11,17 +11,8 @@
 
 #pragma once
 
-/** Triggered Scope.
-
-    This class is similar to the AudioOscilloscope except that it can be set to
-    start on a rising or falling signal. This makes it extremely useful for very
-    zoomed-in waveform viewing.
-
-    At the expense of a large memory footpring this is also highly efficient,
-    performing all its processing and image rendering on a background thread.
-    This makes it suitable for use in time critical situationas such as audio
-    plugins. The addSamples method simply takes a copy of the samples, weverything
-    else happens later.
+/** Triggered Scope that it can be set to start on a rising or falling signal.
+    This makes it extremely useful for very zoomed-in waveform viewing.
 */
 class TriggeredScope : public Component,
                        public Timer
@@ -82,7 +73,6 @@ public:
     void setDrawTriggerPos (bool d) { drawTriggerPos = d;   }
 
     //==============================================================================
-    void resized() override;
     void paint (Graphics& g) override;
     void timerCallback() override;
 
@@ -104,6 +94,7 @@ private:
           numLeftToAverage (4),
           bufferSize (4096),
           bufferWritePos (0),
+          numAveraged (0),
           posBuffer ((size_t) bufferSize),
           minBuffer ((size_t) bufferSize),
           maxBuffer ((size_t) bufferSize),
@@ -115,7 +106,7 @@ private:
         {}
         
         int numLeftToAverage;
-        int bufferSize, bufferWritePos;
+        int bufferSize, bufferWritePos, numAveraged;
 
         HeapBlock<float> posBuffer, minBuffer, maxBuffer;
 
@@ -127,7 +118,6 @@ private:
     OwnedArray<Channel> channels;
     
     bool needToUpdate = false;
-    bool needToRepaint = true;
 
     //==============================================================================
     void addSamples (const AudioSampleBuffer& buffer);

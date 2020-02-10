@@ -24,7 +24,6 @@ void applyGain (AudioSampleBuffer& buffer, LinearSmoothedValue<float>& gain)
                     w[c][s] *= g;
             }
         }
-
     }
     else
     {
@@ -43,6 +42,18 @@ void applyGain (AudioSampleBuffer& buffer, int channel, LinearSmoothedValue<floa
     else
     {
         buffer.applyGain (channel, 0, buffer.getNumSamples(), gain.getTargetValue());
+    }
+}
+
+void clip (AudioSampleBuffer& buffer, float low, float high)
+{
+    if (float** w = buffer.getArrayOfWritePointers())
+    {
+        for (int s = 0; s < buffer.getNumSamples(); s++)
+        {
+            for (int c = 0; c < buffer.getNumChannels(); c++)
+                w[c][s] = jlimit (low, high, w[c][s]);
+        }
     }
 }
 

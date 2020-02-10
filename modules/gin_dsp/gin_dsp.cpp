@@ -58,6 +58,7 @@ using juce::MemoryBlock;
 #include "dsp/sample.cpp"
 
 #include "components/triggeredscope.cpp"
+#include "components/xyscope.cpp"
 
 }
 
