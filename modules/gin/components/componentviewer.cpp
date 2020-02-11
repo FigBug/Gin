@@ -5,23 +5,31 @@
 
  ==============================================================================*/
 
+Component* realGetComponent (Component& p, Point<int> screenPos)
+{
+	if (p.getScreenBounds().contains (screenPos))
+	{
+		for (auto c : p.getChildren())
+			if (auto r = realGetComponent (*c, screenPos))
+				return r;
+
+		return &p;
+	}
+
+	return nullptr;
+}
+
 Component* realGetComponentUnderMouse()
 {
     auto mouse = Desktop::getInstance().getMainMouseSource();
     auto pos = mouse.getScreenPosition().toInt();
     
-    if (auto c = mouse.getComponentUnderMouse())
-        return c;
- 
     auto& desktop = Desktop::getInstance();
     
     for (int i = 0; i < desktop.getNumComponents(); i++)
     {
         auto dtc = desktop.getComponent (i);
-        
-        auto localPos = dtc->getLocalPoint (nullptr, pos);
-        
-        if (auto c = dtc->getComponentAt (localPos))
+		if (auto c = realGetComponent (*dtc, pos))
             return c;
     }
     
@@ -121,15 +129,13 @@ private:
 
 //==============================================================================
 class ComponentViewer::ContentComponent : public Component,
-                                          private Timer,
+										  private Timer,
                                           private Slider::Listener
 {
 public:
     ContentComponent (PropertiesFile& settings_)
         : settings (settings_)
     {
-        startTimer (100);
-        
         Font f (Font::getDefaultMonospacedFontName(), 12.0f, Font::plain);
 
         addAndMakeVisible (mouseDetails);
@@ -154,7 +160,14 @@ public:
         zoom.addListener (this);
 
         addAndMakeVisible (snapshot);
+
+		Desktop::getInstance().addGlobalMouseListener (this);
     }
+
+	~ContentComponent() override
+	{
+		Desktop::getInstance().removeGlobalMouseListener (this);
+	}
 
     void resized() override
     {
@@ -171,11 +184,23 @@ public:
         snapshot.setBounds (rc);
     }
 
-    void timerCallback() override
-    {
-        updateComponentDetails();
-    }
-    
+    void mouseUp (const MouseEvent& )   override { updateComponentDetailsAsync(); }
+    void mouseDown (const MouseEvent& ) override { updateComponentDetailsAsync(); }
+    void mouseDrag (const MouseEvent& ) override { updateComponentDetailsAsync(); }
+    void mouseMove (const MouseEvent& ) override { updateComponentDetailsAsync(); }
+
+	void updateComponentDetailsAsync()
+	{
+		if (! isTimerRunning())
+			startTimer (50);
+	}
+
+	void timerCallback() override
+	{
+		stopTimer();
+		updateComponentDetails();
+	}
+
     void sliderValueChanged (Slider*) override
     {
         settings.setValue ("ginZoom", int (zoom.getValue()));
@@ -187,11 +212,6 @@ public:
         auto mouse = Desktop::getInstance().getMainMouseSource();
 
         auto pos = mouse.getScreenPosition().toInt();
-
-        if (pos == lastPos)
-            return;
-
-        lastPos = pos;
 
         StringArray componentHierarchy;
         String cursorPos, colourDetails;
@@ -240,8 +260,6 @@ public:
     }
     
     PropertiesFile& settings;
-
-    Point<int> lastPos;
 
     TextEditor mouseDetails, componentDetails, snapshotDetails;
     Slider zoom;
