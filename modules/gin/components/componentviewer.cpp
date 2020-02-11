@@ -26,11 +26,12 @@ Component* realGetComponentUnderMouse()
     
     auto& desktop = Desktop::getInstance();
     
-    for (int i = 0; i < desktop.getNumComponents(); i++)
+	for (int i = desktop.getNumComponents(); --i >= 0;)
     {
-        auto dtc = desktop.getComponent (i);
-		if (auto c = realGetComponent (*dtc, pos))
-            return c;
+        if (auto dtc = desktop.getComponent (i))
+			if (dtc->isVisible())
+				if (auto c = realGetComponent (*dtc, pos))
+					return c;
     }
     
     return {};
@@ -247,10 +248,11 @@ public:
         {
             String str;
             
-            str += ("[" + String (getClassName (c)) + "]").paddedRight (' ', 50);
+            str += ("[" + String (getClassName (c)) + "]").paddedRight (' ', 60);
             str += (" \"" + c->getName() + "\"").paddedRight (' ', 20);
             str += (" (" + c->getBounds().toString() + ")").paddedRight (' ', 20);
             str += String (c->isOpaque() ? " Opaque" : "").paddedRight (' ', 8);
+			str += String (c->isPaintingUnclipped() ? " Unclipped" : "").paddedRight (' ', 11);
 
             res.add (str);
 
