@@ -11,6 +11,51 @@
 static ThreadPool pool (SystemStats::getNumCpus());
 
 //==============================================================================
+struct AsyncUpdateDemo : public Component,
+                         private Thread,
+                         private gin::RealtimeAsyncUpdater
+{
+    AsyncUpdateDemo() : Thread ("AsyncUpdateDemo")
+    {
+        setName ("AsyncUpdate");
+        
+        addAndMakeVisible (text);
+        text.setReadOnly (true);
+        
+        startThread();
+    }
+    
+    ~AsyncUpdateDemo() override
+    {
+        stopThread (1000);
+    }
+    
+    void resized() override
+    {
+        auto rc = getLocalBounds().reduced (8);
+        
+        text.setBounds (rc);
+    }
+    
+    void run() override
+    {
+        while (! threadShouldExit())
+        {
+            count += 1;
+            triggerAsyncUpdate();
+        }
+    }
+    
+    void handleAsyncUpdate() override
+    {
+        text.setText (String (count.get()));
+    }
+    
+    TextEditor text;
+    Atomic<int> count;
+};
+
+//==============================================================================
 struct ValueTreeJsonDemo : public Component,
                            private TextEditor::Listener
 {
@@ -59,7 +104,6 @@ struct ValueTreeJsonDemo : public Component,
     
     TextEditor xmlIn, xmlOut, jsonOut;
 };
-
 
 //==============================================================================
 struct MessagePackDemo : public Component,
@@ -1241,6 +1285,7 @@ struct SplineDemo : public Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
+    demoComponents.add (new AsyncUpdateDemo());
     demoComponents.add (new ValueTreeJsonDemo());
     demoComponents.add (new MessagePackDemo());
 	demoComponents.add (new SVGDemo());
