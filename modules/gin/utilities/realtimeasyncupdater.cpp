@@ -12,6 +12,7 @@ public:
     Impl() : Thread ("RealtimeAsyncUpdater")
     {
         startThread();
+        next = 0;
     }
     
     ~Impl() override
@@ -33,10 +34,11 @@ public:
         updaters.removeFirstMatchingValue (ras);
     }
     
-    void signal()
+    void signal (RealtimeAsyncUpdater& ras)
     {
         static PerformanceCounter counter {"signal", 1000};
         counter.start();
+        ras.order = ++next;
         event.signal();
         counter.stop();
     }
@@ -45,6 +47,7 @@ private:
     CriticalSection lock;
     Array<RealtimeAsyncUpdater*> updaters;
     WaitableEvent event;
+    Atomic<uint32_t> next;
     
     void run() override
     {
@@ -65,15 +68,23 @@ private:
 
     void fireCallbacks()
     {
+        Array<RealtimeAsyncUpdater*> dirtyUpdaters;
+        
         ScopedLock sl (lock);
-        for (int i = updaters.size(); --i >= 0;)
-        {
-            auto au = updaters[i];
+        for (auto au : updaters)
             if (au->triggered.get())
-            {
-                au->triggered = false;
-                au->handleAsyncUpdate();
-            }
+                dirtyUpdaters.add (au);
+        
+        std::sort (dirtyUpdaters.begin(), dirtyUpdaters.end(),
+                   [] (const RealtimeAsyncUpdater* a, const RealtimeAsyncUpdater* b) -> bool
+                   {
+                       return a->order.get() < b->order.get();
+                   });
+                
+        for (auto au : dirtyUpdaters)
+        {
+            au->triggered = false;
+            au->handleAsyncUpdate();
         }
     }
     
@@ -93,8 +104,11 @@ RealtimeAsyncUpdater::~RealtimeAsyncUpdater()
 
 void RealtimeAsyncUpdater::triggerAsyncUpdate()
 {
-    triggered = true;
-    impl->signal();
+    if (! triggered.get())
+    {
+        triggered = true;
+        impl->signal (*this);
+    }
 }
 
 void RealtimeAsyncUpdater::cancelPendingUpdate() noexcept
