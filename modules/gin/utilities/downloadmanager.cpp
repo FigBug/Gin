@@ -35,6 +35,32 @@ void DownloadManager::triggerNextDownload()
     }
 }
 
+DownloadManager::DownloadResult DownloadManager::blockingDownload (String url, String postData, String extraHeaders)
+{
+	return blockingDownload (URL (url).withPOSTData (postData), extraHeaders);
+}
+
+DownloadManager::DownloadResult DownloadManager::blockingDownload (URL url, String extraHeaders)
+{
+   #if JUCE_WINDOWS
+	auto headerList = StringArray::fromTokens (extraHeaders, "\n", "");
+	headerList.add ("Accept-Encoding: gzip");
+	extraHeaders = headerList.joinIntoString ("\n");
+   #endif
+
+	Download download (*this);
+	download.async = false;
+	download.result.url = url;
+	download.headers = extraHeaders;
+	download.result.downloadId = 0;
+	download.completionCallback = nullptr;
+	download.progressCallback = nullptr;
+
+	download.run();
+
+	return download.result;
+}
+
 int DownloadManager::startAsyncDownload (String url, String postData,
                                          std::function<void (DownloadResult)> completionCallback,
                                          std::function<void (int64, int64, int64)> progressCallback,
@@ -123,7 +149,8 @@ DownloadManager::Download::~Download()
 
     // Wait a long time before cancelling, WebInputStream could be stuck in
     // connect. Unlikely but possible.
-    stopThread (owner.shutdownTimeout);
+	if (async)
+		stopThread (owner.shutdownTimeout);
 }
 
 void DownloadManager::Download::run()
@@ -142,7 +169,7 @@ void DownloadManager::Download::run()
 			wait (500);
     }
 
-    if (! threadShouldExit())
+    if (async && ! threadShouldExit())
     {
         // Get a weak reference to self, to check if we get deleted before
         // async call happens.

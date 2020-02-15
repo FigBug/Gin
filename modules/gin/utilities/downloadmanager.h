@@ -106,6 +106,11 @@ public:
     /** Cancels a download with a given id */
     void cancelDownload (int downloadId);
 
+	//==============================================================================
+    DownloadResult blockingDownload (String url, String postData, String extraHeaders = {});
+
+    DownloadResult blockingDownload (URL url, String extraHeaders = {});
+
 private:
     //==============================================================================
     /** Manages a download on a background thread */
@@ -128,7 +133,7 @@ private:
         DownloadManager& owner;
 
         String headers;
-        bool started = false;
+        bool started = false, async = true;
         uint32 lastProgress = 0;
         int64 lastBytesSent = 0;
 
