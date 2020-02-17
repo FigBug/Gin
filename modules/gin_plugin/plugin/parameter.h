@@ -14,8 +14,15 @@ public:
                float intervalValue, float defaultValue, float skewFactor = 1.0f,
                std::function<String (const Parameter&, float)> textFunction = nullptr);
 
-    String getUid() { return uid; }
+    Parameter (GinProcessor&, String uid, String name, String shortName, String label,
+               NormalisableRange<float> range, float defaultValue,
+               std::function<String (const Parameter&, float)> textFunction = nullptr);
 
+    String getUid() { return uid; }
+    
+    void prepareToPlay (double sampleRate, int samplesPerBlock);
+    void reset();
+    
     //==============================================================================
     float getProcValue() const;
     float getProcValueSmoothed (int stepSize);
@@ -34,7 +41,7 @@ public:
 
     std::function<float (float)> conversionFunction;
     
-    void setSmoothed (bool s)                   { smoothed = s;           }
+    void setSmoothed (bool s, float t = 0.0f);
     
     //==============================================================================
     void beginUserAction();
@@ -84,7 +91,7 @@ public:
     bool isAutomatable() const override;
     bool isMetaParameter() const override;
 
-    float getSkew() { return skewFactor; }
+    float getSkew() { return range.skew; }
 
 protected:
     GinProcessor& processor;
@@ -98,9 +105,9 @@ protected:
 
     float value;
     float defaultValue;
-    float skewFactor;
     
     bool smoothed = false;
+    ValueSmoother<float> smoother;
 
     String uid;
     String name;

@@ -42,8 +42,16 @@ std::unique_ptr<PropertiesFile> GinProcessor::getSettings()
 }
 
 //==============================================================================
-void GinProcessor::prepareToPlay ([[maybe_unused]] double sampleRate, [[maybe_unused]] int samplesPerBlock)
+void GinProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
+    for (auto p : getPluginParameters())
+        p->prepareToPlay (sampleRate, samplesPerBlock);
+}
+
+void GinProcessor::reset()
+{
+    for (auto p : getPluginParameters())
+        p->reset();
 }
 
 void GinProcessor::addPluginParameter (Parameter* parameter)
@@ -53,13 +61,34 @@ void GinProcessor::addPluginParameter (Parameter* parameter)
     parameterMap[parameter->getUid()] = parameter;
 }
 
-Parameter* GinProcessor::addParam (String uid, String name, String shortName, String label, float minValue, float maxValue,
-                                   float intervalValue, float defaultValue, float skewFactor,
-                                   std::function<String (const Parameter&, float)> textFunction)
+Parameter* GinProcessor::addIntParam (String uid, String name, String shortName, String label,
+                                      NormalisableRange<float> range, float defaultValue,
+                                      float smoothingTime,
+                                      std::function<String (const Parameter&, float)> textFunction)
 {
-    auto p = new Parameter (*this, uid, name, shortName, label, minValue, maxValue, intervalValue, defaultValue, skewFactor, textFunction);
+    auto p = new Parameter (*this, uid, name, shortName, label, range, defaultValue, textFunction);
     
-    addPluginParameter (p);
+    if (smoothingTime > 0.0f)
+        p->setSmoothed (true, smoothingTime);
+    
+    internalParameters.add (p);
+    parameterMap[p->getUid()] = p;
+    
+    return p;
+}
+
+Parameter* GinProcessor::addExtParam (String uid, String name, String shortName, String label,
+                                      NormalisableRange<float> range, float defaultValue,
+                                      float smoothingTime,
+                                      std::function<String (const Parameter&, float)> textFunction)
+{
+    auto p = new Parameter (*this, uid, name, shortName, label, range, defaultValue, textFunction);
+    
+    if (smoothingTime > 0.0f)
+        p->setSmoothed (true, smoothingTime);
+
+    addParameter (p);
+    parameterMap[p->getUid()] = p;
     
     return p;
 }
@@ -101,10 +130,8 @@ Array<Parameter*> GinProcessor::getPluginParameters()
 {
     Array<Parameter*> result;
 
-    auto params = getParameters();
-    for (auto p : params)
-        if (auto pp = dynamic_cast<Parameter*>(p))
-            result.add (pp);
+    for (auto itr : parameterMap)
+        result.add (itr.second);
 
     return result;
 }

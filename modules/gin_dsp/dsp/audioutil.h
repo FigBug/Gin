@@ -45,9 +45,21 @@ template <class T>
 class ValueSmoother
 {
 public:
-    void reset (double sr, double time)
+    void setSampleRate (double sr)
     {
-        delta = 1.0f / float (sr * time);
+        sampleRate = sr;
+        reset();
+    }
+    
+    void setTime (double t)
+    {
+        time = t;
+        reset();
+    }
+    
+    void reset()
+    {
+        delta = 1.0f / float (sampleRate * time);
     }
 
     T getCurrentValue()
@@ -65,17 +77,18 @@ public:
     void updateValue()
     {
         if (currentValue < targetValue)
-            currentValue = jmin (targetValue, currentValue + delta);
+            currentValue = std::min (targetValue, currentValue + delta);
         else if (currentValue > targetValue)
-            currentValue = jmax (targetValue, currentValue - delta);
+            currentValue = std::max (targetValue, currentValue - delta);
     }
 
     T getNextValue()
     {
         if (currentValue < targetValue)
-            currentValue = jmin (targetValue, currentValue + delta);
+            currentValue = std::min (targetValue, currentValue + delta);
         else if (currentValue > targetValue)
-            currentValue = jmax (targetValue, currentValue - delta);
+            currentValue = std::max (targetValue, currentValue - delta);
+        
         return currentValue;
     }
 
@@ -101,6 +114,8 @@ public:
     }
 
 private:
+    double time = 0.1, sampleRate = 44100.0;
+    
     T delta = 0;
     T targetValue = 0;
     T currentValue = 0;

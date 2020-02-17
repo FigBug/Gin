@@ -14,6 +14,7 @@ public:
     GinProcessor();
     ~GinProcessor() override;
     
+    void reset() override;
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
 
     std::unique_ptr<PropertiesFile> getSettings();
@@ -22,9 +23,16 @@ public:
     using AudioProcessor::getParameter;
 
     void addPluginParameter (Parameter* parameter);
-    Parameter* addParam (String uid, String name, String shortName, String label, float minValue, float maxValue,
-                         float intervalValue, float defaultValue, float skewFactor = 1.0f,
-                         std::function<String (const Parameter&, float)> textFunction = nullptr);
+    
+    Parameter* addExtParam (String uid, String name, String shortName, String label,
+                            NormalisableRange<float> range, float defaultValue,
+                            float smoothingTime,
+                            std::function<String (const Parameter&, float)> textFunction = nullptr);
+    
+    Parameter* addIntParam (String uid, String name, String shortName, String label,
+                            NormalisableRange<float> range, float defaultValue,
+                            float smoothingTime,
+                            std::function<String (const Parameter&, float)> textFunction = nullptr);
     
     Parameter* getParameter (const String& uid);
     float parameterValue (const String& uid);
@@ -62,12 +70,10 @@ public:
     //==============================================================================
 
 public:
-    OwnedArray<LevelTracker> inputLevels;
-    OwnedArray<LevelTracker> outputLevels;
-
     std::unique_ptr<PropertiesFile> properties;
 
     std::map<String, Parameter*> parameterMap;
+    OwnedArray<Parameter> internalParameters;
 
     ValueTree state;
 

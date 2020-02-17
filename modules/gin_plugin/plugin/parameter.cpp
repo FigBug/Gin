@@ -2,12 +2,11 @@
 
 Parameter::Parameter (GinProcessor& p, String uid_, String name_, String shortName_,
                       String label_, float minValue, float maxValue,
-                      float intervalValue, float defaultValue_, float skewFactor_,
+                      float intervalValue, float defaultValue_, float skewFactor,
                       std::function<String (const Parameter&, float)> textFunction_)
   : processor (p),
     value (defaultValue_),
     defaultValue (defaultValue_),
-    skewFactor (skewFactor_),
     uid (uid_),
     name (name_),
     shortName (shortName_),
@@ -18,6 +17,40 @@ Parameter::Parameter (GinProcessor& p, String uid_, String name_, String shortNa
         shortName = name;
 
     range = NormalisableRange<float> (minValue, maxValue, intervalValue, skewFactor);
+}
+
+Parameter::Parameter (GinProcessor& p, String uid_, String name_, String shortName_,
+                      String label_, NormalisableRange<float> range_, float defaultValue_,
+                      std::function<String (const Parameter&, float)> textFunction_)
+  : processor (p),
+    range (range_),
+    value (defaultValue_),
+    defaultValue (defaultValue_),
+    uid (uid_),
+    name (name_),
+    shortName (shortName_),
+    label (label_),
+    textFunction (textFunction_)
+{
+    if (shortName.isEmpty())
+        shortName = name;
+}
+
+void Parameter::prepareToPlay (double sampleRate, int /*samplesPerBlock*/)
+{
+    smoother.setSampleRate (sampleRate);
+}
+
+void Parameter::reset()
+{
+    smoother.snapToValue();
+}
+
+void Parameter::setSmoothed (bool s, float t)
+{
+    smoothed = s;
+    if (smoothed)
+        smoother.setTime (t);
 }
 
 bool Parameter::isOn()
@@ -40,6 +73,16 @@ float Parameter::getProcValue() const
 
 float Parameter::getProcValueSmoothed (int stepSize)
 {
+    if (smoothed)
+    {
+        auto v = range.convertFrom0to1 (smoother.getCurrentValue());
+        smoother.process (stepSize);
+        
+        if (conversionFunction != nullptr)
+            return conversionFunction (v);
+        
+        return v;
+    }
     return getUserValue();
 }
 
@@ -64,6 +107,7 @@ void Parameter::setUserValue (float v)
     if (! almostEqual (value, v))
     {
         value = v;
+        smoother.setValue (range.convertTo0to1 (value));
 
         triggerAsyncUpdate();
     }
@@ -75,6 +119,8 @@ void Parameter::setUserValueNotifingHost (float v)
     if (! almostEqual (value, v))
     {
         value = v;
+        smoother.setValue (range.convertTo0to1 (value));
+        
         setValueNotifyingHost (getValue());
 
         triggerAsyncUpdate();
@@ -172,6 +218,8 @@ void Parameter::setValue (float valueIn)
     if (! almostEqual (value, newValue))
     {
         value = newValue;
+        smoother.setValue (range.convertTo0to1 (value));
+        
         triggerAsyncUpdate();
     }
 }
