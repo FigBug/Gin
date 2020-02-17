@@ -113,6 +113,7 @@ protected:
     OwnedArray<ParamComponent> controls;
 
     ParamComponent* componentForId (const String& uid);
+    ParamComponent* componentForParam (Parameter& param);
 
     PluginLookAndFeel lf;
 

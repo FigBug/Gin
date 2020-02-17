@@ -13,6 +13,8 @@ public:
     //==============================================================================
     GinProcessor();
     ~GinProcessor() override;
+    
+    void prepareToPlay (double sampleRate, int samplesPerBlock) override;
 
     std::unique_ptr<PropertiesFile> getSettings();
 
@@ -20,11 +22,17 @@ public:
     using AudioProcessor::getParameter;
 
     void addPluginParameter (Parameter* parameter);
+    Parameter* addParam (String uid, String name, String shortName, String label, float minValue, float maxValue,
+                         float intervalValue, float defaultValue, float skewFactor = 1.0f,
+                         std::function<String (const Parameter&, float)> textFunction = nullptr);
+    
     Parameter* getParameter (const String& uid);
     float parameterValue (const String& uid);
     int parameterIntValue (const String& uid);
     bool parameterBoolValue (const String& uid);
     Array<Parameter*> getPluginParameters();
+    
+    bool isSmoothing()                              { return smoothingCount.get() > 0; }
 
     File getProgramDirectory();
     File getSettingsFile();
@@ -68,9 +76,9 @@ protected:
     virtual void updateState()  {}
 
 private:
+    Atomic<int> smoothingCount;
+    
     void updateParams();
-
-    LookAndFeel_V3 lookAndFeel;
 
     int currentProgram = 0;
     OwnedArray<GinProgram> programs;

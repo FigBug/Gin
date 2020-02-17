@@ -14,8 +14,6 @@
 //==============================================================================
 GinProcessor::GinProcessor()
 {
-    LookAndFeel::setDefaultLookAndFeel (&lookAndFeel);
-
     properties = std::make_unique<PropertiesFile> (getSettingsFile(), PropertiesFile::Options());
 
     loadAllPrograms();
@@ -27,8 +25,6 @@ GinProcessor::GinProcessor()
 
 GinProcessor::~GinProcessor()
 {
-    MessageManagerLock mmLock;
-    LookAndFeel::setDefaultLookAndFeel (nullptr);
 }
 
 std::unique_ptr<PropertiesFile> GinProcessor::getSettings()
@@ -46,11 +42,26 @@ std::unique_ptr<PropertiesFile> GinProcessor::getSettings()
 }
 
 //==============================================================================
+void GinProcessor::prepareToPlay ([[maybe_unused]] double sampleRate, [[maybe_unused]] int samplesPerBlock)
+{
+}
+
 void GinProcessor::addPluginParameter (Parameter* parameter)
 {
     addParameter (parameter);
 
     parameterMap[parameter->getUid()] = parameter;
+}
+
+Parameter* GinProcessor::addParam (String uid, String name, String shortName, String label, float minValue, float maxValue,
+                                   float intervalValue, float defaultValue, float skewFactor,
+                                   std::function<String (const Parameter&, float)> textFunction)
+{
+    auto p = new Parameter (*this, uid, name, shortName, label, minValue, maxValue, intervalValue, defaultValue, skewFactor, textFunction);
+    
+    addPluginParameter (p);
+    
+    return p;
 }
 
 Parameter* GinProcessor::getParameter (const String& uid)

@@ -15,6 +15,8 @@ class ScratchBuffer : public AudioSampleBuffer
 {
 public:
     ScratchBuffer (int numChannels, int numSamples);
+    ScratchBuffer (AudioSampleBuffer& buffer);
+    
     ~ScratchBuffer();
     
 private:

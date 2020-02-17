@@ -7,9 +7,6 @@
  ==============================================================================
  */
 
-
-#include "audioutil.h"
-
 //==============================================================================
 void applyGain (AudioSampleBuffer& buffer, LinearSmoothedValue<float>& gain)
 {

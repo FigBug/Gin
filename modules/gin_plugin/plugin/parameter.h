@@ -1,18 +1,25 @@
 #pragma once
 
+class GinProcessor;
 //==============================================================================
 class Parameter : public AudioProcessorParameter,
                   private Timer,
-                  private AsyncUpdater
+                  private RealtimeAsyncUpdater
 {
 public:
-    Parameter (String uid, String name, String shortName, String label, float minValue, float maxValue,
+    using Ptr = Parameter*;
+    
+    Parameter (GinProcessor&, String uid, String name, String shortName, String label,
+               float minValue, float maxValue,
                float intervalValue, float defaultValue, float skewFactor = 1.0f,
                std::function<String (const Parameter&, float)> textFunction = nullptr);
 
     String getUid() { return uid; }
 
     //==============================================================================
+    float getProcValue() const;
+    float getProcValueSmoothed (int stepSize);
+    
     float getUserValue() const;
     int getUserValueInt() const;
     float getUserDefaultValue() const;
@@ -23,7 +30,12 @@ public:
     String userValueToText (float val);
 
     bool isOnOff();
+    bool isOn();
 
+    std::function<float (float)> conversionFunction;
+    
+    void setSmoothed (bool s)                   { smoothed = s;           }
+    
     //==============================================================================
     void beginUserAction();
     void beginUserTimedAction();
@@ -75,6 +87,8 @@ public:
     float getSkew() { return skewFactor; }
 
 protected:
+    GinProcessor& processor;
+    
     //==============================================================================
     void handleAsyncUpdate() override;
     void timerCallback() override;
@@ -85,6 +99,8 @@ protected:
     float value;
     float defaultValue;
     float skewFactor;
+    
+    bool smoothed = false;
 
     String uid;
     String name;

@@ -8,7 +8,6 @@
  */
 
 
-#include "adsr.h"
 #include <cmath>
 
 void ADSR::setAttack (float seconds)

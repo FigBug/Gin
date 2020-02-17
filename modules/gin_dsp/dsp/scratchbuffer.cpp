@@ -7,8 +7,6 @@
  ==============================================================================
  */
 
-
-#include "adsr.h"
 #include <cmath>
 
 //==============================================================================
@@ -108,16 +106,23 @@ private:
 JUCE_IMPLEMENT_SINGLETON(BufferCache)
 
 //==============================================================================
-ScratchBuffer::ScratchBuffer (int numChannels, int numSamples)
-    : ScratchBuffer (*BufferCache::getInstance()->get (numChannels, numSamples))
-{
-}
 
 ScratchBuffer::ScratchBuffer (BufferCacheItem& i)
     : AudioSampleBuffer (i.data.getArrayOfWritePointers(), i.chans, 0, i.samps),
     cache (i)
 {
-    
+}
+
+ScratchBuffer::ScratchBuffer (int numChannels, int numSamples)
+    : ScratchBuffer (*BufferCache::getInstance()->get (numChannels, numSamples))
+{
+}
+
+ScratchBuffer::ScratchBuffer (AudioSampleBuffer& buffer)
+    : ScratchBuffer (*BufferCache::getInstance()->get (buffer.getNumChannels(), buffer.getNumSamples()))
+{
+    for (int i = buffer.getNumChannels(); --i >= 0;)
+        copyFrom (i, 0, buffer, i, 0, buffer.getNumSamples());
 }
 
 ScratchBuffer::~ScratchBuffer()

@@ -1,9 +1,11 @@
 #include "parameter.h"
 
-Parameter::Parameter (String uid_, String name_, String shortName_, String label_, float minValue, float maxValue,
+Parameter::Parameter (GinProcessor& p, String uid_, String name_, String shortName_,
+                      String label_, float minValue, float maxValue,
                       float intervalValue, float defaultValue_, float skewFactor_,
                       std::function<String (const Parameter&, float)> textFunction_)
-  : value (defaultValue_),
+  : processor (p),
+    value (defaultValue_),
     defaultValue (defaultValue_),
     skewFactor (skewFactor_),
     uid (uid_),
@@ -18,9 +20,27 @@ Parameter::Parameter (String uid_, String name_, String shortName_, String label
     range = NormalisableRange<float> (minValue, maxValue, intervalValue, skewFactor);
 }
 
+bool Parameter::isOn()
+{
+    return range.start != getUserValue();
+}
+
 bool Parameter::isOnOff()
 {
     return range.start == 0 && range.end == range.interval;
+}
+
+float Parameter::getProcValue() const
+{
+    if (conversionFunction != nullptr)
+        return conversionFunction (getUserValue());
+        
+    return getUserValue();
+}
+
+float Parameter::getProcValueSmoothed (int stepSize)
+{
+    return getUserValue();
 }
 
 float Parameter::getUserValue() const
@@ -149,7 +169,7 @@ void Parameter::setValue (float valueIn)
     valueIn = jlimit (0.0f, 1.0f, valueIn);
     float newValue = range.snapToLegalValue (range.convertFrom0to1 (valueIn));
 
-    if (! almostEqual(value, newValue))
+    if (! almostEqual (value, newValue))
     {
         value = newValue;
         triggerAsyncUpdate();

@@ -120,12 +120,37 @@ public:
     void clearClip()    { clip = false; }
 
 protected:
-    float peakTime  {0.0f};
-    float peakLevel {-100.0f};
-    float decayRate {0.0f};
-    bool clip {false};
+    float peakTime  = 0.0f;
+    float peakLevel = -100.0f;
+    float decayRate = 0.0f;
+    bool clip       = false;
 };
 
 //==============================================================================
 // Type string for a midi message
 String getMidiMessageType (const MidiMessage& msg);
+
+//==============================================================================
+class WetDryMix
+{
+public:
+    WetDryMix (float mix)
+        : wetGain (mixToGain (mix)),
+          dryGain (mixToGain (1.0f - mix))
+    {
+    }
+
+    float mixToGain (float mix)
+    {
+        jassert (mix >= 0.0f && mix <= 1.0f);
+        return std::sin (mix * (0.5f * MathConstants<float>::pi));
+    }
+    
+    float wetGain, dryGain;
+};
+
+//==============================================================================
+inline AudioSampleBuffer sliceBuffer (AudioSampleBuffer& input, int start, int length)
+{
+    return AudioSampleBuffer (input.getArrayOfWritePointers(), input.getNumChannels(), start, length);
+}

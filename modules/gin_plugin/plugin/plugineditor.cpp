@@ -237,6 +237,17 @@ ParamComponent* GinAudioProcessorEditor::componentForId (const String& uid)
     return nullptr;
 }
 
+ParamComponent* GinAudioProcessorEditor::componentForParam (Parameter& param)
+{
+    auto uid = param.getUid();
+    for (auto* c : controls)
+    {
+        if (c->getUid() == uid)
+            return c;
+    }
+    return nullptr;
+}
+
 void GinAudioProcessorEditor::setGridSize (int x, int y)
 {
     setSize (x * cx + inset * 2, y * cy + inset * 2 + headerHeight);
