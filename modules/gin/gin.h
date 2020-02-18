@@ -74,6 +74,7 @@ using juce::Component;
 #include "utilities/filesystemwatcher.h"
 #include "utilities/fileutilities.h"
 #include "utilities/integrator.h"
+#include "utilities/lagrange.h"
 #include "utilities/leastsquaresregression.h"
 #include "utilities/linearregression.h"
 #include "utilities/openstreetmaps.h"

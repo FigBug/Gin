@@ -1283,6 +1283,58 @@ struct SplineDemo : public Component
 };
 
 //==============================================================================
+struct LagrangeDemo : public Component
+{
+    LagrangeDemo()
+    {
+        setName ("Lagrange");
+    }
+
+    void mouseDown (const MouseEvent& e) override
+    {
+        if (e.getNumberOfClicks() > 1)
+            points.clear();
+        else if (points.size() == 0 || e.x > points.getLast().getX())
+            points.add (e.position);
+
+        repaint();
+    }
+
+    void paint (Graphics& g) override
+    {
+        Array<Point<double>> dpoints;
+        for (auto p : points)
+            dpoints.add ({ double (p.getX()), double (p.getY())});
+
+        if (dpoints.size() >= 2)
+        {
+            g.setColour (Colours::red);
+
+            Path p;
+
+            p.startNewSubPath (points.getFirst().toFloat());
+            for (float x = points.getFirst().getX(); x < points.getLast().getX(); x++)
+            {
+                float y = gin::Lagrange::interpolate (points, float (x));
+                p.lineTo (x, y);
+            }
+            p.lineTo (points.getLast().toFloat());
+
+            g.strokePath (p, PathStrokeType (2));
+        }
+
+        g.setColour (Colours::yellow);
+        for (auto pt : points)
+            g.fillEllipse (pt.getX() - 3.0f, pt.getY() - 3.0f, 6.0f, 6.0f);
+
+        if (points.isEmpty())
+            g.drawText ("Click from left to right to add points. Double click to reset.", getLocalBounds(), Justification::centred);
+    }
+
+    Array<Point<float>> points;
+};
+
+//==============================================================================
 MainContentComponent::MainContentComponent()
 {
     demoComponents.add (new AsyncUpdateDemo());
@@ -1311,6 +1363,7 @@ MainContentComponent::MainContentComponent()
     demoComponents.add (new LeastSquaresDemo());
     demoComponents.add (new LinearDemo());
     demoComponents.add (new SplineDemo());
+    demoComponents.add (new LagrangeDemo());
 
     for (auto* c : demoComponents)
         addChildComponent (c);
