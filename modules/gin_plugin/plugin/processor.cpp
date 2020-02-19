@@ -125,7 +125,7 @@ bool GinProcessor::parameterBoolValue (const String& uid)
     if (parameterMap.find (uid) != parameterMap.end())
         return parameterMap[uid]->getUserValue() > 0;
 
-    return 0;
+    return false;
 }
 
 const Array<Parameter*>& GinProcessor::getPluginParameters()
