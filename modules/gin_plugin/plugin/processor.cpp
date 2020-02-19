@@ -54,11 +54,12 @@ void GinProcessor::reset()
         p->reset();
 }
 
-void GinProcessor::addPluginParameter (Parameter* parameter)
+void GinProcessor::addPluginParameter (Parameter* p)
 {
-    addParameter (parameter);
+    addParameter (p);
+    allParameters.add (p);
 
-    parameterMap[parameter->getUid()] = parameter;
+    parameterMap[p->getUid()] = p;
 }
 
 Parameter* GinProcessor::addIntParam (String uid, String name, String shortName, String label,
@@ -72,6 +73,7 @@ Parameter* GinProcessor::addIntParam (String uid, String name, String shortName,
         p->setSmoothed (true, smoothingTime);
     
     internalParameters.add (p);
+    allParameters.add (p);
     parameterMap[p->getUid()] = p;
     
     return p;
@@ -88,6 +90,7 @@ Parameter* GinProcessor::addExtParam (String uid, String name, String shortName,
         p->setSmoothed (true, smoothingTime);
 
     addParameter (p);
+    allParameters.add (p);
     parameterMap[p->getUid()] = p;
     
     return p;
@@ -107,7 +110,6 @@ float GinProcessor::parameterValue (const String& uid)
         return parameterMap[uid]->getUserValue();
 
     return 0;
-
 }
 
 int GinProcessor::parameterIntValue (const String& uid)
@@ -126,14 +128,9 @@ bool GinProcessor::parameterBoolValue (const String& uid)
     return 0;
 }
 
-Array<Parameter*> GinProcessor::getPluginParameters()
+const Array<Parameter*>& GinProcessor::getPluginParameters()
 {
-    Array<Parameter*> result;
-
-    for (auto itr : parameterMap)
-        result.add (itr.second);
-
-    return result;
+    return allParameters;
 }
 
 //==============================================================================

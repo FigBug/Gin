@@ -38,7 +38,7 @@ public:
     float parameterValue (const String& uid);
     int parameterIntValue (const String& uid);
     bool parameterBoolValue (const String& uid);
-    Array<Parameter*> getPluginParameters();
+    const Array<Parameter*>& getPluginParameters();
     
     bool isSmoothing()                              { return smoothingCount.get() > 0; }
 
@@ -82,6 +82,7 @@ protected:
     virtual void updateState()  {}
 
 private:
+    Array<Parameter*> allParameters;
     Atomic<int> smoothingCount;
     
     void updateParams();
