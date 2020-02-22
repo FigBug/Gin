@@ -14,7 +14,7 @@
 class StereoDelay
 {
 public:
-    StereoDelay (double maxDelay_ = 5.0)
+    StereoDelay (double maxDelay_ = 5.1)
         : maxDelay (maxDelay_)
     {
         setSampleRate (44100.0);

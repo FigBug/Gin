@@ -3,6 +3,8 @@
 #include "parameter.h"
 #include "program.h"
 
+#include "../components/pluginlookandfeel.h"
+
 //==============================================================================
 /**
 */
@@ -40,7 +42,7 @@ public:
     bool parameterBoolValue (const String& uid);
     const Array<Parameter*>& getPluginParameters();
     
-    bool isSmoothing()                              { return smoothingCount.get() > 0; }
+    bool isSmoothing();
 
     File getProgramDirectory();
     File getSettingsFile();
@@ -70,6 +72,8 @@ public:
     //==============================================================================
 
 public:
+    SharedResourcePointer<PluginLookAndFeel> lf;
+    
     std::unique_ptr<PropertiesFile> properties;
 
     std::map<String, Parameter*> parameterMap;
@@ -83,7 +87,6 @@ protected:
 
 private:
     Array<Parameter*> allParameters;
-    Atomic<int> smoothingCount;
     
     void updateParams();
 

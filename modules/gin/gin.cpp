@@ -108,6 +108,7 @@ using juce::MemoryBlock;
 #include "images/bmpimageformat.cpp"
 
 #include "components/componentviewer.cpp"
+#include "components/ginlookandfeel.cpp"
 #include "components/mapviewer.cpp"
 #include "components/propertycomponents.cpp"
 #include "components/singlelinetexteditor.cpp"

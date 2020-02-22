@@ -79,6 +79,7 @@ using juce::Component;
 #include "dsp/sample.h"
 #include "dsp/sampleoscillator.h"
 #include "dsp/stereodelay.h"
+#include "dsp/valuesmoother.h"
 
 #include "components/triggeredscope.h"
 #include "components/xyscope.h"

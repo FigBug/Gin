@@ -66,6 +66,7 @@ using namespace juce;
 using juce::Rectangle;
 using juce::Component;
 
+#include "plugin/noteduration.h"
 #include "plugin/processor.h"
 #include "plugin/plugineditor.h"
 #include "plugin/program.h"

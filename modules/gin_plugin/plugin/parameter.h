@@ -42,6 +42,7 @@ public:
     std::function<float (float)> conversionFunction;
     
     void setSmoothed (bool s, float t = 0.0f);
+    bool isSmoothingActive()                    { return smoothed && smoother.isSmoothing(); }
     
     //==============================================================================
     void beginUserAction();

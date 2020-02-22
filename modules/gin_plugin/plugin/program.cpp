@@ -1,5 +1,3 @@
-#include "program.h"
-#include "processor.h"
 
 void GinProgram::loadProcessor (GinProcessor* p)
 {

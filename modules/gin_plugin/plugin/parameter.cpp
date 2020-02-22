@@ -1,4 +1,3 @@
-#include "parameter.h"
 
 Parameter::Parameter (GinProcessor& p, String uid_, String name_, String shortName_,
                       String label_, float minValue, float maxValue,

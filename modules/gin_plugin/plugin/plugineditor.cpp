@@ -1,4 +1,3 @@
-#include "plugineditor.h"
 #include <time.h>
 
 //==============================================================================
@@ -112,11 +111,11 @@ void NewsChecker::run()
     {
         if (std::unique_ptr<PropertiesFile> props = editor.slProc.getSettings())
         {
-            if (auto* rss = root->getChildByName("channel"))
+            if (auto rss = root->getChildByName ("channel"))
             {
-                if (auto* item = rss->getChildByName ("item"))
+                if (auto item = rss->getChildByName ("item"))
                 {
-                    if (auto* link = item->getChildByName("link"))
+                    if (auto link = item->getChildByName ("link"))
                     {
                         props->setValue ("lastNewsCheck", int (time (nullptr)));
 
@@ -129,12 +128,12 @@ void NewsChecker::run()
                             props->setValue("readNews", readNews.joinIntoString ("|"));
                         }
 
-                        if (! readNews.contains(url))
+                        if (! readNews.contains (url))
                         {
                             props->setValue ("newsUrl", url);
 
-                            const MessageManagerLock mmLock;
-                            editor.newsReady (url);
+                            newsUrl = url;
+                            triggerAsyncUpdate();
                         }
                     }
                 }
@@ -143,11 +142,16 @@ void NewsChecker::run()
     }
 }
 
+void NewsChecker::handleAsyncUpdate()
+{
+    editor.newsReady (newsUrl);
+}
+
 //==============================================================================
 GinAudioProcessorEditor::GinAudioProcessorEditor (GinProcessor& p, int cx_, int cy_) noexcept
   : GinAudioProcessorEditorBase (p), slProc (p), cx (cx_), cy (cy_)
 {
-    setLookAndFeel (&lf);
+    setLookAndFeel (&slProc.lf.get());
 
     tooltipWindow->setMillisecondsBeforeTipAppears (2000);
 
@@ -272,7 +276,7 @@ void GinAudioProcessorEditor::buttonClicked (Button* b)
         w.addTextEditor ("name", "", "Name:");
         w.addButton ("OK", 1);
         w.addButton ("Cancel", 0);
-        w.setLookAndFeel (&lf);
+        w.setLookAndFeel (&slProc.lf.get());
 
         if (w.runModalLoop())
         {
@@ -289,7 +293,7 @@ void GinAudioProcessorEditor::buttonClicked (Button* b)
         AlertWindow w ("", "Delete preset '" + processor.getProgramName (programs.getSelectedItemIndex()) + "'?", AlertWindow::NoIcon, this);
         w.addButton ("Yes", 1);
         w.addButton ("No", 0);
-        w.setLookAndFeel (&lf);
+        w.setLookAndFeel (&slProc.lf.get());
 
         if (w.runModalLoop())
         {
@@ -313,7 +317,7 @@ void GinAudioProcessorEditor::buttonClicked (Button* b)
 
         AlertWindow w ("---- About ----", msg, AlertWindow::NoIcon, this);
         w.addButton ("OK", 1);
-        w.setLookAndFeel (&lf);
+        w.setLookAndFeel (&slProc.lf.get());
 
         w.runModalLoop();
     }

@@ -12,10 +12,6 @@
 XYScope::XYScope (AudioFifo& f) :
     fifo (f)
 {
-    setColour (lineColourId, Colours::white);
-    setColour (backgroundColourId, Colours::black);
-    setColour (traceColourId, Colours::white);
-    
     channel.xBuffer.clear ((size_t) channel.bufferSize);
     channel.yBuffer.clear ((size_t) channel.bufferSize);
 

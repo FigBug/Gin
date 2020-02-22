@@ -13,8 +13,6 @@ TriggeredScope::TriggeredScope (AudioFifo& f) :
     fifo (f)
 {
     setNumChannels (1);
-    setColour (lineColourId, Colours::white);
-    setColour (backgroundColourId, Colours::black);
     
     for (int i = 0; i < 32; i++)
         setColour (traceColourId + i, Colours::white);

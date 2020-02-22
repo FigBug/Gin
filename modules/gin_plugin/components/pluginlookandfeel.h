@@ -1,30 +1,21 @@
 #pragma once
 
 //==============================================================================
-class PluginLookAndFeel : public LookAndFeel_V4
+class PluginLookAndFeel : public GinLookAndFeel
 {
 public:
     PluginLookAndFeel();
-
-    void drawRotarySlider (Graphics&, int x, int y, int width, int height,
-                           float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle,
-                           Slider&) override;
-
-    void drawLinearSlider (Graphics&, int x, int y, int width, int height,
-                           float sliderPos, float minSliderPos, float maxSliderPos,
-                           const Slider::SliderStyle, Slider&) override;
-
-
-    void drawButtonBackground (Graphics&, Button&, const Colour& backgroundColour,
-                               bool isMouseOverButton, bool isButtonDown) override;
-
-    void drawButtonText (Graphics&, TextButton&, bool isMouseOverButton, bool isButtonDown) override;
-
-    void drawComboBox (Graphics&, int width, int height, bool isButtonDown,
-                       int buttonX, int buttonY, int buttonW, int buttonH,
-                       ComboBox&) override;
-
-    void positionComboBoxText (ComboBox&, Label&) override;
     
-    void drawTextEditorOutline (Graphics&, int width, int height, TextEditor&) override;
+    Typeface::Ptr getTypefaceForFont (const Font& f) override;
+        
+private:
+    Typeface::Ptr typeface;
+};
+
+//==============================================================================
+class PluginLookAndFeelWrapper : public PluginLookAndFeel
+{
+public:
+    PluginLookAndFeelWrapper();
+    ~PluginLookAndFeelWrapper();
 };

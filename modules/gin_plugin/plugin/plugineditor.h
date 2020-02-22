@@ -21,23 +21,29 @@ public:
 
 //==============================================================================
 class NewsChecker : public Timer,
-                    public Thread
+                    private Thread,
+                    private AsyncUpdater
 {
 public:
     NewsChecker (GinAudioProcessorEditor& editor_);
     ~NewsChecker() override;
 
+private:
+    void handleAsyncUpdate() override;
     void timerCallback() override;
     void run() override;
 
     GinAudioProcessorEditor& editor;
+    
+    String newsUrl;
 };
 
 //==============================================================================
 class GinAudioProcessorEditorBase : public AudioProcessorEditor
 {
 public:
-    GinAudioProcessorEditorBase (GinProcessor& p) : AudioProcessorEditor (p), proc (p)
+    GinAudioProcessorEditorBase (GinProcessor& p)
+      : AudioProcessorEditor (p), proc (p)
     {
     }
 
@@ -114,8 +120,6 @@ protected:
 
     ParamComponent* componentForId (const String& uid);
     ParamComponent* componentForParam (Parameter& param);
-
-    PluginLookAndFeel lf;
 
     ComboBox programs;
     TextButton addButton {"A"};
