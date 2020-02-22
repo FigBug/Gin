@@ -1351,7 +1351,8 @@ void SingleLineTextEditor::drawContent (Graphics& g)
         getCharPosition (s, x1, y1, h1);
         getCharPosition (e, x2, y2, h2);
 
-        g.fillRect (x1, y1, x2 - x1, h1);
+        if (x2 > x1)
+            g.fillRect (x1, y1, x2 - x1, h1);
     }
 
     for (int i = 0; i < ga.getNumGlyphs(); i++)

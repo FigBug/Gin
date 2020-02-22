@@ -6,23 +6,13 @@ UpdateChecker::UpdateChecker (GinAudioProcessorEditor& editor_)
 {
     if (std::unique_ptr<PropertiesFile> props = editor.slProc.getSettings())
     {
-       #ifdef JucePlugin_Name
         String url = props->getValue (JucePlugin_Name "_updateUrl");
         int last   = props->getIntValue (JucePlugin_Name "_lastUpdateCheck");
-       #else
-        jassertfalse;
-        String url = "";
-        int last = 0;
-       #endif
 
         if (url.isNotEmpty())
-        {
             editor.updateReady (url);
-        }
         else if (time (nullptr) > last + 86400)
-        {
             startTimer (Random::getSystemRandom().nextInt ({1500, 2500}));
-        }
     }
 }
 
@@ -40,7 +30,6 @@ void UpdateChecker::timerCallback()
 
 void UpdateChecker::run()
 {
-   #ifdef JucePlugin_Name
     URL versionsUrl = URL ("https://socalabs.com/version.xml").withParameter ("plugin", JucePlugin_Name).withParameter ("version", JucePlugin_VersionString);
     XmlDocument doc (versionsUrl.readEntireTextStream());
     if (std::unique_ptr<XmlElement> root = doc.getDocumentElement())
@@ -69,7 +58,6 @@ void UpdateChecker::run()
             }
         }
     }
-   #endif
 }
 
 //==============================================================================
@@ -125,7 +113,7 @@ void NewsChecker::run()
                         if (readNews.isEmpty())
                         {
                             readNews.add (url);
-                            props->setValue("readNews", readNews.joinIntoString ("|"));
+                            props->setValue ("readNews", readNews.joinIntoString ("|"));
                         }
 
                         if (! readNews.contains (url))
@@ -305,7 +293,9 @@ void GinAudioProcessorEditor::buttonClicked (Button* b)
     {
         String msg;
 
-       #ifdef JucePlugin_VersionString
+       #if JUCE_DEBUG
+        msg += JucePlugin_Name " v" JucePlugin_VersionString " (" __TIME__ " " __DATE__ ")\n\n";
+       #else
         msg += JucePlugin_Name " v" JucePlugin_VersionString " (" __DATE__ ")\n\n";
        #endif
         msg += "Programming:\nRoland Rabien\nDavid Rowland\nROLI JUCE Framework\n";
@@ -326,10 +316,8 @@ void GinAudioProcessorEditor::buttonClicked (Button* b)
         URL (updateUrl).launchInDefaultBrowser();
         updateButton.setVisible (false);
 
-       #ifdef JucePlugin_Name
         if (std::unique_ptr<PropertiesFile> props = slProc.getSettings())
             props->setValue (JucePlugin_Name "_updateUrl", "");
-       #endif
     }
     else if (b == &socaButton)
     {

@@ -64,7 +64,7 @@ public:
         else if (currentValue > targetValue)
             currentValue = std::max (targetValue, currentValue - delta);
         
-        return currentValue;
+        return targetValue;
     }
 
     T* getValuePtr()

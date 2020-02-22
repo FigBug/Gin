@@ -15,6 +15,7 @@ Parameter::Parameter (GinProcessor& p, String uid_, String name_, String shortNa
     if (shortName.isEmpty())
         shortName = name;
 
+    smoother.setValue (range.convertTo0to1 (value));
     range = NormalisableRange<float> (minValue, maxValue, intervalValue, skewFactor);
 }
 
@@ -31,6 +32,7 @@ Parameter::Parameter (GinProcessor& p, String uid_, String name_, String shortNa
     label (label_),
     textFunction (textFunction_)
 {
+    smoother.setValue (range.convertTo0to1 (value));
     if (shortName.isEmpty())
         shortName = name;
 }
@@ -72,7 +74,7 @@ float Parameter::getProcValue() const
 
 float Parameter::getProcValueSmoothed (int stepSize)
 {
-    if (smoothed)
+    if (smoothed && smoother.isSmoothing())
     {
         auto v = range.convertFrom0to1 (smoother.getCurrentValue());
         smoother.process (stepSize);
@@ -82,7 +84,7 @@ float Parameter::getProcValueSmoothed (int stepSize)
         
         return v;
     }
-    return getUserValue();
+    return getProcValue();
 }
 
 float Parameter::getUserValue() const
