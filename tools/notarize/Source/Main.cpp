@@ -94,7 +94,6 @@ int main (int argc, char* argv[])
     auto ver = Time::getCompilationDate().toString (true, true);
 
     printf ("Notarize: version: %s\n", ver.toRawUTF8());
-    printf ("argc %d\n", argc);
 
 	if (argc < 4)
 	{

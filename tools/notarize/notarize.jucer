@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="Z9xZn6" name="notarize" projectType="consoleapp" jucerVersion="5.4.5"
+<JUCERPROJECT id="Z9xZn6" name="notarize" projectType="consoleapp" jucerVersion="5.4.7"
               companyName="Rabien Software" companyWebsite="www.rabiensoftware.com"
               companyEmail="roland@rabiensoftware.com">
   <MAINGROUP id="Q4qZiZ" name="notarize">
