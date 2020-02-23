@@ -3,7 +3,7 @@
 <JUCERPROJECT id="TUv5GT" name="Demo" displaySplashScreen="0" reportAppUsage="0"
               splashScreenColour="Dark" projectType="guiapp" version="1.0.0"
               bundleIdentifier="com.figbug.Demo" includeBinaryInAppConfig="1"
-              cppLanguageStandard="14" companyCopyright="" jucerVersion="5.4.6">
+              cppLanguageStandard="latest" companyCopyright="" jucerVersion="5.4.7">
   <MAINGROUP id="wLOeL4" name="Demo">
     <GROUP id="{C99AB8C7-9FF4-1BC0-BD5D-C29561B0C802}" name="Source">
       <GROUP id="{942D9F9F-079D-DA91-711F-43B50276712D}" name="Resources">
@@ -82,15 +82,16 @@
         <MODULEPATH id="gin_network" path="../../modules"/>
       </MODULEPATHS>
     </XCODE_IPHONE>
-    <VS2017 targetFolder="Builds/VisualStudio2017" extraCompilerFlags="/wd4996 /wd4458"
-            smallIcon="fAXkiV" bigIcon="fAXkiV">
+    <VS2019 targetFolder="Builds/VisualStudio2019" extraCompilerFlags="/wd4996 /wd4458"
+            smallIcon="fAXkiV" bigIcon="fAXkiV" toolset="v142">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
                        debugInformationFormat="ProgramDatabase" enablePluginBinaryCopyStep="0"
                        linkTimeOptimisation="0" isDebug="1" optimisation="1" targetName="Demo"/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
                        debugInformationFormat="ProgramDatabase" enablePluginBinaryCopyStep="0"
-                       linkTimeOptimisation="1" isDebug="0" optimisation="3" targetName="Demo"/>
+                       linkTimeOptimisation="1" isDebug="0" optimisation="3" targetName="Demo"
+                       warningsAreErrors="1"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="gin" path="../../modules"/>
@@ -110,7 +111,7 @@
         <MODULEPATH id="juce_dsp" path="../../../juce/modules"/>
         <MODULEPATH id="gin_network" path="../../modules"/>
       </MODULEPATHS>
-    </VS2017>
+    </VS2019>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" linkTimeOptimisation="0"
