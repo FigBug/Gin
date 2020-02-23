@@ -15,7 +15,6 @@ Parameter::Parameter (GinProcessor& p, String uid_, String name_, String shortNa
     if (shortName.isEmpty())
         shortName = name;
 
-    smoother.setValue (range.convertTo0to1 (value));
     range = NormalisableRange<float> (minValue, maxValue, intervalValue, skewFactor);
 }
 
@@ -32,26 +31,8 @@ Parameter::Parameter (GinProcessor& p, String uid_, String name_, String shortNa
     label (label_),
     textFunction (textFunction_)
 {
-    smoother.setValue (range.convertTo0to1 (value));
     if (shortName.isEmpty())
         shortName = name;
-}
-
-void Parameter::prepareToPlay (double sampleRate, int /*samplesPerBlock*/)
-{
-    smoother.setSampleRate (sampleRate);
-}
-
-void Parameter::reset()
-{
-    smoother.snapToValue();
-}
-
-void Parameter::setSmoothed (bool s, float t)
-{
-    smoothed = s;
-    if (smoothed)
-        smoother.setTime (t);
 }
 
 bool Parameter::isOn()
@@ -64,27 +45,12 @@ bool Parameter::isOnOff()
     return range.start == 0 && range.end == range.interval;
 }
 
-float Parameter::getProcValue() const
+float Parameter::getProcValue (int)
 {
     if (conversionFunction != nullptr)
         return conversionFunction (getUserValue());
         
     return getUserValue();
-}
-
-float Parameter::getProcValueSmoothed (int stepSize)
-{
-    if (smoothed && smoother.isSmoothing())
-    {
-        auto v = range.convertFrom0to1 (smoother.getCurrentValue());
-        smoother.process (stepSize);
-        
-        if (conversionFunction != nullptr)
-            return conversionFunction (v);
-        
-        return v;
-    }
-    return getProcValue();
 }
 
 float Parameter::getUserValue() const
@@ -108,8 +74,6 @@ void Parameter::setUserValue (float v)
     if (! almostEqual (value, v))
     {
         value = v;
-        smoother.setValue (range.convertTo0to1 (value));
-
         triggerAsyncUpdate();
     }
 }
@@ -120,8 +84,6 @@ void Parameter::setUserValueNotifingHost (float v)
     if (! almostEqual (value, v))
     {
         value = v;
-        smoother.setValue (range.convertTo0to1 (value));
-        
         setValueNotifyingHost (getValue());
 
         triggerAsyncUpdate();
@@ -219,7 +181,6 @@ void Parameter::setValue (float valueIn)
     if (! almostEqual (value, newValue))
     {
         value = newValue;
-        smoother.setValue (range.convertTo0to1 (value));
         
         triggerAsyncUpdate();
     }

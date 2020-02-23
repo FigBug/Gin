@@ -59,38 +59,65 @@ void GinProcessor::addPluginParameter (Parameter* p)
     parameterMap[p->getUid()] = p;
 }
 
-Parameter* GinProcessor::addIntParam (String uid, String name, String shortName, String label,
+Parameter* GinProcessor::createParam (String uid, String name, String shortName, String label,
                                       NormalisableRange<float> range, float defaultValue,
-                                      float smoothingTime,
+                                      SmoothingType st,
                                       std::function<String (const Parameter&, float)> textFunction)
 {
-    auto p = new Parameter (*this, uid, name, shortName, label, range, defaultValue, textFunction);
+    Parameter* p = nullptr;
     
-    if (smoothingTime > 0.0f)
-        p->setSmoothed (true, smoothingTime);
+    if (st.time > 0.0f)
+    {
+        if (st.type == SmoothingType::linear)
+        {
+            auto sp = new SmoothedParameter<ValueSmoother<float>> (*this, uid, name, shortName, label, range, defaultValue, textFunction);
+            sp->setSmoothingTime (st.time);
+            p = sp;
+        }
+        else if (st.type == SmoothingType::eased)
+        {
+            auto sp = new SmoothedParameter<EasedValueSmoother<float>> (*this, uid, name, shortName, label, range, defaultValue, textFunction);
+            sp->setSmoothingTime (st.time);
+            p = sp;
+        }
+    }
+    else
+    {
+        p = new Parameter (*this, uid, name, shortName, label, range, defaultValue, textFunction);
+    }
     
-    internalParameters.add (p);
-    allParameters.add (p);
-    parameterMap[p->getUid()] = p;
-    
+    jassert (p != nullptr);
     return p;
+}
+
+Parameter* GinProcessor::addIntParam (String uid, String name, String shortName, String label,
+                                      NormalisableRange<float> range, float defaultValue,
+                                      SmoothingType st,
+                                      std::function<String (const Parameter&, float)> textFunction)
+{
+    if (auto p = createParam (uid, name, shortName, label, range, defaultValue, st, textFunction))
+    {
+        internalParameters.add (p);
+        allParameters.add (p);
+        parameterMap[p->getUid()] = p;
+        return p;
+    }
+    return nullptr;
 }
 
 Parameter* GinProcessor::addExtParam (String uid, String name, String shortName, String label,
                                       NormalisableRange<float> range, float defaultValue,
-                                      float smoothingTime,
+                                      SmoothingType st,
                                       std::function<String (const Parameter&, float)> textFunction)
 {
-    auto p = new Parameter (*this, uid, name, shortName, label, range, defaultValue, textFunction);
-    
-    if (smoothingTime > 0.0f)
-        p->setSmoothed (true, smoothingTime);
-
-    addParameter (p);
-    allParameters.add (p);
-    parameterMap[p->getUid()] = p;
-    
-    return p;
+    if (auto p = createParam (uid, name, shortName, label, range, defaultValue, st, textFunction))
+    {
+        addParameter (p);
+        allParameters.add (p);
+        parameterMap[p->getUid()] = p;
+        return p;
+    }
+    return nullptr;
 }
 
 Parameter* GinProcessor::getParameter (const String& uid)

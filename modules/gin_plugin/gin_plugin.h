@@ -71,6 +71,7 @@ using juce::Component;
 #include "plugin/plugineditor.h"
 #include "plugin/program.h"
 #include "plugin/parameter.h"
+#include "plugin/smoothedparameter.h"
 
 #include "components/plugincomponents.h"
 #include "components/pluginlookandfeel.h"

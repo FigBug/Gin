@@ -34,7 +34,7 @@ float NoteDuration::toSeconds (AudioPlayHead* playhead) const
     else if (bars > 0.0f)
     {
         float beatLen = sPerWhole * 1.0f / timeSigDenominator;
-        return timeSigNumerator * beatLen;
+        return bars * timeSigNumerator * beatLen;
     }
     return 0.0f;
 }

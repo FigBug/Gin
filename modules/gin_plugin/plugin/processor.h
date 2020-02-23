@@ -6,6 +6,24 @@
 #include "../components/pluginlookandfeel.h"
 
 //==============================================================================
+class SmoothingType
+{
+public:
+    enum Type
+    {
+        linear,
+        eased
+    };
+    
+    SmoothingType (float time_ = 0.1f, Type type_ = linear)
+      : time (time_), type (type_)
+    {
+    }
+    
+    float time;
+    Type type;
+};
+//==============================================================================
 /**
 */
 class GinProcessor : public AudioProcessor,
@@ -28,12 +46,12 @@ public:
     
     Parameter* addExtParam (String uid, String name, String shortName, String label,
                             NormalisableRange<float> range, float defaultValue,
-                            float smoothingTime,
+                            SmoothingType st,
                             std::function<String (const Parameter&, float)> textFunction = nullptr);
     
     Parameter* addIntParam (String uid, String name, String shortName, String label,
                             NormalisableRange<float> range, float defaultValue,
-                            float smoothingTime,
+                            SmoothingType st,
                             std::function<String (const Parameter&, float)> textFunction = nullptr);
     
     Parameter* getParameter (const String& uid);
@@ -86,6 +104,11 @@ protected:
     virtual void updateState()  {}
 
 private:
+    Parameter* createParam (String uid, String name, String shortName, String label,
+                            NormalisableRange<float> range, float defaultValue,
+                            SmoothingType st,
+                            std::function<String (const Parameter&, float)> textFunction = nullptr);
+    
     Array<Parameter*> allParameters;
     
     void updateParams();

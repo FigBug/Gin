@@ -3,8 +3,8 @@
 class GinProcessor;
 //==============================================================================
 class Parameter : public AudioProcessorParameter,
-                  private Timer,
-                  private RealtimeAsyncUpdater
+                  protected Timer,
+                  protected RealtimeAsyncUpdater
 {
 public:
     using Ptr = Parameter*;
@@ -20,18 +20,17 @@ public:
 
     String getUid() { return uid; }
     
-    void prepareToPlay (double sampleRate, int samplesPerBlock);
-    void reset();
+    virtual void prepareToPlay (double /*sampleRate*/, int /*samplesPerBlock*/)    {}
+    virtual void reset()                                                           {}
     
     //==============================================================================
-    float getProcValue() const;
-    float getProcValueSmoothed (int stepSize);
+    virtual float getProcValue (int stepSize);
     
     float getUserValue() const;
     int getUserValueInt() const;
     float getUserDefaultValue() const;
-    void setUserValue (float v);
-    void setUserValueNotifingHost (float f);
+    virtual void setUserValue (float v);
+    virtual void setUserValueNotifingHost (float f);
     void setUserValueAsUserAction (float f);
     String getUserValueText() const;
     String userValueToText (float val);
@@ -41,8 +40,7 @@ public:
 
     std::function<float (float)> conversionFunction;
     
-    void setSmoothed (bool s, float t = 0.0f);
-    bool isSmoothingActive()                    { return smoothed && smoother.isSmoothing(); }
+    virtual bool isSmoothingActive()            { return false;         }
     
     //==============================================================================
     void beginUserAction();
@@ -107,9 +105,6 @@ protected:
     float value;
     float defaultValue;
     
-    bool smoothed = false;
-    ValueSmoother<float> smoother;
-
     String uid;
     String name;
     String shortName;
