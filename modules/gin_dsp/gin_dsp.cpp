@@ -22,6 +22,11 @@
  #pragma clang diagnostic ignored "-Wzero-as-null-pointer-constant"
 #endif
 
+#if _MSC_VER
+ #pragma warning (push)
+ #pragma warning (disable: 4200 4815 4127 4244 4305)
+#endif
+
 #define PACKAGE "src"
 #define VERSION "0.1.9"
 #define CPU_CLIPS_NEGATIVE 0

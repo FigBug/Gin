@@ -704,9 +704,9 @@ struct DownloadManagerDemo : public Component,
                                                             repaint();
                                                         }
                                                     }
-                                                }, [url] (int64 current, int64 total, int64 sinceLast)
+                                                }, [url] (int64 current, int64 total, [[ maybe_unused ]] int64 sinceLast)
                                                 {
-                                                    double percent = double (current) / double (total) * 100;
+                                                    [[ maybe_unused ]] double percent = double (current) / double (total) * 100;
                                                     DBG(url + ": " + String (int (percent)) + "% " + String (current) + " of " + String (total) + " downloaded. This block: " + String (sinceLast));
                                                 });
         }
