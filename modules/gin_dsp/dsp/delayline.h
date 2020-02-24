@@ -46,9 +46,19 @@ public:
         int prev = int (std::floor (readPos));
         int next = (prev + 1) % numSamples;
 
-        float faction = readPos - prev;
+        float fraction = readPos - prev;
         
-        return (1.0f - faction) * data[ch][prev] + faction * data[ch][next];
+        return (1.0f - fraction) * data[ch][prev] + fraction * data[ch][next];
+    }
+    
+    inline float readSample (int ch, int samplePos)
+    {
+        int numSamples = buffer.getNumSamples();
+        
+        jassert (samplePos >= 0 && samplePos < numSamples);
+        
+        auto readPos = (writePos + numSamples - samplePos) % numSamples;
+        return data[ch][readPos];
     }
     
     inline void write (int ch, float input)
