@@ -103,6 +103,8 @@ protected:
     virtual void stateUpdated() {}
     virtual void updateState()  {}
 
+	void extractProgram (const String& name, const MemoryBlock& data);
+
 private:
     Parameter* createParam (String uid, String name, String shortName, String label,
                             NormalisableRange<float> range, float defaultValue,

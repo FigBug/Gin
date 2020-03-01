@@ -238,7 +238,7 @@ void GinProcessor::loadAllPrograms()
     programs.clear();
 
     // create the default program
-    GinProgram* defaultProgram = new GinProgram();
+    auto defaultProgram = new GinProgram();
     defaultProgram->name = "Default";
     defaultProgram->saveProcessor (this);
 
@@ -249,13 +249,28 @@ void GinProcessor::loadAllPrograms()
 
     Array<File> programFiles;
     dir.findChildFiles (programFiles, File::findFiles, false, "*.xml");
+	programFiles.sort();
 
     for (File f : programFiles)
     {
-        GinProgram* program = new GinProgram();
+        auto program = new GinProgram();
         program->loadFromFile (f);
         programs.add (program);
     }
+}
+
+void GinProcessor::extractProgram (const String& name, const MemoryBlock& data)
+{
+	File dir = getProgramDirectory();
+	auto f = dir.getChildFile (name);
+	if (! f.existsAsFile())
+	{
+		f.replaceWithData (data.getData(), data.getSize());
+
+        auto program = new GinProgram();
+        program->loadFromFile (f);
+        programs.add (program);
+	}
 }
 
 void GinProcessor::saveProgram (String name)
