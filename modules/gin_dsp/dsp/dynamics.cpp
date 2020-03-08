@@ -85,12 +85,12 @@ void Dynamics::setMode (Type t)
     type = t;
 }
 
-void Dynamics::setParams (float attackS, float releaseS, float threshhold_, float ratio_, float kneeWidth_)
+void Dynamics::setParams (float attackS, float releaseS, float threshold_, float ratio_, float kneeWidth_)
 {
     leftEnvelope.setParams (attackS, releaseS, false, EnvelopeDetector::peak, true);
     rightEnvelope.setParams (attackS, releaseS, false, EnvelopeDetector::peak, true);
 
-    threshold = threshhold_;
+    threshold = threshold_;
     ratio = ratio_;
     kneeWidth = kneeWidth_;
 }
@@ -105,9 +105,7 @@ void Dynamics::process (AudioSampleBuffer& buffer)
 {
     int numSamples = buffer.getNumSamples();
 
-    ScratchBuffer inputBuffer (buffer);
-
-    auto input  = inputBuffer.getArrayOfReadPointers();
+    auto input  = buffer.getArrayOfReadPointers();
     auto output = buffer.getArrayOfWritePointers();
 
     for (int i = 0; i < numSamples; i++)

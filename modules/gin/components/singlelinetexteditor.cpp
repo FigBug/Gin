@@ -1351,7 +1351,7 @@ void SingleLineTextEditor::drawContent (Graphics& g)
         getCharPosition (s, x1, y1, h1);
         getCharPosition (e, x2, y2, h2);
 
-        if (x2 > x1)
+        if (x2 - x1 > 0)
             g.fillRect (x1, y1, x2 - x1, h1);
     }
 
