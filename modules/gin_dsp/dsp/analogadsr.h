@@ -12,8 +12,8 @@
 class AnalogADSR
 {
 public:
-    AnalogADSR()                                {}
-    ~AnalogADSR()                               {}
+    AnalogADSR();
+    ~AnalogADSR() = default;
 
     enum class State
     {
@@ -26,9 +26,16 @@ public:
 
     void setSampleRate (double sr)              { sampleRate = sr;      }
 
+    // Returns next ADSR value
     float process();
+    
+    // Fills a buffer with ADSR values
     void process (AudioSampleBuffer& buffer);
     void process (AudioSampleBuffer& buffer, int startSample, int numSamples);
+    
+    // Multiplies a buffer by ADSE values
+    void processMultiplying (AudioSampleBuffer& buffer);
+    void processMultiplying (AudioSampleBuffer& buffer, int startSample, int numSamples);
 
     float getOutput()                           { return output;        }
     State getState()                            { return state;         }

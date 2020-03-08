@@ -10,6 +10,15 @@
 
 #include <cmath>
 
+AnalogADSR::AnalogADSR()
+{
+    setAttack (0.2f);
+    setDecay (0.2f);
+    setRelease (0.2f);
+    setSustainLevel (0.8f);
+    reset();
+}
+
 void AnalogADSR::noteOn()
 {
     calculateRelease();
@@ -136,6 +145,53 @@ void AnalogADSR::process (AudioSampleBuffer& buffer, int startSample, int numSam
                 break;
         }
         *d++ = output;
+    }
+}
+
+void AnalogADSR::processMultiplying (AudioSampleBuffer& buffer)
+{
+    processMultiplying (buffer, 0, buffer.getNumSamples());
+}
+
+void AnalogADSR::processMultiplying (AudioSampleBuffer& buffer, int startSample, int numSamples)
+{
+    int channels = buffer.getNumChannels();
+    float** d = buffer.getArrayOfWritePointers();
+    
+    for (int i = 0; i < numSamples; i++)
+    {
+        switch (state)
+        {
+            case State::idle:
+                break;
+            case State::attack:
+                output = attackOffset + output * attackCoeff;
+                if (output >= 1.0 || attack == 0.0f)
+                {
+                    output = 1.0;
+                    state = State::decay;
+                }
+                break;
+            case State::decay:
+                output = decayOffset + output * decayCoeff;
+                if (output <= sustain)
+                {
+                    state = State::sustain;
+                }
+                break;
+            case State::sustain:
+                break;
+            case State::release:
+                output = releaseOffset + output * releaseCoeff;
+                if (output <= 0.0 || release == 0.0)
+                {
+                    output = 0.0;
+                    state = State::idle;
+                }
+                break;
+        }
+        for (int ch = 0; ch < channels; ch++)
+            d[ch][startSample + i] *= output;
     }
 }
 

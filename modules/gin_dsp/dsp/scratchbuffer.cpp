@@ -116,6 +116,7 @@ ScratchBuffer::ScratchBuffer (BufferCacheItem& i)
 ScratchBuffer::ScratchBuffer (int numChannels, int numSamples)
     : ScratchBuffer (*BufferCache::getInstance()->get (numChannels, numSamples))
 {
+    clear();
 }
 
 ScratchBuffer::ScratchBuffer (AudioSampleBuffer& buffer)

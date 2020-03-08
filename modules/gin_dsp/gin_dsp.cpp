@@ -56,6 +56,7 @@ using juce::MemoryBlock;
 #include "dsp/audiofunctions.cpp"
 #include "dsp/audioequationparser.cpp"
 #include "dsp/audioutil.cpp"
+#include "dsp/dynamics.cpp"
 #include "dsp/oscillators.cpp"
 #include "dsp/resamplingfifo.cpp"
 #include "dsp/scratchbuffer.cpp"

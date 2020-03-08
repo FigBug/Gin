@@ -33,4 +33,22 @@ T interpolate (const Array<Point<T>>& points, T x)
     return res;
 }
 
+template <class T>
+T interpolate (T xArr[], T yArr[], int num, T x)
+{
+    T res = 0;
+  
+    for (int i = 0; i < num; i++)
+    {
+        T term = yArr[i];
+        for (int j = 0; j < num; j++)
+            if (i != j)
+                term = term * (x - xArr[j] ) / (xArr[i] - xArr[j]);
+  
+        res += term;
+    }
+  
+    return res;
+}
+
 }
