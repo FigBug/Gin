@@ -63,6 +63,7 @@ using juce::MemoryBlock;
 #include "dsp/sampleoscillator.cpp"
 #include "dsp/sample.cpp"
 
+#include "components/dynamicsmeter.cpp"
 #include "components/triggeredscope.cpp"
 #include "components/xyscope.cpp"
 

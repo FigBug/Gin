@@ -62,16 +62,20 @@ public:
     void setMode (Type t);
     void setParams (float attackS, float releaseS, float thresh, float ratio, float kneeWidth);
     
-    void setInputGain (float g)     { inputGain = g;    }
-    void setOutputGain (float g)    { outputGain = g;   }
+    void setInputGain (float g)             { inputGain = g;    }
+    void setOutputGain (float g)            { outputGain = g;   }
 
     void reset();
     void process (AudioSampleBuffer& buffer);
-
-private:
-    float calcGain (float detectorValue);
     
+    const LevelTracker& getInputTracker()   { return inputTracker;  }
+    const LevelTracker& getOutputTracker()  { return outputTracker; }
+
+    float calcGain (float detectorValue);
+
+private:    
     EnvelopeDetector leftEnvelope, rightEnvelope;
+    LevelTracker inputTracker, outputTracker;
 
     double sampleRate = 44100.0;
     Type type = compressor;

@@ -83,6 +83,7 @@ using juce::Component;
 #include "dsp/stereodelay.h"
 #include "dsp/valuesmoother.h"
 
+#include "components/dynamicsmeter.h"
 #include "components/triggeredscope.h"
 #include "components/xyscope.h"
 

@@ -23,7 +23,7 @@ TriggeredScope::TriggeredScope (AudioFifo& f) :
         c->minBuffer.clear ((size_t) c->bufferSize);
         c->maxBuffer.clear ((size_t) c->bufferSize);
     }
-
+    
     startTimerHz (60);
 }
 
@@ -157,8 +157,8 @@ void TriggeredScope::processPendingSamples()
                 c->minBuffer[c->bufferWritePos] = c->currentMin;
                 c->maxBuffer[c->bufferWritePos] = c->currentMax;
 
-                c->currentMax = -1.0f;
-                c->currentMin = 1.0f;
+                c->currentMax = -999999.0f;
+                c->currentMin = 999999.0f;
                 c->currentAve = 0.0;
 
                 ++c->bufferWritePos %= c->bufferSize;

@@ -1,14 +1,3 @@
-/*
-  ==============================================================================
-
-  This file is based on part of the dRowAudio JUCE module
-  Copyright 2004-13 by dRowAudio.
-  dRowAudio is provided under the terms of The MIT License (MIT):
-
-  ==============================================================================
-*/
-
-
 XYScope::XYScope (AudioFifo& f) :
     fifo (f)
 {

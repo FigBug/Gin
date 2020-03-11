@@ -85,7 +85,7 @@ void LevelTracker::trackBuffer (const float* buffer, int numSamples)
     }
 }
 
-float LevelTracker::getLevel()
+float LevelTracker::getLevel() const
 {
     const float hold = 50.0f / 1000.0f;
 

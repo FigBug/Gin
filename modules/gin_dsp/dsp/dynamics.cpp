@@ -103,6 +103,8 @@ void Dynamics::reset()
 
 void Dynamics::process (AudioSampleBuffer& buffer)
 {
+    inputTracker.trackBuffer (buffer);
+    
     int numSamples = buffer.getNumSamples();
 
     auto input  = buffer.getArrayOfReadPointers();
@@ -135,6 +137,8 @@ void Dynamics::process (AudioSampleBuffer& buffer)
             output[1][i] = rGain * input[1][i] * outputGain;
         }
     }
+    
+    outputTracker.trackBuffer (buffer);
 }
 
 float Dynamics::calcGain (float v)

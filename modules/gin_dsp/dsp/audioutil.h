@@ -44,14 +44,14 @@ void clip (AudioSampleBuffer& buffer, float low = -1.0f, float high = 1.0f);
 class LevelTracker
 {
 public:
-    LevelTracker (float decayPerSecond);
+    LevelTracker (float decayPerSecond = 30.0f);
 
     void trackBuffer (const float* buffer, int numSamples);
     void trackBuffer (AudioSampleBuffer& buffer);
 
-    float getLevel();
-    bool getClip()      { return clip;  }
-    void clearClip()    { clip = false; }
+    float getLevel() const;
+    bool getClip() const    { return clip;  }
+    void clearClip()        { clip = false; }
 
 protected:
     float peakTime  = 0.0f;
