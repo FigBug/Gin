@@ -15,7 +15,7 @@ namespace Lagrange
 {
 
 template <class T>
-T interpolate (const Array<Point<T>>& points, T x)
+T interpolate (const Array<juce::Point<T>>& points, T x)
 {
     T res = 0;
   
