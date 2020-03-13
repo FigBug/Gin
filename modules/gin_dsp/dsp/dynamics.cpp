@@ -143,27 +143,31 @@ void Dynamics::process (AudioSampleBuffer& buffer)
 
 float Dynamics::calcGain (float v)
 {
-    float slope;
-    
-    if (type == compressor || type == limiter)
+    if (type == compressor)
     {
-        slope = (type == limiter) ? 1 : 1.0f - 1.0f / ratio;
+        float gainDb = 0.0f;
 
         if (kneeWidth > 0 && v > (threshold - kneeWidth / 2.0) && v < threshold + kneeWidth / 2.0)
-        {
-            double x[2];
-            double y[2];
-            x[0] = threshold - kneeWidth / 2.0;
-            x[1] = std::min (0.0, threshold + kneeWidth / 2.0);
-            y[0] = 0;
-            y[1] = slope;
+            gainDb = v + ((1.0f / ratio - 1.0f) * std::pow (v - threshold + kneeWidth / 2.0f, 2.0f) / (2.0f * kneeWidth)) - v;
+        else if (v > threshold + kneeWidth / 2.0)
+            gainDb = threshold + (v - threshold) / ratio - v;
 
-            slope = float (Lagrange::interpolate (x, y, 2, double(v)));
-        }
+        return Decibels::decibelsToGain (gainDb);
+    }
+    else if (type == limiter)
+    {
+        float gainDb = 0.0f;
+
+        if (kneeWidth > 0 && v > (threshold - kneeWidth / 2.0) && v < threshold + kneeWidth / 2.0)
+            gainDb = v + (1.0f * std::pow (v - threshold + kneeWidth / 2.0f, 2.0f) / (2.0f * kneeWidth)) - v;
+        else if (v > threshold + kneeWidth / 2.0)
+            gainDb = threshold - v;
+
+        return Decibels::decibelsToGain (gainDb);
     }
     else
     {
-        slope = (type == gate) ? -1 : (1.0f / ratio - 1.0f);
+        float slope = (type == gate) ? -1 : (1.0f / ratio - 1.0f);
 
         if (kneeWidth > 0 && v > (threshold - kneeWidth / 2.0) && v < threshold + kneeWidth / 2.0)
         {
@@ -176,8 +180,7 @@ float Dynamics::calcGain (float v)
 
             slope = float (Lagrange::interpolate (x, y, 2, double(v)));
         }
+        float yG = std::min (0.0f, slope * (threshold - v));
+        return std::pow (10.0f, yG / 20.0f);
     }
-    
-    float yG = std::min (0.0f, slope * (threshold - v));
-    return std::pow (10.0f, yG / 20.0f);
 }
