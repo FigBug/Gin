@@ -74,21 +74,30 @@ void Dynamics::setSampleRate (double sampleRate_)
 {
     sampleRate = sampleRate_;
 
-    leftEnvelope.setSampleRate (sampleRate);
-    rightEnvelope.setSampleRate (sampleRate);
+    for (auto e : envelopes)
+        e->setSampleRate (sampleRate);
 
     reset();
 }
 
-void Dynamics::setMode (Type t)
+void Dynamics::setNumChannels (int ch)
 {
-    type = t;
+    channels = ch;
+    
+    while (envelopes.size() < channels)
+    {
+        auto e = new EnvelopeDetector();
+        e->setSampleRate (sampleRate);
+        envelopes.add (e);
+    }
+    while (envelopes.size() > channels)
+        envelopes.removeLast();
 }
 
 void Dynamics::setParams (float attackS, float releaseS, float threshold_, float ratio_, float kneeWidth_)
 {
-    leftEnvelope.setParams (attackS, releaseS, false, EnvelopeDetector::peak, true);
-    rightEnvelope.setParams (attackS, releaseS, false, EnvelopeDetector::peak, true);
+    for (auto e : envelopes)
+        e->setParams (attackS, releaseS, false, EnvelopeDetector::peak, true);
 
     threshold = threshold_;
     ratio = ratio_;
@@ -97,11 +106,11 @@ void Dynamics::setParams (float attackS, float releaseS, float threshold_, float
 
 void Dynamics::reset()
 {
-    leftEnvelope.reset();
-    rightEnvelope.reset();
+    for (auto e : envelopes)
+        e->reset();
 }
 
-void Dynamics::process (AudioSampleBuffer& buffer)
+void Dynamics::process (AudioSampleBuffer& buffer, AudioSampleBuffer* envelopeOut)
 {
     inputTracker.trackBuffer (buffer);
     
@@ -109,38 +118,53 @@ void Dynamics::process (AudioSampleBuffer& buffer)
 
     auto input  = buffer.getArrayOfReadPointers();
     auto output = buffer.getArrayOfWritePointers();
+    auto env    = envelopeOut != nullptr ? envelopeOut->getArrayOfWritePointers() : nullptr;
     
     float peakReduction = 1.0f;
 
     for (int i = 0; i < numSamples; i++)
     {
-        float l = inputGain * input[0][i];
-        float r = inputGain * input[1][i];
-
-        l = leftEnvelope.process (l);
-        r = rightEnvelope.process (r);
-
-        if (stereoLink)
+        if (channelsLinked)
         {
-            float linked = 0.5f * (Decibels::decibelsToGain (l) + Decibels::decibelsToGain (r));
+            float linked = 0.0f;
+            for (int c = 0; c < channels; c++)
+            {
+                float in = inputGain * input[c][i];
+
+                in = envelopes[c]->process (in);
+
+                linked += Decibels::decibelsToGain (in);
+            }
+            
+            linked /= channels;
+            
+            if (env != nullptr)
+                env[0][i] = linked;
+            
             linked = Decibels::gainToDecibels (linked);
 
             auto gain = Decibels::decibelsToGain (calcCurve (linked) - linked);
-            
             peakReduction = std::min (peakReduction, gain);
-
-            output[0][i] = gain * input[0][i] * outputGain;
-            output[1][i] = gain * input[1][i] * outputGain;
+            
+            for (int c = 0; c < channels; c++)
+                output[c][i] = inputGain * gain * input[c][i] * outputGain;
         }
         else
         {
-            auto lGain = Decibels::decibelsToGain (calcCurve (l) - l);
-            auto rGain = Decibels::decibelsToGain (calcCurve (r) - r);
-            
-            peakReduction = std::min (peakReduction, (1.0f - (lGain + rGain) / 2.0f));
+            for (int c = 0; c < channels; c++)
+            {
+                float in = inputGain * input[c][i];
 
-            output[0][i] = lGain * input[0][i] * outputGain;
-            output[1][i] = rGain * input[1][i] * outputGain;
+                in = envelopes[c]->process (in);
+                
+                if (env != nullptr)
+                    env[c][i] = Decibels::decibelsToGain (in);
+
+                auto gain = Decibels::decibelsToGain (calcCurve (in) - in);
+                peakReduction = std::min (peakReduction, gain);
+
+                output[c][i] = inputGain * gain * input[c][i] * outputGain;
+            }
         }
     }
     

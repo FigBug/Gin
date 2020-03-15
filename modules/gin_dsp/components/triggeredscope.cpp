@@ -17,6 +17,9 @@ TriggeredScope::TriggeredScope (AudioFifo& f) :
     for (int i = 0; i < 32; i++)
         setColour (traceColourId + i, Colours::white);
     
+    for (int i = 0; i < 32; i++)
+        setColour (envelopeColourId + i, Colours::white.withAlpha (0.5f));
+
     for (auto c : channels)
     {
         c->posBuffer.clear ((size_t) c->bufferSize);
@@ -252,8 +255,6 @@ int TriggeredScope::getTriggerPos()
 
 void TriggeredScope::render (Graphics& g)
 {
-    g.fillAll (Colours::transparentBlack);
-
     const int w = getWidth();
     const int h = getHeight();
 
@@ -266,12 +267,18 @@ void TriggeredScope::render (Graphics& g)
     int ch = 0;
     for (auto c : channels)
     {
+        auto traceColour = findColour (traceColourId + ch);
+        auto envelopeColour = findColour (envelopeColourId + ch);
+        
+        bool drawTrace = ! traceColour.isTransparent ();
+        bool drawEnvelope = ! envelopeColour.isTransparent ();
+
         Path p;
         
         int pos = bufferReadPos;
         int currentX = 0;
         
-        g.setColour (findColour (traceColourId + ch).withMultipliedAlpha (0.5f));
+        g.setColour (envelopeColour);
         
         while (currentX < w)
         {
@@ -283,19 +290,25 @@ void TriggeredScope::render (Graphics& g)
             const float bottom = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + c->minBuffer[pos])))) * h;
             const float mid = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + c->posBuffer[pos])))) * h;
                         
-            if (bottom - top > 2)
+            if (drawEnvelope && bottom - top > 2)
                 g.drawVerticalLine (currentX, top, bottom);
 
-            if (currentX == 0)
-                p.startNewSubPath (currentX, mid);
-            else
-                p.lineTo (currentX, mid);
+            if (drawTrace)
+            {
+                if (currentX == 0)
+                    p.startNewSubPath (currentX, mid);
+                else
+                    p.lineTo (currentX, mid);
+            }
             
             currentX++;
         }
         
-        g.setColour (findColour (traceColourId + ch));
-        g.strokePath (p, PathStrokeType (1.5f));
+        if (drawTrace)
+        {
+            g.setColour (traceColour);
+            g.strokePath (p, PathStrokeType (1.5f));
+        }
         
         ch++;
     }

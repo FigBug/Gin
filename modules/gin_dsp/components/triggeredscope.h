@@ -32,7 +32,8 @@ public:
     {
         lineColourId             = 0x1231e10,
         backgroundColourId       = 0x1231e11, 
-        traceColourId            = 0x1231e12
+        traceColourId            = 0x1231e12,
+        envelopeColourId         = 0x1231f13,
     };
     
     void setNumChannels (int num);

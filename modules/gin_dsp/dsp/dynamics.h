@@ -59,14 +59,17 @@ public:
     };
 
     void setSampleRate (double sampleRate);
-    void setMode (Type t);
+    void setNumChannels (int ch);
+    void setMode (Type t)                   { type = t;             }
+    void setLinked (bool l)                 { channelsLinked = l;   }
+
     void setParams (float attackS, float releaseS, float thresh, float ratio, float kneeWidth);
     
     void setInputGain (float g)             { inputGain = g;    }
     void setOutputGain (float g)            { outputGain = g;   }
 
     void reset();
-    void process (AudioSampleBuffer& buffer);
+    void process (AudioSampleBuffer& buffer, AudioSampleBuffer* envelopeOut = nullptr);
     
     const LevelTracker& getInputTracker()       { return inputTracker;      }
     const LevelTracker& getOutputTracker()      { return outputTracker;     }
@@ -75,13 +78,14 @@ public:
     float calcCurve (float detectorValue);
 
 private:    
-    EnvelopeDetector leftEnvelope, rightEnvelope;
+    OwnedArray<EnvelopeDetector> envelopes;
     LevelTracker inputTracker, outputTracker, reductionTracker {-30.0f};
 
     double sampleRate = 44100.0;
     Type type = compressor;
 
-    bool stereoLink = true;
+    int channels = 0;
+    bool channelsLinked = true;
     float inputGain = 1.0f, outputGain = 1.0f;
     float threshold = 0.0f, ratio = 0.0f, kneeWidth = 0.0f;
 };
