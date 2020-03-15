@@ -102,6 +102,8 @@ void Dynamics::setParams (float attackS, float releaseS, float threshold_, float
     threshold = threshold_;
     ratio = ratio_;
     kneeWidth = kneeWidth_;
+
+    ratio = 1000;
 }
 
 void Dynamics::reset()
@@ -178,7 +180,7 @@ float Dynamics::calcCurve (float dbIn)
     {
         float dbOut = dbIn;
 
-        if (kneeWidth > 0 && dbIn > (threshold - kneeWidth / 2.0) && dbIn < threshold + kneeWidth / 2.0)
+        if (kneeWidth > 0 && dbIn >= (threshold - kneeWidth / 2.0) && dbIn <= threshold + kneeWidth / 2.0)
             dbOut = dbIn + ((1.0f / ratio - 1.0f) * std::pow (dbIn - threshold + kneeWidth / 2.0f, 2.0f) / (2.0f * kneeWidth));
         else if (dbIn > threshold + kneeWidth / 2.0)
             dbOut = threshold + (dbIn - threshold) / ratio;

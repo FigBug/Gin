@@ -33,12 +33,16 @@ void DynamicsMeter::paint (Graphics& g)
     g.setColour (findColour (lineColourId));
     
     Path p;
-    for (int x = 0; x < getWidth(); x++)
+    for (float x = 0; x < getWidth() + 2; x += 2)
     {
         auto dbIn  = range.convertFrom0to1 (float (x) / getWidth());
         auto dbOut = dynamics.calcCurve (dbIn);
+
+        jassert (dbOut < -27.0f);
+        dbOut = dynamics.calcCurve (dbIn);
         
         float y = getHeight() - range.convertTo0to1 (dbOut) * getHeight ();
+
         
         if (x == 0)
             p.startNewSubPath (x, y);
