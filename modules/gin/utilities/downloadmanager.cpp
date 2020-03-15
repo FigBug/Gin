@@ -37,28 +37,28 @@ void DownloadManager::triggerNextDownload()
 
 DownloadManager::DownloadResult DownloadManager::blockingDownload (String url, String postData, String extraHeaders)
 {
-	return blockingDownload (URL (url).withPOSTData (postData), extraHeaders);
+    return blockingDownload (URL (url).withPOSTData (postData), extraHeaders);
 }
 
 DownloadManager::DownloadResult DownloadManager::blockingDownload (URL url, String extraHeaders)
 {
    #if JUCE_WINDOWS
-	auto headerList = StringArray::fromTokens (extraHeaders, "\n", "");
-	headerList.add ("Accept-Encoding: gzip");
-	extraHeaders = headerList.joinIntoString ("\n");
+    auto headerList = StringArray::fromTokens (extraHeaders, "\n", "");
+    headerList.add ("Accept-Encoding: gzip");
+    extraHeaders = headerList.joinIntoString ("\n");
    #endif
 
-	Download download (*this);
-	download.async = false;
-	download.result.url = url;
-	download.headers = extraHeaders;
-	download.result.downloadId = 0;
-	download.completionCallback = nullptr;
-	download.progressCallback = nullptr;
+    Download download (*this);
+    download.async = false;
+    download.result.url = url;
+    download.headers = extraHeaders;
+    download.result.downloadId = 0;
+    download.completionCallback = nullptr;
+    download.progressCallback = nullptr;
 
-	download.run();
+    download.run();
 
-	return download.result;
+    return download.result;
 }
 
 int DownloadManager::startAsyncDownload (String url, String postData,
@@ -75,7 +75,7 @@ int DownloadManager::startAsyncDownload (URL url,
                                          String extraHeaders)
 {
    #if JUCE_WINDOWS
-	// macOS does this automatically
+    // macOS does this automatically
     if (gzipDeflate)
     {
         auto headerList = StringArray::fromTokens (extraHeaders, "\n", "");
@@ -137,7 +137,7 @@ void DownloadManager::downloadFinished (Download* download)
 
 void DownloadManager::pauseDownloads (bool p)
 {
-	pause = p;
+    pause = p;
 }
 
 //==============================================================================
@@ -149,8 +149,8 @@ DownloadManager::Download::~Download()
 
     // Wait a long time before cancelling, WebInputStream could be stuck in
     // connect. Unlikely but possible.
-	if (async)
-		stopThread (owner.shutdownTimeout);
+    if (async)
+        stopThread (owner.shutdownTimeout);
 }
 
 void DownloadManager::Download::run()
@@ -164,9 +164,9 @@ void DownloadManager::Download::run()
 
         if (owner.retryDelay > 0)
             wait (roundToInt (owner.retryDelay * 1000));
-		
-		while (owner.pause.get())
-			wait (500);
+
+        while (owner.pause.get())
+            wait (500);
     }
 
     if (async && ! threadShouldExit())
@@ -178,9 +178,9 @@ void DownloadManager::Download::run()
                                    {
                                        if (self != nullptr)
                                            self->completionCallback (self->result);
-									   if (self != nullptr)
+                                       if (self != nullptr)
                                            self->owner.downloadFinished (self);
-									   // DownloadManager has now delete us, don't do anything else
+                                       // DownloadManager has now delete us, don't do anything else
                                    });
     }
 }
@@ -224,11 +224,11 @@ bool DownloadManager::Download::tryDownload()
 
                 int read = is->read (buffer, int (toRead));
 
-				if (owner.pause.get())
-				{
-					result.ok = false;
-					break;
-				}
+                if (owner.pause.get())
+                {
+                    result.ok = false;
+                    break;
+                }
                 else if (read > 0)
                 {
                     os.write (buffer, size_t (read));
@@ -259,7 +259,7 @@ bool DownloadManager::Download::tryDownload()
     }
 
    #if JUCE_WINDOWS
-	// Decompress the gzip encoded data. This happens automatically on macOS
+    // Decompress the gzip encoded data. This happens automatically on macOS
     if (result.ok && result.responseHeaders["Content-Encoding"] == "gzip")
     {
         MemoryInputStream mis (result.data, true);

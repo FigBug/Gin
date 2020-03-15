@@ -72,65 +72,65 @@ namespace easywsclient {
  */
 static int dumb_socketpair(SOCKET socks[2], int make_overlapped)
 {
-	union {
-		struct sockaddr_in inaddr;
-		struct sockaddr addr;
-	} a;
-	SOCKET listener;
-	int e;
-	socklen_t addrlen = sizeof(a.inaddr);
-	DWORD flags = (make_overlapped ? WSA_FLAG_OVERLAPPED : 0);
-	int reuse = 1;
+    union {
+        struct sockaddr_in inaddr;
+        struct sockaddr addr;
+    } a;
+    SOCKET listener;
+    int e;
+    socklen_t addrlen = sizeof(a.inaddr);
+    DWORD flags = (make_overlapped ? WSA_FLAG_OVERLAPPED : 0);
+    int reuse = 1;
 
-	if (socks == 0) {
-		WSASetLastError(WSAEINVAL);
-		return SOCKET_ERROR;
-	}
+    if (socks == 0) {
+        WSASetLastError(WSAEINVAL);
+        return SOCKET_ERROR;
+    }
 
-	listener = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-	if (listener == INVALID_SOCKET)
-		return SOCKET_ERROR;
+    listener = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+    if (listener == INVALID_SOCKET)
+        return SOCKET_ERROR;
 
-	memset(&a, 0, sizeof(a));
-	a.inaddr.sin_family = AF_INET;
-	a.inaddr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
-	a.inaddr.sin_port = 0;
+    memset(&a, 0, sizeof(a));
+    a.inaddr.sin_family = AF_INET;
+    a.inaddr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+    a.inaddr.sin_port = 0;
 
-	socks[0] = socks[1] = INVALID_SOCKET;
-	do {
-		if (setsockopt(listener, SOL_SOCKET, SO_REUSEADDR,
-			(char*)& reuse, (socklen_t) sizeof(reuse)) == -1)
-			break;
-		if (bind(listener, &a.addr, sizeof(a.inaddr)) == SOCKET_ERROR)
-			break;
-		if (getsockname(listener, &a.addr, &addrlen) == SOCKET_ERROR)
-			break;
-		if (listen(listener, 1) == SOCKET_ERROR)
-			break;
-		socks[0] = WSASocketW(AF_INET, SOCK_STREAM, 0, nullptr, 0, flags);
-		if (socks[0] == INVALID_SOCKET)
-			break;
-		if (connect(socks[0], &a.addr, sizeof(a.inaddr)) == SOCKET_ERROR)
-			break;
-		socks[1] = accept(listener, nullptr, nullptr);
-		if (socks[1] == INVALID_SOCKET)
-			break;
+    socks[0] = socks[1] = INVALID_SOCKET;
+    do {
+        if (setsockopt(listener, SOL_SOCKET, SO_REUSEADDR,
+            (char*)& reuse, (socklen_t) sizeof(reuse)) == -1)
+            break;
+        if (bind(listener, &a.addr, sizeof(a.inaddr)) == SOCKET_ERROR)
+            break;
+        if (getsockname(listener, &a.addr, &addrlen) == SOCKET_ERROR)
+            break;
+        if (listen(listener, 1) == SOCKET_ERROR)
+            break;
+        socks[0] = WSASocketW(AF_INET, SOCK_STREAM, 0, nullptr, 0, flags);
+        if (socks[0] == INVALID_SOCKET)
+            break;
+        if (connect(socks[0], &a.addr, sizeof(a.inaddr)) == SOCKET_ERROR)
+            break;
+        socks[1] = accept(listener, nullptr, nullptr);
+        if (socks[1] == INVALID_SOCKET)
+            break;
 
-		closesocket(listener);
-		return 0;
+        closesocket(listener);
+        return 0;
 
-	} while (0);
+    } while (0);
 
-	e = WSAGetLastError();
-	closesocket(listener);
-	closesocket(socks[0]);
-	closesocket(socks[1]);
-	WSASetLastError(e);
-	return SOCKET_ERROR;
+    e = WSAGetLastError();
+    closesocket(listener);
+    closesocket(socks[0]);
+    closesocket(socks[1]);
+    WSASetLastError(e);
+    return SOCKET_ERROR;
 }
 #endif
 
-    
+
 // http://tools.ietf.org/html/rfc6455#section-5.2  Base Framing Protocol
 //
 //  0                   1                   2                   3
@@ -230,7 +230,7 @@ void WebSocket::poll(int timeout) { // timeout in milliseconds
         jassertfalse;
         return;
     }
-    
+
     if (!socket->isConnected()) {
         readyState = CLOSED;
         return;
@@ -269,7 +269,7 @@ void WebSocket::poll(int timeout) { // timeout in milliseconds
 
     // Read incoming data
     readIncoming();
-    
+
     // Write outgoing data
     while (txbuf.size()) {
         int ret = socket->write((char*)&txbuf[0], txbuf.size());
@@ -412,13 +412,13 @@ void WebSocket::sendData(wsheader_type::opcode_type type, const std::string& mes
     const std::vector<uint8_t> msg(message.begin(), message.end());
     sendData(type, msg);
 }
-    
+
 void WebSocket::sendData(wsheader_type::opcode_type type, const std::vector<uint8_t>& message) {
-    
+
     uint64_t message_size = message.size();
     auto message_begin = message.begin();
     auto message_end = message.end();
-    
+
     // TODO:
     // Masking key should (must) be derived from a high quality random
     // number generator, to mitigate attacks on non-WebSocket friendly
@@ -497,7 +497,7 @@ WebSocket* WebSocket::from_url(const std::string& url, bool useMask, const std::
       fprintf(stderr, "ERROR: origin size limit exceeded: %s\n", origin.c_str());
       return nullptr;
     }
-    
+
     bool secure = false;
     if (sscanf(url.c_str(), "wss://%[^:/]:%d/%s", host, &port, path) == 3) {
         secure = true;
@@ -533,67 +533,67 @@ WebSocket* WebSocket::from_url(const std::string& url, bool useMask, const std::
         return nullptr;
     }
     //fprintf(stderr, "easywsclient: connecting: host=%s port=%d path=/%s\n", host, port, path);
-    
+
     auto socket = std::make_unique<gin::SecureStreamingSocket>(secure);
     if (!socket->connect(host, port)) {
         fprintf(stderr, "Unable to connect to %s:%d\n", host, port);
         return nullptr;
     }
-    
+
     int sockfd = socket->getRawSocketHandle();
-    
+
     {
         // XXX: this should be done non-blocking,
         char line[1024] = {0};
         int status;
         int i;
-        
+
         snprintf(line, 1024, "GET /%s HTTP/1.1\r\n", path);
         socket->write(line, strlen(line));
-        
+
         if (port == 80) {
             snprintf(line, 1024, "Host: %s\r\n", host); socket->write(line, strlen(line));;
         }
         else {
             snprintf(line, 1024, "Host: %s:%d\r\n", host, port); socket->write(line, strlen(line));;
         }
-        
+
         snprintf(line, 1024, "Upgrade: websocket\r\n");
         socket->write(line, strlen(line));;
-        
+
         snprintf(line, 1024, "Connection: Upgrade\r\n");
         socket->write(line, strlen(line));;
-        
+
         if (!origin.empty()) {
             snprintf(line, 1024, "Origin: %s\r\n", origin.c_str()); socket->write(line, strlen(line));;
         }
-        
+
         snprintf(line, 1024, "Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==\r\n");
         socket->write(line, strlen(line));
-        
+
         snprintf(line, 1024, "Sec-WebSocket-Version: 13\r\n");
         socket->write(line, strlen(line));
-        
+
         snprintf(line, 1024, "\r\n");
         socket->write(line, strlen(line));
-        
+
         for (i = 0; i < 2 || (i < 1023 && line[i-2] != '\r' && line[i-1] != '\n'); ++i) {
             if (socket->read(line+i, 1, true) == 0) {
                 return nullptr;
             }
         }
-        
+
         line[i] = 0;
         if (i == 1023) {
             fprintf(stderr, "ERROR: Got invalid status line connecting to: %s\n", url.c_str());
             return nullptr;
         }
-        
+
         if (sscanf(line, "HTTP/1.1 %d", &status) != 1 || status != 101) {
             fprintf(stderr, "ERROR: Got bad status connecting to %s: %s", url.c_str(), line);
             return nullptr;
         }
-        
+
         // TODO: verify response headers,
         while (true) {
             for (i = 0; i < 2 || (i < 1023 && line[i-2] != '\r' && line[i-1] != '\n'); ++i) {
@@ -608,7 +608,7 @@ WebSocket* WebSocket::from_url(const std::string& url, bool useMask, const std::
     }
     int flag = 1;
     setsockopt(sockfd, IPPROTO_TCP, TCP_NODELAY, (char*) &flag, sizeof(flag)); // Disable Nagle's algorithm
-    
+
     return new WebSocket(std::move (socket), useMask);
 }
 

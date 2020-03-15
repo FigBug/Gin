@@ -182,12 +182,12 @@ public:
         startThread();
     }
 
-	AsyncDownload (URL url_, std::function<void (AsyncDownload*, juce::MemoryBlock, bool)> cb_, int timeoutMS_ = 0)
-		: Thread ("AsyncDownload"), url (url_), cb (cb_), timeoutMS (timeoutMS_)
-	{
-		startThread();
-	}
-	
+    AsyncDownload (URL url_, std::function<void (AsyncDownload*, juce::MemoryBlock, bool)> cb_, int timeoutMS_ = 0)
+        : Thread ("AsyncDownload"), url (url_), cb (cb_), timeoutMS (timeoutMS_)
+    {
+        startThread();
+    }
+
     ~AsyncDownload() override
     {
         stopThread (100);
@@ -199,18 +199,18 @@ public:
         triggerAsyncUpdate();
     }
 
-	bool readEntireBinaryStream (MemoryBlock& destData, bool usePostCommand = false)
-	{
-		const std::unique_ptr<InputStream> in (url.isLocalFile() ? url.getLocalFile().createInputStream() : url.createInputStream (usePostCommand, nullptr, nullptr, {}, timeoutMS));
+    bool readEntireBinaryStream (MemoryBlock& destData, bool usePostCommand = false)
+    {
+        const std::unique_ptr<InputStream> in (url.isLocalFile() ? url.getLocalFile().createInputStream() : url.createInputStream (usePostCommand, nullptr, nullptr, {}, timeoutMS));
 
-		if (in != nullptr)
-		{
-			in->readIntoMemoryBlock (destData);
-			return true;
-		}
+        if (in != nullptr)
+        {
+            in->readIntoMemoryBlock (destData);
+            return true;
+        }
 
-		return false;
-	}
+        return false;
+    }
 
     void handleAsyncUpdate() override
     {
@@ -220,7 +220,7 @@ public:
 
     URL url;
     std::function<void (AsyncDownload*, juce::MemoryBlock, bool)> cb;
-	int timeoutMS = 0;
+    int timeoutMS = 0;
     bool ok = false;
     juce::MemoryBlock data;
 };

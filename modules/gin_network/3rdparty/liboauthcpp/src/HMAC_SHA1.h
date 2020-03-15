@@ -1,6 +1,6 @@
 /*
-	100% free public domain implementation of the HMAC-SHA1 algorithm
-	by Chien-Chung, Chung (Jim Chung) <jimchung1221@gmail.com>
+    100% free public domain implementation of the HMAC-SHA1 algorithm
+    by Chien-Chung, Chung (Jim Chung) <jimchung1221@gmail.com>
 */
 
 
@@ -16,8 +16,8 @@ class CHMAC_SHA1 : public CSHA1
 public:
 
     enum {
-        SHA1_DIGEST_LENGTH	= 20,
-        SHA1_BLOCK_SIZE		= 64
+        SHA1_DIGEST_LENGTH  = 20,
+        SHA1_BLOCK_SIZE     = 64
     } ;
 
 private:

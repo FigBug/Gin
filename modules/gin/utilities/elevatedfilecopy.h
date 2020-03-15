@@ -25,15 +25,15 @@ public:
         nopermissions
     };
 
-	/** Add a directory to create */
-	void createDir (const File& dir);
+    /** Add a directory to create */
+    void createDir (const File& dir);
 
     /** Add a file to copy. src and dst must be complete file names,
         neither can be a directory */
     void copyFile (const File& src, const File& dst);
-	
-	/** Delete a file or directory */
-	void deleteFile (const File& f);
+
+    /** Delete a file or directory */
+    void deleteFile (const File& f);
 
     /** Perform the copy
 
@@ -54,8 +54,8 @@ public:
         if returns true */
     static bool processCommandLine (juce::String commandLine);
 
-	/** Run a script as root. See execute for the meaning of launch self */
-	static Result runScriptWithAdminAccess (File script, bool launchSelf);
+    /** Run a script as root. See execute for the meaning of launch self */
+    static Result runScriptWithAdminAccess (File script, bool launchSelf);
 
 private:
     struct FileItem
@@ -69,12 +69,12 @@ private:
     };
 
     File createScript (const Array<File>& toDelete,
-					   const Array<File>& dirsThatNeedAdminAccess,
-					   const Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess);
+                       const Array<File>& dirsThatNeedAdminAccess,
+                       const Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess);
 
     Array<FileItem> filesToCopy;
-	Array<File> dirsToCreate;
-	Array<File> filesToDelete;
+    Array<File> dirsToCreate;
+    Array<File> filesToDelete;
 
     JUCE_LEAK_DETECTOR (ElevatedFileCopy)
 };

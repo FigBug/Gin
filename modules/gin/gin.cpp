@@ -117,9 +117,18 @@ using juce::MemoryBlock;
 
 #include "utilities/equationparser.cpp"
 
+#if __clang__
+ #pragma clang diagnostic push
+ #pragma clang diagnostic ignored "-Wswitch-enum"
+#endif
+
 #include "3rdparty/muParser/muParser.cpp"
 #include "3rdparty/muParser/muParserBase.cpp"
 #include "3rdparty/muParser/muParserBytecode.cpp"
 #include "3rdparty/muParser/muParserCallback.cpp"
 #include "3rdparty/muParser/muParserError.cpp"
 #include "3rdparty/muParser/muParserTokenReader.cpp"
+
+#if __clang__
+ #pragma clang diagnostic pop
+#endif

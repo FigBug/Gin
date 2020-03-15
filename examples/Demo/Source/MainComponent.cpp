@@ -18,25 +18,25 @@ struct AsyncUpdateDemo : public Component,
     AsyncUpdateDemo() : Thread ("AsyncUpdateDemo")
     {
         setName ("AsyncUpdate");
-        
+
         addAndMakeVisible (text);
         text.setReadOnly (true);
-        
+
         startThread();
     }
-    
+
     ~AsyncUpdateDemo() override
     {
         stopThread (1000);
     }
-    
+
     void resized() override
     {
         auto rc = getLocalBounds().reduced (8);
-        
+
         text.setBounds (rc);
     }
-    
+
     void run() override
     {
         while (! threadShouldExit())
@@ -45,12 +45,12 @@ struct AsyncUpdateDemo : public Component,
             triggerAsyncUpdate();
         }
     }
-    
+
     void handleAsyncUpdate() override
     {
         text.setText (String (count.get()));
     }
-    
+
     TextEditor text;
     Atomic<int> count;
 };
@@ -62,46 +62,46 @@ struct ValueTreeJsonDemo : public Component,
     ValueTreeJsonDemo()
     {
         setName ("ValueTree Json");
-        
+
         addAndMakeVisible (xmlIn);
         addAndMakeVisible (xmlOut);
         addAndMakeVisible (jsonOut);
-        
+
         xmlIn.setTextToShowWhenEmpty ("Add some ValueTree XML here and hit enter", Colours::white.withAlpha (0.5f));
         jsonOut.setTextToShowWhenEmpty ("JSON will appear here", Colours::white.withAlpha (0.5f));
         xmlOut.setTextToShowWhenEmpty ("And hopeful original xml will reappear here", Colours::white.withAlpha (0.5f));
-        
+
         xmlIn.setMultiLine (true);
         jsonOut.setReadOnly (true);
         jsonOut.setMultiLine (true);
         xmlOut.setMultiLine (true);
         xmlOut.setReadOnly (true);
-        
+
         xmlIn.addListener (this);
     }
-    
+
     void resized() override
     {
         auto rc = getLocalBounds().reduced (8);
-        
+
         int h = rc.getHeight() / 3;
-        
+
         xmlIn.setBounds (rc.removeFromTop (h));
         jsonOut.setBounds (rc.removeFromTop (h));
         xmlOut.setBounds (rc);
     }
-    
+
     void textEditorReturnKeyPressed (TextEditor&) override
     {
         auto vt1 = ValueTree::fromXml (xmlIn.getText());
-        
+
         auto json = gin::valueTreeToJSON (vt1);
         auto vt2 = gin::valueTreeFromJSON (json);
-        
+
         jsonOut.setText (json);
         xmlOut.setText (vt2.toXmlString());
     }
-    
+
     TextEditor xmlIn, xmlOut, jsonOut;
 };
 
@@ -112,11 +112,11 @@ struct MessagePackDemo : public Component,
     MessagePackDemo()
     {
         setName ("Message Pack");
-        
+
         addAndMakeVisible (jsonIn);
         addAndMakeVisible (raw);
         addAndMakeVisible (jsonOut);
-        
+
         jsonIn.setTextToShowWhenEmpty ("Add some json here and hit enter", Colours::white.withAlpha (0.5f));
         raw.setTextToShowWhenEmpty ("Base64 MessagePack will appear here", Colours::white.withAlpha (0.5f));
         jsonOut.setTextToShowWhenEmpty ("And hopeful original json will reappear here", Colours::white.withAlpha (0.5f));
@@ -125,32 +125,32 @@ struct MessagePackDemo : public Component,
         raw.setReadOnly (true);
         jsonOut.setMultiLine (true);
         jsonOut.setReadOnly (true);
-        
+
         jsonIn.addListener (this);
     }
-    
+
     void resized() override
     {
         auto rc = getLocalBounds().reduced (8);
-        
+
         int h = (rc.getHeight() - 20) / 2;
-        
+
         jsonIn.setBounds (rc.removeFromTop (h));
         jsonOut.setBounds (rc.removeFromBottom (h));
         raw.setBounds (rc);
     }
-    
+
     void textEditorReturnKeyPressed (TextEditor&) override
     {
         var v1 = JSON::parse (jsonIn.getText());
         auto mb = gin::MessagePack::toMessagePack (v1);
-        
+
         raw.setText (Base64::toBase64 (mb.getData(), mb.getSize()), dontSendNotification);
-        
+
         var v2 = gin::MessagePack::parse (mb);
         jsonOut.setText (JSON::toString (v2));
     }
-  
+
     TextEditor jsonIn, raw, jsonOut;
 };
 
@@ -162,13 +162,13 @@ struct SVGDemo : public Component
         setName ("SVG");
     }
 
-	void paint (Graphics& g) override
-	{
-		auto svg = String (BinaryData::SVG_example_markup_grid_svg, BinaryData::SVG_example_markup_grid_svgSize);
-		auto img = gin::rasterizeSVG (svg, getWidth(), getHeight());
+    void paint (Graphics& g) override
+    {
+        auto svg = String (BinaryData::SVG_example_markup_grid_svg, BinaryData::SVG_example_markup_grid_svgSize);
+        auto img = gin::rasterizeSVG (svg, getWidth(), getHeight());
 
-		g.drawImageAt (img, 0, 0);
-	}
+        g.drawImageAt (img, 0, 0);
+    }
 };
 
 //==============================================================================
@@ -177,20 +177,20 @@ struct WebsocketDemo : public Component
     WebsocketDemo()
     {
         setName ("Websocket");
-        
+
         addAndMakeVisible (inText);
         addAndMakeVisible (outText);
         addAndMakeVisible (sendButton);
-        
+
         outText.setText ("Hello World");
         inText.setMultiLine (true);
         inText.setReadOnly (true);
-        
+
         sendButton.onClick = [this]
         {
             websocket.send (outText.getText());
         };
-        
+
         websocket.onConnect = [this]
         {
             inText.moveCaretToEnd();
@@ -206,20 +206,20 @@ struct WebsocketDemo : public Component
             inText.moveCaretToEnd();
             inText.insertTextAtCaret (txt + "\n");
         };
-        
+
         websocket.connect();
     }
-    
+
     void resized() override
     {
         auto r = getLocalBounds().reduced (8);
-        
+
         auto top = r.removeFromTop (20);
-        
+
         sendButton.setBounds (top.removeFromRight (80));
         top.removeFromRight (8);
         outText.setBounds (top);
-        
+
         r.removeFromTop (8);
         inText.setBounds (r);
     }
@@ -227,7 +227,7 @@ struct WebsocketDemo : public Component
     TextEditor inText;
     TextEditor outText;
     TextButton sendButton {"Send"};
-    
+
     gin::AsyncWebsocket websocket {URL ("wss://demos.kaazing.com/echo") };
 };
 
@@ -1340,7 +1340,7 @@ MainContentComponent::MainContentComponent()
     demoComponents.add (new AsyncUpdateDemo());
     demoComponents.add (new ValueTreeJsonDemo());
     demoComponents.add (new MessagePackDemo());
-	demoComponents.add (new SVGDemo());
+    demoComponents.add (new SVGDemo());
     demoComponents.add (new WebsocketDemo());
     demoComponents.add (new SolidBlendingDemo());
     demoComponents.add (new BlendingDemo());
@@ -1375,7 +1375,7 @@ MainContentComponent::MainContentComponent()
     addAndMakeVisible (toggleComponentViewer);
 
     setSize (800, 640);
-    
+
     toggleComponentViewer.onClick = [this]
     {
         if (componentViewer == nullptr)

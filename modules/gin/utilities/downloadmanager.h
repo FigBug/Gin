@@ -58,16 +58,16 @@ public:
 
     int getNumDownloadsInQueue()                { return downloads.size();  }
 
-    /** If enabled, will request the server sends the data compressed 
-	    This only has effect on windows. On macOS it is handled by the system libraries 
-		and is always on. 
-	  */
+    /** If enabled, will request the server sends the data compressed
+        This only has effect on windows. On macOS it is handled by the system libraries
+        and is always on.
+      */
     void enableGzipDeflate (bool e)             { gzipDeflate = e;          }
-	
-	/** Pause / resume all downloads. This actually stops any running downloads
-	    and then restarts them when unpaused. You will loose some downloaded data
-	    that will need to be redownloaded. */
-	void pauseDownloads (bool);
+
+    /** Pause / resume all downloads. This actually stops any running downloads
+        and then restarts them when unpaused. You will loose some downloaded data
+        that will need to be redownloaded. */
+    void pauseDownloads (bool);
 
     //==============================================================================
     struct DownloadResult
@@ -106,7 +106,7 @@ public:
     /** Cancels a download with a given id */
     void cancelDownload (int downloadId);
 
-	//==============================================================================
+    //==============================================================================
     DownloadResult blockingDownload (String url, String postData, String extraHeaders = {});
 
     DownloadResult blockingDownload (URL url, String extraHeaders = {});
@@ -156,7 +156,7 @@ private:
     OwnedArray<Download> downloads;
     std::function<void ()> queueFinishedCallback;
     bool gzipDeflate = true;
-	juce::Atomic<bool> pause;
+    juce::Atomic<bool> pause;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DownloadManager)
 };

@@ -13,29 +13,29 @@
 //=============================================================================
 String execute (String cmd, bool verbose)
 {
-	ChildProcess cp;
+    ChildProcess cp;
 
     if (verbose)
         printf ("cmd: %s\n", cmd.toRawUTF8());
 
-	auto tokens = StringArray::fromTokens (cmd, true);
-	StringArray params;
+    auto tokens = StringArray::fromTokens (cmd, true);
+    StringArray params;
 
-	for (auto t : tokens)
-		params.add (t.unquoted());
+    for (auto t : tokens)
+        params.add (t.unquoted());
 
-	if (cp.start (params))
-	{
-		while (! cp.waitForProcessToFinish (100))
+    if (cp.start (params))
+    {
+        while (! cp.waitForProcessToFinish (100))
             Thread::sleep (100);
 
-		auto output = cp.readAllProcessOutput();
+        auto output = cp.readAllProcessOutput();
 
         if (verbose)
             printf ("output:\n%s\n", output.toRawUTF8());
 
         return output;
-	}
+    }
 
     printf ("error: failed to launch\n");
     return {};
@@ -58,8 +58,8 @@ String parseStatus (String xml)
     auto info = plist.getProperty ("notarization-info", "");
     if (! info.isVoid())
         return info.getProperty ("Status", "");
-    
-	return {};
+
+    return {};
 }
 
 String parseStatusMessage (String xml)
@@ -95,11 +95,11 @@ int main (int argc, char* argv[])
 
     printf ("Notarize: version: %s\n", ver.toRawUTF8());
 
-	if (argc < 4)
-	{
-		printf ("Usage: notarize [-v] [-ns] PATH USERNAME PASSWORD [BUNDLE_ID]\n");
+    if (argc < 4)
+    {
+        printf ("Usage: notarize [-v] [-ns] PATH USERNAME PASSWORD [BUNDLE_ID]\n");
         return 0;
-	}
+    }
 
     bool verbose = false;
     bool staple = true;
@@ -119,7 +119,7 @@ int main (int argc, char* argv[])
         }
     }
 
-	File path = File::getCurrentWorkingDirectory().getChildFile (args[1]);
+    File path = File::getCurrentWorkingDirectory().getChildFile (args[1]);
     if (! path.existsAsFile() && ! path.isDirectory())
     {
         printf ("\"%s\" not found\n", path.getFullPathName().toRawUTF8());
@@ -127,29 +127,29 @@ int main (int argc, char* argv[])
     }
 
     path.getParentDirectory().setAsCurrentWorkingDirectory();
-    
+
     auto cwd = path.getParentDirectory().getFullPathName();
     printf ("Current working dir: %s\n", cwd.toRawUTF8());
 
-	String username = args[2];
-	String password = args[3];
+    String username = args[2];
+    String password = args[3];
     String bundleId = args[4];
-    
+
     if (bundleId.isEmpty())
         bundleId = parseBundleId (path.getChildFile ("Contents/Info.plist"));
-    
+
     if (bundleId.isEmpty())
     {
         printf ("Can't find bundle id\n");
         return 1;
     }
 
-	File notarizePath;
+    File notarizePath;
 
-	if (path.isDirectory())
-	{
-		// If it's a bundle, zip it up
-		notarizePath = path.withFileExtension (".zip");
+    if (path.isDirectory())
+    {
+        // If it's a bundle, zip it up
+        notarizePath = path.withFileExtension (".zip");
 
         {
             ZipFile::Builder builder;
@@ -158,16 +158,16 @@ int main (int argc, char* argv[])
 
         notarizePath.deleteFile ();
         execute ("ditto -c -k --keepParent " + path.getFullPathName().quoted() + " " + notarizePath.getFullPathName().quoted(), verbose);
-	}
-	else
-	{
-		// If it's a pkg, just use as is
-		notarizePath = path;
-	}
+    }
+    else
+    {
+        // If it's a pkg, just use as is
+        notarizePath = path;
+    }
 
-	// Upload to notarize service
-	String uuid;
-	{
+    // Upload to notarize service
+    String uuid;
+    {
         printf ("Uploading to notarization service\n");
         auto output = execute ("xcrun altool --notarize-app --primary-bundle-id " + bundleId.quoted () + " --username " +
                                username.quoted () + " --password " + password.quoted() + " --file " +
@@ -176,37 +176,37 @@ int main (int argc, char* argv[])
         if (verbose)
             printf ("%s\n", output.toRawUTF8());
 
-		uuid = parseRequestUuid (output);
-        
+        uuid = parseRequestUuid (output);
+
         if (path.isDirectory())
             notarizePath.deleteFile();
 
-		if (uuid.isEmpty())
-		{
-			printf ("Notarize upload failed %s\n", output.toRawUTF8());
-			return 1;
-		}
+        if (uuid.isEmpty())
+        {
+            printf ("Notarize upload failed %s\n", output.toRawUTF8());
+            return 1;
+        }
         else
         {
             printf ("Notarize uuid: %s\n", uuid.toRawUTF8());
         }
-	}
+    }
 
-	// Wait for notarize to finish
-	int tries = 0;
-	while (true)
-	{
-		auto output = execute ("xcrun altool --notarization-info " + uuid.quoted() + " --username " + username.quoted() +
+    // Wait for notarize to finish
+    int tries = 0;
+    while (true)
+    {
+        auto output = execute ("xcrun altool --notarization-info " + uuid.quoted() + " --username " + username.quoted() +
                                " --password " + password.quoted() + " --output-format xml", verbose);
 
         if (verbose)
             printf ("%s\n", output.toRawUTF8());
 
-		auto status = parseStatus (output);
-		if (status == "success")
+        auto status = parseStatus (output);
+        if (status == "success")
         {
             printf ("Notarize success\n");
-			break;
+            break;
         }
 
         if (status == "invalid")
@@ -224,21 +224,21 @@ int main (int argc, char* argv[])
         }
 
         tries++;
-        
+
         printf ("Checking status: %d of 500\n", tries);
-        
+
         if (tries == 500)
         {
-			printf ("Notarize failed: %s\n", status.toRawUTF8());
-			return 1;
-		}
+            printf ("Notarize failed: %s\n", status.toRawUTF8());
+            return 1;
+        }
 
-		Thread::sleep (500);
-	}
+        Thread::sleep (500);
+    }
 
-	// Staple and verify
+    // Staple and verify
     if (staple)
-	{
+    {
         execute ("xcrun stapler staple " + path.getFullPathName().quoted(), verbose);
         auto output = execute ("xcrun stapler validate " + path.getFullPathName().quoted(), verbose);
 
@@ -247,9 +247,8 @@ int main (int argc, char* argv[])
             printf ("Staple success\n");
             return 0;
         }
-        
+
         printf ("Staple failed\n");
         return 1;
-	}
+    }
 }
-

@@ -5,7 +5,17 @@ For more information visit www.rabiensoftware.com
 
 ==============================================================================*/
 
+#if __clang__
+ #pragma clang diagnostic push
+ #pragma clang diagnostic ignored "-Wswitch-enum"
+#endif
+
 #include "../3rdparty/muParser/muParser.h"
+
+#if __clang__
+ #pragma clang diagnostic pop
+#endif
+
 namespace gin {
 
 //==============================================================================

@@ -35,8 +35,8 @@ bool overwriteWithData (const juce::File& f, const void* data, size_t size)
 
     out.setPosition (0);
     bool ok = true;
-	if (size > 0)
-		ok = out.write (data, size);
+    if (size > 0)
+        ok = out.write (data, size);
     out.truncate();
 
     return ok;

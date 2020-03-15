@@ -76,8 +76,8 @@ ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (File script
 }
 
 File ElevatedFileCopy::createScript (const Array<File>& toDelete,
-									 const Array<File>& dirsThatNeedAdminAccess,
-									 const Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess)
+                                     const Array<File>& dirsThatNeedAdminAccess,
+                                     const Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess)
 {
     auto script = File::getSpecialLocation (File::tempDirectory).getNonexistentChildFile ("copy", ".sh", false);
 
@@ -86,12 +86,12 @@ File ElevatedFileCopy::createScript (const Array<File>& toDelete,
     scriptText += "#!/bin/sh\n";
 
     Array<File> dirs;
-	
-	for (auto f : toDelete)
-		scriptText += "rm -Rf " + escape (f.getFullPathName()) + "\n";
 
-	for (auto f : dirsThatNeedAdminAccess)
-		dirs.add (f);
+    for (auto f : toDelete)
+        scriptText += "rm -Rf " + escape (f.getFullPathName()) + "\n";
+
+    for (auto f : dirsThatNeedAdminAccess)
+        dirs.add (f);
 
     for (auto f : filesThatNeedAdminAccess)
         if (! f.dst.getParentDirectory().isDirectory())
@@ -100,8 +100,8 @@ File ElevatedFileCopy::createScript (const Array<File>& toDelete,
     for (auto d : dirs)
         scriptText += "mkdir -p " + escape (d.getFullPathName()) + "\n";
 
-	for (auto d : dirsThatNeedAdminAccess)
-		scriptText += "chmod 777 " + escape (d.getFullPathName()) + "\n";
+    for (auto d : dirsThatNeedAdminAccess)
+        scriptText += "chmod 777 " + escape (d.getFullPathName()) + "\n";
 
     scriptText += "\n";
 
@@ -178,8 +178,8 @@ ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (File script
 }
 
 File ElevatedFileCopy::createScript (const Array<File>& toDelete,
-									 const Array<File>& dirsThatNeedAdminAccess,
-									 const Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess)
+                                     const Array<File>& dirsThatNeedAdminAccess,
+                                     const Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess)
 {
     auto script = File::getSpecialLocation (File::tempDirectory).getNonexistentChildFile ("copy", ".bat", false);
 
@@ -187,16 +187,16 @@ File ElevatedFileCopy::createScript (const Array<File>& toDelete,
 
     Array<File> dirs;
 
-	for (auto f : toDelete)
-	{
-		if (f.isDirectory())
-			scriptText += "rmdir /s /q " + f.getFullPathName().quoted() + "\r\n";
-		else if (f.existsAsFile())
-			scriptText += "del /f " + f.getFullPathName().quoted() + "\r\n";
-	}
+    for (auto f : toDelete)
+    {
+        if (f.isDirectory())
+            scriptText += "rmdir /s /q " + f.getFullPathName().quoted() + "\r\n";
+        else if (f.existsAsFile())
+            scriptText += "del /f " + f.getFullPathName().quoted() + "\r\n";
+    }
 
-	for (auto f : dirsThatNeedAdminAccess)
-		dirs.add (f);
+    for (auto f : dirsThatNeedAdminAccess)
+        dirs.add (f);
 
     for (auto f : filesThatNeedAdminAccess)
         if (! f.dst.getParentDirectory().isDirectory())
@@ -227,7 +227,7 @@ File ElevatedFileCopy::createScript (const Array<File>& toDelete,
 
 void ElevatedFileCopy::createDir (const File& dir)
 {
-	dirsToCreate.add (dir);
+    dirsToCreate.add (dir);
 }
 
 void ElevatedFileCopy::copyFile (const File& src, const File& dst)
@@ -237,39 +237,39 @@ void ElevatedFileCopy::copyFile (const File& src, const File& dst)
 
 void ElevatedFileCopy::deleteFile (const File& f)
 {
-	filesToDelete.add (f);
+    filesToDelete.add (f);
 }
 
 ElevatedFileCopy::Result ElevatedFileCopy::execute (bool launchSelf)
 {
-	Array<File> filesToDeleteThatNeedAdminAccess;
-	Array<File> dirsThatNeedAdminAccess;
+    Array<File> filesToDeleteThatNeedAdminAccess;
+    Array<File> dirsThatNeedAdminAccess;
     Array<FileItem> filesThatNeedAdminAccess;
-	
-	for (auto f : filesToDelete)
-	{
-		if (f.existsAsFile())
-		{
-			if (! f.deleteFile())
-				filesToDeleteThatNeedAdminAccess.add (f);
-		}
-		else if (f.isDirectory())
-		{
-			if (! f.deleteRecursively())
-				filesToDeleteThatNeedAdminAccess.add (f);
-		}
-	}
 
-	for (auto f : dirsToCreate)
-	{
-		if (! f.isDirectory())
-			f.createDirectory();
+    for (auto f : filesToDelete)
+    {
+        if (f.existsAsFile())
+        {
+            if (! f.deleteFile())
+                filesToDeleteThatNeedAdminAccess.add (f);
+        }
+        else if (f.isDirectory())
+        {
+            if (! f.deleteRecursively())
+                filesToDeleteThatNeedAdminAccess.add (f);
+        }
+    }
 
-		bool ok = f.isDirectory();
+    for (auto f : dirsToCreate)
+    {
+        if (! f.isDirectory())
+            f.createDirectory();
 
-		if (! ok)
-			dirsThatNeedAdminAccess.add (f);
-	}
+        bool ok = f.isDirectory();
+
+        if (! ok)
+            dirsThatNeedAdminAccess.add (f);
+    }
 
     for (auto f : filesToCopy)
     {

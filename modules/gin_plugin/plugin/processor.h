@@ -14,12 +14,12 @@ public:
         linear,
         eased
     };
-    
+
     SmoothingType (float time_ = 0.1f, Type type_ = linear)
       : time (time_), type (type_)
     {
     }
-    
+
     float time;
     Type type;
 };
@@ -33,7 +33,7 @@ public:
     //==============================================================================
     GinProcessor();
     ~GinProcessor() override;
-    
+
     void reset() override;
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
 
@@ -43,23 +43,23 @@ public:
     using AudioProcessor::getParameter;
 
     void addPluginParameter (Parameter* parameter);
-    
+
     Parameter* addExtParam (String uid, String name, String shortName, String label,
                             NormalisableRange<float> range, float defaultValue,
                             SmoothingType st,
                             std::function<String (const Parameter&, float)> textFunction = nullptr);
-    
+
     Parameter* addIntParam (String uid, String name, String shortName, String label,
                             NormalisableRange<float> range, float defaultValue,
                             SmoothingType st,
                             std::function<String (const Parameter&, float)> textFunction = nullptr);
-    
+
     Parameter* getParameter (const String& uid);
     float parameterValue (const String& uid);
     int parameterIntValue (const String& uid);
     bool parameterBoolValue (const String& uid);
     const Array<Parameter*>& getPluginParameters();
-    
+
     bool isSmoothing();
 
     File getProgramDirectory();
@@ -91,7 +91,7 @@ public:
 
 public:
     SharedResourcePointer<PluginLookAndFeel> lf;
-    
+
     std::unique_ptr<PropertiesFile> properties;
 
     std::map<String, Parameter*> parameterMap;
@@ -103,16 +103,16 @@ protected:
     virtual void stateUpdated() {}
     virtual void updateState()  {}
 
-	void extractProgram (const String& name, const MemoryBlock& data);
+    void extractProgram (const String& name, const MemoryBlock& data);
 
 private:
     Parameter* createParam (String uid, String name, String shortName, String label,
                             NormalisableRange<float> range, float defaultValue,
                             SmoothingType st,
                             std::function<String (const Parameter&, float)> textFunction = nullptr);
-    
+
     Array<Parameter*> allParameters;
-    
+
     void updateParams();
 
     int currentProgram = 0;

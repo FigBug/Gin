@@ -10,7 +10,7 @@
 class LambdaTimer : public Timer
 {
 public:
-	LambdaTimer (std::function<void()> func = nullptr) : onTimer (func) {}
+    LambdaTimer (std::function<void()> func = nullptr) : onTimer (func) {}
 
     std::function<void()> onTimer;
 
@@ -25,16 +25,16 @@ private:
 class LambdaAsyncUpdater : public AsyncUpdater
 {
 public:
-	LambdaAsyncUpdater (std::function<void()> func) : onAsyncUpdate (func) {}
+    LambdaAsyncUpdater (std::function<void()> func) : onAsyncUpdate (func) {}
 
-	std::function<void()> onAsyncUpdate;
+    std::function<void()> onAsyncUpdate;
 
 private:
-	void handleAsyncUpdate () override
-	{
-		if (onAsyncUpdate)
-			onAsyncUpdate();
-	}
+    void handleAsyncUpdate () override
+    {
+        if (onAsyncUpdate)
+            onAsyncUpdate();
+    }
 };
 
 void callOnMainThreadBlocking ( std::function<void ()> func );

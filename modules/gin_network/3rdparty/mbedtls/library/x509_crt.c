@@ -2015,7 +2015,7 @@ static int x509_crt_find_parent_in(
     mbedtls_x509_crt *parent, *fallback_parent;
     int signature_is_good, fallback_signature_is_good;
 
-	signature_is_good = 0;
+    signature_is_good = 0;
 
 #if defined(MBEDTLS_ECDSA_C) && defined(MBEDTLS_ECP_RESTARTABLE)
     /* did we have something in progress? */

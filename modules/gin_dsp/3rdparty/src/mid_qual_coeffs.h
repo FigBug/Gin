@@ -16,10 +16,10 @@
 */
 
 static const struct slow_mid_qual_coeffs_s
-{	int increment ;
-	coeff_t coeffs [22438] ;
+{   int increment ;
+    coeff_t coeffs [22438] ;
 } slow_mid_qual_coeffs =
-{	491,
+{   491,
 {
  9.190632349861385109e-01,
  9.190579273831620544e-01,
@@ -22461,4 +22461,3 @@ static const struct slow_mid_qual_coeffs_s
  0.0 /* Need a final zero coefficient */
 }
 } ; /* mid_qual_coeffs */
-

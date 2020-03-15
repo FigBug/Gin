@@ -47,7 +47,7 @@ bool GinProcessor::isSmoothing()
     for (auto p : allParameters)
         if (p->isSmoothingActive())
             return true;
-    
+
     return false;
 }
 
@@ -65,7 +65,7 @@ Parameter* GinProcessor::createParam (String uid, String name, String shortName,
                                       std::function<String (const Parameter&, float)> textFunction)
 {
     Parameter* p = nullptr;
-    
+
     if (st.time > 0.0f)
     {
         if (st.type == SmoothingType::linear)
@@ -85,7 +85,7 @@ Parameter* GinProcessor::createParam (String uid, String name, String shortName,
     {
         p = new Parameter (*this, uid, name, shortName, label, range, defaultValue, textFunction);
     }
-    
+
     jassert (p != nullptr);
     return p;
 }
@@ -249,7 +249,7 @@ void GinProcessor::loadAllPrograms()
 
     Array<File> programFiles;
     dir.findChildFiles (programFiles, File::findFiles, false, "*.xml");
-	programFiles.sort();
+    programFiles.sort();
 
     for (File f : programFiles)
     {
@@ -261,16 +261,16 @@ void GinProcessor::loadAllPrograms()
 
 void GinProcessor::extractProgram (const String& name, const MemoryBlock& data)
 {
-	File dir = getProgramDirectory();
-	auto f = dir.getChildFile (name);
-	if (! f.existsAsFile())
-	{
-		f.replaceWithData (data.getData(), data.getSize());
+    File dir = getProgramDirectory();
+    auto f = dir.getChildFile (name);
+    if (! f.existsAsFile())
+    {
+        f.replaceWithData (data.getData(), data.getSize());
 
         auto program = new GinProgram();
         program->loadFromFile (f);
         programs.add (program);
-	}
+    }
 }
 
 void GinProcessor::saveProgram (String name)
