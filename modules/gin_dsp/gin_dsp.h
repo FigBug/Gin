@@ -67,7 +67,9 @@ using juce::Rectangle;
 using juce::Component;
 
 #include "dsp/audioutil.h"
+#include "dsp/leveltracker.h"
 #include "dsp/scratchbuffer.h"
+
 #include "dsp/adsr.h"
 #include "dsp/analogadsr.h"
 #include "dsp/audiofunctions.h"
@@ -84,6 +86,7 @@ using juce::Component;
 #include "dsp/valuesmoother.h"
 
 #include "components/dynamicsmeter.h"
+#include "components/levelmeter.h"
 #include "components/triggeredscope.h"
 #include "components/xyscope.h"
 

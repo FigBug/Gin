@@ -57,6 +57,7 @@ using juce::MemoryBlock;
 #include "dsp/audioequationparser.cpp"
 #include "dsp/audioutil.cpp"
 #include "dsp/dynamics.cpp"
+#include "dsp/leveltracker.cpp"
 #include "dsp/oscillators.cpp"
 #include "dsp/resamplingfifo.cpp"
 #include "dsp/scratchbuffer.cpp"
@@ -64,6 +65,7 @@ using juce::MemoryBlock;
 #include "dsp/sample.cpp"
 
 #include "components/dynamicsmeter.cpp"
+#include "components/levelmeter.cpp"
 #include "components/triggeredscope.cpp"
 #include "components/xyscope.cpp"
 

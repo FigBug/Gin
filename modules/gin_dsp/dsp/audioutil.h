@@ -41,26 +41,6 @@ void applyGain (AudioSampleBuffer& buffer, int channel, LinearSmoothedValue<floa
 void clip (AudioSampleBuffer& buffer, float low = -1.0f, float high = 1.0f);
 
 //==============================================================================
-class LevelTracker
-{
-public:
-    LevelTracker (float decayPerSecond = 30.0f);
-
-    void trackBuffer (const float* buffer, int numSamples);
-    void trackBuffer (AudioSampleBuffer& buffer);
-
-    float getLevel() const;
-    bool getClip() const    { return clip;  }
-    void clearClip()        { clip = false; }
-
-protected:
-    float peakTime  = 0.0f;
-    float peakLevel = -100.0f;
-    float decayRate = 0.0f;
-    bool clip       = false;
-};
-
-//==============================================================================
 // Type string for a midi message
 String getMidiMessageType (const MidiMessage& msg);
 

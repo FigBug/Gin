@@ -9,13 +9,14 @@ Copyright (c) 2019 - Roland Rabien.
 
 #pragma once
 
-class DynamicsMeter : public Component,
-                      public Timer
+class LevelMeter : public Component,
+                   public Timer
 {
 public:
-    DynamicsMeter (Dynamics&);
-
-    ~DynamicsMeter() override;
+    LevelMeter (const LevelTracker&, NormalisableRange<float> r = {-60, 0} );
+    ~LevelMeter() override;
+    
+    void setTopDown (bool td)   { topDown = td; }
     
     enum ColourIds
     {
@@ -23,16 +24,17 @@ public:
         backgroundColourId       = 0x1291e11,
         meterColourId            = 0x1291e12
     };
-    
+
+private:
     //==============================================================================
     void paint (Graphics& g) override;
     void timerCallback() override;
 
-private:
-    Dynamics& dynamics;
+    const LevelTracker& tracker;
     
+    bool topDown = false;
     NormalisableRange<float> range {-60, 0};
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DynamicsMeter)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (LevelMeter)
 };

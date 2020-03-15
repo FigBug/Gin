@@ -109,6 +109,8 @@ void Dynamics::process (AudioSampleBuffer& buffer)
 
     auto input  = buffer.getArrayOfReadPointers();
     auto output = buffer.getArrayOfWritePointers();
+    
+    float peakReduction = 1.0f;
 
     for (int i = 0; i < numSamples; i++)
     {
@@ -123,64 +125,57 @@ void Dynamics::process (AudioSampleBuffer& buffer)
             float linked = 0.5f * (Decibels::decibelsToGain (l) + Decibels::decibelsToGain (r));
             linked = Decibels::gainToDecibels (linked);
 
-            auto gain = calcGain (linked);
+            auto gain = Decibels::decibelsToGain (calcCurve (linked) - linked);
+            
+            peakReduction = std::min (peakReduction, gain);
 
             output[0][i] = gain * input[0][i] * outputGain;
             output[1][i] = gain * input[1][i] * outputGain;
         }
         else
         {
-            auto lGain = calcGain (l);
-            auto rGain = calcGain (r);
+            auto lGain = Decibels::decibelsToGain (calcCurve (l) - l);
+            auto rGain = Decibels::decibelsToGain (calcCurve (r) - r);
+            
+            peakReduction = std::min (peakReduction, (1.0f - (lGain + rGain) / 2.0f));
 
             output[0][i] = lGain * input[0][i] * outputGain;
             output[1][i] = rGain * input[1][i] * outputGain;
         }
     }
     
+    reductionTracker.trackSample (peakReduction);
     outputTracker.trackBuffer (buffer);
 }
 
-float Dynamics::calcGain (float v)
+float Dynamics::calcCurve (float dbIn)
 {
     if (type == compressor)
     {
-        float gainDb = 0.0f;
+        float dbOut = dbIn;
 
-        if (kneeWidth > 0 && v > (threshold - kneeWidth / 2.0) && v < threshold + kneeWidth / 2.0)
-            gainDb = v + ((1.0f / ratio - 1.0f) * std::pow (v - threshold + kneeWidth / 2.0f, 2.0f) / (2.0f * kneeWidth)) - v;
-        else if (v > threshold + kneeWidth / 2.0)
-            gainDb = threshold + (v - threshold) / ratio - v;
+        if (kneeWidth > 0 && dbIn > (threshold - kneeWidth / 2.0) && dbIn < threshold + kneeWidth / 2.0)
+            dbOut = dbIn + ((1.0f / ratio - 1.0f) * std::pow (dbIn - threshold + kneeWidth / 2.0f, 2.0f) / (2.0f * kneeWidth));
+        else if (dbIn > threshold + kneeWidth / 2.0)
+            dbOut = threshold + (dbIn - threshold) / ratio;
 
-        return Decibels::decibelsToGain (gainDb);
+        return dbOut;
     }
     else if (type == limiter)
     {
-        float gainDb = 0.0f;
+        float dbOut = dbIn;
 
-        if (kneeWidth > 0 && v > (threshold - kneeWidth / 2.0) && v < threshold + kneeWidth / 2.0)
-            gainDb = v + (1.0f * std::pow (v - threshold + kneeWidth / 2.0f, 2.0f) / (2.0f * kneeWidth)) - v;
-        else if (v > threshold + kneeWidth / 2.0)
-            gainDb = threshold - v;
+        if (kneeWidth > 0 && dbIn > (threshold - kneeWidth / 2.0) && dbIn < threshold + kneeWidth / 2.0)
+            dbOut = dbIn + (1.0f * std::pow (dbIn - threshold + kneeWidth / 2.0f, 2.0f) / (2.0f * kneeWidth));
+        else if (dbIn > threshold + kneeWidth / 2.0)
+            dbOut = threshold;
 
-        return Decibels::decibelsToGain (gainDb);
+        return dbOut;
     }
     else
     {
-        float slope = (type == gate) ? -1 : (1.0f / ratio - 1.0f);
-
-        if (kneeWidth > 0 && v > (threshold - kneeWidth / 2.0) && v < threshold + kneeWidth / 2.0)
-        {
-            double x[2];
-            double y[2];
-            x[0] = threshold - kneeWidth / 2.0;
-            x[1] = std::min (0.0, threshold + kneeWidth / 2.0);
-            y[0] = slope;
-            y[1] = 0;
-
-            slope = float (Lagrange::interpolate (x, y, 2, double(v)));
-        }
-        float yG = std::min (0.0f, slope * (threshold - v));
-        return std::pow (10.0f, yG / 20.0f);
+        // todo
+        jassertfalse;
+        return dbIn;
     }
 }

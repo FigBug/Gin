@@ -68,14 +68,15 @@ public:
     void reset();
     void process (AudioSampleBuffer& buffer);
     
-    const LevelTracker& getInputTracker()   { return inputTracker;  }
-    const LevelTracker& getOutputTracker()  { return outputTracker; }
+    const LevelTracker& getInputTracker()       { return inputTracker;      }
+    const LevelTracker& getOutputTracker()      { return outputTracker;     }
+    const LevelTracker& getReductionTracker()   { return reductionTracker;  }
 
-    float calcGain (float detectorValue);
+    float calcCurve (float detectorValue);
 
 private:    
     EnvelopeDetector leftEnvelope, rightEnvelope;
-    LevelTracker inputTracker, outputTracker;
+    LevelTracker inputTracker, outputTracker, reductionTracker {-30.0f};
 
     double sampleRate = 44100.0;
     Type type = compressor;

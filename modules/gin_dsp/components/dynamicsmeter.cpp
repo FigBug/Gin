@@ -36,11 +36,7 @@ void DynamicsMeter::paint (Graphics& g)
     for (int x = 0; x < getWidth(); x++)
     {
         auto dbIn  = range.convertFrom0to1 (float (x) / getWidth());
-        
-        auto gainIn = Decibels::decibelsToGain (dbIn);
-        auto gainOut = dynamics.calcGain (dbIn);
-        
-        auto dbOut = Decibels::gainToDecibels (gainIn * gainOut);
+        auto dbOut = dynamics.calcCurve (dbIn);
         
         float y = getHeight() - range.convertTo0to1 (dbOut) * getHeight ();
         
