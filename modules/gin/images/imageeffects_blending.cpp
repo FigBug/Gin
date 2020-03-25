@@ -37,7 +37,7 @@ inline uint8 channelBlendAlpha (uint8 A, uint8 B, float O)
 }
 
 template <class T, uint8 (*F)(int, int)>
-void applyBlend (Image& dst, const Image& src, float alpha, Point<int> position, ThreadPool* threadPool)
+void applyBlend (Image& dst, const Image& src, float alpha, juce::Point<int> position, ThreadPool* threadPool)
 {
     auto rcLower = Rectangle<int> (0, 0, dst.getWidth(), dst.getHeight());
     auto rcUpper = Rectangle<int> (position.x, position.y, src.getWidth(), src.getHeight());
@@ -122,7 +122,7 @@ void applyBlend (Image& dst, const Image& src, float alpha, Point<int> position,
 }
 
 template <class T>
-void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha, Point<int> position, ThreadPool* threadPool)
+void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha, juce::Point<int> position, ThreadPool* threadPool)
 {
     switch (mode)
     {
@@ -154,7 +154,7 @@ void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha, Poin
     }
 }
 
-void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha, Point<int> position, ThreadPool* threadPool)
+void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha, juce::Point<int> position, ThreadPool* threadPool)
 {
     if (src.getFormat() != dst.getFormat())
     {

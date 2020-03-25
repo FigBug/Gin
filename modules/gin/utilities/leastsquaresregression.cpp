@@ -10,12 +10,12 @@ void LeastSquaresRegression::addPoint (double x, double y)
     pointArray.add ({x, y});
 }
 
-void LeastSquaresRegression::addPoint (Point<double> point)
+void LeastSquaresRegression::addPoint (juce::Point<double> point)
 {
     pointArray.add (point);
 }
 
-void LeastSquaresRegression::addPoints (Array<Point<double>> points)
+void LeastSquaresRegression::addPoints (Array<juce::Point<double>> points)
 {
     pointArray.addArray (points);
 }

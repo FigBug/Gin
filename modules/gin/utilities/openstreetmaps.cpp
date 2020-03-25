@@ -195,7 +195,7 @@ int OpenStreetMaps::getMapWidthTiles (int zoom)
     return roundToInt (std::pow (2.0, zoom));
 }
 
-Point<double> OpenStreetMaps::coordinateToDisplay (Point<double> coordinate, int zoom)
+juce::Point<double> OpenStreetMaps::coordinateToDisplay (juce::Point<double> coordinate, int zoom)
 {
     double numberOfTiles = std::pow (2.0, zoom);
 
@@ -208,10 +208,10 @@ Point<double> OpenStreetMaps::coordinateToDisplay (Point<double> coordinate, int
     y = 1 - y;
     y = y /2  * (numberOfTiles * tilesize);
 
-    return Point<double> (x, y);
+    return juce::Point<double> (x, y);
 }
 
-Point<double> OpenStreetMaps::displayToCoordinate (Point<double> point, int zoom)
+juce::Point<double> OpenStreetMaps::displayToCoordinate (juce::Point<double> point, int zoom)
 {
     // longitude
     double longitude = (point.getX() * (360 / (std::pow (2.0, zoom) * 256))) - 180;
@@ -222,11 +222,11 @@ Point<double> OpenStreetMaps::displayToCoordinate (Point<double> point, int zoom
     latitude = latitude * double_Pi;
     latitude = radiansToDegrees (std::atan (std::sinh (latitude)));
 
-    Point<double> coord = {longitude, latitude};
+    juce::Point<double> coord = {longitude, latitude};
     return coord;
 }
 
-Point<double> OpenStreetMaps::tileForCoordinate (double lat, double lng, int zoom)
+juce::Point<double> OpenStreetMaps::tileForCoordinate (double lat, double lng, int zoom)
 {
     double zn = static_cast<double>(1 << zoom);
     double tx = (lng + 180.0) / 360.0;

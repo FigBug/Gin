@@ -5,7 +5,7 @@
 
  ==============================================================================*/
 
-Component* realGetComponent (Component& p, Point<int> screenPos)
+Component* realGetComponent (Component& p, juce::Point<int> screenPos)
 {
     if (p.getScreenBounds().contains (screenPos))
     {
@@ -60,7 +60,7 @@ static String getClassName (Component* c)
 class ComponentViewer::Snapshot : public Component
 {
 public:
-    void update (Component* c, Point<int> pos, int zoom_)
+    void update (Component* c, juce::Point<int> pos, int zoom_)
     {
         zoom = zoom_;
         if (c != nullptr)

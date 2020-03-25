@@ -10,7 +10,7 @@
  * think this stuff is worth it, you can buy me a beer in return. */
 
 
-Spline::Spline (const Array<Point<double>>& points)
+Spline::Spline (const Array<juce::Point<double>>& points)
 {
     jassert (points.size() >= 3); // "Must have at least three points for interpolation"
 

@@ -9,7 +9,7 @@ LinearRegression::LinearRegression()
 {
 }
 
-LinearRegression::LinearRegression (Array<Point<double>> points)
+LinearRegression::LinearRegression (Array<juce::Point<double>> points)
 {
     for (auto p : points)
         addPoint (p);
@@ -33,7 +33,7 @@ void LinearRegression::clear()
     stdError = 0;
 }
 
-void LinearRegression::addPoint (Point<double> pnt)
+void LinearRegression::addPoint (juce::Point<double> pnt)
 {
     n++;
     sumX += pnt.getX();

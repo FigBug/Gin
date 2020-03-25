@@ -11,7 +11,7 @@ MapViewer::MapViewer()
     xoffset (0),
     yoffset (0),
     userAdjusted (false),
-    posMarker (Point<double>())
+    posMarker (juce::Point<double>())
 {
     mapsize = osm->getMapWidthPixels(zoom);
 
@@ -79,7 +79,7 @@ void MapViewer::mouseDrag (const MouseEvent& e)
     xoffset = jlimit (0, mapsize - getWidth(), xoffset - (curPos.getX() - lastPos.getX()));
     yoffset = jlimit (0, mapsize - getHeight(), yoffset - (curPos.getY() - lastPos.getY()));
 
-    centerPt = osm->displayToCoordinate (Point<double>(xoffset + getWidth() / 2, yoffset + getHeight() / 2), zoom);
+    centerPt = osm->displayToCoordinate (juce::Point<double>(xoffset + getWidth() / 2, yoffset + getHeight() / 2), zoom);
 
     lastPos = curPos;
 
@@ -96,7 +96,7 @@ void MapViewer::mouseWheelMove (const MouseEvent& e, const MouseWheelDetails& wh
     {
         wheelDelta = 0;
 
-        Point<double> centerP = osm->displayToCoordinate (Point<double> (xoffset + e.x, yoffset + e.y), zoom);
+        juce::Point<double> centerP = osm->displayToCoordinate (juce::Point<double> (xoffset + e.x, yoffset + e.y), zoom);
 
         if (wheel.deltaY < 0)
             setZoom (zoom - 1);
@@ -109,24 +109,24 @@ void MapViewer::mouseWheelMove (const MouseEvent& e, const MouseWheelDetails& wh
 
 void MapViewer::centerOn (double longCenter, double latCenter)
 {
-    Point<double> p = osm->coordinateToDisplay(Point<double>(longCenter, latCenter), zoom);
+    juce::Point<double> p = osm->coordinateToDisplay(juce::Point<double>(longCenter, latCenter), zoom);
 
     xoffset = jlimit (0, (mapsize - getWidth()),  int (p.getX()) - getWidth() / 2);
     yoffset = jlimit (0, (mapsize - getHeight()), int (p.getY()) - getHeight() / 2);
 
-    centerPt = Point<double>(longCenter, latCenter);
+    centerPt = juce::Point<double>(longCenter, latCenter);
 
     mapUpdated();
 }
 
-void MapViewer::centerUnderPt (Point<double> world, Point<int> view)
+void MapViewer::centerUnderPt (juce::Point<double> world, juce::Point<int> view)
 {
-    Point<double> p = osm->coordinateToDisplay (world, zoom);
+    juce::Point<double> p = osm->coordinateToDisplay (world, zoom);
 
     xoffset = jlimit (0, jmax (1, (mapsize - getWidth())),  int (p.getX()) - view.getX());
     yoffset = jlimit (0, jmax (1, (mapsize - getHeight())), int (p.getY()) - view.getY());
 
-    centerPt = osm->displayToCoordinate (Point<double>(xoffset + getWidth() / 2, yoffset + getHeight() / 2), zoom);
+    centerPt = osm->displayToCoordinate (juce::Point<double>(xoffset + getWidth() / 2, yoffset + getHeight() / 2), zoom);
 
     repaint();
 }
