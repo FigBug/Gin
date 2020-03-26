@@ -55,7 +55,7 @@ T interpolate (T xArr[], T yArr[], int num, T x)
             {
                 auto d = xArr[i] - xArr[j];
                 if (d != 0)
-                    term = term * (x - xArr[j] ) / ();
+                    term = term * (x - xArr[j] ) / d;
                 else
                     term = 0;
             }
