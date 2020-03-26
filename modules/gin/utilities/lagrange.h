@@ -24,8 +24,16 @@ T interpolate (const Array<juce::Point<T>>& points, T x)
     {
         T term = points[i].y;
         for (int j = 0; j < num; j++)
+        {
             if (i != j)
-                term = term * (x - points[j].x ) / (points[i].x - points[j].x);
+            {
+                auto d = points[i].x - points[j].x;
+                if (d != 0)
+                    term = term * (x - points[j].x ) / (d);
+                else
+                    term = 0;
+            }
+        }
   
         res += term;
     }
@@ -42,8 +50,16 @@ T interpolate (T xArr[], T yArr[], int num, T x)
     {
         T term = yArr[i];
         for (int j = 0; j < num; j++)
+        {
             if (i != j)
-                term = term * (x - xArr[j] ) / (xArr[i] - xArr[j]);
+            {
+                auto d = xArr[i] - xArr[j];
+                if (d != 0)
+                    term = term * (x - xArr[j] ) / ();
+                else
+                    term = 0;
+            }
+        }
   
         res += term;
     }

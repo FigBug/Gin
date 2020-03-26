@@ -92,7 +92,7 @@ public:
 
     Colour getColourUnderMouse()
     {
-        if (! image.isNull())
+        if (! image.isNull() && zoom > 0)
         {
             int w = getWidth()  / zoom + 1;
             int h = getHeight() / zoom + 1;
@@ -108,7 +108,7 @@ public:
 private:
     void paint (Graphics& g) override
     {
-        if (! image.isNull())
+        if (! image.isNull() && zoom > 0 && scale != 0.0f)
         {
             g.drawImageAt (image, 0, 0);
 

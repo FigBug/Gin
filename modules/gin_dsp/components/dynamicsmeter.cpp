@@ -35,7 +35,7 @@ void DynamicsMeter::paint (Graphics& g)
     Path p;
     for (float x = 0; x < getWidth() + 2; x += 2)
     {
-        auto dbIn  = range.convertFrom0to1 (float (x) / getWidth());
+        auto dbIn  = range.convertFrom0to1 (float (x) / std::max (1, getWidth()));
         auto dbOut = dynamics.calcCurve (dbIn);
 
         jassert (dbOut < -27.0f);

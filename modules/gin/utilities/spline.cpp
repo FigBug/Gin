@@ -13,7 +13,7 @@
 Spline::Spline (const Array<juce::Point<double>>& points)
 {
     jassert (points.size() >= 3); // "Must have at least three points for interpolation"
-
+    points.size ();
     int n = points.size() - 1;
 
     Array<double> b, d, a, c, l, u, z, h;
@@ -36,9 +36,9 @@ Spline::Spline (const Array<juce::Point<double>>& points)
     {
         h.set (i, points[i+1].getX() - points[i].getX());
         l.set (i, (2 * (points[i+1].getX() - points[i-1].getX())) - (h[i-1]) * u[i-1]);
-        u.set (i, (h[i]) / l[i]);
-        a.set (i, (3.0 / (h[i])) * (points[i+1].getY() - points[i].getY()) - (3.0 / (h[i-1])) * (points[i].getY() - points[i-1].getY()));
-        z.set (i, (a[i] - (h[i-1]) * z[i-1]) / l[i]);
+        u.set (i, l[i] == 0 ? 0 :h[i] / l[i]);
+        a.set (i, h[i] == 0 || h[i-1] == 0 ? 0 : (3.0 / (h[i])) * (points[i+1].getY() - points[i].getY()) - (3.0 / (h[i-1])) * (points[i].getY() - points[i-1].getY()));
+        z.set (i, l[i] == 0 ? 0 : (a[i] - (h[i-1]) * z[i-1]) / l[i]);
     }
 
     l.set (n, 1.0);
@@ -48,8 +48,8 @@ Spline::Spline (const Array<juce::Point<double>>& points)
     for (int j = n - 1; j >= 0; j--)
     {
         c.set (j, z[j] - u[j] * c[j+1]);
-        b.set (j, (points[j+1].getY() - points[j].getY()) / (h[j]) - ((h[j]) * (c[j+1] + 2.0 * c[j])) / 3.0);
-        d.set (j, (c[j+1] - c[j]) / (3.0 * h[j]));
+        b.set (j, h[j] == 0 ? 0 : (points[j+1].getY() - points[j].getY()) / (h[j]) - ((h[j]) * (c[j+1] + 2.0 * c[j])) / 3.0);
+        d.set (j, h[j] == 0 ? 0 : (c[j+1] - c[j]) / (3.0 * h[j]));
     }
 
     for (int i = 0; i < n; i++)
