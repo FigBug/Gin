@@ -303,7 +303,7 @@ void GinAudioProcessorEditor::buttonClicked (Button* b)
             msg += additionalProgramming;
         msg += "\n\n";
         msg += "Copyright ";
-        msg += String (__DATE__ + 7);
+        msg += String (&__DATE__[7]);
 
         AlertWindow w ("---- About ----", msg, AlertWindow::NoIcon, this);
         w.addButton ("OK", 1);
