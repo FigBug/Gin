@@ -50,7 +50,7 @@ public:
         nextStep   = false;
         curFade    = 1.0f;
         fadeDelta  = 0.0f;
-        delaySteps = 0.0f;
+        delaySteps = 0;
     }
     
     void noteOn()
@@ -128,19 +128,19 @@ public:
                     break;
                 case WaveShape::stepUp4:
                     if (compareAndReset (nextStep))
-                        output = int (curPhase * 4) / 4 * 2 - 1;
+                        output = int (curPhase * 4) / 4.0f * 2 - 1;
                     break;
                 case WaveShape::stepup8:
                     if (compareAndReset (nextStep))
-                        output = int (curPhase * 8) / 8 * 2 - 1;
+                        output = int (curPhase * 8) / 8.0f * 2 - 1;
                     break;
                 case WaveShape::stepDown4:
                     if (compareAndReset (nextStep))
-                        output = -(int (curPhase * 4) / 4 * 2 - 1);
+                        output = -(int (curPhase * 4) / 4.0f * 2 - 1);
                     break;
                 case WaveShape::stepDown8:
                     if (compareAndReset (nextStep))
-                        output = -(int (curPhase * 8) / 8 * 2 - 1);
+                        output = -(int (curPhase * 8) / 8.0f * 2 - 1);
                     break;
             }
         }
