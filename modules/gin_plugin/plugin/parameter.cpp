@@ -45,6 +45,14 @@ bool Parameter::isOnOff()
     return range.start == 0 && range.end == range.interval;
 }
 
+float Parameter::getProcValue()
+{
+    if (conversionFunction != nullptr)
+        return conversionFunction (getUserValue());
+
+    return getUserValue();
+}
+
 float Parameter::getProcValue (int)
 {
     if (conversionFunction != nullptr)
@@ -84,7 +92,8 @@ void Parameter::setUserValueNotifingHost (float v)
     if (! almostEqual (value, v))
     {
         value = v;
-        setValueNotifyingHost (getValue());
+        if (! internal)
+            setValueNotifyingHost (getValue());
 
         triggerAsyncUpdate();
     }
@@ -93,7 +102,12 @@ void Parameter::setUserValueNotifingHost (float v)
 void Parameter::setUserValueAsUserAction (float f)
 {
     beginUserAction();
-    setUserValueNotifingHost (f);
+
+    if (internal)
+        setValue (f);
+    else
+        setUserValueNotifingHost (f);
+
     endUserAction();
 }
 
@@ -113,29 +127,39 @@ String Parameter::userValueToText (float val)
 
 void Parameter::beginUserAction()
 {
-    userActionCount++;
-    if (userActionCount == 1)
-        beginChangeGesture();
+    if (! internal)
+    {
+        userActionCount++;
+        if (userActionCount == 1)
+            beginChangeGesture();
+    }
 }
 
 void Parameter::endUserAction()
 {
-    userActionCount--;
-    if (userActionCount == 0)
-        endChangeGesture();
+    if (! internal)
+    {
+        userActionCount--;
+        if (userActionCount == 0)
+            endChangeGesture();
+    }
 }
 
 void Parameter::beginUserTimedAction()
 {
-    if (! isTimerRunning())
-        beginUserAction();
+    if (! internal)
+    {
+        if (! isTimerRunning())
+            beginUserAction();
 
-    startTimer (2000);
+        startTimer (2000);
+    }
 }
 
 void Parameter::timerCallback()
 {
-    endUserAction();
+    if (! internal)
+        endUserAction();
     stopTimer();
 }
 

@@ -18,12 +18,14 @@ public:
                NormalisableRange<float> range, float defaultValue,
                std::function<String (const Parameter&, float)> textFunction = nullptr);
 
-    String getUid() { return uid; }
+    String getUid()             { return uid;   }
+    void setInternal (bool i)   { internal = i; }
     
     virtual void prepareToPlay (double /*sampleRate*/, int /*samplesPerBlock*/)    {}
     virtual void reset()                                                           {}
     
     //==============================================================================
+    float getProcValue();
     virtual float getProcValue (int stepSize);
     
     float getUserValue() const;
@@ -101,6 +103,8 @@ protected:
 
     //==============================================================================
     NormalisableRange<float> range;
+
+    bool internal = false;
 
     float value;
     float defaultValue;

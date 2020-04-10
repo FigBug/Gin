@@ -204,6 +204,7 @@ float BandLimitedLookupTables::process (Wave wave, float note, float phase, floa
 {
     switch (wave)
     {
+        case Wave::silence:     return 0;
         case Wave::sine:        return processSine (phase);
         case Wave::triangle:    return processTriangle (note, phase);
         case Wave::sawUp:       return processSawUp (note, phase);

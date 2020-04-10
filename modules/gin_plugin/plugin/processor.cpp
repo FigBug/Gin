@@ -97,6 +97,7 @@ Parameter* GinProcessor::addIntParam (String uid, String name, String shortName,
 {
     if (auto p = createParam (uid, name, shortName, label, range, defaultValue, st, textFunction))
     {
+        p->setInternal (true);
         internalParameters.add (p);
         allParameters.add (p);
         parameterMap[p->getUid()] = p;
