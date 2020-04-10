@@ -71,6 +71,7 @@ public:
                 coeffs1 = IIRCoefficients::makeNotchFilter (sampleRate, freq, q);
                 coeffs2 = IIRCoefficients::makeNotchFilter (sampleRate, freq, Q);
                 break;
+            case none:
             default:
                 jassertfalse;
                 break;
