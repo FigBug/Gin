@@ -79,6 +79,7 @@ using juce::Component;
 #include "dsp/dynamics.h"
 #include "dsp/easedvaluesmoother.h"
 #include "dsp/filter.h"
+#include "dsp/lfo.h"
 #include "dsp/oscillators.h"
 #include "dsp/resamplingfifo.h"
 #include "dsp/sample.h"

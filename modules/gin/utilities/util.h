@@ -8,6 +8,16 @@
 #pragma once
 
 //==============================================================================
+inline bool compareAndReset (bool& flag)
+{
+    if (flag)
+    {
+        flag = false;
+        return true;
+    }
+    return false;
+}
+
 inline float calculateRMS (const float* values, int n)
 {
     float rms = 0;
@@ -26,7 +36,8 @@ inline float calculateMedian (const float* values, int n)
 
     if (f.size() % 2 == 0)
         return (f[f.size() / 2] + f[f.size() / 2 - 1]) / 2.0f;
-    return f[f.size()/2];
+    
+    return f[f.size() / 2];
 }
 
 //==============================================================================
