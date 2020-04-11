@@ -18,8 +18,11 @@ public:
                NormalisableRange<float> range, float defaultValue,
                std::function<String (const Parameter&, float)> textFunction = nullptr);
 
-    String getUid()             { return uid;   }
-    void setInternal (bool i)   { internal = i; }
+    String getUid()             { return uid;       }
+    void setInternal (bool i)   { internal = i;     }
+    bool isInternal()           { return internal;  }
+    void setModIndex (int i)    { modIndex = i;     }
+    int getModIndex()           { return modIndex;  }
     
     virtual void prepareToPlay (double /*sampleRate*/, int /*samplesPerBlock*/)    {}
     virtual void reset()                                                           {}
@@ -105,6 +108,7 @@ protected:
     NormalisableRange<float> range;
 
     bool internal = false;
+    int modIndex = -1;
 
     float value;
     float defaultValue;
