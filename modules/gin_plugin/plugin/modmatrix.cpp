@@ -30,6 +30,7 @@ int ModMatrix::addPolyModSource (const String& name)
 
 void ModMatrix::addParameter (Parameter* p)
 {
+    p->setModMatrix (this);
     p->setModIndex (parameters.size());
 
     ParamInfo pi;

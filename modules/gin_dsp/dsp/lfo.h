@@ -64,6 +64,8 @@ public:
 
     float process (int numSamples)
     {
+        jassert (sampleRate > 0);
+
         float step = 0.0f;
         if (parameters.frequency > 0.0001f)
             step = float (parameters.frequency / sampleRate);

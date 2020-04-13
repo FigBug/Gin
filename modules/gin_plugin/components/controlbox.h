@@ -20,4 +20,14 @@ public:
         
         return {};
     }
+
+    void add (ParamComponent* c)
+    {
+        controls.add (c);
+        addAndMakeVisible (c);
+    }
+
+    using ParamComponentPtr = ParamComponent*;
+
+    OwnedArray<ParamComponent> controls;
 };
