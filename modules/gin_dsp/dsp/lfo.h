@@ -62,7 +62,7 @@ public:
         delaySteps = roundToInt (sampleRate * parameters.delay);
     }
 
-    void process (int numSamples)
+    float process (int numSamples)
     {
         float step = 0.0f;
         if (parameters.frequency > 0.0001f)
@@ -91,9 +91,17 @@ public:
                 curPhase = newCurPhase;
             }
         }
+        
+        return updateCurrentValue();
+    }
+    
+    float getOutput()
+    {
+        return jlimit (-1.0f, 1.0f, (output * parameters.depth + parameters.offset));
     }
 
-    float getCurrentValue()
+private:
+    float updateCurrentValue()
     {
         if (delaySteps == 0)
         {
@@ -148,7 +156,6 @@ public:
         return jlimit (-1.0f, 1.0f, (output * parameters.depth + parameters.offset));
     }
 
-private:
     Parameters parameters;
 
     double sampleRate = 0;

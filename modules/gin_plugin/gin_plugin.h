@@ -74,6 +74,7 @@ using juce::Component;
 #include "plugin/smoothedparameter.h"
 #include "plugin/modmatrix.h"
 
+#include "components/controlbox.h"
 #include "components/plugincomponents.h"
 #include "components/pluginlookandfeel.h"
 

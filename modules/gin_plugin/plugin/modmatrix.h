@@ -7,6 +7,18 @@ class ModVoice
 public:
     float getValue (Parameter* p);
 
+    void finishBlock (int numSamples)
+    {
+        for (auto& s : smoothers)
+            s.process (numSamples);
+    }
+    
+    void snapParams()
+    {
+        for (auto& s : smoothers)
+            s.snapToValue();
+    }
+    
 private:
     friend ModMatrix;
 
@@ -91,6 +103,12 @@ public:
         jassert (info.poly);
 
         voice.values.setUnchecked (id, value);
+    }
+    
+    void finishBlock (int numSamples)
+    {
+        for (auto& s : smoothers)
+            s.process (numSamples);
     }
 
     void addVoice (ModVoice* v);

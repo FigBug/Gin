@@ -94,16 +94,17 @@ public:
 
     GinProcessor& slProc;
 
-protected:
     virtual Rectangle<int> getControlsArea();
+    virtual Rectangle<int> getGridArea (int x, int y, int w = 1, int h = 1);
+    Rectangle<int> getFullGridArea();
+    
+protected:
+    
 
     void paint (Graphics& g) override;
     void resized() override;
     void buttonClicked (Button* b) override;
     void comboBoxChanged (ComboBox* c) override;
-
-    virtual Rectangle<int> getGridArea (int x, int y, int w = 1, int h = 1);
-    Rectangle<int> getFullGridArea();
 
     void setGridSize (int x, int y);
 
