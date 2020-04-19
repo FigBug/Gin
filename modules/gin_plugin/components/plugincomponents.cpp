@@ -97,17 +97,45 @@ Knob::Knob (Parameter* parameter, bool fromCentre)
     value.setJustificationType (Justification::centredTop);
     name.setJustificationType (Justification::centredBottom);
 
-    value.setFont (value.getFont().withHeight (15.0));
+    value.setVisible (false);
+
+    addMouseListener (this, true);
 }
 
 void Knob::resized()
 {
-    Rectangle<int> r = getLocalBounds().reduced (4);
+    Rectangle<int> r = getLocalBounds().reduced (2);
+    auto rc = r.removeFromBottom (15);
 
-    name.setBounds (r.removeFromTop (20));
-    value.setBounds (r.removeFromBottom (20));
+    name.setBounds (rc);
+    value.setBounds (rc);
     knob.setBounds (r.reduced (2));
 }
+
+void Knob::mouseEnter (const MouseEvent&)
+{
+    if (! isTimerRunning())
+    {
+        startTimer (100);
+        name.setVisible (false);
+        value.setVisible (true);
+    }
+}
+
+void Knob::timerCallback()
+{
+    auto p = getMouseXYRelative();
+    if (! getLocalBounds().contains (p) &&
+        ! ModifierKeys::getCurrentModifiers().isAnyMouseButtonDown() &&
+        ! value.isEditing())
+    {
+        name.setVisible (true);
+        value.setVisible (false);
+
+        stopTimer();
+    }
+}
+
 //==============================================================================
 HorizontalFader::HorizontalFader (Parameter* parameter, bool fromCentre)
   : ParamComponent (parameter),
@@ -125,9 +153,6 @@ HorizontalFader::HorizontalFader (Parameter* parameter, bool fromCentre)
     name.setText (parameter->getShortName(), dontSendNotification);
     value.setJustificationType (Justification::centred);
     name.setJustificationType (Justification::centredRight);
-
-    name.setFont (name.getFont().withHeight (11.0));
-    value.setFont (value.getFont().withHeight (10.0));
 }
 
 void HorizontalFader::resized()
@@ -152,18 +177,11 @@ Switch::Switch (Parameter* parameter)
 
 void Switch::resized()
 {
-    Rectangle<int> r = getLocalBounds().withSizeKeepingCentre (getWidth() - 10, 20);
+    Rectangle<int> r = getLocalBounds().reduced (2);
+    auto rc = r.removeFromBottom (15);
 
-    button.setBounds (r);
-    name.setBounds (r.translated (0, -20));
-
-    int y = name.getY();
-    if (y <= 0)
-    {
-        button.setTopLeftPosition (button.getX(), button.getY() + -y);
-        name.setTopLeftPosition (name.getX(), name.getY() + -y);
-    }
-
+    name.setBounds (rc);
+    button.setBounds (r.withSizeKeepingCentre (getWidth() - 4, 15));
 }
 
 //==============================================================================
@@ -180,28 +198,9 @@ Select::Select (Parameter* parameter)
 
 void Select::resized()
 {
-    if (getWidth() > getHeight() * 2)
-    {
-        name.setJustificationType (Justification::centredRight);
-        name.setFont (name.getFont().withHeight (11.0));
-        
-        auto r = getLocalBounds().reduced (4, 0);
-        
-        name.setBounds (r.removeFromLeft (90).reduced (0, 4));
-        comboBox.setBounds (r.reduced (2));
-    }
-    else
-    {
-        auto r = getLocalBounds().withSizeKeepingCentre (getWidth() - 10, 20);
+    Rectangle<int> r = getLocalBounds().reduced (2);
+    auto rc = r.removeFromBottom (15);
 
-        comboBox.setBounds (r);
-        name.setBounds (r.translated (0, -20));
-
-        int y = name.getY();
-        if (y <= 0)
-        {
-            comboBox.setTopLeftPosition (comboBox.getX(), comboBox.getY() + -y);
-            name.setTopLeftPosition (name.getX(), name.getY() + -y);
-        }
-    }
+    name.setBounds (rc);
+    comboBox.setBounds (r.withSizeKeepingCentre (getWidth() - 4, 15));
 }

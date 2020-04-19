@@ -155,6 +155,8 @@ public:
     Readout (Parameter* parameter);
     ~Readout() override;
 
+    bool isEditing()    { return editing; }
+
 private:
     void parameterChanged (Parameter* source) override;
     void resized() override;
@@ -198,13 +200,16 @@ private:
 };
 
 //==============================================================================
-class Knob : public ParamComponent
+class Knob : public ParamComponent,
+             private Timer
 {
 public:
     Knob (Parameter* parameter, bool fromCentre = false);
 
 private:
     void resized() override;
+    void mouseEnter (const MouseEvent& e) override;
+    void timerCallback() override;
 
     Label name;
     Readout value;

@@ -97,6 +97,9 @@ public:
     virtual Rectangle<int> getControlsArea();
     virtual Rectangle<int> getGridArea (int x, int y, int w = 1, int h = 1);
     Rectangle<int> getFullGridArea();
+
+    int getGridWidth()  { return cx; }
+    int getGridHeight() { return cy; }
     
 protected:
     
@@ -106,7 +109,7 @@ protected:
     void buttonClicked (Button* b) override;
     void comboBoxChanged (ComboBox* c) override;
 
-    void setGridSize (int x, int y);
+    void setGridSize (int x, int y, int extraWidthPx = 0, int extraHeightPx = 0 );
 
     const int cx;
     const int cy;

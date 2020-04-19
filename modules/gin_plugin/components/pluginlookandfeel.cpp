@@ -4,7 +4,7 @@
 //==============================================================================
 PluginLookAndFeel::PluginLookAndFeel()
 {
-    typeface = Typeface::createSystemTypefaceFor (Resources::BarlowRegular_ttf, Resources::BarlowRegular_ttfSize);
+    typeface = Typeface::createSystemTypefaceFor (Resources::BarlowThin_ttf, Resources::BarlowThin_ttfSize);
     
     setColour (TriggeredScope::lineColourId, defaultColour (4));
     setColour (TriggeredScope::backgroundColourId, Colours::transparentWhite);

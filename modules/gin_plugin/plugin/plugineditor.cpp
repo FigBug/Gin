@@ -240,9 +240,10 @@ ParamComponent* GinAudioProcessorEditor::componentForParam (Parameter& param)
     return nullptr;
 }
 
-void GinAudioProcessorEditor::setGridSize (int x, int y)
+void GinAudioProcessorEditor::setGridSize (int x, int y, int extraWidthPx, int extraHeightPx)
 {
-    setSize (x * cx + inset * 2, y * cy + inset * 2 + headerHeight);
+    setSize (x * cx + inset * 2 + extraWidthPx,
+             y * cy + inset * 2 + headerHeight + extraHeightPx);
 }
 
 void GinAudioProcessorEditor::refreshPrograms()

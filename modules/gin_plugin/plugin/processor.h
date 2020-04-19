@@ -90,7 +90,7 @@ public:
     //==============================================================================
 
 public:
-    SharedResourcePointer<PluginLookAndFeel> lf;
+    SharedResourcePointer<PluginLookAndFeelWrapper> lf;
 
     std::unique_ptr<PropertiesFile> properties;
 

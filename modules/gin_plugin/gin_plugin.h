@@ -75,6 +75,7 @@ using juce::Component;
 #include "plugin/modmatrix.h"
 
 #include "components/controlbox.h"
+#include "components/controlheader.h"
 #include "components/plugincomponents.h"
 #include "components/pluginlookandfeel.h"
 
