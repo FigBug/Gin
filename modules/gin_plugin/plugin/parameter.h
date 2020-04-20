@@ -84,6 +84,8 @@ public:
 
     //==============================================================================
     float getValue() const override;
+    bool getBoolValue() const                   { return getValue() != 0.0f; }
+
     void setValue (float newValue) override;
     float getDefaultValue() const override;
 

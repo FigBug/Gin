@@ -3,7 +3,7 @@
 class ControlHeader : public Component
 {
 public:
-    ControlHeader (const String& name_)
+    ControlHeader (const String& name_ = {})
         : name (name_)
     {
     }
