@@ -91,6 +91,7 @@ using juce::Component;
 #include "components/dynamicsmeter.h"
 #include "components/levelmeter.h"
 #include "components/triggeredscope.h"
+#include "components/waveformcomponent.h"
 #include "components/xyscope.h"
 
 }

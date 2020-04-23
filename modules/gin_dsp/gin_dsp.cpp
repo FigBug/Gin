@@ -69,6 +69,7 @@ using juce::MemoryBlock;
 #include "components/dynamicsmeter.cpp"
 #include "components/levelmeter.cpp"
 #include "components/triggeredscope.cpp"
+#include "components/waveformcomponent.cpp"
 #include "components/xyscope.cpp"
 
 }
