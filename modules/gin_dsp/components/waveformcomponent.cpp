@@ -117,7 +117,7 @@ void WaveformComponent::processPendingSamples()
                 currentAve = 0.0;
 
                 bufferWritePos++;
-                numLeftToAverage += jmax (1.0f, numSamplesPerPixel);
+                numLeftToAverage += (int) jmax (1.0f, numSamplesPerPixel);
                 numAveraged = 0;
             }
             bufferWritePos++;

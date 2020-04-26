@@ -75,6 +75,7 @@ using juce::Component;
 #include "dsp/audiofunctions.h"
 #include "dsp/audioequationparser.h"
 #include "dsp/audiofifo.h"
+#include "dsp/distortion.h"
 #include "dsp/delayline.h"
 #include "dsp/dynamics.h"
 #include "dsp/easedvaluesmoother.h"
