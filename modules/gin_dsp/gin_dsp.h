@@ -81,6 +81,7 @@ using juce::Component;
 #include "dsp/filter.h"
 #include "dsp/eq.h"
 #include "dsp/lfo.h"
+#include "dsp/modulation.h"
 #include "dsp/oscillators.h"
 #include "dsp/resamplingfifo.h"
 #include "dsp/sample.h"

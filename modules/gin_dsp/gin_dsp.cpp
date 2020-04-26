@@ -59,6 +59,7 @@ using juce::MemoryBlock;
 #include "dsp/dynamics.cpp"
 #include "dsp/filter.cpp"
 #include "dsp/lfo.cpp"
+#include "dsp/modulation.cpp"
 #include "dsp/leveltracker.cpp"
 #include "dsp/oscillators.cpp"
 #include "dsp/resamplingfifo.cpp"
