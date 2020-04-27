@@ -114,8 +114,8 @@ protected:
     const int cx;
     const int cy;
 
-    int headerHeight = 60;
-    int inset = 4;
+    int headerHeight = 60, inset = 4;
+    int cols = 0, rows = 0, extraWidthPx = 0, extraHeightPx = 0;
 
     std::unique_ptr<UpdateChecker> updateChecker;
     std::unique_ptr<NewsChecker> newsChecker;

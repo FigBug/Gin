@@ -49,6 +49,22 @@ void applyGain (AudioSampleBuffer& buffer, int channel, LinearSmoothedValue<floa
 
 void clip (AudioSampleBuffer& buffer, float low = -1.0f, float high = 1.0f);
 
+class GainProcessor
+{
+public:
+    void setGain (float g)  { gain = g;         }
+    void reset()            { lastGain = gain;  }
+
+    void process (AudioSampleBuffer& buffer)
+    {
+        buffer.applyGainRamp (0, buffer.getNumSamples(), lastGain, gain);
+        lastGain = gain;
+    }
+
+private:
+    float gain = 1.0, lastGain = 1.0;
+};
+
 //==============================================================================
 // Type string for a midi message
 String getMidiMessageType (const MidiMessage& msg);

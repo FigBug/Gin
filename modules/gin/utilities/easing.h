@@ -144,7 +144,7 @@ T easeSineOut (T p)
 template<class T>
 T easeSineInOut (T p)
 {
-    return 0.5 * (1 - std::cos (p * M_PI));
+    return T (0.5) * (1 - std::cos (p * T (M_PI)));
 }
 
 // Modeled after shifted quadrant IV of unit circle

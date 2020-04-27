@@ -25,6 +25,7 @@ public:
     {
         setToggleState (parameter->getUserValue() > 0.0f, dontSendNotification);
         setButtonText (parameter->getUserValueText());
+        repaint ();
     }
 
     void clicked() override
