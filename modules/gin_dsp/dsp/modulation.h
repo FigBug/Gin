@@ -22,7 +22,7 @@ public:
     {
         sampleRate = sr;
 
-        delayLine.setSize (2, (maxDelay + depth) * sr + 1, sampleRate);
+        delayLine.setSize (2, (maxDelay + depth) + 0.1, sampleRate);
         delayLine.clear();
         phase = 0.0f;
     }
@@ -54,8 +54,8 @@ public:
 
         for (int i = 0; i < numSamples; ++i)
         {
-            float totalDelayL = delay + depth / 2.0f + depth * std::sin (MathConstants<float>::pi * (phase + width / 2.0f));
-            float totalDelayR = delay + depth / 2.0f + depth * std::sin (MathConstants<float>::pi * (phase - width / 2.0f));
+            float totalDelayL = delay + depth / 2.0f + depth * std::sin (MathConstants<float>::pi * 2 * (phase + width / 2.0f)) / 2.0f;
+            float totalDelayR = delay + depth / 2.0f + depth * std::sin (MathConstants<float>::pi * 2 * (phase - width / 2.0f)) / 2.0f;
 
             delayLine.write (0, l[i]);
             delayLine.write (1, r[i]);
