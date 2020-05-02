@@ -16,8 +16,8 @@ float NoteDuration::toSeconds (AudioPlayHead* playhead) const
         AudioPlayHead::CurrentPositionInfo position;
         if (playhead->getCurrentPosition (position))
         {
-            timeSigNumerator = position.timeSigNumerator;
-            timeSigDenominator = position.timeSigDenominator;
+            timeSigNumerator = float (position.timeSigNumerator);
+            timeSigDenominator = float (position.timeSigDenominator);
             bpm = float (position.bpm);
             if (bpm == 0.0) bpm = 120;
             bpm = jlimit (1.0f, 500.0f, bpm);

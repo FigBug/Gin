@@ -174,7 +174,7 @@ private:
         {
             g.fillAll (Colours::black);
 
-            auto rc = getLocalBounds().removeFromLeft (15.0f);
+            auto rc = getLocalBounds().removeFromLeft (15);
             g.setColour (Colours::white.withAlpha (0.1f));
             g.fillRect (rc);
 
@@ -188,7 +188,7 @@ private:
                                                        7.5f, getHeight() * 0.5f));
 
             g.setFont (11);
-            auto rcText = Rectangle<float> (-getHeight() / 2.0f, getHeight () / 2.0f - 9.5f, getHeight (), 15.0f );
+            auto rcText = Rectangle<float> (-getHeight() / 2.0f, getHeight () / 2.0f - 9.5f, (float) getHeight (), 15.0f );
             g.drawText (name, rcText, Justification::centred);
         }
 
@@ -201,7 +201,7 @@ private:
 
         void mouseDown (const MouseEvent& e) override
         {
-            auto rc = getLocalBounds().removeFromLeft (15.0f);
+            auto rc = getLocalBounds().removeFromLeft (15);
             if (rc.contains (e.getPosition()))
             {
                 startTimerHz (30);

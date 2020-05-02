@@ -212,6 +212,9 @@ float BandLimitedLookupTables::process (Wave wave, float note, float phase, floa
         case Wave::pulse:       return processPulse (note, phase, pw);
         case Wave::square:      return processSquare (note, phase);
         case Wave::noise:       return (float) noise();
+        default:
+            jassertfalse;
+            return 0.0f;
     }
 }
 

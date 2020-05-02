@@ -53,6 +53,9 @@ public:
                 case lowshelf:  return Filter::lowshelf;
                 case highshelf: return Filter::highshelf;
                 case peak:      return Filter::peak;
+                default:
+                    jassertfalse;
+                    return Filter::lowshelf;
             }
         };
 
