@@ -9,6 +9,7 @@ public:
     
     const String& getName() const { return name; }
     float toSeconds (AudioPlayHead* playhead) const;
+    float toSeconds (float bpm) const;
 
 private:    
     String name;

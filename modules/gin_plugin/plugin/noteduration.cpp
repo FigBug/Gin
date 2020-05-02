@@ -39,6 +39,26 @@ float NoteDuration::toSeconds (AudioPlayHead* playhead) const
     return 0.0f;
 }
 
+float NoteDuration::toSeconds (float bpm) const
+{
+    float timeSigNumerator = 4;
+    float timeSigDenominator = 4;
+
+    float sPerBeat  = float (1.0f / (bpm / 60.0f));
+    float sPerWhole = sPerBeat * timeSigDenominator;
+
+    if (note > 0.0f)
+    {
+        return sPerWhole * note;
+    }
+    else if (bars > 0.0f)
+    {
+        float beatLen = sPerWhole * 1.0f / timeSigDenominator;
+        return bars * timeSigNumerator * beatLen;
+    }
+    return 0.0f;
+}
+
 const std::vector<NoteDuration>& NoteDuration::getNoteDurations()
 {
     const float dot = 1.5f;
