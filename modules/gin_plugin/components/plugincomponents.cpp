@@ -114,7 +114,7 @@ void Knob::resized()
 
 void Knob::mouseEnter (const MouseEvent&)
 {
-    if (! isTimerRunning())
+    if (! isTimerRunning() && isEnabled())
     {
         startTimer (100);
         name.setVisible (false);

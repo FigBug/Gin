@@ -5,11 +5,11 @@ void ADSRComponent::setParams (Parameter::Ptr attack_,
                                Parameter::Ptr sustain_,
                                Parameter::Ptr release_)
 {
-    clearParams();
-    addParam (attack = attack_);
-    addParam (decay = decay_);
-    addParam (sustain = sustain_);
-    addParam (release = release_);
+    unwatchParams();
+    watchParam (attack = attack_);
+    watchParam (decay = decay_);
+    watchParam (sustain = sustain_);
+    watchParam (release = release_);
 
     repaint();
 }
@@ -32,6 +32,8 @@ String ADSRComponent::getBubbleText()
 
 void ADSRComponent::paint (Graphics& g)
 {
+    auto c = findColour (isEnabled() ? GinLookAndFeel::colourId5 : GinLookAndFeel::colourId2);
+
     auto a = getArea();
     auto p1 = Point<float> (a.getX(), a.getBottom());
     auto p2 = getHandlePos (Handle::attack).toFloat();
@@ -40,7 +42,7 @@ void ADSRComponent::paint (Graphics& g)
 
     Path p;
 
-    g.setColour (Colours::white.withMultipliedAlpha (0.5f));
+    g.setColour (c.withMultipliedAlpha (0.5f));
 
     p.startNewSubPath (p1);
     p.lineTo (p2);
@@ -56,7 +58,7 @@ void ADSRComponent::paint (Graphics& g)
     g.fillRoundedRectangle (getHandleRect (Handle::decaySustain).toFloat(), 3);
     g.fillRoundedRectangle (getHandleRect (Handle::release).toFloat(), 3);
 
-    g.setColour (Colours::white);
+    g.setColour (c);
 
     g.drawRect (getHandleRect (Handle::attack).toFloat());
     g.drawRect (getHandleRect (Handle::decaySustain).toFloat());
@@ -139,13 +141,16 @@ void ADSRComponent::mouseUp (const MouseEvent&)
 
 MouseCursor ADSRComponent::getMouseCursor()
 {
-    auto h = handle;
-    if (h == Handle::none)
-        h = getHandleAt (getMouseXYRelative());
+    if (isEnabled())
+    {
+        auto h = handle;
+        if (h == Handle::none)
+            h = getHandleAt (getMouseXYRelative());
 
-    if (h == Handle::attack)        return MouseCursor::LeftRightResizeCursor;
-    if (h == Handle::decaySustain)  return MouseCursor::UpDownLeftRightResizeCursor;
-    if (h == Handle::release)       return MouseCursor::LeftRightResizeCursor;
+        if (h == Handle::attack)        return MouseCursor::LeftRightResizeCursor;
+        if (h == Handle::decaySustain)  return MouseCursor::UpDownLeftRightResizeCursor;
+        if (h == Handle::release)       return MouseCursor::LeftRightResizeCursor;
+    }
     return MouseCursor::NormalCursor;
 }
 

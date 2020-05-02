@@ -44,7 +44,7 @@ private:
 };
 
 //==============================================================================
-class ControlBox : public Component
+class ControlBox : public MultiParamComponent
 {
 public:
     using ParamComponentPtr = ParamComponent*;
@@ -60,7 +60,7 @@ public:
         return Rectangle<int> (x * cx, y * cy, w * cx, h * cy);
     }
 
-    void add (ParamComponent* c)
+    void add (Component* c)
     {
         controls.add (c);
         addAndMakeVisible (c);
@@ -94,7 +94,7 @@ private:
 };
 
 //==============================================================================
-class PagedControlBox : public Component
+class PagedControlBox : public MultiParamComponent
 {
 public:
     using ParamComponentPtr = ParamComponent*;
@@ -123,6 +123,8 @@ public:
     {
         auto page = pages[pageIdx];
         page->setEnable (p);
+
+        watchParam (p);
     }
 
     void addControl (int pageIdx, Component* c, int x, int y, int cx = 1, int cy = 1)
@@ -130,9 +132,18 @@ public:
         auto page = pages[pageIdx];
         c->setBounds (page->getGridArea (editor, x, y, cx, cy));
         page->controls.add (c);
-        page->addAndMakeVisible (c);
+        page->controlsParent.addAndMakeVisible (c);
     }
 
+protected:
+    void paramChanged() override
+    {
+        MultiParamComponent::paramChanged();
+
+        for (auto p : pages)
+            p->paramChanged();
+    }
+    
 private:
     void paint (Graphics& g) override
     {
@@ -168,6 +179,13 @@ private:
             : owner (o), name (n)
         {
             setOpaque (true);
+            addAndMakeVisible (controlsParent);
+            controlsParent.setInterceptsMouseClicks (false, true);
+        }
+
+        void resized() override
+        {
+            controlsParent.setBounds (getLocalBounds());
         }
 
         void paint (Graphics& g) override
@@ -223,8 +241,10 @@ private:
             owner.resized();
         }
 
-        void setEnable (gin::Parameter::Ptr enable)
+        void setEnable (gin::Parameter::Ptr enable_)
         {
+            enable = enable_;
+
             enableButton = std::make_unique<PowerButton> (enable);
             addAndMakeVisible (*enableButton);
 
@@ -232,10 +252,18 @@ private:
             enableButton->setBounds (rc);
         }
 
+        void paramChanged()
+        {
+            controlsParent.setEnabled (enable == nullptr ? true : enable->isOn());
+        }
+
         PagedControlBox& owner;
         String name;
 
+        gin::Parameter::Ptr enable = nullptr;
         std::unique_ptr<PowerButton> enableButton;
+
+        Component controlsParent;
         OwnedArray<Component> controls;
         bool opening = false;
     };

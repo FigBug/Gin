@@ -13,7 +13,7 @@ public:
 
     ~MultiParamComponent () override
     {
-        clearParams();
+        unwatchParams();
     }
 
 protected:
@@ -42,13 +42,13 @@ protected:
         bubble = nullptr;
     }
 
-    void addParam (Parameter* p)
+    void watchParam (Parameter* p)
     {
         p->addListener (this);
         params.add (p);
     }
 
-    void clearParams()
+    void unwatchParams()
     {
         for (auto p : params)
             p->removeListener (this);
