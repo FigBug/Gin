@@ -28,6 +28,7 @@ using juce::MemoryBlock;
 #include "plugin/program.cpp"
 #include "plugin/parameter.cpp"
 
+#include "components/adsrcomponent.cpp"
 #include "components/plugincomponents.cpp"
 #include "components/pluginlookandfeel.cpp"
 

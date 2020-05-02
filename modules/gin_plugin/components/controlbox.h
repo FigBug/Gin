@@ -89,8 +89,8 @@ private:
 
     GinAudioProcessorEditor& editor;
 
-    OwnedArray<ParamComponent> controls;
-    std::map<ParamComponent*, int> pages;
+    OwnedArray<Component> controls;
+    std::map<Component*, int> pages;
 };
 
 //==============================================================================
@@ -125,7 +125,7 @@ public:
         page->setEnable (p);
     }
 
-    void addControl (int pageIdx, ParamComponent* c, int x, int y, int cx = 1, int cy = 1)
+    void addControl (int pageIdx, Component* c, int x, int y, int cx = 1, int cy = 1)
     {
         auto page = pages[pageIdx];
         c->setBounds (page->getGridArea (editor, x, y, cx, cy));
@@ -236,7 +236,7 @@ private:
         String name;
 
         std::unique_ptr<PowerButton> enableButton;
-        OwnedArray<ParamComponent> controls;
+        OwnedArray<Component> controls;
         bool opening = false;
     };
 

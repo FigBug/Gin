@@ -74,6 +74,9 @@ using juce::Component;
 #include "plugin/smoothedparameter.h"
 #include "plugin/modmatrix.h"
 
+#include "components/multiparamcomponent.h"
+#include "components/adsrcomponent.h"
+#include "components/lfocomponent.h"
 #include "components/controlbox.h"
 #include "components/controlheader.h"
 #include "components/plugincomponents.h"
