@@ -97,6 +97,8 @@ private:
 class PagedControlBox : public Component
 {
 public:
+    using ParamComponentPtr = ParamComponent*;
+    
     PagedControlBox (GinAudioProcessorEditor& e)
         : editor (e)
     {
