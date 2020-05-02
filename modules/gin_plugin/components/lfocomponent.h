@@ -11,7 +11,7 @@ public:
     void setBPM (float bpm);
     void setParams (Parameter::Ptr wave, Parameter::Ptr sync, Parameter::Ptr rate,
                     Parameter::Ptr beat, Parameter::Ptr depth, Parameter::Ptr offset,
-                    Parameter::Ptr phase);
+                    Parameter::Ptr phase, Parameter::Ptr enable);
 
 private:
     void paint (Graphics& g) override;
@@ -23,7 +23,7 @@ private:
     float getSample (float phase);
     int getNumSteps();
 
-    Parameter::Ptr wave, sync, rate, beat, depth, offset, phase;
+    Parameter::Ptr wave, sync, rate, beat, depth, offset, phase, enable;
 
     LFO lfo;
     Path path;

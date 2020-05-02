@@ -6,7 +6,7 @@ void LFOComponent::resized()
 
 void LFOComponent::setParams (Parameter::Ptr wave_, Parameter::Ptr sync_, Parameter::Ptr rate_,
                               Parameter::Ptr beat_, Parameter::Ptr depth_, Parameter::Ptr offset_,
-                              Parameter::Ptr phase_)
+                              Parameter::Ptr phase_, Parameter::Ptr enable_)
 {
     unwatchParams();
 
@@ -17,6 +17,7 @@ void LFOComponent::setParams (Parameter::Ptr wave_, Parameter::Ptr sync_, Parame
     watchParam (depth  = depth_);
     watchParam (offset = offset_);
     watchParam (phase  = phase_);
+    watchParam (enable = enable_);
 
     startTimerHz (30);
 }
@@ -77,20 +78,25 @@ void LFOComponent::paint (Graphics& g)
         createPath (rc);
     }
 
-    g.setColour (findColour (GinLookAndFeel::colourId5).withMultipliedAlpha (0.35f));
+    auto c = findColour (isEnabled() ? GinLookAndFeel::colourId5 : GinLookAndFeel::colourId2);
+
+    g.setColour (c.withMultipliedAlpha (0.35f));
     g.fillRect (rc.getX(), rc.getCentreY(), rc.getWidth(), 1);
 
-    g.setColour (findColour (GinLookAndFeel::colourId5).withMultipliedAlpha (0.5f));
+    g.setColour (c.withMultipliedAlpha (0.5f));
     g.strokePath (path, PathStrokeType (1.5f));
 
-    auto lerp = [] (float t, float a, float b)  { return a + t * (b - a); };
+    if (isEnabled())
+    {
+        auto lerp = [] (float t, float a, float b)  { return a + t * (b - a); };
 
-    float x = curPhase * rc.getWidth();
-    float t = x - int (x);
-    float y = lerp (t, curve[int(x)], curve[int(x) + 1]);
+        float x = curPhase * rc.getWidth();
+        float t = x - int (x);
+        float y = lerp (t, curve[int(x)], curve[int(x) + 1]);
 
-    g.setColour (findColour (GinLookAndFeel::colourId5));
-    g.fillEllipse (rc.getX() + x - 2, y - 2, 4, 4);
+        g.setColour (c);
+        g.fillEllipse (rc.getX() + x - 2, y - 2, 4, 4);
+    }
 }
 
 void LFOComponent::timerCallback()
