@@ -127,6 +127,12 @@ public:
         watchParam (p);
     }
 
+    void addBottomButton (int pageIdx, Component* c)
+    {
+        auto page = pages[pageIdx];
+        page->addBottomButton (c);
+    }
+
     void addControl (int pageIdx, Component* c, int x, int y, int cx = 1, int cy = 1)
     {
         auto page = pages[pageIdx];
@@ -136,6 +142,7 @@ public:
     }
 
 protected:
+    //==============================================================================
     void paramChanged() override
     {
         MultiParamComponent::paramChanged();
@@ -145,6 +152,7 @@ protected:
     }
     
 private:
+    //==============================================================================
     void paint (Graphics& g) override
     {
         g.setColour (Colours::white.withAlpha (0.2f));
@@ -172,6 +180,7 @@ private:
             cover.setBounds ({});
     }
 
+    //==============================================================================
     struct PageComponent : public Component,
                            private Timer
     {
@@ -257,6 +266,16 @@ private:
             controlsParent.setEnabled (enable == nullptr ? true : enable->isOn());
         }
 
+        void addBottomButton (Component* c)
+        {
+            controlsParent.addAndMakeVisible (c);
+            bottomButtons.add (c);
+
+            auto rc = getLocalBounds().removeFromLeft (15.0f);
+            for (auto b : bottomButtons)
+                b->setBounds (rc.removeFromBottom (15).withSizeKeepingCentre (11, 11));
+        }
+
         PagedControlBox& owner;
         String name;
 
@@ -264,16 +283,18 @@ private:
         std::unique_ptr<PowerButton> enableButton;
 
         Component controlsParent;
-        OwnedArray<Component> controls;
+        OwnedArray<Component> controls, bottomButtons;
         bool opening = false;
     };
 
+    //==============================================================================
     struct Cover : public Component
     {
         Cover()                             { setOpaque (true);             }
         void paint (Graphics& g) override   { g.fillAll (Colours::black);   }
     };
 
+    //==============================================================================
     GinAudioProcessorEditor& editor;
 
     Cover cover;

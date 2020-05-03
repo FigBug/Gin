@@ -75,6 +75,7 @@ using juce::Component;
 #include "plugin/modmatrix.h"
 
 #include "components/multiparamcomponent.h"
+#include "components/modulation.h"
 #include "components/adsrcomponent.h"
 #include "components/lfocomponent.h"
 #include "components/controlbox.h"

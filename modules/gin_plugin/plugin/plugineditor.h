@@ -102,8 +102,6 @@ public:
     int getGridHeight() { return cy; }
     
 protected:
-    
-
     void paint (Graphics& g) override;
     void resized() override;
     void buttonClicked (Button* b) override;

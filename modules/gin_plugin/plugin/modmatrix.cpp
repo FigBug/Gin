@@ -69,3 +69,17 @@ void ModMatrix::build()
 
     smoothers.resize (parameters.size());
 }
+
+void ModMatrix::enableLearn (int src)
+{
+    learnSource = src;
+
+    listeners.call ([&] (Listener& l) { l.learnSourceChanged (learnSource); });
+}
+
+void ModMatrix::disableLearn()
+{
+    learnSource = -1;
+
+    listeners.call ([&] (Listener& l) { l.learnSourceChanged (learnSource); });
+}

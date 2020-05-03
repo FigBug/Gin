@@ -77,6 +77,6 @@ private:
 
     double sampleRate = 44100;
 
-    float phase = 0;
-    float delay = 0.02f, rate = 1.0f, depth = 0.03f, width = 0.5f, mix = 0;
+    float phase = 0.0f;
+    float delay = 0.02f, rate = 1.0f, depth = 0.03f, width = 0.5f, mix = 0.0f;
 };

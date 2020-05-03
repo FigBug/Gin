@@ -31,6 +31,7 @@ private:
 class ModMatrix
 {
 public:
+    //==============================================================================
     float getValue (Parameter* p)
     {
         const int paramId = p->getModIndex();
@@ -111,6 +112,7 @@ public:
             s.process (numSamples);
     }
 
+    //==============================================================================
     void addVoice (ModVoice* v);
     int addMonoModSource (const String& name);
     int addPolyModSource (const String& name);
@@ -119,7 +121,28 @@ public:
     void setSampleRate (double sampleRate);
     void build();
 
+    //==============================================================================
+    void enableLearn (int source);
+    void disableLearn();
+    int getLearn()                      { return learnSource;       }
+
+    //==============================================================================
+    String getModSrcName (int src)      { return sources[src].name; }
+    bool getModSrcPoly (int src)        { return sources[src].poly; }
+
+    //==============================================================================
+    class Listener
+    {
+    public:
+        virtual ~Listener() = default;
+        virtual void learnSourceChanged (int) = 0;
+    };
+
+    void addListener (Listener* l)      { listeners.add (l);        }
+    void removeListener (Listener* l)   { listeners.remove (l);     }
+
 private:
+    //==============================================================================
     struct SourceInfo
     {
         String name;
@@ -141,6 +164,7 @@ private:
         Array<Source> sources;
     };
 
+    //==============================================================================
     Array<SourceInfo> sources;
     Array<ParamInfo> parameters;
     Array<ModVoice*> voices;
@@ -148,6 +172,10 @@ private:
     ModVoice* activeVoice = nullptr;
 
     double sampleRate = 44100.0;
+
+    ListenerList<Listener> listeners;
+
+    int learnSource = -1;
 };
 
 inline float ModVoice::getValue (Parameter* p)
