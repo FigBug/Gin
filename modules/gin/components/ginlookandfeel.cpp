@@ -97,6 +97,17 @@ void GinLookAndFeel::drawRotarySlider (Graphics& g, int x, int y, int width, int
 		filledArc.addPieSegment (rx, ry, rw, rw, rotaryStartAngle, angle, thickness);
 		g.fillPath (filledArc);
 	}
+
+    if (slider.getProperties().contains ("modDepth"))
+    {
+        auto depth = (float)slider.getProperties()["modDepth"];
+
+        g.setColour (Colours::orange.withAlpha (0.5f));
+
+        Path filledArc;
+        filledArc.addPieSegment (rx, ry, rw, rw, angle, angle + depth * (rotaryEndAngle - rotaryStartAngle), thickness);
+        g.fillPath (filledArc);
+    }
 }
 
 void GinLookAndFeel::drawButtonBackground (Graphics& g, Button& b, const Colour&,

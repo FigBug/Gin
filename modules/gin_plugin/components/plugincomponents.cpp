@@ -80,8 +80,8 @@ ParamComponent::ParamComponent (Parameter* parameter_)
 
 }
 //==============================================================================
-Knob::Knob (Parameter* parameter, bool fromCentre)
-  : ParamComponent (parameter),
+Knob::Knob (Parameter* p, bool fromCentre)
+  : ParamComponent (p),
     value (parameter),
     knob (parameter, Slider::RotaryHorizontalVerticalDrag, Slider::NoTextBox)
 {
@@ -100,6 +100,21 @@ Knob::Knob (Parameter* parameter, bool fromCentre)
     value.setVisible (false);
 
     addMouseListener (this, true);
+
+    if (parameter->getModIndex() >= 0)
+    {
+        auto& mm = *parameter->getModMatrix();
+        mm.addListener (this);
+    }
+}
+
+Knob::~Knob()
+{
+    if (parameter->getModIndex() >= 0)
+    {
+        auto& mm = *parameter->getModMatrix();
+        mm.removeListener (this);
+    }
 }
 
 void Knob::resized()
@@ -136,9 +151,60 @@ void Knob::timerCallback()
     }
 }
 
+void Knob::learnSourceChanged (int src)
+{
+    learning = src != -1;
+
+    knob.setInterceptsMouseClicks (! learning, ! learning);
+
+    auto& mm = *parameter->getModMatrix();
+    modDepth = mm.getModDepth (mm.getLearn(), parameter->getModIndex());
+
+    if (learning)
+        knob.getProperties().set ("modDepth", modDepth);
+    else
+        knob.getProperties().remove ("modDepth");
+
+    repaint();
+}
+
+void Knob::mouseDown (const MouseEvent& e) 
+{
+    if (! learning || ! knob.getBounds().contains (e.getMouseDownPosition()))
+        return;
+
+    auto& mm = *parameter->getModMatrix();
+    modDepth = mm.getModDepth (mm.getLearn(), parameter->getModIndex());
+
+    knob.getProperties().set ("modDepth", modDepth);
+
+    repaint();
+}
+
+void Knob::mouseDrag (const MouseEvent& e)
+{
+    if (! learning || ! knob.getBounds().contains (e.getMouseDownPosition()))
+         return;
+
+    if (e.getDistanceFromDragStart() >= 3)
+    {
+        auto pt = e.getMouseDownPosition();
+        auto delta = (e.position.x - pt.getX()) + (pt.getY() - e.position.y);
+
+        float newModDepth = jlimit (-1.0f, 1.0f, delta / 200.0f + modDepth);
+
+        knob.getProperties().set ("modDepth", newModDepth);
+
+        auto& mm = *parameter->getModMatrix();
+        mm.setModDepth (mm.getLearn(), parameter->getModIndex(), newModDepth);
+
+        repaint();
+    }
+}
+
 //==============================================================================
-HorizontalFader::HorizontalFader (Parameter* parameter, bool fromCentre)
-  : ParamComponent (parameter),
+HorizontalFader::HorizontalFader (Parameter* p, bool fromCentre)
+  : ParamComponent (p),
     value (parameter),
     fader (parameter, Slider::LinearHorizontal, Slider::NoTextBox)
 {
@@ -164,8 +230,8 @@ void HorizontalFader::resized()
     fader.setBounds (r.reduced (2));
 }
 //==============================================================================
-Switch::Switch (Parameter* parameter)
-  : ParamComponent (parameter),
+Switch::Switch (Parameter* p)
+  : ParamComponent (p),
     button (parameter)
 {
     addAndMakeVisible (&name);
@@ -185,8 +251,8 @@ void Switch::resized()
 }
 
 //==============================================================================
-Select::Select (Parameter* parameter)
-  : ParamComponent(parameter),
+Select::Select (Parameter* p)
+  : ParamComponent (p),
     comboBox (parameter)
 {
     addAndMakeVisible (&name);

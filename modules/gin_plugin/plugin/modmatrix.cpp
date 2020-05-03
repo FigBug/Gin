@@ -83,3 +83,33 @@ void ModMatrix::disableLearn()
 
     listeners.call ([&] (Listener& l) { l.learnSourceChanged (learnSource); });
 }
+
+float ModMatrix::getModDepth (int src, int param)
+{
+    auto& pi = parameters.getReference (param);
+    for (auto& si : pi.sources)
+        if (si.id == src)
+            return si.depth;
+
+    return 0;
+}
+
+void ModMatrix::setModDepth (int src, int param, float f)
+{
+    auto& pi = parameters.getReference (param);
+    for (auto& si : pi.sources)
+    {
+        if (si.id == src)
+        {
+            si.depth = f;
+            return;
+        }
+    }
+
+    Source s;
+    s.id = src;
+    s.poly = getModSrcPoly (src);
+    s.depth = f;
+
+    pi.sources.add (s);
+}

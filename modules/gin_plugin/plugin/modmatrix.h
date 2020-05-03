@@ -130,6 +130,9 @@ public:
     String getModSrcName (int src)      { return sources[src].name; }
     bool getModSrcPoly (int src)        { return sources[src].poly; }
 
+    float getModDepth (int src, int param);
+    void setModDepth (int src, int param, float f);
+
     //==============================================================================
     class Listener
     {
