@@ -95,6 +95,7 @@ using juce::Component;
 
 #include "geometry/geometry.h"
 
+#include "components/componentutils.h"
 #include "components/componentviewer.h"
 #include "components/ginlookandfeel.h"
 #include "components/mapviewer.h"

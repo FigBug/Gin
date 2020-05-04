@@ -1,6 +1,8 @@
 #pragma once
 
 class GinProcessor;
+class ModMatrix;
+
 //==============================================================================
 class Parameter : public AudioProcessorParameter,
                   protected Timer,
@@ -18,12 +20,19 @@ public:
                NormalisableRange<float> range, float defaultValue,
                std::function<String (const Parameter&, float)> textFunction = nullptr);
 
-    String getUid() { return uid; }
+    String getUid()                     { return uid;       }
+    void setInternal (bool i)           { internal = i;     }
+    bool isInternal()                   { return internal;  }
+    void setModIndex (int i)            { modIndex = i;     }
+    int getModIndex()                   { return modIndex;  }
+    void setModMatrix (ModMatrix* m)    { modMatrix = m;    }
+    ModMatrix* getModMatrix()           { return modMatrix; }
     
     virtual void prepareToPlay (double /*sampleRate*/, int /*samplesPerBlock*/)    {}
     virtual void reset()                                                           {}
     
     //==============================================================================
+    float getProcValue();
     virtual float getProcValue (int stepSize);
     
     float getUserValue() const;
@@ -75,6 +84,8 @@ public:
 
     //==============================================================================
     float getValue() const override;
+    bool getBoolValue() const                   { return getValue() != 0.0f; }
+
     void setValue (float newValue) override;
     float getDefaultValue() const override;
 
@@ -101,6 +112,10 @@ protected:
 
     //==============================================================================
     NormalisableRange<float> range;
+
+    bool internal = false;
+    ModMatrix* modMatrix = nullptr;
+    int modIndex = -1;
 
     float value;
     float defaultValue;

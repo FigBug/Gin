@@ -76,45 +76,37 @@ void GinLookAndFeel::drawRotarySlider (Graphics& g, int x, int y, int width, int
     const float angle = rotaryStartAngle + sliderPos * (rotaryEndAngle - rotaryStartAngle);
     const bool isMouseOver = slider.isMouseOverOrDragging() && slider.isEnabled();
 
-    if (radius > 12.0f)
+	const float thickness = (radius - 1) / radius;
+
+	g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (0.1f));
+
+	{
+		Path filledArc;
+		filledArc.addPieSegment (rx, ry, rw, rw, rotaryStartAngle, rotaryEndAngle, thickness);
+		g.fillPath (filledArc);
+	}
+
+	if (slider.isEnabled())
+		g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (isMouseOver ? 0.95f : 0.85f));
+
+	if (slider.getProperties().contains ("fromCentre"))
+		rotaryStartAngle = (rotaryStartAngle + rotaryEndAngle) / 2;
+
+	{
+		Path filledArc;
+		filledArc.addPieSegment (rx, ry, rw, rw, rotaryStartAngle, angle, thickness);
+		g.fillPath (filledArc);
+	}
+
+    if (slider.getProperties().contains ("modDepth"))
     {
-        const float thickness = 0.8f;
+        auto depth = (float)slider.getProperties()["modDepth"];
 
-        g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (0.1f));
+        g.setColour (Colours::orange.withAlpha (0.5f));
 
-        {
-            Path filledArc;
-            filledArc.addPieSegment (rx, ry, rw, rw, rotaryStartAngle, rotaryEndAngle, thickness);
-            g.fillPath (filledArc);
-        }
-
-        if (slider.isEnabled())
-            g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (isMouseOver ? 0.95f : 0.85f));
-
-        if (slider.getProperties().contains ("fromCentre"))
-            rotaryStartAngle = (rotaryStartAngle + rotaryEndAngle) / 2;
-
-        {
-            Path filledArc;
-            filledArc.addPieSegment (rx, ry, rw, rw, rotaryStartAngle, angle, thickness);
-            g.fillPath (filledArc);
-        }
-
-    }
-    else
-    {
-        if (slider.isEnabled())
-            g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (isMouseOver ? 1.0f : 0.7f));
-        else
-            g.setColour (Colour (0x80808080));
-
-        Path p;
-        p.addEllipse (-0.4f * rw, -0.4f * rw, rw * 0.8f, rw * 0.8f);
-        PathStrokeType (rw * 0.1f).createStrokedPath (p, p);
-
-        p.addLineSegment (Line<float> (0.0f, 0.0f, 0.0f, -radius), rw * 0.2f);
-
-        g.fillPath (p, AffineTransform::rotation (angle).translated (centreX, centreY));
+        Path filledArc;
+        filledArc.addPieSegment (rx, ry, rw, rw, angle, angle + depth * (rotaryEndAngle - rotaryStartAngle), thickness);
+        g.fillPath (filledArc);
     }
 }
 

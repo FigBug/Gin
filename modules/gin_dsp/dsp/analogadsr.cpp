@@ -230,6 +230,13 @@ float AnalogADSR::process()
     return output;
 }
 
+float AnalogADSR::process (int num)
+{
+    for (int i = num; --i >= 0;)
+        process();
+    return output;
+}
+
 void AnalogADSR::reset()
 {
     state = State::idle;

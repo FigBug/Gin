@@ -75,9 +75,14 @@ using juce::Component;
 #include "dsp/audiofunctions.h"
 #include "dsp/audioequationparser.h"
 #include "dsp/audiofifo.h"
+#include "dsp/distortion.h"
 #include "dsp/delayline.h"
 #include "dsp/dynamics.h"
 #include "dsp/easedvaluesmoother.h"
+#include "dsp/filter.h"
+#include "dsp/eq.h"
+#include "dsp/lfo.h"
+#include "dsp/modulation.h"
 #include "dsp/oscillators.h"
 #include "dsp/resamplingfifo.h"
 #include "dsp/sample.h"
@@ -88,6 +93,7 @@ using juce::Component;
 #include "components/dynamicsmeter.h"
 #include "components/levelmeter.h"
 #include "components/triggeredscope.h"
+#include "components/waveformcomponent.h"
 #include "components/xyscope.h"
 
 }

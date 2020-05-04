@@ -10,6 +10,8 @@
 
 #pragma once
 
+#define Q 0.70710678118655f
+
 //==============================================================================
 inline Value findValue (ValueTree& state, Identifier name, var value)
 {
@@ -21,16 +23,23 @@ inline Value findValue (ValueTree& state, Identifier name, var value)
 }
 
 //==============================================================================
-inline double getMidiNoteInHertz (const double noteNumber, const double frequencyOfA = 440.0)
+template <class T>
+inline T getMidiNoteInHertz (const T noteNumber, const T frequencyOfA = (T)440.0)
 {
-    return frequencyOfA * pow (2.0, (noteNumber - 69) / 12.0);
+    return T (frequencyOfA * std::pow (2.0, (noteNumber - 69.0) / 12.0));
+}
+
+template <class T>
+inline T getMidiNoteFromHertz (const T freq, const T frequencyOfA = (T)440.0)
+{
+    return T (12 * std::log2 (double (freq) / frequencyOfA) + 69.0);
 }
 
 //==============================================================================
 inline float velocityToGain (float velocity, float sensitivity = 1.0f)
 {
     float v = velocity * sensitivity + 1.0f - sensitivity;
-    return v * std::pow (25.0f, v) * 0.04f;
+    return jlimit (0.0f, 1.0f, v * std::pow (25.0f, v) * 0.04f);
 }
 
 //==============================================================================
@@ -39,6 +48,22 @@ void applyGain (AudioSampleBuffer& buffer, LinearSmoothedValue<float>& gain);
 void applyGain (AudioSampleBuffer& buffer, int channel, LinearSmoothedValue<float>& gain);
 
 void clip (AudioSampleBuffer& buffer, float low = -1.0f, float high = 1.0f);
+
+class GainProcessor
+{
+public:
+    void setGain (float g)  { gain = g;         }
+    void reset()            { lastGain = gain;  }
+
+    void process (AudioSampleBuffer& buffer)
+    {
+        buffer.applyGainRamp (0, buffer.getNumSamples(), lastGain, gain);
+        lastGain = gain;
+    }
+
+private:
+    float gain = 1.0, lastGain = 1.0;
+};
 
 //==============================================================================
 // Type string for a midi message

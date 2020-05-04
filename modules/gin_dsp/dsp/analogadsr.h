@@ -28,6 +28,7 @@ public:
 
     // Returns next ADSR value
     float process();
+    float process (int num);
     
     // Fills a buffer with ADSR values
     void process (AudioSampleBuffer& buffer);

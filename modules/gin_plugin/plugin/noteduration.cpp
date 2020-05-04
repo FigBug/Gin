@@ -16,13 +16,33 @@ float NoteDuration::toSeconds (AudioPlayHead* playhead) const
         AudioPlayHead::CurrentPositionInfo position;
         if (playhead->getCurrentPosition (position))
         {
-            timeSigNumerator = position.timeSigNumerator;
-            timeSigDenominator = position.timeSigDenominator;
+            timeSigNumerator = float (position.timeSigNumerator);
+            timeSigDenominator = float (position.timeSigDenominator);
             bpm = float (position.bpm);
             if (bpm == 0.0) bpm = 120;
             bpm = jlimit (1.0f, 500.0f, bpm);
         }
     }
+
+    float sPerBeat  = float (1.0f / (bpm / 60.0f));
+    float sPerWhole = sPerBeat * timeSigDenominator;
+
+    if (note > 0.0f)
+    {
+        return sPerWhole * note;
+    }
+    else if (bars > 0.0f)
+    {
+        float beatLen = sPerWhole * 1.0f / timeSigDenominator;
+        return bars * timeSigNumerator * beatLen;
+    }
+    return 0.0f;
+}
+
+float NoteDuration::toSeconds (float bpm) const
+{
+    float timeSigNumerator = 4;
+    float timeSigDenominator = 4;
 
     float sPerBeat  = float (1.0f / (bpm / 60.0f));
     float sPerWhole = sPerBeat * timeSigDenominator;

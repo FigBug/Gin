@@ -14,6 +14,8 @@
 class SampleOscillator
 {
 public:
+    SampleOscillator() = default;
+    
     enum Direction
     {
         forwards,
@@ -41,5 +43,5 @@ private:
     bool looping = false, triggered = false, finished = false;
     Sample* sample = nullptr;
     
-    ResamplingFifo resampler;
+    ResamplingFifo resampler {128, 2, 44100};
 };

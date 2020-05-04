@@ -21,12 +21,15 @@ using namespace juce;
 using juce::Rectangle;
 using juce::MemoryBlock;
 
+#include "plugin/modmatrix.cpp"
 #include "plugin/noteduration.cpp"
 #include "plugin/processor.cpp"
 #include "plugin/plugineditor.cpp"
 #include "plugin/program.cpp"
 #include "plugin/parameter.cpp"
 
+#include "components/adsrcomponent.cpp"
+#include "components/lfocomponent.cpp"
 #include "components/plugincomponents.cpp"
 #include "components/pluginlookandfeel.cpp"
 

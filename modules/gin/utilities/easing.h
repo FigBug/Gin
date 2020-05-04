@@ -130,21 +130,21 @@ T easeQuinticInOut (T p)
 template<class T>
 T easeSineIn (T p)
 {
-    return std::sin ((p - 1) * M_PI_2) + 1;
+    return std::sin ((p - 1) * (MathConstants<T>::pi / 2)) + 1;
 }
 
 // Modeled after quarter-cycle of sine wave (different phase)
 template<class T>
 T easeSineOut (T p)
 {
-    return std::sin (p * M_PI_2);
+    return std::sin (p * MathConstants<T>::pi / 2);
 }
 
 // Modeled after half sine wave
 template<class T>
 T easeSineInOut (T p)
 {
-    return 0.5 * (1 - std::cos (p * M_PI));
+    return T (0.5) * (1 - std::cos (p * MathConstants<T>::pi));
 }
 
 // Modeled after shifted quadrant IV of unit circle
@@ -205,14 +205,14 @@ T easeExponentialInOut (T p)
 template<class T>
 T easeElasticIn (T p)
 {
-    return std::sin (13 * M_PI_2 * p) * std::pow (2, 10 * (p - 1));
+    return std::sin (13 * (MathConstants<T>::pi / 2) * p) * std::pow (2, 10 * (p - 1));
 }
 
 // Modeled after the damped sine wave y = sin(-13pi/2*(x + 1))*pow(2, -10x) + 1
 template<class T>
 T easeElasticOut (T p)
 {
-    return std::sin (-13 * M_PI_2 * (p + 1)) * std::pow (2, -10 * p) + 1;
+    return std::sin (-13 * (MathConstants<T>::pi / 2) * (p + 1)) * std::pow (2, -10 * p) + 1;
 }
 
 // Modeled after the piecewise exponentially-damped sine wave:
@@ -222,16 +222,16 @@ template<class T>
 T easeElasticInOut (T p)
 {
     if (p < 0.5)
-        return 0.5 * std::sin (13 * M_PI_2 * (2 * p)) * std::pow (2, 10 * ((2 * p) - 1));
+        return 0.5 * std::sin (13 * (MathConstants<T>::pi / 2) * (2 * p)) * std::pow (2, 10 * ((2 * p) - 1));
     else
-        return 0.5 * (std::sin (-13 * M_PI_2 * ((2 * p - 1) + 1)) * std::pow (2, -10 * (2 * p - 1)) + 2);
+        return 0.5 * (std::sin (-13 * (MathConstants<T>::pi / 2) * ((2 * p - 1) + 1)) * std::pow (2, -10 * (2 * p - 1)) + 2);
 }
 
 // Modeled after the overshooting cubic y = x^3-x*sin(x*pi)
 template<class T>
 T easeBackIn (T p)
 {
-    return p * p * p - p * std::sin (p * M_PI);
+    return p * p * p - p * std::sin (p * MathConstants<T>::pi);
 }
 
 // Modeled after overshooting cubic y = 1-((1-x)^3-(1-x)*sin((1-x)*pi))
@@ -239,7 +239,7 @@ template<class T>
 T easeBackOut (T p)
 {
     T f = (1 - p);
-    return 1 - (f * f * f - f * std::sin (f * M_PI));
+    return 1 - (f * f * f - f * std::sin (f * MathConstants<T>::pi));
 }
 
 // Modeled after the piecewise overshooting cubic function:
@@ -251,12 +251,12 @@ T easeBackInOut (T p)
     if (p < 0.5)
     {
         T f = 2 * p;
-        return 0.5 * (f * f * f - f * std::sin (f * M_PI));
+        return 0.5 * (f * f * f - f * std::sin (f * MathConstants<T>::pi));
     }
     else
     {
         T f = (1 - (2*p - 1));
-        return 0.5 * (1 - (f * f * f - f * std::sin (f * M_PI))) + 0.5;
+        return 0.5 * (1 - (f * f * f - f * std::sin (f * MathConstants<T>::pi))) + 0.5;
     }
 }
 

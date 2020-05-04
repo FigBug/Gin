@@ -94,24 +94,26 @@ public:
 
     GinProcessor& slProc;
 
-protected:
     virtual Rectangle<int> getControlsArea();
+    virtual Rectangle<int> getGridArea (int x, int y, int w = 1, int h = 1);
+    Rectangle<int> getFullGridArea();
 
+    int getGridWidth()  { return cx; }
+    int getGridHeight() { return cy; }
+    
+protected:
     void paint (Graphics& g) override;
     void resized() override;
     void buttonClicked (Button* b) override;
     void comboBoxChanged (ComboBox* c) override;
 
-    virtual Rectangle<int> getGridArea (int x, int y, int w = 1, int h = 1);
-    Rectangle<int> getFullGridArea();
-
-    void setGridSize (int x, int y);
+    void setGridSize (int x, int y, int extraWidthPx = 0, int extraHeightPx = 0 );
 
     const int cx;
     const int cy;
 
-    int headerHeight = 60;
-    int inset = 4;
+    int headerHeight = 60, inset = 4;
+    int cols = 0, rows = 0, extraWidthPx = 0, extraHeightPx = 0;
 
     std::unique_ptr<UpdateChecker> updateChecker;
     std::unique_ptr<NewsChecker> newsChecker;

@@ -36,7 +36,7 @@ struct OscState : public FuncState
         {
             lastNote = note;
 
-            frequency = float (gin::getMidiNoteInHertz (note));
+            frequency = gin::getMidiNoteInHertz (note);
             const float period = 1.0f / frequency;
             const float periodInSamples = float (period * sampleRate);
             delta = 1.0f / periodInSamples;
@@ -93,7 +93,7 @@ struct HP24State : public FuncState
         q = jmax (0.0000001, q);
 
         auto c1 = IIRCoefficients::makeHighPass (sampleRate, freq, q);
-        auto c2 = IIRCoefficients::makeHighPass (sampleRate, freq, 0.70710678118655f);
+        auto c2 = IIRCoefficients::makeHighPass (sampleRate, freq, Q);
 
         filter1.setCoefficients (c1);
         filter2.setCoefficients (c2);
@@ -144,7 +144,7 @@ struct BP24State : public FuncState
         q = jmax (0.0000001, q);
 
         auto c1 = IIRCoefficients::makeBandPass (sampleRate, freq, q);
-        auto c2 = IIRCoefficients::makeBandPass (sampleRate, freq, 0.70710678118655f);
+        auto c2 = IIRCoefficients::makeBandPass (sampleRate, freq, Q);
         
         filter1.setCoefficients (c1);
         filter2.setCoefficients (c2);
@@ -195,7 +195,7 @@ struct LP24State : public FuncState
         q = jmax (0.0000001, q);
 
         auto c1 = IIRCoefficients::makeLowPass (sampleRate, freq, q);
-        auto c2 = IIRCoefficients::makeLowPass (sampleRate, freq, 0.70710678118655f);
+        auto c2 = IIRCoefficients::makeLowPass (sampleRate, freq, Q);
         
         filter1.setCoefficients (c1);
         filter2.setCoefficients (c2);
@@ -246,7 +246,7 @@ struct Notch24State : public FuncState
         q = jmax (0.0000001, q);
 
         auto c1 = IIRCoefficients::makeNotchFilter (sampleRate, freq, q);
-        auto c2 = IIRCoefficients::makeNotchFilter (sampleRate, freq, 0.70710678118655f);
+        auto c2 = IIRCoefficients::makeNotchFilter (sampleRate, freq, Q);
         
         filter1.setCoefficients (c1);
         filter2.setCoefficients (c2);

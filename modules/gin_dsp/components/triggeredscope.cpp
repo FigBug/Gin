@@ -165,7 +165,7 @@ void TriggeredScope::processPendingSamples()
                 c->currentAve = 0.0;
 
                 ++c->bufferWritePos %= c->bufferSize;
-                c->numLeftToAverage += jmax (1.0f, numSamplesPerPixel);
+                c->numLeftToAverage += int (jmax (1.0f, numSamplesPerPixel));
                 c->numAveraged = 0;
             }
         }

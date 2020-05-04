@@ -16,9 +16,10 @@ class Sample
 public:
     static std::unique_ptr<Sample> fromFile (const File& f);
     
-    int getLength()         { return length;     }
-    int getRootNote()       { return rootNote;   }
-    double getSampleRate()  { return sampleRate; }
+    int getLength()                 { return length;     }
+    int getRootNote()               { return rootNote;   }
+    double getSampleRate()          { return sampleRate; }
+    AudioSampleBuffer& getSamples() { return data;       }
     
     void read (AudioSampleBuffer& buffer, int samplePos, int bufferPos = 0, int length = -1);
     

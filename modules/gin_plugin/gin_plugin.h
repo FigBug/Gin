@@ -68,11 +68,19 @@ using juce::Component;
 
 #include "plugin/noteduration.h"
 #include "plugin/processor.h"
-#include "plugin/plugineditor.h"
 #include "plugin/program.h"
 #include "plugin/parameter.h"
 #include "plugin/smoothedparameter.h"
+#include "plugin/modmatrix.h"
 
+#include "plugin/plugineditor.h"
+
+#include "components/multiparamcomponent.h"
+#include "components/modulation.h"
+#include "components/adsrcomponent.h"
+#include "components/lfocomponent.h"
+#include "components/controlbox.h"
+#include "components/controlheader.h"
 #include "components/plugincomponents.h"
 #include "components/pluginlookandfeel.h"
 

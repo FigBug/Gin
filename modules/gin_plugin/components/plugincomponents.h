@@ -25,6 +25,7 @@ public:
     {
         setToggleState (parameter->getUserValue() > 0.0f, dontSendNotification);
         setButtonText (parameter->getUserValueText());
+        repaint ();
     }
 
     void clicked() override
@@ -155,6 +156,8 @@ public:
     Readout (Parameter* parameter);
     ~Readout() override;
 
+    bool isEditing()    { return editing; }
+
 private:
     void parameterChanged (Parameter* source) override;
     void resized() override;
@@ -191,24 +194,35 @@ public:
                 stc->setTooltip (newTooltip);
     }
 
-private:
+protected:
     Parameter* parameter = nullptr;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ParamComponent)
 };
 
 //==============================================================================
-class Knob : public ParamComponent
+class Knob : public ParamComponent,
+             private Timer,
+             private ModMatrix::Listener
 {
 public:
     Knob (Parameter* parameter, bool fromCentre = false);
+    ~Knob() override;
 
 private:
     void resized() override;
+    void mouseEnter (const MouseEvent& e) override;
+    void timerCallback() override;
+    void learnSourceChanged (int) override;
+
+    void mouseDown (const MouseEvent& e) override;
+    void mouseDrag (const MouseEvent& e) override;
 
     Label name;
     Readout value;
     PluginSlider knob;
+    bool learning = false;
+    float modDepth = 0.0f;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Knob)
 };

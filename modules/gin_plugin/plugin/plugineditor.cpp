@@ -208,10 +208,7 @@ Rectangle<int> GinAudioProcessorEditor::getControlsArea()
 
 Rectangle<int> GinAudioProcessorEditor::getFullGridArea()
 {
-    int cols = (getWidth() - inset * 2) / cx;
-    int rows = (getHeight() - headerHeight - inset * 2) / cx;
-
-    return Rectangle<int> (inset, headerHeight + inset, cx * cols, cy * rows);
+    return Rectangle<int> (inset, headerHeight + inset, cx * cols + extraWidthPx, cy * rows + extraHeightPx);
 }
 
 Rectangle<int> GinAudioProcessorEditor::getGridArea (int x, int y, int w, int h)
@@ -240,9 +237,15 @@ ParamComponent* GinAudioProcessorEditor::componentForParam (Parameter& param)
     return nullptr;
 }
 
-void GinAudioProcessorEditor::setGridSize (int x, int y)
+void GinAudioProcessorEditor::setGridSize (int x, int y, int extraWidthPx_, int extraHeightPx_)
 {
-    setSize (x * cx + inset * 2, y * cy + inset * 2 + headerHeight);
+    cols = x;
+    rows = y;
+    extraWidthPx  = extraWidthPx_;
+    extraHeightPx = extraHeightPx_;
+
+    setSize (x * cx + inset * 2 + extraWidthPx,
+             y * cy + inset * 2 + headerHeight + extraHeightPx);
 }
 
 void GinAudioProcessorEditor::refreshPrograms()
@@ -303,7 +306,7 @@ void GinAudioProcessorEditor::buttonClicked (Button* b)
             msg += additionalProgramming;
         msg += "\n\n";
         msg += "Copyright ";
-        msg += String (__DATE__ + 7);
+        msg += String (&__DATE__[7]);
 
         AlertWindow w ("---- About ----", msg, AlertWindow::NoIcon, this);
         w.addButton ("OK", 1);
