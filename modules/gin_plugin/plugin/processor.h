@@ -63,8 +63,6 @@ public:
     bool isSmoothing();
 
     File getProgramDirectory();
-    File getSettingsFile();
-
     void loadAllPrograms();
 
     //==============================================================================

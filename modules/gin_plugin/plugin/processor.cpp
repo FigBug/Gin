@@ -321,24 +321,6 @@ File GinProcessor::getProgramDirectory()
     return dir;
 }
 
-File GinProcessor::getSettingsFile()
-{
-  #ifdef JucePlugin_Name
-   #if JUCE_MAC
-    File file = File::getSpecialLocation (File::userApplicationDataDirectory).getChildFile ("Application Support/com.socalabs/" JucePlugin_Name "/settings.xml");
-   #else
-    File file = File::getSpecialLocation (File::userApplicationDataDirectory).getChildFile ("com.socalabs/" JucePlugin_Name "/settings.xml");
-   #endif
-  #else
-    // Shouldn't be using processor in something that isn't a plugin
-    jassertfalse;
-    File file;
-  #endif
-
-    if (!file.getParentDirectory().isDirectory())
-        file.getParentDirectory().createDirectory();
-    return file;
-}
 //==============================================================================
 
 void GinProcessor::getStateInformation (juce::MemoryBlock& destData)
