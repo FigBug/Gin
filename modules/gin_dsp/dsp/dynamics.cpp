@@ -102,8 +102,6 @@ void Dynamics::setParams (float attackS, float releaseS, float threshold_, float
     threshold = threshold_;
     ratio = ratio_;
     kneeWidth = kneeWidth_;
-
-    ratio = 1000;
 }
 
 void Dynamics::reset()

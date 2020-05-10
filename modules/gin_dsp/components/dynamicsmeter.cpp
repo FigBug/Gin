@@ -38,7 +38,6 @@ void DynamicsMeter::paint (Graphics& g)
         auto dbIn  = range.convertFrom0to1 (float (x) / std::max (1, getWidth()));
         auto dbOut = dynamics.calcCurve (dbIn);
 
-        jassert (dbOut < -27.0f);
         dbOut = dynamics.calcCurve (dbIn);
         
         float y = getHeight() - range.convertTo0to1 (dbOut) * getHeight ();

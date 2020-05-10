@@ -63,8 +63,6 @@ public:
     bool isSmoothing();
 
     File getProgramDirectory();
-    File getSettingsFile();
-
     void loadAllPrograms();
 
     //==============================================================================
@@ -91,8 +89,6 @@ public:
 
 public:
     SharedResourcePointer<PluginLookAndFeelWrapper> lf;
-
-    std::unique_ptr<PropertiesFile> properties;
 
     std::map<String, Parameter*> parameterMap;
     OwnedArray<Parameter> internalParameters;
