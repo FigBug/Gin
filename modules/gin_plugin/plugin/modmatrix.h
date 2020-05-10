@@ -35,6 +35,11 @@ private:
 class ModMatrix
 {
 public:
+
+    //==============================================================================
+    void stateUpdated (const ValueTree& vt);
+    void updateState (ValueTree& vt);
+
     //==============================================================================
     float getValue (Parameter* p)
     {

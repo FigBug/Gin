@@ -1,3 +1,50 @@
+void ModMatrix::stateUpdated (const ValueTree& vt)
+{
+    for (auto& pi : parameters)
+        pi.sources.clear();
+
+    auto mm = vt.getChildWithName ("MODMATRIX");
+    if (mm.isValid())
+    {
+        for (auto c : mm)
+        {
+            if (! c.hasType ("MODITEM")) continue;
+
+            int src   = c.getProperty ("src");
+            float f   = c.getProperty ("depth");
+            int param = c.getProperty ("param");
+
+            Source s;
+            s.id = src;
+            s.poly = getModSrcPoly (src);
+            s.depth = f;
+
+            auto& pi = parameters.getReference (param);
+            pi.sources.add (s);
+        }
+    }
+    listeners.call ([&] (Listener& l) { l.modMatrixChanged(); });
+}
+
+void ModMatrix::updateState (ValueTree& vt)
+{
+    auto mm = vt.getOrCreateChildWithName ("MODMATRIX", nullptr);
+    mm.removeAllChildren (nullptr);
+
+    for (int i = 0; i < parameters.size(); i++)
+    {
+        auto& pi = parameters.getReference (i);
+        for (auto src : pi.sources)
+        {
+            auto c = ValueTree ("MODITEM");
+            c.setProperty ("src", src.id, nullptr);
+            c.setProperty ("depth", src.depth, nullptr);
+            c.setProperty ("param", i, nullptr);
+
+            mm.addChild (c, -1, nullptr);
+        }
+    }
+}
 
 void ModMatrix::addVoice (ModVoice* v)
 {
