@@ -2,8 +2,6 @@
 //==============================================================================
 GinProcessor::GinProcessor()
 {
-    properties = std::make_unique<PropertiesFile> (getSettingsFile(), PropertiesFile::Options());
-
     loadAllPrograms();
 
     state = ValueTree (Identifier ("state"));

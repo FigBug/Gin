@@ -92,8 +92,6 @@ public:
 public:
     SharedResourcePointer<PluginLookAndFeel> lf;
 
-    std::unique_ptr<PropertiesFile> properties;
-
     std::map<String, Parameter*> parameterMap;
     OwnedArray<Parameter> internalParameters;
 
