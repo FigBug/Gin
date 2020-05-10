@@ -5,6 +5,8 @@ class ModMatrix;
 class ModVoice
 {
 public:
+    virtual ~ModVoice() = default;
+    
     float getValue (Parameter* p);
 
     void finishBlock (int numSamples)
@@ -18,6 +20,8 @@ public:
         for (auto& s : smoothers)
             s.snapToValue();
     }
+
+    virtual bool isVoiceActive() = 0;
     
 private:
     friend ModMatrix;
@@ -90,6 +94,36 @@ public:
         return v;
     }
 
+    Array<float> getLiveValues (Parameter* p)
+    {
+        Array<float> liveValues;
+
+        const int paramId = p->getModIndex();
+
+        for (auto v : voices)
+        {
+            if (v->isVoiceActive())
+            {
+                float base = p->getValue();
+                auto& info = parameters.getReference (paramId);
+
+                for (auto& src : info.sources)
+                {
+                    if (src.poly)
+                        base += v->values[src.id] * src.depth;
+                    else
+                        base += sources[src.id].monoValue * src.depth;
+                }
+
+                base = jlimit (0.0f, 1.0f, base);
+
+                liveValues.add (base);
+            }
+        }
+
+        return liveValues;
+    }
+
     void setMonoValue (int id, float value)
     {
         auto& info = sources.getReference (id);
@@ -114,8 +148,8 @@ public:
 
     //==============================================================================
     void addVoice (ModVoice* v);
-    int addMonoModSource (const String& name);
-    int addPolyModSource (const String& name);
+    int addMonoModSource (const String& name, bool bipolar);
+    int addPolyModSource (const String& name, bool bipolar);
     void addParameter (Parameter* p);
 
     void setSampleRate (double sampleRate);
@@ -124,33 +158,39 @@ public:
     //==============================================================================
     void enableLearn (int source);
     void disableLearn();
-    int getLearn()                      { return learnSource;       }
+    int getLearn()                      { return learnSource;           }
 
     //==============================================================================
-    String getModSrcName (int src)      { return sources[src].name; }
-    bool getModSrcPoly (int src)        { return sources[src].poly; }
+    String getModSrcName (int src)      { return sources[src].name;     }
+    bool getModSrcPoly (int src)        { return sources[src].poly;     }
+    bool getModSrcBipolar (int src)     { return sources[src].bipolar;  }
+
+    bool isModulated (int param);
 
     float getModDepth (int src, int param);
     void setModDepth (int src, int param, float f);
+    void clearModDepth (int src, int param);
 
     //==============================================================================
     class Listener
     {
     public:
         virtual ~Listener() = default;
-        virtual void learnSourceChanged (int) = 0;
+		virtual void modMatrixChanged()			{}
+		virtual void learnSourceChanged (int) 	{}
     };
 
-    void addListener (Listener* l)      { listeners.add (l);        }
-    void removeListener (Listener* l)   { listeners.remove (l);     }
+    void addListener (Listener* l)      { listeners.add (l);            }
+    void removeListener (Listener* l)   { listeners.remove (l);         }
 
 private:
     //==============================================================================
     struct SourceInfo
     {
         String name;
-        bool poly;
-        int index;
+        bool poly = false;
+        bool bipolar = false;
+        int index = 0;
         float monoValue = 0.0f;
     };
 

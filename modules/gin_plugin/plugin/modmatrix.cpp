@@ -6,23 +6,25 @@ void ModMatrix::addVoice (ModVoice* v)
     v->owner = this;
 }
 
-int ModMatrix::addMonoModSource (const String& name)
+int ModMatrix::addMonoModSource (const String& name, bool bipolar)
 {
     SourceInfo si;
-    si.name  = name;
-    si.poly  = false;
-    si.index = sources.size();
+    si.name    = name;
+    si.poly    = false;
+    si.bipolar = bipolar;
+    si.index   = sources.size();
 
     sources.add (si);
     return si.index;
 }
 
-int ModMatrix::addPolyModSource (const String& name)
+int ModMatrix::addPolyModSource (const String& name, bool bipolar)
 {
     SourceInfo si;
-    si.name  = name;
-    si.poly  = true;
-    si.index = sources.size();
+    si.name    = name;
+    si.poly    = true;
+    si.bipolar = bipolar;
+    si.index   = sources.size();
 
     sources.add (si);
     return si.index;
@@ -84,6 +86,14 @@ void ModMatrix::disableLearn()
     listeners.call ([&] (Listener& l) { l.learnSourceChanged (learnSource); });
 }
 
+bool ModMatrix::isModulated (int param)
+{
+    auto& pi = parameters.getReference (param);
+    if (pi.sources.size() > 0)
+        return true;
+    return false;
+}
+
 float ModMatrix::getModDepth (int src, int param)
 {
     auto& pi = parameters.getReference (param);
@@ -112,4 +122,19 @@ void ModMatrix::setModDepth (int src, int param, float f)
     s.depth = f;
 
     pi.sources.add (s);
+
+    listeners.call ([&] (Listener& l) { l.modMatrixChanged(); });
+}
+
+void ModMatrix::clearModDepth (int src, int param)
+{
+    auto& pi = parameters.getReference (param);
+    for (int i = pi.sources.size(); --i >= 0;)
+    {
+        auto si = pi.sources[i];
+        if (si.id == src)
+            pi.sources.remove (i);
+    }
+
+    listeners.call ([&] (Listener& l) { l.modMatrixChanged(); });
 }

@@ -89,24 +89,56 @@ void GinLookAndFeel::drawRotarySlider (Graphics& g, int x, int y, int width, int
 	if (slider.isEnabled())
 		g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (isMouseOver ? 0.95f : 0.85f));
 
+    auto fillStartAngle = rotaryStartAngle;
 	if (slider.getProperties().contains ("fromCentre"))
-		rotaryStartAngle = (rotaryStartAngle + rotaryEndAngle) / 2;
+		fillStartAngle = (rotaryStartAngle + rotaryEndAngle) / 2;
 
 	{
 		Path filledArc;
-		filledArc.addPieSegment (rx, ry, rw, rw, rotaryStartAngle, angle, thickness);
+		filledArc.addPieSegment (rx, ry, rw, rw, fillStartAngle, angle, thickness);
 		g.fillPath (filledArc);
 	}
 
     if (slider.getProperties().contains ("modDepth"))
     {
         auto depth = (float)slider.getProperties()["modDepth"];
+        bool bipolar = (bool)slider.getProperties()["modBipolar"];
 
-        g.setColour (Colours::orange.withAlpha (0.5f));
+        g.setColour (Colours::red.withAlpha (0.8f));
 
         Path filledArc;
-        filledArc.addPieSegment (rx, ry, rw, rw, angle, angle + depth * (rotaryEndAngle - rotaryStartAngle), thickness);
+        if (bipolar)
+        {
+            auto a = jlimit (rotaryStartAngle, rotaryEndAngle, angle - depth * (rotaryEndAngle - rotaryStartAngle));
+            auto b = jlimit (rotaryStartAngle, rotaryEndAngle, angle + depth * (rotaryEndAngle - rotaryStartAngle));
+            filledArc.addPieSegment (rx, ry, rw, rw, std::min (a, b), std::max (a, b), thickness);
+        }
+        else
+        {
+            auto modPos = jlimit (rotaryStartAngle, rotaryEndAngle, angle + depth * (rotaryEndAngle - rotaryStartAngle));
+            filledArc.addPieSegment (rx, ry, rw, rw, angle, modPos, thickness);
+        }
+
         g.fillPath (filledArc);
+    }
+
+    if (slider.getProperties().contains ("modValues"))
+    {
+        g.setColour (Colours::red.withAlpha (0.8f));
+
+        auto varArray = slider.getProperties()["modValues"];
+        if (varArray.isArray())
+        {
+            for (auto value : *varArray.getArray())
+            {
+                float modAngle = float (value) * (rotaryEndAngle - rotaryStartAngle) + rotaryStartAngle;
+
+                float modX = centreX + std::sin (modAngle) * radius;
+                float modY = centreY - std::cos (modAngle) * radius;
+
+                g.fillEllipse (modX - 2, modY - 2, 4.0f, 4.0f);
+            }
+        }
     }
 }
 

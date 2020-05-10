@@ -166,7 +166,7 @@ private:
             }
         }
 
-        return jlimit (-1.0f, 1.0f, (output * parameters.depth + parameters.offset));
+        return jlimit (-1.0f, 1.0f, (curFade * output * parameters.depth + parameters.offset));
     }
 
     Parameters parameters;

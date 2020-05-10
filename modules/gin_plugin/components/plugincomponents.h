@@ -214,6 +214,7 @@ private:
     void mouseEnter (const MouseEvent& e) override;
     void timerCallback() override;
     void learnSourceChanged (int) override;
+    void modMatrixChanged() override;
 
     void mouseDown (const MouseEvent& e) override;
     void mouseDrag (const MouseEvent& e) override;
@@ -223,6 +224,9 @@ private:
     PluginSlider knob;
     bool learning = false;
     float modDepth = 0.0f;
+
+    gin::CoalescedTimer modTimer;
+    Array<float> modValues;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Knob)
 };

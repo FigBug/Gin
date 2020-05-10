@@ -106,6 +106,24 @@ Knob::Knob (Parameter* p, bool fromCentre)
         auto& mm = *parameter->getModMatrix();
         mm.addListener (this);
     }
+
+    modTimer.onTimer = [this] ()
+    {
+        auto& mm = *parameter->getModMatrix();
+        auto curModValues = mm.getLiveValues (parameter);
+        if (curModValues != modValues)
+        {
+            modValues = curModValues;
+
+            Array<var> vals;
+            for (auto v : modValues)
+                vals.add (v);
+
+            knob.getProperties().set ("modValues", vals);
+
+            repaint();
+        }
+    };
 }
 
 Knob::~Knob()
@@ -161,11 +179,31 @@ void Knob::learnSourceChanged (int src)
     modDepth = mm.getModDepth (mm.getLearn(), parameter->getModIndex());
 
     if (learning)
+    {
         knob.getProperties().set ("modDepth", modDepth);
+        knob.getProperties().set ("modBipolar", mm.getModSrcBipolar (mm.getLearn()));
+    }
     else
+    {
         knob.getProperties().remove ("modDepth");
+        knob.getProperties().remove ("modBipolar");
+    }
 
     repaint();
+}
+
+void Knob::modMatrixChanged()
+{
+    auto& mm = *parameter->getModMatrix();
+    if (mm.isModulated (parameter->getModIndex()))
+    {
+        modTimer.startTimerHz (30);
+    }
+    else
+    {
+        modTimer.stopTimer();
+        knob.getProperties().remove ("modValues");
+    }
 }
 
 void Knob::mouseDown (const MouseEvent& e) 
