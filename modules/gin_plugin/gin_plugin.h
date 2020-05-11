@@ -73,15 +73,14 @@ using juce::Component;
 #include "plugin/smoothedparameter.h"
 #include "plugin/modmatrix.h"
 
-#include "plugin/plugineditor.h"
-
 #include "components/multiparamcomponent.h"
 #include "components/modulation.h"
 #include "components/adsrcomponent.h"
 #include "components/lfocomponent.h"
-#include "components/controlbox.h"
-#include "components/controlheader.h"
 #include "components/plugincomponents.h"
 #include "components/pluginlookandfeel.h"
+#include "components/controlheader.h"
+#include "components/plugineditor.h"
+#include "components/controlbox.h"
 
 }

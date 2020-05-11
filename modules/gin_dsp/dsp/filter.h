@@ -47,6 +47,8 @@ public:
             f.reset();
     }
 
+    float getFrequency()            { return freq;      }
+
     void setParams (float freq_, float q_, float g_ = 0.0f)
     {
         freq = freq_;

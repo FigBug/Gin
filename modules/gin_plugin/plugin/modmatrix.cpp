@@ -185,3 +185,14 @@ void ModMatrix::clearModDepth (int src, int param)
 
     listeners.call ([&] (Listener& l) { l.modMatrixChanged(); });
 }
+
+Array<int> ModMatrix::getModSources (Parameter* param)
+{
+    Array<int> srcs;
+
+    auto& pi = parameters.getReference (param->getModIndex());
+    for (auto& si : pi.sources)
+        srcs.add (si.id);
+
+    return srcs;
+}

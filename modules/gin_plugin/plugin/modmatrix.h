@@ -170,6 +170,8 @@ public:
     bool getModSrcPoly (int src)        { return sources[src].poly;     }
     bool getModSrcBipolar (int src)     { return sources[src].bipolar;  }
 
+    Array<int> getModSources (Parameter*);
+
     bool isModulated (int param);
 
     float getModDepth (int src, int param);

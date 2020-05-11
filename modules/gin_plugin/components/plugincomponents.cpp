@@ -88,7 +88,9 @@ Knob::Knob (Parameter* p, bool fromCentre)
     addAndMakeVisible (name);
     addAndMakeVisible (value);
     addAndMakeVisible (knob);
+    addChildComponent (modButton);
 
+    knob.setDoubleClickReturnValue (true, parameter->getUserDefaultValue());
     knob.setSkewFactor (parameter->getSkew());
     if (fromCentre)
         knob.getProperties().set ("fromCentre", true);
@@ -110,7 +112,7 @@ Knob::Knob (Parameter* p, bool fromCentre)
     modTimer.onTimer = [this] ()
     {
         auto& mm = *parameter->getModMatrix();
-        auto curModValues = mm.getLiveValues (parameter);
+        auto curModValues = liveValuesCallback ? liveValuesCallback() : mm.getLiveValues (parameter);
         if (curModValues != modValues)
         {
             modValues = curModValues;
@@ -124,6 +126,9 @@ Knob::Knob (Parameter* p, bool fromCentre)
             repaint();
         }
     };
+
+    modButton.onClick = [this] { showModMenu(); };
+    modMatrixChanged();
 }
 
 Knob::~Knob()
@@ -135,6 +140,22 @@ Knob::~Knob()
     }
 }
 
+void Knob::showModMenu()
+{
+    PopupMenu m;
+
+    auto& mm = *parameter->getModMatrix();
+    for (auto src : mm.getModSources (parameter))
+    {
+        m.addItem ("Remove " + mm.getModSrcName (src), [this, src]
+        {
+            parameter->getModMatrix()->clearModDepth (src, parameter->getModIndex());
+        });
+    }
+
+    m.showMenuAsync ({});
+}
+
 void Knob::resized()
 {
     Rectangle<int> r = getLocalBounds().reduced (2);
@@ -143,6 +164,8 @@ void Knob::resized()
     name.setBounds (rc);
     value.setBounds (rc);
     knob.setBounds (r.reduced (2));
+
+    modButton.setBounds (knob.getBounds().removeFromTop (7).removeFromRight (7));
 }
 
 void Knob::mouseEnter (const MouseEvent&)
@@ -194,15 +217,19 @@ void Knob::learnSourceChanged (int src)
 
 void Knob::modMatrixChanged()
 {
-    auto& mm = *parameter->getModMatrix();
-    if (mm.isModulated (parameter->getModIndex()))
+    if (auto mm = parameter->getModMatrix())
     {
-        modTimer.startTimerHz (30);
-    }
-    else
-    {
-        modTimer.stopTimer();
-        knob.getProperties().remove ("modValues");
+        if (mm->isModulated (parameter->getModIndex()) || liveValuesCallback)
+        {
+            modTimer.startTimerHz (30);
+            modButton.setVisible (mm->isModulated (parameter->getModIndex()));
+        }
+        else
+        {
+            modTimer.stopTimer();
+            knob.getProperties().remove ("modValues");
+            modButton.setVisible (false);
+        }
     }
 }
 

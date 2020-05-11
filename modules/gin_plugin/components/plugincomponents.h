@@ -1,7 +1,5 @@
 #pragma once
 
-#include "../plugin/parameter.h"
-
 //==============================================================================
 class PluginButton : public TextButton,
                      private Parameter::Listener
@@ -209,6 +207,12 @@ public:
     Knob (Parameter* parameter, bool fromCentre = false);
     ~Knob() override;
 
+    void setLiveValuesCallback (std::function<Array<float> ()> cb)
+    {
+        liveValuesCallback = cb;
+        modMatrixChanged();
+    }
+
 private:
     void resized() override;
     void mouseEnter (const MouseEvent& e) override;
@@ -219,6 +223,8 @@ private:
     void mouseDown (const MouseEvent& e) override;
     void mouseDrag (const MouseEvent& e) override;
 
+    void showModMenu();
+
     Label name;
     Readout value;
     PluginSlider knob;
@@ -227,6 +233,8 @@ private:
 
     gin::CoalescedTimer modTimer;
     Array<float> modValues;
+    std::function<Array<float> ()> liveValuesCallback;
+    gin::ModulationDestinationButton modButton;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Knob)
 };
