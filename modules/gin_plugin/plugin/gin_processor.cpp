@@ -1,4 +1,3 @@
-
 //==============================================================================
 Processor::Processor (bool init_)
 {
@@ -14,7 +13,6 @@ void Processor::init()
 {
     loadAllPrograms();
     state = ValueTree (Identifier ("state"));
-    stateUpdated();
 }
 
 std::unique_ptr<PropertiesFile> Processor::getSettings()

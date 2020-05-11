@@ -1,4 +1,3 @@
-
 void Program::loadProcessor (Processor& p)
 {
     for (auto pp : p.getPluginParameters())

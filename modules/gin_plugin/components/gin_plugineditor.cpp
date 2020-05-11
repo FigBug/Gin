@@ -260,9 +260,18 @@ void ProcessorEditor::resized()
     prevButton.setBounds (programs.getX() - ph - 5, programs.getY(), ph, ph);
     nextButton.setBounds (programs.getRight() + 5, programs.getY(), ph, ph);
 
-    browseButton.setBounds (nextButton.getRight() + 15, programs.getY(), ph, ph);
-    addButton.setBounds (browseButton.getRight() + 5, programs.getY(), ph, ph);
-    deleteButton.setBounds (addButton.getRight() + 5, programs.getY(), ph, ph);
+    if (hasBrowser)
+    {
+        browseButton.setBounds (nextButton.getRight() + 15, programs.getY(), ph, ph);
+        addButton.setBounds (browseButton.getRight() + 5, programs.getY(), ph, ph);
+        deleteButton.setBounds (addButton.getRight() + 5, programs.getY(), ph, ph);
+    }
+    else
+    {
+        browseButton.setBounds ({});
+        addButton.setBounds (nextButton.getRight() + 15, programs.getY(), ph, ph);
+        deleteButton.setBounds (addButton.getRight() + 5, programs.getY(), ph, ph);
+    }
 
     socaButton.setBounds (5, 5, ph, ph);
     newsButton.setBounds (socaButton.getBounds().translated (ph + 5, 0));
@@ -314,8 +323,13 @@ void ProcessorEditor::buttonClicked (Button* b)
         gin::PluginAlertWindow w ("Create preset:", "", AlertWindow::NoIcon, this);
         w.setLookAndFeel (&slProc.lf.get());
         w.addTextEditor ("name", "", "Name:");
-        w.addTextEditor ("author", "", "Author:");
-        w.addTextEditor ("tags", "", "Tags:");
+
+        if (hasBrowser)
+        {
+            w.addTextEditor ("author", "", "Author:");
+            w.addTextEditor ("tags", "", "Tags:");
+        }
+        
         w.addButton ("OK", 1, KeyPress (KeyPress::returnKey));
         w.addButton ("Cancel", 0, KeyPress (KeyPress::escapeKey));
 

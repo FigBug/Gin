@@ -129,6 +129,8 @@ protected:
     void comboBoxChanged (ComboBox* c) override;
     void changeListenerCallback (ChangeBroadcaster*) override;
 
+    bool hasBrowser = false;
+
     std::unique_ptr<UpdateChecker> updateChecker;
     std::unique_ptr<NewsChecker> newsChecker;
 

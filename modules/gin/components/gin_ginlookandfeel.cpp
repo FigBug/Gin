@@ -46,8 +46,8 @@ Colour GinLookAndFeel::defaultColour (int idx)
 }
 
 void GinLookAndFeel::drawLinearSlider (Graphics& g, int x, int y, int width, int height,
-                                          float sliderPos, float /*minSliderPos*/, float /*maxSliderPos*/,
-                                          const Slider::SliderStyle, Slider& slider)
+                                       float sliderPos, float /*minSliderPos*/, float /*maxSliderPos*/,
+                                       const Slider::SliderStyle, Slider& slider)
 {
     const bool isMouseOver = slider.isMouseOverOrDragging() && slider.isEnabled();
     auto rc = Rectangle<int> (x, y, width, height);
@@ -60,31 +60,13 @@ void GinLookAndFeel::drawLinearSlider (Graphics& g, int x, int y, int width, int
         g.setColour (slider.findColour (Slider::trackColourId).withAlpha (isMouseOver ? 0.95f : 0.85f));
 
     if (slider.isHorizontal())
-    {
-        float t = rc.getY() + 0.5f;
-        float h = rc.getHeight() - 1.0f;
-
-        if (slider.getProperties().contains ("fromCentre"))
-        {
-            auto c = rc.getCentreX();
-            if (sliderPos < c)
-                g.fillRect (Rectangle<float> (sliderPos, t, c - sliderPos, h));
-            else
-                g.fillRect (Rectangle<float> (float (c), t, sliderPos - c, h));
-        }
-        else
-        {
-            g.fillRect (Rectangle<float> (float (rc.getX()), float (y), sliderPos - rc.getX(), h));
-        }
-    }
+        g.fillRect (Rectangle<float> (static_cast<float> (rc.getX()), rc.getY() + 0.5f, sliderPos - rc.getX(), rc.getHeight() - 1.0f));
     else
-    {
         g.fillRect (Rectangle<float> (rc.getX() + 0.5f, sliderPos, rc.getWidth() - 1.0f, rc.getY() + (rc.getHeight() - sliderPos)));
-    }
 }
 
 void GinLookAndFeel::drawRotarySlider (Graphics& g, int x, int y, int width, int height, float sliderPos,
-                                          const float rotaryStartAngleIn, const float rotaryEndAngle, Slider& slider)
+                                       const float rotaryStartAngleIn, const float rotaryEndAngle, Slider& slider)
 {
     float rotaryStartAngle = rotaryStartAngleIn;
     const float radius = jmin (width / 2, height / 2) - 2.0f;
@@ -96,74 +78,50 @@ void GinLookAndFeel::drawRotarySlider (Graphics& g, int x, int y, int width, int
     const float angle = rotaryStartAngle + sliderPos * (rotaryEndAngle - rotaryStartAngle);
     const bool isMouseOver = slider.isMouseOverOrDragging() && slider.isEnabled();
 
-    const float thickness = (radius - 1) / radius;
-
-    g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (0.1f));
-
+    if (radius > 12.0f)
     {
-        Path filledArc;
-        filledArc.addPieSegment (rx, ry, rw, rw, rotaryStartAngle, rotaryEndAngle, thickness);
-        g.fillPath (filledArc);
-    }
+        const float thickness = 0.8f;
 
-    if (slider.isEnabled())
-        g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (isMouseOver ? 0.95f : 0.85f));
+        g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (0.1f));
 
-    auto fillStartAngle = rotaryStartAngle;
-    if (slider.getProperties().contains ("fromCentre"))
-        fillStartAngle = (rotaryStartAngle + rotaryEndAngle) / 2;
-
-    {
-        Path filledArc;
-        filledArc.addPieSegment (rx, ry, rw, rw, fillStartAngle, angle, thickness);
-        g.fillPath (filledArc);
-    }
-
-    if (slider.getProperties().contains ("modDepth"))
-    {
-        auto depth = (float)slider.getProperties()["modDepth"];
-        bool bipolar = (bool)slider.getProperties()["modBipolar"];
-
-        g.setColour (Colours::red.withAlpha (0.8f));
-
-        Path filledArc;
-        if (bipolar)
         {
-            auto a = jlimit (rotaryStartAngle, rotaryEndAngle, angle - depth * (rotaryEndAngle - rotaryStartAngle));
-            auto b = jlimit (rotaryStartAngle, rotaryEndAngle, angle + depth * (rotaryEndAngle - rotaryStartAngle));
-            filledArc.addPieSegment (rx, ry, rw, rw, std::min (a, b), std::max (a, b), thickness);
+            Path filledArc;
+            filledArc.addPieSegment (rx, ry, rw, rw, rotaryStartAngle, rotaryEndAngle, thickness);
+            g.fillPath (filledArc);
         }
+
+        if (slider.isEnabled())
+            g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (isMouseOver ? 0.95f : 0.85f));
+
+        if (slider.getProperties().contains ("fromCentre"))
+            rotaryStartAngle = (rotaryStartAngle + rotaryEndAngle) / 2;
+
+        {
+            Path filledArc;
+            filledArc.addPieSegment (rx, ry, rw, rw, rotaryStartAngle, angle, thickness);
+            g.fillPath (filledArc);
+        }
+
+    }
+    else
+    {
+        if (slider.isEnabled())
+            g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (isMouseOver ? 1.0f : 0.7f));
         else
-        {
-            auto modPos = jlimit (rotaryStartAngle, rotaryEndAngle, angle + depth * (rotaryEndAngle - rotaryStartAngle));
-            filledArc.addPieSegment (rx, ry, rw, rw, angle, modPos, thickness);
-        }
+            g.setColour (Colour (0x80808080));
 
-        g.fillPath (filledArc);
-    }
+        Path p;
+        p.addEllipse (-0.4f * rw, -0.4f * rw, rw * 0.8f, rw * 0.8f);
+        PathStrokeType (rw * 0.1f).createStrokedPath (p, p);
 
-    if (slider.getProperties().contains ("modValues") && slider.isEnabled())
-    {
-        g.setColour (Colours::red.withAlpha (0.8f));
+        p.addLineSegment (Line<float> (0.0f, 0.0f, 0.0f, -radius), rw * 0.2f);
 
-        auto varArray = slider.getProperties()["modValues"];
-        if (varArray.isArray())
-        {
-            for (auto value : *varArray.getArray())
-            {
-                float modAngle = float (value) * (rotaryEndAngle - rotaryStartAngle) + rotaryStartAngle;
-
-                float modX = centreX + std::sin (modAngle) * radius;
-                float modY = centreY - std::cos (modAngle) * radius;
-
-                g.fillEllipse (modX - 2, modY - 2, 4.0f, 4.0f);
-            }
-        }
+        g.fillPath (p, AffineTransform::rotation (angle).translated (centreX, centreY));
     }
 }
 
 void GinLookAndFeel::drawButtonBackground (Graphics& g, Button& b, const Colour&,
-                                              bool, bool)
+                                           bool, bool)
 {
     if (b.isMouseOver() && b.isEnabled())
     {
@@ -200,8 +158,8 @@ void GinLookAndFeel::drawButtonText (Graphics& g, TextButton& b, bool, bool)
 }
 
 void GinLookAndFeel::drawComboBox (Graphics& g, int width, int height, bool /*isButtonDown*/,
-                                      int /*buttonX*/, int /*buttonY*/, int /*buttonW*/, int /*buttonH*/,
-                                      ComboBox& box)
+                                   int /*buttonX*/, int /*buttonY*/, int /*buttonW*/, int /*buttonH*/,
+                                   ComboBox& box)
 {
     const Rectangle<int> boxBounds (0, 0, width, height);
 
