@@ -82,15 +82,18 @@ public:
     };
     
     void setSampleRate (double sr)  { sampleRate = sr; }
-    void noteOn (float p = -1)      { p >= 0 ? phase = p : Random::getSystemRandom().nextFloat(); }
+    void noteOn (float p = -1);
     
     void process (float note, const Params& params, AudioSampleBuffer& buffer);
+    void process (float noteL, float noteR, const Params& params, AudioSampleBuffer& buffer);
+
     void processAdding (float note, const Params& params, AudioSampleBuffer& buffer);
+    void processAdding (float noteL, float noteR, const Params& params, AudioSampleBuffer& buffer);
     
 private:
     BandLimitedLookupTables& bllt;
     double sampleRate = 44100.0;
-    float phase = 0;
+    float phaseL = 0.0f, phaseR = 0.0f;
 };
 
 //==============================================================================
@@ -107,6 +110,7 @@ public:
     {
         Wave wave = Wave::sawUp;
         int voices = 1;
+        int vcTrns = 0;
         float pw = 0.5;
         float pan = 0.0f;
         float spread = 0.0f;
@@ -157,7 +161,12 @@ public:
                 float baseNote  = note - params.detune / 2;
                 float noteDelta = params.detune / (params.voices - 1);
 
-                oscillators[i]->processAdding (baseNote + noteDelta * i, p, buffer);
+                if (params.vcTrns == 0)
+                    oscillators[i]->processAdding (baseNote + noteDelta * i, p, buffer);
+                else
+                    oscillators[i]->processAdding (baseNote + noteDelta * i + params.vcTrns,
+                                                   baseNote + noteDelta * i,
+                                                   p, buffer);
             }
         }
     }

@@ -122,7 +122,7 @@ void GinLookAndFeel::drawRotarySlider (Graphics& g, int x, int y, int width, int
         g.fillPath (filledArc);
     }
 
-    if (slider.getProperties().contains ("modValues"))
+    if (slider.getProperties().contains ("modValues") && slider.isEnabled())
     {
         g.setColour (Colours::red.withAlpha (0.8f));
 

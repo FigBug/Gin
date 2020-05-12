@@ -21,6 +21,11 @@ public:
             s.snapToValue();
     }
 
+    void startVoice ();
+    void stopVoice();
+
+    int getAge()    { return age; }
+
     virtual bool isVoiceActive() = 0;
     
 private:
@@ -29,6 +34,7 @@ private:
     ModMatrix* owner = nullptr;
     Array<float> values;
     Array<ValueSmoother<float>> smoothers;
+    int age = 0;
 };
 
 //==============================================================================
@@ -104,24 +110,56 @@ public:
         Array<float> liveValues;
 
         const int paramId = p->getModIndex();
+        auto& pi = parameters.getReference (paramId);
 
-        for (auto v : voices)
+        if (pi.poly)
         {
-            if (v->isVoiceActive())
+            for (auto v : voices)
             {
-                float base = p->getValue();
-                auto& info = parameters.getReference (paramId);
-
-                for (auto& src : info.sources)
+                if (v->isVoiceActive())
                 {
-                    if (src.poly)
-                        base += v->values[src.id] * src.depth;
-                    else
-                        base += sources[src.id].monoValue * src.depth;
+                    float base = p->getValue();
+                    auto& info = parameters.getReference (paramId);
+
+                    for (auto& src : info.sources)
+                    {
+                        if (src.poly)
+                            base += v->values[src.id] * src.depth;
+                        else
+                            base += sources[src.id].monoValue * src.depth;
+                    }
+
+                    base = jlimit (0.0f, 1.0f, base);
+
+                    liveValues.add (base);
                 }
+            }
+        }
+        else
+        {
+            bool ok = false;
+            auto v = activeVoice;
 
+            float base = p->getValue();
+            auto& info = parameters.getReference (paramId);
+
+            for (auto& src : info.sources)
+            {
+                if (src.poly && v != nullptr)
+                {
+                    ok = true;
+                    base += v->values[src.id] * src.depth;
+                }
+                else if (! src.poly)
+                {
+                    ok = true;
+                    base += sources[src.id].monoValue * src.depth;
+                }
+            }
+
+            if (ok)
+            {
                 base = jlimit (0.0f, 1.0f, base);
-
                 liveValues.add (base);
             }
         }
@@ -155,7 +193,7 @@ public:
     void addVoice (ModVoice* v);
     int addMonoModSource (const String& name, bool bipolar);
     int addPolyModSource (const String& name, bool bipolar);
-    void addParameter (Parameter* p);
+    void addParameter (Parameter* p, bool poly);
 
     void setSampleRate (double sampleRate);
     void build();
@@ -191,6 +229,12 @@ public:
     void removeListener (Listener* l)   { listeners.remove (l);         }
 
 private:
+    friend ModVoice;
+
+    //==============================================================================
+    int voiceStarted (ModVoice* v);
+    void voiceStopped (ModVoice* v);
+
     //==============================================================================
     struct SourceInfo
     {
@@ -211,6 +255,7 @@ private:
     struct ParamInfo
     {
         Parameter* parameter;
+        bool poly = false;
         Array<Source> sources;
     };
 
@@ -225,7 +270,7 @@ private:
 
     ListenerList<Listener> listeners;
 
-    int learnSource = -1;
+    int learnSource = -1, nextAge = 0;
 };
 
 inline float ModVoice::getValue (Parameter* p)

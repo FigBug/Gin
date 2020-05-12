@@ -1,3 +1,15 @@
+//==============================================================================
+void ModVoice::startVoice ()
+{
+    age = owner->voiceStarted (this);
+}
+
+void ModVoice::stopVoice()
+{
+    owner->voiceStopped (this);
+}
+
+//==============================================================================
 void ModMatrix::stateUpdated (const ValueTree& vt)
 {
     for (auto& pi : parameters)
@@ -77,12 +89,13 @@ int ModMatrix::addPolyModSource (const String& name, bool bipolar)
     return si.index;
 }
 
-void ModMatrix::addParameter (Parameter* p)
+void ModMatrix::addParameter (Parameter* p, bool poly)
 {
     p->setModMatrix (this);
     p->setModIndex (parameters.size());
 
     ParamInfo pi;
+    pi.poly = poly;
     pi.parameter = p;
 
     parameters.add (pi);
@@ -195,4 +208,31 @@ Array<int> ModMatrix::getModSources (Parameter* param)
         srcs.add (si.id);
 
     return srcs;
+}
+
+int ModMatrix::voiceStarted (ModVoice* v)
+{
+    if (activeVoice == nullptr)
+        activeVoice = v;
+
+    return ++nextAge;
+}
+
+void ModMatrix::voiceStopped (ModVoice* v)
+{
+    if (v == activeVoice)
+    {
+        int youngestVoice = std::numeric_limits<int>::max();
+        activeVoice = nullptr;
+        for (auto possibleVoice : voices)
+        {
+            if (possibleVoice == v) continue;
+            
+            if (possibleVoice->isVoiceActive() && possibleVoice->getAge() < youngestVoice)
+            {
+                youngestVoice = possibleVoice->getAge();
+                activeVoice = possibleVoice;
+            }
+        }
+    }
 }
