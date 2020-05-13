@@ -88,6 +88,7 @@ using juce::Component;
 #include "dsp/sample.h"
 #include "dsp/sampleoscillator.h"
 #include "dsp/stereodelay.h"
+#include "dsp/synthesiser.h"
 #include "dsp/valuesmoother.h"
 
 #include "components/dynamicsmeter.h"
