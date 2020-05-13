@@ -5,7 +5,7 @@ class ModulationSourceButton : public Button,
                                private ModMatrix::Listener
 {
 public:
-    ModulationSourceButton (ModMatrix& mm, int src, bool poly_ = false)
+    ModulationSourceButton (ModMatrix& mm, int src = -1, bool poly_ = false)
         : Button (""), modMatrix (mm), source (src), poly (poly_)
     {
         modMatrix.addListener (this);
@@ -187,4 +187,68 @@ private:
 
     ModulationSourceButton button { modMatrix, -1 };
     Label name;
+};
+
+//==============================================================================
+class ModSrcListBox : public ListBox,
+					  private ListBoxModel
+{
+public:
+	ModSrcListBox (ModMatrix& m)
+		: modMatrix (m)
+	{
+		setModel (this);
+		updateContent();
+		setRowHeight (16);
+	}
+
+	int getNumRows() override
+	{
+		return modMatrix.getNumModSources();
+	}
+
+	void paintListBoxItem (int, Graphics&, int, int, bool) override {}
+
+	Component* refreshComponentForRow (int row, bool, Component* c) override
+	{
+		auto rowComponent = (Row*)c;
+		if (rowComponent == nullptr)
+			rowComponent = new Row (modMatrix);
+
+		rowComponent->update (row);
+		return rowComponent;
+	}
+
+private:
+	class Row : public Component
+	{
+	public:
+		Row (ModMatrix& m)
+			: modMatrix (m)
+		{
+			addAndMakeVisible (text);
+			addAndMakeVisible (src);
+		}
+
+		void update (int idx)
+		{
+			text.setText (modMatrix.getModSrcName (idx), dontSendNotification);
+			src.setSource (idx, modMatrix.getModSrcPoly (idx));
+		}
+
+		void resized() override
+		{
+			auto rc = getLocalBounds().reduced (2);
+			src.setBounds (rc.removeFromRight (rc.getHeight()));
+			rc.removeFromRight (4);
+			text.setBounds (rc);
+		}
+
+		ModMatrix& modMatrix;
+
+		Label text;
+		ModulationSourceButton src { modMatrix };
+	};
+
+	ModMatrix& modMatrix;
 };

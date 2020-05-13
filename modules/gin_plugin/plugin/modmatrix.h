@@ -204,6 +204,7 @@ public:
     int getLearn()                      { return learnSource;           }
 
     //==============================================================================
+	int getNumModSources()				{ return sources.size();		}
     String getModSrcName (int src)      { return sources[src].name;     }
     bool getModSrcPoly (int src)        { return sources[src].poly;     }
     bool getModSrcBipolar (int src)     { return sources[src].bipolar;  }

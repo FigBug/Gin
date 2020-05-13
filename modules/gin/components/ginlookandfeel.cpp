@@ -20,7 +20,9 @@ GinLookAndFeel::GinLookAndFeel()
 
     setColour (ComboBox::backgroundColourId, Colours::transparentWhite);
     setColour (ComboBox::outlineColourId, defaultColour (4));
-    
+
+    setColour (ListBox::backgroundColourId, Colours::transparentWhite);
+
     setColour (TextEditor::backgroundColourId, Colours::transparentWhite);
     setColour (TextEditor::textColourId, defaultColour (4));
     setColour (TextEditor::highlightColourId, defaultColour (4));
