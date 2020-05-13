@@ -24,9 +24,8 @@ public:
     
         if (auto voice = findFreeVoice (newNote, false))
         {
-            startVoice (voice, newNote);
-
-            if (getNumActiveVoices() > numVoices)
+            int active = getNumActiveVoices();
+            if (active >= numVoices)
             {
                 if (auto v = dynamic_cast<SynthesiserVoice*> (findVoiceToSteal (newNote)))
                 {
@@ -34,6 +33,7 @@ public:
                     stompedNotes.add (newNote);
                 }
             }
+            startVoice (voice, newNote);
         }
         else
         {
@@ -60,14 +60,15 @@ public:
                     while (stompedNotes.size() > 0)
                     {
                         auto n = stompedNotes[0];
+                        stompedNotes.remove (0);
+
                         if (isNotePlaying (n))
                         {
                             if (auto newVoice = findFreeVoice (n, false))
                                 startVoice (newVoice, n);
                             
-                            break;
+                            return;
                         }
-                        stompedNotes.remove (0);
                     }
                 }
             }
