@@ -30,7 +30,8 @@ public:
                 if (auto v = dynamic_cast<SynthesiserVoice*> (findVoiceToSteal (newNote)))
                 {
                     v->setFastKill();
-                    stompedNotes.add (newNote);
+					stopVoice (v, v->getCurrentlyPlayingNote(), true);
+                    stompedNotes.add (v->getCurrentlyPlayingNote());
                 }
             }
             startVoice (voice, newNote);
@@ -45,6 +46,10 @@ public:
     void noteReleased (MPENote finishedNote) override
     {
         const ScopedLock sl (voicesLock);
+
+		for (int i = stompedNotes.size(); --i >= 0;)
+			if (stompedNotes[i] == finishedNote)
+				stompedNotes.remove (i);
     
         for (auto i = voices.size(); --i >= 0;)
         {
@@ -57,18 +62,13 @@ public:
                 auto v = dynamic_cast<SynthesiserVoice*> (voice);
                 if (v != nullptr && ! v->isFastKill())
                 {
-                    while (stompedNotes.size() > 0)
+                    if (stompedNotes.size() > 0)
                     {
-                        auto n = stompedNotes[0];
-                        stompedNotes.remove (0);
+						auto n = stompedNotes.getLast();
+                        stompedNotes.removeLast();
 
-                        if (isNotePlaying (n))
-                        {
-                            if (auto newVoice = findFreeVoice (n, false))
-                                startVoice (newVoice, n);
-                            
-                            return;
-                        }
+						if (auto newVoice = findFreeVoice (n, false))
+							startVoice (newVoice, n);
                     }
                 }
             }
@@ -180,8 +180,21 @@ public:
     
         return low;
     }
+
+	template <typename floatType>
+	void renderNextBlock (AudioBuffer<floatType>& outputAudio,
+						  const MidiBuffer& inputMidi,
+						  int startSample,
+						  int numSamples)
+	{
+		slice.clear();
+		slice.addEvents (inputMidi, startSample, numSamples, 0);
+
+		MPESynthesiser::renderNextBlock (outputAudio, slice, startSample, numSamples);
+	}
     
 private:
+	MidiBuffer slice;
     Array<MPENote> stompedNotes;
     int numVoices = 32;
 };
