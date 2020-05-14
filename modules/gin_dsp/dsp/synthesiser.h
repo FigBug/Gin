@@ -13,10 +13,8 @@ protected:
 class Synthesiser : public MPESynthesiser
 {
 public:
-    void setNumVoices (int v)
-    {
-        numVoices = v;
-    }
+	void setMono (bool m)		{ mono = m;			}
+    void setNumVoices (int v)	{ numVoices = v;	}
     
     void noteAdded (MPENote newNote) override
     {
@@ -25,13 +23,14 @@ public:
         if (auto voice = findFreeVoice (newNote, false))
         {
             int active = getNumActiveVoices();
-            if (active >= numVoices)
+            if (active >= (mono ? 1 : numVoices))
             {
                 if (auto v = dynamic_cast<SynthesiserVoice*> (findVoiceToSteal (newNote)))
                 {
                     v->setFastKill();
 					stopVoice (v, v->getCurrentlyPlayingNote(), true);
-                    stompedNotes.add (v->getCurrentlyPlayingNote());
+					if (mono)
+						stompedNotes.add (v->getCurrentlyPlayingNote());
                 }
             }
             startVoice (voice, newNote);
@@ -196,5 +195,6 @@ public:
 private:
 	MidiBuffer slice;
     Array<MPENote> stompedNotes;
+	bool mono = false;
     int numVoices = 32;
 };
