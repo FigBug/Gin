@@ -27,20 +27,18 @@ public:
     {
         const ScopedLock sl (voicesLock);
         
-        if (mono && (glissando || portamento))
-            return noteAddedMono (newNote);
+        if (mono)
+            return (glissando || portamento) ? noteAddedMonoGlide (newNote) : noteAddedMono (newNote);;
     
         if (auto voice = findFreeVoice (newNote, false))
         {
             int active = getNumActiveVoices();
-            if (active >= (mono ? 1 : numVoices))
+            if (active >= numVoices)
             {
                 if (auto v = dynamic_cast<SynthesiserVoice*> (findVoiceToSteal (newNote)))
                 {
                     v->setFastKill();
 					stopVoice (v, v->getCurrentlyPlayingNote(), true);
-					if (mono)
-						stompedNotes.add (v->getCurrentlyPlayingNote());
                 }
             }
             startVoice (voice, newNote);
@@ -56,38 +54,15 @@ public:
     {
         const ScopedLock sl (voicesLock);
         
-        if (mono && (glissando || portamento))
-            return noteReleasedMono (finishedNote);
-
-		for (int i = stompedNotes.size(); --i >= 0;)
-			if (stompedNotes[i] == finishedNote)
-				stompedNotes.remove (i);
+        if (mono)
+            return (glissando || portamento) ? noteReleasedMonoGlide (finishedNote) : noteReleasedMono (finishedNote);
     
-        for (auto i = voices.size(); --i >= 0;)
-        {
-            auto voice = voices.getUnchecked (i);
-    
+        for (auto voice : voices)
             if (voice->isCurrentlyPlayingNote (finishedNote))
-            {
                 stopVoice (voice, finishedNote, true);
-
-                auto v = dynamic_cast<SynthesiserVoice*> (voice);
-                if (v != nullptr && ! v->isFastKill())
-                {
-                    if (stompedNotes.size() > 0)
-                    {
-						auto n = stompedNotes.getLast();
-                        stompedNotes.removeLast();
-
-						if (auto newVoice = findFreeVoice (n, false))
-							startVoice (newVoice, n);
-                    }
-                }
-            }
-        }
     }
     
-    void noteAddedMono (MPENote newNote)
+    void noteAddedMonoGlide (MPENote newNote)
     {
         noteStack.add (newNote);
         
@@ -108,7 +83,7 @@ public:
         }
     }
     
-    void noteReleasedMono (MPENote finishedNote)
+    void noteReleasedMonoGlide (MPENote finishedNote)
     {
         int noteIdx = noteStack.indexOf (finishedNote);
         jassert (noteIdx >= 0);
@@ -130,6 +105,44 @@ public:
             else
                 startVoice (sv, noteStack.getLast());
         }
+    }
+    
+    void noteAddedMono (MPENote newNote)
+    {
+        for (auto voice : voices)
+            if (voice->isActive())
+                stopVoiceFastKill (voice, voice->getCurrentlyPlayingNote(), true);
+        
+        noteStack.add (newNote);
+        
+        if (auto voice = findFreeVoice (newNote, false))
+            startVoice (voice, newNote);
+    }
+    
+    void noteReleasedMono (MPENote finishedNote)
+    {
+        int noteIdx = noteStack.indexOf (finishedNote);
+        jassert (noteIdx >= 0);
+        bool currentNote = noteIdx == noteStack.size() - 1;
+        noteStack.remove (noteIdx);
+
+        if (noteStack.isEmpty())
+        {
+            for (auto voice : voices)
+                if (voice->isCurrentlyPlayingNote (finishedNote))
+                    stopVoice (voice, finishedNote, true);
+
+            return;
+        }
+            
+        if (currentNote)
+            for (auto voice : voices)
+                if (finishedNote == voice->getCurrentlyPlayingNote())
+                    stopVoiceFastKill (voice, finishedNote, true);
+        
+        if (noteStack.size() > 0)
+            if (auto voice = findFreeVoice (noteStack.getLast(), false))
+                startVoice (voice, noteStack.getLast());
     }
         
     bool isNotePlaying (MPENote& n)
@@ -156,6 +169,14 @@ public:
     {
         v->setCurrentlyPlayingNote (note);
         v->noteRetriggered();
+    }
+    
+    void stopVoiceFastKill (MPESynthesiserVoice* v, MPENote note, bool tailOff)
+    {
+        if (auto sv = dynamic_cast<SynthesiserVoice*> (v))
+            sv->setFastKill();
+        
+        stopVoice (v, note, tailOff);
     }
     
     MPESynthesiserVoice* findVoiceToSteal (MPENote noteToStealVoiceFor = MPENote()) const override
@@ -258,7 +279,7 @@ public:
     
 private:
 	MidiBuffer slice;
-    Array<MPENote> stompedNotes, noteStack;
+    Array<MPENote> noteStack;
     bool mono = false, legato = false, glissando = false, portamento = false;
     float glideRate = 500.0f;
     int numVoices = 32;

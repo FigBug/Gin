@@ -28,7 +28,8 @@ void AnalogADSR::noteOn()
     else
         state = State::attack;
 
-    output = attack == 0.0 ? 1.0f : 0.0f;
+    if (state == State::idle)
+        output = (attack == 0.0f) ? 1.0f : 0.0f;
 }
 
 void AnalogADSR::noteOff()
