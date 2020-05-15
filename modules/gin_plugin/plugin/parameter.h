@@ -101,7 +101,8 @@ public:
     bool isAutomatable() const override;
     bool isMetaParameter() const override;
 
-    float getSkew() { return range.skew; }
+    float getSkew()         { return range.skew;            }
+    bool isSkewSymmetric()  { return range.symmetricSkew;   }
 
 protected:
     GinProcessor& processor;

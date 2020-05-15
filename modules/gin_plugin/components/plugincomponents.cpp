@@ -91,7 +91,7 @@ Knob::Knob (Parameter* p, bool fromCentre)
     addChildComponent (modButton);
 
     knob.setDoubleClickReturnValue (true, parameter->getUserDefaultValue());
-    knob.setSkewFactor (parameter->getSkew());
+    knob.setSkewFactor (parameter->getSkew(), parameter->isSkewSymmetric());
     if (fromCentre)
         knob.getProperties().set ("fromCentre", true);
 

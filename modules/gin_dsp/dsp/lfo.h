@@ -65,6 +65,8 @@ public:
     {
         if (parameters.fade <= 0)
             curFade = 1.0f;
+        else
+            curFade = 0.0f;
         
         fadeDelta  = float (1.0f / (sampleRate * parameters.fade));
         delaySteps = roundToInt (sampleRate * parameters.delay);
@@ -108,7 +110,7 @@ public:
     
     float getOutput()
     {
-        return jlimit (-1.0f, 1.0f, (output * parameters.depth + parameters.offset));
+        return jlimit (-1.0f, 1.0f, (curFade * output * parameters.depth + parameters.offset));
     }
 
 private:
