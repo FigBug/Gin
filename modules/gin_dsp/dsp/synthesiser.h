@@ -1,4 +1,13 @@
 //==============================================================================
+struct GlideInfo
+{
+    int fromNote = 0;
+    bool glissando = false;
+    bool portamento = false;
+    float rate = 0.0f;
+};
+
+//==============================================================================
 class SynthesiserVoice : public MPESynthesiserVoice
 {
 public:
@@ -7,8 +16,11 @@ public:
     
     virtual void noteRetriggered()  {}
     
-    void setCurrentlyPlayingNote (MPENote note) { currentlyPlayingNote = note; }
+    void setCurrentlyPlayingNote (MPENote note) { currentlyPlayingNote = note;  }
+    void setGlideInfo (const GlideInfo& gi)     { glideInfo = gi;               }
 protected:
+    
+    GlideInfo glideInfo;
     bool fastKill = false;
 };
 
@@ -167,8 +179,62 @@ public:
     
     void retriggerVoice (SynthesiserVoice* v, MPENote note)
     {
+        updateGlide (v, note);
         v->setCurrentlyPlayingNote (note);
         v->noteRetriggered();
+    }
+    
+    void startVoice (MPESynthesiserVoice* v, MPENote note)
+    {
+        updateGlide (v, note);
+        MPESynthesiser::startVoice (v, note);
+    }
+    
+    void updateGlide (MPESynthesiserVoice* v, MPENote note)
+    {
+        auto voice = dynamic_cast<SynthesiserVoice*> (v);
+        
+        if (glissando || portamento)
+        {
+            if (legato)
+            {
+                int num = instrument->getNumPlayingNotes();
+                if (num > 1)
+                {
+                    GlideInfo gi;
+                    gi.fromNote = instrument->getNote (num - 2).initialNote;
+                    gi.glissando = glissando;
+                    gi.portamento = portamento;
+                    gi.rate = glideRate;
+                    
+                    voice->setGlideInfo (gi);
+                }
+                else
+                {
+                    voice->setGlideInfo ({});
+                }
+            }
+            else
+            {
+                int num = instrument->getNumPlayingNotes();
+                if (num > 1)
+                    lastNote = instrument->getNote (num - 2).initialNote;
+                
+                GlideInfo gi;
+                gi.fromNote = lastNote;
+                gi.glissando = glissando;
+                gi.portamento = portamento;
+                gi.rate = glideRate;
+                
+                voice->setGlideInfo (gi);
+                
+                lastNote = note.initialNote;
+            }
+        }
+        else
+        {
+            voice->setGlideInfo ({});
+        }
     }
     
     void stopVoiceFastKill (MPESynthesiserVoice* v, MPENote note, bool tailOff)
@@ -283,4 +349,5 @@ private:
     bool mono = false, legato = false, glissando = false, portamento = false;
     float glideRate = 500.0f;
     int numVoices = 32;
+    int lastNote = -1;
 };

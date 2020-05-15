@@ -138,6 +138,7 @@ public:
     
     void processAdding (float note, const Params& params, AudioSampleBuffer& buffer)
     {
+        DBG(note);
         StereoOscillator::Params p;
         p.wave = params.wave;
         p.pw   = params.pw;
