@@ -1134,8 +1134,8 @@
     <filename>gin__plugineditor_8h</filename>
     <class kind="class">UpdateChecker</class>
     <class kind="class">NewsChecker</class>
-    <class kind="class">GinAudioProcessorEditorBase</class>
-    <class kind="class">GinAudioProcessorEditor</class>
+    <class kind="class">ProcessorEditorBase</class>
+    <class kind="class">ProcessorEditor</class>
   </compound>
   <compound kind="file">
     <name>gin_pluginlookandfeel.h</name>
@@ -1152,14 +1152,14 @@
     <includes id="gin__program_8h" name="gin_program.h" local="yes" imported="no">gin_program.h</includes>
     <includes id="gin__pluginlookandfeel_8h" name="gin_pluginlookandfeel.h" local="yes" imported="no">../components/gin_pluginlookandfeel.h</includes>
     <class kind="class">SmoothingType</class>
-    <class kind="class">GinProcessor</class>
+    <class kind="class">Processor</class>
   </compound>
   <compound kind="file">
     <name>gin_program.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/plugin/</path>
     <filename>gin__program_8h</filename>
     <includes id="gin__parameter_8h" name="gin_parameter.h" local="yes" imported="no">gin_parameter.h</includes>
-    <class kind="class">GinProgram</class>
+    <class kind="class">Program</class>
   </compound>
   <compound kind="file">
     <name>gin_propertycomponents.h</name>
@@ -2751,8 +2751,8 @@
       <type></type>
       <name>ControlBox</name>
       <anchorfile>classControlBox.html</anchorfile>
-      <anchor>aa8368c20eb154143a2daa5bf7f00d509</anchor>
-      <arglist>(GinAudioProcessorEditor &amp;e)</arglist>
+      <anchor>ad4f9fd1d3bd2be33f40ed7bdf1b166c7</anchor>
+      <arglist>(ProcessorEditor &amp;e)</arglist>
     </member>
     <member kind="function">
       <type>Rectangle&lt; int &gt;</type>
@@ -4465,323 +4465,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>GinAudioProcessorEditor</name>
-    <filename>classGinAudioProcessorEditor.html</filename>
-    <base>GinAudioProcessorEditorBase</base>
-    <member kind="function">
-      <type></type>
-      <name>GinAudioProcessorEditor</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a75f5a4c70455ca346dc78b4384eb1e14</anchor>
-      <arglist>(GinProcessor &amp;, int cx=100, int cy=100) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~GinAudioProcessorEditor</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a50b8617b9584d71525f068b92de7128e</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>updateReady</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a09089dbab720895a1745b5a7ed0c258d</anchor>
-      <arglist>(String updateUrl)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>newsReady</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>aa2218b302b5da647e4e132e8239e62d3</anchor>
-      <arglist>(String newsUrl)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual Rectangle&lt; int &gt;</type>
-      <name>getControlsArea</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a84d2d8672cc1ca0d23e7ecc280a333fb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual Rectangle&lt; int &gt;</type>
-      <name>getGridArea</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>af8691adfb9aab6691633ae4fde5fa484</anchor>
-      <arglist>(int x, int y, int w=1, int h=1)</arglist>
-    </member>
-    <member kind="function">
-      <type>Rectangle&lt; int &gt;</type>
-      <name>getFullGridArea</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a6e310b25197191ffb344e7850603bcf5</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getGridWidth</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a1056495ecd047c10a702f14d219cccfd</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getGridHeight</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a3da1a1f4337feaaa5752ca2220e8593d</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="variable">
-      <type>GinProcessor &amp;</type>
-      <name>slProc</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a26b8bab81eccc361a2e444b7ccfd0723</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>paint</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>ad4e2aca5ac8c0dce8535baa33b8b4296</anchor>
-      <arglist>(Graphics &amp;g) override</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>resized</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>af43268c4ec45edeea6f15c095cd8215c</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>buttonClicked</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a1ce7d464d5dd1035fbf7422fbd18783b</anchor>
-      <arglist>(Button *b) override</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>comboBoxChanged</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>aa4a9e7ee7aa40cf385a3631cbb24a21a</anchor>
-      <arglist>(ComboBox *c) override</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>setGridSize</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>ad9686c07aa7e260bc8df2d3336d05ad2</anchor>
-      <arglist>(int x, int y, int extraWidthPx=0, int extraHeightPx=0)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>ParamComponent *</type>
-      <name>componentForId</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a0c428c8cb109b66cb7e96d25ec02745b</anchor>
-      <arglist>(const String &amp;uid)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>ParamComponent *</type>
-      <name>componentForParam</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>af6cab359549b619423c2a125b34db458</anchor>
-      <arglist>(Parameter &amp;param)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>refreshPrograms</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a3a6a8271957dd59538cc0f350ce4c2b8</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>const int</type>
-      <name>cx</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a8ae9208763b08fec79337eb83cdbcab2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>const int</type>
-      <name>cy</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>af33da024c6b128352fc2f74f909dd53d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>int</type>
-      <name>headerHeight</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a175500d4412cdf30b8db7849a1dbfd0a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>int</type>
-      <name>inset</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a85c418aa71b09ea4257b28571f3c6bf0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>int</type>
-      <name>cols</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a1928e1f1eff4ae8ef05512db28c4b275</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>int</type>
-      <name>rows</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a0e8a0a8f8364ac5547eb35ccdacd01aa</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>int</type>
-      <name>extraWidthPx</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a1b7dc4eaf67ff43d84d3edd16d8b4dc4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>int</type>
-      <name>extraHeightPx</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a63bc3a9e4e790e47121dc5f16eac47fb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>std::unique_ptr&lt; UpdateChecker &gt;</type>
-      <name>updateChecker</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a5505103a1b521a497496167af9a5664d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>std::unique_ptr&lt; NewsChecker &gt;</type>
-      <name>newsChecker</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a3f1349bc1f6511775f181cf3d234a203</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>OwnedArray&lt; ParamComponent &gt;</type>
-      <name>controls</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>ad79b8aeb1c6037eb91f9bf30c9c2a100</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>ComboBox</type>
-      <name>programs</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a32cfa5eca957bfa524bdb7fe5de39908</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>TextButton</type>
-      <name>addButton</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a73fa2d2e6db42929c14cbb5f3f6bc4bf</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>TextButton</type>
-      <name>deleteButton</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a52e03d049f0abfdefabf4b6346d76588</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>TextButton</type>
-      <name>socaButton</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>ae838ef1cbf6176ece60837696f42db60</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>TextButton</type>
-      <name>helpButton</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>ade18096e0a638b32b374a85a15af1137</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>TextButton</type>
-      <name>newsButton</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a7b9a7b5451b77522fb963e7c25833567</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>TextButton</type>
-      <name>updateButton</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>aeea25df92057f828548dabe2c73026d1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>SharedResourcePointer&lt; TooltipWindow &gt;</type>
-      <name>tooltipWindow</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>ad3d317a5dd587a53c643e4b70d04b00e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>String</type>
-      <name>additionalProgramming</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>aad2adc359be61324a5197bbab6899b31</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>String</type>
-      <name>updateUrl</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a2d158f7e2a0a920c0263b702aab0cf53</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>String</type>
-      <name>newsUrl</name>
-      <anchorfile>classGinAudioProcessorEditor.html</anchorfile>
-      <anchor>a3e5891f659b68573bfaa0d2968fefa08</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>GinAudioProcessorEditorBase</name>
-    <filename>classGinAudioProcessorEditorBase.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>GinAudioProcessorEditorBase</name>
-      <anchorfile>classGinAudioProcessorEditorBase.html</anchorfile>
-      <anchor>a399aaa31896f9ae0e10e42107cafa444</anchor>
-      <arglist>(GinProcessor &amp;p)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeResizable</name>
-      <anchorfile>classGinAudioProcessorEditorBase.html</anchorfile>
-      <anchor>ab45972ae0c0e76126165fd29172640f1</anchor>
-      <arglist>(int minX, int minY, int maxX, int maxY)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resized</name>
-      <anchorfile>classGinAudioProcessorEditorBase.html</anchorfile>
-      <anchor>a74dc25751eca4d8a13cef43b7d1422c9</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="variable">
-      <type>ComponentBoundsConstrainer</type>
-      <name>resizeLimits</name>
-      <anchorfile>classGinAudioProcessorEditorBase.html</anchorfile>
-      <anchor>a02a8245d861a2f83a574598349a91cb0</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>GinLookAndFeel</name>
     <filename>classGinLookAndFeel.html</filename>
     <member kind="enumeration">
@@ -4913,322 +4596,6 @@
       <anchorfile>classGinLookAndFeel.html</anchorfile>
       <anchor>a8147eaf7cb5ddbbf1a43f2088548deb5</anchor>
       <arglist>(Graphics &amp;, int width, int height, TextEditor &amp;) override</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>GinProcessor</name>
-    <filename>classGinProcessor.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>GinProcessor</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>abee502220f62938319d6ecbbbbf7180a</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~GinProcessor</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a862164548db9b4942df7e08a62e17227</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reset</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a1d63dc9a137525977fa9eec105ae58a9</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepareToPlay</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a7cd0dd07015fac33f8e45fcc430c6f9f</anchor>
-      <arglist>(double sampleRate, int samplesPerBlock) override</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; PropertiesFile &gt;</type>
-      <name>getSettings</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a1df908a840147e2665cbb431684962d3</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addPluginParameter</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>af5094371f14ea5207a58c0b94faf5f20</anchor>
-      <arglist>(Parameter *parameter)</arglist>
-    </member>
-    <member kind="function">
-      <type>Parameter *</type>
-      <name>addExtParam</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a510921092da691d2627f6f676e5825ec</anchor>
-      <arglist>(String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
-    </member>
-    <member kind="function">
-      <type>Parameter *</type>
-      <name>addIntParam</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a61692619e4a050357aa4e507c3b5d33a</anchor>
-      <arglist>(String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
-    </member>
-    <member kind="function">
-      <type>Parameter *</type>
-      <name>getParameter</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>afa9ecedd96a2944edd36bde95889ae3e</anchor>
-      <arglist>(const String &amp;uid)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>parameterValue</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a74bb0b1d431dfa20b776895272f919e9</anchor>
-      <arglist>(const String &amp;uid)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>parameterIntValue</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>aba75275f0a05ee1e9dc08661fc70fc8d</anchor>
-      <arglist>(const String &amp;uid)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>parameterBoolValue</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>af196ee784146a102e0bd85b388a82fd9</anchor>
-      <arglist>(const String &amp;uid)</arglist>
-    </member>
-    <member kind="function">
-      <type>const Array&lt; Parameter * &gt; &amp;</type>
-      <name>getPluginParameters</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a9f6741df9651db1681a1c679ad3b8bdc</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isSmoothing</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>abe4ac8232e557b3233c477b799b3b5f7</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>File</type>
-      <name>getProgramDirectory</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a5192f47d22b39d583fd4211167510e9d</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>loadAllPrograms</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a68bf077287b8bce939b530760f8bc213</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>const String</type>
-      <name>getName</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>af94e797791eb4497b79a0b877b6a0932</anchor>
-      <arglist>() const override</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>acceptsMidi</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>ac2206ac776fc02b83ece8ac2dd83be98</anchor>
-      <arglist>() const override</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>producesMidi</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a8a77f8e4151dba0ffd219bf4ac5fba8d</anchor>
-      <arglist>() const override</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getTailLengthSeconds</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a136afc2a80bbdce19ec44a3b94eb0360</anchor>
-      <arglist>() const override</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getNumPrograms</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>ab0c456b38b62d51d9583f67d836f2d85</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getCurrentProgram</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a1f068b7e4c1fd175eb1740298e031fbd</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setCurrentProgram</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>ab434e9f2e1733b917ee431967f5fcad6</anchor>
-      <arglist>(int index) override</arglist>
-    </member>
-    <member kind="function">
-      <type>const String</type>
-      <name>getProgramName</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a0efbbe566f204946e609b813a79fb5fe</anchor>
-      <arglist>(int index) override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>changeProgramName</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a01aef2b47ed59c0909e0c52caf0da3db</anchor>
-      <arglist>(int index, const String &amp;newName) override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>saveProgram</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>ab428fe4ed1a3da4cec6ef9ff3a2c3a2e</anchor>
-      <arglist>(String name)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deleteProgram</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>aa4f35697e5fdb14747f5b3901c20d40d</anchor>
-      <arglist>(int index)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>getStateInformation</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a4cc5d3d474eecebe74f3251bedc6a7d9</anchor>
-      <arglist>(juce::MemoryBlock &amp;destData) override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setStateInformation</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a203bb19facc0ab7e1c640c4c932469df</anchor>
-      <arglist>(const void *data, int sizeInBytes) override</arglist>
-    </member>
-    <member kind="variable">
-      <type>SharedResourcePointer&lt; PluginLookAndFeelWrapper &gt;</type>
-      <name>lf</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>ab258db74059d60cd28d6eba42205bddd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>std::map&lt; String, Parameter * &gt;</type>
-      <name>parameterMap</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a355210b66cf72f75f253f9628936411e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>OwnedArray&lt; Parameter &gt;</type>
-      <name>internalParameters</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a7cf3d197be45f294cf9e0b5bc33c1cda</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>ValueTree</type>
-      <name>state</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a16d7ce3b1c3120ead16df7b0eace210d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function" protection="protected" virtualness="virtual">
-      <type>virtual void</type>
-      <name>stateUpdated</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a179fad9bca175f34f34480ad3970da07</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="protected" virtualness="virtual">
-      <type>virtual void</type>
-      <name>updateState</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>ae2a83743ccbff8893734ac5ffcc126c8</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>extractProgram</name>
-      <anchorfile>classGinProcessor.html</anchorfile>
-      <anchor>a651fb7bc4888bec83cc96184262fd39a</anchor>
-      <arglist>(const String &amp;name, const MemoryBlock &amp;data)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>GinProgram</name>
-    <filename>classGinProgram.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>loadProcessor</name>
-      <anchorfile>classGinProgram.html</anchorfile>
-      <anchor>a166bedcf8246f45631ffe169d3e1fb95</anchor>
-      <arglist>(GinProcessor *p)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>saveProcessor</name>
-      <anchorfile>classGinProgram.html</anchorfile>
-      <anchor>a56ec55534c1b309f4991f872ead7d6b9</anchor>
-      <arglist>(GinProcessor *p)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>loadFromFile</name>
-      <anchorfile>classGinProgram.html</anchorfile>
-      <anchor>aabd56976b5f172e04b7df8d7214c6328</anchor>
-      <arglist>(File f)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>saveToDir</name>
-      <anchorfile>classGinProgram.html</anchorfile>
-      <anchor>a25b55abad1e0f0fff0a96317c82ae095</anchor>
-      <arglist>(File f)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deleteFromDir</name>
-      <anchorfile>classGinProgram.html</anchorfile>
-      <anchor>a18f85abfe6d5ce09449fb98418da49f4</anchor>
-      <arglist>(File f)</arglist>
-    </member>
-    <member kind="variable">
-      <type>String</type>
-      <name>name</name>
-      <anchorfile>classGinProgram.html</anchorfile>
-      <anchor>ad3ad8d0f5e8372aa54bb190a3fc536ab</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>String</type>
-      <name>valueTree</name>
-      <anchorfile>classGinProgram.html</anchorfile>
-      <anchor>a6dad5cfa60c5c88c7dec1bba900bc644</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Array&lt; Parameter::ParamState &gt;</type>
-      <name>states</name>
-      <anchorfile>classGinProgram.html</anchorfile>
-      <anchor>ae60b8c3ab2d1dad470d18e87a4cfb6de</anchor>
-      <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -6274,6 +5641,24 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>OpenStreetMaps::Listener</name>
+    <filename>classOpenStreetMaps_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
+      <anchor>aeb7faf41923db2a12f09179159d96bd1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>tileFetched</name>
+      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
+      <anchor>a5a86659b291d99adbe0af1a30fdfe383</anchor>
+      <arglist>(int zoom, int x, int y)=0</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>FileSystemWatcher::Listener</name>
     <filename>classFileSystemWatcher_1_1Listener.html</filename>
     <member kind="function" virtualness="virtual">
@@ -6296,24 +5681,6 @@
       <anchorfile>classFileSystemWatcher_1_1Listener.html</anchorfile>
       <anchor>ad00287704d62db4090a565de73aa28c6</anchor>
       <arglist>(const File, FileSystemEvent)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>OpenStreetMaps::Listener</name>
-    <filename>classOpenStreetMaps_1_1Listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
-      <anchor>aeb7faf41923db2a12f09179159d96bd1</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>tileFetched</name>
-      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
-      <anchor>a5a86659b291d99adbe0af1a30fdfe383</anchor>
-      <arglist>(int zoom, int x, int y)=0</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -7047,8 +6414,8 @@
       <type></type>
       <name>NewsChecker</name>
       <anchorfile>classNewsChecker.html</anchorfile>
-      <anchor>af56988dd17d6cb8558d3fc1cf62d0607</anchor>
-      <arglist>(GinAudioProcessorEditor &amp;editor_)</arglist>
+      <anchor>a2d1e5cecbc85c89a7d3badcf89a14ef9</anchor>
+      <arglist>(ProcessorEditor &amp;editor_)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -7445,8 +6812,8 @@
       <type></type>
       <name>PagedControlBox</name>
       <anchorfile>classPagedControlBox.html</anchorfile>
-      <anchor>ac81aa319808f90a92c04ab2142943e96</anchor>
-      <arglist>(GinAudioProcessorEditor &amp;e)</arglist>
+      <anchor>a0993353f12db77dc373b1be89c8896bc</anchor>
+      <arglist>(ProcessorEditor &amp;e)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -7540,15 +6907,15 @@
       <type></type>
       <name>Parameter</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a5b1d9d98b322bd664894490ac50df065</anchor>
-      <arglist>(GinProcessor &amp;, String uid, String name, String shortName, String label, float minValue, float maxValue, float intervalValue, float defaultValue, float skewFactor=1.0f, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
+      <anchor>ab78c2686476c4c49405319a7ac31f7d8</anchor>
+      <arglist>(Processor &amp;, String uid, String name, String shortName, String label, float minValue, float maxValue, float intervalValue, float defaultValue, float skewFactor=1.0f, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>Parameter</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>ac13b417fd2ac237ec19748ea8669b158</anchor>
-      <arglist>(GinProcessor &amp;, String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
+      <anchor>a5e5c60db8c3599723167e63049503d7c</anchor>
+      <arglist>(Processor &amp;, String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -7901,10 +7268,10 @@
       <arglist>() override</arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>GinProcessor &amp;</type>
+      <type>Processor &amp;</type>
       <name>processor</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a0373cfc6542ed6b45d911e9e07262dcb</anchor>
+      <anchor>aff54b112e093cf966a1bec5bf5a934dd</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -8384,6 +7751,639 @@
       <anchorfile>classPowerButton.html</anchorfile>
       <anchor>a1bc34438020441f421334d0460f325e9</anchor>
       <arglist>(Parameter *p)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Processor</name>
+    <filename>classProcessor.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Processor</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a50c89dbf76a073f4fb491628258cf292</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~Processor</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a3d7c16d172be09d3bfb4df3519d21b31</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>aea94295621f428e66e1d2fc7bfb39bb6</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>prepareToPlay</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a91501bb29c8b65f444460ed1abc22824</anchor>
+      <arglist>(double sampleRate, int samplesPerBlock) override</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; PropertiesFile &gt;</type>
+      <name>getSettings</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a6baf47d558a2743ec72489bb6e736f8f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addPluginParameter</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>acbdc7fc4fb7f31843145ddd14d9271b1</anchor>
+      <arglist>(Parameter *parameter)</arglist>
+    </member>
+    <member kind="function">
+      <type>Parameter *</type>
+      <name>addExtParam</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>ad0ffcb2e28b8a590e45e13b9566a36d9</anchor>
+      <arglist>(String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>Parameter *</type>
+      <name>addIntParam</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a241e8f7d5efa84dc61a6198af6167ad7</anchor>
+      <arglist>(String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>Parameter *</type>
+      <name>getParameter</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>aaeb6c3eb29b8248eecb21adc1662a80d</anchor>
+      <arglist>(const String &amp;uid)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>parameterValue</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a8eefaac8d8162df52e21df9a12dea74f</anchor>
+      <arglist>(const String &amp;uid)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>parameterIntValue</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>aff29fede850d8e740ec97661dc33d49a</anchor>
+      <arglist>(const String &amp;uid)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>parameterBoolValue</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a4a4b8f2b5c428d50fcc9b68cb87d4475</anchor>
+      <arglist>(const String &amp;uid)</arglist>
+    </member>
+    <member kind="function">
+      <type>const Array&lt; Parameter * &gt; &amp;</type>
+      <name>getPluginParameters</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>af705e4558c36dbd62313681eb0b7afe6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isSmoothing</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a9bbb09bf94621a6d29aff0c54ce4029f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>File</type>
+      <name>getProgramDirectory</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>ab9529a828b29770b7074ce2355ef4625</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>loadAllPrograms</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a0d54dc4f330cea0f907e55a4f19e92d3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>const String</type>
+      <name>getName</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>ad18b32b848e23d1efeabdcf23f33d56f</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>acceptsMidi</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>aa945a9fb36430295388fc9973e761c21</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>producesMidi</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a849cf5d39d72d99ec8b962e237f363e2</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getTailLengthSeconds</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a5c9121d197fae93897d4faffe637e8f2</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumPrograms</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>aa9544d1b18b0bc03c32fa78532de316b</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getCurrentProgram</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a2d74b270efcff268d88dc9895d3a0e83</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCurrentProgram</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>adc86771c8cf8ebf5dc33a3c296216c58</anchor>
+      <arglist>(int index) override</arglist>
+    </member>
+    <member kind="function">
+      <type>const String</type>
+      <name>getProgramName</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a44766ae826bdc6af0496e830afc12381</anchor>
+      <arglist>(int index) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>changeProgramName</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a9b3fcfe68f202c043897c60da36a7a8c</anchor>
+      <arglist>(int index, const String &amp;newName) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>saveProgram</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>ad0bd6dea404d809cc944d4847aca19d1</anchor>
+      <arglist>(String name)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>deleteProgram</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>aac9dc03295d9a5a991bc725d9f4bbde7</anchor>
+      <arglist>(int index)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getStateInformation</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>ad2e33e15dd248d9478b4a55d8eb5e36f</anchor>
+      <arglist>(juce::MemoryBlock &amp;destData) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setStateInformation</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a11507c2da1e031b89a1cf74aa4f00888</anchor>
+      <arglist>(const void *data, int sizeInBytes) override</arglist>
+    </member>
+    <member kind="variable">
+      <type>SharedResourcePointer&lt; PluginLookAndFeelWrapper &gt;</type>
+      <name>lf</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>af7e46a626585b13fc0fb932f597b6beb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::map&lt; String, Parameter * &gt;</type>
+      <name>parameterMap</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>adb565ad7761f81b81fa6d8bee3c14318</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>OwnedArray&lt; Parameter &gt;</type>
+      <name>internalParameters</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a8352d55c3045453d304ff1a6a2ef59ff</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ValueTree</type>
+      <name>state</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>ab99be5fb7bcd0f2e761e160526a5af57</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>stateUpdated</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a8f2a4e8408ed85ccf02152f5e0cc4143</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>updateState</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>ab477f2a48ee23cb7d38dbecd87332fcd</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>extractProgram</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a1851a0eae54950bdfbbd0395bfbbddfb</anchor>
+      <arglist>(const String &amp;name, const MemoryBlock &amp;data)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>ProcessorEditor</name>
+    <filename>classProcessorEditor.html</filename>
+    <base>ProcessorEditorBase</base>
+    <member kind="function">
+      <type></type>
+      <name>ProcessorEditor</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>ae1162833b01af723f686cc24580d117a</anchor>
+      <arglist>(Processor &amp;, int cx=100, int cy=100) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~ProcessorEditor</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a6ff6d71c70b97410c0b4c055012f5dff</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateReady</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a59878485ed13027ec50ff1962e5936b9</anchor>
+      <arglist>(String updateUrl)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>newsReady</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>aada190b51287a66e569867062e219419</anchor>
+      <arglist>(String newsUrl)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual Rectangle&lt; int &gt;</type>
+      <name>getControlsArea</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>ae316a874a89e62dc1a0ba7b97251eb90</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual Rectangle&lt; int &gt;</type>
+      <name>getGridArea</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a043f3538377da4c69cccc3b80e0361ed</anchor>
+      <arglist>(int x, int y, int w=1, int h=1)</arglist>
+    </member>
+    <member kind="function">
+      <type>Rectangle&lt; int &gt;</type>
+      <name>getFullGridArea</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>af4f2fd9d9982e910027044ede0c11dba</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getGridWidth</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a2ca6bb206e88a054e43f31e5685ec1e8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getGridHeight</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a7b02d196edaae212273cd68702b4287e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>Processor &amp;</type>
+      <name>slProc</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a8f4bf0f17d18d56fe21c845a41e1cb7e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>paint</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a3a661febd6b7c9e90ade33390ff9832a</anchor>
+      <arglist>(Graphics &amp;g) override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>resized</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>aab2a5800a71626b039a05dac4ec771a0</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>buttonClicked</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>ab537fc3e20adcb6d16e672d134f32479</anchor>
+      <arglist>(Button *b) override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>comboBoxChanged</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a4db19063c51a40e74b6f2fcc691e046a</anchor>
+      <arglist>(ComboBox *c) override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setGridSize</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a9bcbffa2139e2d5df452d75cfa6b25a9</anchor>
+      <arglist>(int x, int y, int extraWidthPx=0, int extraHeightPx=0)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>ParamComponent *</type>
+      <name>componentForId</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>ae7514aa1a5375244af4acc073f600771</anchor>
+      <arglist>(const String &amp;uid)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>ParamComponent *</type>
+      <name>componentForParam</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>ab64acceaeb5e30e4ddf4dc99439ef6d3</anchor>
+      <arglist>(Parameter &amp;param)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>refreshPrograms</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>acfa6525c7af7ab451c59d25527ddebde</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>const int</type>
+      <name>cx</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a54e0a2cc545096d5b4e6847bb41fb160</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>const int</type>
+      <name>cy</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a897aa8225f4cef416bd20fcb629a1453</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>headerHeight</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a4e82d70d238172aed4a6e9682d1803a3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>inset</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a0e4355da17e933fe71cc86507df0347b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>cols</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a52dc83c25bf26ee2d541bb56e9220b2c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>rows</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>aaafdcef09b498b0d5f58eccb2532a53c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>extraWidthPx</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a83a4d73fdf8e4f5b1a3d3b17a140db11</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>extraHeightPx</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a18afce5f5964e49df76861cd73195aa3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::unique_ptr&lt; UpdateChecker &gt;</type>
+      <name>updateChecker</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>adb1321c64dc3799c8b5b7128ec7fdae1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::unique_ptr&lt; NewsChecker &gt;</type>
+      <name>newsChecker</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a7bcb131b783c30e7fcc661bc23699601</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>OwnedArray&lt; ParamComponent &gt;</type>
+      <name>controls</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a0cadb7e3405b7f3571e64c2876edabe1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>ComboBox</type>
+      <name>programs</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>ad79702b5f393331f7b9287d79cbb290c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>TextButton</type>
+      <name>addButton</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a4d96825d6eef3847167c3b8a4dda12f4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>TextButton</type>
+      <name>deleteButton</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a01e813914f463a233ee867452d481a91</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>TextButton</type>
+      <name>socaButton</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>ad8d1daf5ce26d1d7a399d4aec28da8d5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>TextButton</type>
+      <name>helpButton</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a74520bce6d0b3cae19dc01c1069710ff</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>TextButton</type>
+      <name>newsButton</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a2040b0d8f0e24bbfb32ec1175b0e8d7b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>TextButton</type>
+      <name>updateButton</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a662c410493f9198687ec99f6177270ea</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>SharedResourcePointer&lt; TooltipWindow &gt;</type>
+      <name>tooltipWindow</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a781cecf0a400aaa34dabb4441b9ccfa9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>String</type>
+      <name>additionalProgramming</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>ad14b6546df1ab5daeef77b926b0c003b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>String</type>
+      <name>updateUrl</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>ae0ba7e8e595be566914d1ec62e7a6b9f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>String</type>
+      <name>newsUrl</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a286c329728b68c991bd9b95926521368</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>ProcessorEditorBase</name>
+    <filename>classProcessorEditorBase.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ProcessorEditorBase</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a890c8dbcd837258a077193f16cbcff9b</anchor>
+      <arglist>(Processor &amp;p)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>makeResizable</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>ae96b66e386ddc6abe2ac208987f781c2</anchor>
+      <arglist>(int minX, int minY, int maxX, int maxY)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resized</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>aeb529daa7c8a33c654615fc31240670d</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="variable">
+      <type>ComponentBoundsConstrainer</type>
+      <name>resizeLimits</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a4fb46e7bb4b9276eb8609df192b24bad</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Program</name>
+    <filename>classProgram.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>loadProcessor</name>
+      <anchorfile>classProgram.html</anchorfile>
+      <anchor>a5527bad78dff0ae5ce1efb2fa6b37b87</anchor>
+      <arglist>(Processor *p)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>saveProcessor</name>
+      <anchorfile>classProgram.html</anchorfile>
+      <anchor>a94234dd609a73354a391973528fab29b</anchor>
+      <arglist>(Processor *p)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>loadFromFile</name>
+      <anchorfile>classProgram.html</anchorfile>
+      <anchor>adfbcf67998e33a092c586cca84e88cf8</anchor>
+      <arglist>(File f)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>saveToDir</name>
+      <anchorfile>classProgram.html</anchorfile>
+      <anchor>a00d6db3802fc4372d3863ce2ae2eed03</anchor>
+      <arglist>(File f)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>deleteFromDir</name>
+      <anchorfile>classProgram.html</anchorfile>
+      <anchor>a3d91b8828d151162d81229bce461ee3c</anchor>
+      <arglist>(File f)</arglist>
+    </member>
+    <member kind="variable">
+      <type>String</type>
+      <name>name</name>
+      <anchorfile>classProgram.html</anchorfile>
+      <anchor>a70ae83fd3deaf356bdd5417193428130</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>String</type>
+      <name>valueTree</name>
+      <anchorfile>classProgram.html</anchorfile>
+      <anchor>a3574241ed225ddb8fd20d01508059d70</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Array&lt; Parameter::ParamState &gt;</type>
+      <name>states</name>
+      <anchorfile>classProgram.html</anchorfile>
+      <anchor>a9a962229204d864ee9b5402c93c40fc4</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -9654,15 +9654,15 @@
       <type></type>
       <name>SmoothedParameter</name>
       <anchorfile>classSmoothedParameter.html</anchorfile>
-      <anchor>ae9de539dbc61053e67de5c58517abe0b</anchor>
-      <arglist>(GinProcessor &amp;p, String uid_, String name_, String shortName_, String label_, float minValue_, float maxValue_, float intervalValue_, float defaultValue_, float skewFactor_=1.0f, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction_=nullptr)</arglist>
+      <anchor>ac0be026612637134edc3ec6fa6425e86</anchor>
+      <arglist>(Processor &amp;p, String uid_, String name_, String shortName_, String label_, float minValue_, float maxValue_, float intervalValue_, float defaultValue_, float skewFactor_=1.0f, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction_=nullptr)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>SmoothedParameter</name>
       <anchorfile>classSmoothedParameter.html</anchorfile>
-      <anchor>a95f763f65940906d145cb56ef0296ba9</anchor>
-      <arglist>(GinProcessor &amp;p, String uid_, String name_, String shortName_, String label_, NormalisableRange&lt; float &gt; range_, float defaultValue_, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction_=nullptr)</arglist>
+      <anchor>a843b37ea01776aafe158904bc30866a4</anchor>
+      <arglist>(Processor &amp;p, String uid_, String name_, String shortName_, String label_, NormalisableRange&lt; float &gt; range_, float defaultValue_, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction_=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -10383,8 +10383,8 @@
       <type></type>
       <name>UpdateChecker</name>
       <anchorfile>classUpdateChecker.html</anchorfile>
-      <anchor>ab2b114159d7d808ca9ccf903456c5b0f</anchor>
-      <arglist>(GinAudioProcessorEditor &amp;editor_)</arglist>
+      <anchor>a7efbaba17e94c476f4dbfa5720e598ac</anchor>
+      <arglist>(ProcessorEditor &amp;editor_)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -10408,10 +10408,10 @@
       <arglist>() override</arglist>
     </member>
     <member kind="variable">
-      <type>GinAudioProcessorEditor &amp;</type>
+      <type>ProcessorEditor &amp;</type>
       <name>editor</name>
       <anchorfile>classUpdateChecker.html</anchorfile>
-      <anchor>a728e3d6407a470d2d706c95b46cf1789</anchor>
+      <anchor>ae36e2e0558a274410e039dcffece5546</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -10980,8 +10980,8 @@
     <class kind="class">Select</class>
     <class kind="class">UpdateChecker</class>
     <class kind="class">NewsChecker</class>
-    <class kind="class">GinAudioProcessorEditorBase</class>
-    <class kind="class">GinAudioProcessorEditor</class>
+    <class kind="class">ProcessorEditorBase</class>
+    <class kind="class">ProcessorEditor</class>
     <class kind="class">PluginLookAndFeel</class>
     <class kind="class">PluginLookAndFeelWrapper</class>
   </compound>
@@ -11567,8 +11567,8 @@
     <class kind="struct">Parameter::ParamState</class>
     <class kind="class">Parameter::Listener</class>
     <class kind="class">SmoothingType</class>
-    <class kind="class">GinProcessor</class>
-    <class kind="class">GinProgram</class>
+    <class kind="class">Processor</class>
+    <class kind="class">Program</class>
     <class kind="class">SmoothedParameter</class>
     <member kind="function">
       <type>float</type>

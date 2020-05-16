@@ -13,5 +13,9 @@ var searchData=
   ['pluginlookandfeelwrapper',['PluginLookAndFeelWrapper',['../classPluginLookAndFeelWrapper.html',1,'']]],
   ['pluginslider',['PluginSlider',['../classPluginSlider.html',1,'']]],
   ['powerbutton',['PowerButton',['../classPowerButton.html',1,'']]],
+  ['processor',['Processor',['../classProcessor.html',1,'']]],
+  ['processoreditor',['ProcessorEditor',['../classProcessorEditor.html',1,'']]],
+  ['processoreditorbase',['ProcessorEditorBase',['../classProcessorEditorBase.html',1,'']]],
+  ['program',['Program',['../classProgram.html',1,'']]],
   ['propertycomponentbase',['PropertyComponentBase',['../classPropertyComponentBase.html',1,'']]]
 ];

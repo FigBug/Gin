@@ -33,7 +33,7 @@ var searchData=
   ['easesinein',['easeSineIn',['../group__gin-utilities.html#ga5ff43623fe37daf28fc4dea493beb3a4',1,'gin_easing.h']]],
   ['easesineinout',['easeSineInOut',['../group__gin-utilities.html#ga12bf8c86b1b6627bf353ff742d7d711e',1,'gin_easing.h']]],
   ['easesineout',['easeSineOut',['../group__gin-utilities.html#gab7eda190492ca09c29cc0777ac6451cf',1,'gin_easing.h']]],
-  ['editor',['editor',['../classUpdateChecker.html#a728e3d6407a470d2d706c95b46cf1789',1,'UpdateChecker']]],
+  ['editor',['editor',['../classUpdateChecker.html#ae36e2e0558a274410e039dcffece5546',1,'UpdateChecker']]],
   ['element',['Element',['../classSpline_1_1Element.html',1,'Spline::Element'],['../classSpline_1_1Element.html#afdb3184c95f7b19a407ee422d211cc92',1,'Spline::Element::Element(double x_=0)'],['../classSpline_1_1Element.html#a597ebfc19202d8bbbd30470a2e5f3860',1,'Spline::Element::Element(double x_, double a_, double b_, double c_, double d_)']]],
   ['elevatedfilecopy',['ElevatedFileCopy',['../classElevatedFileCopy.html',1,'']]],
   ['ellipse',['Ellipse',['../classEllipse.html',1,'Ellipse&lt; T &gt;'],['../classEllipse.html#ae3280925b24d4858639a7ede8007150f',1,'Ellipse::Ellipse()']]],
@@ -56,7 +56,7 @@ var searchData=
   ['execute',['execute',['../classElevatedFileCopy.html#ac6965dae9ef1cf89d3ebe038d32370e3',1,'ElevatedFileCopy']]],
   ['exifmetadata',['ExifMetadata',['../classExifMetadata.html',1,'ExifMetadata'],['../classExifMetadata.html#afa3a3cefbb26ea66f049bfc49456def9',1,'ExifMetadata::ExifMetadata()']]],
   ['expander',['expander',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a86eafff6a891eb381e162e7adc73ff7e',1,'Dynamics']]],
-  ['extractprogram',['extractProgram',['../classGinProcessor.html#a651fb7bc4888bec83cc96184262fd39a',1,'GinProcessor']]],
-  ['extraheightpx',['extraHeightPx',['../classGinAudioProcessorEditor.html#a63bc3a9e4e790e47121dc5f16eac47fb',1,'GinAudioProcessorEditor']]],
-  ['extrawidthpx',['extraWidthPx',['../classGinAudioProcessorEditor.html#a1b7dc4eaf67ff43d84d3edd16d8b4dc4',1,'GinAudioProcessorEditor']]]
+  ['extractprogram',['extractProgram',['../classProcessor.html#a1851a0eae54950bdfbbd0395bfbbddfb',1,'Processor']]],
+  ['extraheightpx',['extraHeightPx',['../classProcessorEditor.html#a18afce5f5964e49df76861cd73195aa3',1,'ProcessorEditor']]],
+  ['extrawidthpx',['extraWidthPx',['../classProcessorEditor.html#a83a4d73fdf8e4f5b1a3d3b17a140db11',1,'ProcessorEditor']]]
 ];

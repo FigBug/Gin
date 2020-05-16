@@ -5,9 +5,9 @@ var searchData=
   ['clip',['clip',['../classLevelTracker.html#a5702532186fb2626960f2e4a00f17a38',1,'LevelTracker']]],
   ['coefc',['coefC',['../classLinearRegression.html#afdc67d71c93cea69b0a66693fa5cb276',1,'LinearRegression']]],
   ['coefd',['coefD',['../classLinearRegression.html#a0f3377c655ca712c3e2c3d4e2125441c',1,'LinearRegression']]],
-  ['cols',['cols',['../classGinAudioProcessorEditor.html#a1928e1f1eff4ae8ef05512db28c4b275',1,'GinAudioProcessorEditor']]],
-  ['controls',['controls',['../classGinAudioProcessorEditor.html#ad79b8aeb1c6037eb91f9bf30c9c2a100',1,'GinAudioProcessorEditor']]],
+  ['cols',['cols',['../classProcessorEditor.html#a52dc83c25bf26ee2d541bb56e9220b2c',1,'ProcessorEditor']]],
+  ['controls',['controls',['../classProcessorEditor.html#a0cadb7e3405b7f3571e64c2876edabe1',1,'ProcessorEditor']]],
   ['conversionfunction',['conversionFunction',['../classParameter.html#aec8da4e81f800c8e35e40a6700474c10',1,'Parameter']]],
-  ['cx',['cx',['../classGinAudioProcessorEditor.html#a8ae9208763b08fec79337eb83cdbcab2',1,'GinAudioProcessorEditor']]],
-  ['cy',['cy',['../classGinAudioProcessorEditor.html#af33da024c6b128352fc2f74f909dd53d',1,'GinAudioProcessorEditor']]]
+  ['cx',['cx',['../classProcessorEditor.html#a54e0a2cc545096d5b4e6847bb41fb160',1,'ProcessorEditor']]],
+  ['cy',['cy',['../classProcessorEditor.html#a897aa8225f4cef416bd20fcb629a1453',1,'ProcessorEditor']]]
 ];

@@ -48,5 +48,5 @@ var searchData=
   ['evaluate',['evaluate',['../classEquationParser.html#a920e54171a2af2a10c15ea417250db3b',1,'EquationParser']]],
   ['execute',['execute',['../classElevatedFileCopy.html#ac6965dae9ef1cf89d3ebe038d32370e3',1,'ElevatedFileCopy']]],
   ['exifmetadata',['ExifMetadata',['../classExifMetadata.html#afa3a3cefbb26ea66f049bfc49456def9',1,'ExifMetadata']]],
-  ['extractprogram',['extractProgram',['../classGinProcessor.html#a651fb7bc4888bec83cc96184262fd39a',1,'GinProcessor']]]
+  ['extractprogram',['extractProgram',['../classProcessor.html#a1851a0eae54950bdfbbd0395bfbbddfb',1,'Processor']]]
 ];

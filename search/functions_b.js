@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['makeresizable',['makeResizable',['../classGinAudioProcessorEditorBase.html#ab45972ae0c0e76126165fd29172640f1',1,'GinAudioProcessorEditorBase']]],
+  ['makeresizable',['makeResizable',['../classProcessorEditorBase.html#ae96b66e386ddc6abe2ac208987f781c2',1,'ProcessorEditorBase']]],
   ['mapupdated',['mapUpdated',['../classMapViewer.html#a92969f79ce00707cf7e9b13e004b8bed',1,'MapViewer']]],
   ['mapviewer',['MapViewer',['../classMapViewer.html#a6a5384d59042be977032bdabb02adcdd',1,'MapViewer']]],
   ['mixtogain',['mixToGain',['../classWetDryMix.html#a6a642b5b4d79eb59f61ccfd70c67ae77',1,'WetDryMix']]],

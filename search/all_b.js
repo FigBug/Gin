@@ -1,7 +1,7 @@
 var searchData=
 [
   ['metadata',['metadata',['../group__gin__metadata-metadata.html',1,'']]],
-  ['makeresizable',['makeResizable',['../classGinAudioProcessorEditorBase.html#ab45972ae0c0e76126165fd29172640f1',1,'GinAudioProcessorEditorBase']]],
+  ['makeresizable',['makeResizable',['../classProcessorEditorBase.html#ae96b66e386ddc6abe2ac208987f781c2',1,'ProcessorEditorBase']]],
   ['mapquestopenaerial',['MapQuestOpenAerial',['../classOpenStreetMaps.html#ad685bb52fa0d8ea27d8fd8a152958020a59cb2d7d5a15e8ae207d490a2589842b',1,'OpenStreetMaps']]],
   ['mapquestopenstreetmap',['MapQuestOpenStreetMap',['../classOpenStreetMaps.html#ad685bb52fa0d8ea27d8fd8a152958020a01a650758ee32401cb56e722caa14522',1,'OpenStreetMaps']]],
   ['mapquestosm',['MapQuestOSM',['../classOpenStreetMaps.html#ad685bb52fa0d8ea27d8fd8a152958020afcab96e000f92a339384ab2a936db4c3',1,'OpenStreetMaps']]],

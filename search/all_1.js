@@ -21,5 +21,5 @@ var searchData=
   ['bubble',['bubble',['../classMultiParamComponent.html#af352cfeb2692011587e06659824993fb',1,'MultiParamComponent']]],
   ['buffer',['buffer',['../classDelayLine.html#ae59911da584d61ff47221d188dda65e2',1,'DelayLine']]],
   ['build',['build',['../classModMatrix.html#a34daa946cb85440762ff041e995e670c',1,'ModMatrix']]],
-  ['buttonclicked',['buttonClicked',['../classGinAudioProcessorEditor.html#a1ce7d464d5dd1035fbf7422fbd18783b',1,'GinAudioProcessorEditor']]]
+  ['buttonclicked',['buttonClicked',['../classProcessorEditor.html#ab537fc3e20adcb6d16e672d134f32479',1,'ProcessorEditor']]]
 ];

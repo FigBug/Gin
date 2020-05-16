@@ -9,7 +9,7 @@ var searchData=
   ['decayrate',['decayRate',['../classLevelTracker.html#a796f0f65de9c1017f59fa6dc0247ca83',1,'LevelTracker']]],
   ['defaultvalue',['defaultValue',['../classParameter.html#afff117f671e74a238989542b73cbd024',1,'Parameter']]],
   ['delay',['delay',['../structLFO_1_1Parameters.html#a9be35ed3aca74afab18de36202cdfd97',1,'LFO::Parameters']]],
-  ['deletebutton',['deleteButton',['../classGinAudioProcessorEditor.html#a52e03d049f0abfdefabf4b6346d76588',1,'GinAudioProcessorEditor']]],
+  ['deletebutton',['deleteButton',['../classProcessorEditor.html#a01e813914f463a233ee867452d481a91',1,'ProcessorEditor']]],
   ['delta',['delta',['../structOscState.html#a3659847d96492e7df6bb1987b7991415',1,'OscState']]],
   ['depth',['depth',['../structLFO_1_1Parameters.html#aea5b1c1cd4fc3b68d3826fce64f6287a',1,'LFO::Parameters']]],
   ['detune',['detune',['../structVoicedStereoOscillator_1_1Params.html#a06535b7f900a89ee5bd19ba69b595e7b',1,'VoicedStereoOscillator::Params']]],

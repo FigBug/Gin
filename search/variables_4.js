@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['editor',['editor',['../classUpdateChecker.html#a728e3d6407a470d2d706c95b46cf1789',1,'UpdateChecker']]],
+  ['editor',['editor',['../classUpdateChecker.html#ae36e2e0558a274410e039dcffece5546',1,'UpdateChecker']]],
   ['envelope',['envelope',['../classEnvelopeDetector.html#a6cb63a505870b8c7f21f963163341a51',1,'EnvelopeDetector']]],
-  ['extraheightpx',['extraHeightPx',['../classGinAudioProcessorEditor.html#a63bc3a9e4e790e47121dc5f16eac47fb',1,'GinAudioProcessorEditor']]],
-  ['extrawidthpx',['extraWidthPx',['../classGinAudioProcessorEditor.html#a1b7dc4eaf67ff43d84d3edd16d8b4dc4',1,'GinAudioProcessorEditor']]]
+  ['extraheightpx',['extraHeightPx',['../classProcessorEditor.html#a18afce5f5964e49df76861cd73195aa3',1,'ProcessorEditor']]],
+  ['extrawidthpx',['extraWidthPx',['../classProcessorEditor.html#a83a4d73fdf8e4f5b1a3d3b17a140db11',1,'ProcessorEditor']]]
 ];

@@ -26,7 +26,7 @@ var searchData=
   ['ispopupmenuenabled',['isPopupMenuEnabled',['../classSingleLineTextEditor.html#a0437359209f66941797733f40d15d0f6',1,'SingleLineTextEditor']]],
   ['isreadonly',['isReadOnly',['../classSingleLineTextEditor.html#aecab0d2e288a280d8c25c6d523df9635',1,'SingleLineTextEditor']]],
   ['isskewsymmetric',['isSkewSymmetric',['../classParameter.html#ad14d3f665f2beb89e988f48db3d45e8e',1,'Parameter']]],
-  ['issmoothing',['isSmoothing',['../classEasedValueSmoother.html#aed083f859f945a33ca3398d5d651feb2',1,'EasedValueSmoother::isSmoothing()'],['../classValueSmoother.html#aab80e3fc29490fd570be2339494f5c7f',1,'ValueSmoother::isSmoothing()'],['../classGinProcessor.html#abe4ac8232e557b3233c477b799b3b5f7',1,'GinProcessor::isSmoothing()']]],
+  ['issmoothing',['isSmoothing',['../classEasedValueSmoother.html#aed083f859f945a33ca3398d5d651feb2',1,'EasedValueSmoother::isSmoothing()'],['../classValueSmoother.html#aab80e3fc29490fd570be2339494f5c7f',1,'ValueSmoother::isSmoothing()'],['../classProcessor.html#a9bbb09bf94621a6d29aff0c54ce4029f',1,'Processor::isSmoothing()']]],
   ['issmoothingactive',['isSmoothingActive',['../classParameter.html#a4d02647baeee12be33b39e013810ee12',1,'Parameter::isSmoothingActive()'],['../classSmoothedParameter.html#a30b054712a01a8376e8071926c0002a3',1,'SmoothedParameter::isSmoothingActive()']]],
   ['istabkeyusedascharacter',['isTabKeyUsedAsCharacter',['../classSingleLineTextEditor.html#a3eb6a547be90336c41564adea8ff0c5a',1,'SingleLineTextEditor']]],
   ['istextinputactive',['isTextInputActive',['../classSingleLineTextEditor.html#a59f2ceba58a9eda7cd57fbe45a7aae02',1,'SingleLineTextEditor']]],

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['newschecker',['NewsChecker',['../classNewsChecker.html#af56988dd17d6cb8558d3fc1cf62d0607',1,'NewsChecker']]],
-  ['newsready',['newsReady',['../classGinAudioProcessorEditor.html#aa2218b302b5da647e4e132e8239e62d3',1,'GinAudioProcessorEditor']]],
+  ['newschecker',['NewsChecker',['../classNewsChecker.html#a2d1e5cecbc85c89a7d3badcf89a14ef9',1,'NewsChecker']]],
+  ['newsready',['newsReady',['../classProcessorEditor.html#aada190b51287a66e569867062e219419',1,'ProcessorEditor']]],
   ['newtransaction',['newTransaction',['../classSingleLineTextEditor.html#ab5aafa23521231a8b7f6811b2d937b44',1,'SingleLineTextEditor']]],
   ['noise',['noise',['../classPerlinNoise.html#a3aa782c396ab798493ad7529960c5a9a',1,'PerlinNoise::noise()'],['../group__gin__dsp-dsp.html#ga144d0a5afb304f562a311e0d62e77dc6',1,'noise():&#160;gin_oscillators.h']]],
   ['notch12state',['Notch12State',['../structNotch12State.html#a2a386e7295162f4161e01a261ddd5f39',1,'Notch12State']]],
