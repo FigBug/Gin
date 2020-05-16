@@ -1148,6 +1148,9 @@
     <name>gin_processor.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/plugin/</path>
     <filename>gin__processor_8h</filename>
+    <includes id="gin__parameter_8h" name="gin_parameter.h" local="yes" imported="no">gin_parameter.h</includes>
+    <includes id="gin__program_8h" name="gin_program.h" local="yes" imported="no">gin_program.h</includes>
+    <includes id="gin__pluginlookandfeel_8h" name="gin_pluginlookandfeel.h" local="yes" imported="no">../components/gin_pluginlookandfeel.h</includes>
     <class kind="class">SmoothingType</class>
     <class kind="class">GinProcessor</class>
   </compound>
@@ -1155,6 +1158,7 @@
     <name>gin_program.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/plugin/</path>
     <filename>gin__program_8h</filename>
+    <includes id="gin__parameter_8h" name="gin_parameter.h" local="yes" imported="no">gin_parameter.h</includes>
     <class kind="class">GinProgram</class>
   </compound>
   <compound kind="file">
