@@ -144,8 +144,8 @@ public:
         
         if (params.voices == 1)
         {
-            p.leftGain  = 1.0f - params.pan;
-            p.rightGain = 1.0f + params.pan;
+            p.leftGain  = params.gain * (1.0f - params.pan);
+            p.rightGain = params.gain * (1.0f + params.pan);
 
             oscillators[0]->processAdding (note, p, buffer);
         }
