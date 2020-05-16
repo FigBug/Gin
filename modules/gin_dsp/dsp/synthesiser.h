@@ -28,12 +28,38 @@ protected:
 class Synthesiser : public MPESynthesiser
 {
 public:
+    Synthesiser()
+    {
+        instrument->enableLegacyMode();
+        setPitchbendTrackingMode (MPEInstrument::allNotesOnChannel);
+    }
+    
 	void setMono (bool m)		    { mono = m;			}
     void setNumVoices (int v)	    { numVoices = v;	}
     void setLegato (bool l)         { legato = l;       }
     void setGlissando (bool g)      { glissando = g;    }
     void setPortamento (bool p)     { portamento = p;   }
     void setGlideRate (float r )    { glideRate = r;    }
+    
+    void setMPE (bool newMPE)
+    {
+        if (newMPE != mpe)
+        {
+            newMPE = mpe;
+            if (mpe)
+            {
+                MPEZoneLayout zones;
+                zones.setLowerZone (15);
+                instrument->setZoneLayout (zones);
+                setPitchbendTrackingMode (MPEInstrument::lastNotePlayedOnChannel);
+            }
+            else
+            {
+                instrument->enableLegacyMode();
+                setPitchbendTrackingMode (MPEInstrument::allNotesOnChannel);
+            }
+        }
+    }
 
     void noteAdded (MPENote newNote) override
     {
@@ -350,4 +376,5 @@ private:
     float glideRate = 500.0f;
     int numVoices = 32;
     int lastNote = -1;
+    bool mpe = false;
 };

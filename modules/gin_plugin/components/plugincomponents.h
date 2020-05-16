@@ -232,6 +232,7 @@ private:
     float modDepth = 0.0f;
 
     gin::CoalescedTimer modTimer;
+    gin::CoalescedTimer shiftTimer;
     Array<float> modValues;
     std::function<Array<float> ()> liveValuesCallback;
     gin::ModulationDestinationButton modButton;

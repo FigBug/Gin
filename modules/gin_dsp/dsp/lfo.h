@@ -26,10 +26,15 @@ public:
         squarePos,
         sampleAndHold,
         noise,
+        stepUp3,
         stepUp4,
         stepup8,
+        stepDown3,
         stepDown4,
         stepDown8,
+        pyramid3,
+        pyramid5,
+        pyramid9,
     };
 
     //==============================================================================
@@ -129,8 +134,11 @@ private:
                     output = std::sin (curPhase * MathConstants<float>::pi * 2);
                     break;
                 case WaveShape::triangle:
-                    output = (curPhase < 0.5f) ? (4.0f * curPhase - 1.0f) : (-4.0f * curPhase + 3.0f);
+                {
+                    float p = std::fmod (curPhase + 0.25f, 1.0f);
+                    output = (p < 0.5f) ? (4.0f * p - 1.0f) : (-4.0f * p + 3.0f);
                     break;
+                }
                 case WaveShape::sawUp:
                     output = curPhase * 2.0f - 1.0f;
                     break;
@@ -153,11 +161,17 @@ private:
                     output = lerp (t, randomPoints[p], randomPoints[p + 1]);
                     break;
                 }
+                case WaveShape::stepUp3:
+                    output = int (curPhase * 3) / 3.0f * 6.0f/2.0f - 1;
+                    break;
                 case WaveShape::stepUp4:
                     output = int (curPhase * 4) / 4.0f * 8.0f/3.0f - 1;
                     break;
                 case WaveShape::stepup8:
                     output = int (curPhase * 8) / 8.0f * 16.0f/7.0f - 1;
+                    break;
+                case WaveShape::stepDown3:
+                    output = -(int (curPhase * 3) / 3.0f * 6.0f/2.0f - 1);
                     break;
                 case WaveShape::stepDown4:
                     output = -(int (curPhase * 4) / 4.0f * 8.0f/3.0f - 1);
@@ -165,6 +179,25 @@ private:
                 case WaveShape::stepDown8:
                     output = -(int (curPhase * 8) / 8.0f * 16.0f/7.0f - 1);
                     break;
+                case WaveShape::pyramid3:
+                {
+                    static float vals[] = { 0.0f, 1.0f, 0.0f, -1.0f };
+                    output = vals[int (phase * numElementsInArray (vals))];
+                    break;
+                }
+                case WaveShape::pyramid5:
+                {
+                    static float vals[] = { 0.0f, 0.5f, 1.0f, 0.5f, 0.0f, -0.5f, -1.0f, -0.5f };
+                    output = vals[int (phase * numElementsInArray (vals))];
+                    break;
+                }
+                case WaveShape::pyramid9:
+                {
+                    static float vals[] = { 0.0f, 0.25f, 0.5f, 0.75f, 1.0f, 0.75f, 0.5f, 0.25f, 0.0f,
+                                            -0.25f, -0.5f, -0.75f, -1.0f, -0.75f, -0.5f, -0.25f };
+                    output = vals[int (phase * numElementsInArray (vals))];
+                    break;
+                }
             }
         }
 

@@ -126,6 +126,11 @@ Knob::Knob (Parameter* p, bool fromCentre)
             repaint();
         }
     };
+    shiftTimer.onTimer = [this] ()
+    {
+        bool shift = ModifierKeys::getCurrentModifiersRealtime().isShiftDown();
+        knob.setInterceptsMouseClicks (! learning || shift, ! learning || shift );
+    };
 
     modButton.onClick = [this] { showModMenu(); };
     modMatrixChanged();
@@ -196,7 +201,8 @@ void Knob::learnSourceChanged (int src)
 {
     learning = src != -1;
 
-    knob.setInterceptsMouseClicks (! learning, ! learning);
+    bool shift = ModifierKeys::getCurrentModifiersRealtime().isShiftDown();
+    knob.setInterceptsMouseClicks (! learning || shift, ! learning || shift );
 
     auto& mm = *parameter->getModMatrix();
     modDepth = mm.getModDepth (mm.getLearn(), parameter->getModIndex());
@@ -205,11 +211,15 @@ void Knob::learnSourceChanged (int src)
     {
         knob.getProperties().set ("modDepth", modDepth);
         knob.getProperties().set ("modBipolar", mm.getModSrcBipolar (mm.getLearn()));
+     
+        shiftTimer.startTimerHz (100);
     }
     else
     {
         knob.getProperties().remove ("modDepth");
         knob.getProperties().remove ("modBipolar");
+        
+        shiftTimer.stopTimer();
     }
 
     repaint();
@@ -235,7 +245,8 @@ void Knob::modMatrixChanged()
 
 void Knob::mouseDown (const MouseEvent& e) 
 {
-    if (! learning || ! knob.getBounds().contains (e.getMouseDownPosition()))
+    bool shift = ModifierKeys::getCurrentModifiersRealtime().isShiftDown();
+    if (shift || ! learning || ! knob.getBounds().contains (e.getMouseDownPosition()))
         return;
 
     auto& mm = *parameter->getModMatrix();
@@ -248,7 +259,8 @@ void Knob::mouseDown (const MouseEvent& e)
 
 void Knob::mouseDrag (const MouseEvent& e)
 {
-    if (! learning || ! knob.getBounds().contains (e.getMouseDownPosition()))
+    bool shift = ModifierKeys::getCurrentModifiersRealtime().isShiftDown();
+    if (shift || ! learning || ! knob.getBounds().contains (e.getMouseDownPosition()))
          return;
 
     if (e.getDistanceFromDragStart() >= 3)
