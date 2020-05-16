@@ -21,16 +21,16 @@ using namespace juce;
 using juce::Rectangle;
 using juce::MemoryBlock;
 
-#include "plugin/modmatrix.cpp"
-#include "plugin/noteduration.cpp"
-#include "plugin/processor.cpp"
-#include "plugin/program.cpp"
-#include "plugin/parameter.cpp"
+#include "plugin/gin_modmatrix.cpp"
+#include "plugin/gin_noteduration.cpp"
+#include "plugin/gin_processor.cpp"
+#include "plugin/gin_program.cpp"
+#include "plugin/gin_parameter.cpp"
 
-#include "components/plugineditor.cpp"
-#include "components/adsrcomponent.cpp"
-#include "components/lfocomponent.cpp"
-#include "components/plugincomponents.cpp"
-#include "components/pluginlookandfeel.cpp"
+#include "components/gin_plugineditor.cpp"
+#include "components/gin_adsrcomponent.cpp"
+#include "components/gin_lfocomponent.cpp"
+#include "components/gin_plugincomponents.cpp"
+#include "components/gin_pluginlookandfeel.cpp"
 
 }

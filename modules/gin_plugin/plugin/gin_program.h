@@ -1,6 +1,6 @@
 #pragma once
 
-#include "parameter.h"
+#include "gin_parameter.h"
 
 class GinProcessor;
 

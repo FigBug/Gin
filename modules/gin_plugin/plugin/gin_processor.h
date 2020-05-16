@@ -1,9 +1,9 @@
 #pragma once
 
-#include "parameter.h"
-#include "program.h"
+#include "gin_parameter.h"
+#include "gin_program.h"
 
-#include "../components/pluginlookandfeel.h"
+#include "../components/gin_pluginlookandfeel.h"
 
 //==============================================================================
 class SmoothingType

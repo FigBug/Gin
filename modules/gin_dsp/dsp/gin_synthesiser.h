@@ -175,8 +175,9 @@ public:
             
         if (currentNote)
             for (auto voice : voices)
-                if (finishedNote == voice->getCurrentlyPlayingNote())
-                    stopVoiceFastKill (voice, finishedNote, true);
+				if (voice->isActive())
+					if (finishedNote == voice->getCurrentlyPlayingNote())
+						stopVoiceFastKill (voice, finishedNote, true);
         
         if (noteStack.size() > 0)
             if (auto voice = findFreeVoice (noteStack.getLast(), false))

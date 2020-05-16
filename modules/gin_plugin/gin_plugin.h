@@ -66,21 +66,21 @@ using namespace juce;
 using juce::Rectangle;
 using juce::Component;
 
-#include "plugin/noteduration.h"
-#include "plugin/processor.h"
-#include "plugin/program.h"
-#include "plugin/parameter.h"
-#include "plugin/smoothedparameter.h"
-#include "plugin/modmatrix.h"
+#include "plugin/gin_noteduration.h"
+#include "plugin/gin_processor.h"
+#include "plugin/gin_program.h"
+#include "plugin/gin_parameter.h"
+#include "plugin/gin_smoothedparameter.h"
+#include "plugin/gin_modmatrix.h"
 
-#include "components/multiparamcomponent.h"
-#include "components/modulation.h"
-#include "components/adsrcomponent.h"
-#include "components/lfocomponent.h"
-#include "components/plugincomponents.h"
-#include "components/pluginlookandfeel.h"
-#include "components/controlheader.h"
-#include "components/plugineditor.h"
-#include "components/controlbox.h"
+#include "components/gin_multiparamcomponent.h"
+#include "components/gin_modulation.h"
+#include "components/gin_adsrcomponent.h"
+#include "components/gin_lfocomponent.h"
+#include "components/gin_plugincomponents.h"
+#include "components/gin_pluginlookandfeel.h"
+#include "components/gin_controlheader.h"
+#include "components/gin_plugineditor.h"
+#include "components/gin_controlbox.h"
 
 }
