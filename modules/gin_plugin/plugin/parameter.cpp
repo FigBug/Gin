@@ -239,7 +239,12 @@ int Parameter::getNumSteps() const
 
 String Parameter::getText (float val, int /*maximumStringLength*/) const
 {
-    return String (range.snapToLegalValue (range.convertFrom0to1 (val)), 1) + " " + label;
+    auto uv = range.snapToLegalValue (range.convertFrom0to1 (val));
+    int dec = 1;
+    if (uv < 10) dec = 2;
+    if (uv < 1)  dec = 3;
+    
+    return String (uv, dec) + " " + label;
 }
 
 float Parameter::getValueForText (const String& text) const

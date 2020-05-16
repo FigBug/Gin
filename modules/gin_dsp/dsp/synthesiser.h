@@ -45,7 +45,7 @@ public:
     {
         if (newMPE != mpe)
         {
-            newMPE = mpe;
+            mpe = newMPE;
             if (mpe)
             {
                 MPEZoneLayout zones;

@@ -140,6 +140,11 @@ public:
         page->controls.add (c);
         page->controlsParent.addAndMakeVisible (c);
     }
+    
+    void setPageOpen (int page, bool open)
+    {
+        pagesOpen[page] = open ? 1.0f : 0.0f;
+    }
 
 protected:
     //==============================================================================
