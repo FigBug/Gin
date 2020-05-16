@@ -1,7 +1,8 @@
 # Gin
-A few useful extra classes for JUCE (https://juce.com/) that I've come up with over the years.
+A few useful extra classes for [JUCE](https://juce.com/) that I've come up with over the years.
 
 Documentation:
+
 [DOxygen Documentation](https://figbug.github.io/Gin/annotated.html)
 
 Automated Builds:
