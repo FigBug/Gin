@@ -45,3 +45,5 @@ Builds
 JuceLibraryCode
 juce
 bin
+doxygen/doc
+doxygen/build
