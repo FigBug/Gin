@@ -27,4 +27,4 @@ jobs:
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages 
-          FOLDER: doxygen/docs
+          FOLDER: doxygen/doc
