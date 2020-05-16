@@ -57,7 +57,7 @@ def add_doxygen_group(path, group_name):
             content = f.read()
         with open(path, "w") as f:
             f.write("\r\n/** @weakgroup " + group_name + "\r\n *  @{\r\n */\r\n")
-            f.write(remove_gin_namespaces(content))
+            f.write(content)
             f.write("\r\n/** @}*/\r\n")
 
 
@@ -137,9 +137,9 @@ if __name__ == "__main__":
         # Create a list of the directories in the module that we can use as
         # subgroups and create the Doxygen group hierarchy string.
         dir_contents = os.listdir(module_path)
-        # Ignore "native" folders as these are excluded by doxygen.
+        # Ignore "3rdparty" folders as these are excluded by doxygen.
         try:
-            dir_contents.remove("native")
+            dir_contents.remove("3rdparty")
         except ValueError:
             pass
         subdirs = []
