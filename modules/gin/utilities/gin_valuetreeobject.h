@@ -8,7 +8,8 @@
 #pragma once
 
 //==============================================================================
-/* Mirrors a ValueTree in Objects */
+/** Mirrors a ValueTree in Objects
+ */
 class ValueTreeObject : private ValueTree::Listener
 {
 public:

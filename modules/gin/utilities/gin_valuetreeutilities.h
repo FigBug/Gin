@@ -13,6 +13,8 @@ juce::String valueTreeToJSON (const juce::ValueTree& v);
 juce::ValueTree valueTreeFromJSON (const juce::String& jsonText);
 
 //==============================================================================
+/** Listen to value tree changes with std::function<>
+*/
 class LambdaValueTreeListener : public ValueTree::Listener
 {
 public:
@@ -76,6 +78,8 @@ private:
 };
 
 //==============================================================================
+/** Listen to value tree changes with std::function<>, but Async
+*/
 class AsyncLambdaValueTreeListener : public ValueTree::Listener
 {
 public:

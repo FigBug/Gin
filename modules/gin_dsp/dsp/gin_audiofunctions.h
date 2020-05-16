@@ -14,6 +14,12 @@
 #include "gin_oscillators.h"
 
 //==============================================================================
+/**
+ Base class to store an audio functions state
+ But you say "functions don't have state!"
+ Well, that's true, but to make things like filters act as functions,
+ I need to hide a bit of state in them.
+ */
 struct FuncState
 {
     FuncState (double sr) : sampleRate (sr) {}
@@ -24,6 +30,8 @@ struct FuncState
 };
 
 //==============================================================================
+/** State for an oscillator
+ */
 struct OscState : public FuncState
 {
     OscState (double sr) : FuncState (sr) {}
@@ -59,6 +67,8 @@ struct OscState : public FuncState
 };
 
 //==============================================================================
+/** State for high pass filter
+ */
 struct HP12State : public FuncState
 {
     HP12State (double sr) : FuncState (sr) {}
@@ -83,6 +93,8 @@ struct HP12State : public FuncState
 };
 
 //==============================================================================
+/** State for high pass filter
+ */
 struct HP24State : public FuncState
 {
     HP24State (double sr) : FuncState (sr) {}
@@ -110,6 +122,8 @@ struct HP24State : public FuncState
 };
 
 //==============================================================================
+/** State for band pass filter
+ */
 struct BP12State : public FuncState
 {
     BP12State (double sr) : FuncState (sr) {}
@@ -134,6 +148,8 @@ struct BP12State : public FuncState
 };
 
 //==============================================================================
+/** State for band pass filter
+*/
 struct BP24State : public FuncState
 {
     BP24State (double sr) : FuncState (sr) {}
@@ -161,6 +177,8 @@ struct BP24State : public FuncState
 };
 
 //==============================================================================
+/** State for low pass filter
+*/
 struct LP12State : public FuncState
 {
     LP12State (double sr) : FuncState (sr) {}
@@ -185,6 +203,8 @@ struct LP12State : public FuncState
 };
 
 //==============================================================================
+/** State for low pass filter
+*/
 struct LP24State : public FuncState
 {
     LP24State (double sr) : FuncState (sr) {}
@@ -212,6 +232,8 @@ struct LP24State : public FuncState
 };
 
 //==============================================================================
+/** State for notch filter
+*/
 struct Notch12State : public FuncState
 {
     Notch12State (double sr) : FuncState (sr) {}
@@ -236,6 +258,8 @@ struct Notch12State : public FuncState
 };
 
 //==============================================================================
+/** State for notch filter
+*/
 struct Notch24State : public FuncState
 {
     Notch24State (double sr) : FuncState (sr) {}
@@ -263,6 +287,8 @@ struct Notch24State : public FuncState
 };
 
 //==============================================================================
+/** State managment for audio functions
+*/
 class AudioFunctionHost
 {
 public:

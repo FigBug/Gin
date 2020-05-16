@@ -7,6 +7,9 @@
 
 #pragma once
 
+/** Like juce::AsyncUpdater but it doesn't use the message queue
+*/
+
 class RealtimeAsyncUpdater
 {
 public:

@@ -8,7 +8,8 @@
 #pragma once
 
 //==============================================================================*/
-// Fetches map files from OSM servers
+/** Fetches map files from OSM servers
+ */
 class OpenStreetMaps
 {
 public:

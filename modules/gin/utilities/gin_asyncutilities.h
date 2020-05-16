@@ -7,6 +7,9 @@
 
 #pragma once
 
+/**
+ Like juce::Timer, but it calls a std::function<>
+ */
 class LambdaTimer : public Timer
 {
 public:
@@ -22,6 +25,9 @@ private:
     }
 };
 
+/**
+ Like juce::AsyncUpdater, but it calls a std::function<>
+*/
 class LambdaAsyncUpdater : public AsyncUpdater
 {
 public:
