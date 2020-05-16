@@ -10,8 +10,10 @@ class Processor;
 class Program
 {
 public:
-    void loadProcessor (Processor* p);
-    void saveProcessor (Processor* p);
+    Program() = default;
+    
+    void loadProcessor (Processor& p);
+    void saveProcessor (Processor& p);
 
     void loadFromFile (File f);
     void saveToDir (File f);
@@ -20,4 +22,6 @@ public:
     String name;
     String valueTree;
     Array<Parameter::ParamState> states;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Program)
 };

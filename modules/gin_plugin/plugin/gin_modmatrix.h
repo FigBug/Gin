@@ -8,6 +8,7 @@ class ModMatrix;
 class ModVoice
 {
 public:
+    ModVoice() = default;
     virtual ~ModVoice() = default;
 
     float getValue (Parameter* p);
@@ -38,6 +39,8 @@ private:
     Array<float> values;
     Array<ValueSmoother<float>> smoothers;
     int age = 0;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ModVoice)
 };
 
 //==============================================================================
@@ -282,6 +285,8 @@ private:
     ListenerList<Listener> listeners;
 
     int learnSource = -1, nextAge = 0;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ModMatrix)
 };
 
 inline float ModVoice::getValue (Parameter* p)

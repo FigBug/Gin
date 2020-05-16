@@ -208,7 +208,7 @@ void Processor::setCurrentProgram (int index)
 
     if (index >= 0 && index < programs.size())
     {
-        programs[index]->loadProcessor (this);
+        programs[index]->loadProcessor (*this);
         currentProgram = index;
 
         updateHostDisplay();
@@ -250,7 +250,7 @@ void Processor::loadAllPrograms()
     dir.findChildFiles (programFiles, File::findFiles, false, "*.xml");
     programFiles.sort();
 
-    for (File f : programFiles)
+    for (auto f : programFiles)
     {
         auto program = new Program();
         program->loadFromFile (f);
@@ -282,7 +282,7 @@ void Processor::saveProgram (String name)
 
     auto newProgram = new Program();
     newProgram->name = name;
-    newProgram->saveProcessor (this);
+    newProgram->saveProcessor (*this);
     newProgram->saveToDir (getProgramDirectory());
 
     programs.add (newProgram);
