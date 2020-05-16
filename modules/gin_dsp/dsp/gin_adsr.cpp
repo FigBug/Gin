@@ -12,17 +12,26 @@
 
 void ADSR::setAttack (float seconds)
 {
-    attackDelta = 1.0f / float (seconds * sampleRate);
+    if (seconds > 0.0f)
+        attackDelta = 1.0f / float (seconds * sampleRate);
+    else
+        attackDelta = 0.0f;
 }
 
 void ADSR::setDecay (float seconds)
 {
-    decayDelta = 1.0f / float (seconds * sampleRate);
+    if (seconds > 0.0f)
+        decayDelta = 1.0f / float (seconds * sampleRate);
+    else
+        decayDelta = 0.0f;
 }
 
 void ADSR::setRelease (float seconds)
 {
-    releaseDelta = 1.0f / float (seconds * sampleRate);
+    if (seconds > 0.0f)
+        releaseDelta = 1.0f / float (seconds * sampleRate);
+    else
+        releaseDelta = 0.0f;
 }
 
 void ADSR::setSustainLevel (float level)
@@ -38,7 +47,7 @@ void ADSR::process (AudioSampleBuffer& buffer)
 
 void ADSR::process (AudioSampleBuffer& buffer, int startSample, int numSamples)
 {
-    float* d = buffer.getWritePointer (0, startSample);
+    auto d = buffer.getWritePointer (0, startSample);
     for (int i = 0; i < numSamples; i++)
     {
         switch (state)
@@ -46,15 +55,23 @@ void ADSR::process (AudioSampleBuffer& buffer, int startSample, int numSamples)
             case idle:
                 break;
             case attack:
-                output += attackDelta;
-                if (output >= 1.0)
+                if (attackDelta > 0.0f)
+                    output += attackDelta;
+                else
+                    output = 1.0f;
+
+                if (output >= 1.0f)
                 {
-                    output = 1.0;
+                    output = 1.0f;
                     state = decay;
                 }
                 break;
             case decay:
-                output -= decayDelta;
+                if (decayDelta > 0.0f)
+                    output -= decayDelta;
+                else
+                    output = sustainLevel;
+
                 if (output <= sustainLevel)
                 {
                     output = sustainLevel;
@@ -64,10 +81,14 @@ void ADSR::process (AudioSampleBuffer& buffer, int startSample, int numSamples)
             case sustain:
                 break;
             case release:
-                output -= releaseDelta;
-                if (output <= 0.0)
+                if (releaseDelta > 0)
+                    output -= releaseDelta;
+                else
+                    output = 0.0f;
+
+                if (output <= 0.0f)
                 {
-                    output = 0.0;
+                    output = 0.0f;
                     state = idle;
                 }
                 break;
@@ -81,33 +102,45 @@ float ADSR::process()
     switch (state)
     {
         case idle:
-            break;
-        case attack:
-            output += attackDelta;
-            if (output >= 1.0)
-            {
-                output = 1.0;
-                state = decay;
-            }
-            break;
-        case decay:
-            output -= decayDelta;
-            if (output <= sustainLevel)
-            {
-                output = sustainLevel;
-                state = sustain;
-            }
-            break;
-        case sustain:
-            break;
-        case release:
-            output -= releaseDelta;
-            if (output <= 0.0)
-            {
-                output = 0.0;
-                state = idle;
-            }
-            break;
+              break;
+          case attack:
+              if (attackDelta > 0.0f)
+                  output += attackDelta;
+              else
+                  output = 1.0f;
+
+              if (output >= 1.0f)
+              {
+                  output = 1.0f;
+                  state = decay;
+              }
+              break;
+          case decay:
+              if (decayDelta > 0.0f)
+                  output -= decayDelta;
+              else
+                  output = sustainLevel;
+
+              if (output <= sustainLevel)
+              {
+                  output = sustainLevel;
+                  state = sustain;
+              }
+              break;
+          case sustain:
+              break;
+          case release:
+              if (releaseDelta > 0)
+                  output -= releaseDelta;
+              else
+                  output = 0.0f;
+
+              if (output <= 0.0f)
+              {
+                  output = 0.0f;
+                  state = idle;
+              }
+              break;
     }
     return output;
 }
