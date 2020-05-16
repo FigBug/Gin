@@ -17,7 +17,7 @@
 <!-- Node1 -->
 <g id="node2" class="node">
 <title>Node1</title>
-<g id="a_node2"><a xlink:href="structBP12State.html" target="_top" xlink:title="BP12State">
+<g id="a_node2"><a xlink:href="structBP12State.html" target="_top" xlink:title="State for band pass filter. ">
 <polygon fill="none" stroke="#000000" points="104.5,-304.5 104.5,-323.5 168.5,-323.5 168.5,-304.5 104.5,-304.5"/>
 <text text-anchor="middle" x="136.5" y="-311.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">BP12State</text>
 </a>
@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="node3" class="node">
 <title>Node2</title>
-<g id="a_node3"><a xlink:href="structBP24State.html" target="_top" xlink:title="BP24State">
+<g id="a_node3"><a xlink:href="structBP24State.html" target="_top" xlink:title="State for band pass filter. ">
 <polygon fill="none" stroke="#000000" points="104.5,-266.5 104.5,-285.5 168.5,-285.5 168.5,-266.5 104.5,-266.5"/>
 <text text-anchor="middle" x="136.5" y="-273.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">BP24State</text>
 </a>
@@ -47,7 +47,7 @@
 <!-- Node3 -->
 <g id="node4" class="node">
 <title>Node3</title>
-<g id="a_node4"><a xlink:href="structHP12State.html" target="_top" xlink:title="HP12State">
+<g id="a_node4"><a xlink:href="structHP12State.html" target="_top" xlink:title="State for high pass filter. ">
 <polygon fill="none" stroke="#000000" points="104,-228.5 104,-247.5 169,-247.5 169,-228.5 104,-228.5"/>
 <text text-anchor="middle" x="136.5" y="-235.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">HP12State</text>
 </a>
@@ -62,7 +62,7 @@
 <!-- Node4 -->
 <g id="node5" class="node">
 <title>Node4</title>
-<g id="a_node5"><a xlink:href="structHP24State.html" target="_top" xlink:title="HP24State">
+<g id="a_node5"><a xlink:href="structHP24State.html" target="_top" xlink:title="State for high pass filter. ">
 <polygon fill="none" stroke="#000000" points="104,-190.5 104,-209.5 169,-209.5 169,-190.5 104,-190.5"/>
 <text text-anchor="middle" x="136.5" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">HP24State</text>
 </a>
@@ -77,7 +77,7 @@
 <!-- Node5 -->
 <g id="node6" class="node">
 <title>Node5</title>
-<g id="a_node6"><a xlink:href="structLP12State.html" target="_top" xlink:title="LP12State">
+<g id="a_node6"><a xlink:href="structLP12State.html" target="_top" xlink:title="State for low pass filter. ">
 <polygon fill="none" stroke="#000000" points="105.5,-152.5 105.5,-171.5 167.5,-171.5 167.5,-152.5 105.5,-152.5"/>
 <text text-anchor="middle" x="136.5" y="-159.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">LP12State</text>
 </a>
@@ -92,7 +92,7 @@
 <!-- Node6 -->
 <g id="node7" class="node">
 <title>Node6</title>
-<g id="a_node7"><a xlink:href="structLP24State.html" target="_top" xlink:title="LP24State">
+<g id="a_node7"><a xlink:href="structLP24State.html" target="_top" xlink:title="State for low pass filter. ">
 <polygon fill="none" stroke="#000000" points="105.5,-114.5 105.5,-133.5 167.5,-133.5 167.5,-114.5 105.5,-114.5"/>
 <text text-anchor="middle" x="136.5" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">LP24State</text>
 </a>
@@ -107,7 +107,7 @@
 <!-- Node7 -->
 <g id="node8" class="node">
 <title>Node7</title>
-<g id="a_node8"><a xlink:href="structNotch12State.html" target="_top" xlink:title="Notch12State">
+<g id="a_node8"><a xlink:href="structNotch12State.html" target="_top" xlink:title="State for notch filter. ">
 <polygon fill="none" stroke="#000000" points="98,-76.5 98,-95.5 175,-95.5 175,-76.5 98,-76.5"/>
 <text text-anchor="middle" x="136.5" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">Notch12State</text>
 </a>
@@ -122,7 +122,7 @@
 <!-- Node8 -->
 <g id="node9" class="node">
 <title>Node8</title>
-<g id="a_node9"><a xlink:href="structNotch24State.html" target="_top" xlink:title="Notch24State">
+<g id="a_node9"><a xlink:href="structNotch24State.html" target="_top" xlink:title="State for notch filter. ">
 <polygon fill="none" stroke="#000000" points="98,-38.5 98,-57.5 175,-57.5 175,-38.5 98,-38.5"/>
 <text text-anchor="middle" x="136.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">Notch24State</text>
 </a>
@@ -137,7 +137,7 @@
 <!-- Node9 -->
 <g id="node10" class="node">
 <title>Node9</title>
-<g id="a_node10"><a xlink:href="structOscState.html" target="_top" xlink:title="OscState">
+<g id="a_node10"><a xlink:href="structOscState.html" target="_top" xlink:title="State for an oscillator. ">
 <polygon fill="none" stroke="#000000" points="107.5,-.5 107.5,-19.5 165.5,-19.5 165.5,-.5 107.5,-.5"/>
 <text text-anchor="middle" x="136.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">OscState</text>
 </a>

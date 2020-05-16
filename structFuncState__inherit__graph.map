@@ -1,11 +1,11 @@
 <map id="FuncState" name="FuncState">
-<area shape="rect" id="node2" href="$structBP12State.html" title="BP12State" alt="" coords="145,5,230,32"/>
-<area shape="rect" id="node3" href="$structBP24State.html" title="BP24State" alt="" coords="145,56,230,83"/>
-<area shape="rect" id="node4" href="$structHP12State.html" title="HP12State" alt="" coords="144,107,231,133"/>
-<area shape="rect" id="node5" href="$structHP24State.html" title="HP24State" alt="" coords="144,157,231,184"/>
-<area shape="rect" id="node6" href="$structLP12State.html" title="LP12State" alt="" coords="146,208,229,235"/>
-<area shape="rect" id="node7" href="$structLP24State.html" title="LP24State" alt="" coords="146,259,229,285"/>
-<area shape="rect" id="node8" href="$structNotch12State.html" title="Notch12State" alt="" coords="136,309,239,336"/>
-<area shape="rect" id="node9" href="$structNotch24State.html" title="Notch24State" alt="" coords="136,360,239,387"/>
-<area shape="rect" id="node10" href="$structOscState.html" title="OscState" alt="" coords="149,411,226,437"/>
+<area shape="rect" id="node2" href="$structBP12State.html" title="State for band pass filter. " alt="" coords="145,5,230,32"/>
+<area shape="rect" id="node3" href="$structBP24State.html" title="State for band pass filter. " alt="" coords="145,56,230,83"/>
+<area shape="rect" id="node4" href="$structHP12State.html" title="State for high pass filter. " alt="" coords="144,107,231,133"/>
+<area shape="rect" id="node5" href="$structHP24State.html" title="State for high pass filter. " alt="" coords="144,157,231,184"/>
+<area shape="rect" id="node6" href="$structLP12State.html" title="State for low pass filter. " alt="" coords="146,208,229,235"/>
+<area shape="rect" id="node7" href="$structLP24State.html" title="State for low pass filter. " alt="" coords="146,259,229,285"/>
+<area shape="rect" id="node8" href="$structNotch12State.html" title="State for notch filter. " alt="" coords="136,309,239,336"/>
+<area shape="rect" id="node9" href="$structNotch24State.html" title="State for notch filter. " alt="" coords="136,360,239,387"/>
+<area shape="rect" id="node10" href="$structOscState.html" title="State for an oscillator. " alt="" coords="149,411,226,437"/>
 </map>

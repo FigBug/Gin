@@ -1,4 +1,4 @@
 <map id="AudioEquationParser" name="AudioEquationParser">
 <area shape="rect" id="node2" href="$classEquationParser.html" title="EquationParser" alt="" coords="5,5,116,32"/>
-<area shape="rect" id="node3" href="$classAudioFunctionHost.html" title="AudioFunctionHost" alt="" coords="141,5,274,32"/>
+<area shape="rect" id="node3" href="$classAudioFunctionHost.html" title="State managment for audio functions. " alt="" coords="141,5,274,32"/>
 </map>
