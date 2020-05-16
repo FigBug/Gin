@@ -1,0 +1,6 @@
+<map id="ImageMetadata" name="ImageMetadata">
+<area shape="rect" id="node2" href="$classCommentMetadata.html" title="CommentMetadata" alt="" coords="5,80,139,107"/>
+<area shape="rect" id="node3" href="$classExifMetadata.html" title="ExifMetadata" alt="" coords="163,80,261,107"/>
+<area shape="rect" id="node4" href="$classIptcMetadata.html" title="IptcMetadata" alt="" coords="285,80,384,107"/>
+<area shape="rect" id="node5" href="$classXmpMetadata.html" title="XmpMetadata" alt="" coords="409,80,511,107"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="ParamComponent" name="ParamComponent">
+<area shape="rect" id="node2" href="$classHorizontalFader.html" title="HorizontalFader" alt="" coords="5,80,120,107"/>
+<area shape="rect" id="node3" href="$classKnob.html" title="Knob" alt="" coords="145,80,197,107"/>
+<area shape="rect" id="node4" href="$classSelect.html" title="Select" alt="" coords="221,80,280,107"/>
+<area shape="rect" id="node5" href="$classSwitch.html" title="Switch" alt="" coords="305,80,367,107"/>
+</map>
