@@ -42,7 +42,6 @@ void DynamicsMeter::paint (Graphics& g)
         
         float y = getHeight() - range.convertTo0to1 (dbOut) * getHeight ();
 
-        
         if (x == 0)
             p.startNewSubPath (x, y);
         else

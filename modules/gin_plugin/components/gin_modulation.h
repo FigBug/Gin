@@ -1,6 +1,8 @@
 #pragma once
 
 //==============================================================================
+/** A button for enabling modulation learn
+*/
 class ModulationSourceButton : public Button,
                                private ModMatrix::Listener
 {
@@ -102,6 +104,8 @@ private:
 };
 
 //==============================================================================
+/** A button for the modulation destination
+*/
 class ModulationDestinationButton : public Button
 {
 public:
@@ -144,6 +148,8 @@ private:
 
 //==============================================================================
 
+/** A button and text readout that shows the current modulation source
+*/
 class ModulationOverview : public Component,
                            private ModMatrix::Listener
 {
@@ -190,6 +196,8 @@ private:
 };
 
 //==============================================================================
+/** A list box of al mod sources
+*/
 class ModSrcListBox : public ListBox,
 					  private ListBoxModel
 {

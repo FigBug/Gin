@@ -5,6 +5,8 @@
 class Processor;
 
 //==============================================================================
+/** Save your plugin state
+*/
 class Program
 {
 public:

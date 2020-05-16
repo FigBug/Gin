@@ -1,6 +1,9 @@
 #pragma once
 
 //==============================================================================
+/** Plugin specific addition to GinLookAndFeel
+    Still black and white
+*/
 class PluginLookAndFeel : public GinLookAndFeel
 {
 public:
@@ -13,6 +16,9 @@ private:
 };
 
 //==============================================================================
+/** Auto sets and clears PluginLookAndFeel as default.
+    Wrap this up in a SharedResourcePointer
+*/
 class PluginLookAndFeelWrapper : public PluginLookAndFeel
 {
 public:

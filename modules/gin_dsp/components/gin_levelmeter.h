@@ -9,6 +9,8 @@ Copyright (c) 2019 - Roland Rabien.
 
 #pragma once
 
+/** Draws a simple level meter
+*/
 class LevelMeter : public Component,
                    public Timer
 {

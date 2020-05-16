@@ -11,6 +11,9 @@
 #pragma once
 
 //==============================================================================
+/** FIFO - stuff audio in one end and it pops out the other.
+    Lock free for single producer / consumer 
+*/
 class AudioFifo
 {
 public:

@@ -10,6 +10,9 @@
 
 #pragma once
 
+/** Enhances the EquationParser with math related
+    functions like filters and oscilllators
+*/
 class AudioEquationParser : public EquationParser,
                             public AudioFunctionHost
 {

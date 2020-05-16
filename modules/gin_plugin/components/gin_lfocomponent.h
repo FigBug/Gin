@@ -1,6 +1,8 @@
 #pragma once
 
 //==============================================================================
+/** Draws an LFO curve and shows a little dot moving long
+*/
 class LFOComponent : public MultiParamComponent,
                      private Timer
 {

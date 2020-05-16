@@ -14,7 +14,10 @@ inline T square (T in)
 }
 
 //==============================================================================
-
+/**
+    Equations to calculate the shape of an ellipse and to calculate points
+    on the edge of the ellipse and to see if points are inside or outside
+*/
 template <typename T>
 class Ellipse
 {
@@ -67,7 +70,8 @@ public:
 };
 
 //==============================================================================
-// Solves for the slope and intercept of a line.
+/** Solves for the slope and intercept of a line.
+*/
 template <typename T>
 bool solveLine (T x1, T y1, T x2, T y2, T& m, T& b)
 {
@@ -87,6 +91,8 @@ bool solveLine (T x1, T y1, T x2, T y2, T& m, T& b)
     }
 }
 
+/** Solves for the slope and intercept of a line
+*/
 template <typename T>
 bool solveLine (Line<T> l, T& m, T& b)
 {

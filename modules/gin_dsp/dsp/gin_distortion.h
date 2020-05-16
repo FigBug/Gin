@@ -32,6 +32,8 @@
 #pragma once
 
 //==============================================================================
+/** Distortion based on AirWindows plugins
+*/
 class Distortion
 {
 public:

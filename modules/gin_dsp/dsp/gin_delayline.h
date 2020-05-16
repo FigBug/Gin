@@ -10,6 +10,8 @@
 
 #pragma once
 
+/** Audio Delay with linear interpolation
+*/
 class DelayLine
 {
 public:

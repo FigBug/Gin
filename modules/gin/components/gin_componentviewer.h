@@ -9,7 +9,7 @@
 
 //==============================================================================*/
 
-/** Show the component under the mouse and component hierarchy.
+/** Shows the component under the mouse and component hierarchy.
     Useful for debugging */
 class ComponentViewer : public DocumentWindow,
                         public ComponentListener

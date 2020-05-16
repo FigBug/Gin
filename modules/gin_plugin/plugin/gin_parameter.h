@@ -4,6 +4,9 @@ class Processor;
 class ModMatrix;
 
 //==============================================================================
+/** A parameter with user values, real time safe callbacks, modulation, and
+    all sorts of other fancy stuff
+*/
 class Parameter : public AudioProcessorParameter,
                   protected Timer,
                   protected RealtimeAsyncUpdater

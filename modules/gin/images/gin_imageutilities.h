@@ -7,4 +7,8 @@
 
 #pragma once
 
+/** Converts an SVG to Image.
+
+    WARNING: This will lock the image thread
+*/
 juce::Image rasterizeSVG (juce::String svgText, int w, int h);

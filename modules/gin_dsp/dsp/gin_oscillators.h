@@ -20,6 +20,8 @@ double squareWave (double phase, double freq, double sampleRate);
 double noise();
 
 //==============================================================================
+/** Lookup tables for holding andlimited waveforms. Holds one waveform for every N number notes
+*/
 class BandLimitedLookupTable
 {
 public:
@@ -46,6 +48,8 @@ enum class Wave
 };
 
 //==============================================================================
+/** Generate and hold bandlimited lookup tabkes for all the common waveforms
+*/
 class BandLimitedLookupTables
 {
 public:
@@ -68,6 +72,8 @@ private:
 };
 
 //==============================================================================
+/** Stereo oscillator. L & R can be at different pitches
+*/
 class StereoOscillator
 {
 public:
@@ -97,6 +103,8 @@ private:
 };
 
 //==============================================================================
+/** Stereo Oscillator with multiples voices, pan, spread, detune, etc
+*/
 class VoicedStereoOscillator
 {
 public:

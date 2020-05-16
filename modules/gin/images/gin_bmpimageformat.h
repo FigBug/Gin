@@ -8,10 +8,10 @@
 #pragma once
 
 /**
- Support for reading and writing Windows Bitmap files. Supports uncompressed
- 8, 24 and 32 bit images. Always writes 32 bit images. That should be enough
- to cover 99.9% of BMP files. Does not support 1, 4, 16 bit colour images or
- images with RLE compression.
+    Support for reading and writing Windows Bitmap files. Supports uncompressed
+    8, 24 and 32 bit images. Always writes 32 bit images. That should be enough
+    to cover 99.9% of BMP files. Does not support 1, 4, 16 bit colour images or
+    images with RLE compression.
  */
 class BMPImageFormat : public ImageFileFormat
 {

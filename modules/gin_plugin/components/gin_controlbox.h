@@ -1,6 +1,8 @@
 #pragma once
 
 //==============================================================================
+/** Circle with line power button for controlling a Parameter
+*/
 class PowerButton : public PluginButton
 {
 public:
@@ -44,6 +46,8 @@ private:
 };
 
 //==============================================================================
+/** A box for holding controls on a grid
+*/
 class ControlBox : public MultiParamComponent
 {
 public:
@@ -94,6 +98,9 @@ private:
 };
 
 //==============================================================================
+/** A control for holding pags of controls on a grid
+    Pages slide over top of each other to make room
+*/
 class PagedControlBox : public MultiParamComponent
 {
 public:

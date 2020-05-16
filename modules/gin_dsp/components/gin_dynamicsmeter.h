@@ -9,6 +9,10 @@ Copyright (c) 2019 - Roland Rabien.
 
 #pragma once
 
+/** Draws a comp, gate, limiter, expander graph
+    Draws input > output curve
+    Draws input and output levels
+*/
 class DynamicsMeter : public Component,
                       public Timer
 {

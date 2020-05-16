@@ -10,6 +10,8 @@
 #pragma once
 
 //==============================================================================
+/** Audio modulation, for a chorus or phaser etc
+*/
 class Modulation
 {
 public:

@@ -10,6 +10,8 @@
 #pragma once
 
 //==============================================================================
+/** Basic multi channel / multi band EQ
+*/
 class EQ
 {
 public:

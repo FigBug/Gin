@@ -11,6 +11,8 @@
 #pragma once
 
 //==============================================================================
+/** Oscillator for playing samples
+*/
 class SampleOscillator
 {
 public:

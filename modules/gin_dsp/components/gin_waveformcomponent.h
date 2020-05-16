@@ -1,5 +1,7 @@
 #pragma once
 
+/** Draws a waveform
+*/
 class WaveformComponent : public Component
 {
 public:

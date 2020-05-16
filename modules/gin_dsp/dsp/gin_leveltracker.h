@@ -11,6 +11,8 @@
 #pragma once
 
 //==============================================================================
+/** Track audio levels with decay in dB
+*/
 class LevelTracker
 {
 public:

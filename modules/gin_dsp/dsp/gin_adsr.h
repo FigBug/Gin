@@ -10,6 +10,8 @@
 
 #pragma once
 
+/** Linear ADSR. Good for a modulation source
+*/
 class ADSR
 {
 public:

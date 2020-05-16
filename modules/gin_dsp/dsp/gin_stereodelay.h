@@ -11,6 +11,8 @@
 #pragma once
 
 //==============================================================================
+/** Stereo delay with feedback and cross feedback
+*/
 class StereoDelay
 {
 public:

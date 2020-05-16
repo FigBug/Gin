@@ -2,6 +2,9 @@
 
 //==============================================================================
 class ProcessorEditor;
+
+/** Checks for plugin updates
+*/
 class UpdateChecker : public Timer,
                       public Thread
 {
@@ -16,6 +19,8 @@ public:
 };
 
 //==============================================================================
+/** Checks Wordpress feed for plugin news
+*/
 class NewsChecker : public Timer,
                     private Thread,
                     private AsyncUpdater
@@ -35,6 +40,8 @@ private:
 };
 
 //==============================================================================
+/** Base for plugin editor
+*/
 class ProcessorEditorBase : public AudioProcessorEditor
 {
 public:
@@ -77,6 +84,8 @@ private:
 };
 
 //==============================================================================
+/** Plugin editor
+*/
 class ProcessorEditor : public ProcessorEditorBase,
                         protected Button::Listener,
                         protected ComboBox::Listener

@@ -8,11 +8,9 @@ Copyright (c) 2019 - Roland Rabien.
 */
 
 #pragma once
-
-// Compressor / Gate / Expander / Limiter based on algorithm from
-// Designing Audio Effect Plug-ins in C++ by Will Pirkle
-
 //================================================================================
+/** EnvelopeDetector for Dynamics
+*/
 class EnvelopeDetector
 {
 public:
@@ -44,6 +42,12 @@ protected:
 };
 
 //================================================================================
+/**
+ Compressor / Gate / Expander / Limiter based on algorithm from
+ Designing Audio Effect Plug-ins in C++ by Will Pirkle
+
+ Gate and Expander not implemented yet
+ */
 class Dynamics
 {
 public:

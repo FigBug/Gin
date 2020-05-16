@@ -1,6 +1,8 @@
 #pragma once
 
 //==============================================================================
+/** Component for adjuting ADSR curves
+*/
 class ADSRComponent : public MultiParamComponent
 {
 public:

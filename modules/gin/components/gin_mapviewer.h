@@ -8,7 +8,9 @@
 #pragma once
 
 //==============================================================================*/
-// Draws an OSM map
+/**
+    Draws an map, etting tiles fom one of many OpenStreetMapsServers
+*/
 class MapViewer : public Component,
                   private OpenStreetMaps::Listener
 {
@@ -16,8 +18,16 @@ public:
     MapViewer();
     ~MapViewer() override;
 
+    /** Zoom level between 0 and 18
+    */
     void setZoom (int zoom);
+
+    /** Centre map on long/lat
+    */
     void centerOn (double longCenter, double latCenter);
+
+    /** Set world coordinate (longlat) under view coordinate (x/y)
+    */
     void centerUnderPt (juce::Point<double> world, juce::Point<int> view);
 
     OpenStreetMaps* getOpenStreetMaps() { return osm; }

@@ -1,5 +1,7 @@
 #pragma once
 
+/** Draws an XY Scope
+*/
 class XYScope : public Component,
                 public Timer
 {

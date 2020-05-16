@@ -78,9 +78,9 @@ void applyGradientMap (Image& img, const Colour c1, const Colour c2, ThreadPool*
   */
 void applyColour (Image& img, Colour c, ThreadPool* threadPool = nullptr);
 
-/** Blend two images
-  */
 
+/** Blending modes for applyBlend
+ */
 enum BlendMode
 {
     Normal,
@@ -110,8 +110,12 @@ enum BlendMode
     Phoenix,
 };
 
+/** Blend two images
+ */
 void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha = 1.0f, juce::Point<int> position = {}, ThreadPool* threadPool = nullptr);
 
+/** Blend two images
+ */
 void applyBlend (Image& dst, BlendMode mode, Colour c, ThreadPool* threadPool = nullptr);
 
 

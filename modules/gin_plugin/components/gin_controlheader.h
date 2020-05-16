@@ -1,5 +1,7 @@
 #pragma once
 
+/** Just a simple header with a title
+*/
 class ControlHeader : public Component
 {
 public:

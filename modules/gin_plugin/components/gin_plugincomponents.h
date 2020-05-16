@@ -1,6 +1,8 @@
 #pragma once
 
 //==============================================================================
+/** Button for toggling a parameter
+*/
 class PluginButton : public TextButton,
                      private Parameter::Listener
 {
@@ -39,6 +41,8 @@ public:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginButton)
 };
 //==============================================================================
+/** A control for selecting param values from a dropbox
+*/
 class PluginComboBox : public ComboBox,
                        private Parameter::Listener,
                        private ComboBox::Listener
@@ -78,6 +82,8 @@ public:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginComboBox)
 };
 //==============================================================================
+/** A slider for controlling a parameter
+*/
 class PluginSlider : public Slider,
                      private Slider::Listener,
                      private Parameter::Listener
@@ -146,6 +152,8 @@ private:
 };
 
 //==============================================================================
+/** A control for displaying a parameter
+*/
 class Readout : public Label,
                 private Parameter::Listener,
                 private SingleLineTextEditor::Listener
@@ -175,6 +183,8 @@ private:
 };
 
 //==============================================================================
+/** Base class for a control showing a parameter with label
+*/
 class ParamComponent : public Component,
                        public SettableTooltipClient
 {
@@ -199,6 +209,8 @@ protected:
 };
 
 //==============================================================================
+/** Slider + editable text for showing a param
+*/
 class Knob : public ParamComponent,
              private Timer,
              private ModMatrix::Listener
@@ -240,6 +252,8 @@ private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Knob)
 };
 //==============================================================================
+/** Horizontal slider wth text for controlling a param
+*/
 class HorizontalFader : public ParamComponent
 {
 public:
@@ -255,6 +269,8 @@ private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (HorizontalFader)
 };
 //==============================================================================
+/** Control for toggling param with label
+*/
 class Switch : public ParamComponent
 {
 public:
@@ -269,6 +285,8 @@ private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Switch)
 };
 //==============================================================================
+/** Control for picking param value with label
+*/
 class Select : public ParamComponent
 {
 public:

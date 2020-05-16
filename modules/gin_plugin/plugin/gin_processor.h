@@ -6,6 +6,8 @@
 #include "../components/gin_pluginlookandfeel.h"
 
 //==============================================================================
+/** How do you want you params smoothed?
+*/
 class SmoothingType
 {
 public:
@@ -24,7 +26,7 @@ public:
     Type type;
 };
 //==============================================================================
-/**
+/** A process with internal and external params
 */
 class Processor : public AudioProcessor,
                   public ChangeBroadcaster

@@ -2,6 +2,9 @@
 
 //==============================================================================
 class ModMatrix;
+
+/** Make your voice inherit from this if it supports modulation
+*/
 class ModVoice
 {
 public:
@@ -38,6 +41,13 @@ private:
 };
 
 //==============================================================================
+/** Add one of these to you Synth if you want to support modulation
+
+    Then add all your parameters
+    Then add all your mod source. Update your mod sources from your processing
+    loop.
+    Always get your parameter values from the mod matrix
+*/
 class ModMatrix
 {
 public:

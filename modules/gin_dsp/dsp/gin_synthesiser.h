@@ -1,4 +1,6 @@
 //==============================================================================
+/** Info on how the voice should glide
+*/
 struct GlideInfo
 {
     int fromNote = 0;
@@ -8,6 +10,8 @@ struct GlideInfo
 };
 
 //==============================================================================
+/** A voice with glide info and fast kill support
+*/
 class SynthesiserVoice : public MPESynthesiserVoice
 {
 public:
@@ -25,6 +29,8 @@ protected:
 };
 
 //==============================================================================
+/** MPESynthesiser with better fast kill, mono and glide support
+*/
 class Synthesiser : public MPESynthesiser
 {
 public:

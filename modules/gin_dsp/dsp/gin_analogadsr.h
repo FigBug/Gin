@@ -9,6 +9,9 @@
 
 #pragma once
 
+/** Analog ADSR. Good for controlling audio levels.
+    Based on the ADSR from the Will Pirkle book
+*/
 class AnalogADSR
 {
 public:

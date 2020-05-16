@@ -1,6 +1,8 @@
 #pragma once
 
 //==============================================================================
+/** A base component for controlling multiple parameters at once
+*/
 class MultiParamComponent : public Component,
                             public Parameter::Listener,
                             private AsyncUpdater

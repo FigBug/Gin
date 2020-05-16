@@ -1,5 +1,7 @@
 #pragma once
 
+/** How long is a note?
+*/
 class NoteDuration
 {
 public:

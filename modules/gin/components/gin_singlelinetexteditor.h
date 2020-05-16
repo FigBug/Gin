@@ -31,6 +31,9 @@
     A TextEditor can either be in single- or multi-line mode, and supports mixed
     fonts and colours.
 
+    This is a hacked up version of the JUCE TextEditor that supports all
+    justification modes
+
     @see TextEditor::Listener, Label
 */
 class SingleLineTextEditor  : public Component,

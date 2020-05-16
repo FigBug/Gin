@@ -2,6 +2,8 @@
 
 class Processor;
 //==============================================================================
+/** A silky smooth parameter
+*/
 template <class T>
 class SmoothedParameter : public gin::Parameter
 {

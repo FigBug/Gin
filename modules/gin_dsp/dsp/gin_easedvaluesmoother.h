@@ -11,8 +11,10 @@
 #pragma once
 
 //==============================================================================
-// Linearly smooths a value in a 0 to 1 range at a constant rate. Time is for
-// from duration from min to max.
+/**
+ Linearly smooths a value in a 0 to 1 range at a constant rate. Time is for
+ from duration from min to max.
+*/
 template <class T>
 class EasedValueSmoother
 {

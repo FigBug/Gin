@@ -1,6 +1,10 @@
 #pragma once
 
 //==============================================================================
+/**
+    The GinLookAndFeel. Black background with while text and controls.
+    Very minimalist.
+*/
 class GinLookAndFeel : public LookAndFeel_V4
 {
 public:

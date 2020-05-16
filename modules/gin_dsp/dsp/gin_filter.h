@@ -10,6 +10,8 @@
 #pragma once
 
 //==============================================================================
+/** Basic multi channel filter
+*/
 class Filter
 {
 public:

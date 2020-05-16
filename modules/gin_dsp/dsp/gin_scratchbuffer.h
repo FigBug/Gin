@@ -11,6 +11,10 @@
 
 class BufferCacheItem;
 
+/** A temporay buffer provided from a list.
+    Get a buffer without allocating.
+    (It does lock however)
+*/
 class ScratchBuffer : public AudioSampleBuffer
 {
 public:
