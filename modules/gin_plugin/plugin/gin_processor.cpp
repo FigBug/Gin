@@ -239,7 +239,7 @@ void Processor::loadAllPrograms()
     // create the default program
     auto defaultProgram = new Program();
     defaultProgram->name = "Default";
-    defaultProgram->saveProcessor (this);
+    defaultProgram->saveProcessor (*this);
 
     programs.add (defaultProgram);
 
