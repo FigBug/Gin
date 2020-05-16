@@ -1,12 +1,12 @@
 #pragma once
 
-class GinProcessor;
+class Processor;
 //==============================================================================
 template <class T>
 class SmoothedParameter : public gin::Parameter
 {
 public:
-    SmoothedParameter (GinProcessor& p, String uid_, String name_, String shortName_, String label_,
+    SmoothedParameter (Processor& p, String uid_, String name_, String shortName_, String label_,
                        float minValue_, float maxValue_,
                        float intervalValue_, float defaultValue_, float skewFactor_ = 1.0f,
                        std::function<String (const Parameter&, float)> textFunction_ = nullptr)
@@ -15,7 +15,7 @@ public:
         smoother.setValue (range.convertTo0to1 (value));
     }
 
-    SmoothedParameter (GinProcessor& p, String uid_, String name_, String shortName_, String label_,
+    SmoothedParameter (Processor& p, String uid_, String name_, String shortName_, String label_,
                        NormalisableRange<float> range_, float defaultValue_,
                        std::function<String (const Parameter&, float)> textFunction_ = nullptr)
         : Parameter (p, uid_, name_, shortName_, label_, range_, defaultValue_, textFunction_)

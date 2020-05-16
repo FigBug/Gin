@@ -1,5 +1,5 @@
 
-Parameter::Parameter (GinProcessor& p, String uid_, String name_, String shortName_,
+Parameter::Parameter (Processor& p, String uid_, String name_, String shortName_,
                       String label_, float minValue, float maxValue,
                       float intervalValue, float defaultValue_, float skewFactor,
                       std::function<String (const Parameter&, float)> textFunction_)
@@ -18,7 +18,7 @@ Parameter::Parameter (GinProcessor& p, String uid_, String name_, String shortNa
     range = NormalisableRange<float> (minValue, maxValue, intervalValue, skewFactor);
 }
 
-Parameter::Parameter (GinProcessor& p, String uid_, String name_, String shortName_,
+Parameter::Parameter (Processor& p, String uid_, String name_, String shortName_,
                       String label_, NormalisableRange<float> range_, float defaultValue_,
                       std::function<String (const Parameter&, float)> textFunction_)
   : processor (p),

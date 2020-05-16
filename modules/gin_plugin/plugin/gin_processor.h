@@ -26,13 +26,13 @@ public:
 //==============================================================================
 /**
 */
-class GinProcessor : public AudioProcessor,
-                     public ChangeBroadcaster
+class Processor : public AudioProcessor,
+                  public ChangeBroadcaster
 {
 public:
     //==============================================================================
-    GinProcessor();
-    ~GinProcessor() override;
+    Processor();
+    ~Processor() override;
 
     void reset() override;
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
@@ -112,10 +112,10 @@ private:
     void updateParams();
 
     int currentProgram = 0;
-    OwnedArray<GinProgram> programs;
+    OwnedArray<Program> programs;
 
     Time lastStateLoad;
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (GinProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Processor)
 };

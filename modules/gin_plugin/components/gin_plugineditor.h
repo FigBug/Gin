@@ -1,18 +1,18 @@
 #pragma once
 
 //==============================================================================
-class GinAudioProcessorEditor;
+class ProcessorEditor;
 class UpdateChecker : public Timer,
                       public Thread
 {
 public:
-    UpdateChecker (GinAudioProcessorEditor& editor_);
+    UpdateChecker (ProcessorEditor& editor_);
     ~UpdateChecker() override;
 
     void timerCallback() override;
     void run() override;
 
-    GinAudioProcessorEditor& editor;
+    ProcessorEditor& editor;
 };
 
 //==============================================================================
@@ -21,7 +21,7 @@ class NewsChecker : public Timer,
                     private AsyncUpdater
 {
 public:
-    NewsChecker (GinAudioProcessorEditor& editor_);
+    NewsChecker (ProcessorEditor& editor_);
     ~NewsChecker() override;
 
 private:
@@ -29,16 +29,16 @@ private:
     void timerCallback() override;
     void run() override;
 
-    GinAudioProcessorEditor& editor;
+    ProcessorEditor& editor;
     
     String newsUrl;
 };
 
 //==============================================================================
-class GinAudioProcessorEditorBase : public AudioProcessorEditor
+class ProcessorEditorBase : public AudioProcessorEditor
 {
 public:
-    GinAudioProcessorEditorBase (GinProcessor& p)
+    ProcessorEditorBase (Processor& p)
       : AudioProcessorEditor (p), proc (p)
     {
     }
@@ -72,23 +72,23 @@ public:
     ComponentBoundsConstrainer resizeLimits;
 
 private:
-    GinProcessor& proc;
+    Processor& proc;
     std::unique_ptr<ResizableCornerComponent> resizer;
 };
 
 //==============================================================================
-class GinAudioProcessorEditor : public GinAudioProcessorEditorBase,
-                                protected Button::Listener,
-                                protected ComboBox::Listener
+class ProcessorEditor : public ProcessorEditorBase,
+                        protected Button::Listener,
+                        protected ComboBox::Listener
 {
 public:
-    GinAudioProcessorEditor (GinProcessor&, int cx = 100, int cy = 100) noexcept;
-    ~GinAudioProcessorEditor() override;
+    ProcessorEditor (Processor&, int cx = 100, int cy = 100) noexcept;
+    ~ProcessorEditor() override;
 
     void updateReady (String updateUrl);
     void newsReady (String newsUrl);
 
-    GinProcessor& slProc;
+    Processor& slProc;
 
     virtual Rectangle<int> getControlsArea();
     virtual Rectangle<int> getGridArea (int x, int y, int w = 1, int h = 1);

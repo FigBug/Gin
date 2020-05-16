@@ -1,6 +1,6 @@
 #pragma once
 
-class GinProcessor;
+class Processor;
 class ModMatrix;
 
 //==============================================================================
@@ -11,12 +11,12 @@ class Parameter : public AudioProcessorParameter,
 public:
     using Ptr = Parameter*;
     
-    Parameter (GinProcessor&, String uid, String name, String shortName, String label,
+    Parameter (Processor&, String uid, String name, String shortName, String label,
                float minValue, float maxValue,
                float intervalValue, float defaultValue, float skewFactor = 1.0f,
                std::function<String (const Parameter&, float)> textFunction = nullptr);
 
-    Parameter (GinProcessor&, String uid, String name, String shortName, String label,
+    Parameter (Processor&, String uid, String name, String shortName, String label,
                NormalisableRange<float> range, float defaultValue,
                std::function<String (const Parameter&, float)> textFunction = nullptr);
 
@@ -105,7 +105,7 @@ public:
     bool isSkewSymmetric()  { return range.symmetricSkew;   }
 
 protected:
-    GinProcessor& processor;
+    Processor& processor;
     
     //==============================================================================
     void handleAsyncUpdate() override;

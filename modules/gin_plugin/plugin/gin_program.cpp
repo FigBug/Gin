@@ -1,5 +1,5 @@
 
-void GinProgram::loadProcessor (GinProcessor* p)
+void Program::loadProcessor (Processor* p)
 {
     for (auto pp : p->getPluginParameters())
         pp->setUserValueNotifingHost (pp->getUserDefaultValue());
@@ -29,7 +29,7 @@ void GinProgram::loadProcessor (GinProcessor* p)
                 pp->setUserValueNotifingHost (state.value);
 }
 
-void GinProgram::saveProcessor (GinProcessor* p)
+void Program::saveProcessor (Processor* p)
 {
     states.clear();
 
@@ -42,7 +42,7 @@ void GinProgram::saveProcessor (GinProcessor* p)
             states.add (param->getState());
 }
 
-void GinProgram::loadFromFile (File f)
+void Program::loadFromFile (File f)
 {
     XmlDocument doc (f);
     std::unique_ptr<XmlElement> rootE (doc.getDocumentElement());
@@ -69,7 +69,7 @@ void GinProgram::loadFromFile (File f)
     }
 }
 
-void GinProgram::saveToDir (File f)
+void Program::saveToDir (File f)
 {
     std::unique_ptr<XmlElement> rootE (new XmlElement ("state"));
 
@@ -90,7 +90,7 @@ void GinProgram::saveToDir (File f)
     xmlFile.replaceWithText (rootE->toString());
 }
 
-void GinProgram::deleteFromDir (File f)
+void Program::deleteFromDir (File f)
 {
     f.getChildFile (File::createLegalFileName (name) + ".xml").deleteFile();
 }

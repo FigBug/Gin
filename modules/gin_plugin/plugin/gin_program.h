@@ -2,14 +2,14 @@
 
 #include "gin_parameter.h"
 
-class GinProcessor;
+class Processor;
 
 //==============================================================================
-class GinProgram
+class Program
 {
 public:
-    void loadProcessor (GinProcessor* p);
-    void saveProcessor (GinProcessor* p);
+    void loadProcessor (Processor* p);
+    void saveProcessor (Processor* p);
 
     void loadFromFile (File f);
     void saveToDir (File f);

@@ -1,7 +1,7 @@
 #include <time.h>
 
 //==============================================================================
-UpdateChecker::UpdateChecker (GinAudioProcessorEditor& editor_)
+UpdateChecker::UpdateChecker (ProcessorEditor& editor_)
   : Thread ("Update"), editor (editor_)
 {
     if (std::unique_ptr<PropertiesFile> props = editor.slProc.getSettings())
@@ -61,7 +61,7 @@ void UpdateChecker::run()
 }
 
 //==============================================================================
-NewsChecker::NewsChecker (GinAudioProcessorEditor& editor_)
+NewsChecker::NewsChecker (ProcessorEditor& editor_)
     : Thread ("News"), editor (editor_)
 {
     if (std::unique_ptr<PropertiesFile> props = editor.slProc.getSettings())
@@ -136,8 +136,8 @@ void NewsChecker::handleAsyncUpdate()
 }
 
 //==============================================================================
-GinAudioProcessorEditor::GinAudioProcessorEditor (GinProcessor& p, int cx_, int cy_) noexcept
-  : GinAudioProcessorEditorBase (p), slProc (p), cx (cx_), cy (cy_)
+ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_) noexcept
+  : ProcessorEditorBase (p), slProc (p), cx (cx_), cy (cy_)
 {
     setLookAndFeel (&slProc.lf.get());
 
@@ -173,19 +173,19 @@ GinAudioProcessorEditor::GinAudioProcessorEditor (GinProcessor& p, int cx_, int 
     newsChecker = std::make_unique<NewsChecker> (*this);
 }
 
-GinAudioProcessorEditor::~GinAudioProcessorEditor()
+ProcessorEditor::~ProcessorEditor()
 {
     setLookAndFeel (nullptr);
 }
 
-void GinAudioProcessorEditor::paint (Graphics& g)
+void ProcessorEditor::paint (Graphics& g)
 {
     g.fillAll (Colours::black);
 }
 
-void GinAudioProcessorEditor::resized()
+void ProcessorEditor::resized()
 {
-    GinAudioProcessorEditorBase::resized();
+    ProcessorEditorBase::resized();
 
     const int pw = 100;
     const int ph = 20;
@@ -201,22 +201,22 @@ void GinAudioProcessorEditor::resized()
     updateButton.setBounds (helpButton.getBounds().translated (- ph - 5, 0));
 }
 
-Rectangle<int> GinAudioProcessorEditor::getControlsArea()
+Rectangle<int> ProcessorEditor::getControlsArea()
 {
     return getLocalBounds();
 }
 
-Rectangle<int> GinAudioProcessorEditor::getFullGridArea()
+Rectangle<int> ProcessorEditor::getFullGridArea()
 {
     return Rectangle<int> (inset, headerHeight + inset, cx * cols + extraWidthPx, cy * rows + extraHeightPx);
 }
 
-Rectangle<int> GinAudioProcessorEditor::getGridArea (int x, int y, int w, int h)
+Rectangle<int> ProcessorEditor::getGridArea (int x, int y, int w, int h)
 {
     return Rectangle<int> (inset + x * cx, headerHeight + y * cy + inset, w * cx, h * cy);
 }
 
-ParamComponent* GinAudioProcessorEditor::componentForId (const String& uid)
+ParamComponent* ProcessorEditor::componentForId (const String& uid)
 {
     for (auto* c : controls)
     {
@@ -226,7 +226,7 @@ ParamComponent* GinAudioProcessorEditor::componentForId (const String& uid)
     return nullptr;
 }
 
-ParamComponent* GinAudioProcessorEditor::componentForParam (Parameter& param)
+ParamComponent* ProcessorEditor::componentForParam (Parameter& param)
 {
     auto uid = param.getUid();
     for (auto* c : controls)
@@ -237,7 +237,7 @@ ParamComponent* GinAudioProcessorEditor::componentForParam (Parameter& param)
     return nullptr;
 }
 
-void GinAudioProcessorEditor::setGridSize (int x, int y, int extraWidthPx_, int extraHeightPx_)
+void ProcessorEditor::setGridSize (int x, int y, int extraWidthPx_, int extraHeightPx_)
 {
     cols = x;
     rows = y;
@@ -248,7 +248,7 @@ void GinAudioProcessorEditor::setGridSize (int x, int y, int extraWidthPx_, int 
              y * cy + inset * 2 + headerHeight + extraHeightPx);
 }
 
-void GinAudioProcessorEditor::refreshPrograms()
+void ProcessorEditor::refreshPrograms()
 {
     programs.clear();
 
@@ -259,7 +259,7 @@ void GinAudioProcessorEditor::refreshPrograms()
     deleteButton.setEnabled (slProc.getCurrentProgram() != 0);
 }
 
-void GinAudioProcessorEditor::buttonClicked (Button* b)
+void ProcessorEditor::buttonClicked (Button* b)
 {
     if (b == &addButton)
     {
@@ -342,7 +342,7 @@ void GinAudioProcessorEditor::buttonClicked (Button* b)
     }
 }
 
-void GinAudioProcessorEditor::comboBoxChanged (ComboBox* c)
+void ProcessorEditor::comboBoxChanged (ComboBox* c)
 {
     if (c == &programs)
     {
@@ -352,13 +352,13 @@ void GinAudioProcessorEditor::comboBoxChanged (ComboBox* c)
     }
 }
 
-void GinAudioProcessorEditor::updateReady (String updateUrl_)
+void ProcessorEditor::updateReady (String updateUrl_)
 {
     updateUrl = updateUrl_;
     updateButton.setVisible (true);
 }
 
-void GinAudioProcessorEditor::newsReady (String newsUrl_)
+void ProcessorEditor::newsReady (String newsUrl_)
 {
     newsUrl = newsUrl_;
     newsButton.setVisible (true);

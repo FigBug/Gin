@@ -1,6 +1,6 @@
 
 //==============================================================================
-GinProcessor::GinProcessor()
+Processor::Processor()
 {
     loadAllPrograms();
 
@@ -9,11 +9,11 @@ GinProcessor::GinProcessor()
     stateUpdated();
 }
 
-GinProcessor::~GinProcessor()
+Processor::~Processor()
 {
 }
 
-std::unique_ptr<PropertiesFile> GinProcessor::getSettings()
+std::unique_ptr<PropertiesFile> Processor::getSettings()
 {
 #if JUCE_MAC
     File dir = File::getSpecialLocation (File::userApplicationDataDirectory).getChildFile ("Preferences").getChildFile ("SocaLabs");
@@ -28,19 +28,19 @@ std::unique_ptr<PropertiesFile> GinProcessor::getSettings()
 }
 
 //==============================================================================
-void GinProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
+void Processor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     for (auto p : getPluginParameters())
         p->prepareToPlay (sampleRate, samplesPerBlock);
 }
 
-void GinProcessor::reset()
+void Processor::reset()
 {
     for (auto p : getPluginParameters())
         p->reset();
 }
 
-bool GinProcessor::isSmoothing()
+bool Processor::isSmoothing()
 {
     for (auto p : allParameters)
         if (p->isSmoothingActive())
@@ -49,7 +49,7 @@ bool GinProcessor::isSmoothing()
     return false;
 }
 
-void GinProcessor::addPluginParameter (Parameter* p)
+void Processor::addPluginParameter (Parameter* p)
 {
     addParameter (p);
     allParameters.add (p);
@@ -57,10 +57,10 @@ void GinProcessor::addPluginParameter (Parameter* p)
     parameterMap[p->getUid()] = p;
 }
 
-Parameter* GinProcessor::createParam (String uid, String name, String shortName, String label,
-                                      NormalisableRange<float> range, float defaultValue,
-                                      SmoothingType st,
-                                      std::function<String (const Parameter&, float)> textFunction)
+Parameter* Processor::createParam (String uid, String name, String shortName, String label,
+                                   NormalisableRange<float> range, float defaultValue,
+                                   SmoothingType st,
+                                   std::function<String (const Parameter&, float)> textFunction)
 {
     Parameter* p = nullptr;
 
@@ -88,10 +88,10 @@ Parameter* GinProcessor::createParam (String uid, String name, String shortName,
     return p;
 }
 
-Parameter* GinProcessor::addIntParam (String uid, String name, String shortName, String label,
-                                      NormalisableRange<float> range, float defaultValue,
-                                      SmoothingType st,
-                                      std::function<String (const Parameter&, float)> textFunction)
+Parameter* Processor::addIntParam (String uid, String name, String shortName, String label,
+                                   NormalisableRange<float> range, float defaultValue,
+                                   SmoothingType st,
+                                   std::function<String (const Parameter&, float)> textFunction)
 {
     if (auto p = createParam (uid, name, shortName, label, range, defaultValue, st, textFunction))
     {
@@ -104,10 +104,10 @@ Parameter* GinProcessor::addIntParam (String uid, String name, String shortName,
     return nullptr;
 }
 
-Parameter* GinProcessor::addExtParam (String uid, String name, String shortName, String label,
-                                      NormalisableRange<float> range, float defaultValue,
-                                      SmoothingType st,
-                                      std::function<String (const Parameter&, float)> textFunction)
+Parameter* Processor::addExtParam (String uid, String name, String shortName, String label,
+                                   NormalisableRange<float> range, float defaultValue,
+                                   SmoothingType st,
+                                   std::function<String (const Parameter&, float)> textFunction)
 {
     if (auto p = createParam (uid, name, shortName, label, range, defaultValue, st, textFunction))
     {
@@ -119,7 +119,7 @@ Parameter* GinProcessor::addExtParam (String uid, String name, String shortName,
     return nullptr;
 }
 
-Parameter* GinProcessor::getParameter (const String& uid)
+Parameter* Processor::getParameter (const String& uid)
 {
     if (parameterMap.find (uid) != parameterMap.end())
         return parameterMap[uid];
@@ -127,7 +127,7 @@ Parameter* GinProcessor::getParameter (const String& uid)
     return nullptr;
 }
 
-float GinProcessor::parameterValue (const String& uid)
+float Processor::parameterValue (const String& uid)
 {
     if (parameterMap.find (uid) != parameterMap.end())
         return parameterMap[uid]->getUserValue();
@@ -135,7 +135,7 @@ float GinProcessor::parameterValue (const String& uid)
     return 0;
 }
 
-int GinProcessor::parameterIntValue (const String& uid)
+int Processor::parameterIntValue (const String& uid)
 {
     if (parameterMap.find (uid) != parameterMap.end())
         return int (parameterMap[uid]->getUserValue());
@@ -143,7 +143,7 @@ int GinProcessor::parameterIntValue (const String& uid)
     return 0;
 }
 
-bool GinProcessor::parameterBoolValue (const String& uid)
+bool Processor::parameterBoolValue (const String& uid)
 {
     if (parameterMap.find (uid) != parameterMap.end())
         return parameterMap[uid]->getUserValue() > 0;
@@ -151,13 +151,13 @@ bool GinProcessor::parameterBoolValue (const String& uid)
     return false;
 }
 
-const Array<Parameter*>& GinProcessor::getPluginParameters()
+const Array<Parameter*>& Processor::getPluginParameters()
 {
     return allParameters;
 }
 
 //==============================================================================
-const String GinProcessor::getName() const
+const String Processor::getName() const
 {
    #ifdef JucePlugin_Name
     return JucePlugin_Name;
@@ -166,7 +166,7 @@ const String GinProcessor::getName() const
    #endif
 }
 
-bool GinProcessor::acceptsMidi() const
+bool Processor::acceptsMidi() const
 {
    #if JucePlugin_WantsMidiInput
     return true;
@@ -175,7 +175,7 @@ bool GinProcessor::acceptsMidi() const
    #endif
 }
 
-bool GinProcessor::producesMidi() const
+bool Processor::producesMidi() const
 {
    #if JucePlugin_ProducesMidiOutput
     return true;
@@ -184,22 +184,22 @@ bool GinProcessor::producesMidi() const
    #endif
 }
 
-double GinProcessor::getTailLengthSeconds() const
+double Processor::getTailLengthSeconds() const
 {
     return 0.0;
 }
 
-int GinProcessor::getNumPrograms()
+int Processor::getNumPrograms()
 {
     return programs.size();
 }
 
-int GinProcessor::getCurrentProgram()
+int Processor::getCurrentProgram()
 {
     return currentProgram;
 }
 
-void GinProcessor::setCurrentProgram (int index)
+void Processor::setCurrentProgram (int index)
 {
     if (index == getCurrentProgram())
         return;
@@ -217,12 +217,12 @@ void GinProcessor::setCurrentProgram (int index)
     }
 }
 
-const String GinProcessor::getProgramName (int index)
+const String Processor::getProgramName (int index)
 {
     return programs[index]->name;
 }
 
-void GinProcessor::changeProgramName (int index, const String& newName)
+void Processor::changeProgramName (int index, const String& newName)
 {
     programs[index]->deleteFromDir (getProgramDirectory());
     programs[index]->name = newName;
@@ -232,12 +232,12 @@ void GinProcessor::changeProgramName (int index, const String& newName)
     sendChangeMessage();
 }
 
-void GinProcessor::loadAllPrograms()
+void Processor::loadAllPrograms()
 {
     programs.clear();
 
     // create the default program
-    auto defaultProgram = new GinProgram();
+    auto defaultProgram = new Program();
     defaultProgram->name = "Default";
     defaultProgram->saveProcessor (this);
 
@@ -252,13 +252,13 @@ void GinProcessor::loadAllPrograms()
 
     for (File f : programFiles)
     {
-        auto program = new GinProgram();
+        auto program = new Program();
         program->loadFromFile (f);
         programs.add (program);
     }
 }
 
-void GinProcessor::extractProgram (const String& name, const MemoryBlock& data)
+void Processor::extractProgram (const String& name, const MemoryBlock& data)
 {
     File dir = getProgramDirectory();
     auto f = dir.getChildFile (name);
@@ -266,13 +266,13 @@ void GinProcessor::extractProgram (const String& name, const MemoryBlock& data)
     {
         f.replaceWithData (data.getData(), data.getSize());
 
-        auto program = new GinProgram();
+        auto program = new Program();
         program->loadFromFile (f);
         programs.add (program);
     }
 }
 
-void GinProcessor::saveProgram (String name)
+void Processor::saveProgram (String name)
 {
     updateState();
 
@@ -280,7 +280,7 @@ void GinProcessor::saveProgram (String name)
         if (programs[i]->name == name)
             deleteProgram (i);
 
-    GinProgram* newProgram = new GinProgram();
+    auto newProgram = new Program();
     newProgram->name = name;
     newProgram->saveProcessor (this);
     newProgram->saveToDir (getProgramDirectory());
@@ -292,7 +292,7 @@ void GinProcessor::saveProgram (String name)
     sendChangeMessage();
 }
 
-void GinProcessor::deleteProgram (int index)
+void Processor::deleteProgram (int index)
 {
     programs[index]->deleteFromDir (getProgramDirectory());
     programs.remove (index);
@@ -303,7 +303,7 @@ void GinProcessor::deleteProgram (int index)
     sendChangeMessage();
 }
 
-File GinProcessor::getProgramDirectory()
+File Processor::getProgramDirectory()
 {
   #ifdef JucePlugin_Name
    #if JUCE_MAC
@@ -324,7 +324,7 @@ File GinProcessor::getProgramDirectory()
 
 //==============================================================================
 
-void GinProcessor::getStateInformation (juce::MemoryBlock& destData)
+void Processor::getStateInformation (juce::MemoryBlock& destData)
 {
     updateState();
 
@@ -355,7 +355,7 @@ void GinProcessor::getStateInformation (juce::MemoryBlock& destData)
     os.write (text.toRawUTF8(), text.getNumBytesAsUTF8());
 }
 
-void GinProcessor::setStateInformation (const void* data, int sizeInBytes)
+void Processor::setStateInformation (const void* data, int sizeInBytes)
 {
     XmlDocument doc (String::fromUTF8 ((const char*)data, sizeInBytes));
     std::unique_ptr<XmlElement> rootE (doc.getDocumentElement());

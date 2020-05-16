@@ -49,7 +49,7 @@ class ControlBox : public MultiParamComponent
 public:
     using ParamComponentPtr = ParamComponent*;
 
-    ControlBox (GinAudioProcessorEditor& e) : editor (e)
+    ControlBox (ProcessorEditor& e) : editor (e)
     {
     }
 
@@ -87,7 +87,7 @@ private:
         g.drawRect (getLocalBounds());
     }
 
-    GinAudioProcessorEditor& editor;
+    ProcessorEditor& editor;
 
     OwnedArray<Component> controls;
     std::map<Component*, int> pages;
@@ -99,7 +99,7 @@ class PagedControlBox : public MultiParamComponent
 public:
     using ParamComponentPtr = ParamComponent*;
     
-    PagedControlBox (GinAudioProcessorEditor& e)
+    PagedControlBox (ProcessorEditor& e)
         : editor (e)
     {
         addAndMakeVisible (cover);
@@ -224,7 +224,7 @@ private:
             g.drawText (name, rcText, Justification::centred);
         }
 
-        Rectangle<int> getGridArea (GinAudioProcessorEditor& e, int x, int y, int w = 1, int h = 1)
+        Rectangle<int> getGridArea (ProcessorEditor& e, int x, int y, int w = 1, int h = 1)
         {
             auto cx = e.getGridWidth();
             auto cy = e.getGridHeight();
@@ -300,7 +300,7 @@ private:
     };
 
     //==============================================================================
-    GinAudioProcessorEditor& editor;
+    ProcessorEditor& editor;
 
     Cover cover;
     OwnedArray<PageComponent> pages;
