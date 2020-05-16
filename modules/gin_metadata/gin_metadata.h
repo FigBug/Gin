@@ -62,10 +62,10 @@ namespace gin
 {
 using namespace juce;
 
-#include "metadata/imagemetadata.h"
-#include "metadata/commentmetadata.h"
-#include "metadata/exifmetadata.h"
-#include "metadata/iptcmetadata.h"
-#include "metadata/xmpmetadata.h"
+#include "metadata/gin_imagemetadata.h"
+#include "metadata/gin_commentmetadata.h"
+#include "metadata/gin_exifmetadata.h"
+#include "metadata/gin_iptcmetadata.h"
+#include "metadata/gin_xmpmetadata.h"
 
 }

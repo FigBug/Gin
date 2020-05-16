@@ -13,12 +13,12 @@
 
 #include "gin_network.h"
 
-#include "network/oauth.cpp"
+#include "network/gin_oauth.cpp"
 
 namespace gin
 {
-#include "network/http.cpp"
-#include "network/securestreamingsocket.cpp"
+#include "network/gin_http.cpp"
+#include "network/gin_securestreamingsocket.cpp"
 }
 
 #if _MSC_VER
@@ -46,5 +46,5 @@ namespace gin
 
 namespace gin
 {
-#include "network/asyncwebsocket.cpp"
+#include "network/gin_asyncwebsocket.cpp"
 }

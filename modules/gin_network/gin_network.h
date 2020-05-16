@@ -62,10 +62,9 @@ namespace gin
 {
 using namespace juce;
 
-#include "network/securestreamingsocket.h"
-#include "network/http.h"
-#include "network/asyncwebsocket.h"
-    
+#include "network/gin_securestreamingsocket.h"
+#include "network/gin_http.h"
+#include "network/gin_asyncwebsocket.h"    
 }
 
-#include "network/oauth.h"
+#include "network/gin_oauth.h"

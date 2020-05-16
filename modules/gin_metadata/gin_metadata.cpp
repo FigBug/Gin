@@ -27,11 +27,11 @@ using namespace juce;
 using juce::Rectangle;
 using juce::MemoryBlock;
 
-#include "metadata/libjpegpng.cpp"
-#include "metadata/commentmetadata.cpp"
-#include "metadata/exifmetadata.cpp"
-#include "metadata/imagemetadata.cpp"
-#include "metadata/iptcmetadata.cpp"
-#include "metadata/xmpmetadata.cpp"
+#include "metadata/gin_libjpegpng.cpp"
+#include "metadata/gin_commentmetadata.cpp"
+#include "metadata/gin_exifmetadata.cpp"
+#include "metadata/gin_imagemetadata.cpp"
+#include "metadata/gin_iptcmetadata.cpp"
+#include "metadata/gin_xmpmetadata.cpp"
 
 }
