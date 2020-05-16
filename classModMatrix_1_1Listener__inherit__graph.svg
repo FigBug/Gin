@@ -17,7 +17,7 @@
 <!-- Node1 -->
 <g id="node2" class="node">
 <title>Node1</title>
-<g id="a_node2"><a xlink:href="classKnob.html" target="_top" xlink:title="Knob">
+<g id="a_node2"><a xlink:href="classKnob.html" target="_top" xlink:title="Slider + editable text for showing a param. ">
 <polygon fill="none" stroke="#000000" points="0,-.5 0,-19.5 39,-19.5 39,-.5 0,-.5"/>
 <text text-anchor="middle" x="19.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">Knob</text>
 </a>
@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="node3" class="node">
 <title>Node2</title>
-<g id="a_node3"><a xlink:href="classModulationOverview.html" target="_top" xlink:title="ModulationOverview">
+<g id="a_node3"><a xlink:href="classModulationOverview.html" target="_top" xlink:title="A button and text readout that shows the current modulation source. ">
 <polygon fill="none" stroke="#000000" points="57,-.5 57,-19.5 162,-19.5 162,-.5 57,-.5"/>
 <text text-anchor="middle" x="109.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">ModulationOverview</text>
 </a>
@@ -47,7 +47,7 @@
 <!-- Node3 -->
 <g id="node4" class="node">
 <title>Node3</title>
-<g id="a_node4"><a xlink:href="classModulationSourceButton.html" target="_top" xlink:title="ModulationSourceButton">
+<g id="a_node4"><a xlink:href="classModulationSourceButton.html" target="_top" xlink:title="A button for enabling modulation learn. ">
 <polygon fill="none" stroke="#000000" points="180,-.5 180,-19.5 303,-19.5 303,-.5 180,-.5"/>
 <text text-anchor="middle" x="241.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">ModulationSourceButton</text>
 </a>

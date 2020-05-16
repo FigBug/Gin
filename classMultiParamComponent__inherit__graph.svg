@@ -17,7 +17,7 @@
 <!-- Node2 -->
 <g id="node3" class="node">
 <title>Node2</title>
-<g id="a_node3"><a xlink:href="classADSRComponent.html" target="_top" xlink:title="ADSRComponent">
+<g id="a_node3"><a xlink:href="classADSRComponent.html" target="_top" xlink:title="Component for adjuting ADSR curves. ">
 <polygon fill="none" stroke="#000000" points="0,-.5 0,-19.5 95,-19.5 95,-.5 0,-.5"/>
 <text text-anchor="middle" x="47.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">ADSRComponent</text>
 </a>
@@ -32,7 +32,7 @@
 <!-- Node3 -->
 <g id="node4" class="node">
 <title>Node3</title>
-<g id="a_node4"><a xlink:href="classControlBox.html" target="_top" xlink:title="ControlBox">
+<g id="a_node4"><a xlink:href="classControlBox.html" target="_top" xlink:title="A box for holding controls on a grid. ">
 <polygon fill="none" stroke="#000000" points="113,-.5 113,-19.5 178,-19.5 178,-.5 113,-.5"/>
 <text text-anchor="middle" x="145.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">ControlBox</text>
 </a>
@@ -47,7 +47,7 @@
 <!-- Node4 -->
 <g id="node5" class="node">
 <title>Node4</title>
-<g id="a_node5"><a xlink:href="classLFOComponent.html" target="_top" xlink:title="LFOComponent">
+<g id="a_node5"><a xlink:href="classLFOComponent.html" target="_top" xlink:title="Draws an LFO curve and shows a little dot moving long. ">
 <polygon fill="none" stroke="#000000" points="196.5,-.5 196.5,-19.5 282.5,-19.5 282.5,-.5 196.5,-.5"/>
 <text text-anchor="middle" x="239.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">LFOComponent</text>
 </a>
@@ -62,7 +62,7 @@
 <!-- Node5 -->
 <g id="node6" class="node">
 <title>Node5</title>
-<g id="a_node6"><a xlink:href="classPagedControlBox.html" target="_top" xlink:title="PagedControlBox">
+<g id="a_node6"><a xlink:href="classPagedControlBox.html" target="_top" xlink:title="A control for holding pags of controls on a grid Pages slide over top of each other to make room...">
 <polygon fill="none" stroke="#000000" points="301,-.5 301,-19.5 394,-19.5 394,-.5 301,-.5"/>
 <text text-anchor="middle" x="347.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">PagedControlBox</text>
 </a>

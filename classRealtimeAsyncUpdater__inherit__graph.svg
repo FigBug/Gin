@@ -17,7 +17,7 @@
 <!-- Node1 -->
 <g id="node2" class="node">
 <title>Node1</title>
-<g id="a_node2"><a xlink:href="classParameter.html" target="_top" xlink:title="Parameter">
+<g id="a_node2"><a xlink:href="classParameter.html" target="_top" xlink:title="A parameter with user values, real time safe callbacks, modulation, and all sorts of other fancy stuf...">
 <polygon fill="none" stroke="#000000" points="28,-.5 28,-19.5 90,-19.5 90,-.5 28,-.5"/>
 <text text-anchor="middle" x="59" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">Parameter</text>
 </a>

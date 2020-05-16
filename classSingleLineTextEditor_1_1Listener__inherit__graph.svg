@@ -18,7 +18,7 @@
 <!-- Node1 -->
 <g id="node2" class="node">
 <title>Node1</title>
-<g id="a_node2"><a xlink:href="classReadout.html" target="_top" xlink:title="Readout">
+<g id="a_node2"><a xlink:href="classReadout.html" target="_top" xlink:title="A control for displaying a parameter. ">
 <polygon fill="none" stroke="#000000" points="27,-.5 27,-19.5 80,-19.5 80,-.5 27,-.5"/>
 <text text-anchor="middle" x="53.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">Readout</text>
 </a>

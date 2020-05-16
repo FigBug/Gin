@@ -17,7 +17,7 @@
 <!-- Node2 -->
 <g id="node3" class="node">
 <title>Node2</title>
-<g id="a_node3"><a xlink:href="classPowerButton.html" target="_top" xlink:title="PowerButton">
+<g id="a_node3"><a xlink:href="classPowerButton.html" target="_top" xlink:title="Circle with line power button for controlling a Parameter. ">
 <polygon fill="none" stroke="#000000" points="14.5,-.5 14.5,-19.5 87.5,-19.5 87.5,-.5 14.5,-.5"/>
 <text text-anchor="middle" x="51" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">PowerButton</text>
 </a>

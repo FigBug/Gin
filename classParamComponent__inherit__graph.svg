@@ -17,7 +17,7 @@
 <!-- Node1 -->
 <g id="node2" class="node">
 <title>Node1</title>
-<g id="a_node2"><a xlink:href="classHorizontalFader.html" target="_top" xlink:title="HorizontalFader">
+<g id="a_node2"><a xlink:href="classHorizontalFader.html" target="_top" xlink:title="Horizontal slider wth text for controlling a param. ">
 <polygon fill="none" stroke="#000000" points="0,-.5 0,-19.5 86,-19.5 86,-.5 0,-.5"/>
 <text text-anchor="middle" x="43" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">HorizontalFader</text>
 </a>
@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="node3" class="node">
 <title>Node2</title>
-<g id="a_node3"><a xlink:href="classKnob.html" target="_top" xlink:title="Knob">
+<g id="a_node3"><a xlink:href="classKnob.html" target="_top" xlink:title="Slider + editable text for showing a param. ">
 <polygon fill="none" stroke="#000000" points="104.5,-.5 104.5,-19.5 143.5,-19.5 143.5,-.5 104.5,-.5"/>
 <text text-anchor="middle" x="124" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">Knob</text>
 </a>
@@ -47,7 +47,7 @@
 <!-- Node3 -->
 <g id="node4" class="node">
 <title>Node3</title>
-<g id="a_node4"><a xlink:href="classSelect.html" target="_top" xlink:title="Select">
+<g id="a_node4"><a xlink:href="classSelect.html" target="_top" xlink:title="Control for picking param value with label. ">
 <polygon fill="none" stroke="#000000" points="162,-.5 162,-19.5 206,-19.5 206,-.5 162,-.5"/>
 <text text-anchor="middle" x="184" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">Select</text>
 </a>
@@ -62,7 +62,7 @@
 <!-- Node4 -->
 <g id="node5" class="node">
 <title>Node4</title>
-<g id="a_node5"><a xlink:href="classSwitch.html" target="_top" xlink:title="Switch">
+<g id="a_node5"><a xlink:href="classSwitch.html" target="_top" xlink:title="Control for toggling param with label. ">
 <polygon fill="none" stroke="#000000" points="224.5,-.5 224.5,-19.5 271.5,-19.5 271.5,-.5 224.5,-.5"/>
 <text text-anchor="middle" x="248" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">Switch</text>
 </a>

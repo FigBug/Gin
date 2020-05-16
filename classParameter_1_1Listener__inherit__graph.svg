@@ -17,7 +17,7 @@
 <!-- Node1 -->
 <g id="node2" class="node">
 <title>Node1</title>
-<g id="a_node2"><a xlink:href="classMultiParamComponent.html" target="_top" xlink:title="MultiParamComponent">
+<g id="a_node2"><a xlink:href="classMultiParamComponent.html" target="_top" xlink:title="A base component for controlling multiple parameters at once. ">
 <polygon fill="none" stroke="#000000" points="181.5,-56.5 181.5,-75.5 297.5,-75.5 297.5,-56.5 181.5,-56.5"/>
 <text text-anchor="middle" x="239.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">MultiParamComponent</text>
 </a>
@@ -32,7 +32,7 @@
 <!-- Node6 -->
 <g id="node7" class="node">
 <title>Node6</title>
-<g id="a_node7"><a xlink:href="classPluginButton.html" target="_top" xlink:title="PluginButton">
+<g id="a_node7"><a xlink:href="classPluginButton.html" target="_top" xlink:title="Button for toggling a parameter. ">
 <polygon fill="none" stroke="#000000" points="363.5,-56.5 363.5,-75.5 435.5,-75.5 435.5,-56.5 363.5,-56.5"/>
 <text text-anchor="middle" x="399.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">PluginButton</text>
 </a>
@@ -47,7 +47,7 @@
 <!-- Node8 -->
 <g id="node9" class="node">
 <title>Node8</title>
-<g id="a_node9"><a xlink:href="classPluginComboBox.html" target="_top" xlink:title="PluginComboBox">
+<g id="a_node9"><a xlink:href="classPluginComboBox.html" target="_top" xlink:title="A control for selecting param values from a dropbox. ">
 <polygon fill="none" stroke="#000000" points="453.5,-56.5 453.5,-75.5 545.5,-75.5 545.5,-56.5 453.5,-56.5"/>
 <text text-anchor="middle" x="499.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">PluginComboBox</text>
 </a>
@@ -62,7 +62,7 @@
 <!-- Node9 -->
 <g id="node10" class="node">
 <title>Node9</title>
-<g id="a_node10"><a xlink:href="classPluginSlider.html" target="_top" xlink:title="PluginSlider">
+<g id="a_node10"><a xlink:href="classPluginSlider.html" target="_top" xlink:title="A slider for controlling a parameter. ">
 <polygon fill="none" stroke="#000000" points="563.5,-56.5 563.5,-75.5 631.5,-75.5 631.5,-56.5 563.5,-56.5"/>
 <text text-anchor="middle" x="597.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">PluginSlider</text>
 </a>
@@ -77,7 +77,7 @@
 <!-- Node10 -->
 <g id="node11" class="node">
 <title>Node10</title>
-<g id="a_node11"><a xlink:href="classReadout.html" target="_top" xlink:title="Readout">
+<g id="a_node11"><a xlink:href="classReadout.html" target="_top" xlink:title="A control for displaying a parameter. ">
 <polygon fill="none" stroke="#000000" points="650,-56.5 650,-75.5 703,-75.5 703,-56.5 650,-56.5"/>
 <text text-anchor="middle" x="676.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">Readout</text>
 </a>
@@ -92,7 +92,7 @@
 <!-- Node2 -->
 <g id="node3" class="node">
 <title>Node2</title>
-<g id="a_node3"><a xlink:href="classADSRComponent.html" target="_top" xlink:title="ADSRComponent">
+<g id="a_node3"><a xlink:href="classADSRComponent.html" target="_top" xlink:title="Component for adjuting ADSR curves. ">
 <polygon fill="none" stroke="#000000" points="0,-.5 0,-19.5 95,-19.5 95,-.5 0,-.5"/>
 <text text-anchor="middle" x="47.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">ADSRComponent</text>
 </a>
@@ -107,7 +107,7 @@
 <!-- Node3 -->
 <g id="node4" class="node">
 <title>Node3</title>
-<g id="a_node4"><a xlink:href="classControlBox.html" target="_top" xlink:title="ControlBox">
+<g id="a_node4"><a xlink:href="classControlBox.html" target="_top" xlink:title="A box for holding controls on a grid. ">
 <polygon fill="none" stroke="#000000" points="113,-.5 113,-19.5 178,-19.5 178,-.5 113,-.5"/>
 <text text-anchor="middle" x="145.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">ControlBox</text>
 </a>
@@ -122,7 +122,7 @@
 <!-- Node4 -->
 <g id="node5" class="node">
 <title>Node4</title>
-<g id="a_node5"><a xlink:href="classLFOComponent.html" target="_top" xlink:title="LFOComponent">
+<g id="a_node5"><a xlink:href="classLFOComponent.html" target="_top" xlink:title="Draws an LFO curve and shows a little dot moving long. ">
 <polygon fill="none" stroke="#000000" points="196.5,-.5 196.5,-19.5 282.5,-19.5 282.5,-.5 196.5,-.5"/>
 <text text-anchor="middle" x="239.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">LFOComponent</text>
 </a>
@@ -137,7 +137,7 @@
 <!-- Node5 -->
 <g id="node6" class="node">
 <title>Node5</title>
-<g id="a_node6"><a xlink:href="classPagedControlBox.html" target="_top" xlink:title="PagedControlBox">
+<g id="a_node6"><a xlink:href="classPagedControlBox.html" target="_top" xlink:title="A control for holding pags of controls on a grid Pages slide over top of each other to make room...">
 <polygon fill="none" stroke="#000000" points="301,-.5 301,-19.5 394,-19.5 394,-.5 301,-.5"/>
 <text text-anchor="middle" x="347.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">PagedControlBox</text>
 </a>
@@ -152,7 +152,7 @@
 <!-- Node7 -->
 <g id="node8" class="node">
 <title>Node7</title>
-<g id="a_node8"><a xlink:href="classPowerButton.html" target="_top" xlink:title="PowerButton">
+<g id="a_node8"><a xlink:href="classPowerButton.html" target="_top" xlink:title="Circle with line power button for controlling a Parameter. ">
 <polygon fill="none" stroke="#000000" points="412,-.5 412,-19.5 485,-19.5 485,-.5 412,-.5"/>
 <text text-anchor="middle" x="448.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">PowerButton</text>
 </a>

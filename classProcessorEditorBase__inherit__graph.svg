@@ -17,7 +17,7 @@
 <!-- Node1 -->
 <g id="node2" class="node">
 <title>Node1</title>
-<g id="a_node2"><a xlink:href="classProcessorEditor.html" target="_top" xlink:title="ProcessorEditor">
+<g id="a_node2"><a xlink:href="classProcessorEditor.html" target="_top" xlink:title="Plugin editor. ">
 <polygon fill="none" stroke="#000000" points="11.5,-.5 11.5,-19.5 97.5,-19.5 97.5,-.5 11.5,-.5"/>
 <text text-anchor="middle" x="54.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">ProcessorEditor</text>
 </a>
