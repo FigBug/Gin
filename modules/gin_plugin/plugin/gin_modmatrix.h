@@ -54,6 +54,7 @@ private:
 class ModMatrix
 {
 public:
+    ModMatrix() = default;
 
     //==============================================================================
     void stateUpdated (const ValueTree& vt);
