@@ -14,8 +14,11 @@ jobs:
 
       - name: Build Docs
         run: |
+          sudo apt-get update
+          sudo apt-get upgrade
           sudo apt-get install doxygen
           sudo apt-get install graphviz
+          sudo apt-get install rsync
           cd doxygen
           make
 
