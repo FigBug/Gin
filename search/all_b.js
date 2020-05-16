@@ -12,7 +12,7 @@ var searchData=
   ['mixtogain',['mixToGain',['../classWetDryMix.html#a6a642b5b4d79eb59f61ccfd70c67ae77',1,'WetDryMix']]],
   ['mode',['mode',['../classEnvelopeDetector.html#a1804f11c1918ee0aeee94093a3057415',1,'EnvelopeDetector::mode()'],['../classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4',1,'EnvelopeDetector::Mode()']]],
   ['modindex',['modIndex',['../classParameter.html#a7310a6224d36ab27a14237aab7d8fadd',1,'Parameter']]],
-  ['modmatrix',['ModMatrix',['../classModMatrix.html',1,'ModMatrix'],['../classParameter.html#a30f079fa8ecf5c5cd5735777e1ba74c8',1,'Parameter::modMatrix()']]],
+  ['modmatrix',['ModMatrix',['../classModMatrix.html',1,'ModMatrix'],['../classParameter.html#a30f079fa8ecf5c5cd5735777e1ba74c8',1,'Parameter::modMatrix()'],['../classModMatrix.html#a923354065c39928704876d0b29e568c9',1,'ModMatrix::ModMatrix()']]],
   ['modmatrixchanged',['modMatrixChanged',['../classModMatrix_1_1Listener.html#a6d4c1fcaddd8a3f77a0b25813919eae3',1,'ModMatrix::Listener']]],
   ['modsrclistbox',['ModSrcListBox',['../classModSrcListBox.html',1,'ModSrcListBox'],['../classModSrcListBox.html#a5c4217751fb20f7a41b4734d179d85b3',1,'ModSrcListBox::ModSrcListBox()']]],
   ['modulation',['Modulation',['../classModulation.html',1,'Modulation'],['../classModulation.html#ad69ae957b7a70669951f70d3372ffb46',1,'Modulation::Modulation()']]],

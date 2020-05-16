@@ -5928,6 +5928,13 @@
     <filename>classModMatrix.html</filename>
     <class kind="class">ModMatrix::Listener</class>
     <member kind="function">
+      <type></type>
+      <name>ModMatrix</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a923354065c39928704876d0b29e568c9</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>stateUpdated</name>
       <anchorfile>classModMatrix.html</anchorfile>
