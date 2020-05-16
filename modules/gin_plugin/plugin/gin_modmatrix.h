@@ -9,7 +9,7 @@ class ModVoice
 {
 public:
     virtual ~ModVoice() = default;
-    
+
     float getValue (Parameter* p);
 
     void finishBlock (int numSamples)
@@ -17,7 +17,7 @@ public:
         for (auto& s : smoothers)
             s.process (numSamples);
     }
-    
+
     void snapParams()
     {
         for (auto& s : smoothers)
@@ -30,7 +30,7 @@ public:
     int getAge()    { return age; }
 
     virtual bool isVoiceActive() = 0;
-    
+
 private:
     friend ModMatrix;
 
@@ -192,7 +192,7 @@ public:
 
         voice.values.setUnchecked (id, value);
     }
-    
+
     void finishBlock (int numSamples)
     {
         for (auto& s : smoothers)
@@ -214,7 +214,7 @@ public:
     int getLearn()                      { return learnSource;           }
 
     //==============================================================================
-	int getNumModSources()				{ return sources.size();		}
+    int getNumModSources()              { return sources.size();        }
     String getModSrcName (int src)      { return sources[src].name;     }
     bool getModSrcPoly (int src)        { return sources[src].poly;     }
     bool getModSrcBipolar (int src)     { return sources[src].bipolar;  }
@@ -232,8 +232,8 @@ public:
     {
     public:
         virtual ~Listener() = default;
-		virtual void modMatrixChanged()			{}
-		virtual void learnSourceChanged (int) 	{}
+        virtual void modMatrixChanged()         {}
+        virtual void learnSourceChanged (int)   {}
     };
 
     void addListener (Listener* l)      { listeners.add (l);            }

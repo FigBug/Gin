@@ -199,64 +199,64 @@ private:
 /** A list box of al mod sources
 */
 class ModSrcListBox : public ListBox,
-					  private ListBoxModel
+                      private ListBoxModel
 {
 public:
-	ModSrcListBox (ModMatrix& m)
-		: modMatrix (m)
-	{
-		setModel (this);
-		updateContent();
-		setRowHeight (16);
-	}
+    ModSrcListBox (ModMatrix& m)
+        : modMatrix (m)
+    {
+        setModel (this);
+        updateContent();
+        setRowHeight (16);
+    }
 
-	int getNumRows() override
-	{
-		return modMatrix.getNumModSources();
-	}
+    int getNumRows() override
+    {
+        return modMatrix.getNumModSources();
+    }
 
-	void paintListBoxItem (int, Graphics&, int, int, bool) override {}
+    void paintListBoxItem (int, Graphics&, int, int, bool) override {}
 
-	Component* refreshComponentForRow (int row, bool, Component* c) override
-	{
-		auto rowComponent = (Row*)c;
-		if (rowComponent == nullptr)
-			rowComponent = new Row (modMatrix);
+    Component* refreshComponentForRow (int row, bool, Component* c) override
+    {
+        auto rowComponent = (Row*)c;
+        if (rowComponent == nullptr)
+            rowComponent = new Row (modMatrix);
 
-		rowComponent->update (row);
-		return rowComponent;
-	}
+        rowComponent->update (row);
+        return rowComponent;
+    }
 
 private:
-	class Row : public Component
-	{
-	public:
-		Row (ModMatrix& m)
-			: modMatrix (m)
-		{
-			addAndMakeVisible (text);
-			addAndMakeVisible (src);
-		}
+    class Row : public Component
+    {
+    public:
+        Row (ModMatrix& m)
+            : modMatrix (m)
+        {
+            addAndMakeVisible (text);
+            addAndMakeVisible (src);
+        }
 
-		void update (int idx)
-		{
-			text.setText (modMatrix.getModSrcName (idx), dontSendNotification);
-			src.setSource (idx, modMatrix.getModSrcPoly (idx));
-		}
+        void update (int idx)
+        {
+            text.setText (modMatrix.getModSrcName (idx), dontSendNotification);
+            src.setSource (idx, modMatrix.getModSrcPoly (idx));
+        }
 
-		void resized() override
-		{
-			auto rc = getLocalBounds().reduced (2);
-			src.setBounds (rc.removeFromRight (rc.getHeight()));
-			rc.removeFromRight (4);
-			text.setBounds (rc);
-		}
+        void resized() override
+        {
+            auto rc = getLocalBounds().reduced (2);
+            src.setBounds (rc.removeFromRight (rc.getHeight()));
+            rc.removeFromRight (4);
+            text.setBounds (rc);
+        }
 
-		ModMatrix& modMatrix;
+        ModMatrix& modMatrix;
 
-		Label text;
-		ModulationSourceButton src { modMatrix };
-	};
+        Label text;
+        ModulationSourceButton src { modMatrix };
+    };
 
-	ModMatrix& modMatrix;
+    ModMatrix& modMatrix;
 };

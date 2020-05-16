@@ -7,7 +7,7 @@ GinLookAndFeel::GinLookAndFeel()
     setColour (GinLookAndFeel::colourId3, Colour (0xffc6c5b9));
     setColour (GinLookAndFeel::colourId4, Colour (0xfff4f4f9));
     setColour (GinLookAndFeel::colourId5, Colour (0xfffdfdff));
-    
+
     setColour (Label::textColourId, defaultColour (4).withAlpha (0.9f));
 
     setColour (Slider::trackColourId, defaultColour (4));
@@ -78,28 +78,28 @@ void GinLookAndFeel::drawRotarySlider (Graphics& g, int x, int y, int width, int
     const float angle = rotaryStartAngle + sliderPos * (rotaryEndAngle - rotaryStartAngle);
     const bool isMouseOver = slider.isMouseOverOrDragging() && slider.isEnabled();
 
-	const float thickness = (radius - 1) / radius;
+    const float thickness = (radius - 1) / radius;
 
-	g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (0.1f));
+    g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (0.1f));
 
-	{
-		Path filledArc;
-		filledArc.addPieSegment (rx, ry, rw, rw, rotaryStartAngle, rotaryEndAngle, thickness);
-		g.fillPath (filledArc);
-	}
+    {
+        Path filledArc;
+        filledArc.addPieSegment (rx, ry, rw, rw, rotaryStartAngle, rotaryEndAngle, thickness);
+        g.fillPath (filledArc);
+    }
 
-	if (slider.isEnabled())
-		g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (isMouseOver ? 0.95f : 0.85f));
+    if (slider.isEnabled())
+        g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (isMouseOver ? 0.95f : 0.85f));
 
     auto fillStartAngle = rotaryStartAngle;
-	if (slider.getProperties().contains ("fromCentre"))
-		fillStartAngle = (rotaryStartAngle + rotaryEndAngle) / 2;
+    if (slider.getProperties().contains ("fromCentre"))
+        fillStartAngle = (rotaryStartAngle + rotaryEndAngle) / 2;
 
-	{
-		Path filledArc;
-		filledArc.addPieSegment (rx, ry, rw, rw, fillStartAngle, angle, thickness);
-		g.fillPath (filledArc);
-	}
+    {
+        Path filledArc;
+        filledArc.addPieSegment (rx, ry, rw, rw, fillStartAngle, angle, thickness);
+        g.fillPath (filledArc);
+    }
 
     if (slider.getProperties().contains ("modDepth"))
     {
@@ -152,7 +152,7 @@ void GinLookAndFeel::drawButtonBackground (Graphics& g, Button& b, const Colour&
         g.setColour (b.findColour (TextButton::buttonOnColourId).withMultipliedAlpha (0.2f));
         g.fillRect (b.getLocalBounds());
     }
-    
+
     g.setColour (b.findColour (TextButton::buttonOnColourId).withMultipliedAlpha (b.isEnabled() ? 1.0f : 0.5f));
     if (b.getToggleState())
         g.fillRect (b.getLocalBounds());

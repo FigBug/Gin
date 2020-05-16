@@ -11,80 +11,80 @@
 class CoalescedTimer
 {
 public:
-	CoalescedTimer () = default;
+    CoalescedTimer () = default;
 
-	void startTimer (int ms)
-	{
-		stopTimer();
+    void startTimer (int ms)
+    {
+        stopTimer();
 
-		delay = ms;
-		sharedTimers->add (this);
-	}
+        delay = ms;
+        sharedTimers->add (this);
+    }
 
-	void startTimerHz (int hz)
-	{
-		if (hz > 0)
-			startTimer (1000 / hz);
-		else
-			stopTimer();
-	}
+    void startTimerHz (int hz)
+    {
+        if (hz > 0)
+            startTimer (1000 / hz);
+        else
+            stopTimer();
+    }
 
-	void stopTimer()
-	{
-		sharedTimers->remove (this);
-		delay = 0;
-	}
+    void stopTimer()
+    {
+        sharedTimers->remove (this);
+        delay = 0;
+    }
 
-	std::function<void ()> onTimer;
+    std::function<void ()> onTimer;
 
 private:
-	class SharedTimer : public Timer
-	{
-	public:
-		void timerCallback() override
-		{
-			for (auto t : timers)
-				if (t->onTimer)
-					t->onTimer ();
-		}
+    class SharedTimer : public Timer
+    {
+    public:
+        void timerCallback() override
+        {
+            for (auto t : timers)
+                if (t->onTimer)
+                    t->onTimer ();
+        }
 
-		Array<CoalescedTimer*> timers;
-	};
+        Array<CoalescedTimer*> timers;
+    };
 
-	class SharedTimers
-	{
-	public:
-		void add (CoalescedTimer* t)
-		{
-			auto itr = timers.find (t->delay);
-			if (itr == timers.end())
-			{
-				auto st = std::make_unique<SharedTimer>();
-				st->timers.add (t);
-				st->startTimer (t->delay);
+    class SharedTimers
+    {
+    public:
+        void add (CoalescedTimer* t)
+        {
+            auto itr = timers.find (t->delay);
+            if (itr == timers.end())
+            {
+                auto st = std::make_unique<SharedTimer>();
+                st->timers.add (t);
+                st->startTimer (t->delay);
 
-				timers[t->delay] = std::move (st);
-			}
-			else
-			{
-				itr->second->timers.add (t);
-			}
-		}
+                timers[t->delay] = std::move (st);
+            }
+            else
+            {
+                itr->second->timers.add (t);
+            }
+        }
 
-		void remove (CoalescedTimer* t)
-		{
-			auto itr = timers.find (t->delay);
-			if (itr != timers.end())
-			{
-				itr->second->timers.removeFirstMatchingValue (t);
-				if (itr->second->timers.size() == 0)
-					timers.erase (t->delay);
-			}
-		}
+        void remove (CoalescedTimer* t)
+        {
+            auto itr = timers.find (t->delay);
+            if (itr != timers.end())
+            {
+                itr->second->timers.removeFirstMatchingValue (t);
+                if (itr->second->timers.size() == 0)
+                    timers.erase (t->delay);
+            }
+        }
 
-		std::map<int, std::unique_ptr<SharedTimer>> timers;
-	};
+        std::map<int, std::unique_ptr<SharedTimer>> timers;
+    };
 
-	int delay = 0;
-	SharedResourcePointer<SharedTimers> sharedTimers;
+    int delay = 0;
+    SharedResourcePointer<SharedTimers> sharedTimers;
 };
