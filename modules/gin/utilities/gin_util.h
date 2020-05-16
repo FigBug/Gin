@@ -8,6 +8,7 @@
 #pragma once
 
 //==============================================================================
+/** Check a bool, it's set, clear and return true */
 inline bool compareAndReset (bool& flag)
 {
     if (flag)
@@ -18,6 +19,7 @@ inline bool compareAndReset (bool& flag)
     return false;
 }
 
+/** Get RMS */
 inline float calculateRMS (const float* values, int n)
 {
     float rms = 0;
@@ -28,6 +30,7 @@ inline float calculateRMS (const float* values, int n)
     return std::sqrt ((1.0f / n) * rms);
 }
 
+/** Get average */
 inline float calculateMedian (const float* values, int n)
 {
     Array<float> f;
@@ -41,7 +44,8 @@ inline float calculateMedian (const float* values, int n)
 }
 
 //==============================================================================
-// Fisher-Yates Shuffle
+/** Fisher-Yates Shuffle for juce::Array
+ */
 template <typename T>
 void shuffleArray (Random& r, T array)
 {
@@ -54,8 +58,11 @@ void shuffleArray (Random& r, T array)
 }
 
 //==============================================================================
-// Based on reference implementation of Perlin Noise by Ken Perlin
-// http://mrl.nyu.edu/~perlin/paper445.pdf
+/**
+ Perlin noise - realistic looking noise
+ Based on reference implementation of Perlin Noise by Ken Perlin
+ http://mrl.nyu.edu/~perlin/paper445.pdf
+ */
 template <class T>
 class PerlinNoise
 {
@@ -147,7 +154,8 @@ private:
 };
 
 //==============================================================================
-// Keeps a rolling average of a series of numbers
+/** Keeps a rolling average of a series of numbers
+ */
 class RollingAverage
 {
 public:
@@ -177,12 +185,14 @@ private:
 };
 
 //==============================================================================
-// Returns the next colour in a set where the hues differ by the golden ratio.
-// Good for coming up with a random set of colours
+/** Returns the next colour in a set where the hues differ by the golden ratio.
+    Good for coming up with a random set of colours
+ */
 Colour goldenRatioColor (int idx);
 
 //==============================================================================
-// Async Download. Doesn't have the main thread pause the URL::downloadToFile has
+/** Async Download. Doesn't have the main thread pause the URL::downloadToFile has
+  */
 class AsyncDownload : private Thread,
                       private AsyncUpdater
 {
@@ -237,7 +247,8 @@ public:
 };
 
 //==============================================================================
-// Time Profiler -- get a quick idea how long something takes
+/** Time Profiler -- get a quick idea how long something takes
+  */
 class TimeProfiler
 {
 public:
@@ -255,6 +266,7 @@ private:
 };
 
 //==============================================================================
+/** Are two floats pretty close? */
 template <typename T>
 inline bool almostEqual (T a, T b, T precision = T (0.00001))
 {
@@ -264,4 +276,5 @@ inline bool almostEqual (T a, T b, T precision = T (0.00001))
 int versionStringToInt (const String& versionString);
 
 //==============================================================================
+/** Do a lambda, a bit later */
 void delayedLambda (std::function<void ()> callback, int delayMS);

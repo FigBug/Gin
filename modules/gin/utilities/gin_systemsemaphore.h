@@ -7,7 +7,8 @@
 
 #pragma once
 
-/*
+/**
+ * A semaphore that works across processes and in one process
  * This is not finished / implemented
  */
 class SystemSemaphore

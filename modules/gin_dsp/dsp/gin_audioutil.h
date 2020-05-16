@@ -70,6 +70,7 @@ private:
 String getMidiMessageType (const MidiMessage& msg);
 
 //==============================================================================
+/** Mix between wet and dry with a nice curve */
 class WetDryMix
 {
 public:
@@ -89,6 +90,7 @@ public:
 };
 
 //==============================================================================
+/** Get a section of an audio buffer */
 inline AudioSampleBuffer sliceBuffer (AudioSampleBuffer& input, int start, int length)
 {
     return AudioSampleBuffer (input.getArrayOfWritePointers(), input.getNumChannels(), start, length);

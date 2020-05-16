@@ -7,6 +7,7 @@
 
 #pragma once
 
+/** Run multiple timers from one juce::Timer per rate */
 class CoalescedTimer
 {
 public:
