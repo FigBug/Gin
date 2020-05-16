@@ -27,6 +27,7 @@ void ADSR::setRelease (float seconds)
 
 void ADSR::setSustainLevel (float level)
 {
+    jassert (level >= 0.0f && level <= 1.0f);
     sustainLevel = level;
 }
 

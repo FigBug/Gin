@@ -33,7 +33,11 @@ public:
     void process (AudioSampleBuffer& buffer);
     void process (AudioSampleBuffer& buffer, int startSample, int numSamples);
 
-    float getOutput()                           { return output;        }
+    float getOutput()
+    {
+        jassert (output >= 0.0f && output <= 1.0f);
+        return output;
+    }
     State getState()                            { return state;         }
 
     void noteOn()                               { state = attack;       }
