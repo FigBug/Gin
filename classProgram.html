@@ -72,10 +72,12 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5527bad78dff0ae5ce1efb2fa6b37b87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgram.html#a5527bad78dff0ae5ce1efb2fa6b37b87">loadProcessor</a> (<a class="el" href="classProcessor.html">Processor</a> *p)</td></tr>
-<tr class="separator:a5527bad78dff0ae5ce1efb2fa6b37b87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94234dd609a73354a391973528fab29b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgram.html#a94234dd609a73354a391973528fab29b">saveProcessor</a> (<a class="el" href="classProcessor.html">Processor</a> *p)</td></tr>
-<tr class="separator:a94234dd609a73354a391973528fab29b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac702b6b062bd2b1aa35003f76a34f2a5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgram.html#ac702b6b062bd2b1aa35003f76a34f2a5">Program</a> ()=default</td></tr>
+<tr class="separator:ac702b6b062bd2b1aa35003f76a34f2a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b90c3645e8e2cad9f006a2373901e2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgram.html#a9b90c3645e8e2cad9f006a2373901e2c">loadProcessor</a> (<a class="el" href="classProcessor.html">Processor</a> &amp;p)</td></tr>
+<tr class="separator:a9b90c3645e8e2cad9f006a2373901e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f805c78d2f7a4ffbd0a98b6435eef0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgram.html#a6f805c78d2f7a4ffbd0a98b6435eef0a">saveProcessor</a> (<a class="el" href="classProcessor.html">Processor</a> &amp;p)</td></tr>
+<tr class="separator:a6f805c78d2f7a4ffbd0a98b6435eef0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfbcf67998e33a092c586cca84e88cf8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgram.html#adfbcf67998e33a092c586cca84e88cf8">loadFromFile</a> (File f)</td></tr>
 <tr class="separator:adfbcf67998e33a092c586cca84e88cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00d6db3802fc4372d3863ce2ae2eed03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgram.html#a00d6db3802fc4372d3863ce2ae2eed03">saveToDir</a> (File f)</td></tr>
@@ -94,9 +96,35 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Save your plugin state. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a5527bad78dff0ae5ce1efb2fa6b37b87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5527bad78dff0ae5ce1efb2fa6b37b87">&#9670;&nbsp;</a></span>loadProcessor()</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac702b6b062bd2b1aa35003f76a34f2a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac702b6b062bd2b1aa35003f76a34f2a5">&#9670;&nbsp;</a></span>Program()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Program::Program </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9b90c3645e8e2cad9f006a2373901e2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b90c3645e8e2cad9f006a2373901e2c">&#9670;&nbsp;</a></span>loadProcessor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -104,7 +132,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">void Program::loadProcessor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classProcessor.html">Processor</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="classProcessor.html">Processor</a> &amp;&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
         </tr>
@@ -113,8 +141,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a94234dd609a73354a391973528fab29b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94234dd609a73354a391973528fab29b">&#9670;&nbsp;</a></span>saveProcessor()</h2>
+<a id="a6f805c78d2f7a4ffbd0a98b6435eef0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f805c78d2f7a4ffbd0a98b6435eef0a">&#9670;&nbsp;</a></span>saveProcessor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -122,7 +150,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">void Program::saveProcessor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classProcessor.html">Processor</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="classProcessor.html">Processor</a> &amp;&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
         </tr>
@@ -234,7 +262,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 16 2020 21:30:00 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 16 2020 23:15:51 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

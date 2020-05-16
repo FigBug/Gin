@@ -5,7 +5,7 @@ var searchData=
   ['sampleoscillator',['SampleOscillator',['../classSampleOscillator.html',1,'SampleOscillator'],['../classSampleOscillator.html#a74f851f7bdfe25d92a5982162a9f8abc',1,'SampleOscillator::SampleOscillator()']]],
   ['samplerate',['sampleRate',['../classADSR.html#a836c5dd7fdafc30acccedb6b8346a86a',1,'ADSR::sampleRate()'],['../classAnalogADSR.html#a06be6a28f94dfa97edc308dfbdb1687a',1,'AnalogADSR::sampleRate()'],['../structFuncState.html#a0679db11d8cf803ffe8c40b22fcb6fb1',1,'FuncState::sampleRate()'],['../classAudioFunctionHost.html#a3647d97cb87c9029d48846985dcfe39a',1,'AudioFunctionHost::sampleRate()'],['../classDelayLine.html#a837d7a6d6024a6416ebe97b7b82bd467',1,'DelayLine::sampleRate()'],['../classEnvelopeDetector.html#abe9c3bdb279f4724032f4785b5c77d74',1,'EnvelopeDetector::sampleRate()']]],
   ['samplesready',['samplesReady',['../classResamplingFifo.html#a932efb27236ccc341c04bd56193e283e',1,'ResamplingFifo']]],
-  ['saveprocessor',['saveProcessor',['../classProgram.html#a94234dd609a73354a391973528fab29b',1,'Program']]],
+  ['saveprocessor',['saveProcessor',['../classProgram.html#a6f805c78d2f7a4ffbd0a98b6435eef0a',1,'Program']]],
   ['saveprogram',['saveProgram',['../classProcessor.html#ad0bd6dea404d809cc944d4847aca19d1',1,'Processor']]],
   ['savesnapshot',['saveSnapshot',['../classMapViewer.html#aac4c02e7984a2688c550e7aa20764c40',1,'MapViewer']]],
   ['savetodir',['saveToDir',['../classProgram.html#a00d6db3802fc4372d3863ce2ae2eed03',1,'Program']]],

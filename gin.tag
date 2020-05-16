@@ -6261,6 +6261,13 @@
   <compound kind="class">
     <name>ModVoice</name>
     <filename>classModVoice.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ModVoice</name>
+      <anchorfile>classModVoice.html</anchorfile>
+      <anchor>ae3ba25475bbb4248e56a446575096da2</anchor>
+      <arglist>()=default</arglist>
+    </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
       <name>~ModVoice</name>
@@ -8330,18 +8337,25 @@
     <name>Program</name>
     <filename>classProgram.html</filename>
     <member kind="function">
+      <type></type>
+      <name>Program</name>
+      <anchorfile>classProgram.html</anchorfile>
+      <anchor>ac702b6b062bd2b1aa35003f76a34f2a5</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>loadProcessor</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>a5527bad78dff0ae5ce1efb2fa6b37b87</anchor>
-      <arglist>(Processor *p)</arglist>
+      <anchor>a9b90c3645e8e2cad9f006a2373901e2c</anchor>
+      <arglist>(Processor &amp;p)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>saveProcessor</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>a94234dd609a73354a391973528fab29b</anchor>
-      <arglist>(Processor *p)</arglist>
+      <anchor>a6f805c78d2f7a4ffbd0a98b6435eef0a</anchor>
+      <arglist>(Processor &amp;p)</arglist>
     </member>
     <member kind="function">
       <type>void</type>

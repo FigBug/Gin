@@ -60,7 +60,7 @@ var searchData=
   ['processsquare',['processSquare',['../classBandLimitedLookupTables.html#a194da9ad3989b0e8845c16c9792bfe21',1,'BandLimitedLookupTables']]],
   ['processtriangle',['processTriangle',['../classBandLimitedLookupTables.html#a64def1c60b877662f0046a0837d6543e',1,'BandLimitedLookupTables']]],
   ['producesmidi',['producesMidi',['../classProcessor.html#a849cf5d39d72d99ec8b962e237f363e2',1,'Processor']]],
-  ['program',['Program',['../classProgram.html',1,'']]],
+  ['program',['Program',['../classProgram.html',1,'Program'],['../classProgram.html#ac702b6b062bd2b1aa35003f76a34f2a5',1,'Program::Program()']]],
   ['programs',['programs',['../classProcessorEditor.html#ad79702b5f393331f7b9287d79cbb290c',1,'ProcessorEditor']]],
   ['propertycomponentbase',['PropertyComponentBase',['../classPropertyComponentBase.html',1,'PropertyComponentBase'],['../classPropertyComponentBase.html#ab6b86f112891beb9ae95f8b07593e052',1,'PropertyComponentBase::PropertyComponentBase()']]],
   ['ptr',['Ptr',['../classParameter.html#a8fcb9478cf19509ef836db884323e5a5',1,'Parameter']]],

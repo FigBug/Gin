@@ -45,6 +45,7 @@ var searchData=
   ['processsquare',['processSquare',['../classBandLimitedLookupTables.html#a194da9ad3989b0e8845c16c9792bfe21',1,'BandLimitedLookupTables']]],
   ['processtriangle',['processTriangle',['../classBandLimitedLookupTables.html#a64def1c60b877662f0046a0837d6543e',1,'BandLimitedLookupTables']]],
   ['producesmidi',['producesMidi',['../classProcessor.html#a849cf5d39d72d99ec8b962e237f363e2',1,'Processor']]],
+  ['program',['Program',['../classProgram.html#ac702b6b062bd2b1aa35003f76a34f2a5',1,'Program']]],
   ['propertycomponentbase',['PropertyComponentBase',['../classPropertyComponentBase.html#ab6b86f112891beb9ae95f8b07593e052',1,'PropertyComponentBase']]],
   ['pulse',['pulse',['../group__gin__dsp-dsp.html#ga5d70ff16cbda6f79543b487e6831052a',1,'gin_oscillators.h']]],
   ['pushaudiobuffer',['pushAudioBuffer',['../classResamplingFifo.html#a24445e26ca743c038b0c23f063837c5d',1,'ResamplingFifo']]]
