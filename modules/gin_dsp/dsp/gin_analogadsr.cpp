@@ -23,12 +23,14 @@ void AnalogADSR::noteOn()
 {
     calculateRelease();
 
+    auto origState = state;
+
     if (attack == 0.0f)
         state = State::decay;
     else
         state = State::attack;
 
-    if (state == State::idle)
+    if (origState == State::idle)
         output = (attack == 0.0f) ? 1.0f : 0.0f;
 }
 
