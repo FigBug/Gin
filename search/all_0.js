@@ -65,5 +65,6 @@ var searchData=
   ['audioequationparser',['AudioEquationParser',['../classAudioEquationParser.html',1,'AudioEquationParser'],['../classAudioEquationParser.html#ad4901750930743500c83acf90d83a7a0',1,'AudioEquationParser::AudioEquationParser()']]],
   ['audiofifo',['AudioFifo',['../classAudioFifo.html',1,'AudioFifo'],['../classAudioFifo.html#a521bc70e223aabb88d2579d44d63d6ec',1,'AudioFifo::AudioFifo()']]],
   ['audiofunctionhost',['AudioFunctionHost',['../classAudioFunctionHost.html',1,'']]],
+  ['author',['author',['../classProgram.html#a68f2d3d5d177ec9cdc2a327f7560a953',1,'Program']]],
   ['average',['average',['../classRollingAverage.html#a941797e5f59cbdfce52faa655bd1b7f3',1,'RollingAverage::average()'],['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f',1,'Average():&#160;gin_imageeffects.h']]]
 ];

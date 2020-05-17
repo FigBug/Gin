@@ -871,6 +871,13 @@
       <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
       <arglist>(juce::String svgText, int w, int h)</arglist>
     </member>
+    <member kind="function">
+      <type>juce::Path</type>
+      <name>parseSVGPath</name>
+      <anchorfile>group__gin-images.html</anchorfile>
+      <anchor>ga25b60d27a0c7fd9e62e715d2e321234a</anchor>
+      <arglist>(const String &amp;txt)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>gin_integrator.h</name>
@@ -1113,6 +1120,12 @@
       <anchor>ga745860e41e38bb0e8b5e52cd7655628a</anchor>
       <arglist>(const juce::XmlElement &amp;f)</arglist>
     </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_pluginalertwindow.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
+    <filename>gin__pluginalertwindow_8h</filename>
+    <class kind="class">PluginAlertWindow</class>
   </compound>
   <compound kind="file">
     <name>gin_plugincomponents.h</name>
@@ -4597,6 +4610,13 @@
       <anchor>a8147eaf7cb5ddbbf1a43f2088548deb5</anchor>
       <arglist>(Graphics &amp;, int width, int height, TextEditor &amp;) override</arglist>
     </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getAlertWindowButtonHeight</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a97c257dafafcaeb191d2f3dbd4bbf546</anchor>
+      <arglist>() override</arglist>
+    </member>
   </compound>
   <compound kind="struct">
     <name>GlideInfo</name>
@@ -5641,24 +5661,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>OpenStreetMaps::Listener</name>
-    <filename>classOpenStreetMaps_1_1Listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
-      <anchor>aeb7faf41923db2a12f09179159d96bd1</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>tileFetched</name>
-      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
-      <anchor>a5a86659b291d99adbe0af1a30fdfe383</anchor>
-      <arglist>(int zoom, int x, int y)=0</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>FileSystemWatcher::Listener</name>
     <filename>classFileSystemWatcher_1_1Listener.html</filename>
     <member kind="function" virtualness="virtual">
@@ -5681,6 +5683,24 @@
       <anchorfile>classFileSystemWatcher_1_1Listener.html</anchorfile>
       <anchor>ad00287704d62db4090a565de73aa28c6</anchor>
       <arglist>(const File, FileSystemEvent)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>OpenStreetMaps::Listener</name>
+    <filename>classOpenStreetMaps_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
+      <anchor>aeb7faf41923db2a12f09179159d96bd1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>tileFetched</name>
+      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
+      <anchor>a5a86659b291d99adbe0af1a30fdfe383</anchor>
+      <arglist>(int zoom, int x, int y)=0</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -7570,6 +7590,24 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>PluginAlertWindow</name>
+    <filename>classPluginAlertWindow.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>PluginAlertWindow</name>
+      <anchorfile>classPluginAlertWindow.html</anchorfile>
+      <anchor>a6ee6f4385bca587bb4d1fe3770ba409d</anchor>
+      <arglist>(const String &amp;title, const String &amp;message, AlertIconType iconType, Component *associatedComponent=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>runModalLoop</name>
+      <anchorfile>classPluginAlertWindow.html</anchorfile>
+      <anchor>a6869a64a9ff0b4da3319bcb3c093219d</anchor>
+      <arglist>(Component &amp;parent)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>PluginButton</name>
     <filename>classPluginButton.html</filename>
     <base protection="private">Parameter::Listener</base>
@@ -7949,8 +7987,8 @@
       <type>void</type>
       <name>saveProgram</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>ad0bd6dea404d809cc944d4847aca19d1</anchor>
-      <arglist>(String name)</arglist>
+      <anchor>a0f57a021b351cdea4f5bd9d022e8a3a3</anchor>
+      <arglist>(String name, String author, String tags)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -7958,6 +7996,13 @@
       <anchorfile>classProcessor.html</anchorfile>
       <anchor>aac9dc03295d9a5a991bc725d9f4bbde7</anchor>
       <arglist>(int index)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hasProgram</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a4bad2fd53ae0d91ff3239ae0243a6d8a</anchor>
+      <arglist>(String name)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -8127,6 +8172,13 @@
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
+      <name>changeListenerCallback</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a36ea718afc7637ab3df0b70b3b278b50</anchor>
+      <arglist>(ChangeBroadcaster *) override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
       <name>setGridSize</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
       <anchor>a9bcbffa2139e2d5df452d75cfa6b25a9</anchor>
@@ -8249,6 +8301,27 @@
       <name>deleteButton</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
       <anchor>a01e813914f463a233ee867452d481a91</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>TextButton</type>
+      <name>browseButton</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>ae66f24bcd3937e647bb870e4d511adf3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>TextButton</type>
+      <name>nextButton</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a3724f70a16008bc886c2ac87a9db7559</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>TextButton</type>
+      <name>prevButton</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a376d1dcfa6b1fb7b0c39ce69152960af</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -8390,6 +8463,20 @@
       <name>name</name>
       <anchorfile>classProgram.html</anchorfile>
       <anchor>a70ae83fd3deaf356bdd5417193428130</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>String</type>
+      <name>author</name>
+      <anchorfile>classProgram.html</anchorfile>
+      <anchor>a68f2d3d5d177ec9cdc2a327f7560a953</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>StringArray</type>
+      <name>tags</name>
+      <anchorfile>classProgram.html</anchorfile>
+      <anchor>ae21a0053a4eadb82e62fb92b32c6d7bb</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -10990,6 +11077,7 @@
     <class kind="class">ModulationOverview</class>
     <class kind="class">ModSrcListBox</class>
     <class kind="class">MultiParamComponent</class>
+    <class kind="class">PluginAlertWindow</class>
     <class kind="class">PluginButton</class>
     <class kind="class">PluginComboBox</class>
     <class kind="class">PluginSlider</class>
@@ -11555,6 +11643,13 @@
       <anchorfile>group__gin-images.html</anchorfile>
       <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
       <arglist>(juce::String svgText, int w, int h)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Path</type>
+      <name>parseSVGPath</name>
+      <anchorfile>group__gin-images.html</anchorfile>
+      <anchor>ga25b60d27a0c7fd9e62e715d2e321234a</anchor>
+      <arglist>(const String &amp;txt)</arglist>
     </member>
   </compound>
   <compound kind="group">

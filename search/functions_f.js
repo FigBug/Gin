@@ -27,5 +27,6 @@ var searchData=
   ['rollingaverage',['RollingAverage',['../classRollingAverage.html#ac31bf3c8f185244cad3ec353a3156888',1,'RollingAverage']]],
   ['rsquare',['rSquare',['../classLeastSquaresRegression.html#a7314973ea0d9b54e0071adf48ebefbd0',1,'LeastSquaresRegression']]],
   ['run',['run',['../classAsyncDownload.html#a12f678abf96e0c0a0f988baa076ec253',1,'AsyncDownload::run()'],['../classUpdateChecker.html#ab61451d9064094197851d0a6049d11e1',1,'UpdateChecker::run()']]],
+  ['runmodalloop',['runModalLoop',['../classPluginAlertWindow.html#a6869a64a9ff0b4da3319bcb3c093219d',1,'PluginAlertWindow']]],
   ['runscriptwithadminaccess',['runScriptWithAdminAccess',['../classElevatedFileCopy.html#a106d59cb0ef21a8a5ba66987df293e23',1,'ElevatedFileCopy']]]
 ];

@@ -125,10 +125,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a44766ae826bdc6af0496e830afc12381"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b3fcfe68f202c043897c60da36a7a8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a9b3fcfe68f202c043897c60da36a7a8c">changeProgramName</a> (int index, const String &amp;newName) override</td></tr>
 <tr class="separator:a9b3fcfe68f202c043897c60da36a7a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0bd6dea404d809cc944d4847aca19d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ad0bd6dea404d809cc944d4847aca19d1">saveProgram</a> (String name)</td></tr>
-<tr class="separator:ad0bd6dea404d809cc944d4847aca19d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f57a021b351cdea4f5bd9d022e8a3a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a0f57a021b351cdea4f5bd9d022e8a3a3">saveProgram</a> (String name, String author, String tags)</td></tr>
+<tr class="separator:a0f57a021b351cdea4f5bd9d022e8a3a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac9dc03295d9a5a991bc725d9f4bbde7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#aac9dc03295d9a5a991bc725d9f4bbde7">deleteProgram</a> (int index)</td></tr>
 <tr class="separator:aac9dc03295d9a5a991bc725d9f4bbde7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bad2fd53ae0d91ff3239ae0243a6d8a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a4bad2fd53ae0d91ff3239ae0243a6d8a">hasProgram</a> (String name)</td></tr>
+<tr class="separator:a4bad2fd53ae0d91ff3239ae0243a6d8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2e33e15dd248d9478b4a55d8eb5e36f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ad2e33e15dd248d9478b4a55d8eb5e36f">getStateInformation</a> (juce::MemoryBlock &amp;destData) override</td></tr>
 <tr class="separator:ad2e33e15dd248d9478b4a55d8eb5e36f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11507c2da1e031b89a1cf74aa4f00888"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a11507c2da1e031b89a1cf74aa4f00888">setStateInformation</a> (const void *data, int sizeInBytes) override</td></tr>
@@ -802,8 +804,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad0bd6dea404d809cc944d4847aca19d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0bd6dea404d809cc944d4847aca19d1">&#9670;&nbsp;</a></span>saveProgram()</h2>
+<a id="a0f57a021b351cdea4f5bd9d022e8a3a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f57a021b351cdea4f5bd9d022e8a3a3">&#9670;&nbsp;</a></span>saveProgram()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -812,8 +814,24 @@ Protected Member Functions</h2></td></tr>
           <td class="memname">void Processor::saveProgram </td>
           <td>(</td>
           <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>author</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>tags</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -831,6 +849,24 @@ Protected Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4bad2fd53ae0d91ff3239ae0243a6d8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bad2fd53ae0d91ff3239ae0243a6d8a">&#9670;&nbsp;</a></span>hasProgram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Processor::hasProgram </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1049,7 +1085,7 @@ Protected Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 17 2020 03:33:09 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 17 2020 19:34:23 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

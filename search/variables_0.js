@@ -9,5 +9,6 @@ var searchData=
   ['attackdelta',['attackDelta',['../classADSR.html#ae3003291adf6ae972e1ef26ec5f39ad1',1,'ADSR']]],
   ['attackoffset',['attackOffset',['../classAnalogADSR.html#aee1d18ded5252ac1a9ae7b3009bc21e6',1,'AnalogADSR']]],
   ['attacktime',['attackTime',['../classEnvelopeDetector.html#a0e02ce9c360c18f16f656dd5ff8a0f9d',1,'EnvelopeDetector']]],
-  ['attempts',['attempts',['../structDownloadManager_1_1DownloadResult.html#a639a9c5b7e7f3b4889a5f53b23e8bc9c',1,'DownloadManager::DownloadResult']]]
+  ['attempts',['attempts',['../structDownloadManager_1_1DownloadResult.html#a639a9c5b7e7f3b4889a5f53b23e8bc9c',1,'DownloadManager::DownloadResult']]],
+  ['author',['author',['../classProgram.html#a68f2d3d5d177ec9cdc2a327f7560a953',1,'Program']]]
 ];

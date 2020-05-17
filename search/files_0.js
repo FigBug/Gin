@@ -57,6 +57,7 @@ var searchData=
   ['gin_5foscillators_2eh',['gin_oscillators.h',['../gin__oscillators_8h.html',1,'']]],
   ['gin_5fparameter_2eh',['gin_parameter.h',['../gin__parameter_8h.html',1,'']]],
   ['gin_5fplist_2eh',['gin_plist.h',['../gin__plist_8h.html',1,'']]],
+  ['gin_5fpluginalertwindow_2eh',['gin_pluginalertwindow.h',['../gin__pluginalertwindow_8h.html',1,'']]],
   ['gin_5fplugincomponents_2eh',['gin_plugincomponents.h',['../gin__plugincomponents_8h.html',1,'']]],
   ['gin_5fplugineditor_2eh',['gin_plugineditor.h',['../gin__plugineditor_8h.html',1,'']]],
   ['gin_5fpluginlookandfeel_2eh',['gin_pluginlookandfeel.h',['../gin__pluginlookandfeel_8h.html',1,'']]],

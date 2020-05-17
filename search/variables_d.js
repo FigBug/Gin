@@ -8,6 +8,7 @@ var searchData=
   ['peaktime',['peakTime',['../classLevelTracker.html#a88d4d7383672bfbf10826e954d9cf408',1,'LevelTracker']]],
   ['phase',['phase',['../structOscState.html#aa4b4777463c344370332bc5ff8a141f7',1,'OscState::phase()'],['../structLFO_1_1Parameters.html#aa952c923e064d33a4061f6c3e49c3d7c',1,'LFO::Parameters::phase()']]],
   ['portamento',['portamento',['../structGlideInfo.html#a1e24c72c427d5a6c428e263fd51bc774',1,'GlideInfo']]],
+  ['prevbutton',['prevButton',['../classProcessorEditor.html#a376d1dcfa6b1fb7b0c39ce69152960af',1,'ProcessorEditor']]],
   ['processor',['processor',['../classParameter.html#aff54b112e093cf966a1bec5bf5a934dd',1,'Parameter']]],
   ['programs',['programs',['../classProcessorEditor.html#ad79702b5f393331f7b9287d79cbb290c',1,'ProcessorEditor']]],
   ['pw',['pw',['../structStereoOscillator_1_1Params.html#aebc2ccd97a83304620840c479a8c782b',1,'StereoOscillator::Params::pw()'],['../structVoicedStereoOscillator_1_1Params.html#a45501a3202212ba8b7d01f099c0ae289',1,'VoicedStereoOscillator::Params::pw()']]]

@@ -17,6 +17,7 @@ var searchData=
   ['bmpimageformat',['BMPImageFormat',['../classBMPImageFormat.html',1,'']]],
   ['bp12state',['BP12State',['../structBP12State.html',1,'BP12State'],['../structBP12State.html#a117eb714a9f055d4ca05d80c28c10553',1,'BP12State::BP12State()']]],
   ['bp24state',['BP24State',['../structBP24State.html',1,'BP24State'],['../structBP24State.html#a321d2cbd60a9aeba2ffdb2d54e12c5ea',1,'BP24State::BP24State()']]],
+  ['browsebutton',['browseButton',['../classProcessorEditor.html#ae66f24bcd3937e647bb870e4d511adf3',1,'ProcessorEditor']]],
   ['bterm',['bTerm',['../classLeastSquaresRegression.html#af8a14f97edfe06e9237df6cbf5a54330',1,'LeastSquaresRegression']]],
   ['bubble',['bubble',['../classMultiParamComponent.html#af352cfeb2692011587e06659824993fb',1,'MultiParamComponent']]],
   ['buffer',['buffer',['../classDelayLine.html#ae59911da584d61ff47221d188dda65e2',1,'DelayLine']]],

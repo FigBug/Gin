@@ -5,6 +5,7 @@ var searchData=
   ['hardlight',['HardLight',['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85a7fc75582ae37ab60f5a1cc8e2acd7e24',1,'gin_imageeffects.h']]],
   ['hardmix',['HardMix',['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85a76ee1ad58cc676f7994416354a4d7b59',1,'gin_imageeffects.h']]],
   ['haserror',['hasError',['../classEquationParser.html#a267ea42024ab4404885d6549c46b5298',1,'EquationParser']]],
+  ['hasprogram',['hasProgram',['../classProcessor.html#a4bad2fd53ae0d91ff3239ae0243a6d8a',1,'Processor']]],
   ['havedata',['haveData',['../classLinearRegression.html#ab0d8b0bd896a4ac1a6d0fad86d5de10b',1,'LinearRegression']]],
   ['headerheight',['headerHeight',['../classProcessorEditor.html#a4e82d70d238172aed4a6e9682d1803a3',1,'ProcessorEditor']]],
   ['headers',['headers',['../structHttp_1_1HttpResult.html#ac970cb121a9de164fce399220478b573',1,'Http::HttpResult']]],

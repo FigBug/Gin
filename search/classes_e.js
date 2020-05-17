@@ -7,6 +7,7 @@ var searchData=
   ['params',['Params',['../structStereoOscillator_1_1Params.html',1,'StereoOscillator::Params'],['../structVoicedStereoOscillator_1_1Params.html',1,'VoicedStereoOscillator::Params']]],
   ['paramstate',['ParamState',['../structParameter_1_1ParamState.html',1,'Parameter']]],
   ['perlinnoise',['PerlinNoise',['../classPerlinNoise.html',1,'']]],
+  ['pluginalertwindow',['PluginAlertWindow',['../classPluginAlertWindow.html',1,'']]],
   ['pluginbutton',['PluginButton',['../classPluginButton.html',1,'']]],
   ['plugincombobox',['PluginComboBox',['../classPluginComboBox.html',1,'']]],
   ['pluginlookandfeel',['PluginLookAndFeel',['../classPluginLookAndFeel.html',1,'']]],
