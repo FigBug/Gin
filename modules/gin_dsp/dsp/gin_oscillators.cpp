@@ -13,7 +13,7 @@
 //==============================================================================
 inline bool oddEven (int x)
 {
-    return (x % 2 == 0) ? 1 : -1;
+    return (x % 2 == 0) ? true : false;
 }
 
 //==============================================================================
@@ -112,9 +112,9 @@ BandLimitedLookupTable::BandLimitedLookupTable (std::function<double (double, do
 void BandLimitedLookupTable::reset (std::function<double (double, double, double)> function, double sampleRate, int notesPerTable_, int tableSize)
 {
     tables.clear();
-    
+
     notesPerTable = notesPerTable_;
-    
+
     for (double note = notesPerTable + 0.5; note < 127.0; note += notesPerTable)
     {
         auto freq = getMidiNoteInHertz (note);
@@ -239,7 +239,7 @@ void StereoOscillator::process (float note, const Params& params, AudioSampleBuf
         auto s = bllt.process (params.wave, note, phaseL, params.pw);
         *l++ = s * params.leftGain;
         *r++ = s * params.rightGain;
-        
+
         phaseL += delta;
         while (phaseL >= 1.0f)
             phaseL -= 1.0f;
@@ -286,7 +286,7 @@ void StereoOscillator::processAdding (float note, const Params& params, AudioSam
         auto s = bllt.process (params.wave, note, phaseL, params.pw);
         *l++ += s * params.leftGain;
         *r++ += s * params.rightGain;
-        
+
         phaseL += delta;
         while (phaseL >= 1.0f)
             phaseL -= 1.0f;
