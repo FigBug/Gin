@@ -11,6 +11,7 @@ var searchData=
   ['lfo',['LFO',['../classLFO.html#ad89e6308102d5b8f0790b2c8cc89c4a5',1,'LFO']]],
   ['lfocomponent',['LFOComponent',['../classLFOComponent.html#a15b40bec5169584567c4f58c3e1e7687',1,'LFOComponent']]],
   ['linearregression',['LinearRegression',['../classLinearRegression.html#afeb4c101e4e8b20a75db3d4ce3f1cbc6',1,'LinearRegression::LinearRegression()'],['../classLinearRegression.html#a776292121499e2bde7f9228d463248f4',1,'LinearRegression::LinearRegression(Array&lt; juce::Point&lt; double &gt;&gt; points)']]],
+  ['listboxitemdoubleclicked',['listBoxItemDoubleClicked',['../structPatchBrowser_1_1PresetsModel.html#aaa2d1f21207e12d63fb40fb7ca6e1b44',1,'PatchBrowser::PresetsModel']]],
   ['loadallprograms',['loadAllPrograms',['../classProcessor.html#a0d54dc4f330cea0f907e55a4f19e92d3',1,'Processor']]],
   ['loadfromfile',['loadFromFile',['../classProgram.html#adfbcf67998e33a092c586cca84e88cf8',1,'Program']]],
   ['loadprocessor',['loadProcessor',['../classProgram.html#a9b90c3645e8e2cad9f006a2373901e2c',1,'Program']]],

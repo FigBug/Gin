@@ -27,5 +27,6 @@ var searchData=
   ['output',['output',['../classADSR.html#ac6b34bdf72ba654d26467433f7015bbb',1,'ADSR::output()'],['../classAnalogADSR.html#a15bcc5ef1223a2c4e9f8d3e143009370',1,'AnalogADSR::output()']]],
   ['overlay',['Overlay',['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85a8b895d92539a718e6898ed6b053ce2ff',1,'gin_imageeffects.h']]],
   ['overwritewithdata',['overwriteWithData',['../group__gin-utilities.html#ga6e2dbf5f19342f51ea56d96cb5e9e842',1,'overwriteWithData(const juce::File &amp;f, const juce::MemoryBlock &amp;data):&#160;gin_fileutilities.h'],['../group__gin-utilities.html#gae1a4b4ab413ade0e4c90ad3d26ce854b',1,'overwriteWithData(const juce::File &amp;f, const void *data, size_t size):&#160;gin_fileutilities.h']]],
-  ['overwritewithtext',['overwriteWithText',['../group__gin-utilities.html#ga1aac7c94939802d4c2c08d600feefa23',1,'gin_fileutilities.h']]]
+  ['overwritewithtext',['overwriteWithText',['../group__gin-utilities.html#ga1aac7c94939802d4c2c08d600feefa23',1,'gin_fileutilities.h']]],
+  ['owner',['owner',['../structPatchBrowser_1_1AuthorsModel.html#aa70603530cb3faec04b1711a7617e673',1,'PatchBrowser::AuthorsModel::owner()'],['../structPatchBrowser_1_1TagsModel.html#aba7ff3bb16cf0fb0f43d0841a4ecb6ca',1,'PatchBrowser::TagsModel::owner()'],['../structPatchBrowser_1_1PresetsModel.html#a1c3950e8b62521c5bbb278048a5b3e37',1,'PatchBrowser::PresetsModel::owner()']]]
 ];

@@ -10,5 +10,7 @@ var searchData=
   ['attackoffset',['attackOffset',['../classAnalogADSR.html#aee1d18ded5252ac1a9ae7b3009bc21e6',1,'AnalogADSR']]],
   ['attacktime',['attackTime',['../classEnvelopeDetector.html#a0e02ce9c360c18f16f656dd5ff8a0f9d',1,'EnvelopeDetector']]],
   ['attempts',['attempts',['../structDownloadManager_1_1DownloadResult.html#a639a9c5b7e7f3b4889a5f53b23e8bc9c',1,'DownloadManager::DownloadResult']]],
-  ['author',['author',['../classProgram.html#a68f2d3d5d177ec9cdc2a327f7560a953',1,'Program']]]
+  ['author',['author',['../classProgram.html#a68f2d3d5d177ec9cdc2a327f7560a953',1,'Program']]],
+  ['authors',['authors',['../classPatchBrowser.html#af1fd39c503382c7f311ccaf8cbe6290a',1,'PatchBrowser']]],
+  ['authorsmodel',['authorsModel',['../classPatchBrowser.html#a62a7cf5ab56615e84109ced00beb6dcb',1,'PatchBrowser']]]
 ];

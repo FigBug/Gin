@@ -8,5 +8,6 @@ var searchData=
   ['asyncwebsocket',['AsyncWebsocket',['../classAsyncWebsocket.html',1,'']]],
   ['audioequationparser',['AudioEquationParser',['../classAudioEquationParser.html',1,'']]],
   ['audiofifo',['AudioFifo',['../classAudioFifo.html',1,'']]],
-  ['audiofunctionhost',['AudioFunctionHost',['../classAudioFunctionHost.html',1,'']]]
+  ['audiofunctionhost',['AudioFunctionHost',['../classAudioFunctionHost.html',1,'']]],
+  ['authorsmodel',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser']]]
 ];

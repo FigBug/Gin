@@ -7,6 +7,7 @@ var searchData=
   ['updateglide',['updateGlide',['../classSynthesiser.html#a8564a4c2092c12563e6788fabe2cfd5f',1,'Synthesiser']]],
   ['updatemap',['updateMap',['../classMapViewer.html#a723ad37abb7af9ecac0bdd68dd628e46',1,'MapViewer']]],
   ['updateready',['updateReady',['../classProcessorEditor.html#a59878485ed13027ec50ff1962e5936b9',1,'ProcessorEditor']]],
+  ['updateselection',['updateSelection',['../classPatchBrowser.html#a63f6aec5fdb704d05593cac1823bb9bb',1,'PatchBrowser']]],
   ['updatestate',['updateState',['../classModMatrix.html#a1c2764a67e3d7cf2e844a9a4aa587b07',1,'ModMatrix::updateState()'],['../classProcessor.html#ab477f2a48ee23cb7d38dbecd87332fcd',1,'Processor::updateState()']]],
   ['updatevalue',['updateValue',['../classEasedValueSmoother.html#a266f723fcb2c393fbdd93599d46abcce',1,'EasedValueSmoother::updateValue()'],['../classValueSmoother.html#a581f8cc773e4cc2bac2da53e6edfec85',1,'ValueSmoother::updateValue()']]],
   ['uservaluetotext',['userValueToText',['../classParameter.html#a7cd60677e567aa83d93ebddc06dc4313',1,'Parameter']]],

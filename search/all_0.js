@@ -66,5 +66,7 @@ var searchData=
   ['audiofifo',['AudioFifo',['../classAudioFifo.html',1,'AudioFifo'],['../classAudioFifo.html#a521bc70e223aabb88d2579d44d63d6ec',1,'AudioFifo::AudioFifo()']]],
   ['audiofunctionhost',['AudioFunctionHost',['../classAudioFunctionHost.html',1,'']]],
   ['author',['author',['../classProgram.html#a68f2d3d5d177ec9cdc2a327f7560a953',1,'Program']]],
+  ['authors',['authors',['../classPatchBrowser.html#af1fd39c503382c7f311ccaf8cbe6290a',1,'PatchBrowser']]],
+  ['authorsmodel',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser::AuthorsModel'],['../structPatchBrowser_1_1AuthorsModel.html#a5b1e9a0aee87d3623f78db4126fcab3e',1,'PatchBrowser::AuthorsModel::AuthorsModel()'],['../classPatchBrowser.html#a62a7cf5ab56615e84109ced00beb6dcb',1,'PatchBrowser::authorsModel()']]],
   ['average',['average',['../classRollingAverage.html#a941797e5f59cbdfce52faa655bd1b7f3',1,'RollingAverage::average()'],['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f',1,'Average():&#160;gin_imageeffects.h']]]
 ];

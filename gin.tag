@@ -1096,6 +1096,15 @@
     <class kind="struct">Parameter::ParamState</class>
   </compound>
   <compound kind="file">
+    <name>gin_patchbrowser.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
+    <filename>gin__patchbrowser_8h</filename>
+    <class kind="class">PatchBrowser</class>
+    <class kind="struct">PatchBrowser::AuthorsModel</class>
+    <class kind="struct">PatchBrowser::TagsModel</class>
+    <class kind="struct">PatchBrowser::PresetsModel</class>
+  </compound>
+  <compound kind="file">
     <name>gin_plist.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
     <filename>gin__plist_8h</filename>
@@ -2412,6 +2421,45 @@
       <name>sampleRate</name>
       <anchorfile>classAudioFunctionHost.html</anchorfile>
       <anchor>a3647d97cb87c9029d48846985dcfe39a</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>PatchBrowser::AuthorsModel</name>
+    <filename>structPatchBrowser_1_1AuthorsModel.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>AuthorsModel</name>
+      <anchorfile>structPatchBrowser_1_1AuthorsModel.html</anchorfile>
+      <anchor>a5b1e9a0aee87d3623f78db4126fcab3e</anchor>
+      <arglist>(PatchBrowser &amp;o)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumRows</name>
+      <anchorfile>structPatchBrowser_1_1AuthorsModel.html</anchorfile>
+      <anchor>a6f535e94dba0d2e1592f1bbc891fcacf</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>selectedRowsChanged</name>
+      <anchorfile>structPatchBrowser_1_1AuthorsModel.html</anchorfile>
+      <anchor>af66565febcb8e763a057222851b72d1e</anchor>
+      <arglist>(int) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paintListBoxItem</name>
+      <anchorfile>structPatchBrowser_1_1AuthorsModel.html</anchorfile>
+      <anchor>a33895370136b101c4d949c9997b3dd07</anchor>
+      <arglist>(int row, Graphics &amp;g, int w, int h, bool selected) override</arglist>
+    </member>
+    <member kind="variable">
+      <type>PatchBrowser &amp;</type>
+      <name>owner</name>
+      <anchorfile>structPatchBrowser_1_1AuthorsModel.html</anchorfile>
+      <anchor>aa70603530cb3faec04b1711a7617e673</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -5579,6 +5627,24 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>OpenStreetMaps::Listener</name>
+    <filename>classOpenStreetMaps_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
+      <anchor>aeb7faf41923db2a12f09179159d96bd1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>tileFetched</name>
+      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
+      <anchor>a5a86659b291d99adbe0af1a30fdfe383</anchor>
+      <arglist>(int zoom, int x, int y)=0</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>ModMatrix::Listener</name>
     <filename>classModMatrix_1_1Listener.html</filename>
     <member kind="function" virtualness="virtual">
@@ -5683,24 +5749,6 @@
       <anchorfile>classFileSystemWatcher_1_1Listener.html</anchorfile>
       <anchor>ad00287704d62db4090a565de73aa28c6</anchor>
       <arglist>(const File, FileSystemEvent)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>OpenStreetMaps::Listener</name>
-    <filename>classOpenStreetMaps_1_1Listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
-      <anchor>aeb7faf41923db2a12f09179159d96bd1</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>tileFetched</name>
-      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
-      <anchor>a5a86659b291d99adbe0af1a30fdfe383</anchor>
-      <arglist>(int zoom, int x, int y)=0</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -7564,6 +7612,132 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>PatchBrowser</name>
+    <filename>classPatchBrowser.html</filename>
+    <class kind="struct">PatchBrowser::AuthorsModel</class>
+    <class kind="struct">PatchBrowser::PresetsModel</class>
+    <class kind="struct">PatchBrowser::TagsModel</class>
+    <member kind="function">
+      <type></type>
+      <name>PatchBrowser</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>a4beb28a79d33b3385cd036e78166443c</anchor>
+      <arglist>(Processor &amp;p)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateSelection</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>a63f6aec5fdb704d05593cac1823bb9bb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>refresh</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>a1d7217de51f2b36702575561de21fee6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resized</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>a1b458409720f15dc6e8629c3402a0968</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paint</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>aaa3d0c47333425b8e6f94307fc6e7e00</anchor>
+      <arglist>(Graphics &amp;g) override</arglist>
+    </member>
+    <member kind="variable">
+      <type>Processor &amp;</type>
+      <name>proc</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>ace4451a4ee2e4ea777e795e8913ae29b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>AuthorsModel</type>
+      <name>authorsModel</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>a62a7cf5ab56615e84109ced00beb6dcb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>TagsModel</type>
+      <name>tagsModel</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>a2b1148951ac60c4b47c4b1f6af16d144</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>PresetsModel</type>
+      <name>presetsModel</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>acce838df5fbbd1505ae5c0b55d361604</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ListBox</type>
+      <name>authors</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>af1fd39c503382c7f311ccaf8cbe6290a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ListBox</type>
+      <name>tags</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>a604f1af8ee55070f317b08f5f261b607</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ListBox</type>
+      <name>presets</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>a247c5b78833370ecc35672a0c8995cc1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>StringArray</type>
+      <name>currentAuthors</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>a1bedb9bba84083e90be4f635734f3bdf</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>StringArray</type>
+      <name>currentTags</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>a321c180551aded2e7af5e62644eeff94</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>StringArray</type>
+      <name>currentPresets</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>ab780e20dcabc03c249897376d106f402</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>StringArray</type>
+      <name>selectedAuthors</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>afd7aaeb5011141a705bde69a12e50972</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>StringArray</type>
+      <name>selectedTags</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>a8ce4c80fb9773528fcb54f8f352a72fe</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>PerlinNoise</name>
     <filename>classPerlinNoise.html</filename>
     <templarg></templarg>
@@ -7805,6 +7979,45 @@
       <arglist>(Parameter *p)</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>PatchBrowser::PresetsModel</name>
+    <filename>structPatchBrowser_1_1PresetsModel.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>PresetsModel</name>
+      <anchorfile>structPatchBrowser_1_1PresetsModel.html</anchorfile>
+      <anchor>a786c7135368bcbd2fdeef02f1789c597</anchor>
+      <arglist>(PatchBrowser &amp;o)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumRows</name>
+      <anchorfile>structPatchBrowser_1_1PresetsModel.html</anchorfile>
+      <anchor>a44f9a1678a67661480ea71ab7a0a0d4d</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paintListBoxItem</name>
+      <anchorfile>structPatchBrowser_1_1PresetsModel.html</anchorfile>
+      <anchor>ada2d090c0b241bd09daf0067329b09b4</anchor>
+      <arglist>(int row, Graphics &amp;g, int w, int h, bool selected) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>listBoxItemDoubleClicked</name>
+      <anchorfile>structPatchBrowser_1_1PresetsModel.html</anchorfile>
+      <anchor>aaa2d1f21207e12d63fb40fb7ca6e1b44</anchor>
+      <arglist>(int row, const MouseEvent &amp;) override</arglist>
+    </member>
+    <member kind="variable">
+      <type>PatchBrowser &amp;</type>
+      <name>owner</name>
+      <anchorfile>structPatchBrowser_1_1PresetsModel.html</anchorfile>
+      <anchor>a1c3950e8b62521c5bbb278048a5b3e37</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>Processor</name>
     <filename>classProcessor.html</filename>
@@ -7961,6 +8174,20 @@
       <anchorfile>classProcessor.html</anchorfile>
       <anchor>a2d74b270efcff268d88dc9895d3a0e83</anchor>
       <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>const OwnedArray&lt; Program &gt; &amp;</type>
+      <name>getPrograms</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>aab4a36f47318cbb54866c829d621418e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCurrentProgram</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a7b57a4bffc9016913c128a041f172fd4</anchor>
+      <arglist>(String name)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -8378,6 +8605,13 @@
       <name>newsUrl</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
       <anchor>a286c329728b68c991bd9b95926521368</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>PatchBrowser</type>
+      <name>patchBrowser</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a6f7f6e1a092dff5bccece83325514c77</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -10273,6 +10507,45 @@
       <arglist>()</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>PatchBrowser::TagsModel</name>
+    <filename>structPatchBrowser_1_1TagsModel.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>TagsModel</name>
+      <anchorfile>structPatchBrowser_1_1TagsModel.html</anchorfile>
+      <anchor>aa09938757cd8d6bf62458de6297aa5cb</anchor>
+      <arglist>(PatchBrowser &amp;o)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumRows</name>
+      <anchorfile>structPatchBrowser_1_1TagsModel.html</anchorfile>
+      <anchor>a030fdf75922a8dbe6f420f9323f94072</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>selectedRowsChanged</name>
+      <anchorfile>structPatchBrowser_1_1TagsModel.html</anchorfile>
+      <anchor>a4b8c665d5acbe7e4810a930f18d4923e</anchor>
+      <arglist>(int) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paintListBoxItem</name>
+      <anchorfile>structPatchBrowser_1_1TagsModel.html</anchorfile>
+      <anchor>aa12df4aa1a8d900c495cccd603193677</anchor>
+      <arglist>(int row, Graphics &amp;g, int w, int h, bool selected) override</arglist>
+    </member>
+    <member kind="variable">
+      <type>PatchBrowser &amp;</type>
+      <name>owner</name>
+      <anchorfile>structPatchBrowser_1_1TagsModel.html</anchorfile>
+      <anchor>aba7ff3bb16cf0fb0f43d0841a4ecb6ca</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>TimeProfiler</name>
     <filename>classTimeProfiler.html</filename>
@@ -11077,6 +11350,10 @@
     <class kind="class">ModulationOverview</class>
     <class kind="class">ModSrcListBox</class>
     <class kind="class">MultiParamComponent</class>
+    <class kind="class">PatchBrowser</class>
+    <class kind="struct">PatchBrowser::PresetsModel</class>
+    <class kind="struct">PatchBrowser::TagsModel</class>
+    <class kind="struct">PatchBrowser::AuthorsModel</class>
     <class kind="class">PluginAlertWindow</class>
     <class kind="class">PluginButton</class>
     <class kind="class">PluginComboBox</class>

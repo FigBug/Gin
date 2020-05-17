@@ -8,6 +8,9 @@ var searchData=
   ['cols',['cols',['../classProcessorEditor.html#a52dc83c25bf26ee2d541bb56e9220b2c',1,'ProcessorEditor']]],
   ['controls',['controls',['../classProcessorEditor.html#a0cadb7e3405b7f3571e64c2876edabe1',1,'ProcessorEditor']]],
   ['conversionfunction',['conversionFunction',['../classParameter.html#aec8da4e81f800c8e35e40a6700474c10',1,'Parameter']]],
+  ['currentauthors',['currentAuthors',['../classPatchBrowser.html#a1bedb9bba84083e90be4f635734f3bdf',1,'PatchBrowser']]],
+  ['currentpresets',['currentPresets',['../classPatchBrowser.html#ab780e20dcabc03c249897376d106f402',1,'PatchBrowser']]],
+  ['currenttags',['currentTags',['../classPatchBrowser.html#a321c180551aded2e7af5e62644eeff94',1,'PatchBrowser']]],
   ['cx',['cx',['../classProcessorEditor.html#a54e0a2cc545096d5b4e6847bb41fb160',1,'ProcessorEditor']]],
   ['cy',['cy',['../classProcessorEditor.html#a897aa8225f4cef416bd20fcb629a1453',1,'ProcessorEditor']]]
 ];

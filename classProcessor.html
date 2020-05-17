@@ -119,6 +119,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa9544d1b18b0bc03c32fa78532de316b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d74b270efcff268d88dc9895d3a0e83"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a2d74b270efcff268d88dc9895d3a0e83">getCurrentProgram</a> () override</td></tr>
 <tr class="separator:a2d74b270efcff268d88dc9895d3a0e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab4a36f47318cbb54866c829d621418e"><td class="memItemLeft" align="right" valign="top">const OwnedArray&lt; <a class="el" href="classProgram.html">Program</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#aab4a36f47318cbb54866c829d621418e">getPrograms</a> ()</td></tr>
+<tr class="separator:aab4a36f47318cbb54866c829d621418e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b57a4bffc9016913c128a041f172fd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a7b57a4bffc9016913c128a041f172fd4">setCurrentProgram</a> (String name)</td></tr>
+<tr class="separator:a7b57a4bffc9016913c128a041f172fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc86771c8cf8ebf5dc33a3c296216c58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#adc86771c8cf8ebf5dc33a3c296216c58">setCurrentProgram</a> (int index) override</td></tr>
 <tr class="separator:adc86771c8cf8ebf5dc33a3c296216c58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44766ae826bdc6af0496e830afc12381"><td class="memItemLeft" align="right" valign="top">const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a44766ae826bdc6af0496e830afc12381">getProgramName</a> (int index) override</td></tr>
@@ -716,8 +720,47 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aab4a36f47318cbb54866c829d621418e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab4a36f47318cbb54866c829d621418e">&#9670;&nbsp;</a></span>getPrograms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const OwnedArray&lt;<a class="el" href="classProgram.html">Program</a>&gt;&amp; Processor::getPrograms </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classPatchBrowser.html#a1d7217de51f2b36702575561de21fee6">PatchBrowser::refresh()</a>.</p>
+
+</div>
+</div>
+<a id="a7b57a4bffc9016913c128a041f172fd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b57a4bffc9016913c128a041f172fd4">&#9670;&nbsp;</a></span>setCurrentProgram() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Processor::setCurrentProgram </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="structPatchBrowser_1_1PresetsModel.html#aaa2d1f21207e12d63fb40fb7ca6e1b44">PatchBrowser::PresetsModel::listBoxItemDoubleClicked()</a>.</p>
+
+</div>
+</div>
 <a id="adc86771c8cf8ebf5dc33a3c296216c58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc86771c8cf8ebf5dc33a3c296216c58">&#9670;&nbsp;</a></span>setCurrentProgram()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adc86771c8cf8ebf5dc33a3c296216c58">&#9670;&nbsp;</a></span>setCurrentProgram() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1085,7 +1128,7 @@ Protected Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 17 2020 19:34:23 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 17 2020 21:33:04 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

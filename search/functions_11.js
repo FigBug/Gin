@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['tagsmodel',['TagsModel',['../structPatchBrowser_1_1TagsModel.html#aa09938757cd8d6bf62458de6297aa5cb',1,'PatchBrowser::TagsModel']]],
   ['textchanged',['textChanged',['../classSingleLineTextEditor.html#a7432325931d3ad2a10f0b98fb83f8ec7',1,'SingleLineTextEditor']]],
   ['tilefetched',['tileFetched',['../classMapViewer.html#af0bcb61ce440c285e3cb8ff4f73494d2',1,'MapViewer::tileFetched()'],['../classOpenStreetMaps_1_1Listener.html#a5a86659b291d99adbe0af1a30fdfe383',1,'OpenStreetMaps::Listener::tileFetched()']]],
   ['tileforcoordinate',['tileForCoordinate',['../classOpenStreetMaps.html#ae835b370258746b3c52cb577e056bf3c',1,'OpenStreetMaps']]],

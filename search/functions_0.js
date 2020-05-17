@@ -54,5 +54,6 @@ var searchData=
   ['aterm',['aTerm',['../classLeastSquaresRegression.html#a5bfe5f2d56a0e4585102e95a752d17bf',1,'LeastSquaresRegression']]],
   ['audioequationparser',['AudioEquationParser',['../classAudioEquationParser.html#ad4901750930743500c83acf90d83a7a0',1,'AudioEquationParser']]],
   ['audiofifo',['AudioFifo',['../classAudioFifo.html#a521bc70e223aabb88d2579d44d63d6ec',1,'AudioFifo']]],
+  ['authorsmodel',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html#a5b1e9a0aee87d3623f78db4126fcab3e',1,'PatchBrowser::AuthorsModel']]],
   ['average',['average',['../classRollingAverage.html#a941797e5f59cbdfce52faa655bd1b7f3',1,'RollingAverage']]]
 ];
