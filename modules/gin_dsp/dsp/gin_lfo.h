@@ -207,8 +207,8 @@ private:
 
     Parameters parameters;
 
-    double sampleRate = 0;
-    float phase = 0, curPhase = 0, output = 0, fadeDelta = 0, curFade = 0;
+    double sampleRate = 0.0;
+    float phase = 0.0f, curPhase = 0.0f, output = 0.0f, fadeDelta = 0.0f, curFade = 1.0f;
     int delaySteps = 0;
 
     Array<float> randomPoints;
