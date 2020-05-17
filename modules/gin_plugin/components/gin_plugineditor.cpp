@@ -153,6 +153,7 @@ ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_) noexcept
     addAndMakeVisible (socaButton);
     addChildComponent (newsButton);
     addChildComponent (updateButton);
+    addChildComponent (patchBrowser);
 
     programs.addListener (this);
     addButton.addListener (this);
@@ -215,6 +216,8 @@ void ProcessorEditor::resized()
     newsButton.setBounds (socaButton.getBounds().translated (ph + 5, 0));
     helpButton.setBounds (getWidth() - ph - 5, 5, ph, ph);
     updateButton.setBounds (helpButton.getBounds().translated (- ph - 5, 0));
+
+    patchBrowser.setBounds (getFullGridArea());
 }
 
 Rectangle<int> ProcessorEditor::getControlsArea()
@@ -273,6 +276,8 @@ void ProcessorEditor::refreshPrograms()
 
     programs.setSelectedItemIndex (slProc.getCurrentProgram(), dontSendNotification);
     deleteButton.setEnabled (slProc.getCurrentProgram() != 0);
+
+    patchBrowser.refresh();
 }
 
 void ProcessorEditor::buttonClicked (Button* b)
@@ -295,6 +300,9 @@ void ProcessorEditor::buttonClicked (Button* b)
     }
     else if (b == &browseButton)
     {
+        b->setToggleState (! b->getToggleState(), dontSendNotification);
+        patchBrowser.toFront (false);
+        patchBrowser.setVisible (b->getToggleState());
     }
     else if (b == &addButton)
     {
@@ -352,10 +360,10 @@ void ProcessorEditor::buttonClicked (Button* b)
        #else
         msg += JucePlugin_Name " v" JucePlugin_VersionString " (" __DATE__ ")\n\n";
        #endif
-        msg += "Programming:\nRoland Rabien\nDavid Rowland\nROLI JUCE Framework\n";
+        msg += "Roland Rabien\nDavid Rowland\nRAW Material Software JUCE Framework\n";
         if (additionalProgramming.isNotEmpty())
             msg += additionalProgramming;
-        msg += "\n\n";
+        msg += "\n";
         msg += "Copyright ";
         msg += String (&__DATE__[7]);
 

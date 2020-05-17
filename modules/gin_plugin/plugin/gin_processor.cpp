@@ -217,6 +217,25 @@ void Processor::setCurrentProgram (int index)
     }
 }
 
+void Processor::setCurrentProgram (String name)
+{
+    int index = 0;
+    for (auto p : programs)
+    {
+        if (p->name == name)
+        {
+            p->loadProcessor (*this);
+            currentProgram = index;
+
+            updateHostDisplay();
+            sendChangeMessage();
+            stateUpdated();
+            return;
+        }
+        index++;
+    }
+}
+
 const String Processor::getProgramName (int index)
 {
     return programs[index]->name;

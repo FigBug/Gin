@@ -148,5 +148,7 @@ protected:
     String updateUrl;
     String newsUrl;
 
+    PatchBrowser patchBrowser { slProc };
+
     void refreshPrograms();
 };
