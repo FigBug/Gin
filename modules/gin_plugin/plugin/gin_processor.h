@@ -80,8 +80,9 @@ public:
     void setCurrentProgram (int index) override;
     const String getProgramName (int index) override;
     void changeProgramName (int index, const String& newName) override;
-    void saveProgram (String name);
+    void saveProgram (String name, String author, String tags);
     void deleteProgram (int index);
+    bool hasProgram (String name);
 
     //==============================================================================
     void getStateInformation (juce::MemoryBlock& destData) override;

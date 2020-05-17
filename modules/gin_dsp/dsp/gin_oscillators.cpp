@@ -182,9 +182,13 @@ float BandLimitedLookupTables::processSquare (float note, float phase)
     if (phaseUp   > 1.0f) phaseUp   -= 1.0f;
     if (phaseDown < 0.0f) phaseDown += 1.0f;
 
-    int tableIndex = jlimit (0, sawDownTable.tables.size() - 1, int ((note - 0.5) / sawDownTable.notesPerTable));
-    return sawDownTable.tables[tableIndex]->processSampleUnchecked (phaseDown) +
-           sawUpTable.tables[tableIndex]->processSampleUnchecked (phaseUp);
+    auto count = std::min (sawDownTable.tables.size(), sawDownTable.tables.size());
+    int tableIndex = jlimit (0, count - 1, int ((note - 0.5) / count));
+
+    auto s1 = sawDownTable.tables[tableIndex]->processSampleUnchecked (phaseDown);
+    auto s2 = sawUpTable.tables[tableIndex]->processSampleUnchecked (phaseUp);
+
+    return s1 + s2;
 }
 
 float BandLimitedLookupTables::processPulse (float note, float phase, float pw)
@@ -195,9 +199,13 @@ float BandLimitedLookupTables::processPulse (float note, float phase, float pw)
     if (phaseUp   > 1.0f) phaseUp   -= 1.0f;
     if (phaseDown < 0.0f) phaseDown += 1.0f;
 
-    int tableIndex = jlimit (0, sawDownTable.tables.size() - 1, int ((note - 0.5) / sawDownTable.notesPerTable));
-    return sawDownTable.tables[tableIndex]->processSampleUnchecked (phaseDown) +
-           sawUpTable.tables[tableIndex]->processSampleUnchecked (phaseUp);
+    auto count = std::min (sawDownTable.tables.size(), sawDownTable.tables.size());
+    int tableIndex = jlimit (0, count - 1, int ((note - 0.5) / count));
+
+    auto s1 = sawDownTable.tables[tableIndex]->processSampleUnchecked (phaseDown);
+    auto s2 = sawUpTable.tables[tableIndex]->processSampleUnchecked (phaseUp);
+
+    return s1 + s2;
 }
 
 float BandLimitedLookupTables::process (Wave wave, float note, float phase, float pw)

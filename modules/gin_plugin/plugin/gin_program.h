@@ -20,6 +20,8 @@ public:
     void deleteFromDir (File f);
 
     String name;
+    String author;
+    StringArray tags;
     String valueTree;
     Array<Parameter::ParamState> states;
 

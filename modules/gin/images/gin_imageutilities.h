@@ -12,3 +12,6 @@
     WARNING: This will lock the image thread
 */
 juce::Image rasterizeSVG (juce::String svgText, int w, int h);
+
+/** Like Drawable::parseSVGPath but works with list of points */
+juce::Path parseSVGPath ( const String& txt );

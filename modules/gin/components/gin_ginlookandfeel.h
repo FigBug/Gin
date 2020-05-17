@@ -42,4 +42,6 @@ public:
     void positionComboBoxText (ComboBox&, Label&) override;
     
     void drawTextEditorOutline (Graphics&, int width, int height, TextEditor&) override;
+
+    int getAlertWindowButtonHeight() override    { return 20; }
 };

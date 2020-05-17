@@ -222,6 +222,15 @@ const String Processor::getProgramName (int index)
     return programs[index]->name;
 }
 
+bool Processor::hasProgram (String name)
+{
+    for (auto p : programs)
+        if (p->name == name)
+            return true;
+
+    return false;
+}
+
 void Processor::changeProgramName (int index, const String& newName)
 {
     programs[index]->deleteFromDir (getProgramDirectory());
@@ -272,7 +281,7 @@ void Processor::extractProgram (const String& name, const MemoryBlock& data)
     }
 }
 
-void Processor::saveProgram (String name)
+void Processor::saveProgram (String name, String author, String tags)
 {
     updateState();
 
@@ -282,6 +291,8 @@ void Processor::saveProgram (String name)
 
     auto newProgram = new Program();
     newProgram->name = name;
+    newProgram->author = author;
+    newProgram->tags = StringArray::fromTokens (tags, " ", "");
     newProgram->saveProcessor (*this);
     newProgram->saveToDir (getProgramDirectory());
 

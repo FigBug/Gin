@@ -37,14 +37,14 @@ public:
 //==============================================================================
 enum class Wave
 {
-    silence,
-    sine,
-    triangle,
-    sawUp,
-    sawDown,
-    pulse,
-    square,
-    noise
+    silence     = 0,
+    sine        = 1,
+    triangle    = 2,
+    sawUp       = 3,
+    sawDown     = 4,
+    pulse       = 5,
+    square      = 6,
+    noise       = 7,
 };
 
 //==============================================================================

@@ -51,6 +51,9 @@ void Program::loadFromFile (File f)
         states.clear();
 
         name = rootE->getStringAttribute ("name");
+        author = rootE->getStringAttribute ("author");
+        tags = StringArray::fromTokens (rootE->getStringAttribute ("tags"), " ", "");
+
         valueTree = rootE->getStringAttribute ("valueTree");
 
         XmlElement* paramE = rootE->getChildByName ("param");
@@ -74,6 +77,8 @@ void Program::saveToDir (File f)
     std::unique_ptr<XmlElement> rootE (new XmlElement ("state"));
 
     rootE->setAttribute("name", name);
+    rootE->setAttribute ("author", author);
+    rootE->setAttribute ("tags", tags.joinIntoString (" "));
     rootE->setAttribute ("valueTree", valueTree);
 
     for (Parameter::ParamState state : states)

@@ -146,6 +146,9 @@ ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_) noexcept
     addAndMakeVisible (programs);
     addAndMakeVisible (addButton);
     addAndMakeVisible (deleteButton);
+    addAndMakeVisible (nextButton);
+    addAndMakeVisible (prevButton);
+    addAndMakeVisible (browseButton);
     addAndMakeVisible (helpButton);
     addAndMakeVisible (socaButton);
     addChildComponent (newsButton);
@@ -154,6 +157,9 @@ ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_) noexcept
     programs.addListener (this);
     addButton.addListener (this);
     deleteButton.addListener (this);
+    nextButton.addListener (this);
+    prevButton.addListener (this);
+    browseButton.addListener (this);
     helpButton.addListener (this);
     socaButton.addListener (this);
     newsButton.addListener (this);
@@ -162,6 +168,9 @@ ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_) noexcept
     programs.setTooltip ("Select Preset");
     addButton.setTooltip ("Add Preset");
     deleteButton.setTooltip ("Delete Preset");
+    browseButton.setTooltip ("Browse Preset");
+    nextButton.setTooltip ("Next Preset");
+    prevButton.setTooltip ("Prev Preset");
     helpButton.setTooltip ("Help >> About");
     newsButton.setTooltip ("News from SocaLabs");
     socaButton.setTooltip ("Visit www.socalabs.com");
@@ -171,10 +180,13 @@ ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_) noexcept
 
     updateChecker = std::make_unique<UpdateChecker> (*this);
     newsChecker = std::make_unique<NewsChecker> (*this);
+
+    slProc.addChangeListener (this);
 }
 
 ProcessorEditor::~ProcessorEditor()
 {
+    slProc.removeChangeListener (this);
     setLookAndFeel (nullptr);
 }
 
@@ -187,12 +199,16 @@ void ProcessorEditor::resized()
 {
     ProcessorEditorBase::resized();
 
-    const int pw = 100;
+    const int pw = 200;
     const int ph = 20;
-    const int tw = pw + ph + ph + 10;
 
-    programs.setBounds (getWidth() / 2 - tw / 2, 30, pw, ph);
-    addButton.setBounds (programs.getRight() + 5, programs.getY(), ph, ph);
+    programs.setBounds (getWidth() / 2 - pw / 2, 30, pw, ph);
+
+    prevButton.setBounds (programs.getX() - ph - 5, programs.getY(), ph, ph);
+    nextButton.setBounds (programs.getRight() + 5, programs.getY(), ph, ph);
+
+    browseButton.setBounds (nextButton.getRight() + 15, programs.getY(), ph, ph);
+    addButton.setBounds (browseButton.getRight() + 5, programs.getY(), ph, ph);
     deleteButton.setBounds (addButton.getRight() + 5, programs.getY(), ph, ph);
 
     socaButton.setBounds (5, 5, ph, ph);
@@ -261,32 +277,67 @@ void ProcessorEditor::refreshPrograms()
 
 void ProcessorEditor::buttonClicked (Button* b)
 {
-    if (b == &addButton)
+    if (b == &nextButton)
     {
-        AlertWindow w ("", "Create preset", AlertWindow::NoIcon, this);
-        w.addTextEditor ("name", "", "Name:");
-        w.addButton ("OK", 1);
-        w.addButton ("Cancel", 0);
-        w.setLookAndFeel (&slProc.lf.get());
+        int prog = slProc.getCurrentProgram() + 1;
+        if (prog >= slProc.getNumPrograms())
+            prog = 0;
 
-        if (w.runModalLoop())
+        slProc.setCurrentProgram (prog);
+    }
+    else if (b == &prevButton)
+    {
+        int prog = slProc.getCurrentProgram() - 1;
+        if (prog < 0)
+            prog = slProc.getNumPrograms() - 1;
+
+        slProc.setCurrentProgram (prog);
+    }
+    else if (b == &browseButton)
+    {
+    }
+    else if (b == &addButton)
+    {
+        gin::PluginAlertWindow w ("Create preset:", "", AlertWindow::NoIcon, this);
+        w.setLookAndFeel (&slProc.lf.get());
+        w.addTextEditor ("name", "", "Name:");
+        w.addTextEditor ("author", "", "Author:");
+        w.addTextEditor ("tags", "", "Tags:");
+        w.addButton ("OK", 1, KeyPress (KeyPress::returnKey));
+        w.addButton ("Cancel", 0, KeyPress (KeyPress::escapeKey));
+
+        if (w.runModalLoop (*this) == 1)
         {
-            String txt = File::createLegalFileName (w.getTextEditor ("name")->getText());
+            auto txt = File::createLegalFileName (w.getTextEditor ("name")->getText());
+            auto aut = File::createLegalFileName (w.getTextEditor ("author")->getText());
+            auto tag = File::createLegalFileName (w.getTextEditor ("tags")->getText());
+
+            if (slProc.hasProgram (txt))
+            {
+                gin::PluginAlertWindow wc ("Overwrite preset '" + txt + "'?", "", AlertWindow::NoIcon, this);
+                wc.addButton ("Yes", 1, KeyPress (KeyPress::returnKey));
+                wc.addButton ("No", 0, KeyPress (KeyPress::escapeKey));
+                wc.setLookAndFeel (&slProc.lf.get());
+
+                if (wc.runModalLoop (*this) == 0)
+                    return;
+            }
+
             if (txt.isNotEmpty())
             {
-                slProc.saveProgram (txt);
+                slProc.saveProgram (txt, aut, tag);
                 refreshPrograms();
             }
         }
     }
     else if (b == &deleteButton)
     {
-        AlertWindow w ("", "Delete preset '" + processor.getProgramName (programs.getSelectedItemIndex()) + "'?", AlertWindow::NoIcon, this);
-        w.addButton ("Yes", 1);
-        w.addButton ("No", 0);
+        gin::PluginAlertWindow w ("Delete preset '" + processor.getProgramName (programs.getSelectedItemIndex()) + "'?", "", AlertWindow::NoIcon, this);
+        w.addButton ("Yes", 1, KeyPress (KeyPress::returnKey));
+        w.addButton ("No", 0, KeyPress (KeyPress::escapeKey));
         w.setLookAndFeel (&slProc.lf.get());
 
-        if (w.runModalLoop())
+        if (w.runModalLoop (*this))
         {
             slProc.deleteProgram (programs.getSelectedItemIndex());
             refreshPrograms();
@@ -308,11 +359,11 @@ void ProcessorEditor::buttonClicked (Button* b)
         msg += "Copyright ";
         msg += String (&__DATE__[7]);
 
-        AlertWindow w ("---- About ----", msg, AlertWindow::NoIcon, this);
-        w.addButton ("OK", 1);
+        gin::PluginAlertWindow w ("---- About ----", msg, AlertWindow::NoIcon, this);
+        w.addButton ("OK", 1, KeyPress (KeyPress::returnKey));
         w.setLookAndFeel (&slProc.lf.get());
 
-        w.runModalLoop();
+        w.runModalLoop (*this);
     }
     else if (b == &updateButton)
     {
@@ -340,6 +391,11 @@ void ProcessorEditor::buttonClicked (Button* b)
             props->setValue("readNews", readNews.joinIntoString ("|"));
         }
     }
+}
+
+void ProcessorEditor::changeListenerCallback (ChangeBroadcaster*)
+{
+    refreshPrograms();
 }
 
 void ProcessorEditor::comboBoxChanged (ComboBox* c)

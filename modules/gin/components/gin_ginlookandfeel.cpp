@@ -162,10 +162,23 @@ void GinLookAndFeel::drawButtonBackground (Graphics& g, Button& b, const Colour&
 
 void GinLookAndFeel::drawButtonText (Graphics& g, TextButton& b, bool, bool)
 {
-    g.setFont (getTextButtonFont (b, b.getHeight()));
-
     g.setColour (b.findColour (b.getToggleState() ? TextButton::textColourOnId : TextButton::textColourOffId).withMultipliedAlpha (b.isEnabled() ? 1.0f : 0.5f));
-    g.drawText (b.getButtonText(), b.getLocalBounds(), Justification::centred);
+
+    auto text = b.getButtonText();
+    if (text.startsWith ("svg:"))
+    {
+        auto path = parseSVGPath (text.substring (4));
+        auto font = getTextButtonFont (b, b.getHeight());
+
+        auto sz = font.getHeight();
+        auto rc = b.getLocalBounds().toFloat().withSizeKeepingCentre (sz, sz);
+        g.fillPath (path, path.getTransformToScaleToFit (rc, true));
+    }
+    else
+    {
+        g.setFont (getTextButtonFont (b, b.getHeight()));
+        g.drawText (b.getButtonText(), b.getLocalBounds(), Justification::centred);
+    }
 }
 
 void GinLookAndFeel::drawComboBox (Graphics& g, int width, int height, bool /*isButtonDown*/,
