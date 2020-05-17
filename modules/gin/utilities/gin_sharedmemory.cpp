@@ -108,7 +108,7 @@ public:
         jassert (data != nullptr);
 
         if (data != nullptr && needsInit)
-            memset (data, 0, size);
+            memset (data, 0, size_t (size));
     }
 
     ~Impl()
