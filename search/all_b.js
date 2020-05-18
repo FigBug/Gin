@@ -13,6 +13,7 @@ var searchData=
   ['mode',['Mode',['../classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4',1,'EnvelopeDetector::Mode()'],['../classEnvelopeDetector.html#a1804f11c1918ee0aeee94093a3057415',1,'EnvelopeDetector::mode()']]],
   ['modindex',['modIndex',['../classParameter.html#a7310a6224d36ab27a14237aab7d8fadd',1,'Parameter']]],
   ['modmatrix',['ModMatrix',['../classModMatrix.html',1,'ModMatrix'],['../classModMatrix.html#a923354065c39928704876d0b29e568c9',1,'ModMatrix::ModMatrix()'],['../classParameter.html#a30f079fa8ecf5c5cd5735777e1ba74c8',1,'Parameter::modMatrix()']]],
+  ['modmatrixbox',['ModMatrixBox',['../classModMatrixBox.html',1,'ModMatrixBox'],['../classModMatrixBox.html#a2a225493f7f6a22a5c032f92171c40e3',1,'ModMatrixBox::ModMatrixBox()']]],
   ['modmatrixchanged',['modMatrixChanged',['../classModMatrix_1_1Listener.html#a6d4c1fcaddd8a3f77a0b25813919eae3',1,'ModMatrix::Listener']]],
   ['modsrclistbox',['ModSrcListBox',['../classModSrcListBox.html',1,'ModSrcListBox'],['../classModSrcListBox.html#a5c4217751fb20f7a41b4734d179d85b3',1,'ModSrcListBox::ModSrcListBox()']]],
   ['modulation',['Modulation',['../classModulation.html',1,'Modulation'],['../classModulation.html#ad69ae957b7a70669951f70d3372ffb46',1,'Modulation::Modulation()']]],

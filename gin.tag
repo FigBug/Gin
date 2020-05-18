@@ -982,6 +982,7 @@
     <class kind="class">ModulationDestinationButton</class>
     <class kind="class">ModulationOverview</class>
     <class kind="class">ModSrcListBox</class>
+    <class kind="class">ModMatrixBox</class>
   </compound>
   <compound kind="file">
     <name>gin_modules.dox</name>
@@ -5627,24 +5628,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>OpenStreetMaps::Listener</name>
-    <filename>classOpenStreetMaps_1_1Listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
-      <anchor>aeb7faf41923db2a12f09179159d96bd1</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>tileFetched</name>
-      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
-      <anchor>a5a86659b291d99adbe0af1a30fdfe383</anchor>
-      <arglist>(int zoom, int x, int y)=0</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>ModMatrix::Listener</name>
     <filename>classModMatrix_1_1Listener.html</filename>
     <member kind="function" virtualness="virtual">
@@ -5667,24 +5650,6 @@
       <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
       <anchor>aa9fe4601dc9218335cd220fd85b6102c</anchor>
       <arglist>(int)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>Parameter::Listener</name>
-    <filename>classParameter_1_1Listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>classParameter_1_1Listener.html</anchorfile>
-      <anchor>a95d28a80d5f10dc01a2a4d6f3d9e1d04</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>parameterChanged</name>
-      <anchorfile>classParameter_1_1Listener.html</anchorfile>
-      <anchor>aaf93b7ba18e6c7d773330de9c17bc214</anchor>
-      <arglist>(Parameter *param)=0</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -5749,6 +5714,42 @@
       <anchorfile>classFileSystemWatcher_1_1Listener.html</anchorfile>
       <anchor>ad00287704d62db4090a565de73aa28c6</anchor>
       <arglist>(const File, FileSystemEvent)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>OpenStreetMaps::Listener</name>
+    <filename>classOpenStreetMaps_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
+      <anchor>aeb7faf41923db2a12f09179159d96bd1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>tileFetched</name>
+      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
+      <anchor>a5a86659b291d99adbe0af1a30fdfe383</anchor>
+      <arglist>(int zoom, int x, int y)=0</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Parameter::Listener</name>
+    <filename>classParameter_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classParameter_1_1Listener.html</anchorfile>
+      <anchor>a95d28a80d5f10dc01a2a4d6f3d9e1d04</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>parameterChanged</name>
+      <anchorfile>classParameter_1_1Listener.html</anchorfile>
+      <anchor>aaf93b7ba18e6c7d773330de9c17bc214</anchor>
+      <arglist>(Parameter *param)=0</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -6197,6 +6198,25 @@
       <anchorfile>classModMatrix.html</anchorfile>
       <anchor>adeaa67481f092f988ea3df3936909940</anchor>
       <arglist>(Listener *l)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>ModMatrixBox</name>
+    <filename>classModMatrixBox.html</filename>
+    <base protection="private">ModMatrix::Listener</base>
+    <member kind="function">
+      <type></type>
+      <name>ModMatrixBox</name>
+      <anchorfile>classModMatrixBox.html</anchorfile>
+      <anchor>a2a225493f7f6a22a5c032f92171c40e3</anchor>
+      <arglist>(Processor &amp;p, ModMatrix &amp;m)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~ModMatrixBox</name>
+      <anchorfile>classModMatrixBox.html</anchorfile>
+      <anchor>a7513883f426c4df209ed3c5b78b99bd7</anchor>
+      <arglist>() override</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -11349,6 +11369,7 @@
     <class kind="class">ModulationDestinationButton</class>
     <class kind="class">ModulationOverview</class>
     <class kind="class">ModSrcListBox</class>
+    <class kind="class">ModMatrixBox</class>
     <class kind="class">MultiParamComponent</class>
     <class kind="class">PatchBrowser</class>
     <class kind="struct">PatchBrowser::PresetsModel</class>

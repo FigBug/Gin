@@ -1,5 +1,6 @@
 <map id="ModMatrix::Listener" name="ModMatrix::Listener">
 <area shape="rect" id="node2" href="$classKnob.html" title="Slider + editable text for showing a param. " alt="" coords="5,80,57,107"/>
-<area shape="rect" id="node3" href="$classModulationOverview.html" title="A button and text readout that shows the current modulation source. " alt="" coords="81,80,221,107"/>
-<area shape="rect" id="node4" href="$classModulationSourceButton.html" title="A button for enabling modulation learn. " alt="" coords="245,80,409,107"/>
+<area shape="rect" id="node3" href="$classModMatrixBox.html" title="A list box of all assigned. " alt="" coords="82,80,189,107"/>
+<area shape="rect" id="node4" href="$classModulationOverview.html" title="A button and text readout that shows the current modulation source. " alt="" coords="213,80,353,107"/>
+<area shape="rect" id="node5" href="$classModulationSourceButton.html" title="A button for enabling modulation learn. " alt="" coords="377,80,541,107"/>
 </map>

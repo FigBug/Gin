@@ -26,6 +26,7 @@ var searchData=
   ['_7elistener',['~Listener',['../classSingleLineTextEditor_1_1Listener.html#af52267b829ff17fd4e36d3a8dc8d99ff',1,'SingleLineTextEditor::Listener::~Listener()'],['../classFileSystemWatcher_1_1Listener.html#a2f2bd934de14814b9cd28b4ea08278ad',1,'FileSystemWatcher::Listener::~Listener()'],['../classOpenStreetMaps_1_1Listener.html#aeb7faf41923db2a12f09179159d96bd1',1,'OpenStreetMaps::Listener::~Listener()'],['../classModMatrix_1_1Listener.html#a09cc42d56d116a600586a874bbe348a7',1,'ModMatrix::Listener::~Listener()'],['../classParameter_1_1Listener.html#a95d28a80d5f10dc01a2a4d6f3d9e1d04',1,'Parameter::Listener::~Listener()']]],
   ['_7elookandfeelmethods',['~LookAndFeelMethods',['../structSingleLineTextEditor_1_1LookAndFeelMethods.html#a626aa634176d5f5fbb6e0c0b8b81221a',1,'SingleLineTextEditor::LookAndFeelMethods']]],
   ['_7emapviewer',['~MapViewer',['../classMapViewer.html#a2016972d6feb583ac3adcdc41a1978d0',1,'MapViewer']]],
+  ['_7emodmatrixbox',['~ModMatrixBox',['../classModMatrixBox.html#a7513883f426c4df209ed3c5b78b99bd7',1,'ModMatrixBox']]],
   ['_7emodulationdestinationbutton',['~ModulationDestinationButton',['../classModulationDestinationButton.html#a7962baa04f175c253ed31867e220a0fa',1,'ModulationDestinationButton']]],
   ['_7emodulationoverview',['~ModulationOverview',['../classModulationOverview.html#a0ee3b38ba40a5382c8f43589b44cfe59',1,'ModulationOverview']]],
   ['_7emodulationsourcebutton',['~ModulationSourceButton',['../classModulationSourceButton.html#a44808e6b21763680da9c54bcefb6b362',1,'ModulationSourceButton']]],

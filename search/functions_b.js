@@ -5,6 +5,7 @@ var searchData=
   ['mapviewer',['MapViewer',['../classMapViewer.html#a6a5384d59042be977032bdabb02adcdd',1,'MapViewer']]],
   ['mixtogain',['mixToGain',['../classWetDryMix.html#a6a642b5b4d79eb59f61ccfd70c67ae77',1,'WetDryMix']]],
   ['modmatrix',['ModMatrix',['../classModMatrix.html#a923354065c39928704876d0b29e568c9',1,'ModMatrix']]],
+  ['modmatrixbox',['ModMatrixBox',['../classModMatrixBox.html#a2a225493f7f6a22a5c032f92171c40e3',1,'ModMatrixBox']]],
   ['modmatrixchanged',['modMatrixChanged',['../classModMatrix_1_1Listener.html#a6d4c1fcaddd8a3f77a0b25813919eae3',1,'ModMatrix::Listener']]],
   ['modsrclistbox',['ModSrcListBox',['../classModSrcListBox.html#a5c4217751fb20f7a41b4734d179d85b3',1,'ModSrcListBox']]],
   ['modulation',['Modulation',['../classModulation.html#ad69ae957b7a70669951f70d3372ffb46',1,'Modulation']]],
