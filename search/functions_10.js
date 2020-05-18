@@ -148,7 +148,7 @@ var searchData=
   ['starttimerhz',['startTimerHz',['../classCoalescedTimer.html#a31d6f6484b273fe894be54c6dcbd0957',1,'CoalescedTimer']]],
   ['startvoice',['startVoice',['../classSynthesiser.html#a176828955287ea3cd8336148926a4c67',1,'Synthesiser::startVoice()'],['../classModVoice.html#aa987df0200c765566c0a359e3a2597b6',1,'ModVoice::startVoice()']]],
   ['stateupdated',['stateUpdated',['../classModMatrix.html#a29c908a4f1b12e828bf6b18cb52aeeed',1,'ModMatrix::stateUpdated()'],['../classProcessor.html#a8f2a4e8408ed85ccf02152f5e0cc4143',1,'Processor::stateUpdated()']]],
-  ['steplfo',['StepLFO',['../classStepLFO.html#aed13d0fcc28592be43b4dfba08ed90e9',1,'StepLFO']]],
+  ['steplfo',['StepLFO',['../classStepLFO.html#a3868a6372c5e5ea5c024815bda225197',1,'StepLFO']]],
   ['steplfocomponent',['StepLFOComponent',['../classStepLFOComponent.html#a21e66ada757a7e91e01c9314c3c5cbd0',1,'StepLFOComponent']]],
   ['stereodelay',['StereoDelay',['../classStereoDelay.html#a3489a6b571a1083bb4b4ff8621e10993',1,'StereoDelay']]],
   ['stereooscillator',['StereoOscillator',['../classStereoOscillator.html#abfa50f6bb465a3d7a29fac5e0bdbea68',1,'StereoOscillator']]],

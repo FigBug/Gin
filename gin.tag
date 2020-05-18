@@ -10191,8 +10191,8 @@
       <type></type>
       <name>StepLFO</name>
       <anchorfile>classStepLFO.html</anchorfile>
-      <anchor>aed13d0fcc28592be43b4dfba08ed90e9</anchor>
-      <arglist>()</arglist>
+      <anchor>a3868a6372c5e5ea5c024815bda225197</anchor>
+      <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>void</type>

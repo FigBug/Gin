@@ -172,7 +172,7 @@ var searchData=
   ['stepdown3',['stepDown3',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29aaa3d13ace9a6e4045e504d765616f1c8',1,'LFO']]],
   ['stepdown4',['stepDown4',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29aea3c4dcae408cbe4ca833cc5deab05a8',1,'LFO']]],
   ['stepdown8',['stepDown8',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a60e4b0ffa818d9dfcae5f4f8e163c7de',1,'LFO']]],
-  ['steplfo',['StepLFO',['../classStepLFO.html',1,'StepLFO'],['../classStepLFO.html#aed13d0fcc28592be43b4dfba08ed90e9',1,'StepLFO::StepLFO()']]],
+  ['steplfo',['StepLFO',['../classStepLFO.html',1,'StepLFO'],['../classStepLFO.html#a3868a6372c5e5ea5c024815bda225197',1,'StepLFO::StepLFO()']]],
   ['steplfocomponent',['StepLFOComponent',['../classStepLFOComponent.html',1,'StepLFOComponent'],['../classStepLFOComponent.html#a21e66ada757a7e91e01c9314c3c5cbd0',1,'StepLFOComponent::StepLFOComponent()']]],
   ['stepup3',['stepUp3',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a47a947491015719eaaa2e001e86eea54',1,'LFO']]],
   ['stepup4',['stepUp4',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29af71d95a4c6af33601854ca4ebe2a5adc',1,'LFO']]],
