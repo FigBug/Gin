@@ -87,6 +87,7 @@ using juce::Component;
 #include "dsp/gin_resamplingfifo.h"
 #include "dsp/gin_sample.h"
 #include "dsp/gin_sampleoscillator.h"
+#include "dsp/gin_steplfo.h"
 #include "dsp/gin_stereodelay.h"
 #include "dsp/gin_synthesiser.h"
 #include "dsp/gin_valuesmoother.h"
