@@ -119,6 +119,7 @@ $(function() {
 </li>
 <li>setBPM()
 : <a class="el" href="classLFOComponent.html#a7afaee1843122ca663f8b371575e6030">LFOComponent</a>
+, <a class="el" href="classStepLFOComponent.html#a7a29b7358ef0aeb985255dc51818855a">StepLFOComponent</a>
 </li>
 <li>setBuffer()
 : <a class="el" href="classWaveformComponent.html#ae48d451bc5805988f4c9a76ff8989d58">WaveformComponent</a>
@@ -142,7 +143,7 @@ $(function() {
 : <a class="el" href="classSynthesiserVoice.html#adc7a1c9bd301ab0f94b22524d35dda5a">SynthesiserVoice</a>
 </li>
 <li>setCurrentProgram()
-: <a class="el" href="classProcessor.html#adc86771c8cf8ebf5dc33a3c296216c58">Processor</a>
+: <a class="el" href="classProcessor.html#a7b57a4bffc9016913c128a041f172fd4">Processor</a>
 </li>
 <li>setDecay()
 : <a class="el" href="classADSR.html#adb8cfc9ecc4bcfa57dbdcb29dc94f57b">ADSR</a>
@@ -168,6 +169,9 @@ $(function() {
 </li>
 <li>setFont()
 : <a class="el" href="classSingleLineTextEditor.html#a935cf73fc2575b527558a4a0d92c7d6c">SingleLineTextEditor</a>
+</li>
+<li>setFreq()
+: <a class="el" href="classStepLFO.html#aa4eb2d01feb657be92b0b1b652ccdb13">StepLFO</a>
 </li>
 <li>setGain()
 : <a class="el" href="classGainProcessor.html#a4592a4fb49ec498380748764a879b523">GainProcessor</a>
@@ -253,6 +257,9 @@ $(function() {
 , <a class="el" href="classFilter.html#ab4826bc2ddff32cb9fcb052b9c3d0629">Filter</a>
 , <a class="el" href="classTriggeredScope.html#abcb75a1d83a267bbc2d631933013c8b3">TriggeredScope</a>
 </li>
+<li>setNumPoints()
+: <a class="el" href="classStepLFO.html#a1e44b3d5beb8294351f85e63c830e3c1">StepLFO</a>
+</li>
 <li>setNumSamplesPerPixel()
 : <a class="el" href="classTriggeredScope.html#abb3a5feb7ff5f4bf2fc867ec0d70b025">TriggeredScope</a>
 , <a class="el" href="classXYScope.html#ab0e51490e9997247e0df9d78f938fb2f">XYScope</a>
@@ -281,10 +288,14 @@ $(function() {
 , <a class="el" href="classFilter.html#ab874606abc9fd6094ce7b57c81431737">Filter</a>
 , <a class="el" href="classLFOComponent.html#a4a9ee52cbf8567eb288fe1cfdd1cd990">LFOComponent</a>
 , <a class="el" href="classModulation.html#a6c9e3b46d2c95cd13b61d61282f58e48">Modulation</a>
+, <a class="el" href="classStepLFOComponent.html#afa1dbeb6c10d91bd32ec8174efe1f388">StepLFOComponent</a>
 , <a class="el" href="classStereoDelay.html#aa587ccb3ad71e93752569cb25803f0a4">StereoDelay</a>
 </li>
 <li>setPingInterval()
 : <a class="el" href="classAsyncWebsocket.html#a24f2716444fec081a2e09006f7dad11b">AsyncWebsocket</a>
+</li>
+<li>setPoint()
+: <a class="el" href="classStepLFO.html#ae703cc83910512030357a78a65d532aa">StepLFO</a>
 </li>
 <li>setPolyValue()
 : <a class="el" href="classModMatrix.html#a5b375bb421e77e3acf19c74a3ab3baef">ModMatrix</a>
@@ -344,6 +355,7 @@ $(function() {
 , <a class="el" href="classLFO.html#ac53ad3892743661db85583bcf3b4cbf2">LFO</a>
 , <a class="el" href="classModMatrix.html#aa5a44973523be3e13090e46bd3751777">ModMatrix</a>
 , <a class="el" href="classModulation.html#a14bd355d13a545d034f30df8024102fe">Modulation</a>
+, <a class="el" href="classStepLFO.html#a3e1fa83dba7591409abbbabf92fca91b">StepLFO</a>
 , <a class="el" href="classStereoDelay.html#a28569f59c5a91b46001bc64da62ca04b">StereoDelay</a>
 , <a class="el" href="classStereoOscillator.html#a720c29b79225736abece6bd93457a647">StereoOscillator</a>
 , <a class="el" href="classValueSmoother.html#a4c667c173bbe3cdc3cafa748464382e7">ValueSmoother&lt; T &gt;</a>
@@ -518,6 +530,12 @@ $(function() {
 : <a class="el" href="classModMatrix.html#a29c908a4f1b12e828bf6b18cb52aeeed">ModMatrix</a>
 , <a class="el" href="classProcessor.html#a8f2a4e8408ed85ccf02152f5e0cc4143">Processor</a>
 </li>
+<li>StepLFO()
+: <a class="el" href="classStepLFO.html#aed13d0fcc28592be43b4dfba08ed90e9">StepLFO</a>
+</li>
+<li>StepLFOComponent()
+: <a class="el" href="classStepLFOComponent.html#a21e66ada757a7e91e01c9314c3c5cbd0">StepLFOComponent</a>
+</li>
 <li>StereoDelay()
 : <a class="el" href="classStereoDelay.html#a3489a6b571a1083bb4b4ff8621e10993">StereoDelay</a>
 </li>
@@ -546,7 +564,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 18 2020 05:27:47 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon May 18 2020 14:44:26 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

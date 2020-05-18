@@ -65,7 +65,7 @@ var searchData=
   ['getnumrows',['getNumRows',['../classModSrcListBox.html#a88055a83ab5d13fac08c28d2348f2aae',1,'ModSrcListBox::getNumRows()'],['../structPatchBrowser_1_1AuthorsModel.html#a6f535e94dba0d2e1592f1bbc891fcacf',1,'PatchBrowser::AuthorsModel::getNumRows()'],['../structPatchBrowser_1_1TagsModel.html#a030fdf75922a8dbe6f420f9323f94072',1,'PatchBrowser::TagsModel::getNumRows()'],['../structPatchBrowser_1_1PresetsModel.html#a44f9a1678a67661480ea71ab7a0a0d4d',1,'PatchBrowser::PresetsModel::getNumRows()']]],
   ['getnumsteps',['getNumSteps',['../classParameter.html#a1b51959c06800d37563cb72001640014',1,'Parameter']]],
   ['getopenstreetmaps',['getOpenStreetMaps',['../classMapViewer.html#a376101640a1f33a7cbcc647eb93faf85',1,'MapViewer']]],
-  ['getoutput',['getOutput',['../classADSR.html#aad2376dfb5d854dd0250e2a6bde52cb2',1,'ADSR::getOutput()'],['../classAnalogADSR.html#a0fdf4b32574c7a2e276ee6e2d2a7b6d1',1,'AnalogADSR::getOutput()'],['../classLFO.html#a87dce294e659cd21de22aaa2f7de6119',1,'LFO::getOutput()']]],
+  ['getoutput',['getOutput',['../classADSR.html#aad2376dfb5d854dd0250e2a6bde52cb2',1,'ADSR::getOutput()'],['../classAnalogADSR.html#a0fdf4b32574c7a2e276ee6e2d2a7b6d1',1,'AnalogADSR::getOutput()'],['../classLFO.html#a87dce294e659cd21de22aaa2f7de6119',1,'LFO::getOutput()'],['../classStepLFO.html#abfcd3d3a5e7d82c4f30da1534e8c39bc',1,'StepLFO::getOutput()']]],
   ['getoutputtracker',['getOutputTracker',['../classDynamics.html#ab8ffe164305688efeb5310d97e25fc74',1,'Dynamics']]],
   ['getparameter',['getParameter',['../classProcessor.html#aaeb6c3eb29b8248eecb21adc1662a80d',1,'Processor']]],
   ['getpluginparameters',['getPluginParameters',['../classProcessor.html#af705e4558c36dbd62313681eb0b7afe6',1,'Processor']]],

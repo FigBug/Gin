@@ -3,5 +3,6 @@
 <area shape="rect" id="node4" href="$classControlBox.html" title="A box for holding controls on a grid. " alt="" coords="156,155,243,181"/>
 <area shape="rect" id="node5" href="$classLFOComponent.html" title="Draws an LFO curve and shows a little dot moving long. " alt="" coords="267,155,382,181"/>
 <area shape="rect" id="node6" href="$classPagedControlBox.html" title="A control for holding pags of controls on a grid Pages slide over top of each other to make room..." alt="" coords="407,155,531,181"/>
-<area shape="rect" id="node2" href="$classParameter_1_1Listener.html" title="Parameter::Listener" alt="" coords="194,5,330,32"/>
+<area shape="rect" id="node7" href="$classStepLFOComponent.html" title="Draws a step LFO curve and shows a little dot moving long. " alt="" coords="555,155,697,181"/>
+<area shape="rect" id="node2" href="$classParameter_1_1Listener.html" title="Parameter::Listener" alt="" coords="257,5,393,32"/>
 </map>

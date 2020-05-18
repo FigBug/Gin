@@ -76,6 +76,8 @@ var searchData=
   ['gin_5fsinglelinetexteditor_2eh',['gin_singlelinetexteditor.h',['../gin__singlelinetexteditor_8h.html',1,'']]],
   ['gin_5fsmoothedparameter_2eh',['gin_smoothedparameter.h',['../gin__smoothedparameter_8h.html',1,'']]],
   ['gin_5fspline_2eh',['gin_spline.h',['../gin__spline_8h.html',1,'']]],
+  ['gin_5fsteplfo_2eh',['gin_steplfo.h',['../gin__steplfo_8h.html',1,'']]],
+  ['gin_5fsteplfocomponent_2eh',['gin_steplfocomponent.h',['../gin__steplfocomponent_8h.html',1,'']]],
   ['gin_5fstereodelay_2eh',['gin_stereodelay.h',['../gin__stereodelay_8h.html',1,'']]],
   ['gin_5fsynthesiser_2eh',['gin_synthesiser.h',['../gin__synthesiser_8h.html',1,'']]],
   ['gin_5fsystemsemaphore_2eh',['gin_systemsemaphore.h',['../gin__systemsemaphore_8h.html',1,'']]],

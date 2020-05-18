@@ -10,6 +10,8 @@ var searchData=
   ['smoothedparameter',['SmoothedParameter',['../classSmoothedParameter.html',1,'']]],
   ['smoothingtype',['SmoothingType',['../classSmoothingType.html',1,'']]],
   ['spline',['Spline',['../classSpline.html',1,'']]],
+  ['steplfo',['StepLFO',['../classStepLFO.html',1,'']]],
+  ['steplfocomponent',['StepLFOComponent',['../classStepLFOComponent.html',1,'']]],
   ['stereodelay',['StereoDelay',['../classStereoDelay.html',1,'']]],
   ['stereooscillator',['StereoOscillator',['../classStereoOscillator.html',1,'']]],
   ['switch',['Switch',['../classSwitch.html',1,'']]],

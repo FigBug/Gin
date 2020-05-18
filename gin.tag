@@ -1293,6 +1293,18 @@
     <class kind="class">Spline::Element</class>
   </compound>
   <compound kind="file">
+    <name>gin_steplfo.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
+    <filename>gin__steplfo_8h</filename>
+    <class kind="class">StepLFO</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_steplfocomponent.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
+    <filename>gin__steplfocomponent_8h</filename>
+    <class kind="class">StepLFOComponent</class>
+  </compound>
+  <compound kind="file">
     <name>gin_stereodelay.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
     <filename>gin__stereodelay_8h</filename>
@@ -5692,6 +5704,24 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>Parameter::Listener</name>
+    <filename>classParameter_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classParameter_1_1Listener.html</anchorfile>
+      <anchor>a95d28a80d5f10dc01a2a4d6f3d9e1d04</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>parameterChanged</name>
+      <anchorfile>classParameter_1_1Listener.html</anchorfile>
+      <anchor>aaf93b7ba18e6c7d773330de9c17bc214</anchor>
+      <arglist>(Parameter *param)=0</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>FileSystemWatcher::Listener</name>
     <filename>classFileSystemWatcher_1_1Listener.html</filename>
     <member kind="function" virtualness="virtual">
@@ -5732,24 +5762,6 @@
       <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
       <anchor>a5a86659b291d99adbe0af1a30fdfe383</anchor>
       <arglist>(int zoom, int x, int y)=0</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>Parameter::Listener</name>
-    <filename>classParameter_1_1Listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>classParameter_1_1Listener.html</anchorfile>
-      <anchor>a95d28a80d5f10dc01a2a4d6f3d9e1d04</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>parameterChanged</name>
-      <anchorfile>classParameter_1_1Listener.html</anchorfile>
-      <anchor>aaf93b7ba18e6c7d773330de9c17bc214</anchor>
-      <arglist>(Parameter *param)=0</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -10173,6 +10185,106 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>StepLFO</name>
+    <filename>classStepLFO.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>StepLFO</name>
+      <anchorfile>classStepLFO.html</anchorfile>
+      <anchor>aed13d0fcc28592be43b4dfba08ed90e9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classStepLFO.html</anchorfile>
+      <anchor>a3e1fa83dba7591409abbbabf92fca91b</anchor>
+      <arglist>(double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFreq</name>
+      <anchorfile>classStepLFO.html</anchorfile>
+      <anchor>aa4eb2d01feb657be92b0b1b652ccdb13</anchor>
+      <arglist>(float f)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setNumPoints</name>
+      <anchorfile>classStepLFO.html</anchorfile>
+      <anchor>a1e44b3d5beb8294351f85e63c830e3c1</anchor>
+      <arglist>(int n)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPoint</name>
+      <anchorfile>classStepLFO.html</anchorfile>
+      <anchor>ae703cc83910512030357a78a65d532aa</anchor>
+      <arglist>(int n, float v)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classStepLFO.html</anchorfile>
+      <anchor>aed045806e2df53ed176f8a7e109d5283</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>noteOn</name>
+      <anchorfile>classStepLFO.html</anchorfile>
+      <anchor>a6eed3f2df15ee299ecb928c8bff961e2</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>process</name>
+      <anchorfile>classStepLFO.html</anchorfile>
+      <anchor>a7a85cf66615eda334a7ca3a71c3903b3</anchor>
+      <arglist>(int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getOutput</name>
+      <anchorfile>classStepLFO.html</anchorfile>
+      <anchor>abfcd3d3a5e7d82c4f30da1534e8c39bc</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>StepLFOComponent</name>
+    <filename>classStepLFOComponent.html</filename>
+    <base>MultiParamComponent</base>
+    <member kind="function">
+      <type></type>
+      <name>StepLFOComponent</name>
+      <anchorfile>classStepLFOComponent.html</anchorfile>
+      <anchor>a21e66ada757a7e91e01c9314c3c5cbd0</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~StepLFOComponent</name>
+      <anchorfile>classStepLFOComponent.html</anchorfile>
+      <anchor>a9dce47acb1fa36c16921da9f415914bf</anchor>
+      <arglist>() override=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setBPM</name>
+      <anchorfile>classStepLFOComponent.html</anchorfile>
+      <anchor>a7a29b7358ef0aeb985255dc51818855a</anchor>
+      <arglist>(float bpm)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setParams</name>
+      <anchorfile>classStepLFOComponent.html</anchorfile>
+      <anchor>afa1dbeb6c10d91bd32ec8174efe1f388</anchor>
+      <arglist>(Parameter::Ptr beat, Parameter::Ptr length, Parameter::Ptr *level, Parameter::Ptr enable)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>StereoDelay</name>
     <filename>classStereoDelay.html</filename>
     <member kind="function">
@@ -11391,6 +11503,7 @@
     <class kind="class">ProcessorEditor</class>
     <class kind="class">PluginLookAndFeel</class>
     <class kind="class">PluginLookAndFeelWrapper</class>
+    <class kind="class">StepLFOComponent</class>
   </compound>
   <compound kind="group">
     <name>gin_dsp-components</name>
@@ -11444,6 +11557,7 @@
     <class kind="class">Sample</class>
     <class kind="class">SampleOscillator</class>
     <class kind="class">ScratchBuffer</class>
+    <class kind="class">StepLFO</class>
     <class kind="class">StereoDelay</class>
     <class kind="struct">GlideInfo</class>
     <class kind="class">SynthesiserVoice</class>
