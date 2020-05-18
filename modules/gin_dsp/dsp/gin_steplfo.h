@@ -16,9 +16,7 @@ class StepLFO
 {
 public:
     //==============================================================================
-    StepLFO()
-    {
-    }
+	StepLFO() = default;
     
     //==============================================================================
     void setSampleRate (double sr)      { sampleRate = sr;      }
@@ -30,14 +28,12 @@ public:
     {
         output     = 0.0f;
         phase      = 0.0f;
-        curPhase   = 0.0f;
     }
     
     void noteOn()
     {
         output     = 0.0f;
         phase      = 0.0f;
-        curPhase   = 0.0f;
     }
 
     float process (int numSamples)
@@ -46,20 +42,13 @@ public:
 
         float step = 0.0f;
         if (frequency > 0.0001f)
-            step = float (frequency / sampleRate);
+			step = float (frequency / sampleRate) / points.size();
 
         for (int i = 0; i < numSamples; i++)
         {
-            float maxPhase = points.size();
-
             phase += step;
-            while (phase >= maxPhase)
-                phase -= maxPhase;
-
-            float newCurPhase = std::fmod (phase, maxPhase);
-            if (newCurPhase < 0) newCurPhase += maxPhase;
-
-            curPhase = newCurPhase;
+			while (phase >= 1.0f)
+				phase -= 1.0f;
         }
         
         return updateCurrentValue();
@@ -73,13 +62,13 @@ public:
 private:
     float updateCurrentValue()
     {
-        output = points[int (curPhase)];
+		output = points[int (phase * points.size())];
 
         return jlimit (-1.0f, 1.0f, (output));
     }
 
     double sampleRate = 0.0;
-    float frequency = 0.0f, phase = 0.0f, curPhase = 0.0f, output = 0.0f;
+    float frequency = 0.0f, phase = 0.0f, output = 0.0f;
 
     Array<float> points;
 };

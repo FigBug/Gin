@@ -33,7 +33,7 @@ void StepLFOComponent::createPath (juce::Rectangle<int> area)
 {
     lfo.setSampleRate ((double) area.getWidth());
 
-    lfo.setFreq (1.0f * getNumSteps());
+    lfo.setFreq (1.0f);
     lfo.setNumPoints (getNumSteps());
     for (int i = 0; i < getNumSteps(); i++)
         lfo.setPoint (i, level[i]->getProcValue());
