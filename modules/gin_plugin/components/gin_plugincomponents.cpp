@@ -240,6 +240,13 @@ void Knob::modMatrixChanged()
             knob.getProperties().remove ("modValues");
             modButton.setVisible (false);
         }
+
+        if (learning)
+        {
+            modDepth = mm->getModDepth (mm->getLearn(), parameter->getModIndex());
+            knob.getProperties().set ("modDepth", modDepth);
+            repaint();
+        }
     }
 }
 

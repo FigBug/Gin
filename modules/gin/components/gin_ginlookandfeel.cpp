@@ -60,9 +60,27 @@ void GinLookAndFeel::drawLinearSlider (Graphics& g, int x, int y, int width, int
         g.setColour (slider.findColour (Slider::trackColourId).withAlpha (isMouseOver ? 0.95f : 0.85f));
 
     if (slider.isHorizontal())
-        g.fillRect (Rectangle<float> (static_cast<float> (rc.getX()), rc.getY() + 0.5f, sliderPos - rc.getX(), rc.getHeight() - 1.0f));
+    {
+        float t = rc.getY() + 0.5f;
+        float h = rc.getHeight() - 1.0f;
+
+        if (slider.getProperties().contains ("fromCentre"))
+        {
+            auto c = rc.getCentreX();
+            if (sliderPos < c)
+                g.fillRect (Rectangle<float> (sliderPos, t, c - sliderPos, h));
+            else
+                g.fillRect (Rectangle<float> (c, t, sliderPos - c, h));
+        }
+        else
+        {
+            g.fillRect (Rectangle<float> (float (rc.getX()), y, sliderPos - rc.getX(), h));
+        }
+    }
     else
+    {
         g.fillRect (Rectangle<float> (rc.getX() + 0.5f, sliderPos, rc.getWidth() - 1.0f, rc.getY() + (rc.getHeight() - sliderPos)));
+    }
 }
 
 void GinLookAndFeel::drawRotarySlider (Graphics& g, int x, int y, int width, int height, float sliderPos,

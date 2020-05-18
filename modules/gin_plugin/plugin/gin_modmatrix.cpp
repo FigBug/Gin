@@ -172,6 +172,9 @@ void ModMatrix::setModDepth (int src, int param, float f)
         if (si.id == src)
         {
             si.depth = f;
+
+            listeners.call ([&] (Listener& l) { l.modMatrixChanged(); });
+
             return;
         }
     }
@@ -203,9 +206,13 @@ Array<int> ModMatrix::getModSources (Parameter* param)
 {
     Array<int> srcs;
 
-    auto& pi = parameters.getReference (param->getModIndex());
-    for (auto& si : pi.sources)
-        srcs.add (si.id);
+	auto idx = param->getModIndex();
+	if (idx >= 0)
+	{
+		auto& pi = parameters.getReference (idx);
+		for (auto& si : pi.sources)
+			srcs.add (si.id);
+	}
 
     return srcs;
 }

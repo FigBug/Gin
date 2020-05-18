@@ -260,3 +260,146 @@ private:
 
     ModMatrix& modMatrix;
 };
+
+//==============================================================================
+/** A list box of all assigned
+*/
+class ModMatrixBox : public ListBox,
+                     private ListBoxModel,
+                     private ModMatrix::Listener
+{
+public:
+    ModMatrixBox (Processor& p, ModMatrix& m)
+        : proc (p), modMatrix (m)
+    {
+        setModel (this);
+        setRowHeight (16);
+        refresh();
+
+        modMatrix.addListener (this);
+    }
+
+    ~ModMatrixBox() override
+    {
+        modMatrix.removeListener (this);
+    }
+
+private:
+    void refresh()
+    {
+        assignments.clear();
+
+        for (auto p : proc.getPluginParameters())
+            for (auto s : modMatrix.getModSources (p))
+                assignments.add ({s, p});
+        
+        updateContent();
+        repaint();
+    }
+
+    int getNumRows() override
+    {
+        return assignments.size();
+    }
+
+    void paintListBoxItem (int, Graphics&, int, int, bool) override {}
+
+    Component* refreshComponentForRow (int row, bool, Component* c) override
+    {
+        auto rowComponent = (Row*)c;
+        if (rowComponent == nullptr)
+            rowComponent = new Row (*this);
+
+        rowComponent->update (row);
+        return rowComponent;
+    }
+
+    void modMatrixChanged() override
+    {
+        refresh();
+    }
+
+    class Row : public Component,
+                private Slider::Listener
+    {
+    public:
+        Row (ModMatrixBox& o)
+            : owner (o)
+        {
+            addAndMakeVisible (deleteButton);
+            addAndMakeVisible (depth);
+            addAndMakeVisible (src);
+            addAndMakeVisible (dst);
+
+            depth.setRange (-1.0, 1.0, dontSendNotification);
+            depth.getProperties().set ("fromCentre", true);
+            depth.addListener (this);
+
+            deleteButton.onClick = [this]
+            {
+                auto& a = owner.assignments.getReference (row);
+                owner.modMatrix.clearModDepth (a.src, a.dst->getModIndex());
+            };
+        }
+
+        void sliderValueChanged (Slider*) override
+        {
+            auto& a = owner.assignments.getReference (row);
+            owner.modMatrix.setModDepth (a.src, a.dst->getModIndex(), (float) depth.getValue());
+        }
+
+        void update (int idx)
+        {
+            row = idx;
+
+            if (idx >= 0 && idx < owner.assignments.size())
+            {
+                auto& a = owner.assignments.getReference (idx);
+                src.setText (owner.modMatrix.getModSrcName (a.src), dontSendNotification);
+                dst.setText (a.dst->getName (100), dontSendNotification);
+
+                depth.setValue (owner.modMatrix.getModDepth (a.src, a.dst->getModIndex()));
+            }
+            else
+            {
+                src.setText ("", dontSendNotification);
+                dst.setText ("", dontSendNotification);
+            }
+        }
+
+        void resized() override
+        {
+            auto rc = getLocalBounds().reduced (2);
+
+            int h = rc.getHeight();
+
+            deleteButton.setBounds (rc.removeFromLeft (h));
+            rc.removeFromLeft (2);
+            depth.setBounds (rc.removeFromLeft (50));
+
+            int w = rc.getWidth() / 2;
+            src.setBounds (rc.removeFromLeft (w));
+            dst.setBounds (rc.removeFromLeft (w));
+        }
+
+        ModMatrixBox& owner;
+        int row = 0;
+
+        Slider depth { Slider::LinearHorizontal, Slider::NoTextBox };
+
+        Label src;
+        Label dst;
+
+        TextButton deleteButton {"svg:M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"};
+    };
+
+    struct Assignment
+    {
+        int src = 0;
+        Parameter* dst = nullptr;
+    };
+
+    Processor& proc;
+    ModMatrix& modMatrix;
+    Array<Assignment> assignments;
+};
