@@ -7,7 +7,7 @@ class ModulationSourceButton : public Button,
                                private ModMatrix::Listener
 {
 public:
-    ModulationSourceButton (ModMatrix& mm, int src = -1, bool poly_ = false)
+    ModulationSourceButton (ModMatrix& mm, ModSrcId src = {}, bool poly_ = false)
         : Button (""), modMatrix (mm), source (src), poly (poly_)
     {
         modMatrix.addListener (this);
@@ -19,7 +19,7 @@ public:
         modMatrix.removeListener (this);
     }
 
-    void setSource (int src, bool p)
+    void setSource (ModSrcId src, bool p)
     {
         source = src;
         poly = p;
@@ -29,7 +29,7 @@ public:
 private:
     void update()
     {
-        if (source != -1)
+        if (source.isValid())
             setTooltip ("Mod Source: " + modMatrix.getModSrcName (source));
         else
             setTooltip ({});
@@ -45,7 +45,7 @@ private:
             modMatrix.enableLearn (source);
     }
 
-    void learnSourceChanged (int src) override
+    void learnSourceChanged (ModSrcId src) override
     {
         setToggleState (src == source, dontSendNotification);
     }
@@ -99,7 +99,7 @@ private:
     }
 
     ModMatrix& modMatrix;
-    int source = -1;
+    ModSrcId source = {};
     bool poly = false;
 };
 
@@ -178,12 +178,12 @@ private:
         name.setBounds (rc);
     }
 
-    void learnSourceChanged (int src) override
+    void learnSourceChanged (ModSrcId src) override
     {
-        setVisible (src != -1);
-        button.setSource (src, src == -1 ? false : modMatrix.getModSrcPoly (src));
+        setVisible (src.isValid());
+        button.setSource (src, ! src.isValid() ? false : modMatrix.getModSrcPoly (src));
 
-        if (src != -1)
+        if (src.isValid())
             name.setText (modMatrix.getModSrcName (src), dontSendNotification);
         else
             name.setText ({}, dontSendNotification);
@@ -191,7 +191,7 @@ private:
 
     ModMatrix& modMatrix;
 
-    ModulationSourceButton button { modMatrix, -1 };
+    ModulationSourceButton button { modMatrix, {} };
     Label name;
 };
 
@@ -240,8 +240,8 @@ private:
 
         void update (int idx)
         {
-            text.setText (modMatrix.getModSrcName (idx), dontSendNotification);
-            src.setSource (idx, modMatrix.getModSrcPoly (idx));
+            text.setText (modMatrix.getModSrcName (ModSrcId (idx)), dontSendNotification);
+            src.setSource (ModSrcId (idx), modMatrix.getModSrcPoly (ModSrcId (idx)));
         }
 
         void resized() override
@@ -338,14 +338,14 @@ private:
             deleteButton.onClick = [this]
             {
                 auto& a = owner.assignments.getReference (row);
-                owner.modMatrix.clearModDepth (a.src, a.dst->getModIndex());
+                owner.modMatrix.clearModDepth (a.src, ModDstId (a.dst->getModIndex()));
             };
         }
 
         void sliderValueChanged (Slider*) override
         {
             auto& a = owner.assignments.getReference (row);
-            owner.modMatrix.setModDepth (a.src, a.dst->getModIndex(), (float) depth.getValue());
+            owner.modMatrix.setModDepth (a.src, ModDstId (a.dst->getModIndex()), (float) depth.getValue());
         }
 
         void update (int idx)
@@ -358,7 +358,7 @@ private:
                 src.setText (owner.modMatrix.getModSrcName (a.src), dontSendNotification);
                 dst.setText (a.dst->getName (100), dontSendNotification);
 
-                depth.setValue (owner.modMatrix.getModDepth (a.src, a.dst->getModIndex()));
+                depth.setValue (owner.modMatrix.getModDepth (a.src, ModDstId (a.dst->getModIndex())));
             }
             else
             {
@@ -395,7 +395,7 @@ private:
 
     struct Assignment
     {
-        int src = 0;
+        ModSrcId src = {};
         Parameter* dst = nullptr;
     };
 

@@ -27,8 +27,8 @@ void ModMatrix::stateUpdated (const ValueTree& vt)
             int param = c.getProperty ("param");
 
             Source s;
-            s.id = src;
-            s.poly = getModSrcPoly (src);
+            s.id = ModSrcId (src);
+            s.poly = getModSrcPoly (ModSrcId (src));
             s.depth = f;
 
             auto& pi = parameters.getReference (param);
@@ -49,7 +49,7 @@ void ModMatrix::updateState (ValueTree& vt)
         for (auto src : pi.sources)
         {
             auto c = ValueTree ("MODITEM");
-            c.setProperty ("src", src.id, nullptr);
+            c.setProperty ("src", src.id.id, nullptr);
             c.setProperty ("depth", src.depth, nullptr);
             c.setProperty ("param", i, nullptr);
 
@@ -65,28 +65,30 @@ void ModMatrix::addVoice (ModVoice* v)
     v->owner = this;
 }
 
-int ModMatrix::addMonoModSource (const String& name, bool bipolar)
+ModSrcId ModMatrix::addMonoModSource (const String& id, const String& name, bool bipolar)
 {
     SourceInfo si;
+    si.id      = id;
     si.name    = name;
     si.poly    = false;
     si.bipolar = bipolar;
-    si.index   = sources.size();
+    si.index   = ModSrcId (sources.size());
 
     sources.add (si);
-    return si.index;
+    return ModSrcId (si.index);
 }
 
-int ModMatrix::addPolyModSource (const String& name, bool bipolar)
+ModSrcId ModMatrix::addPolyModSource (const String& id, const String& name, bool bipolar)
 {
     SourceInfo si;
+    si.id      = id;
     si.name    = name;
     si.poly    = true;
     si.bipolar = bipolar;
-    si.index   = sources.size();
+    si.index   = ModSrcId (sources.size());
 
     sources.add (si);
-    return si.index;
+    return ModSrcId (si.index);
 }
 
 void ModMatrix::addParameter (Parameter* p, bool poly)
@@ -132,7 +134,7 @@ void ModMatrix::build()
     smoothers.resize (parameters.size());
 }
 
-void ModMatrix::enableLearn (int src)
+void ModMatrix::enableLearn (ModSrcId src)
 {
     learnSource = src;
 
@@ -141,22 +143,22 @@ void ModMatrix::enableLearn (int src)
 
 void ModMatrix::disableLearn()
 {
-    learnSource = -1;
+    learnSource.id = -1;
 
     listeners.call ([&] (Listener& l) { l.learnSourceChanged (learnSource); });
 }
 
-bool ModMatrix::isModulated (int param)
+bool ModMatrix::isModulated (ModDstId param)
 {
-    auto& pi = parameters.getReference (param);
+    auto& pi = parameters.getReference (param.id);
     if (pi.sources.size() > 0)
         return true;
     return false;
 }
 
-float ModMatrix::getModDepth (int src, int param)
+float ModMatrix::getModDepth (ModSrcId src, ModDstId param)
 {
-    auto& pi = parameters.getReference (param);
+    auto& pi = parameters.getReference (param.id);
     for (auto& si : pi.sources)
         if (si.id == src)
             return si.depth;
@@ -164,9 +166,9 @@ float ModMatrix::getModDepth (int src, int param)
     return 0;
 }
 
-void ModMatrix::setModDepth (int src, int param, float f)
+void ModMatrix::setModDepth (ModSrcId src, ModDstId param, float f)
 {
-    auto& pi = parameters.getReference (param);
+    auto& pi = parameters.getReference (param.id);
     for (auto& si : pi.sources)
     {
         if (si.id == src)
@@ -189,9 +191,9 @@ void ModMatrix::setModDepth (int src, int param, float f)
     listeners.call ([&] (Listener& l) { l.modMatrixChanged(); });
 }
 
-void ModMatrix::clearModDepth (int src, int param)
+void ModMatrix::clearModDepth (ModSrcId src, ModDstId param)
 {
-    auto& pi = parameters.getReference (param);
+    auto& pi = parameters.getReference (param.id);
     for (int i = pi.sources.size(); --i >= 0;)
     {
         auto si = pi.sources[i];
@@ -202,9 +204,9 @@ void ModMatrix::clearModDepth (int src, int param)
     listeners.call ([&] (Listener& l) { l.modMatrixChanged(); });
 }
 
-Array<int> ModMatrix::getModSources (Parameter* param)
+Array<ModSrcId> ModMatrix::getModSources (Parameter* param)
 {
-    Array<int> srcs;
+    Array<ModSrcId> srcs;
 
 	auto idx = param->getModIndex();
 	if (idx >= 0)

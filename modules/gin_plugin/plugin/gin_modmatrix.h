@@ -1,6 +1,32 @@
 #pragma once
 
 //==============================================================================
+struct ModSrcId
+{
+    ModSrcId () = default;
+    explicit ModSrcId (int id_) : id (id_) {}
+    ModSrcId (const ModSrcId& other) { id = other.id; }
+    ModSrcId& operator= (const ModSrcId& other) { id = other.id; return *this; }
+    bool operator== (const ModSrcId& other) const { return other.id == id; }
+    bool isValid() const { return id > 0; }
+    
+    int id = -1;
+};
+
+//==============================================================================
+struct ModDstId
+{
+    ModDstId () = default;
+    explicit ModDstId (int id_) : id (id_)  {}
+    ModDstId (const ModDstId& other) { id = other.id; }
+    ModDstId& operator= (const ModDstId& other) { id = other.id; return *this; }
+    bool operator== (const ModDstId& other) const { return other.id == id; }
+    bool isValid() const { return id > 0; }
+ 
+    int id = -1;
+};
+
+//==============================================================================
 class ModMatrix;
 
 /** Make your voice inherit from this if it supports modulation
@@ -71,9 +97,9 @@ public:
         for (auto& src : info.sources)
         {
             if (src.poly && activeVoice != nullptr)
-                base += activeVoice->values[src.id] * src.depth;
+                base += activeVoice->values[src.id.id] * src.depth;
             else if (! src.poly)
-                base += sources[src.id].monoValue * src.depth;
+                base += sources[src.id.id].monoValue * src.depth;
         }
 
         base = jlimit (0.0f, 1.0f, base);
@@ -100,9 +126,9 @@ public:
         for (auto& src : info.sources)
         {
             if (src.poly)
-                base += voice.values[src.id] * src.depth;
+                base += voice.values[src.id.id] * src.depth;
             else
-                base += sources[src.id].monoValue * src.depth;
+                base += sources[src.id.id].monoValue * src.depth;
         }
 
         base = jlimit (0.0f, 1.0f, base);
@@ -138,9 +164,9 @@ public:
                     for (auto& src : info.sources)
                     {
                         if (src.poly)
-                            base += v->values[src.id] * src.depth;
+                            base += v->values[src.id.id] * src.depth;
                         else
-                            base += sources[src.id].monoValue * src.depth;
+                            base += sources[src.id.id].monoValue * src.depth;
                     }
 
                     base = jlimit (0.0f, 1.0f, base);
@@ -162,12 +188,12 @@ public:
                 if (src.poly && v != nullptr)
                 {
                     ok = true;
-                    base += v->values[src.id] * src.depth;
+                    base += v->values[src.id.id] * src.depth;
                 }
                 else if (! src.poly)
                 {
                     ok = true;
-                    base += sources[src.id].monoValue * src.depth;
+                    base += sources[src.id.id].monoValue * src.depth;
                 }
             }
 
@@ -181,20 +207,20 @@ public:
         return liveValues;
     }
 
-    void setMonoValue (int id, float value)
+    void setMonoValue (ModSrcId id, float value)
     {
-        auto& info = sources.getReference (id);
+        auto& info = sources.getReference (id.id);
         jassert (! info.poly);
 
         info.monoValue = value;
     }
 
-    void setPolyValue (ModVoice& voice, int id, float value)
+    void setPolyValue (ModVoice& voice, ModSrcId id, float value)
     {
-        auto& info = sources.getReference (id);
+        auto& info = sources.getReference (id.id);
         jassert (info.poly);
 
-        voice.values.setUnchecked (id, value);
+        voice.values.setUnchecked (id.id, value);
     }
 
     void finishBlock (int numSamples)
@@ -205,39 +231,39 @@ public:
 
     //==============================================================================
     void addVoice (ModVoice* v);
-    int addMonoModSource (const String& name, bool bipolar);
-    int addPolyModSource (const String& name, bool bipolar);
+    ModSrcId addMonoModSource (const String& id, const String& name, bool bipolar);
+    ModSrcId addPolyModSource (const String& id, const String& name, bool bipolar);
     void addParameter (Parameter* p, bool poly);
 
     void setSampleRate (double sampleRate);
     void build();
 
     //==============================================================================
-    void enableLearn (int source);
+    void enableLearn (ModSrcId source);
     void disableLearn();
-    int getLearn()                      { return learnSource;           }
+    ModSrcId getLearn()                     { return learnSource;               }
 
     //==============================================================================
-    int getNumModSources()              { return sources.size();        }
-    String getModSrcName (int src)      { return sources[src].name;     }
-    bool getModSrcPoly (int src)        { return sources[src].poly;     }
-    bool getModSrcBipolar (int src)     { return sources[src].bipolar;  }
+    int getNumModSources()                  { return sources.size();            }
+    String getModSrcName (ModSrcId src)     { return sources[src.id].name;      }
+    bool getModSrcPoly (ModSrcId src)       { return sources[src.id].poly;      }
+    bool getModSrcBipolar (ModSrcId src)    { return sources[src.id].bipolar;   }
 
-    Array<int> getModSources (Parameter*);
+    Array<ModSrcId> getModSources (Parameter*);
 
-    bool isModulated (int param);
+    bool isModulated (ModDstId param);
 
-    float getModDepth (int src, int param);
-    void setModDepth (int src, int param, float f);
-    void clearModDepth (int src, int param);
+    float getModDepth (ModSrcId src, ModDstId param);
+    void setModDepth (ModSrcId src, ModDstId param, float f);
+    void clearModDepth (ModSrcId src, ModDstId param);
 
     //==============================================================================
     class Listener
     {
     public:
         virtual ~Listener() = default;
-        virtual void modMatrixChanged()         {}
-        virtual void learnSourceChanged (int)   {}
+        virtual void modMatrixChanged()             {}
+        virtual void learnSourceChanged (ModSrcId)  {}
     };
 
     void addListener (Listener* l)      { listeners.add (l);            }
@@ -253,16 +279,17 @@ private:
     //==============================================================================
     struct SourceInfo
     {
+        String id;
         String name;
         bool poly = false;
         bool bipolar = false;
-        int index = 0;
+        ModSrcId index = {};
         float monoValue = 0.0f;
     };
 
     struct Source
     {
-        int id = 0;
+        ModSrcId id = {};
         bool poly = false;
         float depth = 0.0f;
     };
@@ -285,7 +312,8 @@ private:
 
     ListenerList<Listener> listeners;
 
-    int learnSource = -1, nextAge = 0;
+    ModSrcId learnSource;
+    int nextAge = 0;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ModMatrix)
 };

@@ -154,7 +154,7 @@ void Knob::showModMenu()
     {
         m.addItem ("Remove " + mm.getModSrcName (src), [this, src]
         {
-            parameter->getModMatrix()->clearModDepth (src, parameter->getModIndex());
+            parameter->getModMatrix()->clearModDepth (src, ModDstId (parameter->getModIndex()));
         });
     }
 
@@ -197,15 +197,15 @@ void Knob::timerCallback()
     }
 }
 
-void Knob::learnSourceChanged (int src)
+void Knob::learnSourceChanged (ModSrcId src)
 {
-    learning = src != -1;
+    learning = src.isValid();
 
     bool shift = ModifierKeys::getCurrentModifiersRealtime().isShiftDown();
     knob.setInterceptsMouseClicks (! learning || shift, ! learning || shift );
 
     auto& mm = *parameter->getModMatrix();
-    modDepth = mm.getModDepth (mm.getLearn(), parameter->getModIndex());
+    modDepth = mm.getModDepth (mm.getLearn(), ModDstId (parameter->getModIndex()));
 
     if (learning)
     {
@@ -229,10 +229,12 @@ void Knob::modMatrixChanged()
 {
     if (auto mm = parameter->getModMatrix())
     {
-        if (mm->isModulated (parameter->getModIndex()) || liveValuesCallback)
+        auto dst = ModDstId (parameter->getModIndex());
+        
+        if (mm->isModulated (dst) || liveValuesCallback)
         {
             modTimer.startTimerHz (30);
-            modButton.setVisible (mm->isModulated (parameter->getModIndex()));
+            modButton.setVisible (mm->isModulated (dst));
         }
         else
         {
@@ -243,7 +245,7 @@ void Knob::modMatrixChanged()
 
         if (learning)
         {
-            modDepth = mm->getModDepth (mm->getLearn(), parameter->getModIndex());
+            modDepth = mm->getModDepth (mm->getLearn(), dst);
             knob.getProperties().set ("modDepth", modDepth);
             repaint();
         }
@@ -257,7 +259,8 @@ void Knob::mouseDown (const MouseEvent& e)
         return;
 
     auto& mm = *parameter->getModMatrix();
-    modDepth = mm.getModDepth (mm.getLearn(), parameter->getModIndex());
+    auto dst = ModDstId (parameter->getModIndex());
+    modDepth = mm.getModDepth (mm.getLearn(), dst);
 
     knob.getProperties().set ("modDepth", modDepth);
 
@@ -280,7 +283,8 @@ void Knob::mouseDrag (const MouseEvent& e)
         knob.getProperties().set ("modDepth", newModDepth);
 
         auto& mm = *parameter->getModMatrix();
-        mm.setModDepth (mm.getLearn(), parameter->getModIndex(), newModDepth);
+        auto dst = ModDstId (parameter->getModIndex());
+        mm.setModDepth (mm.getLearn(), dst, newModDepth);
 
         repaint();
     }

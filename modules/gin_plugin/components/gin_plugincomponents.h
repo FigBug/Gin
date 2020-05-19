@@ -229,7 +229,7 @@ private:
     void resized() override;
     void mouseEnter (const MouseEvent& e) override;
     void timerCallback() override;
-    void learnSourceChanged (int) override;
+    void learnSourceChanged (ModSrcId) override;
     void modMatrixChanged() override;
 
     void mouseDown (const MouseEvent& e) override;
