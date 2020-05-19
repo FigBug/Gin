@@ -210,6 +210,27 @@ public:
         return active;
     }
 
+	int getCpuUsage()
+	{
+		int cpu = int (timeUsed / timeAvailable * 100);
+		timeUsed = 0.0;
+		timeAvailable = 0.0;
+		return std::max (99, cpu);
+	}
+
+	void startBlock()
+	{
+		blockStartTime = Time::getMillisecondCounterHiRes() / 1000.0;
+	}
+
+	void endBlock (int blockSize)
+	{
+		auto blockEndTime = Time::getMillisecondCounterHiRes() / 1000.0;
+
+		timeUsed 		+= (blockEndTime - blockStartTime);
+		timeAvailable   += blockSize / getSampleRate();
+	}
+
     void retriggerVoice (SynthesiserVoice* v, MPENote note)
     {
         updateGlide (v, note);
@@ -384,4 +405,5 @@ private:
     int numVoices = 32;
     int lastNote = -1;
     bool mpe = false;
+	double blockStartTime = 0, timeUsed = 0, timeAvailable = 0;
 };
