@@ -22,7 +22,7 @@ var searchData=
   ['changeprogramname',['changeProgramName',['../classProcessor.html#a9b3fcfe68f202c043897c60da36a7a8c',1,'Processor']]],
   ['clear',['clear',['../classSingleLineTextEditor.html#ae4c48d22effebd9071ea97ec20a9371d',1,'SingleLineTextEditor::clear()'],['../classElevatedFileCopy.html#a1b6d64bc3b7847628f35c14b9e3c58a8',1,'ElevatedFileCopy::clear()'],['../classIntegrator.html#aa0d9e23b5fb6adcd8f10d51fb4543bbf',1,'Integrator::clear()'],['../classLeastSquaresRegression.html#a07db19bc6cc01dfbb5a7575cf6c0a01e',1,'LeastSquaresRegression::clear()'],['../classLinearRegression.html#a5d9abca564aa9f8113bfe99b4ffe2307',1,'LinearRegression::clear()'],['../classDelayLine.html#ad9772448deb700a0f86f44bf1e4b65a0',1,'DelayLine::clear()'],['../classStereoDelay.html#aaea8d0ce2324e378a60a73d79ab21a51',1,'StereoDelay::clear()']]],
   ['clearclip',['clearClip',['../classLevelTracker.html#a9c8f9b4b93b03157c3ba834a11d33620',1,'LevelTracker']]],
-  ['clearmoddepth',['clearModDepth',['../classModMatrix.html#aebc3c7c3e202ecea8b8bf25e3e3c8e6d',1,'ModMatrix']]],
+  ['clearmoddepth',['clearModDepth',['../classModMatrix.html#ab974f4fdc82957f79b98ae8f151baec7',1,'ModMatrix']]],
   ['clearqueue',['clearQueue',['../classOpenStreetMaps.html#a4f3e70e9d0b31ca0d7c0669016da2f4f',1,'OpenStreetMaps']]],
   ['clicked',['clicked',['../classPluginButton.html#a5a8bc6d21639253463b285091b3ff1e3',1,'PluginButton']]],
   ['clip',['clip',['../classLevelTracker.html#a5702532186fb2626960f2e4a00f17a38',1,'LevelTracker::clip()'],['../group__gin__dsp-dsp.html#ga26ddba93af094c29d540f2a3b9f5f047',1,'clip():&#160;gin_audioutil.h']]],

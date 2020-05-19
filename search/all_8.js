@@ -1,6 +1,7 @@
 var searchData=
 [
   ['images',['images',['../group__gin-images.html',1,'']]],
+  ['id',['id',['../structModSrcId.html#ae8410470ac2d16b3d27179b6633efc65',1,'ModSrcId::id()'],['../structModDstId.html#a113d55c0da8df5a57180514adc99492c',1,'ModDstId::id()']]],
   ['idle',['idle',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127aa5ee791507471a07b686dd1b63486b0e7',1,'ADSR::idle()'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188eaec2f993aec2c27fc750119ab17b16cdb',1,'AnalogADSR::idle()']]],
   ['imagemetadata',['ImageMetadata',['../classImageMetadata.html',1,'ImageMetadata'],['../classImageMetadata.html#a2655e820f5de8daa3de1a2b37c4619b3',1,'ImageMetadata::ImageMetadata()']]],
   ['incphase',['incPhase',['../structOscState.html#a5f7c0274cffaa5b08c431289c245ae21',1,'OscState']]],
@@ -20,7 +21,7 @@ var searchData=
   ['isfastkill',['isFastKill',['../classSynthesiserVoice.html#a4e34af2e0d789a4302de6de08052eb38',1,'SynthesiserVoice']]],
   ['isinternal',['isInternal',['../classParameter.html#afb5c784fc967bb5c8cb092ca08be94cf',1,'Parameter']]],
   ['ismetaparameter',['isMetaParameter',['../classParameter.html#ac7b97ec3abd89250cc2e723e0c4493bc',1,'Parameter']]],
-  ['ismodulated',['isModulated',['../classModMatrix.html#a3b2f4a4236307fd66a92aa66e83306f7',1,'ModMatrix']]],
+  ['ismodulated',['isModulated',['../classModMatrix.html#a85b92c5372a70175db5bc73486b371a1',1,'ModMatrix']]],
   ['isnoteplaying',['isNotePlaying',['../classSynthesiser.html#a8ed9aa583afd13eb1a57ff6c9b341ff8',1,'Synthesiser']]],
   ['ison',['isOn',['../classParameter.html#a372ed65aedcc9fff511bba20b28687c8',1,'Parameter']]],
   ['isonoff',['isOnOff',['../classParameter.html#ab6d9770682352a532ef81cbdbbbf8e8b',1,'Parameter']]],
@@ -37,7 +38,7 @@ var searchData=
   ['istabkeyusedascharacter',['isTabKeyUsedAsCharacter',['../classSingleLineTextEditor.html#a3eb6a547be90336c41564adea8ff0c5a',1,'SingleLineTextEditor']]],
   ['istextinputactive',['isTextInputActive',['../classSingleLineTextEditor.html#a59f2ceba58a9eda7cd57fbe45a7aae02',1,'SingleLineTextEditor']]],
   ['isupdatepending',['isUpdatePending',['../classRealtimeAsyncUpdater.html#acd6cd91c301fd331bc4c48ec009adc5a',1,'RealtimeAsyncUpdater']]],
-  ['isvalid',['isValid',['../classSystemSemaphore.html#a03b3007a94f4d9ef3c735fda354c95c6',1,'SystemSemaphore']]],
+  ['isvalid',['isValid',['../classSystemSemaphore.html#a03b3007a94f4d9ef3c735fda354c95c6',1,'SystemSemaphore::isValid()'],['../structModSrcId.html#ae18d81c2a1d9105a775a882648b24376',1,'ModSrcId::isValid()'],['../structModDstId.html#ac2faf98a1a45cadf932f74a8f93ed17c',1,'ModDstId::isValid()']]],
   ['isvoiceactive',['isVoiceActive',['../classModVoice.html#a031b2aad2c58ef9957553db94b61d0f2',1,'ModVoice']]],
   ['items',['items',['../classLinearRegression.html#ac40577bbf7fc49ffb578e0ed42f2c5f6',1,'LinearRegression']]]
 ];

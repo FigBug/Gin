@@ -964,6 +964,8 @@
     <name>gin_modmatrix.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/plugin/</path>
     <filename>gin__modmatrix_8h</filename>
+    <class kind="struct">ModSrcId</class>
+    <class kind="struct">ModDstId</class>
     <class kind="class">ModVoice</class>
     <class kind="class">ModMatrix</class>
     <class kind="class">ModMatrix::Listener</class>
@@ -5660,8 +5662,8 @@
       <type>virtual void</type>
       <name>learnSourceChanged</name>
       <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
-      <anchor>aa9fe4601dc9218335cd220fd85b6102c</anchor>
-      <arglist>(int)</arglist>
+      <anchor>a98f0bf4eb29994c864db47a9461dbc24</anchor>
+      <arglist>(ModSrcId)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -6004,6 +6006,59 @@
       <arglist>(const juce::MemoryBlock &amp;data)</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>ModDstId</name>
+    <filename>structModDstId.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ModDstId</name>
+      <anchorfile>structModDstId.html</anchorfile>
+      <anchor>a5c07798cf7ac3ad89cf18d8956bf78d3</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>ModDstId</name>
+      <anchorfile>structModDstId.html</anchorfile>
+      <anchor>a1cd816f0e6701f16922f19f3b5e64ccb</anchor>
+      <arglist>(int id_)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>ModDstId</name>
+      <anchorfile>structModDstId.html</anchorfile>
+      <anchor>aa3f249a7a06342976e5740e09d281a9e</anchor>
+      <arglist>(const ModDstId &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type>ModDstId &amp;</type>
+      <name>operator=</name>
+      <anchorfile>structModDstId.html</anchorfile>
+      <anchor>ade6e4c1af3c4a41f6e0575e2c0846bd0</anchor>
+      <arglist>(const ModDstId &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>structModDstId.html</anchorfile>
+      <anchor>a63b8ebeaadf0a9c266a36d1a4c0e3e84</anchor>
+      <arglist>(const ModDstId &amp;other) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isValid</name>
+      <anchorfile>structModDstId.html</anchorfile>
+      <anchor>ac2faf98a1a45cadf932f74a8f93ed17c</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>id</name>
+      <anchorfile>structModDstId.html</anchorfile>
+      <anchor>a113d55c0da8df5a57180514adc99492c</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>ModMatrix</name>
     <filename>classModMatrix.html</filename>
@@ -6054,15 +6109,15 @@
       <type>void</type>
       <name>setMonoValue</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a0ca43bf0b971ed9b5389e7ca8a5b7054</anchor>
-      <arglist>(int id, float value)</arglist>
+      <anchor>a059b88c04a7d524b96aa20034a943392</anchor>
+      <arglist>(ModSrcId id, float value)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setPolyValue</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a5b375bb421e77e3acf19c74a3ab3baef</anchor>
-      <arglist>(ModVoice &amp;voice, int id, float value)</arglist>
+      <anchor>a223b6092cd0cae14bfd42e20935b3396</anchor>
+      <arglist>(ModVoice &amp;voice, ModSrcId id, float value)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -6079,18 +6134,18 @@
       <arglist>(ModVoice *v)</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>ModSrcId</type>
       <name>addMonoModSource</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>acbab267b366873642ec936e743bfc39f</anchor>
-      <arglist>(const String &amp;name, bool bipolar)</arglist>
+      <anchor>a3148512ab78ca1ade1cd27a655c6ea8e</anchor>
+      <arglist>(const String &amp;id, const String &amp;name, bool bipolar)</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>ModSrcId</type>
       <name>addPolyModSource</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a3805df3c633cefbb2a1f0faf82ef339f</anchor>
-      <arglist>(const String &amp;name, bool bipolar)</arglist>
+      <anchor>a79580c95a6eeb2e3507873bb24843e4b</anchor>
+      <arglist>(const String &amp;id, const String &amp;name, bool bipolar)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -6117,8 +6172,8 @@
       <type>void</type>
       <name>enableLearn</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a9ae8b52a986804ce297fc015de6655e2</anchor>
-      <arglist>(int source)</arglist>
+      <anchor>a7503eb612eccc0a07bafd3ba5c0c66b8</anchor>
+      <arglist>(ModSrcId source)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -6128,10 +6183,10 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>ModSrcId</type>
       <name>getLearn</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>aada0c3a86b6b59122e547848a723f863</anchor>
+      <anchor>a97578cacf24fc1ca6145f7692338812f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -6145,57 +6200,57 @@
       <type>String</type>
       <name>getModSrcName</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>af2088d0d7657c4e753a7fa74a0266fbf</anchor>
-      <arglist>(int src)</arglist>
+      <anchor>aa1eb8a2981e42e2c1f41c48d0acb9a11</anchor>
+      <arglist>(ModSrcId src)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>getModSrcPoly</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a2d24f470ac57277b35d1d94125b083d8</anchor>
-      <arglist>(int src)</arglist>
+      <anchor>af53ec21a1331b38eeba0156effebf7dc</anchor>
+      <arglist>(ModSrcId src)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>getModSrcBipolar</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a016667f676f916afda7883f2d48a416d</anchor>
-      <arglist>(int src)</arglist>
+      <anchor>ad2b193fcf8ef2790b41bc3bb2f4b0bf5</anchor>
+      <arglist>(ModSrcId src)</arglist>
     </member>
     <member kind="function">
-      <type>Array&lt; int &gt;</type>
+      <type>Array&lt; ModSrcId &gt;</type>
       <name>getModSources</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>aa8363ded73ef5272ef6cf09f6cd7fccf</anchor>
+      <anchor>abaa21fdb292dc7bf861c3bc2c4fa05e1</anchor>
       <arglist>(Parameter *)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isModulated</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a3b2f4a4236307fd66a92aa66e83306f7</anchor>
-      <arglist>(int param)</arglist>
+      <anchor>a85b92c5372a70175db5bc73486b371a1</anchor>
+      <arglist>(ModDstId param)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
       <name>getModDepth</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a83232a53eb15baa4ee6b08d215a56c2a</anchor>
-      <arglist>(int src, int param)</arglist>
+      <anchor>ac09e09e0d0db90228b5b71013472efcb</anchor>
+      <arglist>(ModSrcId src, ModDstId param)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setModDepth</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>aac01d7f9a29dd96016fd32c8b7ea4c9e</anchor>
-      <arglist>(int src, int param, float f)</arglist>
+      <anchor>ace5b6d8daf94ac3a9f13d61a322c2008</anchor>
+      <arglist>(ModSrcId src, ModDstId param, float f)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>clearModDepth</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>aebc3c7c3e202ecea8b8bf25e3e3c8e6d</anchor>
-      <arglist>(int src, int param)</arglist>
+      <anchor>ab974f4fdc82957f79b98ae8f151baec7</anchor>
+      <arglist>(ModSrcId src, ModDstId param)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -6229,6 +6284,59 @@
       <anchorfile>classModMatrixBox.html</anchorfile>
       <anchor>a7513883f426c4df209ed3c5b78b99bd7</anchor>
       <arglist>() override</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>ModSrcId</name>
+    <filename>structModSrcId.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ModSrcId</name>
+      <anchorfile>structModSrcId.html</anchorfile>
+      <anchor>afd814dca3ee595f427b4e869f249f594</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>ModSrcId</name>
+      <anchorfile>structModSrcId.html</anchorfile>
+      <anchor>a4648ac76f10dd3a15792224ef7727526</anchor>
+      <arglist>(int id_)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>ModSrcId</name>
+      <anchorfile>structModSrcId.html</anchorfile>
+      <anchor>a9998764b350a96cb887a65424ec17d72</anchor>
+      <arglist>(const ModSrcId &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type>ModSrcId &amp;</type>
+      <name>operator=</name>
+      <anchorfile>structModSrcId.html</anchorfile>
+      <anchor>a1d9f52fd952b26811fc7e74a690f2c8e</anchor>
+      <arglist>(const ModSrcId &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>structModSrcId.html</anchorfile>
+      <anchor>ae9a0aa774f9639b59f382127602af3eb</anchor>
+      <arglist>(const ModSrcId &amp;other) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isValid</name>
+      <anchorfile>structModSrcId.html</anchorfile>
+      <anchor>ae18d81c2a1d9105a775a882648b24376</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>id</name>
+      <anchorfile>structModSrcId.html</anchorfile>
+      <anchor>ae8410470ac2d16b3d27179b6633efc65</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -6347,8 +6455,8 @@
       <type></type>
       <name>ModulationSourceButton</name>
       <anchorfile>classModulationSourceButton.html</anchorfile>
-      <anchor>a7615f5a0abde8f4a995635323a91ab46</anchor>
-      <arglist>(ModMatrix &amp;mm, int src=-1, bool poly_=false)</arglist>
+      <anchor>ae528e6ef08597a5535ec9b71b8478819</anchor>
+      <arglist>(ModMatrix &amp;mm, ModSrcId src={}, bool poly_=false)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -6361,8 +6469,8 @@
       <type>void</type>
       <name>setSource</name>
       <anchorfile>classModulationSourceButton.html</anchorfile>
-      <anchor>ae5074b920beca433012af2730db37fed</anchor>
-      <arglist>(int src, bool p)</arglist>
+      <anchor>a94555224817c529b26e4821706c97fcd</anchor>
+      <arglist>(ModSrcId src, bool p)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -12087,6 +12195,8 @@
     <name>gin_plugin-plugin</name>
     <title>plugin</title>
     <filename>group__gin__plugin-plugin.html</filename>
+    <class kind="struct">ModSrcId</class>
+    <class kind="struct">ModDstId</class>
     <class kind="class">ModVoice</class>
     <class kind="class">ModMatrix</class>
     <class kind="class">ModMatrix::Listener</class>

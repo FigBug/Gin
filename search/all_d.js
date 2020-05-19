@@ -21,6 +21,8 @@ var searchData=
   ['openstreetmap',['OpenStreetMap',['../classOpenStreetMaps.html#ad685bb52fa0d8ea27d8fd8a152958020ad01b437a4108dcfef597b0b63ecfba77',1,'OpenStreetMaps']]],
   ['openstreetmaps',['OpenStreetMaps',['../classOpenStreetMaps.html',1,'OpenStreetMaps'],['../classOpenStreetMaps.html#a365942b8ea69fd2f9001c9965323b252',1,'OpenStreetMaps::OpenStreetMaps()']]],
   ['operator_3c',['operator&lt;',['../classSpline_1_1Element.html#a10d65f6538da41f43a1b7cd3e47d2a30',1,'Spline::Element::operator&lt;(const Element &amp;e) const'],['../classSpline_1_1Element.html#a6ddfd19f2d38ec958d5c0965797c699e',1,'Spline::Element::operator&lt;(const double xx) const']]],
+  ['operator_3d',['operator=',['../structModSrcId.html#a1d9f52fd952b26811fc7e74a690f2c8e',1,'ModSrcId::operator=()'],['../structModDstId.html#ade6e4c1af3c4a41f6e0575e2c0846bd0',1,'ModDstId::operator=()']]],
+  ['operator_3d_3d',['operator==',['../structModSrcId.html#ae9a0aa774f9639b59f382127602af3eb',1,'ModSrcId::operator==()'],['../structModDstId.html#a63b8ebeaadf0a9c266a36d1a4c0e3e84',1,'ModDstId::operator==()']]],
   ['operator_5b_5d',['operator[]',['../classSpline.html#a30255a2f77480c04928394262765df10',1,'Spline']]],
   ['oscstate',['OscState',['../structOscState.html',1,'OscState'],['../structOscState.html#a6cdf459424576e3f91d63bc84be37b62',1,'OscState::OscState()']]],
   ['outlinecolourid',['outlineColourId',['../classSingleLineTextEditor.html#a580e95f56d303528b02f91143c72f13caeddcf10206bd667dafb96511c583dfcd',1,'SingleLineTextEditor']]],

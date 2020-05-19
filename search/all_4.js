@@ -38,7 +38,7 @@ var searchData=
   ['elevatedfilecopy',['ElevatedFileCopy',['../classElevatedFileCopy.html',1,'']]],
   ['ellipse',['Ellipse',['../classEllipse.html',1,'Ellipse&lt; T &gt;'],['../classEllipse.html#ae3280925b24d4858639a7ede8007150f',1,'Ellipse::Ellipse()']]],
   ['enablegzipdeflate',['enableGzipDeflate',['../classDownloadManager.html#a000ad4728048d97e648423b89447f18e',1,'DownloadManager']]],
-  ['enablelearn',['enableLearn',['../classModMatrix.html#a9ae8b52a986804ce297fc015de6655e2',1,'ModMatrix']]],
+  ['enablelearn',['enableLearn',['../classModMatrix.html#a7503eb612eccc0a07bafd3ba5c0c66b8',1,'ModMatrix']]],
   ['enablementchanged',['enablementChanged',['../classSingleLineTextEditor.html#ab5cf90068efe93555678f60f46d934e4',1,'SingleLineTextEditor::enablementChanged()'],['../classMultiParamComponent.html#ae564f36608f33269bc246aad3df26478',1,'MultiParamComponent::enablementChanged()']]],
   ['enduseraction',['endUserAction',['../classParameter.html#ad1a476e84eb995f1f39073ee156e78a1',1,'Parameter']]],
   ['enoughpoints',['enoughPoints',['../classLeastSquaresRegression.html#a188573e2bd06e10a2c8ab3a3849e8df2',1,'LeastSquaresRegression']]],
