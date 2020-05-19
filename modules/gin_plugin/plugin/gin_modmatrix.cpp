@@ -12,6 +12,19 @@ void ModVoice::stopVoice()
 //==============================================================================
 void ModMatrix::stateUpdated (const ValueTree& vt)
 {
+    auto lookupSrc = [&] (const String& str)
+    {
+        int idx = 0;
+        for (auto& s : sources)
+        {
+            if (s.id == str)
+                return ModSrcId (idx);
+            idx++;
+        }
+        jassertfalse;
+        return ModSrcId();
+    };
+    
     for (auto& pi : parameters)
         pi.sources.clear();
 
@@ -22,17 +35,26 @@ void ModMatrix::stateUpdated (const ValueTree& vt)
         {
             if (! c.hasType ("MODITEM")) continue;
 
-            int src   = c.getProperty ("src");
-            float f   = c.getProperty ("depth");
-            int param = c.getProperty ("param");
+            String src = c.getProperty ("srcId");
+            float f    = c.getProperty ("depth");
+            String dst = c.getProperty ("dstId");
+            
+            if (src.isNotEmpty() && dst.isNotEmpty())
+            {                            
+                Source s;
+                s.id = lookupSrc (src);
+                s.poly = getModSrcPoly (s.id);
+                s.depth = f;
 
-            Source s;
-            s.id = ModSrcId (src);
-            s.poly = getModSrcPoly (ModSrcId (src));
-            s.depth = f;
-
-            auto& pi = parameters.getReference (param);
-            pi.sources.add (s);
+                for (auto& pi : parameters)
+                {
+                    if (pi.parameter->getUid() == dst)
+                    {
+                        pi.sources.add (s);
+                        break;
+                    }
+                }
+            }
         }
     }
     listeners.call ([&] (Listener& l) { l.modMatrixChanged(); });
@@ -49,9 +71,9 @@ void ModMatrix::updateState (ValueTree& vt)
         for (auto src : pi.sources)
         {
             auto c = ValueTree ("MODITEM");
-            c.setProperty ("src", src.id.id, nullptr);
+            c.setProperty ("srcId", sources[src.id.id].id, nullptr);
             c.setProperty ("depth", src.depth, nullptr);
-            c.setProperty ("param", i, nullptr);
+            c.setProperty ("dstId", pi.parameter->getUid(), nullptr);
 
             mm.addChild (c, -1, nullptr);
         }
