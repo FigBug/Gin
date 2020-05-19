@@ -144,6 +144,7 @@ var searchData=
   ['square',['square',['../group__gin-geometry.html#ga1c4cf92c230b2e375db8d832d07ec041',1,'gin_geometry.h']]],
   ['squarewave',['squareWave',['../group__gin__dsp-dsp.html#gad6edce63379d418ac8ceb7f57a97bfc6',1,'gin_oscillators.h']]],
   ['startasyncdownload',['startAsyncDownload',['../classDownloadManager.html#a293503c96ee3a18619a64c885639b2a1',1,'DownloadManager::startAsyncDownload(String url, String postData, std::function&lt; void(DownloadResult)&gt; completionCallback, std::function&lt; void(int64, int64, int64)&gt; progressCallback=nullptr, String extraHeaders={})'],['../classDownloadManager.html#a7f10418acb125e303b894b0b6ff7d5a8',1,'DownloadManager::startAsyncDownload(URL url, std::function&lt; void(DownloadResult)&gt; completionCallback, std::function&lt; void(int64, int64, int64)&gt; progressCallback=nullptr, String extraHeaders={})']]],
+  ['startblock',['startBlock',['../classSynthesiser.html#a3dc68b923888fa1d7785817b327bde6f',1,'Synthesiser']]],
   ['starttimer',['startTimer',['../classCoalescedTimer.html#a97261711749a65434b7f875f94118c4b',1,'CoalescedTimer']]],
   ['starttimerhz',['startTimerHz',['../classCoalescedTimer.html#a31d6f6484b273fe894be54c6dcbd0957',1,'CoalescedTimer']]],
   ['startvoice',['startVoice',['../classSynthesiser.html#a176828955287ea3cd8336148926a4c67',1,'Synthesiser::startVoice()'],['../classModVoice.html#aa987df0200c765566c0a359e3a2597b6',1,'ModVoice::startVoice()']]],
@@ -157,5 +158,6 @@ var searchData=
   ['stopvoicefastkill',['stopVoiceFastKill',['../classSynthesiser.html#a704f9ddef1eabf0a9f4e2d778d3d5052',1,'Synthesiser']]],
   ['switch',['Switch',['../classSwitch.html#ab2b13d51b74f2d3421a250e933cf697c',1,'Switch']]],
   ['synthesiser',['Synthesiser',['../classSynthesiser.html#a8c313d6f1fa875790e5c79dc621ee437',1,'Synthesiser']]],
+  ['synthesiserusage',['SynthesiserUsage',['../classSynthesiserUsage.html#ae37e6d848cf06acd4d3795c7d86c62cd',1,'SynthesiserUsage']]],
   ['systemsemaphore',['SystemSemaphore',['../classSystemSemaphore.html#aa5616f7315ba0d37ea3e0aa6f22d7d53',1,'SystemSemaphore']]]
 ];

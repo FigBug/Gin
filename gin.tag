@@ -1152,6 +1152,7 @@
     <class kind="class">HorizontalFader</class>
     <class kind="class">Switch</class>
     <class kind="class">Select</class>
+    <class kind="class">SynthesiserUsage</class>
   </compound>
   <compound kind="file">
     <name>gin_plugineditor.h</name>
@@ -5642,31 +5643,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>ModMatrix::Listener</name>
-    <filename>classModMatrix_1_1Listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
-      <anchor>a09cc42d56d116a600586a874bbe348a7</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>modMatrixChanged</name>
-      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
-      <anchor>a6d4c1fcaddd8a3f77a0b25813919eae3</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>learnSourceChanged</name>
-      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
-      <anchor>a98f0bf4eb29994c864db47a9461dbc24</anchor>
-      <arglist>(ModSrcId)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>SingleLineTextEditor::Listener</name>
     <filename>classSingleLineTextEditor_1_1Listener.html</filename>
     <member kind="function" virtualness="virtual">
@@ -5764,6 +5740,31 @@
       <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
       <anchor>a5a86659b291d99adbe0af1a30fdfe383</anchor>
       <arglist>(int zoom, int x, int y)=0</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>ModMatrix::Listener</name>
+    <filename>classModMatrix_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
+      <anchor>a09cc42d56d116a600586a874bbe348a7</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>modMatrixChanged</name>
+      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
+      <anchor>a6d4c1fcaddd8a3f77a0b25813919eae3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>learnSourceChanged</name>
+      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
+      <anchor>a98f0bf4eb29994c864db47a9461dbc24</anchor>
+      <arglist>(ModSrcId)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -10613,6 +10614,27 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>int</type>
+      <name>getCpuUsage</name>
+      <anchorfile>classSynthesiser.html</anchorfile>
+      <anchor>a1e0aa77487d67b3f87543a999007bf1c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>startBlock</name>
+      <anchorfile>classSynthesiser.html</anchorfile>
+      <anchor>a3dc68b923888fa1d7785817b327bde6f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>endBlock</name>
+      <anchorfile>classSynthesiser.html</anchorfile>
+      <anchor>ab07522f14e94e187a83e7c0b0eca2ffb</anchor>
+      <arglist>(int blockSize)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>retriggerVoice</name>
       <anchorfile>classSynthesiser.html</anchorfile>
@@ -10653,6 +10675,66 @@
       <anchorfile>classSynthesiser.html</anchorfile>
       <anchor>a9ab1efe9ca01444e5f4ab3d8eada5580</anchor>
       <arglist>(AudioBuffer&lt; floatType &gt; &amp;outputAudio, const MidiBuffer &amp;inputMidi, int startSample, int numSamples)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>SynthesiserUsage</name>
+    <filename>classSynthesiserUsage.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>SynthesiserUsage</name>
+      <anchorfile>classSynthesiserUsage.html</anchorfile>
+      <anchor>ae37e6d848cf06acd4d3795c7d86c62cd</anchor>
+      <arglist>(Synthesiser &amp;s)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>timerCallback</name>
+      <anchorfile>classSynthesiserUsage.html</anchorfile>
+      <anchor>a61174588450de0af35bf0d1a3866faba</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paint</name>
+      <anchorfile>classSynthesiserUsage.html</anchorfile>
+      <anchor>ada70eddd4681c6fd8fa665ccd2f94bdf</anchor>
+      <arglist>(Graphics &amp;g) override</arglist>
+    </member>
+    <member kind="variable">
+      <type>Synthesiser &amp;</type>
+      <name>synthesiser</name>
+      <anchorfile>classSynthesiserUsage.html</anchorfile>
+      <anchor>aab0e60a078f566eefd3c2de30e987486</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>voices</name>
+      <anchorfile>classSynthesiserUsage.html</anchorfile>
+      <anchor>a2cb8e573343dc51b45899177cc111574</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>cpu</name>
+      <anchorfile>classSynthesiserUsage.html</anchorfile>
+      <anchor>a10170c9eadde302226e4d25c1586d76e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Path</type>
+      <name>voicePath</name>
+      <anchorfile>classSynthesiserUsage.html</anchorfile>
+      <anchor>a0a95f14c5a52470f8c1c72be085a730b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Path</type>
+      <name>cpuPath</name>
+      <anchorfile>classSynthesiserUsage.html</anchorfile>
+      <anchor>a65f19c1828ad2506949b6565db4ea005</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -11605,6 +11687,7 @@
     <class kind="class">HorizontalFader</class>
     <class kind="class">Switch</class>
     <class kind="class">Select</class>
+    <class kind="class">SynthesiserUsage</class>
     <class kind="class">UpdateChecker</class>
     <class kind="class">NewsChecker</class>
     <class kind="class">ProcessorEditorBase</class>

@@ -16,6 +16,7 @@ var searchData=
   ['stereooscillator',['StereoOscillator',['../classStereoOscillator.html',1,'']]],
   ['switch',['Switch',['../classSwitch.html',1,'']]],
   ['synthesiser',['Synthesiser',['../classSynthesiser.html',1,'']]],
+  ['synthesiserusage',['SynthesiserUsage',['../classSynthesiserUsage.html',1,'']]],
   ['synthesiservoice',['SynthesiserVoice',['../classSynthesiserVoice.html',1,'']]],
   ['systemsemaphore',['SystemSemaphore',['../classSystemSemaphore.html',1,'']]]
 ];

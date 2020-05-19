@@ -8,6 +8,8 @@ var searchData=
   ['cols',['cols',['../classProcessorEditor.html#a52dc83c25bf26ee2d541bb56e9220b2c',1,'ProcessorEditor']]],
   ['controls',['controls',['../classProcessorEditor.html#a0cadb7e3405b7f3571e64c2876edabe1',1,'ProcessorEditor']]],
   ['conversionfunction',['conversionFunction',['../classParameter.html#aec8da4e81f800c8e35e40a6700474c10',1,'Parameter']]],
+  ['cpu',['cpu',['../classSynthesiserUsage.html#a10170c9eadde302226e4d25c1586d76e',1,'SynthesiserUsage']]],
+  ['cpupath',['cpuPath',['../classSynthesiserUsage.html#a65f19c1828ad2506949b6565db4ea005',1,'SynthesiserUsage']]],
   ['currentauthors',['currentAuthors',['../classPatchBrowser.html#a1bedb9bba84083e90be4f635734f3bdf',1,'PatchBrowser']]],
   ['currentpresets',['currentPresets',['../classPatchBrowser.html#ab780e20dcabc03c249897376d106f402',1,'PatchBrowser']]],
   ['currenttags',['currentTags',['../classPatchBrowser.html#a321c180551aded2e7af5e62644eeff94',1,'PatchBrowser']]],

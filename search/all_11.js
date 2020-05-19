@@ -161,6 +161,7 @@ var searchData=
   ['squarewave',['squareWave',['../group__gin__dsp-dsp.html#gad6edce63379d418ac8ceb7f57a97bfc6',1,'gin_oscillators.h']]],
   ['stamenterrain',['StamenTerrain',['../classOpenStreetMaps.html#ad685bb52fa0d8ea27d8fd8a152958020ad344502fa93ab8fc298bc4dbccae4c01',1,'OpenStreetMaps']]],
   ['startasyncdownload',['startAsyncDownload',['../classDownloadManager.html#a293503c96ee3a18619a64c885639b2a1',1,'DownloadManager::startAsyncDownload(String url, String postData, std::function&lt; void(DownloadResult)&gt; completionCallback, std::function&lt; void(int64, int64, int64)&gt; progressCallback=nullptr, String extraHeaders={})'],['../classDownloadManager.html#a7f10418acb125e303b894b0b6ff7d5a8',1,'DownloadManager::startAsyncDownload(URL url, std::function&lt; void(DownloadResult)&gt; completionCallback, std::function&lt; void(int64, int64, int64)&gt; progressCallback=nullptr, String extraHeaders={})']]],
+  ['startblock',['startBlock',['../classSynthesiser.html#a3dc68b923888fa1d7785817b327bde6f',1,'Synthesiser']]],
   ['starttimer',['startTimer',['../classCoalescedTimer.html#a97261711749a65434b7f875f94118c4b',1,'CoalescedTimer']]],
   ['starttimerhz',['startTimerHz',['../classCoalescedTimer.html#a31d6f6484b273fe894be54c6dcbd0957',1,'CoalescedTimer']]],
   ['startvoice',['startVoice',['../classSynthesiser.html#a176828955287ea3cd8336148926a4c67',1,'Synthesiser::startVoice()'],['../classModVoice.html#aa987df0200c765566c0a359e3a2597b6',1,'ModVoice::startVoice()']]],
@@ -192,7 +193,8 @@ var searchData=
   ['sustain',['sustain',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127aa48dd9dd380d2a499ad6f7ae967010835',1,'ADSR::sustain()'],['../classAnalogADSR.html#a6cd2be4762c1a196e9bfae491d5e2399',1,'AnalogADSR::sustain()'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188ea02bc1150d41a4dfdc324849c25dce148',1,'AnalogADSR::sustain()']]],
   ['sustainlevel',['sustainLevel',['../classADSR.html#aa02446c404e961975776b5b7d40d91a7',1,'ADSR']]],
   ['switch',['Switch',['../classSwitch.html',1,'Switch'],['../classSwitch.html#ab2b13d51b74f2d3421a250e933cf697c',1,'Switch::Switch()']]],
-  ['synthesiser',['Synthesiser',['../classSynthesiser.html',1,'Synthesiser'],['../classSynthesiser.html#a8c313d6f1fa875790e5c79dc621ee437',1,'Synthesiser::Synthesiser()']]],
+  ['synthesiser',['Synthesiser',['../classSynthesiser.html',1,'Synthesiser'],['../classSynthesiser.html#a8c313d6f1fa875790e5c79dc621ee437',1,'Synthesiser::Synthesiser()'],['../classSynthesiserUsage.html#aab0e60a078f566eefd3c2de30e987486',1,'SynthesiserUsage::synthesiser()']]],
+  ['synthesiserusage',['SynthesiserUsage',['../classSynthesiserUsage.html',1,'SynthesiserUsage'],['../classSynthesiserUsage.html#ae37e6d848cf06acd4d3795c7d86c62cd',1,'SynthesiserUsage::SynthesiserUsage()']]],
   ['synthesiservoice',['SynthesiserVoice',['../classSynthesiserVoice.html',1,'']]],
   ['systemsemaphore',['SystemSemaphore',['../classSystemSemaphore.html',1,'SystemSemaphore'],['../classSystemSemaphore.html#aa5616f7315ba0d37ea3e0aa6f22d7d53',1,'SystemSemaphore::SystemSemaphore()']]]
 ];

@@ -58,6 +58,8 @@ var searchData=
   ['copyfile',['copyFile',['../classElevatedFileCopy.html#a1444661b30ecad1d0388d18c5fdbbbac',1,'ElevatedFileCopy']]],
   ['copytoclipboard',['copyToClipboard',['../classSingleLineTextEditor.html#a2f481549128e342b2cfae10d7c1f3e34',1,'SingleLineTextEditor']]],
   ['countchildrenofclass',['countChildrenOfClass',['../classValueTreeObject.html#a0573fbf9bf2255241747c8ebc59325b1',1,'ValueTreeObject']]],
+  ['cpu',['cpu',['../classSynthesiserUsage.html#a10170c9eadde302226e4d25c1586d76e',1,'SynthesiserUsage']]],
+  ['cpupath',['cpuPath',['../classSynthesiserUsage.html#a65f19c1828ad2506949b6565db4ea005',1,'SynthesiserUsage']]],
   ['create',['create',['../classCommentMetadata.html#a8a18112601333ccca0dbd13550e6a993',1,'CommentMetadata::create()'],['../classExifMetadata.html#adc57dc7f4ad1600801a5abc51a71f90b',1,'ExifMetadata::create()'],['../classIptcMetadata.html#ab3c8de552c5fb231939d1f4a65b44318',1,'IptcMetadata::create()']]],
   ['createdir',['createDir',['../classElevatedFileCopy.html#ab7c2eb2a34715c831de568e5b3055980',1,'ElevatedFileCopy']]],
   ['createfromjpg',['createFromJpg',['../classXmpMetadata.html#a1213b2492c195809a3e595f5df7950d8',1,'XmpMetadata']]],

@@ -18,5 +18,6 @@ var searchData=
   ['sumy',['sumY',['../classLinearRegression.html#ae62507e4f1f97b8ab2faae5112ce97d3',1,'LinearRegression']]],
   ['sumysquared',['sumYsquared',['../classLinearRegression.html#aefdf526f61f6f62a24472ef3ce135d47',1,'LinearRegression']]],
   ['sustain',['sustain',['../classAnalogADSR.html#a6cd2be4762c1a196e9bfae491d5e2399',1,'AnalogADSR']]],
-  ['sustainlevel',['sustainLevel',['../classADSR.html#aa02446c404e961975776b5b7d40d91a7',1,'ADSR']]]
+  ['sustainlevel',['sustainLevel',['../classADSR.html#aa02446c404e961975776b5b7d40d91a7',1,'ADSR']]],
+  ['synthesiser',['synthesiser',['../classSynthesiserUsage.html#aab0e60a078f566eefd3c2de30e987486',1,'SynthesiserUsage']]]
 ];

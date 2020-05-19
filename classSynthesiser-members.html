@@ -65,7 +65,9 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classSynthesiser.html">Synthesiser</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classSynthesiser.html#a2051e5bfb208e8087712f3d6528407b9">findVoiceToSteal</a>(MPENote noteToStealVoiceFor=MPENote()) const override</td><td class="entry"><a class="el" href="classSynthesiser.html">Synthesiser</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSynthesiser.html#ab07522f14e94e187a83e7c0b0eca2ffb">endBlock</a>(int blockSize)</td><td class="entry"><a class="el" href="classSynthesiser.html">Synthesiser</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classSynthesiser.html#a2051e5bfb208e8087712f3d6528407b9">findVoiceToSteal</a>(MPENote noteToStealVoiceFor=MPENote()) const override</td><td class="entry"><a class="el" href="classSynthesiser.html">Synthesiser</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSynthesiser.html#a1e0aa77487d67b3f87543a999007bf1c">getCpuUsage</a>()</td><td class="entry"><a class="el" href="classSynthesiser.html">Synthesiser</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classSynthesiser.html#a281b865ea89afe1dab3fda4b266e5b66">getNumActiveVoices</a>()</td><td class="entry"><a class="el" href="classSynthesiser.html">Synthesiser</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classSynthesiser.html#a8ed9aa583afd13eb1a57ff6c9b341ff8">isNotePlaying</a>(MPENote &amp;n)</td><td class="entry"><a class="el" href="classSynthesiser.html">Synthesiser</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classSynthesiser.html#a58760fa6f89221e094c04840076d18ff">noteAdded</a>(MPENote newNote) override</td><td class="entry"><a class="el" href="classSynthesiser.html">Synthesiser</a></td><td class="entry"></td></tr>
@@ -83,14 +85,15 @@ $(function() {
   <tr><td class="entry"><a class="el" href="classSynthesiser.html#a7f8f310291795baffdc5ba124dc17adf">setMPE</a>(bool newMPE)</td><td class="entry"><a class="el" href="classSynthesiser.html">Synthesiser</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classSynthesiser.html#a554b5cf0af6b3a40cdf60462ca34f425">setNumVoices</a>(int v)</td><td class="entry"><a class="el" href="classSynthesiser.html">Synthesiser</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classSynthesiser.html#ab6a82cda3e3f528112d665758efc21a3">setPortamento</a>(bool p)</td><td class="entry"><a class="el" href="classSynthesiser.html">Synthesiser</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classSynthesiser.html#a176828955287ea3cd8336148926a4c67">startVoice</a>(MPESynthesiserVoice *v, MPENote note)</td><td class="entry"><a class="el" href="classSynthesiser.html">Synthesiser</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classSynthesiser.html#a704f9ddef1eabf0a9f4e2d778d3d5052">stopVoiceFastKill</a>(MPESynthesiserVoice *v, MPENote note, bool tailOff)</td><td class="entry"><a class="el" href="classSynthesiser.html">Synthesiser</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classSynthesiser.html#a8c313d6f1fa875790e5c79dc621ee437">Synthesiser</a>()</td><td class="entry"><a class="el" href="classSynthesiser.html">Synthesiser</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classSynthesiser.html#a8564a4c2092c12563e6788fabe2cfd5f">updateGlide</a>(MPESynthesiserVoice *v, MPENote note)</td><td class="entry"><a class="el" href="classSynthesiser.html">Synthesiser</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSynthesiser.html#a3dc68b923888fa1d7785817b327bde6f">startBlock</a>()</td><td class="entry"><a class="el" href="classSynthesiser.html">Synthesiser</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classSynthesiser.html#a176828955287ea3cd8336148926a4c67">startVoice</a>(MPESynthesiserVoice *v, MPENote note)</td><td class="entry"><a class="el" href="classSynthesiser.html">Synthesiser</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSynthesiser.html#a704f9ddef1eabf0a9f4e2d778d3d5052">stopVoiceFastKill</a>(MPESynthesiserVoice *v, MPENote note, bool tailOff)</td><td class="entry"><a class="el" href="classSynthesiser.html">Synthesiser</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classSynthesiser.html#a8c313d6f1fa875790e5c79dc621ee437">Synthesiser</a>()</td><td class="entry"><a class="el" href="classSynthesiser.html">Synthesiser</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSynthesiser.html#a8564a4c2092c12563e6788fabe2cfd5f">updateGlide</a>(MPESynthesiserVoice *v, MPENote note)</td><td class="entry"><a class="el" href="classSynthesiser.html">Synthesiser</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 19 2020 14:38:55 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 19 2020 17:21:16 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

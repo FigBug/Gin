@@ -40,6 +40,7 @@ var searchData=
   ['enablegzipdeflate',['enableGzipDeflate',['../classDownloadManager.html#a000ad4728048d97e648423b89447f18e',1,'DownloadManager']]],
   ['enablelearn',['enableLearn',['../classModMatrix.html#a7503eb612eccc0a07bafd3ba5c0c66b8',1,'ModMatrix']]],
   ['enablementchanged',['enablementChanged',['../classSingleLineTextEditor.html#ab5cf90068efe93555678f60f46d934e4',1,'SingleLineTextEditor::enablementChanged()'],['../classMultiParamComponent.html#ae564f36608f33269bc246aad3df26478',1,'MultiParamComponent::enablementChanged()']]],
+  ['endblock',['endBlock',['../classSynthesiser.html#ab07522f14e94e187a83e7c0b0eca2ffb',1,'Synthesiser']]],
   ['enduseraction',['endUserAction',['../classParameter.html#ad1a476e84eb995f1f39073ee156e78a1',1,'Parameter']]],
   ['enoughpoints',['enoughPoints',['../classLeastSquaresRegression.html#a188573e2bd06e10a2c8ab3a3849e8df2',1,'LeastSquaresRegression']]],
   ['ensurefreespace',['ensureFreeSpace',['../classAudioFifo.html#a5bad74d132c264adbda154425546944f',1,'AudioFifo']]],

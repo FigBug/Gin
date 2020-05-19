@@ -18,6 +18,7 @@ var searchData=
   ['getcoefcorrel',['getCoefCorrel',['../classLinearRegression.html#a86d1866295db2e234f21ddf780062609',1,'LinearRegression']]],
   ['getcoefdeterm',['getCoefDeterm',['../classLinearRegression.html#af563cd8f237f0d5c7a0b5319f3a90296',1,'LinearRegression']]],
   ['getcontrolsarea',['getControlsArea',['../classProcessorEditor.html#ae316a874a89e62dc1a0ba7b97251eb90',1,'ProcessorEditor']]],
+  ['getcpuusage',['getCpuUsage',['../classSynthesiser.html#a1e0aa77487d67b3f87543a999007bf1c',1,'Synthesiser']]],
   ['getcurrentprogram',['getCurrentProgram',['../classProcessor.html#a2d74b270efcff268d88dc9895d3a0e83',1,'Processor']]],
   ['getcurrentvalue',['getCurrentValue',['../classEasedValueSmoother.html#a73fa9f74e2e75fbd0d5fcf15d2cbef7d',1,'EasedValueSmoother::getCurrentValue()'],['../classValueSmoother.html#a204256b57b1340450311edbf79386c27',1,'ValueSmoother::getCurrentValue()']]],
   ['getdata',['getData',['../classSharedMemory.html#a37bfb82706e0e10282fc0f899818f0d9',1,'SharedMemory']]],

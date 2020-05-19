@@ -12,5 +12,6 @@ var searchData=
   ['versionstringtoint',['versionStringToInt',['../group__gin-utilities.html#ga9984f62226f0a0ab7af7f52e91c55e50',1,'gin_util.h']]],
   ['vividlight',['VividLight',['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85a87be187db30f3efdb79dde93f63e0430',1,'gin_imageeffects.h']]],
   ['voicedstereooscillator',['VoicedStereoOscillator',['../classVoicedStereoOscillator.html',1,'VoicedStereoOscillator'],['../classVoicedStereoOscillator.html#a91a54785ab30881f2a85cbc9c93f4560',1,'VoicedStereoOscillator::VoicedStereoOscillator()']]],
-  ['voices',['voices',['../structVoicedStereoOscillator_1_1Params.html#a5656476cd1a0dd19116c3a7627683403',1,'VoicedStereoOscillator::Params']]]
+  ['voicepath',['voicePath',['../classSynthesiserUsage.html#a0a95f14c5a52470f8c1c72be085a730b',1,'SynthesiserUsage']]],
+  ['voices',['voices',['../structVoicedStereoOscillator_1_1Params.html#a5656476cd1a0dd19116c3a7627683403',1,'VoicedStereoOscillator::Params::voices()'],['../classSynthesiserUsage.html#a2cb8e573343dc51b45899177cc111574',1,'SynthesiserUsage::voices()']]]
 ];
