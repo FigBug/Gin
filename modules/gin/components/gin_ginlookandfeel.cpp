@@ -70,11 +70,11 @@ void GinLookAndFeel::drawLinearSlider (Graphics& g, int x, int y, int width, int
             if (sliderPos < c)
                 g.fillRect (Rectangle<float> (sliderPos, t, c - sliderPos, h));
             else
-                g.fillRect (Rectangle<float> (c, t, sliderPos - c, h));
+                g.fillRect (Rectangle<float> (float (c), t, sliderPos - c, h));
         }
         else
         {
-            g.fillRect (Rectangle<float> (float (rc.getX()), y, sliderPos - rc.getX(), h));
+            g.fillRect (Rectangle<float> (float (rc.getX()), float (y), sliderPos - rc.getX(), h));
         }
     }
     else
