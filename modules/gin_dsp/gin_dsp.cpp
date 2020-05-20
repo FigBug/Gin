@@ -45,6 +45,8 @@ extern "C"
  #pragma clang diagnostic pop
 #endif
 
+#include <cmath>
+
 namespace gin
 {
 using namespace juce;
