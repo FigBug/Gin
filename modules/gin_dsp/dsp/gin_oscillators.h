@@ -163,8 +163,8 @@ public:
             {
                 float pan = jlimit (-1.0f, 1.0f, ((i % 2 == 0) ? 1 : -1) * params.spread);
 
-                p.leftGain  = params.gain * (1.0f - pan) / params.voices;
-                p.rightGain = params.gain * (1.0f + pan) / params.voices;
+                p.leftGain  = params.gain * (1.0f - pan) / std::sqrtf (params.voices);
+                p.rightGain = params.gain * (1.0f + pan) / std::sqrtf (params.voices);
 
                 float baseNote  = note - params.detune / 2;
                 float noteDelta = params.detune / (params.voices - 1);
