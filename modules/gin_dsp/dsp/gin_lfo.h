@@ -73,7 +73,9 @@ public:
             curFade = 1.0f;
         else
             curFade = 0.0f;
-        
+
+        curPhase   = 0.0f;
+        phase      = 0.0f;
         fadeDelta  = float (1.0f / (sampleRate * parameters.fade));
         delaySteps = roundToInt (sampleRate * parameters.delay);
     }

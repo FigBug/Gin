@@ -147,6 +147,9 @@ float ADSR::process()
 
 float ADSR::process (int num)
 {
+    if (state == idle)
+        return (attackDelta == 0.0f) ? 1.0f : 0.0f;
+
     for (int i = num; --i >= 0;)
         process();
     return output;

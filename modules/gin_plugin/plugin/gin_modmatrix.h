@@ -58,6 +58,9 @@ public:
 
     virtual bool isVoiceActive() = 0;
 
+protected:
+    bool disableSmoothing = false;
+
 private:
     friend ModMatrix;
 
@@ -135,7 +138,7 @@ public:
         auto& smoother = voice.smoothers.getReference (paramId);
 
         smoother.setValue (base);
-        auto v = smoother.getCurrentValue();
+        auto v = voice.disableSmoothing ? base : smoother.getCurrentValue();
 
         v = p->getUserRange().convertFrom0to1 (v);
 
