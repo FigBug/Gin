@@ -16,20 +16,20 @@ class StepLFO
 {
 public:
     //==============================================================================
-	StepLFO() = default;
-    
+    StepLFO() = default;
+
     //==============================================================================
     void setSampleRate (double sr)      { sampleRate = sr;      }
     void setFreq (float f)              { frequency = f;        }
     void setNumPoints (int n)           { points.resize (n);    }
     void setPoint (int n, float v)      { points.set (n, v);    }
-    
+
     void reset()
     {
         output     = 0.0f;
         phase      = 0.0f;
     }
-    
+
     void noteOn()
     {
         output     = 0.0f;
@@ -42,18 +42,18 @@ public:
 
         float step = 0.0f;
         if (frequency > 0.0001f)
-			step = float (frequency / sampleRate) / points.size();
+            step = float (frequency / sampleRate) / points.size();
 
         for (int i = 0; i < numSamples; i++)
         {
             phase += step;
-			while (phase >= 1.0f)
-				phase -= 1.0f;
+            while (phase >= 1.0f)
+                phase -= 1.0f;
         }
-        
+
         return updateCurrentValue();
     }
-    
+
     float getOutput()
     {
         return jlimit (-1.0f, 1.0f, output);
@@ -62,7 +62,7 @@ public:
 private:
     float updateCurrentValue()
     {
-		output = points[int (phase * points.size())];
+        output = points[int (phase * points.size())];
 
         return jlimit (-1.0f, 1.0f, (output));
     }

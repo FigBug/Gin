@@ -77,6 +77,7 @@ using juce::Component;
 #include "components/gin_multiparamcomponent.h"
 #include "components/gin_modulation.h"
 #include "components/gin_adsrcomponent.h"
+#include "components/gin_gateeffectcomponent.h"
 #include "components/gin_lfocomponent.h"
 #include "components/gin_steplfocomponent.h"
 #include "components/gin_plugincomponents.h"

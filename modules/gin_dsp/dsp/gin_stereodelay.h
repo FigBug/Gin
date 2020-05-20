@@ -69,7 +69,7 @@ public:
         crossfeed = std::min (0.99f, crossfeed_);
     }
 
-    void clear()
+    void reset()
     {
         delayLine.clear();
     }

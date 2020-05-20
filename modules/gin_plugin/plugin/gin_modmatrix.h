@@ -217,9 +217,7 @@ public:
 
     void setPolyValue (ModVoice& voice, ModSrcId id, float value)
     {
-        auto& info = sources.getReference (id.id);
-        jassert (info.poly);
-
+        jassert (sources.getReference (id.id).poly);
         voice.values.setUnchecked (id.id, value);
     }
 

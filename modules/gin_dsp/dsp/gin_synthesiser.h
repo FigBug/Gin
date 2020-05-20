@@ -210,26 +210,26 @@ public:
         return active;
     }
 
-	int getCpuUsage()
-	{
-		int cpu = int (timeUsed / timeAvailable * 100);
-		timeUsed = 0.0;
-		timeAvailable = 0.0;
-		return std::max (99, cpu);
-	}
+    int getCpuUsage()
+    {
+        int cpu = int (timeUsed / timeAvailable * 100);
+        timeUsed = 0.0;
+        timeAvailable = 0.0;
+        return std::min (99, cpu);
+    }
 
-	void startBlock()
-	{
-		blockStartTime = Time::getMillisecondCounterHiRes() / 1000.0;
-	}
+    void startBlock()
+    {
+        blockStartTime = Time::getMillisecondCounterHiRes() / 1000.0;
+    }
 
-	void endBlock (int blockSize)
-	{
-		auto blockEndTime = Time::getMillisecondCounterHiRes() / 1000.0;
+    void endBlock (int blockSize)
+    {
+        auto blockEndTime = Time::getMillisecondCounterHiRes() / 1000.0;
 
-		timeUsed 		+= (blockEndTime - blockStartTime);
-		timeAvailable   += blockSize / getSampleRate();
-	}
+        timeUsed        += (blockEndTime - blockStartTime);
+        timeAvailable   += blockSize / getSampleRate();
+    }
 
     void retriggerVoice (SynthesiserVoice* v, MPENote note)
     {
@@ -391,11 +391,51 @@ public:
                           int startSample,
                           int numSamples)
     {
+        noteOnIndex = -1;
+        noteOffIndex = -1;
+
         slice.clear();
         slice.addEvents (inputMidi, startSample, numSamples, 0);
 
+        int numNotesBefore = instrument->getNumPlayingNotes();
+
         MPESynthesiser::renderNextBlock (outputAudio, slice, startSample, numSamples);
+
+        if (numNotesBefore == 0 && instrument->getNumPlayingNotes() > 0)
+        {
+            MidiBuffer::Iterator itr (inputMidi);
+            itr.setNextSamplePosition (startSample);
+            MidiMessage msg;
+            int pos = 0;
+            while (itr.getNextEvent (msg, pos))
+            {
+                if (msg.isNoteOn() && pos < startSample + numSamples)
+                {
+                    noteOnIndex = pos - startSample;
+                    break;
+                }
+            }
+        }
+        if (numNotesBefore > 0 && instrument->getNumPlayingNotes() == 0)
+        {
+            noteOffIndex = 0;
+
+            MidiBuffer::Iterator itr (inputMidi);
+            itr.setNextSamplePosition (startSample);
+            MidiMessage msg;
+            int pos = 0;
+            while (itr.getNextEvent (msg, pos))
+            {
+                if (msg.isNoteOff() && pos < startSample + numSamples)
+                {
+                    noteOnIndex = pos - startSample;
+                }
+            }
+        }
     }
+
+protected:
+    int noteOnIndex = -1, noteOffIndex = -1;
 
 private:
     MidiBuffer slice;
@@ -405,5 +445,5 @@ private:
     int numVoices = 32;
     int lastNote = -1;
     bool mpe = false;
-	double blockStartTime = 0, timeUsed = 0, timeAvailable = 0;
+    double blockStartTime = 0, timeUsed = 0, timeAvailable = 0;
 };

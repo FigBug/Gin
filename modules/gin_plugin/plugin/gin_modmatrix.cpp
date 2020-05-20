@@ -24,7 +24,7 @@ void ModMatrix::stateUpdated (const ValueTree& vt)
         jassertfalse;
         return ModSrcId();
     };
-    
+
     for (auto& pi : parameters)
         pi.sources.clear();
 
@@ -38,9 +38,9 @@ void ModMatrix::stateUpdated (const ValueTree& vt)
             String src = c.getProperty ("srcId");
             float f    = c.getProperty ("depth");
             String dst = c.getProperty ("dstId");
-            
+
             if (src.isNotEmpty() && dst.isNotEmpty())
-            {                            
+            {
                 Source s;
                 s.id = lookupSrc (src);
                 s.poly = getModSrcPoly (s.id);
@@ -230,13 +230,13 @@ Array<ModSrcId> ModMatrix::getModSources (Parameter* param)
 {
     Array<ModSrcId> srcs;
 
-	auto idx = param->getModIndex();
-	if (idx >= 0)
-	{
-		auto& pi = parameters.getReference (idx);
-		for (auto& si : pi.sources)
-			srcs.add (si.id);
-	}
+    auto idx = param->getModIndex();
+    if (idx >= 0)
+    {
+        auto& pi = parameters.getReference (idx);
+        for (auto& si : pi.sources)
+            srcs.add (si.id);
+    }
 
     return srcs;
 }
@@ -258,7 +258,7 @@ void ModMatrix::voiceStopped (ModVoice* v)
         for (auto possibleVoice : voices)
         {
             if (possibleVoice == v) continue;
-            
+
             if (possibleVoice->isVoiceActive() && possibleVoice->getAge() < youngestVoice)
             {
                 youngestVoice = possibleVoice->getAge();
