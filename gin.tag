@@ -527,6 +527,18 @@
     <class kind="class">Filter</class>
   </compound>
   <compound kind="file">
+    <name>gin_gateeffect.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
+    <filename>gin__gateeffect_8h</filename>
+    <class kind="class">GateEffect</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_gateeffectcomponent.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
+    <filename>gin__gateeffectcomponent_8h</filename>
+    <class kind="class">GateEffectComponent</class>
+  </compound>
+  <compound kind="file">
     <name>gin_geometry.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin/geometry/</path>
     <filename>gin__geometry_8h</filename>
@@ -4542,6 +4554,169 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>GateEffect</name>
+    <filename>classGateEffect.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>GateEffect</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>a30931317a7688adf95aa1246b65d2bec</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>ae8b56a0b2040a28d36947dd41cf7f252</anchor>
+      <arglist>(double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>abb38c635bb08f5cd027516f2e9bb9481</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>ae1a47cb04677dd44c4534cc567249a46</anchor>
+      <arglist>(AudioSampleBuffer &amp;buffer, int noteOnSample, int noteOffSample)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setLength</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>aff46f98ed7e2cf06d7b3bf5d1f2345a0</anchor>
+      <arglist>(int n)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFrequency</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>a3706d31bd1758936f8670b78d2feeccb</anchor>
+      <arglist>(float f)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setStep</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>a01ddeaddc9d55e6f8a4229a0e761541c</anchor>
+      <arglist>(int step, bool l, bool r)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAttack</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>a90d83f8d8b8a1e2b6dedfcf171368178</anchor>
+      <arglist>(float seconds)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setRelease</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>a87a565280dfffc37cdca298b07cbd266</anchor>
+      <arglist>(float seconds)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>double</type>
+      <name>sampleRate</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>a732b0b2be932001f7facf338ad84a2fc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>AnalogADSR</type>
+      <name>adsrL</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>af0a57f0f38fd5c8ee5ae1116c155a78e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>AnalogADSR</type>
+      <name>adsrR</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>abfb5044f7e394d996ca25ffdaa67b2af</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Array&lt; bool &gt;</type>
+      <name>stepsL</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>ab000858c3ab0dbb3caae513424febbb9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Array&lt; bool &gt;</type>
+      <name>stepsR</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>a5b082618f1ac67d0d66d86b14cc18618</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>float</type>
+      <name>frequency</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>ac66d3981997f43a37900bd2e549b083c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>float</type>
+      <name>phase</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>ad44a38a544110cf0a65b7f1c02de768e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>triggered</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>a10a311a7ed46c3c2e20a243a359b6da3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>lastLOn</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>acbc162981c0aff17027d3bb1dba2e559</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>lastROn</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>a22b6b9beb3b81d68b875d4a0e9daa035</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>GateEffectComponent</name>
+    <filename>classGateEffectComponent.html</filename>
+    <base>MultiParamComponent</base>
+    <member kind="function">
+      <type></type>
+      <name>GateEffectComponent</name>
+      <anchorfile>classGateEffectComponent.html</anchorfile>
+      <anchor>afa777957bcfd629d2a075905db72607a</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~GateEffectComponent</name>
+      <anchorfile>classGateEffectComponent.html</anchorfile>
+      <anchor>a997c2ba6c8aaa738ff5705e4e8588d91</anchor>
+      <arglist>() override=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setParams</name>
+      <anchorfile>classGateEffectComponent.html</anchorfile>
+      <anchor>ae7dfc1463aceb050c5e522ded20b4c66</anchor>
+      <arglist>(Parameter::Ptr length, Parameter::Ptr *l, Parameter::Ptr *r, Parameter::Ptr enable)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>GinLookAndFeel</name>
     <filename>classGinLookAndFeel.html</filename>
     <member kind="enumeration">
@@ -5682,6 +5857,31 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>ModMatrix::Listener</name>
+    <filename>classModMatrix_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
+      <anchor>a09cc42d56d116a600586a874bbe348a7</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>modMatrixChanged</name>
+      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
+      <anchor>a6d4c1fcaddd8a3f77a0b25813919eae3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>learnSourceChanged</name>
+      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
+      <anchor>a98f0bf4eb29994c864db47a9461dbc24</anchor>
+      <arglist>(ModSrcId)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>Parameter::Listener</name>
     <filename>classParameter_1_1Listener.html</filename>
     <member kind="function" virtualness="virtual">
@@ -5740,31 +5940,6 @@
       <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
       <anchor>a5a86659b291d99adbe0af1a30fdfe383</anchor>
       <arglist>(int zoom, int x, int y)=0</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>ModMatrix::Listener</name>
-    <filename>classModMatrix_1_1Listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
-      <anchor>a09cc42d56d116a600586a874bbe348a7</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>modMatrixChanged</name>
-      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
-      <anchor>a6d4c1fcaddd8a3f77a0b25813919eae3</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>learnSourceChanged</name>
-      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
-      <anchor>a98f0bf4eb29994c864db47a9461dbc24</anchor>
-      <arglist>(ModSrcId)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -10426,9 +10601,9 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>clear</name>
+      <name>reset</name>
       <anchorfile>classStereoDelay.html</anchorfile>
-      <anchor>aaea8d0ce2324e378a60a73d79ab21a51</anchor>
+      <anchor>aa3d97ad1b7370dc061d9f73daa574c2b</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -10675,6 +10850,20 @@
       <anchorfile>classSynthesiser.html</anchorfile>
       <anchor>a9ab1efe9ca01444e5f4ab3d8eada5580</anchor>
       <arglist>(AudioBuffer&lt; floatType &gt; &amp;outputAudio, const MidiBuffer &amp;inputMidi, int startSample, int numSamples)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>noteOnIndex</name>
+      <anchorfile>classSynthesiser.html</anchorfile>
+      <anchor>aa5ba2f02b20bcad66e99e471aa934793</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>noteOffIndex</name>
+      <anchorfile>classSynthesiser.html</anchorfile>
+      <anchor>a11111b8660140c3d67efbd56cf1089fc</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -11666,6 +11855,7 @@
     <class kind="class">ControlBox</class>
     <class kind="class">PagedControlBox</class>
     <class kind="class">ControlHeader</class>
+    <class kind="class">GateEffectComponent</class>
     <class kind="class">LFOComponent</class>
     <class kind="class">ModulationSourceButton</class>
     <class kind="class">ModulationDestinationButton</class>
@@ -11734,6 +11924,7 @@
     <class kind="class">EasedValueSmoother</class>
     <class kind="class">EQ</class>
     <class kind="class">Filter</class>
+    <class kind="class">GateEffect</class>
     <class kind="class">LevelTracker</class>
     <class kind="class">LFO</class>
     <class kind="struct">LFO::Parameters</class>

@@ -30,7 +30,7 @@ var searchData=
   ['focuslost',['focusLost',['../classSingleLineTextEditor.html#a064d28e1648885e900dd9a0f9da3701a',1,'SingleLineTextEditor']]],
   ['folderchanged',['folderChanged',['../classFileSystemWatcher_1_1Listener.html#a4374c08b2ff58e40955bf7f0c27b0a02',1,'FileSystemWatcher::Listener']]],
   ['forwards',['forwards',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1a465c5f747934848fce35cebef03936e2',1,'SampleOscillator']]],
-  ['frequency',['frequency',['../structOscState.html#ad30997798f5740bd5ae504cb75db1223',1,'OscState::frequency()'],['../structLFO_1_1Parameters.html#a69abbc2714aacf8d32fc515b46c39c1e',1,'LFO::Parameters::frequency()']]],
+  ['frequency',['frequency',['../structOscState.html#ad30997798f5740bd5ae504cb75db1223',1,'OscState::frequency()'],['../classGateEffect.html#ac66d3981997f43a37900bd2e549b083c',1,'GateEffect::frequency()'],['../structLFO_1_1Parameters.html#a69abbc2714aacf8d32fc515b46c39c1e',1,'LFO::Parameters::frequency()']]],
   ['fromfile',['fromFile',['../classSample.html#a2cb3cf8e757896b26efb10f8ad7fcdbf',1,'Sample']]],
   ['fromnote',['fromNote',['../structGlideInfo.html#a7c71430c47f2873746b054f468ac0b15',1,'GlideInfo']]],
   ['funcstate',['FuncState',['../structFuncState.html',1,'FuncState'],['../structFuncState.html#a1a37453451c69ef86bd1c1f07d970c81',1,'FuncState::FuncState()']]],

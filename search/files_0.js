@@ -30,6 +30,8 @@ var searchData=
   ['gin_5ffilesystemwatcher_2eh',['gin_filesystemwatcher.h',['../gin__filesystemwatcher_8h.html',1,'']]],
   ['gin_5ffileutilities_2eh',['gin_fileutilities.h',['../gin__fileutilities_8h.html',1,'']]],
   ['gin_5ffilter_2eh',['gin_filter.h',['../gin__filter_8h.html',1,'']]],
+  ['gin_5fgateeffect_2eh',['gin_gateeffect.h',['../gin__gateeffect_8h.html',1,'']]],
+  ['gin_5fgateeffectcomponent_2eh',['gin_gateeffectcomponent.h',['../gin__gateeffectcomponent_8h.html',1,'']]],
   ['gin_5fgeometry_2eh',['gin_geometry.h',['../gin__geometry_8h.html',1,'']]],
   ['gin_5fginlookandfeel_2eh',['gin_ginlookandfeel.h',['../gin__ginlookandfeel_8h.html',1,'']]],
   ['gin_5fhttp_2eh',['gin_http.h',['../gin__http_8h.html',1,'']]],

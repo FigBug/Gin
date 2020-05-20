@@ -32,6 +32,8 @@ var searchData=
   ['addvoice',['addVoice',['../classModMatrix.html#ac2d1103929b9eaf3659b9f9f59603975',1,'ModMatrix']]],
   ['adsr',['ADSR',['../classADSR.html',1,'ADSR'],['../classADSR.html#a23264ae8eb79a35c57f648c589b218ae',1,'ADSR::ADSR()']]],
   ['adsrcomponent',['ADSRComponent',['../classADSRComponent.html',1,'ADSRComponent'],['../classADSRComponent.html#a3f7c89a9e654aaf93b21febc32df8a69',1,'ADSRComponent::ADSRComponent()']]],
+  ['adsrl',['adsrL',['../classGateEffect.html#af0a57f0f38fd5c8ee5ae1116c155a78e',1,'GateEffect']]],
+  ['adsrr',['adsrR',['../classGateEffect.html#abfb5044f7e394d996ca25ffdaa67b2af',1,'GateEffect']]],
   ['almostequal',['almostEqual',['../group__gin-utilities.html#ga06700101fa042b926bad6b16738aff53',1,'gin_util.h']]],
   ['analogadsr',['AnalogADSR',['../classAnalogADSR.html',1,'AnalogADSR'],['../classAnalogADSR.html#ac3e0a7c749f0e3f792bec98f11afc36d',1,'AnalogADSR::AnalogADSR()']]],
   ['analogtc',['analogTC',['../classEnvelopeDetector.html#aef1cbe13f909298336ff3e307e6b252c',1,'EnvelopeDetector']]],

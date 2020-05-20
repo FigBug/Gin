@@ -7,7 +7,7 @@ var searchData=
   ['patchbrowser',['patchBrowser',['../classProcessorEditor.html#a6f7f6e1a092dff5bccece83325514c77',1,'ProcessorEditor']]],
   ['peaklevel',['peakLevel',['../classLevelTracker.html#ae36cb9c622a3230e0a7f24a5c9b621ac',1,'LevelTracker']]],
   ['peaktime',['peakTime',['../classLevelTracker.html#a88d4d7383672bfbf10826e954d9cf408',1,'LevelTracker']]],
-  ['phase',['phase',['../structOscState.html#aa4b4777463c344370332bc5ff8a141f7',1,'OscState::phase()'],['../structLFO_1_1Parameters.html#aa952c923e064d33a4061f6c3e49c3d7c',1,'LFO::Parameters::phase()']]],
+  ['phase',['phase',['../structOscState.html#aa4b4777463c344370332bc5ff8a141f7',1,'OscState::phase()'],['../classGateEffect.html#ad44a38a544110cf0a65b7f1c02de768e',1,'GateEffect::phase()'],['../structLFO_1_1Parameters.html#aa952c923e064d33a4061f6c3e49c3d7c',1,'LFO::Parameters::phase()']]],
   ['portamento',['portamento',['../structGlideInfo.html#a1e24c72c427d5a6c428e263fd51bc774',1,'GlideInfo']]],
   ['presets',['presets',['../classPatchBrowser.html#a247c5b78833370ecc35672a0c8995cc1',1,'PatchBrowser']]],
   ['presetsmodel',['presetsModel',['../classPatchBrowser.html#acce838df5fbbd1505ae5c0b55d361604',1,'PatchBrowser']]],

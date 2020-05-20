@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['samplerate',['sampleRate',['../classADSR.html#a836c5dd7fdafc30acccedb6b8346a86a',1,'ADSR::sampleRate()'],['../classAnalogADSR.html#a06be6a28f94dfa97edc308dfbdb1687a',1,'AnalogADSR::sampleRate()'],['../structFuncState.html#a0679db11d8cf803ffe8c40b22fcb6fb1',1,'FuncState::sampleRate()'],['../classAudioFunctionHost.html#a3647d97cb87c9029d48846985dcfe39a',1,'AudioFunctionHost::sampleRate()'],['../classDelayLine.html#a837d7a6d6024a6416ebe97b7b82bd467',1,'DelayLine::sampleRate()'],['../classEnvelopeDetector.html#abe9c3bdb279f4724032f4785b5c77d74',1,'EnvelopeDetector::sampleRate()']]],
+  ['samplerate',['sampleRate',['../classADSR.html#a836c5dd7fdafc30acccedb6b8346a86a',1,'ADSR::sampleRate()'],['../classAnalogADSR.html#a06be6a28f94dfa97edc308dfbdb1687a',1,'AnalogADSR::sampleRate()'],['../structFuncState.html#a0679db11d8cf803ffe8c40b22fcb6fb1',1,'FuncState::sampleRate()'],['../classAudioFunctionHost.html#a3647d97cb87c9029d48846985dcfe39a',1,'AudioFunctionHost::sampleRate()'],['../classDelayLine.html#a837d7a6d6024a6416ebe97b7b82bd467',1,'DelayLine::sampleRate()'],['../classEnvelopeDetector.html#abe9c3bdb279f4724032f4785b5c77d74',1,'EnvelopeDetector::sampleRate()'],['../classGateEffect.html#a732b0b2be932001f7facf338ad84a2fc',1,'GateEffect::sampleRate()']]],
   ['selectedauthors',['selectedAuthors',['../classPatchBrowser.html#afd7aaeb5011141a705bde69a12e50972',1,'PatchBrowser']]],
   ['selectedtags',['selectedTags',['../classPatchBrowser.html#a8ce4c80fb9773528fcb54f8f352a72fe',1,'PatchBrowser']]],
   ['shortname',['shortName',['../classParameter.html#a1a47c46f3588b8a940d87fd4d69810ab',1,'Parameter']]],
@@ -12,6 +12,8 @@ var searchData=
   ['states',['states',['../classProgram.html#a9a962229204d864ee9b5402c93c40fc4',1,'Program']]],
   ['statuscode',['statusCode',['../structHttp_1_1HttpResult.html#a503d39d8b2bb60b51594b5108038aca6',1,'Http::HttpResult']]],
   ['stderror',['stdError',['../classLinearRegression.html#a0cdd5962a78b99b95c6a2bc7c9fbb6a6',1,'LinearRegression']]],
+  ['stepsl',['stepsL',['../classGateEffect.html#ab000858c3ab0dbb3caae513424febbb9',1,'GateEffect']]],
+  ['stepsr',['stepsR',['../classGateEffect.html#a5b082618f1ac67d0d66d86b14cc18618',1,'GateEffect']]],
   ['sumx',['sumX',['../classLinearRegression.html#a2d137eb916f6e2f3cf552b3f1a12a4d0',1,'LinearRegression']]],
   ['sumxsquared',['sumXsquared',['../classLinearRegression.html#a2b06ee3c27a6bc1e6fc709c0224dd949',1,'LinearRegression']]],
   ['sumxy',['sumXY',['../classLinearRegression.html#af2744e010ca51a40db51b7e30b769390',1,'LinearRegression']]],

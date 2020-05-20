@@ -3,6 +3,8 @@ var searchData=
   ['a',['a',['../classEllipse.html#a5fb56e7b1960b8e127deccbc91f3aa8d',1,'Ellipse::a()'],['../classLinearRegression.html#a9afb5e0ec8d6cbb6ac46e5915afc57ec',1,'LinearRegression::a()'],['../classSpline_1_1Element.html#aa20a7343d5bfabf930f48bd5e88d9916',1,'Spline::Element::a()']]],
   ['addbutton',['addButton',['../classProcessorEditor.html#a4d96825d6eef3847167c3b8a4dda12f4',1,'ProcessorEditor']]],
   ['additionalprogramming',['additionalProgramming',['../classProcessorEditor.html#ad14b6546df1ab5daeef77b926b0c003b',1,'ProcessorEditor']]],
+  ['adsrl',['adsrL',['../classGateEffect.html#af0a57f0f38fd5c8ee5ae1116c155a78e',1,'GateEffect']]],
+  ['adsrr',['adsrR',['../classGateEffect.html#abfb5044f7e394d996ca25ffdaa67b2af',1,'GateEffect']]],
   ['analogtc',['analogTC',['../classEnvelopeDetector.html#aef1cbe13f909298336ff3e307e6b252c',1,'EnvelopeDetector']]],
   ['attack',['attack',['../classAnalogADSR.html#ad78b0e1a8896f9d2c021832fa7517982',1,'AnalogADSR']]],
   ['attackcoeff',['attackCoeff',['../classAnalogADSR.html#a2586227ebaf1e5741159415ada492a6f',1,'AnalogADSR']]],

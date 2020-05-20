@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['gateeffect',['GateEffect',['../classGateEffect.html#a30931317a7688adf95aa1246b65d2bec',1,'GateEffect']]],
+  ['gateeffectcomponent',['GateEffectComponent',['../classGateEffectComponent.html#afa777957bcfd629d2a075905db72607a',1,'GateEffectComponent']]],
   ['get',['get',['../classHttp.html#aa25b6e9f58fe6924809e801bc8eefe21',1,'Http']]],
   ['geta',['getA',['../classLinearRegression.html#a89e9199f1e6e28c47151c7dc97c358da',1,'LinearRegression']]],
   ['getage',['getAge',['../classModVoice.html#a32fc0a65169eb9b73ebf39e97da8714a',1,'ModVoice']]],

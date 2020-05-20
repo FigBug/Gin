@@ -1,8 +1,9 @@
 <map id="MultiParamComponent" name="MultiParamComponent">
-<area shape="rect" id="node3" href="$classADSRComponent.html" title="Component for adjuting ADSR curves. " alt="" coords="5,155,132,181"/>
-<area shape="rect" id="node4" href="$classControlBox.html" title="A box for holding controls on a grid. " alt="" coords="156,155,243,181"/>
-<area shape="rect" id="node5" href="$classLFOComponent.html" title="Draws an LFO curve and shows a little dot moving long. " alt="" coords="267,155,382,181"/>
-<area shape="rect" id="node6" href="$classPagedControlBox.html" title="A control for holding pags of controls on a grid Pages slide over top of each other to make room..." alt="" coords="407,155,531,181"/>
-<area shape="rect" id="node7" href="$classStepLFOComponent.html" title="Draws a step LFO curve and shows a little dot moving long. " alt="" coords="555,155,697,181"/>
-<area shape="rect" id="node2" href="$classParameter_1_1Listener.html" title="Parameter::Listener" alt="" coords="257,5,393,32"/>
+<area shape="rect" id="node3" href="$classADSRComponent.html" title="Component for adjuting ADSR curves. " alt="" coords="405,5,531,32"/>
+<area shape="rect" id="node4" href="$classControlBox.html" title="A box for holding controls on a grid. " alt="" coords="425,56,511,83"/>
+<area shape="rect" id="node5" href="$classGateEffectComponent.html" title="An editor for the gate effect pattern. " alt="" coords="392,107,544,133"/>
+<area shape="rect" id="node6" href="$classLFOComponent.html" title="Draws an LFO curve and shows a little dot moving long. " alt="" coords="411,157,525,184"/>
+<area shape="rect" id="node7" href="$classPagedControlBox.html" title="A control for holding pags of controls on a grid Pages slide over top of each other to make room..." alt="" coords="406,208,530,235"/>
+<area shape="rect" id="node8" href="$classStepLFOComponent.html" title="Draws a step LFO curve and shows a little dot moving long. " alt="" coords="397,259,539,285"/>
+<area shape="rect" id="node2" href="$classParameter_1_1Listener.html" title="Parameter::Listener" alt="" coords="5,132,141,159"/>
 </map>

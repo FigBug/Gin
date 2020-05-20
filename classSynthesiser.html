@@ -60,6 +60,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classSynthesiser-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Synthesiser Class Reference<div class="ingroups"><a class="el" href="group__gin__dsp.html">gin_dsp</a> &raquo; <a class="el" href="group__gin__dsp-dsp.html">dsp</a></div></div>  </div>
@@ -124,6 +125,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9ab1efe9ca01444e5f4ab3d8eada5580"><td class="memTemplParams" colspan="2">template&lt;typename floatType &gt; </td></tr>
 <tr class="memitem:a9ab1efe9ca01444e5f4ab3d8eada5580"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classSynthesiser.html#a9ab1efe9ca01444e5f4ab3d8eada5580">renderNextBlock</a> (AudioBuffer&lt; floatType &gt; &amp;outputAudio, const MidiBuffer &amp;inputMidi, int startSample, int numSamples)</td></tr>
 <tr class="separator:a9ab1efe9ca01444e5f4ab3d8eada5580"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:aa5ba2f02b20bcad66e99e471aa934793"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSynthesiser.html#aa5ba2f02b20bcad66e99e471aa934793">noteOnIndex</a> = -1</td></tr>
+<tr class="separator:aa5ba2f02b20bcad66e99e471aa934793"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11111b8660140c3d67efbd56cf1089fc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSynthesiser.html#a11111b8660140c3d67efbd56cf1089fc">noteOffIndex</a> = -1</td></tr>
+<tr class="separator:a11111b8660140c3d67efbd56cf1089fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>MPESynthesiser with better fast kill, mono and glide support. </p>
@@ -679,7 +687,50 @@ template&lt;typename floatType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structGlideInfo.html#a9d07e5c884046e64cf09d6b24a26b69e">GlideInfo::glissando</a>, and <a class="el" href="structGlideInfo.html#a1e24c72c427d5a6c428e263fd51bc774">GlideInfo::portamento</a>.</p>
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa5ba2f02b20bcad66e99e471aa934793"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5ba2f02b20bcad66e99e471aa934793">&#9670;&nbsp;</a></span>noteOnIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Synthesiser::noteOnIndex = -1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a11111b8660140c3d67efbd56cf1089fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11111b8660140c3d67efbd56cf1089fc">&#9670;&nbsp;</a></span>noteOffIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Synthesiser::noteOffIndex = -1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -689,7 +740,7 @@ template&lt;typename floatType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 19 2020 17:21:16 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 20 2020 15:50:53 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

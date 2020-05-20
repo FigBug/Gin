@@ -6,5 +6,7 @@ var searchData=
   ['newschecker',['newsChecker',['../classProcessorEditor.html#a7bcb131b783c30e7fcc661bc23699601',1,'ProcessorEditor']]],
   ['newsurl',['newsUrl',['../classProcessorEditor.html#a286c329728b68c991bd9b95926521368',1,'ProcessorEditor']]],
   ['nextbutton',['nextButton',['../classProcessorEditor.html#a3724f70a16008bc886c2ac87a9db7559',1,'ProcessorEditor']]],
+  ['noteoffindex',['noteOffIndex',['../classSynthesiser.html#a11111b8660140c3d67efbd56cf1089fc',1,'Synthesiser']]],
+  ['noteonindex',['noteOnIndex',['../classSynthesiser.html#aa5ba2f02b20bcad66e99e471aa934793',1,'Synthesiser']]],
   ['notespertable',['notesPerTable',['../classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220',1,'BandLimitedLookupTable']]]
 ];

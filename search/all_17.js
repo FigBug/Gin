@@ -16,6 +16,7 @@ var searchData=
   ['_7eexifmetadata',['~ExifMetadata',['../classExifMetadata.html#a33f81ea135c7a88e16731c4f16cb9450',1,'ExifMetadata']]],
   ['_7efilesystemwatcher',['~FileSystemWatcher',['../classFileSystemWatcher.html#adfdbffe1e371260804159964e919b78b',1,'FileSystemWatcher']]],
   ['_7efuncstate',['~FuncState',['../structFuncState.html#af55be56146226b4f859919b1e4041893',1,'FuncState']]],
+  ['_7egateeffectcomponent',['~GateEffectComponent',['../classGateEffectComponent.html#a997c2ba6c8aaa738ff5705e4e8588d91',1,'GateEffectComponent']]],
   ['_7eimagemetadata',['~ImageMetadata',['../classImageMetadata.html#ada1ae652af0b4e1341dd75376c2b8da3',1,'ImageMetadata']]],
   ['_7einputfilter',['~InputFilter',['../classSingleLineTextEditor_1_1InputFilter.html#aa8468b2a52e2f9cbd642f407c77bb419',1,'SingleLineTextEditor::InputFilter']]],
   ['_7eiptcmetadata',['~IptcMetadata',['../classIptcMetadata.html#a59529ad6881125efe51aeb06ffe47d6b',1,'IptcMetadata']]],
