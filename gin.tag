@@ -6715,6 +6715,13 @@
       <anchor>a031b2aad2c58ef9957553db94b61d0f2</anchor>
       <arglist>()=0</arglist>
     </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>disableSmoothing</name>
+      <anchorfile>classModVoice.html</anchorfile>
+      <anchor>acc4675a7c50824248d15d4a416f5401b</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>MultiParamComponent</name>

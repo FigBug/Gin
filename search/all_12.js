@@ -2,7 +2,7 @@ var searchData=
 [
   ['tables',['tables',['../classBandLimitedLookupTable.html#adbe6b6e06f76c87e7bfee87d854b4ffe',1,'BandLimitedLookupTable']]],
   ['tags',['tags',['../classPatchBrowser.html#a604f1af8ee55070f317b08f5f261b607',1,'PatchBrowser::tags()'],['../classProgram.html#ae21a0053a4eadb82e62fb92b32c6d7bb',1,'Program::tags()']]],
-  ['tagsmodel',['TagsModel',['../structPatchBrowser_1_1TagsModel.html',1,'PatchBrowser::TagsModel'],['../classPatchBrowser.html#a2b1148951ac60c4b47c4b1f6af16d144',1,'PatchBrowser::tagsModel()'],['../structPatchBrowser_1_1TagsModel.html#aa09938757cd8d6bf62458de6297aa5cb',1,'PatchBrowser::TagsModel::TagsModel()']]],
+  ['tagsmodel',['TagsModel',['../structPatchBrowser_1_1TagsModel.html',1,'PatchBrowser::TagsModel'],['../structPatchBrowser_1_1TagsModel.html#aa09938757cd8d6bf62458de6297aa5cb',1,'PatchBrowser::TagsModel::TagsModel()'],['../classPatchBrowser.html#a2b1148951ac60c4b47c4b1f6af16d144',1,'PatchBrowser::tagsModel()']]],
   ['textchanged',['textChanged',['../classSingleLineTextEditor.html#a7432325931d3ad2a10f0b98fb83f8ec7',1,'SingleLineTextEditor']]],
   ['textcolourid',['textColourId',['../classSingleLineTextEditor.html#a580e95f56d303528b02f91143c72f13ca3139e08c59ac1e595c5029d4c90b3a95',1,'SingleLineTextEditor']]],
   ['textfunction',['textFunction',['../classParameter.html#a53b9044a78f11aaab48427f315f56ce5',1,'Parameter']]],
@@ -24,5 +24,5 @@ var searchData=
   ['triggered',['triggered',['../classGateEffect.html#a10a311a7ed46c3c2e20a243a359b6da3',1,'GateEffect']]],
   ['triggeredscope',['TriggeredScope',['../classTriggeredScope.html',1,'TriggeredScope'],['../classTriggeredScope.html#a8ed01ea728d7ee2800bcfe0caef7516b',1,'TriggeredScope::TriggeredScope()']]],
   ['triggermode',['TriggerMode',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40',1,'TriggeredScope']]],
-  ['type',['Type',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576',1,'Dynamics::Type()'],['../classEQ.html#afd7d7b03b08fd8ca89204c04ff847010',1,'EQ::Type()'],['../classFilter.html#a8f99602312ccfbe9e1598532158726c0',1,'Filter::Type()'],['../classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7c',1,'SmoothingType::Type()'],['../classImageMetadata.html#a88182b2b38fd16958658a5af065f1226',1,'ImageMetadata::type()'],['../classSmoothingType.html#a0393375a369c88015c76fe37f4e50a1c',1,'SmoothingType::type()']]]
+  ['type',['type',['../classImageMetadata.html#a88182b2b38fd16958658a5af065f1226',1,'ImageMetadata::type()'],['../classSmoothingType.html#a0393375a369c88015c76fe37f4e50a1c',1,'SmoothingType::type()'],['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576',1,'Dynamics::Type()'],['../classEQ.html#afd7d7b03b08fd8ca89204c04ff847010',1,'EQ::Type()'],['../classFilter.html#a8f99602312ccfbe9e1598532158726c0',1,'Filter::Type()'],['../classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7c',1,'SmoothingType::Type()']]]
 ];

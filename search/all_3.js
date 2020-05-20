@@ -28,6 +28,7 @@ var searchData=
   ['difference',['Difference',['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85a9cba343e00a6259dc83f7e4e7f447109',1,'gin_imageeffects.h']]],
   ['direction',['Direction',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1',1,'SampleOscillator']]],
   ['disablelearn',['disableLearn',['../classModMatrix.html#a43c4fb3d9ece3cd9b2af6495379dc2f6',1,'ModMatrix']]],
+  ['disablesmoothing',['disableSmoothing',['../classModVoice.html#acc4675a7c50824248d15d4a416f5401b',1,'ModVoice']]],
   ['disconnect',['disconnect',['../classAsyncWebsocket.html#a6cff60be7eb74cdf9dcc03b488ca0558',1,'AsyncWebsocket']]],
   ['displaytocoordinate',['displayToCoordinate',['../classOpenStreetMaps.html#a2bc213d08b553d19a929faf9890f3717',1,'OpenStreetMaps']]],
   ['distortion',['Distortion',['../classDistortion.html',1,'Distortion'],['../classDistortion.html#af712b1eb22bc79f96a2febc3e21b859a',1,'Distortion::Distortion()']]],
