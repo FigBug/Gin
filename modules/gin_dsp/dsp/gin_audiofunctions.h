@@ -10,9 +10,6 @@
 
 #pragma once
 
-#include "gin_audioutil.h"
-#include "gin_oscillators.h"
-
 //==============================================================================
 /**
  Base class to store an audio functions state

@@ -72,9 +72,8 @@ using juce::Component;
 
 #include "dsp/gin_adsr.h"
 #include "dsp/gin_analogadsr.h"
-#include "dsp/gin_audiofunctions.h"
-#include "dsp/gin_audioequationparser.h"
 #include "dsp/gin_audiofifo.h"
+#include "dsp/gin_bandlimitedlookuptable.h"
 #include "dsp/gin_distortion.h"
 #include "dsp/gin_delayline.h"
 #include "dsp/gin_dynamics.h"
@@ -93,6 +92,8 @@ using juce::Component;
 #include "dsp/gin_synthesiser.h"
 #include "dsp/gin_valuesmoother.h"
 #include "dsp/gin_wtoscillators.h"
+#include "dsp/gin_audiofunctions.h"
+#include "dsp/gin_audioequationparser.h"
 
 #include "components/gin_dynamicsmeter.h"
 #include "components/gin_levelmeter.h"

@@ -7,71 +7,7 @@
  ==============================================================================
  */
 
-
 #pragma once
-
-//==============================================================================
-double sine (double phase, double unused1 = 0, double unused2 = 0);
-double triangle (double phase, double freq, double sampleRate);
-double sawUp (double phase, double freq, double sampleRate);
-double sawDown (double phase, double freq, double sampleRate);
-double pulse (double phase, double pw, double freq, double sampleRate);
-double squareWave (double phase, double freq, double sampleRate);
-double noise();
-
-//==============================================================================
-/** Lookup tables for holding andlimited waveforms. Holds one waveform for every N number notes
-*/
-class BandLimitedLookupTable
-{
-public:
-    BandLimitedLookupTable (std::function<double (double, double, double)> function, double sampleRate, int notesPerTable = 6, int tableSize = 1024);
-    
-    void reset (std::function<double (double, double, double)> function, double sampleRate, int notesPerTable = 6, int tableSize = 1024);
-
-    float process (float note, float phase);
-    
-    juce::OwnedArray<juce::dsp::LookupTableTransform<float>> tables;
-
-    int notesPerTable = 0;
-};
-
-//==============================================================================
-enum class Wave
-{
-    silence     = 0,
-    sine        = 1,
-    triangle    = 2,
-    sawUp       = 3,
-    sawDown     = 4,
-    pulse       = 5,
-    square      = 6,
-    noise       = 7,
-};
-
-//==============================================================================
-/** Generate and hold bandlimited lookup tabkes for all the common waveforms
-*/
-class BandLimitedLookupTables
-{
-public:
-    BandLimitedLookupTables (double sampleRate = 44100);
-    
-    void setSampleRate (double sampleRate);
-
-    float processSine (float phase);
-    float processTriangle (float note, float phase);
-    float processSawUp (float note, float phase);
-    float processSawDown (float note, float phase);
-    float processSquare (float note, float phase);
-    float processPulse (float note, float phase, float pw);
-    
-    float process (Wave wave, float note, float phase, float pw = 0.5f);
-
-private:
-    double sampleRate = 0;
-    BandLimitedLookupTable sineTable, sawUpTable, sawDownTable, triangleTable;
-};
 
 //==============================================================================
 /** Stereo oscillator. L & R can be at different pitches
