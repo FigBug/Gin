@@ -18,8 +18,8 @@
   ID:               gin_metadata
   vendor:           Roland Rabien
   version:          1.0.0
-  name:             Gin
-  description:      Gin
+  name:             Gin Metadata
+  description:      Gin Metadata
   website:          www.rabiensoftware.com
   license:          BSD
 
