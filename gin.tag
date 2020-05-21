@@ -54,8 +54,6 @@
     <name>gin_audiofunctions.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
     <filename>gin__audiofunctions_8h</filename>
-    <includes id="gin__audioutil_8h" name="gin_audioutil.h" local="yes" imported="no">gin_audioutil.h</includes>
-    <includes id="gin__oscillators_8h" name="gin_oscillators.h" local="yes" imported="no">gin_oscillators.h</includes>
     <class kind="struct">FuncState</class>
     <class kind="struct">OscState</class>
     <class kind="struct">HP12State</class>
@@ -143,6 +141,77 @@
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
       <anchor>gac0cf29fe6b6b2a5456cb668c314305da</anchor>
       <arglist>(AudioSampleBuffer &amp;input, int start, int length)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_bandlimitedlookuptable.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
+    <filename>gin__bandlimitedlookuptable_8h</filename>
+    <class kind="class">BandLimitedLookupTable</class>
+    <class kind="class">BandLimitedLookupTables</class>
+    <member kind="enumeration">
+      <type></type>
+      <name>Wave</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>gadb931b2f752b7879df254a7fd9d17e90</anchor>
+      <arglist></arglist>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a0e82533c37fced763be34a5c21d720c9">silence</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a925212d1624625aed9491413b4b7be05">sine</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90acef44b46f16ae8ecf664df4266ffdbf9">triangle</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90acf87f9eb2bfacc5a0362031eba539290">sawUp</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a3593df94728cd88f078bbc6c41df9876">sawDown</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a02a8dc4cf01fed584c6423f577c0b0d7">pulse</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90aaaddc3454ccbefbb2d8d8461f8f7f481">noise</enumvalue>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>sine</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>gac81d5fa67210b71931d9191c641871b2</anchor>
+      <arglist>(double phase, double unused1=0, double unused2=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>triangle</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga83fe6fa8512b1a676092cf10f9c79e7e</anchor>
+      <arglist>(double phase, double freq, double sampleRate)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>sawUp</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga54fd9fc5216539143983df52fcfd38be</anchor>
+      <arglist>(double phase, double freq, double sampleRate)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>sawDown</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>gaf4e429b20b8c3d03b8527af2f1d7a14f</anchor>
+      <arglist>(double phase, double freq, double sampleRate)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>pulse</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga5d70ff16cbda6f79543b487e6831052a</anchor>
+      <arglist>(double phase, double pw, double freq, double sampleRate)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>squareWave</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>gad6edce63379d418ac8ceb7f57a97bfc6</anchor>
+      <arglist>(double phase, double freq, double sampleRate)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>noise</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga144d0a5afb304f562a311e0d62e77dc6</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -1031,76 +1100,10 @@
     <name>gin_oscillators.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
     <filename>gin__oscillators_8h</filename>
-    <class kind="class">BandLimitedLookupTable</class>
-    <class kind="class">BandLimitedLookupTables</class>
     <class kind="class">StereoOscillator</class>
     <class kind="struct">StereoOscillator::Params</class>
     <class kind="class">VoicedStereoOscillator</class>
     <class kind="struct">VoicedStereoOscillator::Params</class>
-    <member kind="enumeration">
-      <type></type>
-      <name>Wave</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gadb931b2f752b7879df254a7fd9d17e90</anchor>
-      <arglist></arglist>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a0e82533c37fced763be34a5c21d720c9">silence</enumvalue>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a925212d1624625aed9491413b4b7be05">sine</enumvalue>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90acef44b46f16ae8ecf664df4266ffdbf9">triangle</enumvalue>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90acf87f9eb2bfacc5a0362031eba539290">sawUp</enumvalue>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a3593df94728cd88f078bbc6c41df9876">sawDown</enumvalue>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a02a8dc4cf01fed584c6423f577c0b0d7">pulse</enumvalue>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</enumvalue>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90aaaddc3454ccbefbb2d8d8461f8f7f481">noise</enumvalue>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>sine</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gac81d5fa67210b71931d9191c641871b2</anchor>
-      <arglist>(double phase, double unused1=0, double unused2=0)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>triangle</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga83fe6fa8512b1a676092cf10f9c79e7e</anchor>
-      <arglist>(double phase, double freq, double sampleRate)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>sawUp</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga54fd9fc5216539143983df52fcfd38be</anchor>
-      <arglist>(double phase, double freq, double sampleRate)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>sawDown</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gaf4e429b20b8c3d03b8527af2f1d7a14f</anchor>
-      <arglist>(double phase, double freq, double sampleRate)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>pulse</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga5d70ff16cbda6f79543b487e6831052a</anchor>
-      <arglist>(double phase, double pw, double freq, double sampleRate)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>squareWave</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gad6edce63379d418ac8ceb7f57a97bfc6</anchor>
-      <arglist>(double phase, double freq, double sampleRate)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>noise</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga144d0a5afb304f562a311e0d62e77dc6</anchor>
-      <arglist>()</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>gin_parameter.h</name>
@@ -2505,15 +2508,15 @@
       <type></type>
       <name>BandLimitedLookupTable</name>
       <anchorfile>classBandLimitedLookupTable.html</anchorfile>
-      <anchor>aefd8b6553c9fe9e504b7fd86783d4482</anchor>
-      <arglist>(std::function&lt; double(double, double, double)&gt; function, double sampleRate, int notesPerTable=6, int tableSize=1024)</arglist>
+      <anchor>aa8d1104796d5b6ce9103280164f23dab</anchor>
+      <arglist>(std::function&lt; double(double, double, double)&gt; function, double sampleRate, int notesPerTable_=6, int tableSize_=2048)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>reset</name>
       <anchorfile>classBandLimitedLookupTable.html</anchorfile>
-      <anchor>ad8ecdc4fc0d7207488e03e943043f036</anchor>
-      <arglist>(std::function&lt; double(double, double, double)&gt; function, double sampleRate, int notesPerTable=6, int tableSize=1024)</arglist>
+      <anchor>a3dab85dafee0db1469251e9c59cd22e9</anchor>
+      <arglist>(std::function&lt; double(double, double, double)&gt; function, double sampleRate, int notesPerTable_=6, int tableSize=2048)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -2544,8 +2547,8 @@
       <type></type>
       <name>BandLimitedLookupTables</name>
       <anchorfile>classBandLimitedLookupTables.html</anchorfile>
-      <anchor>a9d73b5e63f439dddd2182ef6a1c3916f</anchor>
-      <arglist>(double sampleRate=44100)</arglist>
+      <anchor>a7e1c8aa33089ca6a78dcfb204e2e916d</anchor>
+      <arglist>(double sampleRate=44100, int notesPerTable=3, int tableSize=2048)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -2600,8 +2603,8 @@
       <type>float</type>
       <name>process</name>
       <anchorfile>classBandLimitedLookupTables.html</anchorfile>
-      <anchor>a83f7f39900a30f71583ceed63167f943</anchor>
-      <arglist>(Wave wave, float note, float phase, float pw=0.5f)</arglist>
+      <anchor>ad49cd21400d1e108e677a10ae5cddeb1</anchor>
+      <arglist>(Wave wave, float note, float phase, float pw)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -12010,6 +12013,8 @@
     <class kind="class">AudioFunctionHost</class>
     <class kind="class">GainProcessor</class>
     <class kind="class">WetDryMix</class>
+    <class kind="class">BandLimitedLookupTable</class>
+    <class kind="class">BandLimitedLookupTables</class>
     <class kind="class">DelayLine</class>
     <class kind="class">Distortion</class>
     <class kind="class">EnvelopeDetector</class>
@@ -12022,8 +12027,6 @@
     <class kind="class">LFO</class>
     <class kind="struct">LFO::Parameters</class>
     <class kind="class">Modulation</class>
-    <class kind="class">BandLimitedLookupTable</class>
-    <class kind="class">BandLimitedLookupTables</class>
     <class kind="class">StereoOscillator</class>
     <class kind="struct">StereoOscillator::Params</class>
     <class kind="class">VoicedStereoOscillator</class>

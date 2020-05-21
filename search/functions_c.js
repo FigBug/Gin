@@ -3,7 +3,7 @@ var searchData=
   ['newschecker',['NewsChecker',['../classNewsChecker.html#a2d1e5cecbc85c89a7d3badcf89a14ef9',1,'NewsChecker']]],
   ['newsready',['newsReady',['../classProcessorEditor.html#aada190b51287a66e569867062e219419',1,'ProcessorEditor']]],
   ['newtransaction',['newTransaction',['../classSingleLineTextEditor.html#ab5aafa23521231a8b7f6811b2d937b44',1,'SingleLineTextEditor']]],
-  ['noise',['noise',['../classPerlinNoise.html#a3aa782c396ab798493ad7529960c5a9a',1,'PerlinNoise::noise()'],['../group__gin__dsp-dsp.html#ga144d0a5afb304f562a311e0d62e77dc6',1,'noise():&#160;gin_oscillators.h']]],
+  ['noise',['noise',['../classPerlinNoise.html#a3aa782c396ab798493ad7529960c5a9a',1,'PerlinNoise::noise()'],['../group__gin__dsp-dsp.html#ga144d0a5afb304f562a311e0d62e77dc6',1,'noise():&#160;gin_bandlimitedlookuptable.h']]],
   ['notch12state',['Notch12State',['../structNotch12State.html#a2a386e7295162f4161e01a261ddd5f39',1,'Notch12State']]],
   ['notch24state',['Notch24State',['../structNotch24State.html#a0f06a87bf8c3afabd6efa24ca4e3f1ed',1,'Notch24State']]],
   ['noteadded',['noteAdded',['../classSynthesiser.html#a58760fa6f89221e094c04840076d18ff',1,'Synthesiser']]],

@@ -4,7 +4,7 @@ var searchData=
   ['phoenix',['Phoenix',['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85a85c155bffb4118332192060f1a6db976',1,'gin_imageeffects.h']]],
   ['pingpong',['pingpong',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1adc80e6dce6b6fd92663fdd3c14ea4a6b',1,'SampleOscillator']]],
   ['pinlight',['PinLight',['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85a513bf9b05af260d001632c4fe6d345d5',1,'gin_imageeffects.h']]],
-  ['pulse',['pulse',['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a02a8dc4cf01fed584c6423f577c0b0d7',1,'gin_oscillators.h']]],
+  ['pulse',['pulse',['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a02a8dc4cf01fed584c6423f577c0b0d7',1,'gin_bandlimitedlookuptable.h']]],
   ['pyramid3',['pyramid3',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29ad5e3304893d6f84f5210fe5ccd2f7888',1,'LFO']]],
   ['pyramid5',['pyramid5',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a3d7573264eadab6786ec51508c56ca27',1,'LFO']]],
   ['pyramid9',['pyramid9',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a17429d7baab06afa5e9bb17e8d474c51',1,'LFO']]]

@@ -10,7 +10,7 @@ var searchData=
   ['toseconds',['toSeconds',['../classNoteDuration.html#a685eb3811a8461f19705c2ee0c2ca298',1,'NoteDuration::toSeconds(AudioPlayHead *playhead) const'],['../classNoteDuration.html#a5b06f7ea0574bbaa7a7a37451dd9667d',1,'NoteDuration::toSeconds(float bpm) const']]],
   ['trackbuffer',['trackBuffer',['../classLevelTracker.html#ae015d22dde9a4f1241fdcc062a58d1a8',1,'LevelTracker::trackBuffer(const float *buffer, int numSamples)'],['../classLevelTracker.html#afed0038f16fde16362517599a08001e0',1,'LevelTracker::trackBuffer(AudioSampleBuffer &amp;buffer)']]],
   ['tracksample',['trackSample',['../classLevelTracker.html#a94deea05c53ad4155870361ffc56b3be',1,'LevelTracker']]],
-  ['triangle',['triangle',['../group__gin__dsp-dsp.html#ga83fe6fa8512b1a676092cf10f9c79e7e',1,'gin_oscillators.h']]],
+  ['triangle',['triangle',['../group__gin__dsp-dsp.html#ga83fe6fa8512b1a676092cf10f9c79e7e',1,'gin_bandlimitedlookuptable.h']]],
   ['triggerasyncupdate',['triggerAsyncUpdate',['../classRealtimeAsyncUpdater.html#aee4e7bf67d31d0bb574132bfd102f57f',1,'RealtimeAsyncUpdater']]],
   ['triggeredscope',['TriggeredScope',['../classTriggeredScope.html#a8ed01ea728d7ee2800bcfe0caef7516b',1,'TriggeredScope']]]
 ];

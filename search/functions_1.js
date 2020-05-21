@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['bandlimitedlookuptable',['BandLimitedLookupTable',['../classBandLimitedLookupTable.html#aefd8b6553c9fe9e504b7fd86783d4482',1,'BandLimitedLookupTable']]],
-  ['bandlimitedlookuptables',['BandLimitedLookupTables',['../classBandLimitedLookupTables.html#a9d73b5e63f439dddd2182ef6a1c3916f',1,'BandLimitedLookupTables']]],
+  ['bandlimitedlookuptable',['BandLimitedLookupTable',['../classBandLimitedLookupTable.html#aa8d1104796d5b6ce9103280164f23dab',1,'BandLimitedLookupTable']]],
+  ['bandlimitedlookuptables',['BandLimitedLookupTables',['../classBandLimitedLookupTables.html#a7e1c8aa33089ca6a78dcfb204e2e916d',1,'BandLimitedLookupTables']]],
   ['beginuseraction',['beginUserAction',['../classParameter.html#a4835756858c197a20d3eeb1e88d11f7d',1,'Parameter']]],
   ['beginusertimedaction',['beginUserTimedAction',['../classParameter.html#aa76ca1fc6f05803166264b33e0546bf4',1,'Parameter']]],
   ['blockingdownload',['blockingDownload',['../classDownloadManager.html#a4f2f782db41bee4029250deba9a5bac4',1,'DownloadManager::blockingDownload(String url, String postData, String extraHeaders={})'],['../classDownloadManager.html#ae26895481511c1233758fe71fb6201ab',1,'DownloadManager::blockingDownload(URL url, String extraHeaders={})']]],

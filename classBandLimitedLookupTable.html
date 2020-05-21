@@ -67,15 +67,15 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Lookup tables for holding andlimited waveforms.  
+<p>Lookup tables for holding bandlimited waveforms.  
  <a href="classBandLimitedLookupTable.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aefd8b6553c9fe9e504b7fd86783d4482"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#aefd8b6553c9fe9e504b7fd86783d4482">BandLimitedLookupTable</a> (std::function&lt; double(double, double, double)&gt; function, double sampleRate, int <a class="el" href="classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220">notesPerTable</a>=6, int tableSize=1024)</td></tr>
-<tr class="separator:aefd8b6553c9fe9e504b7fd86783d4482"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8ecdc4fc0d7207488e03e943043f036"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#ad8ecdc4fc0d7207488e03e943043f036">reset</a> (std::function&lt; double(double, double, double)&gt; function, double sampleRate, int <a class="el" href="classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220">notesPerTable</a>=6, int tableSize=1024)</td></tr>
-<tr class="separator:ad8ecdc4fc0d7207488e03e943043f036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8d1104796d5b6ce9103280164f23dab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#aa8d1104796d5b6ce9103280164f23dab">BandLimitedLookupTable</a> (std::function&lt; double(double, double, double)&gt; function, double sampleRate, int notesPerTable_=6, int tableSize_=2048)</td></tr>
+<tr class="separator:aa8d1104796d5b6ce9103280164f23dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dab85dafee0db1469251e9c59cd22e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#a3dab85dafee0db1469251e9c59cd22e9">reset</a> (std::function&lt; double(double, double, double)&gt; function, double sampleRate, int notesPerTable_=6, int tableSize=2048)</td></tr>
+<tr class="separator:a3dab85dafee0db1469251e9c59cd22e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4bbf0cf3a280899c20e09895e509786"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#ae4bbf0cf3a280899c20e09895e509786">process</a> (float note, float phase)</td></tr>
 <tr class="separator:ae4bbf0cf3a280899c20e09895e509786"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -87,11 +87,11 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a16759d173143073a70627173a7b45220"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Lookup tables for holding andlimited waveforms. </p>
+<div class="textblock"><p>Lookup tables for holding bandlimited waveforms. </p>
 <p>Holds one waveform for every N number notes </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aefd8b6553c9fe9e504b7fd86783d4482"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefd8b6553c9fe9e504b7fd86783d4482">&#9670;&nbsp;</a></span>BandLimitedLookupTable()</h2>
+<a id="aa8d1104796d5b6ce9103280164f23dab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8d1104796d5b6ce9103280164f23dab">&#9670;&nbsp;</a></span>BandLimitedLookupTable()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -112,13 +112,13 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>notesPerTable</em> = <code>6</code>, </td>
+          <td class="paramname"><em>notesPerTable_</em> = <code>6</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>tableSize</em> = <code>1024</code>&#160;</td>
+          <td class="paramname"><em>tableSize_</em> = <code>2048</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -128,11 +128,13 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="reference">References <a class="el" href="classBandLimitedLookupTable.html#a3dab85dafee0db1469251e9c59cd22e9">reset()</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad8ecdc4fc0d7207488e03e943043f036"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8ecdc4fc0d7207488e03e943043f036">&#9670;&nbsp;</a></span>reset()</h2>
+<a id="a3dab85dafee0db1469251e9c59cd22e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dab85dafee0db1469251e9c59cd22e9">&#9670;&nbsp;</a></span>reset()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -153,13 +155,13 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>notesPerTable</em> = <code>6</code>, </td>
+          <td class="paramname"><em>notesPerTable_</em> = <code>6</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>tableSize</em> = <code>1024</code>&#160;</td>
+          <td class="paramname"><em>tableSize</em> = <code>2048</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -168,6 +170,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="group__gin__dsp-dsp.html#ga0521f87a41bf33dc06cc4b6889860401">getMidiNoteInHertz()</a>, <a class="el" href="classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220">notesPerTable</a>, and <a class="el" href="classBandLimitedLookupTable.html#adbe6b6e06f76c87e7bfee87d854b4ffe">tables</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classBandLimitedLookupTable.html#aa8d1104796d5b6ce9103280164f23dab">BandLimitedLookupTable()</a>.</p>
 
 </div>
 </div>
@@ -197,7 +203,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classStereoOscillator.html#a720c29b79225736abece6bd93457a647">StereoOscillator::setSampleRate()</a>.</p>
+<p class="reference">References <a class="el" href="classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220">notesPerTable</a>, and <a class="el" href="classBandLimitedLookupTable.html#adbe6b6e06f76c87e7bfee87d854b4ffe">tables</a>.</p>
 
 </div>
 </div>
@@ -214,6 +220,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="reference">Referenced by <a class="el" href="classBandLimitedLookupTable.html#ae4bbf0cf3a280899c20e09895e509786">process()</a>, and <a class="el" href="classBandLimitedLookupTable.html#a3dab85dafee0db1469251e9c59cd22e9">reset()</a>.</p>
+
 </div>
 </div>
 <a id="a16759d173143073a70627173a7b45220"></a>
@@ -228,15 +236,17 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="reference">Referenced by <a class="el" href="classBandLimitedLookupTable.html#ae4bbf0cf3a280899c20e09895e509786">process()</a>, <a class="el" href="classBandLimitedLookupTables.html#ad49cd21400d1e108e677a10ae5cddeb1">BandLimitedLookupTables::process()</a>, and <a class="el" href="classBandLimitedLookupTable.html#a3dab85dafee0db1469251e9c59cd22e9">reset()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="gin__oscillators_8h.html">gin_oscillators.h</a></li>
+<li><a class="el" href="gin__bandlimitedlookuptable_8h.html">gin_bandlimitedlookuptable.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 21 2020 01:57:43 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 21 2020 04:57:45 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

@@ -71,8 +71,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9d73b5e63f439dddd2182ef6a1c3916f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTables.html#a9d73b5e63f439dddd2182ef6a1c3916f">BandLimitedLookupTables</a> (double sampleRate=44100)</td></tr>
-<tr class="separator:a9d73b5e63f439dddd2182ef6a1c3916f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e1c8aa33089ca6a78dcfb204e2e916d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTables.html#a7e1c8aa33089ca6a78dcfb204e2e916d">BandLimitedLookupTables</a> (double sampleRate=44100, int notesPerTable=3, int tableSize=2048)</td></tr>
+<tr class="separator:a7e1c8aa33089ca6a78dcfb204e2e916d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a615ea2571866e5f4c3e97cad98e44c6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTables.html#a615ea2571866e5f4c3e97cad98e44c6b">setSampleRate</a> (double sampleRate)</td></tr>
 <tr class="separator:a615ea2571866e5f4c3e97cad98e44c6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf067ab0c34d191b5369da60d4586a72"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTables.html#adf067ab0c34d191b5369da60d4586a72">processSine</a> (float phase)</td></tr>
@@ -87,14 +87,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a194da9ad3989b0e8845c16c9792bfe21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95aa08a1c4943b1e3ca991ae3316aeba"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTables.html#a95aa08a1c4943b1e3ca991ae3316aeba">processPulse</a> (float note, float phase, float pw)</td></tr>
 <tr class="separator:a95aa08a1c4943b1e3ca991ae3316aeba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83f7f39900a30f71583ceed63167f943"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTables.html#a83f7f39900a30f71583ceed63167f943">process</a> (<a class="el" href="group__gin__dsp-dsp.html#gadb931b2f752b7879df254a7fd9d17e90">Wave</a> wave, float note, float phase, float pw=0.5f)</td></tr>
-<tr class="separator:a83f7f39900a30f71583ceed63167f943"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad49cd21400d1e108e677a10ae5cddeb1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTables.html#ad49cd21400d1e108e677a10ae5cddeb1">process</a> (<a class="el" href="group__gin__dsp-dsp.html#gadb931b2f752b7879df254a7fd9d17e90">Wave</a> wave, float note, float phase, float pw)</td></tr>
+<tr class="separator:ad49cd21400d1e108e677a10ae5cddeb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Generate and hold bandlimited lookup tabkes for all the common waveforms. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9d73b5e63f439dddd2182ef6a1c3916f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d73b5e63f439dddd2182ef6a1c3916f">&#9670;&nbsp;</a></span>BandLimitedLookupTables()</h2>
+<a id="a7e1c8aa33089ca6a78dcfb204e2e916d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e1c8aa33089ca6a78dcfb204e2e916d">&#9670;&nbsp;</a></span>BandLimitedLookupTables()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -103,8 +103,24 @@ Public Member Functions</h2></td></tr>
           <td class="memname">BandLimitedLookupTables::BandLimitedLookupTables </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>sampleRate</em> = <code>44100</code></td><td>)</td>
+          <td class="paramname"><em>sampleRate</em> = <code>44100</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>notesPerTable</em> = <code>3</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tableSize</em> = <code>2048</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -294,8 +310,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a83f7f39900a30f71583ceed63167f943"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83f7f39900a30f71583ceed63167f943">&#9670;&nbsp;</a></span>process()</h2>
+<a id="ad49cd21400d1e108e677a10ae5cddeb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad49cd21400d1e108e677a10ae5cddeb1">&#9670;&nbsp;</a></span>process()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -322,7 +338,7 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>pw</em> = <code>0.5f</code>&#160;</td>
+          <td class="paramname"><em>pw</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -332,15 +348,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="reference">References <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90aaaddc3454ccbefbb2d8d8461f8f7f481">noise</a>, <a class="el" href="classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220">BandLimitedLookupTable::notesPerTable</a>, <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a02a8dc4cf01fed584c6423f577c0b0d7">pulse</a>, <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a3593df94728cd88f078bbc6c41df9876">sawDown</a>, <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90acf87f9eb2bfacc5a0362031eba539290">sawUp</a>, <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a0e82533c37fced763be34a5c21d720c9">silence</a>, <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a925212d1624625aed9491413b4b7be05">sine</a>, <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</a>, and <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90acef44b46f16ae8ecf664df4266ffdbf9">triangle</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="gin__oscillators_8h.html">gin_oscillators.h</a></li>
+<li><a class="el" href="gin__bandlimitedlookuptable_8h.html">gin_bandlimitedlookuptable.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 21 2020 01:57:43 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 21 2020 04:57:45 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

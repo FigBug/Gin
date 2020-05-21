@@ -9,6 +9,7 @@ var searchData=
   ['gin_5faudiofifo_2eh',['gin_audiofifo.h',['../gin__audiofifo_8h.html',1,'']]],
   ['gin_5faudiofunctions_2eh',['gin_audiofunctions.h',['../gin__audiofunctions_8h.html',1,'']]],
   ['gin_5faudioutil_2eh',['gin_audioutil.h',['../gin__audioutil_8h.html',1,'']]],
+  ['gin_5fbandlimitedlookuptable_2eh',['gin_bandlimitedlookuptable.h',['../gin__bandlimitedlookuptable_8h.html',1,'']]],
   ['gin_5fbmpimageformat_2eh',['gin_bmpimageformat.h',['../gin__bmpimageformat_8h.html',1,'']]],
   ['gin_5fcoalescedtimer_2eh',['gin_coalescedtimer.h',['../gin__coalescedtimer_8h.html',1,'']]],
   ['gin_5fcommentmetadata_2eh',['gin_commentmetadata.h',['../gin__commentmetadata_8h.html',1,'']]],
