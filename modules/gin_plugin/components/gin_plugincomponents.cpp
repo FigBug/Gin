@@ -243,7 +243,7 @@ void Knob::modMatrixChanged()
             modButton.setVisible (false);
         }
 
-        if (learning)
+        if (learning && ! isMouseButtonDown (true))
         {
             modDepth = mm->getModDepth (mm->getLearn(), dst);
             knob.getProperties().set ("modDepth", modDepth);
