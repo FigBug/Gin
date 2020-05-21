@@ -1469,6 +1469,13 @@
     <class kind="class">WaveformComponent</class>
   </compound>
   <compound kind="file">
+    <name>gin_wtoscillators.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
+    <filename>gin__wtoscillators_8h</filename>
+    <class kind="class">WTOscillator</class>
+    <class kind="struct">WTOscillator::Params</class>
+  </compound>
+  <compound kind="file">
     <name>gin_xmpmetadata.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_metadata/metadata/</path>
     <filename>gin__xmpmetadata_8h</filename>
@@ -2507,6 +2514,13 @@
       <anchorfile>classBandLimitedLookupTable.html</anchorfile>
       <anchor>ad8ecdc4fc0d7207488e03e943043f036</anchor>
       <arglist>(std::function&lt; double(double, double, double)&gt; function, double sampleRate, int notesPerTable=6, int tableSize=1024)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>process</name>
+      <anchorfile>classBandLimitedLookupTable.html</anchorfile>
+      <anchor>ae4bbf0cf3a280899c20e09895e509786</anchor>
+      <arglist>(float note, float phase)</arglist>
     </member>
     <member kind="variable">
       <type>juce::OwnedArray&lt; juce::dsp::LookupTableTransform&lt; float &gt; &gt;</type>
@@ -7917,6 +7931,24 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>WTOscillator::Params</name>
+    <filename>structWTOscillator_1_1Params.html</filename>
+    <member kind="variable">
+      <type>float</type>
+      <name>leftGain</name>
+      <anchorfile>structWTOscillator_1_1Params.html</anchorfile>
+      <anchor>abef23350d10d65198a293119ced8bb9d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>rightGain</name>
+      <anchorfile>structWTOscillator_1_1Params.html</anchorfile>
+      <anchor>a432702cbb02f4013a3915a03ca672c39</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>Parameter::ParamState</name>
     <filename>structParameter_1_1ParamState.html</filename>
     <member kind="variable">
@@ -11644,6 +11676,60 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>WTOscillator</name>
+    <filename>classWTOscillator.html</filename>
+    <class kind="struct">WTOscillator::Params</class>
+    <member kind="function">
+      <type></type>
+      <name>WTOscillator</name>
+      <anchorfile>classWTOscillator.html</anchorfile>
+      <anchor>a16fdc8afe3d72d02755d37bb13aa3dad</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classWTOscillator.html</anchorfile>
+      <anchor>ac982050906c9ca3bb2097fdc85f3c444</anchor>
+      <arglist>(double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>noteOn</name>
+      <anchorfile>classWTOscillator.html</anchorfile>
+      <anchor>aa5b7bfe2f4f6f4616af869e7ff6977b3</anchor>
+      <arglist>(float p=-1)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classWTOscillator.html</anchorfile>
+      <anchor>a35115c29a8df707393ff324062cdac6e</anchor>
+      <arglist>(float note, float table, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classWTOscillator.html</anchorfile>
+      <anchor>aedbed8d22ac056120ea8e8aa24b0da51</anchor>
+      <arglist>(float noteL, float noteR, float table, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>processAdding</name>
+      <anchorfile>classWTOscillator.html</anchorfile>
+      <anchor>aa0d9d7c9967d0fcb892900765e4ccb13</anchor>
+      <arglist>(float note, float table, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>processAdding</name>
+      <anchorfile>classWTOscillator.html</anchorfile>
+      <anchor>ab3e00bda64a91f5e77af1d1d8424cb43</anchor>
+      <arglist>(float noteL, float noteR, float table, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>XmpMetadata</name>
     <filename>classXmpMetadata.html</filename>
     <base>ImageMetadata</base>
@@ -11952,6 +12038,8 @@
     <class kind="class">SynthesiserVoice</class>
     <class kind="class">Synthesiser</class>
     <class kind="class">ValueSmoother</class>
+    <class kind="class">WTOscillator</class>
+    <class kind="struct">WTOscillator::Params</class>
     <member kind="define">
       <type>#define</type>
       <name>Q</name>

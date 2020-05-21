@@ -37,7 +37,7 @@ var searchData=
   ['result',['Result',['../classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30f',1,'ElevatedFileCopy']]],
   ['retriggervoice',['retriggerVoice',['../classSynthesiser.html#a687cf3fc387d7ca65684bbee5a194dc7',1,'Synthesiser']]],
   ['returnpressed',['returnPressed',['../classSingleLineTextEditor.html#a6ea46ada81c1fc1acfd818740832a9d6',1,'SingleLineTextEditor']]],
-  ['rightgain',['rightGain',['../structStereoOscillator_1_1Params.html#a5c18505090d6b512295acdb7aa2ae707',1,'StereoOscillator::Params']]],
+  ['rightgain',['rightGain',['../structStereoOscillator_1_1Params.html#a5c18505090d6b512295acdb7aa2ae707',1,'StereoOscillator::Params::rightGain()'],['../structWTOscillator_1_1Params.html#a432702cbb02f4013a3915a03ca672c39',1,'WTOscillator::Params::rightGain()']]],
   ['rms',['rms',['../classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4aa63705cf10474e3baa09f52c7f5bf5e6',1,'EnvelopeDetector']]],
   ['rollingaverage',['RollingAverage',['../classRollingAverage.html',1,'RollingAverage'],['../classRollingAverage.html#ac31bf3c8f185244cad3ec353a3156888',1,'RollingAverage::RollingAverage()']]],
   ['rows',['rows',['../classProcessorEditor.html#aaafdcef09b498b0d5f58eccb2532a53c',1,'ProcessorEditor']]],

@@ -211,6 +211,7 @@ var searchData=
   ['gin_5fvaluetreeobject_2eh',['gin_valuetreeobject.h',['../gin__valuetreeobject_8h.html',1,'']]],
   ['gin_5fvaluetreeutilities_2eh',['gin_valuetreeutilities.h',['../gin__valuetreeutilities_8h.html',1,'']]],
   ['gin_5fwaveformcomponent_2eh',['gin_waveformcomponent.h',['../gin__waveformcomponent_8h.html',1,'']]],
+  ['gin_5fwtoscillators_2eh',['gin_wtoscillators.h',['../gin__wtoscillators_8h.html',1,'']]],
   ['gin_5fxmpmetadata_2eh',['gin_xmpmetadata.h',['../gin__xmpmetadata_8h.html',1,'']]],
   ['gin_5fxyscope_2eh',['gin_xyscope.h',['../gin__xyscope_8h.html',1,'']]],
   ['ginlookandfeel',['GinLookAndFeel',['../classGinLookAndFeel.html',1,'GinLookAndFeel'],['../classGinLookAndFeel.html#ae2f7157e485bb30b42f4b47e617a3c17',1,'GinLookAndFeel::GinLookAndFeel()']]],

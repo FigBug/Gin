@@ -10,7 +10,7 @@ var searchData=
   ['lastron',['lastROn',['../classGateEffect.html#a22b6b9beb3b81d68b875d4a0e9daa035',1,'GateEffect']]],
   ['learnsourcechanged',['learnSourceChanged',['../classModMatrix_1_1Listener.html#a98f0bf4eb29994c864db47a9461dbc24',1,'ModMatrix::Listener']]],
   ['leastsquaresregression',['LeastSquaresRegression',['../classLeastSquaresRegression.html',1,'LeastSquaresRegression'],['../classLeastSquaresRegression.html#a853a9218262dfc2f4d2d99dc014ef15b',1,'LeastSquaresRegression::LeastSquaresRegression()']]],
-  ['leftgain',['leftGain',['../structStereoOscillator_1_1Params.html#ab7814fe28bdb79772871cef3cf5f5679',1,'StereoOscillator::Params']]],
+  ['leftgain',['leftGain',['../structStereoOscillator_1_1Params.html#ab7814fe28bdb79772871cef3cf5f5679',1,'StereoOscillator::Params::leftGain()'],['../structWTOscillator_1_1Params.html#abef23350d10d65198a293119ced8bb9d',1,'WTOscillator::Params::leftGain()']]],
   ['lengthandcharacterrestriction',['LengthAndCharacterRestriction',['../classSingleLineTextEditor_1_1LengthAndCharacterRestriction.html',1,'SingleLineTextEditor::LengthAndCharacterRestriction'],['../classSingleLineTextEditor_1_1LengthAndCharacterRestriction.html#a1421a6d22388da3995326df40e1cf627',1,'SingleLineTextEditor::LengthAndCharacterRestriction::LengthAndCharacterRestriction()']]],
   ['levelmeter',['LevelMeter',['../classLevelMeter.html',1,'LevelMeter'],['../classLevelMeter.html#a868ae925eedd9121012235922ba6f167',1,'LevelMeter::LevelMeter()']]],
   ['leveltracker',['LevelTracker',['../classLevelTracker.html',1,'LevelTracker'],['../classLevelTracker.html#a3397f9df726242a093084a5856c0f4c8',1,'LevelTracker::LevelTracker()']]],

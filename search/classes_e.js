@@ -4,7 +4,7 @@ var searchData=
   ['paramcomponent',['ParamComponent',['../classParamComponent.html',1,'']]],
   ['parameter',['Parameter',['../classParameter.html',1,'']]],
   ['parameters',['Parameters',['../structLFO_1_1Parameters.html',1,'LFO']]],
-  ['params',['Params',['../structStereoOscillator_1_1Params.html',1,'StereoOscillator::Params'],['../structVoicedStereoOscillator_1_1Params.html',1,'VoicedStereoOscillator::Params']]],
+  ['params',['Params',['../structStereoOscillator_1_1Params.html',1,'StereoOscillator::Params'],['../structVoicedStereoOscillator_1_1Params.html',1,'VoicedStereoOscillator::Params'],['../structWTOscillator_1_1Params.html',1,'WTOscillator::Params']]],
   ['paramstate',['ParamState',['../structParameter_1_1ParamState.html',1,'Parameter']]],
   ['patchbrowser',['PatchBrowser',['../classPatchBrowser.html',1,'']]],
   ['perlinnoise',['PerlinNoise',['../classPerlinNoise.html',1,'']]],
