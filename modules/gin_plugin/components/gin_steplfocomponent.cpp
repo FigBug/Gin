@@ -33,7 +33,7 @@ void StepLFOComponent::createPath (juce::Rectangle<int> area)
 {
     lfo.setSampleRate ((double) area.getWidth());
 
-    lfo.setFreq (1.0f);
+    lfo.setFreq (1.0f * getNumSteps());
     lfo.setNumPoints (getNumSteps());
     for (int i = 0; i < getNumSteps(); i++)
         lfo.setPoint (i, level[i]->getProcValue());
@@ -65,7 +65,7 @@ void StepLFOComponent::mouseDrag (const MouseEvent& e)
 {
     int step = int (e.x / float (getWidth()) * getNumSteps());
     if (step < 0 || step >= getNumSteps()) return;
-    
+        
     float l = -(e.y / float (getHeight()) * 2 - 1);
     l = jlimit (-1.0f, 1.0f, l);
     
