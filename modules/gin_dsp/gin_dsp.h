@@ -92,6 +92,7 @@ using juce::Component;
 #include "dsp/gin_stereodelay.h"
 #include "dsp/gin_synthesiser.h"
 #include "dsp/gin_valuesmoother.h"
+#include "dsp/gin_wtoscillators.h"
 
 #include "components/gin_dynamicsmeter.h"
 #include "components/gin_levelmeter.h"

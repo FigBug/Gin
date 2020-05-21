@@ -29,6 +29,8 @@ public:
     
     void reset (std::function<double (double, double, double)> function, double sampleRate, int notesPerTable = 6, int tableSize = 1024);
 
+    float process (float note, float phase);
+    
     juce::OwnedArray<juce::dsp::LookupTableTransform<float>> tables;
 
     int notesPerTable = 0;

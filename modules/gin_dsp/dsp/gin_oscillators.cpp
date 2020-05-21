@@ -128,6 +128,12 @@ void BandLimitedLookupTable::reset (std::function<double (double, double, double
     }
 }
 
+float BandLimitedLookupTable::process (float note, float phase)
+{
+    int tableIndex = jlimit (0, tables.size() - 1, int ((note - 0.5) / notesPerTable));
+    return tables[tableIndex]->processSampleUnchecked (phase);
+}
+
 //==============================================================================
 BandLimitedLookupTables::BandLimitedLookupTables (double sampleRate_)
   : sampleRate (sampleRate_),

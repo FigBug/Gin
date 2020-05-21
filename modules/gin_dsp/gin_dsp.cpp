@@ -68,6 +68,7 @@ using juce::MemoryBlock;
 #include "dsp/gin_scratchbuffer.cpp"
 #include "dsp/gin_sampleoscillator.cpp"
 #include "dsp/gin_sample.cpp"
+#include "dsp/gin_wtoscillators.cpp"
 
 #include "components/gin_dynamicsmeter.cpp"
 #include "components/gin_levelmeter.cpp"
