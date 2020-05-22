@@ -21,7 +21,7 @@ private:
 
     int getNumSteps();
 
-    Parameter::Ptr beat, length, enable;
+    Parameter::Ptr length, enable;
     Parameter::Ptr l[32], r[32];
 
 private:
