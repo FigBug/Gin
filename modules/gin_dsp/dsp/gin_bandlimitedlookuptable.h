@@ -25,6 +25,8 @@ double noise();
 class BandLimitedLookupTable
 {
 public:
+	BandLimitedLookupTable() = default;
+
     BandLimitedLookupTable (std::function<double (double, double, double)> function, double sampleRate,
                             int notesPerTable_ = 6, int tableSize_ = 2048)
     {
@@ -56,6 +58,8 @@ public:
         int tableIndex = jlimit (0, tables.size() - 1, int ((note - 0.5) / notesPerTable));
         return tables[tableIndex]->processSampleUnchecked (phase);
     }
+
+	void loadFromBuffer (AudioSampleBuffer& buffer, double sampleRate, int notesPerTable);
     
     juce::OwnedArray<juce::dsp::LookupTableTransform<float>> tables;
 
@@ -73,6 +77,7 @@ enum class Wave
     pulse       = 5,
     square      = 6,
     noise       = 7,
+	wavetable	= 8,
 };
 
 //==============================================================================

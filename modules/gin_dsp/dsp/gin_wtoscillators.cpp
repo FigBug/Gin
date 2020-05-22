@@ -14,9 +14,10 @@ void WTOscillator::noteOn (float p)
     phaseR = phaseL;
 }
 
-void WTOscillator::process (float note, float table, const Params& params, AudioSampleBuffer& buffer)
+void WTOscillator::process (float note, const Params& params, AudioSampleBuffer& buffer)
 {
-    int ti = int (bllt.size() * table);
+	if (bllt.size() == 0) return;
+    int ti = std::min (bllt.size() - 1, int (bllt.size() * params.pw));
     
     float freq = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (note - 69.0) / 12.0)));
     float delta = 1.0f / (float ((1.0f / freq) * sampleRate));
@@ -39,9 +40,10 @@ void WTOscillator::process (float note, float table, const Params& params, Audio
     phaseR = phaseL;
 }
 
-void WTOscillator::process (float noteL, float noteR, float table, const Params& params, AudioSampleBuffer& buffer)
+void WTOscillator::process (float noteL, float noteR, const Params& params, AudioSampleBuffer& buffer)
 {
-    int ti = int (bllt.size() * table);
+	if (bllt.size() == 0) return;
+    int ti = std::min (bllt.size() - 1, int (bllt.size() * params.pw));
     
     float freqL = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteL - 69.0) / 12.0)));
     float freqR = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteR - 69.0) / 12.0)));
@@ -66,9 +68,10 @@ void WTOscillator::process (float noteL, float noteR, float table, const Params&
     }
 }
 
-void WTOscillator::processAdding (float note, float table, const Params& params, AudioSampleBuffer& buffer)
+void WTOscillator::processAdding (float note, const Params& params, AudioSampleBuffer& buffer)
 {
-    int ti = int (bllt.size() * table);
+	if (bllt.size() == 0) return;
+	int ti = std::min (bllt.size() - 1, int (bllt.size() * params.pw));
     
     float freq = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (note - 69.0) / 12.0)));
     float delta = 1.0f / (float ((1.0f / freq) * sampleRate));
@@ -90,9 +93,10 @@ void WTOscillator::processAdding (float note, float table, const Params& params,
     phaseR = phaseL;
 }
 
-void WTOscillator::processAdding (float noteL, float noteR, float table, const Params& params, AudioSampleBuffer& buffer)
+void WTOscillator::processAdding (float noteL, float noteR, const Params& params, AudioSampleBuffer& buffer)
 {
-    int ti = int (bllt.size() * table);
+	if (bllt.size() == 0) return;
+    int ti = std::min (bllt.size() - 1, int (bllt.size() * params.pw));
     
     float freqL = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteL - 69.0) / 12.0)));
     float freqR = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteR - 69.0) / 12.0)));
@@ -116,4 +120,27 @@ void WTOscillator::processAdding (float noteL, float noteR, float table, const P
         while (phaseL >= 1.0f) phaseL -= 1.0f;
         while (phaseR >= 1.0f) phaseR -= 1.0f;
     }
+}
+
+void WTOscillator::setWavetable (OwnedArray<BandLimitedLookupTable>& table)
+{
+	bllt.clear();
+	bllt.addArray (table);
+}
+
+bool loadWavetables (OwnedArray<BandLimitedLookupTable>& bllt, AudioSampleBuffer& buffer, double sampleRate, int tableSize)
+{
+	bllt.clear();
+
+	int numTables = buffer.getNumSamples() / tableSize;
+
+	for (int i = 0; i < numTables; i++)
+	{
+		auto slice = sliceBuffer (buffer, i * tableSize, tableSize);
+
+		auto table = new BandLimitedLookupTable();
+		table->loadFromBuffer (slice, sampleRate, 6);
+		bllt.add (table);
+	}
+	return true;
 }

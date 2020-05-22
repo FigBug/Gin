@@ -104,6 +104,43 @@ double noise()
 }
 
 //==============================================================================
+void BandLimitedLookupTable::loadFromBuffer (AudioSampleBuffer& buffer, double sampleRate, int notesPerTable_)
+{
+	tables.clear();
+	
+	double duration = buffer.getNumSamples() / sampleRate;
+	double baseFreq = 1.0 / duration;
+	int sz = buffer.getNumSamples();
+
+	notesPerTable = notesPerTable_;
+
+	for (double note = notesPerTable + 0.5; note < 127.0; note += notesPerTable)
+	{
+		auto noteFreq = getMidiNoteInHertz (note);
+		if (noteFreq < baseFreq)
+		{
+			auto func = [&] (float phase)
+			{
+				auto data = buffer.getReadPointer (0);
+				return data[int (phase * sz) % sz];
+			};
+
+			tables.add (new juce::dsp::LookupTableTransform<float> (func, 0.0f, 1.0f, (size_t) sz + 1));
+		}
+		else
+		{
+			auto func = [&] (float phase)
+			{
+				auto data = buffer.getReadPointer (0);
+				return data[int (phase * sz) % sz];
+			};
+
+			tables.add (new juce::dsp::LookupTableTransform<float> (func, 0.0f, 1.0f, (size_t) sz + 1));
+		}
+	 }
+}
+
+//==============================================================================
 BandLimitedLookupTables::BandLimitedLookupTables (double sampleRate_, int notesPerTable_, int tableSize_)
   : sampleRate (sampleRate_),
     notesPerTable (notesPerTable_),

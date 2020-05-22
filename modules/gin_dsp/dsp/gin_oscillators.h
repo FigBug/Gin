@@ -43,15 +43,12 @@ private:
 //==============================================================================
 /** Stereo Oscillator with multiples voices, pan, spread, detune, etc
 */
+template<typename O>
 class VoicedStereoOscillator
 {
 public:
-    VoicedStereoOscillator (BandLimitedLookupTables& bllt, int maxVoices = 8)
-    {
-        for (int i = 0; i < maxVoices; i++)
-            oscillators.add (new StereoOscillator (bllt));
-    }
-    
+	VoicedStereoOscillator() = default;
+
     struct Params
     {
         Wave wave = Wave::sawUp;
@@ -84,7 +81,7 @@ public:
     
     void processAdding (float note, const Params& params, AudioSampleBuffer& buffer)
     {
-        StereoOscillator::Params p;
+		typename O::Params p;
         p.wave = params.wave;
         p.pw   = params.pw;
         
@@ -117,6 +114,19 @@ public:
         }
     }
     
-private:
-    OwnedArray<StereoOscillator> oscillators;
+protected:
+    OwnedArray<O> oscillators;
+};
+
+//==============================================================================
+/** Stereo Oscillator with multiples voices, pan, spread, detune, etc
+ */
+class BLLTVoicedStereoOscillator : public VoicedStereoOscillator<StereoOscillator>
+{
+public:
+	BLLTVoicedStereoOscillator (BandLimitedLookupTables& bllt, int maxVoices = 8)
+	{
+		for (int i = 0; i < maxVoices; i++)
+			oscillators.add (new StereoOscillator (bllt));
+	}
 };
