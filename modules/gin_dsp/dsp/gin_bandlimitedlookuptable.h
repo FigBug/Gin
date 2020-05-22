@@ -159,6 +159,7 @@ public:
             case Wave::pulse:       return processPulse (note, phase, pw);
             case Wave::square:      return processSquare (note, phase);
             case Wave::noise:       return (float) noise();
+            case Wave::wavetable:
             default:
                 jassertfalse;
                 return 0.0f;
