@@ -973,6 +973,12 @@
     <class kind="class">IptcMetadata</class>
   </compound>
   <compound kind="file">
+    <name>gin_knob.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
+    <filename>gin__knob_8h</filename>
+    <class kind="class">Knob</class>
+  </compound>
+  <compound kind="file">
     <name>gin_lagrange.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
     <filename>gin__lagrange_8h</filename>
@@ -1163,7 +1169,6 @@
     <class kind="class">PluginSlider</class>
     <class kind="class">Readout</class>
     <class kind="class">ParamComponent</class>
-    <class kind="class">Knob</class>
     <class kind="class">HorizontalFader</class>
     <class kind="class">Switch</class>
     <class kind="class">Select</class>
@@ -11942,6 +11947,16 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
+    <class kind="class">DynamicsMeter</class>
+    <class kind="class">LevelMeter</class>
+    <class kind="class">TriggeredScope</class>
+    <class kind="class">WaveformComponent</class>
+    <class kind="class">XYScope</class>
+  </compound>
+  <compound kind="group">
     <name>gin_plugin-components</name>
     <title>components</title>
     <filename>group__gin__plugin-components.html</filename>
@@ -11952,6 +11967,7 @@
     <class kind="class">PagedControlBox</class>
     <class kind="class">ControlHeader</class>
     <class kind="class">GateEffectComponent</class>
+    <class kind="class">Knob</class>
     <class kind="class">LFOComponent</class>
     <class kind="class">ModulationSourceButton</class>
     <class kind="class">ModulationDestinationButton</class>
@@ -11969,7 +11985,6 @@
     <class kind="class">PluginSlider</class>
     <class kind="class">Readout</class>
     <class kind="class">ParamComponent</class>
-    <class kind="class">Knob</class>
     <class kind="class">HorizontalFader</class>
     <class kind="class">Switch</class>
     <class kind="class">Select</class>
@@ -11981,16 +11996,6 @@
     <class kind="class">PluginLookAndFeel</class>
     <class kind="class">PluginLookAndFeelWrapper</class>
     <class kind="class">StepLFOComponent</class>
-  </compound>
-  <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-    <class kind="class">DynamicsMeter</class>
-    <class kind="class">LevelMeter</class>
-    <class kind="class">TriggeredScope</class>
-    <class kind="class">WaveformComponent</class>
-    <class kind="class">XYScope</class>
   </compound>
   <compound kind="group">
     <name>gin_dsp-dsp</name>

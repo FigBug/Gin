@@ -41,6 +41,7 @@ var searchData=
   ['gin_5fimageutilities_2eh',['gin_imageutilities.h',['../gin__imageutilities_8h.html',1,'']]],
   ['gin_5fintegrator_2eh',['gin_integrator.h',['../gin__integrator_8h.html',1,'']]],
   ['gin_5fiptcmetadata_2eh',['gin_iptcmetadata.h',['../gin__iptcmetadata_8h.html',1,'']]],
+  ['gin_5fknob_2eh',['gin_knob.h',['../gin__knob_8h.html',1,'']]],
   ['gin_5flagrange_2eh',['gin_lagrange.h',['../gin__lagrange_8h.html',1,'']]],
   ['gin_5fleastsquaresregression_2eh',['gin_leastsquaresregression.h',['../gin__leastsquaresregression_8h.html',1,'']]],
   ['gin_5flevelmeter_2eh',['gin_levelmeter.h',['../gin__levelmeter_8h.html',1,'']]],
