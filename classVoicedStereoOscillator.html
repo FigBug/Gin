@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Gin: VoicedStereoOscillator Class Reference</title>
+<title>Gin: VoicedStereoOscillator&lt; O &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,9 +61,10 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classVoicedStereoOscillator-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">VoicedStereoOscillator Class Reference<div class="ingroups"><a class="el" href="group__gin__dsp.html">gin_dsp</a> &raquo; <a class="el" href="group__gin__dsp-dsp.html">dsp</a></div></div>  </div>
+<div class="title">VoicedStereoOscillator&lt; O &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__gin__dsp.html">gin_dsp</a> &raquo; <a class="el" href="group__gin__dsp-dsp.html">dsp</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -77,57 +78,66 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a91a54785ab30881f2a85cbc9c93f4560"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoicedStereoOscillator.html#a91a54785ab30881f2a85cbc9c93f4560">VoicedStereoOscillator</a> (<a class="el" href="classBandLimitedLookupTables.html">BandLimitedLookupTables</a> &amp;bllt, int maxVoices=8)</td></tr>
-<tr class="separator:a91a54785ab30881f2a85cbc9c93f4560"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac603b802ef517d5ff48443093bfa5638"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoicedStereoOscillator.html#ac603b802ef517d5ff48443093bfa5638">setSampleRate</a> (double sr)</td></tr>
-<tr class="separator:ac603b802ef517d5ff48443093bfa5638"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a969d078a822428cceaf19bfec5a32693"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoicedStereoOscillator.html#a969d078a822428cceaf19bfec5a32693">noteOn</a> ()</td></tr>
-<tr class="separator:a969d078a822428cceaf19bfec5a32693"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4cda916c71f02584e79c0140eba06e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoicedStereoOscillator.html#ad4cda916c71f02584e79c0140eba06e5">process</a> (float note, const <a class="el" href="structVoicedStereoOscillator_1_1Params.html">Params</a> &amp;params, AudioSampleBuffer &amp;buffer)</td></tr>
-<tr class="separator:ad4cda916c71f02584e79c0140eba06e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acafe412c53f1453df5c2018d39d376f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoicedStereoOscillator.html#acafe412c53f1453df5c2018d39d376f0">processAdding</a> (float note, const <a class="el" href="structVoicedStereoOscillator_1_1Params.html">Params</a> &amp;params, AudioSampleBuffer &amp;buffer)</td></tr>
-<tr class="separator:acafe412c53f1453df5c2018d39d376f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5443c70b9574352f495f46168e7f012"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoicedStereoOscillator.html#ac5443c70b9574352f495f46168e7f012">VoicedStereoOscillator</a> ()=default</td></tr>
+<tr class="separator:ac5443c70b9574352f495f46168e7f012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac54d99a7902680164cfefb1f0623625f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoicedStereoOscillator.html#ac54d99a7902680164cfefb1f0623625f">setSampleRate</a> (double sr)</td></tr>
+<tr class="separator:ac54d99a7902680164cfefb1f0623625f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ac4526d268934b71b92a7580e07743f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoicedStereoOscillator.html#a5ac4526d268934b71b92a7580e07743f">noteOn</a> ()</td></tr>
+<tr class="separator:a5ac4526d268934b71b92a7580e07743f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a307900521aa215ce7cf8bddfba22c608"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoicedStereoOscillator.html#a307900521aa215ce7cf8bddfba22c608">process</a> (float note, const <a class="el" href="structVoicedStereoOscillator_1_1Params.html">Params</a> &amp;params, AudioSampleBuffer &amp;buffer)</td></tr>
+<tr class="separator:a307900521aa215ce7cf8bddfba22c608"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c59acf58f63597766e586d57b346ebe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoicedStereoOscillator.html#a6c59acf58f63597766e586d57b346ebe">processAdding</a> (float note, const <a class="el" href="structVoicedStereoOscillator_1_1Params.html">Params</a> &amp;params, AudioSampleBuffer &amp;buffer)</td></tr>
+<tr class="separator:a6c59acf58f63597766e586d57b346ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a217b327f26630536c0970de6d82b80e9"><td class="memItemLeft" align="right" valign="top">OwnedArray&lt; O &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoicedStereoOscillator.html#a217b327f26630536c0970de6d82b80e9">oscillators</a></td></tr>
+<tr class="separator:a217b327f26630536c0970de6d82b80e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Stereo Oscillator with multiples voices, pan, spread, detune, etc. </p>
+<div class="textblock"><h3>template&lt;typename O&gt;<br />
+class VoicedStereoOscillator&lt; O &gt;</h3>
+
+<p>Stereo Oscillator with multiples voices, pan, spread, detune, etc. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a91a54785ab30881f2a85cbc9c93f4560"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91a54785ab30881f2a85cbc9c93f4560">&#9670;&nbsp;</a></span>VoicedStereoOscillator()</h2>
+<a id="ac5443c70b9574352f495f46168e7f012"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5443c70b9574352f495f46168e7f012">&#9670;&nbsp;</a></span>VoicedStereoOscillator()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename O&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">VoicedStereoOscillator::VoicedStereoOscillator </td>
+          <td class="memname"><a class="el" href="classVoicedStereoOscillator.html">VoicedStereoOscillator</a>&lt; O &gt;::<a class="el" href="classVoicedStereoOscillator.html">VoicedStereoOscillator</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classBandLimitedLookupTables.html">BandLimitedLookupTables</a> &amp;&#160;</td>
-          <td class="paramname"><em>bllt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>maxVoices</em> = <code>8</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac603b802ef517d5ff48443093bfa5638"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac603b802ef517d5ff48443093bfa5638">&#9670;&nbsp;</a></span>setSampleRate()</h2>
+<a id="ac54d99a7902680164cfefb1f0623625f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac54d99a7902680164cfefb1f0623625f">&#9670;&nbsp;</a></span>setSampleRate()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename O&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void VoicedStereoOscillator::setSampleRate </td>
+          <td class="memname">void <a class="el" href="classVoicedStereoOscillator.html">VoicedStereoOscillator</a>&lt; O &gt;::setSampleRate </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>sr</em></td><td>)</td>
@@ -138,14 +148,16 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a969d078a822428cceaf19bfec5a32693"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a969d078a822428cceaf19bfec5a32693">&#9670;&nbsp;</a></span>noteOn()</h2>
+<a id="a5ac4526d268934b71b92a7580e07743f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ac4526d268934b71b92a7580e07743f">&#9670;&nbsp;</a></span>noteOn()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename O&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void VoicedStereoOscillator::noteOn </td>
+          <td class="memname">void <a class="el" href="classVoicedStereoOscillator.html">VoicedStereoOscillator</a>&lt; O &gt;::noteOn </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -155,14 +167,16 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad4cda916c71f02584e79c0140eba06e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4cda916c71f02584e79c0140eba06e5">&#9670;&nbsp;</a></span>process()</h2>
+<a id="a307900521aa215ce7cf8bddfba22c608"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a307900521aa215ce7cf8bddfba22c608">&#9670;&nbsp;</a></span>process()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename O&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void VoicedStereoOscillator::process </td>
+          <td class="memname">void <a class="el" href="classVoicedStereoOscillator.html">VoicedStereoOscillator</a>&lt; O &gt;::process </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>note</em>, </td>
@@ -187,18 +201,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classStereoOscillator.html#ad0a4025c7066b142054f6496a898135e">StereoOscillator::processAdding()</a>.</p>
-
 </div>
 </div>
-<a id="acafe412c53f1453df5c2018d39d376f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acafe412c53f1453df5c2018d39d376f0">&#9670;&nbsp;</a></span>processAdding()</h2>
+<a id="a6c59acf58f63597766e586d57b346ebe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c59acf58f63597766e586d57b346ebe">&#9670;&nbsp;</a></span>processAdding()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename O&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void VoicedStereoOscillator::processAdding </td>
+          <td class="memname">void <a class="el" href="classVoicedStereoOscillator.html">VoicedStereoOscillator</a>&lt; O &gt;::processAdding </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>note</em>, </td>
@@ -223,7 +237,30 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structVoicedStereoOscillator_1_1Params.html#a06535b7f900a89ee5bd19ba69b595e7b">VoicedStereoOscillator::Params::detune</a>, <a class="el" href="structVoicedStereoOscillator_1_1Params.html#aec1834746a6c9725dc5e93fee52f6441">VoicedStereoOscillator::Params::gain</a>, <a class="el" href="structStereoOscillator_1_1Params.html#ab7814fe28bdb79772871cef3cf5f5679">StereoOscillator::Params::leftGain</a>, <a class="el" href="structVoicedStereoOscillator_1_1Params.html#ac5a1d0fe1101494bb3a29c58b7542283">VoicedStereoOscillator::Params::pan</a>, <a class="el" href="structStereoOscillator_1_1Params.html#aebc2ccd97a83304620840c479a8c782b">StereoOscillator::Params::pw</a>, <a class="el" href="structVoicedStereoOscillator_1_1Params.html#a45501a3202212ba8b7d01f099c0ae289">VoicedStereoOscillator::Params::pw</a>, <a class="el" href="structStereoOscillator_1_1Params.html#a5c18505090d6b512295acdb7aa2ae707">StereoOscillator::Params::rightGain</a>, <a class="el" href="structVoicedStereoOscillator_1_1Params.html#af565de2e9a81564c2e7cd0a1b8686bb0">VoicedStereoOscillator::Params::spread</a>, <a class="el" href="structVoicedStereoOscillator_1_1Params.html#a7f6e0a53d12a74654c0a9e09dcbf5950">VoicedStereoOscillator::Params::vcTrns</a>, <a class="el" href="structVoicedStereoOscillator_1_1Params.html#a5656476cd1a0dd19116c3a7627683403">VoicedStereoOscillator::Params::voices</a>, <a class="el" href="structStereoOscillator_1_1Params.html#a20a0ac6dcf991d68183208a99d95ea02">StereoOscillator::Params::wave</a>, and <a class="el" href="structVoicedStereoOscillator_1_1Params.html#acf4558c52ac4859e493022f17d249210">VoicedStereoOscillator::Params::wave</a>.</p>
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a217b327f26630536c0970de6d82b80e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a217b327f26630536c0970de6d82b80e9">&#9670;&nbsp;</a></span>oscillators</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename O&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">OwnedArray&lt;O&gt; <a class="el" href="classVoicedStereoOscillator.html">VoicedStereoOscillator</a>&lt; O &gt;::oscillators</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -233,7 +270,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 22 2020 02:09:29 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 22 2020 04:40:12 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['pan',['pan',['../structVoicedStereoOscillator_1_1Params.html#ac5a1d0fe1101494bb3a29c58b7542283',1,'VoicedStereoOscillator::Params']]],
+  ['pan',['pan',['../structVoicedStereoOscillator_1_1Params.html#a13309716133330853a2ad479b2b556dc',1,'VoicedStereoOscillator::Params']]],
   ['parameter',['parameter',['../classPluginButton.html#ae383af96f9f3e0cf932e0eb63116257a',1,'PluginButton::parameter()'],['../classPluginComboBox.html#a3bbf40da531c73ccefc9374433ae9d88',1,'PluginComboBox::parameter()'],['../classParamComponent.html#a2e99545e9d83f8e9f2ce0c8ca31e05bd',1,'ParamComponent::parameter()']]],
   ['parametermap',['parameterMap',['../classProcessor.html#adb565ad7761f81b81fa6d8bee3c14318',1,'Processor']]],
   ['params',['params',['../classMultiParamComponent.html#a6dbe5bc1f7bfd6075cbb6867f72ed615',1,'MultiParamComponent']]],
@@ -15,5 +15,5 @@ var searchData=
   ['proc',['proc',['../classPatchBrowser.html#ace4451a4ee2e4ea777e795e8913ae29b',1,'PatchBrowser']]],
   ['processor',['processor',['../classParameter.html#aff54b112e093cf966a1bec5bf5a934dd',1,'Parameter']]],
   ['programs',['programs',['../classProcessorEditor.html#ad79702b5f393331f7b9287d79cbb290c',1,'ProcessorEditor']]],
-  ['pw',['pw',['../structStereoOscillator_1_1Params.html#aebc2ccd97a83304620840c479a8c782b',1,'StereoOscillator::Params::pw()'],['../structVoicedStereoOscillator_1_1Params.html#a45501a3202212ba8b7d01f099c0ae289',1,'VoicedStereoOscillator::Params::pw()']]]
+  ['pw',['pw',['../structStereoOscillator_1_1Params.html#aebc2ccd97a83304620840c479a8c782b',1,'StereoOscillator::Params::pw()'],['../structVoicedStereoOscillator_1_1Params.html#a120aa15f174feb6b06c66d2f76103bf3',1,'VoicedStereoOscillator::Params::pw()'],['../structWTOscillator_1_1Params.html#a7ca54915f07cb3e86bc516fa5710b71f',1,'WTOscillator::Params::pw()']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['gain',['gain',['../structVoicedStereoOscillator_1_1Params.html#aec1834746a6c9725dc5e93fee52f6441',1,'VoicedStereoOscillator::Params']]],
+  ['gain',['gain',['../structVoicedStereoOscillator_1_1Params.html#a11ed6981f0f7ee29502bc00b3c628fe4',1,'VoicedStereoOscillator::Params']]],
   ['gainprocessor',['GainProcessor',['../classGainProcessor.html',1,'']]],
   ['gate',['gate',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a5cddded513bf6aca23ba76ef7d2e537f',1,'Dynamics']]],
   ['gateeffect',['GateEffect',['../classGateEffect.html',1,'GateEffect'],['../classGateEffect.html#a30931317a7688adf95aa1246b65d2bec',1,'GateEffect::GateEffect()']]],

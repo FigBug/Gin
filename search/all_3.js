@@ -24,7 +24,7 @@ var searchData=
   ['deleteprogram',['deleteProgram',['../classProcessor.html#aac9dc03295d9a5a991bc725d9f4bbde7',1,'Processor']]],
   ['delta',['delta',['../structOscState.html#a3659847d96492e7df6bb1987b7991415',1,'OscState']]],
   ['depth',['depth',['../structLFO_1_1Parameters.html#aea5b1c1cd4fc3b68d3826fce64f6287a',1,'LFO::Parameters']]],
-  ['detune',['detune',['../structVoicedStereoOscillator_1_1Params.html#a06535b7f900a89ee5bd19ba69b595e7b',1,'VoicedStereoOscillator::Params']]],
+  ['detune',['detune',['../structVoicedStereoOscillator_1_1Params.html#a3f1b408a97910ce6a63de0a8073c85c7',1,'VoicedStereoOscillator::Params']]],
   ['difference',['Difference',['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85a9cba343e00a6259dc83f7e4e7f447109',1,'gin_imageeffects.h']]],
   ['direction',['Direction',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1',1,'SampleOscillator']]],
   ['disablelearn',['disableLearn',['../classModMatrix.html#a43c4fb3d9ece3cd9b2af6495379dc2f6',1,'ModMatrix']]],

@@ -8,5 +8,6 @@ var searchData=
   ['writefinished',['writeFinished',['../classDelayLine.html#ab36052a31da09d3a8162651ba437bec6',1,'DelayLine']]],
   ['writeimagetostream',['writeImageToStream',['../classBMPImageFormat.html#af8285c2a46b1ab723fcb0dbff9a184ad',1,'BMPImageFormat']]],
   ['writemono',['writeMono',['../classAudioFifo.html#a8a2f35a383ee1e3074491dfc6f510e59',1,'AudioFifo']]],
-  ['wtoscillator',['WTOscillator',['../classWTOscillator.html#a16fdc8afe3d72d02755d37bb13aa3dad',1,'WTOscillator']]]
+  ['wtoscillator',['WTOscillator',['../classWTOscillator.html#a16fdc8afe3d72d02755d37bb13aa3dad',1,'WTOscillator']]],
+  ['wtvoicedstereooscillator',['WTVoicedStereoOscillator',['../classWTVoicedStereoOscillator.html#a8db7ce7f1c1f034e9f3d38119ed1325d',1,'WTVoicedStereoOscillator']]]
 ];

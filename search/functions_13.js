@@ -6,5 +6,5 @@ var searchData=
   ['valuetreetojson',['valueTreeToJSON',['../group__gin-utilities.html#gac8809f5a07d326dc76f18d09bd99db9d',1,'gin_valuetreeutilities.h']]],
   ['velocitytogain',['velocityToGain',['../group__gin__dsp-dsp.html#gaeda2ea585490695813285661264a92b9',1,'gin_audioutil.h']]],
   ['versionstringtoint',['versionStringToInt',['../group__gin-utilities.html#ga9984f62226f0a0ab7af7f52e91c55e50',1,'gin_util.h']]],
-  ['voicedstereooscillator',['VoicedStereoOscillator',['../classVoicedStereoOscillator.html#a91a54785ab30881f2a85cbc9c93f4560',1,'VoicedStereoOscillator']]]
+  ['voicedstereooscillator',['VoicedStereoOscillator',['../classVoicedStereoOscillator.html#ac5443c70b9574352f495f46168e7f012',1,'VoicedStereoOscillator']]]
 ];

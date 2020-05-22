@@ -12,7 +12,7 @@ var searchData=
   ['deletebutton',['deleteButton',['../classProcessorEditor.html#a01e813914f463a233ee867452d481a91',1,'ProcessorEditor']]],
   ['delta',['delta',['../structOscState.html#a3659847d96492e7df6bb1987b7991415',1,'OscState']]],
   ['depth',['depth',['../structLFO_1_1Parameters.html#aea5b1c1cd4fc3b68d3826fce64f6287a',1,'LFO::Parameters']]],
-  ['detune',['detune',['../structVoicedStereoOscillator_1_1Params.html#a06535b7f900a89ee5bd19ba69b595e7b',1,'VoicedStereoOscillator::Params']]],
+  ['detune',['detune',['../structVoicedStereoOscillator_1_1Params.html#a3f1b408a97910ce6a63de0a8073c85c7',1,'VoicedStereoOscillator::Params']]],
   ['disablesmoothing',['disableSmoothing',['../classModVoice.html#acc4675a7c50824248d15d4a416f5401b',1,'ModVoice']]],
   ['downloadid',['downloadId',['../structDownloadManager_1_1DownloadResult.html#ae4aee674b27ea37f9af6ccecf43a03a3',1,'DownloadManager::DownloadResult']]],
   ['drygain',['dryGain',['../classWetDryMix.html#a56424d33affe35b8fda304af339ed787',1,'WetDryMix']]]

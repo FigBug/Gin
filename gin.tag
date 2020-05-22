@@ -163,6 +163,7 @@
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a02a8dc4cf01fed584c6423f577c0b0d7">pulse</enumvalue>
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</enumvalue>
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90aaaddc3454ccbefbb2d8d8461f8f7f481">noise</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a6f0316b89c2034b8fabe6d3e48f15bbf">wavetable</enumvalue>
     </member>
     <member kind="function">
       <type>double</type>
@@ -1110,6 +1111,7 @@
     <class kind="struct">StereoOscillator::Params</class>
     <class kind="class">VoicedStereoOscillator</class>
     <class kind="struct">VoicedStereoOscillator::Params</class>
+    <class kind="class">BLLTVoicedStereoOscillator</class>
   </compound>
   <compound kind="file">
     <name>gin_parameter.h</name>
@@ -1482,6 +1484,14 @@
     <filename>gin__wtoscillators_8h</filename>
     <class kind="class">WTOscillator</class>
     <class kind="struct">WTOscillator::Params</class>
+    <class kind="class">WTVoicedStereoOscillator</class>
+    <member kind="function">
+      <type>bool</type>
+      <name>loadWavetables</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga1e4be281085e4d0aacfec1936cca1e6b</anchor>
+      <arglist>(OwnedArray&lt; BandLimitedLookupTable &gt; &amp;bllt, AudioSampleBuffer &amp;buffer, double sampleRate, int tableSize)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>gin_xmpmetadata.h</name>
@@ -2513,6 +2523,13 @@
       <type></type>
       <name>BandLimitedLookupTable</name>
       <anchorfile>classBandLimitedLookupTable.html</anchorfile>
+      <anchor>ad40d2d7deba27521fda4c55280418943</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>BandLimitedLookupTable</name>
+      <anchorfile>classBandLimitedLookupTable.html</anchorfile>
       <anchor>aa8d1104796d5b6ce9103280164f23dab</anchor>
       <arglist>(std::function&lt; double(double, double, double)&gt; function, double sampleRate, int notesPerTable_=6, int tableSize_=2048)</arglist>
     </member>
@@ -2529,6 +2546,13 @@
       <anchorfile>classBandLimitedLookupTable.html</anchorfile>
       <anchor>ae4bbf0cf3a280899c20e09895e509786</anchor>
       <arglist>(float note, float phase)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>loadFromBuffer</name>
+      <anchorfile>classBandLimitedLookupTable.html</anchorfile>
+      <anchor>acae448b80c07b030a2c6718622953752</anchor>
+      <arglist>(AudioSampleBuffer &amp;buffer, double sampleRate, int notesPerTable)</arglist>
     </member>
     <member kind="variable">
       <type>juce::OwnedArray&lt; juce::dsp::LookupTableTransform&lt; float &gt; &gt;</type>
@@ -2610,6 +2634,18 @@
       <anchorfile>classBandLimitedLookupTables.html</anchorfile>
       <anchor>ad49cd21400d1e108e677a10ae5cddeb1</anchor>
       <arglist>(Wave wave, float note, float phase, float pw)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>BLLTVoicedStereoOscillator</name>
+    <filename>classBLLTVoicedStereoOscillator.html</filename>
+    <base>VoicedStereoOscillator&lt; StereoOscillator &gt;</base>
+    <member kind="function">
+      <type></type>
+      <name>BLLTVoicedStereoOscillator</name>
+      <anchorfile>classBLLTVoicedStereoOscillator.html</anchorfile>
+      <anchor>a91580541e11d22946ec60278e65835ea</anchor>
+      <arglist>(BandLimitedLookupTables &amp;bllt, int maxVoices=8)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -7885,62 +7921,69 @@
       <type>Wave</type>
       <name>wave</name>
       <anchorfile>structVoicedStereoOscillator_1_1Params.html</anchorfile>
-      <anchor>acf4558c52ac4859e493022f17d249210</anchor>
+      <anchor>a83a9e522b4761797d6bf5b90ba610f41</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>voices</name>
       <anchorfile>structVoicedStereoOscillator_1_1Params.html</anchorfile>
-      <anchor>a5656476cd1a0dd19116c3a7627683403</anchor>
+      <anchor>a46ae813a8ece08ac931fbb1b6b3adcfd</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>vcTrns</name>
       <anchorfile>structVoicedStereoOscillator_1_1Params.html</anchorfile>
-      <anchor>a7f6e0a53d12a74654c0a9e09dcbf5950</anchor>
+      <anchor>a617f4529f6385f4cc4cf74516e3bdc25</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>float</type>
       <name>pw</name>
       <anchorfile>structVoicedStereoOscillator_1_1Params.html</anchorfile>
-      <anchor>a45501a3202212ba8b7d01f099c0ae289</anchor>
+      <anchor>a120aa15f174feb6b06c66d2f76103bf3</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>float</type>
       <name>pan</name>
       <anchorfile>structVoicedStereoOscillator_1_1Params.html</anchorfile>
-      <anchor>ac5a1d0fe1101494bb3a29c58b7542283</anchor>
+      <anchor>a13309716133330853a2ad479b2b556dc</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>float</type>
       <name>spread</name>
       <anchorfile>structVoicedStereoOscillator_1_1Params.html</anchorfile>
-      <anchor>af565de2e9a81564c2e7cd0a1b8686bb0</anchor>
+      <anchor>a1b592edb5ad2668d86c1abba77f0b6fd</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>float</type>
       <name>detune</name>
       <anchorfile>structVoicedStereoOscillator_1_1Params.html</anchorfile>
-      <anchor>a06535b7f900a89ee5bd19ba69b595e7b</anchor>
+      <anchor>a3f1b408a97910ce6a63de0a8073c85c7</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>float</type>
       <name>gain</name>
       <anchorfile>structVoicedStereoOscillator_1_1Params.html</anchorfile>
-      <anchor>aec1834746a6c9725dc5e93fee52f6441</anchor>
+      <anchor>a11ed6981f0f7ee29502bc00b3c628fe4</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>WTOscillator::Params</name>
     <filename>structWTOscillator_1_1Params.html</filename>
+    <member kind="variable">
+      <type>Wave</type>
+      <name>wave</name>
+      <anchorfile>structWTOscillator_1_1Params.html</anchorfile>
+      <anchor>ab5232b4b55cc4d6b076db62478cd436e</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="variable">
       <type>float</type>
       <name>leftGain</name>
@@ -7953,6 +7996,13 @@
       <name>rightGain</name>
       <anchorfile>structWTOscillator_1_1Params.html</anchorfile>
       <anchor>a432702cbb02f4013a3915a03ca672c39</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>pw</name>
+      <anchorfile>structWTOscillator_1_1Params.html</anchorfile>
+      <anchor>a7ca54915f07cb3e86bc516fa5710b71f</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -11506,41 +11556,141 @@
   <compound kind="class">
     <name>VoicedStereoOscillator</name>
     <filename>classVoicedStereoOscillator.html</filename>
+    <templarg>O</templarg>
     <class kind="struct">VoicedStereoOscillator::Params</class>
     <member kind="function">
       <type></type>
       <name>VoicedStereoOscillator</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a91a54785ab30881f2a85cbc9c93f4560</anchor>
-      <arglist>(BandLimitedLookupTables &amp;bllt, int maxVoices=8)</arglist>
+      <anchor>ac5443c70b9574352f495f46168e7f012</anchor>
+      <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setSampleRate</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>ac603b802ef517d5ff48443093bfa5638</anchor>
+      <anchor>ac54d99a7902680164cfefb1f0623625f</anchor>
       <arglist>(double sr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>noteOn</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a969d078a822428cceaf19bfec5a32693</anchor>
+      <anchor>a5ac4526d268934b71b92a7580e07743f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>process</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>ad4cda916c71f02584e79c0140eba06e5</anchor>
+      <anchor>a307900521aa215ce7cf8bddfba22c608</anchor>
       <arglist>(float note, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processAdding</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>acafe412c53f1453df5c2018d39d376f0</anchor>
+      <anchor>a6c59acf58f63597766e586d57b346ebe</anchor>
       <arglist>(float note, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>OwnedArray&lt; O &gt;</type>
+      <name>oscillators</name>
+      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
+      <anchor>a217b327f26630536c0970de6d82b80e9</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>VoicedStereoOscillator&lt; StereoOscillator &gt;</name>
+    <filename>classVoicedStereoOscillator.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>VoicedStereoOscillator</name>
+      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
+      <anchor>ac5443c70b9574352f495f46168e7f012</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
+      <anchor>ac54d99a7902680164cfefb1f0623625f</anchor>
+      <arglist>(double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>noteOn</name>
+      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
+      <anchor>a5ac4526d268934b71b92a7580e07743f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
+      <anchor>a307900521aa215ce7cf8bddfba22c608</anchor>
+      <arglist>(float note, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>processAdding</name>
+      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
+      <anchor>a6c59acf58f63597766e586d57b346ebe</anchor>
+      <arglist>(float note, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>OwnedArray&lt; StereoOscillator &gt;</type>
+      <name>oscillators</name>
+      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
+      <anchor>a217b327f26630536c0970de6d82b80e9</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>VoicedStereoOscillator&lt; WTOscillator &gt;</name>
+    <filename>classVoicedStereoOscillator.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>VoicedStereoOscillator</name>
+      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
+      <anchor>ac5443c70b9574352f495f46168e7f012</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
+      <anchor>ac54d99a7902680164cfefb1f0623625f</anchor>
+      <arglist>(double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>noteOn</name>
+      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
+      <anchor>a5ac4526d268934b71b92a7580e07743f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
+      <anchor>a307900521aa215ce7cf8bddfba22c608</anchor>
+      <arglist>(float note, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>processAdding</name>
+      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
+      <anchor>a6c59acf58f63597766e586d57b346ebe</anchor>
+      <arglist>(float note, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>OwnedArray&lt; WTOscillator &gt;</type>
+      <name>oscillators</name>
+      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
+      <anchor>a217b327f26630536c0970de6d82b80e9</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -11712,29 +11862,55 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classWTOscillator.html</anchorfile>
-      <anchor>a35115c29a8df707393ff324062cdac6e</anchor>
-      <arglist>(float note, float table, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a3fd3f1f086a69f3930be12dd691ed46d</anchor>
+      <arglist>(float note, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>process</name>
       <anchorfile>classWTOscillator.html</anchorfile>
-      <anchor>aedbed8d22ac056120ea8e8aa24b0da51</anchor>
-      <arglist>(float noteL, float noteR, float table, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>ab65fac3833ffa0f70577be6fd9398e5a</anchor>
+      <arglist>(float noteL, float noteR, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processAdding</name>
       <anchorfile>classWTOscillator.html</anchorfile>
-      <anchor>aa0d9d7c9967d0fcb892900765e4ccb13</anchor>
-      <arglist>(float note, float table, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a619fd766aacf82d33e5fec5e12ef0cee</anchor>
+      <arglist>(float note, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processAdding</name>
       <anchorfile>classWTOscillator.html</anchorfile>
-      <anchor>ab3e00bda64a91f5e77af1d1d8424cb43</anchor>
-      <arglist>(float noteL, float noteR, float table, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>ab127137b0d5cbf2b7d24b9f5073b33a2</anchor>
+      <arglist>(float noteL, float noteR, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setWavetable</name>
+      <anchorfile>classWTOscillator.html</anchorfile>
+      <anchor>ab93abee2cdf3e3f69d6061bbed6a9781</anchor>
+      <arglist>(OwnedArray&lt; BandLimitedLookupTable &gt; &amp;table)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>WTVoicedStereoOscillator</name>
+    <filename>classWTVoicedStereoOscillator.html</filename>
+    <base>VoicedStereoOscillator&lt; WTOscillator &gt;</base>
+    <member kind="function">
+      <type></type>
+      <name>WTVoicedStereoOscillator</name>
+      <anchorfile>classWTVoicedStereoOscillator.html</anchorfile>
+      <anchor>a8db7ce7f1c1f034e9f3d38119ed1325d</anchor>
+      <arglist>(int maxVoices=8)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setWavetable</name>
+      <anchorfile>classWTVoicedStereoOscillator.html</anchorfile>
+      <anchor>ab448b986baa7a6b84c0b1aedf8df661d</anchor>
+      <arglist>(OwnedArray&lt; BandLimitedLookupTable &gt; &amp;table)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -11917,6 +12093,16 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
+    <class kind="class">DynamicsMeter</class>
+    <class kind="class">LevelMeter</class>
+    <class kind="class">TriggeredScope</class>
+    <class kind="class">WaveformComponent</class>
+    <class kind="class">XYScope</class>
+  </compound>
+  <compound kind="group">
     <name>gin-components</name>
     <title>components</title>
     <filename>group__gin-components.html</filename>
@@ -11945,16 +12131,6 @@
       <anchor>ga824f80420c05391e952c51bb9abc5e88</anchor>
       <arglist>(Component &amp;parent, std::initializer_list&lt; Component *&gt; children)</arglist>
     </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-    <class kind="class">DynamicsMeter</class>
-    <class kind="class">LevelMeter</class>
-    <class kind="class">TriggeredScope</class>
-    <class kind="class">WaveformComponent</class>
-    <class kind="class">XYScope</class>
   </compound>
   <compound kind="group">
     <name>gin_plugin-components</name>
@@ -12036,6 +12212,7 @@
     <class kind="struct">StereoOscillator::Params</class>
     <class kind="class">VoicedStereoOscillator</class>
     <class kind="struct">VoicedStereoOscillator::Params</class>
+    <class kind="class">BLLTVoicedStereoOscillator</class>
     <class kind="class">ResamplingFifo</class>
     <class kind="class">Sample</class>
     <class kind="class">SampleOscillator</class>
@@ -12048,6 +12225,7 @@
     <class kind="class">ValueSmoother</class>
     <class kind="class">WTOscillator</class>
     <class kind="struct">WTOscillator::Params</class>
+    <class kind="class">WTVoicedStereoOscillator</class>
     <member kind="define">
       <type>#define</type>
       <name>Q</name>
@@ -12069,6 +12247,7 @@
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a02a8dc4cf01fed584c6423f577c0b0d7">pulse</enumvalue>
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</enumvalue>
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90aaaddc3454ccbefbb2d8d8461f8f7f481">noise</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a6f0316b89c2034b8fabe6d3e48f15bbf">wavetable</enumvalue>
     </member>
     <member kind="function">
       <type>Value</type>
@@ -12181,6 +12360,13 @@
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
       <anchor>ga144d0a5afb304f562a311e0d62e77dc6</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>loadWavetables</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga1e4be281085e4d0aacfec1936cca1e6b</anchor>
+      <arglist>(OwnedArray&lt; BandLimitedLookupTable &gt; &amp;bllt, AudioSampleBuffer &amp;buffer, double sampleRate, int tableSize)</arglist>
     </member>
   </compound>
   <compound kind="group">

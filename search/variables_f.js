@@ -7,7 +7,7 @@ var searchData=
   ['slproc',['slProc',['../classProcessorEditor.html#a8f4bf0f17d18d56fe21c845a41e1cb7e',1,'ProcessorEditor']]],
   ['smoother',['smoother',['../classSmoothedParameter.html#a21d20d9d589e79580860eb8d21b7e53e',1,'SmoothedParameter']]],
   ['socabutton',['socaButton',['../classProcessorEditor.html#ad8d1daf5ce26d1d7a399d4aec28da8d5',1,'ProcessorEditor']]],
-  ['spread',['spread',['../structVoicedStereoOscillator_1_1Params.html#af565de2e9a81564c2e7cd0a1b8686bb0',1,'VoicedStereoOscillator::Params']]],
+  ['spread',['spread',['../structVoicedStereoOscillator_1_1Params.html#a1b592edb5ad2668d86c1abba77f0b6fd',1,'VoicedStereoOscillator::Params']]],
   ['state',['state',['../classADSR.html#a2d9269b27359df5559e6881e5061e790',1,'ADSR::state()'],['../classAnalogADSR.html#a72a052eb2cfe616157e185707982f1db',1,'AnalogADSR::state()'],['../classProcessor.html#ab99be5fb7bcd0f2e761e160526a5af57',1,'Processor::state()']]],
   ['states',['states',['../classProgram.html#a9a962229204d864ee9b5402c93c40fc4',1,'Program']]],
   ['statuscode',['statusCode',['../structHttp_1_1HttpResult.html#a503d39d8b2bb60b51594b5108038aca6',1,'Http::HttpResult']]],
