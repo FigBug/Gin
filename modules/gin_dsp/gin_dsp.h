@@ -82,6 +82,7 @@ using juce::Component;
 #include "dsp/gin_eq.h"
 #include "dsp/gin_gateeffect.h"
 #include "dsp/gin_lfo.h"
+#include "dsp/gin_midififo.h"
 #include "dsp/gin_modulation.h"
 #include "dsp/gin_oscillators.h"
 #include "dsp/gin_resamplingfifo.h"
