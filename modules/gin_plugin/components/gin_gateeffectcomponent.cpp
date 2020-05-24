@@ -61,7 +61,7 @@ void GateEffectComponent::paint (Graphics& g)
     g.setColour (c.withMultipliedAlpha (0.25f));
     for (int i = 0; i <= getNumSteps(); i++)
         g.drawVerticalLine (roundToInt (rc.getX() + i * w), float (rc.getY ()), float (rc.getBottom ()));
-    g.drawHorizontalLine (rc.getCentreY(), rc.getX(), rc.getRight());
+    g.drawHorizontalLine (rc.getCentreY(), float (rc.getX()), float (rc.getRight()));
 
     g.setColour (c.withMultipliedAlpha (0.20f));
     for (int i = 0; i < getNumSteps(); i++)
