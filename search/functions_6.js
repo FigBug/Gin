@@ -81,6 +81,7 @@ var searchData=
   ['getrootnote',['getRootNote',['../classSample.html#abe1e1e9fc398382c019ca15249cc13c4',1,'Sample']]],
   ['getsamplerate',['getSampleRate',['../classSample.html#a6c25a4367bb3f7e3ec986e96c2472015',1,'Sample']]],
   ['getsamples',['getSamples',['../classSample.html#a1b0fe029480464ca07e5e50cd18c7d05',1,'Sample']]],
+  ['getsamplesused',['getSamplesUsed',['../classMidiFifo.html#a676220e418ef97d59568709ace608f99',1,'MidiFifo']]],
   ['getsettings',['getSettings',['../classProcessor.html#a6baf47d558a2743ec72489bb6e736f8f',1,'Processor']]],
   ['getshortname',['getShortName',['../classParameter.html#a6de7217fd7d73b6d8a70e5ea7284255d',1,'Parameter']]],
   ['getsize',['getSize',['../classSharedMemory.html#ac16dde725ff9ce10788b9ff805ba3e85',1,'SharedMemory']]],

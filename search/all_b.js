@@ -9,6 +9,7 @@ var searchData=
   ['mapviewer',['MapViewer',['../classMapViewer.html',1,'MapViewer'],['../classMapViewer.html#a6a5384d59042be977032bdabb02adcdd',1,'MapViewer::MapViewer()']]],
   ['messagepack',['MessagePack',['../classMessagePack.html',1,'']]],
   ['metercolourid',['meterColourId',['../classDynamicsMeter.html#a3f0cee797b7626c9c6486190b95adb5da3910c97ce05f1f60c867d0253d5784ba',1,'DynamicsMeter::meterColourId()'],['../classLevelMeter.html#aebb71a7df2ebf267fa0326a95142cfa3ab7530e0b591c2a089549783c99bb942e',1,'LevelMeter::meterColourId()']]],
+  ['midififo',['MidiFifo',['../classMidiFifo.html',1,'MidiFifo'],['../classMidiFifo.html#a93cad383f99aaaf001b0f9cc72903f19',1,'MidiFifo::MidiFifo()']]],
   ['mixtogain',['mixToGain',['../classWetDryMix.html#a6a642b5b4d79eb59f61ccfd70c67ae77',1,'WetDryMix']]],
   ['moddstid',['ModDstId',['../structModDstId.html',1,'ModDstId'],['../structModDstId.html#a5c07798cf7ac3ad89cf18d8956bf78d3',1,'ModDstId::ModDstId()=default'],['../structModDstId.html#a1cd816f0e6701f16922f19f3b5e64ccb',1,'ModDstId::ModDstId(int id_)'],['../structModDstId.html#aa3f249a7a06342976e5740e09d281a9e',1,'ModDstId::ModDstId(const ModDstId &amp;other)']]],
   ['mode',['Mode',['../classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4',1,'EnvelopeDetector::Mode()'],['../classEnvelopeDetector.html#a1804f11c1918ee0aeee94093a3057415',1,'EnvelopeDetector::mode()']]],

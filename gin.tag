@@ -1049,6 +1049,12 @@
     <class kind="class">MessagePack</class>
   </compound>
   <compound kind="file">
+    <name>gin_midififo.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
+    <filename>gin__midififo_8h</filename>
+    <class kind="class">MidiFifo</class>
+  </compound>
+  <compound kind="file">
     <name>gin_modmatrix.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/plugin/</path>
     <filename>gin__modmatrix_8h</filename>
@@ -6238,6 +6244,45 @@
       <anchorfile>classMessagePack.html</anchorfile>
       <anchor>af05e84a64218328ce6d733fcd80a960a</anchor>
       <arglist>(const juce::MemoryBlock &amp;data)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>MidiFifo</name>
+    <filename>classMidiFifo.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>MidiFifo</name>
+      <anchorfile>classMidiFifo.html</anchorfile>
+      <anchor>a93cad383f99aaaf001b0f9cc72903f19</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clear</name>
+      <anchorfile>classMidiFifo.html</anchorfile>
+      <anchor>a331f9791daac503178a4d4ba41766837</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getSamplesUsed</name>
+      <anchorfile>classMidiFifo.html</anchorfile>
+      <anchor>a676220e418ef97d59568709ace608f99</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>write</name>
+      <anchorfile>classMidiFifo.html</anchorfile>
+      <anchor>a90ece40a2c61b1bba7de907838fc7cf6</anchor>
+      <arglist>(const juce::MidiBuffer &amp;midiSrc, int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>read</name>
+      <anchorfile>classMidiFifo.html</anchorfile>
+      <anchor>aa5502294f13bc7c5440cda2f0e7b2abf</anchor>
+      <arglist>(juce::MidiBuffer &amp;midiDst, int numSamples)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -12207,6 +12252,7 @@
     <class kind="class">LevelTracker</class>
     <class kind="class">LFO</class>
     <class kind="struct">LFO::Parameters</class>
+    <class kind="class">MidiFifo</class>
     <class kind="class">Modulation</class>
     <class kind="class">StereoOscillator</class>
     <class kind="struct">StereoOscillator::Params</class>

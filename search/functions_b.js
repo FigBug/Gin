@@ -3,6 +3,7 @@ var searchData=
   ['makeresizable',['makeResizable',['../classProcessorEditorBase.html#ae96b66e386ddc6abe2ac208987f781c2',1,'ProcessorEditorBase']]],
   ['mapupdated',['mapUpdated',['../classMapViewer.html#a92969f79ce00707cf7e9b13e004b8bed',1,'MapViewer']]],
   ['mapviewer',['MapViewer',['../classMapViewer.html#a6a5384d59042be977032bdabb02adcdd',1,'MapViewer']]],
+  ['midififo',['MidiFifo',['../classMidiFifo.html#a93cad383f99aaaf001b0f9cc72903f19',1,'MidiFifo']]],
   ['mixtogain',['mixToGain',['../classWetDryMix.html#a6a642b5b4d79eb59f61ccfd70c67ae77',1,'WetDryMix']]],
   ['moddstid',['ModDstId',['../structModDstId.html#a5c07798cf7ac3ad89cf18d8956bf78d3',1,'ModDstId::ModDstId()=default'],['../structModDstId.html#a1cd816f0e6701f16922f19f3b5e64ccb',1,'ModDstId::ModDstId(int id_)'],['../structModDstId.html#aa3f249a7a06342976e5740e09d281a9e',1,'ModDstId::ModDstId(const ModDstId &amp;other)']]],
   ['modmatrix',['ModMatrix',['../classModMatrix.html#a923354065c39928704876d0b29e568c9',1,'ModMatrix']]],

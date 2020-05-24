@@ -51,6 +51,7 @@ var searchData=
   ['gin_5flinearregression_2eh',['gin_linearregression.h',['../gin__linearregression_8h.html',1,'']]],
   ['gin_5fmapviewer_2eh',['gin_mapviewer.h',['../gin__mapviewer_8h.html',1,'']]],
   ['gin_5fmessagepack_2eh',['gin_messagepack.h',['../gin__messagepack_8h.html',1,'']]],
+  ['gin_5fmidififo_2eh',['gin_midififo.h',['../gin__midififo_8h.html',1,'']]],
   ['gin_5fmodmatrix_2eh',['gin_modmatrix.h',['../gin__modmatrix_8h.html',1,'']]],
   ['gin_5fmodulation_2eh',['gin_modulation.h',['../gin__dsp_2dsp_2gin__modulation_8h.html',1,'(Global Namespace)'],['../gin__plugin_2components_2gin__modulation_8h.html',1,'(Global Namespace)']]],
   ['gin_5fmodules_2edox',['gin_modules.dox',['../gin__modules_8dox.html',1,'']]],

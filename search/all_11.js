@@ -199,7 +199,7 @@ var searchData=
   ['sustain',['sustain',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127aa48dd9dd380d2a499ad6f7ae967010835',1,'ADSR::sustain()'],['../classAnalogADSR.html#a6cd2be4762c1a196e9bfae491d5e2399',1,'AnalogADSR::sustain()'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188ea02bc1150d41a4dfdc324849c25dce148',1,'AnalogADSR::sustain()']]],
   ['sustainlevel',['sustainLevel',['../classADSR.html#aa02446c404e961975776b5b7d40d91a7',1,'ADSR']]],
   ['switch',['Switch',['../classSwitch.html',1,'Switch'],['../classSwitch.html#ab2b13d51b74f2d3421a250e933cf697c',1,'Switch::Switch()']]],
-  ['synthesiser',['Synthesiser',['../classSynthesiser.html',1,'Synthesiser'],['../classSynthesiserUsage.html#aab0e60a078f566eefd3c2de30e987486',1,'SynthesiserUsage::synthesiser()'],['../classSynthesiser.html#a8c313d6f1fa875790e5c79dc621ee437',1,'Synthesiser::Synthesiser()']]],
+  ['synthesiser',['Synthesiser',['../classSynthesiser.html',1,'Synthesiser'],['../classSynthesiser.html#a8c313d6f1fa875790e5c79dc621ee437',1,'Synthesiser::Synthesiser()'],['../classSynthesiserUsage.html#aab0e60a078f566eefd3c2de30e987486',1,'SynthesiserUsage::synthesiser()']]],
   ['synthesiserusage',['SynthesiserUsage',['../classSynthesiserUsage.html',1,'SynthesiserUsage'],['../classSynthesiserUsage.html#ae37e6d848cf06acd4d3795c7d86c62cd',1,'SynthesiserUsage::SynthesiserUsage()']]],
   ['synthesiservoice',['SynthesiserVoice',['../classSynthesiserVoice.html',1,'']]],
   ['systemsemaphore',['SystemSemaphore',['../classSystemSemaphore.html',1,'SystemSemaphore'],['../classSystemSemaphore.html#aa5616f7315ba0d37ea3e0aa6f22d7d53',1,'SystemSemaphore::SystemSemaphore()']]]

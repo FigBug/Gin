@@ -2,6 +2,7 @@ var searchData=
 [
   ['mapviewer',['MapViewer',['../classMapViewer.html',1,'']]],
   ['messagepack',['MessagePack',['../classMessagePack.html',1,'']]],
+  ['midififo',['MidiFifo',['../classMidiFifo.html',1,'']]],
   ['moddstid',['ModDstId',['../structModDstId.html',1,'']]],
   ['modmatrix',['ModMatrix',['../classModMatrix.html',1,'']]],
   ['modmatrixbox',['ModMatrixBox',['../classModMatrixBox.html',1,'']]],
