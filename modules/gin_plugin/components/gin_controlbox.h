@@ -283,7 +283,7 @@ private:
             controlsParent.addAndMakeVisible (c);
             bottomButtons.add (c);
 
-            auto rc = getLocalBounds().removeFromLeft (15.0f);
+            auto rc = getLocalBounds().removeFromLeft (15);
             for (auto b : bottomButtons)
                 b->setBounds (rc.removeFromBottom (15).withSizeKeepingCentre (11, 11));
         }

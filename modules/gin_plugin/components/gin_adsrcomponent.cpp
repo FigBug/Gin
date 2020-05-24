@@ -36,7 +36,7 @@ void ADSRComponent::paint (Graphics& g)
     auto c = findColour (isEnabled() ? GinLookAndFeel::colourId5 : GinLookAndFeel::colourId2);
 
     auto a = getArea();
-    auto p1 = Point<float> (a.getX(), a.getBottom());
+    auto p1 = Point<float> (float (a.getX()), float (a.getBottom()));
     auto p2 = getHandlePos (Handle::attack).toFloat();
     auto p3 = getHandlePos (Handle::decaySustain).toFloat();
     auto p4 = getHandlePos (Handle::release).toFloat();
