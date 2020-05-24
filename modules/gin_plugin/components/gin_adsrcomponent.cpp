@@ -26,6 +26,7 @@ String ADSRComponent::getBubbleText()
         case Handle::attack:        return attack->getCurrentValueAsText();
         case Handle::decaySustain:  return decay->getCurrentValueAsText() + "\n" + sustain->getCurrentValueAsText();
         case Handle::release:       return release->getCurrentValueAsText();
+        case Handle::none:
         default:                    return {};
     }
 }
@@ -86,6 +87,7 @@ void ADSRComponent::mouseDown (const MouseEvent& e)
             release->beginUserAction();
             dx = getHandlePos (Handle::release).getX() - e.x;
             break;
+        case Handle::none:
         default:
             break;
     }
@@ -111,6 +113,7 @@ void ADSRComponent::mouseDrag (const MouseEvent& e)
             release->setValueNotifyingHost (xToParam (float (e.x + dx - getHandlePos (Handle::decaySustain).getX())));
             showBubble (getBubbleText(), getHandleRect (handle));
             break;
+        case Handle::none:
         default:
             break;
     }
@@ -132,6 +135,7 @@ void ADSRComponent::mouseUp (const MouseEvent&)
         case Handle::release:
             release->endUserAction();
             break;
+        case Handle::none:
         default:
             break;
     }
@@ -177,6 +181,7 @@ Point<int> ADSRComponent::getHandlePos (Handle g)
         case Handle::release:
             return { a.getX() + paramToX (attack->getValue()) + paramToX (decay->getValue()) + paramToX (release->getValue()),
                      a.getBottom() };
+         case Handle::none:
         default:
             return {};
     }
