@@ -1,6 +1,3 @@
-#include "gin_pluginlookandfeel.h"
-#include "gin_resources.cpp"
-
 //==============================================================================
 PluginLookAndFeel::PluginLookAndFeel()
 {

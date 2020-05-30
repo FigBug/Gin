@@ -82,7 +82,7 @@ using juce::Component;
 #include "components/gin_steplfocomponent.h"
 #include "components/gin_plugincomponents.h"
 #include "components/gin_knob.h"
-#include "components/gin_pluginlookandfeel.h"
+#include "components/gin_copperlookandfeel.h"
 #include "components/gin_controlheader.h"
 #include "components/gin_patchbrowser.h"
 #include "components/gin_plugineditor.h"

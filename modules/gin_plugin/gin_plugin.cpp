@@ -21,6 +21,8 @@ using namespace juce;
 using juce::Rectangle;
 using juce::MemoryBlock;
 
+#include "components/gin_resources.h"
+
 #include "plugin/gin_modmatrix.cpp"
 #include "plugin/gin_noteduration.cpp"
 #include "plugin/gin_processor.cpp"
@@ -35,5 +37,7 @@ using juce::MemoryBlock;
 #include "components/gin_plugincomponents.cpp"
 #include "components/gin_knob.cpp"
 #include "components/gin_pluginlookandfeel.cpp"
+#include "components/gin_copperlookandfeel.cpp"
+#include "components/gin_resources.cpp"
 
 }
