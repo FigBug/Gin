@@ -104,7 +104,7 @@ var searchData=
   ['gettilesource',['getTileSource',['../classOpenStreetMaps.html#accb035883eacc1d62c608106455414fe',1,'OpenStreetMaps']]],
   ['gettotalnumchars',['getTotalNumChars',['../classSingleLineTextEditor.html#a87bf612c79d630bd8d896a6451f388c5',1,'SingleLineTextEditor']]],
   ['gettype',['getType',['../classImageMetadata.html#a66a8634445facf0bce400193af2e13f4',1,'ImageMetadata']]],
-  ['gettypefaceforfont',['getTypefaceForFont',['../classPluginLookAndFeel.html#aba6ff21edb8442e564cc18191c000f91',1,'PluginLookAndFeel']]],
+  ['gettypefaceforfont',['getTypefaceForFont',['../classCopperLookAndFeel.html#a9305f3329c4b2478712930dd1a5880ca',1,'CopperLookAndFeel::getTypefaceForFont()'],['../classPluginLookAndFeel.html#aba6ff21edb8442e564cc18191c000f91',1,'PluginLookAndFeel::getTypefaceForFont()']]],
   ['getuid',['getUid',['../classParamComponent.html#a46822b2f9865686b2ee9158db03e06be',1,'ParamComponent::getUid()'],['../classParameter.html#a393a0cba8eabc3c6b45ff1054c1fc5bf',1,'Parameter::getUid()']]],
   ['getuserdefaultvalue',['getUserDefaultValue',['../classParameter.html#acb293e0243a02b21a0ef99a7a2f2d900',1,'Parameter']]],
   ['getuserrange',['getUserRange',['../classParameter.html#ae363f41891434a66b7ded5664703fb41',1,'Parameter']]],
@@ -135,6 +135,7 @@ var searchData=
   ['gin_5fcomponentviewer_2eh',['gin_componentviewer.h',['../gin__componentviewer_8h.html',1,'']]],
   ['gin_5fcontrolbox_2eh',['gin_controlbox.h',['../gin__controlbox_8h.html',1,'']]],
   ['gin_5fcontrolheader_2eh',['gin_controlheader.h',['../gin__controlheader_8h.html',1,'']]],
+  ['gin_5fcopperlookandfeel_2eh',['gin_copperlookandfeel.h',['../gin__copperlookandfeel_8h.html',1,'']]],
   ['gin_5fdelayline_2eh',['gin_delayline.h',['../gin__delayline_8h.html',1,'']]],
   ['gin_5fdistortion_2eh',['gin_distortion.h',['../gin__distortion_8h.html',1,'']]],
   ['gin_5fdownloadmanager_2eh',['gin_downloadmanager.h',['../gin__downloadmanager_8h.html',1,'']]],
@@ -219,8 +220,15 @@ var searchData=
   ['gin_5fxmpmetadata_2eh',['gin_xmpmetadata.h',['../gin__xmpmetadata_8h.html',1,'']]],
   ['gin_5fxyscope_2eh',['gin_xyscope.h',['../gin__xyscope_8h.html',1,'']]],
   ['ginlookandfeel',['GinLookAndFeel',['../classGinLookAndFeel.html',1,'GinLookAndFeel'],['../classGinLookAndFeel.html#ae2f7157e485bb30b42f4b47e617a3c17',1,'GinLookAndFeel::GinLookAndFeel()']]],
+  ['glass1colourid',['glass1ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a36769c6185d02150c1c87ffa812cac37',1,'GinLookAndFeel']]],
+  ['glass2colourid',['glass2ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a2d85184728940d03f032a57e5b6915f3',1,'GinLookAndFeel']]],
   ['glideinfo',['GlideInfo',['../structGlideInfo.html',1,'GlideInfo'],['../classSynthesiserVoice.html#a0b618c0309abdbff794b2c082dbaa993',1,'SynthesiserVoice::glideInfo()']]],
   ['glissando',['glissando',['../structGlideInfo.html#a9d07e5c884046e64cf09d6b24a26b69e',1,'GlideInfo']]],
   ['glow',['Glow',['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85ac7adb89e56ad4a2daef183d318110442',1,'gin_imageeffects.h']]],
-  ['goldenratiocolor',['goldenRatioColor',['../group__gin-utilities.html#gaf2e5284957f4390502132e880faf157e',1,'gin_util.h']]]
+  ['goldenratiocolor',['goldenRatioColor',['../group__gin-utilities.html#gaf2e5284957f4390502132e880faf157e',1,'gin_util.h']]],
+  ['grey30colourid',['grey30ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a8836ddb4187fd9683c6952817859a255',1,'GinLookAndFeel']]],
+  ['grey45colourid',['grey45ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a66a982d75840d72c1c9ef4eb0a302fd6',1,'GinLookAndFeel']]],
+  ['grey60colourid',['grey60ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a87882c3f6219ea41cd1e0522707f4aa5',1,'GinLookAndFeel']]],
+  ['grey90colourid',['grey90ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a7b989dd098f7a0747c523071621e4766',1,'GinLookAndFeel']]],
+  ['groupcolourid',['groupColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6ab08bc4b9b520e583faed901e1e76e59e',1,'GinLookAndFeel']]]
 ];

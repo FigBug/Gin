@@ -17,6 +17,7 @@ var searchData=
   ['gin_5fcomponentviewer_2eh',['gin_componentviewer.h',['../gin__componentviewer_8h.html',1,'']]],
   ['gin_5fcontrolbox_2eh',['gin_controlbox.h',['../gin__controlbox_8h.html',1,'']]],
   ['gin_5fcontrolheader_2eh',['gin_controlheader.h',['../gin__controlheader_8h.html',1,'']]],
+  ['gin_5fcopperlookandfeel_2eh',['gin_copperlookandfeel.h',['../gin__copperlookandfeel_8h.html',1,'']]],
   ['gin_5fdelayline_2eh',['gin_delayline.h',['../gin__delayline_8h.html',1,'']]],
   ['gin_5fdistortion_2eh',['gin_distortion.h',['../gin__distortion_8h.html',1,'']]],
   ['gin_5fdownloadmanager_2eh',['gin_downloadmanager.h',['../gin__downloadmanager_8h.html',1,'']]],

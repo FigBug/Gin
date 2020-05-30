@@ -96,7 +96,8 @@ var menudata={children:[
 {text:"r",url:"functions_eval.html#index_r"},
 {text:"s",url:"functions_eval.html#index_s"},
 {text:"t",url:"functions_eval.html#index_t"},
-{text:"u",url:"functions_eval.html#index_u"}]}]}]},
+{text:"u",url:"functions_eval.html#index_u"},
+{text:"w",url:"functions_eval.html#index_w"}]}]}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"},
 {text:"File Members",url:"globals.html",children:[

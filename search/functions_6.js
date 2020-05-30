@@ -101,7 +101,7 @@ var searchData=
   ['gettilesource',['getTileSource',['../classOpenStreetMaps.html#accb035883eacc1d62c608106455414fe',1,'OpenStreetMaps']]],
   ['gettotalnumchars',['getTotalNumChars',['../classSingleLineTextEditor.html#a87bf612c79d630bd8d896a6451f388c5',1,'SingleLineTextEditor']]],
   ['gettype',['getType',['../classImageMetadata.html#a66a8634445facf0bce400193af2e13f4',1,'ImageMetadata']]],
-  ['gettypefaceforfont',['getTypefaceForFont',['../classPluginLookAndFeel.html#aba6ff21edb8442e564cc18191c000f91',1,'PluginLookAndFeel']]],
+  ['gettypefaceforfont',['getTypefaceForFont',['../classCopperLookAndFeel.html#a9305f3329c4b2478712930dd1a5880ca',1,'CopperLookAndFeel::getTypefaceForFont()'],['../classPluginLookAndFeel.html#aba6ff21edb8442e564cc18191c000f91',1,'PluginLookAndFeel::getTypefaceForFont()']]],
   ['getuid',['getUid',['../classParamComponent.html#a46822b2f9865686b2ee9158db03e06be',1,'ParamComponent::getUid()'],['../classParameter.html#a393a0cba8eabc3c6b45ff1054c1fc5bf',1,'Parameter::getUid()']]],
   ['getuserdefaultvalue',['getUserDefaultValue',['../classParameter.html#acb293e0243a02b21a0ef99a7a2f2d900',1,'Parameter']]],
   ['getuserrange',['getUserRange',['../classParameter.html#ae363f41891434a66b7ded5664703fb41',1,'Parameter']]],

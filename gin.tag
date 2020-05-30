@@ -273,6 +273,13 @@
     <class kind="class">ControlHeader</class>
   </compound>
   <compound kind="file">
+    <name>gin_copperlookandfeel.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
+    <filename>gin__copperlookandfeel_8h</filename>
+    <class kind="class">CopperLookAndFeel</class>
+    <class kind="class">CopperLookAndFeelWrapper</class>
+  </compound>
+  <compound kind="file">
     <name>gin_delayline.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
     <filename>gin__delayline_8h</filename>
@@ -1267,6 +1274,20 @@
       <name>BarlowThin_ttfSize</name>
       <anchorfile>namespaceResources.html</anchorfile>
       <anchor>ae17a5aae2e3106082be4c8b5d3e61bf9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const char *</type>
+      <name>InterRegular_otf</name>
+      <anchorfile>namespaceResources.html</anchorfile>
+      <anchor>a821eb0a806b852016c53ab6151f00d3d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const int</type>
+      <name>InterRegular_otfSize</name>
+      <anchorfile>namespaceResources.html</anchorfile>
+      <anchor>af4f0aa394cb30c14c4306162f0d5e6d4</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -2945,6 +2966,44 @@
       <anchorfile>classControlHeader.html</anchorfile>
       <anchor>a877b2db06ba3412d8a831a3c92a9a586</anchor>
       <arglist>(const String &amp;name_={})</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>CopperLookAndFeel</name>
+    <filename>classCopperLookAndFeel.html</filename>
+    <base>PluginLookAndFeel</base>
+    <member kind="function">
+      <type></type>
+      <name>CopperLookAndFeel</name>
+      <anchorfile>classCopperLookAndFeel.html</anchorfile>
+      <anchor>af028dd79da3e0bd1d8d52ed602e37008</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Typeface::Ptr</type>
+      <name>getTypefaceForFont</name>
+      <anchorfile>classCopperLookAndFeel.html</anchorfile>
+      <anchor>a9305f3329c4b2478712930dd1a5880ca</anchor>
+      <arglist>(const Font &amp;f) override</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>CopperLookAndFeelWrapper</name>
+    <filename>classCopperLookAndFeelWrapper.html</filename>
+    <base>CopperLookAndFeel</base>
+    <member kind="function">
+      <type></type>
+      <name>CopperLookAndFeelWrapper</name>
+      <anchorfile>classCopperLookAndFeelWrapper.html</anchorfile>
+      <anchor>aed2c58e62600ce32f067bea28c498903</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~CopperLookAndFeelWrapper</name>
+      <anchorfile>classCopperLookAndFeelWrapper.html</anchorfile>
+      <anchor>af2da6ddd887a26c92e047e30d0f08c9a</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -4791,6 +4850,108 @@
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
+      <name>whiteColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a73a50ed25cfa50172870d472227fc137</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>blackColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6ac7411db48774329c05a27e414ee24595</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>displayColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6aa7af29d3637768fbf97690f5a7d59e5c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>backgroundColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6aa4bd0ee587cfbfef51b3b25d622b8a48</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>groupColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6ab08bc4b9b520e583faed901e1e76e59e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>lightGroupColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a2864996ef37b5bf663448c3f8ae6f6a7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>grey30ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a8836ddb4187fd9683c6952817859a255</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>grey45ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a66a982d75840d72c1c9ef4eb0a302fd6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>grey60ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a87882c3f6219ea41cd1e0522707f4aa5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>grey90ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a7b989dd098f7a0747c523071621e4766</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>glass1ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a36769c6185d02150c1c87ffa812cac37</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>glass2ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a2d85184728940d03f032a57e5b6915f3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>matte1ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a9574cb8d76e0b587045e42ba6f560e3e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>matte2ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a92300711403ae30883fac16299863490</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>title1ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a48e1027db85fa69981be45218bd7e6d9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>title2ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a539354805ecf1dd789adb31680e32326</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>accentColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a8b6c276535474109cda8e1d0470884a0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
       <name>colourId1</name>
       <anchorfile>classGinLookAndFeel.html</anchorfile>
       <anchor>a3444b16d6592301f4a2179bb650885c6a98c214c9136d2f10c56c5afe19290b74</anchor>
@@ -4818,6 +4979,108 @@
       <name>colourId5</name>
       <anchorfile>classGinLookAndFeel.html</anchorfile>
       <anchor>a3444b16d6592301f4a2179bb650885c6a068da01ec533d85f1b2f098c7b4b2040</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>whiteColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a73a50ed25cfa50172870d472227fc137</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>blackColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6ac7411db48774329c05a27e414ee24595</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>displayColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6aa7af29d3637768fbf97690f5a7d59e5c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>backgroundColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6aa4bd0ee587cfbfef51b3b25d622b8a48</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>groupColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6ab08bc4b9b520e583faed901e1e76e59e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>lightGroupColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a2864996ef37b5bf663448c3f8ae6f6a7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>grey30ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a8836ddb4187fd9683c6952817859a255</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>grey45ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a66a982d75840d72c1c9ef4eb0a302fd6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>grey60ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a87882c3f6219ea41cd1e0522707f4aa5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>grey90ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a7b989dd098f7a0747c523071621e4766</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>glass1ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a36769c6185d02150c1c87ffa812cac37</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>glass2ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a2d85184728940d03f032a57e5b6915f3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>matte1ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a9574cb8d76e0b587045e42ba6f560e3e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>matte2ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a92300711403ae30883fac16299863490</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>title1ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a48e1027db85fa69981be45218bd7e6d9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>title2ColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a539354805ecf1dd789adb31680e32326</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>accentColourId</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a3444b16d6592301f4a2179bb650885c6a8b6c276535474109cda8e1d0470884a0</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
@@ -12136,6 +12399,20 @@
       <anchor>ae17a5aae2e3106082be4c8b5d3e61bf9</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable">
+      <type>const char *</type>
+      <name>InterRegular_otf</name>
+      <anchorfile>namespaceResources.html</anchorfile>
+      <anchor>a821eb0a806b852016c53ab6151f00d3d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const int</type>
+      <name>InterRegular_otfSize</name>
+      <anchorfile>namespaceResources.html</anchorfile>
+      <anchor>af4f0aa394cb30c14c4306162f0d5e6d4</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>gin-components</name>
@@ -12177,6 +12454,8 @@
     <class kind="class">ControlBox</class>
     <class kind="class">PagedControlBox</class>
     <class kind="class">ControlHeader</class>
+    <class kind="class">CopperLookAndFeel</class>
+    <class kind="class">CopperLookAndFeelWrapper</class>
     <class kind="class">GateEffectComponent</class>
     <class kind="class">Knob</class>
     <class kind="class">LFOComponent</class>

@@ -12,6 +12,8 @@ var searchData=
   ['internal',['internal',['../classParameter.html#a25165e96742e860d5ee0e8a6f70a69f5',1,'Parameter']]],
   ['internalparameters',['internalParameters',['../classProcessor.html#a8352d55c3045453d304ff1a6a2ef59ff',1,'Processor']]],
   ['interpolate',['interpolate',['../classSpline.html#ac1f059b0c61e23b88d7939a27fd40b5c',1,'Spline::interpolate()'],['../namespaceLagrange.html#a143c027042c090280675c18481168a09',1,'Lagrange::interpolate(const Array&lt; juce::Point&lt; T &gt;&gt; &amp;points, T x)'],['../namespaceLagrange.html#ab812f4c6079c4c45b43e56239c3634d4',1,'Lagrange::interpolate(T xArr[], T yArr[], int num, T x)']]],
+  ['interregular_5fotf',['InterRegular_otf',['../namespaceResources.html#a821eb0a806b852016c53ab6151f00d3d',1,'Resources']]],
+  ['interregular_5fotfsize',['InterRegular_otfSize',['../namespaceResources.html#af4f0aa394cb30c14c4306162f0d5e6d4',1,'Resources']]],
   ['iptcmetadata',['IptcMetadata',['../classIptcMetadata.html',1,'IptcMetadata'],['../classIptcMetadata.html#a496280ef9815903894104ab237831523',1,'IptcMetadata::IptcMetadata()']]],
   ['isautomatable',['isAutomatable',['../classParameter.html#aee892abdf7a0df0dd2a4ba4f7371a6a6',1,'Parameter']]],
   ['iscaretvisible',['isCaretVisible',['../classSingleLineTextEditor.html#a0b0f9a73a53caa43db1bd61aafee94a7',1,'SingleLineTextEditor']]],

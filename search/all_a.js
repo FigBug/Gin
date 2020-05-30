@@ -18,6 +18,7 @@ var searchData=
   ['lfo',['LFO',['../classLFO.html',1,'LFO'],['../classLFO.html#ad89e6308102d5b8f0790b2c8cc89c4a5',1,'LFO::LFO()']]],
   ['lfocomponent',['LFOComponent',['../classLFOComponent.html',1,'LFOComponent'],['../classLFOComponent.html#a15b40bec5169584567c4f58c3e1e7687',1,'LFOComponent::LFOComponent()']]],
   ['lighten',['Lighten',['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85a0c4863f7d789ab70b21073bd94c9169d',1,'gin_imageeffects.h']]],
+  ['lightgroupcolourid',['lightGroupColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a2864996ef37b5bf663448c3f8ae6f6a7',1,'GinLookAndFeel']]],
   ['limiter',['limiter',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576af7eeb3fb00381e25b0040685eb2a5174',1,'Dynamics']]],
   ['linear',['linear',['../classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7ca6f9f428f8d2b02f3abdd34b9c11f1f84',1,'SmoothingType']]],
   ['linearburn',['LinearBurn',['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85a4c41b912f1e9eca71a1a36fc8a1172d9',1,'gin_imageeffects.h']]],

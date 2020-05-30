@@ -8,6 +8,7 @@ var searchData=
   ['_7easyncwebsocket',['~AsyncWebsocket',['../classAsyncWebsocket.html#a0a277b2e4494535bff9ba2b323f80c2b',1,'AsyncWebsocket']]],
   ['_7ecommentmetadata',['~CommentMetadata',['../classCommentMetadata.html#af26102b15ed0813fa97e828f51ef70c5',1,'CommentMetadata']]],
   ['_7ecomponentviewer',['~ComponentViewer',['../classComponentViewer.html#a50ad244fd889c8059930d947aa206d48',1,'ComponentViewer']]],
+  ['_7ecopperlookandfeelwrapper',['~CopperLookAndFeelWrapper',['../classCopperLookAndFeelWrapper.html#af2da6ddd887a26c92e047e30d0f08c9a',1,'CopperLookAndFeelWrapper']]],
   ['_7edownloadmanager',['~DownloadManager',['../classDownloadManager.html#abb67275a951d706a3108a0d307ea9113',1,'DownloadManager']]],
   ['_7edynamics',['~Dynamics',['../classDynamics.html#acff60118f6e8bed2bc100b3fd364b367',1,'Dynamics']]],
   ['_7edynamicsmeter',['~DynamicsMeter',['../classDynamicsMeter.html#abfd5413d8c210e1fb65b4e257da4335d',1,'DynamicsMeter']]],

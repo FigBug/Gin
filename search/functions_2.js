@@ -37,6 +37,8 @@ var searchData=
   ['controlbox',['ControlBox',['../classControlBox.html#ad4f9fd1d3bd2be33f40ed7bdf1b166c7',1,'ControlBox']]],
   ['controlheader',['ControlHeader',['../classControlHeader.html#a877b2db06ba3412d8a831a3c92a9a586',1,'ControlHeader']]],
   ['coordinatetodisplay',['coordinateToDisplay',['../classOpenStreetMaps.html#a97d05e8344c088b58ac13241d47e57b8',1,'OpenStreetMaps']]],
+  ['copperlookandfeel',['CopperLookAndFeel',['../classCopperLookAndFeel.html#af028dd79da3e0bd1d8d52ed602e37008',1,'CopperLookAndFeel']]],
+  ['copperlookandfeelwrapper',['CopperLookAndFeelWrapper',['../classCopperLookAndFeelWrapper.html#aed2c58e62600ce32f067bea28c498903',1,'CopperLookAndFeelWrapper']]],
   ['copy',['copy',['../classSingleLineTextEditor.html#ac70d898376c76d91384c873a59c787e9',1,'SingleLineTextEditor']]],
   ['copyfile',['copyFile',['../classElevatedFileCopy.html#a1444661b30ecad1d0388d18c5fdbbbac',1,'ElevatedFileCopy']]],
   ['copytoclipboard',['copyToClipboard',['../classSingleLineTextEditor.html#a2f481549128e342b2cfae10d7c1f3e34',1,'SingleLineTextEditor']]],

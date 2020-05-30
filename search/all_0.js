@@ -1,6 +1,7 @@
 var searchData=
 [
   ['a',['a',['../classEllipse.html#a5fb56e7b1960b8e127deccbc91f3aa8d',1,'Ellipse::a()'],['../classLinearRegression.html#a9afb5e0ec8d6cbb6ac46e5915afc57ec',1,'LinearRegression::a()'],['../classSpline_1_1Element.html#aa20a7343d5bfabf930f48bd5e88d9916',1,'Spline::Element::a()']]],
+  ['accentcolourid',['accentColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a8b6c276535474109cda8e1d0470884a0',1,'GinLookAndFeel']]],
   ['acceptsmidi',['acceptsMidi',['../classProcessor.html#aa945a9fb36430295388fc9973e761c21',1,'Processor']]],
   ['add',['add',['../classControlBox.html#a76425dd176246a60018dc6d1da8e65b8',1,'ControlBox::add(Component *c)'],['../classControlBox.html#a13f5091b0650ef06935392442acbd7c3',1,'ControlBox::add(int page, ParamComponent *c)'],['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85a0d592a4b562059bc283e00b3704865c9',1,'Add():&#160;gin_imageeffects.h']]],
   ['addandmakevisible',['addAndMakeVisible',['../group__gin-components.html#gaa20ec037c2ec9827747ca222e4308414',1,'addAndMakeVisible(Component &amp;parent, Array&lt; Component *&gt; children):&#160;gin_componentutils.h'],['../group__gin-components.html#ga824f80420c05391e952c51bb9abc5e88',1,'addAndMakeVisible(Component &amp;parent, std::initializer_list&lt; Component *&gt; children):&#160;gin_componentutils.h']]],
