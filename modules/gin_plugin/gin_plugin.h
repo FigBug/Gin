@@ -84,6 +84,7 @@ using juce::Component;
 #include "components/gin_knob.h"
 #include "components/gin_copperlookandfeel.h"
 #include "components/gin_controlheader.h"
+#include "components/gin_parambox.h"
 #include "components/gin_patchbrowser.h"
 #include "components/gin_plugineditor.h"
 #include "components/gin_controlbox.h"

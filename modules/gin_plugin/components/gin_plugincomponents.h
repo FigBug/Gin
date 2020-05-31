@@ -191,6 +191,8 @@ class ParamComponent : public Component,
                        public SettableTooltipClient
 {
 public:
+    using Ptr = ParamComponent*;
+
     ParamComponent (Parameter* parameter);
 
     String getUid() { return parameter->getUid(); }

@@ -51,8 +51,6 @@ private:
 class ControlBox : public MultiParamComponent
 {
 public:
-    using ParamComponentPtr = ParamComponent*;
-
     ControlBox (ProcessorEditor& e) : editor (e)
     {
     }

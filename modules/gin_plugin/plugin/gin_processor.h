@@ -4,6 +4,7 @@
 #include "gin_program.h"
 
 #include "../components/gin_pluginlookandfeel.h"
+#include "../components/gin_copperlookandfeel.h"
 
 //==============================================================================
 /** How do you want you params smoothed?
@@ -93,7 +94,7 @@ public:
     //==============================================================================
 
 public:
-    SharedResourcePointer<PluginLookAndFeelWrapper> lf;
+    SharedResourcePointer<CopperLookAndFeelWrapper> lf;
 
     std::map<String, Parameter*> parameterMap;
     OwnedArray<Parameter> internalParameters;
