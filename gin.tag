@@ -1127,6 +1127,22 @@
     <class kind="class">BLLTVoicedStereoOscillator</class>
   </compound>
   <compound kind="file">
+    <name>gin_parambox.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
+    <filename>gin__parambox_8h</filename>
+    <class kind="class">ParamHeader</class>
+    <class kind="class">ParamBox</class>
+    <class kind="class">ParamArea</class>
+    <class kind="class">BoxArea</class>
+    <member kind="function">
+      <type>void</type>
+      <name>gradientRect</name>
+      <anchorfile>group__gin__plugin-components.html</anchorfile>
+      <anchor>ga4110716757a10f2f9ba0a3e756a03b1c</anchor>
+      <arglist>(Graphics &amp;g, Rectangle&lt; int &gt; rc, Colour c1, Colour c2)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>gin_parameter.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/plugin/</path>
     <filename>gin__parameter_8h</filename>
@@ -1212,6 +1228,7 @@
     <includes id="gin__parameter_8h" name="gin_parameter.h" local="yes" imported="no">gin_parameter.h</includes>
     <includes id="gin__program_8h" name="gin_program.h" local="yes" imported="no">gin_program.h</includes>
     <includes id="gin__pluginlookandfeel_8h" name="gin_pluginlookandfeel.h" local="yes" imported="no">../components/gin_pluginlookandfeel.h</includes>
+    <includes id="gin__copperlookandfeel_8h" name="gin_copperlookandfeel.h" local="yes" imported="no">../components/gin_copperlookandfeel.h</includes>
     <class kind="class">SmoothingType</class>
     <class kind="class">Processor</class>
   </compound>
@@ -2714,6 +2731,24 @@
       <arglist>(const Image &amp;sourceImage, OutputStream &amp;destStream) override</arglist>
     </member>
   </compound>
+  <compound kind="class">
+    <name>BoxArea</name>
+    <filename>classBoxArea.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>BoxArea</name>
+      <anchorfile>classBoxArea.html</anchorfile>
+      <anchor>a00b02a91aded6fc3ead888c1b092a9eb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addBox</name>
+      <anchorfile>classBoxArea.html</anchorfile>
+      <anchor>a42cd8f8f7bb5274cf58983b056a306c8</anchor>
+      <arglist>(Component *c)</arglist>
+    </member>
+  </compound>
   <compound kind="struct">
     <name>BP12State</name>
     <filename>structBP12State.html</filename>
@@ -2914,13 +2949,6 @@
     <name>ControlBox</name>
     <filename>classControlBox.html</filename>
     <base>MultiParamComponent</base>
-    <member kind="typedef">
-      <type>ParamComponent *</type>
-      <name>ParamComponentPtr</name>
-      <anchorfile>classControlBox.html</anchorfile>
-      <anchor>a59d27524a800f5a68e255e1ddf384a9a</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="function">
       <type></type>
       <name>ControlBox</name>
@@ -7630,8 +7658,74 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>ParamArea</name>
+    <filename>classParamArea.html</filename>
+    <base>MultiParamComponent</base>
+    <member kind="function">
+      <type></type>
+      <name>ParamArea</name>
+      <anchorfile>classParamArea.html</anchorfile>
+      <anchor>a46841b4f0ec9049843b71e8196ecc54a</anchor>
+      <arglist>(const String &amp;name_={})</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addControl</name>
+      <anchorfile>classParamArea.html</anchorfile>
+      <anchor>a574e53ae7e1feae63860723a7c7d1e28</anchor>
+      <arglist>(Component *c, int x, int y, int cx=1, int cy=1)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addControl</name>
+      <anchorfile>classParamArea.html</anchorfile>
+      <anchor>a7bb2a8d10ae48495d57715ba7decd1c5</anchor>
+      <arglist>(Component *c)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>ParamBox</name>
+    <filename>classParamBox.html</filename>
+    <base>MultiParamComponent</base>
+    <member kind="function">
+      <type></type>
+      <name>ParamBox</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>a5fbfb98e97dec4bf9217a7305dd21f1e</anchor>
+      <arglist>(const String &amp;name)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addEnable</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>a48773dc98de240a4e0599ccb490dc94b</anchor>
+      <arglist>(gin::Parameter::Ptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addControl</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>afab51fbea411628bdb475551488cfd05</anchor>
+      <arglist>(Component *c, int x, int y, int cx=1, int cy=1)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addControl</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>a55eadc2f52821f70453b7894deb9047e</anchor>
+      <arglist>(Component *c, float x, float y, float cx=1.0f, float cy=1.0f)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>ParamComponent</name>
     <filename>classParamComponent.html</filename>
+    <member kind="typedef">
+      <type>ParamComponent *</type>
+      <name>Ptr</name>
+      <anchorfile>classParamComponent.html</anchorfile>
+      <anchor>abe902bb7596fe1d6794047772f6f937e</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>ParamComponent</name>
@@ -8188,6 +8282,17 @@
       <anchorfile>structLFO_1_1Parameters.html</anchorfile>
       <anchor>a20d76d843455f85c2131d9ed77329499</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>ParamHeader</name>
+    <filename>classParamHeader.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ParamHeader</name>
+      <anchorfile>classParamHeader.html</anchorfile>
+      <anchor>acfdaf86f73794ce36446baede883667c</anchor>
+      <arglist>(const String &amp;name_)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -8967,10 +9072,10 @@
       <arglist>(const void *data, int sizeInBytes) override</arglist>
     </member>
     <member kind="variable">
-      <type>SharedResourcePointer&lt; PluginLookAndFeelWrapper &gt;</type>
+      <type>SharedResourcePointer&lt; CopperLookAndFeelWrapper &gt;</type>
       <name>lf</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>af7e46a626585b13fc0fb932f597b6beb</anchor>
+      <anchor>a336835ab059bdd6543a056aa5601cb26</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -12465,6 +12570,10 @@
     <class kind="class">ModSrcListBox</class>
     <class kind="class">ModMatrixBox</class>
     <class kind="class">MultiParamComponent</class>
+    <class kind="class">ParamHeader</class>
+    <class kind="class">ParamBox</class>
+    <class kind="class">ParamArea</class>
+    <class kind="class">BoxArea</class>
     <class kind="class">PatchBrowser</class>
     <class kind="struct">PatchBrowser::PresetsModel</class>
     <class kind="struct">PatchBrowser::TagsModel</class>
@@ -12486,6 +12595,13 @@
     <class kind="class">PluginLookAndFeel</class>
     <class kind="class">PluginLookAndFeelWrapper</class>
     <class kind="class">StepLFOComponent</class>
+    <member kind="function">
+      <type>void</type>
+      <name>gradientRect</name>
+      <anchorfile>group__gin__plugin-components.html</anchorfile>
+      <anchor>ga4110716757a10f2f9ba0a3e756a03b1c</anchor>
+      <arglist>(Graphics &amp;g, Rectangle&lt; int &gt; rc, Colour c1, Colour c2)</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>gin_dsp-components</name>

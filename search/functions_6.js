@@ -114,5 +114,6 @@ var searchData=
   ['getvaluefortext',['getValueForText',['../classParameter.html#a7058bae34b44db7c454661db485eccf3',1,'Parameter']]],
   ['getvalueptr',['getValuePtr',['../classEasedValueSmoother.html#a0c0bd355c729547333266dfe4be7ac18',1,'EasedValueSmoother::getValuePtr()'],['../classValueSmoother.html#a0fd46737155bc081c73db8beacb16dd3',1,'ValueSmoother::getValuePtr()']]],
   ['ginlookandfeel',['GinLookAndFeel',['../classGinLookAndFeel.html#ae2f7157e485bb30b42f4b47e617a3c17',1,'GinLookAndFeel']]],
-  ['goldenratiocolor',['goldenRatioColor',['../group__gin-utilities.html#gaf2e5284957f4390502132e880faf157e',1,'gin_util.h']]]
+  ['goldenratiocolor',['goldenRatioColor',['../group__gin-utilities.html#gaf2e5284957f4390502132e880faf157e',1,'gin_util.h']]],
+  ['gradientrect',['gradientRect',['../group__gin__plugin-components.html#ga4110716757a10f2f9ba0a3e756a03b1c',1,'gin_parambox.h']]]
 ];

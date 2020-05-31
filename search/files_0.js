@@ -61,6 +61,7 @@ var searchData=
   ['gin_5foauth_2eh',['gin_oauth.h',['../gin__oauth_8h.html',1,'']]],
   ['gin_5fopenstreetmaps_2eh',['gin_openstreetmaps.h',['../gin__openstreetmaps_8h.html',1,'']]],
   ['gin_5foscillators_2eh',['gin_oscillators.h',['../gin__oscillators_8h.html',1,'']]],
+  ['gin_5fparambox_2eh',['gin_parambox.h',['../gin__parambox_8h.html',1,'']]],
   ['gin_5fparameter_2eh',['gin_parameter.h',['../gin__parameter_8h.html',1,'']]],
   ['gin_5fpatchbrowser_2eh',['gin_patchbrowser.h',['../gin__patchbrowser_8h.html',1,'']]],
   ['gin_5fplist_2eh',['gin_plist.h',['../gin__plist_8h.html',1,'']]],

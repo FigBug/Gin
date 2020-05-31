@@ -1,9 +1,12 @@
 var searchData=
 [
   ['pagedcontrolbox',['PagedControlBox',['../classPagedControlBox.html',1,'']]],
+  ['paramarea',['ParamArea',['../classParamArea.html',1,'']]],
+  ['parambox',['ParamBox',['../classParamBox.html',1,'']]],
   ['paramcomponent',['ParamComponent',['../classParamComponent.html',1,'']]],
   ['parameter',['Parameter',['../classParameter.html',1,'']]],
   ['parameters',['Parameters',['../structLFO_1_1Parameters.html',1,'LFO']]],
+  ['paramheader',['ParamHeader',['../classParamHeader.html',1,'']]],
   ['params',['Params',['../structStereoOscillator_1_1Params.html',1,'StereoOscillator::Params'],['../structVoicedStereoOscillator_1_1Params.html',1,'VoicedStereoOscillator&lt; O &gt;::Params'],['../structWTOscillator_1_1Params.html',1,'WTOscillator::Params']]],
   ['paramstate',['ParamState',['../structParameter_1_1ParamState.html',1,'Parameter']]],
   ['patchbrowser',['PatchBrowser',['../classPatchBrowser.html',1,'']]],
