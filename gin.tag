@@ -72,13 +72,6 @@
     <filename>gin__audioutil_8h</filename>
     <class kind="class">GainProcessor</class>
     <class kind="class">WetDryMix</class>
-    <member kind="define">
-      <type>#define</type>
-      <name>Q</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gacbcee443d6d55cb8600b3f240f5cf907</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="function">
       <type>Value</type>
       <name>findValue</name>
@@ -141,6 +134,13 @@
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
       <anchor>gac0cf29fe6b6b2a5456cb668c314305da</anchor>
       <arglist>(AudioSampleBuffer &amp;input, int start, int length)</arglist>
+    </member>
+    <member kind="variable">
+      <type>constexpr float</type>
+      <name>Q</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>gab7b12a212b5068cd4b83c5ef0af70511</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -12667,13 +12667,6 @@
     <class kind="class">WTOscillator</class>
     <class kind="struct">WTOscillator::Params</class>
     <class kind="class">WTVoicedStereoOscillator</class>
-    <member kind="define">
-      <type>#define</type>
-      <name>Q</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gacbcee443d6d55cb8600b3f240f5cf907</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="enumeration">
       <type></type>
       <name>Wave</name>
@@ -12808,6 +12801,13 @@
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
       <anchor>ga1e4be281085e4d0aacfec1936cca1e6b</anchor>
       <arglist>(OwnedArray&lt; BandLimitedLookupTable &gt; &amp;bllt, AudioSampleBuffer &amp;buffer, double sampleRate, int tableSize)</arglist>
+    </member>
+    <member kind="variable">
+      <type>constexpr float</type>
+      <name>Q</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>gab7b12a212b5068cd4b83c5ef0af70511</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="group">
