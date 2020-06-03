@@ -10,7 +10,7 @@
 
 #pragma once
 
-#define Q 0.70710678118655f
+inline constexpr float Q = 0.70710678118655f;
 
 //==============================================================================
 inline Value findValue (ValueTree& state, Identifier name, var value)
