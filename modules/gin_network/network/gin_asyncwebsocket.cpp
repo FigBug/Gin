@@ -26,11 +26,13 @@ void AsyncWebsocket::disconnect()
 {
     signalThreadShouldExit();
 
-    if (impl->socket != nullptr)
-        impl->socket->interrupt();
+    {
+        ScopedLock sl (lock);
+        if (impl->socket != nullptr)
+            impl->socket->interrupt();
+    }
 
     stopThread (5000);
-    impl->socket = nullptr;
 }
 
 void AsyncWebsocket::connect()
@@ -45,7 +47,10 @@ void AsyncWebsocket::run()
 
     if (auto ws = easywsclient::WebSocket::from_url (url.toString (true).toStdString()))
     {
-        impl->socket.reset (ws);
+        {
+            ScopedLock sl (lock);
+            impl->socket.reset (ws);
+        }
 
         MM::callAsync ([this, weakThis]
                        {
@@ -53,11 +58,8 @@ void AsyncWebsocket::run()
                                onConnect();
                        });
         
-        while (true)
+        while (! threadShouldExit())
         {
-            if (threadShouldExit())
-                break;
-
             impl->socket->poll (4000);
             if (impl->socket->getReadyState() == easywsclient::WebSocket::CLOSED)
                 break;
@@ -75,6 +77,11 @@ void AsyncWebsocket::run()
 
         if (impl->socket->getReadyState() != easywsclient::WebSocket::CLOSED)
             impl->socket->close();
+    }
+
+    {
+        ScopedLock sl (lock);
+        impl->socket = nullptr;
     }
 
     MM::callAsync ([this, weakThis]
@@ -110,7 +117,7 @@ void AsyncWebsocket::processIncomingData()
 
 void AsyncWebsocket::processOutgoingData()
 {
-    ScopedLock sl (outgoingQueueLock);
+    ScopedLock sl (lock);
     for (auto& data : outgoingQueue)
     {
         if (data.type == pingMsg)
@@ -144,10 +151,9 @@ bool AsyncWebsocket::isConnected()
 
 void AsyncWebsocket::send (const juce::String& text)
 {
+    ScopedLock sl (lock);
     if (impl->socket != nullptr)
     {
-        ScopedLock sl (outgoingQueueLock);
-
         outgoingQueue.add ({ text });
         impl->socket->interrupt();
     }
@@ -155,10 +161,9 @@ void AsyncWebsocket::send (const juce::String& text)
 
 void AsyncWebsocket::send (const juce::MemoryBlock& binary)
 {
+    ScopedLock sl (lock);
     if (impl->socket != nullptr)
     {
-        ScopedLock sl (outgoingQueueLock);
-
         outgoingQueue.add ({ binary });
         impl->socket->interrupt();
     }
@@ -166,10 +171,9 @@ void AsyncWebsocket::send (const juce::MemoryBlock& binary)
 
 void AsyncWebsocket::sendPing()
 {
+    ScopedLock sl (lock);
     if (impl->socket != nullptr)
     {
-        ScopedLock sl (outgoingQueueLock);
-
         // If we are manually sending a ping, delay the automatic pings
         lastPing = Time::getMillisecondCounterHiRes() / 1000;
 

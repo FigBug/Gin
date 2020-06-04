@@ -67,7 +67,7 @@ private:
         juce::MemoryBlock data;
     };
 
-    juce::CriticalSection outgoingQueueLock;
+    juce::CriticalSection lock;
     juce::Array<QueueData> outgoingQueue;
     double lastPing { juce::Time::getMillisecondCounterHiRes() / 1000 };
     int pingInterval;
