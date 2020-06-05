@@ -2833,6 +2833,13 @@
       <arglist>()=default</arglist>
     </member>
     <member kind="function">
+      <type></type>
+      <name>~CoalescedTimer</name>
+      <anchorfile>classCoalescedTimer.html</anchorfile>
+      <anchor>a40c33871fd2db541b880ad506c1dcc0b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>startTimer</name>
       <anchorfile>classCoalescedTimer.html</anchorfile>

@@ -6,6 +6,7 @@ var searchData=
   ['_7easyncdownload',['~AsyncDownload',['../classAsyncDownload.html#ad5003941070216619614340a29210f1e',1,'AsyncDownload']]],
   ['_7easynclambdavaluetreelistener',['~AsyncLambdaValueTreeListener',['../classAsyncLambdaValueTreeListener.html#a63db65f7ad15b14ef1552ff0a49e8357',1,'AsyncLambdaValueTreeListener']]],
   ['_7easyncwebsocket',['~AsyncWebsocket',['../classAsyncWebsocket.html#a0a277b2e4494535bff9ba2b323f80c2b',1,'AsyncWebsocket']]],
+  ['_7ecoalescedtimer',['~CoalescedTimer',['../classCoalescedTimer.html#a40c33871fd2db541b880ad506c1dcc0b',1,'CoalescedTimer']]],
   ['_7ecommentmetadata',['~CommentMetadata',['../classCommentMetadata.html#af26102b15ed0813fa97e828f51ef70c5',1,'CommentMetadata']]],
   ['_7ecomponentviewer',['~ComponentViewer',['../classComponentViewer.html#a50ad244fd889c8059930d947aa206d48',1,'ComponentViewer']]],
   ['_7ecopperlookandfeelwrapper',['~CopperLookAndFeelWrapper',['../classCopperLookAndFeelWrapper.html#af2da6ddd887a26c92e047e30d0f08c9a',1,'CopperLookAndFeelWrapper']]],
