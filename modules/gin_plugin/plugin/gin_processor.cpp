@@ -155,7 +155,7 @@ bool Processor::parameterBoolValue (const String& uid)
     return false;
 }
 
-const Array<Parameter*>& Processor::getPluginParameters()
+const Array<gin::Parameter*>& Processor::getPluginParameters()
 {
     return allParameters;
 }

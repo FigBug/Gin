@@ -29,8 +29,8 @@ public:
 //==============================================================================
 /** A process with internal and external params
 */
-class Processor : public AudioProcessor,
-                  public ChangeBroadcaster
+class Processor : public juce::AudioPluginInstance,
+                  public juce::ChangeBroadcaster
 {
 public:
     //==============================================================================
@@ -44,26 +44,28 @@ public:
 
     virtual std::unique_ptr<PropertiesFile> getSettings();
 
+    void fillInPluginDescription (PluginDescription&) const override {}
+
     //==============================================================================
     using AudioProcessor::getParameter;
 
-    void addPluginParameter (Parameter* parameter);
+    void addPluginParameter (gin::Parameter* parameter);
 
-    Parameter* addExtParam (String uid, String name, String shortName, String label,
-                            NormalisableRange<float> range, float defaultValue,
-                            SmoothingType st,
-                            std::function<String (const Parameter&, float)> textFunction = nullptr);
+    gin::Parameter* addExtParam (String uid, String name, String shortName, String label,
+                                 NormalisableRange<float> range, float defaultValue,
+                                 SmoothingType st,
+                                 std::function<String (const Parameter&, float)> textFunction = nullptr);
 
-    Parameter* addIntParam (String uid, String name, String shortName, String label,
-                            NormalisableRange<float> range, float defaultValue,
-                            SmoothingType st,
-                            std::function<String (const Parameter&, float)> textFunction = nullptr);
+    gin::Parameter* addIntParam (String uid, String name, String shortName, String label,
+                                 NormalisableRange<float> range, float defaultValue,
+                                 SmoothingType st,
+                                 std::function<String (const Parameter&, float)> textFunction = nullptr);
 
-    Parameter* getParameter (const String& uid);
+    gin::Parameter* getParameter (const String& uid);
     float parameterValue (const String& uid);
     int parameterIntValue (const String& uid);
     bool parameterBoolValue (const String& uid);
-    const Array<Parameter*>& getPluginParameters();
+    const Array<gin::Parameter*>& getPluginParameters();
 
     bool isSmoothing();
 
@@ -98,7 +100,7 @@ public:
 public:
     SharedResourcePointer<CopperLookAndFeelWrapper> lf;
 
-    std::map<String, Parameter*> parameterMap;
+    std::map<String, gin::Parameter*> parameterMap;
     OwnedArray<Parameter> internalParameters;
 
     ValueTree state;
@@ -110,12 +112,12 @@ protected:
     void extractProgram (const String& name, const MemoryBlock& data);
 
 private:
-    Parameter* createParam (String uid, String name, String shortName, String label,
-                            NormalisableRange<float> range, float defaultValue,
-                            SmoothingType st,
-                            std::function<String (const Parameter&, float)> textFunction = nullptr);
+    gin::Parameter* createParam (String uid, String name, String shortName, String label,
+                                 NormalisableRange<float> range, float defaultValue,
+                                 SmoothingType st,
+                                 std::function<String (const Parameter&, float)> textFunction = nullptr);
 
-    Array<Parameter*> allParameters;
+    Array<gin::Parameter*> allParameters;
 
     void updateParams();
 

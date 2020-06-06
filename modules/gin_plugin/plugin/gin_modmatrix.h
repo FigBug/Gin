@@ -37,7 +37,7 @@ public:
     ModVoice() = default;
     virtual ~ModVoice() = default;
 
-    float getValue (Parameter* p);
+    float getValue (gin::Parameter* p);
 
     void finishBlock (int numSamples)
     {
@@ -90,7 +90,7 @@ public:
     void updateState (ValueTree& vt);
 
     //==============================================================================
-    float getValue (Parameter* p)
+    float getValue (gin::Parameter* p)
     {
         const int paramId = p->getModIndex();
 
@@ -119,7 +119,7 @@ public:
         return v;
     }
 
-    float getValue (ModVoice& voice, Parameter* p)
+    float getValue (ModVoice& voice, gin::Parameter* p)
     {
         const int paramId = p->getModIndex();
 
@@ -148,7 +148,7 @@ public:
         return v;
     }
 
-    Array<float> getLiveValues (Parameter* p)
+    Array<float> getLiveValues (gin::Parameter* p)
     {
         Array<float> liveValues;
 
@@ -234,7 +234,7 @@ public:
     void addVoice (ModVoice* v);
     ModSrcId addMonoModSource (const String& id, const String& name, bool bipolar);
     ModSrcId addPolyModSource (const String& id, const String& name, bool bipolar);
-    void addParameter (Parameter* p, bool poly);
+    void addParameter (gin::Parameter* p, bool poly);
 
     void setSampleRate (double sampleRate);
     void build();
@@ -250,7 +250,7 @@ public:
     bool getModSrcPoly (ModSrcId src)       { return sources[src.id].poly;      }
     bool getModSrcBipolar (ModSrcId src)    { return sources[src.id].bipolar;   }
 
-    Array<ModSrcId> getModSources (Parameter*);
+    Array<ModSrcId> getModSources (gin::Parameter*);
 
     bool isModulated (ModDstId param);
 
@@ -297,7 +297,7 @@ private:
 
     struct ParamInfo
     {
-        Parameter* parameter;
+        gin::Parameter* parameter;
         bool poly = false;
         Array<Source> sources;
     };
@@ -319,7 +319,7 @@ private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ModMatrix)
 };
 
-inline float ModVoice::getValue (Parameter* p)
+inline float ModVoice::getValue (gin::Parameter* p)
 {
     return owner->getValue (*this, p);
 }
