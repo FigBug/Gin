@@ -166,6 +166,11 @@ public:
         }
     }
 
+    double getSampleRate()
+    {
+        return sampleRate;
+    }
+
 private:
     double sampleRate = 0;
     int notesPerTable = 3, tableSize = 2048;

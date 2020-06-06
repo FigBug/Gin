@@ -67,10 +67,10 @@ public:
             o->setSampleRate (sr);
     }
     
-    void noteOn()
+    void noteOn (float phase = -1)
     {
         for (auto o : oscillators)
-            o->noteOn();
+            o->noteOn (phase);
     }
     
     void process (float note, const Params& params, AudioSampleBuffer& buffer)
