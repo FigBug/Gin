@@ -20,6 +20,7 @@
  #pragma clang diagnostic ignored "-Wshadow"
  #pragma clang diagnostic ignored "-Wunused-parameter"
  #pragma clang diagnostic ignored "-Wzero-as-null-pointer-constant"
+ #pragma clang diagnostic ignored "-Wc99-extensions"
 #endif
 
 #if _MSC_VER

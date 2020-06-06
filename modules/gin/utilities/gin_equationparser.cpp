@@ -8,6 +8,7 @@ For more information visit www.rabiensoftware.com
 #if __clang__
  #pragma clang diagnostic push
  #pragma clang diagnostic ignored "-Wswitch-enum"
+ #pragma clang diagnostic ignored "-Wnested-anon-types"
 #endif
 
 #include "../3rdparty/muParser/muParser.h"

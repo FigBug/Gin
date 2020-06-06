@@ -54,12 +54,12 @@ public:
     gin::Parameter* addExtParam (String uid, String name, String shortName, String label,
                                  NormalisableRange<float> range, float defaultValue,
                                  SmoothingType st,
-                                 std::function<String (const Parameter&, float)> textFunction = nullptr);
+                                 std::function<String (const gin::Parameter&, float)> textFunction = nullptr);
 
     gin::Parameter* addIntParam (String uid, String name, String shortName, String label,
                                  NormalisableRange<float> range, float defaultValue,
                                  SmoothingType st,
-                                 std::function<String (const Parameter&, float)> textFunction = nullptr);
+                                 std::function<String (const gin::Parameter&, float)> textFunction = nullptr);
 
     gin::Parameter* getParameter (const String& uid);
     float parameterValue (const String& uid);
@@ -101,7 +101,7 @@ public:
     SharedResourcePointer<CopperLookAndFeelWrapper> lf;
 
     std::map<String, gin::Parameter*> parameterMap;
-    OwnedArray<Parameter> internalParameters;
+    OwnedArray<gin::Parameter> internalParameters;
 
     ValueTree state;
 
@@ -115,7 +115,7 @@ private:
     gin::Parameter* createParam (String uid, String name, String shortName, String label,
                                  NormalisableRange<float> range, float defaultValue,
                                  SmoothingType st,
-                                 std::function<String (const Parameter&, float)> textFunction = nullptr);
+                                 std::function<String (const gin::Parameter&, float)> textFunction = nullptr);
 
     Array<gin::Parameter*> allParameters;
 

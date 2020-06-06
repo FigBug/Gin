@@ -226,7 +226,7 @@ void ModMatrix::clearModDepth (ModSrcId src, ModDstId param)
     listeners.call ([&] (Listener& l) { l.modMatrixChanged(); });
 }
 
-Array<ModSrcId> ModMatrix::getModSources (Parameter* param)
+Array<ModSrcId> ModMatrix::getModSources (gin::Parameter* param)
 {
     Array<ModSrcId> srcs;
 

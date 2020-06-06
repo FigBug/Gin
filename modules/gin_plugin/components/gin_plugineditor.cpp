@@ -6,6 +6,7 @@ UpdateChecker::UpdateChecker (ProcessorEditor& editor_)
 {
     if (std::unique_ptr<PropertiesFile> props = editor.slProc.getSettings())
     {
+       #ifdef JucePlugin_Name
         String url = props->getValue (JucePlugin_Name "_updateUrl");
         int last   = props->getIntValue (JucePlugin_Name "_lastUpdateCheck");
 
@@ -13,6 +14,7 @@ UpdateChecker::UpdateChecker (ProcessorEditor& editor_)
             editor.updateReady (url);
         else if (time (nullptr) > last + 86400)
             startTimer (Random::getSystemRandom().nextInt ({1500, 2500}));
+       #endif
     }
 }
 
@@ -30,6 +32,7 @@ void UpdateChecker::timerCallback()
 
 void UpdateChecker::run()
 {
+   #ifdef JucePlugin_Name
     URL versionsUrl = URL ("https://socalabs.com/version.xml").withParameter ("plugin", JucePlugin_Name).withParameter ("version", JucePlugin_VersionString);
     XmlDocument doc (versionsUrl.readEntireTextStream());
     if (std::unique_ptr<XmlElement> root = doc.getDocumentElement())
@@ -58,6 +61,7 @@ void UpdateChecker::run()
             }
         }
     }
+   #endif
 }
 
 //==============================================================================
@@ -185,7 +189,7 @@ Rectangle<int> ProcessorEditorBase::getControlsArea()
 
 //==============================================================================
 ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_) noexcept
-  : ProcessorEditorBase (p), slProc (p)
+  : ProcessorEditorBase (p, cx_, cy_), slProc (p)
 {
     setLookAndFeel (&slProc.lf.get());
 
@@ -356,10 +360,12 @@ void ProcessorEditor::buttonClicked (Button* b)
     {
         String msg;
 
+       #ifdef JucePlugin_Name
        #if JUCE_DEBUG
         msg += JucePlugin_Name " v" JucePlugin_VersionString " (" __TIME__ " " __DATE__ ")\n\n";
        #else
         msg += JucePlugin_Name " v" JucePlugin_VersionString " (" __DATE__ ")\n\n";
+       #endif
        #endif
         msg += "Roland Rabien\nDavid Rowland\nRAW Material Software JUCE Framework\n";
         if (additionalProgramming.isNotEmpty())
@@ -376,11 +382,13 @@ void ProcessorEditor::buttonClicked (Button* b)
     }
     else if (b == &updateButton)
     {
+       #ifdef JucePlugin_Name
         URL (updateUrl).launchInDefaultBrowser();
         updateButton.setVisible (false);
 
         if (std::unique_ptr<PropertiesFile> props = slProc.getSettings())
             props->setValue (JucePlugin_Name "_updateUrl", "");
+       #endif
     }
     else if (b == &socaButton)
     {

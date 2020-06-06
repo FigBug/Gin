@@ -269,7 +269,7 @@ class ModMatrixBox : public ListBox,
                      private ModMatrix::Listener
 {
 public:
-    ModMatrixBox (Processor& p, ModMatrix& m)
+    ModMatrixBox (gin::Processor& p, ModMatrix& m)
         : proc (p), modMatrix (m)
     {
         setModel (this);
@@ -289,7 +289,8 @@ private:
     {
         assignments.clear();
 
-        for (auto p : proc.getPluginParameters())
+        auto& params = proc.getPluginParameters();
+        for (gin::Parameter* p : params)
             for (auto s : modMatrix.getModSources (p))
                 assignments.add ({s, p});
         
@@ -399,7 +400,7 @@ private:
         Parameter* dst = nullptr;
     };
 
-    Processor& proc;
-    ModMatrix& modMatrix;
+    gin::Processor& proc;
+    gin::ModMatrix& modMatrix;
     Array<Assignment> assignments;
 };

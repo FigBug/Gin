@@ -11,7 +11,7 @@ public:
     SmoothedParameter (Processor& p, String uid_, String name_, String shortName_, String label_,
                        float minValue_, float maxValue_,
                        float intervalValue_, float defaultValue_, float skewFactor_ = 1.0f,
-                       std::function<String (const Parameter&, float)> textFunction_ = nullptr)
+                       std::function<String (const gin::Parameter&, float)> textFunction_ = nullptr)
         : Parameter (p, uid_, name_, shortName_, label_, minValue_, maxValue_, intervalValue_, defaultValue_, skewFactor_, textFunction_)
     {
         smoother.setValue (range.convertTo0to1 (value));
@@ -19,7 +19,7 @@ public:
 
     SmoothedParameter (Processor& p, String uid_, String name_, String shortName_, String label_,
                        NormalisableRange<float> range_, float defaultValue_,
-                       std::function<String (const Parameter&, float)> textFunction_ = nullptr)
+                       std::function<String (const gin::Parameter&, float)> textFunction_ = nullptr)
         : Parameter (p, uid_, name_, shortName_, label_, range_, defaultValue_, textFunction_)
     {
         smoother.setValue (range.convertTo0to1 (value));
