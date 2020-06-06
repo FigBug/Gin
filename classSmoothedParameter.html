@@ -74,10 +74,10 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac0be026612637134edc3ec6fa6425e86"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSmoothedParameter.html#ac0be026612637134edc3ec6fa6425e86">SmoothedParameter</a> (<a class="el" href="classProcessor.html">Processor</a> &amp;p, String uid_, String name_, String shortName_, String label_, float minValue_, float maxValue_, float intervalValue_, float defaultValue_, float skewFactor_=1.0f, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction_=nullptr)</td></tr>
-<tr class="separator:ac0be026612637134edc3ec6fa6425e86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a843b37ea01776aafe158904bc30866a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSmoothedParameter.html#a843b37ea01776aafe158904bc30866a4">SmoothedParameter</a> (<a class="el" href="classProcessor.html">Processor</a> &amp;p, String uid_, String name_, String shortName_, String label_, NormalisableRange&lt; float &gt; range_, float defaultValue_, std::function&lt; String(const <a class="el" href="classParameter.html">Parameter</a> &amp;, float)&gt; textFunction_=nullptr)</td></tr>
-<tr class="separator:a843b37ea01776aafe158904bc30866a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a40a947a3499e998543b97b22f12ff5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSmoothedParameter.html#a7a40a947a3499e998543b97b22f12ff5">SmoothedParameter</a> (<a class="el" href="classProcessor.html">Processor</a> &amp;p, String uid_, String name_, String shortName_, String label_, float minValue_, float maxValue_, float intervalValue_, float defaultValue_, float skewFactor_=1.0f, std::function&lt; String(const gin::Parameter &amp;, float)&gt; textFunction_=nullptr)</td></tr>
+<tr class="separator:a7a40a947a3499e998543b97b22f12ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30832d1e389c7bd3c7b4d8c6544d248b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSmoothedParameter.html#a30832d1e389c7bd3c7b4d8c6544d248b">SmoothedParameter</a> (<a class="el" href="classProcessor.html">Processor</a> &amp;p, String uid_, String name_, String shortName_, String label_, NormalisableRange&lt; float &gt; range_, float defaultValue_, std::function&lt; String(const gin::Parameter &amp;, float)&gt; textFunction_=nullptr)</td></tr>
+<tr class="separator:a30832d1e389c7bd3c7b4d8c6544d248b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7fcd3012e8f526fa9ba08117744c4b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSmoothedParameter.html#aa7fcd3012e8f526fa9ba08117744c4b7">prepareToPlay</a> (double sampleRate, int) override</td></tr>
 <tr class="separator:aa7fcd3012e8f526fa9ba08117744c4b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2426967e4e401180c3740087fee1e69e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSmoothedParameter.html#a2426967e4e401180c3740087fee1e69e">reset</a> () override</td></tr>
@@ -106,8 +106,8 @@ class SmoothedParameter&lt; T &gt;</h3>
 
 <p>A silky smooth parameter. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac0be026612637134edc3ec6fa6425e86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0be026612637134edc3ec6fa6425e86">&#9670;&nbsp;</a></span>SmoothedParameter() <span class="overload">[1/2]</span></h2>
+<a id="a7a40a947a3499e998543b97b22f12ff5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a40a947a3499e998543b97b22f12ff5">&#9670;&nbsp;</a></span>SmoothedParameter() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,7 +177,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; String(const <a class="el" href="classParameter.html">Parameter</a> &amp;, float)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; String(const gin::Parameter &amp;, float)&gt;&#160;</td>
           <td class="paramname"><em>textFunction_</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
@@ -192,8 +192,8 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="a843b37ea01776aafe158904bc30866a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a843b37ea01776aafe158904bc30866a4">&#9670;&nbsp;</a></span>SmoothedParameter() <span class="overload">[2/2]</span></h2>
+<a id="a30832d1e389c7bd3c7b4d8c6544d248b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30832d1e389c7bd3c7b4d8c6544d248b">&#9670;&nbsp;</a></span>SmoothedParameter() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -245,7 +245,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; String(const <a class="el" href="classParameter.html">Parameter</a> &amp;, float)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; String(const gin::Parameter &amp;, float)&gt;&#160;</td>
           <td class="paramname"><em>textFunction_</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
@@ -524,7 +524,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classSmoothedParameter.html#a0d368f6b4aa20b3a5adb60b17a70d011">SmoothedParameter&lt; T &gt;::getProcValue()</a>, <a class="el" href="classSmoothedParameter.html#a30b054712a01a8376e8071926c0002a3">SmoothedParameter&lt; T &gt;::isSmoothingActive()</a>, <a class="el" href="classSmoothedParameter.html#aa7fcd3012e8f526fa9ba08117744c4b7">SmoothedParameter&lt; T &gt;::prepareToPlay()</a>, <a class="el" href="classSmoothedParameter.html#a2426967e4e401180c3740087fee1e69e">SmoothedParameter&lt; T &gt;::reset()</a>, <a class="el" href="classSmoothedParameter.html#af89156417f953ca71f34b50bdc65021e">SmoothedParameter&lt; T &gt;::setSmoothingTime()</a>, <a class="el" href="classSmoothedParameter.html#a5fc33dae16fc8a344df404d4794c1d61">SmoothedParameter&lt; T &gt;::setUserValue()</a>, <a class="el" href="classSmoothedParameter.html#aff236e911f028b816804ce22a4d15710">SmoothedParameter&lt; T &gt;::setUserValueNotifingHost()</a>, <a class="el" href="classSmoothedParameter.html#ac739a04f2772dbbfbe2293f8793fa7e1">SmoothedParameter&lt; T &gt;::setValue()</a>, and <a class="el" href="classSmoothedParameter.html#ac0be026612637134edc3ec6fa6425e86">SmoothedParameter&lt; T &gt;::SmoothedParameter()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classSmoothedParameter.html#a0d368f6b4aa20b3a5adb60b17a70d011">SmoothedParameter&lt; T &gt;::getProcValue()</a>, <a class="el" href="classSmoothedParameter.html#a30b054712a01a8376e8071926c0002a3">SmoothedParameter&lt; T &gt;::isSmoothingActive()</a>, <a class="el" href="classSmoothedParameter.html#aa7fcd3012e8f526fa9ba08117744c4b7">SmoothedParameter&lt; T &gt;::prepareToPlay()</a>, <a class="el" href="classSmoothedParameter.html#a2426967e4e401180c3740087fee1e69e">SmoothedParameter&lt; T &gt;::reset()</a>, <a class="el" href="classSmoothedParameter.html#af89156417f953ca71f34b50bdc65021e">SmoothedParameter&lt; T &gt;::setSmoothingTime()</a>, <a class="el" href="classSmoothedParameter.html#a5fc33dae16fc8a344df404d4794c1d61">SmoothedParameter&lt; T &gt;::setUserValue()</a>, <a class="el" href="classSmoothedParameter.html#aff236e911f028b816804ce22a4d15710">SmoothedParameter&lt; T &gt;::setUserValueNotifingHost()</a>, <a class="el" href="classSmoothedParameter.html#ac739a04f2772dbbfbe2293f8793fa7e1">SmoothedParameter&lt; T &gt;::setValue()</a>, and <a class="el" href="classSmoothedParameter.html#a7a40a947a3499e998543b97b22f12ff5">SmoothedParameter&lt; T &gt;::SmoothedParameter()</a>.</p>
 
 </div>
 </div>
@@ -534,7 +534,7 @@ template&lt;class T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 6 2020 21:55:50 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 6 2020 22:34:41 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

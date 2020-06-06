@@ -91,10 +91,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2108f087e9589aaa354ec0f6bc3ee06b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b2ed4cc27b858a3aac157c05e7b273e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a4b2ed4cc27b858a3aac157c05e7b273e">addPluginParameter</a> (gin::Parameter *parameter)</td></tr>
 <tr class="separator:a4b2ed4cc27b858a3aac157c05e7b273e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a9e74e04f0f5b40288616aa1d561f9b"><td class="memItemLeft" align="right" valign="top">gin::Parameter *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a0a9e74e04f0f5b40288616aa1d561f9b">addExtParam</a> (String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, <a class="el" href="classSmoothingType.html">SmoothingType</a> st, std::function&lt; String(const <a class="el" href="classParameter.html">Parameter</a> &amp;, float)&gt; textFunction=nullptr)</td></tr>
-<tr class="separator:a0a9e74e04f0f5b40288616aa1d561f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1b6d9b7c2f5dea78a62ef0e49d725b3"><td class="memItemLeft" align="right" valign="top">gin::Parameter *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ac1b6d9b7c2f5dea78a62ef0e49d725b3">addIntParam</a> (String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, <a class="el" href="classSmoothingType.html">SmoothingType</a> st, std::function&lt; String(const <a class="el" href="classParameter.html">Parameter</a> &amp;, float)&gt; textFunction=nullptr)</td></tr>
-<tr class="separator:ac1b6d9b7c2f5dea78a62ef0e49d725b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1f637d866a9c83e58aba4f62e8ccda8"><td class="memItemLeft" align="right" valign="top">gin::Parameter *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ad1f637d866a9c83e58aba4f62e8ccda8">addExtParam</a> (String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, <a class="el" href="classSmoothingType.html">SmoothingType</a> st, std::function&lt; String(const gin::Parameter &amp;, float)&gt; textFunction=nullptr)</td></tr>
+<tr class="separator:ad1f637d866a9c83e58aba4f62e8ccda8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2115f4c7a79575b800f54f4a8f3187f"><td class="memItemLeft" align="right" valign="top">gin::Parameter *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ab2115f4c7a79575b800f54f4a8f3187f">addIntParam</a> (String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, <a class="el" href="classSmoothingType.html">SmoothingType</a> st, std::function&lt; String(const gin::Parameter &amp;, float)&gt; textFunction=nullptr)</td></tr>
+<tr class="separator:ab2115f4c7a79575b800f54f4a8f3187f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01f09fc4364bd8d2a4a23eac43607870"><td class="memItemLeft" align="right" valign="top">gin::Parameter *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a01f09fc4364bd8d2a4a23eac43607870">getParameter</a> (const String &amp;uid)</td></tr>
 <tr class="separator:a01f09fc4364bd8d2a4a23eac43607870"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8eefaac8d8162df52e21df9a12dea74f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a8eefaac8d8162df52e21df9a12dea74f">parameterValue</a> (const String &amp;uid)</td></tr>
@@ -150,8 +150,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a336835ab059bdd6543a056aa5601cb26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa90d44e1935615025daf6a07e9e9e972"><td class="memItemLeft" align="right" valign="top">std::map&lt; String, gin::Parameter * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#aa90d44e1935615025daf6a07e9e9e972">parameterMap</a></td></tr>
 <tr class="separator:aa90d44e1935615025daf6a07e9e9e972"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8352d55c3045453d304ff1a6a2ef59ff"><td class="memItemLeft" align="right" valign="top">OwnedArray&lt; <a class="el" href="classParameter.html">Parameter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a8352d55c3045453d304ff1a6a2ef59ff">internalParameters</a></td></tr>
-<tr class="separator:a8352d55c3045453d304ff1a6a2ef59ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4e425ac75469a160965371f4776bf3c"><td class="memItemLeft" align="right" valign="top">OwnedArray&lt; gin::Parameter &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ad4e425ac75469a160965371f4776bf3c">internalParameters</a></td></tr>
+<tr class="separator:ad4e425ac75469a160965371f4776bf3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab99be5fb7bcd0f2e761e160526a5af57"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ab99be5fb7bcd0f2e761e160526a5af57">state</a></td></tr>
 <tr class="separator:ab99be5fb7bcd0f2e761e160526a5af57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -358,8 +358,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a0a9e74e04f0f5b40288616aa1d561f9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a9e74e04f0f5b40288616aa1d561f9b">&#9670;&nbsp;</a></span>addExtParam()</h2>
+<a id="ad1f637d866a9c83e58aba4f62e8ccda8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1f637d866a9c83e58aba4f62e8ccda8">&#9670;&nbsp;</a></span>addExtParam()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -409,7 +409,7 @@ Protected Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; String(const <a class="el" href="classParameter.html">Parameter</a> &amp;, float)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; String(const gin::Parameter &amp;, float)&gt;&#160;</td>
           <td class="paramname"><em>textFunction</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
@@ -422,8 +422,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac1b6d9b7c2f5dea78a62ef0e49d725b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1b6d9b7c2f5dea78a62ef0e49d725b3">&#9670;&nbsp;</a></span>addIntParam()</h2>
+<a id="ab2115f4c7a79575b800f54f4a8f3187f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2115f4c7a79575b800f54f4a8f3187f">&#9670;&nbsp;</a></span>addIntParam()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -473,7 +473,7 @@ Protected Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; String(const <a class="el" href="classParameter.html">Parameter</a> &amp;, float)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; String(const gin::Parameter &amp;, float)&gt;&#160;</td>
           <td class="paramname"><em>textFunction</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
@@ -1158,14 +1158,14 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a8352d55c3045453d304ff1a6a2ef59ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8352d55c3045453d304ff1a6a2ef59ff">&#9670;&nbsp;</a></span>internalParameters</h2>
+<a id="ad4e425ac75469a160965371f4776bf3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4e425ac75469a160965371f4776bf3c">&#9670;&nbsp;</a></span>internalParameters</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">OwnedArray&lt;<a class="el" href="classParameter.html">Parameter</a>&gt; Processor::internalParameters</td>
+          <td class="memname">OwnedArray&lt;gin::Parameter&gt; Processor::internalParameters</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1192,7 +1192,7 @@ Protected Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 6 2020 21:55:50 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 6 2020 22:34:41 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

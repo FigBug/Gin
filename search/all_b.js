@@ -17,7 +17,7 @@ var searchData=
   ['mode',['Mode',['../classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4',1,'EnvelopeDetector::Mode()'],['../classEnvelopeDetector.html#a1804f11c1918ee0aeee94093a3057415',1,'EnvelopeDetector::mode()']]],
   ['modindex',['modIndex',['../classParameter.html#a7310a6224d36ab27a14237aab7d8fadd',1,'Parameter']]],
   ['modmatrix',['ModMatrix',['../classModMatrix.html',1,'ModMatrix'],['../classModMatrix.html#a923354065c39928704876d0b29e568c9',1,'ModMatrix::ModMatrix()'],['../classParameter.html#a30f079fa8ecf5c5cd5735777e1ba74c8',1,'Parameter::modMatrix()']]],
-  ['modmatrixbox',['ModMatrixBox',['../classModMatrixBox.html',1,'ModMatrixBox'],['../classModMatrixBox.html#a2a225493f7f6a22a5c032f92171c40e3',1,'ModMatrixBox::ModMatrixBox()']]],
+  ['modmatrixbox',['ModMatrixBox',['../classModMatrixBox.html',1,'ModMatrixBox'],['../classModMatrixBox.html#acf1c7954f577749a28bf846cf9aafb4e',1,'ModMatrixBox::ModMatrixBox()']]],
   ['modmatrixchanged',['modMatrixChanged',['../classModMatrix_1_1Listener.html#a6d4c1fcaddd8a3f77a0b25813919eae3',1,'ModMatrix::Listener']]],
   ['modsrcid',['ModSrcId',['../structModSrcId.html',1,'ModSrcId'],['../structModSrcId.html#afd814dca3ee595f427b4e869f249f594',1,'ModSrcId::ModSrcId()=default'],['../structModSrcId.html#a4648ac76f10dd3a15792224ef7727526',1,'ModSrcId::ModSrcId(int id_)'],['../structModSrcId.html#a9998764b350a96cb887a65424ec17d72',1,'ModSrcId::ModSrcId(const ModSrcId &amp;other)']]],
   ['modsrclistbox',['ModSrcListBox',['../classModSrcListBox.html',1,'ModSrcListBox'],['../classModSrcListBox.html#a5c4217751fb20f7a41b4734d179d85b3',1,'ModSrcListBox::ModSrcListBox()']]],

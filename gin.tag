@@ -6866,8 +6866,8 @@
       <type></type>
       <name>ModMatrixBox</name>
       <anchorfile>classModMatrixBox.html</anchorfile>
-      <anchor>a2a225493f7f6a22a5c032f92171c40e3</anchor>
-      <arglist>(Processor &amp;p, ModMatrix &amp;m)</arglist>
+      <anchor>acf1c7954f577749a28bf846cf9aafb4e</anchor>
+      <arglist>(gin::Processor &amp;p, ModMatrix &amp;m)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -8928,15 +8928,15 @@
       <type>gin::Parameter *</type>
       <name>addExtParam</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a0a9e74e04f0f5b40288616aa1d561f9b</anchor>
-      <arglist>(String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
+      <anchor>ad1f637d866a9c83e58aba4f62e8ccda8</anchor>
+      <arglist>(String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, std::function&lt; String(const gin::Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>gin::Parameter *</type>
       <name>addIntParam</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>ac1b6d9b7c2f5dea78a62ef0e49d725b3</anchor>
-      <arglist>(String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
+      <anchor>ab2115f4c7a79575b800f54f4a8f3187f</anchor>
+      <arglist>(String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, std::function&lt; String(const gin::Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>gin::Parameter *</type>
@@ -9121,10 +9121,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>OwnedArray&lt; Parameter &gt;</type>
+      <type>OwnedArray&lt; gin::Parameter &gt;</type>
       <name>internalParameters</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a8352d55c3045453d304ff1a6a2ef59ff</anchor>
+      <anchor>ad4e425ac75469a160965371f4776bf3c</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -10871,15 +10871,15 @@
       <type></type>
       <name>SmoothedParameter</name>
       <anchorfile>classSmoothedParameter.html</anchorfile>
-      <anchor>ac0be026612637134edc3ec6fa6425e86</anchor>
-      <arglist>(Processor &amp;p, String uid_, String name_, String shortName_, String label_, float minValue_, float maxValue_, float intervalValue_, float defaultValue_, float skewFactor_=1.0f, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction_=nullptr)</arglist>
+      <anchor>a7a40a947a3499e998543b97b22f12ff5</anchor>
+      <arglist>(Processor &amp;p, String uid_, String name_, String shortName_, String label_, float minValue_, float maxValue_, float intervalValue_, float defaultValue_, float skewFactor_=1.0f, std::function&lt; String(const gin::Parameter &amp;, float)&gt; textFunction_=nullptr)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>SmoothedParameter</name>
       <anchorfile>classSmoothedParameter.html</anchorfile>
-      <anchor>a843b37ea01776aafe158904bc30866a4</anchor>
-      <arglist>(Processor &amp;p, String uid_, String name_, String shortName_, String label_, NormalisableRange&lt; float &gt; range_, float defaultValue_, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction_=nullptr)</arglist>
+      <anchor>a30832d1e389c7bd3c7b4d8c6544d248b</anchor>
+      <arglist>(Processor &amp;p, String uid_, String name_, String shortName_, String label_, NormalisableRange&lt; float &gt; range_, float defaultValue_, std::function&lt; String(const gin::Parameter &amp;, float)&gt; textFunction_=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>

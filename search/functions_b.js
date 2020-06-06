@@ -7,7 +7,7 @@ var searchData=
   ['mixtogain',['mixToGain',['../classWetDryMix.html#a6a642b5b4d79eb59f61ccfd70c67ae77',1,'WetDryMix']]],
   ['moddstid',['ModDstId',['../structModDstId.html#a5c07798cf7ac3ad89cf18d8956bf78d3',1,'ModDstId::ModDstId()=default'],['../structModDstId.html#a1cd816f0e6701f16922f19f3b5e64ccb',1,'ModDstId::ModDstId(int id_)'],['../structModDstId.html#aa3f249a7a06342976e5740e09d281a9e',1,'ModDstId::ModDstId(const ModDstId &amp;other)']]],
   ['modmatrix',['ModMatrix',['../classModMatrix.html#a923354065c39928704876d0b29e568c9',1,'ModMatrix']]],
-  ['modmatrixbox',['ModMatrixBox',['../classModMatrixBox.html#a2a225493f7f6a22a5c032f92171c40e3',1,'ModMatrixBox']]],
+  ['modmatrixbox',['ModMatrixBox',['../classModMatrixBox.html#acf1c7954f577749a28bf846cf9aafb4e',1,'ModMatrixBox']]],
   ['modmatrixchanged',['modMatrixChanged',['../classModMatrix_1_1Listener.html#a6d4c1fcaddd8a3f77a0b25813919eae3',1,'ModMatrix::Listener']]],
   ['modsrcid',['ModSrcId',['../structModSrcId.html#afd814dca3ee595f427b4e869f249f594',1,'ModSrcId::ModSrcId()=default'],['../structModSrcId.html#a4648ac76f10dd3a15792224ef7727526',1,'ModSrcId::ModSrcId(int id_)'],['../structModSrcId.html#a9998764b350a96cb887a65424ec17d72',1,'ModSrcId::ModSrcId(const ModSrcId &amp;other)']]],
   ['modsrclistbox',['ModSrcListBox',['../classModSrcListBox.html#a5c4217751fb20f7a41b4734d179d85b3',1,'ModSrcListBox']]],
