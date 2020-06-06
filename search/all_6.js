@@ -82,7 +82,7 @@ var searchData=
   ['getrawsockethandle',['getRawSocketHandle',['../classSecureStreamingSocket.html#a8d6d63b2c24572b03848be577bb1efb5',1,'SecureStreamingSocket']]],
   ['getreductiontracker',['getReductionTracker',['../classDynamics.html#a530bce32f3097ec92e28547dc09130e2',1,'Dynamics']]],
   ['getrootnote',['getRootNote',['../classSample.html#abe1e1e9fc398382c019ca15249cc13c4',1,'Sample']]],
-  ['getsamplerate',['getSampleRate',['../classSample.html#a6c25a4367bb3f7e3ec986e96c2472015',1,'Sample']]],
+  ['getsamplerate',['getSampleRate',['../classBandLimitedLookupTables.html#a82d39f6516c342b2ff3e5f08c7be21c3',1,'BandLimitedLookupTables::getSampleRate()'],['../classSample.html#a6c25a4367bb3f7e3ec986e96c2472015',1,'Sample::getSampleRate()']]],
   ['getsamples',['getSamples',['../classSample.html#a1b0fe029480464ca07e5e50cd18c7d05',1,'Sample']]],
   ['getsamplesused',['getSamplesUsed',['../classMidiFifo.html#a676220e418ef97d59568709ace608f99',1,'MidiFifo']]],
   ['getsettings',['getSettings',['../classProcessor.html#a8c7b3466839c4913b79f507447adda9e',1,'Processor']]],

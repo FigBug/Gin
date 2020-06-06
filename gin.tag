@@ -2679,6 +2679,13 @@
       <anchor>ad49cd21400d1e108e677a10ae5cddeb1</anchor>
       <arglist>(Wave wave, float note, float phase, float pw)</arglist>
     </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getSampleRate</name>
+      <anchorfile>classBandLimitedLookupTables.html</anchorfile>
+      <anchor>a82d39f6516c342b2ff3e5f08c7be21c3</anchor>
+      <arglist>()</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>BLLTVoicedStereoOscillator</name>
@@ -12024,8 +12031,8 @@
       <type>void</type>
       <name>noteOn</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a5ac4526d268934b71b92a7580e07743f</anchor>
-      <arglist>()</arglist>
+      <anchor>a319c65ef9916777690eb6cf3a7a117e9</anchor>
+      <arglist>(float phase=-1)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -12070,8 +12077,8 @@
       <type>void</type>
       <name>noteOn</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a5ac4526d268934b71b92a7580e07743f</anchor>
-      <arglist>()</arglist>
+      <anchor>a319c65ef9916777690eb6cf3a7a117e9</anchor>
+      <arglist>(float phase=-1)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -12116,8 +12123,8 @@
       <type>void</type>
       <name>noteOn</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a5ac4526d268934b71b92a7580e07743f</anchor>
-      <arglist>()</arglist>
+      <anchor>a319c65ef9916777690eb6cf3a7a117e9</anchor>
+      <arglist>(float phase=-1)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
