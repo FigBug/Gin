@@ -43,7 +43,7 @@ var searchData=
   ['setglideinfo',['setGlideInfo',['../classSynthesiserVoice.html#a414a524e658dda82521ee4279d337fe6',1,'SynthesiserVoice']]],
   ['setgliderate',['setGlideRate',['../classSynthesiser.html#a2e02ee6961b18517d08c8f249c02069e',1,'Synthesiser']]],
   ['setglissando',['setGlissando',['../classSynthesiser.html#a208354c73e07365bdb9b429aae2457d9',1,'Synthesiser']]],
-  ['setgridsize',['setGridSize',['../classProcessorEditor.html#a9bcbffa2139e2d5df452d75cfa6b25a9',1,'ProcessorEditor']]],
+  ['setgridsize',['setGridSize',['../classProcessorEditorBase.html#aae5f9927723bd09656437199e4c625b2',1,'ProcessorEditorBase']]],
   ['sethighlightedregion',['setHighlightedRegion',['../classSingleLineTextEditor.html#ad21d08c9c07853547e1c4124f7d9f55c',1,'SingleLineTextEditor']]],
   ['sethorizontaloffset',['setHorizontalOffset',['../classWaveformComponent.html#a6f14e12cd54d059e1a8f21ff3dd16af8',1,'WaveformComponent']]],
   ['sethorizontalzoom',['setHorizontalZoom',['../classWaveformComponent.html#a50f800af55a80afb60ed4fa7fdcdf54c',1,'WaveformComponent']]],

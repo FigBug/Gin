@@ -8,7 +8,8 @@ var searchData=
   ['releaseoffset',['releaseOffset',['../classAnalogADSR.html#a5e5463c72a492579721244d6d2ff4274',1,'AnalogADSR']]],
   ['releasetime',['releaseTime',['../classEnvelopeDetector.html#ac3265a876b56e1206513591f5c35ec2a',1,'EnvelopeDetector']]],
   ['resizelimits',['resizeLimits',['../classProcessorEditorBase.html#a4fb46e7bb4b9276eb8609df192b24bad',1,'ProcessorEditorBase']]],
+  ['resizer',['resizer',['../classProcessorEditorBase.html#a1e64bc7e4ea7f74b234b65f48ee3b0e7',1,'ProcessorEditorBase']]],
   ['responseheaders',['responseHeaders',['../structDownloadManager_1_1DownloadResult.html#a61710618191f0865d9e7da7e31875ee6',1,'DownloadManager::DownloadResult']]],
   ['rightgain',['rightGain',['../structStereoOscillator_1_1Params.html#a5c18505090d6b512295acdb7aa2ae707',1,'StereoOscillator::Params::rightGain()'],['../structWTOscillator_1_1Params.html#a432702cbb02f4013a3915a03ca672c39',1,'WTOscillator::Params::rightGain()']]],
-  ['rows',['rows',['../classProcessorEditor.html#aaafdcef09b498b0d5f58eccb2532a53c',1,'ProcessorEditor']]]
+  ['rows',['rows',['../classProcessorEditorBase.html#a0d3a93feb2d42d9424386d5e21660b1a',1,'ProcessorEditorBase']]]
 ];

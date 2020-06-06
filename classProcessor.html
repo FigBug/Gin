@@ -75,16 +75,18 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a50c89dbf76a073f4fb491628258cf292"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a50c89dbf76a073f4fb491628258cf292">Processor</a> ()</td></tr>
-<tr class="separator:a50c89dbf76a073f4fb491628258cf292"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4b297f2d055f3316918d3e23081a45a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ab4b297f2d055f3316918d3e23081a45a">Processor</a> (bool <a class="el" href="classProcessor.html#a22e869ee49d974ad0ee7ee81961ab88f">init</a>=true)</td></tr>
+<tr class="separator:ab4b297f2d055f3316918d3e23081a45a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d7c16d172be09d3bfb4df3519d21b31"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a3d7c16d172be09d3bfb4df3519d21b31">~Processor</a> () override</td></tr>
 <tr class="separator:a3d7c16d172be09d3bfb4df3519d21b31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22e869ee49d974ad0ee7ee81961ab88f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a22e869ee49d974ad0ee7ee81961ab88f">init</a> ()</td></tr>
+<tr class="separator:a22e869ee49d974ad0ee7ee81961ab88f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea94295621f428e66e1d2fc7bfb39bb6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#aea94295621f428e66e1d2fc7bfb39bb6">reset</a> () override</td></tr>
 <tr class="separator:aea94295621f428e66e1d2fc7bfb39bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91501bb29c8b65f444460ed1abc22824"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a91501bb29c8b65f444460ed1abc22824">prepareToPlay</a> (double sampleRate, int samplesPerBlock) override</td></tr>
 <tr class="separator:a91501bb29c8b65f444460ed1abc22824"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6baf47d558a2743ec72489bb6e736f8f"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; PropertiesFile &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a6baf47d558a2743ec72489bb6e736f8f">getSettings</a> ()</td></tr>
-<tr class="separator:a6baf47d558a2743ec72489bb6e736f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c7b3466839c4913b79f507447adda9e"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr&lt; PropertiesFile &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a8c7b3466839c4913b79f507447adda9e">getSettings</a> ()</td></tr>
+<tr class="separator:a8c7b3466839c4913b79f507447adda9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbdc7fc4fb7f31843145ddd14d9271b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#acbdc7fc4fb7f31843145ddd14d9271b1">addPluginParameter</a> (<a class="el" href="classParameter.html">Parameter</a> *parameter)</td></tr>
 <tr class="separator:acbdc7fc4fb7f31843145ddd14d9271b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0ffcb2e28b8a590e45e13b9566a36d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classParameter.html">Parameter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ad0ffcb2e28b8a590e45e13b9566a36d9">addExtParam</a> (String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, <a class="el" href="classSmoothingType.html">SmoothingType</a> st, std::function&lt; String(const <a class="el" href="classParameter.html">Parameter</a> &amp;, float)&gt; textFunction=nullptr)</td></tr>
@@ -103,8 +105,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af705e4558c36dbd62313681eb0b7afe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bbb09bf94621a6d29aff0c54ce4029f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a9bbb09bf94621a6d29aff0c54ce4029f">isSmoothing</a> ()</td></tr>
 <tr class="separator:a9bbb09bf94621a6d29aff0c54ce4029f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9529a828b29770b7074ce2355ef4625"><td class="memItemLeft" align="right" valign="top">File&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ab9529a828b29770b7074ce2355ef4625">getProgramDirectory</a> ()</td></tr>
-<tr class="separator:ab9529a828b29770b7074ce2355ef4625"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d20ab14c8d83d7c4bd5e310b7506691"><td class="memItemLeft" align="right" valign="top">virtual File&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a8d20ab14c8d83d7c4bd5e310b7506691">getProgramDirectory</a> ()</td></tr>
+<tr class="separator:a8d20ab14c8d83d7c4bd5e310b7506691"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d54dc4f330cea0f907e55a4f19e92d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a0d54dc4f330cea0f907e55a4f19e92d3">loadAllPrograms</a> ()</td></tr>
 <tr class="separator:a0d54dc4f330cea0f907e55a4f19e92d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad18b32b848e23d1efeabdcf23f33d56f"><td class="memItemLeft" align="right" valign="top">const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ad18b32b848e23d1efeabdcf23f33d56f">getName</a> () const override</td></tr>
@@ -163,8 +165,8 @@ Protected Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A process with internal and external params. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a50c89dbf76a073f4fb491628258cf292"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50c89dbf76a073f4fb491628258cf292">&#9670;&nbsp;</a></span>Processor()</h2>
+<a id="ab4b297f2d055f3316918d3e23081a45a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4b297f2d055f3316918d3e23081a45a">&#9670;&nbsp;</a></span>Processor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,7 +174,8 @@ Protected Member Functions</h2></td></tr>
         <tr>
           <td class="memname">Processor::Processor </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>init</em> = <code>true</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -206,6 +209,23 @@ Protected Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a22e869ee49d974ad0ee7ee81961ab88f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22e869ee49d974ad0ee7ee81961ab88f">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Processor::init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aea94295621f428e66e1d2fc7bfb39bb6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea94295621f428e66e1d2fc7bfb39bb6">&#9670;&nbsp;</a></span>reset()</h2>
 
@@ -267,19 +287,27 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6baf47d558a2743ec72489bb6e736f8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6baf47d558a2743ec72489bb6e736f8f">&#9670;&nbsp;</a></span>getSettings()</h2>
+<a id="a8c7b3466839c4913b79f507447adda9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c7b3466839c4913b79f507447adda9e">&#9670;&nbsp;</a></span>getSettings()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;PropertiesFile&gt; Processor::getSettings </td>
+          <td class="memname">virtual std::unique_ptr&lt;PropertiesFile&gt; Processor::getSettings </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -536,19 +564,27 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab9529a828b29770b7074ce2355ef4625"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9529a828b29770b7074ce2355ef4625">&#9670;&nbsp;</a></span>getProgramDirectory()</h2>
+<a id="a8d20ab14c8d83d7c4bd5e310b7506691"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d20ab14c8d83d7c4bd5e310b7506691">&#9670;&nbsp;</a></span>getProgramDirectory()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">File Processor::getProgramDirectory </td>
+          <td class="memname">virtual File Processor::getProgramDirectory </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -1128,7 +1164,7 @@ Protected Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 5 2020 18:38:38 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 6 2020 19:59:46 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

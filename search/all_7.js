@@ -7,7 +7,7 @@ var searchData=
   ['haserror',['hasError',['../classEquationParser.html#a267ea42024ab4404885d6549c46b5298',1,'EquationParser']]],
   ['hasprogram',['hasProgram',['../classProcessor.html#a4bad2fd53ae0d91ff3239ae0243a6d8a',1,'Processor']]],
   ['havedata',['haveData',['../classLinearRegression.html#ab0d8b0bd896a4ac1a6d0fad86d5de10b',1,'LinearRegression']]],
-  ['headerheight',['headerHeight',['../classProcessorEditor.html#a4e82d70d238172aed4a6e9682d1803a3',1,'ProcessorEditor']]],
+  ['headerheight',['headerHeight',['../classProcessorEditorBase.html#abc8ed784a5fcb7e1efe3f1dc63348f82',1,'ProcessorEditorBase']]],
   ['headers',['headers',['../structHttp_1_1HttpResult.html#ac970cb121a9de164fce399220478b573',1,'Http::HttpResult']]],
   ['helpbutton',['helpButton',['../classProcessorEditor.html#a74520bce6d0b3cae19dc01c1069710ff',1,'ProcessorEditor']]],
   ['hidebubble',['hideBubble',['../classMultiParamComponent.html#a0f9a0c20b7c3dd25f063ca40dc421c20',1,'MultiParamComponent']]],

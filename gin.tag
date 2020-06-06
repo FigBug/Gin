@@ -5549,6 +5549,13 @@
       <anchor>a88e99b9f91b6a2c9f9c041b6bbbaf4a4</anchor>
       <arglist>(std::function&lt; Array&lt; float &gt;()&gt; cb)</arglist>
     </member>
+    <member kind="function">
+      <type>PluginSlider &amp;</type>
+      <name>getSlider</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>a5cc64c2f000e2044327dd10d031f4925</anchor>
+      <arglist>()</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>LambdaAsyncUpdater</name>
@@ -8858,8 +8865,8 @@
       <type></type>
       <name>Processor</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a50c89dbf76a073f4fb491628258cf292</anchor>
-      <arglist>()</arglist>
+      <anchor>ab4b297f2d055f3316918d3e23081a45a</anchor>
+      <arglist>(bool init=true)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -8867,6 +8874,13 @@
       <anchorfile>classProcessor.html</anchorfile>
       <anchor>a3d7c16d172be09d3bfb4df3519d21b31</anchor>
       <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>init</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a22e869ee49d974ad0ee7ee81961ab88f</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -8882,11 +8896,11 @@
       <anchor>a91501bb29c8b65f444460ed1abc22824</anchor>
       <arglist>(double sampleRate, int samplesPerBlock) override</arglist>
     </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; PropertiesFile &gt;</type>
+    <member kind="function" virtualness="virtual">
+      <type>virtual std::unique_ptr&lt; PropertiesFile &gt;</type>
       <name>getSettings</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a6baf47d558a2743ec72489bb6e736f8f</anchor>
+      <anchor>a8c7b3466839c4913b79f507447adda9e</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -8952,11 +8966,11 @@
       <anchor>a9bbb09bf94621a6d29aff0c54ce4029f</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="function">
-      <type>File</type>
+    <member kind="function" virtualness="virtual">
+      <type>virtual File</type>
       <name>getProgramDirectory</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>ab9529a828b29770b7074ce2355ef4625</anchor>
+      <anchor>a8d20ab14c8d83d7c4bd5e310b7506691</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -9160,41 +9174,6 @@
       <anchor>aada190b51287a66e569867062e219419</anchor>
       <arglist>(String newsUrl)</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual Rectangle&lt; int &gt;</type>
-      <name>getControlsArea</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>ae316a874a89e62dc1a0ba7b97251eb90</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual Rectangle&lt; int &gt;</type>
-      <name>getGridArea</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a043f3538377da4c69cccc3b80e0361ed</anchor>
-      <arglist>(int x, int y, int w=1, int h=1)</arglist>
-    </member>
-    <member kind="function">
-      <type>Rectangle&lt; int &gt;</type>
-      <name>getFullGridArea</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>af4f2fd9d9982e910027044ede0c11dba</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getGridWidth</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a2ca6bb206e88a054e43f31e5685ec1e8</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getGridHeight</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a7b02d196edaae212273cd68702b4287e</anchor>
-      <arglist>()</arglist>
-    </member>
     <member kind="variable">
       <type>Processor &amp;</type>
       <name>slProc</name>
@@ -9239,87 +9218,10 @@
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
-      <name>setGridSize</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a9bcbffa2139e2d5df452d75cfa6b25a9</anchor>
-      <arglist>(int x, int y, int extraWidthPx=0, int extraHeightPx=0)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>ParamComponent *</type>
-      <name>componentForId</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>ae7514aa1a5375244af4acc073f600771</anchor>
-      <arglist>(const String &amp;uid)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>ParamComponent *</type>
-      <name>componentForParam</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>ab64acceaeb5e30e4ddf4dc99439ef6d3</anchor>
-      <arglist>(Parameter &amp;param)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
       <name>refreshPrograms</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
       <anchor>acfa6525c7af7ab451c59d25527ddebde</anchor>
       <arglist>()</arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>const int</type>
-      <name>cx</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a54e0a2cc545096d5b4e6847bb41fb160</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>const int</type>
-      <name>cy</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a897aa8225f4cef416bd20fcb629a1453</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>int</type>
-      <name>headerHeight</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a4e82d70d238172aed4a6e9682d1803a3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>int</type>
-      <name>inset</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a0e4355da17e933fe71cc86507df0347b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>int</type>
-      <name>cols</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a52dc83c25bf26ee2d541bb56e9220b2c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>int</type>
-      <name>rows</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>aaafdcef09b498b0d5f58eccb2532a53c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>int</type>
-      <name>extraWidthPx</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a83a4d73fdf8e4f5b1a3d3b17a140db11</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>int</type>
-      <name>extraHeightPx</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a18afce5f5964e49df76861cd73195aa3</anchor>
-      <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>std::unique_ptr&lt; UpdateChecker &gt;</type>
@@ -9333,13 +9235,6 @@
       <name>newsChecker</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
       <anchor>a7bcb131b783c30e7fcc661bc23699601</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>OwnedArray&lt; ParamComponent &gt;</type>
-      <name>controls</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a0cadb7e3405b7f3571e64c2876edabe1</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -9413,13 +9308,6 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>SharedResourcePointer&lt; TooltipWindow &gt;</type>
-      <name>tooltipWindow</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a781cecf0a400aaa34dabb4441b9ccfa9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
       <type>String</type>
       <name>additionalProgramming</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
@@ -9455,8 +9343,8 @@
       <type></type>
       <name>ProcessorEditorBase</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>a890c8dbcd837258a077193f16cbcff9b</anchor>
-      <arglist>(Processor &amp;p)</arglist>
+      <anchor>a60d56ee99cbf45683efe298e0715f2dd</anchor>
+      <arglist>(Processor &amp;p, int cx_=100, int cy_=100)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -9472,11 +9360,151 @@
       <anchor>aeb529daa7c8a33c654615fc31240670d</anchor>
       <arglist>() override</arglist>
     </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual Rectangle&lt; int &gt;</type>
+      <name>getControlsArea</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a10010d1f2f634ee85fa33a530e2ba5fd</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual Rectangle&lt; int &gt;</type>
+      <name>getGridArea</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a6f48761ba9fb9e914596381a762d5c45</anchor>
+      <arglist>(int x, int y, int w=1, int h=1)</arglist>
+    </member>
+    <member kind="function">
+      <type>Rectangle&lt; int &gt;</type>
+      <name>getFullGridArea</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>abba364af69e09537faba2c82b81dd318</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getGridWidth</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>ae0f5b7056efe5b77a00484cad4d70462</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getGridHeight</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a93c1337e016ea549c34bc7448370577b</anchor>
+      <arglist>()</arglist>
+    </member>
     <member kind="variable">
       <type>ComponentBoundsConstrainer</type>
       <name>resizeLimits</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
       <anchor>a4fb46e7bb4b9276eb8609df192b24bad</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setGridSize</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>aae5f9927723bd09656437199e4c625b2</anchor>
+      <arglist>(int x, int y, int extraWidthPx=0, int extraHeightPx=0)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>ParamComponent *</type>
+      <name>componentForId</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>acca234af724e0a27cc31324934d14126</anchor>
+      <arglist>(const String &amp;uid)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>ParamComponent *</type>
+      <name>componentForParam</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>abbf6549241813d270e584d61653c2c55</anchor>
+      <arglist>(Parameter &amp;param)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Processor &amp;</type>
+      <name>proc</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a2e20411f4f0948ced177b5eb59c84ba2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::unique_ptr&lt; ResizableCornerComponent &gt;</type>
+      <name>resizer</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a1e64bc7e4ea7f74b234b65f48ee3b0e7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>const int</type>
+      <name>cx</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a1e7e8587520931e79cbd2c90ab2122bf</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>const int</type>
+      <name>cy</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a2c1c1c5590ca8e090ba362a395b339eb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>OwnedArray&lt; ParamComponent &gt;</type>
+      <name>controls</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a0032b1dd2d479ec70b596c24e191d974</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>headerHeight</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>abc8ed784a5fcb7e1efe3f1dc63348f82</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>inset</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>aa1ef9037d52f21d67f16efa2f7b7bb1b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>cols</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a69d51f7716435429bfdcd1547105fa2a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>rows</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a0d3a93feb2d42d9424386d5e21660b1a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>extraWidthPx</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a4c568cb0377c6626240acc5eaf5fff2a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>extraHeightPx</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a563ccdce57a82178551cd6e26d601d27</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>SharedResourcePointer&lt; TooltipWindow &gt;</type>
+      <name>tooltipWindow</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a830e9f347e92cd02ef268dfcfc509590</anchor>
       <arglist></arglist>
     </member>
   </compound>

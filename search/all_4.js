@@ -58,6 +58,6 @@ var searchData=
   ['exifmetadata',['ExifMetadata',['../classExifMetadata.html',1,'ExifMetadata'],['../classExifMetadata.html#afa3a3cefbb26ea66f049bfc49456def9',1,'ExifMetadata::ExifMetadata()']]],
   ['expander',['expander',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a86eafff6a891eb381e162e7adc73ff7e',1,'Dynamics']]],
   ['extractprogram',['extractProgram',['../classProcessor.html#a1851a0eae54950bdfbbd0395bfbbddfb',1,'Processor']]],
-  ['extraheightpx',['extraHeightPx',['../classProcessorEditor.html#a18afce5f5964e49df76861cd73195aa3',1,'ProcessorEditor']]],
-  ['extrawidthpx',['extraWidthPx',['../classProcessorEditor.html#a83a4d73fdf8e4f5b1a3d3b17a140db11',1,'ProcessorEditor']]]
+  ['extraheightpx',['extraHeightPx',['../classProcessorEditorBase.html#a563ccdce57a82178551cd6e26d601d27',1,'ProcessorEditorBase']]],
+  ['extrawidthpx',['extraWidthPx',['../classProcessorEditorBase.html#a4c568cb0377c6626240acc5eaf5fff2a',1,'ProcessorEditorBase']]]
 ];
