@@ -193,7 +193,7 @@ ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_) noexcept
 {
     setLookAndFeel (&slProc.lf.get());
 
-    tooltipWindow->setMillisecondsBeforeTipAppears (2000);
+    tooltipWindow.setMillisecondsBeforeTipAppears (2000);
 
     addAndMakeVisible (programs);
     addAndMakeVisible (addButton);

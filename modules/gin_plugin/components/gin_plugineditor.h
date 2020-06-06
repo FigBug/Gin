@@ -102,7 +102,7 @@ protected:
     ParamComponent* componentForId (const String& uid);
     ParamComponent* componentForParam (Parameter& param);
 
-    SharedResourcePointer<TooltipWindow> tooltipWindow;
+    TooltipWindow tooltipWindow { this };
 };
 
 //==============================================================================

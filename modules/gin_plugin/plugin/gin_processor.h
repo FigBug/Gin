@@ -98,7 +98,7 @@ public:
     //==============================================================================
 
 public:
-    SharedResourcePointer<CopperLookAndFeelWrapper> lf;
+    SharedResourcePointer<CopperLookAndFeel> lf;
 
     std::map<String, gin::Parameter*> parameterMap;
     OwnedArray<gin::Parameter> internalParameters;
