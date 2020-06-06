@@ -45,8 +45,8 @@ private:
 class ProcessorEditorBase : public AudioProcessorEditor
 {
 public:
-    ProcessorEditorBase (Processor& p)
-      : AudioProcessorEditor (p), proc (p)
+    ProcessorEditorBase (Processor& p, int cx_ = 100, int cy_ = 100)
+        : AudioProcessorEditor (p), proc (p), cx (cx_), cy (cy_)
     {
     }
 
@@ -76,11 +76,33 @@ public:
         }
     }
 
+    virtual Rectangle<int> getControlsArea();
+    virtual Rectangle<int> getGridArea (int x, int y, int w = 1, int h = 1);
+    Rectangle<int> getFullGridArea();
+
+    int getGridWidth()  { return cx; }
+    int getGridHeight() { return cy; }
+
     ComponentBoundsConstrainer resizeLimits;
 
-private:
+protected:
+    void setGridSize (int x, int y, int extraWidthPx = 0, int extraHeightPx = 0 );
+
     Processor& proc;
     std::unique_ptr<ResizableCornerComponent> resizer;
+
+    const int cx;
+    const int cy;
+
+    OwnedArray<ParamComponent> controls;
+
+    int headerHeight = 60, inset = 4;
+    int cols = 0, rows = 0, extraWidthPx = 0, extraHeightPx = 0;
+
+    ParamComponent* componentForId (const String& uid);
+    ParamComponent* componentForParam (Parameter& param);
+
+    SharedResourcePointer<TooltipWindow> tooltipWindow;
 };
 
 //==============================================================================
@@ -100,13 +122,6 @@ public:
 
     Processor& slProc;
 
-    virtual Rectangle<int> getControlsArea();
-    virtual Rectangle<int> getGridArea (int x, int y, int w = 1, int h = 1);
-    Rectangle<int> getFullGridArea();
-
-    int getGridWidth()  { return cx; }
-    int getGridHeight() { return cy; }
-    
 protected:
     void paint (Graphics& g) override;
     void resized() override;
@@ -114,21 +129,8 @@ protected:
     void comboBoxChanged (ComboBox* c) override;
     void changeListenerCallback (ChangeBroadcaster*) override;
 
-    void setGridSize (int x, int y, int extraWidthPx = 0, int extraHeightPx = 0 );
-
-    const int cx;
-    const int cy;
-
-    int headerHeight = 60, inset = 4;
-    int cols = 0, rows = 0, extraWidthPx = 0, extraHeightPx = 0;
-
     std::unique_ptr<UpdateChecker> updateChecker;
     std::unique_ptr<NewsChecker> newsChecker;
-
-    OwnedArray<ParamComponent> controls;
-
-    ParamComponent* componentForId (const String& uid);
-    ParamComponent* componentForParam (Parameter& param);
 
     ComboBox programs;
     TextButton addButton {"svg:M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"};
@@ -141,8 +143,6 @@ protected:
     TextButton helpButton {"svg:M20 424.229h20V279.771H20c-11.046 0-20-8.954-20-20V212c0-11.046 8.954-20 20-20h112c11.046 0 20 8.954 20 20v212.229h20c11.046 0 20 8.954 20 20V492c0 11.046-8.954 20-20 20H20c-11.046 0-20-8.954-20-20v-47.771c0-11.046 8.954-20 20-20zM96 0C56.235 0 24 32.235 24 72s32.235 72 72 72 72-32.235 72-72S135.764 0 96 0z"};
     TextButton newsButton {"svg:M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"};
     TextButton updateButton {"svg:M537.6 226.6c4.1-10.7 6.4-22.4 6.4-34.6 0-53-43-96-96-96-19.7 0-38.1 6-53.3 16.2C367 64.2 315.3 32 256 32c-88.4 0-160 71.6-160 160 0 2.7.1 5.4.2 8.1C40.2 219.8 0 273.2 0 336c0 79.5 64.5 144 144 144h368c70.7 0 128-57.3 128-128 0-61.9-44-113.6-102.4-125.4zm-132.9 88.7L299.3 420.7c-6.2 6.2-16.4 6.2-22.6 0L171.3 315.3c-10.1-10.1-2.9-27.3 11.3-27.3H248V176c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16v112h65.4c14.2 0 21.4 17.2 11.3 27.3z"};
-
-    SharedResourcePointer<TooltipWindow> tooltipWindow;
 
     String additionalProgramming;
     String updateUrl;

@@ -34,13 +34,15 @@ class Processor : public AudioProcessor,
 {
 public:
     //==============================================================================
-    Processor();
+    Processor (bool init = true);
     ~Processor() override;
+
+    void init();
 
     void reset() override;
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
 
-    std::unique_ptr<PropertiesFile> getSettings();
+    virtual std::unique_ptr<PropertiesFile> getSettings();
 
     //==============================================================================
     using AudioProcessor::getParameter;
@@ -65,7 +67,7 @@ public:
 
     bool isSmoothing();
 
-    File getProgramDirectory();
+    virtual File getProgramDirectory();
     void loadAllPrograms();
 
     //==============================================================================

@@ -136,8 +136,56 @@ void NewsChecker::handleAsyncUpdate()
 }
 
 //==============================================================================
+Rectangle<int> ProcessorEditorBase::getFullGridArea()
+{
+    return Rectangle<int> (inset, headerHeight + inset, cx * cols + extraWidthPx, cy * rows + extraHeightPx);
+}
+
+Rectangle<int> ProcessorEditorBase::getGridArea (int x, int y, int w, int h)
+{
+    return Rectangle<int> (inset + x * cx, headerHeight + y * cy + inset, w * cx, h * cy);
+}
+
+ParamComponent* ProcessorEditorBase::componentForId (const String& uid)
+{
+    for (auto* c : controls)
+    {
+        if (c->getUid() == uid)
+            return c;
+    }
+    return nullptr;
+}
+
+ParamComponent* ProcessorEditorBase::componentForParam (Parameter& param)
+{
+    auto uid = param.getUid();
+    for (auto c : controls)
+    {
+        if (c->getUid() == uid)
+            return c;
+    }
+    return nullptr;
+}
+
+void ProcessorEditorBase::setGridSize (int x, int y, int extraWidthPx_, int extraHeightPx_)
+{
+    cols = x;
+    rows = y;
+    extraWidthPx  = extraWidthPx_;
+    extraHeightPx = extraHeightPx_;
+
+    setSize (x * cx + inset * 2 + extraWidthPx,
+             y * cy + inset * 2 + headerHeight + extraHeightPx);
+}
+
+Rectangle<int> ProcessorEditorBase::getControlsArea()
+{
+    return getLocalBounds();
+}
+
+//==============================================================================
 ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_) noexcept
-  : ProcessorEditorBase (p), slProc (p), cx (cx_), cy (cy_)
+  : ProcessorEditorBase (p), slProc (p)
 {
     setLookAndFeel (&slProc.lf.get());
 
@@ -218,53 +266,6 @@ void ProcessorEditor::resized()
     updateButton.setBounds (helpButton.getBounds().translated (- ph - 5, 0));
 
     patchBrowser.setBounds (getFullGridArea());
-}
-
-Rectangle<int> ProcessorEditor::getControlsArea()
-{
-    return getLocalBounds();
-}
-
-Rectangle<int> ProcessorEditor::getFullGridArea()
-{
-    return Rectangle<int> (inset, headerHeight + inset, cx * cols + extraWidthPx, cy * rows + extraHeightPx);
-}
-
-Rectangle<int> ProcessorEditor::getGridArea (int x, int y, int w, int h)
-{
-    return Rectangle<int> (inset + x * cx, headerHeight + y * cy + inset, w * cx, h * cy);
-}
-
-ParamComponent* ProcessorEditor::componentForId (const String& uid)
-{
-    for (auto* c : controls)
-    {
-        if (c->getUid() == uid)
-            return c;
-    }
-    return nullptr;
-}
-
-ParamComponent* ProcessorEditor::componentForParam (Parameter& param)
-{
-    auto uid = param.getUid();
-    for (auto* c : controls)
-    {
-        if (c->getUid() == uid)
-            return c;
-    }
-    return nullptr;
-}
-
-void ProcessorEditor::setGridSize (int x, int y, int extraWidthPx_, int extraHeightPx_)
-{
-    cols = x;
-    rows = y;
-    extraWidthPx  = extraWidthPx_;
-    extraHeightPx = extraHeightPx_;
-
-    setSize (x * cx + inset * 2 + extraWidthPx,
-             y * cy + inset * 2 + headerHeight + extraHeightPx);
 }
 
 void ProcessorEditor::refreshPrograms()

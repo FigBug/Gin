@@ -1,25 +1,29 @@
 
 //==============================================================================
-Processor::Processor()
+Processor::Processor (bool init_)
 {
-    loadAllPrograms();
-
-    state = ValueTree (Identifier ("state"));
-
-    stateUpdated();
+    if (init_)
+        init();
 }
 
 Processor::~Processor()
 {
 }
 
+void Processor::init()
+{
+    loadAllPrograms();
+    state = ValueTree (Identifier ("state"));
+    stateUpdated();
+}
+
 std::unique_ptr<PropertiesFile> Processor::getSettings()
 {
-#if JUCE_MAC
+   #if JUCE_MAC
     File dir = File::getSpecialLocation (File::userApplicationDataDirectory).getChildFile ("Preferences").getChildFile ("SocaLabs");
-#else
+   #else
     File dir = File::getSpecialLocation (File::userApplicationDataDirectory).getChildFile ("SocaLabs");
-#endif
+   #endif
     dir.createDirectory();
 
     PropertiesFile::Options options;

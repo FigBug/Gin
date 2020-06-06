@@ -17,6 +17,8 @@ public:
         modMatrixChanged();
     }
 
+    PluginSlider& getSlider()   { return knob; }
+
 private:
     void resized() override;
     void mouseEnter (const MouseEvent& e) override;
