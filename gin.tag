@@ -9107,10 +9107,10 @@
       <arglist>(const void *data, int sizeInBytes) override</arglist>
     </member>
     <member kind="variable">
-      <type>SharedResourcePointer&lt; CopperLookAndFeelWrapper &gt;</type>
+      <type>SharedResourcePointer&lt; CopperLookAndFeel &gt;</type>
       <name>lf</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a336835ab059bdd6543a056aa5601cb26</anchor>
+      <anchor>addf8fe72d7474a38a894a8d787cefc06</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -9515,10 +9515,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>SharedResourcePointer&lt; TooltipWindow &gt;</type>
+      <type>TooltipWindow</type>
       <name>tooltipWindow</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>a830e9f347e92cd02ef268dfcfc509590</anchor>
+      <anchor>a223cc13aa72275f9d34da699adea1ec3</anchor>
       <arglist></arglist>
     </member>
   </compound>

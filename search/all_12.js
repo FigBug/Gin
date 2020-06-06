@@ -16,7 +16,7 @@ var searchData=
   ['title1colourid',['title1ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a48e1027db85fa69981be45218bd7e6d9',1,'GinLookAndFeel']]],
   ['title2colourid',['title2ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a539354805ecf1dd789adb31680e32326',1,'GinLookAndFeel']]],
   ['tomessagepack',['toMessagePack',['../classMessagePack.html#aee9464edf2e67d30bc42114eabf7e18c',1,'MessagePack']]],
-  ['tooltipwindow',['tooltipWindow',['../classProcessorEditorBase.html#a830e9f347e92cd02ef268dfcfc509590',1,'ProcessorEditorBase']]],
+  ['tooltipwindow',['tooltipWindow',['../classProcessorEditorBase.html#a223cc13aa72275f9d34da699adea1ec3',1,'ProcessorEditorBase']]],
   ['toseconds',['toSeconds',['../classNoteDuration.html#a685eb3811a8461f19705c2ee0c2ca298',1,'NoteDuration::toSeconds(AudioPlayHead *playhead) const'],['../classNoteDuration.html#a5b06f7ea0574bbaa7a7a37451dd9667d',1,'NoteDuration::toSeconds(float bpm) const']]],
   ['tracecolourid',['traceColourId',['../classTriggeredScope.html#ac8e18f9a32051394436ce1959334ac52a589de8d7a323fdf9be76f7ad5df7c2c5',1,'TriggeredScope::traceColourId()'],['../classWaveformComponent.html#a45b49a62cd0812131e81de9e1715fd01ae41bbfdc8560f893683785e89ef15dc9',1,'WaveformComponent::traceColourId()'],['../classXYScope.html#a8c9be5fbb6205a1a9920d2068ca13b22ab74a667b5c450498ad536a857e77d35a',1,'XYScope::traceColourId()']]],
   ['trackbuffer',['trackBuffer',['../classLevelTracker.html#ae015d22dde9a4f1241fdcc062a58d1a8',1,'LevelTracker::trackBuffer(const float *buffer, int numSamples)'],['../classLevelTracker.html#afed0038f16fde16362517599a08001e0',1,'LevelTracker::trackBuffer(AudioSampleBuffer &amp;buffer)']]],
