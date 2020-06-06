@@ -2,7 +2,7 @@ var searchData=
 [
   ['pan',['pan',['../structVoicedStereoOscillator_1_1Params.html#a13309716133330853a2ad479b2b556dc',1,'VoicedStereoOscillator::Params']]],
   ['parameter',['parameter',['../classPluginButton.html#ae383af96f9f3e0cf932e0eb63116257a',1,'PluginButton::parameter()'],['../classPluginComboBox.html#a3bbf40da531c73ccefc9374433ae9d88',1,'PluginComboBox::parameter()'],['../classParamComponent.html#a2e99545e9d83f8e9f2ce0c8ca31e05bd',1,'ParamComponent::parameter()']]],
-  ['parametermap',['parameterMap',['../classProcessor.html#adb565ad7761f81b81fa6d8bee3c14318',1,'Processor']]],
+  ['parametermap',['parameterMap',['../classProcessor.html#aa90d44e1935615025daf6a07e9e9e972',1,'Processor']]],
   ['params',['params',['../classMultiParamComponent.html#a6dbe5bc1f7bfd6075cbb6867f72ed615',1,'MultiParamComponent']]],
   ['patchbrowser',['patchBrowser',['../classProcessorEditor.html#a6f7f6e1a092dff5bccece83325514c77',1,'ProcessorEditor']]],
   ['peaklevel',['peakLevel',['../classLevelTracker.html#ae36cb9c622a3230e0a7f24a5c9b621ac',1,'LevelTracker']]],

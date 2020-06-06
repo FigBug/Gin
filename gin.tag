@@ -6679,22 +6679,22 @@
       <type>float</type>
       <name>getValue</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a9491c0691936ecea2478c1281d8d4497</anchor>
-      <arglist>(Parameter *p)</arglist>
+      <anchor>adc443dda62a48732e2bf333e34b8b128</anchor>
+      <arglist>(gin::Parameter *p)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
       <name>getValue</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>aebb93e86d35cc0c650b5b01ad098e76d</anchor>
-      <arglist>(ModVoice &amp;voice, Parameter *p)</arglist>
+      <anchor>a771bcda462681040c59c37a9e7ae6332</anchor>
+      <arglist>(ModVoice &amp;voice, gin::Parameter *p)</arglist>
     </member>
     <member kind="function">
       <type>Array&lt; float &gt;</type>
       <name>getLiveValues</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a6c46db3d6bd218da178e62d25d607549</anchor>
-      <arglist>(Parameter *p)</arglist>
+      <anchor>af4bb2a79fbc9c084dffda6c659f2335f</anchor>
+      <arglist>(gin::Parameter *p)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -6742,8 +6742,8 @@
       <type>void</type>
       <name>addParameter</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>aa7b23da13f342fe67bb39a17a49e8c11</anchor>
-      <arglist>(Parameter *p, bool poly)</arglist>
+      <anchor>a1a1235070a1660c1490ba5c2b9ab68f5</anchor>
+      <arglist>(gin::Parameter *p, bool poly)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -6812,8 +6812,8 @@
       <type>Array&lt; ModSrcId &gt;</type>
       <name>getModSources</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>abaa21fdb292dc7bf861c3bc2c4fa05e1</anchor>
-      <arglist>(Parameter *)</arglist>
+      <anchor>aaff685d5d7765e5ef0a2ac30c7893b78</anchor>
+      <arglist>(gin::Parameter *)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -7085,8 +7085,8 @@
       <type>float</type>
       <name>getValue</name>
       <anchorfile>group__gin__plugin-plugin.html</anchorfile>
-      <anchor>ga99734267d335f26d1c2da46c3c71b566</anchor>
-      <arglist>(Parameter *p)</arglist>
+      <anchor>gab084f6f52a2bf9f5141a63554b6d22bb</anchor>
+      <arglist>(gin::Parameter *p)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -8912,30 +8912,37 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>fillInPluginDescription</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a2108f087e9589aaa354ec0f6bc3ee06b</anchor>
+      <arglist>(PluginDescription &amp;) const override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>addPluginParameter</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>acbdc7fc4fb7f31843145ddd14d9271b1</anchor>
-      <arglist>(Parameter *parameter)</arglist>
+      <anchor>a4b2ed4cc27b858a3aac157c05e7b273e</anchor>
+      <arglist>(gin::Parameter *parameter)</arglist>
     </member>
     <member kind="function">
-      <type>Parameter *</type>
+      <type>gin::Parameter *</type>
       <name>addExtParam</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>ad0ffcb2e28b8a590e45e13b9566a36d9</anchor>
+      <anchor>a0a9e74e04f0f5b40288616aa1d561f9b</anchor>
       <arglist>(String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
     </member>
     <member kind="function">
-      <type>Parameter *</type>
+      <type>gin::Parameter *</type>
       <name>addIntParam</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a241e8f7d5efa84dc61a6198af6167ad7</anchor>
+      <anchor>ac1b6d9b7c2f5dea78a62ef0e49d725b3</anchor>
       <arglist>(String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
     </member>
     <member kind="function">
-      <type>Parameter *</type>
+      <type>gin::Parameter *</type>
       <name>getParameter</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>aaeb6c3eb29b8248eecb21adc1662a80d</anchor>
+      <anchor>a01f09fc4364bd8d2a4a23eac43607870</anchor>
       <arglist>(const String &amp;uid)</arglist>
     </member>
     <member kind="function">
@@ -8960,10 +8967,10 @@
       <arglist>(const String &amp;uid)</arglist>
     </member>
     <member kind="function">
-      <type>const Array&lt; Parameter * &gt; &amp;</type>
+      <type>const Array&lt; gin::Parameter * &gt; &amp;</type>
       <name>getPluginParameters</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>af705e4558c36dbd62313681eb0b7afe6</anchor>
+      <anchor>a983f9ceb97680b67bd28479a3ac01766</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -9107,10 +9114,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>std::map&lt; String, Parameter * &gt;</type>
+      <type>std::map&lt; String, gin::Parameter * &gt;</type>
       <name>parameterMap</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>adb565ad7761f81b81fa6d8bee3c14318</anchor>
+      <anchor>aa90d44e1935615025daf6a07e9e9e972</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -13258,8 +13265,8 @@
       <type>float</type>
       <name>getValue</name>
       <anchorfile>group__gin__plugin-plugin.html</anchorfile>
-      <anchor>ga99734267d335f26d1c2da46c3c71b566</anchor>
-      <arglist>(Parameter *p)</arglist>
+      <anchor>gab084f6f52a2bf9f5141a63554b6d22bb</anchor>
+      <arglist>(gin::Parameter *p)</arglist>
     </member>
   </compound>
   <compound kind="group">
