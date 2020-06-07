@@ -71,11 +71,12 @@ $(function() {
 <p>A process with internal and external params.  
  <a href="classProcessor.html#details">More...</a></p>
 
-<p>Inherits AudioPluginInstance, and ChangeBroadcaster.</p>
+<p>Inherits ProcessorBaseClass, and ChangeBroadcaster.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab4b297f2d055f3316918d3e23081a45a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ab4b297f2d055f3316918d3e23081a45a">Processor</a> (bool <a class="el" href="classProcessor.html#a22e869ee49d974ad0ee7ee81961ab88f">init</a>=true)</td></tr>
+<tr class="memdesc:ab4b297f2d055f3316918d3e23081a45a"><td class="mdescLeft">&#160;</td><td class="mdescRight">If you override any virtual functions, they won't get called by the constructor.  <a href="#ab4b297f2d055f3316918d3e23081a45a">More...</a><br /></td></tr>
 <tr class="separator:ab4b297f2d055f3316918d3e23081a45a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d7c16d172be09d3bfb4df3519d21b31"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a3d7c16d172be09d3bfb4df3519d21b31">~Processor</a> () override</td></tr>
 <tr class="separator:a3d7c16d172be09d3bfb4df3519d21b31"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -87,8 +88,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a91501bb29c8b65f444460ed1abc22824"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c7b3466839c4913b79f507447adda9e"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr&lt; PropertiesFile &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a8c7b3466839c4913b79f507447adda9e">getSettings</a> ()</td></tr>
 <tr class="separator:a8c7b3466839c4913b79f507447adda9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2108f087e9589aaa354ec0f6bc3ee06b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a2108f087e9589aaa354ec0f6bc3ee06b">fillInPluginDescription</a> (PluginDescription &amp;) const override</td></tr>
-<tr class="separator:a2108f087e9589aaa354ec0f6bc3ee06b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b2ed4cc27b858a3aac157c05e7b273e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a4b2ed4cc27b858a3aac157c05e7b273e">addPluginParameter</a> (gin::Parameter *parameter)</td></tr>
 <tr class="separator:a4b2ed4cc27b858a3aac157c05e7b273e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1f637d866a9c83e58aba4f62e8ccda8"><td class="memItemLeft" align="right" valign="top">gin::Parameter *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ad1f637d866a9c83e58aba4f62e8ccda8">addExtParam</a> (String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, <a class="el" href="classSmoothingType.html">SmoothingType</a> st, std::function&lt; String(const gin::Parameter &amp;, float)&gt; textFunction=nullptr)</td></tr>
@@ -182,6 +181,9 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>If you override any virtual functions, they won't get called by the constructor. </p>
+<p>So pass false and then call init manually from your constructor. If you don't override any functions, then it's safe to pass tru to the constructor and you don't need to call init. </p>
 
 </div>
 </div>
@@ -308,32 +310,6 @@ Protected Member Functions</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2108f087e9589aaa354ec0f6bc3ee06b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2108f087e9589aaa354ec0f6bc3ee06b">&#9670;&nbsp;</a></span>fillInPluginDescription()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Processor::fillInPluginDescription </td>
-          <td>(</td>
-          <td class="paramtype">PluginDescription &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1192,7 +1168,7 @@ Protected Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 6 2020 23:22:21 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 7 2020 03:59:56 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

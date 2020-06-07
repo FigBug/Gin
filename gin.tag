@@ -1231,6 +1231,13 @@
     <includes id="gin__copperlookandfeel_8h" name="gin_copperlookandfeel.h" local="yes" imported="no">../components/gin_copperlookandfeel.h</includes>
     <class kind="class">SmoothingType</class>
     <class kind="class">Processor</class>
+    <member kind="define">
+      <type>#define</type>
+      <name>ProcessorBaseClass</name>
+      <anchorfile>group__gin__plugin-plugin.html</anchorfile>
+      <anchor>ga9ccf6c679c1fdf1c1414992a17202f5a</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>gin_program.h</name>
@@ -8912,13 +8919,6 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>fillInPluginDescription</name>
-      <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a2108f087e9589aaa354ec0f6bc3ee06b</anchor>
-      <arglist>(PluginDescription &amp;) const override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
       <name>addPluginParameter</name>
       <anchorfile>classProcessor.html</anchorfile>
       <anchor>a4b2ed4cc27b858a3aac157c05e7b273e</anchor>
@@ -13261,6 +13261,13 @@
     <class kind="class">Processor</class>
     <class kind="class">Program</class>
     <class kind="class">SmoothedParameter</class>
+    <member kind="define">
+      <type>#define</type>
+      <name>ProcessorBaseClass</name>
+      <anchorfile>group__gin__plugin-plugin.html</anchorfile>
+      <anchor>ga9ccf6c679c1fdf1c1414992a17202f5a</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type>float</type>
       <name>getValue</name>

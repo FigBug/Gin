@@ -61,6 +61,7 @@ var searchData=
   ['processcommandline',['processCommandLine',['../classElevatedFileCopy.html#a105805b9b82a4d0050bcb9804bc72857',1,'ElevatedFileCopy']]],
   ['processmultiplying',['processMultiplying',['../classAnalogADSR.html#a183260c83bd770e1403b10a987326c59',1,'AnalogADSR::processMultiplying(AudioSampleBuffer &amp;buffer)'],['../classAnalogADSR.html#acc9b091b160d91a7a496c5b9f3bc9899',1,'AnalogADSR::processMultiplying(AudioSampleBuffer &amp;buffer, int startSample, int numSamples)']]],
   ['processor',['Processor',['../classProcessor.html',1,'Processor'],['../classParameter.html#aff54b112e093cf966a1bec5bf5a934dd',1,'Parameter::processor()'],['../classProcessor.html#ab4b297f2d055f3316918d3e23081a45a',1,'Processor::Processor()']]],
+  ['processorbaseclass',['ProcessorBaseClass',['../group__gin__plugin-plugin.html#ga9ccf6c679c1fdf1c1414992a17202f5a',1,'gin_processor.h']]],
   ['processoreditor',['ProcessorEditor',['../classProcessorEditor.html',1,'ProcessorEditor'],['../classProcessorEditor.html#ae1162833b01af723f686cc24580d117a',1,'ProcessorEditor::ProcessorEditor()']]],
   ['processoreditorbase',['ProcessorEditorBase',['../classProcessorEditorBase.html',1,'ProcessorEditorBase'],['../classProcessorEditorBase.html#a60d56ee99cbf45683efe298e0715f2dd',1,'ProcessorEditorBase::ProcessorEditorBase()']]],
   ['processpulse',['processPulse',['../classBandLimitedLookupTables.html#a95aa08a1c4943b1e3ca991ae3316aeba',1,'BandLimitedLookupTables']]],
