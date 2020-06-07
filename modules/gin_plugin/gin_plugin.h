@@ -52,6 +52,15 @@
 #endif
 
 //==============================================================================
+/** Config: BUILD_INTERNAL_PLUGINS
+ Set this to 1 if you don't want a plugin, but you want to compile
+ the plugin directly into your host app.
+ */
+#ifndef BUILD_INTERNAL_PLUGINS
+ #define BUILD_INTERNAL_PLUGINS 0
+#endif
+
+//==============================================================================
 #include <juce_gui_basics/juce_gui_basics.h>
 #include <juce_gui_extra/juce_gui_extra.h>
 #include <juce_audio_utils/juce_audio_utils.h>

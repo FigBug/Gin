@@ -6,6 +6,12 @@
 #include "../components/gin_pluginlookandfeel.h"
 #include "../components/gin_copperlookandfeel.h"
 
+#if BUILD_INTERNAL_PLUGINS
+ #define ProcessorBaseClass juce::AudioPluginInstance
+#else
+ #define ProcessorBaseClass juce::PluginProcessor
+#endif
+
 //==============================================================================
 /** How do you want you params smoothed?
 */
@@ -29,11 +35,17 @@ public:
 //==============================================================================
 /** A process with internal and external params
 */
-class Processor : public juce::AudioPluginInstance,
+class Processor : public ProcessorBaseClass,
                   public juce::ChangeBroadcaster
 {
 public:
     //==============================================================================
+    /**
+     If you override any virtual functions, they won't get called by the constructor.
+     So pass false and then call init manually from your constructor. If you don't
+     override any functions, then it's safe to pass tru to the constructor and
+     you don't need to call init.
+     */
     Processor (bool init = true);
     ~Processor() override;
 
@@ -44,7 +56,9 @@ public:
 
     virtual std::unique_ptr<PropertiesFile> getSettings();
 
+   #if BUILD_INTERNAL_PLUGINS
     void fillInPluginDescription (PluginDescription&) const override {}
+   #endif
 
     //==============================================================================
     using AudioProcessor::getParameter;
