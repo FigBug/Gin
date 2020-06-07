@@ -3,7 +3,7 @@
 //==============================================================================
 inline void gradientRect (Graphics& g, Rectangle<int> rc, Colour c1, Colour c2)
 {
-    ColourGradient gradient (c1, rc.getX(), rc.getY(), c2, rc.getX(), rc.getBottom(), false);
+    ColourGradient gradient (c1, (float) rc.getX(), (float) rc.getY(), c2, (float) rc.getX(), (float) rc.getBottom(), false);
 
     g.setGradientFill (gradient);
     g.fillRect (rc);
