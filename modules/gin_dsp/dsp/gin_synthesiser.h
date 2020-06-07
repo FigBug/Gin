@@ -112,6 +112,14 @@ public:
 
         if (noteStack.size() == 1)
         {
+            if (voices[0]->isActive())
+            {
+                if (auto sv = dynamic_cast<SynthesiserVoice*> (voices[0]))
+                    sv->setFastKill();
+                
+                voices.move (voices.size() - 1, 0);
+            }
+            
             if (auto voice = voices[0])
                 startVoice (voice, newNote);
         }
