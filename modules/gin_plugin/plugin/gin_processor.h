@@ -9,7 +9,7 @@
 #if BUILD_INTERNAL_PLUGINS
  #define ProcessorBaseClass juce::AudioPluginInstance
 #else
- #define ProcessorBaseClass juce::PluginProcessor
+ #define ProcessorBaseClass juce::AudioProcessor
 #endif
 
 //==============================================================================
@@ -43,7 +43,7 @@ public:
     /**
      If you override any virtual functions, they won't get called by the constructor.
      So pass false and then call init manually from your constructor. If you don't
-     override any functions, then it's safe to pass tru to the constructor and
+     override any functions, then it's safe to pass true to the constructor and
      you don't need to call init.
      */
     Processor (bool init = true);
