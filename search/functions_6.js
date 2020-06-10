@@ -114,6 +114,7 @@ var searchData=
   ['getvalue',['getValue',['../group__gin__plugin-plugin.html#gab084f6f52a2bf9f5141a63554b6d22bb',1,'ModVoice::getValue()'],['../classModMatrix.html#adc443dda62a48732e2bf333e34b8b128',1,'ModMatrix::getValue(gin::Parameter *p)'],['../classModMatrix.html#a771bcda462681040c59c37a9e7ae6332',1,'ModMatrix::getValue(ModVoice &amp;voice, gin::Parameter *p)'],['../classParameter.html#afc59f687d30b5816cdfb2aaace49a907',1,'Parameter::getValue()']]],
   ['getvaluefortext',['getValueForText',['../classParameter.html#a7058bae34b44db7c454661db485eccf3',1,'Parameter']]],
   ['getvalueptr',['getValuePtr',['../classEasedValueSmoother.html#a0c0bd355c729547333266dfe4be7ac18',1,'EasedValueSmoother::getValuePtr()'],['../classValueSmoother.html#a0fd46737155bc081c73db8beacb16dd3',1,'ValueSmoother::getValuePtr()']]],
+  ['getwatchedfolders',['getWatchedFolders',['../classFileSystemWatcher.html#a046167c749120b7174fdff59acfee6ed',1,'FileSystemWatcher']]],
   ['ginlookandfeel',['GinLookAndFeel',['../classGinLookAndFeel.html#ae2f7157e485bb30b42f4b47e617a3c17',1,'GinLookAndFeel']]],
   ['goldenratiocolor',['goldenRatioColor',['../group__gin-utilities.html#gaf2e5284957f4390502132e880faf157e',1,'gin_util.h']]],
   ['gradientrect',['gradientRect',['../group__gin__plugin-components.html#ga4110716757a10f2f9ba0a3e756a03b1c',1,'gin_parambox.h']]]

@@ -169,7 +169,7 @@ var searchData=
   ['starttimer',['startTimer',['../classCoalescedTimer.html#a97261711749a65434b7f875f94118c4b',1,'CoalescedTimer']]],
   ['starttimerhz',['startTimerHz',['../classCoalescedTimer.html#a31d6f6484b273fe894be54c6dcbd0957',1,'CoalescedTimer']]],
   ['startvoice',['startVoice',['../classSynthesiser.html#a176828955287ea3cd8336148926a4c67',1,'Synthesiser::startVoice()'],['../classModVoice.html#aa987df0200c765566c0a359e3a2597b6',1,'ModVoice::startVoice()']]],
-  ['state',['state',['../classADSR.html#a2d9269b27359df5559e6881e5061e790',1,'ADSR::state()'],['../classAnalogADSR.html#a72a052eb2cfe616157e185707982f1db',1,'AnalogADSR::state()'],['../classProcessor.html#ab99be5fb7bcd0f2e761e160526a5af57',1,'Processor::state()'],['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127a',1,'ADSR::State()'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188e',1,'AnalogADSR::State()']]],
+  ['state',['State',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127a',1,'ADSR::State()'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188e',1,'AnalogADSR::State()'],['../classADSR.html#a2d9269b27359df5559e6881e5061e790',1,'ADSR::state()'],['../classAnalogADSR.html#a72a052eb2cfe616157e185707982f1db',1,'AnalogADSR::state()'],['../classProcessor.html#ab99be5fb7bcd0f2e761e160526a5af57',1,'Processor::state()']]],
   ['states',['states',['../classProgram.html#a9a962229204d864ee9b5402c93c40fc4',1,'Program']]],
   ['stateupdated',['stateUpdated',['../classModMatrix.html#a29c908a4f1b12e828bf6b18cb52aeeed',1,'ModMatrix::stateUpdated()'],['../classProcessor.html#a8f2a4e8408ed85ccf02152f5e0cc4143',1,'Processor::stateUpdated()']]],
   ['statuscode',['statusCode',['../structHttp_1_1HttpResult.html#a503d39d8b2bb60b51594b5108038aca6',1,'Http::HttpResult']]],

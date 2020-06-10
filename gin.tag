@@ -4446,6 +4446,13 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>Array&lt; File &gt;</type>
+      <name>getWatchedFolders</name>
+      <anchorfile>classFileSystemWatcher.html</anchorfile>
+      <anchor>a046167c749120b7174fdff59acfee6ed</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>addListener</name>
       <anchorfile>classFileSystemWatcher.html</anchorfile>
@@ -12569,36 +12576,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin-components</name>
-    <title>components</title>
-    <filename>group__gin-components.html</filename>
-    <class kind="class">ComponentViewer</class>
-    <class kind="class">GinLookAndFeel</class>
-    <class kind="class">MapViewer</class>
-    <class kind="class">PropertyComponentBase</class>
-    <class kind="class">FilePropertyComponent</class>
-    <class kind="class">ColourPropertyComponent</class>
-    <class kind="class">SingleLineTextEditor</class>
-    <class kind="struct">SingleLineTextEditor::LookAndFeelMethods</class>
-    <class kind="class">SingleLineTextEditor::LengthAndCharacterRestriction</class>
-    <class kind="class">SingleLineTextEditor::InputFilter</class>
-    <class kind="class">SingleLineTextEditor::Listener</class>
-    <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin-components.html</anchorfile>
-      <anchor>gaa20ec037c2ec9827747ca222e4308414</anchor>
-      <arglist>(Component &amp;parent, Array&lt; Component *&gt; children)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin-components.html</anchorfile>
-      <anchor>ga824f80420c05391e952c51bb9abc5e88</anchor>
-      <arglist>(Component &amp;parent, std::initializer_list&lt; Component *&gt; children)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
     <name>gin_plugin-components</name>
     <title>components</title>
     <filename>group__gin__plugin-components.html</filename>
@@ -12661,6 +12638,36 @@
     <class kind="class">TriggeredScope</class>
     <class kind="class">WaveformComponent</class>
     <class kind="class">XYScope</class>
+  </compound>
+  <compound kind="group">
+    <name>gin-components</name>
+    <title>components</title>
+    <filename>group__gin-components.html</filename>
+    <class kind="class">ComponentViewer</class>
+    <class kind="class">GinLookAndFeel</class>
+    <class kind="class">MapViewer</class>
+    <class kind="class">PropertyComponentBase</class>
+    <class kind="class">FilePropertyComponent</class>
+    <class kind="class">ColourPropertyComponent</class>
+    <class kind="class">SingleLineTextEditor</class>
+    <class kind="struct">SingleLineTextEditor::LookAndFeelMethods</class>
+    <class kind="class">SingleLineTextEditor::LengthAndCharacterRestriction</class>
+    <class kind="class">SingleLineTextEditor::InputFilter</class>
+    <class kind="class">SingleLineTextEditor::Listener</class>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin-components.html</anchorfile>
+      <anchor>gaa20ec037c2ec9827747ca222e4308414</anchor>
+      <arglist>(Component &amp;parent, Array&lt; Component *&gt; children)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin-components.html</anchorfile>
+      <anchor>ga824f80420c05391e952c51bb9abc5e88</anchor>
+      <arglist>(Component &amp;parent, std::initializer_list&lt; Component *&gt; children)</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>gin_dsp-dsp</name>

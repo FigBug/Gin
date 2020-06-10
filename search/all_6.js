@@ -117,6 +117,7 @@ var searchData=
   ['getvalue',['getValue',['../group__gin__plugin-plugin.html#gab084f6f52a2bf9f5141a63554b6d22bb',1,'ModVoice::getValue()'],['../classModMatrix.html#adc443dda62a48732e2bf333e34b8b128',1,'ModMatrix::getValue(gin::Parameter *p)'],['../classModMatrix.html#a771bcda462681040c59c37a9e7ae6332',1,'ModMatrix::getValue(ModVoice &amp;voice, gin::Parameter *p)'],['../classParameter.html#afc59f687d30b5816cdfb2aaace49a907',1,'Parameter::getValue()']]],
   ['getvaluefortext',['getValueForText',['../classParameter.html#a7058bae34b44db7c454661db485eccf3',1,'Parameter']]],
   ['getvalueptr',['getValuePtr',['../classEasedValueSmoother.html#a0c0bd355c729547333266dfe4be7ac18',1,'EasedValueSmoother::getValuePtr()'],['../classValueSmoother.html#a0fd46737155bc081c73db8beacb16dd3',1,'ValueSmoother::getValuePtr()']]],
+  ['getwatchedfolders',['getWatchedFolders',['../classFileSystemWatcher.html#a046167c749120b7174fdff59acfee6ed',1,'FileSystemWatcher']]],
   ['gin',['gin',['../group__gin.html',1,'']]],
   ['geometry',['geometry',['../group__gin-geometry.html',1,'']]],
   ['gin_5fadsr_2eh',['gin_adsr.h',['../gin__adsr_8h.html',1,'']]],

@@ -28,7 +28,7 @@ var searchData=
   ['parsesvgpath',['parseSVGPath',['../group__gin-images.html#ga25b60d27a0c7fd9e62e715d2e321234a',1,'gin_imageutilities.h']]],
   ['paste',['paste',['../classSingleLineTextEditor.html#aa3b8c17f58f57098a9562e2ac1fc8f51',1,'SingleLineTextEditor']]],
   ['pastefromclipboard',['pasteFromClipboard',['../classSingleLineTextEditor.html#a2978e8cc1b0056647096e9f95d3a6d0a',1,'SingleLineTextEditor']]],
-  ['patchbrowser',['PatchBrowser',['../classPatchBrowser.html',1,'PatchBrowser'],['../classProcessorEditor.html#a6f7f6e1a092dff5bccece83325514c77',1,'ProcessorEditor::patchBrowser()'],['../classPatchBrowser.html#a4beb28a79d33b3385cd036e78166443c',1,'PatchBrowser::PatchBrowser()']]],
+  ['patchbrowser',['PatchBrowser',['../classPatchBrowser.html',1,'PatchBrowser'],['../classPatchBrowser.html#a4beb28a79d33b3385cd036e78166443c',1,'PatchBrowser::PatchBrowser()'],['../classProcessorEditor.html#a6f7f6e1a092dff5bccece83325514c77',1,'ProcessorEditor::patchBrowser()']]],
   ['pausedownloads',['pauseDownloads',['../classDownloadManager.html#a736bec2349be86541095fe82a1916dbe',1,'DownloadManager']]],
   ['peak',['peak',['../classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4ab6748369a0be703f089ba6dc60b0e91b',1,'EnvelopeDetector::peak()'],['../classEQ.html#afd7d7b03b08fd8ca89204c04ff847010a63f376f9d83f0634b8a03016b8fef4c9',1,'EQ::peak()'],['../classFilter.html#a8f99602312ccfbe9e1598532158726c0ad58dea6810feaf18fe38771eae09e203',1,'Filter::peak()']]],
   ['peaklevel',['peakLevel',['../classLevelTracker.html#ae36cb9c622a3230e0a7f24a5c9b621ac',1,'LevelTracker']]],
