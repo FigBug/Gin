@@ -326,4 +326,15 @@ void FileSystemWatcher::fileChanged (const File& file, FileSystemEvent fsEvent)
 {
     listeners.call (&FileSystemWatcher::Listener::fileChanged, file, fsEvent);
 }
+
+Array<File> FileSystemWatcher::getWatchedFolders()
+{
+	Array<File> res;
+
+	for (auto w : watched)
+		res.add (w->folder);
+
+	return res;
+}
+
 #endif

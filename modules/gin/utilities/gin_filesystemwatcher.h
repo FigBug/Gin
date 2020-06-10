@@ -31,10 +31,15 @@ public:
     //==============================================================================
     /** Adds a folder to be watched */
     void addFolder (const File& folder);
+
     /** Removes a folder from being watched */
     void removeFolder (const File& folder);
+
     /** Removes all folders from being watched */
     void removeAllFolders();
+
+	/** Gets a list of folders being watched */
+	Array<File> getWatchedFolders ();
 
     /** A set of events that can happen to a file.
         When a file is renamed it will appear as the
