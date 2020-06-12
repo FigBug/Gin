@@ -37,7 +37,7 @@ void AsyncWebsocket::disconnect()
 
 void AsyncWebsocket::connect()
 {
-    startThread();
+    startThread (3);
 }
 
 void AsyncWebsocket::run()
