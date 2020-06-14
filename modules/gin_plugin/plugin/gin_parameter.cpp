@@ -83,6 +83,7 @@ void Parameter::setUserValue (float v)
     {
         value = v;
         triggerAsyncUpdate();
+		changed();
     }
 }
 
@@ -96,6 +97,7 @@ void Parameter::setUserValueNotifingHost (float v)
             setValueNotifyingHost (getValue());
 
         triggerAsyncUpdate();
+		changed();
     }
 }
 
@@ -207,6 +209,7 @@ void Parameter::setValue (float valueIn)
         value = newValue;
         
         triggerAsyncUpdate();
+		changed();
     }
 }
 

@@ -113,6 +113,7 @@ protected:
     //==============================================================================
     void handleAsyncUpdate() override;
     void timerCallback() override;
+	virtual void changed() {}
 
     //==============================================================================
     NormalisableRange<float> range;
