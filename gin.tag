@@ -8167,6 +8167,13 @@
       <anchor>a8d5e385c39a92ffcede0ce5476451e16</anchor>
       <arglist>() override</arglist>
     </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>changed</name>
+      <anchorfile>classParameter.html</anchorfile>
+      <anchor>a5ddd8918e54589b570925d7530fd2943</anchor>
+      <arglist>()</arglist>
+    </member>
     <member kind="variable" protection="protected">
       <type>Processor &amp;</type>
       <name>processor</name>
