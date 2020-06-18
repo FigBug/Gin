@@ -242,7 +242,10 @@ void Processor::setCurrentProgram (String name)
 
 const String Processor::getProgramName (int index)
 {
-    return programs[index]->name;
+    if (auto p = programs[index])
+        return p->name;
+    
+    return {};
 }
 
 bool Processor::hasProgram (String name)
