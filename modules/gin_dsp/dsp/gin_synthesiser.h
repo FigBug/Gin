@@ -411,13 +411,11 @@ public:
 
         if (numNotesBefore == 0 && instrument->getNumPlayingNotes() > 0)
         {
-            MidiBuffer::Iterator itr (inputMidi);
-            itr.setNextSamplePosition (startSample);
-            MidiMessage msg;
-            int pos = 0;
-            while (itr.getNextEvent (msg, pos))
+            for (auto itr : inputMidi)
             {
-                if (msg.isNoteOn() && pos < startSample + numSamples)
+                const auto& msg = itr.getMessage();
+                int pos = itr.samplePosition;
+                if (msg.isNoteOn() && pos >= startSample && pos < startSample + numSamples)
                 {
                     noteOnIndex = pos - startSample;
                     break;
@@ -428,13 +426,12 @@ public:
         {
             noteOffIndex = 0;
 
-            MidiBuffer::Iterator itr (inputMidi);
-            itr.setNextSamplePosition (startSample);
-            MidiMessage msg;
-            int pos = 0;
-            while (itr.getNextEvent (msg, pos))
+            for (auto itr : inputMidi)
             {
-                if (msg.isNoteOff() && pos < startSample + numSamples)
+                const auto& msg = itr.getMessage();
+                int pos = itr.samplePosition;
+
+                if (msg.isNoteOff() && pos >= startSample && pos < startSample + numSamples)
                 {
                     noteOnIndex = pos - startSample;
                 }
