@@ -86,6 +86,21 @@ class FileSystemWatcher::Impl : public Thread,
                                 private AsyncUpdater
 {
 public:
+    struct Event
+    {
+        Event () {}
+        Event (Event& other) = default;
+        Event (Event&& other) = default;
+
+        File file;
+        FileSystemEvent fsEvent;
+
+        bool operator== (const Event& other) const
+        {
+            return file == other.file && fsEvent == other.fsEvent;
+        }
+    };
+
     Impl (FileSystemWatcher& o, File f)
       : Thread ("FileSystemWatcher::Impl"), owner (o), folder (f)
     {
@@ -111,6 +126,10 @@ public:
     void run() override
     {
         char buf[BUF_LEN];
+        ssize_t numRead;
+
+        const struct inotify_event* iNotifyEvent;
+        char* ptr;
 
         while (true)
         {
@@ -119,17 +138,56 @@ public:
             if (numRead <= 0 || threadShouldExit())
                 break;
 
-            triggerAsyncUpdate();
+            for (ptr = buf; ptr < buf + numRead; ptr += sizeof(struct inotify_event) + iNotifyEvent->len)
+            {
+                iNotifyEvent = (const struct inotify_event*)ptr;
+                Event e;
+
+                e.file = File {folder.getFullPathName() + '/' + iNotifyEvent->name};
+                
+                     if (iNotifyEvent->mask & IN_CREATE)      e.fsEvent = FileSystemEvent::fileCreated;
+                else if (iNotifyEvent->mask & IN_CLOSE_WRITE) e.fsEvent = FileSystemEvent::fileUpdated;
+                else if (iNotifyEvent->mask & IN_MOVED_FROM)  e.fsEvent = FileSystemEvent::fileRenamedOldName;
+                else if (iNotifyEvent->mask & IN_MOVED_TO)    e.fsEvent = FileSystemEvent::fileRenamedNewName;
+                else if (iNotifyEvent->mask & IN_DELETE)      e.fsEvent = FileSystemEvent::fileDeleted;
+
+
+                bool duplicateEvent = false;
+                for (auto existing : events)
+                {
+                    if (e == existing)
+                    {
+                        duplicateEvent = true;
+                        break;
+                    }
+                }
+
+                if (! duplicateEvent)
+                    events.add (std::move (e));
+            }
+
+            if (events.size() > 0)
+                triggerAsyncUpdate();
         }
     }
 
     void handleAsyncUpdate() override
     {
+        ScopedLock sl (lock);
+
         owner.folderChanged (folder);
+
+        for (auto& e : events)
+            owner.fileChanged (e.file, e.fsEvent);
+
+        events.clear();
     }
 
     FileSystemWatcher& owner;
     File folder;
+
+    CriticalSection lock;
+    Array<Event> events;
 
     int fd;
     int wd;
