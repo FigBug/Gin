@@ -33,7 +33,7 @@ var searchData=
   ['pluginslider',['PluginSlider',['../classPluginSlider.html#aa55574ec47ca63deb3b26a11d1eb8135',1,'PluginSlider']]],
   ['pointatangle',['pointAtAngle',['../classEllipse.html#a3c06d858ff75d57003c5336680e0d805',1,'Ellipse']]],
   ['popaudiobuffer',['popAudioBuffer',['../classResamplingFifo.html#af9f54fe8692c92e5f5cdcee4ba8510f8',1,'ResamplingFifo']]],
-  ['positioncomboboxtext',['positionComboBoxText',['../classGinLookAndFeel.html#af0a6ec62354b5a45bd6b53ae9c55a111',1,'GinLookAndFeel']]],
+  ['positioncomboboxtext',['positionComboBoxText',['../classGinLookAndFeel.html#af0a6ec62354b5a45bd6b53ae9c55a111',1,'GinLookAndFeel::positionComboBoxText()'],['../classCopperLookAndFeel.html#a08b6221171a54db31913faa7f65c274e',1,'CopperLookAndFeel::positionComboBoxText()']]],
   ['powerbutton',['PowerButton',['../classPowerButton.html#a1bc34438020441f421334d0460f325e9',1,'PowerButton']]],
   ['preferenceschanged',['preferencesChanged',['../classMapViewer.html#a3b1865a61ae82def296883bdc0d34083',1,'MapViewer']]],
   ['preparetoplay',['prepareToPlay',['../classParameter.html#ae91e3ee8425847a19c3b158a26f76896',1,'Parameter::prepareToPlay()'],['../classProcessor.html#a91501bb29c8b65f444460ed1abc22824',1,'Processor::prepareToPlay()'],['../classSmoothedParameter.html#aa7fcd3012e8f526fa9ba08117744c4b7',1,'SmoothedParameter::prepareToPlay()']]],

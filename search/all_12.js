@@ -2,7 +2,7 @@ var searchData=
 [
   ['tables',['tables',['../classBandLimitedLookupTable.html#adbe6b6e06f76c87e7bfee87d854b4ffe',1,'BandLimitedLookupTable']]],
   ['tags',['tags',['../classPatchBrowser.html#a604f1af8ee55070f317b08f5f261b607',1,'PatchBrowser::tags()'],['../classProgram.html#ae21a0053a4eadb82e62fb92b32c6d7bb',1,'Program::tags()']]],
-  ['tagsmodel',['TagsModel',['../structPatchBrowser_1_1TagsModel.html',1,'PatchBrowser::TagsModel'],['../classPatchBrowser.html#a2b1148951ac60c4b47c4b1f6af16d144',1,'PatchBrowser::tagsModel()'],['../structPatchBrowser_1_1TagsModel.html#aa09938757cd8d6bf62458de6297aa5cb',1,'PatchBrowser::TagsModel::TagsModel()']]],
+  ['tagsmodel',['TagsModel',['../structPatchBrowser_1_1TagsModel.html',1,'PatchBrowser::TagsModel'],['../structPatchBrowser_1_1TagsModel.html#aa09938757cd8d6bf62458de6297aa5cb',1,'PatchBrowser::TagsModel::TagsModel()'],['../classPatchBrowser.html#a2b1148951ac60c4b47c4b1f6af16d144',1,'PatchBrowser::tagsModel()']]],
   ['textchanged',['textChanged',['../classSingleLineTextEditor.html#a7432325931d3ad2a10f0b98fb83f8ec7',1,'SingleLineTextEditor']]],
   ['textcolourid',['textColourId',['../classSingleLineTextEditor.html#a580e95f56d303528b02f91143c72f13ca3139e08c59ac1e595c5029d4c90b3a95',1,'SingleLineTextEditor']]],
   ['textfunction',['textFunction',['../classParameter.html#a53b9044a78f11aaab48427f315f56ce5',1,'Parameter']]],

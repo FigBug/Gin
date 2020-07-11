@@ -5,7 +5,7 @@ var searchData=
   ['get',['get',['../classHttp.html#aa25b6e9f58fe6924809e801bc8eefe21',1,'Http']]],
   ['geta',['getA',['../classLinearRegression.html#a89e9199f1e6e28c47151c7dc97c358da',1,'LinearRegression']]],
   ['getage',['getAge',['../classModVoice.html#a32fc0a65169eb9b73ebf39e97da8714a',1,'ModVoice']]],
-  ['getalertwindowbuttonheight',['getAlertWindowButtonHeight',['../classGinLookAndFeel.html#a97c257dafafcaeb191d2f3dbd4bbf546',1,'GinLookAndFeel']]],
+  ['getalertwindowbuttonheight',['getAlertWindowButtonHeight',['../classGinLookAndFeel.html#a97c257dafafcaeb191d2f3dbd4bbf546',1,'GinLookAndFeel::getAlertWindowButtonHeight()'],['../classCopperLookAndFeel.html#a928163d12b9c62bbeac79cc94c0d04e0',1,'CopperLookAndFeel::getAlertWindowButtonHeight()']]],
   ['getallmetadata',['getAllMetadata',['../classCommentMetadata.html#abdc5ceda60c18579c6a07a68bec63656',1,'CommentMetadata::getAllMetadata()'],['../classExifMetadata.html#a790c80939739c08b6054e4dab2b0dac7',1,'ExifMetadata::getAllMetadata()'],['../classImageMetadata.html#a5d355530f19559592d156b88377134ea',1,'ImageMetadata::getAllMetadata()'],['../classIptcMetadata.html#a6ca3d172aeb8eb29da2a09b17657114b',1,'IptcMetadata::getAllMetadata()'],['../classXmpMetadata.html#aac71d979acf0a6405a8da20f447faa77',1,'XmpMetadata::getAllMetadata()']]],
   ['getaverage',['getAverage',['../classRollingAverage.html#a6dd6f624ec61f187cbe4c46810fa03e4',1,'RollingAverage']]],
   ['getb',['getB',['../classLinearRegression.html#ac1ca4812272ecf0dca2cc80854adddb4',1,'LinearRegression']]],

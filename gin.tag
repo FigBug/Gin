@@ -3035,6 +3035,62 @@
       <anchor>a9305f3329c4b2478712930dd1a5880ca</anchor>
       <arglist>(const Font &amp;f) override</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawRotarySlider</name>
+      <anchorfile>classCopperLookAndFeel.html</anchorfile>
+      <anchor>aeddc976b627d9460edc42fcd14486539</anchor>
+      <arglist>(Graphics &amp;, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, Slider &amp;) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawLinearSlider</name>
+      <anchorfile>classCopperLookAndFeel.html</anchorfile>
+      <anchor>ac2293e6ea63e958f374c3b7154a5d7b7</anchor>
+      <arglist>(Graphics &amp;, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const Slider::SliderStyle, Slider &amp;) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawButtonBackground</name>
+      <anchorfile>classCopperLookAndFeel.html</anchorfile>
+      <anchor>acabf55d74d1321c6e047e093f28545e6</anchor>
+      <arglist>(Graphics &amp;, Button &amp;, const Colour &amp;backgroundColour, bool isMouseOverButton, bool isButtonDown) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawButtonText</name>
+      <anchorfile>classCopperLookAndFeel.html</anchorfile>
+      <anchor>abd5ae76e8552c17ba80882dc53237b97</anchor>
+      <arglist>(Graphics &amp;, TextButton &amp;, bool isMouseOverButton, bool isButtonDown) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawComboBox</name>
+      <anchorfile>classCopperLookAndFeel.html</anchorfile>
+      <anchor>a8119bc56425955d5d1976b6969faf422</anchor>
+      <arglist>(Graphics &amp;, int width, int height, bool isButtonDown, int buttonX, int buttonY, int buttonW, int buttonH, ComboBox &amp;) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>positionComboBoxText</name>
+      <anchorfile>classCopperLookAndFeel.html</anchorfile>
+      <anchor>a08b6221171a54db31913faa7f65c274e</anchor>
+      <arglist>(ComboBox &amp;, Label &amp;) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawTextEditorOutline</name>
+      <anchorfile>classCopperLookAndFeel.html</anchorfile>
+      <anchor>ace25bba86f29257b7c078a3c8961453e</anchor>
+      <arglist>(Graphics &amp;, int width, int height, TextEditor &amp;) override</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getAlertWindowButtonHeight</name>
+      <anchorfile>classCopperLookAndFeel.html</anchorfile>
+      <anchor>a928163d12b9c62bbeac79cc94c0d04e0</anchor>
+      <arglist>() override</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>CopperLookAndFeelWrapper</name>
@@ -9121,10 +9177,10 @@
       <arglist>(const void *data, int sizeInBytes) override</arglist>
     </member>
     <member kind="variable">
-      <type>SharedResourcePointer&lt; CopperLookAndFeel &gt;</type>
+      <type>SharedResourcePointer&lt; PluginLookAndFeel &gt;</type>
       <name>lf</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>addf8fe72d7474a38a894a8d787cefc06</anchor>
+      <anchor>ac49711a13aa212183e785744404da276</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -9250,6 +9306,13 @@
       <anchorfile>classProcessorEditor.html</anchorfile>
       <anchor>acfa6525c7af7ab451c59d25527ddebde</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>hasBrowser</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a7982220898e3f82be4db2427bcb8106b</anchor>
+      <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>std::unique_ptr&lt; UpdateChecker &gt;</type>

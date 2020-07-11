@@ -4,6 +4,7 @@ var searchData=
   ['handleupdatenowifneeded',['handleUpdateNowIfNeeded',['../classRealtimeAsyncUpdater.html#accae6ff15d6eff08e6a3318263eb6574',1,'RealtimeAsyncUpdater']]],
   ['hardlight',['HardLight',['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85a7fc75582ae37ab60f5a1cc8e2acd7e24',1,'gin_imageeffects.h']]],
   ['hardmix',['HardMix',['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85a76ee1ad58cc676f7994416354a4d7b59',1,'gin_imageeffects.h']]],
+  ['hasbrowser',['hasBrowser',['../classProcessorEditor.html#a7982220898e3f82be4db2427bcb8106b',1,'ProcessorEditor']]],
   ['haserror',['hasError',['../classEquationParser.html#a267ea42024ab4404885d6549c46b5298',1,'EquationParser']]],
   ['hasprogram',['hasProgram',['../classProcessor.html#a4bad2fd53ae0d91ff3239ae0243a6d8a',1,'Processor']]],
   ['havedata',['haveData',['../classLinearRegression.html#ab0d8b0bd896a4ac1a6d0fad86d5de10b',1,'LinearRegression']]],
