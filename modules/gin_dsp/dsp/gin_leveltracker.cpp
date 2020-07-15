@@ -16,7 +16,7 @@ LevelTracker::LevelTracker (float decayPerSecond)
 void LevelTracker::trackBuffer (AudioSampleBuffer& buffer)
 {
     for (int i = 0; i < buffer.getNumChannels(); i++)
-        trackBuffer (buffer.getReadPointer (0), buffer.getNumSamples());
+        trackBuffer (buffer.getReadPointer (i), buffer.getNumSamples());
 }
 
 void LevelTracker::trackBuffer (const float* buffer, int numSamples)
