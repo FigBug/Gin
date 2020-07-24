@@ -336,8 +336,8 @@ void ProcessorEditor::buttonClicked (Button* b)
         if (w.runModalLoop (*this) == 1)
         {
             auto txt = File::createLegalFileName (w.getTextEditor ("name")->getText());
-            auto aut = File::createLegalFileName (w.getTextEditor ("author")->getText());
-            auto tag = File::createLegalFileName (w.getTextEditor ("tags")->getText());
+            auto aut = (hasBrowser) ? File::createLegalFileName (w.getTextEditor ("author")->getText()) : String();
+            auto tag = (hasBrowser) ? File::createLegalFileName (w.getTextEditor ("tags")->getText()) : String();
 
             if (slProc.hasProgram (txt))
             {
