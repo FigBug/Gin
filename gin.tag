@@ -4283,6 +4283,13 @@
       <type>void</type>
       <name>addFunction</name>
       <anchorfile>classEquationParser.html</anchorfile>
+      <anchor>aa8774d66bd3915d772c55b38a4c58cc5</anchor>
+      <arglist>(juce::String name, std::function&lt; double(int id, const String &amp;)&gt; fun)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addFunction</name>
+      <anchorfile>classEquationParser.html</anchorfile>
       <anchor>a5090c82a3374dff11d9552371a2a8659</anchor>
       <arglist>(juce::String name, std::function&lt; double(int id)&gt; fun)</arglist>
     </member>

@@ -86,6 +86,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aebf7f4cdf88caa17a85dd4a137b35150"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ed6df6210bd739d2001adf382ac56b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#a8ed6df6210bd739d2001adf382ac56b2">addConstant</a> (juce::String name, double value)</td></tr>
 <tr class="separator:a8ed6df6210bd739d2001adf382ac56b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8774d66bd3915d772c55b38a4c58cc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#aa8774d66bd3915d772c55b38a4c58cc5">addFunction</a> (juce::String name, std::function&lt; double(int id, const String &amp;)&gt; fun)</td></tr>
+<tr class="separator:aa8774d66bd3915d772c55b38a4c58cc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5090c82a3374dff11d9552371a2a8659"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#a5090c82a3374dff11d9552371a2a8659">addFunction</a> (juce::String name, std::function&lt; double(int id)&gt; fun)</td></tr>
 <tr class="separator:a5090c82a3374dff11d9552371a2a8659"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bd775e9ac1d42aa5f2f02a64309c27e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#a2bd775e9ac1d42aa5f2f02a64309c27e">addFunction</a> (juce::String name, std::function&lt; double(int id, double)&gt; fun)</td></tr>
@@ -231,8 +233,36 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aa8774d66bd3915d772c55b38a4c58cc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8774d66bd3915d772c55b38a4c58cc5">&#9670;&nbsp;</a></span>addFunction() <span class="overload">[1/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EquationParser::addFunction </td>
+          <td>(</td>
+          <td class="paramtype">juce::String&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; double(int id, const String &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>fun</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5090c82a3374dff11d9552371a2a8659"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5090c82a3374dff11d9552371a2a8659">&#9670;&nbsp;</a></span>addFunction() <span class="overload">[1/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5090c82a3374dff11d9552371a2a8659">&#9670;&nbsp;</a></span>addFunction() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -260,7 +290,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a2bd775e9ac1d42aa5f2f02a64309c27e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bd775e9ac1d42aa5f2f02a64309c27e">&#9670;&nbsp;</a></span>addFunction() <span class="overload">[2/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bd775e9ac1d42aa5f2f02a64309c27e">&#9670;&nbsp;</a></span>addFunction() <span class="overload">[3/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -288,7 +318,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a371eaf5fa5cc15039f9db987d994dae4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a371eaf5fa5cc15039f9db987d994dae4">&#9670;&nbsp;</a></span>addFunction() <span class="overload">[3/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a371eaf5fa5cc15039f9db987d994dae4">&#9670;&nbsp;</a></span>addFunction() <span class="overload">[4/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -316,7 +346,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="ab229a4424b5bb0c66d40e9522119fe43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab229a4424b5bb0c66d40e9522119fe43">&#9670;&nbsp;</a></span>addFunction() <span class="overload">[4/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab229a4424b5bb0c66d40e9522119fe43">&#9670;&nbsp;</a></span>addFunction() <span class="overload">[5/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -344,7 +374,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a401c9d12b506b4acb9a0402d28eb38cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a401c9d12b506b4acb9a0402d28eb38cf">&#9670;&nbsp;</a></span>addFunction() <span class="overload">[5/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a401c9d12b506b4acb9a0402d28eb38cf">&#9670;&nbsp;</a></span>addFunction() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -428,7 +458,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 24 2020 14:46:28 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 28 2020 23:49:32 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>
