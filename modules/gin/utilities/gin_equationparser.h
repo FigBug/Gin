@@ -19,6 +19,8 @@ public:
 
     void addConstant (juce::String name, double value);
 
+	void addFunction (juce::String name, std::function<double (int id, const String&)> fun);
+
     void addFunction (juce::String name, std::function<double (int id)> fun);
     void addFunction (juce::String name, std::function<double (int id, double)> fun);
     void addFunction (juce::String name, std::function<double (int id, double, double)> fun);
@@ -36,6 +38,7 @@ private:
     public:
         virtual ~Callback() = default;
     };
+	class CallbackS;
     class Callback0;
     class Callback1;
     class Callback2;

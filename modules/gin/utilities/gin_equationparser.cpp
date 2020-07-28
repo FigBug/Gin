@@ -20,6 +20,12 @@ For more information visit www.rabiensoftware.com
 namespace gin {
 
 //==============================================================================
+class EquationParser::CallbackS : public EquationParser::Callback
+{
+public:
+	CallbackS (std::function <double(int, const String&)> f) : fun (f) {}
+	std::function <double(int, const String&)> fun;
+};
 class EquationParser::Callback0 : public EquationParser::Callback
 {
 public:
@@ -121,6 +127,24 @@ void EquationParser::addConstant (juce::String name, double value)
     catch (...)
     {
     }
+}
+
+void EquationParser::addFunction (juce::String name, std::function<double (int id, const String&)> fun)
+{
+	try
+	{
+		auto cb = new CallbackS (fun);
+		impl->parser.DefineFun (name.toRawUTF8(), [] (mu::SParam s, const char* p1)
+								{
+									auto c = (CallbackS*)s.param;
+									String text = p1;
+									return c->fun (s.id, text);
+								}, cb, false);
+		callbacks.add (cb);
+	}
+	catch (...)
+	{
+	}
 }
 
 void EquationParser::addFunction (juce::String name, std::function<double (int id)> fun)
