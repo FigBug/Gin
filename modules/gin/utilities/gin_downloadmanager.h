@@ -50,7 +50,7 @@ public:
     void setThreadPriority (int p)              { priority = p; }
 
     /** Sets minimum time between download progress callbacks in milliseconds */
-	void setProgressInterval (int ms)           { downloadIntervalMS = fmax (1, ms); }
+	void setProgressInterval (int ms)           { downloadIntervalMS = std::max (1, ms); }
 
     /** Sets the block size of chunks to download. Progress callbacks and
         cancelling downloads can only happen between these blocks. Max size is 128 KB */

@@ -3,7 +3,7 @@
 <JUCERPROJECT id="TUv5GT" name="Demo" displaySplashScreen="0" reportAppUsage="0"
               splashScreenColour="Dark" projectType="guiapp" version="1.0.0"
               bundleIdentifier="com.figbug.Demo" includeBinaryInAppConfig="1"
-              cppLanguageStandard="latest" companyCopyright="" jucerVersion="5.4.7">
+              cppLanguageStandard="latest" companyCopyright="" jucerFormatVersion="1">
   <MAINGROUP id="wLOeL4" name="Demo">
     <GROUP id="{C99AB8C7-9FF4-1BC0-BD5D-C29561B0C802}" name="Source">
       <GROUP id="{942D9F9F-079D-DA91-711F-43B50276712D}" name="Resources">
@@ -53,9 +53,9 @@
         <MODULEPATH id="gin_network" path="../../modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
-    <XCODE_IPHONE targetFolder="Builds/iOS" iosScreenOrientation="portraitlandscape"
-                  iPadScreenOrientation="portraitlandscape" iosDeviceFamily="1,2"
-                  customPList="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;&#10;&lt;plist version=&quot;1.0&quot;&gt;&#10;&lt;dict&gt;&#10;  &#9; &lt;key&gt;NSAppTransportSecurity&lt;/key&gt;&#10;    &#9;&lt;dict&gt;&#10;    &#9;&#9;  &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;&#10;    &#9;&#9;  &lt;true/&gt;&#10;    &#9;&lt;/dict&gt;&#10;&lt;/dict&gt;&#10;&lt;/plist&gt;"
+    <XCODE_IPHONE targetFolder="Builds/iOS" iosScreenOrientation="UIInterfaceOrientationPortrait,UIInterfaceOrientationLandscapeLeft,UIInterfaceOrientationLandscapeRight"
+                  iPadScreenOrientation="UIInterfaceOrientationPortrait,UIInterfaceOrientationLandscapeLeft,UIInterfaceOrientationLandscapeRight"
+                  iosDeviceFamily="1,2" customPList="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;&#10;&lt;plist version=&quot;1.0&quot;&gt;&#10;&lt;dict&gt;&#10;  &#9; &lt;key&gt;NSAppTransportSecurity&lt;/key&gt;&#10;    &#9;&lt;dict&gt;&#10;    &#9;&#9;  &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;&#10;    &#9;&#9;  &lt;true/&gt;&#10;    &#9;&lt;/dict&gt;&#10;&lt;/dict&gt;&#10;&lt;/plist&gt;"
                   smallIcon="fAXkiV" bigIcon="fAXkiV">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" enablePluginBinaryCopyStep="1" isDebug="1" optimisation="1"

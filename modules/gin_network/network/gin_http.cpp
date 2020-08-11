@@ -129,7 +129,7 @@ Http::HttpResult Http::get()
             int todo = getContentLength (result.headers);
             while (todo > 0)
             {
-				int done = s.read (buf.get(), fmin (64 * 1024, todo), false);
+				int done = s.read (buf.get(), std::min (64 * 1024, todo), false);
                 if (done > 0)
                 {
                     result.data.append (buf.get(), (size_t) done);
