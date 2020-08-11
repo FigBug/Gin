@@ -1,7 +1,7 @@
 var searchData=
 [
   ['d',['d',['../classSpline_1_1Element.html#aa152a2b6876477cb9945a1de6860f06e',1,'Spline::Element']]],
-  ['data',['data',['../structDownloadManager_1_1DownloadResult.html#a13fd2f0e9b09ade1a1b2ccf97c920bf5',1,'DownloadManager::DownloadResult::data()'],['../classAsyncDownload.html#a65842b5ad253633e5d2d6df4464d5125',1,'AsyncDownload::data()'],['../classDelayLine.html#a2ead4b17009f75300230c98d2e22650d',1,'DelayLine::data()'],['../structHttp_1_1HttpResult.html#a2ac901c3649475b9bcc654b44475f14b',1,'Http::HttpResult::data()']]],
+  ['data',['data',['../structDownloadManager_1_1DownloadResult.html#a13fd2f0e9b09ade1a1b2ccf97c920bf5',1,'DownloadManager::DownloadResult::data()'],['../classAsyncDownload.html#a65842b5ad253633e5d2d6df4464d5125',1,'AsyncDownload::data()'],['../classDelayLine.html#a2ead4b17009f75300230c98d2e22650d',1,'DelayLine::data()'],['../structHttp_1_1HttpResult.html#a3ae0b311189f4413f1128ba994c2aca3',1,'Http::HttpResult::data()']]],
   ['decay',['decay',['../classAnalogADSR.html#a708e8fef77e14886a71939f64d7f99eb',1,'AnalogADSR']]],
   ['decaycoeff',['decayCoeff',['../classAnalogADSR.html#a579f3a723cf158c51e851339ab151a43',1,'AnalogADSR']]],
   ['decaydelta',['decayDelta',['../classADSR.html#a7fe4cf55dca362fd768e8763e1207721',1,'ADSR']]],

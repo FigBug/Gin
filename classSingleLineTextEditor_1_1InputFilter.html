@@ -85,9 +85,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a99b6d8607dd45a320cddd4b3bd18133b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8468b2a52e2f9cbd642f407c77bb419"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSingleLineTextEditor_1_1InputFilter.html#aa8468b2a52e2f9cbd642f407c77bb419">~InputFilter</a> ()</td></tr>
 <tr class="separator:aa8468b2a52e2f9cbd642f407c77bb419"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06b5aa4f33527539ae3c07e5199b36cd"><td class="memItemLeft" align="right" valign="top">virtual String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSingleLineTextEditor_1_1InputFilter.html#a06b5aa4f33527539ae3c07e5199b36cd">filterNewText</a> (<a class="el" href="classSingleLineTextEditor.html">SingleLineTextEditor</a> &amp;, const String &amp;newInput)=0</td></tr>
-<tr class="memdesc:a06b5aa4f33527539ae3c07e5199b36cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called whenever text is entered into the editor.  <a href="#a06b5aa4f33527539ae3c07e5199b36cd">More...</a><br /></td></tr>
-<tr class="separator:a06b5aa4f33527539ae3c07e5199b36cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f92ce46cd2c3aa2eaf1a5b0734af0df"><td class="memItemLeft" align="right" valign="top">virtual juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSingleLineTextEditor_1_1InputFilter.html#a9f92ce46cd2c3aa2eaf1a5b0734af0df">filterNewText</a> (<a class="el" href="classSingleLineTextEditor.html">SingleLineTextEditor</a> &amp;, const juce::String &amp;newInput)=0</td></tr>
+<tr class="memdesc:a9f92ce46cd2c3aa2eaf1a5b0734af0df"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called whenever text is entered into the editor.  <a href="#a9f92ce46cd2c3aa2eaf1a5b0734af0df">More...</a><br /></td></tr>
+<tr class="separator:a9f92ce46cd2c3aa2eaf1a5b0734af0df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for input filters that can be applied to a TextEditor to restrict the text that can be entered. </p>
@@ -135,8 +135,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a06b5aa4f33527539ae3c07e5199b36cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06b5aa4f33527539ae3c07e5199b36cd">&#9670;&nbsp;</a></span>filterNewText()</h2>
+<a id="a9f92ce46cd2c3aa2eaf1a5b0734af0df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f92ce46cd2c3aa2eaf1a5b0734af0df">&#9670;&nbsp;</a></span>filterNewText()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -145,7 +145,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual String SingleLineTextEditor::InputFilter::filterNewText </td>
+          <td class="memname">virtual juce::String SingleLineTextEditor::InputFilter::filterNewText </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classSingleLineTextEditor.html">SingleLineTextEditor</a> &amp;&#160;</td>
           <td class="paramname">, </td>
@@ -153,7 +153,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramtype">const juce::String &amp;&#160;</td>
           <td class="paramname"><em>newInput</em>&#160;</td>
         </tr>
         <tr>
@@ -172,7 +172,7 @@ Public Member Functions</h2></td></tr>
 <p>This method is called whenever text is entered into the editor. </p>
 <p>An implementation of this class should should check the input string, and return an edited version of it that should be used. </p>
 
-<p>Implemented in <a class="el" href="classSingleLineTextEditor_1_1LengthAndCharacterRestriction.html#a099e5f9bf695129e8a2cba9c9eddae2a">SingleLineTextEditor::LengthAndCharacterRestriction</a>.</p>
+<p>Implemented in <a class="el" href="classSingleLineTextEditor_1_1LengthAndCharacterRestriction.html#a267b86a047f037c1b84d32bf32c2b6d9">SingleLineTextEditor::LengthAndCharacterRestriction</a>.</p>
 
 </div>
 </div>
@@ -182,7 +182,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 28 2020 23:49:32 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Aug 11 2020 19:57:31 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

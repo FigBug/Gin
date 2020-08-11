@@ -11,5 +11,5 @@ var searchData=
   ['updatestate',['updateState',['../classModMatrix.html#a1c2764a67e3d7cf2e844a9a4aa587b07',1,'ModMatrix::updateState()'],['../classProcessor.html#ab477f2a48ee23cb7d38dbecd87332fcd',1,'Processor::updateState()']]],
   ['updatevalue',['updateValue',['../classEasedValueSmoother.html#a266f723fcb2c393fbdd93599d46abcce',1,'EasedValueSmoother::updateValue()'],['../classValueSmoother.html#a581f8cc773e4cc2bac2da53e6edfec85',1,'ValueSmoother::updateValue()']]],
   ['uservaluetotext',['userValueToText',['../classParameter.html#a7cd60677e567aa83d93ebddc06dc4313',1,'Parameter']]],
-  ['usesfileextension',['usesFileExtension',['../classBMPImageFormat.html#a6464a89e4590ba517c53712703691e19',1,'BMPImageFormat']]]
+  ['usesfileextension',['usesFileExtension',['../classBMPImageFormat.html#ac3aec001afc89383d536241e433cb8bf',1,'BMPImageFormat']]]
 ];

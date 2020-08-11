@@ -241,15 +241,15 @@
       <type>void</type>
       <name>addAndMakeVisible</name>
       <anchorfile>group__gin-components.html</anchorfile>
-      <anchor>gaa20ec037c2ec9827747ca222e4308414</anchor>
-      <arglist>(Component &amp;parent, Array&lt; Component *&gt; children)</arglist>
+      <anchor>gaae3a1137955ae87c67a9fec3fa385d2d</anchor>
+      <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component *&gt; children)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>addAndMakeVisible</name>
       <anchorfile>group__gin-components.html</anchorfile>
-      <anchor>ga824f80420c05391e952c51bb9abc5e88</anchor>
-      <arglist>(Component &amp;parent, std::initializer_list&lt; Component *&gt; children)</arglist>
+      <anchor>gab38420a664c643212724d4a1d9b162f8</anchor>
+      <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component *&gt; children)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -638,8 +638,8 @@
       <type>bool</type>
       <name>solveLine</name>
       <anchorfile>group__gin-geometry.html</anchorfile>
-      <anchor>ga5807b898ab10ed1c7f4fb918d029fe68</anchor>
-      <arglist>(Line&lt; T &gt; l, T &amp;m, T &amp;b)</arglist>
+      <anchor>ga46f894daee01dc2820ad4018ac9f051a</anchor>
+      <arglist>(juce::Line&lt; T &gt; l, T &amp;m, T &amp;b)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -820,127 +820,127 @@
       <type>void</type>
       <name>applyVignette</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga0048a38eb45ed95fa18540e9f0ab1934</anchor>
-      <arglist>(Image &amp;img, float amount, float radius, float falloff, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga1023b87ad7bb7ca1e039ded54397ef90</anchor>
+      <arglist>(juce::Image &amp;img, float amount, float radius, float falloff, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applySepia</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>gaf79c1bafc98ff029470f8bc704f7d79e</anchor>
-      <arglist>(Image &amp;img, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>gaccaa511049769192c15aa13e0c2a40d1</anchor>
+      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGreyScale</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>gaf9efa76de190530a4749a46e929fb60b</anchor>
-      <arglist>(Image &amp;img, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>gadb285c05d7e81fbffe8b2ab5705b0783</anchor>
+      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applySoften</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>gadf3dead80fc2c3a803ed4841740882b1</anchor>
-      <arglist>(Image &amp;img, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga4cc9c0919994beeac34d088beb1991e2</anchor>
+      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applySharpen</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga6b21e79d9f1b8a46f6c01e1b78915aba</anchor>
-      <arglist>(Image &amp;img, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>gac0b5514a6c74e31bd4e7a26898e45228</anchor>
+      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGamma</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga7e518992970e03be99dad779ea261bde</anchor>
-      <arglist>(Image &amp;img, float gamma, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga2b20d743c3475fd86d18a8f2cb427b47</anchor>
+      <arglist>(juce::Image &amp;img, float gamma, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyInvert</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga204064ed38aba8c0e989f4ce4e75b8fe</anchor>
-      <arglist>(Image &amp;img, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga6453f04ab3d2a6a345cd6b7f70711c04</anchor>
+      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyContrast</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga05bb4b4605356fa8e74a10ca4a1c822e</anchor>
-      <arglist>(Image &amp;img, float contrast, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga50c77bf67a02fbc002d1136fd64f2031</anchor>
+      <arglist>(juce::Image &amp;img, float contrast, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyBrightnessContrast</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga3c0b7f645663c0c9758642f856c7602c</anchor>
-      <arglist>(Image &amp;img, float brightness, float contrast, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>gab3825059a9e75bfc8e78cf0106ddf78e</anchor>
+      <arglist>(juce::Image &amp;img, float brightness, float contrast, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyHueSaturationLightness</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga2970460c15b12e878d3cacc2def805ec</anchor>
-      <arglist>(Image &amp;img, float hue, float saturation, float lightness, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga25205b0926bfca178115404c6d9f45d9</anchor>
+      <arglist>(juce::Image &amp;img, float hue, float saturation, float lightness, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyStackBlur</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>gaad38832b1fa1eb5b651e0a3ccc329ec8</anchor>
-      <arglist>(Image &amp;img, int radius)</arglist>
+      <anchor>ga5298c1220caef0f1d6d918c9ec15243d</anchor>
+      <arglist>(juce::Image &amp;img, int radius)</arglist>
     </member>
     <member kind="function">
-      <type>Image</type>
+      <type>juce::Image</type>
       <name>applyResize</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga57a7076967283b3c99dc304a524cb92f</anchor>
-      <arglist>(const Image &amp;img, int width, int height)</arglist>
+      <anchor>ga8a045522d5a03954f0d4fe2cbc8082a4</anchor>
+      <arglist>(const juce::Image &amp;img, int width, int height)</arglist>
     </member>
     <member kind="function">
-      <type>Image</type>
+      <type>juce::Image</type>
       <name>applyResize</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga4cf3c9ef12907957d1af1582bb368973</anchor>
-      <arglist>(const Image &amp;img, float factor)</arglist>
+      <anchor>ga99654c39e56b66a36c75cbbff9e137b4</anchor>
+      <arglist>(const juce::Image &amp;img, float factor)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGradientMap</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>gaa582be659d8d8dd35a27088f80ca0271</anchor>
-      <arglist>(Image &amp;img, const ColourGradient &amp;gradient, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga2e91627e4ee0f9e1aeca78ca387a8c51</anchor>
+      <arglist>(juce::Image &amp;img, const juce::ColourGradient &amp;gradient, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGradientMap</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga0eb46cb9ebd3737d69767c48f8b5b06a</anchor>
-      <arglist>(Image &amp;img, const Colour c1, const Colour c2, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga48f6d1c24d18edd26e2d9da48e47dcf7</anchor>
+      <arglist>(juce::Image &amp;img, const juce::Colour c1, const juce::Colour c2, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyColour</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga257901a7bd2055bee1048815e05dfc20</anchor>
-      <arglist>(Image &amp;img, Colour c, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>gae6d6ea52612fb4f6474b05a1063604db</anchor>
+      <arglist>(juce::Image &amp;img, juce::Colour c, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyBlend</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga2c1514ecbcc9f1900b10fc85a2cd85f8</anchor>
-      <arglist>(Image &amp;dst, const Image &amp;src, BlendMode mode, float alpha=1.0f, juce::Point&lt; int &gt; position={}, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga6e16e6b71a97615070d0f5f6829f2b04</anchor>
+      <arglist>(juce::Image &amp;dst, const juce::Image &amp;src, BlendMode mode, float alpha=1.0f, juce::Point&lt; int &gt; position={}, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyBlend</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>gaf190eefd84704fb6a404ba9f39c1c918</anchor>
-      <arglist>(Image &amp;dst, BlendMode mode, Colour c, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga590207f6293f03a5a4e4e2a1d4f3db15</anchor>
+      <arglist>(juce::Image &amp;dst, BlendMode mode, juce::Colour c, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -964,8 +964,8 @@
       <type>juce::Path</type>
       <name>parseSVGPath</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga25b60d27a0c7fd9e62e715d2e321234a</anchor>
-      <arglist>(const String &amp;txt)</arglist>
+      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
+      <arglist>(const juce::String &amp;txt)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -995,8 +995,8 @@
       <type>T</type>
       <name>interpolate</name>
       <anchorfile>namespaceLagrange.html</anchorfile>
-      <anchor>a143c027042c090280675c18481168a09</anchor>
-      <arglist>(const Array&lt; juce::Point&lt; T &gt;&gt; &amp;points, T x)</arglist>
+      <anchor>aef304874a67d1c0e4fa39605d2e19b03</anchor>
+      <arglist>(const juce::Array&lt; juce::Point&lt; T &gt;&gt; &amp;points, T x)</arglist>
     </member>
     <member kind="function">
       <type>T</type>
@@ -1415,8 +1415,8 @@
       <type>void</type>
       <name>multiThreadedFor</name>
       <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>gabac5feb241583a6b8f8f8ba208e1188a</anchor>
-      <arglist>(T start, T end, T interval, ThreadPool *threadPool, std::function&lt; void(T idx)&gt; callback)</arglist>
+      <anchor>ga383aa0fdd6752ac48ba3e087006730fa</anchor>
+      <arglist>(T start, T end, T interval, juce::ThreadPool *threadPool, std::function&lt; void(T idx)&gt; callback)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -1458,14 +1458,14 @@
       <type>void</type>
       <name>shuffleArray</name>
       <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga0285d8d18b26c54d576a183901a145c6</anchor>
-      <arglist>(Random &amp;r, T array)</arglist>
+      <anchor>gaac60b7f594994fac0cb43d317f794449</anchor>
+      <arglist>(juce::Random &amp;r, T array)</arglist>
     </member>
     <member kind="function">
-      <type>Colour</type>
+      <type>juce::Colour</type>
       <name>goldenRatioColor</name>
       <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>gaf2e5284957f4390502132e880faf157e</anchor>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
       <arglist>(int idx)</arglist>
     </member>
     <member kind="function">
@@ -1479,8 +1479,8 @@
       <type>int</type>
       <name>versionStringToInt</name>
       <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga9984f62226f0a0ab7af7f52e91c55e50</anchor>
-      <arglist>(const String &amp;versionString)</arglist>
+      <anchor>ga9861500c17d0717e211dc67c84ccc261</anchor>
+      <arglist>(const juce::String &amp;versionString)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -2075,15 +2075,15 @@
       <type></type>
       <name>AsyncDownload</name>
       <anchorfile>classAsyncDownload.html</anchorfile>
-      <anchor>a44bfc93bb9ec912a3a02387ccebfb1db</anchor>
-      <arglist>(String url_, std::function&lt; void(AsyncDownload *, juce::MemoryBlock, bool)&gt; cb_, int timeoutMS_=0)</arglist>
+      <anchor>a15f718f78c88455a85c0c79ff6e8ff37</anchor>
+      <arglist>(juce::String url_, std::function&lt; void(AsyncDownload *, juce::MemoryBlock, bool)&gt; cb_, int timeoutMS_=0)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>AsyncDownload</name>
       <anchorfile>classAsyncDownload.html</anchorfile>
-      <anchor>a0d24da1c26fe45e5b97f5fd2653bbe5f</anchor>
-      <arglist>(URL url_, std::function&lt; void(AsyncDownload *, juce::MemoryBlock, bool)&gt; cb_, int timeoutMS_=0)</arglist>
+      <anchor>a9dce22dda59d049d43ce4ace85880e01</anchor>
+      <arglist>(juce::URL url_, std::function&lt; void(AsyncDownload *, juce::MemoryBlock, bool)&gt; cb_, int timeoutMS_=0)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -2103,8 +2103,8 @@
       <type>bool</type>
       <name>readEntireBinaryStream</name>
       <anchorfile>classAsyncDownload.html</anchorfile>
-      <anchor>aa028a272541187e966c9cd33eb22424f</anchor>
-      <arglist>(MemoryBlock &amp;destData, bool usePostCommand=false)</arglist>
+      <anchor>a6a2cf5b219b333b02b2965dfdafde699</anchor>
+      <arglist>(juce::MemoryBlock &amp;destData, bool usePostCommand=false)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -2114,10 +2114,10 @@
       <arglist>() override</arglist>
     </member>
     <member kind="variable">
-      <type>URL</type>
+      <type>juce::URL</type>
       <name>url</name>
       <anchorfile>classAsyncDownload.html</anchorfile>
-      <anchor>a47435b2778a0e03d05120a8c811dea69</anchor>
+      <anchor>aef49e36d34014f5e3d77c044fd1b47d3</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -2156,8 +2156,8 @@
       <type></type>
       <name>AsyncLambdaValueTreeListener</name>
       <anchorfile>classAsyncLambdaValueTreeListener.html</anchorfile>
-      <anchor>aee8702ef04e57ba8fe5e43b8a6f9d5e1</anchor>
-      <arglist>(ValueTree &amp;v_)</arglist>
+      <anchor>a7902f77301e14c547e97ca4c12310f05</anchor>
+      <arglist>(juce::ValueTree &amp;v_)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -2167,45 +2167,45 @@
       <arglist>() override</arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; void(const ValueTree &amp;, const Identifier &amp;)&gt;</type>
+      <type>std::function&lt; void(const juce::ValueTree &amp;, const juce::Identifier &amp;)&gt;</type>
       <name>onValueTreePropertyChanged</name>
       <anchorfile>classAsyncLambdaValueTreeListener.html</anchorfile>
-      <anchor>a5d2fa547665b8d28ed6f1ca73e14bfda</anchor>
+      <anchor>a44bae2ccef390d4cc7597a14ed0890ad</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; void(const ValueTree &amp;, const ValueTree &amp;)&gt;</type>
+      <type>std::function&lt; void(const juce::ValueTree &amp;, const juce::ValueTree &amp;)&gt;</type>
       <name>onValueTreeChildAdded</name>
       <anchorfile>classAsyncLambdaValueTreeListener.html</anchorfile>
-      <anchor>a6765fe305e2bef0819c97c684df2dc7b</anchor>
+      <anchor>a49509f3a601c013ed216d83901e5d5b6</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; void(const ValueTree &amp;, const ValueTree &amp;, int)&gt;</type>
+      <type>std::function&lt; void(const juce::ValueTree &amp;, const juce::ValueTree &amp;, int)&gt;</type>
       <name>onValueTreeChildRemoved</name>
       <anchorfile>classAsyncLambdaValueTreeListener.html</anchorfile>
-      <anchor>aa1fdc14ba163fbca52000f55d627e95a</anchor>
+      <anchor>acdb36b902336d9389a06cb2da4418f97</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; void(const ValueTree &amp;, int, int)&gt;</type>
+      <type>std::function&lt; void(const juce::ValueTree &amp;, int, int)&gt;</type>
       <name>onValueTreeChildOrderChanged</name>
       <anchorfile>classAsyncLambdaValueTreeListener.html</anchorfile>
-      <anchor>a7d9f42a49cf91bab740091f7cb453f52</anchor>
+      <anchor>a92e18bd7456866b62b78f040a3ccfe7b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; void(const ValueTree &amp;)&gt;</type>
+      <type>std::function&lt; void(const juce::ValueTree &amp;)&gt;</type>
       <name>onValueTreeParentChanged</name>
       <anchorfile>classAsyncLambdaValueTreeListener.html</anchorfile>
-      <anchor>a6a9bab7074dc06b6f8c4553023446216</anchor>
+      <anchor>aebb3264b2330cf9be846a447b105f613</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; void(const ValueTree &amp;)&gt;</type>
+      <type>std::function&lt; void(const juce::ValueTree &amp;)&gt;</type>
       <name>onValueTreeRedirected</name>
       <anchorfile>classAsyncLambdaValueTreeListener.html</anchorfile>
-      <anchor>addc17604ed2477b8eb8b89023750666b</anchor>
+      <anchor>a34c0f546462a7406ce06d13e4bde8ffd</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -2710,39 +2710,39 @@
     <name>BMPImageFormat</name>
     <filename>classBMPImageFormat.html</filename>
     <member kind="function">
-      <type>String</type>
+      <type>juce::String</type>
       <name>getFormatName</name>
       <anchorfile>classBMPImageFormat.html</anchorfile>
-      <anchor>a5b3f19443d0043dcf1ced39feb8e1316</anchor>
+      <anchor>a2cdb5175be3bb6b90eeb3d6debcce4d1</anchor>
       <arglist>() override</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>canUnderstand</name>
       <anchorfile>classBMPImageFormat.html</anchorfile>
-      <anchor>a72cd8d88951a1a918db085944a723781</anchor>
-      <arglist>(InputStream &amp;input) override</arglist>
+      <anchor>acad298b2621ad5fbd10b53c3cf85ad84</anchor>
+      <arglist>(juce::InputStream &amp;input) override</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>usesFileExtension</name>
       <anchorfile>classBMPImageFormat.html</anchorfile>
-      <anchor>a6464a89e4590ba517c53712703691e19</anchor>
-      <arglist>(const File &amp;possibleFile) override</arglist>
+      <anchor>ac3aec001afc89383d536241e433cb8bf</anchor>
+      <arglist>(const juce::File &amp;possibleFile) override</arglist>
     </member>
     <member kind="function">
-      <type>Image</type>
+      <type>juce::Image</type>
       <name>decodeImage</name>
       <anchorfile>classBMPImageFormat.html</anchorfile>
-      <anchor>ab36bdcd5a76f75e477edbf47fd79fcd3</anchor>
-      <arglist>(InputStream &amp;input) override</arglist>
+      <anchor>a2594f1a9444754276035be54722c59f2</anchor>
+      <arglist>(juce::InputStream &amp;input) override</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>writeImageToStream</name>
       <anchorfile>classBMPImageFormat.html</anchorfile>
-      <anchor>af8285c2a46b1ab723fcb0dbff9a184ad</anchor>
-      <arglist>(const Image &amp;sourceImage, OutputStream &amp;destStream) override</arglist>
+      <anchor>a7aa7a97cf8a3e5724bc61550ce7c8881</anchor>
+      <arglist>(const juce::Image &amp;sourceImage, juce::OutputStream &amp;destStream) override</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -2890,8 +2890,8 @@
       <type></type>
       <name>ColourPropertyComponent</name>
       <anchorfile>classColourPropertyComponent.html</anchorfile>
-      <anchor>a1ff18983817f34947b2096b2f614f926</anchor>
-      <arglist>(const Value &amp;valueToControl, const String &amp;propertyName, bool showAlpha=false)</arglist>
+      <anchor>abc15e762c997ac76cac786201b8db2d2</anchor>
+      <arglist>(const juce::Value &amp;valueToControl, const juce::String &amp;propertyName, bool showAlpha=false)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -2904,8 +2904,8 @@
       <type>void</type>
       <name>paint</name>
       <anchorfile>classColourPropertyComponent.html</anchorfile>
-      <anchor>a1af96fd17a8b8a3711133bdc0711b73a</anchor>
-      <arglist>(Graphics &amp;g) override</arglist>
+      <anchor>a88ecbd7c5a9136910234be51eb487a71</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -2948,8 +2948,8 @@
       <type></type>
       <name>ComponentViewer</name>
       <anchorfile>classComponentViewer.html</anchorfile>
-      <anchor>ac3bf522adf97ee82711810f4a06d4b92</anchor>
-      <arglist>(Component *toTrack=nullptr, PropertiesFile *settings=nullptr, bool alwaysOnTop=true)</arglist>
+      <anchor>ad2606c2be76e8a56bb98d57ce57c0b6f</anchor>
+      <arglist>(Component *toTrack=nullptr, juce::PropertiesFile *settings=nullptr, bool alwaysOnTop=true)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -3337,15 +3337,15 @@
       <type>int</type>
       <name>startAsyncDownload</name>
       <anchorfile>classDownloadManager.html</anchorfile>
-      <anchor>a293503c96ee3a18619a64c885639b2a1</anchor>
-      <arglist>(String url, String postData, std::function&lt; void(DownloadResult)&gt; completionCallback, std::function&lt; void(int64, int64, int64)&gt; progressCallback=nullptr, String extraHeaders={})</arglist>
+      <anchor>a5f28dbb10b11644ea9033f2c4fb2b6ca</anchor>
+      <arglist>(juce::String url, juce::String postData, std::function&lt; void(DownloadResult)&gt; completionCallback, std::function&lt; void(juce::int64, juce::int64, juce::int64)&gt; progressCallback=nullptr, juce::String extraHeaders={})</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>startAsyncDownload</name>
       <anchorfile>classDownloadManager.html</anchorfile>
-      <anchor>a7f10418acb125e303b894b0b6ff7d5a8</anchor>
-      <arglist>(URL url, std::function&lt; void(DownloadResult)&gt; completionCallback, std::function&lt; void(int64, int64, int64)&gt; progressCallback=nullptr, String extraHeaders={})</arglist>
+      <anchor>a6010c1da81e49143c4f97a923d056ecb</anchor>
+      <arglist>(juce::URL url, std::function&lt; void(DownloadResult)&gt; completionCallback, std::function&lt; void(juce::int64, juce::int64, juce::int64)&gt; progressCallback=nullptr, juce::String extraHeaders={})</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -3365,25 +3365,25 @@
       <type>DownloadResult</type>
       <name>blockingDownload</name>
       <anchorfile>classDownloadManager.html</anchorfile>
-      <anchor>a4f2f782db41bee4029250deba9a5bac4</anchor>
-      <arglist>(String url, String postData, String extraHeaders={})</arglist>
+      <anchor>a46d6fd6994ca4cdcde6564edd621020f</anchor>
+      <arglist>(juce::String url, juce::String postData, juce::String extraHeaders={})</arglist>
     </member>
     <member kind="function">
       <type>DownloadResult</type>
       <name>blockingDownload</name>
       <anchorfile>classDownloadManager.html</anchorfile>
-      <anchor>ae26895481511c1233758fe71fb6201ab</anchor>
-      <arglist>(URL url, String extraHeaders={})</arglist>
+      <anchor>ab352a3c9d99319f4872c1603eb19cc78</anchor>
+      <arglist>(juce::URL url, juce::String extraHeaders={})</arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>DownloadManager::DownloadResult</name>
     <filename>structDownloadManager_1_1DownloadResult.html</filename>
     <member kind="variable">
-      <type>URL</type>
+      <type>juce::URL</type>
       <name>url</name>
       <anchorfile>structDownloadManager_1_1DownloadResult.html</anchorfile>
-      <anchor>a0b7113d086d2eb2df71cfbf6f0891a96</anchor>
+      <anchor>a700f6508383b439c9f700ee6a2193545</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -3422,10 +3422,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>StringPairArray</type>
+      <type>juce::StringPairArray</type>
       <name>responseHeaders</name>
       <anchorfile>structDownloadManager_1_1DownloadResult.html</anchorfile>
-      <anchor>a61710618191f0865d9e7da7e31875ee6</anchor>
+      <anchor>a48b192b45df8e978f398483f24e38fa2</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -3893,22 +3893,22 @@
       <type>void</type>
       <name>createDir</name>
       <anchorfile>classElevatedFileCopy.html</anchorfile>
-      <anchor>ab7c2eb2a34715c831de568e5b3055980</anchor>
-      <arglist>(const File &amp;dir)</arglist>
+      <anchor>adfdda510a8b38c0884eafc83b9ee847a</anchor>
+      <arglist>(const juce::File &amp;dir)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>copyFile</name>
       <anchorfile>classElevatedFileCopy.html</anchorfile>
-      <anchor>a1444661b30ecad1d0388d18c5fdbbbac</anchor>
-      <arglist>(const File &amp;src, const File &amp;dst)</arglist>
+      <anchor>a72d1a5cdf30ac2bb43d89934ec7b14f0</anchor>
+      <arglist>(const juce::File &amp;src, const juce::File &amp;dst)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>deleteFile</name>
       <anchorfile>classElevatedFileCopy.html</anchorfile>
-      <anchor>ac4ee27718648bb57ad2b386779ad69b0</anchor>
-      <arglist>(const File &amp;f)</arglist>
+      <anchor>a388cf3a1477bb16bb43e7e1666c4e46d</anchor>
+      <arglist>(const juce::File &amp;f)</arglist>
     </member>
     <member kind="function">
       <type>Result</type>
@@ -3935,8 +3935,8 @@
       <type>static Result</type>
       <name>runScriptWithAdminAccess</name>
       <anchorfile>classElevatedFileCopy.html</anchorfile>
-      <anchor>a106d59cb0ef21a8a5ba66987df293e23</anchor>
-      <arglist>(File script, bool launchSelf)</arglist>
+      <anchor>a38602e1c7ac1fa9d1c57ac467b8fe7bb</anchor>
+      <arglist>(juce::File script, bool launchSelf)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -4283,8 +4283,8 @@
       <type>void</type>
       <name>addFunction</name>
       <anchorfile>classEquationParser.html</anchorfile>
-      <anchor>aa8774d66bd3915d772c55b38a4c58cc5</anchor>
-      <arglist>(juce::String name, std::function&lt; double(int id, const String &amp;)&gt; fun)</arglist>
+      <anchor>ad1764b694dc81c8c5b4c5eaf34ded9fa</anchor>
+      <arglist>(juce::String name, std::function&lt; double(int id, const juce::String &amp;)&gt; fun)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -4391,8 +4391,8 @@
       <type></type>
       <name>FilePropertyComponent</name>
       <anchorfile>classFilePropertyComponent.html</anchorfile>
-      <anchor>a9c4cdb842985561617215a814a3dcc0a</anchor>
-      <arglist>(const Value &amp;valueToControl, const String &amp;propertyName, const String &amp;title_=&quot;Open&quot;, const String pattern_=&quot;*.*&quot;)</arglist>
+      <anchor>a95373d1491b4b24e514f80c806320f56</anchor>
+      <arglist>(const juce::Value &amp;valueToControl, const juce::String &amp;propertyName, const juce::String &amp;title_=&quot;Open&quot;, const juce::String pattern_=&quot;*.*&quot;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -4491,15 +4491,15 @@
       <type>void</type>
       <name>addFolder</name>
       <anchorfile>classFileSystemWatcher.html</anchorfile>
-      <anchor>aa2dd0f6227221746319399ff3ed5dc79</anchor>
-      <arglist>(const File &amp;folder)</arglist>
+      <anchor>a90c382d8d77550e122c03dff90a10c4e</anchor>
+      <arglist>(const juce::File &amp;folder)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>removeFolder</name>
       <anchorfile>classFileSystemWatcher.html</anchorfile>
-      <anchor>aaab880b7b3ffe94a74dae13a44b2a152</anchor>
-      <arglist>(const File &amp;folder)</arglist>
+      <anchor>a4a00ea52d73e860fa8396e98b60157f4</anchor>
+      <arglist>(const juce::File &amp;folder)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -4509,10 +4509,10 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>Array&lt; File &gt;</type>
+      <type>juce::Array&lt; juce::File &gt;</type>
       <name>getWatchedFolders</name>
       <anchorfile>classFileSystemWatcher.html</anchorfile>
-      <anchor>a046167c749120b7174fdff59acfee6ed</anchor>
+      <anchor>aee9da6c13de3dfb36ebafc290a0a6b08</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -5240,60 +5240,60 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>Colour</type>
+      <type>juce::Colour</type>
       <name>defaultColour</name>
       <anchorfile>classGinLookAndFeel.html</anchorfile>
-      <anchor>afc61ed8c77e8f1840301a583ac8d52d5</anchor>
+      <anchor>a13e4ce006239d68f35c217261a9ed907</anchor>
       <arglist>(int idx)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>drawRotarySlider</name>
       <anchorfile>classGinLookAndFeel.html</anchorfile>
-      <anchor>a26df14890b655b0bc614b77c3d84bbe3</anchor>
-      <arglist>(Graphics &amp;, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, Slider &amp;) override</arglist>
+      <anchor>abd86ed5df86e07320f192df0c1dc9288</anchor>
+      <arglist>(juce::Graphics &amp;, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, juce::Slider &amp;) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>drawLinearSlider</name>
       <anchorfile>classGinLookAndFeel.html</anchorfile>
-      <anchor>a836b7f090eb3677dc4b417a604f2587c</anchor>
-      <arglist>(Graphics &amp;, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const Slider::SliderStyle, Slider &amp;) override</arglist>
+      <anchor>ad3d6d856e5508baa4397c3b3d3b2aff3</anchor>
+      <arglist>(juce::Graphics &amp;, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const juce::Slider::SliderStyle, juce::Slider &amp;) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>drawButtonBackground</name>
       <anchorfile>classGinLookAndFeel.html</anchorfile>
-      <anchor>a615714a54ce3318de0666d45280f1766</anchor>
-      <arglist>(Graphics &amp;, Button &amp;, const Colour &amp;backgroundColour, bool isMouseOverButton, bool isButtonDown) override</arglist>
+      <anchor>a73361bf8910f40eb4833ce02bb0a34de</anchor>
+      <arglist>(juce::Graphics &amp;, juce::Button &amp;, const juce::Colour &amp;backgroundColour, bool isMouseOverButton, bool isButtonDown) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>drawButtonText</name>
       <anchorfile>classGinLookAndFeel.html</anchorfile>
-      <anchor>a5d887a0e7ce221cd4f4e66c82a27cf8e</anchor>
-      <arglist>(Graphics &amp;, TextButton &amp;, bool isMouseOverButton, bool isButtonDown) override</arglist>
+      <anchor>aaeb486d5d6926aaf12339fbcaee2dfd6</anchor>
+      <arglist>(juce::Graphics &amp;, juce::TextButton &amp;, bool isMouseOverButton, bool isButtonDown) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>drawComboBox</name>
       <anchorfile>classGinLookAndFeel.html</anchorfile>
-      <anchor>a87fab3f2ecce77dced8396f0def5476b</anchor>
-      <arglist>(Graphics &amp;, int width, int height, bool isButtonDown, int buttonX, int buttonY, int buttonW, int buttonH, ComboBox &amp;) override</arglist>
+      <anchor>ae3ae1eba4e69ec80c57454bb7e79f3d6</anchor>
+      <arglist>(juce::Graphics &amp;, int width, int height, bool isButtonDown, int buttonX, int buttonY, int buttonW, int buttonH, juce::ComboBox &amp;) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>positionComboBoxText</name>
       <anchorfile>classGinLookAndFeel.html</anchorfile>
-      <anchor>af0a6ec62354b5a45bd6b53ae9c55a111</anchor>
-      <arglist>(ComboBox &amp;, Label &amp;) override</arglist>
+      <anchor>af9f9187b11f3e290fab683fc65cfb914</anchor>
+      <arglist>(juce::ComboBox &amp;, juce::Label &amp;) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>drawTextEditorOutline</name>
       <anchorfile>classGinLookAndFeel.html</anchorfile>
-      <anchor>a8147eaf7cb5ddbbf1a43f2088548deb5</anchor>
-      <arglist>(Graphics &amp;, int width, int height, TextEditor &amp;) override</arglist>
+      <anchor>aa6bf04df21fad6a9fd1b01cf0d5c7658</anchor>
+      <arglist>(juce::Graphics &amp;, int width, int height, juce::TextEditor &amp;) override</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -5428,8 +5428,8 @@
       <type></type>
       <name>Http</name>
       <anchorfile>classHttp.html</anchorfile>
-      <anchor>ac11e12b120fa22e4a05273b502f4a004</anchor>
-      <arglist>(URL url)</arglist>
+      <anchor>ad057da75ec75c9a44f3b736ff19ccd9d</anchor>
+      <arglist>(juce::URL url)</arglist>
     </member>
     <member kind="function">
       <type>HttpResult</type>
@@ -5450,17 +5450,17 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>StringPairArray</type>
+      <type>juce::StringPairArray</type>
       <name>headers</name>
       <anchorfile>structHttp_1_1HttpResult.html</anchorfile>
-      <anchor>ac970cb121a9de164fce399220478b573</anchor>
+      <anchor>a663dee713583fca5be89fab8eddd3293</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>MemoryBlock</type>
+      <type>juce::MemoryBlock</type>
       <name>data</name>
       <anchorfile>structHttp_1_1HttpResult.html</anchorfile>
-      <anchor>a2ac901c3649475b9bcc654b44475f14b</anchor>
+      <anchor>a3ae0b311189f4413f1128ba994c2aca3</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -5528,11 +5528,11 @@
       <arglist>()</arglist>
     </member>
     <member kind="function" virtualness="pure">
-      <type>virtual String</type>
+      <type>virtual juce::String</type>
       <name>filterNewText</name>
       <anchorfile>classSingleLineTextEditor_1_1InputFilter.html</anchorfile>
-      <anchor>a06b5aa4f33527539ae3c07e5199b36cd</anchor>
-      <arglist>(SingleLineTextEditor &amp;, const String &amp;newInput)=0</arglist>
+      <anchor>a9f92ce46cd2c3aa2eaf1a5b0734af0df</anchor>
+      <arglist>(SingleLineTextEditor &amp;, const juce::String &amp;newInput)=0</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -5570,8 +5570,8 @@
       <type>void</type>
       <name>addPoints</name>
       <anchorfile>classIntegrator.html</anchorfile>
-      <anchor>a80b83d6cbdcfe9a98afadb31bf0b2781</anchor>
-      <arglist>(Array&lt; juce::Point&lt; double &gt;&gt; points)</arglist>
+      <anchor>a9532216348e1d40b53548f802f472353</anchor>
+      <arglist>(juce::Array&lt; juce::Point&lt; double &gt;&gt; points)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -5684,8 +5684,8 @@
       <type></type>
       <name>LambdaValueTreeListener</name>
       <anchorfile>classLambdaValueTreeListener.html</anchorfile>
-      <anchor>a5bb08a51b9767b3cc858dbdc38b8cb86</anchor>
-      <arglist>(ValueTree &amp;v_)</arglist>
+      <anchor>a3f7db4c387824d9d43e7de3ce17898ec</anchor>
+      <arglist>(juce::ValueTree &amp;v_)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -5695,45 +5695,45 @@
       <arglist>() override</arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; void(ValueTree &amp;, const Identifier &amp;)&gt;</type>
+      <type>std::function&lt; void(juce::ValueTree &amp;, const juce::Identifier &amp;)&gt;</type>
       <name>onValueTreePropertyChanged</name>
       <anchorfile>classLambdaValueTreeListener.html</anchorfile>
-      <anchor>a43b99f9623dc135161b9a783e8b19b4c</anchor>
+      <anchor>a84758404d4b1bb632946767d5efb6b2b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; void(ValueTree &amp;, ValueTree &amp;)&gt;</type>
+      <type>std::function&lt; void(juce::ValueTree &amp;, juce::ValueTree &amp;)&gt;</type>
       <name>onValueTreeChildAdded</name>
       <anchorfile>classLambdaValueTreeListener.html</anchorfile>
-      <anchor>afbf0cb88427ec4b4ffab5826bfa4fc1b</anchor>
+      <anchor>a8ae2510546ac5459bb59c883e699d7f9</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; void(ValueTree &amp;, ValueTree &amp;, int)&gt;</type>
+      <type>std::function&lt; void(juce::ValueTree &amp;, juce::ValueTree &amp;, int)&gt;</type>
       <name>onValueTreeChildRemoved</name>
       <anchorfile>classLambdaValueTreeListener.html</anchorfile>
-      <anchor>acf06480a3a71c4449b08a46818006b68</anchor>
+      <anchor>a92dae3b8c8fcaa94a9b0286a8e4d67d8</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; void(ValueTree &amp;, int, int)&gt;</type>
+      <type>std::function&lt; void(juce::ValueTree &amp;, int, int)&gt;</type>
       <name>onValueTreeChildOrderChanged</name>
       <anchorfile>classLambdaValueTreeListener.html</anchorfile>
-      <anchor>a5739c0df543a6084ef693ac92529b1be</anchor>
+      <anchor>ab24d4441320b9d5769d4240126ccdf10</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; void(ValueTree &amp;)&gt;</type>
+      <type>std::function&lt; void(juce::ValueTree &amp;)&gt;</type>
       <name>onValueTreeParentChanged</name>
       <anchorfile>classLambdaValueTreeListener.html</anchorfile>
-      <anchor>aa12e29c704145658f8221846fdaa9565</anchor>
+      <anchor>a1f4864cfd07b42efe993f6fe7c3d3732</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; void(ValueTree &amp;)&gt;</type>
+      <type>std::function&lt; void(juce::ValueTree &amp;)&gt;</type>
       <name>onValueTreeRedirected</name>
       <anchorfile>classLambdaValueTreeListener.html</anchorfile>
-      <anchor>a2b9ea6647720e7dadf2e82dd456bb9c3</anchor>
+      <anchor>a947e309862d3e35bc7e51c3c35c25651</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -5765,8 +5765,8 @@
       <type>void</type>
       <name>addPoints</name>
       <anchorfile>classLeastSquaresRegression.html</anchorfile>
-      <anchor>ada9fcd8e2ec62eb4f2cdc4d696d3f661</anchor>
-      <arglist>(Array&lt; juce::Point&lt; double &gt;&gt; points)</arglist>
+      <anchor>a6bb31399e9c2b66bb8f24d41b6bc0e82</anchor>
+      <arglist>(juce::Array&lt; juce::Point&lt; double &gt;&gt; points)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -5783,10 +5783,10 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>Array&lt; double &gt;</type>
+      <type>juce::Array&lt; double &gt;</type>
       <name>getTerms</name>
       <anchorfile>classLeastSquaresRegression.html</anchorfile>
-      <anchor>a210cb97b0a5c11cd262a2342ceda5d9a</anchor>
+      <anchor>ac369d5ec943d39d6d00b45cf381a989d</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -5826,15 +5826,15 @@
       <type></type>
       <name>LengthAndCharacterRestriction</name>
       <anchorfile>classSingleLineTextEditor_1_1LengthAndCharacterRestriction.html</anchorfile>
-      <anchor>a1421a6d22388da3995326df40e1cf627</anchor>
-      <arglist>(int maxNumChars, const String &amp;allowedCharacters)</arglist>
+      <anchor>a4d5a40f6acac1514cf9533a06f41197a</anchor>
+      <arglist>(int maxNumChars, const juce::String &amp;allowedCharacters)</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
+      <type>juce::String</type>
       <name>filterNewText</name>
       <anchorfile>classSingleLineTextEditor_1_1LengthAndCharacterRestriction.html</anchorfile>
-      <anchor>a099e5f9bf695129e8a2cba9c9eddae2a</anchor>
-      <arglist>(SingleLineTextEditor &amp;, const String &amp;) override</arglist>
+      <anchor>a267b86a047f037c1b84d32bf32c2b6d9</anchor>
+      <arglist>(SingleLineTextEditor &amp;, const juce::String &amp;) override</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -6112,8 +6112,8 @@
       <type></type>
       <name>LinearRegression</name>
       <anchorfile>classLinearRegression.html</anchorfile>
-      <anchor>a776292121499e2bde7f9228d463248f4</anchor>
-      <arglist>(Array&lt; juce::Point&lt; double &gt;&gt; points)</arglist>
+      <anchor>ab3bfe3de8ce254e2e6ff9a91258ac882</anchor>
+      <arglist>(juce::Array&lt; juce::Point&lt; double &gt;&gt; points)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -6271,6 +6271,24 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>OpenStreetMaps::Listener</name>
+    <filename>classOpenStreetMaps_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
+      <anchor>aeb7faf41923db2a12f09179159d96bd1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>tileFetched</name>
+      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
+      <anchor>a5a86659b291d99adbe0af1a30fdfe383</anchor>
+      <arglist>(int zoom, int x, int y)=0</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>SingleLineTextEditor::Listener</name>
     <filename>classSingleLineTextEditor_1_1Listener.html</filename>
     <member kind="function" virtualness="virtual">
@@ -6366,33 +6384,15 @@
       <type>virtual void</type>
       <name>folderChanged</name>
       <anchorfile>classFileSystemWatcher_1_1Listener.html</anchorfile>
-      <anchor>a4374c08b2ff58e40955bf7f0c27b0a02</anchor>
-      <arglist>(const File)</arglist>
+      <anchor>a04a461ad2d135495403372fcc9d413dd</anchor>
+      <arglist>(const juce::File)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>fileChanged</name>
       <anchorfile>classFileSystemWatcher_1_1Listener.html</anchorfile>
-      <anchor>ad00287704d62db4090a565de73aa28c6</anchor>
-      <arglist>(const File, FileSystemEvent)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>OpenStreetMaps::Listener</name>
-    <filename>classOpenStreetMaps_1_1Listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
-      <anchor>aeb7faf41923db2a12f09179159d96bd1</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>tileFetched</name>
-      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
-      <anchor>a5a86659b291d99adbe0af1a30fdfe383</anchor>
-      <arglist>(int zoom, int x, int y)=0</arglist>
+      <anchor>a74adb289b69441dd79b84f5eb6a66d59</anchor>
+      <arglist>(const juce::File, FileSystemEvent)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -6409,21 +6409,21 @@
       <type>virtual void</type>
       <name>fillSingleLineTextEditorBackground</name>
       <anchorfile>structSingleLineTextEditor_1_1LookAndFeelMethods.html</anchorfile>
-      <anchor>ada1f33376c19a9d6de8bfb4de1ede37a</anchor>
-      <arglist>(Graphics &amp;, int width, int height, SingleLineTextEditor &amp;)=0</arglist>
+      <anchor>a1e2b0252dace06516a350c7f3680f7c3</anchor>
+      <arglist>(juce::Graphics &amp;, int width, int height, SingleLineTextEditor &amp;)=0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual void</type>
       <name>drawSingleLineTextEditorOutline</name>
       <anchorfile>structSingleLineTextEditor_1_1LookAndFeelMethods.html</anchorfile>
-      <anchor>a5179139ab2979bee14d804c4a89fcb00</anchor>
-      <arglist>(Graphics &amp;, int width, int height, SingleLineTextEditor &amp;)=0</arglist>
+      <anchor>a5db78989d26586b1239a954964b455bd</anchor>
+      <arglist>(juce::Graphics &amp;, int width, int height, SingleLineTextEditor &amp;)=0</arglist>
     </member>
     <member kind="function" virtualness="pure">
-      <type>virtual CaretComponent *</type>
+      <type>virtual juce::CaretComponent *</type>
       <name>createSingleLineCaretComponent</name>
       <anchorfile>structSingleLineTextEditor_1_1LookAndFeelMethods.html</anchorfile>
-      <anchor>ab3cceb01eb125660166ca2faaa25f4a2</anchor>
+      <anchor>a90d47e49d33175a975e89eeed7ef7f89</anchor>
       <arglist>(Component *keyFocusOwner)=0</arglist>
     </member>
   </compound>
@@ -6557,29 +6557,29 @@
       <type>void</type>
       <name>paint</name>
       <anchorfile>classMapViewer.html</anchorfile>
-      <anchor>a50e2da36e6efadc2a3fe7189abe6b5bc</anchor>
-      <arglist>(Graphics &amp;g) override</arglist>
+      <anchor>a3a5a499a937627d3cdb7cd8417f02732</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>mouseDown</name>
       <anchorfile>classMapViewer.html</anchorfile>
-      <anchor>a803b96f6ff7d60b19ffb8a49e23ec760</anchor>
-      <arglist>(const MouseEvent &amp;e) override</arglist>
+      <anchor>a41c743eb11ab2da7d670ec3a25e5d39e</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>mouseDrag</name>
       <anchorfile>classMapViewer.html</anchorfile>
-      <anchor>abddd269e9f9a617be63ae6e356a4ecd7</anchor>
-      <arglist>(const MouseEvent &amp;e) override</arglist>
+      <anchor>af2a70d5d74faafa6faf3b8834560e64b</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>mouseWheelMove</name>
       <anchorfile>classMapViewer.html</anchorfile>
-      <anchor>a609fce02a01c7cfc441e23acf39d5f09</anchor>
-      <arglist>(const MouseEvent &amp;e, const MouseWheelDetails &amp;wheel) override</arglist>
+      <anchor>a4bf0f24c8681d975a5f424c15c599c2d</anchor>
+      <arglist>(const juce::MouseEvent &amp;e, const juce::MouseWheelDetails &amp;wheel) override</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -7559,14 +7559,14 @@
       <type>void</type>
       <name>setMapTileDir</name>
       <anchorfile>classOpenStreetMaps.html</anchorfile>
-      <anchor>ad7811f8f344a9d9bece25d55fdd8f9f2</anchor>
-      <arglist>(File f)</arglist>
+      <anchor>a5d46381e37ef37f726263139d73c6072</anchor>
+      <arglist>(juce::File f)</arglist>
     </member>
     <member kind="function">
-      <type>Image</type>
+      <type>juce::Image</type>
       <name>fetchTile</name>
       <anchorfile>classOpenStreetMaps.html</anchorfile>
-      <anchor>a9b71d42278e36394057685fc9655a303</anchor>
+      <anchor>a70fadcfedbacac26ed401bbb727a1280</anchor>
       <arglist>(int zoom, int x, int y)</arglist>
     </member>
     <member kind="function">
@@ -9694,21 +9694,21 @@
       <type></type>
       <name>PropertyComponentBase</name>
       <anchorfile>classPropertyComponentBase.html</anchorfile>
-      <anchor>ab6b86f112891beb9ae95f8b07593e052</anchor>
-      <arglist>(const Value &amp;valueToControl, const String &amp;propertyName)</arglist>
+      <anchor>ae320b0e3de35b2ead852cbc5daa5d5f7</anchor>
+      <arglist>(const juce::Value &amp;valueToControl, const juce::String &amp;propertyName)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>valueChanged</name>
       <anchorfile>classPropertyComponentBase.html</anchorfile>
-      <anchor>a0e8e92e926f112b5634599ca333fa2cf</anchor>
-      <arglist>(Value &amp;) override</arglist>
+      <anchor>af34efe7a5ff3eb5199e3f06fce52b6ff</anchor>
+      <arglist>(juce::Value &amp;) override</arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>Value</type>
+      <type>juce::Value</type>
       <name>value</name>
       <anchorfile>classPropertyComponentBase.html</anchorfile>
-      <anchor>a9cb75b99d51d530899fbf69741e03bbf</anchor>
+      <anchor>a3c5ee7d20c4aecc48394fc97aa050448</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -10107,8 +10107,8 @@
       <type>bool</type>
       <name>connect</name>
       <anchorfile>classSecureStreamingSocket.html</anchorfile>
-      <anchor>a7906abceef91bc39be8e9a3db0b52d7d</anchor>
-      <arglist>(const String &amp;remoteHostname, int remotePortNumber, int timeOutMillisecs=3000)</arglist>
+      <anchor>aea1e67df0bbf6e3f7cd82e7b6419c1e8</anchor>
+      <arglist>(const juce::String &amp;remoteHostname, int remotePortNumber, int timeOutMillisecs=3000)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -10172,8 +10172,8 @@
       <type></type>
       <name>SharedMemory</name>
       <anchorfile>classSharedMemory.html</anchorfile>
-      <anchor>a1509624c9eaab16bf4df7ca9e1902f14</anchor>
-      <arglist>(const String &amp;name, int size)</arglist>
+      <anchor>a7ed6c8ab72fa4eaf0abd6d665df0e210</anchor>
+      <arglist>(const juce::String &amp;name, int size)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -10200,8 +10200,8 @@
       <type>static void</type>
       <name>remove</name>
       <anchorfile>classSharedMemory.html</anchorfile>
-      <anchor>a724fb082611d497482526d26c8833c4f</anchor>
-      <arglist>(const String &amp;name)</arglist>
+      <anchor>a19714c21ee5c98faff8a1e77e79532a7</anchor>
+      <arglist>(const juce::String &amp;name)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -10306,8 +10306,8 @@
       <type></type>
       <name>SingleLineTextEditor</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>a2c5665e503e8d325eaa72ea91ca750d1</anchor>
-      <arglist>(const String &amp;componentName=String())</arglist>
+      <anchor>a2c7973e7c8af497c83b6a551f444e2dc</anchor>
+      <arglist>(const juce::String &amp;componentName=juce::String())</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -10390,29 +10390,29 @@
       <type>void</type>
       <name>setFont</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>a935cf73fc2575b527558a4a0d92c7d6c</anchor>
-      <arglist>(const Font &amp;newFont)</arglist>
+      <anchor>a549c247fef1645ded8450ad61a69b722</anchor>
+      <arglist>(const juce::Font &amp;newFont)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyFontToAllText</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>a68e1a4a9167353f3ff74687cdf793a94</anchor>
-      <arglist>(const Font &amp;newFont)</arglist>
+      <anchor>a1f2703bd0ea7f77bf9b9ef6cb939b986</anchor>
+      <arglist>(const juce::Font &amp;newFont)</arglist>
     </member>
     <member kind="function">
-      <type>const Font &amp;</type>
+      <type>const juce::Font &amp;</type>
       <name>getFont</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>a76f8086237587edc376b3ff3a92be8cf</anchor>
+      <anchor>add6ab602dcfc5140dc835ed398c490e3</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setJustificationType</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>a8c6adf0457e13cb4b796a46546ed0514</anchor>
-      <arglist>(Justification just)</arglist>
+      <anchor>aa91356ec3b83897b64aab87d70579bc6</anchor>
+      <arglist>(juce::Justification just)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -10425,8 +10425,8 @@
       <type>void</type>
       <name>setTextToShowWhenEmpty</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>acc07fc3470bd10298f530feb8f907f3a</anchor>
-      <arglist>(const String &amp;text, Colour colourToUse)</arglist>
+      <anchor>adf573da13743e43c4f62ec9a0d802afa</anchor>
+      <arglist>(const juce::String &amp;text, juce::Colour colourToUse)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -10443,18 +10443,18 @@
       <arglist>(SingleLineTextEditor::Listener *listenerToRemove)</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
+      <type>juce::String</type>
       <name>getText</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>a943c9f944dfdcb332caa06708430565f</anchor>
+      <anchor>ab7c48b757a09f3687b8f2a60690e1d61</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
+      <type>juce::String</type>
       <name>getTextInRange</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>aee8bbcf1e741fba229ba8549d0f87506</anchor>
-      <arglist>(const Range&lt; int &gt; &amp;textRange) const override</arglist>
+      <anchor>acccbcba4eb83012fa4592da4d5ee6d76</anchor>
+      <arglist>(const juce::Range&lt; int &gt; &amp;textRange) const override</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -10467,22 +10467,22 @@
       <type>void</type>
       <name>setText</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>aba0e8a5f782e6a93592ded034411c760</anchor>
-      <arglist>(const String &amp;newText, bool sendTextChangeMessage=true)</arglist>
+      <anchor>a6f4f38207cdbffa7a1033e96969cc7a3</anchor>
+      <arglist>(const juce::String &amp;newText, bool sendTextChangeMessage=true)</arglist>
     </member>
     <member kind="function">
-      <type>Value &amp;</type>
+      <type>juce::Value &amp;</type>
       <name>getTextValue</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>abd7220f240caffe4d6c0e6ce27d79912</anchor>
+      <anchor>a2dd654dd2d43fed5244624e009c6163d</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>insertTextAtCaret</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>ae8dfcc0788a1e3ba79a676753bca925b</anchor>
-      <arglist>(const String &amp;textToInsert) override</arglist>
+      <anchor>aaf4946076bc4ece47fabe839a1556694</anchor>
+      <arglist>(const juce::String &amp;textToInsert) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -10527,31 +10527,31 @@
       <arglist>(int newIndex)</arglist>
     </member>
     <member kind="function">
-      <type>Rectangle&lt; int &gt;</type>
+      <type>juce::Rectangle&lt; int &gt;</type>
       <name>getCaretRectangle</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>a551aaf99f89646f22bacb1a9685295c1</anchor>
+      <anchor>a3f1ba4f7ddcb96155d2261b748ac4588</anchor>
       <arglist>() override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setHighlightedRegion</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>ad21d08c9c07853547e1c4124f7d9f55c</anchor>
-      <arglist>(const Range&lt; int &gt; &amp;newSelection) override</arglist>
+      <anchor>a347c56fbc82297286cca76984675e3ee</anchor>
+      <arglist>(const juce::Range&lt; int &gt; &amp;newSelection) override</arglist>
     </member>
     <member kind="function">
-      <type>Range&lt; int &gt;</type>
+      <type>juce::Range&lt; int &gt;</type>
       <name>getHighlightedRegion</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>a4d80570b0e931743454cbe804803cdb6</anchor>
+      <anchor>ad2cd12fb16ba8d5a154f64c273ce2530</anchor>
       <arglist>() const override</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
+      <type>juce::String</type>
       <name>getHighlightedText</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>adfe18d8abdca4a4ab8f0bd9749ffda74</anchor>
+      <anchor>af52842ecb6980a38a9c7dcdf20317ffd</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -10733,8 +10733,8 @@
       <type>virtual void</type>
       <name>addPopupMenuItems</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>a99be2a4a697ce5a4d9cbc26972d90795</anchor>
-      <arglist>(PopupMenu &amp;menuToAddTo, const MouseEvent *mouseClickEvent)</arglist>
+      <anchor>acedbc6d806838a38cbf9910cd6050a32</anchor>
+      <arglist>(juce::PopupMenu &amp;menuToAddTo, const juce::MouseEvent *mouseClickEvent)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
@@ -10761,8 +10761,8 @@
       <type>void</type>
       <name>setInputRestrictions</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>aebc6ba94f872e727e324bee3ec58dbc1</anchor>
-      <arglist>(int maxTextLength, const String &amp;allowedCharacters=String())</arglist>
+      <anchor>ab071d4d2aeb8e84668de465b6dcc2033</anchor>
+      <arglist>(int maxTextLength, const juce::String &amp;allowedCharacters=juce::String())</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -10775,57 +10775,57 @@
       <type>void</type>
       <name>paint</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>a2f0da95f1cd0b89f24493c178dd35b99</anchor>
-      <arglist>(Graphics &amp;) override</arglist>
+      <anchor>ae140b5a9e5fcdf3e31bfef5940a053cd</anchor>
+      <arglist>(juce::Graphics &amp;) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>paintOverChildren</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>a9c8b0ded294a79f1fc71415ea39bbc6c</anchor>
-      <arglist>(Graphics &amp;) override</arglist>
+      <anchor>a61b081f408caed8985fc3369b89d4d4d</anchor>
+      <arglist>(juce::Graphics &amp;) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>mouseDown</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>add3ecf5c77cb5e6bb71073eab09e37a0</anchor>
-      <arglist>(const MouseEvent &amp;) override</arglist>
+      <anchor>aa2e13a5693aa6599a29393f76aeca434</anchor>
+      <arglist>(const juce::MouseEvent &amp;) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>mouseUp</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>a7676433f6543535800beda410c7312b7</anchor>
-      <arglist>(const MouseEvent &amp;) override</arglist>
+      <anchor>a202c0e9fd1c5447227a3132e9616a92e</anchor>
+      <arglist>(const juce::MouseEvent &amp;) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>mouseDrag</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>a1f1167253b89cbd80d1d6f3ecb5e0743</anchor>
-      <arglist>(const MouseEvent &amp;) override</arglist>
+      <anchor>a7632816fd86e6f3a83d9f746e5c9d59d</anchor>
+      <arglist>(const juce::MouseEvent &amp;) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>mouseDoubleClick</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>ab12f3a53f0ac6c4e4cef2ac62c784099</anchor>
-      <arglist>(const MouseEvent &amp;) override</arglist>
+      <anchor>acb833ecaee0c50b4df48e2d337b27bdc</anchor>
+      <arglist>(const juce::MouseEvent &amp;) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>mouseWheelMove</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>acfaf027cfbd2d47924e2d56f55743e76</anchor>
-      <arglist>(const MouseEvent &amp;, const MouseWheelDetails &amp;) override</arglist>
+      <anchor>a6110f9ada85752b9c1d148235a31bcbc</anchor>
+      <arglist>(const juce::MouseEvent &amp;, const juce::MouseWheelDetails &amp;) override</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>keyPressed</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>ab023a0fef734da2f94dbe356ec54d2d0</anchor>
-      <arglist>(const KeyPress &amp;) override</arglist>
+      <anchor>a8dfacbc90d80e4f3989611c2ab14e616</anchor>
+      <arglist>(const juce::KeyPress &amp;) override</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -10887,8 +10887,8 @@
       <type>void</type>
       <name>setTemporaryUnderlining</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>a5cdcc9e3bd23b859fa91721865c02aaa</anchor>
-      <arglist>(const Array&lt; Range&lt; int &gt; &gt; &amp;) override</arglist>
+      <anchor>aceb15841e3da110210b97d27f7121856</anchor>
+      <arglist>(const juce::Array&lt; juce::Range&lt; int &gt; &gt; &amp;) override</arglist>
     </member>
     <member kind="function">
       <type>VirtualKeyboardType</type>
@@ -11093,8 +11093,8 @@
       <type></type>
       <name>Spline</name>
       <anchorfile>classSpline.html</anchorfile>
-      <anchor>a1d14e6850bee9f60a7babbc90c7e228c</anchor>
-      <arglist>(const Array&lt; juce::Point&lt; double &gt;&gt; &amp;points)</arglist>
+      <anchor>aae6cecd95f5233f8d106e1a771f8542d</anchor>
+      <arglist>(const juce::Array&lt; juce::Point&lt; double &gt;&gt; &amp;points)</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -11629,8 +11629,8 @@
       <type></type>
       <name>SystemSemaphore</name>
       <anchorfile>classSystemSemaphore.html</anchorfile>
-      <anchor>aa5616f7315ba0d37ea3e0aa6f22d7d53</anchor>
-      <arglist>(const String &amp;name)</arglist>
+      <anchor>ae7d9c999757639af86a49f838f862298</anchor>
+      <arglist>(const juce::String &amp;name)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -11707,8 +11707,8 @@
       <type></type>
       <name>TimeProfiler</name>
       <anchorfile>classTimeProfiler.html</anchorfile>
-      <anchor>a019c1810a2353ec984e7bb08d43b7893</anchor>
-      <arglist>(const String &amp;name_)</arglist>
+      <anchor>a7e6d1567e527185629c6c8aa46fe4943</anchor>
+      <arglist>(const juce::String &amp;name_)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -12046,21 +12046,21 @@
       <type></type>
       <name>ValueTreeObject</name>
       <anchorfile>classValueTreeObject.html</anchorfile>
-      <anchor>ae88e0d148f46cc3ec0cf635d077153e3</anchor>
-      <arglist>(const ValueTree &amp;state)</arglist>
+      <anchor>a50b6f4eead4ccc3a50257763f178eb47</anchor>
+      <arglist>(const juce::ValueTree &amp;state)</arglist>
     </member>
     <member kind="function">
-      <type>ValueTree &amp;</type>
+      <type>juce::ValueTree &amp;</type>
       <name>getState</name>
       <anchorfile>classValueTreeObject.html</anchorfile>
-      <anchor>abff31c133bc9e114761b0c1cf199c78f</anchor>
+      <anchor>a380c3e637b87625deaaca5ee36e5834c</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>const OwnedArray&lt; ValueTreeObject &gt; &amp;</type>
+      <type>const juce::OwnedArray&lt; ValueTreeObject &gt; &amp;</type>
       <name>getChildren</name>
       <anchorfile>classValueTreeObject.html</anchorfile>
-      <anchor>aa69e18bc3b8b302f3790ab010c93d331</anchor>
+      <anchor>a4ba83fcf6513054e49aa008e0ed7ba63</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -12071,10 +12071,10 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>Array&lt; TargetClass * &gt;</type>
+      <type>juce::Array&lt; TargetClass * &gt;</type>
       <name>findChildrenOfClass</name>
       <anchorfile>classValueTreeObject.html</anchorfile>
-      <anchor>ac020d98412c49432bab4a302e93c143e</anchor>
+      <anchor>ac5938920794ba2e6acceb5e85c820efa</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -12092,10 +12092,10 @@
       <arglist>(int idx) const</arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static std::function&lt; ValueTreeObject *(const Identifier &amp;, const ValueTree &amp;)&gt;</type>
+      <type>static std::function&lt; ValueTreeObject *(const juce::Identifier &amp;, const juce::ValueTree &amp;)&gt;</type>
       <name>factory</name>
       <anchorfile>classValueTreeObject.html</anchorfile>
-      <anchor>aacca124951599f8352b15ba4a12042e8</anchor>
+      <anchor>a50b525ebb88fd07644ddbb78bb6ce11f</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -12595,8 +12595,8 @@
       <type>T</type>
       <name>interpolate</name>
       <anchorfile>namespaceLagrange.html</anchorfile>
-      <anchor>a143c027042c090280675c18481168a09</anchor>
-      <arglist>(const Array&lt; juce::Point&lt; T &gt;&gt; &amp;points, T x)</arglist>
+      <anchor>aef304874a67d1c0e4fa39605d2e19b03</anchor>
+      <arglist>(const juce::Array&lt; juce::Point&lt; T &gt;&gt; &amp;points, T x)</arglist>
     </member>
     <member kind="function">
       <type>T</type>
@@ -12653,46 +12653,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin-components</name>
-    <title>components</title>
-    <filename>group__gin-components.html</filename>
-    <class kind="class">ComponentViewer</class>
-    <class kind="class">GinLookAndFeel</class>
-    <class kind="class">MapViewer</class>
-    <class kind="class">PropertyComponentBase</class>
-    <class kind="class">FilePropertyComponent</class>
-    <class kind="class">ColourPropertyComponent</class>
-    <class kind="class">SingleLineTextEditor</class>
-    <class kind="struct">SingleLineTextEditor::LookAndFeelMethods</class>
-    <class kind="class">SingleLineTextEditor::LengthAndCharacterRestriction</class>
-    <class kind="class">SingleLineTextEditor::InputFilter</class>
-    <class kind="class">SingleLineTextEditor::Listener</class>
-    <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin-components.html</anchorfile>
-      <anchor>gaa20ec037c2ec9827747ca222e4308414</anchor>
-      <arglist>(Component &amp;parent, Array&lt; Component *&gt; children)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin-components.html</anchorfile>
-      <anchor>ga824f80420c05391e952c51bb9abc5e88</anchor>
-      <arglist>(Component &amp;parent, std::initializer_list&lt; Component *&gt; children)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-    <class kind="class">DynamicsMeter</class>
-    <class kind="class">LevelMeter</class>
-    <class kind="class">TriggeredScope</class>
-    <class kind="class">WaveformComponent</class>
-    <class kind="class">XYScope</class>
-  </compound>
-  <compound kind="group">
     <name>gin_plugin-components</name>
     <title>components</title>
     <filename>group__gin__plugin-components.html</filename>
@@ -12745,6 +12705,46 @@
       <anchor>ga4110716757a10f2f9ba0a3e756a03b1c</anchor>
       <arglist>(Graphics &amp;g, Rectangle&lt; int &gt; rc, Colour c1, Colour c2)</arglist>
     </member>
+  </compound>
+  <compound kind="group">
+    <name>gin-components</name>
+    <title>components</title>
+    <filename>group__gin-components.html</filename>
+    <class kind="class">ComponentViewer</class>
+    <class kind="class">GinLookAndFeel</class>
+    <class kind="class">MapViewer</class>
+    <class kind="class">PropertyComponentBase</class>
+    <class kind="class">FilePropertyComponent</class>
+    <class kind="class">ColourPropertyComponent</class>
+    <class kind="class">SingleLineTextEditor</class>
+    <class kind="struct">SingleLineTextEditor::LookAndFeelMethods</class>
+    <class kind="class">SingleLineTextEditor::LengthAndCharacterRestriction</class>
+    <class kind="class">SingleLineTextEditor::InputFilter</class>
+    <class kind="class">SingleLineTextEditor::Listener</class>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin-components.html</anchorfile>
+      <anchor>gaae3a1137955ae87c67a9fec3fa385d2d</anchor>
+      <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component *&gt; children)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin-components.html</anchorfile>
+      <anchor>gab38420a664c643212724d4a1d9b162f8</anchor>
+      <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component *&gt; children)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
+    <class kind="class">DynamicsMeter</class>
+    <class kind="class">LevelMeter</class>
+    <class kind="class">TriggeredScope</class>
+    <class kind="class">WaveformComponent</class>
+    <class kind="class">XYScope</class>
   </compound>
   <compound kind="group">
     <name>gin_dsp-dsp</name>
@@ -12966,8 +12966,8 @@
       <type>bool</type>
       <name>solveLine</name>
       <anchorfile>group__gin-geometry.html</anchorfile>
-      <anchor>ga5807b898ab10ed1c7f4fb918d029fe68</anchor>
-      <arglist>(Line&lt; T &gt; l, T &amp;m, T &amp;b)</arglist>
+      <anchor>ga46f894daee01dc2820ad4018ac9f051a</anchor>
+      <arglist>(juce::Line&lt; T &gt; l, T &amp;m, T &amp;b)</arglist>
     </member>
   </compound>
   <compound kind="group">
@@ -13172,127 +13172,127 @@
       <type>void</type>
       <name>applyVignette</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga0048a38eb45ed95fa18540e9f0ab1934</anchor>
-      <arglist>(Image &amp;img, float amount, float radius, float falloff, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga1023b87ad7bb7ca1e039ded54397ef90</anchor>
+      <arglist>(juce::Image &amp;img, float amount, float radius, float falloff, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applySepia</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>gaf79c1bafc98ff029470f8bc704f7d79e</anchor>
-      <arglist>(Image &amp;img, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>gaccaa511049769192c15aa13e0c2a40d1</anchor>
+      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGreyScale</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>gaf9efa76de190530a4749a46e929fb60b</anchor>
-      <arglist>(Image &amp;img, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>gadb285c05d7e81fbffe8b2ab5705b0783</anchor>
+      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applySoften</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>gadf3dead80fc2c3a803ed4841740882b1</anchor>
-      <arglist>(Image &amp;img, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga4cc9c0919994beeac34d088beb1991e2</anchor>
+      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applySharpen</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga6b21e79d9f1b8a46f6c01e1b78915aba</anchor>
-      <arglist>(Image &amp;img, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>gac0b5514a6c74e31bd4e7a26898e45228</anchor>
+      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGamma</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga7e518992970e03be99dad779ea261bde</anchor>
-      <arglist>(Image &amp;img, float gamma, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga2b20d743c3475fd86d18a8f2cb427b47</anchor>
+      <arglist>(juce::Image &amp;img, float gamma, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyInvert</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga204064ed38aba8c0e989f4ce4e75b8fe</anchor>
-      <arglist>(Image &amp;img, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga6453f04ab3d2a6a345cd6b7f70711c04</anchor>
+      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyContrast</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga05bb4b4605356fa8e74a10ca4a1c822e</anchor>
-      <arglist>(Image &amp;img, float contrast, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga50c77bf67a02fbc002d1136fd64f2031</anchor>
+      <arglist>(juce::Image &amp;img, float contrast, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyBrightnessContrast</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga3c0b7f645663c0c9758642f856c7602c</anchor>
-      <arglist>(Image &amp;img, float brightness, float contrast, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>gab3825059a9e75bfc8e78cf0106ddf78e</anchor>
+      <arglist>(juce::Image &amp;img, float brightness, float contrast, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyHueSaturationLightness</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga2970460c15b12e878d3cacc2def805ec</anchor>
-      <arglist>(Image &amp;img, float hue, float saturation, float lightness, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga25205b0926bfca178115404c6d9f45d9</anchor>
+      <arglist>(juce::Image &amp;img, float hue, float saturation, float lightness, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyStackBlur</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>gaad38832b1fa1eb5b651e0a3ccc329ec8</anchor>
-      <arglist>(Image &amp;img, int radius)</arglist>
+      <anchor>ga5298c1220caef0f1d6d918c9ec15243d</anchor>
+      <arglist>(juce::Image &amp;img, int radius)</arglist>
     </member>
     <member kind="function">
-      <type>Image</type>
+      <type>juce::Image</type>
       <name>applyResize</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga57a7076967283b3c99dc304a524cb92f</anchor>
-      <arglist>(const Image &amp;img, int width, int height)</arglist>
+      <anchor>ga8a045522d5a03954f0d4fe2cbc8082a4</anchor>
+      <arglist>(const juce::Image &amp;img, int width, int height)</arglist>
     </member>
     <member kind="function">
-      <type>Image</type>
+      <type>juce::Image</type>
       <name>applyResize</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga4cf3c9ef12907957d1af1582bb368973</anchor>
-      <arglist>(const Image &amp;img, float factor)</arglist>
+      <anchor>ga99654c39e56b66a36c75cbbff9e137b4</anchor>
+      <arglist>(const juce::Image &amp;img, float factor)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGradientMap</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>gaa582be659d8d8dd35a27088f80ca0271</anchor>
-      <arglist>(Image &amp;img, const ColourGradient &amp;gradient, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga2e91627e4ee0f9e1aeca78ca387a8c51</anchor>
+      <arglist>(juce::Image &amp;img, const juce::ColourGradient &amp;gradient, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGradientMap</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga0eb46cb9ebd3737d69767c48f8b5b06a</anchor>
-      <arglist>(Image &amp;img, const Colour c1, const Colour c2, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga48f6d1c24d18edd26e2d9da48e47dcf7</anchor>
+      <arglist>(juce::Image &amp;img, const juce::Colour c1, const juce::Colour c2, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyColour</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga257901a7bd2055bee1048815e05dfc20</anchor>
-      <arglist>(Image &amp;img, Colour c, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>gae6d6ea52612fb4f6474b05a1063604db</anchor>
+      <arglist>(juce::Image &amp;img, juce::Colour c, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyBlend</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga2c1514ecbcc9f1900b10fc85a2cd85f8</anchor>
-      <arglist>(Image &amp;dst, const Image &amp;src, BlendMode mode, float alpha=1.0f, juce::Point&lt; int &gt; position={}, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga6e16e6b71a97615070d0f5f6829f2b04</anchor>
+      <arglist>(juce::Image &amp;dst, const juce::Image &amp;src, BlendMode mode, float alpha=1.0f, juce::Point&lt; int &gt; position={}, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyBlend</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>gaf190eefd84704fb6a404ba9f39c1c918</anchor>
-      <arglist>(Image &amp;dst, BlendMode mode, Colour c, ThreadPool *threadPool=nullptr)</arglist>
+      <anchor>ga590207f6293f03a5a4e4e2a1d4f3db15</anchor>
+      <arglist>(juce::Image &amp;dst, BlendMode mode, juce::Colour c, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>juce::Image</type>
@@ -13305,8 +13305,8 @@
       <type>juce::Path</type>
       <name>parseSVGPath</name>
       <anchorfile>group__gin-images.html</anchorfile>
-      <anchor>ga25b60d27a0c7fd9e62e715d2e321234a</anchor>
-      <arglist>(const String &amp;txt)</arglist>
+      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
+      <arglist>(const juce::String &amp;txt)</arglist>
     </member>
   </compound>
   <compound kind="group">
@@ -13674,8 +13674,8 @@
       <type>void</type>
       <name>multiThreadedFor</name>
       <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>gabac5feb241583a6b8f8f8ba208e1188a</anchor>
-      <arglist>(T start, T end, T interval, ThreadPool *threadPool, std::function&lt; void(T idx)&gt; callback)</arglist>
+      <anchor>ga383aa0fdd6752ac48ba3e087006730fa</anchor>
+      <arglist>(T start, T end, T interval, juce::ThreadPool *threadPool, std::function&lt; void(T idx)&gt; callback)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -13702,14 +13702,14 @@
       <type>void</type>
       <name>shuffleArray</name>
       <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga0285d8d18b26c54d576a183901a145c6</anchor>
-      <arglist>(Random &amp;r, T array)</arglist>
+      <anchor>gaac60b7f594994fac0cb43d317f794449</anchor>
+      <arglist>(juce::Random &amp;r, T array)</arglist>
     </member>
     <member kind="function">
-      <type>Colour</type>
+      <type>juce::Colour</type>
       <name>goldenRatioColor</name>
       <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>gaf2e5284957f4390502132e880faf157e</anchor>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
       <arglist>(int idx)</arglist>
     </member>
     <member kind="function">
@@ -13723,8 +13723,8 @@
       <type>int</type>
       <name>versionStringToInt</name>
       <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga9984f62226f0a0ab7af7f52e91c55e50</anchor>
-      <arglist>(const String &amp;versionString)</arglist>
+      <anchor>ga9861500c17d0717e211dc67c84ccc261</anchor>
+      <arglist>(const juce::String &amp;versionString)</arglist>
     </member>
     <member kind="function">
       <type>void</type>

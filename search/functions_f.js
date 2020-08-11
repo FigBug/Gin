@@ -3,7 +3,7 @@ var searchData=
   ['rasterizesvg',['rasterizeSVG',['../group__gin-images.html#gaad1e06e3c606f89456dac559e0d417a7',1,'gin_imageutilities.h']]],
   ['read',['read',['../classAudioFifo.html#a2671765c10021e80faafe3dbb2dd5aa3',1,'AudioFifo::read(AudioSampleBuffer &amp;dest)'],['../classAudioFifo.html#a6fcf7e2a9ec368d8693b134f9af001ec',1,'AudioFifo::read(AudioSampleBuffer &amp;dest, int startSampleInDestBuffer, int numSamples)'],['../classMidiFifo.html#aa5502294f13bc7c5440cda2f0e7b2abf',1,'MidiFifo::read()'],['../classSample.html#a387e026c51ab4c846c0e54996116340a',1,'Sample::read()'],['../classSampleOscillator.html#afab5515c690fe77b2a12433c614b8c5c',1,'SampleOscillator::read()'],['../classSecureStreamingSocket.html#a09004131d1a2795ff2f9583c0b596d83',1,'SecureStreamingSocket::read()']]],
   ['readadding',['readAdding',['../classAudioFifo.html#a75510a7280c5aa18f765dcae16a2eb17',1,'AudioFifo::readAdding(AudioSampleBuffer &amp;dest)'],['../classAudioFifo.html#a6e4cd2955fdf7903d01abfc7bd8679e1',1,'AudioFifo::readAdding(AudioSampleBuffer &amp;dest, int startSampleInDestBuffer, int numSamples)']]],
-  ['readentirebinarystream',['readEntireBinaryStream',['../classAsyncDownload.html#aa028a272541187e966c9cd33eb22424f',1,'AsyncDownload']]],
+  ['readentirebinarystream',['readEntireBinaryStream',['../classAsyncDownload.html#a6a2cf5b219b333b02b2965dfdafde699',1,'AsyncDownload']]],
   ['readlinear',['readLinear',['../classDelayLine.html#a2d418fd7a015aa7518c3adf46e978d8e',1,'DelayLine']]],
   ['readmono',['readMono',['../classAudioFifo.html#a8fbc006a7362cca45d85fba09fd5969e',1,'AudioFifo']]],
   ['readout',['Readout',['../classReadout.html#a06ee0c5ad849b4d2940bd31d3a81eb6e',1,'Readout']]],
@@ -14,9 +14,9 @@ var searchData=
   ['refresh',['refresh',['../classFilePropertyComponent.html#a365e42d9718bbabf5b2db953d6de14e2',1,'FilePropertyComponent::refresh()'],['../classColourPropertyComponent.html#a1d11ef237f9b2902fcff77bc1c3fea46',1,'ColourPropertyComponent::refresh()'],['../classPatchBrowser.html#a1d7217de51f2b36702575561de21fee6',1,'PatchBrowser::refresh()']]],
   ['refreshcomponentforrow',['refreshComponentForRow',['../classModSrcListBox.html#a1b4ac4d3539934fc2249a5f1065fe417',1,'ModSrcListBox']]],
   ['refreshprograms',['refreshPrograms',['../classProcessorEditor.html#acfa6525c7af7ab451c59d25527ddebde',1,'ProcessorEditor']]],
-  ['remove',['remove',['../classSharedMemory.html#a724fb082611d497482526d26c8833c4f',1,'SharedMemory']]],
+  ['remove',['remove',['../classSharedMemory.html#a19714c21ee5c98faff8a1e77e79532a7',1,'SharedMemory']]],
   ['removeallfolders',['removeAllFolders',['../classFileSystemWatcher.html#a0ad340eac72f4f3c62a6f3b38e231109',1,'FileSystemWatcher']]],
-  ['removefolder',['removeFolder',['../classFileSystemWatcher.html#aaab880b7b3ffe94a74dae13a44b2a152',1,'FileSystemWatcher']]],
+  ['removefolder',['removeFolder',['../classFileSystemWatcher.html#a4a00ea52d73e860fa8396e98b60157f4',1,'FileSystemWatcher']]],
   ['removelistener',['removeListener',['../classSingleLineTextEditor.html#a02ba20e1e8a843b64ac398ecf924c39b',1,'SingleLineTextEditor::removeListener()'],['../classFileSystemWatcher.html#a2eac16aab60dc70dff0eb5b7573e250c',1,'FileSystemWatcher::removeListener()'],['../classOpenStreetMaps.html#ab8224feb51dbb02ac20aed1664270ae6',1,'OpenStreetMaps::removeListener()'],['../classModMatrix.html#adeaa67481f092f988ea3df3936909940',1,'ModMatrix::removeListener()'],['../classParameter.html#ab5362ee42564b596fd391d97455f45cd',1,'Parameter::removeListener()']]],
   ['rendernextblock',['renderNextBlock',['../classSynthesiser.html#a9ab1efe9ca01444e5f4ab3d8eada5580',1,'Synthesiser']]],
   ['resamplingfifo',['ResamplingFifo',['../classResamplingFifo.html#a2ee165634dd4f6e42f6611160799a279',1,'ResamplingFifo']]],
@@ -28,5 +28,5 @@ var searchData=
   ['rsquare',['rSquare',['../classLeastSquaresRegression.html#a7314973ea0d9b54e0071adf48ebefbd0',1,'LeastSquaresRegression']]],
   ['run',['run',['../classAsyncDownload.html#a12f678abf96e0c0a0f988baa076ec253',1,'AsyncDownload::run()'],['../classUpdateChecker.html#ab61451d9064094197851d0a6049d11e1',1,'UpdateChecker::run()']]],
   ['runmodalloop',['runModalLoop',['../classPluginAlertWindow.html#a6869a64a9ff0b4da3319bcb3c093219d',1,'PluginAlertWindow']]],
-  ['runscriptwithadminaccess',['runScriptWithAdminAccess',['../classElevatedFileCopy.html#a106d59cb0ef21a8a5ba66987df293e23',1,'ElevatedFileCopy']]]
+  ['runscriptwithadminaccess',['runScriptWithAdminAccess',['../classElevatedFileCopy.html#a38602e1c7ac1fa9d1c57ac467b8fe7bb',1,'ElevatedFileCopy']]]
 ];

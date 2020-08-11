@@ -15,7 +15,7 @@ var searchData=
   ['blackcolourid',['blackColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6ac7411db48774329c05a27e414ee24595',1,'GinLookAndFeel']]],
   ['blendmode',['BlendMode',['../group__gin-images.html#ga30323fa90e24ca484998b9fba6c40e85',1,'gin_imageeffects.h']]],
   ['blltvoicedstereooscillator',['BLLTVoicedStereoOscillator',['../classBLLTVoicedStereoOscillator.html',1,'BLLTVoicedStereoOscillator'],['../classBLLTVoicedStereoOscillator.html#a91580541e11d22946ec60278e65835ea',1,'BLLTVoicedStereoOscillator::BLLTVoicedStereoOscillator()']]],
-  ['blockingdownload',['blockingDownload',['../classDownloadManager.html#a4f2f782db41bee4029250deba9a5bac4',1,'DownloadManager::blockingDownload(String url, String postData, String extraHeaders={})'],['../classDownloadManager.html#ae26895481511c1233758fe71fb6201ab',1,'DownloadManager::blockingDownload(URL url, String extraHeaders={})']]],
+  ['blockingdownload',['blockingDownload',['../classDownloadManager.html#a46d6fd6994ca4cdcde6564edd621020f',1,'DownloadManager::blockingDownload(juce::String url, juce::String postData, juce::String extraHeaders={})'],['../classDownloadManager.html#ab352a3c9d99319f4872c1603eb19cc78',1,'DownloadManager::blockingDownload(juce::URL url, juce::String extraHeaders={})']]],
   ['bmpimageformat',['BMPImageFormat',['../classBMPImageFormat.html',1,'']]],
   ['boxarea',['BoxArea',['../classBoxArea.html',1,'BoxArea'],['../classBoxArea.html#a00b02a91aded6fc3ead888c1b092a9eb',1,'BoxArea::BoxArea()']]],
   ['bp12state',['BP12State',['../structBP12State.html',1,'BP12State'],['../structBP12State.html#a117eb714a9f055d4ca05d80c28c10553',1,'BP12State::BP12State()']]],

@@ -98,11 +98,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a365942b8ea69fd2f9001c9965323b252"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42c2051ceb385127a0668acbb49e4cd0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenStreetMaps.html#a42c2051ceb385127a0668acbb49e4cd0">~OpenStreetMaps</a> ()</td></tr>
 <tr class="separator:a42c2051ceb385127a0668acbb49e4cd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7811f8f344a9d9bece25d55fdd8f9f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenStreetMaps.html#ad7811f8f344a9d9bece25d55fdd8f9f2">setMapTileDir</a> (File f)</td></tr>
-<tr class="memdesc:ad7811f8f344a9d9bece25d55fdd8f9f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set this or map tiles will be stored in the temp directory.  <a href="#ad7811f8f344a9d9bece25d55fdd8f9f2">More...</a><br /></td></tr>
-<tr class="separator:ad7811f8f344a9d9bece25d55fdd8f9f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b71d42278e36394057685fc9655a303"><td class="memItemLeft" align="right" valign="top">Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenStreetMaps.html#a9b71d42278e36394057685fc9655a303">fetchTile</a> (int zoom, int x, int y)</td></tr>
-<tr class="separator:a9b71d42278e36394057685fc9655a303"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d46381e37ef37f726263139d73c6072"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenStreetMaps.html#a5d46381e37ef37f726263139d73c6072">setMapTileDir</a> (juce::File f)</td></tr>
+<tr class="memdesc:a5d46381e37ef37f726263139d73c6072"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set this or map tiles will be stored in the temp directory.  <a href="#a5d46381e37ef37f726263139d73c6072">More...</a><br /></td></tr>
+<tr class="separator:a5d46381e37ef37f726263139d73c6072"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70fadcfedbacac26ed401bbb727a1280"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenStreetMaps.html#a70fadcfedbacac26ed401bbb727a1280">fetchTile</a> (int zoom, int x, int y)</td></tr>
+<tr class="separator:a70fadcfedbacac26ed401bbb727a1280"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae54d03337555816f026522ea155bce66"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenStreetMaps.html#ae54d03337555816f026522ea155bce66">getMapWidthPixels</a> (int zoom)</td></tr>
 <tr class="separator:ae54d03337555816f026522ea155bce66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d262f60a96e34724ce133c14a4c74b1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenStreetMaps.html#a2d262f60a96e34724ce133c14a4c74b1">getMapWidthTiles</a> (int zoom)</td></tr>
@@ -187,8 +187,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad7811f8f344a9d9bece25d55fdd8f9f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7811f8f344a9d9bece25d55fdd8f9f2">&#9670;&nbsp;</a></span>setMapTileDir()</h2>
+<a id="a5d46381e37ef37f726263139d73c6072"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d46381e37ef37f726263139d73c6072">&#9670;&nbsp;</a></span>setMapTileDir()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,7 +196,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void OpenStreetMaps::setMapTileDir </td>
           <td>(</td>
-          <td class="paramtype">File&#160;</td>
+          <td class="paramtype">juce::File&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
           <td></td>
         </tr>
@@ -205,18 +205,18 @@ Public Member Functions</h2></td></tr>
 
 <p>Set this or map tiles will be stored in the temp directory. </p>
 
-<p class="reference">References <a class="el" href="classOpenStreetMaps.html#a4f3e70e9d0b31ca0d7c0669016da2f4f">clearQueue()</a>, <a class="el" href="classOpenStreetMaps.html#a97d05e8344c088b58ac13241d47e57b8">coordinateToDisplay()</a>, <a class="el" href="classOpenStreetMaps.html#a2bc213d08b553d19a929faf9890f3717">displayToCoordinate()</a>, <a class="el" href="classOpenStreetMaps.html#a9b71d42278e36394057685fc9655a303">fetchTile()</a>, <a class="el" href="classOpenStreetMaps.html#ae54d03337555816f026522ea155bce66">getMapWidthPixels()</a>, <a class="el" href="classOpenStreetMaps.html#a2d262f60a96e34724ce133c14a4c74b1">getMapWidthTiles()</a>, <a class="el" href="classOpenStreetMaps.html#accb035883eacc1d62c608106455414fe">getTileSource()</a>, <a class="el" href="classOpenStreetMaps.html#a57450ff0f8965780919fd236595bbd01">setTileSource()</a>, and <a class="el" href="classOpenStreetMaps.html#ae835b370258746b3c52cb577e056bf3c">tileForCoordinate()</a>.</p>
+<p class="reference">References <a class="el" href="classOpenStreetMaps.html#a4f3e70e9d0b31ca0d7c0669016da2f4f">clearQueue()</a>, <a class="el" href="classOpenStreetMaps.html#a97d05e8344c088b58ac13241d47e57b8">coordinateToDisplay()</a>, <a class="el" href="classOpenStreetMaps.html#a2bc213d08b553d19a929faf9890f3717">displayToCoordinate()</a>, <a class="el" href="classOpenStreetMaps.html#a70fadcfedbacac26ed401bbb727a1280">fetchTile()</a>, <a class="el" href="classOpenStreetMaps.html#ae54d03337555816f026522ea155bce66">getMapWidthPixels()</a>, <a class="el" href="classOpenStreetMaps.html#a2d262f60a96e34724ce133c14a4c74b1">getMapWidthTiles()</a>, <a class="el" href="classOpenStreetMaps.html#accb035883eacc1d62c608106455414fe">getTileSource()</a>, <a class="el" href="classOpenStreetMaps.html#a57450ff0f8965780919fd236595bbd01">setTileSource()</a>, and <a class="el" href="classOpenStreetMaps.html#ae835b370258746b3c52cb577e056bf3c">tileForCoordinate()</a>.</p>
 
 </div>
 </div>
-<a id="a9b71d42278e36394057685fc9655a303"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b71d42278e36394057685fc9655a303">&#9670;&nbsp;</a></span>fetchTile()</h2>
+<a id="a70fadcfedbacac26ed401bbb727a1280"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70fadcfedbacac26ed401bbb727a1280">&#9670;&nbsp;</a></span>fetchTile()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Image OpenStreetMaps::fetchTile </td>
+          <td class="memname">juce::Image OpenStreetMaps::fetchTile </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>zoom</em>, </td>
@@ -241,7 +241,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classOpenStreetMaps.html#ad7811f8f344a9d9bece25d55fdd8f9f2">setMapTileDir()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classOpenStreetMaps.html#a5d46381e37ef37f726263139d73c6072">setMapTileDir()</a>.</p>
 
 </div>
 </div>
@@ -261,7 +261,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classOpenStreetMaps.html#ad7811f8f344a9d9bece25d55fdd8f9f2">setMapTileDir()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classOpenStreetMaps.html#a5d46381e37ef37f726263139d73c6072">setMapTileDir()</a>.</p>
 
 </div>
 </div>
@@ -281,7 +281,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classOpenStreetMaps.html#ad7811f8f344a9d9bece25d55fdd8f9f2">setMapTileDir()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classOpenStreetMaps.html#a5d46381e37ef37f726263139d73c6072">setMapTileDir()</a>.</p>
 
 </div>
 </div>
@@ -311,7 +311,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classOpenStreetMaps.html#ad7811f8f344a9d9bece25d55fdd8f9f2">setMapTileDir()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classOpenStreetMaps.html#a5d46381e37ef37f726263139d73c6072">setMapTileDir()</a>.</p>
 
 </div>
 </div>
@@ -341,7 +341,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classOpenStreetMaps.html#ad7811f8f344a9d9bece25d55fdd8f9f2">setMapTileDir()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classOpenStreetMaps.html#a5d46381e37ef37f726263139d73c6072">setMapTileDir()</a>.</p>
 
 </div>
 </div>
@@ -377,7 +377,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classOpenStreetMaps.html#ad7811f8f344a9d9bece25d55fdd8f9f2">setMapTileDir()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classOpenStreetMaps.html#a5d46381e37ef37f726263139d73c6072">setMapTileDir()</a>.</p>
 
 </div>
 </div>
@@ -396,7 +396,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classOpenStreetMaps.html#ad7811f8f344a9d9bece25d55fdd8f9f2">setMapTileDir()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classOpenStreetMaps.html#a5d46381e37ef37f726263139d73c6072">setMapTileDir()</a>.</p>
 
 </div>
 </div>
@@ -415,7 +415,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classOpenStreetMaps.html#ad7811f8f344a9d9bece25d55fdd8f9f2">setMapTileDir()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classOpenStreetMaps.html#a5d46381e37ef37f726263139d73c6072">setMapTileDir()</a>.</p>
 
 </div>
 </div>
@@ -435,7 +435,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classOpenStreetMaps.html#ad7811f8f344a9d9bece25d55fdd8f9f2">setMapTileDir()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classOpenStreetMaps.html#a5d46381e37ef37f726263139d73c6072">setMapTileDir()</a>.</p>
 
 </div>
 </div>
@@ -481,7 +481,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 28 2020 23:49:32 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Aug 11 2020 19:57:31 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

@@ -72,8 +72,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1509624c9eaab16bf4df7ca9e1902f14"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSharedMemory.html#a1509624c9eaab16bf4df7ca9e1902f14">SharedMemory</a> (const String &amp;name, int size)</td></tr>
-<tr class="separator:a1509624c9eaab16bf4df7ca9e1902f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ed6c8ab72fa4eaf0abd6d665df0e210"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSharedMemory.html#a7ed6c8ab72fa4eaf0abd6d665df0e210">SharedMemory</a> (const juce::String &amp;name, int size)</td></tr>
+<tr class="separator:a7ed6c8ab72fa4eaf0abd6d665df0e210"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc56751ce1b30224689e71cd3b6c09be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSharedMemory.html#adc56751ce1b30224689e71cd3b6c09be">~SharedMemory</a> ()</td></tr>
 <tr class="separator:adc56751ce1b30224689e71cd3b6c09be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37bfb82706e0e10282fc0f899818f0d9"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSharedMemory.html#a37bfb82706e0e10282fc0f899818f0d9">getData</a> ()</td></tr>
@@ -83,17 +83,17 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a724fb082611d497482526d26c8833c4f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSharedMemory.html#a724fb082611d497482526d26c8833c4f">remove</a> (const String &amp;name)</td></tr>
-<tr class="separator:a724fb082611d497482526d26c8833c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19714c21ee5c98faff8a1e77e79532a7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSharedMemory.html#a19714c21ee5c98faff8a1e77e79532a7">remove</a> (const juce::String &amp;name)</td></tr>
+<tr class="separator:a19714c21ee5c98faff8a1e77e79532a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Creates a block of shared memory. </p>
 <p>The first one to create the block sets the size otherwise it is ignored. The block may be a different size than requested, especially if it was already created.</p>
-<p>On Unix based OSes, if a process using the block crashes, the block will leak. Clean it up later with <a class="el" href="classSharedMemory.html#a724fb082611d497482526d26c8833c4f">remove()</a> and it will be deleted when the last process stops using it. (No new processes will be able to attach)</p>
+<p>On Unix based OSes, if a process using the block crashes, the block will leak. Clean it up later with <a class="el" href="classSharedMemory.html#a19714c21ee5c98faff8a1e77e79532a7">remove()</a> and it will be deleted when the last process stops using it. (No new processes will be able to attach)</p>
 <p>On Windows the memory block will always disappear when the final process closes the handle / crashes. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a1509624c9eaab16bf4df7ca9e1902f14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1509624c9eaab16bf4df7ca9e1902f14">&#9670;&nbsp;</a></span>SharedMemory()</h2>
+<a id="a7ed6c8ab72fa4eaf0abd6d665df0e210"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ed6c8ab72fa4eaf0abd6d665df0e210">&#9670;&nbsp;</a></span>SharedMemory()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -101,7 +101,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">SharedMemory::SharedMemory </td>
           <td>(</td>
-          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramtype">const juce::String &amp;&#160;</td>
           <td class="paramname"><em>name</em>, </td>
         </tr>
         <tr>
@@ -138,8 +138,8 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a724fb082611d497482526d26c8833c4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a724fb082611d497482526d26c8833c4f">&#9670;&nbsp;</a></span>remove()</h2>
+<a id="a19714c21ee5c98faff8a1e77e79532a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19714c21ee5c98faff8a1e77e79532a7">&#9670;&nbsp;</a></span>remove()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,7 +150,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">static void SharedMemory::remove </td>
           <td>(</td>
-          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramtype">const juce::String &amp;&#160;</td>
           <td class="paramname"><em>name</em></td><td>)</td>
           <td></td>
         </tr>
@@ -204,7 +204,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 28 2020 23:49:32 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Aug 11 2020 19:57:31 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

@@ -73,23 +73,23 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5b3f19443d0043dcf1ced39feb8e1316"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMPImageFormat.html#a5b3f19443d0043dcf1ced39feb8e1316">getFormatName</a> () override</td></tr>
-<tr class="separator:a5b3f19443d0043dcf1ced39feb8e1316"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72cd8d88951a1a918db085944a723781"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMPImageFormat.html#a72cd8d88951a1a918db085944a723781">canUnderstand</a> (InputStream &amp;input) override</td></tr>
-<tr class="separator:a72cd8d88951a1a918db085944a723781"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6464a89e4590ba517c53712703691e19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMPImageFormat.html#a6464a89e4590ba517c53712703691e19">usesFileExtension</a> (const File &amp;possibleFile) override</td></tr>
-<tr class="separator:a6464a89e4590ba517c53712703691e19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab36bdcd5a76f75e477edbf47fd79fcd3"><td class="memItemLeft" align="right" valign="top">Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMPImageFormat.html#ab36bdcd5a76f75e477edbf47fd79fcd3">decodeImage</a> (InputStream &amp;input) override</td></tr>
-<tr class="separator:ab36bdcd5a76f75e477edbf47fd79fcd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8285c2a46b1ab723fcb0dbff9a184ad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMPImageFormat.html#af8285c2a46b1ab723fcb0dbff9a184ad">writeImageToStream</a> (const Image &amp;sourceImage, OutputStream &amp;destStream) override</td></tr>
-<tr class="separator:af8285c2a46b1ab723fcb0dbff9a184ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cdb5175be3bb6b90eeb3d6debcce4d1"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMPImageFormat.html#a2cdb5175be3bb6b90eeb3d6debcce4d1">getFormatName</a> () override</td></tr>
+<tr class="separator:a2cdb5175be3bb6b90eeb3d6debcce4d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acad298b2621ad5fbd10b53c3cf85ad84"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMPImageFormat.html#acad298b2621ad5fbd10b53c3cf85ad84">canUnderstand</a> (juce::InputStream &amp;input) override</td></tr>
+<tr class="separator:acad298b2621ad5fbd10b53c3cf85ad84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3aec001afc89383d536241e433cb8bf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMPImageFormat.html#ac3aec001afc89383d536241e433cb8bf">usesFileExtension</a> (const juce::File &amp;possibleFile) override</td></tr>
+<tr class="separator:ac3aec001afc89383d536241e433cb8bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2594f1a9444754276035be54722c59f2"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMPImageFormat.html#a2594f1a9444754276035be54722c59f2">decodeImage</a> (juce::InputStream &amp;input) override</td></tr>
+<tr class="separator:a2594f1a9444754276035be54722c59f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aa7a97cf8a3e5724bc61550ce7c8881"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMPImageFormat.html#a7aa7a97cf8a3e5724bc61550ce7c8881">writeImageToStream</a> (const juce::Image &amp;sourceImage, juce::OutputStream &amp;destStream) override</td></tr>
+<tr class="separator:a7aa7a97cf8a3e5724bc61550ce7c8881"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Support for reading and writing Windows Bitmap files. </p>
 <p>Supports uncompressed 8, 24 and 32 bit images. Always writes 32 bit images. That should be enough to cover 99.9% of BMP files. Does not support 1, 4, 16 bit colour images or images with RLE compression. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a5b3f19443d0043dcf1ced39feb8e1316"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b3f19443d0043dcf1ced39feb8e1316">&#9670;&nbsp;</a></span>getFormatName()</h2>
+<a id="a2cdb5175be3bb6b90eeb3d6debcce4d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cdb5175be3bb6b90eeb3d6debcce4d1">&#9670;&nbsp;</a></span>getFormatName()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -98,7 +98,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">String BMPImageFormat::getFormatName </td>
+          <td class="memname">juce::String BMPImageFormat::getFormatName </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -113,8 +113,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a72cd8d88951a1a918db085944a723781"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72cd8d88951a1a918db085944a723781">&#9670;&nbsp;</a></span>canUnderstand()</h2>
+<a id="acad298b2621ad5fbd10b53c3cf85ad84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acad298b2621ad5fbd10b53c3cf85ad84">&#9670;&nbsp;</a></span>canUnderstand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -125,7 +125,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">bool BMPImageFormat::canUnderstand </td>
           <td>(</td>
-          <td class="paramtype">InputStream &amp;&#160;</td>
+          <td class="paramtype">juce::InputStream &amp;&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
           <td></td>
         </tr>
@@ -139,8 +139,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6464a89e4590ba517c53712703691e19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6464a89e4590ba517c53712703691e19">&#9670;&nbsp;</a></span>usesFileExtension()</h2>
+<a id="ac3aec001afc89383d536241e433cb8bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3aec001afc89383d536241e433cb8bf">&#9670;&nbsp;</a></span>usesFileExtension()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -151,7 +151,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">bool BMPImageFormat::usesFileExtension </td>
           <td>(</td>
-          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramtype">const juce::File &amp;&#160;</td>
           <td class="paramname"><em>possibleFile</em></td><td>)</td>
           <td></td>
         </tr>
@@ -165,8 +165,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab36bdcd5a76f75e477edbf47fd79fcd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab36bdcd5a76f75e477edbf47fd79fcd3">&#9670;&nbsp;</a></span>decodeImage()</h2>
+<a id="a2594f1a9444754276035be54722c59f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2594f1a9444754276035be54722c59f2">&#9670;&nbsp;</a></span>decodeImage()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -175,9 +175,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Image BMPImageFormat::decodeImage </td>
+          <td class="memname">juce::Image BMPImageFormat::decodeImage </td>
           <td>(</td>
-          <td class="paramtype">InputStream &amp;&#160;</td>
+          <td class="paramtype">juce::InputStream &amp;&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
           <td></td>
         </tr>
@@ -191,8 +191,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af8285c2a46b1ab723fcb0dbff9a184ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8285c2a46b1ab723fcb0dbff9a184ad">&#9670;&nbsp;</a></span>writeImageToStream()</h2>
+<a id="a7aa7a97cf8a3e5724bc61550ce7c8881"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7aa7a97cf8a3e5724bc61550ce7c8881">&#9670;&nbsp;</a></span>writeImageToStream()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -203,13 +203,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">bool BMPImageFormat::writeImageToStream </td>
           <td>(</td>
-          <td class="paramtype">const Image &amp;&#160;</td>
+          <td class="paramtype">const juce::Image &amp;&#160;</td>
           <td class="paramname"><em>sourceImage</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">OutputStream &amp;&#160;</td>
+          <td class="paramtype">juce::OutputStream &amp;&#160;</td>
           <td class="paramname"><em>destStream</em>&#160;</td>
         </tr>
         <tr>
@@ -233,7 +233,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 28 2020 23:49:32 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Aug 11 2020 19:57:31 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

@@ -11,7 +11,7 @@ var searchData=
   ['tilesource',['TileSource',['../classOpenStreetMaps.html#ad685bb52fa0d8ea27d8fd8a152958020',1,'OpenStreetMaps']]],
   ['time',['time',['../classSmoothingType.html#afa303f9e26f8612da8c4d27f9c0ba87a',1,'SmoothingType']]],
   ['timeoutms',['timeoutMS',['../classAsyncDownload.html#a3ec126400198a9fd05346471d00b93d6',1,'AsyncDownload']]],
-  ['timeprofiler',['TimeProfiler',['../classTimeProfiler.html',1,'TimeProfiler'],['../classTimeProfiler.html#a019c1810a2353ec984e7bb08d43b7893',1,'TimeProfiler::TimeProfiler()']]],
+  ['timeprofiler',['TimeProfiler',['../classTimeProfiler.html',1,'TimeProfiler'],['../classTimeProfiler.html#a7e6d1567e527185629c6c8aa46fe4943',1,'TimeProfiler::TimeProfiler()']]],
   ['timercallback',['timerCallback',['../classDynamicsMeter.html#a26663940a83484b73a3aa0c6c436535e',1,'DynamicsMeter::timerCallback()'],['../classTriggeredScope.html#ae048c8050cd95f65d336801b1bf341e2',1,'TriggeredScope::timerCallback()'],['../classXYScope.html#a37d7c0b92a484c3c55dee8eb45fd2943',1,'XYScope::timerCallback()'],['../classSynthesiserUsage.html#a61174588450de0af35bf0d1a3866faba',1,'SynthesiserUsage::timerCallback()'],['../classUpdateChecker.html#a9769c73fcb04945608118ae30fd3a8d4',1,'UpdateChecker::timerCallback()'],['../classParameter.html#a8d5e385c39a92ffcede0ce5476451e16',1,'Parameter::timerCallback()']]],
   ['title1colourid',['title1ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a48e1027db85fa69981be45218bd7e6d9',1,'GinLookAndFeel']]],
   ['title2colourid',['title2ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a539354805ecf1dd789adb31680e32326',1,'GinLookAndFeel']]],

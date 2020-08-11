@@ -6,7 +6,7 @@ var searchData=
   ['rate',['rate',['../structGlideInfo.html#add32d1f350249b4c824f299cb58efa8e',1,'GlideInfo']]],
   ['read',['read',['../classAudioFifo.html#a2671765c10021e80faafe3dbb2dd5aa3',1,'AudioFifo::read(AudioSampleBuffer &amp;dest)'],['../classAudioFifo.html#a6fcf7e2a9ec368d8693b134f9af001ec',1,'AudioFifo::read(AudioSampleBuffer &amp;dest, int startSampleInDestBuffer, int numSamples)'],['../classMidiFifo.html#aa5502294f13bc7c5440cda2f0e7b2abf',1,'MidiFifo::read()'],['../classSample.html#a387e026c51ab4c846c0e54996116340a',1,'Sample::read()'],['../classSampleOscillator.html#afab5515c690fe77b2a12433c614b8c5c',1,'SampleOscillator::read()'],['../classSecureStreamingSocket.html#a09004131d1a2795ff2f9583c0b596d83',1,'SecureStreamingSocket::read()']]],
   ['readadding',['readAdding',['../classAudioFifo.html#a75510a7280c5aa18f765dcae16a2eb17',1,'AudioFifo::readAdding(AudioSampleBuffer &amp;dest)'],['../classAudioFifo.html#a6e4cd2955fdf7903d01abfc7bd8679e1',1,'AudioFifo::readAdding(AudioSampleBuffer &amp;dest, int startSampleInDestBuffer, int numSamples)']]],
-  ['readentirebinarystream',['readEntireBinaryStream',['../classAsyncDownload.html#aa028a272541187e966c9cd33eb22424f',1,'AsyncDownload']]],
+  ['readentirebinarystream',['readEntireBinaryStream',['../classAsyncDownload.html#a6a2cf5b219b333b02b2965dfdafde699',1,'AsyncDownload']]],
   ['readlinear',['readLinear',['../classDelayLine.html#a2d418fd7a015aa7518c3adf46e978d8e',1,'DelayLine']]],
   ['readmono',['readMono',['../classAudioFifo.html#a8fbc006a7362cca45d85fba09fd5969e',1,'AudioFifo']]],
   ['readout',['Readout',['../classReadout.html',1,'Readout'],['../classReadout.html#a06ee0c5ad849b4d2940bd31d3a81eb6e',1,'Readout::Readout()']]],
@@ -23,9 +23,9 @@ var searchData=
   ['releasedelta',['releaseDelta',['../classADSR.html#a667ee4e0401be9138a80249cc45281df',1,'ADSR']]],
   ['releaseoffset',['releaseOffset',['../classAnalogADSR.html#a5e5463c72a492579721244d6d2ff4274',1,'AnalogADSR']]],
   ['releasetime',['releaseTime',['../classEnvelopeDetector.html#ac3265a876b56e1206513591f5c35ec2a',1,'EnvelopeDetector']]],
-  ['remove',['remove',['../classSharedMemory.html#a724fb082611d497482526d26c8833c4f',1,'SharedMemory']]],
+  ['remove',['remove',['../classSharedMemory.html#a19714c21ee5c98faff8a1e77e79532a7',1,'SharedMemory']]],
   ['removeallfolders',['removeAllFolders',['../classFileSystemWatcher.html#a0ad340eac72f4f3c62a6f3b38e231109',1,'FileSystemWatcher']]],
-  ['removefolder',['removeFolder',['../classFileSystemWatcher.html#aaab880b7b3ffe94a74dae13a44b2a152',1,'FileSystemWatcher']]],
+  ['removefolder',['removeFolder',['../classFileSystemWatcher.html#a4a00ea52d73e860fa8396e98b60157f4',1,'FileSystemWatcher']]],
   ['removelistener',['removeListener',['../classSingleLineTextEditor.html#a02ba20e1e8a843b64ac398ecf924c39b',1,'SingleLineTextEditor::removeListener()'],['../classFileSystemWatcher.html#a2eac16aab60dc70dff0eb5b7573e250c',1,'FileSystemWatcher::removeListener()'],['../classOpenStreetMaps.html#ab8224feb51dbb02ac20aed1664270ae6',1,'OpenStreetMaps::removeListener()'],['../classModMatrix.html#adeaa67481f092f988ea3df3936909940',1,'ModMatrix::removeListener()'],['../classParameter.html#ab5362ee42564b596fd391d97455f45cd',1,'Parameter::removeListener()']]],
   ['rendernextblock',['renderNextBlock',['../classSynthesiser.html#a9ab1efe9ca01444e5f4ab3d8eada5580',1,'Synthesiser']]],
   ['resamplingfifo',['ResamplingFifo',['../classResamplingFifo.html',1,'ResamplingFifo'],['../classResamplingFifo.html#a2ee165634dd4f6e42f6611160799a279',1,'ResamplingFifo::ResamplingFifo()']]],
@@ -34,7 +34,7 @@ var searchData=
   ['resizelimits',['resizeLimits',['../classProcessorEditorBase.html#a4fb46e7bb4b9276eb8609df192b24bad',1,'ProcessorEditorBase']]],
   ['resizer',['resizer',['../classProcessorEditorBase.html#a1e64bc7e4ea7f74b234b65f48ee3b0e7',1,'ProcessorEditorBase']]],
   ['resources',['Resources',['../namespaceResources.html',1,'']]],
-  ['responseheaders',['responseHeaders',['../structDownloadManager_1_1DownloadResult.html#a61710618191f0865d9e7da7e31875ee6',1,'DownloadManager::DownloadResult']]],
+  ['responseheaders',['responseHeaders',['../structDownloadManager_1_1DownloadResult.html#a48b192b45df8e978f398483f24e38fa2',1,'DownloadManager::DownloadResult']]],
   ['result',['Result',['../classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30f',1,'ElevatedFileCopy']]],
   ['retriggervoice',['retriggerVoice',['../classSynthesiser.html#a687cf3fc387d7ca65684bbee5a194dc7',1,'Synthesiser']]],
   ['returnpressed',['returnPressed',['../classSingleLineTextEditor.html#a6ea46ada81c1fc1acfd818740832a9d6',1,'SingleLineTextEditor']]],
@@ -45,5 +45,5 @@ var searchData=
   ['rsquare',['rSquare',['../classLeastSquaresRegression.html#a7314973ea0d9b54e0071adf48ebefbd0',1,'LeastSquaresRegression']]],
   ['run',['run',['../classAsyncDownload.html#a12f678abf96e0c0a0f988baa076ec253',1,'AsyncDownload::run()'],['../classUpdateChecker.html#ab61451d9064094197851d0a6049d11e1',1,'UpdateChecker::run()']]],
   ['runmodalloop',['runModalLoop',['../classPluginAlertWindow.html#a6869a64a9ff0b4da3319bcb3c093219d',1,'PluginAlertWindow']]],
-  ['runscriptwithadminaccess',['runScriptWithAdminAccess',['../classElevatedFileCopy.html#a106d59cb0ef21a8a5ba66987df293e23',1,'ElevatedFileCopy']]]
+  ['runscriptwithadminaccess',['runScriptWithAdminAccess',['../classElevatedFileCopy.html#a38602e1c7ac1fa9d1c57ac467b8fe7bb',1,'ElevatedFileCopy']]]
 ];

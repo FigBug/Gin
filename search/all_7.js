@@ -9,7 +9,7 @@ var searchData=
   ['hasprogram',['hasProgram',['../classProcessor.html#a4bad2fd53ae0d91ff3239ae0243a6d8a',1,'Processor']]],
   ['havedata',['haveData',['../classLinearRegression.html#ab0d8b0bd896a4ac1a6d0fad86d5de10b',1,'LinearRegression']]],
   ['headerheight',['headerHeight',['../classProcessorEditorBase.html#abc8ed784a5fcb7e1efe3f1dc63348f82',1,'ProcessorEditorBase']]],
-  ['headers',['headers',['../structHttp_1_1HttpResult.html#ac970cb121a9de164fce399220478b573',1,'Http::HttpResult']]],
+  ['headers',['headers',['../structHttp_1_1HttpResult.html#a663dee713583fca5be89fab8eddd3293',1,'Http::HttpResult']]],
   ['helpbutton',['helpButton',['../classProcessorEditor.html#a74520bce6d0b3cae19dc01c1069710ff',1,'ProcessorEditor']]],
   ['hidebubble',['hideBubble',['../classMultiParamComponent.html#a0f9a0c20b7c3dd25f063ca40dc421c20',1,'MultiParamComponent']]],
   ['highlightcolourid',['highlightColourId',['../classSingleLineTextEditor.html#a580e95f56d303528b02f91143c72f13ca237763d04e9174925d2e0589d8cc8390',1,'SingleLineTextEditor']]],
@@ -19,7 +19,7 @@ var searchData=
   ['horizontalfader',['HorizontalFader',['../classHorizontalFader.html',1,'HorizontalFader'],['../classHorizontalFader.html#ad34bdd3d394ea50181cfb8a8e32a55bd',1,'HorizontalFader::HorizontalFader()']]],
   ['hp12state',['HP12State',['../structHP12State.html',1,'HP12State'],['../structHP12State.html#a26cb6edccf0ef60fcd94b972c61a0491',1,'HP12State::HP12State()']]],
   ['hp24state',['HP24State',['../structHP24State.html',1,'HP24State'],['../structHP24State.html#a893b30c4df910670f54f57fdb8adc80d',1,'HP24State::HP24State()']]],
-  ['http',['Http',['../classHttp.html',1,'Http'],['../classHttp.html#ac11e12b120fa22e4a05273b502f4a004',1,'Http::Http()']]],
+  ['http',['Http',['../classHttp.html',1,'Http'],['../classHttp.html#ad057da75ec75c9a44f3b736ff19ccd9d',1,'Http::Http()']]],
   ['httpcode',['httpCode',['../structDownloadManager_1_1DownloadResult.html#a70931a9fd508ce4cc0344be6514aeffb',1,'DownloadManager::DownloadResult']]],
   ['httpresult',['HttpResult',['../structHttp_1_1HttpResult.html',1,'Http']]]
 ];

@@ -6,7 +6,7 @@ var searchData=
   ['wetdrymix',['WetDryMix',['../classWetDryMix.html#a31c06ff0212820a3b2b93571ef54127c',1,'WetDryMix']]],
   ['write',['write',['../classAudioFifo.html#a8d8650de2e14a9c965c95a8e7e86da55',1,'AudioFifo::write(const AudioSampleBuffer &amp;src, int numSamples=-1)'],['../classAudioFifo.html#a7dbba1b96c2670e3e046f2ad83e3ed40',1,'AudioFifo::write(const float *const *data, int numSamples)'],['../classDelayLine.html#ae83573274b47e182d7293edd582ae2f3',1,'DelayLine::write()'],['../classMidiFifo.html#a90ece40a2c61b1bba7de907838fc7cf6',1,'MidiFifo::write()'],['../classSecureStreamingSocket.html#ae04b0755561c2b33d447a43712c16c0f',1,'SecureStreamingSocket::write()']]],
   ['writefinished',['writeFinished',['../classDelayLine.html#ab36052a31da09d3a8162651ba437bec6',1,'DelayLine']]],
-  ['writeimagetostream',['writeImageToStream',['../classBMPImageFormat.html#af8285c2a46b1ab723fcb0dbff9a184ad',1,'BMPImageFormat']]],
+  ['writeimagetostream',['writeImageToStream',['../classBMPImageFormat.html#a7aa7a97cf8a3e5724bc61550ce7c8881',1,'BMPImageFormat']]],
   ['writemono',['writeMono',['../classAudioFifo.html#a8a2f35a383ee1e3074491dfc6f510e59',1,'AudioFifo']]],
   ['wtoscillator',['WTOscillator',['../classWTOscillator.html#a16fdc8afe3d72d02755d37bb13aa3dad',1,'WTOscillator']]],
   ['wtvoicedstereooscillator',['WTVoicedStereoOscillator',['../classWTVoicedStereoOscillator.html#a8db7ce7f1c1f034e9f3d38119ed1325d',1,'WTVoicedStereoOscillator']]]

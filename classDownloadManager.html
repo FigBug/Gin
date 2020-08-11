@@ -116,21 +116,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a736bec2349be86541095fe82a1916dbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDownloadManager.html#a736bec2349be86541095fe82a1916dbe">pauseDownloads</a> (bool)</td></tr>
 <tr class="memdesc:a736bec2349be86541095fe82a1916dbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pause / resume all downloads.  <a href="#a736bec2349be86541095fe82a1916dbe">More...</a><br /></td></tr>
 <tr class="separator:a736bec2349be86541095fe82a1916dbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a293503c96ee3a18619a64c885639b2a1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDownloadManager.html#a293503c96ee3a18619a64c885639b2a1">startAsyncDownload</a> (String url, String postData, std::function&lt; void(<a class="el" href="structDownloadManager_1_1DownloadResult.html">DownloadResult</a>)&gt; completionCallback, std::function&lt; void(int64, int64, int64)&gt; progressCallback=nullptr, String extraHeaders={})</td></tr>
-<tr class="memdesc:a293503c96ee3a18619a64c885639b2a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a download and returns the download id which can be used to cancel the download.  <a href="#a293503c96ee3a18619a64c885639b2a1">More...</a><br /></td></tr>
-<tr class="separator:a293503c96ee3a18619a64c885639b2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f10418acb125e303b894b0b6ff7d5a8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDownloadManager.html#a7f10418acb125e303b894b0b6ff7d5a8">startAsyncDownload</a> (URL url, std::function&lt; void(<a class="el" href="structDownloadManager_1_1DownloadResult.html">DownloadResult</a>)&gt; completionCallback, std::function&lt; void(int64, int64, int64)&gt; progressCallback=nullptr, String extraHeaders={})</td></tr>
-<tr class="separator:a7f10418acb125e303b894b0b6ff7d5a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f28dbb10b11644ea9033f2c4fb2b6ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDownloadManager.html#a5f28dbb10b11644ea9033f2c4fb2b6ca">startAsyncDownload</a> (juce::String url, juce::String postData, std::function&lt; void(<a class="el" href="structDownloadManager_1_1DownloadResult.html">DownloadResult</a>)&gt; completionCallback, std::function&lt; void(juce::int64, juce::int64, juce::int64)&gt; progressCallback=nullptr, juce::String extraHeaders={})</td></tr>
+<tr class="memdesc:a5f28dbb10b11644ea9033f2c4fb2b6ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a download and returns the download id which can be used to cancel the download.  <a href="#a5f28dbb10b11644ea9033f2c4fb2b6ca">More...</a><br /></td></tr>
+<tr class="separator:a5f28dbb10b11644ea9033f2c4fb2b6ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6010c1da81e49143c4f97a923d056ecb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDownloadManager.html#a6010c1da81e49143c4f97a923d056ecb">startAsyncDownload</a> (juce::URL url, std::function&lt; void(<a class="el" href="structDownloadManager_1_1DownloadResult.html">DownloadResult</a>)&gt; completionCallback, std::function&lt; void(juce::int64, juce::int64, juce::int64)&gt; progressCallback=nullptr, juce::String extraHeaders={})</td></tr>
+<tr class="separator:a6010c1da81e49143c4f97a923d056ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecbecc0c8aa4113566906e816eeca7c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDownloadManager.html#aecbecc0c8aa4113566906e816eeca7c3">cancelAllDownloads</a> ()</td></tr>
 <tr class="memdesc:aecbecc0c8aa4113566906e816eeca7c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancels all downloads.  <a href="#aecbecc0c8aa4113566906e816eeca7c3">More...</a><br /></td></tr>
 <tr class="separator:aecbecc0c8aa4113566906e816eeca7c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1740214c8eb0c508f4e3a48ba394a1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDownloadManager.html#ab1740214c8eb0c508f4e3a48ba394a1c">cancelDownload</a> (int downloadId)</td></tr>
 <tr class="memdesc:ab1740214c8eb0c508f4e3a48ba394a1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancels a download with a given id.  <a href="#ab1740214c8eb0c508f4e3a48ba394a1c">More...</a><br /></td></tr>
 <tr class="separator:ab1740214c8eb0c508f4e3a48ba394a1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f2f782db41bee4029250deba9a5bac4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structDownloadManager_1_1DownloadResult.html">DownloadResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDownloadManager.html#a4f2f782db41bee4029250deba9a5bac4">blockingDownload</a> (String url, String postData, String extraHeaders={})</td></tr>
-<tr class="separator:a4f2f782db41bee4029250deba9a5bac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae26895481511c1233758fe71fb6201ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structDownloadManager_1_1DownloadResult.html">DownloadResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDownloadManager.html#ae26895481511c1233758fe71fb6201ab">blockingDownload</a> (URL url, String extraHeaders={})</td></tr>
-<tr class="separator:ae26895481511c1233758fe71fb6201ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46d6fd6994ca4cdcde6564edd621020f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structDownloadManager_1_1DownloadResult.html">DownloadResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDownloadManager.html#a46d6fd6994ca4cdcde6564edd621020f">blockingDownload</a> (juce::String url, juce::String postData, juce::String extraHeaders={})</td></tr>
+<tr class="separator:a46d6fd6994ca4cdcde6564edd621020f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab352a3c9d99319f4872c1603eb19cc78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structDownloadManager_1_1DownloadResult.html">DownloadResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDownloadManager.html#ab352a3c9d99319f4872c1603eb19cc78">blockingDownload</a> (juce::URL url, juce::String extraHeaders={})</td></tr>
+<tr class="separator:ab352a3c9d99319f4872c1603eb19cc78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Downloads files to a memory block and then calls a lambda on the message thread with the results. </p>
@@ -430,8 +430,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a293503c96ee3a18619a64c885639b2a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a293503c96ee3a18619a64c885639b2a1">&#9670;&nbsp;</a></span>startAsyncDownload() <span class="overload">[1/2]</span></h2>
+<a id="a5f28dbb10b11644ea9033f2c4fb2b6ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f28dbb10b11644ea9033f2c4fb2b6ca">&#9670;&nbsp;</a></span>startAsyncDownload() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -439,13 +439,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">int DownloadManager::startAsyncDownload </td>
           <td>(</td>
-          <td class="paramtype">String&#160;</td>
+          <td class="paramtype">juce::String&#160;</td>
           <td class="paramname"><em>url</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">String&#160;</td>
+          <td class="paramtype">juce::String&#160;</td>
           <td class="paramname"><em>postData</em>, </td>
         </tr>
         <tr>
@@ -457,13 +457,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; void(int64, int64, int64)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; void(juce::int64, juce::int64, juce::int64)&gt;&#160;</td>
           <td class="paramname"><em>progressCallback</em> = <code>nullptr</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">String&#160;</td>
+          <td class="paramtype">juce::String&#160;</td>
           <td class="paramname"><em>extraHeaders</em> = <code>{}</code>&#160;</td>
         </tr>
         <tr>
@@ -479,8 +479,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7f10418acb125e303b894b0b6ff7d5a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f10418acb125e303b894b0b6ff7d5a8">&#9670;&nbsp;</a></span>startAsyncDownload() <span class="overload">[2/2]</span></h2>
+<a id="a6010c1da81e49143c4f97a923d056ecb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6010c1da81e49143c4f97a923d056ecb">&#9670;&nbsp;</a></span>startAsyncDownload() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -488,7 +488,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">int DownloadManager::startAsyncDownload </td>
           <td>(</td>
-          <td class="paramtype">URL&#160;</td>
+          <td class="paramtype">juce::URL&#160;</td>
           <td class="paramname"><em>url</em>, </td>
         </tr>
         <tr>
@@ -500,13 +500,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; void(int64, int64, int64)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; void(juce::int64, juce::int64, juce::int64)&gt;&#160;</td>
           <td class="paramname"><em>progressCallback</em> = <code>nullptr</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">String&#160;</td>
+          <td class="paramtype">juce::String&#160;</td>
           <td class="paramname"><em>extraHeaders</em> = <code>{}</code>&#160;</td>
         </tr>
         <tr>
@@ -558,8 +558,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4f2f782db41bee4029250deba9a5bac4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f2f782db41bee4029250deba9a5bac4">&#9670;&nbsp;</a></span>blockingDownload() <span class="overload">[1/2]</span></h2>
+<a id="a46d6fd6994ca4cdcde6564edd621020f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46d6fd6994ca4cdcde6564edd621020f">&#9670;&nbsp;</a></span>blockingDownload() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -567,19 +567,19 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="structDownloadManager_1_1DownloadResult.html">DownloadResult</a> DownloadManager::blockingDownload </td>
           <td>(</td>
-          <td class="paramtype">String&#160;</td>
+          <td class="paramtype">juce::String&#160;</td>
           <td class="paramname"><em>url</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">String&#160;</td>
+          <td class="paramtype">juce::String&#160;</td>
           <td class="paramname"><em>postData</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">String&#160;</td>
+          <td class="paramtype">juce::String&#160;</td>
           <td class="paramname"><em>extraHeaders</em> = <code>{}</code>&#160;</td>
         </tr>
         <tr>
@@ -592,8 +592,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae26895481511c1233758fe71fb6201ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae26895481511c1233758fe71fb6201ab">&#9670;&nbsp;</a></span>blockingDownload() <span class="overload">[2/2]</span></h2>
+<a id="ab352a3c9d99319f4872c1603eb19cc78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab352a3c9d99319f4872c1603eb19cc78">&#9670;&nbsp;</a></span>blockingDownload() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -601,13 +601,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="structDownloadManager_1_1DownloadResult.html">DownloadResult</a> DownloadManager::blockingDownload </td>
           <td>(</td>
-          <td class="paramtype">URL&#160;</td>
+          <td class="paramtype">juce::URL&#160;</td>
           <td class="paramname"><em>url</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">String&#160;</td>
+          <td class="paramtype">juce::String&#160;</td>
           <td class="paramname"><em>extraHeaders</em> = <code>{}</code>&#160;</td>
         </tr>
         <tr>
@@ -626,7 +626,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 28 2020 23:49:32 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Aug 11 2020 19:57:31 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>
