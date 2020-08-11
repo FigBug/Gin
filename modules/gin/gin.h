@@ -62,10 +62,6 @@
 
 namespace gin
 {
-using namespace juce;
-using juce::Rectangle;
-using juce::Component;
-
 #include "utilities/gin_asyncutilities.h"
 #include "utilities/gin_coalescedtimer.h"
 #include "utilities/gin_downloadmanager.h"

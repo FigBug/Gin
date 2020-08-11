@@ -11,7 +11,7 @@
 /**
     Draws an map, etting tiles fom one of many OpenStreetMapsServers
 */
-class MapViewer : public Component,
+class MapViewer : public juce::Component,
                   private OpenStreetMaps::Listener
 {
 public:
@@ -34,10 +34,10 @@ public:
 
 protected:
     void resized() override;
-    void paint (Graphics& g) override;
-    void mouseDown (const MouseEvent& e) override;
-    void mouseDrag (const MouseEvent& e) override;
-    void mouseWheelMove (const MouseEvent& e, const MouseWheelDetails& wheel) override;
+    void paint (juce::Graphics& g) override;
+	void mouseDown (const juce::MouseEvent& e) override;
+	void mouseDrag (const juce::MouseEvent& e) override;
+	void mouseWheelMove (const juce::MouseEvent& e, const juce::MouseWheelDetails& wheel) override;
 
     void tileFetched (int zoom, int x, int y) override;
     void updateMap();
@@ -57,7 +57,7 @@ private:
 
     double wheelDelta = 0;
 
-    SharedResourcePointer<OpenStreetMaps> osm;
+	juce::SharedResourcePointer<OpenStreetMaps> osm;
 
     juce::Point<int> lastPos;
     juce::Point<double> centerPt;
@@ -66,7 +66,7 @@ private:
 
     juce::Point<double> posMarker;
 
-    std::unique_ptr<Image> doubleBuffer;
+	std::unique_ptr<juce::Image> doubleBuffer;
 
 
 };

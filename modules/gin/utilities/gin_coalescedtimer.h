@@ -43,7 +43,7 @@ public:
     std::function<void ()> onTimer;
 
 private:
-    class SharedTimer : public Timer
+    class SharedTimer : public juce::Timer
     {
     public:
         void timerCallback() override
@@ -53,7 +53,7 @@ private:
                     t->onTimer ();
         }
 
-        Array<CoalescedTimer*> timers;
+        juce::Array<CoalescedTimer*> timers;
     };
 
     class SharedTimers
@@ -91,5 +91,5 @@ private:
     };
 
     int delay = 0;
-    SharedResourcePointer<SharedTimers> sharedTimers;
+    juce::SharedResourcePointer<SharedTimers> sharedTimers;
 };

@@ -16,7 +16,7 @@ void callInBackground (std::function<void (void)> function);
 // for (int i = 0; i < 10; i++) becomes multiThreadedFor<int> (0, 10, 1, threadPool, [&] (int i) {});
 // Make sure each iteration of the loop is independant
 template <typename T>
-void multiThreadedFor (T start, T end, T interval, ThreadPool* threadPool, std::function<void (T idx)> callback)
+void multiThreadedFor (T start, T end, T interval, juce::ThreadPool* threadPool, std::function<void (T idx)> callback)
 {
     if (threadPool == nullptr)
     {
@@ -27,8 +27,8 @@ void multiThreadedFor (T start, T end, T interval, ThreadPool* threadPool, std::
     {
         int num = threadPool->getNumThreads();
 
-        WaitableEvent wait;
-        Atomic<int> threadsRunning (num);
+		juce::WaitableEvent wait;
+		juce::Atomic<int> threadsRunning (num);
 
         for (int i = 0; i < num; i++)
         {

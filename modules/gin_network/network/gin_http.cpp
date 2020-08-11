@@ -6,12 +6,12 @@
  ==============================================================================*/
 
 //==============================================================================
-Http::Http (URL url_)
+Http::Http (juce::URL url_)
     : url (url_)
 {
 }
 
-bool Http::isChunked (const StringPairArray& headers)
+bool Http::isChunked (const juce::StringPairArray& headers)
 {
     if (headers["Transfer-Encoding"] == "chunked")
         return true;
@@ -19,14 +19,14 @@ bool Http::isChunked (const StringPairArray& headers)
     return false;
 }
 
-int Http::getContentLength (const StringPairArray& headers)
+int Http::getContentLength (const juce::StringPairArray& headers)
 {
     return headers["Content-Length"].getIntValue();
 }
 
 bool Http::getHeader (SecureStreamingSocket& s, HttpResult& result)
 {
-    String incoming;
+	juce::String incoming;
     
     char ch;
     int res = 0;
@@ -37,7 +37,7 @@ bool Http::getHeader (SecureStreamingSocket& s, HttpResult& result)
         
         if (incoming.endsWith ("\r\n\r\n"))
         {
-            auto lines = StringArray::fromTokens (incoming, "\r\n", "");
+			auto lines = juce::StringArray::fromTokens (incoming, "\r\n", "");
             
             for (auto line : lines)
             {
@@ -46,7 +46,7 @@ bool Http::getHeader (SecureStreamingSocket& s, HttpResult& result)
                 
                 if (k.startsWith ("HTTP"))
                 {
-                    result.statusCode = StringArray::fromTokens (k, " ", "")[1].getIntValue();
+					result.statusCode = juce::StringArray::fromTokens (k, " ", "")[1].getIntValue();
                 }
                 else if (k.isNotEmpty() && v.isNotEmpty())
                 {
@@ -59,9 +59,9 @@ bool Http::getHeader (SecureStreamingSocket& s, HttpResult& result)
     return false;
 }
 
-bool Http::readChunk (SecureStreamingSocket& s, MemoryBlock& data)
+bool Http::readChunk (SecureStreamingSocket& s, juce::MemoryBlock& data)
 {
-    String line;
+	juce::String line;
     char ch;
 
     while (! line.endsWith ("\r\n"))
@@ -73,7 +73,7 @@ bool Http::readChunk (SecureStreamingSocket& s, MemoryBlock& data)
     int sz = line.getHexValue32();
     if (sz > 0)
     {
-        HeapBlock<char> buf (sz);
+		juce::HeapBlock<char> buf (sz);
         
         int todo = sz;
         while (todo > 0)
@@ -106,10 +106,10 @@ Http::HttpResult Http::get()
     
     if (s.connect (url.getDomain(), port))
     {
-        String params = url.toString (true).fromFirstOccurrenceOf ("?", true, true);
-        String subpath = url.getSubPath();
+		juce::String params = url.toString (true).fromFirstOccurrenceOf ("?", true, true);
+		juce::String subpath = url.getSubPath();
         
-        String get;
+		juce::String get;
         get += "GET /" + params + subpath + " HTTP/1.1\r\n";
         get += "Host: " + url.getDomain() + "\r\n";
         get += "\r\n";
@@ -124,12 +124,12 @@ Http::HttpResult Http::get()
         }
         else
         {
-            HeapBlock<char> buf (64 * 1024);
+			juce::HeapBlock<char> buf (64 * 1024);
             
             int todo = getContentLength (result.headers);
             while (todo > 0)
             {
-                int done = s.read (buf.get(), jmin (64 * 1024, todo), false);
+				int done = s.read (buf.get(), fmin (64 * 1024, todo), false);
                 if (done > 0)
                 {
                     result.data.append (buf.get(), (size_t) done);

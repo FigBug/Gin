@@ -21,10 +21,10 @@
 class SharedMemory
 {
 public:
-    SharedMemory (const String& name, int size);
+	SharedMemory (const juce::String& name, int size);
     ~SharedMemory();
 
-    static void remove (const String& name);
+	static void remove (const juce::String& name);
 
     void* getData();
     int getSize();

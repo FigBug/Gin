@@ -10,17 +10,17 @@
 //==============================================================================
 /** Mirrors a ValueTree in Objects
  */
-class ValueTreeObject : private ValueTree::Listener
+class ValueTreeObject : private juce::ValueTree::Listener
 {
 public:
-    ValueTreeObject (const ValueTree& state);
+	ValueTreeObject (const juce::ValueTree& state);
 
-    ValueTree& getState() { return state; }
+	juce::ValueTree& getState() { return state; }
 
-    static std::function<ValueTreeObject* (const Identifier&, const ValueTree&)> factory;
+	static std::function<ValueTreeObject* (const juce::Identifier&, const juce::ValueTree&)> factory;
 
 public:
-    const OwnedArray<ValueTreeObject>& getChildren() const    { return children; }
+	const juce::OwnedArray<ValueTreeObject>& getChildren() const    { return children; }
 
     template <class TargetClass>
     TargetClass* findParentOfType() const
@@ -38,9 +38,9 @@ public:
     }
 
     template <class TargetClass>
-    Array<TargetClass*> findChildrenOfClass() const
+	juce::Array<TargetClass*> findChildrenOfClass() const
     {
-        Array<TargetClass*> res;
+		juce::Array<TargetClass*> res;
 
         for (auto* c : children)
             if (auto* t = dynamic_cast<TargetClass*> (c))
@@ -81,18 +81,18 @@ public:
     }
 
 private:
-    void valueTreePropertyChanged (ValueTree& treeWhosePropertyHasChanged, const Identifier& property) override;
-    void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded) override;
-    void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved, int indexFromWhichChildWasRemoved) override;
-    void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved, int oldIndex, int newIndex) override;
-    void valueTreeParentChanged (ValueTree& treeWhoseParentHasChanged) override;
-    void valueTreeRedirected (ValueTree& treeWhichHasBeenChanged) override;
+	void valueTreePropertyChanged (juce::ValueTree& treeWhosePropertyHasChanged, const juce::Identifier& property) override;
+	void valueTreeChildAdded (juce::ValueTree& parentTree, juce::ValueTree& childWhichHasBeenAdded) override;
+	void valueTreeChildRemoved (juce::ValueTree& parentTree, juce::ValueTree& childWhichHasBeenRemoved, int indexFromWhichChildWasRemoved) override;
+	void valueTreeChildOrderChanged (juce::ValueTree& parentTreeWhoseChildrenHaveMoved, int oldIndex, int newIndex) override;
+	void valueTreeParentChanged (juce::ValueTree& treeWhoseParentHasChanged) override;
+	void valueTreeRedirected (juce::ValueTree& treeWhichHasBeenChanged) override;
 
 private:
-    ValueTree state;
+	juce::ValueTree state;
     ValueTreeObject* parent = nullptr;
 
-    OwnedArray<ValueTreeObject> children;
+	juce::OwnedArray<ValueTreeObject> children;
 
     JUCE_LEAK_DETECTOR (ValueTreeObject)
 };

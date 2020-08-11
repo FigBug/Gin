@@ -50,11 +50,11 @@ public:
     void setThreadPriority (int p)              { priority = p; }
 
     /** Sets minimum time between download progress callbacks in milliseconds */
-    void setProgressInterval (int ms)           { downloadIntervalMS = jmax (1, ms); }
+	void setProgressInterval (int ms)           { downloadIntervalMS = fmax (1, ms); }
 
     /** Sets the block size of chunks to download. Progress callbacks and
         cancelling downloads can only happen between these blocks. Max size is 128 KB */
-    void setDownloadBlockSize (int bs)          { downloadBlockSize = jlimit (1, 128 * 1000, bs); }
+    void setDownloadBlockSize (int bs)          { downloadBlockSize = juce::jlimit (1, 128 * 1000, bs); }
 
     int getNumDownloadsInQueue()                { return downloads.size();  }
 
@@ -72,7 +72,7 @@ public:
     //==============================================================================
     struct DownloadResult
     {
-        URL url;
+		juce::URL url;
         int downloadId = 0;
         int attempts = 0;
 
@@ -80,7 +80,7 @@ public:
 
         bool ok = false;
         int httpCode = 0;
-        StringPairArray responseHeaders;
+		juce::StringPairArray responseHeaders;
     };
 
     //==============================================================================
@@ -90,15 +90,15 @@ public:
         downloaded since last callback. Note that for http chunk encoding total size is unknown
         and will be maximum int64 value.
       */
-    int startAsyncDownload (String url, String postData,
+	int startAsyncDownload (juce::String url, juce::String postData,
                             std::function<void (DownloadResult)> completionCallback,
-                            std::function<void (int64, int64, int64)> progressCallback = nullptr,
-                            String extraHeaders = {});
+                            std::function<void (juce::int64, juce::int64, juce::int64)> progressCallback = nullptr,
+							juce::String extraHeaders = {});
 
-    int startAsyncDownload (URL url,
+	int startAsyncDownload (juce::URL url,
                             std::function<void (DownloadResult)> completionCallback,
-                            std::function<void (int64, int64, int64)> progressCallback = nullptr,
-                            String extraHeaders = {});
+                            std::function<void (juce::int64, juce::int64, juce::int64)> progressCallback = nullptr,
+							juce::String extraHeaders = {});
 
     /** Cancels all downloads */
     void cancelAllDownloads();
@@ -107,35 +107,35 @@ public:
     void cancelDownload (int downloadId);
 
     //==============================================================================
-    DownloadResult blockingDownload (String url, String postData, String extraHeaders = {});
+	DownloadResult blockingDownload (juce::String url, juce::String postData, juce::String extraHeaders = {});
 
-    DownloadResult blockingDownload (URL url, String extraHeaders = {});
+	DownloadResult blockingDownload (juce::URL url, juce::String extraHeaders = {});
 
 private:
     //==============================================================================
     /** Manages a download on a background thread */
-    struct Download : public Thread
+	struct Download : public juce::Thread
     {
         Download (DownloadManager& o) : Thread ("DownloadManager::Download"), owner (o) {}
         ~Download() override;
 
         void run() override;
         bool tryDownload();
-        void updateProgress (int64 current, int64 total, bool );
+		void updateProgress (juce::int64 current, juce::int64 total, bool );
 
         //==============================================================================
         DownloadResult result;
         std::function<void (DownloadResult)> completionCallback;
-        std::function<void (int64, int64, int64)> progressCallback;
+        std::function<void (juce::int64, juce::int64, juce::int64)> progressCallback;
 
-        std::unique_ptr<WebInputStream> is;
+		std::unique_ptr<juce::WebInputStream> is;
 
         DownloadManager& owner;
 
-        String headers;
+		juce::String headers;
         bool started = false, async = true;
-        uint32 lastProgress = 0;
-        int64 lastBytesSent = 0;
+		juce::uint32 lastProgress = 0;
+		juce::int64 lastBytesSent = 0;
 
         //==============================================================================
         JUCE_DECLARE_WEAK_REFERENCEABLE (Download)
@@ -153,7 +153,7 @@ private:
 
     double retryDelay = 0.0;
     int runningDownloads = 0, maxDownloads = 100;
-    OwnedArray<Download> downloads;
+	juce::OwnedArray<Download> downloads;
     std::function<void ()> queueFinishedCallback;
     bool gzipDeflate = true;
     juce::Atomic<bool> pause;

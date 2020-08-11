@@ -8,37 +8,37 @@
 #pragma once
 
 //==============================================================================
-class PropertyComponentBase : public PropertyComponent,
-                              private Value::Listener
+class PropertyComponentBase : public juce::PropertyComponent,
+private juce::Value::Listener
 {
 public:
-    PropertyComponentBase (const Value& valueToControl, const String& propertyName)
+	PropertyComponentBase (const juce::Value& valueToControl, const juce::String& propertyName)
       : PropertyComponent (propertyName), value (valueToControl)
     {
         value.addListener (this);
     }
 
 protected:
-    void valueChanged (Value&) override
+	void valueChanged (juce::Value&) override
     {
         refresh();
     }
 
-    Value value;
+	juce::Value value;
 };
 
 //==============================================================================*/
 class FilePropertyComponent : public PropertyComponentBase
 {
 public:
-    FilePropertyComponent (const Value& valueToControl, const String& propertyName, const String& title_ = "Open", const String pattern_ = "*.*")
+	FilePropertyComponent (const juce::Value& valueToControl, const juce::String& propertyName, const juce::String& title_ = "Open", const juce::String pattern_ = "*.*")
       : PropertyComponentBase (valueToControl, propertyName), title (title_), pattern (pattern_)
     {
         addAndMakeVisible (container);
 
         container.browse.onClick = [this]
         {
-            FileChooser box (title, File (value.toString()), pattern);
+			juce::FileChooser box (title, juce::File (value.toString()), pattern);
 
             if (box.browseForFileToOpen())
                 value.setValue (box.getResult().getFullPathName());
@@ -74,21 +74,21 @@ private:
             filename.setBounds (rc);
         }
 
-        TextEditor filename;
-        TextButton browse {"..."};
-        TextButton clear {"X"};
+		juce::TextEditor filename;
+		juce::TextButton browse {"..."};
+		juce::TextButton clear {"X"};
     };
 
     Container container;
 
-    String title, pattern;
+	juce::String title, pattern;
 };
 
 //==============================================================================*/
 class ColourPropertyComponent : public PropertyComponentBase
 {
 public:
-    ColourPropertyComponent (const Value& valueToControl, const String& propertyName, bool showAlpha = false)
+	ColourPropertyComponent (const juce::Value& valueToControl, const juce::String& propertyName, bool showAlpha = false)
       : PropertyComponentBase (valueToControl, propertyName), container (value, showAlpha)
     {
         addAndMakeVisible (container);
@@ -99,14 +99,14 @@ public:
         repaint();
     }
 
-    void paint (Graphics& g) override
+	void paint (juce::Graphics& g) override
     {
         PropertyComponent::paint (g);
 
-        g.setColour (findColour (BooleanPropertyComponent::backgroundColourId));
+		g.setColour (findColour (juce::BooleanPropertyComponent::backgroundColourId));
         g.fillRect (container.getBounds());
 
-        g.setColour (findColour (BooleanPropertyComponent::outlineColourId));
+		g.setColour (findColour (juce::BooleanPropertyComponent::outlineColourId));
         g.drawRect (container.getBounds());
     }
 
@@ -114,39 +114,39 @@ private:
     class Container : public Component
     {
     public:
-        Container (Value& value_, bool a)
+		Container (juce::Value& value_, bool a)
           : value (value_), alpha (a)
         {
         }
 
-        void paint (Graphics& g) override
+		void paint (juce::Graphics& g) override
         {
-            Colour c = Colour::fromString (value.toString());
+			juce::Colour c = juce::Colour::fromString (value.toString());
 
             g.setColour (c);
             g.fillRect (getLocalBounds().reduced (4));
 
             g.setColour (c.contrasting());
-            g.drawText (c.toDisplayString (alpha), getLocalBounds(), Justification::centred);
+			g.drawText (c.toDisplayString (alpha), getLocalBounds(), juce::Justification::centred);
         }
 
-        void mouseUp (const MouseEvent& e) override
+		void mouseUp (const juce::MouseEvent& e) override
         {
             if (e.mouseWasClicked())
             {
-                ColourSelector colourSelector (ColourSelector::showColourAtTop | ColourSelector::showSliders | ColourSelector::showColourspace);
+				juce::ColourSelector colourSelector (juce::ColourSelector::showColourAtTop | juce::ColourSelector::showSliders | juce::ColourSelector::showColourspace);
 
                 colourSelector.setSize (300, 280);
-                colourSelector.setCurrentColour (Colour::fromString (value.toString()), dontSendNotification);
+				colourSelector.setCurrentColour (juce::Colour::fromString (value.toString()), juce::dontSendNotification);
 
-                CallOutBox callOut (colourSelector, getScreenBounds(), nullptr);
+				juce::CallOutBox callOut (colourSelector, getScreenBounds(), nullptr);
                 callOut.runModalLoop();
 
                 value = colourSelector.getCurrentColour().toString();
             }
         }
 
-        Value& value;
+		juce::Value& value;
         bool alpha;
     };
 

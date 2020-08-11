@@ -36,9 +36,9 @@
 
     @see TextEditor::Listener, Label
 */
-class SingleLineTextEditor  : public Component,
-                              public TextInputTarget,
-                              public SettableTooltipClient
+class SingleLineTextEditor  : public juce::Component,
+							  public juce::TextInputTarget,
+                              public juce::SettableTooltipClient
 {
 public:
     //==============================================================================
@@ -46,7 +46,7 @@ public:
 
         @param componentName        the name to pass to the component for it to use as its name
     */
-    explicit SingleLineTextEditor (const String& componentName = String());
+	explicit SingleLineTextEditor (const juce::String& componentName = juce::String());
 
     /** Destructor. */
     ~SingleLineTextEditor() override;
@@ -162,20 +162,20 @@ public:
 
         @see applyFontToAllText
     */
-    void setFont (const Font& newFont);
+	void setFont (const juce::Font& newFont);
 
     /** Applies a font to all the text in the editor.
         This will also set the current font to use for any new text that's added.
         @see setFont
     */
-    void applyFontToAllText (const Font& newFont);
+	void applyFontToAllText (const juce::Font& newFont);
 
     /** Returns the font that's currently being used for new text.
         @see setFont
     */
-    const Font& getFont() const noexcept            { return currentFont; }
+	const juce::Font& getFont() const noexcept            { return currentFont; }
 
-    void setJustificationType (Justification just)  { justification = just; }
+	void setJustificationType (juce::Justification just)  { justification = just; }
 
     //==============================================================================
     /** If set to true, focusing on the editor will highlight all its text.
@@ -193,7 +193,7 @@ public:
         string is only displayed, it's not taken to actually be the contents of
         the editor.
     */
-    void setTextToShowWhenEmpty (const String& text, Colour colourToUse);
+	void setTextToShowWhenEmpty (const juce::String& text, juce::Colour colourToUse);
 
     //==============================================================================
     /**
@@ -234,10 +234,10 @@ public:
 
     //==============================================================================
     /** Returns the entire contents of the editor. */
-    String getText() const;
+	juce::String getText() const;
 
     /** Returns a section of the contents of the editor. */
-    String getTextInRange (const Range<int>& textRange) const override;
+	juce::String getTextInRange (const juce::Range<int>& textRange) const override;
 
     /** Returns true if there are no characters in the editor.
         This is far more efficient than calling getText().isEmpty().
@@ -256,7 +256,7 @@ public:
                                         be sent to all the listeners.
         @see insertTextAtCaret
     */
-    void setText (const String& newText,
+	void setText (const juce::String& newText,
                   bool sendTextChangeMessage = true);
 
     /** Returns a Value object that can be used to get or set the text.
@@ -265,7 +265,7 @@ public:
         amounts of text, as it needs to dynamically build the string that's involved.
         It's best used for small text boxes.
     */
-    Value& getTextValue();
+	juce::Value& getTextValue();
 
     /** Inserts some text at the current caret position.
 
@@ -277,7 +277,7 @@ public:
 
         @see setCaretPosition, getCaretPosition, setHighlightedRegion
     */
-    void insertTextAtCaret (const String& textToInsert) override;
+	void insertTextAtCaret (const juce::String& textToInsert) override;
 
     /** Deletes all the text from the editor. */
     void clear();
@@ -314,19 +314,19 @@ public:
         The rectangle returned is relative to the component's top-left corner.
         @see scrollEditorToPositionCaret
     */
-    Rectangle<int> getCaretRectangle() override;
+	juce::Rectangle<int> getCaretRectangle() override;
 
     /** Selects a section of the text. */
-    void setHighlightedRegion (const Range<int>& newSelection) override;
+	void setHighlightedRegion (const juce::Range<int>& newSelection) override;
 
     /** Returns the range of characters that are selected.
         If nothing is selected, this will return an empty range.
         @see setHighlightedRegion
     */
-    Range<int> getHighlightedRegion() const override            { return selection; }
+	juce::Range<int> getHighlightedRegion() const override            { return selection; }
 
     /** Returns the section of text that is currently selected. */
-    String getHighlightedText() const;
+	juce::String getHighlightedText() const;
 
     /** Finds the index of the character at a given position.
         The coordinates are relative to the component's top-left.
@@ -398,8 +398,8 @@ public:
 
         @see performPopupMenuAction, setPopupMenuEnabled, isPopupMenuEnabled
     */
-    virtual void addPopupMenuItems (PopupMenu& menuToAddTo,
-                                    const MouseEvent* mouseClickEvent);
+	virtual void addPopupMenuItems (juce::PopupMenu& menuToAddTo,
+									const juce::MouseEvent* mouseClickEvent);
 
     /** This is called to perform one of the items that was shown on the popup menu.
 
@@ -428,7 +428,7 @@ public:
             An implementation of this class should should check the input string,
             and return an edited version of it that should be used.
         */
-        virtual String filterNewText (SingleLineTextEditor&, const String& newInput) = 0;
+		virtual juce::String filterNewText (SingleLineTextEditor&, const juce::String& newInput) = 0;
     };
 
     /** An input filter for a TextEditor that limits the length of text and/or the
@@ -443,12 +443,12 @@ public:
             @param allowedCharacters    if this is non-empty, then only characters that occur in
                                         this string are allowed to be entered into the editor.
         */
-        LengthAndCharacterRestriction (int maxNumChars, const String& allowedCharacters);
+		LengthAndCharacterRestriction (int maxNumChars, const juce::String& allowedCharacters);
 
-        String filterNewText (SingleLineTextEditor&, const String&) override;
+		juce::String filterNewText (SingleLineTextEditor&, const juce::String&) override;
 
     private:
-        String allowedCharacters;
+		juce::String allowedCharacters;
         int maxLength;
 
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (LengthAndCharacterRestriction)
@@ -474,7 +474,7 @@ public:
                                     this string are allowed to be entered into the editor.
     */
     void setInputRestrictions (int maxTextLength,
-                               const String& allowedCharacters = String());
+							   const juce::String& allowedCharacters = juce::String());
 
     void setKeyboardType (VirtualKeyboardType type) noexcept    { keyboardType = type; }
 
@@ -486,29 +486,29 @@ public:
     {
         virtual ~LookAndFeelMethods() {}
 
-        virtual void fillSingleLineTextEditorBackground (Graphics&, int width, int height, SingleLineTextEditor&) = 0;
-        virtual void drawSingleLineTextEditorOutline (Graphics&, int width, int height, SingleLineTextEditor&) = 0;
+		virtual void fillSingleLineTextEditorBackground (juce::Graphics&, int width, int height, SingleLineTextEditor&) = 0;
+		virtual void drawSingleLineTextEditorOutline (juce::Graphics&, int width, int height, SingleLineTextEditor&) = 0;
 
-        virtual CaretComponent* createSingleLineCaretComponent (Component* keyFocusOwner) = 0;
+		virtual juce::CaretComponent* createSingleLineCaretComponent (Component* keyFocusOwner) = 0;
     };
 
     //==============================================================================
     /** @internal */
-    void paint (Graphics&) override;
+	void paint (juce::Graphics&) override;
     /** @internal */
-    void paintOverChildren (Graphics&) override;
+	void paintOverChildren (juce::Graphics&) override;
     /** @internal */
-    void mouseDown (const MouseEvent&) override;
+	void mouseDown (const juce::MouseEvent&) override;
     /** @internal */
-    void mouseUp (const MouseEvent&) override;
+	void mouseUp (const juce::MouseEvent&) override;
     /** @internal */
-    void mouseDrag (const MouseEvent&) override;
+	void mouseDrag (const juce::MouseEvent&) override;
     /** @internal */
-    void mouseDoubleClick (const MouseEvent&) override;
+	void mouseDoubleClick (const juce::MouseEvent&) override;
     /** @internal */
-    void mouseWheelMove (const MouseEvent&, const MouseWheelDetails&) override;
+	void mouseWheelMove (const juce::MouseEvent&, const juce::MouseWheelDetails&) override;
     /** @internal */
-    bool keyPressed (const KeyPress&) override;
+	bool keyPressed (const juce::KeyPress&) override;
     /** @internal */
     bool keyStateChanged (bool) override;
     /** @internal */
@@ -526,7 +526,7 @@ public:
     /** @internal */
     bool isTextInputActive() const override;
     /** @internal */
-    void setTemporaryUnderlining (const Array<Range<int> >&) override;
+    void setTemporaryUnderlining (const juce::Array<juce::Range<int> >&) override;
     /** @internal */
     VirtualKeyboardType getKeyboardType() override    { return keyboardType; }
 
@@ -565,20 +565,20 @@ private:
     bool valueTextNeedsUpdating;
     bool consumeEscAndReturnKeys;
 
-    UndoManager undoManager;
-    std::unique_ptr<CaretComponent> caret;
-    Range<int> selection;
+	juce::UndoManager undoManager;
+	std::unique_ptr<juce::CaretComponent> caret;
+	juce::Range<int> selection;
     unsigned int lastTransactionTime;
-    Font currentFont;
+	juce::Font currentFont;
     mutable int totalNumChars;
     int caretPosition;
-    OwnedArray<UniformTextSection> sections;
-    String textToShowWhenEmpty;
-    Colour colourForTextWhenEmpty;
-    OptionalScopedPointer<InputFilter> inputFilter;
-    Value textValue;
+	juce::OwnedArray<UniformTextSection> sections;
+	juce::String textToShowWhenEmpty;
+	juce::Colour colourForTextWhenEmpty;
+	juce::OptionalScopedPointer<InputFilter> inputFilter;
+	juce::Value textValue;
     VirtualKeyboardType keyboardType;
-    Justification justification = Justification::centred;
+	juce::Justification justification = juce::Justification::centred;
 
     enum
     {
@@ -587,8 +587,8 @@ private:
         draggingSelectionEnd
     } dragType;
 
-    ListenerList<Listener> listeners;
-    Array<Range<int> > underlinedSections;
+	juce::ListenerList<Listener> listeners;
+    juce::Array<juce::Range<int> > underlinedSections;
 
     void moveCaret (int newCaretPos);
     void moveCaretTo (int newPosition, bool isSelecting);
@@ -596,10 +596,10 @@ private:
     void handleCommandMessage (int) override;
     void coalesceSimilarSections();
     void splitSection (int sectionIndex, int charToSplitAt);
-    void clearInternal (UndoManager*);
-    void insert (const String&, int insertIndex, const Font&, const Colour, UndoManager*, int newCaretPos);
-    void reinsert (int insertIndex, const OwnedArray<UniformTextSection>&);
-    void remove (Range<int> range, UndoManager*, int caretPositionToMoveTo);
+	void clearInternal (juce::UndoManager*);
+	void insert (const juce::String&, int insertIndex, const juce::Font&, const juce::Colour, juce::UndoManager*, int newCaretPos);
+	void reinsert (int insertIndex, const juce::OwnedArray<UniformTextSection>&);
+	void remove (juce::Range<int> range, juce::UndoManager*, int caretPositionToMoveTo);
     void getCharPosition (int index, float& x, float& y, float& lineHeight) const;
     void updateCaretPosition();
     void updateValueFromText();
@@ -609,12 +609,12 @@ private:
     int findWordBreakBefore (int position) const;
     bool moveCaretWithTransaction (int newPos, bool selecting);
     friend class TextHolderComponent;
-    void drawContent (Graphics&);
+	void drawContent (juce::Graphics&);
     float getWordWrapWidth() const;
     void timerCallbackInt();
-    void repaintText (Range<int>);
+	void repaintText (juce::Range<int>);
     bool undoOrRedo (bool shouldUndo);
-    UndoManager* getUndoManager() noexcept;
+	juce::UndoManager* getUndoManager() noexcept;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SingleLineTextEditor)
 };

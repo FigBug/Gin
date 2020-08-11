@@ -5,7 +5,7 @@
 
  ==============================================================================*/
 
-Component* realGetComponent (Component& p, juce::Point<int> screenPos)
+juce::Component* realGetComponent (juce::Component& p, juce::Point<int> screenPos)
 {
     if (p.getScreenBounds().contains (screenPos))
     {
@@ -19,7 +19,7 @@ Component* realGetComponent (Component& p, juce::Point<int> screenPos)
     return nullptr;
 }
 
-Component* realGetComponentUnderMouse()
+juce::Component* realGetComponentUnderMouse()
 {
     auto mouse = Desktop::getInstance().getMainMouseSource();
     auto pos = mouse.getScreenPosition().toInt();
@@ -37,7 +37,7 @@ Component* realGetComponentUnderMouse()
     return {};
 }
 
-static String getClassName (Component* c)
+static String getClassName (juce::Component* c)
 {
    #if __clang__ || __GNUC__
     int status = 0;

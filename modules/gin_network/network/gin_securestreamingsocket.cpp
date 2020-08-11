@@ -42,16 +42,16 @@ public:
     Impl()  { init();  }
     ~Impl() { close(); }
     
-    bool connect (const String& remoteHostname, int remotePortNumber, int timeOutMillisecs)
+	bool connect (const juce::String& remoteHostname, int remotePortNumber, int timeOutMillisecs)
     {
-        ignoreUnused (timeOutMillisecs);
+		juce::ignoreUnused (timeOutMillisecs);
         
         int ret = 0;
-        String port = String (remotePortNumber);
+		juce::String port = juce::String (remotePortNumber);
         if ((ret = mbedtls_net_connect (&server_fd, remoteHostname.toRawUTF8(),
                                         port.toRawUTF8(), MBEDTLS_NET_PROTO_TCP)) != 0)
         {
-            DBG("failed: mbedtls_net_connect returned " + String (ret));
+            DBG("failed: mbedtls_net_connect returned " + juce::String (ret));
             return false;
         }
         
@@ -60,7 +60,7 @@ public:
                                                 MBEDTLS_SSL_TRANSPORT_STREAM,
                                                 MBEDTLS_SSL_PRESET_DEFAULT)) != 0)
         {
-            DBG("failed: mbedtls_ssl_config_defaults returned " + String (ret));
+            DBG("failed: mbedtls_ssl_config_defaults returned " + juce::String (ret));
             return false;
         }
         
@@ -71,13 +71,13 @@ public:
         
         if ((ret = mbedtls_ssl_setup (&ssl, &conf )) != 0)
         {
-            DBG("failed: mbedtls_ssl_setup returned %d" + String (ret));
+            DBG("failed: mbedtls_ssl_setup returned %d" + juce::String (ret));
             return false;
         }
         
         if ((ret = mbedtls_ssl_set_hostname (&ssl, remoteHostname.toRawUTF8())) != 0)
         {
-            DBG("failed: mbedtls_ssl_set_hostname returned " + String (ret));
+            DBG("failed: mbedtls_ssl_set_hostname returned " + juce::String (ret));
             return false;
         }
         
@@ -87,7 +87,7 @@ public:
         {
             if (ret != MBEDTLS_ERR_SSL_WANT_READ && ret != MBEDTLS_ERR_SSL_WANT_WRITE)
             {
-                DBG("failed: mbedtls_ssl_handshake returned -0x%x\n\n" + String (-ret));
+                DBG("failed: mbedtls_ssl_handshake returned -0x%x\n\n" + juce::String (-ret));
                 return false;
             }
         }
@@ -127,7 +127,7 @@ public:
                 }
                 else
                 {
-                    Thread::sleep (1);
+                    juce::Thread::sleep (1);
                 }
             }
             return maxBytesToRead - todo;
@@ -215,7 +215,7 @@ private:
                                           (const unsigned char *)pers,
                                           strlen (pers))) != 0)
         {
-            DBG("failed: mbedtls_ctr_drbg_seed returned " + String (ret));
+            DBG("failed: mbedtls_ctr_drbg_seed returned " + juce::String (ret));
             jassertfalse;
         }
     }
@@ -229,7 +229,7 @@ private:
         mbedtls_entropy_free (&entropy);
     }
     
-    URL url;
+	juce::URL url;
     
     mbedtls_net_context server_fd;
     mbedtls_entropy_context entropy;
@@ -247,14 +247,14 @@ SecureStreamingSocket::SecureStreamingSocket (bool secure)
     if (secure)
         impl = std::make_unique<Impl>();
     else
-        normalSocket = std::make_unique<StreamingSocket>();
+		normalSocket = std::make_unique<juce::StreamingSocket>();
 }
 
 SecureStreamingSocket::~SecureStreamingSocket()
 {
 }
 
-bool SecureStreamingSocket::connect (const String& remoteHostname, int remotePortNumber, int timeOutMillisecs)
+bool SecureStreamingSocket::connect (const juce::String& remoteHostname, int remotePortNumber, int timeOutMillisecs)
 {
     if (impl != nullptr)
         return impl->connect (remoteHostname, remotePortNumber, timeOutMillisecs);

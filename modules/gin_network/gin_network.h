@@ -60,8 +60,6 @@
 
 namespace gin
 {
-using namespace juce;
-
 #include "network/gin_securestreamingsocket.h"
 #include "network/gin_http.h"
 #include "network/gin_asyncwebsocket.h"    

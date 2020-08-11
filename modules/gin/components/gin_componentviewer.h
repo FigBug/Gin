@@ -11,8 +11,8 @@
 
 /** Shows the component under the mouse and component hierarchy.
     Useful for debugging */
-class ComponentViewer : public DocumentWindow,
-                        public ComponentListener
+class ComponentViewer : public juce::DocumentWindow,
+					    public juce::ComponentListener
 {
 public:
     //==============================================================================*/
@@ -20,7 +20,7 @@ public:
        be used. Pass in a component to track and when this component is deleted, the
        ComponentViewer will be deleted as well, or nullptr if you don't want this feature
      */
-    ComponentViewer (Component* toTrack = nullptr, PropertiesFile* settings = nullptr, bool alwaysOnTop = true);
+	ComponentViewer (Component* toTrack = nullptr, juce::PropertiesFile* settings = nullptr, bool alwaysOnTop = true);
     ~ComponentViewer() override;
 
     /* User wants to close window, you should delete it. By default will delete itself */
@@ -42,6 +42,6 @@ private:
     class ContentComponent;
 
     //==============================================================================*/
-    OptionalScopedPointer<PropertiesFile> settings;
+	juce::OptionalScopedPointer<juce::PropertiesFile> settings;
     Component* toTrack = nullptr;
 };

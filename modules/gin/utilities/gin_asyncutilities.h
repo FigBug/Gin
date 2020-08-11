@@ -10,7 +10,7 @@
 /**
  Like juce::Timer, but it calls a std::function<>
  */
-class LambdaTimer : public Timer
+class LambdaTimer : public juce::Timer
 {
 public:
     LambdaTimer (std::function<void()> func = nullptr) : onTimer (func) {}
@@ -28,7 +28,7 @@ private:
 /**
  Like juce::AsyncUpdater, but it calls a std::function<>
 */
-class LambdaAsyncUpdater : public AsyncUpdater
+class LambdaAsyncUpdater : public juce::AsyncUpdater
 {
 public:
     LambdaAsyncUpdater (std::function<void()> func) : onAsyncUpdate (func) {}

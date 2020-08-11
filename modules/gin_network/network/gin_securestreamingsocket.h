@@ -13,7 +13,7 @@ public:
     SecureStreamingSocket (bool secure = true);
     ~SecureStreamingSocket();
 
-    bool connect (const String& remoteHostname, int remotePortNumber, int timeOutMillisecs = 3000);
+	bool connect (const juce::String& remoteHostname, int remotePortNumber, int timeOutMillisecs = 3000);
     void close();
     
     bool isConnected () const noexcept;
@@ -27,5 +27,5 @@ public:
 private:
     class Impl;
     std::unique_ptr<Impl> impl;
-    std::unique_ptr<StreamingSocket> normalSocket;
+	std::unique_ptr<juce::StreamingSocket> normalSocket;
 };

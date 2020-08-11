@@ -33,7 +33,7 @@ inline float calculateRMS (const float* values, int n)
 /** Get average */
 inline float calculateMedian (const float* values, int n)
 {
-    Array<float> f;
+    juce::Array<float> f;
     f.insertArray (0, values, n);
     f.sort();
 
@@ -47,7 +47,7 @@ inline float calculateMedian (const float* values, int n)
 /** Fisher-Yates Shuffle for juce::Array
  */
 template <typename T>
-void shuffleArray (Random& r, T array)
+void shuffleArray (juce::Random& r, T array)
 {
     const int n = array.size();
     for (int i = n - 1; i >= 1; i--)
@@ -87,7 +87,7 @@ public:
 
     PerlinNoise (unsigned int seed)
     {
-        Random r (seed);
+		juce::Random r (seed);
 
         for (int i = 0; i <= 255; i++)
             p.add (i);
@@ -150,7 +150,7 @@ private:
         return ((h & 1) == 0 ? u : -u) + ((h & 2) == 0 ? v : -v);
     }
 
-    Array<int> p;
+	juce::Array<int> p;
 };
 
 //==============================================================================
@@ -188,22 +188,22 @@ private:
 /** Returns the next colour in a set where the hues differ by the golden ratio.
     Good for coming up with a random set of colours
  */
-Colour goldenRatioColor (int idx);
+juce::Colour goldenRatioColor (int idx);
 
 //==============================================================================
 /** Async Download. Doesn't have the main thread pause the URL::downloadToFile has
   */
-class AsyncDownload : private Thread,
-                      private AsyncUpdater
+class AsyncDownload : private juce::Thread,
+                      private juce::AsyncUpdater
 {
 public:
-    AsyncDownload (String url_, std::function<void (AsyncDownload*, juce::MemoryBlock, bool)> cb_, int timeoutMS_ = 0)
+	AsyncDownload (juce::String url_, std::function<void (AsyncDownload*, juce::MemoryBlock, bool)> cb_, int timeoutMS_ = 0)
       : Thread ("AsyncDownload"), url (url_), cb (cb_), timeoutMS (timeoutMS_)
     {
         startThread();
     }
 
-    AsyncDownload (URL url_, std::function<void (AsyncDownload*, juce::MemoryBlock, bool)> cb_, int timeoutMS_ = 0)
+	AsyncDownload (juce::URL url_, std::function<void (AsyncDownload*, juce::MemoryBlock, bool)> cb_, int timeoutMS_ = 0)
         : Thread ("AsyncDownload"), url (url_), cb (cb_), timeoutMS (timeoutMS_)
     {
         startThread();
@@ -217,12 +217,12 @@ public:
     void run() override
     {
         ok = readEntireBinaryStream (data);
-        triggerAsyncUpdate();
+		handleAsyncUpdate();
     }
 
-    bool readEntireBinaryStream (MemoryBlock& destData, bool usePostCommand = false)
+	bool readEntireBinaryStream (juce::MemoryBlock& destData, bool usePostCommand = false)
     {
-        const std::unique_ptr<InputStream> in (url.isLocalFile() ? url.getLocalFile().createInputStream() : url.createInputStream (usePostCommand, nullptr, nullptr, {}, timeoutMS));
+		const std::unique_ptr<juce::InputStream> in (url.isLocalFile() ? url.getLocalFile().createInputStream() : url.createInputStream (usePostCommand, nullptr, nullptr, {}, timeoutMS));
 
         if (in != nullptr)
         {
@@ -233,13 +233,13 @@ public:
         return false;
     }
 
-    void handleAsyncUpdate() override
+	void handleAsyncUpdate() override
     {
         if (cb)
             cb (this, data, ok);
     }
 
-    URL url;
+	juce::URL url;
     std::function<void (AsyncDownload*, juce::MemoryBlock, bool)> cb;
     int timeoutMS = 0;
     bool ok = false;
@@ -252,16 +252,16 @@ public:
 class TimeProfiler
 {
 public:
-    TimeProfiler (const String& name_) :
-      name (name_), start (Time::getMillisecondCounterHiRes()) {}
+	TimeProfiler (const juce::String& name_) :
+	name (name_), start (juce::Time::getMillisecondCounterHiRes()) {}
 
     ~TimeProfiler()
     {
-        DBG (name + String::formatted (" %.2fs", (Time::getMillisecondCounterHiRes() - start) / 1000.0));
+		DBG (name + juce::String::formatted (" %.2fs", (juce::Time::getMillisecondCounterHiRes() - start) / 1000.0));
     }
 
 private:
-    String name;
+	juce::String name;
     double start;
 };
 
@@ -273,7 +273,7 @@ inline bool almostEqual (T a, T b, T precision = T (0.00001))
     return std::abs (a - b) < precision;
 }
 
-int versionStringToInt (const String& versionString);
+int versionStringToInt (const juce::String& versionString);
 
 //==============================================================================
 /** Do a lambda, a bit later */

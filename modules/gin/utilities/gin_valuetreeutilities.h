@@ -15,10 +15,10 @@ juce::ValueTree valueTreeFromJSON (const juce::String& jsonText);
 //==============================================================================
 /** Listen to value tree changes with std::function<>
 */
-class LambdaValueTreeListener : public ValueTree::Listener
+class LambdaValueTreeListener : public juce::ValueTree::Listener
 {
 public:
-    LambdaValueTreeListener (ValueTree& v_)
+	LambdaValueTreeListener (juce::ValueTree& v_)
         : vt (v_)
     {
         vt.addListener (this);
@@ -29,61 +29,61 @@ public:
         vt.removeListener (this);
     }
 
-    std::function<void (ValueTree&, const Identifier&)> onValueTreePropertyChanged;
-    std::function<void (ValueTree&, ValueTree&)> onValueTreeChildAdded;
-    std::function<void (ValueTree&, ValueTree&, int)> onValueTreeChildRemoved;
-    std::function<void (ValueTree&, int, int)> onValueTreeChildOrderChanged;
-    std::function<void (ValueTree&)> onValueTreeParentChanged;
-    std::function<void (ValueTree&)> onValueTreeRedirected;
+    std::function<void (juce::ValueTree&, const juce::Identifier&)> onValueTreePropertyChanged;
+    std::function<void (juce::ValueTree&, juce::ValueTree&)> onValueTreeChildAdded;
+    std::function<void (juce::ValueTree&, juce::ValueTree&, int)> onValueTreeChildRemoved;
+    std::function<void (juce::ValueTree&, int, int)> onValueTreeChildOrderChanged;
+    std::function<void (juce::ValueTree&)> onValueTreeParentChanged;
+    std::function<void (juce::ValueTree&)> onValueTreeRedirected;
     
 private:
-    void valueTreePropertyChanged (ValueTree&v , const Identifier& i) override
+	void valueTreePropertyChanged (juce::ValueTree&v , const juce::Identifier& i) override
     {
         if (onValueTreePropertyChanged)
             onValueTreePropertyChanged (v, i);
     }
     
-    void valueTreeChildAdded (ValueTree& p, ValueTree& c) override
+	void valueTreeChildAdded (juce::ValueTree& p, juce::ValueTree& c) override
     {
         if (onValueTreeChildAdded)
             onValueTreeChildAdded (p, c);
     }
     
-    void valueTreeChildRemoved (ValueTree& p, ValueTree& c, int n) override
+	void valueTreeChildRemoved (juce::ValueTree& p, juce::ValueTree& c, int n) override
     {
         if (onValueTreeChildRemoved)
             onValueTreeChildRemoved (p, c, n);
         
     }
     
-    void valueTreeChildOrderChanged (ValueTree& v, int a, int b) override
+	void valueTreeChildOrderChanged (juce::ValueTree& v, int a, int b) override
     {
         if (onValueTreeChildOrderChanged)
             onValueTreeChildOrderChanged (v, a, b);
     }
     
-    void valueTreeParentChanged (ValueTree& v) override
+	void valueTreeParentChanged (juce::ValueTree& v) override
     {
         if (onValueTreeParentChanged)
             onValueTreeParentChanged (v);
     }
     
-    void valueTreeRedirected (ValueTree& v) override
+	void valueTreeRedirected (juce::ValueTree& v) override
     {
         if (onValueTreeRedirected)
             onValueTreeRedirected (v);
     }
     
-    ValueTree& vt;
+	juce::ValueTree& vt;
 };
 
 //==============================================================================
 /** Listen to value tree changes with std::function<>, but Async
 */
-class AsyncLambdaValueTreeListener : public ValueTree::Listener
+class AsyncLambdaValueTreeListener : public juce::ValueTree::Listener
 {
 public:
-    AsyncLambdaValueTreeListener (ValueTree& v_)
+	AsyncLambdaValueTreeListener (juce::ValueTree& v_)
         : vt (v_)
     {
         vt.addListener (this);
@@ -94,84 +94,84 @@ public:
         vt.removeListener (this);
     }
     
-    std::function<void (const ValueTree&, const Identifier&)> onValueTreePropertyChanged;
-    std::function<void (const ValueTree&, const ValueTree&)> onValueTreeChildAdded;
-    std::function<void (const ValueTree&, const ValueTree&, int)> onValueTreeChildRemoved;
-    std::function<void (const ValueTree&, int, int)> onValueTreeChildOrderChanged;
-    std::function<void (const ValueTree&)> onValueTreeParentChanged;
-    std::function<void (const ValueTree&)> onValueTreeRedirected;
+	std::function<void (const juce::ValueTree&, const juce::Identifier&)> onValueTreePropertyChanged;
+	std::function<void (const juce::ValueTree&, const juce::ValueTree&)> onValueTreeChildAdded;
+	std::function<void (const juce::ValueTree&, const juce::ValueTree&, int)> onValueTreeChildRemoved;
+	std::function<void (const juce::ValueTree&, int, int)> onValueTreeChildOrderChanged;
+	std::function<void (const juce::ValueTree&)> onValueTreeParentChanged;
+	std::function<void (const juce::ValueTree&)> onValueTreeRedirected;
     
 private:
-    void valueTreePropertyChanged (ValueTree& v, const Identifier& i) override
+	void valueTreePropertyChanged (juce::ValueTree& v, const juce::Identifier& i) override
     {
-        ValueTree vc = v;
-        Identifier ic = i;
-        WeakReference<AsyncLambdaValueTreeListener> weakThis (this);
-        MessageManager::getInstance()->callAsync ([this, weakThis, vc, ic]
+		juce::ValueTree vc = v;
+		juce::Identifier ic = i;
+        juce::WeakReference<AsyncLambdaValueTreeListener> weakThis (this);
+		juce::MessageManager::getInstance()->callAsync ([this, weakThis, vc, ic]
                                                   {
                                                       if (weakThis != nullptr && onValueTreePropertyChanged)
                                                           onValueTreePropertyChanged (vc, ic);
                                                   });
     }
     
-    void valueTreeChildAdded (ValueTree& p, ValueTree& c) override
+	void valueTreeChildAdded (juce::ValueTree& p, juce::ValueTree& c) override
     {
-        ValueTree pc = p;
-        ValueTree cc = c;
-        WeakReference<AsyncLambdaValueTreeListener> weakThis (this);
-        MessageManager::getInstance()->callAsync ([this, weakThis, pc, cc]
+		juce::ValueTree pc = p;
+		juce::ValueTree cc = c;
+        juce::WeakReference<AsyncLambdaValueTreeListener> weakThis (this);
+		juce::MessageManager::getInstance()->callAsync ([this, weakThis, pc, cc]
                                                   {
                                                       if (weakThis != nullptr && onValueTreeChildAdded)
                                                           onValueTreeChildAdded (pc, cc);
                                                   });
     }
     
-    void valueTreeChildRemoved (ValueTree& p, ValueTree& c, int n) override
+	void valueTreeChildRemoved (juce::ValueTree& p, juce::ValueTree& c, int n) override
     {
-        ValueTree pc = p;
-        ValueTree cc = c;
-        WeakReference<AsyncLambdaValueTreeListener> weakThis (this);
-        MessageManager::getInstance()->callAsync ([this, weakThis, pc, cc, n]
+		juce::ValueTree pc = p;
+		juce::ValueTree cc = c;
+        juce::WeakReference<AsyncLambdaValueTreeListener> weakThis (this);
+		juce::MessageManager::getInstance()->callAsync ([this, weakThis, pc, cc, n]
                                                   {
                                                       if (weakThis != nullptr && onValueTreeChildRemoved)
                                                           onValueTreeChildRemoved (pc, cc, n);
                                                   });
     }
     
-    void valueTreeChildOrderChanged (ValueTree& v, int a, int b) override
+	void valueTreeChildOrderChanged (juce::ValueTree& v, int a, int b) override
     {
-        ValueTree vc = v;
-        WeakReference<AsyncLambdaValueTreeListener> weakThis (this);
-        MessageManager::getInstance()->callAsync ([this, weakThis, vc, a, b]
+		juce::ValueTree vc = v;
+        juce::WeakReference<AsyncLambdaValueTreeListener> weakThis (this);
+		juce::MessageManager::getInstance()->callAsync ([this, weakThis, vc, a, b]
                                                   {
                                                       if (weakThis != nullptr && onValueTreeChildOrderChanged)
                                                           onValueTreeChildOrderChanged (vc, a, b);
                                                   });
     }
     
-    void valueTreeParentChanged (ValueTree& v) override
+	void valueTreeParentChanged (juce::ValueTree& v) override
     {
-        ValueTree vc = v;
-        WeakReference<AsyncLambdaValueTreeListener> weakThis (this);
-        MessageManager::getInstance()->callAsync ([this, weakThis, vc]
+		juce::ValueTree vc = v;
+        juce::WeakReference<AsyncLambdaValueTreeListener> weakThis (this);
+		juce::MessageManager::getInstance()->callAsync ([this, weakThis, vc]
                                                   {
                                                       if (weakThis != nullptr && onValueTreeParentChanged)
                                                           onValueTreeParentChanged (vc);
                                                   });
     }
     
-    void valueTreeRedirected (ValueTree& v) override
+	void valueTreeRedirected (juce::ValueTree& v) override
     {
-        ValueTree vc = v;
-        WeakReference<AsyncLambdaValueTreeListener> weakThis (this);
-        MessageManager::getInstance()->callAsync ([this, weakThis, vc]
+		juce::ValueTree vc = v;
+        juce::WeakReference<AsyncLambdaValueTreeListener> weakThis (this);
+		juce::MessageManager::getInstance()->callAsync ([this, weakThis, vc]
                                                   {
                                                       if (weakThis != nullptr && onValueTreeRedirected)
                                                           onValueTreeRedirected (vc);
                                                   });
     }
     
-    ValueTree& vt;
+	juce::ValueTree& vt;
     
     JUCE_DECLARE_WEAK_REFERENCEABLE (AsyncLambdaValueTreeListener)
 };

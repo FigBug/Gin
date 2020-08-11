@@ -11,7 +11,7 @@
 /* Asynchronous access to a Websocket. None of the methods block and
    all callbacks happen via lambdas on the message thread
  */
-class AsyncWebsocket : public Thread
+class AsyncWebsocket : public juce::Thread
 {
 public:
     //==============================================================================
@@ -45,7 +45,7 @@ private:
     struct Impl;
     std::unique_ptr<Impl> impl;
 
-    URL url;
+	juce::URL url;
 
     //==============================================================================
     enum MessageType

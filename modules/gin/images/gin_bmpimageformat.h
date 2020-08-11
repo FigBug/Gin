@@ -13,16 +13,16 @@
     to cover 99.9% of BMP files. Does not support 1, 4, 16 bit colour images or
     images with RLE compression.
  */
-class BMPImageFormat : public ImageFileFormat
+class BMPImageFormat : public juce::ImageFileFormat
 {
 public:
-    String getFormatName() override;
+	juce::String getFormatName() override;
 
-    bool canUnderstand (InputStream& input) override;
+	bool canUnderstand (juce::InputStream& input) override;
 
-    bool usesFileExtension (const File& possibleFile) override;
+	bool usesFileExtension (const juce::File& possibleFile) override;
 
-    Image decodeImage (InputStream& input) override;
+	juce::Image decodeImage (juce::InputStream& input) override;
 
-    bool writeImageToStream (const Image& sourceImage, OutputStream& destStream) override;
+	bool writeImageToStream (const juce::Image& sourceImage, juce::OutputStream& destStream) override;
 };

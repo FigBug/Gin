@@ -30,16 +30,16 @@ public:
 
     //==============================================================================
     /** Adds a folder to be watched */
-    void addFolder (const File& folder);
+	void addFolder (const juce::File& folder);
 
     /** Removes a folder from being watched */
-    void removeFolder (const File& folder);
+	void removeFolder (const juce::File& folder);
 
     /** Removes all folders from being watched */
     void removeAllFolders();
 
 	/** Gets a list of folders being watched */
-	Array<File> getWatchedFolders ();
+	juce::Array<juce::File> getWatchedFolders ();
 
     /** A set of events that can happen to a file.
         When a file is renamed it will appear as the
@@ -65,11 +65,11 @@ public:
         /* Called when any file in the listened to folder changes with the name of
            the folder that has changed. For example, use this for a file browser that
            needs to refresh any time a file changes */
-        virtual void folderChanged (const File) {}
+		virtual void folderChanged (const juce::File) {}
 
         /* Called for each file that has changed and how it has changed. Use this callback
            if you need to reload a file when it's contents change */
-        virtual void fileChanged (const File, FileSystemEvent) {}
+		virtual void fileChanged (const juce::File, FileSystemEvent) {}
     };
 
     /** Registers a listener to be told when things happen to the text.
@@ -85,12 +85,12 @@ public:
 private:
     class Impl;
 
-    void folderChanged (const File& folder);
-    void fileChanged (const File& file, FileSystemEvent fsEvent);
+	void folderChanged (const juce::File& folder);
+	void fileChanged (const juce::File& file, FileSystemEvent fsEvent);
 
-    ListenerList<Listener> listeners;
+	juce::ListenerList<Listener> listeners;
 
-    OwnedArray<Impl> watched;
+	juce::OwnedArray<Impl> watched;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FileSystemWatcher)
 };
