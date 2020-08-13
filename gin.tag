@@ -73,11 +73,11 @@
     <class kind="class">GainProcessor</class>
     <class kind="class">WetDryMix</class>
     <member kind="function">
-      <type>Value</type>
+      <type>juce::Value</type>
       <name>findValue</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gae70a5d1879d7dd27ea654b7d2f422a25</anchor>
-      <arglist>(ValueTree &amp;state, Identifier name, var value)</arglist>
+      <anchor>ga642bc58b032577b139e71665cc1817dc</anchor>
+      <arglist>(juce::ValueTree &amp;state, juce::Identifier name, juce::var value)</arglist>
     </member>
     <member kind="function">
       <type>T</type>
@@ -104,36 +104,36 @@
       <type>void</type>
       <name>applyGain</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga65cbe935f44c5ed8d9b7fe3acf9dd51c</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer, LinearSmoothedValue&lt; float &gt; &amp;gain)</arglist>
+      <anchor>gaea524d06c0f9a97e215fafc7e997cc0b</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, juce::LinearSmoothedValue&lt; float &gt; &amp;gain)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGain</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gab5d6b933c6f27839f5e94e0ace804d7e</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer, int channel, LinearSmoothedValue&lt; float &gt; &amp;gain)</arglist>
+      <anchor>ga23129d8a0f12afa042d9788afa21b90f</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, int channel, juce::LinearSmoothedValue&lt; float &gt; &amp;gain)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>clip</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga26ddba93af094c29d540f2a3b9f5f047</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer, float low=-1.0f, float high=1.0f)</arglist>
+      <anchor>ga80d41603f74938619f0af6e8007f5944</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, float low=-1.0f, float high=1.0f)</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
+      <type>juce::String</type>
       <name>getMidiMessageType</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga7ecc92a90d62cf84384ec44f25aa3e22</anchor>
-      <arglist>(const MidiMessage &amp;msg)</arglist>
+      <anchor>ga6e16d794b5bc34b561ea9107adbd69ce</anchor>
+      <arglist>(const juce::MidiMessage &amp;msg)</arglist>
     </member>
     <member kind="function">
-      <type>AudioSampleBuffer</type>
+      <type>juce::AudioSampleBuffer</type>
       <name>sliceBuffer</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gac0cf29fe6b6b2a5456cb668c314305da</anchor>
-      <arglist>(AudioSampleBuffer &amp;input, int start, int length)</arglist>
+      <anchor>ga1f707ada89f48bb4f68c4890ba90c27b</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;input, int start, int length)</arglist>
     </member>
     <member kind="variable">
       <type>constexpr float</type>
@@ -1540,8 +1540,8 @@
       <type>bool</type>
       <name>loadWavetables</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga1e4be281085e4d0aacfec1936cca1e6b</anchor>
-      <arglist>(OwnedArray&lt; BandLimitedLookupTable &gt; &amp;bllt, AudioSampleBuffer &amp;buffer, double sampleRate, int tableSize)</arglist>
+      <anchor>ga8167e97c7e5fc9916a3423ca494b72b8</anchor>
+      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; &amp;bllt, juce::AudioSampleBuffer &amp;buffer, double sampleRate, int tableSize)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -1665,15 +1665,15 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classADSR.html</anchorfile>
-      <anchor>a4fd346c6db9f7485591e6360af10176f</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>ad8942eb6422a6e5fb6dbaa7fb0f18ec5</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>process</name>
       <anchorfile>classADSR.html</anchorfile>
-      <anchor>a3ba5939e053ee9e3f741614d542d21bf</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer, int startSample, int numSamples)</arglist>
+      <anchor>a447f324c6cef2b83bb0858ce449e9bf4</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, int startSample, int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -1868,29 +1868,29 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classAnalogADSR.html</anchorfile>
-      <anchor>a31f0e95ffbb9f81a3d61118661a8aab8</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>ae60ca06ba8ccf837e4a0322d3983b1c3</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>process</name>
       <anchorfile>classAnalogADSR.html</anchorfile>
-      <anchor>a5c79b2a0d95446b0f78ec24b04aa6e84</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer, int startSample, int numSamples)</arglist>
+      <anchor>a9e83197b202536d8e29f326c975ff939</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, int startSample, int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processMultiplying</name>
       <anchorfile>classAnalogADSR.html</anchorfile>
-      <anchor>a183260c83bd770e1403b10a987326c59</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a0fbc0634af4beb8f56840baae672f3ec</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processMultiplying</name>
       <anchorfile>classAnalogADSR.html</anchorfile>
-      <anchor>acc9b091b160d91a7a496c5b9f3bc9899</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer, int startSample, int numSamples)</arglist>
+      <anchor>a4adbb803653e45ab63ba4fed94ce7719</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, int startSample, int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -2401,8 +2401,8 @@
       <type>bool</type>
       <name>write</name>
       <anchorfile>classAudioFifo.html</anchorfile>
-      <anchor>a8d8650de2e14a9c965c95a8e7e86da55</anchor>
-      <arglist>(const AudioSampleBuffer &amp;src, int numSamples=-1)</arglist>
+      <anchor>a272a4efa8416e0c57905329552781855</anchor>
+      <arglist>(const juce::AudioSampleBuffer &amp;src, int numSamples=-1)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -2422,15 +2422,15 @@
       <type>bool</type>
       <name>read</name>
       <anchorfile>classAudioFifo.html</anchorfile>
-      <anchor>a2671765c10021e80faafe3dbb2dd5aa3</anchor>
-      <arglist>(AudioSampleBuffer &amp;dest)</arglist>
+      <anchor>a069465c3976a0dc32e785babe6532898</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;dest)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>read</name>
       <anchorfile>classAudioFifo.html</anchorfile>
-      <anchor>a6fcf7e2a9ec368d8693b134f9af001ec</anchor>
-      <arglist>(AudioSampleBuffer &amp;dest, int startSampleInDestBuffer, int numSamples)</arglist>
+      <anchor>a2430de299a81f6ac03cd0200590a455a</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;dest, int startSampleInDestBuffer, int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -2443,15 +2443,15 @@
       <type>bool</type>
       <name>readAdding</name>
       <anchorfile>classAudioFifo.html</anchorfile>
-      <anchor>a75510a7280c5aa18f765dcae16a2eb17</anchor>
-      <arglist>(AudioSampleBuffer &amp;dest)</arglist>
+      <anchor>adba2109354e5ae31b9ea6214512623d1</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;dest)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>readAdding</name>
       <anchorfile>classAudioFifo.html</anchorfile>
-      <anchor>a6e4cd2955fdf7903d01abfc7bd8679e1</anchor>
-      <arglist>(AudioSampleBuffer &amp;dest, int startSampleInDestBuffer, int numSamples)</arglist>
+      <anchor>ade7b74334094b86983e5deaf2dd11e47</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;dest, int startSampleInDestBuffer, int numSamples)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -2602,8 +2602,8 @@
       <type>void</type>
       <name>loadFromBuffer</name>
       <anchorfile>classBandLimitedLookupTable.html</anchorfile>
-      <anchor>acae448b80c07b030a2c6718622953752</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer, double sampleRate, int notesPerTable)</arglist>
+      <anchor>a168317b2249b5633e08329eeabd7a09c</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, double sampleRate, int notesPerTable)</arglist>
     </member>
     <member kind="variable">
       <type>juce::OwnedArray&lt; juce::dsp::LookupTableTransform&lt; float &gt; &gt;</type>
@@ -2927,18 +2927,18 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>StringPairArray</type>
+      <type>juce::StringPairArray</type>
       <name>getAllMetadata</name>
       <anchorfile>classCommentMetadata.html</anchorfile>
-      <anchor>abdc5ceda60c18579c6a07a68bec63656</anchor>
+      <anchor>a31b960c7e2ed44bc19955db8c75e0edb</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static CommentMetadata *</type>
       <name>create</name>
       <anchorfile>classCommentMetadata.html</anchorfile>
-      <anchor>a8a18112601333ccca0dbd13550e6a993</anchor>
-      <arglist>(const uint8 *data, int sz)</arglist>
+      <anchor>a721c8696bf1f5782eeb683b76ae9d516</anchor>
+      <arglist>(const juce::uint8 *data, int sz)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -3164,10 +3164,10 @@
       <arglist>()</arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>AudioSampleBuffer</type>
+      <type>juce::AudioSampleBuffer</type>
       <name>buffer</name>
       <anchorfile>classDelayLine.html</anchorfile>
-      <anchor>ae59911da584d61ff47221d188dda65e2</anchor>
+      <anchor>a93574b33770845363b409a6578919369</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -3227,8 +3227,8 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classDistortion.html</anchorfile>
-      <anchor>a65200d1d3562e663dd2f53ba1530a934</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a28084339a50e41fd194eef4f6e02bda0</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -3561,8 +3561,8 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classDynamics.html</anchorfile>
-      <anchor>a7dd02f2e642f2a9b05a70992529fe6a0</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer, AudioSampleBuffer *envelopeOut=nullptr)</arglist>
+      <anchor>a10395d0e46c4387190b783c0090545c2</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, juce::AudioSampleBuffer *envelopeOut=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>const LevelTracker &amp;</type>
@@ -3650,22 +3650,22 @@
       <type></type>
       <name>~DynamicsMeter</name>
       <anchorfile>classDynamicsMeter.html</anchorfile>
-      <anchor>abfd5413d8c210e1fb65b4e257da4335d</anchor>
-      <arglist>() override</arglist>
+      <anchor>ad9f254a8302fc0b73b2062b1a9695efc</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>paint</name>
       <anchorfile>classDynamicsMeter.html</anchorfile>
-      <anchor>ac55783bfe5bc7767debfea942fd36527</anchor>
-      <arglist>(Graphics &amp;g) override</arglist>
+      <anchor>adc494090d337acf52ece3a9ba2c7207e</anchor>
+      <arglist>(juce::Graphics &amp;g)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>timerCallback</name>
       <anchorfile>classDynamicsMeter.html</anchorfile>
-      <anchor>a26663940a83484b73a3aa0c6c436535e</anchor>
-      <arglist>() override</arglist>
+      <anchor>a5580169115243881a2d1434c3d1995dc</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -4230,8 +4230,8 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classEQ.html</anchorfile>
-      <anchor>a3f32344ca58c4627d164b89acd8c2d2f</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>ae8e996d04aaebc129a1e66522ce5d379</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -4362,25 +4362,25 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>StringPairArray</type>
+      <type>juce::StringPairArray</type>
       <name>getAllMetadata</name>
       <anchorfile>classExifMetadata.html</anchorfile>
-      <anchor>a790c80939739c08b6054e4dab2b0dac7</anchor>
+      <anchor>a934b7f4952ca5316d089e9230d599165</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>Image</type>
+      <type>juce::Image</type>
       <name>getThumbnailImage</name>
       <anchorfile>classExifMetadata.html</anchorfile>
-      <anchor>a6ff6581fe76ca08eab6858f7966f11b1</anchor>
+      <anchor>a826de9a748dd021a5b1b984e87e35cf7</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static ExifMetadata *</type>
       <name>create</name>
       <anchorfile>classExifMetadata.html</anchorfile>
-      <anchor>adc57dc7f4ad1600801a5abc51a71f90b</anchor>
-      <arglist>(const uint8 *data, int sz)</arglist>
+      <anchor>a3f6329e2c6cb7364c551d656c33ac3e2</anchor>
+      <arglist>(const juce::uint8 *data, int sz)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -4727,8 +4727,8 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classFilter.html</anchorfile>
-      <anchor>acd63bc73b781d4c4d4f2f456477c79a7</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a6bb6a7b54fae46ed0a7bade03fc33430</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -4791,8 +4791,8 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classGainProcessor.html</anchorfile>
-      <anchor>a68e58dfc42e9c98b086a2f2c1e062551</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a02622b9c864ef8b8534e87d242e6ba2b</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -4823,8 +4823,8 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classGateEffect.html</anchorfile>
-      <anchor>ae1a47cb04677dd44c4534cc567249a46</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer, int noteOnSample, int noteOffSample)</arglist>
+      <anchor>a377d75486bc98070c5e166ae20f42cf5</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, int noteOnSample, int noteOffSample)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -4883,17 +4883,17 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>Array&lt; bool &gt;</type>
+      <type>juce::Array&lt; bool &gt;</type>
       <name>stepsL</name>
       <anchorfile>classGateEffect.html</anchorfile>
-      <anchor>ab000858c3ab0dbb3caae513424febbb9</anchor>
+      <anchor>a29e08c321ed951a7ebee0701cede0ecb</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>Array&lt; bool &gt;</type>
+      <type>juce::Array&lt; bool &gt;</type>
       <name>stepsR</name>
       <anchorfile>classGateEffect.html</anchorfile>
-      <anchor>a5b082618f1ac67d0d66d86b14cc18618</anchor>
+      <anchor>a8967c7224813739a9388d21bd4e177e4</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -5471,8 +5471,8 @@
       <type></type>
       <name>ImageMetadata</name>
       <anchorfile>classImageMetadata.html</anchorfile>
-      <anchor>a2655e820f5de8daa3de1a2b37c4619b3</anchor>
-      <arglist>(const String &amp;type)</arglist>
+      <anchor>a1dfe334219bb1df21a42d95653dd326c</anchor>
+      <arglist>(const juce::String &amp;type)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
@@ -5482,31 +5482,31 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
+      <type>juce::String</type>
       <name>getType</name>
       <anchorfile>classImageMetadata.html</anchorfile>
-      <anchor>a66a8634445facf0bce400193af2e13f4</anchor>
+      <anchor>ab2d57b041126841465ef5e702000015b</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function" virtualness="pure">
-      <type>virtual StringPairArray</type>
+      <type>virtual juce::StringPairArray</type>
       <name>getAllMetadata</name>
       <anchorfile>classImageMetadata.html</anchorfile>
-      <anchor>a5d355530f19559592d156b88377134ea</anchor>
+      <anchor>a14426b0a404e962422140565f7a30217</anchor>
       <arglist>() const =0</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static bool</type>
       <name>getFromImage</name>
       <anchorfile>classImageMetadata.html</anchorfile>
-      <anchor>a8e6388e44aece7c35df1f6c2ec152d88</anchor>
-      <arglist>(InputStream &amp;is, OwnedArray&lt; ImageMetadata &gt; &amp;metadata)</arglist>
+      <anchor>a2370391c426e1544b439a6b556f0109c</anchor>
+      <arglist>(juce::InputStream &amp;is, juce::OwnedArray&lt; ImageMetadata &gt; &amp;metadata)</arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>String</type>
+      <type>juce::String</type>
       <name>type</name>
       <anchorfile>classImageMetadata.html</anchorfile>
-      <anchor>a88182b2b38fd16958658a5af065f1226</anchor>
+      <anchor>a34bb47451a46175f4f65173cc8d6b3c8</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -5593,18 +5593,18 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>StringPairArray</type>
+      <type>juce::StringPairArray</type>
       <name>getAllMetadata</name>
       <anchorfile>classIptcMetadata.html</anchorfile>
-      <anchor>a6ca3d172aeb8eb29da2a09b17657114b</anchor>
+      <anchor>a43e8dc2bcf8326475805048a5dfe9c87</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static IptcMetadata *</type>
       <name>create</name>
       <anchorfile>classIptcMetadata.html</anchorfile>
-      <anchor>ab3c8de552c5fb231939d1f4a65b44318</anchor>
-      <arglist>(const uint8 *data, int sz)</arglist>
+      <anchor>a93ea3817dd0fe4476c8eb3f3a17e201a</anchor>
+      <arglist>(const juce::uint8 *data, int sz)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -5887,8 +5887,8 @@
       <type></type>
       <name>LevelMeter</name>
       <anchorfile>classLevelMeter.html</anchorfile>
-      <anchor>a868ae925eedd9121012235922ba6f167</anchor>
-      <arglist>(const LevelTracker &amp;, NormalisableRange&lt; float &gt; r={-60, 0})</arglist>
+      <anchor>abc77032cf51d0f40dafa76337a7e329f</anchor>
+      <arglist>(const LevelTracker &amp;, juce::NormalisableRange&lt; float &gt; r={-60, 0})</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -5926,8 +5926,8 @@
       <type>void</type>
       <name>trackBuffer</name>
       <anchorfile>classLevelTracker.html</anchorfile>
-      <anchor>afed0038f16fde16362517599a08001e0</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a1fc8ce4c2c22346db754bb3f5a544bf2</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -6271,24 +6271,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>OpenStreetMaps::Listener</name>
-    <filename>classOpenStreetMaps_1_1Listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
-      <anchor>aeb7faf41923db2a12f09179159d96bd1</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>tileFetched</name>
-      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
-      <anchor>a5a86659b291d99adbe0af1a30fdfe383</anchor>
-      <arglist>(int zoom, int x, int y)=0</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>SingleLineTextEditor::Listener</name>
     <filename>classSingleLineTextEditor_1_1Listener.html</filename>
     <member kind="function" virtualness="virtual">
@@ -6393,6 +6375,24 @@
       <anchorfile>classFileSystemWatcher_1_1Listener.html</anchorfile>
       <anchor>a74adb289b69441dd79b84f5eb6a66d59</anchor>
       <arglist>(const juce::File, FileSystemEvent)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>OpenStreetMaps::Listener</name>
+    <filename>classOpenStreetMaps_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
+      <anchor>aeb7faf41923db2a12f09179159d96bd1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>tileFetched</name>
+      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
+      <anchor>a5a86659b291d99adbe0af1a30fdfe383</anchor>
+      <arglist>(int zoom, int x, int y)=0</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -7074,8 +7074,8 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classModulation.html</anchorfile>
-      <anchor>aba9bbc9bb714fcac1fd0d9b06fe23299</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a03d5d4643831d6249d5caa051279d5d2</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -9848,15 +9848,15 @@
       <type>void</type>
       <name>pushAudioBuffer</name>
       <anchorfile>classResamplingFifo.html</anchorfile>
-      <anchor>a24445e26ca743c038b0c23f063837c5d</anchor>
-      <arglist>(const AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>aac26c115b05721bfae78db814aaa22cd</anchor>
+      <arglist>(const juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>popAudioBuffer</name>
       <anchorfile>classResamplingFifo.html</anchorfile>
-      <anchor>af9f54fe8692c92e5f5cdcee4ba8510f8</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a18fbc4f4369ffdddc6ceacbb95b7997e</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -9916,18 +9916,18 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>AudioSampleBuffer &amp;</type>
+      <type>juce::AudioSampleBuffer &amp;</type>
       <name>getSamples</name>
       <anchorfile>classSample.html</anchorfile>
-      <anchor>a1b0fe029480464ca07e5e50cd18c7d05</anchor>
+      <anchor>a179818f303e3ad2921683524798591f8</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>read</name>
       <anchorfile>classSample.html</anchorfile>
-      <anchor>a387e026c51ab4c846c0e54996116340a</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer, int samplePos, int bufferPos=0, int length=-1)</arglist>
+      <anchor>afa908998646ca749fe3474d90f747df2</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, int samplePos, int bufferPos=0, int length=-1)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -9940,8 +9940,8 @@
       <type>static std::unique_ptr&lt; Sample &gt;</type>
       <name>fromFile</name>
       <anchorfile>classSample.html</anchorfile>
-      <anchor>a2cb3cf8e757896b26efb10f8ad7fcdbf</anchor>
-      <arglist>(const File &amp;f)</arglist>
+      <anchor>a6ad98110e9ccc23c8ae9d9fe7f7914f9</anchor>
+      <arglist>(const juce::File &amp;f)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -10057,8 +10057,8 @@
       <type>bool</type>
       <name>read</name>
       <anchorfile>classSampleOscillator.html</anchorfile>
-      <anchor>afab5515c690fe77b2a12433c614b8c5c</anchor>
-      <arglist>(double note, AudioSampleBuffer &amp;buffer, int start=0, int length=-1)</arglist>
+      <anchor>aa22fc5c8f2ec429eab3d42e6a6524923</anchor>
+      <arglist>(double note, juce::AudioSampleBuffer &amp;buffer, int start=0, int length=-1)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -10075,8 +10075,8 @@
       <type></type>
       <name>ScratchBuffer</name>
       <anchorfile>classScratchBuffer.html</anchorfile>
-      <anchor>a71b6bfe132d23782ccdf6f767597001e</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a27bf06657e9335019dd4b815cbf7b789</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -11225,8 +11225,8 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classStereoDelay.html</anchorfile>
-      <anchor>a9996de332d651e9a0f162b0de7509bc8</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>ad0a006720ea08d0bc0e9da0b11deeccb</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -11279,29 +11279,29 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classStereoOscillator.html</anchorfile>
-      <anchor>a9b79dfbb6a737c57e479e3ee70a77292</anchor>
-      <arglist>(float note, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>abdc5a2f2c152dd013c57fec8ed244ed1</anchor>
+      <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>process</name>
       <anchorfile>classStereoOscillator.html</anchorfile>
-      <anchor>aaf4c6181a3e9577c339a0a9ddf5c2b57</anchor>
-      <arglist>(float noteL, float noteR, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a17f31f43ebe17b636b493e704a7a599e</anchor>
+      <arglist>(float noteL, float noteR, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processAdding</name>
       <anchorfile>classStereoOscillator.html</anchorfile>
-      <anchor>ad0a4025c7066b142054f6496a898135e</anchor>
-      <arglist>(float note, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a228048d564aa720b8a0aee6a624c089c</anchor>
+      <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processAdding</name>
       <anchorfile>classStereoOscillator.html</anchorfile>
-      <anchor>ab7418d7aef462de2a3d177e146a4b40d</anchor>
-      <arglist>(float noteL, float noteR, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a97fc34ee04e2aa2f488e761c257a19d9</anchor>
+      <arglist>(float noteL, float noteR, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -11379,50 +11379,50 @@
       <type>void</type>
       <name>noteAdded</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>a58760fa6f89221e094c04840076d18ff</anchor>
-      <arglist>(MPENote newNote) override</arglist>
+      <anchor>a29393cd7d99facd48ceab27dfa4ec3ba</anchor>
+      <arglist>(juce::MPENote newNote) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>noteReleased</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>adcc4dbd5de3efb92c02131a1143f9ba1</anchor>
-      <arglist>(MPENote finishedNote) override</arglist>
+      <anchor>af2d49c835d5a6e4ae8de4229350e93ca</anchor>
+      <arglist>(juce::MPENote finishedNote) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>noteAddedMonoGlide</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>ab8e6afa7f448d155921e1e368c9f9503</anchor>
-      <arglist>(MPENote newNote)</arglist>
+      <anchor>ad3ae115ddf8dd12ca549d7d7e3811200</anchor>
+      <arglist>(juce::MPENote newNote)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>noteReleasedMonoGlide</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>a41c4d5bf142e48e51647822eaa1ee21a</anchor>
-      <arglist>(MPENote finishedNote)</arglist>
+      <anchor>aaecfce290ac3ee8527d376c348750fca</anchor>
+      <arglist>(juce::MPENote finishedNote)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>noteAddedMono</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>a54526e63ade2f06beae58d22140c6786</anchor>
-      <arglist>(MPENote newNote)</arglist>
+      <anchor>a6f6e4029de04659076c79e96c1089c1d</anchor>
+      <arglist>(juce::MPENote newNote)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>noteReleasedMono</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>a49c1d0b28ea5b030cf1a9a752dd23d1c</anchor>
-      <arglist>(MPENote finishedNote)</arglist>
+      <anchor>a87d9afd3a12f884569c312b4d00d9744</anchor>
+      <arglist>(juce::MPENote finishedNote)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isNotePlaying</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>a8ed9aa583afd13eb1a57ff6c9b341ff8</anchor>
-      <arglist>(MPENote &amp;n)</arglist>
+      <anchor>a3b97e8ca28654f0770963796eeab6d22</anchor>
+      <arglist>(juce::MPENote &amp;n)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -11456,43 +11456,43 @@
       <type>void</type>
       <name>retriggerVoice</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>a687cf3fc387d7ca65684bbee5a194dc7</anchor>
-      <arglist>(SynthesiserVoice *v, MPENote note)</arglist>
+      <anchor>afb116548ea250273d01234050957cd2d</anchor>
+      <arglist>(SynthesiserVoice *v, juce::MPENote note)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>startVoice</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>a176828955287ea3cd8336148926a4c67</anchor>
-      <arglist>(MPESynthesiserVoice *v, MPENote note)</arglist>
+      <anchor>a9c7f19726ca95a0d6609370efb70dfac</anchor>
+      <arglist>(juce::MPESynthesiserVoice *v, juce::MPENote note)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>updateGlide</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>a8564a4c2092c12563e6788fabe2cfd5f</anchor>
-      <arglist>(MPESynthesiserVoice *v, MPENote note)</arglist>
+      <anchor>a4bf9918f18a2c232db12a913fda743f4</anchor>
+      <arglist>(juce::MPESynthesiserVoice *v, juce::MPENote note)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>stopVoiceFastKill</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>a704f9ddef1eabf0a9f4e2d778d3d5052</anchor>
-      <arglist>(MPESynthesiserVoice *v, MPENote note, bool tailOff)</arglist>
+      <anchor>a6cad92043ec0628345ae62b8341a4cbe</anchor>
+      <arglist>(juce::MPESynthesiserVoice *v, juce::MPENote note, bool tailOff)</arglist>
     </member>
     <member kind="function">
-      <type>MPESynthesiserVoice *</type>
+      <type>juce::MPESynthesiserVoice *</type>
       <name>findVoiceToSteal</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>a2051e5bfb208e8087712f3d6528407b9</anchor>
-      <arglist>(MPENote noteToStealVoiceFor=MPENote()) const override</arglist>
+      <anchor>a40b2a5153b414eafba711837b4cf3124</anchor>
+      <arglist>(juce::MPENote noteToStealVoiceFor=juce::MPENote()) const override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>renderNextBlock</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>a9ab1efe9ca01444e5f4ab3d8eada5580</anchor>
-      <arglist>(AudioBuffer&lt; floatType &gt; &amp;outputAudio, const MidiBuffer &amp;inputMidi, int startSample, int numSamples)</arglist>
+      <anchor>a04c618669f417fb370f7d3866da5f141</anchor>
+      <arglist>(juce::AudioBuffer&lt; floatType &gt; &amp;outputAudio, const juce::MidiBuffer &amp;inputMidi, int startSample, int numSamples)</arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>int</type>
@@ -11597,8 +11597,8 @@
       <type>void</type>
       <name>setCurrentlyPlayingNote</name>
       <anchorfile>classSynthesiserVoice.html</anchorfile>
-      <anchor>adc7a1c9bd301ab0f94b22524d35dda5a</anchor>
-      <arglist>(MPENote note)</arglist>
+      <anchor>af0b2e292d6a4cb5b54a131996a816978</anchor>
+      <arglist>(juce::MPENote note)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -11900,8 +11900,8 @@
       <type>void</type>
       <name>paint</name>
       <anchorfile>classTriggeredScope.html</anchorfile>
-      <anchor>aba06229b35bddd1ca9a93781b00a6b7b</anchor>
-      <arglist>(Graphics &amp;g) override</arglist>
+      <anchor>ab4ea2e794f499a46a73adad7ed66c46f</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -12129,21 +12129,21 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a307900521aa215ce7cf8bddfba22c608</anchor>
-      <arglist>(float note, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a639c3d573726cb847f78d016bcddd1c6</anchor>
+      <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processAdding</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a6c59acf58f63597766e586d57b346ebe</anchor>
-      <arglist>(float note, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a4d3e798a36e14f0ebd42b9ba0cc1c097</anchor>
+      <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>OwnedArray&lt; O &gt;</type>
+      <type>juce::OwnedArray&lt; O &gt;</type>
       <name>oscillators</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a217b327f26630536c0970de6d82b80e9</anchor>
+      <anchor>a861cbdfd3fb820808a01d11aac7708e4</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -12175,21 +12175,21 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a307900521aa215ce7cf8bddfba22c608</anchor>
-      <arglist>(float note, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a639c3d573726cb847f78d016bcddd1c6</anchor>
+      <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processAdding</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a6c59acf58f63597766e586d57b346ebe</anchor>
-      <arglist>(float note, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a4d3e798a36e14f0ebd42b9ba0cc1c097</anchor>
+      <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>OwnedArray&lt; StereoOscillator &gt;</type>
+      <type>juce::OwnedArray&lt; StereoOscillator &gt;</type>
       <name>oscillators</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a217b327f26630536c0970de6d82b80e9</anchor>
+      <anchor>a861cbdfd3fb820808a01d11aac7708e4</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -12221,21 +12221,21 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a307900521aa215ce7cf8bddfba22c608</anchor>
-      <arglist>(float note, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a639c3d573726cb847f78d016bcddd1c6</anchor>
+      <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processAdding</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a6c59acf58f63597766e586d57b346ebe</anchor>
-      <arglist>(float note, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a4d3e798a36e14f0ebd42b9ba0cc1c097</anchor>
+      <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>OwnedArray&lt; WTOscillator &gt;</type>
+      <type>juce::OwnedArray&lt; WTOscillator &gt;</type>
       <name>oscillators</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a217b327f26630536c0970de6d82b80e9</anchor>
+      <anchor>a861cbdfd3fb820808a01d11aac7708e4</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -12329,15 +12329,15 @@
       <type>void</type>
       <name>setBuffer</name>
       <anchorfile>classWaveformComponent.html</anchorfile>
-      <anchor>ae48d451bc5805988f4c9a76ff8989d58</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>aaf911782a205ce4ea8b286fbbd05143f</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>paint</name>
       <anchorfile>classWaveformComponent.html</anchorfile>
-      <anchor>a276dbe5f2c7463300ab5fd8395deeafd</anchor>
-      <arglist>(Graphics &amp;g) override</arglist>
+      <anchor>a76a7df6d1091e40e2f2bcb55eea3eaca</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -12408,36 +12408,36 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classWTOscillator.html</anchorfile>
-      <anchor>a3fd3f1f086a69f3930be12dd691ed46d</anchor>
-      <arglist>(float note, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a7ec6890f0ace8c49239413a93e4896e6</anchor>
+      <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>process</name>
       <anchorfile>classWTOscillator.html</anchorfile>
-      <anchor>ab65fac3833ffa0f70577be6fd9398e5a</anchor>
-      <arglist>(float noteL, float noteR, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>af7351513ecfdd36c303b15599a2a4de9</anchor>
+      <arglist>(float noteL, float noteR, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processAdding</name>
       <anchorfile>classWTOscillator.html</anchorfile>
-      <anchor>a619fd766aacf82d33e5fec5e12ef0cee</anchor>
-      <arglist>(float note, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>aaa547794aafc04f582782983988b2651</anchor>
+      <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processAdding</name>
       <anchorfile>classWTOscillator.html</anchorfile>
-      <anchor>ab127137b0d5cbf2b7d24b9f5073b33a2</anchor>
-      <arglist>(float noteL, float noteR, const Params &amp;params, AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a98722a2a585c5d4919ee0f794e8ce96c</anchor>
+      <arglist>(float noteL, float noteR, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setWavetable</name>
       <anchorfile>classWTOscillator.html</anchorfile>
-      <anchor>ab93abee2cdf3e3f69d6061bbed6a9781</anchor>
-      <arglist>(OwnedArray&lt; BandLimitedLookupTable &gt; &amp;table)</arglist>
+      <anchor>aa9f27ee415927875063cb2203ec3f97c</anchor>
+      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; &amp;table)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -12455,8 +12455,8 @@
       <type>void</type>
       <name>setWavetable</name>
       <anchorfile>classWTVoicedStereoOscillator.html</anchorfile>
-      <anchor>ab448b986baa7a6b84c0b1aedf8df661d</anchor>
-      <arglist>(OwnedArray&lt; BandLimitedLookupTable &gt; &amp;table)</arglist>
+      <anchor>a19bd8496f404f6c76df2776ac282f44f</anchor>
+      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; &amp;table)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -12478,18 +12478,18 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>StringPairArray</type>
+      <type>juce::StringPairArray</type>
       <name>getAllMetadata</name>
       <anchorfile>classXmpMetadata.html</anchorfile>
-      <anchor>aac71d979acf0a6405a8da20f447faa77</anchor>
+      <anchor>aa9dcfa26976a1e76877edfe03b1c2602</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static XmpMetadata *</type>
       <name>createFromJpg</name>
       <anchorfile>classXmpMetadata.html</anchorfile>
-      <anchor>a1213b2492c195809a3e595f5df7950d8</anchor>
-      <arglist>(const uint8 *data, int sz)</arglist>
+      <anchor>ab838b43e78d3aa5ae6f4a8a121737d88</anchor>
+      <arglist>(const juce::uint8 *data, int sz)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static XmpMetadata *</type>
@@ -12577,8 +12577,8 @@
       <type>void</type>
       <name>paint</name>
       <anchorfile>classXYScope.html</anchorfile>
-      <anchor>a2578934784080ffced78344932d52905</anchor>
-      <arglist>(Graphics &amp;g) override</arglist>
+      <anchor>abb9b5a73646c70d9e823a7a4676aa3fa</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -12817,11 +12817,11 @@
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a6f0316b89c2034b8fabe6d3e48f15bbf">wavetable</enumvalue>
     </member>
     <member kind="function">
-      <type>Value</type>
+      <type>juce::Value</type>
       <name>findValue</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gae70a5d1879d7dd27ea654b7d2f422a25</anchor>
-      <arglist>(ValueTree &amp;state, Identifier name, var value)</arglist>
+      <anchor>ga642bc58b032577b139e71665cc1817dc</anchor>
+      <arglist>(juce::ValueTree &amp;state, juce::Identifier name, juce::var value)</arglist>
     </member>
     <member kind="function">
       <type>T</type>
@@ -12848,36 +12848,36 @@
       <type>void</type>
       <name>applyGain</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga65cbe935f44c5ed8d9b7fe3acf9dd51c</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer, LinearSmoothedValue&lt; float &gt; &amp;gain)</arglist>
+      <anchor>gaea524d06c0f9a97e215fafc7e997cc0b</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, juce::LinearSmoothedValue&lt; float &gt; &amp;gain)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGain</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gab5d6b933c6f27839f5e94e0ace804d7e</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer, int channel, LinearSmoothedValue&lt; float &gt; &amp;gain)</arglist>
+      <anchor>ga23129d8a0f12afa042d9788afa21b90f</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, int channel, juce::LinearSmoothedValue&lt; float &gt; &amp;gain)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>clip</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga26ddba93af094c29d540f2a3b9f5f047</anchor>
-      <arglist>(AudioSampleBuffer &amp;buffer, float low=-1.0f, float high=1.0f)</arglist>
+      <anchor>ga80d41603f74938619f0af6e8007f5944</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, float low=-1.0f, float high=1.0f)</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
+      <type>juce::String</type>
       <name>getMidiMessageType</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga7ecc92a90d62cf84384ec44f25aa3e22</anchor>
-      <arglist>(const MidiMessage &amp;msg)</arglist>
+      <anchor>ga6e16d794b5bc34b561ea9107adbd69ce</anchor>
+      <arglist>(const juce::MidiMessage &amp;msg)</arglist>
     </member>
     <member kind="function">
-      <type>AudioSampleBuffer</type>
+      <type>juce::AudioSampleBuffer</type>
       <name>sliceBuffer</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gac0cf29fe6b6b2a5456cb668c314305da</anchor>
-      <arglist>(AudioSampleBuffer &amp;input, int start, int length)</arglist>
+      <anchor>ga1f707ada89f48bb4f68c4890ba90c27b</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;input, int start, int length)</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -12932,8 +12932,8 @@
       <type>bool</type>
       <name>loadWavetables</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga1e4be281085e4d0aacfec1936cca1e6b</anchor>
-      <arglist>(OwnedArray&lt; BandLimitedLookupTable &gt; &amp;bllt, AudioSampleBuffer &amp;buffer, double sampleRate, int tableSize)</arglist>
+      <anchor>ga8167e97c7e5fc9916a3423ca494b72b8</anchor>
+      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; &amp;bllt, juce::AudioSampleBuffer &amp;buffer, double sampleRate, int tableSize)</arglist>
     </member>
     <member kind="variable">
       <type>constexpr float</type>

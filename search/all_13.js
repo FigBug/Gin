@@ -8,7 +8,7 @@ var searchData=
   ['up',['Up',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40a7f9a9c97a4c7f8e2424ec0827d879c71',1,'TriggeredScope']]],
   ['updatebutton',['updateButton',['../classProcessorEditor.html#a662c410493f9198687ec99f6177270ea',1,'ProcessorEditor']]],
   ['updatechecker',['UpdateChecker',['../classUpdateChecker.html',1,'UpdateChecker'],['../classProcessorEditor.html#adb1321c64dc3799c8b5b7128ec7fdae1',1,'ProcessorEditor::updateChecker()'],['../classUpdateChecker.html#a7efbaba17e94c476f4dbfa5720e598ac',1,'UpdateChecker::UpdateChecker()']]],
-  ['updateglide',['updateGlide',['../classSynthesiser.html#a8564a4c2092c12563e6788fabe2cfd5f',1,'Synthesiser']]],
+  ['updateglide',['updateGlide',['../classSynthesiser.html#a4bf9918f18a2c232db12a913fda743f4',1,'Synthesiser']]],
   ['updatemap',['updateMap',['../classMapViewer.html#a723ad37abb7af9ecac0bdd68dd628e46',1,'MapViewer']]],
   ['updateready',['updateReady',['../classProcessorEditor.html#a59878485ed13027ec50ff1962e5936b9',1,'ProcessorEditor']]],
   ['updateselection',['updateSelection',['../classPatchBrowser.html#a63f6aec5fdb704d05593cac1823bb9bb',1,'PatchBrowser']]],

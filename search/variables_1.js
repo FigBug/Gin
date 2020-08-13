@@ -7,5 +7,5 @@ var searchData=
   ['barlowthin_5fttfsize',['BarlowThin_ttfSize',['../namespaceResources.html#ae17a5aae2e3106082be4c8b5d3e61bf9',1,'Resources']]],
   ['browsebutton',['browseButton',['../classProcessorEditor.html#ae66f24bcd3937e647bb870e4d511adf3',1,'ProcessorEditor']]],
   ['bubble',['bubble',['../classMultiParamComponent.html#af352cfeb2692011587e06659824993fb',1,'MultiParamComponent']]],
-  ['buffer',['buffer',['../classDelayLine.html#ae59911da584d61ff47221d188dda65e2',1,'DelayLine']]]
+  ['buffer',['buffer',['../classDelayLine.html#a93574b33770845363b409a6578919369',1,'DelayLine']]]
 ];

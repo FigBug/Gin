@@ -78,23 +78,23 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abe1e1e9fc398382c019ca15249cc13c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c25a4367bb3f7e3ec986e96c2472015"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSample.html#a6c25a4367bb3f7e3ec986e96c2472015">getSampleRate</a> ()</td></tr>
 <tr class="separator:a6c25a4367bb3f7e3ec986e96c2472015"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b0fe029480464ca07e5e50cd18c7d05"><td class="memItemLeft" align="right" valign="top">AudioSampleBuffer &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSample.html#a1b0fe029480464ca07e5e50cd18c7d05">getSamples</a> ()</td></tr>
-<tr class="separator:a1b0fe029480464ca07e5e50cd18c7d05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a387e026c51ab4c846c0e54996116340a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSample.html#a387e026c51ab4c846c0e54996116340a">read</a> (AudioSampleBuffer &amp;buffer, int samplePos, int bufferPos=0, int length=-1)</td></tr>
-<tr class="separator:a387e026c51ab4c846c0e54996116340a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a179818f303e3ad2921683524798591f8"><td class="memItemLeft" align="right" valign="top">juce::AudioSampleBuffer &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSample.html#a179818f303e3ad2921683524798591f8">getSamples</a> ()</td></tr>
+<tr class="separator:a179818f303e3ad2921683524798591f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa908998646ca749fe3474d90f747df2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSample.html#afa908998646ca749fe3474d90f747df2">read</a> (juce::AudioSampleBuffer &amp;buffer, int samplePos, int bufferPos=0, int length=-1)</td></tr>
+<tr class="separator:afa908998646ca749fe3474d90f747df2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bece656bf856bb465ab23995a7dc608"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSample.html#a0bece656bf856bb465ab23995a7dc608">readSamplesAt</a> (int pos, float &amp;lOut, float &amp;rOut)</td></tr>
 <tr class="separator:a0bece656bf856bb465ab23995a7dc608"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a2cb3cf8e757896b26efb10f8ad7fcdbf"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="classSample.html">Sample</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSample.html#a2cb3cf8e757896b26efb10f8ad7fcdbf">fromFile</a> (const File &amp;f)</td></tr>
-<tr class="separator:a2cb3cf8e757896b26efb10f8ad7fcdbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ad98110e9ccc23c8ae9d9fe7f7914f9"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="classSample.html">Sample</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSample.html#a6ad98110e9ccc23c8ae9d9fe7f7914f9">fromFile</a> (const juce::File &amp;f)</td></tr>
+<tr class="separator:a6ad98110e9ccc23c8ae9d9fe7f7914f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Holds an audio sample. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2cb3cf8e757896b26efb10f8ad7fcdbf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2cb3cf8e757896b26efb10f8ad7fcdbf">&#9670;&nbsp;</a></span>fromFile()</h2>
+<a id="a6ad98110e9ccc23c8ae9d9fe7f7914f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ad98110e9ccc23c8ae9d9fe7f7914f9">&#9670;&nbsp;</a></span>fromFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -105,7 +105,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">static std::unique_ptr&lt;<a class="el" href="classSample.html">Sample</a>&gt; Sample::fromFile </td>
           <td>(</td>
-          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramtype">const juce::File &amp;&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
           <td></td>
         </tr>
@@ -170,14 +170,14 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a1b0fe029480464ca07e5e50cd18c7d05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b0fe029480464ca07e5e50cd18c7d05">&#9670;&nbsp;</a></span>getSamples()</h2>
+<a id="a179818f303e3ad2921683524798591f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a179818f303e3ad2921683524798591f8">&#9670;&nbsp;</a></span>getSamples()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">AudioSampleBuffer&amp; Sample::getSamples </td>
+          <td class="memname">juce::AudioSampleBuffer&amp; Sample::getSamples </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -185,12 +185,12 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classSample.html#a387e026c51ab4c846c0e54996116340a">read()</a>.</p>
+<p class="reference">References <a class="el" href="classSample.html#afa908998646ca749fe3474d90f747df2">read()</a>.</p>
 
 </div>
 </div>
-<a id="a387e026c51ab4c846c0e54996116340a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a387e026c51ab4c846c0e54996116340a">&#9670;&nbsp;</a></span>read()</h2>
+<a id="afa908998646ca749fe3474d90f747df2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa908998646ca749fe3474d90f747df2">&#9670;&nbsp;</a></span>read()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,7 +198,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Sample::read </td>
           <td>(</td>
-          <td class="paramtype">AudioSampleBuffer &amp;&#160;</td>
+          <td class="paramtype">juce::AudioSampleBuffer &amp;&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
@@ -227,7 +227,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classSample.html#a1b0fe029480464ca07e5e50cd18c7d05">getSamples()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classSample.html#a179818f303e3ad2921683524798591f8">getSamples()</a>.</p>
 
 </div>
 </div>
@@ -271,7 +271,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 11 2020 20:10:59 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 13 2020 22:27:40 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

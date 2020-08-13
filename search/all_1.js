@@ -23,7 +23,7 @@ var searchData=
   ['browsebutton',['browseButton',['../classProcessorEditor.html#ae66f24bcd3937e647bb870e4d511adf3',1,'ProcessorEditor']]],
   ['bterm',['bTerm',['../classLeastSquaresRegression.html#af8a14f97edfe06e9237df6cbf5a54330',1,'LeastSquaresRegression']]],
   ['bubble',['bubble',['../classMultiParamComponent.html#af352cfeb2692011587e06659824993fb',1,'MultiParamComponent']]],
-  ['buffer',['buffer',['../classDelayLine.html#ae59911da584d61ff47221d188dda65e2',1,'DelayLine']]],
+  ['buffer',['buffer',['../classDelayLine.html#a93574b33770845363b409a6578919369',1,'DelayLine']]],
   ['build',['build',['../classModMatrix.html#a34daa946cb85440762ff041e995e670c',1,'ModMatrix']]],
   ['buttonclicked',['buttonClicked',['../classProcessorEditor.html#ab537fc3e20adcb6d16e672d134f32479',1,'ProcessorEditor']]]
 ];

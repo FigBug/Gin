@@ -84,15 +84,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac54d99a7902680164cfefb1f0623625f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a319c65ef9916777690eb6cf3a7a117e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoicedStereoOscillator.html#a319c65ef9916777690eb6cf3a7a117e9">noteOn</a> (float phase=-1)</td></tr>
 <tr class="separator:a319c65ef9916777690eb6cf3a7a117e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a307900521aa215ce7cf8bddfba22c608"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoicedStereoOscillator.html#a307900521aa215ce7cf8bddfba22c608">process</a> (float note, const <a class="el" href="structVoicedStereoOscillator_1_1Params.html">Params</a> &amp;params, AudioSampleBuffer &amp;buffer)</td></tr>
-<tr class="separator:a307900521aa215ce7cf8bddfba22c608"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c59acf58f63597766e586d57b346ebe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoicedStereoOscillator.html#a6c59acf58f63597766e586d57b346ebe">processAdding</a> (float note, const <a class="el" href="structVoicedStereoOscillator_1_1Params.html">Params</a> &amp;params, AudioSampleBuffer &amp;buffer)</td></tr>
-<tr class="separator:a6c59acf58f63597766e586d57b346ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a639c3d573726cb847f78d016bcddd1c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoicedStereoOscillator.html#a639c3d573726cb847f78d016bcddd1c6">process</a> (float note, const <a class="el" href="structVoicedStereoOscillator_1_1Params.html">Params</a> &amp;params, juce::AudioSampleBuffer &amp;buffer)</td></tr>
+<tr class="separator:a639c3d573726cb847f78d016bcddd1c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d3e798a36e14f0ebd42b9ba0cc1c097"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoicedStereoOscillator.html#a4d3e798a36e14f0ebd42b9ba0cc1c097">processAdding</a> (float note, const <a class="el" href="structVoicedStereoOscillator_1_1Params.html">Params</a> &amp;params, juce::AudioSampleBuffer &amp;buffer)</td></tr>
+<tr class="separator:a4d3e798a36e14f0ebd42b9ba0cc1c097"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a217b327f26630536c0970de6d82b80e9"><td class="memItemLeft" align="right" valign="top">OwnedArray&lt; O &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoicedStereoOscillator.html#a217b327f26630536c0970de6d82b80e9">oscillators</a></td></tr>
-<tr class="separator:a217b327f26630536c0970de6d82b80e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a861cbdfd3fb820808a01d11aac7708e4"><td class="memItemLeft" align="right" valign="top">juce::OwnedArray&lt; O &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoicedStereoOscillator.html#a861cbdfd3fb820808a01d11aac7708e4">oscillators</a></td></tr>
+<tr class="separator:a861cbdfd3fb820808a01d11aac7708e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename O&gt;<br />
@@ -168,8 +168,8 @@ template&lt;typename O&gt; </div>
 
 </div>
 </div>
-<a id="a307900521aa215ce7cf8bddfba22c608"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a307900521aa215ce7cf8bddfba22c608">&#9670;&nbsp;</a></span>process()</h2>
+<a id="a639c3d573726cb847f78d016bcddd1c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a639c3d573726cb847f78d016bcddd1c6">&#9670;&nbsp;</a></span>process()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -191,7 +191,7 @@ template&lt;typename O&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">AudioSampleBuffer &amp;&#160;</td>
+          <td class="paramtype">juce::AudioSampleBuffer &amp;&#160;</td>
           <td class="paramname"><em>buffer</em>&#160;</td>
         </tr>
         <tr>
@@ -204,8 +204,8 @@ template&lt;typename O&gt; </div>
 
 </div>
 </div>
-<a id="a6c59acf58f63597766e586d57b346ebe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c59acf58f63597766e586d57b346ebe">&#9670;&nbsp;</a></span>processAdding()</h2>
+<a id="a4d3e798a36e14f0ebd42b9ba0cc1c097"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d3e798a36e14f0ebd42b9ba0cc1c097">&#9670;&nbsp;</a></span>processAdding()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -227,7 +227,7 @@ template&lt;typename O&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">AudioSampleBuffer &amp;&#160;</td>
+          <td class="paramtype">juce::AudioSampleBuffer &amp;&#160;</td>
           <td class="paramname"><em>buffer</em>&#160;</td>
         </tr>
         <tr>
@@ -241,8 +241,8 @@ template&lt;typename O&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a217b327f26630536c0970de6d82b80e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a217b327f26630536c0970de6d82b80e9">&#9670;&nbsp;</a></span>oscillators</h2>
+<a id="a861cbdfd3fb820808a01d11aac7708e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a861cbdfd3fb820808a01d11aac7708e4">&#9670;&nbsp;</a></span>oscillators</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -253,7 +253,7 @@ template&lt;typename O&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">OwnedArray&lt;O&gt; <a class="el" href="classVoicedStereoOscillator.html">VoicedStereoOscillator</a>&lt; O &gt;::oscillators</td>
+          <td class="memname">juce::OwnedArray&lt;O&gt; <a class="el" href="classVoicedStereoOscillator.html">VoicedStereoOscillator</a>&lt; O &gt;::oscillators</td>
         </tr>
       </table>
   </td>
@@ -271,7 +271,7 @@ template&lt;typename O&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 11 2020 20:10:59 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 13 2020 22:27:40 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

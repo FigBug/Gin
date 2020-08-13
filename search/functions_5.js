@@ -10,12 +10,12 @@ var searchData=
   ['findchildofclass',['findChildOfClass',['../classValueTreeObject.html#a872c180f78dd75884192baba68011ee6',1,'ValueTreeObject']]],
   ['findchildrenofclass',['findChildrenOfClass',['../classValueTreeObject.html#ac5938920794ba2e6acceb5e85c820efa',1,'ValueTreeObject']]],
   ['findparentoftype',['findParentOfType',['../classValueTreeObject.html#a65139d476b9d199ba0f29cffe89ca67c',1,'ValueTreeObject']]],
-  ['findvalue',['findValue',['../group__gin__dsp-dsp.html#gae70a5d1879d7dd27ea654b7d2f422a25',1,'gin_audioutil.h']]],
-  ['findvoicetosteal',['findVoiceToSteal',['../classSynthesiser.html#a2051e5bfb208e8087712f3d6528407b9',1,'Synthesiser']]],
+  ['findvalue',['findValue',['../group__gin__dsp-dsp.html#ga642bc58b032577b139e71665cc1817dc',1,'gin_audioutil.h']]],
+  ['findvoicetosteal',['findVoiceToSteal',['../classSynthesiser.html#a40b2a5153b414eafba711837b4cf3124',1,'Synthesiser']]],
   ['finishblock',['finishBlock',['../classModVoice.html#a3d415de2f815020b81365b8eb9951cd3',1,'ModVoice::finishBlock()'],['../classModMatrix.html#ad7ed486680d770f286653f045420db5a',1,'ModMatrix::finishBlock()']]],
   ['focusgained',['focusGained',['../classSingleLineTextEditor.html#a2637496e94b565815585f09871e2cda2',1,'SingleLineTextEditor']]],
   ['focuslost',['focusLost',['../classSingleLineTextEditor.html#a064d28e1648885e900dd9a0f9da3701a',1,'SingleLineTextEditor']]],
   ['folderchanged',['folderChanged',['../classFileSystemWatcher_1_1Listener.html#a04a461ad2d135495403372fcc9d413dd',1,'FileSystemWatcher::Listener']]],
-  ['fromfile',['fromFile',['../classSample.html#a2cb3cf8e757896b26efb10f8ad7fcdbf',1,'Sample']]],
+  ['fromfile',['fromFile',['../classSample.html#a6ad98110e9ccc23c8ae9d9fe7f7914f9',1,'Sample']]],
   ['funcstate',['FuncState',['../structFuncState.html#a1a37453451c69ef86bd1c1f07d970c81',1,'FuncState']]]
 ];

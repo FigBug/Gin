@@ -24,7 +24,7 @@ var searchData=
   ['operator_3d',['operator=',['../structModSrcId.html#a1d9f52fd952b26811fc7e74a690f2c8e',1,'ModSrcId::operator=()'],['../structModDstId.html#ade6e4c1af3c4a41f6e0575e2c0846bd0',1,'ModDstId::operator=()']]],
   ['operator_3d_3d',['operator==',['../structModSrcId.html#ae9a0aa774f9639b59f382127602af3eb',1,'ModSrcId::operator==()'],['../structModDstId.html#a63b8ebeaadf0a9c266a36d1a4c0e3e84',1,'ModDstId::operator==()']]],
   ['operator_5b_5d',['operator[]',['../classSpline.html#a30255a2f77480c04928394262765df10',1,'Spline']]],
-  ['oscillators',['oscillators',['../classVoicedStereoOscillator.html#a217b327f26630536c0970de6d82b80e9',1,'VoicedStereoOscillator']]],
+  ['oscillators',['oscillators',['../classVoicedStereoOscillator.html#a861cbdfd3fb820808a01d11aac7708e4',1,'VoicedStereoOscillator']]],
   ['oscstate',['OscState',['../structOscState.html',1,'OscState'],['../structOscState.html#a6cdf459424576e3f91d63bc84be37b62',1,'OscState::OscState()']]],
   ['outlinecolourid',['outlineColourId',['../classSingleLineTextEditor.html#a580e95f56d303528b02f91143c72f13caeddcf10206bd667dafb96511c583dfcd',1,'SingleLineTextEditor']]],
   ['output',['output',['../classADSR.html#ac6b34bdf72ba654d26467433f7015bbb',1,'ADSR::output()'],['../classAnalogADSR.html#a15bcc5ef1223a2c4e9f8d3e143009370',1,'AnalogADSR::output()']]],
