@@ -303,11 +303,11 @@ bool ElevatedFileCopy::processCommandLine (juce::String commandLine)
    #if JUCE_WINDOWS
     if (commandLine.contains ("--elevatedfilecopy"))
     {
-        String script = commandLine.fromFirstOccurrenceOf ("--elevatedfilecopy \"", false, false).upToFirstOccurrenceOf ("\"", false, false);
+        juce::String script = commandLine.fromFirstOccurrenceOf ("--elevatedfilecopy \"", false, false).upToFirstOccurrenceOf ("\"", false, false);
 
-        if (File (script).existsAsFile())
+        if (juce::File (script).existsAsFile())
         {
-            String params = "/c \"" + script + "\"";
+            juce::String params = "/c \"" + script + "\"";
             auto wideParams = toWideString (params.toRawUTF8());
 
             SHELLEXECUTEINFOW info;
@@ -327,17 +327,17 @@ bool ElevatedFileCopy::processCommandLine (juce::String commandLine)
                 GetExitCodeProcess (info.hProcess, &exitCode);
                 CloseHandle (info.hProcess);
 
-                if (auto inst = JUCEApplication::getInstance())
+                if (auto inst = juce::JUCEApplication::getInstance())
                     inst->setApplicationReturnValue (exitCode);
             }
             else
             {
-                if (auto inst = JUCEApplication::getInstance())
+                if (auto inst = juce::JUCEApplication::getInstance())
                     inst->setApplicationReturnValue (1);
             }
         }
 
-        JUCEApplication::quit();
+        juce::JUCEApplication::quit();
         return true;
     }
    #else

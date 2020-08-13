@@ -1715,7 +1715,7 @@ bool SingleLineTextEditor::keyStateChanged (const bool isKeyDown)
         return false;
 
    #if JUCE_WINDOWS
-    if (KeyPress (KeyPress::F4Key, ModifierKeys::altModifier, 0).isCurrentlyDown())
+    if (juce::KeyPress (juce::KeyPress::F4Key, juce::ModifierKeys::altModifier, 0).isCurrentlyDown())
         return false;  // We need to explicitly allow alt-F4 to pass through on Windows
    #endif
 

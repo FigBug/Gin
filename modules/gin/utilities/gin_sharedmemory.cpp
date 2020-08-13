@@ -23,9 +23,9 @@ typedef DWORD (WINAPI* NTQUERYSECTION) (HANDLE, SECTION_INFORMATION_CLASS, PVOID
 class SharedMemory::Impl
 {
 public:
-    Impl (String name, int sz) : size (sz)
+    Impl (juce::String name, int sz) : size (sz)
     {
-        String shareName = "Local\\" + File::createLegalFileName (name);
+        juce::String shareName = "Local\\" + juce::File::createLegalFileName (name);
 
         fileMapping = OpenFileMappingW (FILE_MAP_ALL_ACCESS, FALSE, shareName.toWideCharPointer());
         if (fileMapping == nullptr)

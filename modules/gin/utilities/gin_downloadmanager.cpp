@@ -43,7 +43,7 @@ DownloadManager::DownloadResult DownloadManager::blockingDownload (juce::String 
 DownloadManager::DownloadResult DownloadManager::blockingDownload (juce::URL url, juce::String extraHeaders)
 {
    #if JUCE_WINDOWS
-    auto headerList = StringArray::fromTokens (extraHeaders, "\n", "");
+    auto headerList = juce::StringArray::fromTokens (extraHeaders, "\n", "");
     headerList.add ("Accept-Encoding: gzip");
     extraHeaders = headerList.joinIntoString ("\n");
    #endif
@@ -78,7 +78,7 @@ int DownloadManager::startAsyncDownload (juce::URL url,
     // macOS does this automatically
     if (gzipDeflate)
     {
-        auto headerList = StringArray::fromTokens (extraHeaders, "\n", "");
+        auto headerList = juce::StringArray::fromTokens (extraHeaders, "\n", "");
         headerList.add ("Accept-Encoding: gzip");
         extraHeaders = headerList.joinIntoString ("\n");
     }
@@ -262,8 +262,8 @@ bool DownloadManager::Download::tryDownload()
     // Decompress the gzip encoded data. This happens automatically on macOS
     if (result.ok && result.responseHeaders["Content-Encoding"] == "gzip")
     {
-        MemoryInputStream mis (result.data, true);
-        GZIPDecompressorInputStream gis (&mis, false, GZIPDecompressorInputStream::gzipFormat);
+        juce::MemoryInputStream mis (result.data, true);
+        juce::GZIPDecompressorInputStream gis (&mis, false, juce::GZIPDecompressorInputStream::gzipFormat);
 
         result.data.reset();
 
