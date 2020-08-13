@@ -183,7 +183,7 @@ public:
         events.clear();
     }
 
-    juce::FileSystemWatcher& owner;
+    FileSystemWatcher& owner;
     juce::File folder;
 
     juce::CriticalSection lock;
