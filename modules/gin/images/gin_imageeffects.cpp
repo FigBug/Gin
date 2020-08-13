@@ -10,21 +10,21 @@
 #endif
 
 template <typename T>
-inline uint8 toByte (T v)
+inline uint8_t toByte (T v)
 {
     if (v < 0)   return 0;
     if (v > 255) return 255;
-    return uint8 (v);
+    return uint8_t (v);
 }
 
-inline uint8 getIntensity (uint8 r, uint8 g, uint8 b)
+inline uint8_t getIntensity (uint8_t r, uint8_t g, uint8_t b)
 {
-    return (uint8)((7471 * b + 38470 * g + 19595 * r) >> 16);
+    return (uint8_t)((7471 * b + 38470 * g + 19595 * r) >> 16);
 }
 
-inline uint8 computeAlpha (uint8 la, uint8 ra)
+inline uint8_t computeAlpha (uint8_t la, uint8_t ra)
 {
-    return (uint8)(((la * (256 - (ra + (ra >> 7)))) >> 8) + ra);
+    return (uint8_t)(((la * (256 - (ra + (ra >> 7)))) >> 8) + ra);
 }
 
 template <class T>
@@ -36,7 +36,7 @@ inline T blend (const T& c1, const T& c2)
     int r = ((c2.getRed()   * invA) + (c1.getRed()   * a)) / 256;
     int g = ((c2.getGreen() * invA) + (c1.getGreen() * a)) / 256;
     int b = ((c2.getBlue()  * invA) + (c1.getBlue()  * a)) / 256;
-    uint8 a2 = computeAlpha (c2.getAlpha(), c1.getAlpha());
+    uint8_t a2 = computeAlpha (c2.getAlpha(), c1.getAlpha());
 
     T res;
     res.setARGB (a2, toByte (r), toByte (g), toByte (b));
@@ -77,7 +77,7 @@ void applyVignette (juce::Image& img, float amountIn, float radiusIn, float fall
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
-        uint8* p = data.getLinePointer (y);
+        uint8_t* p = data.getLinePointer (y);
 
         double dy = y - cy;
 
@@ -92,10 +92,10 @@ void applyVignette (juce::Image& img, float amountIn, float radiusIn, float fall
 
             if (outside)
             {
-                uint8 r = toByte (0.5 + (s->getRed() * amount));
-                uint8 g = toByte (0.5 + (s->getGreen() * amount));
-                uint8 b = toByte (0.5 + (s->getBlue() * amount));
-                uint8 a = s->getAlpha();
+                uint8_t r = toByte (0.5 + (s->getRed() * amount));
+                uint8_t g = toByte (0.5 + (s->getGreen() * amount));
+                uint8_t b = toByte (0.5 + (s->getBlue() * amount));
+                uint8_t a = s->getAlpha();
 
                 s->setARGB (a, r, g, b);
             }
@@ -111,10 +111,10 @@ void applyVignette (juce::Image& img, float amountIn, float radiusIn, float fall
 
                 double factor = 1.0 - (amountIn * juce::jlimit (0.0, 1.0, l1.getLength() / l2.getLength()));
 
-                uint8 r = toByte (0.5 + (s->getRed()   * factor));
-                uint8 g = toByte (0.5 + (s->getGreen() * factor));
-                uint8 b = toByte (0.5 + (s->getBlue()  * factor));
-                uint8 a = s->getAlpha();
+                uint8_t r = toByte (0.5 + (s->getRed()   * factor));
+                uint8_t g = toByte (0.5 + (s->getGreen() * factor));
+                uint8_t b = toByte (0.5 + (s->getBlue()  * factor));
+                uint8_t a = s->getAlpha();
 
                 s->setARGB (a, r, g, b);
             }
@@ -142,20 +142,20 @@ void applySepia (juce::Image& img, juce::ThreadPool* threadPool)
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
-        uint8* p = data.getLinePointer (y);
+        uint8_t* p = data.getLinePointer (y);
 
         for (int x = 0; x < w; x++)
         {
             juce::PixelARGB* s = (juce::PixelARGB*)p;
 
-            uint8 r = s->getRed();
-            uint8 g = s->getGreen();
-            uint8 b = s->getBlue();
-            uint8 a = s->getAlpha();
+            uint8_t r = s->getRed();
+            uint8_t g = s->getGreen();
+            uint8_t b = s->getBlue();
+            uint8_t a = s->getAlpha();
 
-            uint8 ro = toByte ((r * .393) + (g *.769) + (b * .189));
-            uint8 go = toByte ((r * .349) + (g *.686) + (b * .168));
-            uint8 bo = toByte ((r * .272) + (g *.534) + (b * .131));
+            uint8_t ro = toByte ((r * .393) + (g *.769) + (b * .189));
+            uint8_t go = toByte ((r * .349) + (g *.686) + (b * .168));
+            uint8_t bo = toByte ((r * .272) + (g *.534) + (b * .131));
 
             s->setARGB (a, ro, go, bo);
 
@@ -182,20 +182,20 @@ void applyGreyScale (juce::Image& img, juce::ThreadPool* threadPool)
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
-        uint8* p = data.getLinePointer (y);
+        uint8_t* p = data.getLinePointer (y);
 
         for (int x = 0; x < w; x++)
         {
             T* s = (T*)p;
 
-            uint8 r = s->getRed();
-            uint8 g = s->getGreen();
-            uint8 b = s->getBlue();
-            uint8 a = s->getAlpha();
+            uint8_t r = s->getRed();
+            uint8_t g = s->getGreen();
+            uint8_t b = s->getBlue();
+            uint8_t a = s->getAlpha();
 
-            uint8 ro = toByte (r * 0.30 + 0.5);
-            uint8 go = toByte (g * 0.59 + 0.5);
-            uint8 bo = toByte (b * 0.11 + 0.5);
+            uint8_t ro = toByte (r * 0.30 + 0.5);
+            uint8_t go = toByte (g * 0.59 + 0.5);
+            uint8_t bo = toByte (b * 0.11 + 0.5);
 
             s->setARGB (a,
                         toByte (ro + go + bo),
@@ -231,7 +231,7 @@ void applySoften (juce::Image& img, juce::ThreadPool* threadPool)
         for (int x = 0; x < w; x++)
         {
             int ro = 0, go = 0, bo = 0;
-            uint8 a = 0;
+            uint8_t a = 0;
 
             for (int m = -1; m <= 1; m++)
             {
@@ -291,7 +291,7 @@ void applySharpen (juce::Image& img, juce::ThreadPool* threadPool)
             };
 
             int ro = 0, go = 0, bo = 0;
-            uint8 ao = 0;
+            uint8_t ao = 0;
 
             T* s = getPixelPointer (x, y);
 
@@ -346,20 +346,20 @@ void applyGamma (juce::Image& img, float gamma, juce::ThreadPool* threadPool)
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
-        uint8* p = data.getLinePointer (y);
+        uint8_t* p = data.getLinePointer (y);
 
         for (int x = 0; x < w; x++)
         {
             T* s = (T*)p;
 
-            uint8 r = s->getRed();
-            uint8 g = s->getGreen();
-            uint8 b = s->getBlue();
-            uint8 a = s->getAlpha();
+            uint8_t r = s->getRed();
+            uint8_t g = s->getGreen();
+            uint8_t b = s->getBlue();
+            uint8_t a = s->getAlpha();
 
-            uint8 ro = toByte (std::pow (r / 255.0, gamma) * 255.0 + 0.5);
-            uint8 go = toByte (std::pow (g / 255.0, gamma) * 255.0 + 0.5);
-            uint8 bo = toByte (std::pow (b / 255.0, gamma) * 255.0 + 0.5);
+            uint8_t ro = toByte (std::pow (r / 255.0, gamma) * 255.0 + 0.5);
+            uint8_t go = toByte (std::pow (g / 255.0, gamma) * 255.0 + 0.5);
+            uint8_t bo = toByte (std::pow (b / 255.0, gamma) * 255.0 + 0.5);
 
             s->setARGB (a, ro, go, bo);
 
@@ -386,20 +386,20 @@ void applyInvert (juce::Image& img, juce::ThreadPool* threadPool)
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
-        uint8* p = data.getLinePointer (y);
+        uint8_t* p = data.getLinePointer (y);
 
         for (int x = 0; x < w; x++)
         {
             T* s = (T*)p;
 
-            uint8 r = s->getRed();
-            uint8 g = s->getGreen();
-            uint8 b = s->getBlue();
-            uint8 a = s->getAlpha();
+            uint8_t r = s->getRed();
+            uint8_t g = s->getGreen();
+            uint8_t b = s->getBlue();
+            uint8_t a = s->getAlpha();
 
-            uint8 ro = 255 - r;
-            uint8 go = 255 - g;
-            uint8 bo = 255 - b;
+            uint8_t ro = 255 - r;
+            uint8_t go = 255 - g;
+            uint8_t bo = 255 - b;
 
             s->setARGB (a, ro, go, bo);
 
@@ -429,16 +429,16 @@ void applyContrast (juce::Image& img, float contrast, juce::ThreadPool* threadPo
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
-        uint8* p = data.getLinePointer (y);
+        uint8_t* p = data.getLinePointer (y);
 
         for (int x = 0; x < w; x++)
         {
             T* s = (T*)p;
 
-            uint8 r = s->getRed();
-            uint8 g = s->getGreen();
-            uint8 b = s->getBlue();
-            uint8 a = s->getAlpha();
+            uint8_t r = s->getRed();
+            uint8_t g = s->getGreen();
+            uint8_t b = s->getBlue();
+            uint8_t a = s->getAlpha();
 
             double ro = (double) r / 255.0;
             ro = ro - 0.5;
@@ -504,7 +504,7 @@ void applyBrightnessContrast (juce::Image& img, float brightness, float contrast
         divide = 1;
     }
 
-    uint8* rgbTable = new uint8[65536];
+    uint8_t* rgbTable = new uint8_t[65536];
 
     if (divide == 0)
     {
@@ -545,21 +545,21 @@ void applyBrightnessContrast (juce::Image& img, float brightness, float contrast
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
-        uint8* p = data.getLinePointer (y);
+        uint8_t* p = data.getLinePointer (y);
 
         for (int x = 0; x < w; x++)
         {
             T* s = (T*)p;
 
-            uint8 r = s->getRed();
-            uint8 g = s->getGreen();
-            uint8 b = s->getBlue();
-            uint8 a = s->getAlpha();
+            uint8_t r = s->getRed();
+            uint8_t g = s->getGreen();
+            uint8_t b = s->getBlue();
+            uint8_t a = s->getAlpha();
 
             if (divide == 0)
             {
                 int i = getIntensity (toByte (r), toByte (g), toByte (b));
-                uint8 c = rgbTable[i];
+                uint8_t c = rgbTable[i];
 
                 s->setARGB (a, c, c, c);
             }
@@ -568,9 +568,9 @@ void applyBrightnessContrast (juce::Image& img, float brightness, float contrast
                 int i = getIntensity (toByte (r), toByte (g), toByte (b));
                 int shiftIndex = i * 256;
 
-                uint8 ro = rgbTable[shiftIndex + r];
-                uint8 go = rgbTable[shiftIndex + g];
-                uint8 bo = rgbTable[shiftIndex + b];
+                uint8_t ro = rgbTable[shiftIndex + r];
+                uint8_t go = rgbTable[shiftIndex + g];
+                uint8_t bo = rgbTable[shiftIndex + b];
 
                 ro = toByte (ro);
                 go = toByte (go);
@@ -610,16 +610,16 @@ void applyHueSaturationLightness (juce::Image& img, float hueIn, float saturatio
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
-        uint8* p = data.getLinePointer (y);
+        uint8_t* p = data.getLinePointer (y);
 
         for (int x = 0; x < w; x++)
         {
             T* s = (T*)p;
 
-            uint8 r = s->getRed();
-            uint8 g = s->getGreen();
-            uint8 b = s->getBlue();
-            uint8 a = s->getAlpha();
+            uint8_t r = s->getRed();
+            uint8_t g = s->getGreen();
+            uint8_t b = s->getBlue();
+            uint8_t a = s->getAlpha();
 
             int intensity = getIntensity (toByte (r), toByte (g), toByte (b));
             int ro = toByte (int (intensity * 1024 + (r - intensity) * saturation) >> 10);
@@ -683,11 +683,11 @@ juce::Image applyResize (const juce::Image& src, int width, int height)
     // JUCE images may have padding at the end of each scan line.
     // Avir expects the image data to be packed. So we need to
     // pack and unpack the image data before and after resizing.
-    juce::HeapBlock<uint8> srcPacked (src.getWidth() * src.getHeight() * channels);
-    juce::HeapBlock<uint8> dstPacked (dst.getWidth() * dst.getHeight() * channels);
+    juce::HeapBlock<uint8_t> srcPacked (src.getWidth() * src.getHeight() * channels);
+    juce::HeapBlock<uint8_t> dstPacked (dst.getWidth() * dst.getHeight() * channels);
 
-    uint8* rawSrc = srcPacked.getData();
-    uint8* rawDst = dstPacked.getData();
+    uint8_t* rawSrc = srcPacked.getData();
+    uint8_t* rawDst = dstPacked.getData();
 
     for (int y = 0; y < src.getHeight(); y++)
         memcpy (rawSrc + y * src.getWidth() * channels,
@@ -730,20 +730,20 @@ void applyGradientMap (juce::Image& img, const juce::ColourGradient& gradient, j
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
                            {
-                               uint8* p = data.getLinePointer (y);
+                               uint8_t* p = data.getLinePointer (y);
 
                                for (int x = 0; x < w; x++)
                                {
                                    T* s = (T*)p;
 
-                                   uint8 r = s->getRed();
-                                   uint8 g = s->getGreen();
-                                   uint8 b = s->getBlue();
-                                   uint8 a = s->getAlpha();
+                                   uint8_t r = s->getRed();
+                                   uint8_t g = s->getGreen();
+                                   uint8_t b = s->getBlue();
+                                   uint8_t a = s->getAlpha();
 
-                                   uint8 ro = toByte (r * 0.30 + 0.5);
-                                   uint8 go = toByte (g * 0.59 + 0.5);
-                                   uint8 bo = toByte (b * 0.11 + 0.5);
+                                   uint8_t ro = toByte (r * 0.30 + 0.5);
+                                   uint8_t go = toByte (g * 0.59 + 0.5);
+                                   uint8_t bo = toByte (b * 0.11 + 0.5);
 
                                    float proportion = float (ro + go + bo) / 256.0f;
 
@@ -782,16 +782,16 @@ void applyColour (juce::Image& img, juce::Colour c, juce::ThreadPool* threadPool
     const int h = img.getHeight();
     threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
-    uint8 r = c.getRed();
-    uint8 g = c.getGreen();
-    uint8 b = c.getBlue();
-    uint8 a = c.getAlpha();
+    uint8_t r = c.getRed();
+    uint8_t g = c.getGreen();
+    uint8_t b = c.getBlue();
+    uint8_t a = c.getAlpha();
 
     juce::Image::BitmapData data (img, juce::Image::BitmapData::readWrite);
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
                            {
-                               uint8* p = data.getLinePointer (y);
+                               uint8_t* p = data.getLinePointer (y);
 
                                for (int x = 0; x < w; x++)
                                {
