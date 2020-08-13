@@ -82,8 +82,8 @@ public:
 #ifdef JUCE_LINUX
 #define BUF_LEN (10 * (sizeof(struct inotify_event) + NAME_MAX + 1))
 
-class FileSystemWatcher::Impl : public Thread,
-                                private AsyncUpdater
+class FileSystemWatcher::Impl : public juce::Thread,
+                                private juce::AsyncUpdater
 {
 public:
     struct Event
@@ -92,7 +92,7 @@ public:
         Event (Event& other) = default;
         Event (Event&& other) = default;
 
-        File file;
+        juce::File file;
         FileSystemEvent fsEvent;
 
         bool operator== (const Event& other) const
@@ -101,8 +101,8 @@ public:
         }
     };
 
-    Impl (FileSystemWatcher& o, File f)
-      : Thread ("FileSystemWatcher::Impl"), owner (o), folder (f)
+    Impl (FileSystemWatcher& o, juce::File f)
+      : juce::Thread ("FileSystemWatcher::Impl"), owner (o), folder (f)
     {
         fd = inotify_init();
 
@@ -173,7 +173,7 @@ public:
 
     void handleAsyncUpdate() override
     {
-        ScopedLock sl (lock);
+        juce::ScopedLock sl (lock);
 
         owner.folderChanged (folder);
 
@@ -183,11 +183,11 @@ public:
         events.clear();
     }
 
-    FileSystemWatcher& owner;
-    File folder;
+    juce::FileSystemWatcher& owner;
+    juce::File folder;
 
-    CriticalSection lock;
-    Array<Event> events;
+    juce::CriticalSection lock;
+    juce::Array<Event> events;
 
     int fd;
     int wd;
@@ -196,13 +196,13 @@ public:
 
 //==============================================================================
 #ifdef JUCE_WINDOWS
-class FileSystemWatcher::Impl : private AsyncUpdater,
-                                private Thread
+class FileSystemWatcher::Impl : private juce::AsyncUpdater,
+                                private juce::Thread
 {
 public:
     struct Event
     {
-        File file;
+        juce::File file;
         FileSystemEvent fsEvent;
 
         bool operator== (const Event& other) const
@@ -311,7 +311,7 @@ public:
 
     void handleAsyncUpdate() override
     {
-        ScopedLock sl (lock);
+        juce::ScopedLock sl (lock);
 
         owner.folderChanged (folder);
 
@@ -324,8 +324,8 @@ public:
     FileSystemWatcher& owner;
     const File folder;
 
-    CriticalSection lock;
-    Array<Event> events;
+    juce::CriticalSection lock;
+    juce::Array<Event> events;
 
     HANDLE folderHandle;
 };
