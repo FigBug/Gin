@@ -13,11 +13,11 @@ public:
     ExifMetadata();
     virtual ~ExifMetadata();
 
-    static ExifMetadata* create (const uint8* data, int sz);
+    static ExifMetadata* create (const juce::uint8* data, int sz);
 
-    StringPairArray getAllMetadata() const;
+    juce::StringPairArray getAllMetadata() const;
 
-    Image getThumbnailImage();
+    juce::Image getThumbnailImage();
 
 private:
     static int sizeofType (int type);
@@ -33,13 +33,13 @@ private:
         bool bigEndian;
         void* data = nullptr;
 
-        String getName() const;
-        String getValue() const;
+        juce::String getName() const;
+        juce::String getValue() const;
 
-        uint16 swap16 (uint16 a) const;
-        int16 swap16 (int16 a) const;
-        uint32 swap32 (uint32 a) const;
-        int32 swap32 (int32 a) const;
+        juce::uint16 swap16 (juce::uint16 a) const;
+        juce::int16 swap16 (juce::int16 a) const;
+        juce::uint32 swap32 (juce::uint32 a) const;
+        juce::int32 swap32 (juce::int32 a) const;
     };
 
     struct MetadataSection
@@ -50,7 +50,7 @@ private:
         int offset;
     };
 
-    OwnedArray<MetadataItem> items;
+    juce::OwnedArray<MetadataItem> items;
     char* thumbImg = nullptr;
     int thumbNumBytes = 0;
 };

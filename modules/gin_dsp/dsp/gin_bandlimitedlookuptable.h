@@ -25,7 +25,7 @@ double noise();
 class BandLimitedLookupTable
 {
 public:
-	BandLimitedLookupTable() = default;
+    BandLimitedLookupTable() = default;
 
     BandLimitedLookupTable (std::function<double (double, double, double)> function, double sampleRate,
                             int notesPerTable_ = 6, int tableSize_ = 2048)
@@ -55,12 +55,12 @@ public:
 
     inline float process (float note, float phase)
     {
-        int tableIndex = jlimit (0, tables.size() - 1, int ((note - 0.5) / notesPerTable));
+        int tableIndex = juce::jlimit (0, tables.size() - 1, int ((note - 0.5) / notesPerTable));
         return tables[tableIndex]->processSampleUnchecked (phase);
     }
 
-	void loadFromBuffer (AudioSampleBuffer& buffer, double sampleRate, int notesPerTable);
-    
+    void loadFromBuffer (juce::AudioSampleBuffer& buffer, double sampleRate, int notesPerTable);
+
     juce::OwnedArray<juce::dsp::LookupTableTransform<float>> tables;
 
     int notesPerTable = 0;
@@ -77,7 +77,7 @@ enum class Wave
     pulse       = 5,
     square      = 6,
     noise       = 7,
-	wavetable	= 8,
+    wavetable   = 8,
 };
 
 //==============================================================================
@@ -87,7 +87,7 @@ class BandLimitedLookupTables
 {
 public:
     BandLimitedLookupTables (double sampleRate = 44100, int notesPerTable = 3, int tableSize = 2048);
-    
+
     void setSampleRate (double sampleRate);
 
     inline float processSine (float phase)
@@ -97,19 +97,19 @@ public:
 
     inline float processTriangle (float note, float phase)
     {
-        int tableIndex = jlimit (0, triangleTable.tables.size() - 1, int ((note - 0.5) / triangleTable.notesPerTable));
+        int tableIndex = juce::jlimit (0, triangleTable.tables.size() - 1, int ((note - 0.5) / triangleTable.notesPerTable));
         return triangleTable.tables[tableIndex]->processSampleUnchecked (phase);
     }
 
     inline float processSawUp (float note, float phase)
     {
-        int tableIndex = jlimit (0, sawUpTable.tables.size() - 1, int ((note - 0.5) / sawUpTable.notesPerTable));
+        int tableIndex = juce::jlimit (0, sawUpTable.tables.size() - 1, int ((note - 0.5) / sawUpTable.notesPerTable));
         return sawUpTable.tables[tableIndex]->processSampleUnchecked (phase);
     }
 
     inline float processSawDown (float note, float phase)
     {
-        int tableIndex = jlimit (0, sawDownTable.tables.size() - 1, int ((note - 0.5) / sawDownTable.notesPerTable));
+        int tableIndex = juce::jlimit (0, sawDownTable.tables.size() - 1, int ((note - 0.5) / sawDownTable.notesPerTable));
         return sawDownTable.tables[tableIndex]->processSampleUnchecked (phase);
     }
 
@@ -122,7 +122,7 @@ public:
         if (phaseDown < 0.0f) phaseDown += 1.0f;
 
         auto count = std::min (sawDownTable.tables.size(), sawDownTable.tables.size());
-        int tableIndex = jlimit (0, count - 1, int ((note - 0.5) / count));
+        int tableIndex = juce::jlimit (0, count - 1, int ((note - 0.5) / count));
 
         auto s1 = sawDownTable.tables[tableIndex]->processSampleUnchecked (phaseDown);
         auto s2 = sawUpTable.tables[tableIndex]->processSampleUnchecked (phaseUp);
@@ -139,7 +139,7 @@ public:
         if (phaseDown < 0.0f) phaseDown += 1.0f;
 
         auto count = std::min (sawDownTable.tables.size(), sawDownTable.tables.size());
-        int tableIndex = jlimit (0, count - 1, int ((note - 0.5) / count));
+        int tableIndex = juce::jlimit (0, count - 1, int ((note - 0.5) / count));
 
         auto s1 = sawDownTable.tables[tableIndex]->processSampleUnchecked (phaseDown);
         auto s2 = sawUpTable.tables[tableIndex]->processSampleUnchecked (phaseUp);

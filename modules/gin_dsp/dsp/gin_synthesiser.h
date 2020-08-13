@@ -12,7 +12,7 @@ struct GlideInfo
 //==============================================================================
 /** A voice with glide info and fast kill support
 */
-class SynthesiserVoice : public MPESynthesiserVoice
+class SynthesiserVoice : public juce::MPESynthesiserVoice
 {
 public:
     void setFastKill()  { fastKill = true; }
@@ -20,8 +20,8 @@ public:
 
     virtual void noteRetriggered()  {}
 
-    void setCurrentlyPlayingNote (MPENote note) { currentlyPlayingNote = note;  }
-    void setGlideInfo (const GlideInfo& gi)     { glideInfo = gi;               }
+    void setCurrentlyPlayingNote (juce::MPENote note)   { currentlyPlayingNote = note;  }
+    void setGlideInfo (const GlideInfo& gi)             { glideInfo = gi;               }
 protected:
 
     GlideInfo glideInfo;
@@ -31,13 +31,13 @@ protected:
 //==============================================================================
 /** MPESynthesiser with better fast kill, mono and glide support
 */
-class Synthesiser : public MPESynthesiser
+class Synthesiser : public juce::MPESynthesiser
 {
 public:
     Synthesiser()
     {
         instrument->enableLegacyMode();
-        setPitchbendTrackingMode (MPEInstrument::allNotesOnChannel);
+        setPitchbendTrackingMode (juce::MPEInstrument::allNotesOnChannel);
     }
 
     void setMono (bool m)           { mono = m;         }
@@ -54,22 +54,22 @@ public:
             mpe = newMPE;
             if (mpe)
             {
-                MPEZoneLayout zones;
+                juce::MPEZoneLayout zones;
                 zones.setLowerZone (15);
                 instrument->setZoneLayout (zones);
-                setPitchbendTrackingMode (MPEInstrument::lastNotePlayedOnChannel);
+                setPitchbendTrackingMode (juce::MPEInstrument::lastNotePlayedOnChannel);
             }
             else
             {
                 instrument->enableLegacyMode();
-                setPitchbendTrackingMode (MPEInstrument::allNotesOnChannel);
+                setPitchbendTrackingMode (juce::MPEInstrument::allNotesOnChannel);
             }
         }
     }
 
-    void noteAdded (MPENote newNote) override
+    void noteAdded (juce::MPENote newNote) override
     {
-        const ScopedLock sl (voicesLock);
+        const juce::ScopedLock sl (voicesLock);
 
         if (mono)
             return (glissando || portamento) ? noteAddedMonoGlide (newNote) : noteAddedMono (newNote);;
@@ -94,19 +94,19 @@ public:
         }
     }
 
-    void noteReleased (MPENote finishedNote) override
+    void noteReleased (juce::MPENote finishedNote) override
     {
-        const ScopedLock sl (voicesLock);
+        const juce::ScopedLock sl (voicesLock);
 
         if (mono)
-            return (glissando || portamento) ? noteReleasedMonoGlide (finishedNote) : noteReleasedMono (finishedNote);
+            (glissando || portamento) ? noteReleasedMonoGlide (finishedNote) : noteReleasedMono (finishedNote);
 
         for (auto voice : voices)
             if (voice->isCurrentlyPlayingNote (finishedNote))
                 stopVoice (voice, finishedNote, true);
     }
 
-    void noteAddedMonoGlide (MPENote newNote)
+    void noteAddedMonoGlide (juce::MPENote newNote)
     {
         noteStack.add (newNote);
 
@@ -116,10 +116,10 @@ public:
             {
                 if (auto sv = dynamic_cast<SynthesiserVoice*> (voices[0]))
                     sv->setFastKill();
-                
+
                 voices.move (voices.size() - 1, 0);
             }
-            
+
             if (auto voice = voices[0])
                 startVoice (voice, newNote);
         }
@@ -135,7 +135,7 @@ public:
         }
     }
 
-    void noteReleasedMonoGlide (MPENote finishedNote)
+    void noteReleasedMonoGlide (juce::MPENote finishedNote)
     {
         int noteIdx = noteStack.indexOf (finishedNote);
         jassert (noteIdx >= 0);
@@ -159,7 +159,7 @@ public:
         }
     }
 
-    void noteAddedMono (MPENote newNote)
+    void noteAddedMono (juce::MPENote newNote)
     {
         for (auto voice : voices)
             if (voice->isActive())
@@ -171,7 +171,7 @@ public:
             startVoice (voice, newNote);
     }
 
-    void noteReleasedMono (MPENote finishedNote)
+    void noteReleasedMono (juce::MPENote finishedNote)
     {
         int noteIdx = noteStack.indexOf (finishedNote);
         jassert (noteIdx >= 0);
@@ -198,7 +198,7 @@ public:
                 startVoice (voice, noteStack.getLast());
     }
 
-    bool isNotePlaying (MPENote& n)
+    bool isNotePlaying (juce::MPENote& n)
     {
         for (int i = 0; i < instrument->getNumPlayingNotes(); i++)
             if (n == instrument->getNote (i))
@@ -228,31 +228,31 @@ public:
 
     void startBlock()
     {
-        blockStartTime = Time::getMillisecondCounterHiRes() / 1000.0;
+        blockStartTime = juce::Time::getMillisecondCounterHiRes() / 1000.0;
     }
 
     void endBlock (int blockSize)
     {
-        auto blockEndTime = Time::getMillisecondCounterHiRes() / 1000.0;
+        auto blockEndTime = juce::Time::getMillisecondCounterHiRes() / 1000.0;
 
         timeUsed        += (blockEndTime - blockStartTime);
         timeAvailable   += blockSize / getSampleRate();
     }
 
-    void retriggerVoice (SynthesiserVoice* v, MPENote note)
+    void retriggerVoice (SynthesiserVoice* v, juce::MPENote note)
     {
         updateGlide (v, note);
         v->setCurrentlyPlayingNote (note);
         v->noteRetriggered();
     }
 
-    void startVoice (MPESynthesiserVoice* v, MPENote note)
+    void startVoice (juce::MPESynthesiserVoice* v, juce::MPENote note)
     {
         updateGlide (v, note);
         MPESynthesiser::startVoice (v, note);
     }
 
-    void updateGlide (MPESynthesiserVoice* v, MPENote note)
+    void updateGlide (juce::MPESynthesiserVoice* v, juce::MPENote note)
     {
         auto voice = dynamic_cast<SynthesiserVoice*> (v);
 
@@ -299,7 +299,7 @@ public:
         }
     }
 
-    void stopVoiceFastKill (MPESynthesiserVoice* v, MPENote note, bool tailOff)
+    void stopVoiceFastKill (juce::MPESynthesiserVoice* v, juce::MPENote note, bool tailOff)
     {
         if (auto sv = dynamic_cast<SynthesiserVoice*> (v))
             sv->setFastKill();
@@ -307,7 +307,7 @@ public:
         stopVoice (v, note, tailOff);
     }
 
-    MPESynthesiserVoice* findVoiceToSteal (MPENote noteToStealVoiceFor = MPENote()) const override
+    juce::MPESynthesiserVoice* findVoiceToSteal (juce::MPENote noteToStealVoiceFor = juce::MPENote()) const override
     {
         // This voice-stealing algorithm applies the following heuristics:
         // - Re-use the oldest notes first
@@ -317,11 +317,11 @@ public:
         jassert (voices.size() > 0);
 
         // These are the voices we want to protect (ie: only steal if unavoidable)
-        MPESynthesiserVoice* low = nullptr; // Lowest sounding note, might be sustained, but NOT in release phase
-        MPESynthesiserVoice* top = nullptr; // Highest sounding note, might be sustained, but NOT in release phase
+        juce::MPESynthesiserVoice* low = nullptr; // Lowest sounding note, might be sustained, but NOT in release phase
+        juce::MPESynthesiserVoice* top = nullptr; // Highest sounding note, might be sustained, but NOT in release phase
 
         // this is a list of voices we can steal, sorted by how long they've been running
-        Array<MPESynthesiserVoice*> usableVoices;
+        juce::Array<juce::MPESynthesiserVoice*> usableVoices;
         usableVoices.ensureStorageAllocated (voices.size());
 
         for (auto voice : voices)
@@ -338,7 +338,7 @@ public:
             // compilers generating code containing heap allocations..
             struct Sorter
             {
-                bool operator() (const MPESynthesiserVoice* a, const MPESynthesiserVoice* b) const noexcept { return a->noteOnTime < b->noteOnTime; }
+                bool operator() (const juce::MPESynthesiserVoice* a, const juce::MPESynthesiserVoice* b) const noexcept { return a->noteOnTime < b->noteOnTime; }
             };
 
             std::sort (usableVoices.begin(), usableVoices.end(), Sorter());
@@ -374,8 +374,8 @@ public:
         // Oldest voice that doesn't have a finger on it:
         for (auto voice : usableVoices)
             if (voice != low && voice != top
-                 && voice->getCurrentlyPlayingNote().keyState != MPENote::keyDown
-                 && voice->getCurrentlyPlayingNote().keyState != MPENote::keyDownAndSustained)
+                 && voice->getCurrentlyPlayingNote().keyState != juce::MPENote::keyDown
+                 && voice->getCurrentlyPlayingNote().keyState != juce::MPENote::keyDownAndSustained)
                 return voice;
 
         // Oldest voice that isn't protected
@@ -394,8 +394,8 @@ public:
     }
 
     template <typename floatType>
-    void renderNextBlock (AudioBuffer<floatType>& outputAudio,
-                          const MidiBuffer& inputMidi,
+    void renderNextBlock (juce::AudioBuffer<floatType>& outputAudio,
+                          const juce::MidiBuffer& inputMidi,
                           int startSample,
                           int numSamples)
     {
@@ -443,8 +443,8 @@ protected:
     int noteOnIndex = -1, noteOffIndex = -1;
 
 private:
-    MidiBuffer slice;
-    Array<MPENote> noteStack;
+    juce::MidiBuffer slice;
+    juce::Array<juce::MPENote> noteStack;
     bool mono = false, legato = false, glissando = false, portamento = false;
     float glideRate = 500.0f;
     int numVoices = 32;

@@ -60,7 +60,6 @@
 
 namespace gin
 {
-using namespace juce;
 
 #include "metadata/gin_imagemetadata.h"
 #include "metadata/gin_commentmetadata.h"

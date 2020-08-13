@@ -13,20 +13,20 @@ public:
     struct HttpResult
     {
         int statusCode = 0;
-		juce::StringPairArray headers;
-		juce::MemoryBlock data;
+        juce::StringPairArray headers;
+        juce::MemoryBlock data;
     };
-    
-	Http (juce::URL url);
-    
+
+    Http (juce::URL url);
+
     HttpResult get();
-    
+
 private:
     bool getHeader (SecureStreamingSocket& s, HttpResult& result);
-	bool isChunked (const juce::StringPairArray& headers);
-	int getContentLength (const juce::StringPairArray& headers);
-    
-	bool readChunk (SecureStreamingSocket& s, juce::MemoryBlock& data);
+    bool isChunked (const juce::StringPairArray& headers);
+    int getContentLength (const juce::StringPairArray& headers);
 
-	juce::URL url;
+    bool readChunk (SecureStreamingSocket& s, juce::MemoryBlock& data);
+
+    juce::URL url;
 };

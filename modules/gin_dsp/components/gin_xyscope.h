@@ -2,8 +2,8 @@
 
 /** Draws an XY Scope
 */
-class XYScope : public Component,
-                public Timer
+class XYScope : public juce::Component,
+                public juce::Timer
 {
 public:
 
@@ -34,7 +34,7 @@ public:
     void setZoomFactor (float newZoomFactor);
 
     //==============================================================================
-    void paint (Graphics& g) override;
+    void paint (juce::Graphics& g) override;
     void timerCallback() override;
 
 private:
@@ -60,11 +60,11 @@ private:
         float numLeftToAverage;
         int bufferSize, bufferWritePos;
 
-        HeapBlock<float> xBuffer, yBuffer;
+        juce::HeapBlock<float> xBuffer, yBuffer;
 
         float currentX, currentY;
         AudioFifo samplesToProcess;
-        HeapBlock<float> tempProcessingBlock;
+        juce::HeapBlock<float> tempProcessingBlock;
     };
     
     Channel channel;
@@ -72,9 +72,9 @@ private:
     bool needToUpdate = false;
 
     //==============================================================================
-    void addSamples (const AudioSampleBuffer& buffer);
+    void addSamples (const juce::AudioSampleBuffer& buffer);
     void processPendingSamples();
-    void render (Graphics& g);
+    void render (juce::Graphics& g);
   
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (XYScope)

@@ -50,9 +50,6 @@ extern "C"
 
 namespace gin
 {
-using namespace juce;
-using juce::Rectangle;
-using juce::MemoryBlock;
 
 #include "dsp/gin_adsr.cpp"
 #include "dsp/gin_analogadsr.cpp"

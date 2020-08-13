@@ -8,7 +8,7 @@
 OpenStreetMaps::OpenStreetMaps()
   : tileSource (OpenStreetMap)
 {
-    mapTileDir = File::getSpecialLocation (File::tempDirectory).getChildFile ("mapTiles");
+    mapTileDir = juce::File::getSpecialLocation (juce::File::tempDirectory).getChildFile ("mapTiles");
     mapTileDir.createDirectory();
 }
 
@@ -18,24 +18,24 @@ OpenStreetMaps::~OpenStreetMaps()
     cancelledRequests.clear();
 }
 
-Image OpenStreetMaps::fetchTile (int zoom, int x, int y)
+juce::Image OpenStreetMaps::fetchTile (int zoom, int x, int y)
 {
     int mw = getMapWidthTiles (zoom);
     x = x % mw;
     y = y % mw;
 
-    String fname = String::formatted ("%d-%d-%d-%d.png", (int)tileSource, zoom, x, y);
+    juce::String fname = juce::String::formatted ("%d-%d-%d-%d.png", (int)tileSource, zoom, x, y);
 
-    File file = mapTileDir.getChildFile (fname);
+    juce::File file = mapTileDir.getChildFile (fname);
 
     if (cache.contains (fname))
     {
         return cache[fname];
     }
-    else if (File (file).existsAsFile())
+    else if (juce::File (file).existsAsFile())
     {
-        Image img;
-        img = ImageFileFormat::loadFrom (file);
+        juce::Image img;
+        img = juce::ImageFileFormat::loadFrom (file);
 
         cache.set (fname, img);
 
@@ -61,8 +61,8 @@ Image OpenStreetMaps::fetchTile (int zoom, int x, int y)
             startRequest();
         }
 
-        Image img (Image::ARGB, 256, 256, false);
-        img.clear ({0,0,256,256}, Colour (0xff808080));
+        juce::Image img (juce::Image::ARGB, 256, 256, false);
+        img.clear ({0,0,256,256}, juce::Colour (0xff808080));
         return img;
     }
 }
@@ -139,7 +139,7 @@ void OpenStreetMaps::startRequest()
 
             serversInUse.add (server);
 
-            URL url = URL (String (buffer));
+            juce::URL url = juce::URL (juce::String (buffer));
 
             requests[i]->reply = std::make_unique<AsyncDownload> (buffer, [this] (AsyncDownload* ad, juce::MemoryBlock m, bool ok)
                                                     {
@@ -162,15 +162,15 @@ void OpenStreetMaps::finished (AsyncDownload* reply, juce::MemoryBlock data, boo
 
             if (success)
             {
-                String fname;
-                fname = String::formatted ("%d-%d-%d-%d.png", (int)tileSource, requests[i]->zoom, requests[i]->x, requests[i]->y);
+                juce::String fname;
+                fname = juce::String::formatted ("%d-%d-%d-%d.png", (int)tileSource, requests[i]->zoom, requests[i]->x, requests[i]->y);
 
-                Image img = ImageFileFormat::loadFrom (data.getData(), data.getSize());
+                juce::Image img = juce::ImageFileFormat::loadFrom (data.getData(), data.getSize());
                 if (img.isValid())
                 {
                     cache.set (fname, img);
 
-                    File dest = mapTileDir.getChildFile (fname);
+                    juce::File dest = mapTileDir.getChildFile (fname);
                     dest.replaceWithData (data.getData(), data.getSize());
 
                     listeners.call (&OpenStreetMaps::Listener::tileFetched, requests[i]->zoom, requests[i]->x, requests[i]->y);
@@ -187,12 +187,12 @@ void OpenStreetMaps::finished (AsyncDownload* reply, juce::MemoryBlock data, boo
 int OpenStreetMaps::getMapWidthPixels (int zoom)
 {
     double numberOfTiles = std::pow (2.0, zoom);
-    return roundToInt (numberOfTiles * 256);
+    return juce::roundToInt (numberOfTiles * 256);
 }
 
 int OpenStreetMaps::getMapWidthTiles (int zoom)
 {
-    return roundToInt (std::pow (2.0, zoom));
+    return juce::roundToInt (std::pow (2.0, zoom));
 }
 
 juce::Point<double> OpenStreetMaps::coordinateToDisplay (juce::Point<double> coordinate, int zoom)
@@ -202,9 +202,9 @@ juce::Point<double> OpenStreetMaps::coordinateToDisplay (juce::Point<double> coo
     // LonToX
     double x = (coordinate.getX() + 180) * (numberOfTiles * tilesize) / 360.0;
     // LatToY
-    double projection = std::log (std::tan (double_Pi / 4 + degreesToRadians (coordinate.getY()) / 2));
+    double projection = std::log (std::tan (juce::double_Pi / 4 + juce::degreesToRadians (coordinate.getY()) / 2));
 
-    double y = (projection / double_Pi);
+    double y = (projection / juce::double_Pi);
     y = 1 - y;
     y = y /2  * (numberOfTiles * tilesize);
 
@@ -219,8 +219,8 @@ juce::Point<double> OpenStreetMaps::displayToCoordinate (juce::Point<double> poi
     double latitude = point.getY() * (2 / (std::pow (2.0, zoom) * 256));
 
     latitude = 1 - latitude;
-    latitude = latitude * double_Pi;
-    latitude = radiansToDegrees (std::atan (std::sinh (latitude)));
+    latitude = latitude * juce::double_Pi;
+    latitude = juce::radiansToDegrees (std::atan (std::sinh (latitude)));
 
     juce::Point<double> coord = {longitude, latitude};
     return coord;
@@ -230,7 +230,7 @@ juce::Point<double> OpenStreetMaps::tileForCoordinate (double lat, double lng, i
 {
     double zn = static_cast<double>(1 << zoom);
     double tx = (lng + 180.0) / 360.0;
-    double ty = (1.0 - std::log (std::tan (lat * double_Pi / 180.0) + 1.0 / std::cos (lat * double_Pi / 180.0)) / double_Pi) / 2.0;
+    double ty = (1.0 - std::log (std::tan (lat * juce::double_Pi / 180.0) + 1.0 / std::cos (lat * juce::double_Pi / 180.0)) / juce::double_Pi) / 2.0;
     return {tx * zn, ty * zn};
 }
 

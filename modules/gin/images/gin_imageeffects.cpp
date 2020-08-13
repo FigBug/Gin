@@ -53,7 +53,7 @@ inline T2 convert (const T1& in)
 
 //==============================================================================
 template <class T>
-void applyVignette (Image& img, float amountIn, float radiusIn, float fallOff, ThreadPool* threadPool)
+void applyVignette (juce::Image& img, float amountIn, float radiusIn, float fallOff, juce::ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
@@ -70,7 +70,7 @@ void applyVignette (Image& img, float amountIn, float radiusIn, float fallOff, T
 
     double amount = 1.0 - amountIn;
 
-    Image::BitmapData data (img, Image::BitmapData::readWrite);
+    juce::Image::BitmapData data (img, juce::Image::BitmapData::readWrite);
 
     Ellipse<double> outE { outA, outB };
     Ellipse<double> inE  { inA,  inB  };
@@ -106,10 +106,10 @@ void applyVignette (Image& img, float amountIn, float radiusIn, float fallOff, T
                 auto p1 = outE.pointAtAngle (angle);
                 auto p2 = inE.pointAtAngle (angle);
 
-                auto l1 = Line<double> ({dx,dy}, p2);
-                auto l2 = Line<double> (p1, p2);
+                auto l1 = juce::Line<double> ({dx,dy}, p2);
+                auto l2 = juce::Line<double> (p1, p2);
 
-                double factor = 1.0 - (amountIn * jlimit (0.0, 1.0, l1.getLength() / l2.getLength()));
+                double factor = 1.0 - (amountIn * juce::jlimit (0.0, 1.0, l1.getLength() / l2.getLength()));
 
                 uint8 r = toByte (0.5 + (s->getRed()   * factor));
                 uint8 g = toByte (0.5 + (s->getGreen() * factor));
@@ -124,21 +124,21 @@ void applyVignette (Image& img, float amountIn, float radiusIn, float fallOff, T
     });
 }
 
-void applyVignette (Image& img, float amountIn, float radiusIn, float fallOff, ThreadPool* threadPool)
+void applyVignette (juce::Image& img, float amountIn, float radiusIn, float fallOff, juce::ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applyVignette<PixelARGB> (img, amountIn, radiusIn, fallOff, threadPool);
-    else if (img.getFormat() == Image::RGB)      applyVignette<PixelRGB>  (img, amountIn, radiusIn, fallOff, threadPool);
+    if (img.getFormat() == juce::Image::ARGB)          applyVignette<juce::PixelARGB> (img, amountIn, radiusIn, fallOff, threadPool);
+    else if (img.getFormat() == juce::Image::RGB)      applyVignette<juce::PixelRGB>  (img, amountIn, radiusIn, fallOff, threadPool);
     else jassertfalse;
 }
 
 template <class T>
-void applySepia (Image& img, ThreadPool* threadPool)
+void applySepia (juce::Image& img, juce::ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
     threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
-    Image::BitmapData data (img, Image::BitmapData::readWrite);
+    juce::Image::BitmapData data (img, juce::Image::BitmapData::readWrite);
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
@@ -146,7 +146,7 @@ void applySepia (Image& img, ThreadPool* threadPool)
 
         for (int x = 0; x < w; x++)
         {
-            PixelARGB* s = (PixelARGB*)p;
+            juce::PixelARGB* s = (juce::PixelARGB*)p;
 
             uint8 r = s->getRed();
             uint8 g = s->getGreen();
@@ -164,21 +164,21 @@ void applySepia (Image& img, ThreadPool* threadPool)
     });
 }
 
-void applySepia (Image& img, ThreadPool* threadPool)
+void applySepia (juce::Image& img, juce::ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applySepia<PixelARGB> (img, threadPool);
-    else if (img.getFormat() == Image::RGB)      applySepia<PixelRGB>  (img, threadPool);
+    if (img.getFormat() == juce::Image::ARGB)          applySepia<juce::PixelARGB> (img, threadPool);
+    else if (img.getFormat() == juce::Image::RGB)      applySepia<juce::PixelRGB>  (img, threadPool);
     else jassertfalse;
 }
 
 template <class T>
-void applyGreyScale (Image& img, ThreadPool* threadPool)
+void applyGreyScale (juce::Image& img, juce::ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
     threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
-    Image::BitmapData data (img, Image::BitmapData::readWrite);
+    juce::Image::BitmapData data (img, juce::Image::BitmapData::readWrite);
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
@@ -207,24 +207,24 @@ void applyGreyScale (Image& img, ThreadPool* threadPool)
     });
 }
 
-void applyGreyScale (Image& img, ThreadPool* threadPool)
+void applyGreyScale (juce::Image& img, juce::ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applyGreyScale<PixelARGB> (img, threadPool);
-    else if (img.getFormat() == Image::RGB)      applyGreyScale<PixelRGB>  (img, threadPool);
+    if (img.getFormat() == juce::Image::ARGB)          applyGreyScale<juce::PixelARGB> (img, threadPool);
+    else if (img.getFormat() == juce::Image::RGB)      applyGreyScale<juce::PixelRGB>  (img, threadPool);
     else jassertfalse;
 }
 
 template <class T>
-void applySoften (Image& img, ThreadPool* threadPool)
+void applySoften (juce::Image& img, juce::ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
     threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
-    Image dst (img.getFormat(), w, h, true);
+    juce::Image dst (img.getFormat(), w, h, true);
 
-    Image::BitmapData srcData (img, Image::BitmapData::readOnly);
-    Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
+    juce::Image::BitmapData srcData (img, juce::Image::BitmapData::readOnly);
+    juce::Image::BitmapData dstData (dst, juce::Image::BitmapData::writeOnly);
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
@@ -237,8 +237,8 @@ void applySoften (Image& img, ThreadPool* threadPool)
             {
                 for (int n = -1; n <= 1; n++)
                 {
-                    int cx = jlimit (0, w - 1, x + m);
-                    int cy = jlimit (0, h - 1, y + n);
+                    int cx = juce::jlimit (0, w - 1, x + m);
+                    int cy = juce::jlimit (0, h - 1, y + n);
 
                     T* s = (T*) srcData.getPixelPointer (cx, cy);
 
@@ -259,24 +259,24 @@ void applySoften (Image& img, ThreadPool* threadPool)
     img = dst;
 }
 
-void applySoften (Image& img, ThreadPool* threadPool)
+void applySoften (juce::Image& img, juce::ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applySoften<PixelARGB> (img, threadPool);
-    else if (img.getFormat() == Image::RGB)      applySoften<PixelRGB>  (img, threadPool);
+    if (img.getFormat() == juce::Image::ARGB)          applySoften<juce::PixelARGB> (img, threadPool);
+    else if (img.getFormat() == juce::Image::RGB)      applySoften<juce::PixelRGB>  (img, threadPool);
     else jassertfalse;
 }
 
 template <class T>
-void applySharpen (Image& img, ThreadPool* threadPool)
+void applySharpen (juce::Image& img, juce::ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
     threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
-    Image dst (img.getFormat(), w, h, true);
+    juce::Image dst (img.getFormat(), w, h, true);
 
-    Image::BitmapData srcData (img, Image::BitmapData::readOnly);
-    Image::BitmapData dstData (dst, Image::BitmapData::writeOnly);
+    juce::Image::BitmapData srcData (img, juce::Image::BitmapData::readOnly);
+    juce::Image::BitmapData dstData (dst, juce::Image::BitmapData::writeOnly);
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
@@ -284,8 +284,8 @@ void applySharpen (Image& img, ThreadPool* threadPool)
         {
             auto getPixelPointer = [&] (int cx, int cy) -> T*
             {
-                cx = jlimit (0, w - 1, cx);
-                cy = jlimit (0, h - 1, cy);
+                cx = juce::jlimit (0, w - 1, cx);
+                cy = juce::jlimit (0, h - 1, cy);
 
                 return (T*) srcData.getPixelPointer (cx, cy);
             };
@@ -328,21 +328,21 @@ void applySharpen (Image& img, ThreadPool* threadPool)
     img = dst;
 }
 
-void applySharpen (Image& img, ThreadPool* threadPool)
+void applySharpen (juce::Image& img, juce::ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applySharpen<PixelARGB> (img, threadPool);
-    else if (img.getFormat() == Image::RGB)      applySharpen<PixelRGB>  (img, threadPool);
+    if (img.getFormat() == juce::Image::ARGB)          applySharpen<juce::PixelARGB> (img, threadPool);
+    else if (img.getFormat() == juce::Image::RGB)      applySharpen<juce::PixelRGB>  (img, threadPool);
     else jassertfalse;
 }
 
 template <class T>
-void applyGamma (Image& img, float gamma, ThreadPool* threadPool)
+void applyGamma (juce::Image& img, float gamma, juce::ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
     threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
-    Image::BitmapData data (img, Image::BitmapData::readWrite);
+    juce::Image::BitmapData data (img, juce::Image::BitmapData::readWrite);
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
@@ -368,21 +368,21 @@ void applyGamma (Image& img, float gamma, ThreadPool* threadPool)
     });
 }
 
-void applyGamma (Image& img, float gamma, ThreadPool* threadPool)
+void applyGamma (juce::Image& img, float gamma, juce::ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applyGamma<PixelARGB> (img, gamma, threadPool);
-    else if (img.getFormat() == Image::RGB)      applyGamma<PixelRGB>  (img, gamma, threadPool);
+    if (img.getFormat() == juce::Image::ARGB)          applyGamma<juce::PixelARGB> (img, gamma, threadPool);
+    else if (img.getFormat() == juce::Image::RGB)      applyGamma<juce::PixelRGB>  (img, gamma, threadPool);
     else jassertfalse;
 }
 
 template <class T>
-void applyInvert (Image& img, ThreadPool* threadPool)
+void applyInvert (juce::Image& img, juce::ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
     threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
-    Image::BitmapData data (img, Image::BitmapData::readWrite);
+    juce::Image::BitmapData data (img, juce::Image::BitmapData::readWrite);
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
@@ -408,15 +408,15 @@ void applyInvert (Image& img, ThreadPool* threadPool)
     });
 }
 
-void applyInvert (Image& img, ThreadPool* threadPool)
+void applyInvert (juce::Image& img, juce::ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applyInvert<PixelARGB> (img, threadPool);
-    else if (img.getFormat() == Image::RGB)      applyInvert<PixelRGB>  (img, threadPool);
+    if (img.getFormat() == juce::Image::ARGB)          applyInvert<juce::PixelARGB> (img, threadPool);
+    else if (img.getFormat() == juce::Image::RGB)      applyInvert<juce::PixelRGB>  (img, threadPool);
     else jassertfalse;
 }
 
 template <class T>
-void applyContrast (Image& img, float contrast, ThreadPool* threadPool)
+void applyContrast (juce::Image& img, float contrast, juce::ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
@@ -425,7 +425,7 @@ void applyContrast (Image& img, float contrast, ThreadPool* threadPool)
     contrast = (100.0f + contrast) / 100.0f;
     contrast = square (contrast);
 
-    Image::BitmapData data (img, Image::BitmapData::readWrite);
+    juce::Image::BitmapData data (img, juce::Image::BitmapData::readWrite);
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
@@ -469,21 +469,21 @@ void applyContrast (Image& img, float contrast, ThreadPool* threadPool)
     });
 }
 
-void applyContrast (Image& img, float contrast, ThreadPool* threadPool)
+void applyContrast (juce::Image& img, float contrast, juce::ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applyContrast<PixelARGB> (img, contrast, threadPool);
-    else if (img.getFormat() == Image::RGB)      applyContrast<PixelRGB>  (img, contrast, threadPool);
+    if (img.getFormat() == juce::Image::ARGB)          applyContrast<juce::PixelARGB> (img, contrast, threadPool);
+    else if (img.getFormat() == juce::Image::RGB)      applyContrast<juce::PixelRGB>  (img, contrast, threadPool);
     else jassertfalse;
 }
 
 template <class T>
-void applyBrightnessContrast (Image& img, float brightness, float contrast, ThreadPool* threadPool)
+void applyBrightnessContrast (juce::Image& img, float brightness, float contrast, juce::ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
     threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
-    Image::BitmapData data (img, Image::BitmapData::readWrite);
+    juce::Image::BitmapData data (img, juce::Image::BitmapData::readWrite);
 
     double multiply = 1;
     double divide = 1;
@@ -586,15 +586,15 @@ void applyBrightnessContrast (Image& img, float brightness, float contrast, Thre
     delete[] rgbTable;
 }
 
-void applyBrightnessContrast (Image& img, float brightness, float contrast, ThreadPool* threadPool)
+void applyBrightnessContrast (juce::Image& img, float brightness, float contrast, juce::ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applyBrightnessContrast<PixelARGB> (img, brightness, contrast, threadPool);
-    else if (img.getFormat() == Image::RGB)      applyBrightnessContrast<PixelRGB>  (img, brightness, contrast, threadPool);
+    if (img.getFormat() == juce::Image::ARGB)          applyBrightnessContrast<juce::PixelARGB> (img, brightness, contrast, threadPool);
+    else if (img.getFormat() == juce::Image::RGB)      applyBrightnessContrast<juce::PixelRGB>  (img, brightness, contrast, threadPool);
     else jassertfalse;
 }
 
 template <class T>
-void applyHueSaturationLightness (Image& img, float hueIn, float saturation, float lightness, ThreadPool* threadPool)
+void applyHueSaturationLightness (juce::Image& img, float hueIn, float saturation, float lightness, juce::ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
@@ -606,7 +606,7 @@ void applyHueSaturationLightness (Image& img, float hueIn, float saturation, flo
 
     hueIn /= 360.0f;
 
-    Image::BitmapData data (img, Image::BitmapData::readWrite);
+    juce::Image::BitmapData data (img, juce::Image::BitmapData::readWrite);
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
     {
@@ -626,14 +626,14 @@ void applyHueSaturationLightness (Image& img, float hueIn, float saturation, flo
             int go = toByte (int (intensity * 1024 + (g - intensity) * saturation) >> 10);
             int bo = toByte (int (intensity * 1024 + (b - intensity) * saturation) >> 10);
 
-            Colour c (toByte (ro), toByte (go), toByte (bo));
+            juce::Colour c (toByte (ro), toByte (go), toByte (bo));
             float hue = c.getHue();
             hue += hueIn;
 
             while (hue < 0.0f)  hue += 1.0f;
             while (hue >= 1.0f) hue -= 1.0f;
 
-            c = Colour::fromHSV (hue, c.getSaturation(), c.getBrightness(), float (a));
+            c = juce::Colour::fromHSV (hue, c.getSaturation(), c.getBrightness(), float (a));
             ro = c.getRed();
             go = c.getGreen();
             bo = c.getBlue();
@@ -646,13 +646,13 @@ void applyHueSaturationLightness (Image& img, float hueIn, float saturation, flo
 
             if (lightness > 0)
             {
-                auto blended = blend (PixelARGB (toByte ((lightness * 255) / 100 * (a / 255.0)), 255, 255, 255), convert<T, PixelARGB> (*s));
-                *s = convert<PixelARGB, T> (blended);
+                auto blended = blend (juce::PixelARGB (toByte ((lightness * 255) / 100 * (a / 255.0)), 255, 255, 255), convert<T, juce::PixelARGB> (*s));
+                *s = convert<juce::PixelARGB, T> (blended);
             }
             else if (lightness < 0)
             {
-                auto blended = blend (PixelARGB (toByte ((-lightness * 255) / 100 * (a / 255.0)), 0, 0, 0), convert<T, PixelARGB> (*s));
-                *s = convert<PixelARGB, T> (blended);
+                auto blended = blend (juce::PixelARGB (toByte ((-lightness * 255) / 100 * (a / 255.0)), 0, 0, 0), convert<T, juce::PixelARGB> (*s));
+                *s = convert<juce::PixelARGB, T> (blended);
             }
 
             p += data.pixelStride;
@@ -660,31 +660,31 @@ void applyHueSaturationLightness (Image& img, float hueIn, float saturation, flo
     });
 }
 
-void applyHueSaturationLightness (Image& img, float hue, float saturation, float lightness, ThreadPool* threadPool)
+void applyHueSaturationLightness (juce::Image& img, float hue, float saturation, float lightness, juce::ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applyHueSaturationLightness<PixelARGB> (img, hue, saturation, lightness, threadPool);
-    else if (img.getFormat() == Image::RGB)      applyHueSaturationLightness<PixelRGB>  (img, hue, saturation, lightness, threadPool);
+    if (img.getFormat() == juce::Image::ARGB)          applyHueSaturationLightness<juce::PixelARGB> (img, hue, saturation, lightness, threadPool);
+    else if (img.getFormat() == juce::Image::RGB)      applyHueSaturationLightness<juce::PixelRGB>  (img, hue, saturation, lightness, threadPool);
     else jassertfalse;
 }
 
-Image applyResize (const Image& src, int width, int height)
+juce::Image applyResize (const juce::Image& src, int width, int height)
 {
-    Image dst (src.getFormat(), width, height, true);
+    juce::Image dst (src.getFormat(), width, height, true);
 
-    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
-    Image::BitmapData dstData (dst, Image::BitmapData::readWrite);
+    juce::Image::BitmapData srcData (src, juce::Image::BitmapData::readOnly);
+    juce::Image::BitmapData dstData (dst, juce::Image::BitmapData::readWrite);
 
     int channels = 0;
-    if (src.getFormat() == Image::ARGB)                 channels = 4;
-    else if (src.getFormat() == Image::RGB)             channels = 3;
-    else if (src.getFormat() == Image::SingleChannel)   channels = 1;
-    else                                                return {};
+    if (src.getFormat() == juce::Image::ARGB)               channels = 4;
+    else if (src.getFormat() == juce::Image::RGB)           channels = 3;
+    else if (src.getFormat() == juce::Image::SingleChannel) channels = 1;
+    else                                                    return {};
 
     // JUCE images may have padding at the end of each scan line.
     // Avir expects the image data to be packed. So we need to
     // pack and unpack the image data before and after resizing.
-    HeapBlock<uint8> srcPacked (src.getWidth() * src.getHeight() * channels);
-    HeapBlock<uint8> dstPacked (dst.getWidth() * dst.getHeight() * channels);
+    juce::HeapBlock<uint8> srcPacked (src.getWidth() * src.getHeight() * channels);
+    juce::HeapBlock<uint8> dstPacked (dst.getWidth() * dst.getHeight() * channels);
 
     uint8* rawSrc = srcPacked.getData();
     uint8* rawDst = dstPacked.getData();
@@ -712,21 +712,21 @@ Image applyResize (const Image& src, int width, int height)
     return dst;
 }
 
-Image applyResize (const Image& src, float factor)
+juce::Image applyResize (const juce::Image& src, float factor)
 {
     return applyResize (src,
-                        roundToInt (factor * src.getWidth()),
-                        roundToInt (factor * src.getHeight()));
+                        juce::roundToInt (factor * src.getWidth()),
+                        juce::roundToInt (factor * src.getHeight()));
 }
 
 template <class T>
-void applyGradientMap (Image& img, const ColourGradient& gradient, ThreadPool* threadPool)
+void applyGradientMap (juce::Image& img, const juce::ColourGradient& gradient, juce::ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
     threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
-    Image::BitmapData data (img, Image::BitmapData::readWrite);
+    juce::Image::BitmapData data (img, juce::Image::BitmapData::readWrite);
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
                            {
@@ -759,16 +759,16 @@ void applyGradientMap (Image& img, const ColourGradient& gradient, ThreadPool* t
                            });
 }
 
-void applyGradientMap (Image& img, const ColourGradient& gradient, ThreadPool* threadPool)
+void applyGradientMap (juce::Image& img, const juce::ColourGradient& gradient, juce::ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applyGradientMap<PixelARGB> (img, gradient, threadPool);
-    else if (img.getFormat() == Image::RGB)      applyGradientMap<PixelRGB>  (img, gradient, threadPool);
+    if (img.getFormat() == juce::Image::ARGB)          applyGradientMap<juce::PixelARGB> (img, gradient, threadPool);
+    else if (img.getFormat() == juce::Image::RGB)      applyGradientMap<juce::PixelRGB>  (img, gradient, threadPool);
     else jassertfalse;
 }
 
-void applyGradientMap (Image& img, const Colour c1, const Colour c2, ThreadPool* threadPool)
+void applyGradientMap (juce::Image& img, const juce::Colour c1, const juce::Colour c2, juce::ThreadPool* threadPool)
 {
-    ColourGradient g;
+    juce::ColourGradient g;
     g.addColour (0.0, c1);
     g.addColour (1.0, c2);
 
@@ -776,7 +776,7 @@ void applyGradientMap (Image& img, const Colour c1, const Colour c2, ThreadPool*
 }
 
 template <class T>
-void applyColour (Image& img, Colour c, ThreadPool* threadPool)
+void applyColour (juce::Image& img, juce::Colour c, juce::ThreadPool* threadPool)
 {
     const int w = img.getWidth();
     const int h = img.getHeight();
@@ -787,7 +787,7 @@ void applyColour (Image& img, Colour c, ThreadPool* threadPool)
     uint8 b = c.getBlue();
     uint8 a = c.getAlpha();
 
-    Image::BitmapData data (img, Image::BitmapData::readWrite);
+    juce::Image::BitmapData data (img, juce::Image::BitmapData::readWrite);
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
                            {
@@ -802,10 +802,9 @@ void applyColour (Image& img, Colour c, ThreadPool* threadPool)
                            });
 }
 
-void applyColour (Image& img, Colour c, ThreadPool* threadPool)
+void applyColour (juce::Image& img, juce::Colour c, juce::ThreadPool* threadPool)
 {
-    if (img.getFormat() == Image::ARGB)          applyColour<PixelARGB> (img, c, threadPool);
-    else if (img.getFormat() == Image::RGB)      applyColour<PixelRGB>  (img, c, threadPool);
+    if (img.getFormat() == juce::Image::ARGB)          applyColour<juce::PixelARGB> (img, c, threadPool);
+    else if (img.getFormat() == juce::Image::RGB)      applyColour<juce::PixelRGB>  (img, c, threadPool);
     else jassertfalse;
 }
-

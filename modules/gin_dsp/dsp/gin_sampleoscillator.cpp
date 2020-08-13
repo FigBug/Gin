@@ -79,7 +79,7 @@ void SampleOscillator::noteOff()
     looping = false;
 }
 
-bool SampleOscillator::read (double note, AudioSampleBuffer& buffer, int bufStart, int bufLength)
+bool SampleOscillator::read (double note, juce::AudioSampleBuffer& buffer, int bufStart, int bufLength)
 {
     if (bufLength == -1)
         bufLength = buffer.getNumSamples() - bufStart;
@@ -89,7 +89,7 @@ bool SampleOscillator::read (double note, AudioSampleBuffer& buffer, int bufStar
     while (resampler.samplesReady() < bufLength)
         fillFifo (bufLength - resampler.samplesReady());
     
-    AudioSampleBuffer slice (buffer.getArrayOfWritePointers(), 2, bufStart, bufLength);
+    juce::AudioSampleBuffer slice (buffer.getArrayOfWritePointers(), 2, bufStart, bufLength);
     resampler.popAudioBuffer (slice);
     
     return false;

@@ -39,7 +39,7 @@ inline float calculateMedian (const float* values, int n)
 
     if (f.size() % 2 == 0)
         return (f[f.size() / 2] + f[f.size() / 2 - 1]) / 2.0f;
-    
+
     return f[f.size() / 2];
 }
 
@@ -87,7 +87,7 @@ public:
 
     PerlinNoise (unsigned int seed)
     {
-		juce::Random r (seed);
+        juce::Random r (seed);
 
         for (int i = 0; i <= 255; i++)
             p.add (i);
@@ -150,7 +150,7 @@ private:
         return ((h & 1) == 0 ? u : -u) + ((h & 2) == 0 ? v : -v);
     }
 
-	juce::Array<int> p;
+    juce::Array<int> p;
 };
 
 //==============================================================================
@@ -197,13 +197,13 @@ class AsyncDownload : private juce::Thread,
                       private juce::AsyncUpdater
 {
 public:
-	AsyncDownload (juce::String url_, std::function<void (AsyncDownload*, juce::MemoryBlock, bool)> cb_, int timeoutMS_ = 0)
+    AsyncDownload (juce::String url_, std::function<void (AsyncDownload*, juce::MemoryBlock, bool)> cb_, int timeoutMS_ = 0)
       : Thread ("AsyncDownload"), url (url_), cb (cb_), timeoutMS (timeoutMS_)
     {
         startThread();
     }
 
-	AsyncDownload (juce::URL url_, std::function<void (AsyncDownload*, juce::MemoryBlock, bool)> cb_, int timeoutMS_ = 0)
+    AsyncDownload (juce::URL url_, std::function<void (AsyncDownload*, juce::MemoryBlock, bool)> cb_, int timeoutMS_ = 0)
         : Thread ("AsyncDownload"), url (url_), cb (cb_), timeoutMS (timeoutMS_)
     {
         startThread();
@@ -217,12 +217,12 @@ public:
     void run() override
     {
         ok = readEntireBinaryStream (data);
-		handleAsyncUpdate();
+        handleAsyncUpdate();
     }
 
-	bool readEntireBinaryStream (juce::MemoryBlock& destData, bool usePostCommand = false)
+    bool readEntireBinaryStream (juce::MemoryBlock& destData, bool usePostCommand = false)
     {
-		const std::unique_ptr<juce::InputStream> in (url.isLocalFile() ? url.getLocalFile().createInputStream() : url.createInputStream (usePostCommand, nullptr, nullptr, {}, timeoutMS));
+        const std::unique_ptr<juce::InputStream> in (url.isLocalFile() ? url.getLocalFile().createInputStream() : url.createInputStream (usePostCommand, nullptr, nullptr, {}, timeoutMS));
 
         if (in != nullptr)
         {
@@ -233,13 +233,13 @@ public:
         return false;
     }
 
-	void handleAsyncUpdate() override
+    void handleAsyncUpdate() override
     {
         if (cb)
             cb (this, data, ok);
     }
 
-	juce::URL url;
+    juce::URL url;
     std::function<void (AsyncDownload*, juce::MemoryBlock, bool)> cb;
     int timeoutMS = 0;
     bool ok = false;
@@ -252,16 +252,16 @@ public:
 class TimeProfiler
 {
 public:
-	TimeProfiler (const juce::String& name_) :
-	name (name_), start (juce::Time::getMillisecondCounterHiRes()) {}
+    TimeProfiler (const juce::String& name_) :
+    name (name_), start (juce::Time::getMillisecondCounterHiRes()) {}
 
     ~TimeProfiler()
     {
-		DBG (name + juce::String::formatted (" %.2fs", (juce::Time::getMillisecondCounterHiRes() - start) / 1000.0));
+        DBG (name + juce::String::formatted (" %.2fs", (juce::Time::getMillisecondCounterHiRes() - start) / 1000.0));
     }
 
 private:
-	juce::String name;
+    juce::String name;
     double start;
 };
 

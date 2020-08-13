@@ -14,22 +14,22 @@ class BufferCacheItem
 {
 public:
     BufferCacheItem (int c = 2, int s = 44100) : data (c, s), chans (c), samps (s) {}
-    
+
     void resize (int c, int s)
     {
         chans = c;
         samps = s;
-        
+
         data.setSize (c, s);
     }
-    
-    AudioSampleBuffer data;
+
+    juce::AudioSampleBuffer data;
     bool busy = false;
     int chans = 0, samps = 0;
 };
 
 //==============================================================================
-class BufferCache : private DeletedAtShutdown
+class BufferCache : private juce::DeletedAtShutdown
 {
 public:
     BufferCache()
@@ -49,21 +49,21 @@ public:
         {
             if (channels > i->data.getNumChannels() || samples > i->data.getNumChannels())
                 i->resize (channels, samples);
-        
+
             return i;
         }
-        
+
         auto i = new BufferCacheItem (channels, samples);
         i->busy = true;
 
-        ScopedLock sl (lock);
+        juce::ScopedLock sl (lock);
         cache.add (i);
         return i;
     }
-    
+
     void free (BufferCacheItem& i)
     {
-        ScopedLock sl (lock);
+        juce::ScopedLock sl (lock);
         i.busy = false;
     }
 
@@ -72,7 +72,7 @@ public:
 private:
     BufferCacheItem* find (int channels, int samples)
     {
-        ScopedLock sl (lock);
+        juce::ScopedLock sl (lock);
 
         // First look for one the correct size
         for (auto i : cache)
@@ -85,7 +85,7 @@ private:
                 return i;
             }
         }
-        
+
         // Then just find a free one
         for (auto i : cache)
         {
@@ -95,12 +95,12 @@ private:
                 return i;
             }
         }
-        
+
         return {};
     }
-    
-    CriticalSection lock;
-    OwnedArray<BufferCacheItem> cache;
+
+    juce::CriticalSection lock;
+    juce::OwnedArray<BufferCacheItem> cache;
 };
 
 JUCE_IMPLEMENT_SINGLETON(BufferCache)
@@ -108,7 +108,7 @@ JUCE_IMPLEMENT_SINGLETON(BufferCache)
 //==============================================================================
 
 ScratchBuffer::ScratchBuffer (BufferCacheItem& i)
-    : AudioSampleBuffer (i.data.getArrayOfWritePointers(), i.chans, 0, i.samps),
+    : juce::AudioSampleBuffer (i.data.getArrayOfWritePointers(), i.chans, 0, i.samps),
     cache (i)
 {
 }
@@ -119,7 +119,7 @@ ScratchBuffer::ScratchBuffer (int numChannels, int numSamples)
     clear();
 }
 
-ScratchBuffer::ScratchBuffer (AudioSampleBuffer& buffer)
+ScratchBuffer::ScratchBuffer (juce::AudioSampleBuffer& buffer)
     : ScratchBuffer (*BufferCache::getInstance()->get (buffer.getNumChannels(), buffer.getNumSamples()))
 {
     for (int i = buffer.getNumChannels(); --i >= 0;)

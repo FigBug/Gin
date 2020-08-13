@@ -10,11 +10,11 @@
 //==============================================================================
 void StereoOscillator::noteOn (float p)
 {
-    p >= 0 ? phaseL = p : Random::getSystemRandom().nextFloat();
+    p >= 0 ? phaseL = p : juce::Random::getSystemRandom().nextFloat();
     phaseR = phaseL;
 }
 
-void StereoOscillator::process (float note, const Params& params, AudioSampleBuffer& buffer)
+void StereoOscillator::process (float note, const Params& params, juce::AudioSampleBuffer& buffer)
 {
     float freq = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (note - 69.0) / 12.0)));
     float delta = 1.0f / (float ((1.0f / freq) * sampleRate));
@@ -36,7 +36,7 @@ void StereoOscillator::process (float note, const Params& params, AudioSampleBuf
     phaseR = phaseL;
 }
 
-void StereoOscillator::process (float noteL, float noteR, const Params& params, AudioSampleBuffer& buffer)
+void StereoOscillator::process (float noteL, float noteR, const Params& params, juce::AudioSampleBuffer& buffer)
 {
     float freqL = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteL - 69.0) / 12.0)));
     float freqR = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteR - 69.0) / 12.0)));
@@ -61,7 +61,7 @@ void StereoOscillator::process (float noteL, float noteR, const Params& params, 
     }
 }
 
-void StereoOscillator::processAdding (float note, const Params& params, AudioSampleBuffer& buffer)
+void StereoOscillator::processAdding (float note, const Params& params, juce::AudioSampleBuffer& buffer)
 {
     float freq = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (note - 69.0) / 12.0)));
     float delta = 1.0f / (float ((1.0f / freq) * sampleRate));
@@ -83,7 +83,7 @@ void StereoOscillator::processAdding (float note, const Params& params, AudioSam
     phaseR = phaseL;
 }
 
-void StereoOscillator::processAdding (float noteL, float noteR, const Params& params, AudioSampleBuffer& buffer)
+void StereoOscillator::processAdding (float noteL, float noteR, const Params& params, juce::AudioSampleBuffer& buffer)
 {
     float freqL = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteL - 69.0) / 12.0)));
     float freqR = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteR - 69.0) / 12.0)));

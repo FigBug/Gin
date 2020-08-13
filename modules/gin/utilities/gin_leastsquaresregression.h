@@ -22,12 +22,12 @@ public:
 
     void addPoint (double x, double y);
     void addPoint (juce::Point<double> point);
-	void addPoints (juce::Array<juce::Point<double>> points);
+    void addPoints (juce::Array<juce::Point<double>> points);
 
     void clear();
 
     bool enoughPoints();
-	juce::Array<double> getTerms();
+    juce::Array<double> getTerms();
 
     double aTerm();
     double bTerm();
@@ -47,7 +47,7 @@ private:
     double getSSerr();
     double getPredictedY (double x);
 
-	juce::Array<juce::Point<double>> pointArray;
+    juce::Array<juce::Point<double>> pointArray;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (LeastSquaresRegression)
 };

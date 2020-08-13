@@ -27,8 +27,8 @@ void multiThreadedFor (T start, T end, T interval, juce::ThreadPool* threadPool,
     {
         int num = threadPool->getNumThreads();
 
-		juce::WaitableEvent wait;
-		juce::Atomic<int> threadsRunning (num);
+        juce::WaitableEvent wait;
+        juce::Atomic<int> threadsRunning (num);
 
         for (int i = 0; i < num; i++)
         {

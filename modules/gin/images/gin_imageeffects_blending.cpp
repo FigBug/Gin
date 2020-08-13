@@ -10,7 +10,7 @@ inline uint8 channelBlendLighten (int A, int B)       { return ((uint8)((B > A) 
 inline uint8 channelBlendDarken (int A, int B)        { return ((uint8)((B > A) ? A : B)); }
 inline uint8 channelBlendMultiply (int A, int B)      { return ((uint8)((A * B) / 255)); }
 inline uint8 channelBlendAverage (int A, int B)       { return ((uint8)((A + B) / 2)); }
-inline uint8 channelBlendAdd (int A, int B)           { return ((uint8)(jmin (255, (A + B)))); }
+inline uint8 channelBlendAdd (int A, int B)           { return ((uint8)(juce::jmin (255, (A + B)))); }
 inline uint8 channelBlendSubtract (int A, int B)      { return ((uint8)((A + B < 255) ? 0 : (A + B - 255))); }
 inline uint8 channelBlendDifference (int A, int B)    { return ((uint8)(std::abs (A - B))); }
 inline uint8 channelBlendNegation (int A, int B)      { return ((uint8)(255 - std::abs (255 - A - B))); }
@@ -19,17 +19,17 @@ inline uint8 channelBlendExclusion (int A, int B)     { return ((uint8)(A + B - 
 inline uint8 channelBlendOverlay (int A, int B)       { return ((uint8)((B < 128) ? (2 * A * B / 255) : (255 - 2 * (255 - A) * (255 - B) / 255))); }
 inline uint8 channelBlendSoftLight (int A, int B)     { return ((uint8)((B < 128) ? (2 * ((A >> 1) + 64)) * ((float)B / 255) : (255 - (2 * (255 - ((A >> 1) + 64)) * (float)(255 - B) / 255)))); }
 inline uint8 channelBlendHardLight (int A, int B)     { return (channelBlendOverlay (B,A)); }
-inline uint8 channelBlendColorDodge (int A, int B)    { return ((uint8)((B == 255) ? B : jmin (255, ((A << 8 ) / (255 - B))))); }
-inline uint8 channelBlendColorBurn (int A, int B)     { return ((uint8)((B == 0) ? B : jmax (0, (255 - ((255 - A) << 8 ) / B)))); }
+inline uint8 channelBlendColorDodge (int A, int B)    { return ((uint8)((B == 255) ? B : juce::jmin (255, ((A << 8 ) / (255 - B))))); }
+inline uint8 channelBlendColorBurn (int A, int B)     { return ((uint8)((B == 0) ? B : juce::jmax (0, (255 - ((255 - A) << 8 ) / B)))); }
 inline uint8 channelBlendLinearDodge (int A, int B)   { return (channelBlendAdd (A, B)); }
 inline uint8 channelBlendLinearBurn (int A, int B)    { return (channelBlendSubtract (A, B)); }
 inline uint8 channelBlendLinearLight (int A, int B)   { return ((uint8)(B < 128) ? channelBlendLinearBurn (A,(2 * B)) : channelBlendLinearDodge (A, (2 * (B - 128)))); }
 inline uint8 channelBlendVividLight (int A, int B)    { return ((uint8)(B < 128) ? channelBlendColorBurn (A,(2 * B)) : channelBlendColorDodge (A, (2 * (B - 128)))); }
 inline uint8 channelBlendPinLight (int A, int B)      { return ((uint8)(B < 128) ? channelBlendDarken (A,(2 * B)) : channelBlendLighten (A, (2 * (B - 128)))); }
 inline uint8 channelBlendHardMix (int A, int B)       { return ((uint8)((channelBlendVividLight (A, B) < 128) ? 0:255)); }
-inline uint8 channelBlendReflect (int A, int B)       { return ((uint8)((B == 255) ? B : jmin (255, (A * A / (255 - B))))); }
+inline uint8 channelBlendReflect (int A, int B)       { return ((uint8)((B == 255) ? B : juce::jmin (255, (A * A / (255 - B))))); }
 inline uint8 channelBlendGlow (int A, int B)          { return (channelBlendReflect (B, A)); }
-inline uint8 channelBlendPhoenix (int A, int B)       { return ((uint8)(jmin (A, B) - jmax (A, B) + 255)); }
+inline uint8 channelBlendPhoenix (int A, int B)       { return ((uint8)(juce::jmin (A, B) - juce::jmax (A, B) + 255)); }
 
 inline uint8 channelBlendAlpha (uint8 A, uint8 B, float O)
 {
@@ -37,10 +37,10 @@ inline uint8 channelBlendAlpha (uint8 A, uint8 B, float O)
 }
 
 template <class T, uint8 (*F)(int, int)>
-void applyBlend (Image& dst, const Image& src, float alpha, juce::Point<int> position, ThreadPool* threadPool)
+void applyBlend (juce::Image& dst, const juce::Image& src, float alpha, juce::Point<int> position, juce::ThreadPool* threadPool)
 {
-    auto rcLower = Rectangle<int> (0, 0, dst.getWidth(), dst.getHeight());
-    auto rcUpper = Rectangle<int> (position.x, position.y, src.getWidth(), src.getHeight());
+    auto rcLower = juce::Rectangle<int> (0, 0, dst.getWidth(), dst.getHeight());
+    auto rcUpper = juce::Rectangle<int> (position.x, position.y, src.getWidth(), src.getHeight());
 
     auto rcOverlap = rcLower.getIntersection (rcUpper);
     if (rcOverlap.isEmpty())
@@ -54,8 +54,8 @@ void applyBlend (Image& dst, const Image& src, float alpha, juce::Point<int> pos
 
     threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
-    Image::BitmapData srcData (src, Image::BitmapData::readOnly);
-    Image::BitmapData dstData (dst, Image::BitmapData::readWrite);
+    juce::Image::BitmapData srcData (src, juce::Image::BitmapData::readOnly);
+    juce::Image::BitmapData dstData (dst, juce::Image::BitmapData::readWrite);
 
     multiThreadedFor<int> (0, h, 1, threadPool, [&] (int y)
                            {
@@ -122,7 +122,7 @@ void applyBlend (Image& dst, const Image& src, float alpha, juce::Point<int> pos
 }
 
 template <class T>
-void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha, juce::Point<int> position, ThreadPool* threadPool)
+void applyBlend (juce::Image& dst, const juce::Image& src, BlendMode mode, float alpha, juce::Point<int> position, juce::ThreadPool* threadPool)
 {
     switch (mode)
     {
@@ -154,34 +154,34 @@ void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha, juce
     }
 }
 
-void applyBlend (Image& dst, const Image& src, BlendMode mode, float alpha, juce::Point<int> position, ThreadPool* threadPool)
+void applyBlend (juce::Image& dst, const juce::Image& src, BlendMode mode, float alpha, juce::Point<int> position, juce::ThreadPool* threadPool)
 {
     if (src.getFormat() != dst.getFormat())
     {
-        Image copy = src.createCopy();
+        juce::Image copy = src.createCopy();
         copy = copy.convertedToFormat (dst.getFormat());
 
-        if (src.getFormat() == Image::ARGB)          applyBlend<PixelARGB> (dst, copy, mode, alpha, position, threadPool);
-        else if (src.getFormat() == Image::RGB)      applyBlend<PixelRGB>  (dst, copy, mode, alpha, position, threadPool);
+        if (src.getFormat() == juce::Image::ARGB)          applyBlend<juce::PixelARGB> (dst, copy, mode, alpha, position, threadPool);
+        else if (src.getFormat() == juce::Image::RGB)      applyBlend<juce::PixelRGB>  (dst, copy, mode, alpha, position, threadPool);
         else jassertfalse;
     }
     else
     {
-        if (src.getFormat() == Image::ARGB)          applyBlend<PixelARGB> (dst, src, mode, alpha, position, threadPool);
-        else if (src.getFormat() == Image::RGB)      applyBlend<PixelRGB>  (dst, src, mode, alpha, position, threadPool);
+        if (src.getFormat() == juce::Image::ARGB)          applyBlend<juce::PixelARGB> (dst, src, mode, alpha, position, threadPool);
+        else if (src.getFormat() == juce::Image::RGB)      applyBlend<juce::PixelRGB>  (dst, src, mode, alpha, position, threadPool);
         else jassertfalse;
     }
 }
 
 template <class T, uint8 (*F)(int, int)>
-void applyBlend (Image& dst, Colour c, ThreadPool* threadPool)
+void applyBlend (juce::Image& dst, juce::Colour c, juce::ThreadPool* threadPool)
 {
     int w = dst.getWidth();
     int h = dst.getHeight();
 
     threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
-    Image::BitmapData dstData (dst, Image::BitmapData::readWrite);
+    juce::Image::BitmapData dstData (dst, juce::Image::BitmapData::readWrite);
 
     uint8 ar = c.getRed();
     uint8 ag = c.getGreen();
@@ -242,7 +242,7 @@ void applyBlend (Image& dst, Colour c, ThreadPool* threadPool)
 }
 
 template <class T>
-void applyBlend (Image& dst, BlendMode mode, Colour c, ThreadPool* threadPool)
+void applyBlend (juce::Image& dst, BlendMode mode, juce::Colour c, juce::ThreadPool* threadPool)
 {
     switch (mode)
     {
@@ -274,9 +274,9 @@ void applyBlend (Image& dst, BlendMode mode, Colour c, ThreadPool* threadPool)
     }
 }
 
-void applyBlend (Image& dst, BlendMode mode, Colour c, ThreadPool* threadPool)
+void applyBlend (juce::Image& dst, BlendMode mode, juce::Colour c, juce::ThreadPool* threadPool)
 {
-    if (dst.getFormat() == Image::ARGB)          applyBlend<PixelARGB> (dst, mode, c, threadPool);
-    else if (dst.getFormat() == Image::RGB)      applyBlend<PixelRGB>  (dst, mode, c, threadPool);
+    if (dst.getFormat() == juce::Image::ARGB)          applyBlend<juce::PixelARGB> (dst, mode, c, threadPool);
+    else if (dst.getFormat() == juce::Image::RGB)      applyBlend<juce::PixelRGB>  (dst, mode, c, threadPool);
     else jassertfalse;
 }

@@ -7,31 +7,31 @@
 
 juce::Image rasterizeSVG (juce::String svgText, int w, int h)
 {
-    Image img (Image::ARGB, w, h, true);
+    juce::Image img (juce::Image::ARGB, w, h, true);
 
-    if (auto svg = XmlDocument::parse (svgText))
+    if (auto svg = juce::XmlDocument::parse (svgText))
     {
-        const MessageManagerLock mmLock;
+        const juce::MessageManagerLock mmLock;
 
-        auto drawable = Drawable::createFromSVG (*svg);
+        auto drawable = juce::Drawable::createFromSVG (*svg);
 
-        Graphics g (img);
-        drawable->drawWithin (g, Rectangle<float>(float (w), float (h)), 0, 1.0f);
+        juce::Graphics g (img);
+        drawable->drawWithin (g, juce::Rectangle<float>(float (w), float (h)), 0, 1.0f);
     }
 
     return img;
 }
 
-juce::Path parseSVGPath ( const String& text )
+juce::Path parseSVGPath ( const juce::String& text )
 {
-    auto pathFromPoints = [] (String pointsText) -> Path
+    auto pathFromPoints = [] (juce::String pointsText) -> juce::Path
     {
-        auto points = StringArray::fromTokens (pointsText, " ,", "");
+        auto points = juce::StringArray::fromTokens (pointsText, " ,", "");
         points.removeEmptyStrings();
 
         jassert (points.size() % 2 == 0);
 
-        Path p;
+        juce::Path p;
 
         for (int i = 0; i < points.size() / 2; i++)
         {
@@ -49,7 +49,7 @@ juce::Path parseSVGPath ( const String& text )
         return p;
     };
 
-    auto path = Drawable::parseSVGPath (text);
+    auto path = juce::Drawable::parseSVGPath (text);
 
     if (path.isEmpty())
         path = pathFromPoints (text);

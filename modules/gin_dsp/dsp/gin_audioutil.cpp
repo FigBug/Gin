@@ -8,7 +8,7 @@
  */
 
 //==============================================================================
-void applyGain (AudioSampleBuffer& buffer, LinearSmoothedValue<float>& gain)
+void applyGain (juce::AudioSampleBuffer& buffer, juce::LinearSmoothedValue<float>& gain)
 {
     if (gain.isSmoothing())
     {
@@ -28,7 +28,7 @@ void applyGain (AudioSampleBuffer& buffer, LinearSmoothedValue<float>& gain)
     }
 }
 
-void applyGain (AudioSampleBuffer& buffer, int channel, LinearSmoothedValue<float>& gain)
+void applyGain (juce::AudioSampleBuffer& buffer, int channel, juce::LinearSmoothedValue<float>& gain)
 {
     if (gain.isSmoothing())
     {
@@ -42,20 +42,20 @@ void applyGain (AudioSampleBuffer& buffer, int channel, LinearSmoothedValue<floa
     }
 }
 
-void clip (AudioSampleBuffer& buffer, float low, float high)
+void clip (juce::AudioSampleBuffer& buffer, float low, float high)
 {
     if (float** w = buffer.getArrayOfWritePointers())
     {
         for (int s = 0; s < buffer.getNumSamples(); s++)
         {
             for (int c = 0; c < buffer.getNumChannels(); c++)
-                w[c][s] = jlimit (low, high, w[c][s]);
+                w[c][s] = juce::jlimit (low, high, w[c][s]);
         }
     }
 }
 
 //==============================================================================
-String getMidiMessageType (const MidiMessage& msg)
+juce::String getMidiMessageType (const juce::MidiMessage& msg)
 {
     if (msg.isNoteOn()) return "Note On";
     if (msg.isNoteOff()) return "Note Off";

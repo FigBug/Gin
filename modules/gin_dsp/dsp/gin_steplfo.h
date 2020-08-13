@@ -56,7 +56,7 @@ public:
 
     float getOutput()
     {
-        return jlimit (-1.0f, 1.0f, output);
+        return juce::jlimit (-1.0f, 1.0f, output);
     }
 
 private:
@@ -64,11 +64,11 @@ private:
     {
         output = points[int (phase * points.size())];
 
-        return jlimit (-1.0f, 1.0f, (output));
+        return juce::jlimit (-1.0f, 1.0f, (output));
     }
 
     double sampleRate = 0.0;
     float frequency = 0.0f, phase = 0.0f, output = 0.0f;
 
-    Array<float> points;
+    juce::Array<float> points;
 };

@@ -23,9 +23,6 @@
 
 namespace gin
 {
-using namespace juce;
-using juce::Rectangle;
-using juce::MemoryBlock;
 
 #include "metadata/gin_libjpegpng.cpp"
 #include "metadata/gin_commentmetadata.cpp"

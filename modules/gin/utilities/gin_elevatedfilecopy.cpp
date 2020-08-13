@@ -7,12 +7,12 @@
 
 #if JUCE_MAC
 
-ElevatedFileCopy::Result runWithPermissions (String cmd, StringArray params)
+ElevatedFileCopy::Result runWithPermissions (juce::String cmd, juce::StringArray params)
 {
     OSStatus err = noErr;
     auto path = cmd.toRawUTF8();
 
-    Array<const char*> rawParams;
+    juce::Array<const char*> rawParams;
     for (auto& s : params)
         rawParams.add (s.toRawUTF8());
     rawParams.add (nullptr);
@@ -50,7 +50,7 @@ ElevatedFileCopy::Result runWithPermissions (String cmd, StringArray params)
         pid_t pid = 0;
 
         while ((pid = waitpid (processIdentifier, &status, WNOHANG)) == 0)
-            Thread::sleep (10);
+            juce::Thread::sleep (10);
 
         fclose (outputFile);
 
@@ -63,29 +63,29 @@ ElevatedFileCopy::Result runWithPermissions (String cmd, StringArray params)
     return ElevatedFileCopy::nopermissions;
 }
 
-static String escape (const String& in)
+static juce::String escape (const juce::String& in)
 {
     return in.replace (" ", "\\ ");
 }
 
-ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (File script, bool launchSelf)
+ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (juce::File script, bool launchSelf)
 {
-    ignoreUnused (launchSelf);
+    juce::ignoreUnused (launchSelf);
     runWithPermissions ("/bin/sh", { script.getFullPathName() });
     return success;
 }
 
-File ElevatedFileCopy::createScript (const Array<File>& toDelete,
-                                     const Array<File>& dirsThatNeedAdminAccess,
-                                     const Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess)
+juce::File ElevatedFileCopy::createScript (const juce::Array<juce::File>& toDelete,
+                                           const juce::Array<juce::File>& dirsThatNeedAdminAccess,
+                                           const juce::Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess)
 {
-    auto script = File::getSpecialLocation (File::tempDirectory).getNonexistentChildFile ("copy", ".sh", false);
+    auto script = juce::File::getSpecialLocation (juce::File::tempDirectory).getNonexistentChildFile ("copy", ".sh", false);
 
-    String scriptText;
+    juce::String scriptText;
 
     scriptText += "#!/bin/sh\n";
 
-    Array<File> dirs;
+    juce::Array<juce::File> dirs;
 
     for (auto f : toDelete)
         scriptText += "rm -Rf " + escape (f.getFullPathName()) + "\n";
@@ -225,26 +225,26 @@ File ElevatedFileCopy::createScript (const Array<File>& toDelete,
 
 #if defined JUCE_MAC || defined JUCE_WINDOWS
 
-void ElevatedFileCopy::createDir (const File& dir)
+void ElevatedFileCopy::createDir (const juce::File& dir)
 {
     dirsToCreate.add (dir);
 }
 
-void ElevatedFileCopy::copyFile (const File& src, const File& dst)
+void ElevatedFileCopy::copyFile (const juce::File& src, const juce::File& dst)
 {
     filesToCopy.add ({ src, dst });
 }
 
-void ElevatedFileCopy::deleteFile (const File& f)
+void ElevatedFileCopy::deleteFile (const juce::File& f)
 {
     filesToDelete.add (f);
 }
 
 ElevatedFileCopy::Result ElevatedFileCopy::execute (bool launchSelf)
 {
-    Array<File> filesToDeleteThatNeedAdminAccess;
-    Array<File> dirsThatNeedAdminAccess;
-    Array<FileItem> filesThatNeedAdminAccess;
+    juce::Array<juce::File> filesToDeleteThatNeedAdminAccess;
+    juce::Array<juce::File> dirsThatNeedAdminAccess;
+    juce::Array<FileItem> filesThatNeedAdminAccess;
 
     for (auto f : filesToDelete)
     {
@@ -288,7 +288,7 @@ ElevatedFileCopy::Result ElevatedFileCopy::execute (bool launchSelf)
 
     if (filesToDeleteThatNeedAdminAccess.size() > 0 || dirsThatNeedAdminAccess.size() > 0 || filesThatNeedAdminAccess.size() > 0)
     {
-        File script = createScript (filesToDeleteThatNeedAdminAccess, dirsThatNeedAdminAccess, filesThatNeedAdminAccess);
+        juce::File script = createScript (filesToDeleteThatNeedAdminAccess, dirsThatNeedAdminAccess, filesThatNeedAdminAccess);
         auto res = runScriptWithAdminAccess (script, launchSelf);
         script.deleteFile();
 

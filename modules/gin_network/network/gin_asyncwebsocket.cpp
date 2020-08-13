@@ -57,7 +57,7 @@ void AsyncWebsocket::run()
                            if (weakThis != nullptr && onConnect)
                                onConnect();
                        });
-        
+
         while (! threadShouldExit())
         {
             impl->socket->poll (4000);
@@ -80,7 +80,7 @@ void AsyncWebsocket::run()
     }
 
     {
-		juce::ScopedLock sl (lock);
+        juce::ScopedLock sl (lock);
         impl->socket = nullptr;
     }
 
@@ -93,8 +93,8 @@ void AsyncWebsocket::run()
 
 void AsyncWebsocket::processIncomingData()
 {
-	using MM = juce::MessageManager;
-	juce::WeakReference<AsyncWebsocket> weakThis = this;
+    using MM = juce::MessageManager;
+    juce::WeakReference<AsyncWebsocket> weakThis = this;
 
     impl->socket->dispatch ([&] (const std::vector<uint8_t>& message, bool isBinary)
                             {
@@ -104,12 +104,12 @@ void AsyncWebsocket::processIncomingData()
                                                    if (weakThis != nullptr)
                                                    {
                                                        // if we are receiving data we don't need to ping
-													   lastPing = juce::Time::getMillisecondCounterHiRes() / 1000;
+                                                       lastPing = juce::Time::getMillisecondCounterHiRes() / 1000;
 
                                                        if (isBinary && onBinary)
                                                            onBinary (juce::MemoryBlock (messageCopy.data(), messageCopy.size()));
                                                        else if (! isBinary && onText)
-														   onText (juce::String::fromUTF8 ((char*)messageCopy.data(), int (messageCopy.size())));
+                                                           onText (juce::String::fromUTF8 ((char*)messageCopy.data(), int (messageCopy.size())));
                                                    }
                                                });
                             });
@@ -117,7 +117,7 @@ void AsyncWebsocket::processIncomingData()
 
 void AsyncWebsocket::processOutgoingData()
 {
-	juce::ScopedLock sl (lock);
+    juce::ScopedLock sl (lock);
     for (auto& data : outgoingQueue)
     {
         if (data.type == pingMsg)
@@ -151,7 +151,7 @@ bool AsyncWebsocket::isConnected()
 
 void AsyncWebsocket::send (const juce::String& text)
 {
-	juce::ScopedLock sl (lock);
+    juce::ScopedLock sl (lock);
     if (impl->socket != nullptr)
     {
         outgoingQueue.add ({ text });
@@ -161,7 +161,7 @@ void AsyncWebsocket::send (const juce::String& text)
 
 void AsyncWebsocket::send (const juce::MemoryBlock& binary)
 {
-	juce::ScopedLock sl (lock);
+    juce::ScopedLock sl (lock);
     if (impl->socket != nullptr)
     {
         outgoingQueue.add ({ binary });
@@ -171,11 +171,11 @@ void AsyncWebsocket::send (const juce::MemoryBlock& binary)
 
 void AsyncWebsocket::sendPing()
 {
-	juce::ScopedLock sl (lock);
+    juce::ScopedLock sl (lock);
     if (impl->socket != nullptr)
     {
         // If we are manually sending a ping, delay the automatic pings
-		lastPing = juce::Time::getMillisecondCounterHiRes() / 1000;
+        lastPing = juce::Time::getMillisecondCounterHiRes() / 1000;
 
         outgoingQueue.add ({ pingMsg });
         impl->socket->interrupt();

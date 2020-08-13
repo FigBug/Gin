@@ -15,7 +15,7 @@
 class Spline
 {
 public:
-	Spline (const juce::Array<juce::Point<double>>& points);
+    Spline (const juce::Array<juce::Point<double>>& points);
 
     double operator[] (double x) const;
     double interpolate (double x) const;
@@ -41,7 +41,7 @@ public:
     };
 
 private:
-	juce::Array<Element> elements;
+    juce::Array<Element> elements;
 
     JUCE_LEAK_DETECTOR (Spline)
 };

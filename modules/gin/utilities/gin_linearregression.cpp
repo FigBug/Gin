@@ -9,7 +9,7 @@ LinearRegression::LinearRegression()
 {
 }
 
-LinearRegression::LinearRegression (Array<juce::Point<double>> points)
+LinearRegression::LinearRegression (juce::Array<juce::Point<double>> points)
 {
     for (auto p : points)
         addPoint (p);

@@ -10,7 +10,7 @@ ExifMetadata::MetadataItem::~MetadataItem()
     ::operator delete (data);
 }
 
-String ExifMetadata::MetadataItem::getName() const
+juce::String ExifMetadata::MetadataItem::getName() const
 {
     if (section == 0x8825)
     {
@@ -146,68 +146,68 @@ String ExifMetadata::MetadataItem::getName() const
 
         }
     }
-    return String::formatted("Unknown tag: %d %X", tag, tag);
+    return juce::String::formatted("Unknown tag: %d %X", tag, tag);
 }
 
-String ExifMetadata::MetadataItem::getValue() const
+juce::String ExifMetadata::MetadataItem::getValue() const
 {
-    String s;
+    juce::String s;
 
     if (type == 1)
     {
         for (int i = 0; i < count; i++)
-            s += String (((uint8*)data)[i]) + " ";
+            s += juce::String (((juce::uint8*)data)[i]) + " ";
         return s.trim();
     }
     else if (type == 2)
     {
-        return String ((char*)data);
+        return juce::String ((char*)data);
     }
     else if (type == 3)
     {
         for (int i = 0; i < count; i++)
-            s += String (swap16 (((uint16*)data)[i])) + " ";
+            s += juce::String (swap16 (((juce::uint16*)data)[i])) + " ";
         return s.trim();
     }
     else if (type == 4)
     {
         for (int i = 0; i < count; i++)
-            s += String (swap32 (((uint32*)data)[i])) + " ";
+            s += juce::String (swap32 (((juce::uint32*)data)[i])) + " ";
         return s.trim();
     }
     else if (type == 5)
     {
         for (int i = 0; i < count; i++)
-            s += String (double (swap32 (((uint32*)data)[i*2])) / double (swap32 (((uint32*)data)[i*2+1]))) + " ";
+            s += juce::String (double (swap32 (((juce::uint32*)data)[i*2])) / double (swap32 (((juce::uint32*)data)[i*2+1]))) + " ";
         return s.trim();
     }
     else if (type == 7)
     {
         for (int i = 0; i < count; i++)
-            s += String::formatted ("0x%.2X ", ((uint8*)data)[i]);
+            s += juce::String::formatted ("0x%.2X ", ((juce::uint8*)data)[i]);
         return s.trim();
     }
     else if (type == 9)
     {
         for (int i = 0; i < count; i++)
-            s += String (swap32 (((int32*)data)[i])) + " ";
+            s += juce::String (swap32 (((juce::int32*)data)[i])) + " ";
         return s.trim();
     }
     else if (type == 10)
     {
         for (int i = 0; i < count; i++)
-            s += String (double (swap32 (((int32*)data)[i*2])) / double (swap32 (((int32*)data)[i*2+1]))) + " ";
+            s += juce::String (double (swap32 (((juce::int32*)data)[i*2])) / double (swap32 (((juce::int32*)data)[i*2+1]))) + " ";
         return s.trim();
     }
     jassertfalse;
     return s;
 }
 
-uint16 ExifMetadata::MetadataItem::swap16 (uint16 a) const
+juce::uint16 ExifMetadata::MetadataItem::swap16 (juce::uint16 a) const
 {
 #ifdef JUCE_LITTLE_ENDIAN
     if (bigEndian)
-        return ByteOrder::bigEndianShort ((const char*)&a);
+        return juce::ByteOrder::bigEndianShort ((const char*)&a);
     else
         return a;
 #else
@@ -218,11 +218,11 @@ uint16 ExifMetadata::MetadataItem::swap16 (uint16 a) const
 #endif
 }
 
-int16 ExifMetadata::MetadataItem::swap16 (int16 a) const
+juce::int16 ExifMetadata::MetadataItem::swap16 (juce::int16 a) const
 {
 #ifdef JUCE_LITTLE_ENDIAN
     if (bigEndian)
-        return int16 (ByteOrder::bigEndianShort (&a));
+        return juce::int16 (juce::ByteOrder::bigEndianShort (&a));
     else
         return a;
 #else
@@ -233,11 +233,11 @@ int16 ExifMetadata::MetadataItem::swap16 (int16 a) const
 #endif
 }
 
-uint32 ExifMetadata::MetadataItem::swap32 (uint32 a) const
+juce::uint32 ExifMetadata::MetadataItem::swap32 (juce::uint32 a) const
 {
 #ifdef JUCE_LITTLE_ENDIAN
     if (bigEndian)
-        return ByteOrder::bigEndianInt (&a);
+        return juce::ByteOrder::bigEndianInt (&a);
     else
         return a;
 #else
@@ -248,11 +248,11 @@ uint32 ExifMetadata::MetadataItem::swap32 (uint32 a) const
 #endif
 }
 
-int32 ExifMetadata::MetadataItem::swap32 (int32 a) const
+juce::int32 ExifMetadata::MetadataItem::swap32 (juce::int32 a) const
 {
 #ifdef JUCE_LITTLE_ENDIAN
     if (bigEndian)
-        return int32 (ByteOrder::bigEndianInt (&a));
+        return juce::int32 (juce::ByteOrder::bigEndianInt (&a));
     else
         return a;
 #else
@@ -270,12 +270,12 @@ ExifMetadata::ExifMetadata() : ImageMetadata ("EXIF")
     thumbNumBytes = 0;
 }
 
-ExifMetadata* ExifMetadata::create (const uint8* data, int sz)
+ExifMetadata* ExifMetadata::create (const juce::uint8* data, int sz)
 {
     if (sz < 14 || memcmp (data, "Exif", 4) != 0)
         return nullptr;
 
-    MemoryInputStream is (data + 6, size_t (sz - 6), false);
+    juce::MemoryInputStream is (data + 6, size_t (sz - 6), false);
 
     char endianTag[2];
     is.read (endianTag, 2);
@@ -293,7 +293,7 @@ ExifMetadata* ExifMetadata::create (const uint8* data, int sz)
         return nullptr;
     }
 
-    OwnedArray<MetadataSection> ifd;
+    juce::OwnedArray<MetadataSection> ifd;
     ifd.add (new MetadataSection (0, offset));
 
     int thumbOffset = 0;
@@ -308,15 +308,15 @@ ExifMetadata* ExifMetadata::create (const uint8* data, int sz)
         {
             auto itm = new MetadataItem();
 
-            itm->tag       = uint16 (bigEndian ? is.readShortBigEndian() : is.readShort());
-            itm->type      = uint16 (bigEndian ? is.readShortBigEndian() : is.readShort());
-            itm->count     =         bigEndian ? is.readIntBigEndian()   : is.readInt();
+            itm->tag       = juce::uint16 (bigEndian ? is.readShortBigEndian() : is.readShort());
+            itm->type      = juce::uint16 (bigEndian ? is.readShortBigEndian() : is.readShort());
+            itm->count     =               bigEndian ? is.readIntBigEndian()   : is.readInt();
             itm->bigEndian = bigEndian;
             itm->section   = ms->id;
 
             int offsetData = is.readInt();
 
-            int off       = int (bigEndian ? ByteOrder::bigEndianInt (&offsetData) : ByteOrder::littleEndianInt (&offsetData));
+            int off       = int (bigEndian ? juce::ByteOrder::bigEndianInt (&offsetData) : juce::ByteOrder::littleEndianInt (&offsetData));
             int dataBytes = itm->count * sizeofType (itm->type);
 
             itm->data = ::operator new (size_t (dataBytes));
@@ -326,7 +326,7 @@ ExifMetadata* ExifMetadata::create (const uint8* data, int sz)
             }
             else
             {
-                int64 curPos = is.getPosition();
+                juce::int64 curPos = is.getPosition();
                 is.setPosition (off);
                 is.read (itm->data, dataBytes);
                 is.setPosition (curPos);
@@ -382,14 +382,14 @@ ExifMetadata::~ExifMetadata()
     delete[] thumbImg;
 }
 
-StringPairArray ExifMetadata::getAllMetadata() const
+juce::StringPairArray ExifMetadata::getAllMetadata() const
 {
-    StringPairArray s;
+    juce::StringPairArray s;
 
     for (int i = 0; i < items.size(); i++)
     {
-        String name = items[i]->getName();
-        String val  = items[i]->getValue();
+        juce::String name = items[i]->getName();
+        juce::String val  = items[i]->getValue();
 
         if (s[name].isEmpty())
             s.set (name, val);
@@ -398,10 +398,10 @@ StringPairArray ExifMetadata::getAllMetadata() const
     return s;
 }
 
-Image ExifMetadata::getThumbnailImage()
+juce::Image ExifMetadata::getThumbnailImage()
 {
     if (thumbImg)
-        return ImageFileFormat::loadFrom (thumbImg, (size_t) thumbNumBytes);
+        return juce::ImageFileFormat::loadFrom (thumbImg, (size_t) thumbNumBytes);
     return {};
 }
 

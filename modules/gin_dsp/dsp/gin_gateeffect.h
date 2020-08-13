@@ -41,7 +41,7 @@ public:
         adsrR.reset();
     }
 
-    void process (AudioSampleBuffer& buffer, int noteOnSample, int noteOffSample)
+    void process (juce::AudioSampleBuffer& buffer, int noteOnSample, int noteOffSample)
     {
         auto l = buffer.getWritePointer (0);
         auto r = buffer.getWritePointer (1);
@@ -118,7 +118,7 @@ public:
 protected:
     double sampleRate = 44100.0;
     AnalogADSR adsrL, adsrR;
-    Array<bool> stepsL, stepsR;
+    juce::Array<bool> stepsL, stepsR;
     float frequency = 0.0f, phase = 0.0f;
     bool triggered = false;
     bool lastLOn = false, lastROn = false;

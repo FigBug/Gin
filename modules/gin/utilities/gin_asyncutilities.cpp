@@ -28,5 +28,5 @@ void callOnMainThreadBlocking ( std::function<void ()> func )
     auto data = new BlockingData();
     data->func = func;
 
-    MessageManager::getInstance()->callFunctionOnMessageThread (blockingCallback, data);
+    juce::MessageManager::getInstance()->callFunctionOnMessageThread (blockingCallback, data);
 }

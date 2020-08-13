@@ -18,7 +18,7 @@ public:
 
     void addPoint (double x, double y);
     void addPoint (juce::Point<double> point);
-	void addPoints (juce::Array<juce::Point<double>> points);
+    void addPoints (juce::Array<juce::Point<double>> points);
 
 private:
 

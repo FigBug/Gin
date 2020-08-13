@@ -19,7 +19,7 @@ public:
     LevelTracker (float decayPerSecond = 30.0f);
 
     void trackBuffer (const float* buffer, int numSamples);
-    void trackBuffer (AudioSampleBuffer& buffer);
+    void trackBuffer (juce::AudioSampleBuffer& buffer);
     void trackSample (float f);
 
     float getLevel() const;

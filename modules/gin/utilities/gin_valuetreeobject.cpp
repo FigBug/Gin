@@ -5,9 +5,9 @@
 
  ==============================================================================*/
 
-std::function<ValueTreeObject* (const Identifier&, const ValueTree&)> ValueTreeObject::factory;
+std::function<ValueTreeObject* (const juce::Identifier&, const juce::ValueTree&)> ValueTreeObject::factory;
 
-ValueTreeObject::ValueTreeObject (const ValueTree& state_)
+ValueTreeObject::ValueTreeObject (const juce::ValueTree& state_)
   : state (state_)
 {
     for (auto c : state)
@@ -26,12 +26,12 @@ ValueTreeObject::ValueTreeObject (const ValueTree& state_)
     state.addListener (this);
 }
 
-void ValueTreeObject::valueTreePropertyChanged (ValueTree& p, const Identifier& i)
+void ValueTreeObject::valueTreePropertyChanged (juce::ValueTree& p, const juce::Identifier& i)
 {
     ignoreUnused (p, i);
 }
 
-void ValueTreeObject::valueTreeChildAdded (ValueTree& p, ValueTree& c)
+void ValueTreeObject::valueTreeChildAdded (juce::ValueTree& p, juce::ValueTree& c)
 {
     if (p == state)
     {
@@ -47,7 +47,7 @@ void ValueTreeObject::valueTreeChildAdded (ValueTree& p, ValueTree& c)
     }
 }
 
-void ValueTreeObject::valueTreeChildRemoved (ValueTree& p, ValueTree& c, int i)
+void ValueTreeObject::valueTreeChildRemoved (juce::ValueTree& p, juce::ValueTree& c, int i)
 {
     ignoreUnused (c);
 
@@ -55,16 +55,16 @@ void ValueTreeObject::valueTreeChildRemoved (ValueTree& p, ValueTree& c, int i)
         children.remove (i);
 }
 
-void ValueTreeObject::valueTreeChildOrderChanged (ValueTree& p, int oldIndex, int newIndex)
+void ValueTreeObject::valueTreeChildOrderChanged (juce::ValueTree& p, int oldIndex, int newIndex)
 {
     if (p == state)
         children.move (oldIndex, newIndex);
 }
 
-void ValueTreeObject::valueTreeParentChanged (ValueTree&)
+void ValueTreeObject::valueTreeParentChanged (juce::ValueTree&)
 {
 }
 
-void ValueTreeObject::valueTreeRedirected (ValueTree&)
+void ValueTreeObject::valueTreeRedirected (juce::ValueTree&)
 {
 }

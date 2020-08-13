@@ -10,15 +10,15 @@
 //==============================================================================
 void WTOscillator::noteOn (float p)
 {
-    p >= 0 ? phaseL = p : Random::getSystemRandom().nextFloat();
+    p >= 0 ? phaseL = p : juce::Random::getSystemRandom().nextFloat();
     phaseR = phaseL;
 }
 
-void WTOscillator::process (float note, const Params& params, AudioSampleBuffer& buffer)
+void WTOscillator::process (float note, const Params& params, juce::AudioSampleBuffer& buffer)
 {
-	if (bllt.size() == 0) return;
+    if (bllt.size() == 0) return;
     int ti = std::min (bllt.size() - 1, int (bllt.size() * params.pw));
-    
+
     float freq = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (note - 69.0) / 12.0)));
     float delta = 1.0f / (float ((1.0f / freq) * sampleRate));
 
@@ -29,7 +29,7 @@ void WTOscillator::process (float note, const Params& params, AudioSampleBuffer&
     for (int i = 0; i < samps; i++)
     {
         auto s = bllt[ti]->process (note, phaseL);
-        
+
         *l++ = s * params.leftGain;
         *r++ = s * params.rightGain;
 
@@ -40,11 +40,11 @@ void WTOscillator::process (float note, const Params& params, AudioSampleBuffer&
     phaseR = phaseL;
 }
 
-void WTOscillator::process (float noteL, float noteR, const Params& params, AudioSampleBuffer& buffer)
+void WTOscillator::process (float noteL, float noteR, const Params& params, juce::AudioSampleBuffer& buffer)
 {
-	if (bllt.size() == 0) return;
+    if (bllt.size() == 0) return;
     int ti = std::min (bllt.size() - 1, int (bllt.size() * params.pw));
-    
+
     float freqL = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteL - 69.0) / 12.0)));
     float freqR = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteR - 69.0) / 12.0)));
     float deltaL = 1.0f / (float ((1.0f / freqL) * sampleRate));
@@ -68,11 +68,11 @@ void WTOscillator::process (float noteL, float noteR, const Params& params, Audi
     }
 }
 
-void WTOscillator::processAdding (float note, const Params& params, AudioSampleBuffer& buffer)
+void WTOscillator::processAdding (float note, const Params& params, juce::AudioSampleBuffer& buffer)
 {
-	if (bllt.size() == 0) return;
-	int ti = std::min (bllt.size() - 1, int (bllt.size() * params.pw));
-    
+    if (bllt.size() == 0) return;
+    int ti = std::min (bllt.size() - 1, int (bllt.size() * params.pw));
+
     float freq = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (note - 69.0) / 12.0)));
     float delta = 1.0f / (float ((1.0f / freq) * sampleRate));
 
@@ -93,11 +93,11 @@ void WTOscillator::processAdding (float note, const Params& params, AudioSampleB
     phaseR = phaseL;
 }
 
-void WTOscillator::processAdding (float noteL, float noteR, const Params& params, AudioSampleBuffer& buffer)
+void WTOscillator::processAdding (float noteL, float noteR, const Params& params, juce::AudioSampleBuffer& buffer)
 {
-	if (bllt.size() == 0) return;
+    if (bllt.size() == 0) return;
     int ti = std::min (bllt.size() - 1, int (bllt.size() * params.pw));
-    
+
     float freqL = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteL - 69.0) / 12.0)));
     float freqR = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteR - 69.0) / 12.0)));
     float deltaL = 1.0f / (float ((1.0f / freqL) * sampleRate));
@@ -122,25 +122,25 @@ void WTOscillator::processAdding (float noteL, float noteR, const Params& params
     }
 }
 
-void WTOscillator::setWavetable (OwnedArray<BandLimitedLookupTable>& table)
+void WTOscillator::setWavetable (juce::OwnedArray<BandLimitedLookupTable>& table)
 {
-	bllt.clear();
-	bllt.addArray (table);
+    bllt.clear();
+    bllt.addArray (table);
 }
 
-bool loadWavetables (OwnedArray<BandLimitedLookupTable>& bllt, AudioSampleBuffer& buffer, double sampleRate, int tableSize)
+bool loadWavetables (juce::OwnedArray<BandLimitedLookupTable>& bllt, juce::AudioSampleBuffer& buffer, double sampleRate, int tableSize)
 {
-	bllt.clear();
+    bllt.clear();
 
-	int numTables = buffer.getNumSamples() / tableSize;
+    int numTables = buffer.getNumSamples() / tableSize;
 
-	for (int i = 0; i < numTables; i++)
-	{
-		auto slice = sliceBuffer (buffer, i * tableSize, tableSize);
+    for (int i = 0; i < numTables; i++)
+    {
+        auto slice = sliceBuffer (buffer, i * tableSize, tableSize);
 
-		auto table = new BandLimitedLookupTable();
-		table->loadFromBuffer (slice, sampleRate, 6);
-		bllt.add (table);
-	}
-	return true;
+        auto table = new BandLimitedLookupTable();
+        table->loadFromBuffer (slice, sampleRate, 6);
+        bllt.add (table);
+    }
+    return true;
 }

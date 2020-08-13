@@ -23,8 +23,8 @@ namespace gin {
 class EquationParser::CallbackS : public EquationParser::Callback
 {
 public:
-	CallbackS (std::function <double(int, const String&)> f) : fun (f) {}
-	std::function <double(int, const String&)> fun;
+    CallbackS (std::function <double(int, const juce::String&)> f) : fun (f) {}
+    std::function <double(int, const juce::String&)> fun;
 };
 class EquationParser::Callback0 : public EquationParser::Callback
 {
@@ -82,7 +82,7 @@ EquationParser::EquationParser (juce::String equation)
     {
         impl = std::make_unique<EquationParserImpl>();
         impl->parser.SetExpr (equation.toRawUTF8());
-        
+
         impl->parser.DefineOprt ("%", modFunc, mu::prMUL_DIV, mu::oaLEFT, false);
     }
     catch (...)
@@ -103,7 +103,7 @@ void EquationParser::setEquation (juce::String equation)
     }
     catch (mu::Parser::exception_type& e)
     {
-        errorMessage = String (e.GetMsg());
+        errorMessage = juce::String (e.GetMsg());
     }
 }
 
@@ -129,22 +129,22 @@ void EquationParser::addConstant (juce::String name, double value)
     }
 }
 
-void EquationParser::addFunction (juce::String name, std::function<double (int id, const String&)> fun)
+void EquationParser::addFunction (juce::String name, std::function<double (int id, const juce::String&)> fun)
 {
-	try
-	{
-		auto cb = new CallbackS (fun);
-		impl->parser.DefineFun (name.toRawUTF8(), [] (mu::SParam s, const char* p1)
-								{
-									auto c = (CallbackS*)s.param;
-									String text = p1;
-									return c->fun (s.id, text);
-								}, cb, false);
-		callbacks.add (cb);
-	}
-	catch (...)
-	{
-	}
+    try
+    {
+        auto cb = new CallbackS (fun);
+        impl->parser.DefineFun (name.toRawUTF8(), [] (mu::SParam s, const char* p1)
+                                {
+                                    auto c = (CallbackS*)s.param;
+                                    juce::String text = p1;
+                                    return c->fun (s.id, text);
+                                }, cb, false);
+        callbacks.add (cb);
+    }
+    catch (...)
+    {
+    }
 }
 
 void EquationParser::addFunction (juce::String name, std::function<double (int id)> fun)
@@ -240,11 +240,11 @@ double EquationParser::evaluate()
     }
     catch (mu::Parser::exception_type& e)
     {
-        errorMessage = String (e.GetMsg());
+        errorMessage = juce::String (e.GetMsg());
     }
     return 0;
 }
-    
+
 bool EquationParser::hasError()
 {
     return errorMessage.isNotEmpty();

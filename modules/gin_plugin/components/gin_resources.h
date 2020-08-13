@@ -8,6 +8,6 @@ namespace Resources
     extern const char*   BarlowThin_ttf;
     const int            BarlowThin_ttfSize = 95844;
 
-	extern const char*   InterRegular_otf;
-	const int            InterRegular_otfSize = 245388;
+    extern const char*   InterRegular_otf;
+    const int            InterRegular_otfSize = 245388;
 }

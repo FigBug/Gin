@@ -73,9 +73,6 @@
 
 namespace gin
 {
-using namespace juce;
-using juce::Rectangle;
-using juce::MemoryBlock;
 
 #include "utilities/gin_asyncutilities.cpp"
 #include "utilities/gin_downloadmanager.cpp"

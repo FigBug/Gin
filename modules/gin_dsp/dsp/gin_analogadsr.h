@@ -34,12 +34,12 @@ public:
     float process (int num);
     
     // Fills a buffer with ADSR values
-    void process (AudioSampleBuffer& buffer);
-    void process (AudioSampleBuffer& buffer, int startSample, int numSamples);
+    void process (juce::AudioSampleBuffer& buffer);
+    void process (juce::AudioSampleBuffer& buffer, int startSample, int numSamples);
     
     // Multiplies a buffer by ADSE values
-    void processMultiplying (AudioSampleBuffer& buffer);
-    void processMultiplying (AudioSampleBuffer& buffer, int startSample, int numSamples);
+    void processMultiplying (juce::AudioSampleBuffer& buffer);
+    void processMultiplying (juce::AudioSampleBuffer& buffer, int startSample, int numSamples);
 
     float getOutput()                           { return output;        }
     State getState()                            { return state;         }

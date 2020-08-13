@@ -27,11 +27,11 @@ public:
     void reset();
     int samplesReady()                                              { return outputFifo.getNumReady(); }
 
-    void pushAudioBuffer (const AudioSampleBuffer& buffer);
-    void popAudioBuffer (AudioSampleBuffer& buffer);
+    void pushAudioBuffer (const juce::AudioSampleBuffer& buffer);
+    void popAudioBuffer (juce::AudioSampleBuffer& buffer);
 
 private:
-    void pushAudioBufferInt (const AudioSampleBuffer& buffer);
+    void pushAudioBufferInt (const juce::AudioSampleBuffer& buffer);
     
     struct Impl;
     std::unique_ptr<Impl> impl;
@@ -39,5 +39,5 @@ private:
     int numChannels = 0, blockSize = 0;
     float ratio = 1.0f;
     AudioFifo outputFifo;
-    AudioSampleBuffer ilInputBuffer, ilOutputBuffer, outputBuffer;
+    juce::AudioSampleBuffer ilInputBuffer, ilOutputBuffer, outputBuffer;
 };

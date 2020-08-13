@@ -13,10 +13,10 @@ public:
     CommentMetadata();
     virtual ~CommentMetadata();
 
-    static CommentMetadata* create(const uint8* data, int sz);
+    static CommentMetadata* create (const juce::uint8* data, int sz);
 
-    StringPairArray getAllMetadata() const;
+    juce::StringPairArray getAllMetadata() const;
 
 private:
-    String comment;
+    juce::String comment;
 };

@@ -77,7 +77,7 @@ public:
         curPhase   = 0.0f;
         phase      = 0.0f;
         fadeDelta  = float (1.0f / (sampleRate * parameters.fade));
-        delaySteps = roundToInt (sampleRate * parameters.delay);
+        delaySteps = juce::roundToInt (sampleRate * parameters.delay);
     }
 
     float process (int numSamples)
@@ -96,7 +96,7 @@ public:
             }
             else
             {
-                curFade = jlimit (0.0f, 1.0f, curFade + fadeDelta);
+                curFade = juce::jlimit (0.0f, 1.0f, curFade + fadeDelta);
 
                 float maxPhase = 1.0f;
                 if (parameters.waveShape == WaveShape::sampleAndHold || parameters.waveShape == WaveShape::noise)
@@ -118,7 +118,7 @@ public:
     
     float getOutput()
     {
-        return jlimit (-1.0f, 1.0f, (curFade * output * parameters.depth + parameters.offset));
+        return juce::jlimit (-1.0f, 1.0f, (curFade * output * parameters.depth + parameters.offset));
     }
 
 private:
@@ -134,7 +134,7 @@ private:
                     output = 0;
                     break;
                 case WaveShape::sine:
-                    output = std::sin (curPhase * MathConstants<float>::pi * 2);
+                    output = std::sin (curPhase * juce::MathConstants<float>::pi * 2);
                     break;
                 case WaveShape::triangle:
                 {
@@ -185,26 +185,26 @@ private:
                 case WaveShape::pyramid3:
                 {
                     static float vals[] = { 0.0f, 1.0f, 0.0f, -1.0f };
-                    output = vals[int (phase * numElementsInArray (vals))];
+                    output = vals[int (phase * juce::numElementsInArray (vals))];
                     break;
                 }
                 case WaveShape::pyramid5:
                 {
                     static float vals[] = { 0.0f, 0.5f, 1.0f, 0.5f, 0.0f, -0.5f, -1.0f, -0.5f };
-                    output = vals[int (phase * numElementsInArray (vals))];
+                    output = vals[int (phase * juce::numElementsInArray (vals))];
                     break;
                 }
                 case WaveShape::pyramid9:
                 {
                     static float vals[] = { 0.0f, 0.25f, 0.5f, 0.75f, 1.0f, 0.75f, 0.5f, 0.25f, 0.0f,
                                             -0.25f, -0.5f, -0.75f, -1.0f, -0.75f, -0.5f, -0.25f };
-                    output = vals[int (phase * numElementsInArray (vals))];
+                    output = vals[int (phase * juce::numElementsInArray (vals))];
                     break;
                 }
             }
         }
 
-        return jlimit (-1.0f, 1.0f, (curFade * output * parameters.depth + parameters.offset));
+        return juce::jlimit (-1.0f, 1.0f, (curFade * output * parameters.depth + parameters.offset));
     }
 
     Parameters parameters;
@@ -213,5 +213,5 @@ private:
     float phase = 0.0f, curPhase = 0.0f, output = 0.0f, fadeDelta = 0.0f, curFade = 1.0f;
     int delaySteps = 0;
 
-    Array<float> randomPoints;
+    juce::Array<float> randomPoints;
 };

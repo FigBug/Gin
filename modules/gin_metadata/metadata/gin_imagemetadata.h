@@ -10,16 +10,16 @@
 class ImageMetadata
 {
 public:
-    ImageMetadata (const String& type);
+    ImageMetadata (const juce::String& type);
 
     virtual ~ImageMetadata();
 
-    String getType() const { return type; }
+    juce::String getType() const { return type; }
 
-    virtual StringPairArray getAllMetadata() const = 0;
+    virtual juce::StringPairArray getAllMetadata() const = 0;
 
-    static bool getFromImage (InputStream& is, OwnedArray<ImageMetadata>& metadata);
+    static bool getFromImage (juce::InputStream& is, juce::OwnedArray<ImageMetadata>& metadata);
 
 protected:
-    String type;
+    juce::String type;
 };

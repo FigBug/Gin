@@ -13,11 +13,11 @@ public:
     XmpMetadata();
     virtual ~XmpMetadata();
 
-    static XmpMetadata* createFromJpg (const uint8* data, int sz);
+    static XmpMetadata* createFromJpg (const juce::uint8* data, int sz);
     static XmpMetadata* createFromPng (const char* data, int sz);
 
-    StringPairArray getAllMetadata() const;
+    juce::StringPairArray getAllMetadata() const;
 
 private:
-    String xmp;
+    juce::String xmp;
 };

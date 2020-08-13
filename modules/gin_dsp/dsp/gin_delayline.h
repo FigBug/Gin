@@ -77,7 +77,7 @@ public:
     }
 
 protected:
-    AudioSampleBuffer buffer;
+    juce::AudioSampleBuffer buffer;
     float** data = nullptr;
     
     double sampleRate = 44100.0;

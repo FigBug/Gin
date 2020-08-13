@@ -35,9 +35,9 @@ public:
 protected:
     void resized() override;
     void paint (juce::Graphics& g) override;
-	void mouseDown (const juce::MouseEvent& e) override;
-	void mouseDrag (const juce::MouseEvent& e) override;
-	void mouseWheelMove (const juce::MouseEvent& e, const juce::MouseWheelDetails& wheel) override;
+    void mouseDown (const juce::MouseEvent& e) override;
+    void mouseDrag (const juce::MouseEvent& e) override;
+    void mouseWheelMove (const juce::MouseEvent& e, const juce::MouseWheelDetails& wheel) override;
 
     void tileFetched (int zoom, int x, int y) override;
     void updateMap();
@@ -57,7 +57,7 @@ private:
 
     double wheelDelta = 0;
 
-	juce::SharedResourcePointer<OpenStreetMaps> osm;
+    juce::SharedResourcePointer<OpenStreetMaps> osm;
 
     juce::Point<int> lastPos;
     juce::Point<double> centerPt;
@@ -66,7 +66,7 @@ private:
 
     juce::Point<double> posMarker;
 
-	std::unique_ptr<juce::Image> doubleBuffer;
+    std::unique_ptr<juce::Image> doubleBuffer;
 
 
 };

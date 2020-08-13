@@ -11,11 +11,11 @@ Copyright (c) 2019 - Roland Rabien.
 
 /** Draws a simple level meter
 */
-class LevelMeter : public Component,
-                   public Timer
+class LevelMeter : public juce::Component,
+                   public juce::Timer
 {
 public:
-    LevelMeter (const LevelTracker&, NormalisableRange<float> r = {-60, 0} );
+    LevelMeter (const LevelTracker&, juce::NormalisableRange<float> r = {-60, 0} );
     ~LevelMeter() override;
     
     void setTopDown (bool td)   { topDown = td; }
@@ -29,13 +29,13 @@ public:
 
 private:
     //==============================================================================
-    void paint (Graphics& g) override;
+    void paint (juce::Graphics& g) override;
     void timerCallback() override;
 
     const LevelTracker& tracker;
     
     bool topDown = false;
-    NormalisableRange<float> range {-60, 0};
+    juce::NormalisableRange<float> range {-60, 0};
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (LevelMeter)

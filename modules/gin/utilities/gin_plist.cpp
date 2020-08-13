@@ -5,7 +5,7 @@
 
  ==============================================================================*/
 
-var parseData (const XmlElement& e)
+juce::var parseData (const juce::XmlElement& e)
 {
     if (e.hasTagName ("string"))
     {
@@ -13,7 +13,7 @@ var parseData (const XmlElement& e)
     }
     else if (e.hasTagName ("array"))
     {
-        Array<var> res;
+        juce::Array<juce::var> res;
         
         auto c = e.getFirstChildElement();
         while (c != nullptr)
@@ -26,7 +26,7 @@ var parseData (const XmlElement& e)
     }
     else if (e.hasTagName ("dict"))
     {
-        auto obj = new DynamicObject();
+        auto obj = new juce::DynamicObject();
         for (int i = 0; i < e.getNumChildElements(); i += 2)
         {
             auto key = e.getChildElement (i + 0);
@@ -36,15 +36,15 @@ var parseData (const XmlElement& e)
                 obj->setProperty (key->getAllSubText(), parseData (*val));
         }
 
-        return var (obj);
+        return juce::var (obj);
     }
     else if (e.hasTagName ("data"))
     {
-        MemoryBlock mb;
+        juce::MemoryBlock mb;
         
         {
-            MemoryOutputStream os (mb, true);
-            Base64::convertFromBase64 (os, e.getAllSubText());
+            juce::MemoryOutputStream os (mb, true);
+            juce::Base64::convertFromBase64 (os, e.getAllSubText());
         }
         
         return mb;
@@ -74,27 +74,27 @@ var parseData (const XmlElement& e)
     return {};
 }
 
-var parsePlist (const File& f)
+juce::var parsePlist (const juce::File& f)
 {
-    XmlDocument doc (f);
+    juce::XmlDocument doc (f);
     if (auto e = doc.getDocumentElement())
         return parsePlist (*e);
     return {};
 }
 
-var parsePlist (const String& s)
+juce::var parsePlist (const juce::String& s)
 {
-    XmlDocument doc (s);
+    juce::XmlDocument doc (s);
     if (auto e = doc.getDocumentElement())
         return parsePlist (*e);
     return {};
 }
 
-var parsePlist (const XmlElement& e)
+juce::var parsePlist (const juce::XmlElement& e)
 {
     if (auto dict = e.getChildByName ("dict"))
     {
-        auto obj = new DynamicObject();
+        auto obj = new juce::DynamicObject();
         for (int i = 0; i < dict->getNumChildElements(); i += 2)
         {
             auto key = dict->getChildElement (i + 0);
@@ -104,7 +104,7 @@ var parsePlist (const XmlElement& e)
                 obj->setProperty (key->getAllSubText(), parseData (*val));
         }
         
-        return var (obj);
+        return juce::var (obj);
     }
     return {};
 }

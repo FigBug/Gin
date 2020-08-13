@@ -44,7 +44,7 @@ public:
         mix   = mix_;
     }
     
-    void process (AudioSampleBuffer& buffer)
+    void process (juce::AudioSampleBuffer& buffer)
     {
         WetDryMix wetDry (mix);
 
@@ -56,8 +56,8 @@ public:
 
         for (int i = 0; i < numSamples; ++i)
         {
-            float totalDelayL = delay + depth / 2.0f + depth * std::sin (MathConstants<float>::pi * 2 * (phase + width / 2.0f)) / 2.0f;
-            float totalDelayR = delay + depth / 2.0f + depth * std::sin (MathConstants<float>::pi * 2 * (phase - width / 2.0f)) / 2.0f;
+            float totalDelayL = delay + depth / 2.0f + depth * std::sin (juce::MathConstants<float>::pi * 2 * (phase + width / 2.0f)) / 2.0f;
+            float totalDelayR = delay + depth / 2.0f + depth * std::sin (juce::MathConstants<float>::pi * 2 * (phase - width / 2.0f)) / 2.0f;
 
             delayLine.write (0, l[i]);
             delayLine.write (1, r[i]);

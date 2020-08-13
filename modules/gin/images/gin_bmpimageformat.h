@@ -16,13 +16,13 @@
 class BMPImageFormat : public juce::ImageFileFormat
 {
 public:
-	juce::String getFormatName() override;
+    juce::String getFormatName() override;
 
-	bool canUnderstand (juce::InputStream& input) override;
+    bool canUnderstand (juce::InputStream& input) override;
 
-	bool usesFileExtension (const juce::File& possibleFile) override;
+    bool usesFileExtension (const juce::File& possibleFile) override;
 
-	juce::Image decodeImage (juce::InputStream& input) override;
+    juce::Image decodeImage (juce::InputStream& input) override;
 
-	bool writeImageToStream (const juce::Image& sourceImage, juce::OutputStream& destStream) override;
+    bool writeImageToStream (const juce::Image& sourceImage, juce::OutputStream& destStream) override;
 };

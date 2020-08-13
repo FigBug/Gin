@@ -2,7 +2,7 @@
 
 /** Draws a waveform
 */
-class WaveformComponent : public Component
+class WaveformComponent : public juce::Component
 {
 public:
     WaveformComponent();
@@ -21,9 +21,9 @@ public:
     void setHorizontalZoom (float zoom);
     void setHorizontalOffset (float offset);
 
-    void setBuffer (AudioSampleBuffer& buffer);
+    void setBuffer (juce::AudioSampleBuffer& buffer);
     //==============================================================================
-    void paint (Graphics& g) override;
+    void paint (juce::Graphics& g) override;
     void resized() override             { needsUpdate = true; }
 
 private:
@@ -31,7 +31,7 @@ private:
     float zoom = 1.0f;
     float offset = 0.0f;
     bool needsUpdate = true;
-    AudioSampleBuffer* buffer = nullptr;
+    juce::AudioSampleBuffer* buffer = nullptr;
     
     struct Channel
     {
@@ -52,13 +52,13 @@ private:
         }
         
         int bufferSize = 0;
-        Array<float> posBuffer, minBuffer, maxBuffer;
+        juce::Array<float> posBuffer, minBuffer, maxBuffer;
     };
     
-    OwnedArray<Channel> channels;
+    juce::OwnedArray<Channel> channels;
 
     //==============================================================================
-    void render (Graphics& g);
+    void render (juce::Graphics& g);
     void processPendingSamples();
 
     //==============================================================================

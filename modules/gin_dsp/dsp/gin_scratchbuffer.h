@@ -15,11 +15,11 @@ class BufferCacheItem;
     Get a buffer without allocating.
     (It does lock however)
 */
-class ScratchBuffer : public AudioSampleBuffer
+class ScratchBuffer : public juce::AudioSampleBuffer
 {
 public:
     ScratchBuffer (int numChannels, int numSamples);
-    ScratchBuffer (AudioSampleBuffer& buffer);
+    ScratchBuffer (juce::AudioSampleBuffer& buffer);
     
     ~ScratchBuffer();
     

@@ -13,7 +13,7 @@ class Parameter : public AudioProcessorParameter,
 {
 public:
     using Ptr = Parameter*;
-    
+
     Parameter (Processor&, String uid, String name, String shortName, String label,
                float minValue, float maxValue,
                float intervalValue, float defaultValue, float skewFactor = 1.0f,
@@ -30,14 +30,14 @@ public:
     int getModIndex()                   { return modIndex;  }
     void setModMatrix (ModMatrix* m)    { modMatrix = m;    }
     ModMatrix* getModMatrix()           { return modMatrix; }
-    
+
     virtual void prepareToPlay (double /*sampleRate*/, int /*samplesPerBlock*/)    {}
     virtual void reset()                                                           {}
-    
+
     //==============================================================================
     float getProcValue();
     virtual float getProcValue (int stepSize);
-    
+
     float getUserValue() const;
     int getUserValueInt() const;
     float getUserDefaultValue() const;
@@ -51,9 +51,9 @@ public:
     bool isOn();
 
     std::function<float (float)> conversionFunction;
-    
+
     virtual bool isSmoothingActive()            { return false;         }
-    
+
     //==============================================================================
     void beginUserAction();
     void beginUserTimedAction();
@@ -109,11 +109,11 @@ public:
 
 protected:
     Processor& processor;
-    
+
     //==============================================================================
     void handleAsyncUpdate() override;
     void timerCallback() override;
-	virtual void changed() {}
+    virtual void changed() {}
 
     //==============================================================================
     NormalisableRange<float> range;
@@ -124,7 +124,7 @@ protected:
 
     float value;
     float defaultValue;
-    
+
     String uid;
     String name;
     String shortName;

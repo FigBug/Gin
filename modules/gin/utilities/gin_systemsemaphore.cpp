@@ -40,9 +40,9 @@ public:
 class SystemSemaphore::Impl
 {
 public:
-    Impl (String name)
+    Impl (juce::String name)
     {
-        String shareName = "/jsem" + File::createLegalFileName (name);
+        juce::String shareName = "/jsem" + juce::File::createLegalFileName (name);
         sem = sem_open (shareName.toRawUTF8(), O_CREAT, 0644, 1);
 
         jassert (sem != SEM_FAILED);
@@ -85,7 +85,7 @@ public:
 };
 #endif
 
-SystemSemaphore::SystemSemaphore (const String& name)
+SystemSemaphore::SystemSemaphore (const juce::String& name)
 {
     impl = std::make_unique<Impl> (name);
 }

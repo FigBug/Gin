@@ -10,7 +10,7 @@ For more information visit www.rabiensoftware.com
 class FileSystemWatcher::Impl
 {
 public:
-    Impl (FileSystemWatcher& o, File f) : owner (o), folder (f)
+    Impl (FileSystemWatcher& o, juce::File f) : owner (o), folder (f)
     {
         NSString* newPath = [NSString stringWithUTF8String:folder.getFullPathName().toRawUTF8()];
 
@@ -45,7 +45,7 @@ public:
     static void callback (ConstFSEventStreamRef streamRef, void* clientCallBackInfo, size_t numEvents, void* eventPaths,
                           const FSEventStreamEventFlags* eventFlags, const FSEventStreamEventId* eventIds)
     {
-        ignoreUnused (streamRef, numEvents, eventIds, eventPaths, eventFlags);
+        juce::ignoreUnused (streamRef, numEvents, eventIds, eventPaths, eventFlags);
 
         Impl* impl = (Impl*)clientCallBackInfo;
         impl->owner.folderChanged (impl->folder);
@@ -57,7 +57,7 @@ public:
             char* file = files[i];
             FSEventStreamEventFlags evt = eventFlags[i];
 
-            File path = String::fromUTF8 (file);
+            juce::File path = juce::String::fromUTF8 (file);
             if (evt & kFSEventStreamEventFlagItemModified)
                 impl->owner.fileChanged (path, FileSystemEvent::fileUpdated);
             else if (evt & kFSEventStreamEventFlagItemRemoved)
@@ -70,7 +70,7 @@ public:
     }
 
     FileSystemWatcher& owner;
-    const File folder;
+    const juce::File folder;
 
     NSArray* paths;
     FSEventStreamRef stream;
@@ -144,7 +144,7 @@ public:
                 Event e;
 
                 e.file = File {folder.getFullPathName() + '/' + iNotifyEvent->name};
-                
+
                      if (iNotifyEvent->mask & IN_CREATE)      e.fsEvent = FileSystemEvent::fileCreated;
                 else if (iNotifyEvent->mask & IN_CLOSE_WRITE) e.fsEvent = FileSystemEvent::fileUpdated;
                 else if (iNotifyEvent->mask & IN_MOVED_FROM)  e.fsEvent = FileSystemEvent::fileRenamedOldName;
@@ -340,7 +340,7 @@ FileSystemWatcher::~FileSystemWatcher()
 {
 }
 
-void FileSystemWatcher::addFolder (const File& folder)
+void FileSystemWatcher::addFolder (const juce::File& folder)
 {
     // You can only listen to folders that exist
     jassert (folder.isDirectory());
@@ -348,7 +348,7 @@ void FileSystemWatcher::addFolder (const File& folder)
     watched.add (new Impl (*this, folder));
 }
 
-void FileSystemWatcher::removeFolder (const File& folder)
+void FileSystemWatcher::removeFolder (const juce::File& folder)
 {
     for (int i = watched.size(); --i >= 0;)
     {
@@ -375,24 +375,24 @@ void FileSystemWatcher::removeListener (Listener* listener)
     listeners.remove (listener);
 }
 
-void FileSystemWatcher::folderChanged (const File& folder)
+void FileSystemWatcher::folderChanged (const juce::File& folder)
 {
     listeners.call (&FileSystemWatcher::Listener::folderChanged, folder);
 }
 
-void FileSystemWatcher::fileChanged (const File& file, FileSystemEvent fsEvent)
+void FileSystemWatcher::fileChanged (const juce::File& file, FileSystemEvent fsEvent)
 {
     listeners.call (&FileSystemWatcher::Listener::fileChanged, file, fsEvent);
 }
 
-Array<File> FileSystemWatcher::getWatchedFolders()
+juce::Array<juce::File> FileSystemWatcher::getWatchedFolders()
 {
-	Array<File> res;
+    juce::Array<juce::File> res;
 
-	for (auto w : watched)
-		res.add (w->folder);
+    for (auto w : watched)
+        res.add (w->folder);
 
-	return res;
+    return res;
 }
 
 #endif

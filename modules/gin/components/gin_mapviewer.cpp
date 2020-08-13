@@ -29,7 +29,7 @@ MapViewer::~MapViewer()
 
 void MapViewer::setZoom (int zoom_)
 {
-    zoom_ = jlimit (0, 18, zoom_);
+    zoom_ = juce::jlimit (0, 18, zoom_);
     if (zoom != zoom_)
     {
         zoom = zoom_;
@@ -57,7 +57,7 @@ void MapViewer::resized()
     mapUpdated();
 }
 
-void MapViewer::paint (Graphics& g)
+void MapViewer::paint (juce::Graphics& g)
 {
     updateDoubleBuffer();
 
@@ -65,19 +65,19 @@ void MapViewer::paint (Graphics& g)
         g.drawImageAt (*doubleBuffer, 0, 0);
 }
 
-void MapViewer::mouseDown (const MouseEvent& e)
+void MapViewer::mouseDown (const juce::MouseEvent& e)
 {
     lastPos = e.getPosition();
 }
 
-void MapViewer::mouseDrag (const MouseEvent& e)
+void MapViewer::mouseDrag (const juce::MouseEvent& e)
 {
     userAdjusted = true;
 
     auto curPos = e.getPosition();
 
-    xoffset = jlimit (0, mapsize - getWidth(), xoffset - (curPos.getX() - lastPos.getX()));
-    yoffset = jlimit (0, mapsize - getHeight(), yoffset - (curPos.getY() - lastPos.getY()));
+    xoffset = juce::jlimit (0, mapsize - getWidth(), xoffset - (curPos.getX() - lastPos.getX()));
+    yoffset = juce::jlimit (0, mapsize - getHeight(), yoffset - (curPos.getY() - lastPos.getY()));
 
     centerPt = osm->displayToCoordinate (juce::Point<double>(xoffset + getWidth() / 2, yoffset + getHeight() / 2), zoom);
 
@@ -86,7 +86,7 @@ void MapViewer::mouseDrag (const MouseEvent& e)
     mapUpdated();
 }
 
-void MapViewer::mouseWheelMove (const MouseEvent& e, const MouseWheelDetails& wheel)
+void MapViewer::mouseWheelMove (const juce::MouseEvent& e, const juce::MouseWheelDetails& wheel)
 {
     userAdjusted = true;
 
@@ -111,8 +111,8 @@ void MapViewer::centerOn (double longCenter, double latCenter)
 {
     juce::Point<double> p = osm->coordinateToDisplay(juce::Point<double>(longCenter, latCenter), zoom);
 
-    xoffset = jlimit (0, (mapsize - getWidth()),  int (p.getX()) - getWidth() / 2);
-    yoffset = jlimit (0, (mapsize - getHeight()), int (p.getY()) - getHeight() / 2);
+    xoffset = juce::jlimit (0, (mapsize - getWidth()),  int (p.getX()) - getWidth() / 2);
+    yoffset = juce::jlimit (0, (mapsize - getHeight()), int (p.getY()) - getHeight() / 2);
 
     centerPt = juce::Point<double>(longCenter, latCenter);
 
@@ -123,8 +123,8 @@ void MapViewer::centerUnderPt (juce::Point<double> world, juce::Point<int> view)
 {
     juce::Point<double> p = osm->coordinateToDisplay (world, zoom);
 
-    xoffset = jlimit (0, jmax (1, (mapsize - getWidth())),  int (p.getX()) - view.getX());
-    yoffset = jlimit (0, jmax (1, (mapsize - getHeight())), int (p.getY()) - view.getY());
+    xoffset = juce::jlimit (0, juce::jmax (1, (mapsize - getWidth())),  int (p.getX()) - view.getX());
+    yoffset = juce::jlimit (0, juce::jmax (1, (mapsize - getHeight())), int (p.getY()) - view.getY());
 
     centerPt = osm->displayToCoordinate (juce::Point<double>(xoffset + getWidth() / 2, yoffset + getHeight() / 2), zoom);
 
@@ -136,17 +136,17 @@ void MapViewer::updateDoubleBuffer()
     if (doubleBuffer)
         return;
 
-    Rectangle<int> rc (0, 0, getWidth(), getHeight());
-    doubleBuffer = std::make_unique<Image> (Image::ARGB, rc.getWidth(), rc.getHeight(), true);
+    juce::Rectangle<int> rc (0, 0, getWidth(), getHeight());
+    doubleBuffer = std::make_unique<juce::Image> (juce::Image::ARGB, rc.getWidth(), rc.getHeight(), true);
 
-    Graphics g (*doubleBuffer);
+    juce::Graphics g (*doubleBuffer);
 
     // draw the map tiles
     for (int x = (rc.getX() + xoffset) / 256 * 256; x <= rc.getRight() + xoffset; x += 256)
     {
         for (int y = (rc.getY() + yoffset) / 256 * 256; y <= rc.getBottom() + yoffset; y += 256)
         {
-            Image tile = osm->fetchTile (zoom, x / 256, y / 256);
+            juce::Image tile = osm->fetchTile (zoom, x / 256, y / 256);
             g.drawImageAt (tile, x - xoffset, y - yoffset);
         }
     }

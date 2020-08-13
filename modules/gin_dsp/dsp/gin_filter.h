@@ -59,37 +59,37 @@ public:
 
         if (type == none) return;
 
-        IIRCoefficients coeffs1, coeffs2;
+        juce::IIRCoefficients coeffs1, coeffs2;
 
         switch (type)
         {
             case lowpass:
-                coeffs1 = IIRCoefficients::makeLowPass (sampleRate, freq, q);
-                coeffs2 = IIRCoefficients::makeLowPass (sampleRate, freq, Q);
+                coeffs1 = juce::IIRCoefficients::makeLowPass (sampleRate, freq, q);
+                coeffs2 = juce::IIRCoefficients::makeLowPass (sampleRate, freq, Q);
                 break;
             case highpass:
-                coeffs1 = IIRCoefficients::makeHighPass (sampleRate, freq, q);
-                coeffs2 = IIRCoefficients::makeHighPass (sampleRate, freq, Q);
+                coeffs1 = juce::IIRCoefficients::makeHighPass (sampleRate, freq, q);
+                coeffs2 = juce::IIRCoefficients::makeHighPass (sampleRate, freq, Q);
                 break;
             case bandpass:
-                coeffs1 = IIRCoefficients::makeBandPass (sampleRate, freq, q);
-                coeffs2 = IIRCoefficients::makeBandPass (sampleRate, freq, Q);
+                coeffs1 = juce::IIRCoefficients::makeBandPass (sampleRate, freq, q);
+                coeffs2 = juce::IIRCoefficients::makeBandPass (sampleRate, freq, Q);
                 break;
             case notch:
-                coeffs1 = IIRCoefficients::makeNotchFilter (sampleRate, freq, q);
-                coeffs2 = IIRCoefficients::makeNotchFilter (sampleRate, freq, Q);
+                coeffs1 = juce::IIRCoefficients::makeNotchFilter (sampleRate, freq, q);
+                coeffs2 = juce::IIRCoefficients::makeNotchFilter (sampleRate, freq, Q);
                 break;
             case lowshelf:
-                coeffs1 = IIRCoefficients::makeLowShelf (sampleRate, freq, q, g);
-                coeffs2 = IIRCoefficients::makeLowShelf (sampleRate, freq, Q, g);
+                coeffs1 = juce::IIRCoefficients::makeLowShelf (sampleRate, freq, q, g);
+                coeffs2 = juce::IIRCoefficients::makeLowShelf (sampleRate, freq, Q, g);
                 break;
             case highshelf:
-                coeffs1 = IIRCoefficients::makeHighShelf (sampleRate, freq, q, g);
-                coeffs2 = IIRCoefficients::makeHighShelf (sampleRate, freq, Q, g);
+                coeffs1 = juce::IIRCoefficients::makeHighShelf (sampleRate, freq, q, g);
+                coeffs2 = juce::IIRCoefficients::makeHighShelf (sampleRate, freq, Q, g);
                 break;
             case peak:
-                coeffs1 = IIRCoefficients::makePeakFilter (sampleRate, freq, q, g);
-                coeffs2 = IIRCoefficients::makePeakFilter (sampleRate, freq, Q, g);
+                coeffs1 = juce::IIRCoefficients::makePeakFilter (sampleRate, freq, q, g);
+                coeffs2 = juce::IIRCoefficients::makePeakFilter (sampleRate, freq, Q, g);
                 break;
             case none:
             default:
@@ -104,7 +104,7 @@ public:
         }
     }
 
-    void process (AudioSampleBuffer& buffer)
+    void process (juce::AudioSampleBuffer& buffer)
     {
         if (type == none) return;
 

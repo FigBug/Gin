@@ -71,11 +71,11 @@ public:
 class SharedMemory::Impl
 {
 public:
-    Impl (String name, int sz) : size (sz)
+    Impl (juce::String name, int sz) : size (sz)
     {
         bool needsInit = false;
 
-        shareName = "/jshm" + File::createLegalFileName (name);
+        shareName = "/jshm" + juce::File::createLegalFileName (name);
 
         fd = shm_open (shareName.toRawUTF8(),  O_RDWR | O_CREAT | O_EXCL, S_IRUSR | S_IWUSR);
         if (fd == -1)
@@ -122,20 +122,20 @@ public:
         shm_unlink (shareName.toRawUTF8());
     }
 
-    static void remove (const String& name)
+    static void remove (const juce::String& name)
     {
-        String shareName = "/jshm" + File::createLegalFileName (name);
+        juce::String shareName = "/jshm" + juce::File::createLegalFileName (name);
         shm_unlink (shareName.toRawUTF8());
     }
 
-    String shareName;
+    juce::String shareName;
     int size;
     void* data = nullptr;
     int fd;
 };
 #endif
 
-SharedMemory::SharedMemory (const String& name, int size)
+SharedMemory::SharedMemory (const juce::String& name, int size)
 {
     impl = std::make_unique<Impl> (name, size);
 }
@@ -154,7 +154,7 @@ int SharedMemory::getSize()
     return impl->size;
 }
 
-void SharedMemory::remove (const String& name)
+void SharedMemory::remove (const juce::String& name)
 {
     Impl::remove (name);
 }

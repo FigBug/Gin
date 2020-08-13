@@ -40,12 +40,12 @@ void ADSR::setSustainLevel (float level)
     sustainLevel = level;
 }
 
-void ADSR::process (AudioSampleBuffer& buffer)
+void ADSR::process (juce::AudioSampleBuffer& buffer)
 {
     process (buffer, 0, buffer.getNumSamples());
 }
 
-void ADSR::process (AudioSampleBuffer& buffer, int startSample, int numSamples)
+void ADSR::process (juce::AudioSampleBuffer& buffer, int startSample, int numSamples)
 {
     auto d = buffer.getWritePointer (0, startSample);
     for (int i = 0; i < numSamples; i++)

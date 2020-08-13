@@ -55,14 +55,14 @@ float EnvelopeDetector::process (float input)
     else
         envelope = releaseTime * (envelope - input) + input;
 
-    envelope = jlimit (0.0f, 1.0f, envelope);
+    envelope = juce::jlimit (0.0f, 1.0f, envelope);
 
     if (logDetector)
     {
         if (envelope == 0.0f)
             return -100.0f;
 
-        return Decibels::gainToDecibels (envelope);
+        return juce::Decibels::gainToDecibels (envelope);
     }
 
     return envelope;
@@ -82,7 +82,7 @@ void Dynamics::setSampleRate (double sampleRate_)
 void Dynamics::setNumChannels (int ch)
 {
     channels = ch;
-    
+
     while (envelopes.size() < channels)
     {
         auto e = new EnvelopeDetector();
@@ -109,16 +109,16 @@ void Dynamics::reset()
         e->reset();
 }
 
-void Dynamics::process (AudioSampleBuffer& buffer, AudioSampleBuffer* envelopeOut)
+void Dynamics::process (juce::AudioSampleBuffer& buffer, juce::AudioSampleBuffer* envelopeOut)
 {
     inputTracker.trackBuffer (buffer);
-    
+
     int numSamples = buffer.getNumSamples();
 
     auto input  = buffer.getArrayOfReadPointers();
     auto output = buffer.getArrayOfWritePointers();
     auto env    = envelopeOut != nullptr ? envelopeOut->getArrayOfWritePointers() : nullptr;
-    
+
     float peakReduction = 1.0f;
 
     for (int i = 0; i < numSamples; i++)
@@ -132,19 +132,19 @@ void Dynamics::process (AudioSampleBuffer& buffer, AudioSampleBuffer* envelopeOu
 
                 in = envelopes[c]->process (in);
 
-                linked += Decibels::decibelsToGain (in);
+                linked += juce::Decibels::decibelsToGain (in);
             }
-            
+
             linked /= channels;
-            
+
             if (env != nullptr)
                 env[0][i] = linked;
-            
-            linked = Decibels::gainToDecibels (linked);
 
-            auto gain = Decibels::decibelsToGain (calcCurve (linked) - linked);
+            linked = juce::Decibels::gainToDecibels (linked);
+
+            auto gain = juce::Decibels::decibelsToGain (calcCurve (linked) - linked);
             peakReduction = std::min (peakReduction, gain);
-            
+
             for (int c = 0; c < channels; c++)
                 output[c][i] = inputGain * gain * input[c][i] * outputGain;
         }
@@ -155,18 +155,18 @@ void Dynamics::process (AudioSampleBuffer& buffer, AudioSampleBuffer* envelopeOu
                 float in = inputGain * input[c][i];
 
                 in = envelopes[c]->process (in);
-                
-                if (env != nullptr)
-                    env[c][i] = Decibels::decibelsToGain (in);
 
-                auto gain = Decibels::decibelsToGain (calcCurve (in) - in);
+                if (env != nullptr)
+                    env[c][i] = juce::Decibels::decibelsToGain (in);
+
+                auto gain = juce::Decibels::decibelsToGain (calcCurve (in) - in);
                 peakReduction = std::min (peakReduction, gain);
 
                 output[c][i] = inputGain * gain * input[c][i] * outputGain;
             }
         }
     }
-    
+
     reductionTracker.trackSample (peakReduction);
     outputTracker.trackBuffer (buffer);
 }

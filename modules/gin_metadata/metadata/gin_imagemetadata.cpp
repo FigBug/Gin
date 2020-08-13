@@ -19,7 +19,7 @@ static void jpegSkip (j_decompress_ptr decompStruct, long num)
 {
     decompStruct->src->next_input_byte += num;
 
-    num = jmin (num, (long) decompStruct->src->bytes_in_buffer);
+    num = juce::jmin (num, (long) decompStruct->src->bytes_in_buffer);
     decompStruct->src->bytes_in_buffer -= (size_t) num;
 }
 
@@ -35,7 +35,7 @@ static void silentErrorCallback3 (j_common_ptr, char*)  {}
 
 static void setupSilentErrorHandler (struct jpeg_error_mgr& err)
 {
-    zerostruct (err);
+    juce::zerostruct (err);
 
     err.error_exit      = fatalErrorHandler;
     err.emit_message    = silentErrorCallback2;
@@ -44,9 +44,9 @@ static void setupSilentErrorHandler (struct jpeg_error_mgr& err)
     err.reset_error_mgr = silentErrorCallback1;
 }
 
-bool loadJPEGMetadataFromStream (OwnedArray<ImageMetadata>& metadata, InputStream& input)
+bool loadJPEGMetadataFromStream (juce::OwnedArray<ImageMetadata>& metadata, juce::InputStream& input)
 {
-    MemoryBlock mb;
+    juce::MemoryBlock mb;
     input.readIntoMemoryBlock (mb);
 
     if (mb.getSize() > 16)
@@ -99,14 +99,14 @@ bool loadJPEGMetadataFromStream (OwnedArray<ImageMetadata>& metadata, InputStrea
 //==============================================================================
 static void pngReadCallback (png_structp pngReadStruct, png_bytep data, png_size_t length)
 {
-    InputStream* const in = (InputStream*) png_get_io_ptr (pngReadStruct);
+    juce::InputStream* const in = (juce::InputStream*) png_get_io_ptr (pngReadStruct);
     in->read (data, (int) length);
 }
 
 //==============================================================================
-bool loadPNGMetadataFromStream (OwnedArray<ImageMetadata>& metadata, InputStream& in)
+bool loadPNGMetadataFromStream (juce::OwnedArray<ImageMetadata>& metadata, juce::InputStream& in)
 {
-    Image* image = nullptr;
+    juce::Image* image = nullptr;
 
     png_structp pngReadStruct;
     png_infop pngInfoStruct;
@@ -131,7 +131,7 @@ bool loadPNGMetadataFromStream (OwnedArray<ImageMetadata>& metadata, InputStream
         {
             if (! strcmp (pngInfoStruct->text[i].key, "XML:com.adobe.xmp"))
             {
-                ImageMetadata* md = XmpMetadata::createFromPng (pngInfoStruct->text[i].text, jmax((int)pngInfoStruct->text[i].text_length, (int)pngInfoStruct->text[i].itxt_length));
+                ImageMetadata* md = XmpMetadata::createFromPng (pngInfoStruct->text[i].text, std::max ((int)pngInfoStruct->text[i].text_length, (int)pngInfoStruct->text[i].itxt_length));
                 metadata.add (md);
             }
         }
@@ -142,7 +142,7 @@ bool loadPNGMetadataFromStream (OwnedArray<ImageMetadata>& metadata, InputStream
 }
 
 //==============================================================================
-ImageMetadata::ImageMetadata(const String& type_) : type(type_)
+ImageMetadata::ImageMetadata(const juce::String& type_) : type(type_)
 {
 }
 
@@ -150,10 +150,10 @@ ImageMetadata::~ImageMetadata()
 {
 }
 
-bool ImageMetadata::getFromImage (InputStream& is, OwnedArray<ImageMetadata>& metadata)
+bool ImageMetadata::getFromImage (juce::InputStream& is, juce::OwnedArray<ImageMetadata>& metadata)
 {
-    JPEGImageFormat jpeg;
-    PNGImageFormat png;
+    juce::JPEGImageFormat jpeg;
+    juce::PNGImageFormat png;
 
     is.setPosition (0);
     if (jpeg.canUnderstand (is))

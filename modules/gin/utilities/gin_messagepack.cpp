@@ -11,9 +11,9 @@
  #pragma warning (push)
  #pragma warning (disable: 4310)
  #pragma warning (disable: 4100)
-#endif 
+#endif
 
-static void toData (OutputStream& os, const juce::var& obj)
+static void toData (juce::OutputStream& os, const juce::var& obj)
 {
     if (obj.isVoid())
     {
@@ -21,7 +21,7 @@ static void toData (OutputStream& os, const juce::var& obj)
     }
     else if (obj.isInt() || obj.isInt64())
     {
-        int64 v = (int64) obj;
+        juce::int64 v = (juce::int64) obj;
         if (v >= 0)
         {
             if (v <= 127)
@@ -46,7 +46,7 @@ static void toData (OutputStream& os, const juce::var& obj)
             else
             {
                 os.writeByte (char (0xcf));
-                os.writeInt64BigEndian (int64 (v));
+                os.writeInt64BigEndian (juce::int64 (v));
             }
         }
         else
@@ -94,7 +94,7 @@ static void toData (OutputStream& os, const juce::var& obj)
         auto str = obj.toString();
         auto s = str.toRawUTF8();
         size_t n = str.getNumBytesAsUTF8();
-        
+
         if (n <= 31)
         {
             os.writeByte (char (0xa0 | n));
@@ -123,9 +123,9 @@ static void toData (OutputStream& os, const juce::var& obj)
     {
         auto& dobj = *obj.getDynamicObject();
         auto& names = dobj.getProperties();
-        
+
         int n = names.size();
-        
+
         if (n <= 15)
         {
             os.writeByte (char (0x80 | n));
@@ -140,19 +140,19 @@ static void toData (OutputStream& os, const juce::var& obj)
             os.writeByte (char (0xdf));
             os.writeIntBigEndian (n);
         }
-        
+
         for (auto& itm : names)
         {
-            toData (os, var (itm.name.toString()));
+            toData (os, juce::var (itm.name.toString()));
             toData (os, itm.value);
         }
     }
     else if (obj.isArray())
     {
         auto& arr = *obj.getArray();
-        
+
         int n = arr.size();
-        
+
         if (n <= 15)
         {
            os.writeByte (char (0x90 | n));
@@ -167,7 +167,7 @@ static void toData (OutputStream& os, const juce::var& obj)
             os.writeByte (char (0xdc));
             os.writeIntBigEndian (n);
         }
-        
+
         for (auto& a : arr)
             toData (os, a);
     }
@@ -177,7 +177,7 @@ static void toData (OutputStream& os, const juce::var& obj)
         {
             void* s = bd->getData();
             size_t n = bd->getSize();
-            
+
             if (n <= 255)
             {
                 os.writeByte (char (0xc4));
@@ -204,47 +204,47 @@ static void toData (OutputStream& os, const juce::var& obj)
     }
 }
 
-static var fromData (InputStream& is);
+static juce::var fromData (juce::InputStream& is);
 
-static var fromArray (InputStream& is, int n)
+static juce::var fromArray (juce::InputStream& is, int n)
 {
-    Array<var> res;
-    
+    juce::Array<juce::var> res;
+
     for (int i = 0; i < n; i++)
         res.add (fromData (is));
-    
+
     return res;
 }
 
-static var fromMap (InputStream& is, int n)
+static juce::var fromMap (juce::InputStream& is, int n)
 {
-    auto obj = new DynamicObject();
-    
+    auto obj = new juce::DynamicObject();
+
     for (int i = 0; i < n; i++)
     {
-        var k = fromData (is);
-        var v = fromData (is);
-        
+        juce::var k = fromData (is);
+        juce::var v = fromData (is);
+
         auto ident = k.toString();
         if (ident.isNotEmpty())
             obj->setProperty (ident, v);
     }
-    
-    return var (obj);
+
+    return juce::var (obj);
 }
 
-static var fromString (InputStream& is, int n)
+static juce::var fromString (juce::InputStream& is, int n)
 {
-    MemoryBlock mb;
+    juce::MemoryBlock mb;
     is.readIntoMemoryBlock (mb, n);
-    
-    return String::fromUTF8 ((const char*)mb.getData(), int (mb.getSize()));
+
+    return juce::String::fromUTF8 ((const char*)mb.getData(), int (mb.getSize()));
 }
 
-static var fromData (InputStream& is)
+static juce::var fromData (juce::InputStream& is)
 {
     uint8_t d = uint8_t (is.readByte());
-    
+
     if ((d & 0x80) == 0x00)
     {
         return (int) d;
@@ -281,42 +281,42 @@ static var fromData (InputStream& is)
     else if (d == 0xc4)
     {
         uint8_t n = uint8_t (is.readByte());
-        MemoryBlock mb;
+        juce::MemoryBlock mb;
         is.readIntoMemoryBlock (mb, n);
         return mb;
     }
     else if (d == 0xc5)
     {
         uint16_t n = uint16_t (is.readShortBigEndian());
-        MemoryBlock mb;
+        juce::MemoryBlock mb;
         is.readIntoMemoryBlock (mb, n);
         return mb;
     }
     else if (d == 0xc6)
     {
         uint32_t n = uint32_t (is.readIntBigEndian());
-        MemoryBlock mb;
+        juce::MemoryBlock mb;
         is.readIntoMemoryBlock (mb, n);
         return mb;
     }
     else if (d == 0xc7)
     {
         uint8_t n = uint8_t (is.readByte());
-        MemoryBlock mb;
+        juce::MemoryBlock mb;
         is.readIntoMemoryBlock (mb, n + 1);
         return mb;
     }
     else if (d == 0xc8)
     {
         uint16_t n = uint16_t (is.readShortBigEndian());
-        MemoryBlock mb;
+        juce::MemoryBlock mb;
         is.readIntoMemoryBlock (mb, n + 1);
         return mb;
     }
     else if (d == 0xc9)
     {
         uint32_t n = uint32_t (is.readIntBigEndian());
-        MemoryBlock mb;
+        juce::MemoryBlock mb;
         is.readIntoMemoryBlock (mb, n + 1);
         return mb;
     }
@@ -346,31 +346,31 @@ static var fromData (InputStream& is)
     }
     else if (d == 0xd4)
     {
-        MemoryBlock mb;
+        juce::MemoryBlock mb;
         is.readIntoMemoryBlock (mb, 1 + 1);
         return mb;
     }
     else if (d == 0xd5)
     {
-        MemoryBlock mb;
+        juce::MemoryBlock mb;
         is.readIntoMemoryBlock (mb, 1 + 2);
         return mb;
     }
     else if (d == 0xd6)
     {
-        MemoryBlock mb;
+        juce::MemoryBlock mb;
         is.readIntoMemoryBlock (mb, 1 + 4);
         return mb;
     }
     else if (d == 0xd7)
     {
-        MemoryBlock mb;
+        juce::MemoryBlock mb;
         is.readIntoMemoryBlock (mb, 1 + 8);
         return mb;
     }
     else if (d == 0xd8)
     {
-        MemoryBlock mb;
+        juce::MemoryBlock mb;
         is.readIntoMemoryBlock (mb, 1 + 16);
         return mb;
     }
@@ -421,19 +421,19 @@ static var fromData (InputStream& is)
 
 juce::MemoryBlock MessagePack::toMessagePack (const juce::var& obj)
 {
-    MemoryBlock data;
-    
+    juce::MemoryBlock data;
+
     {
-        MemoryOutputStream os (data, false);
+        juce::MemoryOutputStream os (data, false);
         toData (os, obj);
     }
-    
+
     return data;
 }
 
 juce::var MessagePack::parse (const juce::MemoryBlock& data)
 {
-    MemoryInputStream is (data, false);
+    juce::MemoryInputStream is (data, false);
     return fromData (is);
 }
 

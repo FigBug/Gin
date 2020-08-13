@@ -22,7 +22,7 @@ public:
         setSampleRate (44100.0);
     }
     
-    void process (AudioSampleBuffer& buffer)
+    void process (juce::AudioSampleBuffer& buffer)
     {
         int numSamples = buffer.getNumSamples();
         

@@ -22,7 +22,7 @@ void XYScope::setZoomFactor (const float newZoomFactor)
     zoomFactor = newZoomFactor;
 }
 
-void XYScope::addSamples (const AudioSampleBuffer& buffer)
+void XYScope::addSamples (const juce::AudioSampleBuffer& buffer)
 {
     jassert (buffer.getNumChannels() == 2);
     
@@ -40,7 +40,7 @@ void XYScope::addSamples (const AudioSampleBuffer& buffer)
 
 //==============================================================================
 
-void XYScope::paint (Graphics& g)
+void XYScope::paint (juce::Graphics& g)
 {
     if (needToUpdate)
     {
@@ -60,7 +60,7 @@ void XYScope::timerCallback()
 {
     while (fifo.getNumReady() > 0)
     {
-        ScratchBuffer buffer (2, jmin (512, fifo.getNumReady()));
+        ScratchBuffer buffer (2, std::min (512, fifo.getNumReady()));
         
         fifo.read (buffer);
         addSamples (buffer);
@@ -98,14 +98,14 @@ void XYScope::processPendingSamples()
             channel.currentY = 0.0;
 
             ++channel.bufferWritePos %= channel.bufferSize;
-            channel.numLeftToAverage += jmax (1.0f, numSamplesPerPixel);
+            channel.numLeftToAverage += std::max (1.0f, numSamplesPerPixel);
         }
     }
 }
 
-void XYScope::render (Graphics& g)
+void XYScope::render (juce::Graphics& g)
 {
-    g.fillAll (Colours::transparentBlack);
+    g.fillAll (juce::Colours::transparentBlack);
 
     const int w = getWidth();
     const int h = getHeight();
@@ -114,7 +114,7 @@ void XYScope::render (Graphics& g)
     int points = 50;
     int bufferReadPos = channel.bufferWritePos - points;
     
-    Path p;
+    juce::Path p;
     
     int pos = bufferReadPos;
     
@@ -139,5 +139,5 @@ void XYScope::render (Graphics& g)
     
     g.setColour (findColour (traceColourId ));
     p = p.createPathWithRoundedCorners (10.0f);
-    g.strokePath (p, PathStrokeType (1.5f));
+    g.strokePath (p, juce::PathStrokeType (1.5f));
 }

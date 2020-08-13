@@ -107,12 +107,12 @@ void AnalogADSR::calculateRelease()
     releaseOffset = -tco * (1.0f - releaseCoeff);
 }
 
-void AnalogADSR::process (AudioSampleBuffer& buffer)
+void AnalogADSR::process (juce::AudioSampleBuffer& buffer)
 {
     process (buffer, 0, buffer.getNumSamples());
 }
 
-void AnalogADSR::process (AudioSampleBuffer& buffer, int startSample, int numSamples)
+void AnalogADSR::process (juce::AudioSampleBuffer& buffer, int startSample, int numSamples)
 {
     float* d = buffer.getWritePointer (0, startSample);
     for (int i = 0; i < numSamples; i++)
@@ -151,12 +151,12 @@ void AnalogADSR::process (AudioSampleBuffer& buffer, int startSample, int numSam
     }
 }
 
-void AnalogADSR::processMultiplying (AudioSampleBuffer& buffer)
+void AnalogADSR::processMultiplying (juce::AudioSampleBuffer& buffer)
 {
     processMultiplying (buffer, 0, buffer.getNumSamples());
 }
 
-void AnalogADSR::processMultiplying (AudioSampleBuffer& buffer, int startSample, int numSamples)
+void AnalogADSR::processMultiplying (juce::AudioSampleBuffer& buffer, int startSample, int numSamples)
 {
     int channels = buffer.getNumChannels();
     float** d = buffer.getArrayOfWritePointers();

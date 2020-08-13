@@ -12,10 +12,10 @@
 WaveformComponent::WaveformComponent()
 {
     for (int i = 0; i < 32; i++)
-        setColour (traceColourId + i, Colours::white);
+        setColour (traceColourId + i, juce::Colours::white);
     
     for (int i = 0; i < 32; i++)
-        setColour (envelopeColourId + i, Colours::white.withAlpha (0.5f));
+        setColour (envelopeColourId + i, juce::Colours::white.withAlpha (0.5f));
 }
 
 WaveformComponent::~WaveformComponent()
@@ -36,7 +36,7 @@ void WaveformComponent::setHorizontalOffset (float offset_)
     repaint();
 }
 
-void WaveformComponent::setBuffer (AudioSampleBuffer& buffer_)
+void WaveformComponent::setBuffer (juce::AudioSampleBuffer& buffer_)
 {
     buffer = &buffer_;
     needsUpdate = true;
@@ -45,7 +45,7 @@ void WaveformComponent::setBuffer (AudioSampleBuffer& buffer_)
 
 //==============================================================================
 
-void WaveformComponent::paint (Graphics& g)
+void WaveformComponent::paint (juce::Graphics& g)
 {
     if (needsUpdate)
     {
@@ -92,8 +92,8 @@ void WaveformComponent::processPendingSamples()
         int numLeftToAverage = (int) std::max (1.0f, numSamplesPerPixel);
         
         auto samples = buffer->getReadPointer (ch);
-        int samplesTodo = roundToInt (numSamples / zoom);
-        int i = roundToInt (numSamples * offset);
+        int samplesTodo = juce::roundToInt (numSamples / zoom);
+        int i = juce::roundToInt (numSamples * offset);
         
         while (--samplesTodo >= 0)
         {
@@ -117,7 +117,7 @@ void WaveformComponent::processPendingSamples()
                 currentAve = 0.0;
 
                 bufferWritePos++;
-                numLeftToAverage += (int) jmax (1.0f, numSamplesPerPixel);
+                numLeftToAverage += (int) std::max (1.0f, numSamplesPerPixel);
                 numAveraged = 0;
             }
             bufferWritePos++;
@@ -126,7 +126,7 @@ void WaveformComponent::processPendingSamples()
     }
 }
 
-void WaveformComponent::render (Graphics& g)
+void WaveformComponent::render (juce::Graphics& g)
 {
     const int w = getWidth();
     const int h = getHeight();
@@ -142,7 +142,7 @@ void WaveformComponent::render (Graphics& g)
         bool drawTrace = ! traceColour.isTransparent ();
         bool drawEnvelope = ! envelopeColour.isTransparent ();
 
-        Path p;
+        juce::Path p;
         
         int pos = bufferReadPos;
         int currentX = 0;
@@ -176,7 +176,7 @@ void WaveformComponent::render (Graphics& g)
         if (drawTrace)
         {
             g.setColour (traceColour);
-            g.strokePath (p, PathStrokeType (1.5f));
+            g.strokePath (p, juce::PathStrokeType (1.5f));
         }
         
         ch++;

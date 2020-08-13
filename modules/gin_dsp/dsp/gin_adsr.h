@@ -32,8 +32,8 @@ public:
     float process();
     float process (int num);
 
-    void process (AudioSampleBuffer& buffer);
-    void process (AudioSampleBuffer& buffer, int startSample, int numSamples);
+    void process (juce::AudioSampleBuffer& buffer);
+    void process (juce::AudioSampleBuffer& buffer, int startSample, int numSamples);
 
     float getOutput()
     {

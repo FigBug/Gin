@@ -6,7 +6,7 @@
  ==============================================================================*/
 
 //==============================================================================
-class RealtimeAsyncUpdater::Impl : public Thread
+class RealtimeAsyncUpdater::Impl : public juce::Thread
 {
 public:
     Impl() : Thread ("RealtimeAsyncUpdater")
@@ -24,19 +24,19 @@ public:
     
     void registerUpdater (RealtimeAsyncUpdater* ras)
     {
-        ScopedLock sl (lock);
+        juce::ScopedLock sl (lock);
         updaters.add (ras);
     }
     
     void unregisterUpdater (RealtimeAsyncUpdater* ras)
     {
-        ScopedLock sl (lock);
+        juce::ScopedLock sl (lock);
         updaters.removeFirstMatchingValue (ras);
     }
     
     void signal (RealtimeAsyncUpdater& ras)
     {
-        static PerformanceCounter counter {"signal", 1000};
+        static juce::PerformanceCounter counter {"signal", 1000};
         counter.start();
         ras.order = ++next;
         event.signal();
@@ -44,10 +44,10 @@ public:
     }
     
 private:
-    CriticalSection lock;
-    Array<RealtimeAsyncUpdater*> updaters;
-    WaitableEvent event;
-    Atomic<uint32_t> next;
+    juce::CriticalSection lock;
+    juce::Array<RealtimeAsyncUpdater*> updaters;
+    juce::WaitableEvent event;
+    juce::Atomic<uint32_t> next;
     
     void run() override
     {
@@ -58,8 +58,8 @@ private:
             if (threadShouldExit())
                 break;
             
-            WeakReference<Impl> weakSelf = this;
-            MessageManager::getInstance()->callAsync ([this, weakSelf] {
+            juce::WeakReference<Impl> weakSelf = this;
+            juce::MessageManager::getInstance()->callAsync ([this, weakSelf] {
                 if (weakSelf != nullptr)
                     fireCallbacks();
             });
@@ -68,9 +68,9 @@ private:
 
     void fireCallbacks()
     {
-        Array<RealtimeAsyncUpdater*> dirtyUpdaters;
+        juce::Array<RealtimeAsyncUpdater*> dirtyUpdaters;
         
-        ScopedLock sl (lock);
+        juce::ScopedLock sl (lock);
         for (auto au : updaters)
             if (au->triggered.get())
                 dirtyUpdaters.add (au);

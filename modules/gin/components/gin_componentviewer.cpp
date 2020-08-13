@@ -21,10 +21,10 @@ juce::Component* realGetComponent (juce::Component& p, juce::Point<int> screenPo
 
 juce::Component* realGetComponentUnderMouse()
 {
-    auto mouse = Desktop::getInstance().getMainMouseSource();
+    auto mouse = juce::Desktop::getInstance().getMainMouseSource();
     auto pos = mouse.getScreenPosition().toInt();
 
-    auto& desktop = Desktop::getInstance();
+    auto& desktop = juce::Desktop::getInstance();
 
     for (int i = desktop.getNumComponents(); --i >= 0;)
     {
@@ -37,13 +37,13 @@ juce::Component* realGetComponentUnderMouse()
     return {};
 }
 
-static String getClassName (juce::Component* c)
+static juce::String getClassName (juce::Component* c)
 {
    #if __clang__ || __GNUC__
     int status = 0;
     if (char* demangled = abi::__cxa_demangle (typeid (*c).name(), nullptr, nullptr, &status))
     {
-        auto res = String (demangled);
+        auto res = juce::String (demangled);
         free (demangled);
         return res;
     }
@@ -71,11 +71,11 @@ public:
             auto root = c->getTopLevelComponent();
             auto rootPos = root->getLocalPoint (c, pos);
 
-            auto disp = Desktop::getInstance().getDisplays().findDisplayForPoint (c->localPointToGlobal (pos));
+            auto disp = juce::Desktop::getInstance().getDisplays().findDisplayForPoint (c->localPointToGlobal (pos));
             scale = float (disp.scale);
 
             image = root->createComponentSnapshot ({rootPos.getX() - w / 2, rootPos.getY() - h / 2, w, h}, false, scale);
-            image = image.rescaled (w * zoom, h * zoom, Graphics::lowResamplingQuality);
+            image = image.rescaled (w * zoom, h * zoom, juce::Graphics::lowResamplingQuality);
             repaint();
         }
         else
@@ -90,7 +90,7 @@ public:
         repaint();
     }
 
-    Colour getColourUnderMouse()
+    juce::Colour getColourUnderMouse()
     {
         if (! image.isNull() && zoom > 0)
         {
@@ -106,7 +106,7 @@ public:
     }
 
 private:
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
         if (! image.isNull() && zoom > 0 && scale != 0.0f)
         {
@@ -115,7 +115,7 @@ private:
             int w = getWidth()  / zoom + 1;
             int h = getHeight() / zoom + 1;
 
-            Rectangle<int> rc (w / 2 * zoom, h / 2 * zoom, int (zoom / scale), int (zoom / scale));
+            juce::Rectangle<int> rc (w / 2 * zoom, h / 2 * zoom, int (zoom / scale), int (zoom / scale));
 
             auto c = image.getPixelAt (rc.getX(), rc.getY());
             g.setColour (c.contrasting());
@@ -123,21 +123,21 @@ private:
         }
     }
 
-    Image image;
+    juce::Image image;
     int zoom = 10;
     float scale = 1.0f;
 };
 
 //==============================================================================
 class ComponentViewer::ContentComponent : public Component,
-                                          private Timer,
-                                          private Slider::Listener
+                                          private juce::Timer,
+                                          private juce::Slider::Listener
 {
 public:
-    ContentComponent (PropertiesFile& settings_)
+    ContentComponent (juce::PropertiesFile& settings_)
         : settings (settings_)
     {
-        Font f (Font::getDefaultMonospacedFontName(), 12.0f, Font::plain);
+        juce::Font f (juce::Font::getDefaultMonospacedFontName(), 12.0f, juce::Font::plain);
 
         addAndMakeVisible (mouseDetails);
         mouseDetails.setMultiLine (true, false);
@@ -152,22 +152,22 @@ public:
         addAndMakeVisible (snapshotDetails);
         snapshotDetails.setFont (f);
         snapshotDetails.setReadOnly (true);
-        snapshotDetails.setJustification (Justification::centred);
+        snapshotDetails.setJustification (juce::Justification::centred);
 
         addAndMakeVisible (zoom);
-        zoom.setTextBoxStyle (Slider::NoTextBox, false, 0, 0);
+        zoom.setTextBoxStyle (juce::Slider::NoTextBox, false, 0, 0);
         zoom.setRange (1, 30, 1);
         zoom.setValue (settings.getIntValue ("ginZoom", 10));
         zoom.addListener (this);
 
         addAndMakeVisible (snapshot);
 
-        Desktop::getInstance().addGlobalMouseListener (this);
+        juce::Desktop::getInstance().addGlobalMouseListener (this);
     }
 
     ~ContentComponent() override
     {
-        Desktop::getInstance().removeGlobalMouseListener (this);
+        juce::Desktop::getInstance().removeGlobalMouseListener (this);
     }
 
     void resized() override
@@ -185,10 +185,10 @@ public:
         snapshot.setBounds (rc);
     }
 
-    void mouseUp (const MouseEvent& )   override { updateComponentDetailsAsync(); }
-    void mouseDown (const MouseEvent& ) override { updateComponentDetailsAsync(); }
-    void mouseDrag (const MouseEvent& ) override { updateComponentDetailsAsync(); }
-    void mouseMove (const MouseEvent& ) override { updateComponentDetailsAsync(); }
+    void mouseUp (const juce::MouseEvent& )   override { updateComponentDetailsAsync(); }
+    void mouseDown (const juce::MouseEvent& ) override { updateComponentDetailsAsync(); }
+    void mouseDrag (const juce::MouseEvent& ) override { updateComponentDetailsAsync(); }
+    void mouseMove (const juce::MouseEvent& ) override { updateComponentDetailsAsync(); }
 
     void updateComponentDetailsAsync()
     {
@@ -202,7 +202,7 @@ public:
         updateComponentDetails();
     }
 
-    void sliderValueChanged (Slider*) override
+    void sliderValueChanged (juce::Slider*) override
     {
         settings.setValue ("ginZoom", int (zoom.getValue()));
         updateComponentDetails();
@@ -210,12 +210,12 @@ public:
 
     void updateComponentDetails()
     {
-        auto mouse = Desktop::getInstance().getMainMouseSource();
+        auto mouse = juce::Desktop::getInstance().getMainMouseSource();
 
         auto pos = mouse.getScreenPosition().toInt();
 
-        StringArray componentHierarchy;
-        String cursorPos, colourDetails;
+        juce::StringArray componentHierarchy;
+        juce::String cursorPos, colourDetails;
 
         if (auto c = realGetComponentUnderMouse())
         {
@@ -240,19 +240,19 @@ public:
         componentDetails.setText (componentHierarchy.joinIntoString ("\n"));
     }
 
-    StringArray getComponentHierarchy (Component* c)
+    juce::StringArray getComponentHierarchy (Component* c)
     {
-        StringArray res;
+        juce::StringArray res;
 
         while (c != nullptr)
         {
-            String str;
+            juce::String str;
 
-            str += ("[" + String (getClassName (c)) + "]").paddedRight (' ', 60);
+            str += ("[" + juce::String (getClassName (c)) + "]").paddedRight (' ', 60);
             str += (" \"" + c->getName() + "\"").paddedRight (' ', 20);
             str += (" (" + c->getBounds().toString() + ")").paddedRight (' ', 20);
-            str += String (c->isOpaque() ? " Opaque" : "").paddedRight (' ', 8);
-            str += String (c->isPaintingUnclipped() ? " Unclipped" : "").paddedRight (' ', 11);
+            str += juce::String (c->isOpaque() ? " Opaque" : "").paddedRight (' ', 8);
+            str += juce::String (c->isPaintingUnclipped() ? " Unclipped" : "").paddedRight (' ', 11);
 
             res.add (str);
 
@@ -261,16 +261,16 @@ public:
         return res;
     }
 
-    PropertiesFile& settings;
+    juce::PropertiesFile& settings;
 
-    TextEditor mouseDetails, componentDetails, snapshotDetails;
-    Slider zoom;
+    juce::TextEditor mouseDetails, componentDetails, snapshotDetails;
+    juce::Slider zoom;
     Snapshot snapshot;
 };
 
 //==============================================================================
-ComponentViewer::ComponentViewer (Component* toTrack_, PropertiesFile* settings_, bool alwaysOnTop)
-    : DocumentWindow ("Component Viewer Window", Colours::white, allButtons, true),
+ComponentViewer::ComponentViewer (Component* toTrack_, juce::PropertiesFile* settings_, bool alwaysOnTop)
+    : DocumentWindow ("Component Viewer Window", juce::Colours::white, allButtons, true),
     toTrack (toTrack_)
 {
     if (settings_ != nullptr)
@@ -279,7 +279,7 @@ ComponentViewer::ComponentViewer (Component* toTrack_, PropertiesFile* settings_
     }
     else
     {
-        PropertiesFile::Options opts;
+        juce::PropertiesFile::Options opts;
 
         opts.applicationName = "Gin";
         opts.filenameSuffix = ".xml";
@@ -291,7 +291,7 @@ ComponentViewer::ComponentViewer (Component* toTrack_, PropertiesFile* settings_
         opts.millisecondsBeforeSaving = 1;
         opts.storageFormat = juce::PropertiesFile::storeAsXML;
 
-        settings.set (new PropertiesFile (opts), true);
+        settings.set (new juce::PropertiesFile (opts), true);
     }
 
     if (toTrack != nullptr)

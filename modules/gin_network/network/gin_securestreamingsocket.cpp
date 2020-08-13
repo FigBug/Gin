@@ -41,20 +41,20 @@ class SecureStreamingSocket::Impl
 public:
     Impl()  { init();  }
     ~Impl() { close(); }
-    
-	bool connect (const juce::String& remoteHostname, int remotePortNumber, int timeOutMillisecs)
+
+    bool connect (const juce::String& remoteHostname, int remotePortNumber, int timeOutMillisecs)
     {
-		juce::ignoreUnused (timeOutMillisecs);
-        
+        juce::ignoreUnused (timeOutMillisecs);
+
         int ret = 0;
-		juce::String port = juce::String (remotePortNumber);
+        juce::String port = juce::String (remotePortNumber);
         if ((ret = mbedtls_net_connect (&server_fd, remoteHostname.toRawUTF8(),
                                         port.toRawUTF8(), MBEDTLS_NET_PROTO_TCP)) != 0)
         {
             DBG("failed: mbedtls_net_connect returned " + juce::String (ret));
             return false;
         }
-        
+
         if ((ret = mbedtls_ssl_config_defaults (&conf,
                                                 MBEDTLS_SSL_IS_CLIENT,
                                                 MBEDTLS_SSL_TRANSPORT_STREAM,
@@ -63,26 +63,26 @@ public:
             DBG("failed: mbedtls_ssl_config_defaults returned " + juce::String (ret));
             return false;
         }
-        
+
         mbedtls_ssl_conf_authmode (&conf, MBEDTLS_SSL_VERIFY_NONE);
         mbedtls_ssl_conf_ca_chain (&conf, &cacert, nullptr);
         mbedtls_ssl_conf_rng (&conf, mbedtls_ctr_drbg_random, &ctr_drbg);
         mbedtls_ssl_conf_dbg (&conf, debug_func, stdout);
-        
+
         if ((ret = mbedtls_ssl_setup (&ssl, &conf )) != 0)
         {
             DBG("failed: mbedtls_ssl_setup returned %d" + juce::String (ret));
             return false;
         }
-        
+
         if ((ret = mbedtls_ssl_set_hostname (&ssl, remoteHostname.toRawUTF8())) != 0)
         {
             DBG("failed: mbedtls_ssl_set_hostname returned " + juce::String (ret));
             return false;
         }
-        
+
         mbedtls_ssl_set_bio (&ssl, &server_fd, mbedtls_net_send, mbedtls_net_recv, nullptr);
-        
+
         while ((ret = mbedtls_ssl_handshake (&ssl)) != 0)
         {
             if (ret != MBEDTLS_ERR_SSL_WANT_READ && ret != MBEDTLS_ERR_SSL_WANT_WRITE)
@@ -93,21 +93,21 @@ public:
         }
 
         connected = true;
-        
+
         return true;
     }
-    
+
     bool isConnected() const noexcept
     {
         return connected;
     }
-    
+
     void close()
     {
         if (isConnected())
             shutdown();
     }
-    
+
     int read (void* destBuffer, int maxBytesToRead, bool blockUntilSpecifiedAmountHasArrived)
     {
         if (blockUntilSpecifiedAmountHasArrived)
@@ -154,26 +154,26 @@ public:
         connected = false;
         return -1;
     }
-    
+
     int write (const void* sourceBuffer, int numBytesToWrite)
     {
         int res = mbedtls_ssl_write (&ssl, (const unsigned char*)sourceBuffer, (size_t)numBytesToWrite);
 
         if (res >= 0)
             return res;
-        
+
         if (res < 0 && (res == MBEDTLS_ERR_SSL_WANT_READ || res == MBEDTLS_ERR_SSL_WANT_WRITE))
             return 0;
-        
+
         connected = false;
         return -1;
     }
-    
+
     int getRawSocketHandle()
     {
         return server_fd.fd;
     }
-    
+
     int waitUntilReady (bool readyForReading, int timeoutMsecs)
     {
         if (connected)
@@ -197,7 +197,7 @@ public:
         }
         return -1;
     }
-    
+
 private:
     void init()
     {
@@ -207,9 +207,9 @@ private:
         mbedtls_x509_crt_init (&cacert);
         mbedtls_ctr_drbg_init (&ctr_drbg);
         mbedtls_entropy_init (&entropy);
-        
+
         int ret = 0;
-        
+
         const char* pers = "gin_ssl_client";
         if ((ret = mbedtls_ctr_drbg_seed (&ctr_drbg, mbedtls_entropy_func, &entropy,
                                           (const unsigned char *)pers,
@@ -219,7 +219,7 @@ private:
             jassertfalse;
         }
     }
-    
+
     void shutdown()
     {
         mbedtls_net_free (&server_fd);
@@ -228,9 +228,9 @@ private:
         mbedtls_ctr_drbg_free (&ctr_drbg);
         mbedtls_entropy_free (&entropy);
     }
-    
-	juce::URL url;
-    
+
+    juce::URL url;
+
     mbedtls_net_context server_fd;
     mbedtls_entropy_context entropy;
     mbedtls_ctr_drbg_context ctr_drbg;
@@ -247,7 +247,7 @@ SecureStreamingSocket::SecureStreamingSocket (bool secure)
     if (secure)
         impl = std::make_unique<Impl>();
     else
-		normalSocket = std::make_unique<juce::StreamingSocket>();
+        normalSocket = std::make_unique<juce::StreamingSocket>();
 }
 
 SecureStreamingSocket::~SecureStreamingSocket()

@@ -65,12 +65,12 @@ public:
         bands[band]->setParams (freq, q, g);
     }
 
-    void process (AudioSampleBuffer& buffer)
+    void process (juce::AudioSampleBuffer& buffer)
     {
         for (auto& b : bands)
             b->process (buffer);
     }
 
 private:
-    OwnedArray<Filter> bands;
+    juce::OwnedArray<Filter> bands;
 };

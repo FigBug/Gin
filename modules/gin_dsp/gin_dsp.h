@@ -62,9 +62,6 @@
 
 namespace gin
 {
-using namespace juce;
-using juce::Rectangle;
-using juce::Component;
 
 #include "dsp/gin_audioutil.h"
 #include "dsp/gin_leveltracker.h"

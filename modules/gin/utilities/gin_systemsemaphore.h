@@ -14,7 +14,7 @@
 class SystemSemaphore
 {
 public:
-	SystemSemaphore (const juce::String& name);
+    SystemSemaphore (const juce::String& name);
     ~SystemSemaphore();
 
     bool lock();

@@ -40,7 +40,7 @@ namespace gin
 
 namespace pnglibNamespace
 {
-    using namespace zlibNamespace;
+    using namespace juce::zlibNamespace;
 
 #if JUCE_INCLUDE_PNGLIB_CODE || ! defined (JUCE_INCLUDE_PNGLIB_CODE)
 

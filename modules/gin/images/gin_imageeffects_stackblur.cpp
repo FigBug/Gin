@@ -45,14 +45,14 @@ static unsigned char const stackblur_shr[255] =
     24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24
 };
 
-static void applyStackBlurBW (Image& img, unsigned int radius)
+static void applyStackBlurBW (juce::Image& img, unsigned int radius)
 {
     const unsigned int w = (unsigned int)img.getWidth();
     const unsigned int h = (unsigned int)img.getHeight();
 
-    Image::BitmapData data (img, Image::BitmapData::readWrite);
+    juce::Image::BitmapData data (img, juce::Image::BitmapData::readWrite);
 
-    radius = jlimit (2u, 254u, radius);
+    radius = juce::jlimit (2u, 254u, radius);
 
     unsigned char    stack[(254 * 2 + 1) * 1];
 
@@ -213,14 +213,14 @@ static void applyStackBlurBW (Image& img, unsigned int radius)
     }
 }
 
-static void applyStackBlurRGB (Image& img, unsigned int radius)
+static void applyStackBlurRGB (juce::Image& img, unsigned int radius)
 {
     const unsigned int w = (unsigned int)img.getWidth();
     const unsigned int h = (unsigned int)img.getHeight();
 
-    Image::BitmapData data (img, Image::BitmapData::readWrite);
+    juce::Image::BitmapData data (img, juce::Image::BitmapData::readWrite);
 
-    radius = jlimit (2u, 254u, radius);
+    radius = juce::jlimit (2u, 254u, radius);
 
     unsigned char    stack[(254 * 2 + 1) * 3];
 
@@ -442,14 +442,14 @@ static void applyStackBlurRGB (Image& img, unsigned int radius)
     }
 }
 
-static void applyStackBlurARGB (Image& img, unsigned int radius)
+static void applyStackBlurARGB (juce::Image& img, unsigned int radius)
 {
     const unsigned int w = (unsigned int)img.getWidth();
     const unsigned int h = (unsigned int)img.getHeight();
 
-    Image::BitmapData data (img, Image::BitmapData::readWrite);
+    juce::Image::BitmapData data (img, juce::Image::BitmapData::readWrite);
 
-    radius = jlimit (2u, 254u, radius);
+    radius = juce::jlimit (2u, 254u, radius);
 
     unsigned char    stack[(254 * 2 + 1) * 4];
 
@@ -709,9 +709,9 @@ static void applyStackBlurARGB (Image& img, unsigned int radius)
 // C++ implemenation base from:
 // https://gist.github.com/benjamin9999/3809142
 // http://www.antigrain.com/__code/include/agg_blur.h.html
-void applyStackBlur (Image& img, int radius)
+void applyStackBlur (juce::Image& img, int radius)
 {
-    if (img.getFormat() == Image::ARGB)          applyStackBlurARGB (img, (unsigned int)radius);
-    if (img.getFormat() == Image::RGB)           applyStackBlurRGB (img, (unsigned int)radius);
-    if (img.getFormat() == Image::SingleChannel) applyStackBlurBW (img, (unsigned int)radius);
+    if (img.getFormat() == juce::Image::ARGB)          applyStackBlurARGB (img, (unsigned int)radius);
+    if (img.getFormat() == juce::Image::RGB)           applyStackBlurRGB (img, (unsigned int)radius);
+    if (img.getFormat() == juce::Image::SingleChannel) applyStackBlurBW (img, (unsigned int)radius);
 }

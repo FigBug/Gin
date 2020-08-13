@@ -73,7 +73,7 @@ public:
     void setOutputGain (float g)            { outputGain = g;   }
 
     void reset();
-    void process (AudioSampleBuffer& buffer, AudioSampleBuffer* envelopeOut = nullptr);
+    void process (juce::AudioSampleBuffer& buffer, juce::AudioSampleBuffer* envelopeOut = nullptr);
     
     const LevelTracker& getInputTracker()       { return inputTracker;      }
     const LevelTracker& getOutputTracker()      { return outputTracker;     }
@@ -82,7 +82,7 @@ public:
     float calcCurve (float detectorValue);
 
 private:    
-    OwnedArray<EnvelopeDetector> envelopes;
+    juce::OwnedArray<EnvelopeDetector> envelopes;
     LevelTracker inputTracker, outputTracker, reductionTracker {-30.0f};
 
     double sampleRate = 44100.0;

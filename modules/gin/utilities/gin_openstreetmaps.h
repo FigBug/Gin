@@ -29,9 +29,9 @@ public:
     ~OpenStreetMaps();
 
     /** Set this or map tiles will be stored in the temp directory */
-	void setMapTileDir (juce::File f) { mapTileDir = f; }
+    void setMapTileDir (juce::File f) { mapTileDir = f; }
 
-	juce::Image fetchTile (int zoom, int x, int y);
+    juce::Image fetchTile (int zoom, int x, int y);
 
     int getMapWidthPixels (int zoom);
     int getMapWidthTiles (int zoom);
@@ -86,14 +86,14 @@ private:
         int server;
     };
 
-	juce::OwnedArray<TileReq> requests;
-	juce::OwnedArray<TileReq> cancelledRequests;
+    juce::OwnedArray<TileReq> requests;
+    juce::OwnedArray<TileReq> cancelledRequests;
 
-	juce::File mapTileDir;
-	juce::HashMap<juce::String, juce::Image> cache;
+    juce::File mapTileDir;
+    juce::HashMap<juce::String, juce::Image> cache;
     TileSource tileSource;
-	juce::Array<int> serversInUse;
-	juce::ListenerList<Listener> listeners;
+    juce::Array<int> serversInUse;
+    juce::ListenerList<Listener> listeners;
 
     const int tilesize = 256;
 

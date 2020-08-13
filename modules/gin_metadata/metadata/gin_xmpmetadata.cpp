@@ -9,9 +9,9 @@ XmpMetadata::XmpMetadata() : ImageMetadata ("Xmp")
 {
 }
 
-XmpMetadata* XmpMetadata::createFromJpg (const uint8* data, int sz)
+XmpMetadata* XmpMetadata::createFromJpg (const juce::uint8* data, int sz)
 {
-    MemoryInputStream is (data, size_t (sz), false);
+    juce::MemoryInputStream is (data, size_t (sz), false);
 
     char header[29];
     is.read (header, 29);
@@ -27,7 +27,7 @@ XmpMetadata* XmpMetadata::createFromJpg (const uint8* data, int sz)
 
 XmpMetadata* XmpMetadata::createFromPng (const char* data, int sz)
 {
-    MemoryInputStream is (data, (size_t) sz, false);
+    juce::MemoryInputStream is (data, (size_t) sz, false);
     XmpMetadata* md = new XmpMetadata();
     md->xmp = is.readEntireStreamAsString();
     return md;
@@ -37,9 +37,9 @@ XmpMetadata::~XmpMetadata()
 {
 }
 
-StringPairArray XmpMetadata::getAllMetadata() const
+juce::StringPairArray XmpMetadata::getAllMetadata() const
 {
-    StringPairArray s;
+    juce::StringPairArray s;
     s.set ("XMP", xmp);
     return s;
 }

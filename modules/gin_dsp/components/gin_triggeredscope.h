@@ -14,8 +14,8 @@
 /** Triggered Scope that it can be set to start on a rising or falling signal.
     This makes it extremely useful for very zoomed-in waveform viewing.
 */
-class TriggeredScope : public Component,
-                       public Timer
+class TriggeredScope : public juce::Component,
+                       public juce::Timer
 {
 public:
 
@@ -74,7 +74,7 @@ public:
     void setDrawTriggerPos (bool d) { drawTriggerPos = d;   }
 
     //==============================================================================
-    void paint (Graphics& g) override;
+    void paint (juce::Graphics& g) override;
     void timerCallback() override;
 
 private:
@@ -83,7 +83,7 @@ private:
     TriggerMode triggerMode = Up;
     float numSamplesPerPixel = 4.0f;
     float verticalZoomFactor = 1.0f;
-    Array<float> verticalZoomOffset;
+    juce::Array<float> verticalZoomOffset;
     float triggerLevel = 0.0f;
     float triggerPos = 0.0f;
     int triggerChannel = -1;
@@ -109,21 +109,21 @@ private:
         int numLeftToAverage;
         int bufferSize, bufferWritePos, numAveraged;
 
-        HeapBlock<float> posBuffer, minBuffer, maxBuffer;
+        juce::HeapBlock<float> posBuffer, minBuffer, maxBuffer;
 
         float currentAve, currentMax, currentMin;
         AudioFifo samplesToProcess;
-        HeapBlock<float> tempProcessingBlock;
+        juce::HeapBlock<float> tempProcessingBlock;
     };
     
-    OwnedArray<Channel> channels;
+    juce::OwnedArray<Channel> channels;
     
     bool needToUpdate = false;
 
     //==============================================================================
-    void addSamples (const AudioSampleBuffer& buffer);
+    void addSamples (const juce::AudioSampleBuffer& buffer);
     void processPendingSamples();
-    void render (Graphics& g);
+    void render (juce::Graphics& g);
     int getTriggerPos();
 
     //==============================================================================

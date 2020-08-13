@@ -8,12 +8,12 @@
 #pragma once
 
 //==============================================================================
-class BackgroundCaller : private Thread,
-                         private AsyncUpdater
+class BackgroundCaller : private juce::Thread,
+                         private juce::AsyncUpdater
 {
 public:
     BackgroundCaller (std::function<void (void)> func)
-    : Thread ("BackgroundCaller"), function (func)
+        : Thread ("BackgroundCaller"), function (func)
     {
         startThread();
     }

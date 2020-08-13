@@ -13,10 +13,10 @@ class CoalescedTimer
 public:
     CoalescedTimer () = default;
 
-	~CoalescedTimer ()
-	{
-		stopTimer();
-	}
+    ~CoalescedTimer ()
+    {
+        stopTimer();
+    }
 
     void startTimer (int ms)
     {

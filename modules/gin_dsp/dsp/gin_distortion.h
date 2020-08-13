@@ -70,7 +70,7 @@ public:
         D = mix;
     }
     
-    void process (AudioSampleBuffer& buffer)
+    void process (juce::AudioSampleBuffer& buffer)
     {
         float* l = buffer.getWritePointer (0);
         float* r = buffer.getWritePointer (1);

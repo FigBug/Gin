@@ -5,7 +5,7 @@
 
  ==============================================================================*/
 
-String IptcMetadata::MetadataItem::getName() const
+juce::String IptcMetadata::MetadataItem::getName() const
 {
     if (cat == 2)
     {
@@ -70,10 +70,10 @@ String IptcMetadata::MetadataItem::getName() const
             case 202: return "ObjectData Preview Data";
         }
     }
-    return String::formatted ("Unknown %d", type);
+    return juce::String::formatted ("Unknown %d", type);
 }
 
-String IptcMetadata::MetadataItem::getValue() const
+juce::String IptcMetadata::MetadataItem::getValue() const
 {
     return data;
 }
@@ -82,9 +82,9 @@ IptcMetadata::IptcMetadata() : ImageMetadata ("IPTC")
 {
 }
 
-IptcMetadata* IptcMetadata::create (const uint8* data, int sz)
+IptcMetadata* IptcMetadata::create (const juce::uint8* data, int sz)
 {
-    MemoryInputStream is (data, size_t (sz), false);
+    juce::MemoryInputStream is (data, size_t (sz), false);
 
     char header[14];
     is.read (header, 14);
@@ -102,26 +102,26 @@ IptcMetadata* IptcMetadata::create (const uint8* data, int sz)
             break;
 
         short type = is.readShort();
-        uint8 len  = uint8 (is.readByte());
+        uint len  = juce::uint8 (is.readByte());
         if (len == 0)
             is.skipNextBytes (3);
         else
             is.skipNextBytes (len + 2);
 
-        int size = (uint8 (is.readByte()) << 8) + uint8 (is.readByte());
+        int size = (juce::uint8 (is.readByte()) << 8) + juce::uint8 (is.readByte());
 
-        int64 start = is.getPosition();
+        juce::int64 start = is.getPosition();
         if (type == 0x0404)
         {
             while (is.getPosition() < start + size)
             {
-                uint8 marker = (uint8) is.readByte();
+                uint marker = (juce::uint8) is.readByte();
                 jassert (marker == 0x1C);
-                ignoreUnused (marker);
+                juce::ignoreUnused (marker);
 
-                int cat  = uint8 (is.readByte());
+                int cat  = juce::uint8 (is.readByte());
                 int kind = int (is.readByte());
-                int szz  = int (uint8 (is.readByte()) << 8) + uint8 (is.readByte());
+                int szz  = int (juce::uint8 (is.readByte()) << 8) + juce::uint8 (is.readByte());
 
                 char* newData = new char[size_t (size)];
                 is.read (newData, size);
@@ -129,7 +129,7 @@ IptcMetadata* IptcMetadata::create (const uint8* data, int sz)
                 MetadataItem* itm = new MetadataItem();
                 itm->cat  = cat;
                 itm->type = kind;
-                itm->data = String (newData, size_t (szz));
+                itm->data = juce::String (newData, size_t (szz));
                 md->items.add (itm);
 
                 delete[] newData;
@@ -156,14 +156,14 @@ IptcMetadata::~IptcMetadata()
 {
 }
 
-StringPairArray IptcMetadata::getAllMetadata() const
+juce::StringPairArray IptcMetadata::getAllMetadata() const
 {
-    StringPairArray s;
+    juce::StringPairArray s;
 
     for (int i = 0; i < items.size(); i++)
     {
-        String name = items[i]->getName();
-        String val  = items[i]->getValue();
+        juce::String name = items[i]->getName();
+        juce::String val  = items[i]->getValue();
 
         if (s[name].isEmpty())
             s.set (name, val);

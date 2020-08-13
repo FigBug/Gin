@@ -21,7 +21,7 @@ public:
     //==============================================================================
     void connect();
     void disconnect();
-    
+
     bool isConnected();
 
     void setPingInterval (int seconds)              { pingInterval = seconds; }
@@ -45,7 +45,7 @@ private:
     struct Impl;
     std::unique_ptr<Impl> impl;
 
-	juce::URL url;
+    juce::URL url;
 
     //==============================================================================
     enum MessageType

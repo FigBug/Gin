@@ -35,7 +35,7 @@ public:
     void noteOn();
     void noteOff();
     
-    bool read (double note, AudioSampleBuffer& buffer, int start = 0, int length = -1);
+    bool read (double note, juce::AudioSampleBuffer& buffer, int start = 0, int length = -1);
     
 private:
     void fillFifo (int samplesNeeded);

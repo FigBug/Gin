@@ -3,8 +3,8 @@ DynamicsMeter::DynamicsMeter (Dynamics& d) :
 {
     startTimerHz (60);
     
-    setColour (lineColourId, Colours::white);
-    setColour (meterColourId, Colours::white.withAlpha (0.3f));
+    setColour (lineColourId, juce::Colours::white);
+    setColour (meterColourId, juce::Colours::white.withAlpha (0.3f));
 }
 
 DynamicsMeter::~DynamicsMeter()
@@ -14,25 +14,25 @@ DynamicsMeter::~DynamicsMeter()
 
 //==============================================================================
 
-void DynamicsMeter::paint (Graphics& g)
+void DynamicsMeter::paint (juce::Graphics& g)
 {
     g.setColour (findColour (lineColourId));
     g.drawRect (getLocalBounds());
     
-    auto in  = jlimit (range.start, range.end, dynamics.getInputTracker().getLevel());
-    auto out = jlimit (range.start, range.end, dynamics.getOutputTracker().getLevel());
+    auto in  = juce::jlimit (range.start, range.end, dynamics.getInputTracker().getLevel());
+    auto out = juce::jlimit (range.start, range.end, dynamics.getOutputTracker().getLevel());
     
     g.setColour (findColour (meterColourId));
     
-    auto rl = getLocalBounds().removeFromLeft (roundToInt (range.convertTo0to1 (in) * getWidth()));
-    auto rb = getLocalBounds().removeFromBottom (roundToInt (range.convertTo0to1 (out) * getHeight()));
+    auto rl = getLocalBounds().removeFromLeft (juce::roundToInt (range.convertTo0to1 (in) * getWidth()));
+    auto rb = getLocalBounds().removeFromBottom (juce::roundToInt (range.convertTo0to1 (out) * getHeight()));
     
     g.fillRect (rl);
     g.fillRect (rb);
     
     g.setColour (findColour (lineColourId));
     
-    Path p;
+    juce::Path p;
     for (float x = 0; x < getWidth() + 2; x += 2)
     {
         auto dbIn  = range.convertFrom0to1 (float (x) / std::max (1, getWidth()));
@@ -48,7 +48,7 @@ void DynamicsMeter::paint (Graphics& g)
             p.lineTo (x, y);
     }
     
-    g.strokePath (p, PathStrokeType (1.5f));
+    g.strokePath (p, juce::PathStrokeType (1.5f));
 }
 
 void DynamicsMeter::timerCallback()

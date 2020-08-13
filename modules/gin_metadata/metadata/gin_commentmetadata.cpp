@@ -9,9 +9,9 @@ CommentMetadata::CommentMetadata() : ImageMetadata ("Comment")
 {
 }
 
-CommentMetadata* CommentMetadata::create(const uint8* data, int sz)
+CommentMetadata* CommentMetadata::create (const juce::uint8* data, int sz)
 {
-    MemoryInputStream is (data, (size_t) sz, false);
+    juce::MemoryInputStream is (data, (size_t) sz, false);
 
     CommentMetadata* md = new CommentMetadata();
 
@@ -24,9 +24,9 @@ CommentMetadata::~CommentMetadata()
 {
 }
 
-StringPairArray CommentMetadata::getAllMetadata() const
+juce::StringPairArray CommentMetadata::getAllMetadata() const
 {
-    StringPairArray s;
+    juce::StringPairArray s;
     s.set ("Comment", comment);
     return s;
 }

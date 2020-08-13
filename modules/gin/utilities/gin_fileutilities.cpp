@@ -9,7 +9,7 @@ bool overwriteWithText (const juce::File& f, const juce::String& text, bool asUn
                         bool writeUnicodeHeaderBytes,
                         const char* lineEndings)
 {
-    FileOutputStream out (f);
+    juce::FileOutputStream out (f);
 
     if (out.failedToOpen())
         return false;
@@ -28,7 +28,7 @@ bool overwriteWithData (const juce::File& f, const juce::MemoryBlock& data)
 
 bool overwriteWithData (const juce::File& f, const void* data, size_t size)
 {
-    FileOutputStream out (f);
+    juce::FileOutputStream out (f);
 
     if (out.failedToOpen())
         return false;

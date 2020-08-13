@@ -15,7 +15,7 @@ void LeastSquaresRegression::addPoint (juce::Point<double> point)
     pointArray.add (point);
 }
 
-void LeastSquaresRegression::addPoints (Array<juce::Point<double>> points)
+void LeastSquaresRegression::addPoints (juce::Array<juce::Point<double>> points)
 {
     pointArray.addArray (points);
 }
@@ -30,7 +30,7 @@ bool LeastSquaresRegression::enoughPoints()
     return pointArray.size() >= 3;
 }
 
-Array<double> LeastSquaresRegression::getTerms()
+juce::Array<double> LeastSquaresRegression::getTerms()
 {
     //notation sjk to mean the sum of x_i^j*y_i^k.
     double s40 = getSx4(); //sum of x^4
@@ -68,7 +68,7 @@ Array<double> LeastSquaresRegression::getTerms()
              s30 * (s30 * s00 - s10 * s20) +
              s20 * (s30 * s10 - s20 * s20));
 
-    Array<double> terms;
+    juce::Array<double> terms;
     terms.add (a);
     terms.add (b);
     terms.add (c);

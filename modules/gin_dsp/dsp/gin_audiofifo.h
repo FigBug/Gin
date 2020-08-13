@@ -43,7 +43,7 @@ public:
         }
     }
 
-    bool write (const AudioSampleBuffer& src, int numSamples = -1)
+    bool write (const juce::AudioSampleBuffer& src, int numSamples = -1)
     {
         if (numSamples == -1)
             numSamples = src.getNumSamples();
@@ -91,12 +91,12 @@ public:
         return true;
     }
 
-    bool read (AudioSampleBuffer& dest)
+    bool read (juce::AudioSampleBuffer& dest)
     {
         return read (dest, 0, dest.getNumSamples());
     }
 
-    bool read (AudioSampleBuffer& dest, int startSampleInDestBuffer, int numSamples)
+    bool read (juce::AudioSampleBuffer& dest, int startSampleInDestBuffer, int numSamples)
     {
         int start1, size1, start2, size2;
         fifo.prepareToRead (numSamples, start1, size1, start2, size2);
@@ -126,20 +126,20 @@ public:
         if ((size1 + size2) < numSamples)
             return false;
 
-        FloatVectorOperations::copy (data, buffer.getReadPointer (0, start1), size1);
-        FloatVectorOperations::copy (data + size1, buffer.getReadPointer (0, start2), size2);
+        juce::FloatVectorOperations::copy (data, buffer.getReadPointer (0, start1), size1);
+        juce::FloatVectorOperations::copy (data + size1, buffer.getReadPointer (0, start2), size2);
 
         fifo.finishedRead (size1 + size2);
 
         return true;
     }
 
-    bool readAdding (AudioSampleBuffer& dest)
+    bool readAdding (juce::AudioSampleBuffer& dest)
     {
         return readAdding (dest, 0, dest.getNumSamples());
     }
 
-    bool readAdding (AudioSampleBuffer& dest, int startSampleInDestBuffer, int numSamples)
+    bool readAdding (juce::AudioSampleBuffer& dest, int startSampleInDestBuffer, int numSamples)
     {
         int start1, size1, start2, size2;
         fifo.prepareToRead (numSamples, start1, size1, start2, size2);
@@ -158,8 +158,8 @@ public:
     }
 
 private:
-    AbstractFifo fifo;
-    AudioSampleBuffer buffer;
+    juce::AbstractFifo fifo;
+    juce::AudioSampleBuffer buffer;
 
     JUCE_DECLARE_NON_COPYABLE (AudioFifo)
 };

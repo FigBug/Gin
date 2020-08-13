@@ -13,19 +13,19 @@ public:
     IptcMetadata();
     virtual ~IptcMetadata();
 
-    static IptcMetadata* create(const uint8* data, int sz);
+    static IptcMetadata* create(const juce::uint8* data, int sz);
 
-    StringPairArray getAllMetadata() const;
+    juce::StringPairArray getAllMetadata() const;
 
 private:
     struct MetadataItem
     {
         int cat;
         int type;
-        String data;
+        juce::String data;
 
-        String getName() const;
-        String getValue() const;
+        juce::String getName() const;
+        juce::String getValue() const;
     };
-    OwnedArray<MetadataItem> items;
+    juce::OwnedArray<MetadataItem> items;
 };

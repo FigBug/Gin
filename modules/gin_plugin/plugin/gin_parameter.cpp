@@ -57,7 +57,7 @@ float Parameter::getProcValue (int)
 {
     if (conversionFunction != nullptr)
         return conversionFunction (getUserValue());
-        
+
     return getUserValue();
 }
 
@@ -83,7 +83,7 @@ void Parameter::setUserValue (float v)
     {
         value = v;
         triggerAsyncUpdate();
-		changed();
+        changed();
     }
 }
 
@@ -97,7 +97,7 @@ void Parameter::setUserValueNotifingHost (float v)
             setValueNotifyingHost (getValue());
 
         triggerAsyncUpdate();
-		changed();
+        changed();
     }
 }
 
@@ -207,9 +207,9 @@ void Parameter::setValue (float valueIn)
     if (! almostEqual (value, newValue))
     {
         value = newValue;
-        
+
         triggerAsyncUpdate();
-		changed();
+        changed();
     }
 }
 
@@ -246,7 +246,7 @@ String Parameter::getText (float val, int /*maximumStringLength*/) const
     int dec = 1;
     if (uv < 10) dec = 2;
     if (uv < 1)  dec = 3;
-    
+
     return String (uv, dec) + " " + label;
 }
 

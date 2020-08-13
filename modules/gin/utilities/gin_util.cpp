@@ -5,16 +5,16 @@
 
  ==============================================================================*/
 
-Colour goldenRatioColor (int idx)
+juce::Colour goldenRatioColor (int idx)
 {
     double h = std::fmod (idx * 0.618033988749895, 1);
-    return Colour (float (h), 0.8f, 0.95f, 1.0f);
+    return juce::Colour (float (h), 0.8f, 0.95f, 1.0f);
 }
 
 //==============================================================================
-int versionStringToInt (const String& versionString)
+int versionStringToInt (const juce::String& versionString)
 {
-    StringArray parts;
+    juce::StringArray parts;
     parts.addTokens (versionString, ".", "");
     parts.trim();
     parts.removeEmptyStrings();
@@ -28,7 +28,7 @@ int versionStringToInt (const String& versionString)
 }
 
 //==============================================================================
-class DelayedLambdaHelper : public Timer
+class DelayedLambdaHelper : public juce::Timer
 {
 public:
     DelayedLambdaHelper (std::function<void ()>& cb, int ms)

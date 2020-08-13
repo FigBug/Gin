@@ -35,12 +35,12 @@ void DownloadManager::triggerNextDownload()
     }
 }
 
-DownloadManager::DownloadResult DownloadManager::blockingDownload (String url, String postData, String extraHeaders)
+DownloadManager::DownloadResult DownloadManager::blockingDownload (juce::String url, juce::String postData, juce::String extraHeaders)
 {
-    return blockingDownload (URL (url).withPOSTData (postData), extraHeaders);
+    return blockingDownload (juce::URL (url).withPOSTData (postData), extraHeaders);
 }
 
-DownloadManager::DownloadResult DownloadManager::blockingDownload (URL url, String extraHeaders)
+DownloadManager::DownloadResult DownloadManager::blockingDownload (juce::URL url, juce::String extraHeaders)
 {
    #if JUCE_WINDOWS
     auto headerList = StringArray::fromTokens (extraHeaders, "\n", "");
@@ -61,18 +61,18 @@ DownloadManager::DownloadResult DownloadManager::blockingDownload (URL url, Stri
     return download.result;
 }
 
-int DownloadManager::startAsyncDownload (String url, String postData,
+int DownloadManager::startAsyncDownload (juce::String url, juce::String postData,
                                          std::function<void (DownloadResult)> completionCallback,
-                                         std::function<void (int64, int64, int64)> progressCallback,
-                                         String extraHeaders)
+                                         std::function<void (juce::int64, juce::int64, juce::int64)> progressCallback,
+                                         juce::String extraHeaders)
 {
-    return startAsyncDownload (URL (url).withPOSTData (postData), completionCallback, progressCallback, extraHeaders);
+    return startAsyncDownload (juce::URL (url).withPOSTData (postData), completionCallback, progressCallback, extraHeaders);
 }
 
-int DownloadManager::startAsyncDownload (URL url,
+int DownloadManager::startAsyncDownload (juce::URL url,
                                          std::function<void (DownloadResult)> completionCallback,
-                                         std::function<void (int64, int64, int64)> progressCallback,
-                                         String extraHeaders)
+                                         std::function<void (juce::int64, juce::int64, juce::int64)> progressCallback,
+                                         juce::String extraHeaders)
 {
    #if JUCE_WINDOWS
     // macOS does this automatically
@@ -163,7 +163,7 @@ void DownloadManager::Download::run()
             break;
 
         if (owner.retryDelay > 0)
-            wait (roundToInt (owner.retryDelay * 1000));
+            wait (juce::roundToInt (owner.retryDelay * 1000));
 
         while (owner.pause.get())
             wait (500);
@@ -173,8 +173,8 @@ void DownloadManager::Download::run()
     {
         // Get a weak reference to self, to check if we get deleted before
         // async call happens.
-        WeakReference<Download> self = this;
-        MessageManager::callAsync ([self]
+        juce::WeakReference<Download> self = this;
+        juce::MessageManager::callAsync ([self]
                                    {
                                        if (self != nullptr)
                                            self->completionCallback (self->result);
@@ -190,7 +190,7 @@ bool DownloadManager::Download::tryDownload()
     // Use post if we have post data
     const bool post = result.url.getPostData().isNotEmpty();
 
-    if ((is = std::make_unique<WebInputStream> (result.url, post)) != nullptr)
+    if ((is = std::make_unique<juce::WebInputStream> (result.url, post)) != nullptr)
     {
         if (headers.isNotEmpty())
             is->withExtraHeaders (headers);
@@ -205,22 +205,22 @@ bool DownloadManager::Download::tryDownload()
             auto keys = result.responseHeaders.getAllKeys();
             auto vals = result.responseHeaders.getAllValues();
 
-            MemoryOutputStream os (result.data, false);
+            juce::MemoryOutputStream os (result.data, false);
 
             lastBytesSent = 0;
-            lastProgress = Time::getMillisecondCounter();
-            int64 downloaded  = 0;
-            int64 totalLength = is->getTotalLength();
+            lastProgress = juce::Time::getMillisecondCounter();
+            juce::int64 downloaded  = 0;
+            juce::int64 totalLength = is->getTotalLength();
 
             // For chunked http encoding, overall length may not be given
             if (totalLength < 0)
-                totalLength = std::numeric_limits<int64>::max();
+                totalLength = std::numeric_limits<juce::int64>::max();
 
             // Download all data
             char buffer[128 * 1000];
             while (! is->isExhausted() && ! threadShouldExit() && downloaded < totalLength)
             {
-                int64 toRead = jmin (int64 (sizeof (buffer)), int64 (owner.downloadBlockSize), totalLength - downloaded);
+                juce::int64 toRead = juce::jmin (juce::int64 (sizeof (buffer)), juce::int64 (owner.downloadBlockSize), totalLength - downloaded);
 
                 int read = is->read (buffer, int (toRead));
 
@@ -240,7 +240,7 @@ bool DownloadManager::Download::tryDownload()
                 else if (read == 0 && is->isExhausted())
                 {
                     // For chunked encoding, assume we have it all, otherwise check the length
-                    if (totalLength < std::numeric_limits<int64>::max())
+                    if (totalLength < std::numeric_limits<juce::int64>::max())
                         result.ok = (totalLength == downloaded) && result.httpCode == 200;
                     else
                         result.ok = result.httpCode == 200;
@@ -280,15 +280,15 @@ bool DownloadManager::Download::tryDownload()
     return result.ok;
 }
 
-void DownloadManager::Download::updateProgress (int64 current, int64 total, bool forceNotification)
+void DownloadManager::Download::updateProgress (juce::int64 current, juce::int64 total, bool forceNotification)
 {
     if (progressCallback)
     {
         // Update progress no more than once per second
-        uint32 now = Time::getMillisecondCounter();
+        uint32 now = juce::Time::getMillisecondCounter();
         if ((now >= lastProgress + uint32 (owner.downloadIntervalMS)) || forceNotification)
         {
-            int64 delta = current - lastBytesSent;
+            juce::int64 delta = current - lastBytesSent;
             lastBytesSent = current;
             lastProgress = now;
 
@@ -296,8 +296,8 @@ void DownloadManager::Download::updateProgress (int64 current, int64 total, bool
             {
                 // Get a weak reference to self, to check if we get deleted before
                 // async call happens.
-                WeakReference<Download> self = this;
-                MessageManager::callAsync ([self, current, total, delta]
+                juce::WeakReference<Download> self = this;
+                juce::MessageManager::callAsync ([self, current, total, delta]
                                            {
                                                if (self != nullptr)
                                                    self->progressCallback (current, total, delta);

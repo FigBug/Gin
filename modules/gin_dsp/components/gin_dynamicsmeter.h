@@ -13,29 +13,29 @@ Copyright (c) 2019 - Roland Rabien.
     Draws input > output curve
     Draws input and output levels
 */
-class DynamicsMeter : public Component,
-                      public Timer
+class DynamicsMeter : public juce::Component,
+                      public juce::Timer
 {
 public:
     DynamicsMeter (Dynamics&);
 
-    ~DynamicsMeter() override;
-    
+    ~DynamicsMeter() ;
+
     enum ColourIds
     {
         lineColourId             = 0x1291e10,
         backgroundColourId       = 0x1291e11,
         meterColourId            = 0x1291e12
     };
-    
+
     //==============================================================================
-    void paint (Graphics& g) override;
-    void timerCallback() override;
+    void paint (juce::Graphics& g) ;
+    void timerCallback() ;
 
 private:
     Dynamics& dynamics;
-    
-    NormalisableRange<float> range {-60, 0};
+
+    juce::NormalisableRange<float> range {-60, 0};
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DynamicsMeter)
