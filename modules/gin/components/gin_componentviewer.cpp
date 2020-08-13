@@ -49,7 +49,7 @@ static juce::String getClassName (juce::Component* c)
     }
     return {};
    #else
-    String res = typeid (*c).name();
+    juce::String res = typeid (*c).name();
     if (res.startsWith ("class ")) res = res.substring (6);
     if (res.startsWith ("struct ")) res = res.substring (7);
     return res;

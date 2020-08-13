@@ -129,14 +129,14 @@ static std::wstring toWideString (const std::string& s)
     return res;
 }
 
-ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (File script, bool launchSelf)
+ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (juce::File script, bool launchSelf)
 {
-    String app;
-    String params;
+    juce::String app;
+    juce::String params;
 
     if (launchSelf)
     {
-        app = File::getSpecialLocation (File::currentExecutableFile).getFullPathName();
+        app = juce::File::getSpecialLocation (juce::File::currentExecutableFile).getFullPathName();
         params = "--elevatedfilecopy \"" + script.getFullPathName() + "\"";
     }
     else
@@ -177,15 +177,15 @@ ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (File script
     }
 }
 
-File ElevatedFileCopy::createScript (const Array<File>& toDelete,
-                                     const Array<File>& dirsThatNeedAdminAccess,
-                                     const Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess)
+juce::File ElevatedFileCopy::createScript (const juce::Array<juce::File>& toDelete,
+                                           const juce::Array<juce::File>& dirsThatNeedAdminAccess,
+                                           const juce::Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess)
 {
-    auto script = File::getSpecialLocation (File::tempDirectory).getNonexistentChildFile ("copy", ".bat", false);
+    auto script = juce::File::getSpecialLocation (juce::File::tempDirectory).getNonexistentChildFile ("copy", ".bat", false);
 
-    String scriptText;
+    juce::String scriptText;
 
-    Array<File> dirs;
+    juce::Array<juce::File> dirs;
 
     for (auto f : toDelete)
     {

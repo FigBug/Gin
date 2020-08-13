@@ -7,22 +7,22 @@
 
 struct BMPHeader
 {
-    uint16        magic;
-    uint32        fileSize;
-    uint16        reserved1;
-    uint16        reserved2;
-    uint32        dataOffset;
-    uint32        headerSize;
-    juce::int32   width;
-    juce::int32   height;
-    uint16        planes;
-    uint16        bitsPerPixel;
-    uint32        compression;
-    uint32        imageDataSize;
-    juce::int32   hPixelsPerMeter;
-    juce::int32   vPixelsPerMeter;
-    uint32        coloursUsed;
-    uint32        coloursRequired;
+    uint16_t        magic;
+    uint32_t        fileSize;
+    uint16_t        reserved1;
+    uint16_t        reserved2;
+    uint32_t        dataOffset;
+    uint32_t        headerSize;
+    int32_t         width;
+    int32_t         height;
+    uint16_t        planes;
+    uint16_t        bitsPerPixel;
+    uint32_t        compression;
+    uint32_t        imageDataSize;
+    int32_t         hPixelsPerMeter;
+    int32_t         vPixelsPerMeter;
+    uint32_t        coloursUsed;
+    uint32_t        coloursRequired;
 };
 
 juce::String BMPImageFormat::getFormatName()
@@ -44,22 +44,22 @@ bool BMPImageFormat::usesFileExtension (const juce::File& possibleFile)
 juce::Image BMPImageFormat::decodeImage (juce::InputStream& input)
 {
     BMPHeader hdr;
-    hdr.magic           = uint16 (input.readShort());
-    hdr.fileSize        = uint32 (input.readInt());
-    hdr.reserved1       = uint16 (input.readShort());
-    hdr.reserved2       = uint16 (input.readShort());
-    hdr.dataOffset      = uint32 (input.readInt());
-    hdr.headerSize      = uint32 (input.readInt());
-    hdr.width           = juce::int32 (input.readInt());
-    hdr.height          = juce::int32 (input.readInt());
-    hdr.planes          = uint16 (input.readShort());
-    hdr.bitsPerPixel    = uint16 (input.readShort());
-    hdr.compression     = uint32 (input.readInt());
-    hdr.imageDataSize   = uint32 (input.readInt());
-    hdr.hPixelsPerMeter = juce::int32 (input.readInt());
-    hdr.vPixelsPerMeter = juce::int32 (input.readInt());
-    hdr.coloursUsed     = uint32 (input.readInt());
-    hdr.coloursRequired = uint32 (input.readInt());
+    hdr.magic           = uint16_t (input.readShort());
+    hdr.fileSize        = uint32_t (input.readInt());
+    hdr.reserved1       = uint16_t (input.readShort());
+    hdr.reserved2       = uint16_t (input.readShort());
+    hdr.dataOffset      = uint32_t (input.readInt());
+    hdr.headerSize      = uint32_t (input.readInt());
+    hdr.width           = int32_t (input.readInt());
+    hdr.height          = int32_t (input.readInt());
+    hdr.planes          = uint16_t (input.readShort());
+    hdr.bitsPerPixel    = uint16_t (input.readShort());
+    hdr.compression     = uint32_t (input.readInt());
+    hdr.imageDataSize   = uint32_t (input.readInt());
+    hdr.hPixelsPerMeter = int32_t (input.readInt());
+    hdr.vPixelsPerMeter = int32_t (input.readInt());
+    hdr.coloursUsed     = uint32_t (input.readInt());
+    hdr.coloursRequired = uint32_t (input.readInt());
 
     if (hdr.compression != 0 || (hdr.bitsPerPixel != 8 && hdr.bitsPerPixel != 24 && hdr.bitsPerPixel != 32))
     {
@@ -74,9 +74,9 @@ juce::Image BMPImageFormat::decodeImage (juce::InputStream& input)
 
     for (int i = 0; i < int (hdr.coloursUsed); i++)
     {
-        uint8 b = uint8 (input.readByte());
-        uint8 g = uint8 (input.readByte());
-        uint8 r = uint8 (input.readByte());
+        auto b = uint8_t (input.readByte());
+        auto g = uint8_t (input.readByte());
+        auto r = uint8_t (input.readByte());
         input.readByte();
 
         colourTable.add (juce::PixelARGB (255, r, g, b));
@@ -93,14 +93,14 @@ juce::Image BMPImageFormat::decodeImage (juce::InputStream& input)
     int bytesPerPixel = hdr.bitsPerPixel / 8;
     int bytesPerRow = int (std::floor ((hdr.bitsPerPixel * hdr.width + 31) / 32.0) * 4);
 
-    uint8* rowData = new uint8[size_t (bytesPerRow)];
+    auto rowData = new uint8_t[size_t (bytesPerRow)];
     for (int y = 0; y < int (hdr.height); y++)
     {
         input.read (rowData, bytesPerRow);
 
         for (int x = 0; x < int (hdr.width); x++)
         {
-            uint8* d = &rowData[x * bytesPerPixel];
+            uint8_t* d = &rowData[x * bytesPerPixel];
 
             juce::PixelARGB* p = (juce::PixelARGB*)data.getPixelPointer (x, int (bottomUp ? y : hdr.height - y - 1));
             if (hdr.bitsPerPixel == 8)

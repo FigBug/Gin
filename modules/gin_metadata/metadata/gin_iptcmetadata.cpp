@@ -102,7 +102,7 @@ IptcMetadata* IptcMetadata::create (const juce::uint8* data, int sz)
             break;
 
         short type = is.readShort();
-        uint len  = juce::uint8 (is.readByte());
+        auto len  = juce::uint8 (is.readByte());
         if (len == 0)
             is.skipNextBytes (3);
         else
@@ -115,7 +115,7 @@ IptcMetadata* IptcMetadata::create (const juce::uint8* data, int sz)
         {
             while (is.getPosition() < start + size)
             {
-                uint marker = (juce::uint8) is.readByte();
+                auto marker = (juce::uint8) is.readByte();
                 jassert (marker == 0x1C);
                 juce::ignoreUnused (marker);
 

@@ -285,8 +285,8 @@ void DownloadManager::Download::updateProgress (juce::int64 current, juce::int64
     if (progressCallback)
     {
         // Update progress no more than once per second
-        uint32 now = juce::Time::getMillisecondCounter();
-        if ((now >= lastProgress + uint32 (owner.downloadIntervalMS)) || forceNotification)
+        auto now = juce::Time::getMillisecondCounter();
+        if ((now >= lastProgress + uint32_t (owner.downloadIntervalMS)) || forceNotification)
         {
             juce::int64 delta = current - lastBytesSent;
             lastBytesSent = current;

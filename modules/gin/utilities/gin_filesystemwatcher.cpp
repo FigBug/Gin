@@ -211,7 +211,7 @@ public:
         }
     };
 
-    Impl (FileSystemWatcher& o, File f)
+    Impl (FileSystemWatcher& o, juce::File f)
       : Thread ("FileSystemWatcher::Impl"), owner (o), folder (f)
     {
         WCHAR path[_MAX_PATH] = {0};
@@ -242,7 +242,7 @@ public:
     void run() override
     {
         const int heapSize = 16 * 1024;
-        uint8 buffer[heapSize];
+        uint8_t buffer[heapSize];
 
         DWORD bytesOut = 0;
 
@@ -255,15 +255,15 @@ public:
 
             if (success && bytesOut > 0)
             {
-                ScopedLock sl (lock);
+                juce::ScopedLock sl (lock);
 
-                uint8* rawData = buffer;
+                uint8_t* rawData = buffer;
                 while (true)
                 {
                     FILE_NOTIFY_INFORMATION* fni = (FILE_NOTIFY_INFORMATION*)rawData;
 
                     Event e;
-                    e.file = folder.getChildFile (String (fni->FileName, fni->FileNameLength / sizeof(wchar_t)));
+                    e.file = folder.getChildFile (juce::String (fni->FileName, fni->FileNameLength / sizeof(wchar_t)));
 
                     switch (fni->Action)
                     {
@@ -322,7 +322,7 @@ public:
     }
 
     FileSystemWatcher& owner;
-    const File folder;
+    const juce::File folder;
 
     juce::CriticalSection lock;
     juce::Array<Event> events;

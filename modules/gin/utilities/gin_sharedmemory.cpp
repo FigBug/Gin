@@ -57,7 +57,7 @@ public:
             CloseHandle (fileMapping);
     }
 
-    static void remove (const String& name)
+    static void remove (const juce::String& name)
     {
         ignoreUnused (name);
     }

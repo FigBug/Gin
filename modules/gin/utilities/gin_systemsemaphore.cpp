@@ -9,7 +9,7 @@
 class SystemSemaphore::Impl
 {
 public:
-    Impl (String name)
+    Impl (juce::String name)
     {
         ignoreUnused (name);
         jassertfalse;

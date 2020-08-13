@@ -81,7 +81,7 @@ public:
                     if (! juce::CharacterFunctions::isWhitespace (first->atomText[0]))
                     {
                         lastAtom->atomText += first->atomText;
-                        lastAtom->numChars = (uint16) (lastAtom->numChars + first->numChars);
+                        lastAtom->numChars = (uint16_t) (lastAtom->numChars + first->numChars);
                         lastAtom->width = font.getStringWidthFloat (lastAtom->getText());
                         delete first;
                         ++i;
@@ -126,13 +126,13 @@ public:
 
                 secondAtom->atomText = atom->atomText.substring (indexToBreakAt - index);
                 secondAtom->width = font.getStringWidthFloat (secondAtom->getText());
-                secondAtom->numChars = (uint16) secondAtom->atomText.length();
+                secondAtom->numChars = (uint16_t) secondAtom->atomText.length();
 
                 section2->atoms.add (secondAtom);
 
                 atom->atomText = atom->atomText.substring (0, indexToBreakAt - index);
                 atom->width = font.getStringWidthFloat (atom->getText());
-                atom->numChars = (uint16) (indexToBreakAt - index);
+                atom->numChars = (uint16_t) (indexToBreakAt - index);
 
                 for (int j = i + 1; j < atoms.size(); ++j)
                     section2->atoms.add (atoms.getUnchecked (j));
@@ -257,7 +257,7 @@ private:
 
             atom->atomText = juce::String (start, numChars);
             atom->width = font.getStringWidthFloat (atom->getText());
-            atom->numChars = (uint16) numChars;
+            atom->numChars = (uint16_t) numChars;
         }
     }
 
@@ -342,7 +342,7 @@ public:
 
                 if (split > 0 && split <= numRemaining)
                 {
-                    tempAtom.numChars = (uint16) split;
+                    tempAtom.numChars = (uint16_t) split;
                     tempAtom.width = g.getGlyph (split - 1).getRight();
                     atomRight = atomX + tempAtom.width;
                     return true;
