@@ -143,7 +143,7 @@ public:
                 iNotifyEvent = (const struct inotify_event*)ptr;
                 Event e;
 
-                e.file = File {folder.getFullPathName() + '/' + iNotifyEvent->name};
+                e.file = juce::File {folder.getFullPathName() + '/' + iNotifyEvent->name};
 
                      if (iNotifyEvent->mask & IN_CREATE)      e.fsEvent = FileSystemEvent::fileCreated;
                 else if (iNotifyEvent->mask & IN_CLOSE_WRITE) e.fsEvent = FileSystemEvent::fileUpdated;
