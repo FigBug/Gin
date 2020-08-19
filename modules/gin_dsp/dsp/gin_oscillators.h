@@ -96,7 +96,7 @@ public:
         {
             for (int i = 0; i < params.voices; i++)
             {
-                float pan = jlimit (-1.0f, 1.0f, ((i % 2 == 0) ? 1 : -1) * params.spread);
+                float pan = juce::jlimit (-1.0f, 1.0f, ((i % 2 == 0) ? 1 : -1) * params.spread);
 
                 p.leftGain  = params.gain * (1.0f - pan) / float (std::sqrt (params.voices));
                 p.rightGain = params.gain * (1.0f + pan) / float (std::sqrt (params.voices));

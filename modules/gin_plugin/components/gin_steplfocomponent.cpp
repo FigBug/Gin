@@ -67,7 +67,7 @@ void StepLFOComponent::mouseDrag (const MouseEvent& e)
     if (step < 0 || step >= getNumSteps()) return;
         
     float l = -(e.y / float (getHeight()) * 2 - 1);
-    l = jlimit (-1.0f, 1.0f, l);
+    l = juce::jlimit (-1.0f, 1.0f, l);
     
     level[step]->setUserValue (l);
 }

@@ -198,7 +198,7 @@ void Knob::mouseDrag (const MouseEvent& e)
         auto pt = e.getMouseDownPosition();
         auto delta = (e.position.x - pt.getX()) + (pt.getY() - e.position.y);
 
-        float newModDepth = jlimit (-1.0f, 1.0f, delta / 200.0f + modDepth);
+        float newModDepth = juce::jlimit (-1.0f, 1.0f, delta / 200.0f + modDepth);
 
         knob.getProperties().set ("modDepth", newModDepth);
 
