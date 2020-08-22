@@ -9,7 +9,7 @@ var searchData=
   ['decayrate',['decayRate',['../classLevelTracker.html#a796f0f65de9c1017f59fa6dc0247ca83',1,'LevelTracker']]],
   ['defaultvalue',['defaultValue',['../classParameter.html#afff117f671e74a238989542b73cbd024',1,'Parameter']]],
   ['delay',['delay',['../structLFO_1_1Parameters.html#a9be35ed3aca74afab18de36202cdfd97',1,'LFO::Parameters']]],
-  ['deletebutton',['deleteButton',['../classProcessorEditor.html#a01e813914f463a233ee867452d481a91',1,'ProcessorEditor']]],
+  ['deletebutton',['deleteButton',['../classProcessorEditor.html#ae3605428cde561611990d540439394f7',1,'ProcessorEditor']]],
   ['delta',['delta',['../structOscState.html#a3659847d96492e7df6bb1987b7991415',1,'OscState']]],
   ['depth',['depth',['../structLFO_1_1Parameters.html#aea5b1c1cd4fc3b68d3826fce64f6287a',1,'LFO::Parameters']]],
   ['detune',['detune',['../structVoicedStereoOscillator_1_1Params.html#a3f1b408a97910ce6a63de0a8073c85c7',1,'VoicedStereoOscillator::Params']]],

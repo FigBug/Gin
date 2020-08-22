@@ -11,5 +11,5 @@ var searchData=
   ['bp24state',['BP24State',['../structBP24State.html#a321d2cbd60a9aeba2ffdb2d54e12c5ea',1,'BP24State']]],
   ['bterm',['bTerm',['../classLeastSquaresRegression.html#af8a14f97edfe06e9237df6cbf5a54330',1,'LeastSquaresRegression']]],
   ['build',['build',['../classModMatrix.html#a34daa946cb85440762ff041e995e670c',1,'ModMatrix']]],
-  ['buttonclicked',['buttonClicked',['../classProcessorEditor.html#ab537fc3e20adcb6d16e672d134f32479',1,'ProcessorEditor']]]
+  ['buttonclicked',['buttonClicked',['../classProcessorEditor.html#a9b9c425e29963064d2dac787c1fc4b1a',1,'ProcessorEditor']]]
 ];

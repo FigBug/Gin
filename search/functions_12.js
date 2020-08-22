@@ -6,10 +6,10 @@ var searchData=
   ['updatechecker',['UpdateChecker',['../classUpdateChecker.html#a7efbaba17e94c476f4dbfa5720e598ac',1,'UpdateChecker']]],
   ['updateglide',['updateGlide',['../classSynthesiser.html#a4bf9918f18a2c232db12a913fda743f4',1,'Synthesiser']]],
   ['updatemap',['updateMap',['../classMapViewer.html#a723ad37abb7af9ecac0bdd68dd628e46',1,'MapViewer']]],
-  ['updateready',['updateReady',['../classProcessorEditor.html#a59878485ed13027ec50ff1962e5936b9',1,'ProcessorEditor']]],
+  ['updateready',['updateReady',['../classProcessorEditor.html#aa2735f1a20c297918f272257e9d67787',1,'ProcessorEditor']]],
   ['updateselection',['updateSelection',['../classPatchBrowser.html#a63f6aec5fdb704d05593cac1823bb9bb',1,'PatchBrowser']]],
-  ['updatestate',['updateState',['../classModMatrix.html#a1c2764a67e3d7cf2e844a9a4aa587b07',1,'ModMatrix::updateState()'],['../classProcessor.html#ab477f2a48ee23cb7d38dbecd87332fcd',1,'Processor::updateState()']]],
+  ['updatestate',['updateState',['../classModMatrix.html#a9d2727c3ffce6935f804eff00495e4f8',1,'ModMatrix::updateState()'],['../classProcessor.html#ab477f2a48ee23cb7d38dbecd87332fcd',1,'Processor::updateState()']]],
   ['updatevalue',['updateValue',['../classEasedValueSmoother.html#a266f723fcb2c393fbdd93599d46abcce',1,'EasedValueSmoother::updateValue()'],['../classValueSmoother.html#a581f8cc773e4cc2bac2da53e6edfec85',1,'ValueSmoother::updateValue()']]],
-  ['uservaluetotext',['userValueToText',['../classParameter.html#a7cd60677e567aa83d93ebddc06dc4313',1,'Parameter']]],
+  ['uservaluetotext',['userValueToText',['../classParameter.html#af3960250a1c071e471daf16be484b656',1,'Parameter']]],
   ['usesfileextension',['usesFileExtension',['../classBMPImageFormat.html#ac3aec001afc89383d536241e433cb8bf',1,'BMPImageFormat']]]
 ];

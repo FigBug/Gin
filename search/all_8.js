@@ -11,7 +11,7 @@ var searchData=
   ['inset',['inset',['../classProcessorEditorBase.html#aa1ef9037d52f21d67f16efa2f7b7bb1b',1,'ProcessorEditorBase']]],
   ['integrator',['Integrator',['../classIntegrator.html',1,'']]],
   ['internal',['internal',['../classParameter.html#a25165e96742e860d5ee0e8a6f70a69f5',1,'Parameter']]],
-  ['internalparameters',['internalParameters',['../classProcessor.html#ad4e425ac75469a160965371f4776bf3c',1,'Processor']]],
+  ['internalparameters',['internalParameters',['../classProcessor.html#ac9d3cf083da1dba0b2612ce32ea7218d',1,'Processor']]],
   ['interpolate',['interpolate',['../classSpline.html#ac1f059b0c61e23b88d7939a27fd40b5c',1,'Spline::interpolate()'],['../namespaceLagrange.html#aef304874a67d1c0e4fa39605d2e19b03',1,'Lagrange::interpolate(const juce::Array&lt; juce::Point&lt; T &gt;&gt; &amp;points, T x)'],['../namespaceLagrange.html#ab812f4c6079c4c45b43e56239c3634d4',1,'Lagrange::interpolate(T xArr[], T yArr[], int num, T x)']]],
   ['interregular_5fotf',['InterRegular_otf',['../namespaceResources.html#a821eb0a806b852016c53ab6151f00d3d',1,'Resources']]],
   ['interregular_5fotfsize',['InterRegular_otfSize',['../namespaceResources.html#af4f0aa394cb30c14c4306162f0d5e6d4',1,'Resources']]],

@@ -20,10 +20,10 @@ var searchData=
   ['boxarea',['BoxArea',['../classBoxArea.html',1,'BoxArea'],['../classBoxArea.html#a00b02a91aded6fc3ead888c1b092a9eb',1,'BoxArea::BoxArea()']]],
   ['bp12state',['BP12State',['../structBP12State.html',1,'BP12State'],['../structBP12State.html#a117eb714a9f055d4ca05d80c28c10553',1,'BP12State::BP12State()']]],
   ['bp24state',['BP24State',['../structBP24State.html',1,'BP24State'],['../structBP24State.html#a321d2cbd60a9aeba2ffdb2d54e12c5ea',1,'BP24State::BP24State()']]],
-  ['browsebutton',['browseButton',['../classProcessorEditor.html#ae66f24bcd3937e647bb870e4d511adf3',1,'ProcessorEditor']]],
+  ['browsebutton',['browseButton',['../classProcessorEditor.html#a9ca27fc7ba19fd6b2aa9f70f8aeb50e3',1,'ProcessorEditor']]],
   ['bterm',['bTerm',['../classLeastSquaresRegression.html#af8a14f97edfe06e9237df6cbf5a54330',1,'LeastSquaresRegression']]],
-  ['bubble',['bubble',['../classMultiParamComponent.html#af352cfeb2692011587e06659824993fb',1,'MultiParamComponent']]],
+  ['bubble',['bubble',['../classMultiParamComponent.html#afed6013095e1e2ced271cda5ccecb7d2',1,'MultiParamComponent']]],
   ['buffer',['buffer',['../classDelayLine.html#a93574b33770845363b409a6578919369',1,'DelayLine']]],
   ['build',['build',['../classModMatrix.html#a34daa946cb85440762ff041e995e670c',1,'ModMatrix']]],
-  ['buttonclicked',['buttonClicked',['../classProcessorEditor.html#ab537fc3e20adcb6d16e672d134f32479',1,'ProcessorEditor']]]
+  ['buttonclicked',['buttonClicked',['../classProcessorEditor.html#a9b9c425e29963064d2dac787c1fc4b1a',1,'ProcessorEditor']]]
 ];

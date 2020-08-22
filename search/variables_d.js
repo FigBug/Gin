@@ -2,18 +2,18 @@ var searchData=
 [
   ['pan',['pan',['../structVoicedStereoOscillator_1_1Params.html#a13309716133330853a2ad479b2b556dc',1,'VoicedStereoOscillator::Params']]],
   ['parameter',['parameter',['../classPluginButton.html#ae383af96f9f3e0cf932e0eb63116257a',1,'PluginButton::parameter()'],['../classPluginComboBox.html#a3bbf40da531c73ccefc9374433ae9d88',1,'PluginComboBox::parameter()'],['../classParamComponent.html#a2e99545e9d83f8e9f2ce0c8ca31e05bd',1,'ParamComponent::parameter()']]],
-  ['parametermap',['parameterMap',['../classProcessor.html#aa90d44e1935615025daf6a07e9e9e972',1,'Processor']]],
-  ['params',['params',['../classMultiParamComponent.html#a6dbe5bc1f7bfd6075cbb6867f72ed615',1,'MultiParamComponent']]],
+  ['parametermap',['parameterMap',['../classProcessor.html#a0eed0ccb9cccd2bc8a0d218fc42488b5',1,'Processor']]],
+  ['params',['params',['../classMultiParamComponent.html#a36bd41a594c81661474e30ee35c0eca5',1,'MultiParamComponent']]],
   ['patchbrowser',['patchBrowser',['../classProcessorEditor.html#a6f7f6e1a092dff5bccece83325514c77',1,'ProcessorEditor']]],
   ['peaklevel',['peakLevel',['../classLevelTracker.html#ae36cb9c622a3230e0a7f24a5c9b621ac',1,'LevelTracker']]],
   ['peaktime',['peakTime',['../classLevelTracker.html#a88d4d7383672bfbf10826e954d9cf408',1,'LevelTracker']]],
   ['phase',['phase',['../structOscState.html#aa4b4777463c344370332bc5ff8a141f7',1,'OscState::phase()'],['../classGateEffect.html#ad44a38a544110cf0a65b7f1c02de768e',1,'GateEffect::phase()'],['../structLFO_1_1Parameters.html#aa952c923e064d33a4061f6c3e49c3d7c',1,'LFO::Parameters::phase()']]],
   ['portamento',['portamento',['../structGlideInfo.html#a1e24c72c427d5a6c428e263fd51bc774',1,'GlideInfo']]],
-  ['presets',['presets',['../classPatchBrowser.html#a247c5b78833370ecc35672a0c8995cc1',1,'PatchBrowser']]],
+  ['presets',['presets',['../classPatchBrowser.html#a2fde0c9a4e9504c0feb276e93250ea12',1,'PatchBrowser']]],
   ['presetsmodel',['presetsModel',['../classPatchBrowser.html#acce838df5fbbd1505ae5c0b55d361604',1,'PatchBrowser']]],
-  ['prevbutton',['prevButton',['../classProcessorEditor.html#a376d1dcfa6b1fb7b0c39ce69152960af',1,'ProcessorEditor']]],
+  ['prevbutton',['prevButton',['../classProcessorEditor.html#a1d4aa5b7780cbe6cf3e77f99b92bcbeb',1,'ProcessorEditor']]],
   ['proc',['proc',['../classPatchBrowser.html#ace4451a4ee2e4ea777e795e8913ae29b',1,'PatchBrowser::proc()'],['../classProcessorEditorBase.html#a2e20411f4f0948ced177b5eb59c84ba2',1,'ProcessorEditorBase::proc()']]],
   ['processor',['processor',['../classParameter.html#aff54b112e093cf966a1bec5bf5a934dd',1,'Parameter']]],
-  ['programs',['programs',['../classProcessorEditor.html#ad79702b5f393331f7b9287d79cbb290c',1,'ProcessorEditor']]],
+  ['programs',['programs',['../classProcessorEditor.html#a8c852febe2c54d2b98d1c5c6949f145b',1,'ProcessorEditor']]],
   ['pw',['pw',['../structStereoOscillator_1_1Params.html#aebc2ccd97a83304620840c479a8c782b',1,'StereoOscillator::Params::pw()'],['../structVoicedStereoOscillator_1_1Params.html#a120aa15f174feb6b06c66d2f76103bf3',1,'VoicedStereoOscillator::Params::pw()'],['../structWTOscillator_1_1Params.html#a7ca54915f07cb3e86bc516fa5710b71f',1,'WTOscillator::Params::pw()']]]
 ];

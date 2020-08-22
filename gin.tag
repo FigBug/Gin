@@ -1138,8 +1138,8 @@
       <type>void</type>
       <name>gradientRect</name>
       <anchorfile>group__gin__plugin-components.html</anchorfile>
-      <anchor>ga4110716757a10f2f9ba0a3e756a03b1c</anchor>
-      <arglist>(Graphics &amp;g, Rectangle&lt; int &gt; rc, Colour c1, Colour c2)</arglist>
+      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
+      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -2556,8 +2556,8 @@
       <type>void</type>
       <name>paintListBoxItem</name>
       <anchorfile>structPatchBrowser_1_1AuthorsModel.html</anchorfile>
-      <anchor>a33895370136b101c4d949c9997b3dd07</anchor>
-      <arglist>(int row, Graphics &amp;g, int w, int h, bool selected) override</arglist>
+      <anchor>a8b7bedbb029b3ba34b13c34a48626eed</anchor>
+      <arglist>(int row, juce::Graphics &amp;g, int w, int h, bool selected) override</arglist>
     </member>
     <member kind="variable">
       <type>PatchBrowser &amp;</type>
@@ -2978,10 +2978,10 @@
       <arglist>(ProcessorEditor &amp;e)</arglist>
     </member>
     <member kind="function">
-      <type>Rectangle&lt; int &gt;</type>
+      <type>juce::Rectangle&lt; int &gt;</type>
       <name>getGridArea</name>
       <anchorfile>classControlBox.html</anchorfile>
-      <anchor>a35a6f97c24c0d4225b40d03a82f27e9b</anchor>
+      <anchor>a3a1c777e4df5d8d4ca16e3b8ffe3798e</anchor>
       <arglist>(int x, int y, int w=1, int h=1)</arglist>
     </member>
     <member kind="function">
@@ -3013,8 +3013,8 @@
       <type></type>
       <name>ControlHeader</name>
       <anchorfile>classControlHeader.html</anchorfile>
-      <anchor>a877b2db06ba3412d8a831a3c92a9a586</anchor>
-      <arglist>(const String &amp;name_={})</arglist>
+      <anchor>abd11e4f598663c8b0a6406cbbafe0f29</anchor>
+      <arglist>(const juce::String &amp;name_={})</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -3029,60 +3029,60 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>Typeface::Ptr</type>
+      <type>juce::Typeface::Ptr</type>
       <name>getTypefaceForFont</name>
       <anchorfile>classCopperLookAndFeel.html</anchorfile>
-      <anchor>a9305f3329c4b2478712930dd1a5880ca</anchor>
-      <arglist>(const Font &amp;f) override</arglist>
+      <anchor>a6916406a6f2f350f6d7b348d4e936dbd</anchor>
+      <arglist>(const juce::Font &amp;f) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>drawRotarySlider</name>
       <anchorfile>classCopperLookAndFeel.html</anchorfile>
-      <anchor>aeddc976b627d9460edc42fcd14486539</anchor>
-      <arglist>(Graphics &amp;, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, Slider &amp;) override</arglist>
+      <anchor>a635b1059994a6c8bc912a25d4434a39a</anchor>
+      <arglist>(juce::Graphics &amp;, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, juce::Slider &amp;) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>drawLinearSlider</name>
       <anchorfile>classCopperLookAndFeel.html</anchorfile>
-      <anchor>ac2293e6ea63e958f374c3b7154a5d7b7</anchor>
-      <arglist>(Graphics &amp;, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const Slider::SliderStyle, Slider &amp;) override</arglist>
+      <anchor>a76781acc3128172525772d1067b05363</anchor>
+      <arglist>(juce::Graphics &amp;, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const juce::Slider::SliderStyle, juce::Slider &amp;) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>drawButtonBackground</name>
       <anchorfile>classCopperLookAndFeel.html</anchorfile>
-      <anchor>acabf55d74d1321c6e047e093f28545e6</anchor>
-      <arglist>(Graphics &amp;, Button &amp;, const Colour &amp;backgroundColour, bool isMouseOverButton, bool isButtonDown) override</arglist>
+      <anchor>a32a1cd825539046b94824d1f3e31a05a</anchor>
+      <arglist>(juce::Graphics &amp;, juce::Button &amp;, const juce::Colour &amp;backgroundColour, bool isMouseOverButton, bool isButtonDown) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>drawButtonText</name>
       <anchorfile>classCopperLookAndFeel.html</anchorfile>
-      <anchor>abd5ae76e8552c17ba80882dc53237b97</anchor>
-      <arglist>(Graphics &amp;, TextButton &amp;, bool isMouseOverButton, bool isButtonDown) override</arglist>
+      <anchor>a21381bda8809e601aac6e5c3f83e0a42</anchor>
+      <arglist>(juce::Graphics &amp;, juce::TextButton &amp;, bool isMouseOverButton, bool isButtonDown) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>drawComboBox</name>
       <anchorfile>classCopperLookAndFeel.html</anchorfile>
-      <anchor>a8119bc56425955d5d1976b6969faf422</anchor>
-      <arglist>(Graphics &amp;, int width, int height, bool isButtonDown, int buttonX, int buttonY, int buttonW, int buttonH, ComboBox &amp;) override</arglist>
+      <anchor>aaae624d7f83c75904ad61b7774a8b99c</anchor>
+      <arglist>(juce::Graphics &amp;, int width, int height, bool isButtonDown, int buttonX, int buttonY, int buttonW, int buttonH, juce::ComboBox &amp;) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>positionComboBoxText</name>
       <anchorfile>classCopperLookAndFeel.html</anchorfile>
-      <anchor>a08b6221171a54db31913faa7f65c274e</anchor>
-      <arglist>(ComboBox &amp;, Label &amp;) override</arglist>
+      <anchor>ab3a0479798b3522015708a40ec018844</anchor>
+      <arglist>(juce::ComboBox &amp;, juce::Label &amp;) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>drawTextEditorOutline</name>
       <anchorfile>classCopperLookAndFeel.html</anchorfile>
-      <anchor>ace25bba86f29257b7c078a3c8961453e</anchor>
-      <arglist>(Graphics &amp;, int width, int height, TextEditor &amp;) override</arglist>
+      <anchor>a6f6210f9d52087f213b1234381c028e7</anchor>
+      <arglist>(juce::Graphics &amp;, int width, int height, juce::TextEditor &amp;) override</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -5630,8 +5630,8 @@
       <type>void</type>
       <name>setLiveValuesCallback</name>
       <anchorfile>classKnob.html</anchorfile>
-      <anchor>a88e99b9f91b6a2c9f9c041b6bbbaf4a4</anchor>
-      <arglist>(std::function&lt; Array&lt; float &gt;()&gt; cb)</arglist>
+      <anchor>aeb0d9897db4e09830a30994ba7cfc161</anchor>
+      <arglist>(std::function&lt; juce::Array&lt; float &gt;()&gt; cb)</arglist>
     </member>
     <member kind="function">
       <type>PluginSlider &amp;</type>
@@ -6742,15 +6742,15 @@
       <type>void</type>
       <name>stateUpdated</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a29c908a4f1b12e828bf6b18cb52aeeed</anchor>
-      <arglist>(const ValueTree &amp;vt)</arglist>
+      <anchor>aa3b18298e7798ae8293f8beb6622db23</anchor>
+      <arglist>(const juce::ValueTree &amp;vt)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>updateState</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a1c2764a67e3d7cf2e844a9a4aa587b07</anchor>
-      <arglist>(ValueTree &amp;vt)</arglist>
+      <anchor>a9d2727c3ffce6935f804eff00495e4f8</anchor>
+      <arglist>(juce::ValueTree &amp;vt)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -6767,10 +6767,10 @@
       <arglist>(ModVoice &amp;voice, gin::Parameter *p)</arglist>
     </member>
     <member kind="function">
-      <type>Array&lt; float &gt;</type>
+      <type>juce::Array&lt; float &gt;</type>
       <name>getLiveValues</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>af4bb2a79fbc9c084dffda6c659f2335f</anchor>
+      <anchor>a313589d0966e9824aa05ae818e718280</anchor>
       <arglist>(gin::Parameter *p)</arglist>
     </member>
     <member kind="function">
@@ -6805,15 +6805,15 @@
       <type>ModSrcId</type>
       <name>addMonoModSource</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a3148512ab78ca1ade1cd27a655c6ea8e</anchor>
-      <arglist>(const String &amp;id, const String &amp;name, bool bipolar)</arglist>
+      <anchor>ad3fc6378eb99507135d11c01944575cd</anchor>
+      <arglist>(const juce::String &amp;id, const juce::String &amp;name, bool bipolar)</arglist>
     </member>
     <member kind="function">
       <type>ModSrcId</type>
       <name>addPolyModSource</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a79580c95a6eeb2e3507873bb24843e4b</anchor>
-      <arglist>(const String &amp;id, const String &amp;name, bool bipolar)</arglist>
+      <anchor>a66caa6c7b30ee5a492bde8c0d56c2520</anchor>
+      <arglist>(const juce::String &amp;id, const juce::String &amp;name, bool bipolar)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -6865,10 +6865,10 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
+      <type>juce::String</type>
       <name>getModSrcName</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>aa1eb8a2981e42e2c1f41c48d0acb9a11</anchor>
+      <anchor>a515297946b470b05c45f22dce83b6506</anchor>
       <arglist>(ModSrcId src)</arglist>
     </member>
     <member kind="function">
@@ -6886,10 +6886,10 @@
       <arglist>(ModSrcId src)</arglist>
     </member>
     <member kind="function">
-      <type>Array&lt; ModSrcId &gt;</type>
+      <type>juce::Array&lt; ModSrcId &gt;</type>
       <name>getModSources</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>aaff685d5d7765e5ef0a2ac30c7893b78</anchor>
+      <anchor>a17ebf21dccd38b5d56d9d8d6357ae0c2</anchor>
       <arglist>(gin::Parameter *)</arglist>
     </member>
     <member kind="function">
@@ -7028,8 +7028,8 @@
       <type>void</type>
       <name>paintListBoxItem</name>
       <anchorfile>classModSrcListBox.html</anchorfile>
-      <anchor>a45cbabecbc7179c970e4d5478704ea59</anchor>
-      <arglist>(int, Graphics &amp;, int, int, bool) override</arglist>
+      <anchor>af84a66b3d2128b5c42b04a976e022adf</anchor>
+      <arglist>(int, juce::Graphics &amp;, int, int, bool) override</arglist>
     </member>
     <member kind="function">
       <type>Component *</type>
@@ -7237,8 +7237,8 @@
       <type>void</type>
       <name>showBubble</name>
       <anchorfile>classMultiParamComponent.html</anchorfile>
-      <anchor>aa8fbeff3d93588c2ecf332ceee40e560</anchor>
-      <arglist>(const String &amp;text, const Rectangle&lt; int &gt; &amp;rc)</arglist>
+      <anchor>a5cc5d97f95b48cac1c6d1989f4e1d971</anchor>
+      <arglist>(const juce::String &amp;text, const juce::Rectangle&lt; int &gt; &amp;rc)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -7290,17 +7290,17 @@
       <arglist>() override</arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>Array&lt; Parameter * &gt;</type>
+      <type>juce::Array&lt; Parameter * &gt;</type>
       <name>params</name>
       <anchorfile>classMultiParamComponent.html</anchorfile>
-      <anchor>a6dbe5bc1f7bfd6075cbb6867f72ed615</anchor>
+      <anchor>a36bd41a594c81661474e30ee35c0eca5</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>std::unique_ptr&lt; BubbleMessageComponent &gt;</type>
+      <type>std::unique_ptr&lt; juce::BubbleMessageComponent &gt;</type>
       <name>bubble</name>
       <anchorfile>classMultiParamComponent.html</anchorfile>
-      <anchor>af352cfeb2692011587e06659824993fb</anchor>
+      <anchor>afed6013095e1e2ced271cda5ccecb7d2</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -7406,18 +7406,18 @@
       <arglist>(const char *name=&quot;&quot;, float bars=0.0f, float note=0.0f)</arglist>
     </member>
     <member kind="function">
-      <type>const String &amp;</type>
+      <type>const juce::String &amp;</type>
       <name>getName</name>
       <anchorfile>classNoteDuration.html</anchorfile>
-      <anchor>adf68c1ab6048b575b5787c0bbe8278e3</anchor>
+      <anchor>a4de79765eb84ceb7204be9ab68ef0356</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>float</type>
       <name>toSeconds</name>
       <anchorfile>classNoteDuration.html</anchorfile>
-      <anchor>a685eb3811a8461f19705c2ee0c2ca298</anchor>
-      <arglist>(AudioPlayHead *playhead) const</arglist>
+      <anchor>ac5647e5458ecb9b2bd6504a355d202d7</anchor>
+      <arglist>(juce::AudioPlayHead *playhead) const</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -7716,8 +7716,8 @@
       <type>void</type>
       <name>addPage</name>
       <anchorfile>classPagedControlBox.html</anchorfile>
-      <anchor>a3af9bfe9a8d9ca36ba405ab8ee83445b</anchor>
-      <arglist>(const String &amp;name, int rows, int cols)</arglist>
+      <anchor>a211848a46d796bfc39f5049476c0354d</anchor>
+      <arglist>(const juce::String &amp;name, int rows, int cols)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -7763,8 +7763,8 @@
       <type></type>
       <name>ParamArea</name>
       <anchorfile>classParamArea.html</anchorfile>
-      <anchor>a46841b4f0ec9049843b71e8196ecc54a</anchor>
-      <arglist>(const String &amp;name_={})</arglist>
+      <anchor>aee22a8262ee712a259c180bacef1fdeb</anchor>
+      <arglist>(const juce::String &amp;name_={})</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -7789,8 +7789,8 @@
       <type></type>
       <name>ParamBox</name>
       <anchorfile>classParamBox.html</anchorfile>
-      <anchor>a5fbfb98e97dec4bf9217a7305dd21f1e</anchor>
-      <arglist>(const String &amp;name)</arglist>
+      <anchor>a011028f62a01be493f082a0e8a5f863e</anchor>
+      <arglist>(const juce::String &amp;name)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -7832,18 +7832,18 @@
       <arglist>(Parameter *parameter)</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
+      <type>juce::String</type>
       <name>getUid</name>
       <anchorfile>classParamComponent.html</anchorfile>
-      <anchor>a46822b2f9865686b2ee9158db03e06be</anchor>
+      <anchor>a62626a60b4e5e2bf86e52fa7a2362646</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setTooltip</name>
       <anchorfile>classParamComponent.html</anchorfile>
-      <anchor>abecc64f99e878cba8e2605290b4d27f8</anchor>
-      <arglist>(const String &amp;newTooltip) override</arglist>
+      <anchor>a1e7f1920fda098d8556ab3262b6bfa8e</anchor>
+      <arglist>(const juce::String &amp;newTooltip) override</arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>Parameter *</type>
@@ -7870,21 +7870,21 @@
       <type></type>
       <name>Parameter</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>ab78c2686476c4c49405319a7ac31f7d8</anchor>
-      <arglist>(Processor &amp;, String uid, String name, String shortName, String label, float minValue, float maxValue, float intervalValue, float defaultValue, float skewFactor=1.0f, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
+      <anchor>ae2a7ee825de84811081f393b36a5155f</anchor>
+      <arglist>(Processor &amp;, juce::String uid, juce::String name, juce::String shortName, juce::String label, float minValue, float maxValue, float intervalValue, float defaultValue, float skewFactor=1.0f, std::function&lt; juce::String(const Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>Parameter</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a5e5c60db8c3599723167e63049503d7c</anchor>
-      <arglist>(Processor &amp;, String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, std::function&lt; String(const Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
+      <anchor>a4a449298cb4d50aa06746579e6035d1c</anchor>
+      <arglist>(Processor &amp;, juce::String uid, juce::String name, juce::String shortName, juce::String label, juce::NormalisableRange&lt; float &gt; range, float defaultValue, std::function&lt; juce::String(const Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
+      <type>juce::String</type>
       <name>getUid</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a393a0cba8eabc3c6b45ff1054c1fc5bf</anchor>
+      <anchor>a1541ad0a9159f2433a6e652196b9d377</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -8000,17 +8000,17 @@
       <arglist>(float f)</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
+      <type>juce::String</type>
       <name>getUserValueText</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>ae74ee83826f05e740fffbd38334b4cd9</anchor>
+      <anchor>a202a2145b5b03a4ad6622718e49557ab</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
+      <type>juce::String</type>
       <name>userValueToText</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a7cd60677e567aa83d93ebddc06dc4313</anchor>
+      <anchor>af3960250a1c071e471daf16be484b656</anchor>
       <arglist>(float val)</arglist>
     </member>
     <member kind="function">
@@ -8056,10 +8056,10 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>NormalisableRange&lt; float &gt;</type>
+      <type>juce::NormalisableRange&lt; float &gt;</type>
       <name>getUserRange</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>ae363f41891434a66b7ded5664703fb41</anchor>
+      <anchor>ab12bfdd7bebce174eacad15681cf37d8</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -8133,24 +8133,24 @@
       <arglist>() const override</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
+      <type>juce::String</type>
       <name>getName</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>afcdf374194c2777085746414a9faed9c</anchor>
+      <anchor>a41f6a2e45cc127a47e751ef6f3892f77</anchor>
       <arglist>(int maximumStringLength) const override</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
+      <type>juce::String</type>
       <name>getShortName</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a6de7217fd7d73b6d8a70e5ea7284255d</anchor>
+      <anchor>a92105e6395bf23748f2c61d1c76f2fdd</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
+      <type>juce::String</type>
       <name>getLabel</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a113b1b0fe53aabc96d4aa74896981081</anchor>
+      <anchor>aa2b511b55b1edb8eaa5cc3cb5a1a1e30</anchor>
       <arglist>() const override</arglist>
     </member>
     <member kind="function">
@@ -8161,18 +8161,18 @@
       <arglist>() const override</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
+      <type>juce::String</type>
       <name>getText</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a9548e7cc6e5f7253158e7533571b8b83</anchor>
+      <anchor>aeadd7715c99d8d8b788e5800d620104e</anchor>
       <arglist>(float value, int) const override</arglist>
     </member>
     <member kind="function">
       <type>float</type>
       <name>getValueForText</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a7058bae34b44db7c454661db485eccf3</anchor>
-      <arglist>(const String &amp;text) const override</arglist>
+      <anchor>a9019aebfa160ab78e1884be19ba59a67</anchor>
+      <arglist>(const juce::String &amp;text) const override</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -8245,10 +8245,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>NormalisableRange&lt; float &gt;</type>
+      <type>juce::NormalisableRange&lt; float &gt;</type>
       <name>range</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a7f42560cf257b387fb61c293b4a0239c</anchor>
+      <anchor>a4d0ec755973b5650a80d2b7e39bc2197</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -8287,38 +8287,38 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>String</type>
+      <type>juce::String</type>
       <name>uid</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a0c863fcd6d62d53c7324a26d71946bba</anchor>
+      <anchor>a6de74e7339f55349e6cb89dfd9a3abf1</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>String</type>
+      <type>juce::String</type>
       <name>name</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>ae63c1fcfb20e320bada1f58c04ff18da</anchor>
+      <anchor>a4316d020a490d5e1d764d60453cb078c</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>String</type>
+      <type>juce::String</type>
       <name>shortName</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a1a47c46f3588b8a940d87fd4d69810ab</anchor>
+      <anchor>a13e74b870f06935303747b3921f80dfa</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>String</type>
+      <type>juce::String</type>
       <name>label</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a16242ecd263059c46fada6a665146594</anchor>
+      <anchor>a18023bfac5c58f4372050d2a8177006e</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>std::function&lt; String(const Parameter &amp;, float)&gt;</type>
+      <type>std::function&lt; juce::String(const Parameter &amp;, float)&gt;</type>
       <name>textFunction</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a53b9044a78f11aaab48427f315f56ce5</anchor>
+      <anchor>a53a9fdfe21f1bfa1a41c985335ad76aa</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -8329,10 +8329,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>ListenerList&lt; Listener &gt;</type>
+      <type>juce::ListenerList&lt; Listener &gt;</type>
       <name>listeners</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a80e2e4507e0dae68ceea0d6c12fa2f1b</anchor>
+      <anchor>a4d3ac71ee0c96cae514599e526b04388</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -8396,8 +8396,8 @@
       <type></type>
       <name>ParamHeader</name>
       <anchorfile>classParamHeader.html</anchorfile>
-      <anchor>acfdaf86f73794ce36446baede883667c</anchor>
-      <arglist>(const String &amp;name_)</arglist>
+      <anchor>a79840eb71c893f1273cfd46e4f6ccda5</anchor>
+      <arglist>(const juce::String &amp;name_)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -8528,10 +8528,10 @@
     <name>Parameter::ParamState</name>
     <filename>structParameter_1_1ParamState.html</filename>
     <member kind="variable">
-      <type>String</type>
+      <type>juce::String</type>
       <name>uid</name>
       <anchorfile>structParameter_1_1ParamState.html</anchorfile>
-      <anchor>a7c8f61c7267df24aa53a77c58c671601</anchor>
+      <anchor>aa22b9ef79902c319f80799bbaae5c9e4</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -8580,8 +8580,8 @@
       <type>void</type>
       <name>paint</name>
       <anchorfile>classPatchBrowser.html</anchorfile>
-      <anchor>aaa3d0c47333425b8e6f94307fc6e7e00</anchor>
-      <arglist>(Graphics &amp;g) override</arglist>
+      <anchor>af622c9352f699990659deda9230a5900</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
     </member>
     <member kind="variable">
       <type>Processor &amp;</type>
@@ -8612,59 +8612,59 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>ListBox</type>
+      <type>juce::ListBox</type>
       <name>authors</name>
       <anchorfile>classPatchBrowser.html</anchorfile>
-      <anchor>af1fd39c503382c7f311ccaf8cbe6290a</anchor>
+      <anchor>a1becbf2ecebca6e5a2ba2533b619b952</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>ListBox</type>
+      <type>juce::ListBox</type>
       <name>tags</name>
       <anchorfile>classPatchBrowser.html</anchorfile>
-      <anchor>a604f1af8ee55070f317b08f5f261b607</anchor>
+      <anchor>aa7bac749585a5be93c25474dae4542e8</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>ListBox</type>
+      <type>juce::ListBox</type>
       <name>presets</name>
       <anchorfile>classPatchBrowser.html</anchorfile>
-      <anchor>a247c5b78833370ecc35672a0c8995cc1</anchor>
+      <anchor>a2fde0c9a4e9504c0feb276e93250ea12</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>StringArray</type>
+      <type>juce::StringArray</type>
       <name>currentAuthors</name>
       <anchorfile>classPatchBrowser.html</anchorfile>
-      <anchor>a1bedb9bba84083e90be4f635734f3bdf</anchor>
+      <anchor>a6706171e059f0acd5c48aded8185378b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>StringArray</type>
+      <type>juce::StringArray</type>
       <name>currentTags</name>
       <anchorfile>classPatchBrowser.html</anchorfile>
-      <anchor>a321c180551aded2e7af5e62644eeff94</anchor>
+      <anchor>ad6b24119439bd1a1feafc67751a4c965</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>StringArray</type>
+      <type>juce::StringArray</type>
       <name>currentPresets</name>
       <anchorfile>classPatchBrowser.html</anchorfile>
-      <anchor>ab780e20dcabc03c249897376d106f402</anchor>
+      <anchor>a6f234b2f7429023b795fca3aeefb4347</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>StringArray</type>
+      <type>juce::StringArray</type>
       <name>selectedAuthors</name>
       <anchorfile>classPatchBrowser.html</anchorfile>
-      <anchor>afd7aaeb5011141a705bde69a12e50972</anchor>
+      <anchor>a9b9d7b139ae59f19b0b3435dba2ce027</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>StringArray</type>
+      <type>juce::StringArray</type>
       <name>selectedTags</name>
       <anchorfile>classPatchBrowser.html</anchorfile>
-      <anchor>a8ce4c80fb9773528fcb54f8f352a72fe</anchor>
+      <anchor>a5131ad5197cd707f759b87775770551f</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -8701,8 +8701,8 @@
       <type></type>
       <name>PluginAlertWindow</name>
       <anchorfile>classPluginAlertWindow.html</anchorfile>
-      <anchor>a6ee6f4385bca587bb4d1fe3770ba409d</anchor>
-      <arglist>(const String &amp;title, const String &amp;message, AlertIconType iconType, Component *associatedComponent=nullptr)</arglist>
+      <anchor>a25f98216ebdc7b63e16471784b05e12b</anchor>
+      <arglist>(const juce::String &amp;title, const juce::String &amp;message, AlertIconType iconType, Component *associatedComponent=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -8804,11 +8804,11 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>Typeface::Ptr</type>
+      <type>juce::Typeface::Ptr</type>
       <name>getTypefaceForFont</name>
       <anchorfile>classPluginLookAndFeel.html</anchorfile>
-      <anchor>aba6ff21edb8442e564cc18191c000f91</anchor>
-      <arglist>(const Font &amp;f) override</arglist>
+      <anchor>a2039e6dc6cf25994545f54527cddc9cc</anchor>
+      <arglist>(const juce::Font &amp;f) override</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -8880,22 +8880,22 @@
       <type>void</type>
       <name>mouseDown</name>
       <anchorfile>classPluginSlider.html</anchorfile>
-      <anchor>abe49253d8dc56075457e01ea0ec280a8</anchor>
-      <arglist>(const MouseEvent &amp;e) override</arglist>
+      <anchor>ae74825b59e7dc1c6f654488876213527</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>mouseUp</name>
       <anchorfile>classPluginSlider.html</anchorfile>
-      <anchor>a346be46414f1e003af70957cf53cb7c3</anchor>
-      <arglist>(const MouseEvent &amp;e) override</arglist>
+      <anchor>aa2eff100b1ed428b91f0ef8b6fb26e99</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>mouseDrag</name>
       <anchorfile>classPluginSlider.html</anchorfile>
-      <anchor>a396f14014c17c4216298b6ad283b9a07</anchor>
-      <arglist>(const MouseEvent &amp;e) override</arglist>
+      <anchor>a564ef68cc52df0d872231fd0c5446fd7</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -8931,15 +8931,15 @@
       <type>void</type>
       <name>paintListBoxItem</name>
       <anchorfile>structPatchBrowser_1_1PresetsModel.html</anchorfile>
-      <anchor>ada2d090c0b241bd09daf0067329b09b4</anchor>
-      <arglist>(int row, Graphics &amp;g, int w, int h, bool selected) override</arglist>
+      <anchor>a09fc3d69b6560cbe3c9992b06b7f3637</anchor>
+      <arglist>(int row, juce::Graphics &amp;g, int w, int h, bool selected) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>listBoxItemDoubleClicked</name>
       <anchorfile>structPatchBrowser_1_1PresetsModel.html</anchorfile>
-      <anchor>aaa2d1f21207e12d63fb40fb7ca6e1b44</anchor>
-      <arglist>(int row, const MouseEvent &amp;) override</arglist>
+      <anchor>a8cc3194c2da68f867bcf24aa78384bcd</anchor>
+      <arglist>(int row, const juce::MouseEvent &amp;) override</arglist>
     </member>
     <member kind="variable">
       <type>PatchBrowser &amp;</type>
@@ -8988,10 +8988,10 @@
       <arglist>(double sampleRate, int samplesPerBlock) override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
-      <type>virtual std::unique_ptr&lt; PropertiesFile &gt;</type>
+      <type>virtual std::unique_ptr&lt; juce::PropertiesFile &gt;</type>
       <name>getSettings</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a8c7b3466839c4913b79f507447adda9e</anchor>
+      <anchor>a78cb0aaf6f673ed95a5c32e60ae93427</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -9005,49 +9005,49 @@
       <type>gin::Parameter *</type>
       <name>addExtParam</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>ad1f637d866a9c83e58aba4f62e8ccda8</anchor>
-      <arglist>(String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, std::function&lt; String(const gin::Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
+      <anchor>ad6b6443808b166f6194d07bf68a6e5f7</anchor>
+      <arglist>(juce::String uid, juce::String name, juce::String shortName, juce::String label, juce::NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, std::function&lt; juce::String(const gin::Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>gin::Parameter *</type>
       <name>addIntParam</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>ab2115f4c7a79575b800f54f4a8f3187f</anchor>
-      <arglist>(String uid, String name, String shortName, String label, NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, std::function&lt; String(const gin::Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
+      <anchor>a3e19869a9d96d0ee6492bdec952bab2d</anchor>
+      <arglist>(juce::String uid, juce::String name, juce::String shortName, juce::String label, juce::NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, std::function&lt; juce::String(const gin::Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>gin::Parameter *</type>
       <name>getParameter</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a01f09fc4364bd8d2a4a23eac43607870</anchor>
-      <arglist>(const String &amp;uid)</arglist>
+      <anchor>a172c59635f441ade54855f4041046d8b</anchor>
+      <arglist>(const juce::String &amp;uid)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
       <name>parameterValue</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a8eefaac8d8162df52e21df9a12dea74f</anchor>
-      <arglist>(const String &amp;uid)</arglist>
+      <anchor>afdd29a9ae5ebcda535a8e0758aad92b4</anchor>
+      <arglist>(const juce::String &amp;uid)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>parameterIntValue</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>aff29fede850d8e740ec97661dc33d49a</anchor>
-      <arglist>(const String &amp;uid)</arglist>
+      <anchor>a6636672f1d6413c06be3aced7622731d</anchor>
+      <arglist>(const juce::String &amp;uid)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>parameterBoolValue</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a4a4b8f2b5c428d50fcc9b68cb87d4475</anchor>
-      <arglist>(const String &amp;uid)</arglist>
+      <anchor>a980e98e084a98f9fdaa3c958c613a21f</anchor>
+      <arglist>(const juce::String &amp;uid)</arglist>
     </member>
     <member kind="function">
-      <type>const Array&lt; gin::Parameter * &gt; &amp;</type>
+      <type>const juce::Array&lt; gin::Parameter * &gt; &amp;</type>
       <name>getPluginParameters</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a983f9ceb97680b67bd28479a3ac01766</anchor>
+      <anchor>a2d76202bddbb9f54afbb7f10dcf2a3c6</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -9058,10 +9058,10 @@
       <arglist>()</arglist>
     </member>
     <member kind="function" virtualness="virtual">
-      <type>virtual File</type>
+      <type>virtual juce::File</type>
       <name>getProgramDirectory</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a8d20ab14c8d83d7c4bd5e310b7506691</anchor>
+      <anchor>a36394e5ceac103d0f3f7852091aad91e</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -9072,10 +9072,10 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>const String</type>
+      <type>const juce::String</type>
       <name>getName</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>ad18b32b848e23d1efeabdcf23f33d56f</anchor>
+      <anchor>a39f7bb4cef80c8e49f3220605f4cc455</anchor>
       <arglist>() const override</arglist>
     </member>
     <member kind="function">
@@ -9114,18 +9114,18 @@
       <arglist>() override</arglist>
     </member>
     <member kind="function">
-      <type>const OwnedArray&lt; Program &gt; &amp;</type>
+      <type>const juce::OwnedArray&lt; Program &gt; &amp;</type>
       <name>getPrograms</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>aab4a36f47318cbb54866c829d621418e</anchor>
+      <anchor>a04c4c0dca9f2560f99adea0ee7618db8</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setCurrentProgram</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a7b57a4bffc9016913c128a041f172fd4</anchor>
-      <arglist>(String name)</arglist>
+      <anchor>a16740174d6c17303dfc77ef45d32f348</anchor>
+      <arglist>(juce::String name)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -9135,25 +9135,25 @@
       <arglist>(int index) override</arglist>
     </member>
     <member kind="function">
-      <type>const String</type>
+      <type>const juce::String</type>
       <name>getProgramName</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a44766ae826bdc6af0496e830afc12381</anchor>
+      <anchor>ae58f2ae2b4b20a3fa4c9981df3e336d3</anchor>
       <arglist>(int index) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>changeProgramName</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a9b3fcfe68f202c043897c60da36a7a8c</anchor>
-      <arglist>(int index, const String &amp;newName) override</arglist>
+      <anchor>a912ce9ee0afb3cc9b48804cd5566f1ea</anchor>
+      <arglist>(int index, const juce::String &amp;newName) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>saveProgram</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a0f57a021b351cdea4f5bd9d022e8a3a3</anchor>
-      <arglist>(String name, String author, String tags)</arglist>
+      <anchor>a964be03f12126fcf8a9c5996af2abbef</anchor>
+      <arglist>(juce::String name, juce::String author, juce::String tags)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -9166,8 +9166,8 @@
       <type>bool</type>
       <name>hasProgram</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a4bad2fd53ae0d91ff3239ae0243a6d8a</anchor>
-      <arglist>(String name)</arglist>
+      <anchor>ad78ac9883a5b0ccabf449861aa86c071</anchor>
+      <arglist>(juce::String name)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -9184,31 +9184,31 @@
       <arglist>(const void *data, int sizeInBytes) override</arglist>
     </member>
     <member kind="variable">
-      <type>SharedResourcePointer&lt; PluginLookAndFeel &gt;</type>
+      <type>juce::SharedResourcePointer&lt; PluginLookAndFeel &gt;</type>
       <name>lf</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>ac49711a13aa212183e785744404da276</anchor>
+      <anchor>a66d6490dedad983ccae9c3ae660c5086</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>std::map&lt; String, gin::Parameter * &gt;</type>
+      <type>std::map&lt; juce::String, gin::Parameter * &gt;</type>
       <name>parameterMap</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>aa90d44e1935615025daf6a07e9e9e972</anchor>
+      <anchor>a0eed0ccb9cccd2bc8a0d218fc42488b5</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>OwnedArray&lt; gin::Parameter &gt;</type>
+      <type>juce::OwnedArray&lt; gin::Parameter &gt;</type>
       <name>internalParameters</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>ad4e425ac75469a160965371f4776bf3c</anchor>
+      <anchor>ac9d3cf083da1dba0b2612ce32ea7218d</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>ValueTree</type>
+      <type>juce::ValueTree</type>
       <name>state</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>ab99be5fb7bcd0f2e761e160526a5af57</anchor>
+      <anchor>aecd42420782c38cad73bf06fb0f195db</anchor>
       <arglist></arglist>
     </member>
     <member kind="function" protection="protected" virtualness="virtual">
@@ -9229,8 +9229,8 @@
       <type>void</type>
       <name>extractProgram</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a1851a0eae54950bdfbbd0395bfbbddfb</anchor>
-      <arglist>(const String &amp;name, const MemoryBlock &amp;data)</arglist>
+      <anchor>afdf6943c2323aeedf39c18d7ec77ecbb</anchor>
+      <arglist>(const juce::String &amp;name, const juce::MemoryBlock &amp;data)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -9255,15 +9255,15 @@
       <type>void</type>
       <name>updateReady</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a59878485ed13027ec50ff1962e5936b9</anchor>
-      <arglist>(String updateUrl)</arglist>
+      <anchor>aa2735f1a20c297918f272257e9d67787</anchor>
+      <arglist>(juce::String updateUrl)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>newsReady</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>aada190b51287a66e569867062e219419</anchor>
-      <arglist>(String newsUrl)</arglist>
+      <anchor>ada9fb8e9ece8f2c53246e78b1f13a176</anchor>
+      <arglist>(juce::String newsUrl)</arglist>
     </member>
     <member kind="variable">
       <type>Processor &amp;</type>
@@ -9276,8 +9276,8 @@
       <type>void</type>
       <name>paint</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a3a661febd6b7c9e90ade33390ff9832a</anchor>
-      <arglist>(Graphics &amp;g) override</arglist>
+      <anchor>a725f16140eeba1f2f996c46d4aa353f5</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -9290,22 +9290,22 @@
       <type>void</type>
       <name>buttonClicked</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>ab537fc3e20adcb6d16e672d134f32479</anchor>
-      <arglist>(Button *b) override</arglist>
+      <anchor>a9b9c425e29963064d2dac787c1fc4b1a</anchor>
+      <arglist>(juce::Button *b) override</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>comboBoxChanged</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a4db19063c51a40e74b6f2fcc691e046a</anchor>
-      <arglist>(ComboBox *c) override</arglist>
+      <anchor>a275ee61e7aba32e699bcc647d06f1f8b</anchor>
+      <arglist>(juce::ComboBox *c) override</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>changeListenerCallback</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a36ea718afc7637ab3df0b70b3b278b50</anchor>
-      <arglist>(ChangeBroadcaster *) override</arglist>
+      <anchor>af4f503dffc30a60706183d5f7b147576</anchor>
+      <arglist>(juce::ChangeBroadcaster *) override</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -9336,94 +9336,94 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>ComboBox</type>
+      <type>juce::ComboBox</type>
       <name>programs</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>ad79702b5f393331f7b9287d79cbb290c</anchor>
+      <anchor>a8c852febe2c54d2b98d1c5c6949f145b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>TextButton</type>
+      <type>juce::TextButton</type>
       <name>addButton</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a4d96825d6eef3847167c3b8a4dda12f4</anchor>
+      <anchor>a4dd3263a64df1fd31a870985f7a9d9d2</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>TextButton</type>
+      <type>juce::TextButton</type>
       <name>deleteButton</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a01e813914f463a233ee867452d481a91</anchor>
+      <anchor>ae3605428cde561611990d540439394f7</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>TextButton</type>
+      <type>juce::TextButton</type>
       <name>browseButton</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>ae66f24bcd3937e647bb870e4d511adf3</anchor>
+      <anchor>a9ca27fc7ba19fd6b2aa9f70f8aeb50e3</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>TextButton</type>
+      <type>juce::TextButton</type>
       <name>nextButton</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a3724f70a16008bc886c2ac87a9db7559</anchor>
+      <anchor>af31678b601c2406d72a6938d5737d253</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>TextButton</type>
+      <type>juce::TextButton</type>
       <name>prevButton</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a376d1dcfa6b1fb7b0c39ce69152960af</anchor>
+      <anchor>a1d4aa5b7780cbe6cf3e77f99b92bcbeb</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>TextButton</type>
+      <type>juce::TextButton</type>
       <name>socaButton</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>ad8d1daf5ce26d1d7a399d4aec28da8d5</anchor>
+      <anchor>aafba3bdf1b0bacedd2e028d44bd15ca3</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>TextButton</type>
+      <type>juce::TextButton</type>
       <name>helpButton</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a74520bce6d0b3cae19dc01c1069710ff</anchor>
+      <anchor>ac0179edab40d65e113632b728d0b0c86</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>TextButton</type>
+      <type>juce::TextButton</type>
       <name>newsButton</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a2040b0d8f0e24bbfb32ec1175b0e8d7b</anchor>
+      <anchor>a780c292a6686bfb0cb16331e7de5e6c4</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>TextButton</type>
+      <type>juce::TextButton</type>
       <name>updateButton</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a662c410493f9198687ec99f6177270ea</anchor>
+      <anchor>a9c796b9236ecbe0742d600cfd16767e3</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>String</type>
+      <type>juce::String</type>
       <name>additionalProgramming</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>ad14b6546df1ab5daeef77b926b0c003b</anchor>
+      <anchor>a9139785557b0904a5b52aab9b4b47e22</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>String</type>
+      <type>juce::String</type>
       <name>updateUrl</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>ae0ba7e8e595be566914d1ec62e7a6b9f</anchor>
+      <anchor>acf7de990558f58ae2879063a68fdd31d</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>String</type>
+      <type>juce::String</type>
       <name>newsUrl</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a286c329728b68c991bd9b95926521368</anchor>
+      <anchor>a5332019229481c9d661659b7091f02d7</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -9459,24 +9459,24 @@
       <arglist>() override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
-      <type>virtual Rectangle&lt; int &gt;</type>
+      <type>virtual juce::Rectangle&lt; int &gt;</type>
       <name>getControlsArea</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>a10010d1f2f634ee85fa33a530e2ba5fd</anchor>
+      <anchor>a2a5d14bd76e1051ce255e5033a2b1f1a</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" virtualness="virtual">
-      <type>virtual Rectangle&lt; int &gt;</type>
+      <type>virtual juce::Rectangle&lt; int &gt;</type>
       <name>getGridArea</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>a6f48761ba9fb9e914596381a762d5c45</anchor>
+      <anchor>af1d97ab85b7b4eaed80e1cd1f9c704ee</anchor>
       <arglist>(int x, int y, int w=1, int h=1)</arglist>
     </member>
     <member kind="function">
-      <type>Rectangle&lt; int &gt;</type>
+      <type>juce::Rectangle&lt; int &gt;</type>
       <name>getFullGridArea</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>abba364af69e09537faba2c82b81dd318</anchor>
+      <anchor>acf57a677075ccf23cc6c253dc74b7ca6</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -9494,10 +9494,10 @@
       <arglist>()</arglist>
     </member>
     <member kind="variable">
-      <type>ComponentBoundsConstrainer</type>
+      <type>juce::ComponentBoundsConstrainer</type>
       <name>resizeLimits</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>a4fb46e7bb4b9276eb8609df192b24bad</anchor>
+      <anchor>aa6662122b927e35fb5adf36cf9d79dcf</anchor>
       <arglist></arglist>
     </member>
     <member kind="function" protection="protected">
@@ -9511,8 +9511,8 @@
       <type>ParamComponent *</type>
       <name>componentForId</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>acca234af724e0a27cc31324934d14126</anchor>
-      <arglist>(const String &amp;uid)</arglist>
+      <anchor>ac3e74209225daebb55e7b4262f2711da</anchor>
+      <arglist>(const juce::String &amp;uid)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>ParamComponent *</type>
@@ -9529,10 +9529,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>std::unique_ptr&lt; ResizableCornerComponent &gt;</type>
+      <type>std::unique_ptr&lt; juce::ResizableCornerComponent &gt;</type>
       <name>resizer</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>a1e64bc7e4ea7f74b234b65f48ee3b0e7</anchor>
+      <anchor>a852dc8320bd7a08b2c2cc4214cb7ec23</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -9550,10 +9550,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>OwnedArray&lt; ParamComponent &gt;</type>
+      <type>juce::OwnedArray&lt; ParamComponent &gt;</type>
       <name>controls</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>a0032b1dd2d479ec70b596c24e191d974</anchor>
+      <anchor>a34eb37b1f9a5896e6f5ea9244993d7bd</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -9599,10 +9599,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>TooltipWindow</type>
+      <type>juce::TooltipWindow</type>
       <name>tooltipWindow</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>a223cc13aa72275f9d34da699adea1ec3</anchor>
+      <anchor>aef611bd53bf795b5e0e9b204febd4070</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -9634,56 +9634,56 @@
       <type>void</type>
       <name>loadFromFile</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>adfbcf67998e33a092c586cca84e88cf8</anchor>
-      <arglist>(File f)</arglist>
+      <anchor>a00c563471f7d8b81fd534193c0baa6d6</anchor>
+      <arglist>(juce::File f)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>saveToDir</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>a00d6db3802fc4372d3863ce2ae2eed03</anchor>
-      <arglist>(File f)</arglist>
+      <anchor>a72eeaa3511a33b3d4bbb7b480029f9ae</anchor>
+      <arglist>(juce::File f)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>deleteFromDir</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>a3d91b8828d151162d81229bce461ee3c</anchor>
-      <arglist>(File f)</arglist>
+      <anchor>a036687ead06a204df0e772821bc861bf</anchor>
+      <arglist>(juce::File f)</arglist>
     </member>
     <member kind="variable">
-      <type>String</type>
+      <type>juce::String</type>
       <name>name</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>a70ae83fd3deaf356bdd5417193428130</anchor>
+      <anchor>ab960dff0d490441b19a47c7788ef5308</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>String</type>
+      <type>juce::String</type>
       <name>author</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>a68f2d3d5d177ec9cdc2a327f7560a953</anchor>
+      <anchor>a98dafb9ef18422b1a03261697b874194</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>StringArray</type>
+      <type>juce::StringArray</type>
       <name>tags</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>ae21a0053a4eadb82e62fb92b32c6d7bb</anchor>
+      <anchor>acddd8235091f27410c05cf4b7694b62a</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>String</type>
+      <type>juce::String</type>
       <name>valueTree</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>a3574241ed225ddb8fd20d01508059d70</anchor>
+      <anchor>ae5df2a7c91a9814b63c9224106492da4</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>Array&lt; Parameter::ParamState &gt;</type>
+      <type>juce::Array&lt; Parameter::ParamState &gt;</type>
       <name>states</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>a9a962229204d864ee9b5402c93c40fc4</anchor>
+      <anchor>ac96aecc2feeb808135496ea32108a3f1</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -10955,15 +10955,15 @@
       <type></type>
       <name>SmoothedParameter</name>
       <anchorfile>classSmoothedParameter.html</anchorfile>
-      <anchor>a7a40a947a3499e998543b97b22f12ff5</anchor>
-      <arglist>(Processor &amp;p, String uid_, String name_, String shortName_, String label_, float minValue_, float maxValue_, float intervalValue_, float defaultValue_, float skewFactor_=1.0f, std::function&lt; String(const gin::Parameter &amp;, float)&gt; textFunction_=nullptr)</arglist>
+      <anchor>afc3e5428bf61be1df757d73102703a0e</anchor>
+      <arglist>(Processor &amp;p, juce::String uid_, juce::String name_, juce::String shortName_, juce::String label_, float minValue_, float maxValue_, float intervalValue_, float defaultValue_, float skewFactor_=1.0f, std::function&lt; juce::String(const gin::Parameter &amp;, float)&gt; textFunction_=nullptr)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>SmoothedParameter</name>
       <anchorfile>classSmoothedParameter.html</anchorfile>
-      <anchor>a30832d1e389c7bd3c7b4d8c6544d248b</anchor>
-      <arglist>(Processor &amp;p, String uid_, String name_, String shortName_, String label_, NormalisableRange&lt; float &gt; range_, float defaultValue_, std::function&lt; String(const gin::Parameter &amp;, float)&gt; textFunction_=nullptr)</arglist>
+      <anchor>ab8311605dca336ed94b4f0497a2649fb</anchor>
+      <arglist>(Processor &amp;p, juce::String uid_, juce::String name_, juce::String shortName_, juce::String label_, juce::NormalisableRange&lt; float &gt; range_, float defaultValue_, std::function&lt; juce::String(const gin::Parameter &amp;, float)&gt; textFunction_=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -11530,8 +11530,8 @@
       <type>void</type>
       <name>paint</name>
       <anchorfile>classSynthesiserUsage.html</anchorfile>
-      <anchor>ada70eddd4681c6fd8fa665ccd2f94bdf</anchor>
-      <arglist>(Graphics &amp;g) override</arglist>
+      <anchor>a821a190f2151fc3a6022748679d283c0</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
     </member>
     <member kind="variable">
       <type>Synthesiser &amp;</type>
@@ -11555,17 +11555,17 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>Path</type>
+      <type>juce::Path</type>
       <name>voicePath</name>
       <anchorfile>classSynthesiserUsage.html</anchorfile>
-      <anchor>a0a95f14c5a52470f8c1c72be085a730b</anchor>
+      <anchor>ac45af775287b4546013be488a67d5d7d</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>Path</type>
+      <type>juce::Path</type>
       <name>cpuPath</name>
       <anchorfile>classSynthesiserUsage.html</anchorfile>
-      <anchor>a65f19c1828ad2506949b6565db4ea005</anchor>
+      <anchor>ac81b9aec980658fbc4bea45175e50ea5</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -11689,8 +11689,8 @@
       <type>void</type>
       <name>paintListBoxItem</name>
       <anchorfile>structPatchBrowser_1_1TagsModel.html</anchorfile>
-      <anchor>aa12df4aa1a8d900c495cccd603193677</anchor>
-      <arglist>(int row, Graphics &amp;g, int w, int h, bool selected) override</arglist>
+      <anchor>a6886ee4878b6e1127523ad086cc4ad45</anchor>
+      <arglist>(int row, juce::Graphics &amp;g, int w, int h, bool selected) override</arglist>
     </member>
     <member kind="variable">
       <type>PatchBrowser &amp;</type>
@@ -12702,8 +12702,8 @@
       <type>void</type>
       <name>gradientRect</name>
       <anchorfile>group__gin__plugin-components.html</anchorfile>
-      <anchor>ga4110716757a10f2f9ba0a3e756a03b1c</anchor>
-      <arglist>(Graphics &amp;g, Rectangle&lt; int &gt; rc, Colour c1, Colour c2)</arglist>
+      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
+      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
     </member>
   </compound>
   <compound kind="group">
