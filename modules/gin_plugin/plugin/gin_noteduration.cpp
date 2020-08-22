@@ -5,7 +5,7 @@ NoteDuration::NoteDuration (const char* name_, float bars_, float note_)
 {
 }
 
-float NoteDuration::toSeconds (AudioPlayHead* playhead) const
+float NoteDuration::toSeconds (juce::AudioPlayHead* playhead) const
 {
     float timeSigNumerator = 4;
     float timeSigDenominator = 4;
@@ -13,14 +13,14 @@ float NoteDuration::toSeconds (AudioPlayHead* playhead) const
     
     if (playhead != nullptr)
     {
-        AudioPlayHead::CurrentPositionInfo position;
+        juce::AudioPlayHead::CurrentPositionInfo position;
         if (playhead->getCurrentPosition (position))
         {
             timeSigNumerator = float (position.timeSigNumerator);
             timeSigDenominator = float (position.timeSigDenominator);
             bpm = float (position.bpm);
             if (bpm == 0.0) bpm = 120;
-            bpm = jlimit (1.0f, 500.0f, bpm);
+            bpm = juce::jlimit (1.0f, 500.0f, bpm);
         }
     }
 

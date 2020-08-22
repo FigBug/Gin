@@ -15,15 +15,15 @@ public:
     void loadProcessor (Processor& p);
     void saveProcessor (Processor& p);
 
-    void loadFromFile (File f);
-    void saveToDir (File f);
-    void deleteFromDir (File f);
+    void loadFromFile (juce::File f);
+    void saveToDir (juce::File f);
+    void deleteFromDir (juce::File f);
 
-    String name;
-    String author;
-    StringArray tags;
-    String valueTree;
-    Array<Parameter::ParamState> states;
+    juce::String name;
+    juce::String author;
+    juce::StringArray tags;
+    juce::String valueTree;
+    juce::Array<Parameter::ParamState> states;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Program)
 };

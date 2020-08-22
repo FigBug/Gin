@@ -65,8 +65,8 @@ private:
     friend ModMatrix;
 
     ModMatrix* owner = nullptr;
-    Array<float> values;
-    Array<ValueSmoother<float>> smoothers;
+    juce::Array<float> values;
+    juce::Array<ValueSmoother<float>> smoothers;
     int age = 0;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ModVoice)
@@ -86,8 +86,8 @@ public:
     ModMatrix() = default;
 
     //==============================================================================
-    void stateUpdated (const ValueTree& vt);
-    void updateState (ValueTree& vt);
+    void stateUpdated (const juce::ValueTree& vt);
+    void updateState (juce::ValueTree& vt);
 
     //==============================================================================
     float getValue (gin::Parameter* p)
@@ -105,7 +105,7 @@ public:
                 base += sources[src.id.id].monoValue * src.depth;
         }
 
-        base = jlimit (0.0f, 1.0f, base);
+        base = juce::jlimit (0.0f, 1.0f, base);
         auto& smoother = smoothers.getReference (paramId);
 
         smoother.setValue (base);
@@ -134,7 +134,7 @@ public:
                 base += sources[src.id.id].monoValue * src.depth;
         }
 
-        base = jlimit (0.0f, 1.0f, base);
+        base = juce::jlimit (0.0f, 1.0f, base);
         auto& smoother = voice.smoothers.getReference (paramId);
 
         smoother.setValue (base);
@@ -148,9 +148,9 @@ public:
         return v;
     }
 
-    Array<float> getLiveValues (gin::Parameter* p)
+    juce::Array<float> getLiveValues (gin::Parameter* p)
     {
-        Array<float> liveValues;
+        juce::Array<float> liveValues;
 
         const int paramId = p->getModIndex();
         auto& pi = parameters.getReference (paramId);
@@ -172,7 +172,7 @@ public:
                             base += sources[src.id.id].monoValue * src.depth;
                     }
 
-                    base = jlimit (0.0f, 1.0f, base);
+                    base = juce::jlimit (0.0f, 1.0f, base);
 
                     liveValues.add (base);
                 }
@@ -202,7 +202,7 @@ public:
 
             if (ok)
             {
-                base = jlimit (0.0f, 1.0f, base);
+                base = juce::jlimit (0.0f, 1.0f, base);
                 liveValues.add (base);
             }
         }
@@ -232,8 +232,8 @@ public:
 
     //==============================================================================
     void addVoice (ModVoice* v);
-    ModSrcId addMonoModSource (const String& id, const String& name, bool bipolar);
-    ModSrcId addPolyModSource (const String& id, const String& name, bool bipolar);
+    ModSrcId addMonoModSource (const juce::String& id, const juce::String& name, bool bipolar);
+    ModSrcId addPolyModSource (const juce::String& id, const juce::String& name, bool bipolar);
     void addParameter (gin::Parameter* p, bool poly);
 
     void setSampleRate (double sampleRate);
@@ -242,15 +242,15 @@ public:
     //==============================================================================
     void enableLearn (ModSrcId source);
     void disableLearn();
-    ModSrcId getLearn()                     { return learnSource;               }
+    ModSrcId getLearn()                         { return learnSource;               }
 
     //==============================================================================
-    int getNumModSources()                  { return sources.size();            }
-    String getModSrcName (ModSrcId src)     { return sources[src.id].name;      }
-    bool getModSrcPoly (ModSrcId src)       { return sources[src.id].poly;      }
-    bool getModSrcBipolar (ModSrcId src)    { return sources[src.id].bipolar;   }
+    int getNumModSources()                      { return sources.size();            }
+    juce::String getModSrcName (ModSrcId src)   { return sources[src.id].name;      }
+    bool getModSrcPoly (ModSrcId src)           { return sources[src.id].poly;      }
+    bool getModSrcBipolar (ModSrcId src)        { return sources[src.id].bipolar;   }
 
-    Array<ModSrcId> getModSources (gin::Parameter*);
+    juce::Array<ModSrcId> getModSources (gin::Parameter*);
 
     bool isModulated (ModDstId param);
 
@@ -280,8 +280,8 @@ private:
     //==============================================================================
     struct SourceInfo
     {
-        String id;
-        String name;
+        juce::String id;
+        juce::String name;
         bool poly = false;
         bool bipolar = false;
         ModSrcId index = {};
@@ -299,19 +299,19 @@ private:
     {
         gin::Parameter* parameter;
         bool poly = false;
-        Array<Source> sources;
+        juce::Array<Source> sources;
     };
 
     //==============================================================================
-    Array<SourceInfo> sources;
-    Array<ParamInfo> parameters;
-    Array<ModVoice*> voices;
-    Array<ValueSmoother<float>> smoothers;
+    juce::Array<SourceInfo> sources;
+    juce::Array<ParamInfo> parameters;
+    juce::Array<ModVoice*> voices;
+    juce::Array<ValueSmoother<float>> smoothers;
     ModVoice* activeVoice = nullptr;
 
     double sampleRate = 44100.0;
 
-    ListenerList<Listener> listeners;
+    juce::ListenerList<Listener> listeners;
 
     ModSrcId learnSource;
     int nextAge = 0;

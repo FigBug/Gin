@@ -4,7 +4,7 @@
 /** Draws a step LFO curve and shows a little dot moving long
 */
 class StepLFOComponent : public MultiParamComponent,
-                         private Timer
+                         private juce::Timer
 {
 public:
     StepLFOComponent() = default;
@@ -14,11 +14,11 @@ public:
     void setParams (Parameter::Ptr beat, Parameter::Ptr length, Parameter::Ptr* level, Parameter::Ptr enable);
 
 private:
-    void paint (Graphics& g) override;
+    void paint (juce::Graphics& g) override;
     void resized() override;
     void timerCallback() override;
     void paramChanged () override;
-    void mouseDrag (const MouseEvent& e) override;
+    void mouseDrag (const juce::MouseEvent& e) override;
 
     void createPath (juce::Rectangle<int> area);
     float getSample (float phase);
@@ -28,7 +28,7 @@ private:
     Parameter::Ptr level[32];
 
     StepLFO lfo;
-    Path path;
+    juce::Path path;
     bool dirty = true;
     float bpm = 120.0f, curPhase = 0;
     double lastUpdate = -1;

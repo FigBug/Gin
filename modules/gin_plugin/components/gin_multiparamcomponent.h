@@ -3,9 +3,9 @@
 //==============================================================================
 /** A base component for controlling multiple parameters at once
 */
-class MultiParamComponent : public Component,
+class MultiParamComponent : public juce::Component,
                             public Parameter::Listener,
-                            private AsyncUpdater
+                            private juce::AsyncUpdater
 {
 public:
     MultiParamComponent ()
@@ -19,19 +19,19 @@ public:
     }
 
 protected:
-    void showBubble (const String& text, const Rectangle<int>& rc)
+    void showBubble (const juce::String& text, const juce::Rectangle<int>& rc)
     {
-        if (auto p = findParentComponentOfClass<AudioProcessorEditor>())
+        if (auto p = findParentComponentOfClass<juce::AudioProcessorEditor>())
         {
             if (bubble == nullptr)
             {
-                bubble = std::make_unique<BubbleMessageComponent> (50000);
+                bubble = std::make_unique<juce::BubbleMessageComponent> (50000);
                 p->addAndMakeVisible (*bubble);
             }
 
-            AttributedString attString;
-            attString.append (text, Font (13.0f));
-            attString.setColour (Colours::white);
+            juce::AttributedString attString;
+            attString.append (text, juce::Font (13.0f));
+            attString.setColour (juce::Colours::white);
 
             auto rcg = p->getLocalArea (this, rc);
 
@@ -62,7 +62,7 @@ protected:
     void parameterChanged (Parameter*) override { triggerAsyncUpdate ();    }
     void handleAsyncUpdate () override          { paramChanged ();          }
 
-    Array<Parameter*> params;
+    juce::Array<Parameter*> params;
 
-    std::unique_ptr<BubbleMessageComponent> bubble;
+    std::unique_ptr<juce::BubbleMessageComponent> bubble;
 };

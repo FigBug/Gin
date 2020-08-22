@@ -2,23 +2,23 @@
 
 /** Just a simple header with a title
 */
-class ControlHeader : public Component
+class ControlHeader : public juce::Component
 {
 public:
-    ControlHeader (const String& name_ = {})
+    ControlHeader (const juce::String& name_ = {})
         : name (name_)
     {
     }
 
 private:
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
-        g.setColour (Colours::white.withAlpha (0.2f));
+        g.setColour (juce::Colours::white.withAlpha (0.2f));
         g.fillAll ();
 
-        g.setColour (Colours::white);
-        g.drawText (name, getLocalBounds(), Justification::centred);
+        g.setColour (juce::Colours::white);
+        g.drawText (name, getLocalBounds(), juce::Justification::centred);
     }
 
-    String name;
+    juce::String name;
 };

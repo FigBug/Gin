@@ -68,7 +68,7 @@ void LFOComponent::createPath (juce::Rectangle<int> area)
     }
 }
 
-void LFOComponent::paint (Graphics& g)
+void LFOComponent::paint (juce::Graphics& g)
 {
     auto rc = getLocalBounds().reduced (2);
 
@@ -84,7 +84,7 @@ void LFOComponent::paint (Graphics& g)
     g.fillRect (rc.getX(), rc.getCentreY(), rc.getWidth(), 1);
 
     g.setColour (c.withMultipliedAlpha (0.5f));
-    g.strokePath (path, PathStrokeType (1.5f));
+    g.strokePath (path, juce::PathStrokeType (1.5f));
 
     if (isEnabled())
     {
@@ -103,11 +103,11 @@ void LFOComponent::timerCallback()
 {
     if (lastUpdate == -1)
     {
-        lastUpdate = Time::getMillisecondCounter() / 1000.0;
+        lastUpdate = juce::Time::getMillisecondCounter() / 1000.0;
     }
     else
     {
-        double now = Time::getMillisecondCounter() / 1000.0;
+        double now = juce::Time::getMillisecondCounter() / 1000.0;
         double delta = now - lastUpdate;
         lastUpdate = now;
 

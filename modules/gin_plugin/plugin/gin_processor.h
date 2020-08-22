@@ -54,7 +54,7 @@ public:
     void reset() override;
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
 
-    virtual std::unique_ptr<PropertiesFile> getSettings();
+    virtual std::unique_ptr<juce::PropertiesFile> getSettings();
 
    #if BUILD_INTERNAL_PLUGINS
     void fillInPluginDescription (PluginDescription&) const override {}
@@ -65,29 +65,29 @@ public:
 
     void addPluginParameter (gin::Parameter* parameter);
 
-    gin::Parameter* addExtParam (String uid, String name, String shortName, String label,
-                                 NormalisableRange<float> range, float defaultValue,
+    gin::Parameter* addExtParam (juce::String uid, juce::String name, juce::String shortName, juce::String label,
+                                 juce::NormalisableRange<float> range, float defaultValue,
                                  SmoothingType st,
-                                 std::function<String (const gin::Parameter&, float)> textFunction = nullptr);
+                                 std::function<juce::String (const gin::Parameter&, float)> textFunction = nullptr);
 
-    gin::Parameter* addIntParam (String uid, String name, String shortName, String label,
-                                 NormalisableRange<float> range, float defaultValue,
+    gin::Parameter* addIntParam (juce::String uid, juce::String name, juce::String shortName, juce::String label,
+                                 juce::NormalisableRange<float> range, float defaultValue,
                                  SmoothingType st,
-                                 std::function<String (const gin::Parameter&, float)> textFunction = nullptr);
+                                 std::function<juce::String (const gin::Parameter&, float)> textFunction = nullptr);
 
-    gin::Parameter* getParameter (const String& uid);
-    float parameterValue (const String& uid);
-    int parameterIntValue (const String& uid);
-    bool parameterBoolValue (const String& uid);
-    const Array<gin::Parameter*>& getPluginParameters();
+    gin::Parameter* getParameter (const juce::String& uid);
+    float parameterValue (const juce::String& uid);
+    int parameterIntValue (const juce::String& uid);
+    bool parameterBoolValue (const juce::String& uid);
+    const juce::Array<gin::Parameter*>& getPluginParameters();
 
     bool isSmoothing();
 
-    virtual File getProgramDirectory();
+    virtual juce::File getProgramDirectory();
     void loadAllPrograms();
 
     //==============================================================================
-    const String getName() const override;
+    const juce::String getName() const override;
 
     bool acceptsMidi() const override;
     bool producesMidi() const override;
@@ -96,14 +96,14 @@ public:
     //==============================================================================
     int getNumPrograms() override;
     int getCurrentProgram() override;
-    const OwnedArray<Program>& getPrograms()    { return programs; }
-    void setCurrentProgram (String name);
+    const juce::OwnedArray<Program>& getPrograms()    { return programs; }
+    void setCurrentProgram (juce::String name);
     void setCurrentProgram (int index) override;
-    const String getProgramName (int index) override;
-    void changeProgramName (int index, const String& newName) override;
-    void saveProgram (String name, String author, String tags);
+    const juce::String getProgramName (int index) override;
+    void changeProgramName (int index, const juce::String& newName) override;
+    void saveProgram (juce::String name, juce::String author, juce::String tags);
     void deleteProgram (int index);
-    bool hasProgram (String name);
+    bool hasProgram (juce::String name);
 
     //==============================================================================
     void getStateInformation (juce::MemoryBlock& destData) override;
@@ -112,33 +112,33 @@ public:
     //==============================================================================
 
 public:
-    SharedResourcePointer<PluginLookAndFeel> lf;
+    juce::SharedResourcePointer<PluginLookAndFeel> lf;
 
-    std::map<String, gin::Parameter*> parameterMap;
-    OwnedArray<gin::Parameter> internalParameters;
+    std::map<juce::String, gin::Parameter*> parameterMap;
+    juce::OwnedArray<gin::Parameter> internalParameters;
 
-    ValueTree state;
+    juce::ValueTree state;
 
 protected:
     virtual void stateUpdated() {}
     virtual void updateState()  {}
 
-    void extractProgram (const String& name, const MemoryBlock& data);
+    void extractProgram (const juce::String& name, const juce::MemoryBlock& data);
 
 private:
-    gin::Parameter* createParam (String uid, String name, String shortName, String label,
-                                 NormalisableRange<float> range, float defaultValue,
+    gin::Parameter* createParam (juce::String uid, juce::String name, juce::String shortName, juce::String label,
+                                 juce::NormalisableRange<float> range, float defaultValue,
                                  SmoothingType st,
-                                 std::function<String (const gin::Parameter&, float)> textFunction = nullptr);
+                                 std::function<juce::String (const gin::Parameter&, float)> textFunction = nullptr);
 
-    Array<gin::Parameter*> allParameters;
+    juce::Array<gin::Parameter*> allParameters;
 
     void updateParams();
 
     int currentProgram = 0;
-    OwnedArray<Program> programs;
+    juce::OwnedArray<Program> programs;
 
-    Time lastStateLoad;
+    juce::Time lastStateLoad;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Processor)

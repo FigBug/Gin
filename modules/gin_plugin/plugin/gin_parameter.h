@@ -7,23 +7,23 @@ class ModMatrix;
 /** A parameter with user values, real time safe callbacks, modulation, and
     all sorts of other fancy stuff
 */
-class Parameter : public AudioProcessorParameter,
-                  protected Timer,
+class Parameter : public juce::AudioProcessorParameter,
+                  protected juce::Timer,
                   protected RealtimeAsyncUpdater
 {
 public:
     using Ptr = Parameter*;
 
-    Parameter (Processor&, String uid, String name, String shortName, String label,
+    Parameter (Processor&, juce::String uid, juce::String name, juce::String shortName, juce::String label,
                float minValue, float maxValue,
                float intervalValue, float defaultValue, float skewFactor = 1.0f,
-               std::function<String (const Parameter&, float)> textFunction = nullptr);
+               std::function<juce::String (const Parameter&, float)> textFunction = nullptr);
 
-    Parameter (Processor&, String uid, String name, String shortName, String label,
-               NormalisableRange<float> range, float defaultValue,
-               std::function<String (const Parameter&, float)> textFunction = nullptr);
+    Parameter (Processor&, juce::String uid, juce::String name, juce::String shortName, juce::String label,
+               juce::NormalisableRange<float> range, float defaultValue,
+               std::function<juce::String (const Parameter&, float)> textFunction = nullptr);
 
-    String getUid()                     { return uid;       }
+    juce::String getUid()               { return uid;       }
     void setInternal (bool i)           { internal = i;     }
     bool isInternal()                   { return internal;  }
     void setModIndex (int i)            { modIndex = i;     }
@@ -44,8 +44,8 @@ public:
     virtual void setUserValue (float v);
     virtual void setUserValueNotifingHost (float f);
     void setUserValueAsUserAction (float f);
-    String getUserValueText() const;
-    String userValueToText (float val);
+    juce::String getUserValueText() const;
+    juce::String userValueToText (float val);
 
     bool isOnOff();
     bool isOn();
@@ -60,9 +60,9 @@ public:
     void endUserAction();
 
     //==============================================================================
-    NormalisableRange<float> getUserRange() const { return range;         }
-    float getUserRangeStart() const               { return range.start;   }
-    float getUserRangeEnd() const                 { return range.end;     }
+    juce::NormalisableRange<float> getUserRange() const { return range;         }
+    float getUserRangeStart() const                     { return range.start;   }
+    float getUserRangeEnd() const                       { return range.end;     }
 
     //==============================================================================
     class Listener
@@ -78,7 +78,7 @@ public:
     //==============================================================================
     struct ParamState
     {
-        String uid;
+        juce::String uid;
         float value;
     };
 
@@ -92,13 +92,13 @@ public:
     void setValue (float newValue) override;
     float getDefaultValue() const override;
 
-    String getName (int maximumStringLength) const override;
-    String getShortName() const;
-    String getLabel() const override;
+    juce::String getName (int maximumStringLength) const override;
+    juce::String getShortName() const;
+    juce::String getLabel() const override;
 
     int getNumSteps() const override;
-    String getText (float value, int /*maximumStringLength*/) const override;
-    float getValueForText (const String& text) const override;
+    juce::String getText (float value, int /*maximumStringLength*/) const override;
+    float getValueForText (const juce::String& text) const override;
 
     bool isOrientationInverted() const override;
     bool isAutomatable() const override;
@@ -116,7 +116,7 @@ protected:
     virtual void changed() {}
 
     //==============================================================================
-    NormalisableRange<float> range;
+    juce::NormalisableRange<float> range;
 
     bool internal = false;
     ModMatrix* modMatrix = nullptr;
@@ -125,16 +125,16 @@ protected:
     float value;
     float defaultValue;
 
-    String uid;
-    String name;
-    String shortName;
-    String label;
+    juce::String uid;
+    juce::String name;
+    juce::String shortName;
+    juce::String label;
 
-    std::function<String (const Parameter&, float)> textFunction;
+    std::function<juce::String (const Parameter&, float)> textFunction;
 
     int userActionCount {0};
 
-    ListenerList<Listener> listeners;
+    juce::ListenerList<Listener> listeners;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Parameter)
 };

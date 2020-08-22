@@ -9,11 +9,11 @@ public:
 
     static const std::vector<NoteDuration>& getNoteDurations();
     
-    const String& getName() const { return name; }
-    float toSeconds (AudioPlayHead* playhead) const;
+    const juce::String& getName() const { return name; }
+    float toSeconds (juce::AudioPlayHead* playhead) const;
     float toSeconds (float bpm) const;
 
 private:    
-    String name;
+    juce::String name;
     float bars = 0, note = 0;
 };

@@ -4,7 +4,7 @@
 /** Draws an LFO curve and shows a little dot moving long
 */
 class LFOComponent : public MultiParamComponent,
-                     private Timer
+                     private juce::Timer
 {
 public:
     LFOComponent() = default;
@@ -16,7 +16,7 @@ public:
                     Parameter::Ptr phase, Parameter::Ptr enable);
 
 private:
-    void paint (Graphics& g) override;
+    void paint (juce::Graphics& g) override;
     void resized() override;
     void timerCallback() override;
     void paramChanged () override;
@@ -28,7 +28,7 @@ private:
     Parameter::Ptr wave, sync, rate, beat, depth, offset, phase, enable;
 
     LFO lfo;
-    Path path;
+    juce::Path path;
     bool dirty = true;
     float bpm = 120.0f, curPhase = 0;
     double lastUpdate = -1;

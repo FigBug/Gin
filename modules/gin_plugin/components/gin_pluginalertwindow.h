@@ -4,11 +4,11 @@
 /** An alert window that doesn't add itself to the desktop. Safer for use in
     plugins.
 */
-class PluginAlertWindow : public AlertWindow
+class PluginAlertWindow : public juce::AlertWindow
 {
 public:
-    PluginAlertWindow (const String& title,
-                       const String& message,
+    PluginAlertWindow (const juce::String& title,
+                       const juce::String& message,
                        AlertIconType iconType,
                        Component* associatedComponent = nullptr)
         : AlertWindow (title, message, iconType, associatedComponent)
@@ -41,17 +41,17 @@ private:
     class BlurryComp : public Component
     {
     public:
-        BlurryComp (Image img) : background (img)
+        BlurryComp (juce::Image img) : background (img)
         {
             applyStackBlur (img, 4);
         }
 
-        void paint (Graphics& g) override
+        void paint (juce::Graphics& g) override
         {
             g.drawImage (background, getLocalBounds().toFloat());
         }
 
-        Image background;
+        juce::Image background;
     };
 
     std::unique_ptr<BlurryComp> blur;

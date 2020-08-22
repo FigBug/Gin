@@ -1,9 +1,9 @@
 #pragma once
 
 //==============================================================================
-inline void gradientRect (Graphics& g, Rectangle<int> rc, Colour c1, Colour c2)
+inline void gradientRect (juce::Graphics& g, juce::Rectangle<int> rc, juce::Colour c1, juce::Colour c2)
 {
-    ColourGradient gradient (c1, (float) rc.getX(), (float) rc.getY(), c2, (float) rc.getX(), (float) rc.getBottom(), false);
+    juce::ColourGradient gradient (c1, (float) rc.getX(), (float) rc.getY(), c2, (float) rc.getX(), (float) rc.getBottom(), false);
 
     g.setGradientFill (gradient);
     g.fillRect (rc);
@@ -12,17 +12,17 @@ inline void gradientRect (Graphics& g, Rectangle<int> rc, Colour c1, Colour c2)
 //==============================================================================
 /** A header with optional power button
  */
-class ParamHeader : public Component
+class ParamHeader : public juce::Component
 {
 public:
-    ParamHeader (const String& name_)
+    ParamHeader (const juce::String& name_)
         : name (name_)
     {
 
     }
 
 private:
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g)
     {
         auto rc = getLocalBounds();
         gradientRect (g, rc, findColour (PluginLookAndFeel::title1ColourId), findColour (PluginLookAndFeel::title2ColourId));
@@ -30,13 +30,13 @@ private:
         g.setColour (findColour (PluginLookAndFeel::whiteColourId).withAlpha (0.15f));
         g.fillRect (rc.removeFromTop (1));
 
-        auto f = Font ().withPointHeight (10.0).withExtraKerningFactor (0.25);
+        auto f = juce::Font ().withPointHeight (10.0).withExtraKerningFactor (0.25);
 
         g.setColour (findColour (PluginLookAndFeel::whiteColourId).withAlpha (0.6f));
-        g.drawText (name.toUpperCase(), getLocalBounds(), Justification::centred);
+        g.drawText (name.toUpperCase(), getLocalBounds(), juce::Justification::centred);
     }
 
-    String name;
+    juce::String name;
 };
 
 //==============================================================================
@@ -45,7 +45,7 @@ private:
 class ParamBox : public MultiParamComponent
 {
 public:
-    ParamBox (const String& name)
+    ParamBox (const juce::String& name)
         : header (name)
     {
         addAndMakeVisible (header);
@@ -70,7 +70,7 @@ public:
     }
 
 private:
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
         auto rc = getLocalBounds().withTrimmedTop (23);
         gradientRect (g, rc, findColour (PluginLookAndFeel::matte1ColourId), findColour (PluginLookAndFeel::matte2ColourId));
@@ -81,18 +81,18 @@ private:
         header.setBounds (getLocalBounds().removeFromTop (23));
     }
 
-    Rectangle<int> getGridArea (int x, int y, int cx = 1, int cy = 1)
+    juce::Rectangle<int> getGridArea (int x, int y, int cx = 1, int cy = 1)
     {
         return { x * 56, 23 + y * 70, cx * 56, cy * 70 };
     }
 
-    Rectangle<int> getGridArea (float x, float y, float cx = 1.0f, float cy = 1.0f)
+    juce::Rectangle<int> getGridArea (float x, float y, float cx = 1.0f, float cy = 1.0f)
     {
         return { int (x * 56), int (23 + y * 70), int (cx * 56), int (cy * 70) };
     }
 
     ParamHeader header;
-    OwnedArray<Component> controls;
+    juce::OwnedArray<Component> controls;
 };
 
 //==============================================================================
@@ -101,7 +101,7 @@ private:
 class ParamArea : public MultiParamComponent
 {
 public:
-    ParamArea (const String& name_ = {})
+    ParamArea (const juce::String& name_ = {})
         : name (name_)
     {
     }
@@ -120,7 +120,7 @@ public:
     }
 
 private:
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
         auto rc = getLocalBounds();
         gradientRect (g, rc, findColour (PluginLookAndFeel::glass1ColourId), findColour (PluginLookAndFeel::glass2ColourId));
@@ -131,23 +131,23 @@ private:
         if (name.isNotEmpty())
         {
             g.setColour (findColour (PluginLookAndFeel::grey45ColourId));
-            g.drawText (name.toUpperCase(), getLocalBounds().removeFromTop (23), Justification::centred);
+            g.drawText (name.toUpperCase(), getLocalBounds().removeFromTop (23), juce::Justification::centred);
         }
     }
 
-    Rectangle<int> getGridArea (int x, int y, int cx = 1, int cy = 1)
+    juce::Rectangle<int> getGridArea (int x, int y, int cx = 1, int cy = 1)
     {
         return { x * 56, 23 + y * 70, cx * 56, cy * 70 };
     }
 
-    OwnedArray<Component> controls;
-    String name;
+    juce::OwnedArray<Component> controls;
+    juce::String name;
 };
 
 //==============================================================================
 /** A group of control boxes
  */
-class BoxArea : public Component
+class BoxArea : public juce::Component
 {
 public:
     BoxArea()
@@ -164,7 +164,7 @@ public:
 private:
     void resized() override
     {
-        auto rc = Rectangle<int> (0, 0, 1000000, getHeight());
+        auto rc = juce::Rectangle<int> (0, 0, 1000000, getHeight());
         for (auto c : boxes)
         {
             if (c->isVisible())
@@ -175,5 +175,5 @@ private:
         }
     }
 
-    Array<Component*> boxes;
+    juce::Array<Component*> boxes;
 };

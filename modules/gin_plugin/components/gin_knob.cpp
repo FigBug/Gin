@@ -3,7 +3,7 @@
 Knob::Knob (Parameter* p, bool fromCentre)
   : ParamComponent (p),
     value (parameter),
-    knob (parameter, Slider::RotaryHorizontalVerticalDrag, Slider::NoTextBox)
+    knob (parameter, juce::Slider::RotaryHorizontalVerticalDrag, juce::Slider::NoTextBox)
 {
     addAndMakeVisible (name);
     addAndMakeVisible (value);
@@ -15,9 +15,9 @@ Knob::Knob (Parameter* p, bool fromCentre)
     if (fromCentre)
         knob.getProperties().set ("fromCentre", true);
 
-    name.setText (parameter->getShortName(), dontSendNotification);
-    value.setJustificationType (Justification::centredTop);
-    name.setJustificationType (Justification::centredBottom);
+    name.setText (parameter->getShortName(), juce::dontSendNotification);
+    value.setJustificationType (juce::Justification::centredTop);
+    name.setJustificationType (juce::Justification::centredBottom);
 
     value.setVisible (false);
 
@@ -37,7 +37,7 @@ Knob::Knob (Parameter* p, bool fromCentre)
         {
             modValues = curModValues;
 
-            Array<var> vals;
+            juce::Array<juce::var> vals;
             for (auto v : modValues)
                 vals.add (v);
 
@@ -48,7 +48,7 @@ Knob::Knob (Parameter* p, bool fromCentre)
     };
     shiftTimer.onTimer = [this] ()
     {
-        bool shift = ModifierKeys::getCurrentModifiersRealtime().isShiftDown();
+        bool shift = juce::ModifierKeys::getCurrentModifiersRealtime().isShiftDown();
         knob.setInterceptsMouseClicks (! learning || shift, ! learning || shift );
     };
 
@@ -67,7 +67,7 @@ Knob::~Knob()
 
 void Knob::showModMenu()
 {
-    PopupMenu m;
+    juce::PopupMenu m;
 
     auto& mm = *parameter->getModMatrix();
     for (auto src : mm.getModSources (parameter))
@@ -83,7 +83,7 @@ void Knob::showModMenu()
 
 void Knob::resized()
 {
-    Rectangle<int> r = getLocalBounds().reduced (2);
+    juce::Rectangle<int> r = getLocalBounds().reduced (2);
     auto rc = r.removeFromBottom (15);
 
     name.setBounds (rc);
@@ -93,7 +93,7 @@ void Knob::resized()
     modButton.setBounds (knob.getBounds().removeFromTop (7).removeFromRight (7));
 }
 
-void Knob::mouseEnter (const MouseEvent&)
+void Knob::mouseEnter (const juce::MouseEvent&)
 {
     if (! isTimerRunning() && isEnabled())
     {
@@ -107,7 +107,7 @@ void Knob::timerCallback()
 {
     auto p = getMouseXYRelative();
     if (! getLocalBounds().contains (p) &&
-        ! ModifierKeys::getCurrentModifiers().isAnyMouseButtonDown() &&
+        ! juce::ModifierKeys::getCurrentModifiers().isAnyMouseButtonDown() &&
         ! value.isEditing())
     {
         name.setVisible (true);
@@ -121,7 +121,7 @@ void Knob::learnSourceChanged (ModSrcId src)
 {
     learning = src.isValid();
 
-    bool shift = ModifierKeys::getCurrentModifiersRealtime().isShiftDown();
+    bool shift = juce::ModifierKeys::getCurrentModifiersRealtime().isShiftDown();
     knob.setInterceptsMouseClicks (! learning || shift, ! learning || shift );
 
     auto& mm = *parameter->getModMatrix();
@@ -172,9 +172,9 @@ void Knob::modMatrixChanged()
     }
 }
 
-void Knob::mouseDown (const MouseEvent& e) 
+void Knob::mouseDown (const juce::MouseEvent& e) 
 {
-    bool shift = ModifierKeys::getCurrentModifiersRealtime().isShiftDown();
+    bool shift = juce::ModifierKeys::getCurrentModifiersRealtime().isShiftDown();
     if (shift || ! learning || ! knob.getBounds().contains (e.getMouseDownPosition()))
         return;
 
@@ -187,9 +187,9 @@ void Knob::mouseDown (const MouseEvent& e)
     repaint();
 }
 
-void Knob::mouseDrag (const MouseEvent& e)
+void Knob::mouseDrag (const juce::MouseEvent& e)
 {
-    bool shift = ModifierKeys::getCurrentModifiersRealtime().isShiftDown();
+    bool shift = juce::ModifierKeys::getCurrentModifiersRealtime().isShiftDown();
     if (shift || ! learning || ! knob.getBounds().contains (e.getMouseDownPosition()))
          return;
 

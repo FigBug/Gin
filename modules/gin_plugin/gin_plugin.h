@@ -71,9 +71,6 @@
 
 namespace gin
 {
-using namespace juce;
-using juce::Rectangle;
-using juce::Component;
 
 #include "plugin/gin_noteduration.h"
 #include "plugin/gin_processor.h"

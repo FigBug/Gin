@@ -4,13 +4,13 @@ Readout::Readout (Parameter* parameter_)
   : parameter (parameter_)
 {
     parameter->addListener (this);
-    setText (parameter->getUserValueText(), dontSendNotification);
+    setText (parameter->getUserValueText(), juce::dontSendNotification);
 
     addChildComponent (editor);
     editor.addListener (this);
     editor.setOpaque (false);
 
-    setBorderSize (BorderSize<int> (0));
+    setBorderSize (juce::BorderSize<int> (0));
 }
 
 Readout::~Readout()
@@ -20,10 +20,10 @@ Readout::~Readout()
 
 void Readout::parameterChanged (Parameter*)
 {
-    setText (parameter->getUserValueText(), dontSendNotification);
+    setText (parameter->getUserValueText(), juce::dontSendNotification);
 }
 
-void Readout::paint (Graphics& g)
+void Readout::paint (juce::Graphics& g)
 {
     if (! editing)
         Label::paint (g);
@@ -34,12 +34,12 @@ void Readout::resized()
     editor.setBounds (getLocalBounds());
 }
 
-void Readout::mouseDown (const MouseEvent&)
+void Readout::mouseDown (const juce::MouseEvent&)
 {
     editing = true;
     editor.setVisible (true);
     editor.setFont (getFont());
-    editor.setText (parameter->getUserValueText(), dontSendNotification);
+    editor.setText (parameter->getUserValueText(), juce::dontSendNotification);
     editor.setJustificationType (getJustificationType());
     editor.setSelectAllWhenFocused (true);
     editor.toFront (true);
@@ -84,7 +84,7 @@ ParamComponent::ParamComponent (Parameter* parameter_)
 HorizontalFader::HorizontalFader (Parameter* p, bool fromCentre)
   : ParamComponent (p),
     value (parameter),
-    fader (parameter, Slider::LinearHorizontal, Slider::NoTextBox)
+    fader (parameter, juce::Slider::LinearHorizontal, juce::Slider::NoTextBox)
 {
     addAndMakeVisible (name);
     addAndMakeVisible (value);
@@ -94,14 +94,14 @@ HorizontalFader::HorizontalFader (Parameter* p, bool fromCentre)
     if (fromCentre)
         fader.getProperties().set ("fromCentre", true);
 
-    name.setText (parameter->getShortName(), dontSendNotification);
-    value.setJustificationType (Justification::centred);
-    name.setJustificationType (Justification::centredRight);
+    name.setText (parameter->getShortName(), juce::dontSendNotification);
+    value.setJustificationType (juce::Justification::centred);
+    name.setJustificationType (juce::Justification::centredRight);
 }
 
 void HorizontalFader::resized()
 {
-    Rectangle<int> r = getLocalBounds().reduced (4);
+    juce::Rectangle<int> r = getLocalBounds().reduced (4);
 
     name.setBounds (r.removeFromLeft (90));
     value.setBounds (r.removeFromRight (30));
@@ -115,13 +115,13 @@ Switch::Switch (Parameter* p)
     addAndMakeVisible (&name);
     addAndMakeVisible (&button);
 
-    name.setText (parameter->getShortName(), dontSendNotification);
-    name.setJustificationType (Justification::centred);
+    name.setText (parameter->getShortName(), juce::dontSendNotification);
+    name.setJustificationType (juce::Justification::centred);
 }
 
 void Switch::resized()
 {
-    Rectangle<int> r = getLocalBounds().reduced (2);
+    juce::Rectangle<int> r = getLocalBounds().reduced (2);
     auto rc = r.removeFromBottom (15);
 
     name.setBounds (rc);
@@ -136,13 +136,13 @@ Select::Select (Parameter* p)
     addAndMakeVisible (&name);
     addAndMakeVisible (&comboBox);
 
-    name.setText (parameter->getShortName(), dontSendNotification);
-    name.setJustificationType (Justification::centred);
+    name.setText (parameter->getShortName(), juce::dontSendNotification);
+    name.setJustificationType (juce::Justification::centred);
 }
 
 void Select::resized()
 {
-    Rectangle<int> r = getLocalBounds().reduced (2);
+    juce::Rectangle<int> r = getLocalBounds().reduced (2);
     auto rc = r.removeFromBottom (15);
 
     name.setBounds (rc);

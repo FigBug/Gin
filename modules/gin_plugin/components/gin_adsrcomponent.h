@@ -13,13 +13,13 @@ public:
                     Parameter::Ptr sustain, Parameter::Ptr release);
 
 private:
-    void paint (Graphics& g) override;
+    void paint (juce::Graphics& g) override;
 
-    void mouseDown (const MouseEvent& e) override;
-    void mouseDrag (const MouseEvent& e) override;
-    void mouseUp (const MouseEvent& e) override;
+    void mouseDown (const juce::MouseEvent& e) override;
+    void mouseDrag (const juce::MouseEvent& e) override;
+    void mouseUp (const juce::MouseEvent& e) override;
 
-    MouseCursor getMouseCursor() override;
+    juce::MouseCursor getMouseCursor() override;
 
     enum class Handle
     {
@@ -29,10 +29,10 @@ private:
         release,
     };
 
-    String getBubbleText();
+    juce::String getBubbleText();
 
-    Handle getHandleAt (Point<int> pt);
-    Point<int> getHandlePos (Handle);
+    Handle getHandleAt (juce::Point<int> pt);
+    juce::Point<int> getHandlePos (Handle);
     juce::Rectangle<int> getHandleRect (Handle);
     juce::Rectangle<int> getArea();
 

@@ -11,10 +11,10 @@ void Program::loadProcessor (Processor& p)
 
     if (valueTree.isNotEmpty())
     {
-        XmlDocument treeDoc (valueTree);
-        if (std::unique_ptr<XmlElement> vtE = treeDoc.getDocumentElement())
+        juce::XmlDocument treeDoc (valueTree);
+        if (std::unique_ptr<juce::XmlElement> vtE = treeDoc.getDocumentElement())
         {
-            auto srcState = ValueTree::fromXml (*vtE);
+            auto srcState = juce::ValueTree::fromXml (*vtE);
             p.state.copyPropertiesAndChildrenFrom (srcState, nullptr);
         }
     }
@@ -41,24 +41,24 @@ void Program::saveProcessor (Processor& p)
             states.add (param->getState());
 }
 
-void Program::loadFromFile (File f)
+void Program::loadFromFile (juce::File f)
 {
-    XmlDocument doc (f);
-    std::unique_ptr<XmlElement> rootE (doc.getDocumentElement());
+    juce::XmlDocument doc (f);
+    std::unique_ptr<juce::XmlElement> rootE (doc.getDocumentElement());
     if (rootE)
     {
         states.clear();
 
         name = rootE->getStringAttribute ("name");
         author = rootE->getStringAttribute ("author");
-        tags = StringArray::fromTokens (rootE->getStringAttribute ("tags"), " ", "");
+        tags = juce::StringArray::fromTokens (rootE->getStringAttribute ("tags"), " ", "");
 
         valueTree = rootE->getStringAttribute ("valueTree");
 
-        XmlElement* paramE = rootE->getChildByName ("param");
+        juce::XmlElement* paramE = rootE->getChildByName ("param");
         while (paramE)
         {
-            String uid = paramE->getStringAttribute ("uid");
+            juce::String uid = paramE->getStringAttribute ("uid");
             float  val = (float) paramE->getDoubleAttribute ("val");
 
             Parameter::ParamState state;
@@ -71,9 +71,9 @@ void Program::loadFromFile (File f)
     }
 }
 
-void Program::saveToDir (File f)
+void Program::saveToDir (juce::File f)
 {
-    std::unique_ptr<XmlElement> rootE (new XmlElement ("state"));
+    std::unique_ptr<juce::XmlElement> rootE (new juce::XmlElement ("state"));
 
     rootE->setAttribute("name", name);
     rootE->setAttribute ("author", author);
@@ -82,7 +82,7 @@ void Program::saveToDir (File f)
 
     for (Parameter::ParamState state : states)
     {
-        XmlElement* paramE = new XmlElement ("param");
+        juce::XmlElement* paramE = new juce::XmlElement ("param");
 
         paramE->setAttribute ("uid", state.uid);
         paramE->setAttribute ("val", state.value);
@@ -90,11 +90,11 @@ void Program::saveToDir (File f)
         rootE->addChildElement (paramE);
     }
 
-    File xmlFile = f.getChildFile (File::createLegalFileName (name) + ".xml");
+    juce::File xmlFile = f.getChildFile (juce::File::createLegalFileName (name) + ".xml");
     xmlFile.replaceWithText (rootE->toString());
 }
 
-void Program::deleteFromDir (File f)
+void Program::deleteFromDir (juce::File f)
 {
-    f.getChildFile (File::createLegalFileName (name) + ".xml").deleteFile();
+    f.getChildFile (juce::File::createLegalFileName (name) + ".xml").deleteFile();
 }

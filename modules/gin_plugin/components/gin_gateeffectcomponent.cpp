@@ -18,12 +18,12 @@ void GateEffectComponent::paramChanged ()
     MultiParamComponent::paramChanged();
 }
 
-void GateEffectComponent::mouseDown (const MouseEvent& e)
+void GateEffectComponent::mouseDown (const juce::MouseEvent& e)
 {
     mouseDrag (e);
 }
 
-void GateEffectComponent::mouseDrag (const MouseEvent& e)
+void GateEffectComponent::mouseDrag (const juce::MouseEvent& e)
 {
     auto rc = getLocalBounds().reduced (2, 20);
 
@@ -46,12 +46,12 @@ void GateEffectComponent::mouseDrag (const MouseEvent& e)
     repaint();
 }
 
-void GateEffectComponent::mouseUp (const MouseEvent&)
+void GateEffectComponent::mouseUp (const juce::MouseEvent&)
 {
     dragging = false;
 }
 
-void GateEffectComponent::paint (Graphics& g)
+void GateEffectComponent::paint (juce::Graphics& g)
 {
     auto rc = getLocalBounds().reduced (2, 20);
     float w = rc.getWidth() / float (getNumSteps());
@@ -60,7 +60,7 @@ void GateEffectComponent::paint (Graphics& g)
 
     g.setColour (c.withMultipliedAlpha (0.25f));
     for (int i = 0; i <= getNumSteps(); i++)
-        g.drawVerticalLine (roundToInt (rc.getX() + i * w), float (rc.getY ()), float (rc.getBottom ()));
+        g.drawVerticalLine (juce::roundToInt (rc.getX() + i * w), float (rc.getY ()), float (rc.getBottom ()));
     g.drawHorizontalLine (rc.getCentreY(), float (rc.getX()), float (rc.getRight()));
 
     g.setColour (c.withMultipliedAlpha (0.20f));
@@ -68,18 +68,18 @@ void GateEffectComponent::paint (Graphics& g)
     {
         if (l[i]->isOn())
         {
-            auto rs = Rectangle<int> (roundToInt (rc.getX() + i * w),
+            auto rs = juce::Rectangle<int> (juce::roundToInt (rc.getX() + i * w),
                                       rc.getY(),
-                                      roundToInt (rc.getX() + (i + 1) * w) - roundToInt (rc.getX() + i * w),
+                                      juce::roundToInt (rc.getX() + (i + 1) * w) - juce::roundToInt (rc.getX() + i * w),
                                       rc.getCentreY() - rc.getY());
 
             g.fillRect (rs.reduced (3));
         }
         if (r[i]->isOn())
         {
-            auto rs = Rectangle<int> (roundToInt (rc.getX() + i * w),
+            auto rs = juce::Rectangle<int> (juce::roundToInt (rc.getX() + i * w),
                                       rc.getCentreY(),
-                                      roundToInt (rc.getX() + (i + 1) * w) - roundToInt (rc.getX() + i * w),
+                                      juce::roundToInt (rc.getX() + (i + 1) * w) - juce::roundToInt (rc.getX() + i * w),
                                       rc.getBottom() - rc.getCentreY());
 
             g.fillRect (rs.reduced (3));

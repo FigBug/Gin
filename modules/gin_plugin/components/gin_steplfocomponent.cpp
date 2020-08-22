@@ -61,7 +61,7 @@ void StepLFOComponent::createPath (juce::Rectangle<int> area)
     }
 }
 
-void StepLFOComponent::mouseDrag (const MouseEvent& e) 
+void StepLFOComponent::mouseDrag (const juce::MouseEvent& e)
 {
     int step = int (e.x / float (getWidth()) * getNumSteps());
     if (step < 0 || step >= getNumSteps()) return;
@@ -72,7 +72,7 @@ void StepLFOComponent::mouseDrag (const MouseEvent& e)
     level[step]->setUserValue (l);
 }
 
-void StepLFOComponent::paint (Graphics& g)
+void StepLFOComponent::paint (juce::Graphics& g)
 {
     auto rc = getLocalBounds().reduced (2);
 
@@ -88,7 +88,7 @@ void StepLFOComponent::paint (Graphics& g)
     g.fillRect (rc.getX(), rc.getCentreY(), rc.getWidth(), 1);
 
     g.setColour (c.withMultipliedAlpha (0.5f));
-    g.strokePath (path, PathStrokeType (1.5f));
+    g.strokePath (path, juce::PathStrokeType (1.5f));
 
     if (isEnabled())
     {
@@ -107,11 +107,11 @@ void StepLFOComponent::timerCallback()
 {
     if (lastUpdate == -1)
     {
-        lastUpdate = Time::getMillisecondCounter() / 1000.0;
+        lastUpdate = juce::Time::getMillisecondCounter() / 1000.0;
     }
     else
     {
-        double now = Time::getMillisecondCounter() / 1000.0;
+        double now = juce::Time::getMillisecondCounter() / 1000.0;
         double delta = now - lastUpdate;
         lastUpdate = now;
 

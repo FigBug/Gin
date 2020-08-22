@@ -19,7 +19,7 @@ juce::Rectangle<int> ADSRComponent::getArea()
     return getLocalBounds().reduced (handleSz);
 }
 
-String ADSRComponent::getBubbleText()
+juce::String ADSRComponent::getBubbleText()
 {
     switch (handle)
     {
@@ -31,17 +31,17 @@ String ADSRComponent::getBubbleText()
     }
 }
 
-void ADSRComponent::paint (Graphics& g)
+void ADSRComponent::paint (juce::Graphics& g)
 {
     auto c = findColour (isEnabled() ? GinLookAndFeel::colourId5 : GinLookAndFeel::colourId2);
 
     auto a = getArea();
-    auto p1 = Point<float> (float (a.getX()), float (a.getBottom()));
+    auto p1 = juce::Point<float> (float (a.getX()), float (a.getBottom()));
     auto p2 = getHandlePos (Handle::attack).toFloat();
     auto p3 = getHandlePos (Handle::decaySustain).toFloat();
     auto p4 = getHandlePos (Handle::release).toFloat();
 
-    Path p;
+    juce::Path p;
 
     g.setColour (c.withMultipliedAlpha (0.5f));
 
@@ -50,9 +50,9 @@ void ADSRComponent::paint (Graphics& g)
     p.lineTo (p3);
     p.lineTo (p4);
 
-    g.strokePath (p, PathStrokeType (2));
+    g.strokePath (p, juce::PathStrokeType (2));
 
-    Colour back = Colours::black;
+    juce::Colour back = juce::Colours::black;
 
     g.setColour (back);
     g.fillRoundedRectangle (getHandleRect (Handle::attack).toFloat(), 3);
@@ -66,7 +66,7 @@ void ADSRComponent::paint (Graphics& g)
     g.drawRect (getHandleRect (Handle::release).toFloat());
 }
 
-void ADSRComponent::mouseDown (const MouseEvent& e)
+void ADSRComponent::mouseDown (const juce::MouseEvent& e)
 {
     if (! isEnabled()) return;
 
@@ -93,7 +93,7 @@ void ADSRComponent::mouseDown (const MouseEvent& e)
     }
 }
 
-void ADSRComponent::mouseDrag (const MouseEvent& e)
+void ADSRComponent::mouseDrag (const juce::MouseEvent& e)
 {
     if (! isEnabled()) return;
 
@@ -119,7 +119,7 @@ void ADSRComponent::mouseDrag (const MouseEvent& e)
     }
 }
 
-void ADSRComponent::mouseUp (const MouseEvent&)
+void ADSRComponent::mouseUp (const juce::MouseEvent&)
 {
     if (! isEnabled()) return;
 
@@ -143,7 +143,7 @@ void ADSRComponent::mouseUp (const MouseEvent&)
     hideBubble();
 }
 
-MouseCursor ADSRComponent::getMouseCursor()
+juce::MouseCursor ADSRComponent::getMouseCursor()
 {
     if (isEnabled())
     {
@@ -151,14 +151,14 @@ MouseCursor ADSRComponent::getMouseCursor()
         if (h == Handle::none)
             h = getHandleAt (getMouseXYRelative());
 
-        if (h == Handle::attack)        return MouseCursor::LeftRightResizeCursor;
-        if (h == Handle::decaySustain)  return MouseCursor::UpDownLeftRightResizeCursor;
-        if (h == Handle::release)       return MouseCursor::LeftRightResizeCursor;
+        if (h == Handle::attack)        return juce::MouseCursor::LeftRightResizeCursor;
+        if (h == Handle::decaySustain)  return juce::MouseCursor::UpDownLeftRightResizeCursor;
+        if (h == Handle::release)       return juce::MouseCursor::LeftRightResizeCursor;
     }
-    return MouseCursor::NormalCursor;
+    return juce::MouseCursor::NormalCursor;
 }
 
-ADSRComponent::Handle ADSRComponent::getHandleAt (Point<int> pt)
+ADSRComponent::Handle ADSRComponent::getHandleAt (juce::Point<int> pt)
 {
     if (getHandleRect (Handle::attack).contains (pt))          return Handle::attack;
     if (getHandleRect (Handle::decaySustain).contains (pt))    return Handle::decaySustain;
@@ -166,7 +166,7 @@ ADSRComponent::Handle ADSRComponent::getHandleAt (Point<int> pt)
     return Handle::none;
 }
 
-Point<int> ADSRComponent::getHandlePos (Handle g)
+juce::Point<int> ADSRComponent::getHandlePos (Handle g)
 {
     auto a = getArea();
 
@@ -177,7 +177,7 @@ Point<int> ADSRComponent::getHandlePos (Handle g)
                      a.getY() };
         case Handle::decaySustain:
             return { a.getX() + paramToX (attack->getValue()) + paramToX (decay->getValue()),
-                     a.getY() + roundToInt (a.getHeight() * (1.0f - sustain->getProcValue())) };
+                a.getY() + juce::roundToInt (a.getHeight() * (1.0f - sustain->getProcValue())) };
         case Handle::release:
             return { a.getX() + paramToX (attack->getValue()) + paramToX (decay->getValue()) + paramToX (release->getValue()),
                      a.getBottom() };
@@ -195,14 +195,14 @@ juce::Rectangle<int> ADSRComponent::getHandleRect (Handle h)
 
 int ADSRComponent::paramToX (float t)
 {
-    t = jlimit (0.0f, 1.0f, t);
+    t = juce::jlimit (0.0f, 1.0f, t);
     auto a = getArea();
-    return roundToInt (a.getWidth() / 3.0f * t);
+    return juce::roundToInt (a.getWidth() / 3.0f * t);
 }
 
 float ADSRComponent::xToParam (float x)
 {
     auto a = getArea();
-    return jlimit (0.0f, 1.0f, x / float (a.getWidth()) * 3.0f);
+    return juce::jlimit (0.0f, 1.0f, x / float (a.getWidth()) * 3.0f);
 }
 

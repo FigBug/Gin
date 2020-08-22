@@ -10,9 +10,9 @@ void ModVoice::stopVoice()
 }
 
 //==============================================================================
-void ModMatrix::stateUpdated (const ValueTree& vt)
+void ModMatrix::stateUpdated (const juce::ValueTree& vt)
 {
-    auto lookupSrc = [&] (const String& str)
+    auto lookupSrc = [&] (const juce::String& str)
     {
         int idx = 0;
         for (auto& s : sources)
@@ -35,9 +35,9 @@ void ModMatrix::stateUpdated (const ValueTree& vt)
         {
             if (! c.hasType ("MODITEM")) continue;
 
-            String src = c.getProperty ("srcId");
+            juce::String src = c.getProperty ("srcId");
             float f    = c.getProperty ("depth");
-            String dst = c.getProperty ("dstId");
+            juce::String dst = c.getProperty ("dstId");
 
             if (src.isNotEmpty() && dst.isNotEmpty())
             {
@@ -60,7 +60,7 @@ void ModMatrix::stateUpdated (const ValueTree& vt)
     listeners.call ([&] (Listener& l) { l.modMatrixChanged(); });
 }
 
-void ModMatrix::updateState (ValueTree& vt)
+void ModMatrix::updateState (juce::ValueTree& vt)
 {
     auto mm = vt.getOrCreateChildWithName ("MODMATRIX", nullptr);
     mm.removeAllChildren (nullptr);
@@ -70,7 +70,7 @@ void ModMatrix::updateState (ValueTree& vt)
         auto& pi = parameters.getReference (i);
         for (auto src : pi.sources)
         {
-            auto c = ValueTree ("MODITEM");
+            auto c = juce::ValueTree ("MODITEM");
             c.setProperty ("srcId", sources[src.id.id].id, nullptr);
             c.setProperty ("depth", src.depth, nullptr);
             c.setProperty ("dstId", pi.parameter->getUid(), nullptr);
@@ -87,7 +87,7 @@ void ModMatrix::addVoice (ModVoice* v)
     v->owner = this;
 }
 
-ModSrcId ModMatrix::addMonoModSource (const String& id, const String& name, bool bipolar)
+ModSrcId ModMatrix::addMonoModSource (const juce::String& id, const juce::String& name, bool bipolar)
 {
     SourceInfo si;
     si.id      = id;
@@ -100,7 +100,7 @@ ModSrcId ModMatrix::addMonoModSource (const String& id, const String& name, bool
     return ModSrcId (si.index);
 }
 
-ModSrcId ModMatrix::addPolyModSource (const String& id, const String& name, bool bipolar)
+ModSrcId ModMatrix::addPolyModSource (const juce::String& id, const juce::String& name, bool bipolar)
 {
     SourceInfo si;
     si.id      = id;
@@ -226,9 +226,9 @@ void ModMatrix::clearModDepth (ModSrcId src, ModDstId param)
     listeners.call ([&] (Listener& l) { l.modMatrixChanged(); });
 }
 
-Array<ModSrcId> ModMatrix::getModSources (gin::Parameter* param)
+juce::Array<ModSrcId> ModMatrix::getModSources (gin::Parameter* param)
 {
-    Array<ModSrcId> srcs;
+    juce::Array<ModSrcId> srcs;
 
     auto idx = param->getModIndex();
     if (idx >= 0)

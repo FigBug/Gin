@@ -1,5 +1,5 @@
 //==============================================================================
-class PatchBrowser : public Component
+class PatchBrowser : public juce::Component
 {
 public:
     PatchBrowser (Processor& p) : proc (p)
@@ -8,9 +8,9 @@ public:
         addAndMakeVisible (tags);
         addAndMakeVisible (presets);
 
-        authors.setColour (ListBox::outlineColourId, Colours::white);
-        tags.setColour (ListBox::outlineColourId, Colours::white);
-        presets.setColour (ListBox::outlineColourId, Colours::white);
+        authors.setColour (juce::ListBox::outlineColourId, juce::Colours::white);
+        tags.setColour (juce::ListBox::outlineColourId, juce::Colours::white);
+        presets.setColour (juce::ListBox::outlineColourId, juce::Colours::white);
 
         authors.setOutlineThickness (1);
         tags.setOutlineThickness (1);
@@ -94,14 +94,14 @@ public:
         tags.setBounds (r.reduced (5, 0));
     }
 
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
-        g.fillAll (Colours::black);
+        g.fillAll (juce::Colours::black);
     }
 
     Processor& proc;
 
-    struct AuthorsModel : public ListBoxModel
+    struct AuthorsModel : public juce::ListBoxModel
     {
         AuthorsModel (PatchBrowser& o) : owner (o) {}
 
@@ -116,28 +116,28 @@ public:
             owner.refresh();
         }
 
-        void paintListBoxItem (int row, Graphics& g, int w, int h, bool selected) override
+        void paintListBoxItem (int row, juce::Graphics& g, int w, int h, bool selected) override
         {
-            auto c1 = owner.findColour (TextButton::textColourOnId);
-            auto c2 = owner.findColour (TextButton::textColourOffId);
+            auto c1 = owner.findColour (juce::TextButton::textColourOnId);
+            auto c2 = owner.findColour (juce::TextButton::textColourOffId);
 
             if (selected)
                 std::swap (c1, c2);
 
-            auto rc = Rectangle<int> (0, 0, w, h);
+            auto rc = juce::Rectangle<int> (0, 0, w, h);
 
             g.setColour (c1);
             g.fillRect (rc);
 
             g.setColour (c2);
-            g.setFont (Font (14));
-            g.drawText (owner.currentAuthors[row], rc.reduced (4, 0), Justification::centredLeft);
+            g.setFont (juce::Font (14));
+            g.drawText (owner.currentAuthors[row], rc.reduced (4, 0), juce::Justification::centredLeft);
         }
 
         PatchBrowser& owner;
     };
 
-    struct TagsModel : public ListBoxModel
+    struct TagsModel : public juce::ListBoxModel
     {
         TagsModel (PatchBrowser& o) : owner (o) {}
 
@@ -152,28 +152,28 @@ public:
             owner.refresh();
         }
 
-        void paintListBoxItem (int row, Graphics& g, int w, int h, bool selected) override
+        void paintListBoxItem (int row, juce::Graphics& g, int w, int h, bool selected) override
         {
-            auto c1 = owner.findColour (TextButton::textColourOnId);
-            auto c2 = owner.findColour (TextButton::textColourOffId);
+            auto c1 = owner.findColour (juce::TextButton::textColourOnId);
+            auto c2 = owner.findColour (juce::TextButton::textColourOffId);
 
             if (selected)
                 std::swap (c1, c2);
 
-            auto rc = Rectangle<int> (0, 0, w, h);
+            auto rc = juce::Rectangle<int> (0, 0, w, h);
 
             g.setColour (c1);
             g.fillRect (rc);
 
             g.setColour (c2);
-            g.setFont (Font (14));
-            g.drawText (owner.currentTags[row], rc.reduced (4, 0), Justification::centredLeft);
+            g.setFont (juce::Font (14));
+            g.drawText (owner.currentTags[row], rc.reduced (4, 0), juce::Justification::centredLeft);
         }
 
         PatchBrowser& owner;
     };
 
-    struct PresetsModel : public ListBoxModel
+    struct PresetsModel : public juce::ListBoxModel
     {
         PresetsModel (PatchBrowser& o) : owner (o) {}
 
@@ -182,25 +182,25 @@ public:
             return owner.currentPresets.size();
         }
 
-        void paintListBoxItem (int row, Graphics& g, int w, int h, bool selected) override
+        void paintListBoxItem (int row, juce::Graphics& g, int w, int h, bool selected) override
         {
-            auto c1 = owner.findColour (TextButton::textColourOnId);
-            auto c2 = owner.findColour (TextButton::textColourOffId);
+            auto c1 = owner.findColour (juce::TextButton::textColourOnId);
+            auto c2 = owner.findColour (juce::TextButton::textColourOffId);
 
             if (selected)
                 std::swap (c1, c2);
 
-            auto rc = Rectangle<int> (0, 0, w, h);
+            auto rc = juce::Rectangle<int> (0, 0, w, h);
 
             g.setColour (c1);
             g.fillRect (rc);
 
             g.setColour (c2);
-            g.setFont (Font (14));
-            g.drawText (owner.currentPresets[row], rc.reduced (4, 0), Justification::centredLeft);
+            g.setFont (juce::Font (14));
+            g.drawText (owner.currentPresets[row], rc.reduced (4, 0), juce::Justification::centredLeft);
         }
 
-        void listBoxItemDoubleClicked (int row, const MouseEvent&) override
+        void listBoxItemDoubleClicked (int row, const juce::MouseEvent&) override
         {
             owner.proc.setCurrentProgram (owner.currentPresets[row]);
         }
@@ -212,8 +212,8 @@ public:
     TagsModel tagsModel         { *this };
     PresetsModel presetsModel   { *this };
 
-    ListBox authors { "", &authorsModel }, tags { "", &tagsModel }, presets { "", &presetsModel };
+    juce::ListBox authors { "", &authorsModel }, tags { "", &tagsModel }, presets { "", &presetsModel };
 
-    StringArray currentAuthors, currentTags, currentPresets;
-    StringArray selectedAuthors, selectedTags;
+    juce::StringArray currentAuthors, currentTags, currentPresets;
+    juce::StringArray selectedAuthors, selectedTags;
 };

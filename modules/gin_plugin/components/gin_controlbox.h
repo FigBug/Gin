@@ -11,9 +11,9 @@ public:
     }
 
 private:
-    void paintButton (Graphics& g, bool over, bool down) override
+    void paintButton (juce::Graphics& g, bool over, bool down) override
     {
-        auto c = getToggleState() ? Colours::white.withAlpha (0.9f) : Colours::white.withAlpha (0.4f);
+        auto c = getToggleState() ? juce::Colours::white.withAlpha (0.9f) : juce::Colours::white.withAlpha (0.4f);
         if (over || down)
             c = c.withMultipliedAlpha (1.2f);
 
@@ -24,7 +24,7 @@ private:
         g.fillPath (p, p.getTransformToScaleToFit (rc, true));
     }
 
-    const Path& getPath()
+    const juce::Path& getPath()
     {
         static const unsigned char pathData[] = { 110,109,0,0,208,68,0,0,96,68,113,0,0,208,68,0,128,131,68,0,96,200,68,0,64,149,68,113,0,192,192,68,0,0,167,68,0,224,179,68,0,224,179,68,113,0,0,167,68,0,192,192,68,0,64,149,68,0,96,200,68,113,0,128,131,68,0,0,208,68,0,0,96,68,0,0,208,68,113,0,0,57,68,
         0,0,208,68,0,128,21,68,0,96,200,68,113,0,0,228,67,0,192,192,68,0,128,176,67,0,224,179,68,113,0,0,122,67,0,0,167,68,0,0,61,67,0,64,149,68,113,0,0,0,67,0,128,131,68,0,0,0,67,0,0,96,68,113,0,0,0,67,0,128,50,68,0,128,80,67,0,64,10,68,113,0,128,144,67,0,0,
@@ -36,7 +36,7 @@ private:
         86,68,113,0,0,109,68,0,0,96,68,0,0,96,68,0,0,96,68,113,0,0,83,68,0,0,96,68,0,128,73,68,0,128,86,68,113,0,0,64,68,0,0,77,68,0,0,64,68,0,0,64,68,108,0,0,64,68,0,0,0,67,113,0,0,64,68,0,0,152,66,0,128,73,68,0,0,24,66,113,0,0,83,68,0,0,0,0,0,0,96,68,0,0,0,
         0,113,0,0,109,68,0,0,0,0,0,128,118,68,0,0,24,66,113,0,0,128,68,0,0,152,66,0,0,128,68,0,0,0,67,99,101,0,0 };
 
-        static Path path;
+        static juce::Path path;
 
         if (path.isEmpty())
             path.loadPathFromData (pathData, sizeof (pathData));
@@ -55,11 +55,11 @@ public:
     {
     }
 
-    Rectangle<int> getGridArea (int x, int y, int w = 1, int h = 1)
+    juce::Rectangle<int> getGridArea (int x, int y, int w = 1, int h = 1)
     {
         auto cx = editor.getGridWidth();
         auto cy = editor.getGridHeight();
-        return Rectangle<int> (x * cx, y * cy, w * cx, h * cy);
+        return juce::Rectangle<int> (x * cx, y * cy, w * cx, h * cy);
     }
 
     void add (Component* c)
@@ -83,15 +83,15 @@ public:
     }
 
 private:
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
-        g.setColour (Colours::white.withAlpha (0.2f));
+        g.setColour (juce::Colours::white.withAlpha (0.2f));
         g.drawRect (getLocalBounds());
     }
 
     ProcessorEditor& editor;
 
-    OwnedArray<Component> controls;
+    juce::OwnedArray<Component> controls;
     std::map<Component*, int> pages;
 };
 
@@ -111,7 +111,7 @@ public:
         pagesOpen[0] = 1.0f;
     }
 
-    void addPage (const String& name, int rows, int cols)
+    void addPage (const juce::String& name, int rows, int cols)
     {
         auto cx = editor.getGridWidth();
         auto cy = editor.getGridHeight();
@@ -163,9 +163,9 @@ protected:
     
 private:
     //==============================================================================
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
-        g.setColour (Colours::white.withAlpha (0.2f));
+        g.setColour (juce::Colours::white.withAlpha (0.2f));
         g.drawRect (getLocalBounds());
     }
 
@@ -191,10 +191,10 @@ private:
     }
 
     //==============================================================================
-    struct PageComponent : public Component,
-                           private Timer
+    struct PageComponent : public juce::Component,
+                           private juce::Timer
     {
-        PageComponent (PagedControlBox& o, const String& n)
+        PageComponent (PagedControlBox& o, const juce::String& n)
             : owner (o), name (n)
         {
             setOpaque (true);
@@ -207,36 +207,36 @@ private:
             controlsParent.setBounds (getLocalBounds());
         }
 
-        void paint (Graphics& g) override
+        void paint (juce::Graphics& g) override
         {
-            g.fillAll (Colours::black);
+            g.fillAll (juce::Colours::black);
 
             auto rc = getLocalBounds().removeFromLeft (15);
-            g.setColour (Colours::white.withAlpha (0.1f));
+            g.setColour (juce::Colours::white.withAlpha (0.1f));
             g.fillRect (rc);
 
-            g.setColour (Colours::black);
+            g.setColour (juce::Colours::black);
             g.fillRect (rc.removeFromRight (1));
 
-            g.setColour (Colours::white);
+            g.setColour (juce::Colours::white);
 
-            Graphics::ScopedSaveState state (g);
-            g.addTransform (AffineTransform::rotation (-MathConstants<float>::halfPi,
+            juce::Graphics::ScopedSaveState state (g);
+            g.addTransform (juce::AffineTransform::rotation (-juce::MathConstants<float>::halfPi,
                                                        7.5f, getHeight() * 0.5f));
 
             g.setFont (11);
-            auto rcText = Rectangle<float> (-getHeight() / 2.0f, getHeight () / 2.0f - 9.5f, (float) getHeight (), 15.0f );
-            g.drawText (name, rcText, Justification::centred);
+            auto rcText = juce::Rectangle<float> (-getHeight() / 2.0f, getHeight () / 2.0f - 9.5f, (float) getHeight (), 15.0f );
+            g.drawText (name, rcText, juce::Justification::centred);
         }
 
-        Rectangle<int> getGridArea (ProcessorEditor& e, int x, int y, int w = 1, int h = 1)
+        juce::Rectangle<int> getGridArea (ProcessorEditor& e, int x, int y, int w = 1, int h = 1)
         {
             auto cx = e.getGridWidth();
             auto cy = e.getGridHeight();
-            return Rectangle<int> (x * cx + 15, y * cy, w * cx, h * cy);
+            return juce::Rectangle<int> (x * cx + 15, y * cy, w * cx, h * cy);
         }
 
-        void mouseDown (const MouseEvent& e) override
+        void mouseDown (const juce::MouseEvent& e) override
         {
             auto rc = getLocalBounds().removeFromLeft (15);
             if (rc.contains (e.getPosition()))
@@ -252,7 +252,7 @@ private:
         {
             int pageIdx = owner.pages.indexOf (this);
             auto delta = opening ? 1.0f / 0.333f / 30.0f : - 1.0f / 0.333f / 30.0f;
-            owner.pagesOpen[pageIdx] = jlimit (0.0f, 1.0f, owner.pagesOpen[pageIdx] + delta);
+            owner.pagesOpen[pageIdx] = juce::jlimit (0.0f, 1.0f, owner.pagesOpen[pageIdx] + delta);
 
             if (owner.pagesOpen[pageIdx] == 0 || owner.pagesOpen[pageIdx] == 1)
                 stopTimer();
@@ -267,7 +267,7 @@ private:
             enableButton = std::make_unique<PowerButton> (enable);
             addAndMakeVisible (*enableButton);
 
-            auto rc = Rectangle<int> (2, 2, 11, 11);
+            auto rc = juce::Rectangle<int> (2, 2, 11, 11);
             enableButton->setBounds (rc);
         }
 
@@ -287,28 +287,28 @@ private:
         }
 
         PagedControlBox& owner;
-        String name;
+        juce::String name;
 
         gin::Parameter::Ptr enable = nullptr;
         std::unique_ptr<PowerButton> enableButton;
 
-        Component controlsParent;
-        OwnedArray<Component> controls, bottomButtons;
+        juce::Component controlsParent;
+        juce::OwnedArray<juce::Component> controls, bottomButtons;
         bool opening = false;
     };
 
     //==============================================================================
     struct Cover : public Component
     {
-        Cover()                             { setOpaque (true);             }
-        void paint (Graphics& g) override   { g.fillAll (Colours::black);   }
+        Cover()                                 { setOpaque (true);                 }
+        void paint (juce::Graphics& g) override { g.fillAll (juce::Colours::black); }
     };
 
     //==============================================================================
     ProcessorEditor& editor;
 
     Cover cover;
-    OwnedArray<PageComponent> pages;
+    juce::OwnedArray<PageComponent> pages;
 
     std::map<int, float> pagesOpen;
 };

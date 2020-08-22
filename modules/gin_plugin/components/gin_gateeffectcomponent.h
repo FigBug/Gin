@@ -12,12 +12,12 @@ public:
     void setParams (Parameter::Ptr length, Parameter::Ptr* l, Parameter::Ptr* r, Parameter::Ptr enable);
 
 private:
-    void paint (Graphics& g) override;
+    void paint (juce::Graphics& g) override;
     void paramChanged () override;
 
-    void mouseDown (const MouseEvent& e) override;
-    void mouseDrag (const MouseEvent& e) override;
-    void mouseUp (const MouseEvent& e) override;
+    void mouseDown (const juce::MouseEvent& e) override;
+    void mouseDrag (const juce::MouseEvent& e) override;
+    void mouseUp (const juce::MouseEvent& e) override;
 
     int getNumSteps();
 

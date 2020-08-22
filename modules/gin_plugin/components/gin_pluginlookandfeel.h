@@ -9,10 +9,10 @@ class PluginLookAndFeel : public GinLookAndFeel
 public:
     PluginLookAndFeel();
     
-    Typeface::Ptr getTypefaceForFont (const Font& f) override;
+    juce::Typeface::Ptr getTypefaceForFont (const juce::Font& f) override;
         
 private:
-    Typeface::Ptr typeface;
+    juce::Typeface::Ptr typeface;
 };
 
 //==============================================================================

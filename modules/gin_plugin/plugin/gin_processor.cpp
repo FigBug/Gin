@@ -12,21 +12,21 @@ Processor::~Processor()
 void Processor::init()
 {
     loadAllPrograms();
-    state = ValueTree (Identifier ("state"));
+    state = juce::ValueTree (juce::Identifier ("state"));
 }
 
-std::unique_ptr<PropertiesFile> Processor::getSettings()
+std::unique_ptr<juce::PropertiesFile> Processor::getSettings()
 {
    #if JUCE_MAC
-    File dir = File::getSpecialLocation (File::userApplicationDataDirectory).getChildFile ("Preferences").getChildFile ("SocaLabs");
+    juce::File dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile ("Preferences").getChildFile ("SocaLabs");
    #else
-    File dir = File::getSpecialLocation (File::userApplicationDataDirectory).getChildFile ("SocaLabs");
+    juce::File dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile ("SocaLabs");
    #endif
     dir.createDirectory();
 
-    PropertiesFile::Options options;
+    juce::PropertiesFile::Options options;
 
-    return std::make_unique<PropertiesFile> (dir.getChildFile ("plugin_settings.xml"), options);
+    return std::make_unique<juce::PropertiesFile> (dir.getChildFile ("plugin_settings.xml"), options);
 }
 
 //==============================================================================
@@ -59,10 +59,10 @@ void Processor::addPluginParameter (gin::Parameter* p)
     parameterMap[p->getUid()] = p;
 }
 
-gin::Parameter* Processor::createParam (String uid, String name, String shortName, String label,
-                                        NormalisableRange<float> range, float defaultValue,
+gin::Parameter* Processor::createParam (juce::String uid, juce::String name, juce::String shortName, juce::String label,
+                                        juce::NormalisableRange<float> range, float defaultValue,
                                         SmoothingType st,
-                                        std::function<String (const gin::Parameter&, float)> textFunction)
+                                        std::function<juce::String (const gin::Parameter&, float)> textFunction)
 {
     gin::Parameter* p = nullptr;
 
@@ -90,10 +90,10 @@ gin::Parameter* Processor::createParam (String uid, String name, String shortNam
     return p;
 }
 
-gin::Parameter* Processor::addIntParam (String uid, String name, String shortName, String label,
-                                        NormalisableRange<float> range, float defaultValue,
+gin::Parameter* Processor::addIntParam (juce::String uid, juce::String name, juce::String shortName, juce::String label,
+                                        juce::NormalisableRange<float> range, float defaultValue,
                                         SmoothingType st,
-                                        std::function<String (const gin::Parameter&, float)> textFunction)
+                                        std::function<juce::String (const gin::Parameter&, float)> textFunction)
 {
     if (auto p = createParam (uid, name, shortName, label, range, defaultValue, st, textFunction))
     {
@@ -106,10 +106,10 @@ gin::Parameter* Processor::addIntParam (String uid, String name, String shortNam
     return nullptr;
 }
 
-Parameter* Processor::addExtParam (String uid, String name, String shortName, String label,
-                                   NormalisableRange<float> range, float defaultValue,
+Parameter* Processor::addExtParam (juce::String uid, juce::String name, juce::String shortName, juce::String label,
+                                   juce::NormalisableRange<float> range, float defaultValue,
                                    SmoothingType st,
-                                   std::function<String (const gin::Parameter&, float)> textFunction)
+                                   std::function<juce::String (const gin::Parameter&, float)> textFunction)
 {
     if (auto p = createParam (uid, name, shortName, label, range, defaultValue, st, textFunction))
     {
@@ -121,7 +121,7 @@ Parameter* Processor::addExtParam (String uid, String name, String shortName, St
     return nullptr;
 }
 
-Parameter* Processor::getParameter (const String& uid)
+Parameter* Processor::getParameter (const juce::String& uid)
 {
     if (parameterMap.find (uid) != parameterMap.end())
         return parameterMap[uid];
@@ -129,7 +129,7 @@ Parameter* Processor::getParameter (const String& uid)
     return nullptr;
 }
 
-float Processor::parameterValue (const String& uid)
+float Processor::parameterValue (const juce::String& uid)
 {
     if (parameterMap.find (uid) != parameterMap.end())
         return parameterMap[uid]->getUserValue();
@@ -137,7 +137,7 @@ float Processor::parameterValue (const String& uid)
     return 0;
 }
 
-int Processor::parameterIntValue (const String& uid)
+int Processor::parameterIntValue (const juce::String& uid)
 {
     if (parameterMap.find (uid) != parameterMap.end())
         return int (parameterMap[uid]->getUserValue());
@@ -145,7 +145,7 @@ int Processor::parameterIntValue (const String& uid)
     return 0;
 }
 
-bool Processor::parameterBoolValue (const String& uid)
+bool Processor::parameterBoolValue (const juce::String& uid)
 {
     if (parameterMap.find (uid) != parameterMap.end())
         return parameterMap[uid]->getUserValue() > 0;
@@ -153,13 +153,13 @@ bool Processor::parameterBoolValue (const String& uid)
     return false;
 }
 
-const Array<gin::Parameter*>& Processor::getPluginParameters()
+const juce::Array<gin::Parameter*>& Processor::getPluginParameters()
 {
     return allParameters;
 }
 
 //==============================================================================
-const String Processor::getName() const
+const juce::String Processor::getName() const
 {
    #ifdef JucePlugin_Name
     return JucePlugin_Name;
@@ -205,7 +205,7 @@ void Processor::setCurrentProgram (int index)
 {
     if (index == getCurrentProgram())
         return;
-    if ((Time::getCurrentTime() - lastStateLoad) < RelativeTime::seconds (2))
+    if ((juce::Time::getCurrentTime() - lastStateLoad) < juce::RelativeTime::seconds (2))
         return;
 
     if (index >= 0 && index < programs.size())
@@ -219,7 +219,7 @@ void Processor::setCurrentProgram (int index)
     }
 }
 
-void Processor::setCurrentProgram (String name)
+void Processor::setCurrentProgram (juce::String name)
 {
     int index = 0;
     for (auto p : programs)
@@ -238,7 +238,7 @@ void Processor::setCurrentProgram (String name)
     }
 }
 
-const String Processor::getProgramName (int index)
+const juce::String Processor::getProgramName (int index)
 {
     if (auto p = programs[index])
         return p->name;
@@ -246,7 +246,7 @@ const String Processor::getProgramName (int index)
     return {};
 }
 
-bool Processor::hasProgram (String name)
+bool Processor::hasProgram (juce::String name)
 {
     for (auto p : programs)
         if (p->name == name)
@@ -255,7 +255,7 @@ bool Processor::hasProgram (String name)
     return false;
 }
 
-void Processor::changeProgramName (int index, const String& newName)
+void Processor::changeProgramName (int index, const juce::String& newName)
 {
     programs[index]->deleteFromDir (getProgramDirectory());
     programs[index]->name = newName;
@@ -277,10 +277,10 @@ void Processor::loadAllPrograms()
     programs.add (defaultProgram);
 
     // load programs from disk
-    File dir = getProgramDirectory();
+    juce::File dir = getProgramDirectory();
 
-    Array<File> programFiles;
-    dir.findChildFiles (programFiles, File::findFiles, false, "*.xml");
+    juce::Array<juce::File> programFiles;
+    dir.findChildFiles (programFiles, juce::File::findFiles, false, "*.xml");
     programFiles.sort();
 
     for (auto f : programFiles)
@@ -291,9 +291,9 @@ void Processor::loadAllPrograms()
     }
 }
 
-void Processor::extractProgram (const String& name, const MemoryBlock& data)
+void Processor::extractProgram (const juce::String& name, const juce::MemoryBlock& data)
 {
-    File dir = getProgramDirectory();
+    juce::File dir = getProgramDirectory();
     auto f = dir.getChildFile (name);
     if (! f.existsAsFile())
     {
@@ -305,7 +305,7 @@ void Processor::extractProgram (const String& name, const MemoryBlock& data)
     }
 }
 
-void Processor::saveProgram (String name, String author, String tags)
+void Processor::saveProgram (juce::String name, juce::String author, juce::String tags)
 {
     updateState();
 
@@ -316,7 +316,7 @@ void Processor::saveProgram (String name, String author, String tags)
     auto newProgram = new Program();
     newProgram->name = name;
     newProgram->author = author;
-    newProgram->tags = StringArray::fromTokens (tags, " ", "");
+    newProgram->tags = juce::StringArray::fromTokens (tags, " ", "");
     newProgram->saveProcessor (*this);
     newProgram->saveToDir (getProgramDirectory());
 
@@ -338,18 +338,18 @@ void Processor::deleteProgram (int index)
     sendChangeMessage();
 }
 
-File Processor::getProgramDirectory()
+juce::File Processor::getProgramDirectory()
 {
   #ifdef JucePlugin_Name
    #if JUCE_MAC
-    File dir = File::getSpecialLocation(File::userApplicationDataDirectory).getChildFile("Application Support/com.socalabs/" JucePlugin_Name "/programs");
+    juce::File dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile ("Application Support/com.socalabs/" JucePlugin_Name "/programs");
    #else
-    File dir = File::getSpecialLocation(File::userApplicationDataDirectory).getChildFile("com.socalabs/" JucePlugin_Name "/programs");
+    juce::File dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile ("com.socalabs/" JucePlugin_Name "/programs");
    #endif
   #else
     // Shouldn't be using processor in something that isn't a plugin
     jassertfalse;
-    File dir;
+    juce::File dir;
   #endif
 
     if (!dir.isDirectory())
@@ -363,7 +363,7 @@ void Processor::getStateInformation (juce::MemoryBlock& destData)
 {
     updateState();
 
-    std::unique_ptr<XmlElement> rootE (new XmlElement ("state"));
+    std::unique_ptr<juce::XmlElement> rootE (new juce::XmlElement ("state"));
 
     if (state.isValid())
         rootE->setAttribute ("valueTree", state.toXmlString());
@@ -376,7 +376,7 @@ void Processor::getStateInformation (juce::MemoryBlock& destData)
         {
             auto pstate = p->getState();
 
-            auto paramE = new XmlElement ("param");
+            auto paramE = new juce::XmlElement ("param");
 
             paramE->setAttribute ("uid", pstate.uid);
             paramE->setAttribute ("val", pstate.value);
@@ -385,24 +385,24 @@ void Processor::getStateInformation (juce::MemoryBlock& destData)
         }
     }
 
-    MemoryOutputStream os (destData, true);
+    juce::MemoryOutputStream os (destData, true);
     auto text = rootE->toString();
     os.write (text.toRawUTF8(), text.getNumBytesAsUTF8());
 }
 
 void Processor::setStateInformation (const void* data, int sizeInBytes)
 {
-    XmlDocument doc (String::fromUTF8 ((const char*)data, sizeInBytes));
-    std::unique_ptr<XmlElement> rootE (doc.getDocumentElement());
+    juce::XmlDocument doc (juce::String::fromUTF8 ((const char*)data, sizeInBytes));
+    std::unique_ptr<juce::XmlElement> rootE (doc.getDocumentElement());
     if (rootE)
     {
         if (rootE->hasAttribute ("valueTree"))
         {
-            String xml = rootE->getStringAttribute ("valueTree");
-            XmlDocument treeDoc (xml);
-            if (std::unique_ptr<XmlElement> vtE = treeDoc.getDocumentElement())
+            juce::String xml = rootE->getStringAttribute ("valueTree");
+            juce::XmlDocument treeDoc (xml);
+            if (std::unique_ptr<juce::XmlElement> vtE = treeDoc.getDocumentElement())
             {
-                auto srcState = ValueTree::fromXml (*vtE);
+                auto srcState = juce::ValueTree::fromXml (*vtE);
                 state.removeAllProperties (nullptr);
                 state.removeAllChildren (nullptr);
                 state.copyPropertiesAndChildrenFrom (srcState, nullptr);
@@ -411,10 +411,10 @@ void Processor::setStateInformation (const void* data, int sizeInBytes)
 
         currentProgram = rootE->getIntAttribute ("program");
 
-        XmlElement* paramE = rootE->getChildByName ("param");
+        juce::XmlElement* paramE = rootE->getChildByName ("param");
         while (paramE)
         {
-            String uid = paramE->getStringAttribute ("uid");
+            juce::String uid = paramE->getStringAttribute ("uid");
             float  val = paramE->getStringAttribute ("val").getFloatValue();
 
             if (auto p = getParameter (uid))
@@ -428,5 +428,5 @@ void Processor::setStateInformation (const void* data, int sizeInBytes)
     }
     stateUpdated();
 
-    lastStateLoad = Time::getCurrentTime();
+    lastStateLoad = juce::Time::getCurrentTime();
 }

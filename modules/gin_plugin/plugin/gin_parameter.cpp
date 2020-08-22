@@ -1,8 +1,8 @@
 
-Parameter::Parameter (Processor& p, String uid_, String name_, String shortName_,
-                      String label_, float minValue, float maxValue,
+Parameter::Parameter (Processor& p, juce::String uid_, juce::String name_, juce::String shortName_,
+                      juce::String label_, float minValue, float maxValue,
                       float intervalValue, float defaultValue_, float skewFactor,
-                      std::function<String (const Parameter&, float)> textFunction_)
+                      std::function<juce::String (const Parameter&, float)> textFunction_)
   : processor (p),
     value (defaultValue_),
     defaultValue (defaultValue_),
@@ -15,12 +15,12 @@ Parameter::Parameter (Processor& p, String uid_, String name_, String shortName_
     if (shortName.isEmpty())
         shortName = name;
 
-    range = NormalisableRange<float> (minValue, maxValue, intervalValue, skewFactor);
+    range = juce::NormalisableRange<float> (minValue, maxValue, intervalValue, skewFactor);
 }
 
-Parameter::Parameter (Processor& p, String uid_, String name_, String shortName_,
-                      String label_, NormalisableRange<float> range_, float defaultValue_,
-                      std::function<String (const Parameter&, float)> textFunction_)
+Parameter::Parameter (Processor& p, juce::String uid_, juce::String name_, juce::String shortName_,
+                      juce::String label_, juce::NormalisableRange<float> range_, float defaultValue_,
+                      std::function<juce::String (const Parameter&, float)> textFunction_)
   : processor (p),
     range (range_),
     value (defaultValue_),
@@ -63,12 +63,12 @@ float Parameter::getProcValue (int)
 
 float Parameter::getUserValue() const
 {
-    return jlimit (range.start, range.end, value);
+    return juce::jlimit (range.start, range.end, value);
 }
 
 int Parameter::getUserValueInt() const
 {
-    return int (jlimit (range.start, range.end, value));
+    return int (juce::jlimit (range.start, range.end, value));
 }
 
 float Parameter::getUserDefaultValue() const
@@ -78,7 +78,7 @@ float Parameter::getUserDefaultValue() const
 
 void Parameter::setUserValue (float v)
 {
-    v = jlimit(range.start, range.end, range.snapToLegalValue (v));
+    v = juce::jlimit(range.start, range.end, range.snapToLegalValue (v));
     if (! almostEqual (value, v))
     {
         value = v;
@@ -89,7 +89,7 @@ void Parameter::setUserValue (float v)
 
 void Parameter::setUserValueNotifingHost (float v)
 {
-    v = jlimit (range.start, range.end, range.snapToLegalValue (v));
+    v = juce::jlimit (range.start, range.end, range.snapToLegalValue (v));
     if (! almostEqual (value, v))
     {
         value = v;
@@ -113,14 +113,14 @@ void Parameter::setUserValueAsUserAction (float f)
     endUserAction();
 }
 
-String Parameter::getUserValueText() const
+juce::String Parameter::getUserValueText() const
 {
     if (textFunction)
         return textFunction (*this, getUserValue());
     return getText (getValue(), 1000);
 }
 
-String Parameter::userValueToText (float val)
+juce::String Parameter::userValueToText (float val)
 {
     if (textFunction)
         return textFunction (*this, val);
@@ -196,12 +196,12 @@ void Parameter::setState (const ParamState& state)
 
 float Parameter::getValue() const
 {
-    return jlimit (0.0f, 1.0f, range.convertTo0to1 (value));
+    return juce::jlimit (0.0f, 1.0f, range.convertTo0to1 (value));
 }
 
 void Parameter::setValue (float valueIn)
 {
-    valueIn = jlimit (0.0f, 1.0f, valueIn);
+    valueIn = juce::jlimit (0.0f, 1.0f, valueIn);
     float newValue = range.snapToLegalValue (range.convertFrom0to1 (valueIn));
 
     if (! almostEqual (value, newValue))
@@ -218,17 +218,17 @@ float Parameter::getDefaultValue() const
     return range.convertTo0to1 (defaultValue);
 }
 
-String Parameter::getName (int maximumStringLength) const
+juce::String Parameter::getName (int maximumStringLength) const
 {
     return name.substring (0, maximumStringLength);
 }
 
-String Parameter::getShortName() const
+juce::String Parameter::getShortName() const
 {
     return shortName;
 }
 
-String Parameter::getLabel() const
+juce::String Parameter::getLabel() const
 {
     return label;
 }
@@ -237,20 +237,20 @@ int Parameter::getNumSteps() const
 {
     if (range.interval == 0)
         return 0;
-    return roundToInt ((range.end - range.start) / range.interval);
+    return juce::roundToInt ((range.end - range.start) / range.interval);
 }
 
-String Parameter::getText (float val, int /*maximumStringLength*/) const
+juce::String Parameter::getText (float val, int /*maximumStringLength*/) const
 {
     auto uv = range.snapToLegalValue (range.convertFrom0to1 (val));
     int dec = 1;
     if (uv < 10) dec = 2;
     if (uv < 1)  dec = 3;
 
-    return String (uv, dec) + " " + label;
+    return juce::String (uv, dec) + " " + label;
 }
 
-float Parameter::getValueForText (const String& text) const
+float Parameter::getValueForText (const juce::String& text) const
 {
     return range.convertTo0to1 (text.getFloatValue());
 }
