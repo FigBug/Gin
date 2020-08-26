@@ -57,7 +57,7 @@ public:
     virtual std::unique_ptr<juce::PropertiesFile> getSettings();
 
    #if BUILD_INTERNAL_PLUGINS
-    void fillInPluginDescription (PluginDescription&) const override {}
+    void fillInPluginDescription (juce::PluginDescription&) const override {}
    #endif
 
     //==============================================================================
