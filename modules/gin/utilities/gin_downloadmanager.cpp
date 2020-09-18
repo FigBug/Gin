@@ -165,7 +165,7 @@ void DownloadManager::Download::run()
         if (owner.retryDelay > 0)
             wait (juce::roundToInt (owner.retryDelay * 1000));
 
-        while (owner.pause.get())
+        while (owner.pause.load())
             wait (500);
     }
 
@@ -224,7 +224,7 @@ bool DownloadManager::Download::tryDownload()
 
                 int read = is->read (buffer, int (toRead));
 
-                if (owner.pause.get())
+                if (owner.pause.load())
                 {
                     result.ok = false;
                     break;
