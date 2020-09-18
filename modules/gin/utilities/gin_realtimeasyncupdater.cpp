@@ -72,13 +72,13 @@ private:
         
         juce::ScopedLock sl (lock);
         for (auto au : updaters)
-            if (au->triggered.get())
+            if (au->triggered.load())
                 dirtyUpdaters.add (au);
         
         std::sort (dirtyUpdaters.begin(), dirtyUpdaters.end(),
                    [] (const RealtimeAsyncUpdater* a, const RealtimeAsyncUpdater* b) -> bool
                    {
-                       return a->order.get() < b->order.get();
+                       return a->order.load() < b->order.load();
                    });
                 
         for (auto au : dirtyUpdaters)
@@ -104,7 +104,7 @@ RealtimeAsyncUpdater::~RealtimeAsyncUpdater()
 
 void RealtimeAsyncUpdater::triggerAsyncUpdate()
 {
-    if (! triggered.get())
+    if (! triggered.load())
     {
         triggered = true;
         impl->signal (*this);
@@ -118,7 +118,7 @@ void RealtimeAsyncUpdater::cancelPendingUpdate() noexcept
 
 void RealtimeAsyncUpdater::handleUpdateNowIfNeeded()
 {
-    if (triggered.get())
+    if (triggered.load())
     {
         triggered = false;
         handleAsyncUpdate();
@@ -127,5 +127,5 @@ void RealtimeAsyncUpdater::handleUpdateNowIfNeeded()
 
 bool RealtimeAsyncUpdater::isUpdatePending() const noexcept
 {
-    return triggered.get();
+    return triggered.load();
 }

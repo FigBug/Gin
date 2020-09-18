@@ -32,8 +32,8 @@ private:
     class Impl;
     juce::SharedResourcePointer<Impl> impl;
 
-    juce::Atomic<bool> triggered;
-    juce::Atomic<uint32_t> order;
+    std::atomic<bool> triggered;
+	std::atomic<uint32_t> order;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (RealtimeAsyncUpdater)
 };
