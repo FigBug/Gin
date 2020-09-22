@@ -87,7 +87,12 @@ void AsyncWebsocket::run()
     MM::callAsync ([this, weakThis]
                    {
                        if (weakThis != nullptr && onDisconnect)
-                           onDisconnect();
+					   {
+						   // The disconnect callback may cause the websocket to get deleted
+						   // Dangerous to use the lambda that is a member function, so make a copy
+						   auto safeCallback = onDisconnect;
+						   safeCallback ();
+					   }
                    });
 }
 
