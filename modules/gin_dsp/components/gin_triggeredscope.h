@@ -51,6 +51,12 @@ public:
     /** Sets the vertical zoom offset of the display. */
     void setVerticalZoomOffset (float newVerticalZoomOffset, int ch);
 
+	/** Freeze scope once triggered */
+	void setSingleTrigger (bool singleTrigger_)	{ singleTrigger = singleTrigger_; }
+
+	/** Start running again once triggered */
+	void resetTrigger();
+
     //==============================================================================
     /** The enum to use when setting the trace trigger mode. */
     enum TriggerMode
@@ -88,6 +94,9 @@ private:
     float triggerPos = 0.0f;
     int triggerChannel = -1;
     bool drawTriggerPos = false;
+	bool singleTrigger = false;
+	int triggerPoint = -1;
+	int samplesSinceTrigger = 0;
     
     struct Channel
     {
@@ -124,7 +133,7 @@ private:
     void addSamples (const juce::AudioSampleBuffer& buffer);
     void processPendingSamples();
     void render (juce::Graphics& g);
-    int getTriggerPos();
+    std::pair<int, bool> getTriggerPos();
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TriggeredScope)
