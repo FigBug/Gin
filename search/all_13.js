@@ -7,7 +7,7 @@ var searchData=
   ['unwatchparams',['unwatchParams',['../classMultiParamComponent.html#ae7441578faba5891a7fc764da134f03c',1,'MultiParamComponent']]],
   ['up',['Up',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40a7f9a9c97a4c7f8e2424ec0827d879c71',1,'TriggeredScope']]],
   ['updatebutton',['updateButton',['../classProcessorEditor.html#a9c796b9236ecbe0742d600cfd16767e3',1,'ProcessorEditor']]],
-  ['updatechecker',['UpdateChecker',['../classUpdateChecker.html',1,'UpdateChecker'],['../classProcessorEditor.html#adb1321c64dc3799c8b5b7128ec7fdae1',1,'ProcessorEditor::updateChecker()'],['../classUpdateChecker.html#a7efbaba17e94c476f4dbfa5720e598ac',1,'UpdateChecker::UpdateChecker()']]],
+  ['updatechecker',['UpdateChecker',['../classUpdateChecker.html',1,'UpdateChecker'],['../classUpdateChecker.html#a7efbaba17e94c476f4dbfa5720e598ac',1,'UpdateChecker::UpdateChecker()'],['../classProcessorEditor.html#adb1321c64dc3799c8b5b7128ec7fdae1',1,'ProcessorEditor::updateChecker()']]],
   ['updateglide',['updateGlide',['../classSynthesiser.html#a4bf9918f18a2c232db12a913fda743f4',1,'Synthesiser']]],
   ['updatemap',['updateMap',['../classMapViewer.html#a723ad37abb7af9ecac0bdd68dd628e46',1,'MapViewer']]],
   ['updateready',['updateReady',['../classProcessorEditor.html#aa2735f1a20c297918f272257e9d67787',1,'ProcessorEditor']]],

@@ -11863,6 +11863,20 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setSingleTrigger</name>
+      <anchorfile>classTriggeredScope.html</anchorfile>
+      <anchor>afc087a187ae41f73400438e07c172c0d</anchor>
+      <arglist>(bool singleTrigger_)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetTrigger</name>
+      <anchorfile>classTriggeredScope.html</anchorfile>
+      <anchor>a591d6ef5a24faafa899825294c6c77a5</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>setTriggerMode</name>
       <anchorfile>classTriggeredScope.html</anchorfile>
       <anchor>aaae16520ddd08161c2242bd061df640f</anchor>

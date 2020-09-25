@@ -106,6 +106,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6cdb12229a253a243c18f72c92470a5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTriggeredScope.html#a6cdb12229a253a243c18f72c92470a5b">setVerticalZoomOffset</a> (float newVerticalZoomOffset, int ch)</td></tr>
 <tr class="memdesc:a6cdb12229a253a243c18f72c92470a5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the vertical zoom offset of the display.  <a href="#a6cdb12229a253a243c18f72c92470a5b">More...</a><br /></td></tr>
 <tr class="separator:a6cdb12229a253a243c18f72c92470a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc087a187ae41f73400438e07c172c0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTriggeredScope.html#afc087a187ae41f73400438e07c172c0d">setSingleTrigger</a> (bool singleTrigger_)</td></tr>
+<tr class="memdesc:afc087a187ae41f73400438e07c172c0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Freeze scope once triggered.  <a href="#afc087a187ae41f73400438e07c172c0d">More...</a><br /></td></tr>
+<tr class="separator:afc087a187ae41f73400438e07c172c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a591d6ef5a24faafa899825294c6c77a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTriggeredScope.html#a591d6ef5a24faafa899825294c6c77a5">resetTrigger</a> ()</td></tr>
+<tr class="memdesc:a591d6ef5a24faafa899825294c6c77a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start running again once triggered.  <a href="#a591d6ef5a24faafa899825294c6c77a5">More...</a><br /></td></tr>
+<tr class="separator:a591d6ef5a24faafa899825294c6c77a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaae16520ddd08161c2242bd061df640f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTriggeredScope.html#aaae16520ddd08161c2242bd061df640f">setTriggerMode</a> (<a class="el" href="classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40">TriggerMode</a> newTriggerMode)</td></tr>
 <tr class="memdesc:aaae16520ddd08161c2242bd061df640f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the type of change that will trigger a trace.  <a href="#aaae16520ddd08161c2242bd061df640f">More...</a><br /></td></tr>
 <tr class="separator:aaae16520ddd08161c2242bd061df640f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -308,6 +314,49 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="afc087a187ae41f73400438e07c172c0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc087a187ae41f73400438e07c172c0d">&#9670;&nbsp;</a></span>setSingleTrigger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TriggeredScope::setSingleTrigger </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>singleTrigger_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Freeze scope once triggered. </p>
+
+<p class="reference">References <a class="el" href="classTriggeredScope.html#a591d6ef5a24faafa899825294c6c77a5">resetTrigger()</a>.</p>
+
+</div>
+</div>
+<a id="a591d6ef5a24faafa899825294c6c77a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a591d6ef5a24faafa899825294c6c77a5">&#9670;&nbsp;</a></span>resetTrigger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TriggeredScope::resetTrigger </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Start running again once triggered. </p>
+
+<p class="reference">Referenced by <a class="el" href="classTriggeredScope.html#afc087a187ae41f73400438e07c172c0d">setSingleTrigger()</a>.</p>
+
+</div>
+</div>
 <a id="aaae16520ddd08161c2242bd061df640f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaae16520ddd08161c2242bd061df640f">&#9670;&nbsp;</a></span>setTriggerMode()</h2>
 
@@ -467,7 +516,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 22 2020 20:34:05 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 25 2020 23:24:56 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>
