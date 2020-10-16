@@ -102,8 +102,8 @@ WebSocket::WebSocket (std::unique_ptr<gin::SecureStreamingSocket>&& socket_, boo
     SOCKET pipes[2] = {0, 0};
     if (! dumb_socketpair (pipes, 0))
     {
-        interruptIn  = pipes[0];
-        interruptOut = pipes[1];
+        interruptIn  = (int) pipes[0];
+        interruptOut = (int) pipes[1];
 
         u_long on = 1;
         ioctlsocket (interruptIn, FIONBIO, &on);
@@ -423,7 +423,7 @@ void WebSocket::sendData (WSHeaderType::Opcode type, const std::vector<uint8_t>&
 
     std::vector<uint8_t> header;
     header.assign (2 + (message_size >= 126 ? 2 : 0) + (message_size >= 65536 ? 6 : 0) + (useMask ? 4 : 0), 0);
-    header[0] = 0x80 | type;
+    header[0] = uint8_t (0x80 | type);
     if (message_size < 126)
 	{
         header[1] = (message_size & 0xff) | (useMask ? 0x80 : 0);
