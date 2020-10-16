@@ -40,9 +40,9 @@ class WebSocket
 	ReadyStateValues readyStateValues;
 
     // Factories:
-    static WebSocket* fromURL (const std::string& url, const std::string& origin = std::string());
-    static WebSocket* fromURLNoMask (const std::string& url, const std::string& origin = std::string());
-    static WebSocket* fromURL (const std::string& url, bool useMask, const std::string& origin);
+    static WebSocket* fromURL (const juce::String& url, const juce::String& origin = {});
+	static WebSocket* fromURLNoMask (const juce::String& url, const juce::String& origin = {});
+    static WebSocket* fromURL (const juce::String& url, bool useMask, const juce::String& origin);
 
     ~WebSocket();
 
@@ -50,27 +50,27 @@ class WebSocket
     void poll (int timeout = 0); // timeout in milliseconds
     void interrupt(); // interrupt polling
     
-    void send (const std::string& message);
-    void sendBinary (const std::string& message);
-    void sendBinary (const std::vector<uint8_t>& message);
+    void send (const juce::String& message);
+    void sendBinary (const juce::String& message);
+    void sendBinary (const juce::MemoryBlock& message);
     void sendPing();
     
     void close();
     ReadyStateValues getReadyState() const;
 
-    void dispatch (std::function<void (const std::vector<uint8_t>& message, bool isBinary)> callback);
+    void dispatch (std::function<void (const juce::MemoryBlock& message, bool isBinary)> callback);
     
 private:
     WebSocket (std::unique_ptr<gin::SecureStreamingSocket>&& socket_, bool useMask);
 
-    void sendData (WSHeaderType::Opcode type, const std::string& message);
-    void sendData (WSHeaderType::Opcode type, const std::vector<uint8_t>& message);
+    void sendData (WSHeaderType::Opcode type, const juce::String& message);
+    void sendData (WSHeaderType::Opcode type, const juce::MemoryBlock& message);
 
-    std::vector<uint8_t> rxbuf;
-    std::vector<uint8_t> txbuf;
-    std::vector<uint8_t> receivedData;
-    
-    std::unique_ptr<gin::SecureStreamingSocket> socket;
+	juce::MemoryBlock rxbuf;
+	juce::MemoryBlock txbuf;
+	juce::MemoryBlock receivedData;
+	
+    std::unique_ptr<SecureStreamingSocket> socket;
     int sockfd = 0;
     ReadyStateValues readyState = OPEN;
     int interruptIn = 0;

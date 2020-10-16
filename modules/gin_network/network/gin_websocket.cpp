@@ -115,7 +115,7 @@ WebSocket::WebSocket (std::unique_ptr<gin::SecureStreamingSocket>&& socket_, boo
         interruptIn  = fd[0];
         interruptOut = fd[1];
 
-        int flags = fcntl(interruptIn, F_GETFL, 0);
+        int flags = fcntl (interruptIn, F_GETFL, 0);
         if (fcntl (interruptIn, F_SETFL, flags | O_NONBLOCK) == -1)
         {
             closesocket (interruptIn);
@@ -145,21 +145,18 @@ bool WebSocket::readIncoming()
     while (true)
 	{
         // FD_ISSET(0, &rfds) will be true
-        size_t N = rxbuf.size();
-        ssize_t ret = 0;
-        rxbuf.resize(N + 1500);
+		uint8_t buffer[1500];
 
-        ret = socket->read ((char*)rxbuf.data() + N, 1500, false);
+        auto ret = socket->read (buffer, 1500, false);
 
         if (ret <= 0)
 		{
-            rxbuf.resize (N);
             break;
         }
         else
 		{
-            rxbuf.resize (N + size_t (ret));
-            foundData = true;
+			rxbuf.append (buffer, ret);
+			foundData = true;
         }
     }
 
@@ -180,7 +177,7 @@ void WebSocket::poll (int timeout) // timeout in milliseconds
         return;
     }
 
-    if (txbuf.size() == 0 && ! readIncoming())
+    if (txbuf.getSize() == 0 && ! readIncoming())
     {
         // Only block if we have no data to send and no data to recv
         if (timeout != 0)
@@ -196,10 +193,10 @@ void WebSocket::poll (int timeout) // timeout in milliseconds
             if (interruptIn)
 			{
                 FD_SET (interruptIn, &rfds);
-                maxSocket = std::max(maxSocket, interruptIn);
+                maxSocket = std::max (maxSocket, interruptIn);
             }
 
-            if (txbuf.size())
+            if (txbuf.getSize())
                 FD_SET (sockfd, &wfds);
 
             select (maxSocket + 1, &rfds, &wfds, nullptr, &tv);
@@ -218,9 +215,9 @@ void WebSocket::poll (int timeout) // timeout in milliseconds
     readIncoming();
 
     // Write outgoing data
-    while (txbuf.size())
+    while (txbuf.getSize())
 	{
-        int ret = socket->write ((char*)txbuf.data(), int (txbuf.size()));
+        int ret = socket->write (txbuf.getData(), int (txbuf.getSize()));
         if (ret < 0)
 		{
             readyState = CLOSED;
@@ -229,22 +226,21 @@ void WebSocket::poll (int timeout) // timeout in milliseconds
         }
         else
 		{
-            txbuf.erase (txbuf.begin(), txbuf.begin() + ret);
+            txbuf.removeSection (0, ret);
         }
     }
-    if (! txbuf.size() && readyState == CLOSING)
-	{
+
+    if (txbuf.getSize() == 0 && readyState == CLOSING)
         readyState = CLOSED;
-    }
 }
 
 void WebSocket::interrupt()
 {
     if (interruptOut)
-        ::send(interruptOut, "\0", 1, 0);
+        ::send (interruptOut, "\0", 1, 0);
 }
 
-void WebSocket::dispatch (std::function<void (const std::vector<uint8_t>& message, bool isBinary)> callback)
+void WebSocket::dispatch (std::function<void (const juce::MemoryBlock& message, bool isBinary)> callback)
 {
     // TODO: consider acquiring a lock on rxbuf...
     if (isRxBad)
@@ -253,17 +249,17 @@ void WebSocket::dispatch (std::function<void (const std::vector<uint8_t>& messag
     while (true)
 	{
 		WSHeaderType ws;
-        if (rxbuf.size() < 2)
+        if (rxbuf.getSize() < 2)
 			return; /* Need at least 2 */
 
-        const uint8_t * data = (uint8_t *) rxbuf.data(); // peek, but don't consume
+        const uint8_t * data = (uint8_t *) rxbuf.getData(); // peek, but don't consume
         ws.fin = (data[0] & 0x80) == 0x80;
         ws.opcode = (WSHeaderType::Opcode) (data[0] & 0x0f);
         ws.mask = (data[1] & 0x80) == 0x80;
         ws.N0 = (data[1] & 0x7f);
-        ws.header_size = 2 + (ws.N0 == 126? 2 : 0) + (ws.N0 == 127? 8 : 0) + (ws.mask? 4 : 0);
+        ws.header_size = 2 + (ws.N0 == 126 ? 2 : 0) + (ws.N0 == 127? 8 : 0) + (ws.mask ? 4 : 0);
 
-        if (rxbuf.size() < ws.header_size)
+        if (rxbuf.getSize() < ws.header_size)
 			return; /* Need: ws.header_size - rxbuf.size() */
 
         int i = 0;
@@ -323,7 +319,7 @@ void WebSocket::dispatch (std::function<void (const std::vector<uint8_t>& messag
 
         // Note: The checks above should hopefully ensure this addition
         //       cannot overflow:
-        if (rxbuf.size() < ws.header_size+ws.N)
+        if (rxbuf.getSize() < ws.header_size + ws.N)
 			return; /* Need: ws.header_size+ws.N - rxbuf.size() */
 
         // We got a whole message, now do something with it:
@@ -335,18 +331,16 @@ void WebSocket::dispatch (std::function<void (const std::vector<uint8_t>& messag
 		{
             isBinary = (ws.opcode == WSHeaderType::BINARY_FRAME);
             if (ws.mask)
-			{
 				for (size_t j = 0; j != ws.N; ++j)
-				{
 					rxbuf[j + ws.header_size] ^= ws.masking_key[j & 0x3];
-				}
-			}
-            receivedData.insert (receivedData.end(), rxbuf.begin() + ws.header_size, rxbuf.begin() + long (ws.header_size + ws.N));// just feed
+
+			juce::MemoryBlock receivedData;
+            receivedData.append ((uint8_t*)rxbuf.getData() + ws.header_size, ws.N);// just feed
+
             if (ws.fin)
 			{
-                callback ((const std::vector<uint8_t>) receivedData, isBinary);
-                receivedData.erase (receivedData.begin(), receivedData.end());
-                std::vector<uint8_t> ().swap (receivedData);// free memory
+                callback (receivedData, isBinary);
+				receivedData.reset ();
             }
         }
         else if (ws.opcode == WSHeaderType::PING)
@@ -358,7 +352,8 @@ void WebSocket::dispatch (std::function<void (const std::vector<uint8_t>& messag
 					rxbuf[j + ws.header_size] ^= ws.masking_key[j & 0x3];
 				}
 			}
-            std::string pongData (rxbuf.begin() + ws.header_size, rxbuf.begin() + long (ws.header_size + ws.N));
+
+			juce::MemoryBlock pongData ((uint8_t*)rxbuf.getData() + ws.header_size, ws.N);
             sendData (WSHeaderType::PONG, pongData);
         }
         else if (ws.opcode == WSHeaderType::PONG)
@@ -375,40 +370,40 @@ void WebSocket::dispatch (std::function<void (const std::vector<uint8_t>& messag
 			close();
 		}
 
-        rxbuf.erase (rxbuf.begin(), rxbuf.begin() + long (ws.header_size + ws.N));
+        rxbuf.removeSection (0, long (ws.header_size + ws.N));
     }
 }
 
 void WebSocket::sendPing()
 {
-    std::string empty;
+	juce::String empty;
     sendData(WSHeaderType::PING, empty);
 }
 
-void WebSocket::send (const std::string& message)
+void WebSocket::send (const juce::String& message)
 {
     sendData (WSHeaderType::TEXT_FRAME, message);
 }
 
-void WebSocket::sendBinary (const std::string& message)
+void WebSocket::sendBinary (const juce::String& message)
 {
     sendData (WSHeaderType::BINARY_FRAME, message);
 }
 
-void WebSocket::sendBinary (const std::vector<uint8_t>& message)
+void WebSocket::sendBinary (const juce::MemoryBlock& message)
 {
     sendData (WSHeaderType::BINARY_FRAME, message);
 }
 
-void WebSocket::sendData (WSHeaderType::Opcode type, const std::string& message)
+void WebSocket::sendData (WSHeaderType::Opcode type, const juce::String& message)
 {
-    const std::vector<uint8_t> msg (message.begin(), message.end());
+    const juce::MemoryBlock msg (message.toRawUTF8(), message.getNumBytesAsUTF8());
     sendData (type, msg);
 }
 
-void WebSocket::sendData (WSHeaderType::Opcode type, const std::vector<uint8_t>& message)
+void WebSocket::sendData (WSHeaderType::Opcode type, const juce::MemoryBlock& message)
 {
-    uint64_t message_size = message.size();
+    uint64_t message_size = message.getSize();
     auto message_begin = message.begin();
     auto message_end = message.end();
 
@@ -421,8 +416,10 @@ void WebSocket::sendData (WSHeaderType::Opcode type, const std::vector<uint8_t>&
     if (readyState == CLOSING || readyState == CLOSED)
 		return;
 
-    std::vector<uint8_t> header;
-    header.assign (2 + (message_size >= 126 ? 2 : 0) + (message_size >= 65536 ? 6 : 0) + (useMask ? 4 : 0), 0);
+	juce::MemoryBlock header;
+    header.setSize (2 + (message_size >= 126 ? 2 : 0) + (message_size >= 65536 ? 6 : 0) + (useMask ? 4 : 0));
+	header.fillWith (0);
+
     header[0] = uint8_t (0x80 | type);
     if (message_size < 126)
 	{
@@ -468,11 +465,12 @@ void WebSocket::sendData (WSHeaderType::Opcode type, const std::vector<uint8_t>&
         }
     }
     // N.B. - txbuf will keep growing until it can be transmitted over the socket:
-    txbuf.insert (txbuf.end(), header.begin(), header.end());
-    txbuf.insert (txbuf.end(), message_begin, message_end);
+    txbuf.append (header.getData(), header.getSize());
+    txbuf.append (message_begin, message_end - message_begin);
+
     if (useMask)
 	{
-        size_t message_offset = txbuf.size() - message_size;
+        size_t message_offset = txbuf.getSize() - message_size;
         for (size_t i = 0; i != message_size; ++i)
             txbuf[message_offset + i] ^= masking_key[i & 0x3];
     }
@@ -485,69 +483,68 @@ void WebSocket::close()
 
     readyState = CLOSING;
     uint8_t closeFrame[6] = {0x88, 0x80, 0x00, 0x00, 0x00, 0x00}; // last 4 bytes are a masking key
-    std::vector<uint8_t> header (closeFrame, closeFrame + 6);
-    txbuf.insert (txbuf.end(), header.begin(), header.end());
+	txbuf.append (closeFrame, sizeof (closeFrame));
 }
 
-WebSocket* WebSocket::fromURL (const std::string& url, bool useMask, const std::string& origin)
+WebSocket* WebSocket::fromURL (const juce::String& url, bool useMask, const juce::String& origin)
 {
-    char host[512];
-    int port;
-    char path[512];
-    if (url.size() >= 512)
+	char path[512] = {0};
+	char host[512] = {0};
+    int port = 0;
+
+    if (url.length() >= 512)
 	{
-		fprintf(stderr, "ERROR: url size limit exceeded: %s\n", url.c_str());
+		fprintf(stderr, "ERROR: url size limit exceeded: %s\n", url.toRawUTF8());
 		return nullptr;
     }
-    if (origin.size() >= 200)
+    if (origin.length() >= 200)
 	{
-		fprintf(stderr, "ERROR: origin size limit exceeded: %s\n", origin.c_str());
+		fprintf(stderr, "ERROR: origin size limit exceeded: %s\n", origin.toRawUTF8());
 		return nullptr;
     }
 
     bool secure = false;
-    if (sscanf(url.c_str(), "wss://%[^:/]:%d/%s", host, &port, path) == 3)
+    if (sscanf (url.toRawUTF8(), "wss://%[^:/]:%d/%s", host, &port, path) == 3)
 	{
         secure = true;
     }
-    else if (sscanf(url.c_str(), "wss://%[^:/]/%s", host, path) == 2)
+    else if (sscanf (url.toRawUTF8(), "wss://%[^:/]/%s", host, path) == 2)
 	{
         secure = true;
         port = 443;
     }
-    else if (sscanf(url.c_str(), "wss://%[^:/]:%d", host, &port) == 2)
+    else if (sscanf (url.toRawUTF8(), "wss://%[^:/]:%d", host, &port) == 2)
 	{
         secure = true;
         path[0] = '\0';
     }
-    else if (sscanf(url.c_str(), "wss://%[^:/]", host) == 1)
+    else if (sscanf (url.toRawUTF8(), "wss://%[^:/]", host) == 1)
 	{
         secure = true;
         port = 443;
         path[0] = '\0';
     }
-    else if (sscanf(url.c_str(), "ws://%[^:/]:%d/%s", host, &port, path) == 3)
+    else if (sscanf (url.toRawUTF8(), "ws://%[^:/]:%d/%s", host, &port, path) == 3)
 	{
     }
-    else if (sscanf(url.c_str(), "ws://%[^:/]/%s", host, path) == 2)
+    else if (sscanf (url.toRawUTF8(), "ws://%[^:/]/%s", host, path) == 2)
 	{
         port = 80;
     }
-    else if (sscanf(url.c_str(), "ws://%[^:/]:%d", host, &port) == 2)
+    else if (sscanf (url.toRawUTF8(), "ws://%[^:/]:%d", host, &port) == 2)
 	{
         path[0] = '\0';
     }
-    else if (sscanf(url.c_str(), "ws://%[^:/]", host) == 1)
+    else if (sscanf (url.toRawUTF8(), "ws://%[^:/]", host) == 1)
 	{
         port = 80;
         path[0] = '\0';
     }
     else
 	{
-        fprintf(stderr, "ERROR: Could not parse WebSocket url: %s\n", url.c_str());
+        fprintf(stderr, "ERROR: Could not parse WebSocket url: %s\n", url.toRawUTF8());
         return nullptr;
     }
-    //fprintf(stderr, "easywsclient: connecting: host=%s port=%d path=/%s\n", host, port, path);
 
     auto socket = std::make_unique<gin::SecureStreamingSocket> (secure);
     if (! socket->connect (host, port))
@@ -564,29 +561,29 @@ WebSocket* WebSocket::fromURL (const std::string& url, bool useMask, const std::
         int status;
         int i;
 
-        snprintf(line, 1024, "GET /%s HTTP/1.1\r\n", path);
+        snprintf (line, 1024, "GET /%s HTTP/1.1\r\n", path);
         socket->write (line, int (strlen (line)));
 
         if (port == 80)
 		{
-            snprintf(line, 1024, "Host: %s\r\n", host);
+			snprintf (line, 1024, "Host: %s\r\n", host);
 			socket->write (line, int (strlen (line)));
 		}
         else
 		{
-            snprintf(line, 1024, "Host: %s:%d\r\n", host, port);
+			snprintf (line, 1024, "Host: %s:%d\r\n", host, port);
 			socket->write (line, int (strlen (line)));
 		}
 
-        snprintf(line, 1024, "Upgrade: websocket\r\n");
+		snprintf (line, 1024, "Upgrade: websocket\r\n");
 		socket->write (line, int (strlen (line)));
 
-        snprintf(line, 1024, "Connection: Upgrade\r\n");
+		snprintf (line, 1024, "Connection: Upgrade\r\n");
 		socket->write (line, int (strlen (line)));
 
-        if (! origin.empty())
+        if (origin.isNotEmpty())
 		{
-            snprintf(line, 1024, "Origin: %s\r\n", origin.c_str());
+			snprintf (line, 1024, "Origin: %s\r\n", origin.toRawUTF8());
 			socket->write (line, int (strlen (line)));
 		}
 
@@ -608,13 +605,13 @@ WebSocket* WebSocket::fromURL (const std::string& url, bool useMask, const std::
         line[i] = 0;
         if (i == 1023)
 		{
-            fprintf(stderr, "ERROR: Got invalid status line connecting to: %s\n", url.c_str());
+            fprintf(stderr, "ERROR: Got invalid status line connecting to: %s\n", url.toRawUTF8());
             return nullptr;
         }
 
-        if (sscanf(line, "HTTP/1.1 %d", &status) != 1 || status != 101)
+        if (sscanf (line, "HTTP/1.1 %d", &status) != 1 || status != 101)
 		{
-            fprintf(stderr, "ERROR: Got bad status connecting to %s: %s", url.c_str(), line);
+            fprintf(stderr, "ERROR: Got bad status connecting to %s: %s", url.toRawUTF8(), line);
             return nullptr;
         }
 
@@ -622,7 +619,7 @@ WebSocket* WebSocket::fromURL (const std::string& url, bool useMask, const std::
         while (true)
 		{
             for (i = 0; i < 2 || (i < 1023 && line[i-2] != '\r' && line[i-1] != '\n'); ++i)
-                if (socket->read(line+i, 1, true) == 0)
+                if (socket->read (line+i, 1, true) == 0)
                     return nullptr;
 
             if (line[0] == '\r' && line[1] == '\n')
@@ -630,17 +627,17 @@ WebSocket* WebSocket::fromURL (const std::string& url, bool useMask, const std::
         }
     }
     int flag = 1;
-    setsockopt (sockfd, IPPROTO_TCP, TCP_NODELAY, (char*) &flag, sizeof(flag)); // Disable Nagle's algorithm
+    setsockopt (sockfd, IPPROTO_TCP, TCP_NODELAY, (char*) &flag, sizeof (flag)); // Disable Nagle's algorithm
 
-    return new WebSocket(std::move (socket), useMask);
+    return new WebSocket (std::move (socket), useMask);
 }
 
-WebSocket* WebSocket::fromURL (const std::string& url, const std::string& origin)
+WebSocket* WebSocket::fromURL (const juce::String& url, const juce::String& origin)
 {
     return WebSocket::fromURL (url, true, origin);
 }
 
-WebSocket* WebSocket::fromURLNoMask (const std::string& url, const std::string& origin)
+WebSocket* WebSocket::fromURLNoMask (const juce::String& url, const juce::String& origin)
 {
     return WebSocket::fromURL (url, false, origin);
 }

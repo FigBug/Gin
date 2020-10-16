@@ -95,9 +95,9 @@ void AsyncWebsocket::processIncomingData()
     using MM = juce::MessageManager;
     juce::WeakReference<AsyncWebsocket> weakThis = this;
 
-    socket->dispatch ([this, weakThis] (const std::vector<uint8_t>& message, bool isBinary)
+    socket->dispatch ([this, weakThis] (const juce::MemoryBlock message, bool isBinary)
 	{
-		std::vector<uint8_t> messageCopy = message;
+		auto messageCopy = message;
 		MM::callAsync ([this, weakThis, messageCopy, isBinary]
 		{
 			if (weakThis != nullptr)
@@ -106,9 +106,9 @@ void AsyncWebsocket::processIncomingData()
 			   lastPing = juce::Time::getMillisecondCounterHiRes() / 1000;
 
 			   if (isBinary && onBinary)
-				   onBinary (juce::MemoryBlock (messageCopy.data(), messageCopy.size()));
+				   onBinary (messageCopy);
 			   else if (! isBinary && onText)
-				   onText (juce::String::fromUTF8 ((char*)messageCopy.data(), int (messageCopy.size())));
+				   onText (juce::String::fromUTF8 ((char*)messageCopy.getData(), int (messageCopy.getSize())));
 			}
 		});
 	});
@@ -120,25 +120,13 @@ void AsyncWebsocket::processOutgoingData()
     for (auto& data : outgoingQueue)
     {
         if (data.type == pingMsg)
-        {
             socket->sendPing();
-        }
         else if (data.type == binaryMsg)
-        {
-            std::vector<uint8_t> buf;
-            buf.insert (buf.end(), (uint8_t*)data.data.getData(), (uint8_t*)data.data.getData() + data.data.getSize());
-
-            socket->sendBinary (buf);
-        }
+            socket->sendBinary (data.data);
         else if (data.type == textMsg)
-        {
-            auto buf = data.text.toStdString();
-            socket->send (buf);
-        }
+            socket->send (data.text);
         else
-        {
             jassertfalse;
-        }
     }
     outgoingQueue.clear();
 }
