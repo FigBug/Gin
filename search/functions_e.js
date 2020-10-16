@@ -32,6 +32,7 @@ var searchData=
   ['pluginlookandfeelwrapper',['PluginLookAndFeelWrapper',['../classPluginLookAndFeelWrapper.html#a53db8e2558505885fbb70b502c64cc78',1,'PluginLookAndFeelWrapper']]],
   ['pluginslider',['PluginSlider',['../classPluginSlider.html#aa55574ec47ca63deb3b26a11d1eb8135',1,'PluginSlider']]],
   ['pointatangle',['pointAtAngle',['../classEllipse.html#a3c06d858ff75d57003c5336680e0d805',1,'Ellipse']]],
+  ['poll',['poll',['../classWebSocket.html#a785d925bd20d28b752313cc02991186e',1,'WebSocket']]],
   ['popaudiobuffer',['popAudioBuffer',['../classResamplingFifo.html#a18fbc4f4369ffdddc6ceacbb95b7997e',1,'ResamplingFifo']]],
   ['positioncomboboxtext',['positionComboBoxText',['../classGinLookAndFeel.html#af9f9187b11f3e290fab683fc65cfb914',1,'GinLookAndFeel::positionComboBoxText()'],['../classCopperLookAndFeel.html#ab3a0479798b3522015708a40ec018844',1,'CopperLookAndFeel::positionComboBoxText()']]],
   ['powerbutton',['PowerButton',['../classPowerButton.html#a1bc34438020441f421334d0460f325e9',1,'PowerButton']]],

@@ -19,6 +19,7 @@ var searchData=
   ['filter1',['filter1',['../structHP24State.html#a155f66fcce4f834299723b0e17f45a08',1,'HP24State::filter1()'],['../structBP24State.html#a7a1b21ac3db5d5807079ffe80ae60c24',1,'BP24State::filter1()'],['../structLP24State.html#a8aaae7ba5553a0bc1880ea6fe340f1b7',1,'LP24State::filter1()'],['../structNotch24State.html#a83e85d85ead1d78d699c64f2f6afd4ec',1,'Notch24State::filter1()']]],
   ['filter2',['filter2',['../structHP24State.html#a50cf6b5b1abc8cde792a5ef60de47bd3',1,'HP24State::filter2()'],['../structBP24State.html#a02c9da59417956981fef2420eafcdd7a',1,'BP24State::filter2()'],['../structLP24State.html#abc4ac3ff59b983b6cfaae11af5cc584f',1,'LP24State::filter2()'],['../structNotch24State.html#a26f1a87b361e824a526ddc3be30e7523',1,'Notch24State::filter2()']]],
   ['filternewtext',['filterNewText',['../classSingleLineTextEditor_1_1InputFilter.html#a9f92ce46cd2c3aa2eaf1a5b0734af0df',1,'SingleLineTextEditor::InputFilter::filterNewText()'],['../classSingleLineTextEditor_1_1LengthAndCharacterRestriction.html#a267b86a047f037c1b84d32bf32c2b6d9',1,'SingleLineTextEditor::LengthAndCharacterRestriction::filterNewText()']]],
+  ['fin',['fin',['../structWSHeaderType.html#ac7dd766ad7ca4f9b86b69d895ed504d3',1,'WSHeaderType']]],
   ['findchildofclass',['findChildOfClass',['../classValueTreeObject.html#a872c180f78dd75884192baba68011ee6',1,'ValueTreeObject']]],
   ['findchildrenofclass',['findChildrenOfClass',['../classValueTreeObject.html#ac5938920794ba2e6acceb5e85c820efa',1,'ValueTreeObject']]],
   ['findparentoftype',['findParentOfType',['../classValueTreeObject.html#a65139d476b9d199ba0f29cffe89ca67c',1,'ValueTreeObject']]],
@@ -33,6 +34,8 @@ var searchData=
   ['frequency',['frequency',['../structOscState.html#ad30997798f5740bd5ae504cb75db1223',1,'OscState::frequency()'],['../classGateEffect.html#ac66d3981997f43a37900bd2e549b083c',1,'GateEffect::frequency()'],['../structLFO_1_1Parameters.html#a69abbc2714aacf8d32fc515b46c39c1e',1,'LFO::Parameters::frequency()']]],
   ['fromfile',['fromFile',['../classSample.html#a6ad98110e9ccc23c8ae9d9fe7f7914f9',1,'Sample']]],
   ['fromnote',['fromNote',['../structGlideInfo.html#a7c71430c47f2873746b054f468ac0b15',1,'GlideInfo']]],
+  ['fromurl',['fromURL',['../classWebSocket.html#a1ced960f25b3868e2a2dc6c9b89af18e',1,'WebSocket::fromURL(const std::string &amp;url, const std::string &amp;origin=std::string())'],['../classWebSocket.html#ab4f26374803c171129261a8e9c312f37',1,'WebSocket::fromURL(const std::string &amp;url, bool useMask, const std::string &amp;origin)']]],
+  ['fromurlnomask',['fromURLNoMask',['../classWebSocket.html#a20d3a8809f32e19f2050186535e651aa',1,'WebSocket']]],
   ['funcstate',['FuncState',['../structFuncState.html',1,'FuncState'],['../structFuncState.html#a1a37453451c69ef86bd1c1f07d970c81',1,'FuncState::FuncState()']]],
   ['funcstates',['funcStates',['../classAudioFunctionHost.html#aa8b5235e076cae5d2c28443fe8ba1ca5',1,'AudioFunctionHost']]]
 ];

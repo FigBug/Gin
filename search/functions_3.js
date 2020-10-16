@@ -11,6 +11,7 @@ var searchData=
   ['deleteprogram',['deleteProgram',['../classProcessor.html#aac9dc03295d9a5a991bc725d9f4bbde7',1,'Processor']]],
   ['disablelearn',['disableLearn',['../classModMatrix.html#a43c4fb3d9ece3cd9b2af6495379dc2f6',1,'ModMatrix']]],
   ['disconnect',['disconnect',['../classAsyncWebsocket.html#a6cff60be7eb74cdf9dcc03b488ca0558',1,'AsyncWebsocket']]],
+  ['dispatch',['dispatch',['../classWebSocket.html#aeff0fcdcc77732a0b53672841dc69ae7',1,'WebSocket']]],
   ['displaytocoordinate',['displayToCoordinate',['../classOpenStreetMaps.html#a2bc213d08b553d19a929faf9890f3717',1,'OpenStreetMaps']]],
   ['distortion',['Distortion',['../classDistortion.html#af712b1eb22bc79f96a2febc3e21b859a',1,'Distortion']]],
   ['downloadmanager',['DownloadManager',['../classDownloadManager.html#a39f2f1950cfb9d84da7f8c73e1207575',1,'DownloadManager']]],

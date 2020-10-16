@@ -8,6 +8,7 @@ var searchData=
   ['haserror',['hasError',['../classEquationParser.html#a267ea42024ab4404885d6549c46b5298',1,'EquationParser']]],
   ['hasprogram',['hasProgram',['../classProcessor.html#ad78ac9883a5b0ccabf449861aa86c071',1,'Processor']]],
   ['havedata',['haveData',['../classLinearRegression.html#ab0d8b0bd896a4ac1a6d0fad86d5de10b',1,'LinearRegression']]],
+  ['header_5fsize',['header_size',['../structWSHeaderType.html#ae61a7f14521c6529a754c0b414c2e6e5',1,'WSHeaderType']]],
   ['headerheight',['headerHeight',['../classProcessorEditorBase.html#abc8ed784a5fcb7e1efe3f1dc63348f82',1,'ProcessorEditorBase']]],
   ['headers',['headers',['../structHttp_1_1HttpResult.html#a663dee713583fca5be89fab8eddd3293',1,'Http::HttpResult']]],
   ['helpbutton',['helpButton',['../classProcessorEditor.html#ac0179edab40d65e113632b728d0b0c86',1,'ProcessorEditor']]],

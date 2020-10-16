@@ -24,7 +24,7 @@ var searchData=
   ['clearqueue',['clearQueue',['../classOpenStreetMaps.html#a4f3e70e9d0b31ca0d7c0669016da2f4f',1,'OpenStreetMaps']]],
   ['clicked',['clicked',['../classPluginButton.html#a5a8bc6d21639253463b285091b3ff1e3',1,'PluginButton']]],
   ['clip',['clip',['../group__gin__dsp-dsp.html#ga80d41603f74938619f0af6e8007f5944',1,'gin_audioutil.h']]],
-  ['close',['close',['../classSecureStreamingSocket.html#ae57da84b07292822018a7a3e1f3dd903',1,'SecureStreamingSocket']]],
+  ['close',['close',['../classSecureStreamingSocket.html#ae57da84b07292822018a7a3e1f3dd903',1,'SecureStreamingSocket::close()'],['../classWebSocket.html#abef10acf60b4d5b87399e6f9c5ad808d',1,'WebSocket::close()']]],
   ['coalescedtimer',['CoalescedTimer',['../classCoalescedTimer.html#ad9d1190d2207b8c651f7daabe749e65e',1,'CoalescedTimer']]],
   ['colourchanged',['colourChanged',['../classSingleLineTextEditor.html#aa399bbb7a5f8b4e80d39b66700ca720c',1,'SingleLineTextEditor']]],
   ['colourpropertycomponent',['ColourPropertyComponent',['../classColourPropertyComponent.html#abc15e762c997ac76cac786201b8db2d2',1,'ColourPropertyComponent']]],

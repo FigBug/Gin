@@ -1530,6 +1530,13 @@
     <class kind="class">WaveformComponent</class>
   </compound>
   <compound kind="file">
+    <name>gin_websocket.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_network/network/</path>
+    <filename>gin__websocket_8h</filename>
+    <class kind="struct">WSHeaderType</class>
+    <class kind="class">WebSocket</class>
+  </compound>
+  <compound kind="file">
     <name>gin_wtoscillators.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
     <filename>gin__wtoscillators_8h</filename>
@@ -6271,45 +6278,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>SingleLineTextEditor::Listener</name>
-    <filename>classSingleLineTextEditor_1_1Listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
-      <anchor>af52267b829ff17fd4e36d3a8dc8d99ff</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>sltextEditorTextChanged</name>
-      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
-      <anchor>a7991331aa8048236d763b2482461a5a6</anchor>
-      <arglist>(SingleLineTextEditor &amp;)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>sltextEditorReturnKeyPressed</name>
-      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
-      <anchor>a2a4144e3e91e38142f9498eb66c180e6</anchor>
-      <arglist>(SingleLineTextEditor &amp;)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>sltextEditorEscapeKeyPressed</name>
-      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
-      <anchor>ae23dbf95e2aada75cb3f513d393b965d</anchor>
-      <arglist>(SingleLineTextEditor &amp;)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>sltextEditorFocusLost</name>
-      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
-      <anchor>a9b377e28f1ec65c2a9864f1c08964af3</anchor>
-      <arglist>(SingleLineTextEditor &amp;)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>ModMatrix::Listener</name>
     <filename>classModMatrix_1_1Listener.html</filename>
     <member kind="function" virtualness="virtual">
@@ -6393,6 +6361,45 @@
       <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
       <anchor>a5a86659b291d99adbe0af1a30fdfe383</anchor>
       <arglist>(int zoom, int x, int y)=0</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>SingleLineTextEditor::Listener</name>
+    <filename>classSingleLineTextEditor_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
+      <anchor>af52267b829ff17fd4e36d3a8dc8d99ff</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>sltextEditorTextChanged</name>
+      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
+      <anchor>a7991331aa8048236d763b2482461a5a6</anchor>
+      <arglist>(SingleLineTextEditor &amp;)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>sltextEditorReturnKeyPressed</name>
+      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
+      <anchor>a2a4144e3e91e38142f9498eb66c180e6</anchor>
+      <arglist>(SingleLineTextEditor &amp;)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>sltextEditorEscapeKeyPressed</name>
+      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
+      <anchor>ae23dbf95e2aada75cb3f513d393b965d</anchor>
+      <arglist>(SingleLineTextEditor &amp;)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>sltextEditorFocusLost</name>
+      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
+      <anchor>a9b377e28f1ec65c2a9864f1c08964af3</anchor>
+      <arglist>(SingleLineTextEditor &amp;)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -12362,6 +12369,158 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>WebSocket</name>
+    <filename>classWebSocket.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>ReadyStateValues</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>a452bcfacd2ce0567751e44f891dd1489</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>CLOSING</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>a452bcfacd2ce0567751e44f891dd1489a33e319b209babd422a32b44460e161f4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>CLOSED</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>a452bcfacd2ce0567751e44f891dd1489adc1345c2f003ed355a242dd7079e674e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>OPEN</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>a452bcfacd2ce0567751e44f891dd1489ac928a123dad06890355c7b4197053358</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>CLOSING</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>a452bcfacd2ce0567751e44f891dd1489a33e319b209babd422a32b44460e161f4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>CLOSED</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>a452bcfacd2ce0567751e44f891dd1489adc1345c2f003ed355a242dd7079e674e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>OPEN</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>a452bcfacd2ce0567751e44f891dd1489ac928a123dad06890355c7b4197053358</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~WebSocket</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>a48afbe9b82fde4479913a1b931444729</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>readIncoming</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>a2aef88773975bba1375290597806bc39</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>poll</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>a785d925bd20d28b752313cc02991186e</anchor>
+      <arglist>(int timeout=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>interrupt</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>aef129b6cbfac2f1b4e9b97247d6461b5</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>send</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>a6a17081724ba19e6644521745adb6d04</anchor>
+      <arglist>(const std::string &amp;message)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>sendBinary</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>a9940c432b3a913b21836930063b5ca65</anchor>
+      <arglist>(const std::string &amp;message)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>sendBinary</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>a436d3368d2a5b9b4d053113206203f42</anchor>
+      <arglist>(const std::vector&lt; uint8_t &gt; &amp;message)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>sendPing</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>ada4b76033e5fa73b3b76dd0a5b32de03</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>close</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>abef10acf60b4d5b87399e6f9c5ad808d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>ReadyStateValues</type>
+      <name>getReadyState</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>ab64f7a28ecefa78a3143d499341ca585</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>dispatch</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>aeff0fcdcc77732a0b53672841dc69ae7</anchor>
+      <arglist>(std::function&lt; void(const std::vector&lt; uint8_t &gt; &amp;message, bool isBinary)&gt; callback)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static WebSocket *</type>
+      <name>fromURL</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>a1ced960f25b3868e2a2dc6c9b89af18e</anchor>
+      <arglist>(const std::string &amp;url, const std::string &amp;origin=std::string())</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static WebSocket *</type>
+      <name>fromURLNoMask</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>a20d3a8809f32e19f2050186535e651aa</anchor>
+      <arglist>(const std::string &amp;url, const std::string &amp;origin=std::string())</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static WebSocket *</type>
+      <name>fromURL</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>ab4f26374803c171129261a8e9c312f37</anchor>
+      <arglist>(const std::string &amp;url, bool useMask, const std::string &amp;origin)</arglist>
+    </member>
+    <member kind="variable">
+      <type>ReadyStateValues</type>
+      <name>readyStateValues</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>a752b8c43bb821039435c92823261bd6d</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>WetDryMix</name>
     <filename>classWetDryMix.html</filename>
     <member kind="function">
@@ -12391,6 +12550,138 @@
       <anchorfile>classWetDryMix.html</anchorfile>
       <anchor>a56424d33affe35b8fda304af339ed787</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>WSHeaderType</name>
+    <filename>structWSHeaderType.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>Opcode</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>ac1906191ac337fdbecbe643184fbd3b3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>CONTINUATION</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>ac1906191ac337fdbecbe643184fbd3b3a281dd9cfd2da201efff9e0e33950c593</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>TEXT_FRAME</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>ac1906191ac337fdbecbe643184fbd3b3a44b257e3d1f0e6e8ee821d8ce460cea2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>BINARY_FRAME</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>ac1906191ac337fdbecbe643184fbd3b3a1ed79e07a2c73eaa0cc27ca3348dc8cc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>CLOSE</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>ac1906191ac337fdbecbe643184fbd3b3a595b1cfbd1c8acb916bf1bb6dcb8de9c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>PING</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>ac1906191ac337fdbecbe643184fbd3b3a5b3e1bd1c7c96b5ba780ee84ddf37117</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>PONG</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>ac1906191ac337fdbecbe643184fbd3b3a90905d922e4dcd25b14950537e85e311</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>CONTINUATION</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>ac1906191ac337fdbecbe643184fbd3b3a281dd9cfd2da201efff9e0e33950c593</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>TEXT_FRAME</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>ac1906191ac337fdbecbe643184fbd3b3a44b257e3d1f0e6e8ee821d8ce460cea2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>BINARY_FRAME</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>ac1906191ac337fdbecbe643184fbd3b3a1ed79e07a2c73eaa0cc27ca3348dc8cc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>CLOSE</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>ac1906191ac337fdbecbe643184fbd3b3a595b1cfbd1c8acb916bf1bb6dcb8de9c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>PING</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>ac1906191ac337fdbecbe643184fbd3b3a5b3e1bd1c7c96b5ba780ee84ddf37117</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>PONG</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>ac1906191ac337fdbecbe643184fbd3b3a90905d922e4dcd25b14950537e85e311</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>unsigned</type>
+      <name>header_size</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>ae61a7f14521c6529a754c0b414c2e6e5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>fin</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>ac7dd766ad7ca4f9b86b69d895ed504d3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>mask</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>aa436b6fcc692f760eb348b921409d8f4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Opcode</type>
+      <name>opcode</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>afbb7bd8db39bf2a68e8055e7d2f0c4db</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>N0</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>a6c084039602e19593f16e198194258ea</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>uint64_t</type>
+      <name>N</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>a280de6932d75f1d0b3f5687f839d4e92</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>uint8_t</type>
+      <name>masking_key</name>
+      <anchorfile>structWSHeaderType.html</anchorfile>
+      <anchor>aaf830be2305c270185628430337c50b1</anchor>
+      <arglist>[4]</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -12667,46 +12958,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-    <class kind="class">DynamicsMeter</class>
-    <class kind="class">LevelMeter</class>
-    <class kind="class">TriggeredScope</class>
-    <class kind="class">WaveformComponent</class>
-    <class kind="class">XYScope</class>
-  </compound>
-  <compound kind="group">
-    <name>gin-components</name>
-    <title>components</title>
-    <filename>group__gin-components.html</filename>
-    <class kind="class">ComponentViewer</class>
-    <class kind="class">GinLookAndFeel</class>
-    <class kind="class">MapViewer</class>
-    <class kind="class">PropertyComponentBase</class>
-    <class kind="class">FilePropertyComponent</class>
-    <class kind="class">ColourPropertyComponent</class>
-    <class kind="class">SingleLineTextEditor</class>
-    <class kind="struct">SingleLineTextEditor::LookAndFeelMethods</class>
-    <class kind="class">SingleLineTextEditor::LengthAndCharacterRestriction</class>
-    <class kind="class">SingleLineTextEditor::InputFilter</class>
-    <class kind="class">SingleLineTextEditor::Listener</class>
-    <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin-components.html</anchorfile>
-      <anchor>gaae3a1137955ae87c67a9fec3fa385d2d</anchor>
-      <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component *&gt; children)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin-components.html</anchorfile>
-      <anchor>gab38420a664c643212724d4a1d9b162f8</anchor>
-      <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component *&gt; children)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
     <name>gin_plugin-components</name>
     <title>components</title>
     <filename>group__gin__plugin-components.html</filename>
@@ -12758,6 +13009,46 @@
       <anchorfile>group__gin__plugin-components.html</anchorfile>
       <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
       <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
+    <class kind="class">DynamicsMeter</class>
+    <class kind="class">LevelMeter</class>
+    <class kind="class">TriggeredScope</class>
+    <class kind="class">WaveformComponent</class>
+    <class kind="class">XYScope</class>
+  </compound>
+  <compound kind="group">
+    <name>gin-components</name>
+    <title>components</title>
+    <filename>group__gin-components.html</filename>
+    <class kind="class">ComponentViewer</class>
+    <class kind="class">GinLookAndFeel</class>
+    <class kind="class">MapViewer</class>
+    <class kind="class">PropertyComponentBase</class>
+    <class kind="class">FilePropertyComponent</class>
+    <class kind="class">ColourPropertyComponent</class>
+    <class kind="class">SingleLineTextEditor</class>
+    <class kind="struct">SingleLineTextEditor::LookAndFeelMethods</class>
+    <class kind="class">SingleLineTextEditor::LengthAndCharacterRestriction</class>
+    <class kind="class">SingleLineTextEditor::InputFilter</class>
+    <class kind="class">SingleLineTextEditor::Listener</class>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin-components.html</anchorfile>
+      <anchor>gaae3a1137955ae87c67a9fec3fa385d2d</anchor>
+      <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component *&gt; children)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin-components.html</anchorfile>
+      <anchor>gab38420a664c643212724d4a1d9b162f8</anchor>
+      <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component *&gt; children)</arglist>
     </member>
   </compound>
   <compound kind="group">
@@ -13341,6 +13632,8 @@
     <class kind="class">Http</class>
     <class kind="struct">Http::HttpResult</class>
     <class kind="class">SecureStreamingSocket</class>
+    <class kind="struct">WSHeaderType</class>
+    <class kind="class">WebSocket</class>
   </compound>
   <compound kind="group">
     <name>gin_plugin-plugin</name>

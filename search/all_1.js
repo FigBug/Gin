@@ -12,6 +12,7 @@ var searchData=
   ['barlowthin_5fttfsize',['BarlowThin_ttfSize',['../namespaceResources.html#ae17a5aae2e3106082be4c8b5d3e61bf9',1,'Resources']]],
   ['beginuseraction',['beginUserAction',['../classParameter.html#a4835756858c197a20d3eeb1e88d11f7d',1,'Parameter']]],
   ['beginusertimedaction',['beginUserTimedAction',['../classParameter.html#aa76ca1fc6f05803166264b33e0546bf4',1,'Parameter']]],
+  ['binary_5fframe',['BINARY_FRAME',['../structWSHeaderType.html#ac1906191ac337fdbecbe643184fbd3b3a1ed79e07a2c73eaa0cc27ca3348dc8cc',1,'WSHeaderType']]],
   ['blackcolourid',['blackColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6ac7411db48774329c05a27e414ee24595',1,'GinLookAndFeel']]],
   ['blendmode',['BlendMode',['../group__gin-images.html#ga30323fa90e24ca484998b9fba6c40e85',1,'gin_imageeffects.h']]],
   ['blltvoicedstereooscillator',['BLLTVoicedStereoOscillator',['../classBLLTVoicedStereoOscillator.html',1,'BLLTVoicedStereoOscillator'],['../classBLLTVoicedStereoOscillator.html#a91580541e11d22946ec60278e65835ea',1,'BLLTVoicedStereoOscillator::BLLTVoicedStereoOscillator()']]],

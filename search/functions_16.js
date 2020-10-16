@@ -56,6 +56,7 @@ var searchData=
   ['_7etriggeredscope',['~TriggeredScope',['../classTriggeredScope.html#a721552b49d9c8dbc2522d2b4221ad997',1,'TriggeredScope']]],
   ['_7eupdatechecker',['~UpdateChecker',['../classUpdateChecker.html#aafcf15d0614046579e621995b19df9bd',1,'UpdateChecker']]],
   ['_7ewaveformcomponent',['~WaveformComponent',['../classWaveformComponent.html#aa76bc8cf5e62496dd762857730c66768',1,'WaveformComponent']]],
+  ['_7ewebsocket',['~WebSocket',['../classWebSocket.html#a48afbe9b82fde4479913a1b931444729',1,'WebSocket']]],
   ['_7exmpmetadata',['~XmpMetadata',['../classXmpMetadata.html#a2e38bf250cc3ebbb60e290ce041017e7',1,'XmpMetadata']]],
   ['_7exyscope',['~XYScope',['../classXYScope.html#a53af5ce97964c41b051e2396cd9a6bec',1,'XYScope']]]
 ];

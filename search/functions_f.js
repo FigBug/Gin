@@ -4,6 +4,7 @@ var searchData=
   ['read',['read',['../classAudioFifo.html#a069465c3976a0dc32e785babe6532898',1,'AudioFifo::read(juce::AudioSampleBuffer &amp;dest)'],['../classAudioFifo.html#a2430de299a81f6ac03cd0200590a455a',1,'AudioFifo::read(juce::AudioSampleBuffer &amp;dest, int startSampleInDestBuffer, int numSamples)'],['../classMidiFifo.html#aa5502294f13bc7c5440cda2f0e7b2abf',1,'MidiFifo::read()'],['../classSample.html#afa908998646ca749fe3474d90f747df2',1,'Sample::read()'],['../classSampleOscillator.html#aa22fc5c8f2ec429eab3d42e6a6524923',1,'SampleOscillator::read()'],['../classSecureStreamingSocket.html#a09004131d1a2795ff2f9583c0b596d83',1,'SecureStreamingSocket::read()']]],
   ['readadding',['readAdding',['../classAudioFifo.html#adba2109354e5ae31b9ea6214512623d1',1,'AudioFifo::readAdding(juce::AudioSampleBuffer &amp;dest)'],['../classAudioFifo.html#ade7b74334094b86983e5deaf2dd11e47',1,'AudioFifo::readAdding(juce::AudioSampleBuffer &amp;dest, int startSampleInDestBuffer, int numSamples)']]],
   ['readentirebinarystream',['readEntireBinaryStream',['../classAsyncDownload.html#a6a2cf5b219b333b02b2965dfdafde699',1,'AsyncDownload']]],
+  ['readincoming',['readIncoming',['../classWebSocket.html#a2aef88773975bba1375290597806bc39',1,'WebSocket']]],
   ['readlinear',['readLinear',['../classDelayLine.html#a2d418fd7a015aa7518c3adf46e978d8e',1,'DelayLine']]],
   ['readmono',['readMono',['../classAudioFifo.html#a8fbc006a7362cca45d85fba09fd5969e',1,'AudioFifo']]],
   ['readout',['Readout',['../classReadout.html#a06ee0c5ad849b4d2940bd31d3a81eb6e',1,'Readout']]],

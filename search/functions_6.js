@@ -77,6 +77,7 @@ var searchData=
   ['getprogramname',['getProgramName',['../classProcessor.html#ae58f2ae2b4b20a3fa4c9981df3e336d3',1,'Processor']]],
   ['getprograms',['getPrograms',['../classProcessor.html#a04c4c0dca9f2560f99adea0ee7618db8',1,'Processor']]],
   ['getrawsockethandle',['getRawSocketHandle',['../classSecureStreamingSocket.html#a8d6d63b2c24572b03848be577bb1efb5',1,'SecureStreamingSocket']]],
+  ['getreadystate',['getReadyState',['../classWebSocket.html#ab64f7a28ecefa78a3143d499341ca585',1,'WebSocket']]],
   ['getreductiontracker',['getReductionTracker',['../classDynamics.html#a530bce32f3097ec92e28547dc09130e2',1,'Dynamics']]],
   ['getrootnote',['getRootNote',['../classSample.html#abe1e1e9fc398382c019ca15249cc13c4',1,'Sample']]],
   ['getsamplerate',['getSampleRate',['../classBandLimitedLookupTables.html#a82d39f6516c342b2ff3e5f08c7be21c3',1,'BandLimitedLookupTables::getSampleRate()'],['../classSample.html#a6c25a4367bb3f7e3ec986e96c2472015',1,'Sample::getSampleRate()']]],

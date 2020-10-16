@@ -6,6 +6,7 @@ var searchData=
   ['waveformcomponent',['WaveformComponent',['../classWaveformComponent.html',1,'WaveformComponent'],['../classWaveformComponent.html#a5ea719fe0ab7464f7411fb5ec4eb5d4b',1,'WaveformComponent::WaveformComponent()']]],
   ['waveshape',['waveShape',['../structLFO_1_1Parameters.html#a5128a3dd3bf6a99e901bff2e962bdc81',1,'LFO::Parameters::waveShape()'],['../classLFO.html#a9377c9fb47d163e9343a11edd200da29',1,'LFO::WaveShape()']]],
   ['wavetable',['wavetable',['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a6f0316b89c2034b8fabe6d3e48f15bbf',1,'gin_bandlimitedlookuptable.h']]],
+  ['websocket',['WebSocket',['../classWebSocket.html',1,'']]],
   ['wetdrymix',['WetDryMix',['../classWetDryMix.html',1,'WetDryMix'],['../classWetDryMix.html#a31c06ff0212820a3b2b93571ef54127c',1,'WetDryMix::WetDryMix()']]],
   ['wetgain',['wetGain',['../classWetDryMix.html#ab3f2edb9437368c6f3d87e51a64a3f2d',1,'WetDryMix']]],
   ['whitecolourid',['whiteColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a73a50ed25cfa50172870d472227fc137',1,'GinLookAndFeel']]],
@@ -14,6 +15,7 @@ var searchData=
   ['writeimagetostream',['writeImageToStream',['../classBMPImageFormat.html#a7aa7a97cf8a3e5724bc61550ce7c8881',1,'BMPImageFormat']]],
   ['writemono',['writeMono',['../classAudioFifo.html#a8a2f35a383ee1e3074491dfc6f510e59',1,'AudioFifo']]],
   ['writepos',['writePos',['../classDelayLine.html#a277d65ab60f42d22f55d48596412c897',1,'DelayLine']]],
+  ['wsheadertype',['WSHeaderType',['../structWSHeaderType.html',1,'']]],
   ['wtoscillator',['WTOscillator',['../classWTOscillator.html',1,'WTOscillator'],['../classWTOscillator.html#a16fdc8afe3d72d02755d37bb13aa3dad',1,'WTOscillator::WTOscillator()']]],
   ['wtvoicedstereooscillator',['WTVoicedStereoOscillator',['../classWTVoicedStereoOscillator.html',1,'WTVoicedStereoOscillator'],['../classWTVoicedStereoOscillator.html#a8db7ce7f1c1f034e9f3d38119ed1325d',1,'WTVoicedStereoOscillator::WTVoicedStereoOscillator()']]]
 ];

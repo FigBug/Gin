@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['result',['Result',['../classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30f',1,'ElevatedFileCopy']]]
+  ['opcode',['Opcode',['../structWSHeaderType.html#ac1906191ac337fdbecbe643184fbd3b3',1,'WSHeaderType']]]
 ];

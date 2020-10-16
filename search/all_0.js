@@ -72,6 +72,6 @@ var searchData=
   ['audiofunctionhost',['AudioFunctionHost',['../classAudioFunctionHost.html',1,'']]],
   ['author',['author',['../classProgram.html#a98dafb9ef18422b1a03261697b874194',1,'Program']]],
   ['authors',['authors',['../classPatchBrowser.html#a1becbf2ecebca6e5a2ba2533b619b952',1,'PatchBrowser']]],
-  ['authorsmodel',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser::AuthorsModel'],['../structPatchBrowser_1_1AuthorsModel.html#a5b1e9a0aee87d3623f78db4126fcab3e',1,'PatchBrowser::AuthorsModel::AuthorsModel()'],['../classPatchBrowser.html#a62a7cf5ab56615e84109ced00beb6dcb',1,'PatchBrowser::authorsModel()']]],
+  ['authorsmodel',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser::AuthorsModel'],['../classPatchBrowser.html#a62a7cf5ab56615e84109ced00beb6dcb',1,'PatchBrowser::authorsModel()'],['../structPatchBrowser_1_1AuthorsModel.html#a5b1e9a0aee87d3623f78db4126fcab3e',1,'PatchBrowser::AuthorsModel::AuthorsModel()']]],
   ['average',['average',['../classRollingAverage.html#a941797e5f59cbdfce52faa655bd1b7f3',1,'RollingAverage::average()'],['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f',1,'Average():&#160;gin_imageeffects.h']]]
 ];

@@ -15,6 +15,7 @@ var searchData=
   ['interpolate',['interpolate',['../classSpline.html#ac1f059b0c61e23b88d7939a27fd40b5c',1,'Spline::interpolate()'],['../namespaceLagrange.html#aef304874a67d1c0e4fa39605d2e19b03',1,'Lagrange::interpolate(const juce::Array&lt; juce::Point&lt; T &gt;&gt; &amp;points, T x)'],['../namespaceLagrange.html#ab812f4c6079c4c45b43e56239c3634d4',1,'Lagrange::interpolate(T xArr[], T yArr[], int num, T x)']]],
   ['interregular_5fotf',['InterRegular_otf',['../namespaceResources.html#a821eb0a806b852016c53ab6151f00d3d',1,'Resources']]],
   ['interregular_5fotfsize',['InterRegular_otfSize',['../namespaceResources.html#af4f0aa394cb30c14c4306162f0d5e6d4',1,'Resources']]],
+  ['interrupt',['interrupt',['../classWebSocket.html#aef129b6cbfac2f1b4e9b97247d6461b5',1,'WebSocket']]],
   ['iptcmetadata',['IptcMetadata',['../classIptcMetadata.html',1,'IptcMetadata'],['../classIptcMetadata.html#a496280ef9815903894104ab237831523',1,'IptcMetadata::IptcMetadata()']]],
   ['isautomatable',['isAutomatable',['../classParameter.html#aee892abdf7a0df0dd2a4ba4f7371a6a6',1,'Parameter']]],
   ['iscaretvisible',['isCaretVisible',['../classSingleLineTextEditor.html#a0b0f9a73a53caa43db1bd61aafee94a7',1,'SingleLineTextEditor']]],
