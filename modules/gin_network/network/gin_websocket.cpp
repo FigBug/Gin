@@ -92,10 +92,10 @@ static int dumb_socketpair(SOCKET socks[2], int make_overlapped)
 // |                     Payload Data continued ...                |
 // +---------------------------------------------------------------+
 
-WebSocket::WebSocket (std::unique_ptr<gin::SecureStreamingSocket>&& socket_, bool useMask)
+WebSocket::WebSocket (std::unique_ptr<gin::SecureStreamingSocket>&& socket_, bool useMask_)
     : socket (std::move (socket_))
     , sockfd (socket->getRawSocketHandle())
-    , useMask(useMask)
+    , useMask (useMask_)
 {
 	jassert (socket != nullptr);
    #ifdef _WIN32
@@ -158,7 +158,7 @@ bool WebSocket::readIncoming()
         }
         else
 		{
-            rxbuf.resize (size_t (N + ret));
+            rxbuf.resize (N + size_t (ret));
             foundData = true;
         }
     }
@@ -308,10 +308,10 @@ void WebSocket::dispatch (std::function<void (const std::vector<uint8_t>& messag
         }
         if (ws.mask)
 		{
-            ws.masking_key[0] = ((uint8_t) data[i+0]) << 0;
-            ws.masking_key[1] = ((uint8_t) data[i+1]) << 0;
-            ws.masking_key[2] = ((uint8_t) data[i+2]) << 0;
-            ws.masking_key[3] = ((uint8_t) data[i+3]) << 0;
+            ws.masking_key[0] = (uint8_t) (((uint8_t) data[i+0]) << 0);
+            ws.masking_key[1] = (uint8_t) (((uint8_t) data[i+1]) << 0);
+            ws.masking_key[2] = (uint8_t) (((uint8_t) data[i+2]) << 0);
+            ws.masking_key[3] = (uint8_t) (((uint8_t) data[i+3]) << 0);
         }
         else
 		{
@@ -334,25 +334,32 @@ void WebSocket::dispatch (std::function<void (const std::vector<uint8_t>& messag
         )
 		{
             isBinary = (ws.opcode == WSHeaderType::BINARY_FRAME);
-            if (ws.mask) { for (size_t i = 0; i != ws.N; ++i) { rxbuf[i+ws.header_size] ^= ws.masking_key[i&0x3]; } }
-            receivedData.insert(receivedData.end(), rxbuf.begin()+ws.header_size, rxbuf.begin()+ws.header_size+(size_t)ws.N);// just feed
-            if (ws.fin) {
-                callback((const std::vector<uint8_t>) receivedData, isBinary);
-                receivedData.erase(receivedData.begin(), receivedData.end());
-                std::vector<uint8_t> ().swap(receivedData);// free memory
+            if (ws.mask)
+			{
+				for (size_t j = 0; j != ws.N; ++j)
+				{
+					rxbuf[j + ws.header_size] ^= ws.masking_key[j & 0x3];
+				}
+			}
+            receivedData.insert (receivedData.end(), rxbuf.begin() + ws.header_size, rxbuf.begin() + long (ws.header_size + ws.N));// just feed
+            if (ws.fin)
+			{
+                callback ((const std::vector<uint8_t>) receivedData, isBinary);
+                receivedData.erase (receivedData.begin(), receivedData.end());
+                std::vector<uint8_t> ().swap (receivedData);// free memory
             }
         }
         else if (ws.opcode == WSHeaderType::PING)
 		{
             if (ws.mask)
 			{
-				for (size_t i = 0; i != ws.N; ++i)
+				for (size_t j = 0; j != ws.N; ++j)
 				{
-					rxbuf[i+ws.header_size] ^= ws.masking_key[i&0x3];
+					rxbuf[j + ws.header_size] ^= ws.masking_key[j & 0x3];
 				}
 			}
-            std::string data(rxbuf.begin()+ws.header_size, rxbuf.begin()+ws.header_size+(size_t)ws.N);
-            sendData(WSHeaderType::PONG, data);
+            std::string pongData (rxbuf.begin() + ws.header_size, rxbuf.begin() + long (ws.header_size + ws.N));
+            sendData (WSHeaderType::PONG, pongData);
         }
         else if (ws.opcode == WSHeaderType::PONG)
 		{
@@ -368,7 +375,7 @@ void WebSocket::dispatch (std::function<void (const std::vector<uint8_t>& messag
 			close();
 		}
 
-        rxbuf.erase (rxbuf.begin(), rxbuf.begin() + ws.header_size + (size_t)ws.N);
+        rxbuf.erase (rxbuf.begin(), rxbuf.begin() + long (ws.header_size + ws.N));
     }
 }
 
