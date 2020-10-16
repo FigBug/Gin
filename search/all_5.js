@@ -34,8 +34,8 @@ var searchData=
   ['frequency',['frequency',['../structOscState.html#ad30997798f5740bd5ae504cb75db1223',1,'OscState::frequency()'],['../classGateEffect.html#ac66d3981997f43a37900bd2e549b083c',1,'GateEffect::frequency()'],['../structLFO_1_1Parameters.html#a69abbc2714aacf8d32fc515b46c39c1e',1,'LFO::Parameters::frequency()']]],
   ['fromfile',['fromFile',['../classSample.html#a6ad98110e9ccc23c8ae9d9fe7f7914f9',1,'Sample']]],
   ['fromnote',['fromNote',['../structGlideInfo.html#a7c71430c47f2873746b054f468ac0b15',1,'GlideInfo']]],
-  ['fromurl',['fromURL',['../classWebSocket.html#a1ced960f25b3868e2a2dc6c9b89af18e',1,'WebSocket::fromURL(const std::string &amp;url, const std::string &amp;origin=std::string())'],['../classWebSocket.html#ab4f26374803c171129261a8e9c312f37',1,'WebSocket::fromURL(const std::string &amp;url, bool useMask, const std::string &amp;origin)']]],
-  ['fromurlnomask',['fromURLNoMask',['../classWebSocket.html#a20d3a8809f32e19f2050186535e651aa',1,'WebSocket']]],
+  ['fromurl',['fromURL',['../classWebSocket.html#a772a85561373a9548bd00ed7a7473c58',1,'WebSocket::fromURL(const juce::String &amp;url, const juce::String &amp;origin={})'],['../classWebSocket.html#a7e2404176abec3d499adcd92fcc6bc42',1,'WebSocket::fromURL(const juce::String &amp;url, bool useMask, const juce::String &amp;origin)']]],
+  ['fromurlnomask',['fromURLNoMask',['../classWebSocket.html#af03b816bb7e26fccad0d1b4bf9b0b5b3',1,'WebSocket']]],
   ['funcstate',['FuncState',['../structFuncState.html',1,'FuncState'],['../structFuncState.html#a1a37453451c69ef86bd1c1f07d970c81',1,'FuncState::FuncState()']]],
   ['funcstates',['funcStates',['../classAudioFunctionHost.html#aa8b5235e076cae5d2c28443fe8ba1ca5',1,'AudioFunctionHost']]]
 ];

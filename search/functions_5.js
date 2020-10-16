@@ -17,7 +17,7 @@ var searchData=
   ['focuslost',['focusLost',['../classSingleLineTextEditor.html#a064d28e1648885e900dd9a0f9da3701a',1,'SingleLineTextEditor']]],
   ['folderchanged',['folderChanged',['../classFileSystemWatcher_1_1Listener.html#a04a461ad2d135495403372fcc9d413dd',1,'FileSystemWatcher::Listener']]],
   ['fromfile',['fromFile',['../classSample.html#a6ad98110e9ccc23c8ae9d9fe7f7914f9',1,'Sample']]],
-  ['fromurl',['fromURL',['../classWebSocket.html#a1ced960f25b3868e2a2dc6c9b89af18e',1,'WebSocket::fromURL(const std::string &amp;url, const std::string &amp;origin=std::string())'],['../classWebSocket.html#ab4f26374803c171129261a8e9c312f37',1,'WebSocket::fromURL(const std::string &amp;url, bool useMask, const std::string &amp;origin)']]],
-  ['fromurlnomask',['fromURLNoMask',['../classWebSocket.html#a20d3a8809f32e19f2050186535e651aa',1,'WebSocket']]],
+  ['fromurl',['fromURL',['../classWebSocket.html#a772a85561373a9548bd00ed7a7473c58',1,'WebSocket::fromURL(const juce::String &amp;url, const juce::String &amp;origin={})'],['../classWebSocket.html#a7e2404176abec3d499adcd92fcc6bc42',1,'WebSocket::fromURL(const juce::String &amp;url, bool useMask, const juce::String &amp;origin)']]],
+  ['fromurlnomask',['fromURLNoMask',['../classWebSocket.html#af03b816bb7e26fccad0d1b4bf9b0b5b3',1,'WebSocket']]],
   ['funcstate',['FuncState',['../structFuncState.html#a1a37453451c69ef86bd1c1f07d970c81',1,'FuncState']]]
 ];

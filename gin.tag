@@ -12446,22 +12446,22 @@
       <type>void</type>
       <name>send</name>
       <anchorfile>classWebSocket.html</anchorfile>
-      <anchor>a6a17081724ba19e6644521745adb6d04</anchor>
-      <arglist>(const std::string &amp;message)</arglist>
+      <anchor>aa486d4abbd2faed495606e734c621093</anchor>
+      <arglist>(const juce::String &amp;message)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>sendBinary</name>
       <anchorfile>classWebSocket.html</anchorfile>
-      <anchor>a9940c432b3a913b21836930063b5ca65</anchor>
-      <arglist>(const std::string &amp;message)</arglist>
+      <anchor>a3dcc5cb0d29d415f34a824aeab2e7e8c</anchor>
+      <arglist>(const juce::String &amp;message)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>sendBinary</name>
       <anchorfile>classWebSocket.html</anchorfile>
-      <anchor>a436d3368d2a5b9b4d053113206203f42</anchor>
-      <arglist>(const std::vector&lt; uint8_t &gt; &amp;message)</arglist>
+      <anchor>aee695e7771f2d8c7d5bea250d5325abe</anchor>
+      <arglist>(const juce::MemoryBlock &amp;message)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -12488,29 +12488,29 @@
       <type>void</type>
       <name>dispatch</name>
       <anchorfile>classWebSocket.html</anchorfile>
-      <anchor>aeff0fcdcc77732a0b53672841dc69ae7</anchor>
-      <arglist>(std::function&lt; void(const std::vector&lt; uint8_t &gt; &amp;message, bool isBinary)&gt; callback)</arglist>
+      <anchor>a757b2ded35954d331ceef6932ab331d6</anchor>
+      <arglist>(std::function&lt; void(const juce::MemoryBlock &amp;message, bool isBinary)&gt; callback)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static WebSocket *</type>
       <name>fromURL</name>
       <anchorfile>classWebSocket.html</anchorfile>
-      <anchor>a1ced960f25b3868e2a2dc6c9b89af18e</anchor>
-      <arglist>(const std::string &amp;url, const std::string &amp;origin=std::string())</arglist>
+      <anchor>a772a85561373a9548bd00ed7a7473c58</anchor>
+      <arglist>(const juce::String &amp;url, const juce::String &amp;origin={})</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static WebSocket *</type>
       <name>fromURLNoMask</name>
       <anchorfile>classWebSocket.html</anchorfile>
-      <anchor>a20d3a8809f32e19f2050186535e651aa</anchor>
-      <arglist>(const std::string &amp;url, const std::string &amp;origin=std::string())</arglist>
+      <anchor>af03b816bb7e26fccad0d1b4bf9b0b5b3</anchor>
+      <arglist>(const juce::String &amp;url, const juce::String &amp;origin={})</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static WebSocket *</type>
       <name>fromURL</name>
       <anchorfile>classWebSocket.html</anchorfile>
-      <anchor>ab4f26374803c171129261a8e9c312f37</anchor>
-      <arglist>(const std::string &amp;url, bool useMask, const std::string &amp;origin)</arglist>
+      <anchor>a7e2404176abec3d499adcd92fcc6bc42</anchor>
+      <arglist>(const juce::String &amp;url, bool useMask, const juce::String &amp;origin)</arglist>
     </member>
     <member kind="variable">
       <type>ReadyStateValues</type>
