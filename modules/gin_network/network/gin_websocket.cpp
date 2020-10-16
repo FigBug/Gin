@@ -155,7 +155,7 @@ bool WebSocket::readIncoming()
         }
         else
 		{
-			rxbuf.append (buffer, ret);
+			rxbuf.append (buffer, size_t (ret));
 			foundData = true;
         }
     }
@@ -226,7 +226,7 @@ void WebSocket::poll (int timeout) // timeout in milliseconds
         }
         else
 		{
-            txbuf.removeSection (0, ret);
+            txbuf.removeSection (0, size_t (ret));
         }
     }
 
@@ -334,7 +334,6 @@ void WebSocket::dispatch (std::function<void (const juce::MemoryBlock& message, 
 				for (size_t j = 0; j != ws.N; ++j)
 					rxbuf[j + ws.header_size] ^= ws.masking_key[j & 0x3];
 
-			juce::MemoryBlock receivedData;
             receivedData.append ((uint8_t*)rxbuf.getData() + ws.header_size, ws.N);// just feed
 
             if (ws.fin)
@@ -370,7 +369,7 @@ void WebSocket::dispatch (std::function<void (const juce::MemoryBlock& message, 
 			close();
 		}
 
-        rxbuf.removeSection (0, long (ws.header_size + ws.N));
+        rxbuf.removeSection (0, size_t (long (ws.header_size + ws.N)));
     }
 }
 
@@ -417,56 +416,57 @@ void WebSocket::sendData (WSHeaderType::Opcode type, const juce::MemoryBlock& me
 		return;
 
 	juce::MemoryBlock header;
+	auto headerPtr = (uint8_t*)header.getData();
     header.setSize (2 + (message_size >= 126 ? 2 : 0) + (message_size >= 65536 ? 6 : 0) + (useMask ? 4 : 0));
 	header.fillWith (0);
 
-    header[0] = uint8_t (0x80 | type);
+	headerPtr[0] = uint8_t (0x80 | type);
     if (message_size < 126)
 	{
-        header[1] = (message_size & 0xff) | (useMask ? 0x80 : 0);
+		headerPtr[1] = uint8_t ((message_size & 0xff) | (useMask ? 0x80 : 0));
         if (useMask)
 		{
-            header[2] = masking_key[0];
-            header[3] = masking_key[1];
-            header[4] = masking_key[2];
-            header[5] = masking_key[3];
+			headerPtr[2] = masking_key[0];
+			headerPtr[3] = masking_key[1];
+			headerPtr[4] = masking_key[2];
+			headerPtr[5] = masking_key[3];
         }
     }
     else if (message_size < 65536)
 	{
-        header[1] = 126 | (useMask ? 0x80 : 0);
-        header[2] = (message_size >> 8) & 0xff;
-        header[3] = (message_size >> 0) & 0xff;
+		headerPtr[1] = 126 | (useMask ? 0x80 : 0);
+		headerPtr[2] = (message_size >> 8) & 0xff;
+		headerPtr[3] = (message_size >> 0) & 0xff;
         if (useMask)
 		{
-            header[4] = masking_key[0];
-            header[5] = masking_key[1];
-            header[6] = masking_key[2];
-            header[7] = masking_key[3];
+			headerPtr[4] = masking_key[0];
+			headerPtr[5] = masking_key[1];
+			headerPtr[6] = masking_key[2];
+			headerPtr[7] = masking_key[3];
         }
     }
     else
 	{  // TODO: run coverage testing here
-        header[1] = 127 | (useMask ? 0x80 : 0);
-        header[2] = (message_size >> 56) & 0xff;
-        header[3] = (message_size >> 48) & 0xff;
-        header[4] = (message_size >> 40) & 0xff;
-        header[5] = (message_size >> 32) & 0xff;
-        header[6] = (message_size >> 24) & 0xff;
-        header[7] = (message_size >> 16) & 0xff;
-        header[8] = (message_size >>  8) & 0xff;
-        header[9] = (message_size >>  0) & 0xff;
+		headerPtr[1] = 127 | (useMask ? 0x80 : 0);
+		headerPtr[2] = (message_size >> 56) & 0xff;
+		headerPtr[3] = (message_size >> 48) & 0xff;
+		headerPtr[4] = (message_size >> 40) & 0xff;
+		headerPtr[5] = (message_size >> 32) & 0xff;
+		headerPtr[6] = (message_size >> 24) & 0xff;
+		headerPtr[7] = (message_size >> 16) & 0xff;
+		headerPtr[8] = (message_size >>  8) & 0xff;
+		headerPtr[9] = (message_size >>  0) & 0xff;
         if (useMask)
 		{
-            header[10] = masking_key[0];
-            header[11] = masking_key[1];
-            header[12] = masking_key[2];
-            header[13] = masking_key[3];
+			headerPtr[10] = masking_key[0];
+			headerPtr[11] = masking_key[1];
+			headerPtr[12] = masking_key[2];
+			headerPtr[13] = masking_key[3];
         }
     }
     // N.B. - txbuf will keep growing until it can be transmitted over the socket:
     txbuf.append (header.getData(), header.getSize());
-    txbuf.append (message_begin, message_end - message_begin);
+    txbuf.append (message_begin, size_t (message_end - message_begin));
 
     if (useMask)
 	{
