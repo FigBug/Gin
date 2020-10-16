@@ -42,10 +42,9 @@ private:
     void processIncomingData();
     void processOutgoingData();
 
-    struct Impl;
-    std::unique_ptr<Impl> impl;
-
     juce::URL url;
+
+	std::unique_ptr<WebSocket> socket;
 
     //==============================================================================
     enum MessageType
