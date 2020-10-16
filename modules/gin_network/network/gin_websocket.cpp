@@ -416,9 +416,9 @@ void WebSocket::sendData (WSHeaderType::Opcode type, const juce::MemoryBlock& me
 		return;
 
 	juce::MemoryBlock header;
-	auto headerPtr = (uint8_t*)header.getData();
     header.setSize (2 + (message_size >= 126 ? 2 : 0) + (message_size >= 65536 ? 6 : 0) + (useMask ? 4 : 0));
 	header.fillWith (0);
+	auto headerPtr = (uint8_t*)header.getData();
 
 	headerPtr[0] = uint8_t (0x80 | type);
     if (message_size < 126)
