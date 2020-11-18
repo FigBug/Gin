@@ -24,7 +24,7 @@ String execute (String cmd, bool verbose)
     for (auto t : tokens)
         params.add (t.unquoted());
 
-    if (cp.start (params))
+    if (cp.start (params, ChildProcess::wantStdOut))
     {
         while (! cp.waitForProcessToFinish (100))
             Thread::sleep (100);
