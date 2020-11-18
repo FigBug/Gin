@@ -8,11 +8,11 @@
 
 #include "MainComponent.h"
 
-static ThreadPool pool (SystemStats::getNumCpus());
+static juce::ThreadPool pool (juce::SystemStats::getNumCpus());
 
 //==============================================================================
-struct AsyncUpdateDemo : public Component,
-                         private Thread,
+struct AsyncUpdateDemo : public juce::Component,
+                         private juce::Thread,
                          private gin::RealtimeAsyncUpdater
 {
     AsyncUpdateDemo() : Thread ("AsyncUpdateDemo")
@@ -48,16 +48,16 @@ struct AsyncUpdateDemo : public Component,
 
     void handleAsyncUpdate() override
     {
-        text.setText (String (count.get()));
+        text.setText (juce::String (count.get()));
     }
 
-    TextEditor text;
-    Atomic<int> count;
+    juce::TextEditor text;
+    juce::Atomic<int> count;
 };
 
 //==============================================================================
-struct ValueTreeJsonDemo : public Component,
-                           private TextEditor::Listener
+struct ValueTreeJsonDemo : public juce::Component,
+                           private juce::TextEditor::Listener
 {
     ValueTreeJsonDemo()
     {
@@ -67,9 +67,9 @@ struct ValueTreeJsonDemo : public Component,
         addAndMakeVisible (xmlOut);
         addAndMakeVisible (jsonOut);
 
-        xmlIn.setTextToShowWhenEmpty ("Add some ValueTree XML here and hit enter", Colours::white.withAlpha (0.5f));
-        jsonOut.setTextToShowWhenEmpty ("JSON will appear here", Colours::white.withAlpha (0.5f));
-        xmlOut.setTextToShowWhenEmpty ("And hopeful original xml will reappear here", Colours::white.withAlpha (0.5f));
+        xmlIn.setTextToShowWhenEmpty ("Add some ValueTree XML here and hit enter", juce::Colours::white.withAlpha (0.5f));
+        jsonOut.setTextToShowWhenEmpty ("JSON will appear here", juce::Colours::white.withAlpha (0.5f));
+        xmlOut.setTextToShowWhenEmpty ("And hopeful original xml will reappear here", juce::Colours::white.withAlpha (0.5f));
 
         xmlIn.setMultiLine (true);
         jsonOut.setReadOnly (true);
@@ -91,9 +91,9 @@ struct ValueTreeJsonDemo : public Component,
         xmlOut.setBounds (rc);
     }
 
-    void textEditorReturnKeyPressed (TextEditor&) override
+    void textEditorReturnKeyPressed (juce::TextEditor&) override
     {
-        auto vt1 = ValueTree::fromXml (xmlIn.getText());
+        auto vt1 = juce::ValueTree::fromXml (xmlIn.getText());
 
         auto json = gin::valueTreeToJSON (vt1);
         auto vt2 = gin::valueTreeFromJSON (json);
@@ -102,12 +102,12 @@ struct ValueTreeJsonDemo : public Component,
         xmlOut.setText (vt2.toXmlString());
     }
 
-    TextEditor xmlIn, xmlOut, jsonOut;
+    juce::TextEditor xmlIn, xmlOut, jsonOut;
 };
 
 //==============================================================================
-struct MessagePackDemo : public Component,
-                         private TextEditor::Listener
+struct MessagePackDemo : public juce::Component,
+                         private juce::TextEditor::Listener
 {
     MessagePackDemo()
     {
@@ -117,9 +117,9 @@ struct MessagePackDemo : public Component,
         addAndMakeVisible (raw);
         addAndMakeVisible (jsonOut);
 
-        jsonIn.setTextToShowWhenEmpty ("Add some json here and hit enter", Colours::white.withAlpha (0.5f));
-        raw.setTextToShowWhenEmpty ("Base64 MessagePack will appear here", Colours::white.withAlpha (0.5f));
-        jsonOut.setTextToShowWhenEmpty ("And hopeful original json will reappear here", Colours::white.withAlpha (0.5f));
+        jsonIn.setTextToShowWhenEmpty ("Add some json here and hit enter", juce::Colours::white.withAlpha (0.5f));
+        raw.setTextToShowWhenEmpty ("Base64 MessagePack will appear here", juce::Colours::white.withAlpha (0.5f));
+        jsonOut.setTextToShowWhenEmpty ("And hopeful original json will reappear here", juce::Colours::white.withAlpha (0.5f));
 
         jsonIn.setMultiLine (true);
         raw.setReadOnly (true);
@@ -140,31 +140,31 @@ struct MessagePackDemo : public Component,
         raw.setBounds (rc);
     }
 
-    void textEditorReturnKeyPressed (TextEditor&) override
+    void textEditorReturnKeyPressed (juce::TextEditor&) override
     {
-        var v1 = JSON::parse (jsonIn.getText());
+        juce::var v1 = juce::JSON::parse (jsonIn.getText());
         auto mb = gin::MessagePack::toMessagePack (v1);
 
-        raw.setText (Base64::toBase64 (mb.getData(), mb.getSize()), dontSendNotification);
+        raw.setText (juce::Base64::toBase64 (mb.getData(), mb.getSize()), juce::dontSendNotification);
 
-        var v2 = gin::MessagePack::parse (mb);
-        jsonOut.setText (JSON::toString (v2));
+        juce::var v2 = gin::MessagePack::parse (mb);
+        jsonOut.setText (juce::JSON::toString (v2));
     }
 
-    TextEditor jsonIn, raw, jsonOut;
+    juce::TextEditor jsonIn, raw, jsonOut;
 };
 
 //==============================================================================
-struct SVGDemo : public Component
+struct SVGDemo : public juce::Component
 {
     SVGDemo()
     {
         setName ("SVG");
     }
 
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
-        auto svg = String (BinaryData::SVG_example_markup_grid_svg, BinaryData::SVG_example_markup_grid_svgSize);
+        auto svg = juce::String (BinaryData::SVG_example_markup_grid_svg, BinaryData::SVG_example_markup_grid_svgSize);
         auto img = gin::rasterizeSVG (svg, getWidth(), getHeight());
 
         g.drawImageAt (img, 0, 0);
@@ -172,7 +172,7 @@ struct SVGDemo : public Component
 };
 
 //==============================================================================
-struct WebsocketDemo : public Component
+struct WebsocketDemo : public juce::Component
 {
     WebsocketDemo()
     {
@@ -201,7 +201,7 @@ struct WebsocketDemo : public Component
             inText.moveCaretToEnd();
             inText.insertTextAtCaret ("Disconnected\n");
         };
-        websocket.onText = [this] (const String& txt)
+        websocket.onText = [this] (const juce::String& txt)
         {
             inText.moveCaretToEnd();
             inText.insertTextAtCaret (txt + "\n");
@@ -224,24 +224,24 @@ struct WebsocketDemo : public Component
         inText.setBounds (r);
     }
 
-    TextEditor inText;
-    TextEditor outText;
-    TextButton sendButton {"Send"};
+    juce::TextEditor inText;
+    juce::TextEditor outText;
+    juce::TextButton sendButton {"Send"};
 
-    gin::AsyncWebsocket websocket {URL ("wss://demos.kaazing.com/echo") };
+    gin::AsyncWebsocket websocket {juce::URL ("wss://demos.kaazing.com/echo") };
 };
 
 //==============================================================================
-struct SolidBlendingDemo : public Component,
-                           private ComboBox::Listener,
-                           private Slider::Listener,
-                           private ChangeListener
+struct SolidBlendingDemo : public juce::Component,
+                           private juce::ComboBox::Listener,
+                           private juce::Slider::Listener,
+                           private juce::ChangeListener
 {
     SolidBlendingDemo()
     {
         setName ("Solid Blending");
 
-        img = ImageFileFormat::loadFrom (BinaryData::Leaf_jpg, BinaryData::Leaf_jpgSize);
+        img = juce::ImageFileFormat::loadFrom (BinaryData::Leaf_jpg, BinaryData::Leaf_jpgSize);
 
         modeBox.addItemList (modeNames, 1);
         modeBox.setSelectedItemIndex (0);
@@ -253,14 +253,14 @@ struct SolidBlendingDemo : public Component,
         alphaSlider.addListener (this);
         addAndMakeVisible (alphaSlider);
 
-        selector.setCurrentColour (Colour (0xffe3c916));
+        selector.setCurrentColour (juce::Colour (0xffe3c916));
         selector.addChangeListener (this);
         addAndMakeVisible (selector);
     }
 
-    void sliderValueChanged (Slider*) override                  { repaint(); }
-    void comboBoxChanged (ComboBox*) override                   { repaint(); }
-    void changeListenerCallback (ChangeBroadcaster*) override   { repaint(); }
+    void sliderValueChanged (juce::Slider*) override                  { repaint(); }
+    void comboBoxChanged (juce::ComboBox*) override                   { repaint(); }
+    void changeListenerCallback (juce::ChangeBroadcaster*) override   { repaint(); }
 
     void resized() override
     {
@@ -274,9 +274,9 @@ struct SolidBlendingDemo : public Component,
         modeBox.setBounds (5, 5, 150, 20);
     }
 
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
-        g.fillAll (Colours::black);
+        g.fillAll (juce::Colours::black);
 
         auto rc = getLocalBounds();
 
@@ -290,33 +290,33 @@ struct SolidBlendingDemo : public Component,
 
         gin::applyBlend (copy, blendMode, c, &pool);
 
-        g.drawImage (copy, rc.toFloat(), RectanglePlacement::centred);
+        g.drawImage (copy, rc.toFloat(), juce::RectanglePlacement::centred);
     }
 
-    Image img;
+    juce::Image img;
 
-    StringArray modeNames =
+    juce::StringArray modeNames =
     {
         "Normal", "Lighten", "Darken", "Multiply", "Average", "Add", "Subtract", "Difference", "Negation", "Screen", "Exclusion", "Overlay", "Soft Light", "Hard Light",
         "Color Dodge", "Color Burn", "Linear Dodge", "Linear Burn", "Linear Light", "Vivid Light", "Pin Light", "Hard Mix", "Reflect", "Glow", "Phoenix"
     };
 
-    ComboBox modeBox;
-    Slider alphaSlider;
-    ColourSelector selector;
+    juce::ComboBox modeBox;
+    juce::Slider alphaSlider;
+    juce::ColourSelector selector;
 };
 
 //==============================================================================
-struct BlendingDemo : public Component,
-                      private ComboBox::Listener,
-                      private Slider::Listener
+struct BlendingDemo : public juce::Component,
+                      private juce::ComboBox::Listener,
+                      private juce::Slider::Listener
 {
     BlendingDemo()
     {
         setName ("Blending");
 
-        imgA = ImageFileFormat::loadFrom (BinaryData::Leaf_jpg, BinaryData::Leaf_jpgSize);
-        imgB = ImageFileFormat::loadFrom (BinaryData::mountain_jpg, BinaryData::mountain_jpgSize);
+        imgA = juce::ImageFileFormat::loadFrom (BinaryData::Leaf_jpg, BinaryData::Leaf_jpgSize);
+        imgB = juce::ImageFileFormat::loadFrom (BinaryData::mountain_jpg, BinaryData::mountain_jpgSize);
 
 
         modeBox.addItemList (modeNames, 1);
@@ -330,8 +330,8 @@ struct BlendingDemo : public Component,
         addAndMakeVisible (alphaSlider);
     }
 
-    void sliderValueChanged (Slider*) override { repaint(); }
-    void comboBoxChanged (ComboBox*) override  { repaint(); }
+    void sliderValueChanged (juce::Slider*) override { repaint(); }
+    void comboBoxChanged (juce::ComboBox*) override  { repaint(); }
 
     void resized() override
     {
@@ -341,9 +341,9 @@ struct BlendingDemo : public Component,
         modeBox.setBounds (5, 5, 150, 20);
     }
 
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
-        g.fillAll (Colours::black);
+        g.fillAll (juce::Colours::black);
 
         auto rc = getLocalBounds();
 
@@ -354,34 +354,34 @@ struct BlendingDemo : public Component,
 
         gin::applyBlend (img, imgA, blendMode, alpha, {}, &pool);
 
-        g.drawImage (img, rc.toFloat(), RectanglePlacement::centred);
+        g.drawImage (img, rc.toFloat(), juce::RectanglePlacement::centred);
     }
 
-    Image imgA, imgB;
+    juce::Image imgA, imgB;
 
-    StringArray modeNames =
+    juce::StringArray modeNames =
     {
         "Normal", "Lighten", "Darken", "Multiply", "Average", "Add", "Subtract", "Difference", "Negation", "Screen", "Exclusion", "Overlay", "Soft Light", "Hard Light",
         "Color Dodge", "Color Burn", "Linear Dodge", "Linear Burn", "Linear Light", "Vivid Light", "Pin Light", "Hard Mix", "Reflect", "Glow", "Phoenix"
     };
 
 
-    ComboBox modeBox;
-    Slider alphaSlider;
+    juce::ComboBox modeBox;
+    juce::Slider alphaSlider;
 };
 
 //==============================================================================
-struct GradientMapDemo : public Component,
-                         private ChangeListener
+struct GradientMapDemo : public juce::Component,
+                         private juce::ChangeListener
 {
     GradientMapDemo()
     {
         setName ("Gradient Map");
 
-        source = ImageFileFormat::loadFrom (BinaryData::Castle_jpg, BinaryData::Castle_jpgSize);
+        source = juce::ImageFileFormat::loadFrom (BinaryData::Castle_jpg, BinaryData::Castle_jpgSize);
 
-        selector1.setCurrentColour (Colour (0xffe3c916));
-        selector2.setCurrentColour (Colour (0xff0c0d01));
+        selector1.setCurrentColour (juce::Colour (0xffe3c916));
+        selector2.setCurrentColour (juce::Colour (0xff0c0d01));
 
         addAndMakeVisible (selector1);
         addAndMakeVisible (selector2);
@@ -390,7 +390,7 @@ struct GradientMapDemo : public Component,
         selector2.addChangeListener (this);
     }
 
-    void changeListenerCallback (ChangeBroadcaster*) override
+    void changeListenerCallback (juce::ChangeBroadcaster*) override
     {
         repaint();
     }
@@ -404,9 +404,9 @@ struct GradientMapDemo : public Component,
         selector2.setBounds (rc.removeFromLeft (rc.getWidth()));
     }
 
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
-        g.fillAll (Colours::black);
+        g.fillAll (juce::Colours::black);
 
         auto rc = getLocalBounds();
         rc = rc.withTrimmedTop (rc.getHeight() / 2);
@@ -414,37 +414,37 @@ struct GradientMapDemo : public Component,
         auto img = source.createCopy();
         gin::applyGradientMap (img, selector1.getCurrentColour(), selector2.getCurrentColour(), &pool);
 
-        g.drawImage (img, rc.toFloat(), RectanglePlacement::centred);
+        g.drawImage (img, rc.toFloat(), juce::RectanglePlacement::centred);
     }
 
-    Image source;
-    ColourSelector selector1, selector2;
+    juce::Image source;
+    juce::ColourSelector selector1, selector2;
 };
 
 //==============================================================================
-struct ImageResizeDemo : public Component,
-                         private Slider::Listener
+struct ImageResizeDemo : public juce::Component,
+                         private juce::Slider::Listener
 {
     ImageResizeDemo()
     {
         setName ("Image Resize");
 
-        auto source = ImageFileFormat::loadFrom (BinaryData::pencils_jpeg, BinaryData::pencils_jpegSize);
+        auto source = juce::ImageFileFormat::loadFrom (BinaryData::pencils_jpeg, BinaryData::pencils_jpegSize);
         source = gin::applyResize (source, 0.97f);
 
-        sourceARGB = source.convertedToFormat (Image::ARGB);
-        sourceRGB = source.convertedToFormat (Image::RGB);
+        sourceARGB = source.convertedToFormat (juce::Image::ARGB);
+        sourceRGB = source.convertedToFormat (juce::Image::RGB);
         sourceBW = convertToBW (source);
 
         addAndMakeVisible (zoom);
         zoom.addListener (this);
-        zoom.setTextBoxStyle (Slider::NoTextBox, false, 0, 0);
+        zoom.setTextBoxStyle (juce::Slider::NoTextBox, false, 0, 0);
 
         zoom.setRange (0.1, 4.0);
         zoom.setValue (1.0);
     }
 
-    void sliderValueChanged (Slider*) override
+    void sliderValueChanged (juce::Slider*) override
     {
         repaint();
     }
@@ -456,9 +456,9 @@ struct ImageResizeDemo : public Component,
         zoom.setBounds (rc.removeFromLeft (w));
     }
 
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
-        g.fillAll (Colours::black);
+        g.fillAll (juce::Colours::black);
 
         auto zoomed = gin::applyResize (sourceARGB, (float) zoom.getValue());
 
@@ -467,30 +467,30 @@ struct ImageResizeDemo : public Component,
                        getHeight() / 2 - zoomed.getHeight() / 2);
     }
 
-    Image convertToBW (const Image& src)
+    juce::Image convertToBW (const juce::Image& src)
     {
-        auto dst = Image (Image::SingleChannel, src.getWidth(), src.getHeight(), true);
+        auto dst = juce::Image (juce::Image::SingleChannel, src.getWidth(), src.getHeight(), true);
 
         for (int y = 0; y < src.getHeight(); y++)
         {
             for (int x = 0; x < src.getWidth(); x++)
             {
                 auto colour = src.getPixelAt (x, y);
-                uint8 bw = (colour.getRed() + colour.getGreen() + colour.getBlue()) / 3;
-                dst.setPixelAt (x, y, Colour (bw, bw, bw, bw));
+                uint8_t bw = (colour.getRed() + colour.getGreen() + colour.getBlue()) / 3;
+                dst.setPixelAt (x, y, juce::Colour (bw, bw, bw, bw));
             }
         }
 
         return dst;
     }
 
-    Image sourceARGB, sourceRGB, sourceBW;
-    Slider zoom;
+    juce::Image sourceARGB, sourceRGB, sourceBW;
+    juce::Slider zoom;
 };
 
 //==============================================================================
 #if defined JUCE_MAC || defined JUCE_WINDOWS
-struct ElevatedFileCopyDemo : public Component
+struct ElevatedFileCopyDemo : public juce::Component
 {
 public:
     ElevatedFileCopyDemo()
@@ -515,11 +515,11 @@ public:
 
     void copyFiles()
     {
-        File src (srcDir.getText());
-        File dst (dstDir.getText());
+        juce::File src (srcDir.getText());
+        juce::File dst (dstDir.getText());
 
-        Array<File> files;
-        src.findChildFiles (files, File::findFiles, false);
+        juce::Array<juce::File> files;
+        src.findChildFiles (files, juce::File::findFiles, false);
 
         gin::ElevatedFileCopy efc;
 
@@ -540,32 +540,32 @@ public:
         copyButton.setBounds (rc.removeFromTop (25).removeFromLeft (100));
     }
 
-    TextEditor srcDir, dstDir;
-    TextButton copyButton { "Copy" };
+    juce::TextEditor srcDir, dstDir;
+    juce::TextButton copyButton { "Copy" };
 };
 #endif
 
 //==============================================================================
-struct BoxBlurDemo : public Component,
-                     private Slider::Listener
+struct BoxBlurDemo : public juce::Component,
+                     private juce::Slider::Listener
 {
     BoxBlurDemo()
     {
         setName ("Box Blur Effects");
 
-        auto source = ImageFileFormat::loadFrom (BinaryData::pencils_jpeg, BinaryData::pencils_jpegSize);
-        sourceARGB = source.convertedToFormat (Image::ARGB);
-        sourceRGB = source.convertedToFormat (Image::RGB);
+        auto source = juce::ImageFileFormat::loadFrom (BinaryData::pencils_jpeg, BinaryData::pencils_jpegSize);
+        sourceARGB = source.convertedToFormat (juce::Image::ARGB);
+        sourceRGB = source.convertedToFormat (juce::Image::RGB);
         sourceBW = convertToBW (source);
 
         addAndMakeVisible (radius);
         radius.addListener (this);
-        radius.setTextBoxStyle (Slider::NoTextBox, false, 0, 0);
+        radius.setTextBoxStyle (juce::Slider::NoTextBox, false, 0, 0);
 
         radius.setRange (2, 254);
     }
 
-    void sliderValueChanged (Slider*) override
+    void sliderValueChanged (juce::Slider*) override
     {
         repaint();
     }
@@ -577,64 +577,64 @@ struct BoxBlurDemo : public Component,
         radius.setBounds (rc.removeFromLeft (w));
     }
 
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
-        g.fillAll (Colours::black);
+        g.fillAll (juce::Colours::black);
         auto rc = getLocalBounds();
         int w = rc.getWidth() / 3;
 
         {
-            Graphics::ScopedSaveState sss (g);
+            juce::Graphics::ScopedSaveState sss (g);
             g.reduceClipRegion (rc.removeFromLeft (w));
 
             auto img = sourceARGB.createCopy();
             gin::applyStackBlur (img, (int) radius.getValue());
-            g.drawImage (img, getLocalBounds().toFloat(), RectanglePlacement::centred);
+            g.drawImage (img, getLocalBounds().toFloat(), juce::RectanglePlacement::centred);
         }
 
         {
-            Graphics::ScopedSaveState sss (g);
+            juce::Graphics::ScopedSaveState sss (g);
             g.reduceClipRegion (rc.removeFromLeft (w));
 
             auto img = sourceRGB.createCopy();
             gin::applyStackBlur (img, (int) radius.getValue());
-            g.drawImage (img, getLocalBounds().toFloat(), RectanglePlacement::centred);
+            g.drawImage (img, getLocalBounds().toFloat(), juce::RectanglePlacement::centred);
         }
 
         {
-            Graphics::ScopedSaveState sss (g);
+            juce::Graphics::ScopedSaveState sss (g);
             g.reduceClipRegion (rc);
 
             auto img = sourceBW.createCopy();
             gin::applyStackBlur (img, (int) radius.getValue());
-            g.drawImage (img, getLocalBounds().toFloat(), RectanglePlacement::centred);
+            g.drawImage (img, getLocalBounds().toFloat(), juce::RectanglePlacement::centred);
         }
     }
 
-    Image convertToBW (const Image& src)
+    juce::Image convertToBW (const juce::Image& src)
     {
-        auto dst = Image (Image::SingleChannel, src.getWidth(), src.getHeight(), true);
+        auto dst = juce::Image (juce::Image::SingleChannel, src.getWidth(), src.getHeight(), true);
 
         for (int y = 0; y < src.getHeight(); y++)
         {
             for (int x = 0; x < src.getWidth(); x++)
             {
                 auto colour = src.getPixelAt (x, y);
-                uint8 bw = (colour.getRed() + colour.getGreen() + colour.getBlue()) / 3;
-                dst.setPixelAt (x, y, Colour (bw, bw, bw, bw));
+                uint8_t bw = (colour.getRed() + colour.getGreen() + colour.getBlue()) / 3;
+                dst.setPixelAt (x, y, juce::Colour (bw, bw, bw, bw));
             }
         }
 
         return dst;
     }
 
-    Image sourceARGB, sourceRGB, sourceBW;
-    Slider radius;
+    juce::Image sourceARGB, sourceRGB, sourceBW;
+    juce::Slider radius;
 };
 
 //==============================================================================
-struct DownloadManagerDemo : public Component,
-                             private Timer
+struct DownloadManagerDemo : public juce::Component,
+                             private juce::Timer
 {
     DownloadManagerDemo()
     {
@@ -660,22 +660,22 @@ struct DownloadManagerDemo : public Component,
             stopTimer();
     }
 
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
-        g.fillAll (Colours::black);
+        g.fillAll (juce::Colours::black);
         for (int i = 0; i < 4; i++)
         {
             float w = getWidth()  / 2.0f;
             float h = getHeight() / 2.0f;
 
-            Rectangle<float> rc;
-            if (i == 0) rc = Rectangle<float> (0, 0, w, h);
-            if (i == 1) rc = Rectangle<float> (w, 0, w, h);
-            if (i == 2) rc = Rectangle<float> (0, h, w, h);
-            if (i == 3) rc = Rectangle<float> (w, h, w, h);
+            juce::Rectangle<float> rc;
+            if (i == 0) rc = juce::Rectangle<float> (0, 0, w, h);
+            if (i == 1) rc = juce::Rectangle<float> (w, 0, w, h);
+            if (i == 2) rc = juce::Rectangle<float> (0, h, w, h);
+            if (i == 3) rc = juce::Rectangle<float> (w, h, w, h);
 
             if (img[i].isValid())
-                g.drawImage (img[i], rc, RectanglePlacement::centred, false);
+                g.drawImage (img[i], rc, juce::RectanglePlacement::centred, false);
         }
     }
 
@@ -688,37 +688,37 @@ struct DownloadManagerDemo : public Component,
     {
         for (int i = 0; i < 4; i++)
         {
-            String url = String::formatted ("https://picsum.photos/id/%d/%d/%d/", Random::getSystemRandom().nextInt (500), getWidth(), getHeight());
+            juce::String url = juce::String::formatted ("https://picsum.photos/id/%d/%d/%d/", juce::Random::getSystemRandom().nextInt (500), getWidth(), getHeight());
             downloadManager.startAsyncDownload (url, [this, i] (gin::DownloadManager::DownloadResult result)
                                                 {
-                                                    const MessageManagerLock mmLock;
+                                                    const juce::MessageManagerLock mmLock;
 
-                                                    DBG(result.url.toString (true) + " downloaded " + (result.ok ? "ok: " : "failed: ") + String (result.httpCode));
+                                                    DBG(result.url.toString (true) + " downloaded " + (result.ok ? "ok: " : "failed: ") + juce::String (result.httpCode));
 
                                                     if (result.ok)
                                                     {
-                                                        Image newImg = ImageFileFormat::loadFrom (result.data.getData(), result.data.getSize());
+                                                        juce::Image newImg = juce::ImageFileFormat::loadFrom (result.data.getData(), result.data.getSize());
                                                         if (newImg.isValid())
                                                         {
                                                             img[i % 4] = newImg;
                                                             repaint();
                                                         }
                                                     }
-                                                }, [url] (int64 current, int64 total, [[ maybe_unused ]] int64 sinceLast)
+                                                }, [url] (int64_t current, int64_t total, [[ maybe_unused ]] int64_t sinceLast)
                                                 {
                                                     [[ maybe_unused ]] double percent = double (current) / double (total) * 100;
-                                                    DBG(url + ": " + String (int (percent)) + "% " + String (current) + " of " + String (total) + " downloaded. This block: " + String (sinceLast));
+                                                    DBG(url + ": " + juce::String (int (percent)) + "% " + juce::String (current) + " of " + juce::String (total) + " downloaded. This block: " + juce::String (sinceLast));
                                                 });
         }
     }
 
-    Image img[4];
+    juce::Image img[4];
     gin::DownloadManager downloadManager {3 * 1000, 3 * 1000};
 };
 
 //==============================================================================
 #if defined JUCE_MAC || defined JUCE_WINDOWS || defined JUCE_LINUX
-struct FileSystemWatcherDemo : public Component,
+struct FileSystemWatcherDemo : public juce::Component,
                                private gin::FileSystemWatcher::Listener
 {
     FileSystemWatcherDemo()
@@ -731,7 +731,7 @@ struct FileSystemWatcherDemo : public Component,
         contents.setMultiLine (true);
         events.setMultiLine (true);
 
-        File f = File::getSpecialLocation (File::userDesktopDirectory);
+        juce::File f = juce::File::getSpecialLocation (juce::File::userDesktopDirectory);
         watcher.addFolder (f);
         watcher.addListener (this);
 
@@ -745,24 +745,24 @@ struct FileSystemWatcherDemo : public Component,
         events.setBounds (rc);
     }
 
-    void folderChanged (File f) override
+    void folderChanged (juce::File f) override
     {
-        Array<File> files;
-        f.findChildFiles (files, File::findFiles, false);
+        juce::Array<juce::File> files;
+        f.findChildFiles (files, juce::File::findFiles, false);
         files.sort();
 
         contents.clear();
 
-        String txt;
+        juce::String txt;
         for (auto ff : files)
             txt += ff.getFileName() + "\n";
 
         contents.setText (txt);
     }
 
-    void fileChanged (File f, gin::FileSystemWatcher::FileSystemEvent fsEvent) override
+    void fileChanged (juce::File f, gin::FileSystemWatcher::FileSystemEvent fsEvent) override
     {
-        auto eventToString = [] (gin::FileSystemWatcher::FileSystemEvent evt) -> String
+        auto eventToString = [] (gin::FileSystemWatcher::FileSystemEvent evt) -> juce::String
         {
             switch (evt)
             {
@@ -781,35 +781,35 @@ struct FileSystemWatcherDemo : public Component,
         events.scrollEditorToPositionCaret (0, events.getHeight() - 20);
     }
 
-    TextEditor contents, events;
+    juce::TextEditor contents, events;
     gin::FileSystemWatcher watcher;
 };
 #endif
 
 //==============================================================================
-struct MetadataDemo : public Component
+struct MetadataDemo : public juce::Component
 {
     MetadataDemo()
     {
         setName ("Metadata");
 
-        MemoryBlock mb (BinaryData::IMG_1883_JPG, BinaryData::IMG_1883_JPGSize);
-        MemoryInputStream is (mb, true);
+        juce::MemoryBlock mb (BinaryData::IMG_1883_JPG, BinaryData::IMG_1883_JPGSize);
+        juce::MemoryInputStream is (mb, true);
 
         addAndMakeVisible (panel);
 
-        OwnedArray<gin::ImageMetadata> metadata;
+        juce::OwnedArray<gin::ImageMetadata> metadata;
         if (gin::ImageMetadata::getFromImage (is, metadata))
         {
             for (auto* m : metadata)
             {
-                Array<PropertyComponent*> comps;
-                StringPairArray values = m->getAllMetadata();
+                juce::Array<juce::PropertyComponent*> comps;
+                juce::StringPairArray values = m->getAllMetadata();
 
-                for (String key : values.getAllKeys())
+                for (auto key : values.getAllKeys())
                 {
-                    Value v = Value (values [key]);
-                    TextPropertyComponent* tpc = new TextPropertyComponent (v, key, 1000, false, false);
+                    auto v = juce::Value (values [key]);
+                    auto tpc = new juce::TextPropertyComponent (v, key, 1000, false, false);
                     comps.add (tpc);
                 }
 
@@ -818,16 +818,16 @@ struct MetadataDemo : public Component
         }
     }
 
-    void resized() override
+    void resized()
     {
         panel.setBounds (getLocalBounds());
     }
 
-    PropertyPanel panel;
+    juce::PropertyPanel panel;
 };
 
 //==============================================================================
-struct BmpImageDemo : public Component
+struct BmpImageDemo : public juce::Component
 {
     BmpImageDemo()
     {
@@ -836,36 +836,36 @@ struct BmpImageDemo : public Component
         gin::BMPImageFormat bmp;
 
         {
-            MemoryBlock mb (BinaryData::ballon_bmp, BinaryData::ballon_bmpSize);
-            MemoryInputStream is (mb, false);
+            juce::MemoryBlock mb (BinaryData::ballon_bmp, BinaryData::ballon_bmpSize);
+            juce::MemoryInputStream is (mb, false);
 
             source1 = bmp.decodeImage (is);
         }
         {
-            MemoryBlock mb (BinaryData::ballon_8bit_bmp, BinaryData::ballon_8bit_bmpSize);
-            MemoryInputStream is (mb, false);
+            juce::MemoryBlock mb (BinaryData::ballon_8bit_bmp, BinaryData::ballon_8bit_bmpSize);
+            juce::MemoryInputStream is (mb, false);
 
             source2 = bmp.decodeImage (is);
         }
     }
 
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
         auto rc = getLocalBounds();
 
-        g.fillAll (Colours::black);
+        g.fillAll (juce::Colours::black);
         if (source1.isValid())
-            g.drawImage (source1, rc.removeFromLeft (rc.getWidth() / 2).toFloat(), RectanglePlacement::centred);
+            g.drawImage (source1, rc.removeFromLeft (rc.getWidth() / 2).toFloat(), juce::RectanglePlacement::centred);
         if (source2.isValid())
-            g.drawImage (source2, rc.toFloat(), RectanglePlacement::centred);
+            g.drawImage (source2, rc.toFloat(), juce::RectanglePlacement::centred);
     }
 
-    Image source1, source2;
+    juce::Image source1, source2;
 };
 
 //==============================================================================
-struct ImageEffectsDemo : public Component,
-                          private Slider::Listener
+struct ImageEffectsDemo : public juce::Component,
+                          private juce::Slider::Listener
 {
     ImageEffectsDemo()
     {
@@ -881,8 +881,8 @@ struct ImageEffectsDemo : public Component,
             updateVisibility();
         };
 
-        source = ImageFileFormat::loadFrom (BinaryData::pencils_jpeg, BinaryData::pencils_jpegSize);
-        source = source.convertedToFormat (Image::ARGB);
+        source = juce::ImageFileFormat::loadFrom (BinaryData::pencils_jpeg, BinaryData::pencils_jpegSize);
+        source = source.convertedToFormat (juce::Image::ARGB);
 
         addAndMakeVisible (vignetteAmount);
         addAndMakeVisible (vignetteRadius);
@@ -897,10 +897,10 @@ struct ImageEffectsDemo : public Component,
 
         for (int i = 0; i < getNumChildComponents(); i++)
         {
-            if (auto* s = dynamic_cast<Slider*> (getChildComponent (i)))
+            if (auto* s = dynamic_cast<juce::Slider*> (getChildComponent (i)))
             {
                 s->addListener (this);
-                s->setTextBoxStyle (Slider::NoTextBox, false, 0, 0);
+                s->setTextBoxStyle (juce::Slider::NoTextBox, false, 0, 0);
             }
         }
 
@@ -941,12 +941,12 @@ struct ImageEffectsDemo : public Component,
         auto rc = getLocalBounds().removeFromBottom (20);
         int w = rc.getWidth() / 3;
         for (int i = 0; i < getNumChildComponents(); i++)
-            if (auto* s = dynamic_cast<Slider*> (getChildComponent (i)))
+            if (auto* s = dynamic_cast<juce::Slider*> (getChildComponent (i)))
                 if (s->isVisible())
                     s->setBounds (rc.removeFromLeft (w));
     }
 
-    void sliderValueChanged (Slider*) override
+    void sliderValueChanged (juce::Slider*) override
     {
         repaint();
     }
@@ -956,9 +956,9 @@ struct ImageEffectsDemo : public Component,
         effects.setBounds (5, 5, 150, 20);
     }
 
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
-        Image img = source.createCopy();
+        auto img = source.createCopy();
 
         switch (effects.getSelectedItemIndex())
         {
@@ -975,18 +975,18 @@ struct ImageEffectsDemo : public Component,
             case 11: gin::applyStackBlur (img, (int) radius.getValue()); break;
         }
 
-        g.fillAll (Colours::black);
-        g.drawImage (img, getLocalBounds().toFloat(), RectanglePlacement::centred);
+        g.fillAll (juce::Colours::black);
+        g.drawImage (img, getLocalBounds().toFloat(), juce::RectanglePlacement::centred);
     }
 
-    Image source;
-    ComboBox effects;
+    juce::Image source;
+    juce::ComboBox effects;
 
-    Slider vignetteAmount, vignetteRadius, vignetteFalloff, gamma, contrast, brightness, hue, saturation, lightness, radius;
+    juce::Slider vignetteAmount, vignetteRadius, vignetteFalloff, gamma, contrast, brightness, hue, saturation, lightness, radius;
 };
 
 //==============================================================================
-struct MapDemo : public Component
+struct MapDemo : public juce::Component
 {
     MapDemo()
     {
@@ -1003,8 +1003,8 @@ struct MapDemo : public Component
 };
 
 //==============================================================================
-struct SemaphoreDemo : public Component,
-                       private Button::Listener
+struct SemaphoreDemo : public juce::Component,
+                       private juce::Button::Listener
 {
     SemaphoreDemo()
     {
@@ -1034,7 +1034,7 @@ struct SemaphoreDemo : public Component,
         rc.removeFromTop (8);
     }
 
-    void buttonClicked (Button* b) override
+    void buttonClicked (juce::Button* b) override
     {
         if (b == &lockA)
         {
@@ -1071,14 +1071,14 @@ struct SemaphoreDemo : public Component,
 
     }
 
-    TextButton lockA {"Lock A"}, unlockA {"Unlock A"}, lockB {"Lock B"}, unlockB {"Unlock B"};
+    juce::TextButton lockA {"Lock A"}, unlockA {"Unlock A"}, lockB {"Lock B"}, unlockB {"Unlock B"};
     gin::SystemSemaphore semA {"demo_sem"}, semB {"demo_sem"};
 };
 
 //==============================================================================
-struct SharedMemoryDemo : public Component,
-                          private TextEditor::Listener,
-                          private Timer
+struct SharedMemoryDemo : public juce::Component,
+                          private juce::TextEditor::Listener,
+                          private juce::Timer
 {
     SharedMemoryDemo()
     {
@@ -1095,7 +1095,7 @@ struct SharedMemoryDemo : public Component,
         text.setBounds (getLocalBounds());
     }
 
-    void textEditorTextChanged (TextEditor&) override
+    void textEditorTextChanged (juce::TextEditor&) override
     {
         strncpy ((char*)mem.getData(), text.getText().toRawUTF8(), size_t (mem.getSize() - 1));
     }
@@ -1104,7 +1104,7 @@ struct SharedMemoryDemo : public Component,
     {
         if (! text.hasKeyboardFocus (true))
         {
-            String fromMem ((char*)mem.getData(), size_t (mem.getSize()));
+            juce::String fromMem ((char*)mem.getData(), size_t (mem.getSize()));
 
             if (fromMem != text.getText())
                 text.setText (fromMem);
@@ -1112,18 +1112,18 @@ struct SharedMemoryDemo : public Component,
     }
 
     gin::SharedMemory mem {"demo", 1024};
-    TextEditor text;
+    juce::TextEditor text;
 };
 
 //==============================================================================
-struct LeastSquaresDemo : public Component
+struct LeastSquaresDemo : public juce::Component
 {
     LeastSquaresDemo()
     {
         setName ("Least Squares");
     }
 
-    void mouseDown (const MouseEvent& e) override
+    void mouseDown (const juce::MouseEvent& e) override
     {
         if (e.getNumberOfClicks() > 1)
         {
@@ -1138,13 +1138,13 @@ struct LeastSquaresDemo : public Component
         repaint();
     }
 
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
         if (lsr.enoughPoints())
         {
-            g.setColour (Colours::red);
+            g.setColour (juce::Colours::red);
 
-            Path p;
+            juce::Path p;
 
             double a = lsr.aTerm();
             double b = lsr.bTerm();
@@ -1158,30 +1158,30 @@ struct LeastSquaresDemo : public Component
                 else
                     p.lineTo (float (x), float (y));
             }
-            g.strokePath (p, PathStrokeType (2));
+            g.strokePath (p, juce::PathStrokeType (2));
         }
 
-        g.setColour (Colours::yellow);
+        g.setColour (juce::Colours::yellow);
         for (auto pt : points)
             g.fillEllipse (pt.getX() - 3.0f, pt.getY() - 3.0f, 6.0f, 6.0f);
 
         if (points.isEmpty())
-            g.drawText ("Click to add point. Double click to reset.", getLocalBounds(), Justification::centred);
+            g.drawText ("Click to add point. Double click to reset.", getLocalBounds(), juce::Justification::centred);
     }
 
-    Array<Point<int>> points;
+    juce::Array<juce::Point<int>> points;
     gin::LeastSquaresRegression lsr;
 };
 
 //==============================================================================
-struct LinearDemo : public Component
+struct LinearDemo : public juce::Component
 {
     LinearDemo()
     {
         setName ("Linear Regression");
     }
 
-    void mouseDown (const MouseEvent& e) override
+    void mouseDown (const juce::MouseEvent& e) override
     {
         if (e.getNumberOfClicks() > 1)
         {
@@ -1197,13 +1197,13 @@ struct LinearDemo : public Component
         repaint();
     }
 
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
         if (lr.haveData())
         {
-            g.setColour (Colours::red);
+            g.setColour (juce::Colours::red);
 
-            Path p;
+            juce::Path p;
 
             for (int x = 0; x < getWidth(); x++)
             {
@@ -1213,30 +1213,30 @@ struct LinearDemo : public Component
                 else
                     p.lineTo (float (x), float (y));
             }
-            g.strokePath (p, PathStrokeType (2));
+            g.strokePath (p, juce::PathStrokeType (2));
         }
 
-        g.setColour (Colours::yellow);
+        g.setColour (juce::Colours::yellow);
         for (auto pt : points)
             g.fillEllipse (pt.getX() - 3.0f, pt.getY() - 3.0f, 6.0f, 6.0f);
 
         if (points.isEmpty())
-            g.drawText ("Click to add point. Double click to reset.", getLocalBounds(), Justification::centred);
+            g.drawText ("Click to add point. Double click to reset.", getLocalBounds(), juce::Justification::centred);
     }
 
-    Array<Point<int>> points;
+    juce::Array<juce::Point<int>> points;
     gin::LinearRegression lr;
 };
 
 //==============================================================================
-struct SplineDemo : public Component
+struct SplineDemo : public juce::Component
 {
     SplineDemo()
     {
         setName ("Spline");
     }
 
-    void mouseDown (const MouseEvent& e) override
+    void mouseDown (const juce::MouseEvent& e) override
     {
         if (e.getNumberOfClicks() > 1)
             points.clear();
@@ -1246,9 +1246,9 @@ struct SplineDemo : public Component
         repaint();
     }
 
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
-        Array<Point<double>> dpoints;
+        juce::Array<juce::Point<double>> dpoints;
         for (auto p : points)
             dpoints.add ({ double (p.getX()), double (p.getY())});
 
@@ -1256,9 +1256,9 @@ struct SplineDemo : public Component
         {
             gin::Spline spline (dpoints);
 
-            g.setColour (Colours::red);
+            g.setColour (juce::Colours::red);
 
-            Path p;
+            juce::Path p;
 
             p.startNewSubPath (points.getFirst().toFloat());
             for (int x = points.getFirst().getX(); x < points.getLast().getX(); x++)
@@ -1268,29 +1268,29 @@ struct SplineDemo : public Component
             }
             p.lineTo (points.getLast().toFloat());
 
-            g.strokePath (p, PathStrokeType (2));
+            g.strokePath (p, juce::PathStrokeType (2));
         }
 
-        g.setColour (Colours::yellow);
+        g.setColour (juce::Colours::yellow);
         for (auto pt : points)
             g.fillEllipse (pt.getX() - 3.0f, pt.getY() - 3.0f, 6.0f, 6.0f);
 
         if (points.isEmpty())
-            g.drawText ("Click from left to right to add points. Double click to reset.", getLocalBounds(), Justification::centred);
+            g.drawText ("Click from left to right to add points. Double click to reset.", getLocalBounds(), juce::Justification::centred);
     }
 
-    Array<Point<int>> points;
+    juce::Array<juce::Point<int>> points;
 };
 
 //==============================================================================
-struct LagrangeDemo : public Component
+struct LagrangeDemo : public juce::Component
 {
     LagrangeDemo()
     {
         setName ("Lagrange");
     }
 
-    void mouseDown (const MouseEvent& e) override
+    void mouseDown (const juce::MouseEvent& e) override
     {
         if (e.getNumberOfClicks() > 1)
             points.clear();
@@ -1300,17 +1300,17 @@ struct LagrangeDemo : public Component
         repaint();
     }
 
-    void paint (Graphics& g) override
+    void paint (juce::Graphics& g) override
     {
-        Array<Point<double>> dpoints;
+        juce::Array<juce::Point<double>> dpoints;
         for (auto p : points)
             dpoints.add ({ double (p.getX()), double (p.getY())});
 
         if (dpoints.size() >= 2)
         {
-            g.setColour (Colours::red);
+            g.setColour (juce::Colours::red);
 
-            Path p;
+            juce::Path p;
 
             p.startNewSubPath (points.getFirst().toFloat());
             for (float x = points.getFirst().getX(); x < points.getLast().getX(); x++)
@@ -1320,18 +1320,18 @@ struct LagrangeDemo : public Component
             }
             p.lineTo (points.getLast().toFloat());
 
-            g.strokePath (p, PathStrokeType (2));
+            g.strokePath (p, juce::PathStrokeType (2));
         }
 
-        g.setColour (Colours::yellow);
+        g.setColour (juce::Colours::yellow);
         for (auto pt : points)
             g.fillEllipse (pt.getX() - 3.0f, pt.getY() - 3.0f, 6.0f, 6.0f);
 
         if (points.isEmpty())
-            g.drawText ("Click from left to right to add points. Double click to reset.", getLocalBounds(), Justification::centred);
+            g.drawText ("Click from left to right to add points. Double click to reset.", getLocalBounds(), juce::Justification::centred);
     }
 
-    Array<Point<float>> points;
+    juce::Array<juce::Point<float>> points;
 };
 
 //==============================================================================
@@ -1389,9 +1389,9 @@ MainContentComponent::~MainContentComponent()
 {
 }
 
-void MainContentComponent::paint (Graphics& g)
+void MainContentComponent::paint (juce::Graphics& g)
 {
-    g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));
+    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
 }
 
 void MainContentComponent::resized()
@@ -1406,17 +1406,17 @@ void MainContentComponent::resized()
         c->setBounds (rc);
 }
 
-void MainContentComponent::paintListBoxItem (int row, Graphics& g, int w, int h, bool rowIsSelected)
+void MainContentComponent::paintListBoxItem (int row, juce::Graphics& g, int w, int h, bool rowIsSelected)
 {
-    Rectangle<int> rc (0, 0, w, h);
+    juce::Rectangle<int> rc (0, 0, w, h);
     if (rowIsSelected)
     {
-        g.setColour (Colours::lightblue);
+        g.setColour (juce::Colours::lightblue);
         g.fillAll();
     }
 
-    g.setColour (findColour (ListBox::textColourId));
-    g.drawText (demoComponents[row]->getName(), rc.reduced (2), Justification::centredLeft);
+    g.setColour (findColour (juce::ListBox::textColourId));
+    g.drawText (demoComponents[row]->getName(), rc.reduced (2), juce::Justification::centredLeft);
 }
 
 void MainContentComponent::selectedRowsChanged (int lastRowSelected)
