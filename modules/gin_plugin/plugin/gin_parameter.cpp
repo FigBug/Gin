@@ -242,11 +242,7 @@ juce::String Parameter::getText (float val, int /*maximumStringLength*/) const
         return textFunction (*this, range.convertFrom0to1 (val));
     
     auto uv = range.snapToLegalValue (range.convertFrom0to1 (val));
-    int dec = 1;
-    if (uv < 10) dec = 2;
-    if (uv < 1)  dec = 3;
-
-    return juce::String (uv, dec);
+    return formatNumber (uv);
 }
 
 float Parameter::getValueForText (const juce::String& text) const
