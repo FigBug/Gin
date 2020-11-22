@@ -16,6 +16,7 @@ var searchData=
   ['focusgained',['focusGained',['../classSingleLineTextEditor.html#a2637496e94b565815585f09871e2cda2',1,'SingleLineTextEditor']]],
   ['focuslost',['focusLost',['../classSingleLineTextEditor.html#a064d28e1648885e900dd9a0f9da3701a',1,'SingleLineTextEditor']]],
   ['folderchanged',['folderChanged',['../classFileSystemWatcher_1_1Listener.html#a04a461ad2d135495403372fcc9d413dd',1,'FileSystemWatcher::Listener']]],
+  ['formatnumber',['formatNumber',['../group__gin-utilities.html#gaebf910d77d287573a8f98f51c67f8d48',1,'gin_util.h']]],
   ['fromfile',['fromFile',['../classSample.html#a6ad98110e9ccc23c8ae9d9fe7f7914f9',1,'Sample']]],
   ['fromurl',['fromURL',['../classWebSocket.html#a772a85561373a9548bd00ed7a7473c58',1,'WebSocket::fromURL(const juce::String &amp;url, const juce::String &amp;origin={})'],['../classWebSocket.html#a7e2404176abec3d499adcd92fcc6bc42',1,'WebSocket::fromURL(const juce::String &amp;url, bool useMask, const juce::String &amp;origin)']]],
   ['fromurlnomask',['fromURLNoMask',['../classWebSocket.html#af03b816bb7e26fccad0d1b4bf9b0b5b3',1,'WebSocket']]],

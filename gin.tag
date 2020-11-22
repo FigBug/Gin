@@ -1489,6 +1489,13 @@
       <anchor>gaa8e8a032e70b00eb8b977cadd0fb09a8</anchor>
       <arglist>(std::function&lt; void()&gt; callback, int delayMS)</arglist>
     </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>formatNumber</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>gaebf910d77d287573a8f98f51c67f8d48</anchor>
+      <arglist>(T v)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>gin_valuesmoother.h</name>
@@ -12958,6 +12965,16 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
+    <class kind="class">DynamicsMeter</class>
+    <class kind="class">LevelMeter</class>
+    <class kind="class">TriggeredScope</class>
+    <class kind="class">WaveformComponent</class>
+    <class kind="class">XYScope</class>
+  </compound>
+  <compound kind="group">
     <name>gin-components</name>
     <title>components</title>
     <filename>group__gin-components.html</filename>
@@ -13040,16 +13057,6 @@
       <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
       <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
     </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-    <class kind="class">DynamicsMeter</class>
-    <class kind="class">LevelMeter</class>
-    <class kind="class">TriggeredScope</class>
-    <class kind="class">WaveformComponent</class>
-    <class kind="class">XYScope</class>
   </compound>
   <compound kind="group">
     <name>gin_dsp-dsp</name>
@@ -14039,6 +14046,13 @@
       <anchorfile>group__gin-utilities.html</anchorfile>
       <anchor>gaa8e8a032e70b00eb8b977cadd0fb09a8</anchor>
       <arglist>(std::function&lt; void()&gt; callback, int delayMS)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>formatNumber</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>gaebf910d77d287573a8f98f51c67f8d48</anchor>
+      <arglist>(T v)</arglist>
     </member>
     <member kind="function">
       <type>juce::String</type>
