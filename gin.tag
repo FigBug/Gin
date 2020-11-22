@@ -9537,9 +9537,9 @@
     </member>
     <member kind="variable" protection="protected">
       <type>Processor &amp;</type>
-      <name>proc</name>
+      <name>ginProcessor</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>a2e20411f4f0948ced177b5eb59c84ba2</anchor>
+      <anchor>abea55336b0e8f3fe0a6392e288ea27bf</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">

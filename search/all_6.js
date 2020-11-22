@@ -225,6 +225,7 @@ var searchData=
   ['gin_5fxmpmetadata_2eh',['gin_xmpmetadata.h',['../gin__xmpmetadata_8h.html',1,'']]],
   ['gin_5fxyscope_2eh',['gin_xyscope.h',['../gin__xyscope_8h.html',1,'']]],
   ['ginlookandfeel',['GinLookAndFeel',['../classGinLookAndFeel.html',1,'GinLookAndFeel'],['../classGinLookAndFeel.html#ae2f7157e485bb30b42f4b47e617a3c17',1,'GinLookAndFeel::GinLookAndFeel()']]],
+  ['ginprocessor',['ginProcessor',['../classProcessorEditorBase.html#abea55336b0e8f3fe0a6392e288ea27bf',1,'ProcessorEditorBase']]],
   ['glass1colourid',['glass1ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a36769c6185d02150c1c87ffa812cac37',1,'GinLookAndFeel']]],
   ['glass2colourid',['glass2ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a2d85184728940d03f032a57e5b6915f3',1,'GinLookAndFeel']]],
   ['glideinfo',['GlideInfo',['../structGlideInfo.html',1,'GlideInfo'],['../classSynthesiserVoice.html#a0b618c0309abdbff794b2c082dbaa993',1,'SynthesiserVoice::glideInfo()']]],

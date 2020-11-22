@@ -12,7 +12,7 @@ var searchData=
   ['presets',['presets',['../classPatchBrowser.html#a2fde0c9a4e9504c0feb276e93250ea12',1,'PatchBrowser']]],
   ['presetsmodel',['presetsModel',['../classPatchBrowser.html#acce838df5fbbd1505ae5c0b55d361604',1,'PatchBrowser']]],
   ['prevbutton',['prevButton',['../classProcessorEditor.html#a1d4aa5b7780cbe6cf3e77f99b92bcbeb',1,'ProcessorEditor']]],
-  ['proc',['proc',['../classPatchBrowser.html#ace4451a4ee2e4ea777e795e8913ae29b',1,'PatchBrowser::proc()'],['../classProcessorEditorBase.html#a2e20411f4f0948ced177b5eb59c84ba2',1,'ProcessorEditorBase::proc()']]],
+  ['proc',['proc',['../classPatchBrowser.html#ace4451a4ee2e4ea777e795e8913ae29b',1,'PatchBrowser']]],
   ['processor',['processor',['../classParameter.html#aff54b112e093cf966a1bec5bf5a934dd',1,'Parameter']]],
   ['programs',['programs',['../classProcessorEditor.html#a8c852febe2c54d2b98d1c5c6949f145b',1,'ProcessorEditor']]],
   ['pw',['pw',['../structStereoOscillator_1_1Params.html#aebc2ccd97a83304620840c479a8c782b',1,'StereoOscillator::Params::pw()'],['../structVoicedStereoOscillator_1_1Params.html#a120aa15f174feb6b06c66d2f76103bf3',1,'VoicedStereoOscillator::Params::pw()'],['../structWTOscillator_1_1Params.html#a7ca54915f07cb3e86bc516fa5710b71f',1,'WTOscillator::Params::pw()']]]
