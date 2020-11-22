@@ -116,8 +116,8 @@ void Parameter::setUserValueAsUserAction (float f)
 juce::String Parameter::getUserValueText() const
 {
     if (textFunction)
-        return textFunction (*this, getUserValue());
-    return getText (getValue(), 1000);
+        return textFunction (*this, getUserValue()) + label;
+    return getText (getValue(), 1000) + label;
 }
 
 juce::String Parameter::userValueToText (float val)
@@ -247,7 +247,7 @@ juce::String Parameter::getText (float val, int /*maximumStringLength*/) const
     if (uv < 10) dec = 2;
     if (uv < 1)  dec = 3;
 
-    return juce::String (uv, dec) + " " + label;
+    return juce::String (uv, dec);
 }
 
 float Parameter::getValueForText (const juce::String& text) const

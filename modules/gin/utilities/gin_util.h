@@ -278,3 +278,20 @@ int versionStringToInt (const juce::String& versionString);
 //==============================================================================
 /** Do a lambda, a bit later */
 void delayedLambda (std::function<void ()> callback, int delayMS);
+
+template <typename T>
+juce::String formatNumber (T v)
+{
+    if (v == 0)
+        return "0";
+    
+    int dec = 0;
+    if (std::abs (v) < 10)   dec = 1;
+    if (std::abs (v) < 1)    dec = 2;
+    if (std::abs (v) < 0.1)  dec = 3;
+    
+    if (dec == 0)
+        return juce::String (juce::roundToInt (v));
+
+    return juce::String (v, dec);
+}
