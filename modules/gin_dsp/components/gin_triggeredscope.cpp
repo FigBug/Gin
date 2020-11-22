@@ -85,7 +85,7 @@ void TriggeredScope::addSamples (const juce::AudioSampleBuffer& buffer)
         // if we don't have enough space in the fifo, bail out, scope might be frozen
         const int numFreeInBuffer = channels[i]->samplesToProcess.getFreeSpace();
         if (numFreeInBuffer >= numSamples)
-			channels[i]->samplesToProcess.writeMono (samples, numSamples);
+            channels[i]->samplesToProcess.writeMono (samples, numSamples);
     }
     needToUpdate = true;
 }
@@ -134,30 +134,30 @@ void TriggeredScope::timerCallback()
 //==============================================================================
 void TriggeredScope::processPendingSamples()
 {
-	bool triggered = false;
-	int maxProcess = std::numeric_limits<int>::max();
-	if (singleTrigger && channels.size() > 0)
-	{
-		if (triggerPoint >= 0)
-		{
-			triggered = true;
-		}
-		else if (getTriggerPos().second)
-		{
-			triggerPoint = getTriggerPos().first;
-			triggered = true;
-		}
+    bool triggered = false;
+    int maxProcess = std::numeric_limits<int>::max();
+    if (singleTrigger && channels.size() > 0)
+    {
+        if (triggerPoint >= 0)
+        {
+            triggered = true;
+        }
+        else if (getTriggerPos().second)
+        {
+            triggerPoint = getTriggerPos().first;
+            triggered = true;
+        }
 
-		if (triggered)
-		{
-			auto& c = *channels[0];
-			maxProcess = c.bufferSize / 4 - samplesSinceTrigger;
-		}
-	}
+        if (triggered)
+        {
+            auto& c = *channels[0];
+            maxProcess = c.bufferSize / 4 - samplesSinceTrigger;
+        }
+    }
 
     for (auto c : channels)
     {
-		int processed = 0;
+        int processed = 0;
         int numSamples = c->samplesToProcess.getNumReady();
         c->samplesToProcess.readMono (c->tempProcessingBlock, numSamples);
         float* samples = c->tempProcessingBlock.getData();
@@ -188,13 +188,13 @@ void TriggeredScope::processPendingSamples()
                 c->numLeftToAverage += int (std::max (1.0f, numSamplesPerPixel));
                 c->numAveraged = 0;
 
-				if (triggered)
-					samplesSinceTrigger++;
+                if (triggered)
+                    samplesSinceTrigger++;
 
-				processed++;
+                processed++;
             }
         }
-		triggered = false;
+        triggered = false;
     }
 }
 
@@ -202,12 +202,12 @@ std::pair<int, bool> TriggeredScope::getTriggerPos()
 {
     const int w = getWidth();
 
-	if ( triggerPoint >= 0 )
-	{
-		return { triggerPoint, true };
-	}
+    if ( triggerPoint >= 0 )
+    {
+        return { triggerPoint, true };
+    }
 
-	bool found = false;
+    bool found = false;
     int bufferReadPos = 0;
 
     auto minBuffer = [&] (int i) -> float
@@ -264,7 +264,7 @@ std::pair<int, bool> TriggeredScope::getTriggerPos()
                         && maxBuffer (posToTest) > triggerLevel)
                     {
                         bufferReadPos = posToTest;
-						found = true;
+                        found = true;
                         break;
                     }
                 }
@@ -274,7 +274,7 @@ std::pair<int, bool> TriggeredScope::getTriggerPos()
                         && maxBuffer (posToTest) <= triggerLevel)
                     {
                         bufferReadPos = posToTest;
-						found = true;
+                        found = true;
                         break;
                     }
                 }
@@ -284,7 +284,7 @@ std::pair<int, bool> TriggeredScope::getTriggerPos()
             }
         }
     }
-	return { bufferReadPos, found };
+    return { bufferReadPos, found };
 }
 
 void TriggeredScope::render (juce::Graphics& g)
@@ -350,13 +350,13 @@ void TriggeredScope::render (juce::Graphics& g)
 
 void TriggeredScope::resetTrigger()
 {
-	triggerPoint = -1;
-	samplesSinceTrigger = 0;
+    triggerPoint = -1;
+    samplesSinceTrigger = 0;
 
-	for (auto c : channels)
-	{
-		c->posBuffer.clear ((size_t) c->bufferSize);
-		c->minBuffer.clear ((size_t) c->bufferSize);
-		c->maxBuffer.clear ((size_t) c->bufferSize);
-	}
+    for (auto c : channels)
+    {
+        c->posBuffer.clear ((size_t) c->bufferSize);
+        c->minBuffer.clear ((size_t) c->bufferSize);
+        c->maxBuffer.clear ((size_t) c->bufferSize);
+    }
 }

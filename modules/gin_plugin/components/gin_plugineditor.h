@@ -35,7 +35,7 @@ private:
     void run() override;
 
     ProcessorEditor& editor;
-    
+
     juce::String newsUrl;
 };
 
@@ -46,7 +46,7 @@ class ProcessorEditorBase : public juce::AudioProcessorEditor
 {
 public:
     ProcessorEditorBase (Processor& p, int cx_ = 100, int cy_ = 100)
-        : AudioProcessorEditor (p), proc (p), cx (cx_), cy (cy_)
+        : AudioProcessorEditor (p), ginProcessor (p), cx (cx_), cy (cy_)
     {
     }
 
@@ -55,7 +55,7 @@ public:
         addAndMakeVisible (*(resizer = std::make_unique<juce::ResizableCornerComponent> (this, &resizeLimits)));
         resizeLimits.setSizeLimits (minX, minY, maxX, maxY);
 
-        juce::ValueTree state (proc.state);
+        juce::ValueTree state (ginProcessor.state);
 
         if (state.hasProperty ("width") && state.hasProperty ("height"))
             setSize (state["width"], state["height"]);
@@ -71,8 +71,8 @@ public:
         {
             resizer->setBounds (juce::Rectangle<int> (r).removeFromRight (15).removeFromBottom (15));
 
-            proc.state.setProperty ("width", getWidth(), nullptr);
-            proc.state.setProperty ("height", getHeight(), nullptr);
+            ginProcessor.state.setProperty ("width", getWidth(), nullptr);
+            ginProcessor.state.setProperty ("height", getHeight(), nullptr);
         }
     }
 
@@ -88,7 +88,7 @@ public:
 protected:
     void setGridSize (int x, int y, int extraWidthPx = 0, int extraHeightPx = 0 );
 
-    Processor& proc;
+    Processor& ginProcessor;
     std::unique_ptr<juce::ResizableCornerComponent> resizer;
 
     const int cx;

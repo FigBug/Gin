@@ -27,17 +27,17 @@ public:
 
     /** Destructor. */
     ~TriggeredScope() override;
-    
+
     enum ColourIds
     {
         lineColourId             = 0x1231e10,
-        backgroundColourId       = 0x1231e11, 
+        backgroundColourId       = 0x1231e11,
         traceColourId            = 0x1231e12,
         envelopeColourId         = 0x1231f13,
     };
-    
+
     void setNumChannels (int num);
-    
+
     //==============================================================================
     /** Sets the number of samples represented by each pixel on the scope.
         Setting this to a low number will give a very zoomed in display, a high
@@ -51,11 +51,11 @@ public:
     /** Sets the vertical zoom offset of the display. */
     void setVerticalZoomOffset (float newVerticalZoomOffset, int ch);
 
-	/** Freeze scope once triggered */
-	void setSingleTrigger (bool singleTrigger_)	{ singleTrigger = singleTrigger_; }
+    /** Freeze scope once triggered */
+    void setSingleTrigger (bool singleTrigger_) { singleTrigger = singleTrigger_; }
 
-	/** Start running again once triggered */
-	void resetTrigger();
+    /** Start running again once triggered */
+    void resetTrigger();
 
     //==============================================================================
     /** The enum to use when setting the trace trigger mode. */
@@ -68,15 +68,15 @@ public:
 
     /** Sets the type of change that will trigger a trace. */
     void setTriggerMode (TriggerMode newTriggerMode);
-    
+
     /** Set channel to trigger on, -1 ave of all channels */
     void setTriggerChannel (int ch) { triggerChannel = ch; }
-    
+
     /** Set level to trigger on */
     void setTriggerLevel (float l)  { triggerLevel = l;     }
 
     void setTriggerPos (float l)    { triggerPos = l;       }
-    
+
     void setDrawTriggerPos (bool d) { drawTriggerPos = d;   }
 
     //==============================================================================
@@ -94,10 +94,10 @@ private:
     float triggerPos = 0.0f;
     int triggerChannel = -1;
     bool drawTriggerPos = false;
-	bool singleTrigger = false;
-	int triggerPoint = -1;
-	int samplesSinceTrigger = 0;
-    
+    bool singleTrigger = false;
+    int triggerPoint = -1;
+    int samplesSinceTrigger = 0;
+
     struct Channel
     {
         Channel() :
@@ -114,7 +114,7 @@ private:
           samplesToProcess (1, 32768),
           tempProcessingBlock (32768)
         {}
-        
+
         int numLeftToAverage;
         int bufferSize, bufferWritePos, numAveraged;
 
@@ -124,9 +124,9 @@ private:
         AudioFifo samplesToProcess;
         juce::HeapBlock<float> tempProcessingBlock;
     };
-    
+
     juce::OwnedArray<Channel> channels;
-    
+
     bool needToUpdate = false;
 
     //==============================================================================

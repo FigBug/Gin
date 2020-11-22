@@ -33,7 +33,7 @@ private:
     juce::SharedResourcePointer<Impl> impl;
 
     std::atomic<bool> triggered;
-	std::atomic<uint32_t> order;
+    std::atomic<uint32_t> order;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (RealtimeAsyncUpdater)
 };

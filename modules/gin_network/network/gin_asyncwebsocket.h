@@ -44,7 +44,7 @@ private:
 
     juce::URL url;
 
-	std::unique_ptr<WebSocket> socket;
+    std::unique_ptr<WebSocket> socket;
 
     //==============================================================================
     enum MessageType

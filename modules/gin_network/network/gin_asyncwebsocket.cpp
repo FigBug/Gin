@@ -47,10 +47,10 @@ void AsyncWebsocket::run()
         }
 
         MM::callAsync ([this, weakThis]
-		{
-		   if (weakThis != nullptr && onConnect)
-			   onConnect();
-		});
+        {
+           if (weakThis != nullptr && onConnect)
+               onConnect();
+        });
 
         while (! threadShouldExit())
         {
@@ -79,15 +79,15 @@ void AsyncWebsocket::run()
     }
 
     MM::callAsync ([this, weakThis]
-	{
-		if (weakThis != nullptr && onDisconnect)
-		{
-		   // The disconnect callback may cause the websocket to get deleted
-		   // Dangerous to use the lambda that is a member function, so make a copy
-		   auto safeCallback = onDisconnect;
-		   safeCallback ();
-		}
-	});
+    {
+        if (weakThis != nullptr && onDisconnect)
+        {
+           // The disconnect callback may cause the websocket to get deleted
+           // Dangerous to use the lambda that is a member function, so make a copy
+           auto safeCallback = onDisconnect;
+           safeCallback ();
+        }
+    });
 }
 
 void AsyncWebsocket::processIncomingData()
@@ -96,22 +96,22 @@ void AsyncWebsocket::processIncomingData()
     juce::WeakReference<AsyncWebsocket> weakThis = this;
 
     socket->dispatch ([this, weakThis] (const juce::MemoryBlock message, bool isBinary)
-	{
-		auto messageCopy = message;
-		MM::callAsync ([this, weakThis, messageCopy, isBinary]
-		{
-			if (weakThis != nullptr)
-			{
-			   // if we are receiving data we don't need to ping
-			   lastPing = juce::Time::getMillisecondCounterHiRes() / 1000;
+    {
+        auto messageCopy = message;
+        MM::callAsync ([this, weakThis, messageCopy, isBinary]
+        {
+            if (weakThis != nullptr)
+            {
+               // if we are receiving data we don't need to ping
+               lastPing = juce::Time::getMillisecondCounterHiRes() / 1000;
 
-			   if (isBinary && onBinary)
-				   onBinary (messageCopy);
-			   else if (! isBinary && onText)
-				   onText (juce::String::fromUTF8 ((char*)messageCopy.getData(), int (messageCopy.getSize())));
-			}
-		});
-	});
+               if (isBinary && onBinary)
+                   onBinary (messageCopy);
+               else if (! isBinary && onText)
+                   onText (juce::String::fromUTF8 ((char*)messageCopy.getData(), int (messageCopy.getSize())));
+            }
+        });
+    });
 }
 
 void AsyncWebsocket::processOutgoingData()
