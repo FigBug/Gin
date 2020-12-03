@@ -171,7 +171,7 @@ var searchData=
   ['starttimer',['startTimer',['../classCoalescedTimer.html#a97261711749a65434b7f875f94118c4b',1,'CoalescedTimer']]],
   ['starttimerhz',['startTimerHz',['../classCoalescedTimer.html#a31d6f6484b273fe894be54c6dcbd0957',1,'CoalescedTimer']]],
   ['startvoice',['startVoice',['../classSynthesiser.html#a9c7f19726ca95a0d6609370efb70dfac',1,'Synthesiser::startVoice()'],['../classModVoice.html#aa987df0200c765566c0a359e3a2597b6',1,'ModVoice::startVoice()']]],
-  ['state',['state',['../classADSR.html#a2d9269b27359df5559e6881e5061e790',1,'ADSR::state()'],['../classAnalogADSR.html#a72a052eb2cfe616157e185707982f1db',1,'AnalogADSR::state()'],['../classProcessor.html#aecd42420782c38cad73bf06fb0f195db',1,'Processor::state()'],['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127a',1,'ADSR::State()'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188e',1,'AnalogADSR::State()']]],
+  ['state',['State',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127a',1,'ADSR::State()'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188e',1,'AnalogADSR::State()'],['../classADSR.html#a2d9269b27359df5559e6881e5061e790',1,'ADSR::state()'],['../classAnalogADSR.html#a72a052eb2cfe616157e185707982f1db',1,'AnalogADSR::state()'],['../classProcessor.html#aecd42420782c38cad73bf06fb0f195db',1,'Processor::state()']]],
   ['states',['states',['../classProgram.html#ac96aecc2feeb808135496ea32108a3f1',1,'Program']]],
   ['stateupdated',['stateUpdated',['../classModMatrix.html#aa3b18298e7798ae8293f8beb6622db23',1,'ModMatrix::stateUpdated()'],['../classProcessor.html#a8f2a4e8408ed85ccf02152f5e0cc4143',1,'Processor::stateUpdated()']]],
   ['statuscode',['statusCode',['../structHttp_1_1HttpResult.html#a503d39d8b2bb60b51594b5108038aca6',1,'Http::HttpResult']]],
@@ -201,7 +201,7 @@ var searchData=
   ['sustain',['sustain',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127aa48dd9dd380d2a499ad6f7ae967010835',1,'ADSR::sustain()'],['../classAnalogADSR.html#a6cd2be4762c1a196e9bfae491d5e2399',1,'AnalogADSR::sustain()'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188ea02bc1150d41a4dfdc324849c25dce148',1,'AnalogADSR::sustain()']]],
   ['sustainlevel',['sustainLevel',['../classADSR.html#aa02446c404e961975776b5b7d40d91a7',1,'ADSR']]],
   ['switch',['Switch',['../classSwitch.html',1,'Switch'],['../classSwitch.html#ab2b13d51b74f2d3421a250e933cf697c',1,'Switch::Switch()']]],
-  ['synthesiser',['Synthesiser',['../classSynthesiser.html',1,'Synthesiser'],['../classSynthesiserUsage.html#aab0e60a078f566eefd3c2de30e987486',1,'SynthesiserUsage::synthesiser()'],['../classSynthesiser.html#a8c313d6f1fa875790e5c79dc621ee437',1,'Synthesiser::Synthesiser()']]],
+  ['synthesiser',['Synthesiser',['../classSynthesiser.html',1,'Synthesiser'],['../classSynthesiser.html#a8c313d6f1fa875790e5c79dc621ee437',1,'Synthesiser::Synthesiser()'],['../classSynthesiserUsage.html#aab0e60a078f566eefd3c2de30e987486',1,'SynthesiserUsage::synthesiser()']]],
   ['synthesiserusage',['SynthesiserUsage',['../classSynthesiserUsage.html',1,'SynthesiserUsage'],['../classSynthesiserUsage.html#ae37e6d848cf06acd4d3795c7d86c62cd',1,'SynthesiserUsage::SynthesiserUsage()']]],
   ['synthesiservoice',['SynthesiserVoice',['../classSynthesiserVoice.html',1,'']]],
   ['systemsemaphore',['SystemSemaphore',['../classSystemSemaphore.html',1,'SystemSemaphore'],['../classSystemSemaphore.html#ae7d9c999757639af86a49f838f862298',1,'SystemSemaphore::SystemSemaphore()']]]

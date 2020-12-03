@@ -3919,6 +3919,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>moveFile</name>
+      <anchorfile>classElevatedFileCopy.html</anchorfile>
+      <anchor>a985419d76baa5bb6cd7def8472a65b1d</anchor>
+      <arglist>(const juce::File &amp;src, const juce::File &amp;dst)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>deleteFile</name>
       <anchorfile>classElevatedFileCopy.html</anchorfile>
       <anchor>a388cf3a1477bb16bb43e7e1666c4e46d</anchor>

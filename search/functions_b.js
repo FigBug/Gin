@@ -29,6 +29,7 @@ var searchData=
   ['movecarettostartofline',['moveCaretToStartOfLine',['../classSingleLineTextEditor.html#aed7187d7071b851adc5bd93c97e77f80',1,'SingleLineTextEditor']]],
   ['movecarettotop',['moveCaretToTop',['../classSingleLineTextEditor.html#a7e17b365435d9689750f74c370da61fd',1,'SingleLineTextEditor']]],
   ['movecaretup',['moveCaretUp',['../classSingleLineTextEditor.html#a85164bf3e0f9ed386b1d4c4d8e510924',1,'SingleLineTextEditor']]],
+  ['movefile',['moveFile',['../classElevatedFileCopy.html#a985419d76baa5bb6cd7def8472a65b1d',1,'ElevatedFileCopy']]],
   ['multiparamcomponent',['MultiParamComponent',['../classMultiParamComponent.html#a18f9b618b79b95f66337845843202a2e',1,'MultiParamComponent']]],
   ['multithreadedfor',['multiThreadedFor',['../group__gin-utilities.html#ga383aa0fdd6752ac48ba3e087006730fa',1,'gin_threading.h']]]
 ];

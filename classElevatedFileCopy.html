@@ -88,6 +88,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a72d1a5cdf30ac2bb43d89934ec7b14f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElevatedFileCopy.html#a72d1a5cdf30ac2bb43d89934ec7b14f0">copyFile</a> (const juce::File &amp;src, const juce::File &amp;dst)</td></tr>
 <tr class="memdesc:a72d1a5cdf30ac2bb43d89934ec7b14f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a file to copy.  <a href="#a72d1a5cdf30ac2bb43d89934ec7b14f0">More...</a><br /></td></tr>
 <tr class="separator:a72d1a5cdf30ac2bb43d89934ec7b14f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a985419d76baa5bb6cd7def8472a65b1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElevatedFileCopy.html#a985419d76baa5bb6cd7def8472a65b1d">moveFile</a> (const juce::File &amp;src, const juce::File &amp;dst)</td></tr>
+<tr class="memdesc:a985419d76baa5bb6cd7def8472a65b1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a file to move.  <a href="#a985419d76baa5bb6cd7def8472a65b1d">More...</a><br /></td></tr>
+<tr class="separator:a985419d76baa5bb6cd7def8472a65b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a388cf3a1477bb16bb43e7e1666c4e46d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElevatedFileCopy.html#a388cf3a1477bb16bb43e7e1666c4e46d">deleteFile</a> (const juce::File &amp;f)</td></tr>
 <tr class="memdesc:a388cf3a1477bb16bb43e7e1666c4e46d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a file or directory.  <a href="#a388cf3a1477bb16bb43e7e1666c4e46d">More...</a><br /></td></tr>
 <tr class="separator:a388cf3a1477bb16bb43e7e1666c4e46d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -178,6 +181,37 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Add a file to copy. </p>
+<p>src and dst must be complete file names, neither can be a directory </p>
+
+</div>
+</div>
+<a id="a985419d76baa5bb6cd7def8472a65b1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a985419d76baa5bb6cd7def8472a65b1d">&#9670;&nbsp;</a></span>moveFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ElevatedFileCopy::moveFile </td>
+          <td>(</td>
+          <td class="paramtype">const juce::File &amp;&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const juce::File &amp;&#160;</td>
+          <td class="paramname"><em>dst</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add a file to move. </p>
 <p>src and dst must be complete file names, neither can be a directory </p>
 
 </div>
@@ -315,7 +349,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 22 2020 20:10:27 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 3 2020 00:32:37 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>
