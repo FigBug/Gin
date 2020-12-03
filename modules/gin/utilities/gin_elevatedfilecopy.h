@@ -32,6 +32,10 @@ public:
         neither can be a directory */
     void copyFile (const juce::File& src, const juce::File& dst);
 
+    /** Add a file to move. src and dst must be complete file names,
+        neither can be a directory */
+    void moveFile (const juce::File& src, const juce::File& dst);
+
     /** Delete a file or directory */
     void deleteFile (const juce::File& f);
 
@@ -70,9 +74,11 @@ private:
 
     juce::File createScript (const juce::Array<juce::File>& toDelete,
                              const juce::Array<juce::File>& dirsThatNeedAdminAccess,
-                             const juce::Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess);
+                             const juce::Array<ElevatedFileCopy::FileItem>& filesToCopyThatNeedAdminAccess,
+                             const juce::Array<ElevatedFileCopy::FileItem>& filesToMoveThatNeedAdminAccess);
 
     juce::Array<FileItem> filesToCopy;
+    juce::Array<FileItem> filesToMove;
     juce::Array<juce::File> dirsToCreate;
     juce::Array<juce::File> filesToDelete;
 

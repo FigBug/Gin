@@ -77,7 +77,8 @@ ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (juce::File 
 
 juce::File ElevatedFileCopy::createScript (const juce::Array<juce::File>& toDelete,
                                            const juce::Array<juce::File>& dirsThatNeedAdminAccess,
-                                           const juce::Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess)
+                                           const juce::Array<ElevatedFileCopy::FileItem>& filesToCopyThatNeedAdminAccess,
+                                           const juce::Array<ElevatedFileCopy::FileItem>& filesToMoveThatNeedAdminAccess)
 {
     auto script = juce::File::getSpecialLocation (juce::File::tempDirectory).getNonexistentChildFile ("copy", ".sh", false);
 
@@ -93,7 +94,11 @@ juce::File ElevatedFileCopy::createScript (const juce::Array<juce::File>& toDele
     for (auto f : dirsThatNeedAdminAccess)
         dirs.add (f);
 
-    for (auto f : filesThatNeedAdminAccess)
+    for (auto f : filesToCopyThatNeedAdminAccess)
+        if (! f.dst.getParentDirectory().isDirectory())
+            dirs.addIfNotAlreadyThere (f.dst.getParentDirectory());
+
+    for (auto f : filesToMoveThatNeedAdminAccess)
         if (! f.dst.getParentDirectory().isDirectory())
             dirs.addIfNotAlreadyThere (f.dst.getParentDirectory());
 
@@ -105,8 +110,11 @@ juce::File ElevatedFileCopy::createScript (const juce::Array<juce::File>& toDele
 
     scriptText += "\n";
 
-    for (auto f : filesThatNeedAdminAccess)
+    for (auto f : filesToCopyThatNeedAdminAccess)
         scriptText += "cp -p " + escape (f.src.getFullPathName()) + " " + escape (f.dst.getFullPathName()) + " || exit 1\n";
+
+    for (auto f : filesToMoveThatNeedAdminAccess)
+        scriptText += "mv -p " + escape (f.src.getFullPathName()) + " " + escape (f.dst.getFullPathName()) + " || exit 1\n";
 
     script.replaceWithText (scriptText, false, false, "\n");
 
@@ -179,7 +187,8 @@ ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (juce::File 
 
 juce::File ElevatedFileCopy::createScript (const juce::Array<juce::File>& toDelete,
                                            const juce::Array<juce::File>& dirsThatNeedAdminAccess,
-                                           const juce::Array<ElevatedFileCopy::FileItem>& filesThatNeedAdminAccess)
+                                           const juce::Array<ElevatedFileCopy::FileItem>& filesToCopyThatNeedAdminAccess,
+                                           const juce::Array<ElevatedFileCopy::FileItem>& filesToMoveThatNeedAdminAccess)
 {
     auto script = juce::File::getSpecialLocation (juce::File::tempDirectory).getNonexistentChildFile ("copy", ".bat", false);
 
@@ -198,20 +207,32 @@ juce::File ElevatedFileCopy::createScript (const juce::Array<juce::File>& toDele
     for (auto f : dirsThatNeedAdminAccess)
         dirs.add (f);
 
-    for (auto f : filesThatNeedAdminAccess)
+    for (auto f : filesToCopyThatNeedAdminAccess)
         if (! f.dst.getParentDirectory().isDirectory())
             dirs.addIfNotAlreadyThere (f.dst.getParentDirectory());
+
+    for (auto f : filesToMoveThatNeedAdminAccess)
+        if (! f.dst.getParentDirectory().isDirectory())
+            dirs.addIfNotAlreadyThere (f.dst.getParentDirectory());
+
 
     for (auto d : dirs)
         scriptText += "if not exist \"" + d.getFullPathName() +  "\" mkdir " + d.getFullPathName().quoted() + "\r\n";
 
     scriptText += "\r\n";
 
-    for (auto f : filesThatNeedAdminAccess)
+    for (auto f : filesToCopyThatNeedAdminAccess)
     {
         scriptText += "copy " + f.src.getFullPathName().quoted() + " " + f.dst.getFullPathName().quoted() + "\r\n";
         scriptText += "if %errorlevel% neq 0 goto :error\r\n";
     }
+
+    for (auto f : filesToMoveThatNeedAdminAccess)
+    {
+        scriptText += "move " + f.src.getFullPathName().quoted() + " " + f.dst.getFullPathName().quoted() + "\r\n";
+        scriptText += "if %errorlevel% neq 0 goto :error\r\n";
+    }
+
 
     scriptText += "exit /b 0\r\n";
     scriptText += ":error\r\n";
@@ -235,6 +256,11 @@ void ElevatedFileCopy::copyFile (const juce::File& src, const juce::File& dst)
     filesToCopy.add ({ src, dst });
 }
 
+void ElevatedFileCopy::moveFile (const juce::File& src, const juce::File& dst)
+{
+    filesToMove.add ({ src, dst });
+}
+
 void ElevatedFileCopy::deleteFile (const juce::File& f)
 {
     filesToDelete.add (f);
@@ -244,7 +270,8 @@ ElevatedFileCopy::Result ElevatedFileCopy::execute (bool launchSelf)
 {
     juce::Array<juce::File> filesToDeleteThatNeedAdminAccess;
     juce::Array<juce::File> dirsThatNeedAdminAccess;
-    juce::Array<FileItem> filesThatNeedAdminAccess;
+    juce::Array<FileItem> filesToCopyThatNeedAdminAccess;
+    juce::Array<FileItem> filesToMoveThatNeedAdminAccess;
 
     for (auto f : filesToDelete)
     {
@@ -283,12 +310,28 @@ ElevatedFileCopy::Result ElevatedFileCopy::execute (bool launchSelf)
             ok = f.src.copyFileTo (f.dst);
 
         if (! ok)
-            filesThatNeedAdminAccess.add (f);
+            filesToCopyThatNeedAdminAccess.add (f);
     }
 
-    if (filesToDeleteThatNeedAdminAccess.size() > 0 || dirsThatNeedAdminAccess.size() > 0 || filesThatNeedAdminAccess.size() > 0)
+    for (auto f : filesToMove)
     {
-        juce::File script = createScript (filesToDeleteThatNeedAdminAccess, dirsThatNeedAdminAccess, filesThatNeedAdminAccess);
+        bool ok = false;
+
+        auto dstDir = f.dst.getParentDirectory();
+        if (! dstDir.isDirectory())
+            dstDir.createDirectory();
+
+        if (dstDir.isDirectory())
+            ok = f.src.moveFileTo (f.dst);
+
+        if (! ok)
+            filesToMoveThatNeedAdminAccess.add (f);
+    }
+
+
+    if (filesToDeleteThatNeedAdminAccess.size() > 0 || dirsThatNeedAdminAccess.size() > 0 || filesToCopyThatNeedAdminAccess.size() > 0 || filesToMoveThatNeedAdminAccess.size() > 0)
+    {
+        juce::File script = createScript (filesToDeleteThatNeedAdminAccess, dirsThatNeedAdminAccess, filesToCopyThatNeedAdminAccess, filesToMoveThatNeedAdminAccess);
         auto res = runScriptWithAdminAccess (script, launchSelf);
         script.deleteFile();
 
@@ -348,7 +391,10 @@ bool ElevatedFileCopy::processCommandLine (juce::String commandLine)
 
 void ElevatedFileCopy::clear()
 {
+    filesToMove.clear();
     filesToCopy.clear();
+    filesToDelete.clear();
+    dirsToCreate.clear();
 }
 
 #endif
