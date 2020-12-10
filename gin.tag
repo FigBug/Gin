@@ -12972,16 +12972,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-    <class kind="class">DynamicsMeter</class>
-    <class kind="class">LevelMeter</class>
-    <class kind="class">TriggeredScope</class>
-    <class kind="class">WaveformComponent</class>
-    <class kind="class">XYScope</class>
-  </compound>
-  <compound kind="group">
     <name>gin-components</name>
     <title>components</title>
     <filename>group__gin-components.html</filename>
@@ -13064,6 +13054,16 @@
       <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
       <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
     </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
+    <class kind="class">DynamicsMeter</class>
+    <class kind="class">LevelMeter</class>
+    <class kind="class">TriggeredScope</class>
+    <class kind="class">WaveformComponent</class>
+    <class kind="class">XYScope</class>
   </compound>
   <compound kind="group">
     <name>gin_dsp-dsp</name>
