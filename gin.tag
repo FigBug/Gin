@@ -12972,34 +12972,14 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin-components</name>
+    <name>gin_dsp-components</name>
     <title>components</title>
-    <filename>group__gin-components.html</filename>
-    <class kind="class">ComponentViewer</class>
-    <class kind="class">GinLookAndFeel</class>
-    <class kind="class">MapViewer</class>
-    <class kind="class">PropertyComponentBase</class>
-    <class kind="class">FilePropertyComponent</class>
-    <class kind="class">ColourPropertyComponent</class>
-    <class kind="class">SingleLineTextEditor</class>
-    <class kind="struct">SingleLineTextEditor::LookAndFeelMethods</class>
-    <class kind="class">SingleLineTextEditor::LengthAndCharacterRestriction</class>
-    <class kind="class">SingleLineTextEditor::InputFilter</class>
-    <class kind="class">SingleLineTextEditor::Listener</class>
-    <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin-components.html</anchorfile>
-      <anchor>gaae3a1137955ae87c67a9fec3fa385d2d</anchor>
-      <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component *&gt; children)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin-components.html</anchorfile>
-      <anchor>gab38420a664c643212724d4a1d9b162f8</anchor>
-      <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component *&gt; children)</arglist>
-    </member>
+    <filename>group__gin__dsp-components.html</filename>
+    <class kind="class">DynamicsMeter</class>
+    <class kind="class">LevelMeter</class>
+    <class kind="class">TriggeredScope</class>
+    <class kind="class">WaveformComponent</class>
+    <class kind="class">XYScope</class>
   </compound>
   <compound kind="group">
     <name>gin_plugin-components</name>
@@ -13056,14 +13036,34 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_dsp-components</name>
+    <name>gin-components</name>
     <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-    <class kind="class">DynamicsMeter</class>
-    <class kind="class">LevelMeter</class>
-    <class kind="class">TriggeredScope</class>
-    <class kind="class">WaveformComponent</class>
-    <class kind="class">XYScope</class>
+    <filename>group__gin-components.html</filename>
+    <class kind="class">ComponentViewer</class>
+    <class kind="class">GinLookAndFeel</class>
+    <class kind="class">MapViewer</class>
+    <class kind="class">PropertyComponentBase</class>
+    <class kind="class">FilePropertyComponent</class>
+    <class kind="class">ColourPropertyComponent</class>
+    <class kind="class">SingleLineTextEditor</class>
+    <class kind="struct">SingleLineTextEditor::LookAndFeelMethods</class>
+    <class kind="class">SingleLineTextEditor::LengthAndCharacterRestriction</class>
+    <class kind="class">SingleLineTextEditor::InputFilter</class>
+    <class kind="class">SingleLineTextEditor::Listener</class>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin-components.html</anchorfile>
+      <anchor>gaae3a1137955ae87c67a9fec3fa385d2d</anchor>
+      <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component *&gt; children)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin-components.html</anchorfile>
+      <anchor>gab38420a664c643212724d4a1d9b162f8</anchor>
+      <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component *&gt; children)</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>gin_dsp-dsp</name>
