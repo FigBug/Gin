@@ -38,13 +38,9 @@ public:
 private:
     //==============================================================================
     void run() override;
-
-    void processIncomingData();
-    void processOutgoingData();
+    void process();
 
     juce::URL url;
-
-    std::unique_ptr<WebSocket> socket;
 
     //==============================================================================
     enum MessageType

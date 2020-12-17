@@ -19,14 +19,7 @@ AsyncWebsocket::~AsyncWebsocket()
 void AsyncWebsocket::disconnect()
 {
     signalThreadShouldExit();
-
-    {
-        juce::ScopedLock sl (lock);
-        if (socket != nullptr)
-            socket->interrupt();
-    }
-
-    stopThread (5000);
+    stopThread (1500);
 }
 
 void AsyncWebsocket::connect()
@@ -36,16 +29,67 @@ void AsyncWebsocket::connect()
 
 void AsyncWebsocket::run()
 {
+    try
+    {
+        process();
+    }
+    catch (...)
+    {
+    }
+}
+
+void AsyncWebsocket::process()
+{
+    //==============================================================================
+    auto processIncomingData = [this](std::unique_ptr<WebSocket>& ws)
+    {
+        using MM = juce::MessageManager;
+        juce::WeakReference<AsyncWebsocket> weakThis = this;
+
+        ws->dispatch ([this, weakThis] (const juce::MemoryBlock message, bool isBinary)
+        {
+            auto messageCopy = message;
+            MM::callAsync ([this, weakThis, messageCopy, isBinary]
+            {
+                if (weakThis != nullptr)
+                {
+                    // if we are receiving data we don't need to ping
+                    lastPing = juce::Time::getMillisecondCounterHiRes() / 1000;
+
+                    if (isBinary && onBinary)
+                        onBinary (messageCopy);
+                    else if (! isBinary && onText)
+                        onText (juce::String::fromUTF8 ((char*)messageCopy.getData(), int (messageCopy.getSize())));
+                }
+            });
+        });
+    };
+
+    //==============================================================================
+    auto processOutgoingData = [this](std::unique_ptr<WebSocket>& ws)
+    {
+        juce::ScopedLock sl (lock);
+        for (auto& data : outgoingQueue)
+        {
+            if (data.type == pingMsg)
+                ws->sendPing();
+            else if (data.type == binaryMsg)
+                ws->sendBinary (data.data);
+            else if (data.type == textMsg)
+                ws->send (data.text);
+            else
+                jassertfalse;
+        }
+        outgoingQueue.clear();
+    };
+
+    //==============================================================================
     using MM = juce::MessageManager;
     juce::WeakReference<AsyncWebsocket> weakThis = this;
 
-    if (auto ws = WebSocket::fromURL (url.toString (true).toStdString()))
+    auto ws = std::unique_ptr<WebSocket> (WebSocket::fromURL (url.toString (true).toStdString()));
+    if (ws != nullptr)
     {
-        {
-            juce::ScopedLock sl (lock);
-            socket.reset (ws);
-        }
-
         MM::callAsync ([this, weakThis]
         {
            if (weakThis != nullptr && onConnect)
@@ -54,28 +98,26 @@ void AsyncWebsocket::run()
 
         while (! threadShouldExit())
         {
-            socket->poll (4000);
-            if (socket->getReadyState() == WebSocket::CLOSED)
+            ws->poll (1000);
+            if (ws->getReadyState() == WebSocket::CLOSED)
                 break;
 
             double now = juce::Time::getMillisecondCounterHiRes() / 1000;
             if (now - lastPing > pingInterval)
             {
-                socket->sendPing();
+                ws->sendPing();
                 lastPing = now;
             }
 
-            processIncomingData();
-            processOutgoingData();
+            processIncomingData (ws);
+            processOutgoingData (ws);
         }
 
-        if (socket->getReadyState() != WebSocket::CLOSED)
-            socket->close();
-    }
-
-    {
-        juce::ScopedLock sl (lock);
-        socket = nullptr;
+        if (ws->getReadyState() != WebSocket::CLOSED)
+        {
+            ws->close();
+            ws->poll (0);
+        }
     }
 
     MM::callAsync ([this, weakThis]
@@ -90,47 +132,6 @@ void AsyncWebsocket::run()
     });
 }
 
-void AsyncWebsocket::processIncomingData()
-{
-    using MM = juce::MessageManager;
-    juce::WeakReference<AsyncWebsocket> weakThis = this;
-
-    socket->dispatch ([this, weakThis] (const juce::MemoryBlock message, bool isBinary)
-    {
-        auto messageCopy = message;
-        MM::callAsync ([this, weakThis, messageCopy, isBinary]
-        {
-            if (weakThis != nullptr)
-            {
-               // if we are receiving data we don't need to ping
-               lastPing = juce::Time::getMillisecondCounterHiRes() / 1000;
-
-               if (isBinary && onBinary)
-                   onBinary (messageCopy);
-               else if (! isBinary && onText)
-                   onText (juce::String::fromUTF8 ((char*)messageCopy.getData(), int (messageCopy.getSize())));
-            }
-        });
-    });
-}
-
-void AsyncWebsocket::processOutgoingData()
-{
-    juce::ScopedLock sl (lock);
-    for (auto& data : outgoingQueue)
-    {
-        if (data.type == pingMsg)
-            socket->sendPing();
-        else if (data.type == binaryMsg)
-            socket->sendBinary (data.data);
-        else if (data.type == textMsg)
-            socket->send (data.text);
-        else
-            jassertfalse;
-    }
-    outgoingQueue.clear();
-}
-
 bool AsyncWebsocket::isConnected()
 {
     return isThreadRunning();
@@ -139,32 +140,20 @@ bool AsyncWebsocket::isConnected()
 void AsyncWebsocket::send (const juce::String& text)
 {
     juce::ScopedLock sl (lock);
-    if (socket != nullptr)
-    {
-        outgoingQueue.add ({ text });
-        socket->interrupt();
-    }
+    outgoingQueue.add ({ text });
 }
 
 void AsyncWebsocket::send (const juce::MemoryBlock& binary)
 {
     juce::ScopedLock sl (lock);
-    if (socket != nullptr)
-    {
-        outgoingQueue.add ({ binary });
-        socket->interrupt();
-    }
+    outgoingQueue.add ({ binary });
 }
 
 void AsyncWebsocket::sendPing()
 {
     juce::ScopedLock sl (lock);
-    if (socket != nullptr)
-    {
-        // If we are manually sending a ping, delay the automatic pings
-        lastPing = juce::Time::getMillisecondCounterHiRes() / 1000;
+    // If we are manually sending a ping, delay the automatic pings
+    lastPing = juce::Time::getMillisecondCounterHiRes() / 1000;
 
-        outgoingQueue.add ({ pingMsg });
-        socket->interrupt();
-    }
+    outgoingQueue.add ({ pingMsg });
 }
