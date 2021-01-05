@@ -98,7 +98,7 @@ void AsyncWebsocket::process()
 
         while (! threadShouldExit())
         {
-            ws->poll (1000);
+            ws->poll (50);
             if (ws->getReadyState() == WebSocket::CLOSED)
                 break;
 
