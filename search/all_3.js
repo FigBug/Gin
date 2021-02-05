@@ -17,7 +17,7 @@ var searchData=
   ['delayedlambda',['delayedLambda',['../group__gin-utilities.html#gaa8e8a032e70b00eb8b977cadd0fb09a8',1,'gin_util.h']]],
   ['delayline',['DelayLine',['../classDelayLine.html',1,'DelayLine'],['../classDelayLine.html#ad98998dd98c0f9d887c3bdd675dd6e3c',1,'DelayLine::DelayLine()']]],
   ['deletebackwards',['deleteBackwards',['../classSingleLineTextEditor.html#a375af0176e428c9c8213929047111b76',1,'SingleLineTextEditor']]],
-  ['deletebutton',['deleteButton',['../classProcessorEditor.html#ae3605428cde561611990d540439394f7',1,'ProcessorEditor']]],
+  ['deletebutton',['deleteButton',['../classTitleBar.html#a8b06f5f09bb781f1fd995fbb779891a3',1,'TitleBar']]],
   ['deletefile',['deleteFile',['../classElevatedFileCopy.html#a388cf3a1477bb16bb43e7e1666c4e46d',1,'ElevatedFileCopy']]],
   ['deleteforwards',['deleteForwards',['../classSingleLineTextEditor.html#a696359b4ec5f6a7573888294d2db1dfd',1,'SingleLineTextEditor']]],
   ['deletefromdir',['deleteFromDir',['../classProgram.html#a036687ead06a204df0e772821bc861bf',1,'Program']]],

@@ -274,8 +274,9 @@
   </compound>
   <compound kind="file">
     <name>gin_copperlookandfeel.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/lookandfeel/</path>
     <filename>gin__copperlookandfeel_8h</filename>
+    <includes id="gin__images_8h" name="gin_images.h" local="yes" imported="no">gin_images.h</includes>
     <class kind="class">CopperLookAndFeel</class>
     <class kind="class">CopperLookAndFeelWrapper</class>
   </compound>
@@ -950,6 +951,12 @@
     <class kind="class">ImageMetadata</class>
   </compound>
   <compound kind="file">
+    <name>gin_images.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/lookandfeel/</path>
+    <filename>gin__images_8h</filename>
+    <class kind="class">Images</class>
+  </compound>
+  <compound kind="file">
     <name>gin_imageutilities.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin/images/</path>
     <filename>gin__imageutilities_8h</filename>
@@ -1212,11 +1219,12 @@
     <class kind="class">UpdateChecker</class>
     <class kind="class">NewsChecker</class>
     <class kind="class">ProcessorEditorBase</class>
+    <class kind="class">TitleBar</class>
     <class kind="class">ProcessorEditor</class>
   </compound>
   <compound kind="file">
     <name>gin_pluginlookandfeel.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/lookandfeel/</path>
     <filename>gin__pluginlookandfeel_8h</filename>
     <class kind="class">PluginLookAndFeel</class>
     <class kind="class">PluginLookAndFeelWrapper</class>
@@ -1227,8 +1235,8 @@
     <filename>gin__processor_8h</filename>
     <includes id="gin__parameter_8h" name="gin_parameter.h" local="yes" imported="no">gin_parameter.h</includes>
     <includes id="gin__program_8h" name="gin_program.h" local="yes" imported="no">gin_program.h</includes>
-    <includes id="gin__pluginlookandfeel_8h" name="gin_pluginlookandfeel.h" local="yes" imported="no">../components/gin_pluginlookandfeel.h</includes>
-    <includes id="gin__copperlookandfeel_8h" name="gin_copperlookandfeel.h" local="yes" imported="no">../components/gin_copperlookandfeel.h</includes>
+    <includes id="gin__pluginlookandfeel_8h" name="gin_pluginlookandfeel.h" local="yes" imported="no">../lookandfeel/gin_pluginlookandfeel.h</includes>
+    <includes id="gin__copperlookandfeel_8h" name="gin_copperlookandfeel.h" local="yes" imported="no">../lookandfeel/gin_copperlookandfeel.h</includes>
     <class kind="class">SmoothingType</class>
     <class kind="class">Processor</class>
     <member kind="define">
@@ -1269,7 +1277,7 @@
   </compound>
   <compound kind="file">
     <name>gin_resources.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/lookandfeel/</path>
     <filename>gin__resources_8h</filename>
     <namespace>Resources</namespace>
     <member kind="variable">
@@ -3104,6 +3112,13 @@
       <anchorfile>classCopperLookAndFeel.html</anchorfile>
       <anchor>a928163d12b9c62bbeac79cc94c0d04e0</anchor>
       <arglist>() override</arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::SharedResourcePointer&lt; Images &gt;</type>
+      <name>images</name>
+      <anchorfile>classCopperLookAndFeel.html</anchorfile>
+      <anchor>a1515b1d303c786c5721d72b2d25e942d</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -5532,6 +5547,17 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>Images</name>
+    <filename>classImages.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Images</name>
+      <anchorfile>classImages.html</anchorfile>
+      <anchor>a3c31a7052197172e2bfb26efe796d32f</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>SingleLineTextEditor::InputFilter</name>
     <filename>classSingleLineTextEditor_1_1InputFilter.html</filename>
     <member kind="function">
@@ -6292,6 +6318,45 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>SingleLineTextEditor::Listener</name>
+    <filename>classSingleLineTextEditor_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
+      <anchor>af52267b829ff17fd4e36d3a8dc8d99ff</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>sltextEditorTextChanged</name>
+      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
+      <anchor>a7991331aa8048236d763b2482461a5a6</anchor>
+      <arglist>(SingleLineTextEditor &amp;)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>sltextEditorReturnKeyPressed</name>
+      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
+      <anchor>a2a4144e3e91e38142f9498eb66c180e6</anchor>
+      <arglist>(SingleLineTextEditor &amp;)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>sltextEditorEscapeKeyPressed</name>
+      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
+      <anchor>ae23dbf95e2aada75cb3f513d393b965d</anchor>
+      <arglist>(SingleLineTextEditor &amp;)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>sltextEditorFocusLost</name>
+      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
+      <anchor>a9b377e28f1ec65c2a9864f1c08964af3</anchor>
+      <arglist>(SingleLineTextEditor &amp;)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>ModMatrix::Listener</name>
     <filename>classModMatrix_1_1Listener.html</filename>
     <member kind="function" virtualness="virtual">
@@ -6375,45 +6440,6 @@
       <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
       <anchor>a5a86659b291d99adbe0af1a30fdfe383</anchor>
       <arglist>(int zoom, int x, int y)=0</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>SingleLineTextEditor::Listener</name>
-    <filename>classSingleLineTextEditor_1_1Listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
-      <anchor>af52267b829ff17fd4e36d3a8dc8d99ff</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>sltextEditorTextChanged</name>
-      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
-      <anchor>a7991331aa8048236d763b2482461a5a6</anchor>
-      <arglist>(SingleLineTextEditor &amp;)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>sltextEditorReturnKeyPressed</name>
-      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
-      <anchor>a2a4144e3e91e38142f9498eb66c180e6</anchor>
-      <arglist>(SingleLineTextEditor &amp;)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>sltextEditorEscapeKeyPressed</name>
-      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
-      <anchor>ae23dbf95e2aada75cb3f513d393b965d</anchor>
-      <arglist>(SingleLineTextEditor &amp;)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>sltextEditorFocusLost</name>
-      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
-      <anchor>a9b377e28f1ec65c2a9864f1c08964af3</anchor>
-      <arglist>(SingleLineTextEditor &amp;)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -7332,8 +7358,8 @@
       <type></type>
       <name>NewsChecker</name>
       <anchorfile>classNewsChecker.html</anchorfile>
-      <anchor>a2d1e5cecbc85c89a7d3badcf89a14ef9</anchor>
-      <arglist>(ProcessorEditor &amp;editor_)</arglist>
+      <anchor>a519004dfd3ae54255b2eff7a132e0a00</anchor>
+      <arglist>(Processor &amp;slProc)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -7341,6 +7367,20 @@
       <anchorfile>classNewsChecker.html</anchorfile>
       <anchor>abc54683d73b189c02ccd30258fa99281</anchor>
       <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getNewsUrl</name>
+      <anchorfile>classNewsChecker.html</anchorfile>
+      <anchor>abcd7ae66b36cc31aa12a96bb532ed145</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; void(juce::String)&gt;</type>
+      <name>onNewsUpdate</name>
+      <anchorfile>classNewsChecker.html</anchorfile>
+      <anchor>a23052b426e15a02c6a09d1ea18af27ab</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -9205,10 +9245,10 @@
       <arglist>(const void *data, int sizeInBytes) override</arglist>
     </member>
     <member kind="variable">
-      <type>juce::SharedResourcePointer&lt; PluginLookAndFeel &gt;</type>
+      <type>std::unique_ptr&lt; PluginLookAndFeel &gt;</type>
       <name>lf</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a66d6490dedad983ccae9c3ae660c5086</anchor>
+      <anchor>a756a634ec593cbe38c40f95e6554ee04</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -9274,17 +9314,24 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>updateReady</name>
+      <name>showAboutInfo</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>aa2735f1a20c297918f272257e9d67787</anchor>
-      <arglist>(juce::String updateUrl)</arglist>
+      <anchor>a2d881e0cfe4ab6df47e5ae0c5a86cf52</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
-      <name>newsReady</name>
+      <name>refreshPatchBrowser</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>ada9fb8e9ece8f2c53246e78b1f13a176</anchor>
-      <arglist>(juce::String newsUrl)</arglist>
+      <anchor>a29115b399e4bf3d6bcd27652d6bb1ada</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>showPatchBrowser</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>abcef3707e7363c0b7ae0877c64542d26</anchor>
+      <arglist>(bool p)</arglist>
     </member>
     <member kind="variable">
       <type>Processor &amp;</type>
@@ -9309,38 +9356,10 @@
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
-      <name>buttonClicked</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a9b9c425e29963064d2dac787c1fc4b1a</anchor>
-      <arglist>(juce::Button *b) override</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>comboBoxChanged</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a275ee61e7aba32e699bcc647d06f1f8b</anchor>
-      <arglist>(juce::ComboBox *c) override</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>changeListenerCallback</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>af4f503dffc30a60706183d5f7b147576</anchor>
-      <arglist>(juce::ChangeBroadcaster *) override</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
       <name>refreshPrograms</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
       <anchor>acfa6525c7af7ab451c59d25527ddebde</anchor>
       <arglist>()</arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>bool</type>
-      <name>hasBrowser</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a7982220898e3f82be4db2427bcb8106b</anchor>
-      <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>std::unique_ptr&lt; UpdateChecker &gt;</type>
@@ -9357,76 +9376,6 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>juce::ComboBox</type>
-      <name>programs</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a8c852febe2c54d2b98d1c5c6949f145b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>juce::TextButton</type>
-      <name>addButton</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a4dd3263a64df1fd31a870985f7a9d9d2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>juce::TextButton</type>
-      <name>deleteButton</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>ae3605428cde561611990d540439394f7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>juce::TextButton</type>
-      <name>browseButton</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a9ca27fc7ba19fd6b2aa9f70f8aeb50e3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>juce::TextButton</type>
-      <name>nextButton</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>af31678b601c2406d72a6938d5737d253</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>juce::TextButton</type>
-      <name>prevButton</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a1d4aa5b7780cbe6cf3e77f99b92bcbeb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>juce::TextButton</type>
-      <name>socaButton</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>aafba3bdf1b0bacedd2e028d44bd15ca3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>juce::TextButton</type>
-      <name>helpButton</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>ac0179edab40d65e113632b728d0b0c86</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>juce::TextButton</type>
-      <name>newsButton</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a780c292a6686bfb0cb16331e7de5e6c4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>juce::TextButton</type>
-      <name>updateButton</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a9c796b9236ecbe0742d600cfd16767e3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
       <type>juce::String</type>
       <name>additionalProgramming</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
@@ -9434,17 +9383,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>juce::String</type>
-      <name>updateUrl</name>
+      <type>TitleBar</type>
+      <name>titleBar</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>acf7de990558f58ae2879063a68fdd31d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>juce::String</type>
-      <name>newsUrl</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a5332019229481c9d661659b7091f02d7</anchor>
+      <anchor>a765fed46b8f886ab4e6306124110ed68</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -11740,6 +11682,171 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>TitleBar</name>
+    <filename>classTitleBar.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>TitleBar</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>ae50c6223c4dd1df9d1bc5ad4864c271b</anchor>
+      <arglist>(ProcessorEditor &amp;, Processor &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~TitleBar</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>adf35e9e0331d6907b86b88a2abc70648</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>refreshPrograms</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>a9dd5f1580e29745d8b2c61c569adfafb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setShowBrowser</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>a455717b90e823faab20135a3e8217750</anchor>
+      <arglist>(bool)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>paint</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>a6d04cb46f66883940d2042c78f1d38eb</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>resized</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>aec8389eef90093162451137b8060a775</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>showMenu</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>a9379495c07215f6e7ae0a8ef4fd3a0e9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>buttonClicked</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>af8e7c477535854c933acf07bd7e3fc7c</anchor>
+      <arglist>(juce::Button *b) override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>comboBoxChanged</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>a9156b55473df7afcd442ab045a865cb3</anchor>
+      <arglist>(juce::ComboBox *c) override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>changeListenerCallback</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>a33bfbb4b2223e0401bf883fbb8403991</anchor>
+      <arglist>(juce::ChangeBroadcaster *) override</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>ProcessorEditor &amp;</type>
+      <name>editor</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>a69203b2948adc0bf2c9841bd9511a3e6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Processor &amp;</type>
+      <name>slProc</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>afd45058b0880e55b0da0aebf57b1f286</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>hasBrowser</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>a6782ccbfb8fc433a7abba03171506a8a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::ComboBox</type>
+      <name>programs</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>aadc7b06a48172e5cc2a50d09a433fa77</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::TextButton</type>
+      <name>addButton</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>aaa209338de7ffceada8ea42c3e04388b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::TextButton</type>
+      <name>deleteButton</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>a8b06f5f09bb781f1fd995fbb779891a3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::TextButton</type>
+      <name>browseButton</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>a48362c20ca1502a0a2bea5052faec7db</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::TextButton</type>
+      <name>nextButton</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>ac438784aad0f7f333a135f3cf438413e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::TextButton</type>
+      <name>prevButton</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>adf10f987b0a483ae72a005ed88e8dbc7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::TextButton</type>
+      <name>menuButton</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>a1be32416c074def83f54a9c1beefbdeb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::TextButton</type>
+      <name>infoButton</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>a8677063fe0a948ce107b84ba444f46d2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::unique_ptr&lt; NewsChecker &gt;</type>
+      <name>newsChecker</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>ab00ac1e8d688d411c19dc7ee9e3feac7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::unique_ptr&lt; UpdateChecker &gt;</type>
+      <name>updateChecker</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>a592d0a4299aa23c9b323205d76f19742</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>TriggeredScope</name>
     <filename>classTriggeredScope.html</filename>
     <member kind="enumeration">
@@ -11953,8 +12060,8 @@
       <type></type>
       <name>UpdateChecker</name>
       <anchorfile>classUpdateChecker.html</anchorfile>
-      <anchor>a7efbaba17e94c476f4dbfa5720e598ac</anchor>
-      <arglist>(ProcessorEditor &amp;editor_)</arglist>
+      <anchor>a991c35a0e515fa13cb9186936a00cb8f</anchor>
+      <arglist>(Processor &amp;slProc)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -11964,24 +12071,17 @@
       <arglist>() override</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
-      <name>timerCallback</name>
+      <type>juce::String</type>
+      <name>getUpdateUrl</name>
       <anchorfile>classUpdateChecker.html</anchorfile>
-      <anchor>a9769c73fcb04945608118ae30fd3a8d4</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>run</name>
-      <anchorfile>classUpdateChecker.html</anchorfile>
-      <anchor>ab61451d9064094197851d0a6049d11e1</anchor>
-      <arglist>() override</arglist>
+      <anchor>aad9e2e37b99c599bda845795dbebe07f</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="variable">
-      <type>ProcessorEditor &amp;</type>
-      <name>editor</name>
+      <type>std::function&lt; void(juce::String)&gt;</type>
+      <name>onUpdate</name>
       <anchorfile>classUpdateChecker.html</anchorfile>
-      <anchor>ae36e2e0558a274410e039dcffece5546</anchor>
+      <anchor>a2e082ff0c64af56dea0d00fbfd939e63</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -12972,27 +13072,44 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_dsp-components</name>
+    <name>gin-components</name>
     <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-    <class kind="class">DynamicsMeter</class>
-    <class kind="class">LevelMeter</class>
-    <class kind="class">TriggeredScope</class>
-    <class kind="class">WaveformComponent</class>
-    <class kind="class">XYScope</class>
+    <filename>group__gin-components.html</filename>
+    <class kind="class">ComponentViewer</class>
+    <class kind="class">GinLookAndFeel</class>
+    <class kind="class">MapViewer</class>
+    <class kind="class">PropertyComponentBase</class>
+    <class kind="class">FilePropertyComponent</class>
+    <class kind="class">ColourPropertyComponent</class>
+    <class kind="class">SingleLineTextEditor</class>
+    <class kind="struct">SingleLineTextEditor::LookAndFeelMethods</class>
+    <class kind="class">SingleLineTextEditor::LengthAndCharacterRestriction</class>
+    <class kind="class">SingleLineTextEditor::InputFilter</class>
+    <class kind="class">SingleLineTextEditor::Listener</class>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin-components.html</anchorfile>
+      <anchor>gaae3a1137955ae87c67a9fec3fa385d2d</anchor>
+      <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component *&gt; children)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin-components.html</anchorfile>
+      <anchor>gab38420a664c643212724d4a1d9b162f8</anchor>
+      <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component *&gt; children)</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>gin_plugin-components</name>
     <title>components</title>
     <filename>group__gin__plugin-components.html</filename>
-    <namespace>Resources</namespace>
     <class kind="class">ADSRComponent</class>
     <class kind="class">PowerButton</class>
     <class kind="class">ControlBox</class>
     <class kind="class">PagedControlBox</class>
     <class kind="class">ControlHeader</class>
-    <class kind="class">CopperLookAndFeel</class>
-    <class kind="class">CopperLookAndFeelWrapper</class>
     <class kind="class">GateEffectComponent</class>
     <class kind="class">Knob</class>
     <class kind="class">LFOComponent</class>
@@ -13023,9 +13140,8 @@
     <class kind="class">UpdateChecker</class>
     <class kind="class">NewsChecker</class>
     <class kind="class">ProcessorEditorBase</class>
+    <class kind="class">TitleBar</class>
     <class kind="class">ProcessorEditor</class>
-    <class kind="class">PluginLookAndFeel</class>
-    <class kind="class">PluginLookAndFeelWrapper</class>
     <class kind="class">StepLFOComponent</class>
     <member kind="function">
       <type>void</type>
@@ -13036,34 +13152,14 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin-components</name>
+    <name>gin_dsp-components</name>
     <title>components</title>
-    <filename>group__gin-components.html</filename>
-    <class kind="class">ComponentViewer</class>
-    <class kind="class">GinLookAndFeel</class>
-    <class kind="class">MapViewer</class>
-    <class kind="class">PropertyComponentBase</class>
-    <class kind="class">FilePropertyComponent</class>
-    <class kind="class">ColourPropertyComponent</class>
-    <class kind="class">SingleLineTextEditor</class>
-    <class kind="struct">SingleLineTextEditor::LookAndFeelMethods</class>
-    <class kind="class">SingleLineTextEditor::LengthAndCharacterRestriction</class>
-    <class kind="class">SingleLineTextEditor::InputFilter</class>
-    <class kind="class">SingleLineTextEditor::Listener</class>
-    <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin-components.html</anchorfile>
-      <anchor>gaae3a1137955ae87c67a9fec3fa385d2d</anchor>
-      <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component *&gt; children)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin-components.html</anchorfile>
-      <anchor>gab38420a664c643212724d4a1d9b162f8</anchor>
-      <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component *&gt; children)</arglist>
-    </member>
+    <filename>group__gin__dsp-components.html</filename>
+    <class kind="class">DynamicsMeter</class>
+    <class kind="class">LevelMeter</class>
+    <class kind="class">TriggeredScope</class>
+    <class kind="class">WaveformComponent</class>
+    <class kind="class">XYScope</class>
   </compound>
   <compound kind="group">
     <name>gin_dsp-dsp</name>
@@ -13322,6 +13418,7 @@
     <title>gin_plugin</title>
     <filename>group__gin__plugin.html</filename>
     <subgroup>gin_plugin-components</subgroup>
+    <subgroup>gin_plugin-lookandfeel</subgroup>
     <subgroup>gin_plugin-plugin</subgroup>
     <subgroup>gin_plugin-resources</subgroup>
   </compound>
@@ -13627,6 +13724,17 @@
       <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
       <arglist>(const juce::String &amp;txt)</arglist>
     </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_plugin-lookandfeel</name>
+    <title>lookandfeel</title>
+    <filename>group__gin__plugin-lookandfeel.html</filename>
+    <namespace>Resources</namespace>
+    <class kind="class">CopperLookAndFeel</class>
+    <class kind="class">CopperLookAndFeelWrapper</class>
+    <class kind="class">Images</class>
+    <class kind="class">PluginLookAndFeel</class>
+    <class kind="class">PluginLookAndFeelWrapper</class>
   </compound>
   <compound kind="group">
     <name>gin_metadata-metadata</name>

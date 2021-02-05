@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['network',['network',['../group__gin__network-network.html',1,'']]]
+  ['metadata',['metadata',['../group__gin__metadata-metadata.html',1,'']]]
 ];

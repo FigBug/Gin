@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['newschecker',['NewsChecker',['../classNewsChecker.html#a2d1e5cecbc85c89a7d3badcf89a14ef9',1,'NewsChecker']]],
-  ['newsready',['newsReady',['../classProcessorEditor.html#ada9fb8e9ece8f2c53246e78b1f13a176',1,'ProcessorEditor']]],
+  ['newschecker',['NewsChecker',['../classNewsChecker.html#a519004dfd3ae54255b2eff7a132e0a00',1,'NewsChecker']]],
   ['newtransaction',['newTransaction',['../classSingleLineTextEditor.html#ab5aafa23521231a8b7f6811b2d937b44',1,'SingleLineTextEditor']]],
   ['noise',['noise',['../classPerlinNoise.html#a3aa782c396ab798493ad7529960c5a9a',1,'PerlinNoise::noise()'],['../group__gin__dsp-dsp.html#ga144d0a5afb304f562a311e0d62e77dc6',1,'noise():&#160;gin_bandlimitedlookuptable.h']]],
   ['notch12state',['Notch12State',['../structNotch12State.html#a2a386e7295162f4161e01a261ddd5f39',1,'Notch12State']]],

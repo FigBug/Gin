@@ -53,6 +53,7 @@ var searchData=
   ['_7esteplfocomponent',['~StepLFOComponent',['../classStepLFOComponent.html#a9dce47acb1fa36c16921da9f415914bf',1,'StepLFOComponent']]],
   ['_7esystemsemaphore',['~SystemSemaphore',['../classSystemSemaphore.html#afc91d7c2c3b23850090654cd04d5a007',1,'SystemSemaphore']]],
   ['_7etimeprofiler',['~TimeProfiler',['../classTimeProfiler.html#ab5a75d5cf6776bc1fe98074bc6ad9e8d',1,'TimeProfiler']]],
+  ['_7etitlebar',['~TitleBar',['../classTitleBar.html#adf35e9e0331d6907b86b88a2abc70648',1,'TitleBar']]],
   ['_7etriggeredscope',['~TriggeredScope',['../classTriggeredScope.html#a721552b49d9c8dbc2522d2b4221ad997',1,'TriggeredScope']]],
   ['_7eupdatechecker',['~UpdateChecker',['../classUpdateChecker.html#aafcf15d0614046579e621995b19df9bd',1,'UpdateChecker']]],
   ['_7ewaveformcomponent',['~WaveformComponent',['../classWaveformComponent.html#aa76bc8cf5e62496dd762857730c66768',1,'WaveformComponent']]],

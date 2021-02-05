@@ -33,7 +33,7 @@ var searchData=
   ['easesinein',['easeSineIn',['../group__gin-utilities.html#ga5ff43623fe37daf28fc4dea493beb3a4',1,'gin_easing.h']]],
   ['easesineinout',['easeSineInOut',['../group__gin-utilities.html#ga12bf8c86b1b6627bf353ff742d7d711e',1,'gin_easing.h']]],
   ['easesineout',['easeSineOut',['../group__gin-utilities.html#gab7eda190492ca09c29cc0777ac6451cf',1,'gin_easing.h']]],
-  ['editor',['editor',['../classUpdateChecker.html#ae36e2e0558a274410e039dcffece5546',1,'UpdateChecker']]],
+  ['editor',['editor',['../classTitleBar.html#a69203b2948adc0bf2c9841bd9511a3e6',1,'TitleBar']]],
   ['element',['Element',['../classSpline_1_1Element.html',1,'Spline::Element'],['../classSpline_1_1Element.html#afdb3184c95f7b19a407ee422d211cc92',1,'Spline::Element::Element(double x_=0)'],['../classSpline_1_1Element.html#a597ebfc19202d8bbbd30470a2e5f3860',1,'Spline::Element::Element(double x_, double a_, double b_, double c_, double d_)']]],
   ['elevatedfilecopy',['ElevatedFileCopy',['../classElevatedFileCopy.html',1,'']]],
   ['ellipse',['Ellipse',['../classEllipse.html',1,'Ellipse&lt; T &gt;'],['../classEllipse.html#ae3280925b24d4858639a7ede8007150f',1,'Ellipse::Ellipse()']]],

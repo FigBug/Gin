@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['metadata',['metadata',['../group__gin__metadata-metadata.html',1,'']]]
+  ['lookandfeel',['lookandfeel',['../group__gin__plugin-lookandfeel.html',1,'']]]
 ];

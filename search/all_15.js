@@ -4,7 +4,7 @@ var searchData=
   ['watchparam',['watchParam',['../classMultiParamComponent.html#ac49a40f9a9abf19917dd3dc1b40bf5f8',1,'MultiParamComponent']]],
   ['wave',['wave',['../structStereoOscillator_1_1Params.html#a20a0ac6dcf991d68183208a99d95ea02',1,'StereoOscillator::Params::wave()'],['../structVoicedStereoOscillator_1_1Params.html#a83a9e522b4761797d6bf5b90ba610f41',1,'VoicedStereoOscillator::Params::wave()'],['../structWTOscillator_1_1Params.html#ab5232b4b55cc4d6b076db62478cd436e',1,'WTOscillator::Params::wave()'],['../group__gin__dsp-dsp.html#gadb931b2f752b7879df254a7fd9d17e90',1,'Wave():&#160;gin_bandlimitedlookuptable.h']]],
   ['waveformcomponent',['WaveformComponent',['../classWaveformComponent.html',1,'WaveformComponent'],['../classWaveformComponent.html#a5ea719fe0ab7464f7411fb5ec4eb5d4b',1,'WaveformComponent::WaveformComponent()']]],
-  ['waveshape',['waveShape',['../structLFO_1_1Parameters.html#a5128a3dd3bf6a99e901bff2e962bdc81',1,'LFO::Parameters::waveShape()'],['../classLFO.html#a9377c9fb47d163e9343a11edd200da29',1,'LFO::WaveShape()']]],
+  ['waveshape',['WaveShape',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29',1,'LFO::WaveShape()'],['../structLFO_1_1Parameters.html#a5128a3dd3bf6a99e901bff2e962bdc81',1,'LFO::Parameters::waveShape()']]],
   ['wavetable',['wavetable',['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a6f0316b89c2034b8fabe6d3e48f15bbf',1,'gin_bandlimitedlookuptable.h']]],
   ['websocket',['WebSocket',['../classWebSocket.html',1,'']]],
   ['wetdrymix',['WetDryMix',['../classWetDryMix.html',1,'WetDryMix'],['../classWetDryMix.html#a31c06ff0212820a3b2b93571ef54127c',1,'WetDryMix::WetDryMix()']]],

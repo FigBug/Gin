@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['lookandfeel',['lookandfeel',['../group__gin__plugin-lookandfeel.html',1,'']]],
   ['label',['label',['../classParameter.html#a18023bfac5c58f4372050d2a8177006e',1,'Parameter']]],
   ['lagrange',['Lagrange',['../namespaceLagrange.html',1,'']]],
   ['lambdaasyncupdater',['LambdaAsyncUpdater',['../classLambdaAsyncUpdater.html',1,'LambdaAsyncUpdater'],['../classLambdaAsyncUpdater.html#ad20796089a208033f56f6146ab623f34',1,'LambdaAsyncUpdater::LambdaAsyncUpdater()']]],
@@ -14,7 +15,7 @@ var searchData=
   ['lengthandcharacterrestriction',['LengthAndCharacterRestriction',['../classSingleLineTextEditor_1_1LengthAndCharacterRestriction.html',1,'SingleLineTextEditor::LengthAndCharacterRestriction'],['../classSingleLineTextEditor_1_1LengthAndCharacterRestriction.html#a4d5a40f6acac1514cf9533a06f41197a',1,'SingleLineTextEditor::LengthAndCharacterRestriction::LengthAndCharacterRestriction()']]],
   ['levelmeter',['LevelMeter',['../classLevelMeter.html',1,'LevelMeter'],['../classLevelMeter.html#abc77032cf51d0f40dafa76337a7e329f',1,'LevelMeter::LevelMeter()']]],
   ['leveltracker',['LevelTracker',['../classLevelTracker.html',1,'LevelTracker'],['../classLevelTracker.html#a3397f9df726242a093084a5856c0f4c8',1,'LevelTracker::LevelTracker()']]],
-  ['lf',['lf',['../classProcessor.html#a66d6490dedad983ccae9c3ae660c5086',1,'Processor']]],
+  ['lf',['lf',['../classProcessor.html#a756a634ec593cbe38c40f95e6554ee04',1,'Processor']]],
   ['lfo',['LFO',['../classLFO.html',1,'LFO'],['../classLFO.html#ad89e6308102d5b8f0790b2c8cc89c4a5',1,'LFO::LFO()']]],
   ['lfocomponent',['LFOComponent',['../classLFOComponent.html',1,'LFOComponent'],['../classLFOComponent.html#a15b40bec5169584567c4f58c3e1e7687',1,'LFOComponent::LFOComponent()']]],
   ['lighten',['Lighten',['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85a0c4863f7d789ab70b21073bd94c9169d',1,'gin_imageeffects.h']]],
@@ -27,7 +28,7 @@ var searchData=
   ['linearregression',['LinearRegression',['../classLinearRegression.html',1,'LinearRegression'],['../classLinearRegression.html#afeb4c101e4e8b20a75db3d4ce3f1cbc6',1,'LinearRegression::LinearRegression()'],['../classLinearRegression.html#ab3bfe3de8ce254e2e6ff9a91258ac882',1,'LinearRegression::LinearRegression(juce::Array&lt; juce::Point&lt; double &gt;&gt; points)']]],
   ['linecolourid',['lineColourId',['../classDynamicsMeter.html#a3f0cee797b7626c9c6486190b95adb5da6744a81ab6cbfffbff00d1ce68a85534',1,'DynamicsMeter::lineColourId()'],['../classLevelMeter.html#aebb71a7df2ebf267fa0326a95142cfa3a28b27caf96c83d8b60fa1e616e9bacaa',1,'LevelMeter::lineColourId()'],['../classTriggeredScope.html#ac8e18f9a32051394436ce1959334ac52ad98484fb436778a1891eb5b93e9c369e',1,'TriggeredScope::lineColourId()'],['../classWaveformComponent.html#a45b49a62cd0812131e81de9e1715fd01a11782bc8650b22ee24fa433d8d973b05',1,'WaveformComponent::lineColourId()'],['../classXYScope.html#a8c9be5fbb6205a1a9920d2068ca13b22af5d0d044e9ac695a2ee35d1365a93a47',1,'XYScope::lineColourId()']]],
   ['listboxitemdoubleclicked',['listBoxItemDoubleClicked',['../structPatchBrowser_1_1PresetsModel.html#a8cc3194c2da68f867bcf24aa78384bcd',1,'PatchBrowser::PresetsModel']]],
-  ['listener',['Listener',['../classModMatrix_1_1Listener.html',1,'ModMatrix::Listener'],['../classParameter_1_1Listener.html',1,'Parameter::Listener'],['../classFileSystemWatcher_1_1Listener.html',1,'FileSystemWatcher::Listener'],['../classOpenStreetMaps_1_1Listener.html',1,'OpenStreetMaps::Listener'],['../classSingleLineTextEditor_1_1Listener.html',1,'SingleLineTextEditor::Listener']]],
+  ['listener',['Listener',['../classSingleLineTextEditor_1_1Listener.html',1,'SingleLineTextEditor::Listener'],['../classModMatrix_1_1Listener.html',1,'ModMatrix::Listener'],['../classParameter_1_1Listener.html',1,'Parameter::Listener'],['../classFileSystemWatcher_1_1Listener.html',1,'FileSystemWatcher::Listener'],['../classOpenStreetMaps_1_1Listener.html',1,'OpenStreetMaps::Listener']]],
   ['listeners',['listeners',['../classParameter.html#a4d3ac71ee0c96cae514599e526b04388',1,'Parameter']]],
   ['loadallprograms',['loadAllPrograms',['../classProcessor.html#a0d54dc4f330cea0f907e55a4f19e92d3',1,'Processor']]],
   ['loadfrombuffer',['loadFromBuffer',['../classBandLimitedLookupTable.html#a168317b2249b5633e08329eeabd7a09c',1,'BandLimitedLookupTable']]],

@@ -70,29 +70,27 @@ $(function() {
 <p>Checks for plugin updates.  
  <a href="classUpdateChecker.html#details">More...</a></p>
 
-<p>Inherits Timer, and Thread.</p>
+<p>Inherits Timer, Thread, and AsyncUpdater.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7efbaba17e94c476f4dbfa5720e598ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUpdateChecker.html#a7efbaba17e94c476f4dbfa5720e598ac">UpdateChecker</a> (<a class="el" href="classProcessorEditor.html">ProcessorEditor</a> &amp;editor_)</td></tr>
-<tr class="separator:a7efbaba17e94c476f4dbfa5720e598ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a991c35a0e515fa13cb9186936a00cb8f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUpdateChecker.html#a991c35a0e515fa13cb9186936a00cb8f">UpdateChecker</a> (<a class="el" href="classProcessor.html">Processor</a> &amp;slProc)</td></tr>
+<tr class="separator:a991c35a0e515fa13cb9186936a00cb8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafcf15d0614046579e621995b19df9bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUpdateChecker.html#aafcf15d0614046579e621995b19df9bd">~UpdateChecker</a> () override</td></tr>
 <tr class="separator:aafcf15d0614046579e621995b19df9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9769c73fcb04945608118ae30fd3a8d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUpdateChecker.html#a9769c73fcb04945608118ae30fd3a8d4">timerCallback</a> () override</td></tr>
-<tr class="separator:a9769c73fcb04945608118ae30fd3a8d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab61451d9064094197851d0a6049d11e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUpdateChecker.html#ab61451d9064094197851d0a6049d11e1">run</a> () override</td></tr>
-<tr class="separator:ab61451d9064094197851d0a6049d11e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad9e2e37b99c599bda845795dbebe07f"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUpdateChecker.html#aad9e2e37b99c599bda845795dbebe07f">getUpdateUrl</a> ()</td></tr>
+<tr class="separator:aad9e2e37b99c599bda845795dbebe07f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ae36e2e0558a274410e039dcffece5546"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classProcessorEditor.html">ProcessorEditor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUpdateChecker.html#ae36e2e0558a274410e039dcffece5546">editor</a></td></tr>
-<tr class="separator:ae36e2e0558a274410e039dcffece5546"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e082ff0c64af56dea0d00fbfd939e63"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(juce::String)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUpdateChecker.html#a2e082ff0c64af56dea0d00fbfd939e63">onUpdate</a></td></tr>
+<tr class="separator:a2e082ff0c64af56dea0d00fbfd939e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Checks for plugin updates. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a7efbaba17e94c476f4dbfa5720e598ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7efbaba17e94c476f4dbfa5720e598ac">&#9670;&nbsp;</a></span>UpdateChecker()</h2>
+<a id="a991c35a0e515fa13cb9186936a00cb8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a991c35a0e515fa13cb9186936a00cb8f">&#9670;&nbsp;</a></span>UpdateChecker()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -100,8 +98,8 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">UpdateChecker::UpdateChecker </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classProcessorEditor.html">ProcessorEditor</a> &amp;&#160;</td>
-          <td class="paramname"><em>editor_</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classProcessor.html">Processor</a> &amp;&#160;</td>
+          <td class="paramname"><em>slProc</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -135,65 +133,32 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9769c73fcb04945608118ae30fd3a8d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9769c73fcb04945608118ae30fd3a8d4">&#9670;&nbsp;</a></span>timerCallback()</h2>
+<a id="aad9e2e37b99c599bda845795dbebe07f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad9e2e37b99c599bda845795dbebe07f">&#9670;&nbsp;</a></span>getUpdateUrl()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void UpdateChecker::timerCallback </td>
+          <td class="memname">juce::String UpdateChecker::getUpdateUrl </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab61451d9064094197851d0a6049d11e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab61451d9064094197851d0a6049d11e1">&#9670;&nbsp;</a></span>run()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void UpdateChecker::run </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ae36e2e0558a274410e039dcffece5546"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae36e2e0558a274410e039dcffece5546">&#9670;&nbsp;</a></span>editor</h2>
+<a id="a2e082ff0c64af56dea0d00fbfd939e63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e082ff0c64af56dea0d00fbfd939e63">&#9670;&nbsp;</a></span>onUpdate</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classProcessorEditor.html">ProcessorEditor</a>&amp; UpdateChecker::editor</td>
+          <td class="memname">std::function&lt;void (juce::String)&gt; UpdateChecker::onUpdate</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -206,7 +171,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 5 2021 23:46:55 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Feb 5 2021 21:58:38 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>
