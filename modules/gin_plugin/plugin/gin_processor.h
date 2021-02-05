@@ -3,8 +3,8 @@
 #include "gin_parameter.h"
 #include "gin_program.h"
 
-#include "../components/gin_pluginlookandfeel.h"
-#include "../components/gin_copperlookandfeel.h"
+#include "../lookandfeel/gin_pluginlookandfeel.h"
+#include "../lookandfeel/gin_copperlookandfeel.h"
 
 #if BUILD_INTERNAL_PLUGINS
  #define ProcessorBaseClass juce::AudioPluginInstance
@@ -112,7 +112,7 @@ public:
     //==============================================================================
 
 public:
-    juce::SharedResourcePointer<PluginLookAndFeel> lf;
+    std::unique_ptr<PluginLookAndFeel> lf;
 
     std::map<juce::String, gin::Parameter*> parameterMap;
     juce::OwnedArray<gin::Parameter> internalParameters;

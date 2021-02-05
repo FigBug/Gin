@@ -14,7 +14,7 @@
 namespace gin
 {
 
-#include "components/gin_resources.h"
+#include "lookandfeel/gin_resources.h"
 
 #include "plugin/gin_modmatrix.cpp"
 #include "plugin/gin_noteduration.cpp"
@@ -29,8 +29,10 @@ namespace gin
 #include "components/gin_steplfocomponent.cpp"
 #include "components/gin_plugincomponents.cpp"
 #include "components/gin_knob.cpp"
-#include "components/gin_pluginlookandfeel.cpp"
-#include "components/gin_copperlookandfeel.cpp"
-#include "components/gin_resources.cpp"
+
+#include "lookandfeel/gin_images.cpp"
+#include "lookandfeel/gin_pluginlookandfeel.cpp"
+#include "lookandfeel/gin_copperlookandfeel.cpp"
+#include "lookandfeel/gin_resources.cpp"
 
 }

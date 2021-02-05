@@ -20,6 +20,12 @@ CopperLookAndFeel::CopperLookAndFeel()
     setColour (title1ColourId, juce::Colour (0xff2A2C30));
     setColour (title2ColourId, juce::Colour (0xff25272B));
     setColour (accentColourId, juce::Colour (0xffCC8866));
+
+    setColour (juce::TextEditor::textColourId, findColour (grey60ColourId));
+
+    setColour (juce::ComboBox::textColourId, findColour (accentColourId));
+    setColour (juce::ComboBox::backgroundColourId, findColour (glass1ColourId));
+    setColour (juce::ComboBox::outlineColourId, findColour (blackColourId));
 }
 
 juce::Typeface::Ptr CopperLookAndFeel::getTypefaceForFont (const juce::Font& font)
@@ -159,8 +165,6 @@ void CopperLookAndFeel::drawButtonBackground (juce::Graphics& g, juce::Button& b
     g.setColour (b.findColour (juce::TextButton::buttonOnColourId).withMultipliedAlpha (b.isEnabled() ? 1.0f : 0.5f));
     if (b.getToggleState())
         g.fillRect (b.getLocalBounds());
-    else
-        g.drawRect (b.getLocalBounds());
 }
 
 void CopperLookAndFeel::drawButtonText (juce::Graphics& g, juce::TextButton& b, bool, bool)
@@ -173,7 +177,8 @@ void CopperLookAndFeel::drawButtonText (juce::Graphics& g, juce::TextButton& b, 
         auto path = parseSVGPath (text.substring (4));
         auto font = getTextButtonFont (b, b.getHeight());
 
-        auto sz = font.getHeight();
+        int sz = std::min (b.getHeight(), b.getWidth());
+
         auto rc = b.getLocalBounds().toFloat().withSizeKeepingCentre (sz, sz);
         g.fillPath (path, path.getTransformToScaleToFit (rc, true));
     }
@@ -190,11 +195,13 @@ void CopperLookAndFeel::drawComboBox (juce::Graphics& g, int width, int height, 
 {
     const juce::Rectangle<int> boxBounds (0, 0, width, height);
 
-    g.setColour (box.findColour (juce::ComboBox::backgroundColourId));
-    g.fillRect (boxBounds.toFloat());
+    juce::ColourGradient grad (findColour (PluginLookAndFeel::glass1ColourId), 0, 0,
+                               findColour (PluginLookAndFeel::glass2ColourId), 0, height, false);
+    g.setGradientFill (grad);
+    g.fillRoundedRectangle (boxBounds.toFloat(), boxBounds.getHeight() / 2.0f);
 
     g.setColour (box.findColour (juce::ComboBox::outlineColourId));
-    g.drawRect (boxBounds);
+    g.drawRoundedRectangle (boxBounds.toFloat(), boxBounds.getHeight() / 2.0f, 1.0f);
 }
 
 void CopperLookAndFeel::positionComboBoxText (juce::ComboBox& box, juce::Label& label)

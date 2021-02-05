@@ -88,7 +88,10 @@ namespace gin
 #include "components/gin_steplfocomponent.h"
 #include "components/gin_plugincomponents.h"
 #include "components/gin_knob.h"
-#include "components/gin_copperlookandfeel.h"
+
+#include "lookandfeel/gin_images.h"
+#include "lookandfeel/gin_copperlookandfeel.h"
+
 #include "components/gin_controlheader.h"
 #include "components/gin_parambox.h"
 #include "components/gin_patchbrowser.h"

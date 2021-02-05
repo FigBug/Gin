@@ -1,5 +1,7 @@
 #pragma once
 
+#include "gin_images.h"
+
 //==============================================================================
 /** Plugin specific addition to GinLookAndFeel
     Still black and white
@@ -34,6 +36,8 @@ public:
     void drawTextEditorOutline (juce::Graphics&, int width, int height, juce::TextEditor&) override;
 
     int getAlertWindowButtonHeight() override    { return 20; }
+
+    juce::SharedResourcePointer<Images> images;
 
 private:
     juce::Typeface::Ptr typeface;
