@@ -17,7 +17,7 @@ var searchData=
   ['midififo',['MidiFifo',['../classMidiFifo.html',1,'MidiFifo'],['../classMidiFifo.html#a93cad383f99aaaf001b0f9cc72903f19',1,'MidiFifo::MidiFifo()']]],
   ['mixtogain',['mixToGain',['../classWetDryMix.html#a6a642b5b4d79eb59f61ccfd70c67ae77',1,'WetDryMix']]],
   ['moddstid',['ModDstId',['../structModDstId.html',1,'ModDstId'],['../structModDstId.html#a5c07798cf7ac3ad89cf18d8956bf78d3',1,'ModDstId::ModDstId()=default'],['../structModDstId.html#a1cd816f0e6701f16922f19f3b5e64ccb',1,'ModDstId::ModDstId(int id_)'],['../structModDstId.html#aa3f249a7a06342976e5740e09d281a9e',1,'ModDstId::ModDstId(const ModDstId &amp;other)']]],
-  ['mode',['mode',['../classEnvelopeDetector.html#a1804f11c1918ee0aeee94093a3057415',1,'EnvelopeDetector::mode()'],['../classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4',1,'EnvelopeDetector::Mode()']]],
+  ['mode',['Mode',['../classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4',1,'EnvelopeDetector::Mode()'],['../classEnvelopeDetector.html#a1804f11c1918ee0aeee94093a3057415',1,'EnvelopeDetector::mode()']]],
   ['modindex',['modIndex',['../classParameter.html#a7310a6224d36ab27a14237aab7d8fadd',1,'Parameter']]],
   ['modmatrix',['ModMatrix',['../classModMatrix.html',1,'ModMatrix'],['../classParameter.html#a30f079fa8ecf5c5cd5735777e1ba74c8',1,'Parameter::modMatrix()'],['../classModMatrix.html#a923354065c39928704876d0b29e568c9',1,'ModMatrix::ModMatrix()']]],
   ['modmatrixbox',['ModMatrixBox',['../classModMatrixBox.html',1,'ModMatrixBox'],['../classModMatrixBox.html#acf1c7954f577749a28bf846cf9aafb4e',1,'ModMatrixBox::ModMatrixBox()']]],
