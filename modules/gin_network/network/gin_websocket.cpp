@@ -77,23 +77,7 @@ void WebSocket::poll (int timeout) // timeout in milliseconds
 
     if (txbuf.getSize() == 0 && ! readIncoming())
     {
-        // Only block if we have no data to send and no data to recv
-        if (timeout != 0)
-        {
-            fd_set rfds;
-            fd_set wfds;
-            timeval tv = { timeout/1000, (timeout%1000) * 1000 };
-            FD_ZERO (&rfds);
-            FD_ZERO (&wfds);
-            FD_SET (sockfd, &rfds);
-
-            int maxSocket = sockfd;
-
-            if (txbuf.getSize())
-                FD_SET (sockfd, &wfds);
-
-            select (maxSocket + 1, &rfds, &wfds, nullptr, &tv);
-        }
+        juce::Thread::sleep (timeout);
     }
 
     // Read incoming data
