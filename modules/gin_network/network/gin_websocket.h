@@ -48,7 +48,6 @@ class WebSocket
 
     bool readIncoming();
     void poll (int timeout = 0); // timeout in milliseconds
-    void interrupt(); // interrupt polling
 
     void send (const juce::String& message);
     void sendBinary (const juce::String& message);
@@ -73,8 +72,6 @@ private:
     std::unique_ptr<SecureStreamingSocket> socket;
     int sockfd = 0;
     ReadyStateValues readyState = OPEN;
-    int interruptIn = 0;
-    int interruptOut = 0;
     bool useMask = false;
     bool isRxBad = false;
     bool isBinary = false;

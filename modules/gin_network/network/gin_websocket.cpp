@@ -1,76 +1,3 @@
-#ifdef _WIN32
-/* dumb_socketpair
- * Copyright 2007 by Nathan C. Myers <ncm@cantrip.org>; some rights reserved.
- * This code is Free Software.  It may be copied freely, in original or
- * modified form, subject only to the restrictions that (1) the author is
- * relieved from all responsibilities for any use for any purpose, and (2)
- * this copyright notice must be retained, unchanged, in its entirety.  If
- * for any reason the author might be held responsible for any consequences
- * of copying or use, license is withheld.
- */
-static int dumb_socketpair(SOCKET socks[2], int make_overlapped)
-{
-    union {
-        struct sockaddr_in inaddr;
-        struct sockaddr addr;
-    } a;
-    SOCKET listener;
-    int e;
-    socklen_t addrlen = sizeof(a.inaddr);
-    DWORD flags = (make_overlapped ? WSA_FLAG_OVERLAPPED : 0);
-    int reuse = 1;
-
-    if (socks == 0)
-    {
-        WSASetLastError(WSAEINVAL);
-        return SOCKET_ERROR;
-    }
-
-    listener = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-    if (listener == INVALID_SOCKET)
-        return SOCKET_ERROR;
-
-    memset (&a, 0, sizeof(a));
-    a.inaddr.sin_family = AF_INET;
-    a.inaddr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
-    a.inaddr.sin_port = 0;
-
-    socks[0] = socks[1] = INVALID_SOCKET;
-    do
-    {
-        if (setsockopt(listener, SOL_SOCKET, SO_REUSEADDR,
-            (char*)& reuse, (socklen_t) sizeof(reuse)) == -1)
-            break;
-        if (bind(listener, &a.addr, sizeof(a.inaddr)) == SOCKET_ERROR)
-            break;
-        if (getsockname(listener, &a.addr, &addrlen) == SOCKET_ERROR)
-            break;
-        if (listen(listener, 1) == SOCKET_ERROR)
-            break;
-        socks[0] = WSASocketW(AF_INET, SOCK_STREAM, 0, nullptr, 0, flags);
-        if (socks[0] == INVALID_SOCKET)
-            break;
-        if (connect(socks[0], &a.addr, sizeof(a.inaddr)) == SOCKET_ERROR)
-            break;
-        socks[1] = accept(listener, nullptr, nullptr);
-        if (socks[1] == INVALID_SOCKET)
-            break;
-
-        closesocket(listener);
-        return 0;
-
-    } while (0);
-
-    e = WSAGetLastError();
-    closesocket (listener);
-    closesocket (socks[0]);
-    closesocket (socks[1]);
-    WSASetLastError (e);
-    return SOCKET_ERROR;
-}
-#endif
-
-
 // http://tools.ietf.org/html/rfc6455#section-5.2  Base Framing Protocol
 //
 //  0                   1                   2                   3
@@ -98,39 +25,10 @@ WebSocket::WebSocket (std::unique_ptr<gin::SecureStreamingSocket>&& socket_, boo
     , useMask (useMask_)
 {
     jassert (socket != nullptr);
-   #ifdef _WIN32
-    SOCKET pipes[2] = {0, 0};
-    if (! dumb_socketpair (pipes, 0))
-    {
-        interruptIn  = (int) pipes[0];
-        interruptOut = (int) pipes[1];
-
-        u_long on = 1;
-        ioctlsocket (interruptIn, FIONBIO, &on);
-    }
-   #else
-    int fd[2] = {0, 0};
-    if (socketpair (PF_LOCAL, SOCK_STREAM, 0, fd) == 0)
-    {
-        interruptIn  = fd[0];
-        interruptOut = fd[1];
-
-        int flags = fcntl (interruptIn, F_GETFL, 0);
-        if (fcntl (interruptIn, F_SETFL, flags | O_NONBLOCK) == -1)
-        {
-            closesocket (interruptIn);
-            closesocket (interruptOut);
-            interruptIn  = 0;
-            interruptOut = 0;
-        }
-    }
-   #endif
 }
 
 WebSocket::~WebSocket()
 {
-    if (interruptIn)  closesocket (interruptIn);
-    if (interruptOut) closesocket (interruptOut);
 }
 
 WebSocket::ReadyStateValues WebSocket::getReadyState() const
@@ -190,25 +88,12 @@ void WebSocket::poll (int timeout) // timeout in milliseconds
             FD_SET (sockfd, &rfds);
 
             int maxSocket = sockfd;
-            if (interruptIn)
-            {
-                FD_SET (interruptIn, &rfds);
-                maxSocket = std::max (maxSocket, interruptIn);
-            }
 
             if (txbuf.getSize())
                 FD_SET (sockfd, &wfds);
 
             select (maxSocket + 1, &rfds, &wfds, nullptr, &tv);
         }
-    }
-
-    while (true)
-    {
-        char dummy[128] = {0};
-        ssize_t ret = recv (interruptIn, dummy, sizeof (dummy), 0);
-        if (ret <= 0)
-            break;
     }
 
     // Read incoming data
@@ -224,7 +109,7 @@ void WebSocket::poll (int timeout) // timeout in milliseconds
             fputs (ret < 0 ? "Connection error!\n" : "Connection closed!\n", stderr);
             break;
         }
-        else
+        else if (ret > 0)
         {
             txbuf.removeSection (0, size_t (ret));
         }
@@ -232,12 +117,6 @@ void WebSocket::poll (int timeout) // timeout in milliseconds
 
     if (txbuf.getSize() == 0 && readyState == CLOSING)
         readyState = CLOSED;
-}
-
-void WebSocket::interrupt()
-{
-    if (interruptOut)
-        ::send (interruptOut, "\0", 1, 0);
 }
 
 void WebSocket::dispatch (std::function<void (const juce::MemoryBlock& message, bool isBinary)> callback)
