@@ -55,6 +55,14 @@ public:
             return false;
         }
 
+        if (server_fd.fd >= __DARWIN_FD_SETSIZE)
+        {
+            DBG("failed: mbedtls_net_connect returned socket number too high " + juce::String (server_fd.fd));
+            mbedtls_net_free (&server_fd);
+            server_fd.fd = -1;
+            return false;
+        }
+
         if ((ret = mbedtls_ssl_config_defaults (&conf,
                                                 MBEDTLS_SSL_IS_CLIENT,
                                                 MBEDTLS_SSL_TRANSPORT_STREAM,
@@ -201,7 +209,9 @@ public:
 private:
     void init()
     {
-        mbedtls_net_init (&server_fd);
+        if (server_fd.fd >= 0)
+            mbedtls_net_init (&server_fd);
+        
         mbedtls_ssl_init (&ssl);
         mbedtls_ssl_config_init (&conf);
         mbedtls_x509_crt_init (&cacert);
