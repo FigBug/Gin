@@ -2,7 +2,7 @@
  *  Minimal SSL client, used for memory measurements.
  *  (meant to be used with config-suite-b.h or config-ccm-psk-tls1_2.h)
  *
- *  Copyright (C) 2006-2015, ARM Limited, All Rights Reserved
+ *  Copyright The Mbed TLS Contributors
  *  SPDX-License-Identifier: Apache-2.0
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -16,8 +16,6 @@
  *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *
- *  This file is part of mbed TLS (https://tls.mbed.org)
  */
 
 #if !defined(MBEDTLS_CONFIG_FILE)
@@ -60,7 +58,7 @@ int main( void )
     mbedtls_printf( "MBEDTLS_CTR_DRBG_C and/or MBEDTLS_ENTROPY_C and/or "
             "MBEDTLS_NET_C and/or MBEDTLS_SSL_CLI_C and/or UNIX "
             "not defined.\n");
-    return( 0 );
+    mbedtls_exit( 0 );
 }
 #else
 
@@ -88,7 +86,7 @@ int main( void )
 
 const char *pers = "mini_client";
 
-#if defined(MBEDTLS_KEY_EXCHANGE__SOME__PSK_ENABLED)
+#if defined(MBEDTLS_KEY_EXCHANGE_SOME_PSK_ENABLED)
 const unsigned char psk[] = {
     0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
     0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f
@@ -166,17 +164,6 @@ enum exit_codes
     ssl_write_failed,
 };
 
-#if defined(MBEDTLS_CHECK_PARAMS)
-#include "mbedtls/platform_util.h"
-void mbedtls_param_failed( const char *failure_condition,
-                           const char *file,
-                           int line )
-{
-    mbedtls_printf( "%s:%i: Input param failed - %s\n",
-                    file, line, failure_condition );
-    mbedtls_exit( MBEDTLS_EXIT_FAILURE );
-}
-#endif
 
 int main( void )
 {
@@ -222,7 +209,7 @@ int main( void )
 
     mbedtls_ssl_conf_rng( &conf, mbedtls_ctr_drbg_random, &ctr_drbg );
 
-#if defined(MBEDTLS_KEY_EXCHANGE__SOME__PSK_ENABLED)
+#if defined(MBEDTLS_KEY_EXCHANGE_SOME_PSK_ENABLED)
     mbedtls_ssl_conf_psk( &conf, psk, sizeof( psk ),
                 (const unsigned char *) psk_id, sizeof( psk_id ) - 1 );
 #endif
@@ -307,6 +294,6 @@ exit:
     mbedtls_x509_crt_free( &ca );
 #endif
 
-    return( ret );
+    mbedtls_exit( ret );
 }
 #endif

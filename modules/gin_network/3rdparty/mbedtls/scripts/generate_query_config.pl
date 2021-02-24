@@ -15,13 +15,28 @@
 # function by using the template in scripts/data_files/query_config.fmt.
 #
 # Usage: ./scripts/generate_query_config.pl without arguments
+#
+# Copyright The Mbed TLS Contributors
+# SPDX-License-Identifier: Apache-2.0
+#
+# Licensed under the Apache License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 use strict;
 
 my $config_file = "./include/mbedtls/config.h";
 
 my $query_config_format_file = "./scripts/data_files/query_config.fmt";
-my $query_config_file = "./programs/ssl/query_config.c";
+my $query_config_file = "./programs/test/query_config.c";
 
 # Excluded macros from the generated query_config.c. For example, macros that
 # have commas or function-like macros cannot be transformed into strings easily

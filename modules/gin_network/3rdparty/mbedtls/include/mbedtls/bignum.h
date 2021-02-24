@@ -4,7 +4,7 @@
  * \brief Multi-precision integer library
  */
 /*
- *  Copyright (C) 2006-2015, ARM Limited, All Rights Reserved
+ *  Copyright The Mbed TLS Contributors
  *  SPDX-License-Identifier: Apache-2.0
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -18,14 +18,12 @@
  *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *
- *  This file is part of mbed TLS (https://tls.mbed.org)
  */
 #ifndef MBEDTLS_BIGNUM_H
 #define MBEDTLS_BIGNUM_H
 
 #if !defined(MBEDTLS_CONFIG_FILE)
-#include "config.h"
+#include "mbedtls/config.h"
 #else
 #include MBEDTLS_CONFIG_FILE
 #endif
@@ -63,12 +61,12 @@
  * Maximum window size used for modular exponentiation. Default: 6
  * Minimum value: 1. Maximum value: 6.
  *
- * Result is an array of ( 2 << MBEDTLS_MPI_WINDOW_SIZE ) MPIs used
+ * Result is an array of ( 2 ** MBEDTLS_MPI_WINDOW_SIZE ) MPIs used
  * for the sliding window calculation. (So 64 by default)
  *
  * Reduction in size, reduces speed.
  */
-#define MBEDTLS_MPI_WINDOW_SIZE                           6        /**< Maximum windows size used. */
+#define MBEDTLS_MPI_WINDOW_SIZE                           6        /**< Maximum window size used. */
 #endif /* !MBEDTLS_MPI_WINDOW_SIZE */
 
 #if !defined(MBEDTLS_MPI_MAX_SIZE)
@@ -129,7 +127,8 @@
         defined(__ppc64__) || defined(__powerpc64__)  || \
         defined(__ia64__)  || defined(__alpha__)      || \
         ( defined(__sparc__) && defined(__arch64__) ) || \
-        defined(__s390x__) || defined(__mips64) )
+        defined(__s390x__) || defined(__mips64)       || \
+        defined(__aarch64__) )
         #if !defined(MBEDTLS_HAVE_INT64)
             #define MBEDTLS_HAVE_INT64
         #endif /* MBEDTLS_HAVE_INT64 */
@@ -184,7 +183,7 @@ extern "C" {
  */
 typedef struct mbedtls_mpi
 {
-    int s;              /*!<  integer sign      */
+    int s;              /*!<  Sign: -1 if the mpi is negative, 1 otherwise */
     size_t n;           /*!<  total # of limbs  */
     mbedtls_mpi_uint *p;          /*!<  pointer to limbs  */
 }
@@ -495,8 +494,24 @@ int mbedtls_mpi_read_binary( mbedtls_mpi *X, const unsigned char *buf,
                              size_t buflen );
 
 /**
- * \brief          Export an MPI into unsigned big endian binary data
- *                 of fixed size.
+ * \brief          Import X from unsigned binary data, little endian
+ *
+ * \param X        The destination MPI. This must point to an initialized MPI.
+ * \param buf      The input buffer. This must be a readable buffer of length
+ *                 \p buflen Bytes.
+ * \param buflen   The length of the input buffer \p p in Bytes.
+ *
+ * \return         \c 0 if successful.
+ * \return         #MBEDTLS_ERR_MPI_ALLOC_FAILED if memory allocation failed.
+ * \return         Another negative error code on different kinds of failure.
+ */
+int mbedtls_mpi_read_binary_le( mbedtls_mpi *X,
+                                const unsigned char *buf, size_t buflen );
+
+/**
+ * \brief          Export X into unsigned binary data, big endian.
+ *                 Always fills the whole buffer, which will start with zeros
+ *                 if the number is smaller.
  *
  * \param X        The source MPI. This must point to an initialized MPI.
  * \param buf      The output buffer. This must be a writable buffer of length
@@ -510,6 +525,24 @@ int mbedtls_mpi_read_binary( mbedtls_mpi *X, const unsigned char *buf,
  */
 int mbedtls_mpi_write_binary( const mbedtls_mpi *X, unsigned char *buf,
                               size_t buflen );
+
+/**
+ * \brief          Export X into unsigned binary data, little endian.
+ *                 Always fills the whole buffer, which will end with zeros
+ *                 if the number is smaller.
+ *
+ * \param X        The source MPI. This must point to an initialized MPI.
+ * \param buf      The output buffer. This must be a writable buffer of length
+ *                 \p buflen Bytes.
+ * \param buflen   The size of the output buffer \p buf in Bytes.
+ *
+ * \return         \c 0 if successful.
+ * \return         #MBEDTLS_ERR_MPI_BUFFER_TOO_SMALL if \p buf isn't
+ *                 large enough to hold the value of \p X.
+ * \return         Another negative error code on different kinds of failure.
+ */
+int mbedtls_mpi_write_binary_le( const mbedtls_mpi *X,
+                                 unsigned char *buf, size_t buflen );
 
 /**
  * \brief          Perform a left-shift on an MPI: X <<= count
@@ -558,6 +591,24 @@ int mbedtls_mpi_cmp_abs( const mbedtls_mpi *X, const mbedtls_mpi *Y );
  * \return         \c 0 if \p X is equal to \p Y.
  */
 int mbedtls_mpi_cmp_mpi( const mbedtls_mpi *X, const mbedtls_mpi *Y );
+
+/**
+ * \brief          Check if an MPI is less than the other in constant time.
+ *
+ * \param X        The left-hand MPI. This must point to an initialized MPI
+ *                 with the same allocated length as Y.
+ * \param Y        The right-hand MPI. This must point to an initialized MPI
+ *                 with the same allocated length as X.
+ * \param ret      The result of the comparison:
+ *                 \c 1 if \p X is less than \p Y.
+ *                 \c 0 if \p X is greater than or equal to \p Y.
+ *
+ * \return         0 on success.
+ * \return         MBEDTLS_ERR_MPI_BAD_INPUT_DATA if the allocated length of
+ *                 the two input MPIs is not the same.
+ */
+int mbedtls_mpi_lt_mpi_ct( const mbedtls_mpi *X, const mbedtls_mpi *Y,
+        unsigned *ret );
 
 /**
  * \brief          Compare an MPI with an integer.

@@ -1,7 +1,7 @@
 /*
  *  generic message digest layer demonstration program
  *
- *  Copyright (C) 2006-2015, ARM Limited, All Rights Reserved
+ *  Copyright The Mbed TLS Contributors
  *  SPDX-License-Identifier: Apache-2.0
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -15,8 +15,6 @@
  *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *
- *  This file is part of mbed TLS (https://tls.mbed.org)
  */
 
 #if !defined(MBEDTLS_CONFIG_FILE)
@@ -48,21 +46,10 @@
 int main( void )
 {
     mbedtls_printf("MBEDTLS_MD_C and/or MBEDTLS_FS_IO not defined.\n");
-    return( 0 );
+    mbedtls_exit( 0 );
 }
 #else
 
-#if defined(MBEDTLS_CHECK_PARAMS)
-#include "mbedtls/platform_util.h"
-void mbedtls_param_failed( const char *failure_condition,
-                           const char *file,
-                           int line )
-{
-    mbedtls_printf( "%s:%i: Input param failed - %s\n",
-                    file, line, failure_condition );
-    mbedtls_exit( MBEDTLS_EXIT_FAILURE );
-}
-#endif
 
 static int generic_wrapper( const mbedtls_md_info_t *md_info, char *filename, unsigned char *sum )
 {
@@ -214,7 +201,7 @@ int main( int argc, char *argv[] )
         fflush( stdout ); getchar();
 #endif
 
-        return( exit_code );
+        mbedtls_exit( exit_code );
     }
 
     /*
@@ -224,12 +211,12 @@ int main( int argc, char *argv[] )
     if( md_info == NULL )
     {
         mbedtls_fprintf( stderr, "Message Digest '%s' not found\n", argv[1] );
-        return( exit_code );
+        mbedtls_exit( exit_code );
     }
     if( mbedtls_md_setup( &md_ctx, md_info, 0 ) )
     {
         mbedtls_fprintf( stderr, "Failed to initialize context.\n" );
-        return( exit_code );
+        mbedtls_exit( exit_code );
     }
 
     ret = 0;
@@ -248,6 +235,6 @@ int main( int argc, char *argv[] )
 exit:
     mbedtls_md_free( &md_ctx );
 
-    return( exit_code );
+    mbedtls_exit( exit_code );
 }
 #endif /* MBEDTLS_MD_C && MBEDTLS_FS_IO */

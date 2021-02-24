@@ -5,7 +5,7 @@
  *
  * \author Daniel King <damaki.gh@gmail.com>
  *
- *  Copyright (C) 2006-2016, ARM Limited, All Rights Reserved
+ *  Copyright The Mbed TLS Contributors
  *  SPDX-License-Identifier: Apache-2.0
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -19,20 +19,15 @@
  *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *
- *  This file is part of mbed TLS (https://tls.mbed.org)
  */
 
-#if !defined(MBEDTLS_CONFIG_FILE)
-#include "mbedtls/config.h"
-#else
-#include MBEDTLS_CONFIG_FILE
-#endif
+#include "common.h"
 
 #if defined(MBEDTLS_CHACHA20_C)
 
 #include "mbedtls/chacha20.h"
 #include "mbedtls/platform_util.h"
+#include "mbedtls/error.h"
 
 #include <stddef.h>
 #include <string.h>
@@ -325,7 +320,7 @@ int mbedtls_chacha20_crypt( const unsigned char key[32],
                             unsigned char* output )
 {
     mbedtls_chacha20_context ctx;
-    int ret;
+    int ret = MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED;
 
     CHACHA20_VALIDATE_RET( key != NULL );
     CHACHA20_VALIDATE_RET( nonce != NULL );
@@ -519,6 +514,9 @@ static const size_t test_lengths[2] =
     375U
 };
 
+/* Make sure no other definition is already present. */
+#undef ASSERT
+
 #define ASSERT( cond, args )            \
     do                                  \
     {                                   \
@@ -536,7 +534,7 @@ int mbedtls_chacha20_self_test( int verbose )
 {
     unsigned char output[381];
     unsigned i;
-    int ret;
+    int ret = MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED;
 
     for( i = 0U; i < 2U; i++ )
     {

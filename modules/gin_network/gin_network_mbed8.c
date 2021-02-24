@@ -13,3 +13,5 @@
 
 #include "3rdparty/mbedtls/library/net_sockets.c"
 #include "3rdparty/mbedtls/library/ssl_cookie.c"
+#include "3rdparty/mbedtls/library/ssl_msg.c"
+#include "3rdparty/mbedtls/library/sha1.c"

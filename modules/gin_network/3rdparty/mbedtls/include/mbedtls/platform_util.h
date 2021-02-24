@@ -5,7 +5,7 @@
  *        library.
  */
 /*
- *  Copyright (C) 2018, Arm Limited, All Rights Reserved
+ *  Copyright The Mbed TLS Contributors
  *  SPDX-License-Identifier: Apache-2.0
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -19,21 +19,19 @@
  *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *
- *  This file is part of Mbed TLS (https://tls.mbed.org)
  */
 #ifndef MBEDTLS_PLATFORM_UTIL_H
 #define MBEDTLS_PLATFORM_UTIL_H
 
 #if !defined(MBEDTLS_CONFIG_FILE)
-#include "config.h"
+#include "mbedtls/config.h"
 #else
 #include MBEDTLS_CONFIG_FILE
 #endif
 
 #include <stddef.h>
 #if defined(MBEDTLS_HAVE_TIME_DATE)
-#include "platform_time.h"
+#include "mbedtls/platform_time.h"
 #include <time.h>
 #endif /* MBEDTLS_HAVE_TIME_DATE */
 
@@ -43,6 +41,12 @@ extern "C" {
 
 #if defined(MBEDTLS_CHECK_PARAMS)
 
+#if defined(MBEDTLS_CHECK_PARAMS_ASSERT)
+/* Allow the user to define MBEDTLS_PARAM_FAILED to something like assert
+ * (which is what our config.h suggests). */
+#include <assert.h>
+#endif /* MBEDTLS_CHECK_PARAMS_ASSERT */
+
 #if defined(MBEDTLS_PARAM_FAILED)
 /** An alternative definition of MBEDTLS_PARAM_FAILED has been set in config.h.
  *
@@ -50,6 +54,11 @@ extern "C" {
  * MBEDTLS_PARAM_FAILED() will expand to a call to mbedtls_param_failed().
  */
 #define MBEDTLS_PARAM_FAILED_ALT
+
+#elif defined(MBEDTLS_CHECK_PARAMS_ASSERT)
+#define MBEDTLS_PARAM_FAILED( cond ) assert( cond )
+#define MBEDTLS_PARAM_FAILED_ALT
+
 #else /* MBEDTLS_PARAM_FAILED */
 #define MBEDTLS_PARAM_FAILED( cond ) \
     mbedtls_param_failed( #cond, __FILE__, __LINE__ )

@@ -3,7 +3,7 @@
  *
  * \brief Poly1305 authentication algorithm.
  *
- *  Copyright (C) 2006-2016, ARM Limited, All Rights Reserved
+ *  Copyright The Mbed TLS Contributors
  *  SPDX-License-Identifier: Apache-2.0
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -17,19 +17,14 @@
  *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *
- *  This file is part of mbed TLS (https://tls.mbed.org)
  */
-#if !defined(MBEDTLS_CONFIG_FILE)
-#include "mbedtls/config.h"
-#else
-#include MBEDTLS_CONFIG_FILE
-#endif
+#include "common.h"
 
 #if defined(MBEDTLS_POLY1305_C)
 
 #include "mbedtls/poly1305.h"
 #include "mbedtls/platform_util.h"
+#include "mbedtls/error.h"
 
 #include <string.h>
 
@@ -423,7 +418,7 @@ int mbedtls_poly1305_mac( const unsigned char key[32],
                           unsigned char mac[16] )
 {
     mbedtls_poly1305_context ctx;
-    int ret;
+    int ret = MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED;
     POLY1305_VALIDATE_RET( key != NULL );
     POLY1305_VALIDATE_RET( mac != NULL );
     POLY1305_VALIDATE_RET( ilen == 0 || input != NULL );
@@ -512,6 +507,9 @@ static const unsigned char test_mac[2][16] =
     }
 };
 
+/* Make sure no other definition is already present. */
+#undef ASSERT
+
 #define ASSERT( cond, args )            \
     do                                  \
     {                                   \
@@ -529,7 +527,7 @@ int mbedtls_poly1305_self_test( int verbose )
 {
     unsigned char mac[16];
     unsigned i;
-    int ret;
+    int ret = MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED;
 
     for( i = 0U; i < 2U; i++ )
     {

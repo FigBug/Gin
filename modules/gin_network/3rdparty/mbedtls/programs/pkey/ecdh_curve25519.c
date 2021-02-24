@@ -1,7 +1,7 @@
 /*
  *  Example ECDHE with Curve25519 program
  *
- *  Copyright (C) 2006-2015, ARM Limited, All Rights Reserved
+ *  Copyright The Mbed TLS Contributors
  *  SPDX-License-Identifier: Apache-2.0
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -15,8 +15,6 @@
  *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *
- *  This file is part of mbed TLS (https://tls.mbed.org)
  */
 
 #if !defined(MBEDTLS_CONFIG_FILE)
@@ -45,7 +43,7 @@ int main( void )
                     "MBEDTLS_ECP_DP_CURVE25519_ENABLED and/or "
                     "MBEDTLS_ENTROPY_C and/or MBEDTLS_CTR_DRBG_C "
                     "not defined\n" );
-    return( 0 );
+    mbedtls_exit( 0 );
 }
 #else
 
@@ -53,17 +51,6 @@ int main( void )
 #include "mbedtls/ctr_drbg.h"
 #include "mbedtls/ecdh.h"
 
-#if defined(MBEDTLS_CHECK_PARAMS)
-#include "mbedtls/platform_util.h"
-void mbedtls_param_failed( const char *failure_condition,
-                           const char *file,
-                           int line )
-{
-    mbedtls_printf( "%s:%i: Input param failed - %s\n",
-                    file, line, failure_condition );
-    mbedtls_exit( MBEDTLS_EXIT_FAILURE );
-}
-#endif
 
 int main( int argc, char *argv[] )
 {
@@ -99,7 +86,7 @@ int main( int argc, char *argv[] )
     mbedtls_printf( " ok\n" );
 
     /*
-     * Client: inialize context and generate keypair
+     * Client: initialize context and generate keypair
      */
     mbedtls_printf( "  . Setting up client context..." );
     fflush( stdout );
@@ -249,7 +236,7 @@ exit:
     mbedtls_ctr_drbg_free( &ctr_drbg );
     mbedtls_entropy_free( &entropy );
 
-    return( exit_code );
+    mbedtls_exit( exit_code );
 }
 #endif /* MBEDTLS_ECDH_C && MBEDTLS_ECP_DP_CURVE25519_ENABLED &&
           MBEDTLS_ENTROPY_C && MBEDTLS_CTR_DRBG_C */
