@@ -1337,20 +1337,6 @@ struct LagrangeDemo : public juce::Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
-	juce::OwnedArray<gin::SecureStreamingSocket> sockets;
-	for (int i = 0; i < 1025; i++)
-	{
-		auto s = new gin::SecureStreamingSocket();
-		s->connect("figbug.com", 443);
-		sockets.add (s);
-		printf("%d\n", i);
-	}
-
-	auto s = new gin::SecureStreamingSocket();
-	s->connect("figbug.com", 443);
-	s->waitUntilReady (true, 50);
-	s->waitUntilReady (false, 50);
-
     demoComponents.add (new AsyncUpdateDemo());
     demoComponents.add (new ValueTreeJsonDemo());
     demoComponents.add (new MessagePackDemo());

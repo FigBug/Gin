@@ -55,7 +55,6 @@ public:
             return false;
         }
 
-		/*
         if (server_fd.fd >= FD_SETSIZE)
         {
             DBG("failed: mbedtls_net_connect returned socket number too high " + juce::String (server_fd.fd));
@@ -63,7 +62,6 @@ public:
             server_fd.fd = -1;
             return false;
         }
-		 */
 
         if ((ret = mbedtls_ssl_config_defaults (&conf,
                                                 MBEDTLS_SSL_IS_CLIENT,
