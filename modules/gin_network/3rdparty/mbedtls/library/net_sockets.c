@@ -88,6 +88,7 @@ static int wsa_init_done = 0;
 #include <fcntl.h>
 #include <netdb.h>
 #include <errno.h>
+#include <poll.h>
 
 #define IS_EINTR( ret ) ( ( ret ) == EINTR )
 
@@ -457,13 +458,14 @@ int mbedtls_net_poll( mbedtls_net_context *ctx, uint32_t rw, uint32_t timeout )
     int ret = MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED;
     struct timeval tv;
 
-    fd_set read_fds;
-    fd_set write_fds;
-
     int fd = ctx->fd;
 
     if( fd < 0 )
         return( MBEDTLS_ERR_NET_INVALID_CONTEXT );
+
+#if defined(_MSC_VER)
+    fd_set read_fds;
+    fd_set write_fds;
 
 #if defined(__has_feature)
 #if __has_feature(memory_sanitizer)
@@ -510,6 +512,42 @@ int mbedtls_net_poll( mbedtls_net_context *ctx, uint32_t rw, uint32_t timeout )
         ret |= MBEDTLS_NET_POLL_READ;
     if( FD_ISSET( fd, &write_fds ) )
         ret |= MBEDTLS_NET_POLL_WRITE;
+#else
+    struct pollfd events;
+    memset( &events, 0, sizeof( events ) );
+
+    events.fd = fd;
+
+    if( rw & MBEDTLS_NET_POLL_READ )
+    {
+        rw &= ~MBEDTLS_NET_POLL_READ;
+        events.events |= POLLIN;
+    }
+
+    if( rw & MBEDTLS_NET_POLL_WRITE )
+    {
+        rw &= ~MBEDTLS_NET_POLL_WRITE;
+        events.events |= POLLIN;
+    }
+
+    if( rw != 0 )
+        return( MBEDTLS_ERR_NET_BAD_INPUT_DATA );
+
+    do
+    {
+        ret = poll( &events, 1, ( int ) timeout );
+
+    } while ( IS_EINTR( ret ));
+
+    if( ret < 0 )
+        return( MBEDTLS_ERR_NET_POLL_FAILED );
+
+    ret = 0;
+    if( events.revents & POLLIN )
+        ret |= MBEDTLS_NET_POLL_READ;
+    if( events.revents & POLLOUT )
+        ret |= MBEDTLS_NET_POLL_WRITE;
+#endif
 
     return( ret );
 }
@@ -577,12 +615,14 @@ int mbedtls_net_recv_timeout( void *ctx, unsigned char *buf,
                               size_t len, uint32_t timeout )
 {
     int ret = MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED;
-    struct timeval tv;
-    fd_set read_fds;
     int fd = ((mbedtls_net_context *) ctx)->fd;
 
     if( fd < 0 )
         return( MBEDTLS_ERR_NET_INVALID_CONTEXT );
+
+#if defined(_MSC_VER)
+    struct timeval tv;
+    fd_set read_fds;
 
     FD_ZERO( &read_fds );
     FD_SET( fd, &read_fds );
@@ -595,6 +635,19 @@ int mbedtls_net_recv_timeout( void *ctx, unsigned char *buf,
     /* Zero fds ready means we timed out */
     if( ret == 0 )
         return( MBEDTLS_ERR_SSL_TIMEOUT );
+#else
+    struct pollfd events;
+    memset( &events, 0, sizeof( events ) );
+
+    events.fd = fd;
+    events.events |= POLLIN;
+
+    ret = poll ( &events, 1, ( int ) timeout );
+
+    /* Zero fds ready means we timed out */
+    if( ret == 0 )
+        return( MBEDTLS_ERR_SSL_TIMEOUT );
+#endif
 
     if( ret < 0 )
     {
