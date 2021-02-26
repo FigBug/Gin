@@ -189,6 +189,8 @@ public:
                 int res = mbedtls_net_poll (&server_fd, MBEDTLS_NET_POLL_READ, uint32_t (timeoutMsecs));
                 if (res > 0)
                     return (res | MBEDTLS_NET_POLL_READ) ? 1 : 0;
+                else if (res == 0)
+                    return 0;
             }
             else
             {

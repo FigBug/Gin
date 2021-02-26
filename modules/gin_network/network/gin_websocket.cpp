@@ -77,7 +77,7 @@ void WebSocket::poll (int timeout) // timeout in milliseconds
 
     if (txbuf.getSize() == 0 && ! readIncoming())
     {
-        juce::Thread::sleep (timeout);
+        socket->waitUntilReady (true, timeout);
     }
 
     // Read incoming data

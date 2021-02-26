@@ -51,7 +51,7 @@
 
 #if !defined(_WIN32_WINNT)
 /* Enables getaddrinfo() & Co */
-#define _WIN32_WINNT 0x0501
+#define _WIN32_WINNT _WIN32_WINNT_WIN7
 #endif
 
 #include <ws2tcpip.h>
@@ -456,63 +456,12 @@ int mbedtls_net_set_nonblock( mbedtls_net_context *ctx )
 int mbedtls_net_poll( mbedtls_net_context *ctx, uint32_t rw, uint32_t timeout )
 {
     int ret = MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED;
-    struct timeval tv;
 
     int fd = ctx->fd;
 
     if( fd < 0 )
         return( MBEDTLS_ERR_NET_INVALID_CONTEXT );
 
-#if defined(_MSC_VER)
-    fd_set read_fds;
-    fd_set write_fds;
-
-#if defined(__has_feature)
-#if __has_feature(memory_sanitizer)
-    /* Ensure that memory sanitizers consider read_fds and write_fds as
-     * initialized even on platforms such as Glibc/x86_64 where FD_ZERO
-     * is implemented in assembly. */
-    memset( &read_fds, 0, sizeof( read_fds ) );
-    memset( &write_fds, 0, sizeof( write_fds ) );
-#endif
-#endif
-
-    FD_ZERO( &read_fds );
-    if( rw & MBEDTLS_NET_POLL_READ )
-    {
-        rw &= ~MBEDTLS_NET_POLL_READ;
-        FD_SET( fd, &read_fds );
-    }
-
-    FD_ZERO( &write_fds );
-    if( rw & MBEDTLS_NET_POLL_WRITE )
-    {
-        rw &= ~MBEDTLS_NET_POLL_WRITE;
-        FD_SET( fd, &write_fds );
-    }
-
-    if( rw != 0 )
-        return( MBEDTLS_ERR_NET_BAD_INPUT_DATA );
-
-    tv.tv_sec  = timeout / 1000;
-    tv.tv_usec = ( timeout % 1000 ) * 1000;
-
-    do
-    {
-        ret = select( fd + 1, &read_fds, &write_fds, NULL,
-                      timeout == (uint32_t) -1 ? NULL : &tv );
-    }
-    while( IS_EINTR( ret ) );
-
-    if( ret < 0 )
-        return( MBEDTLS_ERR_NET_POLL_FAILED );
-
-    ret = 0;
-    if( FD_ISSET( fd, &read_fds ) )
-        ret |= MBEDTLS_NET_POLL_READ;
-    if( FD_ISSET( fd, &write_fds ) )
-        ret |= MBEDTLS_NET_POLL_WRITE;
-#else
     struct pollfd events;
     memset( &events, 0, sizeof( events ) );
 
@@ -535,7 +484,11 @@ int mbedtls_net_poll( mbedtls_net_context *ctx, uint32_t rw, uint32_t timeout )
 
     do
     {
+#if defined(_MSC_VER)
+        ret = WSAPoll( &events, 1, ( int ) timeout );
+#else
         ret = poll( &events, 1, ( int ) timeout );
+#endif
 
     } while ( IS_EINTR( ret ));
 
@@ -547,7 +500,6 @@ int mbedtls_net_poll( mbedtls_net_context *ctx, uint32_t rw, uint32_t timeout )
         ret |= MBEDTLS_NET_POLL_READ;
     if( events.revents & POLLOUT )
         ret |= MBEDTLS_NET_POLL_WRITE;
-#endif
 
     return( ret );
 }
@@ -620,34 +572,21 @@ int mbedtls_net_recv_timeout( void *ctx, unsigned char *buf,
     if( fd < 0 )
         return( MBEDTLS_ERR_NET_INVALID_CONTEXT );
 
-#if defined(_MSC_VER)
-    struct timeval tv;
-    fd_set read_fds;
-
-    FD_ZERO( &read_fds );
-    FD_SET( fd, &read_fds );
-
-    tv.tv_sec  = timeout / 1000;
-    tv.tv_usec = ( timeout % 1000 ) * 1000;
-
-    ret = select( fd + 1, &read_fds, NULL, NULL, timeout == 0 ? NULL : &tv );
-
-    /* Zero fds ready means we timed out */
-    if( ret == 0 )
-        return( MBEDTLS_ERR_SSL_TIMEOUT );
-#else
     struct pollfd events;
     memset( &events, 0, sizeof( events ) );
 
     events.fd = fd;
     events.events |= POLLIN;
 
+#if defined(_MSC_VER)
+    ret = WSAPoll ( &events, 1, ( int ) timeout );
+#else
     ret = poll ( &events, 1, ( int ) timeout );
+#endif
 
     /* Zero fds ready means we timed out */
     if( ret == 0 )
         return( MBEDTLS_ERR_SSL_TIMEOUT );
-#endif
 
     if( ret < 0 )
     {
