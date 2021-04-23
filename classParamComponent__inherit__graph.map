@@ -1,6 +1,7 @@
 <map id="ParamComponent" name="ParamComponent">
-<area shape="rect" id="node2" href="$classHorizontalFader.html" title="Horizontal slider wth text for controlling a param. " alt="" coords="5,80,129,107"/>
-<area shape="rect" id="node3" href="$classKnob.html" title="Slider + editable text for showing a param. " alt="" coords="153,80,208,107"/>
-<area shape="rect" id="node4" href="$classSelect.html" title="Control for picking param value with label. " alt="" coords="232,80,295,107"/>
-<area shape="rect" id="node5" href="$classSwitch.html" title="Control for toggling param with label. " alt="" coords="319,80,384,107"/>
+<area shape="rect" id="node1" title="Base class for a control showing a parameter with label." alt="" coords="153,5,291,32"/>
+<area shape="rect" id="node2" href="$classHorizontalFader.html" title="Horizontal slider wth text for controlling a param." alt="" coords="5,80,129,107"/>
+<area shape="rect" id="node3" href="$classKnob.html" title="Slider + editable text for showing a param." alt="" coords="153,80,208,107"/>
+<area shape="rect" id="node4" href="$classSelect.html" title="Control for picking param value with label." alt="" coords="232,80,295,107"/>
+<area shape="rect" id="node5" href="$classSwitch.html" title="Control for toggling param with label." alt="" coords="319,80,384,107"/>
 </map>

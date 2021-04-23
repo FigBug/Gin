@@ -1,16 +1,17 @@
 <map id="Parameter::Listener" name="Parameter::Listener">
-<area shape="rect" id="node2" href="$classMultiParamComponent.html" title="A base component for controlling multiple parameters at once. " alt="" coords="203,208,373,235"/>
-<area shape="rect" id="node11" href="$classPluginButton.html" title="Button for toggling a parameter. " alt="" coords="235,335,341,361"/>
-<area shape="rect" id="node13" href="$classPluginComboBox.html" title="A control for selecting param values from a dropbox. " alt="" coords="221,385,355,412"/>
-<area shape="rect" id="node14" href="$classPluginSlider.html" title="A slider for controlling a parameter. " alt="" coords="239,436,337,463"/>
-<area shape="rect" id="node15" href="$classReadout.html" title="A control for displaying a parameter. " alt="" coords="251,487,325,513"/>
-<area shape="rect" id="node3" href="$classADSRComponent.html" title="Component for adjuting ADSR curves. " alt="" coords="438,5,570,32"/>
-<area shape="rect" id="node4" href="$classControlBox.html" title="A box for holding controls on a grid. " alt="" coords="457,56,551,83"/>
-<area shape="rect" id="node5" href="$classGateEffectComponent.html" title="An editor for the gate effect pattern. " alt="" coords="421,107,587,133"/>
-<area shape="rect" id="node6" href="$classLFOComponent.html" title="Draws an LFO curve and shows a little dot moving long. " alt="" coords="443,157,565,184"/>
-<area shape="rect" id="node7" href="$classPagedControlBox.html" title="A control for holding pags of controls on a grid Pages slide over top of each other to make room..." alt="" coords="437,208,571,235"/>
-<area shape="rect" id="node8" href="$classParamArea.html" title="A box for graphs without a header. " alt="" coords="457,259,551,285"/>
-<area shape="rect" id="node9" href="$classParamBox.html" title="A box for knobs with a header. " alt="" coords="460,309,548,336"/>
-<area shape="rect" id="node10" href="$classStepLFOComponent.html" title="Draws a step LFO curve and shows a little dot moving long. " alt="" coords="429,360,579,387"/>
-<area shape="rect" id="node12" href="$classPowerButton.html" title="Circle with line power button for controlling a Parameter. " alt="" coords="451,411,557,437"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,385,155,412"/>
+<area shape="rect" id="node2" href="$classMultiParamComponent.html" title="A base component for controlling multiple parameters at once." alt="" coords="203,208,373,235"/>
+<area shape="rect" id="node11" href="$classPluginButton.html" title="Button for toggling a parameter." alt="" coords="235,335,341,361"/>
+<area shape="rect" id="node13" href="$classPluginComboBox.html" title="A control for selecting param values from a dropbox." alt="" coords="221,385,355,412"/>
+<area shape="rect" id="node14" href="$classPluginSlider.html" title="A slider for controlling a parameter." alt="" coords="239,436,337,463"/>
+<area shape="rect" id="node15" href="$classReadout.html" title="A control for displaying a parameter." alt="" coords="250,487,326,513"/>
+<area shape="rect" id="node3" href="$classADSRComponent.html" title="Component for adjuting ADSR curves." alt="" coords="437,5,571,32"/>
+<area shape="rect" id="node4" href="$classControlBox.html" title="A box for holding controls on a grid." alt="" coords="457,56,551,83"/>
+<area shape="rect" id="node5" href="$classGateEffectComponent.html" title="An editor for the gate effect pattern." alt="" coords="421,107,587,133"/>
+<area shape="rect" id="node6" href="$classLFOComponent.html" title="Draws an LFO curve and shows a little dot moving long." alt="" coords="443,157,565,184"/>
+<area shape="rect" id="node7" href="$classPagedControlBox.html" title="A control for holding pags of controls on a grid Pages slide over top of each other to make room." alt="" coords="437,208,571,235"/>
+<area shape="rect" id="node8" href="$classParamArea.html" title="A box for graphs without a header." alt="" coords="457,259,551,285"/>
+<area shape="rect" id="node9" href="$classParamBox.html" title="A box for knobs with a header." alt="" coords="460,309,548,336"/>
+<area shape="rect" id="node10" href="$classStepLFOComponent.html" title="Draws a step LFO curve and shows a little dot moving long." alt="" coords="429,360,579,387"/>
+<area shape="rect" id="node12" href="$classPowerButton.html" title="Button for toggling a parameter, drawn as a power button." alt="" coords="451,411,557,437"/>
 </map>

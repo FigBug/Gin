@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['openstreetmaps',['OpenStreetMaps',['../classOpenStreetMaps.html',1,'']]],
-  ['oscstate',['OscState',['../structOscState.html',1,'']]]
+  ['openstreetmaps_1380',['OpenStreetMaps',['../classOpenStreetMaps.html',1,'']]],
+  ['oscstate_1381',['OscState',['../structOscState.html',1,'']]]
 ];

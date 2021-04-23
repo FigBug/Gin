@@ -1,3 +1,4 @@
 <map id="BLLTVoicedStereoOscillator" name="BLLTVoicedStereoOscillator">
-<area shape="rect" id="node2" href="$classVoicedStereoOscillator.html" title="VoicedStereoOscillator\l\&lt; StereoOscillator \&gt;" alt="" coords="20,5,189,47"/>
+<area shape="rect" id="node1" title="Stereo Oscillator with multiples voices, pan, spread, detune, etc." alt="" coords="5,95,204,121"/>
+<area shape="rect" id="node2" href="$classVoicedStereoOscillator.html" title=" " alt="" coords="20,5,189,47"/>
 </map>

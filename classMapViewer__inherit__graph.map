@@ -1,3 +1,4 @@
 <map id="MapViewer" name="MapViewer">
-<area shape="rect" id="node2" href="$classOpenStreetMaps_1_1Listener.html" title="OpenStreetMaps::Listener" alt="" coords="5,5,195,32"/>
+<area shape="rect" id="node1" title="Draws an map, etting tiles fom one of many OpenStreetMapsServers." alt="" coords="53,80,148,107"/>
+<area shape="rect" id="node2" href="$classOpenStreetMaps_1_1Listener.html" title=" " alt="" coords="5,5,196,32"/>
 </map>

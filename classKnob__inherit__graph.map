@@ -1,4 +1,5 @@
 <map id="Knob" name="Knob">
-<area shape="rect" id="node2" href="$classParamComponent.html" title="Base class for a control showing a parameter with label. " alt="" coords="5,5,144,32"/>
-<area shape="rect" id="node3" href="$classModMatrix_1_1Listener.html" title="ModMatrix::Listener" alt="" coords="169,5,319,32"/>
+<area shape="rect" id="node1" title="Slider + editable text for showing a param." alt="" coords="131,80,186,107"/>
+<area shape="rect" id="node2" href="$classParamComponent.html" title="Base class for a control showing a parameter with label." alt="" coords="5,5,144,32"/>
+<area shape="rect" id="node3" href="$classModMatrix_1_1Listener.html" title=" " alt="" coords="168,5,320,32"/>
 </map>

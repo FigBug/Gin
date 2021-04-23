@@ -1,3 +1,4 @@
 <map id="Notch12State" name="Notch12State">
-<area shape="rect" id="node2" href="$structFuncState.html" title="Base class to store an audio functions state But you say &quot;functions don&#39;t have state!&quot; Well..." alt="" coords="18,5,103,32"/>
+<area shape="rect" id="node1" title="State for notch filter." alt="" coords="5,80,116,107"/>
+<area shape="rect" id="node2" href="$structFuncState.html" title="Base class to store an audio functions state But you say &quot;functions don&#39;t have state!..." alt="" coords="17,5,104,32"/>
 </map>

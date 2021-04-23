@@ -1,3 +1,4 @@
 <map id="SingleLineTextEditor::InputFilter" name="SingleLineTextEditor::InputFilter">
-<area shape="rect" id="node2" href="$classSingleLineTextEditor_1_1LengthAndCharacterRestriction.html" title="An input filter for a TextEditor that limits the length of text and/or the characters that it may con..." alt="" coords="5,95,236,136"/>
+<area shape="rect" id="node1" title="Base class for input filters that can be applied to a TextEditor to restrict the text that can be ent..." alt="" coords="44,5,199,47"/>
+<area shape="rect" id="node2" href="$classSingleLineTextEditor_1_1LengthAndCharacterRestriction.html" title="An input filter for a TextEditor that limits the length of text and/or the characters that it may con..." alt="" coords="5,95,237,136"/>
 </map>

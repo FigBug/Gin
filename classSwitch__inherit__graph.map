@@ -1,3 +1,4 @@
 <map id="Switch" name="Switch">
-<area shape="rect" id="node2" href="$classParamComponent.html" title="Base class for a control showing a parameter with label. " alt="" coords="5,5,144,32"/>
+<area shape="rect" id="node1" title="Control for toggling param with label." alt="" coords="42,80,107,107"/>
+<area shape="rect" id="node2" href="$classParamComponent.html" title="Base class for a control showing a parameter with label." alt="" coords="5,5,144,32"/>
 </map>

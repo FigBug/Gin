@@ -1,11 +1,12 @@
 <map id="FuncState" name="FuncState">
-<area shape="rect" id="node2" href="$structBP12State.html" title="State for band pass filter. " alt="" coords="149,5,239,32"/>
-<area shape="rect" id="node3" href="$structBP24State.html" title="State for band pass filter. " alt="" coords="149,56,239,83"/>
-<area shape="rect" id="node4" href="$structHP12State.html" title="State for high pass filter. " alt="" coords="149,107,239,133"/>
-<area shape="rect" id="node5" href="$structHP24State.html" title="State for high pass filter. " alt="" coords="149,157,239,184"/>
-<area shape="rect" id="node6" href="$structLP12State.html" title="State for low pass filter. " alt="" coords="151,208,237,235"/>
-<area shape="rect" id="node7" href="$structLP24State.html" title="State for low pass filter. " alt="" coords="151,259,237,285"/>
-<area shape="rect" id="node8" href="$structNotch12State.html" title="State for notch filter. " alt="" coords="139,309,249,336"/>
-<area shape="rect" id="node9" href="$structNotch24State.html" title="State for notch filter. " alt="" coords="139,360,249,387"/>
-<area shape="rect" id="node10" href="$structOscState.html" title="State for an oscillator. " alt="" coords="154,411,234,437"/>
+<area shape="rect" id="node1" title="Base class to store an audio functions state But you say &quot;functions don&#39;t have state!..." alt="" coords="5,208,92,235"/>
+<area shape="rect" id="node2" href="$structBP12State.html" title="State for band pass filter." alt="" coords="151,5,240,32"/>
+<area shape="rect" id="node3" href="$structBP24State.html" title="State for band pass filter." alt="" coords="151,56,240,83"/>
+<area shape="rect" id="node4" href="$structHP12State.html" title="State for high pass filter." alt="" coords="150,107,241,133"/>
+<area shape="rect" id="node5" href="$structHP24State.html" title="State for high pass filter." alt="" coords="150,157,241,184"/>
+<area shape="rect" id="node6" href="$structLP12State.html" title="State for low pass filter." alt="" coords="152,208,239,235"/>
+<area shape="rect" id="node7" href="$structLP24State.html" title="State for low pass filter." alt="" coords="152,259,239,285"/>
+<area shape="rect" id="node8" href="$structNotch12State.html" title="State for notch filter." alt="" coords="140,309,251,336"/>
+<area shape="rect" id="node9" href="$structNotch24State.html" title="State for notch filter." alt="" coords="140,360,251,387"/>
+<area shape="rect" id="node10" href="$structOscState.html" title="State for an oscillator." alt="" coords="155,411,235,437"/>
 </map>

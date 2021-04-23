@@ -1,3 +1,4 @@
 <map id="RealtimeAsyncUpdater" name="RealtimeAsyncUpdater">
-<area shape="rect" id="node2" href="$classParameter.html" title="A parameter with user values, real time safe callbacks, modulation, and all sorts of other fancy stuf..." alt="" coords="46,80,135,107"/>
+<area shape="rect" id="node1" title="Like juce::AsyncUpdater but it doesn&#39;t use the message queue." alt="" coords="5,5,177,32"/>
+<area shape="rect" id="node2" href="$classParameter.html" title="A parameter with user values, real time safe callbacks, modulation, and all sorts of other fancy stuf..." alt="" coords="47,80,136,107"/>
 </map>

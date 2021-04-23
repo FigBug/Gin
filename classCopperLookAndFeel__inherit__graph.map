@@ -1,5 +1,6 @@
 <map id="CopperLookAndFeel" name="CopperLookAndFeel">
-<area shape="rect" id="node4" href="$classCopperLookAndFeelWrapper.html" title="Auto sets and clears CopperLookAndFeel as default. " alt="" coords="5,229,209,256"/>
-<area shape="rect" id="node2" href="$classPluginLookAndFeel.html" title="Plugin specific addition to GinLookAndFeel Still black and white. " alt="" coords="35,80,179,107"/>
-<area shape="rect" id="node3" href="$classGinLookAndFeel.html" title="The GinLookAndFeel. " alt="" coords="44,5,171,32"/>
+<area shape="rect" id="node1" title="Plugin specific addition to GinLookAndFeel Still black and white." alt="" coords="33,155,184,181"/>
+<area shape="rect" id="node4" href="$classCopperLookAndFeelWrapper.html" title="Auto sets and clears CopperLookAndFeel as default." alt="" coords="5,229,212,256"/>
+<area shape="rect" id="node2" href="$classPluginLookAndFeel.html" title="Plugin specific addition to GinLookAndFeel Still black and white." alt="" coords="36,80,181,107"/>
+<area shape="rect" id="node3" href="$classGinLookAndFeel.html" title="The GinLookAndFeel." alt="" coords="45,5,172,32"/>
 </map>

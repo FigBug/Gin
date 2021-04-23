@@ -1,4 +1,5 @@
 <map id="ADSRComponent" name="ADSRComponent">
-<area shape="rect" id="node2" href="$classMultiParamComponent.html" title="A base component for controlling multiple parameters at once. " alt="" coords="5,80,176,107"/>
-<area shape="rect" id="node3" href="$classParameter_1_1Listener.html" title="Parameter::Listener" alt="" coords="16,5,165,32"/>
+<area shape="rect" id="node1" title="Component for adjuting ADSR curves." alt="" coords="24,155,157,181"/>
+<area shape="rect" id="node2" href="$classMultiParamComponent.html" title="A base component for controlling multiple parameters at once." alt="" coords="5,80,176,107"/>
+<area shape="rect" id="node3" href="$classParameter_1_1Listener.html" title=" " alt="" coords="16,5,165,32"/>
 </map>
