@@ -41,6 +41,35 @@ public:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginButton)
 };
 
+/** Button for toggling a parameter, drawn as a power button
+*/
+class PowerButton : public PluginButton
+{
+public:
+    PowerButton (Parameter* p) : PluginButton (p) {}
+
+private:
+    void paintButton (juce::Graphics& g, bool over, bool down) override
+    {
+        auto c = findColour (GinLookAndFeel::whiteColourId).withAlpha (getToggleState() ? 0.9f : 0.4f);
+        if (over || down)
+            c = c.withMultipliedAlpha (1.2f);
+
+        g.setColour (c);
+
+        auto rc = getLocalBounds().toFloat();
+        auto& p = getPowerPath();
+        g.fillPath (p, p.getTransformToScaleToFit (rc, true));
+    }
+
+    const juce::Path& getPowerPath()
+    {
+        juce::SharedResourcePointer<Images> images;
+        return images->powerPath;
+    }
+
+};
+
 //==============================================================================
 /** A control for selecting param values from a dropbox
 */

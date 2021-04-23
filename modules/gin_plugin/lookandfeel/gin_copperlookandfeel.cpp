@@ -21,6 +21,9 @@ CopperLookAndFeel::CopperLookAndFeel()
     setColour (title2ColourId, juce::Colour (0xff25272B));
     setColour (accentColourId, juce::Colour (0xffCC8866));
 
+    setColour (juce::TextButton::textColourOnId, findColour (accentColourId));
+    setColour (juce::TextButton::textColourOffId, findColour (grey60ColourId));
+
     setColour (juce::TextEditor::textColourId, findColour (grey60ColourId));
 
     setColour (juce::ComboBox::textColourId, findColour (accentColourId));
@@ -153,23 +156,18 @@ void CopperLookAndFeel::drawRotarySlider (juce::Graphics& g, int x, int y, int w
     }
 }
 
-void CopperLookAndFeel::drawButtonBackground (juce::Graphics& g, juce::Button& b, const juce::Colour&,
-                                           bool, bool)
+void CopperLookAndFeel::drawButtonBackground (juce::Graphics&, juce::Button&, const juce::Colour&, bool, bool)
 {
-    if (b.isMouseOver() && b.isEnabled())
-    {
-        g.setColour (b.findColour (juce::TextButton::buttonOnColourId).withMultipliedAlpha (0.2f));
-        g.fillRect (b.getLocalBounds());
-    }
-
-    g.setColour (b.findColour (juce::TextButton::buttonOnColourId).withMultipliedAlpha (b.isEnabled() ? 1.0f : 0.5f));
-    if (b.getToggleState())
-        g.fillRect (b.getLocalBounds());
 }
 
 void CopperLookAndFeel::drawButtonText (juce::Graphics& g, juce::TextButton& b, bool, bool)
 {
-    g.setColour (b.findColour (b.getToggleState() ? juce::TextButton::textColourOnId : juce::TextButton::textColourOffId).withMultipliedAlpha (b.isEnabled() ? 1.0f : 0.5f));
+    auto c = b.findColour (b.getToggleState() ? juce::TextButton::textColourOnId : juce::TextButton::textColourOffId).withMultipliedAlpha (b.isEnabled() ? 1.0f : 0.5f);
+
+    if (b.isMouseOver() && b.isEnabled())
+        c = c.brighter();
+
+    g.setColour (c);
 
     auto text = b.getButtonText();
     if (text.startsWith ("svg:"))

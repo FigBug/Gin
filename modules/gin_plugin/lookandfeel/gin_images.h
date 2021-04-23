@@ -4,4 +4,6 @@ class Images
 {
 public:
     Images();
+
+    juce::Path monoPath, polyPath, powerPath;
 };

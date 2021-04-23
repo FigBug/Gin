@@ -92,7 +92,7 @@ namespace gin
 #include "lookandfeel/gin_images.h"
 #include "lookandfeel/gin_copperlookandfeel.h"
 
-#include "components/gin_controlheader.h"
+#include "components/gin_headers.h"
 #include "components/gin_parambox.h"
 #include "components/gin_patchbrowser.h"
 #include "components/gin_plugineditor.h"
