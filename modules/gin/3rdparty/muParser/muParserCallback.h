@@ -81,6 +81,7 @@ public:
     ParserCallback(strfun_type3 a_pFun, void* p, bool a_bAllowOpti);
     ParserCallback();
     ParserCallback(const ParserCallback &a_Fun);
+    ParserCallback& operator=(const ParserCallback &a_Fun);
 
     ParserCallback* Clone() const;
 
