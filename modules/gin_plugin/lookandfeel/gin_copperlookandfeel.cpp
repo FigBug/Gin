@@ -177,7 +177,7 @@ void CopperLookAndFeel::drawButtonText (juce::Graphics& g, juce::TextButton& b, 
 
         int sz = std::min (b.getHeight(), b.getWidth());
 
-        auto rc = b.getLocalBounds().toFloat().withSizeKeepingCentre (sz, sz);
+        auto rc = b.getLocalBounds().toFloat().withSizeKeepingCentre (float (sz), float (sz));
         g.fillPath (path, path.getTransformToScaleToFit (rc, true));
     }
     else
@@ -194,7 +194,7 @@ void CopperLookAndFeel::drawComboBox (juce::Graphics& g, int width, int height, 
     const juce::Rectangle<int> boxBounds (0, 0, width, height);
 
     juce::ColourGradient grad (findColour (PluginLookAndFeel::glass1ColourId), 0, 0,
-                               findColour (PluginLookAndFeel::glass2ColourId), 0, height, false);
+                               findColour (PluginLookAndFeel::glass2ColourId), 0, float (height), false);
     g.setGradientFill (grad);
     g.fillRoundedRectangle (boxBounds.toFloat(), boxBounds.getHeight() / 2.0f);
 

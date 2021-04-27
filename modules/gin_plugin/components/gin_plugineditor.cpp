@@ -197,7 +197,7 @@ TitleBar::~TitleBar ()
 void TitleBar::paint (juce::Graphics& g)
 {
     juce::ColourGradient grad (findColour (PluginLookAndFeel::matte1ColourId), 0, 0,
-                               findColour (PluginLookAndFeel::matte2ColourId), 0, getHeight(), false);
+                               findColour (PluginLookAndFeel::matte2ColourId), 0, float (getHeight()), false);
 
     g.setGradientFill (grad);
     g.fillAll();
