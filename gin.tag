@@ -2785,6 +2785,20 @@
       <anchor>a42cd8f8f7bb5274cf58983b056a306c8</anchor>
       <arglist>(Component *c)</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addBox</name>
+      <anchorfile>classBoxArea.html</anchorfile>
+      <anchor>ad89bcea639cc032602d1f3e82691f599</anchor>
+      <arglist>(int page, Component *c)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPage</name>
+      <anchorfile>classBoxArea.html</anchorfile>
+      <anchor>a7ca0eda894722e20b00cbad62b46791b</anchor>
+      <arglist>(int page)</arglist>
+    </member>
   </compound>
   <compound kind="struct">
     <name>BP12State</name>
@@ -5377,6 +5391,20 @@
       <anchorfile>classHeaderItem.html</anchorfile>
       <anchor>a1d107c83356c617db19288db61f6aedd</anchor>
       <arglist>(juce::String name_, Parameter *enable=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSelected</name>
+      <anchorfile>classHeaderItem.html</anchorfile>
+      <anchor>afc6b0457f1d53e28e7381be7f70b083d</anchor>
+      <arglist>(bool s)</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; void()&gt;</type>
+      <name>onClick</name>
+      <anchorfile>classHeaderItem.html</anchorfile>
+      <anchor>ab84fe8f66c5a6f45a800053b4f11ab30</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">

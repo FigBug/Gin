@@ -6,7 +6,7 @@ var searchData=
   ['add_3',['add',['../classControlBox.html#a76425dd176246a60018dc6d1da8e65b8',1,'ControlBox::add(Component *c)'],['../classControlBox.html#a13f5091b0650ef06935392442acbd7c3',1,'ControlBox::add(int page, ParamComponent *c)'],['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85a0d592a4b562059bc283e00b3704865c9',1,'Add():&#160;gin_imageeffects.h']]],
   ['addandmakevisible_4',['addAndMakeVisible',['../group__gin-components.html#ga66410efb088d24a02a86b4c6191e2866',1,'addAndMakeVisible(juce::Component &amp;parent, juce::Array&lt; juce::Component * &gt; children):&#160;gin_componentutils.h'],['../group__gin-components.html#gaa5dca7c16023c4ec901f0db44aaf89de',1,'addAndMakeVisible(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children):&#160;gin_componentutils.h']]],
   ['addbottombutton_5',['addBottomButton',['../classPagedControlBox.html#ae5cd82cbc46837688feabb580d413d19',1,'PagedControlBox']]],
-  ['addbox_6',['addBox',['../classBoxArea.html#a42cd8f8f7bb5274cf58983b056a306c8',1,'BoxArea']]],
+  ['addbox_6',['addBox',['../classBoxArea.html#a42cd8f8f7bb5274cf58983b056a306c8',1,'BoxArea::addBox(Component *c)'],['../classBoxArea.html#ad89bcea639cc032602d1f3e82691f599',1,'BoxArea::addBox(int page, Component *c)']]],
   ['addbutton_7',['addButton',['../classTitleBar.html#aaa209338de7ffceada8ea42c3e04388b',1,'TitleBar']]],
   ['addconstant_8',['addConstant',['../classEquationParser.html#a8ed6df6210bd739d2001adf382ac56b2',1,'EquationParser']]],
   ['addconstants_9',['addConstants',['../classAudioEquationParser.html#a9b1b040ad25a848fab0cab4d6cceaacc',1,'AudioEquationParser::addConstants()'],['../classAudioFunctionHost.html#a19418afc0b68f06e24d664895ddc4749',1,'AudioFunctionHost::addConstants()']]],
