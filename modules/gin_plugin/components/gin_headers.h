@@ -35,7 +35,23 @@ public:
         }
     }
 
+    void setSelected (bool s)
+    {
+        selected = s;
+        repaint();
+    }
+
+    std::function<void()> onClick;
+
 private:
+    void mouseDown (const juce::MouseEvent&) override
+    {
+        if (onClick)
+        {
+            onClick();
+        }
+    }
+
     void paint (juce::Graphics& g) override
     {
         g.setColour (findColour (GinLookAndFeel::whiteColourId).withAlpha (selected ? 0.9f : 0.3f));

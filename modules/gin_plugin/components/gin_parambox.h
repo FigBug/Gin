@@ -156,8 +156,25 @@ public:
 
     void addBox (Component* c)
     {
+        pageMap[c] = 0;
         boxes.add (c);
         addAndMakeVisible (c);
+        resized();
+    }
+
+    void addBox (int page, Component* c)
+    {
+        pageMap[c] = page;
+        boxes.add (c);
+        addAndMakeVisible (c);
+        resized();
+    }
+
+    void setPage (int page)
+    {
+        for (auto itr : pageMap)
+            itr.first->setVisible (itr.second == page);
+
         resized();
     }
 
@@ -176,4 +193,5 @@ private:
     }
 
     juce::Array<Component*> boxes;
+    std::map<Component*, int> pageMap;
 };
