@@ -13,16 +13,10 @@ struct ResamplingFifo::Impl
 };
 
 ResamplingFifo::ResamplingFifo (int bs, int nc, int ms)
-    : numChannels (nc), blockSize (bs), outputFifo (nc, ms)
 {
     impl = std::make_unique<Impl>();
 
-    int error = 0;
-    impl->state = src_new (SRC_SINC_BEST_QUALITY, numChannels, &error);
-
-    ilInputBuffer.setSize (1, blockSize * numChannels);
-    ilOutputBuffer.setSize (1, 4 * blockSize * numChannels);
-    outputBuffer.setSize (numChannels, 4 * blockSize);
+    setSize (bs, nc, ms);
 }
 
 ResamplingFifo::~ResamplingFifo ()
@@ -34,6 +28,10 @@ void ResamplingFifo::setSize (int bs, int nc, int ms)
 {
     numChannels = nc;
     blockSize = bs;
+
+	int error = 0;
+	impl->state = src_new (SRC_SINC_BEST_QUALITY, numChannels, &error);
+
     outputFifo.setSize (nc, ms);
 
     ilInputBuffer.setSize (1, blockSize * numChannels);
