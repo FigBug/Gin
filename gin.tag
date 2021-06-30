@@ -6418,31 +6418,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>FileSystemWatcher::Listener</name>
-    <filename>classFileSystemWatcher_1_1Listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>classFileSystemWatcher_1_1Listener.html</anchorfile>
-      <anchor>a2f2bd934de14814b9cd28b4ea08278ad</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>folderChanged</name>
-      <anchorfile>classFileSystemWatcher_1_1Listener.html</anchorfile>
-      <anchor>a04a461ad2d135495403372fcc9d413dd</anchor>
-      <arglist>(const juce::File)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>fileChanged</name>
-      <anchorfile>classFileSystemWatcher_1_1Listener.html</anchorfile>
-      <anchor>a74adb289b69441dd79b84f5eb6a66d59</anchor>
-      <arglist>(const juce::File, FileSystemEvent)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>Parameter::Listener</name>
     <filename>classParameter_1_1Listener.html</filename>
     <member kind="function" virtualness="virtual">
@@ -6497,6 +6472,31 @@
       <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
       <anchor>a9b377e28f1ec65c2a9864f1c08964af3</anchor>
       <arglist>(SingleLineTextEditor &amp;)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>FileSystemWatcher::Listener</name>
+    <filename>classFileSystemWatcher_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classFileSystemWatcher_1_1Listener.html</anchorfile>
+      <anchor>a2f2bd934de14814b9cd28b4ea08278ad</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>folderChanged</name>
+      <anchorfile>classFileSystemWatcher_1_1Listener.html</anchorfile>
+      <anchor>a04a461ad2d135495403372fcc9d413dd</anchor>
+      <arglist>(const juce::File)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>fileChanged</name>
+      <anchorfile>classFileSystemWatcher_1_1Listener.html</anchorfile>
+      <anchor>a74adb289b69441dd79b84f5eb6a66d59</anchor>
+      <arglist>(const juce::File, FileSystemEvent)</arglist>
     </member>
   </compound>
   <compound kind="class">
