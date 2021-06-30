@@ -42,7 +42,7 @@ public:
 
 			auto folderChooserFlags = juce::FileBrowserComponent::openMode;
 
-			box->launchAsync (folderChooserFlags, [this] (const juce::FileChooser& chooser)
+			box->launchAsync (folderChooserFlags, [this] (const juce::FileChooser&)
 			{
                 value.setValue (box->getResult().getFullPathName());
 			});
