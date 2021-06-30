@@ -38,10 +38,14 @@ public:
 
         container.browse.onClick = [this]
         {
-            juce::FileChooser box (title, juce::File (value.toString()), pattern);
+            box = std::make_unique<juce::FileChooser> (title, juce::File (value.toString()), pattern);
 
-            if (box.browseForFileToOpen())
-                value.setValue (box.getResult().getFullPathName());
+			auto folderChooserFlags = juce::FileBrowserComponent::openMode;
+
+			box->launchAsync (folderChooserFlags, [this] (const juce::FileChooser& chooser)
+			{
+                value.setValue (box->getResult().getFullPathName());
+			});
         };
 
         container.clear.onClick = [this] { value.setValue (""); };
@@ -82,6 +86,8 @@ private:
     Container container;
 
     juce::String title, pattern;
+
+	std::unique_ptr<juce::FileChooser> box;
 };
 
 //==============================================================================*/
@@ -111,6 +117,26 @@ public:
     }
 
 private:
+	class ColourSelectorEx : public juce::ColourSelector
+	{
+	public:
+		ColourSelectorEx (int flags = (showAlphaChannel | showColourAtTop | showSliders | showColourspace),
+						  int edgeGap = 4,
+						  int gapAroundColourSpaceComponent = 7)
+			: juce::ColourSelector ( flags, edgeGap, gapAroundColourSpaceComponent )
+		{
+		}
+
+		~ColourSelectorEx() override
+		{
+			if (onDismiss)
+				onDismiss ();
+
+		}
+
+		std::function<void ()> onDismiss;
+	};
+
     class Container : public Component
     {
     public:
@@ -134,15 +160,16 @@ private:
         {
             if (e.mouseWasClicked())
             {
-                juce::ColourSelector colourSelector (juce::ColourSelector::showColourAtTop | juce::ColourSelector::showSliders | juce::ColourSelector::showColourspace);
+				auto colourSelector = std::make_unique<ColourSelectorEx> (juce::ColourSelector::showColourAtTop | juce::ColourSelector::showSliders | juce::ColourSelector::showColourspace);
 
-                colourSelector.setSize (300, 280);
-                colourSelector.setCurrentColour (juce::Colour::fromString (value.toString()), juce::dontSendNotification);
+                colourSelector->setSize (300, 280);
+                colourSelector->setCurrentColour (juce::Colour::fromString (value.toString()), juce::dontSendNotification);
+				colourSelector->onDismiss = [this, cs = colourSelector.get()]()
+				{
+					value = cs->getCurrentColour().toString();
+				};
 
-                juce::CallOutBox callOut (colourSelector, getScreenBounds(), nullptr);
-                callOut.runModalLoop();
-
-                value = colourSelector.getCurrentColour().toString();
+				juce::CallOutBox::launchAsynchronously (std::move (colourSelector), getScreenBounds(), nullptr);
             }
         }
 
