@@ -70,7 +70,7 @@ bool DownloadManager::DownloadResult::saveToFile (const juce::File& file, bool o
     // Bail if the file cannot be created
     if (file.create().failed()) return false;
     // Write the MemoryBlock to the file
-    FileOutputStream outputStream (file);
+    juce::FileOutputStream outputStream (file);
     bool success = outputStream.write (data.getData(), data.getSize());
     if (success) outputStream.flush();
     // Return the write operation success
