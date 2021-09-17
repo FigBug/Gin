@@ -67,6 +67,8 @@ bool DownloadManager::DownloadResult::saveToFile (const juce::File& file, bool o
     if (!ok || data.getSize() == 0) return false;
     // Bail if the file exists and cannot overwrite
     if (!overwrite && file.existsAsFile()) return false;
+    // Delete the existing file (if any), bail on error
+    if (!file.deleteFile()) return false;
     // Bail if the file cannot be created
     if (file.create().failed()) return false;
     // Write the MemoryBlock to the file
