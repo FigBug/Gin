@@ -81,6 +81,8 @@ public:
         bool ok = false;
         int httpCode = 0;
         juce::StringPairArray responseHeaders;
+        
+        bool saveToFile (const juce::File& file, bool overwrite = true);
     };
 
     //==============================================================================
