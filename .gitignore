@@ -31,6 +31,9 @@
 *.out
 *.app
 
+# MacOS specifics
+*.DS_Store
+
 *.xcuserstate
 
 *.xcbkptlist
