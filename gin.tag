@@ -3412,6 +3412,13 @@
   <compound kind="struct">
     <name>DownloadManager::DownloadResult</name>
     <filename>structDownloadManager_1_1DownloadResult.html</filename>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveToFile</name>
+      <anchorfile>structDownloadManager_1_1DownloadResult.html</anchorfile>
+      <anchor>addd2bcdfcf44b5d58f9d5ee8bd148fe7</anchor>
+      <arglist>(const juce::File &amp;file, bool overwrite=true)</arglist>
+    </member>
     <member kind="variable">
       <type>juce::URL</type>
       <name>url</name>
@@ -13140,6 +13147,18 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_plugin-components</name>
+    <title>components</title>
+    <filename>group__gin__plugin-components.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>gradientRect</name>
+      <anchorfile>group__gin__plugin-components.html</anchorfile>
+      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
+      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
     <name>gin-components</name>
     <title>components</title>
     <filename>group__gin-components.html</filename>
@@ -13162,18 +13181,6 @@
     <name>gin_dsp-components</name>
     <title>components</title>
     <filename>group__gin__dsp-components.html</filename>
-  </compound>
-  <compound kind="group">
-    <name>gin_plugin-components</name>
-    <title>components</title>
-    <filename>group__gin__plugin-components.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>gradientRect</name>
-      <anchorfile>group__gin__plugin-components.html</anchorfile>
-      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
-      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
-    </member>
   </compound>
   <compound kind="group">
     <name>gin_dsp-dsp</name>
