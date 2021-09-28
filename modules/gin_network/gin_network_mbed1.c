@@ -5,8 +5,13 @@
 
  ==============================================================================*/
 
+#if __clang__
+ #pragma clang diagnostic push
+ #pragma clang diagnostic ignored "-Wshadow"
+#endif
+
 #ifdef _WIN32
-#pragma warning(push)
+ #pragma warning(push)
  #pragma warning(disable: 4267)
  #pragma warning(disable: 4477)
  #pragma warning(disable: 4702)
