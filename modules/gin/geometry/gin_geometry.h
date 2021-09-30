@@ -46,19 +46,19 @@ public:
         T x = (a * b) / std::sqrt (square (b) + square (a) * square (std::tan (angle)));
         T y = (a * b) / std::sqrt (square (a) + square (b) / square (std::tan (angle)));
 
-        while (angle < 0) angle += juce::double_Pi * 2;
-        angle = std::fmod (angle, juce::double_Pi * 2);
+        while (angle < 0) angle += juce::MathConstants<double>::pi * 2;
+        angle = std::fmod (angle, juce::MathConstants<double>::pi * 2);
 
-        if (angle >= juce::double_Pi / 2 * 3)
+        if (angle >= juce::MathConstants<double>::pi / 2 * 3)
         {
             y = -y;
         }
-        else if (angle >= juce::double_Pi)
+        else if (angle >= juce::MathConstants<double>::pi)
         {
             y = -y;
             x = -x;
         }
-        else if (angle >= juce::double_Pi / 2)
+        else if (angle >= juce::MathConstants<double>::pi / 2)
         {
             x = -x;
         }

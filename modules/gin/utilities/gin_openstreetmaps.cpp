@@ -202,9 +202,9 @@ juce::Point<double> OpenStreetMaps::coordinateToDisplay (juce::Point<double> coo
     // LonToX
     double x = (coordinate.getX() + 180) * (numberOfTiles * tilesize) / 360.0;
     // LatToY
-    double projection = std::log (std::tan (juce::double_Pi / 4 + juce::degreesToRadians (coordinate.getY()) / 2));
+    double projection = std::log (std::tan (juce::MathConstants<double>::pi / 4 + juce::degreesToRadians (coordinate.getY()) / 2));
 
-    double y = (projection / juce::double_Pi);
+    double y = (projection / juce::MathConstants<double>::pi);
     y = 1 - y;
     y = y /2  * (numberOfTiles * tilesize);
 
@@ -219,7 +219,7 @@ juce::Point<double> OpenStreetMaps::displayToCoordinate (juce::Point<double> poi
     double latitude = point.getY() * (2 / (std::pow (2.0, zoom) * 256));
 
     latitude = 1 - latitude;
-    latitude = latitude * juce::double_Pi;
+    latitude = latitude * juce::MathConstants<double>::pi;
     latitude = juce::radiansToDegrees (std::atan (std::sinh (latitude)));
 
     juce::Point<double> coord = {longitude, latitude};
@@ -230,7 +230,7 @@ juce::Point<double> OpenStreetMaps::tileForCoordinate (double lat, double lng, i
 {
     double zn = static_cast<double>(1 << zoom);
     double tx = (lng + 180.0) / 360.0;
-    double ty = (1.0 - std::log (std::tan (lat * juce::double_Pi / 180.0) + 1.0 / std::cos (lat * juce::double_Pi / 180.0)) / juce::double_Pi) / 2.0;
+    double ty = (1.0 - std::log (std::tan (lat * juce::MathConstants<double>::pi / 180.0) + 1.0 / std::cos (lat * juce::MathConstants<double>::pi / 180.0)) / juce::MathConstants<double>::pi) / 2.0;
     return {tx * zn, ty * zn};
 }
 

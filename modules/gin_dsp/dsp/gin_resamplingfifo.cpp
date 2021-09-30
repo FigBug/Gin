@@ -88,7 +88,11 @@ void ResamplingFifo::pushAudioBufferInt (const juce::AudioSampleBuffer& src)
     int todo = src.getNumSamples();
     int done = 0;
 
-    juce::AudioDataConverters::interleaveSamples (src.getArrayOfReadPointers(), ilInputBuffer.getWritePointer (0), src.getNumSamples(), numChannels);
+	juce::AudioData::ConverterInstance<juce::AudioData::Pointer<juce::AudioData::Float32, juce::AudioData::NativeEndian, juce::AudioData::NonInterleaved, juce::AudioData::Const>,
+									   juce::AudioData::Pointer<juce::AudioData::Float32, juce::AudioData::NativeEndian, juce::AudioData::Interleaved,    juce::AudioData::NonConst>> interleave (numChannels, numChannels);
+
+	interleave.convertSamples (ilInputBuffer.getWritePointer (0), src.getArrayOfReadPointers(), src.getNumSamples());
+
 
     SRC_DATA data;
     data.data_in = ilInputBuffer.getReadPointer (0);
@@ -112,7 +116,10 @@ void ResamplingFifo::pushAudioBufferInt (const juce::AudioSampleBuffer& src)
 
         if (data.output_frames_gen > 0)
         {
-            juce::AudioDataConverters::deinterleaveSamples (ilOutputBuffer.getReadPointer (0), outputBuffer.getArrayOfWritePointers(), int (data.output_frames_gen), numChannels);
+			juce::AudioData::ConverterInstance<juce::AudioData::Pointer<juce::AudioData::Float32, juce::AudioData::NativeEndian, juce::AudioData::Interleaved,    juce::AudioData::Const>,
+											   juce::AudioData::Pointer<juce::AudioData::Float32, juce::AudioData::NativeEndian, juce::AudioData::NonInterleaved, juce::AudioData::NonConst>> deinterleave (numChannels, numChannels);
+
+			deinterleave.convertSamples (outputBuffer.getArrayOfWritePointers(), ilOutputBuffer.getReadPointer (0), int (data.output_frames_gen));
 
             outputFifo.write (outputBuffer, int (data.output_frames_gen));
         }

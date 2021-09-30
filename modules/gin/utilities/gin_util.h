@@ -222,7 +222,8 @@ public:
 
     bool readEntireBinaryStream (juce::MemoryBlock& destData, bool usePostCommand = false)
     {
-        const std::unique_ptr<juce::InputStream> in (url.isLocalFile() ? url.getLocalFile().createInputStream() : url.createInputStream (usePostCommand, nullptr, nullptr, {}, timeoutMS));
+        auto opts = juce::URL::InputStreamOptions (usePostCommand ? juce::URL::ParameterHandling::inPostData : juce::URL::ParameterHandling::inAddress).withConnectionTimeoutMs (timeoutMS);
+        const std::unique_ptr<juce::InputStream> in (url.isLocalFile() ? url.getLocalFile().createInputStream() : url.createInputStream (opts));
 
         if (in != nullptr)
         {
