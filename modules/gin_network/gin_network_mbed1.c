@@ -5,9 +5,21 @@
 
  ==============================================================================*/
 
-#if __clang__
+#if defined (__clang__)
  #pragma clang diagnostic push
+ #pragma clang diagnostic ignored "-Wconversion"
  #pragma clang diagnostic ignored "-Wshadow"
+ #pragma clang diagnostic ignored "-Wdeprecated-register"
+ #pragma clang diagnostic ignored "-Wshorten-64-to-32"
+ #pragma clang diagnostic ignored "-Wimplicit"
+ #pragma clang diagnostic ignored "-Wimplicit-int"
+ #pragma clang diagnostic ignored "-Wunused-variable"
+ #pragma clang diagnostic ignored "-Wswitch-enum"
+ #pragma clang diagnostic ignored "-Wsign-conversion"
+ #pragma clang diagnostic ignored "-Wcast-align"
+ #if __has_warning("-Wzero-as-null-pointer-constant")
+  #pragma clang diagnostic ignored "-Wzero-as-null-pointer-constant"
+ #endif
 #endif
 
 #ifdef _WIN32

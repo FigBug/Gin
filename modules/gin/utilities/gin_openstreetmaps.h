@@ -74,7 +74,7 @@ private:
             server  = -1;
         }
 
-        bool operator==(const TileReq& b)
+        bool operator==(const TileReq& b) const
         {
             return zoom == b.zoom && x == b.x && y == b.y;
         }
