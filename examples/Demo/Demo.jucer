@@ -3,7 +3,7 @@
 <JUCERPROJECT id="TUv5GT" name="Demo" displaySplashScreen="0" reportAppUsage="0"
               splashScreenColour="Dark" projectType="guiapp" version="1.0.0"
               bundleIdentifier="com.figbug.Demo" includeBinaryInAppConfig="1"
-              cppLanguageStandard="latest" companyCopyright="" jucerFormatVersion="1"
+              cppLanguageStandard="17" companyCopyright="" jucerFormatVersion="1"
               useAppConfig="0" addUsingNamespaceToJuceHeader="0">
   <MAINGROUP id="wLOeL4" name="Demo">
     <GROUP id="{C99AB8C7-9FF4-1BC0-BD5D-C29561B0C802}" name="Source">
