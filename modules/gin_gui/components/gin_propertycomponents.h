@@ -40,12 +40,12 @@ public:
         {
             box = std::make_unique<juce::FileChooser> (title, juce::File (value.toString()), pattern);
 
-			auto folderChooserFlags = juce::FileBrowserComponent::openMode;
+            auto folderChooserFlags = juce::FileBrowserComponent::openMode;
 
-			box->launchAsync (folderChooserFlags, [this] (const juce::FileChooser&)
-			{
+            box->launchAsync (folderChooserFlags, [this] (const juce::FileChooser&)
+            {
                 value.setValue (box->getResult().getFullPathName());
-			});
+            });
         };
 
         container.clear.onClick = [this] { value.setValue (""); };
@@ -87,7 +87,7 @@ private:
 
     juce::String title, pattern;
 
-	std::unique_ptr<juce::FileChooser> box;
+    std::unique_ptr<juce::FileChooser> box;
 };
 
 //==============================================================================*/
@@ -117,25 +117,25 @@ public:
     }
 
 private:
-	class ColourSelectorEx : public juce::ColourSelector
-	{
-	public:
-		ColourSelectorEx (int flags = (showAlphaChannel | showColourAtTop | showSliders | showColourspace),
-						  int edgeGap = 4,
-						  int gapAroundColourSpaceComponent = 7)
-			: juce::ColourSelector ( flags, edgeGap, gapAroundColourSpaceComponent )
-		{
-		}
+    class ColourSelectorEx : public juce::ColourSelector
+    {
+    public:
+        ColourSelectorEx (int flags = (showAlphaChannel | showColourAtTop | showSliders | showColourspace),
+                          int edgeGap = 4,
+                          int gapAroundColourSpaceComponent = 7)
+            : juce::ColourSelector ( flags, edgeGap, gapAroundColourSpaceComponent )
+        {
+        }
 
-		~ColourSelectorEx() override
-		{
-			if (onDismiss)
-				onDismiss ();
+        ~ColourSelectorEx() override
+        {
+            if (onDismiss)
+                onDismiss ();
 
-		}
+        }
 
-		std::function<void ()> onDismiss;
-	};
+        std::function<void ()> onDismiss;
+    };
 
     class Container : public Component
     {
@@ -160,16 +160,16 @@ private:
         {
             if (e.mouseWasClicked())
             {
-				auto colourSelector = std::make_unique<ColourSelectorEx> (juce::ColourSelector::showColourAtTop | juce::ColourSelector::showSliders | juce::ColourSelector::showColourspace);
+                auto colourSelector = std::make_unique<ColourSelectorEx> (juce::ColourSelector::showColourAtTop | juce::ColourSelector::showSliders | juce::ColourSelector::showColourspace);
 
                 colourSelector->setSize (300, 280);
                 colourSelector->setCurrentColour (juce::Colour::fromString (value.toString()), juce::dontSendNotification);
-				colourSelector->onDismiss = [this, cs = colourSelector.get()]()
-				{
-					value = cs->getCurrentColour().toString();
-				};
+                colourSelector->onDismiss = [this, cs = colourSelector.get()]()
+                {
+                    value = cs->getCurrentColour().toString();
+                };
 
-				juce::CallOutBox::launchAsynchronously (std::move (colourSelector), getScreenBounds(), nullptr);
+                juce::CallOutBox::launchAsynchronously (std::move (colourSelector), getScreenBounds(), nullptr);
             }
         }
 

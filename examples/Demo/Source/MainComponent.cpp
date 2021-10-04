@@ -740,7 +740,7 @@ struct DownloadManagerToSaveToFileDemo : public juce::Component,
         lastResult.setJustificationType (juce::Justification::centred);
         addAndMakeVisible (lastResult);
     }
-    
+
     void resized() override
     {
         int itemWidth = getWidth() - 20;
@@ -750,7 +750,7 @@ struct DownloadManagerToSaveToFileDemo : public juce::Component,
         downloadButton.setBounds (lastResult.getBounds().withY (lastResult.getY() - itemHeight));
         openButton.setBounds (lastResult.getBounds().withY (lastResult.getBottom()));
     }
-    
+
     void buttonClicked (juce::Button* b) override
     {
         if (b == &downloadButton)
@@ -759,16 +759,16 @@ struct DownloadManagerToSaveToFileDemo : public juce::Component,
             {
                 file = fileChooser.getResult();
                 openButton.setEnabled (false);
-                
+
                 if (file != juce::File())
                 {
                     juce::String url = juce::String::formatted ("https://picsum.photos/id/%d/%d/%d/", juce::Random::getSystemRandom().nextInt (500), getWidth(), getHeight());
-                    
+
                     auto progressCb = [&] (juce::int64 current, juce::int64 total, juce::int64)
                     {
                         updateText (juce::String::formatted ("%d%", int (double (current) / double (total) * 100.0)));
                     };
-                    
+
                     auto completionCb = [&]( gin::DownloadManager::DownloadResult result )
                     {
                         if (!result.ok)
@@ -798,13 +798,13 @@ struct DownloadManagerToSaveToFileDemo : public juce::Component,
                 openButton.setEnabled (false);
         }
     }
-    
+
     void updateText (juce::String msg, bool isError = false )
     {
         lastResult.setColour (juce::Label::ColourIds::textColourId, isError ? juce::Colours::red : juce::Colours::green);
         lastResult.setText (msg, juce::dontSendNotification);
     }
-    
+
     juce::TextButton downloadButton;
     juce::TextButton openButton;
     juce::Label lastResult;
@@ -1392,7 +1392,7 @@ struct LagrangeDemo : public juce::Component
         if (e.getNumberOfClicks() > 1)
             points.clear();
         else if (points.size() == 0 || e.x > points.getLast().getX())
-			points.add ({e.position.x, e.position.y});
+            points.add ({e.position.x, e.position.y});
 
         repaint();
     }

@@ -41,7 +41,7 @@ public:
         return (square (pt.getX()) / square (a) + square (pt.getY()) / square (b)) < 1.0;
     }
 
-	Point<T> pointAtAngle (T angle)
+    Point<T> pointAtAngle (T angle)
     {
         T x = (a * b) / std::sqrt (square (b) + square (a) * square (std::tan (angle)));
         T y = (a * b) / std::sqrt (square (a) + square (b) / square (std::tan (angle)));

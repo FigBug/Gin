@@ -195,37 +195,37 @@ float Dynamics::calcCurve (float dbIn)
 
         return dbOut;
     }
-	else if (type == expander)
-	{
-		float dbOut = dbIn;
+    else if (type == expander)
+    {
+        float dbOut = dbIn;
 
-		// soft-knee with detection value in range?
-		if (kneeWidth > 0 && dbIn > (threshold - kneeWidth / 2.0) && dbIn < threshold + kneeWidth / 2.0)
-		{
-			/*
-			// setup for Lagrange
-			double x[2];
-			double y[2];
-			x[0] = fThreshold - fKneeWidth/2.0;
-			x[1] = fThreshold + fKneeWidth/2.0;
-			x[1] = min(0, x[1]); // top limit is 0dBFS
-			y[0] = ES;	// current ES
-			y[1] = 0;	// 1:1 ratio
+        // soft-knee with detection value in range?
+        if (kneeWidth > 0 && dbIn > (threshold - kneeWidth / 2.0) && dbIn < threshold + kneeWidth / 2.0)
+        {
+            /*
+            // setup for Lagrange
+            double x[2];
+            double y[2];
+            x[0] = fThreshold - fKneeWidth/2.0;
+            x[1] = fThreshold + fKneeWidth/2.0;
+            x[1] = min(0, x[1]); // top limit is 0dBFS
+            y[0] = ES;  // current ES
+            y[1] = 0;   // 1:1 ratio
 
-			// interpolate the value
-			ES = lagrpol(&x[0], &y[0], 2, fDetectorValue);
-			 */
-		}
-		else if (dbIn < threshold + kneeWidth / 2.0)
-			dbOut = threshold + (dbIn - threshold) / ratio;
+            // interpolate the value
+            ES = lagrpol(&x[0], &y[0], 2, fDetectorValue);
+             */
+        }
+        else if (dbIn < threshold + kneeWidth / 2.0)
+            dbOut = threshold + (dbIn - threshold) / ratio;
 
-		return juce::jlimit (-100.0f, 0.0f, dbOut);
-	}
+        return juce::jlimit (-100.0f, 0.0f, dbOut);
+    }
     else if (type == gate)
     {
         return dbIn;
     }
 
-	jassertfalse;
-	return dbIn;
+    jassertfalse;
+    return dbIn;
 }
