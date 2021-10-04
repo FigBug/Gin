@@ -20,14 +20,14 @@
   </compound>
   <compound kind="file">
     <name>gin_asyncutilities.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/utilities/</path>
     <filename>gin__asyncutilities_8h.html</filename>
     <class kind="class">LambdaTimer</class>
     <class kind="class">LambdaAsyncUpdater</class>
     <member kind="function">
       <type>void</type>
       <name>callOnMainThreadBlocking</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
       <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
       <arglist>(std::function&lt; void()&gt; func)</arglist>
     </member>
@@ -217,13 +217,13 @@
   </compound>
   <compound kind="file">
     <name>gin_bmpimageformat.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/images/</path>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/images/</path>
     <filename>gin__bmpimageformat_8h.html</filename>
     <class kind="class">BMPImageFormat</class>
   </compound>
   <compound kind="file">
     <name>gin_coalescedtimer.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/utilities/</path>
     <filename>gin__coalescedtimer_8h.html</filename>
     <class kind="class">CoalescedTimer</class>
   </compound>
@@ -235,26 +235,26 @@
   </compound>
   <compound kind="file">
     <name>gin_componentutils.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/components/</path>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/components/</path>
     <filename>gin__componentutils_8h.html</filename>
     <member kind="function">
       <type>void</type>
       <name>addAndMakeVisible</name>
-      <anchorfile>group__gin-components.html</anchorfile>
+      <anchorfile>group__gin__gui-components.html</anchorfile>
       <anchor>ga66410efb088d24a02a86b4c6191e2866</anchor>
       <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component * &gt; children)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>addAndMakeVisible</name>
-      <anchorfile>group__gin-components.html</anchorfile>
+      <anchorfile>group__gin__gui-components.html</anchorfile>
       <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
       <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
     </member>
   </compound>
   <compound kind="file">
     <name>gin_componentviewer.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/components/</path>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/components/</path>
     <filename>gin__componentviewer_8h.html</filename>
     <class kind="class">ComponentViewer</class>
   </compound>
@@ -289,7 +289,7 @@
     <name>gin_downloadmanager.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
     <filename>gin__downloadmanager_8h.html</filename>
-    <includes id="gin__util_8h" name="gin_util.h" local="yes" imported="no">gin_util.h</includes>
+    <includes id="utilities_2gin__util_8h" name="utilities/gin_util.h" local="yes" imported="no">gin_util.h</includes>
     <class kind="class">DownloadManager</class>
     <class kind="struct">DownloadManager::DownloadResult</class>
   </compound>
@@ -628,17 +628,10 @@
       <anchor>ga97bafa72f9f8ecdba9b839ecdb3db767</anchor>
       <arglist>(T x1, T y1, T x2, T y2, T &amp;m, T &amp;b)</arglist>
     </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>solveLine</name>
-      <anchorfile>group__gin-geometry.html</anchorfile>
-      <anchor>ga46f894daee01dc2820ad4018ac9f051a</anchor>
-      <arglist>(juce::Line&lt; T &gt; l, T &amp;m, T &amp;b)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>gin_ginlookandfeel.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/components/</path>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/components/</path>
     <filename>gin__ginlookandfeel_8h.html</filename>
     <class kind="class">GinLookAndFeel</class>
   </compound>
@@ -658,288 +651,288 @@
   </compound>
   <compound kind="file">
     <name>gin_imageeffects.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/images/</path>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/images/</path>
     <filename>gin__imageeffects_8h.html</filename>
     <member kind="enumeration">
       <type></type>
       <name>BlendMode</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga30323fa90e24ca484998b9fba6c40e85</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Normal</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a5ecbcf0afce98b042f35ec71ba03fa4b</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Lighten</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a0c4863f7d789ab70b21073bd94c9169d</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Darken</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a95ea73d8fed63115639319a67d596d49</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Multiply</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85ade55cee401a6a53619b6ec469abf0810</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Average</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Add</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a0d592a4b562059bc283e00b3704865c9</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Subtract</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85afa8a9720422ee254970b2ebe1435a917</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Difference</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a9cba343e00a6259dc83f7e4e7f447109</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Negation</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85ab94b0efce58a77e1c8fa29e32536c728</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Screen</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a2609fadb77bb3d98c615b41ac79a1d31</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Exclusion</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85ac200cda01c78d8dae2b11cf4ded47655</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Overlay</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a8b895d92539a718e6898ed6b053ce2ff</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>SoftLight</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a967749a14f4bb7ffc6383997d97a6163</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>HardLight</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a7fc75582ae37ab60f5a1cc8e2acd7e24</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>ColorDodge</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a71b5386d914bd4101f3d086d8ce72161</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>ColorBurn</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85adccc18afee7dc5a40147cab59118d583</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>LinearDodge</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85afe7aab6a1580381724d2ebe724fbd065</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>LinearBurn</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a4c41b912f1e9eca71a1a36fc8a1172d9</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>LinearLight</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85ae158a552ecb4c88077b7537e93a8df86</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>VividLight</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a87be187db30f3efdb79dde93f63e0430</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>PinLight</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a513bf9b05af260d001632c4fe6d345d5</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>HardMix</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a76ee1ad58cc676f7994416354a4d7b59</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Reflect</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a8898819fa0ebd77a64e192d47e7be553</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Glow</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85ac7adb89e56ad4a2daef183d318110442</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Phoenix</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a85c155bffb4118332192060f1a6db976</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyVignette</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga1023b87ad7bb7ca1e039ded54397ef90</anchor>
       <arglist>(juce::Image &amp;img, float amount, float radius, float falloff, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applySepia</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gaccaa511049769192c15aa13e0c2a40d1</anchor>
       <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGreyScale</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gadb285c05d7e81fbffe8b2ab5705b0783</anchor>
       <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applySoften</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga4cc9c0919994beeac34d088beb1991e2</anchor>
       <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applySharpen</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gac0b5514a6c74e31bd4e7a26898e45228</anchor>
       <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGamma</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga2b20d743c3475fd86d18a8f2cb427b47</anchor>
       <arglist>(juce::Image &amp;img, float gamma, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyInvert</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga6453f04ab3d2a6a345cd6b7f70711c04</anchor>
       <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyContrast</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga50c77bf67a02fbc002d1136fd64f2031</anchor>
       <arglist>(juce::Image &amp;img, float contrast, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyBrightnessContrast</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gab3825059a9e75bfc8e78cf0106ddf78e</anchor>
       <arglist>(juce::Image &amp;img, float brightness, float contrast, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyHueSaturationLightness</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga25205b0926bfca178115404c6d9f45d9</anchor>
       <arglist>(juce::Image &amp;img, float hue, float saturation, float lightness, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyStackBlur</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga5298c1220caef0f1d6d918c9ec15243d</anchor>
       <arglist>(juce::Image &amp;img, int radius)</arglist>
     </member>
     <member kind="function">
       <type>juce::Image</type>
       <name>applyResize</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga8a045522d5a03954f0d4fe2cbc8082a4</anchor>
       <arglist>(const juce::Image &amp;img, int width, int height)</arglist>
     </member>
     <member kind="function">
       <type>juce::Image</type>
       <name>applyResize</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga99654c39e56b66a36c75cbbff9e137b4</anchor>
       <arglist>(const juce::Image &amp;img, float factor)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGradientMap</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga2e91627e4ee0f9e1aeca78ca387a8c51</anchor>
       <arglist>(juce::Image &amp;img, const juce::ColourGradient &amp;gradient, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGradientMap</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga48f6d1c24d18edd26e2d9da48e47dcf7</anchor>
       <arglist>(juce::Image &amp;img, const juce::Colour c1, const juce::Colour c2, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyColour</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gae6d6ea52612fb4f6474b05a1063604db</anchor>
       <arglist>(juce::Image &amp;img, juce::Colour c, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyBlend</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga6e16e6b71a97615070d0f5f6829f2b04</anchor>
       <arglist>(juce::Image &amp;dst, const juce::Image &amp;src, BlendMode mode, float alpha=1.0f, juce::Point&lt; int &gt; position={}, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyBlend</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga590207f6293f03a5a4e4e2a1d4f3db15</anchor>
       <arglist>(juce::Image &amp;dst, BlendMode mode, juce::Colour c, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
@@ -958,19 +951,19 @@
   </compound>
   <compound kind="file">
     <name>gin_imageutilities.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/images/</path>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/images/</path>
     <filename>gin__imageutilities_8h.html</filename>
     <member kind="function">
       <type>juce::Image</type>
       <name>rasterizeSVG</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
       <arglist>(juce::String svgText, int w, int h)</arglist>
     </member>
     <member kind="function">
       <type>juce::Path</type>
       <name>parseSVGPath</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
       <arglist>(const juce::String &amp;txt)</arglist>
     </member>
@@ -1002,8 +995,8 @@
       <type>T</type>
       <name>interpolate</name>
       <anchorfile>namespaceLagrange.html</anchorfile>
-      <anchor>aef304874a67d1c0e4fa39605d2e19b03</anchor>
-      <arglist>(const juce::Array&lt; juce::Point&lt; T &gt;&gt; &amp;points, T x)</arglist>
+      <anchor>aed0cc45b276f9ed337143c4587dc1122</anchor>
+      <arglist>(const juce::Array&lt; Point&lt; T &gt;&gt; &amp;points, T x)</arglist>
     </member>
     <member kind="function">
       <type>T</type>
@@ -1052,7 +1045,7 @@
   </compound>
   <compound kind="file">
     <name>gin_mapviewer.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/components/</path>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/components/</path>
     <filename>gin__mapviewer_8h.html</filename>
     <class kind="class">MapViewer</class>
   </compound>
@@ -1118,7 +1111,7 @@
   </compound>
   <compound kind="file">
     <name>gin_openstreetmaps.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/utilities/</path>
     <filename>gin__openstreetmaps_8h.html</filename>
     <class kind="class">OpenStreetMaps</class>
     <class kind="class">OpenStreetMaps::Listener</class>
@@ -1231,6 +1224,12 @@
     <class kind="class">PluginLookAndFeelWrapper</class>
   </compound>
   <compound kind="file">
+    <name>gin_point.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
+    <filename>gin__point_8h.html</filename>
+    <class kind="class">Point</class>
+  </compound>
+  <compound kind="file">
     <name>gin_processor.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/plugin/</path>
     <filename>gin__processor_8h.html</filename>
@@ -1257,7 +1256,7 @@
   </compound>
   <compound kind="file">
     <name>gin_propertycomponents.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/components/</path>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/components/</path>
     <filename>gin__propertycomponents_8h.html</filename>
     <class kind="class">PropertyComponentBase</class>
     <class kind="class">FilePropertyComponent</class>
@@ -1356,7 +1355,7 @@
   </compound>
   <compound kind="file">
     <name>gin_singlelinetexteditor.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/components/</path>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/components/</path>
     <filename>gin__singlelinetexteditor_8h.html</filename>
     <class kind="class">SingleLineTextEditor</class>
     <class kind="class">SingleLineTextEditor::Listener</class>
@@ -1435,12 +1434,11 @@
     <class kind="class">TriggeredScope</class>
   </compound>
   <compound kind="file">
-    <name>gin_util.h</name>
+    <name>utilities/gin_util.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
-    <filename>gin__util_8h.html</filename>
+    <filename>utilities_2gin__util_8h.html</filename>
     <class kind="class">PerlinNoise</class>
     <class kind="class">RollingAverage</class>
-    <class kind="class">AsyncDownload</class>
     <class kind="class">TimeProfiler</class>
     <member kind="function">
       <type>bool</type>
@@ -1471,13 +1469,6 @@
       <arglist>(juce::Random &amp;r, T array)</arglist>
     </member>
     <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
-    </member>
-    <member kind="function">
       <type>bool</type>
       <name>almostEqual</name>
       <anchorfile>group__gin-utilities.html</anchorfile>
@@ -1504,6 +1495,19 @@
       <anchorfile>group__gin-utilities.html</anchorfile>
       <anchor>gaebf910d77d287573a8f98f51c67f8d48</anchor>
       <arglist>(T v)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gui/utilities/gin_util.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/utilities/</path>
+    <filename>gui_2utilities_2gin__util_8h.html</filename>
+    <class kind="class">AsyncDownload</class>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -4001,28 +4005,28 @@
       <type>bool</type>
       <name>isPointOn</name>
       <anchorfile>classEllipse.html</anchorfile>
-      <anchor>ab89becde93221a91f0361a8d5947057e</anchor>
-      <arglist>(juce::Point&lt; T &gt; pt, T accuracy=0.00001)</arglist>
+      <anchor>a899aa09f95707ef4d3982d9a3fbe800a</anchor>
+      <arglist>(Point&lt; T &gt; pt, T accuracy=0.00001)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isPointOutside</name>
       <anchorfile>classEllipse.html</anchorfile>
-      <anchor>a93062cf3aa937f5634e93c96fa3eb85b</anchor>
-      <arglist>(juce::Point&lt; T &gt; pt)</arglist>
+      <anchor>a7f3e736575ae9eab8c76664331b98d53</anchor>
+      <arglist>(Point&lt; T &gt; pt)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isPointInside</name>
       <anchorfile>classEllipse.html</anchorfile>
-      <anchor>a8d57bdaeb5dd24c5e97b7ce3d9669d22</anchor>
-      <arglist>(juce::Point&lt; T &gt; pt)</arglist>
+      <anchor>a671db8ce37e93c7f47d5bbf440393a51</anchor>
+      <arglist>(Point&lt; T &gt; pt)</arglist>
     </member>
     <member kind="function">
-      <type>juce::Point&lt; T &gt;</type>
+      <type>Point&lt; T &gt;</type>
       <name>pointAtAngle</name>
       <anchorfile>classEllipse.html</anchorfile>
-      <anchor>a3c06d858ff75d57003c5336680e0d805</anchor>
+      <anchor>a90e578ea5cd1df558af9397e92d3e1e6</anchor>
       <arglist>(T angle)</arglist>
     </member>
     <member kind="variable">
@@ -5692,15 +5696,15 @@
       <type>void</type>
       <name>addPoint</name>
       <anchorfile>classIntegrator.html</anchorfile>
-      <anchor>a4b5e511ea7507308be9e24f172882d84</anchor>
-      <arglist>(juce::Point&lt; double &gt; point)</arglist>
+      <anchor>a7e83337e1ae73f42037550ca2d5106f8</anchor>
+      <arglist>(Point&lt; double &gt; point)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>addPoints</name>
       <anchorfile>classIntegrator.html</anchorfile>
-      <anchor>a9532216348e1d40b53548f802f472353</anchor>
-      <arglist>(juce::Array&lt; juce::Point&lt; double &gt;&gt; points)</arglist>
+      <anchor>af14485019c60ecac13672284b47d8adf</anchor>
+      <arglist>(juce::Array&lt; Point&lt; double &gt;&gt; points)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -5887,15 +5891,15 @@
       <type>void</type>
       <name>addPoint</name>
       <anchorfile>classLeastSquaresRegression.html</anchorfile>
-      <anchor>a9598421e3ac8b5ee85de3a66edbdcc56</anchor>
-      <arglist>(juce::Point&lt; double &gt; point)</arglist>
+      <anchor>a672bba942baa8b2e81d8514b35942be8</anchor>
+      <arglist>(Point&lt; double &gt; point)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>addPoints</name>
       <anchorfile>classLeastSquaresRegression.html</anchorfile>
-      <anchor>a6bb31399e9c2b66bb8f24d41b6bc0e82</anchor>
-      <arglist>(juce::Array&lt; juce::Point&lt; double &gt;&gt; points)</arglist>
+      <anchor>ac4435a3ed89f43e2a0e59990ea6caa14</anchor>
+      <arglist>(juce::Array&lt; Point&lt; double &gt;&gt; points)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -6241,15 +6245,15 @@
       <type></type>
       <name>LinearRegression</name>
       <anchorfile>classLinearRegression.html</anchorfile>
-      <anchor>ab3bfe3de8ce254e2e6ff9a91258ac882</anchor>
-      <arglist>(juce::Array&lt; juce::Point&lt; double &gt;&gt; points)</arglist>
+      <anchor>a940aeba49f6ecfd5da77c4a1bc2a532c</anchor>
+      <arglist>(juce::Array&lt; Point&lt; double &gt;&gt; points)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>addPoint</name>
       <anchorfile>classLinearRegression.html</anchorfile>
-      <anchor>a2587840fe9c6270d355cf42244d924c9</anchor>
-      <arglist>(juce::Point&lt; double &gt; pnt)</arglist>
+      <anchor>aa263ad3c4a2577b1065cac7a356f9e76</anchor>
+      <arglist>(Point&lt; double &gt; pnt)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -6400,6 +6404,63 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>SingleLineTextEditor::Listener</name>
+    <filename>classSingleLineTextEditor_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
+      <anchor>af52267b829ff17fd4e36d3a8dc8d99ff</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>sltextEditorTextChanged</name>
+      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
+      <anchor>a7991331aa8048236d763b2482461a5a6</anchor>
+      <arglist>(SingleLineTextEditor &amp;)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>sltextEditorReturnKeyPressed</name>
+      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
+      <anchor>a2a4144e3e91e38142f9498eb66c180e6</anchor>
+      <arglist>(SingleLineTextEditor &amp;)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>sltextEditorEscapeKeyPressed</name>
+      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
+      <anchor>ae23dbf95e2aada75cb3f513d393b965d</anchor>
+      <arglist>(SingleLineTextEditor &amp;)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>sltextEditorFocusLost</name>
+      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
+      <anchor>a9b377e28f1ec65c2a9864f1c08964af3</anchor>
+      <arglist>(SingleLineTextEditor &amp;)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>OpenStreetMaps::Listener</name>
+    <filename>classOpenStreetMaps_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
+      <anchor>aeb7faf41923db2a12f09179159d96bd1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>tileFetched</name>
+      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
+      <anchor>a5a86659b291d99adbe0af1a30fdfe383</anchor>
+      <arglist>(int zoom, int x, int y)=0</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>ModMatrix::Listener</name>
     <filename>classModMatrix_1_1Listener.html</filename>
     <member kind="function" virtualness="virtual">
@@ -6443,45 +6504,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>SingleLineTextEditor::Listener</name>
-    <filename>classSingleLineTextEditor_1_1Listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
-      <anchor>af52267b829ff17fd4e36d3a8dc8d99ff</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>sltextEditorTextChanged</name>
-      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
-      <anchor>a7991331aa8048236d763b2482461a5a6</anchor>
-      <arglist>(SingleLineTextEditor &amp;)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>sltextEditorReturnKeyPressed</name>
-      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
-      <anchor>a2a4144e3e91e38142f9498eb66c180e6</anchor>
-      <arglist>(SingleLineTextEditor &amp;)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>sltextEditorEscapeKeyPressed</name>
-      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
-      <anchor>ae23dbf95e2aada75cb3f513d393b965d</anchor>
-      <arglist>(SingleLineTextEditor &amp;)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>sltextEditorFocusLost</name>
-      <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
-      <anchor>a9b377e28f1ec65c2a9864f1c08964af3</anchor>
-      <arglist>(SingleLineTextEditor &amp;)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>FileSystemWatcher::Listener</name>
     <filename>classFileSystemWatcher_1_1Listener.html</filename>
     <member kind="function" virtualness="virtual">
@@ -6504,24 +6526,6 @@
       <anchorfile>classFileSystemWatcher_1_1Listener.html</anchorfile>
       <anchor>a74adb289b69441dd79b84f5eb6a66d59</anchor>
       <arglist>(const juce::File, FileSystemEvent)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>OpenStreetMaps::Listener</name>
-    <filename>classOpenStreetMaps_1_1Listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
-      <anchor>aeb7faf41923db2a12f09179159d96bd1</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>tileFetched</name>
-      <anchorfile>classOpenStreetMaps_1_1Listener.html</anchorfile>
-      <anchor>a5a86659b291d99adbe0af1a30fdfe383</anchor>
-      <arglist>(int zoom, int x, int y)=0</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -9042,6 +9046,53 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>Point</name>
+    <filename>classPoint.html</filename>
+    <templarg></templarg>
+    <member kind="function">
+      <type></type>
+      <name>Point</name>
+      <anchorfile>classPoint.html</anchorfile>
+      <anchor>ae6a75fcca567819ab05482257ce36bdc</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Point</name>
+      <anchorfile>classPoint.html</anchorfile>
+      <anchor>a9853b0631fc1e4c3ec3fab8ac26314a9</anchor>
+      <arglist>(T x_, T y_)</arglist>
+    </member>
+    <member kind="function">
+      <type>T</type>
+      <name>getX</name>
+      <anchorfile>classPoint.html</anchorfile>
+      <anchor>aed1f0a89874a790ac96175180c934f43</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>T</type>
+      <name>getY</name>
+      <anchorfile>classPoint.html</anchorfile>
+      <anchor>af2d83c0f10795ba0393e7a8b86c0719a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>T</type>
+      <name>x</name>
+      <anchorfile>classPoint.html</anchorfile>
+      <anchor>a401d07562afaf0079121218025e66b76</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>T</type>
+      <name>y</name>
+      <anchorfile>classPoint.html</anchorfile>
+      <anchor>a65146418a33ebb2cd9acb85cade60ac9</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>PowerButton</name>
     <filename>classPowerButton.html</filename>
     <base>PluginButton</base>
@@ -11138,8 +11189,8 @@
       <type></type>
       <name>Spline</name>
       <anchorfile>classSpline.html</anchorfile>
-      <anchor>aae6cecd95f5233f8d106e1a771f8542d</anchor>
-      <arglist>(const juce::Array&lt; juce::Point&lt; double &gt;&gt; &amp;points)</arglist>
+      <anchor>adc45d0c48af983c27e7657ce0ad5bc72</anchor>
+      <arglist>(const juce::Array&lt; Point&lt; double &gt;&gt; &amp;points)</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -13089,8 +13140,8 @@
       <type>T</type>
       <name>interpolate</name>
       <anchorfile>namespaceLagrange.html</anchorfile>
-      <anchor>aef304874a67d1c0e4fa39605d2e19b03</anchor>
-      <arglist>(const juce::Array&lt; juce::Point&lt; T &gt;&gt; &amp;points, T x)</arglist>
+      <anchor>aed0cc45b276f9ed337143c4587dc1122</anchor>
+      <arglist>(const juce::Array&lt; Point&lt; T &gt;&gt; &amp;points, T x)</arglist>
     </member>
     <member kind="function">
       <type>T</type>
@@ -13159,20 +13210,20 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin-components</name>
+    <name>gin_gui-components</name>
     <title>components</title>
-    <filename>group__gin-components.html</filename>
+    <filename>group__gin__gui-components.html</filename>
     <member kind="function">
       <type>void</type>
       <name>addAndMakeVisible</name>
-      <anchorfile>group__gin-components.html</anchorfile>
+      <anchorfile>group__gin__gui-components.html</anchorfile>
       <anchor>ga66410efb088d24a02a86b4c6191e2866</anchor>
       <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component * &gt; children)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>addAndMakeVisible</name>
-      <anchorfile>group__gin-components.html</anchorfile>
+      <anchorfile>group__gin__gui-components.html</anchorfile>
       <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
       <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
     </member>
@@ -13347,21 +13398,12 @@
       <anchor>ga97bafa72f9f8ecdba9b839ecdb3db767</anchor>
       <arglist>(T x1, T y1, T x2, T y2, T &amp;m, T &amp;b)</arglist>
     </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>solveLine</name>
-      <anchorfile>group__gin-geometry.html</anchorfile>
-      <anchor>ga46f894daee01dc2820ad4018ac9f051a</anchor>
-      <arglist>(juce::Line&lt; T &gt; l, T &amp;m, T &amp;b)</arglist>
-    </member>
   </compound>
   <compound kind="group">
     <name>gin</name>
     <title>gin</title>
     <filename>group__gin.html</filename>
-    <subgroup>gin-components</subgroup>
     <subgroup>gin-geometry</subgroup>
-    <subgroup>gin-images</subgroup>
     <subgroup>gin-utilities</subgroup>
   </compound>
   <compound kind="group">
@@ -13370,6 +13412,14 @@
     <filename>group__gin__dsp.html</filename>
     <subgroup>gin_dsp-components</subgroup>
     <subgroup>gin_dsp-dsp</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>gin_gui</name>
+    <title>gin_gui</title>
+    <filename>group__gin__gui.html</filename>
+    <subgroup>gin_gui-components</subgroup>
+    <subgroup>gin_gui-images</subgroup>
+    <subgroup>gin_gui-utilities</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_metadata</name>
@@ -13393,303 +13443,303 @@
     <subgroup>gin_plugin-resources</subgroup>
   </compound>
   <compound kind="group">
-    <name>gin-images</name>
+    <name>gin_gui-images</name>
     <title>images</title>
-    <filename>group__gin-images.html</filename>
+    <filename>group__gin__gui-images.html</filename>
     <member kind="enumeration">
       <type></type>
       <name>BlendMode</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga30323fa90e24ca484998b9fba6c40e85</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Normal</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a5ecbcf0afce98b042f35ec71ba03fa4b</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Lighten</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a0c4863f7d789ab70b21073bd94c9169d</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Darken</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a95ea73d8fed63115639319a67d596d49</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Multiply</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85ade55cee401a6a53619b6ec469abf0810</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Average</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Add</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a0d592a4b562059bc283e00b3704865c9</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Subtract</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85afa8a9720422ee254970b2ebe1435a917</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Difference</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a9cba343e00a6259dc83f7e4e7f447109</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Negation</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85ab94b0efce58a77e1c8fa29e32536c728</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Screen</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a2609fadb77bb3d98c615b41ac79a1d31</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Exclusion</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85ac200cda01c78d8dae2b11cf4ded47655</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Overlay</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a8b895d92539a718e6898ed6b053ce2ff</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>SoftLight</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a967749a14f4bb7ffc6383997d97a6163</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>HardLight</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a7fc75582ae37ab60f5a1cc8e2acd7e24</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>ColorDodge</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a71b5386d914bd4101f3d086d8ce72161</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>ColorBurn</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85adccc18afee7dc5a40147cab59118d583</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>LinearDodge</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85afe7aab6a1580381724d2ebe724fbd065</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>LinearBurn</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a4c41b912f1e9eca71a1a36fc8a1172d9</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>LinearLight</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85ae158a552ecb4c88077b7537e93a8df86</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>VividLight</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a87be187db30f3efdb79dde93f63e0430</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>PinLight</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a513bf9b05af260d001632c4fe6d345d5</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>HardMix</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a76ee1ad58cc676f7994416354a4d7b59</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Reflect</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a8898819fa0ebd77a64e192d47e7be553</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Glow</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85ac7adb89e56ad4a2daef183d318110442</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Phoenix</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a85c155bffb4118332192060f1a6db976</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyVignette</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga1023b87ad7bb7ca1e039ded54397ef90</anchor>
       <arglist>(juce::Image &amp;img, float amount, float radius, float falloff, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applySepia</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gaccaa511049769192c15aa13e0c2a40d1</anchor>
       <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGreyScale</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gadb285c05d7e81fbffe8b2ab5705b0783</anchor>
       <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applySoften</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga4cc9c0919994beeac34d088beb1991e2</anchor>
       <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applySharpen</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gac0b5514a6c74e31bd4e7a26898e45228</anchor>
       <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGamma</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga2b20d743c3475fd86d18a8f2cb427b47</anchor>
       <arglist>(juce::Image &amp;img, float gamma, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyInvert</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga6453f04ab3d2a6a345cd6b7f70711c04</anchor>
       <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyContrast</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga50c77bf67a02fbc002d1136fd64f2031</anchor>
       <arglist>(juce::Image &amp;img, float contrast, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyBrightnessContrast</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gab3825059a9e75bfc8e78cf0106ddf78e</anchor>
       <arglist>(juce::Image &amp;img, float brightness, float contrast, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyHueSaturationLightness</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga25205b0926bfca178115404c6d9f45d9</anchor>
       <arglist>(juce::Image &amp;img, float hue, float saturation, float lightness, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyStackBlur</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga5298c1220caef0f1d6d918c9ec15243d</anchor>
       <arglist>(juce::Image &amp;img, int radius)</arglist>
     </member>
     <member kind="function">
       <type>juce::Image</type>
       <name>applyResize</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga8a045522d5a03954f0d4fe2cbc8082a4</anchor>
       <arglist>(const juce::Image &amp;img, int width, int height)</arglist>
     </member>
     <member kind="function">
       <type>juce::Image</type>
       <name>applyResize</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga99654c39e56b66a36c75cbbff9e137b4</anchor>
       <arglist>(const juce::Image &amp;img, float factor)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGradientMap</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga2e91627e4ee0f9e1aeca78ca387a8c51</anchor>
       <arglist>(juce::Image &amp;img, const juce::ColourGradient &amp;gradient, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGradientMap</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga48f6d1c24d18edd26e2d9da48e47dcf7</anchor>
       <arglist>(juce::Image &amp;img, const juce::Colour c1, const juce::Colour c2, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyColour</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gae6d6ea52612fb4f6474b05a1063604db</anchor>
       <arglist>(juce::Image &amp;img, juce::Colour c, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyBlend</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga6e16e6b71a97615070d0f5f6829f2b04</anchor>
       <arglist>(juce::Image &amp;dst, const juce::Image &amp;src, BlendMode mode, float alpha=1.0f, juce::Point&lt; int &gt; position={}, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyBlend</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga590207f6293f03a5a4e4e2a1d4f3db15</anchor>
       <arglist>(juce::Image &amp;dst, BlendMode mode, juce::Colour c, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>juce::Image</type>
       <name>rasterizeSVG</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
       <arglist>(juce::String svgText, int w, int h)</arglist>
     </member>
     <member kind="function">
       <type>juce::Path</type>
       <name>parseSVGPath</name>
-      <anchorfile>group__gin-images.html</anchorfile>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
       <arglist>(const juce::String &amp;txt)</arglist>
     </member>
@@ -13734,16 +13784,28 @@
     <filename>group__gin__plugin-resources.html</filename>
   </compound>
   <compound kind="group">
-    <name>gin-utilities</name>
+    <name>gin_gui-utilities</name>
     <title>utilities</title>
-    <filename>group__gin-utilities.html</filename>
+    <filename>group__gin__gui-utilities.html</filename>
     <member kind="function">
       <type>void</type>
       <name>callOnMainThreadBlocking</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
       <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
       <arglist>(std::function&lt; void()&gt; func)</arglist>
     </member>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>gin-utilities</name>
+    <title>utilities</title>
+    <filename>group__gin-utilities.html</filename>
     <member kind="function">
       <type>T</type>
       <name>easeLinear</name>
@@ -14044,13 +14106,6 @@
       <anchorfile>group__gin-utilities.html</anchorfile>
       <anchor>gaac60b7f594994fac0cb43d317f794449</anchor>
       <arglist>(juce::Random &amp;r, T array)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>

@@ -1,8 +1,8 @@
 var searchData=
 [
   ['d_183',['d',['../classSpline_1_1Element.html#aa152a2b6876477cb9945a1de6860f06e',1,'Spline::Element']]],
-  ['darken_184',['Darken',['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85a95ea73d8fed63115639319a67d596d49',1,'gin_imageeffects.h']]],
-  ['data_185',['data',['../structDownloadManager_1_1DownloadResult.html#a13fd2f0e9b09ade1a1b2ccf97c920bf5',1,'DownloadManager::DownloadResult::data()'],['../classAsyncDownload.html#a65842b5ad253633e5d2d6df4464d5125',1,'AsyncDownload::data()'],['../classDelayLine.html#a2ead4b17009f75300230c98d2e22650d',1,'DelayLine::data()'],['../structHttp_1_1HttpResult.html#a3ae0b311189f4413f1128ba994c2aca3',1,'Http::HttpResult::data()']]],
+  ['darken_184',['Darken',['../group__gin__gui-images.html#gga30323fa90e24ca484998b9fba6c40e85a95ea73d8fed63115639319a67d596d49',1,'gin_imageeffects.h']]],
+  ['data_185',['data',['../structDownloadManager_1_1DownloadResult.html#a13fd2f0e9b09ade1a1b2ccf97c920bf5',1,'DownloadManager::DownloadResult::data()'],['../classDelayLine.html#a2ead4b17009f75300230c98d2e22650d',1,'DelayLine::data()'],['../classAsyncDownload.html#a65842b5ad253633e5d2d6df4464d5125',1,'AsyncDownload::data()'],['../structHttp_1_1HttpResult.html#a3ae0b311189f4413f1128ba994c2aca3',1,'Http::HttpResult::data()']]],
   ['db12_186',['db12',['../classFilter.html#a5ef1acf81c79c0c8a0ecd8a52e38d4f2a2c5e517e0cff208de5a5b332964c98c7',1,'Filter']]],
   ['db24_187',['db24',['../classFilter.html#a5ef1acf81c79c0c8a0ecd8a52e38d4f2a96cc76f4311546df810c13784c2a591a',1,'Filter']]],
   ['decay_188',['decay',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127aabc2ac366007251aecdaaff91f4a8e5e3',1,'ADSR::decay()'],['../classAnalogADSR.html#a708e8fef77e14886a71939f64d7f99eb',1,'AnalogADSR::decay()'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188ea63faabca234a29640f3344e74c0672da',1,'AnalogADSR::decay()']]],
@@ -25,7 +25,7 @@ var searchData=
   ['delta_205',['delta',['../structOscState.html#a3659847d96492e7df6bb1987b7991415',1,'OscState']]],
   ['depth_206',['depth',['../structLFO_1_1Parameters.html#aea5b1c1cd4fc3b68d3826fce64f6287a',1,'LFO::Parameters']]],
   ['detune_207',['detune',['../structVoicedStereoOscillator_1_1Params.html#a3f1b408a97910ce6a63de0a8073c85c7',1,'VoicedStereoOscillator::Params']]],
-  ['difference_208',['Difference',['../group__gin-images.html#gga30323fa90e24ca484998b9fba6c40e85a9cba343e00a6259dc83f7e4e7f447109',1,'gin_imageeffects.h']]],
+  ['difference_208',['Difference',['../group__gin__gui-images.html#gga30323fa90e24ca484998b9fba6c40e85a9cba343e00a6259dc83f7e4e7f447109',1,'gin_imageeffects.h']]],
   ['direction_209',['Direction',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1',1,'SampleOscillator']]],
   ['disablelearn_210',['disableLearn',['../classModMatrix.html#a43c4fb3d9ece3cd9b2af6495379dc2f6',1,'ModMatrix']]],
   ['disablesmoothing_211',['disableSmoothing',['../classModVoice.html#acc4675a7c50824248d15d4a416f5401b',1,'ModVoice']]],

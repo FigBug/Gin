@@ -70,8 +70,6 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga9fefd2dceb6369dbeac0b093b14c72fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#ga9fefd2dceb6369dbeac0b093b14c72fa">callOnMainThreadBlocking</a> (std::function&lt; void()&gt; func)</td></tr>
-<tr class="separator:ga9fefd2dceb6369dbeac0b093b14c72fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7646e77db052bff3178b73c722206e52"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:ga7646e77db052bff3178b73c722206e52"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#ga7646e77db052bff3178b73c722206e52">easeLinear</a> (T p)</td></tr>
 <tr class="separator:ga7646e77db052bff3178b73c722206e52"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -195,9 +193,6 @@ Functions</h2></td></tr>
 <tr class="memitem:gaac60b7f594994fac0cb43d317f794449"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#gaac60b7f594994fac0cb43d317f794449">shuffleArray</a> (juce::Random &amp;r, T array)</td></tr>
 <tr class="memdesc:gaac60b7f594994fac0cb43d317f794449"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fisher-Yates Shuffle for juce::Array.  <a href="group__gin-utilities.html#gaac60b7f594994fac0cb43d317f794449">More...</a><br /></td></tr>
 <tr class="separator:gaac60b7f594994fac0cb43d317f794449"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga345f5b8f3ffdd680b206fe42f25be481"><td class="memItemLeft" align="right" valign="top">juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#ga345f5b8f3ffdd680b206fe42f25be481">goldenRatioColor</a> (int idx)</td></tr>
-<tr class="memdesc:ga345f5b8f3ffdd680b206fe42f25be481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next colour in a set where the hues differ by the golden ratio.  <a href="group__gin-utilities.html#ga345f5b8f3ffdd680b206fe42f25be481">More...</a><br /></td></tr>
-<tr class="separator:ga345f5b8f3ffdd680b206fe42f25be481"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga06700101fa042b926bad6b16738aff53"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ga06700101fa042b926bad6b16738aff53"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#ga06700101fa042b926bad6b16738aff53">almostEqual</a> (T a, T b, T precision=T(0.00001))</td></tr>
 <tr class="memdesc:ga06700101fa042b926bad6b16738aff53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Are two floats pretty close?  <a href="group__gin-utilities.html#ga06700101fa042b926bad6b16738aff53">More...</a><br /></td></tr>
@@ -217,24 +212,6 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga9fefd2dceb6369dbeac0b093b14c72fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9fefd2dceb6369dbeac0b093b14c72fa">&#9670;&nbsp;</a></span>callOnMainThreadBlocking()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void callOnMainThreadBlocking </td>
-          <td>(</td>
-          <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
-          <td class="paramname"><em>func</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="ga7646e77db052bff3178b73c722206e52"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga7646e77db052bff3178b73c722206e52">&#9670;&nbsp;</a></span>easeLinear()</h2>
 
@@ -1203,27 +1180,6 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ga345f5b8f3ffdd680b206fe42f25be481"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga345f5b8f3ffdd680b206fe42f25be481">&#9670;&nbsp;</a></span>goldenRatioColor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">juce::Colour goldenRatioColor </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>idx</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the next colour in a set where the hues differ by the golden ratio. </p>
-<p>Good for coming up with a random set of colours </p>
-
-</div>
-</div>
 <a id="ga06700101fa042b926bad6b16738aff53"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga06700101fa042b926bad6b16738aff53">&#9670;&nbsp;</a></span>almostEqual()</h2>
 
@@ -1371,7 +1327,7 @@ template&lt;typename T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 18:57:34 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 4 2021 16:53:06 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
