@@ -536,7 +536,7 @@
   </compound>
   <compound kind="file">
     <name>gin_elevatedfilecopy.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/utilities/</path>
     <filename>gin__elevatedfilecopy_8h.html</filename>
     <class kind="class">ElevatedFileCopy</class>
   </compound>

@@ -2,7 +2,7 @@ var searchData=
 [
   ['tables_1154',['tables',['../classBandLimitedLookupTable.html#adbe6b6e06f76c87e7bfee87d854b4ffe',1,'BandLimitedLookupTable']]],
   ['tags_1155',['tags',['../classPatchBrowser.html#aa7bac749585a5be93c25474dae4542e8',1,'PatchBrowser::tags()'],['../classProgram.html#acddd8235091f27410c05cf4b7694b62a',1,'Program::tags()']]],
-  ['tagsmodel_1156',['TagsModel',['../structPatchBrowser_1_1TagsModel.html',1,'PatchBrowser::TagsModel'],['../structPatchBrowser_1_1TagsModel.html#aa09938757cd8d6bf62458de6297aa5cb',1,'PatchBrowser::TagsModel::TagsModel()'],['../classPatchBrowser.html#a2b1148951ac60c4b47c4b1f6af16d144',1,'PatchBrowser::tagsModel()']]],
+  ['tagsmodel_1156',['TagsModel',['../structPatchBrowser_1_1TagsModel.html',1,'PatchBrowser::TagsModel'],['../classPatchBrowser.html#a2b1148951ac60c4b47c4b1f6af16d144',1,'PatchBrowser::tagsModel()'],['../structPatchBrowser_1_1TagsModel.html#aa09938757cd8d6bf62458de6297aa5cb',1,'PatchBrowser::TagsModel::TagsModel()']]],
   ['text_5fframe_1157',['TEXT_FRAME',['../structWSHeaderType.html#ac1906191ac337fdbecbe643184fbd3b3a44b257e3d1f0e6e8ee821d8ce460cea2',1,'WSHeaderType']]],
   ['textchanged_1158',['textChanged',['../classSingleLineTextEditor.html#a7432325931d3ad2a10f0b98fb83f8ec7',1,'SingleLineTextEditor']]],
   ['textcolourid_1159',['textColourId',['../classSingleLineTextEditor.html#a580e95f56d303528b02f91143c72f13ca3139e08c59ac1e595c5029d4c90b3a95',1,'SingleLineTextEditor']]],
@@ -16,7 +16,7 @@ var searchData=
   ['timercallback_1167',['timerCallback',['../classDynamicsMeter.html#a5580169115243881a2d1434c3d1995dc',1,'DynamicsMeter::timerCallback()'],['../classTriggeredScope.html#ae048c8050cd95f65d336801b1bf341e2',1,'TriggeredScope::timerCallback()'],['../classXYScope.html#a37d7c0b92a484c3c55dee8eb45fd2943',1,'XYScope::timerCallback()'],['../classSynthesiserUsage.html#a61174588450de0af35bf0d1a3866faba',1,'SynthesiserUsage::timerCallback()'],['../classParameter.html#a8d5e385c39a92ffcede0ce5476451e16',1,'Parameter::timerCallback()']]],
   ['title1colourid_1168',['title1ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a48e1027db85fa69981be45218bd7e6d9',1,'GinLookAndFeel']]],
   ['title2colourid_1169',['title2ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a539354805ecf1dd789adb31680e32326',1,'GinLookAndFeel']]],
-  ['titlebar_1170',['TitleBar',['../classTitleBar.html',1,'TitleBar'],['../classTitleBar.html#ae50c6223c4dd1df9d1bc5ad4864c271b',1,'TitleBar::TitleBar()'],['../classProcessorEditor.html#a765fed46b8f886ab4e6306124110ed68',1,'ProcessorEditor::titleBar()']]],
+  ['titlebar_1170',['TitleBar',['../classTitleBar.html',1,'TitleBar'],['../classProcessorEditor.html#a765fed46b8f886ab4e6306124110ed68',1,'ProcessorEditor::titleBar()'],['../classTitleBar.html#ae50c6223c4dd1df9d1bc5ad4864c271b',1,'TitleBar::TitleBar()']]],
   ['tomessagepack_1171',['toMessagePack',['../classMessagePack.html#aee9464edf2e67d30bc42114eabf7e18c',1,'MessagePack']]],
   ['tooltipwindow_1172',['tooltipWindow',['../classProcessorEditorBase.html#aef611bd53bf795b5e0e9b204febd4070',1,'ProcessorEditorBase']]],
   ['toseconds_1173',['toSeconds',['../classNoteDuration.html#ac5647e5458ecb9b2bd6504a355d202d7',1,'NoteDuration::toSeconds(juce::AudioPlayHead *playhead) const'],['../classNoteDuration.html#a5b06f7ea0574bbaa7a7a37451dd9667d',1,'NoteDuration::toSeconds(float bpm) const']]],

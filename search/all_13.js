@@ -8,7 +8,7 @@ var searchData=
   ['unlock_1188',['unlock',['../classSystemSemaphore.html#afde687b04d0bb01cf629d037bf384ac0',1,'SystemSemaphore']]],
   ['unwatchparams_1189',['unwatchParams',['../classMultiParamComponent.html#ae7441578faba5891a7fc764da134f03c',1,'MultiParamComponent']]],
   ['up_1190',['Up',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40a7f9a9c97a4c7f8e2424ec0827d879c71',1,'TriggeredScope']]],
-  ['updatechecker_1191',['UpdateChecker',['../classUpdateChecker.html',1,'UpdateChecker'],['../classUpdateChecker.html#a991c35a0e515fa13cb9186936a00cb8f',1,'UpdateChecker::UpdateChecker()'],['../classTitleBar.html#a592d0a4299aa23c9b323205d76f19742',1,'TitleBar::updateChecker()'],['../classProcessorEditor.html#adb1321c64dc3799c8b5b7128ec7fdae1',1,'ProcessorEditor::updateChecker()']]],
+  ['updatechecker_1191',['UpdateChecker',['../classUpdateChecker.html',1,'UpdateChecker'],['../classTitleBar.html#a592d0a4299aa23c9b323205d76f19742',1,'TitleBar::updateChecker()'],['../classProcessorEditor.html#adb1321c64dc3799c8b5b7128ec7fdae1',1,'ProcessorEditor::updateChecker()'],['../classUpdateChecker.html#a991c35a0e515fa13cb9186936a00cb8f',1,'UpdateChecker::UpdateChecker()']]],
   ['updateglide_1192',['updateGlide',['../classSynthesiser.html#a4bf9918f18a2c232db12a913fda743f4',1,'Synthesiser']]],
   ['updatemap_1193',['updateMap',['../classMapViewer.html#a723ad37abb7af9ecac0bdd68dd628e46',1,'MapViewer']]],
   ['updateselection_1194',['updateSelection',['../classPatchBrowser.html#a63f6aec5fdb704d05593cac1823bb9bb',1,'PatchBrowser']]],
