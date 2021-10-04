@@ -52,6 +52,7 @@
         <MODULEPATH id="juce_audio_devices" path="../../../juce/modules"/>
         <MODULEPATH id="juce_dsp" path="../../../juce/modules"/>
         <MODULEPATH id="gin_network" path="../../modules"/>
+        <MODULEPATH id="gin_gui" path="../../modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <XCODE_IPHONE targetFolder="Builds/iOS" iosScreenOrientation="UIInterfaceOrientationPortrait,UIInterfaceOrientationLandscapeLeft,UIInterfaceOrientationLandscapeRight"
@@ -81,6 +82,7 @@
         <MODULEPATH id="juce_audio_devices" path="../../../juce/modules"/>
         <MODULEPATH id="juce_dsp" path="../../../juce/modules"/>
         <MODULEPATH id="gin_network" path="../../modules"/>
+        <MODULEPATH id="gin_gui" path="../../modules"/>
       </MODULEPATHS>
     </XCODE_IPHONE>
     <VS2019 targetFolder="Builds/VisualStudio2019" extraCompilerFlags="/wd4996 /wd4458"
@@ -111,6 +113,7 @@
         <MODULEPATH id="juce_audio_devices" path="../../../juce/modules"/>
         <MODULEPATH id="juce_dsp" path="../../../juce/modules"/>
         <MODULEPATH id="gin_network" path="../../modules"/>
+        <MODULEPATH id="gin_gui" path="../../modules"/>
       </MODULEPATHS>
     </VS2019>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
@@ -137,12 +140,14 @@
         <MODULEPATH id="juce_audio_devices" path="../../../juce/modules"/>
         <MODULEPATH id="juce_dsp" path="../../../juce/modules"/>
         <MODULEPATH id="gin_network" path="../../modules"/>
+        <MODULEPATH id="gin_gui" path="../../modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
   </EXPORTFORMATS>
   <MODULES>
     <MODULE id="gin" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="gin_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="gin_gui" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="gin_metadata" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="gin_network" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>

@@ -15,7 +15,7 @@
 class Spline
 {
 public:
-    Spline (const juce::Array<juce::Point<double>>& points);
+    Spline (const juce::Array<Point<double>>& points);
 
     double operator[] (double x) const;
     double interpolate (double x) const;

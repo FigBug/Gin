@@ -12,9 +12,9 @@ class LinearRegression
 {
 public:
     LinearRegression();
-    LinearRegression (juce::Array<juce::Point<double>> points);
+    LinearRegression (juce::Array<Point<double>> points);
 
-    void addPoint (juce::Point<double> pnt);
+    void addPoint (Point<double> pnt);
     void calculate();
 
     void clear();

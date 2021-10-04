@@ -21,8 +21,8 @@ public:
     LeastSquaresRegression() = default;
 
     void addPoint (double x, double y);
-    void addPoint (juce::Point<double> point);
-    void addPoints (juce::Array<juce::Point<double>> points);
+    void addPoint (Point<double> point);
+    void addPoints (juce::Array<Point<double>> points);
 
     void clear();
 
@@ -47,7 +47,7 @@ private:
     double getSSerr();
     double getPredictedY (double x);
 
-    juce::Array<juce::Point<double>> pointArray;
+    juce::Array<Point<double>> pointArray;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (LeastSquaresRegression)
 };

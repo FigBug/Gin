@@ -33,12 +33,12 @@ void Integrator::addPoint (double x, double y)
     oldY = y;
 }
 
-void Integrator::addPoint (juce::Point<double> point)
+void Integrator::addPoint (Point<double> point)
 {
     addPoint (point.getX(), point.getY());
 }
 
-void Integrator::addPoints (juce::Array<juce::Point<double>> points)
+void Integrator::addPoints (juce::Array<Point<double>> points)
 {
     for (auto point : points)
         addPoint (point.getX(), point.getY());

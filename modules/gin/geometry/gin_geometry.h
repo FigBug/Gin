@@ -26,22 +26,22 @@ public:
     {
     }
 
-    bool isPointOn (juce::Point<T> pt, T accuracy = 0.00001)
+    bool isPointOn (Point<T> pt, T accuracy = 0.00001)
     {
         return std::abs (1.0 - (square (pt.getX()) / square (a) + square (pt.getY()) / square (b))) < accuracy;
     }
 
-    bool isPointOutside (juce::Point<T> pt)
+    bool isPointOutside (Point<T> pt)
     {
         return (square (pt.getX()) / square (a) + square (pt.getY()) / square (b)) > 1.0;
     }
 
-    bool isPointInside (juce::Point<T> pt)
+    bool isPointInside (Point<T> pt)
     {
         return (square (pt.getX()) / square (a) + square (pt.getY()) / square (b)) < 1.0;
     }
 
-    juce::Point<T> pointAtAngle (T angle)
+	Point<T> pointAtAngle (T angle)
     {
         T x = (a * b) / std::sqrt (square (b) + square (a) * square (std::tan (angle)));
         T y = (a * b) / std::sqrt (square (a) + square (b) / square (std::tan (angle)));
@@ -91,6 +91,7 @@ bool solveLine (T x1, T y1, T x2, T y2, T& m, T& b)
     }
 }
 
+#if JUCE_MODULE_AVAILABLE_juce_graphics
 /** Solves for the slope and intercept of a line
 */
 template <typename T>
@@ -116,3 +117,4 @@ bool solveLine (juce::Line<T> l, T& m, T& b)
         return false;
     }
 }
+#endif

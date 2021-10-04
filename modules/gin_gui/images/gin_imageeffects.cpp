@@ -103,8 +103,8 @@ void applyVignette (juce::Image& img, float amountIn, float radiusIn, float fall
             {
                 double angle = std::atan2 (dy, dx);
 
-                auto p1 = outE.pointAtAngle (angle);
-                auto p2 = inE.pointAtAngle (angle);
+                auto p1 = outE.pointAtAngle (angle).toJuce();
+                auto p2 = inE.pointAtAngle (angle).toJuce();
 
                 auto l1 = juce::Line<double> ({dx,dy}, p2);
                 auto l2 = juce::Line<double> (p1, p2);

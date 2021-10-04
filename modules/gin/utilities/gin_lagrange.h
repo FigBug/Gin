@@ -14,8 +14,8 @@
 namespace Lagrange
 {
 
-template <class T>
-T interpolate (const juce::Array<juce::Point<T>>& points, T x)
+template <typename T>
+T interpolate (const juce::Array<Point<T>>& points, T x)
 {
     T res = 0;
   
@@ -41,7 +41,7 @@ T interpolate (const juce::Array<juce::Point<T>>& points, T x)
     return res;
 }
 
-template <class T>
+template <typename T>
 T interpolate (T xArr[], T yArr[], int num, T x)
 {
     T res = 0;
