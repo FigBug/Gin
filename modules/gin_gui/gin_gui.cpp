@@ -7,9 +7,10 @@
 
 //==============================================================================
 
-#include "gin_gui.h"
-
-//==============================================================================
+#ifdef  _WIN32
+ #include <Windows.h>
+ #include <ctime>
+#endif
 
 #if __clang__
  #pragma clang diagnostic push
@@ -26,6 +27,8 @@
  #pragma warning (disable: 4457)
  #pragma warning (disable: 4244)
 #endif
+
+#include "gin_gui.h"
 
 #include "3rdparty/avir/avir.h"
 #if JUCE_INTEL
