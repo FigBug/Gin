@@ -69,7 +69,6 @@ namespace gin
 #include "utilities/gin_equationparser.h"
 #include "utilities/gin_util.h"
 #include "utilities/gin_easing.h"
-#include "utilities/gin_elevatedfilecopy.h"
 #include "utilities/gin_filesystemwatcher.h"
 #include "utilities/gin_fileutilities.h"
 #include "utilities/gin_integrator.h"

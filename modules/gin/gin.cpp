@@ -42,7 +42,6 @@ namespace gin
 {
 
 #include "utilities/gin_downloadmanager.cpp"
-#include "utilities/gin_elevatedfilecopy.cpp"
 #include "utilities/gin_filesystemwatcher.cpp"
 #include "utilities/gin_fileutilities.cpp"
 #include "utilities/gin_integrator.cpp"

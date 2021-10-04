@@ -44,11 +44,18 @@
  #include <cxxabi.h>
 #endif
 
+#ifdef __APPLE__
+ #import <Foundation/Foundation.h>
+ #include <sys/stat.h>
+ #include <sys/time.h>
+#endif
+
 namespace gin
 {
 
 #include "utilities/gin_asyncutilities.cpp"
 #include "utilities/gin_openstreetmaps.cpp"
+#include "utilities/gin_elevatedfilecopy.cpp"
 
 #include "images/gin_imageeffects.cpp"
 #include "images/gin_imageutilities.cpp"
