@@ -31,7 +31,7 @@ double triangle (double phase, double freq, double sampleRate)
         sum += std::pow (-1, (k - 1) / 2.0f) / (k * k) * std::sin (k * (phase * 2 * MathConstants<double>::pi));
         k += 2;
     }
-    return float (8.0f / (float_Pi * float_Pi) * sum);
+    return float (8.0f / (juce::MathConstants<float>::pi * juce::MathConstants<float>::pi) * sum);
 }
 
 double sawUp (double phase, double freq, double sampleRate)
@@ -43,7 +43,7 @@ double sawUp (double phase, double freq, double sampleRate)
         sum += oddEven (k) * std::sin (k * (phase * 2 * MathConstants<double>::pi)) / k;
         k++;
     }
-    return float (-2.0f / float_Pi * sum);
+    return float (-2.0f / juce::MathConstants<float>::pi * sum);
 }
 
 double sawDown (double phase, double freq, double sampleRate)
@@ -55,7 +55,7 @@ double sawDown (double phase, double freq, double sampleRate)
         sum += oddEven (k) * std::sin (k * (phase * 2 * MathConstants<double>::pi)) / k;
         k++;
     }
-    return float (2.0f / float_Pi * sum);
+    return float (2.0f / juce::MathConstants<float>::pi * sum);
 }
 
 double pulse (double phase, double pw, double freq, double sampleRate)
@@ -70,7 +70,7 @@ double pulse (double phase, double pw, double freq, double sampleRate)
             i++;
         }
 
-        return float (4.0f / float_Pi * sum);
+        return float (4.0f / juce::MathConstants<float>::pi * sum);
     }
     else
     {
@@ -89,7 +89,7 @@ double squareWave (double phase, double freq, double sampleRate)
         i++;
     }
 
-    return float (4.0f / float_Pi * sum);
+    return float (4.0f / juce::MathConstants<float>::pi * sum);
 }
 
 double noise()

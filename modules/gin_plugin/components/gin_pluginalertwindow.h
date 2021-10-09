@@ -16,6 +16,7 @@ public:
         removeFromDesktop ();
     }
 
+   #if JUCE_MODAL_LOOPS_PERMITTED
     int runModalLoop (Component& parent)
     {
         blur = std::make_unique<BlurryComp> (parent.createComponentSnapshot (parent.getLocalBounds()));
@@ -36,6 +37,7 @@ public:
 
         return ret;
     }
+   #endif
 
 private:
     class BlurryComp : public Component
