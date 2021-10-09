@@ -23,7 +23,7 @@
   website:          www.rabiensoftware.com
   license:          BSD
 
-  dependencies:     gin gin_dsp juce_audio_utils juce_audio_processors
+  dependencies:     gin gin_dsp gin_gui juce_audio_utils juce_audio_processors
 
  END_JUCE_MODULE_DECLARATION
 
@@ -65,6 +65,7 @@
 #include <juce_gui_extra/juce_gui_extra.h>
 #include <juce_audio_utils/juce_audio_utils.h>
 #include <gin/gin.h>
+#include <gin_gui/gin_gui.h>
 #include <gin_dsp/gin_dsp.h>
 
 #include <map>
