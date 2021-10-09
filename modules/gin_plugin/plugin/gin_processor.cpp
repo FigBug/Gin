@@ -1,6 +1,8 @@
 //==============================================================================
 Processor::Processor (bool init_)
 {
+    lf = std::make_unique<gin::CopperLookAndFeel>();
+
     if (init_)
         init();
 }

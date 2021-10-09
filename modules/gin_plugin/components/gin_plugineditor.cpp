@@ -449,7 +449,7 @@ ProcessorEditor::~ProcessorEditor()
 
 void ProcessorEditor::paint (juce::Graphics& g)
 {
-    g.fillAll (juce::Colours::black);
+    g.fillAll (findColour (gin::PluginLookAndFeel::blackColourId));
 }
 
 void ProcessorEditor::resized()
