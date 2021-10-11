@@ -55,18 +55,23 @@ bool Processor::isSmoothing()
 
 void Processor::addPluginParameter (gin::Parameter* p)
 {
-    addParameter (p);
+   #if BUILD_INTERNAL_PLUGINS
+    addHostedParameter (std::unique_ptr<gin::Parameter> (p));
+   #else
+    addParameter (p.release());
+   #endif
+
     allParameters.add (p);
 
     parameterMap[p->getUid()] = p;
 }
 
-gin::Parameter* Processor::createParam (juce::String uid, juce::String name, juce::String shortName, juce::String label,
-                                        juce::NormalisableRange<float> range, float defaultValue,
-                                        SmoothingType st,
-                                        std::function<juce::String (const gin::Parameter&, float)> textFunction)
+std::unique_ptr<gin::Parameter> Processor::createParam (juce::String uid, juce::String name, juce::String shortName, juce::String label,
+                                                        juce::NormalisableRange<float> range, float defaultValue,
+                                                        SmoothingType st,
+                                                        std::function<juce::String (const gin::Parameter&, float)> textFunction)
 {
-    gin::Parameter* p = nullptr;
+    std::unique_ptr<gin::Parameter> p;
 
     if (st.time > 0.0f)
     {
@@ -74,18 +79,18 @@ gin::Parameter* Processor::createParam (juce::String uid, juce::String name, juc
         {
             auto sp = new gin::SmoothedParameter<ValueSmoother<float>> (*this, uid, name, shortName, label, range, defaultValue, textFunction);
             sp->setSmoothingTime (st.time);
-            p = sp;
+            p = std::unique_ptr<gin::Parameter> (sp);
         }
         else if (st.type == SmoothingType::eased)
         {
             auto sp = new gin::SmoothedParameter<EasedValueSmoother<float>> (*this, uid, name, shortName, label, range, defaultValue, textFunction);
             sp->setSmoothingTime (st.time);
-            p = sp;
+            p = std::unique_ptr<gin::Parameter> (sp);
         }
     }
     else
     {
-        p = new gin::Parameter (*this, uid, name, shortName, label, range, defaultValue, textFunction);
+        p = std::make_unique<gin::Parameter> (*this, uid, name, shortName, label, range, defaultValue, textFunction);
     }
 
     jassert (p != nullptr);
@@ -99,26 +104,32 @@ gin::Parameter* Processor::addIntParam (juce::String uid, juce::String name, juc
 {
     if (auto p = createParam (uid, name, shortName, label, range, defaultValue, st, textFunction))
     {
+        auto rawPtr = p.get();
         p->setInternal (true);
-        internalParameters.add (p);
-        allParameters.add (p);
-        parameterMap[p->getUid()] = p;
-        return p;
+        allParameters.add (rawPtr);
+        parameterMap[p->getUid()] = rawPtr;
+        internalParameters.add (p.release());
+        return rawPtr;
     }
     return nullptr;
 }
 
-Parameter* Processor::addExtParam (juce::String uid, juce::String name, juce::String shortName, juce::String label,
-                                   juce::NormalisableRange<float> range, float defaultValue,
-                                   SmoothingType st,
-                                   std::function<juce::String (const gin::Parameter&, float)> textFunction)
+gin::Parameter* Processor::addExtParam (juce::String uid, juce::String name, juce::String shortName, juce::String label,
+                                        juce::NormalisableRange<float> range, float defaultValue,
+                                        SmoothingType st,
+                                        std::function<juce::String (const gin::Parameter&, float)> textFunction)
 {
     if (auto p = createParam (uid, name, shortName, label, range, defaultValue, st, textFunction))
     {
-        addParameter (p);
-        allParameters.add (p);
-        parameterMap[p->getUid()] = p;
-        return p;
+        auto rawPtr = p.get();
+        allParameters.add (rawPtr);
+        parameterMap[p->getUid()] = rawPtr;
+       #if BUILD_INTERNAL_PLUGINS
+        addHostedParameter (std::move (p));
+       #else
+        addParameter (p.release());
+       #endif
+        return rawPtr;
     }
     return nullptr;
 }

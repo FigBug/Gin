@@ -7,7 +7,7 @@ class ModMatrix;
 /** A parameter with user values, real time safe callbacks, modulation, and
     all sorts of other fancy stuff
 */
-class Parameter : public juce::AudioProcessorParameter,
+class Parameter : public juce::AudioPluginInstance::HostedParameter,
                   protected juce::Timer,
                   protected RealtimeAsyncUpdater
 {
@@ -86,6 +86,8 @@ public:
     void setState(const ParamState& state);
 
     //==============================================================================
+    juce::String getParameterID() const override    { return uid; }
+    
     float getValue() const override;
     bool getBoolValue() const                   { return getValue() != 0.0f; }
 

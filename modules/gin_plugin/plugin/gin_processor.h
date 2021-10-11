@@ -126,10 +126,10 @@ protected:
     void extractProgram (const juce::String& name, const juce::MemoryBlock& data);
 
 private:
-    gin::Parameter* createParam (juce::String uid, juce::String name, juce::String shortName, juce::String label,
-                                 juce::NormalisableRange<float> range, float defaultValue,
-                                 SmoothingType st,
-                                 std::function<juce::String (const gin::Parameter&, float)> textFunction = nullptr);
+    std::unique_ptr<gin::Parameter> createParam (juce::String uid, juce::String name, juce::String shortName, juce::String label,
+                                                 juce::NormalisableRange<float> range, float defaultValue,
+                                                 SmoothingType st,
+                                                 std::function<juce::String (const gin::Parameter&, float)> textFunction = nullptr);
 
     juce::Array<gin::Parameter*> allParameters;
 
