@@ -8252,6 +8252,13 @@
       <arglist>(const ParamState &amp;state)</arglist>
     </member>
     <member kind="function">
+      <type>juce::String</type>
+      <name>getParameterID</name>
+      <anchorfile>classParameter.html</anchorfile>
+      <anchor>a316738b42194e1359158933b8dc11417</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
       <type>float</type>
       <name>getValue</name>
       <anchorfile>classParameter.html</anchorfile>
