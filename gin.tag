@@ -1409,6 +1409,12 @@
     <class kind="class">SystemSemaphore</class>
   </compound>
   <compound kind="file">
+    <name>gin_textrenderer.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
+    <filename>gin__textrenderer_8h.html</filename>
+    <class kind="class">TextRenderer</class>
+  </compound>
+  <compound kind="file">
     <name>gin_threading.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
     <filename>gin__threading_8h.html</filename>
@@ -11801,6 +11807,17 @@
       <anchorfile>structPatchBrowser_1_1TagsModel.html</anchorfile>
       <anchor>aba7ff3bb16cf0fb0f43d0841a4ecb6ca</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>TextRenderer</name>
+    <filename>classTextRenderer.html</filename>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>renderBuffer</name>
+      <anchorfile>classTextRenderer.html</anchorfile>
+      <anchor>a5d5364bd1d65cf1a8b5edd3a89a4ca14</anchor>
+      <arglist>(const juce::AudioSampleBuffer &amp;buffer, int height, float samplesPerChar)</arglist>
     </member>
   </compound>
   <compound kind="class">
