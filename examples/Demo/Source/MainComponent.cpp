@@ -11,6 +11,43 @@
 static juce::ThreadPool pool (juce::SystemStats::getNumCpus());
 
 //==============================================================================
+struct TextRenderDemo : public juce::Component
+{
+    TextRenderDemo()
+    {
+        setName ("Wave to Text Render");
+
+        addAndMakeVisible (text);
+        text.setFont (juce::Font (juce::Font::getDefaultMonospacedFontName(), 10.0f, juce::Font::plain));
+        text.setReadOnly (true);
+        text.setMultiLine (true, false);
+
+        juce::AudioSampleBuffer buffer (2, 512);
+
+        gin::BandLimitedLookupTables bllt;
+        gin::StereoOscillator osc (bllt);
+
+        gin::StereoOscillator::Params p;
+        p.wave = gin::Wave::sine;
+
+        osc.noteOn();
+        osc.process (69, p, buffer);
+
+        auto txt = gin::TextRenderer::renderBuffer (buffer, 7, 4);
+        text.setText (txt, juce::dontSendNotification);
+    }
+
+    void resized() override
+    {
+        auto rc = getLocalBounds().reduced (8);
+
+        text.setBounds (rc);
+    }
+
+    juce::TextEditor text;
+};
+
+//==============================================================================
 struct AsyncUpdateDemo : public juce::Component,
                          private juce::Thread,
                          private gin::RealtimeAsyncUpdater
@@ -1434,6 +1471,7 @@ struct LagrangeDemo : public juce::Component
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
+    demoComponents.add (new TextRenderDemo());
     demoComponents.add (new AsyncUpdateDemo());
     demoComponents.add (new ValueTreeJsonDemo());
     demoComponents.add (new MessagePackDemo());

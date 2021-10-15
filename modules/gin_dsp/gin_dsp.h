@@ -91,6 +91,7 @@ namespace gin
 #include "dsp/gin_valuesmoother.h"
 #include "dsp/gin_wtoscillators.h"
 #include "dsp/gin_audiofunctions.h"
+#include "dsp/gin_textrenderer.h"
 #include "dsp/gin_audioequationparser.h"
 
 #include "components/gin_dynamicsmeter.h"
