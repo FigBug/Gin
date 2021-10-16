@@ -58,7 +58,7 @@ void Processor::addPluginParameter (gin::Parameter* p)
    #if BUILD_INTERNAL_PLUGINS
     addHostedParameter (std::unique_ptr<gin::Parameter> (p));
    #else
-    addParameter (p.release());
+    addParameter (p);
    #endif
 
     allParameters.add (p);
