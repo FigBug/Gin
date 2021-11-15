@@ -19,6 +19,11 @@ void EnvelopeDetector::setParams (float attackS_, float releaseS_, bool analogTC
     setReleaseTime (releaseS_);
 }
 
+void EnvelopeDetector::setHold (float holdS)
+{
+    holdTime = holdS;
+}
+
 void EnvelopeDetector::setAttackTime (float attackS)
 {
     if (analogTC)
@@ -51,9 +56,18 @@ float EnvelopeDetector::process (float input)
     }
 
     if (input > envelope)
+    {
         envelope = attackTime * (envelope - input) + input;
+        holdRemaining = holdTime;
+    }
+    else if (holdTime > 0.0f && holdRemaining > 0.0f)
+    {
+        holdRemaining -= 1.0 / sampleRate;
+    }
     else
+    {
         envelope = releaseTime * (envelope - input) + input;
+    }
 
     envelope = juce::jlimit (0.0f, 1.0f, envelope);
 

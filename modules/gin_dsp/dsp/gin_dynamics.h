@@ -26,8 +26,9 @@ public:
 
     void setSampleRate (double f)           { sampleRate = f;       }
 
+    void setHold (float holdS);
     void setParams (float attackS, float releaseS, bool analogTC, Mode detect, bool logDetector);
-                                          
+
     void reset();
     float process (float input);
 
@@ -38,6 +39,7 @@ protected:
     double sampleRate = 44100.0;
     Mode mode = peak;
     float attackTime = 0.0f, releaseTime = 0.0f, envelope = 0.0;
+    float holdTime = 0.0f, holdRemaining = 0.0f;
     bool analogTC = false, logDetector = false;
 };
 
@@ -68,20 +70,20 @@ public:
     void setLinked (bool l)                 { channelsLinked = l;   }
 
     void setParams (float attackS, float releaseS, float thresh, float ratio, float kneeWidth);
-    
+
     void setInputGain (float g)             { inputGain = g;    }
     void setOutputGain (float g)            { outputGain = g;   }
 
     void reset();
     void process (juce::AudioSampleBuffer& buffer, juce::AudioSampleBuffer* envelopeOut = nullptr);
-    
+
     const LevelTracker& getInputTracker()       { return inputTracker;      }
     const LevelTracker& getOutputTracker()      { return outputTracker;     }
     const LevelTracker& getReductionTracker()   { return reductionTracker;  }
 
     float calcCurve (float detectorValue);
 
-private:    
+private:
     juce::OwnedArray<EnvelopeDetector> envelopes;
     LevelTracker inputTracker, outputTracker, reductionTracker {-30.0f};
 
