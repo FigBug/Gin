@@ -4119,6 +4119,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setHold</name>
+      <anchorfile>classEnvelopeDetector.html</anchorfile>
+      <anchor>a0c28fd0f9f06054525c443e3e593568e</anchor>
+      <arglist>(float holdS)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>setParams</name>
       <anchorfile>classEnvelopeDetector.html</anchorfile>
       <anchor>ab93bbb66f808ca1de945101eded169c6</anchor>
@@ -4185,6 +4192,20 @@
       <name>envelope</name>
       <anchorfile>classEnvelopeDetector.html</anchorfile>
       <anchor>a6cb63a505870b8c7f21f963163341a51</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>float</type>
+      <name>holdTime</name>
+      <anchorfile>classEnvelopeDetector.html</anchorfile>
+      <anchor>a92145a868d64b608b11903a79866ab8c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>float</type>
+      <name>holdRemaining</name>
+      <anchorfile>classEnvelopeDetector.html</anchorfile>
+      <anchor>a45d8c4b34051590225abaf3d766a4da1</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -13808,6 +13829,25 @@
     <filename>group__gin__plugin-resources.html</filename>
   </compound>
   <compound kind="group">
+    <name>gin_gui-utilities</name>
+    <title>utilities</title>
+    <filename>group__gin__gui-utilities.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>callOnMainThreadBlocking</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
+      <arglist>(std::function&lt; void()&gt; func)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
     <name>gin-utilities</name>
     <title>utilities</title>
     <filename>group__gin-utilities.html</filename>
@@ -14153,25 +14193,6 @@
       <anchorfile>group__gin-utilities.html</anchorfile>
       <anchor>ga88f482bf81fb3e423fa1e3926dfaa9a6</anchor>
       <arglist>(const juce::String &amp;jsonText)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-utilities</name>
-    <title>utilities</title>
-    <filename>group__gin__gui-utilities.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>callOnMainThreadBlocking</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
-      <arglist>(std::function&lt; void()&gt; func)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
     </member>
   </compound>
 </tagfile>

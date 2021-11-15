@@ -18,10 +18,12 @@ var searchData=
   ['highlightedtextcolourid_593',['highlightedTextColourId',['../classSingleLineTextEditor.html#a580e95f56d303528b02f91143c72f13ca9b056fa03362c023ccfa253404c8893a',1,'SingleLineTextEditor']]],
   ['highpass_594',['highpass',['../classFilter.html#a8f99602312ccfbe9e1598532158726c0a4118e76c4cd96f521d5a2aada176e72a',1,'Filter']]],
   ['highshelf_595',['highshelf',['../classEQ.html#afd7d7b03b08fd8ca89204c04ff847010af9006159cc7c1e1041c5206349d39c41',1,'EQ::highshelf()'],['../classFilter.html#a8f99602312ccfbe9e1598532158726c0aa55b7fdb404e127357a11995f063cbee',1,'Filter::highshelf()']]],
-  ['horizontalfader_596',['HorizontalFader',['../classHorizontalFader.html',1,'HorizontalFader'],['../classHorizontalFader.html#ad34bdd3d394ea50181cfb8a8e32a55bd',1,'HorizontalFader::HorizontalFader()']]],
-  ['hp12state_597',['HP12State',['../structHP12State.html',1,'HP12State'],['../structHP12State.html#a26cb6edccf0ef60fcd94b972c61a0491',1,'HP12State::HP12State()']]],
-  ['hp24state_598',['HP24State',['../structHP24State.html',1,'HP24State'],['../structHP24State.html#a893b30c4df910670f54f57fdb8adc80d',1,'HP24State::HP24State()']]],
-  ['http_599',['Http',['../classHttp.html',1,'Http'],['../classHttp.html#ad057da75ec75c9a44f3b736ff19ccd9d',1,'Http::Http()']]],
-  ['httpcode_600',['httpCode',['../structDownloadManager_1_1DownloadResult.html#a70931a9fd508ce4cc0344be6514aeffb',1,'DownloadManager::DownloadResult']]],
-  ['httpresult_601',['HttpResult',['../structHttp_1_1HttpResult.html',1,'Http']]]
+  ['holdremaining_596',['holdRemaining',['../classEnvelopeDetector.html#a45d8c4b34051590225abaf3d766a4da1',1,'EnvelopeDetector']]],
+  ['holdtime_597',['holdTime',['../classEnvelopeDetector.html#a92145a868d64b608b11903a79866ab8c',1,'EnvelopeDetector']]],
+  ['horizontalfader_598',['HorizontalFader',['../classHorizontalFader.html',1,'HorizontalFader'],['../classHorizontalFader.html#ad34bdd3d394ea50181cfb8a8e32a55bd',1,'HorizontalFader::HorizontalFader()']]],
+  ['hp12state_599',['HP12State',['../structHP12State.html',1,'HP12State'],['../structHP12State.html#a26cb6edccf0ef60fcd94b972c61a0491',1,'HP12State::HP12State()']]],
+  ['hp24state_600',['HP24State',['../structHP24State.html',1,'HP24State'],['../structHP24State.html#a893b30c4df910670f54f57fdb8adc80d',1,'HP24State::HP24State()']]],
+  ['http_601',['Http',['../classHttp.html',1,'Http'],['../classHttp.html#ad057da75ec75c9a44f3b736ff19ccd9d',1,'Http::Http()']]],
+  ['httpcode_602',['httpCode',['../structDownloadManager_1_1DownloadResult.html#a70931a9fd508ce4cc0344be6514aeffb',1,'DownloadManager::DownloadResult']]],
+  ['httpresult_603',['HttpResult',['../structHttp_1_1HttpResult.html',1,'Http']]]
 ];

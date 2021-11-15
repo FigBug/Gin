@@ -91,6 +91,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aaffaed493523a4e04dc15798879c95ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c151e5f1f29e3d901fb9f2dc28a6002"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a2c151e5f1f29e3d901fb9f2dc28a6002">setSampleRate</a> (double f)</td></tr>
 <tr class="separator:a2c151e5f1f29e3d901fb9f2dc28a6002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c28fd0f9f06054525c443e3e593568e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a0c28fd0f9f06054525c443e3e593568e">setHold</a> (float holdS)</td></tr>
+<tr class="separator:a0c28fd0f9f06054525c443e3e593568e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab93bbb66f808ca1de945101eded169c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#ab93bbb66f808ca1de945101eded169c6">setParams</a> (float attackS, float releaseS, bool <a class="el" href="classEnvelopeDetector.html#aef1cbe13f909298336ff3e307e6b252c">analogTC</a>, <a class="el" href="classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4">Mode</a> detect, bool <a class="el" href="classEnvelopeDetector.html#a9b42cde52cbdcb05cbc85a65ba6a017f">logDetector</a>)</td></tr>
 <tr class="separator:ab93bbb66f808ca1de945101eded169c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21c729fbcbdac9e36b47144fada3cdda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a21c729fbcbdac9e36b47144fada3cdda">reset</a> ()</td></tr>
@@ -117,6 +119,10 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:ac3265a876b56e1206513591f5c35ec2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cb63a505870b8c7f21f963163341a51"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a6cb63a505870b8c7f21f963163341a51">envelope</a> = 0.0</td></tr>
 <tr class="separator:a6cb63a505870b8c7f21f963163341a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92145a868d64b608b11903a79866ab8c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a92145a868d64b608b11903a79866ab8c">holdTime</a> = 0.0f</td></tr>
+<tr class="separator:a92145a868d64b608b11903a79866ab8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45d8c4b34051590225abaf3d766a4da1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a45d8c4b34051590225abaf3d766a4da1">holdRemaining</a> = 0.0f</td></tr>
+<tr class="separator:a45d8c4b34051590225abaf3d766a4da1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef1cbe13f909298336ff3e307e6b252c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#aef1cbe13f909298336ff3e307e6b252c">analogTC</a> = false</td></tr>
 <tr class="separator:aef1cbe13f909298336ff3e307e6b252c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b42cde52cbdcb05cbc85a65ba6a017f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a9b42cde52cbdcb05cbc85a65ba6a017f">logDetector</a> = false</td></tr>
@@ -213,6 +219,24 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="classEnvelopeDetector.html#abe9c3bdb279f4724032f4785b5c77d74">sampleRate</a>.</p>
+
+</div>
+</div>
+<a id="a0c28fd0f9f06054525c443e3e593568e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c28fd0f9f06054525c443e3e593568e">&#9670;&nbsp;</a></span>setHold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EnvelopeDetector::setHold </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>holdS</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -462,6 +486,50 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a92145a868d64b608b11903a79866ab8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92145a868d64b608b11903a79866ab8c">&#9670;&nbsp;</a></span>holdTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EnvelopeDetector::holdTime = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a45d8c4b34051590225abaf3d766a4da1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45d8c4b34051590225abaf3d766a4da1">&#9670;&nbsp;</a></span>holdRemaining</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EnvelopeDetector::holdRemaining = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aef1cbe13f909298336ff3e307e6b252c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aef1cbe13f909298336ff3e307e6b252c">&#9670;&nbsp;</a></span>analogTC</h2>
 
@@ -512,7 +580,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Oct 16 2021 22:23:43 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 15 2021 21:40:30 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
