@@ -45,8 +45,9 @@ Release
 
 xcuserdata
 Builds
-JuceLibraryCode
-juce
-bin
+/JuceLibraryCode
+/juce
 doxygen/doc
 doxygen/build
+/Debug
+
