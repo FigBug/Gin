@@ -62,7 +62,7 @@ float EnvelopeDetector::process (float input)
     }
     else if (holdTime > 0.0f && holdRemaining > 0.0f)
     {
-        holdRemaining -= 1.0f / sampleRate;
+        holdRemaining -= 1.0f / float (sampleRate);
     }
     else
     {
