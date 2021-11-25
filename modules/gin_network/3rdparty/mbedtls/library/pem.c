@@ -87,13 +87,13 @@ static int pem_pbkdf1( unsigned char *key, size_t keylen,
     /*
      * key[ 0..15] = MD5(pwd || IV)
      */
-    if( ( ret = mbedtls_md5_starts_ret( &md5_ctx ) ) != 0 )
+    if( ( ret = mbedtls_md5_starts( &md5_ctx ) ) != 0 )
         goto exit;
-    if( ( ret = mbedtls_md5_update_ret( &md5_ctx, pwd, pwdlen ) ) != 0 )
+    if( ( ret = mbedtls_md5_update( &md5_ctx, pwd, pwdlen ) ) != 0 )
         goto exit;
-    if( ( ret = mbedtls_md5_update_ret( &md5_ctx, iv,  8 ) ) != 0 )
+    if( ( ret = mbedtls_md5_update( &md5_ctx, iv,  8 ) ) != 0 )
         goto exit;
-    if( ( ret = mbedtls_md5_finish_ret( &md5_ctx, md5sum ) ) != 0 )
+    if( ( ret = mbedtls_md5_finish( &md5_ctx, md5sum ) ) != 0 )
         goto exit;
 
     if( keylen <= 16 )
@@ -107,15 +107,15 @@ static int pem_pbkdf1( unsigned char *key, size_t keylen,
     /*
      * key[16..23] = MD5(key[ 0..15] || pwd || IV])
      */
-    if( ( ret = mbedtls_md5_starts_ret( &md5_ctx ) ) != 0 )
+    if( ( ret = mbedtls_md5_starts( &md5_ctx ) ) != 0 )
         goto exit;
-    if( ( ret = mbedtls_md5_update_ret( &md5_ctx, md5sum, 16 ) ) != 0 )
+    if( ( ret = mbedtls_md5_update( &md5_ctx, md5sum, 16 ) ) != 0 )
         goto exit;
-    if( ( ret = mbedtls_md5_update_ret( &md5_ctx, pwd, pwdlen ) ) != 0 )
+    if( ( ret = mbedtls_md5_update( &md5_ctx, pwd, pwdlen ) ) != 0 )
         goto exit;
-    if( ( ret = mbedtls_md5_update_ret( &md5_ctx, iv, 8 ) ) != 0 )
+    if( ( ret = mbedtls_md5_update( &md5_ctx, iv, 8 ) ) != 0 )
         goto exit;
-    if( ( ret = mbedtls_md5_finish_ret( &md5_ctx, md5sum ) ) != 0 )
+    if( ( ret = mbedtls_md5_finish( &md5_ctx, md5sum ) ) != 0 )
         goto exit;
 
     use_len = 16;
@@ -343,7 +343,7 @@ int mbedtls_pem_read_buffer( mbedtls_pem_context *ctx, const char *header, const
     ret = mbedtls_base64_decode( NULL, 0, &len, s1, s2 - s1 );
 
     if( ret == MBEDTLS_ERR_BASE64_INVALID_CHARACTER )
-        return( MBEDTLS_ERR_PEM_INVALID_DATA + ret );
+        return( MBEDTLS_ERROR_ADD( MBEDTLS_ERR_PEM_INVALID_DATA, ret ) );
 
     if( ( buf = mbedtls_calloc( 1, len ) ) == NULL )
         return( MBEDTLS_ERR_PEM_ALLOC_FAILED );
@@ -352,7 +352,7 @@ int mbedtls_pem_read_buffer( mbedtls_pem_context *ctx, const char *header, const
     {
         mbedtls_platform_zeroize( buf, len );
         mbedtls_free( buf );
-        return( MBEDTLS_ERR_PEM_INVALID_DATA + ret );
+        return( MBEDTLS_ERROR_ADD( MBEDTLS_ERR_PEM_INVALID_DATA, ret ) );
     }
 
     if( enc != 0 )

@@ -29,14 +29,11 @@
 #if defined(MBEDTLS_ENTROPY_C)
 
 #include "mbedtls/entropy.h"
-#include "mbedtls/entropy_poll.h"
+#include "entropy_poll.h"
 #include "mbedtls/error.h"
 
 #if defined(MBEDTLS_TIMING_C)
 #include "mbedtls/timing.h"
-#endif
-#if defined(MBEDTLS_HAVEGE_C)
-#include "mbedtls/havege.h"
 #endif
 #if defined(MBEDTLS_ENTROPY_NV_SEED)
 #include "mbedtls/platform.h"
@@ -47,7 +44,7 @@
 #if !defined(unix) && !defined(__unix__) && !defined(__unix) && \
     !defined(__APPLE__) && !defined(_WIN32) && !defined(__QNXNTO__) && \
     !defined(__HAIKU__) && !defined(__midipix__)
-#error "Platform entropy sources only work on Unix and Windows, see MBEDTLS_NO_PLATFORM_ENTROPY in config.h"
+#error "Platform entropy sources only work on Unix and Windows, see MBEDTLS_NO_PLATFORM_ENTROPY in mbedtls_config.h"
 #endif
 
 #if defined(_WIN32) && !defined(EFIX64) && !defined(EFI32)
@@ -213,57 +210,6 @@ int mbedtls_platform_entropy_poll( void *data,
 }
 #endif /* _WIN32 && !EFIX64 && !EFI32 */
 #endif /* !MBEDTLS_NO_PLATFORM_ENTROPY */
-
-#if defined(MBEDTLS_TEST_NULL_ENTROPY)
-int mbedtls_null_entropy_poll( void *data,
-                    unsigned char *output, size_t len, size_t *olen )
-{
-    ((void) data);
-    ((void) output);
-
-    *olen = 0;
-    if( len < sizeof(unsigned char) )
-        return( 0 );
-
-    output[0] = 0;
-    *olen = sizeof(unsigned char);
-    return( 0 );
-}
-#endif
-
-#if defined(MBEDTLS_TIMING_C)
-int mbedtls_hardclock_poll( void *data,
-                    unsigned char *output, size_t len, size_t *olen )
-{
-    unsigned long timer = mbedtls_timing_hardclock();
-    ((void) data);
-    *olen = 0;
-
-    if( len < sizeof(unsigned long) )
-        return( 0 );
-
-    memcpy( output, &timer, sizeof(unsigned long) );
-    *olen = sizeof(unsigned long);
-
-    return( 0 );
-}
-#endif /* MBEDTLS_TIMING_C */
-
-#if defined(MBEDTLS_HAVEGE_C)
-int mbedtls_havege_poll( void *data,
-                 unsigned char *output, size_t len, size_t *olen )
-{
-    mbedtls_havege_state *hs = (mbedtls_havege_state *) data;
-    *olen = 0;
-
-    if( mbedtls_havege_random( hs, output, len ) != 0 )
-        return( MBEDTLS_ERR_ENTROPY_SOURCE_FAILED );
-
-    *olen = len;
-
-    return( 0 );
-}
-#endif /* MBEDTLS_HAVEGE_C */
 
 #if defined(MBEDTLS_ENTROPY_NV_SEED)
 int mbedtls_nv_seed_poll( void *data,

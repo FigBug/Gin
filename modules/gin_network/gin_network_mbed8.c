@@ -28,7 +28,10 @@
  #pragma warning(disable: 4310)
 #endif
 
+#include "3rdparty/mbedtls/library/constant_time.c"
 #include "3rdparty/mbedtls/library/net_sockets.c"
 #include "3rdparty/mbedtls/library/ssl_cookie.c"
 #include "3rdparty/mbedtls/library/ssl_msg.c"
 #include "3rdparty/mbedtls/library/sha1.c"
+#include "3rdparty/mbedtls/library/rsa_alt_helpers.c"
+

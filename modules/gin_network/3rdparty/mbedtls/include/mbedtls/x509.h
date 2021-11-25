@@ -21,12 +21,9 @@
  */
 #ifndef MBEDTLS_X509_H
 #define MBEDTLS_X509_H
+#include "mbedtls/private_access.h"
 
-#if !defined(MBEDTLS_CONFIG_FILE)
-#include "mbedtls/config.h"
-#else
-#include MBEDTLS_CONFIG_FILE
-#endif
+#include "mbedtls/build_info.h"
 
 #include "mbedtls/asn1.h"
 #include "mbedtls/pk.h"
@@ -56,26 +53,46 @@
  * \name X509 Error codes
  * \{
  */
-#define MBEDTLS_ERR_X509_FEATURE_UNAVAILABLE              -0x2080  /**< Unavailable feature, e.g. RSA hashing/encryption combination. */
-#define MBEDTLS_ERR_X509_UNKNOWN_OID                      -0x2100  /**< Requested OID is unknown. */
-#define MBEDTLS_ERR_X509_INVALID_FORMAT                   -0x2180  /**< The CRT/CRL/CSR format is invalid, e.g. different type expected. */
-#define MBEDTLS_ERR_X509_INVALID_VERSION                  -0x2200  /**< The CRT/CRL/CSR version element is invalid. */
-#define MBEDTLS_ERR_X509_INVALID_SERIAL                   -0x2280  /**< The serial tag or value is invalid. */
-#define MBEDTLS_ERR_X509_INVALID_ALG                      -0x2300  /**< The algorithm tag or value is invalid. */
-#define MBEDTLS_ERR_X509_INVALID_NAME                     -0x2380  /**< The name tag or value is invalid. */
-#define MBEDTLS_ERR_X509_INVALID_DATE                     -0x2400  /**< The date tag or value is invalid. */
-#define MBEDTLS_ERR_X509_INVALID_SIGNATURE                -0x2480  /**< The signature tag or value invalid. */
-#define MBEDTLS_ERR_X509_INVALID_EXTENSIONS               -0x2500  /**< The extension tag or value is invalid. */
-#define MBEDTLS_ERR_X509_UNKNOWN_VERSION                  -0x2580  /**< CRT/CRL/CSR has an unsupported version number. */
-#define MBEDTLS_ERR_X509_UNKNOWN_SIG_ALG                  -0x2600  /**< Signature algorithm (oid) is unsupported. */
-#define MBEDTLS_ERR_X509_SIG_MISMATCH                     -0x2680  /**< Signature algorithms do not match. (see \c ::mbedtls_x509_crt sig_oid) */
-#define MBEDTLS_ERR_X509_CERT_VERIFY_FAILED               -0x2700  /**< Certificate verification failed, e.g. CRL, CA or signature check failed. */
-#define MBEDTLS_ERR_X509_CERT_UNKNOWN_FORMAT              -0x2780  /**< Format not recognized as DER or PEM. */
-#define MBEDTLS_ERR_X509_BAD_INPUT_DATA                   -0x2800  /**< Input invalid. */
-#define MBEDTLS_ERR_X509_ALLOC_FAILED                     -0x2880  /**< Allocation of memory failed. */
-#define MBEDTLS_ERR_X509_FILE_IO_ERROR                    -0x2900  /**< Read/write of file failed. */
-#define MBEDTLS_ERR_X509_BUFFER_TOO_SMALL                 -0x2980  /**< Destination buffer is too small. */
-#define MBEDTLS_ERR_X509_FATAL_ERROR                      -0x3000  /**< A fatal error occurred, eg the chain is too long or the vrfy callback failed. */
+/** Unavailable feature, e.g. RSA hashing/encryption combination. */
+#define MBEDTLS_ERR_X509_FEATURE_UNAVAILABLE              -0x2080
+/** Requested OID is unknown. */
+#define MBEDTLS_ERR_X509_UNKNOWN_OID                      -0x2100
+/** The CRT/CRL/CSR format is invalid, e.g. different type expected. */
+#define MBEDTLS_ERR_X509_INVALID_FORMAT                   -0x2180
+/** The CRT/CRL/CSR version element is invalid. */
+#define MBEDTLS_ERR_X509_INVALID_VERSION                  -0x2200
+/** The serial tag or value is invalid. */
+#define MBEDTLS_ERR_X509_INVALID_SERIAL                   -0x2280
+/** The algorithm tag or value is invalid. */
+#define MBEDTLS_ERR_X509_INVALID_ALG                      -0x2300
+/** The name tag or value is invalid. */
+#define MBEDTLS_ERR_X509_INVALID_NAME                     -0x2380
+/** The date tag or value is invalid. */
+#define MBEDTLS_ERR_X509_INVALID_DATE                     -0x2400
+/** The signature tag or value invalid. */
+#define MBEDTLS_ERR_X509_INVALID_SIGNATURE                -0x2480
+/** The extension tag or value is invalid. */
+#define MBEDTLS_ERR_X509_INVALID_EXTENSIONS               -0x2500
+/** CRT/CRL/CSR has an unsupported version number. */
+#define MBEDTLS_ERR_X509_UNKNOWN_VERSION                  -0x2580
+/** Signature algorithm (oid) is unsupported. */
+#define MBEDTLS_ERR_X509_UNKNOWN_SIG_ALG                  -0x2600
+/** Signature algorithms do not match. (see \c ::mbedtls_x509_crt sig_oid) */
+#define MBEDTLS_ERR_X509_SIG_MISMATCH                     -0x2680
+/** Certificate verification failed, e.g. CRL, CA or signature check failed. */
+#define MBEDTLS_ERR_X509_CERT_VERIFY_FAILED               -0x2700
+/** Format not recognized as DER or PEM. */
+#define MBEDTLS_ERR_X509_CERT_UNKNOWN_FORMAT              -0x2780
+/** Input invalid. */
+#define MBEDTLS_ERR_X509_BAD_INPUT_DATA                   -0x2800
+/** Allocation of memory failed. */
+#define MBEDTLS_ERR_X509_ALLOC_FAILED                     -0x2880
+/** Read/write of file failed. */
+#define MBEDTLS_ERR_X509_FILE_IO_ERROR                    -0x2900
+/** Destination buffer is too small. */
+#define MBEDTLS_ERR_X509_BUFFER_TOO_SMALL                 -0x2980
+/** A fatal error occurred, eg the chain is too long or the vrfy callback failed. */
+#define MBEDTLS_ERR_X509_FATAL_ERROR                      -0x3000
 /* \} name */
 
 /**
@@ -291,17 +308,6 @@ int mbedtls_x509_time_is_past( const mbedtls_x509_time *to );
  */
 int mbedtls_x509_time_is_future( const mbedtls_x509_time *from );
 
-#if defined(MBEDTLS_SELF_TEST)
-
-/**
- * \brief          Checkup routine
- *
- * \return         0 if successful, or 1 if the test failed
- */
-int mbedtls_x509_self_test( int verbose );
-
-#endif /* MBEDTLS_SELF_TEST */
-
 /*
  * Internal module functions. You probably do not want to use these unless you
  * know you do.
@@ -327,9 +333,11 @@ int mbedtls_x509_get_serial( unsigned char **p, const unsigned char *end,
                      mbedtls_x509_buf *serial );
 int mbedtls_x509_get_ext( unsigned char **p, const unsigned char *end,
                   mbedtls_x509_buf *ext, int tag );
+#if !defined(MBEDTLS_X509_REMOVE_INFO)
 int mbedtls_x509_sig_alg_gets( char *buf, size_t size, const mbedtls_x509_buf *sig_oid,
                        mbedtls_pk_type_t pk_alg, mbedtls_md_type_t md_alg,
                        const void *sig_opts );
+#endif
 int mbedtls_x509_key_size_helper( char *buf, size_t buf_size, const char *name );
 int mbedtls_x509_string_to_names( mbedtls_asn1_named_data **head, const char *name );
 int mbedtls_x509_set_extension( mbedtls_asn1_named_data **head, const char *oid, size_t oid_len,

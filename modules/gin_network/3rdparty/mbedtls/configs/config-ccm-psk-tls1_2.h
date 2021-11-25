@@ -29,8 +29,6 @@
  *
  * See README.txt for usage instructions.
  */
-#ifndef MBEDTLS_CONFIG_H
-#define MBEDTLS_CONFIG_H
 
 /* System support */
 //#define MBEDTLS_HAVE_TIME /* Optionally used in Hello messages */
@@ -48,6 +46,10 @@
 #define MBEDTLS_ENTROPY_C
 #define MBEDTLS_MD_C
 #define MBEDTLS_NET_C
+/* The library does not currently support enabling SHA-224 without SHA-256.
+ * A future version of the library will have this option disabled
+ * by default. */
+#define MBEDTLS_SHA224_C
 #define MBEDTLS_SHA256_C
 #define MBEDTLS_SSL_CLI_C
 #define MBEDTLS_SSL_SRV_C
@@ -79,8 +81,5 @@
  * both ends of the connection!  (See comments in "mbedtls/ssl.h".)
  * The optimal size here depends on the typical size of records.
  */
-#define MBEDTLS_SSL_MAX_CONTENT_LEN             1024
-
-#include "mbedtls/check_config.h"
-
-#endif /* MBEDTLS_CONFIG_H */
+#define MBEDTLS_SSL_IN_CONTENT_LEN             1024
+#define MBEDTLS_SSL_OUT_CONTENT_LEN             1024
