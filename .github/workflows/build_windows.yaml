@@ -4,6 +4,7 @@ on: [push]
 jobs:
   build:
     name: Build Windows
+    timeout-minutes: 20
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v1

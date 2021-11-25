@@ -5,6 +5,7 @@ jobs:
   build:
     name: Build Linux
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v1
       - name: "Run script"
