@@ -1395,7 +1395,7 @@ read_record_header:
 
     mbedtls_ssl_read_version( &ssl->major_ver, &ssl->minor_ver,
                       ssl->conf->transport, buf );
-    ssl->session_negotiate->minor_ver = ssl->minor_ver;
+    ssl->session_negotiate->minor_ver = (unsigned char) ssl->minor_ver;
 
     ssl->handshake->max_major_ver = ssl->major_ver;
     ssl->handshake->max_minor_ver = ssl->minor_ver;
@@ -3571,7 +3571,7 @@ static int ssl_parse_encrypted_pms( mbedtls_ssl_context *ssl,
     diff |= peer_pms[1] ^ ver[1];
 
     /* mask = diff ? 0xff : 0x00 using bit operations to avoid branches */
-    mask = mbedtls_ct_uint_mask( diff );
+    mask = (unsigned char) mbedtls_ct_uint_mask( diff );
 
     /*
      * Protection against Bleichenbacher's attack: invalid PKCS#1 v1.5 padding
