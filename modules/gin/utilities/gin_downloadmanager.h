@@ -158,7 +158,7 @@ private:
     juce::OwnedArray<Download> downloads;
     std::function<void ()> queueFinishedCallback;
     bool gzipDeflate = true;
-    std::atomic<bool> pause;
+    std::atomic<bool> pause { false };
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DownloadManager)
 };
