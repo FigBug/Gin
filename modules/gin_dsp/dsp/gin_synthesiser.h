@@ -36,7 +36,7 @@ class Synthesiser : public juce::MPESynthesiser
 public:
     Synthesiser()
     {
-        instrument->enableLegacyMode();
+        instrument.enableLegacyMode();
         setPitchbendTrackingMode (juce::MPEInstrument::allNotesOnChannel);
     }
 
@@ -56,12 +56,12 @@ public:
             {
                 juce::MPEZoneLayout zones;
                 zones.setLowerZone (15);
-                instrument->setZoneLayout (zones);
+                instrument.setZoneLayout (zones);
                 setPitchbendTrackingMode (juce::MPEInstrument::lastNotePlayedOnChannel);
             }
             else
             {
-                instrument->enableLegacyMode();
+                instrument.enableLegacyMode();
                 setPitchbendTrackingMode (juce::MPEInstrument::allNotesOnChannel);
             }
         }
@@ -200,8 +200,8 @@ public:
 
     bool isNotePlaying (juce::MPENote& n)
     {
-        for (int i = 0; i < instrument->getNumPlayingNotes(); i++)
-            if (n == instrument->getNote (i))
+        for (int i = 0; i < instrument.getNumPlayingNotes(); i++)
+            if (n == instrument.getNote (i))
                 return true;
 
         return false;
@@ -260,11 +260,11 @@ public:
         {
             if (legato)
             {
-                int num = instrument->getNumPlayingNotes();
+                int num = instrument.getNumPlayingNotes();
                 if (num > 1)
                 {
                     GlideInfo gi;
-                    gi.fromNote = instrument->getNote (num - 2).initialNote;
+                    gi.fromNote = instrument.getNote (num - 2).initialNote;
                     gi.glissando = glissando;
                     gi.portamento = portamento;
                     gi.rate = glideRate;
@@ -278,9 +278,9 @@ public:
             }
             else
             {
-                int num = instrument->getNumPlayingNotes();
+                int num = instrument.getNumPlayingNotes();
                 if (num > 1)
-                    lastNote = instrument->getNote (num - 2).initialNote;
+                    lastNote = instrument.getNote (num - 2).initialNote;
 
                 GlideInfo gi;
                 gi.fromNote = lastNote;
@@ -405,11 +405,11 @@ public:
         slice.clear();
         slice.addEvents (inputMidi, startSample, numSamples, 0);
 
-        int numNotesBefore = instrument->getNumPlayingNotes();
+        int numNotesBefore = instrument.getNumPlayingNotes();
 
         MPESynthesiser::renderNextBlock (outputAudio, slice, startSample, numSamples);
 
-        if (numNotesBefore == 0 && instrument->getNumPlayingNotes() > 0)
+        if (numNotesBefore == 0 && instrument.getNumPlayingNotes() > 0)
         {
             for (auto itr : inputMidi)
             {
@@ -422,7 +422,7 @@ public:
                 }
             }
         }
-        if (numNotesBefore > 0 && instrument->getNumPlayingNotes() == 0)
+        if (numNotesBefore > 0 && instrument.getNumPlayingNotes() == 0)
         {
             noteOffIndex = 0;
 
