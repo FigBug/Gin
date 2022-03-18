@@ -345,7 +345,8 @@ void FileSystemWatcher::addFolder (const juce::File& folder)
     // You can only listen to folders that exist
     jassert (folder.isDirectory());
 
-    watched.add (new Impl (*this, folder));
+    if ( ! getWatchedFolders().contains (folder))
+        watched.add (new Impl (*this, folder));
 }
 
 void FileSystemWatcher::removeFolder (const juce::File& folder)
