@@ -43,7 +43,8 @@
  #pragma warning (pop)
 #endif
 
-#if __clang__ || __GNUC__
+// clang on windows uses msvc name mangling for compatibility
+#if !JUCE_WINDOWS
  #include <cxxabi.h>
 #endif
 

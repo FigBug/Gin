@@ -39,7 +39,8 @@ juce::Component* realGetComponentUnderMouse()
 
 static juce::String getClassName (juce::Component* c)
 {
-   #if __clang__ || __GNUC__
+	// clang on windows uses msvc name mangling for compatibility
+	#if !JUCE_WINDOWS
     int status = 0;
     if (char* demangled = abi::__cxa_demangle (typeid (*c).name(), nullptr, nullptr, &status))
     {
