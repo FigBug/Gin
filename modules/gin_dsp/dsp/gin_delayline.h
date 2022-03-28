@@ -48,7 +48,7 @@ public:
         int prev = int (std::floor (readPos));
         int next = (prev + 1) % numSamples;
 
-        float fraction = readPos - prev;
+        float fraction = readPos - float ( prev );
         
         return (1.0f - fraction) * data[ch][prev] + fraction * data[ch][next];
     }

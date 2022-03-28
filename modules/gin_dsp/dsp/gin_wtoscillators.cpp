@@ -17,7 +17,7 @@ void WTOscillator::noteOn (float p)
 void WTOscillator::process (float note, const Params& params, juce::AudioSampleBuffer& buffer)
 {
     if (bllt.size() == 0) return;
-    int ti = std::min (bllt.size() - 1, int (bllt.size() * params.pw));
+    int ti = std::min (bllt.size() - 1, int (float ( bllt.size() ) * params.pw));
 
     float freq = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (note - 69.0) / 12.0)));
     float delta = 1.0f / (float ((1.0f / freq) * sampleRate));
@@ -43,7 +43,7 @@ void WTOscillator::process (float note, const Params& params, juce::AudioSampleB
 void WTOscillator::process (float noteL, float noteR, const Params& params, juce::AudioSampleBuffer& buffer)
 {
     if (bllt.size() == 0) return;
-    int ti = std::min (bllt.size() - 1, int (bllt.size() * params.pw));
+    int ti = std::min (bllt.size() - 1, int (float ( bllt.size() ) * params.pw));
 
     float freqL = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteL - 69.0) / 12.0)));
     float freqR = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteR - 69.0) / 12.0)));
@@ -71,7 +71,7 @@ void WTOscillator::process (float noteL, float noteR, const Params& params, juce
 void WTOscillator::processAdding (float note, const Params& params, juce::AudioSampleBuffer& buffer)
 {
     if (bllt.size() == 0) return;
-    int ti = std::min (bllt.size() - 1, int (bllt.size() * params.pw));
+    int ti = std::min (bllt.size() - 1, int (float ( bllt.size() ) * params.pw));
 
     float freq = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (note - 69.0) / 12.0)));
     float delta = 1.0f / (float ((1.0f / freq) * sampleRate));
@@ -96,7 +96,7 @@ void WTOscillator::processAdding (float note, const Params& params, juce::AudioS
 void WTOscillator::processAdding (float noteL, float noteR, const Params& params, juce::AudioSampleBuffer& buffer)
 {
     if (bllt.size() == 0) return;
-    int ti = std::min (bllt.size() - 1, int (bllt.size() * params.pw));
+    int ti = std::min (bllt.size() - 1, int (float ( bllt.size() ) * params.pw));
 
     float freqL = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteL - 69.0) / 12.0)));
     float freqR = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteR - 69.0) / 12.0)));

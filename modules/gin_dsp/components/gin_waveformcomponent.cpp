@@ -83,7 +83,7 @@ void WaveformComponent::processPendingSamples()
     {
         const int numSamples = buffer->getNumSamples();
 
-        float numSamplesPerPixel = numSamples / float (getWidth()) / zoom;
+        float numSamplesPerPixel = float ( numSamples ) / float (getWidth()) / zoom;
         float currentMin = 999999.0f;
         float currentMax = -999999.0f;
         float currentAve = 0.0;
@@ -92,8 +92,8 @@ void WaveformComponent::processPendingSamples()
         int numLeftToAverage = (int) std::max (1.0f, numSamplesPerPixel);
         
         auto samples = buffer->getReadPointer (ch);
-        int samplesTodo = juce::roundToInt (numSamples / zoom);
-        int i = juce::roundToInt (numSamples * offset);
+        int samplesTodo = juce::roundToInt (float ( numSamples ) / zoom);
+        int i = juce::roundToInt ( float ( numSamples ) * offset);
         
         while (--samplesTodo >= 0)
         {
@@ -108,7 +108,7 @@ void WaveformComponent::processPendingSamples()
 
             if (--numLeftToAverage <= 0)
             {
-                c->posBuffer.set (bufferWritePos, currentAve / numAveraged);
+                c->posBuffer.set (bufferWritePos, currentAve / float ( numAveraged) );
                 c->minBuffer.set (bufferWritePos, currentMin);
                 c->maxBuffer.set (bufferWritePos, currentMax);
 
@@ -155,9 +155,9 @@ void WaveformComponent::render (juce::Graphics& g)
             if (pos == c->bufferSize)
                 pos = 0;
 
-            const float top    = (1.0f - (0.5f + (0.5f * (c->maxBuffer[pos])))) * h;
-            const float bottom = (1.0f - (0.5f + (0.5f * (c->minBuffer[pos])))) * h;
-            const float mid    = (1.0f - (0.5f + (0.5f * (c->posBuffer[pos])))) * h;
+            const float top    = (1.0f - (0.5f + (0.5f * (c->maxBuffer[pos])))) * float ( h );
+            const float bottom = (1.0f - (0.5f + (0.5f * (c->minBuffer[pos])))) * float ( h );
+            const float mid    = (1.0f - (0.5f + (0.5f * (c->posBuffer[pos])))) * float ( h );
                         
             if (drawEnvelope && bottom - top > 2)
                 g.drawVerticalLine (currentX, top, bottom);
@@ -165,9 +165,9 @@ void WaveformComponent::render (juce::Graphics& g)
             if (drawTrace)
             {
                 if (currentX == 0)
-                    p.startNewSubPath (currentX, mid);
+                    p.startNewSubPath ( float ( currentX ), mid);
                 else
-                    p.lineTo (currentX, mid);
+                    p.lineTo ( float ( currentX ), mid);
             }
             
             currentX++;

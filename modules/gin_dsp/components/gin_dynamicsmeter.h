@@ -19,7 +19,7 @@ class DynamicsMeter : public juce::Component,
 public:
     DynamicsMeter (Dynamics&);
 
-    ~DynamicsMeter() ;
+    ~DynamicsMeter() override;
 
     enum ColourIds
     {
@@ -29,8 +29,8 @@ public:
     };
 
     //==============================================================================
-    void paint (juce::Graphics& g) ;
-    void timerCallback() ;
+    void paint (juce::Graphics& g) override;
+    void timerCallback() override;
 
 private:
     Dynamics& dynamics;

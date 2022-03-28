@@ -17,9 +17,7 @@
  #pragma clang diagnostic ignored "-Wunused-parameter"
  #pragma clang diagnostic ignored "-Wzero-as-null-pointer-constant"
  #pragma clang diagnostic ignored "-Wc99-extensions"
-#endif
-
-#if _MSC_VER
+#elif _MSC_VER
  #pragma warning (push)
  #pragma warning (disable: 4200 4815 4127 4244 4305)
 #endif
@@ -40,6 +38,8 @@ extern "C"
 
 #if __clang__
  #pragma clang diagnostic pop
+#elif _MSC_VER
+	#pragma warning (pop)
 #endif
 
 #include <cmath>

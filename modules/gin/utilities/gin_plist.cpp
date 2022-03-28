@@ -5,7 +5,7 @@
 
  ==============================================================================*/
 
-juce::var parseData (const juce::XmlElement& e)
+static juce::var parseData (const juce::XmlElement& e)
 {
     if (e.hasTagName ("string"))
     {

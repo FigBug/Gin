@@ -90,8 +90,8 @@ void XYScope::processPendingSamples()
 
         if (--channel.numLeftToAverage <= 0)
         {
-            channel.xBuffer[channel.bufferWritePos] = channel.currentX / channel.numAveraged;
-            channel.yBuffer[channel.bufferWritePos] = channel.currentY / channel.numAveraged;
+            channel.xBuffer[channel.bufferWritePos] = channel.currentX / float ( channel.numAveraged );
+            channel.yBuffer[channel.bufferWritePos] = channel.currentY / float ( channel.numAveraged );
 
             channel.numAveraged = 0;
             channel.currentX = 0.0;
@@ -126,8 +126,8 @@ void XYScope::render (juce::Graphics& g)
         if (pos == channel.bufferSize)
             pos = 0;
 
-        const float y = (1.0f - (0.5f + (0.5f * zoomFactor * (channel.yBuffer[pos])))) * h;
-        const float x = (1.0f - (0.5f + (0.5f * zoomFactor * (channel.xBuffer[pos])))) * w;
+        const float y = (1.0f - (0.5f + (0.5f * zoomFactor * (channel.yBuffer[pos])))) * float ( h );
+        const float x = (1.0f - (0.5f + (0.5f * zoomFactor * (channel.xBuffer[pos])))) * float ( w );
 
         if (curPoint == 0)
             p.startNewSubPath (x, y);

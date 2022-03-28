@@ -27,7 +27,7 @@ inline float calculateRMS (const float* values, int n)
     for (int i = 0; i < n; i++)
         rms += values[i] * values[i];
 
-    return std::sqrt ((1.0f / n) * rms);
+    return std::sqrt ((1.0f / float ( n )) * rms);
 }
 
 /** Get average */

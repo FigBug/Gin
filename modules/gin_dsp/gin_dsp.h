@@ -52,9 +52,18 @@
 #endif
 
 //==============================================================================
+#if defined (__clang__)
+ #pragma clang diagnostic push
+ #pragma clang diagnostic ignored "-Wcast-qual"
+#endif
+
 #include <juce_audio_utils/juce_audio_utils.h>
 #include <juce_dsp/juce_dsp.h>
 #include <gin/gin.h>
+
+#if defined (__clang__)
+ #pragma clang diagnostic pop
+#endif
 
 #include <map>
 #include <random>

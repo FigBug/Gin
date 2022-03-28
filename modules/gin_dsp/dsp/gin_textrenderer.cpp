@@ -11,7 +11,7 @@
 juce::String TextRenderer::renderBuffer (const juce::AudioSampleBuffer& buffer, int height, float numSamplesPerPixel)
 {
     juce::String txt;
-    txt.preallocateBytes (size_t (buffer.getNumChannels() * buffer.getNumSamples() / numSamplesPerPixel + 1000));
+    txt.preallocateBytes (size_t (float ( buffer.getNumChannels() * buffer.getNumSamples() ) / numSamplesPerPixel + 1000));
 
     for (auto ch = 0; ch < buffer.getNumChannels(); ch++)
     {
@@ -35,7 +35,7 @@ juce::String TextRenderer::renderBuffer (const juce::AudioSampleBuffer& buffer, 
 
             if (--numLeftToAverage <= 0)
             {
-                values.push_back (currentAve / numAveraged);
+                values.push_back (currentAve / float ( numAveraged ));
 
                 currentAve = 0.0;
 
@@ -49,7 +49,7 @@ juce::String TextRenderer::renderBuffer (const juce::AudioSampleBuffer& buffer, 
         {
             for (auto v : values)
             {
-                auto vi = int (std::round ((v + 1.0f) / 2.0f * (height - 1)));
+                auto vi = int (std::round ((v + 1.0f) / 2.0f * (float ( height ) - 1)));
 
                 if (vi == row)
                     txt += "*";

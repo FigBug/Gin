@@ -63,8 +63,8 @@ public:
             if (i == noteOffSample) triggered = false;
 
             phase += step;
-            while (phase >= steps)
-                phase -= steps;
+            while (phase >= float ( steps ))
+                phase -= float ( steps );
 
             auto lOn = triggered && stepsL.getUnchecked (int (phase));
             auto rOn = triggered && stepsR.getUnchecked (int (phase));

@@ -225,7 +225,7 @@ public:
             startThread (3);
     }
 
-    ~Impl()
+    ~Impl() override
     {
         if (isThreadRunning())
         {
