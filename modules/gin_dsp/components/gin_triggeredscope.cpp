@@ -112,10 +112,10 @@ void TriggeredScope::paint (juce::Graphics& g)
         const int h = getHeight();
 
         int ch = std::max (0, triggerChannel);
-        const float y = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + triggerLevel)))) * h;
+        const float y = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + triggerLevel)))) * float ( h );
 
         g.drawHorizontalLine (juce::roundToInt (y), 0.0f, float (w));
-        g.drawVerticalLine (juce::roundToInt (w * triggerPos), 0.0f, float (h));
+        g.drawVerticalLine (juce::roundToInt (float ( w ) * triggerPos), 0.0f, float (h));
     }
 }
 
@@ -176,7 +176,7 @@ void TriggeredScope::processPendingSamples()
 
             if (--c->numLeftToAverage <= 0)
             {
-                c->posBuffer[c->bufferWritePos] = c->currentAve / c->numAveraged;
+                c->posBuffer[c->bufferWritePos] = c->currentAve / float ( c->numAveraged );
                 c->minBuffer[c->bufferWritePos] = c->currentMin;
                 c->maxBuffer[c->bufferWritePos] = c->currentMax;
 
@@ -218,7 +218,7 @@ std::pair<int, bool> TriggeredScope::getTriggerPos()
             for (auto c : channels)
                 sum += c->minBuffer[i];
 
-            return sum / channels.size();
+            return sum / float ( channels.size() );
         }
         else
         {
@@ -234,7 +234,7 @@ std::pair<int, bool> TriggeredScope::getTriggerPos()
             for (auto c : channels)
                 sum += c->maxBuffer[i];
 
-            return sum / channels.size();
+            return sum / float ( channels.size() );
         }
         else
         {
@@ -294,7 +294,7 @@ void TriggeredScope::render (juce::Graphics& g)
 
     int bufferReadPos = getTriggerPos().first;
 
-    bufferReadPos -= juce::roundToInt (w * triggerPos);
+    bufferReadPos -= juce::roundToInt ( float ( w ) * triggerPos);
     if (bufferReadPos < 0 )
         bufferReadPos += channels[0]->bufferSize;
 
@@ -320,9 +320,9 @@ void TriggeredScope::render (juce::Graphics& g)
             if (pos == c->bufferSize)
                 pos = 0;
 
-            const float top = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + c->maxBuffer[pos])))) * h;
-            const float bottom = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + c->minBuffer[pos])))) * h;
-            const float mid = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + c->posBuffer[pos])))) * h;
+            const float top = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + c->maxBuffer[pos])))) * float ( h );
+            const float bottom = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + c->minBuffer[pos])))) * float ( h );
+            const float mid = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + c->posBuffer[pos])))) * float ( h );
 
             if (drawEnvelope && bottom - top > 2)
                 g.drawVerticalLine (currentX, top, bottom);
@@ -330,9 +330,9 @@ void TriggeredScope::render (juce::Graphics& g)
             if (drawTrace)
             {
                 if (currentX == 0)
-                    p.startNewSubPath (currentX, mid);
+                    p.startNewSubPath ( float ( currentX ), mid);
                 else
-                    p.lineTo (currentX, mid);
+                    p.lineTo ( float ( currentX ), mid);
             }
 
             currentX++;

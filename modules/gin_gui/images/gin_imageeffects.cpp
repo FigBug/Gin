@@ -510,7 +510,7 @@ void applyBrightnessContrast (juce::Image& img, float brightness, float contrast
     {
         for (int intensity = 0; intensity < 256; intensity++)
         {
-            if (intensity + brightness < 128)
+            if (float ( intensity ) + brightness < 128)
                 rgbTable[intensity] = 0;
             else
                 rgbTable[intensity] = 255;
@@ -533,7 +533,7 @@ void applyBrightnessContrast (juce::Image& img, float brightness, float contrast
     {
         for (int intensity = 0; intensity < 256; intensity++)
         {
-            int shift = int ((intensity - 127 + brightness) * multiply / divide + 127 - intensity);
+            int shift = int ((float ( intensity ) - 127 + brightness) * multiply / divide + 127 - float ( intensity ));
 
             for (int col = 0; col < 256; col++)
             {
@@ -622,9 +622,9 @@ void applyHueSaturationLightness (juce::Image& img, float hueIn, float saturatio
             uint8_t a = s->getAlpha();
 
             int intensity = getIntensity (toByte (r), toByte (g), toByte (b));
-            int ro = toByte (int (intensity * 1024 + (r - intensity) * saturation) >> 10);
-            int go = toByte (int (intensity * 1024 + (g - intensity) * saturation) >> 10);
-            int bo = toByte (int (intensity * 1024 + (b - intensity) * saturation) >> 10);
+            int ro = toByte (int (float ( intensity ) * 1024 + float (r - intensity) * saturation) >> 10);
+            int go = toByte (int (float ( intensity ) * 1024 + float (g - intensity) * saturation) >> 10);
+            int bo = toByte (int (float ( intensity ) * 1024 + float (b - intensity) * saturation) >> 10);
 
             juce::Colour c (toByte (ro), toByte (go), toByte (bo));
             float hue = c.getHue();
@@ -715,8 +715,8 @@ juce::Image applyResize (const juce::Image& src, int width, int height)
 juce::Image applyResize (const juce::Image& src, float factor)
 {
     return applyResize (src,
-                        juce::roundToInt (factor * src.getWidth()),
-                        juce::roundToInt (factor * src.getHeight()));
+                        juce::roundToInt (factor * float ( src.getWidth() )),
+                        juce::roundToInt (factor * float ( src.getHeight() )));
 }
 
 template <class T>

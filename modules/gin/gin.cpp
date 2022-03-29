@@ -65,6 +65,7 @@ namespace gin
 #if __clang__
  #pragma clang diagnostic push
  #pragma clang diagnostic ignored "-Wswitch-enum"
+ #pragma clang diagnostic ignored "-Wmissing-noreturn"
 #endif
 
 #include "3rdparty/muParser/muParser.cpp"

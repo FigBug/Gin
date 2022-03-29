@@ -58,7 +58,7 @@ public:
 };
 
 //==============================================================================
-double modFunc(mu::SParam, double a, double b)
+static double modFunc(mu::SParam, double a, double b)
 {
     return std::fmod (a, b);
 }

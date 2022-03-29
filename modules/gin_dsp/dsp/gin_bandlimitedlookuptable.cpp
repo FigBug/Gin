@@ -25,7 +25,7 @@ double sine (double phase, double, double)
 double triangle (double phase, double freq, double sampleRate)
 {
     double sum = 0;
-    int k = 1;
+    float k = 1;
     while (freq * k < sampleRate / 2)
     {
         sum += std::pow (-1, (k - 1) / 2.0f) / (k * k) * std::sin (k * (phase * 2 * juce::MathConstants<double>::pi));
@@ -38,10 +38,12 @@ double sawUp (double phase, double freq, double sampleRate)
 {
     double sum = 0;
     int k = 1;
+    float fk = 1.0f;
     while (freq * k < sampleRate / 2)
     {
-        sum += oddEven (k) * std::sin (k * (phase * 2 * juce::MathConstants<double>::pi)) / k;
+        sum += oddEven (k) * std::sin (fk * (phase * 2 * juce::MathConstants<double>::pi)) / fk;
         k++;
+        fk++;
     }
     return float (-2.0f / juce::MathConstants<float>::pi * sum);
 }
@@ -50,10 +52,12 @@ double sawDown (double phase, double freq, double sampleRate)
 {
     double sum = 0;
     int k = 1;
+    float fk = 1.0f;
     while (freq * k < sampleRate / 2)
     {
-        sum += oddEven (k) * std::sin (k * (phase * 2 * juce::MathConstants<double>::pi)) / k;
+        sum += oddEven (k) * std::sin (fk * (phase * 2 * juce::MathConstants<double>::pi)) / fk;
         k++;
+        fk++;
     }
     return float (2.0f / juce::MathConstants<float>::pi * sum);
 }
@@ -63,7 +67,7 @@ double pulse (double phase, double pw, double freq, double sampleRate)
     if (pw == 0.5)
     {
         double sum = 0;
-        int i = 1;
+        float i = 1;
         while (freq * (2 * i - 1) < sampleRate / 2)
         {
             sum += std::sin ((2 * i - 1) * (phase * 2 * juce::MathConstants<double>::pi)) / ((2 * i - 1));
@@ -82,7 +86,7 @@ double pulse (double phase, double pw, double freq, double sampleRate)
 double squareWave (double phase, double freq, double sampleRate)
 {
     double sum = 0;
-    int i = 1;
+    float i = 1;
     while (freq * (2 * i - 1) < sampleRate / 2)
     {
         sum += std::sin ((2 * i - 1) * (phase * 2 * juce::MathConstants<double>::pi)) / ((2 * i - 1));
@@ -122,7 +126,7 @@ void BandLimitedLookupTable::loadFromBuffer (juce::AudioSampleBuffer& buffer, do
             auto func = [&] (float phase)
             {
                 auto data = buffer.getReadPointer (0);
-                return data[int (phase * sz) % sz];
+                return data[int (phase * float ( sz )) % sz];
             };
 
             tables.add (new juce::dsp::LookupTableTransform<float> (func, 0.0f, 1.0f, (size_t) sz + 1));
@@ -132,7 +136,7 @@ void BandLimitedLookupTable::loadFromBuffer (juce::AudioSampleBuffer& buffer, do
             auto func = [&] (float phase)
             {
                 auto data = buffer.getReadPointer (0);
-                return data[int (phase * sz) % sz];
+                return data[int (phase * float( sz )) % sz];
             };
 
             tables.add (new juce::dsp::LookupTableTransform<float> (func, 0.0f, 1.0f, (size_t) sz + 1));

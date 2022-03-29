@@ -17,9 +17,7 @@
  #pragma clang diagnostic ignored "-Wconversion"
  #pragma clang diagnostic ignored "-Wshadow"
  #pragma clang diagnostic ignored "-Wunused-parameter"
-#endif
-
-#if _MSC_VER
+#elif _MSC_VER
  #pragma warning (push)
  #pragma warning (disable: 4100)
  #pragma warning (disable: 4127)
@@ -37,13 +35,12 @@
 
 #if __clang__
  #pragma clang diagnostic pop
-#endif
-
-#if _MSC_VER
+#elif _MSC_VER
  #pragma warning (pop)
 #endif
 
-#if __clang__ || __GNUC__
+// clang on windows uses msvc name mangling for compatibility
+#if !JUCE_WINDOWS
  #include <cxxabi.h>
 #endif
 

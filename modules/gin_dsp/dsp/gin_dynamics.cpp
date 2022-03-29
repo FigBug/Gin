@@ -149,7 +149,7 @@ void Dynamics::process (juce::AudioSampleBuffer& buffer, juce::AudioSampleBuffer
                 linked += juce::Decibels::decibelsToGain (in);
             }
 
-            linked /= channels;
+            linked /= float ( channels );
 
             if (env != nullptr)
                 env[0][i] = linked;

@@ -59,19 +59,21 @@ void GinLookAndFeel::drawLinearSlider (juce::Graphics& g, int x, int y, int widt
     if (slider.isEnabled())
         g.setColour (slider.findColour (juce::Slider::trackColourId).withAlpha (isMouseOver ? 0.95f : 0.85f));
 
+    auto rcf = rc.toFloat ();
+
     if (slider.isHorizontal())
-        g.fillRect (juce::Rectangle<float> (static_cast<float> (rc.getX()), rc.getY() + 0.5f, sliderPos - rc.getX(), rc.getHeight() - 1.0f));
+        g.fillRect (juce::Rectangle<float> (rcf.getX(), rcf.getY() + 0.5f, sliderPos - rcf.getX(), rcf.getHeight() - 1.0f));
     else
-        g.fillRect (juce::Rectangle<float> (rc.getX() + 0.5f, sliderPos, rc.getWidth() - 1.0f, rc.getY() + (rc.getHeight() - sliderPos)));
+        g.fillRect (juce::Rectangle<float> (rcf.getX() + 0.5f, sliderPos, rcf.getWidth() - 1.0f, rcf.getY() + (rcf.getHeight() - sliderPos)));
 }
 
 void GinLookAndFeel::drawRotarySlider (juce::Graphics& g, int x, int y, int width, int height, float sliderPos,
                                        const float rotaryStartAngleIn, const float rotaryEndAngle, juce::Slider& slider)
 {
     float rotaryStartAngle = rotaryStartAngleIn;
-    const float radius = std::min (width / 2, height / 2) - 2.0f;
-    const float centreX = x + width * 0.5f;
-    const float centreY = y + height * 0.5f;
+    const float radius = float ( std::min (width / 2, height / 2) ) - 2.0f;
+    const float centreX = float ( x + width ) * 0.5f;
+    const float centreY = float ( y + height ) * 0.5f;
     const float rx = centreX - radius;
     const float ry = centreY - radius;
     const float rw = radius * 2.0f;

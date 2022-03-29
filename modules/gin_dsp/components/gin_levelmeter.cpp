@@ -26,13 +26,13 @@ void LevelMeter::paint (juce::Graphics& g)
 
     if (topDown)
     {
-        rc.removeFromBottom (juce::roundToInt (range.convertTo0to1 (level) * getHeight()));
+        rc.removeFromBottom (juce::roundToInt (range.convertTo0to1 (level) * float ( getHeight() )));
         g.setColour (findColour (meterColourId));
         g.fillRect (rc);
     }
     else
     {
-        rc = rc.removeFromBottom (juce::roundToInt (range.convertTo0to1 (level) * getHeight()));
+        rc = rc.removeFromBottom (juce::roundToInt (range.convertTo0to1 (level) * float ( getHeight() )));
         g.setColour (findColour (meterColourId));
         g.fillRect (rc);
     }

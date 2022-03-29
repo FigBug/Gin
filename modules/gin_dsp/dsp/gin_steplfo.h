@@ -42,7 +42,7 @@ public:
 
         float step = 0.0f;
         if (frequency > 0.0001f)
-            step = float (frequency / sampleRate) / points.size();
+            step = float (frequency / sampleRate) / float ( points.size() );
 
         for (int i = 0; i < numSamples; i++)
         {
@@ -62,7 +62,7 @@ public:
 private:
     float updateCurrentValue()
     {
-        output = points[int (phase * points.size())];
+        output = points[int (phase * float ( points.size() ))];
 
         return juce::jlimit (-1.0f, 1.0f, (output));
     }

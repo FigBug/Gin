@@ -50,7 +50,7 @@ juce::String valueTreeToJSON (const juce::ValueTree& v)
 }
 
 //==============================================================================
-juce::ValueTree fromVar (const juce::var& obj)
+static juce::ValueTree fromVar (const juce::var& obj)
 {
     if (auto dobj = obj.getDynamicObject())
     {

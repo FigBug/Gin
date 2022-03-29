@@ -5,7 +5,7 @@
 
  ==============================================================================*/
 
-juce::Component* realGetComponent (juce::Component& p, juce::Point<int> screenPos)
+static juce::Component* realGetComponent (juce::Component& p, juce::Point<int> screenPos)
 {
     if (p.getScreenBounds().contains (screenPos))
     {
@@ -19,7 +19,7 @@ juce::Component* realGetComponent (juce::Component& p, juce::Point<int> screenPo
     return nullptr;
 }
 
-juce::Component* realGetComponentUnderMouse()
+static juce::Component* realGetComponentUnderMouse()
 {
     auto mouse = juce::Desktop::getInstance().getMainMouseSource();
     auto pos = mouse.getScreenPosition().toInt();
@@ -39,7 +39,8 @@ juce::Component* realGetComponentUnderMouse()
 
 static juce::String getClassName (juce::Component* c)
 {
-   #if __clang__ || __GNUC__
+	// clang on windows uses msvc name mangling for compatibility
+	#if !JUCE_WINDOWS
     int status = 0;
     if (char* demangled = abi::__cxa_demangle (typeid (*c).name(), nullptr, nullptr, &status))
     {
@@ -115,7 +116,7 @@ private:
             int w = getWidth()  / zoom + 1;
             int h = getHeight() / zoom + 1;
 
-            juce::Rectangle<int> rc (w / 2 * zoom, h / 2 * zoom, int (zoom / scale), int (zoom / scale));
+            juce::Rectangle<int> rc (w / 2 * zoom, h / 2 * zoom, int (float ( zoom ) / scale), int ( float ( zoom ) / scale));
 
             auto c = image.getPixelAt (rc.getX(), rc.getY());
             g.setColour (c.contrasting());

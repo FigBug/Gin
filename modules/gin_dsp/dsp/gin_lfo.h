@@ -66,7 +66,7 @@ public:
         fadeDelta  = 0.0f;
         delaySteps = 0;
     }
-    
+
     void noteOn()
     {
         if (parameters.fade <= 0)
@@ -112,10 +112,10 @@ public:
                 curPhase = newCurPhase;
             }
         }
-        
+
         return updateCurrentValue();
     }
-    
+
     float getOutput()
     {
         return juce::jlimit (-1.0f, 1.0f, (curFade * output * parameters.depth + parameters.offset));
@@ -160,27 +160,27 @@ private:
                 case WaveShape::noise:
                 {
                     int p = int (curPhase);
-                    float t = curPhase - p;
+                    float t = curPhase - float ( p );
                     output = lerp (t, randomPoints[p], randomPoints[p + 1]);
                     break;
                 }
                 case WaveShape::stepUp3:
-                    output = int (curPhase * 3) / 3.0f * 6.0f/2.0f - 1;
+                    output = float ( int (curPhase * 3) ) / 3.0f * 6.0f/2.0f - 1;
                     break;
                 case WaveShape::stepUp4:
-                    output = int (curPhase * 4) / 4.0f * 8.0f/3.0f - 1;
+                    output = float ( int (curPhase * 4) ) / 4.0f * 8.0f/3.0f - 1;
                     break;
                 case WaveShape::stepup8:
-                    output = int (curPhase * 8) / 8.0f * 16.0f/7.0f - 1;
+                    output = float ( int (curPhase * 8) ) / 8.0f * 16.0f/7.0f - 1;
                     break;
                 case WaveShape::stepDown3:
-                    output = -(int (curPhase * 3) / 3.0f * 6.0f/2.0f - 1);
+                    output = -( float ( int (curPhase * 3) ) / 3.0f * 6.0f/2.0f - 1);
                     break;
                 case WaveShape::stepDown4:
-                    output = -(int (curPhase * 4) / 4.0f * 8.0f/3.0f - 1);
+                    output = -( float ( int (curPhase * 4) ) / 4.0f * 8.0f/3.0f - 1);
                     break;
                 case WaveShape::stepDown8:
-                    output = -(int (curPhase * 8) / 8.0f * 16.0f/7.0f - 1);
+                    output = -( float ( int (curPhase * 8) ) / 8.0f * 16.0f/7.0f - 1);
                     break;
                 case WaveShape::pyramid3:
                 {
