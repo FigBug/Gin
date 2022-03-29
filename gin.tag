@@ -3700,22 +3700,22 @@
       <type></type>
       <name>~DynamicsMeter</name>
       <anchorfile>classDynamicsMeter.html</anchorfile>
-      <anchor>ad9f254a8302fc0b73b2062b1a9695efc</anchor>
-      <arglist>()</arglist>
+      <anchor>abfd5413d8c210e1fb65b4e257da4335d</anchor>
+      <arglist>() override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>paint</name>
       <anchorfile>classDynamicsMeter.html</anchorfile>
-      <anchor>adc494090d337acf52ece3a9ba2c7207e</anchor>
-      <arglist>(juce::Graphics &amp;g)</arglist>
+      <anchor>a932a59881c3775e70cfdd0870753a897</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>timerCallback</name>
       <anchorfile>classDynamicsMeter.html</anchorfile>
-      <anchor>a5580169115243881a2d1434c3d1995dc</anchor>
-      <arglist>()</arglist>
+      <anchor>a26663940a83484b73a3aa0c6c436535e</anchor>
+      <arglist>() override</arglist>
     </member>
   </compound>
   <compound kind="class">
