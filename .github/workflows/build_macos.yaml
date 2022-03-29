@@ -4,7 +4,7 @@ on: [push]
 jobs:
   build:
     name: Build macOS
-    timeout-minutes: 20
+    timeout-minutes: 40
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
