@@ -3,7 +3,8 @@ Parameter::Parameter (Processor& p, juce::String uid_, juce::String name_, juce:
                       juce::String label_, float minValue, float maxValue,
                       float intervalValue, float defaultValue_, float skewFactor,
                       std::function<juce::String (const Parameter&, float)> textFunction_)
-  : processor (p),
+  : juce::AudioPluginInstance::HostedParameter (1),
+    processor (p),
     value (defaultValue_),
     defaultValue (defaultValue_),
     uid (uid_),
@@ -21,7 +22,8 @@ Parameter::Parameter (Processor& p, juce::String uid_, juce::String name_, juce:
 Parameter::Parameter (Processor& p, juce::String uid_, juce::String name_, juce::String shortName_,
                       juce::String label_, juce::NormalisableRange<float> range_, float defaultValue_,
                       std::function<juce::String (const Parameter&, float)> textFunction_)
-  : processor (p),
+  : juce::AudioPluginInstance::HostedParameter (1),
+    processor (p),
     range (range_),
     value (defaultValue_),
     defaultValue (defaultValue_),
