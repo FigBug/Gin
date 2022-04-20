@@ -155,7 +155,7 @@ private:
 
     double retryDelay = 0.0;
     int runningDownloads = 0, maxDownloads = 100;
-    juce::OwnedArray<Download> downloads;
+    juce::OwnedArray<Download, juce::CriticalSection> downloads;
     std::function<void ()> queueFinishedCallback;
     bool gzipDeflate = true;
     std::atomic<bool> pause { false };
