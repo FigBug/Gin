@@ -46,7 +46,12 @@ void MapViewer::tileFetched (int zoom_, int x, int y)
     if (zoom == zoom_)
     {
         mapUpdated();
-        repaint (x * 256 - xoffset, y * 256 - yoffset, 256, 256);
+
+        juce::MessageManager::callAsync ([x, y, self = juce::Component::SafePointer<MapViewer> (this)]
+        {
+            if (self != nullptr)
+                self->repaint (x * 256 - self->xoffset, y * 256 - self->yoffset, 256, 256);
+        });
     }
 }
 
@@ -161,5 +166,10 @@ void MapViewer::clearDoubleBuffer()
 void MapViewer::mapUpdated()
 {
     clearDoubleBuffer();
-    repaint();
+
+    juce::MessageManager::callAsync ([self = juce::Component::SafePointer<MapViewer> (this)]
+    {
+        if (self != nullptr)
+            self->repaint();
+    });
 }

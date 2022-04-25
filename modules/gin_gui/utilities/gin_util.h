@@ -40,7 +40,7 @@ public:
     void run() override
     {
         ok = readEntireBinaryStream (data);
-        handleAsyncUpdate();
+        triggerAsyncUpdate();
     }
 
     bool readEntireBinaryStream (juce::MemoryBlock& destData, bool usePostCommand = false)
