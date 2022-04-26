@@ -15,7 +15,10 @@ public:
     ~EquationParser();
 
     void setEquation (juce::String equation);
+
+    void clearVariables ();
     void addVariable (juce::String name, double* value);
+    void setVarFactory (std::function<double* (const char*)> fun);
 
     void clearConstants();
     void addConstant (juce::String name, double value);
@@ -45,6 +48,7 @@ private:
     class Callback2;
     class Callback3;
     class Callback4;
+    class CallbackVF;
 
     juce::OwnedArray<Callback> callbacks;
 

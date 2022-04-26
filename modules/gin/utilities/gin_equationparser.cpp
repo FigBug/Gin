@@ -56,6 +56,12 @@ public:
     Callback4 (std::function <double(int, double, double, double, double)> f) : fun (f) {}
     std::function <double(int, double, double, double, double)> fun;
 };
+class EquationParser::CallbackVF : public EquationParser::Callback
+{
+public:
+    CallbackVF (std::function <double*(const char*)> f) : fun (f) {}
+    std::function <double*(const char*)> fun;
+};
 
 //==============================================================================
 static double modFunc(mu::SParam, double a, double b)
@@ -132,6 +138,27 @@ void EquationParser::addConstant (juce::String name, double value)
     catch (...)
     {
     }
+}
+
+void EquationParser::clearVariables ()
+{
+    impl->parser.ClearVar();
+}
+
+void EquationParser::setVarFactory (std::function<double* (const char*)> fun)
+{
+    auto cb = new CallbackVF (fun);
+    impl->parser.SetVarFactory ([] (mu::SParam, const char* name, void* data)
+    {
+        auto c = (CallbackVF*)data;
+        auto r = c->fun (name);
+
+        if (r == nullptr)
+            throw mu::ParserError ("Variable buffer overflow.");
+
+        return r;
+    }, cb);
+    callbacks.add (cb);
 }
 
 void EquationParser::addFunction (juce::String name, std::function<double (int id, const juce::String&)> fun)
