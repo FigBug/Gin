@@ -17,6 +17,7 @@ public:
     void setEquation (juce::String equation);
     void addVariable (juce::String name, double* value);
 
+    void clearConstants();
     void addConstant (juce::String name, double value);
 
     void addFunction (juce::String name, std::function<double (int id, const juce::String&)> fun);

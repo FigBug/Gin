@@ -39,7 +39,7 @@ extern "C"
 #if __clang__
  #pragma clang diagnostic pop
 #elif _MSC_VER
-	#pragma warning (pop)
+    #pragma warning (pop)
 #endif
 
 #include <cmath>
@@ -73,4 +73,3 @@ namespace gin
 #include "components/gin_xyscope.cpp"
 
 }
-

@@ -118,6 +118,11 @@ void EquationParser::addVariable (juce::String name, double* value)
     }
 }
 
+void EquationParser::clearConstants()
+{
+    impl->parser.ClearConst();
+}
+
 void EquationParser::addConstant (juce::String name, double value)
 {
     try
