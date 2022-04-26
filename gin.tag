@@ -4352,6 +4352,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>clearConstants</name>
+      <anchorfile>classEquationParser.html</anchorfile>
+      <anchor>a82b1caf0b52884d713ddb76990bc93cc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>addConstant</name>
       <anchorfile>classEquationParser.html</anchorfile>
       <anchor>a8ed6df6210bd739d2001adf382ac56b2</anchor>

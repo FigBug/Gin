@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['gainprocessor_1348',['GainProcessor',['../classGainProcessor.html',1,'']]],
-  ['gateeffect_1349',['GateEffect',['../classGateEffect.html',1,'']]],
-  ['gateeffectcomponent_1350',['GateEffectComponent',['../classGateEffectComponent.html',1,'']]],
-  ['ginlookandfeel_1351',['GinLookAndFeel',['../classGinLookAndFeel.html',1,'']]],
-  ['glideinfo_1352',['GlideInfo',['../structGlideInfo.html',1,'']]]
+  ['gainprocessor_1349',['GainProcessor',['../classGainProcessor.html',1,'']]],
+  ['gateeffect_1350',['GateEffect',['../classGateEffect.html',1,'']]],
+  ['gateeffectcomponent_1351',['GateEffectComponent',['../classGateEffectComponent.html',1,'']]],
+  ['ginlookandfeel_1352',['GinLookAndFeel',['../classGinLookAndFeel.html',1,'']]],
+  ['glideinfo_1353',['GlideInfo',['../structGlideInfo.html',1,'']]]
 ];
