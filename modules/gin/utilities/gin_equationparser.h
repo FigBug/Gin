@@ -54,6 +54,7 @@ private:
 
     class EquationParserImpl;
     std::unique_ptr<EquationParserImpl> impl;
+    std::unique_ptr<CallbackVF> varFactory;
     juce::String errorMessage;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (EquationParser)

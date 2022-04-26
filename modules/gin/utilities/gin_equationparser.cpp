@@ -158,7 +158,7 @@ void EquationParser::setVarFactory (std::function<double* (const char*)> fun)
 
         return r;
     }, cb);
-    callbacks.add (cb);
+    varFactory.reset (cb);
 }
 
 void EquationParser::addFunction (juce::String name, std::function<double (int id, const juce::String&)> fun)
