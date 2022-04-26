@@ -4345,10 +4345,24 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>clearVariables</name>
+      <anchorfile>classEquationParser.html</anchorfile>
+      <anchor>ac5e970f7cce272259c829ba072b74962</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>addVariable</name>
       <anchorfile>classEquationParser.html</anchorfile>
       <anchor>aebf7f4cdf88caa17a85dd4a137b35150</anchor>
       <arglist>(juce::String name, double *value)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setVarFactory</name>
+      <anchorfile>classEquationParser.html</anchorfile>
+      <anchor>a36b96c894f2d1b4d20f7b11ee018defb</anchor>
+      <arglist>(std::function&lt; double *(const char *)&gt; fun)</arglist>
     </member>
     <member kind="function">
       <type>void</type>

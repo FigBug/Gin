@@ -85,8 +85,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a39e3f9e4335c9f0adae9df76fcbfb0a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6d133fbe94ce08f2d3b751630f3f2ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#aa6d133fbe94ce08f2d3b751630f3f2ef">setEquation</a> (juce::String equation)</td></tr>
 <tr class="separator:aa6d133fbe94ce08f2d3b751630f3f2ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5e970f7cce272259c829ba072b74962"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#ac5e970f7cce272259c829ba072b74962">clearVariables</a> ()</td></tr>
+<tr class="separator:ac5e970f7cce272259c829ba072b74962"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebf7f4cdf88caa17a85dd4a137b35150"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#aebf7f4cdf88caa17a85dd4a137b35150">addVariable</a> (juce::String name, double *value)</td></tr>
 <tr class="separator:aebf7f4cdf88caa17a85dd4a137b35150"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36b96c894f2d1b4d20f7b11ee018defb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#a36b96c894f2d1b4d20f7b11ee018defb">setVarFactory</a> (std::function&lt; double *(const char *)&gt; fun)</td></tr>
+<tr class="separator:a36b96c894f2d1b4d20f7b11ee018defb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82b1caf0b52884d713ddb76990bc93cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#a82b1caf0b52884d713ddb76990bc93cc">clearConstants</a> ()</td></tr>
 <tr class="separator:a82b1caf0b52884d713ddb76990bc93cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ed6df6210bd739d2001adf382ac56b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#a8ed6df6210bd739d2001adf382ac56b2">addConstant</a> (juce::String name, double value)</td></tr>
@@ -182,6 +186,23 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ac5e970f7cce272259c829ba072b74962"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5e970f7cce272259c829ba072b74962">&#9670;&nbsp;</a></span>clearVariables()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EquationParser::clearVariables </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aebf7f4cdf88caa17a85dd4a137b35150"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aebf7f4cdf88caa17a85dd4a137b35150">&#9670;&nbsp;</a></span>addVariable()</h2>
 
@@ -204,6 +225,24 @@ Public Member Functions</h2></td></tr>
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a36b96c894f2d1b4d20f7b11ee018defb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36b96c894f2d1b4d20f7b11ee018defb">&#9670;&nbsp;</a></span>setVarFactory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EquationParser::setVarFactory </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; double *(const char *)&gt;&#160;</td>
+          <td class="paramname"><em>fun</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -480,7 +519,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 26 2022 21:36:18 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 26 2022 22:23:07 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
