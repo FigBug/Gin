@@ -57,21 +57,14 @@
 */
 //#define MUP_USE_OPENMP
 
-#if defined(_UNICODE)
-  /** \brief Definition of the basic parser string type. */
-  #define MUP_STRING_TYPE std::wstring
-
-  #if !defined(_T)
-    #define _T(x) L##x
-  #endif // not defined _T
-#else
-  #ifndef _T
-  #define _T(x) x
-  #endif
-
-  /** \brief Definition of the basic parser string type. */
-  #define MUP_STRING_TYPE std::string
+// NOTE: UNICODE support disabled
+#ifndef _T
+#define _T(x) x
 #endif
+
+/** \brief Definition of the basic parser string type. */
+#define MUP_STRING_TYPE std::string
+
 
 #if defined(_DEBUG)
   /** \brief Debug macro to force an abortion of the programm with a certain message.
@@ -104,26 +97,7 @@
 
 namespace mu
 {
-#if defined(_UNICODE)
-
-  //------------------------------------------------------------------------------
-  /** \brief Encapsulate wcout. */
-  inline std::wostream& console()
-  {
-    return std::wcout;
-  }
-
-  /** \brief Encapsulate cin. */
-  inline std::wistream& console_in()
-  {
-    return std::wcin;
-  }
-
-#else
-
   /** \brief Encapsulate cout.
-
-    Used for supporting UNICODE more easily.
   */
   inline std::ostream& console()
   {
@@ -131,15 +105,11 @@ namespace mu
   }
 
   /** \brief Encapsulate cin.
-
-    Used for supporting UNICODE more easily.
   */
   inline std::istream& console_in()
   {
     return std::cin;
   }
-
-#endif
 
   //------------------------------------------------------------------------------
   /** \brief Bytecode values.

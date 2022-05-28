@@ -31,7 +31,7 @@ public:
         if (fileMapping == nullptr)
             fileMapping = CreateFileMappingW (INVALID_HANDLE_VALUE, nullptr, PAGE_READWRITE, 0, sz, shareName.toWideCharPointer());
 
-        if (HMODULE dll = LoadLibrary ("ntdll.dll"))
+        if (HMODULE dll = LoadLibraryA ("ntdll.dll"))
         {
             NTQUERYSECTION ntQuerySection = (NTQUERYSECTION) GetProcAddress (dll, "NtQuerySection");
             if (ntQuerySection != nullptr)
