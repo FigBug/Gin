@@ -885,7 +885,7 @@ SingleLineTextEditor::~SingleLineTextEditor()
 {
     if (wasFocused)
         if (juce::ComponentPeer* const peer = getPeer())
-            peer->dismissPendingTextInput();
+            peer->closeInputMethodContext();
 
     textValue.removeListener (textHolder.get());
     textValue.referTo (juce::Value());
@@ -1744,7 +1744,7 @@ void SingleLineTextEditor::focusGained (FocusChangeType)
 
     if (juce::ComponentPeer* const peer = getPeer())
         if (! isReadOnly())
-            peer->textInputRequired (peer->globalToLocal (getScreenPosition()), *this);
+            peer->refreshTextInputTarget();
 }
 
 void SingleLineTextEditor::focusLost (FocusChangeType)
@@ -1757,7 +1757,7 @@ void SingleLineTextEditor::focusLost (FocusChangeType)
     underlinedSections.clear();
 
     if (juce::ComponentPeer* const peer = getPeer())
-        peer->dismissPendingTextInput();
+        peer->closeInputMethodContext();
 
     updateCaretPosition();
 
