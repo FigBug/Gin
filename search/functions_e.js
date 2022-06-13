@@ -45,7 +45,7 @@ var searchData=
   ['processcommandline_2089',['processCommandLine',['../classElevatedFileCopy.html#a105805b9b82a4d0050bcb9804bc72857',1,'ElevatedFileCopy']]],
   ['processmultiplying_2090',['processMultiplying',['../classAnalogADSR.html#a0fbc0634af4beb8f56840baae672f3ec',1,'AnalogADSR::processMultiplying(juce::AudioSampleBuffer &amp;buffer)'],['../classAnalogADSR.html#a4adbb803653e45ab63ba4fed94ce7719',1,'AnalogADSR::processMultiplying(juce::AudioSampleBuffer &amp;buffer, int startSample, int numSamples)']]],
   ['processor_2091',['Processor',['../classProcessor.html#ab4b297f2d055f3316918d3e23081a45a',1,'Processor']]],
-  ['processoreditor_2092',['ProcessorEditor',['../classProcessorEditor.html#a1c6b8fa5165549c5d0d46b62d65d5b4e',1,'ProcessorEditor']]],
+  ['processoreditor_2092',['ProcessorEditor',['../classProcessorEditor.html#a1243029ef3210c55622ab215bb90d378',1,'ProcessorEditor']]],
   ['processoreditorbase_2093',['ProcessorEditorBase',['../classProcessorEditorBase.html#a60d56ee99cbf45683efe298e0715f2dd',1,'ProcessorEditorBase']]],
   ['processpulse_2094',['processPulse',['../classBandLimitedLookupTables.html#a95aa08a1c4943b1e3ca991ae3316aeba',1,'BandLimitedLookupTables']]],
   ['processsawdown_2095',['processSawDown',['../classBandLimitedLookupTables.html#a14edeb68c6de5b718ce9ca07886f8858',1,'BandLimitedLookupTables']]],

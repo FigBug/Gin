@@ -3127,6 +3127,13 @@
       <anchor>a928163d12b9c62bbeac79cc94c0d04e0</anchor>
       <arglist>() override</arglist>
     </member>
+    <member kind="function">
+      <type>juce::Font</type>
+      <name>getLabelFont</name>
+      <anchorfile>classCopperLookAndFeel.html</anchorfile>
+      <anchor>a156cada54186dfac49b6e867fa529eaa</anchor>
+      <arglist>(juce::Label &amp;) override</arglist>
+    </member>
     <member kind="variable">
       <type>juce::SharedResourcePointer&lt; Images &gt;</type>
       <name>images</name>
@@ -9490,8 +9497,8 @@
       <type></type>
       <name>ProcessorEditor</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a1c6b8fa5165549c5d0d46b62d65d5b4e</anchor>
-      <arglist>(Processor &amp;, int cx=56, int cy=70) noexcept</arglist>
+      <anchor>a1243029ef3210c55622ab215bb90d378</anchor>
+      <arglist>(Processor &amp;) noexcept</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -9867,7 +9874,6 @@
     <name>Readout</name>
     <filename>classReadout.html</filename>
     <base protection="private">Parameter::Listener</base>
-    <base protection="private">SingleLineTextEditor::Listener</base>
     <member kind="function">
       <type></type>
       <name>Readout</name>
@@ -9881,13 +9887,6 @@
       <anchorfile>classReadout.html</anchorfile>
       <anchor>a62ebff9c5a4eae6c22f5a65992d902af</anchor>
       <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isEditing</name>
-      <anchorfile>classReadout.html</anchorfile>
-      <anchor>a8c7395eb672ee60a70e2501afe017e09</anchor>
-      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">

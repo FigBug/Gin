@@ -1,4 +1,0 @@
-<map id="SingleLineTextEditor::Listener" name="SingleLineTextEditor::Listener">
-<area shape="rect" id="node1" title="Receives callbacks from a TextEditor component when it changes." alt="" coords="5,5,160,47"/>
-<area shape="rect" id="node2" href="$classReadout.html" title="A control for displaying a parameter." alt="" coords="45,95,121,121"/>
-</map>
