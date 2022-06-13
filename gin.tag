@@ -11911,6 +11911,13 @@
       <anchor>a455717b90e823faab20135a3e8217750</anchor>
       <arglist>(bool)</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setShowPresets</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>addc556044a2d728b9586ab3ac2e0abe7</anchor>
+      <arglist>(bool)</arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>paint</name>
@@ -11965,6 +11972,13 @@
       <name>slProc</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>afd45058b0880e55b0da0aebf57b1f286</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>hasPresets</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>a981c2205d4edca7359eafa06aa34931a</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
