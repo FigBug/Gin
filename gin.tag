@@ -9490,8 +9490,8 @@
       <type></type>
       <name>ProcessorEditor</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>ae1162833b01af723f686cc24580d117a</anchor>
-      <arglist>(Processor &amp;, int cx=100, int cy=100) noexcept</arglist>
+      <anchor>a1c6b8fa5165549c5d0d46b62d65d5b4e</anchor>
+      <arglist>(Processor &amp;, int cx=56, int cy=70) noexcept</arglist>
     </member>
     <member kind="function">
       <type></type>

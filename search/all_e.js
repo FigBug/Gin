@@ -68,7 +68,7 @@ var searchData=
   ['processmultiplying_877',['processMultiplying',['../classAnalogADSR.html#a0fbc0634af4beb8f56840baae672f3ec',1,'AnalogADSR::processMultiplying(juce::AudioSampleBuffer &amp;buffer)'],['../classAnalogADSR.html#a4adbb803653e45ab63ba4fed94ce7719',1,'AnalogADSR::processMultiplying(juce::AudioSampleBuffer &amp;buffer, int startSample, int numSamples)']]],
   ['processor_878',['Processor',['../classProcessor.html',1,'Processor'],['../classProcessor.html#ab4b297f2d055f3316918d3e23081a45a',1,'Processor::Processor()'],['../classParameter.html#aff54b112e093cf966a1bec5bf5a934dd',1,'Parameter::processor()']]],
   ['processorbaseclass_879',['ProcessorBaseClass',['../group__gin__plugin-plugin.html#ga9ccf6c679c1fdf1c1414992a17202f5a',1,'gin_processor.h']]],
-  ['processoreditor_880',['ProcessorEditor',['../classProcessorEditor.html',1,'ProcessorEditor'],['../classProcessorEditor.html#ae1162833b01af723f686cc24580d117a',1,'ProcessorEditor::ProcessorEditor()']]],
+  ['processoreditor_880',['ProcessorEditor',['../classProcessorEditor.html',1,'ProcessorEditor'],['../classProcessorEditor.html#a1c6b8fa5165549c5d0d46b62d65d5b4e',1,'ProcessorEditor::ProcessorEditor()']]],
   ['processoreditorbase_881',['ProcessorEditorBase',['../classProcessorEditorBase.html',1,'ProcessorEditorBase'],['../classProcessorEditorBase.html#a60d56ee99cbf45683efe298e0715f2dd',1,'ProcessorEditorBase::ProcessorEditorBase()']]],
   ['processpulse_882',['processPulse',['../classBandLimitedLookupTables.html#a95aa08a1c4943b1e3ca991ae3316aeba',1,'BandLimitedLookupTables']]],
   ['processsawdown_883',['processSawDown',['../classBandLimitedLookupTables.html#a14edeb68c6de5b718ce9ca07886f8858',1,'BandLimitedLookupTables']]],
