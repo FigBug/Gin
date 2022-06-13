@@ -3121,6 +3121,13 @@
       <arglist>(juce::Graphics &amp;, int width, int height, juce::TextEditor &amp;) override</arglist>
     </member>
     <member kind="function">
+      <type>juce::PopupMenu::Options</type>
+      <name>getOptionsForComboBoxPopupMenu</name>
+      <anchorfile>classCopperLookAndFeel.html</anchorfile>
+      <anchor>af423d163ab73fe036783734cbc88e9ae</anchor>
+      <arglist>(juce::ComboBox &amp;box, juce::Label &amp;) override</arglist>
+    </member>
+    <member kind="function">
       <type>int</type>
       <name>getAlertWindowButtonHeight</name>
       <anchorfile>classCopperLookAndFeel.html</anchorfile>
@@ -10313,6 +10320,41 @@
       <anchorfile>classSelect.html</anchorfile>
       <anchor>ac3aa83683f719ac41bc4c4ac559faa59</anchor>
       <arglist>(Parameter *parameter)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setShowName</name>
+      <anchorfile>classSelect.html</anchorfile>
+      <anchor>a4b9a602ca81e69b5ae3f681274694fc4</anchor>
+      <arglist>(bool s)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>resized</name>
+      <anchorfile>classSelect.html</anchorfile>
+      <anchor>a3c244c1a02c2a16152ed0f562b23b928</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::Label</type>
+      <name>name</name>
+      <anchorfile>classSelect.html</anchorfile>
+      <anchor>a68477089c5c406d199fe071d09080be4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>PluginComboBox</type>
+      <name>comboBox</name>
+      <anchorfile>classSelect.html</anchorfile>
+      <anchor>ae4c36d9f29cde76f2dadd791c8c3ed05</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>showName</name>
+      <anchorfile>classSelect.html</anchorfile>
+      <anchor>aef337a5f41361db7b4dac795bb32d1db</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
