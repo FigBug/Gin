@@ -87,8 +87,7 @@ void Knob::resized()
 
     auto extra = r.getHeight() - r.getWidth();
 
-    r.removeFromTop (extra / 4);
-    auto rc = r.removeFromBottom (extra / 4 * 3);
+    auto rc = r.removeFromBottom (extra);
 
     name.setBounds (rc);
     value.setBounds (rc);
@@ -112,7 +111,7 @@ void Knob::timerCallback()
     auto p = getMouseXYRelative();
     if (! getLocalBounds().contains (p) &&
         ! juce::ModifierKeys::getCurrentModifiers().isAnyMouseButtonDown() &&
-        ! value.isEditing())
+        ! value.isBeingEdited())
     {
         name.setVisible (true);
         value.setVisible (false);

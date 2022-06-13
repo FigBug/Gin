@@ -186,29 +186,20 @@ private:
 /** A control for displaying a parameter
 */
 class Readout : public juce::Label,
-                private Parameter::Listener,
-                private SingleLineTextEditor::Listener
+                private Parameter::Listener
 {
 public:
     Readout (Parameter* parameter);
     ~Readout() override;
 
-    bool isEditing()    { return editing; }
-
 private:
     void parameterChanged (Parameter* source) override;
-    void resized() override;
-    void mouseDown (const juce::MouseEvent& e) override;
     void paint (juce::Graphics& g) override;
+    void textWasEdited() override;
 
-    void sltextEditorReturnKeyPressed (SingleLineTextEditor&) override;
-    void sltextEditorEscapeKeyPressed (SingleLineTextEditor&) override;
-    void sltextEditorFocusLost (SingleLineTextEditor&) override;
+    juce::TextEditor* createEditorComponent() override;
 
     Parameter* parameter = nullptr;
-    SingleLineTextEditor editor;
-
-    bool editing = false;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Readout)
 };

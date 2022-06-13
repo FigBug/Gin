@@ -217,7 +217,7 @@ void TitleBar::setShowPresets (bool s)
 
 void TitleBar::resized()
 {
-    auto programsRC = getLocalBounds().withSizeKeepingCentre (std::min (getWidth() / 2, 299), 23);
+    auto programsRC = getLocalBounds().withSizeKeepingCentre (std::min (getWidth() - 200, 299), 23);
 
     if (hasPresets)
     {
@@ -456,8 +456,8 @@ juce::Rectangle<int> ProcessorEditorBase::getControlsArea()
 }
 
 //==============================================================================
-ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_) noexcept
-  : ProcessorEditorBase (p, cx_, cy_), slProc (p)
+ProcessorEditor::ProcessorEditor (Processor& p) noexcept
+  : ProcessorEditorBase (p, 56, 70), slProc (p)
 {
     setLookAndFeel (slProc.lf.get());
 

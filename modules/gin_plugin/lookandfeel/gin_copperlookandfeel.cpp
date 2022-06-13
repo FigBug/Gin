@@ -14,7 +14,7 @@ CopperLookAndFeel::CopperLookAndFeel()
     setColour (grey60ColourId, juce::Colour (0xff9B9EA5));
     setColour (grey90ColourId, juce::Colour (0xffE6E6E9));
     setColour (glass1ColourId, juce::Colour (0xff0f1012));
-    setColour (glass2ColourId, juce::Colour (0xff0F1012));
+    setColour (glass2ColourId, juce::Colour (0xff0b0b0d));
     setColour (matte1ColourId, juce::Colour (0xff18191C));
     setColour (matte2ColourId, juce::Colour (0xff131417));
     setColour (title1ColourId, juce::Colour (0xff2A2C30));
@@ -192,6 +192,15 @@ void CopperLookAndFeel::drawButtonBackground (juce::Graphics&, juce::Button&, co
 
 void CopperLookAndFeel::drawButtonText (juce::Graphics& g, juce::TextButton& b, bool, bool)
 {
+    {
+        auto rc = b.getLocalBounds().toFloat();
+
+        g.setColour (findColour (PluginLookAndFeel::glass1ColourId));
+        g.fillRoundedRectangle (rc, rc.getHeight() / 2);
+        g.setColour (findColour (PluginLookAndFeel::glass2ColourId));
+        g.drawRoundedRectangle (rc, rc.getHeight() / 2, 1.0f);
+    }
+
     auto c = b.findColour (b.getToggleState() ? juce::TextButton::textColourOnId : juce::TextButton::textColourOffId).withMultipliedAlpha (b.isEnabled() ? 1.0f : 0.5f);
 
     if (b.isMouseOver() && b.isEnabled())
@@ -239,12 +248,25 @@ void CopperLookAndFeel::positionComboBoxText (juce::ComboBox& box, juce::Label& 
     label.setJustificationType (juce::Justification::centred);
 }
 
-void CopperLookAndFeel::drawTextEditorOutline (juce::Graphics& g, int width, int height, juce::TextEditor&)
+void CopperLookAndFeel::drawTextEditorOutline (juce::Graphics& g, int width, int height, juce::TextEditor& textEditor)
 {
-    g.setColour (defaultColour (4));
-    g.drawRect (0, 0, width, height);
+    if (dynamic_cast<juce::AlertWindow*> (textEditor.getParentComponent()) == nullptr)
+    {
+        if (textEditor.isEnabled())
+        {
+            if (textEditor.hasKeyboardFocus (true) && ! textEditor.isReadOnly())
+            {
+                g.setColour (textEditor.findColour (juce::TextEditor::focusedOutlineColourId));
+                g.drawRect (0, 0, width, height, 2);
+            }
+            else
+            {
+                g.setColour (textEditor.findColour (juce::TextEditor::outlineColourId));
+                g.drawRect (0, 0, width, height);
+            }
+        }
+    }
 }
-
 
 //==============================================================================
 CopperLookAndFeelWrapper::CopperLookAndFeelWrapper()

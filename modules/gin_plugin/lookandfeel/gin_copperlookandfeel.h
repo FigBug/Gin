@@ -35,7 +35,8 @@ public:
 
     void drawTextEditorOutline (juce::Graphics&, int width, int height, juce::TextEditor&) override;
 
-    int getAlertWindowButtonHeight() override    { return 20; }
+    int getAlertWindowButtonHeight() override       { return 20; }
+    juce::Font getLabelFont (juce::Label&) override { return juce::Font (10); }
 
     juce::SharedResourcePointer<Images> images;
 

@@ -3,12 +3,9 @@
 Readout::Readout (Parameter* parameter_)
   : parameter (parameter_)
 {
+    setEditable (true, true);
     parameter->addListener (this);
     setText (parameter->getUserValueText(), juce::dontSendNotification);
-
-    addChildComponent (editor);
-    editor.addListener (this);
-    editor.setOpaque (false);
 
     setBorderSize (juce::BorderSize<int> (0));
 }
@@ -25,51 +22,25 @@ void Readout::parameterChanged (Parameter*)
 
 void Readout::paint (juce::Graphics& g)
 {
-    if (! editing)
+    if (! isBeingEdited())
         Label::paint (g);
 }
 
-void Readout::resized()
+juce::TextEditor* Readout::createEditorComponent()
 {
-    editor.setBounds (getLocalBounds());
+    auto e = juce::Label::createEditorComponent();
+    e->setColour (juce::TextEditor::outlineColourId, juce::Colours::transparentBlack);
+    e->setColour (juce::TextEditor::focusedOutlineColourId, juce::Colours::transparentBlack);
+    e->applyFontToAllText (getLookAndFeel().getLabelFont (*this), true);
+    e->setJustification (getJustificationType());
+    return e;
 }
 
-void Readout::mouseDown (const juce::MouseEvent&)
+void Readout::textWasEdited()
 {
-    editing = true;
-    editor.setVisible (true);
-    editor.setFont (getFont());
-    editor.setText (parameter->getUserValueText(), juce::dontSendNotification);
-    editor.setJustificationType (getJustificationType());
-    editor.setSelectAllWhenFocused (true);
-    editor.toFront (true);
-    repaint();
-}
-
-void Readout::sltextEditorReturnKeyPressed (SingleLineTextEditor&)
-{
-    float v = editor.getText().getFloatValue();
+    float v = getText().getFloatValue();
     parameter->setUserValueAsUserAction (v);
 
-    editor.setVisible (false);
-    editing = false;
-    repaint();
-}
-
-void Readout::sltextEditorEscapeKeyPressed (SingleLineTextEditor&)
-{
-    editor.setVisible (false);
-    editing = false;
-    repaint();
-}
-
-void Readout::sltextEditorFocusLost (SingleLineTextEditor&)
-{
-    float v = editor.getText().getFloatValue();
-    parameter->setUserValueAsUserAction (v);
-
-    editor.setVisible (false);
-    editing = false;
     repaint();
 }
 

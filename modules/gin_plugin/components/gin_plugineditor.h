@@ -169,7 +169,7 @@ protected:
 class ProcessorEditor : public ProcessorEditorBase
 {
 public:
-    ProcessorEditor (Processor&, int cx = 56, int cy = 70) noexcept;
+    ProcessorEditor (Processor&) noexcept;
     ~ProcessorEditor() override;
 
     void showAboutInfo();
