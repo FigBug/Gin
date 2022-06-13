@@ -272,12 +272,19 @@ class Select : public ParamComponent
 {
 public:
     Select (Parameter* parameter);
+    void setShowName (bool s)
+    {
+        showName = s;
+        resized();
+    }
 
-private:
+protected:
     void resized() override;
 
     juce::Label name;
     PluginComboBox comboBox;
+
+    bool showName = true;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Select)
 };

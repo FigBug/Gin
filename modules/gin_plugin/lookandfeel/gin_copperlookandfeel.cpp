@@ -34,6 +34,7 @@ CopperLookAndFeel::CopperLookAndFeel()
     setColour (juce::ComboBox::backgroundColourId, findColour (glass1ColourId));
     setColour (juce::ComboBox::outlineColourId, findColour (blackColourId));
 
+    setColour (juce::Slider::thumbColourId, findColour (accentColourId));
     setColour (juce::Slider::rotarySliderFillColourId, findColour (accentColourId));
     setColour (juce::Slider::trackColourId, findColour (grey45ColourId));
 
@@ -68,7 +69,7 @@ void CopperLookAndFeel::drawLinearSlider (juce::Graphics& g, int x, int y, int w
     g.fillRect (rc);
 
     if (slider.isEnabled())
-        g.setColour (slider.findColour (juce::Slider::trackColourId).withAlpha (isMouseOver ? 0.95f : 0.85f));
+        g.setColour (slider.findColour (juce::Slider::thumbColourId).withAlpha (isMouseOver ? 0.95f : 0.85f));
 
     if (slider.isHorizontal())
     {
@@ -85,7 +86,7 @@ void CopperLookAndFeel::drawLinearSlider (juce::Graphics& g, int x, int y, int w
         }
         else
         {
-            g.fillRect (juce::Rectangle<float> (float (rc.getX()), float (y), sliderPos - rc.getX(), h));
+            g.fillRect (juce::Rectangle<float> (float (rc.getX()), float (rc.getY()), sliderPos - rc.getX(), rc.getHeight()));
         }
     }
     else
@@ -270,6 +271,15 @@ void CopperLookAndFeel::drawTextEditorOutline (juce::Graphics& g, int width, int
     }
 }
 
+juce::PopupMenu::Options CopperLookAndFeel::getOptionsForComboBoxPopupMenu (juce::ComboBox& box, juce::Label&)
+{
+    return juce::PopupMenu::Options().withTargetComponent (&box)
+                                     .withItemThatMustBeVisible (box.getSelectedId())
+                                     .withInitiallySelectedItem (box.getSelectedId())
+                                     .withMinimumWidth (box.getWidth())
+                                     .withMaximumNumColumns (1);
+}
+
 //==============================================================================
 CopperLookAndFeelWrapper::CopperLookAndFeelWrapper()
 {
@@ -280,3 +290,4 @@ CopperLookAndFeelWrapper::~CopperLookAndFeelWrapper()
 {
     LookAndFeel::setDefaultLookAndFeel (nullptr);
 }
+

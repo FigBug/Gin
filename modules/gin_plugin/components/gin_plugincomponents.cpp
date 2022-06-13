@@ -113,9 +113,16 @@ Select::Select (Parameter* p)
 
 void Select::resized()
 {
-    juce::Rectangle<int> r = getLocalBounds().reduced (2);
-    auto rc = r.removeFromBottom (15);
+    if (showName)
+    {
+        juce::Rectangle<int> r = getLocalBounds().reduced (2);
+        auto rc = r.removeFromBottom (15);
 
-    name.setBounds (rc);
-    comboBox.setBounds (r.withSizeKeepingCentre (getWidth() - 4, 15));
+        name.setBounds (rc);
+        comboBox.setBounds (r.withSizeKeepingCentre (getWidth() - 4, 15));
+    }
+    else
+    {
+        comboBox.setBounds (getLocalBounds());
+    }
 }

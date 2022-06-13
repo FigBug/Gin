@@ -35,6 +35,8 @@ public:
 
     void drawTextEditorOutline (juce::Graphics&, int width, int height, juce::TextEditor&) override;
 
+    juce::PopupMenu::Options getOptionsForComboBoxPopupMenu (juce::ComboBox& box, juce::Label&) override;
+
     int getAlertWindowButtonHeight() override       { return 20; }
     juce::Font getLabelFont (juce::Label&) override { return juce::Font (10); }
 
