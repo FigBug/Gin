@@ -40,7 +40,7 @@ void DynamicsMeter::paint (juce::Graphics& g)
 
         dbOut = dynamics.calcCurve (dbIn);
 
-        float y = float ( getHeight() ) - range.convertTo0to1 (dbOut) * float ( getHeight () );
+        float y = float (getHeight()) - range.convertTo0to1 (juce::jlimit (range.start, range.end, dbOut)) * float (getHeight ());
 
         if (x == 0)
             p.startNewSubPath (x, y);

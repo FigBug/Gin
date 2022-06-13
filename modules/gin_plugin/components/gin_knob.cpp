@@ -16,8 +16,8 @@ Knob::Knob (Parameter* p, bool fromCentre)
         knob.getProperties().set ("fromCentre", true);
 
     name.setText (parameter->getShortName(), juce::dontSendNotification);
-    value.setJustificationType (juce::Justification::centredTop);
-    name.setJustificationType (juce::Justification::centredBottom);
+    value.setJustificationType (juce::Justification::centred);
+    name.setJustificationType (juce::Justification::centred);
 
     value.setVisible (false);
 
@@ -84,7 +84,11 @@ void Knob::showModMenu()
 void Knob::resized()
 {
     juce::Rectangle<int> r = getLocalBounds().reduced (2);
-    auto rc = r.removeFromBottom (15);
+
+    auto extra = r.getHeight() - r.getWidth();
+
+    r.removeFromTop (extra / 4);
+    auto rc = r.removeFromBottom (extra / 4 * 3);
 
     name.setBounds (rc);
     value.setBounds (rc);

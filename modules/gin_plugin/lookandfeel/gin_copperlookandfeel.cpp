@@ -21,14 +21,29 @@ CopperLookAndFeel::CopperLookAndFeel()
     setColour (title2ColourId, juce::Colour (0xff25272B));
     setColour (accentColourId, juce::Colour (0xffCC8866));
 
+    setColour (juce::Label::textColourId, findColour (grey90ColourId));
+
     setColour (juce::TextButton::textColourOnId, findColour (accentColourId));
     setColour (juce::TextButton::textColourOffId, findColour (grey60ColourId));
 
-    setColour (juce::TextEditor::textColourId, findColour (grey60ColourId));
+    setColour (juce::TextEditor::textColourId, findColour (grey90ColourId));
 
     setColour (juce::ComboBox::textColourId, findColour (accentColourId));
     setColour (juce::ComboBox::backgroundColourId, findColour (glass1ColourId));
     setColour (juce::ComboBox::outlineColourId, findColour (blackColourId));
+
+    setColour (juce::Slider::rotarySliderFillColourId, findColour (accentColourId));
+    setColour (juce::Slider::trackColourId, findColour (grey45ColourId));
+
+    setColour (juce::PopupMenu::backgroundColourId, findColour (backgroundColourId));
+    setColour (juce::PopupMenu::textColourId, findColour (grey60ColourId));
+    setColour (juce::PopupMenu::headerTextColourId, findColour (grey60ColourId));
+    setColour (juce::PopupMenu::highlightedBackgroundColourId, findColour (accentColourId));
+    setColour (juce::PopupMenu::highlightedTextColourId, findColour (whiteColourId));
+
+    setColour (juce::AlertWindow::backgroundColourId, findColour (backgroundColourId));
+    setColour (juce::AlertWindow::textColourId, findColour (grey60ColourId));
+    setColour (juce::AlertWindow::outlineColourId, findColour (accentColourId));
 }
 
 juce::Typeface::Ptr CopperLookAndFeel::getTypefaceForFont (const juce::Font& font)
@@ -92,7 +107,22 @@ void CopperLookAndFeel::drawRotarySlider (juce::Graphics& g, int x, int y, int w
 
     const float thickness = (radius - 1) / radius;
 
-    g.setColour (slider.findColour (juce::Slider::rotarySliderFillColourId).withAlpha (0.1f));
+    g.setColour (slider.findColour (juce::Slider::trackColourId));
+
+    // Draw knob
+    {
+        const auto pi = juce::MathConstants<float>::pi;
+        const auto rcO = juce::Rectangle<float> (rx, ry, rw, rw).withSizeKeepingCentre (radius, radius);
+        const auto rcI = juce::Rectangle<float> (rx, ry, rw, rw).withSizeKeepingCentre (radius * 0.17f, radius * 0.17f);
+        const auto c = 2.0f * pi * radius;
+        const auto gap = (rcI.getWidth () / c) * 2.0f * pi;
+
+        juce::Path knob;
+        knob.addArc (rcO.getX(), rcO.getY(), rcO.getWidth(), rcO.getHeight(), angle + gap, angle - gap + pi * 2, true );
+        knob.addArc (rcI.getX(), rcI.getY(), rcI.getWidth(), rcI.getHeight(), angle - pi / 2, angle + pi / 2 - pi * 2, false );
+        knob.closeSubPath();
+        g.fillPath (knob);
+    }
 
     {
         juce::Path filledArc;

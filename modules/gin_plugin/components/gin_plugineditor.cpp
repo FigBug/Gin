@@ -211,7 +211,7 @@ void TitleBar::setShowBrowser (bool s)
 
 void TitleBar::resized()
 {
-    auto programsRC = getLocalBounds().withSizeKeepingCentre (299, 23);
+    auto programsRC = getLocalBounds().withSizeKeepingCentre (std::min (getWidth() / 2, 299), 23);
     
     programs.setBounds (programsRC);
 
@@ -220,7 +220,10 @@ void TitleBar::resized()
     x += 19 + 10;
     deleteButton.setBounds (x, 10, 19, 19);
 
-    browseButton.setBounds (programsRC.getX() - 19 - 10, 10, 19, 19);
+    if (hasBrowser)
+        browseButton.setBounds (programsRC.getX() - 19 - 10, 10, 19, 19);
+    else
+        browseButton.setBounds ({});
 
     prevButton.setBounds (programsRC.removeFromLeft (programsRC.getHeight()).withSizeKeepingCentre (8, 8));
     nextButton.setBounds (programsRC.removeFromRight (programsRC.getHeight()).withSizeKeepingCentre (8, 8));
@@ -333,7 +336,7 @@ void TitleBar::showMenu()
 
     m.addItem ("Visit www.SocaLabs.com", []
     {
-        juce::URL ("http://www.socalabs.com").launchInDefaultBrowser();
+        juce::URL ("https://www.socalabs.com").launchInDefaultBrowser();
     });
 
    #ifdef JucePlugin_Name
@@ -355,14 +358,15 @@ void TitleBar::showMenu()
         {
             props->setValue ("newsUrl", "");
 
-            juce::StringArray readNews = juce::StringArray::fromTokens (props->getValue ("readNews"), "|", "");
+            auto readNews = juce::StringArray::fromTokens (props->getValue ("readNews"), "|", "");
             readNews.add (newsUrl);
-            props->setValue("readNews", readNews.joinIntoString ("|"));
+            props->setValue ("readNews", readNews.joinIntoString ("|"));
         }
     });
    #endif
 
-   m.showMenuAsync (juce::PopupMenu::Options().withTargetComponent (menuButton).withDeletionCheck (menuButton));
+    m.setLookAndFeel ( &getLookAndFeel());
+    m.showMenuAsync (juce::PopupMenu::Options().withTargetComponent (menuButton).withDeletionCheck (menuButton));
 }
 
 void TitleBar::comboBoxChanged (juce::ComboBox* c)
@@ -449,7 +453,24 @@ ProcessorEditor::~ProcessorEditor()
 
 void ProcessorEditor::paint (juce::Graphics& g)
 {
-    g.fillAll (findColour (gin::PluginLookAndFeel::blackColourId));
+    juce::ColourGradient grad (findColour (PluginLookAndFeel::matte1ColourId), 0, 0,
+                               findColour (PluginLookAndFeel::matte2ColourId), 0, float (getHeight()), false);
+
+    g.setGradientFill (grad);
+    g.fillAll();
+
+    auto rc = getLocalBounds();
+
+    g.setColour (findColour (PluginLookAndFeel::blackColourId));
+    g.fillRect (rc.removeFromTop (1));
+
+    rc.removeFromTop (headerHeight - 1);
+
+    g.setColour (findColour (PluginLookAndFeel::blackColourId));
+    g.fillRect (rc.removeFromTop (1));
+
+    g.setColour (findColour (PluginLookAndFeel::grey30ColourId));
+    g.fillRect (rc.removeFromTop (1));
 }
 
 void ProcessorEditor::resized()
@@ -458,7 +479,7 @@ void ProcessorEditor::resized()
 
     auto rc = getLocalBounds ().reduced (1);
 
-    titleBar.setBounds (rc.removeFromTop (39));
+    titleBar.setBounds (rc.removeFromTop (headerHeight - 1));
 
     patchBrowser.setBounds (getFullGridArea());
 }

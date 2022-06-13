@@ -107,7 +107,7 @@ protected:
 
     juce::OwnedArray<ParamComponent> controls;
 
-    int headerHeight = 60, inset = 4;
+    int headerHeight = 40, inset = 4;
     int cols = 0, rows = 0, extraWidthPx = 0, extraHeightPx = 0;
 
     ParamComponent* componentForId (const juce::String& uid);
@@ -167,7 +167,7 @@ protected:
 class ProcessorEditor : public ProcessorEditorBase
 {
 public:
-    ProcessorEditor (Processor&, int cx = 100, int cy = 100) noexcept;
+    ProcessorEditor (Processor&, int cx = 56, int cy = 70) noexcept;
     ~ProcessorEditor() override;
 
     void showAboutInfo();
