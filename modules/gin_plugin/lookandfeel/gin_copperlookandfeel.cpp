@@ -27,6 +27,8 @@ CopperLookAndFeel::CopperLookAndFeel()
     setColour (juce::TextButton::textColourOffId, findColour (grey60ColourId));
 
     setColour (juce::TextEditor::textColourId, findColour (grey90ColourId));
+    setColour (juce::TextEditor::outlineColourId, findColour (grey60ColourId));
+    setColour (juce::TextEditor::focusedOutlineColourId, findColour (grey60ColourId));
 
     setColour (juce::ComboBox::textColourId, findColour (accentColourId));
     setColour (juce::ComboBox::backgroundColourId, findColour (glass1ColourId));
