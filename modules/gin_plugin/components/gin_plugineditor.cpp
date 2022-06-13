@@ -205,28 +205,51 @@ void TitleBar::paint (juce::Graphics& g)
 
 void TitleBar::setShowBrowser (bool s)
 {
-    browseButton.setVisible (s);
+    hasBrowser = s;
     resized ();
+}
+
+void TitleBar::setShowPresets (bool s)
+{
+    hasPresets = s;
+    resized();
 }
 
 void TitleBar::resized()
 {
     auto programsRC = getLocalBounds().withSizeKeepingCentre (std::min (getWidth() / 2, 299), 23);
-    
-    programs.setBounds (programsRC);
 
-    int x = programsRC.getRight() + 10;
-    addButton.setBounds (x, 10, 19, 19);
-    x += 19 + 10;
-    deleteButton.setBounds (x, 10, 19, 19);
+    if (hasPresets)
+    {
+        programs.setBounds (programsRC);
 
-    if (hasBrowser)
+        int x = programsRC.getRight() + 10;
+        addButton.setBounds (x, 10, 19, 19);
+        x += 19 + 10;
+        deleteButton.setBounds (x, 10, 19, 19);
+    }
+    else
+    {
+        programs.setBounds ({});
+        addButton.setBounds ({});
+        deleteButton.setBounds ({});
+    }
+
+    if (hasPresets && hasBrowser)
         browseButton.setBounds (programsRC.getX() - 19 - 10, 10, 19, 19);
     else
         browseButton.setBounds ({});
 
-    prevButton.setBounds (programsRC.removeFromLeft (programsRC.getHeight()).withSizeKeepingCentre (8, 8));
-    nextButton.setBounds (programsRC.removeFromRight (programsRC.getHeight()).withSizeKeepingCentre (8, 8));
+    if (hasPresets)
+    {
+        prevButton.setBounds (programsRC.removeFromLeft (programsRC.getHeight()).withSizeKeepingCentre (8, 8));
+        nextButton.setBounds (programsRC.removeFromRight (programsRC.getHeight()).withSizeKeepingCentre (8, 8));
+    }
+    else
+    {
+        prevButton.setBounds ({});
+        nextButton.setBounds ({});
+    }
 
     menuButton.setBounds (11, 11, 17, 17);
     infoButton.setBounds (getWidth() - 19 - 10, 10, 19, 19);

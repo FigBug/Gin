@@ -131,6 +131,7 @@ public:
 
     void refreshPrograms();
     void setShowBrowser (bool);
+    void setShowPresets (bool);
 
 protected:
     void paint (juce::Graphics& g) override;
@@ -145,6 +146,7 @@ protected:
     ProcessorEditor& editor;
     Processor& slProc;
 
+    bool hasPresets = true;
     bool hasBrowser = false;
 
     juce::ComboBox programs;
