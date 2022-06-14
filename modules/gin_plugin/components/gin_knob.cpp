@@ -20,6 +20,9 @@ Knob::Knob (Parameter* p, bool fromCentre)
     name.setText (parameter->getShortName(), juce::dontSendNotification);
     value.setJustificationType (juce::Justification::centred);
     name.setJustificationType (juce::Justification::centred);
+   #if JUCE_IOS
+    knob.setMouseDragSensitivity (500);
+   #endif
 
     value.setVisible (false);
 

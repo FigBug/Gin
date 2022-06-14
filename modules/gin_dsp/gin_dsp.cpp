@@ -22,6 +22,7 @@
  #pragma warning (disable: 4200 4815 4127 4244 4305)
 #endif
 
+#undef VERSION
 #define PACKAGE "src"
 #define VERSION "0.1.9"
 #define CPU_CLIPS_NEGATIVE 0
