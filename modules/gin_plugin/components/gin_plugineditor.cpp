@@ -37,7 +37,7 @@ void UpdateChecker::timerCallback()
 
 void UpdateChecker::run()
 {
-   #ifdef JucePlugin_Name && ! JUCE_IOS
+   #if ! JUCE_IOS
     juce::URL versionsUrl = juce::URL ("https://socalabs.com/version.xml").withParameter ("plugin", JucePlugin_Name).withParameter ("version", JucePlugin_VersionString);
     juce::XmlDocument doc (versionsUrl.readEntireTextStream());
     if (std::unique_ptr<juce::XmlElement> root = doc.getDocumentElement())
