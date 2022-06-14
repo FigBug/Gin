@@ -54,11 +54,19 @@ private:
 /** Base for plugin editor
 */
 class ProcessorEditorBase : public juce::AudioProcessorEditor
+                          , protected juce::FocusChangeListener
+
 {
 public:
-    ProcessorEditorBase (Processor& p, int cx_ = 100, int cy_ = 100)
+    ProcessorEditorBase (Processor& p, int cx_, int cy_)
         : AudioProcessorEditor (p), ginProcessor (p), cx (cx_), cy (cy_)
     {
+        juce::Desktop::getInstance().addFocusChangeListener (this);
+    }
+
+    ~ProcessorEditorBase() override
+    {
+        juce::Desktop::getInstance().removeFocusChangeListener (this);
     }
 
     void makeResizable (int minX, int minY, int maxX, int maxY)
@@ -87,12 +95,33 @@ public:
         }
     }
 
+    void globalFocusChanged (juce::Component*) override
+    {
+        if (getUseIncreasedKeyboardAccessibility())
+            repaint();
+    }
+
+    void paintOverChildren (juce::Graphics& g) override
+    {
+        if (! getUseIncreasedKeyboardAccessibility()) return;
+        auto f = getCurrentlyFocusedComponent();
+        if (f == nullptr || ! isParentOf (f)) return;
+
+        auto rc = getLocalArea (f, f->getLocalBounds());
+
+        g.setColour (findColour (PluginLookAndFeel::accentColourId, true).withMultipliedAlpha (0.35f));
+        g.fillRect (rc);
+    }
+
     virtual juce::Rectangle<int> getControlsArea();
     virtual juce::Rectangle<int> getGridArea (int x, int y, int w = 1, int h = 1);
     juce::Rectangle<int> getFullGridArea();
 
     int getGridWidth()  { return cx; }
     int getGridHeight() { return cy; }
+
+    bool getUseIncreasedKeyboardAccessibility();
+    void setUseIncreasedKeyboardAccessibility (bool accessible);
 
     juce::ComponentBoundsConstrainer resizeLimits;
 
@@ -142,6 +171,7 @@ protected:
     void buttonClicked (juce::Button* b) override;
     void comboBoxChanged (juce::ComboBox* c) override;
     void changeListenerCallback (juce::ChangeBroadcaster*) override;
+    void parentHierarchyChanged() override;
 
     ProcessorEditor& editor;
     Processor& slProc;

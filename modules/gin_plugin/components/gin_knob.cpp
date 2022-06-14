@@ -10,6 +10,7 @@ Knob::Knob (Parameter* p, bool fromCentre)
     addAndMakeVisible (knob);
     addChildComponent (modButton);
 
+    knob.setTitle (parameter->getName (100));
     knob.setDoubleClickReturnValue (true, parameter->getUserDefaultValue());
     knob.setSkewFactor (parameter->getSkew(), parameter->isSkewSymmetric());
     if (fromCentre)
@@ -18,11 +19,13 @@ Knob::Knob (Parameter* p, bool fromCentre)
 	knob.setName (parameter->getShortName());
 
     name.setText (parameter->getShortName(), juce::dontSendNotification);
-    value.setJustificationType (juce::Justification::centred);
     name.setJustificationType (juce::Justification::centred);
    #if JUCE_IOS
     knob.setMouseDragSensitivity (500);
    #endif
+
+    value.setTitle (parameter->getName (100));
+    value.setJustificationType (juce::Justification::centred);
 
     value.setVisible (false);
 
@@ -103,6 +106,9 @@ void Knob::resized()
 
 void Knob::mouseEnter (const juce::MouseEvent&)
 {
+    if (wantsAccessibleKeyboard (*this))
+        return;
+
     if (! isTimerRunning() && isEnabled())
     {
         startTimer (100);
@@ -118,10 +124,37 @@ void Knob::timerCallback()
         ! juce::ModifierKeys::getCurrentModifiers().isAnyMouseButtonDown() &&
         ! value.isBeingEdited())
     {
-        name.setVisible (true);
-        value.setVisible (false);
+        if (wantsAccessibleKeyboard (*this))
+        {
+            name.setVisible (false);
+            value.setVisible (true);
+        }
+        else
+        {
+            name.setVisible (true);
+            value.setVisible (false);
+        }
 
         stopTimer();
+    }
+}
+
+void Knob::parentHierarchyChanged()
+{
+    auto a = wantsAccessibleKeyboard (*this);
+    name.setWantsKeyboardFocus (a);
+    value.setWantsKeyboardFocus (a);
+    knob.setWantsKeyboardFocus (a);
+
+    if (wantsAccessibleKeyboard (*this))
+    {
+        name.setVisible (false);
+        value.setVisible (true);
+    }
+    else
+    {
+        name.setVisible (true);
+        value.setVisible (false);
     }
 }
 

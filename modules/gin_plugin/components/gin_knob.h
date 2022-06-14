@@ -25,6 +25,7 @@ private:
     void timerCallback() override;
     void learnSourceChanged (ModSrcId) override;
     void modMatrixChanged() override;
+    void parentHierarchyChanged() override;
 
     void mouseDown (const juce::MouseEvent& e) override;
     void mouseDrag (const juce::MouseEvent& e) override;

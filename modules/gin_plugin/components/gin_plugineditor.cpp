@@ -4,7 +4,7 @@
 UpdateChecker::UpdateChecker (gin::Processor& slProc_)
   : Thread ("Update"), slProc (slProc_)
 {
-    if (std::unique_ptr<juce::PropertiesFile> props = slProc.getSettings())
+    if (auto props = slProc.getSettings())
     {
        #ifdef JucePlugin_Name
         juce::String url = props->getValue (JucePlugin_Name "_updateUrl");
@@ -42,7 +42,7 @@ void UpdateChecker::run()
     juce::XmlDocument doc (versionsUrl.readEntireTextStream());
     if (std::unique_ptr<juce::XmlElement> root = doc.getDocumentElement())
     {
-        if (std::unique_ptr<juce::PropertiesFile> props = slProc.getSettings())
+        if (auto props = slProc.getSettings())
         {
             props->setValue (JucePlugin_Name "_lastUpdateCheck", int (time (nullptr)));
 
@@ -77,7 +77,7 @@ void UpdateChecker::handleAsyncUpdate()
 NewsChecker::NewsChecker (Processor& slProc_)
     : Thread ("News"), slProc (slProc_)
 {
-    if (std::unique_ptr<juce::PropertiesFile> props = slProc.getSettings())
+    if (auto props = slProc.getSettings())
     {
         juce::String url = props->getValue ("newsUrl");
         int last   = props->getIntValue ("lastNewsCheck");
@@ -112,7 +112,7 @@ void NewsChecker::run()
     juce::XmlDocument doc (juce::URL ("https://socalabs.com/feed/").readEntireTextStream());
     if (std::unique_ptr<juce::XmlElement> root = doc.getDocumentElement())
     {
-        if (std::unique_ptr<juce::PropertiesFile> props = slProc.getSettings())
+        if (auto props = slProc.getSettings())
         {
             if (auto rss = root->getChildByName ("channel"))
             {
@@ -155,14 +155,14 @@ void NewsChecker::handleAsyncUpdate()
 TitleBar::TitleBar (ProcessorEditor& e, Processor& p)
   : editor (e), slProc (p)
 {
+    addAndMakeVisible (menuButton);
+    addAndMakeVisible (browseButton);
     addAndMakeVisible (programs);
-    addAndMakeVisible (addButton);
-    addAndMakeVisible (deleteButton);
     addAndMakeVisible (nextButton);
     addAndMakeVisible (prevButton);
-    addAndMakeVisible (browseButton);
+    addAndMakeVisible (addButton);
+    addAndMakeVisible (deleteButton);
     addAndMakeVisible (infoButton);
-    addAndMakeVisible (menuButton);
 
     programs.addListener (this);
     addButton.addListener (this);
@@ -172,6 +172,15 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p)
     browseButton.addListener (this);
     infoButton.addListener (this);
     menuButton.addListener (this);
+
+    programs.setTitle ("Select Preset");
+    addButton.setTitle ("Add Preset");
+    deleteButton.setTitle ("Delete Preset");
+    browseButton.setTitle ("Browse Preset");
+    nextButton.setTitle ("Next Preset");
+    prevButton.setTitle ("Prev Preset");
+    infoButton.setTitle ("Info");
+    menuButton.setTitle ("Menu");
 
     programs.setTooltip ("Select Preset");
     addButton.setTooltip ("Add Preset");
@@ -194,6 +203,19 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p)
 TitleBar::~TitleBar ()
 {
     slProc.removeChangeListener (this);
+}
+
+void TitleBar::parentHierarchyChanged()
+{
+    auto a = wantsAccessibleKeyboard (*this);
+    programs.setWantsKeyboardFocus (a);
+    addButton.setWantsKeyboardFocus (a);
+    deleteButton.setWantsKeyboardFocus (a);
+    browseButton.setWantsKeyboardFocus (a);
+    nextButton.setWantsKeyboardFocus (a);
+    prevButton.setWantsKeyboardFocus (a);
+    infoButton.setWantsKeyboardFocus (a);
+    menuButton.setWantsKeyboardFocus (a);
 }
 
 void TitleBar::paint (juce::Graphics& g)
@@ -364,13 +386,14 @@ void TitleBar::showMenu()
         juce::URL ("https://www.socalabs.com").launchInDefaultBrowser();
     });
 
-   #ifdef JucePlugin_Name
+    m.addSeparator();
+
     auto updateUrl = updateChecker->getUpdateUrl();
     m.addItem ("Get update", updateUrl.isNotEmpty(), false, [this, updateUrl]
     {
         juce::URL (updateUrl).launchInDefaultBrowser();
 
-        if (std::unique_ptr<juce::PropertiesFile> props = slProc.getSettings())
+        if (auto props = slProc.getSettings())
             props->setValue (JucePlugin_Name "_updateUrl", "");
     });
 
@@ -379,7 +402,7 @@ void TitleBar::showMenu()
     {
         juce::URL (newsUrl).launchInDefaultBrowser();
 
-        if (std::unique_ptr<juce::PropertiesFile> props = slProc.getSettings())
+        if (auto props = slProc.getSettings())
         {
             props->setValue ("newsUrl", "");
 
@@ -388,7 +411,13 @@ void TitleBar::showMenu()
             props->setValue ("readNews", readNews.joinIntoString ("|"));
         }
     });
-   #endif
+
+    m.addSeparator();
+
+    m.addItem ("Accessible Keyboard", true, editor.getUseIncreasedKeyboardAccessibility(), [this]
+    {
+        editor.setUseIncreasedKeyboardAccessibility (! editor.getUseIncreasedKeyboardAccessibility());
+    });
 
     m.setLookAndFeel ( &getLookAndFeel());
     m.showMenuAsync (juce::PopupMenu::Options().withTargetComponent (menuButton).withDeletionCheck (menuButton));
@@ -455,6 +484,38 @@ void ProcessorEditorBase::setGridSize (int x, int y, int extraWidthPx_, int extr
 juce::Rectangle<int> ProcessorEditorBase::getControlsArea()
 {
     return getLocalBounds();
+}
+
+bool ProcessorEditorBase::getUseIncreasedKeyboardAccessibility()
+{
+    if (auto props = ginProcessor.getSettings())
+        return props->getBoolValue ("useIncreasedKeyboardAccessibility", false);
+    return false;
+}
+
+void ProcessorEditorBase::setUseIncreasedKeyboardAccessibility (bool accessible)
+{
+    if (auto props = ginProcessor.getSettings())
+        props->setValue ("useIncreasedKeyboardAccessibility", accessible);
+
+    std::function<void (juce::Component&)> update = [&] (juce::Component& c)
+    {
+        c.parentHierarchyChanged();
+        for (auto child : c.getChildren())
+            update (*child);
+    };
+
+    update (*this);
+
+    repaint();
+}
+
+bool wantsAccessibleKeyboard (juce::Component& c)
+{
+    if (auto p = c.findParentComponentOfClass<ProcessorEditorBase>())
+        return p->getUseIncreasedKeyboardAccessibility();
+
+    return false;
 }
 
 //==============================================================================

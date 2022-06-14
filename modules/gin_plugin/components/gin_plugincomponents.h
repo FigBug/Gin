@@ -36,6 +36,12 @@ public:
         setButtonText (parameter->getUserValueText());
     }
 
+    void parentHierarchyChanged() override
+    {
+        auto a = wantsAccessibleKeyboard (*this);
+        setWantsKeyboardFocus (a);
+    }
+
     Parameter* parameter;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginButton)
@@ -68,6 +74,11 @@ private:
         return images->powerPath;
     }
 
+    void parentHierarchyChanged() override
+    {
+        auto a = wantsAccessibleKeyboard (*this);
+        setWantsKeyboardFocus (a);
+    }
 };
 
 //==============================================================================
@@ -105,6 +116,12 @@ public:
         parameter->beginUserAction();
         parameter->setUserValueNotifingHost (float (getSelectedItemIndex() + parameter->getUserRangeStart()));
         parameter->endUserAction();
+    }
+
+    void parentHierarchyChanged() override
+    {
+        auto a = wantsAccessibleKeyboard (*this);
+        setWantsKeyboardFocus (a);
     }
 
     Parameter* parameter;
@@ -176,6 +193,12 @@ public:
             Slider::mouseDrag (e);
     }
 
+    void parentHierarchyChanged() override
+    {
+        auto a = wantsAccessibleKeyboard (*this);
+        setWantsKeyboardFocus (a);
+    }
+
 private:
     Parameter* parameter;
 
@@ -196,6 +219,12 @@ private:
     void parameterChanged (Parameter* source) override;
     void paint (juce::Graphics& g) override;
     void textWasEdited() override;
+
+    void parentHierarchyChanged() override
+    {
+        auto a = wantsAccessibleKeyboard (*this);
+        setWantsKeyboardFocus (a);
+    }
 
     juce::TextEditor* createEditorComponent() override;
 
@@ -242,6 +271,13 @@ public:
 
 private:
     void resized() override;
+    void parentHierarchyChanged() override
+    {
+        auto a = wantsAccessibleKeyboard (*this);
+        name.setWantsKeyboardFocus (a);
+        value.setWantsKeyboardFocus (a);
+        fader.setWantsKeyboardFocus (a);
+    }
 
     juce::Label name;
     Readout value;
@@ -259,6 +295,12 @@ public:
 
 private:
     void resized() override;
+    void parentHierarchyChanged() override
+    {
+        auto a = wantsAccessibleKeyboard (*this);
+        name.setWantsKeyboardFocus (a);
+        button.setWantsKeyboardFocus (a);
+    }
 
     juce::Label name;
     PluginButton button;
@@ -280,6 +322,12 @@ public:
 
 protected:
     void resized() override;
+    void parentHierarchyChanged() override
+    {
+        auto a = wantsAccessibleKeyboard (*this);
+        name.setWantsKeyboardFocus (a);
+        comboBox.setWantsKeyboardFocus (a);
+    }
 
     juce::Label name;
     PluginComboBox comboBox;

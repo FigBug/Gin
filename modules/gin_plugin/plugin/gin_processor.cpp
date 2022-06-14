@@ -20,9 +20,9 @@ void Processor::init()
 std::unique_ptr<juce::PropertiesFile> Processor::getSettings()
 {
    #if JUCE_MAC
-    juce::File dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile ("Preferences").getChildFile ("SocaLabs");
+    auto dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile ("Preferences").getChildFile ("SocaLabs");
    #else
-    juce::File dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile ("SocaLabs");
+    auto dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile ("SocaLabs");
    #endif
     dir.createDirectory();
 

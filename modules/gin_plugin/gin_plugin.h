@@ -73,6 +73,8 @@
 namespace gin
 {
 
+bool wantsAccessibleKeyboard (juce::Component&);
+
 #include "plugin/gin_noteduration.h"
 #include "plugin/gin_processor.h"
 #include "plugin/gin_program.h"
