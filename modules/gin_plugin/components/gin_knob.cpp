@@ -15,6 +15,8 @@ Knob::Knob (Parameter* p, bool fromCentre)
     if (fromCentre)
         knob.getProperties().set ("fromCentre", true);
 
+	knob.setName (parameter->getShortName());
+
     name.setText (parameter->getShortName(), juce::dontSendNotification);
     value.setJustificationType (juce::Justification::centred);
     name.setJustificationType (juce::Justification::centred);
