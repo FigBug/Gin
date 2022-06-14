@@ -6523,31 +6523,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>ModMatrix::Listener</name>
-    <filename>classModMatrix_1_1Listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
-      <anchor>a09cc42d56d116a600586a874bbe348a7</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>modMatrixChanged</name>
-      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
-      <anchor>a6d4c1fcaddd8a3f77a0b25813919eae3</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>learnSourceChanged</name>
-      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
-      <anchor>a98f0bf4eb29994c864db47a9461dbc24</anchor>
-      <arglist>(ModSrcId)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>Parameter::Listener</name>
     <filename>classParameter_1_1Listener.html</filename>
     <member kind="function" virtualness="virtual">
@@ -6588,6 +6563,31 @@
       <anchorfile>classFileSystemWatcher_1_1Listener.html</anchorfile>
       <anchor>a74adb289b69441dd79b84f5eb6a66d59</anchor>
       <arglist>(const juce::File, FileSystemEvent)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>ModMatrix::Listener</name>
+    <filename>classModMatrix_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
+      <anchor>a09cc42d56d116a600586a874bbe348a7</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>modMatrixChanged</name>
+      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
+      <anchor>a6d4c1fcaddd8a3f77a0b25813919eae3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>learnSourceChanged</name>
+      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
+      <anchor>a98f0bf4eb29994c864db47a9461dbc24</anchor>
+      <arglist>(ModSrcId)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -8960,6 +8960,13 @@
       <anchor>a5a8bc6d21639253463b285091b3ff1e3</anchor>
       <arglist>() override</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>parentHierarchyChanged</name>
+      <anchorfile>classPluginButton.html</anchorfile>
+      <anchor>a018349067cbf3587776075d91abe657d</anchor>
+      <arglist>() override</arglist>
+    </member>
     <member kind="variable">
       <type>Parameter *</type>
       <name>parameter</name>
@@ -8999,6 +9006,13 @@
       <anchorfile>classPluginComboBox.html</anchorfile>
       <anchor>a9681caf99eafeacbbd43fa83a7910fbd</anchor>
       <arglist>(ComboBox *) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>parentHierarchyChanged</name>
+      <anchorfile>classPluginComboBox.html</anchorfile>
+      <anchor>ae276b856d377f7d36351a2a8205e2b99</anchor>
+      <arglist>() override</arglist>
     </member>
     <member kind="variable">
       <type>Parameter *</type>
@@ -9112,6 +9126,13 @@
       <anchorfile>classPluginSlider.html</anchorfile>
       <anchor>a564ef68cc52df0d872231fd0c5446fd7</anchor>
       <arglist>(const juce::MouseEvent &amp;e) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>parentHierarchyChanged</name>
+      <anchorfile>classPluginSlider.html</anchorfile>
+      <anchor>a85064398e0b6fb0387554a4c5877fa67</anchor>
+      <arglist>() override</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -9606,8 +9627,15 @@
       <type></type>
       <name>ProcessorEditorBase</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>a60d56ee99cbf45683efe298e0715f2dd</anchor>
-      <arglist>(Processor &amp;p, int cx_=100, int cy_=100)</arglist>
+      <anchor>a4aa0f87f4268ac1cb146bdc71376cc89</anchor>
+      <arglist>(Processor &amp;p, int cx_, int cy_)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~ProcessorEditorBase</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a31331076e669e82290048f36e689e439</anchor>
+      <arglist>() override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -9622,6 +9650,20 @@
       <anchorfile>classProcessorEditorBase.html</anchorfile>
       <anchor>aeb529daa7c8a33c654615fc31240670d</anchor>
       <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>globalFocusChanged</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a534df390c7aa61933255e6397546234e</anchor>
+      <arglist>(juce::Component *) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paintOverChildren</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a3043bfdfbefb8e16952f471b092150e1</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual juce::Rectangle&lt; int &gt;</type>
@@ -9657,6 +9699,20 @@
       <anchorfile>classProcessorEditorBase.html</anchorfile>
       <anchor>a93c1337e016ea549c34bc7448370577b</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>getUseIncreasedKeyboardAccessibility</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>aa55bc190267e15e007544badd68830cb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setUseIncreasedKeyboardAccessibility</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a2f1f906db82e4a9741e3916a8a6c7451</anchor>
+      <arglist>(bool accessible)</arglist>
     </member>
     <member kind="variable">
       <type>juce::ComponentBoundsConstrainer</type>
@@ -10333,6 +10389,13 @@
       <name>resized</name>
       <anchorfile>classSelect.html</anchorfile>
       <anchor>a3c244c1a02c2a16152ed0f562b23b928</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>parentHierarchyChanged</name>
+      <anchorfile>classSelect.html</anchorfile>
+      <anchor>ae1f2c2b54bf8dfd244857e18dfe22849</anchor>
       <arglist>() override</arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -12000,6 +12063,13 @@
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>a33bfbb4b2223e0401bf883fbb8403991</anchor>
       <arglist>(juce::ChangeBroadcaster *) override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>parentHierarchyChanged</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>ab07f194ec9193585963f53a44eb24d72</anchor>
+      <arglist>() override</arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>ProcessorEditor &amp;</type>

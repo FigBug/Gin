@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['x_1251',['x',['../classPoint.html#a401d07562afaf0079121218025e66b76',1,'Point::x()'],['../classSpline_1_1Element.html#aee52a511238fa599c18acede2e338e09',1,'Spline::Element::x()']]],
-  ['xmpmetadata_1252',['XmpMetadata',['../classXmpMetadata.html',1,'XmpMetadata'],['../classXmpMetadata.html#abfde5b535622830bfc3ed00a446e2285',1,'XmpMetadata::XmpMetadata()']]],
-  ['xyscope_1253',['XYScope',['../classXYScope.html',1,'XYScope'],['../classXYScope.html#ac2e4be42faf159ede8fc6f8baaa2829c',1,'XYScope::XYScope()']]]
+  ['x_1255',['x',['../classPoint.html#a401d07562afaf0079121218025e66b76',1,'Point::x()'],['../classSpline_1_1Element.html#aee52a511238fa599c18acede2e338e09',1,'Spline::Element::x()']]],
+  ['xmpmetadata_1256',['XmpMetadata',['../classXmpMetadata.html',1,'XmpMetadata'],['../classXmpMetadata.html#abfde5b535622830bfc3ed00a446e2285',1,'XmpMetadata::XmpMetadata()']]],
+  ['xyscope_1257',['XYScope',['../classXYScope.html',1,'XYScope'],['../classXYScope.html#ac2e4be42faf159ede8fc6f8baaa2829c',1,'XYScope::XYScope()']]]
 ];
