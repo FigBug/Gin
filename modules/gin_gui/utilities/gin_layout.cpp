@@ -354,7 +354,7 @@ int Layout::parse (const juce::var& equation, int equationIndex)
     {
         if (equation.isString())
         {
-            auto equationText = juce::String (equation).replace ("'", "\"");
+            auto equationText = equation.toString().replace ("'", "\"");
             if (equationText.contains (","))
             {
                 auto tokens = juce::StringArray::fromTokens (equationText, ",", "");
