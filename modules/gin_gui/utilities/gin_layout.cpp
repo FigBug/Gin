@@ -196,6 +196,7 @@ void Layout::setLayout (const juce::String& filename, const juce::File& source)
             if (source.existsAsFile())
             {
                 layoutFile = source;
+                parseLayout (layoutFile.loadFileAsString());
                 watcher.addFolder (source.getParentDirectory());
                 break;
             }
@@ -259,7 +260,10 @@ juce::Component* Layout::setBounds (const juce::String& currentPath, const juce:
 
     auto itr = componentMap.find (path);
     if (itr == componentMap.end())
+    {
+        jassertfalse;
         return nullptr;
+    }
 
     juce::ScopedValueSetter<juce::Component*> svs (curComponent, itr->second);
 
@@ -269,18 +273,18 @@ juce::Component* Layout::setBounds (const juce::String& currentPath, const juce:
     std::optional<int> h;
 
     if (component.hasProperty ("x"))
-        *x = parse (component[ "x" ], idIdx);
+        x = parse (component[ "x" ], idIdx);
     if (component.hasProperty ("y"))
-        *y = parse (component["y"], idIdx);
+        y = parse (component["y"], idIdx);
 
     if (component.hasProperty ("bounds"))
     {
         if (component["bounds"] == "parent")
         {
-            *x = 0;
-            *y = 0;
-            *w = curComponent->getParentComponent()->getWidth();
-            *h = curComponent->getParentComponent()->getHeight();
+            x = 0;
+            y = 0;
+            w = curComponent->getParentComponent()->getWidth();
+            h = curComponent->getParentComponent()->getHeight();
         }
         else if (component["bounds"] == "prev")
         {

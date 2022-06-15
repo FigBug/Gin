@@ -48,7 +48,7 @@ void Readout::textWasEdited()
 ParamComponent::ParamComponent (Parameter* parameter_)
   : Component (""), parameter (parameter_)
 {
-
+    setName (parameter->getUid());
 }
 
 //==============================================================================
