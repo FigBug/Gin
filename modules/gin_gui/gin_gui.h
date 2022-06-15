@@ -59,6 +59,7 @@
 #include <gin/gin.h>
 
 #include <map>
+#include <optional>
 
 namespace gin
 {
