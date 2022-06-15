@@ -16,7 +16,7 @@ Knob::Knob (Parameter* p, bool fromCentre)
     if (fromCentre)
         knob.getProperties().set ("fromCentre", true);
 
-	knob.setName (parameter->getShortName());
+    knob.setName (parameter->getShortName());
 
     name.setText (parameter->getShortName(), juce::dontSendNotification);
     name.setJustificationType (juce::Justification::centred);
@@ -172,14 +172,14 @@ void Knob::learnSourceChanged (ModSrcId src)
     {
         knob.getProperties().set ("modDepth", modDepth);
         knob.getProperties().set ("modBipolar", mm.getModSrcBipolar (mm.getLearn()));
-     
+
         shiftTimer.startTimerHz (100);
     }
     else
     {
         knob.getProperties().remove ("modDepth");
         knob.getProperties().remove ("modBipolar");
-        
+
         shiftTimer.stopTimer();
     }
 
@@ -191,7 +191,7 @@ void Knob::modMatrixChanged()
     if (auto mm = parameter->getModMatrix())
     {
         auto dst = ModDstId (parameter->getModIndex());
-        
+
         if (mm->isModulated (dst) || liveValuesCallback)
         {
             modTimer.startTimerHz (30);
@@ -213,7 +213,7 @@ void Knob::modMatrixChanged()
     }
 }
 
-void Knob::mouseDown (const juce::MouseEvent& e) 
+void Knob::mouseDown (const juce::MouseEvent& e)
 {
     bool shift = juce::ModifierKeys::getCurrentModifiersRealtime().isShiftDown();
     if (shift || ! learning || ! knob.getBounds().contains (e.getMouseDownPosition()))
@@ -250,4 +250,3 @@ void Knob::mouseDrag (const juce::MouseEvent& e)
         repaint();
     }
 }
-

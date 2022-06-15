@@ -80,7 +80,7 @@ public:
 EquationParser::EquationParser()
 {
     impl = std::make_unique<EquationParserImpl>();
-	impl->parser.DefineOprt ("%", modFunc, mu::prMUL_DIV, mu::oaLEFT, false);
+    impl->parser.DefineOprt ("%", modFunc, mu::prMUL_DIV, mu::oaLEFT, false);
 }
 
 EquationParser::EquationParser (juce::String equation)

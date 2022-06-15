@@ -50,12 +50,17 @@
  #include <sys/time.h>
 #endif
 
+#if __has_include("BinaryData.h")
+ #include "BinaryData.h"
+#endif
+
 namespace gin
 {
 
 #include "utilities/gin_asyncutilities.cpp"
 #include "utilities/gin_openstreetmaps.cpp"
 #include "utilities/gin_elevatedfilecopy.cpp"
+#include "utilities/gin_layout.cpp"
 
 #include "images/gin_imageeffects.cpp"
 #include "images/gin_imageutilities.cpp"
