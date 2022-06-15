@@ -1007,6 +1007,12 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>gin_layout.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/utilities/</path>
+    <filename>gin__layout_8h.html</filename>
+    <class kind="class">Layout</class>
+  </compound>
+  <compound kind="file">
     <name>gin_leastsquaresregression.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
     <filename>gin__leastsquaresregression_8h.html</filename>
@@ -5933,6 +5939,32 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>Layout</name>
+    <filename>classLayout.html</filename>
+    <base>FileSystemWatcher::Listener</base>
+    <member kind="function">
+      <type></type>
+      <name>Layout</name>
+      <anchorfile>classLayout.html</anchorfile>
+      <anchor>adf1be658274eef9d8ef0e4307b9f5dee</anchor>
+      <arglist>(juce::Component &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~Layout</name>
+      <anchorfile>classLayout.html</anchorfile>
+      <anchor>aa977cda87db41b98105819fda1ffa429</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setLayout</name>
+      <anchorfile>classLayout.html</anchorfile>
+      <anchor>a8f95d75f7456f3daaf7b2e657273946b</anchor>
+      <arglist>(const juce::String &amp;filename, const juce::File &amp;source)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>LeastSquaresRegression</name>
     <filename>classLeastSquaresRegression.html</filename>
     <member kind="function">
@@ -6523,6 +6555,31 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>ModMatrix::Listener</name>
+    <filename>classModMatrix_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
+      <anchor>a09cc42d56d116a600586a874bbe348a7</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>modMatrixChanged</name>
+      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
+      <anchor>a6d4c1fcaddd8a3f77a0b25813919eae3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>learnSourceChanged</name>
+      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
+      <anchor>a98f0bf4eb29994c864db47a9461dbc24</anchor>
+      <arglist>(ModSrcId)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>Parameter::Listener</name>
     <filename>classParameter_1_1Listener.html</filename>
     <member kind="function" virtualness="virtual">
@@ -6563,31 +6620,6 @@
       <anchorfile>classFileSystemWatcher_1_1Listener.html</anchorfile>
       <anchor>a74adb289b69441dd79b84f5eb6a66d59</anchor>
       <arglist>(const juce::File, FileSystemEvent)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>ModMatrix::Listener</name>
-    <filename>classModMatrix_1_1Listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
-      <anchor>a09cc42d56d116a600586a874bbe348a7</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>modMatrixChanged</name>
-      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
-      <anchor>a6d4c1fcaddd8a3f77a0b25813919eae3</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>learnSourceChanged</name>
-      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
-      <anchor>a98f0bf4eb29994c864db47a9461dbc24</anchor>
-      <arglist>(ModSrcId)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -13389,18 +13421,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_plugin-components</name>
-    <title>components</title>
-    <filename>group__gin__plugin-components.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>gradientRect</name>
-      <anchorfile>group__gin__plugin-components.html</anchorfile>
-      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
-      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
     <name>gin_gui-components</name>
     <title>components</title>
     <filename>group__gin__gui-components.html</filename>
@@ -13423,6 +13443,18 @@
     <name>gin_dsp-components</name>
     <title>components</title>
     <filename>group__gin__dsp-components.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>gin_plugin-components</name>
+    <title>components</title>
+    <filename>group__gin__plugin-components.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>gradientRect</name>
+      <anchorfile>group__gin__plugin-components.html</anchorfile>
+      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
+      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>gin_dsp-dsp</name>
@@ -13975,25 +14007,6 @@
     <filename>group__gin__plugin-resources.html</filename>
   </compound>
   <compound kind="group">
-    <name>gin_gui-utilities</name>
-    <title>utilities</title>
-    <filename>group__gin__gui-utilities.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>callOnMainThreadBlocking</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
-      <arglist>(std::function&lt; void()&gt; func)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
     <name>gin-utilities</name>
     <title>utilities</title>
     <filename>group__gin-utilities.html</filename>
@@ -14339,6 +14352,25 @@
       <anchorfile>group__gin-utilities.html</anchorfile>
       <anchor>ga88f482bf81fb3e423fa1e3926dfaa9a6</anchor>
       <arglist>(const juce::String &amp;jsonText)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_gui-utilities</name>
+    <title>utilities</title>
+    <filename>group__gin__gui-utilities.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>callOnMainThreadBlocking</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
+      <arglist>(std::function&lt; void()&gt; func)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
     </member>
   </compound>
 </tagfile>
