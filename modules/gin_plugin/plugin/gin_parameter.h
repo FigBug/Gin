@@ -40,6 +40,7 @@ public:
 
     float getUserValue() const;
     int getUserValueInt() const;
+    bool getUserValueBool() const;
     float getUserDefaultValue() const;
     virtual void setUserValue (float v);
     virtual void setUserValueNotifingHost (float f);

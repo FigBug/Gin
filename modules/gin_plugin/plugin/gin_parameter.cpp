@@ -73,6 +73,11 @@ int Parameter::getUserValueInt() const
     return int (juce::jlimit (range.start, range.end, value));
 }
 
+bool Parameter::getUserValueBool() const
+{
+    return juce::jlimit (range.start, range.end, value) != 0.0f;
+}
+
 float Parameter::getUserDefaultValue() const
 {
     return defaultValue;
