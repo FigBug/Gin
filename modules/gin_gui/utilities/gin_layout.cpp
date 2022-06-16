@@ -157,12 +157,12 @@ void Layout::setupParser()
             return nullptr;
         };
 
-        parser.addFunction ("getX", [getComp] (int, const juce::String& id) { if (auto c = getComp (id))    return c->getX();         return 0; });
-        parser.addFunction ("getY", [getComp] (int, const juce::String& id) { if (auto c = getComp (id))    return c->getY();         return 0; });
-        parser.addFunction ("getW", [getComp] (int, const juce::String& id) { if (auto c = getComp (id))    return c->getWidth();     return 0; });
-        parser.addFunction ("getH", [getComp] (int, const juce::String& id) { if (auto c = getComp (id))    return c->getHeight();    return 0; });
+        parser.addFunction ("getX", [getComp] (int, const juce::String& id) { if (auto c = getComp (id))    return c->getX();       return 0; });
+        parser.addFunction ("getY", [getComp] (int, const juce::String& id) { if (auto c = getComp (id))    return c->getY();       return 0; });
+        parser.addFunction ("getW", [getComp] (int, const juce::String& id) { if (auto c = getComp (id))    return c->getWidth();   return 0; });
+        parser.addFunction ("getH", [getComp] (int, const juce::String& id) { if (auto c = getComp (id))    return c->getHeight();  return 0; });
         parser.addFunction ("getR", [getComp] (int, const juce::String& id) { if (auto c = getComp (id))    return c->getRight();   return 0; });
-        parser.addFunction ("getB", [getComp] (int, const juce::String& id) { if (auto c = getComp (id))    return c->getBottom();    return 0; });
+        parser.addFunction ("getB", [getComp] (int, const juce::String& id) { if (auto c = getComp (id))    return c->getBottom();  return 0; });
 
         parser.addFunction ("prevX", [this] (int) { if (auto c = prevComponent)                             return c->getX();       return 0; });
         parser.addFunction ("prevY", [this] (int) { if (auto c = prevComponent)                             return c->getY();       return 0; });
