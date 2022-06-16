@@ -21,6 +21,14 @@ CopperLookAndFeel::CopperLookAndFeel()
     setColour (title2ColourId, juce::Colour (0xff25272B));
     setColour (accentColourId, juce::Colour (0xffCC8866));
 
+    setColour (juce::MidiKeyboardComponent::whiteNoteColourId, juce::Colours::white.withAlpha (0.8f));
+    setColour (juce::MidiKeyboardComponent::blackNoteColourId, juce::Colours::black.withAlpha (0.8f));
+    setColour (juce::MidiKeyboardComponent::keySeparatorLineColourId, findColour (grey90ColourId));
+    setColour (juce::MidiKeyboardComponent::mouseOverKeyOverlayColourId, findColour (accentColourId).withAlpha (0.7f));
+    setColour (juce::MidiKeyboardComponent::keyDownOverlayColourId, findColour (accentColourId).withAlpha (0.7f));
+    setColour (juce::MidiKeyboardComponent::textLabelColourId, juce::Colours::transparentBlack);
+    setColour (juce::MidiKeyboardComponent::shadowColourId, findColour (grey90ColourId));
+
     setColour (juce::Label::textColourId, findColour (grey90ColourId));
 
     setColour (juce::TextButton::textColourOnId, findColour (accentColourId));

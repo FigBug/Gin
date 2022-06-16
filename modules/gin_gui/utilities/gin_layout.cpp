@@ -106,16 +106,16 @@ static juce::StringArray expandTokens (juce::StringArray in)
 
 static juce::String getComponentPath (juce::Component& parent, juce::Component& c)
 {
-    juce::String path = "/" + c.getName();
+    juce::String path;
 
-    auto p = c.getParentComponent();
+    auto p = &c;
     while (p != nullptr)
     {
-        if (p == &parent)
-            break;
-
         if (p->getName().isNotEmpty())
             path = "/" + p->getName() + path;
+
+        if (p == &parent)
+            break;
 
         p = p->getParentComponent();
     }
@@ -261,6 +261,7 @@ juce::Component* Layout::setBounds (const juce::String& currentPath, const juce:
     auto itr = componentMap.find (path);
     if (itr == componentMap.end())
     {
+        DBG("Can't find: " + path);
         jassertfalse;
         return nullptr;
     }
@@ -306,7 +307,7 @@ juce::Component* Layout::setBounds (const juce::String& currentPath, const juce:
 
     if (x.has_value() && y.has_value())
         curComponent->setTopLeftPosition (*x, *y);
-    if (x.has_value() && y.has_value())
+    if (w.has_value() && h.has_value())
         curComponent->setSize (*w, *h);
 
     if (component.hasProperty ("children"))
