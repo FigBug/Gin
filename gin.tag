@@ -8079,7 +8079,6 @@
   <compound kind="class">
     <name>Parameter</name>
     <filename>classParameter.html</filename>
-    <base protection="protected">RealtimeAsyncUpdater</base>
     <class kind="class">Parameter::ParameterListener</class>
     <class kind="struct">Parameter::ParamState</class>
     <member kind="typedef">
