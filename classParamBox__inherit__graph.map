@@ -1,5 +1,5 @@
 <map id="ParamBox" name="ParamBox">
-<area shape="rect" id="node1" title="A box for knobs with a header." alt="" coords="47,155,135,181"/>
-<area shape="rect" id="node2" href="$classMultiParamComponent.html" title="A base component for controlling multiple parameters at once." alt="" coords="5,80,176,107"/>
-<area shape="rect" id="node3" href="$classParameter_1_1Listener.html" title=" " alt="" coords="16,5,165,32"/>
+<area shape="rect" id="node1" title="A box for knobs with a header." alt="" coords="69,155,157,181"/>
+<area shape="rect" id="node2" href="$classMultiParamComponent.html" title="A base component for controlling multiple parameters at once." alt="" coords="28,80,199,107"/>
+<area shape="rect" id="node3" href="$classParameter_1_1ParameterListener.html" title=" " alt="" coords="5,5,221,32"/>
 </map>

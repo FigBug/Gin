@@ -1,5 +1,5 @@
 <map id="StepLFOComponent" name="StepLFOComponent">
-<area shape="rect" id="node1" title="Draws a step LFO curve and shows a little dot moving long." alt="" coords="15,155,166,181"/>
-<area shape="rect" id="node2" href="$classMultiParamComponent.html" title="A base component for controlling multiple parameters at once." alt="" coords="5,80,176,107"/>
-<area shape="rect" id="node3" href="$classParameter_1_1Listener.html" title=" " alt="" coords="16,5,165,32"/>
+<area shape="rect" id="node1" title="Draws a step LFO curve and shows a little dot moving long." alt="" coords="38,155,189,181"/>
+<area shape="rect" id="node2" href="$classMultiParamComponent.html" title="A base component for controlling multiple parameters at once." alt="" coords="28,80,199,107"/>
+<area shape="rect" id="node3" href="$classParameter_1_1ParameterListener.html" title=" " alt="" coords="5,5,221,32"/>
 </map>

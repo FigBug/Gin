@@ -1153,7 +1153,7 @@
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/plugin/</path>
     <filename>gin__parameter_8h.html</filename>
     <class kind="class">Parameter</class>
-    <class kind="class">Parameter::Listener</class>
+    <class kind="class">Parameter::ParameterListener</class>
     <class kind="struct">Parameter::ParamState</class>
   </compound>
   <compound kind="file">
@@ -6580,24 +6580,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>Parameter::Listener</name>
-    <filename>classParameter_1_1Listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>classParameter_1_1Listener.html</anchorfile>
-      <anchor>a95d28a80d5f10dc01a2a4d6f3d9e1d04</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>parameterChanged</name>
-      <anchorfile>classParameter_1_1Listener.html</anchorfile>
-      <anchor>aaf93b7ba18e6c7d773330de9c17bc214</anchor>
-      <arglist>(Parameter *param)=0</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>FileSystemWatcher::Listener</name>
     <filename>classFileSystemWatcher_1_1Listener.html</filename>
     <member kind="function" virtualness="virtual">
@@ -7445,7 +7427,7 @@
   <compound kind="class">
     <name>MultiParamComponent</name>
     <filename>classMultiParamComponent.html</filename>
-    <base>Parameter::Listener</base>
+    <base>Parameter::ParameterListener</base>
     <member kind="function">
       <type></type>
       <name>MultiParamComponent</name>
@@ -8098,7 +8080,7 @@
     <name>Parameter</name>
     <filename>classParameter.html</filename>
     <base protection="protected">RealtimeAsyncUpdater</base>
-    <class kind="class">Parameter::Listener</class>
+    <class kind="class">Parameter::ParameterListener</class>
     <class kind="struct">Parameter::ParamState</class>
     <member kind="typedef">
       <type>Parameter *</type>
@@ -8328,15 +8310,15 @@
       <type>void</type>
       <name>addListener</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a52059849e4f187e7f2eb49c16bf1debc</anchor>
-      <arglist>(Listener *listener)</arglist>
+      <anchor>ac51a0648ba9ea0581dd667b25ee6e31a</anchor>
+      <arglist>(ParameterListener *listener)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>removeListener</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>ab5362ee42564b596fd391d97455f45cd</anchor>
-      <arglist>(Listener *listener)</arglist>
+      <anchor>a2efe9da5477dbd10bcd7d6073dde5823</anchor>
+      <arglist>(ParameterListener *listener)</arglist>
     </member>
     <member kind="function">
       <type>ParamState</type>
@@ -8584,11 +8566,29 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>juce::ListenerList&lt; Listener &gt;</type>
+      <type>juce::ListenerList&lt; ParameterListener &gt;</type>
       <name>listeners</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a4d3ac71ee0c96cae514599e526b04388</anchor>
+      <anchor>a6ab022db2c42737bf0d3b1552f9b97a4</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Parameter::ParameterListener</name>
+    <filename>classParameter_1_1ParameterListener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~ParameterListener</name>
+      <anchorfile>classParameter_1_1ParameterListener.html</anchorfile>
+      <anchor>a3419172cb5e87763490dafae52f5d39f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>parameterChanged</name>
+      <anchorfile>classParameter_1_1ParameterListener.html</anchorfile>
+      <anchor>a188cf3d203338ee24c69665673cf4c0c</anchor>
+      <arglist>(Parameter *param)=0</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -8970,7 +8970,7 @@
   <compound kind="class">
     <name>PluginButton</name>
     <filename>classPluginButton.html</filename>
-    <base protection="private">Parameter::Listener</base>
+    <base protection="private">Parameter::ParameterListener</base>
     <member kind="function">
       <type></type>
       <name>PluginButton</name>
@@ -9017,7 +9017,7 @@
   <compound kind="class">
     <name>PluginComboBox</name>
     <filename>classPluginComboBox.html</filename>
-    <base protection="private">Parameter::Listener</base>
+    <base protection="private">Parameter::ParameterListener</base>
     <member kind="function">
       <type></type>
       <name>PluginComboBox</name>
@@ -9102,7 +9102,7 @@
   <compound kind="class">
     <name>PluginSlider</name>
     <filename>classPluginSlider.html</filename>
-    <base protection="private">Parameter::Listener</base>
+    <base protection="private">Parameter::ParameterListener</base>
     <member kind="function">
       <type></type>
       <name>PluginSlider</name>
@@ -9975,7 +9975,7 @@
   <compound kind="class">
     <name>Readout</name>
     <filename>classReadout.html</filename>
-    <base protection="private">Parameter::Listener</base>
+    <base protection="private">Parameter::ParameterListener</base>
     <member kind="function">
       <type></type>
       <name>Readout</name>

@@ -1,5 +1,5 @@
 <map id="PluginButton" name="PluginButton">
-<area shape="rect" id="node1" title="Button for toggling a parameter." alt="" coords="27,80,133,107"/>
-<area shape="rect" id="node3" href="$classPowerButton.html" title="Button for toggling a parameter, drawn as a power button." alt="" coords="27,155,133,181"/>
-<area shape="rect" id="node2" href="$classParameter_1_1Listener.html" title=" " alt="" coords="5,5,155,32"/>
+<area shape="rect" id="node1" title="Button for toggling a parameter." alt="" coords="61,80,166,107"/>
+<area shape="rect" id="node3" href="$classPowerButton.html" title="Button for toggling a parameter, drawn as a power button." alt="" coords="61,155,166,181"/>
+<area shape="rect" id="node2" href="$classParameter_1_1ParameterListener.html" title=" " alt="" coords="5,5,221,32"/>
 </map>

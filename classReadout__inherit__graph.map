@@ -1,4 +1,4 @@
 <map id="Readout" name="Readout">
-<area shape="rect" id="node1" title="A control for displaying a parameter." alt="" coords="42,80,118,107"/>
-<area shape="rect" id="node2" href="$classParameter_1_1Listener.html" title=" " alt="" coords="5,5,155,32"/>
+<area shape="rect" id="node1" title="A control for displaying a parameter." alt="" coords="75,80,151,107"/>
+<area shape="rect" id="node2" href="$classParameter_1_1ParameterListener.html" title=" " alt="" coords="5,5,221,32"/>
 </map>

@@ -1,4 +1,4 @@
 <map id="PluginComboBox" name="PluginComboBox">
-<area shape="rect" id="node1" title="A control for selecting param values from a dropbox." alt="" coords="13,80,147,107"/>
-<area shape="rect" id="node2" href="$classParameter_1_1Listener.html" title=" " alt="" coords="5,5,155,32"/>
+<area shape="rect" id="node1" title="A control for selecting param values from a dropbox." alt="" coords="47,80,180,107"/>
+<area shape="rect" id="node2" href="$classParameter_1_1ParameterListener.html" title=" " alt="" coords="5,5,221,32"/>
 </map>
