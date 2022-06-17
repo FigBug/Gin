@@ -7486,9 +7486,9 @@
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
-      <name>parameterChanged</name>
+      <name>valueUpdated</name>
       <anchorfile>classMultiParamComponent.html</anchorfile>
-      <anchor>a1aae58506a517dbfcf8dc24ac2e7a74c</anchor>
+      <anchor>a5ea4449b0c06e5f5ed1acda230357b23</anchor>
       <arglist>(Parameter *) override</arglist>
     </member>
     <member kind="function" protection="protected">
@@ -8585,9 +8585,9 @@
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual void</type>
-      <name>parameterChanged</name>
+      <name>valueUpdated</name>
       <anchorfile>classParameter_1_1ParameterListener.html</anchorfile>
-      <anchor>a188cf3d203338ee24c69665673cf4c0c</anchor>
+      <anchor>aeb8d451cc143b571fbf0edffc8e47266</anchor>
       <arglist>(Parameter *param)=0</arglist>
     </member>
   </compound>
@@ -8987,9 +8987,9 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>parameterChanged</name>
+      <name>valueUpdated</name>
       <anchorfile>classPluginButton.html</anchorfile>
-      <anchor>a828bcf6b59a8280c0e6dadb99ab804a6</anchor>
+      <anchor>aa764a81b1678f58f8034b9df753c8b77</anchor>
       <arglist>(Parameter *) override</arglist>
     </member>
     <member kind="function">
@@ -9034,9 +9034,9 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>parameterChanged</name>
+      <name>valueUpdated</name>
       <anchorfile>classPluginComboBox.html</anchorfile>
-      <anchor>ad00faadfab0c15fab3354bd7588862e8</anchor>
+      <anchor>a3974da62403031912ad0c232dafbf8dc</anchor>
       <arglist>(Parameter *) override</arglist>
     </member>
     <member kind="function">
@@ -9140,9 +9140,9 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>parameterChanged</name>
+      <name>valueUpdated</name>
       <anchorfile>classPluginSlider.html</anchorfile>
-      <anchor>af7491d3fc1b0746411771ff528bd74eb</anchor>
+      <anchor>af47461ce84833d9e5ab38b459c42c494</anchor>
       <arglist>(Parameter *) override</arglist>
     </member>
     <member kind="function">
