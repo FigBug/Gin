@@ -9,7 +9,7 @@ class ModMatrix;
 */
 class Parameter : public juce::AudioPluginInstance::HostedParameter,
                   protected juce::Timer,
-                  protected RealtimeAsyncUpdater
+                  protected juce::AsyncUpdater
 {
 public:
     using Ptr = Parameter*;
@@ -125,8 +125,8 @@ protected:
     ModMatrix* modMatrix = nullptr;
     int modIndex = -1;
 
-    float value;
-    float defaultValue;
+    float value = 0.0f;
+    float defaultValue = 0.0f;
 
     juce::String uid;
     juce::String name;
@@ -135,7 +135,7 @@ protected:
 
     std::function<juce::String (const Parameter&, float)> textFunction;
 
-    int userActionCount {0};
+    int userActionCount = 0;
 
     juce::ListenerList<ParameterListener> listeners;
 

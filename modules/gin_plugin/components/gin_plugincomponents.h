@@ -155,7 +155,7 @@ public:
     void sliderValueChanged (Slider*) override
     {
         parameter->setUserValueNotifingHost (float (getValue()));
-        setValue (parameter->getUserValue());
+        setValue (parameter->getUserValue(), juce::dontSendNotification);
     }
 
     void sliderDragStarted (Slider*) override
