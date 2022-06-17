@@ -4,7 +4,7 @@
 /** A base component for controlling multiple parameters at once
 */
 class MultiParamComponent : public juce::Component,
-                            public Parameter::Listener,
+                            public Parameter::ParameterListener,
                             private juce::AsyncUpdater
 {
 public:

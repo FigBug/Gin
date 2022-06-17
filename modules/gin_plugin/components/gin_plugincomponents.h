@@ -4,7 +4,7 @@
 /** Button for toggling a parameter
 */
 class PluginButton : public juce::TextButton,
-                     private Parameter::Listener
+                     private Parameter::ParameterListener
 {
 public:
     PluginButton (Parameter* parameter_)
@@ -85,7 +85,7 @@ private:
 /** A control for selecting param values from a dropbox
 */
 class PluginComboBox : public juce::ComboBox,
-                       private Parameter::Listener,
+                       private Parameter::ParameterListener,
                        private juce::ComboBox::Listener
 {
 public:
@@ -134,7 +134,7 @@ public:
 */
 class PluginSlider : public juce::Slider,
                      private juce::Slider::Listener,
-                     private Parameter::Listener
+                     private Parameter::ParameterListener
 {
 public:
     PluginSlider (Parameter* parameter_, SliderStyle style, TextEntryBoxPosition textBoxPosition)
@@ -209,7 +209,7 @@ private:
 /** A control for displaying a parameter
 */
 class Readout : public juce::Label,
-                private Parameter::Listener
+                private Parameter::ParameterListener
 {
 public:
     Readout (Parameter* parameter);

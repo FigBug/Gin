@@ -168,19 +168,19 @@ void Parameter::timerCallback()
     stopTimer();
 }
 
-void Parameter::addListener (Listener* listener)
+void Parameter::addListener (ParameterListener* listener)
 {
     listeners.add (listener);
 }
 
-void Parameter::removeListener (Listener* listener)
+void Parameter::removeListener (ParameterListener* listener)
 {
     listeners.remove (listener);
 }
 
 void Parameter::handleAsyncUpdate()
 {
-    listeners.call (&Listener::parameterChanged, this);
+    listeners.call (&ParameterListener::parameterChanged, this);
 }
 
 Parameter::ParamState Parameter::getState()

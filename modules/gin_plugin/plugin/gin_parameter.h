@@ -66,15 +66,15 @@ public:
     float getUserRangeEnd() const                       { return range.end;     }
 
     //==============================================================================
-    class Listener
+    class ParameterListener
     {
     public:
-        virtual ~Listener() {}
+        virtual ~ParameterListener() {}
         virtual void parameterChanged (Parameter* param) = 0;
     };
 
-    void addListener (Listener* listener);
-    void removeListener (Listener* listener);
+    void addListener (ParameterListener* listener);
+    void removeListener (ParameterListener* listener);
 
     //==============================================================================
     struct ParamState
@@ -137,7 +137,7 @@ protected:
 
     int userActionCount {0};
 
-    juce::ListenerList<Listener> listeners;
+    juce::ListenerList<ParameterListener> listeners;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Parameter)
 };
