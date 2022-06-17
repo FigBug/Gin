@@ -180,7 +180,7 @@ void Parameter::removeListener (ParameterListener* listener)
 
 void Parameter::handleAsyncUpdate()
 {
-    listeners.call (&ParameterListener::parameterChanged, this);
+    listeners.call (&ParameterListener::valueUpdated, this);
 }
 
 Parameter::ParamState Parameter::getState()

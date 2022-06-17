@@ -59,7 +59,7 @@ protected:
     virtual void paramChanged ()                { repaint ();               }
 
     void enablementChanged() override           { repaint();                }
-    void parameterChanged (Parameter*) override { triggerAsyncUpdate ();    }
+    void valueUpdated (Parameter*) override     { triggerAsyncUpdate ();    }
     void handleAsyncUpdate () override          { paramChanged ();          }
 
     juce::Array<Parameter*> params;

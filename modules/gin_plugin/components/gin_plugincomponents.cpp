@@ -15,7 +15,7 @@ Readout::~Readout()
     parameter->removeListener (this);
 }
 
-void Readout::parameterChanged (Parameter*)
+void Readout::valueUpdated (Parameter*)
 {
     setText (parameter->getUserValueText(), juce::dontSendNotification);
 }

@@ -21,7 +21,7 @@ public:
         parameter->removeListener (this);
     }
 
-    void parameterChanged (Parameter*) override
+    void valueUpdated (Parameter*) override
     {
         setToggleState (parameter->getUserValue() > 0.0f, juce::dontSendNotification);
         setButtonText (parameter->getUserValueText());
@@ -106,7 +106,7 @@ public:
         parameter->removeListener (this);
     }
 
-    void parameterChanged (Parameter*) override
+    void valueUpdated (Parameter*) override
     {
         setSelectedItemIndex (int (parameter->getUserValue() - parameter->getUserRangeStart()), juce::dontSendNotification);
     }
@@ -168,7 +168,7 @@ public:
         parameter->endUserAction();
     }
 
-    void parameterChanged (Parameter*) override
+    void valueUpdated (Parameter*) override
     {
         setValue (parameter->getUserValue(), juce::dontSendNotification);
     }
@@ -216,7 +216,7 @@ public:
     ~Readout() override;
 
 private:
-    void parameterChanged (Parameter* source) override;
+    void valueUpdated (Parameter* source) override;
     void paint (juce::Graphics& g) override;
     void textWasEdited() override;
 

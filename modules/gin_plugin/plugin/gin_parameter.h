@@ -70,7 +70,7 @@ public:
     {
     public:
         virtual ~ParameterListener() {}
-        virtual void parameterChanged (Parameter* param) = 0;
+        virtual void valueUpdated (Parameter* param) = 0;
     };
 
     void addListener (ParameterListener* listener);
