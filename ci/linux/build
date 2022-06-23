@@ -35,8 +35,12 @@ done
 
 "$ROOT/ci/bin/Projucer" --set-global-search-path linux  defaultJuceModulePath "$ROOT/juce/modules" 
 "$ROOT/ci/bin/Projucer" --resave "$ROOT/examples/Demo/Demo.jucer"
+"$ROOT/ci/bin/Projucer" --resave "$ROOT/examples/Synth/Synth.jucer"
 
 cd "$ROOT/examples/Demo/Builds/LinuxMakefile"
+make CONFIG=Release
+
+cd "$ROOT/examples/Synth/Builds/LinuxMakefile"
 make CONFIG=Release
 
 rm -Rf "$ROOT/ci/linux/bin"

@@ -20,9 +20,14 @@ if %errorlevel% neq 0 exit /b %errorlevel%
 
 .\x64\Release\App\Projucer.exe --set-global-search-path windows defaultJuceModulePath "%ROOT%\juce\modules" 
 .\x64\Release\App\Projucer.exe --resave "%ROOT%\examples\Demo\Demo.jucer"
+.\x64\Release\App\Projucer.exe --resave "%ROOT%\examples\Synth\Synth.jucer"
 
-cd "%ROOT%\examples\Demo\Builds\VisualStudio2019"
-"%MSBUILD_EXE%" Demo.sln /p:VisualStudioVersion=16.0 /m /t:Build /p:Configuration=Release /p:Platform=x64 /p:PreferredToolArchitecture=x64 
+cd "%ROOT%\examples\Demo\Builds\VisualStudio2022"
+"%MSBUILD_EXE%" Demo.sln /p:VisualStudioVersion=17.0 /m /t:Build /p:Configuration=Release /p:Platform=x64 /p:PreferredToolArchitecture=x64 
+if %errorlevel% neq 0 exit /b %errorlevel%
+
+cd "%ROOT%\examples\Synth\Builds\VisualStudio2022"
+"%MSBUILD_EXE%" Synth.sln /p:VisualStudioVersion=17.0 /m /t:Build /p:Configuration=Release /p:Platform=x64 /p:PreferredToolArchitecture=x64 
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 mkdir "%ROOT%\ci\win\bin"

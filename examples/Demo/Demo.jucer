@@ -85,7 +85,7 @@
         <MODULEPATH id="gin_gui" path="../../modules"/>
       </MODULEPATHS>
     </XCODE_IPHONE>
-    <VS2019 targetFolder="Builds/VisualStudio2019" extraCompilerFlags="/wd4996 /wd4458"
+    <VS2022 targetFolder="Builds/VisualStudio2019" extraCompilerFlags="/wd4996 /wd4458"
             smallIcon="fAXkiV" bigIcon="fAXkiV" toolset="v142">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
@@ -115,7 +115,7 @@
         <MODULEPATH id="gin_network" path="../../modules"/>
         <MODULEPATH id="gin_gui" path="../../modules"/>
       </MODULEPATHS>
-    </VS2019>
+    </VS2022>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" linkTimeOptimisation="0"
