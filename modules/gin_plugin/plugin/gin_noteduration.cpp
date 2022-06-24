@@ -10,16 +10,22 @@ float NoteDuration::toSeconds (juce::AudioPlayHead* playhead) const
     float timeSigNumerator = 4;
     float timeSigDenominator = 4;
     float bpm = 120.0f;
-    
+
     if (playhead != nullptr)
     {
-        juce::AudioPlayHead::CurrentPositionInfo position;
-        if (playhead->getCurrentPosition (position))
+        if (auto position = playhead->getPosition(); position.hasValue())
         {
-            timeSigNumerator = float (position.timeSigNumerator);
-            timeSigDenominator = float (position.timeSigDenominator);
-            bpm = float (position.bpm);
-            if (bpm == 0.0) bpm = 120;
+            if (auto tso = position->getTimeSignature(); tso.hasValue())
+            {
+                timeSigNumerator = tso->numerator;
+                timeSigDenominator = tso->denominator;
+            }
+            if (auto bo = position->getBpm(); bo.hasValue())
+                bpm = float (*bo);
+
+            if (bpm == 0.0)
+                bpm = 120;
+
             bpm = juce::jlimit (1.0f, 500.0f, bpm);
         }
     }
@@ -63,7 +69,7 @@ const std::vector<NoteDuration>& NoteDuration::getNoteDurations()
 {
     const float dot = 1.5f;
     const float triplet = 2.0f / 3.0f;
-    
+
     static std::vector<NoteDuration> durations =
     {
         {"1/64t",   0.0f,  0.015625f * triplet},
