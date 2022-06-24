@@ -14,7 +14,7 @@ set ROOT=%cd%
 
 git clone https://github.com/WeAreROLI/JUCE.git --branch develop --single-branch juce
 
-cd "%ROOT%\juce\extras\Projucer\Builds\VisualStudio2019"
+cd "%ROOT%\juce\extras\Projucer\Builds\VisualStudio2022"
 "%MSBUILD_EXE%" Projucer.sln /p:VisualStudioVersion=16.0 /m /t:Build /p:Configuration=Release /p:Platform=x64 /p:PreferredToolArchitecture=x64 
 if %errorlevel% neq 0 exit /b %errorlevel%
 

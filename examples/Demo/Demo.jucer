@@ -85,7 +85,7 @@
         <MODULEPATH id="gin_gui" path="../../modules"/>
       </MODULEPATHS>
     </XCODE_IPHONE>
-    <VS2022 targetFolder="Builds/VisualStudio2019" extraCompilerFlags="/wd4996 /wd4458"
+    <VS2022 targetFolder="Builds/VisualStudio2022" extraCompilerFlags="/wd4996 /wd4458"
             smallIcon="fAXkiV" bigIcon="fAXkiV" toolset="v142">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
