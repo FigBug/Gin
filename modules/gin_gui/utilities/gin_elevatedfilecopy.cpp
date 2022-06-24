@@ -7,7 +7,7 @@
 
 #if JUCE_MAC
 
-ElevatedFileCopy::Result runWithPermissions (juce::String cmd, juce::StringArray params)
+static ElevatedFileCopy::Result runWithPermissions (juce::String cmd, juce::StringArray params)
 {
     OSStatus err = noErr;
     auto path = cmd.toRawUTF8();

@@ -44,7 +44,7 @@ static void setupSilentErrorHandler (struct jpeg_error_mgr& err)
     err.reset_error_mgr = silentErrorCallback1;
 }
 
-bool loadJPEGMetadataFromStream (juce::OwnedArray<ImageMetadata>& metadata, juce::InputStream& input)
+static bool loadJPEGMetadataFromStream (juce::OwnedArray<ImageMetadata>& metadata, juce::InputStream& input)
 {
     juce::MemoryBlock mb;
     input.readIntoMemoryBlock (mb);
@@ -104,7 +104,7 @@ static void pngReadCallback (png_structp pngReadStruct, png_bytep data, png_size
 }
 
 //==============================================================================
-bool loadPNGMetadataFromStream (juce::OwnedArray<ImageMetadata>& metadata, juce::InputStream& in)
+static bool loadPNGMetadataFromStream (juce::OwnedArray<ImageMetadata>& metadata, juce::InputStream& in)
 {
     juce::Image* image = nullptr;
 
