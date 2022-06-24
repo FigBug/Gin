@@ -18,7 +18,9 @@
 
 #if __clang__
  #pragma clang diagnostic push
- #pragma clang diagnostic ignored "-Wnull-pointer-subtraction"
+ #if __has_warning("-Wnull-pointer-subtraction")
+  #pragma clang diagnostic ignored "-Wnull-pointer-subtraction"
+ #endif
 #endif
 
 namespace gin
