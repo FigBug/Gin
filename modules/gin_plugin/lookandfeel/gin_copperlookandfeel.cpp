@@ -94,7 +94,7 @@ void CopperLookAndFeel::drawLinearSlider (juce::Graphics& g, int x, int y, int w
         }
         else
         {
-            g.fillRect (juce::Rectangle<float> (float (rc.getX()), float (rc.getY()), sliderPos - rc.getX(), rc.getHeight()));
+            g.fillRect (juce::Rectangle<float> (float (rc.getX()), float (rc.getY()), sliderPos - rc.getX(), float (rc.getHeight())));
         }
     }
     else
