@@ -17,8 +17,8 @@ float NoteDuration::toSeconds (juce::AudioPlayHead* playhead) const
         {
             if (auto tso = position->getTimeSignature(); tso.hasValue())
             {
-                timeSigNumerator = tso->numerator;
-                timeSigDenominator = tso->denominator;
+                timeSigNumerator = float (tso->numerator);
+                timeSigDenominator = float (tso->denominator);
             }
             if (auto bo = position->getBpm(); bo.hasValue())
                 bpm = float (*bo);

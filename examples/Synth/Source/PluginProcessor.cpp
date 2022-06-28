@@ -195,7 +195,7 @@ void SynthAudioProcessor::handleMidiEvent (const juce::MidiMessage& m)
     MPESynthesiser::handleMidiEvent (m);
 }
 
-void SynthAudioProcessor::handleController ([[maybe_unused]] int ch, int num, int val)
+void SynthAudioProcessor::handleController (int, int, int)
 {
 }
 
