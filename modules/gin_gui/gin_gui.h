@@ -15,16 +15,17 @@
 
  BEGIN_JUCE_MODULE_DECLARATION
 
-  ID:               gin_gui
-  vendor:           Roland Rabien
-  version:          1.0.0
-  name:             Gin
-  description:      Gin
-  website:          www.rabiensoftware.com
-  license:          BSD
+  ID:                   gin_gui
+  vendor:               Roland Rabien
+  version:              1.0.0
+  name:                 Gin
+  description:          Gin
+  website:              www.rabiensoftware.com
+  license:              BSD
+  minimumCppStandard:   17
 
-  dependencies:     juce_core juce_graphics juce_events juce_gui_basics juce_gui_extra gin
-  OSXFrameworks:    Security
+  dependencies:         juce_core juce_graphics juce_events juce_gui_basics juce_gui_extra gin
+  OSXFrameworks:        Security
 
  END_JUCE_MODULE_DECLARATION
 

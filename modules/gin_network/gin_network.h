@@ -15,16 +15,17 @@
 
  BEGIN_JUCE_MODULE_DECLARATION
 
-  ID:               gin_network
-  vendor:           Roland Rabien
-  version:          1.0.0
-  name:             Gin Network
-  description:      Gin Network
-  website:          www.rabiensoftware.com
-  license:          BSD
+  ID:                   gin_network
+  vendor:               Roland Rabien
+  version:              1.0.0
+  name:                 Gin Network
+  description:          Gin Network
+  website:              www.rabiensoftware.com
+  license:              BSD
+  minimumCppStandard:   17
 
-  dependencies:     gin juce_core juce_events
-  searchpaths:      3rdparty/mbedtls/include
+  dependencies:         gin juce_core juce_events
+  searchpaths:          3rdparty/mbedtls/include
 
  END_JUCE_MODULE_DECLARATION
 

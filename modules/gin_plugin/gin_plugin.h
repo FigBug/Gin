@@ -15,15 +15,16 @@
 
  BEGIN_JUCE_MODULE_DECLARATION
 
-  ID:               gin_plugin
-  vendor:           Roland Rabien
-  version:          1.0.0
-  name:             Gin Plugin
-  description:      GinPlugin Utilities
-  website:          www.rabiensoftware.com
-  license:          BSD
+  ID:                   gin_plugin
+  vendor:               Roland Rabien
+  version:              1.0.0
+  name:                 Gin Plugin
+  description:          GinPlugin Utilities
+  website:              www.rabiensoftware.com
+  license:              BSD
+  minimumCppStandard:   17
 
-  dependencies:     gin gin_dsp gin_gui juce_audio_utils juce_audio_processors
+  dependencies:         gin gin_dsp gin_gui juce_audio_utils juce_audio_processors
 
  END_JUCE_MODULE_DECLARATION
 

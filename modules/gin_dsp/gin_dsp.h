@@ -15,15 +15,16 @@
 
  BEGIN_JUCE_MODULE_DECLARATION
 
-  ID:               gin_dsp
-  vendor:           Roland Rabien
-  version:          1.0.0
-  name:             Gin DSP Utilities
-  description:      Gin DSP Utilities
-  website:          www.rabiensoftware.com
-  license:          BSD
+  ID:                   gin_dsp
+  vendor:               Roland Rabien
+  version:              1.0.0
+  name:                 Gin DSP Utilities
+  description:          Gin DSP Utilities
+  website:              www.rabiensoftware.com
+  license:              BSD
+ minimumCppStandard:    17
 
-  dependencies:     gin juce_core juce_audio_utils juce_dsp
+  dependencies:         gin juce_core juce_audio_utils juce_dsp
 
  END_JUCE_MODULE_DECLARATION
 

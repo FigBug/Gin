@@ -15,16 +15,17 @@
 
  BEGIN_JUCE_MODULE_DECLARATION
 
-  ID:               gin_metadata
-  vendor:           Roland Rabien
-  version:          1.0.0
-  name:             Gin Metadata
-  description:      Gin Metadata
-  website:          www.rabiensoftware.com
-  license:          BSD
+  ID:                   gin_metadata
+  vendor:               Roland Rabien
+  version:              1.0.0
+  name:                 Gin Metadata
+  description:          Gin Metadata
+  website:              www.rabiensoftware.com
+  license:              BSD
+  minimumCppStandard:   17
 
-  dependencies:     juce_core juce_graphics gin
-  OSXFrameworks:    Security
+  dependencies:         juce_core juce_graphics gin
+  OSXFrameworks:        Security
 
  END_JUCE_MODULE_DECLARATION
 
