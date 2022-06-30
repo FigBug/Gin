@@ -26,10 +26,10 @@ cd "%ROOT%\examples\Demo\Builds\VisualStudio2022"
 "%MSBUILD_EXE%" Demo.sln /p:VisualStudioVersion=17.0 /m /t:Build /p:Configuration=Release /p:Platform=x64 /p:PreferredToolArchitecture=x64 
 if %errorlevel% neq 0 exit /b %errorlevel%
 
+mkdir "%ROOT%\ci\win\bin"
+copy .\x64\Release\App\Demo.exe "%ROOT%\ci\win\bin"
+
 cd "%ROOT%\examples\Synth\Builds\VisualStudio2022"
 "%MSBUILD_EXE%" Synth.sln /p:VisualStudioVersion=17.0 /m /t:Build /p:Configuration=Release /p:Platform=x64 /p:PreferredToolArchitecture=x64 
 if %errorlevel% neq 0 exit /b %errorlevel%
-
-mkdir "%ROOT%\ci\win\bin"
-copy .\x64\Release\App\Demo.exe "%ROOT%\ci\win\bin"
 
