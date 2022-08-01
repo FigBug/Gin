@@ -1205,7 +1205,7 @@ void SingleLineTextEditor::moveCaretToEnd()
     moveCaretTo (std::numeric_limits<int>::max(), false);
 }
 
-juce::Rectangle<int> SingleLineTextEditor::getCaretRectangle()
+juce::Rectangle<int> SingleLineTextEditor::getCaretRectangleForCharIndex (int index) const
 {
     float cursorX, cursorY;
     float cursorHeight = currentFont.getHeight(); // (in case the text is empty and the call below doesn't set this value)

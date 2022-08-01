@@ -302,7 +302,7 @@ public:
     /** Returns the current index of the caret.
         @see setCaretPosition
     */
-    int getCaretPosition() const;
+    int getCaretPosition() const override;
 
     /** Moves the caret to be in front of a given character.
         @see getCaretPosition, moveCaretToEnd
@@ -314,7 +314,7 @@ public:
         The rectangle returned is relative to the component's top-left corner.
         @see scrollEditorToPositionCaret
     */
-    juce::Rectangle<int> getCaretRectangle() override;
+	juce::Rectangle<int> getCaretRectangleForCharIndex (int index) const override;
 
     /** Selects a section of the text. */
     void setHighlightedRegion (const juce::Range<int>& newSelection) override;
@@ -338,7 +338,7 @@ public:
         This is quicker than getting the text as a string if you just need to know
         the length.
     */
-    int getTotalNumChars() const;
+    int getTotalNumChars() const override;
 
     /** Returns the total width of the text, as it is currently laid-out.
 

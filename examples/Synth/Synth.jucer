@@ -6,7 +6,7 @@
               pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
               pluginAUMainType="'augn'" pluginVST3Category="Instrument" pluginVSTCategory="kPlugCategSynth"
               cppLanguageStandard="17" defines="JUCE_MODAL_LOOPS_PERMITTED=1&#10;JUCE_DISPLAY_SPLASH_SCREEN=0"
-              pluginChannelConfigs="{0, 2}">
+              pluginChannelConfigs="{0, 2}" pluginManufacturer="SocaLabs" aaxIdentifier="com.socalabs.synth">
   <MAINGROUP id="IHqQ4O" name="Synth">
     <GROUP id="{748259ED-0696-5D5A-D2CC-E906E7BA7402}" name="Source">
       <FILE id="cSQ4J8" name="SynthVoice.cpp" compile="1" resource="0" file="Source/SynthVoice.cpp"/>
