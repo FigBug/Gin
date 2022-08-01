@@ -1209,7 +1209,7 @@ juce::Rectangle<int> SingleLineTextEditor::getCaretRectangleForCharIndex (int in
 {
     float cursorX, cursorY;
     float cursorHeight = currentFont.getHeight(); // (in case the text is empty and the call below doesn't set this value)
-    getCharPosition (caretPosition, cursorX, cursorY, cursorHeight);
+    getCharPosition (index, cursorX, cursorY, cursorHeight);
 
     return juce::Rectangle<int> (juce::roundToInt (cursorX), juce::roundToInt (cursorY), 2, juce::roundToInt (cursorHeight));
 }
