@@ -10809,8 +10809,8 @@
       <type>int</type>
       <name>getCaretPosition</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>aa68c21fafdc6439b70ed16bf10e7c08a</anchor>
-      <arglist>() const</arglist>
+      <anchor>a023fea15cd3ab896d9132560b673aea1</anchor>
+      <arglist>() const override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -10821,10 +10821,10 @@
     </member>
     <member kind="function">
       <type>juce::Rectangle&lt; int &gt;</type>
-      <name>getCaretRectangle</name>
+      <name>getCaretRectangleForCharIndex</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>a3f1ba4f7ddcb96155d2261b748ac4588</anchor>
-      <arglist>() override</arglist>
+      <anchor>a58789ac6c8cde4b93ff33677b43f2307</anchor>
+      <arglist>(int index) const override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -10858,8 +10858,8 @@
       <type>int</type>
       <name>getTotalNumChars</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>a87bf612c79d630bd8d896a6451f388c5</anchor>
-      <arglist>() const</arglist>
+      <anchor>a130774066858dbbf22505f3cb24a01b4</anchor>
+      <arglist>() const override</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -13427,6 +13427,18 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_plugin-components</name>
+    <title>components</title>
+    <filename>group__gin__plugin-components.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>gradientRect</name>
+      <anchorfile>group__gin__plugin-components.html</anchorfile>
+      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
+      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
     <name>gin_dsp-components</name>
     <title>components</title>
     <filename>group__gin__dsp-components.html</filename>
@@ -13448,18 +13460,6 @@
       <anchorfile>group__gin__gui-components.html</anchorfile>
       <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
       <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_plugin-components</name>
-    <title>components</title>
-    <filename>group__gin__plugin-components.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>gradientRect</name>
-      <anchorfile>group__gin__plugin-components.html</anchorfile>
-      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
-      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
     </member>
   </compound>
   <compound kind="group">
@@ -14013,25 +14013,6 @@
     <filename>group__gin__plugin-resources.html</filename>
   </compound>
   <compound kind="group">
-    <name>gin_gui-utilities</name>
-    <title>utilities</title>
-    <filename>group__gin__gui-utilities.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>callOnMainThreadBlocking</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
-      <arglist>(std::function&lt; void()&gt; func)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
     <name>gin-utilities</name>
     <title>utilities</title>
     <filename>group__gin-utilities.html</filename>
@@ -14377,6 +14358,25 @@
       <anchorfile>group__gin-utilities.html</anchorfile>
       <anchor>ga88f482bf81fb3e423fa1e3926dfaa9a6</anchor>
       <arglist>(const juce::String &amp;jsonText)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_gui-utilities</name>
+    <title>utilities</title>
+    <filename>group__gin__gui-utilities.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>callOnMainThreadBlocking</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
+      <arglist>(std::function&lt; void()&gt; func)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
     </member>
   </compound>
 </tagfile>

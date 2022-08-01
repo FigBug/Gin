@@ -199,15 +199,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa3b8c17f58f57098a9562e2ac1fc8f51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSingleLineTextEditor.html#aa3b8c17f58f57098a9562e2ac1fc8f51">paste</a> ()</td></tr>
 <tr class="memdesc:aa3b8c17f58f57098a9562e2ac1fc8f51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pastes the contents of the clipboard into the editor at the caret position.  <a href="classSingleLineTextEditor.html#aa3b8c17f58f57098a9562e2ac1fc8f51">More...</a><br /></td></tr>
 <tr class="separator:aa3b8c17f58f57098a9562e2ac1fc8f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa68c21fafdc6439b70ed16bf10e7c08a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSingleLineTextEditor.html#aa68c21fafdc6439b70ed16bf10e7c08a">getCaretPosition</a> () const</td></tr>
-<tr class="memdesc:aa68c21fafdc6439b70ed16bf10e7c08a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current index of the caret.  <a href="classSingleLineTextEditor.html#aa68c21fafdc6439b70ed16bf10e7c08a">More...</a><br /></td></tr>
-<tr class="separator:aa68c21fafdc6439b70ed16bf10e7c08a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a023fea15cd3ab896d9132560b673aea1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSingleLineTextEditor.html#a023fea15cd3ab896d9132560b673aea1">getCaretPosition</a> () const override</td></tr>
+<tr class="memdesc:a023fea15cd3ab896d9132560b673aea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current index of the caret.  <a href="classSingleLineTextEditor.html#a023fea15cd3ab896d9132560b673aea1">More...</a><br /></td></tr>
+<tr class="separator:a023fea15cd3ab896d9132560b673aea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a7e634d21820819e9c1e76fffe89d18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSingleLineTextEditor.html#a2a7e634d21820819e9c1e76fffe89d18">setCaretPosition</a> (int newIndex)</td></tr>
 <tr class="memdesc:a2a7e634d21820819e9c1e76fffe89d18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the caret to be in front of a given character.  <a href="classSingleLineTextEditor.html#a2a7e634d21820819e9c1e76fffe89d18">More...</a><br /></td></tr>
 <tr class="separator:a2a7e634d21820819e9c1e76fffe89d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f1ba4f7ddcb96155d2261b748ac4588"><td class="memItemLeft" align="right" valign="top">juce::Rectangle&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSingleLineTextEditor.html#a3f1ba4f7ddcb96155d2261b748ac4588">getCaretRectangle</a> () override</td></tr>
-<tr class="memdesc:a3f1ba4f7ddcb96155d2261b748ac4588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the graphical position of the caret.  <a href="classSingleLineTextEditor.html#a3f1ba4f7ddcb96155d2261b748ac4588">More...</a><br /></td></tr>
-<tr class="separator:a3f1ba4f7ddcb96155d2261b748ac4588"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58789ac6c8cde4b93ff33677b43f2307"><td class="memItemLeft" align="right" valign="top">juce::Rectangle&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSingleLineTextEditor.html#a58789ac6c8cde4b93ff33677b43f2307">getCaretRectangleForCharIndex</a> (int index) const override</td></tr>
+<tr class="memdesc:a58789ac6c8cde4b93ff33677b43f2307"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the graphical position of the caret.  <a href="classSingleLineTextEditor.html#a58789ac6c8cde4b93ff33677b43f2307">More...</a><br /></td></tr>
+<tr class="separator:a58789ac6c8cde4b93ff33677b43f2307"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a347c56fbc82297286cca76984675e3ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSingleLineTextEditor.html#a347c56fbc82297286cca76984675e3ee">setHighlightedRegion</a> (const juce::Range&lt; int &gt; &amp;newSelection) override</td></tr>
 <tr class="memdesc:a347c56fbc82297286cca76984675e3ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects a section of the text.  <a href="classSingleLineTextEditor.html#a347c56fbc82297286cca76984675e3ee">More...</a><br /></td></tr>
 <tr class="separator:a347c56fbc82297286cca76984675e3ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -220,9 +220,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af00ababad07f4e206ba60b6e603b98dd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSingleLineTextEditor.html#af00ababad07f4e206ba60b6e603b98dd">getTextIndexAt</a> (int x, int y)</td></tr>
 <tr class="memdesc:af00ababad07f4e206ba60b6e603b98dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the index of the character at a given position.  <a href="classSingleLineTextEditor.html#af00ababad07f4e206ba60b6e603b98dd">More...</a><br /></td></tr>
 <tr class="separator:af00ababad07f4e206ba60b6e603b98dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87bf612c79d630bd8d896a6451f388c5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSingleLineTextEditor.html#a87bf612c79d630bd8d896a6451f388c5">getTotalNumChars</a> () const</td></tr>
-<tr class="memdesc:a87bf612c79d630bd8d896a6451f388c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of characters in the text.  <a href="classSingleLineTextEditor.html#a87bf612c79d630bd8d896a6451f388c5">More...</a><br /></td></tr>
-<tr class="separator:a87bf612c79d630bd8d896a6451f388c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a130774066858dbbf22505f3cb24a01b4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSingleLineTextEditor.html#a130774066858dbbf22505f3cb24a01b4">getTotalNumChars</a> () const override</td></tr>
+<tr class="memdesc:a130774066858dbbf22505f3cb24a01b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of characters in the text.  <a href="classSingleLineTextEditor.html#a130774066858dbbf22505f3cb24a01b4">More...</a><br /></td></tr>
+<tr class="separator:a130774066858dbbf22505f3cb24a01b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e543e4f447cf374ae8caecb9aff7166"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSingleLineTextEditor.html#a0e543e4f447cf374ae8caecb9aff7166">getTextWidth</a> () const</td></tr>
 <tr class="memdesc:a0e543e4f447cf374ae8caecb9aff7166"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the total width of the text, as it is currently laid-out.  <a href="classSingleLineTextEditor.html#a0e543e4f447cf374ae8caecb9aff7166">More...</a><br /></td></tr>
 <tr class="separator:a0e543e4f447cf374ae8caecb9aff7166"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1032,7 +1032,7 @@ Protected Member Functions</h2></td></tr>
 <p>Inserts some text at the current caret position. </p>
 <p>If a section of the text is highlighted, it will be replaced by this string, otherwise it will be inserted.</p>
 <p>To delete a section of text, you can use <a class="el" href="classSingleLineTextEditor.html#a347c56fbc82297286cca76984675e3ee" title="Selects a section of the text.">setHighlightedRegion()</a> to highlight it, and call insertTextAtCaret (String()).</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classSingleLineTextEditor.html#a2a7e634d21820819e9c1e76fffe89d18" title="Moves the caret to be in front of a given character.">setCaretPosition</a>, <a class="el" href="classSingleLineTextEditor.html#aa68c21fafdc6439b70ed16bf10e7c08a" title="Returns the current index of the caret.">getCaretPosition</a>, <a class="el" href="classSingleLineTextEditor.html#a347c56fbc82297286cca76984675e3ee" title="Selects a section of the text.">setHighlightedRegion</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classSingleLineTextEditor.html#a2a7e634d21820819e9c1e76fffe89d18" title="Moves the caret to be in front of a given character.">setCaretPosition</a>, <a class="el" href="classSingleLineTextEditor.html#a023fea15cd3ab896d9132560b673aea1" title="Returns the current index of the caret.">getCaretPosition</a>, <a class="el" href="classSingleLineTextEditor.html#a347c56fbc82297286cca76984675e3ee" title="Selects a section of the text.">setHighlightedRegion</a> </dd></dl>
 
 </div>
 </div>
@@ -1115,11 +1115,14 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa68c21fafdc6439b70ed16bf10e7c08a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa68c21fafdc6439b70ed16bf10e7c08a">&#9670;&nbsp;</a></span>getCaretPosition()</h2>
+<a id="a023fea15cd3ab896d9132560b673aea1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a023fea15cd3ab896d9132560b673aea1">&#9670;&nbsp;</a></span>getCaretPosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int SingleLineTextEditor::getCaretPosition </td>
@@ -1128,6 +1131,11 @@ Protected Member Functions</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns the current index of the caret. </p>
@@ -1152,12 +1160,12 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Moves the caret to be in front of a given character. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classSingleLineTextEditor.html#aa68c21fafdc6439b70ed16bf10e7c08a" title="Returns the current index of the caret.">getCaretPosition</a>, <a class="el" href="classSingleLineTextEditor.html#aa3c49bcd8ddf2953996ef293b34395d4">moveCaretToEnd</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classSingleLineTextEditor.html#a023fea15cd3ab896d9132560b673aea1" title="Returns the current index of the caret.">getCaretPosition</a>, <a class="el" href="classSingleLineTextEditor.html#aa3c49bcd8ddf2953996ef293b34395d4">moveCaretToEnd</a> </dd></dl>
 
 </div>
 </div>
-<a id="a3f1ba4f7ddcb96155d2261b748ac4588"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f1ba4f7ddcb96155d2261b748ac4588">&#9670;&nbsp;</a></span>getCaretRectangle()</h2>
+<a id="a58789ac6c8cde4b93ff33677b43f2307"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58789ac6c8cde4b93ff33677b43f2307">&#9670;&nbsp;</a></span>getCaretRectangleForCharIndex()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1166,10 +1174,11 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">juce::Rectangle&lt;int&gt; SingleLineTextEditor::getCaretRectangle </td>
+          <td class="memname">juce::Rectangle&lt;int&gt; SingleLineTextEditor::getCaretRectangleForCharIndex </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -1290,11 +1299,14 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a87bf612c79d630bd8d896a6451f388c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87bf612c79d630bd8d896a6451f388c5">&#9670;&nbsp;</a></span>getTotalNumChars()</h2>
+<a id="a130774066858dbbf22505f3cb24a01b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a130774066858dbbf22505f3cb24a01b4">&#9670;&nbsp;</a></span>getTotalNumChars()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int SingleLineTextEditor::getTotalNumChars </td>
@@ -1303,6 +1315,11 @@ Protected Member Functions</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Counts the number of characters in the text. </p>
@@ -2522,7 +2539,7 @@ Protected Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 30 2022 18:28:25 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 1 2022 18:05:23 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
