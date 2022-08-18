@@ -13427,23 +13427,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_plugin-components</name>
-    <title>components</title>
-    <filename>group__gin__plugin-components.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>gradientRect</name>
-      <anchorfile>group__gin__plugin-components.html</anchorfile>
-      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
-      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-  </compound>
-  <compound kind="group">
     <name>gin_gui-components</name>
     <title>components</title>
     <filename>group__gin__gui-components.html</filename>
@@ -13460,6 +13443,23 @@
       <anchorfile>group__gin__gui-components.html</anchorfile>
       <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
       <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>gin_plugin-components</name>
+    <title>components</title>
+    <filename>group__gin__plugin-components.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>gradientRect</name>
+      <anchorfile>group__gin__plugin-components.html</anchorfile>
+      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
+      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
     </member>
   </compound>
   <compound kind="group">
