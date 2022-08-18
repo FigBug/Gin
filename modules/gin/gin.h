@@ -79,7 +79,9 @@ namespace gin
 #include "utilities/gin_messagepack.h"
 #include "utilities/gin_plist.h"
 #include "utilities/gin_realtimeasyncupdater.h"
-#include "utilities/gin_sharedmemory.h"
+#ifndef JUCE_ANDROID
+ #include "utilities/gin_sharedmemory.h"
+#endif
 #include "utilities/gin_spline.h"
 #include "utilities/gin_systemsemaphore.h"
 #include "utilities/gin_threading.h"

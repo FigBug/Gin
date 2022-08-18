@@ -50,7 +50,9 @@ namespace gin
 #include "utilities/gin_messagepack.cpp"
 #include "utilities/gin_realtimeasyncupdater.cpp"
 #include "utilities/gin_plist.cpp"
-#include "utilities/gin_sharedmemory.cpp"
+#ifndef JUCE_ANDROID
+ #include "utilities/gin_sharedmemory.cpp"
+#endif
 #include "utilities/gin_spline.cpp"
 #include "utilities/gin_systemsemaphore.cpp"
 #include "utilities/gin_threading.cpp"
