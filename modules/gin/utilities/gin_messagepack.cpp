@@ -334,15 +334,15 @@ static juce::var fromData (juce::InputStream& is)
     }
     else if (d == 0xcd)
     {
-        return int (uint8_t (is.readShortBigEndian()));
+        return int (uint16_t (is.readShortBigEndian()));
     }
     else if (d == 0xce)
     {
-        return int (uint8_t (is.readIntBigEndian()));
+        return int (uint32_t (is.readIntBigEndian()));
     }
     else if (d == 0xcf)
     {
-        return int (uint8_t (is.readInt64BigEndian()));
+        return int (uint64_t (is.readInt64BigEndian()));
     }
     else if (d == 0xd4)
     {
