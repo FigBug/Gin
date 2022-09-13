@@ -37,7 +37,8 @@ void UpdateChecker::timerCallback()
 
 void UpdateChecker::run()
 {
-   #if ! JUCE_IOS
+  #if ! JUCE_IOS
+   #ifdef JucePlugin_Name
     juce::URL versionsUrl = juce::URL ("https://socalabs.com/version.xml").withParameter ("plugin", JucePlugin_Name).withParameter ("version", JucePlugin_VersionString);
     juce::XmlDocument doc (versionsUrl.readEntireTextStream());
     if (std::unique_ptr<juce::XmlElement> root = doc.getDocumentElement())
@@ -66,6 +67,7 @@ void UpdateChecker::run()
         }
     }
    #endif
+  #endif
 }
 
 void UpdateChecker::handleAsyncUpdate()
@@ -393,8 +395,10 @@ void TitleBar::showMenu()
     {
         juce::URL (updateUrl).launchInDefaultBrowser();
 
+       #ifdef JucePlugin_Name
         if (auto props = slProc.getSettings())
             props->setValue (JucePlugin_Name "_updateUrl", "");
+       #endif
     });
 
     auto newsUrl = newsChecker->getNewsUrl();
