@@ -398,6 +398,8 @@ void TitleBar::showMenu()
        #ifdef JucePlugin_Name
         if (auto props = slProc.getSettings())
             props->setValue (JucePlugin_Name "_updateUrl", "");
+       #else
+        (void) this;
        #endif
     });
 
