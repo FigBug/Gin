@@ -78,7 +78,7 @@ public:
 
 protected:
     juce::AudioSampleBuffer buffer;
-    float** data = nullptr;
+    float* const* data = nullptr;
     
     double sampleRate = 44100.0;
     int writePos = 0;

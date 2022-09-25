@@ -12,7 +12,7 @@ void applyGain (juce::AudioSampleBuffer& buffer, juce::LinearSmoothedValue<float
 {
     if (gain.isSmoothing())
     {
-        if (float** w = buffer.getArrayOfWritePointers())
+        if (auto w = buffer.getArrayOfWritePointers())
         {
             for (int s = 0; s < buffer.getNumSamples(); s++)
             {
@@ -44,7 +44,7 @@ void applyGain (juce::AudioSampleBuffer& buffer, int channel, juce::LinearSmooth
 
 void clip (juce::AudioSampleBuffer& buffer, float low, float high)
 {
-    if (float** w = buffer.getArrayOfWritePointers())
+    if (auto w = buffer.getArrayOfWritePointers())
     {
         for (int s = 0; s < buffer.getNumSamples(); s++)
         {

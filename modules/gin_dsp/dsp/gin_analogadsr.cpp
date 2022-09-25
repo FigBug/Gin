@@ -159,7 +159,7 @@ void AnalogADSR::processMultiplying (juce::AudioSampleBuffer& buffer)
 void AnalogADSR::processMultiplying (juce::AudioSampleBuffer& buffer, int startSample, int numSamples)
 {
     int channels = buffer.getNumChannels();
-    float** d = buffer.getArrayOfWritePointers();
+    auto d = buffer.getArrayOfWritePointers();
     
     for (int i = 0; i < numSamples; i++)
     {
