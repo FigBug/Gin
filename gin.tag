@@ -3234,10 +3234,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>float **</type>
+      <type>float *const  *</type>
       <name>data</name>
       <anchorfile>classDelayLine.html</anchorfile>
-      <anchor>a2ead4b17009f75300230c98d2e22650d</anchor>
+      <anchor>a7626cd60f96412594a28f4471337587b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -13427,6 +13427,11 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
+  </compound>
+  <compound kind="group">
     <name>gin_gui-components</name>
     <title>components</title>
     <filename>group__gin__gui-components.html</filename>
@@ -13444,11 +13449,6 @@
       <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
       <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
     </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
   </compound>
   <compound kind="group">
     <name>gin_plugin-components</name>

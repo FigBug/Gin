@@ -2,7 +2,7 @@ var searchData=
 [
   ['d_186',['d',['../classSpline_1_1Element.html#aa152a2b6876477cb9945a1de6860f06e',1,'Spline::Element']]],
   ['darken_187',['Darken',['../group__gin__gui-images.html#gga30323fa90e24ca484998b9fba6c40e85a95ea73d8fed63115639319a67d596d49',1,'gin_imageeffects.h']]],
-  ['data_188',['data',['../structDownloadManager_1_1DownloadResult.html#a13fd2f0e9b09ade1a1b2ccf97c920bf5',1,'DownloadManager::DownloadResult::data()'],['../classDelayLine.html#a2ead4b17009f75300230c98d2e22650d',1,'DelayLine::data()'],['../classAsyncDownload.html#a65842b5ad253633e5d2d6df4464d5125',1,'AsyncDownload::data()'],['../structHttp_1_1HttpResult.html#a3ae0b311189f4413f1128ba994c2aca3',1,'Http::HttpResult::data()']]],
+  ['data_188',['data',['../structDownloadManager_1_1DownloadResult.html#a13fd2f0e9b09ade1a1b2ccf97c920bf5',1,'DownloadManager::DownloadResult::data()'],['../classDelayLine.html#a7626cd60f96412594a28f4471337587b',1,'DelayLine::data()'],['../classAsyncDownload.html#a65842b5ad253633e5d2d6df4464d5125',1,'AsyncDownload::data()'],['../structHttp_1_1HttpResult.html#a3ae0b311189f4413f1128ba994c2aca3',1,'Http::HttpResult::data()']]],
   ['db12_189',['db12',['../classFilter.html#a5ef1acf81c79c0c8a0ecd8a52e38d4f2a2c5e517e0cff208de5a5b332964c98c7',1,'Filter']]],
   ['db24_190',['db24',['../classFilter.html#a5ef1acf81c79c0c8a0ecd8a52e38d4f2a96cc76f4311546df810c13784c2a591a',1,'Filter']]],
   ['decay_191',['decay',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127aabc2ac366007251aecdaaff91f4a8e5e3',1,'ADSR::decay()'],['../classAnalogADSR.html#a708e8fef77e14886a71939f64d7f99eb',1,'AnalogADSR::decay()'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188ea63faabca234a29640f3344e74c0672da',1,'AnalogADSR::decay()']]],
