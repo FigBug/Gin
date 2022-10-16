@@ -69,7 +69,7 @@ float EnvelopeDetector::process (float input)
         envelope = releaseTime * (envelope - input) + input;
     }
 
-    envelope = juce::jlimit (0.0f, 1.0f, envelope);
+    envelope = std::max (0.0f, envelope);
 
     if (logDetector)
     {
