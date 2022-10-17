@@ -587,7 +587,7 @@ juce::String msg;
     msg += JucePlugin_Name " v" JucePlugin_VersionString " (" __DATE__ ")\n\n";
    #endif
   #endif
-    msg += "Roland Rabien\nDavid Rowland\nRAW Material Software JUCE Framework\n";
+    msg += "Roland Rabien\n" + extraProgrammer +"\nRAW Material Software JUCE Framework\n";
     if (additionalProgramming.isNotEmpty())
         msg += additionalProgramming;
     msg += "\n";

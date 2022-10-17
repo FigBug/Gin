@@ -221,5 +221,7 @@ protected:
     TitleBar titleBar { *this, slProc };
     PatchBrowser patchBrowser { slProc };
 
+    juce::String extraProgrammer = "David Rowland";
+
     void refreshPrograms();
 };

@@ -95,6 +95,7 @@ namespace gin
 #include "dsp/gin_resamplingfifo.h"
 #include "dsp/gin_sample.h"
 #include "dsp/gin_sampleoscillator.h"
+#include "dsp/gin_simpleverb.h"
 #include "dsp/gin_steplfo.h"
 #include "dsp/gin_stereodelay.h"
 #include "dsp/gin_synthesiser.h"
