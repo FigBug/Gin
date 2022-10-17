@@ -96,8 +96,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abb7d2814c89e5a5ca3e7066c03ed9c66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3df98d57afadc92a521bea6c69ee200d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#a3df98d57afadc92a521bea6c69ee200d">setLinked</a> (bool l)</td></tr>
 <tr class="separator:a3df98d57afadc92a521bea6c69ee200d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9036a59f4f1bd8060ebafb00668a533b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#a9036a59f4f1bd8060ebafb00668a533b">setParams</a> (float attackS, float releaseS, float thresh, float ratio, float kneeWidth)</td></tr>
-<tr class="separator:a9036a59f4f1bd8060ebafb00668a533b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72cb7558a8113bc03168fcf5f012787f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#a72cb7558a8113bc03168fcf5f012787f">setParams</a> (float attackS, float holdS, float releaseS, float thresh, float ratio, float kneeWidth)</td></tr>
+<tr class="separator:a72cb7558a8113bc03168fcf5f012787f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b5e1b91c220eb50e4e68fc6c83282df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#a8b5e1b91c220eb50e4e68fc6c83282df">setInputGain</a> (float g)</td></tr>
 <tr class="separator:a8b5e1b91c220eb50e4e68fc6c83282df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7ad148c7049b91f76262e901f10a31a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#ae7ad148c7049b91f76262e901f10a31a">setOutputGain</a> (float g)</td></tr>
@@ -117,7 +117,6 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Compressor / Gate / Expander / Limiter based on algorithm from Designing Audio Effect Plug-ins in C++ by Will Pirkle. </p>
-<p>Gate and Expander not implemented yet </p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a6b3502e2f88d8fd32b07239376f19576"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6b3502e2f88d8fd32b07239376f19576">&#9670;&nbsp;</a></span>Type</h2>
@@ -263,8 +262,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a9036a59f4f1bd8060ebafb00668a533b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9036a59f4f1bd8060ebafb00668a533b">&#9670;&nbsp;</a></span>setParams()</h2>
+<a id="a72cb7558a8113bc03168fcf5f012787f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72cb7558a8113bc03168fcf5f012787f">&#9670;&nbsp;</a></span>setParams()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -274,6 +273,12 @@ Public Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>attackS</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>holdS</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -465,7 +470,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 16 2022 15:06:12 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 17 2022 02:16:17 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

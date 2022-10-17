@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['hasbrowser_2521',['hasBrowser',['../classTitleBar.html#a6782ccbfb8fc433a7abba03171506a8a',1,'TitleBar']]],
-  ['haspresets_2522',['hasPresets',['../classTitleBar.html#a981c2205d4edca7359eafa06aa34931a',1,'TitleBar']]],
-  ['header_5fsize_2523',['header_size',['../structWSHeaderType.html#ae61a7f14521c6529a754c0b414c2e6e5',1,'WSHeaderType']]],
-  ['headerheight_2524',['headerHeight',['../classProcessorEditorBase.html#abc8ed784a5fcb7e1efe3f1dc63348f82',1,'ProcessorEditorBase']]],
-  ['headers_2525',['headers',['../structHttp_1_1HttpResult.html#a663dee713583fca5be89fab8eddd3293',1,'Http::HttpResult']]],
-  ['holdremaining_2526',['holdRemaining',['../classEnvelopeDetector.html#a45d8c4b34051590225abaf3d766a4da1',1,'EnvelopeDetector']]],
-  ['holdtime_2527',['holdTime',['../classEnvelopeDetector.html#a92145a868d64b608b11903a79866ab8c',1,'EnvelopeDetector']]],
-  ['httpcode_2528',['httpCode',['../structDownloadManager_1_1DownloadResult.html#a70931a9fd508ce4cc0344be6514aeffb',1,'DownloadManager::DownloadResult']]]
+  ['hasbrowser_2523',['hasBrowser',['../classTitleBar.html#a6782ccbfb8fc433a7abba03171506a8a',1,'TitleBar']]],
+  ['haspresets_2524',['hasPresets',['../classTitleBar.html#a981c2205d4edca7359eafa06aa34931a',1,'TitleBar']]],
+  ['header_5fsize_2525',['header_size',['../structWSHeaderType.html#ae61a7f14521c6529a754c0b414c2e6e5',1,'WSHeaderType']]],
+  ['headerheight_2526',['headerHeight',['../classProcessorEditorBase.html#abc8ed784a5fcb7e1efe3f1dc63348f82',1,'ProcessorEditorBase']]],
+  ['headers_2527',['headers',['../structHttp_1_1HttpResult.html#a663dee713583fca5be89fab8eddd3293',1,'Http::HttpResult']]],
+  ['holdremaining_2528',['holdRemaining',['../classEnvelopeDetector.html#a45d8c4b34051590225abaf3d766a4da1',1,'EnvelopeDetector']]],
+  ['holdtime_2529',['holdTime',['../classEnvelopeDetector.html#a92145a868d64b608b11903a79866ab8c',1,'EnvelopeDetector']]],
+  ['httpcode_2530',['httpCode',['../structDownloadManager_1_1DownloadResult.html#a70931a9fd508ce4cc0344be6514aeffb',1,'DownloadManager::DownloadResult']]]
 ];

@@ -91,10 +91,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aaffaed493523a4e04dc15798879c95ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c151e5f1f29e3d901fb9f2dc28a6002"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a2c151e5f1f29e3d901fb9f2dc28a6002">setSampleRate</a> (double f)</td></tr>
 <tr class="separator:a2c151e5f1f29e3d901fb9f2dc28a6002"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c28fd0f9f06054525c443e3e593568e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a0c28fd0f9f06054525c443e3e593568e">setHold</a> (float holdS)</td></tr>
-<tr class="separator:a0c28fd0f9f06054525c443e3e593568e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab93bbb66f808ca1de945101eded169c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#ab93bbb66f808ca1de945101eded169c6">setParams</a> (float attackS, float releaseS, bool <a class="el" href="classEnvelopeDetector.html#aef1cbe13f909298336ff3e307e6b252c">analogTC</a>, <a class="el" href="classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4">Mode</a> detect, bool <a class="el" href="classEnvelopeDetector.html#a9b42cde52cbdcb05cbc85a65ba6a017f">logDetector</a>)</td></tr>
-<tr class="separator:ab93bbb66f808ca1de945101eded169c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a983d59fabbec5a3ebb64e98be0610520"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a983d59fabbec5a3ebb64e98be0610520">setParams</a> (float attackS, float holdS, float releaseS, bool <a class="el" href="classEnvelopeDetector.html#aef1cbe13f909298336ff3e307e6b252c">analogTC</a>, <a class="el" href="classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4">Mode</a> detect, bool <a class="el" href="classEnvelopeDetector.html#a9b42cde52cbdcb05cbc85a65ba6a017f">logDetector</a>)</td></tr>
+<tr class="separator:a983d59fabbec5a3ebb64e98be0610520"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21c729fbcbdac9e36b47144fada3cdda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a21c729fbcbdac9e36b47144fada3cdda">reset</a> ()</td></tr>
 <tr class="separator:a21c729fbcbdac9e36b47144fada3cdda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7baa6c81b6b27cc74dba98a16232a021"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a7baa6c81b6b27cc74dba98a16232a021">process</a> (float input)</td></tr>
@@ -104,6 +102,8 @@ Public Member Functions</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:ac4ad7feba40482f66ba2760596c488c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#ac4ad7feba40482f66ba2760596c488c5">setAttackTime</a> (float attackS)</td></tr>
 <tr class="separator:ac4ad7feba40482f66ba2760596c488c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aef834128e7c2772a5f40546edb3ae2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a7aef834128e7c2772a5f40546edb3ae2">setHoldTime</a> (float holdS)</td></tr>
+<tr class="separator:a7aef834128e7c2772a5f40546edb3ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa57e83a330148732fcc170e086077cdb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#aa57e83a330148732fcc170e086077cdb">setReleaseTime</a> (float releaseS)</td></tr>
 <tr class="separator:aa57e83a330148732fcc170e086077cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -222,26 +222,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a0c28fd0f9f06054525c443e3e593568e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c28fd0f9f06054525c443e3e593568e">&#9670;&nbsp;</a></span>setHold()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void EnvelopeDetector::setHold </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>holdS</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab93bbb66f808ca1de945101eded169c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab93bbb66f808ca1de945101eded169c6">&#9670;&nbsp;</a></span>setParams()</h2>
+<a id="a983d59fabbec5a3ebb64e98be0610520"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a983d59fabbec5a3ebb64e98be0610520">&#9670;&nbsp;</a></span>setParams()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -251,6 +233,12 @@ Protected Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>attackS</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>holdS</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -335,6 +323,32 @@ Protected Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>attackS</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7aef834128e7c2772a5f40546edb3ae2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7aef834128e7c2772a5f40546edb3ae2">&#9670;&nbsp;</a></span>setHoldTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EnvelopeDetector::setHoldTime </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>holdS</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -580,7 +594,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 16 2022 15:06:12 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 17 2022 02:16:17 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

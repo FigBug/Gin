@@ -135,6 +135,13 @@
       <anchor>ga1f707ada89f48bb4f68c4890ba90c27b</anchor>
       <arglist>(juce::AudioSampleBuffer &amp;input, int start, int length)</arglist>
     </member>
+    <member kind="function">
+      <type>T</type>
+      <name>lerp</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga48b0dea68bc2af522095b90b5e9acc13</anchor>
+      <arglist>(T a, T b, T t)</arglist>
+    </member>
     <member kind="variable">
       <type>constexpr float</type>
       <name>Q</name>
@@ -3603,8 +3610,8 @@
       <type>void</type>
       <name>setParams</name>
       <anchorfile>classDynamics.html</anchorfile>
-      <anchor>a9036a59f4f1bd8060ebafb00668a533b</anchor>
-      <arglist>(float attackS, float releaseS, float thresh, float ratio, float kneeWidth)</arglist>
+      <anchor>a72cb7558a8113bc03168fcf5f012787f</anchor>
+      <arglist>(float attackS, float holdS, float releaseS, float thresh, float ratio, float kneeWidth)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -3722,6 +3729,13 @@
       <anchorfile>classDynamicsMeter.html</anchorfile>
       <anchor>abfd5413d8c210e1fb65b4e257da4335d</anchor>
       <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setRange</name>
+      <anchorfile>classDynamicsMeter.html</anchorfile>
+      <anchor>a0d1820a8f792dad369d386b7050eb268</anchor>
+      <arglist>(juce::NormalisableRange&lt; float &gt; r)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -4139,17 +4153,10 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>setHold</name>
-      <anchorfile>classEnvelopeDetector.html</anchorfile>
-      <anchor>a0c28fd0f9f06054525c443e3e593568e</anchor>
-      <arglist>(float holdS)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
       <name>setParams</name>
       <anchorfile>classEnvelopeDetector.html</anchorfile>
-      <anchor>ab93bbb66f808ca1de945101eded169c6</anchor>
-      <arglist>(float attackS, float releaseS, bool analogTC, Mode detect, bool logDetector)</arglist>
+      <anchor>a983d59fabbec5a3ebb64e98be0610520</anchor>
+      <arglist>(float attackS, float holdS, float releaseS, bool analogTC, Mode detect, bool logDetector)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -4171,6 +4178,13 @@
       <anchorfile>classEnvelopeDetector.html</anchorfile>
       <anchor>ac4ad7feba40482f66ba2760596c488c5</anchor>
       <arglist>(float attackS)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setHoldTime</name>
+      <anchorfile>classEnvelopeDetector.html</anchorfile>
+      <anchor>a7aef834128e7c2772a5f40546edb3ae2</anchor>
+      <arglist>(float holdS)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -13544,6 +13558,13 @@
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
       <anchor>ga1f707ada89f48bb4f68c4890ba90c27b</anchor>
       <arglist>(juce::AudioSampleBuffer &amp;input, int start, int length)</arglist>
+    </member>
+    <member kind="function">
+      <type>T</type>
+      <name>lerp</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga48b0dea68bc2af522095b90b5e9acc13</anchor>
+      <arglist>(T a, T b, T t)</arglist>
     </member>
     <member kind="function">
       <type>double</type>

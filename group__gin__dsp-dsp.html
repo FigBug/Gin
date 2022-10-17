@@ -111,6 +111,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ga1f707ada89f48bb4f68c4890ba90c27b"><td class="memItemLeft" align="right" valign="top">juce::AudioSampleBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__dsp-dsp.html#ga1f707ada89f48bb4f68c4890ba90c27b">sliceBuffer</a> (juce::AudioSampleBuffer &amp;input, int start, int length)</td></tr>
 <tr class="memdesc:ga1f707ada89f48bb4f68c4890ba90c27b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a section of an audio buffer.  <a href="group__gin__dsp-dsp.html#ga1f707ada89f48bb4f68c4890ba90c27b">More...</a><br /></td></tr>
 <tr class="separator:ga1f707ada89f48bb4f68c4890ba90c27b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga48b0dea68bc2af522095b90b5e9acc13"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:ga48b0dea68bc2af522095b90b5e9acc13"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__gin__dsp-dsp.html#ga48b0dea68bc2af522095b90b5e9acc13">lerp</a> (T a, T b, T t)</td></tr>
+<tr class="memdesc:ga48b0dea68bc2af522095b90b5e9acc13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the linear interpolation between a and b, if the parameter t is inside [0, 1].  <a href="group__gin__dsp-dsp.html#ga48b0dea68bc2af522095b90b5e9acc13">More...</a><br /></td></tr>
+<tr class="separator:ga48b0dea68bc2af522095b90b5e9acc13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac81d5fa67210b71931d9191c641871b2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__dsp-dsp.html#gac81d5fa67210b71931d9191c641871b2">sine</a> (double phase, double unused1=0, double unused2=0)</td></tr>
 <tr class="separator:gac81d5fa67210b71931d9191c641871b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga83fe6fa8512b1a676092cf10f9c79e7e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__dsp-dsp.html#ga83fe6fa8512b1a676092cf10f9c79e7e">triangle</a> (double phase, double freq, double sampleRate)</td></tr>
@@ -443,6 +447,44 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="ga48b0dea68bc2af522095b90b5e9acc13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga48b0dea68bc2af522095b90b5e9acc13">&#9670;&nbsp;</a></span>lerp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T lerp </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the linear interpolation between a and b, if the parameter t is inside [0, 1]. </p>
+
+</div>
+</div>
 <a id="gac81d5fa67210b71931d9191c641871b2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gac81d5fa67210b71931d9191c641871b2">&#9670;&nbsp;</a></span>sine()</h2>
 
@@ -738,7 +780,7 @@ template&lt;class T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 16 2022 15:06:12 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 17 2022 02:16:17 for Gin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
