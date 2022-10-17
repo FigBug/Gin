@@ -33,7 +33,7 @@ void DynamicsMeter::paint (juce::Graphics& g)
     g.setColour (findColour (lineColourId));
 
     juce::Path p;
-    for (float x = 0; x < float ( getWidth() ) + 2; x += 2)
+    for (float x = 0; x < float ( getWidth() ) + 1; x++)
     {
         auto dbIn  = range.convertFrom0to1 (float (x) / float ( std::max (1, getWidth() )));
         auto dbOut = dynamics.calcCurve (dbIn);

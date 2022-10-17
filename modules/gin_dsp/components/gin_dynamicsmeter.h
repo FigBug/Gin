@@ -18,8 +18,9 @@ class DynamicsMeter : public juce::Component,
 {
 public:
     DynamicsMeter (Dynamics&);
-
     ~DynamicsMeter() override;
+
+    void setRange (juce::NormalisableRange<float> r)    { range = r; }
 
     enum ColourIds
     {

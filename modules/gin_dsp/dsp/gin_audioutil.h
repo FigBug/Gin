@@ -95,3 +95,10 @@ inline juce::AudioSampleBuffer sliceBuffer (juce::AudioSampleBuffer& input, int 
 {
     return juce::AudioSampleBuffer (input.getArrayOfWritePointers(), input.getNumChannels(), start, length);
 }
+
+/** Computes the linear interpolation between a and b, if the parameter t is inside [0, 1] */
+template <class T>
+T lerp (T a, T b, T t)
+{
+    return a + t * (b - a);
+}

@@ -26,14 +26,14 @@ public:
 
     void setSampleRate (double f)           { sampleRate = f;       }
 
-    void setHold (float holdS);
-    void setParams (float attackS, float releaseS, bool analogTC, Mode detect, bool logDetector);
+    void setParams (float attackS, float holdS, float releaseS, bool analogTC, Mode detect, bool logDetector);
 
     void reset();
     float process (float input);
 
 protected:
     void setAttackTime (float attackS);
+    void setHoldTime (float holdS);
     void setReleaseTime (float releaseS);
 
     double sampleRate = 44100.0;
@@ -48,7 +48,6 @@ protected:
  Compressor / Gate / Expander / Limiter based on algorithm from
  Designing Audio Effect Plug-ins in C++ by Will Pirkle
 
- Gate and Expander not implemented yet
  */
 class Dynamics
 {
@@ -69,7 +68,7 @@ public:
     void setMode (Type t)                   { type = t;             }
     void setLinked (bool l)                 { channelsLinked = l;   }
 
-    void setParams (float attackS, float releaseS, float thresh, float ratio, float kneeWidth);
+    void setParams (float attackS, float holdS, float releaseS, float thresh, float ratio, float kneeWidth);
 
     void setInputGain (float g)             { inputGain = g;    }
     void setOutputGain (float g)            { outputGain = g;   }

@@ -9,17 +9,18 @@ void EnvelopeDetector::reset()
     envelope = 0.0;
 }
 
-void EnvelopeDetector::setParams (float attackS_, float releaseS_, bool analogTC_, Mode detect_, bool logDetector_)
+void EnvelopeDetector::setParams (float attackS_, float holdS_, float releaseS_, bool analogTC_, Mode detect_, bool logDetector_)
 {
     analogTC = analogTC_;
     mode = detect_;
     logDetector = logDetector_;
 
     setAttackTime (attackS_);
+    setHoldTime (holdS_);
     setReleaseTime (releaseS_);
 }
 
-void EnvelopeDetector::setHold (float holdS)
+void EnvelopeDetector::setHoldTime (float holdS)
 {
     holdTime = holdS;
 }
@@ -107,10 +108,10 @@ void Dynamics::setNumChannels (int ch)
         envelopes.removeLast();
 }
 
-void Dynamics::setParams (float attackS, float releaseS, float threshold_, float ratio_, float kneeWidth_)
+void Dynamics::setParams (float attackS, float holdS, float releaseS, float threshold_, float ratio_, float kneeWidth_)
 {
     for (auto e : envelopes)
-        e->setParams (attackS, releaseS, false, EnvelopeDetector::peak, true);
+        e->setParams (attackS, holdS, releaseS, false, EnvelopeDetector::peak, true);
 
     threshold = threshold_;
     ratio = ratio_;
@@ -191,7 +192,7 @@ float Dynamics::calcCurve (float dbIn)
     {
         float dbOut = dbIn;
 
-        if (kneeWidth > 0 && dbIn >= (threshold - kneeWidth / 2.0) && dbIn <= threshold + kneeWidth / 2.0)
+        if (kneeWidth > 0 && dbIn >= (threshold - kneeWidth / 2.0f) && dbIn <= threshold + kneeWidth / 2.0f)
             dbOut = dbIn + ((1.0f / ratio - 1.0f) * std::pow (dbIn - threshold + kneeWidth / 2.0f, 2.0f) / (2.0f * kneeWidth));
         else if (dbIn > threshold + kneeWidth / 2.0)
             dbOut = threshold + (dbIn - threshold) / ratio;
@@ -202,9 +203,9 @@ float Dynamics::calcCurve (float dbIn)
     {
         float dbOut = dbIn;
 
-        if (kneeWidth > 0 && dbIn > (threshold - kneeWidth / 2.0) && dbIn < threshold + kneeWidth / 2.0)
+        if (kneeWidth > 0 && dbIn >= (threshold - kneeWidth / 2.0f) && dbIn <= threshold + kneeWidth / 2.0f)
             dbOut = dbIn + (1.0f * std::pow (dbIn - threshold + kneeWidth / 2.0f, 2.0f) / (2.0f * kneeWidth));
-        else if (dbIn > threshold + kneeWidth / 2.0)
+        else if (dbIn > threshold + kneeWidth / 2.0f)
             dbOut = threshold;
 
         return dbOut;
@@ -214,30 +215,23 @@ float Dynamics::calcCurve (float dbIn)
         float dbOut = dbIn;
 
         // soft-knee with detection value in range?
-        if (kneeWidth > 0 && dbIn > (threshold - kneeWidth / 2.0) && dbIn < threshold + kneeWidth / 2.0)
-        {
-            /*
-            // setup for Lagrange
-            double x[2];
-            double y[2];
-            x[0] = fThreshold - fKneeWidth/2.0;
-            x[1] = fThreshold + fKneeWidth/2.0;
-            x[1] = min(0, x[1]); // top limit is 0dBFS
-            y[0] = ES;  // current ES
-            y[1] = 0;   // 1:1 ratio
-
-            // interpolate the value
-            ES = lagrpol(&x[0], &y[0], 2, fDetectorValue);
-             */
-        }
+        if (kneeWidth > 0 && dbIn >= (threshold - kneeWidth / 2.0f) && dbIn <= threshold + kneeWidth / 2.0f)
+            dbOut = dbIn - ((ratio - 1.0f) * std::pow ((dbIn - threshold - (kneeWidth / 2.0f)), 2.0f)) / (2.0f * kneeWidth);
         else if (dbIn < threshold + kneeWidth / 2.0)
-            dbOut = threshold + (dbIn - threshold) / ratio;
+            dbOut = threshold + (dbIn - threshold) * ratio;
 
-        return juce::jlimit (-100.0f, 0.0f, dbOut);
+        return dbOut;
     }
     else if (type == gate)
     {
-        return dbIn;
+        float dbOut = dbIn;
+
+        if (kneeWidth > 0 && dbIn >= (threshold - kneeWidth / 2.0f) && dbIn <= threshold + kneeWidth / 2.0f)
+            dbOut = dbIn - ((100.0f - 1.0f) * std::pow ((dbIn - threshold - (kneeWidth / 2.0f)), 2.0f)) / (2.0f * kneeWidth);
+        else if (dbIn < threshold - kneeWidth / 2.0f)
+            dbOut = -1000.0f;
+
+        return dbOut;
     }
 
     jassertfalse;
