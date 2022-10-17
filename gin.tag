@@ -1367,6 +1367,12 @@
     <class kind="class">SharedMemory</class>
   </compound>
   <compound kind="file">
+    <name>gin_simpleverb.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
+    <filename>gin__simpleverb_8h.html</filename>
+    <class kind="class">SimpleVerb</class>
+  </compound>
+  <compound kind="file">
     <name>gin_singlelinetexteditor.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/components/</path>
     <filename>gin__singlelinetexteditor_8h.html</filename>
@@ -9671,6 +9677,13 @@
       <anchor>a6f7f6e1a092dff5bccece83325514c77</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable" protection="protected">
+      <type>juce::String</type>
+      <name>extraProgrammer</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a9f8c53b3bc09b12d34a17c9da2aaf32d</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>ProcessorEditorBase</name>
@@ -10509,6 +10522,38 @@
       <anchorfile>classSharedMemory.html</anchorfile>
       <anchor>a19714c21ee5c98faff8a1e77e79532a7</anchor>
       <arglist>(const juce::String &amp;name)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>SimpleVerb</name>
+    <filename>classSimpleVerb.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>SimpleVerb</name>
+      <anchorfile>classSimpleVerb.html</anchorfile>
+      <anchor>a1792ace0ad36c1f9f280096c4d6a1fe1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classSimpleVerb.html</anchorfile>
+      <anchor>a3375884bdc9570f8d07f6f0575c90283</anchor>
+      <arglist>(float sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classSimpleVerb.html</anchorfile>
+      <anchor>a2c675ca200b1eab943bac840224fde97</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setParameters</name>
+      <anchorfile>classSimpleVerb.html</anchorfile>
+      <anchor>a69ee1d22a4025b221a5af157bdeca96d</anchor>
+      <arglist>(float roomIn, float dampIn, float preDelayIn, float lpFaderIn, float hpFaderIn, float wetIn, float dryIn)</arglist>
     </member>
   </compound>
   <compound kind="class">

@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['adsr_1328',['ADSR',['../classADSR.html',1,'']]],
-  ['adsrcomponent_1329',['ADSRComponent',['../classADSRComponent.html',1,'']]],
-  ['analogadsr_1330',['AnalogADSR',['../classAnalogADSR.html',1,'']]],
-  ['asyncdownload_1331',['AsyncDownload',['../classAsyncDownload.html',1,'']]],
-  ['asynclambdavaluetreelistener_1332',['AsyncLambdaValueTreeListener',['../classAsyncLambdaValueTreeListener.html',1,'']]],
-  ['asyncwebsocket_1333',['AsyncWebsocket',['../classAsyncWebsocket.html',1,'']]],
-  ['audioequationparser_1334',['AudioEquationParser',['../classAudioEquationParser.html',1,'']]],
-  ['audiofifo_1335',['AudioFifo',['../classAudioFifo.html',1,'']]],
-  ['audiofunctionhost_1336',['AudioFunctionHost',['../classAudioFunctionHost.html',1,'']]],
-  ['authorsmodel_1337',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser']]]
+  ['adsr_1331',['ADSR',['../classADSR.html',1,'']]],
+  ['adsrcomponent_1332',['ADSRComponent',['../classADSRComponent.html',1,'']]],
+  ['analogadsr_1333',['AnalogADSR',['../classAnalogADSR.html',1,'']]],
+  ['asyncdownload_1334',['AsyncDownload',['../classAsyncDownload.html',1,'']]],
+  ['asynclambdavaluetreelistener_1335',['AsyncLambdaValueTreeListener',['../classAsyncLambdaValueTreeListener.html',1,'']]],
+  ['asyncwebsocket_1336',['AsyncWebsocket',['../classAsyncWebsocket.html',1,'']]],
+  ['audioequationparser_1337',['AudioEquationParser',['../classAudioEquationParser.html',1,'']]],
+  ['audiofifo_1338',['AudioFifo',['../classAudioFifo.html',1,'']]],
+  ['audiofunctionhost_1339',['AudioFunctionHost',['../classAudioFunctionHost.html',1,'']]],
+  ['authorsmodel_1340',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser']]]
 ];

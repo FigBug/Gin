@@ -59,5 +59,6 @@ var searchData=
   ['expander_291',['expander',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a86eafff6a891eb381e162e7adc73ff7e',1,'Dynamics']]],
   ['extractprogram_292',['extractProgram',['../classProcessor.html#afdf6943c2323aeedf39c18d7ec77ecbb',1,'Processor']]],
   ['extraheightpx_293',['extraHeightPx',['../classProcessorEditorBase.html#a563ccdce57a82178551cd6e26d601d27',1,'ProcessorEditorBase']]],
-  ['extrawidthpx_294',['extraWidthPx',['../classProcessorEditorBase.html#a4c568cb0377c6626240acc5eaf5fff2a',1,'ProcessorEditorBase']]]
+  ['extraprogrammer_294',['extraProgrammer',['../classProcessorEditor.html#a9f8c53b3bc09b12d34a17c9da2aaf32d',1,'ProcessorEditor']]],
+  ['extrawidthpx_295',['extraWidthPx',['../classProcessorEditorBase.html#a4c568cb0377c6626240acc5eaf5fff2a',1,'ProcessorEditorBase']]]
 ];
