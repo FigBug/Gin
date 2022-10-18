@@ -195,7 +195,7 @@ void SimpleVerb::setParameters (float roomIn, float dampIn, float preDelayIn, fl
         if (comb1Length > comb1MaxLength)
         {
             comb1MaxLength = static_cast<unsigned int>( $_C1_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb1.resize (comb1Length);
+            comb1.resize (comb1MaxLength);
         }
         comb1Pos = 0;
 
@@ -203,7 +203,7 @@ void SimpleVerb::setParameters (float roomIn, float dampIn, float preDelayIn, fl
         if (comb2Length > comb2MaxLength)
         {
             comb2MaxLength = static_cast<unsigned int>( $_C2_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb2.resize (comb2Length);
+            comb2.resize (comb2MaxLength);
         }
         comb2Pos = 0;
 
@@ -211,7 +211,7 @@ void SimpleVerb::setParameters (float roomIn, float dampIn, float preDelayIn, fl
         if (comb3Length > comb3MaxLength)
         {
             comb3MaxLength = static_cast<unsigned int>( $_C3_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb3.resize (comb3Length);
+            comb3.resize (comb3MaxLength);
         }
         comb3Pos = 0;
 
@@ -219,7 +219,7 @@ void SimpleVerb::setParameters (float roomIn, float dampIn, float preDelayIn, fl
         if (comb4Length > comb4MaxLength)
         {
             comb4MaxLength = static_cast<unsigned int>( $_C4_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb4.resize (comb4Length);
+            comb4.resize (comb4MaxLength);
         }
         comb4Pos = 0;
 
@@ -227,7 +227,7 @@ void SimpleVerb::setParameters (float roomIn, float dampIn, float preDelayIn, fl
         if (comb5Length > comb5MaxLength)
         {
             comb5MaxLength = static_cast<unsigned int>( $_C5_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb5.resize (comb5Length);
+            comb5.resize (comb5MaxLength);
         }
         comb5Pos = 0;
 
@@ -235,7 +235,7 @@ void SimpleVerb::setParameters (float roomIn, float dampIn, float preDelayIn, fl
         if (comb6Length > comb6MaxLength)
         {
             comb6MaxLength = static_cast<unsigned int>( $_C6_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb6.resize (comb6Length);
+            comb6.resize (comb6MaxLength);
         }
         comb6Pos = 0;
 
@@ -243,7 +243,7 @@ void SimpleVerb::setParameters (float roomIn, float dampIn, float preDelayIn, fl
         if (comb7Length > comb7MaxLength)
         {
             comb7MaxLength = static_cast<unsigned int>( $_C7_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb7.resize (comb7Length);
+            comb7.resize (comb7MaxLength);
         }
         comb7Pos = 0;
 
@@ -251,7 +251,7 @@ void SimpleVerb::setParameters (float roomIn, float dampIn, float preDelayIn, fl
         if (comb8Length > comb8MaxLength)
         {
             comb8MaxLength = static_cast<unsigned int>( $_C8_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb8.resize (comb8Length);
+            comb8.resize (comb8MaxLength);
         }
         comb8Pos = 0;
 
@@ -259,7 +259,7 @@ void SimpleVerb::setParameters (float roomIn, float dampIn, float preDelayIn, fl
         if (comb9Length > comb9MaxLength)
         {
             comb9MaxLength = static_cast<unsigned int>( $_C9_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb9.resize (comb9Length);
+            comb9.resize (comb9MaxLength);
         }
         comb9Pos = 0;
 
@@ -267,7 +267,7 @@ void SimpleVerb::setParameters (float roomIn, float dampIn, float preDelayIn, fl
         if (comb10Length > comb10MaxLength)
         {
             comb10MaxLength = static_cast<unsigned int>( $_C10_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb10.resize (comb10Length);
+            comb10.resize (comb10MaxLength);
         }
         comb10Pos = 0;
 
@@ -275,7 +275,7 @@ void SimpleVerb::setParameters (float roomIn, float dampIn, float preDelayIn, fl
         if (comb11Length > comb11MaxLength)
         {
             comb11MaxLength = static_cast<unsigned int>( $_C11_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb11.resize (comb11Length);
+            comb11.resize (comb11MaxLength);
         }
         comb11Pos = 0;
 
@@ -283,7 +283,7 @@ void SimpleVerb::setParameters (float roomIn, float dampIn, float preDelayIn, fl
         if (comb12Length > comb12MaxLength)
         {
             comb12MaxLength = static_cast<unsigned int>( $_C12_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb12.resize (comb12Length);
+            comb12.resize (comb12MaxLength);
         }
         comb12Pos = 0;
         flushBuffers();
@@ -355,33 +355,33 @@ void SimpleVerb::process (juce::AudioSampleBuffer& buffer)
             reverb = preDelay[preDelayPos];
         }
 
-        comb1[comb1Pos]   = reverb * 0.49f +   comb1[comb1Pos] * damp;
-        comb2[comb2Pos]   = reverb * 0.76f +   comb2[comb2Pos] * damp;
-        comb3[comb3Pos]   = reverb * 1.00f +   comb3[comb3Pos] * damp;
-        comb4[comb4Pos]   = reverb * 0.91f +   comb4[comb4Pos] * damp;
-        comb5[comb5Pos]   = reverb * 0.79f +   comb5[comb5Pos] * damp;
-        comb6[comb6Pos]   = reverb * 0.71f +   comb6[comb6Pos] * damp;
-        comb7[comb7Pos]   = reverb * 0.59f +   comb7[comb7Pos] * damp;
-        comb8[comb8Pos]   = reverb * 0.51f +   comb8[comb8Pos] * damp;
-        comb9[comb9Pos]   = reverb * 0.42f +   comb9[comb9Pos] * damp;
+        comb1[comb1Pos]   = reverb * 0.49f +  comb1[comb1Pos]  * damp;
+        comb2[comb2Pos]   = reverb * 0.76f +  comb2[comb2Pos]  * damp;
+        comb3[comb3Pos]   = reverb * 1.00f +  comb3[comb3Pos]  * damp;
+        comb4[comb4Pos]   = reverb * 0.91f +  comb4[comb4Pos]  * damp;
+        comb5[comb5Pos]   = reverb * 0.79f +  comb5[comb5Pos]  * damp;
+        comb6[comb6Pos]   = reverb * 0.71f +  comb6[comb6Pos]  * damp;
+        comb7[comb7Pos]   = reverb * 0.59f +  comb7[comb7Pos]  * damp;
+        comb8[comb8Pos]   = reverb * 0.51f +  comb8[comb8Pos]  * damp;
+        comb9[comb9Pos]   = reverb * 0.42f +  comb9[comb9Pos]  * damp;
         comb10[comb10Pos] = reverb * 0.38f + comb10[comb10Pos] * damp;
         comb11[comb11Pos] = reverb * 0.35f + comb11[comb11Pos] * damp;
         comb12[comb12Pos] = reverb * 0.30f + comb12[comb12Pos] * damp;
 
-        if (++comb1Pos >= comb1Length )   comb1Pos = 0;
-        if (++comb2Pos >= comb2Length )   comb2Pos = 0;
-        if (++comb3Pos >= comb3Length )   comb3Pos = 0;
-        if (++comb4Pos >= comb4Length )   comb4Pos = 0;
-        if (++comb5Pos >= comb5Length )   comb5Pos = 0;
-        if (++comb6Pos >= comb6Length )   comb6Pos = 0;
-        if (++comb7Pos >= comb7Length )   comb7Pos = 0;
-        if (++comb8Pos >= comb8Length )   comb8Pos = 0;
-        if (++comb9Pos >= comb9Length )   comb9Pos = 0;
+        if (++comb1Pos  >= comb1Length  )  comb1Pos = 0;
+        if (++comb2Pos  >= comb2Length  )  comb2Pos = 0;
+        if (++comb3Pos  >= comb3Length  )  comb3Pos = 0;
+        if (++comb4Pos  >= comb4Length  )  comb4Pos = 0;
+        if (++comb5Pos  >= comb5Length  )  comb5Pos = 0;
+        if (++comb6Pos  >= comb6Length  )  comb6Pos = 0;
+        if (++comb7Pos  >= comb7Length  )  comb7Pos = 0;
+        if (++comb8Pos  >= comb8Length  )  comb8Pos = 0;
+        if (++comb9Pos  >= comb9Length  )  comb9Pos = 0;
         if (++comb10Pos >= comb10Length ) comb10Pos = 0;
         if (++comb11Pos >= comb11Length ) comb11Pos = 0;
         if (++comb12Pos >= comb12Length ) comb12Pos = 0;
 
-        reverb = (    comb1[comb1Pos]
+        reverb = (  comb1[comb1Pos]
                   + comb2[comb2Pos]
                   + comb3[comb3Pos]
                   + comb4[comb4Pos]
@@ -394,36 +394,60 @@ void SimpleVerb::process (juce::AudioSampleBuffer& buffer)
                   + comb11[comb11Pos]
                   + comb12[comb12Pos]
                   );
+        
+        jassert (! std::isnan (reverb) && ! std::isinf (reverb));
 
         allpassL1[allpassL1Pos] = reverb + allpassL1[allpassL1Pos] * $_AP1FBQ_$;
         left = (reverb - allpassL1[allpassL1Pos] * $_AP1FBQ_$);
-        if (++allpassL1Pos >= allpassL1Length) allpassL1Pos = 0;
+        jassert (! std::isnan (left) && ! std::isinf (left));
+        if (++allpassL1Pos >= allpassL1Length)
+            allpassL1Pos = 0;
+        
         allpassL2[allpassL2Pos] = left + allpassL2[allpassL2Pos] * $_AP2FBQ_$;
         left = (left - allpassL2[allpassL2Pos] * $_AP2FBQ_$);
-        if (++allpassL2Pos >= allpassL2Length) allpassL2Pos = 0;
+        jassert (! std::isnan (left) && ! std::isinf (left));
+        if (++allpassL2Pos >= allpassL2Length)
+            allpassL2Pos = 0;
+        
         allpassL3[allpassL3Pos] = left + allpassL3[allpassL3Pos] * $_AP3FBQ_$;
         left = (left - allpassL3[allpassL3Pos] * $_AP3FBQ_$);
-        if (++allpassL3Pos >= allpassL3Length) allpassL3Pos = 0;
+        jassert (! std::isnan (left) && ! std::isinf (left));
+        if (++allpassL3Pos >= allpassL3Length)
+            allpassL3Pos = 0;
 
         allpassR1[allpassR1Pos] = reverb + allpassR1[allpassR1Pos] * $_AP1FBQ_$;
         right = (reverb - allpassR1[allpassR1Pos] * $_AP1FBQ_$);
-        if (++allpassR1Pos >= allpassR1Length) allpassR1Pos = 0;
+        jassert (! std::isnan (right) && ! std::isinf (right));
+        if (++allpassR1Pos >= allpassR1Length)
+            allpassR1Pos = 0;
+        
         allpassR2[allpassR2Pos] = right + allpassR2[allpassR2Pos] * $_AP2FBQ_$;
         right = (right - allpassR2[allpassR2Pos] * $_AP2FBQ_$);
-        if (++allpassR2Pos >= allpassR2Length) allpassR2Pos = 0;
+        jassert (! std::isnan (right) && ! std::isinf (right));
+        if (++allpassR2Pos >= allpassR2Length)
+            allpassR2Pos = 0;
+        
         allpassR3[allpassR3Pos] = right + allpassR3[allpassR3Pos] * $_AP3FBQ_$;
         right = (right - allpassR3[allpassR3Pos] * $_AP3FBQ_$);
-        if (++allpassR3Pos >= allpassR3Length) allpassR3Pos = 0;
+        jassert (! std::isnan (right) && ! std::isinf (right));
+        if (++allpassR3Pos >= allpassR3Length)
+            allpassR3Pos = 0;
 
         if (freqHPFader != 0)
         {
             left -= (tmp1HP = a0HP * left - b1HP * tmp1HP + cDC_) - cDC_;
             right -= (tmp2HP = a0HP * right - b1HP * tmp2HP + cDC_) - cDC_;
+            
+            jassert (! std::isnan (left) && ! std::isinf (left));
+            jassert (! std::isnan (right) && ! std::isinf (right));
         }
         if (freqLPFader != 1)
         {
             left = (tmp1LP = a0LP * left - b1LP * tmp1LP + cDC_) - cDC_;
             right = (tmp2LP = a0LP * right - b1LP * tmp2LP + cDC_) - cDC_;
+            
+            jassert (! std::isnan (left) && ! std::isinf (left));
+            jassert (! std::isnan (right) && ! std::isinf (right));
         }
 
         (*out1++) = (*in1++) * dry + left * wet;
