@@ -115,7 +115,7 @@ var searchData=
   ['settemporaryunderlining_2281',['setTemporaryUnderlining',['../classSingleLineTextEditor.html#aceb15841e3da110210b97d27f7121856',1,'SingleLineTextEditor']]],
   ['settext_2282',['setText',['../classSingleLineTextEditor.html#a6f4f38207cdbffa7a1033e96969cc7a3',1,'SingleLineTextEditor']]],
   ['settexttoshowwhenempty_2283',['setTextToShowWhenEmpty',['../classSingleLineTextEditor.html#adf573da13743e43c4f62ec9a0d802afa',1,'SingleLineTextEditor']]],
-  ['setthreadpriority_2284',['setThreadPriority',['../classDownloadManager.html#ab2c315cebb159ecf25f7d931a58d19b1',1,'DownloadManager']]],
+  ['setthreadpriority_2284',['setThreadPriority',['../classDownloadManager.html#aa48b0c65fd6624a2479dd5a09845640d',1,'DownloadManager']]],
   ['settilesource_2285',['setTileSource',['../classOpenStreetMaps.html#a57450ff0f8965780919fd236595bbd01',1,'OpenStreetMaps']]],
   ['settime_2286',['setTime',['../classEasedValueSmoother.html#af357f90cafbcd77ed26973f3cfe7a569',1,'EasedValueSmoother::setTime()'],['../classValueSmoother.html#a2fdfa7c891839b964c41d6d5660f9b0d',1,'ValueSmoother::setTime()']]],
   ['settooltip_2287',['setTooltip',['../classParamComponent.html#a1e7f1920fda098d8556ab3262b6bfa8e',1,'ParamComponent']]],
