@@ -41,34 +41,34 @@ private:
     void flushPreDelay();
     void flushBuffers();
 
-    unsigned int preDelayPos, preDelayLength, preDelayMaxLength;
+    unsigned int preDelayPos, preDelayLength;
 
     std::vector<float> preDelay;
     float preDelayFader;
 
-    unsigned int comb1Pos, comb1Length, comb1MaxLength;
+    unsigned int comb1Pos, comb1Length;
     std::vector<float> comb1;
-    unsigned int comb2Pos, comb2Length, comb2MaxLength;
+    unsigned int comb2Pos, comb2Length;
     std::vector<float> comb2;
-    unsigned int comb3Pos, comb3Length, comb3MaxLength;
+    unsigned int comb3Pos, comb3Length;
     std::vector<float> comb3;
-    unsigned int comb4Pos, comb4Length, comb4MaxLength;
+    unsigned int comb4Pos, comb4Length;
     std::vector<float> comb4;
-    unsigned int comb5Pos, comb5Length, comb5MaxLength;
+    unsigned int comb5Pos, comb5Length;
     std::vector<float> comb5;
-    unsigned int comb6Pos, comb6Length, comb6MaxLength;
+    unsigned int comb6Pos, comb6Length;
     std::vector<float> comb6;
-    unsigned int comb7Pos, comb7Length, comb7MaxLength;
+    unsigned int comb7Pos, comb7Length;
     std::vector<float> comb7;
-    unsigned int comb8Pos, comb8Length, comb8MaxLength;
+    unsigned int comb8Pos, comb8Length;
     std::vector<float> comb8;
-    unsigned int comb9Pos, comb9Length, comb9MaxLength;
+    unsigned int comb9Pos, comb9Length;
     std::vector<float> comb9;
-    unsigned int comb10Pos, comb10Length, comb10MaxLength;
+    unsigned int comb10Pos, comb10Length;
     std::vector<float> comb10;
-    unsigned int comb11Pos, comb11Length, comb11MaxLength;
+    unsigned int comb11Pos, comb11Length;
     std::vector<float> comb11;
-    unsigned int comb12Pos, comb12Length, comb12MaxLength;
+    unsigned int comb12Pos, comb12Length;
     std::vector<float> comb12;
 
     unsigned int allpassL1Pos, allpassL1Length;
@@ -101,29 +101,29 @@ private:
 
     static constexpr float cDC_     = 1e-30f;
 
-    static constexpr float $_C1_$   = 1.00f;
-    static constexpr float $_C2_$   = 1.09f;
-    static constexpr float $_C3_$   = 1.16f;
-    static constexpr float $_C4_$   = 1.23f;
-    static constexpr float $_C5_$   = 1.32f;
-    static constexpr float $_C6_$   = 1.41f;
-    static constexpr float $_C7_$   = 1.45f;
-    static constexpr float $_C8_$   = 1.56f;
-    static constexpr float $_C9_$   = 1.66f;
-    static constexpr float $_C10_$  = 1.71f;
-    static constexpr float $_C11_$  = 1.80f;
-    static constexpr float $_C12_$  = 1.90f;
+    static constexpr float C1   = 1.00f;
+    static constexpr float C2   = 1.09f;
+    static constexpr float C3   = 1.16f;
+    static constexpr float C4   = 1.23f;
+    static constexpr float C5   = 1.32f;
+    static constexpr float C6   = 1.41f;
+    static constexpr float C7   = 1.45f;
+    static constexpr float C8   = 1.56f;
+    static constexpr float C9   = 1.66f;
+    static constexpr float C10  = 1.71f;
+    static constexpr float C11  = 1.80f;
+    static constexpr float C12  = 1.90f;
 
-    static constexpr float $_AL1_$  = 1.0f;
-    static constexpr float $_AL2_$  = 2.5f;
-    static constexpr float $_AL3_$  = 5.0f;
-    static constexpr float $_AR1_$  = 1.0f;
-    static constexpr float $_AR2_$  = 2.5f;
-    static constexpr float $_AR3_$  = 5.0f;
+    static constexpr float AL1  = 1.0f;
+    static constexpr float AL2  = 2.5f;
+    static constexpr float AL3  = 5.0f;
+    static constexpr float AR1  = 1.0f;
+    static constexpr float AR2  = 2.5f;
+    static constexpr float AR3  = 5.0f;
 
-    static constexpr float $_SW_$   = 1.0f;
+    static constexpr float SW   = 1.0f;
 
-    static constexpr float $_AP1FBQ_$  = 0.6f;
-    static constexpr float $_AP2FBQ_$  = 0.6f;
-    static constexpr float $_AP3FBQ_$  = 0.6f;
+    static constexpr float AP1FBQ  = 0.6f;
+    static constexpr float AP2FBQ  = 0.6f;
+    static constexpr float AP3FBQ  = 0.6f;
 };

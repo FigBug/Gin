@@ -14,81 +14,8 @@ SimpleVerb::SimpleVerb()
 
     preDelayFader = 0;
 
-    preDelayLength = preDelayMaxLength = 0;
-    preDelay.resize (preDelayLength);
+    preDelayLength = 0;
     preDelayPos = 0;
-
-    comb1Length = comb1MaxLength = static_cast<unsigned int>( $_C1_$ * roomSize * sampleRate / 1000 );
-    comb1.resize (comb1Length);
-    comb1Pos = 0;
-
-    comb2Length = comb2MaxLength = static_cast<unsigned int>( $_C2_$ * roomSize * sampleRate / 1000 );
-    comb2.resize (comb2Length);
-    comb2Pos = 0;
-
-    comb3Length = comb3MaxLength = static_cast<unsigned int>( $_C3_$ * roomSize * sampleRate / 1000 );
-    comb3.resize (comb3Length);
-    comb3Pos = 0;
-
-    comb4Length = comb4MaxLength = static_cast<unsigned int>( $_C4_$ * roomSize * sampleRate / 1000 );
-    comb4.resize (comb4Length);
-    comb4Pos = 0;
-
-    comb5Length = comb5MaxLength = static_cast<unsigned int>( $_C5_$ * roomSize * sampleRate / 1000 );
-    comb5.resize (comb5Length);
-    comb5Pos = 0;
-
-    comb6Length = comb6MaxLength = static_cast<unsigned int>( $_C6_$ * roomSize * sampleRate / 1000 );
-    comb6.resize (comb6Length);
-    comb6Pos = 0;
-
-    comb7Length = comb7MaxLength = static_cast<unsigned int>( $_C7_$ * roomSize * sampleRate / 1000 );
-    comb7.resize (comb7Length);
-    comb7Pos = 0;
-
-    comb8Length = comb8MaxLength = static_cast<unsigned int>( $_C8_$ * roomSize * sampleRate / 1000 );
-    comb8.resize (comb8Length);
-    comb8Pos = 0;
-
-    comb9Length = comb9MaxLength = static_cast<unsigned int>( $_C9_$ * roomSize * sampleRate / 1000 );
-    comb9.resize (comb9Length);
-    comb9Pos = 0;
-
-    comb10Length = comb10MaxLength = static_cast<unsigned int>( $_C10_$ * roomSize * sampleRate / 1000 );
-    comb10.resize (comb10Length);
-    comb10Pos = 0;
-
-    comb11Length = comb11MaxLength = static_cast<unsigned int>( $_C11_$ * roomSize * sampleRate / 1000 );
-    comb11.resize (comb11Length);
-    comb11Pos = 0;
-
-    comb12Length = comb12MaxLength = static_cast<unsigned int>( $_C12_$ * roomSize * sampleRate / 1000 );
-    comb12.resize (comb12Length);
-    comb12Pos = 0;
-
-    allpassL1Length = static_cast<unsigned int>( $_AL1_$ * sampleRate / 1000 );
-    allpassL1.resize (allpassL1Length);
-    allpassL1Pos = 0;
-
-    allpassL2Length = static_cast<unsigned int>( ( $_AL2_$  + $_SW_$ ) * sampleRate / 1000 );
-    allpassL2.resize (allpassL2Length);
-    allpassL2Pos = 0;
-
-    allpassL3Length = static_cast<unsigned int>( $_AL3_$ * sampleRate / 1000 );
-    allpassL3.resize (allpassL3Length);
-    allpassL3Pos = 0;
-
-    allpassR1Length = static_cast<unsigned int>( ( $_AR1_$ + $_SW_$ ) * sampleRate / 1000 );
-    allpassR1.resize (allpassR1Length);
-    allpassR1Pos = 0;
-
-    allpassR2Length = static_cast<unsigned int>( $_AR2_$ * sampleRate / 1000 );
-    allpassR2.resize (allpassR2Length);
-    allpassR2Pos = 0;
-
-    allpassR3Length = static_cast<unsigned int>( ( $_AR3_$  + $_SW_$ ) * sampleRate / 1000 );
-    allpassR3.resize (allpassR3Length);
-    allpassR3Pos = 0;
 
     dampFader = 0.5;
     damp = 0.25;
@@ -99,50 +26,65 @@ SimpleVerb::SimpleVerb()
     freqLP = 24000;
     freqHP = 0;
 
-    b1LP = -std::exp (-2.0f * juce::MathConstants<float>::pi * freqLP/ sampleRate); // 100Hz
+    b1LP = -std::exp (-2.0f * juce::MathConstants<float>::pi * freqLP / sampleRate); // 100Hz
     a0LP = 1.0f + b1LP;
 
-    b1HP = -std::exp (-2.0f * juce::MathConstants<float>::pi * freqHP/ sampleRate); // 100Hz
+    b1HP = -std::exp (-2.0f * juce::MathConstants<float>::pi * freqHP / sampleRate); // 100Hz
     a0HP = 1.0f + b1HP;
 
     dry = 1;
     wet = 0.5;
+    
+    setSampleRate (44100);
 }
 
 void SimpleVerb::setSampleRate (float sr)
 {
-    sampleRate = sr;
+    constexpr float roomMaxSize = 100.0f;
 
-    if (allpassL1Length != static_cast<unsigned int>( $_AL1_$ * sampleRate / 1000 ) )
-    {
-        allpassL1Length = static_cast<unsigned int>( $_AL1_$ * sampleRate / 1000 );
-        allpassL1.resize (allpassL1Length);
-    }
-    if (allpassL2Length != static_cast<unsigned int>( ( $_AL2_$ + $_SW_$ ) * sampleRate / 1000 ) )
-    {
-        allpassL2Length = static_cast<unsigned int>( ( $_AL2_$ + $_SW_$ ) * sampleRate / 1000 );
-        allpassL2.resize (allpassL2Length);
-    }
-    if (allpassL3Length != static_cast<unsigned int>( $_AL3_$ * sampleRate / 1000 ) )
-    {
-        allpassL3Length = static_cast<unsigned int>( $_AL3_$ * sampleRate / 1000 );
-        allpassL3.resize (allpassL3Length);
-    }
-    if (allpassR1Length != static_cast<unsigned int>( ( $_AR1_$ + $_SW_$ ) * sampleRate / 1000 ) )
-    {
-        allpassR1Length = static_cast<unsigned int>( ( $_AR1_$ + $_SW_$ ) * sampleRate / 1000 );
-        allpassR1.resize (allpassR1Length);
-    }
-    if (allpassR2Length != static_cast<unsigned int>( $_AR2_$ * sampleRate / 1000 ) )
-    {
-        allpassR2Length = static_cast<unsigned int>( $_AR2_$ * sampleRate / 1000 );
-        allpassR2.resize (allpassR2Length);
-    }
-    if (allpassR3Length != static_cast<unsigned int>( ( $_AR3_$ + $_SW_$ ) * sampleRate / 1000 ) )
-    {
-        allpassR3Length = static_cast<unsigned int>( ( $_AR3_$ + $_SW_$ ) * sampleRate / 1000 );
-        allpassR3.resize (allpassR3Length);
-    }
+    sampleRate = sr;
+    
+    auto comb1MaxLength = static_cast<unsigned int>(C1 * roomMaxSize * sampleRate / 1000);
+    comb1.resize (comb1MaxLength);
+    auto comb2MaxLength = static_cast<unsigned int>(C2 * roomMaxSize * sampleRate / 1000);
+    comb2.resize (comb2MaxLength);
+    auto comb3MaxLength = static_cast<unsigned int>(C3 * roomMaxSize * sampleRate / 1000);
+    comb3.resize (comb3MaxLength);
+    auto comb4MaxLength = static_cast<unsigned int>(C4 * roomMaxSize * sampleRate / 1000);
+    comb4.resize (comb4MaxLength);
+    auto comb5MaxLength = static_cast<unsigned int>(C5 * roomMaxSize * sampleRate / 1000);
+    comb5.resize (comb5MaxLength);
+    auto comb6MaxLength = static_cast<unsigned int>(C6 * roomMaxSize * sampleRate / 1000);
+    comb6.resize (comb6MaxLength);
+    auto comb7MaxLength = static_cast<unsigned int>(C7 * roomMaxSize * sampleRate / 1000);
+    comb7.resize (comb7MaxLength);
+    auto comb8MaxLength = static_cast<unsigned int>(C8 * roomMaxSize * sampleRate / 1000);
+    comb8.resize (comb8MaxLength);
+    auto comb9MaxLength = static_cast<unsigned int>(C9 * roomMaxSize * sampleRate / 1000);
+    comb9.resize (comb9MaxLength);
+    auto comb10MaxLength = static_cast<unsigned int>(C10 * roomMaxSize * sampleRate / 1000);
+    comb10.resize (comb10MaxLength);
+    auto comb11MaxLength = static_cast<unsigned int>(C11 * roomMaxSize * sampleRate / 1000);
+    comb11.resize (comb11MaxLength);
+    auto comb12MaxLength = static_cast<unsigned int>(C12 * roomMaxSize * sampleRate / 1000);
+    comb12.resize (comb12MaxLength);
+
+    allpassL1Length = static_cast<unsigned int>(AL1 * sampleRate / 1000);
+    allpassL1.resize (allpassL1Length);
+    allpassL2Length = static_cast<unsigned int>((AL2 + SW) * sampleRate / 1000);
+    allpassL2.resize (allpassL2Length);
+    allpassL3Length = static_cast<unsigned int>(AL3 * sampleRate / 1000);
+    allpassL3.resize (allpassL3Length);
+
+    allpassR1Length = static_cast<unsigned int>((AR1 + SW) * sampleRate / 1000);
+    allpassR1.resize (allpassR1Length);
+    allpassR2Length = static_cast<unsigned int>(AR2 * sampleRate / 1000);
+    allpassR2.resize (allpassR2Length);
+    allpassR3Length = static_cast<unsigned int>((AR3 + SW) * sampleRate / 1000);
+    allpassR3.resize (allpassR3Length);
+    
+    auto preDelayMaxLength = static_cast<unsigned int>(250 * sampleRate / 1000);
+    preDelay.resize (preDelayMaxLength);
 
     flushPreDelay();
     flushBuffers();
@@ -184,108 +126,47 @@ void SimpleVerb::flushBuffers()
 
 void SimpleVerb::setParameters (float roomIn, float dampIn, float preDelayIn, float lpFaderIn, float hpFaderIn, float wetIn, float dryIn)
 {
-    constexpr float $_roomMaxSize_$ = 100.0f;
-
     if (roomIn != roomSizeFader)
     {
         roomSizeFader = roomIn;
         roomSize = 5 + roomSizeFader * roomSizeFader * 95;
-
-        comb1Length = static_cast<unsigned int>( $_C1_$ * roomSize * sampleRate / 1000 );
-        if (comb1Length > comb1MaxLength)
-        {
-            comb1MaxLength = static_cast<unsigned int>( $_C1_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb1.resize (comb1MaxLength);
-        }
+        
+        comb1Length = static_cast<unsigned int>(C1 * roomSize * sampleRate / 1000);
         comb1Pos = 0;
 
-        comb2Length = static_cast<unsigned int>( $_C2_$ * roomSize * sampleRate / 1000 );
-        if (comb2Length > comb2MaxLength)
-        {
-            comb2MaxLength = static_cast<unsigned int>( $_C2_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb2.resize (comb2MaxLength);
-        }
+        comb2Length = static_cast<unsigned int>(C2 * roomSize * sampleRate / 1000);
         comb2Pos = 0;
 
-        comb3Length = static_cast<unsigned int>( $_C3_$ * roomSize * sampleRate / 1000 );
-        if (comb3Length > comb3MaxLength)
-        {
-            comb3MaxLength = static_cast<unsigned int>( $_C3_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb3.resize (comb3MaxLength);
-        }
+        comb3Length = static_cast<unsigned int>(C3 * roomSize * sampleRate / 1000);
         comb3Pos = 0;
 
-        comb4Length = static_cast<unsigned int>( $_C4_$ * roomSize * sampleRate / 1000 );
-        if (comb4Length > comb4MaxLength)
-        {
-            comb4MaxLength = static_cast<unsigned int>( $_C4_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb4.resize (comb4MaxLength);
-        }
+        comb4Length = static_cast<unsigned int>(C4 * roomSize * sampleRate / 1000);
         comb4Pos = 0;
 
-        comb5Length = static_cast<unsigned int>( $_C5_$ * roomSize * sampleRate / 1000 );
-        if (comb5Length > comb5MaxLength)
-        {
-            comb5MaxLength = static_cast<unsigned int>( $_C5_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb5.resize (comb5MaxLength);
-        }
+        comb5Length = static_cast<unsigned int>(C5 * roomSize * sampleRate / 1000);
         comb5Pos = 0;
 
-        comb6Length = static_cast<unsigned int>( $_C6_$ * roomSize * sampleRate / 1000 );
-        if (comb6Length > comb6MaxLength)
-        {
-            comb6MaxLength = static_cast<unsigned int>( $_C6_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb6.resize (comb6MaxLength);
-        }
+        comb6Length = static_cast<unsigned int>(C6 * roomSize * sampleRate / 1000);
         comb6Pos = 0;
 
-        comb7Length = static_cast<unsigned int>( $_C7_$ * roomSize * sampleRate / 1000 );
-        if (comb7Length > comb7MaxLength)
-        {
-            comb7MaxLength = static_cast<unsigned int>( $_C7_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb7.resize (comb7MaxLength);
-        }
+        comb7Length = static_cast<unsigned int>(C7 * roomSize * sampleRate / 1000);
         comb7Pos = 0;
 
-        comb8Length = static_cast<unsigned int>( $_C8_$ * roomSize * sampleRate / 1000 );
-        if (comb8Length > comb8MaxLength)
-        {
-            comb8MaxLength = static_cast<unsigned int>( $_C8_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb8.resize (comb8MaxLength);
-        }
+        comb8Length = static_cast<unsigned int>(C8 * roomSize * sampleRate / 1000);
         comb8Pos = 0;
 
-        comb9Length = static_cast<unsigned int>( $_C9_$ * roomSize * sampleRate / 1000 );
-        if (comb9Length > comb9MaxLength)
-        {
-            comb9MaxLength = static_cast<unsigned int>( $_C9_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb9.resize (comb9MaxLength);
-        }
+        comb9Length = static_cast<unsigned int>(C9 * roomSize * sampleRate / 1000);
         comb9Pos = 0;
 
-        comb10Length = static_cast<unsigned int>( $_C10_$ * roomSize * sampleRate / 1000 );
-        if (comb10Length > comb10MaxLength)
-        {
-            comb10MaxLength = static_cast<unsigned int>( $_C10_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb10.resize (comb10MaxLength);
-        }
+        comb10Length = static_cast<unsigned int>(C10 * roomSize * sampleRate / 1000);
         comb10Pos = 0;
 
-        comb11Length = static_cast<unsigned int>( $_C11_$ * roomSize * sampleRate / 1000 );
-        if (comb11Length > comb11MaxLength)
-        {
-            comb11MaxLength = static_cast<unsigned int>( $_C11_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb11.resize (comb11MaxLength);
-        }
+        comb11Length = static_cast<unsigned int>(C11 * roomSize * sampleRate / 1000);
         comb11Pos = 0;
 
-        comb12Length = static_cast<unsigned int>( $_C12_$ * roomSize * sampleRate / 1000 );
-        if (comb12Length > comb12MaxLength)
-        {
-            comb12MaxLength = static_cast<unsigned int>( $_C12_$ * $_roomMaxSize_$ * sampleRate / 1000 );
-            comb12.resize (comb12MaxLength);
-        }
+        comb12Length = static_cast<unsigned int>(C12 * roomSize * sampleRate / 1000);
         comb12Pos = 0;
+
         flushBuffers();
     }
     if (dampIn != dampFader)
@@ -297,11 +178,6 @@ void SimpleVerb::setParameters (float roomIn, float dampIn, float preDelayIn, fl
     {
         preDelayFader = preDelayIn;
         preDelayLength = static_cast<unsigned int>(preDelayFader * preDelayFader * 250 * sampleRate / 1000);
-        if (preDelayLength > preDelayMaxLength)
-        {
-            preDelayMaxLength = static_cast<unsigned int>(250 * sampleRate / 1000);
-            preDelay.resize (preDelayMaxLength);
-        }
         preDelayPos = 0;
         flushPreDelay();
     }
@@ -368,20 +244,20 @@ void SimpleVerb::process (juce::AudioSampleBuffer& buffer)
         comb11[comb11Pos] = reverb * 0.35f + comb11[comb11Pos] * damp;
         comb12[comb12Pos] = reverb * 0.30f + comb12[comb12Pos] * damp;
 
-        if (++comb1Pos  >= comb1Length  )  comb1Pos = 0;
-        if (++comb2Pos  >= comb2Length  )  comb2Pos = 0;
-        if (++comb3Pos  >= comb3Length  )  comb3Pos = 0;
-        if (++comb4Pos  >= comb4Length  )  comb4Pos = 0;
-        if (++comb5Pos  >= comb5Length  )  comb5Pos = 0;
-        if (++comb6Pos  >= comb6Length  )  comb6Pos = 0;
-        if (++comb7Pos  >= comb7Length  )  comb7Pos = 0;
-        if (++comb8Pos  >= comb8Length  )  comb8Pos = 0;
-        if (++comb9Pos  >= comb9Length  )  comb9Pos = 0;
-        if (++comb10Pos >= comb10Length ) comb10Pos = 0;
-        if (++comb11Pos >= comb11Length ) comb11Pos = 0;
-        if (++comb12Pos >= comb12Length ) comb12Pos = 0;
+        if (++comb1Pos  >= comb1Length)  comb1Pos = 0;
+        if (++comb2Pos  >= comb2Length)  comb2Pos = 0;
+        if (++comb3Pos  >= comb3Length)  comb3Pos = 0;
+        if (++comb4Pos  >= comb4Length)  comb4Pos = 0;
+        if (++comb5Pos  >= comb5Length)  comb5Pos = 0;
+        if (++comb6Pos  >= comb6Length)  comb6Pos = 0;
+        if (++comb7Pos  >= comb7Length)  comb7Pos = 0;
+        if (++comb8Pos  >= comb8Length)  comb8Pos = 0;
+        if (++comb9Pos  >= comb9Length)  comb9Pos = 0;
+        if (++comb10Pos >= comb10Length) comb10Pos = 0;
+        if (++comb11Pos >= comb11Length) comb11Pos = 0;
+        if (++comb12Pos >= comb12Length) comb12Pos = 0;
 
-        reverb = (  comb1[comb1Pos]
+        reverb = (comb1[comb1Pos]
                   + comb2[comb2Pos]
                   + comb3[comb3Pos]
                   + comb4[comb4Pos]
@@ -392,43 +268,42 @@ void SimpleVerb::process (juce::AudioSampleBuffer& buffer)
                   + comb9[comb9Pos]
                   + comb10[comb10Pos]
                   + comb11[comb11Pos]
-                  + comb12[comb12Pos]
-                  );
+                  + comb12[comb12Pos]);
         
         jassert (! std::isnan (reverb) && ! std::isinf (reverb));
 
-        allpassL1[allpassL1Pos] = reverb + allpassL1[allpassL1Pos] * $_AP1FBQ_$;
-        left = (reverb - allpassL1[allpassL1Pos] * $_AP1FBQ_$);
+        allpassL1[allpassL1Pos] = reverb + allpassL1[allpassL1Pos] * AP1FBQ;
+        left = (reverb - allpassL1[allpassL1Pos] * AP1FBQ);
         jassert (! std::isnan (left) && ! std::isinf (left));
         if (++allpassL1Pos >= allpassL1Length)
             allpassL1Pos = 0;
         
-        allpassL2[allpassL2Pos] = left + allpassL2[allpassL2Pos] * $_AP2FBQ_$;
-        left = (left - allpassL2[allpassL2Pos] * $_AP2FBQ_$);
+        allpassL2[allpassL2Pos] = left + allpassL2[allpassL2Pos] * AP2FBQ;
+        left = (left - allpassL2[allpassL2Pos] * AP2FBQ);
         jassert (! std::isnan (left) && ! std::isinf (left));
         if (++allpassL2Pos >= allpassL2Length)
             allpassL2Pos = 0;
         
-        allpassL3[allpassL3Pos] = left + allpassL3[allpassL3Pos] * $_AP3FBQ_$;
-        left = (left - allpassL3[allpassL3Pos] * $_AP3FBQ_$);
+        allpassL3[allpassL3Pos] = left + allpassL3[allpassL3Pos] * AP3FBQ;
+        left = (left - allpassL3[allpassL3Pos] * AP3FBQ);
         jassert (! std::isnan (left) && ! std::isinf (left));
         if (++allpassL3Pos >= allpassL3Length)
             allpassL3Pos = 0;
 
-        allpassR1[allpassR1Pos] = reverb + allpassR1[allpassR1Pos] * $_AP1FBQ_$;
-        right = (reverb - allpassR1[allpassR1Pos] * $_AP1FBQ_$);
+        allpassR1[allpassR1Pos] = reverb + allpassR1[allpassR1Pos] * AP1FBQ;
+        right = (reverb - allpassR1[allpassR1Pos] * AP1FBQ);
         jassert (! std::isnan (right) && ! std::isinf (right));
         if (++allpassR1Pos >= allpassR1Length)
             allpassR1Pos = 0;
         
-        allpassR2[allpassR2Pos] = right + allpassR2[allpassR2Pos] * $_AP2FBQ_$;
-        right = (right - allpassR2[allpassR2Pos] * $_AP2FBQ_$);
+        allpassR2[allpassR2Pos] = right + allpassR2[allpassR2Pos] * AP2FBQ;
+        right = (right - allpassR2[allpassR2Pos] * AP2FBQ);
         jassert (! std::isnan (right) && ! std::isinf (right));
         if (++allpassR2Pos >= allpassR2Length)
             allpassR2Pos = 0;
         
-        allpassR3[allpassR3Pos] = right + allpassR3[allpassR3Pos] * $_AP3FBQ_$;
-        right = (right - allpassR3[allpassR3Pos] * $_AP3FBQ_$);
+        allpassR3[allpassR3Pos] = right + allpassR3[allpassR3Pos] * AP3FBQ;
+        right = (right - allpassR3[allpassR3Pos] * AP3FBQ);
         jassert (! std::isnan (right) && ! std::isinf (right));
         if (++allpassR3Pos >= allpassR3Length)
             allpassR3Pos = 0;
