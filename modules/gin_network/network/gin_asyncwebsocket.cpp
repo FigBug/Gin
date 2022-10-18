@@ -24,7 +24,7 @@ void AsyncWebsocket::disconnect()
 
 void AsyncWebsocket::connect()
 {
-    startThread (3);
+    startThread (juce::Thread::Priority::normal);
 }
 
 void AsyncWebsocket::run()
