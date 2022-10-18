@@ -47,7 +47,7 @@ public:
 
     /** Set download thread priority. Does not affect priority of
         already running threads */
-    void setThreadPriority (int p)              { priority = p; }
+    void setThreadPriority (juce::Thread::Priority p) { priority = p; }
 
     /** Sets minimum time between download progress callbacks in milliseconds */
     void setProgressInterval (int ms)           { downloadIntervalMS = std::max (1, ms); }
@@ -151,7 +151,8 @@ private:
     int nextId = 0;
     int connectTimeout = 30 * 1000;
     int shutdownTimeout = 30 * 1000;
-    int retryLimit = 0, priority = 5, downloadIntervalMS = 1000, downloadBlockSize = 128 * 1000;
+    int retryLimit = 0, downloadIntervalMS = 1000, downloadBlockSize = 128 * 1000;
+    juce::Thread::Priority priority = juce::Thread::Priority::normal;
 
     double retryDelay = 0.0;
     int runningDownloads = 0, maxDownloads = 100;
