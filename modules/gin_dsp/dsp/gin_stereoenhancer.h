@@ -31,19 +31,19 @@
 class StereoEnhancer
 {
 public:
-	StereoEnhancer();
-	void process (juce::AudioSampleBuffer& buffer);
-	void setSampleRate (float sr) { sampleRate = sr; }
-	void setParameters (float widthLP, float freqHPFader, float widthHP);
+    StereoEnhancer();
+    void process (juce::AudioSampleBuffer& buffer);
+    void setSampleRate (float sr) { sampleRate = sr; }
+    void setParameters (float widthLP, float freqHPFader, float widthHP);
 
 private:
-	float sampleRate = 44100.0f;
-	
-	float widthLP, widthCoeffLP;
-	float freqHP;
-	float widthHP, widthCoeffHP;
+    float sampleRate = 44100.0f;
 
-	float xHP, a0HP, b1HP;
+    float widthLP, widthCoeffLP;
+    float freqHP;
+    float widthHP, widthCoeffHP;
 
-	float tmp1HP, tmp2HP;
+    float xHP, a0HP, b1HP;
+
+    float tmp1HP, tmp2HP;
 };

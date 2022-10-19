@@ -31,31 +31,31 @@
 class StereoProcessor
 {
 public:
-	StereoProcessor();
-	void process (juce::AudioSampleBuffer& buffer);
+    StereoProcessor();
+    void process (juce::AudioSampleBuffer& buffer);
 
-	//
-	// width1   	 [ 0 - 1 ]
-	// centerFader1	 [ 0 - 1 ]
-	// pan1			 [-1 - 1 ]
-	// rotationFader [ 0 - 1 ]
-	// pan2			 [-1 - 1 ]
-	// centerFader2  [ 0 - 1 ]
-	// width2 		 [ 0 - 1 ]
-	// outVolFader	 [ 0 - 1 ]
-	//
-	void setParameters (float width1, float centerFader1, float pan1, float rotationFader, float pan2, float centerFader2, float width2, float outVolFader);
+    //
+    // width1        [ 0 - 1 ]
+    // centerFader1  [ 0 - 1 ]
+    // pan1          [-1 - 1 ]
+    // rotationFader [ 0 - 1 ]
+    // pan2          [-1 - 1 ]
+    // centerFader2  [ 0 - 1 ]
+    // width2        [ 0 - 1 ]
+    // outVolFader   [ 0 - 1 ]
+    //
+    void setParameters (float width1, float centerFader1, float pan1, float rotationFader, float pan2, float centerFader2, float width2, float outVolFader);
 
 private:
-	float rotation = 0.0f;
+    float rotation = 0.0f;
 
-	float width1 = 0.0f, widthCoeff1 = 0.0f;
-	float center1 = 0.0f, side1 = 0.0f;
-	float width2 = 0.0f, widthCoeff2 = 0.0f;
-	float center2 = 0.0f, side2 = 0.0f;
+    float width1 = 0.0f, widthCoeff1 = 0.0f;
+    float center1 = 0.0f, side1 = 0.0f;
+    float width2 = 0.0f, widthCoeff2 = 0.0f;
+    float center2 = 0.0f, side2 = 0.0f;
 
-	float pan1Left = 0.0f, pan1Right = 0.0f;
-	float pan2Left = 0.0f, pan2Right = 0.0f;
+    float pan1Left = 0.0f, pan1Right = 0.0f;
+    float pan2Left = 0.0f, pan2Right = 0.0f;
 
-	float outVol = 0.0f;
+    float outVol = 0.0f;
 };

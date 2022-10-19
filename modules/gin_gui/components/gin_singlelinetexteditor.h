@@ -314,7 +314,7 @@ public:
         The rectangle returned is relative to the component's top-left corner.
         @see scrollEditorToPositionCaret
     */
-	juce::Rectangle<int> getCaretRectangleForCharIndex (int index) const override;
+    juce::Rectangle<int> getCaretRectangleForCharIndex (int index) const override;
 
     /** Selects a section of the text. */
     void setHighlightedRegion (const juce::Range<int>& newSelection) override;
