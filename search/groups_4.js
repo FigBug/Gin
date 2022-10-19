@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lookandfeel_2840',['lookandfeel',['../group__gin__plugin-lookandfeel.html',1,'']]]
+  ['lookandfeel_2838',['lookandfeel',['../group__gin__plugin-lookandfeel.html',1,'']]]
 ];

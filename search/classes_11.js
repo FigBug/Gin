@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['tagsmodel_1481',['TagsModel',['../structPatchBrowser_1_1TagsModel.html',1,'PatchBrowser']]],
-  ['textrenderer_1482',['TextRenderer',['../classTextRenderer.html',1,'']]],
-  ['timeprofiler_1483',['TimeProfiler',['../classTimeProfiler.html',1,'']]],
-  ['titlebar_1484',['TitleBar',['../classTitleBar.html',1,'']]],
-  ['triggeredscope_1485',['TriggeredScope',['../classTriggeredScope.html',1,'']]]
+  ['tagsmodel_1480',['TagsModel',['../structPatchBrowser_1_1TagsModel.html',1,'PatchBrowser']]],
+  ['textrenderer_1481',['TextRenderer',['../classTextRenderer.html',1,'']]],
+  ['timeprofiler_1482',['TimeProfiler',['../classTimeProfiler.html',1,'']]],
+  ['titlebar_1483',['TitleBar',['../classTitleBar.html',1,'']]],
+  ['triggeredscope_1484',['TriggeredScope',['../classTriggeredScope.html',1,'']]]
 ];

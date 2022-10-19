@@ -11688,9 +11688,9 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>setParameter</name>
+      <name>setParameters</name>
       <anchorfile>classStereoProcessor.html</anchorfile>
-      <anchor>a9131021c81eeb5326e8a8fa4eb6a0d2d</anchor>
+      <anchor>a847c55a3271b3cfb35c8d746fb7db19b</anchor>
       <arglist>(float width1, float centerFader1, float pan1, float rotationFader, float pan2, float centerFader2, float width2, float outVolFader)</arglist>
     </member>
   </compound>
