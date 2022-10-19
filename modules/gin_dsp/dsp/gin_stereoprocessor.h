@@ -44,7 +44,7 @@ public:
 	// width2 		 [ 0 - 1 ]
 	// outVolFader	 [ 0 - 1 ]
 	//
-	void setParameter (float width1, float centerFader1, float pan1, float rotationFader, float pan2, float centerFader2, float width2, float outVolFader);
+	void setParameters (float width1, float centerFader1, float pan1, float rotationFader, float pan2, float centerFader2, float width2, float outVolFader);
 
 private:
 	float rotation = 0.0f;

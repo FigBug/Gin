@@ -7,6 +7,10 @@
  ==============================================================================
  */
 
+StereoProcessor::StereoProcessor()
+{
+}
+
 //
 // width1In 	 [ 0 - 1 ]
 // centerFader1	 [ 0 - 1 ]
@@ -17,7 +21,7 @@
 // width2In		 [ 0 - 1 ]
 // outVolFader	 [ 0 - 1 ]
 //
-void StereoProcessor::setParameter (float width1In, float centerFader1, float pan1, float rotationFader, float pan2, float centerFader2, float width2In, float outVolFader)
+void StereoProcessor::setParameters (float width1In, float centerFader1, float pan1, float rotationFader, float pan2, float centerFader2, float width2In, float outVolFader)
 {
 	//
 	// Width
