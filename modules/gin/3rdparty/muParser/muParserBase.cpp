@@ -658,7 +658,7 @@ namespace mu
     case cmOPRT_INFIX:
     case cmOPRT_BIN: return a_Tok.GetPri();
     default:  Error(ecINTERNAL_ERROR, 5);
-              //return 999;
+              return 999;
     }
   }
 

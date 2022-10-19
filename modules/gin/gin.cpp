@@ -70,12 +70,16 @@ namespace gin
  #pragma clang diagnostic ignored "-Wmissing-noreturn"
 #endif
 
+JUCE_BEGIN_IGNORE_WARNINGS_MSVC(4702)
+
 #include "3rdparty/muParser/muParser.cpp"
 #include "3rdparty/muParser/muParserBase.cpp"
 #include "3rdparty/muParser/muParserBytecode.cpp"
 #include "3rdparty/muParser/muParserCallback.cpp"
 #include "3rdparty/muParser/muParserError.cpp"
 #include "3rdparty/muParser/muParserTokenReader.cpp"
+
+JUCE_END_IGNORE_WARNINGS_MSVC
 
 #if __clang__
  #pragma clang diagnostic pop
