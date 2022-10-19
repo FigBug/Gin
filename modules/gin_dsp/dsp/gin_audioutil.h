@@ -102,3 +102,10 @@ T lerp (T a, T b, T t)
 {
     return a + t * (b - a);
 }
+
+/** Sign +1 or -1 of number */
+template <class T>
+inline T sign ( T x )
+{
+	return ( x > 0 ? 1 : -1 );
+}
