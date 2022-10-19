@@ -143,10 +143,10 @@
       <arglist>(T a, T b, T t)</arglist>
     </member>
     <member kind="function">
-      <type>T</type>
+      <type>int</type>
       <name>sign</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga25b9b7a11ac54dada4a6846ad7cd8309</anchor>
+      <anchor>ga1764c1268bc41fe5590a1287c071b27e</anchor>
       <arglist>(T x)</arglist>
     </member>
     <member kind="variable">
@@ -13650,10 +13650,10 @@
       <arglist>(T a, T b, T t)</arglist>
     </member>
     <member kind="function">
-      <type>T</type>
+      <type>int</type>
       <name>sign</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga25b9b7a11ac54dada4a6846ad7cd8309</anchor>
+      <anchor>ga1764c1268bc41fe5590a1287c071b27e</anchor>
       <arglist>(T x)</arglist>
     </member>
     <member kind="function">

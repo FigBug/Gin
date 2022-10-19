@@ -143,7 +143,7 @@ var searchData=
   ['showmenu_2314',['showMenu',['../classTitleBar.html#a9379495c07215f6e7ae0a8ef4fd3a0e9',1,'TitleBar']]],
   ['showpatchbrowser_2315',['showPatchBrowser',['../classProcessorEditor.html#abcef3707e7363c0b7ae0877c64542d26',1,'ProcessorEditor']]],
   ['shufflearray_2316',['shuffleArray',['../group__gin-utilities.html#gaac60b7f594994fac0cb43d317f794449',1,'gin_util.h']]],
-  ['sign_2317',['sign',['../group__gin__dsp-dsp.html#ga25b9b7a11ac54dada4a6846ad7cd8309',1,'gin_audioutil.h']]],
+  ['sign_2317',['sign',['../group__gin__dsp-dsp.html#ga1764c1268bc41fe5590a1287c071b27e',1,'gin_audioutil.h']]],
   ['simpleverb_2318',['SimpleVerb',['../classSimpleVerb.html#a1792ace0ad36c1f9f280096c4d6a1fe1',1,'SimpleVerb']]],
   ['sine_2319',['sine',['../group__gin__dsp-dsp.html#gac81d5fa67210b71931d9191c641871b2',1,'gin_bandlimitedlookuptable.h']]],
   ['singlelinetexteditor_2320',['SingleLineTextEditor',['../classSingleLineTextEditor.html#a2c7973e7c8af497c83b6a551f444e2dc',1,'SingleLineTextEditor']]],
