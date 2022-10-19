@@ -142,6 +142,13 @@
       <anchor>ga48b0dea68bc2af522095b90b5e9acc13</anchor>
       <arglist>(T a, T b, T t)</arglist>
     </member>
+    <member kind="function">
+      <type>T</type>
+      <name>sign</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga25b9b7a11ac54dada4a6846ad7cd8309</anchor>
+      <arglist>(T x)</arglist>
+    </member>
     <member kind="variable">
       <type>constexpr float</type>
       <name>Q</name>
@@ -1412,6 +1419,12 @@
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
     <filename>gin__stereodelay_8h.html</filename>
     <class kind="class">StereoDelay</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_stereoprocessor.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
+    <filename>gin__stereoprocessor_8h.html</filename>
+    <class kind="class">StereoProcessor</class>
   </compound>
   <compound kind="file">
     <name>gin_synthesiser.h</name>
@@ -11657,6 +11670,31 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>StereoProcessor</name>
+    <filename>classStereoProcessor.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>StereoProcessor</name>
+      <anchorfile>classStereoProcessor.html</anchorfile>
+      <anchor>adbfadef5bf37a546639db9a52caac2f3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classStereoProcessor.html</anchorfile>
+      <anchor>a3ccdb1879a7ffd727fc88644de07ae72</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setParameter</name>
+      <anchorfile>classStereoProcessor.html</anchorfile>
+      <anchor>a9131021c81eeb5326e8a8fa4eb6a0d2d</anchor>
+      <arglist>(float width1, float centerFader1, float pan1, float rotationFader, float pan2, float centerFader2, float width2, float outVolFader)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>Switch</name>
     <filename>classSwitch.html</filename>
     <base>ParamComponent</base>
@@ -13491,6 +13529,18 @@
     <filename>group__gin__dsp-components.html</filename>
   </compound>
   <compound kind="group">
+    <name>gin_plugin-components</name>
+    <title>components</title>
+    <filename>group__gin__plugin-components.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>gradientRect</name>
+      <anchorfile>group__gin__plugin-components.html</anchorfile>
+      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
+      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
     <name>gin_gui-components</name>
     <title>components</title>
     <filename>group__gin__gui-components.html</filename>
@@ -13507,18 +13557,6 @@
       <anchorfile>group__gin__gui-components.html</anchorfile>
       <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
       <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_plugin-components</name>
-    <title>components</title>
-    <filename>group__gin__plugin-components.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>gradientRect</name>
-      <anchorfile>group__gin__plugin-components.html</anchorfile>
-      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
-      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
     </member>
   </compound>
   <compound kind="group">
@@ -13610,6 +13648,13 @@
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
       <anchor>ga48b0dea68bc2af522095b90b5e9acc13</anchor>
       <arglist>(T a, T b, T t)</arglist>
+    </member>
+    <member kind="function">
+      <type>T</type>
+      <name>sign</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga25b9b7a11ac54dada4a6846ad7cd8309</anchor>
+      <arglist>(T x)</arglist>
     </member>
     <member kind="function">
       <type>double</type>

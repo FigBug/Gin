@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['value_2660',['value',['../classPropertyComponentBase.html#a3c5ee7d20c4aecc48394fc97aa050448',1,'PropertyComponentBase::value()'],['../structParameter_1_1ParamState.html#a9688db68c2a8bd8fc608720e62ea9c8a',1,'Parameter::ParamState::value()'],['../classParameter.html#a600fbf5505f6846a37b27f806ea4abf0',1,'Parameter::value()']]],
-  ['valuetree_2661',['valueTree',['../classProgram.html#ae5df2a7c91a9814b63c9224106492da4',1,'Program']]],
-  ['vctrns_2662',['vcTrns',['../structVoicedStereoOscillator_1_1Params.html#a617f4529f6385f4cc4cf74516e3bdc25',1,'VoicedStereoOscillator::Params']]],
-  ['voicepath_2663',['voicePath',['../classSynthesiserUsage.html#ac45af775287b4546013be488a67d5d7d',1,'SynthesiserUsage']]],
-  ['voices_2664',['voices',['../structVoicedStereoOscillator_1_1Params.html#a46ae813a8ece08ac931fbb1b6b3adcfd',1,'VoicedStereoOscillator::Params::voices()'],['../classSynthesiserUsage.html#a2cb8e573343dc51b45899177cc111574',1,'SynthesiserUsage::voices()']]]
+  ['value_2669',['value',['../classPropertyComponentBase.html#a3c5ee7d20c4aecc48394fc97aa050448',1,'PropertyComponentBase::value()'],['../structParameter_1_1ParamState.html#a9688db68c2a8bd8fc608720e62ea9c8a',1,'Parameter::ParamState::value()'],['../classParameter.html#a600fbf5505f6846a37b27f806ea4abf0',1,'Parameter::value()']]],
+  ['valuetree_2670',['valueTree',['../classProgram.html#ae5df2a7c91a9814b63c9224106492da4',1,'Program']]],
+  ['vctrns_2671',['vcTrns',['../structVoicedStereoOscillator_1_1Params.html#a617f4529f6385f4cc4cf74516e3bdc25',1,'VoicedStereoOscillator::Params']]],
+  ['voicepath_2672',['voicePath',['../classSynthesiserUsage.html#ac45af775287b4546013be488a67d5d7d',1,'SynthesiserUsage']]],
+  ['voices_2673',['voices',['../structVoicedStereoOscillator_1_1Params.html#a46ae813a8ece08ac931fbb1b6b3adcfd',1,'VoicedStereoOscillator::Params::voices()'],['../classSynthesiserUsage.html#a2cb8e573343dc51b45899177cc111574',1,'SynthesiserUsage::voices()']]]
 ];
