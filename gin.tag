@@ -1421,6 +1421,12 @@
     <class kind="class">StereoDelay</class>
   </compound>
   <compound kind="file">
+    <name>gin_stereoenhancer.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
+    <filename>gin__stereoenhancer_8h.html</filename>
+    <class kind="class">StereoEnhancer</class>
+  </compound>
+  <compound kind="file">
     <name>gin_stereoprocessor.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
     <filename>gin__stereoprocessor_8h.html</filename>
@@ -11613,6 +11619,38 @@
       <anchorfile>classStereoDelay.html</anchorfile>
       <anchor>aa3d97ad1b7370dc061d9f73daa574c2b</anchor>
       <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>StereoEnhancer</name>
+    <filename>classStereoEnhancer.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>StereoEnhancer</name>
+      <anchorfile>classStereoEnhancer.html</anchorfile>
+      <anchor>a5e466244692e1f4470a6950b2c55fdc2</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classStereoEnhancer.html</anchorfile>
+      <anchor>a7f6872a6e01a7de9c680bc65ba32ef64</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classStereoEnhancer.html</anchorfile>
+      <anchor>a4268cc461e66896416b0c266d66e127e</anchor>
+      <arglist>(float sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setParameters</name>
+      <anchorfile>classStereoEnhancer.html</anchorfile>
+      <anchor>a8aca4b6272efd156986e5254310b60ff</anchor>
+      <arglist>(float widthLP, float freqHPFader, float widthHP)</arglist>
     </member>
   </compound>
   <compound kind="class">
