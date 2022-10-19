@@ -49,9 +49,6 @@ public:
 private:
 	float rotation = 0.0f;
 
-	float mono = 0.0f, stereo = 0.0f, angle = 0.0f, radius = 0.0f;
-	float s1 = 0.0f, s2 = 0.0f;
-
 	float width1 = 0.0f, widthCoeff1 = 0.0f;
 	float center1 = 0.0f, side1 = 0.0f;
 	float width2 = 0.0f, widthCoeff2 = 0.0f;

@@ -105,7 +105,7 @@ T lerp (T a, T b, T t)
 
 /** Sign +1 or -1 of number */
 template <class T>
-inline T sign ( T x )
+inline int sign ( T x )
 {
-	return ( x > 0 ? T(1) : T(-1) );
+	return ( x > 0 ? 1 : -1 );
 }

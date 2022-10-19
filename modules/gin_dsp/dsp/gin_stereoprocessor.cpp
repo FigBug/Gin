@@ -88,8 +88,8 @@ void StereoProcessor::process (juce::AudioSampleBuffer& buffer)
 	while (--sampleFrames >= 0)
 	{
 		// Width 1
-		mono   = (((*in1) + (*in2)) / 2.0f) * center1;
-		stereo = ( (*in1) - (*in2)        ) * side1;
+		auto mono   = (((*in1) + (*in2)) / 2.0f) * center1;
+		auto stereo = ( (*in1) - (*in2)        ) * side1;
 		(*out1) = (mono + stereo * width1) / widthCoeff1;
 		(*out2) = (mono - stereo * width1) / widthCoeff1;
 
@@ -100,17 +100,8 @@ void StereoProcessor::process (juce::AudioSampleBuffer& buffer)
 		// Rotate
 		if (rotation != 0.0f)
 		{
-			s1 = sign ((*out1));
-			s2 = sign ((*out2));
-
-			angle = std::atan ((*out1) / (*out2));
-
-			if ((s1 == 1 && s2 == -1) || (s1 == -1 && s2 == -1))
-				angle += juce::MathConstants<float>::pi;
-
-			if ((s1 == -1 && s2 == 1))
-				angle += juce::MathConstants<float>::pi;
-
+			auto angle = 0.0f;
+			
 			if ((*out2) == 0.0f)
 			{
 				if ((*out1) > 0)
@@ -118,16 +109,28 @@ void StereoProcessor::process (juce::AudioSampleBuffer& buffer)
 				else
 					angle = juce::MathConstants<float>::pi * 1.5f;
 			}
-
-			if ((*out1) == 0.0f)
+			else if ((*out1) == 0.0f)
 			{
 				if ((*out2) > 0)
 					angle = 0.0f;
 				else
 					angle = juce::MathConstants<float>::pi;
 			}
+			else
+			{
+				auto s1 = sign ((*out1));
+				auto s2 = sign ((*out2));
 
-			radius = std::sqrt (std::pow ((*out1), 2.0f) + std::pow ((*out2), 2.0f));
+				angle = std::atan ((*out1) / (*out2));
+
+				if ((s1 == 1 && s2 == -1) || (s1 == -1 && s2 == -1))
+					angle += juce::MathConstants<float>::pi;
+
+				if ((s1 == -1 && s2 == 1))
+					angle += juce::MathConstants<float>::pi;
+			}
+
+			auto radius = std::sqrt (std::pow ((*out1), 2.0f) + std::pow ((*out2), 2.0f));
 			angle -= rotation;
 			(*out1) = std::sin (angle) * radius;
 			(*out2) = std::cos (angle) * radius;
@@ -143,7 +146,12 @@ void StereoProcessor::process (juce::AudioSampleBuffer& buffer)
 		(*out1) = (mono + stereo * width2) / widthCoeff2;
 		(*out2) = (mono - stereo * width2) / widthCoeff2;
 
-		(*out1++) = (*out1++) * outVol;
-		(*out2++) = (*out2++) * outVol;
+		*out1 *= outVol;
+		*out2 *= outVol;
+
+		out1++;
+		out2++;
+		in1++;
+		in2++;
 	}
 }
