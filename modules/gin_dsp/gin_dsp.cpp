@@ -65,6 +65,7 @@ namespace gin
 #include "dsp/gin_sampleoscillator.cpp"
 #include "dsp/gin_sample.cpp"
 #include "dsp/gin_simpleverb.cpp"
+#include "dsp/gin_stereoenhancer.cpp"
 #include "dsp/gin_stereoprocessor.cpp"
 #include "dsp/gin_textrenderer.cpp"
 #include "dsp/gin_wtoscillators.cpp"
