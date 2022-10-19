@@ -107,5 +107,5 @@ T lerp (T a, T b, T t)
 template <class T>
 inline T sign ( T x )
 {
-	return ( x > 0 ? 1 : -1 );
+	return ( x > 0 ? T(1) : T(-1) );
 }
