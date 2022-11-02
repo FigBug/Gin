@@ -107,28 +107,28 @@ void OpenStreetMaps::startRequest()
             switch (tileSource)
             {
                 case OpenStreetMap:
-                    sprintf(buffer, "http://%c.tile.openstreetmap.org/%d/%d/%d.png", "abc"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
+                    snprintf (buffer, sizeof (buffer), "http://%c.tile.openstreetmap.org/%d/%d/%d.png", "abc"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
                     break;
                 case OpenCycleMap:
-                    sprintf(buffer, "http://%c.tile.opencyclemap.org/cycle/%d/%d/%d.png", "abc"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
+                    snprintf (buffer, sizeof (buffer), "http://%c.tile.opencyclemap.org/cycle/%d/%d/%d.png", "abc"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
                     break;
                 case OpenCycleMapTransport:
-                    sprintf(buffer, "http://%c.tile2.opencyclemap.org/transport/%d/%d/%d.png", "abc"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
+                    snprintf (buffer, sizeof (buffer), "http://%c.tile2.opencyclemap.org/transport/%d/%d/%d.png", "abc"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
                     break;
                 case OpenCycleMapLandscape:
-                    sprintf(buffer, "http://%c.tile3.opencyclemap.org/landscape/%d/%d/%d.png", "abc"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
+                    snprintf (buffer, sizeof (buffer), "http://%c.tile3.opencyclemap.org/landscape/%d/%d/%d.png", "abc"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
                     break;
                 case StamenTerrain:
-                    sprintf(buffer, "http://tile.stamen.com/terrain/%d/%d/%d.png", requests[i]->zoom, requests[i]->x, requests[i]->y);
+                    snprintf (buffer, sizeof (buffer), "http://tile.stamen.com/terrain/%d/%d/%d.png", requests[i]->zoom, requests[i]->x, requests[i]->y);
                     break;
                 case MapQuestOSM:
-                    sprintf(buffer, "http://otile%c.mqcdn.com/tiles/1.0.0/map/%d/%d/%d.jpg", "1234"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
+                    snprintf (buffer, sizeof (buffer), "http://otile%c.mqcdn.com/tiles/1.0.0/map/%d/%d/%d.jpg", "1234"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
                     break;
                 case MapQuestOpenAerial:
-                    sprintf(buffer, "http://otile%c.mqcdn.com/tiles/1.0.0/sat/%d/%d/%d.jpg", "1234"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
+                    snprintf (buffer, sizeof (buffer), "http://otile%c.mqcdn.com/tiles/1.0.0/sat/%d/%d/%d.jpg", "1234"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
                     break;
                 case MapQuestOpenStreetMap:
-                    sprintf(buffer, "http://%c.tile.openstreetmap.org/%d/%d/%d.png", "abc"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
+                    snprintf (buffer, sizeof (buffer), "http://%c.tile.openstreetmap.org/%d/%d/%d.png", "abc"[server], requests[i]->zoom, requests[i]->x, requests[i]->y);
                     break;
                 default:
                     jassertfalse;
