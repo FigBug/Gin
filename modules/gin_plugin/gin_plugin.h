@@ -24,7 +24,7 @@
   license:              BSD
   minimumCppStandard:   17
 
-  dependencies:         gin gin_dsp gin_gui juce_audio_utils juce_audio_processors
+  dependencies:         gin gin_dsp gin_gui gin_graphics juce_audio_utils juce_audio_processors
 
  END_JUCE_MODULE_DECLARATION
 
@@ -68,6 +68,7 @@
 #include <gin/gin.h>
 #include <gin_gui/gin_gui.h>
 #include <gin_dsp/gin_dsp.h>
+#include <gin_graphics/gin_graphics.h>
 
 #include <map>
 

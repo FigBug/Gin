@@ -28,11 +28,6 @@
 
 #include "gin_gui.h"
 
-#include "3rdparty/avir/avir.h"
-#if JUCE_INTEL
- #include "3rdparty/avir/avir_float4_sse.h"
-#endif
-
 #if __clang__
  #pragma clang diagnostic pop
 #elif _MSC_VER
@@ -62,11 +57,7 @@ namespace gin
 #include "utilities/gin_elevatedfilecopy.cpp"
 #include "utilities/gin_layout.cpp"
 
-#include "images/gin_imageeffects.cpp"
 #include "images/gin_imageutilities.cpp"
-#include "images/gin_imageeffects_blending.cpp"
-#include "images/gin_imageeffects_stackblur.cpp"
-#include "images/gin_bmpimageformat.cpp"
 
 #include "components/gin_componentviewer.cpp"
 #include "components/gin_ginlookandfeel.cpp"

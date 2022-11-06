@@ -71,8 +71,6 @@ namespace gin
 #include "utilities/gin_elevatedfilecopy.h"
 #include "utilities/gin_layout.h"
 
-#include "images/gin_bmpimageformat.h"
-#include "images/gin_imageeffects.h"
 #include "images/gin_imageutilities.h"
 
 #include "components/gin_componentutils.h"

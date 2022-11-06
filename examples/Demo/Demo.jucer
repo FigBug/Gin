@@ -8,6 +8,8 @@
   <MAINGROUP id="wLOeL4" name="Demo">
     <GROUP id="{C99AB8C7-9FF4-1BC0-BD5D-C29561B0C802}" name="Source">
       <GROUP id="{942D9F9F-079D-DA91-711F-43B50276712D}" name="Resources">
+        <FILE id="eTEtgN" name="1.webp" compile="0" resource="1" file="Resources/1.webp"/>
+        <FILE id="aNwInz" name="2.webp" compile="0" resource="1" file="Resources/2.webp"/>
         <FILE id="NeK0jf" name="ballon.bmp" compile="0" resource="1" file="Resources/ballon.bmp"/>
         <FILE id="NM9OrP" name="ballon_8bit.bmp" compile="0" resource="1" file="Resources/ballon_8bit.bmp"/>
         <FILE id="GwWHNn" name="Castle.jpg" compile="0" resource="1" file="Resources/Castle.jpg"/>
@@ -53,6 +55,7 @@
         <MODULEPATH id="juce_dsp" path="../../../juce/modules"/>
         <MODULEPATH id="gin_network" path="../../modules"/>
         <MODULEPATH id="gin_gui" path="../../modules"/>
+        <MODULEPATH id="gin_graphics" path="../../modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <XCODE_IPHONE targetFolder="Builds/iOS" iosScreenOrientation="UIInterfaceOrientationPortrait,UIInterfaceOrientationLandscapeLeft,UIInterfaceOrientationLandscapeRight"
@@ -83,6 +86,7 @@
         <MODULEPATH id="juce_dsp" path="../../../juce/modules"/>
         <MODULEPATH id="gin_network" path="../../modules"/>
         <MODULEPATH id="gin_gui" path="../../modules"/>
+        <MODULEPATH id="gin_graphics" path="../../modules"/>
       </MODULEPATHS>
     </XCODE_IPHONE>
     <VS2022 targetFolder="Builds/VisualStudio2022" extraCompilerFlags="/wd4996 /wd4458"
@@ -114,6 +118,7 @@
         <MODULEPATH id="juce_dsp" path="../../../juce/modules"/>
         <MODULEPATH id="gin_network" path="../../modules"/>
         <MODULEPATH id="gin_gui" path="../../modules"/>
+        <MODULEPATH id="gin_graphics" path="../../modules"/>
       </MODULEPATHS>
     </VS2022>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
@@ -141,12 +146,14 @@
         <MODULEPATH id="juce_dsp" path="../../../juce/modules"/>
         <MODULEPATH id="gin_network" path="../../modules"/>
         <MODULEPATH id="gin_gui" path="../../modules"/>
+        <MODULEPATH id="gin_graphics" path="../../modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
   </EXPORTFORMATS>
   <MODULES>
     <MODULE id="gin" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="gin_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="gin_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="gin_gui" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="gin_metadata" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="gin_network" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>

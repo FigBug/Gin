@@ -46,6 +46,7 @@
         <MODULEPATH id="gin_dsp" path="../../modules"/>
         <MODULEPATH id="juce_dsp" path="../../../juce_bugs/JUCE/modules"/>
         <MODULEPATH id="gin_gui" path="../../modules"/>
+        <MODULEPATH id="gin_graphics" path="../../modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
     <VS2022 targetFolder="Builds/VisualStudio2022">
@@ -71,6 +72,7 @@
         <MODULEPATH id="gin_dsp" path="../../modules"/>
         <MODULEPATH id="juce_dsp" path="../../../juce_bugs/JUCE/modules"/>
         <MODULEPATH id="gin_gui" path="../../modules"/>
+        <MODULEPATH id="gin_graphics" path="../../modules"/>
       </MODULEPATHS>
     </VS2022>
     <XCODE_MAC targetFolder="Builds/MacOSX">
@@ -96,12 +98,14 @@
         <MODULEPATH id="gin_dsp" path="../../modules"/>
         <MODULEPATH id="juce_dsp" path="../../../juce_bugs/JUCE/modules"/>
         <MODULEPATH id="gin_gui" path="../../modules"/>
+        <MODULEPATH id="gin_graphics" path="../../modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
   </EXPORTFORMATS>
   <MODULES>
     <MODULE id="gin" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="gin_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="gin_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="gin_gui" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="gin_plugin" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
