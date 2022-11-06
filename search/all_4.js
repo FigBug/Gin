@@ -53,7 +53,7 @@ var searchData=
   ['estimatey_285',['estimateY',['../classLinearRegression.html#a1321792d996e1d6b2b7c4b15e571d7d5',1,'LinearRegression']]],
   ['eval_286',['eval',['../classSpline_1_1Element.html#ab898da37ebf3cd04320cfb9c9266f72e',1,'Spline::Element']]],
   ['evaluate_287',['evaluate',['../classEquationParser.html#a920e54171a2af2a10c15ea417250db3b',1,'EquationParser']]],
-  ['exclusion_288',['Exclusion',['../group__gin__gui-images.html#gga30323fa90e24ca484998b9fba6c40e85ac200cda01c78d8dae2b11cf4ded47655',1,'gin_imageeffects.h']]],
+  ['exclusion_288',['Exclusion',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ac200cda01c78d8dae2b11cf4ded47655',1,'gin_imageeffects.h']]],
   ['execute_289',['execute',['../classElevatedFileCopy.html#ac6965dae9ef1cf89d3ebe038d32370e3',1,'ElevatedFileCopy']]],
   ['exifmetadata_290',['ExifMetadata',['../classExifMetadata.html',1,'ExifMetadata'],['../classExifMetadata.html#afa3a3cefbb26ea66f049bfc49456def9',1,'ExifMetadata::ExifMetadata()']]],
   ['expander_291',['expander',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a86eafff6a891eb381e162e7adc73ff7e',1,'Dynamics']]],

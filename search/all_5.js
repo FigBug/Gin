@@ -38,5 +38,6 @@ var searchData=
   ['fromurl_331',['fromURL',['../classWebSocket.html#a772a85561373a9548bd00ed7a7473c58',1,'WebSocket::fromURL(const juce::String &amp;url, const juce::String &amp;origin={})'],['../classWebSocket.html#a7e2404176abec3d499adcd92fcc6bc42',1,'WebSocket::fromURL(const juce::String &amp;url, bool useMask, const juce::String &amp;origin)']]],
   ['fromurlnomask_332',['fromURLNoMask',['../classWebSocket.html#af03b816bb7e26fccad0d1b4bf9b0b5b3',1,'WebSocket']]],
   ['funcstate_333',['FuncState',['../structFuncState.html',1,'FuncState'],['../structFuncState.html#a1a37453451c69ef86bd1c1f07d970c81',1,'FuncState::FuncState()']]],
-  ['funcstates_334',['funcStates',['../classAudioFunctionHost.html#aa8b5235e076cae5d2c28443fe8ba1ca5',1,'AudioFunctionHost']]]
+  ['funcstates_334',['funcStates',['../classAudioFunctionHost.html#aa8b5235e076cae5d2c28443fe8ba1ca5',1,'AudioFunctionHost']]],
+  ['formats_335',['formats',['../group__gin__graphics-formats.html',1,'']]]
 ];

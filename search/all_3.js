@@ -1,7 +1,7 @@
 var searchData=
 [
   ['d_186',['d',['../classSpline_1_1Element.html#aa152a2b6876477cb9945a1de6860f06e',1,'Spline::Element']]],
-  ['darken_187',['Darken',['../group__gin__gui-images.html#gga30323fa90e24ca484998b9fba6c40e85a95ea73d8fed63115639319a67d596d49',1,'gin_imageeffects.h']]],
+  ['darken_187',['Darken',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a95ea73d8fed63115639319a67d596d49',1,'gin_imageeffects.h']]],
   ['data_188',['data',['../structDownloadManager_1_1DownloadResult.html#a13fd2f0e9b09ade1a1b2ccf97c920bf5',1,'DownloadManager::DownloadResult::data()'],['../classDelayLine.html#a7626cd60f96412594a28f4471337587b',1,'DelayLine::data()'],['../classAsyncDownload.html#a65842b5ad253633e5d2d6df4464d5125',1,'AsyncDownload::data()'],['../structHttp_1_1HttpResult.html#a3ae0b311189f4413f1128ba994c2aca3',1,'Http::HttpResult::data()']]],
   ['db12_189',['db12',['../classFilter.html#a5ef1acf81c79c0c8a0ecd8a52e38d4f2a2c5e517e0cff208de5a5b332964c98c7',1,'Filter']]],
   ['db24_190',['db24',['../classFilter.html#a5ef1acf81c79c0c8a0ecd8a52e38d4f2a96cc76f4311546df810c13784c2a591a',1,'Filter']]],
@@ -10,7 +10,7 @@ var searchData=
   ['decaydelta_193',['decayDelta',['../classADSR.html#a7fe4cf55dca362fd768e8763e1207721',1,'ADSR']]],
   ['decayoffset_194',['decayOffset',['../classAnalogADSR.html#af483c3fd72c3c558c140032492ce60cb',1,'AnalogADSR']]],
   ['decayrate_195',['decayRate',['../classLevelTracker.html#a796f0f65de9c1017f59fa6dc0247ca83',1,'LevelTracker']]],
-  ['decodeimage_196',['decodeImage',['../classBMPImageFormat.html#a2594f1a9444754276035be54722c59f2',1,'BMPImageFormat']]],
+  ['decodeimage_196',['decodeImage',['../classBMPImageFormat.html#a2594f1a9444754276035be54722c59f2',1,'BMPImageFormat::decodeImage()'],['../classWEBPImageFormat.html#a9ec17db624e1ed9512371a55b1ac52d9',1,'WEBPImageFormat::decodeImage()']]],
   ['defaultcolour_197',['defaultColour',['../classGinLookAndFeel.html#a13e4ce006239d68f35c217261a9ed907',1,'GinLookAndFeel']]],
   ['defaultvalue_198',['defaultValue',['../classParameter.html#afff117f671e74a238989542b73cbd024',1,'Parameter']]],
   ['delay_199',['delay',['../structLFO_1_1Parameters.html#a9be35ed3aca74afab18de36202cdfd97',1,'LFO::Parameters']]],
@@ -25,7 +25,7 @@ var searchData=
   ['delta_208',['delta',['../structOscState.html#a3659847d96492e7df6bb1987b7991415',1,'OscState']]],
   ['depth_209',['depth',['../structLFO_1_1Parameters.html#aea5b1c1cd4fc3b68d3826fce64f6287a',1,'LFO::Parameters']]],
   ['detune_210',['detune',['../structVoicedStereoOscillator_1_1Params.html#a3f1b408a97910ce6a63de0a8073c85c7',1,'VoicedStereoOscillator::Params']]],
-  ['difference_211',['Difference',['../group__gin__gui-images.html#gga30323fa90e24ca484998b9fba6c40e85a9cba343e00a6259dc83f7e4e7f447109',1,'gin_imageeffects.h']]],
+  ['difference_211',['Difference',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a9cba343e00a6259dc83f7e4e7f447109',1,'gin_imageeffects.h']]],
   ['direction_212',['Direction',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1',1,'SampleOscillator']]],
   ['disablelearn_213',['disableLearn',['../classModMatrix.html#a43c4fb3d9ece3cd9b2af6495379dc2f6',1,'ModMatrix']]],
   ['disablesmoothing_214',['disableSmoothing',['../classModVoice.html#acc4675a7c50824248d15d4a416f5401b',1,'ModVoice']]],

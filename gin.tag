@@ -231,7 +231,7 @@
   </compound>
   <compound kind="file">
     <name>gin_bmpimageformat.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/images/</path>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_graphics/formats/</path>
     <filename>gin__bmpimageformat_8h.html</filename>
     <class kind="class">BMPImageFormat</class>
   </compound>
@@ -665,288 +665,288 @@
   </compound>
   <compound kind="file">
     <name>gin_imageeffects.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/images/</path>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_graphics/images/</path>
     <filename>gin__imageeffects_8h.html</filename>
     <member kind="enumeration">
       <type></type>
       <name>BlendMode</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>ga30323fa90e24ca484998b9fba6c40e85</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Normal</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a5ecbcf0afce98b042f35ec71ba03fa4b</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Lighten</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a0c4863f7d789ab70b21073bd94c9169d</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Darken</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a95ea73d8fed63115639319a67d596d49</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Multiply</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85ade55cee401a6a53619b6ec469abf0810</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Average</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Add</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a0d592a4b562059bc283e00b3704865c9</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Subtract</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85afa8a9720422ee254970b2ebe1435a917</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Difference</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a9cba343e00a6259dc83f7e4e7f447109</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Negation</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85ab94b0efce58a77e1c8fa29e32536c728</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Screen</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a2609fadb77bb3d98c615b41ac79a1d31</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Exclusion</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85ac200cda01c78d8dae2b11cf4ded47655</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Overlay</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a8b895d92539a718e6898ed6b053ce2ff</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>SoftLight</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a967749a14f4bb7ffc6383997d97a6163</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>HardLight</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a7fc75582ae37ab60f5a1cc8e2acd7e24</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>ColorDodge</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a71b5386d914bd4101f3d086d8ce72161</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>ColorBurn</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85adccc18afee7dc5a40147cab59118d583</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>LinearDodge</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85afe7aab6a1580381724d2ebe724fbd065</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>LinearBurn</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a4c41b912f1e9eca71a1a36fc8a1172d9</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>LinearLight</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85ae158a552ecb4c88077b7537e93a8df86</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>VividLight</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a87be187db30f3efdb79dde93f63e0430</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>PinLight</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a513bf9b05af260d001632c4fe6d345d5</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>HardMix</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a76ee1ad58cc676f7994416354a4d7b59</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Reflect</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a8898819fa0ebd77a64e192d47e7be553</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Glow</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85ac7adb89e56ad4a2daef183d318110442</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
       <name>Phoenix</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gga30323fa90e24ca484998b9fba6c40e85a85c155bffb4118332192060f1a6db976</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyVignette</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>ga1023b87ad7bb7ca1e039ded54397ef90</anchor>
       <arglist>(juce::Image &amp;img, float amount, float radius, float falloff, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applySepia</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gaccaa511049769192c15aa13e0c2a40d1</anchor>
       <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGreyScale</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gadb285c05d7e81fbffe8b2ab5705b0783</anchor>
       <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applySoften</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>ga4cc9c0919994beeac34d088beb1991e2</anchor>
       <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applySharpen</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gac0b5514a6c74e31bd4e7a26898e45228</anchor>
       <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGamma</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>ga2b20d743c3475fd86d18a8f2cb427b47</anchor>
       <arglist>(juce::Image &amp;img, float gamma, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyInvert</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>ga6453f04ab3d2a6a345cd6b7f70711c04</anchor>
       <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyContrast</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>ga50c77bf67a02fbc002d1136fd64f2031</anchor>
       <arglist>(juce::Image &amp;img, float contrast, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyBrightnessContrast</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gab3825059a9e75bfc8e78cf0106ddf78e</anchor>
       <arglist>(juce::Image &amp;img, float brightness, float contrast, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyHueSaturationLightness</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>ga25205b0926bfca178115404c6d9f45d9</anchor>
       <arglist>(juce::Image &amp;img, float hue, float saturation, float lightness, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyStackBlur</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>ga5298c1220caef0f1d6d918c9ec15243d</anchor>
       <arglist>(juce::Image &amp;img, int radius)</arglist>
     </member>
     <member kind="function">
       <type>juce::Image</type>
       <name>applyResize</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>ga8a045522d5a03954f0d4fe2cbc8082a4</anchor>
       <arglist>(const juce::Image &amp;img, int width, int height)</arglist>
     </member>
     <member kind="function">
       <type>juce::Image</type>
       <name>applyResize</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>ga99654c39e56b66a36c75cbbff9e137b4</anchor>
       <arglist>(const juce::Image &amp;img, float factor)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGradientMap</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>ga2e91627e4ee0f9e1aeca78ca387a8c51</anchor>
       <arglist>(juce::Image &amp;img, const juce::ColourGradient &amp;gradient, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyGradientMap</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>ga48f6d1c24d18edd26e2d9da48e47dcf7</anchor>
       <arglist>(juce::Image &amp;img, const juce::Colour c1, const juce::Colour c2, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyColour</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>gae6d6ea52612fb4f6474b05a1063604db</anchor>
       <arglist>(juce::Image &amp;img, juce::Colour c, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyBlend</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>ga6e16e6b71a97615070d0f5f6829f2b04</anchor>
       <arglist>(juce::Image &amp;dst, const juce::Image &amp;src, BlendMode mode, float alpha=1.0f, juce::Point&lt; int &gt; position={}, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>applyBlend</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>ga590207f6293f03a5a4e4e2a1d4f3db15</anchor>
       <arglist>(juce::Image &amp;dst, BlendMode mode, juce::Colour c, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
@@ -1592,6 +1592,12 @@
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/components/</path>
     <filename>gin__waveformcomponent_8h.html</filename>
     <class kind="class">WaveformComponent</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_webpimageformat.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_graphics/formats/</path>
+    <filename>gin__webpimageformat_8h.html</filename>
+    <class kind="class">WEBPImageFormat</class>
   </compound>
   <compound kind="file">
     <name>gin_websocket.h</name>
@@ -12980,6 +12986,59 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>WEBPImageFormat</name>
+    <filename>classWEBPImageFormat.html</filename>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getFormatName</name>
+      <anchorfile>classWEBPImageFormat.html</anchorfile>
+      <anchor>a512523a82459ad3a42a50c7ebd176d2b</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>canUnderstand</name>
+      <anchorfile>classWEBPImageFormat.html</anchorfile>
+      <anchor>a1625a869b3485ebde4cbca83ee5076a7</anchor>
+      <arglist>(juce::InputStream &amp;input) override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>usesFileExtension</name>
+      <anchorfile>classWEBPImageFormat.html</anchorfile>
+      <anchor>a1d875430f06a78fe547812ff5556bbc0</anchor>
+      <arglist>(const juce::File &amp;possibleFile) override</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>decodeImage</name>
+      <anchorfile>classWEBPImageFormat.html</anchorfile>
+      <anchor>a9ec17db624e1ed9512371a55b1ac52d9</anchor>
+      <arglist>(juce::InputStream &amp;input) override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>writeImageToStream</name>
+      <anchorfile>classWEBPImageFormat.html</anchorfile>
+      <anchor>a7323d308a2ed305d577d7630cfafc0b8</anchor>
+      <arglist>(const juce::Image &amp;sourceImage, juce::OutputStream &amp;destStream) override</arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>quality</name>
+      <anchorfile>classWEBPImageFormat.html</anchorfile>
+      <anchor>a346bc04bdd1ff9881380f0c906cf86d4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>loseless</name>
+      <anchorfile>classWEBPImageFormat.html</anchorfile>
+      <anchor>a603e71ad278603009686b3290f8abcc1</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>WebSocket</name>
     <filename>classWebSocket.html</filename>
     <member kind="enumeration">
@@ -13759,6 +13818,11 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_graphics-formats</name>
+    <title>formats</title>
+    <filename>group__gin__graphics-formats.html</filename>
+  </compound>
+  <compound kind="group">
     <name>gin-geometry</name>
     <title>geometry</title>
     <filename>group__gin-geometry.html</filename>
@@ -13790,6 +13854,13 @@
     <filename>group__gin__dsp.html</filename>
     <subgroup>gin_dsp-components</subgroup>
     <subgroup>gin_dsp-dsp</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>gin_graphics</name>
+    <title>gin_graphics</title>
+    <filename>group__gin__graphics.html</filename>
+    <subgroup>gin_graphics-formats</subgroup>
+    <subgroup>gin_graphics-images</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_gui</name>
@@ -13824,289 +13895,6 @@
     <name>gin_gui-images</name>
     <title>images</title>
     <filename>group__gin__gui-images.html</filename>
-    <member kind="enumeration">
-      <type></type>
-      <name>BlendMode</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga30323fa90e24ca484998b9fba6c40e85</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Normal</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85a5ecbcf0afce98b042f35ec71ba03fa4b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Lighten</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85a0c4863f7d789ab70b21073bd94c9169d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Darken</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85a95ea73d8fed63115639319a67d596d49</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Multiply</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85ade55cee401a6a53619b6ec469abf0810</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Average</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Add</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85a0d592a4b562059bc283e00b3704865c9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Subtract</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85afa8a9720422ee254970b2ebe1435a917</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Difference</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85a9cba343e00a6259dc83f7e4e7f447109</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Negation</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85ab94b0efce58a77e1c8fa29e32536c728</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Screen</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85a2609fadb77bb3d98c615b41ac79a1d31</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Exclusion</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85ac200cda01c78d8dae2b11cf4ded47655</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Overlay</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85a8b895d92539a718e6898ed6b053ce2ff</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>SoftLight</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85a967749a14f4bb7ffc6383997d97a6163</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>HardLight</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85a7fc75582ae37ab60f5a1cc8e2acd7e24</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>ColorDodge</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85a71b5386d914bd4101f3d086d8ce72161</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>ColorBurn</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85adccc18afee7dc5a40147cab59118d583</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>LinearDodge</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85afe7aab6a1580381724d2ebe724fbd065</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>LinearBurn</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85a4c41b912f1e9eca71a1a36fc8a1172d9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>LinearLight</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85ae158a552ecb4c88077b7537e93a8df86</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>VividLight</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85a87be187db30f3efdb79dde93f63e0430</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>PinLight</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85a513bf9b05af260d001632c4fe6d345d5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>HardMix</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85a76ee1ad58cc676f7994416354a4d7b59</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Reflect</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85a8898819fa0ebd77a64e192d47e7be553</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Glow</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85ac7adb89e56ad4a2daef183d318110442</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Phoenix</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gga30323fa90e24ca484998b9fba6c40e85a85c155bffb4118332192060f1a6db976</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>applyVignette</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga1023b87ad7bb7ca1e039ded54397ef90</anchor>
-      <arglist>(juce::Image &amp;img, float amount, float radius, float falloff, juce::ThreadPool *threadPool=nullptr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>applySepia</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gaccaa511049769192c15aa13e0c2a40d1</anchor>
-      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>applyGreyScale</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gadb285c05d7e81fbffe8b2ab5705b0783</anchor>
-      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>applySoften</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga4cc9c0919994beeac34d088beb1991e2</anchor>
-      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>applySharpen</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gac0b5514a6c74e31bd4e7a26898e45228</anchor>
-      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>applyGamma</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga2b20d743c3475fd86d18a8f2cb427b47</anchor>
-      <arglist>(juce::Image &amp;img, float gamma, juce::ThreadPool *threadPool=nullptr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>applyInvert</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga6453f04ab3d2a6a345cd6b7f70711c04</anchor>
-      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>applyContrast</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga50c77bf67a02fbc002d1136fd64f2031</anchor>
-      <arglist>(juce::Image &amp;img, float contrast, juce::ThreadPool *threadPool=nullptr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>applyBrightnessContrast</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gab3825059a9e75bfc8e78cf0106ddf78e</anchor>
-      <arglist>(juce::Image &amp;img, float brightness, float contrast, juce::ThreadPool *threadPool=nullptr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>applyHueSaturationLightness</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga25205b0926bfca178115404c6d9f45d9</anchor>
-      <arglist>(juce::Image &amp;img, float hue, float saturation, float lightness, juce::ThreadPool *threadPool=nullptr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>applyStackBlur</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga5298c1220caef0f1d6d918c9ec15243d</anchor>
-      <arglist>(juce::Image &amp;img, int radius)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>applyResize</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga8a045522d5a03954f0d4fe2cbc8082a4</anchor>
-      <arglist>(const juce::Image &amp;img, int width, int height)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>applyResize</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga99654c39e56b66a36c75cbbff9e137b4</anchor>
-      <arglist>(const juce::Image &amp;img, float factor)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>applyGradientMap</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga2e91627e4ee0f9e1aeca78ca387a8c51</anchor>
-      <arglist>(juce::Image &amp;img, const juce::ColourGradient &amp;gradient, juce::ThreadPool *threadPool=nullptr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>applyGradientMap</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga48f6d1c24d18edd26e2d9da48e47dcf7</anchor>
-      <arglist>(juce::Image &amp;img, const juce::Colour c1, const juce::Colour c2, juce::ThreadPool *threadPool=nullptr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>applyColour</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gae6d6ea52612fb4f6474b05a1063604db</anchor>
-      <arglist>(juce::Image &amp;img, juce::Colour c, juce::ThreadPool *threadPool=nullptr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>applyBlend</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga6e16e6b71a97615070d0f5f6829f2b04</anchor>
-      <arglist>(juce::Image &amp;dst, const juce::Image &amp;src, BlendMode mode, float alpha=1.0f, juce::Point&lt; int &gt; position={}, juce::ThreadPool *threadPool=nullptr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>applyBlend</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga590207f6293f03a5a4e4e2a1d4f3db15</anchor>
-      <arglist>(juce::Image &amp;dst, BlendMode mode, juce::Colour c, juce::ThreadPool *threadPool=nullptr)</arglist>
-    </member>
     <member kind="function">
       <type>juce::Image</type>
       <name>rasterizeSVG</name>
@@ -14120,6 +13908,294 @@
       <anchorfile>group__gin__gui-images.html</anchorfile>
       <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
       <arglist>(const juce::String &amp;txt)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_graphics-images</name>
+    <title>images</title>
+    <filename>group__gin__graphics-images.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>BlendMode</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga30323fa90e24ca484998b9fba6c40e85</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Normal</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85a5ecbcf0afce98b042f35ec71ba03fa4b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Lighten</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85a0c4863f7d789ab70b21073bd94c9169d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Darken</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85a95ea73d8fed63115639319a67d596d49</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Multiply</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85ade55cee401a6a53619b6ec469abf0810</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Average</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Add</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85a0d592a4b562059bc283e00b3704865c9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Subtract</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85afa8a9720422ee254970b2ebe1435a917</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Difference</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85a9cba343e00a6259dc83f7e4e7f447109</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Negation</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85ab94b0efce58a77e1c8fa29e32536c728</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Screen</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85a2609fadb77bb3d98c615b41ac79a1d31</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Exclusion</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85ac200cda01c78d8dae2b11cf4ded47655</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Overlay</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85a8b895d92539a718e6898ed6b053ce2ff</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>SoftLight</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85a967749a14f4bb7ffc6383997d97a6163</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>HardLight</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85a7fc75582ae37ab60f5a1cc8e2acd7e24</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>ColorDodge</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85a71b5386d914bd4101f3d086d8ce72161</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>ColorBurn</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85adccc18afee7dc5a40147cab59118d583</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>LinearDodge</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85afe7aab6a1580381724d2ebe724fbd065</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>LinearBurn</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85a4c41b912f1e9eca71a1a36fc8a1172d9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>LinearLight</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85ae158a552ecb4c88077b7537e93a8df86</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>VividLight</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85a87be187db30f3efdb79dde93f63e0430</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>PinLight</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85a513bf9b05af260d001632c4fe6d345d5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>HardMix</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85a76ee1ad58cc676f7994416354a4d7b59</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Reflect</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85a8898819fa0ebd77a64e192d47e7be553</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Glow</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85ac7adb89e56ad4a2daef183d318110442</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Phoenix</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gga30323fa90e24ca484998b9fba6c40e85a85c155bffb4118332192060f1a6db976</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applyVignette</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga1023b87ad7bb7ca1e039ded54397ef90</anchor>
+      <arglist>(juce::Image &amp;img, float amount, float radius, float falloff, juce::ThreadPool *threadPool=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applySepia</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gaccaa511049769192c15aa13e0c2a40d1</anchor>
+      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applyGreyScale</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gadb285c05d7e81fbffe8b2ab5705b0783</anchor>
+      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applySoften</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga4cc9c0919994beeac34d088beb1991e2</anchor>
+      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applySharpen</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gac0b5514a6c74e31bd4e7a26898e45228</anchor>
+      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applyGamma</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga2b20d743c3475fd86d18a8f2cb427b47</anchor>
+      <arglist>(juce::Image &amp;img, float gamma, juce::ThreadPool *threadPool=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applyInvert</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga6453f04ab3d2a6a345cd6b7f70711c04</anchor>
+      <arglist>(juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applyContrast</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga50c77bf67a02fbc002d1136fd64f2031</anchor>
+      <arglist>(juce::Image &amp;img, float contrast, juce::ThreadPool *threadPool=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applyBrightnessContrast</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gab3825059a9e75bfc8e78cf0106ddf78e</anchor>
+      <arglist>(juce::Image &amp;img, float brightness, float contrast, juce::ThreadPool *threadPool=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applyHueSaturationLightness</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga25205b0926bfca178115404c6d9f45d9</anchor>
+      <arglist>(juce::Image &amp;img, float hue, float saturation, float lightness, juce::ThreadPool *threadPool=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applyStackBlur</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga5298c1220caef0f1d6d918c9ec15243d</anchor>
+      <arglist>(juce::Image &amp;img, int radius)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>applyResize</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga8a045522d5a03954f0d4fe2cbc8082a4</anchor>
+      <arglist>(const juce::Image &amp;img, int width, int height)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>applyResize</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga99654c39e56b66a36c75cbbff9e137b4</anchor>
+      <arglist>(const juce::Image &amp;img, float factor)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applyGradientMap</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga2e91627e4ee0f9e1aeca78ca387a8c51</anchor>
+      <arglist>(juce::Image &amp;img, const juce::ColourGradient &amp;gradient, juce::ThreadPool *threadPool=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applyGradientMap</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga48f6d1c24d18edd26e2d9da48e47dcf7</anchor>
+      <arglist>(juce::Image &amp;img, const juce::Colour c1, const juce::Colour c2, juce::ThreadPool *threadPool=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applyColour</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gae6d6ea52612fb4f6474b05a1063604db</anchor>
+      <arglist>(juce::Image &amp;img, juce::Colour c, juce::ThreadPool *threadPool=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applyBlend</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga6e16e6b71a97615070d0f5f6829f2b04</anchor>
+      <arglist>(juce::Image &amp;dst, const juce::Image &amp;src, BlendMode mode, float alpha=1.0f, juce::Point&lt; int &gt; position={}, juce::ThreadPool *threadPool=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applyBlend</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga590207f6293f03a5a4e4e2a1d4f3db15</anchor>
+      <arglist>(juce::Image &amp;dst, BlendMode mode, juce::Colour c, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
   </compound>
   <compound kind="group">
@@ -14160,6 +14236,25 @@
     <name>gin_plugin-resources</name>
     <title>resources</title>
     <filename>group__gin__plugin-resources.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>gin_gui-utilities</name>
+    <title>utilities</title>
+    <filename>group__gin__gui-utilities.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>callOnMainThreadBlocking</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
+      <arglist>(std::function&lt; void()&gt; func)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>gin-utilities</name>
@@ -14507,25 +14602,6 @@
       <anchorfile>group__gin-utilities.html</anchorfile>
       <anchor>ga88f482bf81fb3e423fa1e3926dfaa9a6</anchor>
       <arglist>(const juce::String &amp;jsonText)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-utilities</name>
-    <title>utilities</title>
-    <filename>group__gin__gui-utilities.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>callOnMainThreadBlocking</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
-      <arglist>(std::function&lt; void()&gt; func)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
     </member>
   </compound>
 </tagfile>

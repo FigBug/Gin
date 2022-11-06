@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mode_2689',['Mode',['../classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4',1,'EnvelopeDetector']]]
+  ['mode_2700',['Mode',['../classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4',1,'EnvelopeDetector']]]
 ];

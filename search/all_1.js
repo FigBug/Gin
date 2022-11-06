@@ -14,7 +14,7 @@ var searchData=
   ['beginusertimedaction_86',['beginUserTimedAction',['../classParameter.html#aa76ca1fc6f05803166264b33e0546bf4',1,'Parameter']]],
   ['binary_5fframe_87',['BINARY_FRAME',['../structWSHeaderType.html#ac1906191ac337fdbecbe643184fbd3b3a1ed79e07a2c73eaa0cc27ca3348dc8cc',1,'WSHeaderType']]],
   ['blackcolourid_88',['blackColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6ac7411db48774329c05a27e414ee24595',1,'GinLookAndFeel']]],
-  ['blendmode_89',['BlendMode',['../group__gin__gui-images.html#ga30323fa90e24ca484998b9fba6c40e85',1,'gin_imageeffects.h']]],
+  ['blendmode_89',['BlendMode',['../group__gin__graphics-images.html#ga30323fa90e24ca484998b9fba6c40e85',1,'gin_imageeffects.h']]],
   ['blltvoicedstereooscillator_90',['BLLTVoicedStereoOscillator',['../classBLLTVoicedStereoOscillator.html',1,'BLLTVoicedStereoOscillator'],['../classBLLTVoicedStereoOscillator.html#a91580541e11d22946ec60278e65835ea',1,'BLLTVoicedStereoOscillator::BLLTVoicedStereoOscillator()']]],
   ['blockingdownload_91',['blockingDownload',['../classDownloadManager.html#a46d6fd6994ca4cdcde6564edd621020f',1,'DownloadManager::blockingDownload(juce::String url, juce::String postData, juce::String extraHeaders={})'],['../classDownloadManager.html#ab352a3c9d99319f4872c1603eb19cc78',1,'DownloadManager::blockingDownload(juce::URL url, juce::String extraHeaders={})']]],
   ['bmpimageformat_92',['BMPImageFormat',['../classBMPImageFormat.html',1,'']]],
