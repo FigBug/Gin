@@ -43,11 +43,11 @@ public:
 
     Point<T> pointAtAngle (T angle)
     {
-        T x = (a * b) / std::sqrt (square (b) + square (a) * square (std::tan (angle)));
-        T y = (a * b) / std::sqrt (square (a) + square (b) / square (std::tan (angle)));
+        T x = (a * b) / ::std::sqrt (square (b) + square (a) * square (::std::tan (angle)));
+        T y = (a * b) / ::std::sqrt (square (a) + square (b) / square (::std::tan (angle)));
 
         while (angle < 0) angle += juce::MathConstants<double>::pi * 2;
-        angle = std::fmod (angle, juce::MathConstants<double>::pi * 2);
+        angle = ::std::fmod (angle, juce::MathConstants<double>::pi * 2);
 
         if (angle >= juce::MathConstants<double>::pi / 2 * 3)
         {

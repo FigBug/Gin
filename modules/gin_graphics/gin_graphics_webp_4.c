@@ -20,6 +20,8 @@
 #include "3rdparty/webp/dec/webp_dec.c"
 #include "3rdparty/webp/dsp/enc_mips_dsp_r2.c"
 #include "3rdparty/webp/dsp/yuv_neon.c"
+#if defined (__SSE4_1__)
 #include "3rdparty/webp/dsp/lossless_sse41.c"
+#endif
 #include "3rdparty/webp/demux/anim_decode.c"
 #include "3rdparty/webp/sharpyuv/sharpyuv.c"

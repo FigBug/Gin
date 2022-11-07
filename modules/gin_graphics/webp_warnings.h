@@ -1,7 +1,7 @@
 /*==============================================================================
 
  Copyright 2018 by Roland Rabien
- For more information visit www.rabiensoftware.c"om
+ For more information visit www.rabiensoftware.com
 
  ==============================================================================*/
 
@@ -18,6 +18,8 @@
  #pragma clang diagnostic ignored "-Wsign-conversion"
  #pragma clang diagnostic ignored "-Wcast-align"
  #pragma clang diagnostic ignored "-Wextra-semi"
+ #pragma clang diagnostic ignored "-Wsign-compare"
+ #pragma clang diagnostic ignored "-Wbad-function-cast"
  #pragma clang diagnostic ignored "-Wconditional-uninitialized"
  #if __has_warning("-Wzero-as-null-pointer-constant")
   #pragma clang diagnostic ignored "-Wzero-as-null-pointer-constant"

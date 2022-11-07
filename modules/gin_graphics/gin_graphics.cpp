@@ -7,10 +7,10 @@
 
 //==============================================================================
 
-#ifdef  _WIN32
- #include <Windows.h>
- #include <ctime>
-#endif
+#include <memory>
+#include <cmath>
+
+#include "gin_graphics.h"
 
 #if __clang__
  #pragma clang diagnostic push
@@ -26,8 +26,6 @@
  #pragma warning (disable: 4244)
 #endif
 
-#include "gin_graphics.h"
-
 #include "3rdparty/avir/avir.h"
 #if JUCE_INTEL
  #include "3rdparty/avir/avir_float4_sse.h"
@@ -37,21 +35,6 @@
  #pragma clang diagnostic pop
 #elif _MSC_VER
  #pragma warning (pop)
-#endif
-
-// clang on windows uses msvc name mangling for compatibility
-#if !JUCE_WINDOWS
- #include <cxxabi.h>
-#endif
-
-#ifdef __APPLE__
- #import <Foundation/Foundation.h>
- #include <sys/stat.h>
- #include <sys/time.h>
-#endif
-
-#if __has_include("BinaryData.h")
- #include "BinaryData.h"
 #endif
 
 namespace gin

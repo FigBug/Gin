@@ -33,6 +33,7 @@
 #endif
 
 #include <cfloat>
+#include <cmath>
 
 #include "gin.h"
 

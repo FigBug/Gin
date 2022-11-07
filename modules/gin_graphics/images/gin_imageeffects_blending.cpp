@@ -12,8 +12,8 @@ inline uint8_t channelBlendMultiply (int A, int B)      { return ((uint8_t)((A *
 inline uint8_t channelBlendAverage (int A, int B)       { return ((uint8_t)((A + B) / 2)); }
 inline uint8_t channelBlendAdd (int A, int B)           { return ((uint8_t)(juce::jmin (255, (A + B)))); }
 inline uint8_t channelBlendSubtract (int A, int B)      { return ((uint8_t)((A + B < 255) ? 0 : (A + B - 255))); }
-inline uint8_t channelBlendDifference (int A, int B)    { return ((uint8_t)(std::abs (A - B))); }
-inline uint8_t channelBlendNegation (int A, int B)      { return ((uint8_t)(255 - std::abs (255 - A - B))); }
+inline uint8_t channelBlendDifference (int A, int B)    { return ((uint8_t)(::std::abs (A - B))); }
+inline uint8_t channelBlendNegation (int A, int B)      { return ((uint8_t)(255 - ::std::abs (255 - A - B))); }
 inline uint8_t channelBlendScreen (int A, int B)        { return ((uint8_t)(255 - (((255 - A) * (255 - B)) >> 8))); }
 inline uint8_t channelBlendExclusion (int A, int B)     { return ((uint8_t)(A + B - 2 * A * B / 255)); }
 inline uint8_t channelBlendOverlay (int A, int B)       { return ((uint8_t)((B < 128) ? (2 * A * B / 255) : (255 - 2 * (255 - A) * (255 - B) / 255))); }

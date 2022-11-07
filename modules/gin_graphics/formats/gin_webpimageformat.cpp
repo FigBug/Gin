@@ -29,8 +29,8 @@ bool WEBPImageFormat::canUnderstand (juce::InputStream& input)
     if (mb.getSize() < 12)
         return false;
     
-    auto riff = std::memcmp (mb.begin(), "RIFF", 4) == 0;
-    auto webp = std::memcmp (mb.begin() + 8, "WEBP", 4) == 0;
+    auto riff = ::std::memcmp (mb.begin(), "RIFF", 4) == 0;
+    auto webp = ::std::memcmp (mb.begin() + 8, "WEBP", 4) == 0;
 
     return riff && webp;
 }
@@ -51,7 +51,7 @@ juce::Image WEBPImageFormat::decodeImage (juce::InputStream& input)
         return {};
     
     WebPBitstreamFeatures features;
-    std::memset (&features, 0, sizeof (features));
+    ::std::memset (&features, 0, sizeof (features));
     if (WebPGetFeatures ((uint8_t*)mb.begin(), mb.getSize(), &features) != VP8_STATUS_OK)
         return {};
 

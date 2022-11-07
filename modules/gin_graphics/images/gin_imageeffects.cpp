@@ -101,7 +101,7 @@ void applyVignette (juce::Image& img, float amountIn, float radiusIn, float fall
             }
             else if (! inside)
             {
-                double angle = std::atan2 (dy, dx);
+                double angle = ::std::atan2 (dy, dx);
 
                 auto p1 = outE.pointAtAngle (angle).toJuce();
                 auto p2 = inE.pointAtAngle (angle).toJuce();
@@ -357,9 +357,9 @@ void applyGamma (juce::Image& img, float gamma, juce::ThreadPool* threadPool)
             uint8_t b = s->getBlue();
             uint8_t a = s->getAlpha();
 
-            uint8_t ro = toByte (std::pow (r / 255.0, gamma) * 255.0 + 0.5);
-            uint8_t go = toByte (std::pow (g / 255.0, gamma) * 255.0 + 0.5);
-            uint8_t bo = toByte (std::pow (b / 255.0, gamma) * 255.0 + 0.5);
+            uint8_t ro = toByte (::std::pow (r / 255.0, gamma) * 255.0 + 0.5);
+            uint8_t go = toByte (::std::pow (g / 255.0, gamma) * 255.0 + 0.5);
+            uint8_t bo = toByte (::std::pow (b / 255.0, gamma) * 255.0 + 0.5);
 
             s->setARGB (a, ro, go, bo);
 

@@ -62,6 +62,7 @@
 #endif
 
 #include <map>
+#include <cmath>
 
 namespace gin
 {

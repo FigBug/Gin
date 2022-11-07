@@ -1,7 +1,7 @@
 /*==============================================================================
 
  Copyright 2018 by Roland Rabien
- For more information visit www.rabiensoftware.c"om
+ For more information visit www.rabiensoftware.com
 
  ==============================================================================*/
 
@@ -22,7 +22,9 @@
 #include "3rdparty/webp/enc/backward_references_cost_enc.c"
 #include "3rdparty/webp/enc/syntax_enc.c"
 #include "3rdparty/webp/dsp/lossless_enc_msa.c"
+#if defined (__SSE4_1__)
 #include "3rdparty/webp/dsp/lossless_enc_sse41.c"
+#endif
 #include "3rdparty/webp/enc/picture_rescale_enc.c"
 #include "3rdparty/webp/dsp/upsampling.c"
 #include "3rdparty/webp/utils/bit_reader_utils.c"

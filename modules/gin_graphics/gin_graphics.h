@@ -54,12 +54,14 @@
 #endif
 
 //==============================================================================
+#include <map>
+#include <cmath>
+#include <cstring>
+#include <optional>
+
 #include <juce_core/juce_core.h>
 #include <juce_graphics/juce_graphics.h>
 #include <gin/gin.h>
-
-#include <map>
-#include <optional>
 
 namespace gin
 {
