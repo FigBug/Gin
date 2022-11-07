@@ -70,29 +70,57 @@ juce::Image WEBPImageFormat::decodeImage (juce::InputStream& input)
 bool WEBPImageFormat::writeImageToStream (const juce::Image& img, juce::OutputStream& dst)
 {
     juce::Image::BitmapData data (img, juce::Image::BitmapData::readOnly);
-    
-    if (loseless)
-    {
-        uint8_t* output = nullptr;
-        auto size = WebPEncodeLosslessBGRA (data.data, img.getWidth(), img.getHeight(), data.lineStride, &output);
-        if (size > 0 && output != nullptr)
-        {
-            dst.write (output, size);
-            WebPFree (output);
-            return true;
-        }
-    }
-    else
-    {
-        uint8_t* output = nullptr;
-        auto size = WebPEncodeBGRA (data.data, img.getWidth(), img.getHeight(), data.lineStride, quality, &output);
-        if (size > 0 && output != nullptr)
-        {
-            dst.write (output, size);
-            WebPFree (output);
-            return true;
-        }
-    }
+	if (data.pixelFormat == juce::Image::ARGB)
+	{
+		if (loseless)
+		{
+			uint8_t* output = nullptr;
+			auto size = WebPEncodeLosslessBGRA (data.data, img.getWidth(), img.getHeight(), data.lineStride, &output);
+			if (size > 0 && output != nullptr)
+			{
+				dst.write (output, size);
+				WebPFree (output);
+				return true;
+			}
+		}
+		else
+		{
+			uint8_t* output = nullptr;
+			auto size = WebPEncodeBGRA (data.data, img.getWidth(), img.getHeight(), data.lineStride, quality, &output);
+			if (size > 0 && output != nullptr)
+			{
+				dst.write (output, size);
+				WebPFree (output);
+				return true;
+			}
+		}
+	}
+	else if (data.pixelFormat == juce::Image::ARGB)
+	{
+		if (loseless)
+		{
+			uint8_t* output = nullptr;
+			auto size = WebPEncodeLosslessBGR (data.data, img.getWidth(), img.getHeight(), data.lineStride, &output);
+			if (size > 0 && output != nullptr)
+			{
+				dst.write (output, size);
+				WebPFree (output);
+				return true;
+			}
+		}
+		else
+		{
+			uint8_t* output = nullptr;
+			auto size = WebPEncodeBGR (data.data, img.getWidth(), img.getHeight(), data.lineStride, quality, &output);
+			if (size > 0 && output != nullptr)
+			{
+				dst.write (output, size);
+				WebPFree (output);
+				return true;
+			}
+		}
+	}
 
+	jassertfalse;
     return false;
 }
