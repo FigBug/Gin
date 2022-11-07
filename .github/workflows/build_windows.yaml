@@ -7,7 +7,7 @@ jobs:
     timeout-minutes: 40
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: "Run script"
         run: .\ci\win\build.bat
         shell: cmd
