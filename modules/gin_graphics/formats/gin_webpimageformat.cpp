@@ -23,7 +23,6 @@ juce::String WEBPImageFormat::getFormatName()
 bool WEBPImageFormat::canUnderstand (juce::InputStream& input)
 {
     juce::MemoryBlock mb;
-    input.setPosition (0);
     input.readIntoMemoryBlock (mb, 12);
     
     if (mb.getSize() < 12)
@@ -43,7 +42,6 @@ bool WEBPImageFormat::usesFileExtension (const juce::File& possibleFile)
 juce::Image WEBPImageFormat::decodeImage (juce::InputStream& input)
 {
     juce::MemoryBlock mb;
-    input.setPosition (0);
     input.readIntoMemoryBlock (mb);
     
     int w = 0, h = 0;
@@ -95,7 +93,7 @@ bool WEBPImageFormat::writeImageToStream (const juce::Image& img, juce::OutputSt
 			}
 		}
 	}
-	else if (data.pixelFormat == juce::Image::ARGB)
+	else if (data.pixelFormat == juce::Image::RGB)
 	{
 		if (loseless)
 		{
