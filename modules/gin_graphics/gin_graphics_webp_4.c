@@ -20,7 +20,7 @@
 #include "3rdparty/webp/dec/webp_dec.c"
 #include "3rdparty/webp/dsp/enc_mips_dsp_r2.c"
 #include "3rdparty/webp/dsp/yuv_neon.c"
-#if defined (__SSE4_1__)
+#if defined (HAS_SSE41)
 #include "3rdparty/webp/dsp/lossless_sse41.c"
 #endif
 #include "3rdparty/webp/demux/anim_decode.c"

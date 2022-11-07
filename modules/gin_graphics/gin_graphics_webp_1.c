@@ -17,6 +17,6 @@
 #include "3rdparty/webp/dsp/cost.c"
 #include "3rdparty/webp/dsp/upsampling_neon.c"
 
-#if defined (__SSE4_1__)
+#if defined (HAS_SSE41)
 #include "3rdparty/webp/dsp/yuv_sse41.c"
 #endif

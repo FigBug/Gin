@@ -30,6 +30,6 @@
 #include "3rdparty/webp/dsp/lossless_sse2.c"
 #include "3rdparty/webp/dsp/lossless.c"
 
-#if defined (__SSE4_1__)
+#if defined (HAS_SSE41)
 #include "3rdparty/webp/dsp/enc_sse41.c"
 #endif

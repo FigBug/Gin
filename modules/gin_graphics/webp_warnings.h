@@ -40,3 +40,13 @@
  #pragma warning(disable: 4310)
  #pragma warning(disable: 4389)
 #endif
+
+#if defined (__clang__) || defined (__GNUC__)
+ #if (__SSE4_1__)
+  #define HAS_SSE41
+ #endif
+#else
+ #if defined(_MSC_VER) && _MSC_VER >= 1500 && (defined(_M_X64) || defined(_M_IX86))
+  #define HAS_SSE41
+ #endif
+#endif
