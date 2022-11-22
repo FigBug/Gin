@@ -14,14 +14,14 @@ static juce::var parseData (const juce::XmlElement& e)
     else if (e.hasTagName ("array"))
     {
         juce::Array<juce::var> res;
-        
+
         auto c = e.getFirstChildElement();
         while (c != nullptr)
         {
             res.add (parseData (*c));
             c = c->getNextElement();
         }
-        
+
         return res;
     }
     else if (e.hasTagName ("dict"))
@@ -41,12 +41,15 @@ static juce::var parseData (const juce::XmlElement& e)
     else if (e.hasTagName ("data"))
     {
         juce::MemoryBlock mb;
-        
+
         {
+            auto text = e.getAllSubText();
+            text = text.removeCharacters ("\t\n\r ");
+
             juce::MemoryOutputStream os (mb, true);
-            juce::Base64::convertFromBase64 (os, e.getAllSubText());
+            juce::Base64::convertFromBase64 (os, text);
         }
-        
+
         return mb;
     }
     else if (e.hasTagName ("date"))
@@ -99,11 +102,11 @@ juce::var parsePlist (const juce::XmlElement& e)
         {
             auto key = dict->getChildElement (i + 0);
             auto val = dict->getChildElement (i + 1);
-         
+
             if (key != nullptr && val != nullptr)
                 obj->setProperty (key->getAllSubText(), parseData (*val));
         }
-        
+
         return juce::var (obj);
     }
     return {};
