@@ -52,6 +52,7 @@
 namespace gin
 {
 
+#include "utilities/gin_util.cpp"
 #include "utilities/gin_asyncutilities.cpp"
 #include "utilities/gin_openstreetmaps.cpp"
 #include "utilities/gin_elevatedfilecopy.cpp"
