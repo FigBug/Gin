@@ -218,6 +218,18 @@ public:
         return active;
     }
 
+	juce::Array<SynthesiserVoice*> getActiveVoices()
+	{
+		juce::Array<SynthesiserVoice*> res;
+
+		for (auto v : voices)
+			if (auto sv = dynamic_cast<SynthesiserVoice*> (v))
+				if (sv->isActive() && ! sv->isFastKill())
+					res.add ( sv );
+
+		return res;
+	}
+
     int getCpuUsage()
     {
         int cpu = int (timeUsed / timeAvailable * 100);
