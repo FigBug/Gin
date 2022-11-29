@@ -11866,6 +11866,13 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>juce::Array&lt; SynthesiserVoice * &gt;</type>
+      <name>getActiveVoices</name>
+      <anchorfile>classSynthesiser.html</anchorfile>
+      <anchor>a7913b52c1fd0d2e15571451f638b7d01</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>int</type>
       <name>getCpuUsage</name>
       <anchorfile>classSynthesiser.html</anchorfile>
