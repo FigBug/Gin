@@ -13208,6 +13208,13 @@
       <arglist>(float mix)</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>setMix</name>
+      <anchorfile>classWetDryMix.html</anchorfile>
+      <anchor>a624aa422b18039b0f497c88f336e42dc</anchor>
+      <arglist>(float mix)</arglist>
+    </member>
+    <member kind="function">
       <type>float</type>
       <name>mixToGain</name>
       <anchorfile>classWetDryMix.html</anchorfile>
