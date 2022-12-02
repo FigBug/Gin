@@ -80,6 +80,12 @@ public:
     {
     }
 
+    void setMix (float mix)
+    {
+        wetGain = mixToGain (mix);
+        dryGain = mixToGain (1.0f - mix);
+    }
+
     float mixToGain (float mix)
     {
         jassert (mix >= 0.0f && mix <= 1.0f);
