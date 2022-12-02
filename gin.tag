@@ -10135,6 +10135,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setQuality</name>
+      <anchorfile>classResamplingFifo.html</anchorfile>
+      <anchor>af4b41c9f4716e397d916e3329990f4d3</anchor>
+      <arglist>(int q)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>reset</name>
       <anchorfile>classResamplingFifo.html</anchorfile>
       <anchor>ab8c13bc10787cc255b4d4bdc88f5ce34</anchor>
