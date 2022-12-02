@@ -18,14 +18,14 @@ class ResamplingFifo
 public:
     ResamplingFifo (int blockSize, int numChannels = 2, int maxSamples = 44100);
     ~ResamplingFifo ();
-    
+
     void setSize (int blockSize, int numChannels = 2, int maxSamples = 44100);
 
     void setResamplingRatio (double inputRate, double outputRate);
     void setRatio (float ratio);
 
-	/** 0 - 4: 0 is worst, 4 is best */
-	void setQuality (int q);
+    /** 0 - 4: 0 is worst, 4 is best */
+    void setQuality (int q);
 
     void reset();
     int samplesReady()                                              { return outputFifo.getNumReady(); }
@@ -35,12 +35,12 @@ public:
 
 private:
     void pushAudioBufferInt (const juce::AudioSampleBuffer& buffer);
-	int getQuality (int q);
-    
+    int getQuality (int q);
+
     struct Impl;
     std::unique_ptr<Impl> impl;
 
-	int quality = 5;
+    int quality = 5;
     int numChannels = 0, blockSize = 0;
     float ratio = 1.0f;
     AudioFifo outputFifo;

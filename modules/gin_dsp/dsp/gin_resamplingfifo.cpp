@@ -26,29 +26,29 @@ ResamplingFifo::~ResamplingFifo ()
 
 void ResamplingFifo::setQuality (int q)
 {
-	quality = q;
+    quality = q;
 
-	int error = 0;
-	impl->state = src_new (getQuality (quality), numChannels, &error);
+    int error = 0;
+    impl->state = src_new (getQuality (quality), numChannels, &error);
 }
 
 int ResamplingFifo::getQuality (int q)
 {
-	switch (q)
-	{
-		case 4: return SRC_SINC_BEST_QUALITY;
-		case 3: return SRC_SINC_MEDIUM_QUALITY;
-		case 2: return SRC_SINC_FASTEST;
-		case 1: return SRC_ZERO_ORDER_HOLD;
-		case 0: return SRC_LINEAR;
-		default: return SRC_SINC_BEST_QUALITY;
-	}
+    switch (q)
+    {
+        case 4: return SRC_SINC_BEST_QUALITY;
+        case 3: return SRC_SINC_MEDIUM_QUALITY;
+        case 2: return SRC_SINC_FASTEST;
+        case 1: return SRC_ZERO_ORDER_HOLD;
+        case 0: return SRC_LINEAR;
+        default: return SRC_SINC_BEST_QUALITY;
+    }
 }
 
 void ResamplingFifo::setSize (int bs, int nc, int ms)
 {
-	if (impl->state != nullptr)
-		src_delete (impl->state);
+    if (impl->state != nullptr)
+        src_delete (impl->state);
 
     numChannels = nc;
     blockSize = bs;
@@ -146,7 +146,7 @@ void ResamplingFifo::pushAudioBufferInt (const juce::AudioSampleBuffer& src)
         {
             using SourceFormat = juce::AudioData::Format<juce::AudioData::Float32, juce::AudioData::NativeEndian>;
             using DestFormat   = juce::AudioData::Format<juce::AudioData::Float32, juce::AudioData::NativeEndian>;
-            
+
             juce::AudioData::deinterleaveSamples (juce::AudioData::InterleavedSource<SourceFormat> { ilOutputBuffer.getReadPointer (0),      numChannels },
                                                   juce::AudioData::NonInterleavedDest<DestFormat>  { outputBuffer.getArrayOfWritePointers(), numChannels },
                                                   int (data.output_frames_gen));
