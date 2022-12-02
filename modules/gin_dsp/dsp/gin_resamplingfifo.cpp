@@ -24,13 +24,37 @@ ResamplingFifo::~ResamplingFifo ()
     src_delete (impl->state);
 }
 
+void ResamplingFifo::setQuality (int q)
+{
+	quality = q;
+
+	int error = 0;
+	impl->state = src_new (getQuality (quality), numChannels, &error);
+}
+
+int ResamplingFifo::getQuality (int q)
+{
+	switch (q)
+	{
+		case 4: return SRC_SINC_BEST_QUALITY;
+		case 3: return SRC_SINC_MEDIUM_QUALITY;
+		case 2: return SRC_SINC_FASTEST;
+		case 1: return SRC_ZERO_ORDER_HOLD;
+		case 0: return SRC_LINEAR;
+		default: return SRC_SINC_BEST_QUALITY;
+	}
+}
+
 void ResamplingFifo::setSize (int bs, int nc, int ms)
 {
+	if (impl->state != nullptr)
+		src_delete (impl->state);
+
     numChannels = nc;
     blockSize = bs;
 
     int error = 0;
-    impl->state = src_new (SRC_SINC_BEST_QUALITY, numChannels, &error);
+    impl->state = src_new (getQuality (quality), numChannels, &error);
 
     outputFifo.setSize (nc, ms);
 
