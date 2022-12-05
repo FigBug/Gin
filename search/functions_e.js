@@ -45,7 +45,7 @@ var searchData=
   ['processcommandline_2142',['processCommandLine',['../classElevatedFileCopy.html#a105805b9b82a4d0050bcb9804bc72857',1,'ElevatedFileCopy']]],
   ['processmultiplying_2143',['processMultiplying',['../classAnalogADSR.html#a0fbc0634af4beb8f56840baae672f3ec',1,'AnalogADSR::processMultiplying(juce::AudioSampleBuffer &amp;buffer)'],['../classAnalogADSR.html#a4adbb803653e45ab63ba4fed94ce7719',1,'AnalogADSR::processMultiplying(juce::AudioSampleBuffer &amp;buffer, int startSample, int numSamples)']]],
   ['processor_2144',['Processor',['../classProcessor.html#ab4b297f2d055f3316918d3e23081a45a',1,'Processor']]],
-  ['processoreditor_2145',['ProcessorEditor',['../classProcessorEditor.html#a1243029ef3210c55622ab215bb90d378',1,'ProcessorEditor']]],
+  ['processoreditor_2145',['ProcessorEditor',['../classProcessorEditor.html#a1243029ef3210c55622ab215bb90d378',1,'ProcessorEditor::ProcessorEditor(Processor &amp;) noexcept'],['../classProcessorEditor.html#af0945c5f7f341f83fb7ff667696d03fb',1,'ProcessorEditor::ProcessorEditor(Processor &amp;, int cx, int cy) noexcept']]],
   ['processoreditorbase_2146',['ProcessorEditorBase',['../classProcessorEditorBase.html#a4aa0f87f4268ac1cb146bdc71376cc89',1,'ProcessorEditorBase']]],
   ['processpulse_2147',['processPulse',['../classBandLimitedLookupTables.html#a95aa08a1c4943b1e3ca991ae3316aeba',1,'BandLimitedLookupTables']]],
   ['processsawdown_2148',['processSawDown',['../classBandLimitedLookupTables.html#a14edeb68c6de5b718ce9ca07886f8858',1,'BandLimitedLookupTables']]],

@@ -9612,6 +9612,13 @@
     </member>
     <member kind="function">
       <type></type>
+      <name>ProcessorEditor</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>af0945c5f7f341f83fb7ff667696d03fb</anchor>
+      <arglist>(Processor &amp;, int cx, int cy) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
       <name>~ProcessorEditor</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
       <anchor>a6ff6d71c70b97410c0b4c055012f5dff</anchor>
