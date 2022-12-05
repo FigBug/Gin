@@ -126,12 +126,16 @@ static juce::String getComponentPath (juce::Component& parent, juce::Component& 
 Layout::Layout (juce::Component& p) : parent (p)
 {
     setupParser();
+   #if ! JUCE_IOS
     watcher.addListener (this);
+   #endif
 }
 
 Layout::~Layout()
 {
+   #if ! JUCE_IOS
     watcher.removeListener (this);
+   #endif
 }
 
 void Layout::setupParser()
@@ -197,7 +201,9 @@ void Layout::setLayout (const juce::String& filename, const juce::File& source)
             {
                 layoutFile = source;
                 parseLayout (layoutFile.loadFileAsString());
+               #if ! JUCE_IOS
                 watcher.addFolder (source.getParentDirectory());
+               #endif
                 break;
             }
            #endif
@@ -321,12 +327,14 @@ juce::Component* Layout::setBounds (const juce::String& currentPath, const juce:
     return curComponent;
 }
 
+#if ! JUCE_IOS
 void Layout::fileChanged (const juce::File f, gin::FileSystemWatcher::FileSystemEvent)
 {
     if (f == layoutFile)
         if (auto str = layoutFile.loadFileAsString(); str.isNotEmpty())
             parseLayout (str);
 }
+#endif
 
 std::map<juce::String, juce::Component*> Layout::findAllComponents()
 {
