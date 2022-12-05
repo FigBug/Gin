@@ -200,6 +200,7 @@ class ProcessorEditor : public ProcessorEditorBase
 {
 public:
     ProcessorEditor (Processor&) noexcept;
+    ProcessorEditor (Processor&, int cx, int cy) noexcept;
     ~ProcessorEditor() override;
 
     void showAboutInfo();

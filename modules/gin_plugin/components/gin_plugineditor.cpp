@@ -538,6 +538,19 @@ ProcessorEditor::ProcessorEditor (Processor& p) noexcept
     titleBar.refreshPrograms();
 }
 
+ProcessorEditor::ProcessorEditor (Processor& p, int cx, int cy) noexcept
+    : ProcessorEditorBase (p, cx, cy), slProc (p)
+{
+    setLookAndFeel (slProc.lf.get());
+
+    tooltipWindow.setMillisecondsBeforeTipAppears (2000);
+
+    addAndMakeVisible (titleBar);
+    addChildComponent (patchBrowser);
+
+    titleBar.refreshPrograms();
+}
+
 ProcessorEditor::~ProcessorEditor()
 {
     setLookAndFeel (nullptr);

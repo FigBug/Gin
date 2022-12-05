@@ -93,7 +93,9 @@ Switch::Switch (Parameter* p)
 void Switch::resized()
 {
     juce::Rectangle<int> r = getLocalBounds().reduced (2);
-    auto rc = r.removeFromBottom (15);
+
+    auto extra = r.getHeight() - r.getWidth();
+    auto rc = r.removeFromBottom (std::max (15, extra));
 
     name.setBounds (rc);
     button.setBounds (r.withSizeKeepingCentre (getWidth() - 4, 15));
