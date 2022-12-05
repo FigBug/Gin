@@ -5986,7 +5986,6 @@
   <compound kind="class">
     <name>Layout</name>
     <filename>classLayout.html</filename>
-    <base>FileSystemWatcher::Listener</base>
     <member kind="function">
       <type></type>
       <name>Layout</name>
@@ -5998,8 +5997,8 @@
       <type></type>
       <name>~Layout</name>
       <anchorfile>classLayout.html</anchorfile>
-      <anchor>aa977cda87db41b98105819fda1ffa429</anchor>
-      <arglist>() override</arglist>
+      <anchor>a9f53a76fe9a45d0f6325b42eadf51fa9</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
