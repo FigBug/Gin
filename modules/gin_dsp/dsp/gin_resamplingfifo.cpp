@@ -81,6 +81,11 @@ void ResamplingFifo::setRatio (float r)
     ratio = r;
 }
 
+float ResamplingFifo::getRatio()
+{
+    return ratio;
+}
+
 void ResamplingFifo::pushAudioBuffer (const juce::AudioSampleBuffer& src)
 {
     if (src.getNumSamples() <= blockSize)

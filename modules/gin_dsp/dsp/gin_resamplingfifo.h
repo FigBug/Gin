@@ -23,6 +23,7 @@ public:
 
     void setResamplingRatio (double inputRate, double outputRate);
     void setRatio (float ratio);
+    float getRatio();
 
     /** 0 - 4: 0 is worst, 4 is best */
     void setQuality (int q);

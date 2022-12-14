@@ -12,7 +12,7 @@
 
 //==============================================================================
 /** FIFO - stuff audio in one end and it pops out the other.
-    Lock free for single producer / consumer 
+    Lock free for single producer / consumer
 */
 class AudioFifo
 {
@@ -47,7 +47,7 @@ public:
     {
         if (numSamples == -1)
             numSamples = src.getNumSamples();
-        
+
         return write (src.getArrayOfReadPointers(), numSamples);
     }
 
@@ -55,6 +55,8 @@ public:
     {
         if (numSamples <= 0)
             return true;
+
+        jassert (numSamples <= getFreeSpace());
 
         int start1, size1, start2, size2;
         fifo.prepareToWrite (numSamples, start1, size1, start2, size2);
@@ -71,10 +73,12 @@ public:
         fifo.finishedWrite (size1 + size2);
         return true;
     }
-    
+
     bool writeMono (const float* data, int numSamples)
     {
+        jassert (numSamples <= getFreeSpace());
         jassert (buffer.getNumChannels() == 1);
+
         if (numSamples <= 0)
             return true;
 
@@ -98,6 +102,8 @@ public:
 
     bool read (juce::AudioSampleBuffer& dest, int startSampleInDestBuffer, int numSamples)
     {
+        jassert (getNumReady() >= numSamples);
+
         int start1, size1, start2, size2;
         fifo.prepareToRead (numSamples, start1, size1, start2, size2);
 
@@ -113,13 +119,15 @@ public:
         fifo.finishedRead (size1 + size2);
         return true;
     }
-    
+
     bool readMono (float* data, int numSamples)
     {
+        jassert (getNumReady() >= numSamples);
         jassert (buffer.getNumChannels() == 1);
+
         if (numSamples <= 0)
             return true;
-        
+
         int start1, size1, start2, size2;
         fifo.prepareToRead (numSamples, start1, size1, start2, size2);
 
@@ -141,6 +149,8 @@ public:
 
     bool readAdding (juce::AudioSampleBuffer& dest, int startSampleInDestBuffer, int numSamples)
     {
+        jassert (getNumReady() >= numSamples);
+
         int start1, size1, start2, size2;
         fifo.prepareToRead (numSamples, start1, size1, start2, size2);
 
