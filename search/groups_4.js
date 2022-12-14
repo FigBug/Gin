@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['images_2861',['images',['../group__gin__graphics-images.html',1,'']]],
-  ['images_2862',['images',['../group__gin__gui-images.html',1,'']]]
+  ['images_2895',['images',['../group__gin__graphics-images.html',1,'(Global Namespace)'],['../group__gin__gui-images.html',1,'(Global Namespace)']]]
 ];
