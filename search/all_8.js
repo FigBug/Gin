@@ -1,12 +1,11 @@
 var searchData=
 [
-  ['id_629',['id',['../structModSrcId.html#ae8410470ac2d16b3d27179b6633efc65',1,'ModSrcId::id()'],['../structModDstId.html#a113d55c0da8df5a57180514adc99492c',1,'ModDstId::id()']]],
-  ['idle_630',['idle',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127aa5ee791507471a07b686dd1b63486b0e7',1,'ADSR::idle()'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188eaec2f993aec2c27fc750119ab17b16cdb',1,'AnalogADSR::idle()']]],
-  ['imagemetadata_631',['ImageMetadata',['../classImageMetadata.html',1,'ImageMetadata'],['../classImageMetadata.html#a1dfe334219bb1df21a42d95653dd326c',1,'ImageMetadata::ImageMetadata()']]],
-  ['images_632',['images',['../group__gin__graphics-images.html',1,'(Global Namespace)'],['../group__gin__gui-images.html',1,'(Global Namespace)']]],
-  ['images_633',['Images',['../classImages.html',1,'']]],
-  ['images_634',['images',['../classCopperLookAndFeel.html#a1515b1d303c786c5721d72b2d25e942d',1,'CopperLookAndFeel']]],
-  ['images_635',['Images',['../classImages.html#a3c31a7052197172e2bfb26efe796d32f',1,'Images']]],
+  ['id_630',['id',['../structModSrcId.html#ae8410470ac2d16b3d27179b6633efc65',1,'ModSrcId::id()'],['../structModDstId.html#a113d55c0da8df5a57180514adc99492c',1,'ModDstId::id()']]],
+  ['idle_631',['idle',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127aa5ee791507471a07b686dd1b63486b0e7',1,'ADSR::idle()'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188eaec2f993aec2c27fc750119ab17b16cdb',1,'AnalogADSR::idle()']]],
+  ['imagemetadata_632',['ImageMetadata',['../classImageMetadata.html',1,'ImageMetadata'],['../classImageMetadata.html#a1dfe334219bb1df21a42d95653dd326c',1,'ImageMetadata::ImageMetadata()']]],
+  ['images_633',['images',['../group__gin__graphics-images.html',1,'(Global Namespace)'],['../group__gin__gui-images.html',1,'(Global Namespace)']]],
+  ['images_634',['Images',['../classImages.html',1,'Images'],['../classImages.html#a3c31a7052197172e2bfb26efe796d32f',1,'Images::Images()']]],
+  ['images_635',['images',['../classCopperLookAndFeel.html#a1515b1d303c786c5721d72b2d25e942d',1,'CopperLookAndFeel']]],
   ['incphase_636',['incPhase',['../structOscState.html#a5f7c0274cffaa5b08c431289c245ae21',1,'OscState']]],
   ['infobutton_637',['infoButton',['../classTitleBar.html#a8677063fe0a948ce107b84ba444f46d2',1,'TitleBar']]],
   ['init_638',['init',['../classProcessor.html#a22e869ee49d974ad0ee7ee81961ab88f',1,'Processor']]],
