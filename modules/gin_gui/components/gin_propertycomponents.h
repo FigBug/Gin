@@ -18,6 +18,10 @@ public:
         value.addListener (this);
     }
 
+    juce::Value& getValueObject() {
+        return value;
+    }
+
 protected:
     void valueChanged (juce::Value&) override
     {
