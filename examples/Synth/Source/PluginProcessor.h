@@ -77,8 +77,5 @@ public:
     ADSRParams adsrParams;
 
     //==============================================================================
-    gin::AudioFifo fifo { 2, 44100 };
-
-    //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SynthAudioProcessor)
 };

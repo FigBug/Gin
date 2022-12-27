@@ -92,7 +92,7 @@ public:
 
         shuffleArray (r, p);
 
-        p.addArray (p);
+        p.addArray (juce::Array<int> (p));
     }
 
     T noise (T x, T y = 0, T z = 0)

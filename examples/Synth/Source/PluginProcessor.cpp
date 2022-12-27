@@ -171,7 +171,6 @@ void SynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::
         todo -= thisBlock;
     }
 
-    fifo.write (buffer);
     endBlock (buffer.getNumSamples());
 }
 
