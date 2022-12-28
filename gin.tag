@@ -5560,6 +5560,41 @@
       <anchor>ad34bdd3d394ea50181cfb8a8e32a55bd</anchor>
       <arglist>(Parameter *parameter, bool fromCentre=false)</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resized</name>
+      <anchorfile>classHorizontalFader.html</anchorfile>
+      <anchor>a94460cc2d0bf35286d91dd08f6b3ca3a</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>parentHierarchyChanged</name>
+      <anchorfile>classHorizontalFader.html</anchorfile>
+      <anchor>af571e98a9bffd354f7af23f47fe14bd0</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::Label</type>
+      <name>name</name>
+      <anchorfile>classHorizontalFader.html</anchorfile>
+      <anchor>ab70425a9c8226dd53432dde0222dba8f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Readout</type>
+      <name>value</name>
+      <anchorfile>classHorizontalFader.html</anchorfile>
+      <anchor>aa9aef2326b35175ef22ad47a7f61d73c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>PluginSlider</type>
+      <name>fader</name>
+      <anchorfile>classHorizontalFader.html</anchorfile>
+      <anchor>a877a5f6ba55a7c5e054655a78b6565b8</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="struct">
     <name>HP12State</name>
