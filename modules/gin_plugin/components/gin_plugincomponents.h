@@ -269,7 +269,6 @@ class HorizontalFader : public ParamComponent
 public:
     HorizontalFader (Parameter* parameter, bool fromCentre = false);
 
-private:
     void resized() override;
     void parentHierarchyChanged() override
     {
@@ -279,6 +278,7 @@ private:
         fader.setWantsKeyboardFocus (a);
     }
 
+protected:
     juce::Label name;
     Readout value;
     PluginSlider fader;
