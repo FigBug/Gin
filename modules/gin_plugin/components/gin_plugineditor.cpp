@@ -538,8 +538,8 @@ ProcessorEditor::ProcessorEditor (Processor& p) noexcept
     titleBar.refreshPrograms();
 }
 
-ProcessorEditor::ProcessorEditor (Processor& p, int cx, int cy) noexcept
-    : ProcessorEditorBase (p, cx, cy), slProc (p)
+ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_) noexcept
+    : ProcessorEditorBase (p, cx_, cy_), slProc (p)
 {
     setLookAndFeel (slProc.lf.get());
 
