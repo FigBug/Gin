@@ -7,8 +7,9 @@
  ==============================================================================
  */
 
-
 #pragma once
+
+#include "gin_scratchbuffer.h"
 
 inline constexpr float Q = 0.70710678118655f;
 
@@ -100,6 +101,19 @@ public:
 inline juce::AudioSampleBuffer sliceBuffer (juce::AudioSampleBuffer& input, int start, int length)
 {
     return juce::AudioSampleBuffer (input.getArrayOfWritePointers(), input.getNumChannels(), start, length);
+}
+
+//==============================================================================
+/** Get a buffer but mono */
+inline ScratchBuffer monoBuffer (juce::AudioSampleBuffer& input)
+{
+    ScratchBuffer output (1, input.getNumSamples());
+    output.clear();
+
+    juce::FloatVectorOperations::addWithMultiply (output.getWritePointer (0), input.getReadPointer (0), 0.5f, input.getNumSamples());
+    juce::FloatVectorOperations::addWithMultiply (output.getWritePointer (0), input.getReadPointer (1), 0.5f, input.getNumSamples());
+
+    return output;
 }
 
 /** Computes the linear interpolation between a and b, if the parameter t is inside [0, 1] */
