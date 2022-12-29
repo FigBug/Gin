@@ -47,7 +47,7 @@ inline float calculateMedian (const float* values, int n)
 /** Fisher-Yates Shuffle for juce::Array
  */
 template <typename T>
-void shuffleArray (juce::Random& r, T array)
+void shuffleArray (juce::Random& r, T& array)
 {
     const int n = array.size();
     for (int i = n - 1; i >= 1; i--)
@@ -81,6 +81,9 @@ public:
             97,228,251,34,242,193,238,210,144,12,191,179,162,241, 81,51,145,235,249,14,239,
             107,49,192,214, 31,181,199,106,157,184, 84,204,176,115,121,50,45,127, 4,150,254,
             138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180 };
+
+        for (auto i = 0; i < 256; i++)
+            p.add (p[i]);
     }
 
     PerlinNoise (unsigned int seed)
@@ -92,11 +95,14 @@ public:
 
         shuffleArray (r, p);
 
-        p.addArray (juce::Array<int> (p));
+        for (auto i = 0; i < 256; i++)
+            p.add (p[i]);
     }
 
     T noise (T x, T y = 0, T z = 0)
     {
+        jassert (p.size() == 512);
+        
         int X = (int) std::floor (x) & 255;
         int Y = (int) std::floor (y) & 255;
         int Z = (int) std::floor (z) & 255;
@@ -117,15 +123,14 @@ public:
         int BB = p[B + 1] + Z;
 
         // Add blended results from 8 corners of cube
-        T res = lerp (w,
-                      lerp (v, lerp (u, grad(p[AA], x, y, z),
-                                     grad (p[BA], x-1, y, z)),
-                            lerp (u, grad (p[AB], x, y-1, z),
-                                  grad (p[BB], x-1, y-1, z))),
-                      lerp (v, lerp (u, grad (p[AA+1], x, y, z-1),
-                                     grad (p[BA+1], x-1, y, z-1)),
-                            lerp (u, grad (p[AB+1], x, y-1, z-1),
-                                  grad (p[BB+1], x-1, y-1, z-1))));
+        T res = lerp (w, lerp (v, lerp (u, grad (p[AA  ], x,   y,   z   ),
+                                           grad (p[BA  ], x-1, y,   z   )),
+                                  lerp (u, grad (p[AB  ], x,   y-1, z   ),
+                                           grad (p[BB  ], x-1, y-1, z   ))),
+                         lerp (v, lerp (u, grad (p[AA+1], x,   y,   z-1 ),
+                                           grad (p[BA+1], x-1, y,   z-1 )),
+                                  lerp (u, grad (p[AB+1], x,   y-1, z-1 ),
+                                           grad (p[BB+1], x-1, y-1, z-1 ))));
 
         return T ((res + 1.0) / 2.0);
     }
