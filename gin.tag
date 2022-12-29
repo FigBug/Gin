@@ -70,6 +70,7 @@
     <name>gin_audioutil.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
     <filename>gin__audioutil_8h.html</filename>
+    <includes id="gin__scratchbuffer_8h" name="gin_scratchbuffer.h" local="yes" imported="no">gin_scratchbuffer.h</includes>
     <class kind="class">GainProcessor</class>
     <class kind="class">WetDryMix</class>
     <member kind="function">
@@ -134,6 +135,13 @@
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
       <anchor>ga1f707ada89f48bb4f68c4890ba90c27b</anchor>
       <arglist>(juce::AudioSampleBuffer &amp;input, int start, int length)</arglist>
+    </member>
+    <member kind="function">
+      <type>ScratchBuffer</type>
+      <name>monoBuffer</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga57bf2df9e7b6d40a993d7d4371e653c3</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;input)</arglist>
     </member>
     <member kind="function">
       <type>T</type>
@@ -13814,6 +13822,13 @@
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
       <anchor>ga1f707ada89f48bb4f68c4890ba90c27b</anchor>
       <arglist>(juce::AudioSampleBuffer &amp;input, int start, int length)</arglist>
+    </member>
+    <member kind="function">
+      <type>ScratchBuffer</type>
+      <name>monoBuffer</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga57bf2df9e7b6d40a993d7d4371e653c3</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;input)</arglist>
     </member>
     <member kind="function">
       <type>T</type>
