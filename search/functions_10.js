@@ -144,7 +144,7 @@ var searchData=
   ['showbubble_2372',['showBubble',['../classMultiParamComponent.html#a5cc5d97f95b48cac1c6d1989f4e1d971',1,'MultiParamComponent']]],
   ['showmenu_2373',['showMenu',['../classTitleBar.html#a9379495c07215f6e7ae0a8ef4fd3a0e9',1,'TitleBar']]],
   ['showpatchbrowser_2374',['showPatchBrowser',['../classProcessorEditor.html#abcef3707e7363c0b7ae0877c64542d26',1,'ProcessorEditor']]],
-  ['shufflearray_2375',['shuffleArray',['../group__gin-utilities.html#gaac60b7f594994fac0cb43d317f794449',1,'gin_util.h']]],
+  ['shufflearray_2375',['shuffleArray',['../group__gin-utilities.html#ga2b12545cc67dbe67062cc1ae6299546f',1,'gin_util.h']]],
   ['sign_2376',['sign',['../group__gin__dsp-dsp.html#ga1764c1268bc41fe5590a1287c071b27e',1,'gin_audioutil.h']]],
   ['simpleverb_2377',['SimpleVerb',['../classSimpleVerb.html#a1792ace0ad36c1f9f280096c4d6a1fe1',1,'SimpleVerb']]],
   ['sine_2378',['sine',['../group__gin__dsp-dsp.html#gac81d5fa67210b71931d9191c641871b2',1,'gin_bandlimitedlookuptable.h']]],

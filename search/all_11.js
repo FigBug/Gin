@@ -153,7 +153,7 @@ var searchData=
   ['showmenu_1149',['showMenu',['../classTitleBar.html#a9379495c07215f6e7ae0a8ef4fd3a0e9',1,'TitleBar']]],
   ['showname_1150',['showName',['../classSelect.html#aef337a5f41361db7b4dac795bb32d1db',1,'Select']]],
   ['showpatchbrowser_1151',['showPatchBrowser',['../classProcessorEditor.html#abcef3707e7363c0b7ae0877c64542d26',1,'ProcessorEditor']]],
-  ['shufflearray_1152',['shuffleArray',['../group__gin-utilities.html#gaac60b7f594994fac0cb43d317f794449',1,'gin_util.h']]],
+  ['shufflearray_1152',['shuffleArray',['../group__gin-utilities.html#ga2b12545cc67dbe67062cc1ae6299546f',1,'gin_util.h']]],
   ['sign_1153',['sign',['../group__gin__dsp-dsp.html#ga1764c1268bc41fe5590a1287c071b27e',1,'gin_audioutil.h']]],
   ['silence_1154',['silence',['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a0e82533c37fced763be34a5c21d720c9',1,'gin_bandlimitedlookuptable.h']]],
   ['simpleverb_1155',['SimpleVerb',['../classSimpleVerb.html#a1792ace0ad36c1f9f280096c4d6a1fe1',1,'SimpleVerb::SimpleVerb()'],['../classSimpleVerb.html',1,'SimpleVerb']]],

@@ -1517,8 +1517,8 @@
       <type>void</type>
       <name>shuffleArray</name>
       <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>gaac60b7f594994fac0cb43d317f794449</anchor>
-      <arglist>(juce::Random &amp;r, T array)</arglist>
+      <anchor>ga2b12545cc67dbe67062cc1ae6299546f</anchor>
+      <arglist>(juce::Random &amp;r, T &amp;array)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -14630,8 +14630,8 @@
       <type>void</type>
       <name>shuffleArray</name>
       <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>gaac60b7f594994fac0cb43d317f794449</anchor>
-      <arglist>(juce::Random &amp;r, T array)</arglist>
+      <anchor>ga2b12545cc67dbe67062cc1ae6299546f</anchor>
+      <arglist>(juce::Random &amp;r, T &amp;array)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
