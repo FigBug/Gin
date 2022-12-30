@@ -36,7 +36,8 @@ public:
             NTQUERYSECTION ntQuerySection = (NTQUERYSECTION) GetProcAddress (dll, "NtQuerySection");
             if (ntQuerySection != nullptr)
             {
-                SECTION_BASIC_INFORMATION SectionInfo = { 0 };
+                SECTION_BASIC_INFORMATION SectionInfo;
+                std::memset ( &SectionInfo, 0, sizeof ( SectionInfo ) );
                 ntQuerySection (fileMapping, SectionBasicInformation, &SectionInfo, sizeof (SectionInfo), 0);
 
                 if (SectionInfo.size.QuadPart > 0)

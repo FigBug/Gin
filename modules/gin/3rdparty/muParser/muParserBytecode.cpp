@@ -550,7 +550,7 @@ namespace mu
 
       case cmFUNC:  mu::console() << _T("CALL\t");
                     mu::console() << _T("[ARG:") << std::dec << m_vRPN[i].Fun.argc << _T("]");
-                    mu::console() << _T("[ADDR: 0x") << std::hex << m_vRPN[i].Fun.ptr << _T("]");
+                    mu::console() << _T("[ADDR: 0x") << std::hex << intptr_t ( m_vRPN [i].Fun.ptr ) << _T("]");
                     mu::console() << _T("\n");
                     break;
 
@@ -558,7 +558,7 @@ namespace mu
                     mu::console() << _T("CALL STRFUNC\t");
                     mu::console() << _T("[ARG:") << std::dec << m_vRPN[i].Fun.argc << _T("]");
                     mu::console() << _T("[IDX:") << std::dec << m_vRPN[i].Fun.idx << _T("]");
-                    mu::console() << _T("[ADDR: 0x") << m_vRPN[i].Fun.ptr << _T("]\n");
+                    mu::console() << _T("[ADDR: 0x") << intptr_t ( m_vRPN[i].Fun.ptr ) << _T("]\n");
                     break;
 
       case cmLT:    mu::console() << _T("LT\n");  break;
