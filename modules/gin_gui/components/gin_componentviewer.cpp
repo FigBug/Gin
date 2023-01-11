@@ -218,7 +218,7 @@ public:
         juce::StringArray componentHierarchy;
         juce::String cursorPos, colourDetails;
 
-        if (auto c = realGetComponentUnderMouse())
+        if (auto c = juce::Desktop::getInstance().getMainMouseSource().getComponentUnderMouse())
         {
             snapshot.update (c, c->getLocalPoint (nullptr, pos), int (zoom.getValue()));
             componentHierarchy = getComponentHierarchy (c);
