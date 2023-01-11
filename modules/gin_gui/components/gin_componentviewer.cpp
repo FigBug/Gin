@@ -5,38 +5,6 @@
 
  ==============================================================================*/
 
-static juce::Component* realGetComponent (juce::Component& p, juce::Point<int> screenPos)
-{
-    if (p.getScreenBounds().contains (screenPos))
-    {
-        for (auto c : p.getChildren())
-            if (auto r = realGetComponent (*c, screenPos))
-                return r;
-
-        return &p;
-    }
-
-    return nullptr;
-}
-
-static juce::Component* realGetComponentUnderMouse()
-{
-    auto mouse = juce::Desktop::getInstance().getMainMouseSource();
-    auto pos = mouse.getScreenPosition().toInt();
-
-    auto& desktop = juce::Desktop::getInstance();
-
-    for (int i = desktop.getNumComponents(); --i >= 0;)
-    {
-        if (auto dtc = desktop.getComponent (i))
-            if (dtc->isVisible())
-                if (auto c = realGetComponent (*dtc, pos))
-                    return c;
-    }
-
-    return {};
-}
-
 static juce::String getClassName (juce::Component* c)
 {
     // clang on windows uses msvc name mangling for compatibility
