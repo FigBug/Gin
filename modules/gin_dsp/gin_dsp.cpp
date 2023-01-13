@@ -24,9 +24,13 @@
 
 #undef VERSION
 #define PACKAGE "src"
-#define VERSION "0.1.9"
+#define VERSION "0.2.2"
 #define CPU_CLIPS_NEGATIVE 0
 #define CPU_CLIPS_POSITIVE 0
+
+#define ENABLE_SINC_BEST_CONVERTER		1
+#define ENABLE_SINC_MEDIUM_CONVERTER	1
+#define ENABLE_SINC_FAST_CONVERTER		1
 
 extern "C"
 {
