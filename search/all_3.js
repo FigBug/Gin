@@ -10,7 +10,7 @@ var searchData=
   ['decaydelta_195',['decayDelta',['../classADSR.html#a7fe4cf55dca362fd768e8763e1207721',1,'ADSR']]],
   ['decayoffset_196',['decayOffset',['../classAnalogADSR.html#af483c3fd72c3c558c140032492ce60cb',1,'AnalogADSR']]],
   ['decayrate_197',['decayRate',['../classLevelTracker.html#a796f0f65de9c1017f59fa6dc0247ca83',1,'LevelTracker']]],
-  ['decodeimage_198',['decodeImage',['../classBMPImageFormat.html#a2594f1a9444754276035be54722c59f2',1,'BMPImageFormat::decodeImage()'],['../classWEBPImageFormat.html#a9ec17db624e1ed9512371a55b1ac52d9',1,'WEBPImageFormat::decodeImage()']]],
+  ['decodeimage_198',['decodeImage',['../classBMPImageFormat.html#a2594f1a9444754276035be54722c59f2',1,'BMPImageFormat::decodeImage()'],['../classWEBPImageFormat.html#a9ec17db624e1ed9512371a55b1ac52d9',1,'WEBPImageFormat::decodeImage(juce::InputStream &amp;input) override'],['../classWEBPImageFormat.html#a9ec17db624e1ed9512371a55b1ac52d9',1,'WEBPImageFormat::decodeImage(juce::InputStream &amp;input) override']]],
   ['defaultcolour_199',['defaultColour',['../classGinLookAndFeel.html#a13e4ce006239d68f35c217261a9ed907',1,'GinLookAndFeel']]],
   ['defaultvalue_200',['defaultValue',['../classParameter.html#afff117f671e74a238989542b73cbd024',1,'Parameter']]],
   ['delay_201',['delay',['../structLFO_1_1Parameters.html#a9be35ed3aca74afab18de36202cdfd97',1,'LFO::Parameters']]],

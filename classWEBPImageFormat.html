@@ -73,10 +73,20 @@ $(function() {
 <p>Support for reading and writing Webp.  
  <a href="classWEBPImageFormat.html#details">More...</a></p>
 
-<p>Inherits juce::ImageFileFormat.</p>
+<p>Inherits juce::ImageFileFormat, and juce::ImageFileFormat.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a512523a82459ad3a42a50c7ebd176d2b"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWEBPImageFormat.html#a512523a82459ad3a42a50c7ebd176d2b">getFormatName</a> () override</td></tr>
+<tr class="separator:a512523a82459ad3a42a50c7ebd176d2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1625a869b3485ebde4cbca83ee5076a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWEBPImageFormat.html#a1625a869b3485ebde4cbca83ee5076a7">canUnderstand</a> (juce::InputStream &amp;input) override</td></tr>
+<tr class="separator:a1625a869b3485ebde4cbca83ee5076a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d875430f06a78fe547812ff5556bbc0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWEBPImageFormat.html#a1d875430f06a78fe547812ff5556bbc0">usesFileExtension</a> (const juce::File &amp;possibleFile) override</td></tr>
+<tr class="separator:a1d875430f06a78fe547812ff5556bbc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ec17db624e1ed9512371a55b1ac52d9"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWEBPImageFormat.html#a9ec17db624e1ed9512371a55b1ac52d9">decodeImage</a> (juce::InputStream &amp;input) override</td></tr>
+<tr class="separator:a9ec17db624e1ed9512371a55b1ac52d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7323d308a2ed305d577d7630cfafc0b8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWEBPImageFormat.html#a7323d308a2ed305d577d7630cfafc0b8">writeImageToStream</a> (const juce::Image &amp;sourceImage, juce::OutputStream &amp;destStream) override</td></tr>
+<tr class="separator:a7323d308a2ed305d577d7630cfafc0b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a512523a82459ad3a42a50c7ebd176d2b"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWEBPImageFormat.html#a512523a82459ad3a42a50c7ebd176d2b">getFormatName</a> () override</td></tr>
 <tr class="separator:a512523a82459ad3a42a50c7ebd176d2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1625a869b3485ebde4cbca83ee5076a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWEBPImageFormat.html#a1625a869b3485ebde4cbca83ee5076a7">canUnderstand</a> (juce::InputStream &amp;input) override</td></tr>
@@ -99,7 +109,7 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p>Support for reading and writing Webp. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a512523a82459ad3a42a50c7ebd176d2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a512523a82459ad3a42a50c7ebd176d2b">&#9670;&nbsp;</a></span>getFormatName()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a512523a82459ad3a42a50c7ebd176d2b">&#9670;&nbsp;</a></span>getFormatName() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,7 +134,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a1625a869b3485ebde4cbca83ee5076a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1625a869b3485ebde4cbca83ee5076a7">&#9670;&nbsp;</a></span>canUnderstand()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1625a869b3485ebde4cbca83ee5076a7">&#9670;&nbsp;</a></span>canUnderstand() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,7 +160,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a1d875430f06a78fe547812ff5556bbc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d875430f06a78fe547812ff5556bbc0">&#9670;&nbsp;</a></span>usesFileExtension()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d875430f06a78fe547812ff5556bbc0">&#9670;&nbsp;</a></span>usesFileExtension() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -176,7 +186,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a9ec17db624e1ed9512371a55b1ac52d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ec17db624e1ed9512371a55b1ac52d9">&#9670;&nbsp;</a></span>decodeImage()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ec17db624e1ed9512371a55b1ac52d9">&#9670;&nbsp;</a></span>decodeImage() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -202,7 +212,146 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a7323d308a2ed305d577d7630cfafc0b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7323d308a2ed305d577d7630cfafc0b8">&#9670;&nbsp;</a></span>writeImageToStream()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7323d308a2ed305d577d7630cfafc0b8">&#9670;&nbsp;</a></span>writeImageToStream() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WEBPImageFormat::writeImageToStream </td>
+          <td>(</td>
+          <td class="paramtype">const juce::Image &amp;&#160;</td>
+          <td class="paramname"><em>sourceImage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">juce::OutputStream &amp;&#160;</td>
+          <td class="paramname"><em>destStream</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a512523a82459ad3a42a50c7ebd176d2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a512523a82459ad3a42a50c7ebd176d2b">&#9670;&nbsp;</a></span>getFormatName() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::String WEBPImageFormat::getFormatName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1625a869b3485ebde4cbca83ee5076a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1625a869b3485ebde4cbca83ee5076a7">&#9670;&nbsp;</a></span>canUnderstand() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WEBPImageFormat::canUnderstand </td>
+          <td>(</td>
+          <td class="paramtype">juce::InputStream &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1d875430f06a78fe547812ff5556bbc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d875430f06a78fe547812ff5556bbc0">&#9670;&nbsp;</a></span>usesFileExtension() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WEBPImageFormat::usesFileExtension </td>
+          <td>(</td>
+          <td class="paramtype">const juce::File &amp;&#160;</td>
+          <td class="paramname"><em>possibleFile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ec17db624e1ed9512371a55b1ac52d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ec17db624e1ed9512371a55b1ac52d9">&#9670;&nbsp;</a></span>decodeImage() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Image WEBPImageFormat::decodeImage </td>
+          <td>(</td>
+          <td class="paramtype">juce::InputStream &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7323d308a2ed305d577d7630cfafc0b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7323d308a2ed305d577d7630cfafc0b8">&#9670;&nbsp;</a></span>writeImageToStream() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -267,12 +416,12 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="gin__webpimageformat_8h.html">gin_webpimageformat.h</a></li>
+<li><a class="el" href="gin__graphics_2formats_2gin__webpimageformat_8h.html">gin_graphics/formats/gin_webpimageformat.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jan 13 2023 21:55:54 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Sat Jan 14 2023 03:12:38 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
