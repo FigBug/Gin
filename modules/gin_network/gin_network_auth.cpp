@@ -15,6 +15,7 @@
  #pragma clang diagnostic ignored "-Wimplicit-int"
  #pragma clang diagnostic ignored "-Wunused-variable"
  #pragma clang diagnostic ignored "-Wswitch-enum"
+ #pragma clang diagnostic ignored "-Wdeprecated-declarations"
  #if __has_warning("-Wzero-as-null-pointer-constant")
   #pragma clang diagnostic ignored "-Wzero-as-null-pointer-constant"
  #endif

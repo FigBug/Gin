@@ -15,7 +15,7 @@
 
  BEGIN_JUCE_MODULE_DECLARATION
 
-  ID:                   gin_graphics
+  ID:                   gin_webp
   vendor:               Roland Rabien
   version:              1.0.0
   name:                 Gin
@@ -34,7 +34,7 @@
 
 #pragma once
 
-#ifndef JUCE_MODULE_AVAILABLE_gin_graphics
+#ifndef JUCE_MODULE_AVAILABLE_gin_webp
  /* If you fail to make sure that all your compile units are building JUCE with the same set of
     option flags, then there's a risk that different compile units will treat the classes as having
     different memory layouts, leading to very nasty memory corruption errors when they all get
@@ -65,7 +65,5 @@
 
 namespace gin
 {
-#include "formats/gin_bmpimageformat.h"
-
-#include "images/gin_imageeffects.h"
+#include "formats/gin_webpimageformat.h"
 }
