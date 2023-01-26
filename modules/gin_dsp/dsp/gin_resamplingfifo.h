@@ -33,6 +33,7 @@ public:
 
     void pushAudioBuffer (const juce::AudioSampleBuffer& buffer);
     void popAudioBuffer (juce::AudioSampleBuffer& buffer);
+    void popAudioBufferAdding (juce::AudioSampleBuffer& buffer);
 
 private:
     void pushAudioBufferInt (const juce::AudioSampleBuffer& buffer);

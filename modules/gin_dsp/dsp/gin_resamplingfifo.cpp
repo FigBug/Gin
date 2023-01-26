@@ -163,5 +163,12 @@ void ResamplingFifo::pushAudioBufferInt (const juce::AudioSampleBuffer& src)
 
 void ResamplingFifo::popAudioBuffer (juce::AudioSampleBuffer& dest)
 {
+    jassert (outputFifo.getNumReady() >= dest.getNumSamples());
     outputFifo.read (dest);
+}
+
+void ResamplingFifo::popAudioBufferAdding (juce::AudioSampleBuffer& dest)
+{
+    jassert (outputFifo.getNumReady() >= dest.getNumSamples());
+    outputFifo.readAdding (dest);
 }
