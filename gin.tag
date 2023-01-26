@@ -10237,6 +10237,13 @@
       <anchor>a18fbc4f4369ffdddc6ceacbb95b7997e</anchor>
       <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>popAudioBufferAdding</name>
+      <anchorfile>classResamplingFifo.html</anchorfile>
+      <anchor>a47dc09197a7612e3b1d1f3bc31b99be3</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>RollingAverage</name>
@@ -13746,16 +13753,9 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_plugin-components</name>
+    <name>gin_dsp-components</name>
     <title>components</title>
-    <filename>group__gin__plugin-components.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>gradientRect</name>
-      <anchorfile>group__gin__plugin-components.html</anchorfile>
-      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
-      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
-    </member>
+    <filename>group__gin__dsp-components.html</filename>
   </compound>
   <compound kind="group">
     <name>gin_gui-components</name>
@@ -13777,9 +13777,16 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_dsp-components</name>
+    <name>gin_plugin-components</name>
     <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
+    <filename>group__gin__plugin-components.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>gradientRect</name>
+      <anchorfile>group__gin__plugin-components.html</anchorfile>
+      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
+      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>gin_dsp-dsp</name>
@@ -14033,6 +14040,25 @@
     <title>gin_webp</title>
     <filename>group__gin__webp.html</filename>
     <subgroup>gin_webp-formats</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>gin_gui-images</name>
+    <title>images</title>
+    <filename>group__gin__gui-images.html</filename>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>rasterizeSVG</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
+      <arglist>(juce::String svgText, int w, int h)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Path</type>
+      <name>parseSVGPath</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
+      <arglist>(const juce::String &amp;txt)</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>gin_graphics-images</name>
@@ -14323,25 +14349,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_gui-images</name>
-    <title>images</title>
-    <filename>group__gin__gui-images.html</filename>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>rasterizeSVG</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
-      <arglist>(juce::String svgText, int w, int h)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Path</type>
-      <name>parseSVGPath</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
-      <arglist>(const juce::String &amp;txt)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
     <name>gin_plugin-lookandfeel</name>
     <title>lookandfeel</title>
     <filename>group__gin__plugin-lookandfeel.html</filename>
@@ -14379,6 +14386,25 @@
     <name>gin_plugin-resources</name>
     <title>resources</title>
     <filename>group__gin__plugin-resources.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>gin_gui-utilities</name>
+    <title>utilities</title>
+    <filename>group__gin__gui-utilities.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>callOnMainThreadBlocking</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
+      <arglist>(std::function&lt; void()&gt; func)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>gin-utilities</name>
@@ -14726,25 +14752,6 @@
       <anchorfile>group__gin-utilities.html</anchorfile>
       <anchor>ga88f482bf81fb3e423fa1e3926dfaa9a6</anchor>
       <arglist>(const juce::String &amp;jsonText)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-utilities</name>
-    <title>utilities</title>
-    <filename>group__gin__gui-utilities.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>callOnMainThreadBlocking</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
-      <arglist>(std::function&lt; void()&gt; func)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
     </member>
   </compound>
 </tagfile>

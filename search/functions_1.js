@@ -1,15 +1,15 @@
 var searchData=
 [
-  ['bandlimitedlookuptable_1720',['BandLimitedLookupTable',['../classBandLimitedLookupTable.html#ad40d2d7deba27521fda4c55280418943',1,'BandLimitedLookupTable::BandLimitedLookupTable()=default'],['../classBandLimitedLookupTable.html#aa8d1104796d5b6ce9103280164f23dab',1,'BandLimitedLookupTable::BandLimitedLookupTable(std::function&lt; double(double, double, double)&gt; function, double sampleRate, int notesPerTable_=6, int tableSize_=2048)']]],
-  ['bandlimitedlookuptables_1721',['BandLimitedLookupTables',['../classBandLimitedLookupTables.html#a7e1c8aa33089ca6a78dcfb204e2e916d',1,'BandLimitedLookupTables']]],
-  ['beginuseraction_1722',['beginUserAction',['../classParameter.html#a4835756858c197a20d3eeb1e88d11f7d',1,'Parameter']]],
-  ['beginusertimedaction_1723',['beginUserTimedAction',['../classParameter.html#aa76ca1fc6f05803166264b33e0546bf4',1,'Parameter']]],
-  ['blltvoicedstereooscillator_1724',['BLLTVoicedStereoOscillator',['../classBLLTVoicedStereoOscillator.html#a91580541e11d22946ec60278e65835ea',1,'BLLTVoicedStereoOscillator']]],
-  ['blockingdownload_1725',['blockingDownload',['../classDownloadManager.html#a46d6fd6994ca4cdcde6564edd621020f',1,'DownloadManager::blockingDownload(juce::String url, juce::String postData, juce::String extraHeaders={})'],['../classDownloadManager.html#ab352a3c9d99319f4872c1603eb19cc78',1,'DownloadManager::blockingDownload(juce::URL url, juce::String extraHeaders={})']]],
-  ['boxarea_1726',['BoxArea',['../classBoxArea.html#a00b02a91aded6fc3ead888c1b092a9eb',1,'BoxArea']]],
-  ['bp12state_1727',['BP12State',['../structBP12State.html#a117eb714a9f055d4ca05d80c28c10553',1,'BP12State']]],
-  ['bp24state_1728',['BP24State',['../structBP24State.html#a321d2cbd60a9aeba2ffdb2d54e12c5ea',1,'BP24State']]],
-  ['bterm_1729',['bTerm',['../classLeastSquaresRegression.html#af8a14f97edfe06e9237df6cbf5a54330',1,'LeastSquaresRegression']]],
-  ['build_1730',['build',['../classModMatrix.html#a34daa946cb85440762ff041e995e670c',1,'ModMatrix']]],
-  ['buttonclicked_1731',['buttonClicked',['../classTitleBar.html#af8e7c477535854c933acf07bd7e3fc7c',1,'TitleBar']]]
+  ['bandlimitedlookuptable_1719',['BandLimitedLookupTable',['../classBandLimitedLookupTable.html#ad40d2d7deba27521fda4c55280418943',1,'BandLimitedLookupTable::BandLimitedLookupTable()=default'],['../classBandLimitedLookupTable.html#aa8d1104796d5b6ce9103280164f23dab',1,'BandLimitedLookupTable::BandLimitedLookupTable(std::function&lt; double(double, double, double)&gt; function, double sampleRate, int notesPerTable_=6, int tableSize_=2048)']]],
+  ['bandlimitedlookuptables_1720',['BandLimitedLookupTables',['../classBandLimitedLookupTables.html#a7e1c8aa33089ca6a78dcfb204e2e916d',1,'BandLimitedLookupTables']]],
+  ['beginuseraction_1721',['beginUserAction',['../classParameter.html#a4835756858c197a20d3eeb1e88d11f7d',1,'Parameter']]],
+  ['beginusertimedaction_1722',['beginUserTimedAction',['../classParameter.html#aa76ca1fc6f05803166264b33e0546bf4',1,'Parameter']]],
+  ['blltvoicedstereooscillator_1723',['BLLTVoicedStereoOscillator',['../classBLLTVoicedStereoOscillator.html#a91580541e11d22946ec60278e65835ea',1,'BLLTVoicedStereoOscillator']]],
+  ['blockingdownload_1724',['blockingDownload',['../classDownloadManager.html#a46d6fd6994ca4cdcde6564edd621020f',1,'DownloadManager::blockingDownload(juce::String url, juce::String postData, juce::String extraHeaders={})'],['../classDownloadManager.html#ab352a3c9d99319f4872c1603eb19cc78',1,'DownloadManager::blockingDownload(juce::URL url, juce::String extraHeaders={})']]],
+  ['boxarea_1725',['BoxArea',['../classBoxArea.html#a00b02a91aded6fc3ead888c1b092a9eb',1,'BoxArea']]],
+  ['bp12state_1726',['BP12State',['../structBP12State.html#a117eb714a9f055d4ca05d80c28c10553',1,'BP12State']]],
+  ['bp24state_1727',['BP24State',['../structBP24State.html#a321d2cbd60a9aeba2ffdb2d54e12c5ea',1,'BP24State']]],
+  ['bterm_1728',['bTerm',['../classLeastSquaresRegression.html#af8a14f97edfe06e9237df6cbf5a54330',1,'LeastSquaresRegression']]],
+  ['build_1729',['build',['../classModMatrix.html#a34daa946cb85440762ff041e995e670c',1,'ModMatrix']]],
+  ['buttonclicked_1730',['buttonClicked',['../classTitleBar.html#af8e7c477535854c933acf07bd7e3fc7c',1,'TitleBar']]]
 ];
