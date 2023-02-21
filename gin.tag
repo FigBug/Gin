@@ -636,6 +636,7 @@
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin/geometry/</path>
     <filename>gin__geometry_8h.html</filename>
     <class kind="class">Ellipse</class>
+    <class kind="class">Polygon</class>
     <member kind="function">
       <type>T</type>
       <name>square</name>
@@ -1070,6 +1071,14 @@
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
     <filename>gin__linearregression_8h.html</filename>
     <class kind="class">LinearRegression</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_locationmananger.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_location/location/</path>
+    <filename>gin__locationmananger_8h.html</filename>
+    <class kind="class">LocationManager</class>
+    <class kind="struct">LocationManager::Location</class>
+    <class kind="class">LocationManager::Listener</class>
   </compound>
   <compound kind="file">
     <name>gin_mapviewer.h</name>
@@ -6616,6 +6625,24 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>LocationManager::Listener</name>
+    <filename>classLocationManager_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classLocationManager_1_1Listener.html</anchorfile>
+      <anchor>a985bc20f72a89d7ec488f9003b58da98</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>locationChanged</name>
+      <anchorfile>classLocationManager_1_1Listener.html</anchorfile>
+      <anchor>ae62d44de083e85d30933c030945765cb</anchor>
+      <arglist>(const Location &amp;)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>ModMatrix::Listener</name>
     <filename>classModMatrix_1_1Listener.html</filename>
     <member kind="function" virtualness="virtual">
@@ -6695,6 +6722,181 @@
       <anchorfile>classSingleLineTextEditor_1_1Listener.html</anchorfile>
       <anchor>a9b377e28f1ec65c2a9864f1c08964af3</anchor>
       <arglist>(SingleLineTextEditor &amp;)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>LocationManager::Location</name>
+    <filename>structLocationManager_1_1Location.html</filename>
+    <member kind="variable">
+      <type>double</type>
+      <name>latitude</name>
+      <anchorfile>structLocationManager_1_1Location.html</anchorfile>
+      <anchor>a7432dea352228865b308d0f62337e3b2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>longitude</name>
+      <anchorfile>structLocationManager_1_1Location.html</anchorfile>
+      <anchor>a484c41f04e208931333ece623fd56633</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>altitude</name>
+      <anchorfile>structLocationManager_1_1Location.html</anchorfile>
+      <anchor>ab39a621a6056285f47e8bdc1862943d3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>speed</name>
+      <anchorfile>structLocationManager_1_1Location.html</anchorfile>
+      <anchor>af0477c8d1494e8a66138b43c60c5c8ea</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>heading</name>
+      <anchorfile>structLocationManager_1_1Location.html</anchorfile>
+      <anchor>a1ad740d2665f0d04d6165f0ac8c8fd85</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Time</type>
+      <name>time</name>
+      <anchorfile>structLocationManager_1_1Location.html</anchorfile>
+      <anchor>aa04ec39371eae7524055d122a6ef5a30</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>LocationManager</name>
+    <filename>classLocationManager.html</filename>
+    <class kind="class">LocationManager::Listener</class>
+    <class kind="struct">LocationManager::Location</class>
+    <member kind="enumeration">
+      <type></type>
+      <name>Authorization</name>
+      <anchorfile>classLocationManager.html</anchorfile>
+      <anchor>a518acec298306066ae3cccc6eb335bdc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>unknown</name>
+      <anchorfile>classLocationManager.html</anchorfile>
+      <anchor>a518acec298306066ae3cccc6eb335bdcad0e85e63c60b028c9b8e673630e46a4e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>restricted</name>
+      <anchorfile>classLocationManager.html</anchorfile>
+      <anchor>a518acec298306066ae3cccc6eb335bdcad331d118edc7e3ab997994cf3182e0d4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>denied</name>
+      <anchorfile>classLocationManager.html</anchorfile>
+      <anchor>a518acec298306066ae3cccc6eb335bdca36b08e1e38234ca8cccf059cb83130aa</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>authorizedAlways</name>
+      <anchorfile>classLocationManager.html</anchorfile>
+      <anchor>a518acec298306066ae3cccc6eb335bdcaadc75e653e86065ca5448be342c23053</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>authorizedWhenInUse</name>
+      <anchorfile>classLocationManager.html</anchorfile>
+      <anchor>a518acec298306066ae3cccc6eb335bdca91e8720f10faeaee578f776e7d95b9d1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>unknown</name>
+      <anchorfile>classLocationManager.html</anchorfile>
+      <anchor>a518acec298306066ae3cccc6eb335bdcad0e85e63c60b028c9b8e673630e46a4e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>restricted</name>
+      <anchorfile>classLocationManager.html</anchorfile>
+      <anchor>a518acec298306066ae3cccc6eb335bdcad331d118edc7e3ab997994cf3182e0d4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>denied</name>
+      <anchorfile>classLocationManager.html</anchorfile>
+      <anchor>a518acec298306066ae3cccc6eb335bdca36b08e1e38234ca8cccf059cb83130aa</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>authorizedAlways</name>
+      <anchorfile>classLocationManager.html</anchorfile>
+      <anchor>a518acec298306066ae3cccc6eb335bdcaadc75e653e86065ca5448be342c23053</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>authorizedWhenInUse</name>
+      <anchorfile>classLocationManager.html</anchorfile>
+      <anchor>a518acec298306066ae3cccc6eb335bdca91e8720f10faeaee578f776e7d95b9d1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>LocationManager</name>
+      <anchorfile>classLocationManager.html</anchorfile>
+      <anchor>a1c55344991005582a34274f18ce7c14b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~LocationManager</name>
+      <anchorfile>classLocationManager.html</anchorfile>
+      <anchor>ae94e0139d03f7b7592f74df6a4dc4972</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>start</name>
+      <anchorfile>classLocationManager.html</anchorfile>
+      <anchor>a54ec461bb55ebec1f6a5341aa4c1a4df</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>stop</name>
+      <anchorfile>classLocationManager.html</anchorfile>
+      <anchor>a4ab6539881e71b9341888174665990bf</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Authorization</type>
+      <name>getAuthorization</name>
+      <anchorfile>classLocationManager.html</anchorfile>
+      <anchor>a20f737d3ec8df3c623ecd83170721961</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>requestAlwaysAuthorization</name>
+      <anchorfile>classLocationManager.html</anchorfile>
+      <anchor>a6a84966925abf71e956412b0876ba7ec</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addListener</name>
+      <anchorfile>classLocationManager.html</anchorfile>
+      <anchor>a1bc789ac0ae71c99fc4369bb39f15385</anchor>
+      <arglist>(Listener *)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeListener</name>
+      <anchorfile>classLocationManager.html</anchorfile>
+      <anchor>af80c2bc011f936ad1e988e5f841307e5</anchor>
+      <arglist>(Listener *)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -9310,6 +9512,18 @@
       <name>y</name>
       <anchorfile>classPoint.html</anchorfile>
       <anchor>a65146418a33ebb2cd9acb85cade60ac9</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Polygon</name>
+    <filename>classPolygon.html</filename>
+    <templarg></templarg>
+    <member kind="variable">
+      <type>juce::Array&lt; Point&lt; T &gt; &gt;</type>
+      <name>points</name>
+      <anchorfile>classPolygon.html</anchorfile>
+      <anchor>ae10c579f16c4ed1397f7d547165d3005</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -13753,6 +13967,18 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_plugin-components</name>
+    <title>components</title>
+    <filename>group__gin__plugin-components.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>gradientRect</name>
+      <anchorfile>group__gin__plugin-components.html</anchorfile>
+      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
+      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
     <name>gin_dsp-components</name>
     <title>components</title>
     <filename>group__gin__dsp-components.html</filename>
@@ -13774,18 +14000,6 @@
       <anchorfile>group__gin__gui-components.html</anchorfile>
       <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
       <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_plugin-components</name>
-    <title>components</title>
-    <filename>group__gin__plugin-components.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>gradientRect</name>
-      <anchorfile>group__gin__plugin-components.html</anchorfile>
-      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
-      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
     </member>
   </compound>
   <compound kind="group">
@@ -13957,14 +14171,14 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_webp-formats</name>
-    <title>formats</title>
-    <filename>group__gin__webp-formats.html</filename>
-  </compound>
-  <compound kind="group">
     <name>gin_graphics-formats</name>
     <title>formats</title>
     <filename>group__gin__graphics-formats.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>gin_webp-formats</name>
+    <title>formats</title>
+    <filename>group__gin__webp-formats.html</filename>
   </compound>
   <compound kind="group">
     <name>gin-geometry</name>
@@ -14013,6 +14227,12 @@
     <subgroup>gin_gui-components</subgroup>
     <subgroup>gin_gui-images</subgroup>
     <subgroup>gin_gui-utilities</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>gin_location</name>
+    <title>gin_location</title>
+    <filename>group__gin__location.html</filename>
+    <subgroup>gin_location-location</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_metadata</name>
@@ -14347,6 +14567,11 @@
       <anchor>ga590207f6293f03a5a4e4e2a1d4f3db15</anchor>
       <arglist>(juce::Image &amp;dst, BlendMode mode, juce::Colour c, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_location-location</name>
+    <title>location</title>
+    <filename>group__gin__location-location.html</filename>
   </compound>
   <compound kind="group">
     <name>gin_plugin-lookandfeel</name>

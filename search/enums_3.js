@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['filesystemevent_2748',['FileSystemEvent',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7d',1,'FileSystemWatcher']]]
+  ['direction_2790',['Direction',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1',1,'SampleOscillator']]]
 ];

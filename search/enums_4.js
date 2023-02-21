@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mode_2749',['Mode',['../classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4',1,'EnvelopeDetector']]]
+  ['filesystemevent_2791',['FileSystemEvent',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7d',1,'FileSystemWatcher']]]
 ];
