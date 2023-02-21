@@ -709,6 +709,11 @@ struct DownloadManagerDemo : public juce::Component,
         downloadManager.setQueueFinishedCallback([] {
             DBG("All done!");
         });
+
+        gin::asyncDownload (juce::URL ("http://rabien.com"), [] (const juce::String& t)
+        {
+            DBG(t);
+        });
     }
 
     void resized() override
