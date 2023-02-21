@@ -77,10 +77,10 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a15f718f78c88455a85c0c79ff6e8ff37"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAsyncDownload.html#a15f718f78c88455a85c0c79ff6e8ff37">AsyncDownload</a> (juce::String url_, std::function&lt; void(<a class="el" href="classAsyncDownload.html">AsyncDownload</a> *, juce::MemoryBlock, bool)&gt; cb_, int timeoutMS_=0)</td></tr>
-<tr class="separator:a15f718f78c88455a85c0c79ff6e8ff37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dce22dda59d049d43ce4ace85880e01"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAsyncDownload.html#a9dce22dda59d049d43ce4ace85880e01">AsyncDownload</a> (juce::URL url_, std::function&lt; void(<a class="el" href="classAsyncDownload.html">AsyncDownload</a> *, juce::MemoryBlock, bool)&gt; cb_, int timeoutMS_=0)</td></tr>
-<tr class="separator:a9dce22dda59d049d43ce4ace85880e01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47ff7284a6ffa2e54d70fa3bb01071ec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAsyncDownload.html#a47ff7284a6ffa2e54d70fa3bb01071ec">AsyncDownload</a> (juce::String url_, std::function&lt; void(<a class="el" href="classAsyncDownload.html">AsyncDownload</a> *, const juce::MemoryBlock &amp;, bool)&gt; cb_, int timeoutMS_=0)</td></tr>
+<tr class="separator:a47ff7284a6ffa2e54d70fa3bb01071ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00765e0f8af351c253598dbf443c1f3c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAsyncDownload.html#a00765e0f8af351c253598dbf443c1f3c">AsyncDownload</a> (juce::URL url_, std::function&lt; void(<a class="el" href="classAsyncDownload.html">AsyncDownload</a> *, const juce::MemoryBlock &amp;, bool)&gt; cb_, int timeoutMS_=0)</td></tr>
+<tr class="separator:a00765e0f8af351c253598dbf443c1f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5003941070216619614340a29210f1e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAsyncDownload.html#ad5003941070216619614340a29210f1e">~AsyncDownload</a> () override</td></tr>
 <tr class="separator:ad5003941070216619614340a29210f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12f678abf96e0c0a0f988baa076ec253"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAsyncDownload.html#a12f678abf96e0c0a0f988baa076ec253">run</a> () override</td></tr>
@@ -107,8 +107,8 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p>Async Download. </p>
 <p>Doesn't have the main thread pause the URL::downloadToFile has </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a15f718f78c88455a85c0c79ff6e8ff37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15f718f78c88455a85c0c79ff6e8ff37">&#9670;&nbsp;</a></span>AsyncDownload() <span class="overload">[1/2]</span></h2>
+<a id="a47ff7284a6ffa2e54d70fa3bb01071ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47ff7284a6ffa2e54d70fa3bb01071ec">&#9670;&nbsp;</a></span>AsyncDownload() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -122,7 +122,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; void(<a class="el" href="classAsyncDownload.html">AsyncDownload</a> *, juce::MemoryBlock, bool)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; void(<a class="el" href="classAsyncDownload.html">AsyncDownload</a> *, const juce::MemoryBlock &amp;, bool)&gt;&#160;</td>
           <td class="paramname"><em>cb_</em>, </td>
         </tr>
         <tr>
@@ -141,8 +141,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a9dce22dda59d049d43ce4ace85880e01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dce22dda59d049d43ce4ace85880e01">&#9670;&nbsp;</a></span>AsyncDownload() <span class="overload">[2/2]</span></h2>
+<a id="a00765e0f8af351c253598dbf443c1f3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00765e0f8af351c253598dbf443c1f3c">&#9670;&nbsp;</a></span>AsyncDownload() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -156,7 +156,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; void(<a class="el" href="classAsyncDownload.html">AsyncDownload</a> *, juce::MemoryBlock, bool)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; void(<a class="el" href="classAsyncDownload.html">AsyncDownload</a> *, const juce::MemoryBlock &amp;, bool)&gt;&#160;</td>
           <td class="paramname"><em>cb_</em>, </td>
         </tr>
         <tr>
@@ -374,7 +374,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 21 2023 17:59:21 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Feb 21 2023 23:46:50 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

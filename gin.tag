@@ -1570,6 +1570,20 @@
       <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
       <arglist>(int idx)</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>gin_valuesmoother.h</name>
@@ -2175,15 +2189,15 @@
       <type></type>
       <name>AsyncDownload</name>
       <anchorfile>classAsyncDownload.html</anchorfile>
-      <anchor>a15f718f78c88455a85c0c79ff6e8ff37</anchor>
-      <arglist>(juce::String url_, std::function&lt; void(AsyncDownload *, juce::MemoryBlock, bool)&gt; cb_, int timeoutMS_=0)</arglist>
+      <anchor>a47ff7284a6ffa2e54d70fa3bb01071ec</anchor>
+      <arglist>(juce::String url_, std::function&lt; void(AsyncDownload *, const juce::MemoryBlock &amp;, bool)&gt; cb_, int timeoutMS_=0)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>AsyncDownload</name>
       <anchorfile>classAsyncDownload.html</anchorfile>
-      <anchor>a9dce22dda59d049d43ce4ace85880e01</anchor>
-      <arglist>(juce::URL url_, std::function&lt; void(AsyncDownload *, juce::MemoryBlock, bool)&gt; cb_, int timeoutMS_=0)</arglist>
+      <anchor>a00765e0f8af351c253598dbf443c1f3c</anchor>
+      <arglist>(juce::URL url_, std::function&lt; void(AsyncDownload *, const juce::MemoryBlock &amp;, bool)&gt; cb_, int timeoutMS_=0)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -14629,6 +14643,20 @@
       <anchorfile>group__gin__gui-utilities.html</anchorfile>
       <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
       <arglist>(int idx)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
     </member>
   </compound>
   <compound kind="group">
