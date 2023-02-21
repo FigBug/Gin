@@ -118,3 +118,11 @@ bool solveLine (juce::Line<T> l, T& m, T& b)
     }
 }
 #endif
+
+/** Polygon with multiple points */
+template <typename T>
+class Polygon
+{
+public:
+    juce::Array<Point<T>>   points;
+};
