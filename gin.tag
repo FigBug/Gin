@@ -13981,11 +13981,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-  </compound>
-  <compound kind="group">
     <name>gin_plugin-components</name>
     <title>components</title>
     <filename>group__gin__plugin-components.html</filename>
@@ -13996,6 +13991,11 @@
       <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
       <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
     </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
   </compound>
   <compound kind="group">
     <name>gin_gui-components</name>
@@ -14185,14 +14185,14 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_graphics-formats</name>
-    <title>formats</title>
-    <filename>group__gin__graphics-formats.html</filename>
-  </compound>
-  <compound kind="group">
     <name>gin_webp-formats</name>
     <title>formats</title>
     <filename>group__gin__webp-formats.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>gin_graphics-formats</name>
+    <title>formats</title>
+    <filename>group__gin__graphics-formats.html</filename>
   </compound>
   <compound kind="group">
     <name>gin-geometry</name>
