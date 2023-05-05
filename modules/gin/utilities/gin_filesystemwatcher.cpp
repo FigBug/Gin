@@ -215,7 +215,7 @@ public:
       : Thread ("FileSystemWatcher::Impl"), owner (o), folder (f)
     {
         WCHAR path[_MAX_PATH] = {0};
-        wcsncpy (path, folder.getFullPathName().toWideCharPointer(), _MAX_PATH - 1);
+        wcsncpy_s (path, folder.getFullPathName().toWideCharPointer(), _MAX_PATH - 1);
 
         folderHandle = CreateFileW (path, FILE_LIST_DIRECTORY, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE,
                                     NULL, OPEN_EXISTING, FILE_FLAG_BACKUP_SEMANTICS, NULL);
