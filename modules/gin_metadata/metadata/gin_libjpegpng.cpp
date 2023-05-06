@@ -53,6 +53,7 @@ namespace pnglibNamespace
   #if JUCE_CLANG
    #pragma clang diagnostic push
    #pragma clang diagnostic ignored "-Wsign-conversion"
+   #pragma clang diagnostic ignored "-Wfloat-equal"
    #if __has_warning("-Wzero-as-null-pointer-constant")
     #pragma clang diagnostic ignored "-Wzero-as-null-pointer-constant"
    #endif
