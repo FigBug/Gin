@@ -17,6 +17,7 @@
  #pragma clang diagnostic ignored "-Wconversion"
  #pragma clang diagnostic ignored "-Wshadow"
  #pragma clang diagnostic ignored "-Wunused-parameter"
+ #pragma clang diagnostic ignored "-Wfloat-equal"
 #elif _MSC_VER
  #pragma warning (push)
  #pragma warning (disable: 4100)
