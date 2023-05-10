@@ -9,7 +9,7 @@
 
 struct ResamplingFifo::Impl
 {
-    SRC_STATE* state = nullptr;
+    SRC::SRC_STATE* state = nullptr;
 };
 
 ResamplingFifo::ResamplingFifo (int bs, int nc, int ms)
@@ -29,19 +29,19 @@ void ResamplingFifo::setQuality (int q)
     quality = q;
 
     int error = 0;
-    impl->state = src_new (getQuality (quality), numChannels, &error);
+    impl->state = SRC::src_new (getQuality (quality), numChannels, &error);
 }
 
 int ResamplingFifo::getQuality (int q)
 {
     switch (q)
     {
-        case 4: return SRC_SINC_BEST_QUALITY;
-        case 3: return SRC_SINC_MEDIUM_QUALITY;
-        case 2: return SRC_SINC_FASTEST;
-        case 1: return SRC_ZERO_ORDER_HOLD;
-        case 0: return SRC_LINEAR;
-        default: return SRC_SINC_BEST_QUALITY;
+        case 4: return SRC::SRC_SINC_BEST_QUALITY;
+        case 3: return SRC::SRC_SINC_MEDIUM_QUALITY;
+        case 2: return SRC::SRC_SINC_FASTEST;
+        case 1: return SRC::SRC_ZERO_ORDER_HOLD;
+        case 0: return SRC::SRC_LINEAR;
+        default: return SRC::SRC_SINC_BEST_QUALITY;
     }
 }
 
@@ -54,7 +54,7 @@ void ResamplingFifo::setSize (int bs, int nc, int ms)
     blockSize = bs;
 
     int error = 0;
-    impl->state = src_new (getQuality (quality), numChannels, &error);
+    impl->state = SRC::src_new (getQuality (quality), numChannels, &error);
 
     outputFifo.setSize (nc, ms);
 
@@ -127,7 +127,7 @@ void ResamplingFifo::pushAudioBufferInt (const juce::AudioSampleBuffer& src)
     }
 
 
-    SRC_DATA data;
+    SRC::SRC_DATA data;
     data.data_in = ilInputBuffer.getReadPointer (0);
     data.data_out = ilOutputBuffer.getWritePointer (0);
     data.output_frames = 4 * blockSize;
