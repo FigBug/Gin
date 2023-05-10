@@ -32,13 +32,16 @@
 #define ENABLE_SINC_MEDIUM_CONVERTER	1
 #define ENABLE_SINC_FAST_CONVERTER		1
 
-namespace SRC
+namespace gin
 {
-#include "3rdparty/src/samplerate.h"
-#include "3rdparty/src/src_linear.c"
-#include "3rdparty/src/src_sinc.c"
-#include "3rdparty/src/src_zoh.c"
-#include "3rdparty/src/samplerate.c"
+    namespace SRC
+    {
+        #include "3rdparty/src/samplerate.h"
+        #include "3rdparty/src/src_linear.c"
+        #include "3rdparty/src/src_sinc.c"
+        #include "3rdparty/src/src_zoh.c"
+        #include "3rdparty/src/samplerate.c"
+    }
 }
 
 #if __clang__
