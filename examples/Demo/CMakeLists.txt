@@ -24,6 +24,10 @@ if (APPLE)
 		)
 endif ()
 
+if (UNIX AND NOT APPLE)
+	target_link_libraries(Demo curl)
+endif()
+
 file (GLOB_RECURSE source_files CONFIGURE_DEPENDS
     ${CMAKE_CURRENT_SOURCE_DIR}/Source/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Source/*.c

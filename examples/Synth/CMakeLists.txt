@@ -68,6 +68,10 @@ if (WIN32)
 	target_compile_options(Synth PRIVATE -wd4996 -wd4458)
 endif()
 
+if (UNIX AND NOT APPLE)
+	target_link_libraries(Synth curl)
+endif()
+
 juce_generate_juce_header (Synth)
 
 get_property (debug_configs GLOBAL PROPERTY DEBUG_CONFIGURATIONS)
