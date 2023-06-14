@@ -38,23 +38,25 @@ if [ "$(uname)" == "Darwin" ]; then
   cmake --build --preset xcode --config Release
 
   cp -R "$ROOT/Builds/xcode/examples/Demo/Demo_artefacts/Release/Demo.app" "$ROOT/bin"
+  cp -R "$ROOT/Builds/xcode/examples/Synth/Synth_artefacts/Release/VST3/Synth.vst3" "$ROOT/bin"
+  cp -R "$ROOT/Builds/xcode/examples/Synth/Synth_artefacts/Release/AU/Synth.component" "$ROOT/bin"
 
-  cd $ROOT
-  zip -r Gin.zip Demo.app
-  xcrun notarytool submit --verbose --apple-id "$APPLE_USER" --password "$APPLE_PASS" --team-id "3FS7DJDG38" --wait --timeout 30m Gin.zip
+  cd $ROOT/bin
+  zip -r Gin.zip Demo.app Synth.vst3 Synth.component
+  if [[ -n "$APPLE_USER" ]]; then
+    xcrun notarytool submit --verbose --apple-id "$APPLE_USER" --password "$APPLE_PASS" --team-id "3FS7DJDG38" --wait --timeout 30m Gin.zip
+  fi
 
-  rm -Rf Demo.app
-fi
+  rm -Rf Demo.app Synth.vst3 Synth.component
 
 # Build linux version
-if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   cd "$ROOT"
   cmake --preset ninja-gcc
   cmake --build --preset ninja-gcc --config Release
-fi
 
 # Build Win version
-if [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
   cd "$ROOT"
   cmake --preset vs
   cmake --build --preset vs --config Release
