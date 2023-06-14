@@ -61,18 +61,7 @@ if (APPLE)
 endif()
 
 if (WIN32)
-	target_compile_options(Demo PRIVATE -Wall -Wstrict-aliasing -Wunused-parameter -Wconditional-uninitialized -Woverloaded-virtual -Wreorder -Wconstant-conversion -Wbool-conversion -Wextra-semi 
-							-Winconsistent-missing-destructor-override -Wshift-sign-overflow -Wnullable-to-nonnull-conversion -Wuninitialized -Wno-missing-field-initializers 
-							-Wno-ignored-qualifiers -Wno-missing-braces -Wno-char-subscripts -Wno-unused-private-field -Wunused-private-field -Wunreachable-code -Wenum-compare -Wshadow 
-							-Wfloat-conversion -Wno-c++20-compat -Wno-undef -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-old-style-cast -Wno-extra-semi-stmt -Wno-implicit-fallthrough
-							-Wno-missing-variable-declarations -Wno-sign-conversion -Wno-reserved-macro-identifier -Wno-nonportable-system-include-path -Wno-newline-eof
-							-Wno-undefined-reinterpret-cast -Wno-documentation-unknown-command -Wno-double-promotion -Wno-covered-switch-default -Wno-reserved-identifier 
-							-Wno-global-constructors -Wno-documentation -Wno-suggest-destructor-override -Wno-deprecated-copy-with-dtor -Wno-float-equal -Wno-zero-as-null-pointer-constant
-							-Wno-cast-align -Wno-unused-template -Wno-language-extension-token -Wno-switch-enum -Wno-gnu-zero-variadic-macro-arguments -Wno-cast-function-type 
-							-Wno-format-nonliteral -Wno-exit-time-destructors -Wno-undefined-func-template -Wno-four-char-constants -Wno-disabled-macro-expansion -Wno-date-time 
-							-Wno-implicit-int-float-conversion -Wno-microsoft-cast -Wno-shadow-field-in-constructor -Wno-ctad-maybe-unsupported -Wno-null-pointer-subtraction 
-							-Wno-c99-designator -Wno-non-virtual-dtor -Wno-suggest-override -Wno-cast-qual -Wno-header-hygiene -Wno-extra-qualification -Wno-missing-prototypes 
-							-Wno-missing-noreturn -Wno-header-hygiene -Wno-unused-macros -showFilenames -fp:fast)
+	target_compile_options(Demo PRIVATE -wd4996 -wd4458)
 endif()
 
 juce_generate_juce_header (Demo)
@@ -94,27 +83,7 @@ target_compile_definitions (Demo PRIVATE
 
 if (APPLE)
 	set_target_properties(Demo PROPERTIES
-			XCODE_ATTRIBUTE_GCC_GENERATE_DEBUGGING_SYMBOLS YES
-			XCODE_ATTRIBUTE_GCC_DEBUGGING_SYMBOLS FULL
-			XCODE_ATTRIBUTE_DEBUG_INFORMATION_FORMAT dwarf-with-dsym
-			XCODE_ATTRIBUTE_DWARF_DSYM_FILE_NAME "Demo.dSYM"
 			XCODE_ATTRIBUTE_DEPLOYMENT_POSTPROCESSING[variant=Release] YES
 			XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH[variant=Debug] "YES"
 			)
-endif()
-
-if (WIN32)
-	target_compile_options(Demo PRIVATE "$<$<CONFIG:Release>:/WX>")
-	target_compile_options(Demo PRIVATE "$<$<CONFIG:Release>:/Zi>")	
-	target_link_options(Demo PRIVATE "$<$<CONFIG:Release>:/DEBUG>")
-	target_link_options(Demo PRIVATE "$<$<CONFIG:Release>:/OPT:REF>")
-	target_link_options(Demo PRIVATE "$<$<CONFIG:Release>:/OPT:ICF>")
-	set_property(TARGET Demo APPEND_STRING PROPERTY LINK_FLAGS_DEBUG " /INCREMENTAL:NO"
-)
-endif()
-
-if(WIN32)
-	set (dest "Program Files")
-else()
-	set (dest "Applications")
 endif()
