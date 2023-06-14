@@ -710,7 +710,7 @@ struct DownloadManagerDemo : public juce::Component,
             DBG("All done!");
         });
 
-        gin::asyncDownload (juce::URL ("http://rabien.com"), [] (const juce::String& t)
+        gin::asyncDownload (juce::URL ("https://rabien.com"), [] (const juce::String& t)
         {
             juce::ignoreUnused (t);
             DBG(t);
