@@ -56,6 +56,7 @@ target_link_libraries (Synth PRIVATE
 						juce::juce_core
 						juce::juce_audio_basics
 
+						$<$<PLATFORM_ID:Linux>:curl>
 
     					juce::juce_recommended_config_flags
 					)
@@ -66,10 +67,6 @@ endif()
 
 if (WIN32)
 	target_compile_options(Synth PRIVATE -wd4996 -wd4458)
-endif()
-
-if (UNIX AND NOT APPLE)
-	target_link_libraries(Synth curl)
 endif()
 
 juce_generate_juce_header (Synth)
