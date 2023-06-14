@@ -78,6 +78,7 @@ set (config_is_release "$<NOT:${config_is_debug}>")
 target_compile_definitions (Demo PRIVATE 
 								JUCE_DISPLAY_SPLASH_SCREEN=0
 								JUCE_MODAL_LOOPS_PERMITTED=0
+								JUCE_WEB_BROWSER=0
 								JUCE_COREGRAPHICS_DRAW_ASYNC=1
 							)
 
