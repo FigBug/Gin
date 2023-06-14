@@ -1,0 +1,50 @@
+{
+  "buildPresets": [
+    {
+      "condition": {
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows",
+        "type": "equals"
+      },
+      "configurePreset": "vs",
+      "displayName": "Build with Visual Studio",
+      "inherits": "base",
+      "name": "vs"
+    }
+  ],
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 24,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "condition": {
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows",
+        "type": "equals"
+      },
+      "displayName": "Build with Visual Studio",
+      "generator": "Visual Studio 17 2022",
+      "inherits": "base",
+      "name": "vs"
+    }
+  ],
+  "include": [
+    "base.json"
+  ],
+  "testPresets": [
+    {
+      "condition": {
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows",
+        "type": "equals"
+      },
+      "configurePreset": "vs",
+      "displayName": "Build with Visual Studio",
+      "inherits": "base",
+      "name": "vs"
+    }
+  ],
+  "version": 5
+}

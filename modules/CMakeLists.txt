@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.15)
+
+juce_add_module(gin)
+juce_add_module(gin_dsp)
+juce_add_module(gin_graphics)
+juce_add_module(gin_gui)
+juce_add_module(gin_location)
+juce_add_module(gin_metadata)
+juce_add_module(gin_network)
+juce_add_module(gin_plugin)
+juce_add_module(gin_webp)

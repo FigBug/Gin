@@ -1,0 +1,50 @@
+{
+  "buildPresets": [
+    {
+      "condition": {
+        "lhs": "${hostSystemName}",
+        "rhs": "Darwin",
+        "type": "equals"
+      },
+      "configurePreset": "xcode",
+      "displayName": "Build with XCode",
+      "inherits": "base",
+      "name": "xcode"
+    }
+  ],
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 24,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "condition": {
+        "lhs": "${hostSystemName}",
+        "rhs": "Darwin",
+        "type": "equals"
+      },
+      "displayName": "Build with XCode",
+      "generator": "Xcode",
+      "inherits": "base",
+      "name": "xcode"
+    }
+  ],
+  "include": [
+    "base.json"
+  ],
+  "testPresets": [
+    {
+      "condition": {
+        "lhs": "${hostSystemName}",
+        "rhs": "Darwin",
+        "type": "equals"
+      },
+      "configurePreset": "xcode",
+      "displayName": "Build with XCode",
+      "inherits": "base",
+      "name": "xcode"
+    }
+  ],
+  "version": 5
+}

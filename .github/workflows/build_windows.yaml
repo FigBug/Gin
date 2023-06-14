@@ -9,11 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: "Run script"
-        run: .\ci\win\build.bat
-        shell: cmd
-        env:
-          APIKEY: ${{ secrets.APIKEY }}
+        run: ./ci/build.sh
+        shell: bash
       - uses: actions/upload-artifact@v1
         with:
           name: Windows
-          path: ci/win/bin
+          path: bin

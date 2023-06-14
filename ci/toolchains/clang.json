@@ -1,0 +1,45 @@
+{
+  "buildPresets": [
+    {
+      "configurePreset": "ninja-clang",
+      "displayName": "Build with Ninja and Clang",
+      "inherits": "base",
+      "name": "ninja-clang"
+    }
+  ],
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 24,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": {
+          "type": "STRING",
+          "value": "clang++"
+        },
+        "CMAKE_C_COMPILER": {
+          "type": "STRING",
+          "value": "clang"
+        }
+      },
+      "displayName": "Build with Ninja and Clang",
+      "generator": "Ninja Multi-Config",
+      "inherits": "base",
+      "name": "ninja-clang"
+    }
+  ],
+  "include": [
+    "base.json"
+  ],
+  "testPresets": [
+    {
+      "configurePreset": "ninja-clang",
+      "displayName": "Build with Ninja and Clang",
+      "inherits": "base",
+      "name": "ninja-clang"
+    }
+  ],
+  "version": 5
+}

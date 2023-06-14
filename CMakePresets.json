@@ -1,0 +1,14 @@
+{
+	"cmakeMinimumRequired": {
+		"major": 3,
+		"minor": 24,
+		"patch": 0
+	},
+	"version": 5,
+	"include": [
+		"ci/toolchains/xcode.json",
+		"ci/toolchains/vs.json",
+		"ci/toolchains/clang.json",
+		"ci/toolchains/gcc.json"
+	]
+}
