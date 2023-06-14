@@ -51,15 +51,15 @@ if [ "$(uname)" == "Darwin" ]; then
 
 # Build linux version
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+  sudo apt-get update
+  sudo apt-get install clang git ninja-build ladspa-sdk freeglut3-dev g++ libasound2-dev libcurl4-openssl-dev libfreetype6-dev libjack-jackd2-dev libx11-dev libxcomposite-dev libxcursor-dev libxinerama-dev libxrandr-dev mesa-common-dev webkit2gtk-4.0 juce-tools xvfb  
+
   cd "$ROOT"
   cmake --preset ninja-gcc
   cmake --build --preset ninja-gcc --config Release
 
 # Build Win version
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
-  sudo apt-get update
-  sudo apt-get install clang git ninja-build ladspa-sdk freeglut3-dev g++ libasound2-dev libcurl4-openssl-dev libfreetype6-dev libjack-jackd2-dev libx11-dev libxcomposite-dev libxcursor-dev libxinerama-dev libxrandr-dev mesa-common-dev webkit2gtk-4.0 juce-tools xvfb  
-
   cd "$ROOT"
   cmake --preset vs
   cmake --build --preset vs --config Release
