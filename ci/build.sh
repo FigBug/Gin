@@ -70,5 +70,13 @@ elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
   cd "$ROOT"
   cmake --preset vs
   cmake --build --preset vs --config Release
+
+  cp -R "$ROOT/Builds/vs/examples/Demo/Demo_artefacts/Release/Demo.exe" $ROOT/bin
+  cp -R "$ROOT/Builds/vs/examples/Synth/Synth_artefacts/Release/VST3/Synth.vst" $ROOT/bin
+
+  cd "$ROOT\bin"
+  7z a Gin.zip Demo.exe Synth.vst3
+
+  rm -Rf Demo.exe Synth.vst3
 fi
 
