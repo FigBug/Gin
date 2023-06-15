@@ -72,7 +72,7 @@ elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
   cmake --build --preset vs --config Release
 
   cp -R "$ROOT/Builds/vs/examples/Demo/Demo_artefacts/Release/Demo.exe" $ROOT/bin
-  cp -R "$ROOT/Builds/vs/examples/Synth/Synth_artefacts/Release/VST3/Synth.vst" $ROOT/bin
+  cp -R "$ROOT/Builds/vs/examples/Synth/Synth_artefacts/Release/VST3/Synth.vst3" $ROOT/bin
 
   cd "$ROOT\bin"
   7z a Gin.zip Demo.exe Synth.vst3
