@@ -42,6 +42,13 @@ if [ "$(uname)" == "Darwin" ]; then
   cp -R "$ROOT/Builds/xcode/examples/Synth/Synth_artefacts/Release/AU/Synth.component" "$ROOT/bin"
 
   cd $ROOT/bin
+
+  if [[ -n "$APPLICATION" ]]; then
+    codesign --force -s "$DEV_APP_ID" -v "Demo.app" --deep --strict --options=runtime
+    codesign --force -s "$DEV_APP_ID" -v "Synth.vst3" --deep --strict --options=runtime
+    codesign --force -s "$DEV_APP_ID" -v "Synth.component" --deep --strict --options=runtime
+  fi
+
   zip -r Gin.zip Demo.app Synth.vst3 Synth.component
   if [[ -n "$APPLE_USER" ]]; then
     xcrun notarytool submit --verbose --apple-id "$APPLE_USER" --password "$APPLE_PASS" --team-id "3FS7DJDG38" --wait --timeout 30m Gin.zip
