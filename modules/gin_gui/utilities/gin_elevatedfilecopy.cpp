@@ -42,23 +42,15 @@ static ElevatedFileCopy::Result runWithPermissions (juce::String cmd, juce::Stri
 
     if (err == noErr)
     {
-        auto processIdentifier = fcntl (fileno (outputFile), F_GETOWN, 0);
+		while (true)
+		{
+			char buffer[1024];
+			auto bytesRead = read (fileno(outputFile), buffer, sizeof(buffer));
+			if (bytesRead < 1)
+				break;
+		}
 
-        AuthorizationFree (authorizationRef, kAuthorizationFlagDefaults);
-
-        int status;
-        pid_t pid = 0;
-
-        while ((pid = waitpid (processIdentifier, &status, WNOHANG)) == 0)
-            juce::Thread::sleep (10);
-
-        fclose (outputFile);
-
-        auto terminationStatus = WEXITSTATUS (status);
-        if (terminationStatus == 0)
-            return ElevatedFileCopy::success;
-
-        return ElevatedFileCopy::failed;
+		return ElevatedFileCopy::success;
     }
     return ElevatedFileCopy::nopermissions;
 }
@@ -71,8 +63,7 @@ static juce::String escape (const juce::String& in)
 ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (juce::File script, bool launchSelf)
 {
     juce::ignoreUnused (launchSelf);
-    runWithPermissions ("/bin/sh", { script.getFullPathName() });
-    return success;
+	return runWithPermissions ("/bin/sh", { script.getFullPathName() });
 }
 
 juce::File ElevatedFileCopy::createScript (const juce::Array<juce::File>& toDelete,
