@@ -249,12 +249,12 @@ void TitleBar::setShowPresets (bool s)
 
 void TitleBar::setShowMenu (bool s)
 {
-    menuButton.setVisible (false);
+    menuButton.setVisible (s);
 }
 
 void TitleBar::setShowInfo (bool s)
 {
-    infoButton.setVisible (false);
+    infoButton.setVisible (s);
 }
 
 void TitleBar::resized()
