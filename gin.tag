@@ -3276,6 +3276,13 @@
     </member>
     <member kind="function">
       <type>float</type>
+      <name>readLagrange</name>
+      <anchorfile>classDelayLine.html</anchorfile>
+      <anchor>a02fd312c5f9a3a5aeb7aae8e7ab2d4c0</anchor>
+      <arglist>(int ch, double t)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
       <name>readLinear</name>
       <anchorfile>classDelayLine.html</anchorfile>
       <anchor>a2d418fd7a015aa7518c3adf46e978d8e</anchor>

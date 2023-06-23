@@ -81,6 +81,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae151b754e94c4ff1a0d1affabce89eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9772448deb700a0f86f44bf1e4b65a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDelayLine.html#ad9772448deb700a0f86f44bf1e4b65a0">clear</a> ()</td></tr>
 <tr class="separator:ad9772448deb700a0f86f44bf1e4b65a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02fd312c5f9a3a5aeb7aae8e7ab2d4c0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDelayLine.html#a02fd312c5f9a3a5aeb7aae8e7ab2d4c0">readLagrange</a> (int ch, double t)</td></tr>
+<tr class="separator:a02fd312c5f9a3a5aeb7aae8e7ab2d4c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d418fd7a015aa7518c3adf46e978d8e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDelayLine.html#a2d418fd7a015aa7518c3adf46e978d8e">readLinear</a> (int ch, double t)</td></tr>
 <tr class="separator:a2d418fd7a015aa7518c3adf46e978d8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5ba8b3041d885a7cd2f7147b7e59fc6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDelayLine.html#ad5ba8b3041d885a7cd2f7147b7e59fc6">readSample</a> (int ch, int samplePos)</td></tr>
@@ -197,6 +199,36 @@ Protected Attributes</h2></td></tr>
 <p class="reference">References <a class="el" href="classDelayLine.html#a93574b33770845363b409a6578919369">buffer</a>, and <a class="el" href="classDelayLine.html#a277d65ab60f42d22f55d48596412c897">writePos</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classModulation.html#a7fa5c8e397f587f844315bb5fa192790">Modulation::reset()</a>, <a class="el" href="classStereoDelay.html#aa3d97ad1b7370dc061d9f73daa574c2b">StereoDelay::reset()</a>, and <a class="el" href="classModulation.html#a14bd355d13a545d034f30df8024102fe">Modulation::setSampleRate()</a>.</p>
+
+</div>
+</div>
+<a id="a02fd312c5f9a3a5aeb7aae8e7ab2d4c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02fd312c5f9a3a5aeb7aae8e7ab2d4c0">&#9670;&nbsp;</a></span>readLagrange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float DelayLine::readLagrange </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classDelayLine.html#a93574b33770845363b409a6578919369">buffer</a>, <a class="el" href="classDelayLine.html#a7626cd60f96412594a28f4471337587b">data</a>, <a class="el" href="namespaceLagrange.html#aed0cc45b276f9ed337143c4587dc1122">Lagrange::interpolate()</a>, <a class="el" href="classDelayLine.html#a837d7a6d6024a6416ebe97b7b82bd467">sampleRate</a>, and <a class="el" href="classDelayLine.html#a277d65ab60f42d22f55d48596412c897">writePos</a>.</p>
 
 </div>
 </div>
@@ -336,7 +368,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classDelayLine.html#ad9772448deb700a0f86f44bf1e4b65a0">clear()</a>, <a class="el" href="classDelayLine.html#a2d418fd7a015aa7518c3adf46e978d8e">readLinear()</a>, <a class="el" href="classDelayLine.html#ad5ba8b3041d885a7cd2f7147b7e59fc6">readSample()</a>, <a class="el" href="classDelayLine.html#ae151b754e94c4ff1a0d1affabce89eeb">setSize()</a>, and <a class="el" href="classDelayLine.html#ab36052a31da09d3a8162651ba437bec6">writeFinished()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classDelayLine.html#ad9772448deb700a0f86f44bf1e4b65a0">clear()</a>, <a class="el" href="classDelayLine.html#a02fd312c5f9a3a5aeb7aae8e7ab2d4c0">readLagrange()</a>, <a class="el" href="classDelayLine.html#a2d418fd7a015aa7518c3adf46e978d8e">readLinear()</a>, <a class="el" href="classDelayLine.html#ad5ba8b3041d885a7cd2f7147b7e59fc6">readSample()</a>, <a class="el" href="classDelayLine.html#ae151b754e94c4ff1a0d1affabce89eeb">setSize()</a>, and <a class="el" href="classDelayLine.html#ab36052a31da09d3a8162651ba437bec6">writeFinished()</a>.</p>
 
 </div>
 </div>
@@ -360,7 +392,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classDelayLine.html#a2d418fd7a015aa7518c3adf46e978d8e">readLinear()</a>, <a class="el" href="classDelayLine.html#ad5ba8b3041d885a7cd2f7147b7e59fc6">readSample()</a>, <a class="el" href="classDelayLine.html#ae151b754e94c4ff1a0d1affabce89eeb">setSize()</a>, and <a class="el" href="classDelayLine.html#ae83573274b47e182d7293edd582ae2f3">write()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classDelayLine.html#a02fd312c5f9a3a5aeb7aae8e7ab2d4c0">readLagrange()</a>, <a class="el" href="classDelayLine.html#a2d418fd7a015aa7518c3adf46e978d8e">readLinear()</a>, <a class="el" href="classDelayLine.html#ad5ba8b3041d885a7cd2f7147b7e59fc6">readSample()</a>, <a class="el" href="classDelayLine.html#ae151b754e94c4ff1a0d1affabce89eeb">setSize()</a>, and <a class="el" href="classDelayLine.html#ae83573274b47e182d7293edd582ae2f3">write()</a>.</p>
 
 </div>
 </div>
@@ -384,7 +416,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classDelayLine.html#a2d418fd7a015aa7518c3adf46e978d8e">readLinear()</a>, and <a class="el" href="classDelayLine.html#ae151b754e94c4ff1a0d1affabce89eeb">setSize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classDelayLine.html#a02fd312c5f9a3a5aeb7aae8e7ab2d4c0">readLagrange()</a>, <a class="el" href="classDelayLine.html#a2d418fd7a015aa7518c3adf46e978d8e">readLinear()</a>, and <a class="el" href="classDelayLine.html#ae151b754e94c4ff1a0d1affabce89eeb">setSize()</a>.</p>
 
 </div>
 </div>
@@ -408,7 +440,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classDelayLine.html#ad9772448deb700a0f86f44bf1e4b65a0">clear()</a>, <a class="el" href="classDelayLine.html#a2d418fd7a015aa7518c3adf46e978d8e">readLinear()</a>, <a class="el" href="classDelayLine.html#ad5ba8b3041d885a7cd2f7147b7e59fc6">readSample()</a>, <a class="el" href="classDelayLine.html#ae151b754e94c4ff1a0d1affabce89eeb">setSize()</a>, <a class="el" href="classDelayLine.html#ae83573274b47e182d7293edd582ae2f3">write()</a>, and <a class="el" href="classDelayLine.html#ab36052a31da09d3a8162651ba437bec6">writeFinished()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classDelayLine.html#ad9772448deb700a0f86f44bf1e4b65a0">clear()</a>, <a class="el" href="classDelayLine.html#a02fd312c5f9a3a5aeb7aae8e7ab2d4c0">readLagrange()</a>, <a class="el" href="classDelayLine.html#a2d418fd7a015aa7518c3adf46e978d8e">readLinear()</a>, <a class="el" href="classDelayLine.html#ad5ba8b3041d885a7cd2f7147b7e59fc6">readSample()</a>, <a class="el" href="classDelayLine.html#ae151b754e94c4ff1a0d1affabce89eeb">setSize()</a>, <a class="el" href="classDelayLine.html#ae83573274b47e182d7293edd582ae2f3">write()</a>, and <a class="el" href="classDelayLine.html#ab36052a31da09d3a8162651ba437bec6">writeFinished()</a>.</p>
 
 </div>
 </div>
@@ -418,7 +450,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 23 2023 18:10:35 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Jun 23 2023 22:52:32 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
