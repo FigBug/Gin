@@ -1247,6 +1247,7 @@
     <name>gin_plugineditor.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
     <filename>gin__plugineditor_8h.html</filename>
+    <class kind="class">EditorOptions</class>
     <class kind="class">UpdateChecker</class>
     <class kind="class">NewsChecker</class>
     <class kind="class">ProcessorEditorBase</class>
@@ -3907,6 +3908,24 @@
       <anchorfile>classEasedValueSmoother.html</anchorfile>
       <anchor>ae5e2dc56a32512d27b6ac147ae12859f</anchor>
       <arglist>(T v)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>EditorOptions</name>
+    <filename>classEditorOptions.html</filename>
+    <member kind="variable">
+      <type>bool</type>
+      <name>useUpdateChecker</name>
+      <anchorfile>classEditorOptions.html</anchorfile>
+      <anchor>a17a30e94262ef7ef0a9d2aff3c490c99</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>useNewsChecker</name>
+      <anchorfile>classEditorOptions.html</anchorfile>
+      <anchor>ab9daa4461e9eacbb8d6ff894920e74f9</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -9884,15 +9903,15 @@
       <type></type>
       <name>ProcessorEditor</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a1243029ef3210c55622ab215bb90d378</anchor>
-      <arglist>(Processor &amp;) noexcept</arglist>
+      <anchor>a12c048b8275116b35d725fcf7c321bdd</anchor>
+      <arglist>(Processor &amp;, EditorOptions eo={}) noexcept</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>ProcessorEditor</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>af0945c5f7f341f83fb7ff667696d03fb</anchor>
-      <arglist>(Processor &amp;, int cx, int cy) noexcept</arglist>
+      <anchor>abdbd03056056879c39964fa74307252f</anchor>
+      <arglist>(Processor &amp;, int cx, int cy, EditorOptions eo={}) noexcept</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -10000,8 +10019,8 @@
       <type></type>
       <name>ProcessorEditorBase</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>a4aa0f87f4268ac1cb146bdc71376cc89</anchor>
-      <arglist>(Processor &amp;p, int cx_, int cy_)</arglist>
+      <anchor>a6c31dde58c00c08d3011ced43e453fc2</anchor>
+      <arglist>(Processor &amp;p, int cx_, int cy_, EditorOptions eo)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -10087,6 +10106,13 @@
       <anchor>a2f1f906db82e4a9741e3916a8a6c7451</anchor>
       <arglist>(bool accessible)</arglist>
     </member>
+    <member kind="function">
+      <type>const EditorOptions &amp;</type>
+      <name>getOptions</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a8b1ca34f8839db655b7dc30fc9abe8c3</anchor>
+      <arglist>()</arglist>
+    </member>
     <member kind="variable">
       <type>juce::ComponentBoundsConstrainer</type>
       <name>resizeLimits</name>
@@ -10127,6 +10153,13 @@
       <name>resizer</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
       <anchor>a852dc8320bd7a08b2c2cc4214cb7ec23</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>EditorOptions</type>
+      <name>options</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>a5dba73da598d1460b2b3f326df8350c0</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -12519,6 +12552,20 @@
       <anchor>addc556044a2d728b9586ab3ac2e0abe7</anchor>
       <arglist>(bool)</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setShowMenu</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>ac50be2ca4a92e1f399b7be648dba9caa</anchor>
+      <arglist>(bool)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setShowInfo</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>a2d4430ecfe2d559ad1ceb7e792eb7933</anchor>
+      <arglist>(bool)</arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>paint</name>
@@ -14185,14 +14232,14 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_graphics-formats</name>
-    <title>formats</title>
-    <filename>group__gin__graphics-formats.html</filename>
-  </compound>
-  <compound kind="group">
     <name>gin_webp-formats</name>
     <title>formats</title>
     <filename>group__gin__webp-formats.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>gin_graphics-formats</name>
+    <title>formats</title>
+    <filename>group__gin__graphics-formats.html</filename>
   </compound>
   <compound kind="group">
     <name>gin-geometry</name>
@@ -14274,25 +14321,6 @@
     <title>gin_webp</title>
     <filename>group__gin__webp.html</filename>
     <subgroup>gin_webp-formats</subgroup>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-images</name>
-    <title>images</title>
-    <filename>group__gin__gui-images.html</filename>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>rasterizeSVG</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
-      <arglist>(juce::String svgText, int w, int h)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Path</type>
-      <name>parseSVGPath</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
-      <arglist>(const juce::String &amp;txt)</arglist>
-    </member>
   </compound>
   <compound kind="group">
     <name>gin_graphics-images</name>
@@ -14583,6 +14611,25 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_gui-images</name>
+    <title>images</title>
+    <filename>group__gin__gui-images.html</filename>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>rasterizeSVG</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
+      <arglist>(juce::String svgText, int w, int h)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Path</type>
+      <name>parseSVGPath</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
+      <arglist>(const juce::String &amp;txt)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
     <name>gin_location-location</name>
     <title>location</title>
     <filename>group__gin__location-location.html</filename>
@@ -14625,39 +14672,6 @@
     <name>gin_plugin-resources</name>
     <title>resources</title>
     <filename>group__gin__plugin-resources.html</filename>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-utilities</name>
-    <title>utilities</title>
-    <filename>group__gin__gui-utilities.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>callOnMainThreadBlocking</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
-      <arglist>(std::function&lt; void()&gt; func)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
-    </member>
   </compound>
   <compound kind="group">
     <name>gin-utilities</name>
@@ -15005,6 +15019,39 @@
       <anchorfile>group__gin-utilities.html</anchorfile>
       <anchor>ga88f482bf81fb3e423fa1e3926dfaa9a6</anchor>
       <arglist>(const juce::String &amp;jsonText)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_gui-utilities</name>
+    <title>utilities</title>
+    <filename>group__gin__gui-utilities.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>callOnMainThreadBlocking</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
+      <arglist>(std::function&lt; void()&gt; func)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
     </member>
   </compound>
 </tagfile>
