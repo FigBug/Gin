@@ -195,11 +195,17 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p)
 
     slProc.addChangeListener (this);
 
-    updateChecker = std::make_unique<UpdateChecker> (slProc);
-    updateChecker->onUpdate = [](juce::String) {};
+    if (editor.getOptions().useUpdateChecker)
+    {
+        updateChecker = std::make_unique<UpdateChecker> (slProc);
+        updateChecker->onUpdate = [](juce::String) {};
+    }
 
-    newsChecker = std::make_unique<NewsChecker> (slProc);
-    newsChecker->onNewsUpdate = [](juce::String) {};
+    if (editor.getOptions().useNewsChecker)
+    {
+        newsChecker = std::make_unique<NewsChecker> (slProc);
+        newsChecker->onNewsUpdate = [](juce::String) {};
+    }
 }
 
 TitleBar::~TitleBar ()
@@ -239,6 +245,16 @@ void TitleBar::setShowPresets (bool s)
 {
     hasPresets = s;
     resized();
+}
+
+void TitleBar::setShowMenu (bool s)
+{
+    menuButton.setVisible (false);
+}
+
+void TitleBar::setShowInfo (bool s)
+{
+    infoButton.setVisible (false);
 }
 
 void TitleBar::resized()
@@ -390,33 +406,39 @@ void TitleBar::showMenu()
 
     m.addSeparator();
 
-    auto updateUrl = updateChecker->getUpdateUrl();
-    m.addItem ("Get update", updateUrl.isNotEmpty(), false, [this, updateUrl]
+    if (updateChecker)
     {
-        juce::URL (updateUrl).launchInDefaultBrowser();
-
-       #ifdef JucePlugin_Name
-        if (auto props = slProc.getSettings())
-            props->setValue (JucePlugin_Name "_updateUrl", "");
-       #else
-        (void) this;
-       #endif
-    });
-
-    auto newsUrl = newsChecker->getNewsUrl();
-    m.addItem ("Read news", newsUrl.isNotEmpty(), false, [this, newsUrl]
-    {
-        juce::URL (newsUrl).launchInDefaultBrowser();
-
-        if (auto props = slProc.getSettings())
+        auto updateUrl = updateChecker->getUpdateUrl();
+        m.addItem ("Get update", updateUrl.isNotEmpty(), false, [this, updateUrl]
         {
-            props->setValue ("newsUrl", "");
+            juce::URL (updateUrl).launchInDefaultBrowser();
 
-            auto readNews = juce::StringArray::fromTokens (props->getValue ("readNews"), "|", "");
-            readNews.add (newsUrl);
-            props->setValue ("readNews", readNews.joinIntoString ("|"));
-        }
-    });
+#ifdef JucePlugin_Name
+            if (auto props = slProc.getSettings())
+                props->setValue (JucePlugin_Name "_updateUrl", "");
+#else
+            (void) this;
+#endif
+        });
+    }
+
+    if (newsChecker)
+    {
+        auto newsUrl = newsChecker->getNewsUrl();
+        m.addItem ("Read news", newsUrl.isNotEmpty(), false, [this, newsUrl]
+        {
+            juce::URL (newsUrl).launchInDefaultBrowser();
+
+            if (auto props = slProc.getSettings())
+            {
+                props->setValue ("newsUrl", "");
+
+                auto readNews = juce::StringArray::fromTokens (props->getValue ("readNews"), "|", "");
+                readNews.add (newsUrl);
+                props->setValue ("readNews", readNews.joinIntoString ("|"));
+            }
+        });
+    }
 
     m.addSeparator();
 
@@ -525,8 +547,8 @@ bool wantsAccessibleKeyboard (juce::Component& c)
 }
 
 //==============================================================================
-ProcessorEditor::ProcessorEditor (Processor& p) noexcept
-  : ProcessorEditorBase (p, 56, 70), slProc (p)
+ProcessorEditor::ProcessorEditor (Processor& p, EditorOptions e) noexcept
+  : ProcessorEditorBase (p, 56, 70, e), slProc (p)
 {
     setLookAndFeel (slProc.lf.get());
 
@@ -538,8 +560,8 @@ ProcessorEditor::ProcessorEditor (Processor& p) noexcept
     titleBar.refreshPrograms();
 }
 
-ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_) noexcept
-    : ProcessorEditorBase (p, cx_, cy_), slProc (p)
+ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_, EditorOptions e) noexcept
+    : ProcessorEditorBase (p, cx_, cy_, e), slProc (p)
 {
     setLookAndFeel (slProc.lf.get());
 
