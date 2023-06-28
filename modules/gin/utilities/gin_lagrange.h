@@ -54,7 +54,7 @@ T interpolate (T xArr[], T yArr[], int num, T x)
             if (i != j)
             {
                 auto d = xArr[i] - xArr[j];
-                if (d != 0)
+                if (! juce::approximatelyEqual (d, 0.0f))
                     term = term * (x - xArr[j] ) / d;
                 else
                     term = 0;

@@ -126,7 +126,7 @@ void SimpleVerb::flushBuffers()
 
 void SimpleVerb::setParameters (float roomIn, float dampIn, float preDelayIn, float lpFaderIn, float hpFaderIn, float wetIn, float dryIn)
 {
-    if (roomIn != roomSizeFader)
+    if (! juce::approximatelyEqual (roomIn, roomSizeFader))
     {
         roomSizeFader = roomIn;
         roomSize = 5 + roomSizeFader * roomSizeFader * 95;
@@ -169,38 +169,38 @@ void SimpleVerb::setParameters (float roomIn, float dampIn, float preDelayIn, fl
 
         flushBuffers();
     }
-    if (dampIn != dampFader)
+    if (! juce::approximatelyEqual (dampIn, dampFader))
     {
         dampFader = dampIn;
         damp = std::min (1.0f - dampFader * dampFader, 0.95f);
     }
-    if (preDelayIn != preDelayFader)
+    if (! juce::approximatelyEqual (preDelayIn, preDelayFader))
     {
         preDelayFader = preDelayIn;
         preDelayLength = static_cast<unsigned int>(preDelayFader * preDelayFader * 250 * sampleRate / 1000);
         preDelayPos = 0;
         flushPreDelay();
     }
-    if  (lpFaderIn != freqLPFader)
+    if  (! juce::approximatelyEqual (lpFaderIn, freqLPFader))
     {
         freqLPFader = lpFaderIn;
         freqLP = freqLPFader * freqLPFader * freqLPFader * 24000;
         b1LP = -std::exp (-2.0f * juce::MathConstants<float>::pi * freqLP/ sampleRate); // 100Hz
         a0LP = 1.0f + b1LP;
     }
-    if (hpFaderIn != freqHPFader)
+    if (! juce::approximatelyEqual (hpFaderIn, freqHPFader))
     {
         freqHPFader = hpFaderIn;
         freqHP = freqHPFader * freqHPFader * freqHPFader * 24000;
         b1HP = -std::exp (-2.0f * juce::MathConstants<float>::pi * freqHP / sampleRate); // 100Hz
         a0HP = 1.0f + b1HP;
     }
-    if (dryIn != dryFader)
+    if (! juce::approximatelyEqual (dryIn, dryFader))
     {
         dryFader = dryIn;
         dry = dryFader * 2;
     }
-    if (wetIn != wetFader)
+    if (! juce::approximatelyEqual (wetIn, wetFader))
     {
         wetFader = wetIn;
         wet = wetFader * 2;
@@ -308,7 +308,7 @@ void SimpleVerb::process (juce::AudioSampleBuffer& buffer)
         if (++allpassR3Pos >= allpassR3Length)
             allpassR3Pos = 0;
 
-        if (freqHPFader != 0)
+        if (! juce::approximatelyEqual (freqHPFader, 0.0f))
         {
             left -= (tmp1HP = a0HP * left - b1HP * tmp1HP + cDC_) - cDC_;
             right -= (tmp2HP = a0HP * right - b1HP * tmp2HP + cDC_) - cDC_;
@@ -316,7 +316,7 @@ void SimpleVerb::process (juce::AudioSampleBuffer& buffer)
             jassert (! std::isnan (left) && ! std::isinf (left));
             jassert (! std::isnan (right) && ! std::isinf (right));
         }
-        if (freqLPFader != 1)
+        if (! juce::approximatelyEqual (freqLPFader, 1.0f))
         {
             left = (tmp1LP = a0LP * left - b1LP * tmp1LP + cDC_) - cDC_;
             right = (tmp2LP = a0LP * right - b1LP * tmp2LP + cDC_) - cDC_;

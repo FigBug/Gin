@@ -39,12 +39,12 @@ Parameter::Parameter (Processor& p, juce::String uid_, juce::String name_, juce:
 
 bool Parameter::isOn()
 {
-    return range.start != getUserValue();
+    return ! juce::approximatelyEqual (range.start, getUserValue());
 }
 
 bool Parameter::isOnOff()
 {
-    return range.start == 0 && range.end == range.interval;
+    return juce::approximatelyEqual (range.start, 0.0f) && juce::approximatelyEqual (range.end, range.interval);
 }
 
 float Parameter::getProcValue()
@@ -238,7 +238,7 @@ juce::String Parameter::getLabel() const
 
 int Parameter::getNumSteps() const
 {
-    if (range.interval == 0)
+    if (juce::approximatelyEqual (range.interval, 0.0f))
         return 0;
     return juce::roundToInt ((range.end - range.start) / range.interval);
 }

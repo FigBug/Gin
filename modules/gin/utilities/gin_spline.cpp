@@ -36,9 +36,9 @@ Spline::Spline (const juce::Array<Point<double>>& points)
     {
         h.set (i, points[i+1].getX() - points[i].getX());
         l.set (i, (2 * (points[i+1].getX() - points[i-1].getX())) - (h[i-1]) * u[i-1]);
-        u.set (i, l[i] == 0 ? 0 :h[i] / l[i]);
-        a.set (i, h[i] == 0 || h[i-1] == 0 ? 0 : (3.0 / (h[i])) * (points[i+1].getY() - points[i].getY()) - (3.0 / (h[i-1])) * (points[i].getY() - points[i-1].getY()));
-        z.set (i, l[i] == 0 ? 0 : (a[i] - (h[i-1]) * z[i-1]) / l[i]);
+        u.set (i, juce::approximatelyEqual (l[i], 0.0) ? 0 : h[i] / l[i]);
+        a.set (i, juce::approximatelyEqual (h[i], 0.0) || juce::approximatelyEqual (h[i-1], 0.0) ? 0 : (3.0 / (h[i])) * (points[i+1].getY() - points[i].getY()) - (3.0 / (h[i-1])) * (points[i].getY() - points[i-1].getY()));
+        z.set (i, juce::approximatelyEqual (l[i], 0.0) ? 0 : (a[i] - (h[i-1]) * z[i-1]) / l[i]);
     }
 
     l.set (n, 1.0);
@@ -47,9 +47,9 @@ Spline::Spline (const juce::Array<Point<double>>& points)
 
     for (int j = n - 1; j >= 0; j--)
     {
-        c.set (j, z[j] - u[j] * c[j+1]);
-        b.set (j, h[j] == 0 ? 0 : (points[j+1].getY() - points[j].getY()) / (h[j]) - ((h[j]) * (c[j+1] + 2.0 * c[j])) / 3.0);
-        d.set (j, h[j] == 0 ? 0 : (c[j+1] - c[j]) / (3.0 * h[j]));
+        c.set (j, z[j] - u[j] * c[j + 1]);
+        b.set (j, juce::approximatelyEqual (h[j], 0.0) ? 0 : (points[j+1].getY() - points[j].getY()) / (h[j]) - ((h[j]) * (c[j+1] + 2.0 * c[j])) / 3.0);
+        d.set (j, juce::approximatelyEqual (h[j], 0.0) ? 0 : (c[j+1] - c[j]) / (3.0 * h[j]));
     }
 
     for (int i = 0; i < n; i++)

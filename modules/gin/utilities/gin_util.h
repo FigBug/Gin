@@ -223,7 +223,7 @@ void delayedLambda (std::function<void ()> callback, int delayMS);
 template <typename T>
 juce::String formatNumber (T v)
 {
-    if (v == 0)
+    if (juce::approximatelyEqual (v, T(0.0)))
         return "0";
     
     int dec = 0;

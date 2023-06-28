@@ -37,7 +37,7 @@ struct OscState : public FuncState
 
     inline void incPhase (float note)
     {
-        if (note != lastNote)
+        if (! juce::approximatelyEqual (note, lastNote))
         {
             lastNote = note;
 

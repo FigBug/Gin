@@ -69,6 +69,7 @@ namespace gin
  #pragma clang diagnostic push
  #pragma clang diagnostic ignored "-Wswitch-enum"
  #pragma clang diagnostic ignored "-Wmissing-noreturn"
+ #pragma clang diagnostic ignored "-Wfloat-equal"
 #endif
 
 JUCE_BEGIN_IGNORE_WARNINGS_MSVC(4702)

@@ -105,7 +105,7 @@ void StepLFOComponent::paint (juce::Graphics& g)
 
 void StepLFOComponent::timerCallback()
 {
-    if (lastUpdate == -1)
+    if (juce::approximatelyEqual (lastUpdate, -1.0))
     {
         lastUpdate = juce::Time::getMillisecondCounter() / 1000.0;
     }

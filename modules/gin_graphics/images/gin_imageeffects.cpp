@@ -485,17 +485,17 @@ void applyBrightnessContrast (juce::Image& img, float brightness, float contrast
 
     juce::Image::BitmapData data (img, juce::Image::BitmapData::readWrite);
 
-    double multiply = 1;
-    double divide = 1;
+    double multiply = 1.0;
+    double divide = 1.0;
 
     if (contrast < 0)
     {
         multiply = contrast + 100;
-        divide = 100;
+        divide = 100.0;
     }
     else if (contrast > 0)
     {
-        multiply = 100;
+        multiply = 100.0;
         divide = 100 - contrast;
     }
     else
@@ -506,7 +506,7 @@ void applyBrightnessContrast (juce::Image& img, float brightness, float contrast
 
     uint8_t* rgbTable = new uint8_t[65536];
 
-    if (divide == 0)
+    if (juce::exactlyEqual (divide, 0.0))
     {
         for (int intensity = 0; intensity < 256; intensity++)
         {
@@ -516,7 +516,7 @@ void applyBrightnessContrast (juce::Image& img, float brightness, float contrast
                 rgbTable[intensity] = 255;
         }
     }
-    else if (divide == 100)
+    else if (juce::exactlyEqual (divide, 100.0))
     {
         for (int intensity = 0; intensity < 256; intensity++)
         {
@@ -556,7 +556,7 @@ void applyBrightnessContrast (juce::Image& img, float brightness, float contrast
             uint8_t b = s->getBlue();
             uint8_t a = s->getAlpha();
 
-            if (divide == 0)
+            if (juce::exactlyEqual (divide, 0.0))
             {
                 int i = getIntensity (toByte (r), toByte (g), toByte (b));
                 uint8_t c = rgbTable[i];

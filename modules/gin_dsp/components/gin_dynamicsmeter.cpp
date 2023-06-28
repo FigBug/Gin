@@ -42,7 +42,7 @@ void DynamicsMeter::paint (juce::Graphics& g)
 
         float y = float (getHeight()) - range.convertTo0to1 (juce::jlimit (range.start, range.end, dbOut)) * float (getHeight ());
 
-        if (x == 0)
+        if (juce::exactlyEqual (x, 0.0f))
             p.startNewSubPath (x, y);
         else
             p.lineTo (x, y);

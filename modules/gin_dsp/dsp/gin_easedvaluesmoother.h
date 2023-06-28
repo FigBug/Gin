@@ -36,7 +36,7 @@ public:
 
     void process (int n)
     {
-        if (targetValue != currentValue)
+        if (! juce::approximatelyEqual (targetValue, currentValue))
             for (int i = 0; i < n; i++)
                 updateValue();
     }

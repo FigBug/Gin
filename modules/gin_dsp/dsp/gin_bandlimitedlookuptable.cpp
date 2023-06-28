@@ -159,7 +159,7 @@ BandLimitedLookupTables::BandLimitedLookupTables (double sampleRate_, int notesP
 
 void BandLimitedLookupTables::setSampleRate (double sampleRate_)
 {
-    if (sampleRate != sampleRate_)
+    if (! juce::approximatelyEqual (sampleRate, sampleRate_))
     {
         sampleRate = sampleRate_;
         sineTable.reset (sine, sampleRate, 64, tableSize);
