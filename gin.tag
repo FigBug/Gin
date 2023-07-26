@@ -244,6 +244,12 @@
     <class kind="class">BMPImageFormat</class>
   </compound>
   <compound kind="file">
+    <name>gin_catenary.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/geometry/</path>
+    <filename>gin__catenary_8h.html</filename>
+    <class kind="class">Catenary</class>
+  </compound>
+  <compound kind="file">
     <name>gin_coalescedtimer.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/utilities/</path>
     <filename>gin__coalescedtimer_8h.html</filename>
@@ -2963,6 +2969,31 @@
       <anchorfile>structBP24State.html</anchorfile>
       <anchor>a02c9da59417956981fef2420eafcdd7a</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Catenary</name>
+    <filename>classCatenary.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Catenary</name>
+      <anchorfile>classCatenary.html</anchorfile>
+      <anchor>a28b6ec8aaf6dfdf75837416a83f42a51</anchor>
+      <arglist>(float x0, float y0, float x1, float y1, float addLength, int numIterations=1)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>calcY</name>
+      <anchorfile>classCatenary.html</anchorfile>
+      <anchor>abf11a4f00570edce43f30e9512b7f1e4</anchor>
+      <arglist>(float x) const</arglist>
+    </member>
+    <member kind="function">
+      <type>std::pair&lt; float, float &gt;</type>
+      <name>getVertex</name>
+      <anchorfile>classCatenary.html</anchorfile>
+      <anchor>a2b1fd031b8f31e63f6328804e2e5c49c</anchor>
+      <arglist>() const</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -14035,16 +14066,9 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_plugin-components</name>
+    <name>gin_dsp-components</name>
     <title>components</title>
-    <filename>group__gin__plugin-components.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>gradientRect</name>
-      <anchorfile>group__gin__plugin-components.html</anchorfile>
-      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
-      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
-    </member>
+    <filename>group__gin__dsp-components.html</filename>
   </compound>
   <compound kind="group">
     <name>gin_gui-components</name>
@@ -14066,9 +14090,16 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_dsp-components</name>
+    <name>gin_plugin-components</name>
     <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
+    <filename>group__gin__plugin-components.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>gradientRect</name>
+      <anchorfile>group__gin__plugin-components.html</anchorfile>
+      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
+      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>gin_dsp-dsp</name>
@@ -14239,14 +14270,14 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_webp-formats</name>
-    <title>formats</title>
-    <filename>group__gin__webp-formats.html</filename>
-  </compound>
-  <compound kind="group">
     <name>gin_graphics-formats</name>
     <title>formats</title>
     <filename>group__gin__graphics-formats.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>gin_webp-formats</name>
+    <title>formats</title>
+    <filename>group__gin__webp-formats.html</filename>
   </compound>
   <compound kind="group">
     <name>gin-geometry</name>
@@ -14681,6 +14712,39 @@
     <filename>group__gin__plugin-resources.html</filename>
   </compound>
   <compound kind="group">
+    <name>gin_gui-utilities</name>
+    <title>utilities</title>
+    <filename>group__gin__gui-utilities.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>callOnMainThreadBlocking</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
+      <arglist>(std::function&lt; void()&gt; func)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
     <name>gin-utilities</name>
     <title>utilities</title>
     <filename>group__gin-utilities.html</filename>
@@ -15026,39 +15090,6 @@
       <anchorfile>group__gin-utilities.html</anchorfile>
       <anchor>ga88f482bf81fb3e423fa1e3926dfaa9a6</anchor>
       <arglist>(const juce::String &amp;jsonText)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-utilities</name>
-    <title>utilities</title>
-    <filename>group__gin__gui-utilities.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>callOnMainThreadBlocking</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
-      <arglist>(std::function&lt; void()&gt; func)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
     </member>
   </compound>
 </tagfile>
