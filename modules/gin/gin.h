@@ -61,8 +61,10 @@
  #include <juce_graphics/juce_graphics.h>
 #endif
 
+#include <algorithm>
 #include <map>
 #include <cmath>
+
 
 namespace gin
 {
@@ -89,6 +91,7 @@ namespace gin
 #include "utilities/gin_valuetreeobject.h"
 #include "utilities/gin_valuetreeutilities.h"
 
+#include "geometry/gin_catenary.h"
 #include "geometry/gin_geometry.h"
 
 }

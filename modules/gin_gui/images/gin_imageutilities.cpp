@@ -13,13 +13,13 @@ juce::Image rasterizeSVG (juce::String svgText, int w, int h)
     {
         const juce::MessageManagerLock mmLock ( juce::Thread::getCurrentThread () );
 
-		if ( mmLock.lockWasGained () )
-		{
-			auto drawable = juce::Drawable::createFromSVG (*svg);
-			
-			juce::Graphics g (img);
-			drawable->drawWithin (g, juce::Rectangle<float>(float (w), float (h)), 0, 1.0f);
-		}
+        if ( mmLock.lockWasGained () )
+        {
+            auto drawable = juce::Drawable::createFromSVG (*svg);
+
+            juce::Graphics g (img);
+            drawable->drawWithin (g, juce::Rectangle<float>(float (w), float (h)), 0, 1.0f);
+        }
     }
 
     return img;
