@@ -22,50 +22,115 @@ template <typename T>
 class Ellipse
 {
 public:
+	Ellipse  (T x_, T y_, T a_, T b_) : x (x_), y (y_), a (a_), b (b_)
+	{
+	}
+
     Ellipse  (T a_, T b_) : a (a_), b (b_)
     {
     }
 
     bool isPointOn (Point<T> pt, T accuracy = 0.00001)
     {
+		pt.x -= x;
+		pt.y -= y;
         return std::abs (1.0 - (square (pt.getX()) / square (a) + square (pt.getY()) / square (b))) < accuracy;
     }
 
     bool isPointOutside (Point<T> pt)
     {
+		pt.x -= x;
+		pt.y -= y;
         return (square (pt.getX()) / square (a) + square (pt.getY()) / square (b)) > 1.0;
     }
 
     bool isPointInside (Point<T> pt)
     {
+		pt.x -= x;
+		pt.y -= y;
         return (square (pt.getX()) / square (a) + square (pt.getY()) / square (b)) < 1.0;
     }
 
     Point<T> pointAtAngle (T angle)
     {
-        T x = (a * b) / ::std::sqrt (square (b) + square (a) * square (::std::tan (angle)));
-        T y = (a * b) / ::std::sqrt (square (a) + square (b) / square (::std::tan (angle)));
+        T px = (a * b) / ::std::sqrt (square (b) + square (a) * square (::std::tan (angle)));
+        T py = (a * b) / ::std::sqrt (square (a) + square (b) / square (::std::tan (angle)));
 
         while (angle < 0) angle += juce::MathConstants<double>::pi * 2;
         angle = ::std::fmod (angle, juce::MathConstants<double>::pi * 2);
 
         if (angle >= juce::MathConstants<double>::pi / 2 * 3)
         {
-            y = -y;
+            py = -py;
         }
         else if (angle >= juce::MathConstants<double>::pi)
         {
-            y = -y;
-            x = -x;
+            py = -py;
+            px = -px;
         }
         else if (angle >= juce::MathConstants<double>::pi / 2)
         {
-            x = -x;
+            px = -px;
         }
 
-        return {x, y};
+        return {px + x, py + y};
     }
 
+	juce::Array<Point<T>> findIntersections (Point<T> p1, Point<T> p2)
+	{
+		juce::Array<Point<T>> res;
+
+		p1.x -= x;
+		p1.y -= y;
+
+		p2.x -= x;
+		p2.y -= y;
+
+		juce::Point<T> p3;
+		juce::Point<T> p4;
+
+		juce::Rectangle<T> rect;
+
+		rect.setX (std::min (p1.x, p2.y));
+		rect.setWidth (std::max (p1.x, p2.x) - rect.getX());
+		rect.setY (std::min (p1.y, p2.y));
+		rect.setHeight (std::max (p1.y, p2.y) - rect.getY());
+
+		float rx = a;
+		float ry = b;
+
+		float s = (p2.y - p1.y) / (p2.x - p1.x);
+		float si = p2.y - (s * p2.x);
+		float A = (ry * ry) + (rx * rx * s * s);
+		float B = 2.0f * rx * rx * si * s;
+		float C = rx * rx * si * si - rx * rx * ry * ry;
+
+		float radicand_sqrt = std::sqrt ((B * B) - (4.0f * A * C));
+		p3.x = (-B - radicand_sqrt) / (2.0f * A);
+		p4.x = (-B + radicand_sqrt) / (2.0f * A);
+		p3.y = s * p3.y + si;
+		p4.y = s * p4.y + si;
+
+		if (rect.getWidth() == 0)
+		{
+			if (p3.y >= rect.getY() && p3.y <= rect.getY() + rect.getHeight()) res.add (p3);
+			if (p4.y >= rect.getY() && p4.y <= rect.getY() + rect.getHeight()) res.add (p4);
+		}
+		else if (rect.getHeight() == 0)
+		{
+			if (p3.x >= rect.getX() && p3.x <= rect.getX() + rect.getWidth()) res.add (p3);
+			if (p4.x >= rect.getX() && p4.x <= rect.getX() + rect.getWidth()) res.add (p4);
+		}
+		else
+		{
+			if (rect.contains (p3)) res.add (p3);
+			if (rect.contains (p4)) res.add (p4);
+		}
+
+		return res;
+	}
+
+	T x = 0, y = 0;
     T a = 0, b = 0;
 };
 
