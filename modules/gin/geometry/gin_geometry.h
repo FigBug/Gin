@@ -22,9 +22,9 @@ template <typename T>
 class Ellipse
 {
 public:
-	Ellipse  (T x_, T y_, T a_, T b_) : x (x_), y (y_), a (a_), b (b_)
-	{
-	}
+    Ellipse  (T x_, T y_, T a_, T b_) : x (x_), y (y_), a (a_), b (b_)
+    {
+    }
 
     Ellipse  (T a_, T b_) : a (a_), b (b_)
     {
@@ -32,22 +32,22 @@ public:
 
     bool isPointOn (Point<T> pt, T accuracy = 0.00001)
     {
-		pt.x -= x;
-		pt.y -= y;
+        pt.x -= x;
+        pt.y -= y;
         return std::abs (1.0 - (square (pt.getX()) / square (a) + square (pt.getY()) / square (b))) < accuracy;
     }
 
     bool isPointOutside (Point<T> pt)
     {
-		pt.x -= x;
-		pt.y -= y;
+        pt.x -= x;
+        pt.y -= y;
         return (square (pt.getX()) / square (a) + square (pt.getY()) / square (b)) > 1.0;
     }
 
     bool isPointInside (Point<T> pt)
     {
-		pt.x -= x;
-		pt.y -= y;
+        pt.x -= x;
+        pt.y -= y;
         return (square (pt.getX()) / square (a) + square (pt.getY()) / square (b)) < 1.0;
     }
 
@@ -76,61 +76,76 @@ public:
         return {px + x, py + y};
     }
 
-	juce::Array<Point<T>> findIntersections (Point<T> p1, Point<T> p2)
-	{
-		juce::Array<Point<T>> res;
+    juce::Array<Point<T>> findIntersections (Point<T> p1, Point<T> p2)
+    {
+        juce::Array<Point<T>> res;
 
-		p1.x -= x;
-		p1.y -= y;
+        p1.x -= x;
+        p1.y -= y;
 
-		p2.x -= x;
-		p2.y -= y;
+        p2.x -= x;
+        p2.y -= y;
 
-		juce::Point<T> p3;
-		juce::Point<T> p4;
+        juce::Point<T> p3;
+        juce::Point<T> p4;
 
-		juce::Rectangle<T> rect;
+        juce::Rectangle<T> rect;
 
-		rect.setX (std::min (p1.x, p2.y));
-		rect.setWidth (std::max (p1.x, p2.x) - rect.getX());
-		rect.setY (std::min (p1.y, p2.y));
-		rect.setHeight (std::max (p1.y, p2.y) - rect.getY());
+        rect.setX (std::min (p1.x, p2.x));
+        rect.setWidth (std::max (p1.x, p2.x) - rect.getX());
+        rect.setY (std::min (p1.y, p2.y));
+        rect.setHeight (std::max (p1.y, p2.y) - rect.getY());
 
-		float rx = a;
-		float ry = b;
+        float rx = a / 2.0f;
+        float ry = b / 2.0f;
 
-		float s = (p2.y - p1.y) / (p2.x - p1.x);
-		float si = p2.y - (s * p2.x);
-		float A = (ry * ry) + (rx * rx * s * s);
-		float B = 2.0f * rx * rx * si * s;
-		float C = rx * rx * si * si - rx * rx * ry * ry;
+        float s = (p2.y - p1.y) / (p2.x - p1.x);
+        float si = p2.y - (s * p2.x);
+        float A = (ry * ry) + (rx * rx * s * s);
+        float B = 2.0f * rx * rx * si * s;
+        float C = rx * rx * si * si - rx * rx * ry * ry;
 
-		float radicand_sqrt = std::sqrt ((B * B) - (4.0f * A * C));
-		p3.x = (-B - radicand_sqrt) / (2.0f * A);
-		p4.x = (-B + radicand_sqrt) / (2.0f * A);
-		p3.y = s * p3.y + si;
-		p4.y = s * p4.y + si;
+        float radicand_sqrt = std::sqrt ((B * B) - (4.0f * A * C));
+        p3.x = (-B - radicand_sqrt) / (2.0f * A);
+        p4.x = (-B + radicand_sqrt) / (2.0f * A);
+        p3.y = s * p3.x + si;
+        p4.y = s * p4.x + si;
 
-		if (rect.getWidth() == 0)
-		{
-			if (p3.y >= rect.getY() && p3.y <= rect.getY() + rect.getHeight()) res.add (p3);
-			if (p4.y >= rect.getY() && p4.y <= rect.getY() + rect.getHeight()) res.add (p4);
-		}
-		else if (rect.getHeight() == 0)
-		{
-			if (p3.x >= rect.getX() && p3.x <= rect.getX() + rect.getWidth()) res.add (p3);
-			if (p4.x >= rect.getX() && p4.x <= rect.getX() + rect.getWidth()) res.add (p4);
-		}
-		else
-		{
-			if (rect.contains (p3)) res.add (p3);
-			if (rect.contains (p4)) res.add (p4);
-		}
+        if (almostEqual (rect.getWidth(), 0.0f))
+        {
+            if (p3.y >= rect.getY() && p3.y <= rect.getY() + rect.getHeight())
+                res.add (p3);
 
-		return res;
-	}
+            if (p4.y >= rect.getY() && p4.y <= rect.getY() + rect.getHeight())
+                res.add (p4);
+        }
+        else if (almostEqual (rect.getHeight(), 0.0f))
+        {
+            if (p3.x >= rect.getX() && p3.x <= rect.getX() + rect.getWidth())
+                res.add (p3);
 
-	T x = 0, y = 0;
+            if (p4.x >= rect.getX() && p4.x <= rect.getX() + rect.getWidth())
+                res.add (p4);
+        }
+        else
+        {
+            if (rect.contains (p3))
+                res.add (p3);
+
+            if (rect.contains (p4))
+                res.add (p4);
+        }
+
+        for (auto& p : res)
+        {
+            p.x += x;
+            p.y += y;
+        }
+
+        return res;
+    }
+
+    T x = 0, y = 0;
     T a = 0, b = 0;
 };
 
