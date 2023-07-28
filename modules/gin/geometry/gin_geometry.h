@@ -22,10 +22,12 @@ template <typename T>
 class Ellipse
 {
 public:
+    /** Creates a ellipse with a given centre and width / height. */
     Ellipse  (T x_, T y_, T a_, T b_) : x (x_), y (y_), a (a_), b (b_)
     {
     }
 
+    /** Creates a ellipse with centred at (0,0) with a width and height. */
     Ellipse  (T a_, T b_) : a (a_), b (b_)
     {
     }

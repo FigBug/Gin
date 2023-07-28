@@ -32,5 +32,11 @@ public:
     {
         return { x, y };
     }
+
+    operator juce::Point<T>()
+    {
+        return juce::Point (x, y);
+    }
+
    #endif
 };
