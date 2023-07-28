@@ -75,6 +75,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ab390a7033ed59a859d16bc208460870f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEllipse.html#ab390a7033ed59a859d16bc208460870f">Ellipse</a> (T x_, T y_, T a_, T b_)</td></tr>
+<tr class="separator:ab390a7033ed59a859d16bc208460870f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3280925b24d4858639a7ede8007150f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEllipse.html#ae3280925b24d4858639a7ede8007150f">Ellipse</a> (T a_, T b_)</td></tr>
 <tr class="separator:ae3280925b24d4858639a7ede8007150f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a899aa09f95707ef4d3982d9a3fbe800a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEllipse.html#a899aa09f95707ef4d3982d9a3fbe800a">isPointOn</a> (<a class="el" href="classPoint.html">Point</a>&lt; T &gt; pt, T accuracy=0.00001)</td></tr>
@@ -85,9 +87,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a671db8ce37e93c7f47d5bbf440393a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90e578ea5cd1df558af9397e92d3e1e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">Point</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEllipse.html#a90e578ea5cd1df558af9397e92d3e1e6">pointAtAngle</a> (T angle)</td></tr>
 <tr class="separator:a90e578ea5cd1df558af9397e92d3e1e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab248c0e25e73f0b1ff8d68de300612e4"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; <a class="el" href="classPoint.html">Point</a>&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEllipse.html#ab248c0e25e73f0b1ff8d68de300612e4">findIntersections</a> (<a class="el" href="classPoint.html">Point</a>&lt; T &gt; p1, <a class="el" href="classPoint.html">Point</a>&lt; T &gt; p2)</td></tr>
+<tr class="separator:ab248c0e25e73f0b1ff8d68de300612e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a47915f56470b2324c699df4dad9732d2"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEllipse.html#a47915f56470b2324c699df4dad9732d2">x</a> = 0</td></tr>
+<tr class="separator:a47915f56470b2324c699df4dad9732d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4f6df9f3916185706b5fc2b45b0bf08"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEllipse.html#aa4f6df9f3916185706b5fc2b45b0bf08">y</a> = 0</td></tr>
+<tr class="separator:aa4f6df9f3916185706b5fc2b45b0bf08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fb56e7b1960b8e127deccbc91f3aa8d"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEllipse.html#a5fb56e7b1960b8e127deccbc91f3aa8d">a</a> = 0</td></tr>
 <tr class="separator:a5fb56e7b1960b8e127deccbc91f3aa8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b90b5b9f70e55aed03184d13cdea464"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEllipse.html#a9b90b5b9f70e55aed03184d13cdea464">b</a> = 0</td></tr>
@@ -99,8 +107,50 @@ class Ellipse&lt; T &gt;</h3>
 
 <p>Equations to calculate the shape of an ellipse and to calculate points on the edge of the ellipse and to see if points are inside or outside. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab390a7033ed59a859d16bc208460870f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab390a7033ed59a859d16bc208460870f">&#9670;&nbsp;</a></span>Ellipse() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEllipse.html">Ellipse</a>&lt; T &gt;::<a class="el" href="classEllipse.html">Ellipse</a> </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>x_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>y_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>a_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>b_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ae3280925b24d4858639a7ede8007150f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3280925b24d4858639a7ede8007150f">&#9670;&nbsp;</a></span>Ellipse()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3280925b24d4858639a7ede8007150f">&#9670;&nbsp;</a></span>Ellipse() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -158,7 +208,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classEllipse.html#a5fb56e7b1960b8e127deccbc91f3aa8d">Ellipse&lt; T &gt;::a</a>, <a class="el" href="classEllipse.html#a9b90b5b9f70e55aed03184d13cdea464">Ellipse&lt; T &gt;::b</a>, <a class="el" href="classPoint.html#aed1f0a89874a790ac96175180c934f43">Point&lt; T &gt;::getX()</a>, <a class="el" href="classPoint.html#af2d83c0f10795ba0393e7a8b86c0719a">Point&lt; T &gt;::getY()</a>, and <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</a>.</p>
+<p class="reference">References <a class="el" href="classEllipse.html#a5fb56e7b1960b8e127deccbc91f3aa8d">Ellipse&lt; T &gt;::a</a>, <a class="el" href="classEllipse.html#a9b90b5b9f70e55aed03184d13cdea464">Ellipse&lt; T &gt;::b</a>, <a class="el" href="classPoint.html#aed1f0a89874a790ac96175180c934f43">Point&lt; T &gt;::getX()</a>, <a class="el" href="classPoint.html#af2d83c0f10795ba0393e7a8b86c0719a">Point&lt; T &gt;::getY()</a>, <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</a>, <a class="el" href="classEllipse.html#a47915f56470b2324c699df4dad9732d2">Ellipse&lt; T &gt;::x</a>, <a class="el" href="classPoint.html#a401d07562afaf0079121218025e66b76">Point&lt; T &gt;::x</a>, <a class="el" href="classEllipse.html#aa4f6df9f3916185706b5fc2b45b0bf08">Ellipse&lt; T &gt;::y</a>, and <a class="el" href="classPoint.html#a65146418a33ebb2cd9acb85cade60ac9">Point&lt; T &gt;::y</a>.</p>
 
 </div>
 </div>
@@ -180,7 +230,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classEllipse.html#a5fb56e7b1960b8e127deccbc91f3aa8d">Ellipse&lt; T &gt;::a</a>, <a class="el" href="classEllipse.html#a9b90b5b9f70e55aed03184d13cdea464">Ellipse&lt; T &gt;::b</a>, <a class="el" href="classPoint.html#aed1f0a89874a790ac96175180c934f43">Point&lt; T &gt;::getX()</a>, <a class="el" href="classPoint.html#af2d83c0f10795ba0393e7a8b86c0719a">Point&lt; T &gt;::getY()</a>, and <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</a>.</p>
+<p class="reference">References <a class="el" href="classEllipse.html#a5fb56e7b1960b8e127deccbc91f3aa8d">Ellipse&lt; T &gt;::a</a>, <a class="el" href="classEllipse.html#a9b90b5b9f70e55aed03184d13cdea464">Ellipse&lt; T &gt;::b</a>, <a class="el" href="classPoint.html#aed1f0a89874a790ac96175180c934f43">Point&lt; T &gt;::getX()</a>, <a class="el" href="classPoint.html#af2d83c0f10795ba0393e7a8b86c0719a">Point&lt; T &gt;::getY()</a>, <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</a>, <a class="el" href="classEllipse.html#a47915f56470b2324c699df4dad9732d2">Ellipse&lt; T &gt;::x</a>, <a class="el" href="classPoint.html#a401d07562afaf0079121218025e66b76">Point&lt; T &gt;::x</a>, <a class="el" href="classEllipse.html#aa4f6df9f3916185706b5fc2b45b0bf08">Ellipse&lt; T &gt;::y</a>, and <a class="el" href="classPoint.html#a65146418a33ebb2cd9acb85cade60ac9">Point&lt; T &gt;::y</a>.</p>
 
 </div>
 </div>
@@ -202,7 +252,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classEllipse.html#a5fb56e7b1960b8e127deccbc91f3aa8d">Ellipse&lt; T &gt;::a</a>, <a class="el" href="classEllipse.html#a9b90b5b9f70e55aed03184d13cdea464">Ellipse&lt; T &gt;::b</a>, <a class="el" href="classPoint.html#aed1f0a89874a790ac96175180c934f43">Point&lt; T &gt;::getX()</a>, <a class="el" href="classPoint.html#af2d83c0f10795ba0393e7a8b86c0719a">Point&lt; T &gt;::getY()</a>, and <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</a>.</p>
+<p class="reference">References <a class="el" href="classEllipse.html#a5fb56e7b1960b8e127deccbc91f3aa8d">Ellipse&lt; T &gt;::a</a>, <a class="el" href="classEllipse.html#a9b90b5b9f70e55aed03184d13cdea464">Ellipse&lt; T &gt;::b</a>, <a class="el" href="classPoint.html#aed1f0a89874a790ac96175180c934f43">Point&lt; T &gt;::getX()</a>, <a class="el" href="classPoint.html#af2d83c0f10795ba0393e7a8b86c0719a">Point&lt; T &gt;::getY()</a>, <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</a>, <a class="el" href="classEllipse.html#a47915f56470b2324c699df4dad9732d2">Ellipse&lt; T &gt;::x</a>, <a class="el" href="classPoint.html#a401d07562afaf0079121218025e66b76">Point&lt; T &gt;::x</a>, <a class="el" href="classEllipse.html#aa4f6df9f3916185706b5fc2b45b0bf08">Ellipse&lt; T &gt;::y</a>, and <a class="el" href="classPoint.html#a65146418a33ebb2cd9acb85cade60ac9">Point&lt; T &gt;::y</a>.</p>
 
 </div>
 </div>
@@ -224,11 +274,79 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classEllipse.html#a5fb56e7b1960b8e127deccbc91f3aa8d">Ellipse&lt; T &gt;::a</a>, <a class="el" href="classEllipse.html#a9b90b5b9f70e55aed03184d13cdea464">Ellipse&lt; T &gt;::b</a>, and <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</a>.</p>
+<p class="reference">References <a class="el" href="classEllipse.html#a5fb56e7b1960b8e127deccbc91f3aa8d">Ellipse&lt; T &gt;::a</a>, <a class="el" href="classEllipse.html#a9b90b5b9f70e55aed03184d13cdea464">Ellipse&lt; T &gt;::b</a>, <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</a>, <a class="el" href="classEllipse.html#a47915f56470b2324c699df4dad9732d2">Ellipse&lt; T &gt;::x</a>, and <a class="el" href="classEllipse.html#aa4f6df9f3916185706b5fc2b45b0bf08">Ellipse&lt; T &gt;::y</a>.</p>
+
+</div>
+</div>
+<a id="ab248c0e25e73f0b1ff8d68de300612e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab248c0e25e73f0b1ff8d68de300612e4">&#9670;&nbsp;</a></span>findIntersections()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Array&lt;<a class="el" href="classPoint.html">Point</a>&lt;T&gt; &gt; <a class="el" href="classEllipse.html">Ellipse</a>&lt; T &gt;::findIntersections </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">Point</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">Point</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>p2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classEllipse.html#a5fb56e7b1960b8e127deccbc91f3aa8d">Ellipse&lt; T &gt;::a</a>, <a class="el" href="classEllipse.html#a9b90b5b9f70e55aed03184d13cdea464">Ellipse&lt; T &gt;::b</a>, <a class="el" href="classEllipse.html#a47915f56470b2324c699df4dad9732d2">Ellipse&lt; T &gt;::x</a>, <a class="el" href="classPoint.html#a401d07562afaf0079121218025e66b76">Point&lt; T &gt;::x</a>, <a class="el" href="classEllipse.html#aa4f6df9f3916185706b5fc2b45b0bf08">Ellipse&lt; T &gt;::y</a>, and <a class="el" href="classPoint.html#a65146418a33ebb2cd9acb85cade60ac9">Point&lt; T &gt;::y</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a47915f56470b2324c699df4dad9732d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47915f56470b2324c699df4dad9732d2">&#9670;&nbsp;</a></span>x</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="classEllipse.html">Ellipse</a>&lt; T &gt;::x = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classEllipse.html#ab248c0e25e73f0b1ff8d68de300612e4">Ellipse&lt; T &gt;::findIntersections()</a>, <a class="el" href="classEllipse.html#a671db8ce37e93c7f47d5bbf440393a51">Ellipse&lt; T &gt;::isPointInside()</a>, <a class="el" href="classEllipse.html#a899aa09f95707ef4d3982d9a3fbe800a">Ellipse&lt; T &gt;::isPointOn()</a>, <a class="el" href="classEllipse.html#a7f3e736575ae9eab8c76664331b98d53">Ellipse&lt; T &gt;::isPointOutside()</a>, and <a class="el" href="classEllipse.html#a90e578ea5cd1df558af9397e92d3e1e6">Ellipse&lt; T &gt;::pointAtAngle()</a>.</p>
+
+</div>
+</div>
+<a id="aa4f6df9f3916185706b5fc2b45b0bf08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4f6df9f3916185706b5fc2b45b0bf08">&#9670;&nbsp;</a></span>y</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="classEllipse.html">Ellipse</a>&lt; T &gt;::y = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classEllipse.html#ab248c0e25e73f0b1ff8d68de300612e4">Ellipse&lt; T &gt;::findIntersections()</a>, <a class="el" href="classEllipse.html#a671db8ce37e93c7f47d5bbf440393a51">Ellipse&lt; T &gt;::isPointInside()</a>, <a class="el" href="classEllipse.html#a899aa09f95707ef4d3982d9a3fbe800a">Ellipse&lt; T &gt;::isPointOn()</a>, <a class="el" href="classEllipse.html#a7f3e736575ae9eab8c76664331b98d53">Ellipse&lt; T &gt;::isPointOutside()</a>, and <a class="el" href="classEllipse.html#a90e578ea5cd1df558af9397e92d3e1e6">Ellipse&lt; T &gt;::pointAtAngle()</a>.</p>
+
+</div>
+</div>
 <a id="a5fb56e7b1960b8e127deccbc91f3aa8d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5fb56e7b1960b8e127deccbc91f3aa8d">&#9670;&nbsp;</a></span>a</h2>
 
@@ -243,7 +361,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classEllipse.html#a671db8ce37e93c7f47d5bbf440393a51">Ellipse&lt; T &gt;::isPointInside()</a>, <a class="el" href="classEllipse.html#a899aa09f95707ef4d3982d9a3fbe800a">Ellipse&lt; T &gt;::isPointOn()</a>, <a class="el" href="classEllipse.html#a7f3e736575ae9eab8c76664331b98d53">Ellipse&lt; T &gt;::isPointOutside()</a>, and <a class="el" href="classEllipse.html#a90e578ea5cd1df558af9397e92d3e1e6">Ellipse&lt; T &gt;::pointAtAngle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classEllipse.html#ab248c0e25e73f0b1ff8d68de300612e4">Ellipse&lt; T &gt;::findIntersections()</a>, <a class="el" href="classEllipse.html#a671db8ce37e93c7f47d5bbf440393a51">Ellipse&lt; T &gt;::isPointInside()</a>, <a class="el" href="classEllipse.html#a899aa09f95707ef4d3982d9a3fbe800a">Ellipse&lt; T &gt;::isPointOn()</a>, <a class="el" href="classEllipse.html#a7f3e736575ae9eab8c76664331b98d53">Ellipse&lt; T &gt;::isPointOutside()</a>, and <a class="el" href="classEllipse.html#a90e578ea5cd1df558af9397e92d3e1e6">Ellipse&lt; T &gt;::pointAtAngle()</a>.</p>
 
 </div>
 </div>
@@ -261,7 +379,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classEllipse.html#a671db8ce37e93c7f47d5bbf440393a51">Ellipse&lt; T &gt;::isPointInside()</a>, <a class="el" href="classEllipse.html#a899aa09f95707ef4d3982d9a3fbe800a">Ellipse&lt; T &gt;::isPointOn()</a>, <a class="el" href="classEllipse.html#a7f3e736575ae9eab8c76664331b98d53">Ellipse&lt; T &gt;::isPointOutside()</a>, and <a class="el" href="classEllipse.html#a90e578ea5cd1df558af9397e92d3e1e6">Ellipse&lt; T &gt;::pointAtAngle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classEllipse.html#ab248c0e25e73f0b1ff8d68de300612e4">Ellipse&lt; T &gt;::findIntersections()</a>, <a class="el" href="classEllipse.html#a671db8ce37e93c7f47d5bbf440393a51">Ellipse&lt; T &gt;::isPointInside()</a>, <a class="el" href="classEllipse.html#a899aa09f95707ef4d3982d9a3fbe800a">Ellipse&lt; T &gt;::isPointOn()</a>, <a class="el" href="classEllipse.html#a7f3e736575ae9eab8c76664331b98d53">Ellipse&lt; T &gt;::isPointOutside()</a>, and <a class="el" href="classEllipse.html#a90e578ea5cd1df558af9397e92d3e1e6">Ellipse&lt; T &gt;::pointAtAngle()</a>.</p>
 
 </div>
 </div>
@@ -271,7 +389,7 @@ template&lt;typename T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 26 2023 22:09:40 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Jul 28 2023 16:11:58 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

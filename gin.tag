@@ -4163,6 +4163,13 @@
       <type></type>
       <name>Ellipse</name>
       <anchorfile>classEllipse.html</anchorfile>
+      <anchor>ab390a7033ed59a859d16bc208460870f</anchor>
+      <arglist>(T x_, T y_, T a_, T b_)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Ellipse</name>
+      <anchorfile>classEllipse.html</anchorfile>
       <anchor>ae3280925b24d4858639a7ede8007150f</anchor>
       <arglist>(T a_, T b_)</arglist>
     </member>
@@ -4193,6 +4200,27 @@
       <anchorfile>classEllipse.html</anchorfile>
       <anchor>a90e578ea5cd1df558af9397e92d3e1e6</anchor>
       <arglist>(T angle)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Array&lt; Point&lt; T &gt; &gt;</type>
+      <name>findIntersections</name>
+      <anchorfile>classEllipse.html</anchorfile>
+      <anchor>ab248c0e25e73f0b1ff8d68de300612e4</anchor>
+      <arglist>(Point&lt; T &gt; p1, Point&lt; T &gt; p2)</arglist>
+    </member>
+    <member kind="variable">
+      <type>T</type>
+      <name>x</name>
+      <anchorfile>classEllipse.html</anchorfile>
+      <anchor>a47915f56470b2324c699df4dad9732d2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>T</type>
+      <name>y</name>
+      <anchorfile>classEllipse.html</anchorfile>
+      <anchor>aa4f6df9f3916185706b5fc2b45b0bf08</anchor>
+      <arglist></arglist>
     </member>
     <member kind="variable">
       <type>T</type>

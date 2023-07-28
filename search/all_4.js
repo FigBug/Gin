@@ -37,7 +37,7 @@ var searchData=
   ['editoroptions_280',['EditorOptions',['../classEditorOptions.html',1,'']]],
   ['element_281',['Element',['../classSpline_1_1Element.html#afdb3184c95f7b19a407ee422d211cc92',1,'Spline::Element::Element(double x_=0)'],['../classSpline_1_1Element.html#a597ebfc19202d8bbbd30470a2e5f3860',1,'Spline::Element::Element(double x_, double a_, double b_, double c_, double d_)'],['../classSpline_1_1Element.html',1,'Spline::Element']]],
   ['elevatedfilecopy_282',['ElevatedFileCopy',['../classElevatedFileCopy.html',1,'']]],
-  ['ellipse_283',['Ellipse',['../classEllipse.html',1,'Ellipse&lt; T &gt;'],['../classEllipse.html#ae3280925b24d4858639a7ede8007150f',1,'Ellipse::Ellipse()']]],
+  ['ellipse_283',['Ellipse',['../classEllipse.html',1,'Ellipse&lt; T &gt;'],['../classEllipse.html#ab390a7033ed59a859d16bc208460870f',1,'Ellipse::Ellipse(T x_, T y_, T a_, T b_)'],['../classEllipse.html#ae3280925b24d4858639a7ede8007150f',1,'Ellipse::Ellipse(T a_, T b_)']]],
   ['enablegzipdeflate_284',['enableGzipDeflate',['../classDownloadManager.html#a000ad4728048d97e648423b89447f18e',1,'DownloadManager']]],
   ['enablelearn_285',['enableLearn',['../classModMatrix.html#a7503eb612eccc0a07bafd3ba5c0c66b8',1,'ModMatrix']]],
   ['enablementchanged_286',['enablementChanged',['../classSingleLineTextEditor.html#ab5cf90068efe93555678f60f46d934e4',1,'SingleLineTextEditor::enablementChanged()'],['../classMultiParamComponent.html#ae564f36608f33269bc246aad3df26478',1,'MultiParamComponent::enablementChanged()']]],
