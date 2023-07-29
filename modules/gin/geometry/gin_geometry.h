@@ -88,8 +88,8 @@ public:
         p2.x -= x;
         p2.y -= y;
 
-        juce::Point<T> p3;
-        juce::Point<T> p4;
+        Point<T> p3;
+        Point<T> p4;
 
         juce::Rectangle<T> rect;
 
