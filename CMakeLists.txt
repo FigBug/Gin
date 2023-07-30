@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
+set_property(GLOBAL PROPERTY USE_FOLDERS YES)
+set(JUCE_ENABLE_MODULE_SOURCE_GROUPS ON CACHE BOOL "" FORCE)
 
 project(Gin VERSION 1.0.0)
 

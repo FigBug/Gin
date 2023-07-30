@@ -52,7 +52,7 @@ public:
         auto d = std::hypot (x_d, y_d);
         auto L = d + addLength;
 
-        auto x_f = std::sqrt (L*L - y_d*y_d) / x_d; // always > 1
+        auto x_f = std::sqrt (L * L - y_d * y_d) / x_d; // always > 1
 
         // need to solve sinh(xi)/xi - x_f = 0
 
@@ -62,7 +62,7 @@ public:
         {
             // taylor-approx: 1 + xi^2/6 + xi^4/120 + xi^6/5040 - x_f = 0
             // use inverse taylor series for smallish values. Always slightly too high.
-            auto tmp = std::cbrt (std::sqrt(15680.0f) * std::sqrt (x_f * (405.0f * x_f + 198.0f) + 62.0f) + 2520.0f * x_f + 616.0f);
+            auto tmp = std::cbrt (std::sqrt (15680.0f) * std::sqrt (x_f * (405.0f * x_f + 198.0f) + 62.0f) + 2520.0f * x_f + 616.0f);
             xi_approx = std::sqrt (tmp - 84.0f / tmp - 14.0f);
         }
 
