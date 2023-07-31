@@ -37,8 +37,14 @@ class Catenary
 public:
     Catenary (float x0, float y0, float x1, float y1, float addLength, int numIterations = 1)
     {
+        calculate (x0, y0, x1, y1, addLength, numIterations);
+    }
+
+    void calculate (float x0, float y0, float x1, float y1, float addLength, int numIterations = 1)
+    {
         jassert (! juce::exactlyEqual (x0, x1));
         jassert (addLength > 0.0f);
+
         // make sure x1 is right
         if (x0 > x1)
         {
