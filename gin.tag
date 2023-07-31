@@ -2982,6 +2982,13 @@
       <arglist>(float x0, float y0, float x1, float y1, float addLength, int numIterations=1)</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>calculate</name>
+      <anchorfile>classCatenary.html</anchorfile>
+      <anchor>a6f4a079d0ceb258b248a6fbf56b3af7a</anchor>
+      <arglist>(float x0, float y0, float x1, float y1, float addLength, int numIterations=1)</arglist>
+    </member>
+    <member kind="function">
       <type>float</type>
       <name>calcY</name>
       <anchorfile>classCatenary.html</anchorfile>
