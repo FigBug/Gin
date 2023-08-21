@@ -1645,8 +1645,26 @@ struct CatenaryDemo : public juce::Component
 };
 
 //==============================================================================
+struct WavetableDemo : public juce::Component
+{
+    WavetableDemo()
+    {
+        setName ("Wavetable");
+
+        juce::MemoryBlock mb (BinaryData::Analog_PWM_Saw_01_wav, BinaryData::Analog_PWM_Saw_01_wavSize);
+
+        int size = gin::getWavetableSize (mb);
+    }
+
+    void paint (juce::Graphics&) override
+    {
+    }
+};
+
+//==============================================================================
 MainContentComponent::MainContentComponent()
 {
+    demoComponents.add (new WavetableDemo());
 	demoComponents.add (new CatenaryDemo());
     demoComponents.add (new EllipseDemo());
     demoComponents.add (new PerlinNoiseDemo());
