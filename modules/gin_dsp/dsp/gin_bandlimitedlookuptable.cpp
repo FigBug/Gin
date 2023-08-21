@@ -118,6 +118,9 @@ void BandLimitedLookupTable::loadFromBuffer (juce::AudioSampleBuffer& buffer, do
 
     notesPerTable = notesPerTable_;
 
+    juce::dsp::FFT fft (juce::roundToInt (std::log2 (sz)));
+    jassert (fft.getSize() == sz);
+
     for (double note = notesPerTable + 0.5; note < 127.0; note += notesPerTable)
     {
         auto noteFreq = getMidiNoteInHertz (note);
@@ -133,10 +136,34 @@ void BandLimitedLookupTable::loadFromBuffer (juce::AudioSampleBuffer& buffer, do
         }
         else
         {
+            auto index2Freq = [&] (int i)
+            {
+                return float (i * (sampleRate / sz));
+            };
+
+            auto d = buffer.getReadPointer (0);
+            auto ratio = noteFreq / baseFreq;
+
+            std::vector<juce::dsp::Complex<float>> time;
+            std::vector<juce::dsp::Complex<float>> freq;
+
+            time.resize (sz);
+            freq.resize (sz);
+
+            for (auto i = 0; i < sz; i++)
+                time[i] = { d[i], 0.0f };
+
+            fft.perform (time.data(), freq.data(), false);
+
+            for (auto i = 0; i < sz; i++)
+                if (index2Freq (i) * ratio > sampleRate / 2)
+                    freq[i] = {0.0f, 0.0f};
+
+            fft.perform (freq.data(), time.data(), true);
+
             auto func = [&] (float phase)
             {
-                auto data = buffer.getReadPointer (0);
-                return data[int (phase * float(sz)) % sz];
+                return time[int (phase * float(sz)) % sz].real();
             };
 
             tables.add (new juce::dsp::LookupTableTransform<float> (func, 0.0f, 1.0f, (size_t) sz + 1));

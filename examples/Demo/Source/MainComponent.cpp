@@ -1657,7 +1657,7 @@ struct WavetableDemo : public juce::Component
         if (int size = gin::getWavetableSize (mb); size > 0)
         {
             auto is = new juce::MemoryInputStream (mb.getData(), mb.getSize(), false);
-            auto reader = juce::WavAudioFormat().createReaderFor (is, true);
+            auto reader = std::unique_ptr<juce::AudioFormatReader> (juce::WavAudioFormat().createReaderFor (is, true));
 
             if (reader)
             {
@@ -1717,8 +1717,90 @@ struct WavetableDemo : public juce::Component
 };
 
 //==============================================================================
+struct BLLTDemo : public juce::Component
+{
+    BLLTDemo()
+    {
+        setName ("BLLT");
+
+        juce::AudioSampleBuffer buf (1, 2048);
+
+        auto w = buf.getWritePointer (0);
+        for (auto i = 0; i < 2048; i++)
+            w[i] = tables.processSquare (0.0f, i / 2048.0f);
+
+        bllt.loadFromBuffer (buf, 44100, 12);
+    }
+
+    void paint (juce::Graphics& g) override
+    {
+
+        //
+        // From formula
+        //
+        {
+            auto area = getLocalBounds();
+            auto note = 0.5f;
+            for (int i = 0; i < bllt.tables.size(); i++)
+            {
+                auto rc = area.removeFromTop (getHeight() / bllt.tables.size()).reduced (3);
+
+                juce::Path p;
+
+                for (auto x = 0; x < 2048; x++)
+                {
+                    auto fx = x / 2048.0f * rc.getWidth() + rc.getX();
+                    auto fy = tables.processSquare (note, x / 2048.0f) * rc.getHeight() / 2.0f + rc.getCentreY();
+
+                    if (x == 0)
+                        p.startNewSubPath (fx, fy);
+                    else
+                        p.lineTo (fx, fy);
+                }
+
+                g.setColour (juce::Colours::green);
+                g.strokePath (p, juce::PathStrokeType (1.0f));
+
+                note += 12.0f;
+            }
+        }
+
+        //
+        // From wavefile
+        //
+        {
+            auto area = getLocalBounds();
+            for (int i = 0; i < bllt.tables.size(); i++)
+            {
+                auto& t = *bllt.tables[i];
+                auto rc = area.removeFromTop (getHeight() / bllt.tables.size()).reduced (3);
+
+                juce::Path p;
+
+                for (auto x = 0; x < 2048; x++)
+                {
+                    auto fx = x / 2048.0f * rc.getWidth() + rc.getX();
+                    auto fy = t.processSample (x / 2048.0f) * rc.getHeight() / 2.0f + rc.getCentreY();
+
+                    if (x == 0)
+                        p.startNewSubPath (fx, fy);
+                    else
+                        p.lineTo (fx, fy);
+                }
+                g.setColour (juce::Colours::yellow);
+                g.strokePath (p, juce::PathStrokeType (1.0f));
+            }
+        }
+    }
+
+    gin::BandLimitedLookupTables tables {44100, 12, 2048};
+    gin::BandLimitedLookupTable bllt;
+};
+
+//==============================================================================
 MainContentComponent::MainContentComponent()
 {
+    demoComponents.add (new BLLTDemo());
     demoComponents.add (new WavetableDemo());
 	demoComponents.add (new CatenaryDemo());
     demoComponents.add (new EllipseDemo());
