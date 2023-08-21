@@ -124,9 +124,7 @@ void createAllPass(BiquadParamCascade& params, double freq, size_t order, double
 
 //==============================================================================
 ButterworthCreator::ButterworthCreator(size_t maxFilterOrder)
-    : maxOrder(maxFilterOrder),
-    analogPoleZero(static_cast<int> (maxFilterOrder)),
-    digitalPoleZero(static_cast<int> (maxFilterOrder))
+    : analogPoleZero(static_cast<int> (maxFilterOrder)), digitalPoleZero(static_cast<int> (maxFilterOrder))
 {
 
 }

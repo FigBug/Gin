@@ -123,7 +123,7 @@ private:
         PoleZeroPair() = default;
 
         PoleZeroPair(const std::complex<double>& p1, const std::complex<double>& z1, const std::complex<double>& p2, const std::complex<double>& z2)
-            :pole1(p1), zero1(z1), pole2(p2), zero2(z2)
+            :pole1(p1), pole2(p2), zero1(z1), zero2(z2)
         {
         }
 
@@ -186,7 +186,6 @@ private:
     static DualComplex lowpassTransform(const std::complex<double>& in, double w);
     static DualComplex highpassTransform(const std::complex<double>& in, double w);
 
-    const size_t maxOrder;
     PreallocatedArray<PoleZeroPair> analogPoleZero;
     PreallocatedArray<PoleZeroPair> digitalPoleZero;
 };
