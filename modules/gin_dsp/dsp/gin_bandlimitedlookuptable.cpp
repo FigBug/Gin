@@ -126,7 +126,7 @@ void BandLimitedLookupTable::loadFromBuffer (juce::AudioSampleBuffer& buffer, do
             auto func = [&] (float phase)
             {
                 auto data = buffer.getReadPointer (0);
-                return data[int (phase * float ( sz )) % sz];
+                return data[int (phase * float (sz)) % sz];
             };
 
             tables.add (new juce::dsp::LookupTableTransform<float> (func, 0.0f, 1.0f, (size_t) sz + 1));
@@ -136,7 +136,7 @@ void BandLimitedLookupTable::loadFromBuffer (juce::AudioSampleBuffer& buffer, do
             auto func = [&] (float phase)
             {
                 auto data = buffer.getReadPointer (0);
-                return data[int (phase * float( sz )) % sz];
+                return data[int (phase * float(sz)) % sz];
             };
 
             tables.add (new juce::dsp::LookupTableTransform<float> (func, 0.0f, 1.0f, (size_t) sz + 1));
