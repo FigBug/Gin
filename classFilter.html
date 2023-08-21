@@ -85,6 +85,8 @@ Public Types</h2></td></tr>
 , <a class="el" href="classFilter.html#a8f99602312ccfbe9e1598532158726c0aa16a5d1831ce8ad6cbfe8178c5700d23">lowshelf</a>
 , <a class="el" href="classFilter.html#a8f99602312ccfbe9e1598532158726c0aa55b7fdb404e127357a11995f063cbee">highshelf</a>
 , <a class="el" href="classFilter.html#a8f99602312ccfbe9e1598532158726c0ad58dea6810feaf18fe38771eae09e203">peak</a>
+, <br />
+&#160;&#160;<a class="el" href="classFilter.html#a8f99602312ccfbe9e1598532158726c0a76011dcbae946cc05dcc2e62018dd6aa">allpass</a>
 <br />
  }</td></tr>
 <tr class="separator:a8f99602312ccfbe9e1598532158726c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -95,8 +97,8 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad15994c30d497afd567a6445446a249e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFilter.html#ad15994c30d497afd567a6445446a249e">Filter</a> ()</td></tr>
-<tr class="separator:ad15994c30d497afd567a6445446a249e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afffdca3e4f07216e45707ed6d3e543d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFilter.html#afffdca3e4f07216e45707ed6d3e543d5">Filter</a> (int maxOrder=2)</td></tr>
+<tr class="separator:afffdca3e4f07216e45707ed6d3e543d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a545b26e745e3dae6f806a1ae9d522aed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFilter.html#a545b26e745e3dae6f806a1ae9d522aed">setSampleRate</a> (double sr)</td></tr>
 <tr class="separator:a545b26e745e3dae6f806a1ae9d522aed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4826bc2ddff32cb9fcb052b9c3d0629"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFilter.html#ab4826bc2ddff32cb9fcb052b9c3d0629">setNumChannels</a> (int ch)</td></tr>
@@ -113,6 +115,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab874606abc9fd6094ce7b57c81431737"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bb6a7b54fae46ed0a7bade03fc33430"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFilter.html#a6bb6a7b54fae46ed0a7bade03fc33430">process</a> (juce::AudioSampleBuffer &amp;buffer)</td></tr>
 <tr class="separator:a6bb6a7b54fae46ed0a7bade03fc33430"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d6adbd022e252ff91acf393f2a6d543"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFilter.html#a4d6adbd022e252ff91acf393f2a6d543">getResponseMagnitude</a> (float atFreq)</td></tr>
+<tr class="separator:a4d6adbd022e252ff91acf393f2a6d543"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Basic multi channel filter. </p>
@@ -137,6 +141,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a8f99602312ccfbe9e1598532158726c0aa16a5d1831ce8ad6cbfe8178c5700d23"></a>lowshelf&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a8f99602312ccfbe9e1598532158726c0aa55b7fdb404e127357a11995f063cbee"></a>highshelf&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a8f99602312ccfbe9e1598532158726c0ad58dea6810feaf18fe38771eae09e203"></a>peak&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8f99602312ccfbe9e1598532158726c0a76011dcbae946cc05dcc2e62018dd6aa"></a>allpass&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -160,8 +165,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad15994c30d497afd567a6445446a249e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad15994c30d497afd567a6445446a249e">&#9670;&nbsp;</a></span>Filter()</h2>
+<a id="afffdca3e4f07216e45707ed6d3e543d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afffdca3e4f07216e45707ed6d3e543d5">&#9670;&nbsp;</a></span>Filter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,7 +174,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">Filter::Filter </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxOrder</em> = <code>2</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -316,7 +322,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classFilter.html#a8f99602312ccfbe9e1598532158726c0a586918b0c5057db76bb06d493a4870d1">bandpass</a>, <a class="el" href="classFilter.html#a8f99602312ccfbe9e1598532158726c0a4118e76c4cd96f521d5a2aada176e72a">highpass</a>, <a class="el" href="classFilter.html#a8f99602312ccfbe9e1598532158726c0aa55b7fdb404e127357a11995f063cbee">highshelf</a>, <a class="el" href="classFilter.html#a8f99602312ccfbe9e1598532158726c0a3bc93a4b236649ec0f71b600fd7c3d5f">lowpass</a>, <a class="el" href="classFilter.html#a8f99602312ccfbe9e1598532158726c0aa16a5d1831ce8ad6cbfe8178c5700d23">lowshelf</a>, <a class="el" href="classFilter.html#a8f99602312ccfbe9e1598532158726c0ae6e303ddb4b9092543178146dfe3c9dd">none</a>, <a class="el" href="classFilter.html#a8f99602312ccfbe9e1598532158726c0a0a3bfe9ecaa7b5164c16cbb43457a778">notch</a>, <a class="el" href="classFilter.html#a8f99602312ccfbe9e1598532158726c0ad58dea6810feaf18fe38771eae09e203">peak</a>, and <a class="el" href="group__gin__dsp-dsp.html#gab7b12a212b5068cd4b83c5ef0af70511">Q</a>.</p>
+<p class="reference">References <a class="el" href="classFilter.html#a8f99602312ccfbe9e1598532158726c0ae6e303ddb4b9092543178146dfe3c9dd">none</a>, and <a class="el" href="group__gin__dsp-dsp.html#gab7b12a212b5068cd4b83c5ef0af70511">Q</a>.</p>
 
 </div>
 </div>
@@ -340,13 +346,33 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a4d6adbd022e252ff91acf393f2a6d543"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d6adbd022e252ff91acf393f2a6d543">&#9670;&nbsp;</a></span>getResponseMagnitude()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Filter::getResponseMagnitude </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>atFreq</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classFilter.html#a5ef1acf81c79c0c8a0ecd8a52e38d4f2a2c5e517e0cff208de5a5b332964c98c7">db12</a>, and <a class="el" href="group__gin__dsp-dsp.html#gab7b12a212b5068cd4b83c5ef0af70511">Q</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="gin__filter_8h.html">gin_filter.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 21 2023 18:23:13 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Aug 21 2023 21:24:16 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

@@ -4894,6 +4894,12 @@
       <anchor>a8f99602312ccfbe9e1598532158726c0ad58dea6810feaf18fe38771eae09e203</anchor>
       <arglist></arglist>
     </member>
+    <member kind="enumvalue">
+      <name>allpass</name>
+      <anchorfile>classFilter.html</anchorfile>
+      <anchor>a8f99602312ccfbe9e1598532158726c0a76011dcbae946cc05dcc2e62018dd6aa</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="enumeration">
       <type></type>
       <name>Slope</name>
@@ -4962,6 +4968,12 @@
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
+      <name>allpass</name>
+      <anchorfile>classFilter.html</anchorfile>
+      <anchor>a8f99602312ccfbe9e1598532158726c0a76011dcbae946cc05dcc2e62018dd6aa</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
       <name>db12</name>
       <anchorfile>classFilter.html</anchorfile>
       <anchor>a5ef1acf81c79c0c8a0ecd8a52e38d4f2a2c5e517e0cff208de5a5b332964c98c7</anchor>
@@ -4977,8 +4989,8 @@
       <type></type>
       <name>Filter</name>
       <anchorfile>classFilter.html</anchorfile>
-      <anchor>ad15994c30d497afd567a6445446a249e</anchor>
-      <arglist>()</arglist>
+      <anchor>afffdca3e4f07216e45707ed6d3e543d5</anchor>
+      <arglist>(int maxOrder=2)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -5035,6 +5047,13 @@
       <anchorfile>classFilter.html</anchorfile>
       <anchor>a6bb6a7b54fae46ed0a7bade03fc33430</anchor>
       <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getResponseMagnitude</name>
+      <anchorfile>classFilter.html</anchorfile>
+      <anchor>a4d6adbd022e252ff91acf393f2a6d543</anchor>
+      <arglist>(float atFreq)</arglist>
     </member>
   </compound>
   <compound kind="struct">
