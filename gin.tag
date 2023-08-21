@@ -1368,6 +1368,19 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>gin_riffparser.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
+    <filename>gin__riffparser_8h.html</filename>
+    <class kind="class">RIFFParser</class>
+    <member kind="function">
+      <type>int</type>
+      <name>getWavetableSize</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>gaa886c18929f610b33cc6ee595f98c7f2</anchor>
+      <arglist>(const juce::MemoryBlock &amp;m)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>gin_sample.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
     <filename>gin__sample_8h.html</filename>
@@ -10580,6 +10593,24 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>RIFFParser</name>
+    <filename>classRIFFParser.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>RIFFParser</name>
+      <anchorfile>classRIFFParser.html</anchorfile>
+      <anchor>ac738f6be62fc72abee5fdf8e71c0f2e3</anchor>
+      <arglist>(const juce::File &amp;f, std::function&lt; void(uint32_t, const uint8_t *, uint32_t)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>RIFFParser</name>
+      <anchorfile>classRIFFParser.html</anchorfile>
+      <anchor>af4801035d86bd9ed9f728c0d726c02da</anchor>
+      <arglist>(const juce::MemoryBlock &amp;m, std::function&lt; void(uint32_t, const uint8_t *, uint32_t)&gt;)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>RollingAverage</name>
     <filename>classRollingAverage.html</filename>
     <member kind="function">
@@ -14101,11 +14132,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-  </compound>
-  <compound kind="group">
     <name>gin_gui-components</name>
     <title>components</title>
     <filename>group__gin__gui-components.html</filename>
@@ -14135,6 +14161,11 @@
       <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
       <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
     </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
   </compound>
   <compound kind="group">
     <name>gin_dsp-dsp</name>
@@ -14394,6 +14425,25 @@
     <title>gin_webp</title>
     <filename>group__gin__webp.html</filename>
     <subgroup>gin_webp-formats</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>gin_gui-images</name>
+    <title>images</title>
+    <filename>group__gin__gui-images.html</filename>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>rasterizeSVG</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
+      <arglist>(juce::String svgText, int w, int h)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Path</type>
+      <name>parseSVGPath</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
+      <arglist>(const juce::String &amp;txt)</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>gin_graphics-images</name>
@@ -14684,25 +14734,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_gui-images</name>
-    <title>images</title>
-    <filename>group__gin__gui-images.html</filename>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>rasterizeSVG</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
-      <arglist>(juce::String svgText, int w, int h)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Path</type>
-      <name>parseSVGPath</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
-      <arglist>(const juce::String &amp;txt)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
     <name>gin_location-location</name>
     <title>location</title>
     <filename>group__gin__location-location.html</filename>
@@ -14745,39 +14776,6 @@
     <name>gin_plugin-resources</name>
     <title>resources</title>
     <filename>group__gin__plugin-resources.html</filename>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-utilities</name>
-    <title>utilities</title>
-    <filename>group__gin__gui-utilities.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>callOnMainThreadBlocking</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
-      <arglist>(std::function&lt; void()&gt; func)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
-    </member>
   </compound>
   <compound kind="group">
     <name>gin-utilities</name>
@@ -15043,6 +15041,13 @@
       <arglist>(const juce::XmlElement &amp;f)</arglist>
     </member>
     <member kind="function">
+      <type>int</type>
+      <name>getWavetableSize</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>gaa886c18929f610b33cc6ee595f98c7f2</anchor>
+      <arglist>(const juce::MemoryBlock &amp;m)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>callInBackground</name>
       <anchorfile>group__gin-utilities.html</anchorfile>
@@ -15125,6 +15130,39 @@
       <anchorfile>group__gin-utilities.html</anchorfile>
       <anchor>ga88f482bf81fb3e423fa1e3926dfaa9a6</anchor>
       <arglist>(const juce::String &amp;jsonText)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_gui-utilities</name>
+    <title>utilities</title>
+    <filename>group__gin__gui-utilities.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>callOnMainThreadBlocking</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
+      <arglist>(std::function&lt; void()&gt; func)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
     </member>
   </compound>
 </tagfile>
