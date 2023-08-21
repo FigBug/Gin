@@ -36,13 +36,21 @@ namespace gin
 {
     namespace SRC
     {
-        #include "3rdparty/src/samplerate.h"
-        #include "3rdparty/src/src_linear.c"
-        #include "3rdparty/src/src_sinc.c"
-        #include "3rdparty/src/src_zoh.c"
-        #include "3rdparty/src/samplerate.c"
+        #include "3rdparty/SecretRabbitCode/samplerate.h"
+        #include "3rdparty/SecretRabbitCode/src_linear.c"
+        #include "3rdparty/SecretRabbitCode/src_sinc.c"
+        #include "3rdparty/SecretRabbitCode/src_zoh.c"
+        #include "3rdparty/SecretRabbitCode/samplerate.c"
     }
 }
+
+JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE ("-Wfloat-equal")
+
+#include "3rdparty/AudioFilter/src/ButterworthCreator.cpp"
+#include "3rdparty/AudioFilter/src/ParametricCreator.cpp"
+#include "3rdparty/AudioFilter/src/Response.cpp"
+
+JUCE_END_IGNORE_WARNINGS_GCC_LIKE
 
 #if __clang__
  #pragma clang diagnostic pop

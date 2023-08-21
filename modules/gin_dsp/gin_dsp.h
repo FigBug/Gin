@@ -70,6 +70,15 @@
 #include <random>
 #include <cmath>
 
+JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE ("-Wfloat-equal")
+
+#include "3rdparty/AudioFilter/src/AudioFilterTypes.h"
+#include "3rdparty/AudioFilter/src/FilterInstance.h"
+#include "3rdparty/AudioFilter/src/ParametricCreator.h"
+#include "3rdparty/AudioFilter/src/Response.h"
+
+JUCE_END_IGNORE_WARNINGS_GCC_LIKE
+
 namespace gin
 {
 

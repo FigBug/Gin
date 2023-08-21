@@ -25,6 +25,7 @@ public:
         lowshelf,
         highshelf,
         peak,
+        allpass,
     };
 
     enum Slope
@@ -33,12 +34,23 @@ public:
         db24,
     };
 
-    Filter ()
+    Filter (int maxOrder = 2)
+        : biquad1 (2 * ((maxOrder + 1) / 2)), biquad2 (2 * ((maxOrder + 1) / 2))
     {
+        biquad1.resize (1);
+        biquad2.resize (1);
     }
 
     void setSampleRate (double sr)  { sampleRate = sr;  }
-    void setNumChannels (int ch)    { channels = ch; filters.resize (size_t (channels * 2));    }
+
+    void setNumChannels (int ch)
+    {
+        channels = ch;
+        filters.clear();
+
+        for (int i = 0; i < 2; i++)
+            filters.push_back (std::make_unique<AudioFilter::FilterInstance<float>> (ch));
+    }
 
     void setType (Type t)           { type = t;         }
     void setSlope (Slope s)         { slope = s;        }
@@ -46,7 +58,7 @@ public:
     void reset()
     {
         for (auto& f : filters)
-            f.reset();
+            f->clear();
     }
 
     float getFrequency()            { return freq;      }
@@ -59,49 +71,11 @@ public:
 
         if (type == none) return;
 
-        juce::IIRCoefficients coeffs1, coeffs2;
+        AudioFilter::ParametricCreator::createMZTiStage (biquad1[0], freq, juce::Decibels::gainToDecibels (g), q, conv (type), sampleRate);
+        filters[0]->setParams (biquad1[0]);
 
-        switch (type)
-        {
-            case lowpass:
-                coeffs1 = juce::IIRCoefficients::makeLowPass (sampleRate, freq, q);
-                coeffs2 = juce::IIRCoefficients::makeLowPass (sampleRate, freq, Q);
-                break;
-            case highpass:
-                coeffs1 = juce::IIRCoefficients::makeHighPass (sampleRate, freq, q);
-                coeffs2 = juce::IIRCoefficients::makeHighPass (sampleRate, freq, Q);
-                break;
-            case bandpass:
-                coeffs1 = juce::IIRCoefficients::makeBandPass (sampleRate, freq, q);
-                coeffs2 = juce::IIRCoefficients::makeBandPass (sampleRate, freq, Q);
-                break;
-            case notch:
-                coeffs1 = juce::IIRCoefficients::makeNotchFilter (sampleRate, freq, q);
-                coeffs2 = juce::IIRCoefficients::makeNotchFilter (sampleRate, freq, Q);
-                break;
-            case lowshelf:
-                coeffs1 = juce::IIRCoefficients::makeLowShelf (sampleRate, freq, q, g);
-                coeffs2 = juce::IIRCoefficients::makeLowShelf (sampleRate, freq, Q, g);
-                break;
-            case highshelf:
-                coeffs1 = juce::IIRCoefficients::makeHighShelf (sampleRate, freq, q, g);
-                coeffs2 = juce::IIRCoefficients::makeHighShelf (sampleRate, freq, Q, g);
-                break;
-            case peak:
-                coeffs1 = juce::IIRCoefficients::makePeakFilter (sampleRate, freq, q, g);
-                coeffs2 = juce::IIRCoefficients::makePeakFilter (sampleRate, freq, Q, g);
-                break;
-            case none:
-            default:
-                jassertfalse;
-                break;
-        }
-
-        for (int ch = 0; ch < channels; ch++)
-        {
-            filters[size_t (ch * 2 + 0)].setCoefficients (coeffs1);
-            filters[size_t (ch * 2 + 1)].setCoefficients (coeffs2);
-        }
+        AudioFilter::ParametricCreator::createMZTiStage (biquad2[0], freq, juce::Decibels::gainToDecibels (g), Q, conv (type), sampleRate);
+        filters[1]->setParams (biquad2[0]);
     }
 
     void process (juce::AudioSampleBuffer& buffer)
@@ -110,22 +84,71 @@ public:
 
         const int numSamples = buffer.getNumSamples();
 
+        auto o = (float**)buffer.getArrayOfWritePointers();
+        auto i = (const float**)buffer.getArrayOfReadPointers();
+
         for (int ch = 0; ch < channels; ch++)
         {
             switch (slope)
             {
                 case db12:
-                    filters[size_t (ch * 2)].processSamples (buffer.getWritePointer (ch), numSamples);
+                    filters[size_t (ch * 2)]->processBlock (o, i, numSamples);
                     break;
                 case db24:
-                    filters[size_t (ch * 2 + 0)].processSamples (buffer.getWritePointer (ch), numSamples);
-                    filters[size_t (ch * 2 + 1)].processSamples (buffer.getWritePointer (ch), numSamples);
+                    filters[size_t (ch * 2 + 0)]->processBlock (o, i, numSamples);
+                    filters[size_t (ch * 2 + 1)]->processBlock (o, i, numSamples);
                     break;
             }
         }
     }
 
+    float getResponseMagnitude (float atFreq)
+    {
+        auto res = 1.0f;
+
+        if (slope >= db12)
+        {
+            const int maxOrder = 2;
+            AudioFilter::BiquadParamCascade biquadRes { 2 * ((maxOrder + 1) / 2) };
+            biquadRes.resize (1);
+            AudioFilter::ParametricCreator::createMZTiStage (biquadRes[0], freq, juce::Decibels::gainToDecibels (g), q, conv (type), sampleRate);
+
+            res *= float (AudioFilter::Response::getResponsePoint (biquadRes, atFreq, sampleRate));
+        }
+
+        if (slope >= db12)
+        {
+            const int maxOrder = 2;
+            AudioFilter::BiquadParamCascade biquadRes { 2 * ((maxOrder + 1) / 2) };
+            biquadRes.resize (1);
+            AudioFilter::ParametricCreator::createMZTiStage (biquadRes[0], freq, juce::Decibels::gainToDecibels (g), Q, conv (type), sampleRate);
+
+            res *= float (AudioFilter::Response::getResponsePoint (biquadRes, atFreq, sampleRate));
+        }
+
+        return res;
+    }
+
 private:
+    AudioFilter::FilterType conv (Type t)
+    {
+        switch (t)
+        {
+            case lowpass:       return AudioFilter::afLoPass;
+            case highpass:      return AudioFilter::afHiPass;
+            case bandpass:      return AudioFilter::afBandPass;
+            case notch:         return AudioFilter::afNotch;
+            case lowshelf:      return AudioFilter::afLoShelf;
+            case highshelf:     return AudioFilter::afHiShelf;
+            case peak:          return AudioFilter::afPeak;
+            case allpass:       return AudioFilter::afAllPass;
+            case none:
+            default:
+                jassertfalse;
+                return AudioFilter::afAllPass;
+        }
+    }
+
     Type type = none;
     Slope slope = db12;
 
@@ -136,5 +159,6 @@ private:
     float q = 0.70710678118655f;
     float g = 0.0f;
 
-    std::vector<juce::IIRFilter> filters;
+    AudioFilter::BiquadParamCascade biquad1, biquad2;
+    std::vector<std::unique_ptr<AudioFilter::FilterInstance<float>>> filters;
 };
