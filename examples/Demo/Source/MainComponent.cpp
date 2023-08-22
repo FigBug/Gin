@@ -1879,6 +1879,8 @@ void MainContentComponent::resized()
 
 void MainContentComponent::paintListBoxItem (int row, juce::Graphics& g, int w, int h, bool rowIsSelected)
 {
+    gin::PlateReverb<float, int> reverb;
+
     juce::Rectangle<int> rc (0, 0, w, h);
     if (rowIsSelected)
     {
