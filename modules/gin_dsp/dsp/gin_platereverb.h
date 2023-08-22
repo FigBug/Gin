@@ -267,7 +267,7 @@ template <class F, class I> class PlateReverb
 
         void recalc()
         {
-            b = std::exp(-2 * M_PI * cutoff / sampleRate);
+            b = std::exp (-2 * juce::MathConstants<F>::pi * cutoff / sampleRate);
             a = 1 - b;
         }
     };
@@ -400,8 +400,8 @@ template <class F, class I> class PlateReverb
             F out = -FastMath<F>::fastSin(phase);
 
             phase += phaseInc;
-            if (phase > M_PI)
-                phase = -M_PI;
+            if (phase > juce::MathConstants<F>::pi)
+                phase = -juce::MathConstants<F>::pi;
 
             return out;
         }
@@ -411,12 +411,12 @@ template <class F, class I> class PlateReverb
         F freq = 0;
 
         F phaseInc = 0;
-        F phase = F (-M_PI);
+        F phase = F (-juce::MathConstants<F>::pi);
 
         void recalc()
         {
             phaseInc = freq / sampleRate;
-            phaseInc *= 2 * M_PI;
+            phaseInc *= 2 * juce::MathConstants<F>::pi;
         }
     };
 
