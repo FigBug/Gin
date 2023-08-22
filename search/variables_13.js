@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['value_2817',['value',['../classPropertyComponentBase.html#a3c5ee7d20c4aecc48394fc97aa050448',1,'PropertyComponentBase::value()'],['../classHorizontalFader.html#aa9aef2326b35175ef22ad47a7f61d73c',1,'HorizontalFader::value()'],['../structParameter_1_1ParamState.html#a9688db68c2a8bd8fc608720e62ea9c8a',1,'Parameter::ParamState::value()'],['../classParameter.html#a600fbf5505f6846a37b27f806ea4abf0',1,'Parameter::value()']]],
-  ['valuetree_2818',['valueTree',['../classProgram.html#ae5df2a7c91a9814b63c9224106492da4',1,'Program']]],
-  ['vctrns_2819',['vcTrns',['../structVoicedStereoOscillator_1_1Params.html#a617f4529f6385f4cc4cf74516e3bdc25',1,'VoicedStereoOscillator::Params']]],
-  ['voicepath_2820',['voicePath',['../classSynthesiserUsage.html#ac45af775287b4546013be488a67d5d7d',1,'SynthesiserUsage']]],
-  ['voices_2821',['voices',['../structVoicedStereoOscillator_1_1Params.html#a46ae813a8ece08ac931fbb1b6b3adcfd',1,'VoicedStereoOscillator::Params::voices()'],['../classSynthesiserUsage.html#a2cb8e573343dc51b45899177cc111574',1,'SynthesiserUsage::voices()']]]
+  ['uid_2831',['uid',['../structParameter_1_1ParamState.html#aa22b9ef79902c319f80799bbaae5c9e4',1,'Parameter::ParamState::uid()'],['../classParameter.html#a6de74e7339f55349e6cb89dfd9a3abf1',1,'Parameter::uid()']]],
+  ['updatechecker_2832',['updateChecker',['../classTitleBar.html#a592d0a4299aa23c9b323205d76f19742',1,'TitleBar::updateChecker()'],['../classProcessorEditor.html#adb1321c64dc3799c8b5b7128ec7fdae1',1,'ProcessorEditor::updateChecker()']]],
+  ['url_2833',['url',['../structDownloadManager_1_1DownloadResult.html#a700f6508383b439c9f700ee6a2193545',1,'DownloadManager::DownloadResult::url()'],['../classAsyncDownload.html#aef49e36d34014f5e3d77c044fd1b47d3',1,'AsyncDownload::url()']]],
+  ['usenewschecker_2834',['useNewsChecker',['../classEditorOptions.html#ab9daa4461e9eacbb8d6ff894920e74f9',1,'EditorOptions']]],
+  ['useractioncount_2835',['userActionCount',['../classParameter.html#a9a2d682ac453e9b019ceb12986b8e5fd',1,'Parameter']]],
+  ['useupdatechecker_2836',['useUpdateChecker',['../classEditorOptions.html#a17a30e94262ef7ef0a9d2aff3c490c99',1,'EditorOptions']]]
 ];

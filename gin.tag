@@ -587,6 +587,12 @@
     <class kind="class">ExifMetadata</class>
   </compound>
   <compound kind="file">
+    <name>gin_fastmath.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
+    <filename>gin__fastmath_8h.html</filename>
+    <class kind="class">FastMath</class>
+  </compound>
+  <compound kind="file">
     <name>gin_filesystemwatcher.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
     <filename>gin__filesystemwatcher_8h.html</filename>
@@ -1201,6 +1207,12 @@
     <class kind="struct">PatchBrowser::AuthorsModel</class>
     <class kind="struct">PatchBrowser::TagsModel</class>
     <class kind="struct">PatchBrowser::PresetsModel</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_platereverb.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
+    <filename>gin__platereverb_8h.html</filename>
+    <class kind="class">PlateReverb</class>
   </compound>
   <compound kind="file">
     <name>gin_plist.h</name>
@@ -4687,6 +4699,25 @@
       <anchorfile>classExifMetadata.html</anchorfile>
       <anchor>a3f6329e2c6cb7364c551d656c33ac3e2</anchor>
       <arglist>(const juce::uint8 *data, int sz)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>FastMath</name>
+    <filename>classFastMath.html</filename>
+    <templarg></templarg>
+    <member kind="function" static="yes">
+      <type>static F</type>
+      <name>fastSin</name>
+      <anchorfile>classFastMath.html</anchorfile>
+      <anchor>afdad2de64a36f1743f44b2709b1b1942</anchor>
+      <arglist>(F x)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static F</type>
+      <name>fastTanh</name>
+      <anchorfile>classFastMath.html</anchorfile>
+      <anchor>ab7dc4fb37da3e6c46c461336e3b36ad4</anchor>
+      <arglist>(const F x)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -9379,6 +9410,96 @@
       <anchorfile>classPerlinNoise.html</anchorfile>
       <anchor>a3aa782c396ab798493ad7529960c5a9a</anchor>
       <arglist>(T x, T y=0, T z=0)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>PlateReverb</name>
+    <filename>classPlateReverb.html</filename>
+    <templarg></templarg>
+    <templarg></templarg>
+    <member kind="function">
+      <type></type>
+      <name>PlateReverb</name>
+      <anchorfile>classPlateReverb.html</anchorfile>
+      <anchor>ab7b9e69d853ea3d592968bf806196313</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~PlateReverb</name>
+      <anchorfile>classPlateReverb.html</anchorfile>
+      <anchor>aab02457a50c9cec1018cf966f34c65af</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classPlateReverb.html</anchorfile>
+      <anchor>a7cbc0ebf349c8f7e4256295cf29787fe</anchor>
+      <arglist>(F sampleRate_)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setMix</name>
+      <anchorfile>classPlateReverb.html</anchorfile>
+      <anchor>ad6a4f8b8e1fc6a68564613cb455877fd</anchor>
+      <arglist>(F m)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPredelay</name>
+      <anchorfile>classPlateReverb.html</anchorfile>
+      <anchor>a40658a95723ef313599d1f2f1c4ea3bf</anchor>
+      <arglist>(F pd)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setLowpass</name>
+      <anchorfile>classPlateReverb.html</anchorfile>
+      <anchor>ade79cbb3fd905d7d738a6b6fe904cc56</anchor>
+      <arglist>(F cutoff)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDecay</name>
+      <anchorfile>classPlateReverb.html</anchorfile>
+      <anchor>a598f40cb294033b8abb06a9050afd2ff</anchor>
+      <arglist>(F dr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSize</name>
+      <anchorfile>classPlateReverb.html</anchorfile>
+      <anchor>af006dbe9c9a7c7e09118c6131cde30f0</anchor>
+      <arglist>(F sz)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDamping</name>
+      <anchorfile>classPlateReverb.html</anchorfile>
+      <anchor>a571edcf99036bfe0fe32f0ca5b6557b8</anchor>
+      <arglist>(F cutoff)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classPlateReverb.html</anchorfile>
+      <anchor>a4416b5288a6f9192fe7f69eeb3c38139</anchor>
+      <arglist>(F dryLeft, F dryRight, F *leftOut, F *rightOut)</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr F</type>
+      <name>kMaxPredelay</name>
+      <anchorfile>classPlateReverb.html</anchorfile>
+      <anchor>ac371d941c9f1a7b825e1eca04c5b5c29</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr F</type>
+      <name>kMaxSize</name>
+      <anchorfile>classPlateReverb.html</anchorfile>
+      <anchor>a9643a8e18dd14df66eee8b20a5ffbe28</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
