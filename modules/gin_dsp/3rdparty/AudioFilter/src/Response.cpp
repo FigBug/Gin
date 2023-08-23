@@ -32,7 +32,7 @@ std::vector<float> createSin2W2(const std::vector<float>& freqs, float sampleRat
 
     for (size_t i = 0; i < numPoints; ++i)
     {
-        const auto sinw2 = sin(static_cast<float> (M_PI) * freqs[i] / sampleRate);
+        const auto sinw2 = sin(static_cast<float> (juce::MathConstants<double>::pi) * freqs[i] / sampleRate);
         ret[i] = sinw2 * sinw2;
     }
 
@@ -94,7 +94,7 @@ void getResponse(const BiquadParamCascade& params, std::vector<float>& gains, co
 
 double getResponsePoint(const BiquadParam& params, double freq, double sampleRate)
 {
-    const auto sin2w = sin(M_PI * freq / sampleRate);
+    const auto sin2w = sin(juce::MathConstants<double>::pi * freq / sampleRate);
     const auto phi = sin2w * sin2w;
 
     const auto b0 = params.b0;

@@ -140,7 +140,7 @@ void getMztTransform(BiquadParam& analog, BiquadParam& digital, double freq, dou
         {
             const auto za0 = analog.b0 / analog.b1;
             digital.b0 = 1;
-            digital.b1 = -std::exp(-za0 * 2 * M_PI*freq / sampleRate);
+            digital.b1 = -std::exp(-za0 * 2 * juce::MathConstants<double>::pi*freq / sampleRate);
             digital.b2 = 0;
         }
     }
@@ -153,8 +153,8 @@ void getMztTransform(BiquadParam& analog, BiquadParam& digital, double freq, dou
         {
             const auto za0 = (analog.b1 + std::sqrt(b11 - b02)) / (2 * analog.b2);
             const auto za1 = (analog.b1 - std::sqrt(b11 - b02)) / (2 * analog.b2);
-            const auto zd0 = std::exp(-za0 * 2 * M_PI*freq / sampleRate);
-            const auto zd1 = std::exp(-za1 * 2 * M_PI*freq / sampleRate);
+            const auto zd0 = std::exp(-za0 * 2 * juce::MathConstants<double>::pi*freq / sampleRate);
+            const auto zd1 = std::exp(-za1 * 2 * juce::MathConstants<double>::pi*freq / sampleRate);
             digital.b0 = 1;
             digital.b1 = -zd0 - zd1;
             digital.b2 = zd0 * zd1;
@@ -163,9 +163,9 @@ void getMztTransform(BiquadParam& analog, BiquadParam& digital, double freq, dou
         {
             const auto zaRe = analog.b1 / (2 * analog.b2);
             const auto zaIm = std::sqrt(b02 - b11) / (2 * analog.b2);
-            const auto dRad = std::exp(-zaRe * 2 * M_PI*freq / sampleRate);
-            const auto zdRe = dRad * std::cos(-zaIm * 2 * M_PI*freq / sampleRate);
-            const auto zdIm = dRad * std::sin(-zaIm * 2 * M_PI*freq / sampleRate);
+            const auto dRad = std::exp(-zaRe * 2 * juce::MathConstants<double>::pi*freq / sampleRate);
+            const auto zdRe = dRad * std::cos(-zaIm * 2 * juce::MathConstants<double>::pi*freq / sampleRate);
+            const auto zdIm = dRad * std::sin(-zaIm * 2 * juce::MathConstants<double>::pi*freq / sampleRate);
             digital.b0 = 1;
             digital.b1 = -2.f * zdRe;
             digital.b2 = zdRe * zdRe + zdIm * zdIm;
@@ -182,7 +182,7 @@ void getMztTransform(BiquadParam& analog, BiquadParam& digital, double freq, dou
         else
         {
             const auto pa0 = 1 / analog.a1;
-            digital.a1 = -std::exp(-pa0 * 2 * M_PI*freq / sampleRate);
+            digital.a1 = -std::exp(-pa0 * 2 * juce::MathConstants<double>::pi*freq / sampleRate);
             digital.a2 = 0;
         }
     }
@@ -195,8 +195,8 @@ void getMztTransform(BiquadParam& analog, BiquadParam& digital, double freq, dou
         {
             const auto pa0 = (analog.a1 + std::sqrt(a11 - a02)) / (2 * analog.a2);
             const auto pa1 = (analog.a1 - std::sqrt(a11 - a02)) / (2 * analog.a2);
-            const auto pd0 = std::exp(-pa0 * 2 * M_PI*freq / sampleRate);
-            const auto pd1 = std::exp(-pa1 * 2 * M_PI*freq / sampleRate);
+            const auto pd0 = std::exp(-pa0 * 2 * juce::MathConstants<double>::pi*freq / sampleRate);
+            const auto pd1 = std::exp(-pa1 * 2 * juce::MathConstants<double>::pi*freq / sampleRate);
             digital.a1 = -pd0 - pd1;
             digital.a2 = pd0 * pd1;
         }
@@ -204,9 +204,9 @@ void getMztTransform(BiquadParam& analog, BiquadParam& digital, double freq, dou
         {
             const auto zaRe = analog.a1 / (2 * analog.a2);
             const auto zaIm = std::sqrt(a02 - a11) / (2 * analog.a2);
-            const auto dRad = std::exp(-zaRe * 2 * M_PI*freq / sampleRate);
-            const auto zdRe = dRad * std::cos(-zaIm * 2 * M_PI*freq / sampleRate);
-            const auto zdIm = dRad * std::sin(-zaIm * 2 * M_PI*freq / sampleRate);
+            const auto dRad = std::exp(-zaRe * 2 * juce::MathConstants<double>::pi*freq / sampleRate);
+            const auto zdRe = dRad * std::cos(-zaIm * 2 * juce::MathConstants<double>::pi*freq / sampleRate);
+            const auto zdIm = dRad * std::sin(-zaIm * 2 * juce::MathConstants<double>::pi*freq / sampleRate);
             digital.a1 = -2.f * zdRe;
             digital.a2 = zdRe * zdRe + zdIm * zdIm;
         }
@@ -224,7 +224,7 @@ void getCorrection(BiquadParam& digital, const BiquadParam& analog, double freq,
 
     for (int i = 0; i < 3; ++i)
     {
-        const auto phi0 = std::sin(M_PI*freqs[i] / sampleRate);
+        const auto phi0 = std::sin(juce::MathConstants<double>::pi*freqs[i] / sampleRate);
         const auto phi = phi0 * phi0;
         const auto s = freqs[i] / freq;
         const auto a0 = 1.;
@@ -285,7 +285,7 @@ void createBLTStage(BiquadParam& param, double freq, double gain, double Q, Filt
     if (type == afLoPass6 || type == afHiPass6)
         Q *= std::sqrt(0.5f);
 
-    const auto w0 = 2 * M_PI*freq / sampleRate;
+    const auto w0 = 2 * juce::MathConstants<double>::pi*freq / sampleRate;
     const auto A = std::pow(10., 0.025 * gain);
     const auto alpha = std::sin(w0) / (2 * Q);
 

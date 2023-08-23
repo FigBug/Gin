@@ -37,8 +37,8 @@ public:
     // https://www.desmos.com/calculator/f0eryaepsl
     static inline F fastSin (F x)
     {
-        static constexpr F B = 4 / M_PI;
-        static constexpr F C = -4 / (M_PI * M_PI);
+        static constexpr F B = 4 / juce::MathConstants<double>::pi;
+        static constexpr F C = -4 / (juce::MathConstants<double>::pi * juce::MathConstants<double>::pi);
         static constexpr F P = 0.225;
 
         F y = B * x + C * x * std::abs(x);

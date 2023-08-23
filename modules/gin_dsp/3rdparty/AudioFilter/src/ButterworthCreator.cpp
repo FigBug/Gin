@@ -12,7 +12,7 @@ namespace QBasedButterworth
 
 double getButterworthQ(int index, int order)
 {
-    return -0.5 / std::cos(M_PI * (2 * index + order + 1) / (2 * order));
+    return -0.5 / std::cos(juce::MathConstants<double>::pi * (2 * index + order + 1) / (2 * order));
 }
 
 void addButterworthPass(BiquadParamCascade& cascade, double freq, bool hipass, size_t order, double sampleRate, FilterImplementation impl)
@@ -328,7 +328,7 @@ void ButterworthCreator::createAnalogLowpass(size_t order)
 
     for (size_t i = 0; i < pairs; ++i)
     {        
-        std::complex<double> c = std::polar(1., 0.5 * M_PI + (2 * i + 1) * M_PI / n2);
+        std::complex<double> c = std::polar(1., 0.5 * juce::MathConstants<double>::pi + (2 * i + 1) * juce::MathConstants<double>::pi / n2);
         analogPoleZero[i] = PoleZeroPair::conjugated(c, std::numeric_limits<double>::infinity());
     }
 
@@ -350,7 +350,7 @@ void ButterworthCreator::createAnalogLowShelf(size_t order, double gainDb)
 
     for (int i = 0; i < pairs; ++i)
     {
-        const double theta = M_PI * (0.5 - (2 * i + 1) / n2);
+        const double theta = juce::MathConstants<double>::pi * (0.5 - (2 * i + 1) / n2);
         analogPoleZero[i] = PoleZeroPair::conjugated(std::polar(gp, theta), std::polar(gz, theta));
     }
 
@@ -364,8 +364,8 @@ void ButterworthCreator::transformToBandpass(size_t order, double minFreq, doubl
 {
     minFreq = std::max(0., minFreq);
     maxFreq = std::min(0.5 * 0.99 * sampleRate, maxFreq);
-    const double wc2 = 2 * M_PI * minFreq / sampleRate;
-    const double wc = 2 * M_PI * maxFreq / sampleRate;
+    const double wc2 = 2 * juce::MathConstants<double>::pi * minFreq / sampleRate;
+    const double wc = 2 * juce::MathConstants<double>::pi * maxFreq / sampleRate;
     
     TransformParam params;
 
@@ -402,8 +402,8 @@ void ButterworthCreator::transformToBandstop(size_t order, double minFreq, doubl
 {
     minFreq = std::max(0., minFreq);
     maxFreq = std::min(0.5 * 0.99 * sampleRate, maxFreq);
-    const double wc2 = 2 * M_PI * minFreq / sampleRate;
-    const double wc = 2 * M_PI * maxFreq / sampleRate;
+    const double wc2 = 2 * juce::MathConstants<double>::pi * minFreq / sampleRate;
+    const double wc = 2 * juce::MathConstants<double>::pi * maxFreq / sampleRate;
 
     TransformParam params;
 
@@ -437,7 +437,7 @@ void ButterworthCreator::transformToBandstop(size_t order, double minFreq, doubl
 
 void ButterworthCreator::transformToLowpass(size_t order, double freq, double sampleRate)
 {
-    const auto w = std::tan(M_PI * freq / sampleRate);
+    const auto w = std::tan(juce::MathConstants<double>::pi * freq / sampleRate);
 
     const auto pairs = order / 2;
 
@@ -462,7 +462,7 @@ void ButterworthCreator::transformToLowpass(size_t order, double freq, double sa
 
 void ButterworthCreator::transformToHighpass(size_t order, double freq, double sampleRate)
 {
-    const auto w = 1. / std::tan(M_PI * freq / sampleRate);
+    const auto w = 1. / std::tan(juce::MathConstants<double>::pi * freq / sampleRate);
 
     const auto numPoles = order;
     const auto pairs = numPoles / 2;
