@@ -235,7 +235,17 @@ template <class F, class I> class PlateReverb
 
     void reset()
     {
-        // todo
+        if (predelayLine)
+            predelayLine->reset();
+
+        lowpass.reset();
+
+        for (auto& d : diffusers)
+            if (d)
+                d->reset();
+
+        leftTank.reset();
+        rightTank.reset();
     }
 
   private:
@@ -266,6 +276,13 @@ template <class F, class I> class PlateReverb
         {
             z = x * a + z * b;
             return z;
+        }
+
+        void reset()
+        {
+            a = 0;
+            b = 0;
+            z = 0;
         }
 
     private:
@@ -331,9 +348,15 @@ template <class F, class I> class PlateReverb
         // This does read-before-write.
         inline F tapAndPush (F delay, F val)
         {
-            F out = tap(delay);
-            push(val);
+            F out = tap (delay);
+            push (val);
             return out;
+        }
+
+        void reset()
+        {
+            std::memset (&buffer[0], 0, ceilPowerOfTwo (size) * sizeof (F));
+            writeIdx = 0;
         }
 
         inline I getSize() { return size; }
@@ -378,6 +401,8 @@ template <class F, class I> class PlateReverb
 
         inline I getSize() { return delayLine.getSize(); }
 
+        void reset() { delayLine.reset(); }
+
       private:
 
         DelayLine delayLine;
@@ -415,6 +440,11 @@ template <class F, class I> class PlateReverb
                 phase = -juce::MathConstants<F>::pi;
 
             return out;
+        }
+
+        void reset()
+        {
+            phase = 0;
         }
 
     private:
@@ -489,6 +519,16 @@ template <class F, class I> class PlateReverb
             val = del2->tapAndPush(del2Delay, val);
 
             out = val;
+        }
+
+        void reset()
+        {
+            apf1->reset();
+            apf2->reset();
+            del1->reset();
+            del2->reset();
+            damping.reset();
+            lfo.reset();
         }
 
         F out = 0.0;
