@@ -92,10 +92,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a571edcf99036bfe0fe32f0ca5b6557b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4416b5288a6f9192fe7f69eeb3c38139"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlateReverb.html#a4416b5288a6f9192fe7f69eeb3c38139">process</a> (F dryLeft, F dryRight, F *leftOut, F *rightOut)</td></tr>
 <tr class="separator:a4416b5288a6f9192fe7f69eeb3c38139"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1ca50f628d25ef7c05e176494c76471"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlateReverb.html#ad1ca50f628d25ef7c05e176494c76471">process</a> (F *l, F *r, I num)</td></tr>
+<tr class="separator:ad1ca50f628d25ef7c05e176494c76471"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c71757e86083d5d91f5c9a9c57f069f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlateReverb.html#a4c71757e86083d5d91f5c9a9c57f069f">reset</a> ()</td></tr>
+<tr class="separator:a4c71757e86083d5d91f5c9a9c57f069f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:ac371d941c9f1a7b825e1eca04c5b5c29"><td class="memItemLeft" align="right" valign="top">static constexpr F&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlateReverb.html#ac371d941c9f1a7b825e1eca04c5b5c29">kMaxPredelay</a> = 0.1</td></tr>
+<tr class="memitem:ac371d941c9f1a7b825e1eca04c5b5c29"><td class="memItemLeft" align="right" valign="top">static constexpr F&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlateReverb.html#ac371d941c9f1a7b825e1eca04c5b5c29">kMaxPredelay</a> = F (0.1)</td></tr>
 <tr class="separator:ac371d941c9f1a7b825e1eca04c5b5c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9643a8e18dd14df66eee8b20a5ffbe28"><td class="memItemLeft" align="right" valign="top">static constexpr F&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlateReverb.html#a9643a8e18dd14df66eee8b20a5ffbe28">kMaxSize</a> = 2.0</td></tr>
 <tr class="separator:a9643a8e18dd14df66eee8b20a5ffbe28"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -287,7 +291,7 @@ template&lt;class F , class I &gt; </div>
 </div>
 </div>
 <a id="a4416b5288a6f9192fe7f69eeb3c38139"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4416b5288a6f9192fe7f69eeb3c38139">&#9670;&nbsp;</a></span>process()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4416b5288a6f9192fe7f69eeb3c38139">&#9670;&nbsp;</a></span>process() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -326,6 +330,65 @@ template&lt;class F , class I &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="reference">Referenced by <a class="el" href="classPlateReverb.html#ad1ca50f628d25ef7c05e176494c76471">PlateReverb&lt; F, I &gt;::process()</a>.</p>
+
+</div>
+</div>
+<a id="ad1ca50f628d25ef7c05e176494c76471"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1ca50f628d25ef7c05e176494c76471">&#9670;&nbsp;</a></span>process() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class F , class I &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classPlateReverb.html">PlateReverb</a>&lt; F, I &gt;::process </td>
+          <td>(</td>
+          <td class="paramtype">F *&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">F *&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">I&#160;</td>
+          <td class="paramname"><em>num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classPlateReverb.html#a4416b5288a6f9192fe7f69eeb3c38139">PlateReverb&lt; F, I &gt;::process()</a>.</p>
+
+</div>
+</div>
+<a id="a4c71757e86083d5d91f5c9a9c57f069f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c71757e86083d5d91f5c9a9c57f069f">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class F , class I &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classPlateReverb.html">PlateReverb</a>&lt; F, I &gt;::reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -341,7 +404,7 @@ template&lt;class F , class I &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr F <a class="el" href="classPlateReverb.html">PlateReverb</a>&lt; F, I &gt;::kMaxPredelay = 0.1</td>
+          <td class="memname">constexpr F <a class="el" href="classPlateReverb.html">PlateReverb</a>&lt; F, I &gt;::kMaxPredelay = F (0.1)</td>
         </tr>
       </table>
   </td>
@@ -387,7 +450,7 @@ template&lt;class F , class I &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 23 2023 16:21:59 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Wed Aug 23 2023 18:41:07 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

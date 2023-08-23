@@ -9487,6 +9487,20 @@
       <anchor>a4416b5288a6f9192fe7f69eeb3c38139</anchor>
       <arglist>(F dryLeft, F dryRight, F *leftOut, F *rightOut)</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classPlateReverb.html</anchorfile>
+      <anchor>ad1ca50f628d25ef7c05e176494c76471</anchor>
+      <arglist>(F *l, F *r, I num)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classPlateReverb.html</anchorfile>
+      <anchor>a4c71757e86083d5d91f5c9a9c57f069f</anchor>
+      <arglist>()</arglist>
+    </member>
     <member kind="variable" static="yes">
       <type>static constexpr F</type>
       <name>kMaxPredelay</name>
