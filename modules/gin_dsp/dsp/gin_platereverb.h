@@ -48,7 +48,7 @@ template <class F, class I> class PlateReverb
 {
   public:
 
-    static constexpr F kMaxPredelay = 0.1; // seconds
+    static constexpr F kMaxPredelay = F (0.1); // seconds
     static constexpr F kMaxSize = 2.0;
 
     PlateReverb() {}
@@ -62,10 +62,10 @@ template <class F, class I> class PlateReverb
 
         // Ratio of our sample rate to the sample rate that is used in
         // Dattorro's paper.
-        F r = sampleRate / 29761.0;
+        F r = F (sampleRate / 29761.0);
 
         // Predelay
-        predelayLine.reset (new DelayLine (std::ceil (sampleRate * kMaxPredelay)));
+        predelayLine.reset (new DelayLine ((I)std::ceil (sampleRate * kMaxPredelay)));
 
         // Lowpass filters
         lowpass.setSampleRate (sampleRate);
@@ -73,32 +73,32 @@ template <class F, class I> class PlateReverb
         rightTank.damping.setSampleRate (sampleRate);
 
         // Diffusers
-        diffusers[0].reset (new DelayAllpass (std::ceil(142 * r), 0.75));
-        diffusers[1].reset (new DelayAllpass (std::ceil(107 * r), 0.75));
-        diffusers[2].reset (new DelayAllpass (std::ceil(379 * r), 0.625));
-        diffusers[3].reset (new DelayAllpass (std::ceil(277 * r), 0.625));
+        diffusers[0].reset (new DelayAllpass ((I)std::ceil (142 * r), 0.75));
+        diffusers[1].reset (new DelayAllpass ((I)std::ceil (107 * r), 0.75));
+        diffusers[2].reset (new DelayAllpass ((I)std::ceil (379 * r), 0.625));
+        diffusers[3].reset (new DelayAllpass ((I)std::ceil (277 * r), 0.625));
 
         // Tanks
-        F maxModDepth = 8.0 * kMaxSize * r;
+        F maxModDepth = F (8.0 * kMaxSize * r);
         leftTank.resetDelayLines (
-            std::ceil(kMaxSize * 672 * r), -0.7, // apf1
-            maxModDepth,
-            std::ceil(kMaxSize * 4453 * r),      // del1
-            std::ceil(kMaxSize * 1800 * r), 0.5, // apf2
-            std::ceil(kMaxSize * 3720 * r)       // del2
+                                  (I)std::ceil (kMaxSize * 672 * r), (F)-0.7, // apf1
+                                  maxModDepth,
+                                  (I)std::ceil (kMaxSize * 4453 * r),      // del1
+                                  (I)std::ceil (kMaxSize * 1800 * r), 0.5, // apf2
+                                  (I)std::ceil (kMaxSize * 3720 * r)       // del2
         );
         rightTank.resetDelayLines (
-            std::ceil(kMaxSize * 908 * r), -0.7, // apf1
-            maxModDepth,
-            std::ceil(kMaxSize * 4217 * r),      // del1
-            std::ceil(kMaxSize * 2656 * r), 0.5, // apf2
-            std::ceil(kMaxSize * 3163 * r)       // del2
+                                   (I)std::ceil (kMaxSize * 908 * r), (F)-0.7, // apf1
+                                   maxModDepth,
+                                   (I)std::ceil (kMaxSize * 4217 * r),      // del1
+                                   (I)std::ceil (kMaxSize * 2656 * r), 0.5, // apf2
+                                   (I)std::ceil (kMaxSize * 3163 * r)       // del2
         );
 
         leftTank.lfo.setSampleRate (sampleRate);
         rightTank.lfo.setSampleRate (sampleRate);
         leftTank.lfo.setFrequency (1.0);
-        rightTank.lfo.setFrequency (0.95);
+        rightTank.lfo.setFrequency ((F)0.95);
 
         // Tap points
         baseLeftTaps = {
@@ -122,7 +122,7 @@ template <class F, class I> class PlateReverb
     }
 
     // Dry/wet mix.
-    void setMix(F m /* [0, 1] */)
+    void setMix (F m /* [0, 1] */)
     {
         mix = clamp (m, 0.0, 1.0);
     }
@@ -141,9 +141,9 @@ template <class F, class I> class PlateReverb
     }
 
     // How quickly the reverb decays.
-    void setDecay(F dr /* [0, 1) */)
+    void setDecay (F dr /* [0, 1) */)
     {
-        decayRate = clamp (dr, 0.0, 0.9999999);
+        decayRate = clamp (dr, 0.0, (F)0.9999999);
         leftTank.setDecay (decayRate);
         rightTank.setDecay (decayRate);
     }
@@ -155,7 +155,7 @@ template <class F, class I> class PlateReverb
     //
     // Note that there is no size parameter in Dattorro's paper; it is an
     // extension to the original algorithm.
-    void setSize(F sz /* [0, 2] */)
+    void setSize (F sz /* [0, 2] */)
     {
         F sizeRatio = clamp(sz, 0.0, kMaxSize) / kMaxSize;
 
@@ -225,6 +225,17 @@ template <class F, class I> class PlateReverb
         // Mix
         *leftOut = dryLeft * (1 - mix) + wetLeft * mix;
         *rightOut = dryRight * (1 - mix) + wetRight * mix;
+    }
+
+    void process (F* l, F* r, I num)
+    {
+        for (auto i = 0; i < num; i++)
+            process (l[i], r[i], &l[i], &r[i]);
+    }
+
+    void reset()
+    {
+        // todo
     }
 
   private:
@@ -307,7 +318,7 @@ template <class F, class I> class PlateReverb
             // gets passed in here, without going past the original size.
             assert(delay <= size);
 
-            I d = delay;
+            I d = (I)delay;
             F frac = 1 - (delay - d);
 
             I readIdx = (writeIdx - 1) - d;
@@ -441,7 +452,7 @@ template <class F, class I> class PlateReverb
             apf1Size = apf1Size_;
             maxModDepth = maxModDepth_;
             F maxApf1Size = apf1Size + maxModDepth + 1;
-            apf1.reset(new DelayAllpass(maxApf1Size, apf1Gain_));
+            apf1.reset(new DelayAllpass (I (maxApf1Size), apf1Gain_));
 
             del1.reset(new DelayLine(delay1Size_));
             apf2.reset(new DelayAllpass(apf2Size_, apf2Gain_));
@@ -455,7 +466,7 @@ template <class F, class I> class PlateReverb
         void setDecay (F decayRate_)
         {
             decayRate = decayRate_;
-            apf2->setGain(clamp(decayRate + 0.15, 0.25, 0.5));
+            apf2->setGain (clamp (F (decayRate + 0.15), 0.25, 0.5));
         }
 
         void setSizeRatio (F sizeRatio_)
