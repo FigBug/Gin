@@ -57,7 +57,7 @@ var searchData=
   ['setinternal_2371',['setInternal',['../classParameter.html#ad521876299da1e44dfb839ebb13040c3',1,'Parameter']]],
   ['setjustificationtype_2372',['setJustificationType',['../classSingleLineTextEditor.html#aa91356ec3b83897b64aab87d70579bc6',1,'SingleLineTextEditor']]],
   ['setkeyboardtype_2373',['setKeyboardType',['../classSingleLineTextEditor.html#ad0f5fa9475c74f3dd7d196089ce4a97c',1,'SingleLineTextEditor']]],
-  ['setlayout_2374',['setLayout',['../classLayout.html#a8f95d75f7456f3daaf7b2e657273946b',1,'Layout']]],
+  ['setlayout_2374',['setLayout',['../classLayout.html#a06258e0c1d8e8ddc9684787951b4201a',1,'Layout']]],
   ['setlegato_2375',['setLegato',['../classSynthesiser.html#a1f66d6c7ec9c904dc22adca0d1df5c85',1,'Synthesiser']]],
   ['setlength_2376',['setLength',['../classGateEffect.html#aff46f98ed7e2cf06d7b3bf5d1f2345a0',1,'GateEffect']]],
   ['setlinked_2377',['setLinked',['../classDynamics.html#a3df98d57afadc92a521bea6c69ee200d',1,'Dynamics']]],

@@ -6231,8 +6231,8 @@
       <type>void</type>
       <name>setLayout</name>
       <anchorfile>classLayout.html</anchorfile>
-      <anchor>a8f95d75f7456f3daaf7b2e657273946b</anchor>
-      <arglist>(const juce::String &amp;filename, const juce::File &amp;source)</arglist>
+      <anchor>a06258e0c1d8e8ddc9684787951b4201a</anchor>
+      <arglist>(const juce::String &amp;filename, const juce::File &amp;source={})</arglist>
     </member>
   </compound>
   <compound kind="class">
