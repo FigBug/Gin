@@ -13,7 +13,7 @@ public:
     ~Layout() override;
    #endif
 
-    void setLayout (const juce::String& filename, const juce::File& source);
+    void setLayout (const juce::String& filename, const juce::File& source = {});
 
 private:
     void setupParser();

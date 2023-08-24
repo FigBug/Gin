@@ -276,13 +276,23 @@ juce::Component* Layout::setBounds (const juce::String& currentPath, const juce:
 
     std::optional<int> x;
     std::optional<int> y;
+    std::optional<int> r;
+    std::optional<int> b;
     std::optional<int> w;
     std::optional<int> h;
 
-    if (component.hasProperty ("x"))
-        x = parse (component[ "x" ], idIdx);
-    if (component.hasProperty ("y"))
-        y = parse (component["y"], idIdx);
+    if (component.hasProperty ("x"))    x = parse (component["x"], idIdx);
+    if (component.hasProperty ("y"))    y = parse (component["y"], idIdx);
+    if (component.hasProperty ("r"))    r = parse (component["r"], idIdx);
+    if (component.hasProperty ("b"))    b = parse (component["b"], idIdx);
+
+    if (component.hasProperty ("w"))    w = parse (component["w"], idIdx);
+    if (component.hasProperty ("h"))    h = parse (component["h"], idIdx);
+
+    if (r.has_value() && x.has_value()) w = *r - *x;
+    if (b.has_value() && y.has_value()) h = *b - *y;
+    if (r.has_value() && w.has_value()) w = *r - *w;
+    if (b.has_value() && h.has_value()) x = *b - *h;
 
     if (component.hasProperty ("bounds"))
     {
@@ -305,11 +315,6 @@ juce::Component* Layout::setBounds (const juce::String& currentPath, const juce:
             jassertfalse;
         }
     }
-
-    if (component.hasProperty ("w"))
-        w = parse (component["w"], idIdx);
-    if (component.hasProperty ("h"))
-        h = parse (component["h"], idIdx);
 
     if (x.has_value() && y.has_value())
         curComponent->setTopLeftPosition (*x, *y);
