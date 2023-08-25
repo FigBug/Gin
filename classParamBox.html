@@ -63,6 +63,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classParamBox-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ParamBox Class Reference</div>  </div>
@@ -82,12 +84,16 @@ Inheritance diagram for ParamBox:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a011028f62a01be493f082a0e8a5f863e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#a011028f62a01be493f082a0e8a5f863e">ParamBox</a> (const juce::String &amp;name)</td></tr>
 <tr class="separator:a011028f62a01be493f082a0e8a5f863e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48773dc98de240a4e0599ccb490dc94b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#a48773dc98de240a4e0599ccb490dc94b">addEnable</a> (gin::Parameter::Ptr)</td></tr>
-<tr class="separator:a48773dc98de240a4e0599ccb490dc94b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88091be82b8e3445817dfef88a3d6a19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#a88091be82b8e3445817dfef88a3d6a19">setTitle</a> (const juce::String &amp;name)</td></tr>
+<tr class="separator:a88091be82b8e3445817dfef88a3d6a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeacbb2e4a425744fc53e5cb7a7d705af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#aeacbb2e4a425744fc53e5cb7a7d705af">addEnable</a> (gin::Parameter::Ptr p)</td></tr>
+<tr class="separator:aeacbb2e4a425744fc53e5cb7a7d705af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afab51fbea411628bdb475551488cfd05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#afab51fbea411628bdb475551488cfd05">addControl</a> (Component *c, int x, int y, int cx=1, int cy=1)</td></tr>
 <tr class="separator:afab51fbea411628bdb475551488cfd05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55eadc2f52821f70453b7894deb9047e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#a55eadc2f52821f70453b7894deb9047e">addControl</a> (Component *c, float x, float y, float cx=1.0f, float cy=1.0f)</td></tr>
 <tr class="separator:a55eadc2f52821f70453b7894deb9047e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f3e07071f638ae018a898f661179e75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classParamHeader.html">ParamHeader</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#a3f3e07071f638ae018a898f661179e75">getHeader</a> ()</td></tr>
+<tr class="separator:a3f3e07071f638ae018a898f661179e75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classMultiParamComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classMultiParamComponent')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classMultiParamComponent.html">MultiParamComponent</a></td></tr>
 <tr class="memitem:a18f9b618b79b95f66337845843202a2e inherit pub_methods_classMultiParamComponent"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiParamComponent.html#a18f9b618b79b95f66337845843202a2e">MultiParamComponent</a> ()</td></tr>
 <tr class="separator:a18f9b618b79b95f66337845843202a2e inherit pub_methods_classMultiParamComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -97,8 +103,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3419172cb5e87763490dafae52f5d39f inherit pub_methods_classParameter_1_1ParameterListener"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter_1_1ParameterListener.html#a3419172cb5e87763490dafae52f5d39f">~ParameterListener</a> ()</td></tr>
 <tr class="separator:a3419172cb5e87763490dafae52f5d39f inherit pub_methods_classParameter_1_1ParameterListener"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a687c686e6477b6850fc6f46e36224dc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#a687c686e6477b6850fc6f46e36224dc4">paramChanged</a> () override</td></tr>
+<tr class="separator:a687c686e6477b6850fc6f46e36224dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3617cca7b07ac644bd474c74c84706a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#ad3617cca7b07ac644bd474c74c84706a">paint</a> (juce::Graphics &amp;g) override</td></tr>
+<tr class="separator:ad3617cca7b07ac644bd474c74c84706a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa245f81a215cbb6bb4e11887820782a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#aaa245f81a215cbb6bb4e11887820782a">resized</a> () override</td></tr>
+<tr class="separator:aaa245f81a215cbb6bb4e11887820782a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1acb4895d0d5bedbcf551c12584116f5"><td class="memItemLeft" align="right" valign="top">juce::Rectangle&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#a1acb4895d0d5bedbcf551c12584116f5">getGridArea</a> (int x, int y, int cx=1, int cy=1)</td></tr>
+<tr class="separator:a1acb4895d0d5bedbcf551c12584116f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93165dbf7036c4ee843452e4408189f7"><td class="memItemLeft" align="right" valign="top">juce::Rectangle&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#a93165dbf7036c4ee843452e4408189f7">getGridArea</a> (float x, float y, float cx=1.0f, float cy=1.0f)</td></tr>
+<tr class="separator:a93165dbf7036c4ee843452e4408189f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classMultiParamComponent"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classMultiParamComponent')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classMultiParamComponent.html">MultiParamComponent</a></td></tr>
 <tr class="memitem:a5cc5d97f95b48cac1c6d1989f4e1d971 inherit pro_methods_classMultiParamComponent"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiParamComponent.html#a5cc5d97f95b48cac1c6d1989f4e1d971">showBubble</a> (const juce::String &amp;text, const juce::Rectangle&lt; int &gt; &amp;rc)</td></tr>
 <tr class="separator:a5cc5d97f95b48cac1c6d1989f4e1d971 inherit pro_methods_classMultiParamComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -108,14 +124,23 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:ac49a40f9a9abf19917dd3dc1b40bf5f8 inherit pro_methods_classMultiParamComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7441578faba5891a7fc764da134f03c inherit pro_methods_classMultiParamComponent"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiParamComponent.html#ae7441578faba5891a7fc764da134f03c">unwatchParams</a> ()</td></tr>
 <tr class="separator:ae7441578faba5891a7fc764da134f03c inherit pro_methods_classMultiParamComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55e25df161dbc7b98bcbd3a5f937561d inherit pro_methods_classMultiParamComponent"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiParamComponent.html#a55e25df161dbc7b98bcbd3a5f937561d">paramChanged</a> ()</td></tr>
-<tr class="separator:a55e25df161dbc7b98bcbd3a5f937561d inherit pro_methods_classMultiParamComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae564f36608f33269bc246aad3df26478 inherit pro_methods_classMultiParamComponent"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiParamComponent.html#ae564f36608f33269bc246aad3df26478">enablementChanged</a> () override</td></tr>
 <tr class="separator:ae564f36608f33269bc246aad3df26478 inherit pro_methods_classMultiParamComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ea4449b0c06e5f5ed1acda230357b23 inherit pro_methods_classMultiParamComponent"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiParamComponent.html#a5ea4449b0c06e5f5ed1acda230357b23">valueUpdated</a> (<a class="el" href="classParameter.html">Parameter</a> *) override</td></tr>
 <tr class="separator:a5ea4449b0c06e5f5ed1acda230357b23 inherit pro_methods_classMultiParamComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1f2a647d360783089b697dde0204e55 inherit pro_methods_classMultiParamComponent"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiParamComponent.html#af1f2a647d360783089b697dde0204e55">handleAsyncUpdate</a> () override</td></tr>
 <tr class="separator:af1f2a647d360783089b697dde0204e55 inherit pro_methods_classMultiParamComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a1bd477b12f663e232b0aeadb0cbd4c40"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classParamHeader.html">ParamHeader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#a1bd477b12f663e232b0aeadb0cbd4c40">header</a></td></tr>
+<tr class="separator:a1bd477b12f663e232b0aeadb0cbd4c40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af715eab1cc1d6a7f9afe250aa6cf8c73"><td class="memItemLeft" align="right" valign="top">juce::Component&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#af715eab1cc1d6a7f9afe250aa6cf8c73">frame</a></td></tr>
+<tr class="separator:af715eab1cc1d6a7f9afe250aa6cf8c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c993cfb8a848781cb2206de51e318c3"><td class="memItemLeft" align="right" valign="top">juce::OwnedArray&lt; Component &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#a9c993cfb8a848781cb2206de51e318c3">controls</a></td></tr>
+<tr class="separator:a9c993cfb8a848781cb2206de51e318c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35ec83a9ba515c672d00aecce8c8be9c"><td class="memItemLeft" align="right" valign="top">gin::Parameter::Ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#a35ec83a9ba515c672d00aecce8c8be9c">enableParam</a> = nullptr</td></tr>
+<tr class="separator:a35ec83a9ba515c672d00aecce8c8be9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classMultiParamComponent"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classMultiParamComponent')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classMultiParamComponent.html">MultiParamComponent</a></td></tr>
 <tr class="memitem:a36bd41a594c81661474e30ee35c0eca5 inherit pro_attribs_classMultiParamComponent"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; <a class="el" href="classParameter.html">Parameter</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiParamComponent.html#a36bd41a594c81661474e30ee35c0eca5">params</a></td></tr>
 <tr class="separator:a36bd41a594c81661474e30ee35c0eca5 inherit pro_attribs_classMultiParamComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,13 +166,33 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="group__gin__gui-components.html#ga66410efb088d24a02a86b4c6191e2866">addAndMakeVisible()</a>.</p>
+<p class="reference">References <a class="el" href="group__gin__gui-components.html#ga66410efb088d24a02a86b4c6191e2866">addAndMakeVisible()</a>, <a class="el" href="classParamBox.html#af715eab1cc1d6a7f9afe250aa6cf8c73">frame</a>, and <a class="el" href="classParamBox.html#a1bd477b12f663e232b0aeadb0cbd4c40">header</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a48773dc98de240a4e0599ccb490dc94b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48773dc98de240a4e0599ccb490dc94b">&#9670;&nbsp;</a></span>addEnable()</h2>
+<a id="a88091be82b8e3445817dfef88a3d6a19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88091be82b8e3445817dfef88a3d6a19">&#9670;&nbsp;</a></span>setTitle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParamBox::setTitle </td>
+          <td>(</td>
+          <td class="paramtype">const juce::String &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classParamBox.html#a1bd477b12f663e232b0aeadb0cbd4c40">header</a>, and <a class="el" href="classParamHeader.html#a8fffffad38b12b1284bd3e942f676536">ParamHeader::setTitle()</a>.</p>
+
+</div>
+</div>
+<a id="aeacbb2e4a425744fc53e5cb7a7d705af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeacbb2e4a425744fc53e5cb7a7d705af">&#9670;&nbsp;</a></span>addEnable()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -156,11 +201,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">void ParamBox::addEnable </td>
           <td>(</td>
           <td class="paramtype">gin::Parameter::Ptr&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="group__gin__gui-components.html#ga66410efb088d24a02a86b4c6191e2866">addAndMakeVisible()</a>, <a class="el" href="classParamBox.html#a9c993cfb8a848781cb2206de51e318c3">controls</a>, <a class="el" href="classParamBox.html#a35ec83a9ba515c672d00aecce8c8be9c">enableParam</a>, and <a class="el" href="classMultiParamComponent.html#ac49a40f9a9abf19917dd3dc1b40bf5f8">MultiParamComponent::watchParam()</a>.</p>
 
 </div>
 </div>
@@ -208,7 +255,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="group__gin__gui-components.html#ga66410efb088d24a02a86b4c6191e2866">addAndMakeVisible()</a>.</p>
+<p class="reference">References <a class="el" href="classParamBox.html#a9c993cfb8a848781cb2206de51e318c3">controls</a>, <a class="el" href="classParamBox.html#af715eab1cc1d6a7f9afe250aa6cf8c73">frame</a>, and <a class="el" href="classParamBox.html#a1acb4895d0d5bedbcf551c12584116f5">getGridArea()</a>.</p>
 
 </div>
 </div>
@@ -256,7 +303,305 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="group__gin__gui-components.html#ga66410efb088d24a02a86b4c6191e2866">addAndMakeVisible()</a>.</p>
+<p class="reference">References <a class="el" href="classParamBox.html#a9c993cfb8a848781cb2206de51e318c3">controls</a>, <a class="el" href="classParamBox.html#af715eab1cc1d6a7f9afe250aa6cf8c73">frame</a>, and <a class="el" href="classParamBox.html#a1acb4895d0d5bedbcf551c12584116f5">getGridArea()</a>.</p>
+
+</div>
+</div>
+<a id="a3f3e07071f638ae018a898f661179e75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f3e07071f638ae018a898f661179e75">&#9670;&nbsp;</a></span>getHeader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classParamHeader.html">ParamHeader</a>&amp; ParamBox::getHeader </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classParamBox.html#a1bd477b12f663e232b0aeadb0cbd4c40">header</a>.</p>
+
+</div>
+</div>
+<a id="a687c686e6477b6850fc6f46e36224dc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a687c686e6477b6850fc6f46e36224dc4">&#9670;&nbsp;</a></span>paramChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParamBox::paramChanged </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classMultiParamComponent.html#a55e25df161dbc7b98bcbd3a5f937561d">MultiParamComponent</a>.</p>
+
+<p class="reference">References <a class="el" href="classParamBox.html#a35ec83a9ba515c672d00aecce8c8be9c">enableParam</a>, <a class="el" href="classParamBox.html#af715eab1cc1d6a7f9afe250aa6cf8c73">frame</a>, and <a class="el" href="classMultiParamComponent.html#a55e25df161dbc7b98bcbd3a5f937561d">MultiParamComponent::paramChanged()</a>.</p>
+
+</div>
+</div>
+<a id="ad3617cca7b07ac644bd474c74c84706a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3617cca7b07ac644bd474c74c84706a">&#9670;&nbsp;</a></span>paint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParamBox::paint </td>
+          <td>(</td>
+          <td class="paramtype">juce::Graphics &amp;&#160;</td>
+          <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="group__gin__plugin-components.html#gae617c6797d9252a57e49dc7bef2f487b">gradientRect()</a>, <a class="el" href="classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a9574cb8d76e0b587045e42ba6f560e3e">GinLookAndFeel::matte1ColourId</a>, and <a class="el" href="classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a92300711403ae30883fac16299863490">GinLookAndFeel::matte2ColourId</a>.</p>
+
+</div>
+</div>
+<a id="aaa245f81a215cbb6bb4e11887820782a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa245f81a215cbb6bb4e11887820782a">&#9670;&nbsp;</a></span>resized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParamBox::resized </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classParamBox.html#af715eab1cc1d6a7f9afe250aa6cf8c73">frame</a>, and <a class="el" href="classParamBox.html#a1bd477b12f663e232b0aeadb0cbd4c40">header</a>.</p>
+
+</div>
+</div>
+<a id="a1acb4895d0d5bedbcf551c12584116f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1acb4895d0d5bedbcf551c12584116f5">&#9670;&nbsp;</a></span>getGridArea() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Rectangle&lt;int&gt; ParamBox::getGridArea </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cx</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cy</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classParamBox.html#afab51fbea411628bdb475551488cfd05">addControl()</a>.</p>
+
+</div>
+</div>
+<a id="a93165dbf7036c4ee843452e4408189f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93165dbf7036c4ee843452e4408189f7">&#9670;&nbsp;</a></span>getGridArea() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Rectangle&lt;int&gt; ParamBox::getGridArea </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>cx</em> = <code>1.0f</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>cy</em> = <code>1.0f</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1bd477b12f663e232b0aeadb0cbd4c40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bd477b12f663e232b0aeadb0cbd4c40">&#9670;&nbsp;</a></span>header</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classParamHeader.html">ParamHeader</a> ParamBox::header</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classParamBox.html#a3f3e07071f638ae018a898f661179e75">getHeader()</a>, <a class="el" href="classParamBox.html#a011028f62a01be493f082a0e8a5f863e">ParamBox()</a>, <a class="el" href="classParamBox.html#aaa245f81a215cbb6bb4e11887820782a">resized()</a>, and <a class="el" href="classParamBox.html#a88091be82b8e3445817dfef88a3d6a19">setTitle()</a>.</p>
+
+</div>
+</div>
+<a id="af715eab1cc1d6a7f9afe250aa6cf8c73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af715eab1cc1d6a7f9afe250aa6cf8c73">&#9670;&nbsp;</a></span>frame</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Component ParamBox::frame</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classParamBox.html#afab51fbea411628bdb475551488cfd05">addControl()</a>, <a class="el" href="classParamBox.html#a011028f62a01be493f082a0e8a5f863e">ParamBox()</a>, <a class="el" href="classParamBox.html#a687c686e6477b6850fc6f46e36224dc4">paramChanged()</a>, and <a class="el" href="classParamBox.html#aaa245f81a215cbb6bb4e11887820782a">resized()</a>.</p>
+
+</div>
+</div>
+<a id="a9c993cfb8a848781cb2206de51e318c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c993cfb8a848781cb2206de51e318c3">&#9670;&nbsp;</a></span>controls</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::OwnedArray&lt;Component&gt; ParamBox::controls</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classParamBox.html#afab51fbea411628bdb475551488cfd05">addControl()</a>, and <a class="el" href="classParamBox.html#aeacbb2e4a425744fc53e5cb7a7d705af">addEnable()</a>.</p>
+
+</div>
+</div>
+<a id="a35ec83a9ba515c672d00aecce8c8be9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35ec83a9ba515c672d00aecce8c8be9c">&#9670;&nbsp;</a></span>enableParam</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">gin::Parameter::Ptr ParamBox::enableParam = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classParamBox.html#aeacbb2e4a425744fc53e5cb7a7d705af">addEnable()</a>, and <a class="el" href="classParamBox.html#a687c686e6477b6850fc6f46e36224dc4">paramChanged()</a>.</p>
 
 </div>
 </div>
@@ -266,7 +611,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 25 2023 16:48:14 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Aug 25 2023 20:26:42 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

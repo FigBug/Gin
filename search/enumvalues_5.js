@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['failed_2924',['failed',['../classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30fa765c9be4013c90f5b9658ce40d293c4c',1,'ElevatedFileCopy']]],
-  ['filecreated_2925',['fileCreated',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7da8935e36db30f2b16435fe603320a241b',1,'FileSystemWatcher']]],
-  ['filedeleted_2926',['fileDeleted',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7da429bef88054b2dd0618102e1abf4f150',1,'FileSystemWatcher']]],
-  ['filerenamednewname_2927',['fileRenamedNewName',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7da41c22f8136f11c19e362685eb6d897f9',1,'FileSystemWatcher']]],
-  ['filerenamedoldname_2928',['fileRenamedOldName',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7da5a58eb5cd4c39c2655668fc1d3241955',1,'FileSystemWatcher']]],
-  ['fileupdated_2929',['fileUpdated',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7dabc075ff82423a1f48c1043f2e8383acf',1,'FileSystemWatcher']]],
-  ['focusedoutlinecolourid_2930',['focusedOutlineColourId',['../classSingleLineTextEditor.html#a580e95f56d303528b02f91143c72f13ca613b4466a2f85ed3a22af2012c77b720',1,'SingleLineTextEditor']]],
-  ['forwards_2931',['forwards',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1a465c5f747934848fce35cebef03936e2',1,'SampleOscillator']]]
+  ['failed_2935',['failed',['../classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30fa765c9be4013c90f5b9658ce40d293c4c',1,'ElevatedFileCopy']]],
+  ['filecreated_2936',['fileCreated',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7da8935e36db30f2b16435fe603320a241b',1,'FileSystemWatcher']]],
+  ['filedeleted_2937',['fileDeleted',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7da429bef88054b2dd0618102e1abf4f150',1,'FileSystemWatcher']]],
+  ['filerenamednewname_2938',['fileRenamedNewName',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7da41c22f8136f11c19e362685eb6d897f9',1,'FileSystemWatcher']]],
+  ['filerenamedoldname_2939',['fileRenamedOldName',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7da5a58eb5cd4c39c2655668fc1d3241955',1,'FileSystemWatcher']]],
+  ['fileupdated_2940',['fileUpdated',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7dabc075ff82423a1f48c1043f2e8383acf',1,'FileSystemWatcher']]],
+  ['focusedoutlinecolourid_2941',['focusedOutlineColourId',['../classSingleLineTextEditor.html#a580e95f56d303528b02f91143c72f13ca613b4466a2f85ed3a22af2012c77b720',1,'SingleLineTextEditor']]],
+  ['forwards_2942',['forwards',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1a465c5f747934848fce35cebef03936e2',1,'SampleOscillator']]]
 ];

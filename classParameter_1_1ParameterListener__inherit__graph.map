@@ -1,10 +1,11 @@
 <map id="Parameter::ParameterListener" name="Parameter::ParameterListener">
-<area shape="rect" id="node1" title=" " alt="" coords="5,385,221,412"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,411,221,437"/>
 <area shape="rect" id="node2" href="$classMultiParamComponent.html" title="A base component for controlling multiple parameters at once." alt="" coords="269,208,440,235"/>
 <area shape="rect" id="node11" href="$classPluginButton.html" title="Button for toggling a parameter." alt="" coords="302,335,407,361"/>
 <area shape="rect" id="node13" href="$classPluginComboBox.html" title="A control for selecting param values from a dropbox." alt="" coords="288,385,421,412"/>
 <area shape="rect" id="node14" href="$classPluginSlider.html" title="A slider for controlling a parameter." alt="" coords="305,436,404,463"/>
 <area shape="rect" id="node15" href="$classReadout.html" title="A control for displaying a parameter." alt="" coords="317,487,393,513"/>
+<area shape="rect" id="node16" href="$classSVGPluginButton.html" title="Button for toggling a parameter." alt="" coords="289,537,421,564"/>
 <area shape="rect" id="node3" href="$classADSRComponent.html" title="Component for adjuting ADSR curves." alt="" coords="504,5,637,32"/>
 <area shape="rect" id="node4" href="$classControlBox.html" title="A box for holding controls on a grid." alt="" coords="523,56,618,83"/>
 <area shape="rect" id="node5" href="$classGateEffectComponent.html" title="An editor for the gate effect pattern." alt="" coords="488,107,653,133"/>

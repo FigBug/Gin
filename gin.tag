@@ -1251,6 +1251,7 @@
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
     <filename>gin__plugincomponents_8h.html</filename>
     <class kind="class">PluginButton</class>
+    <class kind="class">SVGPluginButton</class>
     <class kind="class">PowerButton</class>
     <class kind="class">PluginComboBox</class>
     <class kind="class">PluginSlider</class>
@@ -8493,10 +8494,17 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setTitle</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>a88091be82b8e3445817dfef88a3d6a19</anchor>
+      <arglist>(const juce::String &amp;name)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>addEnable</name>
       <anchorfile>classParamBox.html</anchorfile>
-      <anchor>a48773dc98de240a4e0599ccb490dc94b</anchor>
-      <arglist>(gin::Parameter::Ptr)</arglist>
+      <anchor>aeacbb2e4a425744fc53e5cb7a7d705af</anchor>
+      <arglist>(gin::Parameter::Ptr p)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -8511,6 +8519,76 @@
       <anchorfile>classParamBox.html</anchorfile>
       <anchor>a55eadc2f52821f70453b7894deb9047e</anchor>
       <arglist>(Component *c, float x, float y, float cx=1.0f, float cy=1.0f)</arglist>
+    </member>
+    <member kind="function">
+      <type>ParamHeader &amp;</type>
+      <name>getHeader</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>a3f3e07071f638ae018a898f661179e75</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>paramChanged</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>a687c686e6477b6850fc6f46e36224dc4</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>paint</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>ad3617cca7b07ac644bd474c74c84706a</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>resized</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>aaa245f81a215cbb6bb4e11887820782a</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>juce::Rectangle&lt; int &gt;</type>
+      <name>getGridArea</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>a1acb4895d0d5bedbcf551c12584116f5</anchor>
+      <arglist>(int x, int y, int cx=1, int cy=1)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>juce::Rectangle&lt; int &gt;</type>
+      <name>getGridArea</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>a93165dbf7036c4ee843452e4408189f7</anchor>
+      <arglist>(float x, float y, float cx=1.0f, float cy=1.0f)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>ParamHeader</type>
+      <name>header</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>a1bd477b12f663e232b0aeadb0cbd4c40</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::Component</type>
+      <name>frame</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>af715eab1cc1d6a7f9afe250aa6cf8c73</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::OwnedArray&lt; Component &gt;</type>
+      <name>controls</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>a9c993cfb8a848781cb2206de51e318c3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>gin::Parameter::Ptr</type>
+      <name>enableParam</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>a35ec83a9ba515c672d00aecce8c8be9c</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -9127,6 +9205,13 @@
       <name>ParamHeader</name>
       <anchorfile>classParamHeader.html</anchorfile>
       <anchor>a79840eb71c893f1273cfd46e4f6ccda5</anchor>
+      <arglist>(const juce::String &amp;name_)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setTitle</name>
+      <anchorfile>classParamHeader.html</anchorfile>
+      <anchor>a8fffffad38b12b1284bd3e942f676536</anchor>
       <arglist>(const juce::String &amp;name_)</arglist>
     </member>
   </compound>
@@ -12367,6 +12452,54 @@
       <name>rawSVG</name>
       <anchorfile>classSVGButton.html</anchorfile>
       <anchor>a28a28987c8f1ff36f0581881230926ef</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>SVGPluginButton</name>
+    <filename>classSVGPluginButton.html</filename>
+    <base>SVGButton</base>
+    <base protection="private">Parameter::ParameterListener</base>
+    <member kind="function">
+      <type></type>
+      <name>SVGPluginButton</name>
+      <anchorfile>classSVGPluginButton.html</anchorfile>
+      <anchor>a47c7b0570ab1759d2f0e58f90590329d</anchor>
+      <arglist>(Parameter *parameter_, const juce::String &amp;svg)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~SVGPluginButton</name>
+      <anchorfile>classSVGPluginButton.html</anchorfile>
+      <anchor>ae5604b1f628a7cb228e399a637f4e239</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>valueUpdated</name>
+      <anchorfile>classSVGPluginButton.html</anchorfile>
+      <anchor>ad316678aa21285135926fc5146be78f0</anchor>
+      <arglist>(Parameter *) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clicked</name>
+      <anchorfile>classSVGPluginButton.html</anchorfile>
+      <anchor>a6a64fe25e21b00cf6f25ec4eabbdb8e8</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>parentHierarchyChanged</name>
+      <anchorfile>classSVGPluginButton.html</anchorfile>
+      <anchor>a006a3f54418fc29c0350f43c4a0eb7f8</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="variable">
+      <type>Parameter *</type>
+      <name>parameter</name>
+      <anchorfile>classSVGPluginButton.html</anchorfile>
+      <anchor>abf31e8c8878cceb12838f10441c198ce</anchor>
       <arglist></arglist>
     </member>
   </compound>
