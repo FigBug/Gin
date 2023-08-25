@@ -1699,8 +1699,8 @@
       <type>bool</type>
       <name>loadWavetables</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga8167e97c7e5fc9916a3423ca494b72b8</anchor>
-      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; &amp;bllt, juce::AudioSampleBuffer &amp;buffer, double sampleRate, int tableSize)</arglist>
+      <anchor>gac52374c731213a08657117a59c2828cd</anchor>
+      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; &amp;bllt, double playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, double fileSampleRate, int tableSize)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -2768,8 +2768,8 @@
       <type>void</type>
       <name>loadFromBuffer</name>
       <anchorfile>classBandLimitedLookupTable.html</anchorfile>
-      <anchor>aef5ba118b9f6c034d87cfccb9a4edae1</anchor>
-      <arglist>(juce::AudioSampleBuffer &amp;buffer, float sampleRate, int notesPerTable)</arglist>
+      <anchor>aac448b9d42c925f2ebbe2ac6350a8b5d</anchor>
+      <arglist>(float playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, float fileSampleRate, int notesPerTable)</arglist>
     </member>
     <member kind="variable">
       <type>std::vector&lt; std::vector&lt; float &gt; &gt;</type>
@@ -14742,8 +14742,8 @@
       <type>bool</type>
       <name>loadWavetables</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga8167e97c7e5fc9916a3423ca494b72b8</anchor>
-      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; &amp;bllt, juce::AudioSampleBuffer &amp;buffer, double sampleRate, int tableSize)</arglist>
+      <anchor>gac52374c731213a08657117a59c2828cd</anchor>
+      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; &amp;bllt, double playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, double fileSampleRate, int tableSize)</arglist>
     </member>
     <member kind="variable">
       <type>constexpr float</type>
