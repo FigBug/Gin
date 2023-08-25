@@ -31,6 +31,7 @@ void WavetableComponent::paint (juce::Graphics& g)
     {
         needsUpdate = false;
 
+        paths.clear();
         auto numTables = std::min (32, bllt->size());
         for (auto i = 0; i < numTables; i++)
             paths.add (createWavetablePath (float (i) / numTables));

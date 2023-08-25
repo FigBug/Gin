@@ -139,7 +139,7 @@ bool loadWavetables (juce::OwnedArray<BandLimitedLookupTable>& bllt, juce::Audio
         auto slice = sliceBuffer (buffer, i * tableSize, tableSize);
 
         auto table = new BandLimitedLookupTable();
-        table->loadFromBuffer (slice, sampleRate, 6);
+        table->loadFromBuffer (slice, float (sampleRate), 6);
         bllt.add (table);
     }
     return true;
