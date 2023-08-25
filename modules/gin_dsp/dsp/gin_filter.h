@@ -87,18 +87,15 @@ public:
         auto o = (float**)buffer.getArrayOfWritePointers();
         auto i = (const float**)buffer.getArrayOfReadPointers();
 
-        for (int ch = 0; ch < channels; ch++)
+        switch (slope)
         {
-            switch (slope)
-            {
-                case db12:
-                    filters[size_t (ch * 2)]->processBlock (o, i, numSamples);
-                    break;
-                case db24:
-                    filters[size_t (ch * 2 + 0)]->processBlock (o, i, numSamples);
-                    filters[size_t (ch * 2 + 1)]->processBlock (o, i, numSamples);
-                    break;
-            }
+            case db12:
+                filters[0]->processBlock (o, i, numSamples);
+                break;
+            case db24:
+                filters[0]->processBlock (o, i, numSamples);
+                filters[1]->processBlock (o, i, numSamples);
+                break;
         }
     }
 

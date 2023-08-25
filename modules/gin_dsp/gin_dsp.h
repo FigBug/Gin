@@ -123,6 +123,7 @@ namespace gin
 #include "components/gin_levelmeter.h"
 #include "components/gin_triggeredscope.h"
 #include "components/gin_waveformcomponent.h"
+#include "components/gin_wavetablecomponent.h"
 #include "components/gin_xyscope.h"
 
 }

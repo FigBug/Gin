@@ -89,6 +89,7 @@ namespace gin
 #include "components/gin_levelmeter.cpp"
 #include "components/gin_triggeredscope.cpp"
 #include "components/gin_waveformcomponent.cpp"
+#include "components/gin_wavetablecomponent.cpp"
 #include "components/gin_xyscope.cpp"
 
 }
