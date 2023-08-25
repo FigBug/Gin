@@ -9,7 +9,7 @@ var searchData=
   ['addandmakevisible_6',['addAndMakeVisible',['../group__gin__gui-components.html#gaa5dca7c16023c4ec901f0db44aaf89de',1,'addAndMakeVisible(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children):&#160;gin_componentutils.h'],['../group__gin__gui-components.html#ga66410efb088d24a02a86b4c6191e2866',1,'addAndMakeVisible(juce::Component &amp;parent, juce::Array&lt; juce::Component * &gt; children):&#160;gin_componentutils.h']]],
   ['addbottombutton_7',['addBottomButton',['../classPagedControlBox.html#ae5cd82cbc46837688feabb580d413d19',1,'PagedControlBox']]],
   ['addbox_8',['addBox',['../classBoxArea.html#a42cd8f8f7bb5274cf58983b056a306c8',1,'BoxArea::addBox(Component *c)'],['../classBoxArea.html#ad89bcea639cc032602d1f3e82691f599',1,'BoxArea::addBox(int page, Component *c)']]],
-  ['addbutton_9',['addButton',['../classTitleBar.html#aaa209338de7ffceada8ea42c3e04388b',1,'TitleBar']]],
+  ['addbutton_9',['addButton',['../classTitleBar.html#acce8ac24446a1dbc0fb3fb0e11c9f84d',1,'TitleBar']]],
   ['addconstant_10',['addConstant',['../classEquationParser.html#a8ed6df6210bd739d2001adf382ac56b2',1,'EquationParser']]],
   ['addconstants_11',['addConstants',['../classAudioEquationParser.html#a9b1b040ad25a848fab0cab4d6cceaacc',1,'AudioEquationParser::addConstants()'],['../classAudioFunctionHost.html#a19418afc0b68f06e24d664895ddc4749',1,'AudioFunctionHost::addConstants()']]],
   ['addcontrol_12',['addControl',['../classPagedControlBox.html#a05283324cc4c10aed959d64e5aa7011c',1,'PagedControlBox::addControl()'],['../classParamBox.html#afab51fbea411628bdb475551488cfd05',1,'ParamBox::addControl(Component *c, int x, int y, int cx=1, int cy=1)'],['../classParamBox.html#a55eadc2f52821f70453b7894deb9047e',1,'ParamBox::addControl(Component *c, float x, float y, float cx=1.0f, float cy=1.0f)'],['../classParamArea.html#a574e53ae7e1feae63860723a7c7d1e28',1,'ParamArea::addControl(Component *c, int x, int y, int cx=1, int cy=1)'],['../classParamArea.html#a7bb2a8d10ae48495d57715ba7decd1c5',1,'ParamArea::addControl(Component *c)']]],
@@ -82,9 +82,8 @@ var searchData=
   ['authorizedalways_79',['authorizedAlways',['../classLocationManager.html#a518acec298306066ae3cccc6eb335bdcaadc75e653e86065ca5448be342c23053',1,'LocationManager']]],
   ['authorizedwheninuse_80',['authorizedWhenInUse',['../classLocationManager.html#a518acec298306066ae3cccc6eb335bdca91e8720f10faeaee578f776e7d95b9d1',1,'LocationManager']]],
   ['authors_81',['authors',['../classPatchBrowser.html#a1becbf2ecebca6e5a2ba2533b619b952',1,'PatchBrowser']]],
-  ['authorsmodel_82',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html#a5b1e9a0aee87d3623f78db4126fcab3e',1,'PatchBrowser::AuthorsModel']]],
-  ['authorsmodel_83',['authorsModel',['../classPatchBrowser.html#a62a7cf5ab56615e84109ced00beb6dcb',1,'PatchBrowser']]],
-  ['authorsmodel_84',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser']]],
-  ['average_85',['average',['../classRollingAverage.html#a941797e5f59cbdfce52faa655bd1b7f3',1,'RollingAverage']]],
-  ['average_86',['Average',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f',1,'gin_imageeffects.h']]]
+  ['authorsmodel_82',['authorsModel',['../classPatchBrowser.html#a62a7cf5ab56615e84109ced00beb6dcb',1,'PatchBrowser']]],
+  ['authorsmodel_83',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html#a5b1e9a0aee87d3623f78db4126fcab3e',1,'PatchBrowser::AuthorsModel::AuthorsModel()'],['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser::AuthorsModel']]],
+  ['average_84',['average',['../classRollingAverage.html#a941797e5f59cbdfce52faa655bd1b7f3',1,'RollingAverage']]],
+  ['average_85',['Average',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f',1,'gin_imageeffects.h']]]
 ];

@@ -71,7 +71,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Inherits juce::Component, juce::Button::Listener, juce::ComboBox::Listener, and juce::ChangeListener.</p>
+<p>Inherits juce::Component, juce::ComboBox::Listener, and juce::ChangeListener.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -98,8 +98,6 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:aec8389eef90093162451137b8060a775"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9379495c07215f6e7ae0a8ef4fd3a0e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#a9379495c07215f6e7ae0a8ef4fd3a0e9">showMenu</a> ()</td></tr>
 <tr class="separator:a9379495c07215f6e7ae0a8ef4fd3a0e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8e7c477535854c933acf07bd7e3fc7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#af8e7c477535854c933acf07bd7e3fc7c">buttonClicked</a> (juce::Button *b) override</td></tr>
-<tr class="separator:af8e7c477535854c933acf07bd7e3fc7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9156b55473df7afcd442ab045a865cb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#a9156b55473df7afcd442ab045a865cb3">comboBoxChanged</a> (juce::ComboBox *c) override</td></tr>
 <tr class="separator:a9156b55473df7afcd442ab045a865cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33bfbb4b2223e0401bf883fbb8403991"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#a33bfbb4b2223e0401bf883fbb8403991">changeListenerCallback</a> (juce::ChangeBroadcaster *) override</td></tr>
@@ -119,20 +117,20 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a6782ccbfb8fc433a7abba03171506a8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadc7b06a48172e5cc2a50d09a433fa77"><td class="memItemLeft" align="right" valign="top">juce::ComboBox&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#aadc7b06a48172e5cc2a50d09a433fa77">programs</a></td></tr>
 <tr class="separator:aadc7b06a48172e5cc2a50d09a433fa77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa209338de7ffceada8ea42c3e04388b"><td class="memItemLeft" align="right" valign="top">juce::TextButton&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#aaa209338de7ffceada8ea42c3e04388b">addButton</a> {&quot;svg:M384 250v12c0 6.6-5.4 12-12 12h-98v98c0 6.6-5.4 12-12 12h-12c-6.6 0-12-5.4-12-12v-98h-98c-6.6 0-12-5.4-12-12v-12c0-6.6 5.4-12 12-12h98v-98c0-6.6 5.4-12 12-12h12c6.6 0 12 5.4 12 12v98h98c6.6 0 12 5.4 12 12zm120 6c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-32 0c0-119.9-97.3-216-216-216-119.9 0-216 97.3-216 216 0 119.9 97.3 216 216 216 119.9 0 216-97.3 216-216z&quot;}</td></tr>
-<tr class="separator:aaa209338de7ffceada8ea42c3e04388b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b06f5f09bb781f1fd995fbb779891a3"><td class="memItemLeft" align="right" valign="top">juce::TextButton&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#a8b06f5f09bb781f1fd995fbb779891a3">deleteButton</a> {&quot;svg:M140 274c-6.6 0-12-5.4-12-12v-12c0-6.6 5.4-12 12-12h232c6.6 0 12 5.4 12 12v12c0 6.6-5.4 12-12 12H140zm364-18c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-32 0c0-119.9-97.3-216-216-216-119.9 0-216 97.3-216 216 0 119.9 97.3 216 216 216 119.9 0 216-97.3 216-216z&quot;}</td></tr>
-<tr class="separator:a8b06f5f09bb781f1fd995fbb779891a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48362c20ca1502a0a2bea5052faec7db"><td class="memItemLeft" align="right" valign="top">juce::TextButton&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#a48362c20ca1502a0a2bea5052faec7db">browseButton</a> {&quot;svg:M194.74 96l54.63 54.63c6 6 14.14 9.37 22.63 9.37h192c8.84 0 16 7.16 16 16v224c0 8.84-7.16 16-16 16H48c-8.84 0-16-7.16-16-16V112c0-8.84 7.16-16 16-16h146.74M48 64C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48z&quot;}</td></tr>
-<tr class="separator:a48362c20ca1502a0a2bea5052faec7db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac438784aad0f7f333a135f3cf438413e"><td class="memItemLeft" align="right" valign="top">juce::TextButton&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#ac438784aad0f7f333a135f3cf438413e">nextButton</a> {&quot;svg:M17.525 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L205.947 256 10.454 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L34.495 36.465c-4.686-4.687-12.284-4.687-16.97 0z&quot;}</td></tr>
-<tr class="separator:ac438784aad0f7f333a135f3cf438413e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf10f987b0a483ae72a005ed88e8dbc7"><td class="memItemLeft" align="right" valign="top">juce::TextButton&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#adf10f987b0a483ae72a005ed88e8dbc7">prevButton</a> {&quot;svg:M238.475 475.535l7.071-7.07c4.686-4.686 4.686-12.284 0-16.971L50.053 256 245.546 60.506c4.686-4.686 4.686-12.284 0-16.971l-7.071-7.07c-4.686-4.686-12.284-4.686-16.97 0L10.454 247.515c-4.686 4.686-4.686 12.284 0 16.971l211.051 211.05c4.686 4.686 12.284 4.686 16.97-.001z&quot;}</td></tr>
-<tr class="separator:adf10f987b0a483ae72a005ed88e8dbc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1be32416c074def83f54a9c1beefbdeb"><td class="memItemLeft" align="right" valign="top">juce::TextButton&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#a1be32416c074def83f54a9c1beefbdeb">menuButton</a> {&quot;svg:M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z&quot;}</td></tr>
-<tr class="separator:a1be32416c074def83f54a9c1beefbdeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8677063fe0a948ce107b84ba444f46d2"><td class="memItemLeft" align="right" valign="top">juce::TextButton&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#a8677063fe0a948ce107b84ba444f46d2">infoButton</a> {&quot;svg:M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-36 344h12V232h-12c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h48c6.627 0 12 5.373 12 12v140h12c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12h-72c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12zm36-240c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32z&quot;}</td></tr>
-<tr class="separator:a8677063fe0a948ce107b84ba444f46d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acce8ac24446a1dbc0fb3fb0e11c9f84d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSVGButton.html">SVGButton</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#acce8ac24446a1dbc0fb3fb0e11c9f84d">addButton</a> {&quot;add&quot;, &quot;M384 250v12c0 6.6-5.4 12-12 12h-98v98c0 6.6-5.4 12-12 12h-12c-6.6 0-12-5.4-12-12v-98h-98c-6.6 0-12-5.4-12-12v-12c0-6.6 5.4-12 12-12h98v-98c0-6.6 5.4-12 12-12h12c6.6 0 12 5.4 12 12v98h98c6.6 0 12 5.4 12 12zm120 6c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-32 0c0-119.9-97.3-216-216-216-119.9 0-216 97.3-216 216 0 119.9 97.3 216 216 216 119.9 0 216-97.3 216-216z&quot;}</td></tr>
+<tr class="separator:acce8ac24446a1dbc0fb3fb0e11c9f84d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63cc841bf24e40e9e5537ec398b99bdd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSVGButton.html">SVGButton</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#a63cc841bf24e40e9e5537ec398b99bdd">deleteButton</a> {&quot;delete&quot;, &quot;M140 274c-6.6 0-12-5.4-12-12v-12c0-6.6 5.4-12 12-12h232c6.6 0 12 5.4 12 12v12c0 6.6-5.4 12-12 12H140zm364-18c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-32 0c0-119.9-97.3-216-216-216-119.9 0-216 97.3-216 216 0 119.9 97.3 216 216 216 119.9 0 216-97.3 216-216z&quot;}</td></tr>
+<tr class="separator:a63cc841bf24e40e9e5537ec398b99bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad008b68a5bcd5442577468bf031c596b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSVGButton.html">SVGButton</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#ad008b68a5bcd5442577468bf031c596b">browseButton</a> {&quot;browse&quot;, &quot;M194.74 96l54.63 54.63c6 6 14.14 9.37 22.63 9.37h192c8.84 0 16 7.16 16 16v224c0 8.84-7.16 16-16 16H48c-8.84 0-16-7.16-16-16V112c0-8.84 7.16-16 16-16h146.74M48 64C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48z&quot;}</td></tr>
+<tr class="separator:ad008b68a5bcd5442577468bf031c596b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbdac6bcc1d15a4b014231dc9a799a6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSVGButton.html">SVGButton</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#adbdac6bcc1d15a4b014231dc9a799a6e">nextButton</a> {&quot;next&quot;, &quot;M17.525 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L205.947 256 10.454 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L34.495 36.465c-4.686-4.687-12.284-4.687-16.97 0z&quot;}</td></tr>
+<tr class="separator:adbdac6bcc1d15a4b014231dc9a799a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cb13751804eb23f1efa52f98c57d688"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSVGButton.html">SVGButton</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#a2cb13751804eb23f1efa52f98c57d688">prevButton</a> {&quot;prev&quot;, &quot;M238.475 475.535l7.071-7.07c4.686-4.686 4.686-12.284 0-16.971L50.053 256 245.546 60.506c4.686-4.686 4.686-12.284 0-16.971l-7.071-7.07c-4.686-4.686-12.284-4.686-16.97 0L10.454 247.515c-4.686 4.686-4.686 12.284 0 16.971l211.051 211.05c4.686 4.686 12.284 4.686 16.97-.001z&quot;}</td></tr>
+<tr class="separator:a2cb13751804eb23f1efa52f98c57d688"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfac3d89e308f9310949639eec927b05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSVGButton.html">SVGButton</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#abfac3d89e308f9310949639eec927b05">menuButton</a> {&quot;menu&quot;, &quot;M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z&quot;}</td></tr>
+<tr class="separator:abfac3d89e308f9310949639eec927b05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98d47438b7d4dd40526040b5a7b94405"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSVGButton.html">SVGButton</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#a98d47438b7d4dd40526040b5a7b94405">infoButton</a> {&quot;info&quot;, &quot;M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-36 344h12V232h-12c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h48c6.627 0 12 5.373 12 12v140h12c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12h-72c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12zm36-240c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32z&quot;}</td></tr>
+<tr class="separator:a98d47438b7d4dd40526040b5a7b94405"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab00ac1e8d688d411c19dc7ee9e3feac7"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classNewsChecker.html">NewsChecker</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#ab00ac1e8d688d411c19dc7ee9e3feac7">newsChecker</a></td></tr>
 <tr class="separator:ab00ac1e8d688d411c19dc7ee9e3feac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a592d0a4299aa23c9b323205d76f19742"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classUpdateChecker.html">UpdateChecker</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTitleBar.html#a592d0a4299aa23c9b323205d76f19742">updateChecker</a></td></tr>
@@ -358,32 +356,6 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="af8e7c477535854c933acf07bd7e3fc7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8e7c477535854c933acf07bd7e3fc7c">&#9670;&nbsp;</a></span>buttonClicked()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void TitleBar::buttonClicked </td>
-          <td>(</td>
-          <td class="paramtype">juce::Button *&#160;</td>
-          <td class="paramname"><em>b</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a9156b55473df7afcd442ab045a865cb3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9156b55473df7afcd442ab045a865cb3">&#9670;&nbsp;</a></span>comboBoxChanged()</h2>
 
@@ -572,8 +544,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aaa209338de7ffceada8ea42c3e04388b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa209338de7ffceada8ea42c3e04388b">&#9670;&nbsp;</a></span>addButton</h2>
+<a id="acce8ac24446a1dbc0fb3fb0e11c9f84d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acce8ac24446a1dbc0fb3fb0e11c9f84d">&#9670;&nbsp;</a></span>addButton</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -582,7 +554,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">juce::TextButton TitleBar::addButton {&quot;svg:M384 250v12c0 6.6-5.4 12-12 12h-98v98c0 6.6-5.4 12-12 12h-12c-6.6 0-12-5.4-12-12v-98h-98c-6.6 0-12-5.4-12-12v-12c0-6.6 5.4-12 12-12h98v-98c0-6.6 5.4-12 12-12h12c6.6 0 12 5.4 12 12v98h98c6.6 0 12 5.4 12 12zm120 6c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-32 0c0-119.9-97.3-216-216-216-119.9 0-216 97.3-216 216 0 119.9 97.3 216 216 216 119.9 0 216-97.3 216-216z&quot;}</td>
+          <td class="memname"><a class="el" href="classSVGButton.html">SVGButton</a> TitleBar::addButton {&quot;add&quot;, &quot;M384 250v12c0 6.6-5.4 12-12 12h-98v98c0 6.6-5.4 12-12 12h-12c-6.6 0-12-5.4-12-12v-98h-98c-6.6 0-12-5.4-12-12v-12c0-6.6 5.4-12 12-12h98v-98c0-6.6 5.4-12 12-12h12c6.6 0 12 5.4 12 12v98h98c6.6 0 12 5.4 12 12zm120 6c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-32 0c0-119.9-97.3-216-216-216-119.9 0-216 97.3-216 216 0 119.9 97.3 216 216 216 119.9 0 216-97.3 216-216z&quot;}</td>
         </tr>
       </table>
   </td>
@@ -594,8 +566,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a8b06f5f09bb781f1fd995fbb779891a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b06f5f09bb781f1fd995fbb779891a3">&#9670;&nbsp;</a></span>deleteButton</h2>
+<a id="a63cc841bf24e40e9e5537ec398b99bdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63cc841bf24e40e9e5537ec398b99bdd">&#9670;&nbsp;</a></span>deleteButton</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -604,7 +576,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">juce::TextButton TitleBar::deleteButton {&quot;svg:M140 274c-6.6 0-12-5.4-12-12v-12c0-6.6 5.4-12 12-12h232c6.6 0 12 5.4 12 12v12c0 6.6-5.4 12-12 12H140zm364-18c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-32 0c0-119.9-97.3-216-216-216-119.9 0-216 97.3-216 216 0 119.9 97.3 216 216 216 119.9 0 216-97.3 216-216z&quot;}</td>
+          <td class="memname"><a class="el" href="classSVGButton.html">SVGButton</a> TitleBar::deleteButton {&quot;delete&quot;, &quot;M140 274c-6.6 0-12-5.4-12-12v-12c0-6.6 5.4-12 12-12h232c6.6 0 12 5.4 12 12v12c0 6.6-5.4 12-12 12H140zm364-18c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-32 0c0-119.9-97.3-216-216-216-119.9 0-216 97.3-216 216 0 119.9 97.3 216 216 216 119.9 0 216-97.3 216-216z&quot;}</td>
         </tr>
       </table>
   </td>
@@ -616,8 +588,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a48362c20ca1502a0a2bea5052faec7db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48362c20ca1502a0a2bea5052faec7db">&#9670;&nbsp;</a></span>browseButton</h2>
+<a id="ad008b68a5bcd5442577468bf031c596b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad008b68a5bcd5442577468bf031c596b">&#9670;&nbsp;</a></span>browseButton</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -626,7 +598,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">juce::TextButton TitleBar::browseButton {&quot;svg:M194.74 96l54.63 54.63c6 6 14.14 9.37 22.63 9.37h192c8.84 0 16 7.16 16 16v224c0 8.84-7.16 16-16 16H48c-8.84 0-16-7.16-16-16V112c0-8.84 7.16-16 16-16h146.74M48 64C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48z&quot;}</td>
+          <td class="memname"><a class="el" href="classSVGButton.html">SVGButton</a> TitleBar::browseButton {&quot;browse&quot;, &quot;M194.74 96l54.63 54.63c6 6 14.14 9.37 22.63 9.37h192c8.84 0 16 7.16 16 16v224c0 8.84-7.16 16-16 16H48c-8.84 0-16-7.16-16-16V112c0-8.84 7.16-16 16-16h146.74M48 64C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48z&quot;}</td>
         </tr>
       </table>
   </td>
@@ -638,8 +610,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ac438784aad0f7f333a135f3cf438413e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac438784aad0f7f333a135f3cf438413e">&#9670;&nbsp;</a></span>nextButton</h2>
+<a id="adbdac6bcc1d15a4b014231dc9a799a6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbdac6bcc1d15a4b014231dc9a799a6e">&#9670;&nbsp;</a></span>nextButton</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -648,7 +620,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">juce::TextButton TitleBar::nextButton {&quot;svg:M17.525 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L205.947 256 10.454 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L34.495 36.465c-4.686-4.687-12.284-4.687-16.97 0z&quot;}</td>
+          <td class="memname"><a class="el" href="classSVGButton.html">SVGButton</a> TitleBar::nextButton {&quot;next&quot;, &quot;M17.525 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L205.947 256 10.454 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L34.495 36.465c-4.686-4.687-12.284-4.687-16.97 0z&quot;}</td>
         </tr>
       </table>
   </td>
@@ -660,8 +632,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="adf10f987b0a483ae72a005ed88e8dbc7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf10f987b0a483ae72a005ed88e8dbc7">&#9670;&nbsp;</a></span>prevButton</h2>
+<a id="a2cb13751804eb23f1efa52f98c57d688"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cb13751804eb23f1efa52f98c57d688">&#9670;&nbsp;</a></span>prevButton</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -670,7 +642,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">juce::TextButton TitleBar::prevButton {&quot;svg:M238.475 475.535l7.071-7.07c4.686-4.686 4.686-12.284 0-16.971L50.053 256 245.546 60.506c4.686-4.686 4.686-12.284 0-16.971l-7.071-7.07c-4.686-4.686-12.284-4.686-16.97 0L10.454 247.515c-4.686 4.686-4.686 12.284 0 16.971l211.051 211.05c4.686 4.686 12.284 4.686 16.97-.001z&quot;}</td>
+          <td class="memname"><a class="el" href="classSVGButton.html">SVGButton</a> TitleBar::prevButton {&quot;prev&quot;, &quot;M238.475 475.535l7.071-7.07c4.686-4.686 4.686-12.284 0-16.971L50.053 256 245.546 60.506c4.686-4.686 4.686-12.284 0-16.971l-7.071-7.07c-4.686-4.686-12.284-4.686-16.97 0L10.454 247.515c-4.686 4.686-4.686 12.284 0 16.971l211.051 211.05c4.686 4.686 12.284 4.686 16.97-.001z&quot;}</td>
         </tr>
       </table>
   </td>
@@ -682,8 +654,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1be32416c074def83f54a9c1beefbdeb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1be32416c074def83f54a9c1beefbdeb">&#9670;&nbsp;</a></span>menuButton</h2>
+<a id="abfac3d89e308f9310949639eec927b05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfac3d89e308f9310949639eec927b05">&#9670;&nbsp;</a></span>menuButton</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -692,7 +664,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">juce::TextButton TitleBar::menuButton {&quot;svg:M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z&quot;}</td>
+          <td class="memname"><a class="el" href="classSVGButton.html">SVGButton</a> TitleBar::menuButton {&quot;menu&quot;, &quot;M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z&quot;}</td>
         </tr>
       </table>
   </td>
@@ -704,8 +676,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a8677063fe0a948ce107b84ba444f46d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8677063fe0a948ce107b84ba444f46d2">&#9670;&nbsp;</a></span>infoButton</h2>
+<a id="a98d47438b7d4dd40526040b5a7b94405"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98d47438b7d4dd40526040b5a7b94405">&#9670;&nbsp;</a></span>infoButton</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -714,7 +686,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">juce::TextButton TitleBar::infoButton {&quot;svg:M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-36 344h12V232h-12c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h48c6.627 0 12 5.373 12 12v140h12c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12h-72c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12zm36-240c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32z&quot;}</td>
+          <td class="memname"><a class="el" href="classSVGButton.html">SVGButton</a> TitleBar::infoButton {&quot;info&quot;, &quot;M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-36 344h12V232h-12c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h48c6.627 0 12 5.373 12 12v140h12c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12h-72c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12zm36-240c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32z&quot;}</td>
         </tr>
       </table>
   </td>
@@ -776,7 +748,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 25 2023 15:24:39 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Aug 25 2023 16:48:14 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

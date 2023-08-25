@@ -1482,6 +1482,12 @@
     <class kind="class">StereoProcessor</class>
   </compound>
   <compound kind="file">
+    <name>gin_svgbutton.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/components/</path>
+    <filename>gin__svgbutton_8h.html</filename>
+    <class kind="class">SVGButton</class>
+  </compound>
+  <compound kind="file">
     <name>gin_synthesiser.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
     <filename>gin__synthesiser_8h.html</filename>
@@ -10166,11 +10172,11 @@
       <anchor>a6ff6d71c70b97410c0b4c055012f5dff</anchor>
       <arglist>() override</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
       <name>showAboutInfo</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a2d881e0cfe4ab6df47e5ae0c5a86cf52</anchor>
+      <anchor>a058029cc670ad921b0ead5565e837e7a</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -12347,6 +12353,24 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>SVGButton</name>
+    <filename>classSVGButton.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>SVGButton</name>
+      <anchorfile>classSVGButton.html</anchorfile>
+      <anchor>a77965e7383756af3111dbc6502b950d1</anchor>
+      <arglist>(const juce::String &amp;name, const juce::String &amp;rawSVG_)</arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>rawSVG</name>
+      <anchorfile>classSVGButton.html</anchorfile>
+      <anchor>a28a28987c8f1ff36f0581881230926ef</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>Switch</name>
     <filename>classSwitch.html</filename>
     <base>ParamComponent</base>
@@ -12853,13 +12877,6 @@
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
-      <name>buttonClicked</name>
-      <anchorfile>classTitleBar.html</anchorfile>
-      <anchor>af8e7c477535854c933acf07bd7e3fc7c</anchor>
-      <arglist>(juce::Button *b) override</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
       <name>comboBoxChanged</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>a9156b55473df7afcd442ab045a865cb3</anchor>
@@ -12915,52 +12932,52 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>juce::TextButton</type>
+      <type>SVGButton</type>
       <name>addButton</name>
       <anchorfile>classTitleBar.html</anchorfile>
-      <anchor>aaa209338de7ffceada8ea42c3e04388b</anchor>
+      <anchor>acce8ac24446a1dbc0fb3fb0e11c9f84d</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>juce::TextButton</type>
+      <type>SVGButton</type>
       <name>deleteButton</name>
       <anchorfile>classTitleBar.html</anchorfile>
-      <anchor>a8b06f5f09bb781f1fd995fbb779891a3</anchor>
+      <anchor>a63cc841bf24e40e9e5537ec398b99bdd</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>juce::TextButton</type>
+      <type>SVGButton</type>
       <name>browseButton</name>
       <anchorfile>classTitleBar.html</anchorfile>
-      <anchor>a48362c20ca1502a0a2bea5052faec7db</anchor>
+      <anchor>ad008b68a5bcd5442577468bf031c596b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>juce::TextButton</type>
+      <type>SVGButton</type>
       <name>nextButton</name>
       <anchorfile>classTitleBar.html</anchorfile>
-      <anchor>ac438784aad0f7f333a135f3cf438413e</anchor>
+      <anchor>adbdac6bcc1d15a4b014231dc9a799a6e</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>juce::TextButton</type>
+      <type>SVGButton</type>
       <name>prevButton</name>
       <anchorfile>classTitleBar.html</anchorfile>
-      <anchor>adf10f987b0a483ae72a005ed88e8dbc7</anchor>
+      <anchor>a2cb13751804eb23f1efa52f98c57d688</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>juce::TextButton</type>
+      <type>SVGButton</type>
       <name>menuButton</name>
       <anchorfile>classTitleBar.html</anchorfile>
-      <anchor>a1be32416c074def83f54a9c1beefbdeb</anchor>
+      <anchor>abfac3d89e308f9310949639eec927b05</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>juce::TextButton</type>
+      <type>SVGButton</type>
       <name>infoButton</name>
       <anchorfile>classTitleBar.html</anchorfile>
-      <anchor>a8677063fe0a948ce107b84ba444f46d2</anchor>
+      <anchor>a98d47438b7d4dd40526040b5a7b94405</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">

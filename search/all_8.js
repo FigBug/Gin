@@ -7,7 +7,7 @@ var searchData=
   ['images_664',['Images',['../classImages.html',1,'Images'],['../classImages.html#a3c31a7052197172e2bfb26efe796d32f',1,'Images::Images()']]],
   ['images_665',['images',['../classCopperLookAndFeel.html#a1515b1d303c786c5721d72b2d25e942d',1,'CopperLookAndFeel']]],
   ['incphase_666',['incPhase',['../structOscState.html#a5f7c0274cffaa5b08c431289c245ae21',1,'OscState']]],
-  ['infobutton_667',['infoButton',['../classTitleBar.html#a8677063fe0a948ce107b84ba444f46d2',1,'TitleBar']]],
+  ['infobutton_667',['infoButton',['../classTitleBar.html#a98d47438b7d4dd40526040b5a7b94405',1,'TitleBar']]],
   ['init_668',['init',['../classProcessor.html#a22e869ee49d974ad0ee7ee81961ab88f',1,'Processor']]],
   ['inputfilter_669',['InputFilter',['../classSingleLineTextEditor_1_1InputFilter.html#a99b6d8607dd45a320cddd4b3bd18133b',1,'SingleLineTextEditor::InputFilter::InputFilter()'],['../classSingleLineTextEditor_1_1InputFilter.html',1,'SingleLineTextEditor::InputFilter']]],
   ['inserttextatcaret_670',['insertTextAtCaret',['../classSingleLineTextEditor.html#aaf4946076bc4ece47fabe839a1556694',1,'SingleLineTextEditor']]],
