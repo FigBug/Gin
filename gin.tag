@@ -188,52 +188,52 @@
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a6f0316b89c2034b8fabe6d3e48f15bbf">wavetable</enumvalue>
     </member>
     <member kind="function">
-      <type>double</type>
+      <type>float</type>
       <name>sine</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gac81d5fa67210b71931d9191c641871b2</anchor>
-      <arglist>(double phase, double unused1=0, double unused2=0)</arglist>
+      <anchor>ga63649a0b65f8aa4b67359978bd487bc1</anchor>
+      <arglist>(float phase, float unused1=0, float unused2=0)</arglist>
     </member>
     <member kind="function">
-      <type>double</type>
+      <type>float</type>
       <name>triangle</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga83fe6fa8512b1a676092cf10f9c79e7e</anchor>
-      <arglist>(double phase, double freq, double sampleRate)</arglist>
+      <anchor>gac1ca4d0b776735a17f87d61c90741d45</anchor>
+      <arglist>(float phase, float freq, float sampleRate)</arglist>
     </member>
     <member kind="function">
-      <type>double</type>
+      <type>float</type>
       <name>sawUp</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga54fd9fc5216539143983df52fcfd38be</anchor>
-      <arglist>(double phase, double freq, double sampleRate)</arglist>
+      <anchor>gaee1da7519de4693416c7eb52acae0e97</anchor>
+      <arglist>(float phase, float freq, float sampleRate)</arglist>
     </member>
     <member kind="function">
-      <type>double</type>
+      <type>float</type>
       <name>sawDown</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gaf4e429b20b8c3d03b8527af2f1d7a14f</anchor>
-      <arglist>(double phase, double freq, double sampleRate)</arglist>
+      <anchor>ga7dcecee55962cc044ac3af15464b19a8</anchor>
+      <arglist>(float phase, float freq, float sampleRate)</arglist>
     </member>
     <member kind="function">
-      <type>double</type>
+      <type>float</type>
       <name>pulse</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga5d70ff16cbda6f79543b487e6831052a</anchor>
-      <arglist>(double phase, double pw, double freq, double sampleRate)</arglist>
+      <anchor>ga1f59ed3e69fd50c828e608593c6f1501</anchor>
+      <arglist>(float phase, float pw, float freq, float sampleRate)</arglist>
     </member>
     <member kind="function">
-      <type>double</type>
+      <type>float</type>
       <name>squareWave</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gad6edce63379d418ac8ceb7f57a97bfc6</anchor>
-      <arglist>(double phase, double freq, double sampleRate)</arglist>
+      <anchor>gaa53416e9fff8a3d96bda5ef381d56f5d</anchor>
+      <arglist>(float phase, float freq, float sampleRate)</arglist>
     </member>
     <member kind="function">
-      <type>double</type>
+      <type>float</type>
       <name>noise</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga144d0a5afb304f562a311e0d62e77dc6</anchor>
+      <anchor>gadf97991a9ee12ce4122d0eccfb8488ec</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -2740,15 +2740,15 @@
       <type></type>
       <name>BandLimitedLookupTable</name>
       <anchorfile>classBandLimitedLookupTable.html</anchorfile>
-      <anchor>aa8d1104796d5b6ce9103280164f23dab</anchor>
-      <arglist>(std::function&lt; double(double, double, double)&gt; function, double sampleRate, int notesPerTable_=6, int tableSize_=2048)</arglist>
+      <anchor>ab39bb5a1490c019ee943eec0fcd4f9ca</anchor>
+      <arglist>(std::function&lt; float(float, float, float)&gt; function, float sampleRate, int notesPerTable_=6, int tableSize_=2048)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>reset</name>
       <anchorfile>classBandLimitedLookupTable.html</anchorfile>
-      <anchor>a3dab85dafee0db1469251e9c59cd22e9</anchor>
-      <arglist>(std::function&lt; double(double, double, double)&gt; function, double sampleRate, int notesPerTable_=6, int tableSize=2048)</arglist>
+      <anchor>ab67ccc3198194d189403747c076fcb29</anchor>
+      <arglist>(std::function&lt; float(float, float, float)&gt; function, float sampleRate, int notesPerTable_=6, int tableSize_=2048)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -2758,17 +2758,31 @@
       <arglist>(float note, float phase)</arglist>
     </member>
     <member kind="function">
+      <type>float</type>
+      <name>get</name>
+      <anchorfile>classBandLimitedLookupTable.html</anchorfile>
+      <anchor>a8e9f62e700e4c7baa578386a28a700bc</anchor>
+      <arglist>(int tableIndex, float phase)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>loadFromBuffer</name>
       <anchorfile>classBandLimitedLookupTable.html</anchorfile>
-      <anchor>a168317b2249b5633e08329eeabd7a09c</anchor>
-      <arglist>(juce::AudioSampleBuffer &amp;buffer, double sampleRate, int notesPerTable)</arglist>
+      <anchor>aef5ba118b9f6c034d87cfccb9a4edae1</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, float sampleRate, int notesPerTable)</arglist>
     </member>
     <member kind="variable">
-      <type>juce::OwnedArray&lt; juce::dsp::LookupTableTransform&lt; float &gt; &gt;</type>
+      <type>std::vector&lt; std::vector&lt; float &gt; &gt;</type>
       <name>tables</name>
       <anchorfile>classBandLimitedLookupTable.html</anchorfile>
-      <anchor>adbe6b6e06f76c87e7bfee87d854b4ffe</anchor>
+      <anchor>a92fea974cc537d42d2a3191bd69d32fa</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>tableSize</name>
+      <anchorfile>classBandLimitedLookupTable.html</anchorfile>
+      <anchor>af5afe68886b99ea23b06cc7f1f591b94</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -14676,52 +14690,52 @@
       <arglist>(T x)</arglist>
     </member>
     <member kind="function">
-      <type>double</type>
+      <type>float</type>
       <name>sine</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gac81d5fa67210b71931d9191c641871b2</anchor>
-      <arglist>(double phase, double unused1=0, double unused2=0)</arglist>
+      <anchor>ga63649a0b65f8aa4b67359978bd487bc1</anchor>
+      <arglist>(float phase, float unused1=0, float unused2=0)</arglist>
     </member>
     <member kind="function">
-      <type>double</type>
+      <type>float</type>
       <name>triangle</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga83fe6fa8512b1a676092cf10f9c79e7e</anchor>
-      <arglist>(double phase, double freq, double sampleRate)</arglist>
+      <anchor>gac1ca4d0b776735a17f87d61c90741d45</anchor>
+      <arglist>(float phase, float freq, float sampleRate)</arglist>
     </member>
     <member kind="function">
-      <type>double</type>
+      <type>float</type>
       <name>sawUp</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga54fd9fc5216539143983df52fcfd38be</anchor>
-      <arglist>(double phase, double freq, double sampleRate)</arglist>
+      <anchor>gaee1da7519de4693416c7eb52acae0e97</anchor>
+      <arglist>(float phase, float freq, float sampleRate)</arglist>
     </member>
     <member kind="function">
-      <type>double</type>
+      <type>float</type>
       <name>sawDown</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gaf4e429b20b8c3d03b8527af2f1d7a14f</anchor>
-      <arglist>(double phase, double freq, double sampleRate)</arglist>
+      <anchor>ga7dcecee55962cc044ac3af15464b19a8</anchor>
+      <arglist>(float phase, float freq, float sampleRate)</arglist>
     </member>
     <member kind="function">
-      <type>double</type>
+      <type>float</type>
       <name>pulse</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga5d70ff16cbda6f79543b487e6831052a</anchor>
-      <arglist>(double phase, double pw, double freq, double sampleRate)</arglist>
+      <anchor>ga1f59ed3e69fd50c828e608593c6f1501</anchor>
+      <arglist>(float phase, float pw, float freq, float sampleRate)</arglist>
     </member>
     <member kind="function">
-      <type>double</type>
+      <type>float</type>
       <name>squareWave</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gad6edce63379d418ac8ceb7f57a97bfc6</anchor>
-      <arglist>(double phase, double freq, double sampleRate)</arglist>
+      <anchor>gaa53416e9fff8a3d96bda5ef381d56f5d</anchor>
+      <arglist>(float phase, float freq, float sampleRate)</arglist>
     </member>
     <member kind="function">
-      <type>double</type>
+      <type>float</type>
       <name>noise</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga144d0a5afb304f562a311e0d62e77dc6</anchor>
+      <anchor>gadf97991a9ee12ce4122d0eccfb8488ec</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">

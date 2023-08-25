@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['bandlimitedlookuptable_1461',['BandLimitedLookupTable',['../classBandLimitedLookupTable.html',1,'']]],
-  ['bandlimitedlookuptables_1462',['BandLimitedLookupTables',['../classBandLimitedLookupTables.html',1,'']]],
-  ['blltvoicedstereooscillator_1463',['BLLTVoicedStereoOscillator',['../classBLLTVoicedStereoOscillator.html',1,'']]],
-  ['bmpimageformat_1464',['BMPImageFormat',['../classBMPImageFormat.html',1,'']]],
-  ['boxarea_1465',['BoxArea',['../classBoxArea.html',1,'']]],
-  ['bp12state_1466',['BP12State',['../structBP12State.html',1,'']]],
-  ['bp24state_1467',['BP24State',['../structBP24State.html',1,'']]]
+  ['bandlimitedlookuptable_1465',['BandLimitedLookupTable',['../classBandLimitedLookupTable.html',1,'']]],
+  ['bandlimitedlookuptables_1466',['BandLimitedLookupTables',['../classBandLimitedLookupTables.html',1,'']]],
+  ['blltvoicedstereooscillator_1467',['BLLTVoicedStereoOscillator',['../classBLLTVoicedStereoOscillator.html',1,'']]],
+  ['bmpimageformat_1468',['BMPImageFormat',['../classBMPImageFormat.html',1,'']]],
+  ['boxarea_1469',['BoxArea',['../classBoxArea.html',1,'']]],
+  ['bp12state_1470',['BP12State',['../structBP12State.html',1,'']]],
+  ['bp24state_1471',['BP24State',['../structBP24State.html',1,'']]]
 ];

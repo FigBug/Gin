@@ -33,7 +33,7 @@ var searchData=
   ['listener_744',['Listener',['../classFileSystemWatcher_1_1Listener.html',1,'FileSystemWatcher::Listener'],['../classLocationManager_1_1Listener.html',1,'LocationManager::Listener'],['../classModMatrix_1_1Listener.html',1,'ModMatrix::Listener'],['../classOpenStreetMaps_1_1Listener.html',1,'OpenStreetMaps::Listener'],['../classSingleLineTextEditor_1_1Listener.html',1,'SingleLineTextEditor::Listener']]],
   ['listeners_745',['listeners',['../classParameter.html#a6ab022db2c42737bf0d3b1552f9b97a4',1,'Parameter']]],
   ['loadallprograms_746',['loadAllPrograms',['../classProcessor.html#a0d54dc4f330cea0f907e55a4f19e92d3',1,'Processor']]],
-  ['loadfrombuffer_747',['loadFromBuffer',['../classBandLimitedLookupTable.html#a168317b2249b5633e08329eeabd7a09c',1,'BandLimitedLookupTable']]],
+  ['loadfrombuffer_747',['loadFromBuffer',['../classBandLimitedLookupTable.html#aef5ba118b9f6c034d87cfccb9a4edae1',1,'BandLimitedLookupTable']]],
   ['loadfromfile_748',['loadFromFile',['../classProgram.html#a00c563471f7d8b81fd534193c0baa6d6',1,'Program']]],
   ['loadprocessor_749',['loadProcessor',['../classProgram.html#a9b90c3645e8e2cad9f006a2373901e2c',1,'Program']]],
   ['loadwavetables_750',['loadWavetables',['../group__gin__dsp-dsp.html#ga8167e97c7e5fc9916a3423ca494b72b8',1,'gin_wtoscillators.h']]],

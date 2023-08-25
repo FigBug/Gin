@@ -77,19 +77,23 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad40d2d7deba27521fda4c55280418943"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#ad40d2d7deba27521fda4c55280418943">BandLimitedLookupTable</a> ()=default</td></tr>
 <tr class="separator:ad40d2d7deba27521fda4c55280418943"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8d1104796d5b6ce9103280164f23dab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#aa8d1104796d5b6ce9103280164f23dab">BandLimitedLookupTable</a> (std::function&lt; double(double, double, double)&gt; function, double sampleRate, int notesPerTable_=6, int tableSize_=2048)</td></tr>
-<tr class="separator:aa8d1104796d5b6ce9103280164f23dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3dab85dafee0db1469251e9c59cd22e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#a3dab85dafee0db1469251e9c59cd22e9">reset</a> (std::function&lt; double(double, double, double)&gt; function, double sampleRate, int notesPerTable_=6, int tableSize=2048)</td></tr>
-<tr class="separator:a3dab85dafee0db1469251e9c59cd22e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab39bb5a1490c019ee943eec0fcd4f9ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#ab39bb5a1490c019ee943eec0fcd4f9ca">BandLimitedLookupTable</a> (std::function&lt; float(float, float, float)&gt; function, float sampleRate, int notesPerTable_=6, int tableSize_=2048)</td></tr>
+<tr class="separator:ab39bb5a1490c019ee943eec0fcd4f9ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab67ccc3198194d189403747c076fcb29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#ab67ccc3198194d189403747c076fcb29">reset</a> (std::function&lt; float(float, float, float)&gt; function, float sampleRate, int notesPerTable_=6, int tableSize_=2048)</td></tr>
+<tr class="separator:ab67ccc3198194d189403747c076fcb29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4bbf0cf3a280899c20e09895e509786"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#ae4bbf0cf3a280899c20e09895e509786">process</a> (float note, float phase)</td></tr>
 <tr class="separator:ae4bbf0cf3a280899c20e09895e509786"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a168317b2249b5633e08329eeabd7a09c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#a168317b2249b5633e08329eeabd7a09c">loadFromBuffer</a> (juce::AudioSampleBuffer &amp;buffer, double sampleRate, int <a class="el" href="classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220">notesPerTable</a>)</td></tr>
-<tr class="separator:a168317b2249b5633e08329eeabd7a09c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e9f62e700e4c7baa578386a28a700bc"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#a8e9f62e700e4c7baa578386a28a700bc">get</a> (int tableIndex, float phase)</td></tr>
+<tr class="separator:a8e9f62e700e4c7baa578386a28a700bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef5ba118b9f6c034d87cfccb9a4edae1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#aef5ba118b9f6c034d87cfccb9a4edae1">loadFromBuffer</a> (juce::AudioSampleBuffer &amp;buffer, float sampleRate, int <a class="el" href="classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220">notesPerTable</a>)</td></tr>
+<tr class="separator:aef5ba118b9f6c034d87cfccb9a4edae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:adbe6b6e06f76c87e7bfee87d854b4ffe"><td class="memItemLeft" align="right" valign="top">juce::OwnedArray&lt; juce::dsp::LookupTableTransform&lt; float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#adbe6b6e06f76c87e7bfee87d854b4ffe">tables</a></td></tr>
-<tr class="separator:adbe6b6e06f76c87e7bfee87d854b4ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92fea974cc537d42d2a3191bd69d32fa"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#a92fea974cc537d42d2a3191bd69d32fa">tables</a></td></tr>
+<tr class="separator:a92fea974cc537d42d2a3191bd69d32fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5afe68886b99ea23b06cc7f1f591b94"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#af5afe68886b99ea23b06cc7f1f591b94">tableSize</a> = 0</td></tr>
+<tr class="separator:af5afe68886b99ea23b06cc7f1f591b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16759d173143073a70627173a7b45220"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220">notesPerTable</a> = 0</td></tr>
 <tr class="separator:a16759d173143073a70627173a7b45220"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -122,8 +126,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aa8d1104796d5b6ce9103280164f23dab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8d1104796d5b6ce9103280164f23dab">&#9670;&nbsp;</a></span>BandLimitedLookupTable() <span class="overload">[2/2]</span></h2>
+<a id="ab39bb5a1490c019ee943eec0fcd4f9ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab39bb5a1490c019ee943eec0fcd4f9ca">&#9670;&nbsp;</a></span>BandLimitedLookupTable() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -131,13 +135,13 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">BandLimitedLookupTable::BandLimitedLookupTable </td>
           <td>(</td>
-          <td class="paramtype">std::function&lt; double(double, double, double)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; float(float, float, float)&gt;&#160;</td>
           <td class="paramname"><em>function</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>sampleRate</em>, </td>
         </tr>
         <tr>
@@ -160,13 +164,13 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classBandLimitedLookupTable.html#a3dab85dafee0db1469251e9c59cd22e9">reset()</a>.</p>
+<p class="reference">References <a class="el" href="classBandLimitedLookupTable.html#ab67ccc3198194d189403747c076fcb29">reset()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3dab85dafee0db1469251e9c59cd22e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3dab85dafee0db1469251e9c59cd22e9">&#9670;&nbsp;</a></span>reset()</h2>
+<a id="ab67ccc3198194d189403747c076fcb29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab67ccc3198194d189403747c076fcb29">&#9670;&nbsp;</a></span>reset()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -174,13 +178,13 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">void BandLimitedLookupTable::reset </td>
           <td>(</td>
-          <td class="paramtype">std::function&lt; double(double, double, double)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; float(float, float, float)&gt;&#160;</td>
           <td class="paramname"><em>function</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>sampleRate</em>, </td>
         </tr>
         <tr>
@@ -193,7 +197,7 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>tableSize</em> = <code>2048</code>&#160;</td>
+          <td class="paramname"><em>tableSize_</em> = <code>2048</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -203,9 +207,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="group__gin__dsp-dsp.html#ga0521f87a41bf33dc06cc4b6889860401">getMidiNoteInHertz()</a>, <a class="el" href="classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220">notesPerTable</a>, and <a class="el" href="classBandLimitedLookupTable.html#adbe6b6e06f76c87e7bfee87d854b4ffe">tables</a>.</p>
+<p class="reference">References <a class="el" href="group__gin__dsp-dsp.html#ga0521f87a41bf33dc06cc4b6889860401">getMidiNoteInHertz()</a>, <a class="el" href="classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220">notesPerTable</a>, <a class="el" href="classBandLimitedLookupTable.html#a92fea974cc537d42d2a3191bd69d32fa">tables</a>, and <a class="el" href="classBandLimitedLookupTable.html#af5afe68886b99ea23b06cc7f1f591b94">tableSize</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classBandLimitedLookupTable.html#aa8d1104796d5b6ce9103280164f23dab">BandLimitedLookupTable()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classBandLimitedLookupTable.html#ab39bb5a1490c019ee943eec0fcd4f9ca">BandLimitedLookupTable()</a>.</p>
 
 </div>
 </div>
@@ -235,12 +239,44 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220">notesPerTable</a>, and <a class="el" href="classBandLimitedLookupTable.html#adbe6b6e06f76c87e7bfee87d854b4ffe">tables</a>.</p>
+<p class="reference">References <a class="el" href="classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220">notesPerTable</a>, <a class="el" href="classBandLimitedLookupTable.html#a92fea974cc537d42d2a3191bd69d32fa">tables</a>, and <a class="el" href="classBandLimitedLookupTable.html#af5afe68886b99ea23b06cc7f1f591b94">tableSize</a>.</p>
 
 </div>
 </div>
-<a id="a168317b2249b5633e08329eeabd7a09c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a168317b2249b5633e08329eeabd7a09c">&#9670;&nbsp;</a></span>loadFromBuffer()</h2>
+<a id="a8e9f62e700e4c7baa578386a28a700bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e9f62e700e4c7baa578386a28a700bc">&#9670;&nbsp;</a></span>get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float BandLimitedLookupTable::get </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tableIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>phase</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classBandLimitedLookupTable.html#a92fea974cc537d42d2a3191bd69d32fa">tables</a>, and <a class="el" href="classBandLimitedLookupTable.html#af5afe68886b99ea23b06cc7f1f591b94">tableSize</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classBandLimitedLookupTables.html#a95aa08a1c4943b1e3ca991ae3316aeba">BandLimitedLookupTables::processPulse()</a>, <a class="el" href="classBandLimitedLookupTables.html#a14edeb68c6de5b718ce9ca07886f8858">BandLimitedLookupTables::processSawDown()</a>, <a class="el" href="classBandLimitedLookupTables.html#afb69ff9232d47e6c200434fb394fefdd">BandLimitedLookupTables::processSawUp()</a>, <a class="el" href="classBandLimitedLookupTables.html#adf067ab0c34d191b5369da60d4586a72">BandLimitedLookupTables::processSine()</a>, <a class="el" href="classBandLimitedLookupTables.html#a194da9ad3989b0e8845c16c9792bfe21">BandLimitedLookupTables::processSquare()</a>, and <a class="el" href="classBandLimitedLookupTables.html#a64def1c60b877662f0046a0837d6543e">BandLimitedLookupTables::processTriangle()</a>.</p>
+
+</div>
+</div>
+<a id="aef5ba118b9f6c034d87cfccb9a4edae1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef5ba118b9f6c034d87cfccb9a4edae1">&#9670;&nbsp;</a></span>loadFromBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -254,7 +290,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>sampleRate</em>, </td>
         </tr>
         <tr>
@@ -274,19 +310,35 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="adbe6b6e06f76c87e7bfee87d854b4ffe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbe6b6e06f76c87e7bfee87d854b4ffe">&#9670;&nbsp;</a></span>tables</h2>
+<a id="a92fea974cc537d42d2a3191bd69d32fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92fea974cc537d42d2a3191bd69d32fa">&#9670;&nbsp;</a></span>tables</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">juce::OwnedArray&lt;juce::dsp::LookupTableTransform&lt;float&gt; &gt; BandLimitedLookupTable::tables</td>
+          <td class="memname">std::vector&lt;std::vector&lt;float&gt; &gt; BandLimitedLookupTable::tables</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classBandLimitedLookupTable.html#ae4bbf0cf3a280899c20e09895e509786">process()</a>, <a class="el" href="classBandLimitedLookupTables.html#a95aa08a1c4943b1e3ca991ae3316aeba">BandLimitedLookupTables::processPulse()</a>, <a class="el" href="classBandLimitedLookupTables.html#a14edeb68c6de5b718ce9ca07886f8858">BandLimitedLookupTables::processSawDown()</a>, <a class="el" href="classBandLimitedLookupTables.html#afb69ff9232d47e6c200434fb394fefdd">BandLimitedLookupTables::processSawUp()</a>, <a class="el" href="classBandLimitedLookupTables.html#adf067ab0c34d191b5369da60d4586a72">BandLimitedLookupTables::processSine()</a>, <a class="el" href="classBandLimitedLookupTables.html#a194da9ad3989b0e8845c16c9792bfe21">BandLimitedLookupTables::processSquare()</a>, <a class="el" href="classBandLimitedLookupTables.html#a64def1c60b877662f0046a0837d6543e">BandLimitedLookupTables::processTriangle()</a>, and <a class="el" href="classBandLimitedLookupTable.html#a3dab85dafee0db1469251e9c59cd22e9">reset()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classBandLimitedLookupTable.html#a8e9f62e700e4c7baa578386a28a700bc">get()</a>, <a class="el" href="classBandLimitedLookupTable.html#ae4bbf0cf3a280899c20e09895e509786">process()</a>, <a class="el" href="classBandLimitedLookupTables.html#a95aa08a1c4943b1e3ca991ae3316aeba">BandLimitedLookupTables::processPulse()</a>, <a class="el" href="classBandLimitedLookupTables.html#a14edeb68c6de5b718ce9ca07886f8858">BandLimitedLookupTables::processSawDown()</a>, <a class="el" href="classBandLimitedLookupTables.html#afb69ff9232d47e6c200434fb394fefdd">BandLimitedLookupTables::processSawUp()</a>, <a class="el" href="classBandLimitedLookupTables.html#a194da9ad3989b0e8845c16c9792bfe21">BandLimitedLookupTables::processSquare()</a>, <a class="el" href="classBandLimitedLookupTables.html#a64def1c60b877662f0046a0837d6543e">BandLimitedLookupTables::processTriangle()</a>, and <a class="el" href="classBandLimitedLookupTable.html#ab67ccc3198194d189403747c076fcb29">reset()</a>.</p>
+
+</div>
+</div>
+<a id="af5afe68886b99ea23b06cc7f1f591b94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5afe68886b99ea23b06cc7f1f591b94">&#9670;&nbsp;</a></span>tableSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int BandLimitedLookupTable::tableSize = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classBandLimitedLookupTable.html#a8e9f62e700e4c7baa578386a28a700bc">get()</a>, <a class="el" href="classBandLimitedLookupTable.html#ae4bbf0cf3a280899c20e09895e509786">process()</a>, and <a class="el" href="classBandLimitedLookupTable.html#ab67ccc3198194d189403747c076fcb29">reset()</a>.</p>
 
 </div>
 </div>
@@ -302,7 +354,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classBandLimitedLookupTable.html#ae4bbf0cf3a280899c20e09895e509786">process()</a>, <a class="el" href="classBandLimitedLookupTables.html#a14edeb68c6de5b718ce9ca07886f8858">BandLimitedLookupTables::processSawDown()</a>, <a class="el" href="classBandLimitedLookupTables.html#afb69ff9232d47e6c200434fb394fefdd">BandLimitedLookupTables::processSawUp()</a>, <a class="el" href="classBandLimitedLookupTables.html#a64def1c60b877662f0046a0837d6543e">BandLimitedLookupTables::processTriangle()</a>, and <a class="el" href="classBandLimitedLookupTable.html#a3dab85dafee0db1469251e9c59cd22e9">reset()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classBandLimitedLookupTable.html#ae4bbf0cf3a280899c20e09895e509786">process()</a>, <a class="el" href="classBandLimitedLookupTables.html#a14edeb68c6de5b718ce9ca07886f8858">BandLimitedLookupTables::processSawDown()</a>, <a class="el" href="classBandLimitedLookupTables.html#afb69ff9232d47e6c200434fb394fefdd">BandLimitedLookupTables::processSawUp()</a>, <a class="el" href="classBandLimitedLookupTables.html#a64def1c60b877662f0046a0837d6543e">BandLimitedLookupTables::processTriangle()</a>, and <a class="el" href="classBandLimitedLookupTable.html#ab67ccc3198194d189403747c076fcb29">reset()</a>.</p>
 
 </div>
 </div>
@@ -312,7 +364,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 25 2023 20:26:42 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Aug 25 2023 21:31:39 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
