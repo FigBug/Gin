@@ -36,12 +36,15 @@ void WavetableComponent::paint (juce::Graphics& g)
             paths.add (createWavetablePath (float (i) / numTables));
     }
 
-    g.setColour (findColour (waveColourId, true));
-    for (auto& p : paths)
-        g.strokePath (p, juce::PathStrokeType (0.75f));
-
-    g.setColour (findColour (activeWaveColourId, true));
-    g.strokePath (createWavetablePath (params.pw), juce::PathStrokeType (0.75f));
+    if (paths.size() > 0)
+    {
+        g.setColour (findColour (waveColourId, true));
+        for (auto& p : paths)
+            g.strokePath (p, juce::PathStrokeType (0.75f));
+        
+        g.setColour (findColour (activeWaveColourId, true));
+        g.strokePath (createWavetablePath (params.pw), juce::PathStrokeType (0.75f));
+    }
 }
 
 juce::Path WavetableComponent::createWavetablePath (float wtPos)

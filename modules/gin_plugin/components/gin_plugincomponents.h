@@ -10,6 +10,7 @@ public:
     PluginButton (Parameter* parameter_)
       : parameter (parameter_)
     {
+        setName (parameter->getShortName());
         setButtonText (parameter->getUserValueText());
         setToggleState (parameter->getUserValue() > 0.0f, juce::dontSendNotification);
 
@@ -45,6 +46,53 @@ public:
     Parameter* parameter;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginButton)
+};
+
+//==============================================================================
+/** Button for toggling a parameter
+*/
+class SVGPluginButton : public SVGButton,
+                        private Parameter::ParameterListener
+{
+public:
+    SVGPluginButton (Parameter* parameter_, const juce::String& svg)
+      : SVGButton (parameter_->getShortName(), svg), parameter (parameter_)
+    {
+        setButtonText (parameter->getUserValueText());
+        setToggleState (parameter->getUserValue() > 0.0f, juce::dontSendNotification);
+
+        parameter->addListener (this);
+    }
+
+    ~SVGPluginButton() override
+    {
+        parameter->removeListener (this);
+    }
+
+    void valueUpdated (Parameter*) override
+    {
+        setToggleState (parameter->getUserValue() > 0.0f, juce::dontSendNotification);
+        setButtonText (parameter->getUserValueText());
+        repaint ();
+    }
+
+    void clicked() override
+    {
+        parameter->beginUserAction();
+        parameter->setUserValueNotifingHost (parameter->getUserValue() > 0.0f ? 0.0f : 1.0f);
+        parameter->endUserAction();
+        setButtonText (parameter->getUserValueText());
+    }
+
+    void parentHierarchyChanged() override
+    {
+        auto a = wantsAccessibleKeyboard (*this);
+        setWantsKeyboardFocus (a);
+    }
+
+    Parameter* parameter;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SVGPluginButton)
 };
 
 /** Button for toggling a parameter, drawn as a power button

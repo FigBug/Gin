@@ -206,15 +206,6 @@ void CopperLookAndFeel::drawButtonBackground (juce::Graphics&, juce::Button&, co
 
 void CopperLookAndFeel::drawButtonText (juce::Graphics& g, juce::TextButton& b, bool, bool)
 {
-    {
-        auto rc = b.getLocalBounds().toFloat();
-
-        g.setColour (findColour (PluginLookAndFeel::glass1ColourId));
-        g.fillRoundedRectangle (rc, rc.getHeight() / 2);
-        g.setColour (findColour (PluginLookAndFeel::glass2ColourId));
-        g.drawRoundedRectangle (rc, rc.getHeight() / 2, 1.0f);
-    }
-
     auto c = b.findColour (b.getToggleState() ? juce::TextButton::textColourOnId : juce::TextButton::textColourOffId).withMultipliedAlpha (b.isEnabled() ? 1.0f : 0.5f);
 
     if (b.isMouseOver() && b.isEnabled())
