@@ -124,7 +124,7 @@ void WTOscillator::processAdding (float noteL, float noteR, const Params& params
 
 void WTOscillator::setWavetable (juce::OwnedArray<BandLimitedLookupTable>& table)
 {
-    bllt.clear();
+    bllt.clearQuick();
     bllt.addArray (table);
 }
 

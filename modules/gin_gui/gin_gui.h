@@ -79,5 +79,6 @@ namespace gin
 #include "components/gin_mapviewer.h"
 #include "components/gin_propertycomponents.h"
 #include "components/gin_singlelinetexteditor.h"
+#include "components/gin_svgbutton.h"
 
 }

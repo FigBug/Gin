@@ -157,6 +157,10 @@ void NewsChecker::handleAsyncUpdate()
 TitleBar::TitleBar (ProcessorEditor& e, Processor& p)
   : editor (e), slProc (p)
 {
+    setName ("titlebar");
+
+    programs.setName ("presets");
+
     addAndMakeVisible (menuButton);
     addAndMakeVisible (browseButton);
     addAndMakeVisible (programs);
@@ -167,13 +171,6 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p)
     addAndMakeVisible (infoButton);
 
     programs.addListener (this);
-    addButton.addListener (this);
-    deleteButton.addListener (this);
-    nextButton.addListener (this);
-    prevButton.addListener (this);
-    browseButton.addListener (this);
-    infoButton.addListener (this);
-    menuButton.addListener (this);
 
     programs.setTitle ("Select Preset");
     addButton.setTitle ("Add Preset");
@@ -206,6 +203,88 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p)
         newsChecker = std::make_unique<NewsChecker> (slProc);
         newsChecker->onNewsUpdate = [](juce::String) {};
     }
+
+    nextButton.onClick = [this]
+    {
+        int prog = slProc.getCurrentProgram() + 1;
+        if (prog >= slProc.getNumPrograms())
+            prog = 0;
+
+        slProc.setCurrentProgram (prog);
+    };
+    prevButton.onClick = [this]
+    {
+        int prog = slProc.getCurrentProgram() - 1;
+        if (prog < 0)
+            prog = slProc.getNumPrograms() - 1;
+
+        slProc.setCurrentProgram (prog);
+    };
+    browseButton.onClick = [this]
+    {
+        browseButton.setToggleState (! browseButton.getToggleState(), juce::dontSendNotification);
+        editor.showPatchBrowser (browseButton.getToggleState());
+    };
+    addButton.onClick = [this]
+    {
+        gin::PluginAlertWindow w ("Create preset:", "", juce::AlertWindow::NoIcon, getParentComponent());
+        w.setLookAndFeel (slProc.lf.get());
+        w.addTextEditor ("name", "", "Name:");
+
+        if (hasBrowser)
+        {
+            w.addTextEditor ("author", "", "Author:");
+            w.addTextEditor ("tags", "", "Tags:");
+        }
+
+        w.addButton ("OK", 1, juce::KeyPress (juce::KeyPress::returnKey));
+        w.addButton ("Cancel", 0, juce::KeyPress (juce::KeyPress::escapeKey));
+
+        if (w.runModalLoop (*getParentComponent()) == 1)
+        {
+            auto txt = juce::File::createLegalFileName (w.getTextEditor ("name")->getText());
+            auto aut = (hasBrowser) ? juce::File::createLegalFileName (w.getTextEditor ("author")->getText()) : juce::String();
+            auto tag = (hasBrowser) ? juce::File::createLegalFileName (w.getTextEditor ("tags")->getText()) : juce::String();
+
+            if (slProc.hasProgram (txt))
+            {
+                gin::PluginAlertWindow wc ("Overwrite preset '" + txt + "'?", "", juce::AlertWindow::NoIcon, this);
+                wc.addButton ("Yes", 1, juce::KeyPress (juce::KeyPress::returnKey));
+                wc.addButton ("No", 0, juce::KeyPress (juce::KeyPress::escapeKey));
+                wc.setLookAndFeel (slProc.lf.get());
+
+                if (wc.runModalLoop (*this) == 0)
+                    return;
+            }
+
+            if (txt.isNotEmpty())
+            {
+                slProc.saveProgram (txt, aut, tag);
+                refreshPrograms();
+            }
+        }
+    };
+    deleteButton.onClick = [this]
+    {
+        gin::PluginAlertWindow w ("Delete preset '" + slProc.getProgramName (programs.getSelectedItemIndex()) + "'?", "", juce::AlertWindow::NoIcon, getParentComponent());
+        w.addButton ("Yes", 1, juce::KeyPress (juce::KeyPress::returnKey));
+        w.addButton ("No", 0, juce::KeyPress (juce::KeyPress::escapeKey));
+        w.setLookAndFeel (slProc.lf.get());
+
+        if (w.runModalLoop (*getParentComponent()))
+        {
+            slProc.deleteProgram (programs.getSelectedItemIndex());
+            refreshPrograms();
+        }
+    };
+    infoButton.onClick = [this]
+    {
+        editor.showAboutInfo();
+    };
+    menuButton.onClick = [this]
+    {
+        showMenu();
+    };
 }
 
 TitleBar::~TitleBar ()
@@ -308,91 +387,6 @@ void TitleBar::refreshPrograms()
     deleteButton.setEnabled (slProc.getCurrentProgram() != 0);
 
     editor.refreshPatchBrowser();
-}
-
-void TitleBar::buttonClicked (juce::Button* b)
-{
-    if (b == &nextButton)
-    {
-        int prog = slProc.getCurrentProgram() + 1;
-        if (prog >= slProc.getNumPrograms())
-            prog = 0;
-
-        slProc.setCurrentProgram (prog);
-    }
-    else if (b == &prevButton)
-    {
-        int prog = slProc.getCurrentProgram() - 1;
-        if (prog < 0)
-            prog = slProc.getNumPrograms() - 1;
-
-        slProc.setCurrentProgram (prog);
-    }
-    else if (b == &browseButton)
-    {
-        b->setToggleState (! b->getToggleState(), juce::dontSendNotification);
-        editor.showPatchBrowser (b->getToggleState());
-    }
-    else if (b == &addButton)
-    {
-        gin::PluginAlertWindow w ("Create preset:", "", juce::AlertWindow::NoIcon, getParentComponent());
-        w.setLookAndFeel (slProc.lf.get());
-        w.addTextEditor ("name", "", "Name:");
-
-        if (hasBrowser)
-        {
-            w.addTextEditor ("author", "", "Author:");
-            w.addTextEditor ("tags", "", "Tags:");
-        }
-
-        w.addButton ("OK", 1, juce::KeyPress (juce::KeyPress::returnKey));
-        w.addButton ("Cancel", 0, juce::KeyPress (juce::KeyPress::escapeKey));
-
-        if (w.runModalLoop (*getParentComponent()) == 1)
-        {
-            auto txt = juce::File::createLegalFileName (w.getTextEditor ("name")->getText());
-            auto aut = (hasBrowser) ? juce::File::createLegalFileName (w.getTextEditor ("author")->getText()) : juce::String();
-            auto tag = (hasBrowser) ? juce::File::createLegalFileName (w.getTextEditor ("tags")->getText()) : juce::String();
-
-            if (slProc.hasProgram (txt))
-            {
-                gin::PluginAlertWindow wc ("Overwrite preset '" + txt + "'?", "", juce::AlertWindow::NoIcon, this);
-                wc.addButton ("Yes", 1, juce::KeyPress (juce::KeyPress::returnKey));
-                wc.addButton ("No", 0, juce::KeyPress (juce::KeyPress::escapeKey));
-                wc.setLookAndFeel (slProc.lf.get());
-
-                if (wc.runModalLoop (*this) == 0)
-                    return;
-            }
-
-            if (txt.isNotEmpty())
-            {
-                slProc.saveProgram (txt, aut, tag);
-                refreshPrograms();
-            }
-        }
-    }
-    else if (b == &deleteButton)
-    {
-        gin::PluginAlertWindow w ("Delete preset '" + slProc.getProgramName (programs.getSelectedItemIndex()) + "'?", "", juce::AlertWindow::NoIcon, getParentComponent());
-        w.addButton ("Yes", 1, juce::KeyPress (juce::KeyPress::returnKey));
-        w.addButton ("No", 0, juce::KeyPress (juce::KeyPress::escapeKey));
-        w.setLookAndFeel (slProc.lf.get());
-
-        if (w.runModalLoop (*getParentComponent()))
-        {
-            slProc.deleteProgram (programs.getSelectedItemIndex());
-            refreshPrograms();
-        }
-    }
-    else if (b == &infoButton)
-    {
-        editor.showAboutInfo();
-    }
-    else if (b == &menuButton)
-    {
-        showMenu();
-    }
 }
 
 void TitleBar::showMenu()
@@ -613,7 +607,7 @@ void ProcessorEditor::resized()
 
 void ProcessorEditor::showAboutInfo()
 {
-juce::String msg;
+    juce::String msg;
 
   #ifdef JucePlugin_Name
    #if JUCE_DEBUG
