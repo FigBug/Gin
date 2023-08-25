@@ -135,14 +135,14 @@ public:
         float phaseUp   = phase + 0.25f;
         float phaseDown = phase - 0.25f;
 
-        if (phaseUp   > 1.0f) phaseUp   -= 1.0f;
-        if (phaseDown < 0.0f) phaseDown += 1.0f;
+        if (phaseUp   >= 1.0f) phaseUp   -= 1.0f;
+        if (phaseDown <  0.0f) phaseDown += 1.0f;
 
         auto count = std::min (sawDownTable.tables.size(), sawDownTable.tables.size());
         int tableIndex = juce::jlimit (0, int (count - 1), int ((note - 0.5) / count));
 
-        auto s1 = sawDownTable.get (tableIndex, phase);
-        auto s2 = sawUpTable.get (tableIndex, phase);
+        auto s1 = sawDownTable.get (tableIndex, phaseDown);
+        auto s2 = sawUpTable.get (tableIndex, phaseUp);
 
         return s1 + s2;
     }
@@ -152,14 +152,14 @@ public:
         float phaseUp   = phase + 0.5f * pw;
         float phaseDown = phase - 0.5f * pw;
 
-        if (phaseUp   > 1.0f) phaseUp   -= 1.0f;
-        if (phaseDown < 0.0f) phaseDown += 1.0f;
+        if (phaseUp   >= 1.0f) phaseUp   -= 1.0f;
+        if (phaseDown <  0.0f) phaseDown += 1.0f;
 
         auto count = std::min (sawDownTable.tables.size(), sawDownTable.tables.size());
         int tableIndex = juce::jlimit (0, int (count - 1), int ((note - 0.5) / count));
 
-        auto s1 = sawDownTable.get (tableIndex, phase);
-        auto s2 = sawUpTable.get (tableIndex, phase);
+        auto s1 = sawDownTable.get (tableIndex, phaseDown);
+        auto s2 = sawUpTable.get (tableIndex, phaseUp);
 
         return s1 + s2;
     }

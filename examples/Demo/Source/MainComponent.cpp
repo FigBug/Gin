@@ -1664,7 +1664,7 @@ struct WavetableDemo : public juce::Component
                 buffer.setSize (1, int (reader->lengthInSamples));
                 reader->read (&buffer, 0, int (reader->lengthInSamples), 0, true, false);
 
-                loadWavetables (bllt, buffer, reader->sampleRate, size);
+                loadWavetables (bllt, reader->sampleRate, buffer, reader->sampleRate, size);
 
                 osc = std::make_unique<gin::WTOscillator> ();
                 osc->setWavetable (bllt);
@@ -1729,7 +1729,7 @@ struct BLLTDemo : public juce::Component
         for (auto i = 0; i < 2048; i++)
             w[i] = tables.processSquare (0.0f, i / 2048.0f);
 
-        bllt.loadFromBuffer (buf, 44100, 12);
+        bllt.loadFromBuffer (44100, buf, 44100, 12);
     }
 
     void paint (juce::Graphics& g) override
@@ -1741,7 +1741,7 @@ struct BLLTDemo : public juce::Component
         {
             auto area = getLocalBounds();
             auto note = 0.5f;
-            for (int i = 0; i < bllt.tables.size(); i++)
+            for (int i = 0; i < int (bllt.tables.size()); i++)
             {
                 auto rc = area.removeFromTop (getHeight() / bllt.tables.size()).reduced (3);
 
@@ -1770,9 +1770,8 @@ struct BLLTDemo : public juce::Component
         //
         {
             auto area = getLocalBounds();
-            for (int i = 0; i < bllt.tables.size(); i++)
+            for (int i = 0; i < int (bllt.tables.size()); i++)
             {
-                auto& t = *bllt.tables[i];
                 auto rc = area.removeFromTop (getHeight() / bllt.tables.size()).reduced (3);
 
                 juce::Path p;
@@ -1780,7 +1779,7 @@ struct BLLTDemo : public juce::Component
                 for (auto x = 0; x < 2048; x++)
                 {
                     auto fx = x / 2048.0f * rc.getWidth() + rc.getX();
-                    auto fy = t.processSample (x / 2048.0f) * rc.getHeight() / 2.0f + rc.getCentreY();
+                    auto fy = bllt.get (i, x / 2048.0f) * rc.getHeight() / 2.0f + rc.getCentreY();
 
                     if (x == 0)
                         p.startNewSubPath (fx, fy);
