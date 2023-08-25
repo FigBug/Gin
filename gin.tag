@@ -1657,6 +1657,12 @@
     <class kind="class">WaveformComponent</class>
   </compound>
   <compound kind="file">
+    <name>gin_wavetablecomponent.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/components/</path>
+    <filename>gin__wavetablecomponent_8h.html</filename>
+    <class kind="class">WavetableComponent</class>
+  </compound>
+  <compound kind="file">
     <name>gin_graphics/formats/gin_webpimageformat.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_graphics/formats/</path>
     <filename>gin__graphics_2formats_2gin__webpimageformat_8h.html</filename>
@@ -13606,6 +13612,100 @@
       <anchorfile>classWaveformComponent.html</anchorfile>
       <anchor>a7cea6140d1de8b9a4d5f6c1f5a912aab</anchor>
       <arglist>() override</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>WavetableComponent</name>
+    <filename>classWavetableComponent.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>ColourIds</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>ac7bd2c73ff86cfd3dc26d2c607eb87e5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>lineColourId</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>ac7bd2c73ff86cfd3dc26d2c607eb87e5a988c44521e03d2091d813c18ca158032</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>backgroundColourId</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>ac7bd2c73ff86cfd3dc26d2c607eb87e5aec89b078eb7103c48cbbbee9ba3374d9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>waveColourId</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>ac7bd2c73ff86cfd3dc26d2c607eb87e5a06b218cc58108db807e89d29c4083ce7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>activeWaveColourId</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>ac7bd2c73ff86cfd3dc26d2c607eb87e5a610b786e494188bf9a4aa55f46ae99d3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>lineColourId</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>ac7bd2c73ff86cfd3dc26d2c607eb87e5a988c44521e03d2091d813c18ca158032</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>backgroundColourId</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>ac7bd2c73ff86cfd3dc26d2c607eb87e5aec89b078eb7103c48cbbbee9ba3374d9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>waveColourId</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>ac7bd2c73ff86cfd3dc26d2c607eb87e5a06b218cc58108db807e89d29c4083ce7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>activeWaveColourId</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>ac7bd2c73ff86cfd3dc26d2c607eb87e5a610b786e494188bf9a4aa55f46ae99d3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>WavetableComponent</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>aabd88c4ea32e53755f23f25ac4601d11</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~WavetableComponent</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>a1693a7653e8e83614a48b6c0cc75231c</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paint</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>a44818593e9f1c76a633a87f3252ad54d</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setParams</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>acb0c572445ba218ca6183bce80ecdaf2</anchor>
+      <arglist>(WTOscillator::Params params)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setWavetables</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>a6a92aab5da5b425a293342ee9bf08d80</anchor>
+      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; *)</arglist>
     </member>
   </compound>
   <compound kind="class">
