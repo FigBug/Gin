@@ -108,11 +108,11 @@ float noise()
 }
 
 //==============================================================================
-void BandLimitedLookupTable::loadFromBuffer (juce::AudioSampleBuffer& buffer, float sampleRate, int notesPerTable_)
+void BandLimitedLookupTable::loadFromBuffer (float playbackSampleRate, juce::AudioSampleBuffer& buffer, float fileSampleRate, int notesPerTable_)
 {
     tables.clear();
 
-    float duration = buffer.getNumSamples() / sampleRate;
+    float duration = buffer.getNumSamples() / fileSampleRate;
     float baseFreq = 1.0f / duration;
     int sz = buffer.getNumSamples();
 
@@ -135,7 +135,7 @@ void BandLimitedLookupTable::loadFromBuffer (juce::AudioSampleBuffer& buffer, fl
         {
             auto index2Freq = [&] (int i)
             {
-                return float (i * (sampleRate / sz));
+                return float (i * (fileSampleRate / sz));
             };
 
             auto d = buffer.getReadPointer (0);
@@ -153,7 +153,7 @@ void BandLimitedLookupTable::loadFromBuffer (juce::AudioSampleBuffer& buffer, fl
             fft.perform (time.data(), freq.data(), false);
 
             for (auto i = 0; i < sz; i++)
-                if (index2Freq (i) * ratio > sampleRate / 2)
+                if (index2Freq (i) * ratio > playbackSampleRate / 2)
                     freq[i] = {0.0f, 0.0f};
 
             fft.perform (freq.data(), time.data(), true);

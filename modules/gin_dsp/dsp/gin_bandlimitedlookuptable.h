@@ -75,7 +75,7 @@ public:
         return tables[tableIndex][pos];
     }
 
-    void loadFromBuffer (juce::AudioSampleBuffer& buffer, float sampleRate, int notesPerTable);
+    void loadFromBuffer (float playbackSampleRate, juce::AudioSampleBuffer& buffer, float fileSampleRate, int notesPerTable);
 
     std::vector<std::vector<float>> tables;
 

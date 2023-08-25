@@ -60,4 +60,4 @@ public:
     }
 };
 
-bool loadWavetables (juce::OwnedArray<BandLimitedLookupTable>& bllt, juce::AudioSampleBuffer& buffer, double sampleRate, int tableSize);
+bool loadWavetables (juce::OwnedArray<BandLimitedLookupTable>& bllt, double playbackSampleRate, juce::AudioSampleBuffer& buffer, double fileSampleRate, int tableSize);
