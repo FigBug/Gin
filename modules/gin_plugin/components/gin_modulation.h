@@ -173,7 +173,7 @@ private:
 };
 
 //==============================================================================
-/** A list box of al mod sources
+/** A list box of all mod sources
 */
 class ModSrcListBox : public juce::ListBox,
                       private juce::ListBoxModel
