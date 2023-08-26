@@ -19,6 +19,82 @@
     <class kind="class">AnalogADSR</class>
   </compound>
   <compound kind="file">
+    <name>gin_assets.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
+    <filename>gin__assets_8h.html</filename>
+    <namespace>Assets</namespace>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>next</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a7e39560cce3d5062215a8a94f967e741</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>prev</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>ad5b11488698a963a52c57c3566f9d902</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>add</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a29d2500065afcb02888418ee638563d8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>del</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a168eb76a824f5085dc55dfc31f880361</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>browse</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a971712f6dd2c7de1171c8139a852a38d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>menu</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a1b0a8a5ee3663ec2443ce3ef8993b97a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>info</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a0d8779fd5e3c309da5cef6baaa1b3c1e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>voice</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a51fab03de052ae2f94d63829643584c7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>cpu</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>aa34af2fbaef6daaa684b5970e8cc68ea</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>power</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>ad53d4c201ef739ea70be0f9b9b427de9</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>gin_asyncutilities.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/utilities/</path>
     <filename>gin__asyncutilities_8h.html</filename>
@@ -8537,6 +8613,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>addModSource</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>a6184d7fc37b1a9b150b32dae32f69246</anchor>
+      <arglist>(juce::Component *c)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>addControl</name>
       <anchorfile>classParamBox.html</anchorfile>
       <anchor>afab51fbea411628bdb475551488cfd05</anchor>
@@ -8610,6 +8693,13 @@
       <name>controls</name>
       <anchorfile>classParamBox.html</anchorfile>
       <anchor>a9c993cfb8a848781cb2206de51e318c3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::OwnedArray&lt; Component &gt;</type>
+      <name>modSources</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>a0d36e4e64d989106ec37b22c0e2b4e3f</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -14498,6 +14588,80 @@
       <anchorfile>classXYScope.html</anchorfile>
       <anchor>a37d7c0b92a484c3c55dee8eb45fd2943</anchor>
       <arglist>() override</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>Assets</name>
+    <filename>namespaceAssets.html</filename>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>next</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a7e39560cce3d5062215a8a94f967e741</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>prev</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>ad5b11488698a963a52c57c3566f9d902</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>add</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a29d2500065afcb02888418ee638563d8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>del</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a168eb76a824f5085dc55dfc31f880361</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>browse</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a971712f6dd2c7de1171c8139a852a38d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>menu</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a1b0a8a5ee3663ec2443ce3ef8993b97a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>info</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a0d8779fd5e3c309da5cef6baaa1b3c1e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>voice</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a51fab03de052ae2f94d63829643584c7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>cpu</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>aa34af2fbaef6daaa684b5970e8cc68ea</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>power</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>ad53d4c201ef739ea70be0f9b9b427de9</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="namespace">

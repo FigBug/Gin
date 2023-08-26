@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['location_3055',['location',['../group__gin__location-location.html',1,'']]],
-  ['lookandfeel_3056',['lookandfeel',['../group__gin__plugin-lookandfeel.html',1,'']]]
+  ['location_3089',['location',['../group__gin__location-location.html',1,'']]],
+  ['lookandfeel_3090',['lookandfeel',['../group__gin__plugin-lookandfeel.html',1,'']]]
 ];
