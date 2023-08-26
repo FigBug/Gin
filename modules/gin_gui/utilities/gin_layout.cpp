@@ -291,8 +291,8 @@ juce::Component* Layout::setBounds (const juce::String& currentPath, const juce:
 
     if (r.has_value() && x.has_value()) w = *r - *x;
     if (b.has_value() && y.has_value()) h = *b - *y;
-    if (r.has_value() && w.has_value()) w = *r - *w;
-    if (b.has_value() && h.has_value()) x = *b - *h;
+    if (r.has_value() && w.has_value()) x = *r - *w;
+    if (b.has_value() && h.has_value()) y = *b - *h;
 
     if (component.hasProperty ("bounds"))
     {
