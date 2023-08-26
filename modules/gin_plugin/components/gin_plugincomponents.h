@@ -39,6 +39,7 @@ public:
 
     void parentHierarchyChanged() override
     {
+        juce::TextButton::parentHierarchyChanged();
         auto a = wantsAccessibleKeyboard (*this);
         setWantsKeyboardFocus (a);
     }
@@ -86,6 +87,7 @@ public:
 
     void parentHierarchyChanged() override
     {
+        SVGButton::parentHierarchyChanged();
         auto a = wantsAccessibleKeyboard (*this);
         setWantsKeyboardFocus (a);
     }
@@ -124,6 +126,7 @@ private:
 
     void parentHierarchyChanged() override
     {
+        PluginButton::parentHierarchyChanged();
         auto a = wantsAccessibleKeyboard (*this);
         setWantsKeyboardFocus (a);
     }
@@ -168,6 +171,7 @@ public:
 
     void parentHierarchyChanged() override
     {
+        juce::ComboBox::parentHierarchyChanged();
         auto a = wantsAccessibleKeyboard (*this);
         setWantsKeyboardFocus (a);
     }
@@ -243,6 +247,7 @@ public:
 
     void parentHierarchyChanged() override
     {
+        juce::Slider::parentHierarchyChanged();
         auto a = wantsAccessibleKeyboard (*this);
         setWantsKeyboardFocus (a);
     }
@@ -270,6 +275,7 @@ private:
 
     void parentHierarchyChanged() override
     {
+        juce::Label::parentHierarchyChanged();
         auto a = wantsAccessibleKeyboard (*this);
         setWantsKeyboardFocus (a);
     }
@@ -320,6 +326,7 @@ public:
     void resized() override;
     void parentHierarchyChanged() override
     {
+        ParamComponent::parentHierarchyChanged();
         auto a = wantsAccessibleKeyboard (*this);
         name.setWantsKeyboardFocus (a);
         value.setWantsKeyboardFocus (a);
@@ -345,6 +352,7 @@ private:
     void resized() override;
     void parentHierarchyChanged() override
     {
+        ParamComponent::parentHierarchyChanged();
         auto a = wantsAccessibleKeyboard (*this);
         name.setWantsKeyboardFocus (a);
         button.setWantsKeyboardFocus (a);
@@ -372,6 +380,7 @@ protected:
     void resized() override;
     void parentHierarchyChanged() override
     {
+        ParamComponent::parentHierarchyChanged();
         auto a = wantsAccessibleKeyboard (*this);
         name.setWantsKeyboardFocus (a);
         comboBox.setWantsKeyboardFocus (a);
