@@ -129,3 +129,29 @@ inline int sign ( T x )
 {
     return ( x > 0 ? 1 : -1 );
 }
+
+//==============================================================================
+/** Distortion */
+namespace Distortion
+{
+    inline float saturate (float input, float drive, float lowclip, float highclip)
+    {
+        input = juce::jlimit (lowclip, highclip, input);
+        return input - drive * input * std::fabs (input);
+    }
+
+    inline void processBlock (juce::AudioSampleBuffer& buffer, float drive, float lowclip, float highclip)
+    {
+        if (drive <= 0.0f)
+            return;
+
+        float gain = drive < 0.5f ? 2.0f * drive + 1.0f : drive * 4.0f;
+
+        for (auto ch = 0; ch < buffer.getNumChannels(); ch++)
+        {
+            auto data = buffer.getWritePointer (ch);
+            for (auto s = buffer.getNumSamples(); --s >= 0;)
+                data[s] = saturate (data[s], drive, lowclip, highclip) * gain;
+        }
+    }
+}

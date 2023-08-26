@@ -34,10 +34,10 @@
 //==============================================================================
 /** Distortion based on AirWindows plugins
 */
-class Distortion
+class AirWindowsDistortion
 {
 public:
-    Distortion ()
+    AirWindowsDistortion ()
     {
         reset();
     }
