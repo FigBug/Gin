@@ -73,6 +73,7 @@
     <includes id="gin__scratchbuffer_8h" name="gin_scratchbuffer.h" local="yes" imported="no">gin_scratchbuffer.h</includes>
     <class kind="class">GainProcessor</class>
     <class kind="class">WetDryMix</class>
+    <namespace>Distortion</namespace>
     <member kind="function">
       <type>juce::Value</type>
       <name>findValue</name>
@@ -156,6 +157,20 @@
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
       <anchor>ga1764c1268bc41fe5590a1287c071b27e</anchor>
       <arglist>(T x)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>saturate</name>
+      <anchorfile>namespaceDistortion.html</anchorfile>
+      <anchor>a0d468da1bba442ec6f02dfd0f159f883</anchor>
+      <arglist>(float input, float drive, float lowclip, float highclip)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>processBlock</name>
+      <anchorfile>namespaceDistortion.html</anchorfile>
+      <anchor>a1cbff571e105b4fc3335c9278d3f63fe</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, float drive, float lowclip, float highclip)</arglist>
     </member>
     <member kind="variable">
       <type>constexpr float</type>
@@ -311,7 +326,7 @@
     <name>gin_distortion.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
     <filename>gin__distortion_8h.html</filename>
-    <class kind="class">Distortion</class>
+    <class kind="class">AirWindowsDistortion</class>
   </compound>
   <compound kind="file">
     <name>gin_downloadmanager.h</name>
@@ -1974,6 +1989,45 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>AirWindowsDistortion</name>
+    <filename>classAirWindowsDistortion.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>AirWindowsDistortion</name>
+      <anchorfile>classAirWindowsDistortion.html</anchorfile>
+      <anchor>acbc06ef71219995ce30ecb49cadb5a75</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classAirWindowsDistortion.html</anchorfile>
+      <anchor>a3e7b68d63e8e36b9e7a862c486cdd98a</anchor>
+      <arglist>(double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classAirWindowsDistortion.html</anchorfile>
+      <anchor>a6652a9b67fbdf93b49b42cfd3fc34595</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setParams</name>
+      <anchorfile>classAirWindowsDistortion.html</anchorfile>
+      <anchor>aeed288adb8990fc00cf5193bfb51e1b3</anchor>
+      <arglist>(float density, float highpass, float output, float mix)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classAirWindowsDistortion.html</anchorfile>
+      <anchor>a774f461ab66da2a485633242c4712c41</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>AnalogADSR</name>
     <filename>classAnalogADSR.html</filename>
     <member kind="enumeration">
@@ -3426,45 +3480,6 @@
       <anchorfile>classDelayLine.html</anchorfile>
       <anchor>a277d65ab60f42d22f55d48596412c897</anchor>
       <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>Distortion</name>
-    <filename>classDistortion.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Distortion</name>
-      <anchorfile>classDistortion.html</anchorfile>
-      <anchor>af712b1eb22bc79f96a2febc3e21b859a</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setSampleRate</name>
-      <anchorfile>classDistortion.html</anchorfile>
-      <anchor>ac9e20646253064498bef357d9c06129d</anchor>
-      <arglist>(double sr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reset</name>
-      <anchorfile>classDistortion.html</anchorfile>
-      <anchor>a119209981bf030951cd9c43ea2d660fb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setParams</name>
-      <anchorfile>classDistortion.html</anchorfile>
-      <anchor>a79d1cc02cc32a4a891f8aacb2939d9b6</anchor>
-      <arglist>(float density, float highpass, float output, float mix)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classDistortion.html</anchorfile>
-      <anchor>a28084339a50e41fd194eef4f6e02bda0</anchor>
-      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -14483,6 +14498,24 @@
       <anchorfile>classXYScope.html</anchorfile>
       <anchor>a37d7c0b92a484c3c55dee8eb45fd2943</anchor>
       <arglist>() override</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>Distortion</name>
+    <filename>namespaceDistortion.html</filename>
+    <member kind="function">
+      <type>float</type>
+      <name>saturate</name>
+      <anchorfile>namespaceDistortion.html</anchorfile>
+      <anchor>a0d468da1bba442ec6f02dfd0f159f883</anchor>
+      <arglist>(float input, float drive, float lowclip, float highclip)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>processBlock</name>
+      <anchorfile>namespaceDistortion.html</anchorfile>
+      <anchor>a1cbff571e105b4fc3335c9278d3f63fe</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, float drive, float lowclip, float highclip)</arglist>
     </member>
   </compound>
   <compound kind="namespace">

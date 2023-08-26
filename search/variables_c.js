@@ -1,12 +1,12 @@
 var searchData=
 [
+  ['n_2765',['N',['../structWSHeaderType.html#a280de6932d75f1d0b3f5687f839d4e92',1,'WSHeaderType']]],
   ['n_2766',['n',['../classLinearRegression.html#a2538a18e56f7da311ae94edbb903e1bd',1,'LinearRegression']]],
-  ['n_2767',['N',['../structWSHeaderType.html#a280de6932d75f1d0b3f5687f839d4e92',1,'WSHeaderType']]],
-  ['n0_2768',['N0',['../structWSHeaderType.html#a6c084039602e19593f16e198194258ea',1,'WSHeaderType']]],
-  ['name_2769',['name',['../classHorizontalFader.html#ab70425a9c8226dd53432dde0222dba8f',1,'HorizontalFader::name()'],['../classSelect.html#a68477089c5c406d199fe071d09080be4',1,'Select::name()'],['../classParameter.html#a4316d020a490d5e1d764d60453cb078c',1,'Parameter::name()'],['../classProgram.html#ab960dff0d490441b19a47c7788ef5308',1,'Program::name()']]],
-  ['newschecker_2770',['newsChecker',['../classTitleBar.html#ab00ac1e8d688d411c19dc7ee9e3feac7',1,'TitleBar::newsChecker()'],['../classProcessorEditor.html#a7bcb131b783c30e7fcc661bc23699601',1,'ProcessorEditor::newsChecker()']]],
-  ['nextbutton_2771',['nextButton',['../classTitleBar.html#adbdac6bcc1d15a4b014231dc9a799a6e',1,'TitleBar']]],
-  ['noteoffindex_2772',['noteOffIndex',['../classSynthesiser.html#a11111b8660140c3d67efbd56cf1089fc',1,'Synthesiser']]],
-  ['noteonindex_2773',['noteOnIndex',['../classSynthesiser.html#aa5ba2f02b20bcad66e99e471aa934793',1,'Synthesiser']]],
-  ['notespertable_2774',['notesPerTable',['../classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220',1,'BandLimitedLookupTable']]]
+  ['n0_2767',['N0',['../structWSHeaderType.html#a6c084039602e19593f16e198194258ea',1,'WSHeaderType']]],
+  ['name_2768',['name',['../classHorizontalFader.html#ab70425a9c8226dd53432dde0222dba8f',1,'HorizontalFader::name()'],['../classSelect.html#a68477089c5c406d199fe071d09080be4',1,'Select::name()'],['../classParameter.html#a4316d020a490d5e1d764d60453cb078c',1,'Parameter::name()'],['../classProgram.html#ab960dff0d490441b19a47c7788ef5308',1,'Program::name()']]],
+  ['newschecker_2769',['newsChecker',['../classTitleBar.html#ab00ac1e8d688d411c19dc7ee9e3feac7',1,'TitleBar::newsChecker()'],['../classProcessorEditor.html#a7bcb131b783c30e7fcc661bc23699601',1,'ProcessorEditor::newsChecker()']]],
+  ['nextbutton_2770',['nextButton',['../classTitleBar.html#adbdac6bcc1d15a4b014231dc9a799a6e',1,'TitleBar']]],
+  ['noteoffindex_2771',['noteOffIndex',['../classSynthesiser.html#a11111b8660140c3d67efbd56cf1089fc',1,'Synthesiser']]],
+  ['noteonindex_2772',['noteOnIndex',['../classSynthesiser.html#aa5ba2f02b20bcad66e99e471aa934793',1,'Synthesiser']]],
+  ['notespertable_2773',['notesPerTable',['../classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220',1,'BandLimitedLookupTable']]]
 ];
