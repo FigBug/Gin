@@ -22,6 +22,7 @@ namespace gin
 #include "plugin/gin_program.cpp"
 #include "plugin/gin_parameter.cpp"
 
+#include "components/gin_assets.cpp"
 #include "components/gin_plugineditor.cpp"
 #include "components/gin_adsrcomponent.cpp"
 #include "components/gin_gateeffectcomponent.cpp"

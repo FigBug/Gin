@@ -68,14 +68,19 @@ public:
     {
         enableParam = p;
 
-        const auto icon = "M6 0H5V6H6V0ZM0 5.50001C0 3.36266 1.21916 1.51007 3 0.599716V1.75778C1.79401 2.56504 1 3.9398 1 5.50001C1 7.98529 3.01472 10 5.5 10C7.98528 10 10 7.98529 10 5.50001C10 3.9398 9.20599 2.56504 8 1.75778V0.599716C9.78084 1.51007 11 3.36266 11 5.50001C11 8.53757 8.53757 11 5.5 11C2.46243 11 0 8.53757 0 5.50001Z";
-
-        auto b = new SVGPluginButton (p, icon);
+        auto b = new SVGPluginButton (p, Assets::power);
         b->setBounds (6, 6, 12, 12);
         controls.add (b);
         addAndMakeVisible (b);
 
         watchParam (p);
+    }
+
+    void addModSource (juce::Component* c)
+    {
+        c->setSize (12, 12);
+        modSources.add (c);
+        addAndMakeVisible (c);
     }
 
     void addControl (Component* c, int x, int y, int cx = 1, int cy = 1)
@@ -113,6 +118,14 @@ protected:
     {
         header.setBounds (getLocalBounds().removeFromTop (23));
         frame.setBounds (getLocalBounds());
+
+        auto rc = header.getLocalBounds ().withSizeKeepingCentre (header.getWidth() - 6, 12);
+
+        for (auto c : modSources)
+        {
+            c->setBounds (rc.removeFromRight (12));
+            rc.removeFromRight (4);
+        }
     }
 
     juce::Rectangle<int> getGridArea (int x, int y, int cx = 1, int cy = 1)
@@ -127,7 +140,7 @@ protected:
 
     ParamHeader header;
     juce::Component frame;
-    juce::OwnedArray<Component> controls;
+    juce::OwnedArray<Component> controls, modSources;
     gin::Parameter::Ptr enableParam = nullptr;
 };
 
