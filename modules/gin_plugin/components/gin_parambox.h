@@ -46,6 +46,28 @@ private:
 };
 
 //==============================================================================
+/** A header button with title text
+ */
+class HeaderButton : public juce::Button
+{
+public:
+    HeaderButton (const juce::String& name_)
+        : juce::Button (name_)
+    {
+    }
+
+private:
+    void paintButton (juce::Graphics& g, bool, bool)
+    {
+        auto f = juce::Font ().withPointHeight (10.0).withExtraKerningFactor (0.25);
+
+        g.setColour (getToggleState() ? findColour (PluginLookAndFeel::accentColourId).withAlpha (0.6f) : findColour (PluginLookAndFeel::whiteColourId).withAlpha (0.6f));
+        g.drawText (getButtonText().toUpperCase(), getLocalBounds(), juce::Justification::centred);
+    }
+};
+
+
+//==============================================================================
 /** A box for knobs with a header
 */
 class ParamBox : public MultiParamComponent
@@ -62,6 +84,30 @@ public:
     void setTitle (const juce::String& name)
     {
         header.setTitle (name);
+    }
+
+    void addHeader (const juce::StringArray names, int idx, gin::Parameter::Ptr p)
+    {
+        setTitle ({});
+
+        for (auto num = 0; auto n : names)
+        {
+            auto h = new HeaderButton (n);
+            h->onClick = [this, num]
+            {
+                headerParam->setUserValue (num);
+            };
+            header.addAndMakeVisible (h);
+            headers.add (h);
+            num++;
+        }
+
+        watchParam (p);
+
+        headerIndex = idx;
+        headerParam = p;
+
+        paramChanged();
     }
 
     void addEnable (gin::Parameter::Ptr p)
@@ -105,7 +151,20 @@ protected:
         MultiParamComponent::paramChanged();
 
         if (enableParam)
+        {
             frame.setEnabled (enableParam->getUserValue() > 0.0f);
+            for (auto ms : modSources)
+                ms->setEnabled (enableParam->getUserValue() > 0.0f);
+        }
+        if (headerParam)
+        {
+            setVisible (headerParam->getUserValue() == headerIndex);
+            for (auto i = 0; auto h : headers)
+            {
+                h->setToggleState (i == headerParam->getUserValue(), juce::dontSendNotification);
+                i++;
+            }
+        }
     }
 
     void paint (juce::Graphics& g) override
@@ -126,6 +185,15 @@ protected:
             c->setBounds (rc.removeFromRight (12));
             rc.removeFromRight (4);
         }
+
+        if (headers.size() > 0)
+        {
+            auto w = 50;
+            auto rh = header.getLocalBounds().withSizeKeepingCentre (w * headers.size(), header.getHeight());
+
+            for (auto h : headers)
+                h->setBounds (rh.removeFromLeft (w));
+        }
     }
 
     juce::Rectangle<int> getGridArea (int x, int y, int cx = 1, int cy = 1)
@@ -142,6 +210,10 @@ protected:
     juce::Component frame;
     juce::OwnedArray<Component> controls, modSources;
     gin::Parameter::Ptr enableParam = nullptr;
+
+    juce::OwnedArray<HeaderButton> headers;
+    gin::Parameter::Ptr headerParam = nullptr;
+    int headerIndex = 0;
 };
 
 //==============================================================================

@@ -121,7 +121,7 @@ void CopperLookAndFeel::drawRotarySlider (juce::Graphics& g, int x, int y, int w
 
     const float thickness = (radius - 1) / radius;
 
-    g.setColour (slider.findColour (juce::Slider::trackColourId));
+    g.setColour (slider.findColour (juce::Slider::trackColourId).withMultipliedAlpha (slider.isEnabled() ? 1.0f : 0.5f));
 
     // Draw knob
     {

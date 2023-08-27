@@ -56,7 +56,7 @@ private:
         if (over || down)
             c = c.withMultipliedAlpha (1.2f);
 
-        g.setColour (c);
+        g.setColour (c.withMultipliedAlpha (isEnabled() ? 1.0f : 0.5f));
 
         auto rc = getLocalBounds().toFloat();
         auto& p = poly ? getPolyPath() : getMonoPath();

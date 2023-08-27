@@ -39,11 +39,11 @@ void WavetableComponent::paint (juce::Graphics& g)
 
     if (paths.size() > 0)
     {
-        g.setColour (findColour (waveColourId, true));
+        g.setColour (findColour (waveColourId, true).withMultipliedAlpha (isEnabled() ? 1.0f : 0.5f));
         for (auto& p : paths)
             g.strokePath (p, juce::PathStrokeType (0.75f));
         
-        g.setColour (findColour (activeWaveColourId, true));
+        g.setColour (findColour (activeWaveColourId, true).withMultipliedAlpha (isEnabled() ? 1.0f : 0.5f));
         g.strokePath (createWavetablePath (params.pw), juce::PathStrokeType (0.75f));
     }
 }
