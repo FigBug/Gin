@@ -8,9 +8,9 @@ public:
         addAndMakeVisible (tags);
         addAndMakeVisible (presets);
 
-        authors.setColour (juce::ListBox::outlineColourId, juce::Colours::white);
-        tags.setColour (juce::ListBox::outlineColourId, juce::Colours::white);
-        presets.setColour (juce::ListBox::outlineColourId, juce::Colours::white);
+        authors.setColour (juce::ListBox::outlineColourId, juce::Colours::black);
+        tags.setColour (juce::ListBox::outlineColourId, juce::Colours::black);
+        presets.setColour (juce::ListBox::outlineColourId, juce::Colours::black);
 
         authors.setOutlineThickness (1);
         tags.setOutlineThickness (1);
@@ -86,9 +86,10 @@ public:
 
     void resized() override
     {
-        int w = (getWidth() - 10) / 3;
+        auto r = getLocalBounds().reduced (20);
 
-        auto r = getLocalBounds();
+        int w = (r.getWidth() - 10) / 3;
+
         authors.setBounds (r.removeFromLeft (w));
         presets.setBounds (r.removeFromRight (w));
         tags.setBounds (r.reduced (5, 0));
@@ -96,7 +97,7 @@ public:
 
     void paint (juce::Graphics& g) override
     {
-        g.fillAll (juce::Colours::black);
+        g.fillAll (findColour (PluginLookAndFeel::matte1ColourId));
     }
 
     Processor& proc;
@@ -118,18 +119,18 @@ public:
 
         void paintListBoxItem (int row, juce::Graphics& g, int w, int h, bool selected) override
         {
-            auto c1 = owner.findColour (juce::TextButton::textColourOnId);
-            auto c2 = owner.findColour (juce::TextButton::textColourOffId);
-
-            if (selected)
-                std::swap (c1, c2);
-
             auto rc = juce::Rectangle<int> (0, 0, w, h);
 
-            g.setColour (c1);
+            if (selected)
+                g.setColour (owner.findColour (PluginLookAndFeel::accentColourId, true).withAlpha (0.5f));
+            else if (row % 2 == 0)
+                g.setColour (owner.findColour (PluginLookAndFeel::matte1ColourId, true));
+            else
+                g.setColour (owner.findColour (PluginLookAndFeel::matte1ColourId, true).overlaidWith (juce::Colours::white.withAlpha (0.02f)));
+
             g.fillRect (rc);
 
-            g.setColour (c2);
+            g.setColour (owner.findColour (PluginLookAndFeel::whiteColourId, true).withAlpha (0.9f));
             g.setFont (juce::Font (14));
             g.drawText (owner.currentAuthors[row], rc.reduced (4, 0), juce::Justification::centredLeft);
         }
@@ -154,18 +155,18 @@ public:
 
         void paintListBoxItem (int row, juce::Graphics& g, int w, int h, bool selected) override
         {
-            auto c1 = owner.findColour (juce::TextButton::textColourOnId);
-            auto c2 = owner.findColour (juce::TextButton::textColourOffId);
-
-            if (selected)
-                std::swap (c1, c2);
-
             auto rc = juce::Rectangle<int> (0, 0, w, h);
 
-            g.setColour (c1);
+            if (selected)
+                g.setColour (owner.findColour (PluginLookAndFeel::accentColourId, true).withAlpha (0.5f));
+            else if (row % 2 == 0)
+                g.setColour (owner.findColour (PluginLookAndFeel::matte1ColourId, true));
+            else
+                g.setColour (owner.findColour (PluginLookAndFeel::matte1ColourId, true).overlaidWith (juce::Colours::white.withAlpha (0.02f)));
+
             g.fillRect (rc);
 
-            g.setColour (c2);
+            g.setColour (owner.findColour (PluginLookAndFeel::whiteColourId, true).withAlpha (0.9f));
             g.setFont (juce::Font (14));
             g.drawText (owner.currentTags[row], rc.reduced (4, 0), juce::Justification::centredLeft);
         }
@@ -184,18 +185,18 @@ public:
 
         void paintListBoxItem (int row, juce::Graphics& g, int w, int h, bool selected) override
         {
-            auto c1 = owner.findColour (juce::TextButton::textColourOnId);
-            auto c2 = owner.findColour (juce::TextButton::textColourOffId);
-
-            if (selected)
-                std::swap (c1, c2);
-
             auto rc = juce::Rectangle<int> (0, 0, w, h);
 
-            g.setColour (c1);
+            if (selected)
+                g.setColour (owner.findColour (PluginLookAndFeel::accentColourId, true).withAlpha (0.5f));
+            else if (row % 2 == 0)
+                g.setColour (owner.findColour (PluginLookAndFeel::matte1ColourId, true));
+            else
+                g.setColour (owner.findColour (PluginLookAndFeel::matte1ColourId, true).overlaidWith (juce::Colours::white.withAlpha (0.02f)));
+
             g.fillRect (rc);
 
-            g.setColour (c2);
+            g.setColour (owner.findColour (PluginLookAndFeel::whiteColourId, true).withAlpha (0.9f));
             g.setFont (juce::Font (14));
             g.drawText (owner.currentPresets[row], rc.reduced (4, 0), juce::Justification::centredLeft);
         }
