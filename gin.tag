@@ -14030,6 +14030,41 @@
       <anchor>a6a92aab5da5b425a293342ee9bf08d80</anchor>
       <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; *)</arglist>
     </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isInterestedInFileDrag</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>aa28002f2a012b9b533ce0001b7cf23d8</anchor>
+      <arglist>(const juce::StringArray &amp;files) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>fileDragEnter</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>ae1b948dc244b2de7910f04deef396a33</anchor>
+      <arglist>(const juce::StringArray &amp;files, int x, int y) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>fileDragExit</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>a16299100da0c9246449bc56e2817ebdc</anchor>
+      <arglist>(const juce::StringArray &amp;files) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>filesDropped</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>a377d51b36a536a8d9e33bd600d77e310</anchor>
+      <arglist>(const juce::StringArray &amp;files, int x, int y) override</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; void(const juce::File &amp;)&gt;</type>
+      <name>onFileDrop</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>ad112fcfefc3ebc96e2eceaa4434690d5</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>WEBPImageFormat</name>

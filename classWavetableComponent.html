@@ -64,6 +64,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classWavetableComponent-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">WavetableComponent Class Reference</div>  </div>
@@ -73,7 +74,7 @@ $(function() {
 <p>Draws a wavetable.  
  <a href="classWavetableComponent.html#details">More...</a></p>
 
-<p>Inherits juce::Component.</p>
+<p>Inherits juce::Component, and juce::FileDragAndDropTarget.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -96,6 +97,19 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acb0c572445ba218ca6183bce80ecdaf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a92aab5da5b425a293342ee9bf08d80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWavetableComponent.html#a6a92aab5da5b425a293342ee9bf08d80">setWavetables</a> (juce::OwnedArray&lt; <a class="el" href="classBandLimitedLookupTable.html">BandLimitedLookupTable</a> &gt; *)</td></tr>
 <tr class="separator:a6a92aab5da5b425a293342ee9bf08d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa28002f2a012b9b533ce0001b7cf23d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWavetableComponent.html#aa28002f2a012b9b533ce0001b7cf23d8">isInterestedInFileDrag</a> (const juce::StringArray &amp;files) override</td></tr>
+<tr class="separator:aa28002f2a012b9b533ce0001b7cf23d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1b948dc244b2de7910f04deef396a33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWavetableComponent.html#ae1b948dc244b2de7910f04deef396a33">fileDragEnter</a> (const juce::StringArray &amp;files, int x, int y) override</td></tr>
+<tr class="separator:ae1b948dc244b2de7910f04deef396a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16299100da0c9246449bc56e2817ebdc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWavetableComponent.html#a16299100da0c9246449bc56e2817ebdc">fileDragExit</a> (const juce::StringArray &amp;files) override</td></tr>
+<tr class="separator:a16299100da0c9246449bc56e2817ebdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a377d51b36a536a8d9e33bd600d77e310"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWavetableComponent.html#a377d51b36a536a8d9e33bd600d77e310">filesDropped</a> (const juce::StringArray &amp;files, int x, int y) override</td></tr>
+<tr class="separator:a377d51b36a536a8d9e33bd600d77e310"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ad112fcfefc3ebc96e2eceaa4434690d5"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(const juce::File &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWavetableComponent.html#ad112fcfefc3ebc96e2eceaa4434690d5">onFileDrop</a></td></tr>
+<tr class="separator:ad112fcfefc3ebc96e2eceaa4434690d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Draws a wavetable. </p>
@@ -226,13 +240,164 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aa28002f2a012b9b533ce0001b7cf23d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa28002f2a012b9b533ce0001b7cf23d8">&#9670;&nbsp;</a></span>isInterestedInFileDrag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WavetableComponent::isInterestedInFileDrag </td>
+          <td>(</td>
+          <td class="paramtype">const juce::StringArray &amp;&#160;</td>
+          <td class="paramname"><em>files</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae1b948dc244b2de7910f04deef396a33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1b948dc244b2de7910f04deef396a33">&#9670;&nbsp;</a></span>fileDragEnter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WavetableComponent::fileDragEnter </td>
+          <td>(</td>
+          <td class="paramtype">const juce::StringArray &amp;&#160;</td>
+          <td class="paramname"><em>files</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a16299100da0c9246449bc56e2817ebdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16299100da0c9246449bc56e2817ebdc">&#9670;&nbsp;</a></span>fileDragExit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WavetableComponent::fileDragExit </td>
+          <td>(</td>
+          <td class="paramtype">const juce::StringArray &amp;&#160;</td>
+          <td class="paramname"><em>files</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a377d51b36a536a8d9e33bd600d77e310"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a377d51b36a536a8d9e33bd600d77e310">&#9670;&nbsp;</a></span>filesDropped()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WavetableComponent::filesDropped </td>
+          <td>(</td>
+          <td class="paramtype">const juce::StringArray &amp;&#160;</td>
+          <td class="paramname"><em>files</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad112fcfefc3ebc96e2eceaa4434690d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad112fcfefc3ebc96e2eceaa4434690d5">&#9670;&nbsp;</a></span>onFileDrop</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;void (const juce::File&amp;)&gt; WavetableComponent::onFileDrop</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="gin__wavetablecomponent_8h.html">gin_wavetablecomponent.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 27 2023 05:20:11 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Sun Aug 27 2023 14:57:29 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
