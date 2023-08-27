@@ -22,7 +22,7 @@
   description:          Gin
   website:              www.rabiensoftware.com
   license:              BSD
-  minimumCppStandard:   17
+  minimumCppStandard:   20
 
   dependencies:         juce_core juce_graphics juce_events juce_gui_basics juce_gui_extra gin
   OSXFrameworks:        Security

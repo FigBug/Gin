@@ -22,7 +22,7 @@
   description:          Gin DSP Utilities
   website:              www.rabiensoftware.com
   license:              BSD
-  minimumCppStandard:    17
+  minimumCppStandard:   20
 
   dependencies:         gin juce_core juce_audio_utils juce_dsp
 

@@ -22,7 +22,7 @@
   description:          GinPlugin Utilities
   website:              www.rabiensoftware.com
   license:              BSD
-  minimumCppStandard:   17
+  minimumCppStandard:   20
 
   dependencies:         gin gin_dsp gin_gui gin_graphics juce_audio_utils juce_audio_processors
 

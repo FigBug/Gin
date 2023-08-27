@@ -169,7 +169,7 @@ protected:
             setVisible (headerParam->getUserValue() == headerIndex);
             for (auto i = 0; auto h : headers)
             {
-                h->setToggleState (i == headerParam->getUserValue(), juce::dontSendNotification);
+                h->setToggleState (i == headerParam->getUserValueInt(), juce::dontSendNotification);
                 i++;
             }
         }
