@@ -18,6 +18,14 @@ public:
         unwatchParams();
     }
 
+    juce::Colour dimIfNeeded (const juce::Colour& c)
+    {
+        if (! isEnabled())
+            return c.withMultipliedAlpha (0.5f);
+
+        return c;
+    }
+
 protected:
     void showBubble (const juce::String& text, const juce::Rectangle<int>& rc)
     {

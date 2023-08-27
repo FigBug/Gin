@@ -33,7 +33,7 @@ juce::String ADSRComponent::getBubbleText()
 
 void ADSRComponent::paint (juce::Graphics& g)
 {
-    auto c = findColour (isEnabled() ? GinLookAndFeel::colourId5 : GinLookAndFeel::colourId2);
+    auto c = findColour (GinLookAndFeel::accentColourId).withAlpha (0.7f);
 
     auto a = getArea();
     auto p1 = juce::Point<float> (float (a.getX()), float (a.getBottom()));
@@ -43,7 +43,7 @@ void ADSRComponent::paint (juce::Graphics& g)
 
     juce::Path p;
 
-    g.setColour (c.withMultipliedAlpha (0.5f));
+    g.setColour (dimIfNeeded (c));
 
     p.startNewSubPath (p1);
     p.lineTo (p2);
@@ -55,15 +55,16 @@ void ADSRComponent::paint (juce::Graphics& g)
     juce::Colour back = juce::Colours::black;
 
     g.setColour (back);
-    g.fillRoundedRectangle (getHandleRect (Handle::attack).toFloat(), 3);
-    g.fillRoundedRectangle (getHandleRect (Handle::decaySustain).toFloat(), 3);
-    g.fillRoundedRectangle (getHandleRect (Handle::release).toFloat(), 3);
+    g.fillEllipse (getHandleRect (Handle::attack).toFloat());
+    g.fillEllipse (getHandleRect (Handle::decaySustain).toFloat());
+    g.fillEllipse (getHandleRect (Handle::release).toFloat());
 
-    g.setColour (c);
+    auto h = findColour (GinLookAndFeel::whiteColourId).withAlpha (0.9f);
+    g.setColour (dimIfNeeded (h));
 
-    g.drawRect (getHandleRect (Handle::attack).toFloat());
-    g.drawRect (getHandleRect (Handle::decaySustain).toFloat());
-    g.drawRect (getHandleRect (Handle::release).toFloat());
+    g.drawEllipse (getHandleRect (Handle::attack).toFloat(), 0.75f);
+    g.drawEllipse (getHandleRect (Handle::decaySustain).toFloat(), 0.75f);
+    g.drawEllipse (getHandleRect (Handle::release).toFloat(), 0.75f);
 }
 
 void ADSRComponent::mouseDown (const juce::MouseEvent& e)

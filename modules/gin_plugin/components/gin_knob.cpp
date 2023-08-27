@@ -215,6 +215,9 @@ void Knob::modMatrixChanged()
 
 void Knob::mouseDown (const juce::MouseEvent& e)
 {
+    if (! isEnabled())
+        return;
+
     bool shift = juce::ModifierKeys::getCurrentModifiersRealtime().isShiftDown();
     if (shift || ! learning || ! knob.getBounds().contains (e.getMouseDownPosition()))
         return;
@@ -230,6 +233,9 @@ void Knob::mouseDown (const juce::MouseEvent& e)
 
 void Knob::mouseDrag (const juce::MouseEvent& e)
 {
+    if (! isEnabled())
+        return;
+
     bool shift = juce::ModifierKeys::getCurrentModifiersRealtime().isShiftDown();
     if (shift || ! learning || ! knob.getBounds().contains (e.getMouseDownPosition()))
          return;

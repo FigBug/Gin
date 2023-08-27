@@ -6,7 +6,7 @@
 class GateEffectComponent : public MultiParamComponent
 {
 public:
-    GateEffectComponent() = default;
+    GateEffectComponent (int maxSteps_);
     ~GateEffectComponent() override = default;
 
     void setParams (Parameter::Ptr length, Parameter::Ptr* l, Parameter::Ptr* r, Parameter::Ptr enable);
@@ -22,9 +22,10 @@ private:
     int getNumSteps();
 
     Parameter::Ptr length, enable;
-    Parameter::Ptr l[32], r[32];
+    std::vector<Parameter::Ptr> l, r;
 
 private:
+    int maxSteps;
     bool dragging = false;
     bool setOn = false;
 

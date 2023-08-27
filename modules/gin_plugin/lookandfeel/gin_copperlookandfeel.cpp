@@ -162,7 +162,7 @@ void CopperLookAndFeel::drawRotarySlider (juce::Graphics& g, int x, int y, int w
         auto depth = (float)slider.getProperties()["modDepth"];
         bool bipolar = (bool)slider.getProperties()["modBipolar"];
 
-        g.setColour (juce::Colours::red.withAlpha (0.8f));
+        g.setColour (findColour (GinLookAndFeel::whiteColourId).withAlpha (0.9f));
 
         juce::Path filledArc;
         if (bipolar)
@@ -182,7 +182,7 @@ void CopperLookAndFeel::drawRotarySlider (juce::Graphics& g, int x, int y, int w
 
     if (slider.getProperties().contains ("modValues") && slider.isEnabled())
     {
-        g.setColour (juce::Colours::red.withAlpha (0.8f));
+        g.setColour (findColour (GinLookAndFeel::whiteColourId).withAlpha (0.9f));
 
         auto varArray = slider.getProperties()["modValues"];
         if (varArray.isArray())

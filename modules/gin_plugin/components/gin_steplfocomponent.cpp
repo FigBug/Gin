@@ -1,4 +1,10 @@
 
+StepLFOComponent::StepLFOComponent (int maxSteps_)
+    : maxSteps (maxSteps_)
+{
+        level.resize (maxSteps);
+}
+
 void StepLFOComponent::resized()
 {
     dirty = true;
@@ -12,7 +18,7 @@ void StepLFOComponent::setParams (Parameter::Ptr beat_, Parameter::Ptr length_, 
     watchParam (length = length_);
     watchParam (enable = enable_);
     
-    for (int i = 0; i < 32; i++)
+    for (int i = 0; i < maxSteps; i++)
         watchParam (level[i] = level_[i]);
 
     startTimerHz (30);
@@ -82,12 +88,10 @@ void StepLFOComponent::paint (juce::Graphics& g)
         createPath (rc);
     }
 
-    auto c = findColour (isEnabled() ? GinLookAndFeel::colourId5 : GinLookAndFeel::colourId2);
-
-    g.setColour (c.withMultipliedAlpha (0.35f));
+    g.setColour (dimIfNeeded (findColour (GinLookAndFeel::whiteColourId).withAlpha (0.3f)));
     g.fillRect (rc.getX(), rc.getCentreY(), rc.getWidth(), 1);
 
-    g.setColour (c.withMultipliedAlpha (0.5f));
+    g.setColour (dimIfNeeded (findColour (GinLookAndFeel::accentColourId).withAlpha (0.7f)));
     g.strokePath (path, juce::PathStrokeType (1.5f));
 
     if (isEnabled())
@@ -98,7 +102,7 @@ void StepLFOComponent::paint (juce::Graphics& g)
         float t = x - int (x);
         float y = lerp (t, curve[int(x)], curve[int(x) + 1]);
 
-        g.setColour (c);
+        g.setColour (dimIfNeeded (findColour (GinLookAndFeel::whiteColourId).withAlpha (0.9f)));
         g.fillEllipse (rc.getX() + x - 2, y - 2, 4, 4);
     }
 }

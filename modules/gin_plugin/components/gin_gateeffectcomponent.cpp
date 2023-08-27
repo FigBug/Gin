@@ -1,3 +1,9 @@
+GateEffectComponent::GateEffectComponent (int maxSteps_)
+    : maxSteps (maxSteps_)
+{
+    l.resize (maxSteps);
+    r.resize (maxSteps);
+}
 
 void GateEffectComponent::setParams (Parameter::Ptr length_, Parameter::Ptr* l_, Parameter::Ptr* r_, Parameter::Ptr enable_)
 {
@@ -6,7 +12,7 @@ void GateEffectComponent::setParams (Parameter::Ptr length_, Parameter::Ptr* l_,
     watchParam (length = length_);
     watchParam (enable = enable_);
     
-    for (int i = 0; i < 32; i++)
+    for (int i = 0; i < 16; i++)
     {
         watchParam (l[i] = l_[i]);
         watchParam (r[i] = r_[i]);
@@ -53,35 +59,28 @@ void GateEffectComponent::mouseUp (const juce::MouseEvent&)
 
 void GateEffectComponent::paint (juce::Graphics& g)
 {
-    auto rc = getLocalBounds().reduced (2, 20);
+    auto rc = getLocalBounds().reduced (2, 20).toFloat();
     float w = rc.getWidth() / float (getNumSteps());
 
-    auto c = findColour (isEnabled() ? GinLookAndFeel::colourId5 : GinLookAndFeel::colourId2);
-
-    g.setColour (c.withMultipliedAlpha (0.25f));
+    g.setColour (dimIfNeeded (findColour (GinLookAndFeel::whiteColourId).withAlpha (0.3f)));
     for (int i = 0; i <= getNumSteps(); i++)
-        g.drawVerticalLine (juce::roundToInt (rc.getX() + i * w), float (rc.getY ()), float (rc.getBottom ()));
-    g.drawHorizontalLine (rc.getCentreY(), float (rc.getX()), float (rc.getRight()));
+    {
+        auto x = juce::roundToInt (rc.getX() + i * w);
+        g.drawLine (x, rc.getY(), x, rc.getBottom ());
+    }
+    g.drawLine (rc.getX(), rc.getCentreY(), rc.getRight(), rc.getCentreY());
 
-    g.setColour (c.withMultipliedAlpha (0.20f));
+    g.setColour (dimIfNeeded (findColour (GinLookAndFeel::accentColourId).withAlpha (0.7f)));
     for (int i = 0; i < getNumSteps(); i++)
     {
         if (l[i]->isOn())
         {
-            auto rs = juce::Rectangle<int> (juce::roundToInt (rc.getX() + i * w),
-                                      rc.getY(),
-                                      juce::roundToInt (rc.getX() + (i + 1) * w) - juce::roundToInt (rc.getX() + i * w),
-                                      rc.getCentreY() - rc.getY());
-
+            auto rs = juce::Rectangle<float> (rc.getX() + i * w, rc.getY(), w, rc.getCentreY() - rc.getY());
             g.fillRect (rs.reduced (3));
         }
         if (r[i]->isOn())
         {
-            auto rs = juce::Rectangle<int> (juce::roundToInt (rc.getX() + i * w),
-                                      rc.getCentreY(),
-                                      juce::roundToInt (rc.getX() + (i + 1) * w) - juce::roundToInt (rc.getX() + i * w),
-                                      rc.getBottom() - rc.getCentreY());
-
+            auto rs = juce::Rectangle<float> (rc.getX() + i * w, rc.getCentreY(), w, rc.getBottom() - rc.getCentreY());
             g.fillRect (rs.reduced (3));
         }
     }
