@@ -1271,6 +1271,7 @@
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
     <filename>gin__parambox_8h.html</filename>
     <class kind="class">ParamHeader</class>
+    <class kind="class">HeaderButton</class>
     <class kind="class">ParamBox</class>
     <class kind="class">ParamArea</class>
     <class kind="class">BoxArea</class>
@@ -5810,6 +5811,17 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>HeaderButton</name>
+    <filename>classHeaderButton.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>HeaderButton</name>
+      <anchorfile>classHeaderButton.html</anchorfile>
+      <anchor>aae91b7dec1964dc7fb1f28b05325c97b</anchor>
+      <arglist>(const juce::String &amp;name_)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>HeaderItem</name>
     <filename>classHeaderItem.html</filename>
     <member kind="function">
@@ -8613,6 +8625,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>addHeader</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>ab4724173ceb73c7925f43a58135cc7bf</anchor>
+      <arglist>(const juce::StringArray names, int idx, gin::Parameter::Ptr p)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>addEnable</name>
       <anchorfile>classParamBox.html</anchorfile>
       <anchor>aeacbb2e4a425744fc53e5cb7a7d705af</anchor>
@@ -8714,6 +8733,27 @@
       <name>enableParam</name>
       <anchorfile>classParamBox.html</anchorfile>
       <anchor>a35ec83a9ba515c672d00aecce8c8be9c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::OwnedArray&lt; HeaderButton &gt;</type>
+      <name>headers</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>adcabcd820f49f5fef2d666675b3b204c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>gin::Parameter::Ptr</type>
+      <name>headerParam</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>aca00c0c37aa7703a1e00df68c0c302a2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>headerIndex</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>a2ad72ecbea743787f083529d59178061</anchor>
       <arglist></arglist>
     </member>
   </compound>

@@ -86,6 +86,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a011028f62a01be493f082a0e8a5f863e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88091be82b8e3445817dfef88a3d6a19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#a88091be82b8e3445817dfef88a3d6a19">setTitle</a> (const juce::String &amp;name)</td></tr>
 <tr class="separator:a88091be82b8e3445817dfef88a3d6a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4724173ceb73c7925f43a58135cc7bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#ab4724173ceb73c7925f43a58135cc7bf">addHeader</a> (const juce::StringArray names, int idx, gin::Parameter::Ptr p)</td></tr>
+<tr class="separator:ab4724173ceb73c7925f43a58135cc7bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeacbb2e4a425744fc53e5cb7a7d705af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#aeacbb2e4a425744fc53e5cb7a7d705af">addEnable</a> (gin::Parameter::Ptr p)</td></tr>
 <tr class="separator:aeacbb2e4a425744fc53e5cb7a7d705af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6184d7fc37b1a9b150b32dae32f69246"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#a6184d7fc37b1a9b150b32dae32f69246">addModSource</a> (juce::Component *c)</td></tr>
@@ -147,6 +149,12 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a0d36e4e64d989106ec37b22c0e2b4e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35ec83a9ba515c672d00aecce8c8be9c"><td class="memItemLeft" align="right" valign="top">gin::Parameter::Ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#a35ec83a9ba515c672d00aecce8c8be9c">enableParam</a> = nullptr</td></tr>
 <tr class="separator:a35ec83a9ba515c672d00aecce8c8be9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcabcd820f49f5fef2d666675b3b204c"><td class="memItemLeft" align="right" valign="top">juce::OwnedArray&lt; <a class="el" href="classHeaderButton.html">HeaderButton</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#adcabcd820f49f5fef2d666675b3b204c">headers</a></td></tr>
+<tr class="separator:adcabcd820f49f5fef2d666675b3b204c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca00c0c37aa7703a1e00df68c0c302a2"><td class="memItemLeft" align="right" valign="top">gin::Parameter::Ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#aca00c0c37aa7703a1e00df68c0c302a2">headerParam</a> = nullptr</td></tr>
+<tr class="separator:aca00c0c37aa7703a1e00df68c0c302a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ad72ecbea743787f083529d59178061"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#a2ad72ecbea743787f083529d59178061">headerIndex</a> = 0</td></tr>
+<tr class="separator:a2ad72ecbea743787f083529d59178061"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classMultiParamComponent"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classMultiParamComponent')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classMultiParamComponent.html">MultiParamComponent</a></td></tr>
 <tr class="memitem:a36bd41a594c81661474e30ee35c0eca5 inherit pro_attribs_classMultiParamComponent"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; <a class="el" href="classParameter.html">Parameter</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiParamComponent.html#a36bd41a594c81661474e30ee35c0eca5">params</a></td></tr>
 <tr class="separator:a36bd41a594c81661474e30ee35c0eca5 inherit pro_attribs_classMultiParamComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -194,6 +202,44 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="classParamBox.html#a1bd477b12f663e232b0aeadb0cbd4c40">header</a>, and <a class="el" href="classParamHeader.html#a8fffffad38b12b1284bd3e942f676536">ParamHeader::setTitle()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classParamBox.html#ab4724173ceb73c7925f43a58135cc7bf">addHeader()</a>.</p>
+
+</div>
+</div>
+<a id="ab4724173ceb73c7925f43a58135cc7bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4724173ceb73c7925f43a58135cc7bf">&#9670;&nbsp;</a></span>addHeader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParamBox::addHeader </td>
+          <td>(</td>
+          <td class="paramtype">const juce::StringArray&#160;</td>
+          <td class="paramname"><em>names</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gin::Parameter::Ptr&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classParamBox.html#a1bd477b12f663e232b0aeadb0cbd4c40">header</a>, <a class="el" href="classParamBox.html#a2ad72ecbea743787f083529d59178061">headerIndex</a>, <a class="el" href="classParamBox.html#aca00c0c37aa7703a1e00df68c0c302a2">headerParam</a>, <a class="el" href="classParamBox.html#adcabcd820f49f5fef2d666675b3b204c">headers</a>, <a class="el" href="classParamBox.html#a687c686e6477b6850fc6f46e36224dc4">paramChanged()</a>, <a class="el" href="classParamBox.html#a88091be82b8e3445817dfef88a3d6a19">setTitle()</a>, and <a class="el" href="classMultiParamComponent.html#ac49a40f9a9abf19917dd3dc1b40bf5f8">MultiParamComponent::watchParam()</a>.</p>
 
 </div>
 </div>
@@ -377,7 +423,9 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classMultiParamComponent.html#a55e25df161dbc7b98bcbd3a5f937561d">MultiParamComponent</a>.</p>
 
-<p class="reference">References <a class="el" href="classParamBox.html#a35ec83a9ba515c672d00aecce8c8be9c">enableParam</a>, <a class="el" href="classParamBox.html#af715eab1cc1d6a7f9afe250aa6cf8c73">frame</a>, and <a class="el" href="classMultiParamComponent.html#a55e25df161dbc7b98bcbd3a5f937561d">MultiParamComponent::paramChanged()</a>.</p>
+<p class="reference">References <a class="el" href="classParamBox.html#a35ec83a9ba515c672d00aecce8c8be9c">enableParam</a>, <a class="el" href="classParamBox.html#af715eab1cc1d6a7f9afe250aa6cf8c73">frame</a>, <a class="el" href="classParamBox.html#a2ad72ecbea743787f083529d59178061">headerIndex</a>, <a class="el" href="classParamBox.html#aca00c0c37aa7703a1e00df68c0c302a2">headerParam</a>, <a class="el" href="classParamBox.html#adcabcd820f49f5fef2d666675b3b204c">headers</a>, <a class="el" href="classParamBox.html#a0d36e4e64d989106ec37b22c0e2b4e3f">modSources</a>, and <a class="el" href="classMultiParamComponent.html#a55e25df161dbc7b98bcbd3a5f937561d">MultiParamComponent::paramChanged()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classParamBox.html#ab4724173ceb73c7925f43a58135cc7bf">addHeader()</a>.</p>
 
 </div>
 </div>
@@ -432,7 +480,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classParamBox.html#af715eab1cc1d6a7f9afe250aa6cf8c73">frame</a>, <a class="el" href="classParamBox.html#a1bd477b12f663e232b0aeadb0cbd4c40">header</a>, and <a class="el" href="classParamBox.html#a0d36e4e64d989106ec37b22c0e2b4e3f">modSources</a>.</p>
+<p class="reference">References <a class="el" href="classParamBox.html#af715eab1cc1d6a7f9afe250aa6cf8c73">frame</a>, <a class="el" href="classParamBox.html#a1bd477b12f663e232b0aeadb0cbd4c40">header</a>, <a class="el" href="classParamBox.html#adcabcd820f49f5fef2d666675b3b204c">headers</a>, and <a class="el" href="classParamBox.html#a0d36e4e64d989106ec37b22c0e2b4e3f">modSources</a>.</p>
 
 </div>
 </div>
@@ -555,7 +603,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classParamBox.html#a3f3e07071f638ae018a898f661179e75">getHeader()</a>, <a class="el" href="classParamBox.html#a011028f62a01be493f082a0e8a5f863e">ParamBox()</a>, <a class="el" href="classParamBox.html#aaa245f81a215cbb6bb4e11887820782a">resized()</a>, and <a class="el" href="classParamBox.html#a88091be82b8e3445817dfef88a3d6a19">setTitle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classParamBox.html#ab4724173ceb73c7925f43a58135cc7bf">addHeader()</a>, <a class="el" href="classParamBox.html#a3f3e07071f638ae018a898f661179e75">getHeader()</a>, <a class="el" href="classParamBox.html#a011028f62a01be493f082a0e8a5f863e">ParamBox()</a>, <a class="el" href="classParamBox.html#aaa245f81a215cbb6bb4e11887820782a">resized()</a>, and <a class="el" href="classParamBox.html#a88091be82b8e3445817dfef88a3d6a19">setTitle()</a>.</p>
 
 </div>
 </div>
@@ -627,7 +675,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classParamBox.html#a6184d7fc37b1a9b150b32dae32f69246">addModSource()</a>, and <a class="el" href="classParamBox.html#aaa245f81a215cbb6bb4e11887820782a">resized()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classParamBox.html#a6184d7fc37b1a9b150b32dae32f69246">addModSource()</a>, <a class="el" href="classParamBox.html#a687c686e6477b6850fc6f46e36224dc4">paramChanged()</a>, and <a class="el" href="classParamBox.html#aaa245f81a215cbb6bb4e11887820782a">resized()</a>.</p>
 
 </div>
 </div>
@@ -655,13 +703,85 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="adcabcd820f49f5fef2d666675b3b204c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcabcd820f49f5fef2d666675b3b204c">&#9670;&nbsp;</a></span>headers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::OwnedArray&lt;<a class="el" href="classHeaderButton.html">HeaderButton</a>&gt; ParamBox::headers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classParamBox.html#ab4724173ceb73c7925f43a58135cc7bf">addHeader()</a>, <a class="el" href="classParamBox.html#a687c686e6477b6850fc6f46e36224dc4">paramChanged()</a>, and <a class="el" href="classParamBox.html#aaa245f81a215cbb6bb4e11887820782a">resized()</a>.</p>
+
+</div>
+</div>
+<a id="aca00c0c37aa7703a1e00df68c0c302a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca00c0c37aa7703a1e00df68c0c302a2">&#9670;&nbsp;</a></span>headerParam</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">gin::Parameter::Ptr ParamBox::headerParam = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classParamBox.html#ab4724173ceb73c7925f43a58135cc7bf">addHeader()</a>, and <a class="el" href="classParamBox.html#a687c686e6477b6850fc6f46e36224dc4">paramChanged()</a>.</p>
+
+</div>
+</div>
+<a id="a2ad72ecbea743787f083529d59178061"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ad72ecbea743787f083529d59178061">&#9670;&nbsp;</a></span>headerIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ParamBox::headerIndex = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classParamBox.html#ab4724173ceb73c7925f43a58135cc7bf">addHeader()</a>, and <a class="el" href="classParamBox.html#a687c686e6477b6850fc6f46e36224dc4">paramChanged()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="gin__parambox_8h.html">gin_parambox.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 27 2023 02:05:11 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Sun Aug 27 2023 03:57:50 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
