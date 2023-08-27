@@ -166,7 +166,7 @@ protected:
         }
         if (headerParam)
         {
-            setVisible (headerParam->getUserValue() == headerIndex);
+            setVisible (headerParam->getUserValueInt() == headerIndex);
             for (auto i = 0; auto h : headers)
             {
                 h->setToggleState (i == headerParam->getUserValueInt(), juce::dontSendNotification);
