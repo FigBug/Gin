@@ -77,8 +77,10 @@ public:
         : header (name)
     {
         setName (name);
-        addAndMakeVisible (frame);
         addAndMakeVisible (header);
+        addAndMakeVisible (frame);
+
+        frame.setInterceptsMouseClicks (false, true);
     }
 
     void setTitle (const juce::String& name)
@@ -127,6 +129,12 @@ public:
         c->setSize (12, 12);
         modSources.add (c);
         addAndMakeVisible (c);
+    }
+
+    void addControl (Component* c)
+    {
+        controls.add (c);
+        frame.addAndMakeVisible (c);
     }
 
     void addControl (Component* c, int x, int y, int cx = 1, int cy = 1)
