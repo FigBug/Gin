@@ -8648,6 +8648,13 @@
       <type>void</type>
       <name>addControl</name>
       <anchorfile>classParamBox.html</anchorfile>
+      <anchor>ab7b806e58e975f0d4c6dce2b1a21d5da</anchor>
+      <arglist>(Component *c)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addControl</name>
+      <anchorfile>classParamBox.html</anchorfile>
       <anchor>afab51fbea411628bdb475551488cfd05</anchor>
       <arglist>(Component *c, int x, int y, int cx=1, int cy=1)</arglist>
     </member>
