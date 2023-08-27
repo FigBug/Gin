@@ -5414,8 +5414,8 @@
       <type></type>
       <name>GateEffectComponent</name>
       <anchorfile>classGateEffectComponent.html</anchorfile>
-      <anchor>afa777957bcfd629d2a075905db72607a</anchor>
-      <arglist>()=default</arglist>
+      <anchor>a5257a9e40e7a80c377dec5ff3e963579</anchor>
+      <arglist>(int maxSteps_)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -8023,6 +8023,13 @@
       <anchorfile>classMultiParamComponent.html</anchorfile>
       <anchor>a67ae20463b850068198ccc9427de6cc0</anchor>
       <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>dimIfNeeded</name>
+      <anchorfile>classMultiParamComponent.html</anchorfile>
+      <anchor>a4e53eb6db28b3d331879b79d8f8e1207</anchor>
+      <arglist>(const juce::Colour &amp;c)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -12381,8 +12388,8 @@
       <type></type>
       <name>StepLFOComponent</name>
       <anchorfile>classStepLFOComponent.html</anchorfile>
-      <anchor>a21e66ada757a7e91e01c9314c3c5cbd0</anchor>
-      <arglist>()=default</arglist>
+      <anchor>a1517e897dd7ad492c18ff5a7bcb4de05</anchor>
+      <arglist>(int maxSteps_)</arglist>
     </member>
     <member kind="function">
       <type></type>

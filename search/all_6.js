@@ -4,7 +4,7 @@ var searchData=
   ['gainprocessor_365',['GainProcessor',['../classGainProcessor.html',1,'']]],
   ['gate_366',['gate',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a5cddded513bf6aca23ba76ef7d2e537f',1,'Dynamics']]],
   ['gateeffect_367',['GateEffect',['../classGateEffect.html',1,'GateEffect'],['../classGateEffect.html#a30931317a7688adf95aa1246b65d2bec',1,'GateEffect::GateEffect()']]],
-  ['gateeffectcomponent_368',['GateEffectComponent',['../classGateEffectComponent.html',1,'GateEffectComponent'],['../classGateEffectComponent.html#afa777957bcfd629d2a075905db72607a',1,'GateEffectComponent::GateEffectComponent()']]],
+  ['gateeffectcomponent_368',['GateEffectComponent',['../classGateEffectComponent.html',1,'GateEffectComponent'],['../classGateEffectComponent.html#a5257a9e40e7a80c377dec5ff3e963579',1,'GateEffectComponent::GateEffectComponent()']]],
   ['geometry_369',['geometry',['../group__gin-geometry.html',1,'']]],
   ['get_370',['get',['../classBandLimitedLookupTable.html#a8e9f62e700e4c7baa578386a28a700bc',1,'BandLimitedLookupTable::get()'],['../classHttp.html#aa25b6e9f58fe6924809e801bc8eefe21',1,'Http::get()']]],
   ['geta_371',['getA',['../classLinearRegression.html#a89e9199f1e6e28c47151c7dc97c358da',1,'LinearRegression']]],
