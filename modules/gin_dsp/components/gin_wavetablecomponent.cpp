@@ -37,6 +37,12 @@ void WavetableComponent::paint (juce::Graphics& g)
             paths.add (createWavetablePath (float (i) / numTables));
     }
 
+    if (dragOver)
+    {
+        g.setColour (findColour (activeWaveColourId, true).withAlpha (0.3f));
+        g.fillRoundedRectangle (getLocalBounds().toFloat(), 5.0f);
+    }
+
     if (paths.size() > 0)
     {
         g.setColour (findColour (waveColourId, true).withMultipliedAlpha (isEnabled() ? 1.0f : 0.5f));
@@ -101,6 +107,32 @@ juce::Path WavetableComponent::createWavetablePath (float wtPos)
 
     return p;
 }
-//-------------------------------------------------------------------------------------------------
 
+bool WavetableComponent::isInterestedInFileDrag (const juce::StringArray& files)
+{
+    if (onFileDrop && files.size() == 1 && juce::File (files[0]).hasFileExtension (".wav"))
+        return true;
+
+    return false;
+}
+
+void WavetableComponent::fileDragEnter (const juce::StringArray&, int, int)
+{
+    dragOver = true;
+    repaint();
+}
+
+void WavetableComponent::fileDragExit (const juce::StringArray&)
+{
+    dragOver = false;
+    repaint();
+}
+
+void WavetableComponent::filesDropped (const juce::StringArray& files, int, int)
+{
+    dragOver = false;
+    repaint();
+
+    onFileDrop (juce::File (files[0]));
+}
 

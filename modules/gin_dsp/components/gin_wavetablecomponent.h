@@ -2,7 +2,8 @@
 
 /** Draws a wavetable
 */
-class WavetableComponent : public juce::Component
+class WavetableComponent : public juce::Component,
+                           public juce::FileDragAndDropTarget
 {
 public:
     WavetableComponent();
@@ -21,6 +22,13 @@ public:
     void setParams (WTOscillator::Params params);
     void setWavetables (juce::OwnedArray<BandLimitedLookupTable>*);
 
+    bool isInterestedInFileDrag (const juce::StringArray& files) override;
+    void fileDragEnter (const juce::StringArray& files, int x, int y) override;
+    void fileDragExit (const juce::StringArray& files) override;
+    void filesDropped (const juce::StringArray& files, int x, int y) override;
+
+    std::function<void (const juce::File&)> onFileDrop;
+
 private:
     juce::Path createWavetablePath (float pos);
 
@@ -28,6 +36,7 @@ private:
     WTOscillator::Params params;
     juce::Array<juce::Path> paths;
     bool needsUpdate = false;
+    bool dragOver = false;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (WavetableComponent)

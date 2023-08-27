@@ -39,6 +39,7 @@ private:
     juce::Array<BandLimitedLookupTable*> bllt;
     double sampleRate = 44100.0;
     float phaseL = 0.0f, phaseR = 0.0f;
+    int tableIndexL = 0, tableIndexR = 0;
 };
 
 //==============================================================================
