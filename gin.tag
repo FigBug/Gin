@@ -1484,6 +1484,13 @@
       <anchor>gaa886c18929f610b33cc6ee595f98c7f2</anchor>
       <arglist>(const juce::MemoryBlock &amp;m)</arglist>
     </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getWavetableSize</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga639651eb58a00a2e054fcc18adf54dd0</anchor>
+      <arglist>(const juce::File &amp;f)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>gin_sample.h</name>
@@ -15802,6 +15809,13 @@
       <anchorfile>group__gin-utilities.html</anchorfile>
       <anchor>gaa886c18929f610b33cc6ee595f98c7f2</anchor>
       <arglist>(const juce::MemoryBlock &amp;m)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getWavetableSize</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga639651eb58a00a2e054fcc18adf54dd0</anchor>
+      <arglist>(const juce::File &amp;f)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
