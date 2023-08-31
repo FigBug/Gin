@@ -42,3 +42,10 @@ inline int getWavetableSize (const juce::MemoryBlock& m)
 
     return wtSize;
 }
+
+inline int getWavetableSize (const juce::File& f)
+{
+    juce::MemoryBlock mb;
+    f.loadFileAsData (mb);
+    return getWavetableSize (mb);
+}
