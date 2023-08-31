@@ -99,7 +99,7 @@ $(function() {
 , <a class="el" href="classSingleLineTextEditor.html#a61b081f408caed8985fc3369b89d4d4d">SingleLineTextEditor</a>
 </li>
 <li>pan
-: <a class="el" href="structVoicedStereoOscillator_1_1Params.html#a13309716133330853a2ad479b2b556dc">VoicedStereoOscillator&lt; O &gt;::Params</a>
+: <a class="el" href="structVoicedOscillatorParams.html#a599d25b143ff563d7e68c3c122900da2">VoicedOscillatorParams</a>
 </li>
 <li>ParamArea()
 : <a class="el" href="classParamArea.html#aee22a8262ee712a259c180bacef1fdeb">ParamArea</a>
@@ -250,6 +250,10 @@ $(function() {
 <li>portamento
 : <a class="el" href="structGlideInfo.html#a1e24c72c427d5a6c428e263fd51bc774">GlideInfo</a>
 </li>
+<li>position
+: <a class="el" href="structWTOscillator_1_1Params.html#a89fbc9fd3f3cb250637b1be8d45f4d87">WTOscillator::Params</a>
+, <a class="el" href="structWTVoicedStereoOscillatorParams.html#a39af915c5c194fc5a27dc4367757c0f9">WTVoicedStereoOscillatorParams</a>
+</li>
 <li>positionComboBoxText()
 : <a class="el" href="classCopperLookAndFeel.html#ab3a0479798b3522015708a40ec018844">CopperLookAndFeel</a>
 , <a class="el" href="classGinLookAndFeel.html#af9f9187b11f3e290fab683fc65cfb914">GinLookAndFeel</a>
@@ -286,7 +290,7 @@ $(function() {
 <li>process()
 : <a class="el" href="classADSR.html#a3a1efe888ece1888c0ac82a3ebe18183">ADSR</a>
 , <a class="el" href="classAirWindowsDistortion.html#a774f461ab66da2a485633242c4712c41">AirWindowsDistortion</a>
-, <a class="el" href="classAnalogADSR.html#a97e522df9b6b57940abae0d6c8a3f0a7">AnalogADSR</a>
+, <a class="el" href="classAnalogADSR.html#ab4b9db12fffa4ec562d44c8f0c8015e4">AnalogADSR</a>
 , <a class="el" href="classBandLimitedLookupTable.html#ae4bbf0cf3a280899c20e09895e509786">BandLimitedLookupTable</a>
 , <a class="el" href="classBandLimitedLookupTables.html#ad49cd21400d1e108e677a10ae5cddeb1">BandLimitedLookupTables</a>
 , <a class="el" href="structBP12State.html#a1bd103a04a26c91d07bd05e4a603a787">BP12State</a>
@@ -311,15 +315,15 @@ $(function() {
 , <a class="el" href="classStepLFO.html#a7a85cf66615eda334a7ca3a71c3903b3">StepLFO</a>
 , <a class="el" href="classStereoDelay.html#ad0a006720ea08d0bc0e9da0b11deeccb">StereoDelay</a>
 , <a class="el" href="classStereoEnhancer.html#a7f6872a6e01a7de9c680bc65ba32ef64">StereoEnhancer</a>
-, <a class="el" href="classStereoOscillator.html#abdc5a2f2c152dd013c57fec8ed244ed1">StereoOscillator</a>
+, <a class="el" href="classStereoOscillator.html#a17f31f43ebe17b636b493e704a7a599e">StereoOscillator</a>
 , <a class="el" href="classStereoProcessor.html#a3ccdb1879a7ffd727fc88644de07ae72">StereoProcessor</a>
 , <a class="el" href="classValueSmoother.html#a98102883ab75aadce5dde661253fe0b2">ValueSmoother&lt; T &gt;</a>
-, <a class="el" href="classVoicedStereoOscillator.html#a639c3d573726cb847f78d016bcddd1c6">VoicedStereoOscillator&lt; O &gt;</a>
+, <a class="el" href="classVoicedStereoOscillator.html#a24a08bb92c7e91ec8adb89693762dae8">VoicedStereoOscillator&lt; O, P &gt;</a>
 , <a class="el" href="classWTOscillator.html#a7ec6890f0ace8c49239413a93e4896e6">WTOscillator</a>
 </li>
 <li>processAdding()
 : <a class="el" href="classStereoOscillator.html#a228048d564aa720b8a0aee6a624c089c">StereoOscillator</a>
-, <a class="el" href="classVoicedStereoOscillator.html#a4d3e798a36e14f0ebd42b9ba0cc1c097">VoicedStereoOscillator&lt; O &gt;</a>
+, <a class="el" href="classVoicedStereoOscillator.html#ae13558cc54857fade6e9d2fcbd69bb11">VoicedStereoOscillator&lt; O, P &gt;</a>
 , <a class="el" href="classWTOscillator.html#aaa547794aafc04f582782983988b2651">WTOscillator</a>
 </li>
 <li>processCommandLine()
@@ -335,7 +339,7 @@ $(function() {
 : <a class="el" href="classProcessor.html#ab4b297f2d055f3316918d3e23081a45a">Processor</a>
 </li>
 <li>ProcessorEditor()
-: <a class="el" href="classProcessorEditor.html#abdbd03056056879c39964fa74307252f">ProcessorEditor</a>
+: <a class="el" href="classProcessorEditor.html#a12c048b8275116b35d725fcf7c321bdd">ProcessorEditor</a>
 </li>
 <li>ProcessorEditorBase()
 : <a class="el" href="classProcessorEditorBase.html#a6c31dde58c00c08d3011ced43e453fc2">ProcessorEditorBase</a>
@@ -379,14 +383,13 @@ $(function() {
 </li>
 <li>pw
 : <a class="el" href="structStereoOscillator_1_1Params.html#aebc2ccd97a83304620840c479a8c782b">StereoOscillator::Params</a>
-, <a class="el" href="structVoicedStereoOscillator_1_1Params.html#a120aa15f174feb6b06c66d2f76103bf3">VoicedStereoOscillator&lt; O &gt;::Params</a>
-, <a class="el" href="structWTOscillator_1_1Params.html#a7ca54915f07cb3e86bc516fa5710b71f">WTOscillator::Params</a>
+, <a class="el" href="structVoicedStereoOscillatorParams.html#a224625483ee768c1e6e86bf6a999df9d">VoicedStereoOscillatorParams</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 27 2023 15:21:36 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Aug 31 2023 18:18:11 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

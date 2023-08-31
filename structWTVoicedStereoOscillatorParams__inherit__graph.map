@@ -1,0 +1,4 @@
+<map id="WTVoicedStereoOscillatorParams" name="WTVoicedStereoOscillatorParams">
+<area shape="rect" id="node1" title="Stereo Oscillator with multiples voices, pan, spread, detune, etc." alt="" coords="5,80,196,121"/>
+<area shape="rect" id="node2" href="$structVoicedOscillatorParams.html" title="Stereo Oscillator with multiples voices, pan, spread, detune, etc." alt="" coords="13,5,188,32"/>
+</map>

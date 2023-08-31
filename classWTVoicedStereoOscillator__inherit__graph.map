@@ -1,4 +1,4 @@
 <map id="WTVoicedStereoOscillator" name="WTVoicedStereoOscillator">
-<area shape="rect" id="node1" title="Stereo Oscillator with multiples voices, pan, spread, detune, etc." alt="" coords="5,95,196,121"/>
-<area shape="rect" id="node2" href="$classVoicedStereoOscillator.html" title=" " alt="" coords="16,5,185,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="27,109,218,136"/>
+<area shape="rect" id="node2" href="$classVoicedStereoOscillator.html" title=" " alt="" coords="5,5,240,61"/>
 </map>

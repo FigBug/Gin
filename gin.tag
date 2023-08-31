@@ -276,7 +276,6 @@
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a02a8dc4cf01fed584c6423f577c0b0d7">pulse</enumvalue>
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</enumvalue>
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90aaaddc3454ccbefbb2d8d8461f8f7f481">noise</enumvalue>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a6f0316b89c2034b8fabe6d3e48f15bbf">wavetable</enumvalue>
     </member>
     <member kind="function">
       <type>float</type>
@@ -1262,8 +1261,9 @@
     <filename>gin__oscillators_8h.html</filename>
     <class kind="class">StereoOscillator</class>
     <class kind="struct">StereoOscillator::Params</class>
+    <class kind="struct">VoicedOscillatorParams</class>
     <class kind="class">VoicedStereoOscillator</class>
-    <class kind="struct">VoicedStereoOscillator::Params</class>
+    <class kind="struct">VoicedStereoOscillatorParams</class>
     <class kind="class">BLLTVoicedStereoOscillator</class>
   </compound>
   <compound kind="file">
@@ -1786,6 +1786,7 @@
     <filename>gin__wtoscillators_8h.html</filename>
     <class kind="class">WTOscillator</class>
     <class kind="struct">WTOscillator::Params</class>
+    <class kind="struct">WTVoicedStereoOscillatorParams</class>
     <class kind="class">WTVoicedStereoOscillator</class>
     <member kind="function">
       <type>bool</type>
@@ -2047,8 +2048,8 @@
       <type></type>
       <name>ADSRComponent</name>
       <anchorfile>classADSRComponent.html</anchorfile>
-      <anchor>a3f7c89a9e654aaf93b21febc32df8a69</anchor>
-      <arglist>()=default</arglist>
+      <anchor>ae56dcd9863ccd6f30fa8e443c50cb17a</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -3001,7 +3002,7 @@
   <compound kind="class">
     <name>BLLTVoicedStereoOscillator</name>
     <filename>classBLLTVoicedStereoOscillator.html</filename>
-    <base>VoicedStereoOscillator&lt; StereoOscillator &gt;</base>
+    <base>VoicedStereoOscillator&lt; StereoOscillator, VoicedStereoOscillatorParams &gt;</base>
     <member kind="function">
       <type></type>
       <name>BLLTVoicedStereoOscillator</name>
@@ -6701,8 +6702,8 @@
       <type></type>
       <name>LFOComponent</name>
       <anchorfile>classLFOComponent.html</anchorfile>
-      <anchor>a15b40bec5169584567c4f58c3e1e7687</anchor>
-      <arglist>()=default</arglist>
+      <anchor>a853d2e1b0851e5f42549fa391724a067</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -9421,75 +9422,8 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>VoicedStereoOscillator::Params</name>
-    <filename>structVoicedStereoOscillator_1_1Params.html</filename>
-    <member kind="variable">
-      <type>Wave</type>
-      <name>wave</name>
-      <anchorfile>structVoicedStereoOscillator_1_1Params.html</anchorfile>
-      <anchor>a83a9e522b4761797d6bf5b90ba610f41</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>int</type>
-      <name>voices</name>
-      <anchorfile>structVoicedStereoOscillator_1_1Params.html</anchorfile>
-      <anchor>a46ae813a8ece08ac931fbb1b6b3adcfd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>int</type>
-      <name>vcTrns</name>
-      <anchorfile>structVoicedStereoOscillator_1_1Params.html</anchorfile>
-      <anchor>a617f4529f6385f4cc4cf74516e3bdc25</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>float</type>
-      <name>pw</name>
-      <anchorfile>structVoicedStereoOscillator_1_1Params.html</anchorfile>
-      <anchor>a120aa15f174feb6b06c66d2f76103bf3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>float</type>
-      <name>pan</name>
-      <anchorfile>structVoicedStereoOscillator_1_1Params.html</anchorfile>
-      <anchor>a13309716133330853a2ad479b2b556dc</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>float</type>
-      <name>spread</name>
-      <anchorfile>structVoicedStereoOscillator_1_1Params.html</anchorfile>
-      <anchor>a1b592edb5ad2668d86c1abba77f0b6fd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>float</type>
-      <name>detune</name>
-      <anchorfile>structVoicedStereoOscillator_1_1Params.html</anchorfile>
-      <anchor>a3f1b408a97910ce6a63de0a8073c85c7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>float</type>
-      <name>gain</name>
-      <anchorfile>structVoicedStereoOscillator_1_1Params.html</anchorfile>
-      <anchor>a11ed6981f0f7ee29502bc00b3c628fe4</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
     <name>WTOscillator::Params</name>
     <filename>structWTOscillator_1_1Params.html</filename>
-    <member kind="variable">
-      <type>Wave</type>
-      <name>wave</name>
-      <anchorfile>structWTOscillator_1_1Params.html</anchorfile>
-      <anchor>ab5232b4b55cc4d6b076db62478cd436e</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="variable">
       <type>float</type>
       <name>leftGain</name>
@@ -9506,9 +9440,23 @@
     </member>
     <member kind="variable">
       <type>float</type>
-      <name>pw</name>
+      <name>position</name>
       <anchorfile>structWTOscillator_1_1Params.html</anchorfile>
-      <anchor>a7ca54915f07cb3e86bc516fa5710b71f</anchor>
+      <anchor>a89fbc9fd3f3cb250637b1be8d45f4d87</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>bend</name>
+      <anchorfile>structWTOscillator_1_1Params.html</anchorfile>
+      <anchor>a1bb44ee47a18bb34bb4158461bf2889d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>formant</name>
+      <anchorfile>structWTOscillator_1_1Params.html</anchorfile>
+      <anchor>af6b36b4d5dd74c8bc17ca0c8671d42f2</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -13689,143 +13637,215 @@
       <arglist></arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>VoicedOscillatorParams</name>
+    <filename>structVoicedOscillatorParams.html</filename>
+    <member kind="variable">
+      <type>int</type>
+      <name>voices</name>
+      <anchorfile>structVoicedOscillatorParams.html</anchorfile>
+      <anchor>af8809e0628ba614f83f9bcc26940de5a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>vcTrns</name>
+      <anchorfile>structVoicedOscillatorParams.html</anchorfile>
+      <anchor>a0151a06aa72ad02ce3fd900d24f7f4d8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>pan</name>
+      <anchorfile>structVoicedOscillatorParams.html</anchorfile>
+      <anchor>a599d25b143ff563d7e68c3c122900da2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>spread</name>
+      <anchorfile>structVoicedOscillatorParams.html</anchorfile>
+      <anchor>a070d5aad9f070816287802b7503d203f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>detune</name>
+      <anchorfile>structVoicedOscillatorParams.html</anchorfile>
+      <anchor>a18f197eff7f01c6fc532b01f11f634e4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>gain</name>
+      <anchorfile>structVoicedOscillatorParams.html</anchorfile>
+      <anchor>a52f5a46c2ea69da7fdd4eb3a57e872c7</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>VoicedStereoOscillator</name>
     <filename>classVoicedStereoOscillator.html</filename>
     <templarg></templarg>
-    <class kind="struct">VoicedStereoOscillator::Params</class>
+    <templarg></templarg>
     <member kind="function">
       <type></type>
       <name>VoicedStereoOscillator</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>ac5443c70b9574352f495f46168e7f012</anchor>
+      <anchor>ae1e1c0b5a20b75ea44af638022b879be</anchor>
       <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setSampleRate</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>ac54d99a7902680164cfefb1f0623625f</anchor>
+      <anchor>aa7c7b25cc3e4d52caca38a3a25179363</anchor>
       <arglist>(double sr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>noteOn</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a319c65ef9916777690eb6cf3a7a117e9</anchor>
+      <anchor>a366c3140dc02a92cb2560dd3009facd7</anchor>
       <arglist>(float phase=-1)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>process</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a639c3d573726cb847f78d016bcddd1c6</anchor>
-      <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a24a08bb92c7e91ec8adb89693762dae8</anchor>
+      <arglist>(float note, const P &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processAdding</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a4d3e798a36e14f0ebd42b9ba0cc1c097</anchor>
-      <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>ae13558cc54857fade6e9d2fcbd69bb11</anchor>
+      <arglist>(float note, const P &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>juce::OwnedArray&lt; O &gt;</type>
       <name>oscillators</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a861cbdfd3fb820808a01d11aac7708e4</anchor>
+      <anchor>a2b43a2c3228e8719d3d2a11d5d349b11</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
-    <name>VoicedStereoOscillator&lt; StereoOscillator &gt;</name>
+    <name>VoicedStereoOscillator&lt; StereoOscillator, VoicedStereoOscillatorParams &gt;</name>
     <filename>classVoicedStereoOscillator.html</filename>
     <member kind="function">
       <type></type>
       <name>VoicedStereoOscillator</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>ac5443c70b9574352f495f46168e7f012</anchor>
+      <anchor>ae1e1c0b5a20b75ea44af638022b879be</anchor>
       <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setSampleRate</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>ac54d99a7902680164cfefb1f0623625f</anchor>
+      <anchor>aa7c7b25cc3e4d52caca38a3a25179363</anchor>
       <arglist>(double sr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>noteOn</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a319c65ef9916777690eb6cf3a7a117e9</anchor>
+      <anchor>a366c3140dc02a92cb2560dd3009facd7</anchor>
       <arglist>(float phase=-1)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>process</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a639c3d573726cb847f78d016bcddd1c6</anchor>
-      <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a24a08bb92c7e91ec8adb89693762dae8</anchor>
+      <arglist>(float note, const VoicedStereoOscillatorParams &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processAdding</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a4d3e798a36e14f0ebd42b9ba0cc1c097</anchor>
-      <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>ae13558cc54857fade6e9d2fcbd69bb11</anchor>
+      <arglist>(float note, const VoicedStereoOscillatorParams &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>juce::OwnedArray&lt; StereoOscillator &gt;</type>
       <name>oscillators</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a861cbdfd3fb820808a01d11aac7708e4</anchor>
+      <anchor>a2b43a2c3228e8719d3d2a11d5d349b11</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
-    <name>VoicedStereoOscillator&lt; WTOscillator &gt;</name>
+    <name>VoicedStereoOscillator&lt; WTOscillator, WTVoicedStereoOscillatorParams &gt;</name>
     <filename>classVoicedStereoOscillator.html</filename>
     <member kind="function">
       <type></type>
       <name>VoicedStereoOscillator</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>ac5443c70b9574352f495f46168e7f012</anchor>
+      <anchor>ae1e1c0b5a20b75ea44af638022b879be</anchor>
       <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setSampleRate</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>ac54d99a7902680164cfefb1f0623625f</anchor>
+      <anchor>aa7c7b25cc3e4d52caca38a3a25179363</anchor>
       <arglist>(double sr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>noteOn</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a319c65ef9916777690eb6cf3a7a117e9</anchor>
+      <anchor>a366c3140dc02a92cb2560dd3009facd7</anchor>
       <arglist>(float phase=-1)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>process</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a639c3d573726cb847f78d016bcddd1c6</anchor>
-      <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>a24a08bb92c7e91ec8adb89693762dae8</anchor>
+      <arglist>(float note, const WTVoicedStereoOscillatorParams &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processAdding</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a4d3e798a36e14f0ebd42b9ba0cc1c097</anchor>
-      <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
+      <anchor>ae13558cc54857fade6e9d2fcbd69bb11</anchor>
+      <arglist>(float note, const WTVoicedStereoOscillatorParams &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>juce::OwnedArray&lt; WTOscillator &gt;</type>
       <name>oscillators</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a861cbdfd3fb820808a01d11aac7708e4</anchor>
+      <anchor>a2b43a2c3228e8719d3d2a11d5d349b11</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>VoicedStereoOscillatorParams</name>
+    <filename>structVoicedStereoOscillatorParams.html</filename>
+    <base>VoicedOscillatorParams</base>
+    <member kind="function">
+      <type>void</type>
+      <name>init</name>
+      <anchorfile>structVoicedStereoOscillatorParams.html</anchorfile>
+      <anchor>a09a37dcc8b6860e6bc6a390924d371f7</anchor>
+      <arglist>(StereoOscillator::Params &amp;p) const</arglist>
+    </member>
+    <member kind="variable">
+      <type>Wave</type>
+      <name>wave</name>
+      <anchorfile>structVoicedStereoOscillatorParams.html</anchorfile>
+      <anchor>af62dd65ab7701539dcddbf46e87df9f7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>pw</name>
+      <anchorfile>structVoicedStereoOscillatorParams.html</anchorfile>
+      <anchor>a224625483ee768c1e6e86bf6a999df9d</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -14534,7 +14554,7 @@
   <compound kind="class">
     <name>WTVoicedStereoOscillator</name>
     <filename>classWTVoicedStereoOscillator.html</filename>
-    <base>VoicedStereoOscillator&lt; WTOscillator &gt;</base>
+    <base>VoicedStereoOscillator&lt; WTOscillator, WTVoicedStereoOscillatorParams &gt;</base>
     <member kind="function">
       <type></type>
       <name>WTVoicedStereoOscillator</name>
@@ -14548,6 +14568,39 @@
       <anchorfile>classWTVoicedStereoOscillator.html</anchorfile>
       <anchor>a19bd8496f404f6c76df2776ac282f44f</anchor>
       <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; &amp;table)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>WTVoicedStereoOscillatorParams</name>
+    <filename>structWTVoicedStereoOscillatorParams.html</filename>
+    <base>VoicedOscillatorParams</base>
+    <member kind="function">
+      <type>void</type>
+      <name>init</name>
+      <anchorfile>structWTVoicedStereoOscillatorParams.html</anchorfile>
+      <anchor>aaed27af8e691aa244e4cc5b24b715306</anchor>
+      <arglist>(WTOscillator::Params &amp;p) const</arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>position</name>
+      <anchorfile>structWTVoicedStereoOscillatorParams.html</anchorfile>
+      <anchor>a39af915c5c194fc5a27dc4367757c0f9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>bend</name>
+      <anchorfile>structWTVoicedStereoOscillatorParams.html</anchorfile>
+      <anchor>a22356727c51d1694705bd8e9f4714a29</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>formant</name>
+      <anchorfile>structWTVoicedStereoOscillatorParams.html</anchorfile>
+      <anchor>abc3280093425299b75691776a088fb3c</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -14889,7 +14942,6 @@
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a02a8dc4cf01fed584c6423f577c0b0d7">pulse</enumvalue>
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</enumvalue>
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90aaaddc3454ccbefbb2d8d8461f8f7f481">noise</enumvalue>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a6f0316b89c2034b8fabe6d3e48f15bbf">wavetable</enumvalue>
     </member>
     <member kind="function">
       <type>juce::Value</type>
