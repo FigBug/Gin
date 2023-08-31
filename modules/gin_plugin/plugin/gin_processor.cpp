@@ -13,8 +13,8 @@ Processor::~Processor()
 
 void Processor::init()
 {
-    loadAllPrograms();
     state = juce::ValueTree (juce::Identifier ("state"));
+    loadAllPrograms();
 }
 
 std::unique_ptr<juce::PropertiesFile> Processor::getSettings()
@@ -280,6 +280,8 @@ void Processor::changeProgramName (int index, const juce::String& newName)
 
 void Processor::loadAllPrograms()
 {
+    updateState();
+    
     programs.clear();
 
     // create the default program

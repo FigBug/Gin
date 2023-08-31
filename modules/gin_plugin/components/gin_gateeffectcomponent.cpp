@@ -1,6 +1,7 @@
 GateEffectComponent::GateEffectComponent (int maxSteps_)
     : maxSteps (maxSteps_)
 {
+    setName ("pattern");
     l.resize (maxSteps);
     r.resize (maxSteps);
 }
@@ -31,7 +32,7 @@ void GateEffectComponent::mouseDown (const juce::MouseEvent& e)
 
 void GateEffectComponent::mouseDrag (const juce::MouseEvent& e)
 {
-    auto rc = getLocalBounds().reduced (2, 20);
+    auto rc = getLocalBounds();
 
     if (e.y < rc.getY() || e.y > rc.getBottom()) return;
     int ch = e.y < getHeight() / 2 ? 0 : 1;
@@ -59,7 +60,7 @@ void GateEffectComponent::mouseUp (const juce::MouseEvent&)
 
 void GateEffectComponent::paint (juce::Graphics& g)
 {
-    auto rc = getLocalBounds().reduced (2, 20).toFloat();
+    auto rc = getLocalBounds().toFloat();
     float w = rc.getWidth() / float (getNumSteps());
 
     g.setColour (dimIfNeeded (findColour (GinLookAndFeel::whiteColourId).withAlpha (0.3f)));

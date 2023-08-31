@@ -1,5 +1,10 @@
 #pragma once
 
+ADSRComponent::ADSRComponent()
+{
+    setName ("adsr");
+}
+
 void ADSRComponent::setParams (Parameter::Ptr attack_,
                                Parameter::Ptr decay_,
                                Parameter::Ptr sustain_,

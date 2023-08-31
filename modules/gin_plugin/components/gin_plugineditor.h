@@ -154,7 +154,7 @@ protected:
     ParamComponent* componentForId (const juce::String& uid);
     ParamComponent* componentForParam (Parameter& param);
 
-    juce::TooltipWindow tooltipWindow { this };
+    juce::TooltipWindow tooltipWindow { this, 0 };
 };
 
 //==============================================================================

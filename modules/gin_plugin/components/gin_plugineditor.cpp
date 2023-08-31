@@ -392,6 +392,7 @@ void TitleBar::refreshPrograms()
 void TitleBar::showMenu()
 {
     juce::PopupMenu m;
+    m.setLookAndFeel (&getLookAndFeel());
 
     m.addItem ("Visit www.SocaLabs.com", []
     {

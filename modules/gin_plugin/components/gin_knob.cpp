@@ -76,6 +76,7 @@ Knob::~Knob()
 void Knob::showModMenu()
 {
     juce::PopupMenu m;
+    m.setLookAndFeel (&getLookAndFeel());
 
     auto& mm = *parameter->getModMatrix();
     for (auto src : mm.getModSources (parameter))

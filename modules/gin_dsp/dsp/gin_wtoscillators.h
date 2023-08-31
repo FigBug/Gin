@@ -18,10 +18,11 @@ public:
 
     struct Params
     {
-        Wave wave = Wave::wavetable;
-        float leftGain = 1.0;
-        float rightGain = 1.0;
-        float pw = 0.0;
+        float leftGain = 1.0f;
+        float rightGain = 1.0f;
+        float position = 0.0f;
+        float bend = 0.0f;
+        float formant = 0.0f;
     };
 
     void setSampleRate (double sr)  { sampleRate = sr; }
@@ -36,6 +37,36 @@ public:
     void setWavetable (juce::OwnedArray<BandLimitedLookupTable>& table);
 
 private:
+    inline float bendDistortion (float phase, float bend)
+    {
+        const auto addDist = std::clamp (bend, 0.0f, 1.0f);
+        const auto subDist = std::clamp (bend, -1.0f, 0.0f);
+
+        const auto sub = std::pow (phase, 8.0f);
+        const auto add = std::pow (1.0f - phase, 8.0f);
+
+        const auto addMix = std::lerp (phase, 1.0f - add, addDist);
+        const auto subMix = std::lerp (phase, sub, -subDist);
+
+        return std::min (1.0f - std::numeric_limits<float>::epsilon(), addMix + subMix - phase);
+    }
+
+    inline float formantDistortion (float phase, float formant)
+    {
+        return std::min (1.0f - std::numeric_limits<float>::epsilon(), phase * std::exp (formant * 1.60943791243f));
+    }
+
+    inline float phaseDistortion (float phase, float bend, float formant)
+    {
+        if (bend != 0)
+            phase = bendDistortion (phase, bend);
+
+        if (formant != 0)
+            phase = formantDistortion (phase, formant);
+
+        return phase;
+    }
+
     juce::Array<BandLimitedLookupTable*> bllt;
     double sampleRate = 44100.0;
     float phaseL = 0.0f, phaseR = 0.0f;
@@ -45,7 +76,21 @@ private:
 //==============================================================================
 /** Stereo Oscillator with multiples voices, pan, spread, detune, etc
  */
-class WTVoicedStereoOscillator : public VoicedStereoOscillator<WTOscillator>
+struct WTVoicedStereoOscillatorParams : public VoicedOscillatorParams
+{
+    float position = 0.5;
+    float bend = 0.0f;
+    float formant = 0.0f;
+
+    inline void init (WTOscillator::Params& p) const
+    {
+        p.position = position;
+        p.bend = bend;
+        p.formant = formant;
+    }
+};
+
+class WTVoicedStereoOscillator : public VoicedStereoOscillator<WTOscillator, WTVoicedStereoOscillatorParams>
 {
 public:
     WTVoicedStereoOscillator (int maxVoices = 8)

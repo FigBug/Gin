@@ -43,23 +43,21 @@ private:
 //==============================================================================
 /** Stereo Oscillator with multiples voices, pan, spread, detune, etc
 */
-template<typename O>
+struct VoicedOscillatorParams
+{
+    int voices = 1;
+    int vcTrns = 0;
+    float pan = 0.0f;
+    float spread = 0.0f;
+    float detune = 0.0f;
+    float gain = 1.0f;
+};
+
+template<typename O, typename P>
 class VoicedStereoOscillator
 {
 public:
     VoicedStereoOscillator() = default;
-
-    struct Params
-    {
-        Wave wave = Wave::sawUp;
-        int voices = 1;
-        int vcTrns = 0;
-        float pw = 0.5;
-        float pan = 0.0f;
-        float spread = 0.0f;
-        float detune = 0.0f;
-        float gain = 1.0f;
-    };
 
     void setSampleRate (double sr)
     {
@@ -73,17 +71,16 @@ public:
             o->noteOn (phase);
     }
 
-    void process (float note, const Params& params, juce::AudioSampleBuffer& buffer)
+    void process (float note, const P& params, juce::AudioSampleBuffer& buffer)
     {
         buffer.clear();
         processAdding (note, params, buffer);
     }
 
-    void processAdding (float note, const Params& params, juce::AudioSampleBuffer& buffer)
+    void processAdding (float note, const P& params, juce::AudioSampleBuffer& buffer)
     {
         typename O::Params p;
-        p.wave = params.wave;
-        p.pw   = params.pw;
+        params.init (p);
 
         if (params.voices == 1)
         {
@@ -121,7 +118,19 @@ protected:
 //==============================================================================
 /** Stereo Oscillator with multiples voices, pan, spread, detune, etc
  */
-class BLLTVoicedStereoOscillator : public VoicedStereoOscillator<StereoOscillator>
+struct VoicedStereoOscillatorParams : public VoicedOscillatorParams
+{
+    Wave wave = Wave::sawUp;
+    float pw = 0.5;
+
+    inline void init (StereoOscillator::Params& p) const
+    {
+        p.wave = wave;
+        p.pw = pw;
+    }
+};
+
+class BLLTVoicedStereoOscillator : public VoicedStereoOscillator<StereoOscillator, VoicedStereoOscillatorParams>
 {
 public:
     BLLTVoicedStereoOscillator (BandLimitedLookupTables& bllt, int maxVoices = 8)

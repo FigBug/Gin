@@ -11,7 +11,14 @@ WavetableComponent::~WavetableComponent()
 
 void WavetableComponent::setParams (WTOscillator::Params params_)
 {
-    if (! almostEqual (params.pw, params_.pw))
+    if (! almostEqual (params.formant, params_.formant) || ! almostEqual (params.bend, params_.bend))
+    {
+        params = params_;
+        needsUpdate = true;
+        repaint();
+
+    }
+    else if (! almostEqual (params.position, params_.position))
     {
         params = params_;
         repaint();
@@ -48,9 +55,12 @@ void WavetableComponent::paint (juce::Graphics& g)
         g.setColour (findColour (waveColourId, true).withMultipliedAlpha (isEnabled() ? 1.0f : 0.5f));
         for (auto& p : paths)
             g.strokePath (p, juce::PathStrokeType (0.75f));
-        
-        g.setColour (findColour (activeWaveColourId, true).withMultipliedAlpha (isEnabled() ? 1.0f : 0.5f));
-        g.strokePath (createWavetablePath (params.pw), juce::PathStrokeType (0.75f));
+
+        if (isEnabled())
+        {
+            g.setColour (findColour (activeWaveColourId, true).withMultipliedAlpha (isEnabled() ? 1.0f : 0.5f));
+            g.strokePath (createWavetablePath (params.position), juce::PathStrokeType (0.75f));
+        }
     }
 }
 
@@ -67,7 +77,7 @@ juce::Path WavetableComponent::createWavetablePath (float wtPos)
         auto note = getMidiNoteFromHertz (hz);
         auto p = params;
 
-        p.pw = wtPos;
+        p.position = wtPos;
 
         osc.setSampleRate (44100.0);
         osc.setWavetable (*bllt);

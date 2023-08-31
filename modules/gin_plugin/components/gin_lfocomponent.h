@@ -7,7 +7,7 @@ class LFOComponent : public MultiParamComponent,
                      private juce::Timer
 {
 public:
-    LFOComponent() = default;
+    LFOComponent();
     ~LFOComponent() override = default;
 
     void setBPM (float bpm);

@@ -6,8 +6,8 @@
 class ADSRComponent : public MultiParamComponent
 {
 public:
-    ADSRComponent () = default;
-    ~ADSRComponent () override = default;
+    ADSRComponent();
+    ~ADSRComponent() override = default;
     
     void setParams (Parameter::Ptr attack, Parameter::Ptr decay,
                     Parameter::Ptr sustain, Parameter::Ptr release);

@@ -10,6 +10,7 @@ public:
     ModulationSourceButton (ModMatrix& mm, ModSrcId src = {}, bool poly_ = false)
         : Button (""), modMatrix (mm), source (src), poly (poly_)
     {
+        setName ("modSrc");
         modMatrix.addListener (this);
         update();
     }
@@ -167,6 +168,7 @@ public:
     ModSrcListBox (ModMatrix& m)
         : modMatrix (m)
     {
+        setName ("modlist");
         setModel (this);
         updateContent();
         setRowHeight (16);

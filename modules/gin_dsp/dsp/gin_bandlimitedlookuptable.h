@@ -94,7 +94,6 @@ enum class Wave
     pulse       = 5,
     square      = 6,
     noise       = 7,
-    wavetable   = 8,
 };
 
 //==============================================================================
@@ -176,7 +175,6 @@ public:
             case Wave::pulse:       return processPulse (note, phase, pw);
             case Wave::square:      return processSquare (note, phase);
             case Wave::noise:       return (float) noise();
-            case Wave::wavetable:
             default:
                 jassertfalse;
                 return 0.0f;

@@ -2,7 +2,8 @@
 StepLFOComponent::StepLFOComponent (int maxSteps_)
     : maxSteps (maxSteps_)
 {
-        level.resize (maxSteps);
+    setName ("step");
+    level.resize (maxSteps);
 }
 
 void StepLFOComponent::resized()

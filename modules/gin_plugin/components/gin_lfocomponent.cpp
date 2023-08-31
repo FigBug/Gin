@@ -1,4 +1,9 @@
 
+LFOComponent::LFOComponent()
+{
+    setName ("lfo");
+}
+
 void LFOComponent::resized()
 {
     dirty = true;
