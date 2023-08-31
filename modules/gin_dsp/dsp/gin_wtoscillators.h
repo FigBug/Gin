@@ -58,10 +58,10 @@ private:
 
     inline float phaseDistortion (float phase, float bend, float formant)
     {
-        if (bend != 0)
+        if (almostEqual (bend, 0.0f))
             phase = bendDistortion (phase, bend);
 
-        if (formant != 0)
+        if (almostEqual (formant, 0.0f))
             phase = formantDistortion (phase, formant);
 
         return phase;
