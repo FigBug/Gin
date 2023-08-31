@@ -37,7 +37,7 @@ private:
     gin::AnalogADSR adsr;
 
     float currentMidiNotes = 0.0f;
-    gin::BLLTVoicedStereoOscillator::Params oscParams;
+    gin::BLLTVoicedStereoOscillatorParams oscParams;
 
     gin::EasedValueSmoother<float> noteSmoother;
 
