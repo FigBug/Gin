@@ -1684,7 +1684,7 @@ struct WavetableDemo : public juce::Component
         for (int i = bllt.size(); i >= 0; i -= step)
         {
             gin::WTOscillator::Params params;
-            params.pw = float (i) / bllt.size();
+            params.position = float (i) / bllt.size();
 
             buf.clear();
 
