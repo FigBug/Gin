@@ -1668,13 +1668,6 @@
       <arglist>(juce::Random &amp;r, T &amp;array)</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
-      <name>almostEqual</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga06700101fa042b926bad6b16738aff53</anchor>
-      <arglist>(T a, T b, T precision=T(0.00001))</arglist>
-    </member>
-    <member kind="function">
       <type>int</type>
       <name>versionStringToInt</name>
       <anchorfile>group__gin-utilities.html</anchorfile>
@@ -15858,13 +15851,6 @@
       <anchorfile>group__gin-utilities.html</anchorfile>
       <anchor>ga2b12545cc67dbe67062cc1ae6299546f</anchor>
       <arglist>(juce::Random &amp;r, T &amp;array)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>almostEqual</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga06700101fa042b926bad6b16738aff53</anchor>
-      <arglist>(T a, T b, T precision=T(0.00001))</arglist>
     </member>
     <member kind="function">
       <type>int</type>
