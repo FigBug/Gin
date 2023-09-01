@@ -441,6 +441,8 @@ void TitleBar::showMenu()
     {
         editor.setUseIncreasedKeyboardAccessibility (! editor.getUseIncreasedKeyboardAccessibility());
     });
+    
+    editor.addMenuItems (m);
 
     m.setLookAndFeel ( &getLookAndFeel());
     m.showMenuAsync (juce::PopupMenu::Options().withTargetComponent (menuButton).withDeletionCheck (menuButton));

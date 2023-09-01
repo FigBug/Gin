@@ -214,6 +214,8 @@ public:
     ProcessorEditor (Processor&, EditorOptions eo = {}) noexcept;
     ProcessorEditor (Processor&, int cx, int cy, EditorOptions eo = {}) noexcept;
     ~ProcessorEditor() override;
+    
+    virtual void addMenuItems (juce::PopupMenu&) {}
 
     virtual void showAboutInfo();
 
@@ -225,7 +227,7 @@ public:
 protected:
     void paint (juce::Graphics& g) override;
     void resized() override;
-
+    
     std::unique_ptr<UpdateChecker> updateChecker;
     std::unique_ptr<NewsChecker> newsChecker;
 
