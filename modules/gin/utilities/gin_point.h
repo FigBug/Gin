@@ -7,6 +7,9 @@
 
 #pragma once
 
+//==============================================================================
+/** Like the juce::Point, useful for project that don't use juce_graphics
+ */
 template <typename T>
 class Point
 {

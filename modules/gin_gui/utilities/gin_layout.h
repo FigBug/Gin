@@ -1,5 +1,8 @@
 #pragma once
 
+//==============================================================================
+/** Layout components with json, supports hot reloading
+ */
 class Layout
 #if ! JUCE_IOS
     : public FileSystemWatcher::Listener

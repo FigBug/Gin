@@ -73,9 +73,6 @@ private:
     int tableIndexL = 0, tableIndexR = 0;
 };
 
-//==============================================================================
-/** Stereo Oscillator with multiples voices, pan, spread, detune, etc
- */
 struct WTVoicedStereoOscillatorParams : public VoicedOscillatorParams
 {
     float position = 0.5;
@@ -90,6 +87,9 @@ struct WTVoicedStereoOscillatorParams : public VoicedOscillatorParams
     }
 };
 
+//==============================================================================
+/** Stereo Wavetable Oscillator with multiples voices, pan, spread, detune, etc
+ */
 class WTVoicedStereoOscillator : public VoicedStereoOscillator<WTOscillator, WTVoicedStereoOscillatorParams>
 {
 public:

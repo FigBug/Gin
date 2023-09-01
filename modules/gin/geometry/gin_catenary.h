@@ -32,6 +32,9 @@
 
 #pragma once
 
+//==============================================================================
+/** A catenary is the shape a wire, cable, rope etc. makes when it hangs. Useful for drawing modular synths.
+ */
 class Catenary
 {
 public:

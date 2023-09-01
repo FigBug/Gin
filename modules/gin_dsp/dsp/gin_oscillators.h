@@ -115,9 +115,6 @@ protected:
     juce::OwnedArray<O> oscillators;
 };
 
-//==============================================================================
-/** Stereo Oscillator with multiples voices, pan, spread, detune, etc
- */
 struct VoicedStereoOscillatorParams : public VoicedOscillatorParams
 {
     Wave wave = Wave::sawUp;
@@ -130,6 +127,9 @@ struct VoicedStereoOscillatorParams : public VoicedOscillatorParams
     }
 };
 
+//==============================================================================
+/** Stereo Oscillator with multiple voices, pan, spread, detune, etc
+ */
 class BLLTVoicedStereoOscillator : public VoicedStereoOscillator<StereoOscillator, VoicedStereoOscillatorParams>
 {
 public:

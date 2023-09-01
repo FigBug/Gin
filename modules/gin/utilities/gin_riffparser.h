@@ -7,6 +7,9 @@
 
 #pragma once
 
+//==============================================================================
+/** Parse all the chunks in RIFF files (like wav, aiff, etc)
+ */
 class RIFFParser
 {
 public:
