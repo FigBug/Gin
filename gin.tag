@@ -10427,6 +10427,13 @@
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
+      <name>addMenuItems</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a4af449477b69e721fa06b544836a2c91</anchor>
+      <arglist>(juce::PopupMenu &amp;)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
       <name>showAboutInfo</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
       <anchor>a058029cc670ad921b0ead5565e837e7a</anchor>
