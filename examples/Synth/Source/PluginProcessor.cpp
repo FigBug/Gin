@@ -13,7 +13,7 @@ static juce::String waveTextFunction (const gin::Parameter&, float v)
         case gin::Wave::sawDown:     return "Saw (Down)";
         case gin::Wave::pulse:       return "Pulse";
         case gin::Wave::square:      return "Square";
-        case gin::Wave::noise:       return "Noise";
+        case gin::Wave::whiteNoise:  return "Noise";
         default:
             jassertfalse;
             return {};
