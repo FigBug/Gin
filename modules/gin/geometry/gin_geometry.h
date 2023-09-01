@@ -113,7 +113,7 @@ public:
         p3.y = s * p3.x + si;
         p4.y = s * p4.x + si;
 
-        if (almostEqual (rect.getWidth(), 0.0f))
+        if (juce::approximatelyEqual (rect.getWidth(), 0.0f))
         {
             if (p3.y >= rect.getY() && p3.y <= rect.getY() + rect.getHeight())
                 res.add (p3);
@@ -121,7 +121,7 @@ public:
             if (p4.y >= rect.getY() && p4.y <= rect.getY() + rect.getHeight())
                 res.add (p4);
         }
-        else if (almostEqual (rect.getHeight(), 0.0f))
+        else if (juce::approximatelyEqual (rect.getHeight(), 0.0f))
         {
             if (p3.x >= rect.getX() && p3.x <= rect.getX() + rect.getWidth())
                 res.add (p3);

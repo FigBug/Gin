@@ -11,14 +11,14 @@ WavetableComponent::~WavetableComponent()
 
 void WavetableComponent::setParams (WTOscillator::Params params_)
 {
-    if (! almostEqual (params.formant, params_.formant) || ! almostEqual (params.bend, params_.bend))
+    if (! juce::approximatelyEqual (params.formant, params_.formant) || ! juce::approximatelyEqual (params.bend, params_.bend))
     {
         params = params_;
         needsUpdate = true;
         repaint();
 
     }
-    else if (! almostEqual (params.position, params_.position))
+    else if (! juce::approximatelyEqual (params.position, params_.position))
     {
         params = params_;
         repaint();

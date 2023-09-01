@@ -58,10 +58,10 @@ private:
 
     inline float phaseDistortion (float phase, float bend, float formant)
     {
-        if (almostEqual (bend, 0.0f))
+        if (juce::approximatelyEqual (bend, 0.0f))
             phase = bendDistortion (phase, bend);
 
-        if (almostEqual (formant, 0.0f))
+        if (juce::approximatelyEqual (formant, 0.0f))
             phase = formantDistortion (phase, formant);
 
         return phase;

@@ -206,14 +206,6 @@ private:
     double start;
 };
 
-//==============================================================================
-/** Are two floats pretty close? */
-template <typename T>
-inline bool almostEqual (T a, T b, T precision = T (0.00001))
-{
-    return std::abs (a - b) < precision;
-}
-
 int versionStringToInt (const juce::String& versionString);
 
 //==============================================================================

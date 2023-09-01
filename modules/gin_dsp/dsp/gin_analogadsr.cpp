@@ -44,7 +44,7 @@ void AnalogADSR::noteOff()
 
 void AnalogADSR::setAttack (float a)
 {
-    if (! almostEqual (attack, a))
+    if (! juce::approximatelyEqual (attack, a))
     {
         attack = a;
         calculateAttack();
@@ -53,7 +53,7 @@ void AnalogADSR::setAttack (float a)
 
 void AnalogADSR::setDecay (float d)
 {
-    if (! almostEqual (decay, d))
+    if (! juce::approximatelyEqual (decay, d))
     {
         decay = d;
         calculateDecay();
@@ -62,7 +62,7 @@ void AnalogADSR::setDecay (float d)
 
 void AnalogADSR::setRelease (float r)
 {
-    if (! almostEqual (release, r))
+    if (! juce::approximatelyEqual (release, r))
     {
         release = r;
         calculateRelease();
@@ -71,7 +71,7 @@ void AnalogADSR::setRelease (float r)
 
 void AnalogADSR::setSustainLevel (float s)
 {
-    if (! almostEqual (sustain, s))
+    if (! juce::approximatelyEqual (sustain, s))
     {
         sustain = s;
         calculateDecay();

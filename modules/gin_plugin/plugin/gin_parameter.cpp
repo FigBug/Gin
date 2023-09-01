@@ -86,7 +86,7 @@ float Parameter::getUserDefaultValue() const
 void Parameter::setUserValue (float v)
 {
     v = juce::jlimit(range.start, range.end, range.snapToLegalValue (v));
-    if (! almostEqual (value, v))
+    if (! juce::approximatelyEqual (value, v))
     {
         value = v;
         triggerAsyncUpdate();
@@ -97,7 +97,7 @@ void Parameter::setUserValue (float v)
 void Parameter::setUserValueNotifingHost (float v)
 {
     v = juce::jlimit (range.start, range.end, range.snapToLegalValue (v));
-    if (! almostEqual (value, v))
+    if (! juce::approximatelyEqual (value, v))
     {
         value = v;
         if (! internal)
@@ -207,7 +207,7 @@ void Parameter::setValue (float valueIn)
     valueIn = juce::jlimit (0.0f, 1.0f, valueIn);
     float newValue = range.snapToLegalValue (range.convertFrom0to1 (valueIn));
 
-    if (! almostEqual (value, newValue))
+    if (! juce::approximatelyEqual (value, newValue))
     {
         value = newValue;
 
