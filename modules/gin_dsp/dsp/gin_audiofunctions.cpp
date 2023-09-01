@@ -68,9 +68,10 @@ void AudioFunctionHost::addOscillatorFunctions (gin::EquationParser& parser)
                             p->incPhase (float (note));
                             return lookupTables->processTriangle (float (note), p->phase);
                         });
-    parser.addFunction ("noise", [] (int, double)
+    parser.addFunction ("noise", [this] (int id, double)
                         {
-                            return noise();
+                            auto p = getFuncParams<NoiseState> (id, sampleRate);
+                            return p->process();
                         });
 }
 

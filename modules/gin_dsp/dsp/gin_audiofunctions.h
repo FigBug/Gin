@@ -64,6 +64,21 @@ struct OscState : public FuncState
 };
 
 //==============================================================================
+/** State for noise
+ */
+struct NoiseState : public FuncState
+{
+    NoiseState (double sr) : FuncState (sr) {}
+
+    double process()
+    {
+        return noise.nextSample();
+    }
+
+    WhiteNoise noise;
+};
+
+//==============================================================================
 /** State for high pass filter
  */
 struct HP12State : public FuncState

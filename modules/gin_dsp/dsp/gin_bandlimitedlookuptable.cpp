@@ -96,17 +96,6 @@ float squareWave (float phase, float freq, float sampleRate)
     return float (4.0f / juce::MathConstants<float>::pi * sum);
 }
 
-float noise()
-{
-    const float mean = 0.0f;
-    const float stddev = 0.1f;
-
-    static std::default_random_engine generator;
-    static std::normal_distribution<float> dist (mean, stddev);
-
-    return dist (generator);
-}
-
 //==============================================================================
 void BandLimitedLookupTable::loadFromBuffer (float playbackSampleRate, juce::AudioSampleBuffer& buffer, float fileSampleRate, int notesPerTable_)
 {

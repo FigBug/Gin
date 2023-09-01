@@ -7,8 +7,9 @@
  ==============================================================================
  */
 
-
 #pragma once
+
+#include "gin_noise.h"
 
 //==============================================================================
 float sine (float phase, float unused1 = 0, float unused2 = 0);
@@ -17,7 +18,6 @@ float sawUp (float phase, float freq, float sampleRate);
 float sawDown (float phase, float freq, float sampleRate);
 float pulse (float phase, float pw, float freq, float sampleRate);
 float squareWave (float phase, float freq, float sampleRate);
-float noise();
 
 //==============================================================================
 /** Lookup tables for holding bandlimited waveforms. Holds one waveform for every N number notes
@@ -93,7 +93,8 @@ enum class Wave
     sawDown     = 4,
     pulse       = 5,
     square      = 6,
-    noise       = 7,
+    whiteNoise  = 7,
+    pinkNoise   = 8,
 };
 
 //==============================================================================
@@ -174,7 +175,8 @@ public:
             case Wave::sawDown:     return processSawDown (note, phase);
             case Wave::pulse:       return processPulse (note, phase, pw);
             case Wave::square:      return processSquare (note, phase);
-            case Wave::noise:       return (float) noise();
+            case Wave::whiteNoise:  return (float) whiteNoise.nextSample();
+            case Wave::pinkNoise:   return (float) pinkNoise.nextSample();
             default:
                 jassertfalse;
                 return 0.0f;
@@ -190,4 +192,6 @@ private:
     double sampleRate = 0;
     int notesPerTable = 3, tableSize = 2048;
     BandLimitedLookupTable sineTable, sawUpTable, sawDownTable, triangleTable;
+    WhiteNoise whiteNoise;
+    PinkNoise pinkNoise;
 };
