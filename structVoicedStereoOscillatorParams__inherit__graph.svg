@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="structVoicedOscillatorParams.html" target="_top" xlink:title="Stereo Oscillator with multiples voices, pan, spread, detune, etc.">
+<g id="a_node2"><a xlink:href="structVoicedOscillatorParams.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="16,-56.5 16,-75.5 147,-75.5 147,-56.5 16,-56.5"/>
 <text text-anchor="middle" x="81.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">VoicedOscillatorParams</text>
 </a>
