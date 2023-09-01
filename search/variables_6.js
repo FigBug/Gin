@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['gain_2774',['gain',['../structVoicedOscillatorParams.html#a52f5a46c2ea69da7fdd4eb3a57e872c7',1,'VoicedOscillatorParams']]],
-  ['ginprocessor_2775',['ginProcessor',['../classProcessorEditorBase.html#abea55336b0e8f3fe0a6392e288ea27bf',1,'ProcessorEditorBase']]],
-  ['glideinfo_2776',['glideInfo',['../classSynthesiserVoice.html#a0b618c0309abdbff794b2c082dbaa993',1,'SynthesiserVoice']]],
-  ['glissando_2777',['glissando',['../structGlideInfo.html#a9d07e5c884046e64cf09d6b24a26b69e',1,'GlideInfo']]]
+  ['gain_2788',['gain',['../structVoicedOscillatorParams.html#a52f5a46c2ea69da7fdd4eb3a57e872c7',1,'VoicedOscillatorParams']]],
+  ['ginprocessor_2789',['ginProcessor',['../classProcessorEditorBase.html#abea55336b0e8f3fe0a6392e288ea27bf',1,'ProcessorEditorBase']]],
+  ['glideinfo_2790',['glideInfo',['../classSynthesiserVoice.html#a0b618c0309abdbff794b2c082dbaa993',1,'SynthesiserVoice']]],
+  ['glissando_2791',['glissando',['../structGlideInfo.html#a9d07e5c884046e64cf09d6b24a26b69e',1,'GlideInfo']]]
 ];

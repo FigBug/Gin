@@ -81,7 +81,9 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a3593df94728cd88f078bbc6c41df9876">sawDown</a> = 4
 , <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a02a8dc4cf01fed584c6423f577c0b0d7">pulse</a> = 5
 , <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</a> = 6
-, <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90aaaddc3454ccbefbb2d8d8461f8f7f481">noise</a> = 7
+, <a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a7a84a039a97bb1bde36b4f45cefffc40">whiteNoise</a> = 7
+, <br />
+&#160;&#160;<a class="el" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a921d187c7e16d85201bfa3b9c47e1f77">pinkNoise</a> = 8
 <br />
  }</td></tr>
 <tr class="separator:gadb931b2f752b7879df254a7fd9d17e90"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,8 +134,6 @@ Functions</h2></td></tr>
 <tr class="separator:ga1f59ed3e69fd50c828e608593c6f1501"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa53416e9fff8a3d96bda5ef381d56f5d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__dsp-dsp.html#gaa53416e9fff8a3d96bda5ef381d56f5d">squareWave</a> (float phase, float freq, float sampleRate)</td></tr>
 <tr class="separator:gaa53416e9fff8a3d96bda5ef381d56f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadf97991a9ee12ce4122d0eccfb8488ec"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__dsp-dsp.html#gadf97991a9ee12ce4122d0eccfb8488ec">noise</a> ()</td></tr>
-<tr class="separator:gadf97991a9ee12ce4122d0eccfb8488ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac52374c731213a08657117a59c2828cd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__dsp-dsp.html#gac52374c731213a08657117a59c2828cd">loadWavetables</a> (juce::OwnedArray&lt; <a class="el" href="classBandLimitedLookupTable.html">BandLimitedLookupTable</a> &gt; &amp;bllt, double playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, double fileSampleRate, int tableSize)</td></tr>
 <tr class="separator:gac52374c731213a08657117a59c2828cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -171,7 +171,8 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="ggadb931b2f752b7879df254a7fd9d17e90a3593df94728cd88f078bbc6c41df9876"></a>sawDown&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ggadb931b2f752b7879df254a7fd9d17e90a02a8dc4cf01fed584c6423f577c0b0d7"></a>pulse&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30"></a>square&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ggadb931b2f752b7879df254a7fd9d17e90aaaddc3454ccbefbb2d8d8461f8f7f481"></a>noise&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggadb931b2f752b7879df254a7fd9d17e90a7a84a039a97bb1bde36b4f45cefffc40"></a>whiteNoise&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggadb931b2f752b7879df254a7fd9d17e90a921d187c7e16d85201bfa3b9c47e1f77"></a>pinkNoise&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -741,23 +742,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="gadf97991a9ee12ce4122d0eccfb8488ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gadf97991a9ee12ce4122d0eccfb8488ec">&#9670;&nbsp;</a></span>noise()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float noise </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="gac52374c731213a08657117a59c2828cd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gac52374c731213a08657117a59c2828cd">&#9670;&nbsp;</a></span>loadWavetables()</h2>
 
@@ -832,7 +816,7 @@ template&lt;class T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 1 2023 01:38:40 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Sep 1 2023 02:12:22 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

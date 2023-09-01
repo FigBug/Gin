@@ -1,12 +1,13 @@
 <map id="FuncState" name="FuncState">
-<area shape="rect" id="node1" title="Base class to store an audio functions state But you say &quot;functions don&#39;t have state!..." alt="" coords="5,208,92,235"/>
+<area shape="rect" id="node1" title="Base class to store an audio functions state But you say &quot;functions don&#39;t have state!..." alt="" coords="5,233,92,260"/>
 <area shape="rect" id="node2" href="$structBP12State.html" title="State for band pass filter." alt="" coords="151,5,240,32"/>
 <area shape="rect" id="node3" href="$structBP24State.html" title="State for band pass filter." alt="" coords="151,56,240,83"/>
 <area shape="rect" id="node4" href="$structHP12State.html" title="State for high pass filter." alt="" coords="150,107,241,133"/>
 <area shape="rect" id="node5" href="$structHP24State.html" title="State for high pass filter." alt="" coords="150,157,241,184"/>
 <area shape="rect" id="node6" href="$structLP12State.html" title="State for low pass filter." alt="" coords="152,208,239,235"/>
 <area shape="rect" id="node7" href="$structLP24State.html" title="State for low pass filter." alt="" coords="152,259,239,285"/>
-<area shape="rect" id="node8" href="$structNotch12State.html" title="State for notch filter." alt="" coords="140,309,251,336"/>
-<area shape="rect" id="node9" href="$structNotch24State.html" title="State for notch filter." alt="" coords="140,360,251,387"/>
-<area shape="rect" id="node10" href="$structOscState.html" title="State for an oscillator." alt="" coords="155,411,235,437"/>
+<area shape="rect" id="node8" href="$structNoiseState.html" title="State for noise." alt="" coords="149,309,242,336"/>
+<area shape="rect" id="node9" href="$structNotch12State.html" title="State for notch filter." alt="" coords="140,360,251,387"/>
+<area shape="rect" id="node10" href="$structNotch24State.html" title="State for notch filter." alt="" coords="140,411,251,437"/>
+<area shape="rect" id="node11" href="$structOscState.html" title="State for an oscillator." alt="" coords="155,461,235,488"/>
 </map>

@@ -132,6 +132,7 @@
     <filename>gin__audiofunctions_8h.html</filename>
     <class kind="struct">FuncState</class>
     <class kind="struct">OscState</class>
+    <class kind="struct">NoiseState</class>
     <class kind="struct">HP12State</class>
     <class kind="struct">HP24State</class>
     <class kind="struct">BP12State</class>
@@ -260,6 +261,7 @@
     <name>gin_bandlimitedlookuptable.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
     <filename>gin__bandlimitedlookuptable_8h.html</filename>
+    <includes id="gin__noise_8h" name="gin_noise.h" local="yes" imported="no">gin_noise.h</includes>
     <class kind="class">BandLimitedLookupTable</class>
     <class kind="class">BandLimitedLookupTables</class>
     <member kind="enumeration">
@@ -275,7 +277,8 @@
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a3593df94728cd88f078bbc6c41df9876">sawDown</enumvalue>
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a02a8dc4cf01fed584c6423f577c0b0d7">pulse</enumvalue>
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</enumvalue>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90aaaddc3454ccbefbb2d8d8461f8f7f481">noise</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a7a84a039a97bb1bde36b4f45cefffc40">whiteNoise</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a921d187c7e16d85201bfa3b9c47e1f77">pinkNoise</enumvalue>
     </member>
     <member kind="function">
       <type>float</type>
@@ -318,13 +321,6 @@
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
       <anchor>gaa53416e9fff8a3d96bda5ef381d56f5d</anchor>
       <arglist>(float phase, float freq, float sampleRate)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>noise</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gadf97991a9ee12ce4122d0eccfb8488ec</anchor>
-      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -1236,6 +1232,13 @@
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
     <filename>gin__multiparamcomponent_8h.html</filename>
     <class kind="class">MultiParamComponent</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_noise.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
+    <filename>gin__noise_8h.html</filename>
+    <class kind="class">WhiteNoise</class>
+    <class kind="class">PinkNoise</class>
   </compound>
   <compound kind="file">
     <name>gin_noteduration.h</name>
@@ -8148,6 +8151,32 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>NoiseState</name>
+    <filename>structNoiseState.html</filename>
+    <base>FuncState</base>
+    <member kind="function">
+      <type></type>
+      <name>NoiseState</name>
+      <anchorfile>structNoiseState.html</anchorfile>
+      <anchor>aa06fa66ee55cd4475d56218b94c96112</anchor>
+      <arglist>(double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>process</name>
+      <anchorfile>structNoiseState.html</anchorfile>
+      <anchor>a94506a07ca2e148daba032f3d4d06420</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>WhiteNoise</type>
+      <name>noise</name>
+      <anchorfile>structNoiseState.html</anchorfile>
+      <anchor>aefe7592305be8b255c28fa2f48a16843</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>Notch12State</name>
     <filename>structNotch12State.html</filename>
     <base>FuncState</base>
@@ -9628,6 +9657,24 @@
       <anchorfile>classPerlinNoise.html</anchorfile>
       <anchor>a3aa782c396ab798493ad7529960c5a9a</anchor>
       <arglist>(T x, T y=0, T z=0)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>PinkNoise</name>
+    <filename>classPinkNoise.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>PinkNoise</name>
+      <anchorfile>classPinkNoise.html</anchorfile>
+      <anchor>aaac894a16925eb95bc06434d5f37fff2</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>nextSample</name>
+      <anchorfile>classPinkNoise.html</anchorfile>
+      <anchor>afbc5d70a4188d49b141e948e6cd50f7f</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -14358,6 +14405,17 @@
       <arglist></arglist>
     </member>
   </compound>
+  <compound kind="class">
+    <name>WhiteNoise</name>
+    <filename>classWhiteNoise.html</filename>
+    <member kind="function">
+      <type>float</type>
+      <name>nextSample</name>
+      <anchorfile>classWhiteNoise.html</anchorfile>
+      <anchor>a861fbf92d0f2d6aa523c15204bcf1aec</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
   <compound kind="struct">
     <name>WSHeaderType</name>
     <filename>structWSHeaderType.html</filename>
@@ -14941,7 +14999,8 @@
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a3593df94728cd88f078bbc6c41df9876">sawDown</enumvalue>
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a02a8dc4cf01fed584c6423f577c0b0d7">pulse</enumvalue>
       <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</enumvalue>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90aaaddc3454ccbefbb2d8d8461f8f7f481">noise</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a7a84a039a97bb1bde36b4f45cefffc40">whiteNoise</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a921d187c7e16d85201bfa3b9c47e1f77">pinkNoise</enumvalue>
     </member>
     <member kind="function">
       <type>juce::Value</type>
@@ -15068,13 +15127,6 @@
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
       <anchor>gaa53416e9fff8a3d96bda5ef381d56f5d</anchor>
       <arglist>(float phase, float freq, float sampleRate)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>noise</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gadf97991a9ee12ce4122d0eccfb8488ec</anchor>
-      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
