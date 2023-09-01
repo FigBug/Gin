@@ -40,9 +40,6 @@ private:
     float phaseL = 0.0f, phaseR = 0.0f;
 };
 
-//==============================================================================
-/** Stereo Oscillator with multiples voices, pan, spread, detune, etc
-*/
 struct VoicedOscillatorParams
 {
     int voices = 1;
@@ -53,6 +50,9 @@ struct VoicedOscillatorParams
     float gain = 1.0f;
 };
 
+//==============================================================================
+/** Stereo Oscillator with multiples voices, pan, spread, detune, etc
+*/
 template<typename O, typename P>
 class VoicedStereoOscillator
 {
