@@ -253,7 +253,7 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p)
                 wc.addButton ("No", 0, juce::KeyPress (juce::KeyPress::escapeKey));
                 wc.setLookAndFeel (slProc.lf.get());
 
-                if (wc.runModalLoop (*this) == 0)
+                if (wc.runModalLoop (*getParentComponent()) == 0)
                     return;
             }
 
