@@ -227,55 +227,69 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p)
     };
     addButton.onClick = [this]
     {
-        gin::PluginAlertWindow w ("Create preset:", "", juce::AlertWindow::NoIcon, getParentComponent());
-        w.setLookAndFeel (slProc.lf.get());
-        w.addTextEditor ("name", "", "Name:");
+        auto w = std::make_shared<gin::PluginAlertWindow> ("Create preset:", "", juce::AlertWindow::NoIcon, getParentComponent());
+        w->setLookAndFeel (slProc.lf.get());
+        w->addTextEditor ("name", "", "Name:");
 
         if (hasBrowser)
         {
-            w.addTextEditor ("author", "", "Author:");
-            w.addTextEditor ("tags", "", "Tags:");
+            w->addTextEditor ("author", "", "Author:");
+            w->addTextEditor ("tags", "", "Tags:");
         }
 
-        w.addButton ("OK", 1, juce::KeyPress (juce::KeyPress::returnKey));
-        w.addButton ("Cancel", 0, juce::KeyPress (juce::KeyPress::escapeKey));
+        w->addButton ("OK", 1, juce::KeyPress (juce::KeyPress::returnKey));
+        w->addButton ("Cancel", 0, juce::KeyPress (juce::KeyPress::escapeKey));
 
-        if (w.runModalLoop (*getParentComponent()) == 1)
+        w->runAsync (*getParentComponent(), [this, w] (int ret)
         {
-            auto txt = juce::File::createLegalFileName (w.getTextEditor ("name")->getText());
-            auto aut = (hasBrowser) ? juce::File::createLegalFileName (w.getTextEditor ("author")->getText()) : juce::String();
-            auto tag = (hasBrowser) ? juce::File::createLegalFileName (w.getTextEditor ("tags")->getText()) : juce::String();
-
-            if (slProc.hasProgram (txt))
+            w->setVisible (false);
+            if (ret == 1)
             {
-                gin::PluginAlertWindow wc ("Overwrite preset '" + txt + "'?", "", juce::AlertWindow::NoIcon, this);
-                wc.addButton ("Yes", 1, juce::KeyPress (juce::KeyPress::returnKey));
-                wc.addButton ("No", 0, juce::KeyPress (juce::KeyPress::escapeKey));
-                wc.setLookAndFeel (slProc.lf.get());
+                auto txt = juce::File::createLegalFileName (w->getTextEditor ("name")->getText());
+                auto aut = (hasBrowser) ? juce::File::createLegalFileName (w->getTextEditor ("author")->getText()) : juce::String();
+                auto tag = (hasBrowser) ? juce::File::createLegalFileName (w->getTextEditor ("tags")->getText()) : juce::String();
 
-                if (wc.runModalLoop (*getParentComponent()) == 0)
-                    return;
-            }
+                if (slProc.hasProgram (txt))
+                {
+                    auto wc = std::make_shared<gin::PluginAlertWindow> ("Overwrite preset '" + txt + "'?", "", juce::AlertWindow::NoIcon, this);
+                    wc->addButton ("Yes", 1, juce::KeyPress (juce::KeyPress::returnKey));
+                    wc->addButton ("No", 0, juce::KeyPress (juce::KeyPress::escapeKey));
+                    wc->setLookAndFeel (slProc.lf.get());
 
-            if (txt.isNotEmpty())
-            {
-                slProc.saveProgram (txt, aut, tag);
-                refreshPrograms();
+                    wc->runAsync (*getParentComponent(), [this, aut, tag, txt, wc] (int r)
+                    {
+                        wc->setVisible (false);
+                        if (r == 1)
+                        {
+                            slProc.saveProgram (txt, aut, tag);
+                            refreshPrograms();
+                        }
+                    });
+                }
+                else if (txt.isNotEmpty())
+                {
+                    slProc.saveProgram (txt, aut, tag);
+                    refreshPrograms();
+                }
             }
-        }
+        });
     };
     deleteButton.onClick = [this]
     {
-        gin::PluginAlertWindow w ("Delete preset '" + slProc.getProgramName (programs.getSelectedItemIndex()) + "'?", "", juce::AlertWindow::NoIcon, getParentComponent());
-        w.addButton ("Yes", 1, juce::KeyPress (juce::KeyPress::returnKey));
-        w.addButton ("No", 0, juce::KeyPress (juce::KeyPress::escapeKey));
-        w.setLookAndFeel (slProc.lf.get());
+        auto w = std::make_shared<gin::PluginAlertWindow> ("Delete preset '" + slProc.getProgramName (programs.getSelectedItemIndex()) + "'?", "", juce::AlertWindow::NoIcon, getParentComponent());
+        w->addButton ("Yes", 1, juce::KeyPress (juce::KeyPress::returnKey));
+        w->addButton ("No", 0, juce::KeyPress (juce::KeyPress::escapeKey));
+        w->setLookAndFeel (slProc.lf.get());
 
-        if (w.runModalLoop (*getParentComponent()))
+        w->runAsync (*getParentComponent(), [this, w] (int r)
         {
-            slProc.deleteProgram (programs.getSelectedItemIndex());
-            refreshPrograms();
-        }
+            w->setVisible (false);
+            if (r == 1)
+            {
+                slProc.deleteProgram (programs.getSelectedItemIndex());
+                refreshPrograms();
+            }
+        });
     };
     infoButton.onClick = [this]
     {
@@ -626,11 +640,14 @@ void ProcessorEditor::showAboutInfo()
     msg += "Copyright ";
     msg += juce::String (&__DATE__[7]);
 
-    gin::PluginAlertWindow w ("---- About ----", msg, juce::AlertWindow::NoIcon, this);
-    w.addButton ("OK", 1, juce::KeyPress (juce::KeyPress::returnKey));
-    w.setLookAndFeel (slProc.lf.get());
+    auto w = std::make_shared<gin::PluginAlertWindow> ("---- About ----", msg, juce::AlertWindow::NoIcon, this);
+    w->addButton ("OK", 1, juce::KeyPress (juce::KeyPress::returnKey));
+    w->setLookAndFeel (slProc.lf.get());
 
-    w.runModalLoop (*this);
+    w->runAsync (*this, [w] (int)
+    {
+        w->setVisible (false);
+    });
 }
 
 void ProcessorEditor::refreshPatchBrowser()

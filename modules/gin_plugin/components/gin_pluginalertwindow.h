@@ -17,7 +17,7 @@ public:
     }
 
    #if JUCE_MODAL_LOOPS_PERMITTED
-    int runModalLoop (Component& parent)
+    int runModalLoop (juce::Component& parent)
     {
         blur = std::make_unique<BlurryComp> (parent.createComponentSnapshot (parent.getLocalBounds()));
         blur->setAlwaysOnTop (true);
@@ -39,8 +39,49 @@ public:
     }
    #endif
 
+    void runAsync (juce::Component& parent, std::function<void (int)> callback)
+    {
+        blur = std::make_unique<BlurryComp> (parent.createComponentSnapshot (parent.getLocalBounds()));
+        blur->setAlwaysOnTop (true);
+        blur->setBounds (parent.getLocalBounds());
+        parent.addAndMakeVisible (*blur);
+
+        blur->addChildComponent (this);
+        setBounds (blur->getLocalBounds().withSizeKeepingCentre (getWidth(), getHeight()));
+
+        setDropShadowEnabled (false);
+
+        enterModalState (true, new Callback ([this, callback] (int ret)
+        {
+            blur->removeChildComponent (blur.get());
+            blur = nullptr;
+
+            setVisible (false);
+
+            callback (ret);
+        }));
+
+    }
+
 private:
-    class BlurryComp : public Component
+    class Callback : public juce::ModalComponentManager::Callback
+    {
+    public:
+        Callback (std::function<void (int)> callback_)
+            : callback (callback_)
+        {
+
+        }
+
+        void modalStateFinished (int returnValue) override
+        {
+            callback (returnValue);
+        }
+
+        std::function<void (int)> callback;
+    };
+
+    class BlurryComp : public juce::Component
     {
     public:
         BlurryComp (juce::Image img) : background (img)
