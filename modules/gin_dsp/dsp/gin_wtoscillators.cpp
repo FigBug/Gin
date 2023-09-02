@@ -21,7 +21,7 @@ void WTOscillator::process (float note, const Params& params, juce::AudioSampleB
 {
     if (bllt.size() == 0) return;
 
-    if (tableIndexL == -1)
+    if (tableIndexL == -1 || tableIndexL >= bllt.size())
         tableIndexL = std::min (bllt.size() - 1, int (float (bllt.size()) * params.position));
 
     float freq = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (note - 69.0) / 12.0)));
@@ -52,7 +52,7 @@ void WTOscillator::process (float noteL, float noteR, const Params& params, juce
 {
     if (bllt.size() == 0) return;
 
-    if (tableIndexL == -1)
+    if (tableIndexL == -1 || tableIndexL >= bllt.size() || tableIndexR >= bllt.size())
         tableIndexL = tableIndexR = std::min (bllt.size() - 1, int (float (bllt.size()) * params.position));
 
     float freqL = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteL - 69.0) / 12.0)));
@@ -90,7 +90,7 @@ void WTOscillator::processAdding (float note, const Params& params, juce::AudioS
 {
     if (bllt.size() == 0) return;
 
-    if (tableIndexL == -1)
+    if (tableIndexL == -1 || tableIndexL >= bllt.size())
         tableIndexL = std::min (bllt.size() - 1, int (float (bllt.size()) * params.position));
 
     float freq = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (note - 69.0) / 12.0)));
@@ -120,7 +120,7 @@ void WTOscillator::processAdding (float noteL, float noteR, const Params& params
 {
     if (bllt.size() == 0) return;
 
-    if (tableIndexL == -1)
+    if (tableIndexL == -1 || tableIndexL >= bllt.size() || tableIndexR >= bllt.size())
         tableIndexL = tableIndexR = std::min (bllt.size() - 1, int (float (bllt.size()) * params.position));
 
     float freqL = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteL - 69.0) / 12.0)));
