@@ -4120,6 +4120,27 @@
       <anchor>ab9daa4461e9eacbb8d6ff894920e74f9</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>url</name>
+      <anchorfile>classEditorOptions.html</anchorfile>
+      <anchor>a217e96a7445f1a37a0e34143f6a3b6ac</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>urlTitle</name>
+      <anchorfile>classEditorOptions.html</anchorfile>
+      <anchor>a4edca669ffa2c5fd7b4c0f04c6f81f15</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::StringArray</type>
+      <name>programmingCredits</name>
+      <anchorfile>classEditorOptions.html</anchorfile>
+      <anchor>a51b4978fda5f4cf8749fe80ea3d0e877</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>Spline::Element</name>

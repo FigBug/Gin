@@ -20,6 +20,7 @@ var searchData=
   ['prevbutton_2894',['prevButton',['../classTitleBar.html#a2cb13751804eb23f1efa52f98c57d688',1,'TitleBar']]],
   ['proc_2895',['proc',['../classPatchBrowser.html#ace4451a4ee2e4ea777e795e8913ae29b',1,'PatchBrowser']]],
   ['processor_2896',['processor',['../classParameter.html#aff54b112e093cf966a1bec5bf5a934dd',1,'Parameter']]],
-  ['programs_2897',['programs',['../classTitleBar.html#aadc7b06a48172e5cc2a50d09a433fa77',1,'TitleBar']]],
-  ['pw_2898',['pw',['../structStereoOscillator_1_1Params.html#aebc2ccd97a83304620840c479a8c782b',1,'StereoOscillator::Params::pw()'],['../structVoicedStereoOscillatorParams.html#a224625483ee768c1e6e86bf6a999df9d',1,'VoicedStereoOscillatorParams::pw()']]]
+  ['programmingcredits_2897',['programmingCredits',['../classEditorOptions.html#a51b4978fda5f4cf8749fe80ea3d0e877',1,'EditorOptions']]],
+  ['programs_2898',['programs',['../classTitleBar.html#aadc7b06a48172e5cc2a50d09a433fa77',1,'TitleBar']]],
+  ['pw_2899',['pw',['../structStereoOscillator_1_1Params.html#aebc2ccd97a83304620840c479a8c782b',1,'StereoOscillator::Params::pw()'],['../structVoicedStereoOscillatorParams.html#a224625483ee768c1e6e86bf6a999df9d',1,'VoicedStereoOscillatorParams::pw()']]]
 ];

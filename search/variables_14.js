@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['value_2955',['value',['../classPropertyComponentBase.html#a3c5ee7d20c4aecc48394fc97aa050448',1,'PropertyComponentBase::value()'],['../classHorizontalFader.html#aa9aef2326b35175ef22ad47a7f61d73c',1,'HorizontalFader::value()'],['../structParameter_1_1ParamState.html#a9688db68c2a8bd8fc608720e62ea9c8a',1,'Parameter::ParamState::value()'],['../classParameter.html#a600fbf5505f6846a37b27f806ea4abf0',1,'Parameter::value()']]],
-  ['valuetree_2956',['valueTree',['../classProgram.html#ae5df2a7c91a9814b63c9224106492da4',1,'Program']]],
-  ['vctrns_2957',['vcTrns',['../structVoicedOscillatorParams.html#a0151a06aa72ad02ce3fd900d24f7f4d8',1,'VoicedOscillatorParams']]],
-  ['voice_2958',['voice',['../namespaceAssets.html#a51fab03de052ae2f94d63829643584c7',1,'Assets']]],
-  ['voicepath_2959',['voicePath',['../classSynthesiserUsage.html#ac45af775287b4546013be488a67d5d7d',1,'SynthesiserUsage']]],
-  ['voices_2960',['voices',['../structVoicedOscillatorParams.html#af8809e0628ba614f83f9bcc26940de5a',1,'VoicedOscillatorParams::voices()'],['../classSynthesiserUsage.html#a2cb8e573343dc51b45899177cc111574',1,'SynthesiserUsage::voices()']]]
+  ['value_2957',['value',['../classPropertyComponentBase.html#a3c5ee7d20c4aecc48394fc97aa050448',1,'PropertyComponentBase::value()'],['../classHorizontalFader.html#aa9aef2326b35175ef22ad47a7f61d73c',1,'HorizontalFader::value()'],['../structParameter_1_1ParamState.html#a9688db68c2a8bd8fc608720e62ea9c8a',1,'Parameter::ParamState::value()'],['../classParameter.html#a600fbf5505f6846a37b27f806ea4abf0',1,'Parameter::value()']]],
+  ['valuetree_2958',['valueTree',['../classProgram.html#ae5df2a7c91a9814b63c9224106492da4',1,'Program']]],
+  ['vctrns_2959',['vcTrns',['../structVoicedOscillatorParams.html#a0151a06aa72ad02ce3fd900d24f7f4d8',1,'VoicedOscillatorParams']]],
+  ['voice_2960',['voice',['../namespaceAssets.html#a51fab03de052ae2f94d63829643584c7',1,'Assets']]],
+  ['voicepath_2961',['voicePath',['../classSynthesiserUsage.html#ac45af775287b4546013be488a67d5d7d',1,'SynthesiserUsage']]],
+  ['voices_2962',['voices',['../structVoicedOscillatorParams.html#af8809e0628ba614f83f9bcc26940de5a',1,'VoicedOscillatorParams::voices()'],['../classSynthesiserUsage.html#a2cb8e573343dc51b45899177cc111574',1,'SynthesiserUsage::voices()']]]
 ];
