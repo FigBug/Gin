@@ -1508,6 +1508,12 @@
     <class kind="class">SampleOscillator</class>
   </compound>
   <compound kind="file">
+    <name>gin_scaledplugineditor.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
+    <filename>gin__scaledplugineditor_8h.html</filename>
+    <class kind="class">ScaledPluginEditor</class>
+  </compound>
+  <compound kind="file">
     <name>gin_scratchbuffer.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
     <filename>gin__scratchbuffer_8h.html</filename>
@@ -5801,6 +5807,13 @@
       <anchorfile>classGinLookAndFeel.html</anchorfile>
       <anchor>a97c257dafafcaeb191d2f3dbd4bbf546</anchor>
       <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawCornerResizer</name>
+      <anchorfile>classGinLookAndFeel.html</anchorfile>
+      <anchor>a8bbb0e8f3a1611a673539ccd45fffe44</anchor>
+      <arglist>(juce::Graphics &amp;g, int w, int h, bool, bool) override</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -10544,13 +10557,6 @@
       <anchor>a6f7f6e1a092dff5bccece83325514c77</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable" protection="protected">
-      <type>juce::String</type>
-      <name>extraProgrammer</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a9f8c53b3bc09b12d34a17c9da2aaf32d</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="class">
     <name>ProcessorEditorBase</name>
@@ -11264,6 +11270,73 @@
       <anchorfile>classSampleOscillator.html</anchorfile>
       <anchor>aa22fc5c8f2ec429eab3d42e6a6524923</anchor>
       <arglist>(double note, juce::AudioSampleBuffer &amp;buffer, int start=0, int length=-1)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>ScaledPluginEditor</name>
+    <filename>classScaledPluginEditor.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ScaledPluginEditor</name>
+      <anchorfile>classScaledPluginEditor.html</anchorfile>
+      <anchor>ad8c51153f25705441610cbdff199865d</anchor>
+      <arglist>(juce::AudioProcessorEditor *editor_, juce::ValueTree state_={})</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~ScaledPluginEditor</name>
+      <anchorfile>classScaledPluginEditor.html</anchorfile>
+      <anchor>ad3d710798b3b18dcf98ca0524a65be53</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setScale</name>
+      <anchorfile>classScaledPluginEditor.html</anchorfile>
+      <anchor>a3015f528b93ac84cc49c44d974fdd52f</anchor>
+      <arglist>(float scale)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paint</name>
+      <anchorfile>classScaledPluginEditor.html</anchorfile>
+      <anchor>a2123621bcb0371e8a13b5571ac680d3b</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resized</name>
+      <anchorfile>classScaledPluginEditor.html</anchorfile>
+      <anchor>afac72bb372f80a9e1bc4fc15dcc8d4c7</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Component</type>
+      <name>frame</name>
+      <anchorfile>classScaledPluginEditor.html</anchorfile>
+      <anchor>a1851b46857396b6d45316e173c47d31a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::unique_ptr&lt; juce::AudioProcessorEditor &gt;</type>
+      <name>editor</name>
+      <anchorfile>classScaledPluginEditor.html</anchorfile>
+      <anchor>a65ce01d1b514e246a52399bceb5f4e93</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::ComponentBoundsConstrainer</type>
+      <name>constrainer</name>
+      <anchorfile>classScaledPluginEditor.html</anchorfile>
+      <anchor>a60386513e16a1338099db5bd6908ade5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::ValueTree</type>
+      <name>state</name>
+      <anchorfile>classScaledPluginEditor.html</anchorfile>
+      <anchor>a89a340337e0990d4300d47d0658eedc7</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
