@@ -60,7 +60,6 @@ public:
 
             callback (ret);
         }));
-
     }
 
 private:

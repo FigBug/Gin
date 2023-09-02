@@ -1,4 +1,3 @@
-#include <time.h>
 
 //==============================================================================
 UpdateChecker::UpdateChecker (gin::Processor& slProc_)
@@ -408,10 +407,13 @@ void TitleBar::showMenu()
     juce::PopupMenu m;
     m.setLookAndFeel (&getLookAndFeel());
 
-    m.addItem ("Visit www.SocaLabs.com", []
+    if (editor.getOptions().urlTitle.isNotEmpty())
     {
-        juce::URL ("https://www.socalabs.com").launchInDefaultBrowser();
-    });
+        m.addItem (editor.getOptions().urlTitle, [this]
+                   {
+            juce::URL (editor.getOptions().url).launchInDefaultBrowser();
+        });
+    }
 
     m.addSeparator();
 
@@ -633,10 +635,9 @@ void ProcessorEditor::showAboutInfo()
     msg += JucePlugin_Name " v" JucePlugin_VersionString " (" __DATE__ ")\n\n";
    #endif
   #endif
-    msg += "Roland Rabien\n" + extraProgrammer +"\nRAW Material Software JUCE Framework\n";
-    if (additionalProgramming.isNotEmpty())
-        msg += additionalProgramming;
-    msg += "\n";
+    msg += options.programmingCredits.joinIntoString ("\n");
+
+    msg += "\n\n";
     msg += "Copyright ";
     msg += juce::String (&__DATE__[7]);
 

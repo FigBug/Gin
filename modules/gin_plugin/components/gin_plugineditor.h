@@ -6,6 +6,15 @@ class EditorOptions
 public:
     bool useUpdateChecker = true;
     bool useNewsChecker = true;
+
+    juce::String url = "https://www.socalabs.com";
+    juce::String urlTitle = "Visit www.SocaLabs.com";
+
+    juce::StringArray programmingCredits =
+    {
+        "Roland Rabien",
+        "RAW Material Software JUCE Framework"
+    };
 };
 
 //==============================================================================
