@@ -30,3 +30,4 @@ PluginLookAndFeelWrapper::~PluginLookAndFeelWrapper()
 {
     LookAndFeel::setDefaultLookAndFeel (nullptr);
 }
+

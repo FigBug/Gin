@@ -63,4 +63,6 @@ public:
     void drawTextEditorOutline (juce::Graphics&, int width, int height, juce::TextEditor&) override;
 
     int getAlertWindowButtonHeight() override    { return 20; }
+
+    void drawCornerResizer (juce::Graphics& g, int w, int h, bool /*isMouseOver*/, bool /*isMouseDragging*/) override;
 };

@@ -103,5 +103,6 @@ bool wantsAccessibleKeyboard (juce::Component&);
 #include "components/gin_patchbrowser.h"
 #include "components/gin_plugineditor.h"
 #include "components/gin_controlbox.h"
+#include "components/gin_scaledplugineditor.h"
 
 }
