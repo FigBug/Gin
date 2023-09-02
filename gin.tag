@@ -9795,8 +9795,15 @@
       <type>int</type>
       <name>runModalLoop</name>
       <anchorfile>classPluginAlertWindow.html</anchorfile>
-      <anchor>a6869a64a9ff0b4da3319bcb3c093219d</anchor>
-      <arglist>(Component &amp;parent)</arglist>
+      <anchor>a00cbb453069bef78d5c77acbbe75370c</anchor>
+      <arglist>(juce::Component &amp;parent)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>runAsync</name>
+      <anchorfile>classPluginAlertWindow.html</anchorfile>
+      <anchor>a9f9d741c6e49fed9f97044e9a6e80040</anchor>
+      <arglist>(juce::Component &amp;parent, std::function&lt; void(int)&gt; callback)</arglist>
     </member>
   </compound>
   <compound kind="class">
