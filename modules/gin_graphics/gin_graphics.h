@@ -18,8 +18,8 @@
   ID:                   gin_graphics
   vendor:               Roland Rabien
   version:              1.0.0
-  name:                 Gin Graghics Utilities
-  description:          Gin Graghics Utilities
+  name:                 Gin Graphics Utilities
+  description:          Gin Graphics Utilities
   website:              www.rabiensoftware.com
   license:              BSD
   minimumCppStandard:   20
