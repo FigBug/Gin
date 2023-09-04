@@ -34,7 +34,7 @@ public:
     void processAdding (float note, const Params& params, juce::AudioSampleBuffer& buffer);
     void processAdding (float noteL, float noteR, const Params& params, juce::AudioSampleBuffer& buffer);
 
-    void setWavetable (juce::OwnedArray<BandLimitedLookupTable>& table);
+    void setWavetable (juce::OwnedArray<BandLimitedLookupTable>* table);
 
 private:
     inline float bendDistortion (float phase, float bend)
@@ -67,7 +67,7 @@ private:
         return phase;
     }
 
-    juce::Array<BandLimitedLookupTable*> bllt;
+    juce::OwnedArray<BandLimitedLookupTable>* bllt = nullptr;
     double sampleRate = 44100.0;
     float phaseL = 0.0f, phaseR = 0.0f;
     int tableIndexL = 0, tableIndexR = 0;
@@ -99,7 +99,7 @@ public:
             oscillators.add (new WTOscillator());
     }
 
-    void setWavetable (juce::OwnedArray<BandLimitedLookupTable>& table)
+    void setWavetable (juce::OwnedArray<BandLimitedLookupTable>* table)
     {
         for (auto o : oscillators)
             o->setWavetable (table);

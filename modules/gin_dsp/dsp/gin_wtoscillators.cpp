@@ -19,10 +19,10 @@ void WTOscillator::noteOn (float p)
 
 void WTOscillator::process (float note, const Params& params, juce::AudioSampleBuffer& buffer)
 {
-    if (bllt.size() == 0) return;
+    if (bllt == nullptr && bllt->size() == 0) return;
 
-    if (tableIndexL == -1 || tableIndexL >= bllt.size())
-        tableIndexL = std::min (bllt.size() - 1, int (float (bllt.size()) * params.position));
+    if (tableIndexL == -1 || tableIndexL >= bllt->size())
+        tableIndexL = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
 
     float freq = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (note - 69.0) / 12.0)));
     float delta = 1.0f / (float ((1.0f / freq) * sampleRate));
@@ -33,7 +33,7 @@ void WTOscillator::process (float note, const Params& params, juce::AudioSampleB
 
     for (int i = 0; i < samps; i++)
     {
-        auto s = bllt[tableIndexL]->process (note, phaseDistortion (phaseL, params.bend, params.formant));
+        auto s = bllt->getUnchecked (tableIndexL)->process (note, phaseDistortion (phaseL, params.bend, params.formant));
 
         *l++ = s * params.leftGain;
         *r++ = s * params.rightGain;
@@ -41,7 +41,7 @@ void WTOscillator::process (float note, const Params& params, juce::AudioSampleB
         phaseL += delta;
         while (phaseL >= 1.0f)
         {
-            tableIndexL = std::min (bllt.size() - 1, int (float (bllt.size()) * params.position));
+            tableIndexL = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
             phaseL -= 1.0f;
         }
     }
@@ -50,10 +50,10 @@ void WTOscillator::process (float note, const Params& params, juce::AudioSampleB
 
 void WTOscillator::process (float noteL, float noteR, const Params& params, juce::AudioSampleBuffer& buffer)
 {
-    if (bllt.size() == 0) return;
+    if (bllt == nullptr && bllt->size() == 0) return;
 
-    if (tableIndexL == -1 || tableIndexL >= bllt.size() || tableIndexR >= bllt.size())
-        tableIndexL = tableIndexR = std::min (bllt.size() - 1, int (float (bllt.size()) * params.position));
+    if (tableIndexL == -1 || tableIndexL >= bllt->size() || tableIndexR >= bllt->size())
+        tableIndexL = tableIndexR = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
 
     float freqL = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteL - 69.0) / 12.0)));
     float freqR = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteR - 69.0) / 12.0)));
@@ -66,8 +66,8 @@ void WTOscillator::process (float noteL, float noteR, const Params& params, juce
 
     for (int i = 0; i < samps; i++)
     {
-        auto sL = bllt[tableIndexL]->process (noteL, phaseDistortion (phaseL, params.bend, params.formant));
-        auto sR = bllt[tableIndexR]->process (noteR, phaseDistortion (phaseR, params.bend, params.formant));
+        auto sL = bllt->getUnchecked (tableIndexL)->process (noteL, phaseDistortion (phaseL, params.bend, params.formant));
+        auto sR = bllt->getUnchecked (tableIndexR)->process (noteR, phaseDistortion (phaseR, params.bend, params.formant));
         *l++ = sL * params.leftGain;
         *r++ = sR * params.rightGain;
 
@@ -76,22 +76,22 @@ void WTOscillator::process (float noteL, float noteR, const Params& params, juce
         while (phaseL >= 1.0f)
         {
             phaseL -= 1.0f;
-            tableIndexL = std::min (bllt.size() - 1, int (float (bllt.size()) * params.position));
+            tableIndexL = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
         }
         while (phaseR >= 1.0f)
         {
             phaseR -= 1.0f;
-            tableIndexR = std::min (bllt.size() - 1, int (float (bllt.size()) * params.position));
+            tableIndexR = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
         }
     }
 }
 
 void WTOscillator::processAdding (float note, const Params& params, juce::AudioSampleBuffer& buffer)
 {
-    if (bllt.size() == 0) return;
+    if (bllt == nullptr && bllt->size() == 0) return;
 
-    if (tableIndexL == -1 || tableIndexL >= bllt.size())
-        tableIndexL = std::min (bllt.size() - 1, int (float (bllt.size()) * params.position));
+    if (tableIndexL == -1 || tableIndexL >= bllt->size())
+        tableIndexL = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
 
     float freq = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (note - 69.0) / 12.0)));
     float delta = 1.0f / (float ((1.0f / freq) * sampleRate));
@@ -102,7 +102,7 @@ void WTOscillator::processAdding (float note, const Params& params, juce::AudioS
 
     for (int i = 0; i < samps; i++)
     {
-        auto s = bllt[tableIndexL]->process (note, phaseDistortion (phaseL, params.bend, params.formant));
+        auto s = bllt->getUnchecked (tableIndexL)->process (note, phaseDistortion (phaseL, params.bend, params.formant));
         *l++ += s * params.leftGain;
         *r++ += s * params.rightGain;
 
@@ -110,7 +110,7 @@ void WTOscillator::processAdding (float note, const Params& params, juce::AudioS
         while (phaseL >= 1.0f)
         {
             phaseL -= 1.0f;
-            tableIndexL = std::min (bllt.size() - 1, int (float (bllt.size()) * params.position));
+            tableIndexL = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
         }
     }
     phaseR = phaseL;
@@ -118,10 +118,10 @@ void WTOscillator::processAdding (float note, const Params& params, juce::AudioS
 
 void WTOscillator::processAdding (float noteL, float noteR, const Params& params, juce::AudioSampleBuffer& buffer)
 {
-    if (bllt.size() == 0) return;
+    if (bllt == nullptr && bllt->size() == 0) return;
 
-    if (tableIndexL == -1 || tableIndexL >= bllt.size() || tableIndexR >= bllt.size())
-        tableIndexL = tableIndexR = std::min (bllt.size() - 1, int (float (bllt.size()) * params.position));
+    if (tableIndexL == -1 || tableIndexL >= bllt->size() || tableIndexR >= bllt->size())
+        tableIndexL = tableIndexR = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
 
     float freqL = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteL - 69.0) / 12.0)));
     float freqR = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteR - 69.0) / 12.0)));
@@ -134,8 +134,8 @@ void WTOscillator::processAdding (float noteL, float noteR, const Params& params
 
     for (int i = 0; i < samps; i++)
     {
-        auto sL = bllt[tableIndexL]->process (noteL, phaseDistortion (phaseL, params.bend, params.formant));
-        auto sR = bllt[tableIndexR]->process (noteR, phaseDistortion (phaseR, params.bend, params.formant));
+        auto sL = bllt->getUnchecked (tableIndexL)->process (noteL, phaseDistortion (phaseL, params.bend, params.formant));
+        auto sR = bllt->getUnchecked (tableIndexR)->process (noteR, phaseDistortion (phaseR, params.bend, params.formant));
 
         *l++ += sL * params.leftGain;
         *r++ += sR * params.rightGain;
@@ -145,20 +145,19 @@ void WTOscillator::processAdding (float noteL, float noteR, const Params& params
         while (phaseL >= 1.0f)
         {
             phaseL -= 1.0f;
-            tableIndexL = std::min (bllt.size() - 1, int (float (bllt.size()) * params.position));
+            tableIndexL = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
         }
         while (phaseR >= 1.0f)
         {
             phaseR -= 1.0f;
-            tableIndexR = std::min (bllt.size() - 1, int (float (bllt.size()) * params.position));
+            tableIndexR = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
         }
     }
 }
 
-void WTOscillator::setWavetable (juce::OwnedArray<BandLimitedLookupTable>& table)
+void WTOscillator::setWavetable (juce::OwnedArray<BandLimitedLookupTable>* table)
 {
-    bllt.clearQuick();
-    bllt.addArray (table);
+    bllt = table;
 }
 
 bool loadWavetables (juce::OwnedArray<BandLimitedLookupTable>& bllt, double playbackSampleRate, juce::AudioSampleBuffer& buffer, double fileSampleRate, int tableSize)

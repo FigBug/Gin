@@ -80,7 +80,7 @@ juce::Path WavetableComponent::createWavetablePath (float wtPos)
         p.position = wtPos;
 
         osc.setSampleRate (44100.0);
-        osc.setWavetable (*bllt);
+        osc.setWavetable (bllt);
         osc.noteOn (0.0f);
         osc.process (note, p, buf);
     }
