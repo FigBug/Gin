@@ -1217,7 +1217,7 @@
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
     <filename>gin__plugin_2components_2gin__modulation_8h.html</filename>
     <class kind="class">ModulationSourceButton</class>
-    <class kind="class">ModulationDestinationButton</class>
+    <class kind="class">ModulationDepthSlider</class>
     <class kind="class">ModulationOverview</class>
     <class kind="class">ModSrcListBox</class>
     <class kind="class">ModMatrixBox</class>
@@ -7748,6 +7748,13 @@
       <arglist>(ModSrcId src, ModDstId param)</arglist>
     </member>
     <member kind="function">
+      <type>std::vector&lt; std::pair&lt; ModSrcId, float &gt; &gt;</type>
+      <name>getModDepths</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>adf8db14f896820442e67843cfdaa656c</anchor>
+      <arglist>(ModDstId param)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>setModDepth</name>
       <anchorfile>classModMatrix.html</anchorfile>
@@ -7920,21 +7927,28 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>ModulationDestinationButton</name>
-    <filename>classModulationDestinationButton.html</filename>
+    <name>ModulationDepthSlider</name>
+    <filename>classModulationDepthSlider.html</filename>
     <member kind="function">
       <type></type>
-      <name>ModulationDestinationButton</name>
-      <anchorfile>classModulationDestinationButton.html</anchorfile>
-      <anchor>a57720d5c740821213b3390c85e181546</anchor>
+      <name>ModulationDepthSlider</name>
+      <anchorfile>classModulationDepthSlider.html</anchorfile>
+      <anchor>abb5c62cd5d33eee71eec841229de41b5</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type></type>
-      <name>~ModulationDestinationButton</name>
-      <anchorfile>classModulationDestinationButton.html</anchorfile>
-      <anchor>a7962baa04f175c253ed31867e220a0fa</anchor>
+      <name>~ModulationDepthSlider</name>
+      <anchorfile>classModulationDepthSlider.html</anchorfile>
+      <anchor>a6321be76f6c2ec83116abffebb4b14d4</anchor>
       <arglist>() override</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; void()&gt;</type>
+      <name>onClick</name>
+      <anchorfile>classModulationDepthSlider.html</anchorfile>
+      <anchor>a6e2e42e74b555da7290b29ca6d99131b</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -7973,6 +7987,20 @@
       <anchorfile>classModulationSourceButton.html</anchorfile>
       <anchor>a44808e6b21763680da9c54bcefb6b362</anchor>
       <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mouseDown</name>
+      <anchorfile>classModulationSourceButton.html</anchorfile>
+      <anchor>a5dc4d504ea2a1c094af98a41fe6725c8</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mouseDrag</name>
+      <anchorfile>classModulationSourceButton.html</anchorfile>
+      <anchor>a785b59e979786082a147664abc4145ae</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
