@@ -145,7 +145,7 @@ var searchData=
   ['setvarfactory_2558',['setVarFactory',['../classEquationParser.html#a36b96c894f2d1b4d20f7b11ee018defb',1,'EquationParser']]],
   ['setverticalzoomfactor_2559',['setVerticalZoomFactor',['../classTriggeredScope.html#a1ae62f1a0a576fe7a1eacf4a9625ca08',1,'TriggeredScope']]],
   ['setverticalzoomoffset_2560',['setVerticalZoomOffset',['../classTriggeredScope.html#a6cdb12229a253a243c18f72c92470a5b',1,'TriggeredScope']]],
-  ['setwavetable_2561',['setWavetable',['../classWTVoicedStereoOscillator.html#a19bd8496f404f6c76df2776ac282f44f',1,'WTVoicedStereoOscillator::setWavetable()'],['../classWTOscillator.html#aa9f27ee415927875063cb2203ec3f97c',1,'WTOscillator::setWavetable()']]],
+  ['setwavetable_2561',['setWavetable',['../classWTVoicedStereoOscillator.html#adb35dccb7539edd1e74d83eadee93eed',1,'WTVoicedStereoOscillator::setWavetable()'],['../classWTOscillator.html#ac2e96a58595de3370fe462b84f2732e0',1,'WTOscillator::setWavetable()']]],
   ['setwavetables_2562',['setWavetables',['../classWavetableComponent.html#a6a92aab5da5b425a293342ee9bf08d80',1,'WavetableComponent']]],
   ['setzoom_2563',['setZoom',['../classMapViewer.html#ac55420a2219e2a30c03062411e0b2df6',1,'MapViewer']]],
   ['setzoomfactor_2564',['setZoomFactor',['../classXYScope.html#af4c855839113e54dd65e51bf2b063ca8',1,'XYScope']]],

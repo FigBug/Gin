@@ -14713,8 +14713,8 @@
       <type>void</type>
       <name>setWavetable</name>
       <anchorfile>classWTOscillator.html</anchorfile>
-      <anchor>aa9f27ee415927875063cb2203ec3f97c</anchor>
-      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; &amp;table)</arglist>
+      <anchor>ac2e96a58595de3370fe462b84f2732e0</anchor>
+      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; *table)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -14732,8 +14732,8 @@
       <type>void</type>
       <name>setWavetable</name>
       <anchorfile>classWTVoicedStereoOscillator.html</anchorfile>
-      <anchor>a19bd8496f404f6c76df2776ac282f44f</anchor>
-      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; &amp;table)</arglist>
+      <anchor>adb35dccb7539edd1e74d83eadee93eed</anchor>
+      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; *table)</arglist>
     </member>
   </compound>
   <compound kind="struct">
