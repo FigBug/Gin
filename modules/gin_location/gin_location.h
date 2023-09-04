@@ -18,12 +18,12 @@
   ID:                   gin_location
   vendor:               Roland Rabien
   version:              1.0.0
-  name:                 Gin
-  description:          Gin
+  name:                 Gin GPS Location Classes
+  description:          Gin GPS Location Classes
   website:              www.rabiensoftware.com
   license:              BSD
-  minimumCppStandard:   17
- OSXFrameworks:         CoreLocation
+  minimumCppStandard:   20
+  OSXFrameworks:         CoreLocation
 
   dependencies:         juce_core juce_graphics gin
 

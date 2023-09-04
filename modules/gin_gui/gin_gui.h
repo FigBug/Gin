@@ -18,8 +18,8 @@
   ID:                   gin_gui
   vendor:               Roland Rabien
   version:              1.0.0
-  name:                 Gin
-  description:          Gin
+  name:                 Gin GUI Components
+  description:          Gin GUI Components
   website:              www.rabiensoftware.com
   license:              BSD
   minimumCppStandard:   20

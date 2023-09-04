@@ -18,11 +18,11 @@
   ID:                   gin_webp
   vendor:               Roland Rabien
   version:              1.0.0
-  name:                 Gin
-  description:          Gin
+  name:                 Gin Webp Image Format
+  description:          Gin Webp Image Format
   website:              www.rabiensoftware.com
   license:              BSD
-  minimumCppStandard:   17
+  minimumCppStandard:   20
 
   dependencies:         juce_core juce_graphics gin
   OSXFrameworks:        Security

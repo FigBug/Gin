@@ -18,8 +18,8 @@
   ID:                   gin_plugin
   vendor:               Roland Rabien
   version:              1.0.0
-  name:                 Gin Plugin
-  description:          GinPlugin Utilities
+  name:                 Gin Plugin Utilities
+  description:          Gin Plugin Utilities
   website:              www.rabiensoftware.com
   license:              BSD
   minimumCppStandard:   20

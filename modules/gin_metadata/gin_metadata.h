@@ -18,11 +18,11 @@
   ID:                   gin_metadata
   vendor:               Roland Rabien
   version:              1.0.0
-  name:                 Gin Metadata
-  description:          Gin Metadata
+  name:                 Gin Image Metadata
+  description:          Gin Image Metadata
   website:              www.rabiensoftware.com
   license:              BSD
-  minimumCppStandard:   17
+  minimumCppStandard:   20
 
   dependencies:         juce_core juce_graphics gin
   OSXFrameworks:        Security

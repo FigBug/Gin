@@ -18,11 +18,11 @@
   ID:                   gin_network
   vendor:               Roland Rabien
   version:              1.0.0
-  name:                 Gin Network
-  description:          Gin Network
+  name:                 Gin Network Utilities
+  description:          Gin Network Utilities
   website:              www.rabiensoftware.com
   license:              BSD
-  minimumCppStandard:   17
+  minimumCppStandard:   20
 
   dependencies:         gin juce_core juce_events
   searchpaths:          3rdparty/mbedtls/include
