@@ -1667,7 +1667,7 @@ struct WavetableDemo : public juce::Component
                 loadWavetables (bllt, reader->sampleRate, buffer, reader->sampleRate, size);
 
                 osc = std::make_unique<gin::WTOscillator> ();
-                osc->setWavetable (bllt);
+                osc->setWavetable (&bllt);
             }
         }
     }
