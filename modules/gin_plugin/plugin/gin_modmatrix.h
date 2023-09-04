@@ -122,6 +122,7 @@ public:
     float getValue (ModVoice& voice, gin::Parameter* p)
     {
         const int paramId = p->getModIndex();
+        jassert (paramId >= 0);
 
         float base = p->getValue();
         auto& info = parameters.getReference (paramId);
