@@ -188,6 +188,17 @@ float ModMatrix::getModDepth (ModSrcId src, ModDstId param)
     return 0;
 }
 
+std::vector<std::pair<ModSrcId, float>> ModMatrix::getModDepths (ModDstId param)
+{
+    std::vector<std::pair<ModSrcId, float>> res;
+
+    auto& pi = parameters.getReference (param.id);
+    for (auto& si : pi.sources)
+        res.push_back ({si.id, si.depth});
+
+    return res;
+}
+
 void ModMatrix::setModDepth (ModSrcId src, ModDstId param, float f)
 {
     auto& pi = parameters.getReference (param.id);

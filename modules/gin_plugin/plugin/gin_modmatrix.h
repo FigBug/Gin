@@ -256,6 +256,7 @@ public:
     bool isModulated (ModDstId param);
 
     float getModDepth (ModSrcId src, ModDstId param);
+    std::vector<std::pair<ModSrcId, float>> getModDepths (ModDstId param);
     void setModDepth (ModSrcId src, ModDstId param, float f);
     void clearModDepth (ModSrcId src, ModDstId param);
 

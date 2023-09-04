@@ -8,7 +8,7 @@ Knob::Knob (Parameter* p, bool fromCentre)
     addAndMakeVisible (name);
     addAndMakeVisible (value);
     addAndMakeVisible (knob);
-    addChildComponent (modButton);
+    addChildComponent (modDepthSlider);
 
     knob.setTitle (parameter->getName (100));
     knob.setDoubleClickReturnValue (true, parameter->getUserDefaultValue());
@@ -60,7 +60,18 @@ Knob::Knob (Parameter* p, bool fromCentre)
         knob.setInterceptsMouseClicks (! learning || shift, ! learning || shift );
     };
 
-    modButton.onClick = [this] { showModMenu(); };
+    modDepthSlider.onClick = [this] { showModMenu(); };
+    modDepthSlider.setMouseDragSensitivity (500);
+    modDepthSlider.onValueChange = [this]
+    {
+        if (auto mm = parameter->getModMatrix())
+        {
+            auto dst = ModDstId (parameter->getModIndex());
+
+            if (auto depths = mm->getModDepths (dst); depths.size() > 0)
+                mm->setModDepth (depths[0].first, dst, float (modDepthSlider.getValue()));
+        }
+    };
     modMatrixChanged();
 }
 
@@ -90,9 +101,18 @@ void Knob::showModMenu()
     m.showMenuAsync ({});
 }
 
+void Knob::paint (juce::Graphics& g)
+{
+    if (dragOver)
+    {
+        g.setColour (findColour (PluginLookAndFeel::accentColourId, true).withAlpha (0.3f));
+        g.fillEllipse (knob.getBounds().toFloat());
+    }
+}
+
 void Knob::resized()
 {
-    juce::Rectangle<int> r = getLocalBounds().reduced (2);
+    auto r = getLocalBounds().reduced (2);
 
     auto extra = r.getHeight() - r.getWidth();
 
@@ -102,7 +122,7 @@ void Knob::resized()
     value.setBounds (rc);
     knob.setBounds (r.reduced (2));
 
-    modButton.setBounds (knob.getBounds().removeFromTop (7).removeFromRight (7));
+    modDepthSlider.setBounds (knob.getBounds().removeFromTop (7).removeFromRight (7));
 }
 
 void Knob::mouseEnter (const juce::MouseEvent&)
@@ -196,13 +216,18 @@ void Knob::modMatrixChanged()
         if (mm->isModulated (dst) || liveValuesCallback)
         {
             modTimer.startTimerHz (30);
-            modButton.setVisible (mm->isModulated (dst));
+            modDepthSlider.setVisible (mm->isModulated (dst));
+
+            if (auto depths = mm->getModDepths (dst); depths.size() > 0)
+                modDepthSlider.setValue (depths[0].second, juce::dontSendNotification);
+            else
+                modDepthSlider.setValue (0.0f, juce::dontSendNotification);
         }
         else
         {
             modTimer.stopTimer();
             knob.getProperties().remove ("modValues");
-            modButton.setVisible (false);
+            modDepthSlider.setVisible (false);
         }
 
         if (learning && ! isMouseButtonDown (true))
@@ -256,4 +281,37 @@ void Knob::mouseDrag (const juce::MouseEvent& e)
 
         repaint();
     }
+}
+
+bool Knob::isInterestedInDragSource (const SourceDetails& sd)
+{
+    if (parameter && parameter->getModMatrix())
+        return sd.description.toString().startsWith ("modSrc");
+
+    return false;
+}
+
+void Knob::itemDragEnter (const SourceDetails&)
+{
+    dragOver = true;
+    repaint();
+}
+
+void Knob::itemDragExit (const SourceDetails&)
+{
+    dragOver = false;
+    repaint();
+}
+
+void Knob::itemDropped (const SourceDetails& sd)
+{
+    dragOver = false;
+    repaint();
+
+    auto& mm = *parameter->getModMatrix();
+
+    auto src = ModSrcId (sd.description.toString().getTrailingIntValue());
+    auto dst = ModDstId (parameter->getModIndex());
+
+    mm.setModDepth (src, dst, 1.0f);
 }

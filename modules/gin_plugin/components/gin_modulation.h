@@ -20,6 +20,24 @@ public:
         modMatrix.removeListener (this);
     }
 
+    void mouseDown (const juce::MouseEvent& e) override
+    {
+        dragging = false;
+        juce::Button::mouseDown (e);
+    }
+
+    void mouseDrag (const juce::MouseEvent& e) override
+    {
+        juce::Button::mouseDrag (e);
+        if (e.mouseWasDraggedSinceMouseDown() && ! dragging)
+        {
+            dragging = true;
+
+            if (auto dnd = juce::DragAndDropContainer::findParentDragContainerFor (this))
+                dnd->startDragging ("modSrc" + juce::String (source.id), this);
+        }
+    }
+
     void setSource (ModSrcId src, bool p)
     {
         source = src;
@@ -40,10 +58,13 @@ private:
 
     void clicked() override
     {
-        if (modMatrix.getLearn() == source)
-            modMatrix.disableLearn();
-        else
-            modMatrix.enableLearn (source);
+        if (! dragging)
+        {
+            if (modMatrix.getLearn() == source)
+                modMatrix.disableLearn();
+            else
+                modMatrix.enableLearn (source);
+        }
     }
 
     void learnSourceChanged (ModSrcId src) override
@@ -79,33 +100,50 @@ private:
     ModMatrix& modMatrix;
     ModSrcId source = {};
     bool poly = false;
+    bool dragging = false;
 };
 
 //==============================================================================
 /** A button for the modulation destination
 */
-class ModulationDestinationButton : public juce::Button
+class ModulationDepthSlider : public juce::Slider
 {
 public:
-    ModulationDestinationButton() : juce::Button ("")
+    ModulationDepthSlider() : juce::Slider (RotaryHorizontalVerticalDrag, NoTextBox)
+    {
+
+    }
+
+    ~ModulationDepthSlider() override
     {
     }
 
-    ~ModulationDestinationButton() override
-    {
-    }
+    std::function<void ()> onClick;
 
 private:
-    void paintButton (juce::Graphics& g, bool over, bool down) override
+    void paint (juce::Graphics& g) override
     {
-        auto c = getToggleState() ? juce::Colours::white.withAlpha (0.9f) : juce::Colours::white.withAlpha (0.4f);
-        if (over || down)
-            c = c.withMultipliedAlpha (1.2f);
-
+        auto c = juce::Colours::white.withAlpha (0.4f);
         g.setColour (c);
 
         auto rc = getLocalBounds().toFloat();
         g.fillEllipse (rc);
+
+        if (auto v = float (getValue()); v > 0.0f)
+        {
+            g.setColour (findColour (PluginLookAndFeel::accentColourId, true).withAlpha (0.9f));
+
+            juce::Path p;
+            p.addPieSegment (rc, 0.0f, juce::MathConstants<float>::pi * 2 * v, 0.0f);
+
+            g.fillPath (p);
+        }
+    }
+
+    void mouseUp (const juce::MouseEvent& e) override
+    {
+        if (e.mouseWasClicked() && e.mods.isPopupMenu() && onClick)
+            onClick ();
     }
 };
 

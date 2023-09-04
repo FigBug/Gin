@@ -4,6 +4,7 @@
 /** Slider + editable text for showing a param
 */
 class Knob : public ParamComponent,
+             public juce::DragAndDropTarget,
              private juce::Timer,
              private ModMatrix::Listener
 {
@@ -20,6 +21,7 @@ public:
     PluginSlider& getSlider()   { return knob; }
 
 private:
+    void paint (juce::Graphics& g) override;
     void resized() override;
     void mouseEnter (const juce::MouseEvent& e) override;
     void timerCallback() override;
@@ -30,6 +32,11 @@ private:
     void mouseDown (const juce::MouseEvent& e) override;
     void mouseDrag (const juce::MouseEvent& e) override;
 
+    bool isInterestedInDragSource (const SourceDetails& dragSourceDetails) override;
+    void itemDragEnter (const SourceDetails& dragSourceDetails) override;
+    void itemDragExit (const SourceDetails& dragSourceDetails) override;
+    void itemDropped (const SourceDetails& dragSourceDetails) override;
+
     void showModMenu();
 
     juce::Label name;
@@ -37,12 +44,13 @@ private:
     PluginSlider knob;
     bool learning = false;
     float modDepth = 0.0f;
+    bool dragOver = false;
 
     gin::CoalescedTimer modTimer;
     gin::CoalescedTimer shiftTimer;
     juce::Array<float> modValues;
     std::function<juce::Array<float> ()> liveValuesCallback;
-    gin::ModulationDestinationButton modButton;
+    gin::ModulationDepthSlider modDepthSlider;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Knob)
 };
