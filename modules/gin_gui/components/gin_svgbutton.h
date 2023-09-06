@@ -14,12 +14,13 @@
 class SVGButton : public juce::TextButton
 {
 public:
-    SVGButton (const juce::String& name, const juce::String& rawSVG_)
-        : juce::TextButton (name), rawSVG (rawSVG_)
+    SVGButton (const juce::String& name, const juce::String& rawSVG_, int inset_ = 0)
+        : juce::TextButton (name), rawSVG (rawSVG_), inset (inset_)
     {
     }
 
     // Handle the drawing in your look and feel
 
     juce::String rawSVG;
+    int inset = 0;
 };

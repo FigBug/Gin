@@ -223,7 +223,7 @@ void CopperLookAndFeel::drawButtonText (juce::Graphics& g, juce::TextButton& b, 
         auto path = parseSVGPath (svg->rawSVG);
         auto font = getTextButtonFont (b, b.getHeight());
 
-        int sz = std::min (b.getHeight(), b.getWidth());
+        int sz = std::min (b.getHeight(), b.getWidth()) - svg->inset;
 
         auto rc = b.getLocalBounds().toFloat().withSizeKeepingCentre (float (sz), float (sz));
         g.fillPath (path, path.getTransformToScaleToFit (rc, true));
