@@ -126,7 +126,7 @@ private:
         auto c = juce::Colours::white.withAlpha (0.4f);
         g.setColour (c);
 
-        auto rc = getLocalBounds().toFloat();
+        auto rc = getLocalBounds().toFloat().reduced (1.5f);
         g.fillEllipse (rc);
 
         if (auto v = float (getValue()); v > 0.0f)

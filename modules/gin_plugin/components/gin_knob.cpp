@@ -122,7 +122,7 @@ void Knob::resized()
     value.setBounds (rc);
     knob.setBounds (r.reduced (2));
 
-    modDepthSlider.setBounds (knob.getBounds().removeFromTop (7).removeFromRight (7));
+    modDepthSlider.setBounds (knob.getBounds().removeFromTop (7).removeFromRight (7).reduced (-3));
 }
 
 void Knob::mouseEnter (const juce::MouseEvent&)
