@@ -91,15 +91,18 @@ public:
         }
         else
         {
+            float baseNote  = note - params.detune / 2;
+            float noteDelta = params.detune / (params.voices - 1);
+
+            float basePan = params.pan - params.spread;
+            float panDelta = (params.spread * 2) / (params.voices - 1);
+            
             for (int i = 0; i < params.voices; i++)
             {
-                float pan = juce::jlimit (-1.0f, 1.0f, params.pan + ((i % 2 == 0) ? 1 : -1) * params.spread);
+                float pan = juce::jlimit (-1.0f, 1.0f, basePan + panDelta * i);
 
                 p.leftGain  = params.gain * (1.0f - pan) / float (std::sqrt (params.voices));
                 p.rightGain = params.gain * (1.0f + pan) / float (std::sqrt (params.voices));
-
-                float baseNote  = note - params.detune / 2;
-                float noteDelta = params.detune / (params.voices - 1);
 
                 if (params.vcTrns == 0)
                     oscillators[i]->processAdding (baseNote + noteDelta * i, p, buffer);
