@@ -206,7 +206,10 @@ double Processor::getTailLengthSeconds() const
 
 int Processor::getNumPrograms()
 {
-    return programs.size();
+    if (maxPrograms == 0)
+        maxPrograms = programs.size() + 50;
+
+    return maxPrograms;
 }
 
 int Processor::getCurrentProgram()
@@ -255,8 +258,8 @@ const juce::String Processor::getProgramName (int index)
 {
     if (auto p = programs[index])
         return p->name;
-    
-    return {};
+
+    return "----";
 }
 
 bool Processor::hasProgram (juce::String name)
@@ -281,7 +284,7 @@ void Processor::changeProgramName (int index, const juce::String& newName)
 void Processor::loadAllPrograms()
 {
     updateState();
-    
+
     programs.clear();
 
     // create the default program

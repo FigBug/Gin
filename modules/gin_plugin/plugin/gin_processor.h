@@ -136,6 +136,7 @@ private:
     void updateParams();
 
     int currentProgram = 0;
+    int maxPrograms = 0;
     juce::OwnedArray<Program> programs;
 
     juce::Time lastStateLoad;

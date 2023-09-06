@@ -206,7 +206,7 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p)
     nextButton.onClick = [this]
     {
         int prog = slProc.getCurrentProgram() + 1;
-        if (prog >= slProc.getNumPrograms())
+        if (prog >= slProc.getPrograms().size())
             prog = 0;
 
         slProc.setCurrentProgram (prog);
@@ -215,7 +215,7 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p)
     {
         int prog = slProc.getCurrentProgram() - 1;
         if (prog < 0)
-            prog = slProc.getNumPrograms() - 1;
+            prog = slProc.getPrograms().size() - 1;
 
         slProc.setCurrentProgram (prog);
     };
@@ -376,8 +376,8 @@ void TitleBar::resized()
 
     if (hasPresets)
     {
-        prevButton.setBounds (programsRC.removeFromLeft (programsRC.getHeight()).withSizeKeepingCentre (8, 8));
-        nextButton.setBounds (programsRC.removeFromRight (programsRC.getHeight()).withSizeKeepingCentre (8, 8));
+        prevButton.setBounds (programsRC.removeFromLeft (programsRC.getHeight()).withSizeKeepingCentre (12, 12));
+        nextButton.setBounds (programsRC.removeFromRight (programsRC.getHeight()).withSizeKeepingCentre (12, 12));
     }
     else
     {
@@ -393,7 +393,7 @@ void TitleBar::refreshPrograms()
 {
     programs.clear();
 
-    for (int i = 0; i < slProc.getNumPrograms(); i++)
+    for (int i = 0; i < slProc.getPrograms().size(); i++)
         programs.addItem (slProc.getProgramName (i), i + 1);
 
     programs.setSelectedItemIndex (slProc.getCurrentProgram(), juce::dontSendNotification);
