@@ -12748,14 +12748,21 @@
       <type></type>
       <name>SVGButton</name>
       <anchorfile>classSVGButton.html</anchorfile>
-      <anchor>a77965e7383756af3111dbc6502b950d1</anchor>
-      <arglist>(const juce::String &amp;name, const juce::String &amp;rawSVG_)</arglist>
+      <anchor>ab806ddd7a689e4f585f660292b01ca9a</anchor>
+      <arglist>(const juce::String &amp;name, const juce::String &amp;rawSVG_, int inset_=0)</arglist>
     </member>
     <member kind="variable">
       <type>juce::String</type>
       <name>rawSVG</name>
       <anchorfile>classSVGButton.html</anchorfile>
       <anchor>a28a28987c8f1ff36f0581881230926ef</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>inset</name>
+      <anchorfile>classSVGButton.html</anchorfile>
+      <anchor>ae66b6c13532b53657e2943467220ef61</anchor>
       <arglist></arglist>
     </member>
   </compound>

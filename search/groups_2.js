@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['formats_3139',['formats',['../group__gin__graphics-formats.html',1,'(Global Namespace)'],['../group__gin__webp-formats.html',1,'(Global Namespace)']]]
+  ['formats_3144',['formats',['../group__gin__graphics-formats.html',1,'(Global Namespace)'],['../group__gin__webp-formats.html',1,'(Global Namespace)']]]
 ];
