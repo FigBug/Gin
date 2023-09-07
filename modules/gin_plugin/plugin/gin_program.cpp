@@ -38,7 +38,8 @@ void Program::saveProcessor (Processor& p)
     auto& params = p.getPluginParameters();
     for (auto param : params)
         if (! param->isMetaParameter())
-            states.add (param->getState());
+            if (! juce::approximatelyEqual (param->getUserDefaultValue(), param->getUserValue()))
+                states.add (param->getState());
 }
 
 juce::File Program::getPresetFile (juce::File programDir)
