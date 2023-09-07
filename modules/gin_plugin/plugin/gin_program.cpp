@@ -9,9 +9,9 @@ void Program::loadProcessor (Processor& p)
     p.state.removeAllProperties (nullptr);
     p.state.removeAllChildren (nullptr);
 
-    if (valueTree.isNotEmpty())
+    if (stateXml.isNotEmpty())
     {
-        juce::XmlDocument treeDoc (valueTree);
+        juce::XmlDocument treeDoc (stateXml);
         if (std::unique_ptr<juce::XmlElement> vtE = treeDoc.getDocumentElement())
         {
             auto srcState = juce::ValueTree::fromXml (*vtE);
@@ -33,7 +33,7 @@ void Program::saveProcessor (Processor& p)
     states.clear();
 
     if (p.state.isValid())
-        valueTree = p.state.toXmlString();
+        stateXml = p.state.toXmlString();
 
     auto& params = p.getPluginParameters();
     for (auto param : params)
@@ -53,9 +53,9 @@ void Program::loadFromFile (juce::File f)
         author = rootE->getStringAttribute ("author");
         tags = juce::StringArray::fromTokens (rootE->getStringAttribute ("tags"), " ", "");
 
-        valueTree = rootE->getStringAttribute ("valueTree");
+        stateXml = rootE->getStringAttribute ("valueTree");
 
-        juce::XmlElement* paramE = rootE->getChildByName ("param");
+        auto paramE = rootE->getChildByName ("param");
         while (paramE)
         {
             juce::String uid = paramE->getStringAttribute ("uid");
@@ -66,7 +66,7 @@ void Program::loadFromFile (juce::File f)
             state.value = val;
             states.add (state);
 
-            paramE = paramE->getNextElementWithTagName("param");
+            paramE = paramE->getNextElementWithTagName ("param");
         }
     }
 }
@@ -78,11 +78,11 @@ void Program::saveToDir (juce::File f)
     rootE->setAttribute("name", name);
     rootE->setAttribute ("author", author);
     rootE->setAttribute ("tags", tags.joinIntoString (" "));
-    rootE->setAttribute ("valueTree", valueTree);
+    rootE->setAttribute ("valueTree", stateXml);
 
     for (Parameter::ParamState state : states)
     {
-        juce::XmlElement* paramE = new juce::XmlElement ("param");
+        auto paramE = new juce::XmlElement ("param");
 
         paramE->setAttribute ("uid", state.uid);
         paramE->setAttribute ("val", state.value);

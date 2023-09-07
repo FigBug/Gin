@@ -22,7 +22,7 @@ public:
     juce::String name;
     juce::String author;
     juce::StringArray tags;
-    juce::String valueTree;
+    juce::String stateXml;
     juce::Array<Parameter::ParamState> states;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Program)
