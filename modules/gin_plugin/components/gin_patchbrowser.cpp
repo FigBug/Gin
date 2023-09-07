@@ -114,7 +114,7 @@ void PatchBrowser::editPreset (int row)
     w->addButton ("OK", 1, juce::KeyPress (juce::KeyPress::returnKey));
     w->addButton ("Cancel", 0, juce::KeyPress (juce::KeyPress::escapeKey));
 
-    w->runAsync (*ed, [this, w, row] (int ret)
+    w->runAsync (*ed, [this, w, p] (int ret)
     {
         w->setVisible (false);
         if (ret == 1)
@@ -136,12 +136,11 @@ void PatchBrowser::editPreset (int row)
             }
             else if (txt.isNotEmpty())
             {
-                auto& programs = proc.getPrograms();
-                programs[row]->deleteFromDir (proc.getProgramDirectory());
-                programs[row]->name = txt;
-                programs[row]->tags = juce::StringArray::fromTokens (tag, " ", "");
-                programs[row]->author = aut;
-                programs[row]->saveToDir (proc.getProgramDirectory());
+                p->deleteFromDir (proc.getProgramDirectory());
+                p->name = txt;
+                p->tags = juce::StringArray::fromTokens (tag, " ", "");
+                p->author = aut;
+                p->saveToDir (proc.getProgramDirectory());
 
                 proc.updateHostDisplay();
                 proc.sendChangeMessage();
@@ -265,15 +264,15 @@ void PatchBrowser::PresetsModel::listBoxItemClicked (int row, const juce::MouseE
     juce::PopupMenu m;
     m.setLookAndFeel (&owner.getLookAndFeel());
     
-   #if JUCE_MAC
-    m.addItem ("Reveal in finder", [f] { f.revealToUser(); });
-   #elif JUCE_WINDOWS
-    m.addItem ("Show in Explorer", [f] { f.revealToUser(); });
-   #else
-    m.addItem ("Show file", [f] { f.revealToUser(); });
-   #endif
+    m.addItem ("Edit Preset...", [this, row] { owner.editPreset (row); });
     
-    m.addItem ("Edit Preset", [this, row] { owner.editPreset (row); });
+   #if JUCE_MAC
+    m.addItem ("Reveal in finder...", [f] { f.revealToUser(); });
+   #elif JUCE_WINDOWS
+    m.addItem ("Show in Explorer...", [f] { f.revealToUser(); });
+   #else
+    m.addItem ("Show file...", [f] { f.revealToUser(); });
+   #endif
     
     m.showMenuAsync ({});
 }
