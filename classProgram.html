@@ -81,12 +81,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9b90c3645e8e2cad9f006a2373901e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f805c78d2f7a4ffbd0a98b6435eef0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgram.html#a6f805c78d2f7a4ffbd0a98b6435eef0a">saveProcessor</a> (<a class="el" href="classProcessor.html">Processor</a> &amp;p)</td></tr>
 <tr class="separator:a6f805c78d2f7a4ffbd0a98b6435eef0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe908b7cbe82130a768c2b080c96aeb7"><td class="memItemLeft" align="right" valign="top">juce::File&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgram.html#abe908b7cbe82130a768c2b080c96aeb7">getPresetFile</a> (juce::File programDir)</td></tr>
+<tr class="separator:abe908b7cbe82130a768c2b080c96aeb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00c563471f7d8b81fd534193c0baa6d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgram.html#a00c563471f7d8b81fd534193c0baa6d6">loadFromFile</a> (juce::File f)</td></tr>
 <tr class="separator:a00c563471f7d8b81fd534193c0baa6d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72eeaa3511a33b3d4bbb7b480029f9ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgram.html#a72eeaa3511a33b3d4bbb7b480029f9ae">saveToDir</a> (juce::File f)</td></tr>
-<tr class="separator:a72eeaa3511a33b3d4bbb7b480029f9ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a036687ead06a204df0e772821bc861bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgram.html#a036687ead06a204df0e772821bc861bf">deleteFromDir</a> (juce::File f)</td></tr>
-<tr class="separator:a036687ead06a204df0e772821bc861bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94c8e99d3bbe16b666753511a0453581"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgram.html#a94c8e99d3bbe16b666753511a0453581">saveToDir</a> (juce::File programDir)</td></tr>
+<tr class="separator:a94c8e99d3bbe16b666753511a0453581"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06c512a7a2a5270f02456cc1df08abba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgram.html#a06c512a7a2a5270f02456cc1df08abba">deleteFromDir</a> (juce::File programDir)</td></tr>
+<tr class="separator:a06c512a7a2a5270f02456cc1df08abba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -166,6 +168,24 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="abe908b7cbe82130a768c2b080c96aeb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe908b7cbe82130a768c2b080c96aeb7">&#9670;&nbsp;</a></span>getPresetFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::File Program::getPresetFile </td>
+          <td>(</td>
+          <td class="paramtype">juce::File&#160;</td>
+          <td class="paramname"><em>programDir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a00c563471f7d8b81fd534193c0baa6d6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a00c563471f7d8b81fd534193c0baa6d6">&#9670;&nbsp;</a></span>loadFromFile()</h2>
 
@@ -184,8 +204,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a72eeaa3511a33b3d4bbb7b480029f9ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72eeaa3511a33b3d4bbb7b480029f9ae">&#9670;&nbsp;</a></span>saveToDir()</h2>
+<a id="a94c8e99d3bbe16b666753511a0453581"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94c8e99d3bbe16b666753511a0453581">&#9670;&nbsp;</a></span>saveToDir()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -194,7 +214,7 @@ Public Attributes</h2></td></tr>
           <td class="memname">void Program::saveToDir </td>
           <td>(</td>
           <td class="paramtype">juce::File&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
+          <td class="paramname"><em>programDir</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -202,8 +222,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a036687ead06a204df0e772821bc861bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a036687ead06a204df0e772821bc861bf">&#9670;&nbsp;</a></span>deleteFromDir()</h2>
+<a id="a06c512a7a2a5270f02456cc1df08abba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06c512a7a2a5270f02456cc1df08abba">&#9670;&nbsp;</a></span>deleteFromDir()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -212,7 +232,7 @@ Public Attributes</h2></td></tr>
           <td class="memname">void Program::deleteFromDir </td>
           <td>(</td>
           <td class="paramtype">juce::File&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
+          <td class="paramname"><em>programDir</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -297,7 +317,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 7 2023 03:27:42 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Sep 7 2023 04:17:53 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

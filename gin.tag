@@ -9610,6 +9610,13 @@
       <anchor>af622c9352f699990659deda9230a5900</anchor>
       <arglist>(juce::Graphics &amp;g) override</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>editPreset</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>aa9bab287a2d636a198a54d5f7c627a51</anchor>
+      <arglist>(int row)</arglist>
+    </member>
     <member kind="variable">
       <type>Processor &amp;</type>
       <name>proc</name>
@@ -10177,6 +10184,13 @@
       <anchor>a8cc3194c2da68f867bcf24aa78384bcd</anchor>
       <arglist>(int row, const juce::MouseEvent &amp;) override</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>listBoxItemClicked</name>
+      <anchorfile>structPatchBrowser_1_1PresetsModel.html</anchorfile>
+      <anchor>a8b42d0749419eaf3e8086db1a4b4cc01</anchor>
+      <arglist>(int row, const juce::MouseEvent &amp;e) override</arglist>
+    </member>
     <member kind="variable">
       <type>PatchBrowser &amp;</type>
       <name>owner</name>
@@ -10355,6 +10369,13 @@
       <anchorfile>classProcessor.html</anchorfile>
       <anchor>a04c4c0dca9f2560f99adea0ee7618db8</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Program *</type>
+      <name>getProgram</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>aa47592a3687da6f536476279af73181a</anchor>
+      <arglist>(const juce::String &amp;name)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -10542,13 +10563,6 @@
       <anchorfile>classProcessorEditor.html</anchorfile>
       <anchor>aab2a5800a71626b039a05dac4ec771a0</anchor>
       <arglist>() override</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>refreshPrograms</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>acfa6525c7af7ab451c59d25527ddebde</anchor>
-      <arglist>()</arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>std::unique_ptr&lt; UpdateChecker &gt;</type>
@@ -10832,6 +10846,13 @@
       <arglist>(Processor &amp;p)</arglist>
     </member>
     <member kind="function">
+      <type>juce::File</type>
+      <name>getPresetFile</name>
+      <anchorfile>classProgram.html</anchorfile>
+      <anchor>abe908b7cbe82130a768c2b080c96aeb7</anchor>
+      <arglist>(juce::File programDir)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>loadFromFile</name>
       <anchorfile>classProgram.html</anchorfile>
@@ -10842,15 +10863,15 @@
       <type>void</type>
       <name>saveToDir</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>a72eeaa3511a33b3d4bbb7b480029f9ae</anchor>
-      <arglist>(juce::File f)</arglist>
+      <anchor>a94c8e99d3bbe16b666753511a0453581</anchor>
+      <arglist>(juce::File programDir)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>deleteFromDir</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>a036687ead06a204df0e772821bc861bf</anchor>
-      <arglist>(juce::File f)</arglist>
+      <anchor>a06c512a7a2a5270f02456cc1df08abba</anchor>
+      <arglist>(juce::File programDir)</arglist>
     </member>
     <member kind="variable">
       <type>juce::String</type>
