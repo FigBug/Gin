@@ -10875,9 +10875,9 @@
     </member>
     <member kind="variable">
       <type>juce::String</type>
-      <name>valueTree</name>
+      <name>stateXml</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>ae5df2a7c91a9814b63c9224106492da4</anchor>
+      <anchor>a18aec1d42d5b0065c349bff5541b8835</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
