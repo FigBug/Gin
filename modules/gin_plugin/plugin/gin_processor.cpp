@@ -235,6 +235,15 @@ void Processor::setCurrentProgram (int index)
     }
 }
 
+Program* Processor::getProgram (const juce::String& name)
+{
+    for (auto p : programs)
+        if (p->name == name)
+            return p;
+    
+    return nullptr;
+}
+
 void Processor::setCurrentProgram (juce::String name)
 {
     int index = 0;

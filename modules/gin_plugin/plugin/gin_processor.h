@@ -97,6 +97,7 @@ public:
     int getNumPrograms() override;
     int getCurrentProgram() override;
     const juce::OwnedArray<Program>& getPrograms()    { return programs; }
+    Program* getProgram (const juce::String& name);
     void setCurrentProgram (juce::String name);
     void setCurrentProgram (int index) override;
     const juce::String getProgramName (int index) override;

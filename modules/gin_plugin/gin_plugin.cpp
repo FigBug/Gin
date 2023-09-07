@@ -24,6 +24,7 @@ namespace gin
 
 #include "components/gin_assets.cpp"
 #include "components/gin_plugineditor.cpp"
+#include "components/gin_patchbrowser.cpp"
 #include "components/gin_adsrcomponent.cpp"
 #include "components/gin_gateeffectcomponent.cpp"
 #include "components/gin_lfocomponent.cpp"

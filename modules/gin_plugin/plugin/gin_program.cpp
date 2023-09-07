@@ -41,6 +41,11 @@ void Program::saveProcessor (Processor& p)
             states.add (param->getState());
 }
 
+juce::File Program::getPresetFile (juce::File programDir)
+{
+    return programDir.getChildFile (juce::File::createLegalFileName (name) + ".xml");
+}
+
 void Program::loadFromFile (juce::File f)
 {
     juce::XmlDocument doc (f);

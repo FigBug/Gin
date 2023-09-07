@@ -15,9 +15,10 @@ public:
     void loadProcessor (Processor& p);
     void saveProcessor (Processor& p);
 
+    juce::File getPresetFile (juce::File programDir);
     void loadFromFile (juce::File f);
-    void saveToDir (juce::File f);
-    void deleteFromDir (juce::File f);
+    void saveToDir (juce::File programDir);
+    void deleteFromDir (juce::File programDir);
 
     juce::String name;
     juce::String author;

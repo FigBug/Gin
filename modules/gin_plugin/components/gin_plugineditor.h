@@ -244,6 +244,4 @@ protected:
 
     TitleBar titleBar { *this, slProc };
     PatchBrowser patchBrowser { slProc };
-
-    void refreshPrograms();
 };
