@@ -9617,6 +9617,13 @@
       <anchor>aa9bab287a2d636a198a54d5f7c627a51</anchor>
       <arglist>(int row)</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>deletePreset</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>a692e35311b3736582e36a3dd60cdf95d</anchor>
+      <arglist>(int row)</arglist>
+    </member>
     <member kind="variable">
       <type>Processor &amp;</type>
       <name>proc</name>

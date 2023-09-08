@@ -237,10 +237,9 @@ var searchData=
   ['svgbutton_1327',['SVGButton',['../classSVGButton.html#ab806ddd7a689e4f585f660292b01ca9a',1,'SVGButton::SVGButton()'],['../classSVGButton.html',1,'SVGButton']]],
   ['svgpluginbutton_1328',['SVGPluginButton',['../classSVGPluginButton.html',1,'SVGPluginButton'],['../classSVGPluginButton.html#a47c7b0570ab1759d2f0e58f90590329d',1,'SVGPluginButton::SVGPluginButton()']]],
   ['switch_1329',['Switch',['../classSwitch.html',1,'Switch'],['../classSwitch.html#ab2b13d51b74f2d3421a250e933cf697c',1,'Switch::Switch()']]],
-  ['synthesiser_1330',['Synthesiser',['../classSynthesiser.html',1,'']]],
+  ['synthesiser_1330',['Synthesiser',['../classSynthesiser.html',1,'Synthesiser'],['../classSynthesiser.html#a8c313d6f1fa875790e5c79dc621ee437',1,'Synthesiser::Synthesiser()']]],
   ['synthesiser_1331',['synthesiser',['../classSynthesiserUsage.html#aab0e60a078f566eefd3c2de30e987486',1,'SynthesiserUsage']]],
-  ['synthesiser_1332',['Synthesiser',['../classSynthesiser.html#a8c313d6f1fa875790e5c79dc621ee437',1,'Synthesiser']]],
-  ['synthesiserusage_1333',['SynthesiserUsage',['../classSynthesiserUsage.html',1,'SynthesiserUsage'],['../classSynthesiserUsage.html#ae37e6d848cf06acd4d3795c7d86c62cd',1,'SynthesiserUsage::SynthesiserUsage()']]],
-  ['synthesiservoice_1334',['SynthesiserVoice',['../classSynthesiserVoice.html',1,'']]],
-  ['systemsemaphore_1335',['SystemSemaphore',['../classSystemSemaphore.html',1,'SystemSemaphore'],['../classSystemSemaphore.html#ae7d9c999757639af86a49f838f862298',1,'SystemSemaphore::SystemSemaphore()']]]
+  ['synthesiserusage_1332',['SynthesiserUsage',['../classSynthesiserUsage.html',1,'SynthesiserUsage'],['../classSynthesiserUsage.html#ae37e6d848cf06acd4d3795c7d86c62cd',1,'SynthesiserUsage::SynthesiserUsage()']]],
+  ['synthesiservoice_1333',['SynthesiserVoice',['../classSynthesiserVoice.html',1,'']]],
+  ['systemsemaphore_1334',['SystemSemaphore',['../classSystemSemaphore.html',1,'SystemSemaphore'],['../classSystemSemaphore.html#ae7d9c999757639af86a49f838f862298',1,'SystemSemaphore::SystemSemaphore()']]]
 ];
