@@ -423,8 +423,8 @@ public:
 
     void paint (juce::Graphics& g) override
     {
-        g.setColour (juce::Colours::white);
-        g.setFont (12);
+        g.setColour (findColour (PluginLookAndFeel::grey60ColourId, true));
+        g.setFont (11);
 
         auto rc = getLocalBounds().reduced (2);
         int h = rc.getHeight();
@@ -433,7 +433,7 @@ public:
         g.drawText (juce::String (voices), rc.removeFromLeft (int (h * 1.5)), juce::Justification::centred);
 
         g.fillPath (cpuPath, cpuPath.getTransformToScaleToFit (rc.removeFromLeft (h).toFloat(), true));
-        g.drawText (juce::String (cpu), rc.removeFromLeft (int (h * 1.5)), juce::Justification::centred);
+        g.drawText (juce::String (cpu) +"%", rc.removeFromLeft (int (h * 1.5)), juce::Justification::centred);
     }
 
     Synthesiser& synthesiser;

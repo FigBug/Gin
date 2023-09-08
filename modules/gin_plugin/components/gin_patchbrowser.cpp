@@ -97,6 +97,27 @@ void PatchBrowser::paint (juce::Graphics& g)
     g.fillAll (findColour (PluginLookAndFeel::matte1ColourId));
 }
 
+void PatchBrowser::deletePreset (int row)
+{
+    auto p = proc.getProgram (currentPresets[row]);
+    if (p == nullptr)
+        return;
+    
+    auto ed = findParentComponentOfClass<ProcessorEditor>();
+    
+    auto w = std::make_shared<gin::PluginAlertWindow> ("Delete preset '" + p->name + "'?", "", juce::AlertWindow::NoIcon, getParentComponent());
+    w->addButton ("Yes", 1, juce::KeyPress (juce::KeyPress::returnKey));
+    w->addButton ("No", 0, juce::KeyPress (juce::KeyPress::escapeKey));
+    w->setLookAndFeel (&getLookAndFeel());
+
+    w->runAsync (*ed, [this, w, p] (int r)
+    {
+        w->setVisible (false);
+        if (r == 1)
+            proc.deleteProgram (proc.getPrograms().indexOf (p));
+    });
+}
+
 void PatchBrowser::editPreset (int row)
 {
     auto p = proc.getProgram (currentPresets[row]);
@@ -114,7 +135,7 @@ void PatchBrowser::editPreset (int row)
     w->addButton ("OK", 1, juce::KeyPress (juce::KeyPress::returnKey));
     w->addButton ("Cancel", 0, juce::KeyPress (juce::KeyPress::escapeKey));
 
-    w->runAsync (*ed, [this, w, p] (int ret)
+    w->runAsync (*ed, [this, w, p, ed] (int ret)
     {
         w->setVisible (false);
         if (ret == 1)
@@ -129,7 +150,7 @@ void PatchBrowser::editPreset (int row)
                 wc->addButton ("OK", 1, juce::KeyPress (juce::KeyPress::returnKey));
                 wc->setLookAndFeel (proc.lf.get());
 
-                wc->runAsync (*getParentComponent(), [wc] (int)
+                wc->runAsync (*ed, [wc] (int)
                 {
                     wc->setVisible (false);
                 });
@@ -265,6 +286,9 @@ void PatchBrowser::PresetsModel::listBoxItemClicked (int row, const juce::MouseE
     m.setLookAndFeel (&owner.getLookAndFeel());
     
     m.addItem ("Edit Preset...", [this, row] { owner.editPreset (row); });
+    m.addItem ("Delete Preset...", [this, row] { owner.deletePreset (row); });
+    
+    m.addSeparator();
     
    #if JUCE_MAC
     m.addItem ("Reveal in finder...", [f] { f.revealToUser(); });

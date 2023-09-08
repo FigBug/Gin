@@ -11,6 +11,7 @@ public:
     void paint (juce::Graphics& g) override;
     
     void editPreset (int row);
+    void deletePreset (int row);
 
     Processor& proc;
 
