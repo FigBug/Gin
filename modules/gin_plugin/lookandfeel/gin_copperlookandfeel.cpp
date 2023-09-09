@@ -25,9 +25,11 @@ CopperLookAndFeel::CopperLookAndFeel()
     setColour (WavetableComponent::activeWaveColourId, juce::Colours::yellow);
 
     setColour (juce::BubbleComponent::backgroundColourId, findColour (backgroundColourId));
-    setColour (juce::BubbleComponent::outlineColourId, findColour (grey90ColourId));
+    setColour (juce::BubbleComponent::outlineColourId, findColour (grey45ColourId));
+    
+    setColour (juce::TooltipWindow::textColourId, findColour (grey60ColourId));
 
-    setColour (juce::ScrollBar::thumbColourId, findColour (grey45ColourId));
+    setColour (juce::ScrollBar::thumbColourId, findColour (grey60ColourId));
 
     setColour (juce::MidiKeyboardComponent::whiteNoteColourId, juce::Colours::white.withAlpha (0.8f));
     setColour (juce::MidiKeyboardComponent::blackNoteColourId, juce::Colours::black.withAlpha (0.8f));

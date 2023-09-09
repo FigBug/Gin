@@ -9,6 +9,10 @@ Knob::Knob (Parameter* p, bool fromCentre)
     addAndMakeVisible (value);
     addAndMakeVisible (knob);
     addChildComponent (modDepthSlider);
+    
+    modDepthSlider.setRange (-1.0, 1.0, 0.01);
+    modDepthSlider.setPopupDisplayEnabled (true, true, findParentComponentOfClass<juce::AudioProcessorEditor>());
+    modDepthSlider.setDoubleClickReturnValue (true, 0.0);
 
     knob.setTitle (parameter->getName (100));
     knob.setDoubleClickReturnValue (true, parameter->getUserDefaultValue());
@@ -285,7 +289,7 @@ void Knob::mouseDrag (const juce::MouseEvent& e)
 
 bool Knob::isInterestedInDragSource (const SourceDetails& sd)
 {
-    if (parameter && parameter->getModMatrix())
+    if (isEnabled() && parameter && parameter->getModMatrix())
         return sd.description.toString().startsWith ("modSrc");
 
     return false;

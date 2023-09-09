@@ -129,7 +129,7 @@ private:
         auto rc = getLocalBounds().toFloat().reduced (1.5f);
         g.fillEllipse (rc);
 
-        if (auto v = float (getValue()); v > 0.0f)
+        if (auto v = float (getValue()); v > 0.0f || v < 0.0f)
         {
             g.setColour (findColour (PluginLookAndFeel::accentColourId, true).withAlpha (0.9f));
 
@@ -274,6 +274,7 @@ public:
     ModMatrixBox (gin::Processor& p, ModMatrix& m)
         : proc (p), modMatrix (m)
     {
+        setName ("matrix");
         setModel (this);
         setRowHeight (16);
         refresh();
@@ -334,9 +335,13 @@ private:
             addAndMakeVisible (src);
             addAndMakeVisible (dst);
 
-            depth.setRange (-1.0, 1.0, juce::dontSendNotification);
+            depth.setRange (-1.0, 1.0, 0.01);
             depth.getProperties().set ("fromCentre", true);
             depth.addListener (this);
+            depth.setSliderSnapsToMousePosition (false);
+            depth.setMouseDragSensitivity (750);
+            depth.setPopupDisplayEnabled (true, true, findParentComponentOfClass<juce::AudioProcessorEditor>());
+            depth.setDoubleClickReturnValue (true, 0.0);
 
             deleteButton.onClick = [this]
             {
