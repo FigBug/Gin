@@ -10902,10 +10902,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>juce::String</type>
-      <name>stateXml</name>
+      <type>juce::ValueTree</type>
+      <name>state</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>a18aec1d42d5b0065c349bff5541b8835</anchor>
+      <anchor>ada231f5b769b187f0368b1013f128b98</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
