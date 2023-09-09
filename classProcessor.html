@@ -78,9 +78,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab4b297f2d055f3316918d3e23081a45a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ab4b297f2d055f3316918d3e23081a45a">Processor</a> (bool <a class="el" href="classProcessor.html#a22e869ee49d974ad0ee7ee81961ab88f">init</a>=true)</td></tr>
-<tr class="memdesc:ab4b297f2d055f3316918d3e23081a45a"><td class="mdescLeft">&#160;</td><td class="mdescRight">If you override any virtual functions, they won't get called by the constructor.  <a href="classProcessor.html#ab4b297f2d055f3316918d3e23081a45a">More...</a><br /></td></tr>
-<tr class="separator:ab4b297f2d055f3316918d3e23081a45a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab81effca8d8388ffd63819b3ea77acec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ab81effca8d8388ffd63819b3ea77acec">Processor</a> (bool <a class="el" href="classProcessor.html#a22e869ee49d974ad0ee7ee81961ab88f">init</a>=true, <a class="el" href="classProcessorOptions.html">ProcessorOptions</a>={})</td></tr>
+<tr class="memdesc:ab81effca8d8388ffd63819b3ea77acec"><td class="mdescLeft">&#160;</td><td class="mdescRight">If you override any virtual functions, they won't get called by the constructor.  <a href="classProcessor.html#ab81effca8d8388ffd63819b3ea77acec">More...</a><br /></td></tr>
+<tr class="separator:ab81effca8d8388ffd63819b3ea77acec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d7c16d172be09d3bfb4df3519d21b31"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a3d7c16d172be09d3bfb4df3519d21b31">~Processor</a> () override</td></tr>
 <tr class="separator:a3d7c16d172be09d3bfb4df3519d21b31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22e869ee49d974ad0ee7ee81961ab88f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a22e869ee49d974ad0ee7ee81961ab88f">init</a> ()</td></tr>
@@ -150,6 +150,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a592c5f29254f169e4e1f5ce692707032"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classProcessorOptions.html">ProcessorOptions</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a592c5f29254f169e4e1f5ce692707032">processorOptions</a></td></tr>
+<tr class="separator:a592c5f29254f169e4e1f5ce692707032"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a756a634ec593cbe38c40f95e6554ee04"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classPluginLookAndFeel.html">PluginLookAndFeel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a756a634ec593cbe38c40f95e6554ee04">lf</a></td></tr>
 <tr class="separator:a756a634ec593cbe38c40f95e6554ee04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0eed0ccb9cccd2bc8a0d218fc42488b5"><td class="memItemLeft" align="right" valign="top">std::map&lt; juce::String, gin::Parameter * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a0eed0ccb9cccd2bc8a0d218fc42488b5">parameterMap</a></td></tr>
@@ -171,8 +173,8 @@ Protected Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A process with internal and external params. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ab4b297f2d055f3316918d3e23081a45a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4b297f2d055f3316918d3e23081a45a">&#9670;&nbsp;</a></span>Processor()</h2>
+<a id="ab81effca8d8388ffd63819b3ea77acec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab81effca8d8388ffd63819b3ea77acec">&#9670;&nbsp;</a></span>Processor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -181,8 +183,18 @@ Protected Member Functions</h2></td></tr>
           <td class="memname">Processor::Processor </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>init</em> = <code>true</code></td><td>)</td>
+          <td class="paramname"><em>init</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classProcessorOptions.html">ProcessorOptions</a>&#160;</td>
+          <td class="paramname"> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1125,6 +1137,20 @@ Protected Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a592c5f29254f169e4e1f5ce692707032"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a592c5f29254f169e4e1f5ce692707032">&#9670;&nbsp;</a></span>processorOptions</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classProcessorOptions.html">ProcessorOptions</a> Processor::processorOptions</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a756a634ec593cbe38c40f95e6554ee04"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a756a634ec593cbe38c40f95e6554ee04">&#9670;&nbsp;</a></span>lf</h2>
 
@@ -1189,7 +1215,7 @@ Protected Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 9 2023 17:35:21 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Sat Sep 9 2023 18:13:58 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

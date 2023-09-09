@@ -1361,7 +1361,6 @@
     <name>gin_plugineditor.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
     <filename>gin__plugineditor_8h.html</filename>
-    <class kind="class">EditorOptions</class>
     <class kind="class">UpdateChecker</class>
     <class kind="class">NewsChecker</class>
     <class kind="class">ProcessorEditorBase</class>
@@ -1390,6 +1389,7 @@
     <includes id="gin__pluginlookandfeel_8h" name="gin_pluginlookandfeel.h" local="yes" imported="no">../lookandfeel/gin_pluginlookandfeel.h</includes>
     <includes id="gin__copperlookandfeel_8h" name="gin_copperlookandfeel.h" local="yes" imported="no">../lookandfeel/gin_copperlookandfeel.h</includes>
     <class kind="class">SmoothingType</class>
+    <class kind="class">ProcessorOptions</class>
     <class kind="class">Processor</class>
     <member kind="define">
       <type>#define</type>
@@ -4107,45 +4107,6 @@
       <anchorfile>classEasedValueSmoother.html</anchorfile>
       <anchor>ae5e2dc56a32512d27b6ac147ae12859f</anchor>
       <arglist>(T v)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>EditorOptions</name>
-    <filename>classEditorOptions.html</filename>
-    <member kind="variable">
-      <type>bool</type>
-      <name>useUpdateChecker</name>
-      <anchorfile>classEditorOptions.html</anchorfile>
-      <anchor>a17a30e94262ef7ef0a9d2aff3c490c99</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>bool</type>
-      <name>useNewsChecker</name>
-      <anchorfile>classEditorOptions.html</anchorfile>
-      <anchor>ab9daa4461e9eacbb8d6ff894920e74f9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>url</name>
-      <anchorfile>classEditorOptions.html</anchorfile>
-      <anchor>a217e96a7445f1a37a0e34143f6a3b6ac</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>urlTitle</name>
-      <anchorfile>classEditorOptions.html</anchorfile>
-      <anchor>a4edca669ffa2c5fd7b4c0f04c6f81f15</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::StringArray</type>
-      <name>programmingCredits</name>
-      <anchorfile>classEditorOptions.html</anchorfile>
-      <anchor>a51b4978fda5f4cf8749fe80ea3d0e877</anchor>
-      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -10213,8 +10174,8 @@
       <type></type>
       <name>Processor</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>ab4b297f2d055f3316918d3e23081a45a</anchor>
-      <arglist>(bool init=true)</arglist>
+      <anchor>ab81effca8d8388ffd63819b3ea77acec</anchor>
+      <arglist>(bool init=true, ProcessorOptions={})</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -10448,6 +10409,13 @@
       <arglist>(const void *data, int sizeInBytes) override</arglist>
     </member>
     <member kind="variable">
+      <type>const ProcessorOptions</type>
+      <name>processorOptions</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a592c5f29254f169e4e1f5ce692707032</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
       <type>std::unique_ptr&lt; PluginLookAndFeel &gt;</type>
       <name>lf</name>
       <anchorfile>classProcessor.html</anchorfile>
@@ -10505,15 +10473,15 @@
       <type></type>
       <name>ProcessorEditor</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a12c048b8275116b35d725fcf7c321bdd</anchor>
-      <arglist>(Processor &amp;, EditorOptions eo={}) noexcept</arglist>
+      <anchor>a1243029ef3210c55622ab215bb90d378</anchor>
+      <arglist>(Processor &amp;) noexcept</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>ProcessorEditor</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>abdbd03056056879c39964fa74307252f</anchor>
-      <arglist>(Processor &amp;, int cx, int cy, EditorOptions eo={}) noexcept</arglist>
+      <anchor>af0945c5f7f341f83fb7ff667696d03fb</anchor>
+      <arglist>(Processor &amp;, int cx, int cy) noexcept</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -10614,8 +10582,8 @@
       <type></type>
       <name>ProcessorEditorBase</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>a6c31dde58c00c08d3011ced43e453fc2</anchor>
-      <arglist>(Processor &amp;p, int cx_, int cy_, EditorOptions eo)</arglist>
+      <anchor>a4aa0f87f4268ac1cb146bdc71376cc89</anchor>
+      <arglist>(Processor &amp;p, int cx_, int cy_)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -10701,13 +10669,6 @@
       <anchor>a2f1f906db82e4a9741e3916a8a6c7451</anchor>
       <arglist>(bool accessible)</arglist>
     </member>
-    <member kind="function">
-      <type>const EditorOptions &amp;</type>
-      <name>getOptions</name>
-      <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>a8b1ca34f8839db655b7dc30fc9abe8c3</anchor>
-      <arglist>()</arglist>
-    </member>
     <member kind="variable">
       <type>juce::ComponentBoundsConstrainer</type>
       <name>resizeLimits</name>
@@ -10748,13 +10709,6 @@
       <name>resizer</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
       <anchor>a852dc8320bd7a08b2c2cc4214cb7ec23</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>EditorOptions</type>
-      <name>options</name>
-      <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>a5dba73da598d1460b2b3f326df8350c0</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -10825,6 +10779,101 @@
       <name>tooltipWindow</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
       <anchor>aef611bd53bf795b5e0e9b204febd4070</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>ProcessorOptions</name>
+    <filename>classProcessorOptions.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ProcessorOptions</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>a32bb47a9aa2cb95cd9766cc23b004c10</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>pluginName</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>a0b21261f8be769b37daac8f8ee3ac4a1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>devId</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>ac3669dc322348876a5c47e6e2098a77f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>developer</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>ad31c3c7b9ae9afc3d52725097d0a4527</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>pluginVersion</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>a2ce7de7b0e1185e0512e7e4d4718e347</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>updatesURL</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>a71da3924118b341db1586b4b4526f7d8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>url</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>a14ec635629b9b04b406d9e2cccdc654c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>urlTitle</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>a16bdfa5c4620c1082e654e0ed60bdb1a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>wantsMidi</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>ae4ddf636c72b90599d942d685f9ffce7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>makesMidi</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>a3e2504a011fd35e07cd6c37b2354ea59</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>useUpdateChecker</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>a1cae47f2ecd1a86e02549cf5b47fd4d0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>useNewsChecker</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>a050f3bfa588e3045b3a914715c961bc3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::StringArray</type>
+      <name>programmingCredits</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>a936b930e9a3271ae6d4e6f3201226635</anchor>
       <arglist></arglist>
     </member>
   </compound>

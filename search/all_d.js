@@ -31,13 +31,12 @@ var searchData=
   ['operator_3d_915',['operator=',['../structModSrcId.html#a1d9f52fd952b26811fc7e74a690f2c8e',1,'ModSrcId::operator=()'],['../structModDstId.html#ade6e4c1af3c4a41f6e0575e2c0846bd0',1,'ModDstId::operator=()']]],
   ['operator_3d_3d_916',['operator==',['../structModSrcId.html#ae9a0aa774f9639b59f382127602af3eb',1,'ModSrcId::operator==()'],['../structModDstId.html#a63b8ebeaadf0a9c266a36d1a4c0e3e84',1,'ModDstId::operator==()']]],
   ['operator_5b_5d_917',['operator[]',['../classSpline.html#a30255a2f77480c04928394262765df10',1,'Spline']]],
-  ['options_918',['options',['../classProcessorEditorBase.html#a5dba73da598d1460b2b3f326df8350c0',1,'ProcessorEditorBase']]],
-  ['oscillators_919',['oscillators',['../classVoicedStereoOscillator.html#a2b43a2c3228e8719d3d2a11d5d349b11',1,'VoicedStereoOscillator']]],
-  ['oscstate_920',['OscState',['../structOscState.html',1,'OscState'],['../structOscState.html#a6cdf459424576e3f91d63bc84be37b62',1,'OscState::OscState()']]],
-  ['outlinecolourid_921',['outlineColourId',['../classSingleLineTextEditor.html#a580e95f56d303528b02f91143c72f13caeddcf10206bd667dafb96511c583dfcd',1,'SingleLineTextEditor']]],
-  ['output_922',['output',['../classADSR.html#ac6b34bdf72ba654d26467433f7015bbb',1,'ADSR::output()'],['../classAnalogADSR.html#a15bcc5ef1223a2c4e9f8d3e143009370',1,'AnalogADSR::output()']]],
-  ['overlay_923',['Overlay',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a8b895d92539a718e6898ed6b053ce2ff',1,'gin_imageeffects.h']]],
-  ['overwritewithdata_924',['overwriteWithData',['../group__gin-utilities.html#ga6e2dbf5f19342f51ea56d96cb5e9e842',1,'overwriteWithData(const juce::File &amp;f, const juce::MemoryBlock &amp;data):&#160;gin_fileutilities.h'],['../group__gin-utilities.html#gae1a4b4ab413ade0e4c90ad3d26ce854b',1,'overwriteWithData(const juce::File &amp;f, const void *data, size_t size):&#160;gin_fileutilities.h']]],
-  ['overwritewithtext_925',['overwriteWithText',['../group__gin-utilities.html#ga1aac7c94939802d4c2c08d600feefa23',1,'gin_fileutilities.h']]],
-  ['owner_926',['owner',['../structPatchBrowser_1_1AuthorsModel.html#aa70603530cb3faec04b1711a7617e673',1,'PatchBrowser::AuthorsModel::owner()'],['../structPatchBrowser_1_1TagsModel.html#aba7ff3bb16cf0fb0f43d0841a4ecb6ca',1,'PatchBrowser::TagsModel::owner()'],['../structPatchBrowser_1_1PresetsModel.html#a1c3950e8b62521c5bbb278048a5b3e37',1,'PatchBrowser::PresetsModel::owner()']]]
+  ['oscillators_918',['oscillators',['../classVoicedStereoOscillator.html#a2b43a2c3228e8719d3d2a11d5d349b11',1,'VoicedStereoOscillator']]],
+  ['oscstate_919',['OscState',['../structOscState.html',1,'OscState'],['../structOscState.html#a6cdf459424576e3f91d63bc84be37b62',1,'OscState::OscState()']]],
+  ['outlinecolourid_920',['outlineColourId',['../classSingleLineTextEditor.html#a580e95f56d303528b02f91143c72f13caeddcf10206bd667dafb96511c583dfcd',1,'SingleLineTextEditor']]],
+  ['output_921',['output',['../classADSR.html#ac6b34bdf72ba654d26467433f7015bbb',1,'ADSR::output()'],['../classAnalogADSR.html#a15bcc5ef1223a2c4e9f8d3e143009370',1,'AnalogADSR::output()']]],
+  ['overlay_922',['Overlay',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a8b895d92539a718e6898ed6b053ce2ff',1,'gin_imageeffects.h']]],
+  ['overwritewithdata_923',['overwriteWithData',['../group__gin-utilities.html#ga6e2dbf5f19342f51ea56d96cb5e9e842',1,'overwriteWithData(const juce::File &amp;f, const juce::MemoryBlock &amp;data):&#160;gin_fileutilities.h'],['../group__gin-utilities.html#gae1a4b4ab413ade0e4c90ad3d26ce854b',1,'overwriteWithData(const juce::File &amp;f, const void *data, size_t size):&#160;gin_fileutilities.h']]],
+  ['overwritewithtext_924',['overwriteWithText',['../group__gin-utilities.html#ga1aac7c94939802d4c2c08d600feefa23',1,'gin_fileutilities.h']]],
+  ['owner_925',['owner',['../structPatchBrowser_1_1AuthorsModel.html#aa70603530cb3faec04b1711a7617e673',1,'PatchBrowser::AuthorsModel::owner()'],['../structPatchBrowser_1_1TagsModel.html#aba7ff3bb16cf0fb0f43d0841a4ecb6ca',1,'PatchBrowser::TagsModel::owner()'],['../structPatchBrowser_1_1PresetsModel.html#a1c3950e8b62521c5bbb278048a5b3e37',1,'PatchBrowser::PresetsModel::owner()']]]
 ];
