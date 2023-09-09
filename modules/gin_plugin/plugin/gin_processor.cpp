@@ -393,7 +393,7 @@ void Processor::getStateInformation (juce::MemoryBlock& destData)
     std::unique_ptr<juce::XmlElement> rootE (new juce::XmlElement ("state"));
 
     if (state.isValid())
-        rootE->setAttribute ("valueTree", state.toXmlString());
+        rootE->addChildElement (state.createXml().release());
 
     rootE->setAttribute ("program", currentProgram);
 
@@ -423,7 +423,14 @@ void Processor::setStateInformation (const void* data, int sizeInBytes)
     std::unique_ptr<juce::XmlElement> rootE (doc.getDocumentElement());
     if (rootE)
     {
-        if (rootE->hasAttribute ("valueTree"))
+        if (auto s = rootE->getChildByName ("state"))
+        {
+            auto srcState = juce::ValueTree::fromXml (*s);
+            state.removeAllProperties (nullptr);
+            state.removeAllChildren (nullptr);
+            state.copyPropertiesAndChildrenFrom (srcState, nullptr);
+        }
+        else if (rootE->hasAttribute ("valueTree"))
         {
             juce::String xml = rootE->getStringAttribute ("valueTree");
             juce::XmlDocument treeDoc (xml);
@@ -445,10 +452,8 @@ void Processor::setStateInformation (const void* data, int sizeInBytes)
             float  val = paramE->getStringAttribute ("val").getFloatValue();
 
             if (auto p = getParameter (uid))
-            {
                 if (! p->isMetaParameter())
                     p->setUserValue (val);
-            }
 
             paramE = paramE->getNextElementWithTagName ("param");
         }

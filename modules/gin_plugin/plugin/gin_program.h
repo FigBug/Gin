@@ -23,7 +23,9 @@ public:
     juce::String name;
     juce::String author;
     juce::StringArray tags;
-    juce::String stateXml;
+    
+    juce::ValueTree state;
+    
     juce::Array<Parameter::ParamState> states;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Program)

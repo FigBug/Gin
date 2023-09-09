@@ -9,23 +9,16 @@ void Program::loadProcessor (Processor& p)
     p.state.removeAllProperties (nullptr);
     p.state.removeAllChildren (nullptr);
 
-    if (stateXml.isNotEmpty())
-    {
-        juce::XmlDocument treeDoc (stateXml);
-        if (std::unique_ptr<juce::XmlElement> vtE = treeDoc.getDocumentElement())
-        {
-            auto srcState = juce::ValueTree::fromXml (*vtE);
-            p.state.copyPropertiesAndChildrenFrom (srcState, nullptr);
-        }
-    }
+    if (state.isValid())
+        p.state.copyPropertiesAndChildrenFrom (state, nullptr);
 
     if (w != -1) p.state.setProperty ("width", w, nullptr);
     if (h != -1) p.state.setProperty ("height", h, nullptr);
 
-    for (Parameter::ParamState state : states)
-        if (auto pp = p.getParameter (state.uid))
+    for (const auto& s : states)
+        if (auto pp = p.getParameter (s.uid))
             if (! pp->isMetaParameter())
-                pp->setUserValueNotifingHost (state.value);
+                pp->setUserValueNotifingHost (s.value);
 }
 
 void Program::saveProcessor (Processor& p)
@@ -33,7 +26,9 @@ void Program::saveProcessor (Processor& p)
     states.clear();
 
     if (p.state.isValid())
-        stateXml = p.state.toXmlString();
+        state = p.state.createCopy();
+    else
+        state = {};
 
     auto& params = p.getPluginParameters();
     for (auto param : params)
@@ -59,7 +54,15 @@ void Program::loadFromFile (juce::File f)
         author = rootE->getStringAttribute ("author");
         tags = juce::StringArray::fromTokens (rootE->getStringAttribute ("tags"), " ", "");
 
-        stateXml = rootE->getStringAttribute ("valueTree");
+        if (auto s = rootE->getChildByName ("state"))
+        {
+            state = juce::ValueTree::fromXml (*s);
+        }
+        else
+        {
+            auto stateXml = rootE->getStringAttribute ("valueTree");
+            state = juce::ValueTree::fromXml (stateXml);
+        }
 
         auto paramE = rootE->getChildByName ("param");
         while (paramE)
@@ -67,10 +70,10 @@ void Program::loadFromFile (juce::File f)
             juce::String uid = paramE->getStringAttribute ("uid");
             float  val = (float) paramE->getDoubleAttribute ("val");
 
-            Parameter::ParamState state;
-            state.uid   = uid;
-            state.value = val;
-            states.add (state);
+            Parameter::ParamState s;
+            s.uid   = uid;
+            s.value = val;
+            states.add (s);
 
             paramE = paramE->getNextElementWithTagName ("param");
         }
@@ -84,14 +87,16 @@ void Program::saveToDir (juce::File f)
     rootE->setAttribute("name", name);
     rootE->setAttribute ("author", author);
     rootE->setAttribute ("tags", tags.joinIntoString (" "));
-    rootE->setAttribute ("valueTree", stateXml);
+    
+    if (auto xml = state.createXml())
+        rootE->addChildElement (xml.release());
 
-    for (Parameter::ParamState state : states)
+    for (const auto& s : states)
     {
         auto paramE = new juce::XmlElement ("param");
 
-        paramE->setAttribute ("uid", state.uid);
-        paramE->setAttribute ("val", state.value);
+        paramE->setAttribute ("uid", s.uid);
+        paramE->setAttribute ("val", s.value);
 
         rootE->addChildElement (paramE);
     }
