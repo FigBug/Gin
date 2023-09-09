@@ -401,7 +401,7 @@ juce::File Processor::getProgramDirectory()
    #if JUCE_MAC
     juce::File dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile ("Application Support/" + processorOptions.devId + "/" + processorOptions.pluginName + "/programs");
    #else
-    juce::File dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile (+ processorOptions.devId + "/" + processorOptions.pluginName + "/programs");
+    juce::File dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile (processorOptions.devId + "/" + processorOptions.pluginName + "/programs");
    #endif
 
     if (! dir.isDirectory())
