@@ -66,6 +66,5 @@
 namespace gin
 {
 #include "formats/gin_bmpimageformat.h"
-
 #include "images/gin_imageeffects.h"
 }
