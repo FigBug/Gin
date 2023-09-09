@@ -9,7 +9,7 @@
 
 //==============================================================================
 class PropertyComponentBase : public juce::PropertyComponent,
-private juce::Value::Listener
+                              private juce::Value::Listener
 {
 public:
     PropertyComponentBase (const juce::Value& valueToControl, const juce::String& propertyName)
