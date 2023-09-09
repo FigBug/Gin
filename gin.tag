@@ -1771,15 +1771,9 @@
     <class kind="class">WavetableComponent</class>
   </compound>
   <compound kind="file">
-    <name>gin_graphics/formats/gin_webpimageformat.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_graphics/formats/</path>
-    <filename>gin__graphics_2formats_2gin__webpimageformat_8h.html</filename>
-    <class kind="class">WEBPImageFormat</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_webp/formats/gin_webpimageformat.h</name>
+    <name>gin_webpimageformat.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_webp/formats/</path>
-    <filename>gin__webp_2formats_2gin__webpimageformat_8h.html</filename>
+    <filename>gin__webpimageformat_8h.html</filename>
     <class kind="class">WEBPImageFormat</class>
   </compound>
   <compound kind="file">
@@ -14363,41 +14357,6 @@
   <compound kind="class">
     <name>WEBPImageFormat</name>
     <filename>classWEBPImageFormat.html</filename>
-    <member kind="function">
-      <type>juce::String</type>
-      <name>getFormatName</name>
-      <anchorfile>classWEBPImageFormat.html</anchorfile>
-      <anchor>a512523a82459ad3a42a50c7ebd176d2b</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>canUnderstand</name>
-      <anchorfile>classWEBPImageFormat.html</anchorfile>
-      <anchor>a1625a869b3485ebde4cbca83ee5076a7</anchor>
-      <arglist>(juce::InputStream &amp;input) override</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>usesFileExtension</name>
-      <anchorfile>classWEBPImageFormat.html</anchorfile>
-      <anchor>a1d875430f06a78fe547812ff5556bbc0</anchor>
-      <arglist>(const juce::File &amp;possibleFile) override</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>decodeImage</name>
-      <anchorfile>classWEBPImageFormat.html</anchorfile>
-      <anchor>a9ec17db624e1ed9512371a55b1ac52d9</anchor>
-      <arglist>(juce::InputStream &amp;input) override</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>writeImageToStream</name>
-      <anchorfile>classWEBPImageFormat.html</anchorfile>
-      <anchor>a7323d308a2ed305d577d7630cfafc0b8</anchor>
-      <arglist>(const juce::Image &amp;sourceImage, juce::OutputStream &amp;destStream) override</arglist>
-    </member>
     <member kind="function">
       <type>juce::String</type>
       <name>getFormatName</name>
