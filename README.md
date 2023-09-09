@@ -1,5 +1,5 @@
 # Gin
-A few useful extra classes for [JUCE](https://juce.com/) that I've come up with over the years.
+A few useful extra classes for [JUCE](https://juce.com/) that I've come up with over the years. Questions? Ask on [Discord](https://discord.gg/hCbpasqQ)
 
 Documentation:
 
