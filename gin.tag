@@ -10863,8 +10863,8 @@
       <type>void</type>
       <name>loadFromFile</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>a00c563471f7d8b81fd534193c0baa6d6</anchor>
-      <arglist>(juce::File f)</arglist>
+      <anchor>a9294c1e9c680d968c2e35276e9a2a263</anchor>
+      <arglist>(juce::File f, bool loadFully)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -10899,6 +10899,13 @@
       <name>tags</name>
       <anchorfile>classProgram.html</anchorfile>
       <anchor>acddd8235091f27410c05cf4b7694b62a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>fullyLoaded</name>
+      <anchorfile>classProgram.html</anchorfile>
+      <anchor>abda0ec5627c2cbeea0832de24dccf7f8</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">

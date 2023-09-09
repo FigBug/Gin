@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['valuesmoother_1676',['ValueSmoother',['../classValueSmoother.html',1,'']]],
-  ['valuetreeobject_1677',['ValueTreeObject',['../classValueTreeObject.html',1,'']]],
-  ['voicedoscillatorparams_1678',['VoicedOscillatorParams',['../structVoicedOscillatorParams.html',1,'']]],
-  ['voicedstereooscillator_1679',['VoicedStereoOscillator',['../classVoicedStereoOscillator.html',1,'']]],
-  ['voicedstereooscillator_3c_20stereooscillator_2c_20voicedstereooscillatorparams_20_3e_1680',['VoicedStereoOscillator&lt; StereoOscillator, VoicedStereoOscillatorParams &gt;',['../classVoicedStereoOscillator.html',1,'']]],
-  ['voicedstereooscillator_3c_20wtoscillator_2c_20wtvoicedstereooscillatorparams_20_3e_1681',['VoicedStereoOscillator&lt; WTOscillator, WTVoicedStereoOscillatorParams &gt;',['../classVoicedStereoOscillator.html',1,'']]],
-  ['voicedstereooscillatorparams_1682',['VoicedStereoOscillatorParams',['../structVoicedStereoOscillatorParams.html',1,'']]]
+  ['valuesmoother_1675',['ValueSmoother',['../classValueSmoother.html',1,'']]],
+  ['valuetreeobject_1676',['ValueTreeObject',['../classValueTreeObject.html',1,'']]],
+  ['voicedoscillatorparams_1677',['VoicedOscillatorParams',['../structVoicedOscillatorParams.html',1,'']]],
+  ['voicedstereooscillator_1678',['VoicedStereoOscillator',['../classVoicedStereoOscillator.html',1,'']]],
+  ['voicedstereooscillator_3c_20stereooscillator_2c_20voicedstereooscillatorparams_20_3e_1679',['VoicedStereoOscillator&lt; StereoOscillator, VoicedStereoOscillatorParams &gt;',['../classVoicedStereoOscillator.html',1,'']]],
+  ['voicedstereooscillator_3c_20wtoscillator_2c_20wtvoicedstereooscillatorparams_20_3e_1680',['VoicedStereoOscillator&lt; WTOscillator, WTVoicedStereoOscillatorParams &gt;',['../classVoicedStereoOscillator.html',1,'']]],
+  ['voicedstereooscillatorparams_1681',['VoicedStereoOscillatorParams',['../structVoicedStereoOscillatorParams.html',1,'']]]
 ];
