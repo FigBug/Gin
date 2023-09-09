@@ -226,7 +226,12 @@ void Processor::setCurrentProgram (int index)
 
     if (index >= 0 && index < programs.size())
     {
-        programs[index]->loadProcessor (*this);
+        auto p = programs[index];
+
+        if (! p->fullyLoaded )
+            p->loadFromFile (p->getPresetFile (getProgramDirectory()), true);
+
+        p->loadProcessor (*this);
         currentProgram = index;
 
         updateHostDisplay();
@@ -240,7 +245,7 @@ Program* Processor::getProgram (const juce::String& name)
     for (auto p : programs)
         if (p->name == name)
             return p;
-    
+
     return nullptr;
 }
 
@@ -251,6 +256,9 @@ void Processor::setCurrentProgram (juce::String name)
     {
         if (p->name == name)
         {
+            if (! p->fullyLoaded )
+                p->loadFromFile (p->getPresetFile (getProgramDirectory()), true);
+
             p->loadProcessor (*this);
             currentProgram = index;
 
@@ -313,7 +321,7 @@ void Processor::loadAllPrograms()
     for (auto f : programFiles)
     {
         auto program = new Program();
-        program->loadFromFile (f);
+        program->loadFromFile (f, false);
         programs.add (program);
     }
 }
@@ -327,7 +335,7 @@ void Processor::extractProgram (const juce::String& name, const juce::MemoryBloc
         f.replaceWithData (data.getData(), data.getSize());
 
         auto program = new Program();
-        program->loadFromFile (f);
+        program->loadFromFile (f, false);
         programs.add (program);
     }
 }

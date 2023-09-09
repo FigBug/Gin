@@ -1,5 +1,9 @@
 void Program::loadProcessor (Processor& p)
 {
+    jassert (fullyLoaded);
+    if (! fullyLoaded)
+        return;
+
     for (auto pp : p.getPluginParameters())
         pp->setUserValueNotifingHost (pp->getUserDefaultValue());
 
@@ -23,6 +27,8 @@ void Program::loadProcessor (Processor& p)
 
 void Program::saveProcessor (Processor& p)
 {
+    fullyLoaded = true;
+
     states.clear();
 
     if (p.state.isValid())
@@ -42,7 +48,7 @@ juce::File Program::getPresetFile (juce::File programDir)
     return programDir.getChildFile (juce::File::createLegalFileName (name) + ".xml");
 }
 
-void Program::loadFromFile (juce::File f)
+void Program::loadFromFile (juce::File f, bool loadFully)
 {
     juce::XmlDocument doc (f);
     std::unique_ptr<juce::XmlElement> rootE (doc.getDocumentElement());
@@ -54,40 +60,49 @@ void Program::loadFromFile (juce::File f)
         author = rootE->getStringAttribute ("author");
         tags = juce::StringArray::fromTokens (rootE->getStringAttribute ("tags"), " ", "");
 
-        if (auto s = rootE->getChildByName ("state"))
+        if (loadFully)
         {
-            state = juce::ValueTree::fromXml (*s);
-        }
-        else
-        {
-            auto stateXml = rootE->getStringAttribute ("valueTree");
-            state = juce::ValueTree::fromXml (stateXml);
-        }
+            fullyLoaded = true;
 
-        auto paramE = rootE->getChildByName ("param");
-        while (paramE)
-        {
-            juce::String uid = paramE->getStringAttribute ("uid");
-            float  val = (float) paramE->getDoubleAttribute ("val");
+            if (auto s = rootE->getChildByName ("state"))
+            {
+                state = juce::ValueTree::fromXml (*s);
+            }
+            else
+            {
+                auto stateXml = rootE->getStringAttribute ("valueTree");
+                state = juce::ValueTree::fromXml (stateXml);
+            }
 
-            Parameter::ParamState s;
-            s.uid   = uid;
-            s.value = val;
-            states.add (s);
+            auto paramE = rootE->getChildByName ("param");
+            while (paramE)
+            {
+                juce::String uid = paramE->getStringAttribute ("uid");
+                float  val = (float) paramE->getDoubleAttribute ("val");
 
-            paramE = paramE->getNextElementWithTagName ("param");
+                Parameter::ParamState s;
+                s.uid   = uid;
+                s.value = val;
+                states.add (s);
+
+                paramE = paramE->getNextElementWithTagName ("param");
+            }
         }
     }
 }
 
 void Program::saveToDir (juce::File f)
 {
+    jassert(fullyLoaded);
+    if (! fullyLoaded)
+        return;
+
     std::unique_ptr<juce::XmlElement> rootE (new juce::XmlElement ("state"));
 
     rootE->setAttribute("name", name);
     rootE->setAttribute ("author", author);
     rootE->setAttribute ("tags", tags.joinIntoString (" "));
-    
+
     if (auto xml = state.createXml())
         rootE->addChildElement (xml.release());
 
@@ -107,5 +122,5 @@ void Program::saveToDir (juce::File f)
 
 void Program::deleteFromDir (juce::File f)
 {
-    f.getChildFile (juce::File::createLegalFileName (name) + ".xml").deleteFile();
+    getPresetFile (f).deleteFile();
 }
