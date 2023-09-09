@@ -1,5 +1,40 @@
 //==============================================================================
-Processor::Processor (bool init_)
+ProcessorOptions::ProcessorOptions()
+{
+   #ifdef JucePlugin_Name
+    pluginName = JucePlugin_Name;
+   #endif
+
+   #ifdef JucePlugin_VersionString
+    pluginVersion = JucePlugin_VersionString;
+   #endif
+
+   #ifdef JucePlugin_Manufacturer
+    developer = JucePlugin_Manufacturer;
+   #endif
+
+   #ifdef JucePlugin_ManufacturerWebsite
+    auto tokens = juce::StringArray::fromTokens (juce::URL (JucePlugin_ManufacturerWebsite).getDomain(), ".", "");
+    std::reverse (tokens.strings.begin(), tokens.strings.end());
+    devId = tokens.joinIntoString (".");
+
+    url = JucePlugin_ManufacturerWebsite;
+    urlTitle = juce::String ("Visit ") + url;
+    updatesURL = juce::String (JucePlugin_ManufacturerWebsite) + "updates.xml";
+   #endif
+
+   #if JucePlugin_WantsMidiInput
+    wantsMidi = true;
+   #endif
+
+   #if JucePlugin_ProducesMidiOutput
+    makesMidi = true;
+   #endif
+}
+
+//==============================================================================
+Processor::Processor (bool init_, ProcessorOptions po)
+    : processorOptions (po)
 {
     lf = std::make_unique<gin::CopperLookAndFeel>();
 
@@ -174,29 +209,17 @@ const juce::Array<gin::Parameter*>& Processor::getPluginParameters()
 //==============================================================================
 const juce::String Processor::getName() const
 {
-   #ifdef JucePlugin_Name
-    return JucePlugin_Name;
-   #else
-    return {};
-   #endif
+    return processorOptions.pluginName;
 }
 
 bool Processor::acceptsMidi() const
 {
-   #if JucePlugin_WantsMidiInput
-    return true;
-   #else
-    return false;
-   #endif
+    return processorOptions.wantsMidi;
 }
 
 bool Processor::producesMidi() const
 {
-   #if JucePlugin_ProducesMidiOutput
-    return true;
-   #else
-    return false;
-   #endif
+    return processorOptions.makesMidi;
 }
 
 double Processor::getTailLengthSeconds() const
@@ -375,20 +398,15 @@ void Processor::deleteProgram (int index)
 
 juce::File Processor::getProgramDirectory()
 {
-  #ifdef JucePlugin_Name
    #if JUCE_MAC
-    juce::File dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile ("Application Support/com.socalabs/" JucePlugin_Name "/programs");
+    juce::File dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile ("Application Support/" + processorOptions.devId + "/" + processorOptions.pluginName + "/programs");
    #else
-    juce::File dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile ("com.socalabs/" JucePlugin_Name "/programs");
+    juce::File dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile (+ processorOptions.devId + "/" + processorOptions.pluginName + "/programs");
    #endif
-  #else
-    // Shouldn't be using processor in something that isn't a plugin
-    jassertfalse;
-    juce::File dir;
-  #endif
 
-    if (!dir.isDirectory())
+    if (! dir.isDirectory())
         dir.createDirectory();
+
     return dir;
 }
 

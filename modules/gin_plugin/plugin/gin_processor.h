@@ -32,6 +32,39 @@ public:
     float time;
     Type type;
 };
+
+//==============================================================================
+/** Use this class to customize your plugin. If you are using a JUCE plugin
+    project, most of the defaults should be sensible. If you are including
+    a gin::Processor within another plugin or standalone application, then you
+    will need to customize this. The default constructor depends on juce defines
+    only found in plugin projects.
+ */
+class ProcessorOptions
+{
+public:
+	ProcessorOptions();
+
+    juce::String    pluginName;
+    juce::String    devId;
+    juce::String    developer;
+    juce::String    pluginVersion;
+    juce::String    updatesURL;
+    juce::String    url;
+    juce::String    urlTitle;
+
+    bool wantsMidi          = false;
+    bool makesMidi          = false;
+	bool useUpdateChecker   = true;
+	bool useNewsChecker     = true;
+
+	juce::StringArray programmingCredits =
+	{
+		"Roland Rabien",
+		"RAW Material Software JUCE Framework"
+	};
+};
+
 //==============================================================================
 /** A process with internal and external params
 */
@@ -46,7 +79,7 @@ public:
      override any functions, then it's safe to pass true to the constructor and
      you don't need to call init.
      */
-    Processor (bool init = true);
+    Processor (bool init = true, ProcessorOptions = {});
     ~Processor() override;
 
     void init();
@@ -111,6 +144,8 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
 
     //==============================================================================
+
+    const ProcessorOptions processorOptions;
 
 public:
     std::unique_ptr<PluginLookAndFeel> lf;

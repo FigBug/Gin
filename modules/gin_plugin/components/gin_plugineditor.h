@@ -1,23 +1,6 @@
 #pragma once
 
 //==============================================================================
-class EditorOptions
-{
-public:
-    bool useUpdateChecker = true;
-    bool useNewsChecker = true;
-
-    juce::String url = "https://www.socalabs.com";
-    juce::String urlTitle = "Visit www.SocaLabs.com";
-
-    juce::StringArray programmingCredits =
-    {
-        "Roland Rabien",
-        "RAW Material Software JUCE Framework"
-    };
-};
-
-//==============================================================================
 class ProcessorEditor;
 
 /** Checks for plugin updates
@@ -75,8 +58,8 @@ class ProcessorEditorBase : public juce::AudioProcessorEditor
 
 {
 public:
-    ProcessorEditorBase (Processor& p, int cx_, int cy_, EditorOptions eo)
-        : AudioProcessorEditor (p), ginProcessor (p), options (eo), cx (cx_), cy (cy_)
+    ProcessorEditorBase (Processor& p, int cx_, int cy_)
+        : AudioProcessorEditor (p), ginProcessor (p), cx (cx_), cy (cy_)
     {
         juce::Desktop::getInstance().addFocusChangeListener (this);
     }
@@ -142,15 +125,11 @@ public:
 
     juce::ComponentBoundsConstrainer resizeLimits;
 
-    const EditorOptions& getOptions() { return options; }
-
 protected:
     void setGridSize (int x, int y, int extraWidthPx = 0, int extraHeightPx = 0 );
 
     Processor& ginProcessor;
     std::unique_ptr<juce::ResizableCornerComponent> resizer;
-
-    EditorOptions options;
 
     const int cx;
     const int cy;
@@ -220,8 +199,8 @@ protected:
 class ProcessorEditor : public ProcessorEditorBase
 {
 public:
-    ProcessorEditor (Processor&, EditorOptions eo = {}) noexcept;
-    ProcessorEditor (Processor&, int cx, int cy, EditorOptions eo = {}) noexcept;
+    ProcessorEditor (Processor&) noexcept;
+    ProcessorEditor (Processor&, int cx, int cy) noexcept;
     ~ProcessorEditor() override;
     
     virtual void addMenuItems (juce::PopupMenu&) {}

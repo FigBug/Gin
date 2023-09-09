@@ -5,9 +5,8 @@ UpdateChecker::UpdateChecker (gin::Processor& slProc_)
 {
     if (auto props = slProc.getSettings())
     {
-       #ifdef JucePlugin_Name
-        juce::String url = props->getValue (JucePlugin_Name "_updateUrl");
-        int last   = props->getIntValue (JucePlugin_Name "_lastUpdateCheck");
+        juce::String url = props->getValue (slProc.processorOptions.pluginName + "_updateUrl");
+        int last   = props->getIntValue (slProc.processorOptions.pluginName + "_lastUpdateCheck");
 
         if (url.isNotEmpty())
         {
@@ -18,7 +17,6 @@ UpdateChecker::UpdateChecker (gin::Processor& slProc_)
         {
             startTimer (juce::Random::getSystemRandom().nextInt ({1500, 2500}));
         }
-       #endif
     }
 }
 
@@ -37,14 +35,13 @@ void UpdateChecker::timerCallback()
 void UpdateChecker::run()
 {
   #if ! JUCE_IOS
-   #ifdef JucePlugin_Name
-    juce::URL versionsUrl = juce::URL ("https://socalabs.com/version.xml").withParameter ("plugin", JucePlugin_Name).withParameter ("version", JucePlugin_VersionString);
+    juce::URL versionsUrl = juce::URL (slProc.processorOptions.updatesURL).withParameter ("plugin", slProc.processorOptions.pluginName).withParameter ("version", slProc.processorOptions.pluginVersion);
     juce::XmlDocument doc (versionsUrl.readEntireTextStream());
     if (std::unique_ptr<juce::XmlElement> root = doc.getDocumentElement())
     {
         if (auto props = slProc.getSettings())
         {
-            props->setValue (JucePlugin_Name "_lastUpdateCheck", int (time (nullptr)));
+            props->setValue (slProc.processorOptions.pluginName + "_lastUpdateCheck", int (time (nullptr)));
 
             auto* child = root->getChildElement (0);
             while (child)
@@ -53,9 +50,9 @@ void UpdateChecker::run()
                 juce::String ver  = child->getStringAttribute ("num");
                 juce::String url  = child->getStringAttribute ("url");
 
-                if (name == JucePlugin_Name && versionStringToInt (ver) > versionStringToInt (JucePlugin_VersionString))
+                if (name == slProc.processorOptions.pluginName && versionStringToInt (ver) > versionStringToInt (slProc.processorOptions.pluginVersion))
                 {
-                    props->setValue (JucePlugin_Name "_updateUrl", url);
+                    props->setValue (slProc.processorOptions.pluginName + "_updateUrl", url);
                     updateUrl = url;
                     triggerAsyncUpdate();
                     break;
@@ -65,7 +62,6 @@ void UpdateChecker::run()
             }
         }
     }
-   #endif
   #endif
 }
 
@@ -191,13 +187,13 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p)
 
     slProc.addChangeListener (this);
 
-    if (editor.getOptions().useUpdateChecker)
+    if (slProc.processorOptions.useUpdateChecker)
     {
         updateChecker = std::make_unique<UpdateChecker> (slProc);
         updateChecker->onUpdate = [](juce::String) {};
     }
 
-    if (editor.getOptions().useNewsChecker)
+    if (slProc.processorOptions.useNewsChecker)
     {
         newsChecker = std::make_unique<NewsChecker> (slProc);
         newsChecker->onNewsUpdate = [](juce::String) {};
@@ -407,11 +403,11 @@ void TitleBar::showMenu()
     juce::PopupMenu m;
     m.setLookAndFeel (&getLookAndFeel());
 
-    if (editor.getOptions().urlTitle.isNotEmpty())
+    if (slProc.processorOptions.urlTitle.isNotEmpty())
     {
-        m.addItem (editor.getOptions().urlTitle, [this]
-                   {
-            juce::URL (editor.getOptions().url).launchInDefaultBrowser();
+        m.addItem (slProc.processorOptions.urlTitle, [this]
+        {
+            juce::URL (slProc.processorOptions.url).launchInDefaultBrowser();
         });
     }
 
@@ -424,12 +420,8 @@ void TitleBar::showMenu()
         {
             juce::URL (updateUrl).launchInDefaultBrowser();
 
-#ifdef JucePlugin_Name
             if (auto props = slProc.getSettings())
-                props->setValue (JucePlugin_Name "_updateUrl", "");
-#else
-            (void) this;
-#endif
+                props->setValue (slProc.processorOptions.pluginName + "_updateUrl", "");
         });
     }
 
@@ -560,8 +552,8 @@ bool wantsAccessibleKeyboard (juce::Component& c)
 }
 
 //==============================================================================
-ProcessorEditor::ProcessorEditor (Processor& p, EditorOptions e) noexcept
-  : ProcessorEditorBase (p, 56, 70, e), slProc (p)
+ProcessorEditor::ProcessorEditor (Processor& p) noexcept
+  : ProcessorEditorBase (p, 56, 70), slProc (p)
 {
     setLookAndFeel (slProc.lf.get());
 
@@ -573,8 +565,8 @@ ProcessorEditor::ProcessorEditor (Processor& p, EditorOptions e) noexcept
     titleBar.refreshPrograms();
 }
 
-ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_, EditorOptions e) noexcept
-    : ProcessorEditorBase (p, cx_, cy_, e), slProc (p)
+ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_) noexcept
+    : ProcessorEditorBase (p, cx_, cy_), slProc (p)
 {
     setLookAndFeel (slProc.lf.get());
 
@@ -628,14 +620,12 @@ void ProcessorEditor::showAboutInfo()
 {
     juce::String msg;
 
-  #ifdef JucePlugin_Name
    #if JUCE_DEBUG
-    msg += JucePlugin_Name " v" JucePlugin_VersionString " (" __TIME__ " " __DATE__ ")\n\n";
+    msg += slProc.processorOptions.pluginName + " v" + slProc.processorOptions.pluginVersion + " (" __TIME__ " " __DATE__ ")\n\n";
    #else
-    msg += JucePlugin_Name " v" JucePlugin_VersionString " (" __DATE__ ")\n\n";
+    msg += slProc.processorOptions.pluginName + " v" + slProc.processorOptions.pluginVersion + " (" __DATE__ ")\n\n";
    #endif
-  #endif
-    msg += options.programmingCredits.joinIntoString ("\n");
+    msg += slProc.processorOptions.programmingCredits.joinIntoString ("\n");
 
     msg += "\n\n";
     msg += "Copyright ";
