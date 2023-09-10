@@ -156,6 +156,8 @@ public:
 
         const int paramId = p->getModIndex();
         auto& pi = parameters.getReference (paramId);
+        
+        auto& info = parameters.getReference (paramId);
 
         if (pi.poly)
         {
@@ -164,7 +166,6 @@ public:
                 if (v->isVoiceActive())
                 {
                     float base = p->getValue();
-                    auto& info = parameters.getReference (paramId);
 
                     for (auto& src : info.sources)
                     {
@@ -179,6 +180,28 @@ public:
                     liveValues.add (base);
                 }
             }
+            
+            if (liveValues.size() == 0)
+            {
+                float base = p->getValue();
+                bool ok = false;
+
+                for (auto& src : info.sources)
+                {
+                    if (! src.poly)
+                    {
+                        base += sources[src.id.id].monoValue * src.depth;
+                        ok = true;
+                    }
+                }
+                
+                if (ok)
+                {
+                    base = juce::jlimit (0.0f, 1.0f, base);
+                    liveValues.add (base);
+                }
+            }
+            
         }
         else
         {
@@ -186,7 +209,6 @@ public:
             auto v = activeVoice;
 
             float base = p->getValue();
-            auto& info = parameters.getReference (paramId);
 
             for (auto& src : info.sources)
             {
