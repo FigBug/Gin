@@ -8950,8 +8950,8 @@
       <type>virtual float</type>
       <name>getProcValue</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a3307e2e5d9d7ee73567e8fdb355adfa3</anchor>
-      <arglist>(int stepSize)</arglist>
+      <anchor>aba85707d46f2f247e482097273a5e4c4</anchor>
+      <arglist>(int)</arglist>
     </member>
     <member kind="function">
       <type>float</type>

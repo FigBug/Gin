@@ -81,7 +81,7 @@ var searchData=
   ['getparameterid_2134',['getParameterID',['../classParameter.html#a316738b42194e1359158933b8dc11417',1,'Parameter']]],
   ['getpluginparameters_2135',['getPluginParameters',['../classProcessor.html#a2d76202bddbb9f54afbb7f10dcf2a3c6',1,'Processor']]],
   ['getpresetfile_2136',['getPresetFile',['../classProgram.html#abe908b7cbe82130a768c2b080c96aeb7',1,'Program']]],
-  ['getprocvalue_2137',['getProcValue',['../classParameter.html#a97f748fad458972d722789fd47d6adfa',1,'Parameter::getProcValue()'],['../classParameter.html#a3307e2e5d9d7ee73567e8fdb355adfa3',1,'Parameter::getProcValue(int stepSize)'],['../classSmoothedParameter.html#a0d368f6b4aa20b3a5adb60b17a70d011',1,'SmoothedParameter::getProcValue()']]],
+  ['getprocvalue_2137',['getProcValue',['../classParameter.html#a97f748fad458972d722789fd47d6adfa',1,'Parameter::getProcValue()'],['../classParameter.html#aba85707d46f2f247e482097273a5e4c4',1,'Parameter::getProcValue(int)'],['../classSmoothedParameter.html#a0d368f6b4aa20b3a5adb60b17a70d011',1,'SmoothedParameter::getProcValue()']]],
   ['getprogram_2138',['getProgram',['../classProcessor.html#aa47592a3687da6f536476279af73181a',1,'Processor']]],
   ['getprogramdirectory_2139',['getProgramDirectory',['../classProcessor.html#a36394e5ceac103d0f3f7852091aad91e',1,'Processor']]],
   ['getprogramname_2140',['getProgramName',['../classProcessor.html#ae58f2ae2b4b20a3fa4c9981df3e336d3',1,'Processor']]],
