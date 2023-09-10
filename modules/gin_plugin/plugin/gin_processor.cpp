@@ -52,18 +52,22 @@ void Processor::init()
     loadAllPrograms();
 }
 
-std::unique_ptr<juce::PropertiesFile> Processor::getSettings()
+juce::PropertiesFile* Processor::getSettings()
 {
-   #if JUCE_MAC
-    auto dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile ("Preferences").getChildFile (processorOptions.developer);
-   #else
-    auto dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile (processorOptions.developer);
-   #endif
-    dir.createDirectory();
-
-    juce::PropertiesFile::Options options;
-
-    return std::make_unique<juce::PropertiesFile> (dir.getChildFile ("plugin_settings.xml"), options);
+    if (settings == nullptr)
+    {
+       #if JUCE_MAC
+        auto dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile ("Preferences").getChildFile (processorOptions.developer);
+       #else
+        auto dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile (processorOptions.developer);
+       #endif
+        dir.createDirectory();
+        
+        juce::PropertiesFile::Options options;
+        
+        settings = std::make_unique<juce::PropertiesFile> (dir.getChildFile ("plugin_settings.xml"), options);
+    }
+    return settings.get();
 }
 
 //==============================================================================

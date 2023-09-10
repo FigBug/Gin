@@ -96,7 +96,7 @@ public:
     void reset() override;
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
 
-    virtual std::unique_ptr<juce::PropertiesFile> getSettings();
+    virtual juce::PropertiesFile* getSettings();
 
    #if BUILD_INTERNAL_PLUGINS
     void fillInPluginDescription (juce::PluginDescription&) const override {}
@@ -175,6 +175,8 @@ protected:
     void extractProgram (const juce::String& name, const juce::MemoryBlock& data);
 
 private:
+    std::unique_ptr<juce::PropertiesFile> settings;
+    
     std::unique_ptr<gin::Parameter> createParam (juce::String uid, juce::String name, juce::String shortName, juce::String label,
                                                  juce::NormalisableRange<float> range, float defaultValue,
                                                  SmoothingType st,
