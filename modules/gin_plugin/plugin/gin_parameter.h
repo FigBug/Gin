@@ -35,25 +35,38 @@ public:
     virtual void reset()                                                           {}
 
     //==============================================================================
-    float getProcValue();
-    virtual float getProcValue (int stepSize);
+    float getProcValue()
+    {
+        if (conversionFunction != nullptr)
+            return conversionFunction (getUserValue());
 
-    float getUserValue() const;
-    int getUserValueInt() const;
-    bool getUserValueBool() const;
-    float getUserDefaultValue() const;
+        return getUserValue();
+    }
+    
+    virtual float getProcValue (int /*stepSize*/)
+    {
+        if (conversionFunction != nullptr)
+            return conversionFunction (getUserValue());
+
+        return getUserValue();
+    }
+
+    float getUserValue() const                          { return juce::jlimit (range.start, range.end, value); }
+    int getUserValueInt() const                         { return int (juce::jlimit (range.start, range.end, value)); }
+    bool getUserValueBool() const                       { return juce::jlimit (range.start, range.end, value) != 0.0f; }
+    float getUserDefaultValue() const                   { return defaultValue; }
     virtual void setUserValue (float v);
     virtual void setUserValueNotifingHost (float f);
     void setUserValueAsUserAction (float f);
-    juce::String getUserValueText() const;
-    juce::String userValueToText (float val);
+    juce::String getUserValueText() const               { return getText (getValue(), 1000) + label; }
+    juce::String userValueToText (float val)            { return getText (range.convertTo0to1 (val), 1000) + label; }
 
-    bool isOnOff();
-    bool isOn();
+    bool isOnOff()                                      { return juce::approximatelyEqual (range.start, 0.0f) && juce::approximatelyEqual (range.end, range.interval); }
+    bool isOn()                                         { return ! juce::approximatelyEqual (range.start, getUserValue()); }
 
     std::function<float (float)> conversionFunction;
 
-    virtual bool isSmoothingActive()            { return false;         }
+    virtual bool isSmoothingActive()                    { return false;         }
 
     //==============================================================================
     void beginUserAction();
@@ -89,15 +102,15 @@ public:
     //==============================================================================
     juce::String getParameterID() const override    { return uid; }
     
-    float getValue() const override;
-    bool getBoolValue() const                   { return getValue() != 0.0f; }
+    float getValue() const override                 { return juce::jlimit (0.0f, 1.0f, range.convertTo0to1 (value)); }
+    bool getBoolValue() const                       { return getValue() != 0.0f; }
 
     void setValue (float newValue) override;
-    float getDefaultValue() const override;
+    float getDefaultValue() const override          { return range.convertTo0to1 (defaultValue); }
 
     juce::String getName (int maximumStringLength) const override;
-    juce::String getShortName() const;
-    juce::String getLabel() const override;
+    juce::String getShortName() const               { return shortName; }
+    juce::String getLabel() const override          { return label; }
 
     int getNumSteps() const override;
     juce::String getText (float value, int /*maximumStringLength*/) const override;

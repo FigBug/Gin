@@ -37,52 +37,6 @@ Parameter::Parameter (Processor& p, juce::String uid_, juce::String name_, juce:
         shortName = name;
 }
 
-bool Parameter::isOn()
-{
-    return ! juce::approximatelyEqual (range.start, getUserValue());
-}
-
-bool Parameter::isOnOff()
-{
-    return juce::approximatelyEqual (range.start, 0.0f) && juce::approximatelyEqual (range.end, range.interval);
-}
-
-float Parameter::getProcValue()
-{
-    if (conversionFunction != nullptr)
-        return conversionFunction (getUserValue());
-
-    return getUserValue();
-}
-
-float Parameter::getProcValue (int)
-{
-    if (conversionFunction != nullptr)
-        return conversionFunction (getUserValue());
-
-    return getUserValue();
-}
-
-float Parameter::getUserValue() const
-{
-    return juce::jlimit (range.start, range.end, value);
-}
-
-int Parameter::getUserValueInt() const
-{
-    return int (juce::jlimit (range.start, range.end, value));
-}
-
-bool Parameter::getUserValueBool() const
-{
-    return juce::jlimit (range.start, range.end, value) != 0.0f;
-}
-
-float Parameter::getUserDefaultValue() const
-{
-    return defaultValue;
-}
-
 void Parameter::setUserValue (float v)
 {
     v = juce::jlimit(range.start, range.end, range.snapToLegalValue (v));
@@ -118,16 +72,6 @@ void Parameter::setUserValueAsUserAction (float f)
         setUserValueNotifingHost (f);
 
     endUserAction();
-}
-
-juce::String Parameter::getUserValueText() const
-{
-    return getText (getValue(), 1000) + label;
-}
-
-juce::String Parameter::userValueToText (float val)
-{
-    return getText (range.convertTo0to1 (val), 1000) + label;
 }
 
 void Parameter::beginUserAction()
@@ -197,11 +141,6 @@ void Parameter::setState (const ParamState& state)
     setUserValue (state.value);
 }
 
-float Parameter::getValue() const
-{
-    return juce::jlimit (0.0f, 1.0f, range.convertTo0to1 (value));
-}
-
 void Parameter::setValue (float valueIn)
 {
     valueIn = juce::jlimit (0.0f, 1.0f, valueIn);
@@ -216,24 +155,9 @@ void Parameter::setValue (float valueIn)
     }
 }
 
-float Parameter::getDefaultValue() const
-{
-    return range.convertTo0to1 (defaultValue);
-}
-
 juce::String Parameter::getName (int maximumStringLength) const
 {
     return name.substring (0, maximumStringLength);
-}
-
-juce::String Parameter::getShortName() const
-{
-    return shortName;
-}
-
-juce::String Parameter::getLabel() const
-{
-    return label;
 }
 
 int Parameter::getNumSteps() const
