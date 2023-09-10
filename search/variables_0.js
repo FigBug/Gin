@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['a_2744',['a',['../classLinearRegression.html#a9afb5e0ec8d6cbb6ac46e5915afc57ec',1,'LinearRegression::a()'],['../classSpline_1_1Element.html#aa20a7343d5bfabf930f48bd5e88d9916',1,'Spline::Element::a()'],['../classEllipse.html#a5fb56e7b1960b8e127deccbc91f3aa8d',1,'Ellipse::a()']]],
-  ['add_2745',['add',['../namespaceAssets.html#a29d2500065afcb02888418ee638563d8',1,'Assets']]],
-  ['addbutton_2746',['addButton',['../classTitleBar.html#acce8ac24446a1dbc0fb3fb0e11c9f84d',1,'TitleBar']]],
-  ['additionalprogramming_2747',['additionalProgramming',['../classProcessorEditor.html#a9139785557b0904a5b52aab9b4b47e22',1,'ProcessorEditor']]],
+  ['a_2745',['a',['../classLinearRegression.html#a9afb5e0ec8d6cbb6ac46e5915afc57ec',1,'LinearRegression::a()'],['../classSpline_1_1Element.html#aa20a7343d5bfabf930f48bd5e88d9916',1,'Spline::Element::a()'],['../classEllipse.html#a5fb56e7b1960b8e127deccbc91f3aa8d',1,'Ellipse::a()']]],
+  ['add_2746',['add',['../namespaceAssets.html#a29d2500065afcb02888418ee638563d8',1,'Assets']]],
+  ['addbutton_2747',['addButton',['../classTitleBar.html#acce8ac24446a1dbc0fb3fb0e11c9f84d',1,'TitleBar']]],
   ['adsrl_2748',['adsrL',['../classGateEffect.html#af0a57f0f38fd5c8ee5ae1116c155a78e',1,'GateEffect']]],
   ['adsrr_2749',['adsrR',['../classGateEffect.html#abfb5044f7e394d996ca25ffdaa67b2af',1,'GateEffect']]],
   ['altitude_2750',['altitude',['../structLocationManager_1_1Location.html#ab39a621a6056285f47e8bdc1862943d3',1,'LocationManager::Location']]],

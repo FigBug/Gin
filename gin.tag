@@ -10548,13 +10548,6 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>juce::String</type>
-      <name>additionalProgramming</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a9139785557b0904a5b52aab9b4b47e22</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
       <type>TitleBar</type>
       <name>titleBar</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
@@ -10785,6 +10778,13 @@
       <anchorfile>classProcessorOptions.html</anchorfile>
       <anchor>a32bb47a9aa2cb95cd9766cc23b004c10</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>ProcessorOptions</type>
+      <name>withAdditionalCredits</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>a0db6fc2981e1e882526b44adab862a5e</anchor>
+      <arglist>(juce::StringArray names) const</arglist>
     </member>
     <member kind="variable">
       <type>juce::String</type>
