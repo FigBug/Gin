@@ -10200,10 +10200,10 @@
       <arglist>(double sampleRate, int samplesPerBlock) override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
-      <type>virtual std::unique_ptr&lt; juce::PropertiesFile &gt;</type>
+      <type>virtual juce::PropertiesFile *</type>
       <name>getSettings</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a78cb0aaf6f673ed95a5c32e60ae93427</anchor>
+      <anchor>ab1b1369da768886df48cb497555dd806</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">

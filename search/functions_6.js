@@ -95,7 +95,7 @@ var searchData=
   ['getsamplerate_2148',['getSampleRate',['../classSample.html#a6c25a4367bb3f7e3ec986e96c2472015',1,'Sample::getSampleRate()'],['../classBandLimitedLookupTables.html#a82d39f6516c342b2ff3e5f08c7be21c3',1,'BandLimitedLookupTables::getSampleRate()']]],
   ['getsamples_2149',['getSamples',['../classSample.html#a179818f303e3ad2921683524798591f8',1,'Sample']]],
   ['getsamplesused_2150',['getSamplesUsed',['../classMidiFifo.html#a676220e418ef97d59568709ace608f99',1,'MidiFifo']]],
-  ['getsettings_2151',['getSettings',['../classProcessor.html#a78cb0aaf6f673ed95a5c32e60ae93427',1,'Processor']]],
+  ['getsettings_2151',['getSettings',['../classProcessor.html#ab1b1369da768886df48cb497555dd806',1,'Processor']]],
   ['getshortname_2152',['getShortName',['../classParameter.html#a92105e6395bf23748f2c61d1c76f2fdd',1,'Parameter']]],
   ['getsize_2153',['getSize',['../classSharedMemory.html#ac16dde725ff9ce10788b9ff805ba3e85',1,'SharedMemory']]],
   ['getskew_2154',['getSkew',['../classParameter.html#a424a9513d94c87b8d101ae0017f3d71c',1,'Parameter']]],

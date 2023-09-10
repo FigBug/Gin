@@ -89,8 +89,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aea94295621f428e66e1d2fc7bfb39bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91501bb29c8b65f444460ed1abc22824"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a91501bb29c8b65f444460ed1abc22824">prepareToPlay</a> (double sampleRate, int samplesPerBlock) override</td></tr>
 <tr class="separator:a91501bb29c8b65f444460ed1abc22824"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78cb0aaf6f673ed95a5c32e60ae93427"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr&lt; juce::PropertiesFile &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a78cb0aaf6f673ed95a5c32e60ae93427">getSettings</a> ()</td></tr>
-<tr class="separator:a78cb0aaf6f673ed95a5c32e60ae93427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1b1369da768886df48cb497555dd806"><td class="memItemLeft" align="right" valign="top">virtual juce::PropertiesFile *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ab1b1369da768886df48cb497555dd806">getSettings</a> ()</td></tr>
+<tr class="separator:ab1b1369da768886df48cb497555dd806"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b2ed4cc27b858a3aac157c05e7b273e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a4b2ed4cc27b858a3aac157c05e7b273e">addPluginParameter</a> (gin::Parameter *parameter)</td></tr>
 <tr class="separator:a4b2ed4cc27b858a3aac157c05e7b273e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6b6443808b166f6194d07bf68a6e5f7"><td class="memItemLeft" align="right" valign="top">gin::Parameter *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ad6b6443808b166f6194d07bf68a6e5f7">addExtParam</a> (juce::String uid, juce::String name, juce::String shortName, juce::String label, juce::NormalisableRange&lt; float &gt; range, float defaultValue, <a class="el" href="classSmoothingType.html">SmoothingType</a> st, std::function&lt; juce::String(const gin::Parameter &amp;, float)&gt; textFunction=nullptr)</td></tr>
@@ -308,8 +308,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a78cb0aaf6f673ed95a5c32e60ae93427"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78cb0aaf6f673ed95a5c32e60ae93427">&#9670;&nbsp;</a></span>getSettings()</h2>
+<a id="ab1b1369da768886df48cb497555dd806"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1b1369da768886df48cb497555dd806">&#9670;&nbsp;</a></span>getSettings()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -318,7 +318,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::unique_ptr&lt;juce::PropertiesFile&gt; Processor::getSettings </td>
+          <td class="memname">virtual juce::PropertiesFile* Processor::getSettings </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1215,7 +1215,7 @@ Protected Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 10 2023 13:34:58 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Sun Sep 10 2023 13:48:02 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
