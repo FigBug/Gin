@@ -63,6 +63,15 @@ public:
 		"Roland Rabien",
 		"RAW Material Software JUCE Framework"
 	};
+    
+    ProcessorOptions withAdditionalCredits (juce::StringArray names) const
+    {
+        auto self = *this;
+        
+        self.programmingCredits.addArray (names);
+        
+        return self;
+    }
 };
 
 //==============================================================================

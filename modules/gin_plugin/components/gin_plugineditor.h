@@ -219,8 +219,6 @@ protected:
     std::unique_ptr<UpdateChecker> updateChecker;
     std::unique_ptr<NewsChecker> newsChecker;
 
-    juce::String additionalProgramming;
-
     TitleBar titleBar { *this, slProc };
     PatchBrowser patchBrowser { slProc };
 };
