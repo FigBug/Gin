@@ -2,7 +2,8 @@
 
 class Processor;
 //==============================================================================
-/** A silky smooth parameter
+/** A silky smooth parameter. Use getProcValue(int) to get the next smoothed
+    value of the parameter.
 */
 template <class T>
 class SmoothedParameter : public gin::Parameter

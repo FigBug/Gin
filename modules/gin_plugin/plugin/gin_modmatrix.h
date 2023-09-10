@@ -29,7 +29,7 @@ struct ModDstId
 //==============================================================================
 class ModMatrix;
 
-/** Make your voice inherit from this if it supports modulation
+/** Make your synth voice inherit from this if it supports modulation
 */
 class ModVoice
 {
@@ -37,6 +37,7 @@ public:
     ModVoice() = default;
     virtual ~ModVoice() = default;
 
+    /* Gets value of a parameter with modulation applied */
     float getValue (gin::Parameter* p);
 
     void finishBlock (int numSamples)

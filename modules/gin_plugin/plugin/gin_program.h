@@ -5,7 +5,7 @@
 class Processor;
 
 //==============================================================================
-/** Save your plugin state
+/** Saves your plugin state to XML
 */
 class Program
 {

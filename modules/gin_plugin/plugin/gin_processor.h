@@ -35,7 +35,7 @@ public:
 
 //==============================================================================
 /** Use this class to customize your plugin. If you are using a JUCE plugin
-    project, most of the defaults should be sensible. If you are including
+    project, these will automatically be set to sensible default. If you are including
     a gin::Processor within another plugin or standalone application, then you
     will need to customize this. The default constructor depends on juce defines
     only found in plugin projects.
@@ -114,6 +114,7 @@ public:
     bool parameterBoolValue (const juce::String& uid);
     const juce::Array<gin::Parameter*>& getPluginParameters();
 
+    /* Are any parameters currrently smoothing? */
     bool isSmoothing();
 
     virtual juce::File getProgramDirectory();
@@ -156,6 +157,9 @@ public:
     juce::ValueTree state;
 
 protected:
+    /* If you plugin has more state than just parameters you need to implement these two functions
+       to copy your any data you need to save/restore to/from the ValueTree 'state'.
+     */
     virtual void stateUpdated() {}
     virtual void updateState()  {}
 

@@ -5,7 +5,21 @@ class ModMatrix;
 
 //==============================================================================
 /** A parameter with user values, real time safe callbacks, modulation, and
-    all sorts of other fancy stuff
+    all sorts of other fancy stuff.
+ 
+    A paramter return it's value in 3 formats:
+      value:        always 0..1
+      user value:   range as displayed to user
+      proc value:   range used for processing
+ 
+      For example, a gain parameter may have a user range of -100 to +10 dB. The coresponding
+      proc range would be 0 to 3.1623. By default user value and proc value are the same.
+      To provide an alternate proc value, set conversionFunction
+ 
+    Parameters can be either internal or external. External parameters are exposed to the host
+    and can be modulated. Internal parameters are for things that should not be modulated.
+ 
+    Parameters can optionally be added to a modmatrix 
 */
 class Parameter : public juce::AudioPluginInstance::HostedParameter,
                   protected juce::Timer,
