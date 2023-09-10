@@ -243,6 +243,10 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A parameter with user values, real time safe callbacks, modulation, and all sorts of other fancy stuff. </p>
+<p>A paramter return it's value in 3 formats: value: always 0..1 user value: range as displayed to user proc value: range used for processing</p>
+<p>For example, a gain parameter may have a user range of -100 to +10 dB. The coresponding proc range would be 0 to 3.1623. By default user value and proc value are the same. To provide an alternate proc value, set conversionFunction</p>
+<p>Parameters can be either internal or external. External parameters are exposed to the host and can be modulated. Internal parameters are for things that should not be modulated.</p>
+<p>Parameters can optionally be added to a modmatrix </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a8fcb9478cf19509ef836db884323e5a5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8fcb9478cf19509ef836db884323e5a5">&#9670;&nbsp;</a></span>Ptr</h2>
@@ -1923,7 +1927,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 10 2023 12:43:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Sun Sep 10 2023 13:05:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
