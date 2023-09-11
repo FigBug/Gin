@@ -31,11 +31,6 @@ void StepLFOComponent::paramChanged ()
     dirty = true;
 }
 
-void StepLFOComponent::setBPM (float bpm_)
-{
-    bpm = bpm_;
-}
-
 void StepLFOComponent::createPath (juce::Rectangle<int> area)
 {
     lfo.setSampleRate ((double) area.getWidth());
@@ -110,25 +105,14 @@ void StepLFOComponent::paint (juce::Graphics& g)
 
 void StepLFOComponent::timerCallback()
 {
-    if (juce::approximatelyEqual (lastUpdate, -1.0))
+    if (isEnabled() && phaseCallback)
     {
-        lastUpdate = juce::Time::getMillisecondCounter() / 1000.0;
-    }
-    else
-    {
-        double now = juce::Time::getMillisecondCounter() / 1000.0;
-        double delta = now - lastUpdate;
-        lastUpdate = now;
-
-        auto duration = NoteDuration::getNoteDurations()[size_t (beat->getUserValue())];
-        const float hz = 1.0f / duration.toSeconds (bpm);
-        curPhase += float (hz * delta) / getNumSteps();
-
-        curPhase = std::fmod (curPhase, 1.0f);
-        if (std::isnan (curPhase) || std::isinf (curPhase))
-            curPhase = 0.0f;
-
-        repaint();
+        auto newPhase = phaseCallback();
+        if (! juce::approximatelyEqual (curPhase, newPhase))
+        {
+            curPhase = newPhase;
+            repaint();
+        }
     }
 }
 

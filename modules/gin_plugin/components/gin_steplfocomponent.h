@@ -10,9 +10,10 @@ public:
     StepLFOComponent (int maxSteps_);
     ~StepLFOComponent() override = default;
 
-    void setBPM (float bpm);
     void setParams (Parameter::Ptr beat, Parameter::Ptr length, Parameter::Ptr* level, Parameter::Ptr enable);
 
+    std::function<float()> phaseCallback;
+    
 private:
     void paint (juce::Graphics& g) override;
     void resized() override;
@@ -31,8 +32,7 @@ private:
     juce::Path path;
     int maxSteps;
     bool dirty = true;
-    float bpm = 120.0f, curPhase = 0;
-    double lastUpdate = -1;
+    float curPhase = 0.0f;
     std::map<int,float> curve;
 
 private:

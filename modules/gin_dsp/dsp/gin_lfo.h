@@ -120,6 +120,11 @@ public:
     {
         return juce::jlimit (-1.0f, 1.0f, (curFade * output * parameters.depth + parameters.offset));
     }
+    
+    float getCurrentPhase()
+    {
+        return curPhase;
+    }
 
 private:
     float lerp (float t, float a, float b)  { return a + t * (b - a); }

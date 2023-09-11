@@ -58,6 +58,11 @@ public:
     {
         return juce::jlimit (-1.0f, 1.0f, output);
     }
+    
+    float getCurrentPhase()
+    {
+        return phase;
+    }
 
 private:
     float updateCurrentValue()

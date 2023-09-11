@@ -33,11 +33,6 @@ void LFOComponent::paramChanged ()
     dirty = true;
 }
 
-void LFOComponent::setBPM (float bpm_)
-{
-    bpm = bpm_;
-}
-
 void LFOComponent::createPath (juce::Rectangle<int> area)
 {
     lfo.setSampleRate ((double) area.getWidth());
@@ -106,32 +101,14 @@ void LFOComponent::paint (juce::Graphics& g)
 
 void LFOComponent::timerCallback()
 {
-    if (juce::approximatelyEqual (lastUpdate, -1.0))
+    if (isEnabled() && phaseCallback)
     {
-        lastUpdate = juce::Time::getMillisecondCounter() / 1000.0;
-    }
-    else
-    {
-        double now = juce::Time::getMillisecondCounter() / 1000.0;
-        double delta = now - lastUpdate;
-        lastUpdate = now;
-
-        if (sync->isOn())
+        auto newPhase = phaseCallback() / getNumSteps();
+        if (! juce::approximatelyEqual (curPhase, newPhase))
         {
-            auto duration = NoteDuration::getNoteDurations()[size_t (beat->getUserValue())];
-            const float hz = 1.0f / duration.toSeconds (bpm);
-            curPhase += float (hz * delta) / getNumSteps();
+            curPhase = newPhase;
+            repaint();
         }
-        else
-        {
-            curPhase += float (rate->getProcValue() * delta) / getNumSteps();
-        }
-
-        curPhase = std::fmod (curPhase, 1.0f);
-        if (std::isnan (curPhase) || std::isinf (curPhase))
-            curPhase = 0.0f;
-
-        repaint();
     }
 }
 

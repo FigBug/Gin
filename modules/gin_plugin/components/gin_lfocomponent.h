@@ -10,10 +10,11 @@ public:
     LFOComponent();
     ~LFOComponent() override = default;
 
-    void setBPM (float bpm);
     void setParams (Parameter::Ptr wave, Parameter::Ptr sync, Parameter::Ptr rate,
                     Parameter::Ptr beat, Parameter::Ptr depth, Parameter::Ptr offset,
                     Parameter::Ptr phase, Parameter::Ptr enable);
+    
+    std::function<float()> phaseCallback;
 
 private:
     void paint (juce::Graphics& g) override;
@@ -30,8 +31,7 @@ private:
     LFO lfo;
     juce::Path path;
     bool dirty = true;
-    float bpm = 120.0f, curPhase = 0;
-    double lastUpdate = -1;
+    float curPhase = 0.0f;
     std::map<int,float> curve;
 
 private:
