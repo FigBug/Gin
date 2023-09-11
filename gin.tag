@@ -6685,6 +6685,13 @@
       <anchor>a87dce294e659cd21de22aaa2f7de6119</anchor>
       <arglist>()</arglist>
     </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getCurrentPhase</name>
+      <anchorfile>classLFO.html</anchorfile>
+      <anchor>aec6998a36bd6e5a99d538c27bcd2e837</anchor>
+      <arglist>()</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>LFOComponent</name>
@@ -6706,17 +6713,17 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>setBPM</name>
-      <anchorfile>classLFOComponent.html</anchorfile>
-      <anchor>a7afaee1843122ca663f8b371575e6030</anchor>
-      <arglist>(float bpm)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
       <name>setParams</name>
       <anchorfile>classLFOComponent.html</anchorfile>
       <anchor>a4a9ee52cbf8567eb288fe1cfdd1cd990</anchor>
       <arglist>(Parameter::Ptr wave, Parameter::Ptr sync, Parameter::Ptr rate, Parameter::Ptr beat, Parameter::Ptr depth, Parameter::Ptr offset, Parameter::Ptr phase, Parameter::Ptr enable)</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; float()&gt;</type>
+      <name>phaseCallback</name>
+      <anchorfile>classLFOComponent.html</anchorfile>
+      <anchor>ab25eab8dc4191c042af26ee983d6fafb</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -12635,6 +12642,13 @@
       <anchor>abfcd3d3a5e7d82c4f30da1534e8c39bc</anchor>
       <arglist>()</arglist>
     </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getCurrentPhase</name>
+      <anchorfile>classStepLFO.html</anchorfile>
+      <anchor>a9199a834cb4ab60a2d8c85221699328f</anchor>
+      <arglist>()</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>StepLFOComponent</name>
@@ -12656,17 +12670,17 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>setBPM</name>
-      <anchorfile>classStepLFOComponent.html</anchorfile>
-      <anchor>a7a29b7358ef0aeb985255dc51818855a</anchor>
-      <arglist>(float bpm)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
       <name>setParams</name>
       <anchorfile>classStepLFOComponent.html</anchorfile>
       <anchor>afa1dbeb6c10d91bd32ec8174efe1f388</anchor>
       <arglist>(Parameter::Ptr beat, Parameter::Ptr length, Parameter::Ptr *level, Parameter::Ptr enable)</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; float()&gt;</type>
+      <name>phaseCallback</name>
+      <anchorfile>classStepLFOComponent.html</anchorfile>
+      <anchor>af73e40049454abc2e736bbb44ddc00aa</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">

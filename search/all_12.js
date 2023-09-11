@@ -1,10 +1,11 @@
 var searchData=
 [
-  ['tables_1340',['tables',['../classBandLimitedLookupTable.html#a92fea974cc537d42d2a3191bd69d32fa',1,'BandLimitedLookupTable']]],
-  ['tablesize_1341',['tableSize',['../classBandLimitedLookupTable.html#af5afe68886b99ea23b06cc7f1f591b94',1,'BandLimitedLookupTable']]],
-  ['tags_1342',['tags',['../classPatchBrowser.html#aa7bac749585a5be93c25474dae4542e8',1,'PatchBrowser::tags()'],['../classProgram.html#acddd8235091f27410c05cf4b7694b62a',1,'Program::tags()']]],
-  ['tagsmodel_1343',['TagsModel',['../structPatchBrowser_1_1TagsModel.html',1,'PatchBrowser::TagsModel'],['../structPatchBrowser_1_1TagsModel.html#aa09938757cd8d6bf62458de6297aa5cb',1,'PatchBrowser::TagsModel::TagsModel()']]],
-  ['tagsmodel_1344',['tagsModel',['../classPatchBrowser.html#a2b1148951ac60c4b47c4b1f6af16d144',1,'PatchBrowser']]],
+  ['tables_1339',['tables',['../classBandLimitedLookupTable.html#a92fea974cc537d42d2a3191bd69d32fa',1,'BandLimitedLookupTable']]],
+  ['tablesize_1340',['tableSize',['../classBandLimitedLookupTable.html#af5afe68886b99ea23b06cc7f1f591b94',1,'BandLimitedLookupTable']]],
+  ['tags_1341',['tags',['../classPatchBrowser.html#aa7bac749585a5be93c25474dae4542e8',1,'PatchBrowser::tags()'],['../classProgram.html#acddd8235091f27410c05cf4b7694b62a',1,'Program::tags()']]],
+  ['tagsmodel_1342',['TagsModel',['../structPatchBrowser_1_1TagsModel.html',1,'PatchBrowser']]],
+  ['tagsmodel_1343',['tagsModel',['../classPatchBrowser.html#a2b1148951ac60c4b47c4b1f6af16d144',1,'PatchBrowser']]],
+  ['tagsmodel_1344',['TagsModel',['../structPatchBrowser_1_1TagsModel.html#aa09938757cd8d6bf62458de6297aa5cb',1,'PatchBrowser::TagsModel']]],
   ['text_5fframe_1345',['TEXT_FRAME',['../structWSHeaderType.html#ac1906191ac337fdbecbe643184fbd3b3a44b257e3d1f0e6e8ee821d8ce460cea2',1,'WSHeaderType']]],
   ['textchanged_1346',['textChanged',['../classSingleLineTextEditor.html#a7432325931d3ad2a10f0b98fb83f8ec7',1,'SingleLineTextEditor']]],
   ['textcolourid_1347',['textColourId',['../classSingleLineTextEditor.html#a580e95f56d303528b02f91143c72f13ca3139e08c59ac1e595c5029d4c90b3a95',1,'SingleLineTextEditor']]],
