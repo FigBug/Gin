@@ -1,17 +1,21 @@
 # Gin
-A few useful extra classes for [JUCE](https://juce.com/) that I've come up with over the years. Questions? Ask on [Discord](https://discord.gg/hCbpasqQ)
+A few useful extra classes for [JUCE](https://juce.com/) that I've come up with over the years.
 
-Documentation:
+## Help & Documentation:
+
+[Discord](https://discord.gg/hCbpasqQ)
+
+[Blog](https://rabiensoftware.com/index.php/category/gin/)
 
 [DOxygen Documentation](https://figbug.github.io/Gin/annotated.html)
 
-Automated Builds:
+## Automated Builds:
 
 ![Build Windows](https://github.com/FigBug/Gin/workflows/Build%20Windows/badge.svg "Build Windows")
 ![Build macOS](https://github.com/FigBug/Gin/workflows/Build%20macOS/badge.svg "Build macOS")
 ![Build Linux](https://github.com/FigBug/Gin/workflows/Build%20Linux/badge.svg "Build Linux")
 
-What's included:
+## What's included:
 
 * BMPImageFormat - Load and Save Windows Bitmaps
 * ColourPropertyComponent - Colour picker for PropertyComponent
@@ -31,8 +35,10 @@ What's included:
 * Spline - A smooth curve from a set of discrete points
 * PerlinNoise - Natural looking noise
 * Websocket - Websocket client
+* DSP: Compressor, wavetable oscillator, reverb, ADSR
+* Synth: LFO, mod matrix, UI components
 
-Credits:
+## Credits:
 
 Stack Blur:  Mario Klingemann
 http://incubator.quasimondo.com/processing/fast_blur_deluxe.php
@@ -61,5 +67,6 @@ https://tls.mbed.org/
 liboauthcpp
 https://github.com/sirikata/liboauthcpp
 
-Special Thanks to:
+## Special Thanks to:
+
 reFX Audio Software Inc.
