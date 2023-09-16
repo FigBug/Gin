@@ -66,7 +66,7 @@ void WavetableComponent::paint (juce::Graphics& g)
 
 juce::Path WavetableComponent::createWavetablePath (float wtPos)
 {
-    constexpr auto samples = 256;
+    constexpr auto samples = 64;
 
     juce::AudioSampleBuffer buf (2, samples);
 
