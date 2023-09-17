@@ -3,7 +3,7 @@ A few useful extra classes for [JUCE](https://juce.com/) that I've come up with 
 
 ## Help & Documentation:
 
-* [Discord](https://discord.gg/hCbpasqQ)
+* [Discord](https://discord.gg/zvpyqsBjc3)
 * [Blog](https://rabiensoftware.com/index.php/category/gin/)
 * [DOxygen Documentation](https://figbug.github.io/Gin/annotated.html)
 
