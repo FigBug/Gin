@@ -46,12 +46,12 @@ public:
             auto freq = getMidiNoteInHertz (note);
 
             auto& t = tables.emplace_back (std::vector<float>());
-            t.resize (tableSize);
+            t.resize (size_t (tableSize));
 
             for (auto i = 0; i < tableSize; i++)
             {
                 auto v = juce::jmap (float (i), 0.0f, tableSize - 1.0f, 0.0f, 1.0f);
-                t[i] = function (v, freq, sampleRate);
+                t[size_t (i)] = function (v, freq, sampleRate);
             }
         }
     }
@@ -63,7 +63,7 @@ public:
 
         jassert (pos >= 0 && pos < tableSize);
 
-        return tables[tableIndex][pos];
+        return tables[size_t (tableIndex)][size_t (pos)];
     }
 
     inline float get (int tableIndex, float phase)
@@ -72,7 +72,7 @@ public:
 
         jassert (pos >= 0 && pos < tableSize);
 
-        return tables[tableIndex][pos];
+        return tables[size_t (tableIndex)][size_t (pos)];
     }
 
     void loadFromBuffer (float playbackSampleRate, juce::AudioSampleBuffer& buffer, float fileSampleRate, int notesPerTable);

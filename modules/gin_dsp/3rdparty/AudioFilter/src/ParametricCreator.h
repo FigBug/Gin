@@ -36,6 +36,7 @@ inline std::string getNameForFilterType(FilterType type)
 {
     switch (type)
     {
+    case afNumTypes:
     default:
         return "";
     case afPeak:

@@ -3,7 +3,7 @@ StepLFOComponent::StepLFOComponent (int maxSteps_)
     : maxSteps (maxSteps_)
 {
     setName ("step");
-    level.resize (maxSteps);
+    level.resize (size_t (maxSteps));
 }
 
 void StepLFOComponent::resized()
@@ -20,7 +20,7 @@ void StepLFOComponent::setParams (Parameter::Ptr beat_, Parameter::Ptr length_, 
     watchParam (enable = enable_);
     
     for (int i = 0; i < maxSteps; i++)
-        watchParam (level[i] = level_[i]);
+        watchParam (level[size_t (i)] = level_[i]);
 
     startTimerHz (30);
 }
@@ -38,7 +38,7 @@ void StepLFOComponent::createPath (juce::Rectangle<int> area)
     lfo.setFreq (1.0f * getNumSteps());
     lfo.setNumPoints (getNumSteps());
     for (int i = 0; i < getNumSteps(); i++)
-        lfo.setPoint (i, level[i]->getProcValue());
+        lfo.setPoint (i, level[size_t (i)]->getProcValue());
 
     lfo.reset();
 
@@ -71,7 +71,7 @@ void StepLFOComponent::mouseDrag (const juce::MouseEvent& e)
     float l = -(e.y / float (getHeight()) * 2 - 1);
     l = juce::jlimit (-1.0f, 1.0f, l);
     
-    level[step]->setUserValue (l);
+    level[size_t (step)]->setUserValue (l);
 }
 
 void StepLFOComponent::paint (juce::Graphics& g)

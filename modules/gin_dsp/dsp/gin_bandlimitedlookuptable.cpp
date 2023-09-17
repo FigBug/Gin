@@ -117,7 +117,7 @@ void BandLimitedLookupTable::loadFromBuffer (float playbackSampleRate, juce::Aud
         if (noteFreq < baseFreq)
         {
             auto& t = tables.emplace_back (std::vector<float>());
-            t.resize (sz);
+            t.resize (size_t (sz));
             std::memcpy (t.data(), buffer.getReadPointer (0), sz * sizeof (float));
         }
         else
@@ -133,25 +133,25 @@ void BandLimitedLookupTable::loadFromBuffer (float playbackSampleRate, juce::Aud
             std::vector<juce::dsp::Complex<float>> time;
             std::vector<juce::dsp::Complex<float>> freq;
 
-            time.resize (sz);
-            freq.resize (sz);
+            time.resize (size_t (sz));
+            freq.resize (size_t (sz));
 
             for (auto i = 0; i < sz; i++)
-                time[i] = { d[i], 0.0f };
+                time[size_t (i)] = { d[i], 0.0f };
 
             fft.perform (time.data(), freq.data(), false);
 
             for (auto i = 0; i < sz; i++)
                 if (index2Freq (i) * ratio > playbackSampleRate / 2)
-                    freq[i] = {0.0f, 0.0f};
+                    freq[size_t (i)] = {0.0f, 0.0f};
 
             fft.perform (freq.data(), time.data(), true);
 
             auto& t = tables.emplace_back (std::vector<float>());
-            t.resize (sz);
+            t.resize (size_t (sz));
 
             for (auto i = 0; i < sz; i++)
-                t[i] = time[i].real();
+                t[size_t (i)] = time[i].real();
         }
      }
 }
