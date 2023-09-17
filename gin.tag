@@ -10206,6 +10206,13 @@
       <anchor>a91501bb29c8b65f444460ed1abc22824</anchor>
       <arglist>(double sampleRate, int samplesPerBlock) override</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>releaseResources</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a48a76aafcc56d51606af0ae5bbe4fdf5</anchor>
+      <arglist>() override</arglist>
+    </member>
     <member kind="function" virtualness="virtual">
       <type>virtual juce::PropertiesFile *</type>
       <name>getSettings</name>

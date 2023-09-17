@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['keypressed_741',['keyPressed',['../classSingleLineTextEditor.html#a8dfacbc90d80e4f3989611c2ab14e616',1,'SingleLineTextEditor']]],
-  ['keystatechanged_742',['keyStateChanged',['../classSingleLineTextEditor.html#aaa6bb606d8c47ae0685b0dda0b3d0a35',1,'SingleLineTextEditor']]],
-  ['kmaxpredelay_743',['kMaxPredelay',['../classPlateReverb.html#ac371d941c9f1a7b825e1eca04c5b5c29',1,'PlateReverb']]],
-  ['kmaxsize_744',['kMaxSize',['../classPlateReverb.html#a9643a8e18dd14df66eee8b20a5ffbe28',1,'PlateReverb']]],
-  ['knob_745',['Knob',['../classKnob.html',1,'Knob'],['../classKnob.html#a6988e2f33ec94e29f818eb0126f351bb',1,'Knob::Knob()']]]
+  ['keypressed_740',['keyPressed',['../classSingleLineTextEditor.html#a8dfacbc90d80e4f3989611c2ab14e616',1,'SingleLineTextEditor']]],
+  ['keystatechanged_741',['keyStateChanged',['../classSingleLineTextEditor.html#aaa6bb606d8c47ae0685b0dda0b3d0a35',1,'SingleLineTextEditor']]],
+  ['kmaxpredelay_742',['kMaxPredelay',['../classPlateReverb.html#ac371d941c9f1a7b825e1eca04c5b5c29',1,'PlateReverb']]],
+  ['kmaxsize_743',['kMaxSize',['../classPlateReverb.html#a9643a8e18dd14df66eee8b20a5ffbe28',1,'PlateReverb']]],
+  ['knob_744',['Knob',['../classKnob.html',1,'Knob'],['../classKnob.html#a6988e2f33ec94e29f818eb0126f351bb',1,'Knob::Knob()']]]
 ];
