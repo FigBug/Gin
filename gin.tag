@@ -10621,6 +10621,13 @@
       <anchor>a3043bfdfbefb8e16952f471b092150e1</anchor>
       <arglist>(juce::Graphics &amp;g) override</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addControl</name>
+      <anchorfile>classProcessorEditorBase.html</anchorfile>
+      <anchor>af4c34219b26fcd4bcaae94fa64fb6e7e</anchor>
+      <arglist>(ParamComponent *c, int x=0, int y=0, int w=1, int h=1)</arglist>
+    </member>
     <member kind="function" virtualness="virtual">
       <type>virtual juce::Rectangle&lt; int &gt;</type>
       <name>getControlsArea</name>
