@@ -112,6 +112,13 @@ public:
         g.setColour (findColour (PluginLookAndFeel::accentColourId, true).withMultipliedAlpha (0.35f));
         g.fillRect (rc);
     }
+    
+    void addControl (ParamComponent* c, int x = 0, int y = 0, int w = 1, int h = 1)
+    {
+        controls.add (c);
+        addAndMakeVisible (c);
+        c->setBounds (getGridArea (x, y, w, h));
+    }
 
     virtual juce::Rectangle<int> getControlsArea();
     virtual juce::Rectangle<int> getGridArea (int x, int y, int w = 1, int h = 1);

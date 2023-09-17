@@ -7,18 +7,9 @@ EffectAudioProcessorEditor::EffectAudioProcessorEditor (EffectAudioProcessor& p)
 {
     setGridSize (6, 1);
     
-    addAndMakeVisible (controls.add (new gin::Select (p.modeParam)));
-    addAndMakeVisible (controls.add (new gin::Knob (p.levelParam)));
-    addAndMakeVisible (controls.add (new gin::Knob (p.panParam)));
-    addAndMakeVisible (controls.add (new gin::Switch (p.invertParam)));
-    
-    componentForParam (*p.modeParam)->setBounds (getGridArea (1, 0));
-    componentForParam (*p.levelParam)->setBounds (getGridArea (2, 0));
-    componentForParam (*p.panParam)->setBounds (getGridArea (3, 0));
-    componentForParam (*p.invertParam)->setBounds (getGridArea (4, 0));
-}
-
-EffectAudioProcessorEditor::~EffectAudioProcessorEditor()
-{
+    addControl (new gin::Select (p.modeParam), 1, 0);
+    addControl (new gin::Knob (p.levelParam), 2, 0);
+    addControl (new gin::Knob (p.panParam, true), 3, 0);
+    addControl (new gin::Switch (p.invertParam), 4, 0);
 }
 
