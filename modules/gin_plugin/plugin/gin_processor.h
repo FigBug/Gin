@@ -95,6 +95,7 @@ public:
 
     void reset() override;
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
+    void releaseResources() override {}
 
     virtual juce::PropertiesFile* getSettings();
 

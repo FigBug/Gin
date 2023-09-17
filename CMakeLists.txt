@@ -11,4 +11,5 @@ add_subdirectory(juce)
 
 add_subdirectory(modules)
 add_subdirectory(examples/Demo)
+add_subdirectory(examples/Effect)
 add_subdirectory(examples/Synth)
