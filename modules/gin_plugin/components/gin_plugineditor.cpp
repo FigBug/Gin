@@ -390,7 +390,11 @@ void TitleBar::refreshPrograms()
     programs.clear();
 
     for (int i = 0; i < slProc.getPrograms().size(); i++)
+    {
         programs.addItem (slProc.getProgramName (i), i + 1);
+        if (i == 0)
+            programs.addSeparator();
+    }
 
     programs.setSelectedItemIndex (slProc.getCurrentProgram(), juce::dontSendNotification);
     deleteButton.setEnabled (slProc.getCurrentProgram() != 0);

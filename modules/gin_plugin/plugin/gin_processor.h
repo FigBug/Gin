@@ -174,6 +174,7 @@ protected:
     virtual void updateState()  {}
 
     void extractProgram (const juce::String& name, const juce::MemoryBlock& data);
+    void extractProgram (const juce::String& name, const void* data, int sz);
 
 private:
     std::unique_ptr<juce::PropertiesFile> settings;

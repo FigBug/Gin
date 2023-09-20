@@ -56,8 +56,8 @@ void Program::loadFromFile (juce::File f, bool loadFully)
     {
         states.clear();
 
-        name = rootE->getStringAttribute ("name");
-        author = rootE->getStringAttribute ("author");
+        name = rootE->getStringAttribute ("name").trim();
+        author = rootE->getStringAttribute ("author").trim();
         tags = juce::StringArray::fromTokens (rootE->getStringAttribute ("tags"), " ", "");
 
         if (loadFully)
@@ -116,7 +116,7 @@ void Program::saveToDir (juce::File f)
         rootE->addChildElement (paramE);
     }
 
-    juce::File xmlFile = f.getChildFile (juce::File::createLegalFileName (name) + ".xml");
+    juce::File xmlFile = f.getChildFile (juce::File::createLegalFileName (name.trim()) + ".xml");
     xmlFile.replaceWithText (rootE->toString());
 }
 

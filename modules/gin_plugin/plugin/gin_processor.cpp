@@ -355,11 +355,16 @@ void Processor::loadAllPrograms()
 
 void Processor::extractProgram (const juce::String& name, const juce::MemoryBlock& data)
 {
+    extractProgram (name, data.getData(), int (data.getSize()));
+}
+
+void Processor::extractProgram (const juce::String& name, const void* data, int sz)
+{
     juce::File dir = getProgramDirectory();
     auto f = dir.getChildFile (name);
     if (! f.existsAsFile())
     {
-        f.replaceWithData (data.getData(), data.getSize());
+        f.replaceWithData (data, sz);
 
         auto program = new Program();
         program->loadFromFile (f, false);
