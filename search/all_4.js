@@ -59,7 +59,7 @@ var searchData=
   ['execute_318',['execute',['../classElevatedFileCopy.html#ac6965dae9ef1cf89d3ebe038d32370e3',1,'ElevatedFileCopy']]],
   ['exifmetadata_319',['ExifMetadata',['../classExifMetadata.html#afa3a3cefbb26ea66f049bfc49456def9',1,'ExifMetadata::ExifMetadata()'],['../classExifMetadata.html',1,'ExifMetadata']]],
   ['expander_320',['expander',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a86eafff6a891eb381e162e7adc73ff7e',1,'Dynamics']]],
-  ['extractprogram_321',['extractProgram',['../classProcessor.html#afdf6943c2323aeedf39c18d7ec77ecbb',1,'Processor']]],
+  ['extractprogram_321',['extractProgram',['../classProcessor.html#ad1fa6fe5fe5aa411ba0457273239a814',1,'Processor::extractProgram(const juce::String &amp;name, const void *data, int sz)'],['../classProcessor.html#afdf6943c2323aeedf39c18d7ec77ecbb',1,'Processor::extractProgram(const juce::String &amp;name, const juce::MemoryBlock &amp;data)']]],
   ['extraheightpx_322',['extraHeightPx',['../classProcessorEditorBase.html#a563ccdce57a82178551cd6e26d601d27',1,'ProcessorEditorBase']]],
   ['extrawidthpx_323',['extraWidthPx',['../classProcessorEditorBase.html#a4c568cb0377c6626240acc5eaf5fff2a',1,'ProcessorEditorBase']]]
 ];

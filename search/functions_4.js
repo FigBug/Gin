@@ -50,5 +50,5 @@ var searchData=
   ['evaluate_2028',['evaluate',['../classEquationParser.html#a920e54171a2af2a10c15ea417250db3b',1,'EquationParser']]],
   ['execute_2029',['execute',['../classElevatedFileCopy.html#ac6965dae9ef1cf89d3ebe038d32370e3',1,'ElevatedFileCopy']]],
   ['exifmetadata_2030',['ExifMetadata',['../classExifMetadata.html#afa3a3cefbb26ea66f049bfc49456def9',1,'ExifMetadata']]],
-  ['extractprogram_2031',['extractProgram',['../classProcessor.html#afdf6943c2323aeedf39c18d7ec77ecbb',1,'Processor']]]
+  ['extractprogram_2031',['extractProgram',['../classProcessor.html#ad1fa6fe5fe5aa411ba0457273239a814',1,'Processor::extractProgram(const juce::String &amp;name, const void *data, int sz)'],['../classProcessor.html#afdf6943c2323aeedf39c18d7ec77ecbb',1,'Processor::extractProgram(const juce::String &amp;name, const juce::MemoryBlock &amp;data)']]]
 ];

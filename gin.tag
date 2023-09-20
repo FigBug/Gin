@@ -10472,6 +10472,13 @@
       <anchor>afdf6943c2323aeedf39c18d7ec77ecbb</anchor>
       <arglist>(const juce::String &amp;name, const juce::MemoryBlock &amp;data)</arglist>
     </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>extractProgram</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>ad1fa6fe5fe5aa411ba0457273239a814</anchor>
+      <arglist>(const juce::String &amp;name, const void *data, int sz)</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>ProcessorEditor</name>
