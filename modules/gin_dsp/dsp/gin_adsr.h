@@ -24,7 +24,8 @@ public:
         attack,
         decay,
         sustain,
-        release
+        release,
+        finished,
     };
 
     void setSampleRate (double sr)              { sampleRate = sr;      }

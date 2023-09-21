@@ -89,8 +89,10 @@ void ADSR::process (juce::AudioSampleBuffer& buffer, int startSample, int numSam
                 if (output <= 0.0f)
                 {
                     output = 0.0f;
-                    state = idle;
+                    state = finished;
                 }
+                break;
+            case finished:
                 break;
         }
         *d++ = output;
@@ -138,9 +140,11 @@ float ADSR::process()
               if (output <= 0.0f)
               {
                   output = 0.0f;
-                  state = idle;
+                  state = finished;
               }
               break;
+        case finished:
+            break;
     }
     return output;
 }
@@ -150,11 +154,14 @@ float ADSR::process (int num)
     if (state == idle)
         return (attackDelta == 0.0f) ? 1.0f : 0.0f;
 
+    if (state == finished)
+        return 0.0f;
+
     for (int i = num; --i >= 0;)
         process();
+
     return output;
 }
-
 
 void ADSR::reset()
 {
