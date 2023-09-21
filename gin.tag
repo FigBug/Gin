@@ -1852,6 +1852,12 @@
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
+      <name>finished</name>
+      <anchorfile>classADSR.html</anchorfile>
+      <anchor>ab573baeeb4578e0a1e6e123452b8127aa4c8e84c9d5e8d4732e95215b44824622</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
       <name>idle</name>
       <anchorfile>classADSR.html</anchorfile>
       <anchor>ab573baeeb4578e0a1e6e123452b8127aa5ee791507471a07b686dd1b63486b0e7</anchor>
@@ -1879,6 +1885,12 @@
       <name>release</name>
       <anchorfile>classADSR.html</anchorfile>
       <anchor>ab573baeeb4578e0a1e6e123452b8127aac3273f5775dd2ec96038b66c3909d0a1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>finished</name>
+      <anchorfile>classADSR.html</anchorfile>
+      <anchor>ab573baeeb4578e0a1e6e123452b8127aa4c8e84c9d5e8d4732e95215b44824622</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
