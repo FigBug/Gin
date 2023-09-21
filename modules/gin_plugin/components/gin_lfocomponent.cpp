@@ -103,7 +103,7 @@ void LFOComponent::timerCallback()
 {
     if (isEnabled() && phaseCallback)
     {
-        auto newPhase = phaseCallback() / getNumSteps();
+        auto newPhase = std::fmod (phaseCallback() / getNumSteps(), 1.0f);
         if (! juce::approximatelyEqual (curPhase, newPhase))
         {
             curPhase = newPhase;
