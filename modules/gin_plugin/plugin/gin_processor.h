@@ -78,7 +78,9 @@ public:
 /** A process with internal and external params
 */
 class Processor : public ProcessorBaseClass,
-                  public juce::ChangeBroadcaster
+                  public juce::ChangeBroadcaster,
+                  private FileSystemWatcher::Listener,
+                  private juce::Timer
 {
 public:
     //==============================================================================
@@ -177,6 +179,9 @@ protected:
     void extractProgram (const juce::String& name, const void* data, int sz);
 
 private:
+    void folderChanged (const juce::File) override;
+    void timerCallback() override;
+    
     std::unique_ptr<juce::PropertiesFile> settings;
     
     std::unique_ptr<gin::Parameter> createParam (juce::String uid, juce::String name, juce::String shortName, juce::String label,
@@ -187,12 +192,15 @@ private:
     juce::Array<gin::Parameter*> allParameters;
 
     void updateParams();
+    
+    FileSystemWatcher watcher;
 
     int currentProgram = 0;
     int maxPrograms = 0;
     juce::OwnedArray<Program> programs;
 
     juce::Time lastStateLoad;
+    juce::Time lastProgramsUpdated;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Processor)

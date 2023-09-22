@@ -50,6 +50,9 @@ void Processor::init()
 {
     state = juce::ValueTree (juce::Identifier ("state"));
     loadAllPrograms();
+    
+    watcher.addListener (this);
+    watcher.addFolder (getProgramDirectory());
 }
 
 juce::PropertiesFile* Processor::getSettings()
@@ -315,8 +318,33 @@ bool Processor::hasProgram (juce::String name)
     return false;
 }
 
+void Processor::folderChanged (const juce::File)
+{
+    auto now = juce::Time::getCurrentTime();
+    if (now - lastProgramsUpdated > juce::RelativeTime::seconds (1.0))
+        startTimer (150);
+}
+
+void Processor::timerCallback()
+{
+    stopTimer();
+    loadAllPrograms();
+    
+    if (auto ed = dynamic_cast<ProcessorEditor*> (getActiveEditor()))
+    {
+        ed->refreshProgramsList();
+    }
+    else if (auto sed = dynamic_cast<ScaledPluginEditor*> (getActiveEditor()))
+    {
+        if (auto ied = dynamic_cast<ProcessorEditor*> (sed->editor.get()))
+            ied->refreshProgramsList();
+    }
+}
+
 void Processor::changeProgramName (int index, const juce::String& newName)
 {
+    lastProgramsUpdated = juce::Time::getCurrentTime();
+    
     programs[index]->deleteFromDir (getProgramDirectory());
     programs[index]->name = newName;
     programs[index]->saveToDir (getProgramDirectory());
@@ -327,6 +355,8 @@ void Processor::changeProgramName (int index, const juce::String& newName)
 
 void Processor::loadAllPrograms()
 {
+    lastProgramsUpdated = juce::Time::getCurrentTime();
+    
     updateState();
 
     programs.clear();
@@ -360,6 +390,8 @@ void Processor::extractProgram (const juce::String& name, const juce::MemoryBloc
 
 void Processor::extractProgram (const juce::String& name, const void* data, int sz)
 {
+    lastProgramsUpdated = juce::Time::getCurrentTime();
+    
     juce::File dir = getProgramDirectory();
     auto f = dir.getChildFile (name);
     if (! f.existsAsFile())
@@ -374,6 +406,8 @@ void Processor::extractProgram (const juce::String& name, const void* data, int 
 
 void Processor::saveProgram (juce::String name, juce::String author, juce::String tags)
 {
+    lastProgramsUpdated = juce::Time::getCurrentTime();
+    
     updateState();
 
     for (int i = programs.size(); --i >= 0;)
@@ -396,6 +430,8 @@ void Processor::saveProgram (juce::String name, juce::String author, juce::Strin
 
 void Processor::deleteProgram (int index)
 {
+    lastProgramsUpdated = juce::Time::getCurrentTime();
+    
     programs[index]->deleteFromDir (getProgramDirectory());
     programs.remove (index);
     if (index <= currentProgram)

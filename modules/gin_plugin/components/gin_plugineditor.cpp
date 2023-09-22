@@ -645,6 +645,11 @@ void ProcessorEditor::showAboutInfo()
     });
 }
 
+void ProcessorEditor::refreshProgramsList()
+{
+    titleBar.refreshPrograms();
+}
+
 void ProcessorEditor::refreshPatchBrowser()
 {
     patchBrowser.refresh();

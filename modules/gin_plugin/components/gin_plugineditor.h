@@ -214,6 +214,7 @@ public:
 
     virtual void showAboutInfo();
 
+    void refreshProgramsList();
     void refreshPatchBrowser();
     void showPatchBrowser (bool p);
 
