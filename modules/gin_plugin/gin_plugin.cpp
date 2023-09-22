@@ -11,6 +11,8 @@
 
 //==============================================================================
 
+#include <juce_audio_plugin_client/Standalone/juce_StandaloneFilterWindow.h>
+
 namespace gin
 {
 
@@ -31,6 +33,7 @@ namespace gin
 #include "components/gin_steplfocomponent.cpp"
 #include "components/gin_plugincomponents.cpp"
 #include "components/gin_knob.cpp"
+#include "components/gin_standaloneapp.cpp"
 
 #include "lookandfeel/gin_images.cpp"
 #include "lookandfeel/gin_pluginlookandfeel.cpp"

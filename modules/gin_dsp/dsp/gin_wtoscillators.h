@@ -31,9 +31,75 @@ public:
     void process (float note, const Params& params, juce::AudioSampleBuffer& buffer);
     void process (float noteL, float noteR, const Params& params, juce::AudioSampleBuffer& buffer);
 
-    void processAdding (float note, const Params& params, juce::AudioSampleBuffer& buffer);
-    void processAdding (float noteL, float noteR, const Params& params, juce::AudioSampleBuffer& buffer);
+    void processAdding (float note, const Params& params, juce::AudioSampleBuffer& buffer)
+    {
+        if (bllt == nullptr && bllt->size() == 0) return;
 
+        if (tableIndexL == -1 || tableIndexL >= bllt->size())
+            tableIndexL = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
+
+        float freq = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (note - 69.0) / 12.0)));
+        float delta = 1.0f / (float ((1.0f / freq) * sampleRate));
+
+        int samps = buffer.getNumSamples();
+        auto l = buffer.getWritePointer (0);
+        auto r = buffer.getWritePointer (1);
+
+        for (int i = 0; i < samps; i++)
+        {
+            auto s = bllt->getUnchecked (tableIndexL)->process (note, phaseDistortion (phaseL, params.bend, params.formant));
+            *l++ += s * params.leftGain;
+            *r++ += s * params.rightGain;
+
+            phaseL += delta;
+            while (phaseL >= 1.0f)
+            {
+                phaseL -= 1.0f;
+                tableIndexL = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
+            }
+        }
+        phaseR = phaseL;
+    }
+    
+    void processAdding (float noteL, float noteR, const Params& params, juce::AudioSampleBuffer& buffer)
+    {
+        if (bllt == nullptr && bllt->size() == 0) return;
+
+        if (tableIndexL == -1 || tableIndexL >= bllt->size() || tableIndexR >= bllt->size())
+            tableIndexL = tableIndexR = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
+
+        float freqL = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteL - 69.0) / 12.0)));
+        float freqR = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (noteR - 69.0) / 12.0)));
+        float deltaL = 1.0f / (float ((1.0f / freqL) * sampleRate));
+        float deltaR = 1.0f / (float ((1.0f / freqR) * sampleRate));
+
+        int samps = buffer.getNumSamples();
+        auto l = buffer.getWritePointer (0);
+        auto r = buffer.getWritePointer (1);
+
+        for (int i = 0; i < samps; i++)
+        {
+            auto sL = bllt->getUnchecked (tableIndexL)->process (noteL, phaseDistortion (phaseL, params.bend, params.formant));
+            auto sR = bllt->getUnchecked (tableIndexR)->process (noteR, phaseDistortion (phaseR, params.bend, params.formant));
+
+            *l++ += sL * params.leftGain;
+            *r++ += sR * params.rightGain;
+
+            phaseL += deltaL;
+            phaseR += deltaR;
+            while (phaseL >= 1.0f)
+            {
+                phaseL -= 1.0f;
+                tableIndexL = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
+            }
+            while (phaseR >= 1.0f)
+            {
+                phaseR -= 1.0f;
+                tableIndexR = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
+            }
+        }
+    }
+    
     void setWavetable (juce::OwnedArray<BandLimitedLookupTable>* table);
 
 private:
@@ -58,10 +124,10 @@ private:
 
     inline float phaseDistortion (float phase, float bend, float formant)
     {
-        if (! juce::approximatelyEqual (bend, 0.0f))
+        if (! juce::exactlyEqual (bend, 0.0f))
             phase = bendDistortion (phase, bend);
 
-        if (! juce::approximatelyEqual (formant, 0.0f))
+        if (! juce::exactlyEqual (formant, 0.0f))
             phase = formantDistortion (phase, formant);
 
         return phase;
