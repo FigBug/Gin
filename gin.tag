@@ -1561,6 +1561,12 @@
     <class kind="class">Spline::Element</class>
   </compound>
   <compound kind="file">
+    <name>gin_standaloneapp.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
+    <filename>gin__standaloneapp_8h.html</filename>
+    <class kind="class">StandaloneApp</class>
+  </compound>
+  <compound kind="file">
     <name>gin_steplfo.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
     <filename>gin__steplfo_8h.html</filename>
@@ -8899,8 +8905,8 @@
       <type>juce::String</type>
       <name>getUid</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a1541ad0a9159f2433a6e652196b9d377</anchor>
-      <arglist>()</arglist>
+      <anchor>a1cc5a8decbb78d9ebcbb25e5a03433f9</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -8913,8 +8919,8 @@
       <type>bool</type>
       <name>isInternal</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>afb5c784fc967bb5c8cb092ca08be94cf</anchor>
-      <arglist>()</arglist>
+      <anchor>a6ad2166ca7478d664f399855cf993cdd</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -8927,8 +8933,8 @@
       <type>int</type>
       <name>getModIndex</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a993beb638d6020998362efb7523f818d</anchor>
-      <arglist>()</arglist>
+      <anchor>a64c23ec19da36aa088694e241605fee7</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -8941,8 +8947,8 @@
       <type>ModMatrix *</type>
       <name>getModMatrix</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a659b6ef154cdff127cc36c0af6cfcdf1</anchor>
-      <arglist>()</arglist>
+      <anchor>a122b838b148637992b24ecfea1e62221</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
@@ -12607,6 +12613,66 @@
       <anchorfile>classSpline.html</anchorfile>
       <anchor>ac1f059b0c61e23b88d7939a27fd40b5c</anchor>
       <arglist>(double x) const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>StandaloneApp</name>
+    <filename>classStandaloneApp.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>StandaloneApp</name>
+      <anchorfile>classStandaloneApp.html</anchorfile>
+      <anchor>a2ed7bafe824e7aba595295bb56a18c5c</anchor>
+      <arglist>(std::function&lt; bool(juce::PropertiesFile &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce::String</type>
+      <name>getApplicationName</name>
+      <anchorfile>classStandaloneApp.html</anchorfile>
+      <anchor>ae23169cde819477173bef292c8a1054d</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce::String</type>
+      <name>getApplicationVersion</name>
+      <anchorfile>classStandaloneApp.html</anchorfile>
+      <anchor>ac4d24c5c75d59190327c1dabac6fa866</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>moreThanOneInstanceAllowed</name>
+      <anchorfile>classStandaloneApp.html</anchorfile>
+      <anchor>ae7c38b933beefc2bf10244c7b3d17675</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>anotherInstanceStarted</name>
+      <anchorfile>classStandaloneApp.html</anchorfile>
+      <anchor>a751aed62a782c777db2f5eb8082b4e54</anchor>
+      <arglist>(const juce::String &amp;) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>initialise</name>
+      <anchorfile>classStandaloneApp.html</anchorfile>
+      <anchor>a86f888d0da6044f424d478322766a6e9</anchor>
+      <arglist>(const juce::String &amp;) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>shutdown</name>
+      <anchorfile>classStandaloneApp.html</anchorfile>
+      <anchor>a418c9632ee0646821afcaa2f8c203143</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>systemRequestedQuit</name>
+      <anchorfile>classStandaloneApp.html</anchorfile>
+      <anchor>afa2dc8bd7058338862021970b673ad11</anchor>
+      <arglist>() override</arglist>
     </member>
   </compound>
   <compound kind="class">
