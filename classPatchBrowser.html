@@ -86,8 +86,8 @@ Classes</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4beb28a79d33b3385cd036e78166443c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPatchBrowser.html#a4beb28a79d33b3385cd036e78166443c">PatchBrowser</a> (<a class="el" href="classProcessor.html">Processor</a> &amp;p)</td></tr>
 <tr class="separator:a4beb28a79d33b3385cd036e78166443c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63f6aec5fdb704d05593cac1823bb9bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPatchBrowser.html#a63f6aec5fdb704d05593cac1823bb9bb">updateSelection</a> ()</td></tr>
-<tr class="separator:a63f6aec5fdb704d05593cac1823bb9bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e15d8944a89d0a6e5e7c4730bcf84b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPatchBrowser.html#a8e15d8944a89d0a6e5e7c4730bcf84b1">selectionUpdated</a> ()</td></tr>
+<tr class="separator:a8e15d8944a89d0a6e5e7c4730bcf84b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d7217de51f2b36702575561de21fee6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPatchBrowser.html#a1d7217de51f2b36702575561de21fee6">refresh</a> ()</td></tr>
 <tr class="separator:a1d7217de51f2b36702575561de21fee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b458409720f15dc6e8629c3402a0968"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPatchBrowser.html#a1b458409720f15dc6e8629c3402a0968">resized</a> () override</td></tr>
@@ -115,6 +115,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aa7bac749585a5be93c25474dae4542e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fde0c9a4e9504c0feb276e93250ea12"><td class="memItemLeft" align="right" valign="top">juce::ListBox&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPatchBrowser.html#a2fde0c9a4e9504c0feb276e93250ea12">presets</a> { &quot;&quot;, &amp;<a class="el" href="classPatchBrowser.html#acce838df5fbbd1505ae5c0b55d361604">presetsModel</a> }</td></tr>
 <tr class="separator:a2fde0c9a4e9504c0feb276e93250ea12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae533e2afce8a26c935a2d1b8473f2c67"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPatchBrowser.html#ae533e2afce8a26c935a2d1b8473f2c67">updatingSelection</a> = false</td></tr>
+<tr class="separator:ae533e2afce8a26c935a2d1b8473f2c67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6706171e059f0acd5c48aded8185378b"><td class="memItemLeft" align="right" valign="top">juce::StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPatchBrowser.html#a6706171e059f0acd5c48aded8185378b">currentAuthors</a></td></tr>
 <tr class="separator:a6706171e059f0acd5c48aded8185378b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6b24119439bd1a1feafc67751a4c965"><td class="memItemLeft" align="right" valign="top">juce::StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPatchBrowser.html#ad6b24119439bd1a1feafc67751a4c965">currentTags</a></td></tr>
@@ -125,6 +127,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a9b9d7b139ae59f19b0b3435dba2ce027"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5131ad5197cd707f759b87775770551f"><td class="memItemLeft" align="right" valign="top">juce::StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPatchBrowser.html#a5131ad5197cd707f759b87775770551f">selectedTags</a></td></tr>
 <tr class="separator:a5131ad5197cd707f759b87775770551f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af322a5f3cd94e547cc09fc171f8f0965"><td class="memItemLeft" align="right" valign="top">juce::StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPatchBrowser.html#af322a5f3cd94e547cc09fc171f8f0965">selectedPresets</a></td></tr>
+<tr class="separator:af322a5f3cd94e547cc09fc171f8f0965"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4beb28a79d33b3385cd036e78166443c"></a>
@@ -146,14 +150,14 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a63f6aec5fdb704d05593cac1823bb9bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63f6aec5fdb704d05593cac1823bb9bb">&#9670;&nbsp;</a></span>updateSelection()</h2>
+<a id="a8e15d8944a89d0a6e5e7c4730bcf84b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e15d8944a89d0a6e5e7c4730bcf84b1">&#9670;&nbsp;</a></span>selectionUpdated()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void PatchBrowser::updateSelection </td>
+          <td class="memname">void PatchBrowser::selectionUpdated </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -366,6 +370,20 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ae533e2afce8a26c935a2d1b8473f2c67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae533e2afce8a26c935a2d1b8473f2c67">&#9670;&nbsp;</a></span>updatingSelection</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PatchBrowser::updatingSelection = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6706171e059f0acd5c48aded8185378b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6706171e059f0acd5c48aded8185378b">&#9670;&nbsp;</a></span>currentAuthors</h2>
 
@@ -436,13 +454,27 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="af322a5f3cd94e547cc09fc171f8f0965"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af322a5f3cd94e547cc09fc171f8f0965">&#9670;&nbsp;</a></span>selectedPresets</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::StringArray PatchBrowser::selectedPresets</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="gin__patchbrowser_8h.html">gin_patchbrowser.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 22 2023 04:26:03 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Sep 22 2023 13:43:51 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

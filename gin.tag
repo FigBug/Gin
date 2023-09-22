@@ -9564,9 +9564,9 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>updateSelection</name>
+      <name>selectionUpdated</name>
       <anchorfile>classPatchBrowser.html</anchorfile>
-      <anchor>a63f6aec5fdb704d05593cac1823bb9bb</anchor>
+      <anchor>a8e15d8944a89d0a6e5e7c4730bcf84b1</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -9654,6 +9654,13 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
+      <type>bool</type>
+      <name>updatingSelection</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>ae533e2afce8a26c935a2d1b8473f2c67</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
       <type>juce::StringArray</type>
       <name>currentAuthors</name>
       <anchorfile>classPatchBrowser.html</anchorfile>
@@ -9686,6 +9693,13 @@
       <name>selectedTags</name>
       <anchorfile>classPatchBrowser.html</anchorfile>
       <anchor>a5131ad5197cd707f759b87775770551f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::StringArray</type>
+      <name>selectedPresets</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>af322a5f3cd94e547cc09fc171f8f0965</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -10156,6 +10170,13 @@
       <anchorfile>structPatchBrowser_1_1PresetsModel.html</anchorfile>
       <anchor>a44f9a1678a67661480ea71ab7a0a0d4d</anchor>
       <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>selectedRowsChanged</name>
+      <anchorfile>structPatchBrowser_1_1PresetsModel.html</anchorfile>
+      <anchor>a44bb3044411316fb132909182d5b32e3</anchor>
+      <arglist>(int) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
