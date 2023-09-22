@@ -14,27 +14,35 @@ PatchBrowser::PatchBrowser (Processor& p) : proc (p)
     presets.setOutlineThickness (1);
 
     authors.setMultipleSelectionEnabled (true);
-    authors.setClickingTogglesRowSelection (true);
     tags.setMultipleSelectionEnabled (true);
-    tags.setClickingTogglesRowSelection (true);
 
     refresh();
 }
 
-void PatchBrowser::updateSelection()
+void PatchBrowser::selectionUpdated()
 {
+    if (updatingSelection)
+        return;
+    
     selectedAuthors.clear();
     selectedTags.clear();
+    selectedPresets.clear();
 
     for (int i = 0; i < authors.getNumSelectedRows(); i++)
         selectedAuthors.add (currentAuthors[authors.getSelectedRow (i)]);
 
     for (int i = 0; i < tags.getNumSelectedRows(); i++)
         selectedTags.add (currentTags[tags.getSelectedRow (i)]);
+    
+    for (int i = 0; i < presets.getNumSelectedRows(); i++)
+        selectedPresets.add (currentPresets[presets.getSelectedRow (i)]);
 }
 
 void PatchBrowser::refresh()
 {
+    if (updatingSelection)
+        return;
+    
     currentAuthors.clear();
     currentTags.clear();
     currentPresets.clear();
@@ -44,16 +52,16 @@ void PatchBrowser::refresh()
         if (program->author.isNotEmpty())
             currentAuthors.addIfNotAlreadyThere (program->author);
 
-        for (auto t : program->tags)
-            if (t.isNotEmpty())
-                currentTags.addIfNotAlreadyThere (t);
-
         if (program->name == "Default")
             continue;
 
         if (! selectedAuthors.isEmpty())
             if (! selectedAuthors.contains (program->author))
                 continue;
+        
+        for (auto t : program->tags)
+            if (t.isNotEmpty())
+                currentTags.addIfNotAlreadyThere (t);
 
         if (! selectedTags.isEmpty())
         {
@@ -77,6 +85,20 @@ void PatchBrowser::refresh()
     authors.updateContent();
     tags.updateContent();
     presets.updateContent();
+    
+    juce::ScopedValueSetter<bool> svs (updatingSelection, true);
+    
+    authors.deselectAllRows();
+    for (auto a : selectedAuthors)
+        authors.selectRow (currentAuthors.indexOf (a), true, false);
+
+    tags.deselectAllRows();
+    for (auto t : selectedTags)
+        tags.selectRow (currentTags.indexOf (t), true, false);
+
+    presets.deselectAllRows();
+    for (auto p : selectedPresets)
+        presets.selectRow (currentPresets.indexOf (p), true, false);
 
     repaint();
 }
@@ -182,7 +204,7 @@ int PatchBrowser::AuthorsModel::getNumRows()
 
 void PatchBrowser::AuthorsModel::selectedRowsChanged (int)
 {
-    owner.updateSelection();
+    owner.selectionUpdated();
     owner.refresh();
 }
 
@@ -216,7 +238,7 @@ int PatchBrowser::TagsModel::getNumRows()
 
 void PatchBrowser::TagsModel::selectedRowsChanged (int)
 {
-    owner.updateSelection();
+    owner.selectionUpdated();
     owner.refresh();
 }
 
@@ -246,6 +268,11 @@ PatchBrowser::PresetsModel::PresetsModel (PatchBrowser& o)
 int PatchBrowser::PresetsModel::getNumRows()
 {
     return owner.currentPresets.size();
+}
+
+void PatchBrowser::PresetsModel::selectedRowsChanged (int)
+{
+    owner.selectionUpdated();
 }
 
 void PatchBrowser::PresetsModel::paintListBoxItem (int row, juce::Graphics& g, int w, int h, bool selected)
