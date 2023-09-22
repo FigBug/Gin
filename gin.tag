@@ -10210,6 +10210,7 @@
   <compound kind="class">
     <name>Processor</name>
     <filename>classProcessor.html</filename>
+    <base protection="private">FileSystemWatcher::Listener</base>
     <member kind="function">
       <type></type>
       <name>Processor</name>
@@ -10556,6 +10557,13 @@
       <name>showAboutInfo</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
       <anchor>a058029cc670ad921b0ead5565e837e7a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>refreshProgramsList</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a7911a1f9aa42bde3a4e2a353f34e1de4</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">

@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['newschecker_1625',['NewsChecker',['../classNewsChecker.html',1,'']]],
-  ['noisestate_1626',['NoiseState',['../structNoiseState.html',1,'']]],
-  ['notch12state_1627',['Notch12State',['../structNotch12State.html',1,'']]],
-  ['notch24state_1628',['Notch24State',['../structNotch24State.html',1,'']]],
-  ['noteduration_1629',['NoteDuration',['../classNoteDuration.html',1,'']]]
+  ['newschecker_1623',['NewsChecker',['../classNewsChecker.html',1,'']]],
+  ['noisestate_1624',['NoiseState',['../structNoiseState.html',1,'']]],
+  ['notch12state_1625',['Notch12State',['../structNotch12State.html',1,'']]],
+  ['notch24state_1626',['Notch24State',['../structNotch24State.html',1,'']]],
+  ['noteduration_1627',['NoteDuration',['../classNoteDuration.html',1,'']]]
 ];
