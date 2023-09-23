@@ -29,10 +29,12 @@ void PatchBrowser::selectionUpdated()
     selectedPresets.clear();
 
     for (int i = 0; i < authors.getNumSelectedRows(); i++)
-        selectedAuthors.add (currentAuthors[authors.getSelectedRow (i)]);
+        if (auto row = authors.getSelectedRow (i); row > 0)
+            selectedAuthors.add (currentAuthors[row]);
 
     for (int i = 0; i < tags.getNumSelectedRows(); i++)
-        selectedTags.add (currentTags[tags.getSelectedRow (i)]);
+        if (auto row = tags.getSelectedRow (i); row > 0)
+        selectedTags.add (currentTags[row]);
     
     for (int i = 0; i < presets.getNumSelectedRows(); i++)
         selectedPresets.add (currentPresets[presets.getSelectedRow (i)]);
@@ -81,6 +83,9 @@ void PatchBrowser::refresh()
     currentAuthors.sort (true);
     currentTags.sort (true);
     currentPresets.sort (true);
+    
+    currentAuthors.insert (0, "<All>");
+    currentTags.insert (0, "<All>");
 
     authors.updateContent();
     tags.updateContent();
@@ -89,12 +94,26 @@ void PatchBrowser::refresh()
     juce::ScopedValueSetter<bool> svs (updatingSelection, true);
     
     authors.deselectAllRows();
-    for (auto a : selectedAuthors)
-        authors.selectRow (currentAuthors.indexOf (a), true, false);
+    if (selectedAuthors.size() > 0)
+    {
+        for (auto a : selectedAuthors)
+            authors.selectRow (currentAuthors.indexOf (a), true, false);
+    }
+    else
+    {
+        authors.selectRow (0, true, false);
+    }
 
     tags.deselectAllRows();
-    for (auto t : selectedTags)
-        tags.selectRow (currentTags.indexOf (t), true, false);
+    if (selectedTags.size() > 0)
+    {
+        for (auto t : selectedTags)
+            tags.selectRow (currentTags.indexOf (t), true, false);
+    }
+    else
+    {
+        tags.selectRow (0, true, false);
+    }
 
     presets.deselectAllRows();
     for (auto p : selectedPresets)
