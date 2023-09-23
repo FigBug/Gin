@@ -94,7 +94,7 @@ public:
     ~Processor() override;
 
     void init();
-
+    
     void reset() override;
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
     void releaseResources() override {}
