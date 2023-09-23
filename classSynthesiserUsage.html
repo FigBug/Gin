@@ -83,6 +83,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a61174588450de0af35bf0d1a3866faba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a821a190f2151fc3a6022748679d283c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSynthesiserUsage.html#a821a190f2151fc3a6022748679d283c0">paint</a> (juce::Graphics &amp;g) override</td></tr>
 <tr class="separator:a821a190f2151fc3a6022748679d283c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7e8993dbf8f27d6ee0dac3a4e596de5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSynthesiserUsage.html#ab7e8993dbf8f27d6ee0dac3a4e596de5">resized</a> () override</td></tr>
+<tr class="separator:ab7e8993dbf8f27d6ee0dac3a4e596de5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -96,6 +98,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ac45af775287b4546013be488a67d5d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac81b9aec980658fbc4bea45175e50ea5"><td class="memItemLeft" align="right" valign="top">juce::Path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSynthesiserUsage.html#ac81b9aec980658fbc4bea45175e50ea5">cpuPath</a> { <a class="el" href="group__gin__gui-images.html#ga781250a0ec9422dc8c7365cf6b9935ee">parseSVGPath</a> (gin::Assets::cpu) }</td></tr>
 <tr class="separator:ac81b9aec980658fbc4bea45175e50ea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e09f76bc17f6f9c1430400e3d65d8b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSVGButton.html">SVGButton</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSynthesiserUsage.html#a3e09f76bc17f6f9c1430400e3d65d8b6">panic</a> { &quot;panic&quot;, gin::Assets::panic }</td></tr>
+<tr class="separator:a3e09f76bc17f6f9c1430400e3d65d8b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Control for synth usage. </p>
@@ -115,6 +119,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="group__gin__gui-components.html#ga66410efb088d24a02a86b4c6191e2866">addAndMakeVisible()</a>, and <a class="el" href="classSynthesiserUsage.html#a3e09f76bc17f6f9c1430400e3d65d8b6">panic</a>.</p>
 
 </div>
 </div>
@@ -171,6 +177,33 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="classSynthesiserUsage.html#a10170c9eadde302226e4d25c1586d76e">cpu</a>, <a class="el" href="classSynthesiserUsage.html#ac81b9aec980658fbc4bea45175e50ea5">cpuPath</a>, <a class="el" href="classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a87882c3f6219ea41cd1e0522707f4aa5">GinLookAndFeel::grey60ColourId</a>, <a class="el" href="classSynthesiserUsage.html#ac45af775287b4546013be488a67d5d7d">voicePath</a>, and <a class="el" href="classSynthesiserUsage.html#a2cb8e573343dc51b45899177cc111574">voices</a>.</p>
+
+</div>
+</div>
+<a id="ab7e8993dbf8f27d6ee0dac3a4e596de5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7e8993dbf8f27d6ee0dac3a4e596de5">&#9670;&nbsp;</a></span>resized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SynthesiserUsage::resized </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classSynthesiserUsage.html#a3e09f76bc17f6f9c1430400e3d65d8b6">panic</a>.</p>
 
 </div>
 </div>
@@ -255,13 +288,29 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a3e09f76bc17f6f9c1430400e3d65d8b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e09f76bc17f6f9c1430400e3d65d8b6">&#9670;&nbsp;</a></span>panic</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSVGButton.html">SVGButton</a> SynthesiserUsage::panic { &quot;panic&quot;, gin::Assets::panic }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classSynthesiserUsage.html#ab7e8993dbf8f27d6ee0dac3a4e596de5">resized()</a>, and <a class="el" href="classSynthesiserUsage.html#ae37e6d848cf06acd4d3795c7d86c62cd">SynthesiserUsage()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="gin__plugincomponents_8h.html">gin_plugincomponents.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 23 2023 14:58:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Sat Sep 23 2023 18:10:36 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

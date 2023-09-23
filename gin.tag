@@ -93,6 +93,13 @@
       <anchor>ad53d4c201ef739ea70be0f9b9b427de9</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>panic</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>ae4486cb0a48cf541282b09f07bdcc1d0</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>gin_asyncutilities.h</name>
@@ -13100,6 +13107,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>turnOffAllVoices</name>
+      <anchorfile>classSynthesiser.html</anchorfile>
+      <anchor>a98071b76981dcb6f125cf079595c8ede</anchor>
+      <arglist>(bool allowTailOff) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>setMPE</name>
       <anchorfile>classSynthesiser.html</anchorfile>
       <anchor>a7f8f310291795baffdc5ba124dc17adf</anchor>
@@ -13270,6 +13284,13 @@
       <anchor>a821a190f2151fc3a6022748679d283c0</anchor>
       <arglist>(juce::Graphics &amp;g) override</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resized</name>
+      <anchorfile>classSynthesiserUsage.html</anchorfile>
+      <anchor>ab7e8993dbf8f27d6ee0dac3a4e596de5</anchor>
+      <arglist>() override</arglist>
+    </member>
     <member kind="variable">
       <type>Synthesiser &amp;</type>
       <name>synthesiser</name>
@@ -13303,6 +13324,13 @@
       <name>cpuPath</name>
       <anchorfile>classSynthesiserUsage.html</anchorfile>
       <anchor>ac81b9aec980658fbc4bea45175e50ea5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>SVGButton</type>
+      <name>panic</name>
+      <anchorfile>classSynthesiserUsage.html</anchorfile>
+      <anchor>a3e09f76bc17f6f9c1430400e3d65d8b6</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -15189,6 +15217,13 @@
       <name>power</name>
       <anchorfile>namespaceAssets.html</anchorfile>
       <anchor>ad53d4c201ef739ea70be0f9b9b427de9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>panic</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>ae4486cb0a48cf541282b09f07bdcc1d0</anchor>
       <arglist></arglist>
     </member>
   </compound>
