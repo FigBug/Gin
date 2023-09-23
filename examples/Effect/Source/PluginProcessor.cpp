@@ -3,34 +3,24 @@
 
 static juce::String modeTextFunction (const gin::Parameter&, float v)
 {
-    switch (int (v))
-    {
-        case 0: return "Linear";
-        case 1: return "3dB";
-        default:
-            return {};
-    }
+    if ((int (v)) == 0)
+        return "Linear";
+	return "3dB";
 }
 
 static juce::String onOffTextFunction (const gin::Parameter&, float v)
 {
-    switch (int (v))
-    {
-        case 0: return "On";
-        case 1: return "Off";
-        default:
-            return {};
-    }
+    if (int (v) == 0)
+		return "On";
+	return "Off";
 }
 
 static juce::String panTextFunction (const gin::Parameter&, float v)
 {
     if (juce::String (v, 2) == "0.00")
         return "C";
-    
     if (v < 0)
         return juce::String (-v, 2) + "L";
-    
     return juce::String (v, 2) + "R";
 }
 
@@ -106,8 +96,8 @@ void EffectAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce:
     {
         auto todo = numSamps - pos;
         
-        auto gain = levelParam->getProcValue (1);
-        auto pan = panParam->getProcValue (1);
+        auto gain = levelParam->getProcValue (todo);
+        auto pan = panParam->getProcValue (todo);
         
         auto [left, right] = getGains (gain, pan, mode);
         
