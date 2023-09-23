@@ -240,9 +240,9 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p)
             w->setVisible (false);
             if (ret == 1)
             {
-                auto txt = juce::File::createLegalFileName (w->getTextEditor ("name")->getText());
-                auto aut = (hasBrowser) ? juce::File::createLegalFileName (w->getTextEditor ("author")->getText()) : juce::String();
-                auto tag = (hasBrowser) ? juce::File::createLegalFileName (w->getTextEditor ("tags")->getText()) : juce::String();
+                auto txt = juce::File::createLegalFileName (w->getTextEditor ("name")->getText()).trim();
+                auto aut = (hasBrowser) ? juce::File::createLegalFileName (w->getTextEditor ("author")->getText()).trim() : juce::String();
+                auto tag = (hasBrowser) ? juce::File::createLegalFileName (w->getTextEditor ("tags")->getText()).trim() : juce::String();
 
                 if (slProc.hasProgram (txt))
                 {
