@@ -1729,7 +1729,8 @@ struct BLLTDemo : public juce::Component
         for (auto i = 0; i < 2048; i++)
             w[i] = tables.processSquare (0.0f, i / 2048.0f);
 
-        bllt.loadFromBuffer (44100, buf, 44100, 12);
+        std::unique_ptr<juce::dsp::FFT> fft;
+        bllt.loadFromBuffer (fft, 44100, buf, 44100, 12);
     }
 
     void paint (juce::Graphics& g) override
