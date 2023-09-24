@@ -1,0 +1,64 @@
+{
+    "children": 
+    [
+        { "id": "osc", "x": "0,prevR()+1", "y": 0, "w": "parW()/2", "h": 163 },
+        { "id": "flt",  "x": "prevR()+1", "y": "prevY()", "w": 336, "h": 163, "children":
+            [
+                { "id": "Type", "x": 0, "y": 23, "w": 56, "h": 70 },
+                { "id": "Freq", "x": "prevR()", "y": 23, "w": 56, "h": 70 },
+                { "id": "Res", "x": "prevR()", "y": 23, "w": 56, "h": 70 },
+                { "id": "Key", "x": 0, "y": "prevB()", "w": 56, "h": 70 }
+            ]
+         },
+        { "id": "adsr", "x": "prevR()+1", "y": "prevY()", "w": "210 + 118", "h": 163, "children":
+            [
+                { "id": "A", "x": "118/2", "y": 106, "w": 42, "h": 57 },
+                { "id": "D", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                { "id": "S", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                { "id": "R", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                { "id": "Vel", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                { "id": "adsr", "x": 0, "y": 23, "r": "parW()", "b": "getY('A')" }
+            ] },
+        { "id": "lfo", "x": 0, "y": "prevB()+1,prevY()", "w": 280, "h": 163, "children":
+            [
+                { "id": "Sync", "x": 0, "y": 23, "w": 56, "h": 70 },
+                { "id": "Beat", "x": "prevR()", "y": 23, "w": 56, "h": 70 },
+                { "id": "Rate", "x": "prevX()", "y": 23, "w": 56, "h": 70 },
+                { "id": "Wave", "x": 0, "y": "prevB()", "w": 56, "h": 70 },
+                { "id": "Depth", "x": "prevR()", "y": "prevY()", "w": 56, "h": 70 },
+                { "id": "Offset", "x": "prevR()", "y": "prevY() + 13", "w": 42, "h": 57 },
+                { "id": "Phase", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                { "id": "Delay", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                { "id": "Fade", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                { "id": "lfo", "x": "getX('Offset')", "y": "getY('Rate')", "r": "getR('Fade')", "b": "getY('Fade')" }
+            ] },
+        { "id": "mod", "x": "prevR()+1", "y": "prevY()", "r": "parW()", "h": 163, "children":
+            [
+                { "id": "modlist", "x": 0, "y": 23, "r": "parW()", "b": "parH()" }
+            ] 
+        },
+        { "id": "mtx", "x": "prevX()", "y": "prevY()", "r": "parR()", "h": 163, "children":
+            [
+                { "id": "matrix", "x": 0, "y": 23, "r": "parW()", "b": "parH()" }
+            ] 
+        },
+        { "id": "delay", "x": "prevR()+1", "y": "prevY()", "w": 126, "h": 137, "children":
+            [
+                { "id": "Sync", "x": 0, "y": 23, "w": 42, "h": 57 },
+                { "id": "Delay1", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                { "id": "Delay2", "x": "prevX()", "y": "prevY()", "w": 42, "h": 57 },
+                { "id": "Mix", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                { "id": "FB", "x": 21, "y": "prevB()", "w": 42, "h": 57 },
+                { "id": "CF", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 }
+            ] },
+        { "id": "global", "x": "prevR()+1", "y": "prevY()", "w": 126, "h": 137, "children":
+            [
+                { "id": "Legato", "x": 0, "y": 23, "w": 42, "h": 57 },
+                { "id": "Glide", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                { "id": "Rate", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                { "id": "Mono", "x": 0, "y": "prevB()", "w": 42, "h": 57 },
+                { "id": "Voices", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                { "id": "Level", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 }
+            ] }
+    ]
+}

@@ -5,11 +5,12 @@
 class SynthAudioProcessor;
 
 //==============================================================================
-class SynthVoice : public gin::SynthesiserVoice
+class SynthVoice : public gin::SynthesiserVoice,
+                   public gin::ModVoice
 {
 public:
-    SynthVoice (SynthAudioProcessor& p, gin::BandLimitedLookupTables& bandLimitedLookupTables);
-
+    SynthVoice (SynthAudioProcessor& p);
+    
     void noteStarted() override;
     void noteRetriggered() override;
     void noteStopped (bool allowTailOff) override;
@@ -18,28 +19,32 @@ public:
     void noteTimbreChanged() override;
     void notePitchbendChanged() override    {}
     void noteKeyStateChanged() override     {}
-
+    
     void setCurrentSampleRate (double newRate) override;
 
     void renderNextBlock (juce::AudioBuffer<float>& outputBuffer, int startSample, int numSamples) override;
-    float getFilterCutoffNormalized();
 
+    bool isVoiceActive() override;
+
+    float getFilterCutoffNormalized();
+  
 private:
     void updateParams (int blockSize);
-    float getValue (gin::Parameter* p);
 
     SynthAudioProcessor& proc;
-    gin::BandLimitedLookupTables& bandLimitedLookupTables;
-    gin::BLLTVoicedStereoOscillator oscillators { bandLimitedLookupTables };
 
-    gin::Filter filters;
-    gin::ADSR filterADSRs;
+    gin::BLLTVoicedStereoOscillator oscillator;
+
+    gin::Filter filter;
+    
+    gin::LFO modLFO;
+
     gin::AnalogADSR adsr;
 
-    float currentMidiNotes = 0.0f;
+    float currentMidiNote;
     gin::VoicedStereoOscillatorParams oscParams;
-
+    
     gin::EasedValueSmoother<float> noteSmoother;
-
+    
     float ampKeyTrack = 1.0f;
 };

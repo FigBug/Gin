@@ -29,6 +29,13 @@ if (APPLE)
 		)
 endif ()
 
+# Binary Data
+
+set_property (DIRECTORY APPEND PROPERTY LABELS Assets)
+
+juce_add_binary_data (Synth_Assets SOURCES
+						"./Resources/layout.json")
+
 file (GLOB_RECURSE source_files CONFIGURE_DEPENDS
     ${CMAKE_CURRENT_SOURCE_DIR}/Source/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Source/*.c
@@ -38,14 +45,13 @@ target_sources (Synth PRIVATE ${source_files})
 source_group (TREE ${CMAKE_CURRENT_SOURCE_DIR}/Source PREFIX Source FILES ${source_files})
 
 target_link_libraries (Synth PRIVATE
+						Synth_Assets
 
 						gin
 						gin_graphics
 						gin_gui
-						gin_webp
 						gin_dsp
 						gin_plugin
-						gin_network
 
 						juce::juce_cryptography
 						juce::juce_data_structures
