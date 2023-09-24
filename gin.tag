@@ -2928,8 +2928,8 @@
       <type>void</type>
       <name>loadFromBuffer</name>
       <anchorfile>classBandLimitedLookupTable.html</anchorfile>
-      <anchor>aac448b9d42c925f2ebbe2ac6350a8b5d</anchor>
-      <arglist>(float playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, float fileSampleRate, int notesPerTable)</arglist>
+      <anchor>a4b8fa24e3f5588a10420bf0ea6f8b027</anchor>
+      <arglist>(std::unique_ptr&lt; juce::dsp::FFT &gt; &amp;fft, float playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, float fileSampleRate, int notesPerTable)</arglist>
     </member>
     <member kind="variable">
       <type>std::vector&lt; std::vector&lt; float &gt; &gt;</type>

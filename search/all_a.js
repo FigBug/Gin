@@ -34,7 +34,7 @@ var searchData=
   ['listener_783',['Listener',['../classFileSystemWatcher_1_1Listener.html',1,'FileSystemWatcher::Listener'],['../classLocationManager_1_1Listener.html',1,'LocationManager::Listener'],['../classModMatrix_1_1Listener.html',1,'ModMatrix::Listener'],['../classOpenStreetMaps_1_1Listener.html',1,'OpenStreetMaps::Listener'],['../classSingleLineTextEditor_1_1Listener.html',1,'SingleLineTextEditor::Listener']]],
   ['listeners_784',['listeners',['../classParameter.html#a6ab022db2c42737bf0d3b1552f9b97a4',1,'Parameter']]],
   ['loadallprograms_785',['loadAllPrograms',['../classProcessor.html#a0d54dc4f330cea0f907e55a4f19e92d3',1,'Processor']]],
-  ['loadfrombuffer_786',['loadFromBuffer',['../classBandLimitedLookupTable.html#aac448b9d42c925f2ebbe2ac6350a8b5d',1,'BandLimitedLookupTable']]],
+  ['loadfrombuffer_786',['loadFromBuffer',['../classBandLimitedLookupTable.html#a4b8fa24e3f5588a10420bf0ea6f8b027',1,'BandLimitedLookupTable']]],
   ['loadfromfile_787',['loadFromFile',['../classProgram.html#a9294c1e9c680d968c2e35276e9a2a263',1,'Program']]],
   ['loadprocessor_788',['loadProcessor',['../classProgram.html#a9b90c3645e8e2cad9f006a2373901e2c',1,'Program']]],
   ['loadwavetables_789',['loadWavetables',['../group__gin__dsp-dsp.html#gac52374c731213a08657117a59c2828cd',1,'gin_wtoscillators.h']]],

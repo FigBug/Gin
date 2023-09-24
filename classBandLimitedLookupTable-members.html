@@ -71,7 +71,7 @@ $(function() {
   <tr class="even"><td class="entry"><a class="el" href="classBandLimitedLookupTable.html#ad40d2d7deba27521fda4c55280418943">BandLimitedLookupTable</a>()=default</td><td class="entry"><a class="el" href="classBandLimitedLookupTable.html">BandLimitedLookupTable</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classBandLimitedLookupTable.html#ab39bb5a1490c019ee943eec0fcd4f9ca">BandLimitedLookupTable</a>(std::function&lt; float(float, float, float)&gt; function, float sampleRate, int notesPerTable_=6, int tableSize_=2048)</td><td class="entry"><a class="el" href="classBandLimitedLookupTable.html">BandLimitedLookupTable</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classBandLimitedLookupTable.html#a8e9f62e700e4c7baa578386a28a700bc">get</a>(int tableIndex, float phase)</td><td class="entry"><a class="el" href="classBandLimitedLookupTable.html">BandLimitedLookupTable</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classBandLimitedLookupTable.html#aac448b9d42c925f2ebbe2ac6350a8b5d">loadFromBuffer</a>(float playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, float fileSampleRate, int notesPerTable)</td><td class="entry"><a class="el" href="classBandLimitedLookupTable.html">BandLimitedLookupTable</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classBandLimitedLookupTable.html#a4b8fa24e3f5588a10420bf0ea6f8b027">loadFromBuffer</a>(std::unique_ptr&lt; juce::dsp::FFT &gt; &amp;fft, float playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, float fileSampleRate, int notesPerTable)</td><td class="entry"><a class="el" href="classBandLimitedLookupTable.html">BandLimitedLookupTable</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220">notesPerTable</a></td><td class="entry"><a class="el" href="classBandLimitedLookupTable.html">BandLimitedLookupTable</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classBandLimitedLookupTable.html#ae4bbf0cf3a280899c20e09895e509786">process</a>(float note, float phase)</td><td class="entry"><a class="el" href="classBandLimitedLookupTable.html">BandLimitedLookupTable</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classBandLimitedLookupTable.html#ab67ccc3198194d189403747c076fcb29">reset</a>(std::function&lt; float(float, float, float)&gt; function, float sampleRate, int notesPerTable_=6, int tableSize_=2048)</td><td class="entry"><a class="el" href="classBandLimitedLookupTable.html">BandLimitedLookupTable</a></td><td class="entry"></td></tr>
@@ -80,7 +80,7 @@ $(function() {
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 23 2023 23:34:26 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Sun Sep 24 2023 01:52:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
