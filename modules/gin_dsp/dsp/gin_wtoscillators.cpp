@@ -93,6 +93,8 @@ void WTOscillator::setWavetable (juce::OwnedArray<BandLimitedLookupTable>* table
 
 bool loadWavetables (juce::OwnedArray<BandLimitedLookupTable>& bllt, double playbackSampleRate, juce::AudioSampleBuffer& buffer, double fileSampleRate, int tableSize)
 {
+    std::unique_ptr<juce::dsp::FFT> fft;
+
     bllt.clear();
 
     int numTables = buffer.getNumSamples() / tableSize;
@@ -102,7 +104,7 @@ bool loadWavetables (juce::OwnedArray<BandLimitedLookupTable>& bllt, double play
         auto slice = sliceBuffer (buffer, i * tableSize, tableSize);
 
         auto table = new BandLimitedLookupTable();
-        table->loadFromBuffer (float (playbackSampleRate), slice, float (fileSampleRate), 6);
+        table->loadFromBuffer (fft, float (playbackSampleRate), slice, float (fileSampleRate), 6);
         bllt.add (table);
     }
     return true;

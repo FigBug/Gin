@@ -97,7 +97,7 @@ float squareWave (float phase, float freq, float sampleRate)
 }
 
 //==============================================================================
-void BandLimitedLookupTable::loadFromBuffer (float playbackSampleRate, juce::AudioSampleBuffer& buffer, float fileSampleRate, int notesPerTable_)
+void BandLimitedLookupTable::loadFromBuffer (std::unique_ptr<juce::dsp::FFT>& fft, float playbackSampleRate, juce::AudioSampleBuffer& buffer, float fileSampleRate, int notesPerTable_)
 {
     tables.clear();
 
@@ -108,8 +108,21 @@ void BandLimitedLookupTable::loadFromBuffer (float playbackSampleRate, juce::Aud
     tableSize = sz;
     notesPerTable = notesPerTable_;
 
-    juce::dsp::FFT fft (juce::roundToInt (std::log2 (sz)));
-    jassert (fft.getSize() == sz);
+    if (fft == nullptr || fft->getSize() != sz)
+         fft = std::make_unique<juce::dsp::FFT> (juce::roundToInt (std::log2 (sz)));
+    jassert (fft->getSize() == sz);
+
+    std::vector<juce::dsp::Complex<float>> time;
+    std::vector<juce::dsp::Complex<float>> freq;
+
+    time.resize (size_t (sz));
+    freq.resize (size_t (sz));
+
+    auto d = buffer.getReadPointer (0);
+    for (auto i = 0; i < sz; i++)
+        time[size_t (i)] = { d[i], 0.0f };
+
+    fft->perform (time.data(), freq.data(), false);
 
     for (float note = notesPerTable + 0.5f; note < 127.0f; note += notesPerTable)
     {
@@ -127,25 +140,13 @@ void BandLimitedLookupTable::loadFromBuffer (float playbackSampleRate, juce::Aud
                 return float (i * (fileSampleRate / sz));
             };
 
-            auto d = buffer.getReadPointer (0);
             auto ratio = noteFreq / baseFreq;
-
-            std::vector<juce::dsp::Complex<float>> time;
-            std::vector<juce::dsp::Complex<float>> freq;
-
-            time.resize (size_t (sz));
-            freq.resize (size_t (sz));
-
-            for (auto i = 0; i < sz; i++)
-                time[size_t (i)] = { d[i], 0.0f };
-
-            fft.perform (time.data(), freq.data(), false);
 
             for (auto i = 0; i < sz; i++)
                 if (index2Freq (i) * ratio > playbackSampleRate / 2)
                     freq[size_t (i)] = {0.0f, 0.0f};
 
-            fft.perform (freq.data(), time.data(), true);
+            fft->perform (freq.data(), time.data(), true);
 
             auto& t = tables.emplace_back (std::vector<float>());
             t.resize (size_t (sz));

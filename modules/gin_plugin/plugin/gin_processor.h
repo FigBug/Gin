@@ -43,7 +43,7 @@ public:
 class ProcessorOptions
 {
 public:
-	ProcessorOptions();
+    ProcessorOptions();
 
     juce::String    pluginName;
     juce::String    devId;
@@ -55,21 +55,21 @@ public:
 
     bool wantsMidi          = false;
     bool makesMidi          = false;
-	bool useUpdateChecker   = true;
-	bool useNewsChecker     = true;
+    bool useUpdateChecker   = true;
+    bool useNewsChecker     = true;
 
-	juce::StringArray programmingCredits =
-	{
-		"Roland Rabien",
-		"RAW Material Software JUCE Framework"
-	};
-    
+    juce::StringArray programmingCredits =
+    {
+        "Roland Rabien",
+        "RAW Material Software JUCE Framework"
+    };
+
     ProcessorOptions withAdditionalCredits (juce::StringArray names) const
     {
         auto self = *this;
-        
+
         self.programmingCredits.addArray (names);
-        
+
         return self;
     }
 };
@@ -94,7 +94,7 @@ public:
     ~Processor() override;
 
     void init();
-    
+
     void reset() override;
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
     void releaseResources() override {}
@@ -181,9 +181,9 @@ protected:
 private:
     void folderChanged (const juce::File) override;
     void timerCallback() override;
-    
+
     std::unique_ptr<juce::PropertiesFile> settings;
-    
+
     std::unique_ptr<gin::Parameter> createParam (juce::String uid, juce::String name, juce::String shortName, juce::String label,
                                                  juce::NormalisableRange<float> range, float defaultValue,
                                                  SmoothingType st,
@@ -192,7 +192,7 @@ private:
     juce::Array<gin::Parameter*> allParameters;
 
     void updateParams();
-    
+
     FileSystemWatcher watcher;
 
     int currentProgram = 0;
