@@ -36,8 +36,8 @@ public:
 
         for (int i = 0; i < numSamples; i++)
         {
-            auto l = delayLine.readLinear (0, delay);
-            auto r = delayLine.readLinear (1, delay);
+            auto l = delayLine.readLagrange (0, delay);
+            auto r = delayLine.readLagrange (1, delay);
 
             delayLine.write (0, inL[i] + (feedback * l) + (crossfeed * r));
             delayLine.write (1, inR[i] + (feedback * r) + (crossfeed * l));
