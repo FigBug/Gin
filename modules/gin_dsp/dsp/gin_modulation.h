@@ -63,8 +63,8 @@ public:
             delayLine.write (1, r[i]);
             delayLine.writeFinished();
 
-            l[i] = delayLine.readLinear (0, totalDelayL) * wetDry.wetGain + l[i] * wetDry.dryGain;
-            r[i] = delayLine.readLinear (1, totalDelayR) * wetDry.wetGain + r[i] * wetDry.dryGain;
+            l[i] = delayLine.readLagrange (0, totalDelayL) * wetDry.wetGain + l[i] * wetDry.dryGain;
+            r[i] = delayLine.readLagrange (1, totalDelayR) * wetDry.wetGain + r[i] * wetDry.dryGain;
 
             phase += delta;
             if (phase >= 1.0f)
