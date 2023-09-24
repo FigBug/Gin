@@ -54,11 +54,6 @@ static juce::String durationTextFunction (const gin::Parameter&, float v)
     return gin::NoteDuration::getNoteDurations()[size_t (v)].getName();
 }
 
-static juce::String distortionAmountTextFunction (const gin::Parameter&, float v)
-{
-    return juce::String (v * 5.0f - 1.0f, 1);
-}
-
 static juce::String filterTextFunction (const gin::Parameter&, float v)
 {
     switch (int (v))
