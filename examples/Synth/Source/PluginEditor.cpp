@@ -19,9 +19,9 @@ SynthAudioProcessorEditor::SynthAudioProcessorEditor (SynthAudioProcessor& p)
     addAndMakeVisible (usage);
     
     usage.setBounds (45, 12, 150, 16);
-    scope.setBounds (674, 5, 177, 30);
+    scope.setBounds (520, 5, 65, 30);
 
-    setSize (901, 671);
+    setSize (617, 450);
 }
 
 SynthAudioProcessorEditor::~SynthAudioProcessorEditor()
