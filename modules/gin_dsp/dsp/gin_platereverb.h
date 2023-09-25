@@ -317,7 +317,7 @@ template <class F, class I> class PlateReverb
             // For speed, create a bigger buffer than we really need.
             I bufferSize = ceilPowerOfTwo (size);
             buffer.reset (new F[bufferSize]);
-            std::memset (&buffer[0], 0, bufferSize * sizeof(F));
+            std::memset (buffer.get(), 0, bufferSize * sizeof(F));
 
             mask = bufferSize - 1;
 
@@ -358,7 +358,7 @@ template <class F, class I> class PlateReverb
 
         void reset()
         {
-            std::memset (&buffer[0], 0, ceilPowerOfTwo (size) * sizeof (F));
+            std::memset (buffer.get(), 0, ceilPowerOfTwo (size) * sizeof (F));
             writeIdx = 0;
         }
 
@@ -526,10 +526,10 @@ template <class F, class I> class PlateReverb
 
         void reset()
         {
-            apf1->reset();
-            apf2->reset();
-            del1->reset();
-            del2->reset();
+            if (apf1) apf1->reset();
+            if (apf2) apf2->reset();
+            if (del1) del1->reset();
+            if (del2) del2->reset();
             damping.reset();
             lfo.reset();
         }
