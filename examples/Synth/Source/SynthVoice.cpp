@@ -149,7 +149,7 @@ void SynthVoice::updateParams (int blockSize)
     
     proc.modMatrix.setPolyValue (*this, proc.modSrcNote, note.initialNote / 127.0f);
 
-    if (! proc.oscParams.enable->isOn())
+    if (proc.oscParams.enable->isOn())
     {
         currentMidiNote = noteSmoother.getCurrentValue() * 127.0f;
         if (glideInfo.glissando) currentMidiNote = (float) juce::roundToInt (currentMidiNote);
@@ -268,5 +268,6 @@ bool SynthVoice::isVoiceActive()
 float SynthVoice::getFilterCutoffNormalized()
 {
     float freq = filter.getFrequency();
-    return proc.filterParams.frequency->getUserRange().convertTo0to1 (juce::jlimit (0.0f, 1.0f, gin::getMidiNoteFromHertz (freq)));
+    auto range = proc.filterParams.frequency->getUserRange();
+    return range.convertTo0to1 (juce::jlimit (range.start, range.end, gin::getMidiNoteFromHertz (freq)));
 }
