@@ -100,6 +100,13 @@
       <anchor>ae4486cb0a48cf541282b09f07bdcc1d0</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>retrigger</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a0ab2fc968026d93758fb668685da9d78</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>gin_asyncutilities.h</name>
@@ -6693,8 +6700,8 @@
       <type>void</type>
       <name>noteOn</name>
       <anchorfile>classLFO.html</anchorfile>
-      <anchor>ab673487f71e6a393c9ef1091a0bfdf82</anchor>
-      <arglist>()</arglist>
+      <anchor>a9cb9a6408aed9de07ccf2fdcf0d4eba3</anchor>
+      <arglist>(float phase_=-1.0f)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -15224,6 +15231,13 @@
       <name>panic</name>
       <anchorfile>namespaceAssets.html</anchorfile>
       <anchor>ae4486cb0a48cf541282b09f07bdcc1d0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>retrigger</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a0ab2fc968026d93758fb668685da9d78</anchor>
       <arglist></arglist>
     </member>
   </compound>
