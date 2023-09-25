@@ -18,7 +18,7 @@ SynthAudioProcessorEditor::SynthAudioProcessorEditor (SynthAudioProcessor& p)
     usage.panic.onClick = [this] { wtProc.presetLoaded = true; };
     addAndMakeVisible (usage);
     
-    usage.setBounds (45, 12, 150, 16);
+    usage.setBounds (45, 12, 80, 16);
     scope.setBounds (520, 5, 65, 30);
 
     setSize (617, 450);
