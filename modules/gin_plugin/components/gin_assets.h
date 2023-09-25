@@ -16,4 +16,5 @@ extern juce::String voice;
 extern juce::String cpu;
 extern juce::String power;
 extern juce::String panic;
+extern juce::String retrigger;
 }

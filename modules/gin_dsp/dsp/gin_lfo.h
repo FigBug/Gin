@@ -67,7 +67,7 @@ public:
         delaySteps = 0;
     }
 
-    void noteOn()
+    void noteOn (float phase_ = -1.0f)
     {
         if (parameters.fade <= 0)
             curFade = 1.0f;
@@ -75,7 +75,7 @@ public:
             curFade = 0.0f;
 
         curPhase   = 0.0f;
-        phase      = 0.0f;
+        phase      = phase_ < 0.0f ? 0.0f : phase_;
         fadeDelta  = float (1.0f / (sampleRate * parameters.fade));
         delaySteps = juce::roundToInt (sampleRate * parameters.delay);
     }
