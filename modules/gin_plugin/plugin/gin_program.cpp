@@ -45,11 +45,16 @@ void Program::saveProcessor (Processor& p)
 
 juce::File Program::getPresetFile (juce::File programDir)
 {
+    if (file.existsAsFile())
+        return file;
+    
     return programDir.getChildFile (juce::File::createLegalFileName (name) + ".xml");
 }
 
 void Program::loadFromFile (juce::File f, bool loadFully)
 {
+    file = f;
+    
     juce::XmlDocument doc (f);
     std::unique_ptr<juce::XmlElement> rootE (doc.getDocumentElement());
     if (rootE)
@@ -123,4 +128,5 @@ void Program::saveToDir (juce::File f)
 void Program::deleteFromDir (juce::File f)
 {
     getPresetFile (f).deleteFile();
+    file = juce::File();
 }
