@@ -11013,6 +11013,13 @@
       <arglist>(juce::File programDir)</arglist>
     </member>
     <member kind="variable">
+      <type>juce::File</type>
+      <name>file</name>
+      <anchorfile>classProgram.html</anchorfile>
+      <anchor>acc5beeacfca3e3a1ea622eb741ac8fab</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
       <type>juce::String</type>
       <name>name</name>
       <anchorfile>classProgram.html</anchorfile>
