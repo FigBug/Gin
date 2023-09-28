@@ -85,6 +85,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab81effca8d8388ffd63819b3ea77acec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ab81effca8d8388ffd63819b3ea77acec">Processor</a> (bool <a class="el" href="classProcessor.html#a22e869ee49d974ad0ee7ee81961ab88f">init</a>=true, <a class="el" href="classProcessorOptions.html">ProcessorOptions</a>={})</td></tr>
 <tr class="memdesc:ab81effca8d8388ffd63819b3ea77acec"><td class="mdescLeft">&#160;</td><td class="mdescRight">If you override any virtual functions, they won't get called by the constructor.  <a href="classProcessor.html#ab81effca8d8388ffd63819b3ea77acec">More...</a><br /></td></tr>
 <tr class="separator:ab81effca8d8388ffd63819b3ea77acec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbd92baa2a9369039be64b45dc8cca5b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#abbd92baa2a9369039be64b45dc8cca5b">Processor</a> (const BusesProperties &amp;ioLayouts, bool <a class="el" href="classProcessor.html#a22e869ee49d974ad0ee7ee81961ab88f">init</a>=true, <a class="el" href="classProcessorOptions.html">ProcessorOptions</a>={})</td></tr>
+<tr class="separator:abbd92baa2a9369039be64b45dc8cca5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d7c16d172be09d3bfb4df3519d21b31"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a3d7c16d172be09d3bfb4df3519d21b31">~Processor</a> () override</td></tr>
 <tr class="separator:a3d7c16d172be09d3bfb4df3519d21b31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22e869ee49d974ad0ee7ee81961ab88f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a22e869ee49d974ad0ee7ee81961ab88f">init</a> ()</td></tr>
@@ -182,7 +184,7 @@ Protected Member Functions</h2></td></tr>
 <div class="textblock"><p>A process with internal and external params. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab81effca8d8388ffd63819b3ea77acec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab81effca8d8388ffd63819b3ea77acec">&#9670;&nbsp;</a></span>Processor()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab81effca8d8388ffd63819b3ea77acec">&#9670;&nbsp;</a></span>Processor() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -209,6 +211,40 @@ Protected Member Functions</h2></td></tr>
 
 <p>If you override any virtual functions, they won't get called by the constructor. </p>
 <p>So pass false and then call init manually from your constructor. If you don't override any functions, then it's safe to pass true to the constructor and you don't need to call init. </p>
+
+</div>
+</div>
+<a id="abbd92baa2a9369039be64b45dc8cca5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbd92baa2a9369039be64b45dc8cca5b">&#9670;&nbsp;</a></span>Processor() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Processor::Processor </td>
+          <td>(</td>
+          <td class="paramtype">const BusesProperties &amp;&#160;</td>
+          <td class="paramname"><em>ioLayouts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>init</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classProcessorOptions.html">ProcessorOptions</a>&#160;</td>
+          <td class="paramname"> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1290,7 +1326,7 @@ Protected Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 26 2023 00:55:16 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Sep 28 2023 15:45:41 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
