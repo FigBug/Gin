@@ -42,6 +42,15 @@ Processor::Processor (bool init_, ProcessorOptions po)
         init();
 }
 
+Processor::Processor (const BusesProperties& ioLayouts, bool init_, ProcessorOptions po)
+    : ProcessorBaseClass (ioLayouts), processorOptions (po)
+{
+    lf = std::make_unique<gin::CopperLookAndFeel>();
+
+    if (init_)
+        init();
+}
+
 Processor::~Processor()
 {
 }

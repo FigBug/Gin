@@ -91,6 +91,7 @@ public:
      you don't need to call init.
      */
     Processor (bool init = true, ProcessorOptions = {});
+    Processor (const BusesProperties& ioLayouts, bool init = true, ProcessorOptions = {});
     ~Processor() override;
 
     void init();
