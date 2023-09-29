@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['authorization_3055',['Authorization',['../classLocationManager.html#a518acec298306066ae3cccc6eb335bdc',1,'LocationManager']]]
+  ['authorization_3054',['Authorization',['../classLocationManager.html#a518acec298306066ae3cccc6eb335bdc',1,'LocationManager']]]
 ];

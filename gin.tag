@@ -8140,6 +8140,13 @@
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
+      <name>unwatchParam</name>
+      <anchorfile>classMultiParamComponent.html</anchorfile>
+      <anchor>a7620038ca7508425d21d1138a0e9d45f</anchor>
+      <arglist>(Parameter *p)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
       <name>unwatchParams</name>
       <anchorfile>classMultiParamComponent.html</anchorfile>
       <anchor>ae7441578faba5891a7fc764da134f03c</anchor>
