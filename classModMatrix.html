@@ -136,6 +136,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ace5b6d8daf94ac3a9f13d61a322c2008"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab974f4fdc82957f79b98ae8f151baec7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#ab974f4fdc82957f79b98ae8f151baec7">clearModDepth</a> (<a class="el" href="structModSrcId.html">ModSrcId</a> src, <a class="el" href="structModDstId.html">ModDstId</a> param)</td></tr>
 <tr class="separator:ab974f4fdc82957f79b98ae8f151baec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb6eebe8bde9b5998ecbc41e4defcf11"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#afb6eebe8bde9b5998ecbc41e4defcf11">getModEnable</a> (<a class="el" href="structModSrcId.html">ModSrcId</a> src, <a class="el" href="structModDstId.html">ModDstId</a> param)</td></tr>
+<tr class="separator:afb6eebe8bde9b5998ecbc41e4defcf11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6927231033b7126e0147f7601b6b40c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#a6927231033b7126e0147f7601b6b40c8">setModEnable</a> (<a class="el" href="structModSrcId.html">ModSrcId</a> src, <a class="el" href="structModDstId.html">ModDstId</a> param, bool b)</td></tr>
+<tr class="separator:a6927231033b7126e0147f7601b6b40c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b42fc976f683b259c00bdb2e636c6f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#a0b42fc976f683b259c00bdb2e636c6f2">addListener</a> (<a class="el" href="classModMatrix_1_1Listener.html">Listener</a> *l)</td></tr>
 <tr class="separator:a0b42fc976f683b259c00bdb2e636c6f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adeaa67481f092f988ea3df3936909940"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#adeaa67481f092f988ea3df3936909940">removeListener</a> (<a class="el" href="classModMatrix_1_1Listener.html">Listener</a> *l)</td></tr>
@@ -789,6 +793,68 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="afb6eebe8bde9b5998ecbc41e4defcf11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb6eebe8bde9b5998ecbc41e4defcf11">&#9670;&nbsp;</a></span>getModEnable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ModMatrix::getModEnable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structModSrcId.html">ModSrcId</a>&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structModDstId.html">ModDstId</a>&#160;</td>
+          <td class="paramname"><em>param</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6927231033b7126e0147f7601b6b40c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6927231033b7126e0147f7601b6b40c8">&#9670;&nbsp;</a></span>setModEnable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ModMatrix::setModEnable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structModSrcId.html">ModSrcId</a>&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structModDstId.html">ModDstId</a>&#160;</td>
+          <td class="paramname"><em>param</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0b42fc976f683b259c00bdb2e636c6f2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0b42fc976f683b259c00bdb2e636c6f2">&#9670;&nbsp;</a></span>addListener()</h2>
 
@@ -835,7 +901,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 28 2023 15:45:41 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Sep 29 2023 01:53:24 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

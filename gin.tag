@@ -7763,6 +7763,20 @@
       <arglist>(ModSrcId src, ModDstId param)</arglist>
     </member>
     <member kind="function">
+      <type>bool</type>
+      <name>getModEnable</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>afb6eebe8bde9b5998ecbc41e4defcf11</anchor>
+      <arglist>(ModSrcId src, ModDstId param)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setModEnable</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a6927231033b7126e0147f7601b6b40c8</anchor>
+      <arglist>(ModSrcId src, ModDstId param, bool b)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>addListener</name>
       <anchorfile>classModMatrix.html</anchorfile>
