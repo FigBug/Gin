@@ -134,7 +134,12 @@ public:
         addControl (new gin::Knob (lfo.offset, true), 5, 1);
 
         auto l = new gin::LFOComponent();
-        l->phaseCallback = [this] { return proc.modLFO.getCurrentPhase(); };
+        l->phaseCallback = [this]
+        {
+            std::vector<float> res;
+            res.push_back (proc.modLFO.getCurrentPhase());
+            return res;
+        };
         l->setParams (lfo.wave, lfo.sync, lfo.rate, lfo.beat, lfo.depth, lfo.offset, lfo.phase, lfo.enable);
         addControl (l, 2, 0, 4, 1);
 
