@@ -308,9 +308,9 @@ private:
 
     void paintListBoxItem (int, juce::Graphics&, int, int, bool) override {}
 
-    juce::Component* refreshComponentForRow (int row, bool, Component* c) override
+    juce::Component* refreshComponentForRow (int row, bool, juce::Component* c) override
     {
-        auto rowComponent = (Row*)c;
+        auto rowComponent = dynamic_cast<Row*>(c);
         if (rowComponent == nullptr)
             rowComponent = new Row (*this);
 
@@ -330,6 +330,7 @@ private:
         Row (ModMatrixBox& o)
             : owner (o)
         {
+            addAndMakeVisible (enableButton);
             addAndMakeVisible (deleteButton);
             addAndMakeVisible (depth);
             addAndMakeVisible (src);
@@ -342,6 +343,15 @@ private:
             depth.setMouseDragSensitivity (750);
             depth.setPopupDisplayEnabled (true, true, findParentComponentOfClass<juce::AudioProcessorEditor>());
             depth.setDoubleClickReturnValue (true, 0.0);
+
+            enableButton.onClick = [this]
+            {
+                auto& a = owner.assignments.getReference (row);
+
+                auto e = owner.modMatrix.getModEnable (a.src, ModDstId (a.dst->getModIndex()));
+                owner.modMatrix.setModEnable (a.src, ModDstId (a.dst->getModIndex()), ! e);
+                enableButton.setToggleState (! e, juce::dontSendNotification);
+            };
 
             deleteButton.onClick = [this]
             {
@@ -366,6 +376,9 @@ private:
                 src.setText (owner.modMatrix.getModSrcName (a.src), juce::dontSendNotification);
                 dst.setText (a.dst->getName (100), juce::dontSendNotification);
 
+                auto e = owner.modMatrix.getModEnable (a.src, ModDstId (a.dst->getModIndex()));
+                enableButton.setToggleState (e, juce::dontSendNotification);
+
                 depth.setValue (owner.modMatrix.getModDepth (a.src, ModDstId (a.dst->getModIndex())));
             }
             else
@@ -381,7 +394,8 @@ private:
 
             int h = rc.getHeight();
 
-            deleteButton.setBounds (rc.removeFromLeft (h));
+            enableButton.setBounds (rc.removeFromLeft (h));
+            deleteButton.setBounds (rc.removeFromRight (h));
             rc.removeFromLeft (2);
             depth.setBounds (rc.removeFromLeft (50));
 
@@ -398,6 +412,7 @@ private:
         juce::Label src;
         juce::Label dst;
 
+        SVGButton enableButton { "enable", Assets::power };
         SVGButton deleteButton { "delete", Assets::del };
     };
 

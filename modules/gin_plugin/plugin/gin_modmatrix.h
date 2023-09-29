@@ -9,7 +9,7 @@ struct ModSrcId
     ModSrcId& operator= (const ModSrcId& other) { id = other.id; return *this; }
     bool operator== (const ModSrcId& other) const { return other.id == id; }
     bool isValid() const { return id > 0; }
-    
+
     int id = -1;
 };
 
@@ -22,7 +22,7 @@ struct ModDstId
     ModDstId& operator= (const ModDstId& other) { id = other.id; return *this; }
     bool operator== (const ModDstId& other) const { return other.id == id; }
     bool isValid() const { return id > 0; }
- 
+
     int id = -1;
 };
 
@@ -100,10 +100,13 @@ public:
 
         for (auto& src : info.sources)
         {
-            if (src.poly && activeVoice != nullptr)
-                base += activeVoice->values[src.id.id] * src.depth;
-            else if (! src.poly)
-                base += sources[src.id.id].monoValue * src.depth;
+            if (src.enabled)
+            {
+                if (src.poly && activeVoice != nullptr)
+                    base += activeVoice->values[src.id.id] * src.depth;
+                else if (! src.poly)
+                    base += sources[src.id.id].monoValue * src.depth;
+            }
         }
 
         base = juce::jlimit (0.0f, 1.0f, base);
@@ -130,10 +133,13 @@ public:
 
         for (auto& src : info.sources)
         {
-            if (src.poly)
-                base += voice.values[src.id.id] * src.depth;
-            else
-                base += sources[src.id.id].monoValue * src.depth;
+            if (src.enabled)
+            {
+                if (src.poly)
+                    base += voice.values[src.id.id] * src.depth;
+                else
+                    base += sources[src.id.id].monoValue * src.depth;
+            }
         }
 
         base = juce::jlimit (0.0f, 1.0f, base);
@@ -156,7 +162,7 @@ public:
 
         const int paramId = p->getModIndex();
         auto& pi = parameters.getReference (paramId);
-        
+
         auto& info = parameters.getReference (paramId);
 
         if (pi.poly)
@@ -165,22 +171,29 @@ public:
             {
                 if (v->isVoiceActive())
                 {
+                    bool ok = false;
                     float base = p->getValue();
 
                     for (auto& src : info.sources)
                     {
-                        if (src.poly)
-                            base += v->values[src.id.id] * src.depth;
-                        else
-                            base += sources[src.id.id].monoValue * src.depth;
+                        if (src.enabled)
+                        {
+                            if (src.poly)
+                                base += v->values[src.id.id] * src.depth;
+                            else
+                                base += sources[src.id.id].monoValue * src.depth;
+                            ok = true;
+                        }
                     }
 
-                    base = juce::jlimit (0.0f, 1.0f, base);
-
-                    liveValues.add (base);
+                    if (ok)
+                    {
+                        base = juce::jlimit (0.0f, 1.0f, base);
+                        liveValues.add (base);
+                    }
                 }
             }
-            
+
             if (liveValues.size() == 0)
             {
                 float base = p->getValue();
@@ -188,20 +201,20 @@ public:
 
                 for (auto& src : info.sources)
                 {
-                    if (! src.poly)
+                    if (src.enabled && ! src.poly)
                     {
                         base += sources[src.id.id].monoValue * src.depth;
                         ok = true;
                     }
                 }
-                
+
                 if (ok)
                 {
                     base = juce::jlimit (0.0f, 1.0f, base);
                     liveValues.add (base);
                 }
             }
-            
+
         }
         else
         {
@@ -212,15 +225,18 @@ public:
 
             for (auto& src : info.sources)
             {
-                if (src.poly && v != nullptr)
+                if (src.enabled)
                 {
-                    ok = true;
-                    base += v->values[src.id.id] * src.depth;
-                }
-                else if (! src.poly)
-                {
-                    ok = true;
-                    base += sources[src.id.id].monoValue * src.depth;
+                    if (src.poly && v != nullptr)
+                    {
+                        ok = true;
+                        base += v->values[src.id.id] * src.depth;
+                    }
+                    else if (! src.poly)
+                    {
+                        ok = true;
+                        base += sources[src.id.id].monoValue * src.depth;
+                    }
                 }
             }
 
@@ -283,6 +299,9 @@ public:
     void setModDepth (ModSrcId src, ModDstId param, float f);
     void clearModDepth (ModSrcId src, ModDstId param);
 
+    bool getModEnable (ModSrcId src, ModDstId param);
+    void setModEnable (ModSrcId src, ModDstId param, bool b);
+
     //==============================================================================
     class Listener
     {
@@ -317,6 +336,7 @@ private:
     {
         ModSrcId id = {};
         bool poly = false;
+        bool enabled = true;
         float depth = 0.0f;
     };
 
