@@ -58,10 +58,17 @@ protected:
         params.add (p);
     }
 
+    void unwatchParam (Parameter* p)
+    {
+        p->removeListener (this);
+        params.removeFirstMatchingValue (p);
+    }
+
     void unwatchParams()
     {
         for (auto p : params)
             p->removeListener (this);
+        params.clear();
     }
 
     virtual void paramChanged ()                { repaint ();               }
