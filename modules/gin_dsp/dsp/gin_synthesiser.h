@@ -69,9 +69,19 @@ public:
             }
             else
             {
-                instrument.enableLegacyMode();
+                enableLegacyMode (pitchbend);
                 setPitchbendTrackingMode (juce::MPEInstrument::allNotesOnChannel);
             }
+        }
+    }
+    
+    void setPitchBendRange (bool newPB)
+    {
+        if (newPB != pitchbend)
+        {
+            pitchbend = newPB;
+            if (! mpe)
+                setLegacyModePitchbendRange (pitchbend);
         }
     }
 
@@ -469,6 +479,7 @@ private:
     float glideRate = 500.0f;
     int numVoices = 32;
     int lastNote = -1;
+    int pitchbend = 2;
     bool mpe = false;
     double blockStartTime = 0, timeUsed = 0, timeAvailable = 0;
 };
