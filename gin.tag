@@ -13156,6 +13156,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setPitchBendRange</name>
+      <anchorfile>classSynthesiser.html</anchorfile>
+      <anchor>ab0409afbcb0d43c978e3ee08aa841267</anchor>
+      <arglist>(bool newPB)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>noteAdded</name>
       <anchorfile>classSynthesiser.html</anchorfile>
       <anchor>a29393cd7d99facd48ceab27dfa4ec3ba</anchor>
