@@ -6751,10 +6751,10 @@
       <arglist>(Parameter::Ptr wave, Parameter::Ptr sync, Parameter::Ptr rate, Parameter::Ptr beat, Parameter::Ptr depth, Parameter::Ptr offset, Parameter::Ptr phase, Parameter::Ptr enable)</arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; float()&gt;</type>
+      <type>std::function&lt; std::vector&lt; float &gt;)&gt;</type>
       <name>phaseCallback</name>
       <anchorfile>classLFOComponent.html</anchorfile>
-      <anchor>ab25eab8dc4191c042af26ee983d6fafb</anchor>
+      <anchor>ac947f4bdadd3ec3f0220e3be9adad6a5</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -12853,10 +12853,10 @@
       <arglist>(Parameter::Ptr beat, Parameter::Ptr length, Parameter::Ptr *level, Parameter::Ptr enable)</arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; float()&gt;</type>
+      <type>std::function&lt; std::vector&lt; float &gt;)&gt;</type>
       <name>phaseCallback</name>
       <anchorfile>classStepLFOComponent.html</anchorfile>
-      <anchor>af73e40049454abc2e736bbb44ddc00aa</anchor>
+      <anchor>a4f2735dcccce50f207b4e1c7d7bd6f54</anchor>
       <arglist></arglist>
     </member>
   </compound>
