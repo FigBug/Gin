@@ -14,7 +14,7 @@ public:
                     Parameter::Ptr beat, Parameter::Ptr depth, Parameter::Ptr offset,
                     Parameter::Ptr phase, Parameter::Ptr enable);
     
-    std::function<float()> phaseCallback;
+    std::function<std::vector<float>()> phaseCallback;
 
 private:
     void paint (juce::Graphics& g) override;
@@ -31,7 +31,7 @@ private:
     LFO lfo;
     juce::Path path;
     bool dirty = true;
-    float curPhase = 0.0f;
+    std::vector<float> curPhases;
     std::map<int,float> curve;
 
 private:

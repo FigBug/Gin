@@ -94,12 +94,15 @@ void StepLFOComponent::paint (juce::Graphics& g)
     {
         auto lerp = [] (float t, float a, float b)  { return a + t * (b - a); };
 
-        float x = curPhase * rc.getWidth();
-        float t = x - int (x);
-        float y = lerp (t, curve[int(x)], curve[int(x) + 1]);
+        for (auto curPhase : curPhases)
+        {
+            float x = curPhase * rc.getWidth();
+            float t = x - int (x);
+            float y = lerp (t, curve[int(x)], curve[int(x) + 1]);
 
-        g.setColour (dimIfNeeded (findColour (GinLookAndFeel::whiteColourId).withAlpha (0.9f)));
-        g.fillEllipse (rc.getX() + x - 2, y - 2, 4, 4);
+            g.setColour (dimIfNeeded (findColour (GinLookAndFeel::whiteColourId).withAlpha (0.9f)));
+            g.fillEllipse (rc.getX() + x - 2, y - 2, 4, 4);
+        }
     }
 }
 
@@ -107,10 +110,10 @@ void StepLFOComponent::timerCallback()
 {
     if (isEnabled() && phaseCallback)
     {
-        auto newPhase = phaseCallback();
-        if (! juce::approximatelyEqual (curPhase, newPhase))
+        auto newPhases = phaseCallback();
+        if (newPhases != curPhases)
         {
-            curPhase = newPhase;
+            curPhases = newPhases;
             repaint();
         }
     }
