@@ -117,7 +117,7 @@ ModSrcId ModMatrix::addPolyModSource (const juce::String& id, const juce::String
     return ModSrcId (si.index);
 }
 
-void ModMatrix::addParameter (Parameter* p, bool poly)
+void ModMatrix::addParameter (Parameter* p, bool poly, float smoothingTime)
 {
     p->setModMatrix (this);
     p->setModIndex (parameters.size());
@@ -125,6 +125,7 @@ void ModMatrix::addParameter (Parameter* p, bool poly)
     ParamInfo pi;
     pi.poly = poly;
     pi.parameter = p;
+    pi.smoothingTime = smoothingTime;
 
     parameters.add (pi);
 }
@@ -133,18 +134,20 @@ void ModMatrix::setSampleRate (double sr)
 {
     sampleRate = sr;
 
-    for (auto& s : smoothers)
+    for (auto idx = 0; auto& s : smoothers)
     {
         s.setSampleRate (sr);
-        s.setTime (0.02);
+        s.setTime (parameters[idx].smoothingTime);
+        idx++;
     }
 
     for (auto& v : voices)
     {
-        for (auto& s : v->smoothers)
+        for (auto idx = 0; auto& s : v->smoothers)
         {
             s.setSampleRate (sr);
-            s.setTime (0.02);
+            s.setTime (parameters[idx].smoothingTime);
+            idx++;
         }
     }
 }

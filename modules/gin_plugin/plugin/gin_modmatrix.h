@@ -274,7 +274,7 @@ public:
     void addVoice (ModVoice* v);
     ModSrcId addMonoModSource (const juce::String& id, const juce::String& name, bool bipolar);
     ModSrcId addPolyModSource (const juce::String& id, const juce::String& name, bool bipolar);
-    void addParameter (gin::Parameter* p, bool poly);
+    void addParameter (gin::Parameter* p, bool poly, float smoothingTime = 0.02f);
 
     void setSampleRate (double sampleRate);
     void build();
@@ -344,6 +344,7 @@ private:
     {
         gin::Parameter* parameter;
         bool poly = false;
+        float smoothingTime = 0.02f;
         juce::Array<Source> sources;
     };
 
