@@ -198,6 +198,7 @@ void PatchBrowser::editPreset (int row)
             }
             else if (txt.isNotEmpty())
             {
+                p->loadFromFile (p->getPresetFile (proc.getProgramDirectory()), true);
                 p->deleteFromDir (proc.getProgramDirectory());
                 p->name = txt;
                 p->tags = juce::StringArray::fromTokens (tag, " ", "");
