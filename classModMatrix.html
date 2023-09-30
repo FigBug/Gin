@@ -104,8 +104,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad3fc6378eb99507135d11c01944575cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66caa6c7b30ee5a492bde8c0d56c2520"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structModSrcId.html">ModSrcId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#a66caa6c7b30ee5a492bde8c0d56c2520">addPolyModSource</a> (const juce::String &amp;id, const juce::String &amp;name, bool bipolar)</td></tr>
 <tr class="separator:a66caa6c7b30ee5a492bde8c0d56c2520"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a1235070a1660c1490ba5c2b9ab68f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#a1a1235070a1660c1490ba5c2b9ab68f5">addParameter</a> (gin::Parameter *p, bool poly)</td></tr>
-<tr class="separator:a1a1235070a1660c1490ba5c2b9ab68f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc78f8a62425746860184ad318a6c57e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#afc78f8a62425746860184ad318a6c57e">addParameter</a> (gin::Parameter *p, bool poly, float smoothingTime=0.02f)</td></tr>
+<tr class="separator:afc78f8a62425746860184ad318a6c57e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5a44973523be3e13090e46bd3751777"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#aa5a44973523be3e13090e46bd3751777">setSampleRate</a> (double sampleRate)</td></tr>
 <tr class="separator:aa5a44973523be3e13090e46bd3751777"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34daa946cb85440762ff041e995e670c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#a34daa946cb85440762ff041e995e670c">build</a> ()</td></tr>
@@ -453,8 +453,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a1a1235070a1660c1490ba5c2b9ab68f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a1235070a1660c1490ba5c2b9ab68f5">&#9670;&nbsp;</a></span>addParameter()</h2>
+<a id="afc78f8a62425746860184ad318a6c57e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc78f8a62425746860184ad318a6c57e">&#9670;&nbsp;</a></span>addParameter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -469,7 +469,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>poly</em>&#160;</td>
+          <td class="paramname"><em>poly</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>smoothingTime</em> = <code>0.02f</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -901,7 +907,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 29 2023 20:57:32 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Sat Sep 30 2023 03:06:26 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

@@ -78,6 +78,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3489a6b571a1083bb4b4ff8621e10993"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0a006720ea08d0bc0e9da0b11deeccb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStereoDelay.html#ad0a006720ea08d0bc0e9da0b11deeccb">process</a> (juce::AudioSampleBuffer &amp;buffer)</td></tr>
 <tr class="separator:ad0a006720ea08d0bc0e9da0b11deeccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e6789c24ad804380a602a5612e22a6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStereoDelay.html#a3e6789c24ad804380a602a5612e22a6f">processSmoothed</a> (juce::AudioSampleBuffer &amp;buffer)</td></tr>
+<tr class="separator:a3e6789c24ad804380a602a5612e22a6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28569f59c5a91b46001bc64da62ca04b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStereoDelay.html#a28569f59c5a91b46001bc64da62ca04b">setSampleRate</a> (double sr)</td></tr>
 <tr class="separator:a28569f59c5a91b46001bc64da62ca04b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa587ccb3ad71e93752569cb25803f0a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStereoDelay.html#aa587ccb3ad71e93752569cb25803f0a4">setParams</a> (float delay_, float mix_, float feedback_, float crossfeed_)</td></tr>
@@ -126,6 +128,28 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="classWetDryMix.html#a56424d33affe35b8fda304af339ed787">WetDryMix::dryGain</a>, <a class="el" href="classDelayLine.html#a02fd312c5f9a3a5aeb7aae8e7ab2d4c0">DelayLine::readLagrange()</a>, <a class="el" href="classWetDryMix.html#ab3f2edb9437368c6f3d87e51a64a3f2d">WetDryMix::wetGain</a>, <a class="el" href="classDelayLine.html#ae83573274b47e182d7293edd582ae2f3">DelayLine::write()</a>, and <a class="el" href="classDelayLine.html#ab36052a31da09d3a8162651ba437bec6">DelayLine::writeFinished()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classStereoDelay.html#a3e6789c24ad804380a602a5612e22a6f">processSmoothed()</a>.</p>
+
+</div>
+</div>
+<a id="a3e6789c24ad804380a602a5612e22a6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e6789c24ad804380a602a5612e22a6f">&#9670;&nbsp;</a></span>processSmoothed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StereoDelay::processSmoothed </td>
+          <td>(</td>
+          <td class="paramtype">juce::AudioSampleBuffer &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classWetDryMix.html#a56424d33affe35b8fda304af339ed787">WetDryMix::dryGain</a>, <a class="el" href="classStereoDelay.html#ad0a006720ea08d0bc0e9da0b11deeccb">process()</a>, <a class="el" href="classDelayLine.html#a02fd312c5f9a3a5aeb7aae8e7ab2d4c0">DelayLine::readLagrange()</a>, <a class="el" href="classWetDryMix.html#ab3f2edb9437368c6f3d87e51a64a3f2d">WetDryMix::wetGain</a>, <a class="el" href="classDelayLine.html#ae83573274b47e182d7293edd582ae2f3">DelayLine::write()</a>, and <a class="el" href="classDelayLine.html#ab36052a31da09d3a8162651ba437bec6">DelayLine::writeFinished()</a>.</p>
 
 </div>
 </div>
@@ -216,7 +240,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 29 2023 20:57:32 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Sat Sep 30 2023 03:06:26 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

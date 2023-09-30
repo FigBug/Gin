@@ -7654,8 +7654,8 @@
       <type>void</type>
       <name>addParameter</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a1a1235070a1660c1490ba5c2b9ab68f5</anchor>
-      <arglist>(gin::Parameter *p, bool poly)</arglist>
+      <anchor>afc78f8a62425746860184ad318a6c57e</anchor>
+      <arglist>(gin::Parameter *p, bool poly, float smoothingTime=0.02f)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -12875,6 +12875,13 @@
       <name>process</name>
       <anchorfile>classStereoDelay.html</anchorfile>
       <anchor>ad0a006720ea08d0bc0e9da0b11deeccb</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>processSmoothed</name>
+      <anchorfile>classStereoDelay.html</anchorfile>
+      <anchor>a3e6789c24ad804380a602a5612e22a6f</anchor>
       <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
