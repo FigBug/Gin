@@ -2697,6 +2697,13 @@
     </member>
     <member kind="function">
       <type>int</type>
+      <name>getNumChannels</name>
+      <anchorfile>classAudioFifo.html</anchorfile>
+      <anchor>a1785c13df07556b5d5e42176de6734af</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
       <name>getFreeSpace</name>
       <anchorfile>classAudioFifo.html</anchorfile>
       <anchor>af75865aa3db5a5fb798768c6c358d147</anchor>

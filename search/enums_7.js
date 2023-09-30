@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['readystatevalues_3067',['ReadyStateValues',['../classWebSocket.html#a452bcfacd2ce0567751e44f891dd1489',1,'WebSocket']]],
-  ['result_3068',['Result',['../classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30f',1,'ElevatedFileCopy']]]
+  ['readystatevalues_3068',['ReadyStateValues',['../classWebSocket.html#a452bcfacd2ce0567751e44f891dd1489',1,'WebSocket']]],
+  ['result_3069',['Result',['../classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30f',1,'ElevatedFileCopy']]]
 ];

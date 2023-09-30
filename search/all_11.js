@@ -241,11 +241,10 @@ var searchData=
   ['svgbutton_1353',['SVGButton',['../classSVGButton.html',1,'SVGButton'],['../classSVGButton.html#ab806ddd7a689e4f585f660292b01ca9a',1,'SVGButton::SVGButton()']]],
   ['svgpluginbutton_1354',['SVGPluginButton',['../classSVGPluginButton.html#a47c7b0570ab1759d2f0e58f90590329d',1,'SVGPluginButton::SVGPluginButton()'],['../classSVGPluginButton.html',1,'SVGPluginButton']]],
   ['switch_1355',['Switch',['../classSwitch.html',1,'Switch'],['../classSwitch.html#ab2b13d51b74f2d3421a250e933cf697c',1,'Switch::Switch()']]],
-  ['synthesiser_1356',['Synthesiser',['../classSynthesiser.html',1,'']]],
+  ['synthesiser_1356',['Synthesiser',['../classSynthesiser.html',1,'Synthesiser'],['../classSynthesiser.html#a8c313d6f1fa875790e5c79dc621ee437',1,'Synthesiser::Synthesiser()']]],
   ['synthesiser_1357',['synthesiser',['../classSynthesiserUsage.html#aab0e60a078f566eefd3c2de30e987486',1,'SynthesiserUsage']]],
-  ['synthesiser_1358',['Synthesiser',['../classSynthesiser.html#a8c313d6f1fa875790e5c79dc621ee437',1,'Synthesiser']]],
-  ['synthesiserusage_1359',['SynthesiserUsage',['../classSynthesiserUsage.html',1,'SynthesiserUsage'],['../classSynthesiserUsage.html#ae37e6d848cf06acd4d3795c7d86c62cd',1,'SynthesiserUsage::SynthesiserUsage()']]],
-  ['synthesiservoice_1360',['SynthesiserVoice',['../classSynthesiserVoice.html',1,'']]],
-  ['systemrequestedquit_1361',['systemRequestedQuit',['../classStandaloneApp.html#afa2dc8bd7058338862021970b673ad11',1,'StandaloneApp']]],
-  ['systemsemaphore_1362',['SystemSemaphore',['../classSystemSemaphore.html',1,'SystemSemaphore'],['../classSystemSemaphore.html#ae7d9c999757639af86a49f838f862298',1,'SystemSemaphore::SystemSemaphore()']]]
+  ['synthesiserusage_1358',['SynthesiserUsage',['../classSynthesiserUsage.html',1,'SynthesiserUsage'],['../classSynthesiserUsage.html#ae37e6d848cf06acd4d3795c7d86c62cd',1,'SynthesiserUsage::SynthesiserUsage()']]],
+  ['synthesiservoice_1359',['SynthesiserVoice',['../classSynthesiserVoice.html',1,'']]],
+  ['systemrequestedquit_1360',['systemRequestedQuit',['../classStandaloneApp.html#afa2dc8bd7058338862021970b673ad11',1,'StandaloneApp']]],
+  ['systemsemaphore_1361',['SystemSemaphore',['../classSystemSemaphore.html',1,'SystemSemaphore'],['../classSystemSemaphore.html#ae7d9c999757639af86a49f838f862298',1,'SystemSemaphore::SystemSemaphore()']]]
 ];
