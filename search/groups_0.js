@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['components_3213',['components',['../group__gin__dsp-components.html',1,'(Global Namespace)'],['../group__gin__gui-components.html',1,'(Global Namespace)'],['../group__gin__plugin-components.html',1,'(Global Namespace)']]]
+  ['components_3218',['components',['../group__gin__dsp-components.html',1,'(Global Namespace)'],['../group__gin__gui-components.html',1,'(Global Namespace)'],['../group__gin__plugin-components.html',1,'(Global Namespace)']]]
 ];

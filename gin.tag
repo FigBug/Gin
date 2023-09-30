@@ -2918,6 +2918,20 @@
       <arglist>(std::function&lt; float(float, float, float)&gt; function, float sampleRate, int notesPerTable_=6, int tableSize_=2048)</arglist>
     </member>
     <member kind="function">
+      <type>int</type>
+      <name>tableIndexForNote</name>
+      <anchorfile>classBandLimitedLookupTable.html</anchorfile>
+      <anchor>a30f5e7572959d28b1adbfa84bcb185cd</anchor>
+      <arglist>(float note)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::vector&lt; float &gt; *</type>
+      <name>tableForNote</name>
+      <anchorfile>classBandLimitedLookupTable.html</anchorfile>
+      <anchor>acf139387bb9cb4f448f39f62bdbd5a7f</anchor>
+      <arglist>(float note)</arglist>
+    </member>
+    <member kind="function">
       <type>float</type>
       <name>process</name>
       <anchorfile>classBandLimitedLookupTable.html</anchorfile>
