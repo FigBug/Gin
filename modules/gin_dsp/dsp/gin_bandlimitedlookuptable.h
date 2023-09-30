@@ -55,6 +55,16 @@ public:
             }
         }
     }
+    
+    inline int tableIndexForNote (float note)
+    {
+        return juce::jlimit (0, int (tables.size() - 1), int ((note - 0.5) / notesPerTable));
+    }
+    
+    inline std::vector<float>* tableForNote (float note)
+    {
+        return &tables[tableIndexForNote (note)];
+    }
 
     inline float process (float note, float phase)
     {

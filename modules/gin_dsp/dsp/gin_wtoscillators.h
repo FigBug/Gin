@@ -44,10 +44,12 @@ public:
         int samps = buffer.getNumSamples();
         auto l = buffer.getWritePointer (0);
         auto r = buffer.getWritePointer (1);
+        
+        auto table = bllt->getUnchecked (tableIndexL);
 
         for (int i = 0; i < samps; i++)
         {
-            auto s = bllt->getUnchecked (tableIndexL)->process (note, phaseDistortion (phaseL, params.bend, params.formant));
+            auto s = table->process (note, phaseDistortion (phaseL, params.bend, params.formant));
             *l++ += s * params.leftGain;
             *r++ += s * params.rightGain;
 
@@ -56,6 +58,7 @@ public:
             {
                 phaseL -= 1.0f;
                 tableIndexL = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
+                table = bllt->getUnchecked (tableIndexL);
             }
         }
         phaseR = phaseL;
