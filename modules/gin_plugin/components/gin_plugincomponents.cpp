@@ -109,6 +109,8 @@ Select::Select (Parameter* p)
     addAndMakeVisible (&name);
     addAndMakeVisible (&comboBox);
 
+    comboBox.setScrollWheelEnabled (true);
+
     name.setText (parameter->getShortName(), juce::dontSendNotification);
     name.setJustificationType (juce::Justification::centred);
 }
