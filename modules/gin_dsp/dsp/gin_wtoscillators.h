@@ -49,8 +49,33 @@ public:
         auto r = buffer.getWritePointer (1);
         
         auto table = bllt->getUnchecked (tableIndex);
+      
+#if 0
+        for (; samps >= 4; samps -= 4)
+        {
+            mipp::Reg<float> phaseVec = {phase, phase + delta, phase + 2 * delta, phase + 3 * delta};
+            mipp::Reg<float> lVec { l };
+            mipp::Reg<float> rVec { r };
+            
+            auto s = table->process (note, phaseDistortion (phaseVec, params.bend, params.formant));
+            
+            lVec += s * params.leftGain;
+            rVec += s * params.rightGain;
+            
+            lVec.store (l); l += 4;
+            lVec.store (r); r += 4;
+            
+            phase += delta * 4;
+            while (phase >= 1.0f)
+            {
+                phase -= 1.0f;
+                tableIndex = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
+                table = bllt->getUnchecked (tableIndex);
+            }
+        }
+#endif
 
-        for (int i = 0; i < samps; i++)
+        for (; samps > 0; samps--)
         {
             auto s = table->process (note, phaseDistortion (phase, params.bend, params.formant));
             *l++ += s * params.leftGain;
@@ -69,26 +94,29 @@ public:
     void setWavetable (juce::OwnedArray<BandLimitedLookupTable>* table);
 
 private:
-    inline float bendDistortion (float phaseIn, float bend)
+    template<typename T>
+    T bendDistortion (T phaseIn, float bend)
     {
         const auto addDist = std::clamp (bend, 0.0f, 1.0f);
         const auto subDist = std::clamp (bend, -1.0f, 0.0f);
 
-        const auto sub = std::pow (phaseIn, 8.0f);
-        const auto add = std::pow (1.0f - phaseIn, 8.0f);
+        const auto sub = math::pow8 (phaseIn);
+        const auto add = math::pow8 (T (1.0f) - phaseIn);
 
-        const auto addMix = std::lerp (phaseIn, 1.0f - add, addDist);
-        const auto subMix = std::lerp (phaseIn, sub, -subDist);
+        const auto addMix = math::lerp (phaseIn, T (1.0f) - add, addDist);
+        const auto subMix = math::lerp (phaseIn, sub, -subDist);
 
-        return std::min (1.0f - std::numeric_limits<float>::epsilon(), addMix + subMix - phaseIn);
+        return math::min (T (1.0f - std::numeric_limits<float>::epsilon()), addMix + subMix - phaseIn);
     }
 
-    inline float formantDistortion (float phaseIn, float formant)
+    template<typename T>
+    T formantDistortion (T phaseIn, float formant)
     {
-        return std::min (1.0f - std::numeric_limits<float>::epsilon(), phaseIn * std::exp (formant * 1.60943791243f));
+        return math::min (T (1.0f - std::numeric_limits<float>::epsilon()), phaseIn * std::exp (formant * 1.60943791243f));
     }
 
-    inline float phaseDistortion (float phaseIn, float bend, float formant)
+    template<typename T>
+    T phaseDistortion (T phaseIn, float bend, float formant)
     {
         if (! juce::exactlyEqual (bend, 0.0f))
             phaseIn = bendDistortion (phaseIn, bend);

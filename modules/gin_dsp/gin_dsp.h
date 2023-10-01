@@ -24,7 +24,7 @@
   license:              BSD
   minimumCppStandard:   20
 
-  dependencies:         gin juce_core juce_audio_utils juce_dsp
+  dependencies:         gin juce_core juce_audio_utils juce_dsp gin_simd
 
  END_JUCE_MODULE_DECLARATION
 
@@ -61,6 +61,7 @@
 #include <juce_audio_utils/juce_audio_utils.h>
 #include <juce_dsp/juce_dsp.h>
 #include <gin/gin.h>
+#include <gin_simd/gin_simd.h>
 
 #if defined (__clang__)
  #pragma clang diagnostic pop

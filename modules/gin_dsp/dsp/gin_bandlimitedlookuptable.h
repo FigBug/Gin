@@ -75,6 +75,24 @@ public:
 
         return tables[size_t (tableIndex)][size_t (pos)];
     }
+    
+    inline mipp::Reg<float> process (float note, mipp::Reg<float> phase)
+    {
+        auto tableIndex = juce::jlimit (0, int (tables.size() - 1), int ((note - 0.5) / notesPerTable));
+        phase *= tableSize;
+        
+        float pos[4];
+        phase.store (pos);
+
+        mipp::Reg<float> res =
+        {
+            tables[size_t (tableIndex)][size_t (pos[0])],
+            tables[size_t (tableIndex)][size_t (pos[1])],
+            tables[size_t (tableIndex)][size_t (pos[2])],
+            tables[size_t (tableIndex)][size_t (pos[3])],
+        };
+        return res;
+    }
 
     inline float get (int tableIndex, float phase)
     {

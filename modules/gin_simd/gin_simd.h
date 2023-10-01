@@ -58,4 +58,6 @@
 
 namespace gin
 {
+#include "mipp/mipp.h"
+#include "math/gin_math.h"
 }
