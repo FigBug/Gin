@@ -15359,11 +15359,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-  </compound>
-  <compound kind="group">
     <name>gin_plugin-components</name>
     <title>components</title>
     <filename>group__gin__plugin-components.html</filename>
@@ -15374,6 +15369,11 @@
       <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
       <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
     </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
   </compound>
   <compound kind="group">
     <name>gin_gui-components</name>
@@ -15639,6 +15639,12 @@
     <subgroup>gin_plugin-lookandfeel</subgroup>
     <subgroup>gin_plugin-plugin</subgroup>
     <subgroup>gin_plugin-resources</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>gin_simd</name>
+    <title>gin_simd</title>
+    <filename>group__gin__simd.html</filename>
+    <subgroup>gin_simd-mipp</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_webp</name>
@@ -15967,6 +15973,11 @@
     <name>gin_metadata-metadata</name>
     <title>metadata</title>
     <filename>group__gin__metadata-metadata.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>gin_simd-mipp</name>
+    <title>mipp</title>
+    <filename>group__gin__simd-mipp.html</filename>
   </compound>
   <compound kind="group">
     <name>gin_network-network</name>
