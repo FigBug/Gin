@@ -12993,24 +12993,10 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>process</name>
-      <anchorfile>classStereoOscillator.html</anchorfile>
-      <anchor>a17f31f43ebe17b636b493e704a7a599e</anchor>
-      <arglist>(float noteL, float noteR, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
       <name>processAdding</name>
       <anchorfile>classStereoOscillator.html</anchorfile>
       <anchor>a228048d564aa720b8a0aee6a624c089c</anchor>
       <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processAdding</name>
-      <anchorfile>classStereoOscillator.html</anchorfile>
-      <anchor>a97fc34ee04e2aa2f488e761c257a19d9</anchor>
-      <arglist>(float noteL, float noteR, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -14163,13 +14149,6 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>int</type>
-      <name>vcTrns</name>
-      <anchorfile>structVoicedOscillatorParams.html</anchorfile>
-      <anchor>a0151a06aa72ad02ce3fd900d24f7f4d8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
       <type>float</type>
       <name>pan</name>
       <anchorfile>structVoicedOscillatorParams.html</anchorfile>
@@ -15015,24 +14994,10 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>process</name>
-      <anchorfile>classWTOscillator.html</anchorfile>
-      <anchor>af7351513ecfdd36c303b15599a2a4de9</anchor>
-      <arglist>(float noteL, float noteR, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
       <name>processAdding</name>
       <anchorfile>classWTOscillator.html</anchorfile>
       <anchor>aaa547794aafc04f582782983988b2651</anchor>
       <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processAdding</name>
-      <anchorfile>classWTOscillator.html</anchorfile>
-      <anchor>a98722a2a585c5d4919ee0f794e8ce96c</anchor>
-      <arglist>(float noteL, float noteR, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
