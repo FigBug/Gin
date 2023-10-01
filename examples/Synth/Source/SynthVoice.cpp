@@ -165,7 +165,6 @@ void SynthVoice::updateParams (int blockSize)
         }
         
         oscParams.voices     = int (proc.oscParams.voices->getProcValue());
-        oscParams.vcTrns     = 0;
         oscParams.pan        = getValue (proc.oscParams.pan);
         oscParams.spread     = getValue (proc.oscParams.spread) / 100.0f;
         oscParams.detune     = getValue (proc.oscParams.detune);

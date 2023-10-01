@@ -320,7 +320,7 @@ void SynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::
         todo -= thisBlock;
     }
 
-    playHead = nullptr;
+    playhead = nullptr;
 
     if (buffer.getNumSamples() <= scopeFifo.getFreeSpace())
         scopeFifo.write (buffer);
