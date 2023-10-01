@@ -1199,6 +1199,82 @@
     <class kind="class">MapViewer</class>
   </compound>
   <compound kind="file">
+    <name>gin_math.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_simd/math/</path>
+    <filename>gin__math_8h.html</filename>
+    <namespace>math</namespace>
+    <member kind="function">
+      <type>float</type>
+      <name>pow2</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a9fc4f8a6ae5797d88e79075846529fd0</anchor>
+      <arglist>(float v)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>pow4</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a9ec6798e6427507fc17135a4e64d3d0f</anchor>
+      <arglist>(float v)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>pow8</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a2be6046cf2e6f91daf2b18c109c76bcc</anchor>
+      <arglist>(float v)</arglist>
+    </member>
+    <member kind="function">
+      <type>mipp::Reg&lt; float &gt;</type>
+      <name>pow2</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a755ba43de51b65bc1eeb08ded27040c9</anchor>
+      <arglist>(mipp::Reg&lt; float &gt; v)</arglist>
+    </member>
+    <member kind="function">
+      <type>mipp::Reg&lt; float &gt;</type>
+      <name>pow4</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a2210dcc40e7212429ebb82f0ab66dd6b</anchor>
+      <arglist>(mipp::Reg&lt; float &gt; v)</arglist>
+    </member>
+    <member kind="function">
+      <type>mipp::Reg&lt; float &gt;</type>
+      <name>pow8</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a65dc02460e12a2db9320bcc2fdc32507</anchor>
+      <arglist>(mipp::Reg&lt; float &gt; v)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>lerp</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a15811e17d742fc66f95e4056d40be8a4</anchor>
+      <arglist>(float t, float a, float b)</arglist>
+    </member>
+    <member kind="function">
+      <type>mipp::Reg&lt; float &gt;</type>
+      <name>lerp</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>afca6980ebbdc924ec7db81c0703de85f</anchor>
+      <arglist>(mipp::Reg&lt; float &gt; t, mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>min</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a3301207fd965d081143a0442ce2923e3</anchor>
+      <arglist>(float a, float b)</arglist>
+    </member>
+    <member kind="function">
+      <type>mipp::Reg&lt; float &gt;</type>
+      <name>min</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a9d0725714427cdeff84c57f5446575d8</anchor>
+      <arglist>(mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>gin_messagepack.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
     <filename>gin__messagepack_8h.html</filename>
@@ -2944,6 +3020,13 @@
       <anchorfile>classBandLimitedLookupTable.html</anchorfile>
       <anchor>ae4bbf0cf3a280899c20e09895e509786</anchor>
       <arglist>(float note, float phase)</arglist>
+    </member>
+    <member kind="function">
+      <type>mipp::Reg&lt; float &gt;</type>
+      <name>process</name>
+      <anchorfile>classBandLimitedLookupTable.html</anchorfile>
+      <anchor>a449b3bed3bbab32173237bbec7abef53</anchor>
+      <arglist>(float note, mipp::Reg&lt; float &gt; phase)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -15313,6 +15396,80 @@
     </member>
   </compound>
   <compound kind="namespace">
+    <name>math</name>
+    <filename>namespacemath.html</filename>
+    <member kind="function">
+      <type>float</type>
+      <name>pow2</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a9fc4f8a6ae5797d88e79075846529fd0</anchor>
+      <arglist>(float v)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>pow4</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a9ec6798e6427507fc17135a4e64d3d0f</anchor>
+      <arglist>(float v)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>pow8</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a2be6046cf2e6f91daf2b18c109c76bcc</anchor>
+      <arglist>(float v)</arglist>
+    </member>
+    <member kind="function">
+      <type>mipp::Reg&lt; float &gt;</type>
+      <name>pow2</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a755ba43de51b65bc1eeb08ded27040c9</anchor>
+      <arglist>(mipp::Reg&lt; float &gt; v)</arglist>
+    </member>
+    <member kind="function">
+      <type>mipp::Reg&lt; float &gt;</type>
+      <name>pow4</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a2210dcc40e7212429ebb82f0ab66dd6b</anchor>
+      <arglist>(mipp::Reg&lt; float &gt; v)</arglist>
+    </member>
+    <member kind="function">
+      <type>mipp::Reg&lt; float &gt;</type>
+      <name>pow8</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a65dc02460e12a2db9320bcc2fdc32507</anchor>
+      <arglist>(mipp::Reg&lt; float &gt; v)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>lerp</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a15811e17d742fc66f95e4056d40be8a4</anchor>
+      <arglist>(float t, float a, float b)</arglist>
+    </member>
+    <member kind="function">
+      <type>mipp::Reg&lt; float &gt;</type>
+      <name>lerp</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>afca6980ebbdc924ec7db81c0703de85f</anchor>
+      <arglist>(mipp::Reg&lt; float &gt; t, mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>min</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a3301207fd965d081143a0442ce2923e3</anchor>
+      <arglist>(float a, float b)</arglist>
+    </member>
+    <member kind="function">
+      <type>mipp::Reg&lt; float &gt;</type>
+      <name>min</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a9d0725714427cdeff84c57f5446575d8</anchor>
+      <arglist>(mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b)</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
     <name>Resources</name>
     <filename>namespaceResources.html</filename>
     <member kind="variable">
@@ -15359,6 +15516,11 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
+  </compound>
+  <compound kind="group">
     <name>gin_plugin-components</name>
     <title>components</title>
     <filename>group__gin__plugin-components.html</filename>
@@ -15369,11 +15531,6 @@
       <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
       <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
     </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
   </compound>
   <compound kind="group">
     <name>gin_gui-components</name>
@@ -15644,6 +15801,7 @@
     <name>gin_simd</name>
     <title>gin_simd</title>
     <filename>group__gin__simd.html</filename>
+    <subgroup>gin_simd-math</subgroup>
     <subgroup>gin_simd-mipp</subgroup>
   </compound>
   <compound kind="group">
@@ -15968,6 +16126,11 @@
     <name>gin_plugin-lookandfeel</name>
     <title>lookandfeel</title>
     <filename>group__gin__plugin-lookandfeel.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>gin_simd-math</name>
+    <title>math</title>
+    <filename>group__gin__simd-math.html</filename>
   </compound>
   <compound kind="group">
     <name>gin_metadata-metadata</name>
