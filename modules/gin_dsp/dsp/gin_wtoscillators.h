@@ -36,6 +36,70 @@ public:
 
     void processAdding (float note, const Params& params, juce::AudioSampleBuffer& buffer)
     {
+        if (juce::exactlyEqual (params.bend, 0.0f) && juce::exactlyEqual (params.formant, 0.0f))
+            processAddingSimple (note, params, buffer);
+        else
+            processAddingComplex (note, params, buffer);
+    }
+
+    void processAddingSimple (float note, const Params& params, juce::AudioSampleBuffer& buffer)
+    {
+        if (bllt == nullptr && bllt->size() == 0) return;
+
+        if (tableIndex == -1 || tableIndex >= bllt->size())
+            tableIndex = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
+
+        float freq = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (note - 69.0) / 12.0)));
+        float delta = 1.0f / (float ((1.0f / freq) * sampleRate));
+
+        int samps = buffer.getNumSamples();
+        auto l = buffer.getWritePointer (0);
+        auto r = buffer.getWritePointer (1);
+        
+        auto table = bllt->getUnchecked (tableIndex);
+      
+        while (samps > 0)
+        {
+            auto todo = std::min (samps, int ((1.0f - phase) / delta) + 1);
+            samps -= todo;
+
+            for (; todo >= 4; todo -= 4)
+            {
+                mipp::Reg<float> phaseVec = {phase, phase + delta, phase + 2 * delta, phase + 3 * delta};
+                mipp::Reg<float> lVec { l };
+                mipp::Reg<float> rVec { r };
+
+                auto s = table->process (note, phaseVec);
+
+                lVec += s * params.leftGain;
+                rVec += s * params.rightGain;
+
+                lVec.store (l); l += 4;
+                lVec.store (r); r += 4;
+
+                phase += delta * 4;
+            }
+
+            for (; todo > 0; todo--)
+            {
+                auto s = table->process (note, phase);
+                *l++ += s * params.leftGain;
+                *r++ += s * params.rightGain;
+
+                phase += delta;
+            }
+
+            while (phase >= 1.0f)
+            {
+                phase -= 1.0f;
+                tableIndex = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
+                table = bllt->getUnchecked (tableIndex);
+            }
+        }
+    }
+    
+    void processAddingComplex (float note, const Params& params, juce::AudioSampleBuffer& buffer)
+    {
         if (bllt == nullptr && bllt->size() == 0) return;
 
         if (tableIndex == -1 || tableIndex >= bllt->size())
