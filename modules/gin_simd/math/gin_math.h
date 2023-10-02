@@ -17,4 +17,7 @@ inline mipp::Reg<float> lerp (mipp::Reg<float> t, mipp::Reg<float> a, mipp::Reg<
 inline float min (float a, float b) { return std::min (a, b); }
 inline mipp::Reg<float> min (mipp::Reg<float> a, mipp::Reg<float> b) { return a.min (b); }
 
+inline float max (float a, float b) { return std::max (a, b); }
+inline mipp::Reg<float> max (mipp::Reg<float> a, mipp::Reg<float> b) { return a.max (b); }
+
 }

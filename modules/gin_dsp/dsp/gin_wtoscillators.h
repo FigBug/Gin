@@ -50,38 +50,37 @@ public:
         
         auto table = bllt->getUnchecked (tableIndex);
       
-#if 0
-        for (; samps >= 4; samps -= 4)
+        while (samps > 0)
         {
-            mipp::Reg<float> phaseVec = {phase, phase + delta, phase + 2 * delta, phase + 3 * delta};
-            mipp::Reg<float> lVec { l };
-            mipp::Reg<float> rVec { r };
-            
-            auto s = table->process (note, phaseDistortion (phaseVec, params.bend, params.formant));
-            
-            lVec += s * params.leftGain;
-            rVec += s * params.rightGain;
-            
-            lVec.store (l); l += 4;
-            lVec.store (r); r += 4;
-            
-            phase += delta * 4;
-            while (phase >= 1.0f)
+            auto todo = std::min (samps, int ((1.0f - phase) / delta) + 1);
+            samps -= todo;
+
+            for (; todo >= 4; todo -= 4)
             {
-                phase -= 1.0f;
-                tableIndex = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
-                table = bllt->getUnchecked (tableIndex);
+                mipp::Reg<float> phaseVec = {phase, phase + delta, phase + 2 * delta, phase + 3 * delta};
+                mipp::Reg<float> lVec { l };
+                mipp::Reg<float> rVec { r };
+
+                auto s = table->process (note, phaseDistortion (phaseVec, params.bend, params.formant));
+
+                lVec += s * params.leftGain;
+                rVec += s * params.rightGain;
+
+                lVec.store (l); l += 4;
+                lVec.store (r); r += 4;
+
+                phase += delta * 4;
             }
-        }
-#endif
 
-        for (; samps > 0; samps--)
-        {
-            auto s = table->process (note, phaseDistortion (phase, params.bend, params.formant));
-            *l++ += s * params.leftGain;
-            *r++ += s * params.rightGain;
+            for (; todo > 0; todo--)
+            {
+                auto s = table->process (note, phaseDistortion (phase, params.bend, params.formant));
+                *l++ += s * params.leftGain;
+                *r++ += s * params.rightGain;
 
-            phase += delta;
+                phase += delta;
+            }
+
             while (phase >= 1.0f)
             {
                 phase -= 1.0f;
