@@ -15098,6 +15098,20 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>processAddingSimple</name>
+      <anchorfile>classWTOscillator.html</anchorfile>
+      <anchor>a964d75f365b9fe62c30e5735232d2cbb</anchor>
+      <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>processAddingComplex</name>
+      <anchorfile>classWTOscillator.html</anchorfile>
+      <anchor>ac40a5d31bfff126183557384f10c797d</anchor>
+      <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>setWavetable</name>
       <anchorfile>classWTOscillator.html</anchorfile>
       <anchor>ac2e96a58595de3370fe462b84f2732e0</anchor>
