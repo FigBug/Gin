@@ -42,6 +42,7 @@ target_link_libraries (Demo PRIVATE
 						gin_dsp
 						gin_metadata
 						gin_network
+						gin_simd
 
 						juce::juce_cryptography
 						juce::juce_data_structures

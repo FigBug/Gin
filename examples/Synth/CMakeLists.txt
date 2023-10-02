@@ -52,6 +52,7 @@ target_link_libraries (Synth PRIVATE
 						gin_gui
 						gin_dsp
 						gin_plugin
+						gin_simd
 
 						juce::juce_cryptography
 						juce::juce_data_structures
