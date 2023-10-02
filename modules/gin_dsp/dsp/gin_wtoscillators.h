@@ -80,12 +80,16 @@ private:
         const auto addMix = std::lerp (phaseIn, 1.0f - add, addDist);
         const auto subMix = std::lerp (phaseIn, sub, -subDist);
 
-        return std::min (1.0f - std::numeric_limits<float>::epsilon(), addMix + subMix - phaseIn);
+        auto res = std::min (1.0f - std::numeric_limits<float>::epsilon(), addMix + subMix - phaseIn);
+        jassert (res >= 0.0f && res < 1.0f);
+        return res;
     }
 
     inline float formantDistortion (float phaseIn, float formant)
     {
-        return std::min (1.0f - std::numeric_limits<float>::epsilon(), phaseIn * std::exp (formant * 1.60943791243f));
+        auto res = std::min (1.0f - std::numeric_limits<float>::epsilon(), phaseIn * std::exp (formant * 1.60943791243f));
+        jassert (res >= 0.0f && res < 1.0f);
+        return res;
     }
 
     inline float phaseDistortion (float phaseIn, float bend, float formant)
