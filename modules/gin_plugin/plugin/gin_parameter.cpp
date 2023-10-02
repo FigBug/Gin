@@ -173,6 +173,10 @@ juce::String Parameter::getText (float val, int /*maximumStringLength*/) const
         return textFunction (*this, range.convertFrom0to1 (val));
     
     auto uv = range.snapToLegalValue (range.convertFrom0to1 (val));
+    
+    if (juce::exactlyEqual (range.interval, 1.0f))
+        return juce::String (int (uv));
+    
     return formatNumber (uv);
 }
 
