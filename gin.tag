@@ -1273,6 +1273,20 @@
       <anchor>a9d0725714427cdeff84c57f5446575d8</anchor>
       <arglist>(mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b)</arglist>
     </member>
+    <member kind="function">
+      <type>float</type>
+      <name>max</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>ae4753f62af945d3b55f4de8c3bce86f8</anchor>
+      <arglist>(float a, float b)</arglist>
+    </member>
+    <member kind="function">
+      <type>mipp::Reg&lt; float &gt;</type>
+      <name>max</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>ac963dd6333f9a93682fbbb8659fea851</anchor>
+      <arglist>(mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>gin_messagepack.h</name>
@@ -15466,6 +15480,20 @@
       <name>min</name>
       <anchorfile>namespacemath.html</anchorfile>
       <anchor>a9d0725714427cdeff84c57f5446575d8</anchor>
+      <arglist>(mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>max</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>ae4753f62af945d3b55f4de8c3bce86f8</anchor>
+      <arglist>(float a, float b)</arglist>
+    </member>
+    <member kind="function">
+      <type>mipp::Reg&lt; float &gt;</type>
+      <name>max</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>ac963dd6333f9a93682fbbb8659fea851</anchor>
       <arglist>(mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b)</arglist>
     </member>
   </compound>
