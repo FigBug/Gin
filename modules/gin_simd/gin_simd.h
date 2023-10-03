@@ -63,7 +63,8 @@ JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE("-Wimplicit-float-conversion",
                                     "-Wunused-parameter",
                                     "-Wshadow",
                                     "-Wzero-length-array",
-                                    "-Wcast-align")
+                                    "-Wcast-align",
+                                    "-Wimplicit-int-conversion")
 
 #include "mipp/mipp.h"
 
