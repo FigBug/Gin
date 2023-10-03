@@ -24,7 +24,7 @@ public:
     }
 
     juce::AudioSampleBuffer data;
-    bool busy = false;
+    int refCount = 0;
     int chans = 0, samps = 0;
 };
 
@@ -54,7 +54,7 @@ public:
         }
 
         auto i = new BufferCacheItem (channels, samples);
-        i->busy = true;
+        i->refCount = 1;
 
         juce::ScopedLock sl (lock);
         cache.add (i);
@@ -64,7 +64,13 @@ public:
     void free (BufferCacheItem& i)
     {
         juce::ScopedLock sl (lock);
-        i.busy = false;
+        i.refCount--;
+    }
+
+    void incRef (BufferCacheItem& i)
+    {
+        juce::ScopedLock sl (lock);
+        i.refCount++;
     }
 
     JUCE_DECLARE_SINGLETON(BufferCache, false)
@@ -77,9 +83,9 @@ private:
         // First look for one the correct size
         for (auto i : cache)
         {
-            if (! i->busy && channels <= i->data.getNumChannels() && samples <= i->data.getNumSamples())
+            if (i->refCount == 0 && channels <= i->data.getNumChannels() && samples <= i->data.getNumSamples())
             {
-                i->busy = true;
+                i->refCount = 1;
                 i->chans = channels;
                 i->samps = samples;
                 return i;
@@ -89,9 +95,9 @@ private:
         // Then just find a free one
         for (auto i : cache)
         {
-            if (! i->busy)
+            if (i->refCount == 0)
             {
-                i->busy = true;
+                i->refCount = 1;
                 return i;
             }
         }
@@ -117,6 +123,11 @@ ScratchBuffer::ScratchBuffer (int numChannels, int numSamples)
     : ScratchBuffer (*BufferCache::getInstance()->get (numChannels, numSamples))
 {
     clear();
+}
+
+ScratchBuffer::ScratchBuffer (const ScratchBuffer& other)
+    : cache (other.cache)
+{
 }
 
 ScratchBuffer::ScratchBuffer (juce::AudioSampleBuffer& buffer)

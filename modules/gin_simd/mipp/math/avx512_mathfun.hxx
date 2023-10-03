@@ -1,4 +1,4 @@
-/* 
+/*
    AVX512 implementation of sin, cos, sincos, exp and log
 
    Based on "sse_mathfun.h", by Julien Pommier
@@ -16,7 +16,7 @@ typedef __m512i v16si; // vector of 16 int   (avx)
 /* yes I know, the top of this file is quite ugly */
 #ifdef _MSC_VER /* visual c++ */
 # define ALIGN32_BEG __declspec(align(32))
-# define ALIGN32_END 
+# define ALIGN32_END
 #else /* gcc or icc */
 # define ALIGN32_BEG
 # define ALIGN32_END __attribute__((aligned(32)))
@@ -95,7 +95,7 @@ v16sf log512_ps(v16sf x) {
 
   e = _mm512_add_ps(e, one);
 
-  /* part2: 
+  /* part2:
      if( x < SQRTHF ) {
        e -= 1;
        x = x + x - 1.0;
@@ -134,7 +134,7 @@ v16sf log512_ps(v16sf x) {
   y = _mm512_mul_ps(y, x);
 
   y = _mm512_mul_ps(y, z);
-  
+
   tmp = _mm512_mul_ps(e, _mm512_loadu_ps(_ps512_cephes_log_q1));
   y = _mm512_add_ps(y, tmp);
 
@@ -150,8 +150,8 @@ v16sf log512_ps(v16sf x) {
   return x;
 }
 
-_PS512_CONST(exp_hi,	88.3762626647949f);
-_PS512_CONST(exp_lo,	-88.3762626647949f);
+_PS512_CONST(exp_hi,    88.3762626647949f);
+_PS512_CONST(exp_lo,    -88.3762626647949f);
 
 _PS512_CONST(cephes_LOG2EF, 1.44269504088896341f);
 _PS512_CONST(cephes_exp_C1, 0.693359375f);
@@ -179,7 +179,7 @@ v16sf exp512_ps(v16sf x) {
   /* how to perform a floorf with SSE: just below */
   //imm0 = _mm512_cvttps_epi32(fx);
   //tmp  = _mm512_cvtepi32_ps(imm0);
-  
+
   tmp = _mm512_floor_ps(fx);
 
   /* if greater, substract 1 */
@@ -197,7 +197,7 @@ v16sf exp512_ps(v16sf x) {
   x = _mm512_sub_ps(x, z);
 
   z = _mm512_mul_ps(x,x);
-  
+
   v16sf y = _mm512_loadu_ps(_ps512_cephes_exp_p0);
   y = _mm512_mul_ps(y, x);
   y = _mm512_add_ps(y, _mm512_loadu_ps(_ps512_cephes_exp_p1));
@@ -258,7 +258,7 @@ v16sf sin512_ps(v16sf x) { // any x
   /* extract the sign bit (upper one) */
 //  sign_bit = _mm512_and_ps(sign_bit, *(v16sf*)_ps512_sign_mask);
   sign_bit = _mm512_castsi512_ps(_mm512_and_si512(_mm512_castps_si512(sign_bit), _mm512_castps_si512(_mm512_loadu_ps(_ps512_sign_mask))));
-  
+
   /* scale by 4/Pi */
   y = _mm512_mul_ps(x, _mm512_loadu_ps(_ps512_cephes_FOPI));
 
@@ -279,7 +279,7 @@ v16sf sin512_ps(v16sf x) { // any x
   /* get the swap sign flag */
   imm0 = _mm512_and_si512(imm2, _mm512_castps_si512(_mm512_loadu_ps((float*)_pi32_512_4)));
   imm0 = _wrap_mm512_slli_epi32(imm0, 29);
-  /* get the polynom selection mask 
+  /* get the polynom selection mask
      there is one polynom for 0 <= x <= Pi/4
      and another one for Pi/4<x<=Pi/2
 
@@ -290,13 +290,13 @@ v16sf sin512_ps(v16sf x) { // any x
 //  imm2 = _mm512_cmpeq_epi32(imm2,*(v16si*)_pi32_512_0);
   __mmask16 imm22 = _mm512_cmpeq_epi32_mask(imm2,_mm512_castps_si512(_mm512_loadu_ps((float*)_pi32_512_0)));
   imm2= _mm512_mask_blend_epi32(imm22, _mm512_castps_si512(_mm512_loadu_ps((float*)_pi32_512_0)), _mm512_castps_si512(_mm512_loadu_ps((float*)_pi32_512_0xffffffff)));
- 
+
   v16sf swap_sign_bit = _mm512_castsi512_ps(imm0);
   v16sf poly_mask = _mm512_castsi512_ps(imm2);
 //  sign_bit = _mm512_xor_ps(sign_bit, swap_sign_bit);
   sign_bit = _mm512_castsi512_ps(_mm512_xor_si512(_mm512_castps_si512(sign_bit), _mm512_castps_si512(swap_sign_bit)));
 
-  /* The magic pass: "Extended precision modular arithmetic" 
+  /* The magic pass: "Extended precision modular arithmetic"
      x = ((x - y * DP1) - y * DP2) - y * DP3; */
   xmm1 = _mm512_loadu_ps(_ps512_minus_cephes_DP1);
   xmm2 = _mm512_loadu_ps(_ps512_minus_cephes_DP2);
@@ -321,7 +321,7 @@ v16sf sin512_ps(v16sf x) { // any x
   v16sf tmp = _mm512_mul_ps(z, _mm512_loadu_ps(_ps512_0p5));
   y = _mm512_sub_ps(y, tmp);
   y = _mm512_add_ps(y, _mm512_loadu_ps(_ps512_1));
-  
+
   /* Evaluate the second polynom  (Pi/4 <= x <= 0) */
 
   v16sf y2 = _mm512_loadu_ps(_ps512_sincof_p0);
@@ -333,7 +333,7 @@ v16sf sin512_ps(v16sf x) { // any x
   y2 = _mm512_mul_ps(y2, x);
   y2 = _mm512_add_ps(y2, x);
 
-  /* select the correct result from the two polynoms */  
+  /* select the correct result from the two polynoms */
   xmm3 = poly_mask;
 //  y2 = _mm512_and_ps(xmm3, y2); //, xmm3);
   y2 = _mm512_castsi512_ps(_mm512_and_si512(_mm512_castps_si512(xmm3), _mm512_castps_si512(y2)));
@@ -444,7 +444,7 @@ void sincos512_ps(v16sf x, v16sf *s, v16sf *c) {
   /* extract the sign bit (upper one) */
 //  sign_bit_sin = _mm512_and_ps(sign_bit_sin, *(v16sf*)_ps512_sign_mask);
   sign_bit_sin = _mm512_castsi512_ps(_mm512_and_si512(_mm512_castps_si512(sign_bit_sin), _mm512_castps_si512(_mm512_loadu_ps(_ps512_sign_mask))));
-  
+
   /* scale by 4/Pi */
   y = _mm512_mul_ps(x, _mm512_loadu_ps(_ps512_cephes_FOPI));
 
@@ -474,7 +474,7 @@ void sincos512_ps(v16sf x, v16sf *s, v16sf *c) {
   v16sf swap_sign_bit_sin = _mm512_castsi512_ps(imm0);
   v16sf poly_mask = _mm512_castsi512_ps(imm2);
 
-  /* The magic pass: "Extended precision modular arithmetic" 
+  /* The magic pass: "Extended precision modular arithmetic"
      x = ((x - y * DP1) - y * DP2) - y * DP3; */
   xmm1 = _mm512_loadu_ps(_ps512_minus_cephes_DP1);
   xmm2 = _mm512_loadu_ps(_ps512_minus_cephes_DP2);
@@ -494,7 +494,7 @@ void sincos512_ps(v16sf x, v16sf *s, v16sf *c) {
 
 //  sign_bit_sin = _mm512_xor_ps(sign_bit_sin, swap_sign_bit_sin);
   sign_bit_sin = _mm512_castsi512_ps(_mm512_xor_si512(_mm512_castps_si512(sign_bit_sin), _mm512_castps_si512(swap_sign_bit_sin)));
-  
+
   /* Evaluate the first polynom  (0 <= x <= Pi/4) */
   v16sf z = _mm512_mul_ps(x,x);
   y = _mm512_loadu_ps(_ps512_coscof_p0);
@@ -508,7 +508,7 @@ void sincos512_ps(v16sf x, v16sf *s, v16sf *c) {
   v16sf tmp = _mm512_mul_ps(z, _mm512_loadu_ps(_ps512_0p5));
   y = _mm512_sub_ps(y, tmp);
   y = _mm512_add_ps(y, _mm512_loadu_ps(_ps512_1));
-  
+
   /* Evaluate the second polynom  (Pi/4 <= x <= 0) */
 
   v16sf y2 = _mm512_loadu_ps(_ps512_sincof_p0);
@@ -520,7 +520,7 @@ void sincos512_ps(v16sf x, v16sf *s, v16sf *c) {
   y2 = _mm512_mul_ps(y2, x);
   y2 = _mm512_add_ps(y2, x);
 
-  /* select the correct result from the two polynoms */  
+  /* select the correct result from the two polynoms */
   xmm3 = poly_mask;
 //  v16sf ysin2 = _mm512_and_ps(xmm3, y2);
   v16sf ysin2 = _mm512_castsi512_ps(_mm512_and_si512(_mm512_castps_si512(xmm3), _mm512_castps_si512(y2)));
@@ -531,7 +531,7 @@ void sincos512_ps(v16sf x, v16sf *s, v16sf *c) {
 
   xmm1 = _mm512_add_ps(ysin1,ysin2);
   xmm2 = _mm512_add_ps(y,y2);
- 
+
   /* update the sign */
 //  *s = _mm512_xor_ps(xmm1, sign_bit_sin);
   *s = _mm512_castsi512_ps(_mm512_xor_si512(_mm512_castps_si512(xmm1), _mm512_castps_si512(sign_bit_sin)));

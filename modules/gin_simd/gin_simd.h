@@ -61,7 +61,9 @@ namespace gin
 
 JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE("-Wimplicit-float-conversion",
                                     "-Wunused-parameter",
-                                    "-Wshadow" )
+                                    "-Wshadow",
+                                    "-Wzero-length-array",
+                                    "-Wcast-align")
 
 #include "mipp/mipp.h"
 
