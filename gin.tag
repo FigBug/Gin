@@ -11706,6 +11706,13 @@
     </member>
     <member kind="function">
       <type></type>
+      <name>ScratchBuffer</name>
+      <anchorfile>classScratchBuffer.html</anchorfile>
+      <anchor>a37c63130f813bd961f8a817a7eda2c63</anchor>
+      <arglist>(const ScratchBuffer &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
       <name>~ScratchBuffer</name>
       <anchorfile>classScratchBuffer.html</anchorfile>
       <anchor>ad1064185b708fea7cc96514eae47ecdd</anchor>
