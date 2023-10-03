@@ -8,7 +8,7 @@ struct ModSrcId
     ModSrcId (const ModSrcId& other) { id = other.id; }
     ModSrcId& operator= (const ModSrcId& other) { id = other.id; return *this; }
     bool operator== (const ModSrcId& other) const { return other.id == id; }
-    bool isValid() const { return id > 0; }
+    bool isValid() const { return id >= 0; }
 
     int id = -1;
 };
@@ -21,7 +21,7 @@ struct ModDstId
     ModDstId (const ModDstId& other) { id = other.id; }
     ModDstId& operator= (const ModDstId& other) { id = other.id; return *this; }
     bool operator== (const ModDstId& other) const { return other.id == id; }
-    bool isValid() const { return id > 0; }
+    bool isValid() const { return id >= 0; }
 
     int id = -1;
 };
