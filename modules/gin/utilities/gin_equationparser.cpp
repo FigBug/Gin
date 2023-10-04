@@ -83,7 +83,7 @@ EquationParser::EquationParser()
     impl->parser.DefineOprt ("%", modFunc, mu::prMUL_DIV, mu::oaLEFT, false);
 }
 
-EquationParser::EquationParser (juce::String equation)
+EquationParser::EquationParser (const juce::String& equation)
 {
     try
     {
@@ -99,10 +99,14 @@ EquationParser::EquationParser (juce::String equation)
 
 EquationParser::~EquationParser()
 {
-
 }
 
-void EquationParser::setEquation (juce::String equation)
+void EquationParser::defineNameChars (const juce::String& chars)
+{
+	impl->parser.DefineNameChars (chars.toRawUTF8());
+}
+
+void EquationParser::setEquation (const juce::String& equation)
 {
     try
     {
@@ -114,7 +118,7 @@ void EquationParser::setEquation (juce::String equation)
     }
 }
 
-void EquationParser::addVariable (juce::String name, double* value)
+void EquationParser::addVariable (const juce::String& name, double* value)
 {
     try
     {
@@ -130,7 +134,7 @@ void EquationParser::clearConstants()
     impl->parser.ClearConst();
 }
 
-void EquationParser::addConstant (juce::String name, double value)
+void EquationParser::addConstant (const juce::String& name, double value)
 {
     try
     {
@@ -162,7 +166,7 @@ void EquationParser::setVarFactory (std::function<double* (const char*)> fun)
     varFactory.reset (cb);
 }
 
-void EquationParser::addFunction (juce::String name, std::function<double (int id, const juce::String&)> fun)
+void EquationParser::addFunction (const juce::String& name, std::function<double (int id, const juce::String&)> fun)
 {
     try
     {
@@ -180,7 +184,7 @@ void EquationParser::addFunction (juce::String name, std::function<double (int i
     }
 }
 
-void EquationParser::addFunction (juce::String name, std::function<double (int id)> fun)
+void EquationParser::addFunction (const juce::String& name, std::function<double (int id)> fun)
 {
     try
     {
@@ -197,7 +201,7 @@ void EquationParser::addFunction (juce::String name, std::function<double (int i
     }
 }
 
-void EquationParser::addFunction (juce::String name, std::function<double (int id, double)> fun)
+void EquationParser::addFunction (const juce::String& name, std::function<double (int id, double)> fun)
 {
     try
     {
@@ -214,7 +218,7 @@ void EquationParser::addFunction (juce::String name, std::function<double (int i
     }
 }
 
-void EquationParser::addFunction (juce::String name, std::function<double (int id, double, double)> fun)
+void EquationParser::addFunction (const juce::String& name, std::function<double (int id, double, double)> fun)
 {
     try
     {
@@ -231,7 +235,7 @@ void EquationParser::addFunction (juce::String name, std::function<double (int i
     }
 }
 
-void EquationParser::addFunction (juce::String name, std::function<double (int id, double, double, double)> fun)
+void EquationParser::addFunction (const juce::String& name, std::function<double (int id, double, double, double)> fun)
 {
     try
     {
@@ -248,7 +252,7 @@ void EquationParser::addFunction (juce::String name, std::function<double (int i
     }
 }
 
-void EquationParser::addFunction (juce::String name, std::function<double (int id, double, double, double, double)> fun)
+void EquationParser::addFunction (const juce::String& name, std::function<double (int id, double, double, double, double)> fun)
 {
     try
     {

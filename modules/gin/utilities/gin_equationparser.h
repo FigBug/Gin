@@ -11,25 +11,27 @@ class EquationParser
 {
 public:
     EquationParser();
-    EquationParser (juce::String equation);
+    EquationParser (const juce::String& equation);
     ~EquationParser();
 
-    void setEquation (juce::String equation);
+	void defineNameChars (const juce::String& chars);
+
+    void setEquation (const juce::String& equation);
 
     void clearVariables ();
-    void addVariable (juce::String name, double* value);
+    void addVariable (const juce::String& name, double* value);
     void setVarFactory (std::function<double* (const char*)> fun);
 
     void clearConstants();
-    void addConstant (juce::String name, double value);
+    void addConstant (const juce::String& name, double value);
 
-    void addFunction (juce::String name, std::function<double (int id, const juce::String&)> fun);
+    void addFunction (const juce::String& name, std::function<double (int id, const juce::String&)> fun);
 
-    void addFunction (juce::String name, std::function<double (int id)> fun);
-    void addFunction (juce::String name, std::function<double (int id, double)> fun);
-    void addFunction (juce::String name, std::function<double (int id, double, double)> fun);
-    void addFunction (juce::String name, std::function<double (int id, double, double, double)> fun);
-    void addFunction (juce::String name, std::function<double (int id, double, double, double, double)> fun);
+    void addFunction (const juce::String& name, std::function<double (int id)> fun);
+    void addFunction (const juce::String& name, std::function<double (int id, double)> fun);
+    void addFunction (const juce::String& name, std::function<double (int id, double, double)> fun);
+    void addFunction (const juce::String& name, std::function<double (int id, double, double, double)> fun);
+    void addFunction (const juce::String& name, std::function<double (int id, double, double, double, double)> fun);
 
     double evaluate();
 
