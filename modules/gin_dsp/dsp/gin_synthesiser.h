@@ -75,7 +75,7 @@ public:
         }
     }
     
-    void setPitchBendRange (bool newPB)
+    void setPitchBendRange (int newPB)
     {
         if (newPB != pitchbend)
         {
