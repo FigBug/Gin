@@ -44,6 +44,8 @@ public:
 
     void processAddingSimple (float note, const Params& params, juce::AudioSampleBuffer& buffer)
     {
+		juce::ignoreUnused (note, params, buffer);
+	   #ifdef JUCE_MODULE_AVAILABLE_gin_simd
         if (bllt == nullptr && bllt->size() == 0) return;
 
         if (tableIndex == -1 || tableIndex >= bllt->size())
@@ -96,10 +98,13 @@ public:
                 table = bllt->getUnchecked (tableIndex);
             }
         }
+	   #endif
     }
     
     void processAddingComplex (float note, const Params& params, juce::AudioSampleBuffer& buffer)
     {
+		juce::ignoreUnused (note, params, buffer);
+	   #ifdef JUCE_MODULE_AVAILABLE_gin_simd
         if (bllt == nullptr && bllt->size() == 0) return;
 
         if (tableIndex == -1 || tableIndex >= bllt->size())
@@ -152,11 +157,13 @@ public:
                 table = bllt->getUnchecked (tableIndex);
             }
         }
+	   #endif
     }
     
     void setWavetable (juce::OwnedArray<BandLimitedLookupTable>* table);
 
 private:
+   #ifdef JUCE_MODULE_AVAILABLE_gin_simd
     template<typename T>
     T bendDistortion (T phaseIn, float bend)
     {
@@ -189,6 +196,7 @@ private:
 
         return phaseIn;
     }
+   #endif
 
     juce::OwnedArray<BandLimitedLookupTable>* bllt = nullptr;
     double sampleRate = 44100.0;
