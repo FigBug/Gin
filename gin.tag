@@ -13283,8 +13283,8 @@
       <type>void</type>
       <name>setPitchBendRange</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>ab0409afbcb0d43c978e3ee08aa841267</anchor>
-      <arglist>(bool newPB)</arglist>
+      <anchor>a27c386eb03f3ea6b1ec5fc24901a59ab</anchor>
+      <arglist>(int newPB)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
