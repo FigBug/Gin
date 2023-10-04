@@ -3036,13 +3036,6 @@
       <arglist>(float note, float phase)</arglist>
     </member>
     <member kind="function">
-      <type>mipp::Reg&lt; float &gt;</type>
-      <name>process</name>
-      <anchorfile>classBandLimitedLookupTable.html</anchorfile>
-      <anchor>a449b3bed3bbab32173237bbec7abef53</anchor>
-      <arglist>(float note, mipp::Reg&lt; float &gt; phase)</arglist>
-    </member>
-    <member kind="function">
       <type>float</type>
       <name>get</name>
       <anchorfile>classBandLimitedLookupTable.html</anchorfile>
@@ -4800,8 +4793,8 @@
       <type></type>
       <name>EquationParser</name>
       <anchorfile>classEquationParser.html</anchorfile>
-      <anchor>a0f57c565cbaa777ce2be4fca4dcba31d</anchor>
-      <arglist>(juce::String equation)</arglist>
+      <anchor>a0c6dddf15aeb964a290b7559cf31b577</anchor>
+      <arglist>(const juce::String &amp;equation)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -4812,10 +4805,17 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>defineNameChars</name>
+      <anchorfile>classEquationParser.html</anchorfile>
+      <anchor>ad6a312d13baee260b55e3f5263e61648</anchor>
+      <arglist>(const juce::String &amp;chars)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>setEquation</name>
       <anchorfile>classEquationParser.html</anchorfile>
-      <anchor>aa6d133fbe94ce08f2d3b751630f3f2ef</anchor>
-      <arglist>(juce::String equation)</arglist>
+      <anchor>a49e3230e62a90ebb6e6e08f8fa9b6cba</anchor>
+      <arglist>(const juce::String &amp;equation)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -4828,8 +4828,8 @@
       <type>void</type>
       <name>addVariable</name>
       <anchorfile>classEquationParser.html</anchorfile>
-      <anchor>aebf7f4cdf88caa17a85dd4a137b35150</anchor>
-      <arglist>(juce::String name, double *value)</arglist>
+      <anchor>a413c959f4d49d05bce554e763d8e09bd</anchor>
+      <arglist>(const juce::String &amp;name, double *value)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -4849,50 +4849,50 @@
       <type>void</type>
       <name>addConstant</name>
       <anchorfile>classEquationParser.html</anchorfile>
-      <anchor>a8ed6df6210bd739d2001adf382ac56b2</anchor>
-      <arglist>(juce::String name, double value)</arglist>
+      <anchor>a7444fd0751289614e78d8229cab74229</anchor>
+      <arglist>(const juce::String &amp;name, double value)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>addFunction</name>
       <anchorfile>classEquationParser.html</anchorfile>
-      <anchor>ad1764b694dc81c8c5b4c5eaf34ded9fa</anchor>
-      <arglist>(juce::String name, std::function&lt; double(int id, const juce::String &amp;)&gt; fun)</arglist>
+      <anchor>a99f6e1e2db7a62b2b816a15675222684</anchor>
+      <arglist>(const juce::String &amp;name, std::function&lt; double(int id, const juce::String &amp;)&gt; fun)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>addFunction</name>
       <anchorfile>classEquationParser.html</anchorfile>
-      <anchor>a5090c82a3374dff11d9552371a2a8659</anchor>
-      <arglist>(juce::String name, std::function&lt; double(int id)&gt; fun)</arglist>
+      <anchor>a0fd6334cb165a19177eb6ff354b71912</anchor>
+      <arglist>(const juce::String &amp;name, std::function&lt; double(int id)&gt; fun)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>addFunction</name>
       <anchorfile>classEquationParser.html</anchorfile>
-      <anchor>a2bd775e9ac1d42aa5f2f02a64309c27e</anchor>
-      <arglist>(juce::String name, std::function&lt; double(int id, double)&gt; fun)</arglist>
+      <anchor>aa11c7d6706b49d9b8067c14b4afe4947</anchor>
+      <arglist>(const juce::String &amp;name, std::function&lt; double(int id, double)&gt; fun)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>addFunction</name>
       <anchorfile>classEquationParser.html</anchorfile>
-      <anchor>a371eaf5fa5cc15039f9db987d994dae4</anchor>
-      <arglist>(juce::String name, std::function&lt; double(int id, double, double)&gt; fun)</arglist>
+      <anchor>ab380fe50eb5939fb8098da58a1cf425b</anchor>
+      <arglist>(const juce::String &amp;name, std::function&lt; double(int id, double, double)&gt; fun)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>addFunction</name>
       <anchorfile>classEquationParser.html</anchorfile>
-      <anchor>ab229a4424b5bb0c66d40e9522119fe43</anchor>
-      <arglist>(juce::String name, std::function&lt; double(int id, double, double, double)&gt; fun)</arglist>
+      <anchor>a427f0e15b6911904a13564340a4d2ae9</anchor>
+      <arglist>(const juce::String &amp;name, std::function&lt; double(int id, double, double, double)&gt; fun)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>addFunction</name>
       <anchorfile>classEquationParser.html</anchorfile>
-      <anchor>a401c9d12b506b4acb9a0402d28eb38cf</anchor>
-      <arglist>(juce::String name, std::function&lt; double(int id, double, double, double, double)&gt; fun)</arglist>
+      <anchor>ac1dfff07ef6401d5f73d79d00ed6cb32</anchor>
+      <arglist>(const juce::String &amp;name, std::function&lt; double(int id, double, double, double, double)&gt; fun)</arglist>
     </member>
     <member kind="function">
       <type>double</type>
