@@ -92,8 +92,9 @@ EquationParser::EquationParser (const juce::String& equation)
 
         impl->parser.DefineOprt ("%", modFunc, mu::prMUL_DIV, mu::oaLEFT, false);
     }
-    catch (...)
+    catch (mu::Parser::exception_type& e)
     {
+        errorMessage = juce::String (e.GetMsg());
     }
 }
 
@@ -110,6 +111,7 @@ void EquationParser::setEquation (const juce::String& equation)
 {
     try
     {
+        errorMessage = {};
         impl->parser.SetExpr (equation.toRawUTF8());
     }
     catch (mu::Parser::exception_type& e)
@@ -273,6 +275,7 @@ double EquationParser::evaluate()
 {
     try
     {
+        errorMessage = {};
         return impl->parser.Eval();
     }
     catch (mu::Parser::exception_type& e)
