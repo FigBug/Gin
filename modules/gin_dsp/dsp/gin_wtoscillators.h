@@ -44,8 +44,8 @@ public:
 
     void processAddingSimple (float note, const Params& params, juce::AudioSampleBuffer& buffer)
     {
-		juce::ignoreUnused (note, params, buffer);
-	   #ifdef JUCE_MODULE_AVAILABLE_gin_simd
+        juce::ignoreUnused (note, params, buffer);
+       #ifdef JUCE_MODULE_AVAILABLE_gin_simd
         if (bllt == nullptr && bllt->size() == 0) return;
 
         if (tableIndex == -1 || tableIndex >= bllt->size())
@@ -57,9 +57,9 @@ public:
         int samps = buffer.getNumSamples();
         auto l = buffer.getWritePointer (0);
         auto r = buffer.getWritePointer (1);
-        
+
         auto table = bllt->getUnchecked (tableIndex);
-      
+
         while (samps > 0)
         {
             auto todo = std::min (samps, int ((1.0f - phase) / delta) + 1);
@@ -98,13 +98,13 @@ public:
                 table = bllt->getUnchecked (tableIndex);
             }
         }
-	   #endif
+       #endif
     }
-    
+
     void processAddingComplex (float note, const Params& params, juce::AudioSampleBuffer& buffer)
     {
-		juce::ignoreUnused (note, params, buffer);
-	   #ifdef JUCE_MODULE_AVAILABLE_gin_simd
+        juce::ignoreUnused (note, params, buffer);
+       #ifdef JUCE_MODULE_AVAILABLE_gin_simd
         if (bllt == nullptr && bllt->size() == 0) return;
 
         if (tableIndex == -1 || tableIndex >= bllt->size())
@@ -116,9 +116,9 @@ public:
         int samps = buffer.getNumSamples();
         auto l = buffer.getWritePointer (0);
         auto r = buffer.getWritePointer (1);
-        
+
         auto table = bllt->getUnchecked (tableIndex);
-      
+
         while (samps > 0)
         {
             auto todo = std::min (samps, int ((1.0f - phase) / delta) + 1);
@@ -157,9 +157,9 @@ public:
                 table = bllt->getUnchecked (tableIndex);
             }
         }
-	   #endif
+       #endif
     }
-    
+
     void setWavetable (juce::OwnedArray<BandLimitedLookupTable>* table);
 
 private:

@@ -103,7 +103,7 @@ EquationParser::~EquationParser()
 
 void EquationParser::defineNameChars (const juce::String& chars)
 {
-	impl->parser.DefineNameChars (chars.toRawUTF8());
+    impl->parser.DefineNameChars (chars.toRawUTF8());
 }
 
 void EquationParser::setEquation (const juce::String& equation)

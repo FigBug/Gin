@@ -14,7 +14,7 @@ public:
     EquationParser (const juce::String& equation);
     ~EquationParser();
 
-	void defineNameChars (const juce::String& chars);
+    void defineNameChars (const juce::String& chars);
 
     void setEquation (const juce::String& equation);
 
