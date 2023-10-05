@@ -5,7 +5,8 @@ void Program::loadProcessor (Processor& p)
         return;
 
     for (auto pp : p.getPluginParameters())
-        pp->setUserValueNotifingHost (pp->getUserDefaultValue());
+        if (p.loadingState || ! p.isParamLocked (pp))
+            pp->setUserValueNotifingHost (pp->getUserDefaultValue());
 
     int w = p.state.getProperty ("width", -1);
     int h = p.state.getProperty ("height", -1);
@@ -24,7 +25,8 @@ void Program::loadProcessor (Processor& p)
     for (const auto& s : states)
         if (auto pp = p.getParameter (s.uid))
             if (! pp->isMetaParameter())
-                pp->setUserValueNotifingHost (s.value);
+                if (p.loadingState || ! p.isParamLocked (pp))
+                    pp->setUserValueNotifingHost (s.value);
 }
 
 void Program::saveProcessor (Processor& p)
