@@ -67,7 +67,7 @@ void GateEffectComponent::paint (juce::Graphics& g)
     for (int i = 0; i <= getNumSteps(); i++)
     {
         auto x = juce::roundToInt (rc.getX() + i * w);
-        g.drawLine (x, rc.getY(), x, rc.getBottom ());
+        g.drawLine (float (x), rc.getY(), float (x), rc.getBottom ());
     }
     g.drawLine (rc.getX(), rc.getCentreY(), rc.getRight(), rc.getCentreY());
 

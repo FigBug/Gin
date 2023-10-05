@@ -72,7 +72,9 @@
 
 #include <map>
 #include <random>
-#define _USE_MATH_DEFINES
+#ifndef _USE_MATH_DEFINES
+ #define _USE_MATH_DEFINES
+#endif
 #include <cmath>
 
 JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE ("-Wfloat-equal")

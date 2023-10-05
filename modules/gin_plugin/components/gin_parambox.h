@@ -97,7 +97,7 @@ public:
             auto h = new HeaderButton (n);
             h->onClick = [this, num]
             {
-                headerParam->setUserValue (num);
+                headerParam->setUserValue (float (num));
             };
             header.addAndMakeVisible (h);
             headers.add (h);
