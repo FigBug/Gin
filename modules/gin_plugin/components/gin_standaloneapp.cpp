@@ -20,12 +20,20 @@ StandaloneApp::StandaloneApp (std::function<bool (juce::PropertiesFile&)> init)
 
 const juce::String StandaloneApp::getApplicationName()
 {
+   #ifdef JucePlugin_Name
     return JucePlugin_Name;
+   #else
+    return {};
+   #endif
 }
 
 const juce::String StandaloneApp::getApplicationVersion()
 {
+   #ifdef JucePlugin_VersionString
     return JucePlugin_VersionString;
+   #else
+    return {};
+   #endif
 }
 
 bool StandaloneApp::moreThanOneInstanceAllowed()

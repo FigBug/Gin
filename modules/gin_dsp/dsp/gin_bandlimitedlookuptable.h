@@ -63,7 +63,7 @@ public:
     
     inline std::vector<float>* tableForNote (float note)
     {
-        return &tables[tableIndexForNote (note)];
+        return &tables[size_t (tableIndexForNote (note))];
     }
 
     inline float process (float note, float phase)

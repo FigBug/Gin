@@ -405,7 +405,7 @@ void Processor::extractProgram (const juce::String& name, const void* data, int 
     auto f = dir.getChildFile (name);
     if (! f.existsAsFile())
     {
-        f.replaceWithData (data, sz);
+        f.replaceWithData (data, size_t (sz));
 
         auto program = new Program();
         program->loadFromFile (f, false);
