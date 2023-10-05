@@ -9,7 +9,7 @@ void Program::loadProcessor (Processor& p)
 
     int w = p.state.getProperty ("width", -1);
     int h = p.state.getProperty ("height", -1);
-    float s = p.state.getProperty ("editorScale", -1.0f);
+    float sc = p.state.getProperty ("editorScale", -1.0f);
 
     p.state.removeAllProperties (nullptr);
     p.state.removeAllChildren (nullptr);
@@ -19,7 +19,7 @@ void Program::loadProcessor (Processor& p)
 
     if (w != -1) p.state.setProperty ("width", w, nullptr);
     if (h != -1) p.state.setProperty ("height", h, nullptr);
-    if (s != -1) p.state.setProperty ("editorScale", s, nullptr);
+    if (sc > 0) p.state.setProperty ("editorScale", s, nullptr);
 
     for (const auto& s : states)
         if (auto pp = p.getParameter (s.uid))
