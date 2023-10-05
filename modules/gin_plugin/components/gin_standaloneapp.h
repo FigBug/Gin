@@ -1,5 +1,6 @@
 #pragma once
 
+#ifdef JucePlugin_Name
 class StandaloneApp : public juce::JUCEApplication
 {
 public:
@@ -21,3 +22,4 @@ private:
     std::unique_ptr<juce::StandaloneFilterWindow>   mainWindow;
 };
 //----------------------------------------------------------------------------------
+#endif

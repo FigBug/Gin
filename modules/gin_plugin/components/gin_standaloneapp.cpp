@@ -1,3 +1,4 @@
+#ifdef JucePlugin_Name
 
 StandaloneApp::StandaloneApp (std::function<bool (juce::PropertiesFile&)> init)
      : onInitialise (init)
@@ -93,3 +94,5 @@ juce::StandaloneFilterWindow* StandaloneApp::createWindow ()
                                             #endif
     );
 }
+
+#endif
