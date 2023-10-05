@@ -1668,7 +1668,6 @@
     <name>gin_standaloneapp.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
     <filename>gin__standaloneapp_8h.html</filename>
-    <class kind="class">StandaloneApp</class>
   </compound>
   <compound kind="file">
     <name>gin_steplfo.h</name>
@@ -12816,66 +12815,6 @@
       <anchorfile>classSpline.html</anchorfile>
       <anchor>ac1f059b0c61e23b88d7939a27fd40b5c</anchor>
       <arglist>(double x) const</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>StandaloneApp</name>
-    <filename>classStandaloneApp.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>StandaloneApp</name>
-      <anchorfile>classStandaloneApp.html</anchorfile>
-      <anchor>a2ed7bafe824e7aba595295bb56a18c5c</anchor>
-      <arglist>(std::function&lt; bool(juce::PropertiesFile &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>const juce::String</type>
-      <name>getApplicationName</name>
-      <anchorfile>classStandaloneApp.html</anchorfile>
-      <anchor>ae23169cde819477173bef292c8a1054d</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>const juce::String</type>
-      <name>getApplicationVersion</name>
-      <anchorfile>classStandaloneApp.html</anchorfile>
-      <anchor>ac4d24c5c75d59190327c1dabac6fa866</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>moreThanOneInstanceAllowed</name>
-      <anchorfile>classStandaloneApp.html</anchorfile>
-      <anchor>ae7c38b933beefc2bf10244c7b3d17675</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>anotherInstanceStarted</name>
-      <anchorfile>classStandaloneApp.html</anchorfile>
-      <anchor>a751aed62a782c777db2f5eb8082b4e54</anchor>
-      <arglist>(const juce::String &amp;) override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>initialise</name>
-      <anchorfile>classStandaloneApp.html</anchorfile>
-      <anchor>a86f888d0da6044f424d478322766a6e9</anchor>
-      <arglist>(const juce::String &amp;) override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>shutdown</name>
-      <anchorfile>classStandaloneApp.html</anchorfile>
-      <anchor>a418c9632ee0646821afcaa2f8c203143</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>systemRequestedQuit</name>
-      <anchorfile>classStandaloneApp.html</anchorfile>
-      <anchor>afa2dc8bd7058338862021970b673ad11</anchor>
-      <arglist>() override</arglist>
     </member>
   </compound>
   <compound kind="class">
