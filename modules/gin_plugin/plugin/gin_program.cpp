@@ -19,7 +19,7 @@ void Program::loadProcessor (Processor& p)
 
     if (w != -1) p.state.setProperty ("width", w, nullptr);
     if (h != -1) p.state.setProperty ("height", h, nullptr);
-    if (sc > 0) p.state.setProperty ("editorScale", s, nullptr);
+    if (sc > 0) p.state.setProperty ("editorScale", sc, nullptr);
 
     for (const auto& s : states)
         if (auto pp = p.getParameter (s.uid))
