@@ -1,13 +1,12 @@
 var searchData=
 [
-  ['tablefornote_1366',['tableForNote',['../classBandLimitedLookupTable.html#acf139387bb9cb4f448f39f62bdbd5a7f',1,'BandLimitedLookupTable']]],
-  ['tableindexfornote_1367',['tableIndexForNote',['../classBandLimitedLookupTable.html#a30f5e7572959d28b1adbfa84bcb185cd',1,'BandLimitedLookupTable']]],
-  ['tables_1368',['tables',['../classBandLimitedLookupTable.html#a92fea974cc537d42d2a3191bd69d32fa',1,'BandLimitedLookupTable']]],
-  ['tablesize_1369',['tableSize',['../classBandLimitedLookupTable.html#af5afe68886b99ea23b06cc7f1f591b94',1,'BandLimitedLookupTable']]],
-  ['tags_1370',['tags',['../classPatchBrowser.html#aa7bac749585a5be93c25474dae4542e8',1,'PatchBrowser::tags()'],['../classProgram.html#acddd8235091f27410c05cf4b7694b62a',1,'Program::tags()']]],
-  ['tagsmodel_1371',['TagsModel',['../structPatchBrowser_1_1TagsModel.html',1,'PatchBrowser']]],
-  ['tagsmodel_1372',['tagsModel',['../classPatchBrowser.html#a2b1148951ac60c4b47c4b1f6af16d144',1,'PatchBrowser']]],
-  ['tagsmodel_1373',['TagsModel',['../structPatchBrowser_1_1TagsModel.html#aa09938757cd8d6bf62458de6297aa5cb',1,'PatchBrowser::TagsModel']]],
+  ['tablefornote_1367',['tableForNote',['../classBandLimitedLookupTable.html#acf139387bb9cb4f448f39f62bdbd5a7f',1,'BandLimitedLookupTable']]],
+  ['tableindexfornote_1368',['tableIndexForNote',['../classBandLimitedLookupTable.html#a30f5e7572959d28b1adbfa84bcb185cd',1,'BandLimitedLookupTable']]],
+  ['tables_1369',['tables',['../classBandLimitedLookupTable.html#a92fea974cc537d42d2a3191bd69d32fa',1,'BandLimitedLookupTable']]],
+  ['tablesize_1370',['tableSize',['../classBandLimitedLookupTable.html#af5afe68886b99ea23b06cc7f1f591b94',1,'BandLimitedLookupTable']]],
+  ['tags_1371',['tags',['../classPatchBrowser.html#aa7bac749585a5be93c25474dae4542e8',1,'PatchBrowser::tags()'],['../classProgram.html#acddd8235091f27410c05cf4b7694b62a',1,'Program::tags()']]],
+  ['tagsmodel_1372',['TagsModel',['../structPatchBrowser_1_1TagsModel.html',1,'PatchBrowser::TagsModel'],['../structPatchBrowser_1_1TagsModel.html#aa09938757cd8d6bf62458de6297aa5cb',1,'PatchBrowser::TagsModel::TagsModel()']]],
+  ['tagsmodel_1373',['tagsModel',['../classPatchBrowser.html#a2b1148951ac60c4b47c4b1f6af16d144',1,'PatchBrowser']]],
   ['text_5fframe_1374',['TEXT_FRAME',['../structWSHeaderType.html#ac1906191ac337fdbecbe643184fbd3b3a44b257e3d1f0e6e8ee821d8ce460cea2',1,'WSHeaderType']]],
   ['textchanged_1375',['textChanged',['../classSingleLineTextEditor.html#a7432325931d3ad2a10f0b98fb83f8ec7',1,'SingleLineTextEditor']]],
   ['textcolourid_1376',['textColourId',['../classSingleLineTextEditor.html#a580e95f56d303528b02f91143c72f13ca3139e08c59ac1e595c5029d4c90b3a95',1,'SingleLineTextEditor']]],
@@ -19,7 +18,7 @@ var searchData=
   ['time_1382',['time',['../structLocationManager_1_1Location.html#aa04ec39371eae7524055d122a6ef5a30',1,'LocationManager::Location::time()'],['../classSmoothingType.html#afa303f9e26f8612da8c4d27f9c0ba87a',1,'SmoothingType::time()']]],
   ['timeoutms_1383',['timeoutMS',['../classAsyncDownload.html#a3ec126400198a9fd05346471d00b93d6',1,'AsyncDownload']]],
   ['timeprofiler_1384',['TimeProfiler',['../classTimeProfiler.html',1,'TimeProfiler'],['../classTimeProfiler.html#a7e6d1567e527185629c6c8aa46fe4943',1,'TimeProfiler::TimeProfiler()']]],
-  ['timercallback_1385',['timerCallback',['../classSynthesiserUsage.html#a61174588450de0af35bf0d1a3866faba',1,'SynthesiserUsage::timerCallback()'],['../classParameter.html#a8d5e385c39a92ffcede0ce5476451e16',1,'Parameter::timerCallback()'],['../classXYScope.html#a37d7c0b92a484c3c55dee8eb45fd2943',1,'XYScope::timerCallback()'],['../classDynamicsMeter.html#a26663940a83484b73a3aa0c6c436535e',1,'DynamicsMeter::timerCallback()'],['../classTriggeredScope.html#ae048c8050cd95f65d336801b1bf341e2',1,'TriggeredScope::timerCallback()']]],
+  ['timercallback_1385',['timerCallback',['../classParameter.html#a8d5e385c39a92ffcede0ce5476451e16',1,'Parameter::timerCallback()'],['../classSynthesiserUsage.html#a61174588450de0af35bf0d1a3866faba',1,'SynthesiserUsage::timerCallback()'],['../classHeaderButton.html#a9c09399c8e0d2ff4a05b3dff00be6794',1,'HeaderButton::timerCallback()'],['../classXYScope.html#a37d7c0b92a484c3c55dee8eb45fd2943',1,'XYScope::timerCallback()'],['../classDynamicsMeter.html#a26663940a83484b73a3aa0c6c436535e',1,'DynamicsMeter::timerCallback()'],['../classTriggeredScope.html#ae048c8050cd95f65d336801b1bf341e2',1,'TriggeredScope::timerCallback()']]],
   ['title1colourid_1386',['title1ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a48e1027db85fa69981be45218bd7e6d9',1,'GinLookAndFeel']]],
   ['title2colourid_1387',['title2ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a539354805ecf1dd789adb31680e32326',1,'GinLookAndFeel']]],
   ['titlebar_1388',['TitleBar',['../classTitleBar.html',1,'TitleBar'],['../classTitleBar.html#ae50c6223c4dd1df9d1bc5ad4864c271b',1,'TitleBar::TitleBar()']]],
@@ -36,6 +35,6 @@ var searchData=
   ['triggeredscope_1399',['TriggeredScope',['../classTriggeredScope.html',1,'TriggeredScope'],['../classTriggeredScope.html#a8ed01ea728d7ee2800bcfe0caef7516b',1,'TriggeredScope::TriggeredScope(AudioFifo &amp;)']]],
   ['triggermode_1400',['TriggerMode',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40',1,'TriggeredScope']]],
   ['turnoffallvoices_1401',['turnOffAllVoices',['../classSynthesiser.html#a98071b76981dcb6f125cf079595c8ede',1,'Synthesiser']]],
-  ['type_1402',['type',['../classImageMetadata.html#a34bb47451a46175f4f65173cc8d6b3c8',1,'ImageMetadata::type()'],['../classSmoothingType.html#a0393375a369c88015c76fe37f4e50a1c',1,'SmoothingType::type()']]],
-  ['type_1403',['Type',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576',1,'Dynamics::Type()'],['../classEQ.html#afd7d7b03b08fd8ca89204c04ff847010',1,'EQ::Type()'],['../classFilter.html#a8f99602312ccfbe9e1598532158726c0',1,'Filter::Type()'],['../classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7c',1,'SmoothingType::Type()']]]
+  ['type_1402',['Type',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576',1,'Dynamics::Type()'],['../classEQ.html#afd7d7b03b08fd8ca89204c04ff847010',1,'EQ::Type()'],['../classFilter.html#a8f99602312ccfbe9e1598532158726c0',1,'Filter::Type()'],['../classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7c',1,'SmoothingType::Type()']]],
+  ['type_1403',['type',['../classImageMetadata.html#a34bb47451a46175f4f65173cc8d6b3c8',1,'ImageMetadata::type()'],['../classSmoothingType.html#a0393375a369c88015c76fe37f4e50a1c',1,'SmoothingType::type()']]]
 ];

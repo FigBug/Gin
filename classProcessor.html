@@ -117,6 +117,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2d76202bddbb9f54afbb7f10dcf2a3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bbb09bf94621a6d29aff0c54ce4029f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a9bbb09bf94621a6d29aff0c54ce4029f">isSmoothing</a> ()</td></tr>
 <tr class="separator:a9bbb09bf94621a6d29aff0c54ce4029f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dda8d30bf76495afa34583671302f78"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a7dda8d30bf76495afa34583671302f78">isParamLocked</a> (gin::Parameter *)</td></tr>
+<tr class="separator:a7dda8d30bf76495afa34583671302f78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36394e5ceac103d0f3f7852091aad91e"><td class="memItemLeft" align="right" valign="top">virtual juce::File&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a36394e5ceac103d0f3f7852091aad91e">getProgramDirectory</a> ()</td></tr>
 <tr class="separator:a36394e5ceac103d0f3f7852091aad91e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d54dc4f330cea0f907e55a4f19e92d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a0d54dc4f330cea0f907e55a4f19e92d3">loadAllPrograms</a> ()</td></tr>
@@ -160,6 +162,8 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a592c5f29254f169e4e1f5ce692707032"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classProcessorOptions.html">ProcessorOptions</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a592c5f29254f169e4e1f5ce692707032">processorOptions</a></td></tr>
 <tr class="separator:a592c5f29254f169e4e1f5ce692707032"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4a632bd0b8edcb74957e4c6d7fd3207"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ab4a632bd0b8edcb74957e4c6d7fd3207">loadingState</a> = false</td></tr>
+<tr class="separator:ab4a632bd0b8edcb74957e4c6d7fd3207"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a756a634ec593cbe38c40f95e6554ee04"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classPluginLookAndFeel.html">PluginLookAndFeel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a756a634ec593cbe38c40f95e6554ee04">lf</a></td></tr>
 <tr class="separator:a756a634ec593cbe38c40f95e6554ee04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0eed0ccb9cccd2bc8a0d218fc42488b5"><td class="memItemLeft" align="right" valign="top">std::map&lt; juce::String, gin::Parameter * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a0eed0ccb9cccd2bc8a0d218fc42488b5">parameterMap</a></td></tr>
@@ -650,6 +654,32 @@ Protected Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7dda8d30bf76495afa34583671302f78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dda8d30bf76495afa34583671302f78">&#9670;&nbsp;</a></span>isParamLocked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Processor::isParamLocked </td>
+          <td>(</td>
+          <td class="paramtype">gin::Parameter *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -1262,6 +1292,20 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ab4a632bd0b8edcb74957e4c6d7fd3207"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4a632bd0b8edcb74957e4c6d7fd3207">&#9670;&nbsp;</a></span>loadingState</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Processor::loadingState = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a756a634ec593cbe38c40f95e6554ee04"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a756a634ec593cbe38c40f95e6554ee04">&#9670;&nbsp;</a></span>lf</h2>
 
@@ -1326,7 +1370,7 @@ Protected Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 5 2023 22:49:19 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Oct 6 2023 04:19:41 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

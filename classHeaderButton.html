@@ -72,12 +72,22 @@ $(function() {
 <p>A header button with title text.  
  <a href="classHeaderButton.html#details">More...</a></p>
 
-<p>Inherits juce::Button.</p>
+<p>Inherits juce::Button, juce::DragAndDropTarget, and juce::Timer.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aae91b7dec1964dc7fb1f28b05325c97b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeaderButton.html#aae91b7dec1964dc7fb1f28b05325c97b">HeaderButton</a> (const juce::String &amp;name_)</td></tr>
 <tr class="separator:aae91b7dec1964dc7fb1f28b05325c97b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a784b42e602689f5a283b96f793744b6a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeaderButton.html#a784b42e602689f5a283b96f793744b6a">isInterestedInDragSource</a> (const SourceDetails &amp;) override</td></tr>
+<tr class="separator:a784b42e602689f5a283b96f793744b6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedec98155875d0d04d6d7c35d06f8d62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeaderButton.html#aedec98155875d0d04d6d7c35d06f8d62">itemDragEnter</a> (const SourceDetails &amp;) override</td></tr>
+<tr class="separator:aedec98155875d0d04d6d7c35d06f8d62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cdfccf50bfd23b36267c47da83818ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeaderButton.html#a4cdfccf50bfd23b36267c47da83818ad">itemDragExit</a> (const SourceDetails &amp;) override</td></tr>
+<tr class="separator:a4cdfccf50bfd23b36267c47da83818ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb536a76946a1ee46623409f9e43beaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeaderButton.html#afb536a76946a1ee46623409f9e43beaf">itemDropped</a> (const SourceDetails &amp;) override</td></tr>
+<tr class="separator:afb536a76946a1ee46623409f9e43beaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c09399c8e0d2ff4a05b3dff00be6794"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeaderButton.html#a9c09399c8e0d2ff4a05b3dff00be6794">timerCallback</a> () override</td></tr>
+<tr class="separator:a9c09399c8e0d2ff4a05b3dff00be6794"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A header button with title text. </p>
@@ -100,13 +110,143 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a784b42e602689f5a283b96f793744b6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a784b42e602689f5a283b96f793744b6a">&#9670;&nbsp;</a></span>isInterestedInDragSource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HeaderButton::isInterestedInDragSource </td>
+          <td>(</td>
+          <td class="paramtype">const SourceDetails &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aedec98155875d0d04d6d7c35d06f8d62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedec98155875d0d04d6d7c35d06f8d62">&#9670;&nbsp;</a></span>itemDragEnter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HeaderButton::itemDragEnter </td>
+          <td>(</td>
+          <td class="paramtype">const SourceDetails &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4cdfccf50bfd23b36267c47da83818ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cdfccf50bfd23b36267c47da83818ad">&#9670;&nbsp;</a></span>itemDragExit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HeaderButton::itemDragExit </td>
+          <td>(</td>
+          <td class="paramtype">const SourceDetails &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb536a76946a1ee46623409f9e43beaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb536a76946a1ee46623409f9e43beaf">&#9670;&nbsp;</a></span>itemDropped()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HeaderButton::itemDropped </td>
+          <td>(</td>
+          <td class="paramtype">const SourceDetails &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c09399c8e0d2ff4a05b3dff00be6794"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c09399c8e0d2ff4a05b3dff00be6794">&#9670;&nbsp;</a></span>timerCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HeaderButton::timerCallback </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="gin__parambox_8h.html">gin_parambox.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 5 2023 22:49:19 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Oct 6 2023 04:19:41 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

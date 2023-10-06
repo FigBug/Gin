@@ -642,16 +642,16 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>easeBounceIn</name>
+      <name>easeBounceOut</name>
       <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga053d2907e791ee49187e6dfee114952b</anchor>
+      <anchor>gab198cd18c0de013a626ab39fd09917ce</anchor>
       <arglist>(T p)</arglist>
     </member>
     <member kind="function">
       <type>T</type>
-      <name>easeBounceOut</name>
+      <name>easeBounceIn</name>
       <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>gab198cd18c0de013a626ab39fd09917ce</anchor>
+      <anchor>ga053d2907e791ee49187e6dfee114952b</anchor>
       <arglist>(T p)</arglist>
     </member>
     <member kind="function">
@@ -5962,6 +5962,41 @@
       <anchor>aae91b7dec1964dc7fb1f28b05325c97b</anchor>
       <arglist>(const juce::String &amp;name_)</arglist>
     </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isInterestedInDragSource</name>
+      <anchorfile>classHeaderButton.html</anchorfile>
+      <anchor>a784b42e602689f5a283b96f793744b6a</anchor>
+      <arglist>(const SourceDetails &amp;) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>itemDragEnter</name>
+      <anchorfile>classHeaderButton.html</anchorfile>
+      <anchor>aedec98155875d0d04d6d7c35d06f8d62</anchor>
+      <arglist>(const SourceDetails &amp;) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>itemDragExit</name>
+      <anchorfile>classHeaderButton.html</anchorfile>
+      <anchor>a4cdfccf50bfd23b36267c47da83818ad</anchor>
+      <arglist>(const SourceDetails &amp;) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>itemDropped</name>
+      <anchorfile>classHeaderButton.html</anchorfile>
+      <anchor>afb536a76946a1ee46623409f9e43beaf</anchor>
+      <arglist>(const SourceDetails &amp;) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>timerCallback</name>
+      <anchorfile>classHeaderButton.html</anchorfile>
+      <anchor>a9c09399c8e0d2ff4a05b3dff00be6794</anchor>
+      <arglist>() override</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>HeaderItem</name>
@@ -10483,6 +10518,13 @@
       <arglist>()</arglist>
     </member>
     <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>isParamLocked</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a7dda8d30bf76495afa34583671302f78</anchor>
+      <arglist>(gin::Parameter *)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
       <type>virtual juce::File</type>
       <name>getProgramDirectory</name>
       <anchorfile>classProcessor.html</anchorfile>
@@ -10620,6 +10662,13 @@
       <name>processorOptions</name>
       <anchorfile>classProcessor.html</anchorfile>
       <anchor>a592c5f29254f169e4e1f5ce692707032</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>loadingState</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>ab4a632bd0b8edcb74957e4c6d7fd3207</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -14248,6 +14297,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>noteOn</name>
+      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
+      <anchor>a23550473a6987a1128e64c6388e82661</anchor>
+      <arglist>(float phases[])</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>process</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
       <anchor>a24a08bb92c7e91ec8adb89693762dae8</anchor>
@@ -14294,6 +14350,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>noteOn</name>
+      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
+      <anchor>a23550473a6987a1128e64c6388e82661</anchor>
+      <arglist>(float phases[])</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>process</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
       <anchor>a24a08bb92c7e91ec8adb89693762dae8</anchor>
@@ -14337,6 +14400,13 @@
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
       <anchor>a366c3140dc02a92cb2560dd3009facd7</anchor>
       <arglist>(float phase=-1)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>noteOn</name>
+      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
+      <anchor>a23550473a6987a1128e64c6388e82661</anchor>
+      <arglist>(float phases[])</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -16394,16 +16464,16 @@
     </member>
     <member kind="function">
       <type>T</type>
-      <name>easeBounceIn</name>
+      <name>easeBounceOut</name>
       <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga053d2907e791ee49187e6dfee114952b</anchor>
+      <anchor>gab198cd18c0de013a626ab39fd09917ce</anchor>
       <arglist>(T p)</arglist>
     </member>
     <member kind="function">
       <type>T</type>
-      <name>easeBounceOut</name>
+      <name>easeBounceIn</name>
       <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>gab198cd18c0de013a626ab39fd09917ce</anchor>
+      <anchor>ga053d2907e791ee49187e6dfee114952b</anchor>
       <arglist>(T p)</arglist>
     </member>
     <member kind="function">
