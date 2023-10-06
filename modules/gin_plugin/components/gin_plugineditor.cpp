@@ -372,8 +372,9 @@ void TitleBar::resized()
 
     if (hasPresets)
     {
-        prevButton.setBounds (programsRC.removeFromLeft (programsRC.getHeight()).withSizeKeepingCentre (12, 12));
-        nextButton.setBounds (programsRC.removeFromRight (programsRC.getHeight()).withSizeKeepingCentre (12, 12));
+        auto sz = programsRC.getHeight();
+        prevButton.setBounds (programsRC.removeFromLeft (sz).withSizeKeepingCentre (sz, sz));
+        nextButton.setBounds (programsRC.removeFromRight (sz).withSizeKeepingCentre (sz, sz));
     }
     else
     {

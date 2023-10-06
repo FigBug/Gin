@@ -190,8 +190,8 @@ protected:
     SVGButton addButton { "add", gin::Assets::add };
     SVGButton deleteButton { "delete", gin::Assets::del };
     SVGButton browseButton { "browse", gin::Assets::browse };
-    SVGButton nextButton { "next", gin::Assets::next, 4 };
-    SVGButton prevButton { "prev", gin::Assets::prev, 4 };
+    SVGButton nextButton { "next", gin::Assets::next, 15 };
+    SVGButton prevButton { "prev", gin::Assets::prev, 15 };
 
     SVGButton menuButton { "menu", gin::Assets::menu };
     SVGButton infoButton { "info", gin::Assets::info };
