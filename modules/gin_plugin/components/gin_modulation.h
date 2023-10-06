@@ -383,24 +383,33 @@ private:
 
             enableButton.onClick = [this]
             {
-                auto& a = owner.assignments.getReference (row);
-
-                auto e = owner.modMatrix.getModEnable (a.src, ModDstId (a.dst->getModIndex()));
-                owner.modMatrix.setModEnable (a.src, ModDstId (a.dst->getModIndex()), ! e);
-                enableButton.setToggleState (! e, juce::dontSendNotification);
+                if (row >= 0 && row < owner.assignments.size())
+                {
+                    auto& a = owner.assignments.getReference (row);
+                    
+                    auto e = owner.modMatrix.getModEnable (a.src, ModDstId (a.dst->getModIndex()));
+                    owner.modMatrix.setModEnable (a.src, ModDstId (a.dst->getModIndex()), ! e);
+                    enableButton.setToggleState (! e, juce::dontSendNotification);
+                }
             };
 
             deleteButton.onClick = [this]
             {
-                auto& a = owner.assignments.getReference (row);
-                owner.modMatrix.clearModDepth (a.src, ModDstId (a.dst->getModIndex()));
+                if (row >= 0 && row < owner.assignments.size())
+                {
+                    auto& a = owner.assignments.getReference (row);
+                    owner.modMatrix.clearModDepth (a.src, ModDstId (a.dst->getModIndex()));
+                }
             };
         }
 
         void sliderValueChanged (juce::Slider*) override
         {
-            auto& a = owner.assignments.getReference (row);
-            owner.modMatrix.setModDepth (a.src, ModDstId (a.dst->getModIndex()), (float) depth.getValue());
+            if (row >= 0 && row < owner.assignments.size())
+            {
+                auto& a = owner.assignments.getReference (row);
+                owner.modMatrix.setModDepth (a.src, ModDstId (a.dst->getModIndex()), (float) depth.getValue());
+            }
         }
 
         void update (int idx)
