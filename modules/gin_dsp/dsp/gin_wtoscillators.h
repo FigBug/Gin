@@ -71,7 +71,7 @@ public:
                 mipp::Reg<float> lVec { l };
                 mipp::Reg<float> rVec { r };
 
-                auto s = table->process (note, phaseVec);
+                auto s = table->process (note, math::min (almostOne, phaseVec));
 
                 lVec += s * params.leftGain;
                 rVec += s * params.rightGain;
@@ -84,7 +84,7 @@ public:
 
             for (; todo > 0; todo--)
             {
-                auto s = table->process (note, phase);
+                auto s = table->process (note, std::min (almostOne, phase));
                 *l++ += s * params.leftGain;
                 *r++ += s * params.rightGain;
 
@@ -130,7 +130,7 @@ public:
                 mipp::Reg<float> lVec { l };
                 mipp::Reg<float> rVec { r };
 
-                auto s = table->process (note, phaseDistortion (phaseVec, params.bend, params.formant));
+                auto s = table->process (note, phaseDistortion (math::min (almostOne, phaseVec), params.bend, params.formant));
 
                 lVec += s * params.leftGain;
                 rVec += s * params.rightGain;
@@ -143,7 +143,7 @@ public:
 
             for (; todo > 0; todo--)
             {
-                auto s = table->process (note, phaseDistortion (phase, params.bend, params.formant));
+                auto s = table->process (note, phaseDistortion (std::min (almostOne, phase), params.bend, params.formant));
                 *l++ += s * params.leftGain;
                 *r++ += s * params.rightGain;
 
@@ -176,13 +176,17 @@ private:
         const auto addMix = math::lerp (phaseIn, T (1.0f) - add, addDist);
         const auto subMix = math::lerp (phaseIn, sub, -subDist);
 
-        return math::min (T (1.0f - std::numeric_limits<float>::epsilon()), addMix + subMix - phaseIn);
+        auto res = math::min (T (almostOne), addMix + subMix - phaseIn);
+        jassert (math::minVal (res) >= 0.0f && math::maxVal (res) < 1.0f);
+        return res;
     }
 
     template<typename T>
     T formantDistortion (T phaseIn, float formant)
     {
-        return math::min (T (1.0f - std::numeric_limits<float>::epsilon()), phaseIn * std::exp (formant * 1.60943791243f));
+        auto res = math::min (T (almostOne), phaseIn * std::exp (formant * 1.60943791243f));
+        jassert (math::minVal (res) >= 0.0f && math::maxVal (res) < 1.0f);
+        return res;
     }
 
     template<typename T>
@@ -202,6 +206,8 @@ private:
     double sampleRate = 44100.0;
     float phase = 0.0f;
     int tableIndex = 0;
+    
+    static constexpr float almostOne = { 1.0f - std::numeric_limits<float>::epsilon() };
 };
 
 struct WTVoicedStereoOscillatorParams : public VoicedOscillatorParams
