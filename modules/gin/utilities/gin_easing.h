@@ -196,9 +196,9 @@ T easeExponentialInOut (T p)
     if (p == 0.0 || p == 1.0) return p;
 
     if (p < 0.5)
-        return 0.5 * std::pow (2, (20 * p) - 10);
+        return T (0.5 * std::pow (2, (20 * p) - 10));
     else
-        return -0.5 * std::pow (2, (-20 * p) + 10) + 1;
+        return T (-0.5 * std::pow (2, (-20 * p) + 10) + 1);
 }
 
 // Modeled after the damped sine wave y = sin(13pi/2*x)*pow(2, 10 * (x - 1))
@@ -261,29 +261,29 @@ T easeBackInOut (T p)
 }
 
 template<class T>
+T easeBounceOut (T p)
+{
+    if (p < 4/11.0)
+        return T((121 * p * p) / 16.0);
+    else if (p < 8/11.0)
+        return T ((363/40.0 * p * p) - (99/10.0 * p) + 17/5.0);
+    else if (p < 9/10.0)
+        return T ((4356/361.0 * p * p) - (35442/1805.0 * p) + 16061/1805.0);
+    else
+        return T ((54/5.0 * p * p) - (513/25.0 * p) + 268/25.0);
+}
+
+template<class T>
 T easeBounceIn (T p)
 {
     return 1 - easeBounceOut (1 - p);
 }
 
 template<class T>
-T easeBounceOut (T p)
-{
-    if (p < 4/11.0)
-        return (121 * p * p) / 16.0;
-    else if (p < 8/11.0)
-        return (363/40.0 * p * p) - (99/10.0 * p) + 17/5.0;
-    else if (p < 9/10.0)
-        return (4356/361.0 * p * p) - (35442/1805.0 * p) + 16061/1805.0;
-    else
-        return (54/5.0 * p * p) - (513/25.0 * p) + 268/25.0;
-}
-
-template<class T>
 T easeBounceInOut (T p)
 {
     if (p < 0.5)
-        return 0.5 * easeBounceEaseIn (p * 2);
+        return T(0.5 * easeBounceIn (p * 2));
     else
-        return 0.5 * easeBounceEaseOut (p * 2 - 1) + 0.5;
+        return T(0.5 * easeBounceOut (p * 2 - 1) + 0.5);
 }

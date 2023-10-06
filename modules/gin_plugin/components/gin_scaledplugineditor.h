@@ -27,7 +27,7 @@ public:
         if (state_.isValid())
             if (state_.hasProperty ("editorScale"))
                 if (auto scale = (float)state_.getProperty ("editorScale"); scale > 0.0f)
-                setSize (int (w * scale), int (h * scale));
+                    setSize (int (w * scale), int (h * scale));
 
         state = state_;
     }

@@ -499,6 +499,8 @@ void Processor::getStateInformation (juce::MemoryBlock& destData)
 
 void Processor::setStateInformation (const void* data, int sizeInBytes)
 {
+    juce::ScopedValueSetter<bool> (loadingState, true);
+    
     juce::XmlDocument doc (juce::String::fromUTF8 ((const char*)data, sizeInBytes));
     std::unique_ptr<juce::XmlElement> rootE (doc.getDocumentElement());
     if (rootE)

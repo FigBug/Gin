@@ -48,16 +48,43 @@ private:
 //==============================================================================
 /** A header button with title text
  */
-class HeaderButton : public juce::Button
+class HeaderButton : public juce::Button,
+                     public juce::DragAndDropTarget,
+                     private juce::Timer
 {
 public:
     HeaderButton (const juce::String& name_)
         : juce::Button (name_)
     {
     }
+    
+    bool isInterestedInDragSource (const SourceDetails&) override
+    {
+        return true;
+    }
+    
+    void itemDragEnter (const SourceDetails&) override
+    {
+        startTimer (300);
+    }
+    
+    void itemDragExit (const SourceDetails&) override
+    {
+        stopTimer();
+    }
+    
+    void itemDropped (const SourceDetails&) override
+    {
+        stopTimer();
+    }
+    
+    void timerCallback() override
+    {
+        triggerClick();
+    }
 
 private:
-    void paintButton (juce::Graphics& g, bool, bool)
+    void paintButton (juce::Graphics& g, bool, bool) override
     {
         auto f = juce::Font ().withPointHeight (10.0).withExtraKerningFactor (0.25);
 

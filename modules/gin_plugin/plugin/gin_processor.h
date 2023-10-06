@@ -129,6 +129,8 @@ public:
 
     /* Are any parameters currrently smoothing? */
     bool isSmoothing();
+    
+    virtual bool isParamLocked (gin::Parameter*) { return false; }
 
     virtual juce::File getProgramDirectory();
     void loadAllPrograms();
@@ -160,6 +162,7 @@ public:
     //==============================================================================
 
     const ProcessorOptions processorOptions;
+    bool loadingState = false;
 
 public:
     std::unique_ptr<PluginLookAndFeel> lf;
