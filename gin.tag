@@ -1249,15 +1249,15 @@
       <type>float</type>
       <name>lerp</name>
       <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a15811e17d742fc66f95e4056d40be8a4</anchor>
-      <arglist>(float t, float a, float b)</arglist>
+      <anchor>a6370970cb3971fa9cc781b62cac7762c</anchor>
+      <arglist>(float a, float b, float t)</arglist>
     </member>
     <member kind="function">
       <type>mipp::Reg&lt; float &gt;</type>
       <name>lerp</name>
       <anchorfile>namespacemath.html</anchorfile>
-      <anchor>afca6980ebbdc924ec7db81c0703de85f</anchor>
-      <arglist>(mipp::Reg&lt; float &gt; t, mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b)</arglist>
+      <anchor>a0c35889acc534b2f596db108b9066a43</anchor>
+      <arglist>(mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b, mipp::Reg&lt; float &gt; t)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -1286,6 +1286,34 @@
       <anchorfile>namespacemath.html</anchorfile>
       <anchor>ac963dd6333f9a93682fbbb8659fea851</anchor>
       <arglist>(mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>minVal</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a0b920d6f11798894f8dcca932af7d7ce</anchor>
+      <arglist>(float a)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>minVal</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a7bdfbaeff27f9fdd5302c96b9d738a87</anchor>
+      <arglist>(mipp::Reg&lt; float &gt; a)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>maxVal</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>aa11b360dd6dc2fae2ba9cffdd2c886ff</anchor>
+      <arglist>(float a)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>maxVal</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a8111e452c41de99bbb369ce0de9e26f8</anchor>
+      <arglist>(mipp::Reg&lt; float &gt; a)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -15488,15 +15516,15 @@
       <type>float</type>
       <name>lerp</name>
       <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a15811e17d742fc66f95e4056d40be8a4</anchor>
-      <arglist>(float t, float a, float b)</arglist>
+      <anchor>a6370970cb3971fa9cc781b62cac7762c</anchor>
+      <arglist>(float a, float b, float t)</arglist>
     </member>
     <member kind="function">
       <type>mipp::Reg&lt; float &gt;</type>
       <name>lerp</name>
       <anchorfile>namespacemath.html</anchorfile>
-      <anchor>afca6980ebbdc924ec7db81c0703de85f</anchor>
-      <arglist>(mipp::Reg&lt; float &gt; t, mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b)</arglist>
+      <anchor>a0c35889acc534b2f596db108b9066a43</anchor>
+      <arglist>(mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b, mipp::Reg&lt; float &gt; t)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -15525,6 +15553,34 @@
       <anchorfile>namespacemath.html</anchorfile>
       <anchor>ac963dd6333f9a93682fbbb8659fea851</anchor>
       <arglist>(mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>minVal</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a0b920d6f11798894f8dcca932af7d7ce</anchor>
+      <arglist>(float a)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>minVal</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a7bdfbaeff27f9fdd5302c96b9d738a87</anchor>
+      <arglist>(mipp::Reg&lt; float &gt; a)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>maxVal</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>aa11b360dd6dc2fae2ba9cffdd2c886ff</anchor>
+      <arglist>(float a)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>maxVal</name>
+      <anchorfile>namespacemath.html</anchorfile>
+      <anchor>a8111e452c41de99bbb369ce0de9e26f8</anchor>
+      <arglist>(mipp::Reg&lt; float &gt; a)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
