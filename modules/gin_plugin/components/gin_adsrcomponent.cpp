@@ -17,6 +17,7 @@ void ADSRComponent::setParams (Parameter::Ptr attack_,
     watchParam (release = release_);
 
     repaint();
+    startTimerHz (30);
 }
 
 juce::Rectangle<int> ADSRComponent::getArea()
@@ -36,6 +37,19 @@ juce::String ADSRComponent::getBubbleText()
     }
 }
 
+void ADSRComponent::timerCallback()
+{
+    if (isEnabled() && phaseCallback)
+    {
+        auto newPhases = phaseCallback();
+        if (newPhases != curPhases)
+        {
+            curPhases = newPhases;
+            repaint();
+        }
+    }
+}
+
 void ADSRComponent::paint (juce::Graphics& g)
 {
     auto c = findColour (GinLookAndFeel::accentColourId).withAlpha (0.7f);
@@ -46,30 +60,71 @@ void ADSRComponent::paint (juce::Graphics& g)
     auto p3 = getHandlePos (Handle::decaySustain).toFloat();
     auto p4 = getHandlePos (Handle::release).toFloat();
 
-    juce::Path p;
+    // Draw curve
+    {
+        juce::Path p;
 
-    g.setColour (dimIfNeeded (c));
+        p.startNewSubPath (p1);
+        p.lineTo (p2);
+        p.lineTo (p3);
+        p.lineTo (p4);
 
-    p.startNewSubPath (p1);
-    p.lineTo (p2);
-    p.lineTo (p3);
-    p.lineTo (p4);
+        g.setColour (dimIfNeeded (c));
+        g.strokePath (p, juce::PathStrokeType (2));
+    }
 
-    g.strokePath (p, juce::PathStrokeType (2));
+    // Draw handles
+    {
+        juce::Colour back = juce::Colours::black;
 
-    juce::Colour back = juce::Colours::black;
+        g.setColour (back);
+        g.fillEllipse (getHandleRect (Handle::attack).toFloat());
+        g.fillEllipse (getHandleRect (Handle::decaySustain).toFloat());
+        g.fillEllipse (getHandleRect (Handle::release).toFloat());
 
-    g.setColour (back);
-    g.fillEllipse (getHandleRect (Handle::attack).toFloat());
-    g.fillEllipse (getHandleRect (Handle::decaySustain).toFloat());
-    g.fillEllipse (getHandleRect (Handle::release).toFloat());
+        auto h = findColour (GinLookAndFeel::whiteColourId).withAlpha (0.9f);
+        g.setColour (dimIfNeeded (h));
 
-    auto h = findColour (GinLookAndFeel::whiteColourId).withAlpha (0.9f);
-    g.setColour (dimIfNeeded (h));
+        g.drawEllipse (getHandleRect (Handle::attack).toFloat(), 0.75f);
+        g.drawEllipse (getHandleRect (Handle::decaySustain).toFloat(), 0.75f);
+        g.drawEllipse (getHandleRect (Handle::release).toFloat(), 0.75f);
+    }
 
-    g.drawEllipse (getHandleRect (Handle::attack).toFloat(), 0.75f);
-    g.drawEllipse (getHandleRect (Handle::decaySustain).toFloat(), 0.75f);
-    g.drawEllipse (getHandleRect (Handle::release).toFloat(), 0.75f);
+    // Draw dots
+    {
+        auto l1 = juce::Line<float> (p1, p2);
+        auto l2 = juce::Line<float> (p2, p3);
+        auto l3 = juce::Line<float> (p3, p4);
+
+        for (auto dot : curPhases)
+        {
+            auto x = 0.0f;
+            auto y = (a.getHeight() * (1.0f - dot.second)) + a.getY();
+
+            if (dot.first == 0) // A
+            {
+                y = std::clamp (y, l1.getEndY(), l1.getStartY());
+                x = getXForY (l1, y);
+            }
+            else if (dot.first == 1) // D
+            {
+                y = std::clamp (y, l2.getStartY(), l2.getEndY());
+                x = getXForY (l2, y);
+            }
+            else if (dot.first == 2) // S
+            {
+                x = l3.getStartX();
+            }
+            else if (dot.first == 3) // R
+            {
+                y = std::clamp (y, l3.getStartY(), l3.getEndY());
+                x = getXForY (l3, y);
+            }
+
+            g.setColour (dimIfNeeded (findColour (GinLookAndFeel::whiteColourId).withAlpha (0.9f)));
+            g.fillEllipse (x - 2, y - 2, 4, 4);
+        }
+    }
 }
 
 void ADSRComponent::mouseDown (const juce::MouseEvent& e)

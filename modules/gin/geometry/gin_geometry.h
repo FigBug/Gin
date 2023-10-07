@@ -177,7 +177,7 @@ bool solveLine (T x1, T y1, T x2, T y2, T& m, T& b)
 /** Solves for the slope and intercept of a line
 */
 template <typename T>
-bool solveLine (juce::Line<T> l, T& m, T& b)
+bool solveLine (const juce::Line<T>& l, T& m, T& b)
 {
     T x1 = l.getStartX();
     T x2 = l.getEndX();
@@ -199,6 +199,23 @@ bool solveLine (juce::Line<T> l, T& m, T& b)
         return false;
     }
 }
+
+template <typename T>
+T getXForY (const juce::Line<T> line, T y)
+{
+    float m = 0.0f;
+    float b = 0.0f;
+
+    if (solveLine (line, m, b))
+    {
+        return (y - b) / m;
+    }
+    else
+    {
+        return line.getStartX();
+    }
+}
+
 #endif
 
 /** Polygon with multiple points */

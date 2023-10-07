@@ -54,6 +54,20 @@ public:
 
     void reset();
 
+    std::pair<int, float> getCurrentPhase()
+    {
+        if (state == State::attack)
+            return {0, output};
+        if (state == State::decay)
+            return {1, output};
+        if (state == State::sustain)
+            return {2, output};
+        if (state == State::release)
+            return {3, output};
+
+        return {0,0};
+    }
+
 protected:
     void calculateAttack();
     void calculateDecay();
