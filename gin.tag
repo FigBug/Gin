@@ -2087,6 +2087,13 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>std::pair&lt; int, float &gt;</type>
+      <name>getCurrentPhase</name>
+      <anchorfile>classADSR.html</anchorfile>
+      <anchor>a0653a5307b7afcada9b791c34a15847b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>State</type>
       <name>getState</name>
       <anchorfile>classADSR.html</anchorfile>
@@ -2216,6 +2223,13 @@
       <anchorfile>classADSRComponent.html</anchorfile>
       <anchor>a7ff87752dfde41f395aa294e8ee23568</anchor>
       <arglist>(Parameter::Ptr attack, Parameter::Ptr decay, Parameter::Ptr sustain, Parameter::Ptr release)</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; std::vector&lt; std::pair&lt; int, float &gt; &gt;)&gt;</type>
+      <name>phaseCallback</name>
+      <anchorfile>classADSRComponent.html</anchorfile>
+      <anchor>aa4d439f6a7e4ac690c62f3d1edb15d65</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -2396,6 +2410,13 @@
       <name>reset</name>
       <anchorfile>classAnalogADSR.html</anchorfile>
       <anchor>a425950fc964cfd53cab5933c8ef80e96</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>std::pair&lt; int, float &gt;</type>
+      <name>getCurrentPhase</name>
+      <anchorfile>classAnalogADSR.html</anchorfile>
+      <anchor>a5c1055313c52babfd6b61001cbb5cce0</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">

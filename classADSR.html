@@ -106,6 +106,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a447f324c6cef2b83bb0858ce449e9bf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad2376dfb5d854dd0250e2a6bde52cb2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classADSR.html#aad2376dfb5d854dd0250e2a6bde52cb2">getOutput</a> ()</td></tr>
 <tr class="separator:aad2376dfb5d854dd0250e2a6bde52cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0653a5307b7afcada9b791c34a15847b"><td class="memItemLeft" align="right" valign="top">std::pair&lt; int, float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classADSR.html#a0653a5307b7afcada9b791c34a15847b">getCurrentPhase</a> ()</td></tr>
+<tr class="separator:a0653a5307b7afcada9b791c34a15847b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b2307478e8638d97ce6fddf2540e9e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classADSR.html#ab573baeeb4578e0a1e6e123452b8127a">State</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classADSR.html#a9b2307478e8638d97ce6fddf2540e9e6">getState</a> ()</td></tr>
 <tr class="separator:a9b2307478e8638d97ce6fddf2540e9e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d5b7c8618c2c836be04e3549eb19d25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classADSR.html#a9d5b7c8618c2c836be04e3549eb19d25">noteOn</a> ()</td></tr>
@@ -328,6 +330,25 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a0653a5307b7afcada9b791c34a15847b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0653a5307b7afcada9b791c34a15847b">&#9670;&nbsp;</a></span>getCurrentPhase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt;int, float&gt; ADSR::getCurrentPhase </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classADSR.html#ab573baeeb4578e0a1e6e123452b8127aaa7f97349a3590aa462a5edadb7180126">attack</a>, <a class="el" href="classADSR.html#ab573baeeb4578e0a1e6e123452b8127aabc2ac366007251aecdaaff91f4a8e5e3">decay</a>, <a class="el" href="classADSR.html#ac6b34bdf72ba654d26467433f7015bbb">output</a>, <a class="el" href="classADSR.html#ab573baeeb4578e0a1e6e123452b8127aac3273f5775dd2ec96038b66c3909d0a1">release</a>, <a class="el" href="classADSR.html#a2d9269b27359df5559e6881e5061e790">state</a>, and <a class="el" href="classADSR.html#ab573baeeb4578e0a1e6e123452b8127aa48dd9dd380d2a499ad6f7ae967010835">sustain</a>.</p>
+
+</div>
+</div>
 <a id="a9b2307478e8638d97ce6fddf2540e9e6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9b2307478e8638d97ce6fddf2540e9e6">&#9670;&nbsp;</a></span>getState()</h2>
 
@@ -495,7 +516,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classADSR.html#aad2376dfb5d854dd0250e2a6bde52cb2">getOutput()</a>, <a class="el" href="classADSR.html#a9b2307478e8638d97ce6fddf2540e9e6">getState()</a>, <a class="el" href="classADSR.html#aa187e99749943e75013e40a4e6d4c07e">noteOff()</a>, and <a class="el" href="classADSR.html#a9d5b7c8618c2c836be04e3549eb19d25">noteOn()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classADSR.html#a0653a5307b7afcada9b791c34a15847b">getCurrentPhase()</a>, <a class="el" href="classADSR.html#aad2376dfb5d854dd0250e2a6bde52cb2">getOutput()</a>, <a class="el" href="classADSR.html#a9b2307478e8638d97ce6fddf2540e9e6">getState()</a>, <a class="el" href="classADSR.html#aa187e99749943e75013e40a4e6d4c07e">noteOff()</a>, and <a class="el" href="classADSR.html#a9d5b7c8618c2c836be04e3549eb19d25">noteOn()</a>.</p>
 
 </div>
 </div>
@@ -543,7 +564,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classADSR.html#aad2376dfb5d854dd0250e2a6bde52cb2">getOutput()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classADSR.html#a0653a5307b7afcada9b791c34a15847b">getCurrentPhase()</a>, and <a class="el" href="classADSR.html#aad2376dfb5d854dd0250e2a6bde52cb2">getOutput()</a>.</p>
 
 </div>
 </div>
@@ -643,7 +664,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 6 2023 22:48:51 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Sat Oct 7 2023 17:31:06 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
