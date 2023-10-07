@@ -157,7 +157,7 @@ public:
 template <typename T>
 bool solveLine (T x1, T y1, T x2, T y2, T& m, T& b)
 {
-    if (x2 != x1)
+    if (! juce::exactlyEqual (x2, x1))
     {
         m = (y2 - y1) / (x2 - x1);
         b = y2 - m * x2;
@@ -184,7 +184,7 @@ bool solveLine (const juce::Line<T>& l, T& m, T& b)
     T y1 = l.getStartY();
     T y2 = l.getEndY();
 
-    if (x2 != x1)
+    if (! juce::exactlyEqual (x2, x1))
     {
         m = (y2 - y1) / (x2 - x1);
         b = y2 - m * x2;
