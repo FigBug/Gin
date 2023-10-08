@@ -46,7 +46,7 @@ public:
     {
         juce::ignoreUnused (note, params, buffer);
        #ifdef JUCE_MODULE_AVAILABLE_gin_simd
-        if (bllt == nullptr && bllt->size() == 0) return;
+        if (bllt == nullptr || bllt->size() == 0) return;
 
         if (tableIndex == -1 || tableIndex >= bllt->size())
             tableIndex = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
@@ -105,7 +105,7 @@ public:
     {
         juce::ignoreUnused (note, params, buffer);
        #ifdef JUCE_MODULE_AVAILABLE_gin_simd
-        if (bllt == nullptr && bllt->size() == 0) return;
+        if (bllt == nullptr || bllt->size() == 0) return;
 
         if (tableIndex == -1 || tableIndex >= bllt->size())
             tableIndex = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
