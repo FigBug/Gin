@@ -362,6 +362,13 @@
     <class kind="class">CommentMetadata</class>
   </compound>
   <compound kind="file">
+    <name>gin_componentgrid.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/components/</path>
+    <filename>gin__componentgrid_8h.html</filename>
+    <class kind="class">ComponentGrid</class>
+    <class kind="struct">ComponentGrid::DragInfo</class>
+  </compound>
+  <compound kind="file">
     <name>gin_componentutils.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/components/</path>
     <filename>gin__componentutils_8h.html</filename>
@@ -3487,6 +3494,196 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>ComponentGrid</name>
+    <filename>classComponentGrid.html</filename>
+    <class kind="struct">ComponentGrid::DragInfo</class>
+    <member kind="enumeration">
+      <type></type>
+      <name>Orientation</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>a0d6a66510a6868e9be9f596867b85946</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>vertical</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>a0d6a66510a6868e9be9f596867b85946a4e8e13a57e9c5cdca5923aa037a61276</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>horizontal</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>a0d6a66510a6868e9be9f596867b85946a7b5f66d1ab8c7823c0591de0e31ae891</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>vertical</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>a0d6a66510a6868e9be9f596867b85946a4e8e13a57e9c5cdca5923aa037a61276</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>horizontal</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>a0d6a66510a6868e9be9f596867b85946a7b5f66d1ab8c7823c0591de0e31ae891</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>ComponentGrid</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>ac2058b5985bd9494da3e197db02bc5a9</anchor>
+      <arglist>(const juce::String &amp;name={}, Orientation o=horizontal)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~ComponentGrid</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>a0a8e9b513be91de584d164f21dde180a</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>timerCallback</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>a256ac8704b3910148bb14af741f9c65e</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mouseDown</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>a9193e7cad19e040849cd7348d0696104</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mouseDrag</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>aa82ced943d6a349ec9733649f0bdf747</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mouseUp</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>ae7d803ce0ab76a49b9e5936f867bb86d</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resized</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>ae4d3d578ec0693a3825bf22ed2dfe3f8</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isDragInProgress</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>ae6652721465f908263c75503a5319de7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setGap</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>a98d67e4198b3dd7df55a705a58c31816</anchor>
+      <arglist>(int)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setOrientation</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>a813eb2148efe914f18850d94bd5d8f3e</anchor>
+      <arglist>(Orientation)</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; bool(const juce::MouseEvent &amp;)&gt;</type>
+      <name>onDragStart</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>ae9d0d6eed8ab4039c4f309030f2a4ae4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; void()&gt;</type>
+      <name>onOrderChanged</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>adc51d39f4841737c630f4fbedbe75587</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; void()&gt;</type>
+      <name>onDragFinished</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>ab1b0f95162ec904d08acf21f25aa732a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>layoutAnimated</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>abeff71fe97fc2cd1c0ee175999082958</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>int</type>
+      <name>componentIndex</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>a3caf7f9c7ba9f265a39ddceeebdc7371</anchor>
+      <arglist>(juce::Component &amp;c)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>juce::Array&lt; juce::Rectangle&lt; int &gt; &gt;</type>
+      <name>getComponentRects</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>af0a9639c0b473d299b5a3f764b4d5ad4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>dragStarted</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>a8c5d394771c011655731dd6dd42bd27d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>dragging</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>ad15fcda0318542d51a1335a39e85d7e1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Orientation</type>
+      <name>orientation</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>a597b44ee2489a3412932dac8ac90df99</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>gap</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>ae17c3d7889ca1980ae271ea7f0ffaf1d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::Array&lt; juce::Component * &gt;</type>
+      <name>originalOrder</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>a4d8eff212a319a1de9ec54aedfddd340</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::ComponentAnimator</type>
+      <name>animator</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>a6c5ac365f8f47093c909a23de8e78d12</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>ComponentViewer</name>
     <filename>classComponentViewer.html</filename>
     <member kind="function">
@@ -3956,6 +4153,24 @@
       <name>responseHeaders</name>
       <anchorfile>structDownloadManager_1_1DownloadResult.html</anchorfile>
       <anchor>a48b192b45df8e978f398483f24e38fa2</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>ComponentGrid::DragInfo</name>
+    <filename>structComponentGrid_1_1DragInfo.html</filename>
+    <member kind="variable">
+      <type>Component *</type>
+      <name>originalComponent</name>
+      <anchorfile>structComponentGrid_1_1DragInfo.html</anchorfile>
+      <anchor>abebf0aa1df0211e9af81bf6889e65921</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>currentIndex</name>
+      <anchorfile>structComponentGrid_1_1DragInfo.html</anchorfile>
+      <anchor>a8a7fae6ad1047d924d2b3e8af72c64ac</anchor>
       <arglist></arglist>
     </member>
   </compound>
