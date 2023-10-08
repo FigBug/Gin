@@ -73,6 +73,7 @@ namespace gin
 
 #include "images/gin_imageutilities.h"
 
+#include "components/gin_componentgrid.h"
 #include "components/gin_componentutils.h"
 #include "components/gin_componentviewer.h"
 #include "components/gin_ginlookandfeel.h"
