@@ -77,7 +77,7 @@ public:
                 rVec += s * params.rightGain;
 
                 lVec.store (l); l += 4;
-                lVec.store (r); r += 4;
+                rVec.store (r); r += 4;
 
                 phase += delta * 4;
             }
@@ -136,7 +136,7 @@ public:
                 rVec += s * params.rightGain;
 
                 lVec.store (l); l += 4;
-                lVec.store (r); r += 4;
+                rVec.store (r); r += 4;
 
                 phase += delta * 4;
             }
