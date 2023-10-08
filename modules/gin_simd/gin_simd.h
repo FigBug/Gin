@@ -66,6 +66,15 @@ JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE("-Wimplicit-float-conversion",
                                     "-Wcast-align",
                                     "-Wimplicit-int-conversion")
 
+#if JUCE_INTEL
+ #ifndef __SSE__
+  #define __SSE__
+ #endif 
+ #ifndef __SSE2__
+  #define __SSE2__
+ #endif 
+#endif
+
 #include "mipp/mipp.h"
 
 JUCE_END_IGNORE_WARNINGS_GCC_LIKE

@@ -56,7 +56,7 @@ public:
         if (state == release)
             return {3, output};
 
-        return {0,0};
+        return {0,0.0f};
     }
 
     State getState()                            { return state;         }

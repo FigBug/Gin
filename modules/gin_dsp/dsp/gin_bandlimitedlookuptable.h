@@ -79,6 +79,8 @@ public:
    #ifdef JUCE_MODULE_AVAILABLE_gin_simd
     inline mipp::Reg<float> process (float note, mipp::Reg<float> phase)
     {
+        static_assert (mipp::N<float>() == 4);
+
         auto tableIndex = juce::jlimit (0, int (tables.size() - 1), int ((note - 0.5) / notesPerTable));
         phase *= tableSize;
         
