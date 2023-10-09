@@ -107,6 +107,13 @@
       <anchor>a0ab2fc968026d93758fb668685da9d78</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>caretDown</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a7b3064ecec3c09aeec566d9b496920e0</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>gin_asyncutilities.h</name>
@@ -9171,22 +9178,29 @@
       <type>void</type>
       <name>addControl</name>
       <anchorfile>classParamBox.html</anchorfile>
-      <anchor>ab7b806e58e975f0d4c6dce2b1a21d5da</anchor>
-      <arglist>(Component *c)</arglist>
+      <anchor>aec5100680834d3f5312e57854e54ee88</anchor>
+      <arglist>(juce::Component *c)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>addControl</name>
       <anchorfile>classParamBox.html</anchorfile>
-      <anchor>afab51fbea411628bdb475551488cfd05</anchor>
-      <arglist>(Component *c, int x, int y, int cx=1, int cy=1)</arglist>
+      <anchor>ac1a8aac3e5922f57d34b94f609f2dd1e</anchor>
+      <arglist>(juce::Component *p, juce::Component *c)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>addControl</name>
       <anchorfile>classParamBox.html</anchorfile>
-      <anchor>a55eadc2f52821f70453b7894deb9047e</anchor>
-      <arglist>(Component *c, float x, float y, float cx=1.0f, float cy=1.0f)</arglist>
+      <anchor>a13af4a550c0506e47fce4fdd05d6b983</anchor>
+      <arglist>(juce::Component *c, int x, int y, int cx=1, int cy=1)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addControl</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>aa666c4d41942d4a37d36fd2e5f02e619</anchor>
+      <arglist>(juce::Component *c, float x, float y, float cx=1.0f, float cy=1.0f)</arglist>
     </member>
     <member kind="function">
       <type>ParamHeader &amp;</type>
@@ -10961,6 +10975,13 @@
       <name>state</name>
       <anchorfile>classProcessor.html</anchorfile>
       <anchor>aecd42420782c38cad73bf06fb0f195db</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>versionHint</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a09c3b671e19fb6ba690ace06cca55aa9</anchor>
       <arglist></arglist>
     </member>
     <member kind="function" protection="protected" virtualness="virtual">
@@ -15664,6 +15685,13 @@
       <name>retrigger</name>
       <anchorfile>namespaceAssets.html</anchorfile>
       <anchor>a0ab2fc968026d93758fb668685da9d78</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>caretDown</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a7b3064ecec3c09aeec566d9b496920e0</anchor>
       <arglist></arglist>
     </member>
   </compound>
