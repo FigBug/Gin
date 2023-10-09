@@ -158,20 +158,26 @@ public:
         addAndMakeVisible (c);
     }
 
-    void addControl (Component* c)
+    void addControl (juce::Component* c)
     {
         controls.add (c);
         frame.addAndMakeVisible (c);
     }
 
-    void addControl (Component* c, int x, int y, int cx = 1, int cy = 1)
+    void addControl (juce::Component* p, juce::Component* c)
+    {
+        controls.add (c);
+        p->addAndMakeVisible (c);
+    }
+
+    void addControl (juce::Component* c, int x, int y, int cx = 1, int cy = 1)
     {
         c->setBounds (getGridArea (x, y, cx, cy));
         controls.add (c);
         frame.addAndMakeVisible (c);
     }
 
-    void addControl (Component* c, float x, float y, float cx = 1.0f, float cy = 1.0f)
+    void addControl (juce::Component* c, float x, float y, float cx = 1.0f, float cy = 1.0f)
     {
         c->setBounds (getGridArea (x, y, cx, cy));
         controls.add (c);

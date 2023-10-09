@@ -171,6 +171,7 @@ public:
     juce::OwnedArray<gin::Parameter> internalParameters;
 
     juce::ValueTree state;
+    int versionHint = 1;
 
 protected:
     /* If you plugin has more state than just parameters you need to implement these two functions

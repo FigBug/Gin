@@ -17,4 +17,5 @@ extern juce::String cpu;
 extern juce::String power;
 extern juce::String panic;
 extern juce::String retrigger;
+extern juce::String caretDown;
 }
