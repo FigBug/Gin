@@ -222,14 +222,20 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p)
     };
     addButton.onClick = [this]
     {
+        Program* prog = nullptr;
+        
+        int progIdx = slProc.getCurrentProgram();
+        if (progIdx > 0)
+            prog = slProc.getPrograms()[progIdx];
+        
         auto w = std::make_shared<gin::PluginAlertWindow> ("Create preset:", "", juce::AlertWindow::NoIcon, getParentComponent());
         w->setLookAndFeel (slProc.lf.get());
-        w->addTextEditor ("name", "", "Name:");
+        w->addTextEditor ("name", prog != nullptr ? prog->name : juce::String(), "Name:");
 
         if (hasBrowser)
         {
-            w->addTextEditor ("author", "", "Author:");
-            w->addTextEditor ("tags", "", "Tags:");
+            w->addTextEditor ("author", prog != nullptr ? prog->author : juce::String(), "Author:");
+            w->addTextEditor ("tags", prog != nullptr ? juce::StringArray (prog->tags).joinIntoString (" ") : juce::String(), "Tags:");
         }
 
         w->addButton ("OK", 1, juce::KeyPress (juce::KeyPress::returnKey));

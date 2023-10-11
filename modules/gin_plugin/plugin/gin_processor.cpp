@@ -439,7 +439,12 @@ void Processor::saveProgram (juce::String name, juce::String author, juce::Strin
     newProgram->saveToDir (getProgramDirectory());
 
     programs.add (newProgram);
-    std::sort (programs.begin(), programs.end(), [] (auto a, auto b) { return a->name < b->name; });
+    std::sort (programs.begin(), programs.end(), [] (auto a, auto b) 
+    {
+        if (a->name == "Default") return true;
+        if (b->name == "Default") return false;
+        return a->name.compareIgnoreCase (b->name) < 0;
+    });
     
     currentProgramName = name;
 
