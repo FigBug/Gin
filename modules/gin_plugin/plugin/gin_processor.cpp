@@ -253,7 +253,13 @@ int Processor::getNumPrograms()
 
 int Processor::getCurrentProgram()
 {
-    return currentProgram;
+    for (auto idx = 0; auto p : programs)
+    {
+        if (p->name == currentProgramName)
+            return idx;
+        idx++;
+    }
+    return 0;
 }
 
 void Processor::setCurrentProgram (int index)
@@ -271,11 +277,15 @@ void Processor::setCurrentProgram (int index)
             p->loadFromFile (p->getPresetFile (getProgramDirectory()), true);
 
         p->loadProcessor (*this);
-        currentProgram = index;
+        currentProgramName = p->name;
 
         updateHostDisplay();
         sendChangeMessage();
         stateUpdated();
+    }
+    else
+    {
+        currentProgramName = {};
     }
 }
 
@@ -290,7 +300,6 @@ Program* Processor::getProgram (const juce::String& name)
 
 void Processor::setCurrentProgram (juce::String name)
 {
-    int index = 0;
     for (auto p : programs)
     {
         if (p->name == name)
@@ -299,14 +308,13 @@ void Processor::setCurrentProgram (juce::String name)
                 p->loadFromFile (p->getPresetFile (getProgramDirectory()), true);
 
             p->loadProcessor (*this);
-            currentProgram = index;
+            currentProgramName = name;
 
             updateHostDisplay();
             sendChangeMessage();
             stateUpdated();
             return;
         }
-        index++;
     }
 }
 
@@ -431,7 +439,9 @@ void Processor::saveProgram (juce::String name, juce::String author, juce::Strin
     newProgram->saveToDir (getProgramDirectory());
 
     programs.add (newProgram);
-    currentProgram = programs.size() - 1;
+    std::sort (programs.begin(), programs.end(), [] (auto a, auto b) { return a->name < b->name; });
+    
+    currentProgramName = name;
 
     updateHostDisplay();
     sendChangeMessage();
@@ -441,11 +451,18 @@ void Processor::deleteProgram (int index)
 {
     lastProgramsUpdated = juce::Time::getCurrentTime();
     
+    auto oldName = programs[index]->name;
     programs[index]->deleteFromDir (getProgramDirectory());
     programs.remove (index);
-    if (index <= currentProgram)
-        currentProgram--;
-
+    
+    if (currentProgramName == oldName)
+    {
+        if (auto p = programs[std::max (0, index - 1)])
+            currentProgramName = p->name;
+        else
+            currentProgramName = {};
+    }
+   
     updateHostDisplay();
     sendChangeMessage();
 }
@@ -475,7 +492,7 @@ void Processor::getStateInformation (juce::MemoryBlock& destData)
     if (state.isValid())
         rootE->addChildElement (state.createXml().release());
 
-    rootE->setAttribute ("program", currentProgram);
+    rootE->setAttribute ("programName", currentProgramName);
 
     for (auto p : getPluginParameters())
     {
@@ -525,7 +542,18 @@ void Processor::setStateInformation (const void* data, int sizeInBytes)
             }
         }
 
-        currentProgram = rootE->getIntAttribute ("program");
+        if (rootE->hasAttribute ("programName"))
+        {
+            currentProgramName = rootE->getStringAttribute ("programName");
+        }
+        else
+        {
+            auto currentProgramIdx = rootE->getIntAttribute ("program");
+            if (auto p = programs[currentProgramIdx])
+                currentProgramName = p->name;
+            else
+                currentProgramName = {};
+        }
 
         juce::XmlElement* paramE = rootE->getChildByName ("param");
         while (paramE)

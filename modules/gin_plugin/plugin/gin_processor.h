@@ -200,7 +200,7 @@ private:
 
     FileSystemWatcher watcher;
 
-    int currentProgram = 0;
+    juce::String currentProgramName;
     int maxPrograms = 0;
     juce::OwnedArray<Program> programs;
 
