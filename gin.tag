@@ -13554,6 +13554,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>handleMidiEvent</name>
+      <anchorfile>classSynthesiser.html</anchorfile>
+      <anchor>a43f7146e8cf5f05e989ec838bd1c9e53</anchor>
+      <arglist>(const juce::MidiMessage &amp;message) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>setPitchBendRange</name>
       <anchorfile>classSynthesiser.html</anchorfile>
       <anchor>a27c386eb03f3ea6b1ec5fc24901a59ab</anchor>
