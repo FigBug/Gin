@@ -74,7 +74,28 @@ public:
             }
         }
     }
-    
+
+    void handleMidiEvent (const juce::MidiMessage& message) override
+    {
+        juce::MPESynthesiser::handleMidiEvent (message);
+
+        if (! mpe && message.isPitchWheel())
+        {
+            for (auto v : voices)
+            {
+                if (auto sv = dynamic_cast<SynthesiserVoice*> (v))
+                {
+                    if (sv->isPlayingButReleased())
+                    {
+                        auto note = sv->getCurrentlyPlayingNote();
+                        note.totalPitchbendInSemitones = juce::MPEValue::from14BitInt (message.getPitchWheelValue()).asSignedFloat() * getLegacyModePitchbendRange();
+                        sv->setCurrentlyPlayingNote (note);
+                    }
+                }
+            }
+        }
+    }
+
     void setPitchBendRange (int newPB)
     {
         if (newPB != pitchbend)
