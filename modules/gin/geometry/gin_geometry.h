@@ -208,7 +208,10 @@ T getXForY (const juce::Line<T> line, T y)
 
     if (solveLine (line, m, b))
     {
-        return (y - b) / m;
+        if (! juce::exactlyEqual (m, 0.0f))
+            return (y - b) / m;
+        
+        return line.getStartX();
     }
     else
     {
