@@ -82,6 +82,17 @@ public:
         return self;
 
     }
+
+    ProcessorOptions withoutNewsChecker() const
+    {
+        auto self = *this;
+
+        self.useNewsChecker = false;
+
+        return self;
+
+    }
+    
 };
 
 //==============================================================================
