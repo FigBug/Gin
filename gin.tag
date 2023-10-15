@@ -11354,6 +11354,13 @@
       <anchor>a0db6fc2981e1e882526b44adab862a5e</anchor>
       <arglist>(juce::StringArray names) const</arglist>
     </member>
+    <member kind="function">
+      <type>ProcessorOptions</type>
+      <name>withoutUpdateChecker</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>a725a6c47b2760a05214157bed059b157</anchor>
+      <arglist>() const</arglist>
+    </member>
     <member kind="variable">
       <type>juce::String</type>
       <name>pluginName</name>
