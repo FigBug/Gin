@@ -72,6 +72,16 @@ public:
 
         return self;
     }
+
+    ProcessorOptions withoutUpdateChecker() const
+    {
+        auto self = *this;
+
+        self.useUpdateChecker = false;
+
+        return self;
+
+    }
 };
 
 //==============================================================================
