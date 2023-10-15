@@ -199,12 +199,18 @@ void Layout::setLayout (const juce::String& filename, const juce::File& source)
            #if JUCE_DEBUG
             if (source.existsAsFile())
             {
-                layoutFile = source;
-                parseLayout (layoutFile.loadFileAsString());
-               #if ! JUCE_IOS
-                watcher.addFolder (source.getParentDirectory());
-               #endif
-                break;
+                if (auto rawLayout = source.loadFileAsString(); rawLayout.isNotEmpty() && parseLayout (rawLayout))
+                {
+                    layoutFile = source;
+                   #if ! JUCE_IOS
+                    watcher.addFolder (source.getParentDirectory());
+                   #endif
+                    break;
+                }
+                else
+                {
+                    DBG("Unable to load layout file. Is your app sandboxed?");
+                }
             }
            #endif
             int sz = 0;
@@ -217,19 +223,21 @@ void Layout::setLayout (const juce::String& filename, const juce::File& source)
    #endif
 }
 
-void Layout::parseLayout (const juce::String& content)
+bool Layout::parseLayout (const juce::String& content)
 {
     juce::var obj;
     auto err = juce::JSON::parse (content, obj);
-    if (! err.wasOk())
+    if (! err.wasOk() && ! obj.isObject())
     {
         jassertfalse;
-        return;
+        return false;
     }
 
     componentMap = findAllComponents();
     doComponent ({}, obj);
     componentMap = {};
+                    
+    return true;
 }
 
 void Layout::doComponent (const juce::String& currentPath, const juce::var& component)
