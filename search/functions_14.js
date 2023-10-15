@@ -6,11 +6,12 @@ var searchData=
   ['wavetablecomponent_2773',['WavetableComponent',['../classWavetableComponent.html#aabd88c4ea32e53755f23f25ac4601d11',1,'WavetableComponent']]],
   ['wetdrymix_2774',['WetDryMix',['../classWetDryMix.html#a31c06ff0212820a3b2b93571ef54127c',1,'WetDryMix']]],
   ['withadditionalcredits_2775',['withAdditionalCredits',['../classProcessorOptions.html#a0db6fc2981e1e882526b44adab862a5e',1,'ProcessorOptions']]],
-  ['withoutupdatechecker_2776',['withoutUpdateChecker',['../classProcessorOptions.html#a725a6c47b2760a05214157bed059b157',1,'ProcessorOptions']]],
-  ['write_2777',['write',['../classDelayLine.html#ae83573274b47e182d7293edd582ae2f3',1,'DelayLine::write()'],['../classSecureStreamingSocket.html#ae04b0755561c2b33d447a43712c16c0f',1,'SecureStreamingSocket::write()'],['../classMidiFifo.html#a90ece40a2c61b1bba7de907838fc7cf6',1,'MidiFifo::write()'],['../classAudioFifo.html#a7dbba1b96c2670e3e046f2ad83e3ed40',1,'AudioFifo::write(const float *const *data, int numSamples)'],['../classAudioFifo.html#a272a4efa8416e0c57905329552781855',1,'AudioFifo::write(const juce::AudioSampleBuffer &amp;src, int numSamples=-1)']]],
-  ['writefinished_2778',['writeFinished',['../classDelayLine.html#ab36052a31da09d3a8162651ba437bec6',1,'DelayLine']]],
-  ['writeimagetostream_2779',['writeImageToStream',['../classBMPImageFormat.html#a7aa7a97cf8a3e5724bc61550ce7c8881',1,'BMPImageFormat::writeImageToStream()'],['../classWEBPImageFormat.html#a7323d308a2ed305d577d7630cfafc0b8',1,'WEBPImageFormat::writeImageToStream()']]],
-  ['writemono_2780',['writeMono',['../classAudioFifo.html#a8a2f35a383ee1e3074491dfc6f510e59',1,'AudioFifo']]],
-  ['wtoscillator_2781',['WTOscillator',['../classWTOscillator.html#a16fdc8afe3d72d02755d37bb13aa3dad',1,'WTOscillator']]],
-  ['wtvoicedstereooscillator_2782',['WTVoicedStereoOscillator',['../classWTVoicedStereoOscillator.html#a8db7ce7f1c1f034e9f3d38119ed1325d',1,'WTVoicedStereoOscillator']]]
+  ['withoutnewschecker_2776',['withoutNewsChecker',['../classProcessorOptions.html#a2b71715ff959b8271eb2baeab802737d',1,'ProcessorOptions']]],
+  ['withoutupdatechecker_2777',['withoutUpdateChecker',['../classProcessorOptions.html#a725a6c47b2760a05214157bed059b157',1,'ProcessorOptions']]],
+  ['write_2778',['write',['../classAudioFifo.html#a7dbba1b96c2670e3e046f2ad83e3ed40',1,'AudioFifo::write()'],['../classSecureStreamingSocket.html#ae04b0755561c2b33d447a43712c16c0f',1,'SecureStreamingSocket::write()'],['../classMidiFifo.html#a90ece40a2c61b1bba7de907838fc7cf6',1,'MidiFifo::write()'],['../classDelayLine.html#ae83573274b47e182d7293edd582ae2f3',1,'DelayLine::write()'],['../classAudioFifo.html#a272a4efa8416e0c57905329552781855',1,'AudioFifo::write()']]],
+  ['writefinished_2779',['writeFinished',['../classDelayLine.html#ab36052a31da09d3a8162651ba437bec6',1,'DelayLine']]],
+  ['writeimagetostream_2780',['writeImageToStream',['../classBMPImageFormat.html#a7aa7a97cf8a3e5724bc61550ce7c8881',1,'BMPImageFormat::writeImageToStream()'],['../classWEBPImageFormat.html#a7323d308a2ed305d577d7630cfafc0b8',1,'WEBPImageFormat::writeImageToStream()']]],
+  ['writemono_2781',['writeMono',['../classAudioFifo.html#a8a2f35a383ee1e3074491dfc6f510e59',1,'AudioFifo']]],
+  ['wtoscillator_2782',['WTOscillator',['../classWTOscillator.html#a16fdc8afe3d72d02755d37bb13aa3dad',1,'WTOscillator']]],
+  ['wtvoicedstereooscillator_2783',['WTVoicedStereoOscillator',['../classWTVoicedStereoOscillator.html#a8db7ce7f1c1f034e9f3d38119ed1325d',1,'WTVoicedStereoOscillator']]]
 ];

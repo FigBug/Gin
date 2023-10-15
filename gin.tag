@@ -11361,6 +11361,13 @@
       <anchor>a725a6c47b2760a05214157bed059b157</anchor>
       <arglist>() const</arglist>
     </member>
+    <member kind="function">
+      <type>ProcessorOptions</type>
+      <name>withoutNewsChecker</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>a2b71715ff959b8271eb2baeab802737d</anchor>
+      <arglist>() const</arglist>
+    </member>
     <member kind="variable">
       <type>juce::String</type>
       <name>pluginName</name>
