@@ -18,9 +18,20 @@ void Program::loadProcessor (Processor& p)
     if (state.isValid())
         p.state.copyPropertiesAndChildrenFrom (state, nullptr);
 
-    if (w != -1) p.state.setProperty ("width", w, nullptr);
-    if (h != -1) p.state.setProperty ("height", h, nullptr);
-    if (sc > 0) p.state.setProperty ("editorScale", sc, nullptr);
+    if (w != -1) 
+		p.state.setProperty ("width", w, nullptr);
+	else
+		p.state.removeProperty ("width", nullptr);
+
+    if (h != -1)
+		p.state.setProperty ("height", h, nullptr);
+	else
+		p.state.removeProperty ("height", nullptr);
+
+    if (sc > 0)
+		p.state.setProperty ("editorScale", sc, nullptr);
+	else
+		p.state.removeProperty ("editorScale", nullptr);
 
     for (const auto& s : states)
         if (auto pp = p.getParameter (s.uid))
