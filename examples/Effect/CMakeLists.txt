@@ -87,6 +87,7 @@ target_compile_definitions (Effect PRIVATE
 								JUCE_VST3_CAN_REPLACE_VST2=0
 								JUCE_WEB_BROWSER=0
 								DONT_SET_USING_JUCE_NAMESPACE=1
+								JUCE_SILENCE_XCODE_15_LINKER_WARNING=1
 							)
 
 if (APPLE)
