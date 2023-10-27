@@ -64,7 +64,8 @@ JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE("-Wimplicit-float-conversion",
                                     "-Wshadow",
                                     "-Wzero-length-array",
                                     "-Wcast-align",
-                                    "-Wimplicit-int-conversion")
+                                    "-Wimplicit-int-conversion",
+                                    "-Warray-parameter")
 
 #if JUCE_INTEL
  #ifndef __SSE__
