@@ -6,7 +6,7 @@ var searchData=
   ['lastron_2973',['lastROn',['../classGateEffect.html#a22b6b9beb3b81d68b875d4a0e9daa035',1,'GateEffect']]],
   ['latitude_2974',['latitude',['../structLocationManager_1_1Location.html#a7432dea352228865b308d0f62337e3b2',1,'LocationManager::Location']]],
   ['leftgain_2975',['leftGain',['../structStereoOscillator_1_1Params.html#ab7814fe28bdb79772871cef3cf5f5679',1,'StereoOscillator::Params::leftGain()'],['../structWTOscillator_1_1Params.html#abef23350d10d65198a293119ced8bb9d',1,'WTOscillator::Params::leftGain()']]],
-  ['lf_2976',['lf',['../classProcessor.html#a756a634ec593cbe38c40f95e6554ee04',1,'Processor']]],
+  ['lf_2976',['lf',['../classProcessor.html#a7076bef74600565dd0d89a210baadcad',1,'Processor']]],
   ['listeners_2977',['listeners',['../classParameter.html#a6ab022db2c42737bf0d3b1552f9b97a4',1,'Parameter']]],
   ['loadingstate_2978',['loadingState',['../classProcessor.html#ab4a632bd0b8edcb74957e4c6d7fd3207',1,'Processor']]],
   ['logdetector_2979',['logDetector',['../classEnvelopeDetector.html#a9b42cde52cbdcb05cbc85a65ba6a017f',1,'EnvelopeDetector']]],
