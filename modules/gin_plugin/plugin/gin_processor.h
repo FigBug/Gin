@@ -186,7 +186,7 @@ public:
     bool loadingState = false;
 
 public:
-    std::unique_ptr<PluginLookAndFeel> lf;
+    std::unique_ptr<juce::LookAndFeel> lf;
 
     std::map<juce::String, gin::Parameter*> parameterMap;
     juce::OwnedArray<gin::Parameter> internalParameters;
