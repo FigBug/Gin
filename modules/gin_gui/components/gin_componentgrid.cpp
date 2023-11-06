@@ -217,7 +217,7 @@ juce::Array<juce::Rectangle<int>> ComponentGrid::getComponentRects()
     auto rc = getLocalBounds();
     juce::Array<juce::Rectangle<int>> res;
 
-    if (vertical)
+    if (orientation == vertical)
     {
         for (auto c : getChildren())
         {
