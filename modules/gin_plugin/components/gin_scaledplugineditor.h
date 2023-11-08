@@ -34,6 +34,7 @@ public:
 
     ~ScaledPluginEditor() override
     {
+        processor.editorBeingDeleted (this);
         setLookAndFeel (nullptr);
     }
 

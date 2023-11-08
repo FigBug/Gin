@@ -56,16 +56,14 @@
 
 #include <juce_core/juce_core.h>
 
-namespace gin
-{
-
 JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE("-Wimplicit-float-conversion",
                                     "-Wunused-parameter",
                                     "-Wshadow",
                                     "-Wzero-length-array",
                                     "-Wcast-align",
                                     "-Wimplicit-int-conversion",
-                                    "-Warray-parameter")
+                                    "-Warray-parameter",
+                                    "-Wsign-conversion")
 
 #if JUCE_INTEL
  #ifndef __SSE__
@@ -80,5 +78,7 @@ JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE("-Wimplicit-float-conversion",
 
 JUCE_END_IGNORE_WARNINGS_GCC_LIKE
 
+namespace gin
+{
 #include "math/gin_math.h"
 }
