@@ -545,7 +545,7 @@ static inline void errorMessage(std::string instr)
     type_names[typeid(double)  ] = "double";
 
     std::string message;
-#if __cplusplus >= 201703L
+#if JUCE_MSVC || __cplusplus >= 201703L
     if constexpr (RegisterSizeBit == 0)
 #else
     if (RegisterSizeBit == 0)

@@ -82,7 +82,7 @@ public:
         static_assert (mipp::N<float>() == 4);
 
         auto tableIndex = juce::jlimit (0, int (tables.size() - 1), int ((note - 0.5) / notesPerTable));
-        phase *= tableSize;
+        phase *= float (tableSize);
         
         float pos[4];
         phase.store (pos);

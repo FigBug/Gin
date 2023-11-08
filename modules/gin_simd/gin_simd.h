@@ -69,10 +69,10 @@ JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE("-Wimplicit-float-conversion",
 
 #if JUCE_INTEL
  #ifndef __SSE__
-  #define __SSE__
+  #define __SSE__ 1
  #endif 
  #ifndef __SSE2__
-  #define __SSE2__
+  #define __SSE2__ 1
  #endif 
 #endif
 

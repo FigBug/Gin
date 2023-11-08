@@ -197,10 +197,10 @@ template <class F, class I> class PlateReverb
         sum = lowpass.process (sum);
 
         // Diffusers
-        sum = diffusers[0]->process (sum, diffusers[0]->getSize());
-        sum = diffusers[1]->process (sum, diffusers[1]->getSize());
-        sum = diffusers[2]->process (sum, diffusers[2]->getSize());
-        sum = diffusers[3]->process (sum, diffusers[3]->getSize());
+        sum = diffusers[0]->process (sum, (F)diffusers[0]->getSize());
+        sum = diffusers[1]->process (sum, (F)diffusers[1]->getSize());
+        sum = diffusers[2]->process (sum, (F)diffusers[2]->getSize());
+        sum = diffusers[3]->process (sum, (F)diffusers[3]->getSize());
 
         // Tanks
         F leftIn = sum + rightTank.out * decayRate;
