@@ -56,6 +56,8 @@
 
 #include <juce_core/juce_core.h>
 
+JUCE_BEGIN_IGNORE_WARNINGS_MSVC (4309 4244)
+
 JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE("-Wimplicit-float-conversion",
                                     "-Wunused-parameter",
                                     "-Wshadow",
@@ -77,6 +79,8 @@ JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE("-Wimplicit-float-conversion",
 #include "mipp/mipp.h"
 
 JUCE_END_IGNORE_WARNINGS_GCC_LIKE
+
+JUCE_END_IGNORE_WARNINGS_MSVC
 
 namespace gin
 {
