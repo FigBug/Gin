@@ -18,15 +18,10 @@ juce::ValueTree valueTreeFromJSON (const juce::String& jsonText);
 class LambdaValueTreeListener : public juce::ValueTree::Listener
 {
 public:
-    LambdaValueTreeListener (juce::ValueTree& v_)
-        : vt (v_)
+    LambdaValueTreeListener (juce::ValueTree v_)
+        : vt (std::move (v_))
     {
         vt.addListener (this);
-    }
-
-    ~LambdaValueTreeListener() override
-    {
-        vt.removeListener (this);
     }
 
     std::function<void (juce::ValueTree&, const juce::Identifier&)> onValueTreePropertyChanged;
@@ -74,7 +69,7 @@ private:
             onValueTreeRedirected (v);
     }
 
-    juce::ValueTree& vt;
+    juce::ValueTree vt;
 };
 
 //==============================================================================
