@@ -6735,15 +6735,8 @@
       <type></type>
       <name>LambdaValueTreeListener</name>
       <anchorfile>classLambdaValueTreeListener.html</anchorfile>
-      <anchor>a3f7db4c387824d9d43e7de3ce17898ec</anchor>
-      <arglist>(juce::ValueTree &amp;v_)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~LambdaValueTreeListener</name>
-      <anchorfile>classLambdaValueTreeListener.html</anchorfile>
-      <anchor>ac6413bb03bebc68e72e4992ce284430e</anchor>
-      <arglist>() override</arglist>
+      <anchor>a3f00b5e3ee4c167e8c7c61c29fdcf354</anchor>
+      <arglist>(juce::ValueTree v_)</arglist>
     </member>
     <member kind="variable">
       <type>std::function&lt; void(juce::ValueTree &amp;, const juce::Identifier &amp;)&gt;</type>
