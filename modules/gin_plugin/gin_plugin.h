@@ -102,6 +102,7 @@ bool wantsAccessibleKeyboard (juce::Component&);
 
 #include "lookandfeel/gin_images.h"
 #include "lookandfeel/gin_copperlookandfeel.h"
+#include "lookandfeel/gin_resources.h"
 
 #include "components/gin_headers.h"
 #include "components/gin_parambox.h"
