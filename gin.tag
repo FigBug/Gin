@@ -4989,6 +4989,18 @@
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
+      <name>highpass</name>
+      <anchorfile>classEQ.html</anchorfile>
+      <anchor>afd7d7b03b08fd8ca89204c04ff847010a9bd97011ee741dfdddf4057ead0ccae2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>lowpass</name>
+      <anchorfile>classEQ.html</anchorfile>
+      <anchor>afd7d7b03b08fd8ca89204c04ff847010ad16f43133a0cb59a064462db9f52c68b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
       <name>lowshelf</name>
       <anchorfile>classEQ.html</anchorfile>
       <anchor>afd7d7b03b08fd8ca89204c04ff847010ab5975e5df9ac7649fff9b46aa830aa46</anchor>
@@ -5004,6 +5016,18 @@
       <name>peak</name>
       <anchorfile>classEQ.html</anchorfile>
       <anchor>afd7d7b03b08fd8ca89204c04ff847010a63f376f9d83f0634b8a03016b8fef4c9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>highpass</name>
+      <anchorfile>classEQ.html</anchorfile>
+      <anchor>afd7d7b03b08fd8ca89204c04ff847010a9bd97011ee741dfdddf4057ead0ccae2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>lowpass</name>
+      <anchorfile>classEQ.html</anchorfile>
+      <anchor>afd7d7b03b08fd8ca89204c04ff847010ad16f43133a0cb59a064462db9f52c68b</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
