@@ -18,20 +18,20 @@ void Program::loadProcessor (Processor& p)
     if (state.isValid())
         p.state.copyPropertiesAndChildrenFrom (state, nullptr);
 
-    if (w != -1) 
-		p.state.setProperty ("width", w, nullptr);
-	else
-		p.state.removeProperty ("width", nullptr);
+    if (w != -1)
+        p.state.setProperty ("width", w, nullptr);
+    else
+        p.state.removeProperty ("width", nullptr);
 
     if (h != -1)
-		p.state.setProperty ("height", h, nullptr);
-	else
-		p.state.removeProperty ("height", nullptr);
+        p.state.setProperty ("height", h, nullptr);
+    else
+        p.state.removeProperty ("height", nullptr);
 
     if (sc > 0)
-		p.state.setProperty ("editorScale", sc, nullptr);
-	else
-		p.state.removeProperty ("editorScale", nullptr);
+        p.state.setProperty ("editorScale", sc, nullptr);
+    else
+        p.state.removeProperty ("editorScale", nullptr);
 
     for (const auto& s : states)
         if (auto pp = p.getParameter (s.uid))
@@ -62,14 +62,14 @@ juce::File Program::getPresetFile (juce::File programDir)
 {
     if (file.existsAsFile())
         return file;
-    
+
     return programDir.getChildFile (juce::File::createLegalFileName (name) + ".xml");
 }
 
 void Program::loadFromFile (juce::File f, bool loadFully)
 {
     file = f;
-    
+
     juce::XmlDocument doc (f);
     std::unique_ptr<juce::XmlElement> rootE (doc.getDocumentElement());
     if (rootE)
