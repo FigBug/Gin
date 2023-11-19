@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['handleasyncupdate_679',['handleAsyncUpdate',['../classParameter.html#a8296a6e53d729655e66f2cce22dc7924',1,'Parameter::handleAsyncUpdate()'],['../classMultiParamComponent.html#af1f2a647d360783089b697dde0204e55',1,'MultiParamComponent::handleAsyncUpdate()'],['../classAsyncDownload.html#a17faaedc4393e528d302dc6073511c4f',1,'AsyncDownload::handleAsyncUpdate()'],['../classRealtimeAsyncUpdater.html#a86dee41bf003fdbf125d0b3683acbaf0',1,'RealtimeAsyncUpdater::handleAsyncUpdate()']]],
+  ['handleasyncupdate_679',['handleAsyncUpdate',['../classParameter.html#a8296a6e53d729655e66f2cce22dc7924',1,'Parameter::handleAsyncUpdate()'],['../classProcessorEditor.html#a9dbed1e83b2cb95e7f83167a96fda633',1,'ProcessorEditor::handleAsyncUpdate()'],['../classMultiParamComponent.html#af1f2a647d360783089b697dde0204e55',1,'MultiParamComponent::handleAsyncUpdate()'],['../classAsyncDownload.html#a17faaedc4393e528d302dc6073511c4f',1,'AsyncDownload::handleAsyncUpdate()'],['../classRealtimeAsyncUpdater.html#a86dee41bf003fdbf125d0b3683acbaf0',1,'RealtimeAsyncUpdater::handleAsyncUpdate()']]],
   ['handlemidievent_680',['handleMidiEvent',['../classSynthesiser.html#a43f7146e8cf5f05e989ec838bd1c9e53',1,'Synthesiser']]],
   ['handleupdatenowifneeded_681',['handleUpdateNowIfNeeded',['../classRealtimeAsyncUpdater.html#accae6ff15d6eff08e6a3318263eb6574',1,'RealtimeAsyncUpdater']]],
   ['hardlight_682',['HardLight',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a7fc75582ae37ab60f5a1cc8e2acd7e24',1,'gin_imageeffects.h']]],
@@ -15,7 +15,7 @@ var searchData=
   ['headerbutton_691',['HeaderButton',['../classHeaderButton.html#aae91b7dec1964dc7fb1f28b05325c97b',1,'HeaderButton::HeaderButton()'],['../classHeaderButton.html',1,'HeaderButton']]],
   ['headerheight_692',['headerHeight',['../classProcessorEditorBase.html#abc8ed784a5fcb7e1efe3f1dc63348f82',1,'ProcessorEditorBase']]],
   ['headerindex_693',['headerIndex',['../classParamBox.html#a2ad72ecbea743787f083529d59178061',1,'ParamBox']]],
-  ['headeritem_694',['HeaderItem',['../classHeaderItem.html#a1d107c83356c617db19288db61f6aedd',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable=nullptr)'],['../classHeaderItem.html#ac6986963c5c20c0df2a1d82795579440',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable, ModMatrix &amp;mm, ModSrcId monoSrc={}, ModSrcId polySrc={})'],['../classHeaderItem.html',1,'HeaderItem']]],
+  ['headeritem_694',['HeaderItem',['../classHeaderItem.html',1,'HeaderItem'],['../classHeaderItem.html#ac6986963c5c20c0df2a1d82795579440',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable, ModMatrix &amp;mm, ModSrcId monoSrc={}, ModSrcId polySrc={})'],['../classHeaderItem.html#a1d107c83356c617db19288db61f6aedd',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable=nullptr)']]],
   ['headerparam_695',['headerParam',['../classParamBox.html#aca00c0c37aa7703a1e00df68c0c302a2',1,'ParamBox']]],
   ['headerrow_696',['HeaderRow',['../classHeaderRow.html',1,'HeaderRow'],['../classHeaderRow.html#a964daf8517b543beb3e4592436f3138c',1,'HeaderRow::HeaderRow()']]],
   ['headers_697',['headers',['../structHttp_1_1HttpResult.html#a663dee713583fca5be89fab8eddd3293',1,'Http::HttpResult::headers()'],['../classParamBox.html#adcabcd820f49f5fef2d666675b3b204c',1,'ParamBox::headers()']]],
