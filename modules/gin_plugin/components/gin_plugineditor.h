@@ -171,6 +171,7 @@ public:
     void setShowPresets (bool);
     void setShowMenu (bool);
     void setShowInfo (bool);
+    void setBrowseButtonState (bool s) { browseButton.setToggleState (s, juce::dontSendNotification); }
 
 protected:
     void paint (juce::Graphics& g) override;
@@ -205,7 +206,8 @@ protected:
 //==============================================================================
 /** Plugin editor
 */
-class ProcessorEditor : public ProcessorEditorBase
+class ProcessorEditor : public ProcessorEditorBase,
+                        protected juce::AsyncUpdater
 {
 public:
     ProcessorEditor (Processor&) noexcept;
@@ -223,6 +225,7 @@ public:
     Processor& slProc;
 
 protected:
+    void handleAsyncUpdate() override;
     void paint (juce::Graphics& g) override;
     void resized() override;
 

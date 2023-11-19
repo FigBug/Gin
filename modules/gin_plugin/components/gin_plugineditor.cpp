@@ -574,6 +574,8 @@ ProcessorEditor::ProcessorEditor (Processor& p) noexcept
     addChildComponent (patchBrowser);
 
     titleBar.refreshPrograms();
+
+    triggerAsyncUpdate();
 }
 
 ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_) noexcept
@@ -587,11 +589,22 @@ ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_) noexcept
     addChildComponent (patchBrowser);
 
     titleBar.refreshPrograms();
+
+    triggerAsyncUpdate();
 }
 
 ProcessorEditor::~ProcessorEditor()
 {
     setLookAndFeel (nullptr);
+}
+
+void ProcessorEditor::handleAsyncUpdate()
+{
+    if (ginProcessor.state.getChildWithName ("instance").getProperty ("browserOpen", false))
+    {
+        titleBar.setBrowseButtonState (true);
+        showPatchBrowser (true);
+    }
 }
 
 void ProcessorEditor::paint (juce::Graphics& g)
@@ -666,4 +679,6 @@ void ProcessorEditor::showPatchBrowser (bool p)
 {
     patchBrowser.toFront (false);
     patchBrowser.setVisible (p);
+
+    ginProcessor.state.getChildWithName ("instance").setProperty ("browserOpen", p, nullptr);
 }

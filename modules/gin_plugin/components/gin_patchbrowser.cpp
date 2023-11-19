@@ -16,6 +16,11 @@ PatchBrowser::PatchBrowser (Processor& p) : proc (p)
     authors.setMultipleSelectionEnabled (true);
     tags.setMultipleSelectionEnabled (true);
 
+    auto inst = proc.state.getChildWithName ("instance");
+    selectedAuthors = juce::StringArray::fromTokens (inst.getProperty ("selectedAuthors", {}).toString(), "|", "");
+    selectedTags    = juce::StringArray::fromTokens (inst.getProperty ("selectedTags", {}).toString(), "|", "");
+    selectedPresets = juce::StringArray::fromTokens (inst.getProperty ("selectedPresets", {}).toString(), "|", "");
+
     refresh();
 }
 
@@ -38,6 +43,11 @@ void PatchBrowser::selectionUpdated()
     
     for (int i = 0; i < presets.getNumSelectedRows(); i++)
         selectedPresets.add (currentPresets[presets.getSelectedRow (i)]);
+
+    auto inst = proc.state.getChildWithName ("instance");
+    inst.setProperty ("selectedAuthors",  selectedAuthors.joinIntoString ("|"), nullptr);
+    inst.setProperty ("selectedTags",     selectedTags.joinIntoString ("|"), nullptr);
+    inst.setProperty ("selectedPresets",  selectedPresets.joinIntoString ("|"), nullptr);
 }
 
 void PatchBrowser::refresh()
