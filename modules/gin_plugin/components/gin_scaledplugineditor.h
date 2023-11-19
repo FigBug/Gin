@@ -25,9 +25,10 @@ public:
         setLookAndFeel (&editor->getLookAndFeel());
 
         if (state_.isValid())
-            if (state_.hasProperty ("editorScale"))
-                if (auto scale = (float)state_.getProperty ("editorScale"); scale > 0.0f)
-                    setSize (int (w * scale), int (h * scale));
+            if (auto instance = state_.getChildWithName ("instance"); instance.isValid())
+                if (instance.hasProperty ("editorScale"))
+                    if (auto scale = (float)instance.getProperty ("editorScale"); scale > 0.0f)
+                        setSize (int (w * scale), int (h * scale));
 
         state = state_;
     }
@@ -57,7 +58,7 @@ public:
         frame.setTransform(juce::AffineTransform().scale (scale));
 
         if (state.isValid())
-            state.setProperty ("editorScale", scale, nullptr);
+            state.getOrCreateChildWithName ("instance", nullptr).setProperty ("editorScale", scale, nullptr);
     }
 
     juce::Component frame;
@@ -66,5 +67,3 @@ public:
 
     juce::ValueTree state;
 };
-
-

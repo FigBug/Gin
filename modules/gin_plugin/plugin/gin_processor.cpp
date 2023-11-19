@@ -58,6 +58,7 @@ Processor::~Processor()
 void Processor::init()
 {
     state = juce::ValueTree (juce::Identifier ("state"));
+    state.getOrCreateChildWithName ("instance", nullptr);
     loadAllPrograms();
     
     watcher.addListener (this);
@@ -533,6 +534,15 @@ void Processor::setStateInformation (const void* data, int sizeInBytes)
             state.removeAllProperties (nullptr);
             state.removeAllChildren (nullptr);
             state.copyPropertiesAndChildrenFrom (srcState, nullptr);
+
+            if (auto inst = state.getChildWithName ("instance"); ! inst.isValid())
+            {
+                inst = juce::ValueTree ("instance");
+
+                for (auto name : { "width", "height", "editorScale" })
+                    if (state.hasProperty (name))
+                        inst.setProperty (name, state.getProperty (name, {}), nullptr);
+            }
         }
         else if (rootE->hasAttribute ("valueTree"))
         {

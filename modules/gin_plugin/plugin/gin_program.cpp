@@ -8,9 +8,7 @@ void Program::loadProcessor (Processor& p)
         if (p.loadingState || ! p.isParamLocked (pp))
             pp->setUserValueNotifingHost (pp->getUserDefaultValue());
 
-    int w = p.state.getProperty ("width", -1);
-    int h = p.state.getProperty ("height", -1);
-    float sc = p.state.getProperty ("editorScale", -1.0f);
+    auto inst = p.state.getChildWithName ("instance").createCopy();
 
     p.state.removeAllProperties (nullptr);
     p.state.removeAllChildren (nullptr);
@@ -18,20 +16,11 @@ void Program::loadProcessor (Processor& p)
     if (state.isValid())
         p.state.copyPropertiesAndChildrenFrom (state, nullptr);
 
-    if (w != -1)
-        p.state.setProperty ("width", w, nullptr);
-    else
-        p.state.removeProperty ("width", nullptr);
+    if (auto oldInst = p.state.getChildWithName ("instance"); oldInst.isValid())
+        p.state.removeChild (oldInst, nullptr);
 
-    if (h != -1)
-        p.state.setProperty ("height", h, nullptr);
-    else
-        p.state.removeProperty ("height", nullptr);
-
-    if (sc > 0)
-        p.state.setProperty ("editorScale", sc, nullptr);
-    else
-        p.state.removeProperty ("editorScale", nullptr);
+    if (inst.isValid())
+        p.state.addChild (inst, 0, nullptr);
 
     for (const auto& s : states)
         if (auto pp = p.getParameter (s.uid))
