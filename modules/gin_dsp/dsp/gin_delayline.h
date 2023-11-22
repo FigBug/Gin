@@ -88,6 +88,26 @@ public:
         return data[ch][readPos];
     }
 
+    inline float readSampleLagrange (int ch, float samplePos)
+    {
+        int numSamples = buffer.getNumSamples();
+
+        float readPos = std::fmod (float (writePos + numSamples - samplePos), float (numSamples));
+
+        int i1 = int (std::floor (readPos));
+        int i2 = (i1 + 1) % numSamples;
+        int i3 = (i1 + 2) % numSamples;
+        int i4 = (i1 + 3) % numSamples;
+
+        jassert (i1 >= 0 && i1 < numSamples);
+        float fraction = readPos - float (i1);
+
+        float x[] = { 0.0f, 1.0f, 2.0f, 3.0f };
+        float y[] = { data[ch][i1], data[ch][i2], data[ch][i3], data[ch][i4] };
+
+        return Lagrange::interpolate (x, y, 4, fraction);
+    }
+
     inline void write (int ch, float input)
     {
         data[ch][writePos] = input;
