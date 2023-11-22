@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['id_713',['id',['../structModSrcId.html#ae8410470ac2d16b3d27179b6633efc65',1,'ModSrcId::id()'],['../structModDstId.html#a113d55c0da8df5a57180514adc99492c',1,'ModDstId::id()']]],
-  ['idle_714',['idle',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127aa5ee791507471a07b686dd1b63486b0e7',1,'ADSR::idle()'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188eaec2f993aec2c27fc750119ab17b16cdb',1,'AnalogADSR::idle()']]],
-  ['imagemetadata_715',['ImageMetadata',['../classImageMetadata.html',1,'ImageMetadata'],['../classImageMetadata.html#a1dfe334219bb1df21a42d95653dd326c',1,'ImageMetadata::ImageMetadata()']]],
-  ['images_716',['images',['../group__gin__graphics-images.html',1,'(Global Namespace)'],['../group__gin__gui-images.html',1,'(Global Namespace)']]],
-  ['images_717',['Images',['../classImages.html',1,'Images'],['../classImages.html#a3c31a7052197172e2bfb26efe796d32f',1,'Images::Images()']]],
-  ['images_718',['images',['../classCopperLookAndFeel.html#a1515b1d303c786c5721d72b2d25e942d',1,'CopperLookAndFeel']]],
+  ['id_712',['id',['../structModSrcId.html#ae8410470ac2d16b3d27179b6633efc65',1,'ModSrcId::id()'],['../structModDstId.html#a113d55c0da8df5a57180514adc99492c',1,'ModDstId::id()']]],
+  ['idle_713',['idle',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127aa5ee791507471a07b686dd1b63486b0e7',1,'ADSR::idle()'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188eaec2f993aec2c27fc750119ab17b16cdb',1,'AnalogADSR::idle()']]],
+  ['imagemetadata_714',['ImageMetadata',['../classImageMetadata.html',1,'ImageMetadata'],['../classImageMetadata.html#a1dfe334219bb1df21a42d95653dd326c',1,'ImageMetadata::ImageMetadata()']]],
+  ['images_715',['images',['../group__gin__graphics-images.html',1,'(Global Namespace)'],['../group__gin__gui-images.html',1,'(Global Namespace)']]],
+  ['images_716',['Images',['../classImages.html',1,'']]],
+  ['images_717',['images',['../classCopperLookAndFeel.html#a1515b1d303c786c5721d72b2d25e942d',1,'CopperLookAndFeel']]],
+  ['images_718',['Images',['../classImages.html#a3c31a7052197172e2bfb26efe796d32f',1,'Images']]],
   ['incphase_719',['incPhase',['../structOscState.html#a5f7c0274cffaa5b08c431289c245ae21',1,'OscState']]],
   ['info_720',['info',['../namespaceAssets.html#a0d8779fd5e3c309da5cef6baaa1b3c1e',1,'Assets']]],
   ['infobutton_721',['infoButton',['../classTitleBar.html#a98d47438b7d4dd40526040b5a7b94405',1,'TitleBar']]],

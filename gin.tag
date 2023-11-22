@@ -3916,6 +3916,13 @@
       <arglist>(int ch, int samplePos)</arglist>
     </member>
     <member kind="function">
+      <type>float</type>
+      <name>readSampleLagrange</name>
+      <anchorfile>classDelayLine.html</anchorfile>
+      <anchor>aa34d1e8071d58e27e2b98c5ffc2563cc</anchor>
+      <arglist>(int ch, float samplePos)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>write</name>
       <anchorfile>classDelayLine.html</anchorfile>
