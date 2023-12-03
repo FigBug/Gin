@@ -94,6 +94,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a964d75f365b9fe62c30e5735232d2cbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac40a5d31bfff126183557384f10c797d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWTOscillator.html#ac40a5d31bfff126183557384f10c797d">processAddingComplex</a> (float note, const <a class="el" href="structWTOscillator_1_1Params.html">Params</a> &amp;params, juce::AudioSampleBuffer &amp;buffer)</td></tr>
 <tr class="separator:ac40a5d31bfff126183557384f10c797d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a026f67b3df08a1944de460a4bbe0e1"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a8a026f67b3df08a1944de460a4bbe0e1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classWTOscillator.html#a8a026f67b3df08a1944de460a4bbe0e1">postProcess</a> (const <a class="el" href="structWTOscillator_1_1Params.html">Params</a> &amp;params, T &amp;v)</td></tr>
+<tr class="separator:a8a026f67b3df08a1944de460a4bbe0e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2e96a58595de3370fe462b84f2732e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWTOscillator.html#ac2e96a58595de3370fe462b84f2732e0">setWavetable</a> (juce::OwnedArray&lt; <a class="el" href="classBandLimitedLookupTable.html">BandLimitedLookupTable</a> &gt; *table)</td></tr>
 <tr class="separator:ac2e96a58595de3370fe462b84f2732e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -268,7 +271,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structWTOscillator_1_1Params.html#abef23350d10d65198a293119ced8bb9d">WTOscillator::Params::leftGain</a>, <a class="el" href="namespacemath.html#a3301207fd965d081143a0442ce2923e3">math::min()</a>, <a class="el" href="structWTOscillator_1_1Params.html#a89fbc9fd3f3cb250637b1be8d45f4d87">WTOscillator::Params::position</a>, and <a class="el" href="structWTOscillator_1_1Params.html#a432702cbb02f4013a3915a03ca672c39">WTOscillator::Params::rightGain</a>.</p>
+<p class="reference">References <a class="el" href="structWTOscillator_1_1Params.html#abef23350d10d65198a293119ced8bb9d">WTOscillator::Params::leftGain</a>, <a class="el" href="namespacemath.html#a3301207fd965d081143a0442ce2923e3">math::min()</a>, <a class="el" href="structWTOscillator_1_1Params.html#a89fbc9fd3f3cb250637b1be8d45f4d87">WTOscillator::Params::position</a>, <a class="el" href="classWTOscillator.html#a8a026f67b3df08a1944de460a4bbe0e1">postProcess()</a>, and <a class="el" href="structWTOscillator_1_1Params.html#a432702cbb02f4013a3915a03ca672c39">WTOscillator::Params::rightGain</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classWTOscillator.html#aaa547794aafc04f582782983988b2651">processAdding()</a>.</p>
 
@@ -306,9 +309,43 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structWTOscillator_1_1Params.html#a1bb44ee47a18bb34bb4158461bf2889d">WTOscillator::Params::bend</a>, <a class="el" href="structWTOscillator_1_1Params.html#af6b36b4d5dd74c8bc17ca0c8671d42f2">WTOscillator::Params::formant</a>, <a class="el" href="structWTOscillator_1_1Params.html#abef23350d10d65198a293119ced8bb9d">WTOscillator::Params::leftGain</a>, <a class="el" href="namespacemath.html#a3301207fd965d081143a0442ce2923e3">math::min()</a>, <a class="el" href="structWTOscillator_1_1Params.html#a89fbc9fd3f3cb250637b1be8d45f4d87">WTOscillator::Params::position</a>, and <a class="el" href="structWTOscillator_1_1Params.html#a432702cbb02f4013a3915a03ca672c39">WTOscillator::Params::rightGain</a>.</p>
+<p class="reference">References <a class="el" href="structWTOscillator_1_1Params.html#a1bb44ee47a18bb34bb4158461bf2889d">WTOscillator::Params::bend</a>, <a class="el" href="structWTOscillator_1_1Params.html#af6b36b4d5dd74c8bc17ca0c8671d42f2">WTOscillator::Params::formant</a>, <a class="el" href="structWTOscillator_1_1Params.html#abef23350d10d65198a293119ced8bb9d">WTOscillator::Params::leftGain</a>, <a class="el" href="namespacemath.html#a3301207fd965d081143a0442ce2923e3">math::min()</a>, <a class="el" href="structWTOscillator_1_1Params.html#a89fbc9fd3f3cb250637b1be8d45f4d87">WTOscillator::Params::position</a>, <a class="el" href="classWTOscillator.html#a8a026f67b3df08a1944de460a4bbe0e1">postProcess()</a>, and <a class="el" href="structWTOscillator_1_1Params.html#a432702cbb02f4013a3915a03ca672c39">WTOscillator::Params::rightGain</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classWTOscillator.html#aaa547794aafc04f582782983988b2651">processAdding()</a>.</p>
+
+</div>
+</div>
+<a id="a8a026f67b3df08a1944de460a4bbe0e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a026f67b3df08a1944de460a4bbe0e1">&#9670;&nbsp;</a></span>postProcess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void WTOscillator::postProcess </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structWTOscillator_1_1Params.html">Params</a> &amp;&#160;</td>
+          <td class="paramname"><em>params</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="structWTOscillator_1_1Params.html#aa86914604683e0a51991496154ac31fa">WTOscillator::Params::asym</a>, <a class="el" href="structWTOscillator_1_1Params.html#aab7b5829ad3f94e2d095931f6100c00a">WTOscillator::Params::fold</a>, <a class="el" href="namespacemath.html#a6370970cb3971fa9cc781b62cac7762c">math::lerp()</a>, <a class="el" href="namespacemath.html#ae4753f62af945d3b55f4de8c3bce86f8">math::max()</a>, <a class="el" href="namespacemath.html#a3301207fd965d081143a0442ce2923e3">math::min()</a>, <a class="el" href="namespacemath.html#a9fc4f8a6ae5797d88e79075846529fd0">math::pow2()</a>, and <a class="el" href="namespacemath.html#a9ec6798e6427507fc17135a4e64d3d0f">math::pow4()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classWTOscillator.html#ac40a5d31bfff126183557384f10c797d">processAddingComplex()</a>, and <a class="el" href="classWTOscillator.html#a964d75f365b9fe62c30e5735232d2cbb">processAddingSimple()</a>.</p>
 
 </div>
 </div>
@@ -336,7 +373,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 22 2023 17:42:43 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Sun Dec 3 2023 22:37:49 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

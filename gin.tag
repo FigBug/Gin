@@ -10019,6 +10019,20 @@
       <anchor>af6b36b4d5dd74c8bc17ca0c8671d42f2</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>asym</name>
+      <anchorfile>structWTOscillator_1_1Params.html</anchorfile>
+      <anchor>aa86914604683e0a51991496154ac31fa</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>fold</name>
+      <anchorfile>structWTOscillator_1_1Params.html</anchorfile>
+      <anchor>aab7b5829ad3f94e2d095931f6100c00a</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="struct">
     <name>Parameter::ParamState</name>
@@ -15472,6 +15486,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>postProcess</name>
+      <anchorfile>classWTOscillator.html</anchorfile>
+      <anchor>a8a026f67b3df08a1944de460a4bbe0e1</anchor>
+      <arglist>(const Params &amp;params, T &amp;v)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>setWavetable</name>
       <anchorfile>classWTOscillator.html</anchorfile>
       <anchor>ac2e96a58595de3370fe462b84f2732e0</anchor>
@@ -15527,6 +15548,20 @@
       <name>formant</name>
       <anchorfile>structWTVoicedStereoOscillatorParams.html</anchorfile>
       <anchor>abc3280093425299b75691776a088fb3c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>asym</name>
+      <anchorfile>structWTVoicedStereoOscillatorParams.html</anchorfile>
+      <anchor>aa6c2c1b833cfc3ff943f2385505b479b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>fold</name>
+      <anchorfile>structWTVoicedStereoOscillatorParams.html</anchorfile>
+      <anchor>a4a7cc55fd5f1736661193d116be5f7c6</anchor>
       <arglist></arglist>
     </member>
   </compound>
