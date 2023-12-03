@@ -23,6 +23,8 @@ public:
         float position = 0.0f;
         float bend = 0.0f;
         float formant = 0.0f;
+        float asym = 0.0f;
+        float fold = 0.0f;
     };
 
     void setSampleRate (double sr)  { sampleRate = sr; }
@@ -72,6 +74,7 @@ public:
                 mipp::Reg<float> rVec { r };
 
                 auto s = table->process (note, math::min (almostOne, phaseVec));
+                postProcess (params, s);
 
                 lVec += s * params.leftGain;
                 rVec += s * params.rightGain;
@@ -85,6 +88,8 @@ public:
             for (; todo > 0; todo--)
             {
                 auto s = table->process (note, std::min (almostOne, phase));
+                postProcess (params, s);
+
                 *l++ += s * params.leftGain;
                 *r++ += s * params.rightGain;
 
@@ -131,6 +136,7 @@ public:
                 mipp::Reg<float> rVec { r };
 
                 auto s = table->process (note, phaseDistortion (math::min (almostOne, phaseVec), params.bend, params.formant));
+                postProcess (params, s);
 
                 lVec += s * params.leftGain;
                 rVec += s * params.rightGain;
@@ -144,6 +150,8 @@ public:
             for (; todo > 0; todo--)
             {
                 auto s = table->process (note, phaseDistortion (std::min (almostOne, phase), params.bend, params.formant));
+                postProcess (params, s);
+
                 *l++ += s * params.leftGain;
                 *r++ += s * params.rightGain;
 
@@ -158,6 +166,19 @@ public:
             }
         }
        #endif
+    }
+
+    template<typename T>
+    void postProcess (const Params& params, T& v)
+    {
+        if (params.asym > 0)
+            v = math::lerp (v, math::pow4 (v - 1.0f) * -1.0f + 1.0f, math::pow2 (params.asym));
+
+        if (params.fold > 0)
+        {
+            const auto fold = math::pow2 (math::pow2 (1.0f - params.fold)) * 1.5f;
+            v = (v - ((math::max (v, fold) - fold) * T(2.0f)) - ((math::min (v, -fold) + fold) * T(2.0f)));
+        }
     }
 
     void setWavetable (juce::OwnedArray<BandLimitedLookupTable>* table);
@@ -215,12 +236,16 @@ struct WTVoicedStereoOscillatorParams : public VoicedOscillatorParams
     float position = 0.5;
     float bend = 0.0f;
     float formant = 0.0f;
+    float asym = 0.0f;
+    float fold = 0.0f;
 
     inline void init (WTOscillator::Params& p) const
     {
         p.position = position;
-        p.bend = bend;
-        p.formant = formant;
+        p.bend     = bend;
+        p.formant  = formant;
+        p.asym     = asym;
+        p.fold     = fold;
     }
 };
 
