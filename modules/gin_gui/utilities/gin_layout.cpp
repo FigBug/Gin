@@ -220,6 +220,8 @@ void Layout::setLayout (const juce::String& filename, const juce::File& source)
             break;
         }
     }
+   #else
+    jassertfalse; // you have no binary data, can't load layout
    #endif
 }
 

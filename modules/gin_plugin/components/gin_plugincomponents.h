@@ -192,6 +192,8 @@ public:
     PluginSlider (Parameter* parameter_, SliderStyle style, TextEntryBoxPosition textBoxPosition)
       : Slider (style, textBoxPosition), parameter (parameter_)
     {
+        setName (parameter->getShortName());
+
         addListener (this);
         setRange (parameter->getUserRangeStart(), parameter->getUserRangeEnd());
         setValue (parameter->getUserValue(), juce::dontSendNotification);
