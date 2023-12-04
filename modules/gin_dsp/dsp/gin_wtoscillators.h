@@ -103,6 +103,8 @@ public:
                 table = bllt->getUnchecked (tableIndex);
             }
         }
+       #else
+        jassertfalse; // you need to import gin_simd
        #endif
     }
 
@@ -165,12 +167,15 @@ public:
                 table = bllt->getUnchecked (tableIndex);
             }
         }
+       #else
+        jassertfalse; // you need to import gin_simd
        #endif
     }
 
     template<typename T>
     void postProcess (const Params& params, T& v)
     {
+       #ifdef JUCE_MODULE_AVAILABLE_gin_simd
         if (params.asym > 0)
             v = math::lerp (v, math::pow4 (v - 1.0f) * -1.0f + 1.0f, math::pow2 (params.asym));
 
@@ -179,6 +184,7 @@ public:
             const auto fold = math::pow2 (math::pow2 (1.0f - params.fold)) * 1.5f;
             v = (v - ((math::max (v, fold) - fold) * T(2.0f)) - ((math::min (v, -fold) + fold) * T(2.0f)));
         }
+       #endif
     }
 
     void setWavetable (juce::OwnedArray<BandLimitedLookupTable>* table);
