@@ -76,7 +76,7 @@ public:
         return tables[size_t (tableIndex)][size_t (pos)];
     }
     
-   #ifdef JUCE_MODULE_AVAILABLE_gin_simd
+   #if GIN_HAS_SIMD
     inline mipp::Reg<float> process (float note, mipp::Reg<float> phase)
     {
         static_assert (mipp::N<float>() == 4);

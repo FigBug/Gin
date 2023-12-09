@@ -76,7 +76,17 @@ JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE("-Wimplicit-float-conversion",
  #endif 
 #endif
 
-#include "mipp/mipp.h"
+#ifndef GIN_HAS_SIMD
+ #ifdef JUCE_32BIT
+  #define GIN_HAS_SIMD 0
+ #else
+  #define GIN_HAS_SIMD 1
+ #endif
+#endif
+
+#if GIN_HAS_SIMD
+ #include "mipp/mipp.h"
+#endif
 
 JUCE_END_IGNORE_WARNINGS_GCC_LIKE
 

@@ -46,8 +46,6 @@ public:
 
     void processAddingSimple (float note, const Params& params, juce::AudioSampleBuffer& buffer)
     {
-        juce::ignoreUnused (note, params, buffer);
-       #ifdef JUCE_MODULE_AVAILABLE_gin_simd
         if (bllt == nullptr || bllt->size() == 0) return;
 
         if (tableIndex == -1 || tableIndex >= bllt->size())
@@ -67,6 +65,7 @@ public:
             auto todo = std::min (samps, int ((1.0f - phase) / delta) + 1);
             samps -= todo;
 
+           #if GIN_HAS_SIMD
             for (; todo >= 4; todo -= 4)
             {
                 mipp::Reg<float> phaseVec = {phase, phase + delta, phase + 2 * delta, phase + 3 * delta};
@@ -84,6 +83,7 @@ public:
 
                 phase += delta * 4;
             }
+           #endif
 
             for (; todo > 0; todo--)
             {
@@ -103,15 +103,10 @@ public:
                 table = bllt->getUnchecked (tableIndex);
             }
         }
-       #else
-        jassertfalse; // you need to import gin_simd
-       #endif
     }
 
     void processAddingComplex (float note, const Params& params, juce::AudioSampleBuffer& buffer)
     {
-        juce::ignoreUnused (note, params, buffer);
-       #ifdef JUCE_MODULE_AVAILABLE_gin_simd
         if (bllt == nullptr || bllt->size() == 0) return;
 
         if (tableIndex == -1 || tableIndex >= bllt->size())
@@ -131,6 +126,7 @@ public:
             auto todo = std::min (samps, int ((1.0f - phase) / delta) + 1);
             samps -= todo;
 
+           #if GIN_HAS_SIMD
             for (; todo >= 4; todo -= 4)
             {
                 mipp::Reg<float> phaseVec = {phase, phase + delta, phase + 2 * delta, phase + 3 * delta};
@@ -148,6 +144,7 @@ public:
 
                 phase += delta * 4;
             }
+           #endif
 
             for (; todo > 0; todo--)
             {
@@ -167,15 +164,11 @@ public:
                 table = bllt->getUnchecked (tableIndex);
             }
         }
-       #else
-        jassertfalse; // you need to import gin_simd
-       #endif
     }
 
     template<typename T>
     void postProcess (const Params& params, T& v)
     {
-       #ifdef JUCE_MODULE_AVAILABLE_gin_simd
         if (params.asym > 0)
             v = math::lerp (v, math::pow4 (v - 1.0f) * -1.0f + 1.0f, math::pow2 (params.asym));
 
@@ -184,13 +177,11 @@ public:
             const auto fold = math::pow2 (math::pow2 (1.0f - params.fold)) * 1.5f;
             v = (v - ((math::max (v, fold) - fold) * T(2.0f)) - ((math::min (v, -fold) + fold) * T(2.0f)));
         }
-       #endif
     }
 
     void setWavetable (juce::OwnedArray<BandLimitedLookupTable>* table);
 
 private:
-   #ifdef JUCE_MODULE_AVAILABLE_gin_simd
     template<typename T>
     T bendDistortion (T phaseIn, float bend)
     {
@@ -227,7 +218,6 @@ private:
 
         return phaseIn;
     }
-   #endif
 
     juce::OwnedArray<BandLimitedLookupTable>* bllt = nullptr;
     double sampleRate = 44100.0;
