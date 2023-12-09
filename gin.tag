@@ -1239,39 +1239,11 @@
       <arglist>(float v)</arglist>
     </member>
     <member kind="function">
-      <type>mipp::Reg&lt; float &gt;</type>
-      <name>pow2</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a755ba43de51b65bc1eeb08ded27040c9</anchor>
-      <arglist>(mipp::Reg&lt; float &gt; v)</arglist>
-    </member>
-    <member kind="function">
-      <type>mipp::Reg&lt; float &gt;</type>
-      <name>pow4</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a2210dcc40e7212429ebb82f0ab66dd6b</anchor>
-      <arglist>(mipp::Reg&lt; float &gt; v)</arglist>
-    </member>
-    <member kind="function">
-      <type>mipp::Reg&lt; float &gt;</type>
-      <name>pow8</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a65dc02460e12a2db9320bcc2fdc32507</anchor>
-      <arglist>(mipp::Reg&lt; float &gt; v)</arglist>
-    </member>
-    <member kind="function">
       <type>float</type>
       <name>lerp</name>
       <anchorfile>namespacemath.html</anchorfile>
       <anchor>a6370970cb3971fa9cc781b62cac7762c</anchor>
       <arglist>(float a, float b, float t)</arglist>
-    </member>
-    <member kind="function">
-      <type>mipp::Reg&lt; float &gt;</type>
-      <name>lerp</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a0c35889acc534b2f596db108b9066a43</anchor>
-      <arglist>(mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b, mipp::Reg&lt; float &gt; t)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -1281,25 +1253,11 @@
       <arglist>(float a, float b)</arglist>
     </member>
     <member kind="function">
-      <type>mipp::Reg&lt; float &gt;</type>
-      <name>min</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a9d0725714427cdeff84c57f5446575d8</anchor>
-      <arglist>(mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b)</arglist>
-    </member>
-    <member kind="function">
       <type>float</type>
       <name>max</name>
       <anchorfile>namespacemath.html</anchorfile>
       <anchor>ae4753f62af945d3b55f4de8c3bce86f8</anchor>
       <arglist>(float a, float b)</arglist>
-    </member>
-    <member kind="function">
-      <type>mipp::Reg&lt; float &gt;</type>
-      <name>max</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>ac963dd6333f9a93682fbbb8659fea851</anchor>
-      <arglist>(mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -1310,24 +1268,10 @@
     </member>
     <member kind="function">
       <type>float</type>
-      <name>minVal</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a7bdfbaeff27f9fdd5302c96b9d738a87</anchor>
-      <arglist>(mipp::Reg&lt; float &gt; a)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
       <name>maxVal</name>
       <anchorfile>namespacemath.html</anchorfile>
       <anchor>aa11b360dd6dc2fae2ba9cffdd2c886ff</anchor>
       <arglist>(float a)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>maxVal</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a8111e452c41de99bbb369ce0de9e26f8</anchor>
-      <arglist>(mipp::Reg&lt; float &gt; a)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -15850,39 +15794,11 @@
       <arglist>(float v)</arglist>
     </member>
     <member kind="function">
-      <type>mipp::Reg&lt; float &gt;</type>
-      <name>pow2</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a755ba43de51b65bc1eeb08ded27040c9</anchor>
-      <arglist>(mipp::Reg&lt; float &gt; v)</arglist>
-    </member>
-    <member kind="function">
-      <type>mipp::Reg&lt; float &gt;</type>
-      <name>pow4</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a2210dcc40e7212429ebb82f0ab66dd6b</anchor>
-      <arglist>(mipp::Reg&lt; float &gt; v)</arglist>
-    </member>
-    <member kind="function">
-      <type>mipp::Reg&lt; float &gt;</type>
-      <name>pow8</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a65dc02460e12a2db9320bcc2fdc32507</anchor>
-      <arglist>(mipp::Reg&lt; float &gt; v)</arglist>
-    </member>
-    <member kind="function">
       <type>float</type>
       <name>lerp</name>
       <anchorfile>namespacemath.html</anchorfile>
       <anchor>a6370970cb3971fa9cc781b62cac7762c</anchor>
       <arglist>(float a, float b, float t)</arglist>
-    </member>
-    <member kind="function">
-      <type>mipp::Reg&lt; float &gt;</type>
-      <name>lerp</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a0c35889acc534b2f596db108b9066a43</anchor>
-      <arglist>(mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b, mipp::Reg&lt; float &gt; t)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -15892,25 +15808,11 @@
       <arglist>(float a, float b)</arglist>
     </member>
     <member kind="function">
-      <type>mipp::Reg&lt; float &gt;</type>
-      <name>min</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a9d0725714427cdeff84c57f5446575d8</anchor>
-      <arglist>(mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b)</arglist>
-    </member>
-    <member kind="function">
       <type>float</type>
       <name>max</name>
       <anchorfile>namespacemath.html</anchorfile>
       <anchor>ae4753f62af945d3b55f4de8c3bce86f8</anchor>
       <arglist>(float a, float b)</arglist>
-    </member>
-    <member kind="function">
-      <type>mipp::Reg&lt; float &gt;</type>
-      <name>max</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>ac963dd6333f9a93682fbbb8659fea851</anchor>
-      <arglist>(mipp::Reg&lt; float &gt; a, mipp::Reg&lt; float &gt; b)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -15921,24 +15823,10 @@
     </member>
     <member kind="function">
       <type>float</type>
-      <name>minVal</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a7bdfbaeff27f9fdd5302c96b9d738a87</anchor>
-      <arglist>(mipp::Reg&lt; float &gt; a)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
       <name>maxVal</name>
       <anchorfile>namespacemath.html</anchorfile>
       <anchor>aa11b360dd6dc2fae2ba9cffdd2c886ff</anchor>
       <arglist>(float a)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>maxVal</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a8111e452c41de99bbb369ce0de9e26f8</anchor>
-      <arglist>(mipp::Reg&lt; float &gt; a)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -15988,23 +15876,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_plugin-components</name>
-    <title>components</title>
-    <filename>group__gin__plugin-components.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>gradientRect</name>
-      <anchorfile>group__gin__plugin-components.html</anchorfile>
-      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
-      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-  </compound>
-  <compound kind="group">
     <name>gin_gui-components</name>
     <title>components</title>
     <filename>group__gin__gui-components.html</filename>
@@ -16022,6 +15893,23 @@
       <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
       <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
     </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_plugin-components</name>
+    <title>components</title>
+    <filename>group__gin__plugin-components.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>gradientRect</name>
+      <anchorfile>group__gin__plugin-components.html</anchorfile>
+      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
+      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
   </compound>
   <compound kind="group">
     <name>gin_dsp-dsp</name>
@@ -16281,25 +16169,6 @@
     <title>gin_webp</title>
     <filename>group__gin__webp.html</filename>
     <subgroup>gin_webp-formats</subgroup>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-images</name>
-    <title>images</title>
-    <filename>group__gin__gui-images.html</filename>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>rasterizeSVG</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
-      <arglist>(juce::String svgText, int w, int h)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Path</type>
-      <name>parseSVGPath</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
-      <arglist>(const juce::String &amp;txt)</arglist>
-    </member>
   </compound>
   <compound kind="group">
     <name>gin_graphics-images</name>
@@ -16590,6 +16459,25 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_gui-images</name>
+    <title>images</title>
+    <filename>group__gin__gui-images.html</filename>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>rasterizeSVG</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
+      <arglist>(juce::String svgText, int w, int h)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Path</type>
+      <name>parseSVGPath</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
+      <arglist>(const juce::String &amp;txt)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
     <name>gin_location-location</name>
     <title>location</title>
     <filename>group__gin__location-location.html</filename>
@@ -16642,39 +16530,6 @@
     <name>gin_plugin-resources</name>
     <title>resources</title>
     <filename>group__gin__plugin-resources.html</filename>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-utilities</name>
-    <title>utilities</title>
-    <filename>group__gin__gui-utilities.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>callOnMainThreadBlocking</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
-      <arglist>(std::function&lt; void()&gt; func)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
-    </member>
   </compound>
   <compound kind="group">
     <name>gin-utilities</name>
@@ -17029,6 +16884,39 @@
       <anchorfile>group__gin-utilities.html</anchorfile>
       <anchor>ga88f482bf81fb3e423fa1e3926dfaa9a6</anchor>
       <arglist>(const juce::String &amp;jsonText)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_gui-utilities</name>
+    <title>utilities</title>
+    <filename>group__gin__gui-utilities.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>callOnMainThreadBlocking</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
+      <arglist>(std::function&lt; void()&gt; func)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
     </member>
   </compound>
 </tagfile>
