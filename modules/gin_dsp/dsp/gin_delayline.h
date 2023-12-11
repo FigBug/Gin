@@ -44,7 +44,7 @@ public:
 
         jassert (t >= 0.0f && t < (numSamples / sampleRate));
 
-        float readPos = std::fmod (float (writePos + numSamples - (t * sampleRate)), float (numSamples));
+        float readPos = std::fmod (float (writePos - 1 + numSamples - (t * sampleRate)), float (numSamples));
 
         int i1 = int (std::floor (readPos));
         int i2 = (i1 + 1) % numSamples;
@@ -66,7 +66,7 @@ public:
 
         jassert (t >= 0.0f && t < (numSamples / sampleRate));
 
-        float readPos = std::fmod (float (writePos + numSamples - (t * sampleRate)), float (numSamples));
+        float readPos = std::fmod (float (writePos - 1 + numSamples - (t * sampleRate)), float (numSamples));
         int prev = int (std::floor (readPos));
         int next = (prev + 1) % numSamples;
 
@@ -84,7 +84,8 @@ public:
 
         jassert (samplePos >= 0 && samplePos < numSamples);
 
-        auto readPos = (writePos + numSamples - samplePos) % numSamples;
+        auto readPos = (writePos - 1 + numSamples - samplePos) % numSamples;
+        jassert (readPos >= 0 && readPos < numSamples);
         return data[ch][readPos];
     }
 
@@ -92,7 +93,7 @@ public:
     {
         int numSamples = buffer.getNumSamples();
 
-        float readPos = std::fmod (float (writePos + numSamples - samplePos), float (numSamples));
+        float readPos = std::fmod (float (writePos - 1 + numSamples - samplePos), float (numSamples));
 
         int i1 = int (std::floor (readPos));
         int i2 = (i1 + 1) % numSamples;
