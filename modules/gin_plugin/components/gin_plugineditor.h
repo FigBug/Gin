@@ -24,6 +24,8 @@ private:
 
     Processor& slProc;
     juce::String updateUrl;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(UpdateChecker)
 };
 
 //==============================================================================
@@ -48,6 +50,8 @@ private:
 
     Processor& slProc;
     juce::String newsUrl;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(NewsChecker)
 };
 
 //==============================================================================

@@ -92,4 +92,6 @@ private:
 
     int delay = 0;
     juce::SharedResourcePointer<SharedTimers> sharedTimers;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CoalescedTimer)
 };

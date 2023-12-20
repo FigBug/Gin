@@ -38,6 +38,8 @@ public:
     }
 
     std::function<void ()> callback;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(DelayedLambdaHelper)
 };
 
 void delayedLambda (std::function<void ()> callback, int delayMS)

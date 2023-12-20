@@ -459,4 +459,6 @@ public:
     juce::Path cpuPath { parseSVGPath (gin::Assets::cpu) };
     
     SVGButton panic { "panic", gin::Assets::panic };
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SynthesiserUsage)
 };

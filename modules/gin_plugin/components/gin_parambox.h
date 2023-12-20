@@ -91,6 +91,8 @@ private:
         g.setColour (getToggleState() ? findColour (PluginLookAndFeel::accentColourId).withAlpha (0.6f) : findColour (PluginLookAndFeel::whiteColourId).withAlpha (0.6f));
         g.drawText (getButtonText().toUpperCase(), getLocalBounds(), juce::Justification::centred);
     }
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(HeaderButton)
 };
 
 

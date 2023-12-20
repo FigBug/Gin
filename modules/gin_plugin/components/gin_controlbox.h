@@ -250,6 +250,8 @@ private:
         juce::Component controlsParent;
         juce::OwnedArray<juce::Component> controls, bottomButtons;
         bool opening = false;
+
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PageComponent)
     };
 
     //==============================================================================
