@@ -292,7 +292,7 @@ struct WebsocketDemo : public juce::Component
     juce::TextEditor outText;
     juce::TextButton sendButton {"Send"};
 
-    gin::AsyncWebsocket websocket {juce::URL ("wss://demos.kaazing.com/echo") };
+    gin::AsyncWebsocket websocket {juce::URL ("wss://ws.postman-echo.com/raw") };
 };
 
 //==============================================================================
