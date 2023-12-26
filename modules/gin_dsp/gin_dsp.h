@@ -63,10 +63,6 @@
 #include <gin/gin.h>
 #include <gin_simd/gin_simd.h>
 
-#ifdef JUCE_MODULE_AVAILABLE_gin_simd
- #include <gin_simd/gin_simd.h>
-#endif
-
 #if defined (__clang__)
  #pragma clang diagnostic pop
 #endif
