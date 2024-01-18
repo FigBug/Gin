@@ -60,7 +60,7 @@ var searchData=
   ['applygreyscale_57',['applyGreyScale',['../group__gin__graphics-images.html#gadb285c05d7e81fbffe8b2ab5705b0783',1,'gin_imageeffects.h']]],
   ['applyhuesaturationlightness_58',['applyHueSaturationLightness',['../group__gin__graphics-images.html#ga25205b0926bfca178115404c6d9f45d9',1,'gin_imageeffects.h']]],
   ['applyinvert_59',['applyInvert',['../group__gin__graphics-images.html#ga6453f04ab3d2a6a345cd6b7f70711c04',1,'gin_imageeffects.h']]],
-  ['applyresize_60',['applyResize',['../group__gin__graphics-images.html#ga8a045522d5a03954f0d4fe2cbc8082a4',1,'applyResize(const juce::Image &amp;img, int width, int height):&#160;gin_imageeffects.h'],['../group__gin__graphics-images.html#ga99654c39e56b66a36c75cbbff9e137b4',1,'applyResize(const juce::Image &amp;img, float factor):&#160;gin_imageeffects.h']]],
+  ['applyresize_60',['applyResize',['../group__gin__graphics-images.html#ga3b48b2d9f0652cc609336b4ff5d1dd07',1,'applyResize(const juce::Image &amp;img, int width, int height, ResizeAlgorirm resizeAlgorirm=ResizeAlgorirm::avir):&#160;gin_imageeffects.h'],['../group__gin__graphics-images.html#ga4d96614cc76bccc3f72c891660c6efe5',1,'applyResize(const juce::Image &amp;img, float factor, ResizeAlgorirm resizeAlgorirm=ResizeAlgorirm::avir):&#160;gin_imageeffects.h']]],
   ['applysepia_61',['applySepia',['../group__gin__graphics-images.html#gaccaa511049769192c15aa13e0c2a40d1',1,'gin_imageeffects.h']]],
   ['applysharpen_62',['applySharpen',['../group__gin__graphics-images.html#gac0b5514a6c74e31bd4e7a26898e45228',1,'gin_imageeffects.h']]],
   ['applysoften_63',['applySoften',['../group__gin__graphics-images.html#ga4cc9c0919994beeac34d088beb1991e2',1,'gin_imageeffects.h']]],
@@ -92,5 +92,6 @@ var searchData=
   ['authorsmodel_89',['authorsModel',['../classPatchBrowser.html#a62a7cf5ab56615e84109ced00beb6dcb',1,'PatchBrowser']]],
   ['authorsmodel_90',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html#a5b1e9a0aee87d3623f78db4126fcab3e',1,'PatchBrowser::AuthorsModel::AuthorsModel()'],['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser::AuthorsModel']]],
   ['average_91',['average',['../classRollingAverage.html#a941797e5f59cbdfce52faa655bd1b7f3',1,'RollingAverage']]],
-  ['average_92',['Average',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f',1,'gin_imageeffects.h']]]
+  ['average_92',['Average',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f',1,'gin_imageeffects.h']]],
+  ['avir_93',['avir',['../group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04',1,'gin_imageeffects.h']]]
 ];

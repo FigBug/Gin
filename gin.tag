@@ -804,6 +804,15 @@
     <filename>gin__imageeffects_8h.html</filename>
     <member kind="enumeration">
       <type></type>
+      <name>ResizeAlgorirm</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gaedc0b4c54cea2c3df1788ebf8ee9b07b</anchor>
+      <arglist></arglist>
+      <enumvalue file="group__gin__graphics-images.html" anchor="ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04">avir</enumvalue>
+      <enumvalue file="group__gin__graphics-images.html" anchor="ggaedc0b4c54cea2c3df1788ebf8ee9b07bacf842af094536ba42c3771077d483b19">lanczos</enumvalue>
+    </member>
+    <member kind="enumeration">
+      <type></type>
       <name>BlendMode</name>
       <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>ga30323fa90e24ca484998b9fba6c40e85</anchor>
@@ -1040,15 +1049,15 @@
       <type>juce::Image</type>
       <name>applyResize</name>
       <anchorfile>group__gin__graphics-images.html</anchorfile>
-      <anchor>ga8a045522d5a03954f0d4fe2cbc8082a4</anchor>
-      <arglist>(const juce::Image &amp;img, int width, int height)</arglist>
+      <anchor>ga3b48b2d9f0652cc609336b4ff5d1dd07</anchor>
+      <arglist>(const juce::Image &amp;img, int width, int height, ResizeAlgorirm resizeAlgorirm=ResizeAlgorirm::avir)</arglist>
     </member>
     <member kind="function">
       <type>juce::Image</type>
       <name>applyResize</name>
       <anchorfile>group__gin__graphics-images.html</anchorfile>
-      <anchor>ga99654c39e56b66a36c75cbbff9e137b4</anchor>
-      <arglist>(const juce::Image &amp;img, float factor)</arglist>
+      <anchor>ga4d96614cc76bccc3f72c891660c6efe5</anchor>
+      <arglist>(const juce::Image &amp;img, float factor, ResizeAlgorirm resizeAlgorirm=ResizeAlgorirm::avir)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -16195,6 +16204,15 @@
     <filename>group__gin__graphics-images.html</filename>
     <member kind="enumeration">
       <type></type>
+      <name>ResizeAlgorirm</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gaedc0b4c54cea2c3df1788ebf8ee9b07b</anchor>
+      <arglist></arglist>
+      <enumvalue file="group__gin__graphics-images.html" anchor="ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04">avir</enumvalue>
+      <enumvalue file="group__gin__graphics-images.html" anchor="ggaedc0b4c54cea2c3df1788ebf8ee9b07bacf842af094536ba42c3771077d483b19">lanczos</enumvalue>
+    </member>
+    <member kind="enumeration">
+      <type></type>
       <name>BlendMode</name>
       <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>ga30323fa90e24ca484998b9fba6c40e85</anchor>
@@ -16431,15 +16449,15 @@
       <type>juce::Image</type>
       <name>applyResize</name>
       <anchorfile>group__gin__graphics-images.html</anchorfile>
-      <anchor>ga8a045522d5a03954f0d4fe2cbc8082a4</anchor>
-      <arglist>(const juce::Image &amp;img, int width, int height)</arglist>
+      <anchor>ga3b48b2d9f0652cc609336b4ff5d1dd07</anchor>
+      <arglist>(const juce::Image &amp;img, int width, int height, ResizeAlgorirm resizeAlgorirm=ResizeAlgorirm::avir)</arglist>
     </member>
     <member kind="function">
       <type>juce::Image</type>
       <name>applyResize</name>
       <anchorfile>group__gin__graphics-images.html</anchorfile>
-      <anchor>ga99654c39e56b66a36c75cbbff9e137b4</anchor>
-      <arglist>(const juce::Image &amp;img, float factor)</arglist>
+      <anchor>ga4d96614cc76bccc3f72c891660c6efe5</anchor>
+      <arglist>(const juce::Image &amp;img, float factor, ResizeAlgorirm resizeAlgorirm=ResizeAlgorirm::avir)</arglist>
     </member>
     <member kind="function">
       <type>void</type>

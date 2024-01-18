@@ -1,17 +1,17 @@
 var searchData=
 [
-  ['handleasyncupdate_2279',['handleAsyncUpdate',['../classAsyncDownload.html#a17faaedc4393e528d302dc6073511c4f',1,'AsyncDownload::handleAsyncUpdate()'],['../classMultiParamComponent.html#af1f2a647d360783089b697dde0204e55',1,'MultiParamComponent::handleAsyncUpdate()'],['../classProcessorEditor.html#a9dbed1e83b2cb95e7f83167a96fda633',1,'ProcessorEditor::handleAsyncUpdate()'],['../classParameter.html#a8296a6e53d729655e66f2cce22dc7924',1,'Parameter::handleAsyncUpdate()'],['../classRealtimeAsyncUpdater.html#a86dee41bf003fdbf125d0b3683acbaf0',1,'RealtimeAsyncUpdater::handleAsyncUpdate()']]],
-  ['handlemidievent_2280',['handleMidiEvent',['../classSynthesiser.html#a43f7146e8cf5f05e989ec838bd1c9e53',1,'Synthesiser']]],
-  ['handleupdatenowifneeded_2281',['handleUpdateNowIfNeeded',['../classRealtimeAsyncUpdater.html#accae6ff15d6eff08e6a3318263eb6574',1,'RealtimeAsyncUpdater']]],
-  ['haserror_2282',['hasError',['../classEquationParser.html#a267ea42024ab4404885d6549c46b5298',1,'EquationParser']]],
-  ['hasprogram_2283',['hasProgram',['../classProcessor.html#ad78ac9883a5b0ccabf449861aa86c071',1,'Processor']]],
-  ['havedata_2284',['haveData',['../classLinearRegression.html#ab0d8b0bd896a4ac1a6d0fad86d5de10b',1,'LinearRegression']]],
-  ['headerbutton_2285',['HeaderButton',['../classHeaderButton.html#aae91b7dec1964dc7fb1f28b05325c97b',1,'HeaderButton']]],
-  ['headeritem_2286',['HeaderItem',['../classHeaderItem.html#ac6986963c5c20c0df2a1d82795579440',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable, ModMatrix &amp;mm, ModSrcId monoSrc={}, ModSrcId polySrc={})'],['../classHeaderItem.html#a1d107c83356c617db19288db61f6aedd',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable=nullptr)']]],
-  ['headerrow_2287',['HeaderRow',['../classHeaderRow.html#a964daf8517b543beb3e4592436f3138c',1,'HeaderRow']]],
-  ['hidebubble_2288',['hideBubble',['../classMultiParamComponent.html#a0f9a0c20b7c3dd25f063ca40dc421c20',1,'MultiParamComponent']]],
-  ['horizontalfader_2289',['HorizontalFader',['../classHorizontalFader.html#ad34bdd3d394ea50181cfb8a8e32a55bd',1,'HorizontalFader']]],
-  ['hp12state_2290',['HP12State',['../structHP12State.html#a26cb6edccf0ef60fcd94b972c61a0491',1,'HP12State']]],
-  ['hp24state_2291',['HP24State',['../structHP24State.html#a893b30c4df910670f54f57fdb8adc80d',1,'HP24State']]],
-  ['http_2292',['Http',['../classHttp.html#ad057da75ec75c9a44f3b736ff19ccd9d',1,'Http']]]
+  ['handleasyncupdate_2282',['handleAsyncUpdate',['../classAsyncDownload.html#a17faaedc4393e528d302dc6073511c4f',1,'AsyncDownload::handleAsyncUpdate()'],['../classMultiParamComponent.html#af1f2a647d360783089b697dde0204e55',1,'MultiParamComponent::handleAsyncUpdate()'],['../classProcessorEditor.html#a9dbed1e83b2cb95e7f83167a96fda633',1,'ProcessorEditor::handleAsyncUpdate()'],['../classParameter.html#a8296a6e53d729655e66f2cce22dc7924',1,'Parameter::handleAsyncUpdate()'],['../classRealtimeAsyncUpdater.html#a86dee41bf003fdbf125d0b3683acbaf0',1,'RealtimeAsyncUpdater::handleAsyncUpdate()']]],
+  ['handlemidievent_2283',['handleMidiEvent',['../classSynthesiser.html#a43f7146e8cf5f05e989ec838bd1c9e53',1,'Synthesiser']]],
+  ['handleupdatenowifneeded_2284',['handleUpdateNowIfNeeded',['../classRealtimeAsyncUpdater.html#accae6ff15d6eff08e6a3318263eb6574',1,'RealtimeAsyncUpdater']]],
+  ['haserror_2285',['hasError',['../classEquationParser.html#a267ea42024ab4404885d6549c46b5298',1,'EquationParser']]],
+  ['hasprogram_2286',['hasProgram',['../classProcessor.html#ad78ac9883a5b0ccabf449861aa86c071',1,'Processor']]],
+  ['havedata_2287',['haveData',['../classLinearRegression.html#ab0d8b0bd896a4ac1a6d0fad86d5de10b',1,'LinearRegression']]],
+  ['headerbutton_2288',['HeaderButton',['../classHeaderButton.html#aae91b7dec1964dc7fb1f28b05325c97b',1,'HeaderButton']]],
+  ['headeritem_2289',['HeaderItem',['../classHeaderItem.html#ac6986963c5c20c0df2a1d82795579440',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable, ModMatrix &amp;mm, ModSrcId monoSrc={}, ModSrcId polySrc={})'],['../classHeaderItem.html#a1d107c83356c617db19288db61f6aedd',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable=nullptr)']]],
+  ['headerrow_2290',['HeaderRow',['../classHeaderRow.html#a964daf8517b543beb3e4592436f3138c',1,'HeaderRow']]],
+  ['hidebubble_2291',['hideBubble',['../classMultiParamComponent.html#a0f9a0c20b7c3dd25f063ca40dc421c20',1,'MultiParamComponent']]],
+  ['horizontalfader_2292',['HorizontalFader',['../classHorizontalFader.html#ad34bdd3d394ea50181cfb8a8e32a55bd',1,'HorizontalFader']]],
+  ['hp12state_2293',['HP12State',['../structHP12State.html#a26cb6edccf0ef60fcd94b972c61a0491',1,'HP12State']]],
+  ['hp24state_2294',['HP24State',['../structHP24State.html#a893b30c4df910670f54f57fdb8adc80d',1,'HP24State']]],
+  ['http_2295',['Http',['../classHttp.html#ad057da75ec75c9a44f3b736ff19ccd9d',1,'Http']]]
 ];

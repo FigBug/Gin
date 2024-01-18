@@ -71,6 +71,11 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
+<tr class="memitem:gaedc0b4c54cea2c3df1788ebf8ee9b07b"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#gaedc0b4c54cea2c3df1788ebf8ee9b07b">ResizeAlgorirm</a> { <a class="el" href="group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04">avir</a>
+, <a class="el" href="group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07bacf842af094536ba42c3771077d483b19">lanczos</a>
+ }</td></tr>
+<tr class="memdesc:gaedc0b4c54cea2c3df1788ebf8ee9b07b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A very high quality image resize using a bank of sinc function-based fractional delay filters.  <a href="group__gin__graphics-images.html#gaedc0b4c54cea2c3df1788ebf8ee9b07b">More...</a><br /></td></tr>
+<tr class="separator:gaedc0b4c54cea2c3df1788ebf8ee9b07b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga30323fa90e24ca484998b9fba6c40e85"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga30323fa90e24ca484998b9fba6c40e85">BlendMode</a> { <br />
 &#160;&#160;<a class="el" href="group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a5ecbcf0afce98b042f35ec71ba03fa4b">Normal</a>
 , <a class="el" href="group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a0c4863f7d789ab70b21073bd94c9169d">Lighten</a>
@@ -142,11 +147,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ga5298c1220caef0f1d6d918c9ec15243d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga5298c1220caef0f1d6d918c9ec15243d">applyStackBlur</a> (juce::Image &amp;img, int radius)</td></tr>
 <tr class="memdesc:ga5298c1220caef0f1d6d918c9ec15243d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A very fast blur.  <a href="group__gin__graphics-images.html#ga5298c1220caef0f1d6d918c9ec15243d">More...</a><br /></td></tr>
 <tr class="separator:ga5298c1220caef0f1d6d918c9ec15243d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8a045522d5a03954f0d4fe2cbc8082a4"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga8a045522d5a03954f0d4fe2cbc8082a4">applyResize</a> (const juce::Image &amp;img, int width, int height)</td></tr>
-<tr class="memdesc:ga8a045522d5a03954f0d4fe2cbc8082a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A very high quality image resize using a bank of sinc function-based fractional delay filters.  <a href="group__gin__graphics-images.html#ga8a045522d5a03954f0d4fe2cbc8082a4">More...</a><br /></td></tr>
-<tr class="separator:ga8a045522d5a03954f0d4fe2cbc8082a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga99654c39e56b66a36c75cbbff9e137b4"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga99654c39e56b66a36c75cbbff9e137b4">applyResize</a> (const juce::Image &amp;img, float factor)</td></tr>
-<tr class="separator:ga99654c39e56b66a36c75cbbff9e137b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3b48b2d9f0652cc609336b4ff5d1dd07"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga3b48b2d9f0652cc609336b4ff5d1dd07">applyResize</a> (const juce::Image &amp;img, int width, int height, <a class="el" href="group__gin__graphics-images.html#gaedc0b4c54cea2c3df1788ebf8ee9b07b">ResizeAlgorirm</a> resizeAlgorirm=<a class="el" href="group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04">ResizeAlgorirm::avir</a>)</td></tr>
+<tr class="separator:ga3b48b2d9f0652cc609336b4ff5d1dd07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4d96614cc76bccc3f72c891660c6efe5"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga4d96614cc76bccc3f72c891660c6efe5">applyResize</a> (const juce::Image &amp;img, float factor, <a class="el" href="group__gin__graphics-images.html#gaedc0b4c54cea2c3df1788ebf8ee9b07b">ResizeAlgorirm</a> resizeAlgorirm=<a class="el" href="group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04">ResizeAlgorirm::avir</a>)</td></tr>
+<tr class="separator:ga4d96614cc76bccc3f72c891660c6efe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2e91627e4ee0f9e1aeca78ca387a8c51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga2e91627e4ee0f9e1aeca78ca387a8c51">applyGradientMap</a> (juce::Image &amp;img, const juce::ColourGradient &amp;gradient, juce::ThreadPool *threadPool=nullptr)</td></tr>
 <tr class="memdesc:ga2e91627e4ee0f9e1aeca78ca387a8c51"><td class="mdescLeft">&#160;</td><td class="mdescRight">GradientMap a image.  <a href="group__gin__graphics-images.html#ga2e91627e4ee0f9e1aeca78ca387a8c51">More...</a><br /></td></tr>
 <tr class="separator:ga2e91627e4ee0f9e1aeca78ca387a8c51"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,6 +168,34 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="gaedc0b4c54cea2c3df1788ebf8ee9b07b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaedc0b4c54cea2c3df1788ebf8ee9b07b">&#9670;&nbsp;</a></span>ResizeAlgorirm</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group__gin__graphics-images.html#gaedc0b4c54cea2c3df1788ebf8ee9b07b">ResizeAlgorirm</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A very high quality image resize using a bank of sinc function-based fractional delay filters. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04"></a>avir&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggaedc0b4c54cea2c3df1788ebf8ee9b07bacf842af094536ba42c3771077d483b19"></a>lanczos&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <a id="ga30323fa90e24ca484998b9fba6c40e85"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga30323fa90e24ca484998b9fba6c40e85">&#9670;&nbsp;</a></span>BlendMode</h2>
 
@@ -632,8 +664,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga8a045522d5a03954f0d4fe2cbc8082a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8a045522d5a03954f0d4fe2cbc8082a4">&#9670;&nbsp;</a></span>applyResize() <span class="overload">[1/2]</span></h2>
+<a id="ga3b48b2d9f0652cc609336b4ff5d1dd07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3b48b2d9f0652cc609336b4ff5d1dd07">&#9670;&nbsp;</a></span>applyResize() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -654,7 +686,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__gin__graphics-images.html#gaedc0b4c54cea2c3df1788ebf8ee9b07b">ResizeAlgorirm</a>&#160;</td>
+          <td class="paramname"><em>resizeAlgorirm</em> = <code><a class="el" href="group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04">ResizeAlgorirm::avir</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -664,12 +702,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A very high quality image resize using a bank of sinc function-based fractional delay filters. </p>
-
 </div>
 </div>
-<a id="ga99654c39e56b66a36c75cbbff9e137b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga99654c39e56b66a36c75cbbff9e137b4">&#9670;&nbsp;</a></span>applyResize() <span class="overload">[2/2]</span></h2>
+<a id="ga4d96614cc76bccc3f72c891660c6efe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4d96614cc76bccc3f72c891660c6efe5">&#9670;&nbsp;</a></span>applyResize() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -684,7 +720,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>factor</em>&#160;</td>
+          <td class="paramname"><em>factor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__gin__graphics-images.html#gaedc0b4c54cea2c3df1788ebf8ee9b07b">ResizeAlgorirm</a>&#160;</td>
+          <td class="paramname"><em>resizeAlgorirm</em> = <code><a class="el" href="group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04">ResizeAlgorirm::avir</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -908,7 +950,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 18 2024 22:41:09 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Jan 18 2024 23:20:14 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
