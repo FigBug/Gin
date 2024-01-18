@@ -667,7 +667,7 @@ void applyHueSaturationLightness (juce::Image& img, float hue, float saturation,
     else jassertfalse;
 }
 
-juce::Image applyResize (const juce::Image& src, int width, int height)
+juce::Image applyResize (const juce::Image& src, int width, int height, ResizeAlgorirm resizeAlgorirm)
 {
     juce::Image dst (src.getFormat(), width, height, true);
 
@@ -694,15 +694,28 @@ juce::Image applyResize (const juce::Image& src, int width, int height)
                 srcData.getLinePointer (y),
                 (size_t) (src.getWidth() * channels));
 
-   #if USE_SSE
-    avir::CImageResizer<avir::fpclass_float4> imageResizer (8);
-    imageResizer.resizeImage (rawSrc, src.getWidth(), src.getHeight(), 0,
-                                rawDst, dst.getWidth(), dst.getHeight(), channels, 0);
-   #else
-    avir::CImageResizer<> imageResizer (8);
-    imageResizer.resizeImage (rawSrc, src.getWidth(), src.getHeight(), 0,
-                                    rawDst, dst.getWidth(), dst.getHeight(), channels, 0);
-   #endif
+	if (resizeAlgorirm == ResizeAlgorirm::avir)
+	{
+	   #if USE_SSE
+		avir::CImageResizer<avir::fpclass_float4> imageResizer (8);
+		imageResizer.resizeImage (rawSrc, src.getWidth(), src.getHeight(), 0,
+								  rawDst, dst.getWidth(), dst.getHeight(), channels, 0);
+	   #else
+		avir::CImageResizer<> imageResizer (8);
+		imageResizer.resizeImage (rawSrc, src.getWidth(), src.getHeight(), 0,
+								  rawDst, dst.getWidth(), dst.getHeight(), channels, 0);
+       #endif
+	}
+	else
+	{
+		auto elementsIn = src.getWidth() * channels;
+		auto elementsOut = dst.getWidth() * channels;
+
+		avir::CLancIR imageResizer;
+		imageResizer.resizeImage (rawSrc, src.getWidth(), src.getHeight(), elementsIn,
+								  rawDst, dst.getWidth(), dst.getHeight(), elementsOut, channels, 0);
+
+	}
 
     for (int y = 0; y < dst.getHeight(); y++)
         memcpy (dstData.getLinePointer (y),
@@ -712,11 +725,11 @@ juce::Image applyResize (const juce::Image& src, int width, int height)
     return dst;
 }
 
-juce::Image applyResize (const juce::Image& src, float factor)
+juce::Image applyResize (const juce::Image& src, float factor, ResizeAlgorirm resizeAlgorirm)
 {
     return applyResize (src,
-                        juce::roundToInt (factor * float ( src.getWidth() )),
-                        juce::roundToInt (factor * float ( src.getHeight() )));
+                        juce::roundToInt (factor * float (src.getWidth())),
+                        juce::roundToInt (factor * float (src.getHeight())), resizeAlgorirm);
 }
 
 template <class T>

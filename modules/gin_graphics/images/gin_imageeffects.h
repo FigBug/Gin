@@ -64,9 +64,15 @@ void applyStackBlur (juce::Image& img, int radius);
 
 /** A very high quality image resize using a bank of sinc
  *  function-based fractional delay filters */
-juce::Image applyResize (const juce::Image& img, int width, int height);
+enum class ResizeAlgorirm
+{
+	avir,
+	lanczos,
+};
 
-juce::Image applyResize (const juce::Image& img, float factor);
+juce::Image applyResize (const juce::Image& img, int width, int height, ResizeAlgorirm resizeAlgorirm = ResizeAlgorirm::avir);
+
+juce::Image applyResize (const juce::Image& img, float factor, ResizeAlgorirm resizeAlgorirm = ResizeAlgorirm::avir);
 
 /** GradientMap a image. Brightness gets remapped to colour on a gradient.
   */

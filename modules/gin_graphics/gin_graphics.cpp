@@ -18,6 +18,7 @@
  #pragma clang diagnostic ignored "-Wshadow"
  #pragma clang diagnostic ignored "-Wunused-parameter"
  #pragma clang diagnostic ignored "-Wfloat-equal"
+ #pragma clang diagnostic ignored "-Wcast-align"
 #elif _MSC_VER
  #pragma warning (push)
  #pragma warning (disable: 4100)
@@ -28,6 +29,7 @@
 #endif
 
 #include "3rdparty/avir/avir.h"
+#include "3rdparty/avir/lancir.h"
 #if JUCE_INTEL
  #include "3rdparty/avir/avir_float4_sse.h"
 #endif
