@@ -66,8 +66,8 @@ void applyStackBlur (juce::Image& img, int radius);
  *  function-based fractional delay filters */
 enum class ResizeAlgorirm
 {
-	avir,
-	lanczos,
+    avir,
+    lanczos,
 };
 
 juce::Image applyResize (const juce::Image& img, int width, int height, ResizeAlgorirm resizeAlgorirm = ResizeAlgorirm::avir);
@@ -123,5 +123,3 @@ void applyBlend (juce::Image& dst, const juce::Image& src, BlendMode mode, float
 /** Blend two images
  */
 void applyBlend (juce::Image& dst, BlendMode mode, juce::Colour c, juce::ThreadPool* threadPool = nullptr);
-
-

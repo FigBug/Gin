@@ -522,31 +522,31 @@ struct ImageResizeDemo : public juce::Component,
     }
 
     void paint (juce::Graphics& g) override
-	{
-		g.fillAll (juce::Colours::black);
+    {
+        g.fillAll (juce::Colours::black);
 
-		auto t1 = juce::Time::getMillisecondCounterHiRes();
-		auto zoomed1 = gin::applyResize (sourceARGB, (float) zoom.getValue(), gin::ResizeAlgorirm::avir);
-		auto t2 = juce::Time::getMillisecondCounterHiRes();
-		auto zoomed2 = gin::applyResize (sourceARGB, (float) zoom.getValue(), gin::ResizeAlgorirm::lanczos);
-		auto t3 = juce::Time::getMillisecondCounterHiRes();
+        auto t1 = juce::Time::getMillisecondCounterHiRes();
+        auto zoomed1 = gin::applyResize (sourceARGB, (float) zoom.getValue(), gin::ResizeAlgorirm::avir);
+        auto t2 = juce::Time::getMillisecondCounterHiRes();
+        auto zoomed2 = gin::applyResize (sourceARGB, (float) zoom.getValue(), gin::ResizeAlgorirm::lanczos);
+        auto t3 = juce::Time::getMillisecondCounterHiRes();
 
-		printf ("ImageResizeDemo: AVIR:     %.1f ms\n", t2 - t1);
-		printf ("ImageResizeDemo: Lanczos:  %.1f ms\n", t3 - t2);
-		printf ("ImageResizeDemo: Ratio:    %.1f x\n", (t2 - t1) / (t3 - t2));
+        printf ("ImageResizeDemo: AVIR:     %.1f ms\n", t2 - t1);
+        printf ("ImageResizeDemo: Lanczos:  %.1f ms\n", t3 - t2);
+        printf ("ImageResizeDemo: Ratio:    %.1f x\n", (t2 - t1) / (t3 - t2));
 
-		{
-			juce::Graphics::ScopedSaveState sss (g);
-			g.reduceClipRegion (getLocalBounds().removeFromLeft (getWidth() / 2 + 1));
-			g.drawImageAt (zoomed1, getWidth() / 2 - zoomed1.getWidth() / 2, getHeight() / 2 - zoomed1.getHeight() / 2);
-		}
+        {
+            juce::Graphics::ScopedSaveState sss (g);
+            g.reduceClipRegion (getLocalBounds().removeFromLeft (getWidth() / 2 + 1));
+            g.drawImageAt (zoomed1, getWidth() / 2 - zoomed1.getWidth() / 2, getHeight() / 2 - zoomed1.getHeight() / 2);
+        }
 
-		{
-			juce::Graphics::ScopedSaveState sss (g);
-			g.reduceClipRegion (getLocalBounds().removeFromRight (getWidth() / 2 + 1));
-			g.drawImageAt (zoomed2, getWidth() / 2 - zoomed2.getWidth() / 2, getHeight() / 2 - zoomed2.getHeight() / 2);
-		}
-	}
+        {
+            juce::Graphics::ScopedSaveState sss (g);
+            g.reduceClipRegion (getLocalBounds().removeFromRight (getWidth() / 2 + 1));
+            g.drawImageAt (zoomed2, getWidth() / 2 - zoomed2.getWidth() / 2, getHeight() / 2 - zoomed2.getHeight() / 2);
+        }
+    }
 
     juce::Image convertToBW (const juce::Image& src)
     {

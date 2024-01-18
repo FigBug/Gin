@@ -694,28 +694,28 @@ juce::Image applyResize (const juce::Image& src, int width, int height, ResizeAl
                 srcData.getLinePointer (y),
                 (size_t) (src.getWidth() * channels));
 
-	if (resizeAlgorirm == ResizeAlgorirm::avir)
-	{
-	   #if USE_SSE
-		avir::CImageResizer<avir::fpclass_float4> imageResizer (8);
-		imageResizer.resizeImage (rawSrc, src.getWidth(), src.getHeight(), 0,
-								  rawDst, dst.getWidth(), dst.getHeight(), channels, 0);
-	   #else
-		avir::CImageResizer<> imageResizer (8);
-		imageResizer.resizeImage (rawSrc, src.getWidth(), src.getHeight(), 0,
-								  rawDst, dst.getWidth(), dst.getHeight(), channels, 0);
+    if (resizeAlgorirm == ResizeAlgorirm::avir)
+    {
+       #if USE_SSE
+        avir::CImageResizer<avir::fpclass_float4> imageResizer (8);
+        imageResizer.resizeImage (rawSrc, src.getWidth(), src.getHeight(), 0,
+                                  rawDst, dst.getWidth(), dst.getHeight(), channels, 0);
+       #else
+        avir::CImageResizer<> imageResizer (8);
+        imageResizer.resizeImage (rawSrc, src.getWidth(), src.getHeight(), 0,
+                                  rawDst, dst.getWidth(), dst.getHeight(), channels, 0);
        #endif
-	}
-	else
-	{
-		auto elementsIn = src.getWidth() * channels;
-		auto elementsOut = dst.getWidth() * channels;
+    }
+    else
+    {
+        auto elementsIn = src.getWidth() * channels;
+        auto elementsOut = dst.getWidth() * channels;
 
-		avir::CLancIR imageResizer;
-		imageResizer.resizeImage (rawSrc, src.getWidth(), src.getHeight(), elementsIn,
-								  rawDst, dst.getWidth(), dst.getHeight(), elementsOut, channels, 0);
+        avir::CLancIR imageResizer;
+        imageResizer.resizeImage (rawSrc, src.getWidth(), src.getHeight(), elementsIn,
+                                  rawDst, dst.getWidth(), dst.getHeight(), elementsOut, channels, 0);
 
-	}
+    }
 
     for (int y = 0; y < dst.getHeight(); y++)
         memcpy (dstData.getLinePointer (y),
