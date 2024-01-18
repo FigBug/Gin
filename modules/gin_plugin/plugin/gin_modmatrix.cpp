@@ -49,13 +49,21 @@ void ModMatrix::stateUpdated (const juce::ValueTree& vt)
                 s.depth = f;
                 s.enabled = e;
 
+                auto foundParam = false;
                 for (auto& pi : parameters)
                 {
                     if (pi.parameter->getUid() == dst)
                     {
                         pi.sources.add (s);
+                        foundParam = true;
                         break;
                     }
+                }
+
+                if (! foundParam)
+                {
+                    DBG("Parameter not found: " + dst);
+                    jassertfalse;
                 }
             }
         }

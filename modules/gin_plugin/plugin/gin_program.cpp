@@ -23,10 +23,19 @@ void Program::loadProcessor (Processor& p)
         p.state.addChild (inst, 0, nullptr);
 
     for (const auto& s : states)
+    {
         if (auto pp = p.getParameter (s.uid))
+        {
             if (! pp->isMetaParameter())
                 if (p.loadingState || ! p.isParamLocked (pp))
                     pp->setUserValueNotifingHost (s.value);
+        }
+        else
+        {
+            DBG("Unknown parameter: " + s.uid);
+            jassertfalse;
+        }
+    }
 }
 
 void Program::saveProcessor (Processor& p)
