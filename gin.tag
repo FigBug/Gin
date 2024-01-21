@@ -3566,17 +3566,17 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; void()&gt;</type>
+      <type>std::function&lt; void(int, int)&gt;</type>
       <name>onOrderChanged</name>
       <anchorfile>classComponentGrid.html</anchorfile>
-      <anchor>adc51d39f4841737c630f4fbedbe75587</anchor>
+      <anchor>ae6a6f65aed189b54d7faf9b493881227</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; void()&gt;</type>
+      <type>std::function&lt; void(int, int)&gt;</type>
       <name>onDragFinished</name>
       <anchorfile>classComponentGrid.html</anchorfile>
-      <anchor>ab1b0f95162ec904d08acf21f25aa732a</anchor>
+      <anchor>a4147d62fe11e7cb8b655ca751e27faf7</anchor>
       <arglist></arglist>
     </member>
     <member kind="function" protection="protected">
