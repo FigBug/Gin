@@ -32,8 +32,8 @@ public:
     void setOrientation (Orientation);
 
     std::function<bool(const juce::MouseEvent&)>    onDragStart;
-    std::function<void()>                           onOrderChanged;
-    std::function<void()>                           onDragFinished;
+    std::function<void (int, int)>                  onOrderChanged;
+    std::function<void (int, int)>                  onDragFinished;
 
 protected:
     void layoutAnimated();

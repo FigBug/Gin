@@ -150,7 +150,7 @@ void ComponentGrid::mouseDrag (const juce::MouseEvent& e)
                     layoutAnimated();
 
                     if (onOrderChanged)
-                        onOrderChanged();
+                        onOrderChanged (originalOrder.indexOf (c), info->currentIndex);
                 }
             }
         }
@@ -174,8 +174,10 @@ void ComponentGrid::mouseUp (const juce::MouseEvent&)
         animator.cancelAllAnimations (true);
         resized();
 
-        if (onDragFinished)
-            onDragFinished();
+        if (auto dnd = juce::DragAndDropContainer::findParentDragContainerFor (this))
+            if (auto info = dynamic_cast<DragInfo*> (dnd->getCurrentDragDescription().getObject()))
+                if (onDragFinished)
+                    onDragFinished (originalOrder.indexOf (info->originalComponent), info->currentIndex);
     }
 }
 
@@ -198,7 +200,7 @@ void ComponentGrid::timerCallback()
         resized();
 
         if (onDragFinished)
-            onDragFinished();
+            onDragFinished (-1, -1);
     }
 }
 
