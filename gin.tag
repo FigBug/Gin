@@ -3558,6 +3558,20 @@
       <anchor>a813eb2148efe914f18850d94bd5d8f3e</anchor>
       <arglist>(Orientation)</arglist>
     </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>isGridDrag</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>aff190abd616799c6d34ea7bc164c5261</anchor>
+      <arglist>(juce::var)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static int</type>
+      <name>getDragIndex</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>a4ce5a0d3a6385d59827fb0e33479517d</anchor>
+      <arglist>(juce::var)</arglist>
+    </member>
     <member kind="variable">
       <type>std::function&lt; bool(const juce::MouseEvent &amp;)&gt;</type>
       <name>onDragStart</name>
@@ -3612,6 +3626,13 @@
       <name>dragging</name>
       <anchorfile>classComponentGrid.html</anchorfile>
       <anchor>ad15fcda0318542d51a1335a39e85d7e1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>dragOut</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>ac8d5ca3fdf2af199d1d8738752893843</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -4126,6 +4147,13 @@
   <compound kind="struct">
     <name>ComponentGrid::DragInfo</name>
     <filename>structComponentGrid_1_1DragInfo.html</filename>
+    <member kind="variable">
+      <type>ComponentGrid *</type>
+      <name>grid</name>
+      <anchorfile>structComponentGrid_1_1DragInfo.html</anchorfile>
+      <anchor>a256ad021146d9dd9c9f4fe89b9d1f99d</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="variable">
       <type>Component *</type>
       <name>originalComponent</name>

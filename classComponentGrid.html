@@ -65,6 +65,7 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
@@ -111,6 +112,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a813eb2148efe914f18850d94bd5d8f3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentGrid.html#a813eb2148efe914f18850d94bd5d8f3e">setOrientation</a> (<a class="el" href="classComponentGrid.html#a0d6a66510a6868e9be9f596867b85946">Orientation</a>)</td></tr>
 <tr class="separator:a813eb2148efe914f18850d94bd5d8f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:aff190abd616799c6d34ea7bc164c5261"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentGrid.html#aff190abd616799c6d34ea7bc164c5261">isGridDrag</a> (juce::var)</td></tr>
+<tr class="separator:aff190abd616799c6d34ea7bc164c5261"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ce5a0d3a6385d59827fb0e33479517d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentGrid.html#a4ce5a0d3a6385d59827fb0e33479517d">getDragIndex</a> (juce::var)</td></tr>
+<tr class="separator:a4ce5a0d3a6385d59827fb0e33479517d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ae9d0d6eed8ab4039c4f309030f2a4ae4"><td class="memItemLeft" align="right" valign="top">std::function&lt; bool(const juce::MouseEvent &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentGrid.html#ae9d0d6eed8ab4039c4f309030f2a4ae4">onDragStart</a></td></tr>
@@ -135,6 +143,8 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a8c5d394771c011655731dd6dd42bd27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad15fcda0318542d51a1335a39e85d7e1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentGrid.html#ad15fcda0318542d51a1335a39e85d7e1">dragging</a> = false</td></tr>
 <tr class="separator:ad15fcda0318542d51a1335a39e85d7e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8d5ca3fdf2af199d1d8738752893843"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentGrid.html#ac8d5ca3fdf2af199d1d8738752893843">dragOut</a> = false</td></tr>
+<tr class="separator:ac8d5ca3fdf2af199d1d8738752893843"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a597b44ee2489a3412932dac8ac90df99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classComponentGrid.html#a0d6a66510a6868e9be9f596867b85946">Orientation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentGrid.html#a597b44ee2489a3412932dac8ac90df99">orientation</a> = <a class="el" href="classComponentGrid.html#a0d6a66510a6868e9be9f596867b85946a7b5f66d1ab8c7823c0591de0e31ae891">horizontal</a></td></tr>
 <tr class="separator:a597b44ee2489a3412932dac8ac90df99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae17c3d7889ca1980ae271ea7f0ffaf1d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentGrid.html#ae17c3d7889ca1980ae271ea7f0ffaf1d">gap</a> = 1</td></tr>
@@ -399,6 +409,58 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aff190abd616799c6d34ea7bc164c5261"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff190abd616799c6d34ea7bc164c5261">&#9670;&nbsp;</a></span>isGridDrag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool ComponentGrid::isGridDrag </td>
+          <td>(</td>
+          <td class="paramtype">juce::var&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ce5a0d3a6385d59827fb0e33479517d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ce5a0d3a6385d59827fb0e33479517d">&#9670;&nbsp;</a></span>getDragIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int ComponentGrid::getDragIndex </td>
+          <td>(</td>
+          <td class="paramtype">juce::var&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="abeff71fe97fc2cd1c0ee175999082958"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abeff71fe97fc2cd1c0ee175999082958">&#9670;&nbsp;</a></span>layoutAnimated()</h2>
 
@@ -562,6 +624,28 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ac8d5ca3fdf2af199d1d8738752893843"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8d5ca3fdf2af199d1d8738752893843">&#9670;&nbsp;</a></span>dragOut</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ComponentGrid::dragOut = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a597b44ee2489a3412932dac8ac90df99"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a597b44ee2489a3412932dac8ac90df99">&#9670;&nbsp;</a></span>orientation</h2>
 
@@ -656,7 +740,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 21 2024 22:16:19 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Jan 22 2024 22:13:56 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
