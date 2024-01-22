@@ -31,6 +31,9 @@ public:
     void setGap (int);
     void setOrientation (Orientation);
 
+    static bool isGridDrag (juce::var);
+    static int getDragIndex (juce::var);
+
     std::function<bool(const juce::MouseEvent&)>    onDragStart;
     std::function<void (int, int)>                  onOrderChanged;
     std::function<void (int, int)>                  onDragFinished;
@@ -43,6 +46,7 @@ protected:
 
     bool                            dragStarted = false;
     bool                            dragging = false;
+    bool                            dragOut = false;
     Orientation                     orientation = horizontal;
     int                             gap = 1;
     juce::Array<juce::Component*>   originalOrder;
@@ -50,6 +54,7 @@ protected:
 
     struct DragInfo : public juce::ReferenceCountedObject
     {
+        ComponentGrid* grid = nullptr;
         Component* originalComponent = nullptr;
         int currentIndex = 0;
     };

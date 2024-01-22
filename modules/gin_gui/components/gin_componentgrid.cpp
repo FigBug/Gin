@@ -51,7 +51,7 @@ void ComponentGrid::layoutAnimated()
 
             animator.cancelAllAnimations (true);
             for (auto i = 0; i < getNumChildComponents(); i++)
-                if (auto c = getChildComponent(i); c != info->originalComponent)
+                if (auto c = getChildComponent(i); dragOut || c != info->originalComponent)
                     animator.animateComponent (c, areas[i], 1.0f, 250, false, 1.0, 1.0);
         }
     }
@@ -91,6 +91,7 @@ void ComponentGrid::mouseDrag (const juce::MouseEvent& e)
                 originalOrder = getChildren();
 
                 auto di = new DragInfo();
+                di->grid = this;
                 di->originalComponent = c;
                 di->currentIndex = idx;
 
@@ -138,6 +139,16 @@ void ComponentGrid::mouseDrag (const juce::MouseEvent& e)
                 }
             }
 
+            if (! getLocalBounds().contains (pt))
+            {
+                dragOut = true;
+                indexOver = originalOrder.indexOf (info->originalComponent);
+            }
+            else
+            {
+                dragOut = false;
+            }
+
             if (indexOver >= 0)
             {
                 if (indexOver != info->currentIndex)
@@ -145,6 +156,7 @@ void ComponentGrid::mouseDrag (const juce::MouseEvent& e)
                     auto c = getChildComponent (info->currentIndex);
                     removeChildComponent (c);
                     addChildComponent (c, indexOver >= info->currentIndex ? indexOver : indexOver);
+                    c->setVisible (dragOut);
 
                     info->currentIndex = indexOver;
                     layoutAnimated();
@@ -179,6 +191,22 @@ void ComponentGrid::mouseUp (const juce::MouseEvent&)
                 if (onDragFinished)
                     onDragFinished (originalOrder.indexOf (info->originalComponent), info->currentIndex);
     }
+}
+
+bool ComponentGrid::isGridDrag (juce::var sd)
+{
+    if (dynamic_cast<DragInfo*> (sd.getObject()))
+        return true;
+
+    return false;
+}
+
+int ComponentGrid::getDragIndex (juce::var sd)
+{
+    if (auto info = dynamic_cast<DragInfo*> (sd.getObject()))
+        return info->grid->originalOrder.indexOf (info->originalComponent);
+
+    return -1;
 }
 
 void ComponentGrid::timerCallback()
