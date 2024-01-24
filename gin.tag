@@ -7147,6 +7147,13 @@
     </member>
     <member kind="function">
       <type>float</type>
+      <name>getOutputUnclamped</name>
+      <anchorfile>classLFO.html</anchorfile>
+      <anchor>a169164134b62e8f6041905beef264035</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
       <name>getCurrentPhase</name>
       <anchorfile>classLFO.html</anchorfile>
       <anchor>aec6998a36bd6e5a99d538c27bcd2e837</anchor>
@@ -7170,6 +7177,13 @@
       <anchorfile>classLFOComponent.html</anchorfile>
       <anchor>a3c71a2b379552967cb829cec1a244489</anchor>
       <arglist>() override=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setUnclamped</name>
+      <anchorfile>classLFOComponent.html</anchorfile>
+      <anchor>aeccf21c89b4f34781057fba797937a30</anchor>
+      <arglist>(bool b)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
