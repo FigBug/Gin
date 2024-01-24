@@ -303,6 +303,26 @@ public:
     void setModEnable (ModSrcId src, ModDstId param, bool b);
 
     //==============================================================================
+    bool shouldShowLiveModValues()
+    {
+        if (onlyShowModWhenVoiceActive)
+        {
+            for (auto v : voices)
+                if (v->isVoiceActive())
+                    return true;
+
+            return false;
+        }
+
+        return true;
+    }
+
+    void setOnlyShowModWhenVoiceActive (bool b)
+    {
+        onlyShowModWhenVoiceActive = b;
+    }
+
+    //==============================================================================
     class Listener
     {
     public:
@@ -354,6 +374,7 @@ private:
     juce::Array<ModVoice*> voices;
     juce::Array<ValueSmoother<float>> smoothers;
     ModVoice* activeVoice = nullptr;
+    bool onlyShowModWhenVoiceActive = false;
 
     double sampleRate = 44100.0;
 

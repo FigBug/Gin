@@ -44,17 +44,25 @@ Knob::Knob (Parameter* p, bool fromCentre)
     modTimer.onTimer = [this] ()
     {
         auto& mm = *parameter->getModMatrix();
-        auto curModValues = liveValuesCallback ? liveValuesCallback() : mm.getLiveValues (parameter);
-        if (curModValues != modValues)
+        if (mm.shouldShowLiveModValues())
         {
-            modValues = curModValues;
+            auto curModValues = liveValuesCallback ? liveValuesCallback() : mm.getLiveValues (parameter);
+            if (curModValues != modValues)
+            {
+                modValues = curModValues;
 
-            juce::Array<juce::var> vals;
-            for (auto v : modValues)
-                vals.add (v);
+                juce::Array<juce::var> vals;
+                for (auto v : modValues)
+                    vals.add (v);
 
-            knob.getProperties().set ("modValues", vals);
+                knob.getProperties().set ("modValues", vals);
 
+                repaint();
+            }
+        }
+        else if (knob.getProperties().contains ("modValues"))
+        {
+            knob.getProperties().remove ("modValues");
             repaint();
         }
     };
