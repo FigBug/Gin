@@ -58,6 +58,9 @@ void LFOComponent::createPath (juce::Rectangle<int> area)
     for (int x = area.getX(); x <= area.getRight(); x++)
     {
         auto v = lfo.process (1);
+        
+        if (unclamped)
+            v = lfo.getOutputUnclamped();
 
         if (x == area.getX())
             path.startNewSubPath ({float (area.getX()), vToY (v)});

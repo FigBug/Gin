@@ -9,6 +9,8 @@ class LFOComponent : public MultiParamComponent,
 public:
     LFOComponent();
     ~LFOComponent() override = default;
+    
+    void setUnclamped (bool b) { unclamped = b; }
 
     void setParams (Parameter::Ptr wave, Parameter::Ptr sync, Parameter::Ptr rate,
                     Parameter::Ptr beat, Parameter::Ptr depth, Parameter::Ptr offset,
@@ -35,5 +37,7 @@ private:
     std::map<int,float> curve;
 
 private:
+    bool unclamped = false;
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(LFOComponent)
 };

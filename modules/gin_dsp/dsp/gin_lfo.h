@@ -121,9 +121,14 @@ public:
         return juce::jlimit (-1.0f, 1.0f, (curFade * output * parameters.depth + parameters.offset));
     }
     
+    float getOutputUnclamped()
+    {
+        return curFade * output * parameters.depth + parameters.offset;
+    }
+    
     float getCurrentPhase()
     {
-        return curPhase;
+        return phase;
     }
 
 private:
