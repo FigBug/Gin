@@ -29,6 +29,7 @@ void Readout::paint (juce::Graphics& g)
 juce::TextEditor* Readout::createEditorComponent()
 {
     auto e = juce::Label::createEditorComponent();
+    e->removeColour (juce::TextEditor::textColourId);
     e->setColour (juce::TextEditor::outlineColourId, juce::Colours::transparentBlack);
     e->setColour (juce::TextEditor::focusedOutlineColourId, juce::Colours::transparentBlack);
     e->applyFontToAllText (getLookAndFeel().getLabelFont (*this), true);
