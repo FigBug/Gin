@@ -81,8 +81,8 @@ public:
                 if (rOn) adsrR.noteOn(); else adsrR.noteOff();
             }
 
-            *l++ *= adsrL.process();
-            *r++ *= adsrR.process();
+            *l++ = *l * (1.0f - mix) + *l * adsrL.process() * mix;
+            *r++ = *r * (1.0f - mix) + *r * adsrR.process() * mix;
         }
     }
 
@@ -115,11 +115,16 @@ public:
         adsrR.setRelease (seconds);
     }
 
+	void setMix (float m)
+	{
+		mix = m;
+	}
+
 protected:
     double sampleRate = 44100.0;
     AnalogADSR adsrL, adsrR;
     juce::Array<bool> stepsL, stepsR;
-    float frequency = 0.0f, phase = 0.0f;
+    float frequency = 0.0f, phase = 0.0f, mix = 1.0f;
     bool triggered = false;
     bool lastLOn = false, lastROn = false;
 };

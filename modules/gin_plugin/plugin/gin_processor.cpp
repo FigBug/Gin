@@ -154,6 +154,8 @@ gin::Parameter* Processor::addIntParam (juce::String uid, juce::String name, juc
                                         SmoothingType st,
                                         std::function<juce::String (const gin::Parameter&, float)> textFunction)
 {
+	jassert (! parameterMap.contains (uid));
+
     if (auto p = createParam (uid, name, shortName, label, range, defaultValue, st, textFunction))
     {
         auto rawPtr = p.get();
@@ -171,6 +173,8 @@ gin::Parameter* Processor::addExtParam (juce::String uid, juce::String name, juc
                                         SmoothingType st,
                                         std::function<juce::String (const gin::Parameter&, float)> textFunction)
 {
+	jassert (! parameterMap.contains (uid));
+	
     if (auto p = createParam (uid, name, shortName, label, range, defaultValue, st, textFunction))
     {
         auto rawPtr = p.get();
