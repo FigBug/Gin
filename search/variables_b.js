@@ -5,9 +5,10 @@ var searchData=
   ['masking_5fkey_3011',['masking_key',['../structWSHeaderType.html#aaf830be2305c270185628430337c50b1',1,'WSHeaderType']]],
   ['menu_3012',['menu',['../namespaceAssets.html#a1b0a8a5ee3663ec2443ce3ef8993b97a',1,'Assets']]],
   ['menubutton_3013',['menuButton',['../classTitleBar.html#abfac3d89e308f9310949639eec927b05',1,'TitleBar']]],
-  ['mode_3014',['mode',['../classEnvelopeDetector.html#a1804f11c1918ee0aeee94093a3057415',1,'EnvelopeDetector']]],
-  ['modindex_3015',['modIndex',['../classParameter.html#a7310a6224d36ab27a14237aab7d8fadd',1,'Parameter']]],
-  ['modmatrix_3016',['modMatrix',['../classParameter.html#a30f079fa8ecf5c5cd5735777e1ba74c8',1,'Parameter']]],
-  ['modsources_3017',['modSources',['../classParamBox.html#a0d36e4e64d989106ec37b22c0e2b4e3f',1,'ParamBox']]],
-  ['monopath_3018',['monoPath',['../classImages.html#a1d271cdd9f31586a82eab975793289af',1,'Images']]]
+  ['mix_3014',['mix',['../classGateEffect.html#acee7b8f3cd3b1389c0f4fb435e20ee98',1,'GateEffect']]],
+  ['mode_3015',['mode',['../classEnvelopeDetector.html#a1804f11c1918ee0aeee94093a3057415',1,'EnvelopeDetector']]],
+  ['modindex_3016',['modIndex',['../classParameter.html#a7310a6224d36ab27a14237aab7d8fadd',1,'Parameter']]],
+  ['modmatrix_3017',['modMatrix',['../classParameter.html#a30f079fa8ecf5c5cd5735777e1ba74c8',1,'Parameter']]],
+  ['modsources_3018',['modSources',['../classParamBox.html#a0d36e4e64d989106ec37b22c0e2b4e3f',1,'ParamBox']]],
+  ['monopath_3019',['monoPath',['../classImages.html#a1d271cdd9f31586a82eab975793289af',1,'Images']]]
 ];

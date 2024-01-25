@@ -5754,6 +5754,13 @@
       <anchor>a87a565280dfffc37cdca298b07cbd266</anchor>
       <arglist>(float seconds)</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setMix</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>a68fc51c9480a452645416e88325ff21b</anchor>
+      <arglist>(float m)</arglist>
+    </member>
     <member kind="variable" protection="protected">
       <type>double</type>
       <name>sampleRate</name>
@@ -5801,6 +5808,13 @@
       <name>phase</name>
       <anchorfile>classGateEffect.html</anchorfile>
       <anchor>ad44a38a544110cf0a65b7f1c02de768e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>float</type>
+      <name>mix</name>
+      <anchorfile>classGateEffect.html</anchorfile>
+      <anchor>acee7b8f3cd3b1389c0f4fb435e20ee98</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">

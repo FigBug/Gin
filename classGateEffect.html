@@ -93,6 +93,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a90d83f8d8b8a1e2b6dedfcf171368178"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87a565280dfffc37cdca298b07cbd266"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGateEffect.html#a87a565280dfffc37cdca298b07cbd266">setRelease</a> (float seconds)</td></tr>
 <tr class="separator:a87a565280dfffc37cdca298b07cbd266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68fc51c9480a452645416e88325ff21b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGateEffect.html#a68fc51c9480a452645416e88325ff21b">setMix</a> (float m)</td></tr>
+<tr class="separator:a68fc51c9480a452645416e88325ff21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -110,6 +112,8 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:ac66d3981997f43a37900bd2e549b083c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad44a38a544110cf0a65b7f1c02de768e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGateEffect.html#ad44a38a544110cf0a65b7f1c02de768e">phase</a> = 0.0f</td></tr>
 <tr class="separator:ad44a38a544110cf0a65b7f1c02de768e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acee7b8f3cd3b1389c0f4fb435e20ee98"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGateEffect.html#acee7b8f3cd3b1389c0f4fb435e20ee98">mix</a> = 1.0f</td></tr>
+<tr class="separator:acee7b8f3cd3b1389c0f4fb435e20ee98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10a311a7ed46c3c2e20a243a359b6da3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGateEffect.html#a10a311a7ed46c3c2e20a243a359b6da3">triggered</a> = false</td></tr>
 <tr class="separator:a10a311a7ed46c3c2e20a243a359b6da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbc162981c0aff17027d3bb1dba2e559"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGateEffect.html#acbc162981c0aff17027d3bb1dba2e559">lastLOn</a> = false</td></tr>
@@ -211,7 +215,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classGateEffect.html#af0a57f0f38fd5c8ee5ae1116c155a78e">adsrL</a>, <a class="el" href="classGateEffect.html#abfb5044f7e394d996ca25ffdaa67b2af">adsrR</a>, <a class="el" href="classGateEffect.html#ac66d3981997f43a37900bd2e549b083c">frequency</a>, <a class="el" href="classGateEffect.html#acbc162981c0aff17027d3bb1dba2e559">lastLOn</a>, <a class="el" href="classGateEffect.html#a22b6b9beb3b81d68b875d4a0e9daa035">lastROn</a>, <a class="el" href="classAnalogADSR.html#a68fa35850ca4f7d0d329079b990e8b04">AnalogADSR::noteOff()</a>, <a class="el" href="classAnalogADSR.html#ae25730d121f437a88107aec4b8954ced">AnalogADSR::noteOn()</a>, <a class="el" href="classGateEffect.html#ad44a38a544110cf0a65b7f1c02de768e">phase</a>, <a class="el" href="classAnalogADSR.html#a97e522df9b6b57940abae0d6c8a3f0a7">AnalogADSR::process()</a>, <a class="el" href="classGateEffect.html#a732b0b2be932001f7facf338ad84a2fc">sampleRate</a>, <a class="el" href="classGateEffect.html#a29e08c321ed951a7ebee0701cede0ecb">stepsL</a>, <a class="el" href="classGateEffect.html#a8967c7224813739a9388d21bd4e177e4">stepsR</a>, and <a class="el" href="classGateEffect.html#a10a311a7ed46c3c2e20a243a359b6da3">triggered</a>.</p>
+<p class="reference">References <a class="el" href="classGateEffect.html#af0a57f0f38fd5c8ee5ae1116c155a78e">adsrL</a>, <a class="el" href="classGateEffect.html#abfb5044f7e394d996ca25ffdaa67b2af">adsrR</a>, <a class="el" href="classGateEffect.html#ac66d3981997f43a37900bd2e549b083c">frequency</a>, <a class="el" href="classGateEffect.html#acbc162981c0aff17027d3bb1dba2e559">lastLOn</a>, <a class="el" href="classGateEffect.html#a22b6b9beb3b81d68b875d4a0e9daa035">lastROn</a>, <a class="el" href="classGateEffect.html#acee7b8f3cd3b1389c0f4fb435e20ee98">mix</a>, <a class="el" href="classAnalogADSR.html#a68fa35850ca4f7d0d329079b990e8b04">AnalogADSR::noteOff()</a>, <a class="el" href="classAnalogADSR.html#ae25730d121f437a88107aec4b8954ced">AnalogADSR::noteOn()</a>, <a class="el" href="classGateEffect.html#ad44a38a544110cf0a65b7f1c02de768e">phase</a>, <a class="el" href="classAnalogADSR.html#a97e522df9b6b57940abae0d6c8a3f0a7">AnalogADSR::process()</a>, <a class="el" href="classGateEffect.html#a732b0b2be932001f7facf338ad84a2fc">sampleRate</a>, <a class="el" href="classGateEffect.html#a29e08c321ed951a7ebee0701cede0ecb">stepsL</a>, <a class="el" href="classGateEffect.html#a8967c7224813739a9388d21bd4e177e4">stepsR</a>, and <a class="el" href="classGateEffect.html#a10a311a7ed46c3c2e20a243a359b6da3">triggered</a>.</p>
 
 </div>
 </div>
@@ -328,6 +332,26 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="classGateEffect.html#af0a57f0f38fd5c8ee5ae1116c155a78e">adsrL</a>, <a class="el" href="classGateEffect.html#abfb5044f7e394d996ca25ffdaa67b2af">adsrR</a>, and <a class="el" href="classAnalogADSR.html#ae5ddb6e815c4d8fb7864aa87468e5566">AnalogADSR::setRelease()</a>.</p>
+
+</div>
+</div>
+<a id="a68fc51c9480a452645416e88325ff21b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68fc51c9480a452645416e88325ff21b">&#9670;&nbsp;</a></span>setMix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GateEffect::setMix </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classGateEffect.html#acee7b8f3cd3b1389c0f4fb435e20ee98">mix</a>.</p>
 
 </div>
 </div>
@@ -500,6 +524,30 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="acee7b8f3cd3b1389c0f4fb435e20ee98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acee7b8f3cd3b1389c0f4fb435e20ee98">&#9670;&nbsp;</a></span>mix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float GateEffect::mix = 1.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classGateEffect.html#a377d75486bc98070c5e166ae20f42cf5">process()</a>, and <a class="el" href="classGateEffect.html#a68fc51c9480a452645416e88325ff21b">setMix()</a>.</p>
+
+</div>
+</div>
 <a id="a10a311a7ed46c3c2e20a243a359b6da3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a10a311a7ed46c3c2e20a243a359b6da3">&#9670;&nbsp;</a></span>triggered</h2>
 
@@ -578,7 +626,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 24 2024 17:46:32 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Jan 25 2024 16:14:19 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

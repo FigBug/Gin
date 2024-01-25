@@ -76,7 +76,7 @@ var searchData=
   ['setlooping_1235',['setLooping',['../classSampleOscillator.html#a6ad97b31d76399ec7140ba7db4bf0526',1,'SampleOscillator']]],
   ['setlowpass_1236',['setLowpass',['../classPlateReverb.html#ade79cbb3fd905d7d738a6b6fe904cc56',1,'PlateReverb']]],
   ['setmaptiledir_1237',['setMapTileDir',['../classOpenStreetMaps.html#a5d46381e37ef37f726263139d73c6072',1,'OpenStreetMaps']]],
-  ['setmix_1238',['setMix',['../classWetDryMix.html#a624aa422b18039b0f497c88f336e42dc',1,'WetDryMix::setMix()'],['../classPlateReverb.html#ad6a4f8b8e1fc6a68564613cb455877fd',1,'PlateReverb::setMix()']]],
+  ['setmix_1238',['setMix',['../classWetDryMix.html#a624aa422b18039b0f497c88f336e42dc',1,'WetDryMix::setMix()'],['../classGateEffect.html#a68fc51c9480a452645416e88325ff21b',1,'GateEffect::setMix()'],['../classPlateReverb.html#ad6a4f8b8e1fc6a68564613cb455877fd',1,'PlateReverb::setMix()']]],
   ['setmoddepth_1239',['setModDepth',['../classModMatrix.html#ace5b6d8daf94ac3a9f13d61a322c2008',1,'ModMatrix']]],
   ['setmode_1240',['setMode',['../classDynamics.html#abb7d2814c89e5a5ca3e7066c03ed9c66',1,'Dynamics']]],
   ['setmodenable_1241',['setModEnable',['../classModMatrix.html#a6927231033b7126e0147f7601b6b40c8',1,'ModMatrix']]],
