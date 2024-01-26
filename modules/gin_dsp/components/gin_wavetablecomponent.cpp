@@ -6,8 +6,21 @@ WavetableComponent::WavetableComponent()
 WavetableComponent::~WavetableComponent()
 {
 }
-
 //==============================================================================
+
+void WavetableComponent::showPhase (float start, float len)
+{
+    phaseStart = start;
+    phaseLen = len;
+    repaint();
+}
+
+void WavetableComponent::hidePhase()
+{
+    phaseStart = -1;
+    phaseLen = -1;
+    repaint();
+}
 
 void WavetableComponent::setParams (WTOscillator::Params params_)
 {
@@ -19,13 +32,18 @@ void WavetableComponent::setParams (WTOscillator::Params params_)
         params = params_;
         needsUpdate = true;
         repaint();
-
     }
     else if (! juce::approximatelyEqual (params.position, params_.position))
     {
         params = params_;
         repaint();
     }
+}
+
+void WavetableComponent::resized()
+{
+    needsUpdate = true;
+    repaint();
 }
 
 void WavetableComponent::setWavetables (juce::OwnedArray<BandLimitedLookupTable>* bllt_)
@@ -63,11 +81,46 @@ void WavetableComponent::paint (juce::Graphics& g)
         {
             g.setColour (findColour (activeWaveColourId, true).withMultipliedAlpha (isEnabled() ? 1.0f : 0.5f));
             g.strokePath (createWavetablePath (params.position), juce::PathStrokeType (0.75f));
+
+            if (phaseStart >= 0)
+            {
+                auto s1 = phaseStart;
+                auto e1 = phaseStart + phaseLen;
+
+                juce::Point<float> pdot;
+
+                g.setColour (findColour (phaseWaveColourId, true));
+                if (e1 > 1.0)
+                {
+                    auto s2 = 0.0f;
+                    auto e2 = phaseLen - (1.0f - s1);
+
+                    e1 = 1.0f;
+
+                    auto p1 = createWavetablePath (params.position, s1, e1);
+                    auto p2 = createWavetablePath (params.position, s2, e2);
+
+                    g.strokePath (p1, juce::PathStrokeType (0.75f));
+                    g.strokePath (p2, juce::PathStrokeType (0.75f));
+
+                    pdot = p1.getPointAlongPath (0.0f);
+                }
+                else
+                {
+                    auto p1 = createWavetablePath (params.position, s1, e1);
+
+                    g.strokePath (p1, juce::PathStrokeType (0.75f));
+
+                    pdot = p1.getPointAlongPath (0.0f);
+                }
+
+                g.fillEllipse (pdot.x - 2.0f, pdot.y - 2.0f, 4.0f, 4.0f);
+            }
         }
     }
 }
 
-juce::Path WavetableComponent::createWavetablePath (float wtPos)
+juce::Path WavetableComponent::createWavetablePath (float wtPos, float start, float end)
 {
     constexpr auto samples = 64;
 
@@ -108,9 +161,13 @@ juce::Path WavetableComponent::createWavetablePath (float wtPos)
     xOffset += (w - dx * xSpread - samples * xSlope) / 2.0f;
     yOffset += (h - dx * xSpread - samples * ySlope) / 2.0f;
 
-    p.startNewSubPath (xOffset, data[0] * yScale * dx + yOffset);
+    auto offset = juce::roundToInt (start * samples);
+    xOffset += xSlope * offset;
+    yOffset += ySlope * offset;
 
-    for (auto s = 1; s < samples; s++)
+    p.startNewSubPath (xOffset, data[offset] * yScale * dx + yOffset);
+
+    for (auto s = 1 + offset; s < std::min (samples, juce::roundToInt (samples * end) + 1); s++)
     {
         p.lineTo (xOffset, data[s] * yScale * dx + yOffset);
 
