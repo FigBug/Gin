@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['waveformcomponent_1772',['WaveformComponent',['../classWaveformComponent.html',1,'']]],
-  ['wavetablecomponent_1773',['WavetableComponent',['../classWavetableComponent.html',1,'']]],
-  ['webpimageformat_1774',['WEBPImageFormat',['../classWEBPImageFormat.html',1,'']]],
-  ['websocket_1775',['WebSocket',['../classWebSocket.html',1,'']]],
-  ['wetdrymix_1776',['WetDryMix',['../classWetDryMix.html',1,'']]],
-  ['whitenoise_1777',['WhiteNoise',['../classWhiteNoise.html',1,'']]],
-  ['wsheadertype_1778',['WSHeaderType',['../structWSHeaderType.html',1,'']]],
-  ['wtoscillator_1779',['WTOscillator',['../classWTOscillator.html',1,'']]],
-  ['wtvoicedstereooscillator_1780',['WTVoicedStereoOscillator',['../classWTVoicedStereoOscillator.html',1,'']]],
-  ['wtvoicedstereooscillatorparams_1781',['WTVoicedStereoOscillatorParams',['../structWTVoicedStereoOscillatorParams.html',1,'']]]
+  ['waveformcomponent_1776',['WaveformComponent',['../classWaveformComponent.html',1,'']]],
+  ['wavetablecomponent_1777',['WavetableComponent',['../classWavetableComponent.html',1,'']]],
+  ['webpimageformat_1778',['WEBPImageFormat',['../classWEBPImageFormat.html',1,'']]],
+  ['websocket_1779',['WebSocket',['../classWebSocket.html',1,'']]],
+  ['wetdrymix_1780',['WetDryMix',['../classWetDryMix.html',1,'']]],
+  ['whitenoise_1781',['WhiteNoise',['../classWhiteNoise.html',1,'']]],
+  ['wsheadertype_1782',['WSHeaderType',['../structWSHeaderType.html',1,'']]],
+  ['wtoscillator_1783',['WTOscillator',['../classWTOscillator.html',1,'']]],
+  ['wtvoicedstereooscillator_1784',['WTVoicedStereoOscillator',['../classWTVoicedStereoOscillator.html',1,'']]],
+  ['wtvoicedstereooscillatorparams_1785',['WTVoicedStereoOscillatorParams',['../structWTVoicedStereoOscillatorParams.html',1,'']]]
 ];

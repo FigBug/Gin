@@ -14980,6 +14980,12 @@
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
+      <name>phaseWaveColourId</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>ac7bd2c73ff86cfd3dc26d2c607eb87e5a908032d50d53a7f5c9aad8301f459cda</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
       <name>lineColourId</name>
       <anchorfile>classWavetableComponent.html</anchorfile>
       <anchor>ac7bd2c73ff86cfd3dc26d2c607eb87e5a988c44521e03d2091d813c18ca158032</anchor>
@@ -15003,6 +15009,12 @@
       <anchor>ac7bd2c73ff86cfd3dc26d2c607eb87e5a610b786e494188bf9a4aa55f46ae99d3</anchor>
       <arglist></arglist>
     </member>
+    <member kind="enumvalue">
+      <name>phaseWaveColourId</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>ac7bd2c73ff86cfd3dc26d2c607eb87e5a908032d50d53a7f5c9aad8301f459cda</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>WavetableComponent</name>
@@ -15019,10 +15031,31 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>showPhase</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>abba66a3638d87c41b582a5978d506ca2</anchor>
+      <arglist>(float start, float len)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>hidePhase</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>abf7eef26023392714ce5859e920bfb27</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>paint</name>
       <anchorfile>classWavetableComponent.html</anchorfile>
       <anchor>a44818593e9f1c76a633a87f3252ad54d</anchor>
       <arglist>(juce::Graphics &amp;g) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resized</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>a6f8e10a3730ecde1b47cf6e433d91c9e</anchor>
+      <arglist>() override</arglist>
     </member>
     <member kind="function">
       <type>void</type>

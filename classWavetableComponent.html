@@ -78,10 +78,14 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ac7bd2c73ff86cfd3dc26d2c607eb87e5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWavetableComponent.html#ac7bd2c73ff86cfd3dc26d2c607eb87e5">ColourIds</a> { <a class="el" href="classWavetableComponent.html#ac7bd2c73ff86cfd3dc26d2c607eb87e5a988c44521e03d2091d813c18ca158032">lineColourId</a> = 0x3331e10
+<tr class="memitem:ac7bd2c73ff86cfd3dc26d2c607eb87e5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWavetableComponent.html#ac7bd2c73ff86cfd3dc26d2c607eb87e5">ColourIds</a> { <br />
+&#160;&#160;<a class="el" href="classWavetableComponent.html#ac7bd2c73ff86cfd3dc26d2c607eb87e5a988c44521e03d2091d813c18ca158032">lineColourId</a> = 0x3331e10
 , <a class="el" href="classWavetableComponent.html#ac7bd2c73ff86cfd3dc26d2c607eb87e5aec89b078eb7103c48cbbbee9ba3374d9">backgroundColourId</a> = 0x3331e11
 , <a class="el" href="classWavetableComponent.html#ac7bd2c73ff86cfd3dc26d2c607eb87e5a06b218cc58108db807e89d29c4083ce7">waveColourId</a> = 0x3331e12
 , <a class="el" href="classWavetableComponent.html#ac7bd2c73ff86cfd3dc26d2c607eb87e5a610b786e494188bf9a4aa55f46ae99d3">activeWaveColourId</a> = 0x3331f13
+, <br />
+&#160;&#160;<a class="el" href="classWavetableComponent.html#ac7bd2c73ff86cfd3dc26d2c607eb87e5a908032d50d53a7f5c9aad8301f459cda">phaseWaveColourId</a> = 0x3331f14
+<br />
  }</td></tr>
 <tr class="separator:ac7bd2c73ff86cfd3dc26d2c607eb87e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -91,8 +95,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aabd88c4ea32e53755f23f25ac4601d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1693a7653e8e83614a48b6c0cc75231c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWavetableComponent.html#a1693a7653e8e83614a48b6c0cc75231c">~WavetableComponent</a> () override</td></tr>
 <tr class="separator:a1693a7653e8e83614a48b6c0cc75231c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abba66a3638d87c41b582a5978d506ca2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWavetableComponent.html#abba66a3638d87c41b582a5978d506ca2">showPhase</a> (float start, float len)</td></tr>
+<tr class="separator:abba66a3638d87c41b582a5978d506ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf7eef26023392714ce5859e920bfb27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWavetableComponent.html#abf7eef26023392714ce5859e920bfb27">hidePhase</a> ()</td></tr>
+<tr class="separator:abf7eef26023392714ce5859e920bfb27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44818593e9f1c76a633a87f3252ad54d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWavetableComponent.html#a44818593e9f1c76a633a87f3252ad54d">paint</a> (juce::Graphics &amp;g) override</td></tr>
 <tr class="separator:a44818593e9f1c76a633a87f3252ad54d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f8e10a3730ecde1b47cf6e433d91c9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWavetableComponent.html#a6f8e10a3730ecde1b47cf6e433d91c9e">resized</a> () override</td></tr>
+<tr class="separator:a6f8e10a3730ecde1b47cf6e433d91c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb0c572445ba218ca6183bce80ecdaf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWavetableComponent.html#acb0c572445ba218ca6183bce80ecdaf2">setParams</a> (<a class="el" href="structWTOscillator_1_1Params.html">WTOscillator::Params</a> params)</td></tr>
 <tr class="separator:acb0c572445ba218ca6183bce80ecdaf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a92aab5da5b425a293342ee9bf08d80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWavetableComponent.html#a6a92aab5da5b425a293342ee9bf08d80">setWavetables</a> (juce::OwnedArray&lt; <a class="el" href="classBandLimitedLookupTable.html">BandLimitedLookupTable</a> &gt; *)</td></tr>
@@ -130,6 +140,7 @@ Public Attributes</h2></td></tr>
 <tr><td class="fieldname"><a id="ac7bd2c73ff86cfd3dc26d2c607eb87e5aec89b078eb7103c48cbbbee9ba3374d9"></a>backgroundColourId&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ac7bd2c73ff86cfd3dc26d2c607eb87e5a06b218cc58108db807e89d29c4083ce7"></a>waveColourId&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ac7bd2c73ff86cfd3dc26d2c607eb87e5a610b786e494188bf9a4aa55f46ae99d3"></a>activeWaveColourId&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac7bd2c73ff86cfd3dc26d2c607eb87e5a908032d50d53a7f5c9aad8301f459cda"></a>phaseWaveColourId&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -178,6 +189,51 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="abba66a3638d87c41b582a5978d506ca2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abba66a3638d87c41b582a5978d506ca2">&#9670;&nbsp;</a></span>showPhase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WavetableComponent::showPhase </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abf7eef26023392714ce5859e920bfb27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf7eef26023392714ce5859e920bfb27">&#9670;&nbsp;</a></span>hidePhase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WavetableComponent::hidePhase </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a44818593e9f1c76a633a87f3252ad54d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a44818593e9f1c76a633a87f3252ad54d">&#9670;&nbsp;</a></span>paint()</h2>
 
@@ -192,6 +248,31 @@ Public Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">juce::Graphics &amp;&#160;</td>
           <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6f8e10a3730ecde1b47cf6e433d91c9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f8e10a3730ecde1b47cf6e433d91c9e">&#9670;&nbsp;</a></span>resized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WavetableComponent::resized </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -397,7 +478,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 25 2024 22:26:11 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Jan 26 2024 19:17:45 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['kmaxpredelay_2994',['kMaxPredelay',['../classPlateReverb.html#ac371d941c9f1a7b825e1eca04c5b5c29',1,'PlateReverb']]],
-  ['kmaxsize_2995',['kMaxSize',['../classPlateReverb.html#a9643a8e18dd14df66eee8b20a5ffbe28',1,'PlateReverb']]]
+  ['kmaxpredelay_3000',['kMaxPredelay',['../classPlateReverb.html#ac371d941c9f1a7b825e1eca04c5b5c29',1,'PlateReverb']]],
+  ['kmaxsize_3001',['kMaxSize',['../classPlateReverb.html#a9643a8e18dd14df66eee8b20a5ffbe28',1,'PlateReverb']]]
 ];
