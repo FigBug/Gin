@@ -15,6 +15,9 @@ public:
 
     bool supportsMPE() const override { return true; }
 
+    void stateUpdated() override;
+    void updateState() override;
+    
     //==============================================================================
     void reset() override;
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;

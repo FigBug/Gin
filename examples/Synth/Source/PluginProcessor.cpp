@@ -258,6 +258,16 @@ void SynthAudioProcessor::reset()
     modLFO.reset();
 }
 
+void SynthAudioProcessor::stateUpdated()
+{
+    modMatrix.stateUpdated (state);
+}
+
+void SynthAudioProcessor::updateState()
+{
+    modMatrix.updateState (state);
+}
+
 void SynthAudioProcessor::prepareToPlay (double newSampleRate, int newSamplesPerBlock)
 {
     Processor::prepareToPlay (newSampleRate, newSamplesPerBlock);
