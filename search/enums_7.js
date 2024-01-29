@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['readystatevalues_3215',['ReadyStateValues',['../classWebSocket.html#a452bcfacd2ce0567751e44f891dd1489',1,'WebSocket']]],
-  ['resizealgorirm_3216',['ResizeAlgorirm',['../group__gin__graphics-images.html#gaedc0b4c54cea2c3df1788ebf8ee9b07b',1,'gin_imageeffects.h']]],
-  ['result_3217',['Result',['../classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30f',1,'ElevatedFileCopy']]]
+  ['readystatevalues_3216',['ReadyStateValues',['../classWebSocket.html#a452bcfacd2ce0567751e44f891dd1489',1,'WebSocket']]],
+  ['resizealgorirm_3217',['ResizeAlgorirm',['../group__gin__graphics-images.html#gaedc0b4c54cea2c3df1788ebf8ee9b07b',1,'gin_imageeffects.h']]],
+  ['result_3218',['Result',['../classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30f',1,'ElevatedFileCopy']]]
 ];

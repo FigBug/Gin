@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['direction_3210',['Direction',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1',1,'SampleOscillator']]]
+  ['direction_3211',['Direction',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1',1,'SampleOscillator']]]
 ];

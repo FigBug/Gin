@@ -8739,11 +8739,39 @@
       <anchor>af9eeb45027f568f93286f93611ec6a04</anchor>
       <arglist>(Parameter::Ptr wave, Parameter::Ptr sync, Parameter::Ptr rate, Parameter::Ptr beat, Parameter::Ptr depth, Parameter::Ptr offset, Parameter::Ptr phase, Parameter::Ptr enable)</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setEditable</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>a049be903daf6ad17030f5b280640a625</anchor>
+      <arglist>(bool e)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paint</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>ae8fa6d2d2a4a2eb1b5fe73fc03241975</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resized</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>a36ff77bf9334bb26ab844dc6f960224e</anchor>
+      <arglist>() override</arglist>
+    </member>
     <member kind="variable">
       <type>std::function&lt; std::vector&lt; float &gt;)&gt;</type>
       <name>phaseCallback</name>
       <anchorfile>classMSEGComponent.html</anchorfile>
       <anchor>aa4e10dc6c933ab69123d4b46171c37e8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; void()&gt;</type>
+      <name>onClick</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>ac8a71e3134d2269beebce8d56921aa1f</anchor>
       <arglist></arglist>
     </member>
   </compound>

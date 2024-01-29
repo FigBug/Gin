@@ -87,6 +87,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a07554508e93995ab304c34151cdb1cc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9eeb45027f568f93286f93611ec6a04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMSEGComponent.html#af9eeb45027f568f93286f93611ec6a04">setParams</a> (<a class="el" href="classParameter.html#a8fcb9478cf19509ef836db884323e5a5">Parameter::Ptr</a> wave, <a class="el" href="classParameter.html#a8fcb9478cf19509ef836db884323e5a5">Parameter::Ptr</a> sync, <a class="el" href="classParameter.html#a8fcb9478cf19509ef836db884323e5a5">Parameter::Ptr</a> rate, <a class="el" href="classParameter.html#a8fcb9478cf19509ef836db884323e5a5">Parameter::Ptr</a> beat, <a class="el" href="classParameter.html#a8fcb9478cf19509ef836db884323e5a5">Parameter::Ptr</a> depth, <a class="el" href="classParameter.html#a8fcb9478cf19509ef836db884323e5a5">Parameter::Ptr</a> offset, <a class="el" href="classParameter.html#a8fcb9478cf19509ef836db884323e5a5">Parameter::Ptr</a> phase, <a class="el" href="classParameter.html#a8fcb9478cf19509ef836db884323e5a5">Parameter::Ptr</a> enable)</td></tr>
 <tr class="separator:af9eeb45027f568f93286f93611ec6a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a049be903daf6ad17030f5b280640a625"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMSEGComponent.html#a049be903daf6ad17030f5b280640a625">setEditable</a> (bool e)</td></tr>
+<tr class="separator:a049be903daf6ad17030f5b280640a625"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8fa6d2d2a4a2eb1b5fe73fc03241975"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMSEGComponent.html#ae8fa6d2d2a4a2eb1b5fe73fc03241975">paint</a> (juce::Graphics &amp;g) override</td></tr>
+<tr class="separator:ae8fa6d2d2a4a2eb1b5fe73fc03241975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36ff77bf9334bb26ab844dc6f960224e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMSEGComponent.html#a36ff77bf9334bb26ab844dc6f960224e">resized</a> () override</td></tr>
+<tr class="separator:a36ff77bf9334bb26ab844dc6f960224e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classMultiParamComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classMultiParamComponent')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classMultiParamComponent.html">MultiParamComponent</a></td></tr>
 <tr class="memitem:a18f9b618b79b95f66337845843202a2e inherit pub_methods_classMultiParamComponent"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiParamComponent.html#a18f9b618b79b95f66337845843202a2e">MultiParamComponent</a> ()</td></tr>
 <tr class="separator:a18f9b618b79b95f66337845843202a2e inherit pub_methods_classMultiParamComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -102,6 +108,8 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aa4e10dc6c933ab69123d4b46171c37e8"><td class="memItemLeft" align="right" valign="top">std::function&lt; std::vector&lt; float &gt;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMSEGComponent.html#aa4e10dc6c933ab69123d4b46171c37e8">phaseCallback</a></td></tr>
 <tr class="separator:aa4e10dc6c933ab69123d4b46171c37e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8a71e3134d2269beebce8d56921aa1f"><td class="memItemLeft" align="right" valign="top">std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMSEGComponent.html#ac8a71e3134d2269beebce8d56921aa1f">onClick</a></td></tr>
+<tr class="separator:ac8a71e3134d2269beebce8d56921aa1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -239,6 +247,75 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a049be903daf6ad17030f5b280640a625"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a049be903daf6ad17030f5b280640a625">&#9670;&nbsp;</a></span>setEditable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MSEGComponent::setEditable </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae8fa6d2d2a4a2eb1b5fe73fc03241975"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8fa6d2d2a4a2eb1b5fe73fc03241975">&#9670;&nbsp;</a></span>paint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MSEGComponent::paint </td>
+          <td>(</td>
+          <td class="paramtype">juce::Graphics &amp;&#160;</td>
+          <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a36ff77bf9334bb26ab844dc6f960224e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36ff77bf9334bb26ab844dc6f960224e">&#9670;&nbsp;</a></span>resized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MSEGComponent::resized </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="aa4e10dc6c933ab69123d4b46171c37e8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa4e10dc6c933ab69123d4b46171c37e8">&#9670;&nbsp;</a></span>phaseCallback</h2>
@@ -254,13 +331,27 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="ac8a71e3134d2269beebce8d56921aa1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8a71e3134d2269beebce8d56921aa1f">&#9670;&nbsp;</a></span>onClick</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;void()&gt; MSEGComponent::onClick</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="gin__msegcomponent_8h.html">gin_msegcomponent.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 29 2024 00:10:23 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Jan 29 2024 00:45:32 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
