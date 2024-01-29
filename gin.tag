@@ -1327,6 +1327,21 @@
     <filename>gin__modules_8dox.html</filename>
   </compound>
   <compound kind="file">
+    <name>gin_mseg.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
+    <filename>gin__mseg_8h.html</filename>
+    <class kind="class">MSEG</class>
+    <class kind="struct">MSEG::Parameters</class>
+    <class kind="struct">MSEG::Point</class>
+    <class kind="struct">MSEG::Data</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_msegcomponent.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
+    <filename>gin__msegcomponent_8h.html</filename>
+    <class kind="class">MSEGComponent</class>
+  </compound>
+  <compound kind="file">
     <name>gin_multiparamcomponent.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
     <filename>gin__multiparamcomponent_8h.html</filename>
@@ -3842,6 +3857,52 @@
       <anchorfile>classCopperLookAndFeelWrapper.html</anchorfile>
       <anchor>af2da6ddd887a26c92e047e30d0f08c9a</anchor>
       <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>MSEG::Data</name>
+    <filename>structMSEG_1_1Data.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>toValueTree</name>
+      <anchorfile>structMSEG_1_1Data.html</anchorfile>
+      <anchor>a372c6b2892f44d5d01b6ca256e099f60</anchor>
+      <arglist>(juce::ValueTree v)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>fromValueTree</name>
+      <anchorfile>structMSEG_1_1Data.html</anchorfile>
+      <anchor>a02c5a275bb5119153e075d03fc068606</anchor>
+      <arglist>(const juce::ValueTree &amp;v)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>structMSEG_1_1Data.html</anchorfile>
+      <anchor>a363c243756275b51db52506d3affbd90</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Array&lt; Point &gt;</type>
+      <name>points</name>
+      <anchorfile>structMSEG_1_1Data.html</anchorfile>
+      <anchor>a699072e1cf50fbbfbdf7ed24a5e8d716</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>numPoints</name>
+      <anchorfile>structMSEG_1_1Data.html</anchorfile>
+      <anchor>a346affc8c6dea61cc798b9fda79e7248</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>maxPoints</name>
+      <anchorfile>structMSEG_1_1Data.html</anchorfile>
+      <anchor>a9b6d1c4e8f21a23da5a3784b776fab97</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -8563,6 +8624,130 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>MSEG</name>
+    <filename>classMSEG.html</filename>
+    <class kind="struct">MSEG::Data</class>
+    <class kind="struct">MSEG::Parameters</class>
+    <class kind="struct">MSEG::Point</class>
+    <member kind="function">
+      <type></type>
+      <name>MSEG</name>
+      <anchorfile>classMSEG.html</anchorfile>
+      <anchor>a1d38da310f4e71a127178fc25635078c</anchor>
+      <arglist>(Data &amp;d)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getMaxPoints</name>
+      <anchorfile>classMSEG.html</anchorfile>
+      <anchor>afba95843aa709b5a27b5f1c5c98d7804</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Array&lt; Point &gt; &amp;</type>
+      <name>getPoints</name>
+      <anchorfile>classMSEG.html</anchorfile>
+      <anchor>a7612a8dff5724583a3034fc8d2fd3ab9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classMSEG.html</anchorfile>
+      <anchor>a288da981cbead4f3e984df97cab73075</anchor>
+      <arglist>(double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setParameters</name>
+      <anchorfile>classMSEG.html</anchorfile>
+      <anchor>a65d3091c493f50caee940c32f1870a5f</anchor>
+      <arglist>(Parameters p)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classMSEG.html</anchorfile>
+      <anchor>a61f4d38ce6b96410be9f3459a053ccad</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPoints</name>
+      <anchorfile>classMSEG.html</anchorfile>
+      <anchor>a2539f038754323d4ea36d6fce9fef775</anchor>
+      <arglist>(const juce::Array&lt; Point &gt; &amp;p)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>noteOn</name>
+      <anchorfile>classMSEG.html</anchorfile>
+      <anchor>ada29ea0a744c9e038a06636affb52373</anchor>
+      <arglist>(float phase_=-1.0f)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>process</name>
+      <anchorfile>classMSEG.html</anchorfile>
+      <anchor>a65427abbf208b7924fb7153ce0d45bbf</anchor>
+      <arglist>(int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getOutput</name>
+      <anchorfile>classMSEG.html</anchorfile>
+      <anchor>a5925938ab7ccbed218ad1cfe7127a782</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getCurrentPhase</name>
+      <anchorfile>classMSEG.html</anchorfile>
+      <anchor>abdc0d36d314aa069276f4270a9d7e655</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getValueAt</name>
+      <anchorfile>classMSEG.html</anchorfile>
+      <anchor>a394724e863658cb9f0ac1b1fe69c1611</anchor>
+      <arglist>(float atPhase)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>MSEGComponent</name>
+    <filename>classMSEGComponent.html</filename>
+    <base>MultiParamComponent</base>
+    <member kind="function">
+      <type></type>
+      <name>MSEGComponent</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>ad9532dc5e701583000942959aa6d10bb</anchor>
+      <arglist>(MSEG::Data &amp;d)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~MSEGComponent</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>a07554508e93995ab304c34151cdb1cc6</anchor>
+      <arglist>() override=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setParams</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>af9eeb45027f568f93286f93611ec6a04</anchor>
+      <arglist>(Parameter::Ptr wave, Parameter::Ptr sync, Parameter::Ptr rate, Parameter::Ptr beat, Parameter::Ptr depth, Parameter::Ptr offset, Parameter::Ptr phase, Parameter::Ptr enable)</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; std::vector&lt; float &gt;)&gt;</type>
+      <name>phaseCallback</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>aa4e10dc6c933ab69123d4b46171c37e8</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>MultiParamComponent</name>
     <filename>classMultiParamComponent.html</filename>
     <base>Parameter::ParameterListener</base>
@@ -9954,6 +10139,52 @@
       <arglist></arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>MSEG::Parameters</name>
+    <filename>structMSEG_1_1Parameters.html</filename>
+    <member kind="variable">
+      <type>float</type>
+      <name>frequency</name>
+      <anchorfile>structMSEG_1_1Parameters.html</anchorfile>
+      <anchor>ac90ca6bc258763e10f03257fd5210e12</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>phase</name>
+      <anchorfile>structMSEG_1_1Parameters.html</anchorfile>
+      <anchor>af493fc8041f147af3bd1050b4e76f752</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>offset</name>
+      <anchorfile>structMSEG_1_1Parameters.html</anchorfile>
+      <anchor>a7e4f934b9eea7f44bc7d546a40a3d134</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>depth</name>
+      <anchorfile>structMSEG_1_1Parameters.html</anchorfile>
+      <anchor>a7b3246f9a150ccd8cfa42f6c4a29452e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>delay</name>
+      <anchorfile>structMSEG_1_1Parameters.html</anchorfile>
+      <anchor>afb69d6146579e4d3ded51d069d59864f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>fade</name>
+      <anchorfile>structMSEG_1_1Parameters.html</anchorfile>
+      <anchor>ae32002c1a62e1164a4fd5e0cf106a409</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>ParamHeader</name>
     <filename>classParamHeader.html</filename>
@@ -10607,6 +10838,31 @@
       <anchorfile>classPluginSlider.html</anchorfile>
       <anchor>a85064398e0b6fb0387554a4c5877fa67</anchor>
       <arglist>() override</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>MSEG::Point</name>
+    <filename>structMSEG_1_1Point.html</filename>
+    <member kind="variable">
+      <type>float</type>
+      <name>time</name>
+      <anchorfile>structMSEG_1_1Point.html</anchorfile>
+      <anchor>accff1a07fa1ff760eddba4f49109487d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>value</name>
+      <anchorfile>structMSEG_1_1Point.html</anchorfile>
+      <anchor>ac98a21f546f74075d31bfffe81007352</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>curve</name>
+      <anchorfile>structMSEG_1_1Point.html</anchorfile>
+      <anchor>a634f4b17ddbfa5605251d0d3628f6b37</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">

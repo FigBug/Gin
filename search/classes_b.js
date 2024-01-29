@@ -1,17 +1,19 @@
 var searchData=
 [
-  ['mapviewer_1682',['MapViewer',['../classMapViewer.html',1,'']]],
-  ['messagepack_1683',['MessagePack',['../classMessagePack.html',1,'']]],
-  ['midififo_1684',['MidiFifo',['../classMidiFifo.html',1,'']]],
-  ['moddstid_1685',['ModDstId',['../structModDstId.html',1,'']]],
-  ['modmatrix_1686',['ModMatrix',['../classModMatrix.html',1,'']]],
-  ['modmatrixbox_1687',['ModMatrixBox',['../classModMatrixBox.html',1,'']]],
-  ['modsrcid_1688',['ModSrcId',['../structModSrcId.html',1,'']]],
-  ['modsrclistbox_1689',['ModSrcListBox',['../classModSrcListBox.html',1,'']]],
-  ['modulation_1690',['Modulation',['../classModulation.html',1,'']]],
-  ['modulationdepthslider_1691',['ModulationDepthSlider',['../classModulationDepthSlider.html',1,'']]],
-  ['modulationoverview_1692',['ModulationOverview',['../classModulationOverview.html',1,'']]],
-  ['modulationsourcebutton_1693',['ModulationSourceButton',['../classModulationSourceButton.html',1,'']]],
-  ['modvoice_1694',['ModVoice',['../classModVoice.html',1,'']]],
-  ['multiparamcomponent_1695',['MultiParamComponent',['../classMultiParamComponent.html',1,'']]]
+  ['mapviewer_1704',['MapViewer',['../classMapViewer.html',1,'']]],
+  ['messagepack_1705',['MessagePack',['../classMessagePack.html',1,'']]],
+  ['midififo_1706',['MidiFifo',['../classMidiFifo.html',1,'']]],
+  ['moddstid_1707',['ModDstId',['../structModDstId.html',1,'']]],
+  ['modmatrix_1708',['ModMatrix',['../classModMatrix.html',1,'']]],
+  ['modmatrixbox_1709',['ModMatrixBox',['../classModMatrixBox.html',1,'']]],
+  ['modsrcid_1710',['ModSrcId',['../structModSrcId.html',1,'']]],
+  ['modsrclistbox_1711',['ModSrcListBox',['../classModSrcListBox.html',1,'']]],
+  ['modulation_1712',['Modulation',['../classModulation.html',1,'']]],
+  ['modulationdepthslider_1713',['ModulationDepthSlider',['../classModulationDepthSlider.html',1,'']]],
+  ['modulationoverview_1714',['ModulationOverview',['../classModulationOverview.html',1,'']]],
+  ['modulationsourcebutton_1715',['ModulationSourceButton',['../classModulationSourceButton.html',1,'']]],
+  ['modvoice_1716',['ModVoice',['../classModVoice.html',1,'']]],
+  ['mseg_1717',['MSEG',['../classMSEG.html',1,'']]],
+  ['msegcomponent_1718',['MSEGComponent',['../classMSEGComponent.html',1,'']]],
+  ['multiparamcomponent_1719',['MultiParamComponent',['../classMultiParamComponent.html',1,'']]]
 ];

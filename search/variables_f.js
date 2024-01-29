@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['q_3094',['Q',['../group__gin__dsp-dsp.html#gab7b12a212b5068cd4b83c5ef0af70511',1,'gin_audioutil.h']]],
-  ['quality_3095',['quality',['../classWEBPImageFormat.html#a346bc04bdd1ff9881380f0c906cf86d4',1,'WEBPImageFormat']]]
+  ['q_3132',['Q',['../group__gin__dsp-dsp.html#gab7b12a212b5068cd4b83c5ef0af70511',1,'gin_audioutil.h']]],
+  ['quality_3133',['quality',['../classWEBPImageFormat.html#a346bc04bdd1ff9881380f0c906cf86d4',1,'WEBPImageFormat']]]
 ];

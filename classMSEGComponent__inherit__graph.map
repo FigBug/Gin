@@ -1,0 +1,5 @@
+<map id="MSEGComponent" name="MSEGComponent">
+<area shape="rect" id="node1" title="Draws an MSEG LFO curve and shows a little dot moving long." alt="" coords="46,155,181,181"/>
+<area shape="rect" id="node2" href="$classMultiParamComponent.html" title="A base component for controlling multiple parameters at once." alt="" coords="28,80,199,107"/>
+<area shape="rect" id="node3" href="$classParameter_1_1ParameterListener.html" title=" " alt="" coords="5,5,221,32"/>
+</map>
