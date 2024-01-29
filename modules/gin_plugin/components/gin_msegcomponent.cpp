@@ -276,7 +276,7 @@ void MSEGComponent::mouseDown (const juce::MouseEvent& e)
         }
     }
 
-    lastY = e.y;
+    lastY = e.position.y;
 }
 
 void MSEGComponent::mouseMove (const juce::MouseEvent&)
@@ -305,8 +305,8 @@ void MSEGComponent::mouseDrag (const juce::MouseEvent& e)
         if (draggingPoint < data.numPoints - 1)
             maxT = data.points[draggingPoint + 1].time;
 
-        p.time  = std::clamp (xToTime (e.x), minT, maxT);
-        p.value = std::clamp (yToValue (e.y), -1.0f, 1.0f);
+        p.time  = std::clamp (xToTime (e.position.x), minT, maxT);
+        p.value = std::clamp (yToValue (e.position.y), -1.0f, 1.0f);
 
         if (draggingPoint == 0)                  
         {
@@ -335,7 +335,7 @@ void MSEGComponent::mouseDrag (const juce::MouseEvent& e)
         dirty = true;
         repaint ();
     }
-    lastY = e.y;
+    lastY = e.position.y;
 }
 
 void MSEGComponent::mouseUp (const juce::MouseEvent& e)
