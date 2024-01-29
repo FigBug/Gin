@@ -3,7 +3,7 @@
 */
 struct GlideInfo
 {
-    int fromNote = 0;
+    int fromNote = -1;
     bool glissando = false;
     bool portamento = false;
     float rate = 0.0f;
@@ -332,6 +332,8 @@ public:
                 int num = instrument.getNumPlayingNotes();
                 if (num > 1)
                     lastNote = instrument.getNote (num - 2).initialNote;
+                else
+                    lastNote = -1;
 
                 GlideInfo gi;
                 gi.fromNote = lastNote;
