@@ -105,6 +105,7 @@ namespace gin
 #include "dsp/gin_lfo.h"
 #include "dsp/gin_midififo.h"
 #include "dsp/gin_modulation.h"
+#include "dsp/gin_mseg.h"
 #include "dsp/gin_noise.h"
 #include "dsp/gin_oscillators.h"
 #include "dsp/gin_platereverb.h"

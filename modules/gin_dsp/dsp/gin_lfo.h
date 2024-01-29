@@ -78,6 +78,13 @@ public:
         phase      = phase_ < 0.0f ? 0.0f : phase_;
         fadeDelta  = float (1.0f / (sampleRate * parameters.fade));
         delaySteps = juce::roundToInt (sampleRate * parameters.delay);
+
+        float maxPhase = 1.0f;
+        float newCurPhase = std::fmod (phase + parameters.phase, maxPhase);
+        if (newCurPhase < 0)
+            newCurPhase += maxPhase;
+
+        updateCurrentValue();
     }
 
     float process (int numSamples)
@@ -120,12 +127,12 @@ public:
     {
         return juce::jlimit (-1.0f, 1.0f, (curFade * output * parameters.depth + parameters.offset));
     }
-    
+
     float getOutputUnclamped()
     {
         return curFade * output * parameters.depth + parameters.offset;
     }
-    
+
     float getCurrentPhase()
     {
         return phase;

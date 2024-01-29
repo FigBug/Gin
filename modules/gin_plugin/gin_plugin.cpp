@@ -30,6 +30,7 @@ namespace gin
 #include "components/gin_adsrcomponent.cpp"
 #include "components/gin_gateeffectcomponent.cpp"
 #include "components/gin_lfocomponent.cpp"
+#include "components/gin_msegcomponent.cpp"
 #include "components/gin_steplfocomponent.cpp"
 #include "components/gin_plugincomponents.cpp"
 #include "components/gin_knob.cpp"

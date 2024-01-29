@@ -115,10 +115,10 @@ public:
         adsrR.setRelease (seconds);
     }
 
-	void setMix (float m)
-	{
-		mix = m;
-	}
+    void setMix (float m)
+    {
+        mix = m;
+    }
 
 protected:
     double sampleRate = 44100.0;
