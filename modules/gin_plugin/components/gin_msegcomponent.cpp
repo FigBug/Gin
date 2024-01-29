@@ -59,16 +59,16 @@ void MSEGComponent::createPath (juce::Rectangle<float> area)
     curve.clear();
     path.clear();
 
-    for (int x = area.getX(); x <= area.getRight(); x++)
+    for (int x = int (area.getX()); x <= area.getRight(); x++)
     {
         auto v = mseg.process (1);
 
-        if (x == area.getX())
+        if (x == int (area.getX()))
             path.startNewSubPath ({float (area.getX()), valueToY (v)});
         else
             path.lineTo ({float (x), valueToY (v)});
 
-        curve[x - area.getX()] = valueToY (v);
+        curve[x - int (area.getX())] = valueToY (v);
     }
 }
 
@@ -279,7 +279,7 @@ void MSEGComponent::mouseDown (const juce::MouseEvent& e)
     lastY = e.y;
 }
 
-void MSEGComponent::mouseMove (const juce::MouseEvent& e)
+void MSEGComponent::mouseMove (const juce::MouseEvent&)
 {
     if (! editable)
         return;
