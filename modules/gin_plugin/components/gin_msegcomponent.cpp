@@ -125,31 +125,31 @@ void MSEGComponent::paint (juce::Graphics& g)
     {
         for (auto i = 0; i < data.numPoints; i++)
         {
-            auto rc = juce::Rectangle (timeToX (data.points[i].time) - 2.0f, valueToY (data.points[i].value) - 2.0f, 4.0f, 4.0f);
+            auto r = juce::Rectangle (timeToX (data.points[i].time) - 2.0f, valueToY (data.points[i].value) - 2.0f, 4.0f, 4.0f);
 
             if (draggingPoint == i || getPointAt (getMouseXYRelative().toFloat()) == i)
             {
                 g.setColour (dimIfNeeded (juce::Colours::white).withAlpha (0.3f));
-                g.fillEllipse (rc.expanded (4));
+                g.fillEllipse (r.expanded (4));
             }
 
             g.setColour (dimIfNeeded (findColour (GinLookAndFeel::accentColourId).withAlpha (0.7f)));
-            g.fillEllipse (rc);
+            g.fillEllipse (r);
         }
 
         for (auto i = 0; i < data.numPoints - 1; i++)
         {
             auto t = (data.points[i].time + data.points[i + 1].time) / 2.0f;
-            auto rc = juce::Rectangle (timeToX (t) - 2.0f, valueToY (mseg.getValueAt (t)) - 2.0f, 4.0f, 4.0f);
+            auto r = juce::Rectangle (timeToX (t) - 2.0f, valueToY (mseg.getValueAt (t)) - 2.0f, 4.0f, 4.0f);
 
             if (draggingCurve == i || getCurveAt (getMouseXYRelative().toFloat()) == i)
             {
                 g.setColour (dimIfNeeded (juce::Colours::white).withAlpha (0.3f));
-                g.fillEllipse (rc.expanded (4));
+                g.fillEllipse (r.expanded (4));
             }
 
             g.setColour (dimIfNeeded (findColour (GinLookAndFeel::accentColourId).withAlpha (0.7f)));
-            g.drawEllipse (rc, 1.0f);
+            g.drawEllipse (r, 1.0f);
         }
     }
 }
