@@ -14,11 +14,15 @@ public:
                     Parameter::Ptr beat, Parameter::Ptr depth, Parameter::Ptr offset,
                     Parameter::Ptr phase, Parameter::Ptr enable);
 
-    std::function<std::vector<float>()> phaseCallback;
+    void setEditable (bool e) { editable = e; }
 
-private:
+    std::function<std::vector<float>()> phaseCallback;
+    std::function<void()> onClick;
+
     void paint (juce::Graphics& g) override;
     void resized() override;
+
+private:
 
     void mouseDown (const juce::MouseEvent&) override;
     void mouseDrag (const juce::MouseEvent&) override;
@@ -30,9 +34,8 @@ private:
     void timerCallback() override;
     void paramChanged () override;
 
-    void createPath (juce::Rectangle<int> area);
+    void createPath (juce::Rectangle<float> area);
     float getSample (float phase);
-    int getNumSteps();
 
     Parameter::Ptr wave, sync, rate, beat, depth, offset, phase, enable;
 
@@ -48,6 +51,7 @@ private:
     int draggingCurve = -1;
 
     float lastY = 0.0f;
+    bool editable = false;
 
     juce::Rectangle<float> getArea() { return getLocalBounds().toFloat().reduced (2.0f); }
 

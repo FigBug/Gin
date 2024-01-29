@@ -33,15 +33,25 @@ void MSEGComponent::paramChanged ()
     dirty = true;
 }
 
-void MSEGComponent::createPath (juce::Rectangle<int> area)
+void MSEGComponent::createPath (juce::Rectangle<float> area)
 {
     mseg.setSampleRate ((double) area.getWidth());
 
     MSEG::Parameters p;
-    p.frequency = 1.0f * getNumSteps();
-    p.phase     = phase->getProcValue();
-    p.offset    = offset->getProcValue();
-    p.depth     = depth->getProcValue();
+    p.frequency = 1.0f;
+
+    if (! editable)
+    {
+        p.phase     = phase->getProcValue();
+        p.offset    = offset->getProcValue();
+        p.depth     = depth->getProcValue();
+    }
+    else
+    {
+        p.phase     = 0.0f;
+        p.offset    = 0.0f;
+        p.depth     = 1.0f;
+    }
 
     mseg.setParameters (p);
     mseg.reset();
@@ -64,7 +74,7 @@ void MSEGComponent::createPath (juce::Rectangle<int> area)
 
 void MSEGComponent::paint (juce::Graphics& g)
 {
-    auto rc = getLocalBounds().reduced (2);
+    auto rc = getLocalBounds().toFloat().reduced (2);
 
     if (dirty)
     {
@@ -72,8 +82,24 @@ void MSEGComponent::paint (juce::Graphics& g)
         createPath (rc);
     }
 
-    g.setColour (dimIfNeeded (findColour (GinLookAndFeel::whiteColourId).withAlpha (0.3f)));
-    g.fillRect (rc.getX(), rc.getCentreY(), rc.getWidth(), 1);
+    g.setColour (dimIfNeeded (findColour (GinLookAndFeel::whiteColourId).withAlpha (0.1f)));
+
+    juce::RectangleList<float> rects;
+
+    if (editable)
+    {
+        for (int i = 0; i <= 8; i++)
+        {
+            rects.add ({rc.getX(), rc.getY() + i * rc.getHeight() / 8, rc.getWidth(), 1});
+            rects.add ({rc.getX() + i * rc.getWidth() / 8, rc.getY(), 1, rc.getHeight()});
+        }
+    }
+    else
+    {
+        rects.add ({rc.getX(), rc.getCentreY(), rc.getWidth(), 1});
+    }
+
+    g.fillRectList (rects);
 
     auto c = findColour (GinLookAndFeel::accentColourId).withAlpha (0.7f);
 
@@ -86,7 +112,7 @@ void MSEGComponent::paint (juce::Graphics& g)
 
         for (auto curPhase : curPhases)
         {
-            float x = std::fmod (curPhase / getNumSteps(), 1.0f) * rc.getWidth();
+            float x = curPhase * rc.getWidth();
             float t = x - int (x);
             float y = lerp (t, curve[int(x)], curve[int(x) + 1]);
 
@@ -95,7 +121,7 @@ void MSEGComponent::paint (juce::Graphics& g)
         }
     }
 
-    if (isMouseOverOrDragging())
+    if (editable && isMouseOverOrDragging())
     {
         for (auto i = 0; i < data.numPoints; i++)
         {
@@ -139,11 +165,6 @@ void MSEGComponent::timerCallback()
             repaint();
         }
     }
-}
-
-int MSEGComponent::getNumSteps()
-{
-    return 1;
 }
 
 float MSEGComponent::valueToY (float v)
@@ -200,14 +221,13 @@ int MSEGComponent::getCurveAt (juce::Point<float> p)
 
 void MSEGComponent::mouseDown (const juce::MouseEvent& e)
 {
+    if (! editable)
+        return;
+
     if ((draggingPoint = getPointAt (e.position)) >= 0)
-    {
         repaint ();
-    }
     else if ((draggingCurve = getCurveAt (e.position)) >= 0)
-    {
         repaint ();
-    }
 
     if (e.getNumberOfClicks() == 2)
     {
@@ -261,11 +281,17 @@ void MSEGComponent::mouseDown (const juce::MouseEvent& e)
 
 void MSEGComponent::mouseMove (const juce::MouseEvent& e)
 {
+    if (! editable)
+        return;
+
     repaint();
 }
 
 void MSEGComponent::mouseDrag (const juce::MouseEvent& e)
 {
+    if (! editable)
+        return;
+
     if (draggingPoint >= 0)
     {
         auto& p = data.points.getReference (draggingPoint);
@@ -314,6 +340,12 @@ void MSEGComponent::mouseDrag (const juce::MouseEvent& e)
 
 void MSEGComponent::mouseUp (const juce::MouseEvent& e)
 {
+    if (onClick && e.mouseWasClicked())
+        onClick();
+
+    if (! editable)
+        return;
+
     draggingPoint = -1;
     draggingCurve = -1;
     repaint ();
@@ -321,10 +353,16 @@ void MSEGComponent::mouseUp (const juce::MouseEvent& e)
 
 void MSEGComponent::mouseEnter (const juce::MouseEvent&)
 {
+    if (! editable)
+        return;
+
     repaint ();
 }
 
 void MSEGComponent::mouseExit (const juce::MouseEvent&)
 {
+    if (! editable)
+        return;
+
     repaint ();
 }
