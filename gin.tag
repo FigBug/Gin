@@ -9115,12 +9115,33 @@
       <anchor>a5b06f7ea0574bbaa7a7a37451dd9667d</anchor>
       <arglist>(float bpm) const</arglist>
     </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getBars</name>
+      <anchorfile>classNoteDuration.html</anchorfile>
+      <anchor>aeca9cc925bdc103efd673e5955936dec</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getBeats</name>
+      <anchorfile>classNoteDuration.html</anchorfile>
+      <anchor>ad6fb063dabea938c93ddf887227c71ac</anchor>
+      <arglist>()</arglist>
+    </member>
     <member kind="function" static="yes">
       <type>static const std::vector&lt; NoteDuration &gt; &amp;</type>
       <name>getNoteDurations</name>
       <anchorfile>classNoteDuration.html</anchorfile>
       <anchor>acede93ced327b5fd6ce49c6042febf80</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static float</type>
+      <name>toSeconds</name>
+      <anchorfile>classNoteDuration.html</anchorfile>
+      <anchor>a7a6ae37d6dfab7e3f1ed779a024b7b18</anchor>
+      <arglist>(juce::AudioPlayHead *playhead, float value)</arglist>
     </member>
   </compound>
   <compound kind="class">
