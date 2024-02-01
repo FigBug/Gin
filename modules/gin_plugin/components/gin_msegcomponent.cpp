@@ -322,7 +322,9 @@ void MSEGComponent::mouseDrag (const juce::MouseEvent& e)
         dirty = true;
         repaint ();
 
-        auto r = juce::Rectangle<int> (timeToX (data.points[draggingPoint].time) - 2, valueToY (data.points[draggingPoint].value) - 2, 4, 4);
+        auto r = juce::Rectangle<int> (juce::roundToInt (timeToX (data.points[draggingPoint].time) - 2),
+                                       juce::roundToInt (valueToY (data.points[draggingPoint].value) - 2),
+                                       4, 4);
 
         juce::String ts;
         if (sync->getUserValueBool())
@@ -354,7 +356,9 @@ void MSEGComponent::mouseDrag (const juce::MouseEvent& e)
         repaint ();
 
         auto t = (data.points[draggingCurve].time + data.points[draggingCurve + 1].time) / 2.0f;
-        auto r = juce::Rectangle<int> (timeToX (t) - 2, valueToY (mseg.getValueAt (t)) - 2, 4, 4);
+        auto r = juce::Rectangle<int> (juce::roundToInt (timeToX (t) - 2),
+                                       juce::roundToInt (valueToY (mseg.getValueAt (t)) - 2),
+                                       4, 4);
 
         showBubbleMessage (r.expanded (5), juce::String (p.curve, 1));
     }
