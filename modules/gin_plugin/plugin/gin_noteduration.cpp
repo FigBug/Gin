@@ -69,13 +69,13 @@ float NoteDuration::toSeconds (juce::AudioPlayHead* playhead, float value)
 {
     auto vi = juce::roundToInt (value);
     if (std::abs (vi - value) < 0.001)
-        return getNoteDurations()[vi].toSeconds (playhead);
+        return getNoteDurations()[size_t (vi)].toSeconds (playhead);
 
     auto v1 = int (value);
     auto v2 = v1 + 1;
 
-    auto d1 = getNoteDurations()[v1].toSeconds (playhead);
-    auto d2 = getNoteDurations()[v2].toSeconds (playhead);
+    auto d1 = getNoteDurations()[size_t (v1)].toSeconds (playhead);
+    auto d2 = getNoteDurations()[size_t (v2)].toSeconds (playhead);
 
     auto frac = value - v1;
 
