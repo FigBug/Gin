@@ -65,6 +65,23 @@ float NoteDuration::toSeconds (float bpm) const
     return 0.0f;
 }
 
+float NoteDuration::toSeconds (juce::AudioPlayHead* playhead, float value)
+{
+    auto vi = juce::roundToInt (value);
+    if (std::abs (vi - value) < 0.001)
+        return getNoteDurations()[vi].toSeconds (playhead);
+
+    auto v1 = int (value);
+    auto v2 = v1 + 1;
+
+    auto d1 = getNoteDurations()[v1].toSeconds (playhead);
+    auto d2 = getNoteDurations()[v2].toSeconds (playhead);
+
+    auto frac = value - v1;
+
+    return juce::jmap (frac, 0.0f, 1.0f, d1, d2);
+}
+
 const std::vector<NoteDuration>& NoteDuration::getNoteDurations()
 {
     const float dot = 1.5f;

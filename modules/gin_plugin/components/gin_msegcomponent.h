@@ -23,13 +23,15 @@ public:
     void resized() override;
 
 private:
-
     void mouseDown (const juce::MouseEvent&) override;
     void mouseDrag (const juce::MouseEvent&) override;
     void mouseUp (const juce::MouseEvent&) override;
     void mouseMove (const juce::MouseEvent&) override;
     void mouseEnter (const juce::MouseEvent&) override;
     void mouseExit (const juce::MouseEvent&) override;
+
+    void showBubbleMessage (const juce::Rectangle<int>& rc, const juce::String& message);
+    void hideBubbleMessage();
 
     void timerCallback() override;
     void paramChanged () override;
@@ -65,6 +67,7 @@ private:
     float yToValue (float y);
 
 private:
+    std::unique_ptr<juce::BubbleMessageComponent> bubbleMessage;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MSEGComponent)
 };

@@ -321,6 +321,24 @@ void MSEGComponent::mouseDrag (const juce::MouseEvent& e)
 
         dirty = true;
         repaint ();
+
+        auto r = juce::Rectangle<int> (timeToX (data.points[draggingPoint].time) - 2, valueToY (data.points[draggingPoint].value) - 2, 4, 4);
+
+        juce::String ts;
+        if (sync->getUserValueBool())
+        {
+            auto dur = gin::NoteDuration::getNoteDurations()[size_t (beat->getUserValueInt())];
+            if (auto b = dur.getBars(); b > 0)
+                ts = juce::String::formatted ("%.2f bars", b * p.time);
+            else
+                ts = juce::String::formatted ("%.2f beats", dur.getBeats() * p.time);
+        }
+        else
+        {
+            ts = juce::String::formatted ("%.2fs", p.time * 1.0f / rate->getUserValue());
+        }
+
+        showBubbleMessage (r.expanded (5), ts + juce::String::formatted (": %.1f%%", p.value * 100));
     }
     else if (draggingCurve >= 0)
     {
@@ -334,6 +352,11 @@ void MSEGComponent::mouseDrag (const juce::MouseEvent& e)
 
         dirty = true;
         repaint ();
+
+        auto t = (data.points[draggingCurve].time + data.points[draggingCurve + 1].time) / 2.0f;
+        auto r = juce::Rectangle<int> (timeToX (t) - 2, valueToY (mseg.getValueAt (t)) - 2, 4, 4);
+
+        showBubbleMessage (r.expanded (5), juce::String (p.curve, 1));
     }
     lastY = e.position.y;
 }
@@ -349,6 +372,8 @@ void MSEGComponent::mouseUp (const juce::MouseEvent& e)
     draggingPoint = -1;
     draggingCurve = -1;
     repaint ();
+
+    hideBubbleMessage();
 }
 
 void MSEGComponent::mouseEnter (const juce::MouseEvent&)
@@ -365,4 +390,31 @@ void MSEGComponent::mouseExit (const juce::MouseEvent&)
         return;
 
     repaint ();
+}
+
+void MSEGComponent::showBubbleMessage (const juce::Rectangle<int>& rc, const juce::String& message)
+{
+    auto parent = findParentComponentOfClass<juce::AudioProcessorEditor>();
+    if (! parent)
+        return;
+
+    if (bubbleMessage == nullptr)
+    {
+        bubbleMessage = std::make_unique<juce::BubbleMessageComponent> (-1);
+        bubbleMessage->setAllowedPlacement (juce::BubbleComponent::above | juce::BubbleComponent::below);
+        parent->addAndMakeVisible (*bubbleMessage);
+    }
+
+    juce::AttributedString attString;
+    attString.append (message, juce::Font (13.0f));
+    attString.setColour (juce::Colours::white);
+
+    bubbleMessage->setAlwaysOnTop (true);
+    bubbleMessage->setVisible (true);
+    bubbleMessage->showAt (parent->getLocalArea (this, rc), attString, -1, false, false);
+}
+
+void MSEGComponent::hideBubbleMessage()
+{
+    bubbleMessage = nullptr;
 }
