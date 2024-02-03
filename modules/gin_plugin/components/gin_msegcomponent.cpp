@@ -254,8 +254,8 @@ void MSEGComponent::mouseDown (const juce::MouseEvent& e)
             if (data.numPoints == data.maxPoints)
                 return;
 
-            auto t = xToTime (e.position.x);
-            auto v = yToValue (e.position.y);
+            auto t = snapT (xToTime (e.position.x));
+            auto v = snapV (yToValue (e.position.y));
 
             for (auto i = 0; i < data.numPoints - 1; i++)
             {
