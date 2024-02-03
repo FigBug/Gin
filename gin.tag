@@ -14044,9 +14044,9 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>noteAddedMonoGlide</name>
+      <name>noteAddedMono</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>ad3ae115ddf8dd12ca549d7d7e3811200</anchor>
+      <anchor>a6f6e4029de04659076c79e96c1089c1d</anchor>
       <arglist>(juce::MPENote newNote)</arglist>
     </member>
     <member kind="function">
@@ -14055,13 +14055,6 @@
       <anchorfile>classSynthesiser.html</anchorfile>
       <anchor>aaecfce290ac3ee8527d376c348750fca</anchor>
       <arglist>(juce::MPENote finishedNote)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>noteAddedMono</name>
-      <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>a6f6e4029de04659076c79e96c1089c1d</anchor>
-      <arglist>(juce::MPENote newNote)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
