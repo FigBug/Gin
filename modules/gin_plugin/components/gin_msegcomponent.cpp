@@ -450,9 +450,9 @@ float MSEGComponent::snapV (float v)
     
     auto d = 1.0f / getHeight() * 10.0f;
     
-    for (int i = 0; i <= xgrid->getUserValueInt(); i++)
+    for (int i = 0; i <= ygrid->getUserValueInt(); i++)
     {
-        auto step = -1.0f + i * 2.0f / xgrid->getUserValueInt();
+        auto step = -1.0f + i * 2.0f / ygrid->getUserValueInt();
         if (std::abs (step - v) < d)
             return step;
     }

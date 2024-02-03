@@ -19,6 +19,7 @@ public:
     struct Parameters
     {
         float frequency = 0, phase = 0, offset = 0, depth = 0, delay = 0, fade = 0;
+        bool loop = true;
     };
 
     struct Point
@@ -155,11 +156,21 @@ public:
                 float maxPhase = 1.0f;
 
                 phase += step;
-                while (phase >= maxPhase)
-                    phase -= maxPhase;
+
+                if (parameters.loop)
+                {
+                    while (phase >= maxPhase)
+                        phase -= maxPhase;
+                }
+                else
+                {
+                    if (phase >= maxPhase)
+                        phase = 1.0f;
+                }
 
                 float newCurPhase = std::fmod (phase + parameters.phase, maxPhase);
-                if (newCurPhase < 0) newCurPhase += maxPhase;
+                if (newCurPhase < 0) 
+                    newCurPhase += maxPhase;
 
                 curPhase = newCurPhase;
             }
