@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['undo_2827',['undo',['../classSingleLineTextEditor.html#aa7dde1f6c14d55b60a7a3804983edbdd',1,'SingleLineTextEditor']]],
-  ['unlock_2828',['unlock',['../classSystemSemaphore.html#afde687b04d0bb01cf629d037bf384ac0',1,'SystemSemaphore']]],
-  ['unwatchparam_2829',['unwatchParam',['../classMultiParamComponent.html#a7620038ca7508425d21d1138a0e9d45f',1,'MultiParamComponent']]],
-  ['unwatchparams_2830',['unwatchParams',['../classMultiParamComponent.html#ae7441578faba5891a7fc764da134f03c',1,'MultiParamComponent']]],
-  ['updatechecker_2831',['UpdateChecker',['../classUpdateChecker.html#a991c35a0e515fa13cb9186936a00cb8f',1,'UpdateChecker']]],
-  ['updateglide_2832',['updateGlide',['../classSynthesiser.html#a4bf9918f18a2c232db12a913fda743f4',1,'Synthesiser']]],
-  ['updatemap_2833',['updateMap',['../classMapViewer.html#a723ad37abb7af9ecac0bdd68dd628e46',1,'MapViewer']]],
-  ['updatestate_2834',['updateState',['../classModMatrix.html#a9d2727c3ffce6935f804eff00495e4f8',1,'ModMatrix::updateState()'],['../classProcessor.html#ab477f2a48ee23cb7d38dbecd87332fcd',1,'Processor::updateState()']]],
-  ['updatevalue_2835',['updateValue',['../classEasedValueSmoother.html#a266f723fcb2c393fbdd93599d46abcce',1,'EasedValueSmoother::updateValue()'],['../classValueSmoother.html#a581f8cc773e4cc2bac2da53e6edfec85',1,'ValueSmoother::updateValue()']]],
-  ['uservaluetotext_2836',['userValueToText',['../classParameter.html#af3960250a1c071e471daf16be484b656',1,'Parameter']]],
-  ['usesfileextension_2837',['usesFileExtension',['../classBMPImageFormat.html#ac3aec001afc89383d536241e433cb8bf',1,'BMPImageFormat::usesFileExtension()'],['../classWEBPImageFormat.html#a1d875430f06a78fe547812ff5556bbc0',1,'WEBPImageFormat::usesFileExtension()']]]
+  ['undo_2828',['undo',['../classSingleLineTextEditor.html#aa7dde1f6c14d55b60a7a3804983edbdd',1,'SingleLineTextEditor']]],
+  ['unlock_2829',['unlock',['../classSystemSemaphore.html#afde687b04d0bb01cf629d037bf384ac0',1,'SystemSemaphore']]],
+  ['unwatchparam_2830',['unwatchParam',['../classMultiParamComponent.html#a7620038ca7508425d21d1138a0e9d45f',1,'MultiParamComponent']]],
+  ['unwatchparams_2831',['unwatchParams',['../classMultiParamComponent.html#ae7441578faba5891a7fc764da134f03c',1,'MultiParamComponent']]],
+  ['updatechecker_2832',['UpdateChecker',['../classUpdateChecker.html#a991c35a0e515fa13cb9186936a00cb8f',1,'UpdateChecker']]],
+  ['updateglide_2833',['updateGlide',['../classSynthesiser.html#a4bf9918f18a2c232db12a913fda743f4',1,'Synthesiser']]],
+  ['updatemap_2834',['updateMap',['../classMapViewer.html#a723ad37abb7af9ecac0bdd68dd628e46',1,'MapViewer']]],
+  ['updatestate_2835',['updateState',['../classModMatrix.html#a9d2727c3ffce6935f804eff00495e4f8',1,'ModMatrix::updateState()'],['../classProcessor.html#ab477f2a48ee23cb7d38dbecd87332fcd',1,'Processor::updateState()']]],
+  ['updatevalue_2836',['updateValue',['../classEasedValueSmoother.html#a266f723fcb2c393fbdd93599d46abcce',1,'EasedValueSmoother::updateValue()'],['../classValueSmoother.html#a581f8cc773e4cc2bac2da53e6edfec85',1,'ValueSmoother::updateValue()']]],
+  ['uservaluetotext_2837',['userValueToText',['../classParameter.html#af3960250a1c071e471daf16be484b656',1,'Parameter']]],
+  ['usesfileextension_2838',['usesFileExtension',['../classBMPImageFormat.html#ac3aec001afc89383d536241e433cb8bf',1,'BMPImageFormat::usesFileExtension()'],['../classWEBPImageFormat.html#a1d875430f06a78fe547812ff5556bbc0',1,'WEBPImageFormat::usesFileExtension()']]]
 ];

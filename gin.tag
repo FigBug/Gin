@@ -8811,8 +8811,8 @@
       <type>void</type>
       <name>setParams</name>
       <anchorfile>classMSEGComponent.html</anchorfile>
-      <anchor>af9eeb45027f568f93286f93611ec6a04</anchor>
-      <arglist>(Parameter::Ptr wave, Parameter::Ptr sync, Parameter::Ptr rate, Parameter::Ptr beat, Parameter::Ptr depth, Parameter::Ptr offset, Parameter::Ptr phase, Parameter::Ptr enable)</arglist>
+      <anchor>a7287167db64bacc96fd57741708a78e0</anchor>
+      <arglist>(Parameter::Ptr wave, Parameter::Ptr sync, Parameter::Ptr rate, Parameter::Ptr beat, Parameter::Ptr depth, Parameter::Ptr offset, Parameter::Ptr phase, Parameter::Ptr enable, Parameter::Ptr xgrid, Parameter::Ptr ygrid)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
