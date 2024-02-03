@@ -111,7 +111,7 @@ public:
         const juce::ScopedLock sl (voicesLock);
 
         if (mono)
-            return (glissando || portamento) ? noteAddedMonoGlide (newNote) : noteAddedMono (newNote);;
+            return noteAddedMono (newNote);
 
         if (auto voice = findFreeVoice (newNote, false))
         {
@@ -145,32 +145,16 @@ public:
                 stopVoice (voice, finishedNote, true);
     }
 
-    void noteAddedMonoGlide (juce::MPENote newNote)
+    void noteAddedMono (juce::MPENote newNote)
     {
         noteStack.add (newNote);
 
-        if (noteStack.size() == 1)
+        if (auto sv = dynamic_cast<SynthesiserVoice*> (voices[0]))
         {
-            if (voices[0]->isActive())
-            {
-                if (auto sv = dynamic_cast<SynthesiserVoice*> (voices[0]))
-                    sv->setFastKill();
-
-                voices.move (voices.size() - 1, 0);
-            }
-
-            if (auto voice = voices[0])
-                startVoice (voice, newNote);
-        }
-        else
-        {
-            if (auto sv = dynamic_cast<SynthesiserVoice*> (voices[0]))
-            {
-                if (sv->isActive())
-                    retriggerVoice (sv, newNote);
-                else
-                    startVoice (sv, newNote);
-            }
+            if (sv->isActive())
+                retriggerVoice (sv, newNote);
+            else
+                startVoice (sv, newNote);
         }
     }
 
@@ -196,18 +180,6 @@ public:
             else
                 startVoice (sv, noteStack.getLast());
         }
-    }
-
-    void noteAddedMono (juce::MPENote newNote)
-    {
-        for (auto voice : voices)
-            if (voice->isActive())
-                stopVoiceFastKill (voice, voice->getCurrentlyPlayingNote(), true);
-
-        noteStack.add (newNote);
-
-        if (auto voice = findFreeVoice (newNote, false))
-            startVoice (voice, newNote);
     }
 
     void noteReleasedMono (juce::MPENote finishedNote)
