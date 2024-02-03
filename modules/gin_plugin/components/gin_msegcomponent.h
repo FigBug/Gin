@@ -12,7 +12,8 @@ public:
 
     void setParams (Parameter::Ptr wave, Parameter::Ptr sync, Parameter::Ptr rate,
                     Parameter::Ptr beat, Parameter::Ptr depth, Parameter::Ptr offset,
-                    Parameter::Ptr phase, Parameter::Ptr enable);
+                    Parameter::Ptr phase, Parameter::Ptr enable, Parameter::Ptr xgrid,
+                    Parameter::Ptr ygrid);
 
     void setEditable (bool e) { editable = e; }
 
@@ -23,6 +24,9 @@ public:
     void resized() override;
 
 private:
+    float snapT (float t);
+    float snapV (float v);
+    
     void mouseDown (const juce::MouseEvent&) override;
     void mouseDrag (const juce::MouseEvent&) override;
     void mouseUp (const juce::MouseEvent&) override;
@@ -39,7 +43,7 @@ private:
     void createPath (juce::Rectangle<float> area);
     float getSample (float phase);
 
-    Parameter::Ptr wave, sync, rate, beat, depth, offset, phase, enable;
+    Parameter::Ptr wave, sync, rate, beat, depth, offset, phase, enable, xgrid, ygrid;
 
     MSEG::Data& data;
     MSEG mseg {data};

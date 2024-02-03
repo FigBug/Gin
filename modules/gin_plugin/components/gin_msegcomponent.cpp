@@ -11,7 +11,8 @@ void MSEGComponent::resized()
 
 void MSEGComponent::setParams (Parameter::Ptr wave_, Parameter::Ptr sync_, Parameter::Ptr rate_,
                                Parameter::Ptr beat_, Parameter::Ptr depth_, Parameter::Ptr offset_,
-                               Parameter::Ptr phase_, Parameter::Ptr enable_)
+                               Parameter::Ptr phase_, Parameter::Ptr enable_, Parameter::Ptr xgrid_,
+                               Parameter::Ptr ygrid_)
 {
     unwatchParams();
 
@@ -23,6 +24,8 @@ void MSEGComponent::setParams (Parameter::Ptr wave_, Parameter::Ptr sync_, Param
     watchParam (offset = offset_);
     watchParam (phase  = phase_);
     watchParam (enable = enable_);
+    watchParam (xgrid  = xgrid_);
+    watchParam (ygrid  = ygrid_);
 
     startTimerHz (30);
 }
@@ -88,11 +91,11 @@ void MSEGComponent::paint (juce::Graphics& g)
 
     if (editable)
     {
-        for (int i = 0; i <= 8; i++)
-        {
-            rects.add ({rc.getX(), rc.getY() + i * rc.getHeight() / 8, rc.getWidth(), 1});
-            rects.add ({rc.getX() + i * rc.getWidth() / 8, rc.getY(), 1, rc.getHeight()});
-        }
+        for (int i = 0; i <= ygrid->getUserValueInt(); i++)
+            rects.add ({rc.getX(), rc.getY() + i * rc.getHeight() / ygrid->getUserValueInt(), rc.getWidth(), 1});
+        
+        for (int i = 0; i <= xgrid->getUserValueInt(); i++)
+            rects.add ({rc.getX() + i * rc.getWidth() / xgrid->getUserValueInt(), rc.getY(), 1, rc.getHeight()});
     }
     else
     {
@@ -305,8 +308,8 @@ void MSEGComponent::mouseDrag (const juce::MouseEvent& e)
         if (draggingPoint < data.numPoints - 1)
             maxT = data.points[draggingPoint + 1].time;
 
-        p.time  = std::clamp (xToTime (e.position.x), minT, maxT);
-        p.value = std::clamp (yToValue (e.position.y), -1.0f, 1.0f);
+        p.time  = snapT (std::clamp (xToTime (e.position.x), minT, maxT));
+        p.value = snapV (std::clamp (yToValue (e.position.y), -1.0f, 1.0f));
 
         if (draggingPoint == 0)                  
         {
@@ -421,4 +424,38 @@ void MSEGComponent::showBubbleMessage (const juce::Rectangle<int>& rc, const juc
 void MSEGComponent::hideBubbleMessage()
 {
     bubbleMessage = nullptr;
+}
+
+float MSEGComponent::snapT (float t)
+{
+    if (juce::ModifierKeys::currentModifiers.isShiftDown())
+        return t;
+    
+    auto d = 1.0f / getWidth() * 10.0f;
+    
+    for (int i = 0; i <= xgrid->getUserValueInt(); i++)
+    {
+        auto step = i * 1.0f / xgrid->getUserValueInt();
+        if (std::abs (step - t) < d)
+            return step;
+    }
+    
+    return t;
+}
+
+float MSEGComponent::snapV (float v)
+{
+    if (juce::ModifierKeys::currentModifiers.isShiftDown())
+        return v;
+    
+    auto d = 1.0f / getHeight() * 10.0f;
+    
+    for (int i = 0; i <= xgrid->getUserValueInt(); i++)
+    {
+        auto step = -1.0f + i * 2.0f / xgrid->getUserValueInt();
+        if (std::abs (step - v) < d)
+            return step;
+    }
+
+    return v;
 }
