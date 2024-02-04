@@ -254,7 +254,7 @@ void MSEGComponent::mouseDown (const juce::MouseEvent& e)
                 data.startIndex = std::max (0, data.startIndex - 1);
 
             if (data.endIndex >= draggingPoint)
-                data.endIndex = std::max (1, data.startIndex - 1);
+                data.endIndex = std::min (data.numPoints - 1, data.endIndex - 1);
 
             dirty = true;
             repaint();
