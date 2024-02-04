@@ -37,7 +37,7 @@ void MSEGComponent::paramChanged ()
     dirty = true;
 }
 
-void MSEGComponent::createPath (juce::Rectangle<float> area)
+void MSEGComponent::createPath()
 {
     mseg.setSampleRate (44100.0);
 
@@ -83,7 +83,7 @@ void MSEGComponent::paint (juce::Graphics& g)
     if (dirty)
     {
         dirty = false;
-        createPath (rc);
+        createPath();
     }
 
     g.setColour (dimIfNeeded (findColour (GinLookAndFeel::whiteColourId).withAlpha (0.1f)));

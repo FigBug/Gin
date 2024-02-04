@@ -40,7 +40,7 @@ private:
     void timerCallback() override;
     void paramChanged () override;
 
-    void createPath (juce::Rectangle<float> area);
+    void createPath();
     float getSample (float phase);
 
     Parameter::Ptr wave, sync, rate, beat, depth, offset, phase, enable, xgrid, ygrid, loop;
