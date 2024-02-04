@@ -3905,6 +3905,20 @@
       <anchor>a9b6d1c4e8f21a23da5a3784b776fab97</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>startIndex</name>
+      <anchorfile>structMSEG_1_1Data.html</anchorfile>
+      <anchor>aeed352b5537f69d2ac9f315b0df15c33</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>endIndex</name>
+      <anchorfile>structMSEG_1_1Data.html</anchorfile>
+      <anchor>a7043e2766b53cec68e85c6ed410403da</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>DelayLine</name>
@@ -8811,8 +8825,8 @@
       <type>void</type>
       <name>setParams</name>
       <anchorfile>classMSEGComponent.html</anchorfile>
-      <anchor>a7287167db64bacc96fd57741708a78e0</anchor>
-      <arglist>(Parameter::Ptr wave, Parameter::Ptr sync, Parameter::Ptr rate, Parameter::Ptr beat, Parameter::Ptr depth, Parameter::Ptr offset, Parameter::Ptr phase, Parameter::Ptr enable, Parameter::Ptr xgrid, Parameter::Ptr ygrid)</arglist>
+      <anchor>aebd72f264a3dd139d91ab4b0ededc884</anchor>
+      <arglist>(Parameter::Ptr wave, Parameter::Ptr sync, Parameter::Ptr rate, Parameter::Ptr beat, Parameter::Ptr depth, Parameter::Ptr offset, Parameter::Ptr phase, Parameter::Ptr enable, Parameter::Ptr xgrid, Parameter::Ptr ygrid, Parameter::Ptr loop)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -10306,6 +10320,13 @@
       <name>fade</name>
       <anchorfile>structMSEG_1_1Parameters.html</anchorfile>
       <anchor>ae32002c1a62e1164a4fd5e0cf106a409</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>loop</name>
+      <anchorfile>structMSEG_1_1Parameters.html</anchorfile>
+      <anchor>a41b8c9e91dd2740c89c139764a92076d</anchor>
       <arglist></arglist>
     </member>
   </compound>

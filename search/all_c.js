@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['n_916',['n',['../classLinearRegression.html#a2538a18e56f7da311ae94edbb903e1bd',1,'LinearRegression']]],
-  ['n_917',['N',['../structWSHeaderType.html#a280de6932d75f1d0b3f5687f839d4e92',1,'WSHeaderType']]],
+  ['n_916',['N',['../structWSHeaderType.html#a280de6932d75f1d0b3f5687f839d4e92',1,'WSHeaderType']]],
+  ['n_917',['n',['../classLinearRegression.html#a2538a18e56f7da311ae94edbb903e1bd',1,'LinearRegression']]],
   ['n0_918',['N0',['../structWSHeaderType.html#a6c084039602e19593f16e198194258ea',1,'WSHeaderType']]],
   ['name_919',['name',['../classHorizontalFader.html#ab70425a9c8226dd53432dde0222dba8f',1,'HorizontalFader::name()'],['../classSelect.html#a68477089c5c406d199fe071d09080be4',1,'Select::name()'],['../classParameter.html#a4316d020a490d5e1d764d60453cb078c',1,'Parameter::name()'],['../classProgram.html#ab960dff0d490441b19a47c7788ef5308',1,'Program::name()']]],
   ['negation_920',['Negation',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab94b0efce58a77e1c8fa29e32536c728',1,'gin_imageeffects.h']]],
