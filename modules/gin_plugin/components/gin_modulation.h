@@ -310,8 +310,8 @@ class ModMatrixBox : public juce::ListBox,
                      private ModMatrix::Listener
 {
 public:
-    ModMatrixBox (gin::Processor& p, ModMatrix& m)
-        : proc (p), modMatrix (m)
+    ModMatrixBox (gin::Processor& p, ModMatrix& m, int dw = 50)
+        : proc (p), modMatrix (m), depthWidth (dw)
     {
         setName ("matrix");
         setModel (this);
@@ -445,7 +445,7 @@ private:
             enableButton.setBounds (rc.removeFromLeft (h));
             deleteButton.setBounds (rc.removeFromRight (h));
             rc.removeFromLeft (2);
-            depth.setBounds (rc.removeFromLeft (50));
+            depth.setBounds (rc.removeFromLeft (owner.depthWidth));
 
             int w = rc.getWidth() / 2;
             src.setBounds (rc.removeFromLeft (w));
@@ -473,4 +473,5 @@ private:
     gin::Processor& proc;
     gin::ModMatrix& modMatrix;
     juce::Array<Assignment> assignments;
+    int depthWidth = 50;
 };

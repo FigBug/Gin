@@ -16,9 +16,12 @@ public:
                     Parameter::Ptr ygrid, Parameter::Ptr loop);
 
     void setEditable (bool e) { editable = e; }
+    void markDirty() { dirty = true; repaint(); }
 
     std::function<std::vector<float>()> phaseCallback;
     std::function<void()> onClick;
+    std::function<void()> onLoad;
+    std::function<void()> onSave;
 
     void paint (juce::Graphics& g) override;
     void resized() override;

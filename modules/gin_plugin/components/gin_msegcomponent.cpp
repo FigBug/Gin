@@ -387,8 +387,29 @@ void MSEGComponent::mouseDrag (const juce::MouseEvent& e)
 
 void MSEGComponent::mouseUp (const juce::MouseEvent& e)
 {
-    if (onClick && e.mouseWasClicked())
+    if (onClick && e.mouseWasClicked() && ! e.mods.isPopupMenu())
         onClick();
+
+    if (e.mods.isPopupMenu() && (! editable || (draggingPoint == -1 && draggingCurve == -1)))
+    {
+        juce::PopupMenu m;
+        if (onLoad) m.addItem ("Load...", [this] { onLoad(); });
+        if (onSave) m.addItem ("Save...", [this] { onSave(); });
+        m.addSeparator();
+        m.addItem ("Clear", [this]
+        {
+            data.numPoints = 2;
+            data.startIndex = 0;
+            data.endIndex = 1;
+            data.points.getReference (0) = { 0.0f, 0.0f, 0.0f };
+            data.points.getReference (1) = { 1.0f, 0.0f, 0.0f };
+            dirty = true;
+            repaint();
+        });
+        m.showMenuAsync ({});
+
+        return;
+    }
 
     if (! editable)
         return;
