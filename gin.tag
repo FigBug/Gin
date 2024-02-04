@@ -8419,8 +8419,8 @@
       <type></type>
       <name>ModMatrixBox</name>
       <anchorfile>classModMatrixBox.html</anchorfile>
-      <anchor>acf1c7954f577749a28bf846cf9aafb4e</anchor>
-      <arglist>(gin::Processor &amp;p, ModMatrix &amp;m)</arglist>
+      <anchor>aa1d0054cb9a5a3c5abbcd1e7b3e84b71</anchor>
+      <arglist>(gin::Processor &amp;p, ModMatrix &amp;m, int dw=50)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -8837,6 +8837,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>markDirty</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>a222ec00f1d4da910cbc4a84f57abbcff</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>paint</name>
       <anchorfile>classMSEGComponent.html</anchorfile>
       <anchor>ae8fa6d2d2a4a2eb1b5fe73fc03241975</anchor>
@@ -8861,6 +8868,20 @@
       <name>onClick</name>
       <anchorfile>classMSEGComponent.html</anchorfile>
       <anchor>ac8a71e3134d2269beebce8d56921aa1f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; void()&gt;</type>
+      <name>onLoad</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>a51472c52f2759b5f324a402e6e406b5c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; void()&gt;</type>
+      <name>onSave</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>a11aeba0d1955afa5cedc7dd3b79597fb</anchor>
       <arglist></arglist>
     </member>
   </compound>
