@@ -13,7 +13,7 @@ public:
     void setParams (Parameter::Ptr wave, Parameter::Ptr sync, Parameter::Ptr rate,
                     Parameter::Ptr beat, Parameter::Ptr depth, Parameter::Ptr offset,
                     Parameter::Ptr phase, Parameter::Ptr enable, Parameter::Ptr xgrid,
-                    Parameter::Ptr ygrid);
+                    Parameter::Ptr ygrid, Parameter::Ptr loop);
 
     void setEditable (bool e) { editable = e; }
 
@@ -43,7 +43,7 @@ private:
     void createPath (juce::Rectangle<float> area);
     float getSample (float phase);
 
-    Parameter::Ptr wave, sync, rate, beat, depth, offset, phase, enable, xgrid, ygrid;
+    Parameter::Ptr wave, sync, rate, beat, depth, offset, phase, enable, xgrid, ygrid, loop;
 
     MSEG::Data& data;
     MSEG mseg {data};
@@ -51,7 +51,6 @@ private:
     juce::Path path;
     bool dirty = true;
     std::vector<float> curPhases;
-    std::map<int,float> curve;
 
     int draggingPoint = -1;
     int draggingCurve = -1;
@@ -59,7 +58,7 @@ private:
     float lastY = 0.0f;
     bool editable = false;
 
-    juce::Rectangle<float> getArea() { return getLocalBounds().toFloat().reduced (2.0f); }
+    juce::Rectangle<float> getArea() { return getLocalBounds().toFloat().reduced (editable ? 4.0f : 2.0f); }
 
     int getPointAt (juce::Point<float> p);
     int getCurveAt (juce::Point<float> p);

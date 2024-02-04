@@ -83,6 +83,7 @@ public:
         float newCurPhase = std::fmod (phase + parameters.phase, maxPhase);
         if (newCurPhase < 0)
             newCurPhase += maxPhase;
+        curPhase = newCurPhase;
 
         updateCurrentValue();
     }

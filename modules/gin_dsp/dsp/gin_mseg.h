@@ -34,16 +34,20 @@ public:
         juce::Array<Point> points;
         int numPoints = 0;
         int maxPoints = 50;
+        int startIndex = 0;
+        int endIndex = 2;
 
         void toValueTree (juce::ValueTree v)
         {
             v.removeAllChildren (nullptr);
+            v.setProperty ("startIndex", startIndex, nullptr);
+            v.setProperty ("endIndex",   endIndex,   nullptr);
 
             for (auto i = 0; i < numPoints; i++)
             {
                 juce::ValueTree c (juce::Identifier ("PT"));
 
-                c.setProperty ("t", points[i].time, nullptr);
+                c.setProperty ("t", points[i].time,  nullptr);
                 c.setProperty ("v", points[i].value, nullptr);
                 c.setProperty ("c", points[i].curve, nullptr);
 
@@ -59,7 +63,10 @@ public:
                 return;
             }
 
-            numPoints = v.getNumChildren();
+            numPoints   = v.getNumChildren();
+            startIndex  = v.getProperty ("startIndex");
+            endIndex    = v.getProperty ("endIndex");
+
 
             int i = 0;
             for (auto c : v)
@@ -68,6 +75,7 @@ public:
                 p.time  = c.getProperty ("t");
                 p.value = c.getProperty ("v");
                 p.curve = c.getProperty ("c");
+
                 i++;
             }
         }
@@ -77,7 +85,10 @@ public:
             points.set (0, { 0.0f, 0.0f, 5.5f });
             points.set (1, { 0.5f, 1.0f, 5.5f });
             points.set (2, { 1.0f, 0.0f, 5.5f });
-            numPoints = 3;
+
+            numPoints   = 3;
+            startIndex  = 0;
+            endIndex    = 2;
         }
     };
 
@@ -103,7 +114,6 @@ public:
     {
         output     = 0.0f;
         phase      = 0.0f;
-        curPhase   = 0.0f;
         curFade    = 1.0f;
         fadeDelta  = 0.0f;
         delaySteps = 0;
@@ -123,14 +133,9 @@ public:
         else
             curFade = 0.0f;
 
-        curPhase   = 0.0f;
-        phase      = phase_ < 0.0f ? 0.0f : phase_;
+        phase      = phase_ < 0.0f ? parameters.phase : phase_;
         fadeDelta  = float (1.0f / (sampleRate * parameters.fade));
         delaySteps = juce::roundToInt (sampleRate * parameters.delay);
-
-        float maxPhase = 1.0f;
-        float newCurPhase = std::fmod (phase + parameters.phase, maxPhase);
-        if (newCurPhase < 0) newCurPhase += maxPhase;
 
         updateCurrentValue();
     }
@@ -153,26 +158,29 @@ public:
             {
                 curFade = juce::jlimit (0.0f, 1.0f, curFade + fadeDelta);
 
-                float maxPhase = 1.0f;
-
                 phase += step;
 
                 if (parameters.loop)
                 {
-                    while (phase >= maxPhase)
-                        phase -= maxPhase;
+                    auto pStart = data.points[data.startIndex].time;
+                    auto pEnd   = data.points[data.endIndex].time;
+
+                    if (pEnd - pStart < 0.0001)
+                    {
+                        if (phase > pEnd)
+                            phase = pEnd;
+                    }
+                    else
+                    {
+                        while (phase >= pEnd)
+                            phase -= pEnd - pStart;
+                    }
                 }
                 else
                 {
-                    if (phase >= maxPhase)
+                    if (phase >= 1.0f)
                         phase = 1.0f;
                 }
-
-                float newCurPhase = std::fmod (phase + parameters.phase, maxPhase);
-                if (newCurPhase < 0) 
-                    newCurPhase += maxPhase;
-
-                curPhase = newCurPhase;
             }
         }
 
@@ -221,11 +229,11 @@ private:
                 const auto& p1 = data.points.getReference (i + 0);
                 const auto& p2 = data.points.getReference (i + 1);
 
-                if (curPhase >= p1.time && curPhase < p2.time)
+                if (phase >= p1.time && phase < p2.time)
                 {
                     auto dy = p2.value - p1.value;
                     auto dx = p2.time  - p1.time;
-                    auto fr = (dx > 0.0f) ? ((curPhase - p1.time) / dx) : 1.0f;
+                    auto fr = (dx > 0.0f) ? ((phase - p1.time) / dx) : 1.0f;
 
                     output  = dy * curve (fr, p1.curve) + p1.value;
                     break;
@@ -247,6 +255,6 @@ private:
     Parameters parameters;
 
     double sampleRate = 0.0;
-    float phase = 0.0f, curPhase = 0.0f, output = 0.0f, fadeDelta = 0.0f, curFade = 1.0f;
+    float phase = 0.0f, output = 0.0f, fadeDelta = 0.0f, curFade = 1.0f;
     int delaySteps = 0;
 };

@@ -12,7 +12,7 @@ void MSEGComponent::resized()
 void MSEGComponent::setParams (Parameter::Ptr wave_, Parameter::Ptr sync_, Parameter::Ptr rate_,
                                Parameter::Ptr beat_, Parameter::Ptr depth_, Parameter::Ptr offset_,
                                Parameter::Ptr phase_, Parameter::Ptr enable_, Parameter::Ptr xgrid_,
-                               Parameter::Ptr ygrid_)
+                               Parameter::Ptr ygrid_, Parameter::Ptr loop_)
 {
     unwatchParams();
 
@@ -26,6 +26,7 @@ void MSEGComponent::setParams (Parameter::Ptr wave_, Parameter::Ptr sync_, Param
     watchParam (enable = enable_);
     watchParam (xgrid  = xgrid_);
     watchParam (ygrid  = ygrid_);
+    watchParam (loop   = loop_);
 
     startTimerHz (30);
 }
@@ -38,7 +39,7 @@ void MSEGComponent::paramChanged ()
 
 void MSEGComponent::createPath (juce::Rectangle<float> area)
 {
-    mseg.setSampleRate ((double) area.getWidth());
+    mseg.setSampleRate (44100.0);
 
     MSEG::Parameters p;
     p.frequency = 1.0f;
@@ -59,25 +60,25 @@ void MSEGComponent::createPath (juce::Rectangle<float> area)
     mseg.setParameters (p);
     mseg.reset();
 
-    curve.clear();
     path.clear();
 
-    for (int x = int (area.getX()); x <= area.getRight(); x++)
+    path.startNewSubPath (timeToX (0), valueToY (data.points[0].value));
+
+    for (auto i = 0; i < data.numPoints - 1; i++)
     {
-        auto v = mseg.process (1);
+        auto p1 = data.points[i + 0];
+        auto p2 = data.points[i + 1];
 
-        if (x == int (area.getX()))
-            path.startNewSubPath ({float (area.getX()), valueToY (v)});
-        else
-            path.lineTo ({float (x), valueToY (v)});
+        for (auto x = timeToX (p1.time); x < timeToX (p2.time); x++)
+            path.lineTo ({x, valueToY (mseg.getValueAt (xToTime (x))) });
 
-        curve[x - int (area.getX())] = valueToY (v);
+        path.lineTo ({timeToX (p2.time), valueToY (p2.value) });
     }
 }
 
 void MSEGComponent::paint (juce::Graphics& g)
 {
-    auto rc = getLocalBounds().toFloat().reduced (2);
+    auto rc = getArea();
 
     if (dirty)
     {
@@ -89,6 +90,7 @@ void MSEGComponent::paint (juce::Graphics& g)
 
     juce::RectangleList<float> rects;
 
+    // Draw grid
     if (editable)
     {
         for (int i = 0; i <= ygrid->getUserValueInt(); i++)
@@ -111,24 +113,21 @@ void MSEGComponent::paint (juce::Graphics& g)
 
     if (isEnabled())
     {
-        auto lerp = [] (float t, float a, float b)  { return a + t * (b - a); };
-
         for (auto curPhase : curPhases)
         {
-            float x = curPhase * rc.getWidth();
-            float t = x - int (x);
-            float y = lerp (t, curve[int(x)], curve[int(x) + 1]);
+            float x = timeToX (curPhase);
+            float y = valueToY (mseg.getValueAt (curPhase));
 
             g.setColour (dimIfNeeded (findColour (GinLookAndFeel::whiteColourId).withAlpha (0.9f)));
-            g.fillEllipse (rc.getX() + x - 2, y - 2, 4, 4);
+            g.fillEllipse (x - 2, y - 2, 4, 4);
         }
     }
 
-    if (editable && isMouseOverOrDragging())
+    if (editable)
     {
         for (auto i = 0; i < data.numPoints; i++)
         {
-            auto r = juce::Rectangle (timeToX (data.points[i].time) - 2.0f, valueToY (data.points[i].value) - 2.0f, 4.0f, 4.0f);
+            auto r = juce::Rectangle (timeToX (data.points[i].time) - 2.5f, valueToY (data.points[i].value) - 2.5f, 5.0f, 5.0f);
 
             if (draggingPoint == i || getPointAt (getMouseXYRelative().toFloat()) == i)
             {
@@ -136,7 +135,13 @@ void MSEGComponent::paint (juce::Graphics& g)
                 g.fillEllipse (r.expanded (4));
             }
 
-            g.setColour (dimIfNeeded (findColour (GinLookAndFeel::accentColourId).withAlpha (0.7f)));
+            if (loop->getUserValueInt() == 1 && i == data.startIndex)
+                g.setColour (dimIfNeeded (juce::Colours::green).withAlpha (1.0f));
+            else if (loop->getUserValueInt() == 1 && i == data.endIndex)
+                g.setColour (dimIfNeeded (juce::Colours::red).withAlpha (1.0f));
+            else
+                g.setColour (dimIfNeeded (findColour (GinLookAndFeel::accentColourId).withAlpha (0.7f)));
+
             g.fillEllipse (r);
         }
 
@@ -245,6 +250,12 @@ void MSEGComponent::mouseDown (const juce::MouseEvent& e)
 
             data.numPoints--;
 
+            if (data.startIndex >= draggingPoint)
+                data.startIndex = std::max (0, data.startIndex - 1);
+
+            if (data.endIndex >= draggingPoint)
+                data.endIndex = std::max (1, data.startIndex - 1);
+
             dirty = true;
             repaint();
         }
@@ -269,6 +280,12 @@ void MSEGComponent::mouseDown (const juce::MouseEvent& e)
 
                     data.points.getReference (i + 1) = { t, v, 0.0f };
                     data.numPoints++;
+
+                    if (data.startIndex >= i + 1)
+                        data.startIndex++;
+
+                    if (data.endIndex >= i + 1)
+                        data.endIndex++;
 
                     break;
                 }
@@ -375,6 +392,34 @@ void MSEGComponent::mouseUp (const juce::MouseEvent& e)
 
     if (! editable)
         return;
+
+    if (e.mods.isPopupMenu())
+    {
+        if (draggingPoint >= 0 && loop->getUserValueInt() == 1)
+        {
+            juce::PopupMenu m;
+            m.addItem ("Set Loop Start", draggingPoint < data.numPoints - 1, false, [this, dp = draggingPoint]
+            {
+                data.startIndex = dp;
+
+                if (data.endIndex <= dp)
+                    data.endIndex = dp + 1;
+
+                repaint();
+            });
+            m.addItem ("Set Loop End", draggingPoint > 0, false, [this, dp = draggingPoint]
+            {
+                data.endIndex = dp;
+
+                if (data.startIndex >= dp)
+                    data.startIndex = dp - 1;
+
+                repaint();
+            });
+
+            m.showMenuAsync ({});
+        }
+    }
 
     draggingPoint = -1;
     draggingCurve = -1;
