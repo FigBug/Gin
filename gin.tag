@@ -1320,6 +1320,7 @@
     <class kind="class">ModulationDepthSlider</class>
     <class kind="class">ModulationOverview</class>
     <class kind="class">ModSrcListBox</class>
+    <class kind="class">ModCurveButton</class>
     <class kind="class">ModMatrixBox</class>
   </compound>
   <compound kind="file">
@@ -8115,6 +8116,31 @@
       <arglist>(juce::MidiBuffer &amp;midiDst, int numSamples)</arglist>
     </member>
   </compound>
+  <compound kind="class">
+    <name>ModCurveButton</name>
+    <filename>classModCurveButton.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ModCurveButton</name>
+      <anchorfile>classModCurveButton.html</anchorfile>
+      <anchor>a08ccd3dec748195e1255c360203f670d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCurve</name>
+      <anchorfile>classModCurveButton.html</anchorfile>
+      <anchor>a6814797089bd7dcbba378ae45af60e4b</anchor>
+      <arglist>(ModMatrix::Function c)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paintButton</name>
+      <anchorfile>classModCurveButton.html</anchorfile>
+      <anchor>a250198dc867f1edcabae6c2d8a85eee4</anchor>
+      <arglist>(juce::Graphics &amp;g, bool over, bool down) override</arglist>
+    </member>
+  </compound>
   <compound kind="struct">
     <name>ModDstId</name>
     <filename>structModDstId.html</filename>
@@ -8442,13 +8468,6 @@
     </member>
     <member kind="function">
       <type>float</type>
-      <name>shape</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a2972456f0a29d959fb485bc9bb401b91</anchor>
-      <arglist>(float v, Function f, bool bipolar)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
       <name>getValue</name>
       <anchorfile>classModMatrix.html</anchorfile>
       <anchor>adc443dda62a48732e2bf333e34b8b128</anchor>
@@ -8677,6 +8696,13 @@
       <anchorfile>classModMatrix.html</anchorfile>
       <anchor>adeaa67481f092f988ea3df3936909940</anchor>
       <arglist>(Listener *l)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static float</type>
+      <name>shape</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a6fd32f43e6ce7d486c47efefd9d44f15</anchor>
+      <arglist>(float v, Function f, bool bipolar)</arglist>
     </member>
   </compound>
   <compound kind="class">
