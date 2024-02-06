@@ -303,6 +303,50 @@ private:
 };
 
 //==============================================================================
+/** A button that displays mod curve
+*/
+class ModCurveButton : public juce::Button
+{
+public:
+    ModCurveButton() : juce::Button ("")
+    {
+    }
+    
+    void setCurve (ModMatrix::Function c)
+    {
+        curve = c;
+        repaint();
+    }
+    
+    void paintButton (juce::Graphics& g, bool over, bool down) override
+    {
+        auto c = findColour (getToggleState() ? GinLookAndFeel::whiteColourId : GinLookAndFeel::accentColourId).withAlpha (0.9f);
+        if (over || down)
+            c = c.withMultipliedAlpha (1.2f);
+        
+        g.setColour (c.withMultipliedAlpha (isEnabled() ? 1.0f : 0.5f));
+        
+        auto rc = getLocalBounds().toFloat().reduced (1.0f);
+        
+        juce::Path p;
+        for (auto x = 0.0f; x <= rc.getWidth(); x += 0.5f)
+        {
+            auto y = (1.0f - ModMatrix::shape (x / rc.getWidth(), curve, false)) * rc.getHeight();
+            
+            if (x == 0.0f)
+                p.startNewSubPath (rc.getX() + x, rc.getY() + y);
+            else
+                p.lineTo (rc.getX() + x, rc.getY() + y);
+        }
+        
+        g.strokePath (p, juce::PathStrokeType (1.0f));
+    }
+    
+private:
+    ModMatrix::Function curve;
+};
+
+//==============================================================================
 /** A list box of all assigned
 */
 class ModMatrixBox : public juce::ListBox,
@@ -371,6 +415,7 @@ private:
         {
             addAndMakeVisible (enableButton);
             addAndMakeVisible (deleteButton);
+            addAndMakeVisible (curveButton);
             addAndMakeVisible (depth);
             addAndMakeVisible (src);
             addAndMakeVisible (dst);
@@ -403,6 +448,47 @@ private:
                     owner.modMatrix.clearModDepth (a.src, ModDstId (a.dst->getModIndex()));
                 }
             };
+            
+            curveButton.onClick = [this]
+            {
+                if (row >= 0 && row < owner.assignments.size())
+                {
+                    auto& a = owner.assignments.getReference (row);
+                    auto f = owner.modMatrix.getModFunction (a.src, ModDstId (a.dst->getModIndex()));
+                    
+                    auto set = [this] (ModMatrix::Function func)
+                    {
+                        auto& aa = owner.assignments.getReference (row);
+                        owner.modMatrix.setModFunction (aa.src, ModDstId (aa.dst->getModIndex()), func);
+                    };
+                    
+                    juce::PopupMenu m;
+                    
+                    m.addItem ("Linear", true, f == ModMatrix::Function::linear, [set] { set (ModMatrix::Function::linear); });
+                    m.addItem ("Quadratic In", true, f == ModMatrix::Function::quadraticIn, [set] { set (ModMatrix::Function::quadraticIn); });
+                    m.addItem ("Quadratic In/Out", true, f == ModMatrix::Function::quadraticInOut, [set] { set (ModMatrix::Function::quadraticInOut); });
+                    m.addItem ("Quadratic Out", true, f == ModMatrix::Function::quadraticOut, [set] { set (ModMatrix::Function::quadraticOut); });
+                    m.addItem ("Sine In", true, f == ModMatrix::Function::sineIn, [set] { set (ModMatrix::Function::sineIn); });
+                    m.addItem ("Sine In Out", true, f == ModMatrix::Function::sineInOut, [set] { set (ModMatrix::Function::sineInOut); });
+                    m.addItem ("Sine Out", true, f == ModMatrix::Function::sineOut, [set] { set (ModMatrix::Function::sineOut); });
+                    m.addItem ("Exponential In", true, f == ModMatrix::Function::exponentialIn, [set] { set (ModMatrix::Function::exponentialIn); });
+                    m.addItem ("Exponential In/Out", true, f == ModMatrix::Function::exponentialInOut, [set] { set (ModMatrix::Function::exponentialInOut); });
+                    m.addItem ("Exponential Out", true, f == ModMatrix::Function::exponentialOut, [set] { set (ModMatrix::Function::exponentialOut); });
+                    m.addSeparator();
+                    m.addItem ("Inv Linear", true, f == ModMatrix::Function::invLinear, [set] { set (ModMatrix::Function::invLinear); });
+                    m.addItem ("Inv Quadratic In", true, f == ModMatrix::Function::invQuadraticIn, [set] { set (ModMatrix::Function::invQuadraticIn); });
+                    m.addItem ("Inv Quadratic In/Out", true, f == ModMatrix::Function::invQuadraticInOut, [set] { set (ModMatrix::Function::invQuadraticInOut); });
+                    m.addItem ("Inv Quadratic Out", true, f == ModMatrix::Function::invQuadraticOut, [set] { set (ModMatrix::Function::invQuadraticOut); });
+                    m.addItem ("Inv Sine In", true, f == ModMatrix::Function::invSineIn, [set] { set (ModMatrix::Function::invSineIn); });
+                    m.addItem ("Inv Sine In/Out", true, f == ModMatrix::Function::invSineInOut, [set] { set (ModMatrix::Function::invSineInOut); });
+                    m.addItem ("Inv Sine Out", true, f == ModMatrix::Function::invSineOut, [set] { set (ModMatrix::Function::invSineOut); });
+                    m.addItem ("Inv Exponential In", true, f == ModMatrix::Function::invExponentialIn, [set] { set (ModMatrix::Function::invExponentialIn); });
+                    m.addItem ("Inv Exponential In/Out", true, f == ModMatrix::Function::invExponentialInOut, [set] { set (ModMatrix::Function::invExponentialInOut); });
+                    m.addItem ("Inv Exponential Out", true, f == ModMatrix::Function::invExponentialOut, [set] { set (ModMatrix::Function::invExponentialOut); });
+                    
+                    m.showMenuAsync ({});
+                }
+            };
         }
 
         void sliderValueChanged (juce::Slider*) override
@@ -428,11 +514,13 @@ private:
                 enableButton.setToggleState (e, juce::dontSendNotification);
 
                 depth.setValue (owner.modMatrix.getModDepth (a.src, ModDstId (a.dst->getModIndex())));
+                curveButton.setCurve (owner.modMatrix.getModFunction (a.src, ModDstId (a.dst->getModIndex())));
             }
             else
             {
                 src.setText ("", juce::dontSendNotification);
                 dst.setText ("", juce::dontSendNotification);
+                curveButton.setCurve (ModMatrix::Function::linear);
             }
         }
 
@@ -446,6 +534,7 @@ private:
             deleteButton.setBounds (rc.removeFromRight (h));
             rc.removeFromLeft (2);
             depth.setBounds (rc.removeFromLeft (owner.depthWidth));
+            curveButton.setBounds (rc.removeFromLeft (h));
 
             int w = rc.getWidth() / 2;
             src.setBounds (rc.removeFromLeft (w));
@@ -459,6 +548,8 @@ private:
 
         juce::Label src;
         juce::Label dst;
+        
+        ModCurveButton curveButton;
 
         SVGButton enableButton { "enable", Assets::power };
         SVGButton deleteButton { "delete", Assets::del };

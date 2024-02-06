@@ -122,7 +122,7 @@ public:
         invExponentialOut,
     };
     
-    float shape (float v, Function f, bool bipolar)
+    static float shape (float v, Function f, bool bipolar)
     {
         if (bipolar)
             v = juce::jmap (v, -1.0f, 1.0f, 0.0f, 1.0f);

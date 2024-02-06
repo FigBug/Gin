@@ -177,14 +177,14 @@ T easeCircularInOut (T p)
 template<class T>
 T easeExponentialIn (T p)
 {
-    return (p == 0.0) ? p : std::pow (2, 10 * (p - 1));
+    return T ((p == 0.0) ? p : std::pow (2, 10 * (p - 1)));
 }
 
 // Modeled after the exponential function y = -2^(-10x) + 1
 template<class T>
 T easeExponentialOut (T p)
 {
-    return (p == 1.0) ? p : 1 - std::pow (2, -10 * p);
+    return T ((p == 1.0) ? p : 1 - std::pow (2, -10 * p));
 }
 
 // Modeled after the piecewise exponential
