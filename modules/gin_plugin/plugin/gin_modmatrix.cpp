@@ -1,4 +1,57 @@
 //==============================================================================
+ModMatrix::Function strToFunc (const juce::String& str)
+{
+    if (str == "linear") return ModMatrix::linear;
+    if (str == "quadraticIn") return ModMatrix::quadraticIn;
+    if (str == "quadraticInOut") return ModMatrix::quadraticInOut;
+    if (str == "quadraticOut") return ModMatrix::quadraticOut;
+    if (str == "sineIn") return ModMatrix::sineIn;
+    if (str == "sineInOut") return ModMatrix::sineInOut;
+    if (str == "sineOut") return ModMatrix::sineOut;
+    if (str == "exponentialIn") return ModMatrix::exponentialIn;
+    if (str == "exponentialInOut") return ModMatrix::exponentialInOut;
+    if (str == "exponentialOut") return ModMatrix::exponentialOut;
+    if (str == "invLinear") return ModMatrix::invLinear;
+    if (str == "invQuadraticIn") return ModMatrix::invQuadraticIn;
+    if (str == "invQuadraticInOut") return ModMatrix::invQuadraticInOut;
+    if (str == "invQuadraticOut") return ModMatrix::invQuadraticOut;
+    if (str == "invSineIn") return ModMatrix::invSineIn;
+    if (str == "invSineInOut") return ModMatrix::invSineInOut;
+    if (str == "invSineOut") return ModMatrix::invSineOut;
+    if (str == "invExponentialIn") return ModMatrix::invExponentialIn;
+    if (str == "invExponentialInOut") return ModMatrix::invExponentialInOut;
+    if (str == "invExponentialOut") return ModMatrix::invExponentialOut;
+    
+    return ModMatrix::linear;
+}
+
+juce::String funcToStr (ModMatrix::Function f)
+{
+    if (f == ModMatrix::linear) return "linear";
+    if (f == ModMatrix::quadraticIn) return "quadraticIn";
+    if (f == ModMatrix::quadraticInOut) return "quadraticInOut";
+    if (f == ModMatrix::quadraticOut) return "quadraticOut";
+    if (f == ModMatrix::sineIn) return "sineIn";
+    if (f == ModMatrix::sineInOut) return "sineInOut";
+    if (f == ModMatrix::sineOut) return "sineOut";
+    if (f == ModMatrix::exponentialIn) return "exponentialIn";
+    if (f == ModMatrix::exponentialInOut) return "exponentialInOut";
+    if (f == ModMatrix::exponentialOut) return "exponentialOut";
+    if (f == ModMatrix::invLinear) return "invLinear";
+    if (f == ModMatrix::invQuadraticIn) return "invQuadraticIn";
+    if (f == ModMatrix::invQuadraticInOut) return "invQuadraticInOut";
+    if (f == ModMatrix::invQuadraticOut) return "invQuadraticOut";
+    if (f == ModMatrix::invSineIn) return "invSineIn";
+    if (f == ModMatrix::invSineInOut) return "invSineInOut";
+    if (f == ModMatrix::invSineOut) return "invSineOut";
+    if (f == ModMatrix::invExponentialIn) return "invExponentialIn";
+    if (f == ModMatrix::invExponentialInOut) return "invExponentialInOut";
+    if (f == ModMatrix::invExponentialOut) return "invExponentialOut";
+    
+    return "linear";
+}
+
+//==============================================================================
 void ModVoice::startVoice ()
 {
     age = owner->voiceStarted (this);
@@ -40,6 +93,7 @@ void ModMatrix::stateUpdated (const juce::ValueTree& vt)
 
             auto f = float (c.getProperty ("depth", 0.0f));
             auto e = bool (c.getProperty ("enabled", true));
+            auto z = strToFunc (c.getProperty ("function", "linear"));
 
             if (src.isNotEmpty() && dst.isNotEmpty())
             {
@@ -48,6 +102,7 @@ void ModMatrix::stateUpdated (const juce::ValueTree& vt)
                 s.poly = getModSrcPoly (s.id);
                 s.depth = f;
                 s.enabled = e;
+                s.function = z;
 
                 auto foundParam = false;
                 for (auto& pi : parameters)
@@ -86,6 +141,7 @@ void ModMatrix::updateState (juce::ValueTree& vt)
             c.setProperty ("depth", src.depth, nullptr);
             c.setProperty ("enabled", src.enabled, nullptr);
             c.setProperty ("dstId", pi.parameter->getUid(), nullptr);
+            c.setProperty ("function", funcToStr (src.function), nullptr);
 
             mm.addChild (c, -1, nullptr);
         }
@@ -223,6 +279,16 @@ float ModMatrix::getModDepth (ModSrcId src, ModDstId param)
     return 0;
 }
 
+ModMatrix::Function ModMatrix::getModFunction (ModSrcId src, ModDstId param)
+{
+    auto& pi = parameters.getReference (param.id);
+    for (auto& si : pi.sources)
+        if (si.id == src)
+            return si.function;
+
+    return Function::linear;
+}
+
 std::vector<std::pair<ModSrcId, float>> ModMatrix::getModDepths (ModDstId param)
 {
     std::vector<std::pair<ModSrcId, float>> res;
@@ -253,6 +319,32 @@ void ModMatrix::setModDepth (ModSrcId src, ModDstId param, float f)
     s.id = src;
     s.poly = getModSrcPoly (src);
     s.depth = f;
+
+    pi.sources.add (s);
+
+    listeners.call ([&] (Listener& l) { l.modMatrixChanged(); });
+}
+
+void ModMatrix::setModFunction (ModSrcId src, ModDstId param, Function f)
+{
+    auto& pi = parameters.getReference (param.id);
+    for (auto& si : pi.sources)
+    {
+        if (si.id == src)
+        {
+            si.function = f;
+
+            listeners.call ([&] (Listener& l) { l.modMatrixChanged(); });
+
+            return;
+        }
+    }
+
+    Source s;
+    s.id = src;
+    s.poly = getModSrcPoly (src);
+    s.depth = 1.0f;
+    s.function = f;
 
     pi.sources.add (s);
 

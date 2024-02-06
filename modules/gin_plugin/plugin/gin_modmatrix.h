@@ -89,6 +89,110 @@ public:
     //==============================================================================
     void stateUpdated (const juce::ValueTree& vt);
     void updateState (juce::ValueTree& vt);
+    
+    //==============================================================================
+    enum Function
+    {
+        linear,
+        
+        quadraticIn,
+        quadraticInOut,
+        quadraticOut,
+        
+        sineIn,
+        sineInOut,
+        sineOut,
+        
+        exponentialIn,
+        exponentialInOut,
+        exponentialOut,
+        
+        invLinear,
+
+        invQuadraticIn,
+        invQuadraticInOut,
+        invQuadraticOut,
+        
+        invSineIn,
+        invSineInOut,
+        invSineOut,
+        
+        invExponentialIn,
+        invExponentialInOut,
+        invExponentialOut,
+    };
+    
+    float shape (float v, Function f, bool bipolar)
+    {
+        if (bipolar)
+            v = juce::jmap (v, -1.0f, 1.0f, 0.0f, 1.0f);
+
+        switch (f)
+        {
+            case invLinear:
+            case invQuadraticIn:
+            case invQuadraticInOut:
+            case invQuadraticOut:
+            case invSineIn:
+            case invSineInOut:
+            case invSineOut:
+            case invExponentialIn:
+            case invExponentialInOut:
+            case invExponentialOut:
+                v = 1.0f - v;
+                break;
+            default:
+                break;
+        }
+        
+        switch (f)
+        {
+            case linear:
+            case invLinear:
+                break;
+            case quadraticIn:
+            case invQuadraticIn:
+                v = easeQuadraticIn (v);
+                break;
+            case quadraticInOut:
+            case invQuadraticInOut:
+                v = easeQuadraticInOut (v);
+                break;
+            case quadraticOut:
+            case invQuadraticOut:
+                v = easeQuadraticOut (v);
+                break;
+            case sineIn:
+            case invSineIn:
+                v = easeSineIn (v);
+                break;
+            case sineInOut:
+            case invSineInOut:
+                v = easeSineInOut (v);
+                break;
+            case sineOut:
+            case invSineOut:
+                v = easeSineOut (v);
+                break;
+            case exponentialIn:
+            case invExponentialIn:
+                v = easeExponentialIn (v);
+                break;
+            case exponentialInOut:
+            case invExponentialInOut:
+                v = easeExponentialInOut (v);
+                break;
+            case exponentialOut:
+            case invExponentialOut:
+                v = easeExponentialOut (v);
+                break;
+        }
+
+        if (bipolar)
+            v = juce::jmap (v, 0.0f, 1.0f, -1.0f, 1.0f);
+
+        return v;
+    }
 
     //==============================================================================
     float getValue (gin::Parameter* p)
@@ -103,9 +207,9 @@ public:
             if (src.enabled)
             {
                 if (src.poly && activeVoice != nullptr)
-                    base += activeVoice->values[src.id.id] * src.depth;
+                    base += shape (activeVoice->values[src.id.id], src.function, sources[src.id.id].bipolar) * src.depth;
                 else if (! src.poly)
-                    base += sources[src.id.id].monoValue * src.depth;
+                    base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar) * src.depth;
             }
         }
 
@@ -136,9 +240,9 @@ public:
             if (src.enabled)
             {
                 if (src.poly)
-                    base += voice.values[src.id.id] * src.depth;
+                    base += shape (voice.values[src.id.id], src.function, sources[src.id.id].bipolar) * src.depth;
                 else
-                    base += sources[src.id.id].monoValue * src.depth;
+                    base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar) * src.depth;
             }
         }
 
@@ -179,9 +283,9 @@ public:
                         if (src.enabled)
                         {
                             if (src.poly)
-                                base += v->values[src.id.id] * src.depth;
+                                base += shape (v->values[src.id.id], src.function, sources[src.id.id].bipolar) * src.depth;
                             else
-                                base += sources[src.id.id].monoValue * src.depth;
+                                base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar) * src.depth;
                             ok = true;
                         }
                     }
@@ -203,7 +307,7 @@ public:
                 {
                     if (src.enabled && ! src.poly)
                     {
-                        base += sources[src.id.id].monoValue * src.depth;
+                        base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar) * src.depth;
                         ok = true;
                     }
                 }
@@ -230,12 +334,12 @@ public:
                     if (src.poly && v != nullptr)
                     {
                         ok = true;
-                        base += v->values[src.id.id] * src.depth;
+                        base += shape (v->values[src.id.id], src.function, sources[src.id.id].bipolar) * src.depth;
                     }
                     else if (! src.poly)
                     {
                         ok = true;
-                        base += sources[src.id.id].monoValue * src.depth;
+                        base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar) * src.depth;
                     }
                 }
             }
@@ -298,6 +402,9 @@ public:
     std::vector<std::pair<ModSrcId, float>> getModDepths (ModDstId param);
     void setModDepth (ModSrcId src, ModDstId param, float f);
     void clearModDepth (ModSrcId src, ModDstId param);
+    
+    Function getModFunction (ModSrcId src, ModDstId param);
+    void setModFunction (ModSrcId src, ModDstId param, Function f);
 
     bool getModEnable (ModSrcId src, ModDstId param);
     void setModEnable (ModSrcId src, ModDstId param, bool b);
@@ -358,6 +465,7 @@ private:
         bool poly = false;
         bool enabled = true;
         float depth = 0.0f;
+        Function function;
     };
 
     struct ParamInfo
