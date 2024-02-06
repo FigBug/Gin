@@ -60,7 +60,10 @@ var searchData=
   ['execute_333',['execute',['../classElevatedFileCopy.html#ac6965dae9ef1cf89d3ebe038d32370e3',1,'ElevatedFileCopy']]],
   ['exifmetadata_334',['ExifMetadata',['../classExifMetadata.html#afa3a3cefbb26ea66f049bfc49456def9',1,'ExifMetadata::ExifMetadata()'],['../classExifMetadata.html',1,'ExifMetadata']]],
   ['expander_335',['expander',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a86eafff6a891eb381e162e7adc73ff7e',1,'Dynamics']]],
-  ['extractprogram_336',['extractProgram',['../classProcessor.html#ad1fa6fe5fe5aa411ba0457273239a814',1,'Processor::extractProgram(const juce::String &amp;name, const void *data, int sz)'],['../classProcessor.html#afdf6943c2323aeedf39c18d7ec77ecbb',1,'Processor::extractProgram(const juce::String &amp;name, const juce::MemoryBlock &amp;data)']]],
-  ['extraheightpx_337',['extraHeightPx',['../classProcessorEditorBase.html#a563ccdce57a82178551cd6e26d601d27',1,'ProcessorEditorBase']]],
-  ['extrawidthpx_338',['extraWidthPx',['../classProcessorEditorBase.html#a4c568cb0377c6626240acc5eaf5fff2a',1,'ProcessorEditorBase']]]
+  ['exponentialin_336',['exponentialIn',['../classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a0077e21360a291be024c42766394775b',1,'ModMatrix']]],
+  ['exponentialinout_337',['exponentialInOut',['../classModMatrix.html#add6fae194c9fe15e561181b21b6fc614ab5bdf8a6fe53581fe54a3709b55b36fe',1,'ModMatrix']]],
+  ['exponentialout_338',['exponentialOut',['../classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a49c3644e18da03df8b393cf9471f6814',1,'ModMatrix']]],
+  ['extractprogram_339',['extractProgram',['../classProcessor.html#ad1fa6fe5fe5aa411ba0457273239a814',1,'Processor::extractProgram(const juce::String &amp;name, const void *data, int sz)'],['../classProcessor.html#afdf6943c2323aeedf39c18d7ec77ecbb',1,'Processor::extractProgram(const juce::String &amp;name, const juce::MemoryBlock &amp;data)']]],
+  ['extraheightpx_340',['extraHeightPx',['../classProcessorEditorBase.html#a563ccdce57a82178551cd6e26d601d27',1,'ProcessorEditorBase']]],
+  ['extrawidthpx_341',['extraWidthPx',['../classProcessorEditorBase.html#a4c568cb0377c6626240acc5eaf5fff2a',1,'ProcessorEditorBase']]]
 ];

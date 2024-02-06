@@ -8172,6 +8172,253 @@
     <name>ModMatrix</name>
     <filename>classModMatrix.html</filename>
     <class kind="class">ModMatrix::Listener</class>
+    <member kind="enumeration">
+      <type></type>
+      <name>Function</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>linear</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614acb06b3d520dd725b2238a449315b094d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>quadraticIn</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614aec9f9bf92afa150948d808cfb47c73bd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>quadraticInOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614aca2bc4be3e70c0982876586e17860685</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>quadraticOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a6d181277db1246b900c193cd823ba21e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>sineIn</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a3d4b194fe7bab39d84b839fc12108932</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>sineInOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a6132e3681b97a2d682bad5ce802a29ca</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>sineOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a030353ff9fd065b4116b16371ca4b124</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>exponentialIn</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a0077e21360a291be024c42766394775b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>exponentialInOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614ab5bdf8a6fe53581fe54a3709b55b36fe</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>exponentialOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a49c3644e18da03df8b393cf9471f6814</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invLinear</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614ae5dc113cfd99be977319aafb69c5b4ac</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invQuadraticIn</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a05a36fca880332e4afaa4a5ac9ca5bf9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invQuadraticInOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614ab504d22925671ba6e253f0efdfeb779e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invQuadraticOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a819a9b2ceec509a5c04115a66c7fb4de</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invSineIn</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a35931fd1e72cc0bf724f7092ccc65af1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invSineInOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614af866e4816f3d0a7aa46364164cf5a2d6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invSineOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a51a1e29d081d10f6528ed0fc5e509816</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invExponentialIn</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a82390ea767ca6f0b8e39ea17a7e1202b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invExponentialInOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a6e61e5ed0d9216ea3330a68c01d86591</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invExponentialOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614aeabc2967673798438849bdddedf69785</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>linear</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614acb06b3d520dd725b2238a449315b094d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>quadraticIn</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614aec9f9bf92afa150948d808cfb47c73bd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>quadraticInOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614aca2bc4be3e70c0982876586e17860685</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>quadraticOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a6d181277db1246b900c193cd823ba21e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>sineIn</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a3d4b194fe7bab39d84b839fc12108932</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>sineInOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a6132e3681b97a2d682bad5ce802a29ca</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>sineOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a030353ff9fd065b4116b16371ca4b124</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>exponentialIn</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a0077e21360a291be024c42766394775b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>exponentialInOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614ab5bdf8a6fe53581fe54a3709b55b36fe</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>exponentialOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a49c3644e18da03df8b393cf9471f6814</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invLinear</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614ae5dc113cfd99be977319aafb69c5b4ac</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invQuadraticIn</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a05a36fca880332e4afaa4a5ac9ca5bf9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invQuadraticInOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614ab504d22925671ba6e253f0efdfeb779e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invQuadraticOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a819a9b2ceec509a5c04115a66c7fb4de</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invSineIn</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a35931fd1e72cc0bf724f7092ccc65af1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invSineInOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614af866e4816f3d0a7aa46364164cf5a2d6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invSineOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a51a1e29d081d10f6528ed0fc5e509816</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invExponentialIn</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a82390ea767ca6f0b8e39ea17a7e1202b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invExponentialInOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614a6e61e5ed0d9216ea3330a68c01d86591</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>invExponentialOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>add6fae194c9fe15e561181b21b6fc614aeabc2967673798438849bdddedf69785</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>ModMatrix</name>
@@ -8192,6 +8439,13 @@
       <anchorfile>classModMatrix.html</anchorfile>
       <anchor>a9d2727c3ffce6935f804eff00495e4f8</anchor>
       <arglist>(juce::ValueTree &amp;vt)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>shape</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a2972456f0a29d959fb485bc9bb401b91</anchor>
+      <arglist>(float v, Function f, bool bipolar)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -8367,6 +8621,20 @@
       <anchorfile>classModMatrix.html</anchorfile>
       <anchor>ab974f4fdc82957f79b98ae8f151baec7</anchor>
       <arglist>(ModSrcId src, ModDstId param)</arglist>
+    </member>
+    <member kind="function">
+      <type>Function</type>
+      <name>getModFunction</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>acc189ee7cea2a20e63b473d2858fd15a</anchor>
+      <arglist>(ModSrcId src, ModDstId param)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setModFunction</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a11861e509cb3daf56094e64e74925e90</anchor>
+      <arglist>(ModSrcId src, ModDstId param, Function f)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>

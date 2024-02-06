@@ -1,9 +1,26 @@
 var searchData=
 [
-  ['text_5fframe_3392',['TEXT_FRAME',['../structWSHeaderType.html#ac1906191ac337fdbecbe643184fbd3b3a44b257e3d1f0e6e8ee821d8ce460cea2',1,'WSHeaderType']]],
-  ['textcolourid_3393',['textColourId',['../classSingleLineTextEditor.html#a580e95f56d303528b02f91143c72f13ca3139e08c59ac1e595c5029d4c90b3a95',1,'SingleLineTextEditor']]],
-  ['title1colourid_3394',['title1ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a48e1027db85fa69981be45218bd7e6d9',1,'GinLookAndFeel']]],
-  ['title2colourid_3395',['title2ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a539354805ecf1dd789adb31680e32326',1,'GinLookAndFeel']]],
-  ['tracecolourid_3396',['traceColourId',['../classTriggeredScope.html#ac8e18f9a32051394436ce1959334ac52a589de8d7a323fdf9be76f7ad5df7c2c5',1,'TriggeredScope::traceColourId()'],['../classWaveformComponent.html#a45b49a62cd0812131e81de9e1715fd01ae41bbfdc8560f893683785e89ef15dc9',1,'WaveformComponent::traceColourId()'],['../classXYScope.html#a8c9be5fbb6205a1a9920d2068ca13b22ab74a667b5c450498ad536a857e77d35a',1,'XYScope::traceColourId()']]],
-  ['triangle_3397',['triangle',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29acef44b46f16ae8ecf664df4266ffdbf9',1,'LFO::triangle()'],['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90acef44b46f16ae8ecf664df4266ffdbf9',1,'triangle():&#160;gin_bandlimitedlookuptable.h']]]
+  ['sampleandhold_3412',['sampleAndHold',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29ad674bb86b600f7194b224cfdddb926be',1,'LFO']]],
+  ['sawdown_3413',['sawDown',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a3593df94728cd88f078bbc6c41df9876',1,'LFO::sawDown()'],['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a3593df94728cd88f078bbc6c41df9876',1,'sawDown():&#160;gin_bandlimitedlookuptable.h']]],
+  ['sawup_3414',['sawUp',['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90acf87f9eb2bfacc5a0362031eba539290',1,'sawUp():&#160;gin_bandlimitedlookuptable.h'],['../classLFO.html#a9377c9fb47d163e9343a11edd200da29acf87f9eb2bfacc5a0362031eba539290',1,'LFO::sawUp()']]],
+  ['screen_3415',['Screen',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a2609fadb77bb3d98c615b41ac79a1d31',1,'gin_imageeffects.h']]],
+  ['shadowcolourid_3416',['shadowColourId',['../classSingleLineTextEditor.html#a580e95f56d303528b02f91143c72f13cac438c89220c8873c78bee2606a59b1fe',1,'SingleLineTextEditor']]],
+  ['silence_3417',['silence',['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a0e82533c37fced763be34a5c21d720c9',1,'gin_bandlimitedlookuptable.h']]],
+  ['sine_3418',['sine',['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a925212d1624625aed9491413b4b7be05',1,'sine():&#160;gin_bandlimitedlookuptable.h'],['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a925212d1624625aed9491413b4b7be05',1,'LFO::sine()']]],
+  ['sinein_3419',['sineIn',['../classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a3d4b194fe7bab39d84b839fc12108932',1,'ModMatrix']]],
+  ['sineinout_3420',['sineInOut',['../classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a6132e3681b97a2d682bad5ce802a29ca',1,'ModMatrix']]],
+  ['sineout_3421',['sineOut',['../classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a030353ff9fd065b4116b16371ca4b124',1,'ModMatrix']]],
+  ['softlight_3422',['SoftLight',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a967749a14f4bb7ffc6383997d97a6163',1,'gin_imageeffects.h']]],
+  ['square_3423',['square',['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30',1,'square():&#160;gin_bandlimitedlookuptable.h'],['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a2fc01ec765ec0cb3dcc559126de20b30',1,'LFO::square()']]],
+  ['squarepos_3424',['squarePos',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a8b70dd8f1d0ecc516d51a67b21488158',1,'LFO']]],
+  ['stamenterrain_3425',['StamenTerrain',['../classOpenStreetMaps.html#ad685bb52fa0d8ea27d8fd8a152958020ad344502fa93ab8fc298bc4dbccae4c01',1,'OpenStreetMaps']]],
+  ['stepdown3_3426',['stepDown3',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29aaa3d13ace9a6e4045e504d765616f1c8',1,'LFO']]],
+  ['stepdown4_3427',['stepDown4',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29aea3c4dcae408cbe4ca833cc5deab05a8',1,'LFO']]],
+  ['stepdown8_3428',['stepDown8',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a60e4b0ffa818d9dfcae5f4f8e163c7de',1,'LFO']]],
+  ['stepup3_3429',['stepUp3',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a47a947491015719eaaa2e001e86eea54',1,'LFO']]],
+  ['stepup4_3430',['stepUp4',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29af71d95a4c6af33601854ca4ebe2a5adc',1,'LFO']]],
+  ['stepup8_3431',['stepup8',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a528e39dd5263c6b717cdab4896b12f43',1,'LFO']]],
+  ['subtract_3432',['Subtract',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85afa8a9720422ee254970b2ebe1435a917',1,'gin_imageeffects.h']]],
+  ['success_3433',['success',['../classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30fac98012252d82fd16e8993a48798082da',1,'ElevatedFileCopy']]],
+  ['sustain_3434',['sustain',['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188ea02bc1150d41a4dfdc324849c25dce148',1,'AnalogADSR::sustain()'],['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127aa48dd9dd380d2a499ad6f7ae967010835',1,'ADSR::sustain()']]]
 ];

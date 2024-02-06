@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['vertical_3400',['vertical',['../classComponentGrid.html#a0d6a66510a6868e9be9f596867b85946a4e8e13a57e9c5cdca5923aa037a61276',1,'ComponentGrid']]],
-  ['vividlight_3401',['VividLight',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a87be187db30f3efdb79dde93f63e0430',1,'gin_imageeffects.h']]]
+  ['unknown_3441',['unknown',['../classLocationManager.html#a518acec298306066ae3cccc6eb335bdcad0e85e63c60b028c9b8e673630e46a4e',1,'LocationManager']]],
+  ['up_3442',['Up',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40a7f9a9c97a4c7f8e2424ec0827d879c71',1,'TriggeredScope']]]
 ];
