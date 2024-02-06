@@ -20,7 +20,7 @@ var searchData=
   ['modulation_2479',['Modulation',['../classModulation.html#ad69ae957b7a70669951f70d3372ffb46',1,'Modulation']]],
   ['modulationdepthslider_2480',['ModulationDepthSlider',['../classModulationDepthSlider.html#abb5c62cd5d33eee71eec841229de41b5',1,'ModulationDepthSlider']]],
   ['modulationoverview_2481',['ModulationOverview',['../classModulationOverview.html#a53905073cc95d9c56b70c931d0654a77',1,'ModulationOverview']]],
-  ['modulationsourcebutton_2482',['ModulationSourceButton',['../classModulationSourceButton.html#ae528e6ef08597a5535ec9b71b8478819',1,'ModulationSourceButton']]],
+  ['modulationsourcebutton_2482',['ModulationSourceButton',['../classModulationSourceButton.html#ae528e6ef08597a5535ec9b71b8478819',1,'ModulationSourceButton::ModulationSourceButton(ModMatrix &amp;mm, ModSrcId src={}, bool poly_=false)'],['../classModulationSourceButton.html#a09f917bf8545a7e0831848278623e0b4',1,'ModulationSourceButton::ModulationSourceButton(const juce::String &amp;name, ModMatrix &amp;mm, ModSrcId src={}, bool poly_=false)']]],
   ['modvoice_2483',['ModVoice',['../classModVoice.html#ae3ba25475bbb4248e56a446575096da2',1,'ModVoice']]],
   ['monobuffer_2484',['monoBuffer',['../group__gin__dsp-dsp.html#ga57bf2df9e7b6d40a993d7d4371e653c3',1,'gin_audioutil.h']]],
   ['mousedoubleclick_2485',['mouseDoubleClick',['../classSingleLineTextEditor.html#acb833ecaee0c50b4df48e2d337b27bdc',1,'SingleLineTextEditor']]],

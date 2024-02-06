@@ -8905,6 +8905,13 @@
     </member>
     <member kind="function">
       <type></type>
+      <name>ModulationSourceButton</name>
+      <anchorfile>classModulationSourceButton.html</anchorfile>
+      <anchor>a09f917bf8545a7e0831848278623e0b4</anchor>
+      <arglist>(const juce::String &amp;name, ModMatrix &amp;mm, ModSrcId src={}, bool poly_=false)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
       <name>~ModulationSourceButton</name>
       <anchorfile>classModulationSourceButton.html</anchorfile>
       <anchor>a44808e6b21763680da9c54bcefb6b362</anchor>
