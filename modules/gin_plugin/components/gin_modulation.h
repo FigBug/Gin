@@ -15,6 +15,14 @@ public:
         update();
     }
 
+	ModulationSourceButton (const juce::String& name, ModMatrix& mm, ModSrcId src = {}, bool poly_ = false)
+		: Button (""), modMatrix (mm), source (src), poly (poly_)
+	{
+		setName (name);
+		modMatrix.addListener (this);
+		update();
+	}
+
     ~ModulationSourceButton() override
     {
         modMatrix.removeListener (this);
