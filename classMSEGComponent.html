@@ -62,6 +62,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classMSEGComponent-members.html">List of all members</a>  </div>
@@ -79,6 +80,19 @@ Inheritance diagram for MSEGComponent:</div>
 </div>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:afad4878b3d3d828c5f4640776dea28ad"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28ad">DrawMode</a> { <br />
+&#160;&#160;<a class="el" href="classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28adae79405683cadb7c4c98fd15cae698942">step</a>
+, <a class="el" href="classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28adaf4f3179b4821725fbe77e27ff34ccb46">half</a>
+, <a class="el" href="classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28ada605ba9914ec7b7d1599d21a70608b57e">down</a>
+, <a class="el" href="classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28adad326c6c196a5b26cb69b871c57480c9a">up</a>
+, <br />
+&#160;&#160;<a class="el" href="classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28ada104f21463efaee64202fcb5f8d79834b">tri</a>
+<br />
+ }</td></tr>
+<tr class="separator:afad4878b3d3d828c5f4640776dea28ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad9532dc5e701583000942959aa6d10bb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMSEGComponent.html#ad9532dc5e701583000942959aa6d10bb">MSEGComponent</a> (<a class="el" href="structMSEG_1_1Data.html">MSEG::Data</a> &amp;d)</td></tr>
@@ -89,6 +103,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aebd72f264a3dd139d91ab4b0ededc884"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a049be903daf6ad17030f5b280640a625"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMSEGComponent.html#a049be903daf6ad17030f5b280640a625">setEditable</a> (bool e)</td></tr>
 <tr class="separator:a049be903daf6ad17030f5b280640a625"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a351daf8bb281c34f09d6ff8172ae2478"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMSEGComponent.html#a351daf8bb281c34f09d6ff8172ae2478">setDrawMode</a> (bool enable, <a class="el" href="classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28ad">DrawMode</a> m)</td></tr>
+<tr class="separator:a351daf8bb281c34f09d6ff8172ae2478"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a222ec00f1d4da910cbc4a84f57abbcff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMSEGComponent.html#a222ec00f1d4da910cbc4a84f57abbcff">markDirty</a> ()</td></tr>
 <tr class="separator:a222ec00f1d4da910cbc4a84f57abbcff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8fa6d2d2a4a2eb1b5fe73fc03241975"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMSEGComponent.html#ae8fa6d2d2a4a2eb1b5fe73fc03241975">paint</a> (juce::Graphics &amp;g) override</td></tr>
@@ -144,7 +160,29 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Draws an <a class="el" href="classMSEG.html" title="MSEG LFO.">MSEG</a> <a class="el" href="classLFO.html" title="LFO with many shapes.">LFO</a> curve and shows a little dot moving long. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="afad4878b3d3d828c5f4640776dea28ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afad4878b3d3d828c5f4640776dea28ad">&#9670;&nbsp;</a></span>DrawMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28ad">MSEGComponent::DrawMode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afad4878b3d3d828c5f4640776dea28adae79405683cadb7c4c98fd15cae698942"></a>step&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afad4878b3d3d828c5f4640776dea28adaf4f3179b4821725fbe77e27ff34ccb46"></a>half&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afad4878b3d3d828c5f4640776dea28ada605ba9914ec7b7d1599d21a70608b57e"></a>down&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afad4878b3d3d828c5f4640776dea28adad326c6c196a5b26cb69b871c57480c9a"></a>up&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afad4878b3d3d828c5f4640776dea28ada104f21463efaee64202fcb5f8d79834b"></a>tri&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad9532dc5e701583000942959aa6d10bb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad9532dc5e701583000942959aa6d10bb">&#9670;&nbsp;</a></span>MSEGComponent()</h2>
 
@@ -289,6 +327,34 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a351daf8bb281c34f09d6ff8172ae2478"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a351daf8bb281c34f09d6ff8172ae2478">&#9670;&nbsp;</a></span>setDrawMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MSEGComponent::setDrawMode </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28ad">DrawMode</a>&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a222ec00f1d4da910cbc4a84f57abbcff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a222ec00f1d4da910cbc4a84f57abbcff">&#9670;&nbsp;</a></span>markDirty()</h2>
 
@@ -420,7 +486,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Feb 14 2024 14:52:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Wed Feb 14 2024 17:08:17 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

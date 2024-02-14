@@ -9136,6 +9136,73 @@
     <name>MSEGComponent</name>
     <filename>classMSEGComponent.html</filename>
     <base>MultiParamComponent</base>
+    <member kind="enumeration">
+      <type></type>
+      <name>DrawMode</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>afad4878b3d3d828c5f4640776dea28ad</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>step</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>afad4878b3d3d828c5f4640776dea28adae79405683cadb7c4c98fd15cae698942</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>half</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>afad4878b3d3d828c5f4640776dea28adaf4f3179b4821725fbe77e27ff34ccb46</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>down</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>afad4878b3d3d828c5f4640776dea28ada605ba9914ec7b7d1599d21a70608b57e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>up</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>afad4878b3d3d828c5f4640776dea28adad326c6c196a5b26cb69b871c57480c9a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>tri</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>afad4878b3d3d828c5f4640776dea28ada104f21463efaee64202fcb5f8d79834b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>step</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>afad4878b3d3d828c5f4640776dea28adae79405683cadb7c4c98fd15cae698942</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>half</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>afad4878b3d3d828c5f4640776dea28adaf4f3179b4821725fbe77e27ff34ccb46</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>down</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>afad4878b3d3d828c5f4640776dea28ada605ba9914ec7b7d1599d21a70608b57e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>up</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>afad4878b3d3d828c5f4640776dea28adad326c6c196a5b26cb69b871c57480c9a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>tri</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>afad4878b3d3d828c5f4640776dea28ada104f21463efaee64202fcb5f8d79834b</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>MSEGComponent</name>
@@ -9163,6 +9230,13 @@
       <anchorfile>classMSEGComponent.html</anchorfile>
       <anchor>a049be903daf6ad17030f5b280640a625</anchor>
       <arglist>(bool e)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDrawMode</name>
+      <anchorfile>classMSEGComponent.html</anchorfile>
+      <anchor>a351daf8bb281c34f09d6ff8172ae2478</anchor>
+      <arglist>(bool enable, DrawMode m)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
