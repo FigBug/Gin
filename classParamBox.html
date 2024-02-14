@@ -88,8 +88,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a88091be82b8e3445817dfef88a3d6a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4724173ceb73c7925f43a58135cc7bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#ab4724173ceb73c7925f43a58135cc7bf">addHeader</a> (const juce::StringArray names, int idx, gin::Parameter::Ptr p)</td></tr>
 <tr class="separator:ab4724173ceb73c7925f43a58135cc7bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeacbb2e4a425744fc53e5cb7a7d705af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#aeacbb2e4a425744fc53e5cb7a7d705af">addEnable</a> (gin::Parameter::Ptr p)</td></tr>
-<tr class="separator:aeacbb2e4a425744fc53e5cb7a7d705af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf470399c02b5a8b0ce7b0889e2b8d05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#aaf470399c02b5a8b0ce7b0889e2b8d05">addEnable</a> (gin::Parameter::Ptr p, bool includeButton=true)</td></tr>
+<tr class="separator:aaf470399c02b5a8b0ce7b0889e2b8d05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6184d7fc37b1a9b150b32dae32f69246"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#a6184d7fc37b1a9b150b32dae32f69246">addModSource</a> (juce::Component *c)</td></tr>
 <tr class="separator:a6184d7fc37b1a9b150b32dae32f69246"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec5100680834d3f5312e57854e54ee88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamBox.html#aec5100680834d3f5312e57854e54ee88">addControl</a> (juce::Component *c)</td></tr>
@@ -249,8 +249,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aeacbb2e4a425744fc53e5cb7a7d705af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeacbb2e4a425744fc53e5cb7a7d705af">&#9670;&nbsp;</a></span>addEnable()</h2>
+<a id="aaf470399c02b5a8b0ce7b0889e2b8d05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf470399c02b5a8b0ce7b0889e2b8d05">&#9670;&nbsp;</a></span>addEnable()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -259,8 +259,18 @@ Protected Attributes</h2></td></tr>
           <td class="memname">void ParamBox::addEnable </td>
           <td>(</td>
           <td class="paramtype">gin::Parameter::Ptr&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>includeButton</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -707,7 +717,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classParamBox.html#aec5100680834d3f5312e57854e54ee88">addControl()</a>, and <a class="el" href="classParamBox.html#aeacbb2e4a425744fc53e5cb7a7d705af">addEnable()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classParamBox.html#aec5100680834d3f5312e57854e54ee88">addControl()</a>, and <a class="el" href="classParamBox.html#aaf470399c02b5a8b0ce7b0889e2b8d05">addEnable()</a>.</p>
 
 </div>
 </div>
@@ -755,7 +765,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classParamBox.html#aeacbb2e4a425744fc53e5cb7a7d705af">addEnable()</a>, and <a class="el" href="classParamBox.html#a687c686e6477b6850fc6f46e36224dc4">paramChanged()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classParamBox.html#aaf470399c02b5a8b0ce7b0889e2b8d05">addEnable()</a>, and <a class="el" href="classParamBox.html#a687c686e6477b6850fc6f46e36224dc4">paramChanged()</a>.</p>
 
 </div>
 </div>
@@ -837,7 +847,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 6 2024 19:23:09 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Wed Feb 14 2024 01:43:11 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
