@@ -141,14 +141,17 @@ public:
         paramChanged();
     }
 
-    void addEnable (gin::Parameter::Ptr p)
+    void addEnable (gin::Parameter::Ptr p, bool includeButton = true)
     {
         enableParam = p;
 
-        auto b = new SVGPluginButton (p, Assets::power);
-        b->setBounds (6, 6, 12, 12);
-        controls.add (b);
-        addAndMakeVisible (b);
+        if (includeButton)
+        {
+            auto b = new SVGPluginButton (p, Assets::power);
+            b->setBounds (6, 6, 12, 12);
+            controls.add (b);
+            addAndMakeVisible (b);
+        }
 
         watchParam (p);
     }

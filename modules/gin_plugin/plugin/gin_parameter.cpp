@@ -67,7 +67,7 @@ void Parameter::setUserValueAsUserAction (float f)
     beginUserAction();
 
     if (internal)
-        setValue (f);
+        setUserValue (f);
     else
         setUserValueNotifingHost (f);
 
