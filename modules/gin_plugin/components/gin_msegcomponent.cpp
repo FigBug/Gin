@@ -9,9 +9,9 @@ void MSEGComponent::resized()
     dirty = true;
 }
 
-void MSEGComponent::setDrawMode (bool enable, DrawMode m)
+void MSEGComponent::setDrawMode (bool d, DrawMode m)
 {
-    draw = enable;
+    draw = d;
     drawMode = m;
 }
 
@@ -512,14 +512,14 @@ void MSEGComponent::mouseDownDraw (const juce::MouseEvent& e)
 
 void MSEGComponent::mouseDragDraw (const juce::MouseEvent& e)
 {
-    auto t1 = std::clamp (std::floor (xToTime (e.x) * xgrid->getUserValueInt()) / xgrid->getUserValueInt(), 0.0f, 1.0f);
-    auto t2 = std::clamp (std::ceil  (xToTime (e.x) * xgrid->getUserValueInt()) / xgrid->getUserValueInt(), 0.0f, 1.0f);
+    auto t1 = std::clamp (std::floor (xToTime (e.position.x) * xgrid->getUserValueInt()) / xgrid->getUserValueInt(), 0.0f, 1.0f);
+    auto t2 = std::clamp (std::ceil  (xToTime (e.position.x) * xgrid->getUserValueInt()) / xgrid->getUserValueInt(), 0.0f, 1.0f);
 
     if (t2 <= t1)
         return;
 
-    auto v1 = mseg.getValueAt (t1 - 0.0001);
-    auto v2 = mseg.getValueAt (t2 + 0.0001);
+    auto v1 = mseg.getValueAt (t1 - 0.0001f);
+    auto v2 = mseg.getValueAt (t2 + 0.0001f);
 
     deletePointsIn (t1, t2);
 
