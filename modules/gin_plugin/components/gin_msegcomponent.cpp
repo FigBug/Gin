@@ -135,7 +135,7 @@ void MSEGComponent::paint (juce::Graphics& g)
         {
             auto r = juce::Rectangle (timeToX (data.points[i].time) - 2.5f, valueToY (data.points[i].value) - 2.5f, 5.0f, 5.0f);
 
-            if (! draw && (draggingPoint == i || getPointAt (getMouseXYRelative().toFloat()) == i))
+            if (draggingPoint == i || getPointAt (getMouseXYRelative().toFloat()) == i)
             {
                 g.setColour (dimIfNeeded (juce::Colours::white).withAlpha (0.3f));
                 g.fillEllipse (r.expanded (4));
@@ -239,14 +239,14 @@ void MSEGComponent::mouseDown (const juce::MouseEvent& e)
         return;
 
     if (draw)
-        return mouseDownDraw (e);
+        mouseDownDraw (e);
 
     if ((draggingPoint = getPointAt (e.position)) >= 0)
         repaint ();
     else if ((draggingCurve = getCurveAt (e.position)) >= 0)
         repaint ();
 
-    if (e.getNumberOfClicks() == 2)
+    if (! draw && e.getNumberOfClicks() == 2)
     {
         if (draggingPoint >= 0)
         {
@@ -419,7 +419,7 @@ void MSEGComponent::mouseUp (const juce::MouseEvent& e)
     }
 
     if (draw)
-        return mouseUpDraw (e);
+        mouseUpDraw (e);
 
     draggingPoint = -1;
     draggingCurve = -1;
@@ -512,18 +512,39 @@ void MSEGComponent::mouseDownDraw (const juce::MouseEvent& e)
 
 void MSEGComponent::mouseDragDraw (const juce::MouseEvent& e)
 {
+    if (e.mods != juce::ModifierKeys (juce::ModifierKeys::leftButtonModifier))
+        return;
+
     auto t1 = std::clamp (std::floor (xToTime (e.position.x) * xgrid->getUserValueInt()) / xgrid->getUserValueInt(), 0.0f, 1.0f);
     auto t2 = std::clamp (std::ceil  (xToTime (e.position.x) * xgrid->getUserValueInt()) / xgrid->getUserValueInt(), 0.0f, 1.0f);
 
     if (t2 <= t1)
         return;
 
-    auto v1 = mseg.getValueAt (t1 - 0.0001f);
-    auto v2 = mseg.getValueAt (t2 + 0.0001f);
+    auto v1 = [&]
+    {
+        for (const auto p : data.points)
+            if (std::abs (p.time - t1) < 0.000001f)
+                return p.value;
+
+        return mseg.getValueAt (t1 - 0.000001f);
+    }();
+
+    auto v2 = [&]
+    {
+        for (const auto p : std::ranges::views::reverse (data.points))
+            if (std::abs (p.time - t2) < 0.000001f)
+                return p.value;
+
+        return mseg.getValueAt (t2 + 0.000001f);
+    }();
+
+    auto startTm = data.points[data.startIndex].time;
+    auto endTm   = data.points[data.endIndex].time;
 
     deletePointsIn (t1, t2);
 
-    auto v = snapV (yToValue (e.position.y));
+    auto v = std::clamp (snapV (yToValue (e.position.y)), -1.0f, 1.0f);
 
     if (drawMode == step)
     {
@@ -534,12 +555,12 @@ void MSEGComponent::mouseDragDraw (const juce::MouseEvent& e)
     }
     else if (drawMode == half)
     {
-        if (v1 != v) addPoint (t1, v1);
+        addPoint (t1, v1);
         addPoint (t1, v);
         addPoint ((t1 + t2) / 2.0f, v);
         addPoint ((t1 + t2) / 2.0f, 0.0f);
         addPoint (t2, 0.0f);
-        if (v2 != 0.0f) addPoint (t2, v2);
+        addPoint (t2, v2);
     }
     else if (drawMode == down)
     {
@@ -557,13 +578,31 @@ void MSEGComponent::mouseDragDraw (const juce::MouseEvent& e)
     }
     else if (drawMode == tri)
     {
-        if (v1 != 0.0f) addPoint (t1, v1);
+        addPoint (t1, v1);
         addPoint (t1, 0.0f);
         addPoint ((t1 + t2) / 2.0f, v);
         addPoint (t2, 0.0f);
-        if (v2 != 0.0f) addPoint (t2, v2);
+        addPoint (t2, v2);
     }
     deleteDuplicates();
+
+    for (auto i = 0; i < data.numPoints; i++)
+    {
+        if (std::abs (data.points[i].time - startTm) < 0.000001f)
+        {
+            data.startIndex = i;
+            break;
+        }
+    }
+
+    for (auto i = data.numPoints; --i >= 0;)
+    {
+        if (std::abs (data.points[i].time - endTm) < 0.000001f)
+        {
+            data.endIndex = i;
+            break;
+        }
+    }
 }
 
 void MSEGComponent::mouseUpDraw (const juce::MouseEvent& e)

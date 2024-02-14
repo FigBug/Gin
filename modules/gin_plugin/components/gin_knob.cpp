@@ -228,7 +228,13 @@ void Knob::modMatrixChanged()
         if (mm->isModulated (dst) || liveValuesCallback)
         {
             modTimer.startTimerHz (30);
-            modDepthSlider.setVisible (mm->isModulated (dst));
+
+            auto vis = mm->isModulated (dst);
+            if (vis != modDepthSlider.isVisible())
+            {
+                modDepthSlider.setVisible (vis);
+                resized();
+            }
 
             if (auto depths = mm->getModDepths (dst); depths.size() > 0)
                 modDepthSlider.setValue (depths[0].second, juce::dontSendNotification);
@@ -239,7 +245,12 @@ void Knob::modMatrixChanged()
         {
             modTimer.stopTimer();
             knob.getProperties().remove ("modValues");
-            modDepthSlider.setVisible (false);
+
+            if (modDepthSlider.isVisible())
+            {
+                modDepthSlider.setVisible (false);
+                resized();
+            }
         }
 
         if (learning && ! isMouseButtonDown (true))

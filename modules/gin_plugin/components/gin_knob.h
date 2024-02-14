@@ -20,15 +20,11 @@ public:
 
     PluginSlider& getSlider()   { return knob; }
 
-private:
     void paint (juce::Graphics& g) override;
     void resized() override;
-    void mouseEnter (const juce::MouseEvent& e) override;
-    void timerCallback() override;
-    void learnSourceChanged (ModSrcId) override;
-    void modMatrixChanged() override;
     void parentHierarchyChanged() override;
 
+    void mouseEnter (const juce::MouseEvent& e) override;
     void mouseDown (const juce::MouseEvent& e) override;
     void mouseDrag (const juce::MouseEvent& e) override;
 
@@ -36,6 +32,12 @@ private:
     void itemDragEnter (const SourceDetails& dragSourceDetails) override;
     void itemDragExit (const SourceDetails& dragSourceDetails) override;
     void itemDropped (const SourceDetails& dragSourceDetails) override;
+
+protected:
+    void timerCallback() override;
+
+    void learnSourceChanged (ModSrcId) override;
+    void modMatrixChanged() override;
 
     void showModMenu();
 

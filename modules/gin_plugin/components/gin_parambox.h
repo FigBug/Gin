@@ -190,6 +190,7 @@ public:
     }
 
     ParamHeader& getHeader() { return header; }
+    juce::Component& getFrame() { return frame; }
 
 protected:
     void paramChanged () override

@@ -148,7 +148,7 @@ juce::Path WavetableComponent::createWavetablePath (float wtPos, float start, fl
 
     auto data = buf.getReadPointer (0);
 
-    auto xSpread = 0.5f;
+    auto xSpread = 0.4f;
     auto yScale = -(1.0f / 4.5f);
     auto dx = std::min (w, h);
 
