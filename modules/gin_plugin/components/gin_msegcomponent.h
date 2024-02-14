@@ -7,6 +7,15 @@ class MSEGComponent : public MultiParamComponent,
                       private juce::Timer
 {
 public:
+    enum DrawMode
+    {
+        step,
+        half,
+        down,
+        up,
+        tri,
+    };
+
     MSEGComponent (MSEG::Data& d);
     ~MSEGComponent() override = default;
 
@@ -16,6 +25,7 @@ public:
                     Parameter::Ptr ygrid, Parameter::Ptr loop);
 
     void setEditable (bool e) { editable = e; }
+    void setDrawMode (bool enable, DrawMode m);
     void markDirty() { dirty = true; repaint(); }
 
     std::function<std::vector<float>()> phaseCallback;
@@ -33,6 +43,11 @@ private:
     void mouseDown (const juce::MouseEvent&) override;
     void mouseDrag (const juce::MouseEvent&) override;
     void mouseUp (const juce::MouseEvent&) override;
+
+    void mouseDownDraw (const juce::MouseEvent&);
+    void mouseDragDraw (const juce::MouseEvent&);
+    void mouseUpDraw (const juce::MouseEvent&);
+
     void mouseMove (const juce::MouseEvent&) override;
     void mouseEnter (const juce::MouseEvent&) override;
     void mouseExit (const juce::MouseEvent&) override;
@@ -60,6 +75,8 @@ private:
 
     float lastY = 0.0f;
     bool editable = false;
+    bool draw = false;
+    DrawMode drawMode = step;
 
     juce::Rectangle<float> getArea() { return getLocalBounds().toFloat().reduced (editable ? 4.0f : 2.0f); }
 
@@ -71,6 +88,11 @@ private:
 
     float xToTime (float x);
     float yToValue (float y);
+
+    void deletePointsIn (float v1, float v2);
+    void deletePoint (int idx);
+    void addPoint (float t, float v);
+    void deleteDuplicates();
 
 private:
     std::unique_ptr<juce::BubbleMessageComponent> bubbleMessage;

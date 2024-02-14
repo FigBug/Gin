@@ -9,6 +9,12 @@ void MSEGComponent::resized()
     dirty = true;
 }
 
+void MSEGComponent::setDrawMode (bool enable, DrawMode m)
+{
+    draw = enable;
+    drawMode = m;
+}
+
 void MSEGComponent::setParams (Parameter::Ptr wave_, Parameter::Ptr sync_, Parameter::Ptr rate_,
                                Parameter::Ptr beat_, Parameter::Ptr depth_, Parameter::Ptr offset_,
                                Parameter::Ptr phase_, Parameter::Ptr enable_, Parameter::Ptr xgrid_,
@@ -129,7 +135,7 @@ void MSEGComponent::paint (juce::Graphics& g)
         {
             auto r = juce::Rectangle (timeToX (data.points[i].time) - 2.5f, valueToY (data.points[i].value) - 2.5f, 5.0f, 5.0f);
 
-            if (draggingPoint == i || getPointAt (getMouseXYRelative().toFloat()) == i)
+            if (! draw && (draggingPoint == i || getPointAt (getMouseXYRelative().toFloat()) == i))
             {
                 g.setColour (dimIfNeeded (juce::Colours::white).withAlpha (0.3f));
                 g.fillEllipse (r.expanded (4));
@@ -150,7 +156,7 @@ void MSEGComponent::paint (juce::Graphics& g)
             auto t = (data.points[i].time + data.points[i + 1].time) / 2.0f;
             auto r = juce::Rectangle (timeToX (t) - 2.0f, valueToY (mseg.getValueAt (t)) - 2.0f, 4.0f, 4.0f);
 
-            if (draggingCurve == i || getCurveAt (getMouseXYRelative().toFloat()) == i)
+            if (! draw && (draggingCurve == i || getCurveAt (getMouseXYRelative().toFloat()) == i))
             {
                 g.setColour (dimIfNeeded (juce::Colours::white).withAlpha (0.3f));
                 g.fillEllipse (r.expanded (4));
@@ -232,6 +238,9 @@ void MSEGComponent::mouseDown (const juce::MouseEvent& e)
     if (! editable)
         return;
 
+    if (draw)
+        return mouseDownDraw (e);
+
     if ((draggingPoint = getPointAt (e.position)) >= 0)
         repaint ();
     else if ((draggingCurve = getCurveAt (e.position)) >= 0)
@@ -245,19 +254,7 @@ void MSEGComponent::mouseDown (const juce::MouseEvent& e)
             if (draggingPoint == 0 || draggingPoint == data.numPoints - 1)
                 return;
 
-            for (int i = draggingPoint; i < data.numPoints - 1; i++)
-                data.points.getReference (i) = data.points[i + 1];
-
-            data.numPoints--;
-
-            if (data.startIndex >= draggingPoint)
-                data.startIndex = std::max (0, data.startIndex - 1);
-
-            if (data.endIndex >= draggingPoint)
-                data.endIndex = std::min (data.numPoints - 1, data.endIndex - 1);
-
-            dirty = true;
-            repaint();
+            deletePoint (draggingPoint);
         }
         else
         {
@@ -268,31 +265,7 @@ void MSEGComponent::mouseDown (const juce::MouseEvent& e)
             auto t = snapT (xToTime (e.position.x));
             auto v = snapV (yToValue (e.position.y));
 
-            for (auto i = 0; i < data.numPoints - 1; i++)
-            {
-                auto p1 = data.points[i + 0];
-                auto p2 = data.points[i + 1];
-
-                if (t > p1.time && t <= p2.time)
-                {
-                    for (auto j = data.numPoints; j >= i + 1; j--)
-                        data.points.getReference (j) = data.points[j - 1];
-
-                    data.points.getReference (i + 1) = { t, v, 0.0f };
-                    data.numPoints++;
-
-                    if (data.startIndex >= i + 1)
-                        data.startIndex++;
-
-                    if (data.endIndex >= i + 1)
-                        data.endIndex++;
-
-                    break;
-                }
-            }
-
-            dirty = true;
-            repaint();
+            addPoint (t, v);
         }
     }
 
@@ -311,6 +284,9 @@ void MSEGComponent::mouseDrag (const juce::MouseEvent& e)
 {
     if (! editable)
         return;
+
+    if (draw)
+        return mouseDragDraw (e);
 
     if (draggingPoint >= 0)
     {
@@ -442,6 +418,9 @@ void MSEGComponent::mouseUp (const juce::MouseEvent& e)
         }
     }
 
+    if (draw)
+        return mouseUpDraw (e);
+
     draggingPoint = -1;
     draggingCurve = -1;
     repaint ();
@@ -524,4 +503,212 @@ float MSEGComponent::snapV (float v)
     }
 
     return v;
+}
+
+void MSEGComponent::mouseDownDraw (const juce::MouseEvent& e)
+{
+    mouseDragDraw (e);
+}
+
+void MSEGComponent::mouseDragDraw (const juce::MouseEvent& e)
+{
+    auto t1 = std::clamp (std::floor (xToTime (e.x) * xgrid->getUserValueInt()) / xgrid->getUserValueInt(), 0.0f, 1.0f);
+    auto t2 = std::clamp (std::ceil  (xToTime (e.x) * xgrid->getUserValueInt()) / xgrid->getUserValueInt(), 0.0f, 1.0f);
+
+    if (t2 <= t1)
+        return;
+
+    auto v1 = mseg.getValueAt (t1 - 0.0001);
+    auto v2 = mseg.getValueAt (t2 + 0.0001);
+
+    deletePointsIn (t1, t2);
+
+    auto v = snapV (yToValue (e.position.y));
+
+    if (drawMode == step)
+    {
+        addPoint (t1, v1);
+        addPoint (t1, v);
+        addPoint (t2, v);
+        addPoint (t2, v2);
+    }
+    else if (drawMode == half)
+    {
+        if (v1 != v) addPoint (t1, v1);
+        addPoint (t1, v);
+        addPoint ((t1 + t2) / 2.0f, v);
+        addPoint ((t1 + t2) / 2.0f, 0.0f);
+        addPoint (t2, 0.0f);
+        if (v2 != 0.0f) addPoint (t2, v2);
+    }
+    else if (drawMode == down)
+    {
+        addPoint (t1, v1);
+        addPoint (t1, v);
+        addPoint (t2, 0.0f);
+        addPoint (t2, v2);
+    }
+    else if (drawMode == up)
+    {
+        addPoint (t1, v1);
+        addPoint (t1, 0.0f);
+        addPoint (t2, v);
+        addPoint (t2, v2);
+    }
+    else if (drawMode == tri)
+    {
+        if (v1 != 0.0f) addPoint (t1, v1);
+        addPoint (t1, 0.0f);
+        addPoint ((t1 + t2) / 2.0f, v);
+        addPoint (t2, 0.0f);
+        if (v2 != 0.0f) addPoint (t2, v2);
+    }
+    deleteDuplicates();
+}
+
+void MSEGComponent::mouseUpDraw (const juce::MouseEvent& e)
+{
+    mouseDragDraw (e);
+}
+
+void MSEGComponent::deletePointsIn (float v1, float v2)
+{
+    for (auto i = data.numPoints; --i >= 0;)
+    {
+        const auto& p = data.points.getReference (i);
+        if (p.time >= v1 - 0.00001 && p.time <= v2 + 0.00001)
+            deletePoint (i);
+    }
+}
+
+void MSEGComponent::deletePoint (int pointToDelete)
+{
+    for (int i = pointToDelete; i < data.numPoints - 1; i++)
+        data.points.getReference (i) = data.points[i + 1];
+
+    data.numPoints--;
+
+    if (data.startIndex >= pointToDelete)
+        data.startIndex = std::max (0, data.startIndex - 1);
+
+    if (data.endIndex >= pointToDelete)
+        data.endIndex = std::min (data.numPoints - 1, data.endIndex - 1);
+
+    dirty = true;
+    repaint();
+}
+
+void MSEGComponent::addPoint (float t, float v)
+{
+    if (data.numPoints == 0)
+    {
+        data.points.getReference (0) = { t, v, 0.0f };
+        data.numPoints++;
+
+        data.startIndex = 0;
+        data.endIndex = 0;
+    }
+    else if (data.numPoints == 1)
+    {
+        if (t < data.points[0].time)
+        {
+            data.points.getReference (1) = data.points.getReference (0);
+            data.points.getReference (0) = { t, v, 0.0f };
+
+            if (data.startIndex >= 0)
+                data.startIndex++;
+
+            if (data.endIndex >= 0)
+                data.endIndex++;
+        }
+        else
+        {
+            data.points.getReference (1) = { t, v, 0.0f };
+
+            if (data.startIndex >= 1)
+                data.startIndex++;
+
+            if (data.endIndex >= 1)
+                data.endIndex++;
+        }
+        data.numPoints++;
+    }
+    else
+    {
+        if (t >= data.points[data.numPoints - 1].time)
+        {
+            auto i = data.numPoints;
+
+            data.points.getReference (i) = { t, v, 0.0f };
+
+            data.numPoints++;
+
+            if (data.startIndex >= i)
+                data.startIndex++;
+
+            if (data.endIndex >= i)
+                data.endIndex++;
+        }
+        else if (t < data.points[0].time)
+        {
+            auto i = 0;
+
+            for (auto j = data.numPoints; j >= i + 1; j--)
+                data.points.getReference (j) = data.points[j - 1];
+
+            data.points.getReference (i) = { t, v, 0.0f };
+
+            data.numPoints++;
+
+            if (data.startIndex >= i)
+                data.startIndex++;
+
+            if (data.endIndex >= i)
+                data.endIndex++;
+        }
+        else
+        {
+            for (auto i = 0; i < data.numPoints - 1; i++)
+            {
+                auto p1 = data.points[i + 0];
+                auto p2 = data.points[i + 1];
+
+                if (t >= p1.time && t < p2.time)
+                {
+                    for (auto j = data.numPoints; j >= i + 1; j--)
+                        data.points.getReference (j) = data.points[j - 1];
+
+                    data.points.getReference (i + 1) = { t, v, 0.0f };
+
+                    data.numPoints++;
+
+                    if (data.startIndex >= i + 1)
+                        data.startIndex++;
+
+                    if (data.endIndex >= i + 1)
+                        data.endIndex++;
+
+                    break;
+                }
+            }
+        }
+    }
+
+    dirty = true;
+    repaint();
+}
+
+void MSEGComponent::deleteDuplicates()
+{
+    for (auto i = data.numPoints; --i >= 1;)
+    {
+        auto p1 = data.points[i + 0];
+        auto p2 = data.points[i - 1];
+
+        if (std::abs (p1.time - p2.time) < 0.00001 && std::abs (p1.value - p2.value) < 0.00001)
+            deletePoint (i);
+    }
+
+    dirty = true;
+    repaint();
 }
