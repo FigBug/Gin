@@ -1,17 +1,19 @@
 var searchData=
 [
-  ['label_3107',['label',['../classParameter.html#a18023bfac5c58f4372050d2a8177006e',1,'Parameter']]],
-  ['lastlon_3108',['lastLOn',['../classGateEffect.html#acbc162981c0aff17027d3bb1dba2e559',1,'GateEffect']]],
-  ['lastnote_3109',['lastNote',['../structOscState.html#afb7d1ee26306c66e5e1f3861e771210d',1,'OscState']]],
-  ['lastron_3110',['lastROn',['../classGateEffect.html#a22b6b9beb3b81d68b875d4a0e9daa035',1,'GateEffect']]],
-  ['latitude_3111',['latitude',['../structLocationManager_1_1Location.html#a7432dea352228865b308d0f62337e3b2',1,'LocationManager::Location']]],
-  ['leftgain_3112',['leftGain',['../structStereoOscillator_1_1Params.html#ab7814fe28bdb79772871cef3cf5f5679',1,'StereoOscillator::Params::leftGain()'],['../structWTOscillator_1_1Params.html#abef23350d10d65198a293119ced8bb9d',1,'WTOscillator::Params::leftGain()']]],
-  ['lf_3113',['lf',['../classProcessor.html#a7076bef74600565dd0d89a210baadcad',1,'Processor']]],
-  ['listeners_3114',['listeners',['../classParameter.html#a6ab022db2c42737bf0d3b1552f9b97a4',1,'Parameter']]],
-  ['loadingstate_3115',['loadingState',['../classProcessor.html#ab4a632bd0b8edcb74957e4c6d7fd3207',1,'Processor']]],
-  ['logdetector_3116',['logDetector',['../classEnvelopeDetector.html#a9b42cde52cbdcb05cbc85a65ba6a017f',1,'EnvelopeDetector']]],
-  ['longitude_3117',['longitude',['../structLocationManager_1_1Location.html#a484c41f04e208931333ece623fd56633',1,'LocationManager::Location']]],
-  ['lookuptables_3118',['lookupTables',['../classAudioFunctionHost.html#ac3f36a29508908517af32e673583014e',1,'AudioFunctionHost']]],
-  ['loop_3119',['loop',['../structMSEG_1_1Parameters.html#a41b8c9e91dd2740c89c139764a92076d',1,'MSEG::Parameters']]],
-  ['loseless_3120',['loseless',['../classWEBPImageFormat.html#a603e71ad278603009686b3290f8abcc1',1,'WEBPImageFormat']]]
+  ['label_3121',['label',['../classParameter.html#a18023bfac5c58f4372050d2a8177006e',1,'Parameter']]],
+  ['lastlon_3122',['lastLOn',['../classGateEffect.html#acbc162981c0aff17027d3bb1dba2e559',1,'GateEffect']]],
+  ['lastnote_3123',['lastNote',['../structOscState.html#afb7d1ee26306c66e5e1f3861e771210d',1,'OscState']]],
+  ['lastron_3124',['lastROn',['../classGateEffect.html#a22b6b9beb3b81d68b875d4a0e9daa035',1,'GateEffect']]],
+  ['latitude_3125',['latitude',['../structLocationManager_1_1Location.html#a7432dea352228865b308d0f62337e3b2',1,'LocationManager::Location']]],
+  ['learning_3126',['learning',['../classKnob.html#a4a082d2e230ead204360e25723f11549',1,'Knob']]],
+  ['leftgain_3127',['leftGain',['../structStereoOscillator_1_1Params.html#ab7814fe28bdb79772871cef3cf5f5679',1,'StereoOscillator::Params::leftGain()'],['../structWTOscillator_1_1Params.html#abef23350d10d65198a293119ced8bb9d',1,'WTOscillator::Params::leftGain()']]],
+  ['lf_3128',['lf',['../classProcessor.html#a7076bef74600565dd0d89a210baadcad',1,'Processor']]],
+  ['listeners_3129',['listeners',['../classParameter.html#a6ab022db2c42737bf0d3b1552f9b97a4',1,'Parameter']]],
+  ['livevaluescallback_3130',['liveValuesCallback',['../classKnob.html#af500d23ebd93ac81bd762903007afe31',1,'Knob']]],
+  ['loadingstate_3131',['loadingState',['../classProcessor.html#ab4a632bd0b8edcb74957e4c6d7fd3207',1,'Processor']]],
+  ['logdetector_3132',['logDetector',['../classEnvelopeDetector.html#a9b42cde52cbdcb05cbc85a65ba6a017f',1,'EnvelopeDetector']]],
+  ['longitude_3133',['longitude',['../structLocationManager_1_1Location.html#a484c41f04e208931333ece623fd56633',1,'LocationManager::Location']]],
+  ['lookuptables_3134',['lookupTables',['../classAudioFunctionHost.html#ac3f36a29508908517af32e673583014e',1,'AudioFunctionHost']]],
+  ['loop_3135',['loop',['../structMSEG_1_1Parameters.html#a41b8c9e91dd2740c89c139764a92076d',1,'MSEG::Parameters']]],
+  ['loseless_3136',['loseless',['../classWEBPImageFormat.html#a603e71ad278603009686b3290f8abcc1',1,'WEBPImageFormat']]]
 ];

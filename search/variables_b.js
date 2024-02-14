@@ -1,15 +1,19 @@
 var searchData=
 [
-  ['makesmidi_3121',['makesMidi',['../classProcessorOptions.html#a3e2504a011fd35e07cd6c37b2354ea59',1,'ProcessorOptions']]],
-  ['mask_3122',['mask',['../structWSHeaderType.html#aa436b6fcc692f760eb348b921409d8f4',1,'WSHeaderType']]],
-  ['masking_5fkey_3123',['masking_key',['../structWSHeaderType.html#aaf830be2305c270185628430337c50b1',1,'WSHeaderType']]],
-  ['maxpoints_3124',['maxPoints',['../structMSEG_1_1Data.html#a9b6d1c4e8f21a23da5a3784b776fab97',1,'MSEG::Data']]],
-  ['menu_3125',['menu',['../namespaceAssets.html#a1b0a8a5ee3663ec2443ce3ef8993b97a',1,'Assets']]],
-  ['menubutton_3126',['menuButton',['../classTitleBar.html#abfac3d89e308f9310949639eec927b05',1,'TitleBar']]],
-  ['mix_3127',['mix',['../classGateEffect.html#acee7b8f3cd3b1389c0f4fb435e20ee98',1,'GateEffect']]],
-  ['mode_3128',['mode',['../classEnvelopeDetector.html#a1804f11c1918ee0aeee94093a3057415',1,'EnvelopeDetector']]],
-  ['modindex_3129',['modIndex',['../classParameter.html#a7310a6224d36ab27a14237aab7d8fadd',1,'Parameter']]],
-  ['modmatrix_3130',['modMatrix',['../classParameter.html#a30f079fa8ecf5c5cd5735777e1ba74c8',1,'Parameter']]],
-  ['modsources_3131',['modSources',['../classParamBox.html#a0d36e4e64d989106ec37b22c0e2b4e3f',1,'ParamBox']]],
-  ['monopath_3132',['monoPath',['../classImages.html#a1d271cdd9f31586a82eab975793289af',1,'Images']]]
+  ['makesmidi_3137',['makesMidi',['../classProcessorOptions.html#a3e2504a011fd35e07cd6c37b2354ea59',1,'ProcessorOptions']]],
+  ['mask_3138',['mask',['../structWSHeaderType.html#aa436b6fcc692f760eb348b921409d8f4',1,'WSHeaderType']]],
+  ['masking_5fkey_3139',['masking_key',['../structWSHeaderType.html#aaf830be2305c270185628430337c50b1',1,'WSHeaderType']]],
+  ['maxpoints_3140',['maxPoints',['../structMSEG_1_1Data.html#a9b6d1c4e8f21a23da5a3784b776fab97',1,'MSEG::Data']]],
+  ['menu_3141',['menu',['../namespaceAssets.html#a1b0a8a5ee3663ec2443ce3ef8993b97a',1,'Assets']]],
+  ['menubutton_3142',['menuButton',['../classTitleBar.html#abfac3d89e308f9310949639eec927b05',1,'TitleBar']]],
+  ['mix_3143',['mix',['../classGateEffect.html#acee7b8f3cd3b1389c0f4fb435e20ee98',1,'GateEffect']]],
+  ['moddepth_3144',['modDepth',['../classKnob.html#adca81fbd2a79c38da94f19c3302e5466',1,'Knob']]],
+  ['moddepthslider_3145',['modDepthSlider',['../classKnob.html#a1fb268057573e63ab18fa6db15546dff',1,'Knob']]],
+  ['mode_3146',['mode',['../classEnvelopeDetector.html#a1804f11c1918ee0aeee94093a3057415',1,'EnvelopeDetector']]],
+  ['modindex_3147',['modIndex',['../classParameter.html#a7310a6224d36ab27a14237aab7d8fadd',1,'Parameter']]],
+  ['modmatrix_3148',['modMatrix',['../classParameter.html#a30f079fa8ecf5c5cd5735777e1ba74c8',1,'Parameter']]],
+  ['modsources_3149',['modSources',['../classParamBox.html#a0d36e4e64d989106ec37b22c0e2b4e3f',1,'ParamBox']]],
+  ['modtimer_3150',['modTimer',['../classKnob.html#ac1582b5904a8f5011e4d4bd41eb293d9',1,'Knob']]],
+  ['modvalues_3151',['modValues',['../classKnob.html#a44b7951579437bf8cec95f140efcffdc',1,'Knob']]],
+  ['monopath_3152',['monoPath',['../classImages.html#a1d271cdd9f31586a82eab975793289af',1,'Images']]]
 ];

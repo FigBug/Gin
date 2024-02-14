@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['keypressed_2443',['keyPressed',['../classSingleLineTextEditor.html#a8dfacbc90d80e4f3989611c2ab14e616',1,'SingleLineTextEditor']]],
-  ['keystatechanged_2444',['keyStateChanged',['../classSingleLineTextEditor.html#aaa6bb606d8c47ae0685b0dda0b3d0a35',1,'SingleLineTextEditor']]],
-  ['knob_2445',['Knob',['../classKnob.html#a6988e2f33ec94e29f818eb0126f351bb',1,'Knob']]]
+  ['keypressed_2453',['keyPressed',['../classSingleLineTextEditor.html#a8dfacbc90d80e4f3989611c2ab14e616',1,'SingleLineTextEditor']]],
+  ['keystatechanged_2454',['keyStateChanged',['../classSingleLineTextEditor.html#aaa6bb606d8c47ae0685b0dda0b3d0a35',1,'SingleLineTextEditor']]],
+  ['knob_2455',['Knob',['../classKnob.html#a6988e2f33ec94e29f818eb0126f351bb',1,'Knob']]]
 ];

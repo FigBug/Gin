@@ -6808,6 +6808,181 @@
       <anchor>a5cc64c2f000e2044327dd10d031f4925</anchor>
       <arglist>()</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paint</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>ac9115018087ca65fa9ec193a88a688e9</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resized</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>abbf4f2bd766880c22701e0126fcdaf8e</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>parentHierarchyChanged</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>acf58c206cac05c5b8cbd807978606db1</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mouseEnter</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>ae51e107e213b03d3ffc6ca9aa3295c69</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mouseDown</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>a6e17c24f0d19c51ae7d4a4b638bd6507</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mouseDrag</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>a63af3d69449a3f990018659587c32cf4</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isInterestedInDragSource</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>a15352bbb26e17a686d744e9954702ff7</anchor>
+      <arglist>(const SourceDetails &amp;dragSourceDetails) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>itemDragEnter</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>a24fcca602fd32db821c09a7a594d8ec6</anchor>
+      <arglist>(const SourceDetails &amp;dragSourceDetails) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>itemDragExit</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>a112f86997590dd6c8c278c71fd6f1a7f</anchor>
+      <arglist>(const SourceDetails &amp;dragSourceDetails) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>itemDropped</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>a81a61f483cc29ceecd07a4599ee5163c</anchor>
+      <arglist>(const SourceDetails &amp;dragSourceDetails) override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>timerCallback</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>a6aaac98c6f6f39cdc0339d11dffbfd66</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>learnSourceChanged</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>a4221c0f616c0f80c4f99f49a739a34f6</anchor>
+      <arglist>(ModSrcId) override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>modMatrixChanged</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>acb56b6928ff9dd975f80aee0ce6840c9</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>showModMenu</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>a9578933c1a33e08915ac0e341f56120c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::Label</type>
+      <name>name</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>a4cf5ed46637f0b10594b6d43b2f4067b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Readout</type>
+      <name>value</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>a74c1d895c6e7c53c5ee564173cc5df1a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>PluginSlider</type>
+      <name>knob</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>aba03ce7e1fcb470c38a05363cd55c7ce</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>learning</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>a4a082d2e230ead204360e25723f11549</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>float</type>
+      <name>modDepth</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>adca81fbd2a79c38da94f19c3302e5466</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>dragOver</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>af5bb6966195529a8e1871f74eb4db3ba</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>gin::CoalescedTimer</type>
+      <name>modTimer</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>ac1582b5904a8f5011e4d4bd41eb293d9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>gin::CoalescedTimer</type>
+      <name>shiftTimer</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>a958965a33e815129b67753ade5e1c350</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::Array&lt; float &gt;</type>
+      <name>modValues</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>a44b7951579437bf8cec95f140efcffdc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::function&lt; juce::Array&lt; float &gt;)&gt;</type>
+      <name>liveValuesCallback</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>af500d23ebd93ac81bd762903007afe31</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>gin::ModulationDepthSlider</type>
+      <name>modDepthSlider</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>a1fb268057573e63ab18fa6db15546dff</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>LambdaAsyncUpdater</name>
@@ -10001,6 +10176,13 @@
       <name>getHeader</name>
       <anchorfile>classParamBox.html</anchorfile>
       <anchor>a3f3e07071f638ae018a898f661179e75</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Component &amp;</type>
+      <name>getFrame</name>
+      <anchorfile>classParamBox.html</anchorfile>
+      <anchor>a2da9410cfb2041eb85e08de0a0d2afda</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">
