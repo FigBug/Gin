@@ -114,6 +114,20 @@
       <anchor>a7b3064ecec3c09aeec566d9b496920e0</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>disk</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a0cb9da58717b61750b505a0a19b4b3e2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>pencil</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>ae2a1b70a465b97b69ba7f4e890095f51</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>gin_asyncutilities.h</name>
@@ -16572,6 +16586,20 @@
       <name>caretDown</name>
       <anchorfile>namespaceAssets.html</anchorfile>
       <anchor>a7b3064ecec3c09aeec566d9b496920e0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>disk</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a0cb9da58717b61750b505a0a19b4b3e2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>pencil</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>ae2a1b70a465b97b69ba7f4e890095f51</anchor>
       <arglist></arglist>
     </member>
   </compound>
