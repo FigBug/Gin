@@ -18,4 +18,6 @@ extern juce::String power;
 extern juce::String panic;
 extern juce::String retrigger;
 extern juce::String caretDown;
+extern juce::String disk;
+extern juce::String pencil;
 }
