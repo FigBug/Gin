@@ -8600,6 +8600,13 @@
       <arglist>(ModSrcId src)</arglist>
     </member>
     <member kind="function">
+      <type>juce::String</type>
+      <name>getModDstName</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>aa1e5b737aa3c05bdcc350d72950d572d</anchor>
+      <arglist>(ModDstId dst)</arglist>
+    </member>
+    <member kind="function">
       <type>juce::Array&lt; ModSrcId &gt;</type>
       <name>getModSources</name>
       <anchorfile>classModMatrix.html</anchorfile>
@@ -8619,6 +8626,13 @@
       <anchorfile>classModMatrix.html</anchorfile>
       <anchor>ac09e09e0d0db90228b5b71013472efcb</anchor>
       <arglist>(ModSrcId src, ModDstId param)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::vector&lt; std::pair&lt; ModDstId, float &gt; &gt;</type>
+      <name>getModDepths</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>abe59970219e672385463732206827266</anchor>
+      <arglist>(ModSrcId param)</arglist>
     </member>
     <member kind="function">
       <type>std::vector&lt; std::pair&lt; ModSrcId, float &gt; &gt;</type>
