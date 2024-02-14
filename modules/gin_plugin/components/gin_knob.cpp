@@ -104,7 +104,7 @@ void Knob::showModMenu()
     auto& mm = *parameter->getModMatrix();
     for (auto src : mm.getModSources (parameter))
     {
-        m.addItem ("Remove " + mm.getModSrcName (src), [this, src]
+        m.addItem ("Remove: " + mm.getModSrcName (src), [this, src]
         {
             parameter->getModMatrix()->clearModDepth (src, ModDstId (parameter->getModIndex()));
         });

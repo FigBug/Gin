@@ -394,11 +394,14 @@ public:
     bool getModSrcPoly (ModSrcId src)           { return sources[src.id].poly;      }
     bool getModSrcBipolar (ModSrcId src)        { return sources[src.id].bipolar;   }
 
+    juce::String getModDstName (ModDstId dst);
+
     juce::Array<ModSrcId> getModSources (gin::Parameter*);
 
     bool isModulated (ModDstId param);
 
     float getModDepth (ModSrcId src, ModDstId param);
+    std::vector<std::pair<ModDstId, float>> getModDepths (ModSrcId param);
     std::vector<std::pair<ModSrcId, float>> getModDepths (ModDstId param);
     void setModDepth (ModSrcId src, ModDstId param, float f);
     void clearModDepth (ModSrcId src, ModDstId param);

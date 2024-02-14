@@ -300,6 +300,20 @@ std::vector<std::pair<ModSrcId, float>> ModMatrix::getModDepths (ModDstId param)
     return res;
 }
 
+std::vector<std::pair<ModDstId, float>> ModMatrix::getModDepths (ModSrcId param)
+{
+    std::vector<std::pair<ModDstId, float>> res;
+
+    for (auto [idx, pi] : juce::enumerate (parameters))
+    {
+        for (auto& si : pi.sources)
+            if (si.id == param)
+                res.push_back ({ModDstId (int (idx)), si.depth});
+    }
+
+    return res;
+}
+
 void ModMatrix::setModDepth (ModSrcId src, ModDstId param, float f)
 {
     auto& pi = parameters.getReference (param.id);
@@ -362,6 +376,12 @@ void ModMatrix::clearModDepth (ModSrcId src, ModDstId param)
     }
 
     listeners.call ([&] (Listener& l) { l.modMatrixChanged(); });
+}
+
+juce::String ModMatrix::getModDstName (ModDstId param)
+{
+    auto& pi = parameters.getReference (param.id);
+    return pi.parameter->getName (1024);
 }
 
 juce::Array<ModSrcId> ModMatrix::getModSources (gin::Parameter* param)
