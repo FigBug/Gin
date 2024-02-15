@@ -71,8 +71,6 @@
 #include <gin_graphics/gin_graphics.h>
 
 #include <map>
-#include <ranges>
-#include <vector>
 
 namespace juce
 {

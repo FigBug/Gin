@@ -523,18 +523,18 @@ void MSEGComponent::mouseDragDraw (const juce::MouseEvent& e)
 
     auto v1 = [&]
     {
-        for (const auto p : data.points)
-            if (std::abs (p.time - t1) < 0.000001f)
-                return p.value;
+        for (auto i = 0; i < data.numPoints; i++)
+            if (std::abs (data.points[i].time - t1) < 0.000001f)
+                return data.points[i].value;
 
         return mseg.getValueAt (t1 - 0.000001f);
     }();
 
     auto v2 = [&]
     {
-        for (const auto p : std::ranges::views::reverse (data.points))
-            if (std::abs (p.time - t2) < 0.000001f)
-                return p.value;
+        for (auto i = data.numPoints; --i >= 0;)
+            if (std::abs (data.points[i].time - t2) < 0.000001f)
+                return data.points[i].value;
 
         return mseg.getValueAt (t2 + 0.000001f);
     }();
