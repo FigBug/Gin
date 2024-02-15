@@ -189,6 +189,9 @@ public:
         bool currentNote = noteIdx == noteStack.size() - 1;
         noteStack.remove (noteIdx);
 
+        auto sv = dynamic_cast<SynthesiserVoice*> (voices[0]);
+        if (sv == nullptr) return;
+
         if (noteStack.isEmpty())
         {
             for (auto voice : voices)
@@ -197,16 +200,13 @@ public:
 
             return;
         }
-
-        if (currentNote)
-            for (auto voice : voices)
-                if (voice->isActive())
-                    if (finishedNote == voice->getCurrentlyPlayingNote())
-                        stopVoiceFastKill (voice, finishedNote, true);
-
-        if (noteStack.size() > 0)
-            if (auto voice = findFreeVoice (noteStack.getLast(), false))
-                startVoice (voice, noteStack.getLast());
+        else if (currentNote)
+        {
+            if (sv->isActive())
+                retriggerVoice (sv, noteStack.getLast());
+            else
+                startVoice (sv, noteStack.getLast());
+        }
     }
 
     bool isNotePlaying (juce::MPENote& n)
