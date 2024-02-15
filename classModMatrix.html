@@ -119,10 +119,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa3b18298e7798ae8293f8beb6622db23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d2727c3ffce6935f804eff00495e4f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#a9d2727c3ffce6935f804eff00495e4f8">updateState</a> (juce::ValueTree &amp;vt)</td></tr>
 <tr class="separator:a9d2727c3ffce6935f804eff00495e4f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc443dda62a48732e2bf333e34b8b128"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#adc443dda62a48732e2bf333e34b8b128">getValue</a> (gin::Parameter *p)</td></tr>
-<tr class="separator:adc443dda62a48732e2bf333e34b8b128"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a771bcda462681040c59c37a9e7ae6332"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#a771bcda462681040c59c37a9e7ae6332">getValue</a> (<a class="el" href="classModVoice.html">ModVoice</a> &amp;voice, gin::Parameter *p)</td></tr>
-<tr class="separator:a771bcda462681040c59c37a9e7ae6332"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71167e0d0d7d731bc3b24134a3c8b222"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#a71167e0d0d7d731bc3b24134a3c8b222">getValue</a> (gin::Parameter *p, bool smoothed=true)</td></tr>
+<tr class="separator:a71167e0d0d7d731bc3b24134a3c8b222"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77e64ba8bf9f3ead0ea391ec4cc3aff5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#a77e64ba8bf9f3ead0ea391ec4cc3aff5">getValue</a> (<a class="el" href="classModVoice.html">ModVoice</a> &amp;voice, gin::Parameter *p, bool smoothed=true)</td></tr>
+<tr class="separator:a77e64ba8bf9f3ead0ea391ec4cc3aff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a313589d0966e9824aa05ae818e718280"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#a313589d0966e9824aa05ae818e718280">getLiveValues</a> (gin::Parameter *p)</td></tr>
 <tr class="separator:a313589d0966e9824aa05ae818e718280"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a059b88c04a7d524b96aa20034a943392"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#a059b88c04a7d524b96aa20034a943392">setMonoValue</a> (<a class="el" href="structModSrcId.html">ModSrcId</a> id, float value)</td></tr>
@@ -340,12 +340,12 @@ Static Public Member Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="group__gin-utilities.html#gaf1d0fd36995e8a9b9401a5966afeccb3">easeExponentialIn()</a>, <a class="el" href="group__gin-utilities.html#ga66172ec142beaa1682ec8800a2e968bf">easeExponentialInOut()</a>, <a class="el" href="group__gin-utilities.html#gac84889aa5e141b6fb2185e1877be552a">easeExponentialOut()</a>, <a class="el" href="group__gin-utilities.html#ga033a11422391bbad3d495e863729565d">easeQuadraticIn()</a>, <a class="el" href="group__gin-utilities.html#gabfebd9814de3e919edb3cd7516b9050d">easeQuadraticInOut()</a>, <a class="el" href="group__gin-utilities.html#ga70b838d26aa2fa360932a8716b6ff18f">easeQuadraticOut()</a>, <a class="el" href="group__gin-utilities.html#ga5ff43623fe37daf28fc4dea493beb3a4">easeSineIn()</a>, <a class="el" href="group__gin-utilities.html#ga12bf8c86b1b6627bf353ff742d7d711e">easeSineInOut()</a>, <a class="el" href="group__gin-utilities.html#gab7eda190492ca09c29cc0777ac6451cf">easeSineOut()</a>, <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a0077e21360a291be024c42766394775b">exponentialIn</a>, <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614ab5bdf8a6fe53581fe54a3709b55b36fe">exponentialInOut</a>, <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a49c3644e18da03df8b393cf9471f6814">exponentialOut</a>, <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a82390ea767ca6f0b8e39ea17a7e1202b">invExponentialIn</a>, <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a6e61e5ed0d9216ea3330a68c01d86591">invExponentialInOut</a>, <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614aeabc2967673798438849bdddedf69785">invExponentialOut</a>, <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614ae5dc113cfd99be977319aafb69c5b4ac">invLinear</a>, <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a05a36fca880332e4afaa4a5ac9ca5bf9">invQuadraticIn</a>, <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614ab504d22925671ba6e253f0efdfeb779e">invQuadraticInOut</a>, <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a819a9b2ceec509a5c04115a66c7fb4de">invQuadraticOut</a>, <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a35931fd1e72cc0bf724f7092ccc65af1">invSineIn</a>, <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614af866e4816f3d0a7aa46364164cf5a2d6">invSineInOut</a>, <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a51a1e29d081d10f6528ed0fc5e509816">invSineOut</a>, <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614acb06b3d520dd725b2238a449315b094d">linear</a>, <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614aec9f9bf92afa150948d808cfb47c73bd">quadraticIn</a>, <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614aca2bc4be3e70c0982876586e17860685">quadraticInOut</a>, <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a6d181277db1246b900c193cd823ba21e">quadraticOut</a>, <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a3d4b194fe7bab39d84b839fc12108932">sineIn</a>, <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a6132e3681b97a2d682bad5ce802a29ca">sineInOut</a>, and <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a030353ff9fd065b4116b16371ca4b124">sineOut</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classModMatrix.html#a313589d0966e9824aa05ae818e718280">getLiveValues()</a>, <a class="el" href="classModMatrix.html#adc443dda62a48732e2bf333e34b8b128">getValue()</a>, and <a class="el" href="classModCurveButton.html#a250198dc867f1edcabae6c2d8a85eee4">ModCurveButton::paintButton()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classModMatrix.html#a313589d0966e9824aa05ae818e718280">getLiveValues()</a>, <a class="el" href="classModMatrix.html#a71167e0d0d7d731bc3b24134a3c8b222">getValue()</a>, and <a class="el" href="classModCurveButton.html#a250198dc867f1edcabae6c2d8a85eee4">ModCurveButton::paintButton()</a>.</p>
 
 </div>
 </div>
-<a id="adc443dda62a48732e2bf333e34b8b128"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc443dda62a48732e2bf333e34b8b128">&#9670;&nbsp;</a></span>getValue() <span class="overload">[1/2]</span></h2>
+<a id="a71167e0d0d7d731bc3b24134a3c8b222"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71167e0d0d7d731bc3b24134a3c8b222">&#9670;&nbsp;</a></span>getValue() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -354,20 +354,30 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname">float ModMatrix::getValue </td>
           <td>(</td>
           <td class="paramtype">gin::Parameter *&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>smoothed</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="namespaceAssets.html#a0d8779fd5e3c309da5cef6baaa1b3c1e">Assets::info</a>, and <a class="el" href="classModMatrix.html#a6fd32f43e6ce7d486c47efefd9d44f15">shape()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="group__gin__plugin-plugin.html#gab084f6f52a2bf9f5141a63554b6d22bb">ModVoice::getValue()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="group__gin__plugin-plugin.html#gab084f6f52a2bf9f5141a63554b6d22bb">ModVoice::getValue()</a>, and <a class="el" href="group__gin__plugin-plugin.html#ga60485fac94a8a96975db4e56f4b24902">ModVoice::getValueUnsmoothed()</a>.</p>
 
 </div>
 </div>
-<a id="a771bcda462681040c59c37a9e7ae6332"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a771bcda462681040c59c37a9e7ae6332">&#9670;&nbsp;</a></span>getValue() <span class="overload">[2/2]</span></h2>
+<a id="a77e64ba8bf9f3ead0ea391ec4cc3aff5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77e64ba8bf9f3ead0ea391ec4cc3aff5">&#9670;&nbsp;</a></span>getValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -382,7 +392,13 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">gin::Parameter *&#160;</td>
-          <td class="paramname"><em>p</em>&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>smoothed</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1173,7 +1189,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 15 2024 17:24:53 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Feb 15 2024 20:09:51 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

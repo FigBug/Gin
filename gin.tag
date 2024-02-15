@@ -8673,15 +8673,15 @@
       <type>float</type>
       <name>getValue</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>adc443dda62a48732e2bf333e34b8b128</anchor>
-      <arglist>(gin::Parameter *p)</arglist>
+      <anchor>a71167e0d0d7d731bc3b24134a3c8b222</anchor>
+      <arglist>(gin::Parameter *p, bool smoothed=true)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
       <name>getValue</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a771bcda462681040c59c37a9e7ae6332</anchor>
-      <arglist>(ModVoice &amp;voice, gin::Parameter *p)</arglist>
+      <anchor>a77e64ba8bf9f3ead0ea391ec4cc3aff5</anchor>
+      <arglist>(ModVoice &amp;voice, gin::Parameter *p, bool smoothed=true)</arglist>
     </member>
     <member kind="function">
       <type>juce::Array&lt; float &gt;</type>
@@ -9178,6 +9178,13 @@
       <name>getValue</name>
       <anchorfile>group__gin__plugin-plugin.html</anchorfile>
       <anchor>gab084f6f52a2bf9f5141a63554b6d22bb</anchor>
+      <arglist>(gin::Parameter *p)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getValueUnsmoothed</name>
+      <anchorfile>group__gin__plugin-plugin.html</anchorfile>
+      <anchor>ga60485fac94a8a96975db4e56f4b24902</anchor>
       <arglist>(gin::Parameter *p)</arglist>
     </member>
     <member kind="function">
@@ -16563,6 +16570,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>processAddingCrossfadeComplex</name>
+      <anchorfile>classWTOscillator.html</anchorfile>
+      <anchor>aa7ac32806c295682365a293212b7996a</anchor>
+      <arglist>(float note, const Params &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>postProcess</name>
       <anchorfile>classWTOscillator.html</anchorfile>
       <anchor>a8a026f67b3df08a1944de460a4bbe0e1</anchor>
@@ -17679,6 +17693,13 @@
       <name>getValue</name>
       <anchorfile>group__gin__plugin-plugin.html</anchorfile>
       <anchor>gab084f6f52a2bf9f5141a63554b6d22bb</anchor>
+      <arglist>(gin::Parameter *p)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getValueUnsmoothed</name>
+      <anchorfile>group__gin__plugin-plugin.html</anchorfile>
+      <anchor>ga60485fac94a8a96975db4e56f4b24902</anchor>
       <arglist>(gin::Parameter *p)</arglist>
     </member>
   </compound>
