@@ -38,7 +38,8 @@ public:
     virtual ~ModVoice() = default;
 
     /* Gets value of a parameter with modulation applied */
-    float getValue (gin::Parameter* p);
+    inline float getValue (gin::Parameter* p);
+    inline float getValueUnsmoothed (gin::Parameter* p);
 
     void finishBlock (int numSamples)
     {
@@ -195,7 +196,7 @@ public:
     }
 
     //==============================================================================
-    float getValue (gin::Parameter* p)
+    float getValue (gin::Parameter* p, bool smoothed = true)
     {
         const int paramId = p->getModIndex();
 
@@ -217,7 +218,7 @@ public:
         auto& smoother = smoothers.getReference (paramId);
 
         smoother.setValue (base);
-        auto v = smoother.getCurrentValue();
+        auto v = smoothed ? smoother.getCurrentValue() : base;
 
         v = p->getUserRange().convertFrom0to1 (v);
 
@@ -227,7 +228,7 @@ public:
         return v;
     }
 
-    float getValue (ModVoice& voice, gin::Parameter* p)
+    float getValue (ModVoice& voice, gin::Parameter* p, bool smoothed = true)
     {
         const int paramId = p->getModIndex();
         jassert (paramId >= 0);
@@ -250,7 +251,7 @@ public:
         auto& smoother = voice.smoothers.getReference (paramId);
 
         smoother.setValue (base);
-        auto v = voice.disableSmoothing ? base : smoother.getCurrentValue();
+        auto v = (voice.disableSmoothing || ! smoothed) ? base : smoother.getCurrentValue();
 
         v = p->getUserRange().convertFrom0to1 (v);
 
@@ -500,4 +501,9 @@ private:
 inline float ModVoice::getValue (gin::Parameter* p)
 {
     return owner->getValue (*this, p);
+}
+
+inline float ModVoice::getValueUnsmoothed (gin::Parameter* p)
+{
+    return owner->getValue (*this, p, false);
 }

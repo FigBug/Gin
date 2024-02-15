@@ -38,7 +38,9 @@ public:
 
     void processAdding (float note, const Params& params, juce::AudioSampleBuffer& buffer)
     {
-        if (juce::exactlyEqual (params.bend, 0.0f) && juce::exactlyEqual (params.formant, 0.0f))
+        if (tableIndex != lastTableIndex && lastTableIndex >= 0)
+            processAddingCrossfadeComplex (note, params, buffer);
+        else if (juce::exactlyEqual (params.bend, 0.0f) && juce::exactlyEqual (params.formant, 0.0f))
             processAddingSimple (note, params, buffer);
         else
             processAddingComplex (note, params, buffer);
@@ -99,6 +101,7 @@ public:
             while (phase >= 1.0f)
             {
                 phase -= 1.0f;
+                lastTableIndex = tableIndex;
                 tableIndex = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
                 table = bllt->getUnchecked (tableIndex);
             }
@@ -160,8 +163,79 @@ public:
             while (phase >= 1.0f)
             {
                 phase -= 1.0f;
+                lastTableIndex = tableIndex;
                 tableIndex = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
                 table = bllt->getUnchecked (tableIndex);
+            }
+        }
+    }
+
+    void processAddingCrossfadeComplex (float note, const Params& params, juce::AudioSampleBuffer& buffer)
+    {
+        if (bllt == nullptr || bllt->size() == 0) return;
+
+        if (tableIndex == -1 || tableIndex >= bllt->size())
+            tableIndex = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
+
+        if (lastTableIndex == -1 || lastTableIndex >= bllt->size())
+            lastTableIndex = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
+
+        float freq = float (std::min (sampleRate / 2.0, 440.0 * std::pow (2.0, (note - 69.0) / 12.0)));
+        float delta = 1.0f / (float ((1.0f / freq) * sampleRate));
+
+        int samps = buffer.getNumSamples();
+        auto l = buffer.getWritePointer (0);
+        auto r = buffer.getWritePointer (1);
+
+        auto table1 = bllt->getUnchecked (tableIndex);
+        auto table2 = bllt->getUnchecked (lastTableIndex);
+
+        while (samps > 0)
+        {
+            auto todo = std::min (samps, int ((1.0f - phase) / delta) + 1);
+            samps -= todo;
+
+            for (; todo >= 4; todo -= 4)
+            {
+                mipp::Reg<float> phaseVec = {phase, phase + delta, phase + 2 * delta, phase + 3 * delta};
+                mipp::Reg<float> lVec { l };
+                mipp::Reg<float> rVec { r };
+
+                auto s1 = table1->process (note, phaseDistortion (math::min (almostOne, phaseVec), params.bend, params.formant));
+                auto s2 = table2->process (note, phaseDistortion (math::min (almostOne, phaseVec), params.bend, params.formant));
+
+                auto s = s1 * phase + s2 * (1.0f - phase);
+                postProcess (params, s);
+
+                lVec += s * params.leftGain;
+                rVec += s * params.rightGain;
+
+                lVec.store (l); l += 4;
+                rVec.store (r); r += 4;
+
+                phase += delta * 4;
+            }
+
+            for (; todo > 0; todo--)
+            {
+                auto s1 = table1->process (note, phaseDistortion (std::min (almostOne, phase), params.bend, params.formant));
+                auto s2 = table2->process (note, phaseDistortion (std::min (almostOne, phase), params.bend, params.formant));
+
+                auto s = s1 * phase + s2 * (1.0f - phase);
+                postProcess (params, s);
+
+                *l++ += s * params.leftGain;
+                *r++ += s * params.rightGain;
+
+                phase += delta;
+            }
+
+            while (phase >= 1.0f)
+            {
+                phase -= 1.0f;
+                lastTableIndex = tableIndex;
+                tableIndex = std::min (bllt->size() - 1, int (float (bllt->size()) * params.position));
+                table1 = table2 = bllt->getUnchecked (tableIndex);
             }
         }
     }
@@ -223,7 +297,8 @@ private:
     double sampleRate = 44100.0;
     float phase = 0.0f;
     int tableIndex = 0;
-    
+    int lastTableIndex = -1;
+
     static constexpr float almostOne = { 1.0f - std::numeric_limits<float>::epsilon() };
 };
 

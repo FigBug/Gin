@@ -13,6 +13,7 @@ void WTOscillator::noteOn (float p)
     p >= 0 ? phase = p : juce::Random::getSystemRandom().nextFloat();
 
     tableIndex = -1;
+    lastTableIndex = -1;
 }
 
 void WTOscillator::setWavetable (juce::OwnedArray<BandLimitedLookupTable>* table)
