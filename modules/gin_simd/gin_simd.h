@@ -79,8 +79,10 @@ JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE("-Wimplicit-float-conversion",
 #ifndef GIN_HAS_SIMD
  #ifdef JUCE_32BIT
   #define GIN_HAS_SIMD 0
- #else
+ #elif defined(JUCE_INTEL) || defined(JUCE_ARM)
   #define GIN_HAS_SIMD 1
+ #else
+  #define GIN_HAS_SIMD 0
  #endif
 #endif
 
