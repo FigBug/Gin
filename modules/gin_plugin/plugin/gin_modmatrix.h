@@ -468,12 +468,12 @@ private:
         bool poly = false;
         bool enabled = true;
         float depth = 0.0f;
-        Function function;
+        Function function = ModMatrix::Function::linear;
     };
 
     struct ParamInfo
     {
-        gin::Parameter* parameter;
+        gin::Parameter* parameter = nullptr;
         bool poly = false;
         float smoothingTime = 0.02f;
         juce::Array<Source> sources;
