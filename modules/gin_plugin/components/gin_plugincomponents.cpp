@@ -39,9 +39,11 @@ juce::TextEditor* Readout::createEditorComponent()
 
 void Readout::textWasEdited()
 {
-    float v = getText().getFloatValue();
-    parameter->setUserValueAsUserAction (v);
-
+    if (applyValue (getText()))
+    {
+        float v = getText().getFloatValue();
+        parameter->setUserValueAsUserAction (v);
+    }
     repaint();
 }
 

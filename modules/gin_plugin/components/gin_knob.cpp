@@ -96,6 +96,11 @@ Knob::~Knob()
     }
 }
 
+void Knob::setDisplayName (const juce::String& n)
+{
+    name.setText (n, juce::dontSendNotification);
+}
+
 void Knob::showModMenu()
 {
     juce::PopupMenu m;

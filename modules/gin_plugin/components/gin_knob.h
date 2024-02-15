@@ -12,6 +12,8 @@ public:
     Knob (Parameter* parameter, bool fromCentre = false);
     ~Knob() override;
 
+    void setDisplayName (const juce::String&);
+
     void setLiveValuesCallback (std::function<juce::Array<float> ()> cb)
     {
         liveValuesCallback = cb;
@@ -19,6 +21,7 @@ public:
     }
 
     PluginSlider& getSlider()   { return knob; }
+    Readout& getReadout()       { return value; }
 
     void paint (juce::Graphics& g) override;
     void resized() override;

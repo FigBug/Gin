@@ -270,6 +270,8 @@ public:
     Readout (Parameter* parameter);
     ~Readout() override;
 
+    std::function<bool (const juce::String&)> applyValue = [] (const juce::String&) { return true; };
+
 private:
     void valueUpdated (Parameter* source) override;
     void paint (juce::Graphics& g) override;
