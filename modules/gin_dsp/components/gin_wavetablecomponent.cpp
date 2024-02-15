@@ -143,36 +143,20 @@ juce::Path WavetableComponent::createWavetablePath (float wtPos, float start, fl
 
     juce::Path p;
 
-    auto w = float (getWidth());
-    auto h = float (getHeight());
+    auto w = float (getWidth())  * 0.8f;
+    auto h = float (getHeight()) * 0.35f;
+
+    auto x = 10 + (getWidth() - 20 - w) * wtPos;
+    auto y = getHeight() / 2.0f + (-(wtPos - 0.5f)) * h;
 
     auto data = buf.getReadPointer (0);
-
-    auto xSpread = 0.4f;
-    auto yScale = -(1.0f / 4.5f);
-    auto dx = std::min (w, h);
-
-    auto xSlope = (dx * 1.5f * (1.0f - xSpread)) / float (samples);
-    auto ySlope = xSlope / 4.0f;
-
-    auto xOffset = (dx * xSpread) * wtPos;
-    auto yOffset = (dx * xSpread) - xOffset;
-
-    xOffset += (w - dx * xSpread - samples * xSlope) / 2.0f;
-    yOffset += (h - dx * xSpread - samples * ySlope) / 2.0f;
-
     auto offset = juce::roundToInt (start * samples);
-    xOffset += xSlope * offset;
-    yOffset += ySlope * offset;
 
-    p.startNewSubPath (xOffset, data[offset] * yScale * dx + yOffset);
+    p.startNewSubPath (x + w * float (offset) / samples, y + -data[offset] * h);
 
     for (auto s = 1 + offset; s < std::min (samples, juce::roundToInt (samples * end) + 1); s++)
     {
-        p.lineTo (xOffset, data[s] * yScale * dx + yOffset);
-
-        xOffset += xSlope;
-        yOffset += ySlope;
+        p.lineTo (x + w * float (s) / samples, y + -data[s] * h);
     }
 
     return p;
