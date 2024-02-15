@@ -86,10 +86,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6988e2f33ec94e29f818eb0126f351bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b061711ecd0109e6244e3ce8b99f8c4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKnob.html#a8b061711ecd0109e6244e3ce8b99f8c4">~Knob</a> () override</td></tr>
 <tr class="separator:a8b061711ecd0109e6244e3ce8b99f8c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e67a685398a48fe6278f4a6839730ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKnob.html#a9e67a685398a48fe6278f4a6839730ff">setDisplayName</a> (const juce::String &amp;)</td></tr>
+<tr class="separator:a9e67a685398a48fe6278f4a6839730ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb0d9897db4e09830a30994ba7cfc161"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKnob.html#aeb0d9897db4e09830a30994ba7cfc161">setLiveValuesCallback</a> (std::function&lt; juce::Array&lt; float &gt;()&gt; cb)</td></tr>
 <tr class="separator:aeb0d9897db4e09830a30994ba7cfc161"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cc64c2f000e2044327dd10d031f4925"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPluginSlider.html">PluginSlider</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKnob.html#a5cc64c2f000e2044327dd10d031f4925">getSlider</a> ()</td></tr>
 <tr class="separator:a5cc64c2f000e2044327dd10d031f4925"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a054c9d0ecc594575bea87482fdcb0615"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classReadout.html">Readout</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKnob.html#a054c9d0ecc594575bea87482fdcb0615">getReadout</a> ()</td></tr>
+<tr class="separator:a054c9d0ecc594575bea87482fdcb0615"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9115018087ca65fa9ec193a88a688e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKnob.html#ac9115018087ca65fa9ec193a88a688e9">paint</a> (juce::Graphics &amp;g) override</td></tr>
 <tr class="separator:ac9115018087ca65fa9ec193a88a688e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbf4f2bd766880c22701e0126fcdaf8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKnob.html#abbf4f2bd766880c22701e0126fcdaf8e">resized</a> () override</td></tr>
@@ -220,6 +224,24 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9e67a685398a48fe6278f4a6839730ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e67a685398a48fe6278f4a6839730ff">&#9670;&nbsp;</a></span>setDisplayName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Knob::setDisplayName </td>
+          <td>(</td>
+          <td class="paramtype">const juce::String &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aeb0d9897db4e09830a30994ba7cfc161"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeb0d9897db4e09830a30994ba7cfc161">&#9670;&nbsp;</a></span>setLiveValuesCallback()</h2>
 
@@ -256,6 +278,25 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="classKnob.html#aba03ce7e1fcb470c38a05363cd55c7ce">knob</a>.</p>
+
+</div>
+</div>
+<a id="a054c9d0ecc594575bea87482fdcb0615"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a054c9d0ecc594575bea87482fdcb0615">&#9670;&nbsp;</a></span>getReadout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classReadout.html">Readout</a>&amp; Knob::getReadout </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classKnob.html#a74c1d895c6e7c53c5ee564173cc5df1a">value</a>.</p>
 
 </div>
 </div>
@@ -667,6 +708,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="reference">Referenced by <a class="el" href="classKnob.html#a054c9d0ecc594575bea87482fdcb0615">getReadout()</a>.</p>
+
 </div>
 </div>
 <a id="aba03ce7e1fcb470c38a05363cd55c7ce"></a>
@@ -877,7 +920,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 15 2024 13:46:26 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Feb 15 2024 17:24:53 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

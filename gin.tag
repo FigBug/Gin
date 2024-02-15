@@ -6796,6 +6796,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setDisplayName</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>a9e67a685398a48fe6278f4a6839730ff</anchor>
+      <arglist>(const juce::String &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>setLiveValuesCallback</name>
       <anchorfile>classKnob.html</anchorfile>
       <anchor>aeb0d9897db4e09830a30994ba7cfc161</anchor>
@@ -6806,6 +6813,13 @@
       <name>getSlider</name>
       <anchorfile>classKnob.html</anchorfile>
       <anchor>a5cc64c2f000e2044327dd10d031f4925</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Readout &amp;</type>
+      <name>getReadout</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>a054c9d0ecc594575bea87482fdcb0615</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -12679,6 +12693,13 @@
       <anchorfile>classReadout.html</anchorfile>
       <anchor>a62ebff9c5a4eae6c22f5a65992d902af</anchor>
       <arglist>() override</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; bool(const juce::String &amp;)&gt;</type>
+      <name>applyValue</name>
+      <anchorfile>classReadout.html</anchorfile>
+      <anchor>a2e4ef7703342093ccf13750f43fcf4a1</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
