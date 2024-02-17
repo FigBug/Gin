@@ -68,6 +68,8 @@
 
 namespace gin
 {
+#include "utilities/gin_diff.h"
+#include "utilities/gin_texthistory.h"
 #include "utilities/gin_point.h"
 #include "utilities/gin_downloadmanager.h"
 #include "utilities/gin_equationparser.h"

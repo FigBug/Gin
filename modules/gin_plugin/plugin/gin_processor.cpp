@@ -493,7 +493,7 @@ juce::File Processor::getProgramDirectory()
 
 //==============================================================================
 
-void Processor::getStateInformation (juce::MemoryBlock& destData)
+juce::String Processor::getStateXml()
 {
     updateState();
 
@@ -519,16 +519,27 @@ void Processor::getStateInformation (juce::MemoryBlock& destData)
         }
     }
 
+    return rootE->toString();
+}
+
+void Processor::getStateInformation (juce::MemoryBlock& destData)
+{
+    auto text = getStateXml();
+    
     juce::MemoryOutputStream os (destData, true);
-    auto text = rootE->toString();
     os.write (text.toRawUTF8(), text.getNumBytesAsUTF8());
 }
 
 void Processor::setStateInformation (const void* data, int sizeInBytes)
 {
+    setStateXml (juce::String::fromUTF8 ((const char*)data, sizeInBytes));
+}
+
+void Processor::setStateXml (const juce::String& s)
+{
     juce::ScopedValueSetter<bool> (loadingState, true);
 
-    juce::XmlDocument doc (juce::String::fromUTF8 ((const char*)data, sizeInBytes));
+    juce::XmlDocument doc (s);
     std::unique_ptr<juce::XmlElement> rootE (doc.getDocumentElement());
     if (rootE)
     {

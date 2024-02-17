@@ -37,11 +37,16 @@
 
 #include "gin.h"
 
+JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE ("-Wshorten-64-to-32")
+#include "3rdparty/diff/diff_match_patch.h"
+JUCE_END_IGNORE_WARNINGS_GCC_LIKE
+
 //==============================================================================
 
 namespace gin
 {
-
+#include "utilities/gin_diff.cpp"
+#include "utilities/gin_texthistory.cpp"
 #include "utilities/gin_downloadmanager.cpp"
 #include "utilities/gin_filesystemwatcher.cpp"
 #include "utilities/gin_fileutilities.cpp"

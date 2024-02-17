@@ -177,7 +177,6 @@ public:
     void setShowInfo (bool);
     void setBrowseButtonState (bool s) { browseButton.setToggleState (s, juce::dontSendNotification); }
 
-protected:
     void paint (juce::Graphics& g) override;
     void resized() override;
 

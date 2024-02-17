@@ -177,6 +177,9 @@ public:
     bool hasProgram (juce::String name);
 
     //==============================================================================
+    juce::String getStateXml();
+    void setStateXml (const juce::String& s);
+    
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
