@@ -437,6 +437,12 @@
     <class kind="class">DelayLine</class>
   </compound>
   <compound kind="file">
+    <name>gin_diff.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
+    <filename>gin__diff_8h.html</filename>
+    <class kind="class">Diff</class>
+  </compound>
+  <compound kind="file">
     <name>gin_distortion.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
     <filename>gin__distortion_8h.html</filename>
@@ -1744,6 +1750,12 @@
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
     <filename>gin__systemsemaphore_8h.html</filename>
     <class kind="class">SystemSemaphore</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_texthistory.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
+    <filename>gin__texthistory_8h.html</filename>
+    <class kind="class">TextHistory</class>
   </compound>
   <compound kind="file">
     <name>gin_textrenderer.h</name>
@@ -4028,6 +4040,38 @@
       <anchorfile>classDelayLine.html</anchorfile>
       <anchor>a277d65ab60f42d22f55d48596412c897</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Diff</name>
+    <filename>classDiff.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Diff</name>
+      <anchorfile>classDiff.html</anchorfile>
+      <anchor>a6c572ea9bb134f23a593f56e0c92bae8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~Diff</name>
+      <anchorfile>classDiff.html</anchorfile>
+      <anchor>a17111caf9d2c8c793553745695e12053</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>diff</name>
+      <anchorfile>classDiff.html</anchorfile>
+      <anchor>a97ef01b6330bfe7e022b427b809670c6</anchor>
+      <arglist>(const juce::String s1, const juce::String s2)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>applyPatch</name>
+      <anchorfile>classDiff.html</anchorfile>
+      <anchor>a5f209a3396ac20035cc86d5b1005d139</anchor>
+      <arglist>(const juce::String s, const juce::String patch)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -12011,6 +12055,20 @@
       <arglist>(juce::String name)</arglist>
     </member>
     <member kind="function">
+      <type>juce::String</type>
+      <name>getStateXml</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a68fdac47b3209d2b8cf30922c68daea1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setStateXml</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>ab1c9753a4e842afe495dd9a54d85181a</anchor>
+      <arglist>(const juce::String &amp;s)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>getStateInformation</name>
       <anchorfile>classProcessor.html</anchorfile>
@@ -15023,6 +15081,59 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>TextHistory</name>
+    <filename>classTextHistory.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>setHistoryLimit</name>
+      <anchorfile>classTextHistory.html</anchorfile>
+      <anchor>a859da59a1f4a7057a917a2b23f4e674e</anchor>
+      <arglist>(int numItems)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>undo</name>
+      <anchorfile>classTextHistory.html</anchorfile>
+      <anchor>a1bbead7a0a6a7675869847c38d9e1057</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>redo</name>
+      <anchorfile>classTextHistory.html</anchorfile>
+      <anchor>a22776577a2573f6c64a5346dcef7b71c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>canUndo</name>
+      <anchorfile>classTextHistory.html</anchorfile>
+      <anchor>aefe466fda780c009f2437908c9599ca4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>canRedo</name>
+      <anchorfile>classTextHistory.html</anchorfile>
+      <anchor>a2eff6adbb470b9cde7e7d7f378103e86</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addText</name>
+      <anchorfile>classTextHistory.html</anchorfile>
+      <anchor>adcfe709625d2569380965a505c0991d7</anchor>
+      <arglist>(const juce::String &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce::String &amp;</type>
+      <name>getCurrentText</name>
+      <anchorfile>classTextHistory.html</anchorfile>
+      <anchor>abec45dcee0c725a2441a0381d31f02b4</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>TextRenderer</name>
     <filename>classTextRenderer.html</filename>
     <member kind="function" static="yes">
@@ -15110,140 +15221,140 @@
       <anchor>a9a4f1a43d15a80c33f7785ed4161c6db</anchor>
       <arglist>(bool s)</arglist>
     </member>
-    <member kind="function" protection="protected">
+    <member kind="function">
       <type>void</type>
       <name>paint</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>a6d04cb46f66883940d2042c78f1d38eb</anchor>
       <arglist>(juce::Graphics &amp;g) override</arglist>
     </member>
-    <member kind="function" protection="protected">
+    <member kind="function">
       <type>void</type>
       <name>resized</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>aec8389eef90093162451137b8060a775</anchor>
       <arglist>() override</arglist>
     </member>
-    <member kind="function" protection="protected">
+    <member kind="function">
       <type>void</type>
       <name>showMenu</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>a9379495c07215f6e7ae0a8ef4fd3a0e9</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="function" protection="protected">
+    <member kind="function">
       <type>void</type>
       <name>comboBoxChanged</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>a9156b55473df7afcd442ab045a865cb3</anchor>
       <arglist>(juce::ComboBox *c) override</arglist>
     </member>
-    <member kind="function" protection="protected">
+    <member kind="function">
       <type>void</type>
       <name>changeListenerCallback</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>a33bfbb4b2223e0401bf883fbb8403991</anchor>
       <arglist>(juce::ChangeBroadcaster *) override</arglist>
     </member>
-    <member kind="function" protection="protected">
+    <member kind="function">
       <type>void</type>
       <name>parentHierarchyChanged</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>ab07f194ec9193585963f53a44eb24d72</anchor>
       <arglist>() override</arglist>
     </member>
-    <member kind="variable" protection="protected">
+    <member kind="variable">
       <type>ProcessorEditor &amp;</type>
       <name>editor</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>a69203b2948adc0bf2c9841bd9511a3e6</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable" protection="protected">
+    <member kind="variable">
       <type>Processor &amp;</type>
       <name>slProc</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>afd45058b0880e55b0da0aebf57b1f286</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable" protection="protected">
+    <member kind="variable">
       <type>bool</type>
       <name>hasPresets</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>a981c2205d4edca7359eafa06aa34931a</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable" protection="protected">
+    <member kind="variable">
       <type>bool</type>
       <name>hasBrowser</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>a6782ccbfb8fc433a7abba03171506a8a</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable" protection="protected">
+    <member kind="variable">
       <type>juce::ComboBox</type>
       <name>programs</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>aadc7b06a48172e5cc2a50d09a433fa77</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable" protection="protected">
+    <member kind="variable">
       <type>SVGButton</type>
       <name>addButton</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>acce8ac24446a1dbc0fb3fb0e11c9f84d</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable" protection="protected">
+    <member kind="variable">
       <type>SVGButton</type>
       <name>deleteButton</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>a63cc841bf24e40e9e5537ec398b99bdd</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable" protection="protected">
+    <member kind="variable">
       <type>SVGButton</type>
       <name>browseButton</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>ad008b68a5bcd5442577468bf031c596b</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable" protection="protected">
+    <member kind="variable">
       <type>SVGButton</type>
       <name>nextButton</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>adbdac6bcc1d15a4b014231dc9a799a6e</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable" protection="protected">
+    <member kind="variable">
       <type>SVGButton</type>
       <name>prevButton</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>a2cb13751804eb23f1efa52f98c57d688</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable" protection="protected">
+    <member kind="variable">
       <type>SVGButton</type>
       <name>menuButton</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>abfac3d89e308f9310949639eec927b05</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable" protection="protected">
+    <member kind="variable">
       <type>SVGButton</type>
       <name>infoButton</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>a98d47438b7d4dd40526040b5a7b94405</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable" protection="protected">
+    <member kind="variable">
       <type>std::unique_ptr&lt; NewsChecker &gt;</type>
       <name>newsChecker</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>ab00ac1e8d688d411c19dc7ee9e3feac7</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable" protection="protected">
+    <member kind="variable">
       <type>std::unique_ptr&lt; UpdateChecker &gt;</type>
       <name>updateChecker</name>
       <anchorfile>classTitleBar.html</anchorfile>
