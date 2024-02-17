@@ -10,8 +10,10 @@ public:
 	bool canUndo();
 	bool canRedo();
     
-    void addText (const juce::String&);
+    bool addText (const juce::String&);
     const juce::String& getCurrentText();
+    
+    std::function<void ()> onStateChanged;
 
 private:
 	juce::String currentText;

@@ -1,8 +1,8 @@
 
-void TextHistory::addText (const juce::String& t)
+bool TextHistory::addText (const juce::String& t)
 {
     if (t == currentText)
-        return;
+        return false;
     
     while (historyStack.size() - 1 > stackPointer)
         historyStack.removeLast();
@@ -12,12 +12,18 @@ void TextHistory::addText (const juce::String& t)
     
     historyStack.add ({fordardPatch, backwardPatch});
     currentText = t;
+    stackPointer++;
     
     while (historyStack.size() > limit)
     {
         historyStack.remove (0);
         stackPointer--;
     }
+    
+    if (onStateChanged)
+        onStateChanged();
+    
+    return true;
 }
 
 const juce::String& TextHistory::getCurrentText()
@@ -31,6 +37,9 @@ void TextHistory::undo()
     {
         currentText = diff.applyPatch (currentText, historyStack[stackPointer].backwardPatch);
         stackPointer--;
+        
+        if (onStateChanged)
+            onStateChanged();
     }
 }
 
@@ -40,6 +49,9 @@ void TextHistory::redo()
     {
         currentText = diff.applyPatch (currentText, historyStack[stackPointer + 1].forwardPatch);
         stackPointer++;
+        
+        if (onStateChanged)
+            onStateChanged();
     }
 }
 

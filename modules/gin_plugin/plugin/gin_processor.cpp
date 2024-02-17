@@ -535,11 +535,11 @@ void Processor::setStateInformation (const void* data, int sizeInBytes)
     setStateXml (juce::String::fromUTF8 ((const char*)data, sizeInBytes));
 }
 
-void Processor::setStateXml (const juce::String& s)
+void Processor::setStateXml (const juce::String& text)
 {
     juce::ScopedValueSetter<bool> (loadingState, true);
 
-    juce::XmlDocument doc (s);
+    juce::XmlDocument doc (text);
     std::unique_ptr<juce::XmlElement> rootE (doc.getDocumentElement());
     if (rootE)
     {
