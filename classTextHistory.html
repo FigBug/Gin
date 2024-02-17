@@ -63,6 +63,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classTextHistory-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">TextHistory Class Reference</div>  </div>
@@ -81,10 +82,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aefe466fda780c009f2437908c9599ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2eff6adbb470b9cde7e7d7f378103e86"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextHistory.html#a2eff6adbb470b9cde7e7d7f378103e86">canRedo</a> ()</td></tr>
 <tr class="separator:a2eff6adbb470b9cde7e7d7f378103e86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcfe709625d2569380965a505c0991d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextHistory.html#adcfe709625d2569380965a505c0991d7">addText</a> (const juce::String &amp;)</td></tr>
-<tr class="separator:adcfe709625d2569380965a505c0991d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aef5aedda0928adb21b751feee86046"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextHistory.html#a6aef5aedda0928adb21b751feee86046">addText</a> (const juce::String &amp;)</td></tr>
+<tr class="separator:a6aef5aedda0928adb21b751feee86046"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abec45dcee0c725a2441a0381d31f02b4"><td class="memItemLeft" align="right" valign="top">const juce::String &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextHistory.html#abec45dcee0c725a2441a0381d31f02b4">getCurrentText</a> ()</td></tr>
 <tr class="separator:abec45dcee0c725a2441a0381d31f02b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a1ca05b44dd6daf91540feca47ad7a0ab"><td class="memItemLeft" align="right" valign="top">std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextHistory.html#a1ca05b44dd6daf91540feca47ad7a0ab">onStateChanged</a></td></tr>
+<tr class="separator:a1ca05b44dd6daf91540feca47ad7a0ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a859da59a1f4a7057a917a2b23f4e674e"></a>
@@ -173,14 +179,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="adcfe709625d2569380965a505c0991d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adcfe709625d2569380965a505c0991d7">&#9670;&nbsp;</a></span>addText()</h2>
+<a id="a6aef5aedda0928adb21b751feee86046"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6aef5aedda0928adb21b751feee86046">&#9670;&nbsp;</a></span>addText()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void TextHistory::addText </td>
+          <td class="memname">bool TextHistory::addText </td>
           <td>(</td>
           <td class="paramtype">const juce::String &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -208,13 +214,28 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1ca05b44dd6daf91540feca47ad7a0ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ca05b44dd6daf91540feca47ad7a0ab">&#9670;&nbsp;</a></span>onStateChanged</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;void ()&gt; TextHistory::onStateChanged</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="gin__texthistory_8h.html">gin_texthistory.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 17 2024 16:00:36 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Sat Feb 17 2024 21:47:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

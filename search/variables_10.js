@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['range_3276',['range',['../classParameter.html#a4d0ec755973b5650a80d2b7e39bc2197',1,'Parameter']]],
-  ['rate_3277',['rate',['../structGlideInfo.html#add32d1f350249b4c824f299cb58efa8e',1,'GlideInfo']]],
-  ['rawsvg_3278',['rawSVG',['../classSVGButton.html#a28a28987c8f1ff36f0581881230926ef',1,'SVGButton']]],
-  ['readystatevalues_3279',['readyStateValues',['../classWebSocket.html#a752b8c43bb821039435c92823261bd6d',1,'WebSocket']]],
+  ['range_3275',['range',['../classParameter.html#a4d0ec755973b5650a80d2b7e39bc2197',1,'Parameter']]],
+  ['rate_3276',['rate',['../structGlideInfo.html#add32d1f350249b4c824f299cb58efa8e',1,'GlideInfo']]],
+  ['rawsvg_3277',['rawSVG',['../classSVGButton.html#a28a28987c8f1ff36f0581881230926ef',1,'SVGButton']]],
+  ['readystatevalues_3278',['readyStateValues',['../classWebSocket.html#a752b8c43bb821039435c92823261bd6d',1,'WebSocket']]],
+  ['redo_3279',['redo',['../namespaceAssets.html#a579f83336c0f63d31cc457061a8395c0',1,'Assets']]],
   ['release_3280',['release',['../classAnalogADSR.html#a5498d865f5874daec968d26562431ae9',1,'AnalogADSR']]],
   ['releasecoeff_3281',['releaseCoeff',['../classAnalogADSR.html#a55792cb40790e2d3675365783643c486',1,'AnalogADSR']]],
   ['releasedelta_3282',['releaseDelta',['../classADSR.html#a667ee4e0401be9138a80249cc45281df',1,'ADSR']]],

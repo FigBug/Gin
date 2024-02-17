@@ -128,6 +128,20 @@
       <anchor>ae2a1b70a465b97b69ba7f4e890095f51</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>undo</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a6d1564da75f002337b61a146aefd24a5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>redo</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a579f83336c0f63d31cc457061a8395c0</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>gin_asyncutilities.h</name>
@@ -4063,15 +4077,15 @@
       <type>juce::String</type>
       <name>diff</name>
       <anchorfile>classDiff.html</anchorfile>
-      <anchor>a97ef01b6330bfe7e022b427b809670c6</anchor>
-      <arglist>(const juce::String s1, const juce::String s2)</arglist>
+      <anchor>adaf584273602b91003efe5fbb765b340</anchor>
+      <arglist>(const juce::String &amp;s1, const juce::String &amp;s2)</arglist>
     </member>
     <member kind="function">
       <type>juce::String</type>
       <name>applyPatch</name>
       <anchorfile>classDiff.html</anchorfile>
-      <anchor>a5f209a3396ac20035cc86d5b1005d139</anchor>
-      <arglist>(const juce::String s, const juce::String patch)</arglist>
+      <anchor>a54f501ce4205f98dc7e7e00c3e85020f</anchor>
+      <arglist>(const juce::String &amp;s, const juce::String &amp;patch)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -15119,10 +15133,10 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
+      <type>bool</type>
       <name>addText</name>
       <anchorfile>classTextHistory.html</anchorfile>
-      <anchor>adcfe709625d2569380965a505c0991d7</anchor>
+      <anchor>a6aef5aedda0928adb21b751feee86046</anchor>
       <arglist>(const juce::String &amp;)</arglist>
     </member>
     <member kind="function">
@@ -15131,6 +15145,13 @@
       <anchorfile>classTextHistory.html</anchorfile>
       <anchor>abec45dcee0c725a2441a0381d31f02b4</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; void()&gt;</type>
+      <name>onStateChanged</name>
+      <anchorfile>classTextHistory.html</anchorfile>
+      <anchor>a1ca05b44dd6daf91540feca47ad7a0ab</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -17002,6 +17023,20 @@
       <name>pencil</name>
       <anchorfile>namespaceAssets.html</anchorfile>
       <anchor>ae2a1b70a465b97b69ba7f4e890095f51</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>undo</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a6d1564da75f002337b61a146aefd24a5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>redo</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>a579f83336c0f63d31cc457061a8395c0</anchor>
       <arglist></arglist>
     </member>
   </compound>

@@ -75,10 +75,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6c572ea9bb134f23a593f56e0c92bae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17111caf9d2c8c793553745695e12053"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDiff.html#a17111caf9d2c8c793553745695e12053">~Diff</a> ()</td></tr>
 <tr class="separator:a17111caf9d2c8c793553745695e12053"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97ef01b6330bfe7e022b427b809670c6"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDiff.html#a97ef01b6330bfe7e022b427b809670c6">diff</a> (const juce::String s1, const juce::String s2)</td></tr>
-<tr class="separator:a97ef01b6330bfe7e022b427b809670c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f209a3396ac20035cc86d5b1005d139"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDiff.html#a5f209a3396ac20035cc86d5b1005d139">applyPatch</a> (const juce::String s, const juce::String patch)</td></tr>
-<tr class="separator:a5f209a3396ac20035cc86d5b1005d139"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaf584273602b91003efe5fbb765b340"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDiff.html#adaf584273602b91003efe5fbb765b340">diff</a> (const juce::String &amp;s1, const juce::String &amp;s2)</td></tr>
+<tr class="separator:adaf584273602b91003efe5fbb765b340"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54f501ce4205f98dc7e7e00c3e85020f"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDiff.html#a54f501ce4205f98dc7e7e00c3e85020f">applyPatch</a> (const juce::String &amp;s, const juce::String &amp;patch)</td></tr>
+<tr class="separator:a54f501ce4205f98dc7e7e00c3e85020f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6c572ea9bb134f23a593f56e0c92bae8"></a>
@@ -116,8 +116,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a97ef01b6330bfe7e022b427b809670c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97ef01b6330bfe7e022b427b809670c6">&#9670;&nbsp;</a></span>diff()</h2>
+<a id="adaf584273602b91003efe5fbb765b340"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaf584273602b91003efe5fbb765b340">&#9670;&nbsp;</a></span>diff()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -125,13 +125,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">juce::String Diff::diff </td>
           <td>(</td>
-          <td class="paramtype">const juce::String&#160;</td>
+          <td class="paramtype">const juce::String &amp;&#160;</td>
           <td class="paramname"><em>s1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const juce::String&#160;</td>
+          <td class="paramtype">const juce::String &amp;&#160;</td>
           <td class="paramname"><em>s2</em>&#160;</td>
         </tr>
         <tr>
@@ -144,8 +144,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a5f209a3396ac20035cc86d5b1005d139"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f209a3396ac20035cc86d5b1005d139">&#9670;&nbsp;</a></span>applyPatch()</h2>
+<a id="a54f501ce4205f98dc7e7e00c3e85020f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54f501ce4205f98dc7e7e00c3e85020f">&#9670;&nbsp;</a></span>applyPatch()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -153,13 +153,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">juce::String Diff::applyPatch </td>
           <td>(</td>
-          <td class="paramtype">const juce::String&#160;</td>
+          <td class="paramtype">const juce::String &amp;&#160;</td>
           <td class="paramname"><em>s</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const juce::String&#160;</td>
+          <td class="paramtype">const juce::String &amp;&#160;</td>
           <td class="paramname"><em>patch</em>&#160;</td>
         </tr>
         <tr>
@@ -178,7 +178,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 17 2024 16:00:36 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Sat Feb 17 2024 21:47:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
