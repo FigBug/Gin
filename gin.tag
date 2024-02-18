@@ -454,7 +454,21 @@
     <name>gin_diff.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
     <filename>gin__diff_8h.html</filename>
-    <class kind="class">Diff</class>
+    <namespace>Diff</namespace>
+    <member kind="function">
+      <type>std::vector&lt; uint8_t &gt;</type>
+      <name>bsDiff</name>
+      <anchorfile>namespaceDiff.html</anchorfile>
+      <anchor>a90f3e15405b330c92210fe6fed6b4fad</anchor>
+      <arglist>(const juce::String &amp;s1, const juce::String &amp;s2)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>bsApplyPatch</name>
+      <anchorfile>namespaceDiff.html</anchorfile>
+      <anchor>a02f934e756b7ff02baaa06b4e7ceab55</anchor>
+      <arglist>(const juce::String &amp;s, const std::vector&lt; uint8_t &gt; &amp;patch)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>gin_distortion.h</name>
@@ -4054,38 +4068,6 @@
       <anchorfile>classDelayLine.html</anchorfile>
       <anchor>a277d65ab60f42d22f55d48596412c897</anchor>
       <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>Diff</name>
-    <filename>classDiff.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Diff</name>
-      <anchorfile>classDiff.html</anchorfile>
-      <anchor>a6c572ea9bb134f23a593f56e0c92bae8</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~Diff</name>
-      <anchorfile>classDiff.html</anchorfile>
-      <anchor>a17111caf9d2c8c793553745695e12053</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::String</type>
-      <name>diff</name>
-      <anchorfile>classDiff.html</anchorfile>
-      <anchor>adaf584273602b91003efe5fbb765b340</anchor>
-      <arglist>(const juce::String &amp;s1, const juce::String &amp;s2)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::String</type>
-      <name>applyPatch</name>
-      <anchorfile>classDiff.html</anchorfile>
-      <anchor>a54f501ce4205f98dc7e7e00c3e85020f</anchor>
-      <arglist>(const juce::String &amp;s, const juce::String &amp;patch)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -17038,6 +17020,24 @@
       <anchorfile>namespaceAssets.html</anchorfile>
       <anchor>a579f83336c0f63d31cc457061a8395c0</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>Diff</name>
+    <filename>namespaceDiff.html</filename>
+    <member kind="function">
+      <type>std::vector&lt; uint8_t &gt;</type>
+      <name>bsDiff</name>
+      <anchorfile>namespaceDiff.html</anchorfile>
+      <anchor>a90f3e15405b330c92210fe6fed6b4fad</anchor>
+      <arglist>(const juce::String &amp;s1, const juce::String &amp;s2)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>bsApplyPatch</name>
+      <anchorfile>namespaceDiff.html</anchorfile>
+      <anchor>a02f934e756b7ff02baaa06b4e7ceab55</anchor>
+      <arglist>(const juce::String &amp;s, const std::vector&lt; uint8_t &gt; &amp;patch)</arglist>
     </member>
   </compound>
   <compound kind="namespace">

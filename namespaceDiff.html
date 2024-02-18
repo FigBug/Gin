@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Gin: Distortion Namespace Reference</title>
+<title>Gin: Diff Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,52 +64,35 @@ $(function() {
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Distortion Namespace Reference</div>  </div>
+<div class="title">Diff Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p><a class="el" href="namespaceDistortion.html" title="Distortion.">Distortion</a>.  
-<a href="namespaceDistortion.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0d468da1bba442ec6f02dfd0f159f883"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDistortion.html#a0d468da1bba442ec6f02dfd0f159f883">saturate</a> (float input, float drive, float lowclip, float highclip)</td></tr>
-<tr class="separator:a0d468da1bba442ec6f02dfd0f159f883"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cbff571e105b4fc3335c9278d3f63fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDistortion.html#a1cbff571e105b4fc3335c9278d3f63fe">processBlock</a> (juce::AudioSampleBuffer &amp;buffer, float drive, float lowclip, float highclip)</td></tr>
-<tr class="separator:a1cbff571e105b4fc3335c9278d3f63fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90f3e15405b330c92210fe6fed6b4fad"><td class="memItemLeft" align="right" valign="top">std::vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDiff.html#a90f3e15405b330c92210fe6fed6b4fad">bsDiff</a> (const juce::String &amp;s1, const juce::String &amp;s2)</td></tr>
+<tr class="separator:a90f3e15405b330c92210fe6fed6b4fad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02f934e756b7ff02baaa06b4e7ceab55"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDiff.html#a02f934e756b7ff02baaa06b4e7ceab55">bsApplyPatch</a> (const juce::String &amp;s, const std::vector&lt; uint8_t &gt; &amp;patch)</td></tr>
+<tr class="separator:a02f934e756b7ff02baaa06b4e7ceab55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="namespaceDistortion.html" title="Distortion.">Distortion</a>. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="a0d468da1bba442ec6f02dfd0f159f883"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d468da1bba442ec6f02dfd0f159f883">&#9670;&nbsp;</a></span>saturate()</h2>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a90f3e15405b330c92210fe6fed6b4fad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90f3e15405b330c92210fe6fed6b4fad">&#9670;&nbsp;</a></span>bsDiff()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Distortion::saturate </td>
+          <td class="memname">std::vector&lt;uint8_t&gt; Diff::bsDiff </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>input</em>, </td>
+          <td class="paramtype">const juce::String &amp;&#160;</td>
+          <td class="paramname"><em>s1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>drive</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>lowclip</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>highclip</em>&#160;</td>
+          <td class="paramtype">const juce::String &amp;&#160;</td>
+          <td class="paramname"><em>s2</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -119,39 +102,25 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="namespaceDistortion.html#a1cbff571e105b4fc3335c9278d3f63fe">processBlock()</a>.</p>
-
 </div>
 </div>
-<a id="a1cbff571e105b4fc3335c9278d3f63fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1cbff571e105b4fc3335c9278d3f63fe">&#9670;&nbsp;</a></span>processBlock()</h2>
+<a id="a02f934e756b7ff02baaa06b4e7ceab55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02f934e756b7ff02baaa06b4e7ceab55">&#9670;&nbsp;</a></span>bsApplyPatch()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Distortion::processBlock </td>
+          <td class="memname">juce::String Diff::bsApplyPatch </td>
           <td>(</td>
-          <td class="paramtype">juce::AudioSampleBuffer &amp;&#160;</td>
-          <td class="paramname"><em>buffer</em>, </td>
+          <td class="paramtype">const juce::String &amp;&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>drive</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>lowclip</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>highclip</em>&#160;</td>
+          <td class="paramtype">const std::vector&lt; uint8_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>patch</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -160,8 +129,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="reference">References <a class="el" href="namespaceDistortion.html#a0d468da1bba442ec6f02dfd0f159f883">saturate()</a>.</p>
 
 </div>
 </div>
