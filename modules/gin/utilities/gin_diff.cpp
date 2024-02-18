@@ -29,7 +29,8 @@ std::vector<uint8_t> bsDiff (const juce::String& s1, const juce::String& s2)
 
 juce::String bsApplyPatch (const juce::String& s, const std::vector<uint8_t>& patch)
 {
-    uint32_t sz = *(uint32_t*)patch.data();
+    uint32_t sz;
+    memcpy (&sz, patch.data(), sizeof (sz));
 
     juce::MemoryBlock mb (sz + 1, true);
 
