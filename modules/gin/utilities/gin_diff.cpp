@@ -13,9 +13,9 @@ std::vector<uint8_t> bsDiff (const juce::String& s1, const juce::String& s2)
     stream.opaque = &result;
     stream.malloc = malloc;
     stream.free   = free;
-    stream.write  = [] (struct bsdiff_stream* stream, const void* buffer, int size)
+    stream.write  = [] (struct bsdiff_stream* param, const void* buffer, int size)
     {
-        auto& buf = *((std::vector<uint8_t>*)stream->opaque);
+        auto& buf = *((std::vector<uint8_t>*)param->opaque);
 
         buf.insert (buf.end(), (uint8_t*)buffer, (uint8_t*)buffer + size);
         return 0;
@@ -37,9 +37,9 @@ juce::String bsApplyPatch (const juce::String& s, const std::vector<uint8_t>& pa
 
     bspatch_stream stream;
     stream.opaque = &input;
-    stream.read   = [] (const struct bspatch_stream* stream, void* buffer, int length)
+    stream.read   = [] (const struct bspatch_stream* param, void* buffer, int length)
     {
-        auto& is = *(juce::MemoryInputStream*)stream->opaque;
+        auto& is = *(juce::MemoryInputStream*)param->opaque;
 
         if (is.read (buffer, length) == length)
             return 0;
