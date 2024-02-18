@@ -7,9 +7,9 @@ bool TextHistory::addText (const juce::String& t)
     while (historyStack.size() - 1 > stackPointer)
         historyStack.removeLast();
     
-    auto fordardPatch = diff.diff (currentText, t);
-    auto backwardPatch = diff.diff (t, currentText);
-    
+    auto fordardPatch = Diff::bsDiff (currentText, t);
+    auto backwardPatch = Diff::bsDiff (t, currentText);
+
     historyStack.add ({fordardPatch, backwardPatch});
     currentText = t;
     stackPointer++;
@@ -35,7 +35,7 @@ void TextHistory::undo()
 {
     if (canUndo())
     {
-        currentText = diff.applyPatch (currentText, historyStack[stackPointer].backwardPatch);
+        currentText = Diff::bsApplyPatch (currentText, historyStack[stackPointer].backwardPatch);
         stackPointer--;
         
         if (onStateChanged)
@@ -47,7 +47,7 @@ void TextHistory::redo()
 {
     if (canRedo())
     {
-        currentText = diff.applyPatch (currentText, historyStack[stackPointer + 1].forwardPatch);
+        currentText = Diff::bsApplyPatch (currentText, historyStack[stackPointer + 1].forwardPatch);
         stackPointer++;
         
         if (onStateChanged)

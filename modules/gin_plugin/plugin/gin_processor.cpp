@@ -506,7 +506,7 @@ juce::String Processor::getStateXml()
 
     for (auto p : getPluginParameters())
     {
-        if (! p->isMetaParameter())
+        if (! p->isMetaParameter() && ! juce::approximatelyEqual (p->getUserDefaultValue(), p->getUserValue()))
         {
             auto pstate = p->getState();
 
@@ -584,6 +584,9 @@ void Processor::setStateXml (const juce::String& text)
             else
                 currentProgramName = {};
         }
+
+        for (auto pp : getPluginParameters())
+            pp->setUserValue (pp->getUserDefaultValue());
 
         juce::XmlElement* paramE = rootE->getChildByName ("param");
         while (paramE)

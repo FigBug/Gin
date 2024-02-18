@@ -20,12 +20,10 @@ private:
 
 	struct HistoryItem
 	{
-        juce::String forwardPatch;
-        juce::String backwardPatch;
+        std::vector<uint8_t> forwardPatch;
+        std::vector<uint8_t> backwardPatch;
 	};
 
-    Diff diff;
-    
 	juce::Array<HistoryItem> historyStack;
 	int stackPointer = -1;
 	int limit = 100;

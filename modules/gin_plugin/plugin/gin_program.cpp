@@ -33,7 +33,7 @@ void Program::loadProcessor (Processor& p)
         else
         {
             DBG("Unknown parameter: " + s.uid);
-            jassertfalse;
+            //jassertfalse;
         }
     }
 }

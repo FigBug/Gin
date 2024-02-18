@@ -37,9 +37,11 @@
 
 #include "gin.h"
 
-JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE ("-Wshorten-64-to-32")
-#include "3rdparty/diff/diff_match_patch.h"
-JUCE_END_IGNORE_WARNINGS_GCC_LIKE
+extern "C"
+{
+#include "3rdparty/bsdiff/bsdiff.h"
+#include "3rdparty/bsdiff/bspatch.h"
+}
 
 //==============================================================================
 

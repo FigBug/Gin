@@ -74,7 +74,7 @@ void ModMatrix::stateUpdated (const juce::ValueTree& vt)
                 return ModSrcId (idx);
             idx++;
         }
-        jassertfalse;
+        //jassertfalse;
         return ModSrcId();
     };
 

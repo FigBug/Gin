@@ -1,39 +1,56 @@
-class Diff::Impl
+namespace Diff
 {
-public:
-    diff_match_patch<std::string> dmp;
-};
 
-Diff::Diff()
+std::vector<uint8_t> bsDiff (const juce::String& s1, const juce::String& s2)
 {
-    impl = std::make_unique<Impl>();
-    impl->dmp.Diff_Timeout = 0;
-}
+    std::vector<uint8_t> result;
 
-Diff::~Diff()
-{
-}
+    uint32_t sz = uint32_t (s2.getNumBytesAsUTF8());
+    result.insert (result.end(), (uint8_t*)&sz, (uint8_t*)&sz + sizeof(uint32_t));
 
-juce::String Diff::diff (const juce::String& s1, const juce::String& s2)
-{
-    auto ss1 = s1.toStdString();
-    auto ss2 = s2.toStdString();
-    
-    auto patches = impl->dmp.patch_make (ss1, ss2);
-    return impl->dmp.patch_toText (patches);
-}
+    bsdiff_stream stream;
 
-juce::String Diff::applyPatch (const juce::String& s, const juce::String& patchText)
-{
-    auto patches = impl->dmp.patch_fromText (patchText.toStdString());
-    auto [res, status] = impl->dmp.patch_apply (patches, s.toStdString());
-    
-    for (auto b : status)
+    stream.opaque = &result;
+    stream.malloc = malloc;
+    stream.free   = free;
+    stream.write  = [] (struct bsdiff_stream* stream, const void* buffer, int size)
     {
-        jassert (b);
-        if (! b)
-            return {};
-    }
-    
-    return res;
+        auto& buf = *((std::vector<uint8_t>*)stream->opaque);
+
+        buf.insert (buf.end(), (uint8_t*)buffer, (uint8_t*)buffer + size);
+        return 0;
+    };
+
+    [[maybe_unused]] auto err = bsdiff ((const uint8_t*)s1.toRawUTF8(), s1.getNumBytesAsUTF8(), (const uint8_t*)s2.toRawUTF8(), s2.getNumBytesAsUTF8(), &stream);
+    jassert (err == 0);
+
+    return result;
+}
+
+juce::String bsApplyPatch (const juce::String& s, const std::vector<uint8_t>& patch)
+{
+    uint32_t sz = *(uint32_t*)patch.data();
+
+    juce::MemoryBlock mb (sz + 1, true);
+
+    juce::MemoryInputStream input (patch.data() + sizeof (uint32_t), patch.size() - 4, false);
+
+    bspatch_stream stream;
+    stream.opaque = &input;
+    stream.read   = [] (const struct bspatch_stream* stream, void* buffer, int length)
+    {
+        auto& is = *(juce::MemoryInputStream*)stream->opaque;
+
+        if (is.read (buffer, length) == length)
+            return 0;
+
+        return -1;
+    };
+
+    [[maybe_unused]] auto err = bspatch ((const uint8_t*)s.toRawUTF8(), s.getNumBytesAsUTF8(), (uint8_t*)mb.getData(), sz, &stream);
+    jassert (err == 0);
+
+    return juce::String::fromUTF8 ((const char*)mb.getData());
+}
+
 }
