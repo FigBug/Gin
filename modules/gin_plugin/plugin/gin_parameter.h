@@ -22,8 +22,8 @@ class ModMatrix;
     Parameters can optionally be added to a modmatrix 
 */
 class Parameter : public juce::AudioPluginInstance::HostedParameter,
-                  protected juce::Timer,
-                  protected juce::AsyncUpdater
+                  public juce::AsyncUpdater,
+                  protected juce::Timer
 {
 public:
     using Ptr = Parameter*;

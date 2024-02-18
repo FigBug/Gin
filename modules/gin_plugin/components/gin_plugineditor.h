@@ -185,7 +185,7 @@ public:
     void comboBoxChanged (juce::ComboBox* c) override;
     void changeListenerCallback (juce::ChangeBroadcaster*) override;
     void parentHierarchyChanged() override;
-
+    
     ProcessorEditor& editor;
     Processor& slProc;
 

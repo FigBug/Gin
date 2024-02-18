@@ -278,7 +278,7 @@ void Processor::setCurrentProgram (int index)
     {
         auto p = programs[index];
 
-        if (! p->fullyLoaded )
+        if (! p->fullyLoaded)
             p->loadFromFile (p->getPresetFile (getProgramDirectory()), true);
 
         p->loadProcessor (*this);
@@ -537,7 +537,7 @@ void Processor::setStateInformation (const void* data, int sizeInBytes)
 
 void Processor::setStateXml (const juce::String& text)
 {
-    juce::ScopedValueSetter<bool> (loadingState, true);
+    juce::ScopedValueSetter<bool> svs (loadingState, true);
 
     juce::XmlDocument doc (text);
     std::unique_ptr<juce::XmlElement> rootE (doc.getDocumentElement());
@@ -600,8 +600,13 @@ void Processor::setStateXml (const juce::String& text)
 
             paramE = paramE->getNextElementWithTagName ("param");
         }
+        
+        if (juce::MessageManager::getInstance()->isThisTheMessageThread())
+            for (auto pp : getPluginParameters())
+                pp->handleUpdateNowIfNeeded();
     }
     stateUpdated();
+    sendChangeMessage();
 
     lastStateLoad = juce::Time::getCurrentTime();
 }
