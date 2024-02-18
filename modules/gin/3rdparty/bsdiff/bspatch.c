@@ -1,4 +1,4 @@
-﻿/*-
+/*-
  * Copyright 2003-2005 Colin Percival
  * Copyright 2012 Matthew Endsley
  * All rights reserved
@@ -69,7 +69,7 @@ int bspatch(const uint8_t* old, int64_t oldsize, uint8_t* new, int64_t newsize, 
 			return -1;
 
 		/* Read diff string */
-		if (stream->read(stream, new + newpos, ctrl[0]))
+		if (stream->read(stream, new + newpos, (int)ctrl[0]))
 			return -1;
 
 		/* Add old data to diff string */
@@ -86,7 +86,7 @@ int bspatch(const uint8_t* old, int64_t oldsize, uint8_t* new, int64_t newsize, 
 			return -1;
 
 		/* Read extra string */
-		if (stream->read(stream, new + newpos, ctrl[1]))
+		if (stream->read(stream, new + newpos, (int)ctrl[1]))
 			return -1;
 
 		/* Adjust pointers */
