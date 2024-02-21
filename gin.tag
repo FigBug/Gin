@@ -1962,6 +1962,7 @@
     <name>gin_wtoscillators.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
     <filename>gin__wtoscillators_8h.html</filename>
+    <class kind="class">DCBlocker</class>
     <class kind="class">WTOscillator</class>
     <class kind="struct">WTOscillator::Params</class>
     <class kind="struct">WTVoicedStereoOscillatorParams</class>
@@ -3973,6 +3974,52 @@
       <anchorfile>structMSEG_1_1Data.html</anchorfile>
       <anchor>a7043e2766b53cec68e85c6ed410403da</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>DCBlocker</name>
+    <filename>classDCBlocker.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>DCBlocker</name>
+      <anchorfile>classDCBlocker.html</anchorfile>
+      <anchor>a1521bfdb75baad91183650113e9e7d9e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~DCBlocker</name>
+      <anchorfile>classDCBlocker.html</anchorfile>
+      <anchor>a44fb9fe6dde62b2daff8d7ac130178bc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classDCBlocker.html</anchorfile>
+      <anchor>a00242050a332bb6f0c5c243f3e129b3d</anchor>
+      <arglist>(float sampleRate_)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCutoff</name>
+      <anchorfile>classDCBlocker.html</anchorfile>
+      <anchor>ad52e973fd3158f1c9927f44f463aedbe</anchor>
+      <arglist>(float cutoff_)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>process</name>
+      <anchorfile>classDCBlocker.html</anchorfile>
+      <anchor>a530886a5865ef7d8d203cb664410ee14</anchor>
+      <arglist>(float x)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classDCBlocker.html</anchorfile>
+      <anchor>a1cbb918506de378d9d1960cf86f25f88</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -16716,6 +16763,13 @@
       <anchorfile>classWTOscillator.html</anchorfile>
       <anchor>ac2e96a58595de3370fe462b84f2732e0</anchor>
       <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; *table)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setBlockDC</name>
+      <anchorfile>classWTOscillator.html</anchorfile>
+      <anchor>a5e53322ccf284221a86bf22b135a07ad</anchor>
+      <arglist>(bool b)</arglist>
     </member>
   </compound>
   <compound kind="class">

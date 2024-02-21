@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lagrange_1902',['Lagrange',['../namespaceLagrange.html',1,'']]]
+  ['lagrange_1905',['Lagrange',['../namespaceLagrange.html',1,'']]]
 ];
