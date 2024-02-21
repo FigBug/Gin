@@ -464,6 +464,32 @@ public:
         }
     }
 
+    SynthesiserVoice* getOldestVoice()
+    {
+        juce::Array<juce::MPESynthesiserVoice*> activeVoices;
+
+        for (auto voice : voices)
+            if (voice->isActive())
+                activeVoices.add (voice);
+
+        std::sort (activeVoices.begin(), activeVoices.end(), [] (juce::MPESynthesiserVoice* a, juce::MPESynthesiserVoice* b) { return a->noteOnTime < b->noteOnTime; });
+
+        return dynamic_cast<SynthesiserVoice*> (activeVoices.getFirst());
+    }
+
+    juce::MPESynthesiserVoice* getNewestVoice()
+    {
+        juce::Array<juce::MPESynthesiserVoice*> activeVoices;
+
+        for (auto voice : voices)
+            if (voice->isActive())
+                activeVoices.add (voice);
+
+        std::sort (activeVoices.begin(), activeVoices.end(), [] (juce::MPESynthesiserVoice* a, juce::MPESynthesiserVoice* b) { return a->noteOnTime < b->noteOnTime; });
+
+        return dynamic_cast<SynthesiserVoice*> (activeVoices.getLast());
+    }
+
 protected:
     int noteOnIndex = -1, noteOffIndex = -1;
 
