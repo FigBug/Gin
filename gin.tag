@@ -14856,6 +14856,20 @@
       <anchor>a04c618669f417fb370f7d3866da5f141</anchor>
       <arglist>(juce::AudioBuffer&lt; floatType &gt; &amp;outputAudio, const juce::MidiBuffer &amp;inputMidi, int startSample, int numSamples)</arglist>
     </member>
+    <member kind="function">
+      <type>SynthesiserVoice *</type>
+      <name>getOldestVoice</name>
+      <anchorfile>classSynthesiser.html</anchorfile>
+      <anchor>ae79530e7e734865d87c1aa7a02216167</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::MPESynthesiserVoice *</type>
+      <name>getNewestVoice</name>
+      <anchorfile>classSynthesiser.html</anchorfile>
+      <anchor>afdb199a99d5cf15f29419ba34a67df42</anchor>
+      <arglist>()</arglist>
+    </member>
     <member kind="variable" protection="protected">
       <type>int</type>
       <name>noteOnIndex</name>
