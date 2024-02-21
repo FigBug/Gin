@@ -21,7 +21,7 @@ std::vector<uint8_t> bsDiff (const juce::String& s1, const juce::String& s2)
         return 0;
     };
 
-    [[maybe_unused]] auto err = bsdiff ((const uint8_t*)s1.toRawUTF8(), s1.getNumBytesAsUTF8(), (const uint8_t*)s2.toRawUTF8(), s2.getNumBytesAsUTF8(), &stream);
+    [[maybe_unused]] auto err = bsdiff ((const uint8_t*)s1.toRawUTF8(), int64_t (s1.getNumBytesAsUTF8()), (const uint8_t*)s2.toRawUTF8(), int64_t (s2.getNumBytesAsUTF8()), &stream);
     jassert (err == 0);
 
     return result;
@@ -48,7 +48,7 @@ juce::String bsApplyPatch (const juce::String& s, const std::vector<uint8_t>& pa
         return -1;
     };
 
-    [[maybe_unused]] auto err = bspatch ((const uint8_t*)s.toRawUTF8(), s.getNumBytesAsUTF8(), (uint8_t*)mb.getData(), sz, &stream);
+    [[maybe_unused]] auto err = bspatch ((const uint8_t*)s.toRawUTF8(), int64_t (s.getNumBytesAsUTF8()), (uint8_t*)mb.getData(), sz, &stream);
     jassert (err == 0);
 
     return juce::String::fromUTF8 ((const char*)mb.getData());
