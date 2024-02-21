@@ -135,6 +135,7 @@ juce::Path WavetableComponent::createWavetablePath (float wtPos, float start, fl
 
         p.position = wtPos;
 
+        osc.setBlockDC (false);
         osc.setSampleRate (44100.0);
         osc.setWavetable (bllt);
         osc.noteOn (0.0f);

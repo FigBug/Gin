@@ -8,6 +8,52 @@
  */
 
 
+class DCBlocker
+{
+public:
+    DCBlocker() {}
+    ~DCBlocker() {}
+
+    void setSampleRate (float sampleRate_)
+    {
+        sampleRate = sampleRate_;
+        recalc();
+    }
+
+    void setCutoff (float cutoff_ /* Hz */)
+    {
+        cutoff = cutoff_;
+        recalc();
+    }
+
+    float process (float x)
+    {
+        z = x * a + z * b;
+        return z;
+    }
+
+    void reset()
+    {
+        a = 0;
+        b = 0;
+        z = 0;
+    }
+
+private:
+    float sampleRate = 1;
+    float cutoff = 10.0f;
+
+    float a = 0;
+    float b = 0;
+    float z = 0;
+
+    void recalc()
+    {
+        b = std::exp (-2.0f * juce::MathConstants<float>::pi * cutoff / sampleRate);
+        a = 1.0f - b;
+    }
+};
+
 //==============================================================================
 /** WT Oscillator.
 */
@@ -27,7 +73,15 @@ public:
         float fold = 0.0f;
     };
 
-    void setSampleRate (double sr)  { sampleRate = sr; }
+    void setSampleRate (double sr) 
+    { 
+        sampleRate = sr;
+        blockerL.setSampleRate (sr);
+        blockerR.setSampleRate (sr);
+        blockerL.setCutoff (10.0f);
+        blockerR.setCutoff (10.0f);
+    }
+
     void noteOn (float p = -1);
 
     void process (float note, const Params& params, juce::AudioSampleBuffer& buffer)
@@ -44,6 +98,23 @@ public:
             processAddingSimple (note, params, buffer);
         else
             processAddingComplex (note, params, buffer);
+
+        if (blockDC)
+        {
+            int samps = buffer.getNumSamples();
+            auto l = buffer.getWritePointer (0);
+            auto r = buffer.getWritePointer (1);
+
+            while (samps > 0)
+            {
+                *l -= blockerL.process (*l);
+                *r -= blockerR.process (*r);
+
+                l++;
+                r++;
+                samps--;
+            }
+        }
     }
 
     void processAddingSimple (float note, const Params& params, juce::AudioSampleBuffer& buffer)
@@ -255,6 +326,8 @@ public:
 
     void setWavetable (juce::OwnedArray<BandLimitedLookupTable>* table);
 
+    void setBlockDC (bool b) { blockDC = b; }
+
 private:
     template<typename T>
     T bendDistortion (T phaseIn, float bend)
@@ -298,6 +371,10 @@ private:
     float phase = 0.0f;
     int tableIndex = 0;
     int lastTableIndex = -1;
+    bool blockDC = true;
+
+    DCBlocker blockerL;
+    DCBlocker blockerR;
 
     static constexpr float almostOne = { 1.0f - std::numeric_limits<float>::epsilon() };
 };
