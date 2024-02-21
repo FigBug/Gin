@@ -76,8 +76,8 @@ public:
     void setSampleRate (double sr) 
     { 
         sampleRate = sr;
-        blockerL.setSampleRate (sr);
-        blockerR.setSampleRate (sr);
+        blockerL.setSampleRate (float (sr));
+        blockerR.setSampleRate (float (sr));
         blockerL.setCutoff (10.0f);
         blockerR.setCutoff (10.0f);
     }
