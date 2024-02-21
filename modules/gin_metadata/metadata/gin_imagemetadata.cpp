@@ -91,7 +91,7 @@ static bool loadJPEGMetadataFromStream (juce::OwnedArray<ImageMetadata>& metadat
 
             marker = marker->next;
         }
-
+        jpeg_destroy_decompress(&jpegDecompStruct);
     }
     return metadata.size() > 0;
 }
