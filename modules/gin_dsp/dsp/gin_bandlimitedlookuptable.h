@@ -112,7 +112,7 @@ public:
 
         auto& table = tableForNote (note);
         auto pos = mipp::trunc (phase * float (tableSize));
-        auto frac = (phase * tableSize) - pos;
+        auto frac = (phase * float (tableSize)) - pos;
         
         float p[4];
         pos.store (p);
