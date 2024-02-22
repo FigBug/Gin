@@ -35,7 +35,9 @@ SOFTWARE.
 #define MIPP
 
 #ifndef MIPP_NO_INTRINSICS
-#if defined(__ARM_NEON__) || defined(__ARM_NEON)
+#if defined(__ARM_FEATURE_SVE)
+#include <arm_sve.h>
+#elif defined(__ARM_NEON__) || defined(__ARM_NEON)
 #include <arm_neon.h>
 #include "math/neon_mathfun.h"
 #elif defined(__SSE__) || defined(__AVX__) || defined(__MIC__) || defined(__KNCNI__) || defined(__AVX512__) || defined(__AVX512F__)
@@ -105,8 +107,55 @@ namespace mipp // My Intrinsics Plus Plus => mipp
 // ------------------------------------------------------------------------------------------ myIntrinsics vector sizes
 // --------------------------------------------------------------------------------------------------------------------
 #ifndef MIPP_NO_INTRINSICS
+
+// ------------------------------------------------------------------- ARM SVE (specific size in 128-256-512-1024-2048)
+// ------------------------------------------------- Size is specified at compilation time using flag -msve-vector-bits
+#if defined(__ARM_FEATURE_SVE)
+#if __ARM_FEATURE_SVE_BITS
+#define MIPP_REGISTER_SIZE __ARM_FEATURE_SVE_BITS
+typedef svfloat32_t fixed_float32_t __attribute__((arm_sve_vector_bits(MIPP_REGISTER_SIZE)));
+typedef svfloat64_t fixed_float64_t __attribute__((arm_sve_vector_bits(MIPP_REGISTER_SIZE)));
+typedef svint32_t fixed_int32_t __attribute__((arm_sve_vector_bits(MIPP_REGISTER_SIZE)));
+typedef svint64_t fixed_int64_t __attribute__((arm_sve_vector_bits(MIPP_REGISTER_SIZE)));
+
+typedef svbool_t fixed_bool_t __attribute__((arm_sve_vector_bits(MIPP_REGISTER_SIZE)));
+
+#else
+#error Only -msve-vector-bits = 128-256-512-1024-2048 is supported
+#endif
+const std::string InstructionType = "SVE-LS";
+#define MIPP_SVE_LS
+
+#define MIPP_REQUIRED_ALIGNMENT 16
+#define MIPP_64BIT
+
+// activate when generator ok
+//#define MIPP_BW
+
+const std::string InstructionFullType = InstructionType;
+const std::string InstructionVersion  = "1";
+
+#define MIPP_INSTR_VERSION 1
+#define MIPP_LANES 4
+
+using msk   = fixed_bool_t;
+using reg   = fixed_float32_t;
+using reg_2 = fixed_int32_t; // half a full register (information is in the lower part of the 128 bit register)
+
+template <int N>
+inline reg toreg(const msk m) {
+    throw std::runtime_error("mipp: Invalid mask size 'N' = " + std::to_string(N) + ".");
+}
+
+inline std::vector<std::string> InstructionExtensions()
+{
+    std::vector<std::string> ext;
+    ext.push_back("SVE_LS");
+    return ext;
+}
+
 // ------------------------------------------------------------------------------------------------------- ARM NEON-128
-#if defined(__ARM_NEON__) || defined(__ARM_NEON)
+#elif defined(__ARM_NEON__) || defined(__ARM_NEON)
     const std::string InstructionType = "NEON";
     #define MIPP_NEON
 
@@ -545,7 +594,7 @@ static inline void errorMessage(std::string instr)
     type_names[typeid(double)  ] = "double";
 
     std::string message;
-#if JUCE_MSVC || __cplusplus >= 201703L
+#if __cplusplus >= 201703L
     if constexpr (RegisterSizeBit == 0)
 #else
     if (RegisterSizeBit == 0)
@@ -610,7 +659,9 @@ static inline void errorMessage(std::string instr)
 }
 
 template <typename T> inline reg   load         (const T*)                        { errorMessage<T>("load");          exit(-1); }
+template <typename T> inline reg_2 load_2       (const T*)                        { errorMessage<T>("load_2");        exit(-1); }
 template <typename T> inline reg   loadu        (const T*)                        { errorMessage<T>("loadu");         exit(-1); }
+template <typename T> inline reg_2 loadu_2      (const T*)                        { errorMessage<T>("loadu_2");       exit(-1); }
 template <typename T> inline void  store        (T*, const reg)                   { errorMessage<T>("store");         exit(-1); }
 template <typename T> inline void  storeu       (T*, const reg)                   { errorMessage<T>("storeu");        exit(-1); }
 template <typename T> inline reg   set          (const T[nElReg<T>()])            { errorMessage<T>("set");           exit(-1); }
@@ -681,8 +732,11 @@ template <typename T> inline msk   cmple        (const reg, const reg)          
 template <typename T> inline msk   cmpgt        (const reg, const reg)            { errorMessage<T>("cmpgt");         exit(-1); }
 template <typename T> inline msk   cmpge        (const reg, const reg)            { errorMessage<T>("cmpge");         exit(-1); }
 template <typename T> inline reg   add          (const reg, const reg)            { errorMessage<T>("add");           exit(-1); }
+template <typename T> inline reg_2 add          (const reg_2, const reg_2)        { errorMessage<T>("add");           exit(-1); }
 template <typename T> inline reg   sub          (const reg, const reg)            { errorMessage<T>("sub");           exit(-1); }
+template <typename T> inline reg_2 sub          (const reg_2, const reg_2)        { errorMessage<T>("sub");           exit(-1); }
 template <typename T> inline reg   mul          (const reg, const reg)            { errorMessage<T>("mul");           exit(-1); }
+template <typename T> inline reg_2 mul          (const reg_2, const reg_2)        { errorMessage<T>("mul");           exit(-1); }
 template <typename T> inline reg   div          (const reg, const reg)            { errorMessage<T>("div");           exit(-1); }
 template <typename T> inline reg   min          (const reg, const reg)            { errorMessage<T>("min");           exit(-1); }
 template <typename T> inline reg   max          (const reg, const reg)            { errorMessage<T>("max");           exit(-1); }
@@ -748,6 +802,12 @@ inline reg pack(const reg, const reg) {
     exit(-1);
 }
 
+template <int S, typename T>
+inline reg combine(const reg, const reg) {
+    errorMessage<T>("combine");
+    exit(-1);
+}
+
 template <typename T>
 inline regx2 sincos(const reg v)
 {
@@ -782,6 +842,11 @@ template <typename T> inline reg copysign(const reg r1, const reg r2) { return n
 #if !(defined(_MSC_VER) && defined(_M_ARM))  //Avoid compiling error with MSVC for ARM
 template <typename T> inline reg copysign(const reg r1, const msk r2) { return neg<T>(r1, r2); }
 #endif
+template <typename T> inline reg select(const msk m1, const reg r1, const reg r2)
+{
+    return mipp::blend<T>(r1, r2, m1);
+}
+
 // --------------------------------------------------------------------------------- hyperbolic trigonometric functions
 // --------------------------------------------------------------------------------------------------------------------
 template <typename T>
@@ -889,7 +954,6 @@ inline reg atanh(const reg r)
 // -------------------------------------------------------------------------------------------------- complex functions
 // --------------------------------------------------------------------------------------------------------------------
 
-
 template <typename T>
 inline regx2 cadd(const regx2 v1, const regx2 v2)
 {
@@ -946,6 +1010,7 @@ inline reg norm(const regx2 v)
 {
     return mipp::add<T>(mipp::mul<T>(v.val[0], v.val[0]), mipp::mul<T>(v.val[1], v.val[1]));
 }
+
 // ------------------------------------------------------------------------------------------------------------ masking
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -1488,7 +1553,7 @@ struct Reduction
     static T sapply(const Reg<T> r)
     {
         auto red = Reduction<T,OP>::apply(r);
-        return red[0];
+        return getfirst<T>(red);
     }
 
     template <ld_op<T> LD = mipp::load<T>>
@@ -1565,9 +1630,13 @@ inline void scatter_seq(TD *mem_addr, const reg idx, const reg r) {
 #include "mipp_object.hxx"
 
 #ifndef MIPP_NO_INTRINSICS
+// ------------------------------------------------------------------------------------------------------- ARM SVE LS()
+// --------------------------------------------------------------------------------------------------------------------
+#if defined(__ARM_FEATURE_SVE)
+#include "mipp_impl_SVE.hxx"
 // ------------------------------------------------------------------------------------------------------- ARM NEON-128
 // --------------------------------------------------------------------------------------------------------------------
-#if defined(__ARM_NEON__) || defined(__ARM_NEON)
+#elif defined(__ARM_NEON__) || defined(__ARM_NEON)
 #include "mipp_impl_NEON.hxx"
 // -------------------------------------------------------------------------------------------------------- X86 AVX-512
 // --------------------------------------------------------------------------------------------------------------------
@@ -1621,6 +1690,588 @@ inline reg norm<float>(const regx2 v)
 {
     return mipp::fmadd<float>(v.val[0], v.val[0], mipp::mul<float>(v.val[1], v.val[1]));
 }
-}
 
+// ------------------------------------------------------------------------------- myIntrinsics default specializations
+// --------------------------------------------------------------------------------------------------------------------
+
+// -------------------------------------------------------------------------------------------------------------- loadu
+#ifdef MIPP_64BIT
+template <> inline reg loadu<uint64_t>(const uint64_t *mem_addr) { return loadu<int64_t>((const int64_t*) mem_addr); }
+#endif
+template <> inline reg loadu<uint32_t>(const uint32_t *mem_addr) { return loadu<int32_t>((const int32_t*) mem_addr); }
+#ifdef MIPP_BW
+template <> inline reg loadu<uint16_t>(const uint16_t *mem_addr) { return loadu<int16_t>((const int16_t*) mem_addr); }
+template <> inline reg loadu<uint8_t >(const uint8_t  *mem_addr) { return loadu<int8_t >((const int8_t* ) mem_addr); }
+#endif
+
+// --------------------------------------------------------------------------------------------------------------- load
+#ifdef MIPP_64BIT
+template <> inline reg load<uint64_t>(const uint64_t *mem_addr) { return load<int64_t>((const int64_t*) mem_addr); }
+#endif
+template <> inline reg load<uint32_t>(const uint32_t *mem_addr) { return load<int32_t>((const int32_t*) mem_addr); }
+#ifdef MIPP_BW
+template <> inline reg load<uint16_t>(const uint16_t *mem_addr) { return load<int16_t>((const int16_t*) mem_addr); }
+template <> inline reg load<uint8_t >(const uint8_t  *mem_addr) { return load<int8_t >((const int8_t* ) mem_addr); }
+#endif
+
+// ------------------------------------------------------------------------------------------------------------- storeu
+#ifdef MIPP_64BIT
+template <> inline void storeu<uint64_t>(uint64_t *mem_addr, const reg v) { storeu<int64_t>((int64_t*) mem_addr, v); }
+#endif
+template <> inline void storeu<uint32_t>(uint32_t *mem_addr, const reg v) { storeu<int32_t>((int32_t*) mem_addr, v); }
+#ifdef MIPP_BW
+template <> inline void storeu<uint16_t>(uint16_t *mem_addr, const reg v) { storeu<int16_t>((int16_t*) mem_addr, v); }
+template <> inline void storeu<uint8_t >(uint8_t  *mem_addr, const reg v) { storeu<int8_t >((int8_t* ) mem_addr, v); }
+#endif
+
+// -------------------------------------------------------------------------------------------------------------- store
+#ifdef MIPP_64BIT
+template <> inline void store<uint64_t>(uint64_t *mem_addr, const reg v) { store<int64_t>((int64_t*) mem_addr, v); }
+#endif
+template <> inline void store<uint32_t>(uint32_t *mem_addr, const reg v) { store<int32_t>((int32_t*) mem_addr, v); }
+#ifdef MIPP_BW
+template <> inline void store<uint16_t>(uint16_t *mem_addr, const reg v) { store<int16_t>((int16_t*) mem_addr, v); }
+template <> inline void store<uint8_t >(uint8_t  *mem_addr, const reg v) { store<int8_t >((int8_t* ) mem_addr, v); }
+#endif
+
+// ---------------------------------------------------------------------------------------------------------------- set
+#ifdef MIPP_64BIT
+template <> inline reg set<uint64_t>(const uint64_t vals[N<uint64_t>()]) { return loadu<uint64_t>(vals); }
+#endif
+template <> inline reg set<uint32_t>(const uint32_t vals[N<uint32_t>()]) { return loadu<uint32_t>(vals); }
+#ifdef MIPP_BW
+template <> inline reg set<uint16_t>(const uint16_t vals[N<uint16_t>()]) { return loadu<uint16_t>(vals); }
+template <> inline reg set<uint8_t> (const uint8_t  vals[N<uint8_t >()]) { return loadu<uint8_t >(vals); }
+#endif
+
+// ---------------------------------------------------------------------------------------------------------------- low
+#ifdef MIPP_64BIT
+template <> inline reg_2 low<uint64_t>(const reg v) { return low<int64_t>(v); }
+#endif
+template <> inline reg_2 low<uint32_t>(const reg v) { return low<int32_t>(v); }
+#ifdef MIPP_BW
+template <> inline reg_2 low<uint16_t>(const reg v) { return low<int16_t>(v); }
+template <> inline reg_2 low<uint8_t >(const reg v) { return low<int8_t >(v); }
+#endif
+
+// --------------------------------------------------------------------------------------------------------------- high
+#ifdef MIPP_64BIT
+template <> inline reg_2 high<uint64_t>(const reg v) { return high<int64_t>(v); }
+#endif
+template <> inline reg_2 high<uint32_t>(const reg v) { return high<int32_t>(v); }
+#ifdef MIPP_BW
+template <> inline reg_2 high<uint16_t>(const reg v) { return high<int16_t>(v); }
+template <> inline reg_2 high<uint8_t >(const reg v) { return high<int8_t >(v); }
+#endif
+
+// ------------------------------------------------------------------------------------------------------------ combine
+#ifdef MIPP_64BIT
+template <> inline reg combine<uint64_t>(const reg_2 v1, const reg_2 v2) { return combine<int64_t>(v1, v2); }
+#endif
+template <> inline reg combine<uint32_t>(const reg_2 v1, const reg_2 v2) { return combine<int32_t>(v1, v2); }
+#ifdef MIPP_BW
+template <> inline reg combine<uint16_t>(const reg_2 v1, const reg_2 v2) { return combine<int16_t>(v1, v2); }
+template <> inline reg combine<uint8_t >(const reg_2 v1, const reg_2 v2) { return combine<int8_t >(v1, v2); }
+#endif
+
+// ------------------------------------------------------------------------------------------------------ combine (bis)
+#ifdef MIPP_64BIT
+template <> inline reg combine< 0, uint64_t>(const reg v1, const reg v2) { return combine< 0, int64_t>(v1, v2); }
+template <> inline reg combine< 1, uint64_t>(const reg v1, const reg v2) { return combine< 1, int64_t>(v1, v2); }
+#if MIPP_REGISTER_SIZE >= 256
+template <> inline reg combine< 2, uint64_t>(const reg v1, const reg v2) { return combine< 2, int64_t>(v1, v2); }
+template <> inline reg combine< 3, uint64_t>(const reg v1, const reg v2) { return combine< 3, int64_t>(v1, v2); }
+#if MIPP_REGISTER_SIZE >= 512
+template <> inline reg combine< 4, uint64_t>(const reg v1, const reg v2) { return combine< 4, int64_t>(v1, v2); }
+template <> inline reg combine< 5, uint64_t>(const reg v1, const reg v2) { return combine< 5, int64_t>(v1, v2); }
+template <> inline reg combine< 6, uint64_t>(const reg v1, const reg v2) { return combine< 6, int64_t>(v1, v2); }
+template <> inline reg combine< 7, uint64_t>(const reg v1, const reg v2) { return combine< 7, int64_t>(v1, v2); }
+#endif /* MIPP_REGISTER_SIZE >= 512 */
+#endif /* MIPP_REGISTER_SIZE >= 256 */
+#endif
+
+template <> inline reg combine< 0, uint32_t>(const reg v1, const reg v2) { return combine< 0, int32_t>(v1, v2); }
+template <> inline reg combine< 1, uint32_t>(const reg v1, const reg v2) { return combine< 1, int32_t>(v1, v2); }
+template <> inline reg combine< 2, uint32_t>(const reg v1, const reg v2) { return combine< 2, int32_t>(v1, v2); }
+template <> inline reg combine< 3, uint32_t>(const reg v1, const reg v2) { return combine< 3, int32_t>(v1, v2); }
+#if MIPP_REGISTER_SIZE >= 256
+template <> inline reg combine< 4, uint32_t>(const reg v1, const reg v2) { return combine< 4, int32_t>(v1, v2); }
+template <> inline reg combine< 5, uint32_t>(const reg v1, const reg v2) { return combine< 5, int32_t>(v1, v2); }
+template <> inline reg combine< 6, uint32_t>(const reg v1, const reg v2) { return combine< 6, int32_t>(v1, v2); }
+template <> inline reg combine< 7, uint32_t>(const reg v1, const reg v2) { return combine< 7, int32_t>(v1, v2); }
+#if MIPP_REGISTER_SIZE >= 512
+template <> inline reg combine< 8, uint32_t>(const reg v1, const reg v2) { return combine< 8, int32_t>(v1, v2); }
+template <> inline reg combine< 9, uint32_t>(const reg v1, const reg v2) { return combine< 9, int32_t>(v1, v2); }
+template <> inline reg combine<10, uint32_t>(const reg v1, const reg v2) { return combine<10, int32_t>(v1, v2); }
+template <> inline reg combine<11, uint32_t>(const reg v1, const reg v2) { return combine<11, int32_t>(v1, v2); }
+template <> inline reg combine<12, uint32_t>(const reg v1, const reg v2) { return combine<12, int32_t>(v1, v2); }
+template <> inline reg combine<13, uint32_t>(const reg v1, const reg v2) { return combine<13, int32_t>(v1, v2); }
+template <> inline reg combine<14, uint32_t>(const reg v1, const reg v2) { return combine<14, int32_t>(v1, v2); }
+template <> inline reg combine<15, uint32_t>(const reg v1, const reg v2) { return combine<15, int32_t>(v1, v2); }
+#endif /* MIPP_REGISTER_SIZE >= 512 */
+#endif /* MIPP_REGISTER_SIZE >= 256 */
+
+#ifdef MIPP_BW
+template <> inline reg combine< 0, uint16_t>(const reg v1, const reg v2) { return combine< 0, int16_t>(v1, v2); }
+template <> inline reg combine< 1, uint16_t>(const reg v1, const reg v2) { return combine< 1, int16_t>(v1, v2); }
+template <> inline reg combine< 2, uint16_t>(const reg v1, const reg v2) { return combine< 2, int16_t>(v1, v2); }
+template <> inline reg combine< 3, uint16_t>(const reg v1, const reg v2) { return combine< 3, int16_t>(v1, v2); }
+template <> inline reg combine< 4, uint16_t>(const reg v1, const reg v2) { return combine< 4, int16_t>(v1, v2); }
+template <> inline reg combine< 5, uint16_t>(const reg v1, const reg v2) { return combine< 5, int16_t>(v1, v2); }
+template <> inline reg combine< 6, uint16_t>(const reg v1, const reg v2) { return combine< 6, int16_t>(v1, v2); }
+template <> inline reg combine< 7, uint16_t>(const reg v1, const reg v2) { return combine< 7, int16_t>(v1, v2); }
+#if MIPP_REGISTER_SIZE >= 256
+template <> inline reg combine< 8, uint16_t>(const reg v1, const reg v2) { return combine< 8, int16_t>(v1, v2); }
+template <> inline reg combine< 9, uint16_t>(const reg v1, const reg v2) { return combine< 9, int16_t>(v1, v2); }
+template <> inline reg combine<10, uint16_t>(const reg v1, const reg v2) { return combine<10, int16_t>(v1, v2); }
+template <> inline reg combine<11, uint16_t>(const reg v1, const reg v2) { return combine<11, int16_t>(v1, v2); }
+template <> inline reg combine<12, uint16_t>(const reg v1, const reg v2) { return combine<12, int16_t>(v1, v2); }
+template <> inline reg combine<13, uint16_t>(const reg v1, const reg v2) { return combine<13, int16_t>(v1, v2); }
+template <> inline reg combine<14, uint16_t>(const reg v1, const reg v2) { return combine<14, int16_t>(v1, v2); }
+template <> inline reg combine<15, uint16_t>(const reg v1, const reg v2) { return combine<15, int16_t>(v1, v2); }
+#if MIPP_REGISTER_SIZE >= 512
+template <> inline reg combine<16, uint16_t>(const reg v1, const reg v2) { return combine<16, int16_t>(v1, v2); }
+template <> inline reg combine<17, uint16_t>(const reg v1, const reg v2) { return combine<17, int16_t>(v1, v2); }
+template <> inline reg combine<18, uint16_t>(const reg v1, const reg v2) { return combine<18, int16_t>(v1, v2); }
+template <> inline reg combine<19, uint16_t>(const reg v1, const reg v2) { return combine<19, int16_t>(v1, v2); }
+template <> inline reg combine<20, uint16_t>(const reg v1, const reg v2) { return combine<20, int16_t>(v1, v2); }
+template <> inline reg combine<21, uint16_t>(const reg v1, const reg v2) { return combine<21, int16_t>(v1, v2); }
+template <> inline reg combine<22, uint16_t>(const reg v1, const reg v2) { return combine<22, int16_t>(v1, v2); }
+template <> inline reg combine<23, uint16_t>(const reg v1, const reg v2) { return combine<23, int16_t>(v1, v2); }
+template <> inline reg combine<24, uint16_t>(const reg v1, const reg v2) { return combine<24, int16_t>(v1, v2); }
+template <> inline reg combine<25, uint16_t>(const reg v1, const reg v2) { return combine<25, int16_t>(v1, v2); }
+template <> inline reg combine<26, uint16_t>(const reg v1, const reg v2) { return combine<26, int16_t>(v1, v2); }
+template <> inline reg combine<27, uint16_t>(const reg v1, const reg v2) { return combine<27, int16_t>(v1, v2); }
+template <> inline reg combine<28, uint16_t>(const reg v1, const reg v2) { return combine<28, int16_t>(v1, v2); }
+template <> inline reg combine<29, uint16_t>(const reg v1, const reg v2) { return combine<29, int16_t>(v1, v2); }
+template <> inline reg combine<30, uint16_t>(const reg v1, const reg v2) { return combine<30, int16_t>(v1, v2); }
+template <> inline reg combine<31, uint16_t>(const reg v1, const reg v2) { return combine<31, int16_t>(v1, v2); }
+#endif /* MIPP_REGISTER_SIZE >= 512 */
+#endif /* MIPP_REGISTER_SIZE >= 256 */
+
+template <> inline reg combine< 0, uint8_t>(const reg v1, const reg v2) { return combine< 0, int8_t>(v1, v2); }
+template <> inline reg combine< 1, uint8_t>(const reg v1, const reg v2) { return combine< 1, int8_t>(v1, v2); }
+template <> inline reg combine< 2, uint8_t>(const reg v1, const reg v2) { return combine< 2, int8_t>(v1, v2); }
+template <> inline reg combine< 3, uint8_t>(const reg v1, const reg v2) { return combine< 3, int8_t>(v1, v2); }
+template <> inline reg combine< 4, uint8_t>(const reg v1, const reg v2) { return combine< 4, int8_t>(v1, v2); }
+template <> inline reg combine< 5, uint8_t>(const reg v1, const reg v2) { return combine< 5, int8_t>(v1, v2); }
+template <> inline reg combine< 6, uint8_t>(const reg v1, const reg v2) { return combine< 6, int8_t>(v1, v2); }
+template <> inline reg combine< 7, uint8_t>(const reg v1, const reg v2) { return combine< 7, int8_t>(v1, v2); }
+template <> inline reg combine< 8, uint8_t>(const reg v1, const reg v2) { return combine< 8, int8_t>(v1, v2); }
+template <> inline reg combine< 9, uint8_t>(const reg v1, const reg v2) { return combine< 9, int8_t>(v1, v2); }
+template <> inline reg combine<10, uint8_t>(const reg v1, const reg v2) { return combine<10, int8_t>(v1, v2); }
+template <> inline reg combine<11, uint8_t>(const reg v1, const reg v2) { return combine<11, int8_t>(v1, v2); }
+template <> inline reg combine<12, uint8_t>(const reg v1, const reg v2) { return combine<12, int8_t>(v1, v2); }
+template <> inline reg combine<13, uint8_t>(const reg v1, const reg v2) { return combine<13, int8_t>(v1, v2); }
+template <> inline reg combine<14, uint8_t>(const reg v1, const reg v2) { return combine<14, int8_t>(v1, v2); }
+template <> inline reg combine<15, uint8_t>(const reg v1, const reg v2) { return combine<15, int8_t>(v1, v2); }
+#if MIPP_REGISTER_SIZE >= 256
+template <> inline reg combine<16, uint8_t>(const reg v1, const reg v2) { return combine<16, int8_t>(v1, v2); }
+template <> inline reg combine<17, uint8_t>(const reg v1, const reg v2) { return combine<17, int8_t>(v1, v2); }
+template <> inline reg combine<18, uint8_t>(const reg v1, const reg v2) { return combine<18, int8_t>(v1, v2); }
+template <> inline reg combine<19, uint8_t>(const reg v1, const reg v2) { return combine<19, int8_t>(v1, v2); }
+template <> inline reg combine<20, uint8_t>(const reg v1, const reg v2) { return combine<20, int8_t>(v1, v2); }
+template <> inline reg combine<21, uint8_t>(const reg v1, const reg v2) { return combine<21, int8_t>(v1, v2); }
+template <> inline reg combine<22, uint8_t>(const reg v1, const reg v2) { return combine<22, int8_t>(v1, v2); }
+template <> inline reg combine<23, uint8_t>(const reg v1, const reg v2) { return combine<23, int8_t>(v1, v2); }
+template <> inline reg combine<24, uint8_t>(const reg v1, const reg v2) { return combine<24, int8_t>(v1, v2); }
+template <> inline reg combine<25, uint8_t>(const reg v1, const reg v2) { return combine<25, int8_t>(v1, v2); }
+template <> inline reg combine<26, uint8_t>(const reg v1, const reg v2) { return combine<26, int8_t>(v1, v2); }
+template <> inline reg combine<27, uint8_t>(const reg v1, const reg v2) { return combine<27, int8_t>(v1, v2); }
+template <> inline reg combine<28, uint8_t>(const reg v1, const reg v2) { return combine<28, int8_t>(v1, v2); }
+template <> inline reg combine<29, uint8_t>(const reg v1, const reg v2) { return combine<29, int8_t>(v1, v2); }
+template <> inline reg combine<30, uint8_t>(const reg v1, const reg v2) { return combine<30, int8_t>(v1, v2); }
+template <> inline reg combine<31, uint8_t>(const reg v1, const reg v2) { return combine<31, int8_t>(v1, v2); }
+#if MIPP_REGISTER_SIZE >= 512
+template <> inline reg combine<32, uint8_t>(const reg v1, const reg v2) { return combine<32, int8_t>(v1, v2); }
+template <> inline reg combine<33, uint8_t>(const reg v1, const reg v2) { return combine<33, int8_t>(v1, v2); }
+template <> inline reg combine<34, uint8_t>(const reg v1, const reg v2) { return combine<34, int8_t>(v1, v2); }
+template <> inline reg combine<35, uint8_t>(const reg v1, const reg v2) { return combine<35, int8_t>(v1, v2); }
+template <> inline reg combine<36, uint8_t>(const reg v1, const reg v2) { return combine<36, int8_t>(v1, v2); }
+template <> inline reg combine<37, uint8_t>(const reg v1, const reg v2) { return combine<37, int8_t>(v1, v2); }
+template <> inline reg combine<38, uint8_t>(const reg v1, const reg v2) { return combine<38, int8_t>(v1, v2); }
+template <> inline reg combine<39, uint8_t>(const reg v1, const reg v2) { return combine<39, int8_t>(v1, v2); }
+template <> inline reg combine<40, uint8_t>(const reg v1, const reg v2) { return combine<40, int8_t>(v1, v2); }
+template <> inline reg combine<41, uint8_t>(const reg v1, const reg v2) { return combine<41, int8_t>(v1, v2); }
+template <> inline reg combine<42, uint8_t>(const reg v1, const reg v2) { return combine<42, int8_t>(v1, v2); }
+template <> inline reg combine<43, uint8_t>(const reg v1, const reg v2) { return combine<43, int8_t>(v1, v2); }
+template <> inline reg combine<44, uint8_t>(const reg v1, const reg v2) { return combine<44, int8_t>(v1, v2); }
+template <> inline reg combine<45, uint8_t>(const reg v1, const reg v2) { return combine<45, int8_t>(v1, v2); }
+template <> inline reg combine<46, uint8_t>(const reg v1, const reg v2) { return combine<46, int8_t>(v1, v2); }
+template <> inline reg combine<47, uint8_t>(const reg v1, const reg v2) { return combine<47, int8_t>(v1, v2); }
+template <> inline reg combine<48, uint8_t>(const reg v1, const reg v2) { return combine<48, int8_t>(v1, v2); }
+template <> inline reg combine<49, uint8_t>(const reg v1, const reg v2) { return combine<49, int8_t>(v1, v2); }
+template <> inline reg combine<50, uint8_t>(const reg v1, const reg v2) { return combine<50, int8_t>(v1, v2); }
+template <> inline reg combine<51, uint8_t>(const reg v1, const reg v2) { return combine<51, int8_t>(v1, v2); }
+template <> inline reg combine<52, uint8_t>(const reg v1, const reg v2) { return combine<52, int8_t>(v1, v2); }
+template <> inline reg combine<53, uint8_t>(const reg v1, const reg v2) { return combine<53, int8_t>(v1, v2); }
+template <> inline reg combine<54, uint8_t>(const reg v1, const reg v2) { return combine<54, int8_t>(v1, v2); }
+template <> inline reg combine<55, uint8_t>(const reg v1, const reg v2) { return combine<55, int8_t>(v1, v2); }
+template <> inline reg combine<56, uint8_t>(const reg v1, const reg v2) { return combine<56, int8_t>(v1, v2); }
+template <> inline reg combine<57, uint8_t>(const reg v1, const reg v2) { return combine<57, int8_t>(v1, v2); }
+template <> inline reg combine<58, uint8_t>(const reg v1, const reg v2) { return combine<58, int8_t>(v1, v2); }
+template <> inline reg combine<59, uint8_t>(const reg v1, const reg v2) { return combine<59, int8_t>(v1, v2); }
+template <> inline reg combine<60, uint8_t>(const reg v1, const reg v2) { return combine<60, int8_t>(v1, v2); }
+template <> inline reg combine<61, uint8_t>(const reg v1, const reg v2) { return combine<61, int8_t>(v1, v2); }
+template <> inline reg combine<62, uint8_t>(const reg v1, const reg v2) { return combine<62, int8_t>(v1, v2); }
+template <> inline reg combine<63, uint8_t>(const reg v1, const reg v2) { return combine<63, int8_t>(v1, v2); }
+#endif /* MIPP_REGISTER_SIZE >= 512 */
+#endif /* MIPP_REGISTER_SIZE >= 256 */
+#endif /* MIPP_BW */
+
+// -------------------------------------------------------------------------------------------------------------- cmask
+#ifdef MIPP_64BIT
+template <> inline reg cmask<uint64_t>(const uint32_t val[N<int64_t>()]) { return cmask<int64_t>(val); }
+#endif
+template <> inline reg cmask<uint32_t>(const uint32_t val[N<int32_t>()]) { return cmask<int32_t>(val); }
+#ifdef MIPP_BW
+template <> inline reg cmask<uint16_t>(const uint32_t val[N<int16_t>()]) { return cmask<int16_t>(val); }
+template <> inline reg cmask<uint8_t >(const uint32_t val[N<int8_t >()]) { return cmask<int8_t >(val); }
+#endif
+
+// ------------------------------------------------------------------------------------------------------------- cmask2
+#ifndef MIPP_NO_INTRINSICS
+#ifdef MIPP_64BIT
+template <> inline reg cmask2<uint64_t>(const uint32_t val[N<int64_t>()/2]) { return cmask2<int64_t>(val); }
+#endif
+template <> inline reg cmask2<uint32_t>(const uint32_t val[N<int32_t>()/2]) { return cmask2<int32_t>(val); }
+#ifdef MIPP_BW
+template <> inline reg cmask2<uint16_t>(const uint32_t val[N<int16_t>()/2]) { return cmask2<int16_t>(val); }
+template <> inline reg cmask2<uint8_t >(const uint32_t val[N<int8_t >()/2]) { return cmask2<int8_t >(val); }
+#endif
+#endif
+
+// ------------------------------------------------------------------------------------------------------------- cmask4
+#ifndef MIPP_NO_INTRINSICS
+#if(!MIPP_REGISTER_SIZE == 128)
+#ifdef MIPP_64BIT
+template <> inline reg cmask4<uint64_t>(const uint32_t val[N<int64_t>()/4]) { return cmask4<int64_t>(val); }
+#endif
+#endif
+template <> inline reg cmask4<uint32_t>(const uint32_t val[N<int32_t>()/4]) { return cmask4<int32_t>(val); }
+#ifdef MIPP_BW
+template <> inline reg cmask4<uint16_t>(const uint32_t val[N<int16_t>()/4]) { return cmask4<int16_t>(val); }
+template <> inline reg cmask4<uint8_t >(const uint32_t val[N<int8_t >()/4]) { return cmask4<int8_t >(val); }
+#endif
+#endif
+
+// -------------------------------------------------------------------------------------------------------------- shuff
+#ifdef MIPP_64BIT
+template <> inline reg shuff<uint64_t>(const reg v, const reg cm) { return shuff<int64_t>(v, cm); }
+#endif
+template <> inline reg shuff<uint32_t>(const reg v, const reg cm) { return shuff<int32_t>(v, cm); }
+#ifdef MIPP_BW
+template <> inline reg shuff<uint16_t>(const reg v, const reg cm) { return shuff<int16_t>(v, cm); }
+template <> inline reg shuff<uint8_t >(const reg v, const reg cm) { return shuff<int8_t >(v, cm); }
+#endif
+
+// ------------------------------------------------------------------------------------------------------------- shuff2
+#ifdef MIPP_64BIT
+template <> inline reg shuff2<uint64_t>(const reg v, const reg cm) { return shuff2<int64_t>(v, cm); }
+#endif
+template <> inline reg shuff2<uint32_t>(const reg v, const reg cm) { return shuff2<int32_t>(v, cm); }
+#ifdef MIPP_BW
+template <> inline reg shuff2<uint16_t>(const reg v, const reg cm) { return shuff2<int16_t>(v, cm); }
+template <> inline reg shuff2<uint8_t >(const reg v, const reg cm) { return shuff2<int8_t >(v, cm); }
+#endif
+
+// ------------------------------------------------------------------------------------------------------------- shuff4
+#if(!MIPP_REGISTER_SIZE == 128)
+#ifdef MIPP_64BIT
+template <> inline reg shuff4<uint64_t>(const reg v, const reg cm) { return shuff4<int64_t>(v, cm); }
+#endif
+#endif
+template <> inline reg shuff4<uint32_t>(const reg v, const reg cm) { return shuff4<int32_t>(v, cm); }
+#ifdef MIPP_BW
+template <> inline reg shuff4<uint16_t>(const reg v, const reg cm) { return shuff4<int16_t>(v, cm); }
+template <> inline reg shuff4<uint8_t >(const reg v, const reg cm) { return shuff4<int8_t >(v, cm); }
+#endif
+
+// ------------------------------------------------------------------------------------------------------- interleavelo
+#ifdef MIPP_64BIT
+template <> inline reg interleavelo<uint64_t>(const reg v1, const reg v2) { return interleavelo<int64_t>(v1, v2); }
+#endif
+template <> inline reg interleavelo<uint32_t>(const reg v1, const reg v2) { return interleavelo<int32_t>(v1, v2); }
+#ifdef MIPP_BW
+template <> inline reg interleavelo<uint16_t>(const reg v1, const reg v2) { return interleavelo<int16_t>(v1, v2); }
+template <> inline reg interleavelo<uint8_t >(const reg v1, const reg v2) { return interleavelo<int8_t >(v1, v2); }
+#endif
+
+// ------------------------------------------------------------------------------------------------------- interleavehi
+#ifdef MIPP_64BIT
+template <> inline reg interleavehi<uint64_t>(const reg v1, const reg v2) { return interleavehi<int64_t>(v1, v2); }
+#endif
+template <> inline reg interleavehi<uint32_t>(const reg v1, const reg v2) { return interleavehi<int32_t>(v1, v2); }
+#ifdef MIPP_BW
+template <> inline reg interleavehi<uint16_t>(const reg v1, const reg v2) { return interleavehi<int16_t>(v1, v2); }
+template <> inline reg interleavehi<uint8_t >(const reg v1, const reg v2) { return interleavehi<int8_t >(v1, v2); }
+#endif
+
+// ------------------------------------------------------------------------------------------------------ interleavelo2
+#ifdef MIPP_64BIT
+template <> inline reg interleavelo2<uint64_t>(const reg v1, const reg v2) { return interleavelo2<int64_t>(v1, v2); }
+#endif
+template <> inline reg interleavelo2<uint32_t>(const reg v1, const reg v2) { return interleavelo2<int32_t>(v1, v2); }
+#ifdef MIPP_BW
+template <> inline reg interleavelo2<uint16_t>(const reg v1, const reg v2) { return interleavelo2<int16_t>(v1, v2); }
+template <> inline reg interleavelo2<uint8_t >(const reg v1, const reg v2) { return interleavelo2<int8_t >(v1, v2); }
+#endif
+
+// ------------------------------------------------------------------------------------------------------ interleavehi2
+#ifdef MIPP_64BIT
+template <> inline reg interleavehi2<uint64_t>(const reg v1, const reg v2) { return interleavehi2<int64_t>(v1, v2); }
+#endif
+template <> inline reg interleavehi2<uint32_t>(const reg v1, const reg v2) { return interleavehi2<int32_t>(v1, v2); }
+#ifdef MIPP_BW
+template <> inline reg interleavehi2<uint16_t>(const reg v1, const reg v2) { return interleavehi2<int16_t>(v1, v2); }
+template <> inline reg interleavehi2<uint8_t >(const reg v1, const reg v2) { return interleavehi2<int8_t >(v1, v2); }
+#endif
+
+// --------------------------------------------------------------------------------------------------------- interleave
+#ifdef MIPP_64BIT
+template <> inline regx2 interleave<uint64_t>(const reg v1, const reg v2) { return interleave<int64_t>(v1, v2); }
+#endif
+template <> inline regx2 interleave<uint32_t>(const reg v1, const reg v2) { return interleave<int32_t>(v1, v2); }
+#ifdef MIPP_BW
+template <> inline regx2 interleave<uint16_t>(const reg v1, const reg v2) { return interleave<int16_t>(v1, v2); }
+template <> inline regx2 interleave<uint8_t >(const reg v1, const reg v2) { return interleave<int8_t >(v1, v2); }
+#endif
+
+// ------------------------------------------------------------------------------------------------------- deinterleave
+#ifdef MIPP_64BIT
+template <> inline regx2 deinterleave<uint64_t>(const reg v1, const reg v2) { return deinterleave<int64_t>(v1, v2); }
+#endif
+template <> inline regx2 deinterleave<uint32_t>(const reg v1, const reg v2) { return deinterleave<int32_t>(v1, v2); }
+#ifdef MIPP_BW
+template <> inline regx2 deinterleave<uint16_t>(const reg v1, const reg v2) { return deinterleave<int16_t>(v1, v2); }
+template <> inline regx2 deinterleave<uint8_t >(const reg v1, const reg v2) { return deinterleave<int8_t >(v1, v2); }
+#endif
+
+// -------------------------------------------------------------------------------------------------------- interleave2
+#ifdef MIPP_64BIT
+template <> inline regx2 interleave2<uint64_t>(const reg v1, const reg v2) { return interleave2<int64_t>(v1, v2); }
+#endif
+template <> inline regx2 interleave2<uint32_t>(const reg v1, const reg v2) { return interleave2<int32_t>(v1, v2); }
+#ifdef MIPP_BW
+template <> inline regx2 interleave2<uint16_t>(const reg v1, const reg v2) { return interleave2<int16_t>(v1, v2); }
+template <> inline regx2 interleave2<uint8_t >(const reg v1, const reg v2) { return interleave2<int8_t >(v1, v2); }
+#endif
+
+// --------------------------------------------------------------------------------------------------------------- andb
+#ifdef MIPP_64BIT
+template <> inline reg andb<uint64_t>(const reg v1, const reg v2) { return andb<int64_t>(v1, v2); }
+#endif
+template <> inline reg andb<uint32_t>(const reg v1, const reg v2) { return andb<int32_t>(v1, v2); }
+#ifdef MIPP_BW
+template <> inline reg andb<uint16_t>(const reg v1, const reg v2) { return andb<int16_t>(v1, v2); }
+template <> inline reg andb<uint8_t >(const reg v1, const reg v2) { return andb<int8_t >(v1, v2); }
+#endif
+
+// --------------------------------------------------------------------------------------------------------------- notb
+#ifdef MIPP_64BIT
+template <> inline reg notb<uint64_t>(const reg v1) { return notb<int64_t>(v1); }
+#endif
+template <> inline reg notb<uint32_t>(const reg v1) { return notb<int32_t>(v1); }
+#ifdef MIPP_BW
+template <> inline reg notb<uint16_t>(const reg v1) { return notb<int16_t>(v1); }
+template <> inline reg notb<uint8_t >(const reg v1) { return notb<int8_t >(v1); }
+#endif
+
+// -------------------------------------------------------------------------------------------------------------- andnb
+#ifdef MIPP_64BIT
+template <> inline reg andnb<uint64_t>(const reg v1, const reg v2) { return andnb<int64_t>(v1, v2); }
+#endif
+template <> inline reg andnb<uint32_t>(const reg v1, const reg v2) { return andnb<int32_t>(v1, v2); }
+#ifdef MIPP_BW
+template <> inline reg andnb<uint16_t>(const reg v1, const reg v2) { return andnb<int16_t>(v1, v2); }
+template <> inline reg andnb<uint8_t >(const reg v1, const reg v2) { return andnb<int8_t >(v1, v2); }
+#endif
+
+// ---------------------------------------------------------------------------------------------------------------- orb
+#ifdef MIPP_64BIT
+template <> inline reg orb<uint64_t>(const reg v1, const reg v2) { return orb<int64_t>(v1, v2); }
+#endif
+template <> inline reg orb<uint32_t>(const reg v1, const reg v2) { return orb<int32_t>(v1, v2); }
+#ifdef MIPP_BW
+template <> inline reg orb<uint16_t>(const reg v1, const reg v2) { return orb<int16_t>(v1, v2); }
+template <> inline reg orb<uint8_t >(const reg v1, const reg v2) { return orb<int8_t >(v1, v2); }
+#endif
+
+// --------------------------------------------------------------------------------------------------------------- xorb
+#ifdef MIPP_64BIT
+template <> inline reg xorb<uint64_t>(const reg v1, const reg v2) { return xorb<int64_t>(v1, v2); }
+#endif
+template <> inline reg xorb<uint32_t>(const reg v1, const reg v2) { return xorb<int32_t>(v1, v2); }
+#ifdef MIPP_BW
+template <> inline reg xorb<uint16_t>(const reg v1, const reg v2) { return xorb<int16_t>(v1, v2); }
+template <> inline reg xorb<uint8_t >(const reg v1, const reg v2) { return xorb<int8_t >(v1, v2); }
+#endif
+
+// ------------------------------------------------------------------------------------------------------------- lshift
+#ifdef MIPP_64BIT
+template <> inline reg lshift<uint64_t>(const reg v1, const uint32_t n) { return lshift<int64_t>(v1, n); }
+#endif
+template <> inline reg lshift<uint32_t>(const reg v1, const uint32_t n) { return lshift<int32_t>(v1, n); }
+#ifdef MIPP_BW
+template <> inline reg lshift<uint16_t>(const reg v1, const uint32_t n) { return lshift<int16_t>(v1, n); }
+template <> inline reg lshift<uint8_t >(const reg v1, const uint32_t n) { return lshift<int8_t >(v1, n); }
+#endif
+
+// ------------------------------------------------------------------------------------------------------------ lshiftr
+#ifdef MIPP_64BIT
+template <> inline reg lshiftr<uint64_t>(const reg v1, const reg v2) { return lshiftr<int64_t>(v1, v2); }
+#endif
+template <> inline reg lshiftr<uint32_t>(const reg v1, const reg v2) { return lshiftr<int32_t>(v1, v2); }
+#ifdef MIPP_BW
+template <> inline reg lshiftr<uint16_t>(const reg v1, const reg v2) { return lshiftr<int16_t>(v1, v2); }
+template <> inline reg lshiftr<uint8_t >(const reg v1, const reg v2) { return lshiftr<int8_t >(v1, v2); }
+#endif
+
+// ------------------------------------------------------------------------------------------------------------- rshift
+#ifdef MIPP_64BIT
+template <> inline reg rshift<uint64_t>(const reg v1, const uint32_t n) { return rshift<int64_t>(v1, n); }
+#endif
+template <> inline reg rshift<uint32_t>(const reg v1, const uint32_t n) { return rshift<int32_t>(v1, n); }
+#ifdef MIPP_BW
+template <> inline reg rshift<uint16_t>(const reg v1, const uint32_t n) { return rshift<int16_t>(v1, n); }
+template <> inline reg rshift<uint8_t >(const reg v1, const uint32_t n) { return rshift<int8_t >(v1, n); }
+#endif
+
+// ------------------------------------------------------------------------------------------------------------ rshiftr
+#ifdef MIPP_64BIT
+template <> inline reg rshiftr<uint64_t>(const reg v1, const reg v2) { return rshiftr<int64_t>(v1, v2); }
+#endif
+template <> inline reg rshiftr<uint32_t>(const reg v1, const reg v2) { return rshiftr<int32_t>(v1, v2); }
+#ifdef MIPP_BW
+template <> inline reg rshiftr<uint16_t>(const reg v1, const reg v2) { return rshiftr<int16_t>(v1, v2); }
+template <> inline reg rshiftr<uint8_t >(const reg v1, const reg v2) { return rshiftr<int8_t >(v1, v2); }
+#endif
+
+// -------------------------------------------------------------------------------------------------------------- blend
+#ifdef MIPP_64BIT
+template <> inline reg blend<uint64_t>(const reg v1, const reg v2, const msk m) { return blend<int64_t>(v1, v2, m); }
+#endif
+template <> inline reg blend<uint32_t>(const reg v1, const reg v2, const msk m) { return blend<int32_t>(v1, v2, m); }
+#ifdef MIPP_BW
+template <> inline reg blend<uint16_t>(const reg v1, const reg v2, const msk m) { return blend<int16_t>(v1, v2, m); }
+template <> inline reg blend<uint8_t >(const reg v1, const reg v2, const msk m) { return blend<int8_t >(v1, v2, m); }
+#endif
+
+// -------------------------------------------------------------------------------------------------------------- cmpeq
+#ifdef MIPP_64BIT
+template <> inline msk cmpeq<uint64_t>(const reg v1, const reg v2) { return cmpeq<int64_t>(v1, v2); };
+#endif
+template <> inline msk cmpeq<uint32_t>(const reg v1, const reg v2) { return cmpeq<int32_t>(v1, v2); };
+#ifdef MIPP_BW
+template <> inline msk cmpeq<uint16_t>(const reg v1, const reg v2) { return cmpeq<int16_t>(v1, v2); };
+template <> inline msk cmpeq<uint8_t >(const reg v1, const reg v2) { return cmpeq<int8_t >(v1, v2); };
+#endif
+
+// ------------------------------------------------------------------------------------------------------------- cmpneq
+#ifdef MIPP_64BIT
+template <> inline msk cmpneq<uint64_t>(const reg v1, const reg v2) { return cmpneq<int64_t>(v1, v2); };
+#endif
+template <> inline msk cmpneq<uint32_t>(const reg v1, const reg v2) { return cmpneq<int32_t>(v1, v2); };
+#ifdef MIPP_BW
+template <> inline msk cmpneq<uint16_t>(const reg v1, const reg v2) { return cmpneq<int16_t>(v1, v2); };
+template <> inline msk cmpneq<uint8_t >(const reg v1, const reg v2) { return cmpneq<int8_t >(v1, v2); };
+#endif
+
+// ---------------------------------------------------------------------------------------------------------------- msb
+#ifdef MIPP_64BIT
+template <> inline reg msb<uint64_t>(const reg v1) { return msb<int64_t>(v1); }
+#endif
+template <> inline reg msb<uint32_t>(const reg v1) { return msb<int32_t>(v1); }
+#ifdef MIPP_BW
+template <> inline reg msb<uint16_t>(const reg v1) { return msb<int16_t>(v1); }
+template <> inline reg msb<uint8_t >(const reg v1) { return msb<int8_t >(v1); }
+#endif
+
+// --------------------------------------------------------------------------------------------------------------- sign
+#ifdef MIPP_64BIT
+template <> inline msk sign<uint64_t>(const reg v1) { return sign<int64_t>(v1); }
+#endif
+template <> inline msk sign<uint32_t>(const reg v1) { return sign<int32_t>(v1); }
+#ifdef MIPP_BW
+template <> inline msk sign<uint16_t>(const reg v1) { return sign<int16_t>(v1); }
+template <> inline msk sign<uint8_t >(const reg v1) { return sign<int8_t >(v1); }
+#endif
+
+// --------------------------------------------------------------------------------------------------------------- lrot
+#ifdef MIPP_64BIT
+template <> inline reg lrot<uint64_t>(const reg v1) { return lrot<int64_t>(v1); }
+#endif
+template <> inline reg lrot<uint32_t>(const reg v1) { return lrot<int32_t>(v1); }
+#ifdef MIPP_BW
+template <> inline reg lrot<uint16_t>(const reg v1) { return lrot<int16_t>(v1); }
+template <> inline reg lrot<uint8_t >(const reg v1) { return lrot<int8_t >(v1); }
+#endif
+
+// --------------------------------------------------------------------------------------------------------------- rrot
+#ifdef MIPP_64BIT
+template <> inline reg rrot<uint64_t>(const reg v1) { return rrot<int64_t>(v1); }
+#endif
+template <> inline reg rrot<uint32_t>(const reg v1) { return rrot<int32_t>(v1); }
+#ifdef MIPP_BW
+template <> inline reg rrot<uint16_t>(const reg v1) { return rrot<int16_t>(v1); }
+template <> inline reg rrot<uint8_t >(const reg v1) { return rrot<int8_t >(v1); }
+#endif
+
+// --------------------------------------------------------------------------------------------------------------- div2
+#ifdef MIPP_64BIT
+template <> inline reg div2<uint64_t>(const reg v1) { return rshift<uint64_t>(v1, 1); }
+#endif
+template <> inline reg div2<uint32_t>(const reg v1) { return rshift<uint32_t>(v1, 1); }
+#ifdef MIPP_BW
+template <> inline reg div2<uint16_t>(const reg v1) { return rshift<uint16_t>(v1, 1); }
+template <> inline reg div2<uint8_t >(const reg v1) { return rshift<uint8_t >(v1, 1); }
+#endif
+
+// --------------------------------------------------------------------------------------------------------------- div4
+#ifdef MIPP_64BIT
+template <> inline reg div4<uint64_t>(const reg v1) { return rshift<uint64_t>(v1, 2); }
+#endif
+template <> inline reg div4<uint32_t>(const reg v1) { return rshift<uint32_t>(v1, 2); }
+#ifdef MIPP_BW
+template <> inline reg div4<uint16_t>(const reg v1) { return rshift<uint16_t>(v1, 2); }
+template <> inline reg div4<uint8_t >(const reg v1) { return rshift<uint8_t >(v1, 2); }
+#endif
+
+// -------------------------------------------------------------------------------------------------------------- testz
+#ifdef MIPP_64BIT
+template <> inline bool testz<uint64_t>(const reg v1, const reg v2) { return testz<int64_t>(v1, v2); }
+#endif
+template <> inline bool testz<uint32_t>(const reg v1, const reg v2) { return testz<int32_t>(v1, v2); }
+#ifdef MIPP_BW
+template <> inline bool testz<uint16_t>(const reg v1, const reg v2) { return testz<int16_t>(v1, v2); }
+template <> inline bool testz<uint8_t >(const reg v1, const reg v2) { return testz<int8_t >(v1, v2); }
+#endif
+
+// ----------------------------------------------------------------------------------- implicit conversions and packing
+#ifndef MIPP_NO_INTRINSICS
+template <> inline mipp::Reg<double  >::Reg(const mipp::Reg_2<float   > r_2) : r(mipp::cvt<float,    double  >(r_2.r)) {}
+template <> inline mipp::Reg<int64_t >::Reg(const mipp::Reg_2<int32_t > r_2) : r(mipp::cvt<int32_t,  int64_t >(r_2.r)) {}
+template <> inline mipp::Reg<int32_t >::Reg(const mipp::Reg_2<int16_t > r_2) : r(mipp::cvt<int16_t,  int32_t >(r_2.r)) {}
+template <> inline mipp::Reg<int16_t >::Reg(const mipp::Reg_2<int8_t  > r_2) : r(mipp::cvt<int8_t,   int16_t >(r_2.r)) {}
+template <> inline mipp::Reg<uint64_t>::Reg(const mipp::Reg_2<uint32_t> r_2) : r(mipp::cvt<uint32_t, uint64_t>(r_2.r)) {}
+template <> inline mipp::Reg<uint32_t>::Reg(const mipp::Reg_2<uint16_t> r_2) : r(mipp::cvt<uint16_t, uint32_t>(r_2.r)) {}
+template <> inline mipp::Reg<uint16_t>::Reg(const mipp::Reg_2<uint8_t > r_2) : r(mipp::cvt<uint8_t,  uint16_t>(r_2.r)) {}
+
+template <> inline mipp::Reg<float   >::Reg(const mipp::Regx2<double  > rx2) : r(mipp::pack<float,    double  >(rx2.val[0].r, rx2.val[1].r)) {}
+template <> inline mipp::Reg<int32_t >::Reg(const mipp::Regx2<int64_t > rx2) : r(mipp::pack<int64_t,  int32_t >(rx2.val[0].r, rx2.val[1].r)) {}
+template <> inline mipp::Reg<int16_t >::Reg(const mipp::Regx2<int32_t > rx2) : r(mipp::pack<int32_t,  int16_t >(rx2.val[0].r, rx2.val[1].r)) {}
+template <> inline mipp::Reg<int8_t  >::Reg(const mipp::Regx2<int16_t > rx2) : r(mipp::pack<int16_t,  int8_t  >(rx2.val[0].r, rx2.val[1].r)) {}
+template <> inline mipp::Reg<uint32_t>::Reg(const mipp::Regx2<uint64_t> rx2) : r(mipp::pack<uint64_t, uint32_t>(rx2.val[0].r, rx2.val[1].r)) {}
+template <> inline mipp::Reg<uint16_t>::Reg(const mipp::Regx2<uint32_t> rx2) : r(mipp::pack<uint32_t, uint16_t>(rx2.val[0].r, rx2.val[1].r)) {}
+template <> inline mipp::Reg<uint8_t >::Reg(const mipp::Regx2<uint16_t> rx2) : r(mipp::pack<uint16_t, uint8_t >(rx2.val[0].r, rx2.val[1].r)) {}
+
+template <> inline mipp::Reg<float   >::Reg(const mipp::Reg<double  > r1, const mipp::Reg<double  > r2) : r(mipp::pack<float,    double  >(r1.r, r2.r)) {}
+template <> inline mipp::Reg<int32_t >::Reg(const mipp::Reg<int64_t > r1, const mipp::Reg<int64_t > r2) : r(mipp::pack<int64_t,  int32_t >(r1.r, r2.r)) {}
+template <> inline mipp::Reg<int16_t >::Reg(const mipp::Reg<int32_t > r1, const mipp::Reg<int32_t > r2) : r(mipp::pack<int32_t,  int16_t >(r1.r, r2.r)) {}
+template <> inline mipp::Reg<int8_t  >::Reg(const mipp::Reg<int16_t > r1, const mipp::Reg<int16_t > r2) : r(mipp::pack<int16_t,  int8_t  >(r1.r, r2.r)) {}
+template <> inline mipp::Reg<uint32_t>::Reg(const mipp::Reg<uint64_t> r1, const mipp::Reg<uint64_t> r2) : r(mipp::pack<uint64_t, uint32_t>(r1.r, r2.r)) {}
+template <> inline mipp::Reg<uint16_t>::Reg(const mipp::Reg<uint32_t> r1, const mipp::Reg<uint32_t> r2) : r(mipp::pack<uint32_t, uint16_t>(r1.r, r2.r)) {}
+template <> inline mipp::Reg<uint8_t >::Reg(const mipp::Reg<uint16_t> r1, const mipp::Reg<uint16_t> r2) : r(mipp::pack<uint16_t, uint8_t >(r1.r, r2.r)) {}
+#endif
+}
 #endif /* MY_INTRINSICS_PLUS_PLUS_H_ */

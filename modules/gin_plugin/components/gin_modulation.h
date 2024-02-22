@@ -15,13 +15,13 @@ public:
         update();
     }
 
-	ModulationSourceButton (const juce::String& name, ModMatrix& mm, ModSrcId src = {}, bool poly_ = false)
-		: Button (""), modMatrix (mm), source (src), poly (poly_)
-	{
-		setName (name);
-		modMatrix.addListener (this);
-		update();
-	}
+    ModulationSourceButton (const juce::String& name, ModMatrix& mm, ModSrcId src = {}, bool poly_ = false)
+        : Button (""), modMatrix (mm), source (src), poly (poly_)
+    {
+        setName (name);
+        modMatrix.addListener (this);
+        update();
+    }
 
     ~ModulationSourceButton() override
     {
@@ -171,7 +171,7 @@ public:
         learnSourceChanged (modMatrix.getLearn ());
 
         addAndMakeVisible (button);
-        
+
         name.setInterceptsMouseClicks (false, false);
         addAndMakeVisible (name);
     }
@@ -188,34 +188,34 @@ private:
             startTimerHz (60);
         else
             stopTimer();
-        
+
         timerCallback();
     }
-    
+
     void timerCallback() override
     {
         auto phase = float (std::fmod (juce::Time::getMillisecondCounterHiRes() / 2000.0f, 1.0f));
-        
+
         auto c1 = findColour (GinLookAndFeel::whiteColourId);
         auto c2 = findColour (GinLookAndFeel::accentColourId);
-        
+
         if (phase < 0.5f)
             phase *= 2.0f;
         else
             phase = 1.0f - ((phase - 0.5f) * 2.0f);
-        
+
         auto col = c1.overlaidWith (c2.withAlpha (phase));
-        
+
         button.setColour (GinLookAndFeel::whiteColourId, col);
         name.setColour (juce::Label::textColourId, col);
     }
-    
+
     void mouseUp (const juce::MouseEvent& e) override
     {
         if (e.mouseWasClicked())
             modMatrix.disableLearn();
     }
-    
+
     void resized() override
     {
         auto rc = getLocalBounds();
@@ -319,37 +319,37 @@ public:
     ModCurveButton() : juce::Button ("")
     {
     }
-    
+
     void setCurve (ModMatrix::Function c)
     {
         curve = c;
         repaint();
     }
-    
+
     void paintButton (juce::Graphics& g, bool over, bool down) override
     {
         auto c = findColour (getToggleState() ? GinLookAndFeel::whiteColourId : GinLookAndFeel::accentColourId).withAlpha (0.9f);
         if (over || down)
             c = c.withMultipliedAlpha (1.2f);
-        
+
         g.setColour (c.withMultipliedAlpha (isEnabled() ? 1.0f : 0.5f));
-        
+
         auto rc = getLocalBounds().toFloat().reduced (1.0f);
-        
+
         juce::Path p;
         for (auto x = 0.0f; x <= rc.getWidth(); x += 0.5f)
         {
             auto y = (1.0f - ModMatrix::shape (x / rc.getWidth(), curve, false)) * rc.getHeight();
-            
+
             if (x == 0.0f)
                 p.startNewSubPath (rc.getX() + x, rc.getY() + y);
             else
                 p.lineTo (rc.getX() + x, rc.getY() + y);
         }
-        
+
         g.strokePath (p, juce::PathStrokeType (1.0f));
     }
-    
+
 private:
     ModMatrix::Function curve;
 };
@@ -387,7 +387,7 @@ private:
         for (gin::Parameter* p : params)
             for (auto s : modMatrix.getModSources (p))
                 assignments.add ({s, p});
-        
+
         updateContent();
         repaint();
     }
@@ -441,7 +441,7 @@ private:
                 if (row >= 0 && row < owner.assignments.size())
                 {
                     auto& a = owner.assignments.getReference (row);
-                    
+
                     auto e = owner.modMatrix.getModEnable (a.src, ModDstId (a.dst->getModIndex()));
                     owner.modMatrix.setModEnable (a.src, ModDstId (a.dst->getModIndex()), ! e);
                     enableButton.setToggleState (! e, juce::dontSendNotification);
@@ -456,22 +456,22 @@ private:
                     owner.modMatrix.clearModDepth (a.src, ModDstId (a.dst->getModIndex()));
                 }
             };
-            
+
             curveButton.onClick = [this]
             {
                 if (row >= 0 && row < owner.assignments.size())
                 {
                     auto& a = owner.assignments.getReference (row);
                     auto f = owner.modMatrix.getModFunction (a.src, ModDstId (a.dst->getModIndex()));
-                    
+
                     auto set = [this] (ModMatrix::Function func)
                     {
                         auto& aa = owner.assignments.getReference (row);
                         owner.modMatrix.setModFunction (aa.src, ModDstId (aa.dst->getModIndex()), func);
                     };
-                    
+
                     juce::PopupMenu m;
-                    
+
                     m.addItem ("Linear", true, f == ModMatrix::Function::linear, [set] { set (ModMatrix::Function::linear); });
                     m.addItem ("Quadratic In", true, f == ModMatrix::Function::quadraticIn, [set] { set (ModMatrix::Function::quadraticIn); });
                     m.addItem ("Quadratic In/Out", true, f == ModMatrix::Function::quadraticInOut, [set] { set (ModMatrix::Function::quadraticInOut); });
@@ -493,7 +493,7 @@ private:
                     m.addItem ("Inv Exponential In", true, f == ModMatrix::Function::invExponentialIn, [set] { set (ModMatrix::Function::invExponentialIn); });
                     m.addItem ("Inv Exponential In/Out", true, f == ModMatrix::Function::invExponentialInOut, [set] { set (ModMatrix::Function::invExponentialInOut); });
                     m.addItem ("Inv Exponential Out", true, f == ModMatrix::Function::invExponentialOut, [set] { set (ModMatrix::Function::invExponentialOut); });
-                    
+
                     m.showMenuAsync ({});
                 }
             };
@@ -556,7 +556,7 @@ private:
 
         juce::Label src;
         juce::Label dst;
-        
+
         ModCurveButton curveButton;
 
         SVGButton enableButton { "enable", Assets::power };

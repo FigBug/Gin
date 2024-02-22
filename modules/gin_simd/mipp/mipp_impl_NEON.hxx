@@ -18,7 +18,7 @@
     }
 
 #ifdef __aarch64__
-        template <>
+    template <>
     inline reg loadu<int64_t>(const int64_t *mem_addr) {
         return (reg) vld1q_s64(mem_addr);
     }
@@ -39,6 +39,11 @@
         return (reg) vld1q_s8((int8_t*) mem_addr);
     }
 
+    template <>
+    inline reg_2 loadu_2<int32_t>(const int32_t *mem_addr) {
+        return (reg_2) vld1_s32(mem_addr);
+    }
+
     // ----------------------------------------------------------------------------------------------------------- load
 #ifdef MIPP_ALIGNED_LOADS
 #ifdef __aarch64__
@@ -54,7 +59,7 @@
     }
 
 #ifdef __aarch64__
-        template <>
+    template <>
     inline reg load<int64_t>(const int64_t *mem_addr) {
         return (reg) vld1q_s64(mem_addr);
     }
@@ -74,6 +79,12 @@
     inline reg load<int8_t>(const int8_t *mem_addr) {
         return (reg) vld1q_s8((int8_t*) mem_addr);
     }
+
+    template <>
+    inline reg_2 load_2<int32_t>(const int32_t *mem_addr) {
+        return (reg_2) vld1_s32(mem_addr);
+    }
+
 #else
     template <>
     inline reg load<double>(const double *mem_addr) {
@@ -103,6 +114,11 @@
     template <>
     inline reg load<int8_t>(const int8_t *mem_addr) {
         return mipp::loadu<int8_t>(mem_addr);
+    }
+
+    template <>
+    inline reg_2 load_2<int32_t>(const int32_t *mem_addr) {
+        return mipp::loadu_2<int32_t>(mem_addr);
     }
 #endif
 
@@ -356,9 +372,14 @@
     }
 
 #ifdef __aarch64__
-        template <>
+    template <>
     inline reg set1<int64_t>(const int64_t val) {
         return (reg) vdupq_n_s64(val);
+    }
+
+    template <>
+    inline reg set1<uint64_t>(const uint64_t val) {
+        return (reg) vdupq_n_u64(val);
     }
 #endif
 
@@ -368,13 +389,28 @@
     }
 
     template <>
+    inline reg set1<uint32_t>(const uint32_t val) {
+        return (reg) vdupq_n_u32(val);
+    }
+
+    template <>
     inline reg set1<int16_t>(const int16_t val) {
         return (reg) vdupq_n_s16(val);
     }
 
     template <>
+    inline reg set1<uint16_t>(const uint16_t val) {
+        return (reg) vdupq_n_u16(val);
+    }
+
+    template <>
     inline reg set1<int8_t>(const int8_t val) {
         return (reg) vdupq_n_s8(val);
+    }
+
+    template <>
+    inline reg set1<uint8_t>(const uint8_t val) {
+        return (reg) vdupq_n_u8(val);
     }
 
     // ---------------------------------------------------------------------------------------------------- set1 (mask)
@@ -418,6 +454,11 @@
     inline reg set0<int64_t>() {
         return (reg) vdupq_n_s64(0);
     }
+
+    template <>
+    inline reg set0<uint64_t>() {
+        return (reg) vdupq_n_u64(0);
+    }
 #endif
 
     template <>
@@ -426,13 +467,28 @@
     }
 
     template <>
+    inline reg set0<uint32_t>() {
+        return (reg) vdupq_n_u32(0);
+    }
+
+    template <>
     inline reg set0<int16_t>() {
         return (reg) vdupq_n_s16(0);
     }
 
     template <>
+    inline reg set0<uint16_t>() {
+        return (reg) vdupq_n_u16(0);
+    }
+
+    template <>
     inline reg set0<int8_t>() {
         return (reg) vdupq_n_s8(0);
+    }
+
+    template <>
+    inline reg set0<uint8_t>() {
+        return (reg) vdupq_n_u8(0);
     }
 
     // ---------------------------------------------------------------------------------------------------- set0 (mask)
@@ -546,8 +602,18 @@
     }
 
     template <>
+    inline uint64_t getfirst<uint64_t>(const mipp::reg r){
+        return vdupd_laneq_u64((uint64x2_t)r, 0);
+    }
+
+    template <>
     inline int32_t getfirst<int32_t>(const mipp::reg r){
         return vdups_laneq_s32((int32x4_t)r, 0);
+    }
+
+    template <>
+    inline uint32_t getfirst<uint32_t>(const mipp::reg r){
+        return vdups_laneq_u32((uint32x4_t)r, 0);
     }
 
     template <>
@@ -556,8 +622,18 @@
     }
 
     template <>
+    inline uint16_t getfirst<uint16_t>(const mipp::reg r){
+        return vduph_laneq_u16((uint16x8_t)r, 0);
+    }
+
+    template <>
     inline int8_t getfirst<int8_t>(const mipp::reg r){
         return vdupb_laneq_s8((int8x16_t)r, 0);
+    }
+
+    template <>
+    inline uint8_t getfirst<uint8_t>(const mipp::reg r){
+        return vdupb_laneq_u8((uint8x16_t)r, 0);
     }
 #endif
 
@@ -599,6 +675,51 @@
     {
         return (reg) vcombine_s8((int8x8_t) v1, (int8x8_t) v2);
     }
+
+    // -------------------------------------------------------------------------------------------------- combine (bis)
+#ifdef __aarch64__
+    template <> inline reg combine< 0, double>(const reg v1, const reg v2) { return (reg) vextq_f64((float64x2_t) v1, (float64x2_t) v2,  0); }
+    template <> inline reg combine< 1, double>(const reg v1, const reg v2) { return (reg) vextq_f64((float64x2_t) v1, (float64x2_t) v2,  1); }
+
+    template <> inline reg combine< 0, int64_t>(const reg v1, const reg v2) { return (reg) vextq_s64((int64x2_t) v1, (int64x2_t) v2,  0); }
+    template <> inline reg combine< 1, int64_t>(const reg v1, const reg v2) { return (reg) vextq_s64((int64x2_t) v1, (int64x2_t) v2,  1); }
+#endif
+
+    template <> inline reg combine< 0, float>(const reg v1, const reg v2) { return (reg) vextq_f32((float32x4_t) v1, (float32x4_t) v2,  0); }
+    template <> inline reg combine< 1, float>(const reg v1, const reg v2) { return (reg) vextq_f32((float32x4_t) v1, (float32x4_t) v2,  1); }
+    template <> inline reg combine< 2, float>(const reg v1, const reg v2) { return (reg) vextq_f32((float32x4_t) v1, (float32x4_t) v2,  2); }
+    template <> inline reg combine< 3, float>(const reg v1, const reg v2) { return (reg) vextq_f32((float32x4_t) v1, (float32x4_t) v2,  3); }
+
+    template <> inline reg combine< 0, int32_t>(const reg v1, const reg v2) { return (reg) vextq_s32((int32x4_t) v1, (int32x4_t) v2,  0); }
+    template <> inline reg combine< 1, int32_t>(const reg v1, const reg v2) { return (reg) vextq_s32((int32x4_t) v1, (int32x4_t) v2,  1); }
+    template <> inline reg combine< 2, int32_t>(const reg v1, const reg v2) { return (reg) vextq_s32((int32x4_t) v1, (int32x4_t) v2,  2); }
+    template <> inline reg combine< 3, int32_t>(const reg v1, const reg v2) { return (reg) vextq_s32((int32x4_t) v1, (int32x4_t) v2,  3); }
+
+    template <> inline reg combine< 0, int16_t>(const reg v1, const reg v2) { return (reg) vextq_s16((int16x8_t) v1, (int16x8_t) v2,  0); }
+    template <> inline reg combine< 1, int16_t>(const reg v1, const reg v2) { return (reg) vextq_s16((int16x8_t) v1, (int16x8_t) v2,  1); }
+    template <> inline reg combine< 2, int16_t>(const reg v1, const reg v2) { return (reg) vextq_s16((int16x8_t) v1, (int16x8_t) v2,  2); }
+    template <> inline reg combine< 3, int16_t>(const reg v1, const reg v2) { return (reg) vextq_s16((int16x8_t) v1, (int16x8_t) v2,  3); }
+    template <> inline reg combine< 4, int16_t>(const reg v1, const reg v2) { return (reg) vextq_s16((int16x8_t) v1, (int16x8_t) v2,  4); }
+    template <> inline reg combine< 5, int16_t>(const reg v1, const reg v2) { return (reg) vextq_s16((int16x8_t) v1, (int16x8_t) v2,  5); }
+    template <> inline reg combine< 6, int16_t>(const reg v1, const reg v2) { return (reg) vextq_s16((int16x8_t) v1, (int16x8_t) v2,  6); }
+    template <> inline reg combine< 7, int16_t>(const reg v1, const reg v2) { return (reg) vextq_s16((int16x8_t) v1, (int16x8_t) v2,  7); }
+
+    template <> inline reg combine< 0, int8_t>(const reg v1, const reg v2) { return (reg) vextq_s8((int8x16_t) v1, (int8x16_t) v2,  0); }
+    template <> inline reg combine< 1, int8_t>(const reg v1, const reg v2) { return (reg) vextq_s8((int8x16_t) v1, (int8x16_t) v2,  1); }
+    template <> inline reg combine< 2, int8_t>(const reg v1, const reg v2) { return (reg) vextq_s8((int8x16_t) v1, (int8x16_t) v2,  2); }
+    template <> inline reg combine< 3, int8_t>(const reg v1, const reg v2) { return (reg) vextq_s8((int8x16_t) v1, (int8x16_t) v2,  3); }
+    template <> inline reg combine< 4, int8_t>(const reg v1, const reg v2) { return (reg) vextq_s8((int8x16_t) v1, (int8x16_t) v2,  4); }
+    template <> inline reg combine< 5, int8_t>(const reg v1, const reg v2) { return (reg) vextq_s8((int8x16_t) v1, (int8x16_t) v2,  5); }
+    template <> inline reg combine< 6, int8_t>(const reg v1, const reg v2) { return (reg) vextq_s8((int8x16_t) v1, (int8x16_t) v2,  6); }
+    template <> inline reg combine< 7, int8_t>(const reg v1, const reg v2) { return (reg) vextq_s8((int8x16_t) v1, (int8x16_t) v2,  7); }
+    template <> inline reg combine< 8, int8_t>(const reg v1, const reg v2) { return (reg) vextq_s8((int8x16_t) v1, (int8x16_t) v2,  8); }
+    template <> inline reg combine< 9, int8_t>(const reg v1, const reg v2) { return (reg) vextq_s8((int8x16_t) v1, (int8x16_t) v2,  9); }
+    template <> inline reg combine<10, int8_t>(const reg v1, const reg v2) { return (reg) vextq_s8((int8x16_t) v1, (int8x16_t) v2, 10); }
+    template <> inline reg combine<11, int8_t>(const reg v1, const reg v2) { return (reg) vextq_s8((int8x16_t) v1, (int8x16_t) v2, 11); }
+    template <> inline reg combine<12, int8_t>(const reg v1, const reg v2) { return (reg) vextq_s8((int8x16_t) v1, (int8x16_t) v2, 12); }
+    template <> inline reg combine<13, int8_t>(const reg v1, const reg v2) { return (reg) vextq_s8((int8x16_t) v1, (int8x16_t) v2, 13); }
+    template <> inline reg combine<14, int8_t>(const reg v1, const reg v2) { return (reg) vextq_s8((int8x16_t) v1, (int8x16_t) v2, 14); }
+    template <> inline reg combine<15, int8_t>(const reg v1, const reg v2) { return (reg) vextq_s8((int8x16_t) v1, (int8x16_t) v2, 15); }
 
     // ---------------------------------------------------------------------------------------------------------- cmask
 #ifdef __aarch64__
@@ -1914,6 +2035,11 @@
     inline msk cmplt<int64_t>(const reg v1, const reg v2) {
         return (msk) vcltq_s64((int64x2_t) v1, (int64x2_t) v2);
     }
+
+    template <>
+    inline msk cmplt<uint64_t>(const reg v1, const reg v2) {
+        return (msk) vcltq_u64((uint64x2_t) v1, (uint64x2_t) v2);
+    }
 #endif
 
     template <>
@@ -1922,13 +2048,28 @@
     }
 
     template <>
+    inline msk cmplt<uint32_t>(const reg v1, const reg v2) {
+        return (msk) vcltq_u32((uint32x4_t) v1, (uint32x4_t) v2);
+    }
+
+    template <>
     inline msk cmplt<int16_t>(const reg v1, const reg v2) {
         return (msk) vcltq_s16((int16x8_t) v1, (int16x8_t) v2);
     }
 
     template <>
+    inline msk cmplt<uint16_t>(const reg v1, const reg v2) {
+        return (msk) vcltq_u16((uint16x8_t) v1, (uint16x8_t) v2);
+    }
+
+    template <>
     inline msk cmplt<int8_t>(const reg v1, const reg v2) {
         return (msk) vcltq_s8((int8x16_t) v1, (int8x16_t) v2);
+    }
+
+    template <>
+    inline msk cmplt<uint8_t>(const reg v1, const reg v2) {
+        return (msk) vcltq_u8((uint8x16_t) v1, (uint8x16_t) v2);
     }
 
     // ---------------------------------------------------------------------------------------------------------- cmple
@@ -1949,6 +2090,11 @@
     inline msk cmple<int64_t>(const reg v1, const reg v2) {
         return (msk) vcleq_s64((int64x2_t) v1, (int64x2_t) v2);
     }
+
+    template <>
+    inline msk cmple<uint64_t>(const reg v1, const reg v2) {
+        return (msk) vcleq_u64((uint64x2_t) v1, (uint64x2_t) v2);
+    }
 #endif
 
     template <>
@@ -1957,13 +2103,28 @@
     }
 
     template <>
+    inline msk cmple<uint32_t>(const reg v1, const reg v2) {
+        return (msk) vcleq_u32((uint32x4_t) v1, (uint32x4_t) v2);
+    }
+
+    template <>
     inline msk cmple<int16_t>(const reg v1, const reg v2) {
         return (msk) vcleq_s16((int16x8_t) v1, (int16x8_t) v2);
     }
 
     template <>
+    inline msk cmple<uint16_t>(const reg v1, const reg v2) {
+        return (msk) vcleq_u16((uint16x8_t) v1, (uint16x8_t) v2);
+    }
+
+    template <>
     inline msk cmple<int8_t>(const reg v1, const reg v2) {
         return (msk) vcleq_s8((int8x16_t) v1, (int8x16_t) v2);
+    }
+
+    template <>
+    inline msk cmple<uint8_t>(const reg v1, const reg v2) {
+        return (msk) vcleq_u8((uint8x16_t) v1, (uint8x16_t) v2);
     }
 
     // ---------------------------------------------------------------------------------------------------------- cmpgt
@@ -1984,6 +2145,11 @@
     inline msk cmpgt<int64_t>(const reg v1, const reg v2) {
         return (msk) vcgtq_s64((int64x2_t) v1, (int64x2_t) v2);
     }
+
+    template <>
+    inline msk cmpgt<uint64_t>(const reg v1, const reg v2) {
+        return (msk) vcgtq_u64((uint64x2_t) v1, (uint64x2_t) v2);
+    }
 #endif
 
     template <>
@@ -1992,13 +2158,28 @@
     }
 
     template <>
+    inline msk cmpgt<uint32_t>(const reg v1, const reg v2) {
+        return (msk) vcgtq_u32((uint32x4_t) v1, (uint32x4_t) v2);
+    }
+
+    template <>
     inline msk cmpgt<int16_t>(const reg v1, const reg v2) {
         return (msk) vcgtq_s16((int16x8_t) v1, (int16x8_t) v2);
     }
 
     template <>
+    inline msk cmpgt<uint16_t>(const reg v1, const reg v2) {
+        return (msk) vcgtq_u16((uint16x8_t) v1, (uint16x8_t) v2);
+    }
+
+    template <>
     inline msk cmpgt<int8_t>(const reg v1, const reg v2) {
         return (msk) vcgtq_s8((int8x16_t) v1, (int8x16_t) v2);
+    }
+
+    template <>
+    inline msk cmpgt<uint8_t>(const reg v1, const reg v2) {
+        return (msk) vcgtq_u8((uint8x16_t) v1, (uint8x16_t) v2);
     }
 
     // ---------------------------------------------------------------------------------------------------------- cmpge
@@ -2019,6 +2200,11 @@
     inline msk cmpge<int64_t>(const reg v1, const reg v2) {
         return (msk) vcgeq_s64((int64x2_t) v1, (int64x2_t) v2);
     }
+
+    template <>
+    inline msk cmpge<uint64_t>(const reg v1, const reg v2) {
+        return (msk) vcgeq_u64((uint64x2_t) v1, (uint64x2_t) v2);
+    }
 #endif
 
     template <>
@@ -2027,13 +2213,28 @@
     }
 
     template <>
+    inline msk cmpge<uint32_t>(const reg v1, const reg v2) {
+        return (msk) vcgeq_u32((uint32x4_t) v1, (uint32x4_t) v2);
+    }
+
+    template <>
     inline msk cmpge<int16_t>(const reg v1, const reg v2) {
         return (msk) vcgeq_s16((int16x8_t) v1, (int16x8_t) v2);
     }
 
     template <>
+    inline msk cmpge<uint16_t>(const reg v1, const reg v2) {
+        return (msk) vcgeq_u16((uint16x8_t) v1, (uint16x8_t) v2);
+    }
+
+    template <>
     inline msk cmpge<int8_t>(const reg v1, const reg v2) {
         return (msk) vcgeq_s8((int8x16_t) v1, (int8x16_t) v2);
+    }
+
+    template <>
+    inline msk cmpge<uint8_t>(const reg v1, const reg v2) {
+        return (msk) vcgeq_u8((uint8x16_t) v1, (uint8x16_t) v2);
     }
 
     // ------------------------------------------------------------------------------------------------------------ add
@@ -2054,6 +2255,11 @@
     inline reg add<int64_t>(const reg v1, const reg v2) {
         return (reg) vaddq_s64((int64x2_t) v1, (int64x2_t)v2);
     }
+
+    template <>
+    inline reg add<uint64_t>(const reg v1, const reg v2) {
+        return (reg) vaddq_u64((uint64x2_t) v1, (uint64x2_t)v2);
+    }
 #endif
 
     template <>
@@ -2062,13 +2268,33 @@
     }
 
     template <>
+    inline reg add<uint32_t>(const reg v1, const reg v2) {
+        return (reg) vaddq_u32((uint32x4_t) v1, (uint32x4_t)v2);
+    }
+
+    template <>
     inline reg add<int16_t>(const reg v1, const reg v2) {
         return (reg) vqaddq_s16((int16x8_t) v1, (int16x8_t)v2);
     }
 
     template <>
+    inline reg add<uint16_t>(const reg v1, const reg v2) {
+        return (reg) vqaddq_u16((uint16x8_t) v1, (uint16x8_t)v2);
+    }
+
+    template <>
     inline reg add<int8_t>(const reg v1, const reg v2) {
         return (reg) vqaddq_s8((int8x16_t) v1, (int8x16_t)v2);
+    }
+
+    template <>
+    inline reg add<uint8_t>(const reg v1, const reg v2) {
+        return (reg) vqaddq_u8((uint8x16_t) v1, (uint8x16_t)v2);
+    }
+
+    template <>
+    inline reg_2 add<int32_t>(const reg_2 v1, const reg_2 v2) {
+        return (reg_2) vadd_s32((int32x2_t)v1, (int32x2_t)v2);
     }
 
     // ------------------------------------------------------------------------------------------------------------ sub
@@ -2089,6 +2315,11 @@
     inline reg sub<int64_t>(const reg v1, const reg v2) {
         return (reg) vsubq_s64((int64x2_t) v1, (int64x2_t) v2);
     }
+
+    template <>
+    inline reg sub<uint64_t>(const reg v1, const reg v2) {
+        return (reg) vsubq_u64((uint64x2_t) v1, (uint64x2_t) v2);
+    }
 #endif
 
     template <>
@@ -2097,13 +2328,33 @@
     }
 
     template <>
+    inline reg sub<uint32_t>(const reg v1, const reg v2) {
+        return (reg) vsubq_u32((uint32x4_t) v1, (uint32x4_t) v2);
+    }
+
+    template <>
     inline reg sub<int16_t>(const reg v1, const reg v2) {
         return (reg) vqsubq_s16((int16x8_t) v1, (int16x8_t) v2);
     }
 
     template <>
+    inline reg sub<uint16_t>(const reg v1, const reg v2) {
+        return (reg) vqsubq_u16((uint16x8_t) v1, (uint16x8_t) v2);
+    }
+
+    template <>
     inline reg sub<int8_t>(const reg v1, const reg v2) {
         return (reg) vqsubq_s8((int8x16_t) v1, (int8x16_t) v2);
+    }
+
+    template <>
+    inline reg sub<uint8_t>(const reg v1, const reg v2) {
+        return (reg) vqsubq_u8((uint8x16_t) v1, (uint8x16_t) v2);
+    }
+
+    template <>
+    inline reg_2 sub<int32_t>(const reg_2 v1, const reg_2 v2) {
+        return (reg_2) vsub_s32((int32x2_t)v1, (int32x2_t)v2);
     }
 
     // ------------------------------------------------------------------------------------------------------------ mul
@@ -2125,13 +2376,33 @@
     }
 
     template <>
+    inline reg mul<uint32_t>(const reg v1, const reg v2) {
+        return (reg) vmulq_u32((uint32x4_t) v1, (uint32x4_t) v2);
+    }
+
+    template <>
     inline reg mul<int16_t>(const reg v1, const reg v2) {
         return (reg) vmulq_s16((int16x8_t) v1, (int16x8_t) v2);
     }
 
     template <>
+    inline reg mul<uint16_t>(const reg v1, const reg v2) {
+        return (reg) vmulq_u16((uint16x8_t) v1, (uint16x8_t) v2);
+    }
+
+    template <>
     inline reg mul<int8_t>(const reg v1, const reg v2) {
         return (reg) vmulq_s8((int8x16_t) v1, (int8x16_t) v2);
+    }
+
+    template <>
+    inline reg mul<uint8_t>(const reg v1, const reg v2) {
+        return (reg) vmulq_u8((uint8x16_t) v1, (uint8x16_t) v2);
+    }
+
+    template <>
+    inline reg_2 mul<int32_t>(const reg_2 v1, const reg_2 v2) {
+        return (reg_2) vmul_s32((int32x2_t)v1, (int32x2_t)v2);
     }
 
     // ------------------------------------------------------------------------------------------------------------ div
@@ -2173,13 +2444,28 @@
     }
 
     template <>
+    inline reg min<uint32_t>(const reg v1, const reg v2) {
+        return (reg) vminq_u32((uint32x4_t) v1, (uint32x4_t) v2);
+    }
+
+    template <>
     inline reg min<int16_t>(const reg v1, const reg v2) {
         return (reg) vminq_s16((int16x8_t) v1, (int16x8_t) v2);
     }
 
     template <>
+    inline reg min<uint16_t>(const reg v1, const reg v2) {
+        return (reg) vminq_u16((uint16x8_t) v1, (uint16x8_t) v2);
+    }
+
+    template <>
     inline reg min<int8_t>(const reg v1, const reg v2) {
         return (reg) vminq_s8((int8x16_t) v1, (int8x16_t) v2);
+    }
+
+    template <>
+    inline reg min<uint8_t>(const reg v1, const reg v2) {
+        return (reg) vminq_u8((uint8x16_t) v1, (uint8x16_t) v2);
     }
 
     // ------------------------------------------------------------------------------------------------------------ max
@@ -2201,13 +2487,28 @@
     }
 
     template <>
+    inline reg max<uint32_t>(const reg v1, const reg v2) {
+        return (reg) vmaxq_u32((uint32x4_t) v1, (uint32x4_t) v2);
+    }
+
+    template <>
     inline reg max<int16_t>(const reg v1, const reg v2) {
         return (reg) vmaxq_s16((int16x8_t) v1, (int16x8_t) v2);
     }
 
     template <>
+    inline reg max<uint16_t>(const reg v1, const reg v2) {
+        return (reg) vmaxq_u16((uint16x8_t) v1, (uint16x8_t) v2);
+    }
+
+    template <>
     inline reg max<int8_t>(const reg v1, const reg v2) {
         return (reg) vmaxq_s8((int8x16_t) v1, (int8x16_t) v2);
+    }
+
+    template <>
+    inline reg max<uint8_t>(const reg v1, const reg v2) {
+        return (reg) vmaxq_u8((uint8x16_t) v1, (uint8x16_t) v2);
     }
 
     // ----------------------------------------------------------------------------------------------------------- msb
@@ -2756,6 +3057,11 @@
     inline reg sat<int64_t>(const reg v1, int64_t min, int64_t max) {
         return mipp::min<int64_t>(mipp::max<int64_t>(v1, set1<int64_t>(min)), set1<int64_t>(max));
     }
+
+    template <>
+    inline reg sat<uint64_t>(const reg v1, uint64_t min, uint64_t max) {
+        return mipp::min<uint64_t>(mipp::max<uint64_t>(v1, set1<uint64_t>(min)), set1<uint64_t>(max));
+    }
 #endif
 
     template <>
@@ -2764,13 +3070,28 @@
     }
 
     template <>
+    inline reg sat<uint32_t>(const reg v1, uint32_t min, uint32_t max) {
+        return mipp::min<uint32_t>(mipp::max<uint32_t>(v1, set1<uint32_t>(min)), set1<uint32_t>(max));
+    }
+
+    template <>
     inline reg sat<int16_t>(const reg v1, int16_t min, int16_t max) {
         return mipp::min<int16_t>(mipp::max<int16_t>(v1, set1<int16_t>(min)), set1<int16_t>(max));
     }
 
     template <>
+    inline reg sat<uint16_t>(const reg v1, uint16_t min, uint16_t max) {
+        return mipp::min<uint16_t>(mipp::max<uint16_t>(v1, set1<uint16_t>(min)), set1<uint16_t>(max));
+    }
+
+    template <>
     inline reg sat<int8_t>(const reg v1, int8_t min, int8_t max) {
         return mipp::min<int8_t>(mipp::max<int8_t>(v1, set1<int8_t>(min)), set1<int8_t>(max));
+    }
+
+    template <>
+    inline reg sat<uint8_t>(const reg v1, uint8_t min, uint8_t max) {
+        return mipp::min<uint8_t>(mipp::max<uint8_t>(v1, set1<uint8_t>(min)), set1<uint8_t>(max));
     }
 
     // ---------------------------------------------------------------------------------------------------------- round
@@ -2816,6 +3137,11 @@
     inline reg cvt<int64_t,double>(const reg v) {
         return (reg) vcvtq_f64_s64((int64x2_t) v);
     }
+
+    template <>
+    inline reg cvt<uint64_t,double>(const reg v) {
+        return (reg) vcvtq_f64_u64((uint64x2_t) v);
+    }
 #endif
 
     template <>
@@ -2824,8 +3150,18 @@
     }
 
     template <>
+    inline reg cvt<float,uint32_t>(const reg v) {
+        return (reg) vcvtq_u32_f32((float32x4_t) round<float>(v));
+    }
+
+    template <>
     inline reg cvt<int32_t,float>(const reg v) {
         return (reg) vcvtq_f32_s32((int32x4_t) v);
+    }
+
+    template <>
+    inline reg cvt<uint32_t,float>(const reg v) {
+        return (reg) vcvtq_f32_u32((uint32x4_t) v);
     }
 
     template <>
@@ -2834,13 +3170,28 @@
     }
 
     template <>
+    inline reg cvt<uint8_t,uint16_t>(const reg_2 v) {
+        return (reg) vmovl_u8((uint8x8_t) v);
+    }
+
+    template <>
     inline reg cvt<int16_t,int32_t>(const reg_2 v) {
         return (reg) vmovl_s16((int16x4_t) v);
     }
 
     template <>
+    inline reg cvt<uint16_t,uint32_t>(const reg_2 v) {
+        return (reg) vmovl_u16((uint16x4_t) v);
+    }
+
+    template <>
     inline reg cvt<int32_t,int64_t>(const reg_2 v) {
         return (reg) vmovl_s32((int32x2_t) v);
+    }
+
+    template <>
+    inline reg cvt<uint32_t,uint64_t>(const reg_2 v) {
+        return (reg) vmovl_u32((uint32x2_t) v);
     }
 
     // ----------------------------------------------------------------------------------------------------------- pack
@@ -2850,13 +3201,28 @@
     }
 
     template <>
+    inline reg pack<uint64_t,uint32_t>(const reg v1, const reg v2) {
+        return (reg) vcombine_u32(vqmovn_u64((uint64x2_t) v1), vqmovn_u64((uint64x2_t) v2));
+    }
+
+    template <>
     inline reg pack<int32_t,int16_t>(const reg v1, const reg v2) {
         return (reg) vcombine_s16(vqmovn_s32((int32x4_t) v1), vqmovn_s32((int32x4_t) v2));
     }
 
     template <>
+    inline reg pack<uint32_t,uint16_t>(const reg v1, const reg v2) {
+        return (reg) vcombine_u16(vqmovn_u32((uint32x4_t) v1), vqmovn_u32((uint32x4_t) v2));
+    }
+
+    template <>
     inline reg pack<int16_t,int8_t>(const reg v1, const reg v2) {
         return (reg) vcombine_s8(vqmovn_s16((int16x8_t) v1), vqmovn_s16((int16x8_t) v2));
+    }
+
+    template <>
+    inline reg pack<uint16_t,uint8_t>(const reg v1, const reg v2) {
+        return (reg) vcombine_u8(vqmovn_u16((uint16x8_t) v1), vqmovn_u16((uint16x8_t) v2));
     }
 
     // ------------------------------------------------------------------------------------------------------ reduction
@@ -2942,6 +3308,30 @@
             return val;
         }
     };
+
+    template <red_op<uint64_t> OP>
+    struct _reduction<uint64_t,OP>
+    {
+        static reg apply(const reg v1) {
+            auto val = v1;
+
+            val = OP(val, (reg) vextq_u64((uint64x2_t)val, (uint64x2_t)val, 1));
+
+            return val;
+        }
+    };
+
+    template <Red_op<uint64_t> OP>
+    struct _Reduction<uint64_t,OP>
+    {
+        static Reg<uint64_t> apply(const Reg<uint64_t> v1) {
+            auto val = v1;
+
+            val = OP(val, Reg<uint64_t>((reg) vextq_u64((uint64x2_t)val.r, (uint64x2_t)val.r, 1)));
+
+            return val;
+        }
+    };
 #endif
 
     template <red_op<int32_t> OP>
@@ -2971,6 +3361,38 @@
             int32x2_t low1  = vrev64_s32((int32x2_t) vget_low_s32 ((int32x4_t) val.r));
             int32x2_t high1 = vrev64_s32((int32x2_t) vget_high_s32((int32x4_t) val.r));
             val = OP(val, Reg<int32_t>((reg) vcombine_s32((int32x2_t) low1, (int32x2_t) high1)));
+
+            return val;
+        }
+    };
+
+    template <red_op<uint32_t> OP>
+    struct _reduction<uint32_t,OP>
+    {
+        static reg apply(const reg v1) {
+            auto val = v1;
+
+            val = OP(val, (reg) vextq_u32((uint32x4_t) val, (uint32x4_t) val, 2));
+
+            uint32x2_t low1  = vrev64_u32((uint32x2_t) vget_low_u32 ((uint32x4_t) val));
+            uint32x2_t high1 = vrev64_u32((uint32x2_t) vget_high_u32((uint32x4_t) val));
+            val = OP(val, (reg) vcombine_u32((uint32x2_t) low1, (uint32x2_t) high1));
+
+            return val;
+        }
+    };
+
+    template <Red_op<uint32_t> OP>
+    struct _Reduction<uint32_t,OP>
+    {
+        static Reg<uint32_t> apply(const Reg<uint32_t> v1) {
+            auto val = v1;
+
+            val = OP(val, Reg<uint32_t>((reg) vextq_u32((uint32x4_t) val.r, (uint32x4_t) val.r, 2)));
+
+            uint32x2_t low1  = vrev64_u32((uint32x2_t) vget_low_u32 ((uint32x4_t) val.r));
+            uint32x2_t high1 = vrev64_u32((uint32x2_t) vget_high_u32((uint32x4_t) val.r));
+            val = OP(val, Reg<uint32_t>((reg) vcombine_u32((uint32x2_t) low1, (uint32x2_t) high1)));
 
             return val;
         }
@@ -3011,6 +3433,46 @@
             int16x4_t low2  = vrev32_s16((int16x4_t) vget_low_s32((int32x4_t) val.r));
             int16x4_t high2 = vrev32_s16((int16x4_t) vget_high_s32((int32x4_t) val.r));
             val = OP(val, Reg<int16_t>((reg) vcombine_s32((int32x2_t) low2, (int32x2_t) high2)));
+
+            return val;
+        }
+    };
+
+    template <red_op<uint16_t> OP>
+    struct _reduction<uint16_t,OP>
+    {
+        static reg apply(const reg v1) {
+            auto val = v1;
+
+            val = OP(val, (reg) vextq_u32((uint32x4_t) val, (uint32x4_t) val, 2));
+
+            uint32x2_t low1  = vrev64_u32((uint32x2_t) vget_low_u32 ((uint32x4_t) val));
+            uint32x2_t high1 = vrev64_u32((uint32x2_t) vget_high_u32((uint32x4_t) val));
+            val = OP(val, (reg) vcombine_u32((uint32x2_t) low1, (uint32x2_t) high1));
+
+            uint16x4_t low2  = vrev32_u16((uint16x4_t) vget_low_u32((uint32x4_t) val));
+            uint16x4_t high2 = vrev32_u16((uint16x4_t) vget_high_u32((uint32x4_t) val));
+            val = OP(val, (reg) vcombine_u32((uint32x2_t) low2, (uint32x2_t) high2));
+
+            return val;
+        }
+    };
+
+    template <Red_op<uint16_t> OP>
+    struct _Reduction<uint16_t,OP>
+    {
+        static Reg<uint16_t> apply(const Reg<uint16_t> v1) {
+            auto val = v1;
+
+            val = OP(val, Reg<uint16_t>((reg) vextq_u32((uint32x4_t) val.r, (uint32x4_t) val.r, 2)));
+
+            uint32x2_t low1  = vrev64_u32((uint32x2_t) vget_low_u32 ((uint32x4_t) val.r));
+            uint32x2_t high1 = vrev64_u32((uint32x2_t) vget_high_u32((uint32x4_t) val.r));
+            val = OP(val, Reg<uint16_t>((reg) vcombine_u32((uint32x2_t) low1, (uint32x2_t) high1)));
+
+            uint16x4_t low2  = vrev32_u16((uint16x4_t) vget_low_u32((uint32x4_t) val.r));
+            uint16x4_t high2 = vrev32_u16((uint16x4_t) vget_high_u32((uint32x4_t) val.r));
+            val = OP(val, Reg<uint16_t>((reg) vcombine_u32((uint32x2_t) low2, (uint32x2_t) high2)));
 
             return val;
         }
@@ -3059,6 +3521,54 @@
             int8x8_t low3  = vrev16_s8((int8x8_t) vget_low_s32((int32x4_t) val.r));
             int8x8_t high3 = vrev16_s8((int8x8_t) vget_high_s32((int32x4_t) val.r));
             val = OP(val, Reg<int8_t>((reg) vcombine_s32((int32x2_t) low3, (int32x2_t) high3)));
+
+            return val;
+        }
+    };
+
+    template <red_op<uint8_t> OP>
+    struct _reduction<uint8_t,OP>
+    {
+        static reg apply(const reg v1) {
+            auto val = v1;
+
+            val = OP(val, (reg) vextq_u32((uint32x4_t) val, (uint32x4_t) val, 2));
+
+            uint32x2_t low1  = vrev64_u32((uint32x2_t) vget_low_u32 ((uint32x4_t) val));
+            uint32x2_t high1 = vrev64_u32((uint32x2_t) vget_high_u32((uint32x4_t) val));
+            val = OP(val, (reg) vcombine_u32((uint32x2_t) low1, (uint32x2_t) high1));
+
+            uint16x4_t low2  = vrev32_u16((uint16x4_t) vget_low_u32((uint32x4_t) val));
+            uint16x4_t high2 = vrev32_u16((uint16x4_t) vget_high_u32((uint32x4_t) val));
+            val = OP(val, (reg) vcombine_u32((uint32x2_t) low2, (uint32x2_t) high2));
+
+            uint8x8_t low3  = vrev16_u8((uint8x8_t) vget_low_u32((uint32x4_t) val));
+            uint8x8_t high3 = vrev16_u8((uint8x8_t) vget_high_u32((uint32x4_t) val));
+            val = OP(val, (reg) vcombine_u32((uint32x2_t) low3, (uint32x2_t) high3));
+
+            return val;
+        }
+    };
+
+    template <Red_op<uint8_t> OP>
+    struct _Reduction<uint8_t,OP>
+    {
+        static Reg<uint8_t> apply(const Reg<uint8_t> v1) {
+            auto val = v1;
+
+            val = OP(val, Reg<uint8_t>((reg) vextq_u32((uint32x4_t) val.r, (uint32x4_t) val.r, 2)));
+
+            uint32x2_t low1  = vrev64_u32((uint32x2_t) vget_low_u32 ((uint32x4_t) val.r));
+            uint32x2_t high1 = vrev64_u32((uint32x2_t) vget_high_u32((uint32x4_t) val.r));
+            val = OP(val, Reg<uint8_t>((reg) vcombine_u32((uint32x2_t) low1, (uint32x2_t) high1)));
+
+            uint16x4_t low2  = vrev32_u16((uint16x4_t) vget_low_u32((uint32x4_t) val.r));
+            uint16x4_t high2 = vrev32_u16((uint16x4_t) vget_high_u32((uint32x4_t) val.r));
+            val = OP(val, Reg<uint8_t>((reg) vcombine_u32((uint32x2_t) low2, (uint32x2_t) high2)));
+
+            uint8x8_t low3  = vrev16_u8((uint8x8_t) vget_low_u32((uint32x4_t) val.r));
+            uint8x8_t high3 = vrev16_u8((uint8x8_t) vget_high_u32((uint32x4_t) val.r));
+            val = OP(val, Reg<uint8_t>((reg) vcombine_u32((uint32x2_t) low3, (uint32x2_t) high3)));
 
             return val;
         }
