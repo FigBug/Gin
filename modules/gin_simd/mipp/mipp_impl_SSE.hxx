@@ -3564,7 +3564,7 @@
     }
 
     template <>
-    inline reg trunc<double>(const reg v) {
+    inline reg trunc<float>(const reg v) {
         return _mm_cvtepi32_pd (_mm_cvttpd_epi32 (v));
     }
 #endif
