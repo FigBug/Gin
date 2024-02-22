@@ -145,7 +145,7 @@ public:
                 mipp::Reg<float> lVec { l };
                 mipp::Reg<float> rVec { r };
 
-                auto s = table->process (note, math::min (almostOne, phaseVec));
+                auto s = table->processLinear (note, math::min (almostOne, phaseVec));
                 postProcess (params, s);
 
                 lVec += s * params.leftGain;
@@ -160,7 +160,7 @@ public:
 
             for (; todo > 0; todo--)
             {
-                auto s = table->process (note, std::min (almostOne, phase));
+                auto s = table->processLinear (note, std::min (almostOne, phase));
                 postProcess (params, s);
 
                 *l++ += s * params.leftGain;
@@ -207,7 +207,7 @@ public:
                 mipp::Reg<float> lVec { l };
                 mipp::Reg<float> rVec { r };
 
-                auto s = table->process (note, phaseDistortion (math::min (almostOne, phaseVec), params.bend, params.formant));
+                auto s = table->processLinear (note, phaseDistortion (math::min (almostOne, phaseVec), params.bend, params.formant));
                 postProcess (params, s);
 
                 lVec += s * params.leftGain;
@@ -222,7 +222,7 @@ public:
 
             for (; todo > 0; todo--)
             {
-                auto s = table->process (note, phaseDistortion (std::min (almostOne, phase), params.bend, params.formant));
+                auto s = table->processLinear (note, phaseDistortion (std::min (almostOne, phase), params.bend, params.formant));
                 postProcess (params, s);
 
                 *l++ += s * params.leftGain;
@@ -272,8 +272,8 @@ public:
                 mipp::Reg<float> lVec { l };
                 mipp::Reg<float> rVec { r };
 
-                auto s1 = table1->process (note, phaseDistortion (math::min (almostOne, phaseVec), params.bend, params.formant));
-                auto s2 = table2->process (note, phaseDistortion (math::min (almostOne, phaseVec), params.bend, params.formant));
+                auto s1 = table1->processLinear (note, phaseDistortion (math::min (almostOne, phaseVec), params.bend, params.formant));
+                auto s2 = table2->processLinear (note, phaseDistortion (math::min (almostOne, phaseVec), params.bend, params.formant));
 
                 auto s = s1 * phase + s2 * (1.0f - phase);
                 postProcess (params, s);
@@ -289,8 +289,8 @@ public:
 
             for (; todo > 0; todo--)
             {
-                auto s1 = table1->process (note, phaseDistortion (std::min (almostOne, phase), params.bend, params.formant));
-                auto s2 = table2->process (note, phaseDistortion (std::min (almostOne, phase), params.bend, params.formant));
+                auto s1 = table1->processLinear (note, phaseDistortion (std::min (almostOne, phase), params.bend, params.formant));
+                auto s2 = table2->processLinear (note, phaseDistortion (std::min (almostOne, phase), params.bend, params.formant));
 
                 auto s = s1 * phase + s2 * (1.0f - phase);
                 postProcess (params, s);

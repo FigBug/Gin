@@ -61,19 +61,28 @@ public:
         return juce::jlimit (0, int (tables.size() - 1), int ((note - 0.5) / notesPerTable));
     }
     
-    inline std::vector<float>* tableForNote (float note)
+    inline std::vector<float>& tableForNote (float note)
     {
-        return &tables[size_t (tableIndexForNote (note))];
+        return tables[size_t (tableIndexForNote (note))];
     }
 
     inline float process (float note, float phase)
     {
-        auto tableIndex = juce::jlimit (0, int (tables.size() - 1), int ((note - 0.5) / notesPerTable));
+        auto& table = tableForNote (note);
         auto pos = int (phase * tableSize);
 
         jassert (pos >= 0 && pos < tableSize);
 
-        return tables[size_t (tableIndex)][size_t (pos)];
+        return table[size_t (pos)];
+    }
+    
+    inline float processLinear (float note, float phase)
+    {
+        auto& table = tableForNote (note);
+        auto pos = int (phase * tableSize);
+        auto frac = (phase * tableSize) - pos;
+        
+        return (table[size_t (pos)] * (1.0f - frac)) + (table[size_t (pos + 1)] * (frac));
     }
     
    #if GIN_HAS_SIMD
@@ -81,7 +90,7 @@ public:
     {
         static_assert (mipp::N<float>() == 4);
 
-        auto tableIndex = juce::jlimit (0, int (tables.size() - 1), int ((note - 0.5) / notesPerTable));
+        auto& table = tableForNote (note);
         phase *= float (tableSize);
         
         float pos[4];
@@ -89,10 +98,34 @@ public:
 
         mipp::Reg<float> res =
         {
-            tables[size_t (tableIndex)][size_t (pos[0])],
-            tables[size_t (tableIndex)][size_t (pos[1])],
-            tables[size_t (tableIndex)][size_t (pos[2])],
-            tables[size_t (tableIndex)][size_t (pos[3])],
+            table[size_t (pos[0])],
+            table[size_t (pos[1])],
+            table[size_t (pos[2])],
+            table[size_t (pos[3])],
+        };
+        return res;
+    }
+    
+    inline mipp::Reg<float> processLinear (float note, mipp::Reg<float> phase)
+    {
+        static_assert (mipp::N<float>() == 4);
+
+        auto& table = tableForNote (note);
+        auto pos = mipp::trunc (phase * float (tableSize));
+        auto frac = (phase * tableSize) - pos;
+        
+        float p[4];
+        pos.store (p);
+
+        float f[4];
+        frac.store (f);
+        
+        mipp::Reg<float> res =
+        {
+            (table[size_t (p[0])] * (1.0f - f[0])) + (table[size_t (p[0] + 1)] * (f[0])),
+            (table[size_t (p[1])] * (1.0f - f[1])) + (table[size_t (p[1] + 1)] * (f[1])),
+            (table[size_t (p[2])] * (1.0f - f[2])) + (table[size_t (p[2] + 1)] * (f[2])),
+            (table[size_t (p[3])] * (1.0f - f[3])) + (table[size_t (p[3] + 1)] * (f[3])),
         };
         return res;
     }
