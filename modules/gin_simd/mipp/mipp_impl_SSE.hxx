@@ -346,25 +346,8 @@
     }
 
     template <>
-    inline reg set1<int64_t>(const int64_t val) {
-        return _mm_castsi128_ps(_mm_set1_epi64x(val));
-    }
-
-    template <>
-    inline reg set1<uint64_t>(const uint64_t val) {
-        uint64_t t[mipp::N<uint64_t>()] = { val, val };
-        return loadu<int64_t>((int64_t*)t);
-    }
-
-    template <>
     inline reg set1<int32_t>(const int32_t val) {
         return _mm_castsi128_ps(_mm_set1_epi32(val));
-    }
-
-    template <>
-    inline reg set1<uint32_t>(const uint32_t val) {
-        uint32_t t[mipp::N<uint32_t>()] = { val, val, val, val };
-        return loadu<int32_t>((int32_t*)t);
     }
 
     template <>
@@ -373,21 +356,13 @@
     }
 
     template <>
-    inline reg set1<uint16_t>(const uint16_t val) {
-        uint16_t t[mipp::N<uint16_t>()] = { val, val, val, val, val, val, val, val };
-        return loadu<int16_t>((int16_t*)t);
-    }
-
-    template <>
     inline reg set1<int8_t>(const int8_t val) {
         return _mm_castsi128_ps(_mm_set1_epi8(val));
     }
 
     template <>
-    inline reg set1<uint8_t>(const uint8_t val) {
-        uint8_t t[mipp::N<uint8_t>()] = { val, val, val, val, val, val, val, val,
-                                          val, val, val, val, val, val, val, val };
-        return loadu<int8_t>((int8_t*)t);
+    inline reg set1<int64_t>(const int64_t val) {
+        return _mm_castsi128_ps(_mm_set1_epi64x(val));
     }
 #endif
 
@@ -432,17 +407,7 @@
     }
 
     template <>
-    inline reg set0<uint64_t>() {
-        return _mm_castsi128_ps(_mm_setzero_si128());
-    }
-
-    template <>
     inline reg set0<int32_t>() {
-        return _mm_castsi128_ps(_mm_setzero_si128());
-    }
-
-    template <>
-    inline reg set0<uint32_t>() {
         return _mm_castsi128_ps(_mm_setzero_si128());
     }
 
@@ -452,17 +417,7 @@
     }
 
     template <>
-    inline reg set0<uint16_t>() {
-        return _mm_castsi128_ps(_mm_setzero_si128());
-    }
-
-    template <>
     inline reg set0<int8_t>() {
-        return _mm_castsi128_ps(_mm_setzero_si128());
-    }
-
-    template <>
-    inline reg set0<uint8_t>() {
         return _mm_castsi128_ps(_mm_setzero_si128());
     }
 #endif
@@ -902,49 +857,7 @@
 #endif
 
     // -------------------------------------------------------------------------------------------------------- lshiftr
-    template <>
-    inline reg lshiftr<int64_t>(const reg v1, const reg v2) {
-        int64_t t1[2], t2[2];
-        mipp::storeu<int64_t>(t1, v1);
-        mipp::storeu<int64_t>(t2, v2);
-        for (int i = 0; i < 2; i++){
-            t1[i] <<= t2[i];
-        }
-        return mipp::loadu<int64_t>(t1);
-    }
 
-    template <>
-    inline reg lshiftr<int32_t>(const reg v1, const reg v2) {
-        int32_t t1[4], t2[4];
-        mipp::storeu<int32_t>(t1, v1);
-        mipp::storeu<int32_t>(t2, v2);
-        for (int i = 0; i < 4; i++){
-            t1[i] <<= t2[i];
-        }
-        return mipp::loadu<int32_t>(t1);
-    }
-
-    template <>
-    inline reg lshiftr<int16_t>(const reg v1, const reg v2) {
-        int16_t t1[8], t2[8];
-        mipp::storeu<int16_t>(t1, v1);
-        mipp::storeu<int16_t>(t2, v2);
-        for (int i = 0; i < 8; i++){
-            t1[i] <<= t2[i];
-        }
-        return mipp::loadu<int16_t>(t1);
-    }
-
-    template <>
-    inline reg lshiftr<int8_t>(const reg v1, const reg v2) {
-        int8_t t1[16], t2[16];
-        mipp::storeu<int8_t>(t1, v1);
-        mipp::storeu<int8_t>(t2, v2);
-        for (int i = 0; i < 16; i++){
-            t1[i] <<= t2[i];
-        }
-        return mipp::loadu<int8_t>(t1);
-    }
     // -------------------------------------------------------------------------------------------------- lshift (mask)
 #ifdef __SSE2__
 #if !defined(__clang__) && !defined(_MSC_VER) && !defined(__GNUC__)
@@ -1012,49 +925,7 @@
 #endif
 
     // -------------------------------------------------------------------------------------------------------- rshiftr
-    template <>
-    inline reg rshiftr<int64_t>(const reg v1, const reg v2) {
-        int64_t t1[2], t2[2];
-        mipp::storeu<int64_t>(t1, v1);
-        mipp::storeu<int64_t>(t2, v2);
-        for (int i = 0; i < 2; i++){
-            t1[i] >>= t2[i];
-        }
-        return mipp::loadu<int64_t>(t1);
-    }
 
-    template <>
-    inline reg rshiftr<int32_t>(const reg v1, const reg v2) {
-        int32_t t1[4], t2[4];
-        mipp::storeu<int32_t>(t1, v1);
-        mipp::storeu<int32_t>(t2, v2);
-        for (int i = 0; i < 4; i++){
-            t1[i] >>= t2[i];
-        }
-        return mipp::loadu<int32_t>(t1);
-    }
-
-    template <>
-    inline reg rshiftr<int16_t>(const reg v1, const reg v2) {
-        int16_t t1[8], t2[8];
-        mipp::storeu<int16_t>(t1, v1);
-        mipp::storeu<int16_t>(t2, v2);
-        for (int i = 0; i < 8; i++){
-            t1[i] >>= t2[i];
-        }
-        return mipp::loadu<int16_t>(t1);
-    }
-
-    template <>
-    inline reg rshiftr<int8_t>(const reg v1, const reg v2) {
-        int8_t t1[16], t2[16];
-        mipp::storeu<int8_t>(t1, v1);
-        mipp::storeu<int8_t>(t2, v2);
-        for (int i = 0; i < 16; i++){
-            t1[i] >>= t2[i];
-        }
-        return mipp::loadu<int8_t>(t1);
-    }
     // -------------------------------------------------------------------------------------------------- rshift (mask)
 #ifdef __SSE2__
 #if !defined(__clang__) && !defined(_MSC_VER) && !defined(__GNUC__)
@@ -1201,337 +1072,6 @@
         auto v3 = _mm_shuffle_ps(_mm_castpd_ps(v2), _mm_castpd_ps(v2), _MM_SHUFFLE(1, 0, 3, 2));
         return mipp::blend<double>(_mm_castpd_ps(v1), v3, m);
     }
-
-    // -------------------------------------------------------------------------------------------------- combine (bis)
-
-#ifdef __SSE2__
-    // double -----------------------------------------------------------------
-    template <>
-    inline reg combine<0, double>(const reg v1, const reg v2)
-    {
-        return v1;
-    }
-
-    template <>
-    inline reg combine<1, double>(const reg v1, const reg v2)
-    {
-        constexpr uint32_t shuff = _MM_SHUFFLE(0, 0, 0, 1);
-        return _mm_castpd_ps(_mm_shuffle_pd(_mm_castps_pd(v1), _mm_castps_pd(v2), shuff));
-    }
-
-    // int64_t ----------------------------------------------------------------
-    template <>
-    inline reg combine<0, int64_t>(const reg v1, const reg v2)
-    {
-        return v1;
-    }
-
-    template <>
-    inline reg combine<1, int64_t>(const reg v1, const reg v2)
-    {
-        return mipp::combine<1,double>(v1, v2);
-    }
-#endif
-
-    // float ------------------------------------------------------------------
-    template <>
-    inline reg combine<0, float>(const reg v1, const reg v2)
-    {
-        return v1;
-    }
-
-    template <>
-    inline reg combine<1, float>(const reg v1, const reg v2)
-    {
-        constexpr uint32_t shuff = _MM_SHUFFLE(0, 3, 2, 1);
-        msk m =  _mm_setr_epi32(-1,-1,-1,0);
-        reg p1 = _mm_shuffle_ps(v1, v1, shuff);
-        reg p2 = _mm_shuffle_ps(v2, v2, shuff);
-        return mipp::blend<float>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<2, float>(const reg v1, const reg v2)
-    {
-        constexpr uint32_t shuff = _MM_SHUFFLE(1, 0, 3, 2);
-        return _mm_shuffle_ps(v1, v2, shuff);
-    }
-
-    template <>
-    inline reg combine<3, float>(const reg v1, const reg v2)
-    {
-        constexpr uint32_t shuff = _MM_SHUFFLE(2, 1, 0, 3);
-        msk m =  _mm_setr_epi32(-1,0,0,0);
-        reg p1 = _mm_shuffle_ps(v1, v1, shuff);
-        reg p2 = _mm_shuffle_ps(v2, v2, shuff);
-        return mipp::blend<float>(p1, p2, m);
-    }
-
-    // int32_t ----------------------------------------------------------------
-    template <>
-    inline reg combine<0, int32_t>(const reg v1, const reg v2)
-    {
-        return mipp::combine<0,float>(v1, v2);
-    }
-
-    template <>
-    inline reg combine<1, int32_t>(const reg v1, const reg v2)
-    {
-        return mipp::combine<1,float>(v1, v2);
-    }
-
-    template <>
-    inline reg combine<2, int32_t>(const reg v1, const reg v2)
-    {
-        return mipp::combine<2,float>(v1, v2);
-    }
-
-    template <>
-    inline reg combine<3, int32_t>(const reg v1, const reg v2)
-    {
-        return mipp::combine<3,float>(v1, v2);
-    }
-
-#ifdef __SSSE3__
-    // int16_t ----------------------------------------------------------------
-    template <>
-    inline reg combine<0, int16_t>(const reg v1, const reg v2)
-    {
-        return v1;
-    }
-
-    template <>
-    inline reg combine<1, int16_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(2,3,4,5,6,7,8,9,10,11,12,13,14,15,0,1);
-        msk m =  _mm_setr_epi8(-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-        return mipp::blend<int16_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<2, int16_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(4,5,6,7,8,9,10,11,12,13,14,15,0,1,2,3);
-        msk m =  _mm_setr_epi8(-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-        return mipp::blend<int16_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<3, int16_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(6,7,8,9,10,11,12,13,14,15,0,1,2,3,4,5);
-        msk m =  _mm_setr_epi8(-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-        return mipp::blend<int16_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<4, int16_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(8,9,10,11,12,13,14,15,0,1,2,3,4,5,6,7);
-        msk m =  _mm_setr_epi8(-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-
-        return mipp::blend<int16_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<5, int16_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(10,11,12,13,14,15,0,1,2,3,4,5,6,7,8,9);
-        msk m =  _mm_setr_epi8(-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-
-        return mipp::blend<int16_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<6, int16_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(12,13,14,15,0,1,2,3,4,5,6,7,8,9,10,11);
-        msk m =  _mm_setr_epi8(-1,-1,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-        return mipp::blend<int16_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<7, int16_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(14,15,0,1,2,3,4,5,6,7,8,9,10,11,12,13);
-        msk m =  _mm_setr_epi8(-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-        return mipp::blend<int16_t>(p1, p2, m);
-    }
-
-    // int8_t -----------------------------------------------------------------
-    template <>
-    inline reg combine<0, int8_t>(const reg v1, const reg v2)
-    {
-        return v1;
-    }
-
-    template <>
-    inline reg combine<1, int8_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0);
-        msk m =  _mm_setr_epi8(-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-        return mipp::blend<int8_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<2, int8_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(2,3,4,5,6,7,8,9,10,11,12,13,14,15,0,1);
-        msk m =  _mm_setr_epi8(-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-        return mipp::blend<int8_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<3, int8_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(3,4,5,6,7,8,9,10,11,12,13,14,15,0,1,2);
-        msk m =  _mm_setr_epi8(-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-
-        return mipp::blend<int8_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<4, int8_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff =_mm_setr_epi8(4,5,6,7,8,9,10,11,12,13,14,15,0,1,2,3);
-        msk m =  _mm_setr_epi8(-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-
-        return mipp::blend<int8_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<5, int8_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(5,6,7,8,9,10,11,12,13,14,15,0,1,2,3,4);
-        msk m =  _mm_setr_epi8(-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-
-        return mipp::blend<int8_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<6, int8_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(6,7,8,9,10,11,12,13,14,15,0,1,2,3,4,5);
-        msk m =  _mm_setr_epi8(-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-        return mipp::blend<int8_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<7, int8_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(7,8,9,10,11,12,13,14,15,0,1,2,3,4,5,6);
-        msk m =  _mm_setr_epi8(-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-        return mipp::blend<int8_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<8, int8_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(8,9,10,11,12,13,14,15,0,1,2,3,4,5,6,7);
-        msk m =  _mm_setr_epi8(-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-        return mipp::blend<int8_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<9, int8_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(9,10,11,12,13,14,15,0,1,2,3,4,5,6,7,8);
-        msk m =  _mm_setr_epi8(-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-        return mipp::blend<int8_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<10, int8_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(10,11,12,13,14,15,0,1,2,3,4,5,6,7,8,9);
-        msk m =  _mm_setr_epi8(-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-        return mipp::blend<int8_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<11, int8_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(11,12,13,14,15,0,1,2,3,4,5,6,7,8,9,10);
-        msk m =  _mm_setr_epi8(-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,0,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-        return mipp::blend<int8_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<12, int8_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(12,13,14,15,0,1,2,3,4,5,6,7,8,9,10,11);
-        msk m =  _mm_setr_epi8(-1,-1,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-        return mipp::blend<int8_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<13, int8_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(13,14,15,0,1,2,3,4,5,6,7,8,9,10,11,12);
-        msk m =  _mm_setr_epi8(-1,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-        return mipp::blend<int8_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<14, int8_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(14,15,0,1,2,3,4,5,6,7,8,9,10,11,12,13);
-        msk m =  _mm_setr_epi8(-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-        return mipp::blend<int8_t>(p1, p2, m);
-    }
-
-    template <>
-    inline reg combine<15, int8_t>(const reg v1, const reg v2)
-    {
-        __m128i shuff = _mm_setr_epi8(15,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14);
-        msk m =  _mm_setr_epi8(-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
-        reg p1 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v1), shuff));
-        reg p2 = _mm_castsi128_ps(_mm_shuffle_epi8(_mm_castps_si128(v2), shuff));
-        return mipp::blend<int8_t>(p1, p2, m);
-    }
-#endif
 
     // ---------------------------------------------------------------------------------------------------------- cmask
 #ifdef __SSE2__
@@ -2477,12 +2017,12 @@
 
     template <>
     inline msk cmpneq<int16_t>(const reg v1, const reg v2) {
-        return andnb<N<int16_t>()>(cmpeq<int16_t>(v1, v2), _mm_castps_si128(set1<int16_t>(0xFFFF)));
+        return andnb<N<int16_t>()>(cmpeq<int16_t>(v1, v2), _mm_castps_si128(set1<int16_t>(static_cast<int16_t>(0xFFFF))));
     }
 
     template <>
     inline msk cmpneq<int8_t>(const reg v1, const reg v2) {
-        return andnb<N<int8_t>()>(cmpeq<int8_t>(v1, v2), _mm_castps_si128(set1<int8_t>(0xFF)));
+        return andnb<N<int8_t>()>(cmpeq<int8_t>(v1, v2), _mm_castps_si128(set1<int8_t>(static_cast<int8_t>(0xFF))));
     }
 #endif
 
@@ -2504,37 +2044,13 @@
     }
 
     template <>
-    inline msk cmplt<uint32_t>(const reg v1, const reg v2) {
-        auto msb = _mm_set1_epi32(0x80000000);
-        reg v1_2 = _mm_castsi128_ps(_mm_add_epi32(_mm_castps_si128(v1), msb));
-        reg v2_2 = _mm_castsi128_ps(_mm_add_epi32(_mm_castps_si128(v2), msb));
-        return cmplt<int32_t>(v1_2, v2_2);
-    }
-
-    template <>
     inline msk cmplt<int16_t>(const reg v1, const reg v2) {
         return _mm_cmplt_epi16(_mm_castps_si128(v1), _mm_castps_si128(v2));
     }
 
     template <>
-    inline msk cmplt<uint16_t>(const reg v1, const reg v2) {
-        auto msb = _mm_set1_epi16(0x8000);
-        reg v1_2 = _mm_castsi128_ps(_mm_add_epi16(_mm_castps_si128(v1), msb));
-        reg v2_2 = _mm_castsi128_ps(_mm_add_epi16(_mm_castps_si128(v2), msb));
-        return cmplt<int16_t>(v1_2, v2_2);
-    }
-
-    template <>
     inline msk cmplt<int8_t>(const reg v1, const reg v2) {
         return _mm_cmplt_epi8(_mm_castps_si128(v1), _mm_castps_si128(v2));
-    }
-
-    template <>
-    inline msk cmplt<uint8_t>(const reg v1, const reg v2) {
-        auto msb = _mm_set1_epi8(0x80);
-        reg v1_2 = _mm_castsi128_ps(_mm_add_epi8(_mm_castps_si128(v1), msb));
-        reg v2_2 = _mm_castsi128_ps(_mm_add_epi8(_mm_castps_si128(v2), msb));
-        return cmplt<int8_t>(v1_2, v2_2);
     }
 #endif
 
@@ -2557,18 +2073,8 @@
     }
 
     template <>
-    inline msk cmple<uint64_t>(const reg v1, const reg v2) {
-        return mipp::orb<2>(mipp::cmplt<uint64_t>(v1, v2), mipp::cmpeq<int64_t>(v1, v2));
-    }
-
-    template <>
     inline msk cmple<int32_t>(const reg v1, const reg v2) {
         return mipp::orb<4>(mipp::cmplt<int32_t>(v1, v2), mipp::cmpeq<int32_t>(v1, v2));
-    }
-
-    template <>
-    inline msk cmple<uint32_t>(const reg v1, const reg v2) {
-        return mipp::orb<4>(mipp::cmplt<uint32_t>(v1, v2), mipp::cmpeq<int32_t>(v1, v2));
     }
 
     template <>
@@ -2577,18 +2083,8 @@
     }
 
     template <>
-    inline msk cmple<uint16_t>(const reg v1, const reg v2) {
-        return mipp::orb<8>(mipp::cmplt<uint16_t>(v1, v2), mipp::cmpeq<int16_t>(v1, v2));
-    }
-
-    template <>
     inline msk cmple<int8_t>(const reg v1, const reg v2) {
         return mipp::orb<16>(mipp::cmplt<int8_t>(v1, v2), mipp::cmpeq<int8_t>(v1, v2));
-    }
-
-    template <>
-    inline msk cmple<uint8_t>(const reg v1, const reg v2) {
-        return mipp::orb<16>(mipp::cmplt<uint8_t>(v1, v2), mipp::cmpeq<int8_t>(v1, v2));
     }
 
     // ---------------------------------------------------------------------------------------------------------- cmpgt
@@ -2609,37 +2105,13 @@
     }
 
     template <>
-    inline msk cmpgt<uint32_t>(const reg v1, const reg v2) {
-        auto msb = _mm_set1_epi32(0x80000000);
-        reg v1_2 = _mm_castsi128_ps(_mm_add_epi32(_mm_castps_si128(v1), msb));
-        reg v2_2 = _mm_castsi128_ps(_mm_add_epi32(_mm_castps_si128(v2), msb));
-        return cmpgt<int32_t>(v1_2, v2_2);
-    }
-
-    template <>
     inline msk cmpgt<int16_t>(const reg v1, const reg v2) {
         return _mm_cmpgt_epi16(_mm_castps_si128(v1), _mm_castps_si128(v2));
     }
 
     template <>
-    inline msk cmpgt<uint16_t>(const reg v1, const reg v2) {
-        auto msb = _mm_set1_epi16(0x8000);
-        reg v1_2 = _mm_castsi128_ps(_mm_add_epi16(_mm_castps_si128(v1), msb));
-        reg v2_2 = _mm_castsi128_ps(_mm_add_epi16(_mm_castps_si128(v2), msb));
-        return cmpgt<int16_t>(v1_2, v2_2);
-    }
-
-    template <>
     inline msk cmpgt<int8_t>(const reg v1, const reg v2) {
         return _mm_cmpgt_epi8(_mm_castps_si128(v1), _mm_castps_si128(v2));
-    }
-
-    template <>
-    inline msk cmpgt<uint8_t>(const reg v1, const reg v2) {
-        auto msb = _mm_set1_epi8(0x80);
-        reg v1_2 = _mm_castsi128_ps(_mm_add_epi8(_mm_castps_si128(v1), msb));
-        reg v2_2 = _mm_castsi128_ps(_mm_add_epi8(_mm_castps_si128(v2), msb));
-        return cmpgt<int8_t>(v1_2, v2_2);
     }
 #endif
 
@@ -2662,18 +2134,8 @@
     }
 
     template <>
-    inline msk cmpge<uint64_t>(const reg v1, const reg v2) {
-        return mipp::orb<2>(mipp::cmpgt<uint64_t>(v1, v2), mipp::cmpeq<int64_t>(v1, v2));
-    }
-
-    template <>
     inline msk cmpge<int32_t>(const reg v1, const reg v2) {
         return mipp::orb<4>(mipp::cmpgt<int32_t>(v1, v2), mipp::cmpeq<int32_t>(v1, v2));
-    }
-
-    template <>
-    inline msk cmpge<uint32_t>(const reg v1, const reg v2) {
-        return mipp::orb<4>(mipp::cmpgt<uint32_t>(v1, v2), mipp::cmpeq<int32_t>(v1, v2));
     }
 
     template <>
@@ -2682,18 +2144,8 @@
     }
 
     template <>
-    inline msk cmpge<uint16_t>(const reg v1, const reg v2) {
-        return mipp::orb<8>(mipp::cmpgt<uint16_t>(v1, v2), mipp::cmpeq<int16_t>(v1, v2));
-    }
-
-    template <>
     inline msk cmpge<int8_t>(const reg v1, const reg v2) {
         return mipp::orb<16>(mipp::cmpgt<int8_t>(v1, v2), mipp::cmpeq<int8_t>(v1, v2));
-    }
-
-    template <>
-    inline msk cmpge<uint8_t>(const reg v1, const reg v2) {
-        return mipp::orb<16>(mipp::cmpgt<uint8_t>(v1, v2), mipp::cmpeq<int8_t>(v1, v2));
     }
 
     // ------------------------------------------------------------------------------------------------------------ add
@@ -2724,18 +2176,8 @@
     }
 
     template <>
-    inline reg add<uint16_t>(const reg v1, const reg v2) {
-        return _mm_castsi128_ps(_mm_adds_epu16(_mm_castps_si128(v1), _mm_castps_si128(v2)));
-    }
-
-    template <>
     inline reg add<int8_t>(const reg v1, const reg v2) {
         return _mm_castsi128_ps(_mm_adds_epi8(_mm_castps_si128(v1), _mm_castps_si128(v2)));
-    }
-
-    template <>
-    inline reg add<uint8_t>(const reg v1, const reg v2) {
-        return _mm_castsi128_ps(_mm_adds_epu8(_mm_castps_si128(v1), _mm_castps_si128(v2)));
     }
 #endif
 
@@ -2767,18 +2209,8 @@
     }
 
     template <>
-    inline reg sub<uint16_t>(const reg v1, const reg v2) {
-        return _mm_castsi128_ps(_mm_subs_epu16(_mm_castps_si128(v1), _mm_castps_si128(v2)));
-    }
-
-    template <>
     inline reg sub<int8_t>(const reg v1, const reg v2) {
         return _mm_castsi128_ps(_mm_subs_epi8(_mm_castps_si128(v1), _mm_castps_si128(v2)));
-    }
-
-    template <>
-    inline reg sub<uint8_t>(const reg v1, const reg v2) {
-        return _mm_castsi128_ps(_mm_subs_epu8(_mm_castps_si128(v1), _mm_castps_si128(v2)));
     }
 #endif
 
@@ -2839,11 +2271,6 @@
     inline reg min<int32_t>(const reg v1, const reg v2) {
         return _mm_castsi128_ps(_mm_min_epi32(_mm_castps_si128(v1), _mm_castps_si128(v2)));
     }
-
-    template <>
-    inline reg min<uint32_t>(const reg v1, const reg v2) {
-        return _mm_castsi128_ps(_mm_min_epu32(_mm_castps_si128(v1), _mm_castps_si128(v2)));
-    }
 #endif
 
     template <>
@@ -2853,22 +2280,10 @@
 
 #ifdef __SSE4_1__
     template <>
-    inline reg min<uint16_t>(const reg v1, const reg v2) {
-        return _mm_castsi128_ps(_mm_min_epu16(_mm_castps_si128(v1), _mm_castps_si128(v2)));
-    }
-#endif
-
-#ifdef __SSE4_1__
-    template <>
     inline reg min<int8_t>(const reg v1, const reg v2) {
         return _mm_castsi128_ps(_mm_min_epi8(_mm_castps_si128(v1), _mm_castps_si128(v2)));
     }
 #endif
-
-    template <>
-    inline reg min<uint8_t>(const reg v1, const reg v2) {
-        return _mm_castsi128_ps(_mm_min_epu8(_mm_castps_si128(v1), _mm_castps_si128(v2)));
-    }
 #endif
 
     // ------------------------------------------------------------------------------------------------------------ max
@@ -2888,11 +2303,6 @@
     inline reg max<int32_t>(const reg v1, const reg v2) {
         return _mm_castsi128_ps(_mm_max_epi32(_mm_castps_si128(v1), _mm_castps_si128(v2)));
     }
-
-    template <>
-    inline reg max<uint32_t>(const reg v1, const reg v2) {
-        return _mm_castsi128_ps(_mm_max_epu32(_mm_castps_si128(v1), _mm_castps_si128(v2)));
-    }
 #endif
 
     template <>
@@ -2902,22 +2312,10 @@
 
 #ifdef __SSE4_1__
     template <>
-    inline reg max<uint16_t>(const reg v1, const reg v2) {
-        return _mm_castsi128_ps(_mm_max_epu16(_mm_castps_si128(v1), _mm_castps_si128(v2)));
-    }
-#endif
-
-#ifdef __SSE4_1__
-    template <>
     inline reg max<int8_t>(const reg v1, const reg v2) {
         return _mm_castsi128_ps(_mm_max_epi8(_mm_castps_si128(v1), _mm_castps_si128(v2)));
     }
 #endif
-
-    template <>
-    inline reg max<uint8_t>(const reg v1, const reg v2) {
-        return _mm_castsi128_ps(_mm_max_epu8(_mm_castps_si128(v1), _mm_castps_si128(v2)));
-    }
 #endif
 
     // ------------------------------------------------------------------------------------------------------------ msb
@@ -3509,28 +2907,13 @@
     }
 
     template <>
-    inline reg sat<uint32_t>(const reg v1, uint32_t min, uint32_t max) {
-        return mipp::min<uint32_t>(mipp::max<uint32_t>(v1, set1<uint32_t>(min)), set1<uint32_t>(max));
-    }
-
-    template <>
     inline reg sat<int16_t>(const reg v1, int16_t min, int16_t max) {
         return mipp::min<int16_t>(mipp::max<int16_t>(v1, set1<int16_t>(min)), set1<int16_t>(max));
     }
 
     template <>
-    inline reg sat<uint16_t>(const reg v1, uint16_t min, uint16_t max) {
-        return mipp::min<uint16_t>(mipp::max<uint16_t>(v1, set1<uint16_t>(min)), set1<uint16_t>(max));
-    }
-
-    template <>
     inline reg sat<int8_t>(const reg v1, int8_t min, int8_t max) {
         return mipp::min<int8_t>(mipp::max<int8_t>(v1, set1<int8_t>(min)), set1<int8_t>(max));
-    }
-
-    template <>
-    inline reg sat<uint8_t>(const reg v1, uint8_t min, uint8_t max) {
-        return mipp::min<uint8_t>(mipp::max<uint8_t>(v1, set1<uint8_t>(min)), set1<uint8_t>(max));
     }
 
     // ---------------------------------------------------------------------------------------------------------- round
@@ -3579,28 +2962,13 @@
     }
 
     template <>
-    inline reg cvt<uint8_t,uint16_t>(const reg_2 v) {
-        return _mm_castsi128_ps(_mm_cvtepu8_epi16(_mm_castpd_si128(v)));
-    }
-
-    template <>
     inline reg cvt<int16_t,int32_t>(const reg_2 v) {
         return _mm_castsi128_ps(_mm_cvtepi16_epi32(_mm_castpd_si128(v)));
     }
 
     template <>
-    inline reg cvt<uint16_t,uint32_t>(const reg_2 v) {
-        return _mm_castsi128_ps(_mm_cvtepu16_epi32(_mm_castpd_si128(v)));
-    }
-
-    template <>
     inline reg cvt<int32_t,int64_t>(const reg_2 v) {
         return _mm_castsi128_ps(_mm_cvtepi32_epi64(_mm_castpd_si128(v)));
-    }
-
-    template <>
-    inline reg cvt<uint32_t,uint64_t>(const reg_2 v) {
-        return _mm_castsi128_ps(_mm_cvtepu32_epi64(_mm_castpd_si128(v)));
     }
 #endif
 
@@ -3612,18 +2980,8 @@
     }
 
     template <>
-    inline reg pack<uint32_t,uint16_t>(const reg v1, const reg v2) {
-        return _mm_castsi128_ps(_mm_packus_epi32(_mm_castps_si128(v1), _mm_castps_si128(v2)));
-    }
-
-    template <>
     inline reg pack<int16_t,int8_t>(const reg v1, const reg v2) {
         return _mm_castsi128_ps(_mm_packs_epi16(_mm_castps_si128(v1), _mm_castps_si128(v2)));
-    }
-
-    template <>
-    inline reg pack<uint16_t,uint8_t>(const reg v1, const reg v2) {
-        return _mm_castsi128_ps(_mm_packus_epi16(_mm_castps_si128(v1), _mm_castps_si128(v2)));
     }
 #endif
 
@@ -3690,26 +3048,6 @@
         }
     };
 
-    template <red_op<uint64_t> OP>
-    struct _reduction<uint64_t,OP>
-    {
-        static reg apply(const reg v1) {
-            auto val = v1;
-            val = OP(val, _mm_shuffle_ps(val, val, _MM_SHUFFLE(1, 0, 3, 2)));
-            return val;
-        }
-    };
-
-    template <Red_op<uint64_t> OP>
-    struct _Reduction<uint64_t,OP>
-    {
-        static Reg<uint64_t> apply(const Reg<uint64_t> v1) {
-            auto val = v1;
-            val = OP(val, Reg<uint64_t>(_mm_shuffle_ps(val.r, val.r, _MM_SHUFFLE(1, 0, 3, 2))));
-            return val;
-        }
-    };
-
     template <red_op<int32_t> OP>
     struct _reduction<int32_t,OP>
     {
@@ -3728,28 +3066,6 @@
             auto val = v1;
             val = OP(val, Reg<int32_t>(_mm_shuffle_ps(val.r, val.r, _MM_SHUFFLE(1, 0, 3, 2))));
             val = OP(val, Reg<int32_t>(_mm_shuffle_ps(val.r, val.r, _MM_SHUFFLE(2, 3, 0, 1))));
-            return val;
-        }
-    };
-
-    template <red_op<uint32_t> OP>
-    struct _reduction<uint32_t,OP>
-    {
-        static reg apply(const reg v1) {
-            auto val = v1;
-            val = OP(val, _mm_shuffle_ps(val, val, _MM_SHUFFLE(1, 0, 3, 2)));
-            val = OP(val, _mm_shuffle_ps(val, val, _MM_SHUFFLE(2, 3, 0, 1)));
-            return val;
-        }
-    };
-
-    template <Red_op<uint32_t> OP>
-    struct _Reduction<uint32_t,OP>
-    {
-        static Reg<uint32_t> apply(const Reg<uint32_t> v1) {
-            auto val = v1;
-            val = OP(val, Reg<uint32_t>(_mm_shuffle_ps(val.r, val.r, _MM_SHUFFLE(1, 0, 3, 2))));
-            val = OP(val, Reg<uint32_t>(_mm_shuffle_ps(val.r, val.r, _MM_SHUFFLE(2, 3, 0, 1))));
             return val;
         }
     };
@@ -3779,34 +3095,6 @@
             val = OP(val, Reg<int16_t>(_mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(val.r), _MM_SHUFFLE(1, 0, 3, 2)))));
             val = OP(val, Reg<int16_t>(_mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(val.r), _MM_SHUFFLE(2, 3, 0, 1)))));
             val = OP(val, Reg<int16_t>(_mm_castsi128_ps(_mm_shuffle_epi8 (_mm_castps_si128(val.r), mask_16))));
-            return val;
-        }
-    };
-
-    template <red_op<uint16_t> OP>
-    struct _reduction<uint16_t,OP>
-    {
-        static reg apply(const reg v1) {
-            __m128i mask_16 = _mm_set_epi8(13, 12, 15, 14, 9, 8, 11, 10, 5, 4, 7, 6, 1, 0, 3, 2);
-
-            auto val = v1;
-            val = OP(val, _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(val), _MM_SHUFFLE(1, 0, 3, 2))));
-            val = OP(val, _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(val), _MM_SHUFFLE(2, 3, 0, 1))));
-            val = OP(val, _mm_castsi128_ps(_mm_shuffle_epi8 (_mm_castps_si128(val), mask_16)));
-            return val;
-        }
-    };
-
-    template <Red_op<uint16_t> OP>
-    struct _Reduction<uint16_t,OP>
-    {
-        static Reg<uint16_t> apply(const Reg<uint16_t> v1) {
-            __m128i mask_16 = _mm_set_epi8(13, 12, 15, 14, 9, 8, 11, 10, 5, 4, 7, 6, 1, 0, 3, 2);
-
-            auto val = v1;
-            val = OP(val, Reg<uint16_t>(_mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(val.r), _MM_SHUFFLE(1, 0, 3, 2)))));
-            val = OP(val, Reg<uint16_t>(_mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(val.r), _MM_SHUFFLE(2, 3, 0, 1)))));
-            val = OP(val, Reg<uint16_t>(_mm_castsi128_ps(_mm_shuffle_epi8 (_mm_castps_si128(val.r), mask_16))));
             return val;
         }
     };
@@ -3841,38 +3129,6 @@
             val = OP(val, Reg<int8_t>(_mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(val.r), _MM_SHUFFLE(2, 3, 0, 1)))));
             val = OP(val, Reg<int8_t>(_mm_castsi128_ps(_mm_shuffle_epi8 (_mm_castps_si128(val.r), mask_16))));
             val = OP(val, Reg<int8_t>(_mm_castsi128_ps(_mm_shuffle_epi8 (_mm_castps_si128(val.r), mask_8))));
-            return val;
-        }
-    };
-
-    template <red_op<uint8_t> OP>
-    struct _reduction<uint8_t,OP>
-    {
-        static reg apply(const reg v1) {
-            __m128i mask_16 = _mm_set_epi8(13, 12, 15, 14, 9, 8, 11, 10, 5, 4, 7, 6, 1, 0, 3, 2);
-            __m128i mask_8  = _mm_set_epi8(14, 15, 12, 13, 10, 11, 8, 9, 6, 7, 4, 5, 2, 3, 0, 1);
-
-            auto val = v1;
-            val = OP(val, _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(val), _MM_SHUFFLE(1, 0, 3, 2))));
-            val = OP(val, _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(val), _MM_SHUFFLE(2, 3, 0, 1))));
-            val = OP(val, _mm_castsi128_ps(_mm_shuffle_epi8 (_mm_castps_si128(val), mask_16)));
-            val = OP(val, _mm_castsi128_ps(_mm_shuffle_epi8 (_mm_castps_si128(val), mask_8)));
-            return val;
-        }
-    };
-
-    template <Red_op<uint8_t> OP>
-    struct _Reduction<uint8_t,OP>
-    {
-        static Reg<uint8_t> apply(const Reg<uint8_t> v1) {
-            __m128i mask_16 = _mm_set_epi8(13, 12, 15, 14, 9, 8, 11, 10, 5, 4, 7, 6, 1, 0, 3, 2);
-            __m128i mask_8  = _mm_set_epi8(14, 15, 12, 13, 10, 11, 8, 9, 6, 7, 4, 5, 2, 3, 0, 1);
-
-            auto val = v1;
-            val = OP(val, Reg<uint8_t>(_mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(val.r), _MM_SHUFFLE(1, 0, 3, 2)))));
-            val = OP(val, Reg<uint8_t>(_mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(val.r), _MM_SHUFFLE(2, 3, 0, 1)))));
-            val = OP(val, Reg<uint8_t>(_mm_castsi128_ps(_mm_shuffle_epi8 (_mm_castps_si128(val.r), mask_16))));
-            val = OP(val, Reg<uint8_t>(_mm_castsi128_ps(_mm_shuffle_epi8 (_mm_castps_si128(val.r), mask_8))));
             return val;
         }
     };

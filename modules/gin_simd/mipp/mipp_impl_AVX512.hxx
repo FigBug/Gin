@@ -70,14 +70,6 @@
     inline reg loadu<int8_t>(const int8_t *mem_addr) {
         return _mm512_loadu_ps((const float*) mem_addr);
     }
-
-#if defined(__AVX__)
-    template <>
-    inline reg_2 loadu_2<int32_t>(const int32_t *mem_addr) {
-        return _mm256_loadu_ps((const float*) mem_addr);
-    }
-#endif
-
 #endif
 
     // ----------------------------------------------------------------------------------------------------------- load
@@ -111,13 +103,6 @@
     inline reg load<int8_t>(const int8_t *mem_addr) {
         return _mm512_load_ps((const float*) mem_addr);
     }
-
-#if defined(__AVX__)
-    template <>
-    inline reg_2 load_2<int32_t>(const int32_t *mem_addr) {
-        return _mm256_load_ps((const float*) mem_addr);
-    }
-#endif
 #else
     template <>
     inline reg load<float>(const float *mem_addr) {
@@ -147,11 +132,6 @@
     template <>
     inline reg load<int8_t>(const int8_t *mem_addr) {
         return mipp::loadu<int8_t>(mem_addr);
-    }
-
-    template <>
-    inline reg_2 load_2<int32_t>(const int32_t *mem_addr) {
-        return mipp::loadu_2<int32_t>(mem_addr);
     }
 #endif
 
@@ -303,7 +283,7 @@
         return gather_seq<int8_t,int8_t>(mem_addr, idx);
     }
 
-    // -------------------------------------------------------------------------------------------------- masked gather
+    // ------------------------------------------------------------------------------------------------------- masked gather
 #if defined(__AVX512F__)
     template <>
     inline reg maskzgat<double,int64_t>(const msk m, const double *mem_addr, const reg idx) {
@@ -327,6 +307,7 @@
 #endif
 
     // -------------------------------------------------------------------------------------------------------- scatter
+
 #if defined(__AVX512F__)
     template <>
     inline void scatter<double,int64_t>(double *mem_addr, const reg idx, const reg r) {
@@ -378,7 +359,7 @@
         scatter_seq<int8_t,int8_t>(mem_addr, idx, r);
     }
 
-    // ------------------------------------------------------------------------------------------------- masked scatter
+    // -------------------------------------------------------------------------------------------------------- masked scatter
 #if defined(__AVX512F__)
     template <>
     inline void masksca<double,int64_t>(const msk m, double *mem_addr, const reg idx, const reg r) {
@@ -401,7 +382,7 @@
     }
 #endif
 
-    // -------------------------------------------------------------------------------------------------------- maskzld
+    // ------------------------------------------------------------------------------------------------------------ maskzld
 #if defined(__AVX512F__)
     template <>
     inline reg maskzld<double>(const msk m, const double* memp){
@@ -424,7 +405,7 @@
     }
 #endif
 
-    // --------------------------------------------------------------------------------------------------------- maskst
+    // ------------------------------------------------------------------------------------------------------------ maskst
 #if defined(__AVX512F__)
     template <>
     inline void maskst<double>(const msk m, double* memp, const reg a){
@@ -447,7 +428,7 @@
     }
 #endif
 
-    // ------------------------------------------------------------------------------------------------------- getfirst
+    // ------------------------------------------------------------------------------------------------------------ getfirst
 #if defined(__AVX512F__)
     template <>
     inline double getfirst<double>(const mipp::reg r){
@@ -513,21 +494,8 @@
     }
 
     template <>
-    inline reg set1<uint64_t>(const uint64_t val) {
-        uint64_t t[mipp::N<uint64_t>()] = { val, val, val, val, val, val, val, val };
-        return loadu<int64_t>((int64_t*)t);
-    }
-
-    template <>
     inline reg set1<int32_t>(const int32_t val) {
         return _mm512_castsi512_ps(_mm512_set1_epi32(val));
-    }
-
-    template <>
-    inline reg set1<uint32_t>(const uint32_t val) {
-        uint32_t t[mipp::N<uint32_t>()] = { val, val, val, val, val, val, val, val,
-                                            val, val, val, val, val, val, val, val };
-        return loadu<int32_t>((int32_t*)t);
     }
 
     template <>
@@ -536,30 +504,8 @@
     }
 
     template <>
-    inline reg set1<uint16_t>(const uint16_t val) {
-        uint16_t t[mipp::N<uint16_t>()] = { val, val, val, val, val, val, val, val,
-                                            val, val, val, val, val, val, val, val,
-                                            val, val, val, val, val, val, val, val,
-                                            val, val, val, val, val, val, val, val };
-        return loadu<int16_t>((int16_t*)t);
-    }
-
-    template <>
     inline reg set1<int8_t>(const int8_t val) {
         return _mm512_castsi512_ps(_mm512_set1_epi8(val));
-    }
-
-    template <>
-    inline reg set1<uint8_t>(const uint8_t val) {
-        uint8_t t[mipp::N<uint8_t>()] = { val, val, val, val, val, val, val, val,
-                                          val, val, val, val, val, val, val, val,
-                                          val, val, val, val, val, val, val, val,
-                                          val, val, val, val, val, val, val, val,
-                                          val, val, val, val, val, val, val, val,
-                                          val, val, val, val, val, val, val, val,
-                                          val, val, val, val, val, val, val, val,
-                                          val, val, val, val, val, val, val, val };
-        return loadu<int8_t>((int8_t*)t);
     }
 
 #elif defined(__MIC__) || defined(__KNCNI__)
@@ -641,17 +587,7 @@
     }
 
     template <>
-    inline reg set0<uint64_t>() {
-        return _mm512_castsi512_ps(_mm512_setzero_si512());
-    }
-
-    template <>
     inline reg set0<int32_t>() {
-        return _mm512_castsi512_ps(_mm512_setzero_si512());
-    }
-
-    template <>
-    inline reg set0<uint32_t>() {
         return _mm512_castsi512_ps(_mm512_setzero_si512());
     }
 
@@ -661,17 +597,7 @@
     }
 
     template <>
-    inline reg set0<uint16_t>() {
-        return _mm512_castsi512_ps(_mm512_setzero_si512());
-    }
-
-    template <>
     inline reg set0<int8_t>() {
-        return _mm512_castsi512_ps(_mm512_setzero_si512());
-    }
-
-    template <>
-    inline reg set0<uint8_t>() {
         return _mm512_castsi512_ps(_mm512_setzero_si512());
     }
 
@@ -1135,169 +1061,6 @@
         auto v3 = _mm512_castps256_ps512(v1);
         return _mm512_castpd_ps(_mm512_insertf64x4(_mm512_castps_pd(v3), _mm256_castps_pd(v2), 1));
     }
-#endif
-
-    // -------------------------------------------------------------------------------------------------- combine (bis)
-#if defined(__AVX512F__)
-    // float ------------------------------------------------------------------
-    template <> inline reg combine< 0, float>(const reg v1, const reg v2) { return v1; }
-    template <> inline reg combine< 1, float>(const reg v1, const reg v2) { return _mm512_permutex2var_ps(v1, _mm512_setr_epi32( 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16), v2); }
-    template <> inline reg combine< 2, float>(const reg v1, const reg v2) { return _mm512_permutex2var_ps(v1, _mm512_setr_epi32( 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17), v2); }
-    template <> inline reg combine< 3, float>(const reg v1, const reg v2) { return _mm512_permutex2var_ps(v1, _mm512_setr_epi32( 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18), v2); }
-    template <> inline reg combine< 4, float>(const reg v1, const reg v2) { return _mm512_permutex2var_ps(v1, _mm512_setr_epi32( 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19), v2); }
-    template <> inline reg combine< 5, float>(const reg v1, const reg v2) { return _mm512_permutex2var_ps(v1, _mm512_setr_epi32( 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20), v2); }
-    template <> inline reg combine< 6, float>(const reg v1, const reg v2) { return _mm512_permutex2var_ps(v1, _mm512_setr_epi32( 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21), v2); }
-    template <> inline reg combine< 7, float>(const reg v1, const reg v2) { return _mm512_permutex2var_ps(v1, _mm512_setr_epi32( 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22), v2); }
-    template <> inline reg combine< 8, float>(const reg v1, const reg v2) { return _mm512_permutex2var_ps(v1, _mm512_setr_epi32( 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23), v2); }
-    template <> inline reg combine< 9, float>(const reg v1, const reg v2) { return _mm512_permutex2var_ps(v1, _mm512_setr_epi32( 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24), v2); }
-    template <> inline reg combine<10, float>(const reg v1, const reg v2) { return _mm512_permutex2var_ps(v1, _mm512_setr_epi32(10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25), v2); }
-    template <> inline reg combine<11, float>(const reg v1, const reg v2) { return _mm512_permutex2var_ps(v1, _mm512_setr_epi32(11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26), v2); }
-    template <> inline reg combine<12, float>(const reg v1, const reg v2) { return _mm512_permutex2var_ps(v1, _mm512_setr_epi32(12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27), v2); }
-    template <> inline reg combine<13, float>(const reg v1, const reg v2) { return _mm512_permutex2var_ps(v1, _mm512_setr_epi32(13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28), v2); }
-    template <> inline reg combine<14, float>(const reg v1, const reg v2) { return _mm512_permutex2var_ps(v1, _mm512_setr_epi32(14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29), v2); }
-    template <> inline reg combine<15, float>(const reg v1, const reg v2) { return _mm512_permutex2var_ps(v1, _mm512_setr_epi32(15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30), v2); }
-
-    // int32_t ----------------------------------------------------------------
-    template <> inline reg combine< 0, int32_t>(const reg v1, const reg v2) { return combine< 0, float>(v1, v2); }
-    template <> inline reg combine< 1, int32_t>(const reg v1, const reg v2) { return combine< 1, float>(v1, v2); }
-    template <> inline reg combine< 2, int32_t>(const reg v1, const reg v2) { return combine< 2, float>(v1, v2); }
-    template <> inline reg combine< 3, int32_t>(const reg v1, const reg v2) { return combine< 3, float>(v1, v2); }
-    template <> inline reg combine< 4, int32_t>(const reg v1, const reg v2) { return combine< 4, float>(v1, v2); }
-    template <> inline reg combine< 5, int32_t>(const reg v1, const reg v2) { return combine< 5, float>(v1, v2); }
-    template <> inline reg combine< 6, int32_t>(const reg v1, const reg v2) { return combine< 6, float>(v1, v2); }
-    template <> inline reg combine< 7, int32_t>(const reg v1, const reg v2) { return combine< 7, float>(v1, v2); }
-    template <> inline reg combine< 8, int32_t>(const reg v1, const reg v2) { return combine< 8, float>(v1, v2); }
-    template <> inline reg combine< 9, int32_t>(const reg v1, const reg v2) { return combine< 9, float>(v1, v2); }
-    template <> inline reg combine<10, int32_t>(const reg v1, const reg v2) { return combine<10, float>(v1, v2); }
-    template <> inline reg combine<11, int32_t>(const reg v1, const reg v2) { return combine<11, float>(v1, v2); }
-    template <> inline reg combine<12, int32_t>(const reg v1, const reg v2) { return combine<12, float>(v1, v2); }
-    template <> inline reg combine<13, int32_t>(const reg v1, const reg v2) { return combine<13, float>(v1, v2); }
-    template <> inline reg combine<14, int32_t>(const reg v1, const reg v2) { return combine<14, float>(v1, v2); }
-    template <> inline reg combine<15, int32_t>(const reg v1, const reg v2) { return combine<15, float>(v1, v2); }
-
-    // double -----------------------------------------------------------------
-    template <> inline reg combine< 0, double>(const reg v1, const reg v2) { return combine< 0, float>(v1, v2); }
-    template <> inline reg combine< 1, double>(const reg v1, const reg v2) { return combine< 2, float>(v1, v2); }
-    template <> inline reg combine< 2, double>(const reg v1, const reg v2) { return combine< 4, float>(v1, v2); }
-    template <> inline reg combine< 3, double>(const reg v1, const reg v2) { return combine< 6, float>(v1, v2); }
-    template <> inline reg combine< 4, double>(const reg v1, const reg v2) { return combine< 8, float>(v1, v2); }
-    template <> inline reg combine< 5, double>(const reg v1, const reg v2) { return combine<10, float>(v1, v2); }
-    template <> inline reg combine< 6, double>(const reg v1, const reg v2) { return combine<12, float>(v1, v2); }
-    template <> inline reg combine< 7, double>(const reg v1, const reg v2) { return combine<14, float>(v1, v2); }
-
-    // int64_t ----------------------------------------------------------------
-    template <> inline reg combine< 0, int64_t>(const reg v1, const reg v2) { return combine<0, double>(v1, v2); }
-    template <> inline reg combine< 1, int64_t>(const reg v1, const reg v2) { return combine<1, double>(v1, v2); }
-    template <> inline reg combine< 2, int64_t>(const reg v1, const reg v2) { return combine<2, double>(v1, v2); }
-    template <> inline reg combine< 3, int64_t>(const reg v1, const reg v2) { return combine<3, double>(v1, v2); }
-    template <> inline reg combine< 4, int64_t>(const reg v1, const reg v2) { return combine<4, double>(v1, v2); }
-    template <> inline reg combine< 5, int64_t>(const reg v1, const reg v2) { return combine<5, double>(v1, v2); }
-    template <> inline reg combine< 6, int64_t>(const reg v1, const reg v2) { return combine<6, double>(v1, v2); }
-    template <> inline reg combine< 7, int64_t>(const reg v1, const reg v2) { return combine<7, double>(v1, v2); }
-#endif
-
-#if defined(__AVX512BW__)
-    // int16_t ----------------------------------------------------------------
-    template <> inline reg combine< 0, int16_t>(const reg v1, const reg v2) { return v1; }
-    template <> inline reg combine< 1, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16( 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32), _mm512_castps_si512(v2))); }
-    template <> inline reg combine< 2, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16( 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33), _mm512_castps_si512(v2))); }
-    template <> inline reg combine< 3, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16( 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34), _mm512_castps_si512(v2))); }
-    template <> inline reg combine< 4, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16( 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35), _mm512_castps_si512(v2))); }
-    template <> inline reg combine< 5, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16( 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36), _mm512_castps_si512(v2))); }
-    template <> inline reg combine< 6, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16( 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37), _mm512_castps_si512(v2))); }
-    template <> inline reg combine< 7, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16( 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38), _mm512_castps_si512(v2))); }
-    template <> inline reg combine< 8, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16( 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39), _mm512_castps_si512(v2))); }
-    template <> inline reg combine< 9, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16( 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<10, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<11, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<12, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<13, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<14, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<15, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<16, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<17, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<18, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<19, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<20, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<21, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<22, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<23, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<24, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<25, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<26, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<27, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<28, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<29, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<30, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<31, int16_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi16(_mm512_castps_si512(v1), _mm512_setr_epi16(31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62), _mm512_castps_si512(v2))); }
-#endif
-
-#if defined(__AVX512_VBMI__)
-    // int8_t -----------------------------------------------------------------
-    template <> inline reg combine< 0, int8_t>(const reg v1, const reg v2) { return v1; }
-    template <> inline reg combine< 1, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8( 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64), _mm512_castps_si512(v2))); }
-    template <> inline reg combine< 2, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8( 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65), _mm512_castps_si512(v2))); }
-    template <> inline reg combine< 3, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8( 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66), _mm512_castps_si512(v2))); }
-    template <> inline reg combine< 4, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8( 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67), _mm512_castps_si512(v2))); }
-    template <> inline reg combine< 5, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8( 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68), _mm512_castps_si512(v2))); }
-    template <> inline reg combine< 6, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8( 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69), _mm512_castps_si512(v2))); }
-    template <> inline reg combine< 7, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8( 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70), _mm512_castps_si512(v2))); }
-    template <> inline reg combine< 8, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8( 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71), _mm512_castps_si512(v2))); }
-    template <> inline reg combine< 9, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8( 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<10, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<11, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<12, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<13, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<14, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<15, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<16, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<17, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<18, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<19, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<20, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<21, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<22, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<23, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<24, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<25, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<26, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<27, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<28, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<29, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<30, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<31, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<32, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<33, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<34, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<35, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<36, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<37, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<38, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<39, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<40, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<41, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<42, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<43, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<44, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<45, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<46, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<47, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<48, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<49, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<50, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<51, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<52, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<53, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<54, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<55, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<56, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<57, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<58, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<59, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<60, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<61, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<62, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125)), _mm512_castps_si512(v2))); }
-    template <> inline reg combine<63, int8_t>(const reg v1, const reg v2) { return _mm512_castsi512_ps(_mm512_permutex2var_epi8(_mm512_castps_si512(v1), _mm512_setr_epi8(63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126)), _mm512_castps_si512(v2))); }
 #endif
 
     // ---------------------------------------------------------------------------------------------------------- cmask
@@ -2880,21 +2643,11 @@
     inline msk cmplt<int64_t>(const reg v1, const reg v2) {
         return (msk) _mm512_cmplt_epi64_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
     }
-
-    template <>
-    inline msk cmplt<uint64_t>(const reg v1, const reg v2) {
-        return (msk) _mm512_cmplt_epu64_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
-    }
 #endif
 
     template <>
     inline msk cmplt<int32_t>(const reg v1, const reg v2) {
         return (msk) _mm512_cmplt_epi32_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
-    }
-
-    template <>
-    inline msk cmplt<uint32_t>(const reg v1, const reg v2) {
-        return (msk) _mm512_cmplt_epu32_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
     }
 
 #if defined(__AVX512BW__)
@@ -2904,18 +2657,8 @@
     }
 
     template <>
-    inline msk cmplt<uint16_t>(const reg v1, const reg v2) {
-        return (msk) _mm512_cmplt_epu16_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
-    }
-
-    template <>
     inline msk cmplt<int8_t>(const reg v1, const reg v2) {
         return (msk) _mm512_cmplt_epi8_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
-    }
-
-    template <>
-    inline msk cmplt<uint8_t>(const reg v1, const reg v2) {
-        return (msk) _mm512_cmplt_epu8_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
     }
 #endif
 
@@ -2935,21 +2678,11 @@
     inline msk cmple<int64_t>(const reg v1, const reg v2) {
         return (msk) _mm512_cmple_epi64_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
     }
-
-    template <>
-    inline msk cmple<uint64_t>(const reg v1, const reg v2) {
-        return (msk) _mm512_cmple_epu64_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
-    }
 #endif
 
     template <>
     inline msk cmple<int32_t>(const reg v1, const reg v2) {
         return (msk) _mm512_cmple_epi32_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
-    }
-
-    template <>
-    inline msk cmple<uint32_t>(const reg v1, const reg v2) {
-        return (msk) _mm512_cmple_epu32_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
     }
 
 #if defined(__AVX512BW__)
@@ -2959,18 +2692,8 @@
     }
 
     template <>
-    inline msk cmple<uint16_t>(const reg v1, const reg v2) {
-        return (msk) _mm512_cmple_epu16_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
-    }
-
-    template <>
     inline msk cmple<int8_t>(const reg v1, const reg v2) {
         return (msk) _mm512_cmple_epi8_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
-    }
-
-    template <>
-    inline msk cmple<uint8_t>(const reg v1, const reg v2) {
-        return (msk) _mm512_cmple_epu8_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
     }
 #endif
 
@@ -2990,21 +2713,11 @@
     inline msk cmpgt<int64_t>(const reg v1, const reg v2) {
         return (msk) _mm512_cmpgt_epi64_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
     }
-
-    template <>
-    inline msk cmpgt<uint64_t>(const reg v1, const reg v2) {
-        return (msk) _mm512_cmpgt_epu64_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
-    }
 #endif
 
     template <>
     inline msk cmpgt<int32_t>(const reg v1, const reg v2) {
         return (msk) _mm512_cmpgt_epi32_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
-    }
-
-    template <>
-    inline msk cmpgt<uint32_t>(const reg v1, const reg v2) {
-        return (msk) _mm512_cmpgt_epu32_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
     }
 
 #if defined(__AVX512BW__)
@@ -3014,18 +2727,8 @@
     }
 
     template <>
-    inline msk cmpgt<uint16_t>(const reg v1, const reg v2) {
-        return (msk) _mm512_cmpgt_epu16_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
-    }
-
-    template <>
     inline msk cmpgt<int8_t>(const reg v1, const reg v2) {
         return (msk) _mm512_cmpgt_epi8_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
-    }
-
-    template <>
-    inline msk cmpgt<uint8_t>(const reg v1, const reg v2) {
-        return (msk) _mm512_cmpgt_epu8_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
     }
 #endif
 
@@ -3045,21 +2748,11 @@
     inline msk cmpge<int64_t>(const reg v1, const reg v2) {
         return (msk) _mm512_cmpge_epi64_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
     }
-
-    template <>
-    inline msk cmpge<uint64_t>(const reg v1, const reg v2) {
-        return (msk) _mm512_cmpge_epu64_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
-    }
 #endif
 
     template <>
     inline msk cmpge<int32_t>(const reg v1, const reg v2) {
         return (msk) _mm512_cmpge_epi32_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
-    }
-
-    template <>
-    inline msk cmpge<uint32_t>(const reg v1, const reg v2) {
-        return (msk) _mm512_cmpge_epu32_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
     }
 
 #if defined(__AVX512BW__)
@@ -3069,18 +2762,8 @@
     }
 
     template <>
-    inline msk cmpge<uint16_t>(const reg v1, const reg v2) {
-        return (msk) _mm512_cmpge_epu16_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
-    }
-
-    template <>
     inline msk cmpge<int8_t>(const reg v1, const reg v2) {
         return (msk) _mm512_cmpge_epi8_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
-    }
-
-    template <>
-    inline msk cmpge<uint8_t>(const reg v1, const reg v2) {
-        return (msk) _mm512_cmpge_epu8_mask(_mm512_castps_si512(v1), _mm512_castps_si512(v2));
     }
 #endif
 
@@ -3175,12 +2858,6 @@
         return _mm512_castsi512_ps(_mm512_add_epi32(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
     }
 
-#if defined(__AVX2__)
-    template <>
-    inline reg_2 add<int32_t>(const reg_2 v1, const reg_2 v2) {
-        return _mm256_castsi256_ps(_mm256_add_epi32(_mm256_castps_si256(v1), _mm256_castps_si256(v2)));
-    }
-#endif
     template <>
     inline reg mask<int32_t,add<int32_t>>(const msk m, const reg src, const reg v1, const reg v2) {
         return _mm512_castsi512_ps(_mm512_mask_add_epi32(_mm512_castps_si512(src), (__mmask16)m, _mm512_castps_si512(v1), _mm512_castps_si512(v2)));
@@ -3230,32 +2907,6 @@
         return maskz<int16_t,add<int16_t>>(m.m, v1.r, v2.r);
     }
 
-    // ------------------ uint16
-    template <>
-    inline reg add<uint16_t>(const reg v1, const reg v2) {
-        return _mm512_castsi512_ps(_mm512_adds_epu16(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
-    }
-
-    template <>
-    inline reg mask<uint16_t,add<uint16_t>>(const msk m, const reg src, const reg v1, const reg v2) {
-        return _mm512_castsi512_ps(_mm512_mask_adds_epu16(_mm512_castps_si512(src), (__mmask32)m, _mm512_castps_si512(v1), _mm512_castps_si512(v2)));
-    }
-
-    template <>
-    inline Reg<uint16_t> mask<uint16_t,add<uint16_t>>(const Msk<32> m, const Reg<uint16_t> src, const Reg<uint16_t> v1, const Reg<uint16_t> v2) {
-        return mask<uint16_t,add<uint16_t>>(m.m, src.r, v1.r, v2.r);
-    }
-
-    template <>
-    inline reg maskz<uint16_t,add<uint16_t>>(const msk m, const reg v1, const reg v2) {
-        return _mm512_castsi512_ps(_mm512_maskz_adds_epu16((__mmask32)m, _mm512_castps_si512(v1), _mm512_castps_si512(v2)));
-    }
-
-    template <>
-    inline Reg<uint16_t> maskz<uint16_t,add<uint16_t>>(const Msk<32> m, const Reg<uint16_t> v1, const Reg<uint16_t> v2) {
-        return maskz<uint16_t,add<uint16_t>>(m.m, v1.r, v2.r);
-    }
-
     // ------------------ int8
     template <>
     inline reg add<int8_t>(const reg v1, const reg v2) {
@@ -3280,32 +2931,6 @@
     template <>
     inline Reg<int8_t> maskz<int8_t,add<int8_t>>(const Msk<64> m, const Reg<int8_t> v1, const Reg<int8_t> v2) {
         return maskz<int8_t,add<int8_t>>(m.m, v1.r, v2.r);
-    }
-
-    // ------------------ uint8
-    template <>
-    inline reg add<uint8_t>(const reg v1, const reg v2) {
-        return _mm512_castsi512_ps(_mm512_adds_epu8(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
-    }
-
-    template <>
-    inline reg mask<uint8_t,add<uint8_t>>(const msk m, const reg src, const reg v1, const reg v2) {
-        return _mm512_castsi512_ps(_mm512_mask_adds_epu8(_mm512_castps_si512(src), (__mmask64)m, _mm512_castps_si512(v1), _mm512_castps_si512(v2)));
-    }
-
-    template <>
-    inline Reg<uint8_t> mask<uint8_t,add<uint8_t>>(const Msk<64> m, const Reg<uint8_t> src, const Reg<uint8_t> v1, const Reg<uint8_t> v2) {
-        return mask<uint8_t,add<uint8_t>>(m.m, src.r, v1.r, v2.r);
-    }
-
-    template <>
-    inline reg maskz<uint8_t,add<uint8_t>>(const msk m, const reg v1, const reg v2) {
-        return _mm512_castsi512_ps(_mm512_maskz_adds_epu8((__mmask64)m, _mm512_castps_si512(v1), _mm512_castps_si512(v2)));
-    }
-
-    template <>
-    inline Reg<uint8_t> maskz<uint8_t,add<uint8_t>>(const Msk<64> m, const Reg<uint8_t> v1, const Reg<uint8_t> v2) {
-        return maskz<uint8_t,add<uint8_t>>(m.m, v1.r, v2.r);
     }
 #endif
 
@@ -3332,13 +2957,6 @@
         return _mm512_castsi512_ps(_mm512_sub_epi32(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
     }
 
-#if defined(__AVX2__)
-    template <>
-    inline reg_2 sub<int32_t>(const reg_2 v1, const reg_2 v2) {
-        return _mm256_castsi256_ps(_mm256_sub_epi32(_mm256_castps_si256(v1), _mm256_castps_si256(v2)));
-    }
-#endif
-
 #if defined(__AVX512BW__)
     template <>
     inline reg sub<int16_t>(const reg v1, const reg v2) {
@@ -3346,18 +2964,8 @@
     }
 
     template <>
-    inline reg sub<uint16_t>(const reg v1, const reg v2) {
-        return _mm512_castsi512_ps(_mm512_subs_epu16(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
-    }
-
-    template <>
     inline reg sub<int8_t>(const reg v1, const reg v2) {
         return _mm512_castsi512_ps(_mm512_subs_epi8(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
-    }
-
-    template <>
-    inline reg sub<uint8_t>(const reg v1, const reg v2) {
-        return _mm512_castsi512_ps(_mm512_subs_epu8(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
     }
 #endif
 
@@ -3376,13 +2984,6 @@
     inline reg mul<int32_t>(const reg v1, const reg v2) {
         return _mm512_castsi512_ps(_mm512_mullo_epi32(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
     }
-
-#if defined(__AVX2__)
-    template <>
-    inline reg_2 mul<int32_t>(const reg_2 v1, const reg_2 v2) {
-        return _mm256_castsi256_ps(_mm256_mullo_epi32(_mm256_castps_si256(v1), _mm256_castps_si256(v2)));
-    }
-#endif
 
 #if defined(__AVX512BW__)
     template <>
@@ -3422,18 +3023,8 @@
     }
 
     template <>
-    inline reg min<uint64_t>(const reg v1, const reg v2) {
-        return _mm512_castsi512_ps(_mm512_min_epu64(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
-    }
-
-    template <>
     inline reg min<int32_t>(const reg v1, const reg v2) {
         return _mm512_castsi512_ps(_mm512_min_epi32(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
-    }
-
-    template <>
-    inline reg min<uint32_t>(const reg v1, const reg v2) {
-        return _mm512_castsi512_ps(_mm512_min_epu32(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
     }
 
 #if defined(__AVX512BW__)
@@ -3443,18 +3034,8 @@
     }
 
     template <>
-    inline reg min<uint16_t>(const reg v1, const reg v2) {
-        return _mm512_castsi512_ps(_mm512_min_epu16(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
-    }
-
-    template <>
     inline reg min<int8_t>(const reg v1, const reg v2) {
         return _mm512_castsi512_ps(_mm512_min_epi8(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
-    }
-
-    template <>
-    inline reg min<uint8_t>(const reg v1, const reg v2) {
-        return _mm512_castsi512_ps(_mm512_min_epu8(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
     }
 #endif
 
@@ -3488,18 +3069,8 @@
     }
 
     template <>
-    inline reg max<uint64_t>(const reg v1, const reg v2) {
-        return _mm512_castsi512_ps(_mm512_max_epu64(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
-    }
-
-    template <>
     inline reg max<int32_t>(const reg v1, const reg v2) {
         return _mm512_castsi512_ps(_mm512_max_epi32(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
-    }
-
-    template <>
-    inline reg max<uint32_t>(const reg v1, const reg v2) {
-        return _mm512_castsi512_ps(_mm512_max_epu32(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
     }
 
 #if defined(__AVX512BW__)
@@ -3509,18 +3080,8 @@
     }
 
     template <>
-    inline reg max<uint16_t>(const reg v1, const reg v2) {
-        return _mm512_castsi512_ps(_mm512_max_epu16(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
-    }
-
-    template <>
     inline reg max<int8_t>(const reg v1, const reg v2) {
         return _mm512_castsi512_ps(_mm512_max_epi8(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
-    }
-
-    template <>
-    inline reg max<uint8_t>(const reg v1, const reg v2) {
-        return _mm512_castsi512_ps(_mm512_max_epu8(_mm512_castps_si512(v1), _mm512_castps_si512(v2)));
     }
 #endif
 
@@ -4216,18 +3777,8 @@
     }
 
     template <>
-    inline reg sat<uint64_t>(const reg v1, uint64_t min, uint64_t max) {
-        return mipp::min<uint64_t>(mipp::max<uint64_t>(v1, set1<uint64_t>(min)), set1<uint64_t>(max));
-    }
-
-    template <>
     inline reg sat<int32_t>(const reg v1, int32_t min, int32_t max) {
         return mipp::min<int32_t>(mipp::max<int32_t>(v1, set1<int32_t>(min)), set1<int32_t>(max));
-    }
-
-    template <>
-    inline reg sat<uint32_t>(const reg v1, uint32_t min, uint32_t max) {
-        return mipp::min<uint32_t>(mipp::max<uint32_t>(v1, set1<uint32_t>(min)), set1<uint32_t>(max));
     }
 
     template <>
@@ -4236,18 +3787,8 @@
     }
 
     template <>
-    inline reg sat<uint16_t>(const reg v1, uint16_t min, uint16_t max) {
-        return mipp::min<uint16_t>(mipp::max<uint16_t>(v1, set1<uint16_t>(min)), set1<uint16_t>(max));
-    }
-
-    template <>
     inline reg sat<int8_t>(const reg v1, int8_t min, int8_t max) {
         return mipp::min<int8_t>(mipp::max<int8_t>(v1, set1<int8_t>(min)), set1<int8_t>(max));
-    }
-
-    template <>
-    inline reg sat<uint8_t>(const reg v1, uint8_t min, uint8_t max) {
-        return mipp::min<uint8_t>(mipp::max<uint8_t>(v1, set1<uint8_t>(min)), set1<uint8_t>(max));
     }
 
     // ---------------------------------------------------------------------------------------------------------- round
@@ -4290,18 +3831,8 @@
     }
 
     template <>
-    inline reg cvt<double,uint64_t>(const reg v) {
-        return _mm512_castsi512_ps(_mm512_cvtpd_epu64(_mm512_castps_pd(v)));
-    }
-
-    template <>
     inline reg cvt<int64_t,double>(const reg v) {
         return _mm512_castpd_ps(_mm512_cvtepi64_pd(_mm512_castps_si512(v)));
-    }
-
-    template <>
-    inline reg cvt<uint64_t,double>(const reg v) {
-        return _mm512_castpd_ps(_mm512_cvtepu64_pd(_mm512_castps_si512(v)));
     }
 #endif
 
@@ -4312,28 +3843,8 @@
     }
 
     template <>
-    inline reg cvt<float,uint32_t>(const reg v) {
-        return _mm512_castsi512_ps(_mm512_cvtps_epu32(v));
-    }
-
-    template <>
     inline reg cvt<int32_t,float>(const reg v) {
         return _mm512_cvtepi32_ps(_mm512_castps_si512(v));
-    }
-
-    template <>
-    inline reg cvt<uint32_t,float>(const reg v) {
-        return _mm512_cvtepu32_ps(_mm512_castps_si512(v));
-    }
-
-    template <>
-    inline reg cvt<int32_t,int64_t>(const reg_2 v) {
-        return _mm512_castsi512_ps(_mm512_cvtepi32_epi64(_mm256_castps_si256(v)));
-    }
-
-    template <>
-    inline reg cvt<uint32_t,uint64_t>(const reg_2 v) {
-        return _mm512_castsi512_ps(_mm512_cvtepu32_epi64(_mm256_castps_si256(v)));
     }
 
     template <>
@@ -4342,8 +3853,8 @@
     }
 
     template <>
-    inline reg cvt<uint16_t,uint32_t>(const reg_2 v) {
-        return _mm512_castsi512_ps(_mm512_cvtepu16_epi32(_mm256_castps_si256(v)));
+    inline reg cvt<int32_t,int64_t>(const reg_2 v) {
+        return _mm512_castsi512_ps(_mm512_cvtepi32_epi64(_mm256_castps_si256(v)));
     }
 #endif
 
@@ -4351,11 +3862,6 @@
     template <>
     inline reg cvt<int8_t,int16_t>(const reg_2 v) {
         return _mm512_castsi512_ps(_mm512_cvtepi8_epi16(_mm256_castps_si256(v)));
-    }
-
-    template <>
-    inline reg cvt<uint8_t,uint16_t>(const reg_2 v) {
-        return _mm512_castsi512_ps(_mm512_cvtepu8_epi16(_mm256_castps_si256(v)));
     }
 #endif
 
@@ -4369,24 +3875,10 @@
     }
 
     template <>
-    inline reg pack<uint32_t,uint16_t>(const reg v1, const reg v2) {
-        auto mask =_mm512_set_epi64(7,5,3,1,6,4,2,0);
-        return _mm512_castsi512_ps(_mm512_permutexvar_epi64(mask, _mm512_packus_epi32(_mm512_castps_si512(v1),
-                                                                                      _mm512_castps_si512(v2))));
-    }
-
-    template <>
     inline reg pack<int16_t,int8_t>(const reg v1, const reg v2) {
         auto mask =_mm512_set_epi64(7,5,3,1,6,4,2,0);
         return _mm512_castsi512_ps(_mm512_permutexvar_epi64(mask, _mm512_packs_epi16(_mm512_castps_si512(v1),
                                                                                      _mm512_castps_si512(v2))));
-    }
-
-    template <>
-    inline reg pack<uint16_t,uint8_t>(const reg v1, const reg v2) {
-        auto mask =_mm512_set_epi64(7,5,3,1,6,4,2,0);
-        return _mm512_castsi512_ps(_mm512_permutexvar_epi64(mask, _mm512_packus_epi16(_mm512_castps_si512(v1),
-                                                                                      _mm512_castps_si512(v2))));
     }
 #endif
 
@@ -4580,32 +4072,6 @@
         }
     };
 
-    template <red_op<uint64_t> OP>
-    struct _reduction<uint64_t,OP>
-    {
-        static reg apply(const reg v1) {
-            auto val = v1;
-            val = OP(val, _mm512_permutexvar_ps(_mm512_set_epi32( 7, 6, 5, 4, 3, 2, 1, 0,15,14,13,12,11,10,9,8), val)); // only AVX512F (for KNCI use _mm512_permute4f128_epi32)
-            val = OP(val, _mm512_permutexvar_ps(_mm512_set_epi32(11,10, 9, 8,15,14,13,12, 3, 2, 1, 0, 7, 6,5,4), val)); // only AVX512F (for KNCI use _mm512_permute4f128_epi32)
-//          val = OP(val, _mm512_permutexvar_ps(_mm512_set_epi32(13,12,15,14, 9, 8,11,10, 5, 4, 7, 6, 1, 0,3,2), val)); // only AVX512F
-            val = OP(val, _mm512_castsi512_ps(_mm512_shuffle_epi32(_mm512_castps_si512(val), _MM_PERM_ENUM(_MM_SHUFFLE(1,0,3,2))))); // KNCI compatible
-            return val;
-        }
-    };
-
-    template <Red_op<uint64_t> OP>
-    struct _Reduction<uint64_t,OP>
-    {
-        static const Reg<uint64_t> apply(const Reg<uint64_t> v1) {
-            auto val = v1;
-            val = OP(val, Reg<uint64_t>(_mm512_permutexvar_ps(_mm512_set_epi32( 7, 6, 5, 4, 3, 2, 1, 0,15,14,13,12,11,10,9,8), val.r))); // only AVX512F (for KNCI use _mm512_permute4f128_epi32)
-            val = OP(val, Reg<uint64_t>(_mm512_permutexvar_ps(_mm512_set_epi32(11,10, 9, 8,15,14,13,12, 3, 2, 1, 0, 7, 6,5,4), val.r))); // only AVX512F (for KNCI use _mm512_permute4f128_epi32)
-//          val = OP(val, Reg<uint64_t>(_mm512_permutexvar_ps(_mm512_set_epi32(13,12,15,14, 9, 8,11,10, 5, 4, 7, 6, 1, 0,3,2), val.r))); // only AVX512F
-            val = OP(val, Reg<uint64_t>(_mm512_castsi512_ps(_mm512_shuffle_epi32(_mm512_castps_si512(val.r), _MM_PERM_ENUM(_MM_SHUFFLE(1,0,3,2)))))); // KNCI compatible
-            return val;
-        }
-    };
-
     template <red_op<int32_t> OP>
     struct _reduction<int32_t,OP>
     {
@@ -4632,36 +4098,6 @@
             val = OP(val, Reg<int32_t>(_mm512_castsi512_ps(_mm512_shuffle_epi32(_mm512_castps_si512(val.r), _MM_PERM_ENUM(_MM_SHUFFLE(1,0,3,2)))))); // KNCI compatible
 //          val = OP(val, Reg<int32_t>(_mm512_permutexvar_ps(_mm512_set_epi32(14,15,12,13,10,11, 8, 9, 6, 7, 4, 5, 2, 3,0,1), val.r))); // only AVX512F
             val = OP(val, Reg<int32_t>(_mm512_castsi512_ps(_mm512_shuffle_epi32(_mm512_castps_si512(val.r), _MM_PERM_ENUM(_MM_SHUFFLE(2,3,0,1)))))); // KNCI compatible
-            return val;
-        }
-    };
-
-    template <red_op<uint32_t> OP>
-    struct _reduction<uint32_t,OP>
-    {
-        static reg apply(const reg v1) {
-            auto val = v1;
-            val = OP(val, _mm512_permutexvar_ps(_mm512_set_epi32( 7, 6, 5, 4, 3, 2, 1, 0,15,14,13,12,11,10,9,8), val)); // only AVX512F (for KNCI use _mm512_permute4f128_epi32)
-            val = OP(val, _mm512_permutexvar_ps(_mm512_set_epi32(11,10, 9, 8,15,14,13,12, 3, 2, 1, 0, 7, 6,5,4), val)); // only AVX512F (for KNCI use _mm512_permute4f128_epi32)
-//          val = OP(val, _mm512_permutexvar_ps(_mm512_set_epi32(13,12,15,14, 9, 8,11,10, 5, 4, 7, 6, 1, 0,3,2), val)); // only AVX512F
-            val = OP(val, _mm512_castsi512_ps(_mm512_shuffle_epi32(_mm512_castps_si512(val), _MM_PERM_ENUM(_MM_SHUFFLE(1,0,3,2))))); // KNCI compatible
-//          val = OP(val, _mm512_permutexvar_ps(_mm512_set_epi32(14,15,12,13,10,11, 8, 9, 6, 7, 4, 5, 2, 3,0,1), val)); // only AVX512F
-            val = OP(val, _mm512_castsi512_ps(_mm512_shuffle_epi32(_mm512_castps_si512(val), _MM_PERM_ENUM(_MM_SHUFFLE(2,3,0,1))))); // KNCI compatible
-            return val;
-        }
-    };
-
-    template <Red_op<uint32_t> OP>
-    struct _Reduction<uint32_t,OP>
-    {
-        static Reg<uint32_t> apply(const Reg<uint32_t> v1) {
-            auto val = v1;
-            val = OP(val, Reg<uint32_t>(_mm512_permutexvar_ps(_mm512_set_epi32( 7, 6, 5, 4, 3, 2, 1, 0,15,14,13,12,11,10,9,8), val.r))); // only AVX512F (for KNCI use _mm512_permute4f128_epi32)
-            val = OP(val, Reg<uint32_t>(_mm512_permutexvar_ps(_mm512_set_epi32(11,10, 9, 8,15,14,13,12, 3, 2, 1, 0, 7, 6,5,4), val.r))); // only AVX512F (for KNCI use _mm512_permute4f128_epi32)
-//          val = OP(val, Reg<uint32_t>(_mm512_permutexvar_ps(_mm512_set_epi32(13,12,15,14, 9, 8,11,10, 5, 4, 7, 6, 1, 0,3,2), val.r))); // only AVX512F
-            val = OP(val, Reg<uint32_t>(_mm512_castsi512_ps(_mm512_shuffle_epi32(_mm512_castps_si512(val.r), _MM_PERM_ENUM(_MM_SHUFFLE(1,0,3,2)))))); // KNCI compatible
-//          val = OP(val, Reg<uint32_t>(_mm512_permutexvar_ps(_mm512_set_epi32(14,15,12,13,10,11, 8, 9, 6, 7, 4, 5, 2, 3,0,1), val.r))); // only AVX512F
-            val = OP(val, Reg<uint32_t>(_mm512_castsi512_ps(_mm512_shuffle_epi32(_mm512_castps_si512(val.r), _MM_PERM_ENUM(_MM_SHUFFLE(2,3,0,1)))))); // KNCI compatible
             return val;
         }
     };
@@ -4710,53 +4146,6 @@
 //          val = OP(val, Reg<int16_t>(_mm512_permutexvar_ps(_mm512_set_epi32(14,15,12,13,10,11, 8, 9, 6, 7, 4, 5, 2, 3,0,1), val.r))); // only AVX512F
             val = OP(val, Reg<int16_t>(_mm512_castsi512_ps(_mm512_shuffle_epi32(_mm512_castps_si512(val.r), _MM_PERM_ENUM(_MM_SHUFFLE(2,3,0,1)))))); // KNCI compatible
             val = OP(val, Reg<int16_t>(_mm512_castsi512_ps(_mm512_shuffle_epi8(_mm512_castps_si512(val.r), mask_16)))); // only AVX512BW
-            return val;
-        }
-    };
-
-    template <red_op<uint16_t> OP>
-    struct _reduction<uint16_t,OP>
-    {
-        static reg apply(const reg v1) {
-//          __m512i mask_no = _mm512_set_epi8(63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,
-//                                            47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,
-//                                            31,30,29,28,27,26,25,24,23,22,21,20,19,18,17,16,
-//                                            15,14,13,12,11,10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0);
-
-            __m512i mask_16 = _mm512_set_epi8(61,60,63,62,57,56,59,58,53,52,55,54,49,48,51,50,
-                                              45,44,47,46,41,40,43,42,37,36,39,38,33,32,35,34,
-                                              29,28,31,30,25,24,27,26,21,20,23,22,17,16,19,18,
-                                              13,12,15,14, 9, 8,11,10, 5, 4, 7, 6, 1, 0, 3, 2);
-
-            auto val = v1;
-            val = OP(val, _mm512_permutexvar_ps(_mm512_set_epi32( 7, 6, 5, 4, 3, 2, 1, 0,15,14,13,12,11,10,9,8), val)); // only AVX512F (for KNCI use _mm512_permute4f128_epi32)
-            val = OP(val, _mm512_permutexvar_ps(_mm512_set_epi32(11,10, 9, 8,15,14,13,12, 3, 2, 1, 0, 7, 6,5,4), val)); // only AVX512F (for KNCI use _mm512_permute4f128_epi32)
-//          val = OP(val, _mm512_permutexvar_ps(_mm512_set_epi32(13,12,15,14, 9, 8,11,10, 5, 4, 7, 6, 1, 0,3,2), val)); // only AVX512F
-            val = OP(val, _mm512_castsi512_ps(_mm512_shuffle_epi32(_mm512_castps_si512(val), _MM_PERM_ENUM(_MM_SHUFFLE(1,0,3,2))))); // KNCI compatible
-//          val = OP(val, _mm512_permutexvar_ps(_mm512_set_epi32(14,15,12,13,10,11, 8, 9, 6, 7, 4, 5, 2, 3,0,1), val)); // only AVX512F
-            val = OP(val, _mm512_castsi512_ps(_mm512_shuffle_epi32(_mm512_castps_si512(val), _MM_PERM_ENUM(_MM_SHUFFLE(2,3,0,1))))); // KNCI compatible
-            val = OP(val, _mm512_castsi512_ps(_mm512_shuffle_epi8(_mm512_castps_si512(val), mask_16))); // only AVX512BW
-            return val;
-        }
-    };
-
-    template <Red_op<uint16_t> OP>
-    struct _Reduction<uint16_t,OP>
-    {
-        static Reg<uint16_t> apply(const Reg<uint16_t> v1) {
-            __m512i mask_16 = _mm512_set_epi8(61,60,63,62,57,56,59,58,53,52,55,54,49,48,51,50,
-                                              45,44,47,46,41,40,43,42,37,36,39,38,33,32,35,34,
-                                              29,28,31,30,25,24,27,26,21,20,23,22,17,16,19,18,
-                                              13,12,15,14, 9, 8,11,10, 5, 4, 7, 6, 1, 0, 3, 2);
-
-            auto val = v1;
-            val = OP(val, Reg<uint16_t>(_mm512_permutexvar_ps(_mm512_set_epi32( 7, 6, 5, 4, 3, 2, 1, 0,15,14,13,12,11,10,9,8), val.r))); // only AVX512F (for KNCI use _mm512_permute4f128_epi32)
-            val = OP(val, Reg<uint16_t>(_mm512_permutexvar_ps(_mm512_set_epi32(11,10, 9, 8,15,14,13,12, 3, 2, 1, 0, 7, 6,5,4), val.r))); // only AVX512F (for KNCI use _mm512_permute4f128_epi32)
-//          val = OP(val, Reg<uint16_t>(_mm512_permutexvar_ps(_mm512_set_epi32(13,12,15,14, 9, 8,11,10, 5, 4, 7, 6, 1, 0,3,2), val.r))); // only AVX512F
-            val = OP(val, Reg<uint16_t>(_mm512_castsi512_ps(_mm512_shuffle_epi32(_mm512_castps_si512(val.r), _MM_PERM_ENUM(_MM_SHUFFLE(1,0,3,2)))))); // KNCI compatible
-//          val = OP(val, Reg<uint16_t>(_mm512_permutexvar_ps(_mm512_set_epi32(14,15,12,13,10,11, 8, 9, 6, 7, 4, 5, 2, 3,0,1), val.r))); // only AVX512F
-            val = OP(val, Reg<uint16_t>(_mm512_castsi512_ps(_mm512_shuffle_epi32(_mm512_castps_si512(val.r), _MM_PERM_ENUM(_MM_SHUFFLE(2,3,0,1)))))); // KNCI compatible
-            val = OP(val, Reg<uint16_t>(_mm512_castsi512_ps(_mm512_shuffle_epi8(_mm512_castps_si512(val.r), mask_16)))); // only AVX512BW
             return val;
         }
     };
@@ -4811,60 +4200,6 @@
             val = OP(val, Reg<int8_t>(_mm512_castsi512_ps(_mm512_shuffle_epi32(_mm512_castps_si512(val.r), _MM_PERM_ENUM(_MM_SHUFFLE(2,3,0,1)))))); // KNCI compatible
             val = OP(val, Reg<int8_t>(_mm512_castsi512_ps(_mm512_shuffle_epi8(_mm512_castps_si512(val.r), mask_16)))); // only AVX512BW
             val = OP(val, Reg<int8_t>(_mm512_castsi512_ps(_mm512_shuffle_epi8(_mm512_castps_si512(val.r), mask_8)))); // only AVX512BW
-            return val;
-        }
-    };
-
-    template <red_op<uint8_t> OP>
-    struct _reduction<uint8_t,OP>
-    {
-        static reg apply(const reg v1) {
-            __m512i mask_16 = _mm512_set_epi8(61,60,63,62,57,56,59,58,53,52,55,54,49,48,51,50,
-                                              45,44,47,46,41,40,43,42,37,36,39,38,33,32,35,34,
-                                              29,28,31,30,25,24,27,26,21,20,23,22,17,16,19,18,
-                                              13,12,15,14, 9, 8,11,10, 5, 4, 7, 6, 1, 0, 3, 2);
-
-            __m512i mask_8  = _mm512_set_epi8(62,63,60,61,58,59,56,57,54,55,52,53,50,51,48,49,
-                                              46,47,44,45,42,43,40,41,38,39,36,37,34,35,32,33,
-                                              30,31,28,29,26,27,24,25,22,23,20,21,18,19,16,17,
-                                              14,15,12,13,10,11, 8, 9, 6, 7, 4, 5, 2, 3, 0, 1);
-
-            auto val = v1;
-            val = OP(val, _mm512_permutexvar_ps(_mm512_set_epi32( 7, 6, 5, 4, 3, 2, 1, 0,15,14,13,12,11,10,9,8), val)); // only AVX512F (for KNCI use _mm512_permute4f128_epi32)
-            val = OP(val, _mm512_permutexvar_ps(_mm512_set_epi32(11,10, 9, 8,15,14,13,12, 3, 2, 1, 0, 7, 6,5,4), val)); // only AVX512F (for KNCI use _mm512_permute4f128_epi32)
-//          val = OP(val, _mm512_permutexvar_ps(_mm512_set_epi32(13,12,15,14, 9, 8,11,10, 5, 4, 7, 6, 1, 0,3,2), val)); // only AVX512F
-            val = OP(val, _mm512_castsi512_ps(_mm512_shuffle_epi32(_mm512_castps_si512(val), _MM_PERM_ENUM(_MM_SHUFFLE(1,0,3,2))))); // KNCI compatible
-//          val = OP(val, _mm512_permutexvar_ps(_mm512_set_epi32(14,15,12,13,10,11, 8, 9, 6, 7, 4, 5, 2, 3,0,1), val)); // only AVX512F
-            val = OP(val, _mm512_castsi512_ps(_mm512_shuffle_epi32(_mm512_castps_si512(val), _MM_PERM_ENUM(_MM_SHUFFLE(2,3,0,1))))); // KNCI compatible
-            val = OP(val, _mm512_castsi512_ps(_mm512_shuffle_epi8(_mm512_castps_si512(val), mask_16))); // only AVX512BW
-            val = OP(val, _mm512_castsi512_ps(_mm512_shuffle_epi8(_mm512_castps_si512(val), mask_8))); // only AVX512BW
-            return val;
-        }
-    };
-
-    template <Red_op<uint8_t> OP>
-    struct _Reduction<uint8_t,OP>
-    {
-        static Reg<uint8_t> apply(const Reg<uint8_t> v1) {
-            __m512i mask_16 = _mm512_set_epi8(61,60,63,62,57,56,59,58,53,52,55,54,49,48,51,50,
-                                              45,44,47,46,41,40,43,42,37,36,39,38,33,32,35,34,
-                                              29,28,31,30,25,24,27,26,21,20,23,22,17,16,19,18,
-                                              13,12,15,14, 9, 8,11,10, 5, 4, 7, 6, 1, 0, 3, 2);
-
-            __m512i mask_8  = _mm512_set_epi8(62,63,60,61,58,59,56,57,54,55,52,53,50,51,48,49,
-                                              46,47,44,45,42,43,40,41,38,39,36,37,34,35,32,33,
-                                              30,31,28,29,26,27,24,25,22,23,20,21,18,19,16,17,
-                                              14,15,12,13,10,11, 8, 9, 6, 7, 4, 5, 2, 3, 0, 1);
-
-            auto val = v1;
-            val = OP(val, Reg<uint8_t>(_mm512_permutexvar_ps(_mm512_set_epi32( 7, 6, 5, 4, 3, 2, 1, 0,15,14,13,12,11,10,9,8), val.r))); // only AVX512F (for KNCI use _mm512_permute4f128_epi32)
-            val = OP(val, Reg<uint8_t>(_mm512_permutexvar_ps(_mm512_set_epi32(11,10, 9, 8,15,14,13,12, 3, 2, 1, 0, 7, 6,5,4), val.r))); // only AVX512F (for KNCI use _mm512_permute4f128_epi32)
-//          val = OP(val, Reg<uint8_t>(_mm512_permutexvar_ps(_mm512_set_epi32(13,12,15,14, 9, 8,11,10, 5, 4, 7, 6, 1, 0,3,2), val.r))); // only AVX512F
-            val = OP(val, Reg<uint8_t>(_mm512_castsi512_ps(_mm512_shuffle_epi32(_mm512_castps_si512(val.r), _MM_PERM_ENUM(_MM_SHUFFLE(1,0,3,2)))))); // KNCI compatible
-//          val = OP(val, Reg<uint8_t>(_mm512_permutexvar_ps(_mm512_set_epi32(14,15,12,13,10,11, 8, 9, 6, 7, 4, 5, 2, 3,0,1), val.r))); // only AVX512F
-            val = OP(val, Reg<uint8_t>(_mm512_castsi512_ps(_mm512_shuffle_epi32(_mm512_castps_si512(val.r), _MM_PERM_ENUM(_MM_SHUFFLE(2,3,0,1)))))); // KNCI compatible
-            val = OP(val, Reg<uint8_t>(_mm512_castsi512_ps(_mm512_shuffle_epi8(_mm512_castps_si512(val.r), mask_16)))); // only AVX512BW
-            val = OP(val, Reg<uint8_t>(_mm512_castsi512_ps(_mm512_shuffle_epi8(_mm512_castps_si512(val.r), mask_8)))); // only AVX512BW
             return val;
         }
     };
