@@ -3109,10 +3109,10 @@
       <arglist>(float note)</arglist>
     </member>
     <member kind="function">
-      <type>std::vector&lt; float &gt; *</type>
+      <type>std::vector&lt; float &gt; &amp;</type>
       <name>tableForNote</name>
       <anchorfile>classBandLimitedLookupTable.html</anchorfile>
-      <anchor>acf139387bb9cb4f448f39f62bdbd5a7f</anchor>
+      <anchor>a225608abf1db8d956070b4d416335277</anchor>
       <arglist>(float note)</arglist>
     </member>
     <member kind="function">
@@ -3120,6 +3120,13 @@
       <name>process</name>
       <anchorfile>classBandLimitedLookupTable.html</anchorfile>
       <anchor>ae4bbf0cf3a280899c20e09895e509786</anchor>
+      <arglist>(float note, float phase)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>processLinear</name>
+      <anchorfile>classBandLimitedLookupTable.html</anchorfile>
+      <anchor>a2d05f7367f0afae7923943ed2c98530d</anchor>
       <arglist>(float note, float phase)</arglist>
     </member>
     <member kind="function">

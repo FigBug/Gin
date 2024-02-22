@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['direction_3366',['Direction',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1',1,'SampleOscillator']]],
-  ['drawmode_3367',['DrawMode',['../classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28ad',1,'MSEGComponent']]]
+  ['direction_3369',['Direction',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1',1,'SampleOscillator']]],
+  ['drawmode_3370',['DrawMode',['../classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28ad',1,'MSEGComponent']]]
 ];
