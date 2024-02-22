@@ -3557,16 +3557,6 @@
     inline reg trunc<double>(const reg v) {
         return _mm_castpd_ps(_mm_round_pd(_mm_castps_pd(v), _MM_FROUND_TO_ZERO |_MM_FROUND_NO_EXC));
     }
-#elif __SSE2__
-    template <>
-    inline reg trunc<float>(const reg v) {
-        return _mm_cvtepi32_ps (_mm_cvttps_epi32 (v));
-    }
-
-    template <>
-    inline reg trunc<float>(const reg v) {
-        return _mm_cvtepi32_pd (_mm_cvttpd_epi32 (v));
-    }
 #endif
 
     // ------------------------------------------------------------------------------------------------------------ cvt
