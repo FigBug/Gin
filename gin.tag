@@ -3137,6 +3137,13 @@
       <arglist>(int tableIndex, float phase)</arglist>
     </member>
     <member kind="function">
+      <type>float</type>
+      <name>getLinear</name>
+      <anchorfile>classBandLimitedLookupTable.html</anchorfile>
+      <anchor>a12bb9d27e8f52cceac3f35869f102faf</anchor>
+      <arglist>(int tableIndex, float phase)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>loadFromBuffer</name>
       <anchorfile>classBandLimitedLookupTable.html</anchorfile>

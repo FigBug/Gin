@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['wave_3384',['Wave',['../group__gin__dsp-dsp.html#gadb931b2f752b7879df254a7fd9d17e90',1,'gin_bandlimitedlookuptable.h']]],
-  ['waveshape_3385',['WaveShape',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29',1,'LFO']]]
+  ['wave_3389',['Wave',['../group__gin__dsp-dsp.html#gadb931b2f752b7879df254a7fd9d17e90',1,'gin_bandlimitedlookuptable.h']]],
+  ['waveshape_3390',['WaveShape',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29',1,'LFO']]]
 ];

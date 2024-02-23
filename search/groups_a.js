@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['utilities_3580',['utilities',['../group__gin-utilities.html',1,'(Global Namespace)'],['../group__gin__gui-utilities.html',1,'(Global Namespace)']]]
+  ['utilities_3585',['utilities',['../group__gin-utilities.html',1,'(Global Namespace)'],['../group__gin__gui-utilities.html',1,'(Global Namespace)']]]
 ];
