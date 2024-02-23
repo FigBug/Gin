@@ -139,6 +139,15 @@ public:
 
         return tables[size_t (tableIndex)][size_t (pos)];
     }
+    
+    inline float getLinear (int tableIndex, float phase)
+    {
+        auto pos = int (phase * tableSize);
+        auto frac = (phase * tableSize) - pos;
+        
+        return (tables[size_t (tableIndex)][size_t (pos)] * (1.0f - frac)) +
+               (tables[size_t (tableIndex)][size_t (pos + 1)] * (frac));
+    }
 
     void loadFromBuffer (std::unique_ptr<juce::dsp::FFT>& fft, float playbackSampleRate, juce::AudioSampleBuffer& buffer, float fileSampleRate, int notesPerTable);
 
@@ -174,25 +183,25 @@ public:
 
     inline float processSine (float phase)
     {
-        return sineTable.get (0, phase);
+        return sineTable.getLinear (0, phase);
     }
 
     inline float processTriangle (float note, float phase)
     {
         int tableIndex = juce::jlimit (0, int (triangleTable.tables.size() - 1), int ((note - 0.5) / triangleTable.notesPerTable));
-        return triangleTable.get (tableIndex, phase);
+        return triangleTable.getLinear (tableIndex, phase);
     }
 
     inline float processSawUp (float note, float phase)
     {
         int tableIndex = juce::jlimit (0, int (sawUpTable.tables.size() - 1), int ((note - 0.5) / sawUpTable.notesPerTable));
-        return sawUpTable.get (tableIndex, phase);
+        return sawUpTable.getLinear (tableIndex, phase);
     }
 
     inline float processSawDown (float note, float phase)
     {
         int tableIndex = juce::jlimit (0, int (sawDownTable.tables.size() - 1), int ((note - 0.5) / sawDownTable.notesPerTable));
-        return sawDownTable.get (tableIndex, phase);
+        return sawDownTable.getLinear (tableIndex, phase);
     }
 
     inline float processSquare (float note, float phase)
@@ -206,8 +215,8 @@ public:
         auto count = std::min (sawDownTable.tables.size(), sawDownTable.tables.size());
         int tableIndex = juce::jlimit (0, int (count - 1), int ((note - 0.5) / count));
 
-        auto s1 = sawDownTable.get (tableIndex, phaseDown);
-        auto s2 = sawUpTable.get (tableIndex, phaseUp);
+        auto s1 = sawDownTable.getLinear (tableIndex, phaseDown);
+        auto s2 = sawUpTable.getLinear (tableIndex, phaseUp);
 
         return s1 + s2;
     }
@@ -223,8 +232,8 @@ public:
         auto count = std::min (sawDownTable.tables.size(), sawDownTable.tables.size());
         int tableIndex = juce::jlimit (0, int (count - 1), int ((note - 0.5) / count));
 
-        auto s1 = sawDownTable.get (tableIndex, phaseDown);
-        auto s2 = sawUpTable.get (tableIndex, phaseUp);
+        auto s1 = sawDownTable.getLinear (tableIndex, phaseDown);
+        auto s2 = sawUpTable.getLinear (tableIndex, phaseUp);
 
         return s1 + s2;
     }
