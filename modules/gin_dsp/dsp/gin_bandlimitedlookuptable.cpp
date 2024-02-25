@@ -132,6 +132,8 @@ void BandLimitedLookupTable::loadFromBuffer (std::unique_ptr<juce::dsp::FFT>& ff
             auto& t = tables.emplace_back (std::vector<float>());
             t.resize (size_t (sz));
             std::memcpy (t.data(), buffer.getReadPointer (0), size_t (sz) * sizeof (float));
+
+            t.push_back (t[0]); // let the table wrap so we can interpolate without doing a mod
         }
         else
         {
@@ -153,6 +155,8 @@ void BandLimitedLookupTable::loadFromBuffer (std::unique_ptr<juce::dsp::FFT>& ff
 
             for (auto i = 0; i < sz; i++)
                 t[size_t (i)] = time[size_t(i)].real();
+
+            t.push_back (t[0]); // let the table wrap so we can interpolate without doing a mod
         }
      }
 }

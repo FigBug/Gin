@@ -53,6 +53,7 @@ public:
                 auto v = juce::jmap (float (i), 0.0f, tableSize - 1.0f, 0.0f, 1.0f);
                 t[size_t (i)] = function (v, freq, sampleRate);
             }
+            t.push_back (t[0]); // let the table wrap so we can interpolate without doing a mod
         }
     }
     
@@ -82,6 +83,7 @@ public:
         auto pos = int (phase * tableSize);
         auto frac = (phase * tableSize) - pos;
         
+        jassert (pos >= 0 && pos + 1 < table.size());
         return (table[size_t (pos)] * (1.0f - frac)) + (table[size_t (pos + 1)] * (frac));
     }
     
@@ -95,6 +97,11 @@ public:
         
         float pos[4];
         phase.store (pos);
+
+        jassert (pos[0] >= 0 && pos[0] < table.size());
+        jassert (pos[1] >= 0 && pos[1] < table.size());
+        jassert (pos[2] >= 0 && pos[2] < table.size());
+        jassert (pos[3] >= 0 && pos[3] < table.size());
 
         mipp::Reg<float> res =
         {
@@ -119,7 +126,12 @@ public:
 
         float f[4];
         frac.store (f);
-        
+
+        jassert (pos[0] >= 0 && pos[0] + 1 < table.size());
+        jassert (pos[1] >= 0 && pos[1] + 1 < table.size());
+        jassert (pos[2] >= 0 && pos[2] + 1 < table.size());
+        jassert (pos[3] >= 0 && pos[3] + 1 < table.size());
+
         mipp::Reg<float> res =
         {
             (table[size_t (p[0])] * (1.0f - f[0])) + (table[size_t (p[0] + 1)] * (f[0])),
