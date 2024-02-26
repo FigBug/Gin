@@ -83,7 +83,7 @@ public:
         auto pos = int (phase * tableSize);
         auto frac = (phase * tableSize) - pos;
         
-        jassert (pos >= 0 && pos + 1 < table.size());
+        jassert (pos >= 0 && pos + 1 < int (table.size()));
         return (table[size_t (pos)] * (1.0f - frac)) + (table[size_t (pos + 1)] * (frac));
     }
     
