@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['updatechecker_1888',['UpdateChecker',['../classUpdateChecker.html',1,'']]]
+  ['updatechecker_1891',['UpdateChecker',['../classUpdateChecker.html',1,'']]]
 ];

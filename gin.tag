@@ -1377,6 +1377,7 @@
     <class kind="class">ModSrcListBox</class>
     <class kind="class">ModCurveButton</class>
     <class kind="class">ModMatrixBox</class>
+    <class kind="class">ModMatrixBox::Row::DepthSlider</class>
   </compound>
   <compound kind="file">
     <name>gin_modules.dox</name>
@@ -4135,6 +4136,31 @@
       <name>writePos</name>
       <anchorfile>classDelayLine.html</anchorfile>
       <anchor>a277d65ab60f42d22f55d48596412c897</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>ModMatrixBox::Row::DepthSlider</name>
+    <filename>classModMatrixBox_1_1Row_1_1DepthSlider.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>DepthSlider</name>
+      <anchorfile>classModMatrixBox_1_1Row_1_1DepthSlider.html</anchorfile>
+      <anchor>afaebcb7a448047d4f55627eedff79ddc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getTextFromValue</name>
+      <anchorfile>classModMatrixBox_1_1Row_1_1DepthSlider.html</anchorfile>
+      <anchor>a713d44e3963230b94dfba4a727dda2aa</anchor>
+      <arglist>(double value) override</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; juce::String(double)&gt;</type>
+      <name>onTextFromValue</name>
+      <anchorfile>classModMatrixBox_1_1Row_1_1DepthSlider.html</anchorfile>
+      <anchor>ad47dff66e13d3d90a6f2bc1ee7f7bf3b</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -8925,6 +8951,13 @@
       <arglist>(gin::Parameter *)</arglist>
     </member>
     <member kind="function">
+      <type>Parameter *</type>
+      <name>getParameter</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>aeeb581ee9a9b31909f1e480ea63b2b4e</anchor>
+      <arglist>(ModDstId d)</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>isModulated</name>
       <anchorfile>classModMatrix.html</anchorfile>
@@ -9204,11 +9237,25 @@
       <anchor>a6321be76f6c2ec83116abffebb4b14d4</anchor>
       <arglist>() override</arglist>
     </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getTextFromValue</name>
+      <anchorfile>classModulationDepthSlider.html</anchorfile>
+      <anchor>a0f83d8b7dcae433a2d3cf247cf09938b</anchor>
+      <arglist>(double value) override</arglist>
+    </member>
     <member kind="variable">
       <type>std::function&lt; void()&gt;</type>
       <name>onClick</name>
       <anchorfile>classModulationDepthSlider.html</anchorfile>
       <anchor>a6e2e42e74b555da7290b29ca6d99131b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; juce::String(double)&gt;</type>
+      <name>onTextFromValue</name>
+      <anchorfile>classModulationDepthSlider.html</anchorfile>
+      <anchor>a53d08280e35e02133438ad8b0db58af8</anchor>
       <arglist></arglist>
     </member>
   </compound>
