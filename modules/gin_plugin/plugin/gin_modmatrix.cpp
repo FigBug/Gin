@@ -104,7 +104,7 @@ void ModMatrix::stateUpdated (const juce::ValueTree& vt)
                 s.depth = f;
                 s.enabled = e;
                 s.function = z;
-                s.biPolarToUniPolar = b;
+                s.biPolarMapping = b;
 
                 auto foundParam = false;
                 for (auto& pi : parameters)
@@ -272,22 +272,22 @@ void ModMatrix::setModEnable (ModSrcId src, ModDstId param, bool b)
     listeners.call ([&] (Listener& l) { l.modMatrixChanged(); });
 }
 
-bool ModMatrix::getModBiToUni (ModSrcId src, ModDstId param)
+bool ModMatrix::getModBipolarMapping (ModSrcId src, ModDstId param)
 {
     auto& pi = parameters.getReference (param.id);
     for (auto& si : pi.sources)
         if (si.id == src)
-            return si.biPolarToUniPolar;
+            return si.biPolarMapping;
 
     return false;
 }
 
-void ModMatrix::setModBiToUni (ModSrcId src, ModDstId param, bool b)
+void ModMatrix::setModBipolarMapping (ModSrcId src, ModDstId param, bool b)
 {
     auto& pi = parameters.getReference (param.id);
     for (auto& si : pi.sources)
         if (si.id == src)
-            si.biPolarToUniPolar = b;
+            si.biPolarMapping = b;
 
     listeners.call ([&] (Listener& l) { l.modMatrixChanged(); });
 }

@@ -243,7 +243,7 @@ void Knob::learnSourceChanged (ModSrcId src)
     if (learning)
     {
         knob.getProperties().set ("modDepth", modDepth);
-        knob.getProperties().set ("modBipolar", mm.getModSrcBipolar (mm.getLearn()) && ! mm.getModBiToUni (mm.getLearn(), ModDstId (parameter->getModIndex())));
+        knob.getProperties().set ("modBipolar", mm.getModBipolarMapping (mm.getLearn(), ModDstId (parameter->getModIndex())));
 
         shiftTimer.startTimerHz (100);
     }
@@ -296,6 +296,7 @@ void Knob::modMatrixChanged()
         {
             modDepth = mm->getModDepth (mm->getLearn(), dst);
             knob.getProperties().set ("modDepth", modDepth);
+            knob.getProperties().set ("modBipolar", mm->getModBipolarMapping (mm->getLearn(), ModDstId (parameter->getModIndex())));
             repaint();
         }
     }

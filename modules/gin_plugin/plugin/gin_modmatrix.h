@@ -123,11 +123,9 @@ public:
         invExponentialOut,
     };
     
-    static float shape (float v, Function f, bool bipolar, bool biPolarToUniPolar)
+    static float shape (float v, Function f, bool biPolarSrc, bool biPolarDst)
     {
-        if (biPolarToUniPolar)
-            v = (v + 1.0f) * 0.5f;
-        else if (bipolar)
+        if (biPolarSrc)
             v = juce::jmap (v, -1.0f, 1.0f, 0.0f, 1.0f);
 
         switch (f)
@@ -191,7 +189,7 @@ public:
                 break;
         }
 
-        if (! biPolarToUniPolar && bipolar)
+        if (biPolarDst)
             v = juce::jmap (v, 0.0f, 1.0f, -1.0f, 1.0f);
 
         return v;
@@ -210,9 +208,9 @@ public:
             if (src.enabled)
             {
                 if (src.poly && activeVoice != nullptr)
-                    base += shape (activeVoice->values[src.id.id], src.function, sources[src.id.id].bipolar, src.biPolarToUniPolar) * src.depth;
+                    base += shape (activeVoice->values[src.id.id], src.function, sources[src.id.id].bipolar, src.biPolarMapping) * src.depth;
                 else if (! src.poly)
-                    base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar, src.biPolarToUniPolar) * src.depth;
+                    base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar, src.biPolarMapping) * src.depth;
             }
         }
 
@@ -243,9 +241,9 @@ public:
             if (src.enabled)
             {
                 if (src.poly)
-                    base += shape (voice.values[src.id.id], src.function, sources[src.id.id].bipolar, src.biPolarToUniPolar) * src.depth;
+                    base += shape (voice.values[src.id.id], src.function, sources[src.id.id].bipolar, src.biPolarMapping) * src.depth;
                 else
-                    base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar, src.biPolarToUniPolar) * src.depth;
+                    base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar, src.biPolarMapping) * src.depth;
             }
         }
 
@@ -286,9 +284,9 @@ public:
                         if (src.enabled)
                         {
                             if (src.poly)
-                                base += shape (v->values[src.id.id], src.function, sources[src.id.id].bipolar, src.biPolarToUniPolar) * src.depth;
+                                base += shape (v->values[src.id.id], src.function, sources[src.id.id].bipolar, src.biPolarMapping) * src.depth;
                             else
-                                base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar, src.biPolarToUniPolar) * src.depth;
+                                base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar, src.biPolarMapping) * src.depth;
                             ok = true;
                         }
                     }
@@ -310,7 +308,7 @@ public:
                 {
                     if (src.enabled && ! src.poly)
                     {
-                        base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar, src.biPolarToUniPolar) * src.depth;
+                        base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar, src.biPolarMapping) * src.depth;
                         ok = true;
                     }
                 }
@@ -337,12 +335,12 @@ public:
                     if (src.poly && v != nullptr)
                     {
                         ok = true;
-                        base += shape (v->values[src.id.id], src.function, sources[src.id.id].bipolar, src.biPolarToUniPolar) * src.depth;
+                        base += shape (v->values[src.id.id], src.function, sources[src.id.id].bipolar, src.biPolarMapping) * src.depth;
                     }
                     else if (! src.poly)
                     {
                         ok = true;
-                        base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar, src.biPolarToUniPolar) * src.depth;
+                        base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar, src.biPolarMapping) * src.depth;
                     }
                 }
             }
@@ -417,8 +415,8 @@ public:
     bool getModEnable (ModSrcId src, ModDstId param);
     void setModEnable (ModSrcId src, ModDstId param, bool b);
     
-    bool getModBiToUni (ModSrcId src, ModDstId param);
-    void setModBiToUni (ModSrcId src, ModDstId param, bool b);
+    bool getModBipolarMapping (ModSrcId src, ModDstId param);
+    void setModBipolarMapping (ModSrcId src, ModDstId param, bool b);
 
     //==============================================================================
     bool shouldShowLiveModValues()
@@ -476,7 +474,7 @@ private:
         bool poly = false;
         bool enabled = true;
         float depth = 0.0f;
-        bool biPolarToUniPolar = false;
+        bool biPolarMapping = false;
         Function function = ModMatrix::Function::linear;
     };
 
