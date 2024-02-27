@@ -19,7 +19,7 @@ public:
     MSEGComponent (MSEG::Data& d);
     ~MSEGComponent() override = default;
 
-    void setParams (Parameter::Ptr wave, Parameter::Ptr sync, Parameter::Ptr rate,
+    void setParams (Parameter::Ptr sync, Parameter::Ptr rate,
                     Parameter::Ptr beat, Parameter::Ptr depth, Parameter::Ptr offset,
                     Parameter::Ptr phase, Parameter::Ptr enable, Parameter::Ptr xgrid,
                     Parameter::Ptr ygrid, Parameter::Ptr loop);
@@ -61,7 +61,7 @@ private:
     void createPath();
     float getSample (float phase);
 
-    Parameter::Ptr wave, sync, rate, beat, depth, offset, phase, enable, xgrid, ygrid, loop;
+    Parameter::Ptr sync, rate, beat, depth, offset, phase, enable, xgrid, ygrid, loop;
 
     MSEG::Data& data;
     MSEG mseg {data};

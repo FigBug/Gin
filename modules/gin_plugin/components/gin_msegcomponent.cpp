@@ -15,14 +15,13 @@ void MSEGComponent::setDrawMode (bool d, DrawMode m)
     drawMode = m;
 }
 
-void MSEGComponent::setParams (Parameter::Ptr wave_, Parameter::Ptr sync_, Parameter::Ptr rate_,
+void MSEGComponent::setParams (Parameter::Ptr sync_, Parameter::Ptr rate_,
                                Parameter::Ptr beat_, Parameter::Ptr depth_, Parameter::Ptr offset_,
                                Parameter::Ptr phase_, Parameter::Ptr enable_, Parameter::Ptr xgrid_,
                                Parameter::Ptr ygrid_, Parameter::Ptr loop_)
 {
     unwatchParams();
 
-    watchParam (wave   = wave_);
     watchParam (sync   = sync_);
     watchParam (rate   = rate_);
     watchParam (beat   = beat_);

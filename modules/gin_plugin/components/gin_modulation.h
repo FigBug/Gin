@@ -482,11 +482,9 @@ private:
                 if (auto depths = owner.modMatrix.getModDepths (dstId); depths.size() > 0)
                 {
                     auto d = depths[0];
+                    auto val = parameter->getText (std::clamp (float (parameter->getValue() + v), 0.0f, 1.0f), 1000);
 
-                    auto val        = parameter->getText (std::clamp (float (parameter->getValue() + v), 0.0f, 1.0f), 1000);
-                    auto percent    = juce::String (juce::roundToInt (v * 100)) + "%";
-
-                    return val + " (" + percent + ")";
+                    return val + " " + parameter->getLabel();
                 }
 
                 return juce::String();

@@ -112,9 +112,8 @@ Knob::Knob (Parameter* p, bool fromCentre)
 
                 auto pname      = mm->getModSrcName (d.first);
                 auto val        = parameter->getText (std::clamp (float (parameter->getValue() + v), 0.0f, 1.0f), 1000);
-                auto percent    = juce::String (juce::roundToInt (v * 100)) + "%";
 
-                return pname + ": " + val + " (" + percent + ")";
+                return pname + ": " + val + " " + parameter->getLabel();
             }
         }
         return juce::String();
