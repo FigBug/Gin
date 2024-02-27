@@ -22,4 +22,5 @@ extern juce::String disk;
 extern juce::String pencil;
 extern juce::String undo;
 extern juce::String redo;
+extern juce::String bipolar;
 }

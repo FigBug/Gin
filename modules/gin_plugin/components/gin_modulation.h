@@ -339,7 +339,7 @@ public:
         juce::Path p;
         for (auto x = 0.0f; x <= rc.getWidth(); x += 0.5f)
         {
-            auto y = (1.0f - ModMatrix::shape (x / rc.getWidth(), curve, false)) * rc.getHeight();
+            auto y = (1.0f - ModMatrix::shape (x / rc.getWidth(), curve, false, false)) * rc.getHeight();
             
             if (x == 0.0f)
                 p.startNewSubPath (rc.getX() + x, rc.getY() + y);
@@ -424,12 +424,14 @@ private:
             addAndMakeVisible (enableButton);
             addAndMakeVisible (deleteButton);
             addAndMakeVisible (curveButton);
+            addAndMakeVisible (biUniButton);
             addAndMakeVisible (depth);
             addAndMakeVisible (src);
             addAndMakeVisible (dst);
 
             depth.setRange (-1.0, 1.0, 0.01);
             depth.getProperties().set ("fromCentre", true);
+            depth.getProperties().set ("fullRect", true);
             depth.addListener (this);
             depth.setSliderSnapsToMousePosition (false);
             depth.setMouseDragSensitivity (750);
@@ -445,6 +447,18 @@ private:
                     auto e = owner.modMatrix.getModEnable (a.src, ModDstId (a.dst->getModIndex()));
                     owner.modMatrix.setModEnable (a.src, ModDstId (a.dst->getModIndex()), ! e);
                     enableButton.setToggleState (! e, juce::dontSendNotification);
+                }
+            };
+            
+            biUniButton.onClick = [this]
+            {
+                if (row >= 0 && row < owner.assignments.size())
+                {
+                    auto& a = owner.assignments.getReference (row);
+                    
+                    auto e = owner.modMatrix.getModBiToUni (a.src, ModDstId (a.dst->getModIndex()));
+                    owner.modMatrix.setModBiToUni (a.src, ModDstId (a.dst->getModIndex()), ! e);
+                    biUniButton.setToggleState (! e, juce::dontSendNotification);
                 }
             };
 
@@ -521,6 +535,10 @@ private:
                 auto e = owner.modMatrix.getModEnable (a.src, ModDstId (a.dst->getModIndex()));
                 enableButton.setToggleState (e, juce::dontSendNotification);
 
+                auto b = owner.modMatrix.getModBiToUni (a.src, ModDstId (a.dst->getModIndex()));
+                biUniButton.setToggleState (b, juce::dontSendNotification);
+                biUniButton.setVisible (owner.modMatrix.getModSrcBipolar (a.src));
+                
                 depth.setValue (owner.modMatrix.getModDepth (a.src, ModDstId (a.dst->getModIndex())));
                 curveButton.setCurve (owner.modMatrix.getModFunction (a.src, ModDstId (a.dst->getModIndex())));
             }
@@ -539,9 +557,13 @@ private:
             int h = rc.getHeight();
 
             enableButton.setBounds (rc.removeFromLeft (h));
+            rc.removeFromLeft (4);
             deleteButton.setBounds (rc.removeFromRight (h));
             rc.removeFromLeft (2);
             depth.setBounds (rc.removeFromLeft (owner.depthWidth));
+            rc.removeFromLeft (4);
+            biUniButton.setBounds (rc.removeFromLeft (h));
+            rc.removeFromLeft (2);
             curveButton.setBounds (rc.removeFromLeft (h));
 
             int w = rc.getWidth() / 2;
@@ -558,8 +580,9 @@ private:
         juce::Label dst;
         
         ModCurveButton curveButton;
+        SVGButton biUniButton { "biuni", Assets::bipolar };
 
-        SVGButton enableButton { "enable", Assets::power };
+        SVGButton enableButton { "enable", Assets::power, 1 };
         SVGButton deleteButton { "delete", Assets::del };
     };
 

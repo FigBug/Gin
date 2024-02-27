@@ -94,6 +94,7 @@ void ModMatrix::stateUpdated (const juce::ValueTree& vt)
             auto f = float (c.getProperty ("depth", 0.0f));
             auto e = bool (c.getProperty ("enabled", true));
             auto z = strToFunc (c.getProperty ("function", "linear"));
+            auto b = bool (c.getProperty ("biPolarToUniPolar", false));
 
             if (src.isNotEmpty() && dst.isNotEmpty())
             {
@@ -103,6 +104,7 @@ void ModMatrix::stateUpdated (const juce::ValueTree& vt)
                 s.depth = f;
                 s.enabled = e;
                 s.function = z;
+                s.biPolarToUniPolar = b;
 
                 auto foundParam = false;
                 for (auto& pi : parameters)
@@ -142,6 +144,7 @@ void ModMatrix::updateState (juce::ValueTree& vt)
             c.setProperty ("enabled", src.enabled, nullptr);
             c.setProperty ("dstId", pi.parameter->getUid(), nullptr);
             c.setProperty ("function", funcToStr (src.function), nullptr);
+            c.setProperty ("biPolarToUniPolar", src.depth, nullptr);
 
             mm.addChild (c, -1, nullptr);
         }
@@ -265,6 +268,26 @@ void ModMatrix::setModEnable (ModSrcId src, ModDstId param, bool b)
     for (auto& si : pi.sources)
         if (si.id == src)
             si.enabled = b;
+
+    listeners.call ([&] (Listener& l) { l.modMatrixChanged(); });
+}
+
+bool ModMatrix::getModBiToUni (ModSrcId src, ModDstId param)
+{
+    auto& pi = parameters.getReference (param.id);
+    for (auto& si : pi.sources)
+        if (si.id == src)
+            return si.biPolarToUniPolar;
+
+    return false;
+}
+
+void ModMatrix::setModBiToUni (ModSrcId src, ModDstId param, bool b)
+{
+    auto& pi = parameters.getReference (param.id);
+    for (auto& si : pi.sources)
+        if (si.id == src)
+            si.biPolarToUniPolar = b;
 
     listeners.call ([&] (Listener& l) { l.modMatrixChanged(); });
 }
