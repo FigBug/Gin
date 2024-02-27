@@ -142,6 +142,13 @@
       <anchor>a579f83336c0f63d31cc457061a8395c0</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>bipolar</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>ac3468e24409dbe47e8293799e3727311</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>gin_asyncutilities.h</name>
@@ -8989,6 +8996,20 @@
     </member>
     <member kind="function">
       <type>bool</type>
+      <name>getModBiToUni</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a3fb16ece08cded49cfd0525c0630b9bb</anchor>
+      <arglist>(ModSrcId src, ModDstId param)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setModBiToUni</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>af424fea0003b989157bc81c6452352a9</anchor>
+      <arglist>(ModSrcId src, ModDstId param, bool b)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
       <name>shouldShowLiveModValues</name>
       <anchorfile>classModMatrix.html</anchorfile>
       <anchor>af003c85e1553776030a64ce71c642cc3</anchor>
@@ -9019,8 +9040,8 @@
       <type>static float</type>
       <name>shape</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a6fd32f43e6ce7d486c47efefd9d44f15</anchor>
-      <arglist>(float v, Function f, bool bipolar)</arglist>
+      <anchor>ab698d6d08077f3e00498e53b484f595b</anchor>
+      <arglist>(float v, Function f, bool bipolar, bool biPolarToUniPolar)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -17101,6 +17122,13 @@
       <name>redo</name>
       <anchorfile>namespaceAssets.html</anchorfile>
       <anchor>a579f83336c0f63d31cc457061a8395c0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>bipolar</name>
+      <anchorfile>namespaceAssets.html</anchorfile>
+      <anchor>ac3468e24409dbe47e8293799e3727311</anchor>
       <arglist></arglist>
     </member>
   </compound>
