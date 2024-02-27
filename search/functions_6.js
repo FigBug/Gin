@@ -62,7 +62,7 @@ var searchData=
   ['getmidimessagetype_2345',['getMidiMessageType',['../group__gin__dsp-dsp.html#ga6e16d794b5bc34b561ea9107adbd69ce',1,'gin_audioutil.h']]],
   ['getmidinotefromhertz_2346',['getMidiNoteFromHertz',['../group__gin__dsp-dsp.html#gaba92011bb25f7416e8752e34fbec9c6f',1,'gin_audioutil.h']]],
   ['getmidinoteinhertz_2347',['getMidiNoteInHertz',['../group__gin__dsp-dsp.html#ga0521f87a41bf33dc06cc4b6889860401',1,'gin_audioutil.h']]],
-  ['getmodbitouni_2348',['getModBiToUni',['../classModMatrix.html#a3fb16ece08cded49cfd0525c0630b9bb',1,'ModMatrix']]],
+  ['getmodbipolarmapping_2348',['getModBipolarMapping',['../classModMatrix.html#a80c5d765e13b9c89ec522a57ae3e9133',1,'ModMatrix']]],
   ['getmoddepth_2349',['getModDepth',['../classModMatrix.html#ac09e09e0d0db90228b5b71013472efcb',1,'ModMatrix']]],
   ['getmoddepths_2350',['getModDepths',['../classModMatrix.html#abe59970219e672385463732206827266',1,'ModMatrix::getModDepths(ModSrcId param)'],['../classModMatrix.html#adf8db14f896820442e67843cfdaa656c',1,'ModMatrix::getModDepths(ModDstId param)']]],
   ['getmoddstname_2351',['getModDstName',['../classModMatrix.html#aa1e5b737aa3c05bdcc350d72950d572d',1,'ModMatrix']]],

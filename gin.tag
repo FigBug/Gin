@@ -9029,16 +9029,16 @@
     </member>
     <member kind="function">
       <type>bool</type>
-      <name>getModBiToUni</name>
+      <name>getModBipolarMapping</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a3fb16ece08cded49cfd0525c0630b9bb</anchor>
+      <anchor>a80c5d765e13b9c89ec522a57ae3e9133</anchor>
       <arglist>(ModSrcId src, ModDstId param)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
-      <name>setModBiToUni</name>
+      <name>setModBipolarMapping</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>af424fea0003b989157bc81c6452352a9</anchor>
+      <anchor>aaf6762ef0ac232dc6dc0c896eeccd07c</anchor>
       <arglist>(ModSrcId src, ModDstId param, bool b)</arglist>
     </member>
     <member kind="function">
@@ -9073,8 +9073,8 @@
       <type>static float</type>
       <name>shape</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>ab698d6d08077f3e00498e53b484f595b</anchor>
-      <arglist>(float v, Function f, bool bipolar, bool biPolarToUniPolar)</arglist>
+      <anchor>ae7eab8f9eddb29cba7da3fc50602c514</anchor>
+      <arglist>(float v, Function f, bool biPolarSrc, bool biPolarDst)</arglist>
     </member>
   </compound>
   <compound kind="class">
