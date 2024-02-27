@@ -126,7 +126,16 @@ public:
     {
     }
 
+    juce::String getTextFromValue (double value) override
+    {
+        if (onTextFromValue)
+            return onTextFromValue (value);
+
+        return juce::Slider::getTextFromValue (value);
+    }
+
     std::function<void ()> onClick;
+    std::function<juce::String (double)> onTextFromValue;
 
 private:
     void paint (juce::Graphics& g) override
@@ -429,7 +438,7 @@ private:
             addAndMakeVisible (src);
             addAndMakeVisible (dst);
 
-            depth.setRange (-1.0, 1.0, 0.01);
+            depth.setRange (-1.0, 1.0);
             depth.getProperties().set ("fromCentre", true);
             depth.getProperties().set ("fullRect", true);
             depth.addListener (this);
@@ -437,6 +446,51 @@ private:
             depth.setMouseDragSensitivity (750);
             depth.setPopupDisplayEnabled (true, true, findParentComponentOfClass<juce::AudioProcessorEditor>());
             depth.setDoubleClickReturnValue (true, 0.0);
+            depth.onValueChange = [this]
+            {
+                auto& a = owner.assignments.getReference (row);
+                auto parameter = a.dst;
+
+                auto dstId = ModDstId (parameter->getModIndex());
+
+                if (auto depths = owner.modMatrix.getModDepths (dstId); depths.size() > 0)
+                {
+                    auto range = parameter->getUserRange();
+                    if (range.interval <= 0.0f || juce::ModifierKeys::currentModifiers.isShiftDown())
+                    {
+                        owner.modMatrix.setModDepth (depths[0].first, dstId, float (depth.getValue()));
+                    }
+                    else
+                    {
+                        auto uv = range.convertFrom0to1 (std::clamp (float (parameter->getValue() + depth.getValue()), 0.0f, 1.0f));
+                        auto nv = range.convertTo0to1 (range.snapToLegalValue (uv));
+
+                        auto d = nv - parameter->getValue();
+
+                        owner.modMatrix.setModDepth (depths[0].first, dstId, d);
+                        depth.setValue (d, juce::dontSendNotification);
+                    }
+                }
+            };
+            depth.onTextFromValue = [this] (double v)
+            {
+                auto& a = owner.assignments.getReference (row);
+                auto parameter = a.dst;
+
+                auto dstId = ModDstId (parameter->getModIndex());
+
+                if (auto depths = owner.modMatrix.getModDepths (dstId); depths.size() > 0)
+                {
+                    auto d = depths[0];
+
+                    auto val        = parameter->getText (std::clamp (float (parameter->getValue() + v), 0.0f, 1.0f), 1000);
+                    auto percent    = juce::String (juce::roundToInt (v * 100)) + "%";
+
+                    return val + " (" + percent + ")";
+                }
+
+                return juce::String();
+            };
 
             enableButton.onClick = [this]
             {
@@ -574,7 +628,25 @@ private:
         ModMatrixBox& owner;
         int row = 0;
 
-        juce::Slider depth { juce::Slider::LinearHorizontal, juce::Slider::NoTextBox };
+        class DepthSlider : public juce::Slider
+        {
+        public:
+            DepthSlider() : juce::Slider (juce::Slider::LinearHorizontal, juce::Slider::NoTextBox)
+            {
+            }
+
+            juce::String getTextFromValue (double value) override
+            {
+                if (onTextFromValue)
+                    return onTextFromValue (value);
+
+                return juce::Slider::getTextFromValue (value);
+            }
+
+            std::function<juce::String (double)> onTextFromValue;
+        };
+
+        DepthSlider depth;
 
         juce::Label src;
         juce::Label dst;

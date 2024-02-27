@@ -448,3 +448,12 @@ void ModMatrix::voiceStopped (ModVoice* v)
         }
     }
 }
+
+Parameter* ModMatrix::getParameter (ModDstId d)
+{
+    for (const auto& info : parameters)
+        if (info.parameter->getModIndex() == d.id)
+            return info.parameter;
+
+    return nullptr;
+}

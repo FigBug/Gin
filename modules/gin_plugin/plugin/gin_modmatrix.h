@@ -401,6 +401,8 @@ public:
 
     juce::Array<ModSrcId> getModSources (gin::Parameter*);
 
+    Parameter* getParameter (ModDstId d);
+
     bool isModulated (ModDstId param);
 
     float getModDepth (ModSrcId src, ModDstId param);

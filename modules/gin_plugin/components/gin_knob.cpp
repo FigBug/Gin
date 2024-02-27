@@ -10,7 +10,7 @@ Knob::Knob (Parameter* p, bool fromCentre)
     addAndMakeVisible (knob);
     addChildComponent (modDepthSlider);
     
-    modDepthSlider.setRange (-1.0, 1.0, 0.01);
+    modDepthSlider.setRange (-1.0, 1.0, 0.0);
     modDepthSlider.setPopupDisplayEnabled (true, true, findParentComponentOfClass<juce::AudioProcessorEditor>());
     modDepthSlider.setDoubleClickReturnValue (true, 0.0);
 
@@ -81,8 +81,43 @@ Knob::Knob (Parameter* p, bool fromCentre)
             auto dst = ModDstId (parameter->getModIndex());
 
             if (auto depths = mm->getModDepths (dst); depths.size() > 0)
-                mm->setModDepth (depths[0].first, dst, float (modDepthSlider.getValue()));
+            {
+                auto range = parameter->getUserRange();
+                if (range.interval <= 0.0f || juce::ModifierKeys::currentModifiers.isShiftDown())
+                {
+                    mm->setModDepth (depths[0].first, dst, float (modDepthSlider.getValue()));
+                }
+                else
+                {
+                    auto uv = range.convertFrom0to1 (std::clamp (float (parameter->getValue() + modDepthSlider.getValue()), 0.0f, 1.0f));
+                    auto nv = range.convertTo0to1 (range.snapToLegalValue (uv));
+
+                    auto d = nv - parameter->getValue();
+
+                    mm->setModDepth (depths[0].first, dst, d);
+                    modDepthSlider.setValue (d, juce::dontSendNotification);
+                }
+            }
         }
+    };
+    modDepthSlider.onTextFromValue = [this] (double v)
+    {
+        if (auto mm = parameter->getModMatrix())
+        {
+            auto dst = ModDstId (parameter->getModIndex());
+
+            if (auto depths = mm->getModDepths (dst); depths.size() > 0)
+            {
+                auto d = depths[0];
+
+                auto pname      = mm->getModSrcName (d.first);
+                auto val        = parameter->getText (std::clamp (float (parameter->getValue() + v), 0.0f, 1.0f), 1000);
+                auto percent    = juce::String (juce::roundToInt (v * 100)) + "%";
+
+                return pname + ": " + val + " (" + percent + ")";
+            }
+        }
+        return juce::String();
     };
     modMatrixChanged();
 }
@@ -305,7 +340,22 @@ void Knob::mouseDrag (const juce::MouseEvent& e)
 
         auto& mm = *parameter->getModMatrix();
         auto dst = ModDstId (parameter->getModIndex());
-        mm.setModDepth (mm.getLearn(), dst, newModDepth);
+
+        auto range = parameter->getUserRange();
+        if (range.interval <= 0.0f || juce::ModifierKeys::currentModifiers.isShiftDown())
+        {
+            mm.setModDepth (mm.getLearn(), dst, float (modDepthSlider.getValue()));
+        }
+        else
+        {
+            auto uv = range.convertFrom0to1 (std::clamp (float (parameter->getValue() + modDepthSlider.getValue()), 0.0f, 1.0f));
+            auto nv = range.convertTo0to1 (range.snapToLegalValue (uv));
+
+            auto d = nv - parameter->getValue();
+
+            mm.setModDepth (mm.getLearn(), dst, d);
+            modDepthSlider.setValue (d, juce::dontSendNotification);
+        }
 
         repaint();
     }
