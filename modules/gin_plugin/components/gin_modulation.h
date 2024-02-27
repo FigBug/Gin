@@ -458,7 +458,7 @@ private:
                     
                     auto e = owner.modMatrix.getModBiToUni (a.src, ModDstId (a.dst->getModIndex()));
                     owner.modMatrix.setModBiToUni (a.src, ModDstId (a.dst->getModIndex()), ! e);
-                    biUniButton.setToggleState (! e, juce::dontSendNotification);
+                    biUniButton.setToggleState (e, juce::dontSendNotification);
                 }
             };
 
@@ -536,7 +536,7 @@ private:
                 enableButton.setToggleState (e, juce::dontSendNotification);
 
                 auto b = owner.modMatrix.getModBiToUni (a.src, ModDstId (a.dst->getModIndex()));
-                biUniButton.setToggleState (b, juce::dontSendNotification);
+                biUniButton.setToggleState (! b, juce::dontSendNotification);
                 biUniButton.setVisible (owner.modMatrix.getModSrcBipolar (a.src));
                 
                 depth.setValue (owner.modMatrix.getModDepth (a.src, ModDstId (a.dst->getModIndex())));

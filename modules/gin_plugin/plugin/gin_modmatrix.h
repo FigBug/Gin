@@ -126,7 +126,7 @@ public:
     static float shape (float v, Function f, bool bipolar, bool biPolarToUniPolar)
     {
         if (biPolarToUniPolar)
-            v = (v + 1.0f) * 2.0f;
+            v = (v + 1.0f) * 0.5f;
         else if (bipolar)
             v = juce::jmap (v, -1.0f, 1.0f, 0.0f, 1.0f);
 

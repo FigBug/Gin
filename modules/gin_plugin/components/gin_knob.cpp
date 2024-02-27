@@ -209,7 +209,7 @@ void Knob::learnSourceChanged (ModSrcId src)
     if (learning)
     {
         knob.getProperties().set ("modDepth", modDepth);
-        knob.getProperties().set ("modBipolar", mm.getModSrcBipolar (mm.getLearn()));
+        knob.getProperties().set ("modBipolar", mm.getModSrcBipolar (mm.getLearn()) && ! mm.getModBiToUni (mm.getLearn(), ModDstId (parameter->getModIndex())));
 
         shiftTimer.startTimerHz (100);
     }
