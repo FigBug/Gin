@@ -266,6 +266,7 @@ public:
             auto todo = std::min (samps, int ((1.0f - phase) / delta) + 1);
             samps -= todo;
 
+           #if GIN_HAS_SIMD
             for (; todo >= 4; todo -= 4)
             {
                 mipp::Reg<float> phaseVec = {phase, phase + delta, phase + 2 * delta, phase + 3 * delta};
@@ -286,6 +287,7 @@ public:
 
                 phase += delta * 4;
             }
+           #endif
 
             for (; todo > 0; todo--)
             {
