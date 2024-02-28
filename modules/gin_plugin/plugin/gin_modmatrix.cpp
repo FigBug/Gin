@@ -94,7 +94,7 @@ void ModMatrix::stateUpdated (const juce::ValueTree& vt)
             auto f = float (c.getProperty ("depth", 0.0f));
             auto e = bool (c.getProperty ("enabled", true));
             auto z = strToFunc (c.getProperty ("function", "linear"));
-            auto b = bool (c.getProperty ("biPolarToUniPolar", false));
+            auto b = bool (c.getProperty ("biPolarMapping", false));
 
             if (src.isNotEmpty() && dst.isNotEmpty())
             {
@@ -144,7 +144,7 @@ void ModMatrix::updateState (juce::ValueTree& vt)
             c.setProperty ("enabled", src.enabled, nullptr);
             c.setProperty ("dstId", pi.parameter->getUid(), nullptr);
             c.setProperty ("function", funcToStr (src.function), nullptr);
-            c.setProperty ("biPolarToUniPolar", src.depth, nullptr);
+            c.setProperty ("biPolarMapping", src.biPolarMapping, nullptr);
 
             mm.addChild (c, -1, nullptr);
         }
