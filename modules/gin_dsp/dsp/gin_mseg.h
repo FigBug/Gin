@@ -33,7 +33,7 @@ public:
     {
         juce::Array<Point> points;
         int numPoints = 0;
-        int maxPoints = 50;
+        int maxPoints = 200;
         int startIndex = 0;
         int endIndex = 2;
 

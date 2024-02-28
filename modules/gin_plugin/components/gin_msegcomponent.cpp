@@ -671,7 +671,7 @@ void MSEGComponent::addPoint (float t, float v)
         }
         data.numPoints++;
     }
-    else
+    else if (data.numPoints < data.maxPoints)
     {
         if (t >= data.points[data.numPoints - 1].time)
         {
