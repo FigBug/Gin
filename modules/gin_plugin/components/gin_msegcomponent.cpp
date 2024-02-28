@@ -557,30 +557,30 @@ void MSEGComponent::mouseDragDraw (const juce::MouseEvent& e)
         addPoint (t1, v1);
         addPoint (t1, v);
         addPoint ((t1 + t2) / 2.0f, v);
-        addPoint ((t1 + t2) / 2.0f, 0.0f);
-        addPoint (t2, 0.0f);
+        addPoint ((t1 + t2) / 2.0f, -1.0f);
+        addPoint (t2, -1.0f);
         addPoint (t2, v2);
     }
     else if (drawMode == down)
     {
         addPoint (t1, v1);
         addPoint (t1, v);
-        addPoint (t2, 0.0f);
+        addPoint (t2, -1.0f);
         addPoint (t2, v2);
     }
     else if (drawMode == up)
     {
         addPoint (t1, v1);
-        addPoint (t1, 0.0f);
+        addPoint (t1, -1.0f);
         addPoint (t2, v);
         addPoint (t2, v2);
     }
     else if (drawMode == tri)
     {
         addPoint (t1, v1);
-        addPoint (t1, 0.0f);
+        addPoint (t1, -1.0f);
         addPoint ((t1 + t2) / 2.0f, v);
-        addPoint (t2, 0.0f);
+        addPoint (t2, -1.0f);
         addPoint (t2, v2);
     }
     deleteDuplicates();
