@@ -77,9 +77,15 @@ public:
 
     void handleMidiEvent (const juce::MidiMessage& message) override
     {
+        DBG(message.getDescription());
+
         juce::MPESynthesiser::handleMidiEvent (message);
 
-        if (! mpe && message.isPitchWheel())
+        if (message.isAllNotesOff() || message.isAllSoundOff())
+        {
+            turnOffAllVoices (false);
+        }
+        else if (! mpe && message.isPitchWheel())
         {
             for (auto v : voices)
             {

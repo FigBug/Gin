@@ -424,8 +424,7 @@ juce::Array<ModSrcId> ModMatrix::getModSources (gin::Parameter* param)
 
 int ModMatrix::voiceStarted (ModVoice* v)
 {
-    if (activeVoice == nullptr)
-        activeVoice = v;
+    activeVoice = v;
 
     return ++nextAge;
 }
@@ -434,13 +433,13 @@ void ModMatrix::voiceStopped (ModVoice* v)
 {
     if (v == activeVoice)
     {
-        int youngestVoice = std::numeric_limits<int>::max();
+        int youngestVoice = 0;
         activeVoice = nullptr;
         for (auto possibleVoice : voices)
         {
             if (possibleVoice == v) continue;
 
-            if (possibleVoice->isVoiceActive() && possibleVoice->getAge() < youngestVoice)
+            if (possibleVoice->isVoiceActive() && possibleVoice->getAge() > youngestVoice)
             {
                 youngestVoice = possibleVoice->getAge();
                 activeVoice = possibleVoice;
