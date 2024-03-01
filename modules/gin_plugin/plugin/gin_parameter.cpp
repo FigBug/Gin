@@ -170,7 +170,7 @@ int Parameter::getNumSteps() const
 juce::String Parameter::getText (float val, int /*maximumStringLength*/) const
 {
     if (textFunction)
-        return textFunction (*this, range.convertFrom0to1 (val));
+        return textFunction (*this, range.snapToLegalValue (range.convertFrom0to1 (val)));
     
     auto uv = range.snapToLegalValue (range.convertFrom0to1 (val));
     
