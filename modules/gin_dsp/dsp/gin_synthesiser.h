@@ -77,8 +77,6 @@ public:
 
     void handleMidiEvent (const juce::MidiMessage& message) override
     {
-        DBG(message.getDescription());
-
         juce::MPESynthesiser::handleMidiEvent (message);
 
         if (message.isAllNotesOff() || message.isAllSoundOff())
