@@ -83,7 +83,7 @@ public:
 
         if (message.isAllNotesOff() || message.isAllSoundOff())
         {
-            turnOffAllVoices (false);
+            turnOffAllVoices (true);
         }
         else if (! mpe && message.isPitchWheel())
         {
