@@ -347,10 +347,6 @@ void PatchBrowser::PresetsModel::paintListBoxItem (int row, juce::Graphics& g, i
     g.drawText (owner.currentPresets[row], rc.reduced (4, 0), juce::Justification::centredLeft);
 }
 
-void PatchBrowser::PresetsModel::listBoxItemDoubleClicked (int row, const juce::MouseEvent&)
-{
-}
-
 void PatchBrowser::PresetsModel::listBoxItemClicked (int row, const juce::MouseEvent& e)
 {
     owner.proc.setCurrentProgram (owner.currentPresets[row]);

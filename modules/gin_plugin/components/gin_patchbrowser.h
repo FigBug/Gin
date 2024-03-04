@@ -46,7 +46,6 @@ public:
         int getNumRows() override;
         void selectedRowsChanged (int) override;
         void paintListBoxItem (int row, juce::Graphics& g, int w, int h, bool selected) override;
-        void listBoxItemDoubleClicked (int row, const juce::MouseEvent&) override;
         void listBoxItemClicked (int row, const juce::MouseEvent& e) override;
 
         PatchBrowser& owner;
