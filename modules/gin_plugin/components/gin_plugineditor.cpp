@@ -149,8 +149,8 @@ void NewsChecker::handleAsyncUpdate()
 }
 
 //==============================================================================
-TitleBar::TitleBar (ProcessorEditor& e, Processor& p)
-  : editor (e), slProc (p)
+TitleBar::TitleBar (ProcessorEditor& e, Processor& p, PatchBrowser& pb)
+  : editor (e), slProc (p), patchBrowser (pb)
 {
     setName ("titlebar");
 
@@ -159,6 +159,7 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p)
     addAndMakeVisible (menuButton);
     addAndMakeVisible (browseButton);
     addAndMakeVisible (programs);
+    addAndMakeVisible (programName);
     addAndMakeVisible (nextButton);
     addAndMakeVisible (prevButton);
     addAndMakeVisible (addButton);
@@ -184,6 +185,8 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p)
     prevButton.setTooltip ("Prev Preset");
     infoButton.setTooltip ("Info");
     menuButton.setTooltip ("Menu");
+    
+    programName.setJustificationType (juce::Justification::centred);
 
     slProc.addChangeListener (this);
 
@@ -198,22 +201,66 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p)
         newsChecker = std::make_unique<NewsChecker> (slProc);
         newsChecker->onNewsUpdate = [](juce::String) {};
     }
+    
+    programName.addMouseListener (&labelListener, false);
+    labelListener.onMouseDown = [this] (const juce::MouseEvent&)
+    {
+        if (menuShowing)
+        {
+            menuShowing = false;
+            juce::PopupMenu::dismissAllActiveMenus();
+            return;
+        }
+        
+        juce::PopupMenu m;
+        m.setLookAndFeel (&getLookAndFeel());
+        
+        juce::String cur;
+        if (auto idx = slProc.getCurrentProgram(); idx >= 0)
+            cur = slProc.getProgramName (idx);
+        
+        m.addItem ("Reset to default", [this] { slProc.setCurrentProgram ("Default"); });
+        m.addSeparator();
+        
+        for (auto s : patchBrowser.currentPresets)
+        {
+            auto selected = s == cur;
+            m.addItem (s, true, selected, [this, s] { slProc.setCurrentProgram (s); });
+        }
+        
+        auto opts = juce::PopupMenu::Options().withTargetComponent (programName).withDeletionCheck (programName);
+        m.showMenuAsync (opts, [&] (int) { menuShowing = false; } );
+    };
 
     nextButton.onClick = [this]
     {
-        int prog = slProc.getCurrentProgram() + 1;
-        if (prog >= slProc.getPrograms().size())
-            prog = 0;
-
-        slProc.setCurrentProgram (prog);
+        if (hasBrowser)
+        {
+            patchBrowser.next();
+        }
+        else
+        {
+            int prog = slProc.getCurrentProgram() + 1;
+            if (prog >= slProc.getPrograms().size())
+                prog = 0;
+            
+            slProc.setCurrentProgram (prog);
+        }
     };
     prevButton.onClick = [this]
     {
-        int prog = slProc.getCurrentProgram() - 1;
-        if (prog < 0)
-            prog = slProc.getPrograms().size() - 1;
-
-        slProc.setCurrentProgram (prog);
+        if (hasBrowser)
+        {
+            patchBrowser.prev();
+        }
+        else
+        {
+            int prog = slProc.getCurrentProgram() - 1;
+            if (prog < 0)
+                prog = slProc.getPrograms().size() - 1;
+            
+            slProc.setCurrentProgram (prog);
+        }
     };
     browseButton.onClick = [this]
     {
@@ -287,7 +334,7 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p)
             w->setVisible (false);
             if (r == 1)
             {
-                slProc.deleteProgram (programs.getSelectedItemIndex());
+                slProc.deleteProgram (slProc.getCurrentProgram());
                 refreshPrograms();
             }
         });
@@ -318,6 +365,9 @@ void TitleBar::parentHierarchyChanged()
     prevButton.setWantsKeyboardFocus (a);
     infoButton.setWantsKeyboardFocus (a);
     menuButton.setWantsKeyboardFocus (a);
+    
+    auto c = findColour (PluginLookAndFeel::accentColourId);
+    programName.setColour (juce::Label::textColourId, c);
 }
 
 void TitleBar::paint (juce::Graphics& g)
@@ -333,6 +383,7 @@ void TitleBar::setShowBrowser (bool s)
 {
     hasBrowser = s;
     resized ();
+    refreshPrograms();
 }
 
 void TitleBar::setShowPresets (bool s)
@@ -357,7 +408,16 @@ void TitleBar::resized()
 
     if (hasPresets)
     {
-        programs.setBounds (programsRC);
+        if (hasBrowser)
+        {
+            programName.setBounds (programsRC);
+            programs.setBounds ({});
+        }
+        else
+        {
+            programs.setBounds (programsRC);
+            programName.setBounds ({});
+        }
 
         int x = programsRC.getRight() + 10;
         addButton.setBounds (x, 10, 19, 19);
@@ -367,6 +427,7 @@ void TitleBar::resized()
     else
     {
         programs.setBounds ({});
+        programName.setBounds ({});
         addButton.setBounds ({});
         deleteButton.setBounds ({});
     }
@@ -394,19 +455,30 @@ void TitleBar::resized()
 
 void TitleBar::refreshPrograms()
 {
-    programs.clear();
-
-    for (int i = 0; i < slProc.getPrograms().size(); i++)
+    if (hasBrowser)
     {
-        programs.addItem (slProc.getProgramName (i), i + 1);
-        if (i == 0)
-            programs.addSeparator();
+        editor.refreshPatchBrowser();
+        
+        if (auto idx = slProc.getCurrentProgram(); idx >= 0)
+            programName.setText (slProc.getProgramName (idx), juce::dontSendNotification);
+        else
+            programName.setText ({}, juce::dontSendNotification);
+        deleteButton.setEnabled (slProc.getCurrentProgram() != 0);
     }
-
-    programs.setSelectedItemIndex (slProc.getCurrentProgram(), juce::dontSendNotification);
-    deleteButton.setEnabled (slProc.getCurrentProgram() != 0);
-
-    editor.refreshPatchBrowser();
+    else
+    {
+        programs.clear();
+        
+        for (int i = 0; i < slProc.getPrograms().size(); i++)
+        {
+            programs.addItem (slProc.getProgramName (i), i + 1);
+            if (i == 0)
+                programs.addSeparator();
+        }
+        
+        programs.setSelectedItemIndex (slProc.getCurrentProgram(), juce::dontSendNotification);
+        deleteButton.setEnabled (slProc.getCurrentProgram() != 0);
+    }
 }
 
 void TitleBar::showMenu()

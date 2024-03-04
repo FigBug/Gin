@@ -3,6 +3,9 @@ class PatchBrowser : public juce::Component
 {
 public:
     PatchBrowser (Processor& p);
+    
+    void next();
+    void prev();
 
     void selectionUpdated();
     void refresh();
@@ -12,7 +15,7 @@ public:
     
     void editPreset (int row);
     void deletePreset (int row);
-
+    
     Processor& proc;
 
     struct AuthorsModel : public juce::ListBoxModel
@@ -57,5 +60,5 @@ public:
 
     bool updatingSelection = false;
     juce::StringArray currentAuthors, currentTags, currentPresets;
-    juce::StringArray selectedAuthors, selectedTags, selectedPresets;
+    juce::StringArray selectedAuthors, selectedTags;
 };

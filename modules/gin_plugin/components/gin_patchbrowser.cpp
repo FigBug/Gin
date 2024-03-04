@@ -19,9 +19,36 @@ PatchBrowser::PatchBrowser (Processor& p) : proc (p)
     auto inst = proc.state.getChildWithName ("instance");
     selectedAuthors = juce::StringArray::fromTokens (inst.getProperty ("selectedAuthors", {}).toString(), "|", "");
     selectedTags    = juce::StringArray::fromTokens (inst.getProperty ("selectedTags", {}).toString(), "|", "");
-    selectedPresets = juce::StringArray::fromTokens (inst.getProperty ("selectedPresets", {}).toString(), "|", "");
 
     refresh();
+}
+
+void PatchBrowser::next()
+{
+    if (presetsModel.getNumRows() == 0)
+        return;
+    
+    auto idx = presets.getSelectedRow() + 1;
+    
+    if (idx >= presetsModel.getNumRows())
+        idx = 0;
+    
+    presets.selectRow (idx);
+    proc.setCurrentProgram (currentPresets[idx]);
+}
+
+void PatchBrowser::prev()
+{
+    if (presetsModel.getNumRows() == 0)
+        return;
+    
+    auto idx = presets.getSelectedRow() - 1;
+    
+    if (idx < 0)
+        idx = presetsModel.getNumRows() - 1;
+    
+    presets.selectRow (idx);
+    proc.setCurrentProgram (currentPresets[idx]);
 }
 
 void PatchBrowser::selectionUpdated()
@@ -31,7 +58,6 @@ void PatchBrowser::selectionUpdated()
     
     selectedAuthors.clear();
     selectedTags.clear();
-    selectedPresets.clear();
 
     for (int i = 0; i < authors.getNumSelectedRows(); i++)
         if (auto row = authors.getSelectedRow (i); row > 0)
@@ -39,15 +65,11 @@ void PatchBrowser::selectionUpdated()
 
     for (int i = 0; i < tags.getNumSelectedRows(); i++)
         if (auto row = tags.getSelectedRow (i); row > 0)
-        selectedTags.add (currentTags[row]);
+            selectedTags.add (currentTags[row]);
     
-    for (int i = 0; i < presets.getNumSelectedRows(); i++)
-        selectedPresets.add (currentPresets[presets.getSelectedRow (i)]);
-
     auto inst = proc.state.getChildWithName ("instance");
     inst.setProperty ("selectedAuthors",  selectedAuthors.joinIntoString ("|"), nullptr);
     inst.setProperty ("selectedTags",     selectedTags.joinIntoString ("|"), nullptr);
-    inst.setProperty ("selectedPresets",  selectedPresets.joinIntoString ("|"), nullptr);
 }
 
 void PatchBrowser::refresh()
@@ -126,8 +148,10 @@ void PatchBrowser::refresh()
     }
 
     presets.deselectAllRows();
-    for (auto p : selectedPresets)
-        presets.selectRow (currentPresets.indexOf (p), true, false);
+    
+    if (auto idx = proc.getCurrentProgram(); idx >= 0)
+        if (auto idx2 = currentPresets.indexOf (proc.getProgramName (idx)); idx2 >= 0)
+            presets.selectRow (idx2, true, false);
 
     repaint();
 }
@@ -325,11 +349,12 @@ void PatchBrowser::PresetsModel::paintListBoxItem (int row, juce::Graphics& g, i
 
 void PatchBrowser::PresetsModel::listBoxItemDoubleClicked (int row, const juce::MouseEvent&)
 {
-    owner.proc.setCurrentProgram (owner.currentPresets[row]);
 }
 
 void PatchBrowser::PresetsModel::listBoxItemClicked (int row, const juce::MouseEvent& e)
 {
+    owner.proc.setCurrentProgram (owner.currentPresets[row]);
+    
     if ( ! e.mouseWasClicked() || ! e.mods.isPopupMenu())
         return;
     

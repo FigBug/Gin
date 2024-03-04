@@ -167,7 +167,7 @@ class TitleBar : public juce::Component,
                  protected juce::ChangeListener
 {
 public:
-    TitleBar (ProcessorEditor&, Processor&);
+    TitleBar (ProcessorEditor&, Processor&, PatchBrowser&);
     ~TitleBar () override;
 
     void refreshPrograms();
@@ -188,11 +188,13 @@ public:
     
     ProcessorEditor& editor;
     Processor& slProc;
+    PatchBrowser& patchBrowser;
 
     bool hasPresets = true;
     bool hasBrowser = false;
 
     juce::ComboBox programs;
+    juce::Label programName;
     SVGButton addButton { "add", gin::Assets::add };
     SVGButton deleteButton { "delete", gin::Assets::del };
     SVGButton browseButton { "browse", gin::Assets::browse };
@@ -201,6 +203,9 @@ public:
 
     SVGButton menuButton { "menu", gin::Assets::menu };
     SVGButton infoButton { "info", gin::Assets::info };
+    
+    bool menuShowing = false;
+    LambdaMouseListener labelListener;
 
     std::unique_ptr<NewsChecker> newsChecker;
     std::unique_ptr<UpdateChecker> updateChecker;
@@ -235,6 +240,6 @@ protected:
     std::unique_ptr<UpdateChecker> updateChecker;
     std::unique_ptr<NewsChecker> newsChecker;
 
-    TitleBar titleBar { *this, slProc };
     PatchBrowser patchBrowser { slProc };
+    TitleBar titleBar { *this, slProc, patchBrowser };
 };

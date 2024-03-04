@@ -383,19 +383,11 @@ void Processor::loadAllPrograms()
 
     programs.clear();
 
-    // create the default program
-    auto defaultProgram = new Program();
-    defaultProgram->name = "Default";
-    defaultProgram->saveProcessor (*this);
-
-    programs.add (defaultProgram);
-
     // load programs from disk
     juce::File dir = getProgramDirectory();
 
     juce::Array<juce::File> programFiles;
     dir.findChildFiles (programFiles, juce::File::findFiles, false, "*.xml");
-    programFiles.sort();
 
     for (auto f : programFiles)
     {
@@ -403,6 +395,15 @@ void Processor::loadAllPrograms()
         program->loadFromFile (f, false);
         programs.add (program);
     }
+    
+    std::sort (programs.begin(), programs.end(), [](const auto& a, const auto& b) { return a->name.compareIgnoreCase (b->name) < 0; });
+    
+    // create the default program
+    auto defaultProgram = new Program();
+    defaultProgram->name = "Default";
+    defaultProgram->saveProcessor (*this);
+
+    programs.insert (0, defaultProgram);
 }
 
 void Processor::extractProgram (const juce::String& name, const juce::MemoryBlock& data)
