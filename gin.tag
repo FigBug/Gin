@@ -11262,6 +11262,20 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>next</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>acca4a794212c331878636360a8650723</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>prev</name>
+      <anchorfile>classPatchBrowser.html</anchorfile>
+      <anchor>ab06f955264255f1f49ce7b2f42f5ea44</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>selectionUpdated</name>
       <anchorfile>classPatchBrowser.html</anchorfile>
       <anchor>a8e15d8944a89d0a6e5e7c4730bcf84b1</anchor>
@@ -11391,13 +11405,6 @@
       <name>selectedTags</name>
       <anchorfile>classPatchBrowser.html</anchorfile>
       <anchor>a5131ad5197cd707f759b87775770551f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::StringArray</type>
-      <name>selectedPresets</name>
-      <anchorfile>classPatchBrowser.html</anchorfile>
-      <anchor>af322a5f3cd94e547cc09fc171f8f0965</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -12388,17 +12395,17 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>TitleBar</type>
-      <name>titleBar</name>
-      <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a765fed46b8f886ab4e6306124110ed68</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
       <type>PatchBrowser</type>
       <name>patchBrowser</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
       <anchor>a6f7f6e1a092dff5bccece83325514c77</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>TitleBar</type>
+      <name>titleBar</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>a765fed46b8f886ab4e6306124110ed68</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -15315,8 +15322,8 @@
       <type></type>
       <name>TitleBar</name>
       <anchorfile>classTitleBar.html</anchorfile>
-      <anchor>ae50c6223c4dd1df9d1bc5ad4864c271b</anchor>
-      <arglist>(ProcessorEditor &amp;, Processor &amp;)</arglist>
+      <anchor>a0434adc0c1723f847d4ca08653c4e83a</anchor>
+      <arglist>(ProcessorEditor &amp;, Processor &amp;, PatchBrowser &amp;)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -15424,6 +15431,13 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
+      <type>PatchBrowser &amp;</type>
+      <name>patchBrowser</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>a1f3dbe458a85abe07c28ce9bc963436c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
       <type>bool</type>
       <name>hasPresets</name>
       <anchorfile>classTitleBar.html</anchorfile>
@@ -15442,6 +15456,13 @@
       <name>programs</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>aadc7b06a48172e5cc2a50d09a433fa77</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Label</type>
+      <name>programName</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>afdea029778d56d40cea99ad8b53a6f2a</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -15491,6 +15512,20 @@
       <name>infoButton</name>
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>a98d47438b7d4dd40526040b5a7b94405</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>menuShowing</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>a55643a7fec13108fa2a7e515652f5107</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>LambdaMouseListener</type>
+      <name>labelListener</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>a8b674ffb0a543ebcc580a3bc496beba2</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
