@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['diff_1913',['Diff',['../namespaceDiff.html',1,'']]],
-  ['distortion_1914',['Distortion',['../namespaceDistortion.html',1,'']]]
+  ['diff_1914',['Diff',['../namespaceDiff.html',1,'']]],
+  ['distortion_1915',['Distortion',['../namespaceDistortion.html',1,'']]]
 ];

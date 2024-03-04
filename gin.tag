@@ -11917,13 +11917,6 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>listBoxItemDoubleClicked</name>
-      <anchorfile>structPatchBrowser_1_1PresetsModel.html</anchorfile>
-      <anchor>a8cc3194c2da68f867bcf24aa78384bcd</anchor>
-      <arglist>(int row, const juce::MouseEvent &amp;) override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
       <name>listBoxItemClicked</name>
       <anchorfile>structPatchBrowser_1_1PresetsModel.html</anchorfile>
       <anchor>a8b42d0749419eaf3e8086db1a4b4cc01</anchor>
