@@ -86,6 +86,15 @@ class ModMatrix
 {
 public:
     ModMatrix() = default;
+    
+    enum PolarityMode
+    {
+        unipolar,
+        bipolar,
+        sameAsSource,
+    };
+    
+    void setDefaultPolarityMode (PolarityMode m) { defaultPolarityMode = m; }
 
     //==============================================================================
     void stateUpdated (const juce::ValueTree& vt);
@@ -493,6 +502,7 @@ private:
     juce::Array<ValueSmoother<float>> smoothers;
     ModVoice* activeVoice = nullptr;
     bool onlyShowModWhenVoiceActive = false;
+    PolarityMode defaultPolarityMode = sameAsSource;
 
     double sampleRate = 44100.0;
 

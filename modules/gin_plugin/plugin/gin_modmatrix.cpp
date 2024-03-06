@@ -105,6 +105,16 @@ void ModMatrix::stateUpdated (const juce::ValueTree& vt)
                 s.enabled = e;
                 s.function = z;
                 s.biPolarMapping = b;
+                
+                if (! c.hasProperty ("biPolarMapping"))
+                {
+                    if (defaultPolarityMode == bipolar)
+                        s.biPolarMapping = true;
+                    else if (defaultPolarityMode == unipolar)
+                        s.biPolarMapping = false;
+                    else if (defaultPolarityMode == sameAsSource)
+                        s.biPolarMapping = sources[s.id.id].bipolar;
+                }
 
                 auto foundParam = false;
                 for (auto& pi : parameters)
@@ -353,9 +363,17 @@ void ModMatrix::setModDepth (ModSrcId src, ModDstId param, float f)
     }
 
     Source s;
-    s.id = src;
-    s.poly = getModSrcPoly (src);
-    s.depth = f;
+    s.id       = src;
+    s.poly     = getModSrcPoly (src);
+    s.depth    = f;
+    s.function = linear;
+    
+    if (defaultPolarityMode == bipolar)
+        s.biPolarMapping = true;
+    else if (defaultPolarityMode == unipolar)
+        s.biPolarMapping = false;
+    else if (defaultPolarityMode == sameAsSource)
+        s.biPolarMapping = sources[src.id].bipolar;
 
     pi.sources.add (s);
 
@@ -382,6 +400,13 @@ void ModMatrix::setModFunction (ModSrcId src, ModDstId param, Function f)
     s.poly = getModSrcPoly (src);
     s.depth = 1.0f;
     s.function = f;
+    
+    if (defaultPolarityMode == bipolar)
+        s.biPolarMapping = true;
+    else if (defaultPolarityMode == unipolar)
+        s.biPolarMapping = false;
+    else if (defaultPolarityMode == sameAsSource)
+        s.biPolarMapping = sources[src.id].bipolar;
 
     pi.sources.add (s);
 
