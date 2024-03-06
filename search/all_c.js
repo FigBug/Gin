@@ -7,7 +7,7 @@ var searchData=
   ['negation_972',['Negation',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab94b0efce58a77e1c8fa29e32536c728',1,'gin_imageeffects.h']]],
   ['network_973',['network',['../group__gin__network-network.html',1,'']]],
   ['newschecker_974',['NewsChecker',['../classNewsChecker.html',1,'NewsChecker'],['../classNewsChecker.html#a519004dfd3ae54255b2eff7a132e0a00',1,'NewsChecker::NewsChecker()']]],
-  ['newschecker_975',['newsChecker',['../classProcessorEditor.html#a7bcb131b783c30e7fcc661bc23699601',1,'ProcessorEditor::newsChecker()'],['../classTitleBar.html#ab00ac1e8d688d411c19dc7ee9e3feac7',1,'TitleBar::newsChecker()']]],
+  ['newschecker_975',['newsChecker',['../classTitleBar.html#ab00ac1e8d688d411c19dc7ee9e3feac7',1,'TitleBar']]],
   ['newtransaction_976',['newTransaction',['../classSingleLineTextEditor.html#ab5aafa23521231a8b7f6811b2d937b44',1,'SingleLineTextEditor']]],
   ['next_977',['next',['../namespaceAssets.html#a7e39560cce3d5062215a8a94f967e741',1,'Assets::next()'],['../classPatchBrowser.html#acca4a794212c331878636360a8650723',1,'PatchBrowser::next()']]],
   ['nextbutton_978',['nextButton',['../classTitleBar.html#adbdac6bcc1d15a4b014231dc9a799a6e',1,'TitleBar']]],
