@@ -21,11 +21,12 @@ public:
         context.release         = nil;
         context.copyDescription = nil;
 
+        dispatch_queue_t queue = dispatch_queue_create("com.gin.filesystemwatcher", DISPATCH_QUEUE_SERIAL);
         stream = FSEventStreamCreate (kCFAllocatorDefault, callback, &context, (CFArrayRef)paths, kFSEventStreamEventIdSinceNow, 0.05,
                                       kFSEventStreamCreateFlagNoDefer | kFSEventStreamCreateFlagFileEvents);
         if (stream)
         {
-            FSEventStreamScheduleWithRunLoop (stream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
+            FSEventStreamSetDispatchQueue(stream, queue);
             FSEventStreamStart (stream);
         }
 
@@ -36,7 +37,7 @@ public:
         if (stream)
         {
             FSEventStreamStop (stream);
-            FSEventStreamUnscheduleFromRunLoop (stream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
+            FSEventStreamSetDispatchQueue(stream, nullptr);
             FSEventStreamInvalidate (stream);
             FSEventStreamRelease (stream);
         }
