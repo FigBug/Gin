@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['slope_3398',['Slope',['../classFilter.html#a5ef1acf81c79c0c8a0ecd8a52e38d4f2',1,'Filter']]],
-  ['state_3399',['State',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127a',1,'ADSR::State()'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188e',1,'AnalogADSR::State()']]]
+  ['readystatevalues_3404',['ReadyStateValues',['../classWebSocket.html#a452bcfacd2ce0567751e44f891dd1489',1,'WebSocket']]],
+  ['resizealgorirm_3405',['ResizeAlgorirm',['../group__gin__graphics-images.html#gaedc0b4c54cea2c3df1788ebf8ee9b07b',1,'gin_imageeffects.h']]],
+  ['result_3406',['Result',['../classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30f',1,'ElevatedFileCopy']]]
 ];

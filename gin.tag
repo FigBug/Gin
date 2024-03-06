@@ -8537,6 +8537,31 @@
     <class kind="class">ModMatrix::Listener</class>
     <member kind="enumeration">
       <type></type>
+      <name>PolarityMode</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a01ecaf32e75cdb11b6c803bc981a9533</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>unipolar</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a01ecaf32e75cdb11b6c803bc981a9533add374c07680cead3aed0a79509340941</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>bipolar</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a01ecaf32e75cdb11b6c803bc981a9533aadef79eee68fb992e86c97aa7ee9f6ff</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>sameAsSource</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a01ecaf32e75cdb11b6c803bc981a9533ad0b8ff21af2594b553450b69775e96b1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
       <name>Function</name>
       <anchorfile>classModMatrix.html</anchorfile>
       <anchor>add6fae194c9fe15e561181b21b6fc614</anchor>
@@ -8660,6 +8685,24 @@
       <name>invExponentialOut</name>
       <anchorfile>classModMatrix.html</anchorfile>
       <anchor>add6fae194c9fe15e561181b21b6fc614aeabc2967673798438849bdddedf69785</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>unipolar</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a01ecaf32e75cdb11b6c803bc981a9533add374c07680cead3aed0a79509340941</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>bipolar</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a01ecaf32e75cdb11b6c803bc981a9533aadef79eee68fb992e86c97aa7ee9f6ff</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>sameAsSource</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a01ecaf32e75cdb11b6c803bc981a9533ad0b8ff21af2594b553450b69775e96b1</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
@@ -8788,6 +8831,13 @@
       <anchorfile>classModMatrix.html</anchorfile>
       <anchor>a923354065c39928704876d0b29e568c9</anchor>
       <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDefaultPolarityMode</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a7e43c1bc8b8b9218d62b86f61282a738</anchor>
+      <arglist>(PolarityMode m)</arglist>
     </member>
     <member kind="function">
       <type>void</type>

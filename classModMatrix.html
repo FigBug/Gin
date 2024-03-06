@@ -82,6 +82,11 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
+<tr class="memitem:a01ecaf32e75cdb11b6c803bc981a9533"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#a01ecaf32e75cdb11b6c803bc981a9533">PolarityMode</a> { <a class="el" href="classModMatrix.html#a01ecaf32e75cdb11b6c803bc981a9533add374c07680cead3aed0a79509340941">unipolar</a>
+, <a class="el" href="classModMatrix.html#a01ecaf32e75cdb11b6c803bc981a9533aadef79eee68fb992e86c97aa7ee9f6ff">bipolar</a>
+, <a class="el" href="classModMatrix.html#a01ecaf32e75cdb11b6c803bc981a9533ad0b8ff21af2594b553450b69775e96b1">sameAsSource</a>
+ }</td></tr>
+<tr class="separator:a01ecaf32e75cdb11b6c803bc981a9533"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add6fae194c9fe15e561181b21b6fc614"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614">Function</a> { <br />
 &#160;&#160;<a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614acb06b3d520dd725b2238a449315b094d">linear</a>
 , <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614aec9f9bf92afa150948d808cfb47c73bd">quadraticIn</a>
@@ -115,6 +120,8 @@ Public Types</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a923354065c39928704876d0b29e568c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#a923354065c39928704876d0b29e568c9">ModMatrix</a> ()=default</td></tr>
 <tr class="separator:a923354065c39928704876d0b29e568c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e43c1bc8b8b9218d62b86f61282a738"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#a7e43c1bc8b8b9218d62b86f61282a738">setDefaultPolarityMode</a> (<a class="el" href="classModMatrix.html#a01ecaf32e75cdb11b6c803bc981a9533">PolarityMode</a> m)</td></tr>
+<tr class="separator:a7e43c1bc8b8b9218d62b86f61282a738"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3b18298e7798ae8293f8beb6622db23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#aa3b18298e7798ae8293f8beb6622db23">stateUpdated</a> (const juce::ValueTree &amp;vt)</td></tr>
 <tr class="separator:aa3b18298e7798ae8293f8beb6622db23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d2727c3ffce6935f804eff00495e4f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#a9d2727c3ffce6935f804eff00495e4f8">updateState</a> (juce::ValueTree &amp;vt)</td></tr>
@@ -133,9 +140,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad7ed486680d770f286653f045420db5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2d1103929b9eaf3659b9f9f59603975"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#ac2d1103929b9eaf3659b9f9f59603975">addVoice</a> (<a class="el" href="classModVoice.html">ModVoice</a> *v)</td></tr>
 <tr class="separator:ac2d1103929b9eaf3659b9f9f59603975"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3fc6378eb99507135d11c01944575cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structModSrcId.html">ModSrcId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#ad3fc6378eb99507135d11c01944575cd">addMonoModSource</a> (const juce::String &amp;id, const juce::String &amp;name, bool bipolar)</td></tr>
+<tr class="memitem:ad3fc6378eb99507135d11c01944575cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structModSrcId.html">ModSrcId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#ad3fc6378eb99507135d11c01944575cd">addMonoModSource</a> (const juce::String &amp;id, const juce::String &amp;name, bool <a class="el" href="classModMatrix.html#a01ecaf32e75cdb11b6c803bc981a9533aadef79eee68fb992e86c97aa7ee9f6ff">bipolar</a>)</td></tr>
 <tr class="separator:ad3fc6378eb99507135d11c01944575cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66caa6c7b30ee5a492bde8c0d56c2520"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structModSrcId.html">ModSrcId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#a66caa6c7b30ee5a492bde8c0d56c2520">addPolyModSource</a> (const juce::String &amp;id, const juce::String &amp;name, bool bipolar)</td></tr>
+<tr class="memitem:a66caa6c7b30ee5a492bde8c0d56c2520"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structModSrcId.html">ModSrcId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#a66caa6c7b30ee5a492bde8c0d56c2520">addPolyModSource</a> (const juce::String &amp;id, const juce::String &amp;name, bool <a class="el" href="classModMatrix.html#a01ecaf32e75cdb11b6c803bc981a9533aadef79eee68fb992e86c97aa7ee9f6ff">bipolar</a>)</td></tr>
 <tr class="separator:a66caa6c7b30ee5a492bde8c0d56c2520"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc78f8a62425746860184ad318a6c57e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#afc78f8a62425746860184ad318a6c57e">addParameter</a> (gin::Parameter *p, bool poly, float smoothingTime=0.02f)</td></tr>
 <tr class="separator:afc78f8a62425746860184ad318a6c57e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -205,6 +212,25 @@ Static Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Add one of these to you Synth if you want to support modulation. </p>
 <p>Then add all your parameters Then add all your mod source. Update your mod sources from your processing loop. Always get your parameter values from the mod matrix </p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a01ecaf32e75cdb11b6c803bc981a9533"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01ecaf32e75cdb11b6c803bc981a9533">&#9670;&nbsp;</a></span>PolarityMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classModMatrix.html#a01ecaf32e75cdb11b6c803bc981a9533">ModMatrix::PolarityMode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a01ecaf32e75cdb11b6c803bc981a9533add374c07680cead3aed0a79509340941"></a>unipolar&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a01ecaf32e75cdb11b6c803bc981a9533aadef79eee68fb992e86c97aa7ee9f6ff"></a>bipolar&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a01ecaf32e75cdb11b6c803bc981a9533ad0b8ff21af2594b553450b69775e96b1"></a>sameAsSource&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <a id="add6fae194c9fe15e561181b21b6fc614"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#add6fae194c9fe15e561181b21b6fc614">&#9670;&nbsp;</a></span>Function</h2>
 
@@ -268,6 +294,24 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7e43c1bc8b8b9218d62b86f61282a738"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e43c1bc8b8b9218d62b86f61282a738">&#9670;&nbsp;</a></span>setDefaultPolarityMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ModMatrix::setDefaultPolarityMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classModMatrix.html#a01ecaf32e75cdb11b6c803bc981a9533">PolarityMode</a>&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa3b18298e7798ae8293f8beb6622db23"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa3b18298e7798ae8293f8beb6622db23">&#9670;&nbsp;</a></span>stateUpdated()</h2>
 
@@ -1281,7 +1325,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 4 2024 14:54:42 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Wed Mar 6 2024 04:46:37 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
