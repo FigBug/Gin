@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['a_0',['a',['../classSpline_1_1Element.html#aa20a7343d5bfabf930f48bd5e88d9916',1,'Spline::Element::a()'],['../classEllipse.html#a5fb56e7b1960b8e127deccbc91f3aa8d',1,'Ellipse::a()'],['../classLinearRegression.html#a9afb5e0ec8d6cbb6ac46e5915afc57ec',1,'LinearRegression::a()']]],
+  ['a_0',['a',['../classWavetableComponent.html#a217cee3a7a95cda05f8962f9ce8c25f8a1f1cc259b0473844c4f9235e1c10bb42',1,'WavetableComponent::a()'],['../classEllipse.html#a5fb56e7b1960b8e127deccbc91f3aa8d',1,'Ellipse::a()'],['../classLinearRegression.html#a9afb5e0ec8d6cbb6ac46e5915afc57ec',1,'LinearRegression::a()'],['../classSpline_1_1Element.html#aa20a7343d5bfabf930f48bd5e88d9916',1,'Spline::Element::a()']]],
   ['accentcolourid_1',['accentColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a8b6c276535474109cda8e1d0470884a0',1,'GinLookAndFeel']]],
   ['acceptsmidi_2',['acceptsMidi',['../classProcessor.html#aa945a9fb36430295388fc9973e761c21',1,'Processor']]],
   ['activewavecolourid_3',['activeWaveColourId',['../classWavetableComponent.html#ac7bd2c73ff86cfd3dc26d2c607eb87e5a610b786e494188bf9a4aa55f46ae99d3',1,'WavetableComponent']]],
@@ -91,10 +91,9 @@ var searchData=
   ['authorizedalways_88',['authorizedAlways',['../classLocationManager.html#a518acec298306066ae3cccc6eb335bdcaadc75e653e86065ca5448be342c23053',1,'LocationManager']]],
   ['authorizedwheninuse_89',['authorizedWhenInUse',['../classLocationManager.html#a518acec298306066ae3cccc6eb335bdca91e8720f10faeaee578f776e7d95b9d1',1,'LocationManager']]],
   ['authors_90',['authors',['../classPatchBrowser.html#a1becbf2ecebca6e5a2ba2533b619b952',1,'PatchBrowser']]],
-  ['authorsmodel_91',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html#a5b1e9a0aee87d3623f78db4126fcab3e',1,'PatchBrowser::AuthorsModel']]],
-  ['authorsmodel_92',['authorsModel',['../classPatchBrowser.html#a62a7cf5ab56615e84109ced00beb6dcb',1,'PatchBrowser']]],
-  ['authorsmodel_93',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser']]],
-  ['average_94',['average',['../classRollingAverage.html#a941797e5f59cbdfce52faa655bd1b7f3',1,'RollingAverage']]],
-  ['average_95',['Average',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f',1,'gin_imageeffects.h']]],
-  ['avir_96',['avir',['../group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04',1,'gin_imageeffects.h']]]
+  ['authorsmodel_91',['authorsModel',['../classPatchBrowser.html#a62a7cf5ab56615e84109ced00beb6dcb',1,'PatchBrowser']]],
+  ['authorsmodel_92',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html#a5b1e9a0aee87d3623f78db4126fcab3e',1,'PatchBrowser::AuthorsModel::AuthorsModel()'],['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser::AuthorsModel']]],
+  ['average_93',['average',['../classRollingAverage.html#a941797e5f59cbdfce52faa655bd1b7f3',1,'RollingAverage']]],
+  ['average_94',['Average',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f',1,'gin_imageeffects.h']]],
+  ['avir_95',['avir',['../group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04',1,'gin_imageeffects.h']]]
 ];

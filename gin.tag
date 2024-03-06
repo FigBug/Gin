@@ -16348,6 +16348,25 @@
       <anchor>ac7bd2c73ff86cfd3dc26d2c607eb87e5a908032d50d53a7f5c9aad8301f459cda</anchor>
       <arglist></arglist>
     </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>Style</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>a217cee3a7a95cda05f8962f9ce8c25f8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>a</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>a217cee3a7a95cda05f8962f9ce8c25f8a1f1cc259b0473844c4f9235e1c10bb42</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>b</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>a217cee3a7a95cda05f8962f9ce8c25f8a0eb82d746541abfd15656ab980ab5cc2</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="enumvalue">
       <name>lineColourId</name>
       <anchorfile>classWavetableComponent.html</anchorfile>
@@ -16376,6 +16395,18 @@
       <name>phaseWaveColourId</name>
       <anchorfile>classWavetableComponent.html</anchorfile>
       <anchor>ac7bd2c73ff86cfd3dc26d2c607eb87e5a908032d50d53a7f5c9aad8301f459cda</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>a</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>a217cee3a7a95cda05f8962f9ce8c25f8a1f1cc259b0473844c4f9235e1c10bb42</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>b</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>a217cee3a7a95cda05f8962f9ce8c25f8a0eb82d746541abfd15656ab980ab5cc2</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -16461,6 +16492,13 @@
       <anchorfile>classWavetableComponent.html</anchorfile>
       <anchor>a377d51b36a536a8d9e33bd600d77e310</anchor>
       <arglist>(const juce::StringArray &amp;files, int x, int y) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setStyle</name>
+      <anchorfile>classWavetableComponent.html</anchorfile>
+      <anchor>a91a1a56962b0a3c928b22b31660b59ed</anchor>
+      <arglist>(Style s)</arglist>
     </member>
     <member kind="variable">
       <type>std::function&lt; void(const juce::File &amp;)&gt;</type>

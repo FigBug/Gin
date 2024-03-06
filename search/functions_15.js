@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['xmpmetadata_2999',['XmpMetadata',['../classXmpMetadata.html#abfde5b535622830bfc3ed00a446e2285',1,'XmpMetadata']]],
-  ['xyscope_3000',['XYScope',['../classXYScope.html#ac2e4be42faf159ede8fc6f8baaa2829c',1,'XYScope']]]
+  ['xmpmetadata_2996',['XmpMetadata',['../classXmpMetadata.html#abfde5b535622830bfc3ed00a446e2285',1,'XmpMetadata']]],
+  ['xyscope_2997',['XYScope',['../classXYScope.html#ac2e4be42faf159ede8fc6f8baaa2829c',1,'XYScope']]]
 ];
