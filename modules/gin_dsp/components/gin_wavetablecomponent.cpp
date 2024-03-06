@@ -120,7 +120,7 @@ void WavetableComponent::paint (juce::Graphics& g)
     }
 }
 
-juce::Path WavetableComponent::createWavetablePath (float wtPos, float start, float end)
+juce::Path WavetableComponent::createWavetablePathB (float wtPos, float start, float end)
 {
     constexpr auto samples = 64;
 
@@ -158,6 +158,64 @@ juce::Path WavetableComponent::createWavetablePath (float wtPos, float start, fl
     for (auto s = 1 + offset; s < std::min (samples, juce::roundToInt (samples * end) + 1); s++)
     {
         p.lineTo (x + w * float (s) / samples, y + -data[s] * h);
+    }
+
+    return p;
+}
+
+juce::Path WavetableComponent::createWavetablePathA (float wtPos, float start, float end)
+{
+    constexpr auto samples = 64;
+
+    juce::AudioSampleBuffer buf (2, samples);
+
+    {
+        WTOscillator osc;
+
+        auto hz = 44100.0f / samples;
+        auto note = getMidiNoteFromHertz (hz);
+        auto p = params;
+
+        p.position = wtPos;
+
+        osc.setSampleRate (44100.0);
+        osc.setWavetable (bllt);
+        osc.noteOn (0.0f);
+        osc.process (note, p, buf);
+    }
+
+    juce::Path p;
+
+    auto w = float (getWidth());
+    auto h = float (getHeight());
+
+    auto data = buf.getReadPointer (0);
+
+    auto xSpread = 0.4f;
+    auto yScale = -(1.0f / 4.5f);
+    auto dx = std::min (w, h);
+
+    auto xSlope = (dx * 1.5f * (1.0f - xSpread)) / float (samples);
+    auto ySlope = xSlope / 4.0f;
+
+    auto xOffset = (dx * xSpread) * wtPos;
+    auto yOffset = (dx * xSpread) - xOffset;
+
+    xOffset += (w - dx * xSpread - samples * xSlope) / 2.0f;
+    yOffset += (h - dx * xSpread - samples * ySlope) / 2.0f;
+
+    auto offset = juce::roundToInt (start * samples);
+    xOffset += xSlope * offset;
+    yOffset += ySlope * offset;
+
+    p.startNewSubPath (xOffset, data[offset] * yScale * dx + yOffset);
+
+    for (auto s = 1 + offset; s < std::min (samples, juce::roundToInt (samples * end) + 1); s++)
+    {
+        p.lineTo (xOffset, data[s] * yScale * dx + yOffset);
+
+        xOffset += xSlope;
+        yOffset += ySlope;
     }
 
     return p;

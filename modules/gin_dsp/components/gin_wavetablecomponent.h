@@ -34,9 +34,25 @@ public:
     void filesDropped (const juce::StringArray& files, int x, int y) override;
 
     std::function<void (const juce::File&)> onFileDrop;
+    
+    enum Style
+    {
+        a,
+        b,
+    };
+    
+    void setStyle (Style s) { style = s; }
 
 private:
-    juce::Path createWavetablePath (float pos, float s = 0.0f, float e = 1.0f);
+    juce::Path createWavetablePath (float pos, float s = 0.0f, float e = 1.0f)
+    {
+        if (style == a) return createWavetablePathA (pos, s, e);
+        if (style == b) return createWavetablePathB (pos, s, e);
+        return {};
+    }
+    
+    juce::Path createWavetablePathA (float pos, float s = 0.0f, float e = 1.0f);
+    juce::Path createWavetablePathB (float pos, float s = 0.0f, float e = 1.0f);
 
     juce::OwnedArray<BandLimitedLookupTable>* bllt = nullptr;
     WTOscillator::Params params;
@@ -46,6 +62,8 @@ private:
 
     float phaseStart = -1;
     float phaseLen = -1;
+    
+    Style style = a;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (WavetableComponent)
