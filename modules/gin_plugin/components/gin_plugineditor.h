@@ -237,9 +237,6 @@ protected:
     void paint (juce::Graphics& g) override;
     void resized() override;
 
-    std::unique_ptr<UpdateChecker> updateChecker;
-    std::unique_ptr<NewsChecker> newsChecker;
-
     PatchBrowser patchBrowser { slProc };
     TitleBar titleBar { *this, slProc, patchBrowser };
 };
