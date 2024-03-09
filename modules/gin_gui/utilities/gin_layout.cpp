@@ -343,21 +343,21 @@ juce::Component* Layout::setBounds (const juce::String& currentPath, const juce:
 }
 
 #if ! JUCE_IOS
-void Layout::fileChanged (const juce::File f, gin::FileSystemWatcher::FileSystemEvent)
+void Layout::fileChanged (const juce::File& f, gin::FileSystemWatcher::FileSystemEvent)
 {
     if (f == layoutFile)
-        if (auto str = layoutFile.loadFileAsString(); str.isNotEmpty())
+        if (const auto str = layoutFile.loadFileAsString(); str.isNotEmpty())
             parseLayout (str);
 }
 #endif
 
-std::map<juce::String, juce::Component*> Layout::findAllComponents()
+std::map<juce::String, juce::Component*> Layout::findAllComponents() const
 {
     std::map<juce::String, juce::Component*> components;
 
-    std::function<void (juce::Component&)> findAll = [&] (juce::Component& p)
+    std::function<void (juce::Component&)> findAll = [&] (const juce::Component& p)
     {
-        for (auto c : p.getChildren())
+        for (auto* c : p.getChildren())
         {
             if (c->getName().isNotEmpty())
                 components[getComponentPath (parent, *c)] = c;

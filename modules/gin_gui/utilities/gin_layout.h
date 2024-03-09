@@ -28,10 +28,10 @@ private:
     juce::Component* setBounds (const juce::String& currentPath, const juce::String& id, int idIdx, const juce::var& component);
 
    #if ! JUCE_IOS
-    void fileChanged (const juce::File, gin::FileSystemWatcher::FileSystemEvent) override;
+    void fileChanged (const juce::File&, gin::FileSystemWatcher::FileSystemEvent) override;
    #endif
 
-    std::map<juce::String, juce::Component*> findAllComponents();
+    std::map<juce::String, juce::Component*> findAllComponents() const;
 
    #if ! JUCE_IOS
     gin::FileSystemWatcher watcher;

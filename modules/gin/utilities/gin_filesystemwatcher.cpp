@@ -83,18 +83,19 @@ public:
 #ifdef JUCE_LINUX
 #define BUF_LEN (10 * (sizeof(struct inotify_event) + NAME_MAX + 1))
 
-class FileSystemWatcher::Impl : public juce::Thread,
-                                private juce::AsyncUpdater
+class FileSystemWatcher::Impl final : public juce::Thread,
+                                      private juce::AsyncUpdater
 {
 public:
     struct Event
     {
-        Event () {}
+        Event () = delete;
+        Event (const juce::File& f, const FileSystemEvent e) : file(f), fsEvent(e) {}
         Event (Event& other) = default;
         Event (Event&& other) = default;
 
         juce::File file;
-        FileSystemEvent fsEvent;
+        FileSystemEvent fsEvent = undefined;
 
         bool operator== (const Event& other) const
         {
@@ -103,7 +104,7 @@ public:
     };
 
     Impl (FileSystemWatcher& o, juce::File f)
-      : juce::Thread ("FileSystemWatcher::Impl"), owner (o), folder (f)
+      : juce::Thread ("FileSystemWatcher::Impl"), owner (o), folder (std::move(f))
     {
         fd = inotify_init();
 
@@ -115,7 +116,7 @@ public:
         startThread (juce::Thread::Priority::background);
     }
 
-    ~Impl()
+    ~Impl() override
     {
         signalThreadShouldExit();
         inotify_rm_watch (fd, wd);
@@ -126,50 +127,45 @@ public:
 
     void run() override
     {
-        char buf[BUF_LEN];
-        ssize_t numRead;
-
-        const struct inotify_event* iNotifyEvent;
-        char* ptr;
+        const inotify_event* iNotifyEvent;
 
         while (! threadShouldExit())
         {
-            int numRead = read (fd, buf, BUF_LEN);
+            char buf[BUF_LEN];
+            const ssize_t numRead = read (fd, buf, BUF_LEN);
 
             if (numRead <= 0 || threadShouldExit())
                 break;
 
-            for (ptr = buf; ptr < buf + numRead; ptr += sizeof(struct inotify_event) + iNotifyEvent->len)
+            for (const char* ptr = buf; ptr < buf + numRead; ptr += sizeof(struct inotify_event) + iNotifyEvent->len)
             {
-                iNotifyEvent = (const struct inotify_event*)ptr;
-                Event e;
+                iNotifyEvent = reinterpret_cast<const inotify_event*>(ptr);
 
-                e.file = juce::File {folder.getFullPathName() + '/' + iNotifyEvent->name};
+                FileSystemEvent eventType = undefined;
+                     if (iNotifyEvent->mask & IN_CREATE)      eventType = FileSystemEvent::fileCreated;
+                else if (iNotifyEvent->mask & IN_CLOSE_WRITE) eventType = FileSystemEvent::fileUpdated;
+                else if (iNotifyEvent->mask & IN_MODIFY)      eventType = FileSystemEvent::fileUpdated;
+                else if (iNotifyEvent->mask & IN_MOVED_FROM)  eventType = FileSystemEvent::fileRenamedOldName;
+                else if (iNotifyEvent->mask & IN_MOVED_TO)    eventType = FileSystemEvent::fileRenamedNewName;
+                else if (iNotifyEvent->mask & IN_DELETE)      eventType = FileSystemEvent::fileDeleted;
 
-                     if (iNotifyEvent->mask & IN_CREATE)      e.fsEvent = FileSystemEvent::fileCreated;
-                else if (iNotifyEvent->mask & IN_CLOSE_WRITE) e.fsEvent = FileSystemEvent::fileUpdated;
-                else if (iNotifyEvent->mask & IN_MOVED_FROM)  e.fsEvent = FileSystemEvent::fileRenamedOldName;
-                else if (iNotifyEvent->mask & IN_MOVED_TO)    e.fsEvent = FileSystemEvent::fileRenamedNewName;
-                else if (iNotifyEvent->mask & IN_DELETE)      e.fsEvent = FileSystemEvent::fileDeleted;
-
-                juce::ScopedLock sl (lock);
-                bool duplicateEvent = false;
-                for (auto existing : events)
-                {
-                    if (e == existing)
-                    {
-                        duplicateEvent = true;
-                        break;
-                    }
+                if (eventType == FileSystemEvent::undefined) {
+                    continue;
                 }
 
-                if (! duplicateEvent)
+                juce::ScopedLock sl (lock);
+                Event e (folder.getFullPathName() + '/' + iNotifyEvent->name, eventType);
+                if (std::ranges::none_of(events, [&](const auto& event) {
+                    return event == e;
+                })) {
                     events.add (std::move (e));
+                }
             }
 
             juce::ScopedLock sl (lock);
-            if (events.size() > 0)
+            if (!events.isEmpty()) {
                 triggerAsyncUpdate();
+            }
         }
     }
 
@@ -179,8 +175,9 @@ public:
 
         owner.folderChanged (folder);
 
-        for (auto& e : events)
+        for (const auto& e : events) {
             owner.fileChanged (e.file, e.fsEvent);
+        }
 
         events.clear();
     }
@@ -204,8 +201,11 @@ class FileSystemWatcher::Impl : private juce::AsyncUpdater,
 public:
     struct Event
     {
+        Event() = delete;
+        Event(const juce::File& f, FileSystemEvent event) : file(f), fsEvent(event) {}
+
         juce::File file;
-        FileSystemEvent fsEvent;
+        FileSystemEvent fsEvent = FileSystemEvent::undefined;
 
         bool operator== (const Event& other) const
         {
@@ -214,7 +214,7 @@ public:
     };
 
     Impl (FileSystemWatcher& o, juce::File f)
-      : Thread ("FileSystemWatcher::Impl"), owner (o), folder (f)
+      : Thread ("FileSystemWatcher::Impl"), owner (o), folder (std::move(f))
     {
         WCHAR path[_MAX_PATH] = {0};
         wcsncpy_s (path, folder.getFullPathName().toWideCharPointer(), _MAX_PATH - 1);
@@ -243,17 +243,16 @@ public:
 
     void run() override
     {
-        const int heapSize = 16 * 1024;
-        uint8_t buffer[heapSize];
+        constexpr int heapSize = 16 * 1024;
 
         DWORD bytesOut = 0;
 
         while (! threadShouldExit())
         {
-            memset (buffer, 0, heapSize);
-            BOOL success = ReadDirectoryChangesW (folderHandle, buffer, heapSize, true,
-                FILE_NOTIFY_CHANGE_FILE_NAME | FILE_NOTIFY_CHANGE_DIR_NAME | FILE_NOTIFY_CHANGE_SIZE | FILE_NOTIFY_CHANGE_LAST_WRITE | FILE_NOTIFY_CHANGE_CREATION,
-                &bytesOut, nullptr, nullptr);
+            uint8_t buffer[heapSize] = {};
+            const BOOL success = ReadDirectoryChangesW (folderHandle, buffer, heapSize, true,
+                                                        FILE_NOTIFY_CHANGE_FILE_NAME | FILE_NOTIFY_CHANGE_DIR_NAME | FILE_NOTIFY_CHANGE_SIZE | FILE_NOTIFY_CHANGE_LAST_WRITE | FILE_NOTIFY_CHANGE_CREATION,
+                                                        &bytesOut, nullptr, nullptr);
 
             if (success && bytesOut > 0)
             {
@@ -262,42 +261,41 @@ public:
                 uint8_t* rawData = buffer;
                 while (true)
                 {
-                    FILE_NOTIFY_INFORMATION* fni = (FILE_NOTIFY_INFORMATION*)rawData;
+                    const FILE_NOTIFY_INFORMATION* fni = reinterpret_cast<FILE_NOTIFY_INFORMATION*>(rawData);
 
-                    Event e;
-                    e.file = folder.getChildFile (juce::String (fni->FileName, fni->FileNameLength / sizeof(wchar_t)));
-
+                    auto eventType = FileSystemEvent::undefined;
                     switch (fni->Action)
                     {
                         case FILE_ACTION_ADDED:
-                            e.fsEvent = fileCreated;
+                            eventType = fileCreated;
                             break;
                         case FILE_ACTION_RENAMED_NEW_NAME:
-                            e.fsEvent = fileRenamedNewName;
+                            eventType = fileRenamedNewName;
                             break;
                         case FILE_ACTION_MODIFIED:
-                            e.fsEvent = fileUpdated;
+                            eventType = fileUpdated;
                             break;
                         case FILE_ACTION_REMOVED:
-                            e.fsEvent = fileDeleted;
+                            eventType = fileDeleted;
                             break;
                         case FILE_ACTION_RENAMED_OLD_NAME:
-                            e.fsEvent = fileRenamedOldName;
+                            eventType = fileRenamedOldName;
+                            break;
+                        default:
                             break;
                     }
 
-                    bool duplicateEvent = false;
-                    for (auto existing : events)
-                    {
-                        if (e == existing)
-                        {
-                            duplicateEvent = true;
-                            break;
-                        }
+                    if (eventType == undefined) {
+                        continue;
                     }
 
-                    if (! duplicateEvent)
-                        events.add (e);
+                    Event e { folder.getChildFile (juce::String (fni->FileName, fni->FileNameLength / sizeof(wchar_t))), eventType };
+
+                    if (std::ranges::none_of(events, [&](const auto& event) {
+                        return event == e;
+                    })) {
+                        events.add (std::move (e));
+                    }
 
                     if (fni->NextEntryOffset > 0)
                         rawData += fni->NextEntryOffset;
@@ -305,7 +303,7 @@ public:
                         break;
                 }
 
-                if (events.size() > 0)
+                if (!events.isEmpty())
                     triggerAsyncUpdate();
             }
         }
@@ -317,7 +315,7 @@ public:
 
         owner.folderChanged (folder);
 
-        for (auto e : events)
+        for (const auto& e : events)
             owner.fileChanged (e.file, e.fsEvent);
 
         events.clear();
@@ -392,7 +390,7 @@ juce::Array<juce::File> FileSystemWatcher::getWatchedFolders()
 {
     juce::Array<juce::File> res;
 
-    for (auto w : watched)
+    for (const auto* w : watched)
         res.add (w->folder);
 
     return res;
