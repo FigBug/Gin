@@ -335,7 +335,7 @@ void MSEGComponent::mouseDrag (const juce::MouseEvent& e)
             ts = juce::String::formatted ("%.2fs", p.time * 1.0f / rate->getUserValue());
         }
 
-        showBubbleMessage (r.expanded (5), ts + juce::String::formatted (": %.1f%%", p.value * 100));
+        showBubbleMessage (r.expanded (5), ts + juce::String::formatted (": %.1f%%", (p.value + 1.0f) / 2.0f * 100));
     }
     else if (draggingCurve >= 0)
     {
