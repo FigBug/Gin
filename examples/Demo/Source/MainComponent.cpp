@@ -38,7 +38,7 @@ public:
 };
 
 //==============================================================================
-struct TextRenderDemo : public juce::Component
+struct TextRenderDemo final : public juce::Component
 {
     TextRenderDemo()
     {
@@ -929,7 +929,7 @@ struct FileSystemWatcherDemo : public juce::Component,
         events.setBounds (rc);
     }
 
-    void folderChanged (juce::File f) override
+    void folderChanged (const juce::File& f) override
     {
         juce::Array<juce::File> files;
         f.findChildFiles (files, juce::File::findFiles, false);
@@ -938,13 +938,13 @@ struct FileSystemWatcherDemo : public juce::Component,
         contents.clear();
 
         juce::String txt;
-        for (auto ff : files)
+        for (const auto& ff : files)
             txt += ff.getFileName() + "\n";
 
         contents.setText (txt);
     }
 
-    void fileChanged (juce::File f, gin::FileSystemWatcher::FileSystemEvent fsEvent) override
+    void fileChanged (const juce::File& f, gin::FileSystemWatcher::FileSystemEvent fsEvent) override
     {
         auto eventToString = [] (gin::FileSystemWatcher::FileSystemEvent evt) -> juce::String
         {
