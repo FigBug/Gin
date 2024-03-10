@@ -340,7 +340,7 @@ bool Processor::hasProgram (juce::String name)
     return false;
 }
 
-void Processor::folderChanged (const juce::File)
+void Processor::folderChanged (const juce::File&)
 {
     auto now = juce::Time::getCurrentTime();
     if (now - lastProgramsUpdated > juce::RelativeTime::seconds (1.0))

@@ -208,7 +208,7 @@ protected:
     void extractProgram (const juce::String& name, const void* data, int sz);
 
 private:
-    void folderChanged (const juce::File) override;
+    void folderChanged (const juce::File&) override;
     void timerCallback() override;
 
     std::unique_ptr<juce::PropertiesFile> settings;
