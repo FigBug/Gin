@@ -5513,6 +5513,12 @@
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
+      <name>undefined</name>
+      <anchorfile>classFileSystemWatcher.html</anchorfile>
+      <anchor>a05e51f587cf359c531e227451ad08f7dab46eb4658534cd006045de1bd3416342</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
       <name>fileCreated</name>
       <anchorfile>classFileSystemWatcher.html</anchorfile>
       <anchor>a05e51f587cf359c531e227451ad08f7da8935e36db30f2b16435fe603320a241b</anchor>
@@ -5540,6 +5546,12 @@
       <name>fileRenamedNewName</name>
       <anchorfile>classFileSystemWatcher.html</anchorfile>
       <anchor>a05e51f587cf359c531e227451ad08f7da41c22f8136f11c19e362685eb6d897f9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>undefined</name>
+      <anchorfile>classFileSystemWatcher.html</anchorfile>
+      <anchor>a05e51f587cf359c531e227451ad08f7dab46eb4658534cd006045de1bd3416342</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
@@ -7888,15 +7900,15 @@
       <type>virtual void</type>
       <name>folderChanged</name>
       <anchorfile>classFileSystemWatcher_1_1Listener.html</anchorfile>
-      <anchor>a04a461ad2d135495403372fcc9d413dd</anchor>
-      <arglist>(const juce::File)</arglist>
+      <anchor>a45bfc6e6c6c8597f8d2acb89dfbcf589</anchor>
+      <arglist>(const juce::File &amp;)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>fileChanged</name>
       <anchorfile>classFileSystemWatcher_1_1Listener.html</anchorfile>
-      <anchor>a74adb289b69441dd79b84f5eb6a66d59</anchor>
-      <arglist>(const juce::File, FileSystemEvent)</arglist>
+      <anchor>ae380fea89b1c4b457493d922ec4a8a73</anchor>
+      <arglist>(const juce::File &amp;, FileSystemEvent)</arglist>
     </member>
   </compound>
   <compound kind="class">
