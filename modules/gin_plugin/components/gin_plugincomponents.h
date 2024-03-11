@@ -405,7 +405,7 @@ class SynthesiserUsage : public juce::Component,
                          private juce::Timer
 {
 public:
-    SynthesiserUsage (Synthesiser& s)
+    SynthesiserUsage (gin::Synthesiser& s)
         : synthesiser (s)
     {
         startTimerHz (4);
@@ -454,7 +454,7 @@ public:
         panic.setBounds (rc.removeFromLeft (int (h * 1.5)));
     }
 
-    Synthesiser& synthesiser;
+    gin::Synthesiser& synthesiser;
     int voices = 0, cpu = 0;
 
     juce::Path voicePath { parseSVGPath (gin::Assets::voice) };
