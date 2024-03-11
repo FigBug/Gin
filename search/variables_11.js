@@ -24,5 +24,5 @@ var searchData=
   ['sumysquared_3351',['sumYsquared',['../classLinearRegression.html#aefdf526f61f6f62a24472ef3ce135d47',1,'LinearRegression']]],
   ['sustain_3352',['sustain',['../classAnalogADSR.html#a6cd2be4762c1a196e9bfae491d5e2399',1,'AnalogADSR']]],
   ['sustainlevel_3353',['sustainLevel',['../classADSR.html#aa02446c404e961975776b5b7d40d91a7',1,'ADSR']]],
-  ['synthesiser_3354',['synthesiser',['../classSynthesiserUsage.html#aab0e60a078f566eefd3c2de30e987486',1,'SynthesiserUsage']]]
+  ['synthesiser_3354',['synthesiser',['../classSynthesiserUsage.html#ac5d679d24166b28f38ba6f4896bda9b7',1,'SynthesiserUsage']]]
 ];

@@ -220,6 +220,6 @@ var searchData=
   ['svgpluginbutton_2940',['SVGPluginButton',['../classSVGPluginButton.html#a47c7b0570ab1759d2f0e58f90590329d',1,'SVGPluginButton']]],
   ['switch_2941',['Switch',['../classSwitch.html#ab2b13d51b74f2d3421a250e933cf697c',1,'Switch']]],
   ['synthesiser_2942',['Synthesiser',['../classSynthesiser.html#a8c313d6f1fa875790e5c79dc621ee437',1,'Synthesiser']]],
-  ['synthesiserusage_2943',['SynthesiserUsage',['../classSynthesiserUsage.html#ae37e6d848cf06acd4d3795c7d86c62cd',1,'SynthesiserUsage']]],
+  ['synthesiserusage_2943',['SynthesiserUsage',['../classSynthesiserUsage.html#acf6164e8f56c6bf832e1bca406e675e1',1,'SynthesiserUsage']]],
   ['systemsemaphore_2944',['SystemSemaphore',['../classSystemSemaphore.html#ae7d9c999757639af86a49f838f862298',1,'SystemSemaphore']]]
 ];

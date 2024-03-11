@@ -15069,8 +15069,8 @@
       <type></type>
       <name>SynthesiserUsage</name>
       <anchorfile>classSynthesiserUsage.html</anchorfile>
-      <anchor>ae37e6d848cf06acd4d3795c7d86c62cd</anchor>
-      <arglist>(Synthesiser &amp;s)</arglist>
+      <anchor>acf6164e8f56c6bf832e1bca406e675e1</anchor>
+      <arglist>(gin::Synthesiser &amp;s)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -15094,10 +15094,10 @@
       <arglist>() override</arglist>
     </member>
     <member kind="variable">
-      <type>Synthesiser &amp;</type>
+      <type>gin::Synthesiser &amp;</type>
       <name>synthesiser</name>
       <anchorfile>classSynthesiserUsage.html</anchorfile>
-      <anchor>aab0e60a078f566eefd3c2de30e987486</anchor>
+      <anchor>ac5d679d24166b28f38ba6f4896bda9b7</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
