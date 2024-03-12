@@ -94,6 +94,7 @@ private:
     juce::OwnedArray<Impl> watched;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FileSystemWatcher)
+    JUCE_DECLARE_WEAK_REFERENCEABLE (FileSystemWatcher)
 };
 
 #endif

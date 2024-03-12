@@ -49,24 +49,44 @@ public:
         juce::ignoreUnused (streamRef, numEvents, eventIds, eventPaths, eventFlags);
 
         Impl* impl = (Impl*)clientCallBackInfo;
-        impl->owner.folderChanged (impl->folder);
+
+
+        auto safeOwner = juce::WeakReference<FileSystemWatcher> (&impl->owner);
+
+        juce::MessageManager::callAsync ([safeOwner, f = impl->folder]
+        {
+            if (safeOwner)
+                safeOwner->folderChanged (f);
+        });
 
         char** files = (char**)eventPaths;
 
         for (int i = 0; i < int (numEvents); i++)
         {
             char* file = files[i];
+
             FSEventStreamEventFlags evt = eventFlags[i];
 
             juce::File path = juce::String::fromUTF8 (file);
+            auto event = FileSystemEvent::undefined;
+
             if (evt & kFSEventStreamEventFlagItemModified)
-                impl->owner.fileChanged (path, FileSystemEvent::fileUpdated);
+                event = FileSystemEvent::fileUpdated;
             else if (evt & kFSEventStreamEventFlagItemRemoved)
-                impl->owner.fileChanged (path, FileSystemEvent::fileDeleted);
+                event = FileSystemEvent::fileDeleted;
             else if (evt & kFSEventStreamEventFlagItemRenamed)
-                impl->owner.fileChanged (path, path.exists() ? FileSystemEvent::fileRenamedNewName : FileSystemEvent::fileRenamedOldName);
+                event = path.exists() ? FileSystemEvent::fileRenamedNewName : FileSystemEvent::fileRenamedOldName;
             else if (evt & kFSEventStreamEventFlagItemCreated)
-                impl->owner.fileChanged (path, FileSystemEvent::fileCreated);
+                event = FileSystemEvent::fileCreated;
+
+            if (event != FileSystemEvent::undefined)
+            {
+                juce::MessageManager::callAsync ([safeOwner, path, event]
+                {
+                    if (safeOwner)
+                        safeOwner->fileChanged (path, event);
+                });
+            }
         }
     }
 
