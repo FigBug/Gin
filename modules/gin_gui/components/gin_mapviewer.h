@@ -42,8 +42,6 @@ protected:
     void tileFetched (int zoom, int x, int y) override;
     void updateMap();
     void mapUpdated();
-    void preferencesChanged();
-    void saveSnapshot();
 
 private:
     void updateDoubleBuffer();
