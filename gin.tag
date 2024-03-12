@@ -8393,20 +8393,6 @@
       <anchor>a92969f79ce00707cf7e9b13e004b8bed</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>preferencesChanged</name>
-      <anchorfile>classMapViewer.html</anchorfile>
-      <anchor>a3b1865a61ae82def296883bdc0d34083</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>saveSnapshot</name>
-      <anchorfile>classMapViewer.html</anchorfile>
-      <anchor>aac4c02e7984a2688c550e7aa20764c40</anchor>
-      <arglist>()</arglist>
-    </member>
   </compound>
   <compound kind="class">
     <name>MessagePack</name>
