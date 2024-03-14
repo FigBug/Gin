@@ -19,9 +19,11 @@ public:
     bool isFastKill()   { return fastKill; }
 
     virtual void noteRetriggered()  {}
+    virtual float getCurrentNote() = 0;
 
     void setCurrentlyPlayingNote (juce::MPENote note)   { currentlyPlayingNote = note;  }
     void setGlideInfo (const GlideInfo& gi)             { glideInfo = gi;               }
+
 protected:
 
     GlideInfo glideInfo;
@@ -285,16 +287,20 @@ public:
 
         if (glissando || portamento)
         {
-            if (legato)
+            if (lastNote < 0)
+            {
+                voice->setGlideInfo ({});
+            }
+            else if (legato)
             {
                 int num = instrument.getNumPlayingNotes();
                 if (num > 1)
                 {
                     GlideInfo gi;
-                    gi.fromNote = instrument.getNote (num - 2).initialNote;
-                    gi.glissando = glissando;
-                    gi.portamento = portamento;
-                    gi.rate = glideRate;
+                    gi.fromNote     = lastNote;
+                    gi.glissando    = glissando;
+                    gi.portamento   = portamento;
+                    gi.rate         = glideRate;
 
                     voice->setGlideInfo (gi);
                 }
@@ -305,21 +311,13 @@ public:
             }
             else
             {
-                int num = instrument.getNumPlayingNotes();
-                if (num > 1)
-                    lastNote = instrument.getNote (num - 2).initialNote;
-                else
-                    lastNote = -1;
-
                 GlideInfo gi;
-                gi.fromNote = lastNote;
-                gi.glissando = glissando;
-                gi.portamento = portamento;
-                gi.rate = glideRate;
+                gi.fromNote     = lastNote;
+                gi.glissando    = glissando;
+                gi.portamento   = portamento;
+                gi.rate         = glideRate;
 
                 voice->setGlideInfo (gi);
-
-                lastNote = note.initialNote;
             }
         }
         else
@@ -466,6 +464,9 @@ public:
                 }
             }
         }
+
+        if (auto v = getNewestVoice())
+            lastNote = v->getCurrentNote();
     }
 
     SynthesiserVoice* getOldestVoice()
@@ -481,7 +482,7 @@ public:
         return dynamic_cast<SynthesiserVoice*> (activeVoices.getFirst());
     }
 
-    juce::MPESynthesiserVoice* getNewestVoice()
+    SynthesiserVoice* getNewestVoice()
     {
         juce::Array<juce::MPESynthesiserVoice*> activeVoices;
 
@@ -503,7 +504,7 @@ private:
     bool mono = false, legato = false, glissando = false, portamento = false;
     float glideRate = 500.0f;
     int numVoices = 32;
-    int lastNote = -1;
+    float lastNote = -1;
     int pitchbend = 2;
     bool mpe = false;
     double blockStartTime = 0, timeUsed = 0, timeAvailable = 0;
