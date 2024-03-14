@@ -13,7 +13,7 @@ var searchData=
   ['up_1581',['Up',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40a7f9a9c97a4c7f8e2424ec0827d879c71',1,'TriggeredScope']]],
   ['updatechecker_1582',['updateChecker',['../classTitleBar.html#a592d0a4299aa23c9b323205d76f19742',1,'TitleBar']]],
   ['updatechecker_1583',['UpdateChecker',['../classUpdateChecker.html#a991c35a0e515fa13cb9186936a00cb8f',1,'UpdateChecker::UpdateChecker()'],['../classUpdateChecker.html',1,'UpdateChecker']]],
-  ['updateglide_1584',['updateGlide',['../classSynthesiser.html#a4bf9918f18a2c232db12a913fda743f4',1,'Synthesiser']]],
+  ['updateglide_1584',['updateGlide',['../classSynthesiser.html#a1825c3a26987dc66cbaf5f1447ddd510',1,'Synthesiser']]],
   ['updatemap_1585',['updateMap',['../classMapViewer.html#a723ad37abb7af9ecac0bdd68dd628e46',1,'MapViewer']]],
   ['updatestate_1586',['updateState',['../classModMatrix.html#a9d2727c3ffce6935f804eff00495e4f8',1,'ModMatrix::updateState()'],['../classProcessor.html#ab477f2a48ee23cb7d38dbecd87332fcd',1,'Processor::updateState()']]],
   ['updatesurl_1587',['updatesURL',['../classProcessorOptions.html#a71da3924118b341db1586b4b4526f7d8',1,'ProcessorOptions']]],

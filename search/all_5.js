@@ -51,7 +51,7 @@ var searchData=
   ['frame_403',['frame',['../classParamBox.html#af715eab1cc1d6a7f9afe250aa6cf8c73',1,'ParamBox::frame()'],['../classScaledPluginEditor.html#a1851b46857396b6d45316e173c47d31a',1,'ScaledPluginEditor::frame()']]],
   ['frequency_404',['frequency',['../structLFO_1_1Parameters.html#a69abbc2714aacf8d32fc515b46c39c1e',1,'LFO::Parameters::frequency()'],['../structOscState.html#ad30997798f5740bd5ae504cb75db1223',1,'OscState::frequency()'],['../structMSEG_1_1Parameters.html#ac90ca6bc258763e10f03257fd5210e12',1,'MSEG::Parameters::frequency()'],['../classGateEffect.html#ac66d3981997f43a37900bd2e549b083c',1,'GateEffect::frequency()']]],
   ['fromfile_405',['fromFile',['../classSample.html#a6ad98110e9ccc23c8ae9d9fe7f7914f9',1,'Sample']]],
-  ['fromnote_406',['fromNote',['../structGlideInfo.html#a7c71430c47f2873746b054f468ac0b15',1,'GlideInfo']]],
+  ['fromnote_406',['fromNote',['../structGlideInfo.html#a9b96eb82d12baf5183ebebec63aa8512',1,'GlideInfo']]],
   ['fromurl_407',['fromURL',['../classWebSocket.html#a772a85561373a9548bd00ed7a7473c58',1,'WebSocket::fromURL(const juce::String &amp;url, const juce::String &amp;origin={})'],['../classWebSocket.html#a7e2404176abec3d499adcd92fcc6bc42',1,'WebSocket::fromURL(const juce::String &amp;url, bool useMask, const juce::String &amp;origin)']]],
   ['fromurlnomask_408',['fromURLNoMask',['../classWebSocket.html#af03b816bb7e26fccad0d1b4bf9b0b5b3',1,'WebSocket']]],
   ['fromvaluetree_409',['fromValueTree',['../structMSEG_1_1Data.html#a02c5a275bb5119153e075d03fc068606',1,'MSEG::Data']]],

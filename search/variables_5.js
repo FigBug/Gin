@@ -13,7 +13,7 @@ var searchData=
   ['formant_3158',['formant',['../structWTOscillator_1_1Params.html#af6b36b4d5dd74c8bc17ca0c8671d42f2',1,'WTOscillator::Params::formant()'],['../structWTVoicedStereoOscillatorParams.html#abc3280093425299b75691776a088fb3c',1,'WTVoicedStereoOscillatorParams::formant()']]],
   ['frame_3159',['frame',['../classParamBox.html#af715eab1cc1d6a7f9afe250aa6cf8c73',1,'ParamBox::frame()'],['../classScaledPluginEditor.html#a1851b46857396b6d45316e173c47d31a',1,'ScaledPluginEditor::frame()']]],
   ['frequency_3160',['frequency',['../structOscState.html#ad30997798f5740bd5ae504cb75db1223',1,'OscState::frequency()'],['../classGateEffect.html#ac66d3981997f43a37900bd2e549b083c',1,'GateEffect::frequency()'],['../structLFO_1_1Parameters.html#a69abbc2714aacf8d32fc515b46c39c1e',1,'LFO::Parameters::frequency()'],['../structMSEG_1_1Parameters.html#ac90ca6bc258763e10f03257fd5210e12',1,'MSEG::Parameters::frequency()']]],
-  ['fromnote_3161',['fromNote',['../structGlideInfo.html#a7c71430c47f2873746b054f468ac0b15',1,'GlideInfo']]],
+  ['fromnote_3161',['fromNote',['../structGlideInfo.html#a9b96eb82d12baf5183ebebec63aa8512',1,'GlideInfo']]],
   ['fullyloaded_3162',['fullyLoaded',['../classProgram.html#abda0ec5627c2cbeea0832de24dccf7f8',1,'Program']]],
   ['funcstates_3163',['funcStates',['../classAudioFunctionHost.html#aa8b5235e076cae5d2c28443fe8ba1ca5',1,'AudioFunctionHost']]]
 ];

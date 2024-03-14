@@ -6458,10 +6458,10 @@
     <name>GlideInfo</name>
     <filename>structGlideInfo.html</filename>
     <member kind="variable">
-      <type>int</type>
+      <type>float</type>
       <name>fromNote</name>
       <anchorfile>structGlideInfo.html</anchorfile>
-      <anchor>a7c71430c47f2873746b054f468ac0b15</anchor>
+      <anchor>a9b96eb82d12baf5183ebebec63aa8512</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -14995,8 +14995,8 @@
       <type>void</type>
       <name>updateGlide</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>a4bf9918f18a2c232db12a913fda743f4</anchor>
-      <arglist>(juce::MPESynthesiserVoice *v, juce::MPENote note)</arglist>
+      <anchor>a1825c3a26987dc66cbaf5f1447ddd510</anchor>
+      <arglist>(juce::MPESynthesiserVoice *v)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
