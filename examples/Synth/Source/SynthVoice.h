@@ -10,7 +10,9 @@ class SynthVoice : public gin::SynthesiserVoice,
 {
 public:
     SynthVoice (SynthAudioProcessor& p);
-    
+
+    float getCurrentNote() override { return noteSmoother.getCurrentValue() * 127.0f; }
+
     void noteStarted() override;
     void noteRetriggered() override;
     void noteStopped (bool allowTailOff) override;

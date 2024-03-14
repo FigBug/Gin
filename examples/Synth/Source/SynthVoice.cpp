@@ -15,7 +15,7 @@ void SynthVoice::noteStarted()
     startVoice();
 
     auto note = getCurrentlyPlayingNote();
-    if (glideInfo.fromNote != -1 && (glideInfo.glissando || glideInfo.portamento))
+    if (glideInfo.fromNote >= 0 && (glideInfo.glissando || glideInfo.portamento))
     {
         noteSmoother.setTime (glideInfo.rate);
         noteSmoother.setValueUnsmoothed (glideInfo.fromNote / 127.0f);
@@ -53,7 +53,7 @@ void SynthVoice::noteRetriggered()
 {
     auto note = getCurrentlyPlayingNote();
     
-    if (glideInfo.fromNote != -1 && (glideInfo.glissando || glideInfo.portamento))
+    if (glideInfo.fromNote >= 0 && (glideInfo.glissando || glideInfo.portamento))
     {
         noteSmoother.setTime (glideInfo.rate);
         noteSmoother.setValue (note.initialNote / 127.0f);

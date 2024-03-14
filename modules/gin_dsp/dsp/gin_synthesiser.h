@@ -3,7 +3,7 @@
 */
 struct GlideInfo
 {
-    int fromNote = -1;
+    float fromNote = -1;
     bool glissando = false;
     bool portamento = false;
     float rate = 0.0f;
@@ -270,18 +270,18 @@ public:
 
     void retriggerVoice (SynthesiserVoice* v, juce::MPENote note)
     {
-        updateGlide (v, note);
+        updateGlide (v);
         v->setCurrentlyPlayingNote (note);
         v->noteRetriggered();
     }
 
     void startVoice (juce::MPESynthesiserVoice* v, juce::MPENote note)
     {
-        updateGlide (v, note);
+        updateGlide (v);
         MPESynthesiser::startVoice (v, note);
     }
 
-    void updateGlide (juce::MPESynthesiserVoice* v, juce::MPENote note)
+    void updateGlide (juce::MPESynthesiserVoice* v)
     {
         auto voice = dynamic_cast<SynthesiserVoice*> (v);
 
