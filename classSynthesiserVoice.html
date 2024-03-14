@@ -66,7 +66,7 @@ $(function() {
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classSynthesiserVoice-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">SynthesiserVoice Class Reference</div>  </div>
+<div class="title">SynthesiserVoice Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -83,6 +83,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4e34af2e0d789a4302de6de08052eb38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d50ddac2700fd39a6a00f865de211ad"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSynthesiserVoice.html#a3d50ddac2700fd39a6a00f865de211ad">noteRetriggered</a> ()</td></tr>
 <tr class="separator:a3d50ddac2700fd39a6a00f865de211ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a063900b6e83fdcc4064a245a8b939b26"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSynthesiserVoice.html#a063900b6e83fdcc4064a245a8b939b26">getCurrentNote</a> ()=0</td></tr>
+<tr class="separator:a063900b6e83fdcc4064a245a8b939b26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0b2e292d6a4cb5b54a131996a816978"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSynthesiserVoice.html#af0b2e292d6a4cb5b54a131996a816978">setCurrentlyPlayingNote</a> (juce::MPENote note)</td></tr>
 <tr class="separator:af0b2e292d6a4cb5b54a131996a816978"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a414a524e658dda82521ee4279d337fe6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSynthesiserVoice.html#a414a524e658dda82521ee4279d337fe6">setGlideInfo</a> (const <a class="el" href="structGlideInfo.html">GlideInfo</a> &amp;gi)</td></tr>
@@ -160,6 +162,31 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="reference">Referenced by <a class="el" href="classSynthesiser.html#afb116548ea250273d01234050957cd2d">Synthesiser::retriggerVoice()</a>.</p>
+
+</div>
+</div>
+<a id="a063900b6e83fdcc4064a245a8b939b26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a063900b6e83fdcc4064a245a8b939b26">&#9670;&nbsp;</a></span>getCurrentNote()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual float SynthesiserVoice::getCurrentNote </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -258,7 +285,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 12 2024 18:30:59 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Mar 14 2024 15:16:33 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
