@@ -292,7 +292,7 @@ void MSEGComponent::mouseDrag (const juce::MouseEvent& e)
         auto& p = data.points.getReference (draggingPoint);
 
         auto minT = 0.0f;
-        auto maxT = 0.0f;
+        auto maxT = 1.0f;
 
         if (draggingPoint > 0)
             minT = data.points[draggingPoint - 1].time;
