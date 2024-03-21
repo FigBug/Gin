@@ -1,0 +1,64 @@
+{
+	"buildPresets": [
+    {
+      "condition": {
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows",
+        "type": "notEquals"
+      },
+      "configurePreset": "ninja-gcc11",
+      "displayName": "Build with Ninja and GCC",
+      "inherits": "base",
+      "name": "ninja-gcc11"
+    }
+  ],
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 24,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "condition": {
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows",
+        "type": "notEquals"
+      },
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": {
+          "type": "STRING",
+          "value": "/usr/bin/g++-11"
+        },
+        "CMAKE_C_COMPILER": {
+          "type": "STRING",
+          "value": "/usr/bin/gcc-11"
+        },
+        "CMAKE_Fortran_COMPILER": {
+        	"type": "STRING",
+        	"value": "gfortran"
+        }
+      },
+      "displayName": "Build with Ninja and GCC",
+      "generator": "Ninja Multi-Config",
+      "inherits": "base",
+      "name": "ninja-gcc11"
+    }
+  ],
+  "include": [
+    "base.json"
+  ],
+  "testPresets": [
+    {
+      "condition": {
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows",
+        "type": "notEquals"
+      },
+      "configurePreset": "ninja-gcc11",
+      "displayName": "Build with Ninja and GCC",
+      "inherits": "base",
+      "name": "ninja-gcc11"
+    }
+  ],
+  "version": 5
+}
