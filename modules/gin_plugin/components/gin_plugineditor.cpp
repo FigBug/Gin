@@ -716,11 +716,15 @@ void ProcessorEditor::showAboutInfo()
 {
     juce::String msg;
 
-   #if JUCE_DEBUG
-    msg += slProc.processorOptions.pluginName + " v" + slProc.processorOptions.pluginVersion + " (" __TIME__ " " __DATE__ ")\n\n";
-   #else
-    msg += slProc.processorOptions.pluginName + " v" + slProc.processorOptions.pluginVersion + " (" __DATE__ ")\n\n";
-   #endif
+    if (slProc.processorOptions.pluginName.isNotEmpty())
+    {
+       #if JUCE_DEBUG
+        msg += slProc.processorOptions.pluginName + " v" + slProc.processorOptions.pluginVersion + " (" __TIME__ " " __DATE__ ")\n\n";
+       #else
+        msg += slProc.processorOptions.pluginName + " v" + slProc.processorOptions.pluginVersion + " (" __DATE__ ")\n\n";
+       #endif
+    }
+     
     msg += slProc.processorOptions.programmingCredits.joinIntoString ("\n");
 
     msg += "\n\n";
