@@ -34,7 +34,7 @@ void UpdateChecker::timerCallback()
 
 void UpdateChecker::run()
 {
-  #if ! JUCE_IOS
+  #if ! JUCE_IOS && ! JUCE_ANDROID
     juce::URL versionsUrl = juce::URL (slProc.processorOptions.updatesURL).withParameter ("plugin", slProc.processorOptions.pluginName).withParameter ("version", slProc.processorOptions.pluginVersion);
     juce::XmlDocument doc (versionsUrl.readEntireTextStream());
     if (std::unique_ptr<juce::XmlElement> root = doc.getDocumentElement())
@@ -105,7 +105,7 @@ void NewsChecker::timerCallback()
 
 void NewsChecker::run()
 {
-    #if ! JUCE_IOS
+    #if ! JUCE_IOS && ! JUCE_ANDROID
     juce::XmlDocument doc (juce::URL ("https://socalabs.com/feed/").readEntireTextStream());
     if (std::unique_ptr<juce::XmlElement> root = doc.getDocumentElement())
     {

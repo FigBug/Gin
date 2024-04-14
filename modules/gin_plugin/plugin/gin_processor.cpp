@@ -61,8 +61,10 @@ void Processor::init()
     state.getOrCreateChildWithName ("instance", nullptr);
     loadAllPrograms();
 
+#if ! JUCE_IOS && ! JUCE_ANDROID
     watcher.addListener (this);
     watcher.addFolder (getProgramDirectory());
+#endif
 }
 
 juce::PropertiesFile* Processor::getSettings()
@@ -340,12 +342,14 @@ bool Processor::hasProgram (juce::String name)
     return false;
 }
 
+#if ! JUCE_IOS && ! JUCE_ANDROID
 void Processor::folderChanged (const juce::File&)
 {
     auto now = juce::Time::getCurrentTime();
     if (now - lastProgramsUpdated > juce::RelativeTime::seconds (1.0))
         startTimer (150);
 }
+#endif
 
 void Processor::timerCallback()
 {

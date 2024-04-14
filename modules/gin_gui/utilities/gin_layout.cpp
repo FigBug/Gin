@@ -126,14 +126,14 @@ static juce::String getComponentPath (juce::Component& parent, juce::Component& 
 Layout::Layout (juce::Component& p) : parent (p)
 {
     setupParser();
-   #if ! JUCE_IOS
+   #if ! JUCE_IOS && ! JUCE_ANDROID
     watcher.addListener (this);
    #endif
 }
 
 Layout::~Layout()
 {
-   #if ! JUCE_IOS
+   #if ! JUCE_IOS && ! JUCE_ANDROID
     watcher.removeListener (this);
    #endif
 }
@@ -202,7 +202,7 @@ void Layout::setLayout (const juce::String& filename, const juce::File& source)
                 if (auto rawLayout = source.loadFileAsString(); rawLayout.isNotEmpty() && parseLayout (rawLayout))
                 {
                     layoutFile = source;
-                   #if ! JUCE_IOS
+                   #if ! JUCE_IOS && ! JUCE_ANDROID
                     watcher.addFolder (source.getParentDirectory());
                    #endif
                     break;
@@ -342,7 +342,7 @@ juce::Component* Layout::setBounds (const juce::String& currentPath, const juce:
     return curComponent;
 }
 
-#if ! JUCE_IOS
+#if ! JUCE_IOS && ! JUCE_ANDROID
 void Layout::fileChanged (const juce::File& f, gin::FileSystemWatcher::FileSystemEvent)
 {
     if (f == layoutFile)
