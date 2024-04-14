@@ -100,7 +100,9 @@ public:
 */
 class Processor : public ProcessorBaseClass,
                   public juce::ChangeBroadcaster,
+#if ! JUCE_IOS && ! JUCE_ANDROID
                   private FileSystemWatcher::Listener,
+#endif
                   private juce::Timer
 {
 public:
@@ -208,7 +210,9 @@ protected:
     void extractProgram (const juce::String& name, const void* data, int sz);
 
 private:
+#if ! JUCE_IOS && ! JUCE_ANDROID
     void folderChanged (const juce::File&) override;
+#endif
     void timerCallback() override;
 
     std::unique_ptr<juce::PropertiesFile> settings;
@@ -222,7 +226,9 @@ private:
 
     void updateParams();
 
+#if ! JUCE_IOS && ! JUCE_ANDROID
     FileSystemWatcher watcher;
+#endif
 
     juce::String currentProgramName;
     int maxPrograms = 0;
