@@ -11981,7 +11981,6 @@
   <compound kind="class">
     <name>Processor</name>
     <filename>classProcessor.html</filename>
-    <base protection="private">FileSystemWatcher::Listener</base>
     <member kind="function">
       <type></type>
       <name>Processor</name>
