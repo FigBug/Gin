@@ -106,7 +106,7 @@ public:
     ContentComponent (juce::PropertiesFile& settings_)
         : settings (settings_)
     {
-        juce::Font f (juce::Font::getDefaultMonospacedFontName(), 12.0f, juce::Font::plain);
+        juce::Font f ( juce::FontOptions ( juce::Font::getDefaultMonospacedFontName(), 12.0f, juce::Font::plain) );
 
         addAndMakeVisible (mouseDetails);
         mouseDetails.setMultiLine (true, false);
