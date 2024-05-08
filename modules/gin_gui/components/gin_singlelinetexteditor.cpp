@@ -865,7 +865,7 @@ SingleLineTextEditor::SingleLineTextEditor (const juce::String& name)
       valueTextNeedsUpdating (false),
       consumeEscAndReturnKeys (true),
       lastTransactionTime (0),
-      currentFont (14.0f),
+      currentFont (juce::FontOptions (14.0f)),
       totalNumChars (0),
       caretPosition (0),
       keyboardType (TextInputTarget::textKeyboard),
