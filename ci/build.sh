@@ -8,7 +8,7 @@ mkdir -p bin
 
 # Get juce
 if [ ! -d "juce" ]; then
-  git clone https://github.com/WeAreROLI/JUCE.git --branch develop --single-branch juce
+  git clone https://github.com/WeAreROLI/JUCE.git --branch juce8 --single-branch juce
 fi
 
 # Build mac version
