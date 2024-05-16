@@ -45,7 +45,7 @@ struct TextRenderDemo final : public juce::Component
         setName ("Wave to Text Render");
 
         addAndMakeVisible (text);
-        text.setFont (juce::Font (juce::Font::getDefaultMonospacedFontName(), 10.0f, juce::Font::plain));
+        text.setFont (juce::Font (juce::FontOptions (juce::Font::getDefaultMonospacedFontName(), 10.0f, juce::Font::plain)));
         text.setReadOnly (true);
         text.setMultiLine (true, false);
 

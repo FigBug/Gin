@@ -88,7 +88,6 @@ set (config_is_debug "$<IN_LIST:$<CONFIG>,${debug_configs}>")
 set (config_is_release "$<NOT:${config_is_debug}>")
 
 target_compile_definitions (Synth PRIVATE 
-								JUCE_DISPLAY_SPLASH_SCREEN=0
 								JUCE_MODAL_LOOPS_PERMITTED=1
 								JUCE_COREGRAPHICS_DRAW_ASYNC=1
 								JUCE_VST3_CAN_REPLACE_VST2=0
