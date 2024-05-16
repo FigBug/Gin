@@ -38,7 +38,7 @@ protected:
             }
 
             juce::AttributedString attString;
-            attString.append (text, juce::Font (13.0f));
+            attString.append (text, juce::FontOptions (13.0f));
             attString.setColour (juce::Colours::white);
 
             auto rcg = p->getLocalArea (this, rc);

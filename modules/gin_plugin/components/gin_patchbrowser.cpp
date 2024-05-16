@@ -276,7 +276,7 @@ void PatchBrowser::AuthorsModel::paintListBoxItem (int row, juce::Graphics& g, i
     g.fillRect (rc);
 
     g.setColour (owner.findColour (PluginLookAndFeel::whiteColourId, true).withAlpha (0.9f));
-    g.setFont (juce::Font (14));
+    g.setFont (juce::Font (juce::FontOptions (14)));
     g.drawText (owner.currentAuthors[row], rc.reduced (4, 0), juce::Justification::centredLeft);
 }
 
@@ -310,7 +310,7 @@ void PatchBrowser::TagsModel::paintListBoxItem (int row, juce::Graphics& g, int 
     g.fillRect (rc);
 
     g.setColour (owner.findColour (PluginLookAndFeel::whiteColourId, true).withAlpha (0.9f));
-    g.setFont (juce::Font (14));
+    g.setFont (juce::Font (juce::FontOptions (14)));
     g.drawText (owner.currentTags[row], rc.reduced (4, 0), juce::Justification::centredLeft);
 }
 
@@ -343,7 +343,7 @@ void PatchBrowser::PresetsModel::paintListBoxItem (int row, juce::Graphics& g, i
     g.fillRect (rc);
 
     g.setColour (owner.findColour (PluginLookAndFeel::whiteColourId, true).withAlpha (0.9f));
-    g.setFont (juce::Font (14));
+    g.setFont (juce::Font (juce::FontOptions (14)));
     g.drawText (owner.currentPresets[row], rc.reduced (4, 0), juce::Justification::centredLeft);
 }
 

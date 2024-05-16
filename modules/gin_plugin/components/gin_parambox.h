@@ -36,7 +36,7 @@ private:
         g.setColour (findColour (PluginLookAndFeel::whiteColourId).withAlpha (0.15f));
         g.fillRect (rc.removeFromTop (1));
 
-        auto f = juce::Font ().withPointHeight (10.0).withExtraKerningFactor (0.25);
+        auto f = juce::Font (juce::FontOptions()).withPointHeight (10.0).withExtraKerningFactor (0.25);
 
         g.setColour (findColour (PluginLookAndFeel::whiteColourId).withAlpha (0.6f));
         g.drawText (name.toUpperCase(), getLocalBounds(), juce::Justification::centred);
@@ -86,7 +86,7 @@ public:
 private:
     void paintButton (juce::Graphics& g, bool, bool) override
     {
-        auto f = juce::Font ().withPointHeight (10.0).withExtraKerningFactor (0.25);
+        auto f = juce::Font (juce::FontOptions()).withPointHeight (10.0).withExtraKerningFactor (0.25);
 
         g.setColour (getToggleState() ? findColour (PluginLookAndFeel::accentColourId).withAlpha (0.6f) : findColour (PluginLookAndFeel::whiteColourId).withAlpha (0.6f));
         g.drawText (getButtonText().toUpperCase(), getLocalBounds(), juce::Justification::centred);

@@ -457,7 +457,7 @@ void MSEGComponent::showBubbleMessage (const juce::Rectangle<int>& rc, const juc
     }
 
     juce::AttributedString attString;
-    attString.append (message, juce::Font (13.0f));
+    attString.append (message, juce::Font (juce::FontOptions (13.0f)));
     attString.setColour (juce::Colours::white);
 
     bubbleMessage->setAlwaysOnTop (true);
