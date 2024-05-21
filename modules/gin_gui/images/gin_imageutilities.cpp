@@ -7,13 +7,17 @@
 
 juce::Image rasterizeSVG (juce::String svgText, int w, int h)
 {
+   #if JUCE_WINDOWS
+    juce::Image img (juce::Image::ARGB, w, h, true, juce::SoftwareImageType());
+   #else
     juce::Image img (juce::Image::ARGB, w, h, true);
+   #endif
 
     if (auto svg = juce::XmlDocument::parse (svgText))
     {
         const juce::MessageManagerLock mmLock ( juce::Thread::getCurrentThread () );
 
-        if ( mmLock.lockWasGained () )
+        if (mmLock.lockWasGained())
         {
             auto drawable = juce::Drawable::createFromSVG (*svg);
 
