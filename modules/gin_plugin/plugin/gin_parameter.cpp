@@ -164,7 +164,7 @@ int Parameter::getNumSteps() const
 {
     if (juce::exactlyEqual (range.interval, 0.0f))
         return 0;
-    return juce::roundToInt ((range.end - range.start) / range.interval);
+    return juce::roundToInt ((range.end - range.start) / range.interval) + 1;
 }
 
 juce::String Parameter::getText (float val, int /*maximumStringLength*/) const
