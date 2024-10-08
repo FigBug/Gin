@@ -495,6 +495,180 @@ WebSocket* WebSocket::fromURL (const juce::String& url, bool useMask, const juce
     return new WebSocket (std::move (socket), useMask);
 }
 
+WebSocket* WebSocket::fromURL(const juce::String& url, const juce::String& origin, const juce::StringPairArray& customHeaders)
+{
+    char path[512] = {0};
+    char host[512] = {0};
+    int port = 0;
+
+    // Ensure URL and origin length limits are respected
+    if (url.length() >= 512)
+    {
+        fprintf(stderr, "ERROR: URL size limit exceeded: %s\n", url.toRawUTF8());
+        return nullptr;
+    }
+    if (origin.length() >= 200)
+    {
+        fprintf(stderr, "ERROR: Origin size limit exceeded: %s\n", origin.toRawUTF8());
+        return nullptr;
+    }
+
+    bool secure = false;
+
+    // Parse URL for wss:// or ws://
+    if (sscanf(url.toRawUTF8(), "wss://%[^:/]:%d/%s", host, &port, path) == 3)
+    {
+        secure = true;
+    }
+    else if (sscanf(url.toRawUTF8(), "wss://%[^:/]/%s", host, path) == 2)
+    {
+        secure = true;
+        port = 443;
+    }
+    else if (sscanf(url.toRawUTF8(), "wss://%[^:/]:%d", host, &port) == 2)
+    {
+        secure = true;
+        path[0] = '\0';
+    }
+    else if (sscanf(url.toRawUTF8(), "wss://%[^:/]", host) == 1)
+    {
+        secure = true;
+        port = 443;
+        path[0] = '\0';
+    }
+    else if (sscanf(url.toRawUTF8(), "ws://%[^:/]:%d/%s", host, &port, path) == 3)
+    {
+        // non-secure ws://
+    }
+    else if (sscanf(url.toRawUTF8(), "ws://%[^:/]/%s", host, path) == 2)
+    {
+        port = 80;
+    }
+    else if (sscanf(url.toRawUTF8(), "ws://%[^:/]:%d", host, &port) == 2)
+    {
+        path[0] = '\0';
+    }
+    else if (sscanf(url.toRawUTF8(), "ws://%[^:/]", host) == 1)
+    {
+        port = 80;
+        path[0] = '\0';
+    }
+    else
+    {
+        fprintf(stderr, "ERROR: Could not parse WebSocket URL: %s\n", url.toRawUTF8());
+        return nullptr;
+    }
+
+    // Create secure or non-secure socket
+    auto socket = std::make_unique<gin::SecureStreamingSocket>(secure);
+    if (!socket->connect(host, port))
+    {
+        fprintf(stderr, "Unable to connect to %s:%d\n", host, port);
+        return nullptr;
+    }
+
+    int sockfd = socket->getRawSocketHandle();
+
+    // Begin WebSocket handshake
+    {
+        char line[1024] = {0};
+        int status;
+        int i;
+
+        snprintf(line, 1024, "GET /%s HTTP/1.1\r\n", path);
+        socket->write(line, int(strlen(line)));
+
+        if (port == 80)
+        {
+            snprintf(line, 1024, "Host: %s\r\n", host);
+            socket->write(line, int(strlen(line)));
+        }
+        else
+        {
+            snprintf(line, 1024, "Host: %s:%d\r\n", host, port);
+            socket->write(line, int(strlen(line)));
+        }
+
+        // Standard WebSocket headers
+        snprintf(line, 1024, "Upgrade: websocket\r\n");
+        socket->write(line, int(strlen(line)));
+
+        snprintf(line, 1024, "Connection: Upgrade\r\n");
+        socket->write(line, int(strlen(line)));
+
+        if (origin.isNotEmpty())
+        {
+            snprintf(line, 1024, "Origin: %s\r\n", origin.toRawUTF8());
+            socket->write(line, int(strlen(line)));
+        }
+
+        // Send Sec-WebSocket headers
+        snprintf(line, 1024, "Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==\r\n");
+        socket->write(line, int(strlen(line)));
+
+        snprintf(line, 1024, "Sec-WebSocket-Version: 13\r\n");
+        socket->write(line, int(strlen(line)));
+
+        // // Custom Headers
+        // for (auto& header : customHeaders)
+        // {
+        //     snprintf(line, 1024, "%s: %s\r\n", header.first.toRawUTF8(), header.second.toRawUTF8());
+        //     socket->write(line, int(strlen(line)));
+        // }
+
+        // Custom Headers
+        const juce::StringArray& headerKeys = customHeaders.getAllKeys();
+        const juce::StringArray& headerValues = customHeaders.getAllValues();
+
+        for (int i = 0; i < headerKeys.size(); ++i)
+        {
+            snprintf(line, 1024, "%s: %s\r\n", headerKeys[i].toRawUTF8(), headerValues[i].toRawUTF8());
+            socket->write(line, int(strlen(line)));
+        }
+        
+        // End the header section
+        snprintf(line, 1024, "\r\n");
+        socket->write(line, int(strlen(line)));
+
+        // Read server's handshake response
+        for (i = 0; i < 2 || (i < 1023 && line[i-2] != '\r' && line[i-1] != '\n'); ++i)
+        {
+            if (socket->read(line + i, 1, true) == 0)
+                return nullptr;
+        }
+
+        line[i] = 0;
+        if (i == 1023)
+        {
+            fprintf(stderr, "ERROR: Got invalid status line connecting to: %s\n", url.toRawUTF8());
+            return nullptr;
+        }
+
+        if (sscanf(line, "HTTP/1.1 %d", &status) != 1 || status != 101)
+        {
+            fprintf(stderr, "ERROR: Got bad status connecting to %s: %s", url.toRawUTF8(), line);
+            return nullptr;
+        }
+
+        // Validate response headers
+        while (true)
+        {
+            for (i = 0; i < 2 || (i < 1023 && line[i-2] != '\r' && line[i-1] != '\n'); ++i)
+                if (socket->read(line + i, 1, true) == 0)
+                    return nullptr;
+
+            if (line[0] == '\r' && line[1] == '\n')
+                break;
+        }
+    }
+
+    // Disable Nagle's algorithm
+    int flag = 1;
+    setsockopt(sockfd, IPPROTO_TCP, TCP_NODELAY, (char*)&flag, sizeof(flag));
+
+    // Return WebSocket object
+    return new WebSocket(std::move(socket), true);
+}
 WebSocket* WebSocket::fromURL (const juce::String& url, const juce::String& origin)
 {
     return WebSocket::fromURL (url, true, origin);
