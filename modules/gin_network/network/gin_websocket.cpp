@@ -609,20 +609,13 @@ WebSocket* WebSocket::fromURL(const juce::String& url, const juce::String& origi
         snprintf(line, 1024, "Sec-WebSocket-Version: 13\r\n");
         socket->write(line, int(strlen(line)));
 
-        // // Custom Headers
-        // for (auto& header : customHeaders)
-        // {
-        //     snprintf(line, 1024, "%s: %s\r\n", header.first.toRawUTF8(), header.second.toRawUTF8());
-        //     socket->write(line, int(strlen(line)));
-        // }
-
         // Custom Headers
         const juce::StringArray& headerKeys = customHeaders.getAllKeys();
         const juce::StringArray& headerValues = customHeaders.getAllValues();
 
-        for (int i = 0; i < headerKeys.size(); ++i)
+        for (int j = 0; j < headerKeys.size(); ++j)
         {
-            snprintf(line, 1024, "%s: %s\r\n", headerKeys[i].toRawUTF8(), headerValues[i].toRawUTF8());
+            snprintf(line, 1024, "%s: %s\r\n", headerKeys[j].toRawUTF8(), headerValues[j].toRawUTF8());
             socket->write(line, int(strlen(line)));
         }
         
