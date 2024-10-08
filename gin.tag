@@ -2727,8 +2727,8 @@
       <type></type>
       <name>AsyncWebsocket</name>
       <anchorfile>classAsyncWebsocket.html</anchorfile>
-      <anchor>a4f7b218910a6a86ea4cbc2d7e249c47e</anchor>
-      <arglist>(const juce::URL url)</arglist>
+      <anchor>a645cc4472ee8b6e3cf7e75e6034721c2</anchor>
+      <arglist>(const juce::URL url, const juce::StringPairArray &amp;customHeaders={})</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -16687,6 +16687,13 @@
       <anchorfile>classWebSocket.html</anchorfile>
       <anchor>a7e2404176abec3d499adcd92fcc6bc42</anchor>
       <arglist>(const juce::String &amp;url, bool useMask, const juce::String &amp;origin)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static WebSocket *</type>
+      <name>fromURL</name>
+      <anchorfile>classWebSocket.html</anchorfile>
+      <anchor>a6a86d489e9ea180ebf590d9b98d3a0f3</anchor>
+      <arglist>(const juce::String &amp;url, const juce::String &amp;origin, const juce::StringPairArray &amp;customHeaders)</arglist>
     </member>
     <member kind="variable">
       <type>ReadyStateValues</type>

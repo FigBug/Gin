@@ -75,7 +75,7 @@ var searchData=
   ['asyncdownload_72',['asyncDownload',['../group__gin__gui-utilities.html#ga4694a471c36c4bdc368319e512a906d7',1,'gin_util.h']]],
   ['asyncdownload_73',['AsyncDownload',['../classAsyncDownload.html#a47ff7284a6ffa2e54d70fa3bb01071ec',1,'AsyncDownload::AsyncDownload(juce::String url_, std::function&lt; void(AsyncDownload *, const juce::MemoryBlock &amp;, bool)&gt; cb_, int timeoutMS_=0)'],['../classAsyncDownload.html#a00765e0f8af351c253598dbf443c1f3c',1,'AsyncDownload::AsyncDownload(juce::URL url_, std::function&lt; void(AsyncDownload *, const juce::MemoryBlock &amp;, bool)&gt; cb_, int timeoutMS_=0)']]],
   ['asynclambdavaluetreelistener_74',['AsyncLambdaValueTreeListener',['../classAsyncLambdaValueTreeListener.html',1,'AsyncLambdaValueTreeListener'],['../classAsyncLambdaValueTreeListener.html#a7902f77301e14c547e97ca4c12310f05',1,'AsyncLambdaValueTreeListener::AsyncLambdaValueTreeListener()']]],
-  ['asyncwebsocket_75',['AsyncWebsocket',['../classAsyncWebsocket.html',1,'AsyncWebsocket'],['../classAsyncWebsocket.html#a4f7b218910a6a86ea4cbc2d7e249c47e',1,'AsyncWebsocket::AsyncWebsocket()']]],
+  ['asyncwebsocket_75',['AsyncWebsocket',['../classAsyncWebsocket.html',1,'AsyncWebsocket'],['../classAsyncWebsocket.html#a645cc4472ee8b6e3cf7e75e6034721c2',1,'AsyncWebsocket::AsyncWebsocket()']]],
   ['aterm_76',['aTerm',['../classLeastSquaresRegression.html#a5bfe5f2d56a0e4585102e95a752d17bf',1,'LeastSquaresRegression']]],
   ['attack_77',['attack',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127aaa7f97349a3590aa462a5edadb7180126',1,'ADSR::attack()'],['../classAnalogADSR.html#ad78b0e1a8896f9d2c021832fa7517982',1,'AnalogADSR::attack()'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188eafc7e987f23de5bd6562b7c0063cad659',1,'AnalogADSR::attack()']]],
   ['attackcoeff_78',['attackCoeff',['../classAnalogADSR.html#a2586227ebaf1e5741159415ada492a6f',1,'AnalogADSR']]],
@@ -91,9 +91,10 @@ var searchData=
   ['authorizedalways_88',['authorizedAlways',['../classLocationManager.html#a518acec298306066ae3cccc6eb335bdcaadc75e653e86065ca5448be342c23053',1,'LocationManager']]],
   ['authorizedwheninuse_89',['authorizedWhenInUse',['../classLocationManager.html#a518acec298306066ae3cccc6eb335bdca91e8720f10faeaee578f776e7d95b9d1',1,'LocationManager']]],
   ['authors_90',['authors',['../classPatchBrowser.html#a1becbf2ecebca6e5a2ba2533b619b952',1,'PatchBrowser']]],
-  ['authorsmodel_91',['authorsModel',['../classPatchBrowser.html#a62a7cf5ab56615e84109ced00beb6dcb',1,'PatchBrowser']]],
-  ['authorsmodel_92',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html#a5b1e9a0aee87d3623f78db4126fcab3e',1,'PatchBrowser::AuthorsModel::AuthorsModel()'],['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser::AuthorsModel']]],
-  ['average_93',['average',['../classRollingAverage.html#a941797e5f59cbdfce52faa655bd1b7f3',1,'RollingAverage']]],
-  ['average_94',['Average',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f',1,'gin_imageeffects.h']]],
-  ['avir_95',['avir',['../group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04',1,'gin_imageeffects.h']]]
+  ['authorsmodel_91',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html#a5b1e9a0aee87d3623f78db4126fcab3e',1,'PatchBrowser::AuthorsModel']]],
+  ['authorsmodel_92',['authorsModel',['../classPatchBrowser.html#a62a7cf5ab56615e84109ced00beb6dcb',1,'PatchBrowser']]],
+  ['authorsmodel_93',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser']]],
+  ['average_94',['average',['../classRollingAverage.html#a941797e5f59cbdfce52faa655bd1b7f3',1,'RollingAverage']]],
+  ['average_95',['Average',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f',1,'gin_imageeffects.h']]],
+  ['avir_96',['avir',['../group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04',1,'gin_imageeffects.h']]]
 ];
