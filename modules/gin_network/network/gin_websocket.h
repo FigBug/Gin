@@ -44,6 +44,8 @@ class WebSocket
     static WebSocket* fromURLNoMask (const juce::String& url, const juce::String& origin = {});
     static WebSocket* fromURL (const juce::String& url, bool useMask, const juce::String& origin);
 
+    static WebSocket* fromURL (const juce::String& url, const juce::String& origin, const juce::StringPairArray& customHeaders);
+
     ~WebSocket();
 
     bool readIncoming();

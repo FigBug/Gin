@@ -6,8 +6,8 @@
  ==============================================================================*/
 
 //==============================================================================
-AsyncWebsocket::AsyncWebsocket (const juce::URL url_)
-    : Thread ("websocket"), url (url_)
+AsyncWebsocket::AsyncWebsocket(const juce::URL url_, const juce::StringPairArray& headers)
+    : Thread("websocket"), url(url_), customHeaders(headers)
 {
 }
 
@@ -46,20 +46,20 @@ void AsyncWebsocket::process()
         using MM = juce::MessageManager;
         juce::WeakReference<AsyncWebsocket> weakThis = this;
 
-        ws->dispatch ([this, weakThis] (const juce::MemoryBlock message, bool isBinary)
+        ws->dispatch([this, weakThis](const juce::MemoryBlock message, bool isBinary)
         {
             auto messageCopy = message;
-            MM::callAsync ([this, weakThis, messageCopy, isBinary]
+            MM::callAsync([this, weakThis, messageCopy, isBinary]
             {
                 if (weakThis != nullptr)
                 {
-                    // if we are receiving data we don't need to ping
+                    // If we are receiving data, we don't need to ping
                     lastPing = juce::Time::getMillisecondCounterHiRes() / 1000;
 
                     if (isBinary && onBinary)
-                        onBinary (messageCopy);
-                    else if (! isBinary && onText)
-                        onText (juce::String::fromUTF8 ((char*)messageCopy.getData(), int (messageCopy.getSize())));
+                        onBinary(messageCopy);
+                    else if (!isBinary && onText)
+                        onText(juce::String::fromUTF8((char*)messageCopy.getData(), int(messageCopy.getSize())));
                 }
             });
         });
@@ -68,15 +68,15 @@ void AsyncWebsocket::process()
     //==============================================================================
     auto processOutgoingData = [this](std::unique_ptr<WebSocket>& ws)
     {
-        juce::ScopedLock sl (lock);
+        juce::ScopedLock sl(lock);
         for (auto& data : outgoingQueue)
         {
             if (data.type == pingMsg)
                 ws->sendPing();
             else if (data.type == binaryMsg)
-                ws->sendBinary (data.data);
+                ws->sendBinary(data.data);
             else if (data.type == textMsg)
-                ws->send (data.text);
+                ws->send(data.text);
             else
                 jassertfalse;
         }
@@ -87,18 +87,20 @@ void AsyncWebsocket::process()
     using MM = juce::MessageManager;
     juce::WeakReference<AsyncWebsocket> weakThis = this;
 
-    auto ws = std::unique_ptr<WebSocket> (WebSocket::fromURL (url.toString (true).toStdString()));
+    // Use custom headers when creating WebSocket connection
+    auto ws = std::unique_ptr<WebSocket>(WebSocket::fromURL(url.toString(true), {}, customHeaders));
+
     if (ws != nullptr)
     {
-        MM::callAsync ([this, weakThis]
+        MM::callAsync([this, weakThis]
         {
-           if (weakThis != nullptr && onConnect)
-               onConnect();
+            if (weakThis != nullptr && onConnect)
+                onConnect();
         });
 
-        while (! threadShouldExit())
+        while (!threadShouldExit())
         {
-            ws->poll (50);
+            ws->poll(50);
             if (ws->getReadyState() == WebSocket::CLOSED)
                 break;
 
@@ -109,25 +111,23 @@ void AsyncWebsocket::process()
                 lastPing = now;
             }
 
-            processIncomingData (ws);
-            processOutgoingData (ws);
+            processIncomingData(ws);
+            processOutgoingData(ws);
         }
 
         if (ws->getReadyState() != WebSocket::CLOSED)
         {
             ws->close();
-            ws->poll (0);
+            ws->poll(0);
         }
     }
 
-    MM::callAsync ([this, weakThis]
+    MM::callAsync([this, weakThis]
     {
         if (weakThis != nullptr && onDisconnect)
         {
-           // The disconnect callback may cause the websocket to get deleted
-           // Dangerous to use the lambda that is a member function, so make a copy
-           auto safeCallback = onDisconnect;
-           safeCallback ();
+            auto safeCallback = onDisconnect;
+            safeCallback();
         }
     });
 }

@@ -15,7 +15,7 @@ class AsyncWebsocket : public juce::Thread
 {
 public:
     //==============================================================================
-    AsyncWebsocket (const juce::URL url);
+    AsyncWebsocket(const juce::URL url, const juce::StringPairArray& customHeaders = {});
     ~AsyncWebsocket() override;
 
     //==============================================================================
@@ -41,6 +41,7 @@ private:
     void process();
 
     juce::URL url;
+    juce::StringPairArray customHeaders;
 
     //==============================================================================
     enum MessageType
