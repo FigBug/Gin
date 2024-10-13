@@ -319,17 +319,23 @@ juce::Component* Layout::setBounds (const juce::String& currentPath, const juce:
     {
         if (component["bounds"] == "parent")
         {
-            x = 0;
-            y = 0;
-            w = curComponent->getParentComponent()->getWidth();
-            h = curComponent->getParentComponent()->getHeight();
+            if (auto p = curComponent->getParentComponent())
+            {
+                x = 0;
+                y = 0;
+                w = p->getWidth();
+                h = p->getHeight();
+            }
         }
         else if (component["bounds"] == "prev")
         {
-            x = prevComponent->getX();
-            y = prevComponent->getY();
-            w = prevComponent->getWidth();
-            h = prevComponent->getHeight();
+            if (prevComponent)
+            {
+                x = prevComponent->getX();
+                y = prevComponent->getY();
+                w = prevComponent->getWidth();
+                h = prevComponent->getHeight();
+            }
         }
         else
         {
