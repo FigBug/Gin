@@ -1910,10 +1910,12 @@ juce::String layoutTxt = R"~~~(
 }
 )~~~";
 
-struct LayoutDemo : public juce::Component
+struct LayoutDemo : public juce::Component,
+                    private juce::CodeDocument::Listener
 {
     LayoutDemo()
     {
+        doc.addListener (this);
         setName ("Layout");
         
         auto a = new ColouredComponent ("a", juce::Colours::green);
@@ -1927,19 +1929,42 @@ struct LayoutDemo : public juce::Component
         layoutRoot.addAndMakeVisible (a);
         layoutRoot.addAndMakeVisible (b);
 
-        layoutJson.setMultiLine (true);
-        layoutJson.setReturnKeyStartsNewLine (true);
-        layoutJson.setText (layoutTxt, juce::dontSendNotification);
-        layoutJson.onTextChange = [this]
-        {
-            auto t = layoutJson.getText();
-            auto o = juce::JSON::parse (t);
-            
-            if (o.isObject())
-                resized();
-        };
+        layoutJson.loadContent (layoutTxt);
         addAndMakeVisible (layoutJson);
         addAndMakeVisible (layoutRoot);
+        addAndMakeVisible (error);
+        
+        error.setInterceptsMouseClicks (false, false);
+        error.setJustificationType (juce::Justification::bottomLeft);
+        error.setColour (juce::Label::textColourId, juce::Colours::red);
+    }
+    
+    void codeDocumentTextInserted (const String&, int) override
+    {
+        update();
+    }
+
+    void codeDocumentTextDeleted (int, int) override
+    {
+        update();
+    }
+    
+    void update()
+    {
+        juce::var o;
+        
+        auto t = doc.getAllContent();
+        auto e = juce::JSON::parse (t, o);
+        
+        if (e.wasOk())
+        {
+            resized();
+            error.setText ({}, juce::dontSendNotification);
+        }
+        else
+        {
+            error.setText (e.getErrorMessage(), juce::dontSendNotification);
+        }
     }
 
     void resized() override
@@ -1947,10 +1972,11 @@ struct LayoutDemo : public juce::Component
         auto rc = getLocalBounds().reduced (8);
 
         layoutJson.setBounds (rc.removeFromLeft (rc.getWidth() / 2 - 4));
+        error.setBounds (layoutJson.getBounds());
         rc.removeFromLeft (8);
         layoutRoot.setBounds (rc);
         
-        layout.parseLayout (layoutJson.getText());
+        layout.parseLayout (doc.getAllContent());
     }
 
     class ColouredComponent : public juce::Component
@@ -1976,10 +2002,13 @@ struct LayoutDemo : public juce::Component
         juce::Colour colour;
     };
 
-    juce::TextEditor layoutJson;
+    juce::CodeDocument doc;
+    juce::CodeEditorComponent layoutJson { doc, nullptr };
     ColouredComponent layoutRoot { "root", juce::Colours::blue };
     
     gin::Layout layout { layoutRoot };
+    
+    juce::Label error;
 };
 
 //==============================================================================
