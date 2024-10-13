@@ -17,11 +17,11 @@ public:
    #endif
 
     void setLayout (const juce::String& filename, const juce::File& source = {});
+    bool parseLayout (const juce::String& content);
 
 private:
     void setupParser();
 
-    bool parseLayout (const juce::String& content);
     int parse (const juce::var& equation, int equationIndex);
 
     void doComponent (const juce::String& currentPath, const juce::var& components);
