@@ -167,6 +167,9 @@ void Layout::setupParser()
         parser.addFunction ("getH", [getComp] (int, const juce::String& id) { if (auto c = getComp (id))    return c->getHeight();  return 0; });
         parser.addFunction ("getR", [getComp] (int, const juce::String& id) { if (auto c = getComp (id))    return c->getRight();   return 0; });
         parser.addFunction ("getB", [getComp] (int, const juce::String& id) { if (auto c = getComp (id))    return c->getBottom();  return 0; });
+        
+        parser.addFunction ("getCX", [getComp] (int, const juce::String& id) { if (auto c = getComp (id))   return c->getBounds().getCentreX(); return 0; });
+        parser.addFunction ("getCY", [getComp] (int, const juce::String& id) { if (auto c = getComp (id))   return c->getBounds().getCentreY(); return 0; });
 
         parser.addFunction ("prevX", [this] (int) { if (auto c = prevComponent)                             return c->getX();       return 0; });
         parser.addFunction ("prevY", [this] (int) { if (auto c = prevComponent)                             return c->getY();       return 0; });
@@ -286,6 +289,8 @@ juce::Component* Layout::setBounds (const juce::String& currentPath, const juce:
 
     std::optional<int> x;
     std::optional<int> y;
+    std::optional<int> cx;
+    std::optional<int> cy;
     std::optional<int> r;
     std::optional<int> b;
     std::optional<int> w;
@@ -298,7 +303,13 @@ juce::Component* Layout::setBounds (const juce::String& currentPath, const juce:
 
     if (component.hasProperty ("w"))    w = parse (component["w"], idIdx);
     if (component.hasProperty ("h"))    h = parse (component["h"], idIdx);
+    
+    if (component.hasProperty ("cx"))   cx = parse (component["cx"], idIdx);
+    if (component.hasProperty ("cy"))   cy = parse (component["cy"], idIdx);
 
+    if (cx.has_value() && w.has_value()) x = *cx - *w / 2;
+    if (cy.has_value() && h.has_value()) y = *cy - *h / 2;
+    
     if (r.has_value() && x.has_value()) w = *r - *x;
     if (b.has_value() && y.has_value()) h = *b - *y;
     if (r.has_value() && w.has_value()) x = *r - *w;
