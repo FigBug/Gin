@@ -355,6 +355,11 @@ juce::Component* Layout::setBounds (const juce::String& currentPath, const juce:
             for (auto c : *arr.getArray())
                 doComponent (path, c);
     }
+    
+    if (component.hasProperty ("properties"))
+        if (auto obj = component.getDynamicObject())
+            for (auto nv : obj->getProperties())
+                curComponent->getProperties().set (nv.name, nv.value);
 
     return curComponent;
 }
