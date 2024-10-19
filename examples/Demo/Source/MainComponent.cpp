@@ -2051,6 +2051,11 @@ MainContentComponent::MainContentComponent()
     demoComponents.add (new LinearDemo());
     demoComponents.add (new SplineDemo());
     demoComponents.add (new LagrangeDemo());
+    
+    std::sort (demoComponents.begin(), demoComponents.end(), [] (juce::Component* a, juce::Component* b)
+    {
+        return a->getName() < b->getName();
+    });
 
     for (auto* c : demoComponents)
         addChildComponent (c);
