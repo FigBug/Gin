@@ -138,6 +138,11 @@ Layout::~Layout()
    #endif
 }
 
+void Layout::setConstant (const juce::String& name, double val)
+{
+    constants[name] = val;
+}
+
 void Layout::setupParser()
 {
     try
@@ -239,14 +244,25 @@ bool Layout::parseLayout (const juce::String& content)
     }
 
     componentMap = findAllComponents();
-    doComponent ({}, obj);
+    doComponent (constants, {}, obj);
     componentMap = {};
                     
     return true;
 }
 
-void Layout::doComponent (const juce::String& currentPath, const juce::var& component)
+void Layout::doComponent (const std::map<juce::String, double>& constantsIn, const juce::String& currentPath, const juce::var& component)
 {
+    auto curConstants = constantsIn;
+    
+    if (component.hasProperty ("constants"))
+        if (auto obj = component.getDynamicObject())
+            for (auto nv : obj->getProperties())
+                curConstants[nv.name.toString()] = double (nv.value);
+    
+    if (component.hasProperty ("if"))
+        if (parse (curConstants, component["if"], 0) == 0)
+            return;
+    
     if (component.hasProperty ("id"))
     {
         auto idString = component["id"].toString();
@@ -259,7 +275,7 @@ void Layout::doComponent (const juce::String& currentPath, const juce::var& comp
 
         auto idIdx = 0;
         for (auto& id : ids)
-            prevComponent = setBounds (currentPath, id, idIdx++, component);
+            prevComponent = setBounds (curConstants, currentPath, id, idIdx++, component);
     }
     else
     {
@@ -268,12 +284,12 @@ void Layout::doComponent (const juce::String& currentPath, const juce::var& comp
             auto arr = component["children"];
             if (arr.isArray())
                 for (auto c : *arr.getArray())
-                    doComponent (currentPath, c);
+                    doComponent (curConstants, currentPath, c);
         }
     }
 }
 
-juce::Component* Layout::setBounds (const juce::String& currentPath, const juce::String& id, int idIdx, const juce::var& component)
+juce::Component* Layout::setBounds (const std::map<juce::String, double>& constantsIn, const juce::String& currentPath, const juce::String& id, int idIdx, const juce::var& component)
 {
     auto path = currentPath + "/" + id;
 
@@ -296,16 +312,16 @@ juce::Component* Layout::setBounds (const juce::String& currentPath, const juce:
     std::optional<int> w;
     std::optional<int> h;
 
-    if (component.hasProperty ("x"))    x = parse (component["x"], idIdx);
-    if (component.hasProperty ("y"))    y = parse (component["y"], idIdx);
-    if (component.hasProperty ("r"))    r = parse (component["r"], idIdx);
-    if (component.hasProperty ("b"))    b = parse (component["b"], idIdx);
+    if (component.hasProperty ("x"))    x = parse (constantsIn, component["x"], idIdx);
+    if (component.hasProperty ("y"))    y = parse (constantsIn, component["y"], idIdx);
+    if (component.hasProperty ("r"))    r = parse (constantsIn, component["r"], idIdx);
+    if (component.hasProperty ("b"))    b = parse (constantsIn, component["b"], idIdx);
 
-    if (component.hasProperty ("w"))    w = parse (component["w"], idIdx);
-    if (component.hasProperty ("h"))    h = parse (component["h"], idIdx);
+    if (component.hasProperty ("w"))    w = parse (constantsIn, component["w"], idIdx);
+    if (component.hasProperty ("h"))    h = parse (constantsIn, component["h"], idIdx);
     
-    if (component.hasProperty ("cx"))   cx = parse (component["cx"], idIdx);
-    if (component.hasProperty ("cy"))   cy = parse (component["cy"], idIdx);
+    if (component.hasProperty ("cx"))   cx = parse (constantsIn, component["cx"], idIdx);
+    if (component.hasProperty ("cy"))   cy = parse (constantsIn, component["cy"], idIdx);
 
     if (cx.has_value() && w.has_value()) x = *cx - *w / 2;
     if (cy.has_value() && h.has_value()) y = *cy - *h / 2;
@@ -353,7 +369,7 @@ juce::Component* Layout::setBounds (const juce::String& currentPath, const juce:
         auto arr = component["children"];
         if (arr.isArray())
             for (auto c : *arr.getArray())
-                doComponent (path, c);
+                doComponent (constantsIn, path, c);
     }
     
     if (component.hasProperty ("properties"))
@@ -394,7 +410,7 @@ std::map<juce::String, juce::Component*> Layout::findAllComponents() const
     return components;
 }
 
-int Layout::parse (const juce::var& equation, int equationIndex)
+int Layout::parse (const std::map<juce::String, double>& constantsIn, const juce::var& equation, int equationIndex)
 {
     try
     {
@@ -406,6 +422,12 @@ int Layout::parse (const juce::var& equation, int equationIndex)
                 auto tokens = juce::StringArray::fromTokens (equationText, ",", "");
                 equationText = tokens[std::min (equationIndex, tokens.size() - 1)];
             }
+            
+            if (equationText.containsOnly ("1234567890."))
+                return int (equationText.getDoubleValue());
+            
+            for (auto itr : constantsIn)
+                parser.addConstant (itr.first, itr.second);
 
             parser.setEquation (equationText);
 

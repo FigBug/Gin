@@ -18,14 +18,15 @@ public:
 
     void setLayout (const juce::String& filename, const juce::File& source = {});
     bool parseLayout (const juce::String& content);
+    void setConstant (const juce::String& name, double val);
 
 private:
     void setupParser();
 
-    int parse (const juce::var& equation, int equationIndex);
+    int parse (const std::map<juce::String, double>& constants, const juce::var& equation, int equationIndex);
 
-    void doComponent (const juce::String& currentPath, const juce::var& components);
-    juce::Component* setBounds (const juce::String& currentPath, const juce::String& id, int idIdx, const juce::var& component);
+    void doComponent (const std::map<juce::String, double>& constants, const juce::String& currentPath, const juce::var& components);
+    juce::Component* setBounds (const std::map<juce::String, double>& constants, const juce::String& currentPath, const juce::String& id, int idIdx, const juce::var& component);
 
    #if ! JUCE_IOS && ! JUCE_ANDROID
     void fileChanged (const juce::File&, gin::FileSystemWatcher::FileSystemEvent) override;
@@ -44,5 +45,6 @@ private:
     juce::Component* prevComponent = nullptr;
     juce::Component* curComponent = nullptr;
 
+    std::map<juce::String, double> constants;
     std::map<juce::String, juce::Component*> componentMap;
 };
