@@ -7338,6 +7338,13 @@
       <anchor>a66dd59fbfee00f951cccceda0c7d4cf9</anchor>
       <arglist>(const juce::String &amp;content)</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setConstant</name>
+      <anchorfile>classLayout.html</anchorfile>
+      <anchor>a2a152b945b2c1b21fa7b3a091916c44f</anchor>
+      <arglist>(const juce::String &amp;name, double val)</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>LeastSquaresRegression</name>
