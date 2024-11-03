@@ -57,6 +57,7 @@ namespace gin
 #include "utilities/gin_openstreetmaps.cpp"
 #include "utilities/gin_elevatedfilecopy.cpp"
 #include "utilities/gin_layout.cpp"
+#include "utilities/gin_platform.cpp"
 #include "utilities/gin_systemclipboard.cpp"
 
 #include "images/gin_imageutilities.cpp"
