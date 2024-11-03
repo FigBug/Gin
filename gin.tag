@@ -1482,6 +1482,26 @@
     <class kind="class">PlateReverb</class>
   </compound>
   <compound kind="file">
+    <name>gin_platform.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/utilities/</path>
+    <filename>gin__platform_8h.html</filename>
+    <namespace>macOS</namespace>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>nsImageToImage</name>
+      <anchorfile>namespacemacOS.html</anchorfile>
+      <anchor>aa16780bbaa0ee9db90a45b1ac772cd41</anchor>
+      <arglist>(NSImage *nsImage)</arglist>
+    </member>
+    <member kind="function">
+      <type>NSImage *</type>
+      <name>imageToNSImage</name>
+      <anchorfile>namespacemacOS.html</anchorfile>
+      <anchor>afeb021cb5c29f36e7f8b60a0b442577f</anchor>
+      <arglist>(const juce::Image &amp;image)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>gin_plist.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
     <filename>gin__plist_8h.html</filename>
@@ -17382,6 +17402,24 @@
       <anchorfile>namespaceLagrange.html</anchorfile>
       <anchor>ab812f4c6079c4c45b43e56239c3634d4</anchor>
       <arglist>(T xArr[], T yArr[], int num, T x)</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>macOS</name>
+    <filename>namespacemacOS.html</filename>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>nsImageToImage</name>
+      <anchorfile>namespacemacOS.html</anchorfile>
+      <anchor>aa16780bbaa0ee9db90a45b1ac772cd41</anchor>
+      <arglist>(NSImage *nsImage)</arglist>
+    </member>
+    <member kind="function">
+      <type>NSImage *</type>
+      <name>imageToNSImage</name>
+      <anchorfile>namespacemacOS.html</anchorfile>
+      <anchor>afeb021cb5c29f36e7f8b60a0b442577f</anchor>
+      <arglist>(const juce::Image &amp;image)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
