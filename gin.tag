@@ -1782,6 +1782,12 @@
     <class kind="class">Synthesiser</class>
   </compound>
   <compound kind="file">
+    <name>gin_systemclipboard.h</name>
+    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/utilities/</path>
+    <filename>gin__systemclipboard_8h.html</filename>
+    <class kind="class">SystemClipboard</class>
+  </compound>
+  <compound kind="file">
     <name>gin_systemsemaphore.h</name>
     <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
     <filename>gin__systemsemaphore_8h.html</filename>
@@ -15193,6 +15199,24 @@
       <anchorfile>classSynthesiserVoice.html</anchorfile>
       <anchor>aee3b10413c4c0203d9e8f26bb97cefaa</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>SystemClipboard</name>
+    <filename>classSystemClipboard.html</filename>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>copyImageToClipboard</name>
+      <anchorfile>classSystemClipboard.html</anchorfile>
+      <anchor>a1c79311fa64d08af2a94b33bef9e8767</anchor>
+      <arglist>(const juce::Image &amp;image)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::Image</type>
+      <name>getImageFromClipboard</name>
+      <anchorfile>classSystemClipboard.html</anchorfile>
+      <anchor>afd2868319b11cf3991923f73d66f7ec0</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
