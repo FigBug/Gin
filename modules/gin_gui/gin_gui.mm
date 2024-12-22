@@ -7,7 +7,7 @@
 
 #if __APPLE__
  #include "TargetConditionals.h"
- #if TARGET_OS_MAC
+ #if JUCE_MAC
   #define JUCE_CORE_INCLUDE_OBJC_HELPERS 1
   #define JUCE_GRAPHICS_INCLUDE_COREGRAPHICS_HELPERS 1
   #import <objc/message.h>
