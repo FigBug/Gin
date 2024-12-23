@@ -1,5 +1,7 @@
 <map id="PluginLookAndFeelWrapper" name="PluginLookAndFeelWrapper">
-<area shape="rect" id="node1" title="Auto sets and clears PluginLookAndFeel as default." alt="" coords="5,155,205,181"/>
-<area shape="rect" id="node2" href="$classPluginLookAndFeel.html" title="Plugin specific addition to GinLookAndFeel Still black and white." alt="" coords="33,80,178,107"/>
-<area shape="rect" id="node3" href="$classGinLookAndFeel.html" title="The GinLookAndFeel." alt="" coords="42,5,169,32"/>
+<area shape="rect" id="Node000001" title="Auto sets and clears PluginLookAndFeel as default." alt="" coords="5,152,205,177"/>
+<area shape="rect" id="Node000002" href="$classPluginLookAndFeel.html" title="Plugin specific addition to GinLookAndFeel Still black and white." alt="" coords="33,79,178,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,118,108,152,103,152,103,118"/>
+<area shape="rect" id="Node000003" href="$classGinLookAndFeel.html" title="The GinLookAndFeel." alt="" coords="42,5,169,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="108,44,108,79,103,79,103,44"/>
 </map>

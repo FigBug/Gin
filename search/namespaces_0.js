@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['assets_1926',['Assets',['../namespaceAssets.html',1,'']]]
+  ['assets_0',['Assets',['../namespaceAssets.html',1,'']]]
 ];

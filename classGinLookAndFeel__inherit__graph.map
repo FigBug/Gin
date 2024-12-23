@@ -1,7 +1,11 @@
 <map id="GinLookAndFeel" name="GinLookAndFeel">
-<area shape="rect" id="node1" title="The GinLookAndFeel." alt="" coords="145,5,272,32"/>
-<area shape="rect" id="node2" href="$classPluginLookAndFeel.html" title="Plugin specific addition to GinLookAndFeel Still black and white." alt="" coords="136,80,281,107"/>
-<area shape="rect" id="node3" href="$classCopperLookAndFeel.html" title="Plugin specific addition to GinLookAndFeel Still black and white." alt="" coords="33,155,184,181"/>
-<area shape="rect" id="node5" href="$classPluginLookAndFeelWrapper.html" title="Auto sets and clears PluginLookAndFeel as default." alt="" coords="209,155,409,181"/>
-<area shape="rect" id="node4" href="$classCopperLookAndFeelWrapper.html" title="Auto sets and clears CopperLookAndFeel as default." alt="" coords="5,229,212,256"/>
+<area shape="rect" id="Node000001" title="The GinLookAndFeel." alt="" coords="145,5,272,31"/>
+<area shape="rect" id="Node000002" href="$classPluginLookAndFeel.html" title="Plugin specific addition to GinLookAndFeel Still black and white." alt="" coords="136,79,281,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,44,211,79,206,79,206,44"/>
+<area shape="rect" id="Node000003" href="$classCopperLookAndFeel.html" title="Plugin specific addition to GinLookAndFeel Still black and white." alt="" coords="33,152,184,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="183,114,127,154,123,150,180,110"/>
+<area shape="rect" id="Node000005" href="$classPluginLookAndFeelWrapper.html" title="Auto sets and clears PluginLookAndFeel as default." alt="" coords="209,152,409,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="237,110,294,150,291,154,234,114"/>
+<area shape="rect" id="Node000004" href="$classCopperLookAndFeelWrapper.html" title="Auto sets and clears CopperLookAndFeel as default." alt="" coords="5,225,212,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="111,191,111,225,106,225,106,191"/>
 </map>

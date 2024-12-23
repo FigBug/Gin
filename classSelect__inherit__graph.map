@@ -1,4 +1,5 @@
 <map id="Select" name="Select">
-<area shape="rect" id="node1" title="Control for picking param value with label." alt="" coords="43,80,106,107"/>
-<area shape="rect" id="node2" href="$classParamComponent.html" title="Base class for a control showing a parameter with label." alt="" coords="5,5,144,32"/>
+<area shape="rect" id="Node000001" title="Control for picking param value with label." alt="" coords="43,79,106,104"/>
+<area shape="rect" id="Node000002" href="$classParamComponent.html" title="Base class for a control showing a parameter with label." alt="" coords="5,5,144,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,44,77,79,72,79,72,44"/>
 </map>

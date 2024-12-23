@@ -1,518 +1,49 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
-<tagfile doxygen_version="1.9.1">
-  <compound kind="file">
-    <name>gin_adsr.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__adsr_8h.html</filename>
-    <class kind="class">ADSR</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_adsrcomponent.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
-    <filename>gin__adsrcomponent_8h.html</filename>
-    <class kind="class">ADSRComponent</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_analogadsr.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__analogadsr_8h.html</filename>
-    <class kind="class">AnalogADSR</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_assets.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
-    <filename>gin__assets_8h.html</filename>
-    <namespace>Assets</namespace>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>next</name>
-      <anchorfile>namespaceAssets.html</anchorfile>
-      <anchor>a7e39560cce3d5062215a8a94f967e741</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>prev</name>
-      <anchorfile>namespaceAssets.html</anchorfile>
-      <anchor>ad5b11488698a963a52c57c3566f9d902</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>add</name>
-      <anchorfile>namespaceAssets.html</anchorfile>
-      <anchor>a29d2500065afcb02888418ee638563d8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>del</name>
-      <anchorfile>namespaceAssets.html</anchorfile>
-      <anchor>a168eb76a824f5085dc55dfc31f880361</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>browse</name>
-      <anchorfile>namespaceAssets.html</anchorfile>
-      <anchor>a971712f6dd2c7de1171c8139a852a38d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>menu</name>
-      <anchorfile>namespaceAssets.html</anchorfile>
-      <anchor>a1b0a8a5ee3663ec2443ce3ef8993b97a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>info</name>
-      <anchorfile>namespaceAssets.html</anchorfile>
-      <anchor>a0d8779fd5e3c309da5cef6baaa1b3c1e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>voice</name>
-      <anchorfile>namespaceAssets.html</anchorfile>
-      <anchor>a51fab03de052ae2f94d63829643584c7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>cpu</name>
-      <anchorfile>namespaceAssets.html</anchorfile>
-      <anchor>aa34af2fbaef6daaa684b5970e8cc68ea</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>power</name>
-      <anchorfile>namespaceAssets.html</anchorfile>
-      <anchor>ad53d4c201ef739ea70be0f9b9b427de9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>panic</name>
-      <anchorfile>namespaceAssets.html</anchorfile>
-      <anchor>ae4486cb0a48cf541282b09f07bdcc1d0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>retrigger</name>
-      <anchorfile>namespaceAssets.html</anchorfile>
-      <anchor>a0ab2fc968026d93758fb668685da9d78</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>caretDown</name>
-      <anchorfile>namespaceAssets.html</anchorfile>
-      <anchor>a7b3064ecec3c09aeec566d9b496920e0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>disk</name>
-      <anchorfile>namespaceAssets.html</anchorfile>
-      <anchor>a0cb9da58717b61750b505a0a19b4b3e2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>pencil</name>
-      <anchorfile>namespaceAssets.html</anchorfile>
-      <anchor>ae2a1b70a465b97b69ba7f4e890095f51</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>undo</name>
-      <anchorfile>namespaceAssets.html</anchorfile>
-      <anchor>a6d1564da75f002337b61a146aefd24a5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>redo</name>
-      <anchorfile>namespaceAssets.html</anchorfile>
-      <anchor>a579f83336c0f63d31cc457061a8395c0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>bipolar</name>
-      <anchorfile>namespaceAssets.html</anchorfile>
-      <anchor>ac3468e24409dbe47e8293799e3727311</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>gin_asyncutilities.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/utilities/</path>
-    <filename>gin__asyncutilities_8h.html</filename>
-    <class kind="class">LambdaTimer</class>
-    <class kind="class">LambdaAsyncUpdater</class>
-    <class kind="class">LambdaMouseListener</class>
-    <member kind="function">
-      <type>void</type>
-      <name>callOnMainThreadBlocking</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
-      <arglist>(std::function&lt; void()&gt; func)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>gin_asyncwebsocket.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_network/network/</path>
-    <filename>gin__asyncwebsocket_8h.html</filename>
-    <class kind="class">AsyncWebsocket</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_audioequationparser.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__audioequationparser_8h.html</filename>
-    <class kind="class">AudioEquationParser</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_audiofifo.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__audiofifo_8h.html</filename>
-    <class kind="class">AudioFifo</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_audiofunctions.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__audiofunctions_8h.html</filename>
-    <class kind="struct">FuncState</class>
-    <class kind="struct">OscState</class>
-    <class kind="struct">NoiseState</class>
-    <class kind="struct">HP12State</class>
-    <class kind="struct">HP24State</class>
-    <class kind="struct">BP12State</class>
-    <class kind="struct">BP24State</class>
-    <class kind="struct">LP12State</class>
-    <class kind="struct">LP24State</class>
-    <class kind="struct">Notch12State</class>
-    <class kind="struct">Notch24State</class>
-    <class kind="class">AudioFunctionHost</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_audioutil.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__audioutil_8h.html</filename>
-    <includes id="gin__scratchbuffer_8h" name="gin_scratchbuffer.h" local="yes" imported="no">gin_scratchbuffer.h</includes>
-    <class kind="class">GainProcessor</class>
-    <class kind="class">WetDryMix</class>
-    <namespace>Distortion</namespace>
-    <member kind="function">
-      <type>juce::Value</type>
-      <name>findValue</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga642bc58b032577b139e71665cc1817dc</anchor>
-      <arglist>(juce::ValueTree &amp;state, juce::Identifier name, juce::var value)</arglist>
-    </member>
-    <member kind="function">
-      <type>T</type>
-      <name>getMidiNoteInHertz</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga0521f87a41bf33dc06cc4b6889860401</anchor>
-      <arglist>(const T noteNumber, const T frequencyOfA=(T) 440.0)</arglist>
-    </member>
-    <member kind="function">
-      <type>T</type>
-      <name>getMidiNoteFromHertz</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gaba92011bb25f7416e8752e34fbec9c6f</anchor>
-      <arglist>(const T freq, const T frequencyOfA=(T) 440.0)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>velocityToGain</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gaeda2ea585490695813285661264a92b9</anchor>
-      <arglist>(float velocity, float sensitivity=1.0f)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>applyGain</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gaea524d06c0f9a97e215fafc7e997cc0b</anchor>
-      <arglist>(juce::AudioSampleBuffer &amp;buffer, juce::LinearSmoothedValue&lt; float &gt; &amp;gain)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>applyGain</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga23129d8a0f12afa042d9788afa21b90f</anchor>
-      <arglist>(juce::AudioSampleBuffer &amp;buffer, int channel, juce::LinearSmoothedValue&lt; float &gt; &amp;gain)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>clip</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga80d41603f74938619f0af6e8007f5944</anchor>
-      <arglist>(juce::AudioSampleBuffer &amp;buffer, float low=-1.0f, float high=1.0f)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::String</type>
-      <name>getMidiMessageType</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga6e16d794b5bc34b561ea9107adbd69ce</anchor>
-      <arglist>(const juce::MidiMessage &amp;msg)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::AudioSampleBuffer</type>
-      <name>sliceBuffer</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga1f707ada89f48bb4f68c4890ba90c27b</anchor>
-      <arglist>(juce::AudioSampleBuffer &amp;input, int start, int length)</arglist>
-    </member>
-    <member kind="function">
-      <type>ScratchBuffer</type>
-      <name>monoBuffer</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga57bf2df9e7b6d40a993d7d4371e653c3</anchor>
-      <arglist>(juce::AudioSampleBuffer &amp;input)</arglist>
-    </member>
-    <member kind="function">
-      <type>T</type>
-      <name>lerp</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga48b0dea68bc2af522095b90b5e9acc13</anchor>
-      <arglist>(T a, T b, T t)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>sign</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga1764c1268bc41fe5590a1287c071b27e</anchor>
-      <arglist>(T x)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>saturate</name>
-      <anchorfile>namespaceDistortion.html</anchorfile>
-      <anchor>a0d468da1bba442ec6f02dfd0f159f883</anchor>
-      <arglist>(float input, float drive, float lowclip, float highclip)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processBlock</name>
-      <anchorfile>namespaceDistortion.html</anchorfile>
-      <anchor>a1cbff571e105b4fc3335c9278d3f63fe</anchor>
-      <arglist>(juce::AudioSampleBuffer &amp;buffer, float drive, float lowclip, float highclip)</arglist>
-    </member>
-    <member kind="variable">
-      <type>constexpr float</type>
-      <name>Q</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gab7b12a212b5068cd4b83c5ef0af70511</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>gin_bandlimitedlookuptable.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__bandlimitedlookuptable_8h.html</filename>
-    <includes id="gin__noise_8h" name="gin_noise.h" local="yes" imported="no">gin_noise.h</includes>
-    <class kind="class">BandLimitedLookupTable</class>
-    <class kind="class">BandLimitedLookupTables</class>
-    <member kind="enumeration">
-      <type></type>
-      <name>Wave</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gadb931b2f752b7879df254a7fd9d17e90</anchor>
-      <arglist></arglist>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a0e82533c37fced763be34a5c21d720c9">silence</enumvalue>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a925212d1624625aed9491413b4b7be05">sine</enumvalue>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90acef44b46f16ae8ecf664df4266ffdbf9">triangle</enumvalue>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90acf87f9eb2bfacc5a0362031eba539290">sawUp</enumvalue>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a3593df94728cd88f078bbc6c41df9876">sawDown</enumvalue>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a02a8dc4cf01fed584c6423f577c0b0d7">pulse</enumvalue>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</enumvalue>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a7a84a039a97bb1bde36b4f45cefffc40">whiteNoise</enumvalue>
-      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a921d187c7e16d85201bfa3b9c47e1f77">pinkNoise</enumvalue>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>sine</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga63649a0b65f8aa4b67359978bd487bc1</anchor>
-      <arglist>(float phase, float unused1=0, float unused2=0)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>triangle</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gac1ca4d0b776735a17f87d61c90741d45</anchor>
-      <arglist>(float phase, float freq, float sampleRate)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>sawUp</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gaee1da7519de4693416c7eb52acae0e97</anchor>
-      <arglist>(float phase, float freq, float sampleRate)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>sawDown</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga7dcecee55962cc044ac3af15464b19a8</anchor>
-      <arglist>(float phase, float freq, float sampleRate)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>pulse</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga1f59ed3e69fd50c828e608593c6f1501</anchor>
-      <arglist>(float phase, float pw, float freq, float sampleRate)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>squareWave</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gaa53416e9fff8a3d96bda5ef381d56f5d</anchor>
-      <arglist>(float phase, float freq, float sampleRate)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>gin_bmpimageformat.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_graphics/formats/</path>
-    <filename>gin__bmpimageformat_8h.html</filename>
-    <class kind="class">BMPImageFormat</class>
-  </compound>
+<tagfile doxygen_version="1.9.8">
   <compound kind="file">
     <name>gin_catenary.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/geometry/</path>
+    <path>build/gin/geometry/</path>
     <filename>gin__catenary_8h.html</filename>
     <class kind="class">Catenary</class>
   </compound>
   <compound kind="file">
-    <name>gin_coalescedtimer.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/utilities/</path>
-    <filename>gin__coalescedtimer_8h.html</filename>
-    <class kind="class">CoalescedTimer</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_commentmetadata.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_metadata/metadata/</path>
-    <filename>gin__commentmetadata_8h.html</filename>
-    <class kind="class">CommentMetadata</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_componentgrid.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/components/</path>
-    <filename>gin__componentgrid_8h.html</filename>
-    <class kind="class">ComponentGrid</class>
-    <class kind="struct">ComponentGrid::DragInfo</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_componentutils.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/components/</path>
-    <filename>gin__componentutils_8h.html</filename>
+    <name>gin_geometry.h</name>
+    <path>build/gin/geometry/</path>
+    <filename>gin__geometry_8h.html</filename>
+    <class kind="class">Ellipse</class>
+    <class kind="class">Polygon</class>
     <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin__gui-components.html</anchorfile>
-      <anchor>ga66410efb088d24a02a86b4c6191e2866</anchor>
-      <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component * &gt; children)</arglist>
+      <type>T</type>
+      <name>square</name>
+      <anchorfile>group__gin-geometry.html</anchorfile>
+      <anchor>ga1c4cf92c230b2e375db8d832d07ec041</anchor>
+      <arglist>(T in)</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin__gui-components.html</anchorfile>
-      <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
-      <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
+      <type>bool</type>
+      <name>solveLine</name>
+      <anchorfile>group__gin-geometry.html</anchorfile>
+      <anchor>ga97bafa72f9f8ecdba9b839ecdb3db767</anchor>
+      <arglist>(T x1, T y1, T x2, T y2, T &amp;m, T &amp;b)</arglist>
     </member>
-  </compound>
-  <compound kind="file">
-    <name>gin_componentviewer.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/components/</path>
-    <filename>gin__componentviewer_8h.html</filename>
-    <class kind="class">ComponentViewer</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_controlbox.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
-    <filename>gin__controlbox_8h.html</filename>
-    <class kind="class">ControlBox</class>
-    <class kind="class">PagedControlBox</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_copperlookandfeel.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/lookandfeel/</path>
-    <filename>gin__copperlookandfeel_8h.html</filename>
-    <includes id="gin__images_8h" name="gin_images.h" local="yes" imported="no">gin_images.h</includes>
-    <class kind="class">CopperLookAndFeel</class>
-    <class kind="class">CopperLookAndFeelWrapper</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_delayline.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__delayline_8h.html</filename>
-    <class kind="class">DelayLine</class>
   </compound>
   <compound kind="file">
     <name>gin_diff.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
+    <path>build/gin/utilities/</path>
     <filename>gin__diff_8h.html</filename>
     <namespace>Diff</namespace>
-    <member kind="function">
-      <type>std::vector&lt; uint8_t &gt;</type>
-      <name>bsDiff</name>
-      <anchorfile>namespaceDiff.html</anchorfile>
-      <anchor>a90f3e15405b330c92210fe6fed6b4fad</anchor>
-      <arglist>(const juce::String &amp;s1, const juce::String &amp;s2)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::String</type>
-      <name>bsApplyPatch</name>
-      <anchorfile>namespaceDiff.html</anchorfile>
-      <anchor>a02f934e756b7ff02baaa06b4e7ceab55</anchor>
-      <arglist>(const juce::String &amp;s, const std::vector&lt; uint8_t &gt; &amp;patch)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>gin_distortion.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__distortion_8h.html</filename>
-    <class kind="class">AirWindowsDistortion</class>
   </compound>
   <compound kind="file">
     <name>gin_downloadmanager.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
+    <path>build/gin/utilities/</path>
     <filename>gin__downloadmanager_8h.html</filename>
-    <includes id="utilities_2gin__util_8h" name="utilities/gin_util.h" local="yes" imported="no">gin_util.h</includes>
+    <includes id="utilities_2gin__util_8h" name="utilities/gin_util.h" local="yes" import="no" module="no" objc="no">gin_util.h</includes>
     <class kind="class">DownloadManager</class>
     <class kind="struct">DownloadManager::DownloadResult</class>
   </compound>
   <compound kind="file">
-    <name>gin_dynamics.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__dynamics_8h.html</filename>
-    <class kind="class">EnvelopeDetector</class>
-    <class kind="class">Dynamics</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_dynamicsmeter.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/components/</path>
-    <filename>gin__dynamicsmeter_8h.html</filename>
-    <class kind="class">DynamicsMeter</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_easedvaluesmoother.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__easedvaluesmoother_8h.html</filename>
-    <class kind="class">EasedValueSmoother</class>
-  </compound>
-  <compound kind="file">
     <name>gin_easing.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
+    <path>build/gin/utilities/</path>
     <filename>gin__easing_8h.html</filename>
     <member kind="function">
       <type>T</type>
@@ -733,45 +264,21 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>gin_elevatedfilecopy.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/utilities/</path>
-    <filename>gin__elevatedfilecopy_8h.html</filename>
-    <class kind="class">ElevatedFileCopy</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_eq.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__eq_8h.html</filename>
-    <class kind="class">EQ</class>
-  </compound>
-  <compound kind="file">
     <name>gin_equationparser.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
+    <path>build/gin/utilities/</path>
     <filename>gin__equationparser_8h.html</filename>
     <class kind="class">EquationParser</class>
   </compound>
   <compound kind="file">
-    <name>gin_exifmetadata.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_metadata/metadata/</path>
-    <filename>gin__exifmetadata_8h.html</filename>
-    <class kind="class">ExifMetadata</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_fastmath.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__fastmath_8h.html</filename>
-    <class kind="class">FastMath</class>
-  </compound>
-  <compound kind="file">
     <name>gin_filesystemwatcher.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
+    <path>build/gin/utilities/</path>
     <filename>gin__filesystemwatcher_8h.html</filename>
     <class kind="class">FileSystemWatcher</class>
     <class kind="class">FileSystemWatcher::Listener</class>
   </compound>
   <compound kind="file">
     <name>gin_fileutilities.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
+    <path>build/gin/utilities/</path>
     <filename>gin__fileutilities_8h.html</filename>
     <member kind="function">
       <type>bool</type>
@@ -796,67 +303,627 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>gin_integrator.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__integrator_8h.html</filename>
+    <class kind="class">Integrator</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_lagrange.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__lagrange_8h.html</filename>
+    <namespace>Lagrange</namespace>
+  </compound>
+  <compound kind="file">
+    <name>gin_leastsquaresregression.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__leastsquaresregression_8h.html</filename>
+    <class kind="class">LeastSquaresRegression</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_linearregression.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__linearregression_8h.html</filename>
+    <class kind="class">LinearRegression</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_messagepack.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__messagepack_8h.html</filename>
+    <class kind="class">MessagePack</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_plist.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__plist_8h.html</filename>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>parsePlist</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>gac2aec1c96e46e294133bec5727ad2e98</anchor>
+      <arglist>(const juce::File &amp;f)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>parsePlist</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>gab0ff62a7c0a17d71004b40eb5a56f6a4</anchor>
+      <arglist>(const juce::String &amp;s)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>parsePlist</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga745860e41e38bb0e8b5e52cd7655628a</anchor>
+      <arglist>(const juce::XmlElement &amp;f)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_point.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__point_8h.html</filename>
+    <class kind="class">Point</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_realtimeasyncupdater.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__realtimeasyncupdater_8h.html</filename>
+    <class kind="class">RealtimeAsyncUpdater</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_riffparser.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__riffparser_8h.html</filename>
+    <class kind="class">RIFFParser</class>
+    <member kind="function">
+      <type>int</type>
+      <name>getWavetableSize</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>gaa886c18929f610b33cc6ee595f98c7f2</anchor>
+      <arglist>(const juce::MemoryBlock &amp;m)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getWavetableSize</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga639651eb58a00a2e054fcc18adf54dd0</anchor>
+      <arglist>(const juce::File &amp;f)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_sharedmemory.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__sharedmemory_8h.html</filename>
+    <class kind="class">SharedMemory</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_spline.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__spline_8h.html</filename>
+    <class kind="class">Spline</class>
+    <class kind="class">Spline::Element</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_systemsemaphore.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__systemsemaphore_8h.html</filename>
+    <class kind="class">SystemSemaphore</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_texthistory.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__texthistory_8h.html</filename>
+    <class kind="class">TextHistory</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_threading.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__threading_8h.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>callInBackground</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>gafe89b1694e591a29d7c325e41b21543f</anchor>
+      <arglist>(std::function&lt; void(void)&gt; function)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>multiThreadedFor</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga383aa0fdd6752ac48ba3e087006730fa</anchor>
+      <arglist>(T start, T end, T interval, juce::ThreadPool *threadPool, std::function&lt; void(T idx)&gt; callback)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_valuetreeobject.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__valuetreeobject_8h.html</filename>
+    <class kind="class">ValueTreeObject</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_valuetreeutilities.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__valuetreeutilities_8h.html</filename>
+    <class kind="class">LambdaValueTreeListener</class>
+    <class kind="class">AsyncLambdaValueTreeListener</class>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>valueTreeToJSON</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>gac8809f5a07d326dc76f18d09bd99db9d</anchor>
+      <arglist>(const juce::ValueTree &amp;v)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::ValueTree</type>
+      <name>valueTreeFromJSON</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga88f482bf81fb3e423fa1e3926dfaa9a6</anchor>
+      <arglist>(const juce::String &amp;jsonText)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_dynamicsmeter.h</name>
+    <path>build/gin_dsp/components/</path>
+    <filename>gin__dynamicsmeter_8h.html</filename>
+    <class kind="class">DynamicsMeter</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_levelmeter.h</name>
+    <path>build/gin_dsp/components/</path>
+    <filename>gin__levelmeter_8h.html</filename>
+    <class kind="class">LevelMeter</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_triggeredscope.h</name>
+    <path>build/gin_dsp/components/</path>
+    <filename>gin__triggeredscope_8h.html</filename>
+    <class kind="class">TriggeredScope</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_waveformcomponent.h</name>
+    <path>build/gin_dsp/components/</path>
+    <filename>gin__waveformcomponent_8h.html</filename>
+    <class kind="class">WaveformComponent</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_wavetablecomponent.h</name>
+    <path>build/gin_dsp/components/</path>
+    <filename>gin__wavetablecomponent_8h.html</filename>
+    <class kind="class">WavetableComponent</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_xyscope.h</name>
+    <path>build/gin_dsp/components/</path>
+    <filename>gin__xyscope_8h.html</filename>
+    <class kind="class">XYScope</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_adsr.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__adsr_8h.html</filename>
+    <class kind="class">ADSR</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_analogadsr.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__analogadsr_8h.html</filename>
+    <class kind="class">AnalogADSR</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_audioequationparser.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__audioequationparser_8h.html</filename>
+    <class kind="class">AudioEquationParser</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_audiofifo.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__audiofifo_8h.html</filename>
+    <class kind="class">AudioFifo</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_audiofunctions.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__audiofunctions_8h.html</filename>
+    <class kind="struct">FuncState</class>
+    <class kind="struct">OscState</class>
+    <class kind="struct">NoiseState</class>
+    <class kind="struct">HP12State</class>
+    <class kind="struct">HP24State</class>
+    <class kind="struct">BP12State</class>
+    <class kind="struct">BP24State</class>
+    <class kind="struct">LP12State</class>
+    <class kind="struct">LP24State</class>
+    <class kind="struct">Notch12State</class>
+    <class kind="struct">Notch24State</class>
+    <class kind="class">AudioFunctionHost</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_audioutil.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__audioutil_8h.html</filename>
+    <includes id="gin__scratchbuffer_8h" name="gin_scratchbuffer.h" local="yes" import="no" module="no" objc="no">gin_scratchbuffer.h</includes>
+    <class kind="class">GainProcessor</class>
+    <class kind="class">WetDryMix</class>
+    <namespace>Distortion</namespace>
+    <member kind="function">
+      <type>juce::Value</type>
+      <name>findValue</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga642bc58b032577b139e71665cc1817dc</anchor>
+      <arglist>(juce::ValueTree &amp;state, juce::Identifier name, juce::var value)</arglist>
+    </member>
+    <member kind="function">
+      <type>T</type>
+      <name>getMidiNoteInHertz</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga0521f87a41bf33dc06cc4b6889860401</anchor>
+      <arglist>(const T noteNumber, const T frequencyOfA=(T) 440.0)</arglist>
+    </member>
+    <member kind="function">
+      <type>T</type>
+      <name>getMidiNoteFromHertz</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>gaba92011bb25f7416e8752e34fbec9c6f</anchor>
+      <arglist>(const T freq, const T frequencyOfA=(T) 440.0)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>velocityToGain</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>gaeda2ea585490695813285661264a92b9</anchor>
+      <arglist>(float velocity, float sensitivity=1.0f)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applyGain</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>gaea524d06c0f9a97e215fafc7e997cc0b</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, juce::LinearSmoothedValue&lt; float &gt; &amp;gain)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>applyGain</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga23129d8a0f12afa042d9788afa21b90f</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, int channel, juce::LinearSmoothedValue&lt; float &gt; &amp;gain)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clip</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga80d41603f74938619f0af6e8007f5944</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, float low=-1.0f, float high=1.0f)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getMidiMessageType</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga6e16d794b5bc34b561ea9107adbd69ce</anchor>
+      <arglist>(const juce::MidiMessage &amp;msg)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::AudioSampleBuffer</type>
+      <name>sliceBuffer</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga1f707ada89f48bb4f68c4890ba90c27b</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;input, int start, int length)</arglist>
+    </member>
+    <member kind="function">
+      <type>ScratchBuffer</type>
+      <name>monoBuffer</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga57bf2df9e7b6d40a993d7d4371e653c3</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;input)</arglist>
+    </member>
+    <member kind="function">
+      <type>T</type>
+      <name>lerp</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga48b0dea68bc2af522095b90b5e9acc13</anchor>
+      <arglist>(T a, T b, T t)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>sign</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga1764c1268bc41fe5590a1287c071b27e</anchor>
+      <arglist>(T x)</arglist>
+    </member>
+    <member kind="variable">
+      <type>constexpr float</type>
+      <name>Q</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>gab7b12a212b5068cd4b83c5ef0af70511</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_bandlimitedlookuptable.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__bandlimitedlookuptable_8h.html</filename>
+    <includes id="gin__noise_8h" name="gin_noise.h" local="yes" import="no" module="no" objc="no">gin_noise.h</includes>
+    <class kind="class">BandLimitedLookupTable</class>
+    <class kind="class">BandLimitedLookupTables</class>
+    <member kind="enumeration">
+      <type></type>
+      <name>Wave</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>gadb931b2f752b7879df254a7fd9d17e90</anchor>
+      <arglist></arglist>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a0e82533c37fced763be34a5c21d720c9">silence</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a925212d1624625aed9491413b4b7be05">sine</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90acef44b46f16ae8ecf664df4266ffdbf9">triangle</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90acf87f9eb2bfacc5a0362031eba539290">sawUp</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a3593df94728cd88f078bbc6c41df9876">sawDown</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a02a8dc4cf01fed584c6423f577c0b0d7">pulse</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30">square</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a7a84a039a97bb1bde36b4f45cefffc40">whiteNoise</enumvalue>
+      <enumvalue file="group__gin__dsp-dsp.html" anchor="ggadb931b2f752b7879df254a7fd9d17e90a921d187c7e16d85201bfa3b9c47e1f77">pinkNoise</enumvalue>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>sine</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga63649a0b65f8aa4b67359978bd487bc1</anchor>
+      <arglist>(float phase, float unused1=0, float unused2=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>triangle</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>gac1ca4d0b776735a17f87d61c90741d45</anchor>
+      <arglist>(float phase, float freq, float sampleRate)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>sawUp</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>gaee1da7519de4693416c7eb52acae0e97</anchor>
+      <arglist>(float phase, float freq, float sampleRate)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>sawDown</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga7dcecee55962cc044ac3af15464b19a8</anchor>
+      <arglist>(float phase, float freq, float sampleRate)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>pulse</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>ga1f59ed3e69fd50c828e608593c6f1501</anchor>
+      <arglist>(float phase, float pw, float freq, float sampleRate)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>squareWave</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>gaa53416e9fff8a3d96bda5ef381d56f5d</anchor>
+      <arglist>(float phase, float freq, float sampleRate)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_delayline.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__delayline_8h.html</filename>
+    <class kind="class">DelayLine</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_distortion.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__distortion_8h.html</filename>
+    <class kind="class">AirWindowsDistortion</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_dynamics.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__dynamics_8h.html</filename>
+    <class kind="class">EnvelopeDetector</class>
+    <class kind="class">Dynamics</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_easedvaluesmoother.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__easedvaluesmoother_8h.html</filename>
+    <class kind="class">EasedValueSmoother</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_eq.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__eq_8h.html</filename>
+    <class kind="class">EQ</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_fastmath.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__fastmath_8h.html</filename>
+    <class kind="class">FastMath</class>
+  </compound>
+  <compound kind="file">
     <name>gin_filter.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
+    <path>build/gin_dsp/dsp/</path>
     <filename>gin__filter_8h.html</filename>
     <class kind="class">Filter</class>
   </compound>
   <compound kind="file">
     <name>gin_gateeffect.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
+    <path>build/gin_dsp/dsp/</path>
     <filename>gin__gateeffect_8h.html</filename>
     <class kind="class">GateEffect</class>
   </compound>
   <compound kind="file">
-    <name>gin_gateeffectcomponent.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
-    <filename>gin__gateeffectcomponent_8h.html</filename>
-    <class kind="class">GateEffectComponent</class>
+    <name>gin_leveltracker.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__leveltracker_8h.html</filename>
+    <class kind="class">LevelTracker</class>
   </compound>
   <compound kind="file">
-    <name>gin_geometry.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/geometry/</path>
-    <filename>gin__geometry_8h.html</filename>
-    <class kind="class">Ellipse</class>
-    <class kind="class">Polygon</class>
-    <member kind="function">
-      <type>T</type>
-      <name>square</name>
-      <anchorfile>group__gin-geometry.html</anchorfile>
-      <anchor>ga1c4cf92c230b2e375db8d832d07ec041</anchor>
-      <arglist>(T in)</arglist>
-    </member>
+    <name>gin_lfo.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__lfo_8h.html</filename>
+    <class kind="class">LFO</class>
+    <class kind="struct">LFO::Parameters</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_midififo.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__midififo_8h.html</filename>
+    <class kind="class">MidiFifo</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_dsp/dsp/gin_modulation.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__dsp_2dsp_2gin__modulation_8h.html</filename>
+    <class kind="class">Modulation</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_plugin/components/gin_modulation.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__plugin_2components_2gin__modulation_8h.html</filename>
+    <class kind="class">ModulationSourceButton</class>
+    <class kind="class">ModulationDepthSlider</class>
+    <class kind="class">ModulationOverview</class>
+    <class kind="class">ModSrcListBox</class>
+    <class kind="class">ModCurveButton</class>
+    <class kind="class">ModMatrixBox</class>
+    <class kind="class">ModMatrixBox::Row::DepthSlider</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_mseg.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__mseg_8h.html</filename>
+    <class kind="class">MSEG</class>
+    <class kind="struct">MSEG::Parameters</class>
+    <class kind="struct">MSEG::Point</class>
+    <class kind="struct">MSEG::Data</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_noise.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__noise_8h.html</filename>
+    <class kind="class">WhiteNoise</class>
+    <class kind="class">PinkNoise</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_oscillators.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__oscillators_8h.html</filename>
+    <class kind="class">StereoOscillator</class>
+    <class kind="struct">StereoOscillator::Params</class>
+    <class kind="struct">VoicedOscillatorParams</class>
+    <class kind="class">VoicedStereoOscillator</class>
+    <class kind="struct">VoicedStereoOscillatorParams</class>
+    <class kind="class">BLLTVoicedStereoOscillator</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_platereverb.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__platereverb_8h.html</filename>
+    <class kind="class">PlateReverb</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_resamplingfifo.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__resamplingfifo_8h.html</filename>
+    <includes id="gin__audioutil_8h" name="gin_audioutil.h" local="yes" import="no" module="no" objc="no">gin_audioutil.h</includes>
+    <class kind="class">ResamplingFifo</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_sample.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__sample_8h.html</filename>
+    <class kind="class">Sample</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_sampleoscillator.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__sampleoscillator_8h.html</filename>
+    <class kind="class">SampleOscillator</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_scratchbuffer.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__scratchbuffer_8h.html</filename>
+    <class kind="class">ScratchBuffer</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_simpleverb.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__simpleverb_8h.html</filename>
+    <class kind="class">SimpleVerb</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_steplfo.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__steplfo_8h.html</filename>
+    <class kind="class">StepLFO</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_stereodelay.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__stereodelay_8h.html</filename>
+    <class kind="class">StereoDelay</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_stereoenhancer.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__stereoenhancer_8h.html</filename>
+    <class kind="class">StereoEnhancer</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_stereoprocessor.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__stereoprocessor_8h.html</filename>
+    <class kind="class">StereoProcessor</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_synthesiser.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__synthesiser_8h.html</filename>
+    <class kind="struct">GlideInfo</class>
+    <class kind="class">SynthesiserVoice</class>
+    <class kind="class">Synthesiser</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_textrenderer.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__textrenderer_8h.html</filename>
+    <class kind="class">TextRenderer</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_valuesmoother.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__valuesmoother_8h.html</filename>
+    <class kind="class">ValueSmoother</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_wtoscillators.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__wtoscillators_8h.html</filename>
+    <class kind="class">DCBlocker</class>
+    <class kind="class">WTOscillator</class>
+    <class kind="struct">WTOscillator::Params</class>
+    <class kind="struct">WTVoicedStereoOscillatorParams</class>
+    <class kind="class">WTVoicedStereoOscillator</class>
     <member kind="function">
       <type>bool</type>
-      <name>solveLine</name>
-      <anchorfile>group__gin-geometry.html</anchorfile>
-      <anchor>ga97bafa72f9f8ecdba9b839ecdb3db767</anchor>
-      <arglist>(T x1, T y1, T x2, T y2, T &amp;m, T &amp;b)</arglist>
+      <name>loadWavetables</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>gac52374c731213a08657117a59c2828cd</anchor>
+      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; &amp;bllt, double playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, double fileSampleRate, int tableSize)</arglist>
     </member>
   </compound>
   <compound kind="file">
-    <name>gin_ginlookandfeel.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/components/</path>
-    <filename>gin__ginlookandfeel_8h.html</filename>
-    <class kind="class">GinLookAndFeel</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_headers.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
-    <filename>gin__headers_8h.html</filename>
-    <class kind="class">HeaderItem</class>
-    <class kind="class">HeaderRow</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_http.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_network/network/</path>
-    <filename>gin__http_8h.html</filename>
-    <class kind="class">Http</class>
-    <class kind="struct">Http::HttpResult</class>
+    <name>gin_bmpimageformat.h</name>
+    <path>build/gin_graphics/formats/</path>
+    <filename>gin__bmpimageformat_8h.html</filename>
+    <class kind="class">BMPImageFormat</class>
   </compound>
   <compound kind="file">
     <name>gin_imageeffects.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_graphics/images/</path>
+    <path>build/gin_graphics/images/</path>
     <filename>gin__imageeffects_8h.html</filename>
     <member kind="enumeration">
       <type></type>
@@ -1152,20 +1219,76 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>gin_imagemetadata.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_metadata/metadata/</path>
-    <filename>gin__imagemetadata_8h.html</filename>
-    <class kind="class">ImageMetadata</class>
+    <name>gin_componentgrid.h</name>
+    <path>build/gin_gui/components/</path>
+    <filename>gin__componentgrid_8h.html</filename>
+    <class kind="class">ComponentGrid</class>
+    <class kind="struct">ComponentGrid::DragInfo</class>
   </compound>
   <compound kind="file">
-    <name>gin_images.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/lookandfeel/</path>
-    <filename>gin__images_8h.html</filename>
-    <class kind="class">Images</class>
+    <name>gin_componentutils.h</name>
+    <path>build/gin_gui/components/</path>
+    <filename>gin__componentutils_8h.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin__gui-components.html</anchorfile>
+      <anchor>ga66410efb088d24a02a86b4c6191e2866</anchor>
+      <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component * &gt; children)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin__gui-components.html</anchorfile>
+      <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
+      <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_componentviewer.h</name>
+    <path>build/gin_gui/components/</path>
+    <filename>gin__componentviewer_8h.html</filename>
+    <class kind="class">ComponentViewer</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_ginlookandfeel.h</name>
+    <path>build/gin_gui/components/</path>
+    <filename>gin__ginlookandfeel_8h.html</filename>
+    <class kind="class">GinLookAndFeel</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_mapviewer.h</name>
+    <path>build/gin_gui/components/</path>
+    <filename>gin__mapviewer_8h.html</filename>
+    <class kind="class">MapViewer</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_propertycomponents.h</name>
+    <path>build/gin_gui/components/</path>
+    <filename>gin__propertycomponents_8h.html</filename>
+    <class kind="class">PropertyComponentBase</class>
+    <class kind="class">FilePropertyComponent</class>
+    <class kind="class">ColourPropertyComponent</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_singlelinetexteditor.h</name>
+    <path>build/gin_gui/components/</path>
+    <filename>gin__singlelinetexteditor_8h.html</filename>
+    <class kind="class">SingleLineTextEditor</class>
+    <class kind="class">SingleLineTextEditor::Listener</class>
+    <class kind="class">SingleLineTextEditor::InputFilter</class>
+    <class kind="class">SingleLineTextEditor::LengthAndCharacterRestriction</class>
+    <class kind="struct">SingleLineTextEditor::LookAndFeelMethods</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_svgbutton.h</name>
+    <path>build/gin_gui/components/</path>
+    <filename>gin__svgbutton_8h.html</filename>
+    <class kind="class">SVGButton</class>
   </compound>
   <compound kind="file">
     <name>gin_imageutilities.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/images/</path>
+    <path>build/gin_gui/images/</path>
     <filename>gin__imageutilities_8h.html</filename>
     <member kind="function">
       <type>juce::Image</type>
@@ -1183,676 +1306,60 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>gin_integrator.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
-    <filename>gin__integrator_8h.html</filename>
-    <class kind="class">Integrator</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_iptcmetadata.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_metadata/metadata/</path>
-    <filename>gin__iptcmetadata_8h.html</filename>
-    <class kind="class">IptcMetadata</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_knob.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
-    <filename>gin__knob_8h.html</filename>
-    <class kind="class">Knob</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_lagrange.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
-    <filename>gin__lagrange_8h.html</filename>
-    <namespace>Lagrange</namespace>
+    <name>gin_asyncutilities.h</name>
+    <path>build/gin_gui/utilities/</path>
+    <filename>gin__asyncutilities_8h.html</filename>
+    <class kind="class">LambdaTimer</class>
+    <class kind="class">LambdaAsyncUpdater</class>
+    <class kind="class">LambdaMouseListener</class>
     <member kind="function">
-      <type>T</type>
-      <name>interpolate</name>
-      <anchorfile>namespaceLagrange.html</anchorfile>
-      <anchor>aed0cc45b276f9ed337143c4587dc1122</anchor>
-      <arglist>(const juce::Array&lt; Point&lt; T &gt;&gt; &amp;points, T x)</arglist>
+      <type>void</type>
+      <name>callOnMainThreadBlocking</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
+      <arglist>(std::function&lt; void()&gt; func)</arglist>
     </member>
-    <member kind="function">
-      <type>T</type>
-      <name>interpolate</name>
-      <anchorfile>namespaceLagrange.html</anchorfile>
-      <anchor>ab812f4c6079c4c45b43e56239c3634d4</anchor>
-      <arglist>(T xArr[], T yArr[], int num, T x)</arglist>
-    </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_coalescedtimer.h</name>
+    <path>build/gin_gui/utilities/</path>
+    <filename>gin__coalescedtimer_8h.html</filename>
+    <class kind="class">CoalescedTimer</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_elevatedfilecopy.h</name>
+    <path>build/gin_gui/utilities/</path>
+    <filename>gin__elevatedfilecopy_8h.html</filename>
+    <class kind="class">ElevatedFileCopy</class>
   </compound>
   <compound kind="file">
     <name>gin_layout.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/utilities/</path>
+    <path>build/gin_gui/utilities/</path>
     <filename>gin__layout_8h.html</filename>
     <class kind="class">Layout</class>
   </compound>
   <compound kind="file">
-    <name>gin_leastsquaresregression.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
-    <filename>gin__leastsquaresregression_8h.html</filename>
-    <class kind="class">LeastSquaresRegression</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_levelmeter.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/components/</path>
-    <filename>gin__levelmeter_8h.html</filename>
-    <class kind="class">LevelMeter</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_leveltracker.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__leveltracker_8h.html</filename>
-    <class kind="class">LevelTracker</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_lfo.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__lfo_8h.html</filename>
-    <class kind="class">LFO</class>
-    <class kind="struct">LFO::Parameters</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_lfocomponent.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
-    <filename>gin__lfocomponent_8h.html</filename>
-    <class kind="class">LFOComponent</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_linearregression.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
-    <filename>gin__linearregression_8h.html</filename>
-    <class kind="class">LinearRegression</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_locationmananger.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_location/location/</path>
-    <filename>gin__locationmananger_8h.html</filename>
-    <class kind="class">LocationManager</class>
-    <class kind="struct">LocationManager::Location</class>
-    <class kind="class">LocationManager::Listener</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_mapviewer.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/components/</path>
-    <filename>gin__mapviewer_8h.html</filename>
-    <class kind="class">MapViewer</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_math.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_simd/math/</path>
-    <filename>gin__math_8h.html</filename>
-    <namespace>math</namespace>
-    <member kind="function">
-      <type>float</type>
-      <name>pow2</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a9fc4f8a6ae5797d88e79075846529fd0</anchor>
-      <arglist>(float v)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>pow4</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a9ec6798e6427507fc17135a4e64d3d0f</anchor>
-      <arglist>(float v)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>pow8</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a2be6046cf2e6f91daf2b18c109c76bcc</anchor>
-      <arglist>(float v)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>lerp</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a6370970cb3971fa9cc781b62cac7762c</anchor>
-      <arglist>(float a, float b, float t)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>min</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a3301207fd965d081143a0442ce2923e3</anchor>
-      <arglist>(float a, float b)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>max</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>ae4753f62af945d3b55f4de8c3bce86f8</anchor>
-      <arglist>(float a, float b)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>minVal</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>a0b920d6f11798894f8dcca932af7d7ce</anchor>
-      <arglist>(float a)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>maxVal</name>
-      <anchorfile>namespacemath.html</anchorfile>
-      <anchor>aa11b360dd6dc2fae2ba9cffdd2c886ff</anchor>
-      <arglist>(float a)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>gin_messagepack.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
-    <filename>gin__messagepack_8h.html</filename>
-    <class kind="class">MessagePack</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_midififo.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__midififo_8h.html</filename>
-    <class kind="class">MidiFifo</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_modmatrix.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/plugin/</path>
-    <filename>gin__modmatrix_8h.html</filename>
-    <class kind="struct">ModSrcId</class>
-    <class kind="struct">ModDstId</class>
-    <class kind="class">ModVoice</class>
-    <class kind="class">ModMatrix</class>
-    <class kind="class">ModMatrix::Listener</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_dsp/dsp/gin_modulation.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__dsp_2dsp_2gin__modulation_8h.html</filename>
-    <class kind="class">Modulation</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_plugin/components/gin_modulation.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
-    <filename>gin__plugin_2components_2gin__modulation_8h.html</filename>
-    <class kind="class">ModulationSourceButton</class>
-    <class kind="class">ModulationDepthSlider</class>
-    <class kind="class">ModulationOverview</class>
-    <class kind="class">ModSrcListBox</class>
-    <class kind="class">ModCurveButton</class>
-    <class kind="class">ModMatrixBox</class>
-    <class kind="class">ModMatrixBox::Row::DepthSlider</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_modules.dox</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/</path>
-    <filename>gin__modules_8dox.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>gin_mseg.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__mseg_8h.html</filename>
-    <class kind="class">MSEG</class>
-    <class kind="struct">MSEG::Parameters</class>
-    <class kind="struct">MSEG::Point</class>
-    <class kind="struct">MSEG::Data</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_msegcomponent.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
-    <filename>gin__msegcomponent_8h.html</filename>
-    <class kind="class">MSEGComponent</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_multiparamcomponent.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
-    <filename>gin__multiparamcomponent_8h.html</filename>
-    <class kind="class">MultiParamComponent</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_noise.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__noise_8h.html</filename>
-    <class kind="class">WhiteNoise</class>
-    <class kind="class">PinkNoise</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_noteduration.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/plugin/</path>
-    <filename>gin__noteduration_8h.html</filename>
-    <class kind="class">NoteDuration</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_oauth.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_network/network/</path>
-    <filename>gin__oauth_8h.html</filename>
-  </compound>
-  <compound kind="file">
     <name>gin_openstreetmaps.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/utilities/</path>
+    <path>build/gin_gui/utilities/</path>
     <filename>gin__openstreetmaps_8h.html</filename>
     <class kind="class">OpenStreetMaps</class>
     <class kind="class">OpenStreetMaps::Listener</class>
   </compound>
   <compound kind="file">
-    <name>gin_oscillators.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__oscillators_8h.html</filename>
-    <class kind="class">StereoOscillator</class>
-    <class kind="struct">StereoOscillator::Params</class>
-    <class kind="struct">VoicedOscillatorParams</class>
-    <class kind="class">VoicedStereoOscillator</class>
-    <class kind="struct">VoicedStereoOscillatorParams</class>
-    <class kind="class">BLLTVoicedStereoOscillator</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_parambox.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
-    <filename>gin__parambox_8h.html</filename>
-    <class kind="class">ParamHeader</class>
-    <class kind="class">HeaderButton</class>
-    <class kind="class">ParamBox</class>
-    <class kind="class">ParamArea</class>
-    <class kind="class">BoxArea</class>
-    <member kind="function">
-      <type>void</type>
-      <name>gradientRect</name>
-      <anchorfile>group__gin__plugin-components.html</anchorfile>
-      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
-      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>gin_parameter.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/plugin/</path>
-    <filename>gin__parameter_8h.html</filename>
-    <class kind="class">Parameter</class>
-    <class kind="class">Parameter::ParameterListener</class>
-    <class kind="struct">Parameter::ParamState</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_patchbrowser.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
-    <filename>gin__patchbrowser_8h.html</filename>
-    <class kind="class">PatchBrowser</class>
-    <class kind="struct">PatchBrowser::AuthorsModel</class>
-    <class kind="struct">PatchBrowser::TagsModel</class>
-    <class kind="struct">PatchBrowser::PresetsModel</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_platereverb.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__platereverb_8h.html</filename>
-    <class kind="class">PlateReverb</class>
-  </compound>
-  <compound kind="file">
     <name>gin_platform.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/utilities/</path>
+    <path>build/gin_gui/utilities/</path>
     <filename>gin__platform_8h.html</filename>
     <namespace>macOS</namespace>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>nsImageToImage</name>
-      <anchorfile>namespacemacOS.html</anchorfile>
-      <anchor>aa16780bbaa0ee9db90a45b1ac772cd41</anchor>
-      <arglist>(NSImage *nsImage)</arglist>
-    </member>
-    <member kind="function">
-      <type>NSImage *</type>
-      <name>imageToNSImage</name>
-      <anchorfile>namespacemacOS.html</anchorfile>
-      <anchor>afeb021cb5c29f36e7f8b60a0b442577f</anchor>
-      <arglist>(const juce::Image &amp;image)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>gin_plist.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
-    <filename>gin__plist_8h.html</filename>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>parsePlist</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>gac2aec1c96e46e294133bec5727ad2e98</anchor>
-      <arglist>(const juce::File &amp;f)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>parsePlist</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>gab0ff62a7c0a17d71004b40eb5a56f6a4</anchor>
-      <arglist>(const juce::String &amp;s)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>parsePlist</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga745860e41e38bb0e8b5e52cd7655628a</anchor>
-      <arglist>(const juce::XmlElement &amp;f)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>gin_pluginalertwindow.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
-    <filename>gin__pluginalertwindow_8h.html</filename>
-    <class kind="class">PluginAlertWindow</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_plugincomponents.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
-    <filename>gin__plugincomponents_8h.html</filename>
-    <class kind="class">PluginButton</class>
-    <class kind="class">SVGPluginButton</class>
-    <class kind="class">PowerButton</class>
-    <class kind="class">PluginComboBox</class>
-    <class kind="class">PluginSlider</class>
-    <class kind="class">Readout</class>
-    <class kind="class">ParamComponent</class>
-    <class kind="class">HorizontalFader</class>
-    <class kind="class">Switch</class>
-    <class kind="class">Select</class>
-    <class kind="class">SynthesiserUsage</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_plugineditor.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
-    <filename>gin__plugineditor_8h.html</filename>
-    <class kind="class">UpdateChecker</class>
-    <class kind="class">NewsChecker</class>
-    <class kind="class">ProcessorEditorBase</class>
-    <class kind="class">TitleBar</class>
-    <class kind="class">ProcessorEditor</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_pluginlookandfeel.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/lookandfeel/</path>
-    <filename>gin__pluginlookandfeel_8h.html</filename>
-    <class kind="class">PluginLookAndFeel</class>
-    <class kind="class">PluginLookAndFeelWrapper</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_point.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
-    <filename>gin__point_8h.html</filename>
-    <class kind="class">Point</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_processor.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/plugin/</path>
-    <filename>gin__processor_8h.html</filename>
-    <includes id="gin__parameter_8h" name="gin_parameter.h" local="yes" imported="no">gin_parameter.h</includes>
-    <includes id="gin__program_8h" name="gin_program.h" local="yes" imported="no">gin_program.h</includes>
-    <includes id="gin__pluginlookandfeel_8h" name="gin_pluginlookandfeel.h" local="yes" imported="no">../lookandfeel/gin_pluginlookandfeel.h</includes>
-    <includes id="gin__copperlookandfeel_8h" name="gin_copperlookandfeel.h" local="yes" imported="no">../lookandfeel/gin_copperlookandfeel.h</includes>
-    <class kind="class">SmoothingType</class>
-    <class kind="class">ProcessorOptions</class>
-    <class kind="class">Processor</class>
-    <member kind="define">
-      <type>#define</type>
-      <name>ProcessorBaseClass</name>
-      <anchorfile>group__gin__plugin-plugin.html</anchorfile>
-      <anchor>ga9ccf6c679c1fdf1c1414992a17202f5a</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>gin_program.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/plugin/</path>
-    <filename>gin__program_8h.html</filename>
-    <includes id="gin__parameter_8h" name="gin_parameter.h" local="yes" imported="no">gin_parameter.h</includes>
-    <class kind="class">Program</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_propertycomponents.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/components/</path>
-    <filename>gin__propertycomponents_8h.html</filename>
-    <class kind="class">PropertyComponentBase</class>
-    <class kind="class">FilePropertyComponent</class>
-    <class kind="class">ColourPropertyComponent</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_realtimeasyncupdater.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
-    <filename>gin__realtimeasyncupdater_8h.html</filename>
-    <class kind="class">RealtimeAsyncUpdater</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_resamplingfifo.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__resamplingfifo_8h.html</filename>
-    <includes id="gin__audioutil_8h" name="gin_audioutil.h" local="yes" imported="no">gin_audioutil.h</includes>
-    <class kind="class">ResamplingFifo</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_resources.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/lookandfeel/</path>
-    <filename>gin__resources_8h.html</filename>
-    <namespace>Resources</namespace>
-    <member kind="variable">
-      <type>const char *</type>
-      <name>BarlowRegular_ttf</name>
-      <anchorfile>namespaceResources.html</anchorfile>
-      <anchor>abbddb191fa7624c2d2127ce3b537b898</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const int</type>
-      <name>BarlowRegular_ttfSize</name>
-      <anchorfile>namespaceResources.html</anchorfile>
-      <anchor>ab6e0bb1c70ec3ed211118f968880cd2f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const char *</type>
-      <name>BarlowThin_ttf</name>
-      <anchorfile>namespaceResources.html</anchorfile>
-      <anchor>ae4ad6d277ad33de26e02e1572510d8dc</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const int</type>
-      <name>BarlowThin_ttfSize</name>
-      <anchorfile>namespaceResources.html</anchorfile>
-      <anchor>ae17a5aae2e3106082be4c8b5d3e61bf9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const char *</type>
-      <name>InterRegular_otf</name>
-      <anchorfile>namespaceResources.html</anchorfile>
-      <anchor>a821eb0a806b852016c53ab6151f00d3d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const int</type>
-      <name>InterRegular_otfSize</name>
-      <anchorfile>namespaceResources.html</anchorfile>
-      <anchor>af4f0aa394cb30c14c4306162f0d5e6d4</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>gin_riffparser.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
-    <filename>gin__riffparser_8h.html</filename>
-    <class kind="class">RIFFParser</class>
-    <member kind="function">
-      <type>int</type>
-      <name>getWavetableSize</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>gaa886c18929f610b33cc6ee595f98c7f2</anchor>
-      <arglist>(const juce::MemoryBlock &amp;m)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getWavetableSize</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga639651eb58a00a2e054fcc18adf54dd0</anchor>
-      <arglist>(const juce::File &amp;f)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>gin_sample.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__sample_8h.html</filename>
-    <class kind="class">Sample</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_sampleoscillator.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__sampleoscillator_8h.html</filename>
-    <class kind="class">SampleOscillator</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_scaledplugineditor.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
-    <filename>gin__scaledplugineditor_8h.html</filename>
-    <class kind="class">ScaledPluginEditor</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_scratchbuffer.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__scratchbuffer_8h.html</filename>
-    <class kind="class">ScratchBuffer</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_securestreamingsocket.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_network/network/</path>
-    <filename>gin__securestreamingsocket_8h.html</filename>
-    <class kind="class">SecureStreamingSocket</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_sharedmemory.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
-    <filename>gin__sharedmemory_8h.html</filename>
-    <class kind="class">SharedMemory</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_simpleverb.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__simpleverb_8h.html</filename>
-    <class kind="class">SimpleVerb</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_singlelinetexteditor.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/components/</path>
-    <filename>gin__singlelinetexteditor_8h.html</filename>
-    <class kind="class">SingleLineTextEditor</class>
-    <class kind="class">SingleLineTextEditor::Listener</class>
-    <class kind="class">SingleLineTextEditor::InputFilter</class>
-    <class kind="class">SingleLineTextEditor::LengthAndCharacterRestriction</class>
-    <class kind="struct">SingleLineTextEditor::LookAndFeelMethods</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_smoothedparameter.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/plugin/</path>
-    <filename>gin__smoothedparameter_8h.html</filename>
-    <class kind="class">SmoothedParameter</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_spline.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
-    <filename>gin__spline_8h.html</filename>
-    <class kind="class">Spline</class>
-    <class kind="class">Spline::Element</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_standaloneapp.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
-    <filename>gin__standaloneapp_8h.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>gin_steplfo.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__steplfo_8h.html</filename>
-    <class kind="class">StepLFO</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_steplfocomponent.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_plugin/components/</path>
-    <filename>gin__steplfocomponent_8h.html</filename>
-    <class kind="class">StepLFOComponent</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_stereodelay.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__stereodelay_8h.html</filename>
-    <class kind="class">StereoDelay</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_stereoenhancer.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__stereoenhancer_8h.html</filename>
-    <class kind="class">StereoEnhancer</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_stereoprocessor.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__stereoprocessor_8h.html</filename>
-    <class kind="class">StereoProcessor</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_svgbutton.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/components/</path>
-    <filename>gin__svgbutton_8h.html</filename>
-    <class kind="class">SVGButton</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_synthesiser.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__synthesiser_8h.html</filename>
-    <class kind="struct">GlideInfo</class>
-    <class kind="class">SynthesiserVoice</class>
-    <class kind="class">Synthesiser</class>
   </compound>
   <compound kind="file">
     <name>gin_systemclipboard.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/utilities/</path>
+    <path>build/gin_gui/utilities/</path>
     <filename>gin__systemclipboard_8h.html</filename>
     <class kind="class">SystemClipboard</class>
   </compound>
   <compound kind="file">
-    <name>gin_systemsemaphore.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
-    <filename>gin__systemsemaphore_8h.html</filename>
-    <class kind="class">SystemSemaphore</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_texthistory.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
-    <filename>gin__texthistory_8h.html</filename>
-    <class kind="class">TextHistory</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_textrenderer.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__textrenderer_8h.html</filename>
-    <class kind="class">TextRenderer</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_threading.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
-    <filename>gin__threading_8h.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>callInBackground</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>gafe89b1694e591a29d7c325e41b21543f</anchor>
-      <arglist>(std::function&lt; void(void)&gt; function)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>multiThreadedFor</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga383aa0fdd6752ac48ba3e087006730fa</anchor>
-      <arglist>(T start, T end, T interval, juce::ThreadPool *threadPool, std::function&lt; void(T idx)&gt; callback)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>gin_triggeredscope.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/components/</path>
-    <filename>gin__triggeredscope_8h.html</filename>
-    <class kind="class">TriggeredScope</class>
-  </compound>
-  <compound kind="file">
     <name>utilities/gin_util.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
+    <path>build/gin/utilities/</path>
     <filename>utilities_2gin__util_8h.html</filename>
     <class kind="class">PerlinNoise</class>
     <class kind="class">RollingAverage</class>
@@ -1909,7 +1416,7 @@
   </compound>
   <compound kind="file">
     <name>gui/utilities/gin_util.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_gui/utilities/</path>
+    <path>build/gin_gui/utilities/</path>
     <filename>gui_2utilities_2gin__util_8h.html</filename>
     <class kind="class">AsyncDownload</class>
     <member kind="function">
@@ -1935,91 +1442,304 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>gin_valuesmoother.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__valuesmoother_8h.html</filename>
-    <class kind="class">ValueSmoother</class>
+    <name>gin_locationmananger.h</name>
+    <path>build/gin_location/location/</path>
+    <filename>gin__locationmananger_8h.html</filename>
+    <class kind="class">LocationManager</class>
+    <class kind="struct">LocationManager::Location</class>
+    <class kind="class">LocationManager::Listener</class>
   </compound>
   <compound kind="file">
-    <name>gin_valuetreeobject.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
-    <filename>gin__valuetreeobject_8h.html</filename>
-    <class kind="class">ValueTreeObject</class>
+    <name>gin_commentmetadata.h</name>
+    <path>build/gin_metadata/metadata/</path>
+    <filename>gin__commentmetadata_8h.html</filename>
+    <class kind="class">CommentMetadata</class>
   </compound>
   <compound kind="file">
-    <name>gin_valuetreeutilities.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin/utilities/</path>
-    <filename>gin__valuetreeutilities_8h.html</filename>
-    <class kind="class">LambdaValueTreeListener</class>
-    <class kind="class">AsyncLambdaValueTreeListener</class>
-    <member kind="function">
-      <type>juce::String</type>
-      <name>valueTreeToJSON</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>gac8809f5a07d326dc76f18d09bd99db9d</anchor>
-      <arglist>(const juce::ValueTree &amp;v)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::ValueTree</type>
-      <name>valueTreeFromJSON</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga88f482bf81fb3e423fa1e3926dfaa9a6</anchor>
-      <arglist>(const juce::String &amp;jsonText)</arglist>
-    </member>
+    <name>gin_exifmetadata.h</name>
+    <path>build/gin_metadata/metadata/</path>
+    <filename>gin__exifmetadata_8h.html</filename>
+    <class kind="class">ExifMetadata</class>
   </compound>
   <compound kind="file">
-    <name>gin_waveformcomponent.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/components/</path>
-    <filename>gin__waveformcomponent_8h.html</filename>
-    <class kind="class">WaveformComponent</class>
+    <name>gin_imagemetadata.h</name>
+    <path>build/gin_metadata/metadata/</path>
+    <filename>gin__imagemetadata_8h.html</filename>
+    <class kind="class">ImageMetadata</class>
   </compound>
   <compound kind="file">
-    <name>gin_wavetablecomponent.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/components/</path>
-    <filename>gin__wavetablecomponent_8h.html</filename>
-    <class kind="class">WavetableComponent</class>
+    <name>gin_iptcmetadata.h</name>
+    <path>build/gin_metadata/metadata/</path>
+    <filename>gin__iptcmetadata_8h.html</filename>
+    <class kind="class">IptcMetadata</class>
   </compound>
   <compound kind="file">
-    <name>gin_webpimageformat.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_webp/formats/</path>
-    <filename>gin__webpimageformat_8h.html</filename>
-    <class kind="class">WEBPImageFormat</class>
+    <name>gin_xmpmetadata.h</name>
+    <path>build/gin_metadata/metadata/</path>
+    <filename>gin__xmpmetadata_8h.html</filename>
+    <class kind="class">XmpMetadata</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_modules.dox</name>
+    <path>build/</path>
+    <filename>gin__modules_8dox.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>gin_asyncwebsocket.h</name>
+    <path>build/gin_network/network/</path>
+    <filename>gin__asyncwebsocket_8h.html</filename>
+    <class kind="class">AsyncWebsocket</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_http.h</name>
+    <path>build/gin_network/network/</path>
+    <filename>gin__http_8h.html</filename>
+    <class kind="class">Http</class>
+    <class kind="struct">Http::HttpResult</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_oauth.h</name>
+    <path>build/gin_network/network/</path>
+    <filename>gin__oauth_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>gin_securestreamingsocket.h</name>
+    <path>build/gin_network/network/</path>
+    <filename>gin__securestreamingsocket_8h.html</filename>
+    <class kind="class">SecureStreamingSocket</class>
   </compound>
   <compound kind="file">
     <name>gin_websocket.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_network/network/</path>
+    <path>build/gin_network/network/</path>
     <filename>gin__websocket_8h.html</filename>
     <class kind="struct">WSHeaderType</class>
     <class kind="class">WebSocket</class>
   </compound>
   <compound kind="file">
-    <name>gin_wtoscillators.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/dsp/</path>
-    <filename>gin__wtoscillators_8h.html</filename>
-    <class kind="class">DCBlocker</class>
-    <class kind="class">WTOscillator</class>
-    <class kind="struct">WTOscillator::Params</class>
-    <class kind="struct">WTVoicedStereoOscillatorParams</class>
-    <class kind="class">WTVoicedStereoOscillator</class>
+    <name>gin_adsrcomponent.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__adsrcomponent_8h.html</filename>
+    <class kind="class">ADSRComponent</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_assets.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__assets_8h.html</filename>
+    <namespace>Assets</namespace>
+  </compound>
+  <compound kind="file">
+    <name>gin_controlbox.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__controlbox_8h.html</filename>
+    <class kind="class">ControlBox</class>
+    <class kind="class">PagedControlBox</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_gateeffectcomponent.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__gateeffectcomponent_8h.html</filename>
+    <class kind="class">GateEffectComponent</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_headers.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__headers_8h.html</filename>
+    <class kind="class">HeaderItem</class>
+    <class kind="class">HeaderRow</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_knob.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__knob_8h.html</filename>
+    <class kind="class">Knob</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_lfocomponent.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__lfocomponent_8h.html</filename>
+    <class kind="class">LFOComponent</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_msegcomponent.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__msegcomponent_8h.html</filename>
+    <class kind="class">MSEGComponent</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_multiparamcomponent.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__multiparamcomponent_8h.html</filename>
+    <class kind="class">MultiParamComponent</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_parambox.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__parambox_8h.html</filename>
+    <class kind="class">ParamHeader</class>
+    <class kind="class">HeaderButton</class>
+    <class kind="class">ParamBox</class>
+    <class kind="class">ParamArea</class>
+    <class kind="class">BoxArea</class>
     <member kind="function">
-      <type>bool</type>
-      <name>loadWavetables</name>
-      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gac52374c731213a08657117a59c2828cd</anchor>
-      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; &amp;bllt, double playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, double fileSampleRate, int tableSize)</arglist>
+      <type>void</type>
+      <name>gradientRect</name>
+      <anchorfile>group__gin__plugin-components.html</anchorfile>
+      <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
+      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
     </member>
   </compound>
   <compound kind="file">
-    <name>gin_xmpmetadata.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_metadata/metadata/</path>
-    <filename>gin__xmpmetadata_8h.html</filename>
-    <class kind="class">XmpMetadata</class>
+    <name>gin_patchbrowser.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__patchbrowser_8h.html</filename>
+    <class kind="class">PatchBrowser</class>
+    <class kind="struct">PatchBrowser::AuthorsModel</class>
+    <class kind="struct">PatchBrowser::TagsModel</class>
+    <class kind="struct">PatchBrowser::PresetsModel</class>
   </compound>
   <compound kind="file">
-    <name>gin_xyscope.h</name>
-    <path>/home/runner/work/Gin/Gin/doxygen/build/gin_dsp/components/</path>
-    <filename>gin__xyscope_8h.html</filename>
-    <class kind="class">XYScope</class>
+    <name>gin_pluginalertwindow.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__pluginalertwindow_8h.html</filename>
+    <class kind="class">PluginAlertWindow</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_plugincomponents.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__plugincomponents_8h.html</filename>
+    <class kind="class">PluginButton</class>
+    <class kind="class">SVGPluginButton</class>
+    <class kind="class">PowerButton</class>
+    <class kind="class">PluginComboBox</class>
+    <class kind="class">PluginSlider</class>
+    <class kind="class">Readout</class>
+    <class kind="class">ParamComponent</class>
+    <class kind="class">HorizontalFader</class>
+    <class kind="class">Switch</class>
+    <class kind="class">Select</class>
+    <class kind="class">SynthesiserUsage</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_plugineditor.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__plugineditor_8h.html</filename>
+    <class kind="class">UpdateChecker</class>
+    <class kind="class">NewsChecker</class>
+    <class kind="class">ProcessorEditorBase</class>
+    <class kind="class">TitleBar</class>
+    <class kind="class">ProcessorEditor</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_scaledplugineditor.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__scaledplugineditor_8h.html</filename>
+    <class kind="class">ScaledPluginEditor</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_standaloneapp.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__standaloneapp_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>gin_steplfocomponent.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__steplfocomponent_8h.html</filename>
+    <class kind="class">StepLFOComponent</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_copperlookandfeel.h</name>
+    <path>build/gin_plugin/lookandfeel/</path>
+    <filename>gin__copperlookandfeel_8h.html</filename>
+    <includes id="gin__images_8h" name="gin_images.h" local="yes" import="no" module="no" objc="no">gin_images.h</includes>
+    <class kind="class">CopperLookAndFeel</class>
+    <class kind="class">CopperLookAndFeelWrapper</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_images.h</name>
+    <path>build/gin_plugin/lookandfeel/</path>
+    <filename>gin__images_8h.html</filename>
+    <class kind="class">Images</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_pluginlookandfeel.h</name>
+    <path>build/gin_plugin/lookandfeel/</path>
+    <filename>gin__pluginlookandfeel_8h.html</filename>
+    <class kind="class">PluginLookAndFeel</class>
+    <class kind="class">PluginLookAndFeelWrapper</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_resources.h</name>
+    <path>build/gin_plugin/lookandfeel/</path>
+    <filename>gin__resources_8h.html</filename>
+    <namespace>Resources</namespace>
+  </compound>
+  <compound kind="file">
+    <name>gin_modmatrix.h</name>
+    <path>build/gin_plugin/plugin/</path>
+    <filename>gin__modmatrix_8h.html</filename>
+    <class kind="struct">ModSrcId</class>
+    <class kind="struct">ModDstId</class>
+    <class kind="class">ModVoice</class>
+    <class kind="class">ModMatrix</class>
+    <class kind="class">ModMatrix::Listener</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_noteduration.h</name>
+    <path>build/gin_plugin/plugin/</path>
+    <filename>gin__noteduration_8h.html</filename>
+    <class kind="class">NoteDuration</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_parameter.h</name>
+    <path>build/gin_plugin/plugin/</path>
+    <filename>gin__parameter_8h.html</filename>
+    <class kind="class">Parameter</class>
+    <class kind="class">Parameter::ParameterListener</class>
+    <class kind="struct">Parameter::ParamState</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_processor.h</name>
+    <path>build/gin_plugin/plugin/</path>
+    <filename>gin__processor_8h.html</filename>
+    <includes id="gin__parameter_8h" name="gin_parameter.h" local="yes" import="no" module="no" objc="no">gin_parameter.h</includes>
+    <includes id="gin__program_8h" name="gin_program.h" local="yes" import="no" module="no" objc="no">gin_program.h</includes>
+    <includes id="gin__pluginlookandfeel_8h" name="gin_pluginlookandfeel.h" local="yes" import="no" module="no" objc="no">../lookandfeel/gin_pluginlookandfeel.h</includes>
+    <includes id="gin__copperlookandfeel_8h" name="gin_copperlookandfeel.h" local="yes" import="no" module="no" objc="no">../lookandfeel/gin_copperlookandfeel.h</includes>
+    <class kind="class">SmoothingType</class>
+    <class kind="class">ProcessorOptions</class>
+    <class kind="class">Processor</class>
+    <member kind="define">
+      <type>#define</type>
+      <name>ProcessorBaseClass</name>
+      <anchorfile>group__gin__plugin-plugin.html</anchorfile>
+      <anchor>ga9ccf6c679c1fdf1c1414992a17202f5a</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_program.h</name>
+    <path>build/gin_plugin/plugin/</path>
+    <filename>gin__program_8h.html</filename>
+    <includes id="gin__parameter_8h" name="gin_parameter.h" local="yes" import="no" module="no" objc="no">gin_parameter.h</includes>
+    <class kind="class">Program</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_smoothedparameter.h</name>
+    <path>build/gin_plugin/plugin/</path>
+    <filename>gin__smoothedparameter_8h.html</filename>
+    <class kind="class">SmoothedParameter</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_math.h</name>
+    <path>build/gin_simd/math/</path>
+    <filename>gin__math_8h.html</filename>
+    <namespace>math</namespace>
+  </compound>
+  <compound kind="file">
+    <name>gin_webpimageformat.h</name>
+    <path>build/gin_webp/formats/</path>
+    <filename>gin__webpimageformat_8h.html</filename>
+    <class kind="class">WEBPImageFormat</class>
   </compound>
   <compound kind="class">
     <name>ADSR</name>
@@ -2163,7 +1883,7 @@
       <type>std::pair&lt; int, float &gt;</type>
       <name>getCurrentPhase</name>
       <anchorfile>classADSR.html</anchorfile>
-      <anchor>a0653a5307b7afcada9b791c34a15847b</anchor>
+      <anchor>ab79d3484cd8897ab346b7bcae9f18957</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -2298,10 +2018,10 @@
       <arglist>(Parameter::Ptr attack, Parameter::Ptr decay, Parameter::Ptr sustain, Parameter::Ptr release)</arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; std::vector&lt; std::pair&lt; int, float &gt; &gt;)&gt;</type>
+      <type>std::function&lt; std::vector&lt; std::pair&lt; int, float &gt; &gt;()&gt;</type>
       <name>phaseCallback</name>
       <anchorfile>classADSRComponent.html</anchorfile>
-      <anchor>aa4d439f6a7e4ac690c62f3d1edb15d65</anchor>
+      <anchor>a83e3880a04c33a7f5f9da45ac1bde720</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -2489,7 +2209,7 @@
       <type>std::pair&lt; int, float &gt;</type>
       <name>getCurrentPhase</name>
       <anchorfile>classAnalogADSR.html</anchorfile>
-      <anchor>a5c1055313c52babfd6b61001cbb5cce0</anchor>
+      <anchor>ac888290b374af7da841ea93f06040c13</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">
@@ -3054,7 +2774,7 @@
       <type>T *</type>
       <name>getFuncParams</name>
       <anchorfile>classAudioFunctionHost.html</anchorfile>
-      <anchor>a12108539be4ba4eb153718b2a369a098</anchor>
+      <anchor>af51e6031c672f42919631e07fd9c2d79</anchor>
       <arglist>(int i, double sr)</arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -3146,7 +2866,7 @@
       <type>std::vector&lt; float &gt; &amp;</type>
       <name>tableForNote</name>
       <anchorfile>classBandLimitedLookupTable.html</anchorfile>
-      <anchor>a225608abf1db8d956070b4d416335277</anchor>
+      <anchor>a5714372cab7db45ccb9ac83e48c89f5f</anchor>
       <arglist>(float note)</arglist>
     </member>
     <member kind="function">
@@ -3464,7 +3184,7 @@
       <type>std::pair&lt; float, float &gt;</type>
       <name>getVertex</name>
       <anchorfile>classCatenary.html</anchorfile>
-      <anchor>a2b1fd031b8f31e63f6328804e2e5c49c</anchor>
+      <anchor>a7c19a9269b72f4b2555834c8be3e16d9</anchor>
       <arglist>() const</arglist>
     </member>
   </compound>
@@ -3569,7 +3289,7 @@
       <type>static CommentMetadata *</type>
       <name>create</name>
       <anchorfile>classCommentMetadata.html</anchorfile>
-      <anchor>a721c8696bf1f5782eeb683b76ae9d516</anchor>
+      <anchor>abaa834b01bb0807c2f0f596feaa58775</anchor>
       <arglist>(const juce::uint8 *data, int sz)</arglist>
     </member>
   </compound>
@@ -3731,7 +3451,7 @@
       <type>juce::Array&lt; juce::Rectangle&lt; int &gt; &gt;</type>
       <name>getComponentRects</name>
       <anchorfile>classComponentGrid.html</anchorfile>
-      <anchor>af0a9639c0b473d299b5a3f764b4d5ad4</anchor>
+      <anchor>ad2d8ef837a25901e4bb680250856af71</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -3824,7 +3544,7 @@
       <type>juce::Rectangle&lt; int &gt;</type>
       <name>getGridArea</name>
       <anchorfile>classControlBox.html</anchorfile>
-      <anchor>a3a1c777e4df5d8d4ca16e3b8ffe3798e</anchor>
+      <anchor>ae7d0310e450985e713a73292b160d198</anchor>
       <arglist>(int x, int y, int w=1, int h=1)</arglist>
     </member>
     <member kind="function">
@@ -4559,21 +4279,21 @@
       <type>const LevelTracker &amp;</type>
       <name>getInputTracker</name>
       <anchorfile>classDynamics.html</anchorfile>
-      <anchor>ab10ed8398c8ae7de1d91a49f8e374694</anchor>
+      <anchor>a90d55eb8b02098c1eb1c86493cf8f6dd</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>const LevelTracker &amp;</type>
       <name>getOutputTracker</name>
       <anchorfile>classDynamics.html</anchorfile>
-      <anchor>ab8ffe164305688efeb5310d97e25fc74</anchor>
+      <anchor>aa6c180ee20a71be691f519d9cd3bec92</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>const LevelTracker &amp;</type>
       <name>getReductionTracker</name>
       <anchorfile>classDynamics.html</anchorfile>
-      <anchor>a530bce32f3097ec92e28547dc09130e2</anchor>
+      <anchor>a322cc61fba3f391c7a2a42a3d6357ed4</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -4669,7 +4389,7 @@
   <compound kind="class">
     <name>EasedValueSmoother</name>
     <filename>classEasedValueSmoother.html</filename>
-    <templarg></templarg>
+    <templarg>class T</templarg>
     <member kind="function">
       <type>void</type>
       <name>setSampleRate</name>
@@ -4709,7 +4429,7 @@
       <type>T *</type>
       <name>getValuePtr</name>
       <anchorfile>classEasedValueSmoother.html</anchorfile>
-      <anchor>a0c0bd355c729547333266dfe4be7ac18</anchor>
+      <anchor>a4043a8366bba3571237bb3776fc70bce</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -4947,7 +4667,7 @@
   <compound kind="class">
     <name>Ellipse</name>
     <filename>classEllipse.html</filename>
-    <templarg></templarg>
+    <templarg>typename T</templarg>
     <member kind="function">
       <type></type>
       <name>Ellipse</name>
@@ -4987,14 +4707,14 @@
       <type>Point&lt; T &gt;</type>
       <name>pointAtAngle</name>
       <anchorfile>classEllipse.html</anchorfile>
-      <anchor>a90e578ea5cd1df558af9397e92d3e1e6</anchor>
+      <anchor>a90b05cb7088d88adba384c9aca614628</anchor>
       <arglist>(T angle)</arglist>
     </member>
     <member kind="function">
       <type>juce::Array&lt; Point&lt; T &gt; &gt;</type>
       <name>findIntersections</name>
       <anchorfile>classEllipse.html</anchorfile>
-      <anchor>ab248c0e25e73f0b1ff8d68de300612e4</anchor>
+      <anchor>a88044629e8a3e094d62569c3767b79f7</anchor>
       <arglist>(Point&lt; T &gt; p1, Point&lt; T &gt; p2)</arglist>
     </member>
     <member kind="variable">
@@ -5485,14 +5205,14 @@
       <type>static ExifMetadata *</type>
       <name>create</name>
       <anchorfile>classExifMetadata.html</anchorfile>
-      <anchor>a3f6329e2c6cb7364c551d656c33ac3e2</anchor>
+      <anchor>a3e92227b00faca02c46d331ea0c9e1f7</anchor>
       <arglist>(const juce::uint8 *data, int sz)</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>FastMath</name>
     <filename>classFastMath.html</filename>
-    <templarg></templarg>
+    <templarg>class F</templarg>
     <member kind="function" static="yes">
       <type>static F</type>
       <name>fastSin</name>
@@ -5649,7 +5369,7 @@
       <type>juce::Array&lt; juce::File &gt;</type>
       <name>getWatchedFolders</name>
       <anchorfile>classFileSystemWatcher.html</anchorfile>
-      <anchor>aee9da6c13de3dfb36ebafc290a0a6b08</anchor>
+      <anchor>abcb753003933536baac295d60a84e9f6</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -6910,8 +6630,8 @@
       <type>void</type>
       <name>addPoints</name>
       <anchorfile>classIntegrator.html</anchorfile>
-      <anchor>af14485019c60ecac13672284b47d8adf</anchor>
-      <arglist>(juce::Array&lt; Point&lt; double &gt;&gt; points)</arglist>
+      <anchor>aa32b905e14b6fd492b2d1c5dd33cb8f8</anchor>
+      <arglist>(juce::Array&lt; Point&lt; double &gt; &gt; points)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -6943,7 +6663,7 @@
       <type>static IptcMetadata *</type>
       <name>create</name>
       <anchorfile>classIptcMetadata.html</anchorfile>
-      <anchor>a93ea3817dd0fe4476c8eb3f3a17e201a</anchor>
+      <anchor>ae7742d698313cdb2d78e7eb2d01ec08b</anchor>
       <arglist>(const juce::uint8 *data, int sz)</arglist>
     </member>
   </compound>
@@ -6984,14 +6704,14 @@
       <type>PluginSlider &amp;</type>
       <name>getSlider</name>
       <anchorfile>classKnob.html</anchorfile>
-      <anchor>a5cc64c2f000e2044327dd10d031f4925</anchor>
+      <anchor>ac05fa06700049ec66ecd12f777e2c5cd</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>Readout &amp;</type>
       <name>getReadout</name>
       <anchorfile>classKnob.html</anchorfile>
-      <anchor>a054c9d0ecc594575bea87482fdcb0615</anchor>
+      <anchor>a96da0d05a91a8ada36000844eea2da91</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -7156,10 +6876,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>std::function&lt; juce::Array&lt; float &gt;)&gt;</type>
+      <type>std::function&lt; juce::Array&lt; float &gt;()&gt;</type>
       <name>liveValuesCallback</name>
       <anchorfile>classKnob.html</anchorfile>
-      <anchor>af500d23ebd93ac81bd762903007afe31</anchor>
+      <anchor>ad99b0b0c9edd466e0119735365690e26</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -7400,8 +7120,8 @@
       <type>void</type>
       <name>addPoints</name>
       <anchorfile>classLeastSquaresRegression.html</anchorfile>
-      <anchor>ac4435a3ed89f43e2a0e59990ea6caa14</anchor>
-      <arglist>(juce::Array&lt; Point&lt; double &gt;&gt; points)</arglist>
+      <anchor>a28c27096fc1e6b6a343c6c05a0c81370</anchor>
+      <arglist>(juce::Array&lt; Point&lt; double &gt; &gt; points)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -7421,7 +7141,7 @@
       <type>juce::Array&lt; double &gt;</type>
       <name>getTerms</name>
       <anchorfile>classLeastSquaresRegression.html</anchorfile>
-      <anchor>ac369d5ec943d39d6d00b45cf381a989d</anchor>
+      <anchor>abf24191eb2082ce8d82e98e847a4976e</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -7747,10 +7467,10 @@
       <arglist>(Parameter::Ptr wave, Parameter::Ptr sync, Parameter::Ptr rate, Parameter::Ptr beat, Parameter::Ptr depth, Parameter::Ptr offset, Parameter::Ptr phase, Parameter::Ptr enable)</arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; std::vector&lt; float &gt;)&gt;</type>
+      <type>std::function&lt; std::vector&lt; float &gt;()&gt;</type>
       <name>phaseCallback</name>
       <anchorfile>classLFOComponent.html</anchorfile>
-      <anchor>ac947f4bdadd3ec3f0220e3be9adad6a5</anchor>
+      <anchor>af927dbf7a1817df13058482decffee09</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -7768,8 +7488,8 @@
       <type></type>
       <name>LinearRegression</name>
       <anchorfile>classLinearRegression.html</anchorfile>
-      <anchor>a940aeba49f6ecfd5da77c4a1bc2a532c</anchor>
-      <arglist>(juce::Array&lt; Point&lt; double &gt;&gt; points)</arglist>
+      <anchor>a411a12fb25e338f4bb5a27bb6fce200e</anchor>
+      <arglist>(juce::Array&lt; Point&lt; double &gt; &gt; points)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -8254,7 +7974,7 @@
       <type>virtual juce::CaretComponent *</type>
       <name>createSingleLineCaretComponent</name>
       <anchorfile>structSingleLineTextEditor_1_1LookAndFeelMethods.html</anchorfile>
-      <anchor>a90d47e49d33175a975e89eeed7ef7f89</anchor>
+      <anchor>aea246c9158c717d855680cdcdc1e70e6</anchor>
       <arglist>(Component *keyFocusOwner)=0</arglist>
     </member>
   </compound>
@@ -8374,7 +8094,7 @@
       <type>OpenStreetMaps *</type>
       <name>getOpenStreetMaps</name>
       <anchorfile>classMapViewer.html</anchorfile>
-      <anchor>a376101640a1f33a7cbcc647eb93faf85</anchor>
+      <anchor>a993e763396e235d4f9dede6adcee307e</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">
@@ -8544,7 +8264,7 @@
       <type>ModDstId &amp;</type>
       <name>operator=</name>
       <anchorfile>structModDstId.html</anchorfile>
-      <anchor>ade6e4c1af3c4a41f6e0575e2c0846bd0</anchor>
+      <anchor>ad6b205a3267866f9ec5c854122bb2454</anchor>
       <arglist>(const ModDstId &amp;other)</arglist>
     </member>
     <member kind="function">
@@ -8909,7 +8629,7 @@
       <type>juce::Array&lt; float &gt;</type>
       <name>getLiveValues</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a313589d0966e9824aa05ae818e718280</anchor>
+      <anchor>af2bd87ed0b0a9d925b38c195d8ec8498</anchor>
       <arglist>(gin::Parameter *p)</arglist>
     </member>
     <member kind="function">
@@ -9035,14 +8755,14 @@
       <type>juce::Array&lt; ModSrcId &gt;</type>
       <name>getModSources</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a17ebf21dccd38b5d56d9d8d6357ae0c2</anchor>
+      <anchor>a06398873a68da00c098a1cab2e3f95ce</anchor>
       <arglist>(gin::Parameter *)</arglist>
     </member>
     <member kind="function">
       <type>Parameter *</type>
       <name>getParameter</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>aeeb581ee9a9b31909f1e480ea63b2b4e</anchor>
+      <anchor>a04dbb67bb5096e2d85e6dcd94addc9b1</anchor>
       <arglist>(ModDstId d)</arglist>
     </member>
     <member kind="function">
@@ -9063,14 +8783,14 @@
       <type>std::vector&lt; std::pair&lt; ModDstId, float &gt; &gt;</type>
       <name>getModDepths</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>abe59970219e672385463732206827266</anchor>
+      <anchor>aaa700c09a72de00dfdd2299a5f8d4340</anchor>
       <arglist>(ModSrcId param)</arglist>
     </member>
     <member kind="function">
       <type>std::vector&lt; std::pair&lt; ModSrcId, float &gt; &gt;</type>
       <name>getModDepths</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>adf8db14f896820442e67843cfdaa656c</anchor>
+      <anchor>a6b7406436d179d4a255bc8e611c9a35d</anchor>
       <arglist>(ModDstId param)</arglist>
     </member>
     <member kind="function">
@@ -9212,7 +8932,7 @@
       <type>ModSrcId &amp;</type>
       <name>operator=</name>
       <anchorfile>structModSrcId.html</anchorfile>
-      <anchor>a1d9f52fd952b26811fc7e74a690f2c8e</anchor>
+      <anchor>af7d812f370fce77efc0e7cab7e1c686d</anchor>
       <arglist>(const ModSrcId &amp;other)</arglist>
     </member>
     <member kind="function">
@@ -9265,7 +8985,7 @@
       <type>Component *</type>
       <name>refreshComponentForRow</name>
       <anchorfile>classModSrcListBox.html</anchorfile>
-      <anchor>a1b4ac4d3539934fc2249a5f1065fe417</anchor>
+      <anchor>ac3019ec485ecada247a8d130a3bb7f72</anchor>
       <arglist>(int row, bool, Component *c) override</arglist>
     </member>
   </compound>
@@ -9518,7 +9238,7 @@
       <type>juce::Array&lt; Point &gt; &amp;</type>
       <name>getPoints</name>
       <anchorfile>classMSEG.html</anchorfile>
-      <anchor>a7612a8dff5724583a3034fc8d2fd3ab9</anchor>
+      <anchor>ac98aea8dd1f5a76c144d58cb9b717050</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -9713,10 +9433,10 @@
       <arglist>() override</arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; std::vector&lt; float &gt;)&gt;</type>
+      <type>std::function&lt; std::vector&lt; float &gt;()&gt;</type>
       <name>phaseCallback</name>
       <anchorfile>classMSEGComponent.html</anchorfile>
-      <anchor>aa4e10dc6c933ab69123d4b46171c37e8</anchor>
+      <anchor>aa069677dc0035caeedec69474ba2a378</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -9989,7 +9709,7 @@
       <type>const juce::String &amp;</type>
       <name>getName</name>
       <anchorfile>classNoteDuration.html</anchorfile>
-      <anchor>a4de79765eb84ceb7204be9ab68ef0356</anchor>
+      <anchor>ad624f1ac805d0a5040eda12f27db63ec</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -10024,7 +9744,7 @@
       <type>static const std::vector&lt; NoteDuration &gt; &amp;</type>
       <name>getNoteDurations</name>
       <anchorfile>classNoteDuration.html</anchorfile>
-      <anchor>acede93ced327b5fd6ce49c6042febf80</anchor>
+      <anchor>a4637eefaa74fb2e3002d9717b5d0697a</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" static="yes">
@@ -10188,21 +9908,21 @@
       <type>juce::Point&lt; double &gt;</type>
       <name>coordinateToDisplay</name>
       <anchorfile>classOpenStreetMaps.html</anchorfile>
-      <anchor>a97d05e8344c088b58ac13241d47e57b8</anchor>
+      <anchor>a6752c8e83d1927e391373ba9941c3895</anchor>
       <arglist>(juce::Point&lt; double &gt; coordinate, int zoom)</arglist>
     </member>
     <member kind="function">
       <type>juce::Point&lt; double &gt;</type>
       <name>displayToCoordinate</name>
       <anchorfile>classOpenStreetMaps.html</anchorfile>
-      <anchor>a2bc213d08b553d19a929faf9890f3717</anchor>
+      <anchor>aa6a4660f87ad709ecdc187b60bc26d3f</anchor>
       <arglist>(const juce::Point&lt; double &gt; point, int zoom)</arglist>
     </member>
     <member kind="function">
       <type>juce::Point&lt; double &gt;</type>
       <name>tileForCoordinate</name>
       <anchorfile>classOpenStreetMaps.html</anchorfile>
-      <anchor>ae835b370258746b3c52cb577e056bf3c</anchor>
+      <anchor>a420f748f25420864ae84c77698fd6650</anchor>
       <arglist>(double lat, double lng, int zoom)</arglist>
     </member>
     <member kind="function">
@@ -10453,14 +10173,14 @@
       <type>ParamHeader &amp;</type>
       <name>getHeader</name>
       <anchorfile>classParamBox.html</anchorfile>
-      <anchor>a3f3e07071f638ae018a898f661179e75</anchor>
+      <anchor>a326648830452f5712017cc98387c315c</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>juce::Component &amp;</type>
       <name>getFrame</name>
       <anchorfile>classParamBox.html</anchorfile>
-      <anchor>a2da9410cfb2041eb85e08de0a0d2afda</anchor>
+      <anchor>aa4cae3001b7dd64c5f319d68cd538d3d</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">
@@ -10488,14 +10208,14 @@
       <type>juce::Rectangle&lt; int &gt;</type>
       <name>getGridArea</name>
       <anchorfile>classParamBox.html</anchorfile>
-      <anchor>a1acb4895d0d5bedbcf551c12584116f5</anchor>
+      <anchor>ad6112fa8fa87e410be2902a4a3b7efcf</anchor>
       <arglist>(int x, int y, int cx=1, int cy=1)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>juce::Rectangle&lt; int &gt;</type>
       <name>getGridArea</name>
       <anchorfile>classParamBox.html</anchorfile>
-      <anchor>a93165dbf7036c4ee843452e4408189f7</anchor>
+      <anchor>a69a5e11ad3f2877feb64fc376f1e3f27</anchor>
       <arglist>(float x, float y, float cx=1.0f, float cy=1.0f)</arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -10666,7 +10386,7 @@
       <type>ModMatrix *</type>
       <name>getModMatrix</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a122b838b148637992b24ecfea1e62221</anchor>
+      <anchor>a03214a30df7502114df477b14dda12e3</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function" virtualness="virtual">
@@ -10806,7 +10526,7 @@
       <type>juce::NormalisableRange&lt; float &gt;</type>
       <name>getUserRange</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>ab12bfdd7bebce174eacad15681cf37d8</anchor>
+      <anchor>a789bd9ed2cc05d5f9d007723d9539fd2</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -11499,7 +11219,7 @@
   <compound kind="class">
     <name>PerlinNoise</name>
     <filename>classPerlinNoise.html</filename>
-    <templarg></templarg>
+    <templarg>class T</templarg>
     <member kind="function">
       <type></type>
       <name>PerlinNoise</name>
@@ -11543,8 +11263,8 @@
   <compound kind="class">
     <name>PlateReverb</name>
     <filename>classPlateReverb.html</filename>
-    <templarg></templarg>
-    <templarg></templarg>
+    <templarg>class F</templarg>
+    <templarg>class I</templarg>
     <member kind="function">
       <type></type>
       <name>PlateReverb</name>
@@ -11904,7 +11624,7 @@
   <compound kind="class">
     <name>Point</name>
     <filename>classPoint.html</filename>
-    <templarg></templarg>
+    <templarg>typename T</templarg>
     <member kind="function">
       <type></type>
       <name>Point</name>
@@ -11951,7 +11671,7 @@
   <compound kind="class">
     <name>Polygon</name>
     <filename>classPolygon.html</filename>
-    <templarg></templarg>
+    <templarg>typename T</templarg>
     <member kind="variable">
       <type>juce::Array&lt; Point&lt; T &gt; &gt;</type>
       <name>points</name>
@@ -12074,7 +11794,7 @@
       <type>virtual juce::PropertiesFile *</type>
       <name>getSettings</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>ab1b1369da768886df48cb497555dd806</anchor>
+      <anchor>a0d20c1352ba9d6ea81e7c09193442339</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -12088,21 +11808,21 @@
       <type>gin::Parameter *</type>
       <name>addExtParam</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>ad6b6443808b166f6194d07bf68a6e5f7</anchor>
+      <anchor>a3d7aefafe57071324f0471c86ca789f5</anchor>
       <arglist>(juce::String uid, juce::String name, juce::String shortName, juce::String label, juce::NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, std::function&lt; juce::String(const gin::Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>gin::Parameter *</type>
       <name>addIntParam</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a3e19869a9d96d0ee6492bdec952bab2d</anchor>
+      <anchor>a3d8b32d76cf12edefb418978e43a3837</anchor>
       <arglist>(juce::String uid, juce::String name, juce::String shortName, juce::String label, juce::NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, std::function&lt; juce::String(const gin::Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>gin::Parameter *</type>
       <name>getParameter</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a172c59635f441ade54855f4041046d8b</anchor>
+      <anchor>a38f2794d5911879edf99bc722a4c8461</anchor>
       <arglist>(const juce::String &amp;uid)</arglist>
     </member>
     <member kind="function">
@@ -12130,7 +11850,7 @@
       <type>const juce::Array&lt; gin::Parameter * &gt; &amp;</type>
       <name>getPluginParameters</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a2d76202bddbb9f54afbb7f10dcf2a3c6</anchor>
+      <anchor>a7bb8bdba1efa73f7f786c4e798185824</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -12207,14 +11927,14 @@
       <type>const juce::OwnedArray&lt; Program &gt; &amp;</type>
       <name>getPrograms</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a04c4c0dca9f2560f99adea0ee7618db8</anchor>
+      <anchor>ade2a04f0de612ad9b973e532c5f2a645</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>Program *</type>
       <name>getProgram</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>aa47592a3687da6f536476279af73181a</anchor>
+      <anchor>a39fc52cc25ce85c8b76dd5addfc0b490</anchor>
       <arglist>(const juce::String &amp;name)</arglist>
     </member>
     <member kind="function">
@@ -12531,21 +12251,21 @@
       <type>virtual juce::Rectangle&lt; int &gt;</type>
       <name>getControlsArea</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>a2a5d14bd76e1051ce255e5033a2b1f1a</anchor>
+      <anchor>a1013723db0c2f19b3ce8ef3a878e2842</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual juce::Rectangle&lt; int &gt;</type>
       <name>getGridArea</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>af1d97ab85b7b4eaed80e1cd1f9c704ee</anchor>
+      <anchor>ab889f2767a37cf09c4c957d79c32da6c</anchor>
       <arglist>(int x, int y, int w=1, int h=1)</arglist>
     </member>
     <member kind="function">
       <type>juce::Rectangle&lt; int &gt;</type>
       <name>getFullGridArea</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>acf57a677075ccf23cc6c253dc74b7ca6</anchor>
+      <anchor>ade640c5b6109fde15ea5ad6f42cb0c6f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -12594,14 +12314,14 @@
       <type>ParamComponent *</type>
       <name>componentForId</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>ac3e74209225daebb55e7b4262f2711da</anchor>
+      <anchor>a916be37463ce43133a36d15d7e1d6a02</anchor>
       <arglist>(const juce::String &amp;uid)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>ParamComponent *</type>
       <name>componentForParam</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>abbf6549241813d270e584d61653c2c55</anchor>
+      <anchor>a250dc820c7a30d84a7465c27722aeffd</anchor>
       <arglist>(Parameter &amp;param)</arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -12921,7 +12641,7 @@
       <type>juce::Value &amp;</type>
       <name>getValueObject</name>
       <anchorfile>classPropertyComponentBase.html</anchorfile>
-      <anchor>a032611b29e0d7969984b5edbd3bf062d</anchor>
+      <anchor>aa5db45071b546d688fdface3ee5fdfc3</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">
@@ -13184,7 +12904,7 @@
       <type>juce::AudioSampleBuffer &amp;</type>
       <name>getSamples</name>
       <anchorfile>classSample.html</anchorfile>
-      <anchor>a179818f303e3ad2921683524798591f8</anchor>
+      <anchor>ac19a977396d176bc17f841324de9698f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -13205,7 +12925,7 @@
       <type>static std::unique_ptr&lt; Sample &gt;</type>
       <name>fromFile</name>
       <anchorfile>classSample.html</anchorfile>
-      <anchor>a6ad98110e9ccc23c8ae9d9fe7f7914f9</anchor>
+      <anchor>a412fc3b487c8b28588e001b573c8b87b</anchor>
       <arglist>(const juce::File &amp;f)</arglist>
     </member>
   </compound>
@@ -13567,7 +13287,7 @@
       <type>void *</type>
       <name>getData</name>
       <anchorfile>classSharedMemory.html</anchorfile>
-      <anchor>a37bfb82706e0e10282fc0f899818f0d9</anchor>
+      <anchor>a23466023400b347c88d497d8276ec06a</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -13817,7 +13537,7 @@
       <type>const juce::Font &amp;</type>
       <name>getFont</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>add6ab602dcfc5140dc835ed398c490e3</anchor>
+      <anchor>a3169a60fbd51ef3ceb22e7b3570c0f17</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
@@ -13887,7 +13607,7 @@
       <type>juce::Value &amp;</type>
       <name>getTextValue</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>a2dd654dd2d43fed5244624e009c6163d</anchor>
+      <anchor>a604da97be5d8b6e582946dbf1f718239</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -13943,7 +13663,7 @@
       <type>juce::Rectangle&lt; int &gt;</type>
       <name>getCaretRectangleForCharIndex</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>a58789ac6c8cde4b93ff33677b43f2307</anchor>
+      <anchor>aef1c50590922d8fab71bdd0216908507</anchor>
       <arglist>(int index) const override</arglist>
     </member>
     <member kind="function">
@@ -13957,7 +13677,7 @@
       <type>juce::Range&lt; int &gt;</type>
       <name>getHighlightedRegion</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>ad2cd12fb16ba8d5a154f64c273ce2530</anchor>
+      <anchor>ae4a45444262061b1ea6866686994e30b</anchor>
       <arglist>() const override</arglist>
     </member>
     <member kind="function">
@@ -14167,7 +13887,7 @@
       <type>InputFilter *</type>
       <name>getInputFilter</name>
       <anchorfile>classSingleLineTextEditor.html</anchorfile>
-      <anchor>a1450af86445075d23859084a359b4222</anchor>
+      <anchor>a3ee667df0742c1d8ec8037151cd51d16</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
@@ -14363,7 +14083,7 @@
   <compound kind="class">
     <name>SmoothedParameter</name>
     <filename>classSmoothedParameter.html</filename>
-    <templarg></templarg>
+    <templarg>class T</templarg>
     <member kind="function">
       <type></type>
       <name>SmoothedParameter</name>
@@ -14506,8 +14226,8 @@
       <type></type>
       <name>Spline</name>
       <anchorfile>classSpline.html</anchorfile>
-      <anchor>adc45d0c48af983c27e7657ce0ad5bc72</anchor>
-      <arglist>(const juce::Array&lt; Point&lt; double &gt;&gt; &amp;points)</arglist>
+      <anchor>a367a3d053f840e06b9d25ded40699d65</anchor>
+      <arglist>(const juce::Array&lt; Point&lt; double &gt; &gt; &amp;points)</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -14624,10 +14344,10 @@
       <arglist>(Parameter::Ptr beat, Parameter::Ptr length, Parameter::Ptr *level, Parameter::Ptr enable)</arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; std::vector&lt; float &gt;)&gt;</type>
+      <type>std::function&lt; std::vector&lt; float &gt;()&gt;</type>
       <name>phaseCallback</name>
       <anchorfile>classStepLFOComponent.html</anchorfile>
-      <anchor>a4f2735dcccce50f207b4e1c7d7bd6f54</anchor>
+      <anchor>a1865459c804bd6a45dfa06efa0345844</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -14992,7 +14712,7 @@
       <type>juce::Array&lt; SynthesiserVoice * &gt;</type>
       <name>getActiveVoices</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>a7913b52c1fd0d2e15571451f638b7d01</anchor>
+      <anchor>a38d7ab09f969ac44830204c29e5b0bd9</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -15048,7 +14768,7 @@
       <type>juce::MPESynthesiserVoice *</type>
       <name>findVoiceToSteal</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>a40b2a5153b414eafba711837b4cf3124</anchor>
+      <anchor>a81eab186d5ec05f6c0312f1e41bdbc8a</anchor>
       <arglist>(juce::MPENote noteToStealVoiceFor=juce::MPENote()) const override</arglist>
     </member>
     <member kind="function">
@@ -15062,14 +14782,14 @@
       <type>SynthesiserVoice *</type>
       <name>getOldestVoice</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>ae79530e7e734865d87c1aa7a02216167</anchor>
+      <anchor>aaf33c3468d1d4e635f03db59b78df7e5</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>SynthesiserVoice *</type>
       <name>getNewestVoice</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>a2becdeeab979dacfc949b1fe8214af67</anchor>
+      <anchor>a22725309382756e1b385d09adf5e7c92</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -15366,7 +15086,7 @@
       <type>const juce::String &amp;</type>
       <name>getCurrentText</name>
       <anchorfile>classTextHistory.html</anchorfile>
-      <anchor>abec45dcee0c725a2441a0381d31f02b4</anchor>
+      <anchor>a859be9528d850f55459ca1eefb9cae34</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="variable">
@@ -15876,7 +15596,7 @@
   <compound kind="class">
     <name>ValueSmoother</name>
     <filename>classValueSmoother.html</filename>
-    <templarg></templarg>
+    <templarg>class T</templarg>
     <member kind="function">
       <type>void</type>
       <name>setSampleRate</name>
@@ -15916,7 +15636,7 @@
       <type>T *</type>
       <name>getValuePtr</name>
       <anchorfile>classValueSmoother.html</anchorfile>
-      <anchor>a0fd46737155bc081c73db8beacb16dd3</anchor>
+      <anchor>a60334ecd23715a3504a1ea75029b57b4</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -15976,28 +15696,28 @@
       <type>juce::ValueTree &amp;</type>
       <name>getState</name>
       <anchorfile>classValueTreeObject.html</anchorfile>
-      <anchor>a380c3e637b87625deaaca5ee36e5834c</anchor>
+      <anchor>a69c86083b741fd75d3641515be7bb172</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>const juce::OwnedArray&lt; ValueTreeObject &gt; &amp;</type>
       <name>getChildren</name>
       <anchorfile>classValueTreeObject.html</anchorfile>
-      <anchor>a4ba83fcf6513054e49aa008e0ed7ba63</anchor>
+      <anchor>a37a5b2b400a336e18607276b4eb018b3</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>TargetClass *</type>
       <name>findParentOfType</name>
       <anchorfile>classValueTreeObject.html</anchorfile>
-      <anchor>a65139d476b9d199ba0f29cffe89ca67c</anchor>
+      <anchor>aff10b1b974ce87c9a7f3e446802ea6db</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>juce::Array&lt; TargetClass * &gt;</type>
       <name>findChildrenOfClass</name>
       <anchorfile>classValueTreeObject.html</anchorfile>
-      <anchor>ac5938920794ba2e6acceb5e85c820efa</anchor>
+      <anchor>a45bd36afc731a28a2938c2e36d2fd88c</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -16011,7 +15731,7 @@
       <type>TargetClass *</type>
       <name>findChildOfClass</name>
       <anchorfile>classValueTreeObject.html</anchorfile>
-      <anchor>a872c180f78dd75884192baba68011ee6</anchor>
+      <anchor>ac9e86da8cff30ea284f93adb04078e6a</anchor>
       <arglist>(int idx) const</arglist>
     </member>
     <member kind="variable" static="yes">
@@ -16064,8 +15784,8 @@
   <compound kind="class">
     <name>VoicedStereoOscillator</name>
     <filename>classVoicedStereoOscillator.html</filename>
-    <templarg></templarg>
-    <templarg></templarg>
+    <templarg>typename O</templarg>
+    <templarg>typename P</templarg>
     <member kind="function">
       <type></type>
       <name>VoicedStereoOscillator</name>
@@ -16110,112 +15830,6 @@
     </member>
     <member kind="variable" protection="protected">
       <type>juce::OwnedArray&lt; O &gt;</type>
-      <name>oscillators</name>
-      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a2b43a2c3228e8719d3d2a11d5d349b11</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>VoicedStereoOscillator&lt; StereoOscillator, VoicedStereoOscillatorParams &gt;</name>
-    <filename>classVoicedStereoOscillator.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>VoicedStereoOscillator</name>
-      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>ae1e1c0b5a20b75ea44af638022b879be</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setSampleRate</name>
-      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>aa7c7b25cc3e4d52caca38a3a25179363</anchor>
-      <arglist>(double sr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>noteOn</name>
-      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a366c3140dc02a92cb2560dd3009facd7</anchor>
-      <arglist>(float phase=-1)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>noteOn</name>
-      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a23550473a6987a1128e64c6388e82661</anchor>
-      <arglist>(float phases[])</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a24a08bb92c7e91ec8adb89693762dae8</anchor>
-      <arglist>(float note, const VoicedStereoOscillatorParams &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processAdding</name>
-      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>ae13558cc54857fade6e9d2fcbd69bb11</anchor>
-      <arglist>(float note, const VoicedStereoOscillatorParams &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>juce::OwnedArray&lt; StereoOscillator &gt;</type>
-      <name>oscillators</name>
-      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a2b43a2c3228e8719d3d2a11d5d349b11</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>VoicedStereoOscillator&lt; WTOscillator, WTVoicedStereoOscillatorParams &gt;</name>
-    <filename>classVoicedStereoOscillator.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>VoicedStereoOscillator</name>
-      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>ae1e1c0b5a20b75ea44af638022b879be</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setSampleRate</name>
-      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>aa7c7b25cc3e4d52caca38a3a25179363</anchor>
-      <arglist>(double sr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>noteOn</name>
-      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a366c3140dc02a92cb2560dd3009facd7</anchor>
-      <arglist>(float phase=-1)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>noteOn</name>
-      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a23550473a6987a1128e64c6388e82661</anchor>
-      <arglist>(float phases[])</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>a24a08bb92c7e91ec8adb89693762dae8</anchor>
-      <arglist>(float note, const WTVoicedStereoOscillatorParams &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processAdding</name>
-      <anchorfile>classVoicedStereoOscillator.html</anchorfile>
-      <anchor>ae13558cc54857fade6e9d2fcbd69bb11</anchor>
-      <arglist>(float note, const WTVoicedStereoOscillatorParams &amp;params, juce::AudioSampleBuffer &amp;buffer)</arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>juce::OwnedArray&lt; WTOscillator &gt;</type>
       <name>oscillators</name>
       <anchorfile>classVoicedStereoOscillator.html</anchorfile>
       <anchor>a2b43a2c3228e8719d3d2a11d5d349b11</anchor>
@@ -16729,28 +16343,28 @@
       <type>static WebSocket *</type>
       <name>fromURL</name>
       <anchorfile>classWebSocket.html</anchorfile>
-      <anchor>a772a85561373a9548bd00ed7a7473c58</anchor>
+      <anchor>aa00f034f6c484f6e0127d6c1aeb781d5</anchor>
       <arglist>(const juce::String &amp;url, const juce::String &amp;origin={})</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static WebSocket *</type>
       <name>fromURLNoMask</name>
       <anchorfile>classWebSocket.html</anchorfile>
-      <anchor>af03b816bb7e26fccad0d1b4bf9b0b5b3</anchor>
+      <anchor>a17bf6d89c2fd2a7ad524a580c5f308fc</anchor>
       <arglist>(const juce::String &amp;url, const juce::String &amp;origin={})</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static WebSocket *</type>
       <name>fromURL</name>
       <anchorfile>classWebSocket.html</anchorfile>
-      <anchor>a7e2404176abec3d499adcd92fcc6bc42</anchor>
+      <anchor>ad1af0dc8349aec4f15064fb0a643690c</anchor>
       <arglist>(const juce::String &amp;url, bool useMask, const juce::String &amp;origin)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static WebSocket *</type>
       <name>fromURL</name>
       <anchorfile>classWebSocket.html</anchorfile>
-      <anchor>a6a86d489e9ea180ebf590d9b98d3a0f3</anchor>
+      <anchor>a00ea29a76fd23095e29b6a227d26f055</anchor>
       <arglist>(const juce::String &amp;url, const juce::String &amp;origin, const juce::StringPairArray &amp;customHeaders)</arglist>
     </member>
     <member kind="variable">
@@ -17120,14 +16734,14 @@
       <type>static XmpMetadata *</type>
       <name>createFromJpg</name>
       <anchorfile>classXmpMetadata.html</anchorfile>
-      <anchor>ab838b43e78d3aa5ae6f4a8a121737d88</anchor>
+      <anchor>add781acaffd549f0eb9d392342f8debf</anchor>
       <arglist>(const juce::uint8 *data, int sz)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static XmpMetadata *</type>
       <name>createFromPng</name>
       <anchorfile>classXmpMetadata.html</anchorfile>
-      <anchor>af39cbad415533fe7acf5ab2963ab261e</anchor>
+      <anchor>ae14b4686d9a4ef06e248483cee2b4e56</anchor>
       <arglist>(const char *data, int sz)</arglist>
     </member>
   </compound>
@@ -17357,7 +16971,7 @@
       <type>std::vector&lt; uint8_t &gt;</type>
       <name>bsDiff</name>
       <anchorfile>namespaceDiff.html</anchorfile>
-      <anchor>a90f3e15405b330c92210fe6fed6b4fad</anchor>
+      <anchor>a6316252e0766f32052b1de207d27203c</anchor>
       <arglist>(const juce::String &amp;s1, const juce::String &amp;s2)</arglist>
     </member>
     <member kind="function">
@@ -17393,8 +17007,8 @@
       <type>T</type>
       <name>interpolate</name>
       <anchorfile>namespaceLagrange.html</anchorfile>
-      <anchor>aed0cc45b276f9ed337143c4587dc1122</anchor>
-      <arglist>(const juce::Array&lt; Point&lt; T &gt;&gt; &amp;points, T x)</arglist>
+      <anchor>a6f338372cdf3563a209fe42fa92f8c13</anchor>
+      <arglist>(const juce::Array&lt; Point&lt; T &gt; &gt; &amp;points, T x)</arglist>
     </member>
     <member kind="function">
       <type>T</type>
@@ -17418,7 +17032,7 @@
       <type>NSImage *</type>
       <name>imageToNSImage</name>
       <anchorfile>namespacemacOS.html</anchorfile>
-      <anchor>afeb021cb5c29f36e7f8b60a0b442577f</anchor>
+      <anchor>aab8a769f8109ca623c481f67ff80b048</anchor>
       <arglist>(const juce::Image &amp;image)</arglist>
     </member>
   </compound>
@@ -17532,11 +17146,31 @@
     <name>gin_dsp-components</name>
     <title>components</title>
     <filename>group__gin__dsp-components.html</filename>
+    <class kind="class">DynamicsMeter</class>
+    <class kind="class">LevelMeter</class>
+    <class kind="class">TriggeredScope</class>
+    <class kind="class">WaveformComponent</class>
+    <class kind="class">WavetableComponent</class>
+    <class kind="class">XYScope</class>
   </compound>
   <compound kind="group">
     <name>gin_gui-components</name>
     <title>components</title>
     <filename>group__gin__gui-components.html</filename>
+    <class kind="class">ComponentGrid</class>
+    <class kind="struct">ComponentGrid::DragInfo</class>
+    <class kind="class">ComponentViewer</class>
+    <class kind="class">GinLookAndFeel</class>
+    <class kind="class">MapViewer</class>
+    <class kind="class">PropertyComponentBase</class>
+    <class kind="class">FilePropertyComponent</class>
+    <class kind="class">ColourPropertyComponent</class>
+    <class kind="class">SingleLineTextEditor</class>
+    <class kind="class">SingleLineTextEditor::Listener</class>
+    <class kind="class">SingleLineTextEditor::InputFilter</class>
+    <class kind="class">SingleLineTextEditor::LengthAndCharacterRestriction</class>
+    <class kind="struct">SingleLineTextEditor::LookAndFeelMethods</class>
+    <class kind="class">SVGButton</class>
     <member kind="function">
       <type>void</type>
       <name>addAndMakeVisible</name>
@@ -17556,6 +17190,52 @@
     <name>gin_plugin-components</name>
     <title>components</title>
     <filename>group__gin__plugin-components.html</filename>
+    <namespace>Assets</namespace>
+    <class kind="class">ADSRComponent</class>
+    <class kind="class">ControlBox</class>
+    <class kind="class">PagedControlBox</class>
+    <class kind="class">GateEffectComponent</class>
+    <class kind="class">HeaderItem</class>
+    <class kind="class">HeaderRow</class>
+    <class kind="class">Knob</class>
+    <class kind="class">LFOComponent</class>
+    <class kind="class">ModulationSourceButton</class>
+    <class kind="class">ModulationDepthSlider</class>
+    <class kind="class">ModulationOverview</class>
+    <class kind="class">ModSrcListBox</class>
+    <class kind="class">ModCurveButton</class>
+    <class kind="class">ModMatrixBox</class>
+    <class kind="class">ModMatrixBox::Row::DepthSlider</class>
+    <class kind="class">MSEGComponent</class>
+    <class kind="class">MultiParamComponent</class>
+    <class kind="class">ParamHeader</class>
+    <class kind="class">HeaderButton</class>
+    <class kind="class">ParamBox</class>
+    <class kind="class">ParamArea</class>
+    <class kind="class">BoxArea</class>
+    <class kind="class">PatchBrowser</class>
+    <class kind="struct">PatchBrowser::AuthorsModel</class>
+    <class kind="struct">PatchBrowser::TagsModel</class>
+    <class kind="struct">PatchBrowser::PresetsModel</class>
+    <class kind="class">PluginAlertWindow</class>
+    <class kind="class">PluginButton</class>
+    <class kind="class">SVGPluginButton</class>
+    <class kind="class">PowerButton</class>
+    <class kind="class">PluginComboBox</class>
+    <class kind="class">PluginSlider</class>
+    <class kind="class">Readout</class>
+    <class kind="class">ParamComponent</class>
+    <class kind="class">HorizontalFader</class>
+    <class kind="class">Switch</class>
+    <class kind="class">Select</class>
+    <class kind="class">SynthesiserUsage</class>
+    <class kind="class">UpdateChecker</class>
+    <class kind="class">NewsChecker</class>
+    <class kind="class">ProcessorEditorBase</class>
+    <class kind="class">TitleBar</class>
+    <class kind="class">ProcessorEditor</class>
+    <class kind="class">ScaledPluginEditor</class>
+    <class kind="class">StepLFOComponent</class>
     <member kind="function">
       <type>void</type>
       <name>gradientRect</name>
@@ -17568,6 +17248,73 @@
     <name>gin_dsp-dsp</name>
     <title>dsp</title>
     <filename>group__gin__dsp-dsp.html</filename>
+    <namespace>Distortion</namespace>
+    <class kind="class">ADSR</class>
+    <class kind="class">AnalogADSR</class>
+    <class kind="class">AudioEquationParser</class>
+    <class kind="class">AudioFifo</class>
+    <class kind="struct">FuncState</class>
+    <class kind="struct">OscState</class>
+    <class kind="struct">NoiseState</class>
+    <class kind="struct">HP12State</class>
+    <class kind="struct">HP24State</class>
+    <class kind="struct">BP12State</class>
+    <class kind="struct">BP24State</class>
+    <class kind="struct">LP12State</class>
+    <class kind="struct">LP24State</class>
+    <class kind="struct">Notch12State</class>
+    <class kind="struct">Notch24State</class>
+    <class kind="class">AudioFunctionHost</class>
+    <class kind="class">GainProcessor</class>
+    <class kind="class">WetDryMix</class>
+    <class kind="class">BandLimitedLookupTable</class>
+    <class kind="class">BandLimitedLookupTables</class>
+    <class kind="class">DelayLine</class>
+    <class kind="class">AirWindowsDistortion</class>
+    <class kind="class">EnvelopeDetector</class>
+    <class kind="class">Dynamics</class>
+    <class kind="class">EasedValueSmoother</class>
+    <class kind="class">EQ</class>
+    <class kind="class">FastMath</class>
+    <class kind="class">Filter</class>
+    <class kind="class">GateEffect</class>
+    <class kind="class">LevelTracker</class>
+    <class kind="class">LFO</class>
+    <class kind="struct">LFO::Parameters</class>
+    <class kind="class">MidiFifo</class>
+    <class kind="class">Modulation</class>
+    <class kind="class">MSEG</class>
+    <class kind="struct">MSEG::Parameters</class>
+    <class kind="struct">MSEG::Point</class>
+    <class kind="struct">MSEG::Data</class>
+    <class kind="class">WhiteNoise</class>
+    <class kind="class">PinkNoise</class>
+    <class kind="class">StereoOscillator</class>
+    <class kind="struct">StereoOscillator::Params</class>
+    <class kind="struct">VoicedOscillatorParams</class>
+    <class kind="class">VoicedStereoOscillator</class>
+    <class kind="struct">VoicedStereoOscillatorParams</class>
+    <class kind="class">BLLTVoicedStereoOscillator</class>
+    <class kind="class">PlateReverb</class>
+    <class kind="class">ResamplingFifo</class>
+    <class kind="class">Sample</class>
+    <class kind="class">SampleOscillator</class>
+    <class kind="class">ScratchBuffer</class>
+    <class kind="class">SimpleVerb</class>
+    <class kind="class">StepLFO</class>
+    <class kind="class">StereoDelay</class>
+    <class kind="class">StereoEnhancer</class>
+    <class kind="class">StereoProcessor</class>
+    <class kind="struct">GlideInfo</class>
+    <class kind="class">SynthesiserVoice</class>
+    <class kind="class">Synthesiser</class>
+    <class kind="class">TextRenderer</class>
+    <class kind="class">ValueSmoother</class>
+    <class kind="class">DCBlocker</class>
+    <class kind="class">WTOscillator</class>
+    <class kind="struct">WTOscillator::Params</class>
+    <class kind="struct">WTVoicedStereoOscillatorParams</class>
+    <class kind="class">WTVoicedStereoOscillator</class>
     <member kind="enumeration">
       <type></type>
       <name>Wave</name>
@@ -17726,19 +17473,24 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_graphics-formats</name>
-    <title>formats</title>
-    <filename>group__gin__graphics-formats.html</filename>
-  </compound>
-  <compound kind="group">
     <name>gin_webp-formats</name>
     <title>formats</title>
     <filename>group__gin__webp-formats.html</filename>
+    <class kind="class">WEBPImageFormat</class>
+  </compound>
+  <compound kind="group">
+    <name>gin_graphics-formats</name>
+    <title>formats</title>
+    <filename>group__gin__graphics-formats.html</filename>
+    <class kind="class">BMPImageFormat</class>
   </compound>
   <compound kind="group">
     <name>gin-geometry</name>
     <title>geometry</title>
     <filename>group__gin-geometry.html</filename>
+    <class kind="class">Catenary</class>
+    <class kind="class">Ellipse</class>
+    <class kind="class">Polygon</class>
     <member kind="function">
       <type>T</type>
       <name>square</name>
@@ -18143,21 +17895,36 @@
     <name>gin_location-location</name>
     <title>location</title>
     <filename>group__gin__location-location.html</filename>
+    <class kind="class">LocationManager</class>
+    <class kind="struct">LocationManager::Location</class>
+    <class kind="class">LocationManager::Listener</class>
   </compound>
   <compound kind="group">
     <name>gin_plugin-lookandfeel</name>
     <title>lookandfeel</title>
     <filename>group__gin__plugin-lookandfeel.html</filename>
+    <namespace>Resources</namespace>
+    <class kind="class">CopperLookAndFeel</class>
+    <class kind="class">CopperLookAndFeelWrapper</class>
+    <class kind="class">Images</class>
+    <class kind="class">PluginLookAndFeel</class>
+    <class kind="class">PluginLookAndFeelWrapper</class>
   </compound>
   <compound kind="group">
     <name>gin_simd-math</name>
     <title>math</title>
     <filename>group__gin__simd-math.html</filename>
+    <namespace>math</namespace>
   </compound>
   <compound kind="group">
     <name>gin_metadata-metadata</name>
     <title>metadata</title>
     <filename>group__gin__metadata-metadata.html</filename>
+    <class kind="class">CommentMetadata</class>
+    <class kind="class">ExifMetadata</class>
+    <class kind="class">ImageMetadata</class>
+    <class kind="class">IptcMetadata</class>
+    <class kind="class">XmpMetadata</class>
   </compound>
   <compound kind="group">
     <name>gin_simd-mipp</name>
@@ -18168,11 +17935,31 @@
     <name>gin_network-network</name>
     <title>network</title>
     <filename>group__gin__network-network.html</filename>
+    <class kind="class">AsyncWebsocket</class>
+    <class kind="class">Http</class>
+    <class kind="struct">Http::HttpResult</class>
+    <class kind="class">SecureStreamingSocket</class>
+    <class kind="struct">WSHeaderType</class>
+    <class kind="class">WebSocket</class>
   </compound>
   <compound kind="group">
     <name>gin_plugin-plugin</name>
     <title>plugin</title>
     <filename>group__gin__plugin-plugin.html</filename>
+    <class kind="struct">ModSrcId</class>
+    <class kind="struct">ModDstId</class>
+    <class kind="class">ModVoice</class>
+    <class kind="class">ModMatrix</class>
+    <class kind="class">ModMatrix::Listener</class>
+    <class kind="class">NoteDuration</class>
+    <class kind="class">Parameter</class>
+    <class kind="class">Parameter::ParameterListener</class>
+    <class kind="struct">Parameter::ParamState</class>
+    <class kind="class">SmoothingType</class>
+    <class kind="class">ProcessorOptions</class>
+    <class kind="class">Processor</class>
+    <class kind="class">Program</class>
+    <class kind="class">SmoothedParameter</class>
     <member kind="define">
       <type>#define</type>
       <name>ProcessorBaseClass</name>
@@ -18182,14 +17969,14 @@
     </member>
     <member kind="function">
       <type>float</type>
-      <name>getValue</name>
+      <name>ModVoice::getValue</name>
       <anchorfile>group__gin__plugin-plugin.html</anchorfile>
       <anchor>gab084f6f52a2bf9f5141a63554b6d22bb</anchor>
       <arglist>(gin::Parameter *p)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
-      <name>getValueUnsmoothed</name>
+      <name>ModVoice::getValueUnsmoothed</name>
       <anchorfile>group__gin__plugin-plugin.html</anchorfile>
       <anchor>ga60485fac94a8a96975db4e56f4b24902</anchor>
       <arglist>(gin::Parameter *p)</arglist>
@@ -18204,6 +17991,17 @@
     <name>gin_gui-utilities</name>
     <title>utilities</title>
     <filename>group__gin__gui-utilities.html</filename>
+    <namespace>macOS</namespace>
+    <class kind="class">LambdaTimer</class>
+    <class kind="class">LambdaAsyncUpdater</class>
+    <class kind="class">LambdaMouseListener</class>
+    <class kind="class">CoalescedTimer</class>
+    <class kind="class">ElevatedFileCopy</class>
+    <class kind="class">Layout</class>
+    <class kind="class">OpenStreetMaps</class>
+    <class kind="class">OpenStreetMaps::Listener</class>
+    <class kind="class">SystemClipboard</class>
+    <class kind="class">AsyncDownload</class>
     <member kind="function">
       <type>void</type>
       <name>callOnMainThreadBlocking</name>
@@ -18237,6 +18035,31 @@
     <name>gin-utilities</name>
     <title>utilities</title>
     <filename>group__gin-utilities.html</filename>
+    <namespace>Diff</namespace>
+    <namespace>Lagrange</namespace>
+    <class kind="class">DownloadManager</class>
+    <class kind="struct">DownloadManager::DownloadResult</class>
+    <class kind="class">EquationParser</class>
+    <class kind="class">FileSystemWatcher</class>
+    <class kind="class">FileSystemWatcher::Listener</class>
+    <class kind="class">Integrator</class>
+    <class kind="class">LeastSquaresRegression</class>
+    <class kind="class">LinearRegression</class>
+    <class kind="class">MessagePack</class>
+    <class kind="class">Point</class>
+    <class kind="class">RealtimeAsyncUpdater</class>
+    <class kind="class">RIFFParser</class>
+    <class kind="class">SharedMemory</class>
+    <class kind="class">Spline</class>
+    <class kind="class">Spline::Element</class>
+    <class kind="class">SystemSemaphore</class>
+    <class kind="class">TextHistory</class>
+    <class kind="class">PerlinNoise</class>
+    <class kind="class">RollingAverage</class>
+    <class kind="class">TimeProfiler</class>
+    <class kind="class">ValueTreeObject</class>
+    <class kind="class">LambdaValueTreeListener</class>
+    <class kind="class">AsyncLambdaValueTreeListener</class>
     <member kind="function">
       <type>T</type>
       <name>easeLinear</name>

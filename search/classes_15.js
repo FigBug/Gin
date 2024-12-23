@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['xmpmetadata_1924',['XmpMetadata',['../classXmpMetadata.html',1,'']]],
-  ['xyscope_1925',['XYScope',['../classXYScope.html',1,'']]]
+  ['xmpmetadata_0',['XmpMetadata',['../classXmpMetadata.html',1,'']]],
+  ['xyscope_1',['XYScope',['../classXYScope.html',1,'']]]
 ];

@@ -1,4 +1,5 @@
 <map id="NoiseState" name="NoiseState">
-<area shape="rect" id="node1" title="State for noise." alt="" coords="5,80,99,107"/>
-<area shape="rect" id="node2" href="$structFuncState.html" title="Base class to store an audio functions state But you say &quot;functions don&#39;t have state!..." alt="" coords="9,5,95,32"/>
+<area shape="rect" id="Node000001" title="State for noise." alt="" coords="5,79,99,104"/>
+<area shape="rect" id="Node000002" href="$structFuncState.html" title="Base class to store an audio functions state But you say &quot;functions don&#39;t have state!..." alt="" coords="9,5,95,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,44,55,79,49,79,49,44"/>
 </map>
