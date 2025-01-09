@@ -7221,6 +7221,12 @@
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
+      <name>clipColourId</name>
+      <anchorfile>classLevelMeter.html</anchorfile>
+      <anchor>aebb71a7df2ebf267fa0326a95142cfa3ad844a359347bafb53048b50aad7ec396</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
       <name>lineColourId</name>
       <anchorfile>classLevelMeter.html</anchorfile>
       <anchor>aebb71a7df2ebf267fa0326a95142cfa3a28b27caf96c83d8b60fa1e616e9bacaa</anchor>
@@ -7236,6 +7242,12 @@
       <name>meterColourId</name>
       <anchorfile>classLevelMeter.html</anchorfile>
       <anchor>aebb71a7df2ebf267fa0326a95142cfa3ab7530e0b591c2a089549783c99bb942e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>clipColourId</name>
+      <anchorfile>classLevelMeter.html</anchorfile>
+      <anchor>aebb71a7df2ebf267fa0326a95142cfa3ad844a359347bafb53048b50aad7ec396</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
