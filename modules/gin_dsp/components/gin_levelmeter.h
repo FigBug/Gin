@@ -24,7 +24,8 @@ public:
     {
         lineColourId             = 0x1291e10,
         backgroundColourId       = 0x1291e11,
-        meterColourId            = 0x1291e12
+        meterColourId            = 0x1291e12,
+		clipColourId             = 0x1291e13
     };
 
 private:
