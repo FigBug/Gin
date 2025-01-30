@@ -124,6 +124,7 @@ namespace gin
 #include "dsp/gin_textrenderer.h"
 #include "dsp/gin_audioequationparser.h"
 
+#include "components/gin_audiosamplerbuffercomponent.h"
 #include "components/gin_dynamicsmeter.h"
 #include "components/gin_levelmeter.h"
 #include "components/gin_triggeredscope.h"

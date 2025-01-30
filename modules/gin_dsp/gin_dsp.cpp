@@ -85,6 +85,7 @@ namespace gin
 #include "dsp/gin_textrenderer.cpp"
 #include "dsp/gin_wtoscillators.cpp"
 
+#include "components/gin_audiosamplerbuffercomponent.cpp"
 #include "components/gin_dynamicsmeter.cpp"
 #include "components/gin_levelmeter.cpp"
 #include "components/gin_triggeredscope.cpp"
