@@ -308,7 +308,7 @@ void AudioSamplerBufferComponent::setViewBounds (float left, float right)
                 left = 0.0;
         }
 
-        if (left != getViewLeft() || right != getViewRight())
+        if (! juce::approximatelyEqual (left, getViewLeft()) || ! juce::approximatelyEqual (right, getViewRight()))
         {
             viewLeft  = left;
             viewWidth = right - left;
@@ -355,7 +355,7 @@ void AudioSamplerBufferComponent::mouseWheelMove (const juce::MouseEvent& e, con
 
 void AudioSamplerBufferComponent::scrollViewBounds (float delta)
 {
-    if (delta != 0)
+    if (! juce::approximatelyEqual (delta, 0.0f))
     {
         setViewBounds (getViewLeft() + delta, getViewRight() + delta);
 
