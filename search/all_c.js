@@ -5,7 +5,7 @@ var searchData=
   ['name_2',['name',['../classKnob.html#a4cf5ed46637f0b10594b6d43b2f4067b',1,'Knob::name'],['../classHorizontalFader.html#ab70425a9c8226dd53432dde0222dba8f',1,'HorizontalFader::name'],['../classSelect.html#a68477089c5c406d199fe071d09080be4',1,'Select::name'],['../classParameter.html#a4316d020a490d5e1d764d60453cb078c',1,'Parameter::name'],['../classProgram.html#ab960dff0d490441b19a47c7788ef5308',1,'Program::name']]],
   ['negation_3',['Negation',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab94b0efce58a77e1c8fa29e32536c728',1,'gin_imageeffects.h']]],
   ['network_4',['network',['../group__gin__network-network.html',1,'']]],
-  ['newschecker_5',['newschecker',['../classNewsChecker.html',1,'NewsChecker'],['../classNewsChecker.html#a519004dfd3ae54255b2eff7a132e0a00',1,'NewsChecker::NewsChecker()'],['../classTitleBar.html#ab00ac1e8d688d411c19dc7ee9e3feac7',1,'TitleBar::newsChecker']]],
+  ['newschecker_5',['newschecker',['../classNewsChecker.html',1,'NewsChecker'],['../classTitleBar.html#ab00ac1e8d688d411c19dc7ee9e3feac7',1,'TitleBar::newsChecker'],['../classNewsChecker.html#a519004dfd3ae54255b2eff7a132e0a00',1,'NewsChecker::NewsChecker()']]],
   ['newtransaction_6',['newTransaction',['../classSingleLineTextEditor.html#ab5aafa23521231a8b7f6811b2d937b44',1,'SingleLineTextEditor']]],
   ['next_7',['next',['../namespaceAssets.html#a7e39560cce3d5062215a8a94f967e741',1,'Assets::next'],['../classPatchBrowser.html#acca4a794212c331878636360a8650723',1,'PatchBrowser::next()']]],
   ['nextbutton_8',['nextButton',['../classTitleBar.html#adbdac6bcc1d15a4b014231dc9a799a6e',1,'TitleBar']]],

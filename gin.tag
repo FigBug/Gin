@@ -462,6 +462,12 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>gin_audiosamplerbuffercomponent.h</name>
+    <path>build/gin_dsp/components/</path>
+    <filename>gin__audiosamplerbuffercomponent_8h.html</filename>
+    <class kind="class">AudioSamplerBufferComponent</class>
+  </compound>
+  <compound kind="file">
     <name>gin_dynamicsmeter.h</name>
     <path>build/gin_dsp/components/</path>
     <filename>gin__dynamicsmeter_8h.html</filename>
@@ -2790,6 +2796,199 @@
       <anchorfile>classAudioFunctionHost.html</anchorfile>
       <anchor>a3647d97cb87c9029d48846985dcfe39a</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>AudioSamplerBufferComponent</name>
+    <filename>classAudioSamplerBufferComponent.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>AudioSamplerBufferComponent</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>a93a3af8753d117994fe28b588d6c9932</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~AudioSamplerBufferComponent</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>a7e5a703ef399c16af30778bfa1980be3</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setBuffer</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>a87b2b3bdd11444750348568c68277972</anchor>
+      <arglist>(const juce::AudioSampleBuffer &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clear</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>ac38a76c8624e9ec159af1d334de841e0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setScrollable</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>a75f4b844ddc97fe9773c1b1805fac421</anchor>
+      <arglist>(bool s)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getLength</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>a1ac5d91192d600ac34ec6813b64d4bfb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setHiResDisabled</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>a5e4c81f088a7de4beeacd8a112edb58d</anchor>
+      <arglist>(bool b)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getViewLeft</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>a5781cdbc3e63140d2b54ba3473d43c11</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getViewRight</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>a20c5c83fd8d9e809c7d44964108a4097</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>scrollViewBounds</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>a1f5580a3d484be3195630bb78e99f91e</anchor>
+      <arglist>(float delta)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setViewLeft</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>aef9577b10b3bb6e19624e4cd527e7886</anchor>
+      <arglist>(float left)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setViewRight</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>a3a43eade6e8729efb3693d78ea6b7f0a</anchor>
+      <arglist>(float right)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setViewBounds</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>a1a45d50ddb6ab44f21910cdb394c2fcc</anchor>
+      <arglist>(float left, float right)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setMaxZoom</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>aaa3090054dd8ac848b2578d948b5c5f7</anchor>
+      <arglist>(float maxZoom)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>zoom</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>a75f8f2b967837548478c2039955a1435</anchor>
+      <arglist>(float centrePoint, float factor)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPlayheads</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>a54f1da8de54b71bd832b9cc4429db90d</anchor>
+      <arglist>(const std::vector&lt; int &gt; &amp;playheads)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>xToSample</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>afd30695b6bb6f0bb18e5125f0b63209a</anchor>
+      <arglist>(float x)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>sampleToX</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>a278898a7f85b56449cc469a6d843671a</anchor>
+      <arglist>(int sample)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setLineColour</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>afa46d77b2231a203340f477b004c2297</anchor>
+      <arglist>(juce::Colour c)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setBackgroundColour</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>a527bca7d8bc8ff70996294ecaeb3a50f</anchor>
+      <arglist>(juce::Colour c)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paint</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>a55203c1fdefea149254b4a79d67a7ec6</anchor>
+      <arglist>(juce::Graphics &amp;) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resized</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>a6645984189ee656586c31fac142575c6</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mouseWheelMove</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>ad3b1e5a6e9ca603a677ab2fc466dd1de</anchor>
+      <arglist>(const juce::MouseEvent &amp;e, const juce::MouseWheelDetails &amp;wheel) override</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::MouseCursor</type>
+      <name>getMouseCursor</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>af104554f0e7e5ef2ce0ec81542bca46a</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mouseDown</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>aaa03c453d1493061d9ee8581eb42fafb</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mouseDrag</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>ac2679884e39be6efce6ccd48872fbbd1</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mouseUp</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>ab6818de517beb62b15d4087cf69f8f2d</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -17155,50 +17354,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-    <class kind="class">DynamicsMeter</class>
-    <class kind="class">LevelMeter</class>
-    <class kind="class">TriggeredScope</class>
-    <class kind="class">WaveformComponent</class>
-    <class kind="class">WavetableComponent</class>
-    <class kind="class">XYScope</class>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-components</name>
-    <title>components</title>
-    <filename>group__gin__gui-components.html</filename>
-    <class kind="class">ComponentGrid</class>
-    <class kind="struct">ComponentGrid::DragInfo</class>
-    <class kind="class">ComponentViewer</class>
-    <class kind="class">GinLookAndFeel</class>
-    <class kind="class">MapViewer</class>
-    <class kind="class">PropertyComponentBase</class>
-    <class kind="class">FilePropertyComponent</class>
-    <class kind="class">ColourPropertyComponent</class>
-    <class kind="class">SingleLineTextEditor</class>
-    <class kind="class">SingleLineTextEditor::Listener</class>
-    <class kind="class">SingleLineTextEditor::InputFilter</class>
-    <class kind="class">SingleLineTextEditor::LengthAndCharacterRestriction</class>
-    <class kind="struct">SingleLineTextEditor::LookAndFeelMethods</class>
-    <class kind="class">SVGButton</class>
-    <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin__gui-components.html</anchorfile>
-      <anchor>ga66410efb088d24a02a86b4c6191e2866</anchor>
-      <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component * &gt; children)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin__gui-components.html</anchorfile>
-      <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
-      <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
     <name>gin_plugin-components</name>
     <title>components</title>
     <filename>group__gin__plugin-components.html</filename>
@@ -17254,6 +17409,51 @@
       <anchorfile>group__gin__plugin-components.html</anchorfile>
       <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
       <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
+    <class kind="class">AudioSamplerBufferComponent</class>
+    <class kind="class">DynamicsMeter</class>
+    <class kind="class">LevelMeter</class>
+    <class kind="class">TriggeredScope</class>
+    <class kind="class">WaveformComponent</class>
+    <class kind="class">WavetableComponent</class>
+    <class kind="class">XYScope</class>
+  </compound>
+  <compound kind="group">
+    <name>gin_gui-components</name>
+    <title>components</title>
+    <filename>group__gin__gui-components.html</filename>
+    <class kind="class">ComponentGrid</class>
+    <class kind="struct">ComponentGrid::DragInfo</class>
+    <class kind="class">ComponentViewer</class>
+    <class kind="class">GinLookAndFeel</class>
+    <class kind="class">MapViewer</class>
+    <class kind="class">PropertyComponentBase</class>
+    <class kind="class">FilePropertyComponent</class>
+    <class kind="class">ColourPropertyComponent</class>
+    <class kind="class">SingleLineTextEditor</class>
+    <class kind="class">SingleLineTextEditor::Listener</class>
+    <class kind="class">SingleLineTextEditor::InputFilter</class>
+    <class kind="class">SingleLineTextEditor::LengthAndCharacterRestriction</class>
+    <class kind="struct">SingleLineTextEditor::LookAndFeelMethods</class>
+    <class kind="class">SVGButton</class>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin__gui-components.html</anchorfile>
+      <anchor>ga66410efb088d24a02a86b4c6191e2866</anchor>
+      <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component * &gt; children)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin__gui-components.html</anchorfile>
+      <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
+      <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
     </member>
   </compound>
   <compound kind="group">
@@ -17588,25 +17788,6 @@
     <subgroup>gin_webp-formats</subgroup>
   </compound>
   <compound kind="group">
-    <name>gin_gui-images</name>
-    <title>images</title>
-    <filename>group__gin__gui-images.html</filename>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>rasterizeSVG</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
-      <arglist>(juce::String svgText, int w, int h)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Path</type>
-      <name>parseSVGPath</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
-      <arglist>(const juce::String &amp;txt)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
     <name>gin_graphics-images</name>
     <title>images</title>
     <filename>group__gin__graphics-images.html</filename>
@@ -17904,6 +18085,25 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_gui-images</name>
+    <title>images</title>
+    <filename>group__gin__gui-images.html</filename>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>rasterizeSVG</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
+      <arglist>(juce::String svgText, int w, int h)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Path</type>
+      <name>parseSVGPath</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
+      <arglist>(const juce::String &amp;txt)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
     <name>gin_location-location</name>
     <title>location</title>
     <filename>group__gin__location-location.html</filename>
@@ -17998,50 +18198,6 @@
     <name>gin_plugin-resources</name>
     <title>resources</title>
     <filename>group__gin__plugin-resources.html</filename>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-utilities</name>
-    <title>utilities</title>
-    <filename>group__gin__gui-utilities.html</filename>
-    <namespace>macOS</namespace>
-    <class kind="class">LambdaTimer</class>
-    <class kind="class">LambdaAsyncUpdater</class>
-    <class kind="class">LambdaMouseListener</class>
-    <class kind="class">CoalescedTimer</class>
-    <class kind="class">ElevatedFileCopy</class>
-    <class kind="class">Layout</class>
-    <class kind="class">OpenStreetMaps</class>
-    <class kind="class">OpenStreetMaps::Listener</class>
-    <class kind="class">SystemClipboard</class>
-    <class kind="class">AsyncDownload</class>
-    <member kind="function">
-      <type>void</type>
-      <name>callOnMainThreadBlocking</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
-      <arglist>(std::function&lt; void()&gt; func)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
-    </member>
   </compound>
   <compound kind="group">
     <name>gin-utilities</name>
@@ -18421,6 +18577,50 @@
       <anchorfile>group__gin-utilities.html</anchorfile>
       <anchor>ga88f482bf81fb3e423fa1e3926dfaa9a6</anchor>
       <arglist>(const juce::String &amp;jsonText)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_gui-utilities</name>
+    <title>utilities</title>
+    <filename>group__gin__gui-utilities.html</filename>
+    <namespace>macOS</namespace>
+    <class kind="class">LambdaTimer</class>
+    <class kind="class">LambdaAsyncUpdater</class>
+    <class kind="class">LambdaMouseListener</class>
+    <class kind="class">CoalescedTimer</class>
+    <class kind="class">ElevatedFileCopy</class>
+    <class kind="class">Layout</class>
+    <class kind="class">OpenStreetMaps</class>
+    <class kind="class">OpenStreetMaps::Listener</class>
+    <class kind="class">SystemClipboard</class>
+    <class kind="class">AsyncDownload</class>
+    <member kind="function">
+      <type>void</type>
+      <name>callOnMainThreadBlocking</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
+      <arglist>(std::function&lt; void()&gt; func)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
     </member>
   </compound>
 </tagfile>

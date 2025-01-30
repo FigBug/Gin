@@ -61,6 +61,7 @@ var searchData=
   ['aterm_58',['aTerm',['../classLeastSquaresRegression.html#a5bfe5f2d56a0e4585102e95a752d17bf',1,'LeastSquaresRegression']]],
   ['audioequationparser_59',['AudioEquationParser',['../classAudioEquationParser.html#ad4901750930743500c83acf90d83a7a0',1,'AudioEquationParser']]],
   ['audiofifo_60',['AudioFifo',['../classAudioFifo.html#a521bc70e223aabb88d2579d44d63d6ec',1,'AudioFifo']]],
-  ['authorsmodel_61',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html#a5b1e9a0aee87d3623f78db4126fcab3e',1,'PatchBrowser::AuthorsModel']]],
-  ['average_62',['average',['../classRollingAverage.html#a941797e5f59cbdfce52faa655bd1b7f3',1,'RollingAverage']]]
+  ['audiosamplerbuffercomponent_61',['AudioSamplerBufferComponent',['../classAudioSamplerBufferComponent.html#a93a3af8753d117994fe28b588d6c9932',1,'AudioSamplerBufferComponent']]],
+  ['authorsmodel_62',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html#a5b1e9a0aee87d3623f78db4126fcab3e',1,'PatchBrowser::AuthorsModel']]],
+  ['average_63',['average',['../classRollingAverage.html#a941797e5f59cbdfce52faa655bd1b7f3',1,'RollingAverage']]]
 ];

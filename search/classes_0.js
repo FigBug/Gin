@@ -10,5 +10,6 @@ var searchData=
   ['audioequationparser_7',['AudioEquationParser',['../classAudioEquationParser.html',1,'']]],
   ['audiofifo_8',['AudioFifo',['../classAudioFifo.html',1,'']]],
   ['audiofunctionhost_9',['AudioFunctionHost',['../classAudioFunctionHost.html',1,'']]],
-  ['authorsmodel_10',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser']]]
+  ['audiosamplerbuffercomponent_10',['AudioSamplerBufferComponent',['../classAudioSamplerBufferComponent.html',1,'']]],
+  ['authorsmodel_11',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser']]]
 ];
