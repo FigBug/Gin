@@ -56,7 +56,7 @@ void AudioSamplerBufferComponent::paint (juce::Graphics& g)
         pixelCacheDirty = false;
     }
 
-    paintWaveform (g, true);
+    paintWaveform (g);
 
     for (auto p : playheads)
     {
@@ -67,7 +67,7 @@ void AudioSamplerBufferComponent::paint (juce::Graphics& g)
     }
 }
 
-void AudioSamplerBufferComponent::paintWaveform (juce::Graphics& g, bool enabled)
+void AudioSamplerBufferComponent::paintWaveform (juce::Graphics& g)
 {
     auto rc = getLocalBounds().toFloat ();
 

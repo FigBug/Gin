@@ -70,7 +70,7 @@ private:
 
     float getNumSamplesPerPixel();
 
-    void paintWaveform (juce::Graphics& g, bool enabled);
+    void paintWaveform (juce::Graphics& g);
     bool hiRes ();
 
     juce::OwnedArray<Channel> channels;
