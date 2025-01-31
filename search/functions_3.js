@@ -9,7 +9,7 @@ var searchData=
   ['deletebackwards_6',['deleteBackwards',['../classSingleLineTextEditor.html#a375af0176e428c9c8213929047111b76',1,'SingleLineTextEditor']]],
   ['deletefile_7',['deleteFile',['../classElevatedFileCopy.html#a388cf3a1477bb16bb43e7e1666c4e46d',1,'ElevatedFileCopy']]],
   ['deleteforwards_8',['deleteForwards',['../classSingleLineTextEditor.html#a696359b4ec5f6a7573888294d2db1dfd',1,'SingleLineTextEditor']]],
-  ['deletefromdir_9',['deleteFromDir',['../classProgram.html#a06c512a7a2a5270f02456cc1df08abba',1,'Program']]],
+  ['deletefromdir_9',['deleteFromDir',['../classProgram.html#aba431633192e47cf16b5bce79aa54827',1,'Program']]],
   ['deletepreset_10',['deletePreset',['../classPatchBrowser.html#a692e35311b3736582e36a3dd60cdf95d',1,'PatchBrowser']]],
   ['deleteprogram_11',['deleteProgram',['../classProcessor.html#aac9dc03295d9a5a991bc725d9f4bbde7',1,'Processor']]],
   ['depthslider_12',['DepthSlider',['../classModMatrixBox_1_1Row_1_1DepthSlider.html#afaebcb7a448047d4f55627eedff79ddc',1,'ModMatrixBox::Row::DepthSlider']]],

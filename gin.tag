@@ -7210,6 +7210,13 @@
       <arglist>(juce::ValueTree v_)</arglist>
     </member>
     <member kind="variable">
+      <type>std::function&lt; void()&gt;</type>
+      <name>onChanged</name>
+      <anchorfile>classLambdaValueTreeListener.html</anchorfile>
+      <anchor>ae70570024c2d16318a93df59ffed7fe3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
       <type>std::function&lt; void(juce::ValueTree &amp;, const juce::Identifier &amp;)&gt;</type>
       <name>onValueTreePropertyChanged</name>
       <anchorfile>classLambdaValueTreeListener.html</anchorfile>
@@ -11973,11 +11980,18 @@
       <anchor>a3d7c16d172be09d3bfb4df3519d21b31</anchor>
       <arglist>() override</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
       <name>init</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a22e869ee49d974ad0ee7ee81961ab88f</anchor>
+      <anchor>ab55d60ccbf3ab43ecc64932b5e6d9a4c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual Program *</type>
+      <name>createProgram</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>ab9f25f9811e4844c50071be48296c160</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -12085,11 +12099,11 @@
       <anchor>a36394e5ceac103d0f3f7852091aad91e</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
       <name>loadAllPrograms</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a0d54dc4f330cea0f907e55a4f19e92d3</anchor>
+      <anchor>adde1ecc658aa6760b55e340ebbaa9fee</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -12301,6 +12315,76 @@
       <anchorfile>classProcessor.html</anchorfile>
       <anchor>ad1fa6fe5fe5aa411ba0457273239a814</anchor>
       <arglist>(const juce::String &amp;name, const void *data, int sz)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>timerCallback</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a928e44121e096d11335f855fcc91fa22</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>std::unique_ptr&lt; gin::Parameter &gt;</type>
+      <name>createParam</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>aa0677b65e8afa6fceaed5412ed52dad4</anchor>
+      <arglist>(juce::String uid, juce::String name, juce::String shortName, juce::String label, juce::NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, std::function&lt; juce::String(const gin::Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>updateParams</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>aa281d0334169311ca45ff34a4b993131</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::unique_ptr&lt; juce::PropertiesFile &gt;</type>
+      <name>settings</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a90d893be2965a456b240e62585bf8bbb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::Array&lt; gin::Parameter * &gt;</type>
+      <name>allParameters</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>ab7c792318f8580f5ec7ac1f96c5e4c6f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::String</type>
+      <name>currentProgramName</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>ac5e273e1217dd89358c5e7d17a8dd509</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>maxPrograms</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>aa5cbb6785d90929371bb6b44d2b10a1e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::OwnedArray&lt; Program &gt;</type>
+      <name>programs</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a6e52d116c070e29f20cd7060784aab05</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::Time</type>
+      <name>lastStateLoad</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>aff2c1655ec7bab3b2b2d19e77f7829fd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::Time</type>
+      <name>lastProgramsUpdated</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a417faac3223fdc4a83f0793e82509d7c</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -12746,46 +12830,53 @@
       <anchor>ac702b6b062bd2b1aa35003f76a34f2a5</anchor>
       <arglist>()=default</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Program</name>
+      <anchorfile>classProgram.html</anchorfile>
+      <anchor>a6bae7e7c5fe3bff845a6b94eb0938fda</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
       <name>loadProcessor</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>a9b90c3645e8e2cad9f006a2373901e2c</anchor>
+      <anchor>a8ece34e8c3ec235007a4dfe53178207c</anchor>
       <arglist>(Processor &amp;p)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
       <name>saveProcessor</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>a6f805c78d2f7a4ffbd0a98b6435eef0a</anchor>
+      <anchor>a5dd7f27bc87cafd61c23a51c8c58cb19</anchor>
       <arglist>(Processor &amp;p)</arglist>
     </member>
-    <member kind="function">
-      <type>juce::File</type>
+    <member kind="function" virtualness="virtual">
+      <type>virtual juce::File</type>
       <name>getPresetFile</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>abe908b7cbe82130a768c2b080c96aeb7</anchor>
+      <anchor>a20d161f7b5833e7dfc51e6be1c88cefa</anchor>
       <arglist>(juce::File programDir)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
       <name>loadFromFile</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>a9294c1e9c680d968c2e35276e9a2a263</anchor>
+      <anchor>a57fe788b51aeada66d4cfc8a927be78b</anchor>
       <arglist>(juce::File f, bool loadFully)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
       <name>saveToDir</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>a94c8e99d3bbe16b666753511a0453581</anchor>
+      <anchor>abffced88d0b2832fab9a070e0edc870b</anchor>
       <arglist>(juce::File programDir)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
       <name>deleteFromDir</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>a06c512a7a2a5270f02456cc1df08abba</anchor>
+      <anchor>aba431633192e47cf16b5bce79aa54827</anchor>
       <arglist>(juce::File programDir)</arglist>
     </member>
     <member kind="variable">
@@ -12832,9 +12923,9 @@
     </member>
     <member kind="variable">
       <type>juce::Array&lt; Parameter::ParamState &gt;</type>
-      <name>states</name>
+      <name>parameters</name>
       <anchorfile>classProgram.html</anchorfile>
-      <anchor>ac96aecc2feeb808135496ea32108a3f1</anchor>
+      <anchor>abb4790e98826e67f934f28258083a13e</anchor>
       <arglist></arglist>
     </member>
   </compound>

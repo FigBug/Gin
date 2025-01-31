@@ -16,8 +16,9 @@ var searchData=
   ['currentauthors_13',['currentAuthors',['../classPatchBrowser.html#a6706171e059f0acd5c48aded8185378b',1,'PatchBrowser']]],
   ['currentindex_14',['currentIndex',['../structComponentGrid_1_1DragInfo.html#a8a7fae6ad1047d924d2b3e8af72c64ac',1,'ComponentGrid::DragInfo']]],
   ['currentpresets_15',['currentPresets',['../classPatchBrowser.html#a6f234b2f7429023b795fca3aeefb4347',1,'PatchBrowser']]],
-  ['currenttags_16',['currentTags',['../classPatchBrowser.html#ad6b24119439bd1a1feafc67751a4c965',1,'PatchBrowser']]],
-  ['curve_17',['curve',['../structMSEG_1_1Point.html#a634f4b17ddbfa5605251d0d3628f6b37',1,'MSEG::Point']]],
-  ['cx_18',['cx',['../classProcessorEditorBase.html#a1e7e8587520931e79cbd2c90ab2122bf',1,'ProcessorEditorBase']]],
-  ['cy_19',['cy',['../classProcessorEditorBase.html#a2c1c1c5590ca8e090ba362a395b339eb',1,'ProcessorEditorBase']]]
+  ['currentprogramname_16',['currentProgramName',['../classProcessor.html#ac5e273e1217dd89358c5e7d17a8dd509',1,'Processor']]],
+  ['currenttags_17',['currentTags',['../classPatchBrowser.html#ad6b24119439bd1a1feafc67751a4c965',1,'PatchBrowser']]],
+  ['curve_18',['curve',['../structMSEG_1_1Point.html#a634f4b17ddbfa5605251d0d3628f6b37',1,'MSEG::Point']]],
+  ['cx_19',['cx',['../classProcessorEditorBase.html#a1e7e8587520931e79cbd2c90ab2122bf',1,'ProcessorEditorBase']]],
+  ['cy_20',['cy',['../classProcessorEditorBase.html#a2c1c1c5590ca8e090ba362a395b339eb',1,'ProcessorEditorBase']]]
 ];

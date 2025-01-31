@@ -4,7 +4,7 @@ var searchData=
   ['images_1',['Images',['../classImages.html#a3c31a7052197172e2bfb26efe796d32f',1,'Images']]],
   ['imagetonsimage_2',['imageToNSImage',['../namespacemacOS.html#aab8a769f8109ca623c481f67ff80b048',1,'macOS']]],
   ['incphase_3',['incPhase',['../structOscState.html#a5f7c0274cffaa5b08c431289c245ae21',1,'OscState']]],
-  ['init_4',['init',['../structVoicedStereoOscillatorParams.html#a09a37dcc8b6860e6bc6a390924d371f7',1,'VoicedStereoOscillatorParams::init()'],['../structWTVoicedStereoOscillatorParams.html#aaed27af8e691aa244e4cc5b24b715306',1,'WTVoicedStereoOscillatorParams::init()'],['../classProcessor.html#a22e869ee49d974ad0ee7ee81961ab88f',1,'Processor::init()']]],
+  ['init_4',['init',['../structVoicedStereoOscillatorParams.html#a09a37dcc8b6860e6bc6a390924d371f7',1,'VoicedStereoOscillatorParams::init()'],['../structWTVoicedStereoOscillatorParams.html#aaed27af8e691aa244e4cc5b24b715306',1,'WTVoicedStereoOscillatorParams::init()'],['../classProcessor.html#ab55d60ccbf3ab43ecc64932b5e6d9a4c',1,'Processor::init()']]],
   ['inputfilter_5',['InputFilter',['../classSingleLineTextEditor_1_1InputFilter.html#a99b6d8607dd45a320cddd4b3bd18133b',1,'SingleLineTextEditor::InputFilter']]],
   ['inserttextatcaret_6',['insertTextAtCaret',['../classSingleLineTextEditor.html#aaf4946076bc4ece47fabe839a1556694',1,'SingleLineTextEditor']]],
   ['interpolate_7',['interpolate',['../namespaceLagrange.html#ab812f4c6079c4c45b43e56239c3634d4',1,'Lagrange::interpolate(T xArr[], T yArr[], int num, T x)'],['../namespaceLagrange.html#a6f338372cdf3563a209fe42fa92f8c13',1,'Lagrange::interpolate(const juce::Array&lt; Point&lt; T &gt; &gt; &amp;points, T x)'],['../classSpline.html#ac1f059b0c61e23b88d7939a27fd40b5c',1,'Spline::interpolate()']]],

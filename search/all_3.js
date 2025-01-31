@@ -23,7 +23,7 @@ var searchData=
   ['deletebutton_20',['deleteButton',['../classTitleBar.html#a63cc841bf24e40e9e5537ec398b99bdd',1,'TitleBar']]],
   ['deletefile_21',['deleteFile',['../classElevatedFileCopy.html#a388cf3a1477bb16bb43e7e1666c4e46d',1,'ElevatedFileCopy']]],
   ['deleteforwards_22',['deleteForwards',['../classSingleLineTextEditor.html#a696359b4ec5f6a7573888294d2db1dfd',1,'SingleLineTextEditor']]],
-  ['deletefromdir_23',['deleteFromDir',['../classProgram.html#a06c512a7a2a5270f02456cc1df08abba',1,'Program']]],
+  ['deletefromdir_23',['deleteFromDir',['../classProgram.html#aba431633192e47cf16b5bce79aa54827',1,'Program']]],
   ['deletepreset_24',['deletePreset',['../classPatchBrowser.html#a692e35311b3736582e36a3dd60cdf95d',1,'PatchBrowser']]],
   ['deleteprogram_25',['deleteProgram',['../classProcessor.html#aac9dc03295d9a5a991bc725d9f4bbde7',1,'Processor']]],
   ['delta_26',['delta',['../structOscState.html#a3659847d96492e7df6bb1987b7991415',1,'OscState']]],

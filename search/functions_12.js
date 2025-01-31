@@ -7,8 +7,9 @@ var searchData=
   ['updatechecker_4',['UpdateChecker',['../classUpdateChecker.html#a991c35a0e515fa13cb9186936a00cb8f',1,'UpdateChecker']]],
   ['updateglide_5',['updateGlide',['../classSynthesiser.html#a1825c3a26987dc66cbaf5f1447ddd510',1,'Synthesiser']]],
   ['updatemap_6',['updateMap',['../classMapViewer.html#a723ad37abb7af9ecac0bdd68dd628e46',1,'MapViewer']]],
-  ['updatestate_7',['updatestate',['../classModMatrix.html#a9d2727c3ffce6935f804eff00495e4f8',1,'ModMatrix::updateState()'],['../classProcessor.html#ab477f2a48ee23cb7d38dbecd87332fcd',1,'Processor::updateState()']]],
-  ['updatevalue_8',['updatevalue',['../classEasedValueSmoother.html#a266f723fcb2c393fbdd93599d46abcce',1,'EasedValueSmoother::updateValue()'],['../classValueSmoother.html#a581f8cc773e4cc2bac2da53e6edfec85',1,'ValueSmoother::updateValue()']]],
-  ['uservaluetotext_9',['userValueToText',['../classParameter.html#af3960250a1c071e471daf16be484b656',1,'Parameter']]],
-  ['usesfileextension_10',['usesfileextension',['../classBMPImageFormat.html#ac3aec001afc89383d536241e433cb8bf',1,'BMPImageFormat::usesFileExtension()'],['../classWEBPImageFormat.html#a1d875430f06a78fe547812ff5556bbc0',1,'WEBPImageFormat::usesFileExtension()']]]
+  ['updateparams_7',['updateParams',['../classProcessor.html#aa281d0334169311ca45ff34a4b993131',1,'Processor']]],
+  ['updatestate_8',['updatestate',['../classModMatrix.html#a9d2727c3ffce6935f804eff00495e4f8',1,'ModMatrix::updateState()'],['../classProcessor.html#ab477f2a48ee23cb7d38dbecd87332fcd',1,'Processor::updateState()']]],
+  ['updatevalue_9',['updatevalue',['../classEasedValueSmoother.html#a266f723fcb2c393fbdd93599d46abcce',1,'EasedValueSmoother::updateValue()'],['../classValueSmoother.html#a581f8cc773e4cc2bac2da53e6edfec85',1,'ValueSmoother::updateValue()']]],
+  ['uservaluetotext_10',['userValueToText',['../classParameter.html#af3960250a1c071e471daf16be484b656',1,'Parameter']]],
+  ['usesfileextension_11',['usesfileextension',['../classBMPImageFormat.html#ac3aec001afc89383d536241e433cb8bf',1,'BMPImageFormat::usesFileExtension()'],['../classWEBPImageFormat.html#a1d875430f06a78fe547812ff5556bbc0',1,'WEBPImageFormat::usesFileExtension()']]]
 ];
