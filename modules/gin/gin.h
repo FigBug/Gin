@@ -98,3 +98,22 @@ namespace gin
 #include "geometry/gin_geometry.h"
 
 }
+
+namespace juce
+{
+    template <>
+    struct VariantConverter<MemoryBlock>
+    {
+        static MemoryBlock fromVar (const var& v)
+        {
+            MemoryBlock mb;
+            mb.fromBase64Encoding (v.toString());
+            return mb;
+        }
+
+        static var toVar (MemoryBlock mb)
+        {
+            return mb.toBase64Encoding();
+        }
+    };
+}

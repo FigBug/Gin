@@ -22,7 +22,7 @@ void Program::loadProcessor (Processor& p)
     if (inst.isValid())
         p.state.addChild (inst, 0, nullptr);
 
-    for (const auto& s : states)
+    for (const auto& s : parameters)
     {
         if (auto pp = p.getParameter (s.uid))
         {
@@ -42,7 +42,7 @@ void Program::saveProcessor (Processor& p)
 {
     fullyLoaded = true;
 
-    states.clear();
+    parameters.clear();
 
     if (p.state.isValid())
         state = p.state.createCopy();
@@ -53,7 +53,7 @@ void Program::saveProcessor (Processor& p)
     for (auto param : params)
         if (! param->isMetaParameter())
             if (! juce::approximatelyEqual (param->getUserDefaultValue(), param->getUserValue()))
-                states.add (param->getState());
+                parameters.add (param->getState());
 }
 
 juce::File Program::getPresetFile (juce::File programDir)
@@ -72,7 +72,7 @@ void Program::loadFromFile (juce::File f, bool loadFully)
     std::unique_ptr<juce::XmlElement> rootE (doc.getDocumentElement());
     if (rootE)
     {
-        states.clear();
+        parameters.clear();
 
         name = rootE->getStringAttribute ("name").trim();
         author = rootE->getStringAttribute ("author").trim();
@@ -101,7 +101,7 @@ void Program::loadFromFile (juce::File f, bool loadFully)
                 Parameter::ParamState s;
                 s.uid   = uid;
                 s.value = val;
-                states.add (s);
+                parameters.add (s);
 
                 paramE = paramE->getNextElementWithTagName ("param");
             }
@@ -124,7 +124,7 @@ void Program::saveToDir (juce::File f)
     if (auto xml = state.createXml())
         rootE->addChildElement (xml.release());
 
-    for (const auto& s : states)
+    for (const auto& s : parameters)
     {
         auto paramE = new juce::XmlElement ("param");
 

@@ -24,6 +24,7 @@ public:
         vt.addListener (this);
     }
 
+    std::function<void ()> onChanged;
     std::function<void (juce::ValueTree&, const juce::Identifier&)> onValueTreePropertyChanged;
     std::function<void (juce::ValueTree&, juce::ValueTree&)> onValueTreeChildAdded;
     std::function<void (juce::ValueTree&, juce::ValueTree&, int)> onValueTreeChildRemoved;
@@ -32,39 +33,56 @@ public:
     std::function<void (juce::ValueTree&)> onValueTreeRedirected;
 
 private:
-    void valueTreePropertyChanged (juce::ValueTree&v , const juce::Identifier& i) override
+    void valueTreePropertyChanged (juce::ValueTree& v, const juce::Identifier& i) override
     {
+        if (onChanged)
+            onChanged();
+
         if (onValueTreePropertyChanged)
             onValueTreePropertyChanged (v, i);
     }
 
     void valueTreeChildAdded (juce::ValueTree& p, juce::ValueTree& c) override
     {
+        if (onChanged)
+            onChanged();
+
         if (onValueTreeChildAdded)
             onValueTreeChildAdded (p, c);
     }
 
     void valueTreeChildRemoved (juce::ValueTree& p, juce::ValueTree& c, int n) override
     {
+        if (onChanged)
+            onChanged();
+
         if (onValueTreeChildRemoved)
             onValueTreeChildRemoved (p, c, n);
-
     }
 
     void valueTreeChildOrderChanged (juce::ValueTree& v, int a, int b) override
     {
+        if (onChanged)
+            onChanged();
+
         if (onValueTreeChildOrderChanged)
             onValueTreeChildOrderChanged (v, a, b);
     }
 
     void valueTreeParentChanged (juce::ValueTree& v) override
     {
+        if (onChanged)
+            onChanged();
+
         if (onValueTreeParentChanged)
             onValueTreeParentChanged (v);
     }
 
     void valueTreeRedirected (juce::ValueTree& v) override
     {
+        if (onChanged)
+            onChanged();
+
         if (onValueTreeRedirected)
             onValueTreeRedirected (v);
     }

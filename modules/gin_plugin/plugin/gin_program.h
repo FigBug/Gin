@@ -11,14 +11,15 @@ class Program
 {
 public:
     Program() = default;
+    virtual ~Program() = default;
 
-    void loadProcessor (Processor& p);
-    void saveProcessor (Processor& p);
+    virtual void loadProcessor (Processor& p);
+    virtual void saveProcessor (Processor& p);
 
-    juce::File getPresetFile (juce::File programDir);
-    void loadFromFile (juce::File f, bool loadFully);
-    void saveToDir (juce::File programDir);
-    void deleteFromDir (juce::File programDir);
+    virtual juce::File getPresetFile (juce::File programDir);
+    virtual void loadFromFile (juce::File f, bool loadFully);
+    virtual void saveToDir (juce::File programDir);
+    virtual void deleteFromDir (juce::File programDir);
 
     juce::File file;
     juce::String name;
@@ -28,7 +29,7 @@ public:
     bool fullyLoaded = false;
     juce::ValueTree state;
 
-    juce::Array<Parameter::ParamState> states;
+    juce::Array<Parameter::ParamState> parameters;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Program)
 };

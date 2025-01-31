@@ -57,8 +57,12 @@ Processor::~Processor()
 
 void Processor::init()
 {
-    state = juce::ValueTree (juce::Identifier ("state"));
-    state.getOrCreateChildWithName ("instance", nullptr);
+    if (! state.isValid())
+    {
+        state = juce::ValueTree (juce::Identifier ("state"));
+        state.getOrCreateChildWithName ("instance", nullptr);
+    }
+
     loadAllPrograms();
 
 #if ! JUCE_IOS && ! JUCE_ANDROID
@@ -395,7 +399,7 @@ void Processor::loadAllPrograms()
 
     for (auto f : programFiles)
     {
-        auto program = new Program();
+        auto program = createProgram();
         program->loadFromFile (f, false);
         programs.add (program);
     }
@@ -403,7 +407,7 @@ void Processor::loadAllPrograms()
     std::sort (programs.begin(), programs.end(), [](const auto& a, const auto& b) { return a->name.compareIgnoreCase (b->name) < 0; });
     
     // create the default program
-    auto defaultProgram = new Program();
+    auto defaultProgram = createProgram();
     defaultProgram->name = "Default";
     defaultProgram->saveProcessor (*this);
 
@@ -425,7 +429,7 @@ void Processor::extractProgram (const juce::String& name, const void* data, int 
     {
         f.replaceWithData (data, size_t (sz));
 
-        auto program = new Program();
+        auto program = createProgram();
         program->loadFromFile (f, false);
         programs.add (program);
     }
@@ -441,7 +445,7 @@ void Processor::saveProgram (juce::String name, juce::String author, juce::Strin
         if (programs[i]->name == name)
             deleteProgram (i);
 
-    auto newProgram = new Program();
+    auto newProgram = createProgram();
     newProgram->name = name;
     newProgram->author = author;
     newProgram->tags = juce::StringArray::fromTokens (tags, " ", "");
@@ -451,9 +455,12 @@ void Processor::saveProgram (juce::String name, juce::String author, juce::Strin
     programs.add (newProgram);
     std::sort (programs.begin(), programs.end(), [] (auto a, auto b)
     {
-        if (a->name == "Default") return true;
-        if (b->name == "Default") return false;
-        return a->name.compareIgnoreCase (b->name) < 0;
+        auto na = a->name;
+        auto nb = b->name;
+
+        if (na == "Default") na = " Default";
+        if (nb == "Default") nb = " Default";
+        return na.compareIgnoreCase (nb) < 0;
     });
 
     currentProgramName = name;
