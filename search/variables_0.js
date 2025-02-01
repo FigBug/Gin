@@ -10,7 +10,7 @@ var searchData=
   ['analogtc_7',['analogTC',['../classEnvelopeDetector.html#aef1cbe13f909298336ff3e307e6b252c',1,'EnvelopeDetector']]],
   ['animator_8',['animator',['../classComponentGrid.html#a6c5ac365f8f47093c909a23de8e78d12',1,'ComponentGrid']]],
   ['applyvalue_9',['applyValue',['../classReadout.html#a2e4ef7703342093ccf13750f43fcf4a1',1,'Readout']]],
-  ['asym_10',['asym',['../structWTOscillator_1_1Params.html#aa86914604683e0a51991496154ac31fa',1,'WTOscillator::Params::asym'],['../structWTVoicedStereoOscillatorParams.html#aa6c2c1b833cfc3ff943f2385505b479b',1,'WTVoicedStereoOscillatorParams::asym']]],
+  ['asym_10',['asym',['../structStereoOscillator_1_1Params.html#a57c058339a79c6f782a634b35808faf1',1,'StereoOscillator::Params::asym'],['../structVoicedStereoOscillatorParams.html#aa49c83fd8aec6b4e6896926cb426ed31',1,'VoicedStereoOscillatorParams::asym'],['../structWTOscillator_1_1Params.html#aa86914604683e0a51991496154ac31fa',1,'WTOscillator::Params::asym'],['../structWTVoicedStereoOscillatorParams.html#aa6c2c1b833cfc3ff943f2385505b479b',1,'WTVoicedStereoOscillatorParams::asym']]],
   ['attack_11',['attack',['../classAnalogADSR.html#ad78b0e1a8896f9d2c021832fa7517982',1,'AnalogADSR']]],
   ['attackcoeff_12',['attackCoeff',['../classAnalogADSR.html#a2586227ebaf1e5741159415ada492a6f',1,'AnalogADSR']]],
   ['attackdelta_13',['attackDelta',['../classADSR.html#ae3003291adf6ae972e1ef26ec5f39ad1',1,'ADSR']]],

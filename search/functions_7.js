@@ -6,7 +6,7 @@ var searchData=
   ['haserror_3',['hasError',['../classEquationParser.html#a267ea42024ab4404885d6549c46b5298',1,'EquationParser']]],
   ['hasprogram_4',['hasProgram',['../classProcessor.html#ad78ac9883a5b0ccabf449861aa86c071',1,'Processor']]],
   ['havedata_5',['haveData',['../classLinearRegression.html#ab0d8b0bd896a4ac1a6d0fad86d5de10b',1,'LinearRegression']]],
-  ['headerbutton_6',['HeaderButton',['../classHeaderButton.html#aae91b7dec1964dc7fb1f28b05325c97b',1,'HeaderButton']]],
+  ['headerbutton_6',['HeaderButton',['../classHeaderButton.html#a6c478335d9b0fda55032fcb99df2a802',1,'HeaderButton']]],
   ['headeritem_7',['headeritem',['../classHeaderItem.html#ac6986963c5c20c0df2a1d82795579440',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable, ModMatrix &amp;mm, ModSrcId monoSrc={}, ModSrcId polySrc={})'],['../classHeaderItem.html#a1d107c83356c617db19288db61f6aedd',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable=nullptr)']]],
   ['headerrow_8',['HeaderRow',['../classHeaderRow.html#a964daf8517b543beb3e4592436f3138c',1,'HeaderRow']]],
   ['hidebubble_9',['hideBubble',['../classMultiParamComponent.html#a0f9a0c20b7c3dd25f063ca40dc421c20',1,'MultiParamComponent']]],

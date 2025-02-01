@@ -6431,8 +6431,8 @@
       <type></type>
       <name>HeaderButton</name>
       <anchorfile>classHeaderButton.html</anchorfile>
-      <anchor>aae91b7dec1964dc7fb1f28b05325c97b</anchor>
-      <arglist>(const juce::String &amp;name_)</arglist>
+      <anchor>a6c478335d9b0fda55032fcb99df2a802</anchor>
+      <arglist>(const juce::String &amp;name_, juce::Justification j=juce::Justification::centred)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -11192,6 +11192,20 @@
       <name>pw</name>
       <anchorfile>structStereoOscillator_1_1Params.html</anchorfile>
       <anchor>aebc2ccd97a83304620840c479a8c782b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>fold</name>
+      <anchorfile>structStereoOscillator_1_1Params.html</anchorfile>
+      <anchor>a1993706dbe1812d29ee8deaf4e5aea6d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>asym</name>
+      <anchorfile>structStereoOscillator_1_1Params.html</anchorfile>
+      <anchor>a57c058339a79c6f782a634b35808faf1</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -16154,6 +16168,20 @@
       <name>pw</name>
       <anchorfile>structVoicedStereoOscillatorParams.html</anchorfile>
       <anchor>a224625483ee768c1e6e86bf6a999df9d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>fold</name>
+      <anchorfile>structVoicedStereoOscillatorParams.html</anchorfile>
+      <anchor>a970339414b84994c1fa585069e0d4862</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>asym</name>
+      <anchorfile>structVoicedStereoOscillatorParams.html</anchorfile>
+      <anchor>aa49c83fd8aec6b4e6896926cb426ed31</anchor>
       <arglist></arglist>
     </member>
   </compound>

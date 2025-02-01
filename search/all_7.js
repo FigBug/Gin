@@ -13,7 +13,7 @@ var searchData=
   ['havedata_10',['haveData',['../classLinearRegression.html#ab0d8b0bd896a4ac1a6d0fad86d5de10b',1,'LinearRegression']]],
   ['header_11',['header',['../classParamBox.html#a1bd477b12f663e232b0aeadb0cbd4c40',1,'ParamBox']]],
   ['header_5fsize_12',['header_size',['../structWSHeaderType.html#ae61a7f14521c6529a754c0b414c2e6e5',1,'WSHeaderType']]],
-  ['headerbutton_13',['headerbutton',['../classHeaderButton.html#aae91b7dec1964dc7fb1f28b05325c97b',1,'HeaderButton::HeaderButton()'],['../classHeaderButton.html',1,'HeaderButton']]],
+  ['headerbutton_13',['headerbutton',['../classHeaderButton.html#a6c478335d9b0fda55032fcb99df2a802',1,'HeaderButton::HeaderButton()'],['../classHeaderButton.html',1,'HeaderButton']]],
   ['headerheight_14',['headerHeight',['../classProcessorEditorBase.html#abc8ed784a5fcb7e1efe3f1dc63348f82',1,'ProcessorEditorBase']]],
   ['headerindex_15',['headerIndex',['../classParamBox.html#a2ad72ecbea743787f083529d59178061',1,'ParamBox']]],
   ['headeritem_16',['headeritem',['../classHeaderItem.html',1,'HeaderItem'],['../classHeaderItem.html#ac6986963c5c20c0df2a1d82795579440',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable, ModMatrix &amp;mm, ModSrcId monoSrc={}, ModSrcId polySrc={})'],['../classHeaderItem.html#a1d107c83356c617db19288db61f6aedd',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable=nullptr)']]],
