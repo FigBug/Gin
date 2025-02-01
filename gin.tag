@@ -4909,13 +4909,6 @@
       <anchor>a90b05cb7088d88adba384c9aca614628</anchor>
       <arglist>(T angle)</arglist>
     </member>
-    <member kind="function">
-      <type>juce::Array&lt; Point&lt; T &gt; &gt;</type>
-      <name>findIntersections</name>
-      <anchorfile>classEllipse.html</anchorfile>
-      <anchor>a88044629e8a3e094d62569c3767b79f7</anchor>
-      <arglist>(Point&lt; T &gt; p1, Point&lt; T &gt; p2)</arglist>
-    </member>
     <member kind="variable">
       <type>T</type>
       <name>x</name>
