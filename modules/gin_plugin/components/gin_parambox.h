@@ -53,8 +53,8 @@ class HeaderButton : public juce::Button,
                      private juce::Timer
 {
 public:
-    HeaderButton (const juce::String& name_)
-        : juce::Button (name_)
+    HeaderButton (const juce::String& name_, juce::Justification j = juce::Justification::centred)
+        : juce::Button (name_), justification (j)
     {
     }
     
@@ -89,8 +89,10 @@ private:
         auto f = juce::Font (juce::FontOptions()).withPointHeight (10.0).withExtraKerningFactor (0.25);
 
         g.setColour (getToggleState() ? findColour (PluginLookAndFeel::accentColourId).withAlpha (0.6f) : findColour (PluginLookAndFeel::whiteColourId).withAlpha (0.6f));
-        g.drawText (getButtonText().toUpperCase(), getLocalBounds(), juce::Justification::centred);
+        g.drawText (getButtonText().toUpperCase(), getLocalBounds(), justification);
     }
+
+    juce::Justification justification;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(HeaderButton)
 };

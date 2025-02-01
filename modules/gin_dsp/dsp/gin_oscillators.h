@@ -10,7 +10,7 @@
 #pragma once
 
 //==============================================================================
-/** Stereo oscillator. L & R can be at different pitches
+/** Virtual Analog Stereo oscillator.
 */
 class StereoOscillator
 {
@@ -23,6 +23,8 @@ public:
         float leftGain = 1.0;
         float rightGain = 1.0;
         float pw = 0.5;
+        float fold = 0.0f;
+        float asym = 0.0f;
     };
 
     void setSampleRate (double sr)  { sampleRate = sr; }
@@ -141,13 +143,17 @@ protected:
 
 struct VoicedStereoOscillatorParams : public VoicedOscillatorParams
 {
-    Wave wave = Wave::sawUp;
-    float pw = 0.5;
+    Wave wave   = Wave::sawUp;
+    float pw    = 0.5;
+    float fold  = 0.0f;
+    float asym  = 0.0f;
 
     inline void init (StereoOscillator::Params& p) const
     {
-        p.wave = wave;
-        p.pw = pw;
+        p.wave  = wave;
+        p.pw    = pw;
+        p.asym  = asym;
+        p.fold  = fold;
     }
 };
 

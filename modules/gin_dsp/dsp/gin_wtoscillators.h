@@ -383,11 +383,11 @@ private:
 
 struct WTVoicedStereoOscillatorParams : public VoicedOscillatorParams
 {
-    float position = 0.5;
-    float bend = 0.0f;
-    float formant = 0.0f;
-    float asym = 0.0f;
-    float fold = 0.0f;
+    float position  = 0.5;
+    float bend      = 0.0f;
+    float formant   = 0.0f;
+    float asym      = 0.0f;
+    float fold      = 0.0f;
 
     inline void init (WTOscillator::Params& p) const
     {
