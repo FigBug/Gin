@@ -77,7 +77,8 @@ public:
 
         return {px + x, py + y};
     }
-
+    
+   #if JUCE_MODULE_AVAILABLE_juce_graphics
     juce::Array<Point<T>> findIntersections (Point<T> p1, Point<T> p2)
     {
         juce::Array<Point<T>> res;
@@ -146,6 +147,7 @@ public:
 
         return res;
     }
+   #endif
 
     T x = 0, y = 0;
     T a = 0, b = 0;
