@@ -162,6 +162,7 @@ void Layout::setupParser()
                     return itr->second;
             }
 
+            DBG(cid + " not found");
             jassertfalse;
             return nullptr;
         };
