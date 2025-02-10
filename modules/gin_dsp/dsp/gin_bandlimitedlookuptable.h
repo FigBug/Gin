@@ -190,7 +190,7 @@ enum class Wave
 };
 
 //==============================================================================
-/** Generate and hold bandlimited lookup tabkes for all the common waveforms
+/** Generate and hold bandlimited lookup tables for all the common waveforms
 */
 class BandLimitedLookupTables
 {

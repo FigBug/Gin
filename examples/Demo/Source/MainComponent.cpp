@@ -1793,14 +1793,14 @@ struct BLLTDemo : public juce::Component
             for (int i = 0; i < int (blltFFT.tables.size()); i++)
             {
                 auto rc = area.removeFromTop (getHeight() / blltFFT.tables.size()).reduced (3);
-
+                
                 juce::Path p;
-
+                
                 for (auto x = 0; x < 2048; x++)
                 {
                     auto fx = x / 2048.0f * rc.getWidth() + rc.getX();
                     auto fy = blltFFT.get (i, x / 2048.0f) * rc.getHeight() / 2.0f + rc.getCentreY();
-
+                    
                     if (x == 0)
                         p.startNewSubPath (fx, fy);
                     else
@@ -1809,31 +1809,31 @@ struct BLLTDemo : public juce::Component
                 g.setColour (juce::Colours::yellow);
                 g.strokePath (p, juce::PathStrokeType (1.0f));
             }
+        }
             
-            //
-            // From wavefile Lowpass
-            //
+        //
+        // From wavefile Lowpass
+        //
+        {
+            auto area = getLocalBounds();
+            for (int i = 0; i < int (blltLowpass.tables.size()); i++)
             {
-                auto area = getLocalBounds();
-                for (int i = 0; i < int (blltLowpass.tables.size()); i++)
+                auto rc = area.removeFromTop (getHeight() / blltLowpass.tables.size()).reduced (3);
+                
+                juce::Path p;
+                
+                for (auto x = 0; x < 2048; x++)
                 {
-                    auto rc = area.removeFromTop (getHeight() / blltLowpass.tables.size()).reduced (3);
+                    auto fx = x / 2048.0f * rc.getWidth() + rc.getX();
+                    auto fy = blltLowpass.get (i, x / 2048.0f) * rc.getHeight() / 2.0f + rc.getCentreY();
                     
-                    juce::Path p;
-                    
-                    for (auto x = 0; x < 2048; x++)
-                    {
-                        auto fx = x / 2048.0f * rc.getWidth() + rc.getX();
-                        auto fy = blltLowpass.get (i, x / 2048.0f) * rc.getHeight() / 2.0f + rc.getCentreY();
-                        
-                        if (x == 0)
-                            p.startNewSubPath (fx, fy);
-                        else
-                            p.lineTo (fx, fy);
-                    }
-                    g.setColour (juce::Colours::orange);
-                    g.strokePath (p, juce::PathStrokeType (1.0f));
+                    if (x == 0)
+                        p.startNewSubPath (fx, fy);
+                    else
+                        p.lineTo (fx, fy);
                 }
+                g.setColour (juce::Colours::orange);
+                g.strokePath (p, juce::PathStrokeType (1.0f));
             }
         }
     }
