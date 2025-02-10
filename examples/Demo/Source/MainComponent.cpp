@@ -1747,7 +1747,9 @@ struct BLLTDemo : public juce::Component
             w[i] = tables.processSquare (0.0f, i / 2048.0f);
 
         std::unique_ptr<juce::dsp::FFT> fft;
-        bllt.loadFromBuffer (fft, 44100, buf, 44100, 12);
+        blltFFT.loadFromBuffer (fft, 44100, buf, 44100, 12);
+        
+        blltLowpass.loadFromBuffer (44100, buf, 44100, 44100.0f / 2048.0f, 12);
     }
 
     void paint (juce::Graphics& g) override
@@ -1759,9 +1761,9 @@ struct BLLTDemo : public juce::Component
         {
             auto area = getLocalBounds();
             auto note = 0.5f;
-            for (int i = 0; i < int (bllt.tables.size()); i++)
+            for (int i = 0; i < int (blltFFT.tables.size()); i++)
             {
-                auto rc = area.removeFromTop (getHeight() / bllt.tables.size()).reduced (3);
+                auto rc = area.removeFromTop (getHeight() / blltFFT.tables.size()).reduced (3);
 
                 juce::Path p;
 
@@ -1784,20 +1786,20 @@ struct BLLTDemo : public juce::Component
         }
 
         //
-        // From wavefile
+        // From wavefile FFT
         //
         {
             auto area = getLocalBounds();
-            for (int i = 0; i < int (bllt.tables.size()); i++)
+            for (int i = 0; i < int (blltFFT.tables.size()); i++)
             {
-                auto rc = area.removeFromTop (getHeight() / bllt.tables.size()).reduced (3);
+                auto rc = area.removeFromTop (getHeight() / blltFFT.tables.size()).reduced (3);
 
                 juce::Path p;
 
                 for (auto x = 0; x < 2048; x++)
                 {
                     auto fx = x / 2048.0f * rc.getWidth() + rc.getX();
-                    auto fy = bllt.get (i, x / 2048.0f) * rc.getHeight() / 2.0f + rc.getCentreY();
+                    auto fy = blltFFT.get (i, x / 2048.0f) * rc.getHeight() / 2.0f + rc.getCentreY();
 
                     if (x == 0)
                         p.startNewSubPath (fx, fy);
@@ -1807,11 +1809,38 @@ struct BLLTDemo : public juce::Component
                 g.setColour (juce::Colours::yellow);
                 g.strokePath (p, juce::PathStrokeType (1.0f));
             }
+            
+            //
+            // From wavefile Lowpass
+            //
+            {
+                auto area = getLocalBounds();
+                for (int i = 0; i < int (blltLowpass.tables.size()); i++)
+                {
+                    auto rc = area.removeFromTop (getHeight() / blltLowpass.tables.size()).reduced (3);
+                    
+                    juce::Path p;
+                    
+                    for (auto x = 0; x < 2048; x++)
+                    {
+                        auto fx = x / 2048.0f * rc.getWidth() + rc.getX();
+                        auto fy = blltLowpass.get (i, x / 2048.0f) * rc.getHeight() / 2.0f + rc.getCentreY();
+                        
+                        if (x == 0)
+                            p.startNewSubPath (fx, fy);
+                        else
+                            p.lineTo (fx, fy);
+                    }
+                    g.setColour (juce::Colours::orange);
+                    g.strokePath (p, juce::PathStrokeType (1.0f));
+                }
+            }
         }
     }
 
     gin::BandLimitedLookupTables tables {44100, 12, 2048};
-    gin::BandLimitedLookupTable bllt;
+    gin::BandLimitedLookupTable blltFFT;
+    gin::BandLimitedLookupTable blltLowpass;
 };
 
 //==============================================================================

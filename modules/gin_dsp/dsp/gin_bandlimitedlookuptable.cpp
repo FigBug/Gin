@@ -161,6 +161,53 @@ void BandLimitedLookupTable::loadFromBuffer (std::unique_ptr<juce::dsp::FFT>& ff
      }
 }
 
+void BandLimitedLookupTable::loadFromBuffer (float playbackSampleRate, juce::AudioSampleBuffer& buffer, float fileSampleRate, float fileFreq, int notesPerTable_)
+{
+    tables.clear();
+
+    float baseFreq = fileFreq;
+    int sz = buffer.getNumSamples();
+
+    tableSize = sz;
+    notesPerTable = notesPerTable_;
+
+    for (float note = notesPerTable + 0.5f; note < 127.0f; note += notesPerTable)
+    {
+        auto noteFreq = getMidiNoteInHertz (note);
+        auto ratio = noteFreq / baseFreq * fileSampleRate / playbackSampleRate;
+        
+        if (ratio <= 1.0f)
+        {
+            auto& t = tables.emplace_back (std::vector<float>());
+            t.resize (size_t (sz));
+            std::memcpy (t.data(), buffer.getReadPointer (0), size_t (sz) * sizeof (float));
+
+            t.push_back (t[0]); // let the table wrap so we can interpolate without doing a mod
+        }
+        else
+        {            
+            auto cutoff = (playbackSampleRate / 2.0f) / ratio;
+
+            ScratchBuffer filteredBuffer (buffer);
+            
+            Filter filter;
+            filter.setSampleRate (playbackSampleRate);
+            filter.setNumChannels (1);
+            filter.setType (Filter::lowpass);
+            filter.setSlope (Filter::db24);
+            filter.setParams (cutoff, 0.707f, 0.0f);
+            filter.process (filteredBuffer);
+
+            auto& t = tables.emplace_back (std::vector<float>());
+            t.resize (size_t (sz));
+
+            std::memcpy (t.data(), filteredBuffer.getReadPointer (0), size_t (sz) * sizeof (float));
+            t.push_back (t[0]); // let the table wrap so we can interpolate without doing a mod
+        }
+     }
+
+}
+
 //==============================================================================
 BandLimitedLookupTables::BandLimitedLookupTables (double sampleRate_, int notesPerTable_, int tableSize_)
   : sampleRate (sampleRate_),

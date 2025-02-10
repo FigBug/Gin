@@ -161,7 +161,13 @@ public:
                (tables[size_t (tableIndex)][size_t (pos + 1)] * (frac));
     }
 
+    /** Load from an audio sample buffer, using an FFT to rerove high frequencies. Usefull for wavetables.
+     */
     void loadFromBuffer (std::unique_ptr<juce::dsp::FFT>& fft, float playbackSampleRate, juce::AudioSampleBuffer& buffer, float fileSampleRate, int notesPerTable);
+
+    /** Load from an audio sample buffer, using low pass filter to rerove high frequencies. Usefull for samples.
+     */
+    void loadFromBuffer (float playbackSampleRate, juce::AudioSampleBuffer& buffer, float fileSampleRate, float fileFreq, int notesPerTable);
 
     std::vector<std::vector<float>> tables;
 
