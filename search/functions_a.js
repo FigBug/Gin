@@ -17,7 +17,7 @@ var searchData=
   ['linearregression_14',['linearregression',['../classLinearRegression.html#a411a12fb25e338f4bb5a27bb6fce200e',1,'LinearRegression::LinearRegression(juce::Array&lt; Point&lt; double &gt; &gt; points)'],['../classLinearRegression.html#afeb4c101e4e8b20a75db3d4ce3f1cbc6',1,'LinearRegression::LinearRegression()']]],
   ['listboxitemclicked_15',['listBoxItemClicked',['../structPatchBrowser_1_1PresetsModel.html#a8b42d0749419eaf3e8086db1a4b4cc01',1,'PatchBrowser::PresetsModel']]],
   ['loadallprograms_16',['loadAllPrograms',['../classProcessor.html#adde1ecc658aa6760b55e340ebbaa9fee',1,'Processor']]],
-  ['loadfrombuffer_17',['loadFromBuffer',['../classBandLimitedLookupTable.html#a4b8fa24e3f5588a10420bf0ea6f8b027',1,'BandLimitedLookupTable']]],
+  ['loadfrombuffer_17',['loadfrombuffer',['../classBandLimitedLookupTable.html#a4b8fa24e3f5588a10420bf0ea6f8b027',1,'BandLimitedLookupTable::loadFromBuffer(std::unique_ptr&lt; juce::dsp::FFT &gt; &amp;fft, float playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, float fileSampleRate, int notesPerTable)'],['../classBandLimitedLookupTable.html#a8a2c7f4a6c07f1ffcdb115d223854d9a',1,'BandLimitedLookupTable::loadFromBuffer(float playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, float fileSampleRate, float fileFreq, int notesPerTable)']]],
   ['loadfromfile_18',['loadFromFile',['../classProgram.html#a57fe788b51aeada66d4cfc8a927be78b',1,'Program']]],
   ['loadprocessor_19',['loadProcessor',['../classProgram.html#a8ece34e8c3ec235007a4dfe53178207c',1,'Program']]],
   ['loadwavetables_20',['loadWavetables',['../group__gin__dsp-dsp.html#gac52374c731213a08657117a59c2828cd',1,'gin_wtoscillators.h']]],

@@ -103,7 +103,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a12bb9d27e8f52cceac3f35869f102faf" id="r_a12bb9d27e8f52cceac3f35869f102faf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#a12bb9d27e8f52cceac3f35869f102faf">getLinear</a> (<a class="el" href="classPoint.html">int</a> tableIndex, <a class="el" href="classPoint.html">float</a> phase)</td></tr>
 <tr class="separator:a12bb9d27e8f52cceac3f35869f102faf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b8fa24e3f5588a10420bf0ea6f8b027" id="r_a4b8fa24e3f5588a10420bf0ea6f8b027"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#a4b8fa24e3f5588a10420bf0ea6f8b027">loadFromBuffer</a> (std::unique_ptr&lt; juce::dsp::FFT &gt; &amp;<a class="el" href="classPoint.html">fft</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">playbackSampleRate</a>, juce::AudioSampleBuffer &amp;buffer, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">fileSampleRate</a>, <a class="el" href="classPoint.html">int</a> <a class="el" href="classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220">notesPerTable</a>)</td></tr>
+<tr class="memdesc:a4b8fa24e3f5588a10420bf0ea6f8b027"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load from an audio sample buffer, using an FFT to rerove high frequencies.  <br /></td></tr>
 <tr class="separator:a4b8fa24e3f5588a10420bf0ea6f8b027"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a2c7f4a6c07f1ffcdb115d223854d9a" id="r_a8a2c7f4a6c07f1ffcdb115d223854d9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBandLimitedLookupTable.html#a8a2c7f4a6c07f1ffcdb115d223854d9a">loadFromBuffer</a> (<a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">playbackSampleRate</a>, juce::AudioSampleBuffer &amp;buffer, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">fileSampleRate</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">fileFreq</a>, <a class="el" href="classPoint.html">int</a> <a class="el" href="classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220">notesPerTable</a>)</td></tr>
+<tr class="memdesc:a8a2c7f4a6c07f1ffcdb115d223854d9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load from an audio sample buffer, using low pass filter to rerove high frequencies.  <br /></td></tr>
+<tr class="separator:a8a2c7f4a6c07f1ffcdb115d223854d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -397,7 +401,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a4b8fa24e3f5588a10420bf0ea6f8b027" name="a4b8fa24e3f5588a10420bf0ea6f8b027"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b8fa24e3f5588a10420bf0ea6f8b027">&#9670;&#160;</a></span>loadFromBuffer()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b8fa24e3f5588a10420bf0ea6f8b027">&#9670;&#160;</a></span>loadFromBuffer() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -439,6 +443,58 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Load from an audio sample buffer, using an FFT to rerove high frequencies. </p>
+<p>Usefull for wavetables. </p>
+
+</div>
+</div>
+<a id="a8a2c7f4a6c07f1ffcdb115d223854d9a" name="a8a2c7f4a6c07f1ffcdb115d223854d9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a2c7f4a6c07f1ffcdb115d223854d9a">&#9670;&#160;</a></span>loadFromBuffer() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> BandLimitedLookupTable::loadFromBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
+          <td class="paramname"><em>playbackSampleRate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">juce::AudioSampleBuffer &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
+          <td class="paramname"><em>fileSampleRate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
+          <td class="paramname"><em>fileFreq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">int</a>&#160;</td>
+          <td class="paramname"><em>notesPerTable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Load from an audio sample buffer, using low pass filter to rerove high frequencies. </p>
+<p>Usefull for samples. </p>
 
 </div>
 </div>
@@ -497,7 +553,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 2 2025 19:14:40 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Feb 10 2025 04:15:10 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
