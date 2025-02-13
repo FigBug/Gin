@@ -336,6 +336,8 @@ Functions</h2></td></tr>
 <tr class="separator:ga1f59ed3e69fd50c828e608593c6f1501"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa53416e9fff8a3d96bda5ef381d56f5d" id="r_gaa53416e9fff8a3d96bda5ef381d56f5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__dsp-dsp.html#gaa53416e9fff8a3d96bda5ef381d56f5d">squareWave</a> (<a class="el" href="classPoint.html">float</a> phase, <a class="el" href="classPoint.html">float</a> freq, <a class="el" href="classPoint.html">float</a> sampleRate)</td></tr>
 <tr class="separator:gaa53416e9fff8a3d96bda5ef381d56f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab5a7527e2a9a380fa37f2e207243da82" id="r_gab5a7527e2a9a380fa37f2e207243da82"><td class="memItemLeft" align="right" valign="top">juce::AudioSampleBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__dsp-dsp.html#gab5a7527e2a9a380fa37f2e207243da82">resampleBuffer</a> (juce::AudioSampleBuffer &amp;, <a class="el" href="classPoint.html">double</a> <a class="el" href="classPoint.html">inputRate</a>, <a class="el" href="classPoint.html">double</a> <a class="el" href="classPoint.html">outputRate</a>, <a class="el" href="classPoint.html">int</a> quality=4)</td></tr>
+<tr class="separator:gab5a7527e2a9a380fa37f2e207243da82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac52374c731213a08657117a59c2828cd" id="r_gac52374c731213a08657117a59c2828cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__dsp-dsp.html#gac52374c731213a08657117a59c2828cd">loadWavetables</a> (juce::OwnedArray&lt; <a class="el" href="classBandLimitedLookupTable.html">BandLimitedLookupTable</a> &gt; &amp;bllt, <a class="el" href="classPoint.html">double</a> <a class="el" href="classPoint.html">playbackSampleRate</a>, juce::AudioSampleBuffer &amp;buffer, <a class="el" href="classPoint.html">double</a> <a class="el" href="classPoint.html">fileSampleRate</a>, <a class="el" href="classPoint.html">int</a> tableSize)</td></tr>
 <tr class="separator:gac52374c731213a08657117a59c2828cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -944,6 +946,46 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
 
 </div>
 </div>
+<a id="gab5a7527e2a9a380fa37f2e207243da82" name="gab5a7527e2a9a380fa37f2e207243da82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab5a7527e2a9a380fa37f2e207243da82">&#9670;&#160;</a></span>resampleBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::AudioSampleBuffer resampleBuffer </td>
+          <td>(</td>
+          <td class="paramtype">juce::AudioSampleBuffer &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">double</a>&#160;</td>
+          <td class="paramname"><em>inputRate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">double</a>&#160;</td>
+          <td class="paramname"><em>outputRate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">int</a>&#160;</td>
+          <td class="paramname"><em>quality</em> = <code>4</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="gac52374c731213a08657117a59c2828cd" name="gac52374c731213a08657117a59c2828cd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gac52374c731213a08657117a59c2828cd">&#9670;&#160;</a></span>loadWavetables()</h2>
 
@@ -1018,7 +1060,7 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Feb 10 2025 04:24:08 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Feb 13 2025 16:34:42 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
