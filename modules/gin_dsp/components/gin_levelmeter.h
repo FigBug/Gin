@@ -17,15 +17,15 @@ class LevelMeter : public juce::Component,
 public:
     LevelMeter (const LevelTracker&, juce::NormalisableRange<float> r = {-60, 0} );
     ~LevelMeter() override;
-    
+
     void setTopDown (bool td)   { topDown = td; }
-    
+
     enum ColourIds
     {
         lineColourId             = 0x1291e10,
         backgroundColourId       = 0x1291e11,
         meterColourId            = 0x1291e12,
-		clipColourId             = 0x1291e13
+        clipColourId             = 0x1291e13
     };
 
 private:
@@ -34,7 +34,7 @@ private:
     void timerCallback() override;
 
     const LevelTracker& tracker;
-    
+
     bool topDown = false;
     juce::NormalisableRange<float> range {-60, 0};
 

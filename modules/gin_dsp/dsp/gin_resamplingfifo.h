@@ -48,3 +48,5 @@ private:
     AudioFifo outputFifo;
     juce::AudioSampleBuffer ilInputBuffer, ilOutputBuffer, outputBuffer;
 };
+
+juce::AudioSampleBuffer resampleBuffer (juce::AudioSampleBuffer&, double inputRate, double outputRate, int quality = 4);

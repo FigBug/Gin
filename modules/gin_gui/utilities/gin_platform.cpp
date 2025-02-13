@@ -11,17 +11,17 @@ juce::Image nsImageToImage (NSImage* nsImage)
 {
     if (nsImage != nil)
     {
-		if (CGImageRef cgImage = [nsImage CGImageForProposedRect:nullptr context:nil hints:nil])
-		{
-			const auto width = CGImageGetWidth (cgImage);
-			const auto height = CGImageGetHeight (cgImage);
-			const auto cgRect = CGRectMake (0, 0, (CGFloat) width, (CGFloat) height);
-			const juce::Image image (juce::Image::ARGB, (int) width, (int) height, true);
+        if (CGImageRef cgImage = [nsImage CGImageForProposedRect:nullptr context:nil hints:nil])
+        {
+            const auto width = CGImageGetWidth (cgImage);
+            const auto height = CGImageGetHeight (cgImage);
+            const auto cgRect = CGRectMake (0, 0, (CGFloat) width, (CGFloat) height);
+            const juce::Image image (juce::Image::ARGB, (int) width, (int) height, true);
 
-			CGContextDrawImage (juce_getImageContext (image), cgRect, cgImage);
+            CGContextDrawImage (juce_getImageContext (image), cgRect, cgImage);
 
-			return image;
-		}
+            return image;
+        }
     }
     return {};
 }
@@ -32,7 +32,7 @@ NSImage* imageToNSImage (const juce::Image& image)
 
     using ColorSpacePtr     = juce::CFUniquePtr<CGColorSpaceRef>;
     using ImagePtr          = juce::CFUniquePtr<CGImageRef>;
-    
+
     NSImage* im = [[NSImage alloc] init];
     auto requiredSize = NSMakeSize (image.getWidth() / scaleFactor, image.getHeight() / scaleFactor);
 
@@ -47,4 +47,3 @@ NSImage* imageToNSImage (const juce::Image& image)
     return im;
 }
 #endif
-

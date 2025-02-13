@@ -172,3 +172,44 @@ void ResamplingFifo::popAudioBufferAdding (juce::AudioSampleBuffer& dest)
     jassert (outputFifo.getNumReady() >= dest.getNumSamples());
     outputFifo.readAdding (dest);
 }
+
+juce::AudioSampleBuffer resampleBuffer (juce::AudioSampleBuffer& in, double inputRate, double outputRate, int quality)
+{
+    auto samplesOut = int (in.getNumSamples() * outputRate / inputRate);
+
+    juce::AudioSampleBuffer out (in.getNumChannels(), samplesOut);
+
+    ResamplingFifo fifo (128, in.getNumChannels());
+    fifo.setQuality (quality);
+
+    auto inPos = 0;
+    auto outPos = 0;
+
+    while (outPos < samplesOut)
+    {
+        if (fifo.samplesReady() > 0)
+        {
+            auto num = std::min (fifo.samplesReady(), samplesOut - outPos);
+            auto buf = sliceBuffer (out, outPos, num);
+            fifo.popAudioBuffer (buf);
+            outPos += num;
+        }
+        else
+        {
+            if (inPos < in.getNumSamples())
+            {
+                auto num = std::min (128, in.getNumSamples() - inPos);
+                fifo.pushAudioBuffer (sliceBuffer (in, inPos, num));
+                inPos += num;
+            }
+            else
+            {
+                juce::AudioSampleBuffer silence (in.getNumChannels(), 128);
+                silence.clear();
+
+                fifo.pushAudioBuffer (silence);
+            }
+        }
+    }
+    return out;
+}
