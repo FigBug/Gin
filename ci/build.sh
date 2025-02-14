@@ -36,9 +36,8 @@ if [ "$(uname)" == "Darwin" ]; then
   cd "$ROOT"
   cmake --preset xcode
   cmake --build --preset xcode --config Release
-  find .
 
-  cd "$ROOT/Builds/xcode/examples/UnitTests/UnitTests_artefacts/Release/UnitTests"
+  cd "$ROOT/Builds/xcode/examples/UnitTests/UnitTests_artefacts/Release"
   ./UnitTests
 
   cp -R "$ROOT/Builds/xcode/examples/Demo/Demo_artefacts/Release/Demo.app" "$ROOT/bin"
@@ -68,9 +67,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   cd "$ROOT"
   cmake --preset ninja-gcc
   cmake --build --preset ninja-gcc --config Release
-  find .
 
-  cd "$ROOT/Builds/ninja-gcc/examples/UnitTests/UnitTests_artefacts/Release/UnitTests"
+  cd "$ROOT/Builds/ninja-gcc/examples/UnitTests/UnitTests_artefacts/Release"
   ./UnitTests
 
 
@@ -80,9 +78,8 @@ elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
   cmake --preset vs
   cmake --build --preset vs --config Release
 
-  cd "$ROOT/Builds/vs/examples/UnitTests/UnitTests_artefacts/Release/UnitTests"
+  cd "$ROOT/Builds/vs/examples/UnitTests/UnitTests_artefacts/Release"
   ./UnitTests.exe
-
 
   cp -R "$ROOT/Builds/vs/examples/Demo/Demo_artefacts/Release/Demo.exe" $ROOT/bin
   cp -R "$ROOT/Builds/vs/examples/Synth/Synth_artefacts/Release/VST3/Synth.vst3" $ROOT/bin
