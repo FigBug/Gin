@@ -73,6 +73,18 @@ public:
         i.refCount++;
     }
 
+    int getUsedBuffers()
+    {
+        juce::ScopedLock sl (lock);
+
+        int count = 0;
+
+        for (auto itm : cache)
+            count += itm->refCount;
+
+        return count;
+    }
+
     JUCE_DECLARE_SINGLETON(BufferCache, false)
 
 private:
@@ -125,8 +137,14 @@ ScratchBuffer::ScratchBuffer (int numChannels, int numSamples)
     clear();
 }
 
+inline BufferCacheItem& copyCache (BufferCacheItem& other)
+{
+    BufferCache::getInstance()->incRef (other);
+    return other;
+}
+
 ScratchBuffer::ScratchBuffer (const ScratchBuffer& other)
-    : cache (other.cache)
+    : cache (copyCache (other.cache))
 {
 }
 
@@ -141,3 +159,59 @@ ScratchBuffer::~ScratchBuffer()
 {
     BufferCache::getInstance()->free (cache);
 }
+
+//==============================================================================
+
+#if GIN_UNIT_TESTS
+
+class ScratchBufferTests : public juce::UnitTest
+{
+public:
+    ScratchBufferTests()
+        : UnitTest ("ScratchBuffer class", "gin_dsp")
+    {
+    }
+
+    void runTest() override
+    {
+        beginTest ("ref count 1");
+        {
+            auto buf = std::make_unique<ScratchBuffer> (2, 1024);
+            expect (BufferCache::getInstance()->getUsedBuffers() == 1);
+            buf = nullptr;
+            expect (BufferCache::getInstance()->getUsedBuffers() == 0);
+        }
+
+        beginTest ("ref count 2");
+        {
+            auto buf1 = std::make_unique<ScratchBuffer> (2, 1024);
+            expect (BufferCache::getInstance()->getUsedBuffers() == 1);
+
+            auto buf2 = std::make_unique<ScratchBuffer> (*buf1);
+            expect (BufferCache::getInstance()->getUsedBuffers() == 2);
+
+            buf1 = nullptr;
+            buf2 = nullptr;
+            expect (BufferCache::getInstance()->getUsedBuffers() == 0);
+        }
+
+        beginTest ("ref count 3");
+        {
+            juce::AudioSampleBuffer source (2, 1024);
+
+            auto buf1 = std::make_unique<ScratchBuffer> (source);
+            expect (BufferCache::getInstance()->getUsedBuffers() == 1);
+
+            auto buf2 = std::make_unique<ScratchBuffer> (source);
+            expect (BufferCache::getInstance()->getUsedBuffers() == 2);
+
+            buf1 = nullptr;
+            buf2 = nullptr;
+            expect (BufferCache::getInstance()->getUsedBuffers() == 0);
+        }
+    }
+};
+
+static ScratchBufferTests scratchBufferTests;
+
+#endif
