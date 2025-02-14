@@ -36,6 +36,7 @@ if [ "$(uname)" == "Darwin" ]; then
   cd "$ROOT"
   cmake --preset xcode
   cmake --build --preset xcode --config Release
+  find .
 
   cd "$ROOT/Builds/xcode/examples/UnitTests/UnitTests_artefacts/Release/UnitTests"
   ./UnitTests
@@ -67,6 +68,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   cd "$ROOT"
   cmake --preset ninja-gcc
   cmake --build --preset ninja-gcc --config Release
+  find .
 
   cd "$ROOT/Builds/ninja-gcc/examples/UnitTests/UnitTests_artefacts/Release/UnitTests"
   ./UnitTests
