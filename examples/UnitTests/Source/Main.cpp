@@ -6,12 +6,16 @@ int main (int argc, char* argv[])
 
     if (argc == 1)
     {
+        printf ("Running all unit tests\n");
         runner.runAllTests ();
     }
     else
     {
         for (auto i = 1; i < argc; i++)
+        {
+            printf ("Running unit test: %s\n", juce::String (argv[i]).toRawUTF8());
             runner.runTestsInCategory (juce::String (argv[i]));
+        }
     }
 
     int numFailures = 0;
@@ -21,6 +25,8 @@ int main (int argc, char* argv[])
             numFailures += res->failures;
 
     juce::DeletedAtShutdown::deleteAll();
+
+    printf ("Unit tests complete: %d errors\n", numFailures);
 
     if (numFailures > 0)
         return 1;
