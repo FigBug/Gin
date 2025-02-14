@@ -209,6 +209,17 @@ public:
             buf2 = nullptr;
             expect (BufferCache::getInstance()->getUsedBuffers() == 0);
         }
+
+        beginTest ("mono buffer");
+        {
+            juce::AudioSampleBuffer source (2, 1024);
+            {
+                auto mono = monoBuffer (source);
+                expect (mono.getNumChannels() == 1);
+                expect (BufferCache::getInstance()->getUsedBuffers() == 1);
+            }
+            expect (BufferCache::getInstance()->getUsedBuffers() == 0);
+        }
     }
 };
 
