@@ -220,6 +220,22 @@ public:
             }
             expect (BufferCache::getInstance()->getUsedBuffers() == 0);
         }
+
+        beginTest ("sizes");
+        {
+            juce::Random r ( 0 );
+
+            for (auto i = 0; i < 5000; i++)
+            {
+                int chans = r.nextInt ({1,5});
+                int samps = r.nextInt ({32,88200});
+
+                juce::AudioSampleBuffer buf (chans, samps);
+                expect (buf.getNumChannels() == chans);
+                expect (buf.getNumSamples() == samps);
+            }
+            expect (BufferCache::getInstance()->getUsedBuffers() == 0);
+        }
     }
 };
 
