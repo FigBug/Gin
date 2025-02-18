@@ -20,6 +20,7 @@ void SystemClipboard::copyImageToClipboard (const juce::Image& image)
         [pasteboard writeObjects: copiedObjects];
     }
    #else
+    juce::ignoreUnused (image);
     jassertfalse;
    #endif
 }
