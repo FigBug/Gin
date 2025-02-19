@@ -703,8 +703,8 @@
       <type>ScratchBuffer</type>
       <name>monoBuffer</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga57bf2df9e7b6d40a993d7d4371e653c3</anchor>
-      <arglist>(juce::AudioSampleBuffer &amp;input)</arglist>
+      <anchor>ga8819380bc3c4f5cbdad5dc4af5fa1a4f</anchor>
+      <arglist>(const juce::AudioSampleBuffer &amp;input)</arglist>
     </member>
     <member kind="function">
       <type>T</type>
@@ -2828,6 +2828,13 @@
       <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
       <anchor>a87b2b3bdd11444750348568c68277972</anchor>
       <arglist>(const juce::AudioSampleBuffer &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce::AudioBuffer&lt; float &gt; &amp;</type>
+      <name>getBuffer</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>ab586c89bdb9c59f46627278ea2e97974</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -17743,8 +17750,8 @@
       <type>ScratchBuffer</type>
       <name>monoBuffer</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>ga57bf2df9e7b6d40a993d7d4371e653c3</anchor>
-      <arglist>(juce::AudioSampleBuffer &amp;input)</arglist>
+      <anchor>ga8819380bc3c4f5cbdad5dc4af5fa1a4f</anchor>
+      <arglist>(const juce::AudioSampleBuffer &amp;input)</arglist>
     </member>
     <member kind="function">
       <type>T</type>

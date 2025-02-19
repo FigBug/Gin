@@ -47,7 +47,7 @@ var searchData=
   ['operator_3d_44',['operator=',['../structModSrcId.html#af7d812f370fce77efc0e7cab7e1c686d',1,'ModSrcId::operator=()'],['../structModDstId.html#ad6b205a3267866f9ec5c854122bb2454',1,'ModDstId::operator=()']]],
   ['operator_3d_3d_45',['operator==',['../structModSrcId.html#ae9a0aa774f9639b59f382127602af3eb',1,'ModSrcId::operator==()'],['../structModDstId.html#a63b8ebeaadf0a9c266a36d1a4c0e3e84',1,'ModDstId::operator==()']]],
   ['operator_5b_5d_46',['operator[]',['../classSpline.html#a30255a2f77480c04928394262765df10',1,'Spline']]],
-  ['orientation_47',['orientation',['../classComponentGrid.html#a597b44ee2489a3412932dac8ac90df99',1,'ComponentGrid::orientation'],['../classComponentGrid.html#a0d6a66510a6868e9be9f596867b85946',1,'ComponentGrid::Orientation']]],
+  ['orientation_47',['orientation',['../classComponentGrid.html#a0d6a66510a6868e9be9f596867b85946',1,'ComponentGrid::Orientation'],['../classComponentGrid.html#a597b44ee2489a3412932dac8ac90df99',1,'ComponentGrid::orientation']]],
   ['originalcomponent_48',['originalComponent',['../structComponentGrid_1_1DragInfo.html#abebf0aa1df0211e9af81bf6889e65921',1,'ComponentGrid::DragInfo']]],
   ['originalorder_49',['originalOrder',['../classComponentGrid.html#a4d8eff212a319a1de9ec54aedfddd340',1,'ComponentGrid']]],
   ['oscillators_50',['oscillators',['../classVoicedStereoOscillator.html#a2b43a2c3228e8719d3d2a11d5d349b11',1,'VoicedStereoOscillator']]],
