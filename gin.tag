@@ -2935,6 +2935,13 @@
       <arglist>(int sample)</arglist>
     </member>
     <member kind="function">
+      <type>int</type>
+      <name>lengthInSamples</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>a05d31a78099c14ac50938b56ac7e5ef8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>setLineColour</name>
       <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
