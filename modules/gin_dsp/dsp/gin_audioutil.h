@@ -105,7 +105,7 @@ inline juce::AudioSampleBuffer sliceBuffer (juce::AudioSampleBuffer& input, int 
 
 //==============================================================================
 /** Get a buffer but mono */
-inline ScratchBuffer monoBuffer (juce::AudioSampleBuffer& input)
+inline ScratchBuffer monoBuffer (const juce::AudioSampleBuffer& input)
 {
     ScratchBuffer output (1, input.getNumSamples());
     output.clear();

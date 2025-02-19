@@ -9,6 +9,8 @@ public:
     ~AudioSamplerBufferComponent() override;
 
     void setBuffer (const juce::AudioSampleBuffer&);
+    const juce::AudioBuffer<float>& getBuffer ()    { return buffer;    }
+
     void clear ();
 
     void setScrollable (bool s)     { scrollable = s;                   }

@@ -228,7 +228,7 @@ void AudioSamplerBufferComponent::updatePixelCacheHiRes()
 
         for (auto samp = int (viewLeft) - 1; samp <= std::min (getViewRight () + 1.0f, buffer.getNumSamples() - 1.0f); samp++)
         {
-            v = samples[samp];
+            v = ( samp >= 0 && samp < buffer.getNumSamples () ) ? samples[samp] : 0.0f;
             auto x = sampleToX (samp);
             if (samp == int (viewLeft) - 1)
             {
