@@ -30,6 +30,7 @@ public:
 
     float xToSample (float x);
     float sampleToX (int sample);
+    int lengthInSamples()                           { return buffer.getNumSamples ();   }
 
     void setLineColour (juce::Colour c)             { lineColour = c;   }
     void setBackgroundColour (juce::Colour c)       { bkColour = c;     }
