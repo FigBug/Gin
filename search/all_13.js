@@ -24,6 +24,6 @@ var searchData=
   ['uservaluetotext_21',['userValueToText',['../classParameter.html#af3960250a1c071e471daf16be484b656',1,'Parameter']]],
   ['usesfileextension_22',['usesfileextension',['../classBMPImageFormat.html#ac3aec001afc89383d536241e433cb8bf',1,'BMPImageFormat::usesFileExtension()'],['../classWEBPImageFormat.html#a1d875430f06a78fe547812ff5556bbc0',1,'WEBPImageFormat::usesFileExtension()']]],
   ['useupdatechecker_23',['useUpdateChecker',['../classProcessorOptions.html#a1cae47f2ecd1a86e02549cf5b47fd4d0',1,'ProcessorOptions']]],
-  ['utilities_24',['utilities',['../group__gin-utilities.html',1,'utilities'],['../group__gin__gui-utilities.html',1,'utilities']]],
+  ['utilities_24',['utilities',['../group__gin__gui-utilities.html',1,'utilities'],['../group__gin-utilities.html',1,'utilities']]],
   ['utilities_2fgin_5futil_2eh_25',['gin_util.h',['../utilities_2gin__util_8h.html',1,'']]]
 ];
