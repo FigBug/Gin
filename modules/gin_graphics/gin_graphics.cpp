@@ -13,12 +13,7 @@
 #include "gin_graphics.h"
 
 #if __clang__
- #pragma clang diagnostic push
- #pragma clang diagnostic ignored "-Wconversion"
- #pragma clang diagnostic ignored "-Wshadow"
- #pragma clang diagnostic ignored "-Wunused-parameter"
- #pragma clang diagnostic ignored "-Wfloat-equal"
- #pragma clang diagnostic ignored "-Wcast-align"
+JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE("-Wconversion", "-Wshadow", "-Wunused-parameter", "-Wfloat-equal", "-Wcast-align", "-Wnontrivial-memcall")
 #elif _MSC_VER
  #pragma warning (push)
  #pragma warning (disable: 4100)
@@ -35,7 +30,7 @@
 #endif
 
 #if __clang__
- #pragma clang diagnostic pop
+ JUCE_END_IGNORE_WARNINGS_GCC_LIKE
 #elif _MSC_VER
  #pragma warning (pop)
 #endif
