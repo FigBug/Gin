@@ -21,7 +21,10 @@ namespace juce
 {
 namespace zlibNamespace
 {
+#define ZLIB_CONST 1
+
 #if JUCE_INCLUDE_ZLIB_CODE
+ #define HAVE_MEMCPY 1
  #undef OS_CODE
  #undef fdopen
  #include "juce_core/zip/zlib/zlib.h"
@@ -44,12 +47,6 @@ namespace pnglibNamespace
 
 #if JUCE_INCLUDE_PNGLIB_CODE || ! defined (JUCE_INCLUDE_PNGLIB_CODE)
 
-#if _MSC_VER != 1310
-    using std::calloc; // (causes conflict in VS.NET 2003)
-    using std::malloc;
-    using std::free;
-#endif
-
   #if JUCE_CLANG
    #pragma clang diagnostic push
    #pragma clang diagnostic ignored "-Wsign-conversion"
@@ -70,12 +67,15 @@ namespace pnglibNamespace
   #endif
 
 #undef check
-using std::abs;
 #define NO_DUMMY_DECL
 #define PNGLCONF_H 1
 
 #if JUCE_ANDROID
  #define PNG_ARM_NEON_SUPPORTED
+#endif
+
+#ifndef Byte
+ using Byte = uint8_t;
 #endif
 
 #define PNG_16BIT_SUPPORTED
@@ -260,8 +260,8 @@ using std::abs;
 #define PNG_sCAL_PRECISION 5
 #define PNG_sRGB_PROFILE_CHECKS 2
 
-#define PNG_LINKAGE_API 
-#define PNG_LINKAGE_FUNCTION 
+#define PNG_LINKAGE_API
+#define PNG_LINKAGE_FUNCTION
 
 #define PNG_ARM_NEON_OPT 0
 
@@ -279,8 +279,6 @@ using std::abs;
 
 #include "juce_graphics/image_formats/pnglib/png.h"
 #include "juce_graphics/image_formats/pnglib/pngconf.h"
-#include "juce_graphics/image_formats/pnglib/pngstruct.h"
-#include "juce_graphics/image_formats/pnglib/pnginfo.h"
 
 #define PNG_NO_EXTERN
 #include "juce_graphics/image_formats/pnglib/png.c"
