@@ -27,7 +27,16 @@ public:
         float asym = 0.0f;
     };
 
-    void setSampleRate (double sr)  { sampleRate = sr; }
+    void setSampleRate (double sr)  
+    {
+        sampleRate = sr;
+        
+        if (sampleRate > 0)
+        {
+            leftGain.reset(sampleRate, 0.05);
+            rightGain.reset(sampleRate, 0.05);
+        }
+    }
     void noteOn (float p = -1);
 
     void process (float note, const Params& params, juce::AudioSampleBuffer& buffer)
@@ -47,11 +56,14 @@ public:
 
         for (int i = 0; i < samps; i++)
         {
+            leftGain.setTargetValue(params.leftGain);
+            rightGain.setTargetValue(params.rightGain);
+            
             auto s = bllt.process (params.wave, note, phase, params.pw);
             postProcess (params, s);
 
-            *l++ += s * params.leftGain;
-            *r++ += s * params.rightGain;
+            *l++ += s * leftGain.getNextValue();
+            *r++ += s * rightGain.getNextValue();
 
             phase += delta;
             while (phase >= 1.0f)
@@ -76,6 +88,7 @@ private:
     BandLimitedLookupTables& bllt;
     double sampleRate = 44100.0;
     float phase = 0.0f;
+    juce::SmoothedValue<float, juce::ValueSmoothingTypes::Linear> leftGain, rightGain;
 };
 
 struct VoicedOscillatorParams
