@@ -296,7 +296,7 @@ public:
 
                 lVec += s * params.leftGain;
                 rVec += s * params.rightGain;
-                
+
                 lVec.store (l); l += 4;
                 rVec.store (r); r += 4;
 
