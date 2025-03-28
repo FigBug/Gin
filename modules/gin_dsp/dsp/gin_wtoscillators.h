@@ -157,8 +157,8 @@ public:
                 auto s = table->processLinear (note, math::min (almostOne, phaseVec));
                 postProcess (params, s);
 
-                lVec += s * leftGain.getNextValue();
-                rVec += s * rightGain.getNextValue();
+                lVec += s * params.leftGain;
+                rVec += s * params.rightGain;
 
                 lVec.store (l); l += 4;
                 rVec.store (r); r += 4;
@@ -222,9 +222,8 @@ public:
                 auto s = table->processLinear (note, phaseDistortion (math::min (almostOne, phaseVec), params.bend, params.formant));
                 postProcess (params, s);
 
-                lVec += s * leftGain.getNextValue();
-                rVec += s * rightGain.getNextValue();
-
+                lVec += s * params.leftGain;
+                rVec += s * params.rightGain;
                 lVec.store (l); l += 4;
                 rVec.store (r); r += 4;
 
@@ -294,9 +293,8 @@ public:
                 auto s = s1 * phase + s2 * (1.0f - phase);
                 postProcess (params, s);
 
-                lVec += s * leftGain.getNextValue();
-                rVec += s * rightGain.getNextValue();
-
+                lVec += s * params.leftGain;
+                rVec += s * params.rightGain;
                 lVec.store (l); l += 4;
                 rVec.store (r); r += 4;
 
