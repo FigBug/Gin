@@ -435,90 +435,6 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>utilities/gin_util.h</name>
-    <path>build/gin/utilities/</path>
-    <filename>utilities_2gin__util_8h.html</filename>
-    <class kind="class">PerlinNoise</class>
-    <class kind="class">RollingAverage</class>
-    <class kind="class">TimeProfiler</class>
-    <member kind="function">
-      <type>bool</type>
-      <name>compareAndReset</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga1ebc11c7a7ef780026ec5a519893895e</anchor>
-      <arglist>(bool &amp;flag)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>calculateRMS</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga458ba95824635202e48f00c71ced463d</anchor>
-      <arglist>(const float *values, int n)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>calculateMedian</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga823d49b3f21b97485eed223caec940c6</anchor>
-      <arglist>(const float *values, int n)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>shuffleArray</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga2b12545cc67dbe67062cc1ae6299546f</anchor>
-      <arglist>(juce::Random &amp;r, T &amp;array)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>versionStringToInt</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga9861500c17d0717e211dc67c84ccc261</anchor>
-      <arglist>(const juce::String &amp;versionString)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>delayedLambda</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>gaa8e8a032e70b00eb8b977cadd0fb09a8</anchor>
-      <arglist>(std::function&lt; void()&gt; callback, int delayMS)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::String</type>
-      <name>formatNumber</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>gaebf910d77d287573a8f98f51c67f8d48</anchor>
-      <arglist>(T v)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>gui/utilities/gin_util.h</name>
-    <path>build/gin_gui/utilities/</path>
-    <filename>gui_2utilities_2gin__util_8h.html</filename>
-    <class kind="class">AsyncDownload</class>
-    <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
     <name>gin_valuetreeobject.h</name>
     <path>build/gin/utilities/</path>
     <filename>gin__valuetreeobject_8h.html</filename>
@@ -1453,6 +1369,90 @@
     <path>build/gin_gui/utilities/</path>
     <filename>gin__systemclipboard_8h.html</filename>
     <class kind="class">SystemClipboard</class>
+  </compound>
+  <compound kind="file">
+    <name>utilities/gin_util.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>utilities_2gin__util_8h.html</filename>
+    <class kind="class">PerlinNoise</class>
+    <class kind="class">RollingAverage</class>
+    <class kind="class">TimeProfiler</class>
+    <member kind="function">
+      <type>bool</type>
+      <name>compareAndReset</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga1ebc11c7a7ef780026ec5a519893895e</anchor>
+      <arglist>(bool &amp;flag)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>calculateRMS</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga458ba95824635202e48f00c71ced463d</anchor>
+      <arglist>(const float *values, int n)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>calculateMedian</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga823d49b3f21b97485eed223caec940c6</anchor>
+      <arglist>(const float *values, int n)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>shuffleArray</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga2b12545cc67dbe67062cc1ae6299546f</anchor>
+      <arglist>(juce::Random &amp;r, T &amp;array)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>versionStringToInt</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga9861500c17d0717e211dc67c84ccc261</anchor>
+      <arglist>(const juce::String &amp;versionString)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>delayedLambda</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>gaa8e8a032e70b00eb8b977cadd0fb09a8</anchor>
+      <arglist>(std::function&lt; void()&gt; callback, int delayMS)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>formatNumber</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>gaebf910d77d287573a8f98f51c67f8d48</anchor>
+      <arglist>(T v)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gui/utilities/gin_util.h</name>
+    <path>build/gin_gui/utilities/</path>
+    <filename>gui_2utilities_2gin__util_8h.html</filename>
+    <class kind="class">AsyncDownload</class>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>gin_locationmananger.h</name>
@@ -2694,6 +2694,20 @@
       <anchorfile>classAudioFifo.html</anchorfile>
       <anchor>a8a2f35a383ee1e3074491dfc6f510e59</anchor>
       <arglist>(const float *data, int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>peak</name>
+      <anchorfile>classAudioFifo.html</anchorfile>
+      <anchor>a08537e57d8020433ac7c676a48455c78</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;dest)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>peak</name>
+      <anchorfile>classAudioFifo.html</anchorfile>
+      <anchor>a032ce6877f3a5983e9e9463c8dff36e8</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;dest, int startSampleInDestBuffer, int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -17506,6 +17520,39 @@
     <class kind="class">XYScope</class>
   </compound>
   <compound kind="group">
+    <name>gin_gui-components</name>
+    <title>components</title>
+    <filename>group__gin__gui-components.html</filename>
+    <class kind="class">ComponentGrid</class>
+    <class kind="struct">ComponentGrid::DragInfo</class>
+    <class kind="class">ComponentViewer</class>
+    <class kind="class">GinLookAndFeel</class>
+    <class kind="class">MapViewer</class>
+    <class kind="class">PropertyComponentBase</class>
+    <class kind="class">FilePropertyComponent</class>
+    <class kind="class">ColourPropertyComponent</class>
+    <class kind="class">SingleLineTextEditor</class>
+    <class kind="class">SingleLineTextEditor::Listener</class>
+    <class kind="class">SingleLineTextEditor::InputFilter</class>
+    <class kind="class">SingleLineTextEditor::LengthAndCharacterRestriction</class>
+    <class kind="struct">SingleLineTextEditor::LookAndFeelMethods</class>
+    <class kind="class">SVGButton</class>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin__gui-components.html</anchorfile>
+      <anchor>ga66410efb088d24a02a86b4c6191e2866</anchor>
+      <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component * &gt; children)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin__gui-components.html</anchorfile>
+      <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
+      <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
     <name>gin_plugin-components</name>
     <title>components</title>
     <filename>group__gin__plugin-components.html</filename>
@@ -17561,39 +17608,6 @@
       <anchorfile>group__gin__plugin-components.html</anchorfile>
       <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
       <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-components</name>
-    <title>components</title>
-    <filename>group__gin__gui-components.html</filename>
-    <class kind="class">ComponentGrid</class>
-    <class kind="struct">ComponentGrid::DragInfo</class>
-    <class kind="class">ComponentViewer</class>
-    <class kind="class">GinLookAndFeel</class>
-    <class kind="class">MapViewer</class>
-    <class kind="class">PropertyComponentBase</class>
-    <class kind="class">FilePropertyComponent</class>
-    <class kind="class">ColourPropertyComponent</class>
-    <class kind="class">SingleLineTextEditor</class>
-    <class kind="class">SingleLineTextEditor::Listener</class>
-    <class kind="class">SingleLineTextEditor::InputFilter</class>
-    <class kind="class">SingleLineTextEditor::LengthAndCharacterRestriction</class>
-    <class kind="struct">SingleLineTextEditor::LookAndFeelMethods</class>
-    <class kind="class">SVGButton</class>
-    <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin__gui-components.html</anchorfile>
-      <anchor>ga66410efb088d24a02a86b4c6191e2866</anchor>
-      <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component * &gt; children)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin__gui-components.html</anchorfile>
-      <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
-      <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
     </member>
   </compound>
   <compound kind="group">
@@ -17832,16 +17846,16 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_graphics-formats</name>
-    <title>formats</title>
-    <filename>group__gin__graphics-formats.html</filename>
-    <class kind="class">BMPImageFormat</class>
-  </compound>
-  <compound kind="group">
     <name>gin_webp-formats</name>
     <title>formats</title>
     <filename>group__gin__webp-formats.html</filename>
     <class kind="class">WEBPImageFormat</class>
+  </compound>
+  <compound kind="group">
+    <name>gin_graphics-formats</name>
+    <title>formats</title>
+    <filename>group__gin__graphics-formats.html</filename>
+    <class kind="class">BMPImageFormat</class>
   </compound>
   <compound kind="group">
     <name>gin-geometry</name>
@@ -17933,25 +17947,6 @@
     <title>gin_webp</title>
     <filename>group__gin__webp.html</filename>
     <subgroup>gin_webp-formats</subgroup>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-images</name>
-    <title>images</title>
-    <filename>group__gin__gui-images.html</filename>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>rasterizeSVG</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
-      <arglist>(juce::String svgText, int w, int h)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Path</type>
-      <name>parseSVGPath</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
-      <arglist>(const juce::String &amp;txt)</arglist>
-    </member>
   </compound>
   <compound kind="group">
     <name>gin_graphics-images</name>
@@ -18251,6 +18246,25 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_gui-images</name>
+    <title>images</title>
+    <filename>group__gin__gui-images.html</filename>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>rasterizeSVG</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
+      <arglist>(juce::String svgText, int w, int h)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Path</type>
+      <name>parseSVGPath</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
+      <arglist>(const juce::String &amp;txt)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
     <name>gin_location-location</name>
     <title>location</title>
     <filename>group__gin__location-location.html</filename>
@@ -18345,6 +18359,50 @@
     <name>gin_plugin-resources</name>
     <title>resources</title>
     <filename>group__gin__plugin-resources.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>gin_gui-utilities</name>
+    <title>utilities</title>
+    <filename>group__gin__gui-utilities.html</filename>
+    <namespace>macOS</namespace>
+    <class kind="class">LambdaTimer</class>
+    <class kind="class">LambdaAsyncUpdater</class>
+    <class kind="class">LambdaMouseListener</class>
+    <class kind="class">CoalescedTimer</class>
+    <class kind="class">ElevatedFileCopy</class>
+    <class kind="class">Layout</class>
+    <class kind="class">OpenStreetMaps</class>
+    <class kind="class">OpenStreetMaps::Listener</class>
+    <class kind="class">SystemClipboard</class>
+    <class kind="class">AsyncDownload</class>
+    <member kind="function">
+      <type>void</type>
+      <name>callOnMainThreadBlocking</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
+      <arglist>(std::function&lt; void()&gt; func)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>gin-utilities</name>
@@ -18724,50 +18782,6 @@
       <anchorfile>group__gin-utilities.html</anchorfile>
       <anchor>ga88f482bf81fb3e423fa1e3926dfaa9a6</anchor>
       <arglist>(const juce::String &amp;jsonText)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-utilities</name>
-    <title>utilities</title>
-    <filename>group__gin__gui-utilities.html</filename>
-    <namespace>macOS</namespace>
-    <class kind="class">LambdaTimer</class>
-    <class kind="class">LambdaAsyncUpdater</class>
-    <class kind="class">LambdaMouseListener</class>
-    <class kind="class">CoalescedTimer</class>
-    <class kind="class">ElevatedFileCopy</class>
-    <class kind="class">Layout</class>
-    <class kind="class">OpenStreetMaps</class>
-    <class kind="class">OpenStreetMaps::Listener</class>
-    <class kind="class">SystemClipboard</class>
-    <class kind="class">AsyncDownload</class>
-    <member kind="function">
-      <type>void</type>
-      <name>callOnMainThreadBlocking</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
-      <arglist>(std::function&lt; void()&gt; func)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
     </member>
   </compound>
 </tagfile>

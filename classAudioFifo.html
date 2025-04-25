@@ -103,6 +103,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7dbba1b96c2670e3e046f2ad83e3ed40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a2f35a383ee1e3074491dfc6f510e59" id="r_a8a2f35a383ee1e3074491dfc6f510e59"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a8a2f35a383ee1e3074491dfc6f510e59">writeMono</a> (<a class="el" href="classPoint.html">const</a> <a class="el" href="classPoint.html">float</a> *data, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numSamples</a>)</td></tr>
 <tr class="separator:a8a2f35a383ee1e3074491dfc6f510e59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08537e57d8020433ac7c676a48455c78" id="r_a08537e57d8020433ac7c676a48455c78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a08537e57d8020433ac7c676a48455c78">peak</a> (juce::AudioSampleBuffer &amp;<a class="el" href="classPoint.html">dest</a>)</td></tr>
+<tr class="separator:a08537e57d8020433ac7c676a48455c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a032ce6877f3a5983e9e9463c8dff36e8" id="r_a032ce6877f3a5983e9e9463c8dff36e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a032ce6877f3a5983e9e9463c8dff36e8">peak</a> (juce::AudioSampleBuffer &amp;<a class="el" href="classPoint.html">dest</a>, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">startSampleInDestBuffer</a>, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numSamples</a>)</td></tr>
+<tr class="separator:a032ce6877f3a5983e9e9463c8dff36e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a069465c3976a0dc32e785babe6532898" id="r_a069465c3976a0dc32e785babe6532898"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a069465c3976a0dc32e785babe6532898">read</a> (juce::AudioSampleBuffer &amp;<a class="el" href="classPoint.html">dest</a>)</td></tr>
 <tr class="separator:a069465c3976a0dc32e785babe6532898"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2430de299a81f6ac03cd0200590a455a" id="r_a2430de299a81f6ac03cd0200590a455a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a2430de299a81f6ac03cd0200590a455a">read</a> (juce::AudioSampleBuffer &amp;<a class="el" href="classPoint.html">dest</a>, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">startSampleInDestBuffer</a>, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numSamples</a>)</td></tr>
@@ -250,7 +254,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classAudioFifo.html#a5bad74d132c264adbda154425546944f">ensureFreeSpace()</a>, <a class="el" href="classAudioFifo.html#a2430de299a81f6ac03cd0200590a455a">read()</a>, <a class="el" href="classAudioFifo.html#ade7b74334094b86983e5deaf2dd11e47">readAdding()</a>, <a class="el" href="classAudioFifo.html#a8fbc006a7362cca45d85fba09fd5969e">readMono()</a>, and <a class="el" href="classResamplingFifo.html#a932efb27236ccc341c04bd56193e283e">ResamplingFifo::samplesReady()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classAudioFifo.html#a5bad74d132c264adbda154425546944f">ensureFreeSpace()</a>, <a class="el" href="classAudioFifo.html#a032ce6877f3a5983e9e9463c8dff36e8">peak()</a>, <a class="el" href="classAudioFifo.html#a2430de299a81f6ac03cd0200590a455a">read()</a>, <a class="el" href="classAudioFifo.html#ade7b74334094b86983e5deaf2dd11e47">readAdding()</a>, <a class="el" href="classAudioFifo.html#a8fbc006a7362cca45d85fba09fd5969e">readMono()</a>, and <a class="el" href="classResamplingFifo.html#a932efb27236ccc341c04bd56193e283e">ResamplingFifo::samplesReady()</a>.</p>
 
 </div>
 </div>
@@ -388,6 +392,64 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="classAudioFifo.html#af75865aa3db5a5fb798768c6c358d147">getFreeSpace()</a>.</p>
+
+</div>
+</div>
+<a id="a08537e57d8020433ac7c676a48455c78" name="a08537e57d8020433ac7c676a48455c78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08537e57d8020433ac7c676a48455c78">&#9670;&#160;</a></span>peak() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">bool</a> AudioFifo::peak </td>
+          <td>(</td>
+          <td class="paramtype">juce::AudioSampleBuffer &amp;&#160;</td>
+          <td class="paramname"><em>dest</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classAudioFifo.html#a08537e57d8020433ac7c676a48455c78">peak()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classAudioFifo.html#a08537e57d8020433ac7c676a48455c78">peak()</a>.</p>
+
+</div>
+</div>
+<a id="a032ce6877f3a5983e9e9463c8dff36e8" name="a032ce6877f3a5983e9e9463c8dff36e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a032ce6877f3a5983e9e9463c8dff36e8">&#9670;&#160;</a></span>peak() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">bool</a> AudioFifo::peak </td>
+          <td>(</td>
+          <td class="paramtype">juce::AudioSampleBuffer &amp;&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">int</a>&#160;</td>
+          <td class="paramname"><em>startSampleInDestBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">int</a>&#160;</td>
+          <td class="paramname"><em>numSamples</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classAudioFifo.html#a716f99ce4611d9cdaa3f3b10e03dd4ce">getNumReady()</a>.</p>
 
 </div>
 </div>
@@ -543,7 +605,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 11 2025 17:42:12 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Apr 25 2025 18:12:53 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
