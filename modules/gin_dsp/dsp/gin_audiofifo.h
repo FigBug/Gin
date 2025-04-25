@@ -96,6 +96,30 @@ public:
         return true;
     }
 
+	bool peak (juce::AudioSampleBuffer& dest)
+	{
+		return peak (dest, 0, dest.getNumSamples());
+	}
+
+	bool peak (juce::AudioSampleBuffer& dest, int startSampleInDestBuffer, int numSamples)
+	{
+		jassert (getNumReady() >= numSamples);
+
+		int start1, size1, start2, size2;
+		fifo.prepareToRead (numSamples, start1, size1, start2, size2);
+
+		if ((size1 + size2) < numSamples)
+			return false;
+
+		for (int i = buffer.getNumChannels(); --i >= 0;)
+		{
+			dest.copyFrom (i, startSampleInDestBuffer, buffer, i, start1, size1);
+			dest.copyFrom (i, startSampleInDestBuffer + size1, buffer, i, start2, size2);
+		}
+
+		return true;
+	}
+
     bool read (juce::AudioSampleBuffer& dest)
     {
         return read (dest, 0, dest.getNumSamples());
