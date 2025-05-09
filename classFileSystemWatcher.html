@@ -110,22 +110,25 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a588829cfbf7981cbd745fc1db5244d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfdbffe1e371260804159964e919b78b" id="r_adfdbffe1e371260804159964e919b78b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher.html#adfdbffe1e371260804159964e919b78b">~FileSystemWatcher</a> ()</td></tr>
 <tr class="separator:adfdbffe1e371260804159964e919b78b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90c382d8d77550e122c03dff90a10c4e" id="r_a90c382d8d77550e122c03dff90a10c4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher.html#a90c382d8d77550e122c03dff90a10c4e">addFolder</a> (<a class="el" href="classPoint.html">const</a> juce::File &amp;<a class="el" href="classPoint.html">folder</a>)</td></tr>
+<tr class="memitem:a35ba78e1d5295dfd3984bc9625b38687" id="r_a35ba78e1d5295dfd3984bc9625b38687"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher.html#a35ba78e1d5295dfd3984bc9625b38687">coalesceEvents</a> (int windowMS)</td></tr>
+<tr class="memdesc:a35ba78e1d5295dfd3984bc9625b38687"><td class="mdescLeft">&#160;</td><td class="mdescRight">All events that arrive withing the time window for a particular file will be coalesced into one event with the type of the most recent event.  <br /></td></tr>
+<tr class="separator:a35ba78e1d5295dfd3984bc9625b38687"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90c382d8d77550e122c03dff90a10c4e" id="r_a90c382d8d77550e122c03dff90a10c4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher.html#a90c382d8d77550e122c03dff90a10c4e">addFolder</a> (const juce::File &amp;folder)</td></tr>
 <tr class="memdesc:a90c382d8d77550e122c03dff90a10c4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a folder to be watched.  <br /></td></tr>
 <tr class="separator:a90c382d8d77550e122c03dff90a10c4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a00ea52d73e860fa8396e98b60157f4" id="r_a4a00ea52d73e860fa8396e98b60157f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher.html#a4a00ea52d73e860fa8396e98b60157f4">removeFolder</a> (<a class="el" href="classPoint.html">const</a> juce::File &amp;<a class="el" href="classPoint.html">folder</a>)</td></tr>
+<tr class="memitem:a4a00ea52d73e860fa8396e98b60157f4" id="r_a4a00ea52d73e860fa8396e98b60157f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher.html#a4a00ea52d73e860fa8396e98b60157f4">removeFolder</a> (const juce::File &amp;folder)</td></tr>
 <tr class="memdesc:a4a00ea52d73e860fa8396e98b60157f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a folder from being watched.  <br /></td></tr>
 <tr class="separator:a4a00ea52d73e860fa8396e98b60157f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ad340eac72f4f3c62a6f3b38e231109" id="r_a0ad340eac72f4f3c62a6f3b38e231109"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher.html#a0ad340eac72f4f3c62a6f3b38e231109">removeAllFolders</a> ()</td></tr>
+<tr class="memitem:a0ad340eac72f4f3c62a6f3b38e231109" id="r_a0ad340eac72f4f3c62a6f3b38e231109"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher.html#a0ad340eac72f4f3c62a6f3b38e231109">removeAllFolders</a> ()</td></tr>
 <tr class="memdesc:a0ad340eac72f4f3c62a6f3b38e231109"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all folders from being watched.  <br /></td></tr>
 <tr class="separator:a0ad340eac72f4f3c62a6f3b38e231109"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcb753003933536baac295d60a84e9f6" id="r_abcb753003933536baac295d60a84e9f6"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; juce::File &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher.html#abcb753003933536baac295d60a84e9f6">getWatchedFolders</a> ()</td></tr>
 <tr class="memdesc:abcb753003933536baac295d60a84e9f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a list of folders being watched.  <br /></td></tr>
 <tr class="separator:abcb753003933536baac295d60a84e9f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2486d627a8a5cc3512e4a47e7a5cdb0" id="r_ad2486d627a8a5cc3512e4a47e7a5cdb0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher.html#ad2486d627a8a5cc3512e4a47e7a5cdb0">addListener</a> (<a class="el" href="classFileSystemWatcher_1_1Listener.html">Listener</a> *<a class="el" href="classPoint.html">newListener</a>)</td></tr>
+<tr class="memitem:ad2486d627a8a5cc3512e4a47e7a5cdb0" id="r_ad2486d627a8a5cc3512e4a47e7a5cdb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher.html#ad2486d627a8a5cc3512e4a47e7a5cdb0">addListener</a> (<a class="el" href="classFileSystemWatcher_1_1Listener.html">Listener</a> *newListener)</td></tr>
 <tr class="memdesc:ad2486d627a8a5cc3512e4a47e7a5cdb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a listener to be told when things happen to the text.  <br /></td></tr>
 <tr class="separator:ad2486d627a8a5cc3512e4a47e7a5cdb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2eac16aab60dc70dff0eb5b7573e250c" id="r_a2eac16aab60dc70dff0eb5b7573e250c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher.html#a2eac16aab60dc70dff0eb5b7573e250c">removeListener</a> (<a class="el" href="classFileSystemWatcher_1_1Listener.html">Listener</a> *<a class="el" href="classPoint.html">listener</a>)</td></tr>
+<tr class="memitem:a2eac16aab60dc70dff0eb5b7573e250c" id="r_a2eac16aab60dc70dff0eb5b7573e250c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher.html#a2eac16aab60dc70dff0eb5b7573e250c">removeListener</a> (<a class="el" href="classFileSystemWatcher_1_1Listener.html">Listener</a> *listener)</td></tr>
 <tr class="memdesc:a2eac16aab60dc70dff0eb5b7573e250c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deregisters a listener.  <br /></td></tr>
 <tr class="separator:a2eac16aab60dc70dff0eb5b7573e250c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -141,7 +144,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">enum</a> <a class="el" href="classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7d">FileSystemWatcher::FileSystemEvent</a></td>
+          <td class="memname">enum <a class="el" href="classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7d">FileSystemWatcher::FileSystemEvent</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -195,6 +198,26 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a35ba78e1d5295dfd3984bc9625b38687" name="a35ba78e1d5295dfd3984bc9625b38687"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35ba78e1d5295dfd3984bc9625b38687">&#9670;&#160;</a></span>coalesceEvents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FileSystemWatcher::coalesceEvents </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>windowMS</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>All events that arrive withing the time window for a particular file will be coalesced into one event with the type of the most recent event. </p>
+
+</div>
+</div>
 <a id="a90c382d8d77550e122c03dff90a10c4e" name="a90c382d8d77550e122c03dff90a10c4e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a90c382d8d77550e122c03dff90a10c4e">&#9670;&#160;</a></span>addFolder()</h2>
 
@@ -202,9 +225,9 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">void</a> FileSystemWatcher::addFolder </td>
+          <td class="memname">void FileSystemWatcher::addFolder </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::File &amp;&#160;</td>
+          <td class="paramtype">const juce::File &amp;&#160;</td>
           <td class="paramname"><em>folder</em></td><td>)</td>
           <td></td>
         </tr>
@@ -222,9 +245,9 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">void</a> FileSystemWatcher::removeFolder </td>
+          <td class="memname">void FileSystemWatcher::removeFolder </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::File &amp;&#160;</td>
+          <td class="paramtype">const juce::File &amp;&#160;</td>
           <td class="paramname"><em>folder</em></td><td>)</td>
           <td></td>
         </tr>
@@ -242,7 +265,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">void</a> FileSystemWatcher::removeAllFolders </td>
+          <td class="memname">void FileSystemWatcher::removeAllFolders </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -280,7 +303,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">void</a> FileSystemWatcher::addListener </td>
+          <td class="memname">void FileSystemWatcher::addListener </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFileSystemWatcher_1_1Listener.html">Listener</a> *&#160;</td>
           <td class="paramname"><em>newListener</em></td><td>)</td>
@@ -301,7 +324,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">void</a> FileSystemWatcher::removeListener </td>
+          <td class="memname">void FileSystemWatcher::removeListener </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFileSystemWatcher_1_1Listener.html">Listener</a> *&#160;</td>
           <td class="paramname"><em>listener</em></td><td>)</td>
@@ -321,7 +344,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 25 2025 18:12:53 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri May 9 2025 00:02:04 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

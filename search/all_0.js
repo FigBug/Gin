@@ -88,7 +88,7 @@ var searchData=
   ['authorizedalways_85',['authorizedAlways',['../classLocationManager.html#a518acec298306066ae3cccc6eb335bdcaadc75e653e86065ca5448be342c23053',1,'LocationManager']]],
   ['authorizedwheninuse_86',['authorizedWhenInUse',['../classLocationManager.html#a518acec298306066ae3cccc6eb335bdca91e8720f10faeaee578f776e7d95b9d1',1,'LocationManager']]],
   ['authors_87',['authors',['../classPatchBrowser.html#a1becbf2ecebca6e5a2ba2533b619b952',1,'PatchBrowser']]],
-  ['authorsmodel_88',['authorsmodel',['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser::AuthorsModel'],['../structPatchBrowser_1_1AuthorsModel.html#a5b1e9a0aee87d3623f78db4126fcab3e',1,'PatchBrowser::AuthorsModel::AuthorsModel()'],['../classPatchBrowser.html#a62a7cf5ab56615e84109ced00beb6dcb',1,'PatchBrowser::authorsModel']]],
+  ['authorsmodel_88',['authorsmodel',['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser::AuthorsModel'],['../classPatchBrowser.html#a62a7cf5ab56615e84109ced00beb6dcb',1,'PatchBrowser::authorsModel'],['../structPatchBrowser_1_1AuthorsModel.html#a5b1e9a0aee87d3623f78db4126fcab3e',1,'PatchBrowser::AuthorsModel::AuthorsModel()']]],
   ['average_89',['average',['../classRollingAverage.html#a941797e5f59cbdfce52faa655bd1b7f3',1,'RollingAverage::average()'],['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f',1,'Average:&#160;gin_imageeffects.h']]],
   ['avir_90',['avir',['../group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04',1,'gin_imageeffects.h']]]
 ];

@@ -277,7 +277,7 @@ var searchData=
   ['svgbutton_274',['svgbutton',['../classSVGButton.html#ab806ddd7a689e4f585f660292b01ca9a',1,'SVGButton::SVGButton()'],['../classSVGButton.html',1,'SVGButton']]],
   ['svgpluginbutton_275',['svgpluginbutton',['../classSVGPluginButton.html#a47c7b0570ab1759d2f0e58f90590329d',1,'SVGPluginButton::SVGPluginButton()'],['../classSVGPluginButton.html',1,'SVGPluginButton']]],
   ['switch_276',['switch',['../classSwitch.html',1,'Switch'],['../classSwitch.html#ab2b13d51b74f2d3421a250e933cf697c',1,'Switch::Switch()']]],
-  ['synthesiser_277',['synthesiser',['../classSynthesiser.html',1,'Synthesiser'],['../classSynthesiserUsage.html#ac5d679d24166b28f38ba6f4896bda9b7',1,'SynthesiserUsage::synthesiser'],['../classSynthesiser.html#a8c313d6f1fa875790e5c79dc621ee437',1,'Synthesiser::Synthesiser()']]],
+  ['synthesiser_277',['synthesiser',['../classSynthesiser.html',1,'Synthesiser'],['../classSynthesiser.html#a8c313d6f1fa875790e5c79dc621ee437',1,'Synthesiser::Synthesiser()'],['../classSynthesiserUsage.html#ac5d679d24166b28f38ba6f4896bda9b7',1,'SynthesiserUsage::synthesiser']]],
   ['synthesiserusage_278',['synthesiserusage',['../classSynthesiserUsage.html',1,'SynthesiserUsage'],['../classSynthesiserUsage.html#acf6164e8f56c6bf832e1bca406e675e1',1,'SynthesiserUsage::SynthesiserUsage()']]],
   ['synthesiservoice_279',['SynthesiserVoice',['../classSynthesiserVoice.html',1,'']]],
   ['systemclipboard_280',['SystemClipboard',['../classSystemClipboard.html',1,'']]],

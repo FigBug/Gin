@@ -83,9 +83,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac738f6be62fc72abee5fdf8e71c0f2e3" id="r_ac738f6be62fc72abee5fdf8e71c0f2e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRIFFParser.html#ac738f6be62fc72abee5fdf8e71c0f2e3">RIFFParser</a> (<a class="el" href="classPoint.html">const</a> juce::File &amp;<a class="el" href="classPoint.html">f</a>, std::function&lt; <a class="el" href="classPoint.html">void</a>(<a class="el" href="classPoint.html">uint32_t</a>, <a class="el" href="classPoint.html">const</a> <a class="el" href="classPoint.html">uint8_t</a> *, <a class="el" href="classPoint.html">uint32_t</a>)&gt;)</td></tr>
+<tr class="memitem:ac738f6be62fc72abee5fdf8e71c0f2e3" id="r_ac738f6be62fc72abee5fdf8e71c0f2e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRIFFParser.html#ac738f6be62fc72abee5fdf8e71c0f2e3">RIFFParser</a> (const juce::File &amp;f, std::function&lt; void(uint32_t, const uint8_t *, uint32_t)&gt;)</td></tr>
 <tr class="separator:ac738f6be62fc72abee5fdf8e71c0f2e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4801035d86bd9ed9f728c0d726c02da" id="r_af4801035d86bd9ed9f728c0d726c02da"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRIFFParser.html#af4801035d86bd9ed9f728c0d726c02da">RIFFParser</a> (<a class="el" href="classPoint.html">const</a> juce::MemoryBlock &amp;<a class="el" href="classPoint.html">m</a>, std::function&lt; <a class="el" href="classPoint.html">void</a>(<a class="el" href="classPoint.html">uint32_t</a>, <a class="el" href="classPoint.html">const</a> <a class="el" href="classPoint.html">uint8_t</a> *, <a class="el" href="classPoint.html">uint32_t</a>)&gt;)</td></tr>
+<tr class="memitem:af4801035d86bd9ed9f728c0d726c02da" id="r_af4801035d86bd9ed9f728c0d726c02da"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRIFFParser.html#af4801035d86bd9ed9f728c0d726c02da">RIFFParser</a> (const juce::MemoryBlock &amp;m, std::function&lt; void(uint32_t, const uint8_t *, uint32_t)&gt;)</td></tr>
 <tr class="separator:af4801035d86bd9ed9f728c0d726c02da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -100,13 +100,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">RIFFParser::RIFFParser </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::File &amp;&#160;</td>
+          <td class="paramtype">const juce::File &amp;&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; <a class="el" href="classPoint.html">void</a>(<a class="el" href="classPoint.html">uint32_t</a>, <a class="el" href="classPoint.html">const</a> <a class="el" href="classPoint.html">uint8_t</a> *, <a class="el" href="classPoint.html">uint32_t</a>)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; void(uint32_t, const uint8_t *, uint32_t)&gt;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -128,13 +128,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">RIFFParser::RIFFParser </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::MemoryBlock &amp;&#160;</td>
+          <td class="paramtype">const juce::MemoryBlock &amp;&#160;</td>
           <td class="paramname"><em>m</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; <a class="el" href="classPoint.html">void</a>(<a class="el" href="classPoint.html">uint32_t</a>, <a class="el" href="classPoint.html">const</a> <a class="el" href="classPoint.html">uint8_t</a> *, <a class="el" href="classPoint.html">uint32_t</a>)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; void(uint32_t, const uint8_t *, uint32_t)&gt;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -153,7 +153,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 25 2025 18:12:53 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri May 9 2025 00:02:04 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
