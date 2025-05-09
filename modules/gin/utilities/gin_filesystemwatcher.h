@@ -29,6 +29,10 @@ public:
     ~FileSystemWatcher();
 
     //==============================================================================
+    /** All events that arrive withing the time window for a particular file will be
+        coalesced into one event with the type of the most recent event */
+    void coalesceEvents (int windowMS);
+
     /** Adds a folder to be watched */
     void addFolder (const juce::File& folder);
 
@@ -88,6 +92,41 @@ private:
 
     void folderChanged (const juce::File& folder);
     void fileChanged (const juce::File& file, FileSystemEvent fsEvent);
+
+    int coalesceWindowMS = 0;
+
+    struct CoalesceTimer : public juce::Timer
+    {
+        CoalesceTimer (FileSystemWatcher& o, juce::File f_)
+            : owner (o), f (f_), folder (true)
+        {
+        }
+
+        CoalesceTimer (FileSystemWatcher& o, juce::File f_, FileSystemEvent e_)
+            : owner (o), f (f_), folder (false), fsEvent (e_)
+        {
+        }
+
+        void timerCallback() override
+        {
+            stopTimer();
+
+            if (folder)
+                owner.listeners.call (&FileSystemWatcher::Listener::folderChanged, f);
+            else
+                owner.listeners.call (&FileSystemWatcher::Listener::fileChanged, f, fsEvent);
+
+            owner.timers.erase (f);
+        }
+
+        FileSystemWatcher& owner;
+
+        juce::File f;
+        bool folder;
+        FileSystemEvent fsEvent;
+    };
+
+    std::map<juce::File, std::unique_ptr<CoalesceTimer>> timers;
 
     juce::ListenerList<Listener> listeners;
 
