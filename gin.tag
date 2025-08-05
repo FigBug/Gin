@@ -517,6 +517,20 @@
       <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
       <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
     </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>createDesktopSnapshot</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gac2d2291dbc7913b65fd0e69e53873fa3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>createSnapshotOfNativeWindow</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad1ffdc179588a1832355270be9b5a516</anchor>
+      <arglist>(juce::Component &amp;c)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>gin_valuetreeobject.h</name>
@@ -861,6 +875,24 @@
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__midififo_8h.html</filename>
     <class kind="class">MidiFifo</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_dsp/dsp/gin_modulation.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__dsp_2dsp_2gin__modulation_8h.html</filename>
+    <class kind="class">Modulation</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_plugin/components/gin_modulation.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__plugin_2components_2gin__modulation_8h.html</filename>
+    <class kind="class">ModulationSourceButton</class>
+    <class kind="class">ModulationDepthSlider</class>
+    <class kind="class">ModulationOverview</class>
+    <class kind="class">ModSrcListBox</class>
+    <class kind="class">ModCurveButton</class>
+    <class kind="class">ModMatrixBox</class>
+    <class kind="class">ModMatrixBox::Row::DepthSlider</class>
   </compound>
   <compound kind="file">
     <name>gin_mseg.h</name>
@@ -1553,24 +1585,6 @@
     <path>build/gin_plugin/components/</path>
     <filename>gin__lfocomponent_8h.html</filename>
     <class kind="class">LFOComponent</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_dsp/dsp/gin_modulation.h</name>
-    <path>build/gin_dsp/dsp/</path>
-    <filename>gin__dsp_2dsp_2gin__modulation_8h.html</filename>
-    <class kind="class">Modulation</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_plugin/components/gin_modulation.h</name>
-    <path>build/gin_plugin/components/</path>
-    <filename>gin__plugin_2components_2gin__modulation_8h.html</filename>
-    <class kind="class">ModulationSourceButton</class>
-    <class kind="class">ModulationDepthSlider</class>
-    <class kind="class">ModulationOverview</class>
-    <class kind="class">ModSrcListBox</class>
-    <class kind="class">ModCurveButton</class>
-    <class kind="class">ModMatrixBox</class>
-    <class kind="class">ModMatrixBox::Row::DepthSlider</class>
   </compound>
   <compound kind="file">
     <name>gin_msegcomponent.h</name>
@@ -17548,6 +17562,18 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
+    <class kind="class">AudioSamplerBufferComponent</class>
+    <class kind="class">DynamicsMeter</class>
+    <class kind="class">LevelMeter</class>
+    <class kind="class">TriggeredScope</class>
+    <class kind="class">WaveformComponent</class>
+    <class kind="class">WavetableComponent</class>
+    <class kind="class">XYScope</class>
+  </compound>
+  <compound kind="group">
     <name>gin_plugin-components</name>
     <title>components</title>
     <filename>group__gin__plugin-components.html</filename>
@@ -17604,18 +17630,6 @@
       <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
       <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
     </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-    <class kind="class">AudioSamplerBufferComponent</class>
-    <class kind="class">DynamicsMeter</class>
-    <class kind="class">LevelMeter</class>
-    <class kind="class">TriggeredScope</class>
-    <class kind="class">WaveformComponent</class>
-    <class kind="class">WavetableComponent</class>
-    <class kind="class">XYScope</class>
   </compound>
   <compound kind="group">
     <name>gin_dsp-dsp</name>
@@ -17956,6 +17970,25 @@
     <subgroup>gin_webp-formats</subgroup>
   </compound>
   <compound kind="group">
+    <name>gin_gui-images</name>
+    <title>images</title>
+    <filename>group__gin__gui-images.html</filename>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>rasterizeSVG</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
+      <arglist>(juce::String svgText, int w, int h)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Path</type>
+      <name>parseSVGPath</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
+      <arglist>(const juce::String &amp;txt)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
     <name>gin_graphics-images</name>
     <title>images</title>
     <filename>group__gin__graphics-images.html</filename>
@@ -18253,25 +18286,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_gui-images</name>
-    <title>images</title>
-    <filename>group__gin__gui-images.html</filename>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>rasterizeSVG</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
-      <arglist>(juce::String svgText, int w, int h)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Path</type>
-      <name>parseSVGPath</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
-      <arglist>(const juce::String &amp;txt)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
     <name>gin_location-location</name>
     <title>location</title>
     <filename>group__gin__location-location.html</filename>
@@ -18409,6 +18423,20 @@
       <anchorfile>group__gin__gui-utilities.html</anchorfile>
       <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
       <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>createDesktopSnapshot</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gac2d2291dbc7913b65fd0e69e53873fa3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>createSnapshotOfNativeWindow</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad1ffdc179588a1832355270be9b5a516</anchor>
+      <arglist>(juce::Component &amp;c)</arglist>
     </member>
   </compound>
   <compound kind="group">
