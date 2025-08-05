@@ -51,10 +51,8 @@ NSImage* imageToNSImage (const juce::Image& image)
 #if JUCE_WINDOWS
 namespace windows
 {
-juce::Image hBitmapToImage (void* hBitmap_)
+juce::Image hBitmapToImage (HBITMAP hBitmap)
 {
-    HBITMAP hBitmap = (HBITMAP)hBitmap_;
-
     if (hBitmap == nullptr)
         return {};
 

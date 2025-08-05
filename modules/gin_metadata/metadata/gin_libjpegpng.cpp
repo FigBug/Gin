@@ -352,6 +352,8 @@ namespace jpeglibNamespace
 #if JUCE_CLANG
  #pragma clang diagnostic push
  #pragma clang diagnostic ignored "-Wconversion"
+ #pragma clang diagnostic ignored "-Wregister"
+ #pragma clang diagnostic ignored "-Wunused-parameter"
  #pragma clang diagnostic ignored "-Wdeprecated-register"
  #pragma clang diagnostic ignored "-Wcast-align"
  #pragma clang diagnostic ignored "-Wswitch-enum"

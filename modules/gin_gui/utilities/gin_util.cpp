@@ -5,6 +5,8 @@
 
  ==============================================================================*/
 
+#include "gin_platform.h"
+
 juce::Colour goldenRatioColor (int idx)
 {
     double h = std::fmod (idx * 0.618033988749895, 1);
@@ -102,6 +104,7 @@ juce::Image createSnapshotOfNativeWindow (juce::Component& c)
     }
     return {};
 #else
+    juce::ignoreUnused (c);
     jassertfalse; // todo
     return {};
 #endif
