@@ -9,7 +9,7 @@
 
 #if JUCE_MSVC
  #pragma warning (push)
- #pragma warning (disable: 4390 4611 4365 4267)
+ #pragma warning (disable: 4390 4611 4365 4267 5033)
   #ifdef __INTEL_COMPILER
    #pragma warning (disable: 2544 2545)
   #endif
