@@ -17,3 +17,10 @@ juce::Image nsImageToImage (NSImage* nsImage);
 NSImage* imageToNSImage (const juce::Image& image);
 }
 #endif
+
+#if JUCE_WINDOWS
+namespace windows
+{
+juce::Image hBitmapToImage (void* hBitmap);
+}
+#endif
