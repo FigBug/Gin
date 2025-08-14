@@ -61,7 +61,7 @@ var searchData=
   ['componentforparam_58',['componentForParam',['../classProcessorEditorBase.html#a250dc820c7a30d84a7465c27722aeffd',1,'ProcessorEditorBase']]],
   ['componentgrid_59',['componentgrid',['../classComponentGrid.html#ac2058b5985bd9494da3e197db02bc5a9',1,'ComponentGrid::ComponentGrid()'],['../classComponentGrid.html',1,'ComponentGrid']]],
   ['componentindex_60',['componentIndex',['../classComponentGrid.html#a3caf7f9c7ba9f265a39ddceeebdc7371',1,'ComponentGrid']]],
-  ['components_61',['components',['../group__gin__gui-components.html',1,'components'],['../group__gin__dsp-components.html',1,'components'],['../group__gin__plugin-components.html',1,'components']]],
+  ['components_61',['components',['../group__gin__gui-components.html',1,'components'],['../group__gin__plugin-components.html',1,'components'],['../group__gin__dsp-components.html',1,'components']]],
   ['componentviewer_62',['componentviewer',['../classComponentViewer.html#ad2606c2be76e8a56bb98d57ce57c0b6f',1,'ComponentViewer::ComponentViewer()'],['../classComponentViewer.html',1,'ComponentViewer']]],
   ['compressor_63',['compressor',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b',1,'Dynamics']]],
   ['connect_64',['connect',['../classAsyncWebsocket.html#ac4a1d21499ab2ebc02483485eb0c62b5',1,'AsyncWebsocket::connect()'],['../classSecureStreamingSocket.html#aea1e67df0bbf6e3f7cd82e7b6419c1e8',1,'SecureStreamingSocket::connect()']]],
