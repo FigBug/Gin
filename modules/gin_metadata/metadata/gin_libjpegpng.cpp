@@ -41,7 +41,7 @@ namespace gin
  #include <setjmp.h>
 #endif
 
-namespace pnglibNamespace
+namespace ginPnglibNamespace
 {
     using namespace juce::zlibNamespace;
 
@@ -342,120 +342,178 @@ extern "C"
 #pragma warning (disable: 4365)
 #endif
 
-namespace jpeglibNamespace
+#define DONT_USE_EXTERN_C 1
+
+namespace ginJpeglibNamespace
 {
 #if JUCE_INCLUDE_JPEGLIB_CODE || ! defined (JUCE_INCLUDE_JPEGLIB_CODE)
-#if JUCE_MINGW
-    typedef unsigned char boolean;
-#endif
+	 JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE ("-Wconversion",
+										  "-Wdeprecated-register",
+										  "-Wdeprecated-declarations",
+										  "-Wsign-conversion",
+										  "-Wcast-align",
+										  "-Wswitch-enum",
+										  "-Wswitch-default",
+										  "-Wimplicit-fallthrough",
+										  "-Wzero-as-null-pointer-constant",
+										  "-Wshift-negative-value",
+										  "-Wcomma",
+										  "-Wunused-parameter",
+										  "-Wregister",
+										  "-Wredundant-decls")
 
-#if JUCE_CLANG
- #pragma clang diagnostic push
- #pragma clang diagnostic ignored "-Wconversion"
- #pragma clang diagnostic ignored "-Wregister"
- #pragma clang diagnostic ignored "-Wunused-parameter"
- #pragma clang diagnostic ignored "-Wdeprecated-register"
- #pragma clang diagnostic ignored "-Wcast-align"
- #pragma clang diagnostic ignored "-Wswitch-enum"
- #if __has_warning("-Wzero-as-null-pointer-constant")
-  #pragma clang diagnostic ignored "-Wzero-as-null-pointer-constant"
- #endif
- #if __has_warning("-Wcomma")
-  #pragma clang diagnostic ignored "-Wcomma"
- #endif
-#endif
+	#include "juce_graphics/image_formats/jpglib/jaricom.c"
+	#include "juce_graphics/image_formats/jpglib/jcapimin.c"
+	#include "juce_graphics/image_formats/jpglib/jcapistd.c"
+	#include "juce_graphics/image_formats/jpglib/jcarith.c"
+	#include "juce_graphics/image_formats/jpglib/jccoefct.c"
+	#include "juce_graphics/image_formats/jpglib/jccolor.c"
 
-#if JUCE_GCC
- #pragma GCC diagnostic push
- #pragma GCC diagnostic ignored "-Wconversion"
- #pragma GCC diagnostic ignored "-Wsign-conversion"
- #pragma GCC diagnostic ignored "-Wzero-as-null-pointer-constant"
- #if __GNUC__ > 5
-  #pragma GCC diagnostic ignored "-Wshift-negative-value"
- #endif
-#endif
+	#undef FIX
+	#include "juce_graphics/image_formats/jpglib/jcdctmgr.c"
+	#include "juce_graphics/image_formats/jpglib/jcinit.c"
+	#include "juce_graphics/image_formats/jpglib/jcmainct.c"
+	#include "juce_graphics/image_formats/jpglib/jcmarker.c"
+	#include "juce_graphics/image_formats/jpglib/jcmaster.c"
+	#include "juce_graphics/image_formats/jpglib/jcomapi.c"
+	#include "juce_graphics/image_formats/jpglib/jcparam.c"
+	#include "juce_graphics/image_formats/jpglib/jcprepct.c"
+	#include "juce_graphics/image_formats/jpglib/jcsample.c"
+	#include "juce_graphics/image_formats/jpglib/jdapimin.c"
+	#include "juce_graphics/image_formats/jpglib/jdapistd.c"
+	#include "juce_graphics/image_formats/jpglib/jdatadst.c"
+	#include "juce_graphics/image_formats/jpglib/jdatasrc.c"
+	#include "juce_graphics/image_formats/jpglib/jddctmgr.c"
+	#include "juce_graphics/image_formats/jpglib/jdhuff.c"
+	#include "juce_graphics/image_formats/jpglib/jdinput.c"
 
-#define JPEG_INTERNALS
-#undef FAR
-#include "juce_graphics/image_formats/jpglib/jpeglib.h"
+	#undef FIX
+	#include "juce_graphics/image_formats/jpglib/jdmerge.c"
+	#include "juce_graphics/image_formats/jpglib/jdpostct.c"
 
-#include "juce_graphics/image_formats/jpglib/jcapimin.c"
-#include "juce_graphics/image_formats/jpglib/jcapistd.c"
-#include "juce_graphics/image_formats/jpglib/jccoefct.c"
-#include "juce_graphics/image_formats/jpglib/jccolor.c"
-#undef FIX
-#include "juce_graphics/image_formats/jpglib/jcdctmgr.c"
-#undef CONST_BITS
-#include "juce_graphics/image_formats/jpglib/jchuff.c"
-#undef emit_byte
-#include "juce_graphics/image_formats/jpglib/jcinit.c"
-#include "juce_graphics/image_formats/jpglib/jcmainct.c"
-#include "juce_graphics/image_formats/jpglib/jcmarker.c"
-#include "juce_graphics/image_formats/jpglib/jcmaster.c"
-#include "juce_graphics/image_formats/jpglib/jcomapi.c"
-#include "juce_graphics/image_formats/jpglib/jcparam.c"
-#include "juce_graphics/image_formats/jpglib/jcphuff.c"
-#include "juce_graphics/image_formats/jpglib/jcprepct.c"
-#include "juce_graphics/image_formats/jpglib/jcsample.c"
-#include "juce_graphics/image_formats/jpglib/jctrans.c"
-#include "juce_graphics/image_formats/jpglib/jdapistd.c"
-#include "juce_graphics/image_formats/jpglib/jdapimin.c"
-#include "juce_graphics/image_formats/jpglib/jdatasrc.c"
-#include "juce_graphics/image_formats/jpglib/jdcoefct.c"
-#undef FIX
-#include "juce_graphics/image_formats/jpglib/jdcolor.c"
-#undef FIX
-#include "juce_graphics/image_formats/jpglib/jddctmgr.c"
-#undef CONST_BITS
-#undef ASSIGN_STATE
-#include "juce_graphics/image_formats/jpglib/jdhuff.c"
-#include "juce_graphics/image_formats/jpglib/jdinput.c"
-#include "juce_graphics/image_formats/jpglib/jdmainct.c"
-#include "juce_graphics/image_formats/jpglib/jdmarker.c"
-#include "juce_graphics/image_formats/jpglib/jdmaster.c"
-#undef FIX
-#include "juce_graphics/image_formats/jpglib/jdmerge.c"
-#undef ASSIGN_STATE
-#include "juce_graphics/image_formats/jpglib/jdphuff.c"
-#include "juce_graphics/image_formats/jpglib/jdpostct.c"
-#undef FIX
-#include "juce_graphics/image_formats/jpglib/jdsample.c"
-#include "juce_graphics/image_formats/jpglib/jdtrans.c"
-#include "juce_graphics/image_formats/jpglib/jfdctflt.c"
-#include "juce_graphics/image_formats/jpglib/jfdctint.c"
-#undef CONST_BITS
-#undef MULTIPLY
-#undef FIX_0_541196100
-#include "juce_graphics/image_formats/jpglib/jfdctfst.c"
-#undef FIX_0_541196100
-#include "juce_graphics/image_formats/jpglib/jidctflt.c"
-#undef CONST_BITS
-#undef FIX_1_847759065
-#undef MULTIPLY
-#undef DEQUANTIZE
-#undef DESCALE
-#include "juce_graphics/image_formats/jpglib/jidctfst.c"
-#undef CONST_BITS
-#undef FIX_1_847759065
-#undef MULTIPLY
-#undef DEQUANTIZE
-#include "juce_graphics/image_formats/jpglib/jidctint.c"
-#include "juce_graphics/image_formats/jpglib/jidctred.c"
-#include "juce_graphics/image_formats/jpglib/jmemmgr.c"
-#include "juce_graphics/image_formats/jpglib/jmemnobs.c"
-#include "juce_graphics/image_formats/jpglib/jquant1.c"
-#include "juce_graphics/image_formats/jpglib/jquant2.c"
-#include "juce_graphics/image_formats/jpglib/jutils.c"
-#include "juce_graphics/image_formats/jpglib/transupp.c"
+	#undef FIX
+	#include "juce_graphics/image_formats/jpglib/jdtrans.c"
+	#include "juce_graphics/image_formats/jpglib/jerror.c"
+	#include "juce_graphics/image_formats/jpglib/jfdctflt.c"
 
-#if JUCE_CLANG
-#pragma clang diagnostic pop
-#endif
+	#undef CONST_BITS
+	#include "juce_graphics/image_formats/jpglib/jfdctfst.c"
+
+	#undef CONST_BITS
+	#undef FIX_0_541196100
+	#undef MULTIPLY
+	#include "juce_graphics/image_formats/jpglib/jfdctint.c"
+	#include "juce_graphics/image_formats/jpglib/jidctflt.c"
+
+	#undef CONST_BITS
+	#undef FIX_1_847759065
+	#undef DEQUANTIZE
+	#undef MULTIPLY
+	#include "juce_graphics/image_formats/jpglib/jidctfst.c"
+
+	#undef CONST_BITS
+	#undef FIX_1_847759065
+	#undef DEQUANTIZE
+	#undef MULTIPLY
+	#include "juce_graphics/image_formats/jpglib/jidctint.c"
+	#include "juce_graphics/image_formats/jpglib/jquant1.c"
+	#include "juce_graphics/image_formats/jpglib/jutils.c"
+	#include "juce_graphics/image_formats/jpglib/jmemmgr.c"
+
+	#define savable_state           savable_state_jchuff
+	#define huff_entropy_ptr        huff_entropy_ptr_jchuff
+	#define encode_mcu_DC_first     encode_mcu_DC_first_jchuff
+	#define encode_mcu_AC_first     encode_mcu_AC_first_jchuff
+	#define encode_mcu_DC_refine    encode_mcu_DC_refine_jchuff
+	#define encode_mcu_AC_refine    encode_mcu_AC_refine_jchuff
+	#include "juce_graphics/image_formats/jpglib/jchuff.c"
+	#undef encode_mcu_DC_first
+	#undef encode_mcu_AC_first
+	#undef encode_mcu_DC_refine
+	#undef encode_mcu_AC_refine
+	#undef huff_entropy_ptr
+	#undef savable_state
+
+	#define arith_entropy_ptr       arith_entropy_ptr_jdarith
+	#define process_restart         process_restart_jdarith
+	#define start_pass              start_pass_jdarith
+	#define decode_mcu              decode_mcu_jdarith
+	#define decode_mcu_DC_first     decode_mcu_DC_first_jdarith
+	#define decode_mcu_AC_first     decode_mcu_AC_first_jdarith
+	#define decode_mcu_DC_refine    decode_mcu_DC_refine_jdarith
+	#define decode_mcu_AC_refine    decode_mcu_AC_refine_jdarith
+	#include "juce_graphics/image_formats/jpglib/jdarith.c"
+	#undef decode_mcu_AC_refine
+	#undef decode_mcu_DC_refine
+	#undef decode_mcu_AC_first
+	#undef decode_mcu_DC_first
+	#undef decode_mcu_AC_refine
+	#undef decode_mcu
+	#undef start_pass
+	#undef arith_entropy_ptr
+	#undef process_restart
+
+	#define my_coef_controller      my_coef_controller_jctrans
+	#define my_coef_ptr             my_coef_ptr_jctrans
+	#define start_iMCU_row          start_iMCU_row_jctrans
+	#define start_pass_coef         start_pass_coef_jctrans
+	#define compress_output         compress_output_jctrans
+	#include "juce_graphics/image_formats/jpglib/jctrans.c"
+	#undef my_coef_controller
+	#undef my_coef_ptr
+	#undef start_iMCU_row
+	#undef start_pass_coef
+	#undef compress_output
+
+	#define my_coef_controller      my_coef_controller_jdcoefct
+	#define my_coef_ptr             my_coef_ptr_jdcoefct
+	#define start_input_pass        start_input_pass_jdcoefct
+	#include "juce_graphics/image_formats/jpglib/jdcoefct.c"
+	#undef my_coef_controller
+	#undef my_coef_ptr
+	#undef start_input_pass
+
+	#undef FIX
+	#define my_cconvert_ptr         my_cconvert_ptr_jdcolor
+	#define build_ycc_rgb_table     build_ycc_rgb_table_jdcolor
+	#define build_bg_ycc_rgb_table  build_bc_ycc_rgb_table_jdcolor
+	#include "juce_graphics/image_formats/jpglib/jdcolor.c"
+	#undef my_cconvert_ptr
+	#undef build_ycc_rgb_table
+	#undef build_bg_ycc_rgb_table
+
+	#define my_main_controller      my_main_controller_jdmainct
+	#define my_main_ptr             my_main_ptr_jdmainct
+	#include "juce_graphics/image_formats/jpglib/jdmainct.c"
+
+	#define my_master_ptr           my_master_ptr_jdmainct
+	#include "juce_graphics/image_formats/jpglib/jdmaster.c"
+	#undef my_master_ptr
+
+	#define my_upsampler            my_upsampler_jdsample
+	#define my_upsample_ptr         my_upsampler_ptr_jdsample
+	#include "juce_graphics/image_formats/jpglib/jdsample.c"
+	#undef my_upsampler
+	#undef my_upsample_ptr
+
+	#define my_cquantizer           my_cquantizer_jquant2
+	#define my_cquantize_ptr        my_cquantize_ptr_jquant2
+	#include "juce_graphics/image_formats/jpglib/jquant2.c"
+	#undef my_cquantizer
+	#undef my_cquantize_ptr
+
+	#define my_marker_ptr           my_marker_ptr_jdmarker
+	#include "juce_graphics/image_formats/jpglib/jdmarker.c"
+	#undef my_marker_ptr
+
+	#include "juce_graphics/image_formats/jpglib/jmemnobs.c"
+	JUCE_END_IGNORE_WARNINGS_GCC_LIKE
 #else
-#define JPEG_INTERNALS
-#undef FAR
-#include <jpeglib.h>
+	#define JPEG_INTERNALS
+	#undef FAR
+	#include <jpeglib.h>
 #endif
+
 }
 
 #undef max
