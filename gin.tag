@@ -15115,11 +15115,11 @@
       <anchor>afb116548ea250273d01234050957cd2d</anchor>
       <arglist>(SynthesiserVoice *v, juce::MPENote note)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
       <name>startVoice</name>
       <anchorfile>classSynthesiser.html</anchorfile>
-      <anchor>a9c7f19726ca95a0d6609370efb70dfac</anchor>
+      <anchor>a082dd1380cf428dc3cb3fde924964deb</anchor>
       <arglist>(juce::MPESynthesiserVoice *v, juce::MPENote note)</arglist>
     </member>
     <member kind="function">

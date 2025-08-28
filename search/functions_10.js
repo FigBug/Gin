@@ -215,7 +215,7 @@ var searchData=
   ['startblock_212',['startBlock',['../classSynthesiser.html#a3dc68b923888fa1d7785817b327bde6f',1,'Synthesiser']]],
   ['starttimer_213',['startTimer',['../classCoalescedTimer.html#a97261711749a65434b7f875f94118c4b',1,'CoalescedTimer']]],
   ['starttimerhz_214',['startTimerHz',['../classCoalescedTimer.html#a31d6f6484b273fe894be54c6dcbd0957',1,'CoalescedTimer']]],
-  ['startvoice_215',['startvoice',['../classSynthesiser.html#a9c7f19726ca95a0d6609370efb70dfac',1,'Synthesiser::startVoice()'],['../classModVoice.html#aa987df0200c765566c0a359e3a2597b6',1,'ModVoice::startVoice()']]],
+  ['startvoice_215',['startvoice',['../classSynthesiser.html#a082dd1380cf428dc3cb3fde924964deb',1,'Synthesiser::startVoice()'],['../classModVoice.html#aa987df0200c765566c0a359e3a2597b6',1,'ModVoice::startVoice()']]],
   ['stateupdated_216',['stateupdated',['../classProcessor.html#a8f2a4e8408ed85ccf02152f5e0cc4143',1,'Processor::stateUpdated()'],['../classModMatrix.html#aa3b18298e7798ae8293f8beb6622db23',1,'ModMatrix::stateUpdated()']]],
   ['steplfo_217',['StepLFO',['../classStepLFO.html#a3868a6372c5e5ea5c024815bda225197',1,'StepLFO']]],
   ['steplfocomponent_218',['StepLFOComponent',['../classStepLFOComponent.html#a1517e897dd7ad492c18ff5a7bcb4de05',1,'StepLFOComponent']]],
