@@ -275,7 +275,7 @@ public:
         v->noteRetriggered();
     }
 
-    void startVoice (juce::MPESynthesiserVoice* v, juce::MPENote note)
+    virtual void startVoice (juce::MPESynthesiserVoice* v, juce::MPENote note)
     {
         updateGlide (v);
         MPESynthesiser::startVoice (v, note);
