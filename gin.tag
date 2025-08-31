@@ -643,6 +643,12 @@
     <class kind="class">AudioFunctionHost</class>
   </compound>
   <compound kind="file">
+    <name>gin_audiomidififo.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__audiomidififo_8h.html</filename>
+    <class kind="class">AudioMidiFifo</class>
+  </compound>
+  <compound kind="file">
     <name>gin_audioutil.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__audioutil_8h.html</filename>
@@ -2831,6 +2837,66 @@
       <anchorfile>classAudioFunctionHost.html</anchorfile>
       <anchor>a3647d97cb87c9029d48846985dcfe39a</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>AudioMidiFifo</name>
+    <filename>classAudioMidiFifo.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>AudioMidiFifo</name>
+      <anchorfile>classAudioMidiFifo.html</anchorfile>
+      <anchor>a5882245e1467bc8ab0ead4c353203ceb</anchor>
+      <arglist>(int channels=2, int maxSize=1024)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSize</name>
+      <anchorfile>classAudioMidiFifo.html</anchorfile>
+      <anchor>a8e43f222ba902872bf3fa5aaa312b629</anchor>
+      <arglist>(int channels, int maxSize)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clear</name>
+      <anchorfile>classAudioMidiFifo.html</anchorfile>
+      <anchor>a452cc6359fc38acb4b4ea1b06d73e7ee</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumSamplesAvailable</name>
+      <anchorfile>classAudioMidiFifo.html</anchorfile>
+      <anchor>a32b8571dce1de4fc7d33afda3859f3fc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumSamplesFree</name>
+      <anchorfile>classAudioMidiFifo.html</anchorfile>
+      <anchor>a926aaa1d0479a79920cedce7f2998017</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>writeSilence</name>
+      <anchorfile>classAudioMidiFifo.html</anchorfile>
+      <anchor>a042bc730af9185b582f4e73012188937</anchor>
+      <arglist>(int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>write</name>
+      <anchorfile>classAudioMidiFifo.html</anchorfile>
+      <anchor>a0cf159e6dce04dbb5368021cf981f04c</anchor>
+      <arglist>(const juce::AudioBuffer&lt; float &gt; &amp;audioSrc, const juce::MidiBuffer &amp;midiSrc)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>read</name>
+      <anchorfile>classAudioMidiFifo.html</anchorfile>
+      <anchor>ab79a8f933234cb743fcd969b3786b579</anchor>
+      <arglist>(juce::AudioBuffer&lt; float &gt; &amp;audioDst, juce::MidiBuffer &amp;midiDst)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -17652,6 +17718,7 @@
     <class kind="struct">Notch12State</class>
     <class kind="struct">Notch24State</class>
     <class kind="class">AudioFunctionHost</class>
+    <class kind="class">AudioMidiFifo</class>
     <class kind="class">GainProcessor</class>
     <class kind="class">WetDryMix</class>
     <class kind="class">BandLimitedLookupTable</class>

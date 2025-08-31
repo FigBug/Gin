@@ -79,7 +79,7 @@ var searchData=
   ['powerpath_76',['powerPath',['../classImages.html#acd6375f27acc618531676b5529792e28',1,'Images']]],
   ['preparetoplay_77',['preparetoplay',['../classParameter.html#ae91e3ee8425847a19c3b158a26f76896',1,'Parameter::prepareToPlay()'],['../classSmoothedParameter.html#aa7fcd3012e8f526fa9ba08117744c4b7',1,'SmoothedParameter::prepareToPlay()'],['../classProcessor.html#a91501bb29c8b65f444460ed1abc22824',1,'Processor::prepareToPlay()']]],
   ['presets_78',['presets',['../classPatchBrowser.html#a2fde0c9a4e9504c0feb276e93250ea12',1,'PatchBrowser']]],
-  ['presetsmodel_79',['presetsmodel',['../structPatchBrowser_1_1PresetsModel.html#a786c7135368bcbd2fdeef02f1789c597',1,'PatchBrowser::PresetsModel::PresetsModel()'],['../classPatchBrowser.html#acce838df5fbbd1505ae5c0b55d361604',1,'PatchBrowser::presetsModel'],['../structPatchBrowser_1_1PresetsModel.html',1,'PatchBrowser::PresetsModel']]],
+  ['presetsmodel_79',['presetsmodel',['../classPatchBrowser.html#acce838df5fbbd1505ae5c0b55d361604',1,'PatchBrowser::presetsModel'],['../structPatchBrowser_1_1PresetsModel.html#a786c7135368bcbd2fdeef02f1789c597',1,'PatchBrowser::PresetsModel::PresetsModel()'],['../structPatchBrowser_1_1PresetsModel.html',1,'PatchBrowser::PresetsModel']]],
   ['prev_80',['prev',['../namespaceAssets.html#ad5b11488698a963a52c57c3566f9d902',1,'Assets::prev'],['../classPatchBrowser.html#ab06f955264255f1f49ce7b2f42f5ea44',1,'PatchBrowser::prev()']]],
   ['prevbutton_81',['prevButton',['../classTitleBar.html#a2cb13751804eb23f1efa52f98c57d688',1,'TitleBar']]],
   ['proc_82',['proc',['../classPatchBrowser.html#ace4451a4ee2e4ea777e795e8913ae29b',1,'PatchBrowser']]],

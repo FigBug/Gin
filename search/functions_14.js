@@ -8,10 +8,11 @@ var searchData=
   ['withadditionalcredits_5',['withAdditionalCredits',['../classProcessorOptions.html#a0db6fc2981e1e882526b44adab862a5e',1,'ProcessorOptions']]],
   ['withoutnewschecker_6',['withoutNewsChecker',['../classProcessorOptions.html#a2b71715ff959b8271eb2baeab802737d',1,'ProcessorOptions']]],
   ['withoutupdatechecker_7',['withoutUpdateChecker',['../classProcessorOptions.html#a725a6c47b2760a05214157bed059b157',1,'ProcessorOptions']]],
-  ['write_8',['write',['../classAudioFifo.html#a7dbba1b96c2670e3e046f2ad83e3ed40',1,'AudioFifo::write()'],['../classSecureStreamingSocket.html#ae04b0755561c2b33d447a43712c16c0f',1,'SecureStreamingSocket::write()'],['../classMidiFifo.html#a90ece40a2c61b1bba7de907838fc7cf6',1,'MidiFifo::write()'],['../classDelayLine.html#ae83573274b47e182d7293edd582ae2f3',1,'DelayLine::write()'],['../classAudioFifo.html#a272a4efa8416e0c57905329552781855',1,'AudioFifo::write()']]],
+  ['write_8',['write',['../classAudioMidiFifo.html#a0cf159e6dce04dbb5368021cf981f04c',1,'AudioMidiFifo::write()'],['../classSecureStreamingSocket.html#ae04b0755561c2b33d447a43712c16c0f',1,'SecureStreamingSocket::write()'],['../classMidiFifo.html#a90ece40a2c61b1bba7de907838fc7cf6',1,'MidiFifo::write()'],['../classDelayLine.html#ae83573274b47e182d7293edd582ae2f3',1,'DelayLine::write()'],['../classAudioFifo.html#a7dbba1b96c2670e3e046f2ad83e3ed40',1,'AudioFifo::write(const float *const *data, int numSamples)'],['../classAudioFifo.html#a272a4efa8416e0c57905329552781855',1,'AudioFifo::write(const juce::AudioSampleBuffer &amp;src, int numSamples=-1)']]],
   ['writefinished_9',['writeFinished',['../classDelayLine.html#ab36052a31da09d3a8162651ba437bec6',1,'DelayLine']]],
   ['writeimagetostream_10',['writeimagetostream',['../classBMPImageFormat.html#a7aa7a97cf8a3e5724bc61550ce7c8881',1,'BMPImageFormat::writeImageToStream()'],['../classWEBPImageFormat.html#a7323d308a2ed305d577d7630cfafc0b8',1,'WEBPImageFormat::writeImageToStream()']]],
   ['writemono_11',['writeMono',['../classAudioFifo.html#a8a2f35a383ee1e3074491dfc6f510e59',1,'AudioFifo']]],
-  ['wtoscillator_12',['WTOscillator',['../classWTOscillator.html#a16fdc8afe3d72d02755d37bb13aa3dad',1,'WTOscillator']]],
-  ['wtvoicedstereooscillator_13',['WTVoicedStereoOscillator',['../classWTVoicedStereoOscillator.html#a8db7ce7f1c1f034e9f3d38119ed1325d',1,'WTVoicedStereoOscillator']]]
+  ['writesilence_12',['writeSilence',['../classAudioMidiFifo.html#a042bc730af9185b582f4e73012188937',1,'AudioMidiFifo']]],
+  ['wtoscillator_13',['WTOscillator',['../classWTOscillator.html#a16fdc8afe3d72d02755d37bb13aa3dad',1,'WTOscillator']]],
+  ['wtvoicedstereooscillator_14',['WTVoicedStereoOscillator',['../classWTVoicedStereoOscillator.html#a8db7ce7f1c1f034e9f3d38119ed1325d',1,'WTVoicedStereoOscillator']]]
 ];
