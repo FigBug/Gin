@@ -15,8 +15,8 @@ struct GlideInfo
 class SynthesiserVoice : public juce::MPESynthesiserVoice
 {
 public:
-    void setFastKill()  { fastKill = true; }
-    bool isFastKill()   { return fastKill; }
+    virtual void setFastKill()  { fastKill = true; }
+    bool isFastKill()           { return fastKill; }
 
     virtual void noteRetriggered()  {}
     virtual float getCurrentNote() = 0;
