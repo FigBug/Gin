@@ -15322,11 +15322,11 @@
   <compound kind="class">
     <name>SynthesiserVoice</name>
     <filename>classSynthesiserVoice.html</filename>
-    <member kind="function">
-      <type>void</type>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
       <name>setFastKill</name>
       <anchorfile>classSynthesiserVoice.html</anchorfile>
-      <anchor>a3ab87ba3f7df0e3b0aa91d56f0ce447f</anchor>
+      <anchor>a66d2f628f55510122f1ebeea20e89f90</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">

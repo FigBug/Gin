@@ -58,7 +58,7 @@ var searchData=
   ['seteditable_55',['setEditable',['../classMSEGComponent.html#a049be903daf6ad17030f5b280640a625',1,'MSEGComponent']]],
   ['setequation_56',['setEquation',['../classEquationParser.html#a49e3230e62a90ebb6e6e08f8fa9b6cba',1,'EquationParser']]],
   ['setescapeandreturnkeysconsumed_57',['setEscapeAndReturnKeysConsumed',['../classSingleLineTextEditor.html#a2421745b102e2acc7a889dcbd2738e5a',1,'SingleLineTextEditor']]],
-  ['setfastkill_58',['setFastKill',['../classSynthesiserVoice.html#a3ab87ba3f7df0e3b0aa91d56f0ce447f',1,'SynthesiserVoice']]],
+  ['setfastkill_58',['setFastKill',['../classSynthesiserVoice.html#a66d2f628f55510122f1ebeea20e89f90',1,'SynthesiserVoice']]],
   ['setfont_59',['setFont',['../classSingleLineTextEditor.html#a549c247fef1645ded8450ad61a69b722',1,'SingleLineTextEditor']]],
   ['setfreq_60',['setFreq',['../classStepLFO.html#aa4eb2d01feb657be92b0b1b652ccdb13',1,'StepLFO']]],
   ['setfrequency_61',['setFrequency',['../classGateEffect.html#a3706d31bd1758936f8670b78d2feeccb',1,'GateEffect']]],
