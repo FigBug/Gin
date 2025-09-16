@@ -64,7 +64,7 @@ public:
 
         parameters = p;
 
-        if ((oldShape != WaveShape::sampleAndHold && oldShape == WaveShape::noise) &&
+        if ((oldShape != WaveShape::sampleAndHold && oldShape != WaveShape::noise) &&
             (parameters.waveShape == WaveShape::sampleAndHold || parameters.waveShape == WaveShape::noise))
         {
             phase = float (juce::Random::getSystemRandom().nextInt (maxRandomPhase));
