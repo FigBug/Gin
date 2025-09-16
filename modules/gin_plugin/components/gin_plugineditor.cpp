@@ -460,7 +460,7 @@ void TitleBar::refreshPrograms()
         editor.refreshPatchBrowser();
         
         if (auto idx = slProc.getCurrentProgram(); idx >= 0)
-            programName.setText (slProc.getProgramName (idx), juce::dontSendNotification);
+            programName.setText (filterProgramName (slProc.getProgramName (idx)), juce::dontSendNotification);
         else
             programName.setText ({}, juce::dontSendNotification);
         deleteButton.setEnabled (slProc.getCurrentProgram() != 0);
