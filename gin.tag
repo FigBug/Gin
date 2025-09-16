@@ -15798,6 +15798,13 @@
       <anchor>a592d0a4299aa23c9b323205d76f19742</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable">
+      <type>std::function&lt; juce::String(const juce::String &amp;)&gt;</type>
+      <name>filterProgramName</name>
+      <anchorfile>classTitleBar.html</anchorfile>
+      <anchor>a6a27e5958f4ece16e3117d1c6cf52d86</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>TriggeredScope</name>
