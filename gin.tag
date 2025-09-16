@@ -7773,6 +7773,13 @@
       <anchor>aec6998a36bd6e5a99d538c27bcd2e837</anchor>
       <arglist>()</arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>maxRandomPhase</name>
+      <anchorfile>classLFO.html</anchorfile>
+      <anchor>aa5d050d62b65336815b5c8b5bcba6fed</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>LFOComponent</name>
