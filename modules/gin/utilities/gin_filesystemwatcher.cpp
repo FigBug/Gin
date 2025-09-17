@@ -360,6 +360,11 @@ FileSystemWatcher::~FileSystemWatcher()
 {
 }
 
+void FileSystemWatcher::coalesceEvents (int windowMS)
+{
+    coalesceWindowMS = windowMS;
+}
+
 void FileSystemWatcher::addFolder (const juce::File& folder)
 {
     // You can only listen to folders that exist
@@ -398,12 +403,41 @@ void FileSystemWatcher::removeListener (Listener* listener)
 
 void FileSystemWatcher::folderChanged (const juce::File& folder)
 {
-    listeners.call (&FileSystemWatcher::Listener::folderChanged, folder);
+    if (coalesceWindowMS > 0)
+    {
+        if (! timers.contains (folder))
+        {
+            auto t = std::make_unique<CoalesceTimer> (*this, folder);
+            t->startTimer (coalesceWindowMS);
+            timers[folder] = std::move (t);
+        }
+    }
+    else
+    {
+        listeners.call (&FileSystemWatcher::Listener::folderChanged, folder);
+    }
 }
 
 void FileSystemWatcher::fileChanged (const juce::File& file, FileSystemEvent fsEvent)
 {
-    listeners.call (&FileSystemWatcher::Listener::fileChanged, file, fsEvent);
+    if (coalesceWindowMS > 0)
+    {
+        auto itr = timers.find (file);
+        if (itr == timers.end())
+        {
+            auto t = std::make_unique<CoalesceTimer> (*this, file, fsEvent);
+            t->startTimer (coalesceWindowMS);
+            timers[file] = std::move (t);
+        }
+        else
+        {
+            itr->second->fsEvent = fsEvent;
+        }
+    }
+    else
+    {
+        listeners.call (&FileSystemWatcher::Listener::fileChanged, file, fsEvent);
+    }
 }
 
 juce::Array<juce::File> FileSystemWatcher::getWatchedFolders()

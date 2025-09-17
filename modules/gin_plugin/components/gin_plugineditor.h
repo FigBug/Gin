@@ -209,6 +209,8 @@ public:
 
     std::unique_ptr<NewsChecker> newsChecker;
     std::unique_ptr<UpdateChecker> updateChecker;
+
+    std::function<juce::String(const juce::String&)> filterProgramName = [] (const juce::String& s) { return s; };
 };
 
 //==============================================================================

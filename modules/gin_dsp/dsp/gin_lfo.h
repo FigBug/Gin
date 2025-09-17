@@ -38,6 +38,8 @@ public:
         pyramid9,
     };
 
+    static constexpr int maxRandomPhase = 1000;
+
     //==============================================================================
     struct Parameters
     {
@@ -50,13 +52,25 @@ public:
     {
         juce::Random rnd { 1 };
 
-        for (int i = 0; i < 1000; i++)
+        for (int i = 0; i < maxRandomPhase; i++)
             randomPoints.add (rnd.nextFloat() * 2 - 1);
     }
 
     //==============================================================================
     void setSampleRate (double sr)      { sampleRate = sr;  }
-    void setParameters (Parameters p)   { parameters = p;   }
+    void setParameters (Parameters p)
+    {
+        auto oldShape = parameters.waveShape;
+
+        parameters = p;
+
+        if ((oldShape != WaveShape::sampleAndHold && oldShape != WaveShape::noise) &&
+            (parameters.waveShape == WaveShape::sampleAndHold || parameters.waveShape == WaveShape::noise))
+        {
+            phase = float (juce::Random::getSystemRandom().nextInt (maxRandomPhase));
+        }
+    }
+
     void reset()
     {
         output     = 0.0f;
@@ -69,17 +83,25 @@ public:
 
     void noteOn (float phase_ = -1.0f)
     {
+        float maxPhase = 1.0f;
+        if (parameters.waveShape == WaveShape::sampleAndHold || parameters.waveShape == WaveShape::noise)
+            maxPhase = maxRandomPhase;
+
         if (parameters.fade <= 0)
             curFade = 1.0f;
         else
             curFade = 0.0f;
 
         curPhase   = 0.0f;
-        phase      = phase_ < 0.0f ? 0.0f : phase_;
+
+        if (parameters.waveShape == WaveShape::sampleAndHold || parameters.waveShape == WaveShape::noise)
+            phase = phase_ < 0.0f ? float (juce::Random::getSystemRandom().nextInt (maxRandomPhase)) : phase_;
+        else
+            phase = phase_ < 0.0f ? 0.0f : phase_;
+
         fadeDelta  = float (1.0f / (sampleRate * parameters.fade));
         delaySteps = juce::roundToInt (sampleRate * parameters.delay);
 
-        float maxPhase = 1.0f;
         float newCurPhase = std::fmod (phase + parameters.phase, maxPhase);
         if (newCurPhase < 0)
             newCurPhase += maxPhase;
@@ -108,7 +130,7 @@ public:
 
                 float maxPhase = 1.0f;
                 if (parameters.waveShape == WaveShape::sampleAndHold || parameters.waveShape == WaveShape::noise)
-                    maxPhase = 1000.0f;
+                    maxPhase = maxRandomPhase;
 
                 phase += step;
                 while (phase >= maxPhase)

@@ -38,7 +38,11 @@ public:
     juce::PopupMenu::Options getOptionsForComboBoxPopupMenu (juce::ComboBox& box, juce::Label&) override;
 
     int getAlertWindowButtonHeight() override       { return 20; }
+   #if JUCE_MAJOR_VERSION >= 8
     juce::Font getLabelFont (juce::Label&) override { return juce::Font (juce::FontOptions (10)); }
+   #else
+    juce::Font getLabelFont (juce::Label&) override { return juce::Font (10); }
+   #endif
 
     juce::SharedResourcePointer<Images> images;
 

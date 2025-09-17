@@ -38,7 +38,11 @@ protected:
             }
 
             juce::AttributedString attString;
+           #if JUCE_MAJOR_VERSION >= 8
             attString.append (text, juce::FontOptions (13.0f));
+           #else
+            attString.append (text, juce::Font (13.0f));
+           #endif
             attString.setColour (juce::Colours::white);
 
             auto rcg = p->getLocalArea (this, rc);

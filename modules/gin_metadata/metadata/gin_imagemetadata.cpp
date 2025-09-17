@@ -4,8 +4,8 @@
  For more information visit www.rabiensoftware.com
 
  ==============================================================================*/
-using namespace jpeglibNamespace;
-using namespace pnglibNamespace;
+using namespace ginJpeglibNamespace;
+using namespace ginPnglibNamespace;
 
 //==============================================================================
 #define JPEG_RST0    0xD0    /* RST0 marker code */

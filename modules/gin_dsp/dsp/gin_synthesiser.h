@@ -15,8 +15,8 @@ struct GlideInfo
 class SynthesiserVoice : public juce::MPESynthesiserVoice
 {
 public:
-    void setFastKill()  { fastKill = true; }
-    bool isFastKill()   { return fastKill; }
+    virtual void setFastKill()  { fastKill = true; }
+    bool isFastKill()           { return fastKill; }
 
     virtual void noteRetriggered()  {}
     virtual float getCurrentNote() = 0;
@@ -275,7 +275,7 @@ public:
         v->noteRetriggered();
     }
 
-    void startVoice (juce::MPESynthesiserVoice* v, juce::MPENote note)
+    virtual void startVoice (juce::MPESynthesiserVoice* v, juce::MPENote note)
     {
         updateGlide (v);
         MPESynthesiser::startVoice (v, note);

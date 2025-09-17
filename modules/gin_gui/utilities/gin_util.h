@@ -72,3 +72,6 @@ public:
 
 void asyncDownload (const juce::URL&, std::function<void (const juce::String&)>);
 void asyncDownload (const juce::URL&, std::function<void (const juce::MemoryBlock&)>);
+
+juce::Image createDesktopSnapshot();
+juce::Image createSnapshotOfNativeWindow (juce::Component& c);

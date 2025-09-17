@@ -276,7 +276,11 @@ void PatchBrowser::AuthorsModel::paintListBoxItem (int row, juce::Graphics& g, i
     g.fillRect (rc);
 
     g.setColour (owner.findColour (PluginLookAndFeel::whiteColourId, true).withAlpha (0.9f));
+   #if JUCE_MAJOR_VERSION >= 8
     g.setFont (juce::Font (juce::FontOptions (14)));
+   #else
+    g.setFont (juce::Font (14));
+   #endif
     g.drawText (owner.currentAuthors[row], rc.reduced (4, 0), juce::Justification::centredLeft);
 }
 
@@ -310,7 +314,11 @@ void PatchBrowser::TagsModel::paintListBoxItem (int row, juce::Graphics& g, int 
     g.fillRect (rc);
 
     g.setColour (owner.findColour (PluginLookAndFeel::whiteColourId, true).withAlpha (0.9f));
+   #if JUCE_MAJOR_VERSION >= 8
     g.setFont (juce::Font (juce::FontOptions (14)));
+   #else
+    g.setFont (juce::Font (14));
+   #endif
     g.drawText (owner.currentTags[row], rc.reduced (4, 0), juce::Justification::centredLeft);
 }
 
@@ -343,7 +351,11 @@ void PatchBrowser::PresetsModel::paintListBoxItem (int row, juce::Graphics& g, i
     g.fillRect (rc);
 
     g.setColour (owner.findColour (PluginLookAndFeel::whiteColourId, true).withAlpha (0.9f));
+   #if JUCE_MAJOR_VERSION >= 8
     g.setFont (juce::Font (juce::FontOptions (14)));
+   #else
+    g.setFont (juce::Font (14));
+   #endif
     g.drawText (owner.currentPresets[row], rc.reduced (4, 0), juce::Justification::centredLeft);
 }
 
