@@ -1,11 +1,21 @@
 var searchData=
 [
-  ['openstreetmaps_0',['OpenStreetMaps',['../classOpenStreetMaps.html#a365942b8ea69fd2f9001c9965323b252',1,'OpenStreetMaps']]],
-  ['operator_3c_1',['operator&lt;',['../classSpline_1_1Element.html#a10d65f6538da41f43a1b7cd3e47d2a30',1,'Spline::Element::operator&lt;(const Element &amp;e) const'],['../classSpline_1_1Element.html#a6ddfd19f2d38ec958d5c0965797c699e',1,'Spline::Element::operator&lt;(const double xx) const']]],
-  ['operator_3d_2',['operator=',['../structModSrcId.html#af7d812f370fce77efc0e7cab7e1c686d',1,'ModSrcId::operator=()'],['../structModDstId.html#ad6b205a3267866f9ec5c854122bb2454',1,'ModDstId::operator=()']]],
-  ['operator_3d_3d_3',['operator==',['../structModSrcId.html#ae9a0aa774f9639b59f382127602af3eb',1,'ModSrcId::operator==()'],['../structModDstId.html#a63b8ebeaadf0a9c266a36d1a4c0e3e84',1,'ModDstId::operator==()']]],
-  ['operator_5b_5d_4',['operator[]',['../classSpline.html#a30255a2f77480c04928394262765df10',1,'Spline']]],
-  ['oscstate_5',['OscState',['../structOscState.html#a6cdf459424576e3f91d63bc84be37b62',1,'OscState']]],
-  ['overwritewithdata_6',['overwritewithdata',['../group__gin-utilities.html#ga6e2dbf5f19342f51ea56d96cb5e9e842',1,'overwriteWithData(const juce::File &amp;f, const juce::MemoryBlock &amp;data):&#160;gin_fileutilities.h'],['../group__gin-utilities.html#gae1a4b4ab413ade0e4c90ad3d26ce854b',1,'overwriteWithData(const juce::File &amp;f, const void *data, size_t size):&#160;gin_fileutilities.h']]],
-  ['overwritewithtext_7',['overwriteWithText',['../group__gin-utilities.html#ga1aac7c94939802d4c2c08d600feefa23',1,'gin_fileutilities.h']]]
+  ['newschecker_0',['NewsChecker',['../classNewsChecker.html#a519004dfd3ae54255b2eff7a132e0a00',1,'NewsChecker']]],
+  ['newtransaction_1',['newTransaction',['../classSingleLineTextEditor.html#ab5aafa23521231a8b7f6811b2d937b44',1,'SingleLineTextEditor']]],
+  ['next_2',['next',['../classPatchBrowser.html#acca4a794212c331878636360a8650723',1,'PatchBrowser']]],
+  ['nextsample_3',['nextsample',['../classWhiteNoise.html#a861fbf92d0f2d6aa523c15204bcf1aec',1,'WhiteNoise::nextSample()'],['../classPinkNoise.html#afbc5d70a4188d49b141e948e6cd50f7f',1,'PinkNoise::nextSample()']]],
+  ['noise_4',['noise',['../classPerlinNoise.html#a3aa782c396ab798493ad7529960c5a9a',1,'PerlinNoise']]],
+  ['noisestate_5',['NoiseState',['../structNoiseState.html#aa06fa66ee55cd4475d56218b94c96112',1,'NoiseState']]],
+  ['notch12state_6',['Notch12State',['../structNotch12State.html#a2a386e7295162f4161e01a261ddd5f39',1,'Notch12State']]],
+  ['notch24state_7',['Notch24State',['../structNotch24State.html#a0f06a87bf8c3afabd6efa24ca4e3f1ed',1,'Notch24State']]],
+  ['noteadded_8',['noteAdded',['../classSynthesiser.html#a29393cd7d99facd48ceab27dfa4ec3ba',1,'Synthesiser']]],
+  ['noteaddedmono_9',['noteAddedMono',['../classSynthesiser.html#a6f6e4029de04659076c79e96c1089c1d',1,'Synthesiser']]],
+  ['noteduration_10',['NoteDuration',['../classNoteDuration.html#ac742ee9719f34ff0bed78e39a4f2bd4d',1,'NoteDuration']]],
+  ['noteoff_11',['noteoff',['../classADSR.html#aa187e99749943e75013e40a4e6d4c07e',1,'ADSR::noteOff()'],['../classAnalogADSR.html#a68fa35850ca4f7d0d329079b990e8b04',1,'AnalogADSR::noteOff()'],['../classSampleOscillator.html#a0a91c401c4b160c05556e460097e348a',1,'SampleOscillator::noteOff()']]],
+  ['noteon_12',['noteon',['../classADSR.html#a9d5b7c8618c2c836be04e3549eb19d25',1,'ADSR::noteOn()'],['../classWTOscillator.html#aa5b7bfe2f4f6f4616af869e7ff6977b3',1,'WTOscillator::noteOn()'],['../classStepLFO.html#a3643003a3a8668f21a1c9944405c82b2',1,'StepLFO::noteOn()'],['../classSampleOscillator.html#a6e4b9ad2169c8acc82089e89ec8b1012',1,'SampleOscillator::noteOn()'],['../classVoicedStereoOscillator.html#a23550473a6987a1128e64c6388e82661',1,'VoicedStereoOscillator::noteOn(float phases[])'],['../classVoicedStereoOscillator.html#a366c3140dc02a92cb2560dd3009facd7',1,'VoicedStereoOscillator::noteOn(float phase=-1)'],['../classStereoOscillator.html#aa553362f8f2510531675cdab875efe41',1,'StereoOscillator::noteOn()'],['../classMSEG.html#ada29ea0a744c9e038a06636affb52373',1,'MSEG::noteOn()'],['../classLFO.html#a9cb9a6408aed9de07ccf2fdcf0d4eba3',1,'LFO::noteOn()'],['../classAnalogADSR.html#ae25730d121f437a88107aec4b8954ced',1,'AnalogADSR::noteOn()']]],
+  ['notereleased_13',['noteReleased',['../classSynthesiser.html#af2d49c835d5a6e4ae8de4229350e93ca',1,'Synthesiser']]],
+  ['notereleasedmono_14',['noteReleasedMono',['../classSynthesiser.html#a87d9afd3a12f884569c312b4d00d9744',1,'Synthesiser']]],
+  ['notereleasedmonoglide_15',['noteReleasedMonoGlide',['../classSynthesiser.html#aaecfce290ac3ee8527d376c348750fca',1,'Synthesiser']]],
+  ['noteretriggered_16',['noteRetriggered',['../classSynthesiserVoice.html#a3d50ddac2700fd39a6a00f865de211ad',1,'SynthesiserVoice']]],
+  ['nsimagetoimage_17',['nsImageToImage',['../namespacemacOS.html#aa16780bbaa0ee9db90a45b1ac772cd41',1,'macOS']]]
 ];

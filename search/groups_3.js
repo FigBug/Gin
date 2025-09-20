@@ -10,5 +10,6 @@ var searchData=
   ['gin_5fnetwork_7',['gin_network',['../group__gin__network.html',1,'']]],
   ['gin_5fplugin_8',['gin_plugin',['../group__gin__plugin.html',1,'']]],
   ['gin_5fsimd_9',['gin_simd',['../group__gin__simd.html',1,'']]],
-  ['gin_5fwebp_10',['gin_webp',['../group__gin__webp.html',1,'']]]
+  ['gin_5fstandaloneplugin_10',['gin_standaloneplugin',['../group__gin__standaloneplugin.html',1,'']]],
+  ['gin_5fwebp_11',['gin_webp',['../group__gin__webp.html',1,'']]]
 ];

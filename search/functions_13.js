@@ -1,11 +1,15 @@
 var searchData=
 [
-  ['valuechanged_0',['valueChanged',['../classPropertyComponentBase.html#af34efe7a5ff3eb5199e3f06fce52b6ff',1,'PropertyComponentBase']]],
-  ['valuetreefromjson_1',['valueTreeFromJSON',['../group__gin-utilities.html#ga88f482bf81fb3e423fa1e3926dfaa9a6',1,'gin_valuetreeutilities.h']]],
-  ['valuetreeobject_2',['ValueTreeObject',['../classValueTreeObject.html#a50b6f4eead4ccc3a50257763f178eb47',1,'ValueTreeObject']]],
-  ['valuetreetojson_3',['valueTreeToJSON',['../group__gin-utilities.html#gac8809f5a07d326dc76f18d09bd99db9d',1,'gin_valuetreeutilities.h']]],
-  ['valueupdated_4',['valueupdated',['../classMultiParamComponent.html#a5ea4449b0c06e5f5ed1acda230357b23',1,'MultiParamComponent::valueUpdated()'],['../classPluginButton.html#aa764a81b1678f58f8034b9df753c8b77',1,'PluginButton::valueUpdated()'],['../classSVGPluginButton.html#ad316678aa21285135926fc5146be78f0',1,'SVGPluginButton::valueUpdated()'],['../classPluginComboBox.html#a3974da62403031912ad0c232dafbf8dc',1,'PluginComboBox::valueUpdated()'],['../classPluginSlider.html#af47461ce84833d9e5ab38b459c42c494',1,'PluginSlider::valueUpdated()'],['../classParameter_1_1ParameterListener.html#aeb8d451cc143b571fbf0edffc8e47266',1,'Parameter::ParameterListener::valueUpdated()']]],
-  ['velocitytogain_5',['velocityToGain',['../group__gin__dsp-dsp.html#gaeda2ea585490695813285661264a92b9',1,'gin_audioutil.h']]],
-  ['versionstringtoint_6',['versionStringToInt',['../group__gin-utilities.html#ga9861500c17d0717e211dc67c84ccc261',1,'gin_util.h']]],
-  ['voicedstereooscillator_7',['VoicedStereoOscillator',['../classVoicedStereoOscillator.html#ae1e1c0b5a20b75ea44af638022b879be',1,'VoicedStereoOscillator']]]
+  ['undo_0',['undo',['../classTextHistory.html#a1bbead7a0a6a7675869847c38d9e1057',1,'TextHistory::undo()'],['../classSingleLineTextEditor.html#aa7dde1f6c14d55b60a7a3804983edbdd',1,'SingleLineTextEditor::undo()']]],
+  ['unlock_1',['unlock',['../classSystemSemaphore.html#afde687b04d0bb01cf629d037bf384ac0',1,'SystemSemaphore']]],
+  ['unwatchparam_2',['unwatchParam',['../classMultiParamComponent.html#a7620038ca7508425d21d1138a0e9d45f',1,'MultiParamComponent']]],
+  ['unwatchparams_3',['unwatchParams',['../classMultiParamComponent.html#ae7441578faba5891a7fc764da134f03c',1,'MultiParamComponent']]],
+  ['updatechecker_4',['UpdateChecker',['../classUpdateChecker.html#a991c35a0e515fa13cb9186936a00cb8f',1,'UpdateChecker']]],
+  ['updateglide_5',['updateGlide',['../classSynthesiser.html#a1825c3a26987dc66cbaf5f1447ddd510',1,'Synthesiser']]],
+  ['updatemap_6',['updateMap',['../classMapViewer.html#a723ad37abb7af9ecac0bdd68dd628e46',1,'MapViewer']]],
+  ['updateparams_7',['updateParams',['../classProcessor.html#aa281d0334169311ca45ff34a4b993131',1,'Processor']]],
+  ['updatestate_8',['updatestate',['../classModMatrix.html#a9d2727c3ffce6935f804eff00495e4f8',1,'ModMatrix::updateState()'],['../classProcessor.html#ab477f2a48ee23cb7d38dbecd87332fcd',1,'Processor::updateState()']]],
+  ['updatevalue_9',['updatevalue',['../classEasedValueSmoother.html#a266f723fcb2c393fbdd93599d46abcce',1,'EasedValueSmoother::updateValue()'],['../classValueSmoother.html#a581f8cc773e4cc2bac2da53e6edfec85',1,'ValueSmoother::updateValue()']]],
+  ['uservaluetotext_10',['userValueToText',['../classParameter.html#af3960250a1c071e471daf16be484b656',1,'Parameter']]],
+  ['usesfileextension_11',['usesfileextension',['../classBMPImageFormat.html#ac3aec001afc89383d536241e433cb8bf',1,'BMPImageFormat::usesFileExtension()'],['../classWEBPImageFormat.html#a1d875430f06a78fe547812ff5556bbc0',1,'WEBPImageFormat::usesFileExtension()']]]
 ];

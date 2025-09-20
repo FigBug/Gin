@@ -37,10 +37,11 @@ var searchData=
   ['onvaluetreepropertychanged_34',['onvaluetreepropertychanged',['../classLambdaValueTreeListener.html#a84758404d4b1bb632946767d5efb6b2b',1,'LambdaValueTreeListener::onValueTreePropertyChanged'],['../classAsyncLambdaValueTreeListener.html#a44bae2ccef390d4cc7597a14ed0890ad',1,'AsyncLambdaValueTreeListener::onValueTreePropertyChanged']]],
   ['onvaluetreeredirected_35',['onvaluetreeredirected',['../classLambdaValueTreeListener.html#a947e309862d3e35bc7e51c3c35c25651',1,'LambdaValueTreeListener::onValueTreeRedirected'],['../classAsyncLambdaValueTreeListener.html#a34c0f546462a7406ce06d13e4bde8ffd',1,'AsyncLambdaValueTreeListener::onValueTreeRedirected']]],
   ['opcode_36',['opcode',['../structWSHeaderType.html#afbb7bd8db39bf2a68e8055e7d2f0c4db',1,'WSHeaderType']]],
-  ['orientation_37',['orientation',['../classComponentGrid.html#a597b44ee2489a3412932dac8ac90df99',1,'ComponentGrid']]],
-  ['originalcomponent_38',['originalComponent',['../structComponentGrid_1_1DragInfo.html#abebf0aa1df0211e9af81bf6889e65921',1,'ComponentGrid::DragInfo']]],
-  ['originalorder_39',['originalOrder',['../classComponentGrid.html#a4d8eff212a319a1de9ec54aedfddd340',1,'ComponentGrid']]],
-  ['oscillators_40',['oscillators',['../classVoicedStereoOscillator.html#a2b43a2c3228e8719d3d2a11d5d349b11',1,'VoicedStereoOscillator']]],
-  ['output_41',['output',['../classADSR.html#ac6b34bdf72ba654d26467433f7015bbb',1,'ADSR::output'],['../classAnalogADSR.html#a15bcc5ef1223a2c4e9f8d3e143009370',1,'AnalogADSR::output']]],
-  ['owner_42',['owner',['../structPatchBrowser_1_1AuthorsModel.html#aa70603530cb3faec04b1711a7617e673',1,'PatchBrowser::AuthorsModel::owner'],['../structPatchBrowser_1_1TagsModel.html#aba7ff3bb16cf0fb0f43d0841a4ecb6ca',1,'PatchBrowser::TagsModel::owner'],['../structPatchBrowser_1_1PresetsModel.html#a1c3950e8b62521c5bbb278048a5b3e37',1,'PatchBrowser::PresetsModel::owner']]]
+  ['options_37',['options',['../classStandalonePluginHolder.html#ae1c5ad8ae43a0728c1992d925c0a9ac0',1,'StandalonePluginHolder']]],
+  ['orientation_38',['orientation',['../classComponentGrid.html#a597b44ee2489a3412932dac8ac90df99',1,'ComponentGrid']]],
+  ['originalcomponent_39',['originalComponent',['../structComponentGrid_1_1DragInfo.html#abebf0aa1df0211e9af81bf6889e65921',1,'ComponentGrid::DragInfo']]],
+  ['originalorder_40',['originalOrder',['../classComponentGrid.html#a4d8eff212a319a1de9ec54aedfddd340',1,'ComponentGrid']]],
+  ['oscillators_41',['oscillators',['../classVoicedStereoOscillator.html#a2b43a2c3228e8719d3d2a11d5d349b11',1,'VoicedStereoOscillator']]],
+  ['output_42',['output',['../classADSR.html#ac6b34bdf72ba654d26467433f7015bbb',1,'ADSR::output'],['../classAnalogADSR.html#a15bcc5ef1223a2c4e9f8d3e143009370',1,'AnalogADSR::output']]],
+  ['owner_43',['owner',['../structPatchBrowser_1_1AuthorsModel.html#aa70603530cb3faec04b1711a7617e673',1,'PatchBrowser::AuthorsModel::owner'],['../structPatchBrowser_1_1TagsModel.html#aba7ff3bb16cf0fb0f43d0841a4ecb6ca',1,'PatchBrowser::TagsModel::owner'],['../structPatchBrowser_1_1PresetsModel.html#a1c3950e8b62521c5bbb278048a5b3e37',1,'PatchBrowser::PresetsModel::owner']]]
 ];

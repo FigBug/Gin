@@ -1669,11 +1669,6 @@
     <class kind="class">ScaledPluginEditor</class>
   </compound>
   <compound kind="file">
-    <name>gin_standaloneapp.h</name>
-    <path>build/gin_plugin/components/</path>
-    <filename>gin__standaloneapp_8h.html</filename>
-  </compound>
-  <compound kind="file">
     <name>gin_steplfocomponent.h</name>
     <path>build/gin_plugin/components/</path>
     <filename>gin__steplfocomponent_8h.html</filename>
@@ -1767,6 +1762,32 @@
     <path>build/gin_simd/math/</path>
     <filename>gin__math_8h.html</filename>
     <namespace>math</namespace>
+  </compound>
+  <compound kind="file">
+    <name>gin_standaloneapp.h</name>
+    <path>build/gin_standaloneplugin/standaloneplugin/</path>
+    <filename>gin__standaloneapp_8h.html</filename>
+    <class kind="class">StandaloneFilterApp</class>
+    <member kind="function">
+      <type>juce::JUCEApplicationBase *</type>
+      <name>juce_CreateApplication</name>
+      <anchorfile>group__gin__standaloneplugin-standaloneplugin.html</anchorfile>
+      <anchor>ga9cc46542bd33facf4b0be95fd5d8e6ff</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_standalonefilterwindow.h</name>
+    <path>build/gin_standaloneplugin/standaloneplugin/</path>
+    <filename>gin__standalonefilterwindow_8h.html</filename>
+    <class kind="class">StandaloneFilterWindow</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_standalonepluginholder.h</name>
+    <path>build/gin_standaloneplugin/standaloneplugin/</path>
+    <filename>gin__standalonepluginholder_8h.html</filename>
+    <class kind="class">StandalonePluginHolder</class>
+    <class kind="struct">StandalonePluginHolder::PluginInOuts</class>
   </compound>
   <compound kind="file">
     <name>gin_webpimageformat.h</name>
@@ -11844,6 +11865,24 @@
       <arglist></arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>StandalonePluginHolder::PluginInOuts</name>
+    <filename>structStandalonePluginHolder_1_1PluginInOuts.html</filename>
+    <member kind="variable">
+      <type>short</type>
+      <name>numIns</name>
+      <anchorfile>structStandalonePluginHolder_1_1PluginInOuts.html</anchorfile>
+      <anchor>a2c18cb6876bc952ba5df80df92500c34</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>short</type>
+      <name>numOuts</name>
+      <anchorfile>structStandalonePluginHolder_1_1PluginInOuts.html</anchorfile>
+      <anchor>ae8defe449815bf6e651a92944240f6c0</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>PluginLookAndFeel</name>
     <filename>classPluginLookAndFeel.html</filename>
@@ -14687,6 +14726,467 @@
       <anchorfile>classSpline.html</anchorfile>
       <anchor>ac1f059b0c61e23b88d7939a27fd40b5c</anchor>
       <arglist>(double x) const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>StandaloneFilterApp</name>
+    <filename>classStandaloneFilterApp.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>StandaloneFilterApp</name>
+      <anchorfile>classStandaloneFilterApp.html</anchorfile>
+      <anchor>a60e723cc3d10e6a378e8444d04fa5e44</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce::String</type>
+      <name>getApplicationName</name>
+      <anchorfile>classStandaloneFilterApp.html</anchorfile>
+      <anchor>a96b80976f87af8c9fe39050f33be31fc</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce::String</type>
+      <name>getApplicationVersion</name>
+      <anchorfile>classStandaloneFilterApp.html</anchorfile>
+      <anchor>a38b7977bc1cc38704097f4c2627a3036</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>moreThanOneInstanceAllowed</name>
+      <anchorfile>classStandaloneFilterApp.html</anchorfile>
+      <anchor>af5c424c1ad3e7f02393f5a24d919744b</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>anotherInstanceStarted</name>
+      <anchorfile>classStandaloneFilterApp.html</anchorfile>
+      <anchor>a28c3d554517062e89f0fb842b242e113</anchor>
+      <arglist>(const juce::String &amp;) override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual StandaloneFilterWindow *</type>
+      <name>createWindow</name>
+      <anchorfile>classStandaloneFilterApp.html</anchorfile>
+      <anchor>a8ca1f8aad8184ba289a56261591c2726</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual std::unique_ptr&lt; StandalonePluginHolder &gt;</type>
+      <name>createPluginHolder</name>
+      <anchorfile>classStandaloneFilterApp.html</anchorfile>
+      <anchor>afca3a2eb9ccde1ab1743047f5499a25e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>initialise</name>
+      <anchorfile>classStandaloneFilterApp.html</anchorfile>
+      <anchor>a52c4129513927c558e1b81e506aec63a</anchor>
+      <arglist>(const juce::String &amp;) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>shutdown</name>
+      <anchorfile>classStandaloneFilterApp.html</anchorfile>
+      <anchor>a25a91739fa899d46cf6858710b2d42f6</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>systemRequestedQuit</name>
+      <anchorfile>classStandaloneFilterApp.html</anchorfile>
+      <anchor>a0807d43b415316fdc279bb971bfd8666</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::ApplicationProperties</type>
+      <name>appProperties</name>
+      <anchorfile>classStandaloneFilterApp.html</anchorfile>
+      <anchor>ae66549dfa84369ba354387376b80dc44</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::unique_ptr&lt; StandaloneFilterWindow &gt;</type>
+      <name>mainWindow</name>
+      <anchorfile>classStandaloneFilterApp.html</anchorfile>
+      <anchor>a2ddaae9acc1c1fde2bc7e5fc8a33a6ae</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>StandaloneFilterWindow</name>
+    <filename>classStandaloneFilterWindow.html</filename>
+    <member kind="typedef">
+      <type>StandalonePluginHolder::PluginInOuts</type>
+      <name>PluginInOuts</name>
+      <anchorfile>classStandaloneFilterWindow.html</anchorfile>
+      <anchor>a6c10ebbc7b2013247891e3c37a641f87</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>StandaloneFilterWindow</name>
+      <anchorfile>classStandaloneFilterWindow.html</anchorfile>
+      <anchor>aaf67d2c2c30922c6aa06e2a71d8d9a60</anchor>
+      <arglist>(const juce::String &amp;title, juce::Colour backgroundColour, std::unique_ptr&lt; StandalonePluginHolder &gt; pluginHolderIn)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>StandaloneFilterWindow</name>
+      <anchorfile>classStandaloneFilterWindow.html</anchorfile>
+      <anchor>ab75bd67df06539fbf5afd3fbb489f165</anchor>
+      <arglist>(const juce::String &amp;title, juce::Colour backgroundColour, juce::PropertySet *settingsToUse, bool takeOwnershipOfSettings, const juce::String &amp;preferredDefaultDeviceName=juce::String(), const juce::AudioDeviceManager::AudioDeviceSetup *preferredSetupOptions=nullptr, const juce::Array&lt; PluginInOuts &gt; &amp;constrainToConfiguration={}, bool autoOpenMidiDevices=true)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~StandaloneFilterWindow</name>
+      <anchorfile>classStandaloneFilterWindow.html</anchorfile>
+      <anchor>a969d697f72960f82cb89e50c2437edd5</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::AudioProcessor *</type>
+      <name>getAudioProcessor</name>
+      <anchorfile>classStandaloneFilterWindow.html</anchorfile>
+      <anchor>a23736eafa8be840ce20ea32f2dde21a3</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::AudioDeviceManager &amp;</type>
+      <name>getDeviceManager</name>
+      <anchorfile>classStandaloneFilterWindow.html</anchorfile>
+      <anchor>add6442bd751c4bc31cbecf7380bcedda</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetToDefaultState</name>
+      <anchorfile>classStandaloneFilterWindow.html</anchorfile>
+      <anchor>a7fcc3628b8e48d4f0a72fa268a86046f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reopenEditor</name>
+      <anchorfile>classStandaloneFilterWindow.html</anchorfile>
+      <anchor>a70f8e28b9f7ac2e3f28264cfc4344fb0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>closeButtonPressed</name>
+      <anchorfile>classStandaloneFilterWindow.html</anchorfile>
+      <anchor>a0ecb7e5d6264a99e213987021ae863a9</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resized</name>
+      <anchorfile>classStandaloneFilterWindow.html</anchorfile>
+      <anchor>a029336e5ea7014d9a92d4cb712c50c38</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual StandalonePluginHolder *</type>
+      <name>getPluginHolder</name>
+      <anchorfile>classStandaloneFilterWindow.html</anchorfile>
+      <anchor>ae79ce3724af10c8086364b158a19ed6c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::unique_ptr&lt; StandalonePluginHolder &gt;</type>
+      <name>pluginHolder</name>
+      <anchorfile>classStandaloneFilterWindow.html</anchorfile>
+      <anchor>abf3538ee5a7bd69830df1e538bc84df7</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>StandalonePluginHolder</name>
+    <filename>classStandalonePluginHolder.html</filename>
+    <class kind="struct">StandalonePluginHolder::PluginInOuts</class>
+    <member kind="function">
+      <type></type>
+      <name>StandalonePluginHolder</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a2561be6be403480e86cdf44ea8dbeac1</anchor>
+      <arglist>(juce::PropertySet *settingsToUse, bool takeOwnershipOfSettings=true, const juce::String &amp;preferredDefaultDeviceName=juce::String(), const juce::AudioDeviceManager::AudioDeviceSetup *preferredSetupOptions=nullptr, const juce::Array&lt; PluginInOuts &gt; &amp;channels=juce::Array&lt; PluginInOuts &gt;(), bool shouldAutoOpenMidiDevices=true)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~StandalonePluginHolder</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>acf5a1f20f4a794db704d388235906359</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>init</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>ab647d230aaa9cdb26d9b58df934bede2</anchor>
+      <arglist>(bool enableAudioInput, const juce::String &amp;preferredDefaultDeviceName)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>createPlugin</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a30f10dff307e43c287b6fd85f5bb2196</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>deletePlugin</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a9a54b6add344f0c443c8dba671bb6f0e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumInputChannels</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a573ad18adc8ffcd6b3ee85753f816edb</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumOutputChannels</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a56e235289203dce0c662a19c8df914a4</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Value &amp;</type>
+      <name>getMuteInputValue</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>ab4a579904d64328394119e5bc8c13bc7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>getProcessorHasPotentialFeedbackLoop</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a0b99461932676a27cb38db21f9cc910c</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>valueChanged</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>ae32dbcb03aab84bb602af0148457f7b4</anchor>
+      <arglist>(juce::Value &amp;value) override</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::File</type>
+      <name>getLastFile</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>ace5d0fe88cdab7d1cc5e0652a90c32d9</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setLastFile</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>ac7c4592e80d3170f5776cc328b5f35a1</anchor>
+      <arglist>(const juce::FileChooser &amp;fc)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>askUserToSaveState</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a193255e2fc754f22e88c69d32a9b7532</anchor>
+      <arglist>(const juce::String &amp;fileSuffix=juce::String())</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>askUserToLoadState</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>acc8d60fd07a0b03a3a42b361ecd24e0c</anchor>
+      <arglist>(const juce::String &amp;fileSuffix=juce::String())</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>startPlaying</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>abe71702a98a39970d3e56a06a9dfc62a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>stopPlaying</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a9a8c589b12a348374425a7e8d71af0a7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>showAudioSettingsDialog</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a5e24139925518f20b67a3d6f74bfb00c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>saveAudioDeviceState</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a3591021b8495b1d2dddb6ff9a2405209</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reloadAudioDeviceState</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>abf2bf01bcc90ac38d797a729c79b78e4</anchor>
+      <arglist>(bool enableAudioInput, const juce::String &amp;preferredDefaultDeviceName, const juce::AudioDeviceManager::AudioDeviceSetup *preferredSetupOptions)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>savePluginState</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a9319c6c7e9368f0d2fb1d31b0f2b2816</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reloadPluginState</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>adfdf093b9b5ab101d2f76d5fa957c6eb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>switchToHostApplication</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a0b1ef92384de110757657b18ced2b5bd</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isInterAppAudioConnected</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>aa5a16e61a7162f523e3a5ac0dc49b409</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>getIAAHostIcon</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a0fd2dfd3563df78587d61bf594316220</anchor>
+      <arglist>(int size)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getFilePatterns</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a23326f4a766e1df15eae33b3dccc2b4f</anchor>
+      <arglist>(const juce::String &amp;fileSuffix)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static StandalonePluginHolder *</type>
+      <name>getInstance</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a40c94c732f990a02957c201faa946db3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::OptionalScopedPointer&lt; juce::PropertySet &gt;</type>
+      <name>settings</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a0fa5cc892100ec91c4a1b65404b4355d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::unique_ptr&lt; juce::AudioProcessor &gt;</type>
+      <name>processor</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a7c279a9b715b597f9dae716fcc7620ce</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::AudioDeviceManager</type>
+      <name>deviceManager</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a7f87c6ffe76f92284587c692666645d4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::AudioProcessorPlayer</type>
+      <name>player</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a28ccb3e03dffa0538046ffb433f5a9fd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Array&lt; PluginInOuts &gt;</type>
+      <name>channelConfiguration</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a78516abee2da430183ab0f75c2eea150</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>processorHasPotentialFeedbackLoop</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a4519d0e13026290888f3ec59e73fdf41</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::atomic&lt; bool &gt;</type>
+      <name>muteInput</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>aab9571eb00ca999ec34fcb1be9c42f96</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Value</type>
+      <name>shouldMuteInput</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a0f0f2e7e20b4c356a06b9a3fb7ae3e51</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::AudioBuffer&lt; float &gt;</type>
+      <name>emptyBuffer</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a7f14a5a6a095c04ded6f8cd0ddb54573</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>autoOpenMidiDevices</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>ab167cba8a89e4a376c360b624ff6a70a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::unique_ptr&lt; juce::AudioDeviceManager::AudioDeviceSetup &gt;</type>
+      <name>options</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>ae1c5ad8ae43a0728c1992d925c0a9ac0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Array&lt; juce::MidiDeviceInfo &gt;</type>
+      <name>lastMidiDevices</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a06c862d784d79d897185f2116bb6736c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::unique_ptr&lt; juce::FileChooser &gt;</type>
+      <name>stateFileChooser</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>ad9c262db88bdb9b673b8af24c1e5d0c1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::ScopedMessageBox</type>
+      <name>messageBox</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a4e9dc443415ba2651b5507685a37a4fc</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -17667,6 +18167,18 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
+    <class kind="class">AudioSamplerBufferComponent</class>
+    <class kind="class">DynamicsMeter</class>
+    <class kind="class">LevelMeter</class>
+    <class kind="class">TriggeredScope</class>
+    <class kind="class">WaveformComponent</class>
+    <class kind="class">WavetableComponent</class>
+    <class kind="class">XYScope</class>
+  </compound>
+  <compound kind="group">
     <name>gin_gui-components</name>
     <title>components</title>
     <filename>group__gin__gui-components.html</filename>
@@ -17698,18 +18210,6 @@
       <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
       <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
     </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-    <class kind="class">AudioSamplerBufferComponent</class>
-    <class kind="class">DynamicsMeter</class>
-    <class kind="class">LevelMeter</class>
-    <class kind="class">TriggeredScope</class>
-    <class kind="class">WaveformComponent</class>
-    <class kind="class">WavetableComponent</class>
-    <class kind="class">XYScope</class>
   </compound>
   <compound kind="group">
     <name>gin_dsp-dsp</name>
@@ -17948,16 +18448,16 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_webp-formats</name>
-    <title>formats</title>
-    <filename>group__gin__webp-formats.html</filename>
-    <class kind="class">WEBPImageFormat</class>
-  </compound>
-  <compound kind="group">
     <name>gin_graphics-formats</name>
     <title>formats</title>
     <filename>group__gin__graphics-formats.html</filename>
     <class kind="class">BMPImageFormat</class>
+  </compound>
+  <compound kind="group">
+    <name>gin_webp-formats</name>
+    <title>formats</title>
+    <filename>group__gin__webp-formats.html</filename>
+    <class kind="class">WEBPImageFormat</class>
   </compound>
   <compound kind="group">
     <name>gin-geometry</name>
@@ -18045,29 +18545,16 @@
     <subgroup>gin_simd-mipp</subgroup>
   </compound>
   <compound kind="group">
+    <name>gin_standaloneplugin</name>
+    <title>gin_standaloneplugin</title>
+    <filename>group__gin__standaloneplugin.html</filename>
+    <subgroup>gin_standaloneplugin-standaloneplugin</subgroup>
+  </compound>
+  <compound kind="group">
     <name>gin_webp</name>
     <title>gin_webp</title>
     <filename>group__gin__webp.html</filename>
     <subgroup>gin_webp-formats</subgroup>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-images</name>
-    <title>images</title>
-    <filename>group__gin__gui-images.html</filename>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>rasterizeSVG</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
-      <arglist>(juce::String svgText, int w, int h)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Path</type>
-      <name>parseSVGPath</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
-      <arglist>(const juce::String &amp;txt)</arglist>
-    </member>
   </compound>
   <compound kind="group">
     <name>gin_graphics-images</name>
@@ -18367,6 +18854,25 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_gui-images</name>
+    <title>images</title>
+    <filename>group__gin__gui-images.html</filename>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>rasterizeSVG</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
+      <arglist>(juce::String svgText, int w, int h)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Path</type>
+      <name>parseSVGPath</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
+      <arglist>(const juce::String &amp;txt)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
     <name>gin_location-location</name>
     <title>location</title>
     <filename>group__gin__location-location.html</filename>
@@ -18461,6 +18967,80 @@
     <name>gin_plugin-resources</name>
     <title>resources</title>
     <filename>group__gin__plugin-resources.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>gin_standaloneplugin-standaloneplugin</name>
+    <title>standaloneplugin</title>
+    <filename>group__gin__standaloneplugin-standaloneplugin.html</filename>
+    <class kind="class">StandaloneFilterApp</class>
+    <class kind="class">StandaloneFilterWindow</class>
+    <class kind="class">StandalonePluginHolder</class>
+    <class kind="struct">StandalonePluginHolder::PluginInOuts</class>
+    <member kind="function">
+      <type>juce::JUCEApplicationBase *</type>
+      <name>juce_CreateApplication</name>
+      <anchorfile>group__gin__standaloneplugin-standaloneplugin.html</anchorfile>
+      <anchor>ga9cc46542bd33facf4b0be95fd5d8e6ff</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_gui-utilities</name>
+    <title>utilities</title>
+    <filename>group__gin__gui-utilities.html</filename>
+    <namespace>macOS</namespace>
+    <class kind="class">LambdaTimer</class>
+    <class kind="class">LambdaAsyncUpdater</class>
+    <class kind="class">LambdaMouseListener</class>
+    <class kind="class">CoalescedTimer</class>
+    <class kind="class">ElevatedFileCopy</class>
+    <class kind="class">Layout</class>
+    <class kind="class">OpenStreetMaps</class>
+    <class kind="class">OpenStreetMaps::Listener</class>
+    <class kind="class">SystemClipboard</class>
+    <class kind="class">AsyncDownload</class>
+    <member kind="function">
+      <type>void</type>
+      <name>callOnMainThreadBlocking</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
+      <arglist>(std::function&lt; void()&gt; func)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>createDesktopSnapshot</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gac2d2291dbc7913b65fd0e69e53873fa3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>createSnapshotOfNativeWindow</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad1ffdc179588a1832355270be9b5a516</anchor>
+      <arglist>(juce::Component &amp;c)</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>gin-utilities</name>
@@ -18840,64 +19420,6 @@
       <anchorfile>group__gin-utilities.html</anchorfile>
       <anchor>ga88f482bf81fb3e423fa1e3926dfaa9a6</anchor>
       <arglist>(const juce::String &amp;jsonText)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-utilities</name>
-    <title>utilities</title>
-    <filename>group__gin__gui-utilities.html</filename>
-    <namespace>macOS</namespace>
-    <class kind="class">LambdaTimer</class>
-    <class kind="class">LambdaAsyncUpdater</class>
-    <class kind="class">LambdaMouseListener</class>
-    <class kind="class">CoalescedTimer</class>
-    <class kind="class">ElevatedFileCopy</class>
-    <class kind="class">Layout</class>
-    <class kind="class">OpenStreetMaps</class>
-    <class kind="class">OpenStreetMaps::Listener</class>
-    <class kind="class">SystemClipboard</class>
-    <class kind="class">AsyncDownload</class>
-    <member kind="function">
-      <type>void</type>
-      <name>callOnMainThreadBlocking</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
-      <arglist>(std::function&lt; void()&gt; func)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>createDesktopSnapshot</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gac2d2291dbc7913b65fd0e69e53873fa3</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>createSnapshotOfNativeWindow</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gad1ffdc179588a1832355270be9b5a516</anchor>
-      <arglist>(juce::Component &amp;c)</arglist>
     </member>
   </compound>
 </tagfile>
