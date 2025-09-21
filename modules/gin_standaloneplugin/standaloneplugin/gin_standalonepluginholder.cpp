@@ -338,7 +338,8 @@ StandalonePluginHolder* StandalonePluginHolder::getInstance()
 //==============================================================================
 void StandalonePluginHolder::handleCreatePlugin()
 {
-	processor = createPluginFilterOfType (juce::AudioProcessor::wrapperType_Standalone);
+	processor = std::make_unique<PluginWrapper> (createPluginFilterOfType (juce::AudioProcessor::wrapperType_Standalone));
+	
 	processor->disableNonMainBuses();
 	processor->setRateAndBufferSizeDetails (44100, 512);
 

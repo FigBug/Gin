@@ -1,7 +1,7 @@
 
 MainContentComponent::MainContentComponent (StandaloneFilterWindow& filterWindow)
     : owner (filterWindow), notification (this),
-      editor (owner.getAudioProcessor()->hasEditor() ? owner.getAudioProcessor()->createEditorIfNeeded()
+      editor (owner.getAudioProcessor()->hasEditor() ? owner.getAudioProcessor()->proc->createEditorIfNeeded()
                                                      : new juce::GenericAudioProcessorEditor (*owner.getAudioProcessor()))
 {
     inputMutedValue.referTo (owner.pluginHolder->getMuteInputValue());
@@ -30,7 +30,7 @@ MainContentComponent::~MainContentComponent()
     if (editor != nullptr)
     {
         editor->removeComponentListener (this);
-        owner.pluginHolder->processor->editorBeingDeleted (editor.get());
+        owner.pluginHolder->processor->proc->editorBeingDeleted (editor.get());
         editor = nullptr;
     }
 }

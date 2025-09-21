@@ -101,7 +101,7 @@ public:
 
     //==============================================================================
     juce::OptionalScopedPointer<juce::PropertySet> settings;
-    std::unique_ptr<juce::AudioProcessor> processor;
+    std::unique_ptr<PluginWrapper> processor;
     juce::AudioDeviceManager deviceManager;
     juce::AudioProcessorPlayer player;
     juce::Array<PluginInOuts> channelConfiguration;

@@ -44,8 +44,8 @@ public:
 	~StandaloneFilterWindow() override;
 
     //==============================================================================
-    juce::AudioProcessor* getAudioProcessor() const noexcept      { return pluginHolder->processor.get(); }
-    juce::AudioDeviceManager& getDeviceManager() const noexcept   { return pluginHolder->deviceManager; }
+    PluginWrapper* getAudioProcessor() const noexcept      		{ return pluginHolder->processor.get(); }
+    juce::AudioDeviceManager& getDeviceManager() const noexcept { return pluginHolder->deviceManager; }
 
     /** Deletes and re-creates the plugin, resetting it to its default state. */
 	void resetToDefaultState();

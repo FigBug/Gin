@@ -24,7 +24,7 @@
   license:              BSD
   minimumCppStandard:   20
 
-  dependencies:         juce_core juce_gui_basics juce_graphics juce_data_structures juce_audio_processors juce_audio_devices juce_audio_utils
+  dependencies:         juce_core juce_gui_basics juce_graphics juce_data_structures juce_audio_processors juce_audio_devices juce_audio_utils gin_plugin
   OSXFrameworks:        Security
 
  END_JUCE_MODULE_DECLARATION
@@ -62,9 +62,11 @@
 #include <juce_audio_processors/juce_audio_processors.h>
 #include <juce_audio_devices/juce_audio_devices.h>
 #include <juce_audio_utils/juce_audio_utils.h>
+#include <gin_plugin/gin_plugin.h>
 
 namespace gin
 {
+#include "standaloneplugin/gin_pluginwrapper.h"
 #include "standaloneplugin/gin_sidebarcomponent.h"
 #include "standaloneplugin/gin_maincontentcomponent.h"
 #include "standaloneplugin/gin_standalonepluginholder.h"
