@@ -1764,6 +1764,18 @@
     <namespace>math</namespace>
   </compound>
   <compound kind="file">
+    <name>gin_maincontentcomponent.h</name>
+    <path>build/gin_standaloneplugin/standaloneplugin/</path>
+    <filename>gin__maincontentcomponent_8h.html</filename>
+    <class kind="class">MainContentComponent</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_sidebarcomponent.h</name>
+    <path>build/gin_standaloneplugin/standaloneplugin/</path>
+    <filename>gin__sidebarcomponent_8h.html</filename>
+    <class kind="class">SideBarComponent</class>
+  </compound>
+  <compound kind="file">
     <name>gin_standaloneapp.h</name>
     <path>build/gin_standaloneplugin/standaloneplugin/</path>
     <filename>gin__standaloneapp_8h.html</filename>
@@ -8420,6 +8432,45 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>MainContentComponent</name>
+    <filename>classMainContentComponent.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>MainContentComponent</name>
+      <anchorfile>classMainContentComponent.html</anchorfile>
+      <anchor>a4ac0591a27dd638cdda27b007590f4d6</anchor>
+      <arglist>(StandaloneFilterWindow &amp;filterWindow)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~MainContentComponent</name>
+      <anchorfile>classMainContentComponent.html</anchorfile>
+      <anchor>ada3b757ef09eaaafd4ce6b60ec0ffe13</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resized</name>
+      <anchorfile>classMainContentComponent.html</anchorfile>
+      <anchor>a60c80d5b4ad606f32c606358956d0fba</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::ComponentBoundsConstrainer *</type>
+      <name>getEditorConstrainer</name>
+      <anchorfile>classMainContentComponent.html</anchorfile>
+      <anchor>a771499579a434d3944d9395f5b59c3ef</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::BorderSize&lt; int &gt;</type>
+      <name>computeBorder</name>
+      <anchorfile>classMainContentComponent.html</anchorfile>
+      <anchor>a807049485e5bdbe5fabd289ec4bb9f40</anchor>
+      <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>MapViewer</name>
     <filename>classMapViewer.html</filename>
     <base protection="private">OpenStreetMaps::Listener</base>
@@ -13790,6 +13841,38 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>SideBarComponent</name>
+    <filename>classSideBarComponent.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>SideBarComponent</name>
+      <anchorfile>classSideBarComponent.html</anchorfile>
+      <anchor>a056a51c19e2723d80282c65dd4db107e</anchor>
+      <arglist>(StandaloneFilterWindow &amp;filterWindow)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~SideBarComponent</name>
+      <anchorfile>classSideBarComponent.html</anchorfile>
+      <anchor>a683b2d6bc662857a4cd632c980f43488</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resized</name>
+      <anchorfile>classSideBarComponent.html</anchorfile>
+      <anchor>af03a08e0fb0423c8ec1693a58ecdfe07</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>width</name>
+      <anchorfile>classSideBarComponent.html</anchorfile>
+      <anchor>a48c1efb8a5ec2068a2049c81fbc8a5c6</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>SimpleVerb</name>
     <filename>classSimpleVerb.html</filename>
     <member kind="function">
@@ -18972,6 +19055,8 @@
     <name>gin_standaloneplugin-standaloneplugin</name>
     <title>standaloneplugin</title>
     <filename>group__gin__standaloneplugin-standaloneplugin.html</filename>
+    <class kind="class">MainContentComponent</class>
+    <class kind="class">SideBarComponent</class>
     <class kind="class">StandaloneFilterApp</class>
     <class kind="class">StandaloneFilterWindow</class>
     <class kind="class">StandalonePluginHolder</class>
