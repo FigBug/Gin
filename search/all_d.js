@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['n_0',['n',['../structWSHeaderType.html#a280de6932d75f1d0b3f5687f839d4e92',1,'WSHeaderType::N'],['../classLinearRegression.html#a2538a18e56f7da311ae94edbb903e1bd',1,'LinearRegression::n']]],
+  ['n_0',['n',['../classLinearRegression.html#a2538a18e56f7da311ae94edbb903e1bd',1,'LinearRegression::n'],['../structWSHeaderType.html#a280de6932d75f1d0b3f5687f839d4e92',1,'WSHeaderType::N']]],
   ['n0_1',['N0',['../structWSHeaderType.html#a6c084039602e19593f16e198194258ea',1,'WSHeaderType']]],
   ['name_2',['name',['../classKnob.html#a4cf5ed46637f0b10594b6d43b2f4067b',1,'Knob::name'],['../classHorizontalFader.html#ab70425a9c8226dd53432dde0222dba8f',1,'HorizontalFader::name'],['../classSelect.html#a68477089c5c406d199fe071d09080be4',1,'Select::name'],['../classParameter.html#a4316d020a490d5e1d764d60453cb078c',1,'Parameter::name'],['../classProgram.html#ab960dff0d490441b19a47c7788ef5308',1,'Program::name']]],
   ['negation_3',['Negation',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab94b0efce58a77e1c8fa29e32536c728',1,'gin_imageeffects.h']]],
   ['network_4',['network',['../group__gin__network-network.html',1,'']]],
-  ['newschecker_5',['newschecker',['../classNewsChecker.html',1,'NewsChecker'],['../classTitleBar.html#ab00ac1e8d688d411c19dc7ee9e3feac7',1,'TitleBar::newsChecker'],['../classNewsChecker.html#a519004dfd3ae54255b2eff7a132e0a00',1,'NewsChecker::NewsChecker()']]],
+  ['newschecker_5',['newschecker',['../classNewsChecker.html',1,'NewsChecker'],['../classNewsChecker.html#a519004dfd3ae54255b2eff7a132e0a00',1,'NewsChecker::NewsChecker()'],['../classTitleBar.html#ab00ac1e8d688d411c19dc7ee9e3feac7',1,'TitleBar::newsChecker']]],
   ['newtransaction_6',['newTransaction',['../classSingleLineTextEditor.html#ab5aafa23521231a8b7f6811b2d937b44',1,'SingleLineTextEditor']]],
   ['next_7',['next',['../namespaceAssets.html#a7e39560cce3d5062215a8a94f967e741',1,'Assets::next'],['../classPatchBrowser.html#acca4a794212c331878636360a8650723',1,'PatchBrowser::next()']]],
   ['nextbutton_8',['nextButton',['../classTitleBar.html#adbdac6bcc1d15a4b014231dc9a799a6e',1,'TitleBar']]],
@@ -23,7 +23,7 @@ var searchData=
   ['noteduration_20',['noteduration',['../classNoteDuration.html#ac742ee9719f34ff0bed78e39a4f2bd4d',1,'NoteDuration::NoteDuration()'],['../classNoteDuration.html',1,'NoteDuration']]],
   ['noteoff_21',['noteoff',['../classSampleOscillator.html#a0a91c401c4b160c05556e460097e348a',1,'SampleOscillator::noteOff()'],['../classADSR.html#aa187e99749943e75013e40a4e6d4c07e',1,'ADSR::noteOff()'],['../classAnalogADSR.html#a68fa35850ca4f7d0d329079b990e8b04',1,'AnalogADSR::noteOff()']]],
   ['noteoffindex_22',['noteOffIndex',['../classSynthesiser.html#a11111b8660140c3d67efbd56cf1089fc',1,'Synthesiser']]],
-  ['noteon_23',['noteon',['../classVoicedStereoOscillator.html#a366c3140dc02a92cb2560dd3009facd7',1,'VoicedStereoOscillator::noteOn()'],['../classADSR.html#a9d5b7c8618c2c836be04e3549eb19d25',1,'ADSR::noteOn()'],['../classAnalogADSR.html#ae25730d121f437a88107aec4b8954ced',1,'AnalogADSR::noteOn()'],['../classLFO.html#a9cb9a6408aed9de07ccf2fdcf0d4eba3',1,'LFO::noteOn()'],['../classMSEG.html#ada29ea0a744c9e038a06636affb52373',1,'MSEG::noteOn()'],['../classWTOscillator.html#aa5b7bfe2f4f6f4616af869e7ff6977b3',1,'WTOscillator::noteOn()'],['../classStepLFO.html#a3643003a3a8668f21a1c9944405c82b2',1,'StepLFO::noteOn()'],['../classSampleOscillator.html#a6e4b9ad2169c8acc82089e89ec8b1012',1,'SampleOscillator::noteOn()'],['../classVoicedStereoOscillator.html#a23550473a6987a1128e64c6388e82661',1,'VoicedStereoOscillator::noteOn()'],['../classStereoOscillator.html#aa553362f8f2510531675cdab875efe41',1,'StereoOscillator::noteOn()']]],
+  ['noteon_23',['noteon',['../classVoicedStereoOscillator.html#a366c3140dc02a92cb2560dd3009facd7',1,'VoicedStereoOscillator::noteOn()'],['../classADSR.html#a9d5b7c8618c2c836be04e3549eb19d25',1,'ADSR::noteOn()'],['../classAnalogADSR.html#ae25730d121f437a88107aec4b8954ced',1,'AnalogADSR::noteOn()'],['../classLFO.html#a9cb9a6408aed9de07ccf2fdcf0d4eba3',1,'LFO::noteOn()'],['../classMSEG.html#ada29ea0a744c9e038a06636affb52373',1,'MSEG::noteOn()'],['../classWTOscillator.html#aa5b7bfe2f4f6f4616af869e7ff6977b3',1,'WTOscillator::noteOn()'],['../classStereoOscillator.html#aa553362f8f2510531675cdab875efe41',1,'StereoOscillator::noteOn()'],['../classVoicedStereoOscillator.html#a23550473a6987a1128e64c6388e82661',1,'VoicedStereoOscillator::noteOn()'],['../classSampleOscillator.html#a6e4b9ad2169c8acc82089e89ec8b1012',1,'SampleOscillator::noteOn()'],['../classStepLFO.html#a3643003a3a8668f21a1c9944405c82b2',1,'StepLFO::noteOn()']]],
   ['noteonindex_24',['noteOnIndex',['../classSynthesiser.html#aa5ba2f02b20bcad66e99e471aa934793',1,'Synthesiser']]],
   ['notereleased_25',['noteReleased',['../classSynthesiser.html#af2d49c835d5a6e4ae8de4229350e93ca',1,'Synthesiser']]],
   ['notereleasedmono_26',['noteReleasedMono',['../classSynthesiser.html#a87d9afd3a12f884569c312b4d00d9744',1,'Synthesiser']]],
@@ -31,7 +31,9 @@ var searchData=
   ['noteretriggered_28',['noteRetriggered',['../classSynthesiserVoice.html#a3d50ddac2700fd39a6a00f865de211ad',1,'SynthesiserVoice']]],
   ['notespertable_29',['notesPerTable',['../classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220',1,'BandLimitedLookupTable']]],
   ['nsimagetoimage_30',['nsImageToImage',['../namespacemacOS.html#aa16780bbaa0ee9db90a45b1ac772cd41',1,'macOS']]],
-  ['numins_31',['numIns',['../structStandalonePluginHolder_1_1PluginInOuts.html#a2c18cb6876bc952ba5df80df92500c34',1,'StandalonePluginHolder::PluginInOuts']]],
-  ['numouts_32',['numOuts',['../structStandalonePluginHolder_1_1PluginInOuts.html#ae8defe449815bf6e651a92944240f6c0',1,'StandalonePluginHolder::PluginInOuts']]],
-  ['numpoints_33',['numPoints',['../structMSEG_1_1Data.html#a346affc8c6dea61cc798b9fda79e7248',1,'MSEG::Data']]]
+  ['numbuseschanged_31',['numBusesChanged',['../classAudioProcessorWrapper.html#a4bc77510ead083a942b56759ea77dcff',1,'AudioProcessorWrapper']]],
+  ['numchannelschanged_32',['numChannelsChanged',['../classAudioProcessorWrapper.html#a21b5613a6aff43a01b483cfb51358964',1,'AudioProcessorWrapper']]],
+  ['numins_33',['numIns',['../structStandalonePluginHolder_1_1PluginInOuts.html#a2c18cb6876bc952ba5df80df92500c34',1,'StandalonePluginHolder::PluginInOuts']]],
+  ['numouts_34',['numOuts',['../structStandalonePluginHolder_1_1PluginInOuts.html#ae8defe449815bf6e651a92944240f6c0',1,'StandalonePluginHolder::PluginInOuts']]],
+  ['numpoints_35',['numPoints',['../structMSEG_1_1Data.html#a346affc8c6dea61cc798b9fda79e7248',1,'MSEG::Data']]]
 ];
