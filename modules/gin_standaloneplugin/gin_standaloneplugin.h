@@ -65,6 +65,8 @@
 
 namespace gin
 {
+#include "standaloneplugin/gin_sidebarcomponent.h"
+#include "standaloneplugin/gin_maincontentcomponent.h"
 #include "standaloneplugin/gin_standalonepluginholder.h"
 #include "standaloneplugin/gin_standalonefilterwindow.h"
 #include "standaloneplugin/gin_standaloneapp.h"
