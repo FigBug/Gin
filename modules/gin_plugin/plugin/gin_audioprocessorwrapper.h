@@ -111,10 +111,12 @@ public:
 		return proc->updateTrackProperties (properties);
 	}
 
+   #if JUCE_MAJOR_VERSION >= 8
 	std::optional<juce::String> getNameForMidiNoteNumber (int note, int midiChannel) override
 	{
 		return proc->getNameForMidiNoteNumber (note, midiChannel);
 	}
-	
+   #endif
+
 	std::unique_ptr<juce::AudioProcessor> proc;
 };
