@@ -3262,13 +3262,6 @@
       <anchor>a21f058ad47fb1d8c1194f1902fb22734</anchor>
       <arglist>(const TrackProperties &amp;properties) override</arglist>
     </member>
-    <member kind="function">
-      <type>std::optional&lt; juce::String &gt;</type>
-      <name>getNameForMidiNoteNumber</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a629aa22c1c3c10976e3e427426f78ca5</anchor>
-      <arglist>(int note, int midiChannel) override</arglist>
-    </member>
     <member kind="variable">
       <type>std::unique_ptr&lt; juce::AudioProcessor &gt;</type>
       <name>proc</name>
