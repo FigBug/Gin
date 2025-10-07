@@ -8,7 +8,7 @@ var searchData=
   ['unlock_5',['unlock',['../classSystemSemaphore.html#afde687b04d0bb01cf629d037bf384ac0',1,'SystemSemaphore']]],
   ['unwatchparam_6',['unwatchParam',['../classMultiParamComponent.html#a7620038ca7508425d21d1138a0e9d45f',1,'MultiParamComponent']]],
   ['unwatchparams_7',['unwatchParams',['../classMultiParamComponent.html#ae7441578faba5891a7fc764da134f03c',1,'MultiParamComponent']]],
-  ['up_8',['up',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40a7f9a9c97a4c7f8e2424ec0827d879c71',1,'TriggeredScope::Up'],['../classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28adad326c6c196a5b26cb69b871c57480c9a',1,'MSEGComponent::up']]],
+  ['up_8',['up',['../classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28adad326c6c196a5b26cb69b871c57480c9a',1,'MSEGComponent::up'],['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40a7f9a9c97a4c7f8e2424ec0827d879c71',1,'TriggeredScope::Up']]],
   ['updatechecker_9',['updatechecker',['../classUpdateChecker.html',1,'UpdateChecker'],['../classUpdateChecker.html#a991c35a0e515fa13cb9186936a00cb8f',1,'UpdateChecker::UpdateChecker()'],['../classTitleBar.html#a592d0a4299aa23c9b323205d76f19742',1,'TitleBar::updateChecker']]],
   ['updateglide_10',['updateGlide',['../classSynthesiser.html#a1825c3a26987dc66cbaf5f1447ddd510',1,'Synthesiser']]],
   ['updatemap_11',['updateMap',['../classMapViewer.html#a723ad37abb7af9ecac0bdd68dd628e46',1,'MapViewer']]],
@@ -25,6 +25,6 @@ var searchData=
   ['uservaluetotext_22',['userValueToText',['../classParameter.html#af3960250a1c071e471daf16be484b656',1,'Parameter']]],
   ['usesfileextension_23',['usesfileextension',['../classBMPImageFormat.html#ac3aec001afc89383d536241e433cb8bf',1,'BMPImageFormat::usesFileExtension()'],['../classWEBPImageFormat.html#a1d875430f06a78fe547812ff5556bbc0',1,'WEBPImageFormat::usesFileExtension()']]],
   ['useupdatechecker_24',['useUpdateChecker',['../classProcessorOptions.html#a1cae47f2ecd1a86e02549cf5b47fd4d0',1,'ProcessorOptions']]],
-  ['utilities_25',['utilities',['../group__gin-utilities.html',1,'utilities'],['../group__gin__gui-utilities.html',1,'utilities']]],
+  ['utilities_25',['utilities',['../group__gin__gui-utilities.html',1,'utilities'],['../group__gin-utilities.html',1,'utilities']]],
   ['utilities_2fgin_5futil_2eh_26',['gin_util.h',['../utilities_2gin__util_8h.html',1,'']]]
 ];
