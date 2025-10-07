@@ -21,6 +21,7 @@ public:
     void clearVariables ();
     void addVariable (const juce::String& name, double* value);
     void setVarFactory (std::function<double* (const char*)> fun);
+    juce::StringArray getUsedVariables ();
 
     void clearConstants();
     void addConstant (const juce::String& name, double value);

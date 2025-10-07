@@ -168,6 +168,16 @@ void EquationParser::setVarFactory (std::function<double* (const char*)> fun)
     varFactory.reset (cb);
 }
 
+juce::StringArray EquationParser::getUsedVariables ()
+{
+    juce::StringArray vars;
+
+    for ( auto& itr : impl->parser.GetUsedVar () )
+        vars.add ( itr.first );
+
+    return vars;
+}
+
 void EquationParser::addFunction (const juce::String& name, std::function<double (int id, const juce::String&)> fun)
 {
     try
