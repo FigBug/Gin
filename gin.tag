@@ -2821,6 +2821,20 @@
       <arglist>(double sr)</arglist>
     </member>
     <member kind="function">
+      <type>double</type>
+      <name>getSampleRate</name>
+      <anchorfile>classAudioFunctionHost.html</anchorfile>
+      <anchor>abde27ed25d2849ada9e7207ef54a1781</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classAudioFunctionHost.html</anchorfile>
+      <anchor>a4196aeffbe4ac8276168b185f1ed3f21</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>addConstants</name>
       <anchorfile>classAudioFunctionHost.html</anchorfile>
@@ -2855,19 +2869,19 @@
       <anchor>ad3a16e676235cf5f04ee344fede89247</anchor>
       <arglist>(gin::EquationParser &amp;)</arglist>
     </member>
+    <member kind="function">
+      <type>T *</type>
+      <name>getFuncParams</name>
+      <anchorfile>classAudioFunctionHost.html</anchorfile>
+      <anchor>af51e6031c672f42919631e07fd9c2d79</anchor>
+      <arglist>(int i, double sr)</arglist>
+    </member>
     <member kind="variable">
       <type>gin::BandLimitedLookupTables *</type>
       <name>lookupTables</name>
       <anchorfile>classAudioFunctionHost.html</anchorfile>
       <anchor>ac3f36a29508908517af32e673583014e</anchor>
       <arglist></arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>T *</type>
-      <name>getFuncParams</name>
-      <anchorfile>classAudioFunctionHost.html</anchorfile>
-      <anchor>af51e6031c672f42919631e07fd9c2d79</anchor>
-      <arglist>(int i, double sr)</arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>std::map&lt; int, std::unique_ptr&lt; FuncState &gt; &gt;</type>
@@ -17837,6 +17851,13 @@
   <compound kind="class">
     <name>WhiteNoise</name>
     <filename>classWhiteNoise.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>WhiteNoise</name>
+      <anchorfile>classWhiteNoise.html</anchorfile>
+      <anchor>a4f8fa85b5750bc8b7cbee49fefbe14a8</anchor>
+      <arglist>()</arglist>
+    </member>
     <member kind="function">
       <type>float</type>
       <name>nextSample</name>
