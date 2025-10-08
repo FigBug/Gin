@@ -13,6 +13,12 @@
 class WhiteNoise
 {
 public:
+    WhiteNoise()
+    {
+        std::random_device rd;
+        generator.seed (rd());
+    }
+
     inline float nextSample()
     {
         return dist (generator);

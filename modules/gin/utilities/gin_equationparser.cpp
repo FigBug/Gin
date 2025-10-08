@@ -172,8 +172,17 @@ juce::StringArray EquationParser::getUsedVariables ()
 {
     juce::StringArray vars;
 
-    for ( auto& itr : impl->parser.GetUsedVar () )
-        vars.add ( itr.first );
+    try
+    {
+        errorMessage = {};
+
+        for ( auto& itr : impl->parser.GetUsedVar () )
+            vars.add ( itr.first );
+    }
+    catch (mu::Parser::exception_type& e)
+    {
+        errorMessage = juce::String (e.GetMsg());
+    }
 
     return vars;
 }

@@ -13,6 +13,12 @@ void AudioFunctionHost::setSampleRate (double sr)
     funcStates.clear();
 }
 
+void AudioFunctionHost::reset()
+{
+	for (auto& itr : funcStates)
+		itr.second->reset();
+}
+
 void AudioFunctionHost::addUtilities (gin::EquationParser& parser)
 {
     parser.addFunction ("midiToHz", [] (int, double noteNumber)

@@ -309,16 +309,14 @@ public:
     gin::BandLimitedLookupTables* lookupTables = nullptr;
 
     void setSampleRate (double sr);
-    
+    double getSampleRate()  { return sampleRate; }
+    void reset();
+
     void addConstants (gin::EquationParser&);
     void addUtilities (gin::EquationParser&);
     void addOscillatorFunctions (gin::EquationParser&);
     void addSynthFilterFunctions (gin::EquationParser&);
     void addEffectFilterFunctions (gin::EquationParser&);
-
-protected:
-    std::map<int, std::unique_ptr<FuncState>> funcStates;
-    double sampleRate = 44100.0;
 
     template <class T>
     T* getFuncParams (int i, double sr)
@@ -335,4 +333,8 @@ protected:
         funcStates[i].reset (p);
         return p;
     }
+
+protected:
+    std::map<int, std::unique_ptr<FuncState>> funcStates;
+    double sampleRate = 44100.0;
 };
