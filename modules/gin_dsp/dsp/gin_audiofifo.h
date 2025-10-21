@@ -75,6 +75,26 @@ public:
         return true;
     }
 
+    bool writeSilence (int numSamples)
+    {
+        if (numSamples <= 0)
+            return true;
+
+        jassert (numSamples <= getFreeSpace());
+
+        int start1, size1, start2, size2;
+        fifo.prepareToWrite (numSamples, start1, size1, start2, size2);
+
+        if (size1 + size2 < numSamples)
+            return false;
+
+        buffer.clear (start1, size1);
+        buffer.clear (start2, size2);
+
+        fifo.finishedWrite (size1 + size2);
+        return true;
+    }
+
     bool writeMono (const float* data, int numSamples)
     {
         jassert (numSamples <= getFreeSpace());
@@ -96,12 +116,12 @@ public:
         return true;
     }
 
-	bool peak (juce::AudioSampleBuffer& dest)
+	bool peek (juce::AudioSampleBuffer& dest)
 	{
-		return peak (dest, 0, dest.getNumSamples());
+		return peek (dest, 0, dest.getNumSamples());
 	}
 
-	bool peak (juce::AudioSampleBuffer& dest, int startSampleInDestBuffer, int numSamples)
+	bool peek (juce::AudioSampleBuffer& dest, int startSampleInDestBuffer, int numSamples)
 	{
 		jassert (getNumReady() >= numSamples);
 
@@ -119,6 +139,19 @@ public:
 
 		return true;
 	}
+
+    float peekSample (int channel, int sample)
+    {
+        jassert (sample < getNumReady());
+
+        int start1, size1, start2, size2;
+        fifo.prepareToRead (sample + 1, start1, size1, start2, size2);
+
+        if (sample < size1)
+            return buffer.getSample (channel, start1 + sample);
+        else
+            return buffer.getSample (channel, start2 + (sample - size1));
+    }
 
     bool read (juce::AudioSampleBuffer& dest)
     {
@@ -187,6 +220,20 @@ public:
             dest.addFrom (i, startSampleInDestBuffer, buffer, i, start1, size1);
             dest.addFrom (i, startSampleInDestBuffer + size1, buffer, i, start2, size2);
         }
+
+        fifo.finishedRead (size1 + size2);
+        return true;
+    }
+
+    bool pop (int numSamples)
+    {
+        jassert (getNumReady() >= numSamples);
+
+        int start1, size1, start2, size2;
+        fifo.prepareToRead (numSamples, start1, size1, start2, size2);
+
+        if ((size1 + size2) < numSamples)
+            return false;
 
         fifo.finishedRead (size1 + size2);
         return true;
