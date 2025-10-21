@@ -45,11 +45,14 @@ public:
 
     void setNumChannels (int ch)
     {
-        channels = ch;
-        filters.clear();
+        if (channels != ch)
+        {
+            channels = ch;
+            filters.clear();
 
-        for (int i = 0; i < 2; i++)
-            filters.push_back (std::make_unique<AudioFilter::FilterInstance<float>> (ch));
+            for (int i = 0; i < 2; i++)
+                filters.push_back (std::make_unique<AudioFilter::FilterInstance<float>> (ch));
+        }
     }
 
     void setType (Type t)           { type = t;         }
