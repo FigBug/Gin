@@ -2755,6 +2755,13 @@
     </member>
     <member kind="function">
       <type>bool</type>
+      <name>writeSilence</name>
+      <anchorfile>classAudioFifo.html</anchorfile>
+      <anchor>a1280066a5d0c95c67f62be10c25725cd</anchor>
+      <arglist>(int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
       <name>writeMono</name>
       <anchorfile>classAudioFifo.html</anchorfile>
       <anchor>a8a2f35a383ee1e3074491dfc6f510e59</anchor>
@@ -2762,17 +2769,24 @@
     </member>
     <member kind="function">
       <type>bool</type>
-      <name>peak</name>
+      <name>peek</name>
       <anchorfile>classAudioFifo.html</anchorfile>
-      <anchor>a08537e57d8020433ac7c676a48455c78</anchor>
+      <anchor>a947e965b80ae14db7e82c6ab93d2f3c9</anchor>
       <arglist>(juce::AudioSampleBuffer &amp;dest)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
-      <name>peak</name>
+      <name>peek</name>
       <anchorfile>classAudioFifo.html</anchorfile>
-      <anchor>a032ce6877f3a5983e9e9463c8dff36e8</anchor>
+      <anchor>a0b7cb38ccd71a06b3965c610e2a8b4d4</anchor>
       <arglist>(juce::AudioSampleBuffer &amp;dest, int startSampleInDestBuffer, int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>peekSample</name>
+      <anchorfile>classAudioFifo.html</anchorfile>
+      <anchor>a1fc223faaa70ac537658e5b0c8f7cfd8</anchor>
+      <arglist>(int channel, int sample)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -2808,6 +2822,13 @@
       <anchorfile>classAudioFifo.html</anchorfile>
       <anchor>ade7b74334094b86983e5deaf2dd11e47</anchor>
       <arglist>(juce::AudioSampleBuffer &amp;dest, int startSampleInDestBuffer, int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>pop</name>
+      <anchorfile>classAudioFifo.html</anchorfile>
+      <anchor>ad739bd1e9287145381242caddbb2dfff</anchor>
+      <arglist>(int numSamples)</arglist>
     </member>
   </compound>
   <compound kind="class">

@@ -13,7 +13,7 @@ var searchData=
   ['writefinished_10',['writeFinished',['../classDelayLine.html#ab36052a31da09d3a8162651ba437bec6',1,'DelayLine']]],
   ['writeimagetostream_11',['writeimagetostream',['../classBMPImageFormat.html#a7aa7a97cf8a3e5724bc61550ce7c8881',1,'BMPImageFormat::writeImageToStream()'],['../classWEBPImageFormat.html#a7323d308a2ed305d577d7630cfafc0b8',1,'WEBPImageFormat::writeImageToStream()']]],
   ['writemono_12',['writeMono',['../classAudioFifo.html#a8a2f35a383ee1e3074491dfc6f510e59',1,'AudioFifo']]],
-  ['writesilence_13',['writeSilence',['../classAudioMidiFifo.html#a042bc730af9185b582f4e73012188937',1,'AudioMidiFifo']]],
+  ['writesilence_13',['writesilence',['../classAudioFifo.html#a1280066a5d0c95c67f62be10c25725cd',1,'AudioFifo::writeSilence()'],['../classAudioMidiFifo.html#a042bc730af9185b582f4e73012188937',1,'AudioMidiFifo::writeSilence()']]],
   ['wtoscillator_14',['WTOscillator',['../classWTOscillator.html#a16fdc8afe3d72d02755d37bb13aa3dad',1,'WTOscillator']]],
   ['wtvoicedstereooscillator_15',['WTVoicedStereoOscillator',['../classWTVoicedStereoOscillator.html#a8db7ce7f1c1f034e9f3d38119ed1325d',1,'WTVoicedStereoOscillator']]]
 ];
