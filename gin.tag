@@ -13216,18 +13216,18 @@
       <anchor>a93c1337e016ea549c34bc7448370577b</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="function">
-      <type>bool</type>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
       <name>getUseIncreasedKeyboardAccessibility</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>aa55bc190267e15e007544badd68830cb</anchor>
+      <anchor>a324c9feea0f3a2268983aec1e6a7fb14</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
       <name>setUseIncreasedKeyboardAccessibility</name>
       <anchorfile>classProcessorEditorBase.html</anchorfile>
-      <anchor>a2f1f906db82e4a9741e3916a8a6c7451</anchor>
+      <anchor>abe5944f2cd0401c6ee2255c4dd206852</anchor>
       <arglist>(bool accessible)</arglist>
     </member>
     <member kind="variable">

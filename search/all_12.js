@@ -178,7 +178,7 @@ var searchData=
   ['settriggerpos_175',['setTriggerPos',['../classTriggeredScope.html#a28b7ad8c19d534150667d3e9cafe1f37',1,'TriggeredScope']]],
   ['settype_176',['setType',['../classFilter.html#aa63924d0bce0ebe96ab635d51d4cea1f',1,'Filter']]],
   ['setunclamped_177',['setUnclamped',['../classLFOComponent.html#aeccf21c89b4f34781057fba797937a30',1,'LFOComponent']]],
-  ['setuseincreasedkeyboardaccessibility_178',['setUseIncreasedKeyboardAccessibility',['../classProcessorEditorBase.html#a2f1f906db82e4a9741e3916a8a6c7451',1,'ProcessorEditorBase']]],
+  ['setuseincreasedkeyboardaccessibility_178',['setUseIncreasedKeyboardAccessibility',['../classProcessorEditorBase.html#abe5944f2cd0401c6ee2255c4dd206852',1,'ProcessorEditorBase']]],
   ['setuservalue_179',['setuservalue',['../classParameter.html#a4aad90b86dc49666d345b8f0e01c0347',1,'Parameter::setUserValue()'],['../classSmoothedParameter.html#a5fc33dae16fc8a344df404d4794c1d61',1,'SmoothedParameter::setUserValue()']]],
   ['setuservalueasuseraction_180',['setUserValueAsUserAction',['../classParameter.html#a4d6386eea25fad5670125701b537f858',1,'Parameter']]],
   ['setuservaluenotifinghost_181',['setuservaluenotifinghost',['../classParameter.html#ab255a9f572a46486d9c01dbb9e3137b3',1,'Parameter::setUserValueNotifingHost()'],['../classSmoothedParameter.html#aff236e911f028b816804ce22a4d15710',1,'SmoothedParameter::setUserValueNotifingHost()']]],
