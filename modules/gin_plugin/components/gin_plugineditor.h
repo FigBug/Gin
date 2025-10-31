@@ -133,8 +133,8 @@ public:
     int getGridWidth()  { return cx; }
     int getGridHeight() { return cy; }
 
-    bool getUseIncreasedKeyboardAccessibility();
-    void setUseIncreasedKeyboardAccessibility (bool accessible);
+    virtual bool getUseIncreasedKeyboardAccessibility();
+    virtual void setUseIncreasedKeyboardAccessibility (bool accessible);
 
     juce::ComponentBoundsConstrainer resizeLimits;
 
