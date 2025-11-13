@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Listen to value tree changes with std::function&lt;&gt;, but Async.  
+<p>Asynchronous ValueTree listener using lambda functions.  
  <a href="classAsyncLambdaValueTreeListener.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_valuetreeutilities.h&gt;</code></p>
@@ -87,27 +87,44 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7902f77301e14c547e97ca4c12310f05" id="r_a7902f77301e14c547e97ca4c12310f05"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAsyncLambdaValueTreeListener.html#a7902f77301e14c547e97ca4c12310f05">AsyncLambdaValueTreeListener</a> (juce::ValueTree &amp;v_)</td></tr>
+<tr class="memdesc:a7902f77301e14c547e97ca4c12310f05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an async listener for the specified ValueTree.  <br /></td></tr>
 <tr class="separator:a7902f77301e14c547e97ca4c12310f05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63db65f7ad15b14ef1552ff0a49e8357" id="r_a63db65f7ad15b14ef1552ff0a49e8357"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAsyncLambdaValueTreeListener.html#a63db65f7ad15b14ef1552ff0a49e8357">~AsyncLambdaValueTreeListener</a> () override</td></tr>
+<tr class="memdesc:a63db65f7ad15b14ef1552ff0a49e8357"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
 <tr class="separator:a63db65f7ad15b14ef1552ff0a49e8357"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a44bae2ccef390d4cc7597a14ed0890ad" id="r_a44bae2ccef390d4cc7597a14ed0890ad"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(const juce::ValueTree &amp;, const juce::Identifier &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAsyncLambdaValueTreeListener.html#a44bae2ccef390d4cc7597a14ed0890ad">onValueTreePropertyChanged</a></td></tr>
+<tr class="memdesc:a44bae2ccef390d4cc7597a14ed0890ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called asynchronously when a property value changes.  <br /></td></tr>
 <tr class="separator:a44bae2ccef390d4cc7597a14ed0890ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49509f3a601c013ed216d83901e5d5b6" id="r_a49509f3a601c013ed216d83901e5d5b6"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(const juce::ValueTree &amp;, const juce::ValueTree &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAsyncLambdaValueTreeListener.html#a49509f3a601c013ed216d83901e5d5b6">onValueTreeChildAdded</a></td></tr>
+<tr class="memdesc:a49509f3a601c013ed216d83901e5d5b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called asynchronously when a child is added.  <br /></td></tr>
 <tr class="separator:a49509f3a601c013ed216d83901e5d5b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdb36b902336d9389a06cb2da4418f97" id="r_acdb36b902336d9389a06cb2da4418f97"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(const juce::ValueTree &amp;, const juce::ValueTree &amp;, int)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAsyncLambdaValueTreeListener.html#acdb36b902336d9389a06cb2da4418f97">onValueTreeChildRemoved</a></td></tr>
+<tr class="memdesc:acdb36b902336d9389a06cb2da4418f97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called asynchronously when a child is removed.  <br /></td></tr>
 <tr class="separator:acdb36b902336d9389a06cb2da4418f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92e18bd7456866b62b78f040a3ccfe7b" id="r_a92e18bd7456866b62b78f040a3ccfe7b"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(const juce::ValueTree &amp;, int, int)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAsyncLambdaValueTreeListener.html#a92e18bd7456866b62b78f040a3ccfe7b">onValueTreeChildOrderChanged</a></td></tr>
+<tr class="memdesc:a92e18bd7456866b62b78f040a3ccfe7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called asynchronously when children are reordered.  <br /></td></tr>
 <tr class="separator:a92e18bd7456866b62b78f040a3ccfe7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebb3264b2330cf9be846a447b105f613" id="r_aebb3264b2330cf9be846a447b105f613"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(const juce::ValueTree &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAsyncLambdaValueTreeListener.html#aebb3264b2330cf9be846a447b105f613">onValueTreeParentChanged</a></td></tr>
+<tr class="memdesc:aebb3264b2330cf9be846a447b105f613"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called asynchronously when the parent changes.  <br /></td></tr>
 <tr class="separator:aebb3264b2330cf9be846a447b105f613"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34c0f546462a7406ce06d13e4bde8ffd" id="r_a34c0f546462a7406ce06d13e4bde8ffd"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(const juce::ValueTree &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAsyncLambdaValueTreeListener.html#a34c0f546462a7406ce06d13e4bde8ffd">onValueTreeRedirected</a></td></tr>
+<tr class="memdesc:a34c0f546462a7406ce06d13e4bde8ffd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called asynchronously when the tree is redirected to a different shared state.  <br /></td></tr>
 <tr class="separator:a34c0f546462a7406ce06d13e4bde8ffd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Listen to value tree changes with std::function&lt;&gt;, but Async. </p>
+<div class="textblock"><p>Asynchronous ValueTree listener using lambda functions. </p>
+<p>Similar to <a class="el" href="classLambdaValueTreeListener.html" title="Listens to ValueTree changes using lambda functions instead of virtual methods.">LambdaValueTreeListener</a>, but all callbacks are executed asynchronously on the message thread using juce::MessageManager::callAsync(). This makes it safe to update UI components from the callbacks without worrying about thread safety.</p>
+<p>The callbacks receive const references to prevent accidental modification of the ValueTree from the async callbacks.</p>
+<p>Example usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classAsyncLambdaValueTreeListener.html">AsyncLambdaValueTreeListener</a> listener (myValueTree);</div>
+<div class="line">listener.onValueTreePropertyChanged = [<span class="keyword">this</span>] (<span class="keyword">const</span> juce::ValueTree&amp; v, <span class="keyword">const</span> juce::Identifier&amp; prop) {</div>
+<div class="line">    <span class="comment">// This runs on the message thread, safe to update UI</span></div>
+<div class="line">    someComponent.repaint();</div>
+<div class="line">};</div>
+<div class="ttc" id="aclassAsyncLambdaValueTreeListener_html"><div class="ttname"><a href="classAsyncLambdaValueTreeListener.html">AsyncLambdaValueTreeListener</a></div><div class="ttdoc">Asynchronous ValueTree listener using lambda functions.</div><div class="ttdef"><b>Definition</b> gin_valuetreeutilities.h:167</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classLambdaValueTreeListener.html" title="Listens to ValueTree changes using lambda functions instead of virtual methods.">LambdaValueTreeListener</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7902f77301e14c547e97ca4c12310f05" name="a7902f77301e14c547e97ca4c12310f05"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7902f77301e14c547e97ca4c12310f05">&#9670;&#160;</a></span>AsyncLambdaValueTreeListener()</h2>
@@ -124,6 +141,14 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates an async listener for the specified ValueTree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v_</td><td>The ValueTree to listen to </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -150,6 +175,9 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Destructor. </p>
+<p>Removes this listener from the ValueTree. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -165,6 +193,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Called asynchronously when a property value changes. </p>
+<p>Parameters: (tree, property identifier) </p>
+
 </div>
 </div>
 <a id="a49509f3a601c013ed216d83901e5d5b6" name="a49509f3a601c013ed216d83901e5d5b6"></a>
@@ -178,6 +209,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Called asynchronously when a child is added. </p>
+<p>Parameters: (parent tree, child that was added) </p>
 
 </div>
 </div>
@@ -193,6 +227,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Called asynchronously when a child is removed. </p>
+<p>Parameters: (parent tree, child that was removed, index) </p>
+
 </div>
 </div>
 <a id="a92e18bd7456866b62b78f040a3ccfe7b" name="a92e18bd7456866b62b78f040a3ccfe7b"></a>
@@ -206,6 +243,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Called asynchronously when children are reordered. </p>
+<p>Parameters: (tree, old index, new index) </p>
 
 </div>
 </div>
@@ -221,6 +261,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Called asynchronously when the parent changes. </p>
+<p>Parameters: (tree whose parent changed) </p>
+
 </div>
 </div>
 <a id="a34c0f546462a7406ce06d13e4bde8ffd" name="a34c0f546462a7406ce06d13e4bde8ffd"></a>
@@ -235,6 +278,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Called asynchronously when the tree is redirected to a different shared state. </p>
+<p>Parameters: (tree) </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -243,7 +289,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 13 2025 12:58:26 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 13:15:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

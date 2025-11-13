@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>See <a href="https://www.codeproject.com/Articles/63170/Least-Squares-Regression-for-Quadratic-Curve-Fitti">https://www.codeproject.com/Articles/63170/Least-Squares-Regression-for-Quadratic-Curve-Fitti</a> for original code.  
+<p>Performs least squares regression to fit a quadratic curve to data points.  
  <a href="classLeastSquaresRegression.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_leastsquaresregression.h&gt;</code></p>
@@ -84,31 +84,65 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a853a9218262dfc2f4d2d99dc014ef15b" id="r_a853a9218262dfc2f4d2d99dc014ef15b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeastSquaresRegression.html#a853a9218262dfc2f4d2d99dc014ef15b">LeastSquaresRegression</a> ()=default</td></tr>
+<tr class="memdesc:a853a9218262dfc2f4d2d99dc014ef15b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty regression object.  <br /></td></tr>
 <tr class="separator:a853a9218262dfc2f4d2d99dc014ef15b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b58c3452c171d5c474021c6edb5a6c2" id="r_a1b58c3452c171d5c474021c6edb5a6c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeastSquaresRegression.html#a1b58c3452c171d5c474021c6edb5a6c2">addPoint</a> (double x, double y)</td></tr>
+<tr class="memdesc:a1b58c3452c171d5c474021c6edb5a6c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a data point to the regression.  <br /></td></tr>
 <tr class="separator:a1b58c3452c171d5c474021c6edb5a6c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a672bba942baa8b2e81d8514b35942be8" id="r_a672bba942baa8b2e81d8514b35942be8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeastSquaresRegression.html#a672bba942baa8b2e81d8514b35942be8">addPoint</a> (<a class="el" href="classPoint.html">Point</a>&lt; double &gt; point)</td></tr>
+<tr class="memdesc:a672bba942baa8b2e81d8514b35942be8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a data point to the regression.  <br /></td></tr>
 <tr class="separator:a672bba942baa8b2e81d8514b35942be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28c27096fc1e6b6a343c6c05a0c81370" id="r_a28c27096fc1e6b6a343c6c05a0c81370"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeastSquaresRegression.html#a28c27096fc1e6b6a343c6c05a0c81370">addPoints</a> (juce::Array&lt; <a class="el" href="classPoint.html">Point</a>&lt; double &gt; &gt; points)</td></tr>
+<tr class="memdesc:a28c27096fc1e6b6a343c6c05a0c81370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds multiple data points to the regression.  <br /></td></tr>
 <tr class="separator:a28c27096fc1e6b6a343c6c05a0c81370"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07db19bc6cc01dfbb5a7575cf6c0a01e" id="r_a07db19bc6cc01dfbb5a7575cf6c0a01e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeastSquaresRegression.html#a07db19bc6cc01dfbb5a7575cf6c0a01e">clear</a> ()</td></tr>
+<tr class="memdesc:a07db19bc6cc01dfbb5a7575cf6c0a01e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all data points.  <br /></td></tr>
 <tr class="separator:a07db19bc6cc01dfbb5a7575cf6c0a01e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a188573e2bd06e10a2c8ab3a3849e8df2" id="r_a188573e2bd06e10a2c8ab3a3849e8df2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeastSquaresRegression.html#a188573e2bd06e10a2c8ab3a3849e8df2">enoughPoints</a> ()</td></tr>
+<tr class="memdesc:a188573e2bd06e10a2c8ab3a3849e8df2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if enough points have been added for valid regression.  <br /></td></tr>
 <tr class="separator:a188573e2bd06e10a2c8ab3a3849e8df2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf24191eb2082ce8d82e98e847a4976e" id="r_abf24191eb2082ce8d82e98e847a4976e"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeastSquaresRegression.html#abf24191eb2082ce8d82e98e847a4976e">getTerms</a> ()</td></tr>
+<tr class="memdesc:abf24191eb2082ce8d82e98e847a4976e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all three coefficients as an array.  <br /></td></tr>
 <tr class="separator:abf24191eb2082ce8d82e98e847a4976e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bfe5f2d56a0e4585102e95a752d17bf" id="r_a5bfe5f2d56a0e4585102e95a752d17bf"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeastSquaresRegression.html#a5bfe5f2d56a0e4585102e95a752d17bf">aTerm</a> ()</td></tr>
+<tr class="memdesc:a5bfe5f2d56a0e4585102e95a752d17bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the coefficient of the x² term.  <br /></td></tr>
 <tr class="separator:a5bfe5f2d56a0e4585102e95a752d17bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8a14f97edfe06e9237df6cbf5a54330" id="r_af8a14f97edfe06e9237df6cbf5a54330"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeastSquaresRegression.html#af8a14f97edfe06e9237df6cbf5a54330">bTerm</a> ()</td></tr>
+<tr class="memdesc:af8a14f97edfe06e9237df6cbf5a54330"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the coefficient of the x term.  <br /></td></tr>
 <tr class="separator:af8a14f97edfe06e9237df6cbf5a54330"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea2509a184bc43dc3bfcf114b4a80da7" id="r_aea2509a184bc43dc3bfcf114b4a80da7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeastSquaresRegression.html#aea2509a184bc43dc3bfcf114b4a80da7">cTerm</a> ()</td></tr>
+<tr class="memdesc:aea2509a184bc43dc3bfcf114b4a80da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the constant term.  <br /></td></tr>
 <tr class="separator:aea2509a184bc43dc3bfcf114b4a80da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7314973ea0d9b54e0071adf48ebefbd0" id="r_a7314973ea0d9b54e0071adf48ebefbd0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeastSquaresRegression.html#a7314973ea0d9b54e0071adf48ebefbd0">rSquare</a> ()</td></tr>
+<tr class="memdesc:a7314973ea0d9b54e0071adf48ebefbd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the coefficient of determination (R²).  <br /></td></tr>
 <tr class="separator:a7314973ea0d9b54e0071adf48ebefbd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>See <a href="https://www.codeproject.com/Articles/63170/Least-Squares-Regression-for-Quadratic-Curve-Fitti">https://www.codeproject.com/Articles/63170/Least-Squares-Regression-for-Quadratic-Curve-Fitti</a> for original code. </p>
-<p>Derive the equation of a quadratic curve from a series of data points. That is to say, to determine a, b, and c, where y = ax2 + bx + c. Having determined a, b, and c, I would also need a value for R-squared (the coefficient of determination). </p>
+<div class="textblock"><p>Performs least squares regression to fit a quadratic curve to data points. </p>
+<p>This class fits a quadratic equation y = ax² + bx + c to a set of data points using the least squares method. It calculates the coefficients (a, b, c) that minimize the sum of squared differences between the data points and the curve.</p>
+<p>The class also computes R² (the coefficient of determination), which measures how well the curve fits the data (values closer to 1.0 indicate better fit).</p>
+<p>Example usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classLeastSquaresRegression.html">LeastSquaresRegression</a> regression;</div>
+<div class="line">regression.<a class="code hl_function" href="classLeastSquaresRegression.html#a1b58c3452c171d5c474021c6edb5a6c2">addPoint</a> (1.0, 2.5);</div>
+<div class="line">regression.<a class="code hl_function" href="classLeastSquaresRegression.html#a1b58c3452c171d5c474021c6edb5a6c2">addPoint</a> (2.0, 5.2);</div>
+<div class="line">regression.<a class="code hl_function" href="classLeastSquaresRegression.html#a1b58c3452c171d5c474021c6edb5a6c2">addPoint</a> (3.0, 8.8);</div>
+<div class="line"><span class="comment">// ... add more points</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> (regression.<a class="code hl_function" href="classLeastSquaresRegression.html#a188573e2bd06e10a2c8ab3a3849e8df2">enoughPoints</a>())</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">double</span> a = regression.<a class="code hl_function" href="classLeastSquaresRegression.html#a5bfe5f2d56a0e4585102e95a752d17bf">aTerm</a>();  <span class="comment">// Coefficient of x²</span></div>
+<div class="line">    <span class="keywordtype">double</span> b = regression.<a class="code hl_function" href="classLeastSquaresRegression.html#af8a14f97edfe06e9237df6cbf5a54330">bTerm</a>();  <span class="comment">// Coefficient of x</span></div>
+<div class="line">    <span class="keywordtype">double</span> c = regression.<a class="code hl_function" href="classLeastSquaresRegression.html#aea2509a184bc43dc3bfcf114b4a80da7">cTerm</a>();  <span class="comment">// Constant term</span></div>
+<div class="line">    <span class="keywordtype">double</span> r2 = regression.<a class="code hl_function" href="classLeastSquaresRegression.html#a7314973ea0d9b54e0071adf48ebefbd0">rSquare</a>();  <span class="comment">// Goodness of fit</span></div>
+<div class="line">}</div>
+<div class="ttc" id="aclassLeastSquaresRegression_html"><div class="ttname"><a href="classLeastSquaresRegression.html">LeastSquaresRegression</a></div><div class="ttdoc">Performs least squares regression to fit a quadratic curve to data points.</div><div class="ttdef"><b>Definition</b> gin_leastsquaresregression.h:46</div></div>
+<div class="ttc" id="aclassLeastSquaresRegression_html_a188573e2bd06e10a2c8ab3a3849e8df2"><div class="ttname"><a href="classLeastSquaresRegression.html#a188573e2bd06e10a2c8ab3a3849e8df2">LeastSquaresRegression::enoughPoints</a></div><div class="ttdeci">bool enoughPoints()</div><div class="ttdoc">Checks if enough points have been added for valid regression.</div></div>
+<div class="ttc" id="aclassLeastSquaresRegression_html_a1b58c3452c171d5c474021c6edb5a6c2"><div class="ttname"><a href="classLeastSquaresRegression.html#a1b58c3452c171d5c474021c6edb5a6c2">LeastSquaresRegression::addPoint</a></div><div class="ttdeci">void addPoint(double x, double y)</div><div class="ttdoc">Adds a data point to the regression.</div></div>
+<div class="ttc" id="aclassLeastSquaresRegression_html_a5bfe5f2d56a0e4585102e95a752d17bf"><div class="ttname"><a href="classLeastSquaresRegression.html#a5bfe5f2d56a0e4585102e95a752d17bf">LeastSquaresRegression::aTerm</a></div><div class="ttdeci">double aTerm()</div><div class="ttdoc">Returns the coefficient of the x² term.</div></div>
+<div class="ttc" id="aclassLeastSquaresRegression_html_a7314973ea0d9b54e0071adf48ebefbd0"><div class="ttname"><a href="classLeastSquaresRegression.html#a7314973ea0d9b54e0071adf48ebefbd0">LeastSquaresRegression::rSquare</a></div><div class="ttdeci">double rSquare()</div><div class="ttdoc">Returns the coefficient of determination (R²).</div></div>
+<div class="ttc" id="aclassLeastSquaresRegression_html_aea2509a184bc43dc3bfcf114b4a80da7"><div class="ttname"><a href="classLeastSquaresRegression.html#aea2509a184bc43dc3bfcf114b4a80da7">LeastSquaresRegression::cTerm</a></div><div class="ttdeci">double cTerm()</div><div class="ttdoc">Returns the constant term.</div></div>
+<div class="ttc" id="aclassLeastSquaresRegression_html_af8a14f97edfe06e9237df6cbf5a54330"><div class="ttname"><a href="classLeastSquaresRegression.html#af8a14f97edfe06e9237df6cbf5a54330">LeastSquaresRegression::bTerm</a></div><div class="ttdeci">double bTerm()</div><div class="ttdoc">Returns the coefficient of the x term.</div></div>
+</div><!-- fragment --><p>Based on code from: <a href="https://www.codeproject.com/Articles/63170/Least-Squares-Regression-for-Quadratic-Curve-Fitti">https://www.codeproject.com/Articles/63170/Least-Squares-Regression-for-Quadratic-Curve-Fitti</a></p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classLeastSquaresRegression.html#a5bfe5f2d56a0e4585102e95a752d17bf" title="Returns the coefficient of the x² term.">aTerm</a>, <a class="el" href="classLeastSquaresRegression.html#af8a14f97edfe06e9237df6cbf5a54330" title="Returns the coefficient of the x term.">bTerm</a>, <a class="el" href="classLeastSquaresRegression.html#aea2509a184bc43dc3bfcf114b4a80da7" title="Returns the constant term.">cTerm</a>, <a class="el" href="classLeastSquaresRegression.html#a7314973ea0d9b54e0071adf48ebefbd0" title="Returns the coefficient of determination (R²).">rSquare</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a853a9218262dfc2f4d2d99dc014ef15b" name="a853a9218262dfc2f4d2d99dc014ef15b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a853a9218262dfc2f4d2d99dc014ef15b">&#9670;&#160;</a></span>LeastSquaresRegression()</h2>
@@ -132,6 +166,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates an empty regression object. </p>
 
 </div>
 </div>
@@ -162,6 +198,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adds a data point to the regression. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The x coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>The y coordinate </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a672bba942baa8b2e81d8514b35942be8" name="a672bba942baa8b2e81d8514b35942be8"></a>
@@ -179,6 +224,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Adds a data point to the regression. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>The point to add </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -198,6 +251,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adds multiple data points to the regression. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points</td><td>Array of points to add </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a07db19bc6cc01dfbb5a7575cf6c0a01e" name="a07db19bc6cc01dfbb5a7575cf6c0a01e"></a>
@@ -214,6 +275,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes all data points. </p>
 
 </div>
 </div>
@@ -232,6 +295,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Checks if enough points have been added for valid regression. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if there are enough points to calculate the curve </dd></dl>
+
 </div>
 </div>
 <a id="abf24191eb2082ce8d82e98e847a4976e" name="abf24191eb2082ce8d82e98e847a4976e"></a>
@@ -248,6 +314,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns all three coefficients as an array. </p>
+<dl class="section return"><dt>Returns</dt><dd>Array containing [a, b, c] where y = ax² + bx + c </dd></dl>
 
 </div>
 </div>
@@ -266,6 +335,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the coefficient of the x² term. </p>
+<dl class="section return"><dt>Returns</dt><dd>The 'a' coefficient in y = ax² + bx + c </dd></dl>
+
 </div>
 </div>
 <a id="af8a14f97edfe06e9237df6cbf5a54330" name="af8a14f97edfe06e9237df6cbf5a54330"></a>
@@ -282,6 +354,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the coefficient of the x term. </p>
+<dl class="section return"><dt>Returns</dt><dd>The 'b' coefficient in y = ax² + bx + c </dd></dl>
 
 </div>
 </div>
@@ -300,6 +375,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the constant term. </p>
+<dl class="section return"><dt>Returns</dt><dd>The 'c' coefficient in y = ax² + bx + c </dd></dl>
+
 </div>
 </div>
 <a id="a7314973ea0d9b54e0071adf48ebefbd0" name="a7314973ea0d9b54e0071adf48ebefbd0"></a>
@@ -317,6 +395,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the coefficient of determination (R²). </p>
+<p>R² measures how well the curve fits the data, ranging from 0 to 1. Values closer to 1 indicate a better fit.</p>
+<dl class="section return"><dt>Returns</dt><dd>The R² value </dd></dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -325,7 +407,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 13 2025 12:58:26 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 13:15:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

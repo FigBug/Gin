@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A catenary is the shape a wire, cable, rope etc.  
+<p>Calculates the curve of a hanging cable (catenary).  
  <a href="classCatenary.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_catenary.h&gt;</code></p>
@@ -84,19 +84,28 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a28b6ec8aaf6dfdf75837416a83f42a51" id="r_a28b6ec8aaf6dfdf75837416a83f42a51"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCatenary.html#a28b6ec8aaf6dfdf75837416a83f42a51">Catenary</a> (float x0, float y0, float x1, float y1, float addLength, int numIterations=1)</td></tr>
+<tr class="memdesc:a28b6ec8aaf6dfdf75837416a83f42a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a catenary curve between two points.  <br /></td></tr>
 <tr class="separator:a28b6ec8aaf6dfdf75837416a83f42a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f4a079d0ceb258b248a6fbf56b3af7a" id="r_a6f4a079d0ceb258b248a6fbf56b3af7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCatenary.html#a6f4a079d0ceb258b248a6fbf56b3af7a">calculate</a> (float x0, float y0, float x1, float y1, float addLength, int numIterations=1)</td></tr>
+<tr class="memdesc:a6f4a079d0ceb258b248a6fbf56b3af7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates or recalculates the catenary curve between two points.  <br /></td></tr>
 <tr class="separator:a6f4a079d0ceb258b248a6fbf56b3af7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf11a4f00570edce43f30e9512b7f1e4" id="r_abf11a4f00570edce43f30e9512b7f1e4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCatenary.html#abf11a4f00570edce43f30e9512b7f1e4">calcY</a> (float x) const</td></tr>
-<tr class="memdesc:abf11a4f00570edce43f30e9512b7f1e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">determine the y pos for a given x.  <br /></td></tr>
+<tr class="memdesc:abf11a4f00570edce43f30e9512b7f1e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the y coordinate for a given x position on the catenary curve.  <br /></td></tr>
 <tr class="separator:abf11a4f00570edce43f30e9512b7f1e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c19a9269b72f4b2555834c8be3e16d9" id="r_a7c19a9269b72f4b2555834c8be3e16d9"><td class="memItemLeft" align="right" valign="top">std::pair&lt; float, float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCatenary.html#a7c19a9269b72f4b2555834c8be3e16d9">getVertex</a> () const</td></tr>
-<tr class="memdesc:a7c19a9269b72f4b2555834c8be3e16d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">get curve vertex = lowest point  <br /></td></tr>
+<tr class="memdesc:a7c19a9269b72f4b2555834c8be3e16d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the vertex (lowest point) of the catenary curve.  <br /></td></tr>
 <tr class="separator:a7c19a9269b72f4b2555834c8be3e16d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A catenary is the shape a wire, cable, rope etc. </p>
-<p>makes when it hangs. Useful for drawing modular synths. </p>
+<div class="textblock"><p>Calculates the curve of a hanging cable (catenary). </p>
+<p>A catenary is the natural curve formed by a cable, rope, or chain hanging between two points under its own weight. This class calculates the mathematical catenary curve and provides methods to query points along it.</p>
+<p>Common uses:</p><ul>
+<li>Drawing realistic cable connections in modular synthesizer UIs</li>
+<li>Visualizing hanging wires, chains, or ropes</li>
+<li>Creating natural-looking curves between two points</li>
+</ul>
+<p>The curve is defined by two endpoints and the additional length of cable beyond the straight-line distance between the points.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCatenary.html#a6f4a079d0ceb258b248a6fbf56b3af7a" title="Calculates or recalculates the catenary curve between two points.">calculate</a>, <a class="el" href="classCatenary.html#abf11a4f00570edce43f30e9512b7f1e4" title="Calculates the y coordinate for a given x position on the catenary curve.">calcY</a>, <a class="el" href="classCatenary.html#a7c19a9269b72f4b2555834c8be3e16d9" title="Returns the vertex (lowest point) of the catenary curve.">getVertex</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a28b6ec8aaf6dfdf75837416a83f42a51" name="a28b6ec8aaf6dfdf75837416a83f42a51"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a28b6ec8aaf6dfdf75837416a83f42a51">&#9670;&#160;</a></span>Catenary()</h2>
@@ -147,6 +156,19 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a catenary curve between two points. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x0</td><td>X coordinate of the first endpoint </td></tr>
+    <tr><td class="paramname">y0</td><td>Y coordinate of the first endpoint </td></tr>
+    <tr><td class="paramname">x1</td><td>X coordinate of the second endpoint </td></tr>
+    <tr><td class="paramname">y1</td><td>Y coordinate of the second endpoint </td></tr>
+    <tr><td class="paramname">addLength</td><td>Additional cable length beyond the straight-line distance </td></tr>
+    <tr><td class="paramname">numIterations</td><td>Number of Newton-Raphson iterations for precision (default: 1) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">References <a class="el" href="classCatenary.html#a6f4a079d0ceb258b248a6fbf56b3af7a">calculate()</a>.</p>
 
@@ -203,6 +225,20 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Calculates or recalculates the catenary curve between two points. </p>
+<p>The addLength parameter determines how much "slack" the cable has. A value of 0 would be a straight line (impossible for a real cable). Larger values create more pronounced sag.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x0</td><td>X coordinate of the first endpoint </td></tr>
+    <tr><td class="paramname">y0</td><td>Y coordinate of the first endpoint </td></tr>
+    <tr><td class="paramname">x1</td><td>X coordinate of the second endpoint </td></tr>
+    <tr><td class="paramname">y1</td><td>Y coordinate of the second endpoint </td></tr>
+    <tr><td class="paramname">addLength</td><td>Additional cable length beyond the straight-line distance (must be &gt; 0) </td></tr>
+    <tr><td class="paramname">numIterations</td><td>Number of Newton-Raphson iterations for precision (default: 1) </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="reference">Referenced by <a class="el" href="classCatenary.html#a28b6ec8aaf6dfdf75837416a83f42a51">Catenary()</a>.</p>
 
 </div>
@@ -223,7 +259,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>determine the y pos for a given x. </p>
+<p>Calculates the y coordinate for a given x position on the catenary curve. </p>
+<p>Use this to sample points along the curve for drawing.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The x coordinate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The y coordinate at that x position </dd></dl>
 
 </div>
 </div>
@@ -242,7 +286,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>get curve vertex = lowest point </p>
+<p>Returns the vertex (lowest point) of the catenary curve. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pair containing (x, y) coordinates of the vertex </dd></dl>
 
 </div>
 </div>
@@ -252,7 +297,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 13 2025 12:58:26 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 13:15:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

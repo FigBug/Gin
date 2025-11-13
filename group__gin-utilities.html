@@ -106,10 +106,10 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the integral of a function defined by a series of points.  <a href="classIntegrator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeastSquaresRegression.html">LeastSquaresRegression</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a href="https://www.codeproject.com/Articles/63170/Least-Squares-Regression-for-Quadratic-Curve-Fitti">https://www.codeproject.com/Articles/63170/Least-Squares-Regression-for-Quadratic-Curve-Fitti</a> for original code.  <a href="classLeastSquaresRegression.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs least squares regression to fit a quadratic curve to data points.  <a href="classLeastSquaresRegression.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearRegression.html">LinearRegression</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates linear regression from a set of points.  <a href="classLinearRegression.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs linear regression to fit a straight line to data points.  <a href="classLinearRegression.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessagePack.html">MessagePack</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts between <a class="el" href="classMessagePack.html" title="Converts between MessagePack binary format and juce::var.">MessagePack</a> binary format and juce::var.  <a href="classMessagePack.html#details">More...</a><br /></td></tr>
@@ -147,13 +147,13 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple RAII-based time profiler for measuring execution duration.  <a href="classTimeProfiler.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeObject.html">ValueTreeObject</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mirrors a ValueTree in Objects.  <a href="classValueTreeObject.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maintains an object hierarchy that mirrors a ValueTree structure.  <a href="classValueTreeObject.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLambdaValueTreeListener.html">LambdaValueTreeListener</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Listen to value tree changes with std::function&lt;&gt;  <a href="classLambdaValueTreeListener.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Listens to ValueTree changes using lambda functions instead of virtual methods.  <a href="classLambdaValueTreeListener.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAsyncLambdaValueTreeListener.html">AsyncLambdaValueTreeListener</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Listen to value tree changes with std::function&lt;&gt;, but Async.  <a href="classAsyncLambdaValueTreeListener.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronous ValueTree listener using lambda functions.  <a href="classAsyncLambdaValueTreeListener.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -306,8 +306,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:gaebf910d77d287573a8f98f51c67f8d48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats a number as a string with appropriate decimal precision.  <br /></td></tr>
 <tr class="separator:gaebf910d77d287573a8f98f51c67f8d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac8809f5a07d326dc76f18d09bd99db9d" id="r_gac8809f5a07d326dc76f18d09bd99db9d"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#gac8809f5a07d326dc76f18d09bd99db9d">valueTreeToJSON</a> (const juce::ValueTree &amp;v)</td></tr>
+<tr class="memdesc:gac8809f5a07d326dc76f18d09bd99db9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a ValueTree to a JSON string representation.  <br /></td></tr>
 <tr class="separator:gac8809f5a07d326dc76f18d09bd99db9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga88f482bf81fb3e423fa1e3926dfaa9a6" id="r_ga88f482bf81fb3e423fa1e3926dfaa9a6"><td class="memItemLeft" align="right" valign="top">juce::ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#ga88f482bf81fb3e423fa1e3926dfaa9a6">valueTreeFromJSON</a> (const juce::String &amp;jsonText)</td></tr>
+<tr class="memdesc:ga88f482bf81fb3e423fa1e3926dfaa9a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a JSON string and creates a ValueTree from it.  <br /></td></tr>
 <tr class="separator:ga88f482bf81fb3e423fa1e3926dfaa9a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -1610,6 +1612,16 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Converts a ValueTree to a JSON string representation. </p>
+<p>Serializes the entire ValueTree structure (including all properties and children) into JSON format. This is useful for saving, transmitting, or debugging ValueTree data.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>The ValueTree to convert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A JSON string representing the ValueTree </dd></dl>
+
 </div>
 </div>
 <a id="ga88f482bf81fb3e423fa1e3926dfaa9a6" name="ga88f482bf81fb3e423fa1e3926dfaa9a6"></a>
@@ -1628,12 +1640,22 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Parses a JSON string and creates a ValueTree from it. </p>
+<p>The JSON must have been created by <a class="el" href="group__gin-utilities.html#gac8809f5a07d326dc76f18d09bd99db9d" title="Converts a ValueTree to a JSON string representation.">valueTreeToJSON()</a> or follow the same format. This reconstructs the entire ValueTree structure from the JSON representation.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jsonText</td><td>The JSON string to parse </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A ValueTree reconstructed from the JSON </dd></dl>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 13 2025 12:58:26 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 13:15:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

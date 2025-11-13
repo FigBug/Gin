@@ -79,23 +79,24 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCatenary.html">Catenary</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A catenary is the shape a wire, cable, rope etc.  <a href="classCatenary.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the curve of a hanging cable (catenary).  <a href="classCatenary.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEllipse.html">Ellipse&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equations to calculate the shape of an ellipse and to calculate points on the edge of the ellipse and to see if points are inside or outside.  <a href="classEllipse.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPolygon.html">Polygon&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classPolygon.html" title="Polygon with multiple points.">Polygon</a> with multiple points.  <a href="classPolygon.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple polygon defined by a series of points.  <a href="classPolygon.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga1c4cf92c230b2e375db8d832d07ec041" id="r_ga1c4cf92c230b2e375db8d832d07ec041"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ga1c4cf92c230b2e375db8d832d07ec041"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__gin-geometry.html#ga1c4cf92c230b2e375db8d832d07ec041">square</a> (T in)</td></tr>
+<tr class="memdesc:ga1c4cf92c230b2e375db8d832d07ec041"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the square of a value.  <br /></td></tr>
 <tr class="separator:ga1c4cf92c230b2e375db8d832d07ec041"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga97bafa72f9f8ecdba9b839ecdb3db767" id="r_ga97bafa72f9f8ecdba9b839ecdb3db767"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ga97bafa72f9f8ecdba9b839ecdb3db767"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__gin-geometry.html#ga97bafa72f9f8ecdba9b839ecdb3db767">solveLine</a> (T x1, T y1, T x2, T y2, T &amp;m, T &amp;b)</td></tr>
-<tr class="memdesc:ga97bafa72f9f8ecdba9b839ecdb3db767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves for the slope and intercept of a line.  <br /></td></tr>
+<tr class="memdesc:ga97bafa72f9f8ecdba9b839ecdb3db767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves for the slope and intercept of a line given two points.  <br /></td></tr>
 <tr class="separator:ga97bafa72f9f8ecdba9b839ecdb3db767"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -117,6 +118,15 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the square of a value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">in</td><td>The value to square </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>in * in </dd></dl>
 
 </div>
 </div>
@@ -172,14 +182,27 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Solves for the slope and intercept of a line. </p>
+<p>Solves for the slope and intercept of a line given two points. </p>
+<p>Calculates m and b in the equation y = mx + b from two points on the line.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x1</td><td>X coordinate of the first point </td></tr>
+    <tr><td class="paramname">y1</td><td>Y coordinate of the first point </td></tr>
+    <tr><td class="paramname">x2</td><td>X coordinate of the second point </td></tr>
+    <tr><td class="paramname">y2</td><td>Y coordinate of the second point </td></tr>
+    <tr><td class="paramname">m</td><td>Output: the slope of the line </td></tr>
+    <tr><td class="paramname">b</td><td>Output: the y-intercept of the line </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the line could be solved (returns false for vertical lines) </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 13 2025 12:58:26 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 13:15:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
