@@ -46,7 +46,7 @@ void WavetableComponent::resized()
     repaint();
 }
 
-void WavetableComponent::setWavetables (juce::OwnedArray<BandLimitedLookupTable>* bllt_)
+void WavetableComponent::setWavetables (Wavetable* bllt_)
 {
     bllt = bllt_;
     needsUpdate = true;

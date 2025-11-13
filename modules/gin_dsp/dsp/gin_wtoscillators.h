@@ -392,7 +392,7 @@ public:
         }
     }
 
-    void setWavetable (juce::OwnedArray<BandLimitedLookupTable>* table);
+    void setWavetable (Wavetable* table);
 
     void setBlockDC (bool b) { blockDC = b; }
 
@@ -434,7 +434,7 @@ private:
         return phaseIn;
     }
 
-    juce::OwnedArray<BandLimitedLookupTable>* bllt = nullptr;
+    Wavetable* bllt = nullptr;
     double sampleRate = 44100.0;
     float phase = 0.0f;
     int tableIndex = 0;
@@ -527,11 +527,11 @@ public:
             oscillators.add (new WTOscillator());
     }
 
-    void setWavetable (juce::OwnedArray<BandLimitedLookupTable>* table)
+    void setWavetable (Wavetable* table)
     {
         for (auto o : oscillators)
             o->setWavetable (table);
     }
 };
 
-bool loadWavetables (juce::OwnedArray<BandLimitedLookupTable>& bllt, double playbackSampleRate, juce::AudioSampleBuffer& buffer, double fileSampleRate, int tableSize);
+bool loadWavetables (Wavetable& bllt, double playbackSampleRate, juce::AudioSampleBuffer& buffer, double fileSampleRate, int tableSize);

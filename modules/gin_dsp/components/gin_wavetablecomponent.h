@@ -26,7 +26,7 @@ public:
     void resized() override;
 
     void setParams (WTOscillator::Params params);
-    void setWavetables (juce::OwnedArray<BandLimitedLookupTable>*);
+    void setWavetables (Wavetable*);
 
     bool isInterestedInFileDrag (const juce::StringArray& files) override;
     void fileDragEnter (const juce::StringArray& files, int x, int y) override;
@@ -54,7 +54,7 @@ private:
     juce::Path createWavetablePathA (float pos, float s = 0.0f, float e = 1.0f);
     juce::Path createWavetablePathB (float pos, float s = 0.0f, float e = 1.0f);
 
-    juce::OwnedArray<BandLimitedLookupTable>* bllt = nullptr;
+    Wavetable* bllt = nullptr;
     WTOscillator::Params params;
     juce::Array<juce::Path> paths;
     bool needsUpdate = false;
