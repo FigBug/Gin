@@ -254,7 +254,7 @@ public:
 
         void addMenuItems(juce::PopupMenu& menu) override
         {
-            menu.addItem("Custom Action", [] { /* ... */ });
+            menu.addItem("Custom Action", [] { });
         }
     };
     @endcode
