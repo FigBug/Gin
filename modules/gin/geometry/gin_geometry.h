@@ -7,6 +7,11 @@
 
 #pragma once
 
+/** Returns the square of a value.
+
+    @param in  The value to square
+    @returns   in * in
+*/
 template <typename T>
 inline T square (T in)
 {
@@ -27,11 +32,21 @@ public:
     {
     }
 
-    /** Creates a ellipse with centred at (0,0) with a width and height. */
+    /** Creates an ellipse centred at (0,0) with the specified width and height.
+
+        @param a_  Half the width of the ellipse (semi-major axis if a > b)
+        @param b_  Half the height of the ellipse (semi-minor axis if b < a)
+    */
     Ellipse  (T a_, T b_) : a (a_), b (b_)
     {
     }
 
+    /** Checks if a point lies on the ellipse boundary.
+
+        @param pt        The point to test
+        @param accuracy  Tolerance for the test (default: 0.00001)
+        @returns         true if the point is on the ellipse within the given accuracy
+    */
     bool isPointOn (Point<T> pt, T accuracy = 0.00001)
     {
         pt.x -= x;
@@ -39,6 +54,11 @@ public:
         return std::abs (1.0 - (square (pt.getX()) / square (a) + square (pt.getY()) / square (b))) < accuracy;
     }
 
+    /** Checks if a point lies outside the ellipse.
+
+        @param pt  The point to test
+        @returns   true if the point is outside the ellipse
+    */
     bool isPointOutside (Point<T> pt)
     {
         pt.x -= x;
@@ -46,6 +66,11 @@ public:
         return (square (pt.getX()) / square (a) + square (pt.getY()) / square (b)) > 1.0;
     }
 
+    /** Checks if a point lies inside the ellipse.
+
+        @param pt  The point to test
+        @returns   true if the point is inside the ellipse
+    */
     bool isPointInside (Point<T> pt)
     {
         pt.x -= x;
@@ -53,6 +78,13 @@ public:
         return (square (pt.getX()) / square (a) + square (pt.getY()) / square (b)) < 1.0;
     }
 
+    /** Calculates the point on the ellipse at the specified angle.
+
+        The angle is measured from the positive x-axis, going counter-clockwise.
+
+        @param angle  The angle in radians
+        @returns      The point on the ellipse at that angle
+    */
     Point<T> pointAtAngle (T angle)
     {
         T px = (a * b) / ::std::sqrt (square (b) + square (a) * square (::std::tan (angle)));
@@ -77,8 +109,16 @@ public:
 
         return {px + x, py + y};
     }
-    
+
    #if JUCE_MODULE_AVAILABLE_juce_graphics
+    /** Finds the intersection points between the ellipse and a line segment.
+
+        Only available when juce_graphics module is present.
+
+        @param p1  First endpoint of the line segment
+        @param p2  Second endpoint of the line segment
+        @returns   Array of intersection points (0, 1, or 2 points)
+    */
     juce::Array<Point<T>> findIntersections (Point<T> p1, Point<T> p2)
     {
         juce::Array<Point<T>> res;
@@ -149,12 +189,22 @@ public:
     }
    #endif
 
-    T x = 0, y = 0;
-    T a = 0, b = 0;
+    T x = 0, y = 0;  /**< Centre coordinates of the ellipse */
+    T a = 0, b = 0;  /**< Semi-major and semi-minor axes (half width and height) */
 };
 
 //==============================================================================
-/** Solves for the slope and intercept of a line.
+/** Solves for the slope and intercept of a line given two points.
+
+    Calculates m and b in the equation y = mx + b from two points on the line.
+
+    @param x1  X coordinate of the first point
+    @param y1  Y coordinate of the first point
+    @param x2  X coordinate of the second point
+    @param y2  Y coordinate of the second point
+    @param m   Output: the slope of the line
+    @param b   Output: the y-intercept of the line
+    @returns   true if the line could be solved (returns false for vertical lines)
 */
 template <typename T>
 bool solveLine (T x1, T y1, T x2, T y2, T& m, T& b)
@@ -176,7 +226,15 @@ bool solveLine (T x1, T y1, T x2, T y2, T& m, T& b)
 }
 
 #if JUCE_MODULE_AVAILABLE_juce_graphics
-/** Solves for the slope and intercept of a line
+/** Solves for the slope and intercept of a juce::Line.
+
+    Only available when juce_graphics module is present.
+    Calculates m and b in the equation y = mx + b from the line.
+
+    @param l  The line to solve
+    @param m  Output: the slope of the line
+    @param b  Output: the y-intercept of the line
+    @returns  true if the line could be solved (returns false for vertical lines)
 */
 template <typename T>
 bool solveLine (const juce::Line<T>& l, T& m, T& b)
@@ -202,6 +260,14 @@ bool solveLine (const juce::Line<T>& l, T& m, T& b)
     }
 }
 
+/** Calculates the x coordinate for a given y value on a line.
+
+    Only available when juce_graphics module is present.
+
+    @param line  The line to evaluate
+    @param y     The y coordinate
+    @returns     The corresponding x coordinate
+*/
 template <typename T>
 T getXForY (const juce::Line<T> line, T y)
 {
@@ -223,10 +289,17 @@ T getXForY (const juce::Line<T> line, T y)
 
 #endif
 
-/** Polygon with multiple points */
+/** A simple polygon defined by a series of points.
+
+    This class represents a polygon as an ordered collection of points.
+    The points define the vertices of the polygon in sequence.
+
+    @see points
+*/
 template <typename T>
 class Polygon
 {
 public:
+    /** The array of points defining the polygon's vertices. */
     juce::Array<Point<T>>   points;
 };
