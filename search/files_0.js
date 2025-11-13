@@ -128,11 +128,12 @@ var searchData=
   ['gin_5fvaluetreeobject_2eh_125',['gin_valuetreeobject.h',['../gin__valuetreeobject_8h.html',1,'']]],
   ['gin_5fvaluetreeutilities_2eh_126',['gin_valuetreeutilities.h',['../gin__valuetreeutilities_8h.html',1,'']]],
   ['gin_5fwaveformcomponent_2eh_127',['gin_waveformcomponent.h',['../gin__waveformcomponent_8h.html',1,'']]],
-  ['gin_5fwavetablecomponent_2eh_128',['gin_wavetablecomponent.h',['../gin__wavetablecomponent_8h.html',1,'']]],
-  ['gin_5fwebpimageformat_2eh_129',['gin_webpimageformat.h',['../gin__webpimageformat_8h.html',1,'']]],
-  ['gin_5fwebsocket_2eh_130',['gin_websocket.h',['../gin__websocket_8h.html',1,'']]],
-  ['gin_5fwtoscillators_2eh_131',['gin_wtoscillators.h',['../gin__wtoscillators_8h.html',1,'']]],
-  ['gin_5fxmpmetadata_2eh_132',['gin_xmpmetadata.h',['../gin__xmpmetadata_8h.html',1,'']]],
-  ['gin_5fxyscope_2eh_133',['gin_xyscope.h',['../gin__xyscope_8h.html',1,'']]],
-  ['gui_2futilities_2fgin_5futil_2eh_134',['gin_util.h',['../gui_2utilities_2gin__util_8h.html',1,'']]]
+  ['gin_5fwavetable_2eh_128',['gin_wavetable.h',['../gin__wavetable_8h.html',1,'']]],
+  ['gin_5fwavetablecomponent_2eh_129',['gin_wavetablecomponent.h',['../gin__wavetablecomponent_8h.html',1,'']]],
+  ['gin_5fwebpimageformat_2eh_130',['gin_webpimageformat.h',['../gin__webpimageformat_8h.html',1,'']]],
+  ['gin_5fwebsocket_2eh_131',['gin_websocket.h',['../gin__websocket_8h.html',1,'']]],
+  ['gin_5fwtoscillators_2eh_132',['gin_wtoscillators.h',['../gin__wtoscillators_8h.html',1,'']]],
+  ['gin_5fxmpmetadata_2eh_133',['gin_xmpmetadata.h',['../gin__xmpmetadata_8h.html',1,'']]],
+  ['gin_5fxyscope_2eh_134',['gin_xyscope.h',['../gin__xyscope_8h.html',1,'']]],
+  ['gui_2futilities_2fgin_5futil_2eh_135',['gin_util.h',['../gui_2utilities_2gin__util_8h.html',1,'']]]
 ];

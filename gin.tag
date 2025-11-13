@@ -918,6 +918,12 @@
     <class kind="class">ValueSmoother</class>
   </compound>
   <compound kind="file">
+    <name>gin_wavetable.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__wavetable_8h.html</filename>
+    <class kind="class">Wavetable</class>
+  </compound>
+  <compound kind="file">
     <name>gin_wtoscillators.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__wtoscillators_8h.html</filename>
@@ -930,8 +936,8 @@
       <type>bool</type>
       <name>loadWavetables</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gac52374c731213a08657117a59c2828cd</anchor>
-      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; &amp;bllt, double playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, double fileSampleRate, int tableSize)</arglist>
+      <anchor>ga076fc8240a1dea59019d4bdb2a3ee49d</anchor>
+      <arglist>(Wavetable &amp;bllt, double playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, double fileSampleRate, int tableSize)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -17426,6 +17432,101 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>Wavetable</name>
+    <filename>classWavetable.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Wavetable</name>
+      <anchorfile>classWavetable.html</anchorfile>
+      <anchor>a752f4c379f15df9bbac4bd806abe6bc5</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addTable</name>
+      <anchorfile>classWavetable.html</anchorfile>
+      <anchor>acf208db9300291fcafa84c895c9cc02b</anchor>
+      <arglist>(BandLimitedLookupTable *table)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumTables</name>
+      <anchorfile>classWavetable.html</anchorfile>
+      <anchor>a88ea1cd1a1d7c0890f8de0a654ea17e1</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>BandLimitedLookupTable *</type>
+      <name>getTable</name>
+      <anchorfile>classWavetable.html</anchorfile>
+      <anchor>aad35c2be39461dcf10b1da5be244193b</anchor>
+      <arglist>(int index)</arglist>
+    </member>
+    <member kind="function">
+      <type>const BandLimitedLookupTable *</type>
+      <name>getTable</name>
+      <anchorfile>classWavetable.html</anchorfile>
+      <anchor>a906700097ea19621fa114e671fe4e3c1</anchor>
+      <arglist>(int index) const</arglist>
+    </member>
+    <member kind="function">
+      <type>BandLimitedLookupTable *</type>
+      <name>operator[]</name>
+      <anchorfile>classWavetable.html</anchorfile>
+      <anchor>a274f6509b48a9d327fc397266b9fe94b</anchor>
+      <arglist>(int index)</arglist>
+    </member>
+    <member kind="function">
+      <type>const BandLimitedLookupTable *</type>
+      <name>operator[]</name>
+      <anchorfile>classWavetable.html</anchorfile>
+      <anchor>a31b6818c8ad7967b4557cdb05da22eb7</anchor>
+      <arglist>(int index) const</arglist>
+    </member>
+    <member kind="function">
+      <type>BandLimitedLookupTable *</type>
+      <name>getUnchecked</name>
+      <anchorfile>classWavetable.html</anchorfile>
+      <anchor>a3ed8105a08f4fc25281b42d1ef7ec250</anchor>
+      <arglist>(int index)</arglist>
+    </member>
+    <member kind="function">
+      <type>const BandLimitedLookupTable *</type>
+      <name>getUnchecked</name>
+      <anchorfile>classWavetable.html</anchorfile>
+      <anchor>abeb25058fda1e8951d5c4e99cad2c5d2</anchor>
+      <arglist>(int index) const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>size</name>
+      <anchorfile>classWavetable.html</anchorfile>
+      <anchor>a02cc7fd884bc725a901cc9f6383c398b</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clear</name>
+      <anchorfile>classWavetable.html</anchorfile>
+      <anchor>a4301b768c08f0cc0cf9b32a283647aed</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>process</name>
+      <anchorfile>classWavetable.html</anchorfile>
+      <anchor>a6314e3f89e52297631c7e58ada22d885</anchor>
+      <arglist>(int tableIndex, float note, float phase)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>processLinear</name>
+      <anchorfile>classWavetable.html</anchorfile>
+      <anchor>a5fccb664a931d3f76e9840da89c57e52</anchor>
+      <arglist>(int tableIndex, float note, float phase)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>WavetableComponent</name>
     <filename>classWavetableComponent.html</filename>
     <member kind="enumeration">
@@ -17579,8 +17680,8 @@
       <type>void</type>
       <name>setWavetables</name>
       <anchorfile>classWavetableComponent.html</anchorfile>
-      <anchor>a6a92aab5da5b425a293342ee9bf08d80</anchor>
-      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; *)</arglist>
+      <anchor>ad56889026066d3ee4697ca29f4bf4078</anchor>
+      <arglist>(Wavetable *)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -18090,8 +18191,8 @@
       <type>void</type>
       <name>setWavetable</name>
       <anchorfile>classWTOscillator.html</anchorfile>
-      <anchor>ac2e96a58595de3370fe462b84f2732e0</anchor>
-      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; *table)</arglist>
+      <anchor>ad6df4a489e18da4550071e73203816d2</anchor>
+      <arglist>(Wavetable *table)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -18116,8 +18217,8 @@
       <type>void</type>
       <name>setWavetable</name>
       <anchorfile>classWTVoicedStereoOscillator.html</anchorfile>
-      <anchor>adb35dccb7539edd1e74d83eadee93eed</anchor>
-      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; *table)</arglist>
+      <anchor>ae6bd1cc1fb069080d74b03cf37dba27a</anchor>
+      <arglist>(Wavetable *table)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -18774,6 +18875,7 @@
     <class kind="class">Synthesiser</class>
     <class kind="class">TextRenderer</class>
     <class kind="class">ValueSmoother</class>
+    <class kind="class">Wavetable</class>
     <class kind="class">DCBlocker</class>
     <class kind="class">WTOscillator</class>
     <class kind="struct">WTOscillator::Params</class>
@@ -18932,8 +19034,8 @@
       <type>bool</type>
       <name>loadWavetables</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
-      <anchor>gac52374c731213a08657117a59c2828cd</anchor>
-      <arglist>(juce::OwnedArray&lt; BandLimitedLookupTable &gt; &amp;bllt, double playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, double fileSampleRate, int tableSize)</arglist>
+      <anchor>ga076fc8240a1dea59019d4bdb2a3ee49d</anchor>
+      <arglist>(Wavetable &amp;bllt, double playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, double fileSampleRate, int tableSize)</arglist>
     </member>
     <member kind="variable">
       <type>constexpr float</type>

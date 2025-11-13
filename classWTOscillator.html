@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Wavetable oscillator with interpolation and shaping options.  
+<p><a class="el" href="classWavetable.html" title="Wrapper around juce::OwnedArray&lt;BandLimitedLookupTable&gt; for managing multiple wavetables.">Wavetable</a> oscillator with interpolation and shaping options.  
  <a href="classWTOscillator.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_wtoscillators.h&gt;</code></p>
@@ -108,16 +108,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8a026f67b3df08a1944de460a4bbe0e1" id="r_a8a026f67b3df08a1944de460a4bbe0e1"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a8a026f67b3df08a1944de460a4bbe0e1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classWTOscillator.html#a8a026f67b3df08a1944de460a4bbe0e1">postProcess</a> (const <a class="el" href="structWTOscillator_1_1Params.html">Params</a> &amp;params, T &amp;v)</td></tr>
 <tr class="separator:a8a026f67b3df08a1944de460a4bbe0e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2e96a58595de3370fe462b84f2732e0" id="r_ac2e96a58595de3370fe462b84f2732e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWTOscillator.html#ac2e96a58595de3370fe462b84f2732e0">setWavetable</a> (juce::OwnedArray&lt; <a class="el" href="classBandLimitedLookupTable.html">BandLimitedLookupTable</a> &gt; *table)</td></tr>
-<tr class="separator:ac2e96a58595de3370fe462b84f2732e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6df4a489e18da4550071e73203816d2" id="r_ad6df4a489e18da4550071e73203816d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWTOscillator.html#ad6df4a489e18da4550071e73203816d2">setWavetable</a> (<a class="el" href="classWavetable.html">Wavetable</a> *table)</td></tr>
+<tr class="separator:ad6df4a489e18da4550071e73203816d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e53322ccf284221a86bf22b135a07ad" id="r_a5e53322ccf284221a86bf22b135a07ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWTOscillator.html#a5e53322ccf284221a86bf22b135a07ad">setBlockDC</a> (bool b)</td></tr>
 <tr class="separator:a5e53322ccf284221a86bf22b135a07ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Wavetable oscillator with interpolation and shaping options. </p>
+<div class="textblock"><p><a class="el" href="classWavetable.html" title="Wrapper around juce::OwnedArray&lt;BandLimitedLookupTable&gt; for managing multiple wavetables.">Wavetable</a> oscillator with interpolation and shaping options. </p>
 <p><a class="el" href="classWTOscillator.html" title="Wavetable oscillator with interpolation and shaping options.">WTOscillator</a> provides high-quality wavetable synthesis with support for table morphing, formant shifting, phase distortion (bend), and post-processing effects like asymmetry and wavefolding. It uses band-limited wavetables to avoid aliasing.</p>
 <p>Key Features:</p><ul>
-<li>Wavetable synthesis with linear interpolation</li>
+<li><a class="el" href="classWavetable.html" title="Wrapper around juce::OwnedArray&lt;BandLimitedLookupTable&gt; for managing multiple wavetables.">Wavetable</a> synthesis with linear interpolation</li>
 <li>Table position morphing for timbral variation</li>
 <li>Formant shifting (pitch-independent spectral shift)</li>
 <li>Phase distortion (bend parameter)</li>
@@ -126,7 +126,7 @@ Public Member Functions</h2></td></tr>
 <li>SIMD optimization where available</li>
 </ul>
 <p>Parameters (via <a class="el" href="structWTOscillator_1_1Params.html">Params</a> struct):</p><ul>
-<li>position: Wavetable position (0.0 to 1.0)</li>
+<li>position: <a class="el" href="classWavetable.html" title="Wrapper around juce::OwnedArray&lt;BandLimitedLookupTable&gt; for managing multiple wavetables.">Wavetable</a> position (0.0 to 1.0)</li>
 <li>bend: Phase distortion amount</li>
 <li>formant: Formant shift (pitch-independent frequency shift)</li>
 <li>asym: Asymmetry/waveshaping amount</li>
@@ -322,7 +322,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structWTOscillator_1_1Params.html#abef23350d10d65198a293119ced8bb9d">WTOscillator::Params::leftGain</a>, <a class="el" href="namespacemath.html#a3301207fd965d081143a0442ce2923e3">math::min()</a>, <a class="el" href="structWTOscillator_1_1Params.html#a89fbc9fd3f3cb250637b1be8d45f4d87">WTOscillator::Params::position</a>, <a class="el" href="classWTOscillator.html#a8a026f67b3df08a1944de460a4bbe0e1">postProcess()</a>, and <a class="el" href="structWTOscillator_1_1Params.html#a432702cbb02f4013a3915a03ca672c39">WTOscillator::Params::rightGain</a>.</p>
+<p class="reference">References <a class="el" href="classWavetable.html#a3ed8105a08f4fc25281b42d1ef7ec250">Wavetable::getUnchecked()</a>, <a class="el" href="structWTOscillator_1_1Params.html#abef23350d10d65198a293119ced8bb9d">WTOscillator::Params::leftGain</a>, <a class="el" href="namespacemath.html#a3301207fd965d081143a0442ce2923e3">math::min()</a>, <a class="el" href="structWTOscillator_1_1Params.html#a89fbc9fd3f3cb250637b1be8d45f4d87">WTOscillator::Params::position</a>, <a class="el" href="classWTOscillator.html#a8a026f67b3df08a1944de460a4bbe0e1">postProcess()</a>, <a class="el" href="structWTOscillator_1_1Params.html#a432702cbb02f4013a3915a03ca672c39">WTOscillator::Params::rightGain</a>, and <a class="el" href="classWavetable.html#a02cc7fd884bc725a901cc9f6383c398b">Wavetable::size()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classWTOscillator.html#aaa547794aafc04f582782983988b2651">processAdding()</a>.</p>
 
@@ -360,7 +360,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structWTOscillator_1_1Params.html#a1bb44ee47a18bb34bb4158461bf2889d">WTOscillator::Params::bend</a>, <a class="el" href="structWTOscillator_1_1Params.html#af6b36b4d5dd74c8bc17ca0c8671d42f2">WTOscillator::Params::formant</a>, <a class="el" href="structWTOscillator_1_1Params.html#abef23350d10d65198a293119ced8bb9d">WTOscillator::Params::leftGain</a>, <a class="el" href="namespacemath.html#a3301207fd965d081143a0442ce2923e3">math::min()</a>, <a class="el" href="structWTOscillator_1_1Params.html#a89fbc9fd3f3cb250637b1be8d45f4d87">WTOscillator::Params::position</a>, <a class="el" href="classWTOscillator.html#a8a026f67b3df08a1944de460a4bbe0e1">postProcess()</a>, and <a class="el" href="structWTOscillator_1_1Params.html#a432702cbb02f4013a3915a03ca672c39">WTOscillator::Params::rightGain</a>.</p>
+<p class="reference">References <a class="el" href="structWTOscillator_1_1Params.html#a1bb44ee47a18bb34bb4158461bf2889d">WTOscillator::Params::bend</a>, <a class="el" href="structWTOscillator_1_1Params.html#af6b36b4d5dd74c8bc17ca0c8671d42f2">WTOscillator::Params::formant</a>, <a class="el" href="classWavetable.html#a3ed8105a08f4fc25281b42d1ef7ec250">Wavetable::getUnchecked()</a>, <a class="el" href="structWTOscillator_1_1Params.html#abef23350d10d65198a293119ced8bb9d">WTOscillator::Params::leftGain</a>, <a class="el" href="namespacemath.html#a3301207fd965d081143a0442ce2923e3">math::min()</a>, <a class="el" href="structWTOscillator_1_1Params.html#a89fbc9fd3f3cb250637b1be8d45f4d87">WTOscillator::Params::position</a>, <a class="el" href="classWTOscillator.html#a8a026f67b3df08a1944de460a4bbe0e1">postProcess()</a>, <a class="el" href="structWTOscillator_1_1Params.html#a432702cbb02f4013a3915a03ca672c39">WTOscillator::Params::rightGain</a>, and <a class="el" href="classWavetable.html#a02cc7fd884bc725a901cc9f6383c398b">Wavetable::size()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classWTOscillator.html#aaa547794aafc04f582782983988b2651">processAdding()</a>.</p>
 
@@ -398,7 +398,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structWTOscillator_1_1Params.html#a1bb44ee47a18bb34bb4158461bf2889d">WTOscillator::Params::bend</a>, <a class="el" href="structWTOscillator_1_1Params.html#af6b36b4d5dd74c8bc17ca0c8671d42f2">WTOscillator::Params::formant</a>, <a class="el" href="structWTOscillator_1_1Params.html#abef23350d10d65198a293119ced8bb9d">WTOscillator::Params::leftGain</a>, <a class="el" href="namespacemath.html#a3301207fd965d081143a0442ce2923e3">math::min()</a>, <a class="el" href="structWTOscillator_1_1Params.html#a89fbc9fd3f3cb250637b1be8d45f4d87">WTOscillator::Params::position</a>, <a class="el" href="classWTOscillator.html#a8a026f67b3df08a1944de460a4bbe0e1">postProcess()</a>, and <a class="el" href="structWTOscillator_1_1Params.html#a432702cbb02f4013a3915a03ca672c39">WTOscillator::Params::rightGain</a>.</p>
+<p class="reference">References <a class="el" href="structWTOscillator_1_1Params.html#a1bb44ee47a18bb34bb4158461bf2889d">WTOscillator::Params::bend</a>, <a class="el" href="structWTOscillator_1_1Params.html#af6b36b4d5dd74c8bc17ca0c8671d42f2">WTOscillator::Params::formant</a>, <a class="el" href="classWavetable.html#a3ed8105a08f4fc25281b42d1ef7ec250">Wavetable::getUnchecked()</a>, <a class="el" href="structWTOscillator_1_1Params.html#abef23350d10d65198a293119ced8bb9d">WTOscillator::Params::leftGain</a>, <a class="el" href="namespacemath.html#a3301207fd965d081143a0442ce2923e3">math::min()</a>, <a class="el" href="structWTOscillator_1_1Params.html#a89fbc9fd3f3cb250637b1be8d45f4d87">WTOscillator::Params::position</a>, <a class="el" href="classWTOscillator.html#a8a026f67b3df08a1944de460a4bbe0e1">postProcess()</a>, <a class="el" href="structWTOscillator_1_1Params.html#a432702cbb02f4013a3915a03ca672c39">WTOscillator::Params::rightGain</a>, and <a class="el" href="classWavetable.html#a02cc7fd884bc725a901cc9f6383c398b">Wavetable::size()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classWTOscillator.html#aaa547794aafc04f582782983988b2651">processAdding()</a>.</p>
 
@@ -438,8 +438,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ac2e96a58595de3370fe462b84f2732e0" name="ac2e96a58595de3370fe462b84f2732e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2e96a58595de3370fe462b84f2732e0">&#9670;&#160;</a></span>setWavetable()</h2>
+<a id="ad6df4a489e18da4550071e73203816d2" name="ad6df4a489e18da4550071e73203816d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6df4a489e18da4550071e73203816d2">&#9670;&#160;</a></span>setWavetable()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -447,7 +447,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void WTOscillator::setWavetable </td>
           <td>(</td>
-          <td class="paramtype">juce::OwnedArray&lt; <a class="el" href="classBandLimitedLookupTable.html">BandLimitedLookupTable</a> &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="classWavetable.html">Wavetable</a> *&#160;</td>
           <td class="paramname"><em>table</em></td><td>)</td>
           <td></td>
         </tr>
@@ -480,7 +480,7 @@ template&lt;typename T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 13 2025 13:15:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 13:23:58 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

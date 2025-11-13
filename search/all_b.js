@@ -47,7 +47,7 @@ var searchData=
   ['loadfromfile_44',['loadFromFile',['../classProgram.html#a57fe788b51aeada66d4cfc8a927be78b',1,'Program']]],
   ['loadingstate_45',['loadingState',['../classProcessor.html#ab4a632bd0b8edcb74957e4c6d7fd3207',1,'Processor']]],
   ['loadprocessor_46',['loadProcessor',['../classProgram.html#a8ece34e8c3ec235007a4dfe53178207c',1,'Program']]],
-  ['loadwavetables_47',['loadWavetables',['../group__gin__dsp-dsp.html#gac52374c731213a08657117a59c2828cd',1,'gin_wtoscillators.h']]],
+  ['loadwavetables_47',['loadWavetables',['../group__gin__dsp-dsp.html#ga076fc8240a1dea59019d4bdb2a3ee49d',1,'gin_wtoscillators.h']]],
   ['location_48',['location',['../structLocationManager_1_1Location.html',1,'LocationManager::Location'],['../group__gin__location-location.html',1,'location']]],
   ['locationchanged_49',['locationChanged',['../classLocationManager_1_1Listener.html#ae62d44de083e85d30933c030945765cb',1,'LocationManager::Listener']]],
   ['locationmanager_50',['locationmanager',['../classLocationManager.html#a1c55344991005582a34274f18ce7c14b',1,'LocationManager::LocationManager()'],['../classLocationManager.html',1,'LocationManager']]],

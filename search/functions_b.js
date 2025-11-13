@@ -21,7 +21,7 @@ var searchData=
   ['loadfrombuffer_18',['loadfrombuffer',['../classBandLimitedLookupTable.html#a4b8fa24e3f5588a10420bf0ea6f8b027',1,'BandLimitedLookupTable::loadFromBuffer(std::unique_ptr&lt; juce::dsp::FFT &gt; &amp;fft, float playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, float fileSampleRate, int notesPerTable)'],['../classBandLimitedLookupTable.html#a8a2c7f4a6c07f1ffcdb115d223854d9a',1,'BandLimitedLookupTable::loadFromBuffer(float playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, float fileSampleRate, float fileFreq, int notesPerTable)']]],
   ['loadfromfile_19',['loadFromFile',['../classProgram.html#a57fe788b51aeada66d4cfc8a927be78b',1,'Program']]],
   ['loadprocessor_20',['loadProcessor',['../classProgram.html#a8ece34e8c3ec235007a4dfe53178207c',1,'Program']]],
-  ['loadwavetables_21',['loadWavetables',['../group__gin__dsp-dsp.html#gac52374c731213a08657117a59c2828cd',1,'gin_wtoscillators.h']]],
+  ['loadwavetables_21',['loadWavetables',['../group__gin__dsp-dsp.html#ga076fc8240a1dea59019d4bdb2a3ee49d',1,'gin_wtoscillators.h']]],
   ['locationchanged_22',['locationChanged',['../classLocationManager_1_1Listener.html#ae62d44de083e85d30933c030945765cb',1,'LocationManager::Listener']]],
   ['locationmanager_23',['LocationManager',['../classLocationManager.html#a1c55344991005582a34274f18ce7c14b',1,'LocationManager']]],
   ['lock_24',['lock',['../classSystemSemaphore.html#a732fd5e497ace0769fce68aa9fe53764',1,'SystemSemaphore']]],
