@@ -8,7 +8,12 @@
 #pragma once
 
 //==============================================================================
-/** Check a bool, it's set, clear and return true */
+/** Checks if a boolean flag is set, and if so, clears it and returns true.
+    This is useful for handling one-shot flags that need to be checked and reset atomically.
+
+    @param flag  The boolean flag to check and reset
+    @returns     true if the flag was set (and has now been cleared), false if it was already clear
+*/
 inline bool compareAndReset (bool& flag)
 {
     if (flag)
@@ -19,7 +24,14 @@ inline bool compareAndReset (bool& flag)
     return false;
 }
 
-/** Get RMS */
+/** Calculates the Root Mean Square (RMS) of an array of values.
+    RMS is the square root of the mean of the squares of the values, commonly used
+    to measure the magnitude of a varying signal.
+
+    @param values  Pointer to an array of float values
+    @param n       Number of values in the array
+    @returns       The RMS value
+*/
 inline float calculateRMS (const float* values, int n)
 {
     float rms = 0;
@@ -30,7 +42,14 @@ inline float calculateRMS (const float* values, int n)
     return std::sqrt ((1.0f / float ( n )) * rms);
 }
 
-/** Get average */
+/** Calculates the median value of an array of values.
+    The median is the middle value when the values are sorted. For an even number
+    of values, it returns the average of the two middle values.
+
+    @param values  Pointer to an array of float values
+    @param n       Number of values in the array
+    @returns       The median value
+*/
 inline float calculateMedian (const float* values, int n)
 {
     juce::Array<float> f;
@@ -44,8 +63,13 @@ inline float calculateMedian (const float* values, int n)
 }
 
 //==============================================================================
-/** Fisher-Yates Shuffle for juce::Array
- */
+/** Randomly shuffles the elements of an array using the Fisher-Yates algorithm.
+    This produces an unbiased random permutation where each possible ordering
+    has equal probability of occurring.
+
+    @param r      Reference to a juce::Random object used for generating random indices
+    @param array  The array to shuffle (must support size() and swap() methods)
+*/
 template <typename T>
 void shuffleArray (juce::Random& r, T& array)
 {
@@ -58,15 +82,22 @@ void shuffleArray (juce::Random& r, T& array)
 }
 
 //==============================================================================
-/**
- Perlin noise - realistic looking noise
- Based on reference implementation of Perlin Noise by Ken Perlin
- http://mrl.nyu.edu/~perlin/paper445.pdf
- */
+/** Generates Perlin noise - a type of gradient noise with natural-looking characteristics.
+
+    Perlin noise is widely used in procedural generation for creating textures, terrain,
+    and other organic-looking random variations. It produces smooth, coherent noise with
+    controllable frequency and amplitude.
+
+    Based on the reference implementation by Ken Perlin.
+    See: http://mrl.nyu.edu/~perlin/paper445.pdf
+
+    @see noise
+*/
 template <class T>
 class PerlinNoise
 {
 public:
+    /** Creates a PerlinNoise generator with the default permutation table. */
     PerlinNoise()
     {
         p = { 151,160,137,91,90,15,131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,
@@ -86,6 +117,10 @@ public:
             p.add (p[i]);
     }
 
+    /** Creates a PerlinNoise generator with a randomized permutation table.
+
+        @param seed  The random seed used to generate the permutation table
+    */
     PerlinNoise (unsigned int seed)
     {
         juce::Random r (seed);
@@ -99,6 +134,13 @@ public:
             p.add (p[i]);
     }
 
+    /** Generates a Perlin noise value at the specified coordinates.
+
+        @param x  The x coordinate
+        @param y  The y coordinate (defaults to 0 for 1D or 2D noise)
+        @param z  The z coordinate (defaults to 0 for 1D or 2D noise)
+        @returns  A noise value in the range [0, 1]
+    */
     T noise (T x, T y = 0, T z = 0)
     {
         jassert (p.size() == 512);
@@ -157,26 +199,50 @@ private:
 };
 
 //==============================================================================
-/** Keeps a rolling average of a series of numbers
- */
+/** Maintains a rolling average of a series of numbers.
+
+    This class computes a running average that incorporates new values while maintaining
+    a weighted influence from previous values. Useful for smoothing time-series data.
+
+    @see average, getAverage, setAverage
+*/
 class RollingAverage
 {
 public:
+    /** Creates a RollingAverage with the specified weighting factor.
+
+        @param numVals_  The number of values to weight the current average by when
+                         incorporating new values. Higher values give more weight to
+                         the existing average.
+    */
     RollingAverage (int numVals_)
       : numVals (numVals_)
     {
     }
 
+    /** Updates the rolling average with a new value and returns the new average.
+
+        @param nextValue  The new value to incorporate into the average
+        @returns          The updated rolling average
+    */
     double average (double nextValue)
     {
         return (nextValue + numVals * currAvg) / (double)(numVals + 1);
     }
 
+    /** Returns the current rolling average value.
+
+        @returns  The current average
+    */
     double getAverage()
     {
         return currAvg;
     }
 
+    /** Sets the current rolling average to a specific value.
+
+        @param avg  The new average value
+    */
     void setAverage (double avg)
     {
         currAvg = avg;
@@ -188,14 +254,31 @@ private:
 };
 
 //==============================================================================
-/** Time Profiler -- get a quick idea how long something takes
-  */
+/** A simple RAII-based time profiler for measuring execution duration.
+
+    Create an instance at the start of a scope to measure how long that scope takes
+    to execute. When the instance is destroyed, it prints the elapsed time to the
+    debug console.
+
+    Example usage:
+    @code
+    {
+        TimeProfiler timer ("MyFunction");
+        // ... code to profile ...
+    } // Prints "MyFunction 1.23s" to debug output
+    @endcode
+*/
 class TimeProfiler
 {
 public:
+    /** Creates a TimeProfiler with the specified name.
+
+        @param name_  The name to display in the debug output
+    */
     TimeProfiler (const juce::String& name_) :
     name (name_), start (juce::Time::getMillisecondCounterHiRes()) {}
 
+    /** Destructor that outputs the elapsed time to the debug console. */
     ~TimeProfiler()
     {
         DBG (name + juce::String::formatted (" %.2fs", (juce::Time::getMillisecondCounterHiRes() - start) / 1000.0));
@@ -206,12 +289,40 @@ private:
     double start;
 };
 
+/** Converts a version string to an integer for comparison purposes.
+
+    Parses version strings in the format "major.minor.patch" and converts them
+    to a single integer value that can be compared numerically.
+
+    @param versionString  The version string to convert (e.g., "1.2.3")
+    @returns              An integer representation of the version
+*/
 int versionStringToInt (const juce::String& versionString);
 
 //==============================================================================
-/** Do a lambda, a bit later */
+/** Executes a lambda function after a specified delay.
+
+    The callback will be executed on the message thread after the specified delay.
+    This is useful for deferred execution of code that needs to run later.
+
+    @param callback  The function to execute after the delay
+    @param delayMS   The delay in milliseconds before executing the callback
+*/
 void delayedLambda (std::function<void ()> callback, int delayMS);
 
+/** Formats a number as a string with appropriate decimal precision.
+
+    Automatically chooses the number of decimal places based on the magnitude
+    of the value:
+    - Values >= 10: No decimal places (rounded to integer)
+    - Values >= 1: 1 decimal place
+    - Values >= 0.1: 2 decimal places
+    - Values < 0.1: 3 decimal places
+    - Values approximately equal to 0: Returns "0"
+
+    @param v  The numeric value to format
+    @returns  A formatted string representation of the number
+*/
 template <typename T>
 juce::String formatNumber (T v)
 {
