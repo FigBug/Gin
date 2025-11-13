@@ -76,6 +76,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Simple gain processor with ramping to avoid discontinuities.  
+ <a href="classGainProcessor.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_audioutil.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -87,7 +90,30 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a02622b9c864ef8b8534e87d242e6ba2b" id="r_a02622b9c864ef8b8534e87d242e6ba2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGainProcessor.html#a02622b9c864ef8b8534e87d242e6ba2b">process</a> (juce::AudioSampleBuffer &amp;buffer)</td></tr>
 <tr class="separator:a02622b9c864ef8b8534e87d242e6ba2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Simple gain processor with ramping to avoid discontinuities. </p>
+<p><a class="el" href="classGainProcessor.html" title="Simple gain processor with ramping to avoid discontinuities.">GainProcessor</a> applies gain to an audio buffer with automatic ramping between gain values to prevent clicks and pops. It maintains the previous gain value and applies a linear ramp when the gain changes.</p>
+<p>Key Features:</p><ul>
+<li>Automatic gain ramping (click-free)</li>
+<li>Lightweight and efficient</li>
+<li>Stateful (remembers last gain)</li>
+<li>Reset method for voice restarts</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classGainProcessor.html">GainProcessor</a> gainProc;</div>
+<div class="line">gainProc.<a class="code hl_function" href="classGainProcessor.html#a4592a4fb49ec498380748764a879b523">setGain</a>(0.5f); <span class="comment">// Set to 50% volume</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// In audio callback</span></div>
+<div class="line">gainProc.<a class="code hl_function" href="classGainProcessor.html#a02622b9c864ef8b8534e87d242e6ba2b">process</a>(audioBuffer); <span class="comment">// Applies gain with ramping</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// When starting a new voice/note</span></div>
+<div class="line">gainProc.<a class="code hl_function" href="classGainProcessor.html#a2210200aa0c57cb9fe8182d160c1326a">reset</a>(); <span class="comment">// Snap to current gain without ramping</span></div>
+<div class="ttc" id="aclassGainProcessor_html"><div class="ttname"><a href="classGainProcessor.html">GainProcessor</a></div><div class="ttdoc">Simple gain processor with ramping to avoid discontinuities.</div><div class="ttdef"><b>Definition</b> gin_audioutil.h:89</div></div>
+<div class="ttc" id="aclassGainProcessor_html_a02622b9c864ef8b8534e87d242e6ba2b"><div class="ttname"><a href="classGainProcessor.html#a02622b9c864ef8b8534e87d242e6ba2b">GainProcessor::process</a></div><div class="ttdeci">void process(juce::AudioSampleBuffer &amp;buffer)</div><div class="ttdef"><b>Definition</b> gin_audioutil.h:94</div></div>
+<div class="ttc" id="aclassGainProcessor_html_a2210200aa0c57cb9fe8182d160c1326a"><div class="ttname"><a href="classGainProcessor.html#a2210200aa0c57cb9fe8182d160c1326a">GainProcessor::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdef"><b>Definition</b> gin_audioutil.h:92</div></div>
+<div class="ttc" id="aclassGainProcessor_html_a4592a4fb49ec498380748764a879b523"><div class="ttname"><a href="classGainProcessor.html#a4592a4fb49ec498380748764a879b523">GainProcessor::setGain</a></div><div class="ttdeci">void setGain(float g)</div><div class="ttdef"><b>Definition</b> gin_audioutil.h:91</div></div>
+</div><!-- fragment --><p>Note: Gain ramping occurs over the entire buffer length. For longer buffers, this provides smoother transitions. For per-sample control, consider juce::LinearSmoothedValue instead.</p>
+<dl class="section see"><dt>See also</dt><dd>juce::LinearSmoothedValue, <a class="el" href="group__gin__dsp-dsp.html#gaea524d06c0f9a97e215fafc7e997cc0b">applyGain</a> </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a4592a4fb49ec498380748764a879b523" name="a4592a4fb49ec498380748764a879b523"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4592a4fb49ec498380748764a879b523">&#9670;&#160;</a></span>setGain()</h2>
 
@@ -147,7 +173,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 31 2025 03:46:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 08:02:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

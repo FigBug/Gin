@@ -76,6 +76,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>DC blocking filter (high-pass filter) to remove DC offset.  
+ <a href="classDCBlocker.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_wtoscillators.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -93,7 +96,28 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1cbb918506de378d9d1960cf86f25f88" id="r_a1cbb918506de378d9d1960cf86f25f88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDCBlocker.html#a1cbb918506de378d9d1960cf86f25f88">reset</a> ()</td></tr>
 <tr class="separator:a1cbb918506de378d9d1960cf86f25f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>DC blocking filter (high-pass filter) to remove DC offset. </p>
+<p><a class="el" href="classDCBlocker.html" title="DC blocking filter (high-pass filter) to remove DC offset.">DCBlocker</a> implements a simple first-order high-pass filter to remove DC offset from audio signals. This is useful after certain DSP operations (like waveshaping or oscillators) that may introduce DC bias.</p>
+<p>Key Features:</p><ul>
+<li>Configurable cutoff frequency (default 10 Hz)</li>
+<li>First-order IIR filter</li>
+<li>Very low CPU usage</li>
+<li>Reset for clearing filter state</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classDCBlocker.html">DCBlocker</a> blocker;</div>
+<div class="line">blocker.<a class="code hl_function" href="classDCBlocker.html#a00242050a332bb6f0c5c243f3e129b3d">setSampleRate</a>(44100.0f);</div>
+<div class="line">blocker.<a class="code hl_function" href="classDCBlocker.html#ad52e973fd3158f1c9927f44f463aedbe">setCutoff</a>(10.0f); <span class="comment">// Block below 10 Hz</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Per-sample processing</span></div>
+<div class="line"><span class="keywordtype">float</span> output = blocker.<a class="code hl_function" href="classDCBlocker.html#a530886a5865ef7d8d203cb664410ee14">process</a>(input);</div>
+<div class="ttc" id="aclassDCBlocker_html"><div class="ttname"><a href="classDCBlocker.html">DCBlocker</a></div><div class="ttdoc">DC blocking filter (high-pass filter) to remove DC offset.</div><div class="ttdef"><b>Definition</b> gin_wtoscillators.h:43</div></div>
+<div class="ttc" id="aclassDCBlocker_html_a00242050a332bb6f0c5c243f3e129b3d"><div class="ttname"><a href="classDCBlocker.html#a00242050a332bb6f0c5c243f3e129b3d">DCBlocker::setSampleRate</a></div><div class="ttdeci">void setSampleRate(float sampleRate_)</div><div class="ttdef"><b>Definition</b> gin_wtoscillators.h:48</div></div>
+<div class="ttc" id="aclassDCBlocker_html_a530886a5865ef7d8d203cb664410ee14"><div class="ttname"><a href="classDCBlocker.html#a530886a5865ef7d8d203cb664410ee14">DCBlocker::process</a></div><div class="ttdeci">float process(float x)</div><div class="ttdef"><b>Definition</b> gin_wtoscillators.h:60</div></div>
+<div class="ttc" id="aclassDCBlocker_html_ad52e973fd3158f1c9927f44f463aedbe"><div class="ttname"><a href="classDCBlocker.html#ad52e973fd3158f1c9927f44f463aedbe">DCBlocker::setCutoff</a></div><div class="ttdeci">void setCutoff(float cutoff_)</div><div class="ttdef"><b>Definition</b> gin_wtoscillators.h:54</div></div>
+</div><!-- fragment --><p>Note: This is a per-sample filter. For stereo, use two instances.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classWTOscillator.html" title="Wavetable oscillator with interpolation and shaping options.">WTOscillator</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1521bfdb75baad91183650113e9e7d9e" name="a1521bfdb75baad91183650113e9e7d9e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1521bfdb75baad91183650113e9e7d9e">&#9670;&#160;</a></span>DCBlocker()</h2>
 
@@ -212,7 +236,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 31 2025 03:46:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 08:02:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

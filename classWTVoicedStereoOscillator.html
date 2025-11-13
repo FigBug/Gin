@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Stereo Wavetable Oscillator with multiples voices, pan, spread, detune, etc.  
+<p>Stereo wavetable oscillator with multiple voices for unison/detuning effects.  
  <a href="classWTVoicedStereoOscillator.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_wtoscillators.h&gt;</code></p>
@@ -113,7 +113,39 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a2b43a2c3228e8719d3d2a11d5d349b11 inherit pro_attribs_classVoicedStereoOscillator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Stereo Wavetable Oscillator with multiples voices, pan, spread, detune, etc. </p>
+<div class="textblock"><p>Stereo wavetable oscillator with multiple voices for unison/detuning effects. </p>
+<p><a class="el" href="classWTVoicedStereoOscillator.html" title="Stereo wavetable oscillator with multiple voices for unison/detuning effects.">WTVoicedStereoOscillator</a> provides a complete wavetable-based virtual analog oscillator with support for multiple voices (unison), stereo spread, detuning, and wavetable-specific features like morphing, formant shifting, and phase distortion.</p>
+<p>Key Features:</p><ul>
+<li>Multiple voices for thick unison sounds</li>
+<li>Per-voice detuning with spread</li>
+<li>Stereo panning and spread</li>
+<li>Wavetable position morphing</li>
+<li>Formant shifting (pitch-independent)</li>
+<li>Phase distortion (bend)</li>
+<li>Wavefolding and asymmetry</li>
+<li>Band-limited to avoid aliasing</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classWTVoicedStereoOscillator.html">WTVoicedStereoOscillator</a> osc(8); <span class="comment">// Up to 8 voices</span></div>
+<div class="line">osc.setSampleRate(44100.0);</div>
+<div class="line">osc.setWavetable(&amp;myWavetables);</div>
+<div class="line">osc.noteOn(); <span class="comment">// Initialize all voices</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_struct" href="structWTVoicedStereoOscillatorParams.html">WTVoicedStereoOscillatorParams</a> params;</div>
+<div class="line">params.<a class="code hl_variable" href="structVoicedOscillatorParams.html#af8809e0628ba614f83f9bcc26940de5a">voices</a> = 4;</div>
+<div class="line">params.<a class="code hl_variable" href="structVoicedOscillatorParams.html#a18f197eff7f01c6fc532b01f11f634e4">detune</a> = 0.1f;</div>
+<div class="line">params.<a class="code hl_variable" href="structVoicedOscillatorParams.html#a070d5aad9f070816287802b7503d203f">spread</a> = 0.5f;</div>
+<div class="line">params.<a class="code hl_variable" href="structWTVoicedStereoOscillatorParams.html#a39af915c5c194fc5a27dc4367757c0f9">position</a> = 0.3f;</div>
+<div class="line">params.<a class="code hl_variable" href="structWTVoicedStereoOscillatorParams.html#a4a7cc55fd5f1736661193d116be5f7c6">fold</a> = 0.2f;</div>
+<div class="line"> </div>
+<div class="line">osc.process(60.0f, params, audioBuffer); <span class="comment">// MIDI note 60 (C4)</span></div>
+<div class="ttc" id="aclassWTVoicedStereoOscillator_html"><div class="ttname"><a href="classWTVoicedStereoOscillator.html">WTVoicedStereoOscillator</a></div><div class="ttdoc">Stereo wavetable oscillator with multiple voices for unison/detuning effects.</div><div class="ttdef"><b>Definition</b> gin_wtoscillators.h:526</div></div>
+<div class="ttc" id="astructVoicedOscillatorParams_html_a070d5aad9f070816287802b7503d203f"><div class="ttname"><a href="structVoicedOscillatorParams.html#a070d5aad9f070816287802b7503d203f">VoicedOscillatorParams::spread</a></div><div class="ttdeci">float spread</div><div class="ttdoc">Stereo spread amount (0.0 = mono, 1.0 = full stereo)</div><div class="ttdef"><b>Definition</b> gin_oscillators.h:98</div></div>
+<div class="ttc" id="astructVoicedOscillatorParams_html_a18f197eff7f01c6fc532b01f11f634e4"><div class="ttname"><a href="structVoicedOscillatorParams.html#a18f197eff7f01c6fc532b01f11f634e4">VoicedOscillatorParams::detune</a></div><div class="ttdeci">float detune</div><div class="ttdoc">Detune amount between voices (in semitones or cents)</div><div class="ttdef"><b>Definition</b> gin_oscillators.h:99</div></div>
+<div class="ttc" id="astructVoicedOscillatorParams_html_af8809e0628ba614f83f9bcc26940de5a"><div class="ttname"><a href="structVoicedOscillatorParams.html#af8809e0628ba614f83f9bcc26940de5a">VoicedOscillatorParams::voices</a></div><div class="ttdeci">int voices</div><div class="ttdoc">Number of voices (1-N for unison)</div><div class="ttdef"><b>Definition</b> gin_oscillators.h:96</div></div>
+<div class="ttc" id="astructWTVoicedStereoOscillatorParams_html"><div class="ttname"><a href="structWTVoicedStereoOscillatorParams.html">WTVoicedStereoOscillatorParams</a></div><div class="ttdoc">Extended parameters for wavetable voiced stereo oscillator.</div><div class="ttdef"><b>Definition</b> gin_wtoscillators.h:470</div></div>
+<div class="ttc" id="astructWTVoicedStereoOscillatorParams_html_a39af915c5c194fc5a27dc4367757c0f9"><div class="ttname"><a href="structWTVoicedStereoOscillatorParams.html#a39af915c5c194fc5a27dc4367757c0f9">WTVoicedStereoOscillatorParams::position</a></div><div class="ttdeci">float position</div><div class="ttdef"><b>Definition</b> gin_wtoscillators.h:471</div></div>
+<div class="ttc" id="astructWTVoicedStereoOscillatorParams_html_a4a7cc55fd5f1736661193d116be5f7c6"><div class="ttname"><a href="structWTVoicedStereoOscillatorParams.html#a4a7cc55fd5f1736661193d116be5f7c6">WTVoicedStereoOscillatorParams::fold</a></div><div class="ttdeci">float fold</div><div class="ttdef"><b>Definition</b> gin_wtoscillators.h:475</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classWTOscillator.html" title="Wavetable oscillator with interpolation and shaping options.">WTOscillator</a>, <a class="el" href="classVoicedStereoOscillator.html" title="Stereo Oscillator with multiples voices, pan, spread, detune, etc.">VoicedStereoOscillator</a>, <a class="el" href="structWTVoicedStereoOscillatorParams.html" title="Extended parameters for wavetable voiced stereo oscillator.">WTVoicedStereoOscillatorParams</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8db7ce7f1c1f034e9f3d38119ed1325d" name="a8db7ce7f1c1f034e9f3d38119ed1325d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8db7ce7f1c1f034e9f3d38119ed1325d">&#9670;&#160;</a></span>WTVoicedStereoOscillator()</h2>
@@ -162,7 +194,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 31 2025 03:46:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 08:02:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

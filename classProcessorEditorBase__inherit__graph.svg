@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classProcessorEditor.html" target="_top" xlink:title="Plugin editor.">
+<g id="a_Node000002"><a xlink:href="classProcessorEditor.html" target="_top" xlink:title="Main plugin editor component for Gin&#45;based audio plugins.">
 <polygon fill="white" stroke="#666666" points="104,-19 12,-19 12,0 104,0 104,-19"/>
 <text text-anchor="middle" x="58" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">ProcessorEditor</text>
 </a>

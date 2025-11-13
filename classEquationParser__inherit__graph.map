@@ -1,5 +1,5 @@
 <map id="EquationParser" name="EquationParser">
-<area shape="rect" id="Node000001" title=" " alt="" coords="24,5,143,31"/>
+<area shape="rect" id="Node000001" title="Mathematical equation parser and evaluator with variable and function support." alt="" coords="24,5,143,31"/>
 <area shape="rect" id="Node000002" href="$classAudioEquationParser.html" title="Enhances the EquationParser with math related functions like filters and oscilllators." alt="" coords="5,79,161,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,44,86,79,81,79,81,44"/>
 </map>

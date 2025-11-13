@@ -77,6 +77,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="classWebSocket.html" title="Synchronous WebSocket client implementation.">WebSocket</a> frame header structure.  
+ <a href="structWSHeaderType.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_websocket.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -110,7 +113,19 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aaf830be2305c270185628430337c50b1" id="r_aaf830be2305c270185628430337c50b1"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structWSHeaderType.html#aaf830be2305c270185628430337c50b1">masking_key</a> [4]</td></tr>
 <tr class="separator:aaf830be2305c270185628430337c50b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="classWebSocket.html" title="Synchronous WebSocket client implementation.">WebSocket</a> frame header structure. </p>
+<p>Represents the parsed <a class="el" href="classWebSocket.html" title="Synchronous WebSocket client implementation.">WebSocket</a> frame header according to RFC 6455. Contains frame metadata including opcode, masking information, and payload length.</p>
+<p>Frame Types:</p><ul>
+<li>CONTINUATION: Multi-frame message continuation</li>
+<li>TEXT_FRAME: UTF-8 text data</li>
+<li>BINARY_FRAME: Binary data</li>
+<li>CLOSE: Connection close frame</li>
+<li>PING: Ping control frame</li>
+<li>PONG: Pong control frame (response to ping)</li>
+</ul>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classWebSocket.html" title="Synchronous WebSocket client implementation.">WebSocket</a> </dd></dl>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="ac1906191ac337fdbecbe643184fbd3b3" name="ac1906191ac337fdbecbe643184fbd3b3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac1906191ac337fdbecbe643184fbd3b3">&#9670;&#160;</a></span>Opcode</h2>
 
@@ -238,7 +253,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 31 2025 03:46:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 08:02:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

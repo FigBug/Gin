@@ -80,18 +80,27 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Result of an HTTP request.  
+ <a href="structHttp_1_1HttpResult.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_http.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a503d39d8b2bb60b51594b5108038aca6" id="r_a503d39d8b2bb60b51594b5108038aca6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHttp_1_1HttpResult.html#a503d39d8b2bb60b51594b5108038aca6">statusCode</a> = 0</td></tr>
+<tr class="memdesc:a503d39d8b2bb60b51594b5108038aca6"><td class="mdescLeft">&#160;</td><td class="mdescRight">HTTP status code (200, 404, etc.)  <br /></td></tr>
 <tr class="separator:a503d39d8b2bb60b51594b5108038aca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a663dee713583fca5be89fab8eddd3293" id="r_a663dee713583fca5be89fab8eddd3293"><td class="memItemLeft" align="right" valign="top">juce::StringPairArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHttp_1_1HttpResult.html#a663dee713583fca5be89fab8eddd3293">headers</a></td></tr>
+<tr class="memdesc:a663dee713583fca5be89fab8eddd3293"><td class="mdescLeft">&#160;</td><td class="mdescRight">Response headers as key-value pairs.  <br /></td></tr>
 <tr class="separator:a663dee713583fca5be89fab8eddd3293"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ae0b311189f4413f1128ba994c2aca3" id="r_a3ae0b311189f4413f1128ba994c2aca3"><td class="memItemLeft" align="right" valign="top">juce::MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHttp_1_1HttpResult.html#a3ae0b311189f4413f1128ba994c2aca3">data</a></td></tr>
+<tr class="memdesc:a3ae0b311189f4413f1128ba994c2aca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Response body data.  <br /></td></tr>
 <tr class="separator:a3ae0b311189f4413f1128ba994c2aca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Result of an HTTP request. </p>
+<p>Contains the complete response from an HTTP GET request including status code, all response headers, and the response body data. </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a503d39d8b2bb60b51594b5108038aca6" name="a503d39d8b2bb60b51594b5108038aca6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a503d39d8b2bb60b51594b5108038aca6">&#9670;&#160;</a></span>statusCode</h2>
 
@@ -103,6 +112,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>HTTP status code (200, 404, etc.) </p>
 
 </div>
 </div>
@@ -118,6 +129,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Response headers as key-value pairs. </p>
+
 </div>
 </div>
 <a id="a3ae0b311189f4413f1128ba994c2aca3" name="a3ae0b311189f4413f1128ba994c2aca3"></a>
@@ -132,6 +145,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Response body data. </p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
@@ -140,7 +155,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 31 2025 03:46:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 08:02:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

@@ -79,7 +79,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Plugin editor.  
+<p>Main plugin editor component for Gin-based audio plugins.  
  <a href="classProcessorEditor.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_plugineditor.h&gt;</code></p>
@@ -194,7 +194,41 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:aef611bd53bf795b5e0e9b204febd4070 inherit pro_attribs_classProcessorEditorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Plugin editor. </p>
+<div class="textblock"><p>Main plugin editor component for Gin-based audio plugins. </p>
+<p><a class="el" href="classProcessorEditor.html" title="Main plugin editor component for Gin-based audio plugins.">ProcessorEditor</a> provides the primary user interface for audio plugins built with the Gin framework. It extends <a class="el" href="classProcessorEditorBase.html" title="Base for plugin editor.">ProcessorEditorBase</a> with integrated support for preset management, patch browsing, and plugin menu systems.</p>
+<p>Key Features:</p><ul>
+<li>Integrated title bar with preset management UI</li>
+<li>Patch browser for navigating and managing presets</li>
+<li>Automatic program list synchronization</li>
+<li>Customizable menu system via <a class="el" href="classProcessorEditor.html#a4af449477b69e721fa06b544836a2c91">addMenuItems()</a></li>
+<li>About/info display functionality</li>
+<li>Grid-based control layout inherited from <a class="el" href="classProcessorEditorBase.html" title="Base for plugin editor.">ProcessorEditorBase</a></li>
+</ul>
+<p>The editor automatically manages:</p><ul>
+<li>Preset browser visibility and state</li>
+<li><a class="el" href="classProgram.html" title="Saves your plugin state to XML.">Program</a> list updates</li>
+<li>Async UI updates for thread-safe operations</li>
+<li>Title bar with preset controls</li>
+</ul>
+<p>Usage: Inherit from <a class="el" href="classProcessorEditor.html" title="Main plugin editor component for Gin-based audio plugins.">ProcessorEditor</a> in your plugin and implement your UI layout in the constructor. Override <a class="el" href="classProcessorEditor.html#a4af449477b69e721fa06b544836a2c91">addMenuItems()</a> to add custom menu options and <a class="el" href="classProcessorEditor.html#a058029cc670ad921b0ead5565e837e7a">showAboutInfo()</a> to customize the about dialog.</p>
+<div class="fragment"><div class="line"><span class="keyword">class </span>MyPluginEditor : <span class="keyword">public</span> <a class="code hl_class" href="classProcessorEditor.html">ProcessorEditor</a></div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    MyPluginEditor(MyProcessor&amp; p)</div>
+<div class="line">        : <a class="code hl_class" href="classProcessorEditor.html">ProcessorEditor</a>(p, 4, 6) <span class="comment">// 4x6 grid</span></div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Add your controls using addControl()</span></div>
+<div class="line">        addControl(filterKnob, 0, 0);</div>
+<div class="line">        addControl(resonanceKnob, 1, 0);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> addMenuItems(juce::PopupMenu&amp; menu)<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        menu.addItem(<span class="stringliteral">&quot;Custom Action&quot;</span>, [] { <span class="comment">/* ... */</span> });</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="ttc" id="aclassProcessorEditor_html"><div class="ttname"><a href="classProcessorEditor.html">ProcessorEditor</a></div><div class="ttdoc">Main plugin editor component for Gin-based audio plugins.</div><div class="ttdef"><b>Definition</b> gin_plugineditor.h:270</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classProcessorEditorBase.html" title="Base for plugin editor.">ProcessorEditorBase</a>, <a class="el" href="classTitleBar.html">TitleBar</a>, <a class="el" href="classPatchBrowser.html" title="Preset/patch browser component with filtering by author and tags.">PatchBrowser</a>, <a class="el" href="classProcessor.html" title="A process with internal and external params.">Processor</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1243029ef3210c55622ab215bb90d378" name="a1243029ef3210c55622ab215bb90d378"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1243029ef3210c55622ab215bb90d378">&#9670;&#160;</a></span>ProcessorEditor() <span class="overload">[1/2]</span></h2>
@@ -534,7 +568,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 31 2025 03:46:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 08:02:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

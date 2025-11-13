@@ -76,6 +76,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Mathematical equation parser and evaluator with variable and function support.  
+ <a href="classEquationParser.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_equationparser.h&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for EquationParser:</div>
@@ -126,7 +129,61 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8a6c619e84dea76c15b4caa29c09e7c8" id="r_a8a6c619e84dea76c15b4caa29c09e7c8"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#a8a6c619e84dea76c15b4caa29c09e7c8">getError</a> ()</td></tr>
 <tr class="separator:a8a6c619e84dea76c15b4caa29c09e7c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Mathematical equation parser and evaluator with variable and function support. </p>
+<p><a class="el" href="classEquationParser.html" title="Mathematical equation parser and evaluator with variable and function support.">EquationParser</a> provides a flexible system for parsing and evaluating mathematical expressions at runtime. It supports variables, constants, custom functions, and standard mathematical operations. Built on top of muParser library.</p>
+<p>Key Features:</p><ul>
+<li>Parse and evaluate mathematical expressions</li>
+<li>Dynamic variable binding (pointers to live values)</li>
+<li>Named constants</li>
+<li>Custom functions with 0-4 parameters or string parameters</li>
+<li>Variable factory for on-demand variable creation</li>
+<li>Comprehensive error handling</li>
+<li>Query which variables are used in an equation</li>
+</ul>
+<p>Supported Operations:</p><ul>
+<li>Basic arithmetic: +, -, *, /, ^</li>
+<li>Parentheses for grouping</li>
+<li>Standard math functions (via custom function registration)</li>
+<li>User-defined functions and variables</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classEquationParser.html">EquationParser</a> parser;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Add variables</span></div>
+<div class="line"><span class="keywordtype">double</span> x = 5.0;</div>
+<div class="line">parser.<a class="code hl_function" href="classEquationParser.html#a413c959f4d49d05bce554e763d8e09bd">addVariable</a>(<span class="stringliteral">&quot;x&quot;</span>, &amp;x);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Add constants</span></div>
+<div class="line">parser.<a class="code hl_function" href="classEquationParser.html#a7444fd0751289614e78d8229cab74229">addConstant</a>(<span class="stringliteral">&quot;pi&quot;</span>, 3.14159265359);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Set equation</span></div>
+<div class="line">parser.<a class="code hl_function" href="classEquationParser.html#a49e3230e62a90ebb6e6e08f8fa9b6cba">setEquation</a>(<span class="stringliteral">&quot;2 * x + pi&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Evaluate</span></div>
+<div class="line"><span class="keywordtype">double</span> result = parser.<a class="code hl_function" href="classEquationParser.html#a920e54171a2af2a10c15ea417250db3b">evaluate</a>(); <span class="comment">// Returns 13.14159...</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Change variable and re-evaluate</span></div>
+<div class="line">x = 10.0;</div>
+<div class="line">result = parser.<a class="code hl_function" href="classEquationParser.html#a920e54171a2af2a10c15ea417250db3b">evaluate</a>(); <span class="comment">// Returns 23.14159...</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Check for errors</span></div>
+<div class="line"><span class="keywordflow">if</span> (parser.<a class="code hl_function" href="classEquationParser.html#a267ea42024ab4404885d6549c46b5298">hasError</a>())</div>
+<div class="line">    DBG(<span class="stringliteral">&quot;Error: &quot;</span> + parser.<a class="code hl_function" href="classEquationParser.html#a8a6c619e84dea76c15b4caa29c09e7c8">getError</a>());</div>
+<div class="ttc" id="aclassEquationParser_html"><div class="ttname"><a href="classEquationParser.html">EquationParser</a></div><div class="ttdoc">Mathematical equation parser and evaluator with variable and function support.</div><div class="ttdef"><b>Definition</b> gin_equationparser.h:74</div></div>
+<div class="ttc" id="aclassEquationParser_html_a267ea42024ab4404885d6549c46b5298"><div class="ttname"><a href="classEquationParser.html#a267ea42024ab4404885d6549c46b5298">EquationParser::hasError</a></div><div class="ttdeci">bool hasError()</div></div>
+<div class="ttc" id="aclassEquationParser_html_a413c959f4d49d05bce554e763d8e09bd"><div class="ttname"><a href="classEquationParser.html#a413c959f4d49d05bce554e763d8e09bd">EquationParser::addVariable</a></div><div class="ttdeci">void addVariable(const juce::String &amp;name, double *value)</div></div>
+<div class="ttc" id="aclassEquationParser_html_a49e3230e62a90ebb6e6e08f8fa9b6cba"><div class="ttname"><a href="classEquationParser.html#a49e3230e62a90ebb6e6e08f8fa9b6cba">EquationParser::setEquation</a></div><div class="ttdeci">void setEquation(const juce::String &amp;equation)</div></div>
+<div class="ttc" id="aclassEquationParser_html_a7444fd0751289614e78d8229cab74229"><div class="ttname"><a href="classEquationParser.html#a7444fd0751289614e78d8229cab74229">EquationParser::addConstant</a></div><div class="ttdeci">void addConstant(const juce::String &amp;name, double value)</div></div>
+<div class="ttc" id="aclassEquationParser_html_a8a6c619e84dea76c15b4caa29c09e7c8"><div class="ttname"><a href="classEquationParser.html#a8a6c619e84dea76c15b4caa29c09e7c8">EquationParser::getError</a></div><div class="ttdeci">juce::String getError()</div></div>
+<div class="ttc" id="aclassEquationParser_html_a920e54171a2af2a10c15ea417250db3b"><div class="ttname"><a href="classEquationParser.html#a920e54171a2af2a10c15ea417250db3b">EquationParser::evaluate</a></div><div class="ttdeci">double evaluate()</div></div>
+</div><!-- fragment --><p>Custom Functions: </p><div class="fragment"><div class="line">parser.<a class="code hl_function" href="classEquationParser.html#a99f6e1e2db7a62b2b816a15675222684">addFunction</a>(<span class="stringliteral">&quot;myFunc&quot;</span>, [](<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b) {</div>
+<div class="line">    <span class="keywordflow">return</span> a * a + b;</div>
+<div class="line">});</div>
+<div class="line">parser.<a class="code hl_function" href="classEquationParser.html#a49e3230e62a90ebb6e6e08f8fa9b6cba">setEquation</a>(<span class="stringliteral">&quot;myFunc(3, 4)&quot;</span>);</div>
+<div class="line"><span class="keywordtype">double</span> result = parser.<a class="code hl_function" href="classEquationParser.html#a920e54171a2af2a10c15ea417250db3b">evaluate</a>(); <span class="comment">// Returns 13.0</span></div>
+<div class="ttc" id="aclassEquationParser_html_a99f6e1e2db7a62b2b816a15675222684"><div class="ttname"><a href="classEquationParser.html#a99f6e1e2db7a62b2b816a15675222684">EquationParser::addFunction</a></div><div class="ttdeci">void addFunction(const juce::String &amp;name, std::function&lt; double(int id, const juce::String &amp;)&gt; fun)</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd>muParser documentation for expression syntax details </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a79be05f577534b4ce4b414cefae6f182" name="a79be05f577534b4ce4b414cefae6f182"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a79be05f577534b4ce4b414cefae6f182">&#9670;&#160;</a></span>EquationParser() <span class="overload">[1/2]</span></h2>
 
@@ -566,7 +623,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 31 2025 03:46:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 08:02:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

@@ -76,6 +76,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>White noise generator using a normal distribution.  
+ <a href="classWhiteNoise.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_noise.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -85,7 +88,28 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a861fbf92d0f2d6aa523c15204bcf1aec" id="r_a861fbf92d0f2d6aa523c15204bcf1aec"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWhiteNoise.html#a861fbf92d0f2d6aa523c15204bcf1aec">nextSample</a> ()</td></tr>
 <tr class="separator:a861fbf92d0f2d6aa523c15204bcf1aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>White noise generator using a normal distribution. </p>
+<p><a class="el" href="classWhiteNoise.html" title="White noise generator using a normal distribution.">WhiteNoise</a> produces random samples with a flat frequency spectrum (equal power across all frequencies). Uses C++ standard library's normal distribution with mean 0.0 and standard deviation 0.1.</p>
+<p>White noise characteristics:</p><ul>
+<li>Flat frequency spectrum (equal energy at all frequencies)</li>
+<li>Gaussian amplitude distribution</li>
+<li>Mean of 0.0, standard deviation of 0.1</li>
+<li>No correlation between samples</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classWhiteNoise.html">WhiteNoise</a> noise;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// In audio processing loop</span></div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; numSamples; ++i)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">float</span> sample = noise.<a class="code hl_function" href="classWhiteNoise.html#a861fbf92d0f2d6aa523c15204bcf1aec">nextSample</a>();</div>
+<div class="line">    audioBuffer[i] = sample;</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassWhiteNoise_html"><div class="ttname"><a href="classWhiteNoise.html">WhiteNoise</a></div><div class="ttdoc">White noise generator using a normal distribution.</div><div class="ttdef"><b>Definition</b> gin_noise.h:48</div></div>
+<div class="ttc" id="aclassWhiteNoise_html_a861fbf92d0f2d6aa523c15204bcf1aec"><div class="ttname"><a href="classWhiteNoise.html#a861fbf92d0f2d6aa523c15204bcf1aec">WhiteNoise::nextSample</a></div><div class="ttdeci">float nextSample()</div><div class="ttdef"><b>Definition</b> gin_noise.h:56</div></div>
+</div><!-- fragment --><p>Note: Each instance is seeded with a random device, ensuring different sequences across instances.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classPinkNoise.html" title="Pink noise generator using the Voss-McCartney algorithm.">PinkNoise</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4f8fa85b5750bc8b7cbee49fefbe14a8" name="a4f8fa85b5750bc8b7cbee49fefbe14a8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4f8fa85b5750bc8b7cbee49fefbe14a8">&#9670;&#160;</a></span>WhiteNoise()</h2>
 
@@ -129,7 +153,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 31 2025 03:46:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 08:02:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

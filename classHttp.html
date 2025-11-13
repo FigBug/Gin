@@ -77,21 +77,49 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Simple HTTP client for making GET requests.  
+ <a href="classHttp.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_http.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHttp_1_1HttpResult.html">HttpResult</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result of an HTTP request.  <a href="structHttp_1_1HttpResult.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad057da75ec75c9a44f3b736ff19ccd9d" id="r_ad057da75ec75c9a44f3b736ff19ccd9d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHttp.html#ad057da75ec75c9a44f3b736ff19ccd9d">Http</a> (juce::URL url)</td></tr>
+<tr class="memdesc:ad057da75ec75c9a44f3b736ff19ccd9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an HTTP client for the specified URL.  <br /></td></tr>
 <tr class="separator:ad057da75ec75c9a44f3b736ff19ccd9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa25b6e9f58fe6924809e801bc8eefe21" id="r_aa25b6e9f58fe6924809e801bc8eefe21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structHttp_1_1HttpResult.html">HttpResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHttp.html#aa25b6e9f58fe6924809e801bc8eefe21">get</a> ()</td></tr>
+<tr class="memdesc:aa25b6e9f58fe6924809e801bc8eefe21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a synchronous HTTP GET request.  <br /></td></tr>
 <tr class="separator:aa25b6e9f58fe6924809e801bc8eefe21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Simple HTTP client for making GET requests. </p>
+<p><a class="el" href="classHttp.html" title="Simple HTTP client for making GET requests.">Http</a> provides a lightweight, synchronous HTTP client built on top of <a class="el" href="classSecureStreamingSocket.html" title="Streaming socket with optional TLS/SSL encryption support.">SecureStreamingSocket</a>. It supports both HTTP and HTTPS protocols, handles chunked transfer encoding, and returns complete response data including status code, headers, and body.</p>
+<p>Key Features:</p><ul>
+<li>Synchronous GET requests (blocking)</li>
+<li>HTTPS/TLS support via <a class="el" href="classSecureStreamingSocket.html" title="Streaming socket with optional TLS/SSL encryption support.">SecureStreamingSocket</a></li>
+<li>Chunked transfer encoding handling</li>
+<li>Complete header parsing</li>
+<li>Returns status code, headers, and response body</li>
+</ul>
+<p>Usage: Create an <a class="el" href="classHttp.html" title="Simple HTTP client for making GET requests.">Http</a> instance with a URL, then call <a class="el" href="classHttp.html#aa25b6e9f58fe6924809e801bc8eefe21" title="Performs a synchronous HTTP GET request.">get()</a> to perform the request. The method blocks until the response is received or an error occurs.</p>
+<div class="fragment"><div class="line"><a class="code hl_class" href="classHttp.html">Http</a> http(juce::URL(<span class="stringliteral">&quot;https://api.example.com/data&quot;</span>));</div>
+<div class="line"><span class="keyword">auto</span> result = http.get();</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> (result.statusCode == 200)</div>
+<div class="line">{</div>
+<div class="line">    juce::String response = result.data.toString();</div>
+<div class="line">    DBG(<span class="stringliteral">&quot;Response: &quot;</span> + response);</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassHttp_html"><div class="ttname"><a href="classHttp.html">Http</a></div><div class="ttdoc">Simple HTTP client for making GET requests.</div><div class="ttdef"><b>Definition</b> gin_http.h:51</div></div>
+</div><!-- fragment --><p>Note: This is a synchronous (blocking) operation. For non-blocking HTTP requests, consider using juce::URL::createInputStream() with a background thread or JUCE's built-in WebInputStream.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classSecureStreamingSocket.html" title="Streaming socket with optional TLS/SSL encryption support.">SecureStreamingSocket</a>, <a class="el" href="classAsyncWebsocket.html" title="Asynchronous WebSocket client with non-blocking operations.">AsyncWebsocket</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad057da75ec75c9a44f3b736ff19ccd9d" name="ad057da75ec75c9a44f3b736ff19ccd9d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad057da75ec75c9a44f3b736ff19ccd9d">&#9670;&#160;</a></span>Http()</h2>
 
@@ -107,6 +135,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates an HTTP client for the specified URL. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">url</td><td>The URL to request. Supports both <a href="http://">http://</a> and <a href="https://">https://</a> schemes. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -126,6 +162,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Performs a synchronous HTTP GET request. </p>
+<p>Connects to the server, sends the GET request, and reads the complete response including headers and body. This method blocks until the request completes or fails.</p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structHttp_1_1HttpResult.html" title="Result of an HTTP request.">HttpResult</a> containing status code, headers, and response data </dd></dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -134,7 +174,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 31 2025 03:46:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 08:02:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

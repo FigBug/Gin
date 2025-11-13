@@ -79,6 +79,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Synchronous <a class="el" href="classWebSocket.html" title="Synchronous WebSocket client implementation.">WebSocket</a> client implementation.  
+ <a href="classWebSocket.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_websocket.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -128,7 +131,50 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a752b8c43bb821039435c92823261bd6d" id="r_a752b8c43bb821039435c92823261bd6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classWebSocket.html#a452bcfacd2ce0567751e44f891dd1489">ReadyStateValues</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebSocket.html#a752b8c43bb821039435c92823261bd6d">readyStateValues</a></td></tr>
 <tr class="separator:a752b8c43bb821039435c92823261bd6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Synchronous <a class="el" href="classWebSocket.html" title="Synchronous WebSocket client implementation.">WebSocket</a> client implementation. </p>
+<p><a class="el" href="classWebSocket.html" title="Synchronous WebSocket client implementation.">WebSocket</a> provides a blocking <a class="el" href="classWebSocket.html" title="Synchronous WebSocket client implementation.">WebSocket</a> client based on the RFC 6455 protocol. Originally based on easywsclient, heavily refactored for JUCE integration. Supports both text and binary messages, ping/pong, and secure connections.</p>
+<p>Key Features:</p><ul>
+<li><a class="el" href="classWebSocket.html" title="Synchronous WebSocket client implementation.">WebSocket</a> protocol (RFC 6455) implementation</li>
+<li>Text and binary message support</li>
+<li>Ping/pong keep-alive</li>
+<li>TLS/SSL support via <a class="el" href="classSecureStreamingSocket.html" title="Streaming socket with optional TLS/SSL encryption support.">SecureStreamingSocket</a></li>
+<li>Optional frame masking (required for client-to-server)</li>
+<li>Custom headers for authentication/protocols</li>
+</ul>
+<p>Connection States:</p><ul>
+<li>OPEN: Connected and ready</li>
+<li>CLOSING: Close handshake initiated</li>
+<li>CLOSED: Connection closed</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="comment">// Create connection</span></div>
+<div class="line"><span class="keyword">auto</span>* ws = <a class="code hl_function" href="classWebSocket.html#aa00f034f6c484f6e0127d6c1aeb781d5">WebSocket::fromURL</a>(<span class="stringliteral">&quot;wss://example.com/socket&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> (ws)</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Send message</span></div>
+<div class="line">    ws-&gt;send(<span class="stringliteral">&quot;Hello, server!&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Poll for incoming messages</span></div>
+<div class="line">    ws-&gt;poll(100); <span class="comment">// timeout in ms</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Dispatch received messages</span></div>
+<div class="line">    ws-&gt;dispatch([](<span class="keyword">const</span> juce::MemoryBlock&amp; data, <span class="keywordtype">bool</span> isBinary) {</div>
+<div class="line">        <span class="keywordflow">if</span> (!isBinary)</div>
+<div class="line">        {</div>
+<div class="line">            juce::String msg = data.toString();</div>
+<div class="line">            DBG(<span class="stringliteral">&quot;Received: &quot;</span> + msg);</div>
+<div class="line">        }</div>
+<div class="line">    });</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Close connection</span></div>
+<div class="line">    ws-&gt;close();</div>
+<div class="line">    <span class="keyword">delete</span> ws;</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassWebSocket_html_aa00f034f6c484f6e0127d6c1aeb781d5"><div class="ttname"><a href="classWebSocket.html#aa00f034f6c484f6e0127d6c1aeb781d5">WebSocket::fromURL</a></div><div class="ttdeci">static WebSocket * fromURL(const juce::String &amp;url, const juce::String &amp;origin={})</div></div>
+</div><!-- fragment --><p>Note: This is a synchronous (blocking) implementation. For asynchronous operations with callbacks, use <a class="el" href="classAsyncWebsocket.html" title="Asynchronous WebSocket client with non-blocking operations.">AsyncWebsocket</a> instead.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classAsyncWebsocket.html" title="Asynchronous WebSocket client with non-blocking operations.">AsyncWebsocket</a>, <a class="el" href="classSecureStreamingSocket.html" title="Streaming socket with optional TLS/SSL encryption support.">SecureStreamingSocket</a>, <a class="el" href="structWSHeaderType.html" title="WebSocket frame header structure.">WSHeaderType</a> </dd></dl>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a452bcfacd2ce0567751e44f891dd1489" name="a452bcfacd2ce0567751e44f891dd1489"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a452bcfacd2ce0567751e44f891dd1489">&#9670;&#160;</a></span>ReadyStateValues</h2>
 
@@ -502,7 +548,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 31 2025 03:46:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 08:02:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

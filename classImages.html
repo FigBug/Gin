@@ -77,6 +77,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Asset manager for common plugin UI images and icons.  
+ <a href="classImages.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_images.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -93,7 +96,30 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:acd6375f27acc618531676b5529792e28" id="r_acd6375f27acc618531676b5529792e28"><td class="memItemLeft" align="right" valign="top">juce::Path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classImages.html#acd6375f27acc618531676b5529792e28">powerPath</a></td></tr>
 <tr class="separator:acd6375f27acc618531676b5529792e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Asset manager for common plugin UI images and icons. </p>
+<p><a class="el" href="classImages.html" title="Asset manager for common plugin UI images and icons.">Images</a> provides pre-loaded juce::Path objects for commonly used icons in plugin interfaces. These paths can be used with SVG buttons and other components that render vector graphics.</p>
+<p>Available Icons:</p><ul>
+<li>monoPath: Mono/monophonic mode icon</li>
+<li>polyPath: Poly/polyphonic mode icon</li>
+<li>powerPath: Power on/off icon</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classImages.html">Images</a> images;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Use with SVG button</span></div>
+<div class="line"><a class="code hl_class" href="classSVGButton.html">SVGButton</a> powerBtn(<span class="stringliteral">&quot;power&quot;</span>, images.<a class="code hl_variable" href="classImages.html#acd6375f27acc618531676b5529792e28">powerPath</a>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Or draw directly</span></div>
+<div class="line"><span class="keywordtype">void</span> paint(juce::Graphics&amp; g)</div>
+<div class="line">{</div>
+<div class="line">    g.fillPath(images.<a class="code hl_variable" href="classImages.html#a1d271cdd9f31586a82eab975793289af">monoPath</a>);</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassImages_html"><div class="ttname"><a href="classImages.html">Images</a></div><div class="ttdoc">Asset manager for common plugin UI images and icons.</div><div class="ttdef"><b>Definition</b> gin_images.h:36</div></div>
+<div class="ttc" id="aclassImages_html_a1d271cdd9f31586a82eab975793289af"><div class="ttname"><a href="classImages.html#a1d271cdd9f31586a82eab975793289af">Images::monoPath</a></div><div class="ttdeci">juce::Path monoPath</div><div class="ttdef"><b>Definition</b> gin_images.h:40</div></div>
+<div class="ttc" id="aclassImages_html_acd6375f27acc618531676b5529792e28"><div class="ttname"><a href="classImages.html#acd6375f27acc618531676b5529792e28">Images::powerPath</a></div><div class="ttdeci">juce::Path powerPath</div><div class="ttdef"><b>Definition</b> gin_images.h:40</div></div>
+<div class="ttc" id="aclassSVGButton_html"><div class="ttname"><a href="classSVGButton.html">SVGButton</a></div><div class="ttdoc">Button that draws an SVG.</div><div class="ttdef"><b>Definition</b> gin_svgbutton.h:19</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classSVGButton.html" title="Button that draws an SVG.">SVGButton</a>, <a class="el" href="classPluginLookAndFeel.html" title="Plugin specific addition to GinLookAndFeel Still black and white.">PluginLookAndFeel</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3c31a7052197172e2bfb26efe796d32f" name="a3c31a7052197172e2bfb26efe796d32f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3c31a7052197172e2bfb26efe796d32f">&#9670;&#160;</a></span>Images()</h2>
 
@@ -160,7 +186,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 31 2025 03:46:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 08:02:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

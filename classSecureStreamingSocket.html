@@ -76,6 +76,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Streaming socket with optional TLS/SSL encryption support.  
+ <a href="classSecureStreamingSocket.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_securestreamingsocket.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -99,7 +102,36 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae5b14633c70b66812ea2647905ef78f2" id="r_ae5b14633c70b66812ea2647905ef78f2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSecureStreamingSocket.html#ae5b14633c70b66812ea2647905ef78f2">waitUntilReady</a> (bool readyForReading, int timeoutMsecs)</td></tr>
 <tr class="separator:ae5b14633c70b66812ea2647905ef78f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Streaming socket with optional TLS/SSL encryption support. </p>
+<p><a class="el" href="classSecureStreamingSocket.html" title="Streaming socket with optional TLS/SSL encryption support.">SecureStreamingSocket</a> provides a unified interface for both secure (HTTPS/TLS) and non-secure (HTTP) streaming socket connections. It wraps mbedTLS for secure connections and falls back to JUCE's StreamingSocket for non-secure connections.</p>
+<p>Key Features:</p><ul>
+<li>TLS/SSL support via mbedTLS</li>
+<li>Fallback to plain sockets when security not required</li>
+<li>Blocking and non-blocking read modes</li>
+<li>Timeout support for connections and reads</li>
+<li>Compatible with <a class="el" href="classWebSocket.html" title="Synchronous WebSocket client implementation.">WebSocket</a> and HTTP implementations</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classSecureStreamingSocket.html">SecureStreamingSocket</a> socket(<span class="keyword">true</span>); <span class="comment">// true = secure (TLS/SSL)</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> (socket.connect(<span class="stringliteral">&quot;example.com&quot;</span>, 443, 3000))</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span>* request = <span class="stringliteral">&quot;GET / HTTP/1.1\r\nHost: example.com\r\n\r\n&quot;</span>;</div>
+<div class="line">    socket.write(request, strlen(request));</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">char</span> buffer[1024];</div>
+<div class="line">    <span class="keywordtype">int</span> bytesRead = socket.read(buffer, <span class="keyword">sizeof</span>(buffer), <span class="keyword">false</span>);</div>
+<div class="line">    <span class="keywordflow">if</span> (bytesRead &gt; 0)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Process received data</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    socket.close();</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassSecureStreamingSocket_html"><div class="ttname"><a href="classSecureStreamingSocket.html">SecureStreamingSocket</a></div><div class="ttdoc">Streaming socket with optional TLS/SSL encryption support.</div><div class="ttdef"><b>Definition</b> gin_securestreamingsocket.h:54</div></div>
+</div><!-- fragment --><p>Thread Safety: Not thread-safe. Use from a single thread or provide external synchronization.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classWebSocket.html" title="Synchronous WebSocket client implementation.">WebSocket</a>, <a class="el" href="classHttp.html" title="Simple HTTP client for making GET requests.">Http</a>, <a class="el" href="classAsyncWebsocket.html" title="Asynchronous WebSocket client with non-blocking operations.">AsyncWebsocket</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0a4404801edc197e4fad99088c5aba73" name="a0a4404801edc197e4fad99088c5aba73"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0a4404801edc197e4fad99088c5aba73">&#9670;&#160;</a></span>SecureStreamingSocket()</h2>
 
@@ -333,7 +365,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 31 2025 03:46:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 08:02:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

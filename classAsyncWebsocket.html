@@ -77,6 +77,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Asynchronous <a class="el" href="classWebSocket.html" title="Synchronous WebSocket client implementation.">WebSocket</a> client with non-blocking operations.  
+ <a href="classAsyncWebsocket.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_asyncwebsocket.h&gt;</code></p>
 
 <p>Inherits juce::Thread.</p>
@@ -113,7 +116,42 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ace1df325c39ecbd3b1db08877e19f632" id="r_ace1df325c39ecbd3b1db08877e19f632"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(const juce::MemoryBlock &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAsyncWebsocket.html#ace1df325c39ecbd3b1db08877e19f632">onBinary</a></td></tr>
 <tr class="separator:ace1df325c39ecbd3b1db08877e19f632"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Asynchronous <a class="el" href="classWebSocket.html" title="Synchronous WebSocket client implementation.">WebSocket</a> client with non-blocking operations. </p>
+<p><a class="el" href="classAsyncWebsocket.html" title="Asynchronous WebSocket client with non-blocking operations.">AsyncWebsocket</a> provides a thread-safe, asynchronous interface to <a class="el" href="classWebSocket.html" title="Synchronous WebSocket client implementation.">WebSocket</a> connections. All network operations run on a background thread, ensuring that none of the public methods block the calling thread. All callbacks are delivered on the JUCE message thread for safe UI updates.</p>
+<p>Key Features:</p><ul>
+<li>Non-blocking connect, disconnect, and send operations</li>
+<li>Automatic ping/pong keep-alive with configurable interval</li>
+<li>Thread-safe message queuing for outgoing data</li>
+<li>Lambda-based callbacks on the message thread</li>
+<li>Support for both text and binary <a class="el" href="classWebSocket.html" title="Synchronous WebSocket client implementation.">WebSocket</a> messages</li>
+<li>Custom header support for authentication and protocols</li>
+</ul>
+<p>Usage: Create an <a class="el" href="classAsyncWebsocket.html" title="Asynchronous WebSocket client with non-blocking operations.">AsyncWebsocket</a> with a URL, register callback handlers, then call <a class="el" href="classAsyncWebsocket.html#ac4a1d21499ab2ebc02483485eb0c62b5">connect()</a>. The connection runs asynchronously on a background thread.</p>
+<div class="fragment"><div class="line"><a class="code hl_class" href="classAsyncWebsocket.html">AsyncWebsocket</a> ws(juce::URL(<span class="stringliteral">&quot;wss://example.com/socket&quot;</span>));</div>
+<div class="line"> </div>
+<div class="line">ws.onConnect = []() {</div>
+<div class="line">    DBG(<span class="stringliteral">&quot;Connected!&quot;</span>);</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">ws.onText = [](<span class="keyword">const</span> juce::String&amp; message) {</div>
+<div class="line">    DBG(<span class="stringliteral">&quot;Received: &quot;</span> + message);</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">ws.onDisconnect = []() {</div>
+<div class="line">    DBG(<span class="stringliteral">&quot;Disconnected&quot;</span>);</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">ws.connect(); <span class="comment">// Non-blocking</span></div>
+<div class="line">ws.send(<span class="stringliteral">&quot;Hello, server!&quot;</span>);</div>
+<div class="ttc" id="aclassAsyncWebsocket_html"><div class="ttname"><a href="classAsyncWebsocket.html">AsyncWebsocket</a></div><div class="ttdoc">Asynchronous WebSocket client with non-blocking operations.</div><div class="ttdef"><b>Definition</b> gin_asyncwebsocket.h:62</div></div>
+</div><!-- fragment --><p>Thread Safety:</p><ul>
+<li>All public methods are thread-safe</li>
+<li>Callbacks execute on the JUCE message thread</li>
+<li>Internal message queue protected by critical section</li>
+</ul>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classWebSocket.html" title="Synchronous WebSocket client implementation.">WebSocket</a>, <a class="el" href="classSecureStreamingSocket.html" title="Streaming socket with optional TLS/SSL encryption support.">SecureStreamingSocket</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a645cc4472ee8b6e3cf7e75e6034721c2" name="a645cc4472ee8b6e3cf7e75e6034721c2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a645cc4472ee8b6e3cf7e75e6034721c2">&#9670;&#160;</a></span>AsyncWebsocket()</h2>
 
@@ -353,7 +391,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 31 2025 03:46:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 08:02:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

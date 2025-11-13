@@ -78,6 +78,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Preset/patch browser component with filtering by author and tags.  
+ <a href="classPatchBrowser.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_patchbrowser.h&gt;</code></p>
 
 <p>Inherits juce::Component.</p>
@@ -141,7 +144,39 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a5131ad5197cd707f759b87775770551f" id="r_a5131ad5197cd707f759b87775770551f"><td class="memItemLeft" align="right" valign="top">juce::StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPatchBrowser.html#a5131ad5197cd707f759b87775770551f">selectedTags</a></td></tr>
 <tr class="separator:a5131ad5197cd707f759b87775770551f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Preset/patch browser component with filtering by author and tags. </p>
+<p><a class="el" href="classPatchBrowser.html" title="Preset/patch browser component with filtering by author and tags.">PatchBrowser</a> provides a comprehensive UI for browsing, selecting, and managing audio plugin presets. It features three list views for filtering by author, tags, and displaying matching presets. The browser supports preset navigation, editing, and deletion.</p>
+<p>Key Features:</p><ul>
+<li>Three-column layout: Authors, Tags, and Presets</li>
+<li>Multi-criteria filtering (by author and/or tag)</li>
+<li>Keyboard navigation (next/previous)</li>
+<li>Context menu support for editing and deleting presets</li>
+<li>Automatic selection synchronization</li>
+<li>Integrated with Gin <a class="el" href="classProcessor.html" title="A process with internal and external params.">Processor</a> preset system</li>
+</ul>
+<p>UI <a class="el" href="classLayout.html" title="Layout components with json, supports hot reloading.">Layout</a>:</p><ul>
+<li>Left column: List of preset authors</li>
+<li>Middle column: List of tags/categories</li>
+<li>Right column: Filtered list of presets</li>
+<li>Selection in authors/tags filters the presets list</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyEditor : <span class="keyword">public</span> <a class="code hl_class" href="classProcessorEditor.html">ProcessorEditor</a></div>
+<div class="line">{</div>
+<div class="line">    <a class="code hl_class" href="classPatchBrowser.html">PatchBrowser</a> patchBrowser { processor };</div>
+<div class="line"> </div>
+<div class="line">    MyEditor()</div>
+<div class="line">    {</div>
+<div class="line">        <a class="code hl_function" href="group__gin__gui-components.html#ga66410efb088d24a02a86b4c6191e2866">addAndMakeVisible</a>(patchBrowser);</div>
+<div class="line">        patchBrowser.refresh(); <span class="comment">// Update preset lists</span></div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="ttc" id="aclassPatchBrowser_html"><div class="ttname"><a href="classPatchBrowser.html">PatchBrowser</a></div><div class="ttdoc">Preset/patch browser component with filtering by author and tags.</div><div class="ttdef"><b>Definition</b> gin_patchbrowser.h:48</div></div>
+<div class="ttc" id="aclassProcessorEditor_html"><div class="ttname"><a href="classProcessorEditor.html">ProcessorEditor</a></div><div class="ttdoc">Main plugin editor component for Gin-based audio plugins.</div><div class="ttdef"><b>Definition</b> gin_plugineditor.h:270</div></div>
+<div class="ttc" id="agroup__gin__gui-components_html_ga66410efb088d24a02a86b4c6191e2866"><div class="ttname"><a href="group__gin__gui-components.html#ga66410efb088d24a02a86b4c6191e2866">addAndMakeVisible</a></div><div class="ttdeci">void addAndMakeVisible(juce::Component &amp;parent, juce::Array&lt; juce::Component * &gt; children)</div><div class="ttdoc">Adds an Array of components to a parent Component.</div><div class="ttdef"><b>Definition</b> gin_componentutils.h:16</div></div>
+</div><!-- fragment --><p>The browser automatically updates when the processor's preset changes and notifies the processor when a new preset is selected.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classProcessor.html" title="A process with internal and external params.">Processor</a>, <a class="el" href="classProcessorEditor.html" title="Main plugin editor component for Gin-based audio plugins.">ProcessorEditor</a>, <a class="el" href="classTitleBar.html">TitleBar</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4beb28a79d33b3385cd036e78166443c" name="a4beb28a79d33b3385cd036e78166443c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4beb28a79d33b3385cd036e78166443c">&#9670;&#160;</a></span>PatchBrowser()</h2>
 
@@ -505,7 +540,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 31 2025 03:46:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 08:02:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

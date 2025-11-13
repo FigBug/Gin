@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classAudioProcessorWrapper.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="classAudioProcessorWrapper.html" target="_top" xlink:title="Wrapper for JUCE AudioProcessor that forwards all calls to a wrapped instance.">
 <polygon fill="white" stroke="#666666" points="133,-74 0,-74 0,-55 133,-55 133,-74"/>
 <text text-anchor="middle" x="66.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">AudioProcessorWrapper</text>
 </a>

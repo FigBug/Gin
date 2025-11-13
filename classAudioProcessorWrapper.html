@@ -77,6 +77,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Wrapper for JUCE AudioProcessor that forwards all calls to a wrapped instance.  
+ <a href="classAudioProcessorWrapper.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_audioprocessorwrapper.h&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for AudioProcessorWrapper:</div>
@@ -182,7 +185,40 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a02be7e377e14091bb79d12a54790299f" id="r_a02be7e377e14091bb79d12a54790299f"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; juce::AudioProcessor &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioProcessorWrapper.html#a02be7e377e14091bb79d12a54790299f">proc</a></td></tr>
 <tr class="separator:a02be7e377e14091bb79d12a54790299f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Wrapper for JUCE AudioProcessor that forwards all calls to a wrapped instance. </p>
+<p><a class="el" href="classAudioProcessorWrapper.html" title="Wrapper for JUCE AudioProcessor that forwards all calls to a wrapped instance.">AudioProcessorWrapper</a> provides a complete pass-through wrapper for any JUCE AudioProcessor. All virtual methods are forwarded to the wrapped processor, allowing for interception, monitoring, or modification of processor behavior without modifying the original processor code.</p>
+<p>Key Features:</p><ul>
+<li>Complete forwarding of all AudioProcessor methods</li>
+<li>Ownership management of wrapped processor</li>
+<li>No overhead when not overriding methods</li>
+<li>Useful for debugging, testing, or adding cross-cutting concerns</li>
+<li>VST2/VST3 extension support</li>
+</ul>
+<p>Use Cases:</p><ul>
+<li>Adding logging/debugging to existing processors</li>
+<li>Implementing cross-cutting features (metering, analysis)</li>
+<li>Testing and validation wrappers</li>
+<li>Plugin format adapter patterns</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="comment">// Wrap an existing processor</span></div>
+<div class="line"><span class="keyword">auto</span> myProcessor = std::make_unique&lt;MyAudioProcessor&gt;();</div>
+<div class="line"><span class="keyword">auto</span> wrapper = std::make_unique&lt;AudioProcessorWrapper&gt;(std::move(myProcessor));</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Can also subclass to intercept specific methods</span></div>
+<div class="line"><span class="keyword">class </span>LoggingWrapper : <span class="keyword">public</span> <a class="code hl_class" href="classAudioProcessorWrapper.html">AudioProcessorWrapper</a></div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">void</span> processBlock(juce::AudioBuffer&lt;float&gt;&amp; buffer,</div>
+<div class="line">                     juce::MidiBuffer&amp; midi)<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        DBG(<span class="stringliteral">&quot;Processing &quot;</span> + String(buffer.getNumSamples()) + <span class="stringliteral">&quot; samples&quot;</span>);</div>
+<div class="line">        <a class="code hl_function" href="classAudioProcessorWrapper.html#ac49da4b45dbdcf10becb5529e5356067">AudioProcessorWrapper::processBlock</a>(buffer, midi);</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="ttc" id="aclassAudioProcessorWrapper_html"><div class="ttname"><a href="classAudioProcessorWrapper.html">AudioProcessorWrapper</a></div><div class="ttdoc">Wrapper for JUCE AudioProcessor that forwards all calls to a wrapped instance.</div><div class="ttdef"><b>Definition</b> gin_audioprocessorwrapper.h:47</div></div>
+<div class="ttc" id="aclassAudioProcessorWrapper_html_ac49da4b45dbdcf10becb5529e5356067"><div class="ttname"><a href="classAudioProcessorWrapper.html#ac49da4b45dbdcf10becb5529e5356067">AudioProcessorWrapper::processBlock</a></div><div class="ttdeci">void processBlock(juce::AudioBuffer&lt; float &gt; &amp;buffer, juce::MidiBuffer &amp;midiMessages) override</div><div class="ttdef"><b>Definition</b> gin_audioprocessorwrapper.h:70</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd>juce::AudioProcessor </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac8cf88976ad70f42ca64a5c548227a91" name="ac8cf88976ad70f42ca64a5c548227a91"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac8cf88976ad70f42ca64a5c548227a91">&#9670;&#160;</a></span>AudioProcessorWrapper()</h2>
 
@@ -1516,7 +1552,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 31 2025 03:46:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 08:02:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

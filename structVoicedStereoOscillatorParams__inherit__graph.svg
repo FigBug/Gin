@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Extended parameters for band&#45;limited voiced stereo oscillator.">
 <polygon fill="#999999" stroke="#666666" points="163,-19 0,-19 0,0 163,0 163,-19"/>
 <text text-anchor="middle" x="81.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">VoicedStereoOscillatorParams</text>
 </a>
@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="structVoicedOscillatorParams.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="structVoicedOscillatorParams.html" target="_top" xlink:title="Parameters for VoicedStereoOscillator configuration.">
 <polygon fill="white" stroke="#666666" points="147,-74 16,-74 16,-55 147,-55 147,-74"/>
 <text text-anchor="middle" x="81.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">VoicedOscillatorParams</text>
 </a>

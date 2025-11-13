@@ -79,7 +79,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Add one of these to you Synth if you want to support modulation.  
+<p><a class="el" href="classModulation.html" title="Audio modulation, for a chorus or phaser etc.">Modulation</a> matrix system for routing multiple modulation sources to parameters.  
  <a href="classModMatrix.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_modmatrix.h&gt;</code></p>
@@ -218,8 +218,43 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:ae7eab8f9eddb29cba7da3fc50602c514"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Add one of these to you Synth if you want to support modulation. </p>
-<p>Then add all your parameters Then add all your mod source. Update your mod sources from your processing loop. Always get your parameter values from the mod matrix </p>
+<div class="textblock"><p><a class="el" href="classModulation.html" title="Audio modulation, for a chorus or phaser etc.">Modulation</a> matrix system for routing multiple modulation sources to parameters. </p>
+<p>The <a class="el" href="classModMatrix.html" title="Modulation matrix system for routing multiple modulation sources to parameters.">ModMatrix</a> provides a flexible modulation routing system commonly used in synthesizers and audio effects. It allows multiple modulation sources (LFOs, envelopes, velocity, etc.) to control multiple destination parameters with configurable depth, enable/disable, and curve shaping.</p>
+<p>Key Features:</p><ul>
+<li>Monophonic and polyphonic modulation sources</li>
+<li>Multiple sources can modulate a single parameter</li>
+<li>Configurable modulation curves (linear, exponential, sine, etc.)</li>
+<li><a class="el" href="classParameter.html" title="A parameter with user values, real time safe callbacks, modulation, and all sorts of other fancy stuf...">Parameter</a> smoothing to avoid discontinuities</li>
+<li>Learning mode for quick modulation assignment</li>
+<li>State persistence via ValueTree</li>
+<li>Voice management for polyphonic synthesizers</li>
+</ul>
+<p>Usage:</p><ol type="1">
+<li>Create a <a class="el" href="classModMatrix.html" title="Modulation matrix system for routing multiple modulation sources to parameters.">ModMatrix</a> instance in your synthesizer</li>
+<li>Add all parameters using <a class="el" href="classModMatrix.html#afc78f8a62425746860184ad318a6c57e">addParameter()</a></li>
+<li>Add modulation sources using <a class="el" href="classModMatrix.html#ad3fc6378eb99507135d11c01944575cd">addMonoModSource()</a> or <a class="el" href="classModMatrix.html#a66caa6c7b30ee5a492bde8c0d56c2520">addPolyModSource()</a></li>
+<li>Update mod source values from your processing loop</li>
+<li>Always retrieve parameter values through the <a class="el" href="classModMatrix.html" title="Modulation matrix system for routing multiple modulation sources to parameters.">ModMatrix</a> using <a class="el" href="classModMatrix.html#a71167e0d0d7d731bc3b24134a3c8b222">getValue()</a></li>
+</ol>
+<p>Example: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classModMatrix.html">ModMatrix</a> modMatrix;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Setup</span></div>
+<div class="line">modMatrix.<a class="code hl_function" href="classModMatrix.html#afc78f8a62425746860184ad318a6c57e">addParameter</a>(filterCutoff, <span class="keyword">false</span>);</div>
+<div class="line"><span class="keyword">auto</span> lfo1 = modMatrix.<a class="code hl_function" href="classModMatrix.html#ad3fc6378eb99507135d11c01944575cd">addMonoModSource</a>(<span class="stringliteral">&quot;lfo1&quot;</span>, <span class="stringliteral">&quot;LFO 1&quot;</span>, <span class="keyword">true</span>);</div>
+<div class="line"><span class="keyword">auto</span> env1 = modMatrix.<a class="code hl_function" href="classModMatrix.html#a66caa6c7b30ee5a492bde8c0d56c2520">addPolyModSource</a>(<span class="stringliteral">&quot;env1&quot;</span>, <span class="stringliteral">&quot;Envelope 1&quot;</span>, <span class="keyword">false</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// In processing loop</span></div>
+<div class="line">modMatrix.<a class="code hl_function" href="classModMatrix.html#a059b88c04a7d524b96aa20034a943392">setMonoValue</a>(lfo1, lfoOutput);</div>
+<div class="line">modMatrix.<a class="code hl_function" href="classModMatrix.html#a223b6092cd0cae14bfd42e20935b3396">setPolyValue</a>(voice, env1, envelopeOutput);</div>
+<div class="line"><span class="keywordtype">float</span> cutoff = modMatrix.<a class="code hl_function" href="classModMatrix.html#a71167e0d0d7d731bc3b24134a3c8b222">getValue</a>(filterCutoff);</div>
+<div class="ttc" id="aclassModMatrix_html"><div class="ttname"><a href="classModMatrix.html">ModMatrix</a></div><div class="ttdoc">Modulation matrix system for routing multiple modulation sources to parameters.</div><div class="ttdef"><b>Definition</b> gin_modmatrix.h:142</div></div>
+<div class="ttc" id="aclassModMatrix_html_a059b88c04a7d524b96aa20034a943392"><div class="ttname"><a href="classModMatrix.html#a059b88c04a7d524b96aa20034a943392">ModMatrix::setMonoValue</a></div><div class="ttdeci">void setMonoValue(ModSrcId id, float value)</div><div class="ttdef"><b>Definition</b> gin_modmatrix.h:423</div></div>
+<div class="ttc" id="aclassModMatrix_html_a223b6092cd0cae14bfd42e20935b3396"><div class="ttname"><a href="classModMatrix.html#a223b6092cd0cae14bfd42e20935b3396">ModMatrix::setPolyValue</a></div><div class="ttdeci">void setPolyValue(ModVoice &amp;voice, ModSrcId id, float value)</div><div class="ttdef"><b>Definition</b> gin_modmatrix.h:431</div></div>
+<div class="ttc" id="aclassModMatrix_html_a66caa6c7b30ee5a492bde8c0d56c2520"><div class="ttname"><a href="classModMatrix.html#a66caa6c7b30ee5a492bde8c0d56c2520">ModMatrix::addPolyModSource</a></div><div class="ttdeci">ModSrcId addPolyModSource(const juce::String &amp;id, const juce::String &amp;name, bool bipolar)</div></div>
+<div class="ttc" id="aclassModMatrix_html_a71167e0d0d7d731bc3b24134a3c8b222"><div class="ttname"><a href="classModMatrix.html#a71167e0d0d7d731bc3b24134a3c8b222">ModMatrix::getValue</a></div><div class="ttdeci">float getValue(gin::Parameter *p, bool smoothed=true)</div><div class="ttdef"><b>Definition</b> gin_modmatrix.h:264</div></div>
+<div class="ttc" id="aclassModMatrix_html_ad3fc6378eb99507135d11c01944575cd"><div class="ttname"><a href="classModMatrix.html#ad3fc6378eb99507135d11c01944575cd">ModMatrix::addMonoModSource</a></div><div class="ttdeci">ModSrcId addMonoModSource(const juce::String &amp;id, const juce::String &amp;name, bool bipolar)</div></div>
+<div class="ttc" id="aclassModMatrix_html_afc78f8a62425746860184ad318a6c57e"><div class="ttname"><a href="classModMatrix.html#afc78f8a62425746860184ad318a6c57e">ModMatrix::addParameter</a></div><div class="ttdeci">void addParameter(gin::Parameter *p, bool poly, float smoothingTime=0.02f)</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classModVoice.html" title="Make your synth voice inherit from this if it supports modulation.">ModVoice</a>, <a class="el" href="structModSrcId.html" title="Identifier for a modulation source in the ModMatrix system.">ModSrcId</a>, <a class="el" href="structModDstId.html" title="Identifier for a modulation destination in the ModMatrix system.">ModDstId</a> </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a01ecaf32e75cdb11b6c803bc981a9533" name="a01ecaf32e75cdb11b6c803bc981a9533"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a01ecaf32e75cdb11b6c803bc981a9533">&#9670;&#160;</a></span>PolarityMode</h2>
@@ -1330,7 +1365,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 31 2025 03:46:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 08:02:27 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
