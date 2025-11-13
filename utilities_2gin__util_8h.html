@@ -83,43 +83,45 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPerlinNoise.html">PerlinNoise&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perlin noise - realistic looking noise Based on reference implementation of Perlin Noise by Ken Perlin <a href="http://mrl.nyu.edu/~perlin/paper445.pdf">http://mrl.nyu.edu/~perlin/paper445.pdf</a>.  <a href="classPerlinNoise.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates Perlin noise - a type of gradient noise with natural-looking characteristics.  <a href="classPerlinNoise.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRollingAverage.html">RollingAverage</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Keeps a rolling average of a series of numbers.  <a href="classRollingAverage.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maintains a rolling average of a series of numbers.  <a href="classRollingAverage.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeProfiler.html">TimeProfiler</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time Profiler &ndash; get a quick idea how long something takes.  <a href="classTimeProfiler.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple RAII-based time profiler for measuring execution duration.  <a href="classTimeProfiler.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga1ebc11c7a7ef780026ec5a519893895e" id="r_ga1ebc11c7a7ef780026ec5a519893895e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#ga1ebc11c7a7ef780026ec5a519893895e">compareAndReset</a> (bool &amp;flag)</td></tr>
-<tr class="memdesc:ga1ebc11c7a7ef780026ec5a519893895e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check a bool, it's set, clear and return true.  <br /></td></tr>
+<tr class="memdesc:ga1ebc11c7a7ef780026ec5a519893895e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a boolean flag is set, and if so, clears it and returns true.  <br /></td></tr>
 <tr class="separator:ga1ebc11c7a7ef780026ec5a519893895e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga458ba95824635202e48f00c71ced463d" id="r_ga458ba95824635202e48f00c71ced463d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#ga458ba95824635202e48f00c71ced463d">calculateRMS</a> (const float *values, int n)</td></tr>
-<tr class="memdesc:ga458ba95824635202e48f00c71ced463d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get RMS.  <br /></td></tr>
+<tr class="memdesc:ga458ba95824635202e48f00c71ced463d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the Root Mean Square (RMS) of an array of values.  <br /></td></tr>
 <tr class="separator:ga458ba95824635202e48f00c71ced463d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga823d49b3f21b97485eed223caec940c6" id="r_ga823d49b3f21b97485eed223caec940c6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#ga823d49b3f21b97485eed223caec940c6">calculateMedian</a> (const float *values, int n)</td></tr>
-<tr class="memdesc:ga823d49b3f21b97485eed223caec940c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get average.  <br /></td></tr>
+<tr class="memdesc:ga823d49b3f21b97485eed223caec940c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the median value of an array of values.  <br /></td></tr>
 <tr class="separator:ga823d49b3f21b97485eed223caec940c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2b12545cc67dbe67062cc1ae6299546f" id="r_ga2b12545cc67dbe67062cc1ae6299546f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ga2b12545cc67dbe67062cc1ae6299546f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#ga2b12545cc67dbe67062cc1ae6299546f">shuffleArray</a> (juce::Random &amp;r, T &amp;array)</td></tr>
-<tr class="memdesc:ga2b12545cc67dbe67062cc1ae6299546f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fisher-Yates Shuffle for juce::Array.  <br /></td></tr>
+<tr class="memdesc:ga2b12545cc67dbe67062cc1ae6299546f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Randomly shuffles the elements of an array using the Fisher-Yates algorithm.  <br /></td></tr>
 <tr class="separator:ga2b12545cc67dbe67062cc1ae6299546f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9861500c17d0717e211dc67c84ccc261" id="r_ga9861500c17d0717e211dc67c84ccc261"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#ga9861500c17d0717e211dc67c84ccc261">versionStringToInt</a> (const juce::String &amp;versionString)</td></tr>
+<tr class="memdesc:ga9861500c17d0717e211dc67c84ccc261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a version string to an integer for comparison purposes.  <br /></td></tr>
 <tr class="separator:ga9861500c17d0717e211dc67c84ccc261"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa8e8a032e70b00eb8b977cadd0fb09a8" id="r_gaa8e8a032e70b00eb8b977cadd0fb09a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#gaa8e8a032e70b00eb8b977cadd0fb09a8">delayedLambda</a> (std::function&lt; void()&gt; callback, int delayMS)</td></tr>
-<tr class="memdesc:gaa8e8a032e70b00eb8b977cadd0fb09a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Do a lambda, a bit later.  <br /></td></tr>
+<tr class="memdesc:gaa8e8a032e70b00eb8b977cadd0fb09a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a lambda function after a specified delay.  <br /></td></tr>
 <tr class="separator:gaa8e8a032e70b00eb8b977cadd0fb09a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaebf910d77d287573a8f98f51c67f8d48" id="r_gaebf910d77d287573a8f98f51c67f8d48"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:gaebf910d77d287573a8f98f51c67f8d48"><td class="memTemplItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#gaebf910d77d287573a8f98f51c67f8d48">formatNumber</a> (T v)</td></tr>
+<tr class="memdesc:gaebf910d77d287573a8f98f51c67f8d48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats a number as a string with appropriate decimal precision.  <br /></td></tr>
 <tr class="separator:gaebf910d77d287573a8f98f51c67f8d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 13 2025 09:17:50 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 10:12:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
