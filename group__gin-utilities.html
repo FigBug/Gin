@@ -80,6 +80,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceDiff" id="r_namespaceDiff"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDiff.html">Diff</a></td></tr>
+<tr class="memdesc:namespaceDiff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binary diff/patch utilities using the bsdiff algorithm. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceLagrange" id="r_namespaceLagrange"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceLagrange.html">Lagrange</a></td></tr>
 <tr class="memdesc:namespaceLagrange"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceLagrange.html" title="Lagrange interpolation functions for obtaining smooth curves from discrete points.">Lagrange</a> interpolation functions for obtaining smooth curves from discrete points. <br /></td></tr>
@@ -111,16 +112,16 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates linear regression from a set of points.  <a href="classLinearRegression.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessagePack.html">MessagePack</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts to/from <a class="el" href="classMessagePack.html" title="Converts to/from MessagePack and juce::var.">MessagePack</a> and juce::var.  <a href="classMessagePack.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts between <a class="el" href="classMessagePack.html" title="Converts between MessagePack binary format and juce::var.">MessagePack</a> binary format and juce::var.  <a href="classMessagePack.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoint.html">Point&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lightweight 2D point class for projects that don't use juce_graphics.  <a href="classPoint.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRealtimeAsyncUpdater.html">RealtimeAsyncUpdater</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Like juce::AsyncUpdater but it doesn't use the message queue.  <a href="classRealtimeAsyncUpdater.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An asynchronous update dispatcher that bypasses the message queue.  <a href="classRealtimeAsyncUpdater.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRIFFParser.html">RIFFParser</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse all the chunks in RIFF files (like wav, aiff, etc)  <a href="classRIFFParser.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses RIFF (Resource Interchange File Format) files.  <a href="classRIFFParser.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSharedMemory.html">SharedMemory</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a block of shared memory.  <a href="classSharedMemory.html#details">More...</a><br /></td></tr>
@@ -260,14 +261,19 @@ Functions</h2></td></tr>
 <tr class="memdesc:gae1a4b4ab413ade0e4c90ad3d26ce854b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrites a file with binary data in a single atomic operation.  <br /></td></tr>
 <tr class="separator:gae1a4b4ab413ade0e4c90ad3d26ce854b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac2aec1c96e46e294133bec5727ad2e98" id="r_gac2aec1c96e46e294133bec5727ad2e98"><td class="memItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#gac2aec1c96e46e294133bec5727ad2e98">parsePlist</a> (const juce::File &amp;f)</td></tr>
+<tr class="memdesc:gac2aec1c96e46e294133bec5727ad2e98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses an Apple Property List (plist) file and returns its contents as a juce::var.  <br /></td></tr>
 <tr class="separator:gac2aec1c96e46e294133bec5727ad2e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab0ff62a7c0a17d71004b40eb5a56f6a4" id="r_gab0ff62a7c0a17d71004b40eb5a56f6a4"><td class="memItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#gab0ff62a7c0a17d71004b40eb5a56f6a4">parsePlist</a> (const juce::String &amp;s)</td></tr>
+<tr class="memdesc:gab0ff62a7c0a17d71004b40eb5a56f6a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses an Apple Property List (plist) from a string and returns its contents.  <br /></td></tr>
 <tr class="separator:gab0ff62a7c0a17d71004b40eb5a56f6a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga745860e41e38bb0e8b5e52cd7655628a" id="r_ga745860e41e38bb0e8b5e52cd7655628a"><td class="memItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#ga745860e41e38bb0e8b5e52cd7655628a">parsePlist</a> (const juce::XmlElement &amp;f)</td></tr>
+<tr class="memdesc:ga745860e41e38bb0e8b5e52cd7655628a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses an Apple Property List (plist) from XML and returns its contents.  <br /></td></tr>
 <tr class="separator:ga745860e41e38bb0e8b5e52cd7655628a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa886c18929f610b33cc6ee595f98c7f2" id="r_gaa886c18929f610b33cc6ee595f98c7f2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#gaa886c18929f610b33cc6ee595f98c7f2">getWavetableSize</a> (const juce::MemoryBlock &amp;m)</td></tr>
+<tr class="memdesc:gaa886c18929f610b33cc6ee595f98c7f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts wavetable size from a RIFF file in memory.  <br /></td></tr>
 <tr class="separator:gaa886c18929f610b33cc6ee595f98c7f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga639651eb58a00a2e054fcc18adf54dd0" id="r_ga639651eb58a00a2e054fcc18adf54dd0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#ga639651eb58a00a2e054fcc18adf54dd0">getWavetableSize</a> (const juce::File &amp;f)</td></tr>
+<tr class="memdesc:ga639651eb58a00a2e054fcc18adf54dd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts wavetable size from a RIFF file.  <br /></td></tr>
 <tr class="separator:ga639651eb58a00a2e054fcc18adf54dd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafe89b1694e591a29d7c325e41b21543f" id="r_gafe89b1694e591a29d7c325e41b21543f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#gafe89b1694e591a29d7c325e41b21543f">callInBackground</a> (std::function&lt; void(void)&gt; function)</td></tr>
 <tr class="memdesc:gafe89b1694e591a29d7c325e41b21543f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a function on a background thread.  <br /></td></tr>
@@ -1113,6 +1119,16 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Parses an Apple Property List (plist) file and returns its contents as a juce::var. </p>
+<p>Plist files are commonly used on <a class="el" href="namespacemacOS.html">macOS</a> and iOS for storing application preferences and configuration data. This function supports both XML and binary plist formats.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>The plist file to parse </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A juce::var containing the parsed data structure (typically a DynamicObject) </dd></dl>
+
 </div>
 </div>
 <a id="gab0ff62a7c0a17d71004b40eb5a56f6a4" name="gab0ff62a7c0a17d71004b40eb5a56f6a4"></a>
@@ -1130,6 +1146,16 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Parses an Apple Property List (plist) from a string and returns its contents. </p>
+<p>Parses plist data from a string containing XML-formatted plist content.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>A string containing XML plist data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A juce::var containing the parsed data structure (typically a DynamicObject) </dd></dl>
 
 </div>
 </div>
@@ -1149,6 +1175,16 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Parses an Apple Property List (plist) from XML and returns its contents. </p>
+<p>Converts a parsed XML element representing a plist into a juce::var structure.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>An XmlElement containing the plist data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A juce::var containing the parsed data structure (typically a DynamicObject) </dd></dl>
+
 </div>
 </div>
 <a id="gaa886c18929f610b33cc6ee595f98c7f2" name="gaa886c18929f610b33cc6ee595f98c7f2"></a>
@@ -1166,6 +1202,16 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Extracts wavetable size from a RIFF file in memory. </p>
+<p>Searches for a "clm " chunk in the RIFF data and extracts the wavetable size from it. This is used for wavetable synthesis formats that store metadata in RIFF chunks.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>MemoryBlock containing RIFF file data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The wavetable size in samples, or 0 if not found </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="group__gin-utilities.html#ga639651eb58a00a2e054fcc18adf54dd0">getWavetableSize()</a>.</p>
 
@@ -1186,6 +1232,16 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Extracts wavetable size from a RIFF file. </p>
+<p>Searches for a "clm " chunk in the RIFF file and extracts the wavetable size from it. This is used for wavetable synthesis formats that store metadata in RIFF chunks.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>The RIFF file to read </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The wavetable size in samples, or 0 if not found </dd></dl>
 
 <p class="reference">References <a class="el" href="group__gin-utilities.html#gaa886c18929f610b33cc6ee595f98c7f2">getWavetableSize()</a>.</p>
 
@@ -1577,7 +1633,7 @@ template&lt;typename T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 13 2025 12:53:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 12:58:26 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

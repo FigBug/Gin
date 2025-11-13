@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Like juce::AsyncUpdater but it doesn't use the message queue.  
+<p>An asynchronous update dispatcher that bypasses the message queue.  
  <a href="classRealtimeAsyncUpdater.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_realtimeasyncupdater.h&gt;</code></p>
@@ -84,22 +84,32 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8cba7dff87861e17966355aeb266514f" id="r_a8cba7dff87861e17966355aeb266514f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRealtimeAsyncUpdater.html#a8cba7dff87861e17966355aeb266514f">RealtimeAsyncUpdater</a> ()</td></tr>
+<tr class="memdesc:a8cba7dff87861e17966355aeb266514f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classRealtimeAsyncUpdater.html" title="An asynchronous update dispatcher that bypasses the message queue.">RealtimeAsyncUpdater</a>.  <br /></td></tr>
 <tr class="separator:a8cba7dff87861e17966355aeb266514f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a04b37b535881acf0dbcd49399f274e" id="r_a8a04b37b535881acf0dbcd49399f274e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRealtimeAsyncUpdater.html#a8a04b37b535881acf0dbcd49399f274e">~RealtimeAsyncUpdater</a> ()</td></tr>
+<tr class="memdesc:a8a04b37b535881acf0dbcd49399f274e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
 <tr class="separator:a8a04b37b535881acf0dbcd49399f274e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee4e7bf67d31d0bb574132bfd102f57f" id="r_aee4e7bf67d31d0bb574132bfd102f57f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRealtimeAsyncUpdater.html#aee4e7bf67d31d0bb574132bfd102f57f">triggerAsyncUpdate</a> ()</td></tr>
+<tr class="memdesc:aee4e7bf67d31d0bb574132bfd102f57f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers an asynchronous update.  <br /></td></tr>
 <tr class="separator:aee4e7bf67d31d0bb574132bfd102f57f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a925b9c4623b6c0c9652484e64677502b" id="r_a925b9c4623b6c0c9652484e64677502b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRealtimeAsyncUpdater.html#a925b9c4623b6c0c9652484e64677502b">cancelPendingUpdate</a> () noexcept</td></tr>
+<tr class="memdesc:a925b9c4623b6c0c9652484e64677502b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancels any pending update.  <br /></td></tr>
 <tr class="separator:a925b9c4623b6c0c9652484e64677502b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accae6ff15d6eff08e6a3318263eb6574" id="r_accae6ff15d6eff08e6a3318263eb6574"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRealtimeAsyncUpdater.html#accae6ff15d6eff08e6a3318263eb6574">handleUpdateNowIfNeeded</a> ()</td></tr>
+<tr class="memdesc:accae6ff15d6eff08e6a3318263eb6574"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the update immediately if one is pending.  <br /></td></tr>
 <tr class="separator:accae6ff15d6eff08e6a3318263eb6574"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd6cd91c301fd331bc4c48ec009adc5a" id="r_acd6cd91c301fd331bc4c48ec009adc5a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRealtimeAsyncUpdater.html#acd6cd91c301fd331bc4c48ec009adc5a">isUpdatePending</a> () const noexcept</td></tr>
+<tr class="memdesc:acd6cd91c301fd331bc4c48ec009adc5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if an update is currently pending.  <br /></td></tr>
 <tr class="separator:acd6cd91c301fd331bc4c48ec009adc5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86dee41bf003fdbf125d0b3683acbaf0" id="r_a86dee41bf003fdbf125d0b3683acbaf0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRealtimeAsyncUpdater.html#a86dee41bf003fdbf125d0b3683acbaf0">handleAsyncUpdate</a> ()=0</td></tr>
+<tr class="memdesc:a86dee41bf003fdbf125d0b3683acbaf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called asynchronously when an update is triggered.  <br /></td></tr>
 <tr class="separator:a86dee41bf003fdbf125d0b3683acbaf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Like juce::AsyncUpdater but it doesn't use the message queue. </p>
+<div class="textblock"><p>An asynchronous update dispatcher that bypasses the message queue. </p>
+<p>Similar to juce::AsyncUpdater, but uses a dedicated background thread instead of the message queue. This makes it suitable for real-time applications where the message queue might introduce unacceptable latency or where the message thread might be blocked.</p>
+<p>Multiple calls to <a class="el" href="classRealtimeAsyncUpdater.html#aee4e7bf67d31d0bb574132bfd102f57f" title="Triggers an asynchronous update.">triggerAsyncUpdate()</a> are coalesced - if called multiple times before <a class="el" href="classRealtimeAsyncUpdater.html#a86dee41bf003fdbf125d0b3683acbaf0" title="Called asynchronously when an update is triggered.">handleAsyncUpdate()</a> runs, it will only be called once.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classRealtimeAsyncUpdater.html#aee4e7bf67d31d0bb574132bfd102f57f" title="Triggers an asynchronous update.">triggerAsyncUpdate</a>, <a class="el" href="classRealtimeAsyncUpdater.html#a86dee41bf003fdbf125d0b3683acbaf0" title="Called asynchronously when an update is triggered.">handleAsyncUpdate</a>, <a class="el" href="classRealtimeAsyncUpdater.html#a925b9c4623b6c0c9652484e64677502b" title="Cancels any pending update.">cancelPendingUpdate</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8cba7dff87861e17966355aeb266514f" name="a8cba7dff87861e17966355aeb266514f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8cba7dff87861e17966355aeb266514f">&#9670;&#160;</a></span>RealtimeAsyncUpdater()</h2>
@@ -115,6 +125,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a <a class="el" href="classRealtimeAsyncUpdater.html" title="An asynchronous update dispatcher that bypasses the message queue.">RealtimeAsyncUpdater</a>. </p>
 
 </div>
 </div>
@@ -141,6 +153,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Destructor. </p>
+<p>Cancels any pending updates. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -158,6 +173,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Triggers an asynchronous update. </p>
+<p>Schedules <a class="el" href="classRealtimeAsyncUpdater.html#a86dee41bf003fdbf125d0b3683acbaf0" title="Called asynchronously when an update is triggered.">handleAsyncUpdate()</a> to be called on a background thread. Multiple calls before the update executes are coalesced into a single callback. This method is thread-safe and can be called from any thread, including real-time audio threads. </p>
 
 </div>
 </div>
@@ -184,6 +202,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Cancels any pending update. </p>
+<p>Prevents <a class="el" href="classRealtimeAsyncUpdater.html#a86dee41bf003fdbf125d0b3683acbaf0" title="Called asynchronously when an update is triggered.">handleAsyncUpdate()</a> from being called if it hasn't executed yet. This is thread-safe. </p>
+
 </div>
 </div>
 <a id="accae6ff15d6eff08e6a3318263eb6574" name="accae6ff15d6eff08e6a3318263eb6574"></a>
@@ -200,6 +221,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Handles the update immediately if one is pending. </p>
+<p>If an update has been triggered but not yet executed, this will execute it immediately on the current thread and cancel the pending background execution. </p>
 
 </div>
 </div>
@@ -226,6 +250,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Checks if an update is currently pending. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if <a class="el" href="classRealtimeAsyncUpdater.html#aee4e7bf67d31d0bb574132bfd102f57f" title="Triggers an asynchronous update.">triggerAsyncUpdate()</a> has been called and <a class="el" href="classRealtimeAsyncUpdater.html#a86dee41bf003fdbf125d0b3683acbaf0" title="Called asynchronously when an update is triggered.">handleAsyncUpdate()</a> hasn't executed yet </dd></dl>
+
 </div>
 </div>
 <a id="a86dee41bf003fdbf125d0b3683acbaf0" name="a86dee41bf003fdbf125d0b3683acbaf0"></a>
@@ -251,6 +278,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Called asynchronously when an update is triggered. </p>
+<p>Override this method to perform your update logic. This will be called on a dedicated background thread (not the message thread). </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -259,7 +289,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 13 2025 12:53:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 12:58:26 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

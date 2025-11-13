@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Converts to/from <a class="el" href="classMessagePack.html" title="Converts to/from MessagePack and juce::var.">MessagePack</a> and juce::var.  
+<p>Converts between <a class="el" href="classMessagePack.html" title="Converts between MessagePack binary format and juce::var.">MessagePack</a> binary format and juce::var.  
  <a href="classMessagePack.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_messagepack.h&gt;</code></p>
@@ -84,15 +84,22 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aee9464edf2e67d30bc42114eabf7e18c" id="r_aee9464edf2e67d30bc42114eabf7e18c"><td class="memItemLeft" align="right" valign="top">static juce::MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessagePack.html#aee9464edf2e67d30bc42114eabf7e18c">toMessagePack</a> (const juce::var &amp;obj)</td></tr>
+<tr class="memdesc:aee9464edf2e67d30bc42114eabf7e18c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a juce::var to <a class="el" href="classMessagePack.html" title="Converts between MessagePack binary format and juce::var.">MessagePack</a> binary format.  <br /></td></tr>
 <tr class="separator:aee9464edf2e67d30bc42114eabf7e18c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af05e84a64218328ce6d733fcd80a960a" id="r_af05e84a64218328ce6d733fcd80a960a"><td class="memItemLeft" align="right" valign="top">static juce::var&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessagePack.html#af05e84a64218328ce6d733fcd80a960a">parse</a> (const juce::MemoryBlock &amp;data)</td></tr>
+<tr class="memdesc:af05e84a64218328ce6d733fcd80a960a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses <a class="el" href="classMessagePack.html" title="Converts between MessagePack binary format and juce::var.">MessagePack</a> binary data into a juce::var.  <br /></td></tr>
 <tr class="separator:af05e84a64218328ce6d733fcd80a960a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Converts to/from <a class="el" href="classMessagePack.html" title="Converts to/from MessagePack and juce::var.">MessagePack</a> and juce::var. </p>
-<p>Due to limitations of juce:var, there are no unsigned ints, object keys can only be strings (non strings will be converted to string if possible)</p>
-<p>All custom types will be returned as juce::MemoryBlock with the first byte as the type.</p>
-<p>All strings are assumed to be utf8 </p>
+<div class="textblock"><p>Converts between <a class="el" href="classMessagePack.html" title="Converts between MessagePack binary format and juce::var.">MessagePack</a> binary format and juce::var. </p>
+<p><a class="el" href="classMessagePack.html" title="Converts between MessagePack binary format and juce::var.">MessagePack</a> is an efficient binary serialization format that's more compact than JSON. This class provides bidirectional conversion between <a class="el" href="classMessagePack.html" title="Converts between MessagePack binary format and juce::var.">MessagePack</a> data and JUCE's var type.</p>
+<p>Limitations due to juce::var constraints:</p><ul>
+<li>No unsigned integer types (all integers are signed)</li>
+<li>Object keys must be strings (non-string keys will be converted if possible)</li>
+<li>Custom types are returned as juce::MemoryBlock with the first byte as the type</li>
+<li>All strings are assumed to be UTF-8 encoded</li>
+</ul>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classMessagePack.html#aee9464edf2e67d30bc42114eabf7e18c" title="Converts a juce::var to MessagePack binary format.">toMessagePack</a>, <a class="el" href="classMessagePack.html#af05e84a64218328ce6d733fcd80a960a" title="Parses MessagePack binary data into a juce::var.">parse</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aee9464edf2e67d30bc42114eabf7e18c" name="aee9464edf2e67d30bc42114eabf7e18c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aee9464edf2e67d30bc42114eabf7e18c">&#9670;&#160;</a></span>toMessagePack()</h2>
@@ -117,6 +124,16 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Converts a juce::var to <a class="el" href="classMessagePack.html" title="Converts between MessagePack binary format and juce::var.">MessagePack</a> binary format. </p>
+<p>Serializes a var (and any nested structures) into <a class="el" href="classMessagePack.html" title="Converts between MessagePack binary format and juce::var.">MessagePack</a> binary format. The var can contain primitives, arrays, and objects which will be encoded appropriately.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>The var to serialize </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A MemoryBlock containing the MessagePack-encoded data </dd></dl>
 
 </div>
 </div>
@@ -144,6 +161,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Parses <a class="el" href="classMessagePack.html" title="Converts between MessagePack binary format and juce::var.">MessagePack</a> binary data into a juce::var. </p>
+<p>Deserializes <a class="el" href="classMessagePack.html" title="Converts between MessagePack binary format and juce::var.">MessagePack</a> binary data back into a var structure. Arrays become var arrays, objects become DynamicObjects, and primitives are converted to appropriate var types.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>The MemoryBlock containing MessagePack-encoded data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The deserialized var structure </dd></dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -152,7 +179,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 13 2025 12:53:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 12:58:26 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

@@ -74,15 +74,24 @@ $(function() {
   <div class="headertitle"><div class="title">Diff Namespace Reference<div class="ingroups"><a class="el" href="group__gin.html">gin</a> &raquo; <a class="el" href="group__gin-utilities.html">utilities</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Binary diff/patch utilities using the bsdiff algorithm.  
+<a href="namespaceDiff.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a6316252e0766f32052b1de207d27203c" id="r_a6316252e0766f32052b1de207d27203c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDiff.html#a6316252e0766f32052b1de207d27203c">bsDiff</a> (const juce::String &amp;s1, const juce::String &amp;s2)</td></tr>
+<tr class="memdesc:a6316252e0766f32052b1de207d27203c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a binary patch that transforms s1 into s2.  <br /></td></tr>
 <tr class="separator:a6316252e0766f32052b1de207d27203c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02f934e756b7ff02baaa06b4e7ceab55" id="r_a02f934e756b7ff02baaa06b4e7ceab55"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDiff.html#a02f934e756b7ff02baaa06b4e7ceab55">bsApplyPatch</a> (const juce::String &amp;s, const std::vector&lt; uint8_t &gt; &amp;patch)</td></tr>
+<tr class="memdesc:a02f934e756b7ff02baaa06b4e7ceab55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a binary patch to a string.  <br /></td></tr>
 <tr class="separator:a02f934e756b7ff02baaa06b4e7ceab55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Binary diff/patch utilities using the bsdiff algorithm. </p>
+<p>These functions provide efficient binary differencing and patching for strings. The bsdiff algorithm creates compact patches by finding matching sequences between the old and new data.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceDiff.html#a6316252e0766f32052b1de207d27203c" title="Creates a binary patch that transforms s1 into s2.">bsDiff</a>, <a class="el" href="namespaceDiff.html#a02f934e756b7ff02baaa06b4e7ceab55" title="Applies a binary patch to a string.">bsApplyPatch</a> </dd></dl>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a6316252e0766f32052b1de207d27203c" name="a6316252e0766f32052b1de207d27203c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6316252e0766f32052b1de207d27203c">&#9670;&#160;</a></span>bsDiff()</h2>
 
@@ -108,6 +117,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a binary patch that transforms s1 into s2. </p>
+<p>Uses the bsdiff algorithm to generate a compact binary patch representing the differences between two strings. The resulting patch can be applied to s1 using <a class="el" href="namespaceDiff.html#a02f934e756b7ff02baaa06b4e7ceab55" title="Applies a binary patch to a string.">bsApplyPatch()</a> to recreate s2.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s1</td><td>The original string </td></tr>
+    <tr><td class="paramname">s2</td><td>The target string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A binary patch as a vector of bytes </dd></dl>
 
 </div>
 </div>
@@ -137,12 +157,23 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Applies a binary patch to a string. </p>
+<p>Applies a patch created by <a class="el" href="namespaceDiff.html#a6316252e0766f32052b1de207d27203c" title="Creates a binary patch that transforms s1 into s2.">bsDiff()</a> to transform the original string into the target string.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>The original string to patch </td></tr>
+    <tr><td class="paramname">patch</td><td>The binary patch data created by <a class="el" href="namespaceDiff.html#a6316252e0766f32052b1de207d27203c" title="Creates a binary patch that transforms s1 into s2.">bsDiff()</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The resulting string after applying the patch </dd></dl>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 13 2025 12:53:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 12:58:26 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

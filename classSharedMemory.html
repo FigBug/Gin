@@ -85,23 +85,28 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7ed6c8ab72fa4eaf0abd6d665df0e210" id="r_a7ed6c8ab72fa4eaf0abd6d665df0e210"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSharedMemory.html#a7ed6c8ab72fa4eaf0abd6d665df0e210">SharedMemory</a> (const juce::String &amp;name, int size)</td></tr>
+<tr class="memdesc:a7ed6c8ab72fa4eaf0abd6d665df0e210"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates or opens a shared memory block.  <br /></td></tr>
 <tr class="separator:a7ed6c8ab72fa4eaf0abd6d665df0e210"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc56751ce1b30224689e71cd3b6c09be" id="r_adc56751ce1b30224689e71cd3b6c09be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSharedMemory.html#adc56751ce1b30224689e71cd3b6c09be">~SharedMemory</a> ()</td></tr>
+<tr class="memdesc:adc56751ce1b30224689e71cd3b6c09be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
 <tr class="separator:adc56751ce1b30224689e71cd3b6c09be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23466023400b347c88d497d8276ec06a" id="r_a23466023400b347c88d497d8276ec06a"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSharedMemory.html#a23466023400b347c88d497d8276ec06a">getData</a> ()</td></tr>
+<tr class="memdesc:a23466023400b347c88d497d8276ec06a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the shared memory data.  <br /></td></tr>
 <tr class="separator:a23466023400b347c88d497d8276ec06a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac16dde725ff9ce10788b9ff805ba3e85" id="r_ac16dde725ff9ce10788b9ff805ba3e85"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSharedMemory.html#ac16dde725ff9ce10788b9ff805ba3e85">getSize</a> ()</td></tr>
+<tr class="memdesc:ac16dde725ff9ce10788b9ff805ba3e85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the actual size of the shared memory block in bytes.  <br /></td></tr>
 <tr class="separator:ac16dde725ff9ce10788b9ff805ba3e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a19714c21ee5c98faff8a1e77e79532a7" id="r_a19714c21ee5c98faff8a1e77e79532a7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSharedMemory.html#a19714c21ee5c98faff8a1e77e79532a7">remove</a> (const juce::String &amp;name)</td></tr>
+<tr class="memdesc:a19714c21ee5c98faff8a1e77e79532a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a shared memory block by name.  <br /></td></tr>
 <tr class="separator:a19714c21ee5c98faff8a1e77e79532a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Creates a block of shared memory. </p>
 <p>The first one to create the block sets the size otherwise it is ignored. The block may be a different size than requested, especially if it was already created.</p>
-<p>On Unix based OSes, if a process using the block crashes, the block will leak. Clean it up later with <a class="el" href="classSharedMemory.html#a19714c21ee5c98faff8a1e77e79532a7">remove()</a> and it will be deleted when the last process stops using it. (No new processes will be able to attach)</p>
+<p>On Unix based OSes, if a process using the block crashes, the block will leak. Clean it up later with <a class="el" href="classSharedMemory.html#a19714c21ee5c98faff8a1e77e79532a7" title="Removes a shared memory block by name.">remove()</a> and it will be deleted when the last process stops using it. (No new processes will be able to attach)</p>
 <p>On Windows the memory block will always disappear when the final process closes the handle / crashes. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7ed6c8ab72fa4eaf0abd6d665df0e210" name="a7ed6c8ab72fa4eaf0abd6d665df0e210"></a>
@@ -130,6 +135,16 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates or opens a shared memory block. </p>
+<p>If a block with this name already exists, it will be opened and the size parameter is ignored. Otherwise, a new block is created with the specified size. The actual size may differ from the requested size, especially if the block already existed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The unique system-wide name for this shared memory block </td></tr>
+    <tr><td class="paramname">size</td><td>The desired size in bytes (only used when creating a new block) </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="adc56751ce1b30224689e71cd3b6c09be" name="adc56751ce1b30224689e71cd3b6c09be"></a>
@@ -146,6 +161,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Destructor. </p>
+<p>Detaches from the shared memory block.</p>
+<p>On Windows, if this is the last process using the block, it will be deleted. On Unix systems, the block will persist until explicitly removed with <a class="el" href="classSharedMemory.html#a19714c21ee5c98faff8a1e77e79532a7" title="Removes a shared memory block by name.">remove()</a>. </p>
 
 </div>
 </div>
@@ -174,6 +193,15 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Removes a shared memory block by name. </p>
+<p>On Unix systems, this marks the block for deletion. It will be deleted when the last process detaches. On Windows, this has no effect as blocks are automatically cleaned up.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the shared memory block to remove </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a23466023400b347c88d497d8276ec06a" name="a23466023400b347c88d497d8276ec06a"></a>
@@ -190,6 +218,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a pointer to the shared memory data. </p>
+<p>This pointer can be used to read from or write to the shared memory. All processes sharing this memory block will see the same data.</p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the shared memory, or nullptr if the block is invalid </dd></dl>
 
 </div>
 </div>
@@ -208,6 +240,10 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the actual size of the shared memory block in bytes. </p>
+<p>This may differ from the requested size, especially if the block already existed when this <a class="el" href="classSharedMemory.html" title="Creates a block of shared memory.">SharedMemory</a> object was created.</p>
+<dl class="section return"><dt>Returns</dt><dd>The size of the shared memory block in bytes </dd></dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -216,7 +252,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 13 2025 12:53:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 12:58:26 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
