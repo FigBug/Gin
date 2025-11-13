@@ -82,7 +82,7 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceDiff" id="r_namespaceDiff"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDiff.html">Diff</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceLagrange" id="r_namespaceLagrange"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceLagrange.html">Lagrange</a></td></tr>
-<tr class="memdesc:namespaceLagrange"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceLagrange.html" title="Lagrange interpolation is a simple way to obtain a smooth curve from a set of discrete points.">Lagrange</a> interpolation is a simple way to obtain a smooth curve from a set of discrete points. <br /></td></tr>
+<tr class="memdesc:namespaceLagrange"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceLagrange.html" title="Lagrange interpolation functions for obtaining smooth curves from discrete points.">Lagrange</a> interpolation functions for obtaining smooth curves from discrete points. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -114,7 +114,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts to/from <a class="el" href="classMessagePack.html" title="Converts to/from MessagePack and juce::var.">MessagePack</a> and juce::var.  <a href="classMessagePack.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoint.html">Point&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Like the juce::Point, useful for project that don't use juce_graphics.  <a href="classPoint.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lightweight 2D point class for projects that don't use juce_graphics.  <a href="classPoint.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRealtimeAsyncUpdater.html">RealtimeAsyncUpdater</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Like juce::AsyncUpdater but it doesn't use the message queue.  <a href="classRealtimeAsyncUpdater.html#details">More...</a><br /></td></tr>
@@ -131,7 +131,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpline_1_1Element.html">Spline::Element</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystemSemaphore.html">SystemSemaphore</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A semaphore that works across processes and in one process This is not finished / implemented.  <a href="classSystemSemaphore.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A system-wide semaphore for inter-process synchronization.  <a href="classSystemSemaphore.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTextHistory.html">TextHistory</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Undo/redo history management for text editing with efficient diff-based storage.  <a href="classTextHistory.html#details">More...</a><br /></td></tr>
@@ -251,10 +251,13 @@ Functions</h2></td></tr>
 <tr class="memitem:ga16564d349e6fe228db0c8b22df5d7bb4"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#ga16564d349e6fe228db0c8b22df5d7bb4">easeBounceInOut</a> (T p)</td></tr>
 <tr class="separator:ga16564d349e6fe228db0c8b22df5d7bb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1aac7c94939802d4c2c08d600feefa23" id="r_ga1aac7c94939802d4c2c08d600feefa23"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#ga1aac7c94939802d4c2c08d600feefa23">overwriteWithText</a> (const juce::File &amp;f, const juce::String &amp;text, bool asUnicode=false, bool writeUnicodeHeaderBytes=false, const char *lineEndings=nullptr)</td></tr>
+<tr class="memdesc:ga1aac7c94939802d4c2c08d600feefa23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrites a file with text content in a single atomic operation.  <br /></td></tr>
 <tr class="separator:ga1aac7c94939802d4c2c08d600feefa23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6e2dbf5f19342f51ea56d96cb5e9e842" id="r_ga6e2dbf5f19342f51ea56d96cb5e9e842"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#ga6e2dbf5f19342f51ea56d96cb5e9e842">overwriteWithData</a> (const juce::File &amp;f, const juce::MemoryBlock &amp;data)</td></tr>
+<tr class="memdesc:ga6e2dbf5f19342f51ea56d96cb5e9e842"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrites a file with binary data in a single atomic operation.  <br /></td></tr>
 <tr class="separator:ga6e2dbf5f19342f51ea56d96cb5e9e842"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae1a4b4ab413ade0e4c90ad3d26ce854b" id="r_gae1a4b4ab413ade0e4c90ad3d26ce854b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#gae1a4b4ab413ade0e4c90ad3d26ce854b">overwriteWithData</a> (const juce::File &amp;f, const void *data, size_t size)</td></tr>
+<tr class="memdesc:gae1a4b4ab413ade0e4c90ad3d26ce854b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrites a file with binary data in a single atomic operation.  <br /></td></tr>
 <tr class="separator:gae1a4b4ab413ade0e4c90ad3d26ce854b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac2aec1c96e46e294133bec5727ad2e98" id="r_gac2aec1c96e46e294133bec5727ad2e98"><td class="memItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#gac2aec1c96e46e294133bec5727ad2e98">parsePlist</a> (const juce::File &amp;f)</td></tr>
 <tr class="separator:gac2aec1c96e46e294133bec5727ad2e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -267,9 +270,11 @@ Functions</h2></td></tr>
 <tr class="memitem:ga639651eb58a00a2e054fcc18adf54dd0" id="r_ga639651eb58a00a2e054fcc18adf54dd0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#ga639651eb58a00a2e054fcc18adf54dd0">getWavetableSize</a> (const juce::File &amp;f)</td></tr>
 <tr class="separator:ga639651eb58a00a2e054fcc18adf54dd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafe89b1694e591a29d7c325e41b21543f" id="r_gafe89b1694e591a29d7c325e41b21543f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#gafe89b1694e591a29d7c325e41b21543f">callInBackground</a> (std::function&lt; void(void)&gt; function)</td></tr>
+<tr class="memdesc:gafe89b1694e591a29d7c325e41b21543f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a function on a background thread.  <br /></td></tr>
 <tr class="separator:gafe89b1694e591a29d7c325e41b21543f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga383aa0fdd6752ac48ba3e087006730fa" id="r_ga383aa0fdd6752ac48ba3e087006730fa"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ga383aa0fdd6752ac48ba3e087006730fa"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#ga383aa0fdd6752ac48ba3e087006730fa">multiThreadedFor</a> (T start, T end, T interval, juce::ThreadPool *threadPool, std::function&lt; void(T idx)&gt; callback)</td></tr>
+<tr class="memdesc:ga383aa0fdd6752ac48ba3e087006730fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a for loop in parallel across multiple threads.  <br /></td></tr>
 <tr class="separator:ga383aa0fdd6752ac48ba3e087006730fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1ebc11c7a7ef780026ec5a519893895e" id="r_ga1ebc11c7a7ef780026ec5a519893895e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin-utilities.html#ga1ebc11c7a7ef780026ec5a519893895e">compareAndReset</a> (bool &amp;flag)</td></tr>
 <tr class="memdesc:ga1ebc11c7a7ef780026ec5a519893895e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a boolean flag is set, and if so, clears it and returns true.  <br /></td></tr>
@@ -991,6 +996,20 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Overwrites a file with text content in a single atomic operation. </p>
+<p>Unlike juce::File::replaceWithText(), this function writes directly to the target file without creating a temporary file first. This is faster but provides less safety if the write operation fails partway through.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>The file to overwrite </td></tr>
+    <tr><td class="paramname">text</td><td>The text content to write </td></tr>
+    <tr><td class="paramname">asUnicode</td><td>If true, writes as UTF-16, otherwise as UTF-8 </td></tr>
+    <tr><td class="paramname">writeUnicodeHeaderBytes</td><td>If true and asUnicode is true, writes a BOM (byte order mark) </td></tr>
+    <tr><td class="paramname">lineEndings</td><td>The line ending style to use (nullptr for platform default) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the operation succeeded, false otherwise </dd></dl>
+
 </div>
 </div>
 <a id="ga6e2dbf5f19342f51ea56d96cb5e9e842" name="ga6e2dbf5f19342f51ea56d96cb5e9e842"></a>
@@ -1018,6 +1037,17 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Overwrites a file with binary data in a single atomic operation. </p>
+<p>Unlike juce::File::replaceWithData(), this function writes directly to the target file without creating a temporary file first. This is faster but provides less safety if the write operation fails partway through.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>The file to overwrite </td></tr>
+    <tr><td class="paramname">data</td><td>The memory block containing the data to write </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the operation succeeded, false otherwise </dd></dl>
 
 </div>
 </div>
@@ -1052,6 +1082,18 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Overwrites a file with binary data in a single atomic operation. </p>
+<p>Unlike juce::File::replaceWithData(), this function writes directly to the target file without creating a temporary file first. This is faster but provides less safety if the write operation fails partway through.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>The file to overwrite </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to the data to write </td></tr>
+    <tr><td class="paramname">size</td><td>Number of bytes to write </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the operation succeeded, false otherwise </dd></dl>
 
 </div>
 </div>
@@ -1165,6 +1207,15 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Executes a function on a background thread. </p>
+<p>This is a convenience function for running code asynchronously without blocking the current thread. The function will be executed on a separate thread and return immediately.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">function</td><td>The function to execute on the background thread </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ga383aa0fdd6752ac48ba3e087006730fa" name="ga383aa0fdd6752ac48ba3e087006730fa"></a>
@@ -1212,6 +1263,28 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Executes a for loop in parallel across multiple threads. </p>
+<p>This function distributes loop iterations across available CPU cores using a thread pool. Each thread processes a subset of iterations, with work distributed evenly. This is useful for parallelizing computationally intensive loops.</p>
+<p>Example usage: </p><div class="fragment"><div class="line"><span class="comment">// Serial loop:</span></div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 10; i++)</div>
+<div class="line">    processItem (i);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Parallel version:</span></div>
+<div class="line">multiThreadedFor&lt;int&gt; (0, 10, 1, threadPool, [&amp;] (<span class="keywordtype">int</span> i) {</div>
+<div class="line">    processItem (i);</div>
+<div class="line">});</div>
+</div><!-- fragment --><dl class="section warning"><dt>Warning</dt><dd>Each iteration must be independent - there should be no dependencies between iterations or race conditions when accessing shared data.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>The starting index (inclusive) </td></tr>
+    <tr><td class="paramname">end</td><td>The ending index (exclusive) </td></tr>
+    <tr><td class="paramname">interval</td><td>The step size between iterations </td></tr>
+    <tr><td class="paramname">threadPool</td><td>The thread pool to use (if nullptr, runs serially on current thread) </td></tr>
+    <tr><td class="paramname">callback</td><td>The function to call for each iteration, receiving the index as parameter </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1504,7 +1577,7 @@ template&lt;typename T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 13 2025 10:12:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 12:53:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

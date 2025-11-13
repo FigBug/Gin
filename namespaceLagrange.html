@@ -75,20 +75,24 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="namespaceLagrange.html" title="Lagrange interpolation is a simple way to obtain a smooth curve from a set of discrete points.">Lagrange</a> interpolation is a simple way to obtain a smooth curve from a set of discrete points.  
+<p><a class="el" href="namespaceLagrange.html" title="Lagrange interpolation functions for obtaining smooth curves from discrete points.">Lagrange</a> interpolation functions for obtaining smooth curves from discrete points.  
 <a href="namespaceLagrange.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a6f338372cdf3563a209fe42fa92f8c13" id="r_a6f338372cdf3563a209fe42fa92f8c13"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a6f338372cdf3563a209fe42fa92f8c13"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceLagrange.html#a6f338372cdf3563a209fe42fa92f8c13">interpolate</a> (const juce::Array&lt; <a class="el" href="classPoint.html">Point</a>&lt; T &gt; &gt; &amp;points, T x)</td></tr>
+<tr class="memdesc:a6f338372cdf3563a209fe42fa92f8c13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpolates a value at coordinate x using <a class="el" href="namespaceLagrange.html" title="Lagrange interpolation functions for obtaining smooth curves from discrete points.">Lagrange</a> polynomial interpolation.  <br /></td></tr>
 <tr class="separator:a6f338372cdf3563a209fe42fa92f8c13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab812f4c6079c4c45b43e56239c3634d4" id="r_ab812f4c6079c4c45b43e56239c3634d4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ab812f4c6079c4c45b43e56239c3634d4"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceLagrange.html#ab812f4c6079c4c45b43e56239c3634d4">interpolate</a> (T xArr[], T yArr[], int num, T x)</td></tr>
+<tr class="memdesc:ab812f4c6079c4c45b43e56239c3634d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpolates a value at coordinate x using <a class="el" href="namespaceLagrange.html" title="Lagrange interpolation functions for obtaining smooth curves from discrete points.">Lagrange</a> polynomial interpolation.  <br /></td></tr>
 <tr class="separator:ab812f4c6079c4c45b43e56239c3634d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="namespaceLagrange.html" title="Lagrange interpolation is a simple way to obtain a smooth curve from a set of discrete points.">Lagrange</a> interpolation is a simple way to obtain a smooth curve from a set of discrete points. </p>
+<div class="textblock"><p><a class="el" href="namespaceLagrange.html" title="Lagrange interpolation functions for obtaining smooth curves from discrete points.">Lagrange</a> interpolation functions for obtaining smooth curves from discrete points. </p>
+<p><a class="el" href="namespaceLagrange.html" title="Lagrange interpolation functions for obtaining smooth curves from discrete points.">Lagrange</a> interpolation creates a polynomial that passes through all given points. Unlike splines, it uses a single polynomial rather than piecewise functions. Note that for large numbers of points, the resulting polynomial can oscillate significantly (Runge's phenomenon).</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceLagrange.html#a6f338372cdf3563a209fe42fa92f8c13" title="Interpolates a value at coordinate x using Lagrange polynomial interpolation.">interpolate</a> </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a6f338372cdf3563a209fe42fa92f8c13" name="a6f338372cdf3563a209fe42fa92f8c13"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6f338372cdf3563a209fe42fa92f8c13">&#9670;&#160;</a></span>interpolate() <span class="overload">[1/2]</span></h2>
@@ -117,6 +121,17 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Interpolates a value at coordinate x using <a class="el" href="namespaceLagrange.html" title="Lagrange interpolation functions for obtaining smooth curves from discrete points.">Lagrange</a> polynomial interpolation. </p>
+<p>Creates a polynomial that passes through all the given points and evaluates it at the specified x coordinate. The resulting polynomial has degree n-1 where n is the number of points.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points</td><td>An array of Point&lt;T&gt; defining the interpolation curve </td></tr>
+    <tr><td class="paramname">x</td><td>The x coordinate at which to evaluate the interpolated value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The interpolated y value at coordinate x </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="classDelayLine.html#a02fd312c5f9a3a5aeb7aae8e7ab2d4c0">DelayLine::readLagrange()</a>, and <a class="el" href="classDelayLine.html#aa34d1e8071d58e27e2b98c5ffc2563cc">DelayLine::readSampleLagrange()</a>.</p>
 
@@ -162,12 +177,25 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Interpolates a value at coordinate x using <a class="el" href="namespaceLagrange.html" title="Lagrange interpolation functions for obtaining smooth curves from discrete points.">Lagrange</a> polynomial interpolation. </p>
+<p>This overload accepts separate arrays for x and y coordinates rather than an array of points. Creates a polynomial that passes through all the given points and evaluates it at the specified x coordinate.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xArr</td><td>Array of x coordinates </td></tr>
+    <tr><td class="paramname">yArr</td><td>Array of y coordinates (must be same length as xArr) </td></tr>
+    <tr><td class="paramname">num</td><td>Number of points in the arrays </td></tr>
+    <tr><td class="paramname">x</td><td>The x coordinate at which to evaluate the interpolated value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The interpolated y value at coordinate x </dd></dl>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 13 2025 10:12:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 12:53:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

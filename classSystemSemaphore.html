@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A semaphore that works across processes and in one process This is not finished / implemented.  
+<p>A system-wide semaphore for inter-process synchronization.  
  <a href="classSystemSemaphore.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_systemsemaphore.h&gt;</code></p>
@@ -84,18 +84,26 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae7d9c999757639af86a49f838f862298" id="r_ae7d9c999757639af86a49f838f862298"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystemSemaphore.html#ae7d9c999757639af86a49f838f862298">SystemSemaphore</a> (const juce::String &amp;name)</td></tr>
+<tr class="memdesc:ae7d9c999757639af86a49f838f862298"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates or opens a system-wide semaphore with the given name.  <br /></td></tr>
 <tr class="separator:ae7d9c999757639af86a49f838f862298"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc91d7c2c3b23850090654cd04d5a007" id="r_afc91d7c2c3b23850090654cd04d5a007"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystemSemaphore.html#afc91d7c2c3b23850090654cd04d5a007">~SystemSemaphore</a> ()</td></tr>
+<tr class="memdesc:afc91d7c2c3b23850090654cd04d5a007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
 <tr class="separator:afc91d7c2c3b23850090654cd04d5a007"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a732fd5e497ace0769fce68aa9fe53764" id="r_a732fd5e497ace0769fce68aa9fe53764"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystemSemaphore.html#a732fd5e497ace0769fce68aa9fe53764">lock</a> ()</td></tr>
+<tr class="memdesc:a732fd5e497ace0769fce68aa9fe53764"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locks the semaphore, blocking until it becomes available.  <br /></td></tr>
 <tr class="separator:a732fd5e497ace0769fce68aa9fe53764"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afde687b04d0bb01cf629d037bf384ac0" id="r_afde687b04d0bb01cf629d037bf384ac0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystemSemaphore.html#afde687b04d0bb01cf629d037bf384ac0">unlock</a> ()</td></tr>
+<tr class="memdesc:afde687b04d0bb01cf629d037bf384ac0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlocks the semaphore, making it available to other processes.  <br /></td></tr>
 <tr class="separator:afde687b04d0bb01cf629d037bf384ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03b3007a94f4d9ef3c735fda354c95c6" id="r_a03b3007a94f4d9ef3c735fda354c95c6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystemSemaphore.html#a03b3007a94f4d9ef3c735fda354c95c6">isValid</a> ()</td></tr>
+<tr class="memdesc:a03b3007a94f4d9ef3c735fda354c95c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the semaphore was created/opened successfully.  <br /></td></tr>
 <tr class="separator:a03b3007a94f4d9ef3c735fda354c95c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A semaphore that works across processes and in one process This is not finished / implemented. </p>
+<div class="textblock"><p>A system-wide semaphore for inter-process synchronization. </p>
+<p>This class provides a named semaphore that can be shared between multiple processes on the same system. Unlike regular threading primitives, this semaphore persists at the OS level and can be accessed by any process that knows its name.</p>
+<dl class="section warning"><dt>Warning</dt><dd>This class is not yet fully implemented and should be used with caution.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classSystemSemaphore.html#a732fd5e497ace0769fce68aa9fe53764" title="Locks the semaphore, blocking until it becomes available.">lock</a>, <a class="el" href="classSystemSemaphore.html#afde687b04d0bb01cf629d037bf384ac0" title="Unlocks the semaphore, making it available to other processes.">unlock</a>, <a class="el" href="classSystemSemaphore.html#a03b3007a94f4d9ef3c735fda354c95c6" title="Checks if the semaphore was created/opened successfully.">isValid</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae7d9c999757639af86a49f838f862298" name="ae7d9c999757639af86a49f838f862298"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae7d9c999757639af86a49f838f862298">&#9670;&#160;</a></span>SystemSemaphore()</h2>
@@ -113,6 +121,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates or opens a system-wide semaphore with the given name. </p>
+<p>If a semaphore with this name already exists, it will be opened. Otherwise, a new semaphore will be created.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The unique name identifying this semaphore across the system </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="afc91d7c2c3b23850090654cd04d5a007" name="afc91d7c2c3b23850090654cd04d5a007"></a>
@@ -129,6 +146,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Destructor. </p>
+<p>Releases the semaphore. </p>
 
 </div>
 </div>
@@ -148,6 +168,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Locks the semaphore, blocking until it becomes available. </p>
+<p>If another process has locked this semaphore, this call will block until that process unlocks it.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if the lock was acquired successfully, false on error </dd></dl>
+
 </div>
 </div>
 <a id="afde687b04d0bb01cf629d037bf384ac0" name="afde687b04d0bb01cf629d037bf384ac0"></a>
@@ -164,6 +188,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Unlocks the semaphore, making it available to other processes. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if the unlock succeeded, false on error </dd></dl>
 
 </div>
 </div>
@@ -182,6 +209,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Checks if the semaphore was created/opened successfully. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if the semaphore is valid and can be used, false otherwise </dd></dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -190,7 +220,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 13 2025 10:12:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 13 2025 12:53:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
