@@ -78,13 +78,22 @@ private:
     float phase = 0.0f;
 };
 
+/**
+    Parameters for VoicedStereoOscillator configuration.
+
+    Defines the multi-voice settings for a voiced stereo oscillator including
+    the number of voices, stereo panning, voice spread, detuning amount, and
+    overall gain.
+
+    @see VoicedStereoOscillator
+*/
 struct VoicedOscillatorParams
 {
-    int voices = 1;
-    float pan = 0.0f;
-    float spread = 0.0f;
-    float detune = 0.0f;
-    float gain = 1.0f;
+    int voices = 1;         ///< Number of voices (1-N for unison)
+    float pan = 0.0f;       ///< Stereo pan position (-1.0 = left, 0.0 = center, 1.0 = right)
+    float spread = 0.0f;    ///< Stereo spread amount (0.0 = mono, 1.0 = full stereo)
+    float detune = 0.0f;    ///< Detune amount between voices (in semitones or cents)
+    float gain = 1.0f;      ///< Overall gain/volume (0.0 to 1.0+)
 };
 
 //==============================================================================
@@ -156,6 +165,21 @@ protected:
     juce::OwnedArray<O> oscillators;
 };
 
+/**
+    Extended parameters for band-limited voiced stereo oscillator.
+
+    Extends VoicedOscillatorParams with waveform-specific parameters for
+    band-limited oscillators including waveform type, pulse width, and
+    waveshaping effects.
+
+    Additional Parameters:
+    - wave: Waveform type (saw, square, triangle, etc.)
+    - pw: Pulse width for square/pulse waves (0.0 to 1.0)
+    - fold: Wavefolding amount (0.0 to 1.0)
+    - asym: Asymmetry/waveshaping amount (0.0 to 1.0)
+
+    @see VoicedOscillatorParams, BLLTVoicedStereoOscillator
+*/
 struct VoicedStereoOscillatorParams : public VoicedOscillatorParams
 {
     Wave wave   = Wave::sawUp;

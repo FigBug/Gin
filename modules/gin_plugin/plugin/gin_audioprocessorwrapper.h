@@ -1,4 +1,44 @@
+/**
+    Wrapper for JUCE AudioProcessor that forwards all calls to a wrapped instance.
 
+    AudioProcessorWrapper provides a complete pass-through wrapper for any JUCE
+    AudioProcessor. All virtual methods are forwarded to the wrapped processor,
+    allowing for interception, monitoring, or modification of processor behavior
+    without modifying the original processor code.
+
+    Key Features:
+    - Complete forwarding of all AudioProcessor methods
+    - Ownership management of wrapped processor
+    - No overhead when not overriding methods
+    - Useful for debugging, testing, or adding cross-cutting concerns
+    - VST2/VST3 extension support
+
+    Use Cases:
+    - Adding logging/debugging to existing processors
+    - Implementing cross-cutting features (metering, analysis)
+    - Testing and validation wrappers
+    - Plugin format adapter patterns
+
+    Usage:
+    @code
+    // Wrap an existing processor
+    auto myProcessor = std::make_unique<MyAudioProcessor>();
+    auto wrapper = std::make_unique<AudioProcessorWrapper>(std::move(myProcessor));
+
+    // Can also subclass to intercept specific methods
+    class LoggingWrapper : public AudioProcessorWrapper
+    {
+        void processBlock(juce::AudioBuffer<float>& buffer,
+                         juce::MidiBuffer& midi) override
+        {
+            DBG("Processing " + String(buffer.getNumSamples()) + " samples");
+            AudioProcessorWrapper::processBlock(buffer, midi);
+        }
+    };
+    @endcode
+
+    @see juce::AudioProcessor
+*/
 class AudioProcessorWrapper : public juce::AudioProcessor
 {
 public:

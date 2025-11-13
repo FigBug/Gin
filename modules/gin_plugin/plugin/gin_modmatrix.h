@@ -1,6 +1,15 @@
 #pragma once
 
 //==============================================================================
+/**
+    Identifier for a modulation source in the ModMatrix system.
+
+    Wraps an integer ID with type safety to distinguish modulation sources
+    from other identifiers in the system. Use isValid() to check if the ID
+    represents a valid modulation source.
+
+    @see ModMatrix, ModDstId
+*/
 struct ModSrcId
 {
     ModSrcId () = default;
@@ -14,6 +23,15 @@ struct ModSrcId
 };
 
 //==============================================================================
+/**
+    Identifier for a modulation destination in the ModMatrix system.
+
+    Wraps an integer ID with type safety to distinguish modulation destinations
+    (parameters that can be modulated) from other identifiers. Use isValid() to
+    check if the ID represents a valid modulation destination.
+
+    @see ModMatrix, ModSrcId
+*/
 struct ModDstId
 {
     ModDstId () = default;
@@ -75,12 +93,46 @@ private:
 };
 
 //==============================================================================
-/** Add one of these to you Synth if you want to support modulation
+/**
+    Modulation matrix system for routing multiple modulation sources to parameters.
 
-    Then add all your parameters
-    Then add all your mod source. Update your mod sources from your processing
-    loop.
-    Always get your parameter values from the mod matrix
+    The ModMatrix provides a flexible modulation routing system commonly used in
+    synthesizers and audio effects. It allows multiple modulation sources (LFOs,
+    envelopes, velocity, etc.) to control multiple destination parameters with
+    configurable depth, enable/disable, and curve shaping.
+
+    Key Features:
+    - Monophonic and polyphonic modulation sources
+    - Multiple sources can modulate a single parameter
+    - Configurable modulation curves (linear, exponential, sine, etc.)
+    - Parameter smoothing to avoid discontinuities
+    - Learning mode for quick modulation assignment
+    - State persistence via ValueTree
+    - Voice management for polyphonic synthesizers
+
+    Usage:
+    1. Create a ModMatrix instance in your synthesizer
+    2. Add all parameters using addParameter()
+    3. Add modulation sources using addMonoModSource() or addPolyModSource()
+    4. Update mod source values from your processing loop
+    5. Always retrieve parameter values through the ModMatrix using getValue()
+
+    Example:
+    @code
+    ModMatrix modMatrix;
+
+    // Setup
+    modMatrix.addParameter(filterCutoff, false);
+    auto lfo1 = modMatrix.addMonoModSource("lfo1", "LFO 1", true);
+    auto env1 = modMatrix.addPolyModSource("env1", "Envelope 1", false);
+
+    // In processing loop
+    modMatrix.setMonoValue(lfo1, lfoOutput);
+    modMatrix.setPolyValue(voice, env1, envelopeOutput);
+    float cutoff = modMatrix.getValue(filterCutoff);
+    @endcode
+
+    @see ModVoice, ModSrcId, ModDstId
 */
 class ModMatrix
 {

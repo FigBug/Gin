@@ -12,6 +12,23 @@
 #include <string>
 #include <vector>
 
+/**
+    WebSocket frame header structure.
+
+    Represents the parsed WebSocket frame header according to RFC 6455.
+    Contains frame metadata including opcode, masking information, and
+    payload length.
+
+    Frame Types:
+    - CONTINUATION: Multi-frame message continuation
+    - TEXT_FRAME: UTF-8 text data
+    - BINARY_FRAME: Binary data
+    - CLOSE: Connection close frame
+    - PING: Ping control frame
+    - PONG: Pong control frame (response to ping)
+
+    @see WebSocket
+*/
 struct WSHeaderType
 {
     enum Opcode
@@ -33,6 +50,59 @@ struct WSHeaderType
     uint8_t masking_key[4];
 };
 
+/**
+    Synchronous WebSocket client implementation.
+
+    WebSocket provides a blocking WebSocket client based on the RFC 6455 protocol.
+    Originally based on easywsclient, heavily refactored for JUCE integration.
+    Supports both text and binary messages, ping/pong, and secure connections.
+
+    Key Features:
+    - WebSocket protocol (RFC 6455) implementation
+    - Text and binary message support
+    - Ping/pong keep-alive
+    - TLS/SSL support via SecureStreamingSocket
+    - Optional frame masking (required for client-to-server)
+    - Custom headers for authentication/protocols
+
+    Connection States:
+    - OPEN: Connected and ready
+    - CLOSING: Close handshake initiated
+    - CLOSED: Connection closed
+
+    Usage:
+    @code
+    // Create connection
+    auto* ws = WebSocket::fromURL("wss://example.com/socket");
+
+    if (ws)
+    {
+        // Send message
+        ws->send("Hello, server!");
+
+        // Poll for incoming messages
+        ws->poll(100); // timeout in ms
+
+        // Dispatch received messages
+        ws->dispatch([](const juce::MemoryBlock& data, bool isBinary) {
+            if (!isBinary)
+            {
+                juce::String msg = data.toString();
+                DBG("Received: " + msg);
+            }
+        });
+
+        // Close connection
+        ws->close();
+        delete ws;
+    }
+    @endcode
+
+    Note: This is a synchronous (blocking) implementation. For asynchronous
+    operations with callbacks, use AsyncWebsocket instead.
+
+    @see AsyncWebsocket, SecureStreamingSocket, WSHeaderType
+*/
 class WebSocket
 {
   public:

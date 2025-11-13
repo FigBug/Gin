@@ -8,9 +8,52 @@
 #pragma once
 
 //==============================================================================
-/* Asynchronous access to a Websocket. None of the methods block and
-   all callbacks happen via lambdas on the message thread
- */
+/**
+    Asynchronous WebSocket client with non-blocking operations.
+
+    AsyncWebsocket provides a thread-safe, asynchronous interface to WebSocket
+    connections. All network operations run on a background thread, ensuring that
+    none of the public methods block the calling thread. All callbacks are delivered
+    on the JUCE message thread for safe UI updates.
+
+    Key Features:
+    - Non-blocking connect, disconnect, and send operations
+    - Automatic ping/pong keep-alive with configurable interval
+    - Thread-safe message queuing for outgoing data
+    - Lambda-based callbacks on the message thread
+    - Support for both text and binary WebSocket messages
+    - Custom header support for authentication and protocols
+
+    Usage:
+    Create an AsyncWebsocket with a URL, register callback handlers, then call
+    connect(). The connection runs asynchronously on a background thread.
+
+    @code
+    AsyncWebsocket ws(juce::URL("wss://example.com/socket"));
+
+    ws.onConnect = []() {
+        DBG("Connected!");
+    };
+
+    ws.onText = [](const juce::String& message) {
+        DBG("Received: " + message);
+    };
+
+    ws.onDisconnect = []() {
+        DBG("Disconnected");
+    };
+
+    ws.connect(); // Non-blocking
+    ws.send("Hello, server!");
+    @endcode
+
+    Thread Safety:
+    - All public methods are thread-safe
+    - Callbacks execute on the JUCE message thread
+    - Internal message queue protected by critical section
+
+    @see WebSocket, SecureStreamingSocket
+*/
 class AsyncWebsocket : public juce::Thread
 {
 public:

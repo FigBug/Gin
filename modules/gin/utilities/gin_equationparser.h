@@ -7,6 +7,65 @@ For more information visit www.rabiensoftware.com
 
 #pragma once
 
+/**
+    Mathematical equation parser and evaluator with variable and function support.
+
+    EquationParser provides a flexible system for parsing and evaluating mathematical
+    expressions at runtime. It supports variables, constants, custom functions, and
+    standard mathematical operations. Built on top of muParser library.
+
+    Key Features:
+    - Parse and evaluate mathematical expressions
+    - Dynamic variable binding (pointers to live values)
+    - Named constants
+    - Custom functions with 0-4 parameters or string parameters
+    - Variable factory for on-demand variable creation
+    - Comprehensive error handling
+    - Query which variables are used in an equation
+
+    Supported Operations:
+    - Basic arithmetic: +, -, *, /, ^
+    - Parentheses for grouping
+    - Standard math functions (via custom function registration)
+    - User-defined functions and variables
+
+    Usage:
+    @code
+    EquationParser parser;
+
+    // Add variables
+    double x = 5.0;
+    parser.addVariable("x", &x);
+
+    // Add constants
+    parser.addConstant("pi", 3.14159265359);
+
+    // Set equation
+    parser.setEquation("2 * x + pi");
+
+    // Evaluate
+    double result = parser.evaluate(); // Returns 13.14159...
+
+    // Change variable and re-evaluate
+    x = 10.0;
+    result = parser.evaluate(); // Returns 23.14159...
+
+    // Check for errors
+    if (parser.hasError())
+        DBG("Error: " + parser.getError());
+    @endcode
+
+    Custom Functions:
+    @code
+    parser.addFunction("myFunc", [](int id, double a, double b) {
+        return a * a + b;
+    });
+    parser.setEquation("myFunc(3, 4)");
+    double result = parser.evaluate(); // Returns 13.0
+    @endcode
+
+    @see muParser documentation for expression syntax details
+*/
 class EquationParser
 {
 public:
