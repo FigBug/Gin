@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Base class for reading metadata from image files (JPEG, PNG, GIF).">
 <polygon fill="#999999" stroke="#666666" points="267.5,-74 173.5,-74 173.5,-55 267.5,-55 267.5,-74"/>
 <text text-anchor="middle" x="220.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">ImageMetadata</text>
 </a>
@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classCommentMetadata.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="classCommentMetadata.html" target="_top" xlink:title="Reads simple text comment metadata from image files.">
 <polygon fill="white" stroke="#666666" points="111,-19 0,-19 0,0 111,0 111,-19"/>
 <text text-anchor="middle" x="55.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">CommentMetadata</text>
 </a>
@@ -38,7 +38,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="classExifMetadata.html" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="classExifMetadata.html" target="_top" xlink:title="Reads EXIF (Exchangeable Image File Format) metadata from JPEG images.">
 <polygon fill="white" stroke="#666666" points="211.5,-19 129.5,-19 129.5,0 211.5,0 211.5,-19"/>
 <text text-anchor="middle" x="170.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">ExifMetadata</text>
 </a>
@@ -56,7 +56,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="classIptcMetadata.html" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="classIptcMetadata.html" target="_top" xlink:title="Reads IPTC (International Press Telecommunications Council) metadata from images.">
 <polygon fill="white" stroke="#666666" points="311,-19 230,-19 230,0 311,0 311,-19"/>
 <text text-anchor="middle" x="270.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">IptcMetadata</text>
 </a>
@@ -74,7 +74,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="classXmpMetadata.html" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="classXmpMetadata.html" target="_top" xlink:title="Reads XMP (Extensible Metadata Platform) metadata from JPEG and PNG images.">
 <polygon fill="white" stroke="#666666" points="415.5,-19 329.5,-19 329.5,0 415.5,0 415.5,-19"/>
 <text text-anchor="middle" x="372.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">XmpMetadata</text>
 </a>

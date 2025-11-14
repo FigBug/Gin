@@ -78,6 +78,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Base class for reading metadata from image files (JPEG, PNG, GIF).  
+ <a href="classImageMetadata.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_imagemetadata.h&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ImageMetadata:</div>
@@ -106,7 +109,32 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a34bb47451a46175f4f65173cc8d6b3c8" id="r_a34bb47451a46175f4f65173cc8d6b3c8"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classImageMetadata.html#a34bb47451a46175f4f65173cc8d6b3c8">type</a></td></tr>
 <tr class="separator:a34bb47451a46175f4f65173cc8d6b3c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Base class for reading metadata from image files (JPEG, PNG, GIF). </p>
+<p><a class="el" href="classImageMetadata.html" title="Base class for reading metadata from image files (JPEG, PNG, GIF).">ImageMetadata</a> provides a polymorphic interface for accessing various types of image metadata (EXIF, XMP, IPTC, comments). Different metadata formats are handled by derived classes that parse format-specific data.</p>
+<p>The <a class="el" href="classImageMetadata.html#a2370391c426e1544b439a6b556f0109c">getFromImage()</a> factory method automatically detects and extracts all available metadata types from an image file, returning them as an array of <a class="el" href="classImageMetadata.html" title="Base class for reading metadata from image files (JPEG, PNG, GIF).">ImageMetadata</a> objects.</p>
+<p>Supported metadata formats:</p><ul>
+<li>EXIF: Camera settings, GPS, timestamps</li>
+<li>XMP: Adobe extensible metadata</li>
+<li>IPTC: Press/journalism metadata</li>
+<li>Comment: Simple text comments</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line">FileInputStream stream(imageFile);</div>
+<div class="line">OwnedArray&lt;ImageMetadata&gt; metadata;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> (<a class="code hl_function" href="classImageMetadata.html#a2370391c426e1544b439a6b556f0109c">ImageMetadata::getFromImage</a>(stream, metadata))</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keyword">auto</span>* meta : metadata)</div>
+<div class="line">    {</div>
+<div class="line">        DBG(<span class="stringliteral">&quot;Metadata type: &quot;</span> + meta-&gt;getType());</div>
+<div class="line">        StringPairArray data = meta-&gt;getAllMetadata();</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; key : data.getAllKeys())</div>
+<div class="line">            DBG(key + <span class="stringliteral">&quot;: &quot;</span> + data[key]);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassImageMetadata_html_a2370391c426e1544b439a6b556f0109c"><div class="ttname"><a href="classImageMetadata.html#a2370391c426e1544b439a6b556f0109c">ImageMetadata::getFromImage</a></div><div class="ttdeci">static bool getFromImage(juce::InputStream &amp;is, juce::OwnedArray&lt; ImageMetadata &gt; &amp;metadata)</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classExifMetadata.html" title="Reads EXIF (Exchangeable Image File Format) metadata from JPEG images.">ExifMetadata</a>, <a class="el" href="classXmpMetadata.html" title="Reads XMP (Extensible Metadata Platform) metadata from JPEG and PNG images.">XmpMetadata</a>, <a class="el" href="classIptcMetadata.html" title="Reads IPTC (International Press Telecommunications Council) metadata from images.">IptcMetadata</a>, <a class="el" href="classCommentMetadata.html" title="Reads simple text comment metadata from image files.">CommentMetadata</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1dfe334219bb1df21a42d95653dd326c" name="a1dfe334219bb1df21a42d95653dd326c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1dfe334219bb1df21a42d95653dd326c">&#9670;&#160;</a></span>ImageMetadata()</h2>
 
@@ -264,7 +292,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:06:10 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:07:03 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

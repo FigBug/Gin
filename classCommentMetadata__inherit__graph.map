@@ -1,5 +1,5 @@
 <map id="CommentMetadata" name="CommentMetadata">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,153,104"/>
-<area shape="rect" id="Node000002" href="$classImageMetadata.html" title=" " alt="" coords="17,5,142,31"/>
+<area shape="rect" id="Node000001" title="Reads simple text comment metadata from image files." alt="" coords="5,79,153,104"/>
+<area shape="rect" id="Node000002" href="$classImageMetadata.html" title="Base class for reading metadata from image files (JPEG, PNG, GIF)." alt="" coords="17,5,142,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="82,44,82,79,77,79,77,44"/>
 </map>

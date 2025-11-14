@@ -77,6 +77,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Reads XMP (Extensible Metadata Platform) metadata from JPEG and PNG images.  
+ <a href="classXmpMetadata.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_xmpmetadata.h&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for XmpMetadata:</div>
@@ -116,7 +119,35 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a34bb47451a46175f4f65173cc8d6b3c8 inherit pro_attribs_classImageMetadata" id="r_a34bb47451a46175f4f65173cc8d6b3c8"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classImageMetadata.html#a34bb47451a46175f4f65173cc8d6b3c8">type</a></td></tr>
 <tr class="separator:a34bb47451a46175f4f65173cc8d6b3c8 inherit pro_attribs_classImageMetadata"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Reads XMP (Extensible Metadata Platform) metadata from JPEG and PNG images. </p>
+<p><a class="el" href="classXmpMetadata.html" title="Reads XMP (Extensible Metadata Platform) metadata from JPEG and PNG images.">XmpMetadata</a> extracts Adobe's XMP data, which provides a standardized way to store metadata across different file formats. XMP is commonly used by Adobe products and professional photography workflows for storing rich metadata.</p>
+<p>XMP can contain:</p><ul>
+<li>Dublin Core metadata (title, creator, description, keywords)</li>
+<li>Rights management information</li>
+<li>Adobe-specific data (Lightroom, Photoshop settings)</li>
+<li>Custom metadata namespaces</li>
+<li>IPTC Core information</li>
+</ul>
+<p>The metadata is stored as XML and this class parses it into key-value pairs.</p>
+<p>Usage: </p><div class="fragment"><div class="line">FileInputStream stream(imageFile);</div>
+<div class="line">OwnedArray&lt;ImageMetadata&gt; metadata;</div>
+<div class="line"><a class="code hl_function" href="classImageMetadata.html#a2370391c426e1544b439a6b556f0109c">ImageMetadata::getFromImage</a>(stream, metadata);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keyword">auto</span>* meta : metadata)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (<span class="keyword">auto</span>* xmp = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="classXmpMetadata.html">XmpMetadata</a>*<span class="keyword">&gt;</span>(meta))</div>
+<div class="line">    {</div>
+<div class="line">        StringPairArray data = xmp-&gt;getAllMetadata();</div>
+<div class="line">        String title = data[<span class="stringliteral">&quot;dc:title&quot;</span>];</div>
+<div class="line">        String creator = data[<span class="stringliteral">&quot;dc:creator&quot;</span>];</div>
+<div class="line">        String keywords = data[<span class="stringliteral">&quot;dc:subject&quot;</span>];</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassImageMetadata_html_a2370391c426e1544b439a6b556f0109c"><div class="ttname"><a href="classImageMetadata.html#a2370391c426e1544b439a6b556f0109c">ImageMetadata::getFromImage</a></div><div class="ttdeci">static bool getFromImage(juce::InputStream &amp;is, juce::OwnedArray&lt; ImageMetadata &gt; &amp;metadata)</div></div>
+<div class="ttc" id="aclassXmpMetadata_html"><div class="ttname"><a href="classXmpMetadata.html">XmpMetadata</a></div><div class="ttdoc">Reads XMP (Extensible Metadata Platform) metadata from JPEG and PNG images.</div><div class="ttdef"><b>Definition</b> gin_xmpmetadata.h:51</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classImageMetadata.html" title="Base class for reading metadata from image files (JPEG, PNG, GIF).">ImageMetadata</a>, <a class="el" href="classExifMetadata.html" title="Reads EXIF (Exchangeable Image File Format) metadata from JPEG images.">ExifMetadata</a>, <a class="el" href="classIptcMetadata.html" title="Reads IPTC (International Press Telecommunications Council) metadata from images.">IptcMetadata</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abfde5b535622830bfc3ed00a446e2285" name="abfde5b535622830bfc3ed00a446e2285"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abfde5b535622830bfc3ed00a446e2285">&#9670;&#160;</a></span>XmpMetadata()</h2>
 
@@ -265,7 +296,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:06:10 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:07:03 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
