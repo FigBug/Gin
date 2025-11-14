@@ -79,7 +79,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classEnvelopeDetector.html" title="EnvelopeDetector for Dynamics.">EnvelopeDetector</a> for <a class="el" href="classDynamics.html" title="Compressor / Gate / Expander / Limiter based on algorithm from Designing Audio Effect Plug-ins in C++...">Dynamics</a>.  
+<p>Envelope follower for dynamics processing.  
  <a href="classEnvelopeDetector.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_dynamics.h&gt;</code></p>
@@ -90,6 +90,7 @@ Public Types</h2></td></tr>
 , <a class="el" href="classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4a9d8d4339f5a98d805053183b2c70896f">ms</a>
 , <a class="el" href="classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4aa63705cf10474e3baa09f52c7f5bf5e6">rms</a>
  }</td></tr>
+<tr class="memdesc:aed1a748db06a14d27716c88b0fa1bdb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envelope detection modes.  <a href="classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4">More...</a><br /></td></tr>
 <tr class="separator:aed1a748db06a14d27716c88b0fa1bdb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -138,7 +139,18 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a9b42cde52cbdcb05cbc85a65ba6a017f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classEnvelopeDetector.html" title="EnvelopeDetector for Dynamics.">EnvelopeDetector</a> for <a class="el" href="classDynamics.html" title="Compressor / Gate / Expander / Limiter based on algorithm from Designing Audio Effect Plug-ins in C++...">Dynamics</a>. </p>
+<div class="textblock"><p>Envelope follower for dynamics processing. </p>
+<p><a class="el" href="classEnvelopeDetector.html" title="Envelope follower for dynamics processing.">EnvelopeDetector</a> tracks the amplitude envelope of an audio signal using configurable attack, hold, and release times. It supports multiple detection modes (peak, mean-square, RMS) and can use analog-style or digital time constants for natural or precise envelope following.</p>
+<p>Key Features:</p><ul>
+<li>Three detection modes: peak, MS, RMS</li>
+<li>Attack, hold, and release time controls</li>
+<li>Analog or digital time constants</li>
+<li>Optional logarithmic detector for dB domain</li>
+<li>Sample-by-sample processing</li>
+<li>Used by compressors, gates, expanders, limiters</li>
+</ul>
+<p>The envelope detector is the core component for gain reduction calculations in dynamics processors, providing a smooth representation of signal level over time.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classDynamics.html" title="Dynamics processor supporting compression, limiting, expansion, and gating.">Dynamics</a>, <a class="el" href="classLevelTracker.html" title="Track audio levels with decay in dB.">LevelTracker</a> </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="aed1a748db06a14d27716c88b0fa1bdb4" name="aed1a748db06a14d27716c88b0fa1bdb4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aed1a748db06a14d27716c88b0fa1bdb4">&#9670;&#160;</a></span>Mode</h2>
@@ -151,10 +163,20 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Envelope detection modes. </p>
+<p>Determines how the input signal is converted to an envelope value:</p><ul>
+<li>peak: Track the absolute peak value</li>
+<li>ms: Mean square (squared values, more sensitive to transients)</li>
+<li>rms: Root mean square (true RMS level detection) </li>
+</ul>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aed1a748db06a14d27716c88b0fa1bdb4ab6748369a0be703f089ba6dc60b0e91b" name="aed1a748db06a14d27716c88b0fa1bdb4ab6748369a0be703f089ba6dc60b0e91b"></a>peak&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aed1a748db06a14d27716c88b0fa1bdb4a9d8d4339f5a98d805053183b2c70896f" name="aed1a748db06a14d27716c88b0fa1bdb4a9d8d4339f5a98d805053183b2c70896f"></a>ms&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aed1a748db06a14d27716c88b0fa1bdb4aa63705cf10474e3baa09f52c7f5bf5e6" name="aed1a748db06a14d27716c88b0fa1bdb4aa63705cf10474e3baa09f52c7f5bf5e6"></a>rms&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aed1a748db06a14d27716c88b0fa1bdb4ab6748369a0be703f089ba6dc60b0e91b" name="aed1a748db06a14d27716c88b0fa1bdb4ab6748369a0be703f089ba6dc60b0e91b"></a>peak&#160;</td><td class="fielddoc"><p>Peak detection (absolute value) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aed1a748db06a14d27716c88b0fa1bdb4a9d8d4339f5a98d805053183b2c70896f" name="aed1a748db06a14d27716c88b0fa1bdb4a9d8d4339f5a98d805053183b2c70896f"></a>ms&#160;</td><td class="fielddoc"><p>Mean square detection. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aed1a748db06a14d27716c88b0fa1bdb4aa63705cf10474e3baa09f52c7f5bf5e6" name="aed1a748db06a14d27716c88b0fa1bdb4aa63705cf10474e3baa09f52c7f5bf5e6"></a>rms&#160;</td><td class="fielddoc"><p>RMS (root mean square) detection. </p>
+</td></tr>
 </table>
 
 </div>
@@ -603,7 +625,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:47:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:48:40 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

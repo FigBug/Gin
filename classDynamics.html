@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Compressor / Gate / Expander / Limiter based on algorithm from Designing Audio Effect Plug-ins in C++ by Will Pirkle.  
+<p><a class="el" href="classDynamics.html" title="Dynamics processor supporting compression, limiting, expansion, and gating.">Dynamics</a> processor supporting compression, limiting, expansion, and gating.  
  <a href="classDynamics.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_dynamics.h&gt;</code></p>
@@ -89,6 +89,7 @@ Public Types</h2></td></tr>
 , <a class="el" href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a86eafff6a891eb381e162e7adc73ff7e">expander</a>
 , <a class="el" href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a5cddded513bf6aca23ba76ef7d2e537f">gate</a>
  }</td></tr>
+<tr class="memdesc:a6b3502e2f88d8fd32b07239376f19576"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classDynamics.html" title="Dynamics processor supporting compression, limiting, expansion, and gating.">Dynamics</a> processing types.  <a href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576">More...</a><br /></td></tr>
 <tr class="separator:a6b3502e2f88d8fd32b07239376f19576"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -125,7 +126,55 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a66be96750fe78c9034b88f8b4fdc9380"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Compressor / Gate / Expander / Limiter based on algorithm from Designing Audio Effect Plug-ins in C++ by Will Pirkle. </p>
+<div class="textblock"><p><a class="el" href="classDynamics.html" title="Dynamics processor supporting compression, limiting, expansion, and gating.">Dynamics</a> processor supporting compression, limiting, expansion, and gating. </p>
+<p><a class="el" href="classDynamics.html" title="Dynamics processor supporting compression, limiting, expansion, and gating.">Dynamics</a> provides a versatile dynamics processing engine that can function as a compressor, limiter, expander, or gate. Based on algorithms from "Designing
+Audio Effect Plug-ins in C++" by Will Pirkle, it features attack/hold/release envelope detection, adjustable ratio and threshold, soft knee, and optional channel linking for stereo operation.</p>
+<p>Key Features:</p><ul>
+<li>Four processing types: compressor, limiter, expander, gate</li>
+<li>Configurable attack, hold, release times</li>
+<li>Adjustable threshold and ratio</li>
+<li>Soft knee for smooth compression</li>
+<li>Independent input/output gain</li>
+<li>Stereo linking (process based on max of both channels)</li>
+<li>Optional envelope output for visualization</li>
+<li>Level tracking for input/output metering</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classDynamics.html">Dynamics</a> comp;</div>
+<div class="line">comp.<a class="code hl_function" href="classDynamics.html#a140a20003797d24372d0ac3aeb546d1d">setSampleRate</a>(44100.0);</div>
+<div class="line">comp.<a class="code hl_function" href="classDynamics.html#adfe378f9283b6ff12b1eab43ef2e1097">setNumChannels</a>(2);</div>
+<div class="line">comp.<a class="code hl_function" href="classDynamics.html#abb7d2814c89e5a5ca3e7066c03ed9c66">setMode</a>(<a class="code hl_enumvalue" href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b">Dynamics::compressor</a>);</div>
+<div class="line">comp.<a class="code hl_function" href="classDynamics.html#a3df98d57afadc92a521bea6c69ee200d">setLinked</a>(<span class="keyword">true</span>); <span class="comment">// Link stereo channels</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Set compression parameters</span></div>
+<div class="line">comp.<a class="code hl_function" href="classDynamics.html#a72cb7558a8113bc03168fcf5f012787f">setParams</a>(0.01f,   <span class="comment">// 10ms attack</span></div>
+<div class="line">               0.0f,     <span class="comment">// no hold</span></div>
+<div class="line">               0.1f,     <span class="comment">// 100ms release</span></div>
+<div class="line">               -20.0f,   <span class="comment">// -20dB threshold</span></div>
+<div class="line">               4.0f,     <span class="comment">// 4:1 ratio</span></div>
+<div class="line">               6.0f);    <span class="comment">// 6dB soft knee</span></div>
+<div class="line"> </div>
+<div class="line">comp.<a class="code hl_function" href="classDynamics.html#a8b5e1b91c220eb50e4e68fc6c83282df">setInputGain</a>(0.0f);   <span class="comment">// 0dB input</span></div>
+<div class="line">comp.<a class="code hl_function" href="classDynamics.html#ae7ad148c7049b91f76262e901f10a31a">setOutputGain</a>(3.0f);  <span class="comment">// +3dB makeup gain</span></div>
+<div class="line"> </div>
+<div class="line">comp.<a class="code hl_function" href="classDynamics.html#a10395d0e46c4387190b783c0090545c2">process</a>(audioBuffer);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Get metering</span></div>
+<div class="line"><span class="keywordtype">float</span> inputLevel = comp.<a class="code hl_function" href="classDynamics.html#a90d55eb8b02098c1eb1c86493cf8f6dd">getInputTracker</a>().<a class="code hl_function" href="classLevelTracker.html#a92624a1a9465c40709d2feaf93795ba6">getLevel</a>();</div>
+<div class="line"><span class="keywordtype">float</span> outputLevel = comp.<a class="code hl_function" href="classDynamics.html#aa6c180ee20a71be691f519d9cd3bec92">getOutputTracker</a>().<a class="code hl_function" href="classLevelTracker.html#a92624a1a9465c40709d2feaf93795ba6">getLevel</a>();</div>
+<div class="ttc" id="aclassDynamics_html"><div class="ttname"><a href="classDynamics.html">Dynamics</a></div><div class="ttdoc">Dynamics processor supporting compression, limiting, expansion, and gating.</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:127</div></div>
+<div class="ttc" id="aclassDynamics_html_a10395d0e46c4387190b783c0090545c2"><div class="ttname"><a href="classDynamics.html#a10395d0e46c4387190b783c0090545c2">Dynamics::process</a></div><div class="ttdeci">void process(juce::AudioSampleBuffer &amp;buffer, juce::AudioSampleBuffer *envelopeOut=nullptr)</div></div>
+<div class="ttc" id="aclassDynamics_html_a140a20003797d24372d0ac3aeb546d1d"><div class="ttname"><a href="classDynamics.html#a140a20003797d24372d0ac3aeb546d1d">Dynamics::setSampleRate</a></div><div class="ttdeci">void setSampleRate(double sampleRate)</div></div>
+<div class="ttc" id="aclassDynamics_html_a3df98d57afadc92a521bea6c69ee200d"><div class="ttname"><a href="classDynamics.html#a3df98d57afadc92a521bea6c69ee200d">Dynamics::setLinked</a></div><div class="ttdeci">void setLinked(bool l)</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:152</div></div>
+<div class="ttc" id="aclassDynamics_html_a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b"><div class="ttname"><a href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b">Dynamics::compressor</a></div><div class="ttdeci">@ compressor</div><div class="ttdoc">Compression (reduce loud signals)</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:143</div></div>
+<div class="ttc" id="aclassDynamics_html_a72cb7558a8113bc03168fcf5f012787f"><div class="ttname"><a href="classDynamics.html#a72cb7558a8113bc03168fcf5f012787f">Dynamics::setParams</a></div><div class="ttdeci">void setParams(float attackS, float holdS, float releaseS, float thresh, float ratio, float kneeWidth)</div></div>
+<div class="ttc" id="aclassDynamics_html_a8b5e1b91c220eb50e4e68fc6c83282df"><div class="ttname"><a href="classDynamics.html#a8b5e1b91c220eb50e4e68fc6c83282df">Dynamics::setInputGain</a></div><div class="ttdeci">void setInputGain(float g)</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:156</div></div>
+<div class="ttc" id="aclassDynamics_html_a90d55eb8b02098c1eb1c86493cf8f6dd"><div class="ttname"><a href="classDynamics.html#a90d55eb8b02098c1eb1c86493cf8f6dd">Dynamics::getInputTracker</a></div><div class="ttdeci">const LevelTracker &amp; getInputTracker()</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:162</div></div>
+<div class="ttc" id="aclassDynamics_html_aa6c180ee20a71be691f519d9cd3bec92"><div class="ttname"><a href="classDynamics.html#aa6c180ee20a71be691f519d9cd3bec92">Dynamics::getOutputTracker</a></div><div class="ttdeci">const LevelTracker &amp; getOutputTracker()</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:163</div></div>
+<div class="ttc" id="aclassDynamics_html_abb7d2814c89e5a5ca3e7066c03ed9c66"><div class="ttname"><a href="classDynamics.html#abb7d2814c89e5a5ca3e7066c03ed9c66">Dynamics::setMode</a></div><div class="ttdeci">void setMode(Type t)</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:151</div></div>
+<div class="ttc" id="aclassDynamics_html_adfe378f9283b6ff12b1eab43ef2e1097"><div class="ttname"><a href="classDynamics.html#adfe378f9283b6ff12b1eab43ef2e1097">Dynamics::setNumChannels</a></div><div class="ttdeci">void setNumChannels(int ch)</div></div>
+<div class="ttc" id="aclassDynamics_html_ae7ad148c7049b91f76262e901f10a31a"><div class="ttname"><a href="classDynamics.html#ae7ad148c7049b91f76262e901f10a31a">Dynamics::setOutputGain</a></div><div class="ttdeci">void setOutputGain(float g)</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:157</div></div>
+<div class="ttc" id="aclassLevelTracker_html_a92624a1a9465c40709d2feaf93795ba6"><div class="ttname"><a href="classLevelTracker.html#a92624a1a9465c40709d2feaf93795ba6">LevelTracker::getLevel</a></div><div class="ttdeci">float getLevel() const</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classEnvelopeDetector.html" title="Envelope follower for dynamics processing.">EnvelopeDetector</a>, <a class="el" href="classLevelTracker.html" title="Track audio levels with decay in dB.">LevelTracker</a> </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a6b3502e2f88d8fd32b07239376f19576" name="a6b3502e2f88d8fd32b07239376f19576"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6b3502e2f88d8fd32b07239376f19576">&#9670;&#160;</a></span>Type</h2>
@@ -138,11 +187,23 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><a class="el" href="classDynamics.html" title="Dynamics processor supporting compression, limiting, expansion, and gating.">Dynamics</a> processing types. </p>
+<p>Determines the type of dynamics processing applied:</p><ul>
+<li>compressor: Reduces gain above threshold (ratio &gt; 1:1)</li>
+<li>limiter: Hard limiting (very high ratio, fast attack)</li>
+<li>expander: Increases dynamic range (reduces gain below threshold)</li>
+<li>gate: Attenuates signals below threshold (extreme expansion) </li>
+</ul>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b" name="a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b"></a>compressor&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a6b3502e2f88d8fd32b07239376f19576af7eeb3fb00381e25b0040685eb2a5174" name="a6b3502e2f88d8fd32b07239376f19576af7eeb3fb00381e25b0040685eb2a5174"></a>limiter&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a6b3502e2f88d8fd32b07239376f19576a86eafff6a891eb381e162e7adc73ff7e" name="a6b3502e2f88d8fd32b07239376f19576a86eafff6a891eb381e162e7adc73ff7e"></a>expander&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a6b3502e2f88d8fd32b07239376f19576a5cddded513bf6aca23ba76ef7d2e537f" name="a6b3502e2f88d8fd32b07239376f19576a5cddded513bf6aca23ba76ef7d2e537f"></a>gate&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b" name="a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b"></a>compressor&#160;</td><td class="fielddoc"><p>Compression (reduce loud signals) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6b3502e2f88d8fd32b07239376f19576af7eeb3fb00381e25b0040685eb2a5174" name="a6b3502e2f88d8fd32b07239376f19576af7eeb3fb00381e25b0040685eb2a5174"></a>limiter&#160;</td><td class="fielddoc"><p>Limiting (prevent peaks above threshold) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6b3502e2f88d8fd32b07239376f19576a86eafff6a891eb381e162e7adc73ff7e" name="a6b3502e2f88d8fd32b07239376f19576a86eafff6a891eb381e162e7adc73ff7e"></a>expander&#160;</td><td class="fielddoc"><p>Expansion (increase dynamic range) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6b3502e2f88d8fd32b07239376f19576a5cddded513bf6aca23ba76ef7d2e537f" name="a6b3502e2f88d8fd32b07239376f19576a5cddded513bf6aca23ba76ef7d2e537f"></a>gate&#160;</td><td class="fielddoc"><p>Gate (cut quiet signals) </p>
+</td></tr>
 </table>
 
 </div>
@@ -479,7 +540,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:47:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:48:40 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
