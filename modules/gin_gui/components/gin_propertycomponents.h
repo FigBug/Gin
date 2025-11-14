@@ -8,6 +8,16 @@
 #pragma once
 
 //==============================================================================
+/**
+    Base class for property components that use juce::Value for data binding.
+
+    PropertyComponentBase extends JUCE's PropertyComponent to automatically
+    sync with a Value object, handling the listener registration and refresh
+    logic. Derived classes only need to implement the refresh() method to
+    update their UI when the value changes.
+
+    @see FilePropertyComponent, ColourPropertyComponent
+*/
 class PropertyComponentBase : public juce::PropertyComponent,
                               private juce::Value::Listener
 {
@@ -31,7 +41,23 @@ protected:
     juce::Value value;
 };
 
-//==============================================================================*/
+//==============================================================================
+/**
+    Property component for selecting files with a browse button.
+
+    FilePropertyComponent provides a file path editor with browse and clear
+    buttons. It displays the selected file path and allows users to browse
+    for files using a native file chooser dialog.
+
+    Usage:
+    @code
+    Value filePathValue;
+    FilePropertyComponent fileProp(filePathValue, "Audio File", "Open Audio",  "*.wav;*.mp3;*.aif");
+    propertyPanel.addProperty(&fileProp);
+    @endcode
+
+    @see PropertyComponentBase, juce::FileChooser
+*/
 class FilePropertyComponent : public PropertyComponentBase
 {
 public:
@@ -94,7 +120,23 @@ private:
     std::unique_ptr<juce::FileChooser> box;
 };
 
-//==============================================================================*/
+//==============================================================================
+/**
+    Property component for selecting colors with a visual color picker.
+
+    ColourPropertyComponent displays a color swatch that shows the current
+    color and opens a color selector popup when clicked. The color value is
+    stored as a string (via Colour::toString()) in the bound Value object.
+
+    Usage:
+    @code
+    Value colorValue("ff0080ff"); // ARGB hex string
+    ColourPropertyComponent colorProp(colorValue, "Background Color", true); // true = show alpha
+    propertyPanel.addProperty(&colorProp);
+    @endcode
+
+    @see PropertyComponentBase, juce::ColourSelector
+*/
 class ColourPropertyComponent : public PropertyComponentBase
 {
 public:

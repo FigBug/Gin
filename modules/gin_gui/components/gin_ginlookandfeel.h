@@ -2,8 +2,34 @@
 
 //==============================================================================
 /**
-    The GinLookAndFeel. Black background with while text and controls.
-    Very minimalist.
+    Minimalist dark look and feel with black background and white controls.
+
+    GinLookAndFeel provides a clean, modern dark theme optimized for audio
+    applications and development tools. It features a dark background with
+    white/gray controls and text for reduced eye strain and professional appearance.
+
+    Key Features:
+    - Dark theme (black background, white text)
+    - Minimalist, flat design
+    - Customizable color palette via ColourIds
+    - Custom drawing for sliders, buttons, combo boxes
+    - Glass and matte gradient options
+    - Accent color support
+
+    The look and feel can be customized by setting various ColourIds either
+    globally via LookAndFeel::setColour() or per-component via Component::setColour().
+
+    Usage:
+    @code
+    GinLookAndFeel laf;
+    LookAndFeel::setDefaultLookAndFeel(&laf);
+
+    // Customize colors
+    laf.setColour(GinLookAndFeel::accentColourId, Colours::cyan);
+    laf.setColour(GinLookAndFeel::backgroundColourId, Colour(0xff1a1a1a));
+    @endcode
+
+    @see juce::LookAndFeel_V4
 */
 class GinLookAndFeel : public juce::LookAndFeel_V4
 {

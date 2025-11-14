@@ -9,7 +9,43 @@
 
 //==============================================================================*/
 /**
-    Draws an map, etting tiles fom one of many OpenStreetMapsServers
+    Interactive map viewer component using OpenStreetMap tiles.
+
+    MapViewer displays an interactive map using tiles from OpenStreetMap servers.
+    It supports panning, zooming (levels 0-18), and can be centered on any
+    latitude/longitude coordinate. The component handles tile fetching, caching,
+    and rendering automatically.
+
+    Key Features:
+    - Interactive panning via mouse drag
+    - Zoom levels 0-18 (world to street level)
+    - Mouse wheel zoom
+    - Automatic tile fetching and caching
+    - Smooth rendering with double buffering
+    - Center on any lat/long coordinate
+
+    Zoom Levels:
+    - 0-2: World view
+    - 3-6: Continent/country view
+    - 7-10: State/region view
+    - 11-14: City view
+    - 15-18: Street/building view
+
+    Usage:
+    @code
+    MapViewer mapViewer;
+    mapViewer.setSize(800, 600);
+
+    // Center on London
+    mapViewer.centerOn(-0.1278, 51.5074); // longitude, latitude
+    mapViewer.setZoom(12); // City level zoom
+
+    // Or center on San Francisco
+    mapViewer.centerOn(-122.4194, 37.7749);
+    mapViewer.setZoom(13);
+    @endcode
+
+    @see OpenStreetMaps
 */
 class MapViewer : public juce::Component,
                   private OpenStreetMaps::Listener
