@@ -61,8 +61,8 @@ Gin is organized into focused modules that can be included independently:
 | **gin_dsp** | Audio DSP components: oscillators, filters, effects, modulation |
 | **gin_graphics** | Image processing, effects, metadata, BMP format support |
 | **gin_gui** | UI components, property editors, layout system |
-| **gin_metadata** | Audio file metadata reading and writing |
-| **gin_network** | WebSocket, secure sockets, OAuth |
+| **gin_metadata** | Image metadata reading from JPEG, GIF, and PNG files |
+| **gin_network** | WebSocket, secure sockets |
 | **gin_plugin** | Audio plugin utilities and common functionality |
 | **gin_simd** | SIMD-optimized operations |
 | **gin_webp** | WebP image format support |
@@ -101,7 +101,6 @@ Gin is organized into focused modules that can be included independently:
 - **WebSocket** - Full-featured WebSocket client
 - **SecureStreamingSocket** - SSL/TLS socket support
 - **OpenStreetMaps** - Tile fetching from OSM servers
-- **OAuth** - OAuth authentication support
 
 ## Examples
 
@@ -164,7 +163,6 @@ Gin incorporates and builds upon several excellent open-source libraries and alg
 - **[AVIR](https://github.com/avaneev/avir)** by Aleksey Vaneev - Image resizing
 - **[easywsclient](https://github.com/dhbaird/easywsclient)** - WebSocket client implementation
 - **[mbed TLS](https://tls.mbed.org/)** - SSL/TLS library
-- **[liboauthcpp](https://github.com/sirikata/liboauthcpp)** - OAuth C++ library
 - **[Least Squares Regression](https://www.codeproject.com/Articles/63170/Least-Squares-Regression-for-Quadratic-Curve-Fitti)** - Curve fitting algorithms
 
 ### Special Thanks
