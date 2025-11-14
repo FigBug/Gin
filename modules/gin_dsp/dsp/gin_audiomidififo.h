@@ -12,19 +12,24 @@
 
 //==============================================================================
 /**
-    Combined audio and MIDI FIFO buffer for synchronized playback/recording.
+    Combined audio and MIDI buffer for synchronized processing within a single thread.
 
-    AudioMidiFifo provides a lock-free circular buffer that handles both audio
-    samples and MIDI messages together, maintaining their temporal relationship.
-    This is essential for operations that need to process both audio and MIDI
-    in sync, such as recording, offline rendering, or plugin processing.
+    AudioMidiFifo provides a circular buffer that handles both audio samples
+    and MIDI messages together, maintaining their temporal relationship. This
+    is NOT thread-safe and should only be used within a single thread for
+    operations that need synchronized audio and MIDI buffering.
 
     Key Features:
-    - Lock-free for single producer/consumer
     - Synchronized audio and MIDI storage
     - Automatic time offset management for MIDI events
     - Multi-channel audio support
     - Silence writing capability
+    - Uses AbstractFifo for audio portion
+
+    Thread Safety:
+    - NOT thread-safe
+    - Use only within a single thread
+    - For multi-threaded use, consider separate synchronization
 
     The MIDI timestamps are automatically adjusted to maintain correct timing
     relative to the audio samples when reading and writing.
@@ -33,13 +38,13 @@
     @code
     AudioMidiFifo fifo(2, 8192); // 2 channels, 8192 samples max
 
-    // Write audio and MIDI together
+    // Write audio and MIDI together (single thread)
     AudioBuffer<float> audioIn(2, 512);
     MidiBuffer midiIn;
     // ... fill buffers ...
     fifo.write(audioIn, midiIn);
 
-    // Read audio and MIDI together
+    // Read audio and MIDI together (same thread)
     if (fifo.getNumSamplesAvailable() >= 512)
     {
         AudioBuffer<float> audioOut(2, 512);
