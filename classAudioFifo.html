@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>FIFO - stuff audio in one end and it pops out the other.  
+<p>Lock-free audio FIFO buffer for single producer/consumer scenarios.  
  <a href="classAudioFifo.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_audiofifo.h&gt;</code></p>
@@ -125,8 +125,43 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad739bd1e9287145381242caddbb2dfff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>FIFO - stuff audio in one end and it pops out the other. </p>
-<p>Lock free for single producer / consumer </p>
+<div class="textblock"><p>Lock-free audio FIFO buffer for single producer/consumer scenarios. </p>
+<p><a class="el" href="classAudioFifo.html" title="Lock-free audio FIFO buffer for single producer/consumer scenarios.">AudioFifo</a> provides a thread-safe circular buffer for passing audio between threads, typically from an audio callback to a background processing thread or vice versa. It uses JUCE's AbstractFifo for lock-free operation with a single producer and single consumer thread.</p>
+<p>Key Features:</p><ul>
+<li>Lock-free for single producer/consumer (real-time safe)</li>
+<li>Multi-channel audio support</li>
+<li>Read/write operations with optional adding</li>
+<li>Peek operations (read without consuming)</li>
+<li>Silence writing</li>
+<li>Automatic space management</li>
+</ul>
+<p>Common Use Cases:</p><ul>
+<li>Passing audio from real-time thread to UI analyzer</li>
+<li>Buffering between processing stages</li>
+<li>Circular recording buffer</li>
+<li>Audio preview/monitoring</li>
+</ul>
+<p>Thread Safety:</p><ul>
+<li>Safe for ONE producer thread and ONE consumer thread</li>
+<li>NOT safe for multiple producers or multiple consumers</li>
+<li>Write operations must be on one thread only</li>
+<li>Read operations must be on one thread only</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classAudioFifo.html">AudioFifo</a> fifo(2, 4096); <span class="comment">// 2 channels, 4096 samples</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// In audio thread (producer)</span></div>
+<div class="line"><span class="keywordflow">if</span> (fifo.getFreeSpace() &gt;= buffer.getNumSamples())</div>
+<div class="line">    fifo.write(buffer);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// In background thread (consumer)</span></div>
+<div class="line"><span class="keywordflow">if</span> (fifo.getNumReady() &gt;= desiredSamples)</div>
+<div class="line">{</div>
+<div class="line">    AudioBuffer&lt;float&gt; output(2, desiredSamples);</div>
+<div class="line">    fifo.read(output);</div>
+<div class="line">    <span class="comment">// ... process output</span></div>
+<div class="line">}</div>
+<div class="ttc" id="aclassAudioFifo_html"><div class="ttname"><a href="classAudioFifo.html">AudioFifo</a></div><div class="ttdoc">Lock-free audio FIFO buffer for single producer/consumer scenarios.</div><div class="ttdef"><b>Definition</b> gin_audiofifo.h:66</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classMidiFifo.html" title="FIFO buffer for passing MIDI messages between threads.">MidiFifo</a>, <a class="el" href="classAudioMidiFifo.html" title="Combined audio and MIDI FIFO buffer for synchronized playback/recording.">AudioMidiFifo</a>, <a class="el" href="classResamplingFifo.html" title="High-quality sample rate conversion FIFO using libsamplerate.">ResamplingFifo</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a521bc70e223aabb88d2579d44d63d6ec" name="a521bc70e223aabb88d2579d44d63d6ec"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a521bc70e223aabb88d2579d44d63d6ec">&#9670;&#160;</a></span>AudioFifo()</h2>
@@ -681,7 +716,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 19:21:09 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:04:36 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

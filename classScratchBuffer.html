@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A temporay buffer provided from a list.  
+<p>Temporary audio buffer allocated from a shared pool to avoid allocations.  
  <a href="classScratchBuffer.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_scratchbuffer.h&gt;</code></p>
@@ -95,8 +95,31 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad1064185b708fea7cc96514eae47ecdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A temporay buffer provided from a list. </p>
-<p>Get a buffer without allocating. (It does lock however) </p>
+<div class="textblock"><p>Temporary audio buffer allocated from a shared pool to avoid allocations. </p>
+<p><a class="el" href="classScratchBuffer.html" title="Temporary audio buffer allocated from a shared pool to avoid allocations.">ScratchBuffer</a> provides a convenient way to get temporary audio buffers without allocating memory on the heap. Buffers are retrieved from a thread-safe pool and automatically returned when the <a class="el" href="classScratchBuffer.html" title="Temporary audio buffer allocated from a shared pool to avoid allocations.">ScratchBuffer</a> goes out of scope.</p>
+<p>This is useful in real-time audio code where you need temporary buffers but want to avoid allocation overhead and fragmentation. The pool grows as needed but buffers are reused, minimizing allocations after initialization.</p>
+<p>Key Features:</p><ul>
+<li>Automatic memory management (RAII)</li>
+<li>Thread-safe buffer pool</li>
+<li>No allocations after warm-up</li>
+<li>Copy constructor for buffer cloning</li>
+<li>Inherits from AudioSampleBuffer</li>
+</ul>
+<p>Note: While buffer retrieval from the pool uses locking, this is generally acceptable as the lock contention is minimal and allocation is avoided.</p>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> processAudio(AudioBuffer&lt;float&gt;&amp; buffer)</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Get a temporary buffer - no allocation if pool has one</span></div>
+<div class="line">    <a class="code hl_class" href="classScratchBuffer.html">ScratchBuffer</a> temp(buffer.getNumChannels(), buffer.getNumSamples());</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Use it like a regular AudioBuffer</span></div>
+<div class="line">    temp.copyFrom(0, 0, buffer, 0, 0, buffer.getNumSamples());</div>
+<div class="line">    applyEffect(temp);</div>
+<div class="line">    buffer.copyFrom(0, 0, temp, 0, 0, temp.getNumSamples());</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Buffer automatically returned to pool when temp goes out of scope</span></div>
+<div class="line">}</div>
+<div class="ttc" id="aclassScratchBuffer_html"><div class="ttname"><a href="classScratchBuffer.html">ScratchBuffer</a></div><div class="ttdoc">Temporary audio buffer allocated from a shared pool to avoid allocations.</div><div class="ttdef"><b>Definition</b> gin_scratchbuffer.h:58</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd>juce::AudioSampleBuffer </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2a370ef469289ac0f993a0e48caa3239" name="a2a370ef469289ac0f993a0e48caa3239"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2a370ef469289ac0f993a0e48caa3239">&#9670;&#160;</a></span>ScratchBuffer() <span class="overload">[1/3]</span></h2>
@@ -185,7 +208,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 19:21:09 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:04:36 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
