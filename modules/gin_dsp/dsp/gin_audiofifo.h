@@ -11,8 +11,52 @@
 #pragma once
 
 //==============================================================================
-/** FIFO - stuff audio in one end and it pops out the other.
-    Lock free for single producer / consumer
+/**
+    Lock-free audio FIFO buffer for single producer/consumer scenarios.
+
+    AudioFifo provides a thread-safe circular buffer for passing audio between threads,
+    typically from an audio callback to a background processing thread or vice versa.
+    It uses JUCE's AbstractFifo for lock-free operation with a single producer and
+    single consumer thread.
+
+    Key Features:
+    - Lock-free for single producer/consumer (real-time safe)
+    - Multi-channel audio support
+    - Read/write operations with optional adding
+    - Peek operations (read without consuming)
+    - Silence writing
+    - Automatic space management
+
+    Common Use Cases:
+    - Passing audio from real-time thread to UI analyzer
+    - Buffering between processing stages
+    - Circular recording buffer
+    - Audio preview/monitoring
+
+    Thread Safety:
+    - Safe for ONE producer thread and ONE consumer thread
+    - NOT safe for multiple producers or multiple consumers
+    - Write operations must be on one thread only
+    - Read operations must be on one thread only
+
+    Usage:
+    @code
+    AudioFifo fifo(2, 4096); // 2 channels, 4096 samples
+
+    // In audio thread (producer)
+    if (fifo.getFreeSpace() >= buffer.getNumSamples())
+        fifo.write(buffer);
+
+    // In background thread (consumer)
+    if (fifo.getNumReady() >= desiredSamples)
+    {
+        AudioBuffer<float> output(2, desiredSamples);
+        fifo.read(output);
+        // ... process output
+    }
+    @endcode
+
+    @see MidiFifo, AudioMidiFifo, ResamplingFifo
 */
 class AudioFifo
 {

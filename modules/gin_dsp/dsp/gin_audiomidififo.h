@@ -11,10 +11,46 @@
 #pragma once
 
 //==============================================================================
-/** FIFO - stuff audio/midi in one end and it pops out the other.
-*/
+/**
+    Combined audio and MIDI FIFO buffer for synchronized playback/recording.
 
-//================================================================================================
+    AudioMidiFifo provides a lock-free circular buffer that handles both audio
+    samples and MIDI messages together, maintaining their temporal relationship.
+    This is essential for operations that need to process both audio and MIDI
+    in sync, such as recording, offline rendering, or plugin processing.
+
+    Key Features:
+    - Lock-free for single producer/consumer
+    - Synchronized audio and MIDI storage
+    - Automatic time offset management for MIDI events
+    - Multi-channel audio support
+    - Silence writing capability
+
+    The MIDI timestamps are automatically adjusted to maintain correct timing
+    relative to the audio samples when reading and writing.
+
+    Usage:
+    @code
+    AudioMidiFifo fifo(2, 8192); // 2 channels, 8192 samples max
+
+    // Write audio and MIDI together
+    AudioBuffer<float> audioIn(2, 512);
+    MidiBuffer midiIn;
+    // ... fill buffers ...
+    fifo.write(audioIn, midiIn);
+
+    // Read audio and MIDI together
+    if (fifo.getNumSamplesAvailable() >= 512)
+    {
+        AudioBuffer<float> audioOut(2, 512);
+        MidiBuffer midiOut;
+        fifo.read(audioOut, midiOut);
+        // ... process synchronized audio and MIDI
+    }
+    @endcode
+
+    @see AudioFifo, MidiFifo
+*/
 class AudioMidiFifo
 {
 public:
