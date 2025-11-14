@@ -190,7 +190,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa2b511b55b1edb8eaa5cc3cb5a1a1e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b51959c06800d37563cb72001640014" id="r_a1b51959c06800d37563cb72001640014"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#a1b51959c06800d37563cb72001640014">getNumSteps</a> () const override</td></tr>
 <tr class="separator:a1b51959c06800d37563cb72001640014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeadd7715c99d8d8b788e5800d620104e" id="r_aeadd7715c99d8d8b788e5800d620104e"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#aeadd7715c99d8d8b788e5800d620104e">getText</a> (float <a class="el" href="classParameter.html#a600fbf5505f6846a37b27f806ea4abf0">value</a>, int) const override</td></tr>
+<tr class="memitem:aeadd7715c99d8d8b788e5800d620104e" id="r_aeadd7715c99d8d8b788e5800d620104e"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#aeadd7715c99d8d8b788e5800d620104e">getText</a> (float <a class="el" href="classParameter.html#a7d3a170ac532a397f30e8a4415573b9a">value</a>, int) const override</td></tr>
 <tr class="separator:aeadd7715c99d8d8b788e5800d620104e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9019aebfa160ab78e1884be19ba59a67" id="r_a9019aebfa160ab78e1884be19ba59a67"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#a9019aebfa160ab78e1884be19ba59a67">getValueForText</a> (const juce::String &amp;text) const override</td></tr>
 <tr class="separator:a9019aebfa160ab78e1884be19ba59a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -231,8 +231,8 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a30f079fa8ecf5c5cd5735777e1ba74c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7310a6224d36ab27a14237aab7d8fadd" id="r_a7310a6224d36ab27a14237aab7d8fadd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#a7310a6224d36ab27a14237aab7d8fadd">modIndex</a> = -1</td></tr>
 <tr class="separator:a7310a6224d36ab27a14237aab7d8fadd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a600fbf5505f6846a37b27f806ea4abf0" id="r_a600fbf5505f6846a37b27f806ea4abf0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#a600fbf5505f6846a37b27f806ea4abf0">value</a> = 0.0f</td></tr>
-<tr class="separator:a600fbf5505f6846a37b27f806ea4abf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d3a170ac532a397f30e8a4415573b9a" id="r_a7d3a170ac532a397f30e8a4415573b9a"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#a7d3a170ac532a397f30e8a4415573b9a">value</a> {0.0f}</td></tr>
+<tr class="separator:a7d3a170ac532a397f30e8a4415573b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afff117f671e74a238989542b73cbd024" id="r_afff117f671e74a238989542b73cbd024"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#afff117f671e74a238989542b73cbd024">defaultValue</a> = 0.0f</td></tr>
 <tr class="separator:afff117f671e74a238989542b73cbd024"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6de74e7339f55349e6cb89dfd9a3abf1" id="r_a6de74e7339f55349e6cb89dfd9a3abf1"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#a6de74e7339f55349e6cb89dfd9a3abf1">uid</a></td></tr>
@@ -717,7 +717,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classParameter.html#a4d0ec755973b5650a80d2b7e39bc2197">range</a>, and <a class="el" href="classParameter.html#a600fbf5505f6846a37b27f806ea4abf0">value</a>.</p>
+<p class="reference">References <a class="el" href="classParameter.html#a4d0ec755973b5650a80d2b7e39bc2197">range</a>, and <a class="el" href="classParameter.html#a7d3a170ac532a397f30e8a4415573b9a">value</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classPluginButton.html#a5a8bc6d21639253463b285091b3ff1e3">PluginButton::clicked()</a>, <a class="el" href="classSVGPluginButton.html#a6a64fe25e21b00cf6f25ec4eabbdb8e8">SVGPluginButton::clicked()</a>, <a class="el" href="classParameter.html#a97f748fad458972d722789fd47d6adfa">getProcValue()</a>, <a class="el" href="classParameter.html#aba85707d46f2f247e482097273a5e4c4">getProcValue()</a>, <a class="el" href="classParameter.html#a372ed65aedcc9fff511bba20b28687c8">isOn()</a>, <a class="el" href="classPluginButton.html#ae01c3f3ee210cdbecc5e20545edf743d">PluginButton::PluginButton()</a>, <a class="el" href="classPluginComboBox.html#aa690d48460e1929b21424f44ae8fddce">PluginComboBox::PluginComboBox()</a>, <a class="el" href="classPluginSlider.html#aa55574ec47ca63deb3b26a11d1eb8135">PluginSlider::PluginSlider()</a>, <a class="el" href="classPluginSlider.html#ac566200d8e55e399a865bb74a87c1fb5">PluginSlider::sliderValueChanged()</a>, <a class="el" href="classSVGPluginButton.html#a47c7b0570ab1759d2f0e58f90590329d">SVGPluginButton::SVGPluginButton()</a>, <a class="el" href="classPluginButton.html#aa764a81b1678f58f8034b9df753c8b77">PluginButton::valueUpdated()</a>, <a class="el" href="classSVGPluginButton.html#ad316678aa21285135926fc5146be78f0">SVGPluginButton::valueUpdated()</a>, <a class="el" href="classPluginComboBox.html#a3974da62403031912ad0c232dafbf8dc">PluginComboBox::valueUpdated()</a>, and <a class="el" href="classPluginSlider.html#af47461ce84833d9e5ab38b459c42c494">PluginSlider::valueUpdated()</a>.</p>
 
@@ -738,7 +738,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classParameter.html#a4d0ec755973b5650a80d2b7e39bc2197">range</a>, and <a class="el" href="classParameter.html#a600fbf5505f6846a37b27f806ea4abf0">value</a>.</p>
+<p class="reference">References <a class="el" href="classParameter.html#a4d0ec755973b5650a80d2b7e39bc2197">range</a>, and <a class="el" href="classParameter.html#a7d3a170ac532a397f30e8a4415573b9a">value</a>.</p>
 
 </div>
 </div>
@@ -757,7 +757,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classParameter.html#a4d0ec755973b5650a80d2b7e39bc2197">range</a>, and <a class="el" href="classParameter.html#a600fbf5505f6846a37b27f806ea4abf0">value</a>.</p>
+<p class="reference">References <a class="el" href="classParameter.html#a4d0ec755973b5650a80d2b7e39bc2197">range</a>, and <a class="el" href="classParameter.html#a7d3a170ac532a397f30e8a4415573b9a">value</a>.</p>
 
 </div>
 </div>
@@ -1201,7 +1201,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classParameter.html#a4d0ec755973b5650a80d2b7e39bc2197">range</a>, and <a class="el" href="classParameter.html#a600fbf5505f6846a37b27f806ea4abf0">value</a>.</p>
+<p class="reference">References <a class="el" href="classParameter.html#a4d0ec755973b5650a80d2b7e39bc2197">range</a>, and <a class="el" href="classParameter.html#a7d3a170ac532a397f30e8a4415573b9a">value</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classParameter.html#a9bc8e183ac8f271dbc8c4ee0aff647e5">getBoolValue()</a>, and <a class="el" href="classParameter.html#a202a2145b5b03a4ad6622718e49557ab">getUserValueText()</a>.</p>
 
@@ -1767,8 +1767,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a600fbf5505f6846a37b27f806ea4abf0" name="a600fbf5505f6846a37b27f806ea4abf0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a600fbf5505f6846a37b27f806ea4abf0">&#9670;&#160;</a></span>value</h2>
+<a id="a7d3a170ac532a397f30e8a4415573b9a" name="a7d3a170ac532a397f30e8a4415573b9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d3a170ac532a397f30e8a4415573b9a">&#9670;&#160;</a></span>value</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1777,7 +1777,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float Parameter::value = 0.0f</td>
+          <td class="memname">std::atomic&lt;float&gt; Parameter::value {0.0f}</td>
         </tr>
       </table>
   </td>
@@ -1981,7 +1981,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:51:48 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:55:35 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

@@ -11552,10 +11552,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>float</type>
+      <type>std::atomic&lt; float &gt;</type>
       <name>value</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a600fbf5505f6846a37b27f806ea4abf0</anchor>
+      <anchor>a7d3a170ac532a397f30e8a4415573b9a</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
