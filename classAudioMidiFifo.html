@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Combined audio and MIDI FIFO buffer for synchronized playback/recording.  
+<p>Combined audio and MIDI buffer for synchronized processing within a single thread.  
  <a href="classAudioMidiFifo.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_audiomidififo.h&gt;</code></p>
@@ -101,25 +101,30 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab79a8f933234cb743fcd969b3786b579"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Combined audio and MIDI FIFO buffer for synchronized playback/recording. </p>
-<p><a class="el" href="classAudioMidiFifo.html" title="Combined audio and MIDI FIFO buffer for synchronized playback/recording.">AudioMidiFifo</a> provides a lock-free circular buffer that handles both audio samples and MIDI messages together, maintaining their temporal relationship. This is essential for operations that need to process both audio and MIDI in sync, such as recording, offline rendering, or plugin processing.</p>
+<div class="textblock"><p>Combined audio and MIDI buffer for synchronized processing within a single thread. </p>
+<p><a class="el" href="classAudioMidiFifo.html" title="Combined audio and MIDI buffer for synchronized processing within a single thread.">AudioMidiFifo</a> provides a circular buffer that handles both audio samples and MIDI messages together, maintaining their temporal relationship. This is NOT thread-safe and should only be used within a single thread for operations that need synchronized audio and MIDI buffering.</p>
 <p>Key Features:</p><ul>
-<li>Lock-free for single producer/consumer</li>
 <li>Synchronized audio and MIDI storage</li>
 <li>Automatic time offset management for MIDI events</li>
 <li>Multi-channel audio support</li>
 <li>Silence writing capability</li>
+<li>Uses AbstractFifo for audio portion</li>
+</ul>
+<p>Thread Safety:</p><ul>
+<li>NOT thread-safe</li>
+<li>Use only within a single thread</li>
+<li>For multi-threaded use, consider separate synchronization</li>
 </ul>
 <p>The MIDI timestamps are automatically adjusted to maintain correct timing relative to the audio samples when reading and writing.</p>
 <p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classAudioMidiFifo.html">AudioMidiFifo</a> fifo(2, 8192); <span class="comment">// 2 channels, 8192 samples max</span></div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Write audio and MIDI together</span></div>
+<div class="line"><span class="comment">// Write audio and MIDI together (single thread)</span></div>
 <div class="line">AudioBuffer&lt;float&gt; audioIn(2, 512);</div>
 <div class="line">MidiBuffer midiIn;</div>
 <div class="line"><span class="comment">// ... fill buffers ...</span></div>
 <div class="line">fifo.write(audioIn, midiIn);</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Read audio and MIDI together</span></div>
+<div class="line"><span class="comment">// Read audio and MIDI together (same thread)</span></div>
 <div class="line"><span class="keywordflow">if</span> (fifo.getNumSamplesAvailable() &gt;= 512)</div>
 <div class="line">{</div>
 <div class="line">    AudioBuffer&lt;float&gt; audioOut(2, 512);</div>
@@ -127,8 +132,8 @@ Public Member Functions</h2></td></tr>
 <div class="line">    fifo.read(audioOut, midiOut);</div>
 <div class="line">    <span class="comment">// ... process synchronized audio and MIDI</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aclassAudioMidiFifo_html"><div class="ttname"><a href="classAudioMidiFifo.html">AudioMidiFifo</a></div><div class="ttdoc">Combined audio and MIDI FIFO buffer for synchronized playback/recording.</div><div class="ttdef"><b>Definition</b> gin_audiomidififo.h:59</div></div>
-</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classAudioFifo.html" title="Lock-free audio FIFO buffer for single producer/consumer scenarios.">AudioFifo</a>, <a class="el" href="classMidiFifo.html" title="FIFO buffer for passing MIDI messages between threads.">MidiFifo</a> </dd></dl>
+<div class="ttc" id="aclassAudioMidiFifo_html"><div class="ttname"><a href="classAudioMidiFifo.html">AudioMidiFifo</a></div><div class="ttdoc">Combined audio and MIDI buffer for synchronized processing within a single thread.</div><div class="ttdef"><b>Definition</b> gin_audiomidififo.h:64</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classAudioFifo.html" title="Lock-free audio FIFO buffer for single producer/consumer scenarios.">AudioFifo</a>, <a class="el" href="classMidiFifo.html" title="Simple MIDI buffer for time-shifting MIDI events within a single thread.">MidiFifo</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5882245e1467bc8ab0ead4c353203ceb" name="a5882245e1467bc8ab0ead4c353203ceb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5882245e1467bc8ab0ead4c353203ceb">&#9670;&#160;</a></span>AudioMidiFifo()</h2>
@@ -336,7 +341,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:07:30 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:10:23 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
