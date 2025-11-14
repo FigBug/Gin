@@ -85,6 +85,12 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a752f4c379f15df9bbac4bd806abe6bc5" id="r_a752f4c379f15df9bbac4bd806abe6bc5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWavetable.html#a752f4c379f15df9bbac4bd806abe6bc5">Wavetable</a> ()=default</td></tr>
 <tr class="separator:a752f4c379f15df9bbac4bd806abe6bc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f2a425e8ba0e897acd7291f87ad4d1a" id="r_a0f2a425e8ba0e897acd7291f87ad4d1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWavetable.html#a0f2a425e8ba0e897acd7291f87ad4d1a">Wavetable</a> (<a class="el" href="classWavetable.html">Wavetable</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a0f2a425e8ba0e897acd7291f87ad4d1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <br /></td></tr>
+<tr class="separator:a0f2a425e8ba0e897acd7291f87ad4d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ec06349a7a981bf46dc915332264c9c" id="r_a1ec06349a7a981bf46dc915332264c9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classWavetable.html">Wavetable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWavetable.html#a1ec06349a7a981bf46dc915332264c9c">operator=</a> (<a class="el" href="classWavetable.html">Wavetable</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a1ec06349a7a981bf46dc915332264c9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator.  <br /></td></tr>
+<tr class="separator:a1ec06349a7a981bf46dc915332264c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf208db9300291fcafa84c895c9cc02b" id="r_acf208db9300291fcafa84c895c9cc02b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWavetable.html#acf208db9300291fcafa84c895c9cc02b">addTable</a> (<a class="el" href="classBandLimitedLookupTable.html">BandLimitedLookupTable</a> *table)</td></tr>
 <tr class="memdesc:acf208db9300291fcafa84c895c9cc02b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new <a class="el" href="classBandLimitedLookupTable.html" title="Lookup tables for holding bandlimited waveforms.">BandLimitedLookupTable</a> to the collection.  <br /></td></tr>
 <tr class="separator:acf208db9300291fcafa84c895c9cc02b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,7 +132,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Wrapper around juce::OwnedArray&lt;BandLimitedLookupTable&gt; for managing multiple wavetables. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a752f4c379f15df9bbac4bd806abe6bc5" name="a752f4c379f15df9bbac4bd806abe6bc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a752f4c379f15df9bbac4bd806abe6bc5">&#9670;&#160;</a></span>Wavetable()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a752f4c379f15df9bbac4bd806abe6bc5">&#9670;&#160;</a></span>Wavetable() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,7 +156,63 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a0f2a425e8ba0e897acd7291f87ad4d1a" name="a0f2a425e8ba0e897acd7291f87ad4d1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f2a425e8ba0e897acd7291f87ad4d1a">&#9670;&#160;</a></span>Wavetable() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Wavetable::Wavetable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classWavetable.html">Wavetable</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move constructor. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1ec06349a7a981bf46dc915332264c9c" name="a1ec06349a7a981bf46dc915332264c9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ec06349a7a981bf46dc915332264c9c">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classWavetable.html">Wavetable</a> &amp; Wavetable::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classWavetable.html">Wavetable</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment operator. </p>
+
+</div>
+</div>
 <a id="acf208db9300291fcafa84c895c9cc02b" name="acf208db9300291fcafa84c895c9cc02b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acf208db9300291fcafa84c895c9cc02b">&#9670;&#160;</a></span>addTable()</h2>
 
@@ -430,7 +492,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 13 2025 13:23:58 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 01:27:37 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

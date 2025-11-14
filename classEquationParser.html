@@ -124,10 +124,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac1dfff07ef6401d5f73d79d00ed6cb32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a920e54171a2af2a10c15ea417250db3b" id="r_a920e54171a2af2a10c15ea417250db3b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#a920e54171a2af2a10c15ea417250db3b">evaluate</a> ()</td></tr>
 <tr class="separator:a920e54171a2af2a10c15ea417250db3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a267ea42024ab4404885d6549c46b5298" id="r_a267ea42024ab4404885d6549c46b5298"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#a267ea42024ab4404885d6549c46b5298">hasError</a> ()</td></tr>
-<tr class="separator:a267ea42024ab4404885d6549c46b5298"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a6c619e84dea76c15b4caa29c09e7c8" id="r_a8a6c619e84dea76c15b4caa29c09e7c8"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#a8a6c619e84dea76c15b4caa29c09e7c8">getError</a> ()</td></tr>
-<tr class="separator:a8a6c619e84dea76c15b4caa29c09e7c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace4d2936c6d08b428ea832cdad75d779" id="r_ace4d2936c6d08b428ea832cdad75d779"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#ace4d2936c6d08b428ea832cdad75d779">hasError</a> () const</td></tr>
+<tr class="separator:ace4d2936c6d08b428ea832cdad75d779"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a452aa75e0f0229864c6a72e9c81410e4" id="r_a452aa75e0f0229864c6a72e9c81410e4"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#a452aa75e0f0229864c6a72e9c81410e4">getError</a> () const</td></tr>
+<tr class="separator:a452aa75e0f0229864c6a72e9c81410e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Mathematical equation parser and evaluator with variable and function support. </p>
@@ -167,15 +167,15 @@ Public Member Functions</h2></td></tr>
 <div class="line">result = parser.<a class="code hl_function" href="classEquationParser.html#a920e54171a2af2a10c15ea417250db3b">evaluate</a>(); <span class="comment">// Returns 23.14159...</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Check for errors</span></div>
-<div class="line"><span class="keywordflow">if</span> (parser.<a class="code hl_function" href="classEquationParser.html#a267ea42024ab4404885d6549c46b5298">hasError</a>())</div>
-<div class="line">    DBG(<span class="stringliteral">&quot;Error: &quot;</span> + parser.<a class="code hl_function" href="classEquationParser.html#a8a6c619e84dea76c15b4caa29c09e7c8">getError</a>());</div>
+<div class="line"><span class="keywordflow">if</span> (parser.<a class="code hl_function" href="classEquationParser.html#ace4d2936c6d08b428ea832cdad75d779">hasError</a>())</div>
+<div class="line">    DBG(<span class="stringliteral">&quot;Error: &quot;</span> + parser.<a class="code hl_function" href="classEquationParser.html#a452aa75e0f0229864c6a72e9c81410e4">getError</a>());</div>
 <div class="ttc" id="aclassEquationParser_html"><div class="ttname"><a href="classEquationParser.html">EquationParser</a></div><div class="ttdoc">Mathematical equation parser and evaluator with variable and function support.</div><div class="ttdef"><b>Definition</b> gin_equationparser.h:74</div></div>
-<div class="ttc" id="aclassEquationParser_html_a267ea42024ab4404885d6549c46b5298"><div class="ttname"><a href="classEquationParser.html#a267ea42024ab4404885d6549c46b5298">EquationParser::hasError</a></div><div class="ttdeci">bool hasError()</div></div>
 <div class="ttc" id="aclassEquationParser_html_a413c959f4d49d05bce554e763d8e09bd"><div class="ttname"><a href="classEquationParser.html#a413c959f4d49d05bce554e763d8e09bd">EquationParser::addVariable</a></div><div class="ttdeci">void addVariable(const juce::String &amp;name, double *value)</div></div>
+<div class="ttc" id="aclassEquationParser_html_a452aa75e0f0229864c6a72e9c81410e4"><div class="ttname"><a href="classEquationParser.html#a452aa75e0f0229864c6a72e9c81410e4">EquationParser::getError</a></div><div class="ttdeci">juce::String getError() const</div></div>
 <div class="ttc" id="aclassEquationParser_html_a49e3230e62a90ebb6e6e08f8fa9b6cba"><div class="ttname"><a href="classEquationParser.html#a49e3230e62a90ebb6e6e08f8fa9b6cba">EquationParser::setEquation</a></div><div class="ttdeci">void setEquation(const juce::String &amp;equation)</div></div>
 <div class="ttc" id="aclassEquationParser_html_a7444fd0751289614e78d8229cab74229"><div class="ttname"><a href="classEquationParser.html#a7444fd0751289614e78d8229cab74229">EquationParser::addConstant</a></div><div class="ttdeci">void addConstant(const juce::String &amp;name, double value)</div></div>
-<div class="ttc" id="aclassEquationParser_html_a8a6c619e84dea76c15b4caa29c09e7c8"><div class="ttname"><a href="classEquationParser.html#a8a6c619e84dea76c15b4caa29c09e7c8">EquationParser::getError</a></div><div class="ttdeci">juce::String getError()</div></div>
 <div class="ttc" id="aclassEquationParser_html_a920e54171a2af2a10c15ea417250db3b"><div class="ttname"><a href="classEquationParser.html#a920e54171a2af2a10c15ea417250db3b">EquationParser::evaluate</a></div><div class="ttdeci">double evaluate()</div></div>
+<div class="ttc" id="aclassEquationParser_html_ace4d2936c6d08b428ea832cdad75d779"><div class="ttname"><a href="classEquationParser.html#ace4d2936c6d08b428ea832cdad75d779">EquationParser::hasError</a></div><div class="ttdeci">bool hasError() const</div></div>
 </div><!-- fragment --><p>Custom Functions: </p><div class="fragment"><div class="line">parser.<a class="code hl_function" href="classEquationParser.html#a99f6e1e2db7a62b2b816a15675222684">addFunction</a>(<span class="stringliteral">&quot;myFunc&quot;</span>, [](<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b) {</div>
 <div class="line">    <span class="keywordflow">return</span> a * a + b;</div>
 <div class="line">});</div>
@@ -583,8 +583,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a267ea42024ab4404885d6549c46b5298" name="a267ea42024ab4404885d6549c46b5298"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a267ea42024ab4404885d6549c46b5298">&#9670;&#160;</a></span>hasError()</h2>
+<a id="ace4d2936c6d08b428ea832cdad75d779" name="ace4d2936c6d08b428ea832cdad75d779"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace4d2936c6d08b428ea832cdad75d779">&#9670;&#160;</a></span>hasError()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -593,15 +593,15 @@ Public Member Functions</h2></td></tr>
           <td class="memname">bool EquationParser::hasError </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a8a6c619e84dea76c15b4caa29c09e7c8" name="a8a6c619e84dea76c15b4caa29c09e7c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a6c619e84dea76c15b4caa29c09e7c8">&#9670;&#160;</a></span>getError()</h2>
+<a id="a452aa75e0f0229864c6a72e9c81410e4" name="a452aa75e0f0229864c6a72e9c81410e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a452aa75e0f0229864c6a72e9c81410e4">&#9670;&#160;</a></span>getError()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -610,7 +610,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">juce::String EquationParser::getError </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -623,7 +623,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 13 2025 13:23:58 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 01:27:37 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

@@ -8,7 +8,7 @@ var searchData=
   ['hardmix_5',['HardMix',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a76ee1ad58cc676f7994416354a4d7b59',1,'gin_imageeffects.h']]],
   ['hasbrowser_6',['hasBrowser',['../classTitleBar.html#a6782ccbfb8fc433a7abba03171506a8a',1,'TitleBar']]],
   ['haseditor_7',['hasEditor',['../classAudioProcessorWrapper.html#a7875830cb6d0f8d6d405ea6e38868cbb',1,'AudioProcessorWrapper']]],
-  ['haserror_8',['hasError',['../classEquationParser.html#a267ea42024ab4404885d6549c46b5298',1,'EquationParser']]],
+  ['haserror_8',['hasError',['../classEquationParser.html#ace4d2936c6d08b428ea832cdad75d779',1,'EquationParser']]],
   ['haspresets_9',['hasPresets',['../classTitleBar.html#a981c2205d4edca7359eafa06aa34931a',1,'TitleBar']]],
   ['hasprogram_10',['hasProgram',['../classProcessor.html#ad78ac9883a5b0ccabf449861aa86c071',1,'Processor']]],
   ['havedata_11',['haveData',['../classLinearRegression.html#ab0d8b0bd896a4ac1a6d0fad86d5de10b',1,'LinearRegression']]],

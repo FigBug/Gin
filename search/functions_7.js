@@ -4,7 +4,7 @@ var searchData=
   ['handlemidievent_1',['handleMidiEvent',['../classSynthesiser.html#a43f7146e8cf5f05e989ec838bd1c9e53',1,'Synthesiser']]],
   ['handleupdatenowifneeded_2',['handleUpdateNowIfNeeded',['../classRealtimeAsyncUpdater.html#accae6ff15d6eff08e6a3318263eb6574',1,'RealtimeAsyncUpdater']]],
   ['haseditor_3',['hasEditor',['../classAudioProcessorWrapper.html#a7875830cb6d0f8d6d405ea6e38868cbb',1,'AudioProcessorWrapper']]],
-  ['haserror_4',['hasError',['../classEquationParser.html#a267ea42024ab4404885d6549c46b5298',1,'EquationParser']]],
+  ['haserror_4',['hasError',['../classEquationParser.html#ace4d2936c6d08b428ea832cdad75d779',1,'EquationParser']]],
   ['hasprogram_5',['hasProgram',['../classProcessor.html#ad78ac9883a5b0ccabf449861aa86c071',1,'Processor']]],
   ['havedata_6',['haveData',['../classLinearRegression.html#ab0d8b0bd896a4ac1a6d0fad86d5de10b',1,'LinearRegression']]],
   ['headerbutton_7',['HeaderButton',['../classHeaderButton.html#a6c478335d9b0fda55032fcb99df2a802',1,'HeaderButton']]],

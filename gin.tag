@@ -5891,15 +5891,15 @@
       <type>bool</type>
       <name>hasError</name>
       <anchorfile>classEquationParser.html</anchorfile>
-      <anchor>a267ea42024ab4404885d6549c46b5298</anchor>
-      <arglist>()</arglist>
+      <anchor>ace4d2936c6d08b428ea832cdad75d779</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>juce::String</type>
       <name>getError</name>
       <anchorfile>classEquationParser.html</anchorfile>
-      <anchor>a8a6c619e84dea76c15b4caa29c09e7c8</anchor>
-      <arglist>()</arglist>
+      <anchor>a452aa75e0f0229864c6a72e9c81410e4</anchor>
+      <arglist>() const</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -17440,6 +17440,20 @@
       <anchorfile>classWavetable.html</anchorfile>
       <anchor>a752f4c379f15df9bbac4bd806abe6bc5</anchor>
       <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Wavetable</name>
+      <anchorfile>classWavetable.html</anchorfile>
+      <anchor>a0f2a425e8ba0e897acd7291f87ad4d1a</anchor>
+      <arglist>(Wavetable &amp;&amp;other) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Wavetable &amp;</type>
+      <name>operator=</name>
+      <anchorfile>classWavetable.html</anchorfile>
+      <anchor>a1ec06349a7a981bf46dc915332264c9c</anchor>
+      <arglist>(Wavetable &amp;&amp;other) noexcept</arglist>
     </member>
     <member kind="function">
       <type>void</type>
