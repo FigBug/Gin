@@ -93,4 +93,24 @@ private:
     juce::AudioSampleBuffer ilInputBuffer, ilOutputBuffer, outputBuffer;
 };
 
+/**
+    Resamples an entire audio buffer from one sample rate to another.
+
+    This is a convenience function that resamples a complete audio buffer in one
+    operation, without requiring a ResamplingFifo. Useful for offline processing
+    where you need to convert an entire buffer at once.
+
+    @param buffer       The audio buffer to resample (input)
+    @param inputRate    The sample rate of the input buffer
+    @param outputRate   The desired output sample rate
+    @param quality      Resampling quality (0-4, default 4):
+                        0 = SRC_SINC_FASTEST,
+                        1 = SRC_SINC_MEDIUM_QUALITY,
+                        2 = SRC_SINC_BEST_QUALITY,
+                        3 = SRC_ZERO_ORDER_HOLD,
+                        4 = SRC_LINEAR
+    @returns            A new AudioSampleBuffer at the output sample rate
+
+    @see ResamplingFifo
+*/
 juce::AudioSampleBuffer resampleBuffer (juce::AudioSampleBuffer&, double inputRate, double outputRate, int quality = 4);
