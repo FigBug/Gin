@@ -7,11 +7,58 @@
 
 #pragma once
 
-/** Cubic spline interpolation is a simple way to obtain a smooth curve from a set of
- discrete points. It has both C1 (first derivative) and C2 (second derivative) continuity,
- enabling it to produce a continuous piecewise function given a set of data points.
+/**
+    Cubic spline interpolation for smooth curves through discrete data points.
 
- Add points in increasing x order */
+    Spline provides cubic spline interpolation, creating a smooth curve that passes
+    through all given data points. Unlike linear interpolation, cubic splines have
+    continuous first and second derivatives (C1 and C2 continuity), resulting in
+    very smooth, natural-looking curves.
+
+    Cubic spline interpolation is ideal for:
+    - Smooth animation curves
+    - Data visualization and smoothing
+    - Upsampling discrete data
+    - Creating smooth parameter transitions
+    - Generating lookup tables
+
+    Key Features:
+    - C1 and C2 continuity (smooth first and second derivatives)
+    - Passes exactly through all input points
+    - Efficient evaluation using piecewise cubic polynomials
+    - Natural boundary conditions
+    - Operator[] syntax for convenient evaluation
+
+    Important: Points must be added in increasing x order.
+
+    Usage:
+    @code
+    juce::Array<Point<double>> points;
+    points.add({0.0, 0.0});
+    points.add({1.0, 2.5});
+    points.add({2.0, 1.8});
+    points.add({3.0, 4.0});
+    points.add({4.0, 3.2});
+
+    Spline spline(points);
+
+    // Interpolate at any x position
+    double y1 = spline[1.5];      // Using operator[]
+    double y2 = spline.interpolate(2.7);  // Using interpolate()
+
+    // Evaluate many points for smooth curve
+    for (double x = 0.0; x <= 4.0; x += 0.1)
+    {
+        double y = spline[x];
+        // ... use interpolated value
+    }
+    @endcode
+
+    Based on implementation by Devin Lane:
+    https://shiftedbits.org/2011/01/30/cubic-spline-interpolation/
+
+    @see Integrator, LeastSquaresRegression
+*/
 class Spline
 {
 public:
