@@ -95,8 +95,8 @@ public:
 
     double evaluate();
 
-    bool hasError();
-    juce::String getError();
+    bool hasError() const;
+    juce::String getError() const;
 
 private:
     class Callback

@@ -304,12 +304,12 @@ double EquationParser::evaluate()
     return 0;
 }
 
-bool EquationParser::hasError()
+bool EquationParser::hasError() const
 {
     return errorMessage.isNotEmpty();
 }
 
-juce::String EquationParser::getError()
+juce::String EquationParser::getError() const
 {
     return errorMessage;
 }
