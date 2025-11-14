@@ -7807,8 +7807,8 @@
       <type></type>
       <name>Layout</name>
       <anchorfile>classLayout.html</anchorfile>
-      <anchor>adf1be658274eef9d8ef0e4307b9f5dee</anchor>
-      <arglist>(juce::Component &amp;)</arglist>
+      <anchor>a8f18cc1ec63365c09c3a54412a0a98de</anchor>
+      <arglist>(juce::Component &amp;parent)</arglist>
     </member>
     <member kind="function">
       <type></type>

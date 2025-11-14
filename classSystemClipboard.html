@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Handles reading/writing to the system's clipboard.  
+<p>Utilities for reading and writing images to the system clipboard.  
  <a href="classSystemClipboard.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_systemclipboard.h&gt;</code></p>
@@ -84,14 +84,17 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a1c79311fa64d08af2a94b33bef9e8767" id="r_a1c79311fa64d08af2a94b33bef9e8767"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystemClipboard.html#a1c79311fa64d08af2a94b33bef9e8767">copyImageToClipboard</a> (const juce::Image &amp;image)</td></tr>
-<tr class="memdesc:a1c79311fa64d08af2a94b33bef9e8767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies a image onto the clipboard.  <br /></td></tr>
+<tr class="memdesc:a1c79311fa64d08af2a94b33bef9e8767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an image to the system clipboard.  <br /></td></tr>
 <tr class="separator:a1c79311fa64d08af2a94b33bef9e8767"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd2868319b11cf3991923f73d66f7ec0" id="r_afd2868319b11cf3991923f73d66f7ec0"><td class="memItemLeft" align="right" valign="top">static juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystemClipboard.html#afd2868319b11cf3991923f73d66f7ec0">getImageFromClipboard</a> ()</td></tr>
-<tr class="memdesc:afd2868319b11cf3991923f73d66f7ec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pastes an image from the clipboard.  <br /></td></tr>
+<tr class="memdesc:afd2868319b11cf3991923f73d66f7ec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves an image from the system clipboard.  <br /></td></tr>
 <tr class="separator:afd2868319b11cf3991923f73d66f7ec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Handles reading/writing to the system's clipboard. </p>
+<div class="textblock"><p>Utilities for reading and writing images to the system clipboard. </p>
+<p>This class provides platform-specific clipboard operations for images, going beyond JUCE's text-only clipboard support. It handles the native image formats for each platform (NSImage on <a class="el" href="namespacemacOS.html" title="macOS-specific image conversion utilities.">macOS</a>, HBITMAP on Windows, etc.).</p>
+<p>Unlike juce::SystemClipboard which only handles text, this allows you to copy and paste images directly to/from the system clipboard for integration with other applications.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classSystemClipboard.html#a1c79311fa64d08af2a94b33bef9e8767" title="Copies an image to the system clipboard.">copyImageToClipboard</a>, <a class="el" href="classSystemClipboard.html#afd2868319b11cf3991923f73d66f7ec0" title="Retrieves an image from the system clipboard.">getImageFromClipboard</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1c79311fa64d08af2a94b33bef9e8767" name="a1c79311fa64d08af2a94b33bef9e8767"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1c79311fa64d08af2a94b33bef9e8767">&#9670;&#160;</a></span>copyImageToClipboard()</h2>
@@ -117,7 +120,14 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copies a image onto the clipboard. </p>
+<p>Copies an image to the system clipboard. </p>
+<p>The image will be converted to the platform's native format and placed on the clipboard, making it available to other applications.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>The JUCE image to copy to the clipboard </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -144,7 +154,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Pastes an image from the clipboard. </p>
+<p>Retrieves an image from the system clipboard. </p>
+<p>If the clipboard contains an image in a supported format, it will be converted to a JUCE Image and returned.</p>
+<dl class="section return"><dt>Returns</dt><dd>The image from the clipboard, or an invalid Image if the clipboard doesn't contain an image </dd></dl>
 
 </div>
 </div>
@@ -154,7 +166,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 01:27:37 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 01:30:16 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

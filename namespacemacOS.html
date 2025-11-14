@@ -74,15 +74,23 @@ $(function() {
   <div class="headertitle"><div class="title">macOS Namespace Reference<div class="ingroups"><a class="el" href="group__gin__gui.html">gin_gui</a> &raquo; <a class="el" href="group__gin__gui-utilities.html">utilities</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>macOS-specific image conversion utilities.  
+<a href="namespacemacOS.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa16780bbaa0ee9db90a45b1ac772cd41" id="r_aa16780bbaa0ee9db90a45b1ac772cd41"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemacOS.html#aa16780bbaa0ee9db90a45b1ac772cd41">nsImageToImage</a> (NSImage *nsImage)</td></tr>
+<tr class="memdesc:aa16780bbaa0ee9db90a45b1ac772cd41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="el" href="namespacemacOS.html" title="macOS-specific image conversion utilities.">macOS</a> NSImage to a JUCE Image.  <br /></td></tr>
 <tr class="separator:aa16780bbaa0ee9db90a45b1ac772cd41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab8a769f8109ca623c481f67ff80b048" id="r_aab8a769f8109ca623c481f67ff80b048"><td class="memItemLeft" align="right" valign="top">NSImage *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemacOS.html#aab8a769f8109ca623c481f67ff80b048">imageToNSImage</a> (const juce::Image &amp;image)</td></tr>
+<tr class="memdesc:aab8a769f8109ca623c481f67ff80b048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a JUCE Image to a <a class="el" href="namespacemacOS.html" title="macOS-specific image conversion utilities.">macOS</a> NSImage.  <br /></td></tr>
 <tr class="separator:aab8a769f8109ca623c481f67ff80b048"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>macOS-specific image conversion utilities. </p>
+<p>This namespace provides functions for converting between JUCE images and native <a class="el" href="namespacemacOS.html" title="macOS-specific image conversion utilities.">macOS</a> NSImage objects, allowing interoperability with macOS-specific APIs. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="aa16780bbaa0ee9db90a45b1ac772cd41" name="aa16780bbaa0ee9db90a45b1ac772cd41"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa16780bbaa0ee9db90a45b1ac772cd41">&#9670;&#160;</a></span>nsImageToImage()</h2>
 
@@ -98,6 +106,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Converts a <a class="el" href="namespacemacOS.html" title="macOS-specific image conversion utilities.">macOS</a> NSImage to a JUCE Image. </p>
+<p>Useful when receiving images from <a class="el" href="namespacemacOS.html" title="macOS-specific image conversion utilities.">macOS</a> APIs (such as pasteboard, drag and drop, or system icons) and needing to use them in JUCE.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nsImage</td><td>The NSImage to convert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A JUCE Image containing the same pixel data </dd></dl>
 
 </div>
 </div>
@@ -117,12 +135,22 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Converts a JUCE Image to a <a class="el" href="namespacemacOS.html" title="macOS-specific image conversion utilities.">macOS</a> NSImage. </p>
+<p>Useful when passing images to <a class="el" href="namespacemacOS.html" title="macOS-specific image conversion utilities.">macOS</a> APIs that require NSImage objects.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>The JUCE image to convert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An NSImage containing the same pixel data </dd></dl>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 01:27:37 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 01:30:16 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

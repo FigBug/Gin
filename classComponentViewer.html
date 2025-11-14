@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Shows the component under the mouse and component hierarchy.  
+<p>A debugging tool that displays component hierarchy and properties.  
  <a href="classComponentViewer.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_componentviewer.h&gt;</code></p>
@@ -87,18 +87,34 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad2606c2be76e8a56bb98d57ce57c0b6f" id="r_ad2606c2be76e8a56bb98d57ce57c0b6f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentViewer.html#ad2606c2be76e8a56bb98d57ce57c0b6f">ComponentViewer</a> (Component *toTrack=nullptr, juce::PropertiesFile *settings=nullptr, bool alwaysOnTop=true)</td></tr>
+<tr class="memdesc:ad2606c2be76e8a56bb98d57ce57c0b6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classComponentViewer.html" title="A debugging tool that displays component hierarchy and properties.">ComponentViewer</a> window.  <br /></td></tr>
 <tr class="separator:ad2606c2be76e8a56bb98d57ce57c0b6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50ad244fd889c8059930d947aa206d48" id="r_a50ad244fd889c8059930d947aa206d48"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentViewer.html#a50ad244fd889c8059930d947aa206d48">~ComponentViewer</a> () override</td></tr>
+<tr class="memdesc:a50ad244fd889c8059930d947aa206d48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
 <tr class="separator:a50ad244fd889c8059930d947aa206d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a920864da69c29c1834621727758557c4" id="r_a920864da69c29c1834621727758557c4"><td class="memItemLeft" align="right" valign="top">std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentViewer.html#a920864da69c29c1834621727758557c4">onClose</a></td></tr>
+<tr class="memdesc:a920864da69c29c1834621727758557c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback invoked when the user requests to close the window.  <br /></td></tr>
 <tr class="separator:a920864da69c29c1834621727758557c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Shows the component under the mouse and component hierarchy. </p>
-<p>Useful for debugging </p>
+<div class="textblock"><p>A debugging tool that displays component hierarchy and properties. </p>
+<p><a class="el" href="classComponentViewer.html" title="A debugging tool that displays component hierarchy and properties.">ComponentViewer</a> is a window that shows information about the component under the mouse cursor, including its position, size, class name, and component hierarchy. This is extremely useful for debugging UI layouts and understanding component structures during development.</p>
+<p>Features:</p><ul>
+<li>Shows component under mouse in real-time</li>
+<li>Displays component hierarchy tree</li>
+<li>Shows component properties (bounds, class name, etc.)</li>
+<li>Optional window position persistence</li>
+<li>Auto-cleanup when tracked component is deleted</li>
+<li>Can be set to always-on-top</li>
+</ul>
+<p>Example usage: </p><div class="fragment"><div class="line"><span class="keyword">auto</span>* viewer = <span class="keyword">new</span> <a class="code hl_class" href="classComponentViewer.html">ComponentViewer</a> (mainComponent, <span class="keyword">nullptr</span>, <span class="keyword">true</span>);</div>
+<div class="line">viewer-&gt;setVisible (<span class="keyword">true</span>);</div>
+<div class="line"><span class="comment">// ComponentViewer will delete itself when closed or when mainComponent is deleted</span></div>
+<div class="ttc" id="aclassComponentViewer_html"><div class="ttname"><a href="classComponentViewer.html">ComponentViewer</a></div><div class="ttdoc">A debugging tool that displays component hierarchy and properties.</div><div class="ttdef"><b>Definition</b> gin_componentviewer.h:42</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classComponentViewer.html#a920864da69c29c1834621727758557c4" title="Callback invoked when the user requests to close the window.">onClose</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad2606c2be76e8a56bb98d57ce57c0b6f" name="ad2606c2be76e8a56bb98d57ce57c0b6f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad2606c2be76e8a56bb98d57ce57c0b6f">&#9670;&#160;</a></span>ComponentViewer()</h2>
@@ -132,6 +148,16 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates a <a class="el" href="classComponentViewer.html" title="A debugging tool that displays component hierarchy and properties.">ComponentViewer</a> window. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">toTrack</td><td>Optional component to track - when this component is deleted, the <a class="el" href="classComponentViewer.html" title="A debugging tool that displays component hierarchy and properties.">ComponentViewer</a> will automatically be deleted as well. Pass nullptr to disable this feature. </td></tr>
+    <tr><td class="paramname">settings</td><td>Optional PropertiesFile for storing window position. Pass nullptr to use a default settings file. </td></tr>
+    <tr><td class="paramname">alwaysOnTop</td><td>If true, the window will stay on top of other windows </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a50ad244fd889c8059930d947aa206d48" name="a50ad244fd889c8059930d947aa206d48"></a>
@@ -157,6 +183,8 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Destructor. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -172,6 +200,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Callback invoked when the user requests to close the window. </p>
+<p>By default, the <a class="el" href="classComponentViewer.html" title="A debugging tool that displays component hierarchy and properties.">ComponentViewer</a> deletes itself when closed. You can override this behavior by setting this callback to perform custom cleanup. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -180,7 +211,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 01:27:36 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 01:30:16 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

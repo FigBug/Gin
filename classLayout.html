@@ -76,29 +76,51 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classLayout.html" title="Layout components with json, supports hot reloading.">Layout</a> components with json, supports hot reloading.  
+<p>JSON-based component layout engine with hot-reloading support.  
  <a href="classLayout.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_layout.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:adf1be658274eef9d8ef0e4307b9f5dee" id="r_adf1be658274eef9d8ef0e4307b9f5dee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayout.html#adf1be658274eef9d8ef0e4307b9f5dee">Layout</a> (juce::Component &amp;)</td></tr>
-<tr class="separator:adf1be658274eef9d8ef0e4307b9f5dee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f18cc1ec63365c09c3a54412a0a98de" id="r_a8f18cc1ec63365c09c3a54412a0a98de"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayout.html#a8f18cc1ec63365c09c3a54412a0a98de">Layout</a> (juce::Component &amp;parent)</td></tr>
+<tr class="memdesc:a8f18cc1ec63365c09c3a54412a0a98de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classLayout.html" title="JSON-based component layout engine with hot-reloading support.">Layout</a> manager for the specified parent component.  <br /></td></tr>
+<tr class="separator:a8f18cc1ec63365c09c3a54412a0a98de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f53a76fe9a45d0f6325b42eadf51fa9" id="r_a9f53a76fe9a45d0f6325b42eadf51fa9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayout.html#a9f53a76fe9a45d0f6325b42eadf51fa9">~Layout</a> ()</td></tr>
+<tr class="memdesc:a9f53a76fe9a45d0f6325b42eadf51fa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
 <tr class="separator:a9f53a76fe9a45d0f6325b42eadf51fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06258e0c1d8e8ddc9684787951b4201a" id="r_a06258e0c1d8e8ddc9684787951b4201a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayout.html#a06258e0c1d8e8ddc9684787951b4201a">setLayout</a> (const juce::String &amp;filename, const juce::File &amp;source={})</td></tr>
+<tr class="memdesc:a06258e0c1d8e8ddc9684787951b4201a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads and applies a layout from a JSON file.  <br /></td></tr>
 <tr class="separator:a06258e0c1d8e8ddc9684787951b4201a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66dd59fbfee00f951cccceda0c7d4cf9" id="r_a66dd59fbfee00f951cccceda0c7d4cf9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayout.html#a66dd59fbfee00f951cccceda0c7d4cf9">parseLayout</a> (const juce::String &amp;content)</td></tr>
+<tr class="memdesc:a66dd59fbfee00f951cccceda0c7d4cf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses and applies a layout from JSON content.  <br /></td></tr>
 <tr class="separator:a66dd59fbfee00f951cccceda0c7d4cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a152b945b2c1b21fa7b3a091916c44f" id="r_a2a152b945b2c1b21fa7b3a091916c44f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayout.html#a2a152b945b2c1b21fa7b3a091916c44f">setConstant</a> (const juce::String &amp;name, double val)</td></tr>
+<tr class="memdesc:a2a152b945b2c1b21fa7b3a091916c44f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a constant value that can be used in layout expressions.  <br /></td></tr>
 <tr class="separator:a2a152b945b2c1b21fa7b3a091916c44f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classLayout.html" title="Layout components with json, supports hot reloading.">Layout</a> components with json, supports hot reloading. </p>
+<div class="textblock"><p>JSON-based component layout engine with hot-reloading support. </p>
+<p>This class allows you to define component layouts using JSON instead of hard-coding positions and sizes. On desktop platforms (not iOS/Android), it automatically watches the layout file for changes and reloads the layout when the file is modified, enabling rapid iteration during development.</p>
+<p>Features:</p><ul>
+<li>Define component bounds using JSON with mathematical expressions</li>
+<li>Support for constants that can be referenced in expressions</li>
+<li>Automatic hot-reloading on desktop platforms</li>
+<li>Component lookup by ID</li>
+</ul>
+<p>Example JSON layout: </p><div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="stringliteral">&quot;constants&quot;</span>: {</div>
+<div class="line">        <span class="stringliteral">&quot;margin&quot;</span>: 10,</div>
+<div class="line">        <span class="stringliteral">&quot;buttonHeight&quot;</span>: 30</div>
+<div class="line">    },</div>
+<div class="line">    <span class="stringliteral">&quot;components&quot;</span>: [</div>
+<div class="line">        {<span class="stringliteral">&quot;id&quot;</span>: <span class="stringliteral">&quot;myButton&quot;</span>, <span class="stringliteral">&quot;x&quot;</span>: <span class="stringliteral">&quot;margin&quot;</span>, <span class="stringliteral">&quot;y&quot;</span>: <span class="stringliteral">&quot;margin&quot;</span>, <span class="stringliteral">&quot;w&quot;</span>: 100, <span class="stringliteral">&quot;h&quot;</span>: <span class="stringliteral">&quot;buttonHeight&quot;</span>}</div>
+<div class="line">    ]</div>
+<div class="line">}</div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classLayout.html#a06258e0c1d8e8ddc9684787951b4201a" title="Loads and applies a layout from a JSON file.">setLayout</a>, <a class="el" href="classLayout.html#a66dd59fbfee00f951cccceda0c7d4cf9" title="Parses and applies a layout from JSON content.">parseLayout</a>, <a class="el" href="classLayout.html#a2a152b945b2c1b21fa7b3a091916c44f" title="Sets a constant value that can be used in layout expressions.">setConstant</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="adf1be658274eef9d8ef0e4307b9f5dee" name="adf1be658274eef9d8ef0e4307b9f5dee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf1be658274eef9d8ef0e4307b9f5dee">&#9670;&#160;</a></span>Layout()</h2>
+<a id="a8f18cc1ec63365c09c3a54412a0a98de" name="a8f18cc1ec63365c09c3a54412a0a98de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f18cc1ec63365c09c3a54412a0a98de">&#9670;&#160;</a></span>Layout()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -107,11 +129,19 @@ Public Member Functions</h2></td></tr>
           <td class="memname">Layout::Layout </td>
           <td>(</td>
           <td class="paramtype">juce::Component &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>parent</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a <a class="el" href="classLayout.html" title="JSON-based component layout engine with hot-reloading support.">Layout</a> manager for the specified parent component. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>The component whose children will be laid out </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -129,6 +159,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Destructor. </p>
 
 </div>
 </div>
@@ -159,6 +191,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Loads and applies a layout from a JSON file. </p>
+<p>On desktop platforms, this also starts watching the file for changes and automatically reloads when it's modified.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Name of the layout file (can be relative or absolute path) </td></tr>
+    <tr><td class="paramname">source</td><td>Optional source directory for the file </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a66dd59fbfee00f951cccceda0c7d4cf9" name="a66dd59fbfee00f951cccceda0c7d4cf9"></a>
@@ -176,6 +218,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Parses and applies a layout from JSON content. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">content</td><td>JSON string containing the layout definition </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the layout was parsed successfully </dd></dl>
 
 </div>
 </div>
@@ -205,6 +256,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets a constant value that can be used in layout expressions. </p>
+<p>Constants can be referenced by name in the JSON layout's mathematical expressions. For example, if you set a constant "margin" = 10, you can use "margin" in your layout JSON.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the constant </td></tr>
+    <tr><td class="paramname">val</td><td>The value of the constant </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -213,7 +274,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 01:27:37 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 01:30:16 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
