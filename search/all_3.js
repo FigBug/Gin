@@ -13,7 +13,7 @@ var searchData=
   ['decayrate_10',['decayRate',['../classLevelTracker.html#a796f0f65de9c1017f59fa6dc0247ca83',1,'LevelTracker']]],
   ['decodeimage_11',['decodeimage',['../classWEBPImageFormat.html#a9ec17db624e1ed9512371a55b1ac52d9',1,'WEBPImageFormat::decodeImage()'],['../classBMPImageFormat.html#a2594f1a9444754276035be54722c59f2',1,'BMPImageFormat::decodeImage()']]],
   ['defaultcolour_12',['defaultColour',['../classGinLookAndFeel.html#a13e4ce006239d68f35c217261a9ed907',1,'GinLookAndFeel']]],
-  ['defaultvalue_13',['defaultValue',['../classParameter.html#afff117f671e74a238989542b73cbd024',1,'Parameter']]],
+  ['defaultvalue_13',['defaultValue',['../classParameter.html#ac93066e3c3535f0075d344e501923f7c',1,'Parameter']]],
   ['definenamechars_14',['defineNameChars',['../classEquationParser.html#ad6a312d13baee260b55e3f5263e61648',1,'EquationParser']]],
   ['del_15',['del',['../namespaceAssets.html#a168eb76a824f5085dc55dfc31f880361',1,'Assets']]],
   ['delay_16',['delay',['../structLFO_1_1Parameters.html#a9be35ed3aca74afab18de36202cdfd97',1,'LFO::Parameters::delay'],['../structMSEG_1_1Parameters.html#afb69d6146579e4d3ded51d069d59864f',1,'MSEG::Parameters::delay']]],

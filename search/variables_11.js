@@ -5,7 +5,7 @@ var searchData=
   ['selectedtags_2',['selectedTags',['../classPatchBrowser.html#a5131ad5197cd707f759b87775770551f',1,'PatchBrowser']]],
   ['settings_3',['settings',['../classProcessor.html#a90d893be2965a456b240e62585bf8bbb',1,'Processor::settings'],['../classStandalonePluginHolder.html#a0fa5cc892100ec91c4a1b65404b4355d',1,'StandalonePluginHolder::settings']]],
   ['shifttimer_4',['shiftTimer',['../classKnob.html#a958965a33e815129b67753ade5e1c350',1,'Knob']]],
-  ['shortname_5',['shortName',['../classParameter.html#a13e74b870f06935303747b3921f80dfa',1,'Parameter']]],
+  ['shortname_5',['shortName',['../classParameter.html#a529d110ee3b33716b9ab8e6cd7ff2676',1,'Parameter']]],
   ['shouldmuteinput_6',['shouldMuteInput',['../classStandalonePluginHolder.html#a0f0f2e7e20b4c356a06b9a3fb7ae3e51',1,'StandalonePluginHolder']]],
   ['showname_7',['showName',['../classSelect.html#aef337a5f41361db7b4dac795bb32d1db',1,'Select']]],
   ['slproc_8',['slproc',['../classTitleBar.html#afd45058b0880e55b0da0aebf57b1f286',1,'TitleBar::slProc'],['../classProcessorEditor.html#a8f4bf0f17d18d56fe21c845a41e1cb7e',1,'ProcessorEditor::slProc']]],

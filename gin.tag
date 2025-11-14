@@ -11524,10 +11524,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>juce::NormalisableRange&lt; float &gt;</type>
+      <type>const juce::NormalisableRange&lt; float &gt;</type>
       <name>range</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a4d0ec755973b5650a80d2b7e39bc2197</anchor>
+      <anchor>a6afd3eca5d3726a6ecb7ab2343392e95</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -11559,45 +11559,45 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>float</type>
+      <type>const float</type>
       <name>defaultValue</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>afff117f671e74a238989542b73cbd024</anchor>
+      <anchor>ac93066e3c3535f0075d344e501923f7c</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>juce::String</type>
+      <type>const juce::String</type>
       <name>uid</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a6de74e7339f55349e6cb89dfd9a3abf1</anchor>
+      <anchor>a1571028fd5d3168846eda018188cc0d6</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>juce::String</type>
+      <type>const juce::String</type>
       <name>name</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a4316d020a490d5e1d764d60453cb078c</anchor>
+      <anchor>af3f67d57880c012b966413174dff2e75</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>juce::String</type>
+      <type>const juce::String</type>
       <name>shortName</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a13e74b870f06935303747b3921f80dfa</anchor>
+      <anchor>a529d110ee3b33716b9ab8e6cd7ff2676</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>juce::String</type>
+      <type>const juce::String</type>
       <name>label</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a18023bfac5c58f4372050d2a8177006e</anchor>
+      <anchor>a922af3f31de45cf8fc8e91f4d65b3c4d</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>std::function&lt; juce::String(const Parameter &amp;, float)&gt;</type>
+      <type>const std::function&lt; juce::String(const Parameter &amp;, float)&gt;</type>
       <name>textFunction</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a53a9fdfe21f1bfa1a41c985335ad76aa</anchor>
+      <anchor>a0da310b57818200fb6432e4a4edde235</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">

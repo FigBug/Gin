@@ -9,7 +9,7 @@ var searchData=
   ['text_5fframe_6',['TEXT_FRAME',['../structWSHeaderType.html#ac1906191ac337fdbecbe643184fbd3b3a44b257e3d1f0e6e8ee821d8ce460cea2',1,'WSHeaderType']]],
   ['textchanged_7',['textChanged',['../classSingleLineTextEditor.html#a7432325931d3ad2a10f0b98fb83f8ec7',1,'SingleLineTextEditor']]],
   ['textcolourid_8',['textColourId',['../classSingleLineTextEditor.html#a580e95f56d303528b02f91143c72f13ca3139e08c59ac1e595c5029d4c90b3a95',1,'SingleLineTextEditor']]],
-  ['textfunction_9',['textFunction',['../classParameter.html#a53a9fdfe21f1bfa1a41c985335ad76aa',1,'Parameter']]],
+  ['textfunction_9',['textFunction',['../classParameter.html#a0da310b57818200fb6432e4a4edde235',1,'Parameter']]],
   ['texthistory_10',['TextHistory',['../classTextHistory.html',1,'']]],
   ['textrenderer_11',['TextRenderer',['../classTextRenderer.html',1,'']]],
   ['tilefetched_12',['tilefetched',['../classMapViewer.html#af0bcb61ce440c285e3cb8ff4f73494d2',1,'MapViewer::tileFetched()'],['../classOpenStreetMaps_1_1Listener.html#a5a86659b291d99adbe0af1a30fdfe383',1,'OpenStreetMaps::Listener::tileFetched()']]],

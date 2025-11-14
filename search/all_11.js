@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['range_0',['range',['../classParameter.html#a4d0ec755973b5650a80d2b7e39bc2197',1,'Parameter']]],
+  ['range_0',['range',['../classParameter.html#a6afd3eca5d3726a6ecb7ab2343392e95',1,'Parameter']]],
   ['rasterizesvg_1',['rasterizeSVG',['../group__gin__gui-images.html#gaad1e06e3c606f89456dac559e0d417a7',1,'gin_imageutilities.h']]],
   ['rate_2',['rate',['../structGlideInfo.html#add32d1f350249b4c824f299cb58efa8e',1,'GlideInfo']]],
   ['rawsvg_3',['rawSVG',['../classSVGButton.html#a28a28987c8f1ff36f0581881230926ef',1,'SVGButton']]],
