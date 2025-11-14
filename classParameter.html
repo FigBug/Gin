@@ -81,7 +81,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A parameter with user values, real time safe callbacks, modulation, and all sorts of other fancy stuff.  
+<p>Advanced parameter class with modulation, real-time callbacks, and host automation.  
  <a href="classParameter.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_parameter.h&gt;</code></p>
@@ -251,11 +251,48 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a6ab022db2c42737bf0d3b1552f9b97a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A parameter with user values, real time safe callbacks, modulation, and all sorts of other fancy stuff. </p>
-<p>A paramter return it's value in 3 formats: value: always 0..1 user value: range as displayed to user proc value: range used for processing</p>
-<p>For example, a gain parameter may have a user range of -100 to +10 dB. The coresponding proc range would be 0 to 3.1623. By default user value and proc value are the same. To provide an alternate proc value, set conversionFunction</p>
-<p>Parameters can be either internal or external. External parameters are exposed to the host and can be modulated. Internal parameters are for things that should not be modulated.</p>
-<p>Parameters can optionally be added to a modmatrix </p>
+<div class="textblock"><p>Advanced parameter class with modulation, real-time callbacks, and host automation. </p>
+<p><a class="el" href="classParameter.html" title="Advanced parameter class with modulation, real-time callbacks, and host automation.">Parameter</a> provides a comprehensive plugin parameter implementation with features needed for professional audio plugins. It extends JUCE's parameter system with modulation support, user/processing value separation, and real-time safe callbacks.</p>
+<p>Value Formats: <a class="el" href="classParameter.html" title="Advanced parameter class with modulation, real-time callbacks, and host automation.">Parameter</a> values are represented in three formats:</p><ul>
+<li><b>value</b>: Normalized 0..1 range (for host automation)</li>
+<li><b>user value</b>: Range as displayed to user (e.g., -100 to +10 dB)</li>
+<li><b>proc value</b>: Range used for DSP processing (e.g., 0 to 3.1623 for gain)</li>
+</ul>
+<p>By default, user value and proc value are identical. To provide custom processing values, set the conversionFunction (e.g., converting dB to linear gain).</p>
+<p><a class="el" href="classParameter.html" title="Advanced parameter class with modulation, real-time callbacks, and host automation.">Parameter</a> Types:</p><ul>
+<li><b>External</b>: Exposed to host, can be automated and modulated</li>
+<li><b>Internal</b>: Hidden from host, cannot be modulated (e.g., UI-only settings)</li>
+</ul>
+<p>Key Features:</p><ul>
+<li>Host automation support</li>
+<li><a class="el" href="classModulation.html" title="Modulated delay effect for chorus, flanger, and phaser effects.">Modulation</a> matrix integration</li>
+<li>Real-time safe value callbacks</li>
+<li>User action tracking (begin/end gestures)</li>
+<li>Custom text formatting</li>
+<li>Skewed parameter ranges</li>
+<li>Optional parameter smoothing</li>
+<li>Listener callbacks for UI updates</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="comment">// Create a gain parameter with dB display but linear processing</span></div>
+<div class="line"><span class="keyword">auto</span>* gain = <span class="keyword">new</span> <a class="code hl_class" href="classParameter.html">Parameter</a>(<a class="code hl_variable" href="classParameter.html#aff54b112e093cf966a1bec5bf5a934dd">processor</a>,</div>
+<div class="line">    <span class="stringliteral">&quot;gain&quot;</span>, <span class="stringliteral">&quot;Gain&quot;</span>, <span class="stringliteral">&quot;Gain&quot;</span>, <span class="stringliteral">&quot;dB&quot;</span>,</div>
+<div class="line">    -100.0f, 10.0f,   <span class="comment">// User range: -100 to +10 dB</span></div>
+<div class="line">    0.1f,             <span class="comment">// Step size</span></div>
+<div class="line">    0.0f,             <span class="comment">// Default value</span></div>
+<div class="line">    1.0f);            <span class="comment">// No skew</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Convert dB to linear for processing</span></div>
+<div class="line">gain-&gt;conversionFunction = [](<span class="keywordtype">float</span> db) {</div>
+<div class="line">    <span class="keywordflow">return</span> juce::Decibels::decibelsToGain(db);</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// In DSP code</span></div>
+<div class="line"><span class="keywordtype">float</span> linearGain = gain-&gt;getProcValue();</div>
+<div class="line"><span class="comment">// In UI</span></div>
+<div class="line">String displayText = gain-&gt;getUserValueText(); <span class="comment">// &quot;0.0 dB&quot;</span></div>
+<div class="ttc" id="aclassParameter_html"><div class="ttname"><a href="classParameter.html">Parameter</a></div><div class="ttdoc">Advanced parameter class with modulation, real-time callbacks, and host automation.</div><div class="ttdef"><b>Definition</b> gin_parameter.h:67</div></div>
+<div class="ttc" id="aclassParameter_html_aff54b112e093cf966a1bec5bf5a934dd"><div class="ttname"><a href="classParameter.html#aff54b112e093cf966a1bec5bf5a934dd">Parameter::processor</a></div><div class="ttdeci">Processor &amp; processor</div><div class="ttdef"><b>Definition</b> gin_parameter.h:181</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classProcessor.html" title="Advanced audio processor base class with parameter management and preset system.">Processor</a>, <a class="el" href="classModMatrix.html" title="Modulation matrix system for routing multiple modulation sources to parameters.">ModMatrix</a>, <a class="el" href="classSmoothedParameter.html" title="A silky smooth parameter.">SmoothedParameter</a> </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a8fcb9478cf19509ef836db884323e5a5" name="a8fcb9478cf19509ef836db884323e5a5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8fcb9478cf19509ef836db884323e5a5">&#9670;&#160;</a></span>Ptr</h2>
@@ -1944,7 +1981,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 19:06:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 19:17:25 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

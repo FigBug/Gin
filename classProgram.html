@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Saves your plugin state to XML.  
+<p>Plugin preset/program with file-based storage and parameter management.  
  <a href="classProgram.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_program.h&gt;</code></p>
@@ -119,7 +119,39 @@ Public Attributes</h2></td></tr>
 <tr class="separator:abb4790e98826e67f934f28258083a13e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Saves your plugin state to XML. </p>
+<div class="textblock"><p>Plugin preset/program with file-based storage and parameter management. </p>
+<p><a class="el" href="classProgram.html" title="Plugin preset/program with file-based storage and parameter management.">Program</a> represents a single preset that stores all parameter values and optionally custom plugin state. Programs can be saved to/loaded from XML files and include metadata like name, author, and tags.</p>
+<p>Key Features:</p><ul>
+<li><a class="el" href="classParameter.html" title="Advanced parameter class with modulation, real-time callbacks, and host automation.">Parameter</a> state storage and recall</li>
+<li>Custom plugin state via ValueTree</li>
+<li>File-based preset management</li>
+<li>Metadata: name, author, tags</li>
+<li>Lazy loading (load metadata first, full state on demand)</li>
+<li>XML-based storage format</li>
+</ul>
+<p>Programs are typically managed by the <a class="el" href="classProcessor.html" title="Advanced audio processor base class with parameter management and preset system.">Processor</a> class, which handles automatic loading from preset directories and file watching for changes.</p>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="comment">// Creating and saving a program</span></div>
+<div class="line"><a class="code hl_class" href="classProgram.html">Program</a> program;</div>
+<div class="line">program.<a class="code hl_variable" href="classProgram.html#ab960dff0d490441b19a47c7788ef5308">name</a> = <span class="stringliteral">&quot;My Preset&quot;</span>;</div>
+<div class="line">program.<a class="code hl_variable" href="classProgram.html#a98dafb9ef18422b1a03261697b874194">author</a> = <span class="stringliteral">&quot;Username&quot;</span>;</div>
+<div class="line">program.<a class="code hl_variable" href="classProgram.html#acddd8235091f27410c05cf4b7694b62a">tags</a>.add(<span class="stringliteral">&quot;Bass&quot;</span>);</div>
+<div class="line">program.<a class="code hl_variable" href="classProgram.html#acddd8235091f27410c05cf4b7694b62a">tags</a>.add(<span class="stringliteral">&quot;Dark&quot;</span>);</div>
+<div class="line">program.<a class="code hl_function" href="classProgram.html#a5dd7f27bc87cafd61c23a51c8c58cb19">saveProcessor</a>(myProcessor);</div>
+<div class="line">program.<a class="code hl_function" href="classProgram.html#abffced88d0b2832fab9a070e0edc870b">saveToDir</a>(presetDirectory);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Loading a program</span></div>
+<div class="line"><a class="code hl_class" href="classProgram.html">Program</a> loadedProgram;</div>
+<div class="line">loadedProgram.<a class="code hl_function" href="classProgram.html#a57fe788b51aeada66d4cfc8a927be78b">loadFromFile</a>(presetFile, <span class="keyword">true</span>); <span class="comment">// true = load fully</span></div>
+<div class="line">loadedProgram.<a class="code hl_function" href="classProgram.html#a8ece34e8c3ec235007a4dfe53178207c">loadProcessor</a>(myProcessor);</div>
+<div class="ttc" id="aclassProgram_html"><div class="ttname"><a href="classProgram.html">Program</a></div><div class="ttdoc">Plugin preset/program with file-based storage and parameter management.</div><div class="ttdef"><b>Definition</b> gin_program.h:50</div></div>
+<div class="ttc" id="aclassProgram_html_a57fe788b51aeada66d4cfc8a927be78b"><div class="ttname"><a href="classProgram.html#a57fe788b51aeada66d4cfc8a927be78b">Program::loadFromFile</a></div><div class="ttdeci">virtual void loadFromFile(juce::File f, bool loadFully)</div></div>
+<div class="ttc" id="aclassProgram_html_a5dd7f27bc87cafd61c23a51c8c58cb19"><div class="ttname"><a href="classProgram.html#a5dd7f27bc87cafd61c23a51c8c58cb19">Program::saveProcessor</a></div><div class="ttdeci">virtual void saveProcessor(Processor &amp;p)</div></div>
+<div class="ttc" id="aclassProgram_html_a8ece34e8c3ec235007a4dfe53178207c"><div class="ttname"><a href="classProgram.html#a8ece34e8c3ec235007a4dfe53178207c">Program::loadProcessor</a></div><div class="ttdeci">virtual void loadProcessor(Processor &amp;p)</div></div>
+<div class="ttc" id="aclassProgram_html_a98dafb9ef18422b1a03261697b874194"><div class="ttname"><a href="classProgram.html#a98dafb9ef18422b1a03261697b874194">Program::author</a></div><div class="ttdeci">juce::String author</div><div class="ttdef"><b>Definition</b> gin_program.h:65</div></div>
+<div class="ttc" id="aclassProgram_html_ab960dff0d490441b19a47c7788ef5308"><div class="ttname"><a href="classProgram.html#ab960dff0d490441b19a47c7788ef5308">Program::name</a></div><div class="ttdeci">juce::String name</div><div class="ttdef"><b>Definition</b> gin_program.h:64</div></div>
+<div class="ttc" id="aclassProgram_html_abffced88d0b2832fab9a070e0edc870b"><div class="ttname"><a href="classProgram.html#abffced88d0b2832fab9a070e0edc870b">Program::saveToDir</a></div><div class="ttdeci">virtual void saveToDir(juce::File programDir)</div></div>
+<div class="ttc" id="aclassProgram_html_acddd8235091f27410c05cf4b7694b62a"><div class="ttname"><a href="classProgram.html#acddd8235091f27410c05cf4b7694b62a">Program::tags</a></div><div class="ttdeci">juce::StringArray tags</div><div class="ttdef"><b>Definition</b> gin_program.h:66</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classProcessor.html" title="Advanced audio processor base class with parameter management and preset system.">Processor</a>, <a class="el" href="classParameter.html" title="Advanced parameter class with modulation, real-time callbacks, and host automation.">Parameter</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac702b6b062bd2b1aa35003f76a34f2a5" name="ac702b6b062bd2b1aa35003f76a34f2a5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac702b6b062bd2b1aa35003f76a34f2a5">&#9670;&#160;</a></span>Program()</h2>
@@ -443,7 +475,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 19:06:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 19:17:25 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

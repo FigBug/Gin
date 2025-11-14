@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="Draws an LFO curve and shows a little dot moving long.">
+<g id="a_Node000001"><a xlink:title="Visual display of LFO waveform with animated phase indicators.">
 <polygon fill="#999999" stroke="#666666" points="127,-19 35,-19 35,0 127,0 127,-19"/>
 <text text-anchor="middle" x="81" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">LFOComponent</text>
 </a>

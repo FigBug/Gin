@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A box for holding controls on a grid.  
+<p>Container for organizing plugin controls on a grid layout with page support.  
  <a href="classControlBox.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_controlbox.h&gt;</code></p>
@@ -137,7 +137,31 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:afed6013095e1e2ced271cda5ccecb7d2 inherit pro_attribs_classMultiParamComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A box for holding controls on a grid. </p>
+<div class="textblock"><p>Container for organizing plugin controls on a grid layout with page support. </p>
+<p><a class="el" href="classControlBox.html" title="Container for organizing plugin controls on a grid layout with page support.">ControlBox</a> provides a simple grid-based layout system for organizing multiple parameter controls (knobs, sliders, buttons) in a plugin UI. It supports multi-page layouts where controls can be shown/hidden based on the current page.</p>
+<p>Key Features:</p><ul>
+<li>Grid-based positioning tied to <a class="el" href="classProcessorEditor.html" title="Main plugin editor component for Gin-based audio plugins.">ProcessorEditor</a> grid dimensions</li>
+<li>Multi-page support for organizing controls</li>
+<li>Automatic visibility management per page</li>
+<li>Extends <a class="el" href="classMultiParamComponent.html" title="A base component for controlling multiple parameters at once.">MultiParamComponent</a> for parameter control</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classControlBox.html">ControlBox</a> box(myEditor);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Add controls to default page (0)</span></div>
+<div class="line"><span class="keyword">auto</span>* knob1 = <span class="keyword">new</span> <a class="code hl_class" href="classKnob.html">Knob</a>(param1);</div>
+<div class="line">knob1-&gt;setBounds(box.getGridArea(0, 0)); <span class="comment">// Grid position (0,0)</span></div>
+<div class="line">box.add(knob1);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Add control to page 1</span></div>
+<div class="line"><span class="keyword">auto</span>* knob2 = <span class="keyword">new</span> <a class="code hl_class" href="classKnob.html">Knob</a>(param2);</div>
+<div class="line">knob2-&gt;setBounds(box.getGridArea(1, 0)); <span class="comment">// Grid position (1,0)</span></div>
+<div class="line">box.add(1, knob2); <span class="comment">// Add to page 1</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Switch pages</span></div>
+<div class="line">box.setPage(1); <span class="comment">// Show page 1 controls, hide others</span></div>
+<div class="ttc" id="aclassControlBox_html"><div class="ttname"><a href="classControlBox.html">ControlBox</a></div><div class="ttdoc">Container for organizing plugin controls on a grid layout with page support.</div><div class="ttdef"><b>Definition</b> gin_controlbox.h:42</div></div>
+<div class="ttc" id="aclassKnob_html"><div class="ttname"><a href="classKnob.html">Knob</a></div><div class="ttdoc">Slider + editable text for showing a param.</div><div class="ttdef"><b>Definition</b> gin_knob.h:14</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classPagedControlBox.html" title="Advanced container with sliding page transitions for organizing controls.">PagedControlBox</a>, <a class="el" href="classMultiParamComponent.html" title="A base component for controlling multiple parameters at once.">MultiParamComponent</a>, <a class="el" href="classProcessorEditor.html" title="Main plugin editor component for Gin-based audio plugins.">ProcessorEditor</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad4f9fd1d3bd2be33f40ed7bdf1b166c7" name="ad4f9fd1d3bd2be33f40ed7bdf1b166c7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad4f9fd1d3bd2be33f40ed7bdf1b166c7">&#9670;&#160;</a></span>ControlBox()</h2>
@@ -274,7 +298,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 19:06:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 19:17:25 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

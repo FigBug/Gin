@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="A control for holding pags of controls on a grid Pages slide over top of each other to make room.">
+<g id="a_Node000001"><a xlink:title="Advanced container with sliding page transitions for organizing controls.">
 <polygon fill="#999999" stroke="#666666" points="131,-19 31,-19 31,0 131,0 131,-19"/>
 <text text-anchor="middle" x="81" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">PagedControlBox</text>
 </a>

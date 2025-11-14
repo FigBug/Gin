@@ -128,7 +128,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="classADSRComponent.html" target="_top" xlink:title="Component for adjuting ADSR curves.">
+<g id="a_Node000003"><a xlink:href="classADSRComponent.html" target="_top" xlink:title="Interactive visual editor for ADSR envelope parameters.">
 <polygon fill="white" stroke="#666666" points="474,-435 374,-435 374,-416 474,-416 474,-435"/>
 <text text-anchor="middle" x="424" y="-423" font-family="Helvetica,sans-Serif" font-size="10.00">ADSRComponent</text>
 </a>
@@ -146,7 +146,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="classControlBox.html" target="_top" xlink:title="A box for holding controls on a grid.">
+<g id="a_Node000004"><a xlink:href="classControlBox.html" target="_top" xlink:title="Container for organizing plugin controls on a grid layout with page support.">
 <polygon fill="white" stroke="#666666" points="459.5,-398 388.5,-398 388.5,-379 459.5,-379 459.5,-398"/>
 <text text-anchor="middle" x="424" y="-386" font-family="Helvetica,sans-Serif" font-size="10.00">ControlBox</text>
 </a>
@@ -182,7 +182,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="classLFOComponent.html" target="_top" xlink:title="Draws an LFO curve and shows a little dot moving long.">
+<g id="a_Node000006"><a xlink:href="classLFOComponent.html" target="_top" xlink:title="Visual display of LFO waveform with animated phase indicators.">
 <polygon fill="white" stroke="#666666" points="470,-324 378,-324 378,-305 470,-305 470,-324"/>
 <text text-anchor="middle" x="424" y="-312" font-family="Helvetica,sans-Serif" font-size="10.00">LFOComponent</text>
 </a>
@@ -218,7 +218,7 @@
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="classPagedControlBox.html" target="_top" xlink:title="A control for holding pags of controls on a grid Pages slide over top of each other to make room.">
+<g id="a_Node000008"><a xlink:href="classPagedControlBox.html" target="_top" xlink:title="Advanced container with sliding page transitions for organizing controls.">
 <polygon fill="white" stroke="#666666" points="474,-250 374,-250 374,-231 474,-231 474,-250"/>
 <text text-anchor="middle" x="424" y="-238" font-family="Helvetica,sans-Serif" font-size="10.00">PagedControlBox</text>
 </a>

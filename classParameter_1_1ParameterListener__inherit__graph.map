@@ -12,17 +12,17 @@
 <area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="167,464,270,497,317,511,316,516,269,502,165,469"/>
 <area shape="rect" id="Node000017" href="$classSVGPluginButton.html" title="Button for toggling a parameter." alt="" coords="289,560,421,585"/>
 <area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="144,469,201,508,270,546,301,557,299,562,268,551,198,512,141,473"/>
-<area shape="rect" id="Node000003" href="$classADSRComponent.html" title="Component for adjuting ADSR curves." alt="" coords="504,5,637,31"/>
+<area shape="rect" id="Node000003" href="$classADSRComponent.html" title="Interactive visual editor for ADSR envelope parameters." alt="" coords="504,5,637,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="364,213,382,174,408,128,443,80,486,40,507,28,510,33,490,44,447,84,413,131,386,177,369,215"/>
-<area shape="rect" id="Node000004" href="$classControlBox.html" title="A box for holding controls on a grid." alt="" coords="523,55,618,80"/>
+<area shape="rect" id="Node000004" href="$classControlBox.html" title="Container for organizing plugin controls on a grid layout with page support." alt="" coords="523,55,618,80"/>
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="369,214,416,151,449,118,487,89,522,74,524,79,489,94,453,122,420,155,373,217"/>
 <area shape="rect" id="Node000005" href="$classGateEffectComponent.html" title="An editor for the gate effect pattern." alt="" coords="488,104,653,129"/>
 <area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="378,216,426,176,487,138,515,127,517,132,489,143,429,181,381,220"/>
-<area shape="rect" id="Node000006" href="$classLFOComponent.html" title="Draws an LFO curve and shows a little dot moving long." alt="" coords="509,153,632,179"/>
+<area shape="rect" id="Node000006" href="$classLFOComponent.html" title="Visual display of LFO waveform with animated phase indicators." alt="" coords="509,153,632,179"/>
 <area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="400,219,487,187,523,176,525,181,489,193,402,224"/>
 <area shape="rect" id="Node000007" href="$classMSEGComponent.html" title="Draws an MSEG LFO curve and shows a little dot moving long." alt="" coords="503,203,638,228"/>
 <area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="454,226,502,220,503,225,454,231"/>
-<area shape="rect" id="Node000008" href="$classPagedControlBox.html" title="A control for holding pags of controls on a grid Pages slide over top of each other to make room." alt="" coords="504,252,637,277"/>
+<area shape="rect" id="Node000008" href="$classPagedControlBox.html" title="Advanced container with sliding page transitions for organizing controls." alt="" coords="504,252,637,277"/>
 <area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="454,248,504,254,503,259,453,254"/>
 <area shape="rect" id="Node000009" href="$classParamArea.html" title="A box for graphs without a header." alt="" coords="524,301,617,327"/>
 <area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="402,254,489,286,528,299,526,304,487,291,400,259"/>
