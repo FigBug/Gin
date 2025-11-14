@@ -1681,7 +1681,7 @@ struct WavetableDemo : public juce::Component
                 buffer.setSize (1, int (reader->lengthInSamples));
                 reader->read (&buffer, 0, int (reader->lengthInSamples), 0, true, false);
 
-                loadWavetables (bllt, reader->sampleRate, buffer, reader->sampleRate, size);
+                gin::loadWavetables (bllt, reader->sampleRate, buffer, reader->sampleRate, size);
 
                 osc = std::make_unique<gin::WTOscillator> ();
                 osc->setWavetable (&bllt);
@@ -1729,7 +1729,7 @@ struct WavetableDemo : public juce::Component
         }
     }
 
-    juce::OwnedArray<gin::BandLimitedLookupTable> bllt;
+    gin::Wavetable bllt;
     std::unique_ptr<gin::WTOscillator> osc;
 };
 
