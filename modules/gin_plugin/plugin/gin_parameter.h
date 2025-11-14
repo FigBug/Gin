@@ -101,9 +101,9 @@ public:
         return getUserValue();
     }
 
-    float getUserValue() const                          { return juce::jlimit (range.start, range.end, value); }
-    int getUserValueInt() const                         { return int (juce::jlimit (range.start, range.end, value)); }
-    bool getUserValueBool() const                       { return juce::jlimit (range.start, range.end, value) != 0.0f; }
+    float getUserValue() const                          { return juce::jlimit (range.start, range.end, value.load (std::memory_order_relaxed)); }
+    int getUserValueInt() const                         { return int (juce::jlimit (range.start, range.end, value.load (std::memory_order_relaxed))); }
+    bool getUserValueBool() const                       { return juce::jlimit (range.start, range.end, value.load (std::memory_order_relaxed)) != 0.0f; }
     float getUserDefaultValue() const                   { return defaultValue; }
     virtual void setUserValue (float v);
     virtual void setUserValueNotifingHost (float f);
@@ -152,7 +152,7 @@ public:
     //==============================================================================
     juce::String getParameterID() const override    { return uid; }
     
-    float getValue() const override                 { return juce::jlimit (0.0f, 1.0f, range.convertTo0to1 (value)); }
+    float getValue() const override                 { return juce::jlimit (0.0f, 1.0f, range.convertTo0to1 (value.load (std::memory_order_relaxed))); }
     bool getBoolValue() const                       { return getValue() != 0.0f; }
 
     void setValue (float newValue) override;
@@ -188,7 +188,7 @@ protected:
     ModMatrix* modMatrix = nullptr;
     int modIndex = -1;
 
-    float value = 0.0f;
+    std::atomic<float> value {0.0f};
     float defaultValue = 0.0f;
 
     juce::String uid;

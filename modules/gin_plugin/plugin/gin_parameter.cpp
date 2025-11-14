@@ -5,7 +5,7 @@ Parameter::Parameter (Processor& p, juce::String uid_, juce::String name_, juce:
                       std::function<juce::String (const Parameter&, float)> textFunction_)
   : juce::AudioPluginInstance::HostedParameter (p.versionHint),
     processor (p),
-    value (defaultValue_),
+    value {defaultValue_},
     defaultValue (defaultValue_),
     uid (uid_),
     name (name_),
@@ -25,7 +25,7 @@ Parameter::Parameter (Processor& p, juce::String uid_, juce::String name_, juce:
   : juce::AudioPluginInstance::HostedParameter (p.versionHint),
     processor (p),
     range (range_),
-    value (defaultValue_),
+    value {defaultValue_},
     defaultValue (defaultValue_),
     uid (uid_),
     name (name_),
@@ -40,9 +40,9 @@ Parameter::Parameter (Processor& p, juce::String uid_, juce::String name_, juce:
 void Parameter::setUserValue (float v)
 {
     v = juce::jlimit(range.start, range.end, range.snapToLegalValue (v));
-    if (! juce::approximatelyEqual (value, v))
+    if (! juce::approximatelyEqual (value.load (std::memory_order_relaxed), v))
     {
-        value = v;
+        value.store (v, std::memory_order_relaxed);
         triggerAsyncUpdate();
         changed();
     }
@@ -51,9 +51,9 @@ void Parameter::setUserValue (float v)
 void Parameter::setUserValueNotifingHost (float v)
 {
     v = juce::jlimit (range.start, range.end, range.snapToLegalValue (v));
-    if (! juce::approximatelyEqual (value, v))
+    if (! juce::approximatelyEqual (value.load (std::memory_order_relaxed), v))
     {
-        value = v;
+        value.store (v, std::memory_order_relaxed);
         if (! internal)
             setValueNotifyingHost (getValue());
 
@@ -146,9 +146,9 @@ void Parameter::setValue (float valueIn)
     valueIn = juce::jlimit (0.0f, 1.0f, valueIn);
     float newValue = range.snapToLegalValue (range.convertFrom0to1 (valueIn));
 
-    if (! juce::approximatelyEqual (value, newValue))
+    if (! juce::approximatelyEqual (value.load (std::memory_order_relaxed), newValue))
     {
-        value = newValue;
+        value.store (newValue, std::memory_order_relaxed);
 
         triggerAsyncUpdate();
         changed();
