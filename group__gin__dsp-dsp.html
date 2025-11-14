@@ -350,6 +350,7 @@ Functions</h2></td></tr>
 <tr class="memitem:gaa53416e9fff8a3d96bda5ef381d56f5d" id="r_gaa53416e9fff8a3d96bda5ef381d56f5d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__dsp-dsp.html#gaa53416e9fff8a3d96bda5ef381d56f5d">squareWave</a> (float phase, float freq, float sampleRate)</td></tr>
 <tr class="separator:gaa53416e9fff8a3d96bda5ef381d56f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab5a7527e2a9a380fa37f2e207243da82" id="r_gab5a7527e2a9a380fa37f2e207243da82"><td class="memItemLeft" align="right" valign="top">juce::AudioSampleBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__dsp-dsp.html#gab5a7527e2a9a380fa37f2e207243da82">resampleBuffer</a> (juce::AudioSampleBuffer &amp;, double inputRate, double outputRate, int quality=4)</td></tr>
+<tr class="memdesc:gab5a7527e2a9a380fa37f2e207243da82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resamples an entire audio buffer from one sample rate to another.  <br /></td></tr>
 <tr class="separator:gab5a7527e2a9a380fa37f2e207243da82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga076fc8240a1dea59019d4bdb2a3ee49d" id="r_ga076fc8240a1dea59019d4bdb2a3ee49d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__dsp-dsp.html#ga076fc8240a1dea59019d4bdb2a3ee49d">loadWavetables</a> (<a class="el" href="classWavetable.html">Wavetable</a> &amp;bllt, double playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, double fileSampleRate, int tableSize)</td></tr>
 <tr class="separator:ga076fc8240a1dea59019d4bdb2a3ee49d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -997,6 +998,20 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Resamples an entire audio buffer from one sample rate to another. </p>
+<p>This is a convenience function that resamples a complete audio buffer in one operation, without requiring a <a class="el" href="classResamplingFifo.html" title="High-quality sample rate conversion FIFO using libsamplerate.">ResamplingFifo</a>. Useful for offline processing where you need to convert an entire buffer at once.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>The audio buffer to resample (input) </td></tr>
+    <tr><td class="paramname">inputRate</td><td>The sample rate of the input buffer </td></tr>
+    <tr><td class="paramname">outputRate</td><td>The desired output sample rate </td></tr>
+    <tr><td class="paramname">quality</td><td>Resampling quality (0-4, default 4): 0 = SRC_SINC_FASTEST, 1 = SRC_SINC_MEDIUM_QUALITY, 2 = SRC_SINC_BEST_QUALITY, 3 = SRC_ZERO_ORDER_HOLD, 4 = SRC_LINEAR </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new AudioSampleBuffer at the output sample rate</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classResamplingFifo.html" title="High-quality sample rate conversion FIFO using libsamplerate.">ResamplingFifo</a> </dd></dl>
+
 </div>
 </div>
 <a id="ga076fc8240a1dea59019d4bdb2a3ee49d" name="ga076fc8240a1dea59019d4bdb2a3ee49d"></a>
@@ -1073,7 +1088,7 @@ template&lt;class T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:07:03 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:07:30 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
