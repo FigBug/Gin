@@ -5,18 +5,15 @@ Parameter::Parameter (Processor& p, juce::String uid_, juce::String name_, juce:
                       std::function<juce::String (const Parameter&, float)> textFunction_)
   : juce::AudioPluginInstance::HostedParameter (p.versionHint),
     processor (p),
+    range (minValue, maxValue, intervalValue, skewFactor),
     value {defaultValue_},
     defaultValue (defaultValue_),
     uid (uid_),
     name (name_),
-    shortName (shortName_),
+    shortName (shortName_.isEmpty() ? name_ : shortName_),
     label (label_),
     textFunction (textFunction_)
 {
-    if (shortName.isEmpty())
-        shortName = name;
-
-    range = juce::NormalisableRange<float> (minValue, maxValue, intervalValue, skewFactor);
 }
 
 Parameter::Parameter (Processor& p, juce::String uid_, juce::String name_, juce::String shortName_,
@@ -29,12 +26,10 @@ Parameter::Parameter (Processor& p, juce::String uid_, juce::String name_, juce:
     defaultValue (defaultValue_),
     uid (uid_),
     name (name_),
-    shortName (shortName_),
+    shortName (shortName_.isEmpty() ? name_ : shortName_),
     label (label_),
     textFunction (textFunction_)
 {
-    if (shortName.isEmpty())
-        shortName = name;
 }
 
 void Parameter::setUserValue (float v)

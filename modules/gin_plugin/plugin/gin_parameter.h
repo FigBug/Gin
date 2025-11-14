@@ -182,21 +182,21 @@ protected:
     virtual void changed() {}
 
     //==============================================================================
-    juce::NormalisableRange<float> range;
+    const juce::NormalisableRange<float> range;
 
     bool internal = false;
     ModMatrix* modMatrix = nullptr;
     int modIndex = -1;
 
     std::atomic<float> value {0.0f};
-    float defaultValue = 0.0f;
+    const float defaultValue = 0.0f;
 
-    juce::String uid;
-    juce::String name;
-    juce::String shortName;
-    juce::String label;
+    const juce::String uid;
+    const juce::String name;
+    const juce::String shortName;
+    const juce::String label;
 
-    std::function<juce::String (const Parameter&, float)> textFunction;
+    const std::function<juce::String (const Parameter&, float)> textFunction;
 
     int userActionCount = 0;
 
