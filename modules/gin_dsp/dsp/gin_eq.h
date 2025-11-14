@@ -10,7 +10,46 @@
 #pragma once
 
 //==============================================================================
-/** Basic multi channel / multi band EQ
+/**
+    Multi-channel, multi-band equalizer with flexible filter types.
+
+    EQ provides a professional multi-band equalizer supporting multiple filter
+    types per band. Each band can be configured independently as a shelving filter,
+    peak/notch filter, or high/low-pass filter. Supports any number of channels.
+
+    Key Features:
+    - Configurable number of bands
+    - Multiple filter types per band (lowshelf, highshelf, peak, highpass, lowpass)
+    - Multi-channel support
+    - Independent frequency, Q, and gain per band
+    - Based on high-quality biquad filters
+
+    Filter Types:
+    - lowshelf: Boost/cut low frequencies
+    - highshelf: Boost/cut high frequencies
+    - peak: Boost/cut at specific frequency (bell curve)
+    - highpass: Remove frequencies below cutoff
+    - lowpass: Remove frequencies above cutoff
+
+    Usage:
+    @code
+    EQ equalizer(3); // 3-band EQ
+    equalizer.setSampleRate(44100.0);
+    equalizer.setNumChannels(2); // Stereo
+
+    // Low shelf: boost bass at 100Hz
+    equalizer.setParams(0, EQ::lowshelf, 100.0f, 0.7f, 3.0f);
+
+    // Peak: cut at 1kHz
+    equalizer.setParams(1, EQ::peak, 1000.0f, 2.0f, -6.0f);
+
+    // High shelf: boost treble at 8kHz
+    equalizer.setParams(2, EQ::highshelf, 8000.0f, 0.7f, 2.0f);
+
+    equalizer.process(audioBuffer);
+    @endcode
+
+    @see Filter
 */
 class EQ
 {

@@ -11,7 +11,40 @@
 #pragma once
 
 //==============================================================================
-/** Stereo delay with feedback and cross feedback
+/**
+    Stereo delay effect with feedback, cross-feedback, and wet/dry mix.
+
+    StereoDelay provides a professional stereo delay effect with independent
+    left/right delay lines, feedback control, and ping-pong capability via
+    cross-feedback. Parameters are smoothed to avoid zipper noise.
+
+    Key Features:
+    - Independent stereo delay lines
+    - Feedback control (repeats)
+    - Cross-feedback (ping-pong delay effect)
+    - Wet/dry mix control
+    - Parameter smoothing for artifact-free automation
+    - High-quality Lagrange interpolation
+
+    Parameters:
+    - delay: Delay time in seconds
+    - mix: Wet/dry mix (0.0 = dry, 1.0 = wet)
+    - feedback: Amount of delayed signal fed back (0.0 to 0.99)
+    - crossfeed: Amount of cross-channel feedback for ping-pong (0.0 to 0.99)
+
+    Usage:
+    @code
+    StereoDelay delay(5.0); // Max 5 seconds delay
+    delay.setSampleRate(44100.0);
+    delay.setParams(0.5f, 0.5f, 0.6f, 0.3f);
+    // delay=0.5s, mix=50%, feedback=60%, crossfeed=30%
+
+    delay.processSmoothed(audioBuffer); // Smooth parameter changes
+    // or
+    delay.process(audioBuffer); // No smoothing (faster)
+    @endcode
+
+    @see DelayLine
 */
 class StereoDelay
 {
