@@ -10,7 +10,60 @@
 #pragma once
 
 //==============================================================================
-/** LFO with many shapes
+/**
+    Low-Frequency Oscillator with 18 waveform shapes and modulation features.
+
+    LFO provides a versatile modulation source with many waveforms, phase control,
+    fade-in, delay, and depth/offset parameters. It supports both smooth waveforms
+    (sine, triangle) and stepped waveforms (sample-and-hold, pyramids, steps).
+
+    Key Features:
+    - 18 waveform shapes including classic and exotic types
+    - Phase offset control
+    - Delay before LFO starts
+    - Fade-in over time
+    - Depth and offset controls
+    - Note-on retriggering with optional phase
+    - Sample-and-hold with interpolated noise
+
+    Waveform Types:
+    - Classic: sine, triangle, sawUp, sawDown, square
+    - Random: sampleAndHold (stepped), noise (interpolated)
+    - Stepped: stepUp/Down (3/4/8 steps)
+    - Pyramids: pyramid3/5/9 (symmetrical steps)
+    - Positive: squarePos (0 to 1 instead of -1 to 1)
+
+    Parameters:
+    - waveShape: Which waveform to use
+    - frequency: LFO rate in Hz
+    - phase: Phase offset (0 to 1)
+    - depth: Output scaling
+    - offset: DC offset added to output
+    - delay: Time before LFO starts (seconds)
+    - fade: Fade-in time (seconds)
+
+    Usage:
+    @code
+    LFO lfo;
+    lfo.setSampleRate(44100.0);
+
+    LFO::Parameters params;
+    params.waveShape = LFO::WaveShape::sine;
+    params.frequency = 2.0f;  // 2 Hz
+    params.phase = 0.0f;
+    params.depth = 1.0f;
+    params.offset = 0.0f;
+    params.delay = 0.0f;
+    params.fade = 0.1f;  // 100ms fade-in
+
+    lfo.setParameters(params);
+    lfo.noteOn();
+
+    float modValue = lfo.process(blockSize);
+    float output = lfo.getOutput(); // Clamped to -1..1
+    @endcode
+
+    @see StepLFO, MSEG
 */
 class LFO
 {
