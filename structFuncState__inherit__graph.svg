@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="Base class to store an audio functions state But you say &quot;functions don&#39;t have state!...">
+<g id="a_Node000001"><a xlink:title="Base class for storing state in audio functions.">
 <polygon fill="#999999" stroke="#666666" points="65,-185 0,-185 0,-166 65,-166 65,-185"/>
 <text text-anchor="middle" x="32.5" y="-173" font-family="Helvetica,sans-Serif" font-size="10.00">FuncState</text>
 </a>
@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="structBP12State.html" target="_top" xlink:title="State for band pass filter.">
+<g id="a_Node000002"><a xlink:href="structBP12State.html" target="_top" xlink:title="State storage for 12dB/octave bandpass filter in AudioEquationParser.">
 <polygon fill="white" stroke="#666666" points="176,-352 109,-352 109,-333 176,-333 176,-352"/>
 <text text-anchor="middle" x="142.5" y="-340" font-family="Helvetica,sans-Serif" font-size="10.00">BP12State</text>
 </a>
@@ -38,7 +38,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="structBP24State.html" target="_top" xlink:title="State for band pass filter.">
+<g id="a_Node000003"><a xlink:href="structBP24State.html" target="_top" xlink:title="State storage for 24dB/octave bandpass filter in AudioEquationParser.">
 <polygon fill="white" stroke="#666666" points="176,-315 109,-315 109,-296 176,-296 176,-315"/>
 <text text-anchor="middle" x="142.5" y="-303" font-family="Helvetica,sans-Serif" font-size="10.00">BP24State</text>
 </a>
@@ -56,7 +56,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="structHP12State.html" target="_top" xlink:title="State for high pass filter.">
+<g id="a_Node000004"><a xlink:href="structHP12State.html" target="_top" xlink:title="State storage for 12dB/octave highpass filter in AudioEquationParser.">
 <polygon fill="white" stroke="#666666" points="176.5,-278 108.5,-278 108.5,-259 176.5,-259 176.5,-278"/>
 <text text-anchor="middle" x="142.5" y="-266" font-family="Helvetica,sans-Serif" font-size="10.00">HP12State</text>
 </a>
@@ -74,7 +74,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="structHP24State.html" target="_top" xlink:title="State for high pass filter.">
+<g id="a_Node000005"><a xlink:href="structHP24State.html" target="_top" xlink:title="State storage for 24dB/octave highpass filter in AudioEquationParser.">
 <polygon fill="white" stroke="#666666" points="176.5,-241 108.5,-241 108.5,-222 176.5,-222 176.5,-241"/>
 <text text-anchor="middle" x="142.5" y="-229" font-family="Helvetica,sans-Serif" font-size="10.00">HP24State</text>
 </a>
@@ -92,7 +92,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="structLP12State.html" target="_top" xlink:title="State for low pass filter.">
+<g id="a_Node000006"><a xlink:href="structLP12State.html" target="_top" xlink:title="State storage for 12dB/octave lowpass filter in AudioEquationParser.">
 <polygon fill="white" stroke="#666666" points="175,-204 110,-204 110,-185 175,-185 175,-204"/>
 <text text-anchor="middle" x="142.5" y="-192" font-family="Helvetica,sans-Serif" font-size="10.00">LP12State</text>
 </a>
@@ -110,7 +110,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="structLP24State.html" target="_top" xlink:title="State for low pass filter.">
+<g id="a_Node000007"><a xlink:href="structLP24State.html" target="_top" xlink:title="State storage for 24dB/octave lowpass filter in AudioEquationParser.">
 <polygon fill="white" stroke="#666666" points="175,-167 110,-167 110,-148 175,-148 175,-167"/>
 <text text-anchor="middle" x="142.5" y="-155" font-family="Helvetica,sans-Serif" font-size="10.00">LP24State</text>
 </a>
@@ -128,7 +128,7 @@
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="structNoiseState.html" target="_top" xlink:title="State for noise.">
+<g id="a_Node000008"><a xlink:href="structNoiseState.html" target="_top" xlink:title="State storage for noise generator in AudioEquationParser.">
 <polygon fill="white" stroke="#666666" points="177.5,-130 107.5,-130 107.5,-111 177.5,-111 177.5,-130"/>
 <text text-anchor="middle" x="142.5" y="-118" font-family="Helvetica,sans-Serif" font-size="10.00">NoiseState</text>
 </a>
@@ -146,7 +146,7 @@
 <!-- Node9 -->
 <g id="Node000009" class="node">
 <title>Node9</title>
-<g id="a_Node000009"><a xlink:href="structNotch12State.html" target="_top" xlink:title="State for notch filter.">
+<g id="a_Node000009"><a xlink:href="structNotch12State.html" target="_top" xlink:title="State storage for 12dB/octave notch filter in AudioEquationParser.">
 <polygon fill="white" stroke="#666666" points="184,-93 101,-93 101,-74 184,-74 184,-93"/>
 <text text-anchor="middle" x="142.5" y="-81" font-family="Helvetica,sans-Serif" font-size="10.00">Notch12State</text>
 </a>
@@ -164,7 +164,7 @@
 <!-- Node10 -->
 <g id="Node000010" class="node">
 <title>Node10</title>
-<g id="a_Node000010"><a xlink:href="structNotch24State.html" target="_top" xlink:title="State for notch filter.">
+<g id="a_Node000010"><a xlink:href="structNotch24State.html" target="_top" xlink:title="State storage for 24dB/octave notch filter in AudioEquationParser.">
 <polygon fill="white" stroke="#666666" points="184,-56 101,-56 101,-37 184,-37 184,-56"/>
 <text text-anchor="middle" x="142.5" y="-44" font-family="Helvetica,sans-Serif" font-size="10.00">Notch24State</text>
 </a>
@@ -182,7 +182,7 @@
 <!-- Node11 -->
 <g id="Node000011" class="node">
 <title>Node11</title>
-<g id="a_Node000011"><a xlink:href="structOscState.html" target="_top" xlink:title="State for an oscillator.">
+<g id="a_Node000011"><a xlink:href="structOscState.html" target="_top" xlink:title="State storage for oscillator functions in AudioEquationParser.">
 <polygon fill="white" stroke="#666666" points="172.5,-19 112.5,-19 112.5,0 172.5,0 172.5,-19"/>
 <text text-anchor="middle" x="142.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">OscState</text>
 </a>

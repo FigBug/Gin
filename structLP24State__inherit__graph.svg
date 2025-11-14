@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="State for low pass filter.">
+<g id="a_Node000001"><a xlink:title="State storage for 24dB/octave lowpass filter in AudioEquationParser.">
 <polygon fill="#999999" stroke="#666666" points="65,-19 0,-19 0,0 65,0 65,-19"/>
 <text text-anchor="middle" x="32.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">LP24State</text>
 </a>
@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="structFuncState.html" target="_top" xlink:title="Base class to store an audio functions state But you say &quot;functions don&#39;t have state!...">
+<g id="a_Node000002"><a xlink:href="structFuncState.html" target="_top" xlink:title="Base class for storing state in audio functions.">
 <polygon fill="white" stroke="#666666" points="65,-74 0,-74 0,-55 65,-55 65,-74"/>
 <text text-anchor="middle" x="32.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">FuncState</text>
 </a>

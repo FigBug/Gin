@@ -78,7 +78,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>State managment for audio functions.  
+<p>State management for audio functions in <a class="el" href="classAudioEquationParser.html" title="Equation parser with audio-specific functions for DSP processing.">AudioEquationParser</a>.  
  <a href="classAudioFunctionHost.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_audiofunctions.h&gt;</code></p>
@@ -123,7 +123,17 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a3647d97cb87c9029d48846985dcfe39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>State managment for audio functions. </p>
+<div class="textblock"><p>State management for audio functions in <a class="el" href="classAudioEquationParser.html" title="Equation parser with audio-specific functions for DSP processing.">AudioEquationParser</a>. </p>
+<p><a class="el" href="classAudioFunctionHost.html" title="State management for audio functions in AudioEquationParser.">AudioFunctionHost</a> manages the state objects for all stateful audio functions (filters, oscillators, noise generators) used in audio equation parsing. It provides factory methods for creating and retrieving state objects, ensuring each function instance maintains its own state across evaluations.</p>
+<p>Key Features:</p><ul>
+<li>Automatic state creation and management</li>
+<li><a class="el" href="classSample.html" title="Audio sample container for loading and playing back sample data.">Sample</a> rate propagation to all states</li>
+<li>State reset for all functions</li>
+<li>Integration with <a class="el" href="classEquationParser.html" title="Mathematical equation parser and evaluator with variable and function support.">EquationParser</a></li>
+<li>Band-limited oscillator table support</li>
+</ul>
+<p>The host maintains a map of state objects, creating them on-demand when functions are first called and reusing them for subsequent calls to maintain continuity (e.g., filter history, oscillator phase).</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structFuncState.html" title="Base class for storing state in audio functions.">FuncState</a>, <a class="el" href="classAudioEquationParser.html" title="Equation parser with audio-specific functions for DSP processing.">AudioEquationParser</a>, <a class="el" href="classEquationParser.html" title="Mathematical equation parser and evaluator with variable and function support.">EquationParser</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a03addbf222d8ebf72559c099c1f711bf" name="a03addbf222d8ebf72559c099c1f711bf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a03addbf222d8ebf72559c099c1f711bf">&#9670;&#160;</a></span>setSampleRate()</h2>
@@ -370,7 +380,7 @@ template&lt;class T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:23:29 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:47:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

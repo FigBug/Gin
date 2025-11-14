@@ -1,5 +1,5 @@
 <map id="AudioFunctionHost" name="AudioFunctionHost">
-<area shape="rect" id="Node000001" title="State managment for audio functions." alt="" coords="11,5,155,31"/>
-<area shape="rect" id="Node000002" href="$classAudioEquationParser.html" title="Enhances the EquationParser with math related functions like filters and oscilllators." alt="" coords="5,79,161,104"/>
+<area shape="rect" id="Node000001" title="State management for audio functions in AudioEquationParser." alt="" coords="11,5,155,31"/>
+<area shape="rect" id="Node000002" href="$classAudioEquationParser.html" title="Equation parser with audio&#45;specific functions for DSP processing." alt="" coords="5,79,161,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,44,86,79,81,79,81,44"/>
 </map>

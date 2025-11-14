@@ -1,5 +1,5 @@
 <map id="Notch12State" name="Notch12State">
-<area shape="rect" id="Node000001" title="State for notch filter." alt="" coords="5,79,116,104"/>
-<area shape="rect" id="Node000002" href="$structFuncState.html" title="Base class to store an audio functions state But you say &quot;functions don&#39;t have state!..." alt="" coords="17,5,104,31"/>
+<area shape="rect" id="Node000001" title="State storage for 12dB/octave notch filter in AudioEquationParser." alt="" coords="5,79,116,104"/>
+<area shape="rect" id="Node000002" href="$structFuncState.html" title="Base class for storing state in audio functions." alt="" coords="17,5,104,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,44,63,79,58,79,58,44"/>
 </map>
