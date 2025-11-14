@@ -80,7 +80,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Receives callbacks from the <a class="el" href="classFileSystemWatcher.html" title="Watches a folder in the file system for changes.">FileSystemWatcher</a> when a file changes.  
+<p><a class="el" href="classFileSystemWatcher_1_1Listener.html" title="Listener interface for receiving file system change notifications.">Listener</a> interface for receiving file system change notifications.  
  <a href="classFileSystemWatcher_1_1Listener.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_filesystemwatcher.h&gt;</code></p>
@@ -90,12 +90,39 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2f2bd934de14814b9cd28b4ea08278ad" id="r_a2f2bd934de14814b9cd28b4ea08278ad"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher_1_1Listener.html#a2f2bd934de14814b9cd28b4ea08278ad">~Listener</a> ()=default</td></tr>
 <tr class="separator:a2f2bd934de14814b9cd28b4ea08278ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45bfc6e6c6c8597f8d2acb89dfbcf589" id="r_a45bfc6e6c6c8597f8d2acb89dfbcf589"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher_1_1Listener.html#a45bfc6e6c6c8597f8d2acb89dfbcf589">folderChanged</a> (const juce::File &amp;)</td></tr>
+<tr class="memdesc:a45bfc6e6c6c8597f8d2acb89dfbcf589"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when any file in a watched folder changes.  <br /></td></tr>
 <tr class="separator:a45bfc6e6c6c8597f8d2acb89dfbcf589"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae380fea89b1c4b457493d922ec4a8a73" id="r_ae380fea89b1c4b457493d922ec4a8a73"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher_1_1Listener.html#ae380fea89b1c4b457493d922ec4a8a73">fileChanged</a> (const juce::File &amp;, <a class="el" href="classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7d">FileSystemEvent</a>)</td></tr>
+<tr class="memdesc:ae380fea89b1c4b457493d922ec4a8a73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called for each file that changed and how it changed.  <br /></td></tr>
 <tr class="separator:ae380fea89b1c4b457493d922ec4a8a73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Receives callbacks from the <a class="el" href="classFileSystemWatcher.html" title="Watches a folder in the file system for changes.">FileSystemWatcher</a> when a file changes. </p>
+<div class="textblock"><p><a class="el" href="classFileSystemWatcher_1_1Listener.html" title="Listener interface for receiving file system change notifications.">Listener</a> interface for receiving file system change notifications. </p>
+<p><a class="el" href="classFileSystemWatcher_1_1Listener.html" title="Listener interface for receiving file system change notifications.">Listener</a> provides two callback methods for responding to file system events:</p><ul>
+<li><a class="el" href="classFileSystemWatcher_1_1Listener.html#a45bfc6e6c6c8597f8d2acb89dfbcf589" title="Called when any file in a watched folder changes.">folderChanged()</a>: Called once when any file in a folder changes</li>
+<li><a class="el" href="classFileSystemWatcher_1_1Listener.html#ae380fea89b1c4b457493d922ec4a8a73" title="Called for each file that changed and how it changed.">fileChanged()</a>: Called for each specific file change with event type</li>
+</ul>
+<p>Override the methods you need and add the listener to <a class="el" href="classFileSystemWatcher.html" title="Cross-platform file system watcher for monitoring folder changes.">FileSystemWatcher</a> to receive notifications on the message thread.</p>
+<p>Usage Example: </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyListener : <span class="keyword">public</span> <a class="code hl_class" href="classFileSystemWatcher_1_1Listener.html">FileSystemWatcher::Listener</a></div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">void</span> folderChanged(<span class="keyword">const</span> File&amp; folder)<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        <span class="comment">// Refresh UI for any changes in this folder</span></div>
+<div class="line">        DBG(<span class="stringliteral">&quot;Folder changed: &quot;</span> + folder.getFullPathName());</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> fileChanged(<span class="keyword">const</span> File&amp; file, <a class="code hl_enumeration" href="classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7d">FileSystemEvent</a> event)<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        <span class="comment">// Handle specific file changes</span></div>
+<div class="line">        <span class="keywordflow">if</span> (event == fileUpdated)</div>
+<div class="line">            reloadFile(file);</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (event == fileDeleted)</div>
+<div class="line">            removeFromCache(file);</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="ttc" id="aclassFileSystemWatcher_1_1Listener_html"><div class="ttname"><a href="classFileSystemWatcher_1_1Listener.html">FileSystemWatcher::Listener</a></div><div class="ttdoc">Listener interface for receiving file system change notifications.</div><div class="ttdef"><b>Definition</b> gin_filesystemwatcher.h:167</div></div>
+<div class="ttc" id="aclassFileSystemWatcher_html_a05e51f587cf359c531e227451ad08f7d"><div class="ttname"><a href="classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7d">FileSystemWatcher::FileSystemEvent</a></div><div class="ttdeci">FileSystemEvent</div><div class="ttdoc">File system event types for change notifications.</div><div class="ttdef"><b>Definition</b> gin_filesystemwatcher.h:123</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classFileSystemWatcher.html" title="Cross-platform file system watcher for monitoring folder changes.">FileSystemWatcher</a>, <a class="el" href="classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7d" title="File system event types for change notifications.">FileSystemEvent</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2f2bd934de14814b9cd28b4ea08278ad" name="a2f2bd934de14814b9cd28b4ea08278ad"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2f2bd934de14814b9cd28b4ea08278ad">&#9670;&#160;</a></span>~Listener()</h2>
@@ -147,6 +174,15 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Called when any file in a watched folder changes. </p>
+<p>This is called once per folder when any change occurs, useful for refreshing file browsers or folder displays without needing to know which specific files changed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">folder</td><td>The watched folder that contains changed files </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ae380fea89b1c4b457493d922ec4a8a73" name="ae380fea89b1c4b457493d922ec4a8a73"></a>
@@ -183,6 +219,16 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Called for each file that changed and how it changed. </p>
+<p>This provides detailed information about each file change, including the specific event type. Use this when you need to react to specific changes like file updates for auto-reloading.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>The specific file that changed </td></tr>
+    <tr><td class="paramname">event</td><td>The type of change that occurred </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -191,7 +237,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:50:13 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:51:48 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

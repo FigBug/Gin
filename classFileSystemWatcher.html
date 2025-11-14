@@ -78,7 +78,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Watches a folder in the file system for changes.  
+<p>Cross-platform file system watcher for monitoring folder changes.  
  <a href="classFileSystemWatcher.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_filesystemwatcher.h&gt;</code></p>
@@ -86,7 +86,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher_1_1Listener.html">Listener</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives callbacks from the <a class="el" href="classFileSystemWatcher.html" title="Watches a folder in the file system for changes.">FileSystemWatcher</a> when a file changes.  <a href="classFileSystemWatcher_1_1Listener.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classFileSystemWatcher_1_1Listener.html" title="Listener interface for receiving file system change notifications.">Listener</a> interface for receiving file system change notifications.  <a href="classFileSystemWatcher_1_1Listener.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -101,7 +101,7 @@ Public Types</h2></td></tr>
 , <a class="el" href="classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7da41c22f8136f11c19e362685eb6d897f9">fileRenamedNewName</a>
 <br />
  }</td></tr>
-<tr class="memdesc:a05e51f587cf359c531e227451ad08f7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A set of events that can happen to a file.  <a href="classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7d">More...</a><br /></td></tr>
+<tr class="memdesc:a05e51f587cf359c531e227451ad08f7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">File system event types for change notifications.  <a href="classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7d">More...</a><br /></td></tr>
 <tr class="separator:a05e51f587cf359c531e227451ad08f7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -133,9 +133,57 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2eac16aab60dc70dff0eb5b7573e250c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Watches a folder in the file system for changes. </p>
-<p><a class="el" href="classFileSystemWatcher_1_1Listener.html" title="Receives callbacks from the FileSystemWatcher when a file changes.">Listener</a> callbcks will be called every time a file is created, modified, deleted or renamed in the watched folder.</p>
-<p><a class="el" href="classFileSystemWatcher.html" title="Watches a folder in the file system for changes.">FileSystemWatcher</a> will also recursively watch all subfolders on <a class="el" href="namespacemacOS.html" title="macOS-specific image conversion utilities.">macOS</a> and windows and will not on Linux. </p>
+<div class="textblock"><p>Cross-platform file system watcher for monitoring folder changes. </p>
+<p><a class="el" href="classFileSystemWatcher.html" title="Cross-platform file system watcher for monitoring folder changes.">FileSystemWatcher</a> provides real-time notifications when files are created, modified, deleted, or renamed in watched folders. It uses platform-specific APIs (FSEvents on <a class="el" href="namespacemacOS.html" title="macOS-specific image conversion utilities.">macOS</a>, ReadDirectoryChangesW on Windows, inotify on Linux) for efficient monitoring without polling.</p>
+<p>Key Features:</p><ul>
+<li>Real-time file system change notifications</li>
+<li>Recursive subfolder watching (<a class="el" href="namespacemacOS.html" title="macOS-specific image conversion utilities.">macOS</a> and Windows)</li>
+<li>Event coalescing to reduce callback frequency</li>
+<li>Multiple folder watching</li>
+<li>Create, modify, delete, and rename event tracking</li>
+<li><a class="el" href="classFileSystemWatcher_1_1Listener.html" title="Listener interface for receiving file system change notifications.">Listener</a> pattern for callbacks</li>
+<li>Cross-platform (<a class="el" href="namespacemacOS.html" title="macOS-specific image conversion utilities.">macOS</a>, Windows, Linux)</li>
+</ul>
+<p>Platform Differences:</p><ul>
+<li>macOS/Windows: Recursively watches all subfolders automatically</li>
+<li>Linux: Only watches the specified folder (not subfolders)</li>
+</ul>
+<p>Event Coalescing: The watcher can coalesce multiple events for the same file within a time window into a single event, reducing callback overhead when files change rapidly (e.g., during a build process or file copy).</p>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyFileMonitor : <span class="keyword">public</span> <a class="code hl_class" href="classFileSystemWatcher_1_1Listener.html">FileSystemWatcher::Listener</a></div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keywordtype">void</span> folderChanged(<span class="keyword">const</span> File&amp; folder)<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        <span class="comment">// Refresh file browser for this folder</span></div>
+<div class="line">        refreshBrowser(folder);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> fileChanged(<span class="keyword">const</span> File&amp; file, FileSystemEvent event)<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        <span class="keywordflow">if</span> (event == fileUpdated &amp;&amp; file.hasFileExtension(<span class="stringliteral">&quot;.txt&quot;</span>))</div>
+<div class="line">            reloadTextFile(file);</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_class" href="classFileSystemWatcher.html">FileSystemWatcher</a> watcher;</div>
+<div class="line">watcher.<a class="code hl_function" href="classFileSystemWatcher.html#a90c382d8d77550e122c03dff90a10c4e">addFolder</a>(File(<span class="stringliteral">&quot;/path/to/watch&quot;</span>));</div>
+<div class="line">watcher.<a class="code hl_function" href="classFileSystemWatcher.html#a35ba78e1d5295dfd3984bc9625b38687">coalesceEvents</a>(100);  <span class="comment">// Coalesce events within 100ms</span></div>
+<div class="line"> </div>
+<div class="line">MyFileMonitor monitor;</div>
+<div class="line">watcher.<a class="code hl_function" href="classFileSystemWatcher.html#ad2486d627a8a5cc3512e4a47e7a5cdb0">addListener</a>(&amp;monitor);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Watcher runs in background, calling listener on message thread</span></div>
+<div class="ttc" id="aclassFileSystemWatcher_1_1Listener_html"><div class="ttname"><a href="classFileSystemWatcher_1_1Listener.html">FileSystemWatcher::Listener</a></div><div class="ttdoc">Listener interface for receiving file system change notifications.</div><div class="ttdef"><b>Definition</b> gin_filesystemwatcher.h:167</div></div>
+<div class="ttc" id="aclassFileSystemWatcher_html"><div class="ttname"><a href="classFileSystemWatcher.html">FileSystemWatcher</a></div><div class="ttdoc">Cross-platform file system watcher for monitoring folder changes.</div><div class="ttdef"><b>Definition</b> gin_filesystemwatcher.h:78</div></div>
+<div class="ttc" id="aclassFileSystemWatcher_html_a35ba78e1d5295dfd3984bc9625b38687"><div class="ttname"><a href="classFileSystemWatcher.html#a35ba78e1d5295dfd3984bc9625b38687">FileSystemWatcher::coalesceEvents</a></div><div class="ttdeci">void coalesceEvents(int windowMS)</div><div class="ttdoc">All events that arrive withing the time window for a particular file will be coalesced into one event...</div></div>
+<div class="ttc" id="aclassFileSystemWatcher_html_a90c382d8d77550e122c03dff90a10c4e"><div class="ttname"><a href="classFileSystemWatcher.html#a90c382d8d77550e122c03dff90a10c4e">FileSystemWatcher::addFolder</a></div><div class="ttdeci">void addFolder(const juce::File &amp;folder)</div><div class="ttdoc">Adds a folder to be watched.</div></div>
+<div class="ttc" id="aclassFileSystemWatcher_html_ad2486d627a8a5cc3512e4a47e7a5cdb0"><div class="ttname"><a href="classFileSystemWatcher.html#ad2486d627a8a5cc3512e4a47e7a5cdb0">FileSystemWatcher::addListener</a></div><div class="ttdeci">void addListener(Listener *newListener)</div><div class="ttdoc">Registers a listener to be told when things happen to the text.</div></div>
+</div><!-- fragment --><p>Thread Safety:</p><ul>
+<li>addFolder/removeFolder are thread-safe</li>
+<li><a class="el" href="classFileSystemWatcher_1_1Listener.html" title="Listener interface for receiving file system change notifications.">Listener</a> callbacks are called on the message thread</li>
+<li>Safe to add/remove listeners from any thread</li>
+</ul>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classFileSystemWatcher_1_1Listener.html" title="Listener interface for receiving file system change notifications.">Listener</a>, <a class="el" href="classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7d" title="File system event types for change notifications.">FileSystemEvent</a> </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a05e51f587cf359c531e227451ad08f7d" name="a05e51f587cf359c531e227451ad08f7d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a05e51f587cf359c531e227451ad08f7d">&#9670;&#160;</a></span>FileSystemEvent</h2>
@@ -149,15 +197,34 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A set of events that can happen to a file. </p>
-<p>When a file is renamed it will appear as the original filename being deleted and the new filename being created </p>
+<p>File system event types for change notifications. </p>
+<p>FileSystemEvent describes what happened to a file in a watched folder. Rename events generate two separate callbacks: one with fileRenamedOldName for the original filename, and one with fileRenamedNewName for the new filename.</p>
+<p>Events:</p><ul>
+<li>undefined: Unknown or unrecognized event</li>
+<li>fileCreated: New file was created</li>
+<li>fileDeleted: Existing file was deleted</li>
+<li>fileUpdated: Existing file was modified</li>
+<li>fileRenamedOldName: File was renamed (this is the old name)</li>
+<li>fileRenamedNewName: File was renamed (this is the new name)</li>
+</ul>
+<p>Note: Rename operations typically generate two events:</p><ol type="1">
+<li>fileRenamedOldName with the original filename</li>
+<li>fileRenamedNewName with the new filename</li>
+</ol>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classFileSystemWatcher.html" title="Cross-platform file system watcher for monitoring folder changes.">FileSystemWatcher</a>, <a class="el" href="classFileSystemWatcher_1_1Listener.html" title="Listener interface for receiving file system change notifications.">Listener</a> </dd></dl>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a05e51f587cf359c531e227451ad08f7dab46eb4658534cd006045de1bd3416342" name="a05e51f587cf359c531e227451ad08f7dab46eb4658534cd006045de1bd3416342"></a>undefined&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a05e51f587cf359c531e227451ad08f7da8935e36db30f2b16435fe603320a241b" name="a05e51f587cf359c531e227451ad08f7da8935e36db30f2b16435fe603320a241b"></a>fileCreated&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a05e51f587cf359c531e227451ad08f7da429bef88054b2dd0618102e1abf4f150" name="a05e51f587cf359c531e227451ad08f7da429bef88054b2dd0618102e1abf4f150"></a>fileDeleted&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a05e51f587cf359c531e227451ad08f7dabc075ff82423a1f48c1043f2e8383acf" name="a05e51f587cf359c531e227451ad08f7dabc075ff82423a1f48c1043f2e8383acf"></a>fileUpdated&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a05e51f587cf359c531e227451ad08f7da5a58eb5cd4c39c2655668fc1d3241955" name="a05e51f587cf359c531e227451ad08f7da5a58eb5cd4c39c2655668fc1d3241955"></a>fileRenamedOldName&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a05e51f587cf359c531e227451ad08f7da41c22f8136f11c19e362685eb6d897f9" name="a05e51f587cf359c531e227451ad08f7da41c22f8136f11c19e362685eb6d897f9"></a>fileRenamedNewName&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a05e51f587cf359c531e227451ad08f7dab46eb4658534cd006045de1bd3416342" name="a05e51f587cf359c531e227451ad08f7dab46eb4658534cd006045de1bd3416342"></a>undefined&#160;</td><td class="fielddoc"><p>Unknown event. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a05e51f587cf359c531e227451ad08f7da8935e36db30f2b16435fe603320a241b" name="a05e51f587cf359c531e227451ad08f7da8935e36db30f2b16435fe603320a241b"></a>fileCreated&#160;</td><td class="fielddoc"><p>File was created. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a05e51f587cf359c531e227451ad08f7da429bef88054b2dd0618102e1abf4f150" name="a05e51f587cf359c531e227451ad08f7da429bef88054b2dd0618102e1abf4f150"></a>fileDeleted&#160;</td><td class="fielddoc"><p>File was deleted. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a05e51f587cf359c531e227451ad08f7dabc075ff82423a1f48c1043f2e8383acf" name="a05e51f587cf359c531e227451ad08f7dabc075ff82423a1f48c1043f2e8383acf"></a>fileUpdated&#160;</td><td class="fielddoc"><p>File was modified. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a05e51f587cf359c531e227451ad08f7da5a58eb5cd4c39c2655668fc1d3241955" name="a05e51f587cf359c531e227451ad08f7da5a58eb5cd4c39c2655668fc1d3241955"></a>fileRenamedOldName&#160;</td><td class="fielddoc"><p>File renamed (old name) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a05e51f587cf359c531e227451ad08f7da41c22f8136f11c19e362685eb6d897f9" name="a05e51f587cf359c531e227451ad08f7da41c22f8136f11c19e362685eb6d897f9"></a>fileRenamedNewName&#160;</td><td class="fielddoc"><p>File renamed (new name) </p>
+</td></tr>
 </table>
 
 </div>
@@ -344,7 +411,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:50:13 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:51:48 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

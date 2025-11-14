@@ -81,31 +81,56 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Result of a completed or failed download.  
+ <a href="structDownloadManager_1_1DownloadResult.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_downloadmanager.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:addd2bcdfcf44b5d58f9d5ee8bd148fe7" id="r_addd2bcdfcf44b5d58f9d5ee8bd148fe7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDownloadManager_1_1DownloadResult.html#addd2bcdfcf44b5d58f9d5ee8bd148fe7">saveToFile</a> (const juce::File &amp;file, bool overwrite=true)</td></tr>
+<tr class="memdesc:addd2bcdfcf44b5d58f9d5ee8bd148fe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves downloaded data to a file.  <br /></td></tr>
 <tr class="separator:addd2bcdfcf44b5d58f9d5ee8bd148fe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a700f6508383b439c9f700ee6a2193545" id="r_a700f6508383b439c9f700ee6a2193545"><td class="memItemLeft" align="right" valign="top">juce::URL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDownloadManager_1_1DownloadResult.html#a700f6508383b439c9f700ee6a2193545">url</a></td></tr>
+<tr class="memdesc:a700f6508383b439c9f700ee6a2193545"><td class="mdescLeft">&#160;</td><td class="mdescRight">URL that was downloaded.  <br /></td></tr>
 <tr class="separator:a700f6508383b439c9f700ee6a2193545"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4aee674b27ea37f9af6ccecf43a03a3" id="r_ae4aee674b27ea37f9af6ccecf43a03a3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDownloadManager_1_1DownloadResult.html#ae4aee674b27ea37f9af6ccecf43a03a3">downloadId</a> = 0</td></tr>
+<tr class="memdesc:ae4aee674b27ea37f9af6ccecf43a03a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique download ID.  <br /></td></tr>
 <tr class="separator:ae4aee674b27ea37f9af6ccecf43a03a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a639a9c5b7e7f3b4889a5f53b23e8bc9c" id="r_a639a9c5b7e7f3b4889a5f53b23e8bc9c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDownloadManager_1_1DownloadResult.html#a639a9c5b7e7f3b4889a5f53b23e8bc9c">attempts</a> = 0</td></tr>
+<tr class="memdesc:a639a9c5b7e7f3b4889a5f53b23e8bc9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of attempts made.  <br /></td></tr>
 <tr class="separator:a639a9c5b7e7f3b4889a5f53b23e8bc9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13fd2f0e9b09ade1a1b2ccf97c920bf5" id="r_a13fd2f0e9b09ade1a1b2ccf97c920bf5"><td class="memItemLeft" align="right" valign="top">juce::MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDownloadManager_1_1DownloadResult.html#a13fd2f0e9b09ade1a1b2ccf97c920bf5">data</a></td></tr>
+<tr class="memdesc:a13fd2f0e9b09ade1a1b2ccf97c920bf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Downloaded data.  <br /></td></tr>
 <tr class="separator:a13fd2f0e9b09ade1a1b2ccf97c920bf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2a74f1ceab5b5728458b39f09d27a27" id="r_ae2a74f1ceab5b5728458b39f09d27a27"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDownloadManager_1_1DownloadResult.html#ae2a74f1ceab5b5728458b39f09d27a27">ok</a> = false</td></tr>
+<tr class="memdesc:ae2a74f1ceab5b5728458b39f09d27a27"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if download succeeded  <br /></td></tr>
 <tr class="separator:ae2a74f1ceab5b5728458b39f09d27a27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70931a9fd508ce4cc0344be6514aeffb" id="r_a70931a9fd508ce4cc0344be6514aeffb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDownloadManager_1_1DownloadResult.html#a70931a9fd508ce4cc0344be6514aeffb">httpCode</a> = 0</td></tr>
+<tr class="memdesc:a70931a9fd508ce4cc0344be6514aeffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">HTTP response code.  <br /></td></tr>
 <tr class="separator:a70931a9fd508ce4cc0344be6514aeffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48b192b45df8e978f398483f24e38fa2" id="r_a48b192b45df8e978f398483f24e38fa2"><td class="memItemLeft" align="right" valign="top">juce::StringPairArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDownloadManager_1_1DownloadResult.html#a48b192b45df8e978f398483f24e38fa2">responseHeaders</a></td></tr>
+<tr class="memdesc:a48b192b45df8e978f398483f24e38fa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">HTTP response headers.  <br /></td></tr>
 <tr class="separator:a48b192b45df8e978f398483f24e38fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Result of a completed or failed download. </p>
+<p><a class="el" href="structDownloadManager_1_1DownloadResult.html" title="Result of a completed or failed download.">DownloadResult</a> contains all information about a download attempt including the downloaded data, HTTP status, response headers, and success/failure state.</p>
+<p>Members:</p><ul>
+<li>url: The URL that was downloaded</li>
+<li>downloadId: Unique ID assigned by <a class="el" href="classDownloadManager.html" title="Asynchronous HTTP download manager with queue and progress tracking.">DownloadManager</a></li>
+<li>attempts: Number of attempts made (including retries)</li>
+<li>data: Downloaded content as MemoryBlock</li>
+<li>ok: true if download succeeded, false otherwise</li>
+<li>httpCode: HTTP response code (200 = success, 404 = not found, etc.)</li>
+<li>responseHeaders: HTTP response headers from server</li>
+</ul>
+<p>The result is passed to completion callbacks on the message thread.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classDownloadManager.html" title="Asynchronous HTTP download manager with queue and progress tracking.">DownloadManager</a> </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="addd2bcdfcf44b5d58f9d5ee8bd148fe7" name="addd2bcdfcf44b5d58f9d5ee8bd148fe7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#addd2bcdfcf44b5d58f9d5ee8bd148fe7">&#9670;&#160;</a></span>saveToFile()</h2>
 
@@ -132,6 +157,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Saves downloaded data to a file. </p>
+<p>Returns true if successful. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -147,6 +175,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>URL that was downloaded. </p>
+
 </div>
 </div>
 <a id="ae4aee674b27ea37f9af6ccecf43a03a3" name="ae4aee674b27ea37f9af6ccecf43a03a3"></a>
@@ -160,6 +190,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Unique download ID. </p>
 
 </div>
 </div>
@@ -175,6 +207,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Number of attempts made. </p>
+
 </div>
 </div>
 <a id="a13fd2f0e9b09ade1a1b2ccf97c920bf5" name="a13fd2f0e9b09ade1a1b2ccf97c920bf5"></a>
@@ -188,6 +222,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Downloaded data. </p>
 
 </div>
 </div>
@@ -203,6 +239,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>true if download succeeded </p>
+
 </div>
 </div>
 <a id="a70931a9fd508ce4cc0344be6514aeffb" name="a70931a9fd508ce4cc0344be6514aeffb"></a>
@@ -216,6 +254,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>HTTP response code. </p>
 
 </div>
 </div>
@@ -231,6 +271,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>HTTP response headers. </p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
@@ -239,7 +281,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:50:13 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:51:48 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Downloads files to a memory block and then calls a lambda on the message thread with the results.  
+<p>Asynchronous HTTP download manager with queue and progress tracking.  
  <a href="classDownloadManager.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_downloadmanager.h&gt;</code></p>
@@ -85,6 +85,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDownloadManager_1_1DownloadResult.html">DownloadResult</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result of a completed or failed download.  <a href="structDownloadManager_1_1DownloadResult.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -145,8 +146,65 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab352a3c9d99319f4872c1603eb19cc78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Downloads files to a memory block and then calls a lambda on the message thread with the results. </p>
-<p>Does not block the message thread while establishing the HTTP connect like URL::downloadToFile </p>
+<div class="textblock"><p>Asynchronous HTTP download manager with queue and progress tracking. </p>
+<p><a class="el" href="classDownloadManager.html" title="Asynchronous HTTP download manager with queue and progress tracking.">DownloadManager</a> provides a robust system for downloading files without blocking the message thread. Unlike juce::URL::downloadToFile which blocks during HTTP connection establishment, <a class="el" href="classDownloadManager.html" title="Asynchronous HTTP download manager with queue and progress tracking.">DownloadManager</a> performs all network operations on background threads and delivers results via callbacks on the message thread.</p>
+<p>Key Features:</p><ul>
+<li>Non-blocking HTTP downloads</li>
+<li>Concurrent download queue with limit control</li>
+<li>Automatic retry on failure with configurable delays</li>
+<li>Progress tracking with adjustable callback intervals</li>
+<li>Download pause/resume support</li>
+<li>GZIP compression support</li>
+<li>Thread priority control</li>
+<li>Blocking and async download modes</li>
+<li>Safe cancellation of in-progress downloads</li>
+</ul>
+<p>The manager maintains a queue of downloads, executes them on background threads, and calls completion callbacks on the message thread. This ensures UI remains responsive during large downloads or slow connections.</p>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classDownloadManager.html">DownloadManager</a> manager;</div>
+<div class="line">manager.<a class="code hl_function" href="classDownloadManager.html#a16b7b22f909984b2978b841a99f3025d">setConnectTimeout</a>(10000);  <span class="comment">// 10 second timeout</span></div>
+<div class="line">manager.<a class="code hl_function" href="classDownloadManager.html#a7e17fbae40ab73beed856f7a28bb2726">setRetryLimit</a>(3);          <span class="comment">// Retry up to 3 times</span></div>
+<div class="line">manager.<a class="code hl_function" href="classDownloadManager.html#a51c68cae2cd149ad036d5124fed18da8">setConcurrentDownloadLimit</a>(2);  <span class="comment">// Max 2 at once</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Start async download with progress</span></div>
+<div class="line"><span class="keywordtype">int</span> downloadId = manager.<a class="code hl_function" href="classDownloadManager.html#a5f28dbb10b11644ea9033f2c4fb2b6ca">startAsyncDownload</a>(</div>
+<div class="line">    <span class="stringliteral">&quot;https://example.com/file.zip&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;&quot;</span>,  <span class="comment">// No POST data</span></div>
+<div class="line">    [](<a class="code hl_struct" href="structDownloadManager_1_1DownloadResult.html">DownloadManager::DownloadResult</a> result) {</div>
+<div class="line">        <span class="keywordflow">if</span> (result.<a class="code hl_variable" href="structDownloadManager_1_1DownloadResult.html#ae2a74f1ceab5b5728458b39f09d27a27">ok</a>)</div>
+<div class="line">            result.<a class="code hl_function" href="structDownloadManager_1_1DownloadResult.html#addd2bcdfcf44b5d58f9d5ee8bd148fe7">saveToFile</a>(File(<span class="stringliteral">&quot;downloaded.zip&quot;</span>));</div>
+<div class="line">        <span class="keywordflow">else</span></div>
+<div class="line">            DBG(<span class="stringliteral">&quot;Download failed: &quot;</span> + String(result.<a class="code hl_variable" href="structDownloadManager_1_1DownloadResult.html#a70931a9fd508ce4cc0344be6514aeffb">httpCode</a>));</div>
+<div class="line">    },</div>
+<div class="line">    [](int64 current, int64 total, int64 delta) {</div>
+<div class="line">        DBG(<span class="stringliteral">&quot;Progress: &quot;</span> + String(current) + <span class="stringliteral">&quot; / &quot;</span> + String(total));</div>
+<div class="line">    }</div>
+<div class="line">);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Cancel if needed</span></div>
+<div class="line">manager.<a class="code hl_function" href="classDownloadManager.html#ab1740214c8eb0c508f4e3a48ba394a1c">cancelDownload</a>(downloadId);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Or block until complete</span></div>
+<div class="line"><span class="keyword">auto</span> result = manager.<a class="code hl_function" href="classDownloadManager.html#a46d6fd6994ca4cdcde6564edd621020f">blockingDownload</a>(<span class="stringliteral">&quot;https://example.com/data.json&quot;</span>);</div>
+<div class="line"><span class="keywordflow">if</span> (result.<a class="code hl_variable" href="structDownloadManager_1_1DownloadResult.html#ae2a74f1ceab5b5728458b39f09d27a27">ok</a>)</div>
+<div class="line">    processJSON(result.<a class="code hl_variable" href="structDownloadManager_1_1DownloadResult.html#a13fd2f0e9b09ade1a1b2ccf97c920bf5">data</a>.toString());</div>
+<div class="ttc" id="aclassDownloadManager_html"><div class="ttname"><a href="classDownloadManager.html">DownloadManager</a></div><div class="ttdoc">Asynchronous HTTP download manager with queue and progress tracking.</div><div class="ttdef"><b>Definition</b> gin_downloadmanager.h:78</div></div>
+<div class="ttc" id="aclassDownloadManager_html_a16b7b22f909984b2978b841a99f3025d"><div class="ttname"><a href="classDownloadManager.html#a16b7b22f909984b2978b841a99f3025d">DownloadManager::setConnectTimeout</a></div><div class="ttdeci">void setConnectTimeout(int timeout)</div><div class="ttdoc">How long connecting is given before it times out.</div><div class="ttdef"><b>Definition</b> gin_downloadmanager.h:91</div></div>
+<div class="ttc" id="aclassDownloadManager_html_a46d6fd6994ca4cdcde6564edd621020f"><div class="ttname"><a href="classDownloadManager.html#a46d6fd6994ca4cdcde6564edd621020f">DownloadManager::blockingDownload</a></div><div class="ttdeci">DownloadResult blockingDownload(juce::String url, juce::String postData, juce::String extraHeaders={})</div></div>
+<div class="ttc" id="aclassDownloadManager_html_a51c68cae2cd149ad036d5124fed18da8"><div class="ttname"><a href="classDownloadManager.html#a51c68cae2cd149ad036d5124fed18da8">DownloadManager::setConcurrentDownloadLimit</a></div><div class="ttdeci">void setConcurrentDownloadLimit(int l)</div><div class="ttdoc">Maximum number of downloads to allow at once.</div></div>
+<div class="ttc" id="aclassDownloadManager_html_a5f28dbb10b11644ea9033f2c4fb2b6ca"><div class="ttname"><a href="classDownloadManager.html#a5f28dbb10b11644ea9033f2c4fb2b6ca">DownloadManager::startAsyncDownload</a></div><div class="ttdeci">int startAsyncDownload(juce::String url, juce::String postData, std::function&lt; void(DownloadResult)&gt; completionCallback, std::function&lt; void(juce::int64, juce::int64, juce::int64)&gt; progressCallback=nullptr, juce::String extraHeaders={})</div><div class="ttdoc">Starts a download and returns the download id which can be used to cancel the download.</div></div>
+<div class="ttc" id="aclassDownloadManager_html_a7e17fbae40ab73beed856f7a28bb2726"><div class="ttname"><a href="classDownloadManager.html#a7e17fbae40ab73beed856f7a28bb2726">DownloadManager::setRetryLimit</a></div><div class="ttdeci">void setRetryLimit(int limit)</div><div class="ttdoc">If a download fails, how long many times it should retry.</div><div class="ttdef"><b>Definition</b> gin_downloadmanager.h:94</div></div>
+<div class="ttc" id="aclassDownloadManager_html_ab1740214c8eb0c508f4e3a48ba394a1c"><div class="ttname"><a href="classDownloadManager.html#ab1740214c8eb0c508f4e3a48ba394a1c">DownloadManager::cancelDownload</a></div><div class="ttdeci">void cancelDownload(int downloadId)</div><div class="ttdoc">Cancels a download with a given id.</div></div>
+<div class="ttc" id="astructDownloadManager_1_1DownloadResult_html"><div class="ttname"><a href="structDownloadManager_1_1DownloadResult.html">DownloadManager::DownloadResult</a></div><div class="ttdoc">Result of a completed or failed download.</div><div class="ttdef"><b>Definition</b> gin_downloadmanager.h:150</div></div>
+<div class="ttc" id="astructDownloadManager_1_1DownloadResult_html_a13fd2f0e9b09ade1a1b2ccf97c920bf5"><div class="ttname"><a href="structDownloadManager_1_1DownloadResult.html#a13fd2f0e9b09ade1a1b2ccf97c920bf5">DownloadManager::DownloadResult::data</a></div><div class="ttdeci">juce::MemoryBlock data</div><div class="ttdoc">Downloaded data.</div><div class="ttdef"><b>Definition</b> gin_downloadmanager.h:155</div></div>
+<div class="ttc" id="astructDownloadManager_1_1DownloadResult_html_a70931a9fd508ce4cc0344be6514aeffb"><div class="ttname"><a href="structDownloadManager_1_1DownloadResult.html#a70931a9fd508ce4cc0344be6514aeffb">DownloadManager::DownloadResult::httpCode</a></div><div class="ttdeci">int httpCode</div><div class="ttdoc">HTTP response code.</div><div class="ttdef"><b>Definition</b> gin_downloadmanager.h:158</div></div>
+<div class="ttc" id="astructDownloadManager_1_1DownloadResult_html_addd2bcdfcf44b5d58f9d5ee8bd148fe7"><div class="ttname"><a href="structDownloadManager_1_1DownloadResult.html#addd2bcdfcf44b5d58f9d5ee8bd148fe7">DownloadManager::DownloadResult::saveToFile</a></div><div class="ttdeci">bool saveToFile(const juce::File &amp;file, bool overwrite=true)</div><div class="ttdoc">Saves downloaded data to a file.</div></div>
+<div class="ttc" id="astructDownloadManager_1_1DownloadResult_html_ae2a74f1ceab5b5728458b39f09d27a27"><div class="ttname"><a href="structDownloadManager_1_1DownloadResult.html#ae2a74f1ceab5b5728458b39f09d27a27">DownloadManager::DownloadResult::ok</a></div><div class="ttdeci">bool ok</div><div class="ttdoc">true if download succeeded</div><div class="ttdef"><b>Definition</b> gin_downloadmanager.h:157</div></div>
+</div><!-- fragment --><p>Thread Safety:</p><ul>
+<li>All public methods are thread-safe</li>
+<li>Callbacks are always executed on the message thread</li>
+<li>Safe to cancel downloads from any thread</li>
+</ul>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structDownloadManager_1_1DownloadResult.html" title="Result of a completed or failed download.">DownloadResult</a>, juce::URL </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a39f2f1950cfb9d84da7f8c73e1207575" name="a39f2f1950cfb9d84da7f8c73e1207575"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a39f2f1950cfb9d84da7f8c73e1207575">&#9670;&#160;</a></span>DownloadManager()</h2>
@@ -630,7 +688,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:50:13 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:51:48 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
