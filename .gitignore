@@ -46,6 +46,7 @@ Release
 
 xcuserdata
 Builds
+build
 cmake-build-debug
 cmake-build-release
 JuceLibraryCode
