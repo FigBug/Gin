@@ -17,6 +17,19 @@ class Wavetable
 public:
     Wavetable() = default;
 
+    /** Move constructor */
+    Wavetable (Wavetable&& other) noexcept
+        : tables (std::move (other.tables))
+    {
+    }
+
+    /** Move assignment operator */
+    Wavetable& operator= (Wavetable&& other) noexcept
+    {
+        tables = std::move (other.tables);
+        return *this;
+    }
+
     /** Add a new BandLimitedLookupTable to the collection */
     void addTable (BandLimitedLookupTable* table)
     {
