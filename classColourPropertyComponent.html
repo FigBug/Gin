@@ -76,6 +76,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Property component for selecting colors with a visual color picker.  
+ <a href="classColourPropertyComponent.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_propertycomponents.h&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ColourPropertyComponent:</div>
@@ -106,7 +109,15 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a3c5ee7d20c4aecc48394fc97aa050448 inherit pro_attribs_classPropertyComponentBase" id="r_a3c5ee7d20c4aecc48394fc97aa050448"><td class="memItemLeft" align="right" valign="top">juce::Value&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPropertyComponentBase.html#a3c5ee7d20c4aecc48394fc97aa050448">value</a></td></tr>
 <tr class="separator:a3c5ee7d20c4aecc48394fc97aa050448 inherit pro_attribs_classPropertyComponentBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Property component for selecting colors with a visual color picker. </p>
+<p><a class="el" href="classColourPropertyComponent.html" title="Property component for selecting colors with a visual color picker.">ColourPropertyComponent</a> displays a color swatch that shows the current color and opens a color selector popup when clicked. The color value is stored as a string (via Colour::toString()) in the bound Value object.</p>
+<p>Usage: </p><div class="fragment"><div class="line">Value colorValue(<span class="stringliteral">&quot;ff0080ff&quot;</span>); <span class="comment">// ARGB hex string</span></div>
+<div class="line"><a class="code hl_class" href="classColourPropertyComponent.html">ColourPropertyComponent</a> colorProp(colorValue, <span class="stringliteral">&quot;Background Color&quot;</span>, <span class="keyword">true</span>); <span class="comment">// true = show alpha</span></div>
+<div class="line">propertyPanel.addProperty(&amp;colorProp);</div>
+<div class="ttc" id="aclassColourPropertyComponent_html"><div class="ttname"><a href="classColourPropertyComponent.html">ColourPropertyComponent</a></div><div class="ttdoc">Property component for selecting colors with a visual color picker.</div><div class="ttdef"><b>Definition</b> gin_propertycomponents.h:145</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classPropertyComponentBase.html" title="Base class for property components that use juce::Value for data binding.">PropertyComponentBase</a>, juce::ColourSelector </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abc15e762c997ac76cac786201b8db2d2" name="abc15e762c997ac76cac786201b8db2d2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abc15e762c997ac76cac786201b8db2d2">&#9670;&#160;</a></span>ColourPropertyComponent()</h2>
 
@@ -201,7 +212,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:04:36 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:06:10 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

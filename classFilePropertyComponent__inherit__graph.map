@@ -1,5 +1,5 @@
 <map id="FilePropertyComponent" name="FilePropertyComponent">
-<area shape="rect" id="Node000001" title=" " alt="" coords="10,79,185,104"/>
-<area shape="rect" id="Node000002" href="$classPropertyComponentBase.html" title=" " alt="" coords="5,5,189,31"/>
+<area shape="rect" id="Node000001" title="Property component for selecting files with a browse button." alt="" coords="10,79,185,104"/>
+<area shape="rect" id="Node000002" href="$classPropertyComponentBase.html" title="Base class for property components that use juce::Value for data binding." alt="" coords="5,5,189,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,44,100,79,95,79,95,44"/>
 </map>

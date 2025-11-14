@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Button that draws an SVG.  
+<p>Button that displays an SVG graphic instead of or alongside text.  
  <a href="classSVGButton.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_svgbutton.h&gt;</code></p>
@@ -100,7 +100,23 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ae66b6c13532b53657e2943467220ef61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Button that draws an SVG. </p>
+<div class="textblock"><p>Button that displays an SVG graphic instead of or alongside text. </p>
+<p><a class="el" href="classSVGButton.html" title="Button that displays an SVG graphic instead of or alongside text.">SVGButton</a> extends TextButton to support rendering SVG graphics. The SVG is stored as raw XML text and can be drawn by a custom LookAndFeel. The button provides an inset parameter to control padding around the SVG.</p>
+<p>Note: The actual SVG rendering must be implemented in your LookAndFeel's drawButtonBackground() or drawButtonText() methods. This class only stores the SVG data and inset value.</p>
+<p>Usage: </p><div class="fragment"><div class="line">String svgXml = <span class="stringliteral">&quot;&lt;svg&gt;...&lt;/svg&gt;&quot;</span>;</div>
+<div class="line"><a class="code hl_class" href="classSVGButton.html">SVGButton</a> button(<span class="stringliteral">&quot;IconButton&quot;</span>, svgXml, 4); <span class="comment">// 4 pixel inset</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// In your LookAndFeel:</span></div>
+<div class="line"><span class="keywordtype">void</span> drawButtonBackground(Graphics&amp; g, Button&amp; btn, ...)<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">    <span class="keywordflow">if</span> (<span class="keyword">auto</span>* svg = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="classSVGButton.html">SVGButton</a>*<span class="keyword">&gt;</span>(&amp;btn))</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">auto</span> drawable = Drawable::createFromSVG(*XmlDocument::parse(svg-&gt;rawSVG));</div>
+<div class="line">        drawable-&gt;drawWithin(g, btn.getLocalBounds().reduced(svg-&gt;inset).toFloat(), ...);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassSVGButton_html"><div class="ttname"><a href="classSVGButton.html">SVGButton</a></div><div class="ttdoc">Button that displays an SVG graphic instead of or alongside text.</div><div class="ttdef"><b>Definition</b> gin_svgbutton.h:45</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd>juce::TextButton, juce::Drawable </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab806ddd7a689e4f585f660292b01ca9a" name="ab806ddd7a689e4f585f660292b01ca9a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab806ddd7a689e4f585f660292b01ca9a">&#9670;&#160;</a></span>SVGButton()</h2>
@@ -171,7 +187,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:04:36 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:06:10 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

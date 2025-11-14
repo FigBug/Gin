@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Property component for selecting files with a browse button.">
 <polygon fill="#999999" stroke="#666666" points="134.5,-19 3.5,-19 3.5,0 134.5,0 134.5,-19"/>
 <text text-anchor="middle" x="69" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">FilePropertyComponent</text>
 </a>
@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classPropertyComponentBase.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="classPropertyComponentBase.html" target="_top" xlink:title="Base class for property components that use juce::Value for data binding.">
 <polygon fill="white" stroke="#666666" points="138,-74 0,-74 0,-55 138,-55 138,-74"/>
 <text text-anchor="middle" x="69" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">PropertyComponentBase</text>
 </a>

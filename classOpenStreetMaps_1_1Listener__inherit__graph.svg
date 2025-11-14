@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classMapViewer.html" target="_top" xlink:title="Draws an map, etting tiles fom one of many OpenStreetMapsServers.">
+<g id="a_Node000002"><a xlink:href="classMapViewer.html" target="_top" xlink:title="Interactive map viewer component using OpenStreetMap tiles.">
 <polygon fill="white" stroke="#666666" points="107,-19 36,-19 36,0 107,0 107,-19"/>
 <text text-anchor="middle" x="71.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">MapViewer</text>
 </a>

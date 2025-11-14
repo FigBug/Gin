@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="Button that draws an SVG.">
+<g id="a_Node000001"><a xlink:title="Button that displays an SVG graphic instead of or alongside text.">
 <polygon fill="#999999" stroke="#666666" points="84,-74 15,-74 15,-55 84,-55 84,-74"/>
 <text text-anchor="middle" x="49.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">SVGButton</text>
 </a>

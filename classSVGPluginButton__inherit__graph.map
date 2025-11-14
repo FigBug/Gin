@@ -1,6 +1,6 @@
 <map id="SVGPluginButton" name="SVGPluginButton">
 <area shape="rect" id="Node000001" title="Button for toggling a parameter." alt="" coords="75,79,207,104"/>
-<area shape="rect" id="Node000002" href="$classSVGButton.html" title="Button that draws an SVG." alt="" coords="5,5,97,31"/>
+<area shape="rect" id="Node000002" href="$classSVGButton.html" title="Button that displays an SVG graphic instead of or alongside text." alt="" coords="5,5,97,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,37,128,76,124,81,75,41"/>
 <area shape="rect" id="Node000003" href="$classParameter_1_1ParameterListener.html" title=" " alt="" coords="122,5,338,31"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="207,41,157,81,154,76,203,37"/>

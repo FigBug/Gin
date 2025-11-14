@@ -82,6 +82,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Animated grid container with drag-and-drop reordering support.  
+ <a href="classComponentGrid.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_componentgrid.h&gt;</code></p>
 
 <p>Inherits juce::Component, and juce::Timer.</p>
@@ -163,7 +166,39 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a6c5ac365f8f47093c909a23de8e78d12" id="r_a6c5ac365f8f47093c909a23de8e78d12"><td class="memItemLeft" align="right" valign="top">juce::ComponentAnimator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentGrid.html#a6c5ac365f8f47093c909a23de8e78d12">animator</a></td></tr>
 <tr class="separator:a6c5ac365f8f47093c909a23de8e78d12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Animated grid container with drag-and-drop reordering support. </p>
+<p><a class="el" href="classComponentGrid.html" title="Animated grid container with drag-and-drop reordering support.">ComponentGrid</a> arranges child components in a row or column with smooth animated transitions. Components can be reordered via drag-and-drop, making it ideal for customizable toolbars, tab bars, or any UI where users can rearrange elements.</p>
+<p>Key Features:</p><ul>
+<li>Automatic grid layout (horizontal or vertical)</li>
+<li>Smooth animations when reordering</li>
+<li>Drag-and-drop reordering with visual feedback</li>
+<li>Configurable spacing between items</li>
+<li>Callbacks for drag events and order changes</li>
+<li>Component dragging across grid boundaries</li>
+</ul>
+<p>The grid handles layout and animation automatically. When children are reordered via drag-and-drop, the grid smoothly animates them to their new positions.</p>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classComponentGrid.html">ComponentGrid</a> grid(<span class="stringliteral">&quot;ToolbarGrid&quot;</span>, <a class="code hl_enumvalue" href="classComponentGrid.html#a0d6a66510a6868e9be9f596867b85946a7b5f66d1ab8c7823c0591de0e31ae891">ComponentGrid::horizontal</a>);</div>
+<div class="line">grid.setGap(5); <span class="comment">// 5 pixel spacing</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Add components</span></div>
+<div class="line">grid.addAndMakeVisible(<span class="keyword">new</span> Button(<span class="stringliteral">&quot;Tool 1&quot;</span>));</div>
+<div class="line">grid.addAndMakeVisible(<span class="keyword">new</span> Button(<span class="stringliteral">&quot;Tool 2&quot;</span>));</div>
+<div class="line">grid.addAndMakeVisible(<span class="keyword">new</span> Button(<span class="stringliteral">&quot;Tool 3&quot;</span>));</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Listen for order changes</span></div>
+<div class="line">grid.onOrderChanged = [](<span class="keywordtype">int</span> oldIndex, <span class="keywordtype">int</span> newIndex) {</div>
+<div class="line">    <span class="comment">// Save new order to preferences</span></div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Optional: Control when dragging can start</span></div>
+<div class="line">grid.onDragStart = [](<span class="keyword">const</span> MouseEvent&amp; e) {</div>
+<div class="line">    <span class="keywordflow">return</span> e.mods.isLeftButtonDown(); <span class="comment">// Only left-click dragging</span></div>
+<div class="line">};</div>
+<div class="ttc" id="aclassComponentGrid_html"><div class="ttname"><a href="classComponentGrid.html">ComponentGrid</a></div><div class="ttdoc">Animated grid container with drag-and-drop reordering support.</div><div class="ttdef"><b>Definition</b> gin_componentgrid.h:58</div></div>
+<div class="ttc" id="aclassComponentGrid_html_a0d6a66510a6868e9be9f596867b85946a7b5f66d1ab8c7823c0591de0e31ae891"><div class="ttname"><a href="classComponentGrid.html#a0d6a66510a6868e9be9f596867b85946a7b5f66d1ab8c7823c0591de0e31ae891">ComponentGrid::horizontal</a></div><div class="ttdeci">@ horizontal</div><div class="ttdef"><b>Definition</b> gin_componentgrid.h:63</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd>ComponentAnimator </dd></dl>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a0d6a66510a6868e9be9f596867b85946" name="a0d6a66510a6868e9be9f596867b85946"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0d6a66510a6868e9be9f596867b85946">&#9670;&#160;</a></span>Orientation</h2>
 
@@ -749,7 +784,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:04:36 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:06:10 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

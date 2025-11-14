@@ -78,6 +78,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Base class for property components that use juce::Value for data binding.  
+ <a href="classPropertyComponentBase.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_propertycomponents.h&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for PropertyComponentBase:</div>
@@ -102,7 +105,11 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a3c5ee7d20c4aecc48394fc97aa050448" id="r_a3c5ee7d20c4aecc48394fc97aa050448"><td class="memItemLeft" align="right" valign="top">juce::Value&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPropertyComponentBase.html#a3c5ee7d20c4aecc48394fc97aa050448">value</a></td></tr>
 <tr class="separator:a3c5ee7d20c4aecc48394fc97aa050448"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Base class for property components that use juce::Value for data binding. </p>
+<p><a class="el" href="classPropertyComponentBase.html" title="Base class for property components that use juce::Value for data binding.">PropertyComponentBase</a> extends JUCE's PropertyComponent to automatically sync with a Value object, handling the listener registration and refresh logic. Derived classes only need to implement the refresh() method to update their UI when the value changes.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classFilePropertyComponent.html" title="Property component for selecting files with a browse button.">FilePropertyComponent</a>, <a class="el" href="classColourPropertyComponent.html" title="Property component for selecting colors with a visual color picker.">ColourPropertyComponent</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae320b0e3de35b2ead852cbc5daa5d5f7" name="ae320b0e3de35b2ead852cbc5daa5d5f7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae320b0e3de35b2ead852cbc5daa5d5f7">&#9670;&#160;</a></span>PropertyComponentBase()</h2>
 
@@ -210,7 +217,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:04:36 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:06:10 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

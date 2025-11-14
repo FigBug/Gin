@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Draws an map, etting tiles fom one of many OpenStreetMapsServers.  
+<p>Interactive map viewer component using OpenStreetMap tiles.  
  <a href="classMapViewer.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_mapviewer.h&gt;</code></p>
@@ -125,7 +125,37 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a92969f79ce00707cf7e9b13e004b8bed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Draws an map, etting tiles fom one of many OpenStreetMapsServers. </p>
+<div class="textblock"><p>Interactive map viewer component using OpenStreetMap tiles. </p>
+<p><a class="el" href="classMapViewer.html" title="Interactive map viewer component using OpenStreetMap tiles.">MapViewer</a> displays an interactive map using tiles from OpenStreetMap servers. It supports panning, zooming (levels 0-18), and can be centered on any latitude/longitude coordinate. The component handles tile fetching, caching, and rendering automatically.</p>
+<p>Key Features:</p><ul>
+<li>Interactive panning via mouse drag</li>
+<li>Zoom levels 0-18 (world to street level)</li>
+<li>Mouse wheel zoom</li>
+<li>Automatic tile fetching and caching</li>
+<li>Smooth rendering with double buffering</li>
+<li>Center on any lat/long coordinate</li>
+</ul>
+<p>Zoom Levels:</p><ul>
+<li>0-2: World view</li>
+<li>3-6: Continent/country view</li>
+<li>7-10: State/region view</li>
+<li>11-14: City view</li>
+<li>15-18: Street/building view</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classMapViewer.html">MapViewer</a> mapViewer;</div>
+<div class="line">mapViewer.setSize(800, 600);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Center on London</span></div>
+<div class="line">mapViewer.<a class="code hl_function" href="classMapViewer.html#a77a364ca834883bbc75428ba81e92f79">centerOn</a>(-0.1278, 51.5074); <span class="comment">// longitude, latitude</span></div>
+<div class="line">mapViewer.<a class="code hl_function" href="classMapViewer.html#ac55420a2219e2a30c03062411e0b2df6">setZoom</a>(12); <span class="comment">// City level zoom</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Or center on San Francisco</span></div>
+<div class="line">mapViewer.<a class="code hl_function" href="classMapViewer.html#a77a364ca834883bbc75428ba81e92f79">centerOn</a>(-122.4194, 37.7749);</div>
+<div class="line">mapViewer.<a class="code hl_function" href="classMapViewer.html#ac55420a2219e2a30c03062411e0b2df6">setZoom</a>(13);</div>
+<div class="ttc" id="aclassMapViewer_html"><div class="ttname"><a href="classMapViewer.html">MapViewer</a></div><div class="ttdoc">Interactive map viewer component using OpenStreetMap tiles.</div><div class="ttdef"><b>Definition</b> gin_mapviewer.h:56</div></div>
+<div class="ttc" id="aclassMapViewer_html_a77a364ca834883bbc75428ba81e92f79"><div class="ttname"><a href="classMapViewer.html#a77a364ca834883bbc75428ba81e92f79">MapViewer::centerOn</a></div><div class="ttdeci">void centerOn(double longCenter, double latCenter)</div><div class="ttdoc">Centre map on long/lat.</div></div>
+<div class="ttc" id="aclassMapViewer_html_ac55420a2219e2a30c03062411e0b2df6"><div class="ttname"><a href="classMapViewer.html#ac55420a2219e2a30c03062411e0b2df6">MapViewer::setZoom</a></div><div class="ttdeci">void setZoom(int zoom)</div><div class="ttdoc">Zoom level between 0 and 18.</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classOpenStreetMaps.html" title="Fetches map files from OSM servers.">OpenStreetMaps</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6a5384d59042be977032bdabb02adcdd" name="a6a5384d59042be977032bdabb02adcdd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6a5384d59042be977032bdabb02adcdd">&#9670;&#160;</a></span>MapViewer()</h2>
@@ -506,7 +536,7 @@ Protected Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:04:36 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:06:10 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

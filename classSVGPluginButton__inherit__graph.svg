@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classSVGButton.html" target="_top" xlink:title="Button that draws an SVG.">
+<g id="a_Node000002"><a xlink:href="classSVGButton.html" target="_top" xlink:title="Button that displays an SVG graphic instead of or alongside text.">
 <polygon fill="white" stroke="#666666" points="69,-74 0,-74 0,-55 69,-55 69,-74"/>
 <text text-anchor="middle" x="34.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">SVGButton</text>
 </a>

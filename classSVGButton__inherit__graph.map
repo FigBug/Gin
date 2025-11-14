@@ -1,5 +1,5 @@
 <map id="SVGButton" name="SVGButton">
-<area shape="rect" id="Node000001" title="Button that draws an SVG." alt="" coords="25,5,117,31"/>
+<area shape="rect" id="Node000001" title="Button that displays an SVG graphic instead of or alongside text." alt="" coords="25,5,117,31"/>
 <area shape="rect" id="Node000002" href="$classSVGPluginButton.html" title="Button for toggling a parameter." alt="" coords="5,79,137,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,44,74,79,69,79,69,44"/>
 </map>
