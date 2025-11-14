@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Holds an audio sample.  
+<p>Audio sample container for loading and playing back sample data.  
  <a href="classSample.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_sample.h&gt;</code></p>
@@ -103,7 +103,38 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a412fc3b487c8b28588e001b573c8b87b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Holds an audio sample. </p>
+<div class="textblock"><p>Audio sample container for loading and playing back sample data. </p>
+<p><a class="el" href="classSample.html" title="Audio sample container for loading and playing back sample data.">Sample</a> holds audio data loaded from files and provides methods for reading the sample data. It's designed to work with <a class="el" href="classSampleOscillator.html" title="Sample-based oscillator with pitch tracking and looping capabilities.">SampleOscillator</a> for pitch-shifted playback and supports storing sample metadata like root note and sample rate.</p>
+<p>Key Features:</p><ul>
+<li>Load samples from audio files</li>
+<li>Store multi-channel audio data</li>
+<li><a class="el" href="classSample.html" title="Audio sample container for loading and playing back sample data.">Sample</a> rate and root note metadata</li>
+<li>In/out marker support</li>
+<li>Efficient sample reading</li>
+</ul>
+<p>The root note is used by <a class="el" href="classSampleOscillator.html" title="Sample-based oscillator with pitch tracking and looping capabilities.">SampleOscillator</a> to determine pitch shift amounts when playing the sample at different MIDI notes.</p>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">auto</span> sample = <a class="code hl_function" href="classSample.html#a412fc3b487c8b28588e001b573c8b87b">Sample::fromFile</a>(File(<span class="stringliteral">&quot;/path/to/sample.wav&quot;</span>));</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> (sample)</div>
+<div class="line">{</div>
+<div class="line">    DBG(<span class="stringliteral">&quot;Length: &quot;</span> + String(sample-&gt;getLength()));</div>
+<div class="line">    DBG(<span class="stringliteral">&quot;Root note: &quot;</span> + String(sample-&gt;getRootNote()));</div>
+<div class="line">    DBG(<span class="stringliteral">&quot;Sample rate: &quot;</span> + String(sample-&gt;getSampleRate()));</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Read portion of sample</span></div>
+<div class="line">    AudioBuffer&lt;float&gt; buffer(2, 512);</div>
+<div class="line">    sample-&gt;read(buffer, 0); <span class="comment">// Read from sample position 0</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Or use with SampleOscillator</span></div>
+<div class="line">    <a class="code hl_class" href="classSampleOscillator.html">SampleOscillator</a> osc;</div>
+<div class="line">    osc.<a class="code hl_function" href="classSampleOscillator.html#a806bd14975ddf68765f98f96a0a8ed2c">setSample</a>(sample.get());</div>
+<div class="line">    osc.<a class="code hl_function" href="classSampleOscillator.html#a6e4b9ad2169c8acc82089e89ec8b1012">noteOn</a>();</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassSampleOscillator_html"><div class="ttname"><a href="classSampleOscillator.html">SampleOscillator</a></div><div class="ttdoc">Sample-based oscillator with pitch tracking and looping capabilities.</div><div class="ttdef"><b>Definition</b> gin_sampleoscillator.h:54</div></div>
+<div class="ttc" id="aclassSampleOscillator_html_a6e4b9ad2169c8acc82089e89ec8b1012"><div class="ttname"><a href="classSampleOscillator.html#a6e4b9ad2169c8acc82089e89ec8b1012">SampleOscillator::noteOn</a></div><div class="ttdeci">void noteOn()</div></div>
+<div class="ttc" id="aclassSampleOscillator_html_a806bd14975ddf68765f98f96a0a8ed2c"><div class="ttname"><a href="classSampleOscillator.html#a806bd14975ddf68765f98f96a0a8ed2c">SampleOscillator::setSample</a></div><div class="ttdeci">void setSample(Sample *)</div></div>
+<div class="ttc" id="aclassSample_html_a412fc3b487c8b28588e001b573c8b87b"><div class="ttname"><a href="classSample.html#a412fc3b487c8b28588e001b573c8b87b">Sample::fromFile</a></div><div class="ttdeci">static std::unique_ptr&lt; Sample &gt; fromFile(const juce::File &amp;f)</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classSampleOscillator.html" title="Sample-based oscillator with pitch tracking and looping capabilities.">SampleOscillator</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a412fc3b487c8b28588e001b573c8b87b" name="a412fc3b487c8b28588e001b573c8b87b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a412fc3b487c8b28588e001b573c8b87b">&#9670;&#160;</a></span>fromFile()</h2>
@@ -279,7 +310,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:10:23 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:23:29 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

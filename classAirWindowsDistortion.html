@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="namespaceDistortion.html" title="Distortion.">Distortion</a> based on AirWindows plugins.  
+<p>Sine-based waveshaping distortion effect based on AirWindows plugins.  
  <a href="classAirWindowsDistortion.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_distortion.h&gt;</code></p>
@@ -95,7 +95,51 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a774f461ab66da2a485633242c4712c41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="namespaceDistortion.html" title="Distortion.">Distortion</a> based on AirWindows plugins. </p>
+<div class="textblock"><p>Sine-based waveshaping distortion effect based on AirWindows plugins. </p>
+<p><a class="el" href="classAirWindowsDistortion.html" title="Sine-based waveshaping distortion effect based on AirWindows plugins.">AirWindowsDistortion</a> provides musical distortion using sine waveshaping with density control that can produce both soft saturation and aggressive clipping. Based on Chris Johnson's AirWindows plugins, it features integrated highpass filtering, automatic denormalization prevention, and 32-bit dithering.</p>
+<p>Key Features:</p><ul>
+<li>Sine-based waveshaping for musical harmonics</li>
+<li>Density control from subtle to extreme (-1 to 4)</li>
+<li>Integrated highpass filter</li>
+<li>Denormalization prevention for CPU efficiency</li>
+<li>32-bit dithering for low-level detail</li>
+<li>Dry/wet mix control</li>
+<li>Output level scaling</li>
+</ul>
+<p>Parameters:</p><ul>
+<li>density: <a class="el" href="namespaceDistortion.html" title="Distortion.">Distortion</a> amount (-1.0 to 4.0)<ul>
+<li>Negative values: starved/compressed distortion</li>
+<li>Positive values: boosted/saturated distortion</li>
+<li>Values &gt; 1.0: multiple waveshaping passes</li>
+</ul>
+</li>
+<li>highpass: Highpass filter amount (0.0 to 1.0)</li>
+<li>output: Output level scaling (0.0 to 1.0+)</li>
+<li>mix: Dry/wet blend (0.0 = dry, 1.0 = wet)</li>
+</ul>
+<p>The density parameter uses sine waveshaping which produces odd harmonics, creating a warm, musical distortion character. Values above 1.0 apply multiple passes of waveshaping for increasingly aggressive distortion.</p>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classAirWindowsDistortion.html">AirWindowsDistortion</a> distortion;</div>
+<div class="line">distortion.<a class="code hl_function" href="classAirWindowsDistortion.html#a3e7b68d63e8e36b9e7a862c486cdd98a">setSampleRate</a>(44100.0);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Subtle saturation</span></div>
+<div class="line">distortion.<a class="code hl_function" href="classAirWindowsDistortion.html#aeed288adb8990fc00cf5193bfb51e1b3">setParams</a>(0.5f,  <span class="comment">// moderate density</span></div>
+<div class="line">                    0.1f,  <span class="comment">// slight highpass</span></div>
+<div class="line">                    0.8f,  <span class="comment">// reduce output</span></div>
+<div class="line">                    0.7f); <span class="comment">// 70% wet</span></div>
+<div class="line"> </div>
+<div class="line">distortion.<a class="code hl_function" href="classAirWindowsDistortion.html#a774f461ab66da2a485633242c4712c41">process</a>(audioBuffer);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Aggressive clipping</span></div>
+<div class="line">distortion.<a class="code hl_function" href="classAirWindowsDistortion.html#aeed288adb8990fc00cf5193bfb51e1b3">setParams</a>(2.0f,  <span class="comment">// high density</span></div>
+<div class="line">                    0.3f,  <span class="comment">// more highpass</span></div>
+<div class="line">                    0.6f,  <span class="comment">// compensate output</span></div>
+<div class="line">                    1.0f); <span class="comment">// fully wet</span></div>
+<div class="ttc" id="aclassAirWindowsDistortion_html"><div class="ttname"><a href="classAirWindowsDistortion.html">AirWindowsDistortion</a></div><div class="ttdoc">Sine-based waveshaping distortion effect based on AirWindows plugins.</div><div class="ttdef"><b>Definition</b> gin_distortion.h:94</div></div>
+<div class="ttc" id="aclassAirWindowsDistortion_html_a3e7b68d63e8e36b9e7a862c486cdd98a"><div class="ttname"><a href="classAirWindowsDistortion.html#a3e7b68d63e8e36b9e7a862c486cdd98a">AirWindowsDistortion::setSampleRate</a></div><div class="ttdeci">void setSampleRate(double sr)</div><div class="ttdef"><b>Definition</b> gin_distortion.h:101</div></div>
+<div class="ttc" id="aclassAirWindowsDistortion_html_a774f461ab66da2a485633242c4712c41"><div class="ttname"><a href="classAirWindowsDistortion.html#a774f461ab66da2a485633242c4712c41">AirWindowsDistortion::process</a></div><div class="ttdeci">void process(juce::AudioSampleBuffer &amp;buffer)</div><div class="ttdef"><b>Definition</b> gin_distortion.h:129</div></div>
+<div class="ttc" id="aclassAirWindowsDistortion_html_aeed288adb8990fc00cf5193bfb51e1b3"><div class="ttname"><a href="classAirWindowsDistortion.html#aeed288adb8990fc00cf5193bfb51e1b3">AirWindowsDistortion::setParams</a></div><div class="ttdeci">void setParams(float density, float highpass, float output, float mix)</div><div class="ttdef"><b>Definition</b> gin_distortion.h:121</div></div>
+</div><!-- fragment --><p>Credits: Based on AirWindows plugins by Chris Johnson (MIT License)</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classFilter.html" title="Multi-channel biquad filter with multiple types and slopes.">Filter</a>, WaveShaper </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acbc06ef71219995ce30ecb49cadb5a75" name="acbc06ef71219995ce30ecb49cadb5a75"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acbc06ef71219995ce30ecb49cadb5a75">&#9670;&#160;</a></span>AirWindowsDistortion()</h2>
@@ -218,7 +262,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:10:22 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:23:29 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

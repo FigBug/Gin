@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Use this class to customize your plugin.  
+<p>Plugin metadata and configuration options for <a class="el" href="classProcessor.html" title="Advanced audio processor base class with parameter management and preset system.">Processor</a>.  
  <a href="classProcessorOptions.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_processor.h&gt;</code></p>
@@ -121,8 +121,52 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a936b930e9a3271ae6d4e6f3201226635"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Use this class to customize your plugin. </p>
-<p>If you are using a JUCE plugin project, these will automatically be set to sensible default. If you are including a gin::Processor within another plugin or standalone application, then you will need to customize this. The default constructor depends on juce defines only found in plugin projects. </p>
+<div class="textblock"><p>Plugin metadata and configuration options for <a class="el" href="classProcessor.html" title="Advanced audio processor base class with parameter management and preset system.">Processor</a>. </p>
+<p><a class="el" href="classProcessorOptions.html" title="Plugin metadata and configuration options for Processor.">ProcessorOptions</a> provides configuration and metadata for a Gin-based plugin, including plugin identity (name, version, developer), capabilities (MIDI I/O), and optional features (update checker, news checker). When using a standard JUCE plugin project, the default constructor automatically fills these from JucePlugin_* preprocessor defines. For custom applications, you can manually configure all options.</p>
+<p>Configuration Categories:</p><ul>
+<li>Identity: pluginName, developer, devId, pluginVersion</li>
+<li>URLs: updatesURL, url, urlTitle (for help/website links)</li>
+<li>MIDI: wantsMidi, makesMidi flags</li>
+<li>Features: useUpdateChecker, useNewsChecker toggles</li>
+<li>Credits: programmingCredits array</li>
+</ul>
+<p>The class provides builder-style methods for common customizations:</p><ul>
+<li><a class="el" href="classProcessorOptions.html#a0db6fc2981e1e882526b44adab862a5e">withAdditionalCredits()</a>: Add more credits while keeping defaults</li>
+<li><a class="el" href="classProcessorOptions.html#a725a6c47b2760a05214157bed059b157">withoutUpdateChecker()</a>: Disable automatic update checking</li>
+<li><a class="el" href="classProcessorOptions.html#a2b71715ff959b8271eb2baeab802737d">withoutNewsChecker()</a>: Disable news feed checking</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="comment">// Standard plugin (auto-configured from JucePlugin_* defines)</span></div>
+<div class="line"><a class="code hl_class" href="classProcessorOptions.html">ProcessorOptions</a> opts;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Custom configuration</span></div>
+<div class="line"><a class="code hl_class" href="classProcessorOptions.html">ProcessorOptions</a> customOpts;</div>
+<div class="line">customOpts.<a class="code hl_variable" href="classProcessorOptions.html#a0b21261f8be769b37daac8f8ee3ac4a1">pluginName</a> = <span class="stringliteral">&quot;My Synth&quot;</span>;</div>
+<div class="line">customOpts.<a class="code hl_variable" href="classProcessorOptions.html#ad31c3c7b9ae9afc3d52725097d0a4527">developer</a> = <span class="stringliteral">&quot;My Company&quot;</span>;</div>
+<div class="line">customOpts.<a class="code hl_variable" href="classProcessorOptions.html#ac3669dc322348876a5c47e6e2098a77f">devId</a> = <span class="stringliteral">&quot;MYCO&quot;</span>;</div>
+<div class="line">customOpts.<a class="code hl_variable" href="classProcessorOptions.html#a2ce7de7b0e1185e0512e7e4d4718e347">pluginVersion</a> = <span class="stringliteral">&quot;1.0.0&quot;</span>;</div>
+<div class="line">customOpts.<a class="code hl_variable" href="classProcessorOptions.html#ae4ddf636c72b90599d942d685f9ffce7">wantsMidi</a> = <span class="keyword">true</span>;</div>
+<div class="line">customOpts.<a class="code hl_variable" href="classProcessorOptions.html#a3e2504a011fd35e07cd6c37b2354ea59">makesMidi</a> = <span class="keyword">false</span>;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Builder pattern</span></div>
+<div class="line"><span class="keyword">auto</span> opts = <a class="code hl_function" href="classProcessorOptions.html#a32bb47a9aa2cb95cd9766cc23b004c10">ProcessorOptions</a>()</div>
+<div class="line">    .<a class="code hl_function" href="classProcessorOptions.html#a0db6fc2981e1e882526b44adab862a5e">withAdditionalCredits</a>({<span class="stringliteral">&quot;Jane Smith&quot;</span>, <span class="stringliteral">&quot;Additional DSP&quot;</span>})</div>
+<div class="line">    .<a class="code hl_function" href="classProcessorOptions.html#a725a6c47b2760a05214157bed059b157">withoutUpdateChecker</a>()</div>
+<div class="line">    .<a class="code hl_function" href="classProcessorOptions.html#a2b71715ff959b8271eb2baeab802737d">withoutNewsChecker</a>();</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Pass to Processor</span></div>
+<div class="line">MyProcessor processor(opts);</div>
+<div class="ttc" id="aclassProcessorOptions_html"><div class="ttname"><a href="classProcessorOptions.html">ProcessorOptions</a></div><div class="ttdoc">Plugin metadata and configuration options for Processor.</div><div class="ttdef"><b>Definition</b> gin_processor.h:120</div></div>
+<div class="ttc" id="aclassProcessorOptions_html_a0b21261f8be769b37daac8f8ee3ac4a1"><div class="ttname"><a href="classProcessorOptions.html#a0b21261f8be769b37daac8f8ee3ac4a1">ProcessorOptions::pluginName</a></div><div class="ttdeci">juce::String pluginName</div><div class="ttdef"><b>Definition</b> gin_processor.h:124</div></div>
+<div class="ttc" id="aclassProcessorOptions_html_a0db6fc2981e1e882526b44adab862a5e"><div class="ttname"><a href="classProcessorOptions.html#a0db6fc2981e1e882526b44adab862a5e">ProcessorOptions::withAdditionalCredits</a></div><div class="ttdeci">ProcessorOptions withAdditionalCredits(juce::StringArray names) const</div><div class="ttdef"><b>Definition</b> gin_processor.h:143</div></div>
+<div class="ttc" id="aclassProcessorOptions_html_a2b71715ff959b8271eb2baeab802737d"><div class="ttname"><a href="classProcessorOptions.html#a2b71715ff959b8271eb2baeab802737d">ProcessorOptions::withoutNewsChecker</a></div><div class="ttdeci">ProcessorOptions withoutNewsChecker() const</div><div class="ttdef"><b>Definition</b> gin_processor.h:162</div></div>
+<div class="ttc" id="aclassProcessorOptions_html_a2ce7de7b0e1185e0512e7e4d4718e347"><div class="ttname"><a href="classProcessorOptions.html#a2ce7de7b0e1185e0512e7e4d4718e347">ProcessorOptions::pluginVersion</a></div><div class="ttdeci">juce::String pluginVersion</div><div class="ttdef"><b>Definition</b> gin_processor.h:127</div></div>
+<div class="ttc" id="aclassProcessorOptions_html_a32bb47a9aa2cb95cd9766cc23b004c10"><div class="ttname"><a href="classProcessorOptions.html#a32bb47a9aa2cb95cd9766cc23b004c10">ProcessorOptions::ProcessorOptions</a></div><div class="ttdeci">ProcessorOptions()</div></div>
+<div class="ttc" id="aclassProcessorOptions_html_a3e2504a011fd35e07cd6c37b2354ea59"><div class="ttname"><a href="classProcessorOptions.html#a3e2504a011fd35e07cd6c37b2354ea59">ProcessorOptions::makesMidi</a></div><div class="ttdeci">bool makesMidi</div><div class="ttdef"><b>Definition</b> gin_processor.h:133</div></div>
+<div class="ttc" id="aclassProcessorOptions_html_a725a6c47b2760a05214157bed059b157"><div class="ttname"><a href="classProcessorOptions.html#a725a6c47b2760a05214157bed059b157">ProcessorOptions::withoutUpdateChecker</a></div><div class="ttdeci">ProcessorOptions withoutUpdateChecker() const</div><div class="ttdef"><b>Definition</b> gin_processor.h:152</div></div>
+<div class="ttc" id="aclassProcessorOptions_html_ac3669dc322348876a5c47e6e2098a77f"><div class="ttname"><a href="classProcessorOptions.html#ac3669dc322348876a5c47e6e2098a77f">ProcessorOptions::devId</a></div><div class="ttdeci">juce::String devId</div><div class="ttdef"><b>Definition</b> gin_processor.h:125</div></div>
+<div class="ttc" id="aclassProcessorOptions_html_ad31c3c7b9ae9afc3d52725097d0a4527"><div class="ttname"><a href="classProcessorOptions.html#ad31c3c7b9ae9afc3d52725097d0a4527">ProcessorOptions::developer</a></div><div class="ttdeci">juce::String developer</div><div class="ttdef"><b>Definition</b> gin_processor.h:126</div></div>
+<div class="ttc" id="aclassProcessorOptions_html_ae4ddf636c72b90599d942d685f9ffce7"><div class="ttname"><a href="classProcessorOptions.html#ae4ddf636c72b90599d942d685f9ffce7">ProcessorOptions::wantsMidi</a></div><div class="ttdeci">bool wantsMidi</div><div class="ttdef"><b>Definition</b> gin_processor.h:132</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classProcessor.html" title="Advanced audio processor base class with parameter management and preset system.">Processor</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a32bb47a9aa2cb95cd9766cc23b004c10" name="a32bb47a9aa2cb95cd9766cc23b004c10"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a32bb47a9aa2cb95cd9766cc23b004c10">&#9670;&#160;</a></span>ProcessorOptions()</h2>
@@ -386,7 +430,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:10:23 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:23:29 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

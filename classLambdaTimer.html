@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Like juce::Timer, but it calls a std::function&lt;&gt;  
+<p>Timer that calls a std::function callback instead of requiring virtual override.  
  <a href="classLambdaTimer.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_asyncutilities.h&gt;</code></p>
@@ -95,7 +95,34 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a36a3d43e53e8d19d84262b31f7869977"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Like juce::Timer, but it calls a std::function&lt;&gt; </p>
+<div class="textblock"><p>Timer that calls a std::function callback instead of requiring virtual override. </p>
+<p><a class="el" href="classLambdaTimer.html" title="Timer that calls a std::function callback instead of requiring virtual override.">LambdaTimer</a> provides a more convenient alternative to juce::Timer by accepting a lambda or std::function for the timer callback. This eliminates the need to create a subclass or override timerCallback() for simple timer operations.</p>
+<p>Key Features:</p><ul>
+<li>Accepts lambda functions or std::function callbacks</li>
+<li>Same timing capabilities as juce::Timer</li>
+<li>No need to create subclass for simple timers</li>
+<li>Callback can be changed at runtime</li>
+<li>Cleaner code for inline timer operations</li>
+</ul>
+<p>The onTimer function is called at the specified interval. All juce::Timer methods are available (startTimer, stopTimer, isTimerRunning, etc.).</p>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="comment">// Create with lambda</span></div>
+<div class="line"><a class="code hl_class" href="classLambdaTimer.html">LambdaTimer</a> timer([<span class="keyword">this</span>]() {</div>
+<div class="line">    updateDisplay();</div>
+<div class="line">});</div>
+<div class="line">timer.startTimer(100); <span class="comment">// Call every 100ms</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Create and assign later</span></div>
+<div class="line"><a class="code hl_class" href="classLambdaTimer.html">LambdaTimer</a> timer;</div>
+<div class="line">timer.<a class="code hl_variable" href="classLambdaTimer.html#a36a3d43e53e8d19d84262b31f7869977">onTimer</a> = [<span class="keyword">this</span>]() {</div>
+<div class="line">    checkForUpdates();</div>
+<div class="line">};</div>
+<div class="line">timer.startTimer(1000); <span class="comment">// Call every second</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Stop timer</span></div>
+<div class="line">timer.stopTimer();</div>
+<div class="ttc" id="aclassLambdaTimer_html"><div class="ttname"><a href="classLambdaTimer.html">LambdaTimer</a></div><div class="ttdoc">Timer that calls a std::function callback instead of requiring virtual override.</div><div class="ttdef"><b>Definition</b> gin_asyncutilities.h:53</div></div>
+<div class="ttc" id="aclassLambdaTimer_html_a36a3d43e53e8d19d84262b31f7869977"><div class="ttname"><a href="classLambdaTimer.html#a36a3d43e53e8d19d84262b31f7869977">LambdaTimer::onTimer</a></div><div class="ttdeci">std::function&lt; void()&gt; onTimer</div><div class="ttdef"><b>Definition</b> gin_asyncutilities.h:57</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd>juce::Timer, <a class="el" href="classLambdaAsyncUpdater.html" title="Async updater that calls a std::function callback instead of requiring virtual override.">LambdaAsyncUpdater</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4156bda8cd4d7bc5f288138900a1c068" name="a4156bda8cd4d7bc5f288138900a1c068"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4156bda8cd4d7bc5f288138900a1c068">&#9670;&#160;</a></span>LambdaTimer()</h2>
@@ -136,7 +163,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:10:23 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:23:29 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

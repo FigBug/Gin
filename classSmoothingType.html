@@ -78,7 +78,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>How do you want you params smoothed?  
+<p><a class="el" href="classParameter.html" title="Advanced parameter class with modulation, real-time callbacks, and host automation.">Parameter</a> smoothing configuration for audio-rate interpolation.  
  <a href="classSmoothingType.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_processor.h&gt;</code></p>
@@ -103,7 +103,28 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a0393375a369c88015c76fe37f4e50a1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>How do you want you params smoothed? </p>
+<div class="textblock"><p><a class="el" href="classParameter.html" title="Advanced parameter class with modulation, real-time callbacks, and host automation.">Parameter</a> smoothing configuration for audio-rate interpolation. </p>
+<p><a class="el" href="classSmoothingType.html" title="Parameter smoothing configuration for audio-rate interpolation.">SmoothingType</a> specifies how parameter changes should be smoothed when applied to audio processing. This prevents zipper noise and clicks when parameters change, particularly important for frequency, gain, and other audio-critical parameters.</p>
+<p>Smoothing Types:</p><ul>
+<li>linear: Simple linear interpolation (faster, good for most uses)</li>
+<li>eased: Exponential/eased interpolation (smoother, more natural)</li>
+</ul>
+<p>The time value specifies how long the parameter takes to reach its new value from the current value. Typical values are 0.02-0.2 seconds.</p>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="comment">// Fast linear smoothing for non-critical params</span></div>
+<div class="line"><a class="code hl_class" href="classSmoothingType.html">SmoothingType</a> fast(0.02f, <a class="code hl_enumvalue" href="classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7ca6f9f428f8d2b02f3abdd34b9c11f1f84">SmoothingType::linear</a>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Slower eased smoothing for filter cutoff</span></div>
+<div class="line"><a class="code hl_class" href="classSmoothingType.html">SmoothingType</a> smooth(0.1f, <a class="code hl_enumvalue" href="classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7ca9ba4cec564f640dc7fef74aafe60e3df">SmoothingType::eased</a>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Used when creating parameters</span></div>
+<div class="line"><span class="keyword">auto</span> cutoff = processor.addExtParam(<span class="stringliteral">&quot;cutoff&quot;</span>, <span class="stringliteral">&quot;Cutoff&quot;</span>, <span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;&quot;</span>,</div>
+<div class="line">                                   {20.0f, 20000.0f, 1.0f, 0.3f},</div>
+<div class="line">                                   1000.0f, 0.0f,</div>
+<div class="line">                                   <a class="code hl_class" href="classSmoothingType.html">SmoothingType</a>(0.05f, <a class="code hl_enumvalue" href="classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7ca9ba4cec564f640dc7fef74aafe60e3df">SmoothingType::eased</a>));</div>
+<div class="ttc" id="aclassSmoothingType_html"><div class="ttname"><a href="classSmoothingType.html">SmoothingType</a></div><div class="ttdoc">Parameter smoothing configuration for audio-rate interpolation.</div><div class="ttdef"><b>Definition</b> gin_processor.h:53</div></div>
+<div class="ttc" id="aclassSmoothingType_html_a3d81776be90ddd188fa74ae1b80fff7ca6f9f428f8d2b02f3abdd34b9c11f1f84"><div class="ttname"><a href="classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7ca6f9f428f8d2b02f3abdd34b9c11f1f84">SmoothingType::linear</a></div><div class="ttdeci">@ linear</div><div class="ttdef"><b>Definition</b> gin_processor.h:57</div></div>
+<div class="ttc" id="aclassSmoothingType_html_a3d81776be90ddd188fa74ae1b80fff7ca9ba4cec564f640dc7fef74aafe60e3df"><div class="ttname"><a href="classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7ca9ba4cec564f640dc7fef74aafe60e3df">SmoothingType::eased</a></div><div class="ttdeci">@ eased</div><div class="ttdef"><b>Definition</b> gin_processor.h:58</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classParameter.html" title="Advanced parameter class with modulation, real-time callbacks, and host automation.">Parameter</a>, <a class="el" href="classProcessor.html" title="Advanced audio processor base class with parameter management and preset system.">Processor</a> </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a3d81776be90ddd188fa74ae1b80fff7c" name="a3d81776be90ddd188fa74ae1b80fff7c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3d81776be90ddd188fa74ae1b80fff7c">&#9670;&#160;</a></span>Type</h2>
@@ -187,7 +208,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:10:23 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:23:29 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

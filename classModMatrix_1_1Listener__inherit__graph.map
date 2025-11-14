@@ -1,6 +1,6 @@
 <map id="ModMatrix::Listener" name="ModMatrix::Listener">
 <area shape="rect" id="Node000001" title=" " alt="" coords="147,5,299,31"/>
-<area shape="rect" id="Node000002" href="$classKnob.html" title="Slider + editable text for showing a param." alt="" coords="5,79,60,104"/>
+<area shape="rect" id="Node000002" href="$classKnob.html" title="Complete parameter control combining rotary slider, value readout, and modulation." alt="" coords="5,79,60,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,38,61,82,59,77,179,33"/>
 <area shape="rect" id="Node000003" href="$classModMatrixBox.html" title="A list box of all assigned." alt="" coords="85,79,202,104"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,42,158,80,155,76,199,38"/>

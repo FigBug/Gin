@@ -78,7 +78,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Linear <a class="el" href="classADSR.html" title="Linear ADSR.">ADSR</a>.  
+<p>Linear <a class="el" href="classADSR.html" title="Linear ADSR envelope generator optimized for modulation sources.">ADSR</a> envelope generator optimized for modulation sources.  
  <a href="classADSR.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_adsr.h&gt;</code></p>
@@ -152,8 +152,42 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:aa02446c404e961975776b5b7d40d91a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Linear <a class="el" href="classADSR.html" title="Linear ADSR.">ADSR</a>. </p>
-<p>Good for a modulation source </p>
+<div class="textblock"><p>Linear <a class="el" href="classADSR.html" title="Linear ADSR envelope generator optimized for modulation sources.">ADSR</a> envelope generator optimized for modulation sources. </p>
+<p><a class="el" href="classADSR.html" title="Linear ADSR envelope generator optimized for modulation sources.">ADSR</a> provides a simple, linear envelope generator with attack, decay, sustain, and release stages. Unlike <a class="el" href="classAnalogADSR.html" title="Analog-modeled ADSR envelope generator for smooth, musical envelopes.">AnalogADSR</a> which uses exponential curves for audio, this class uses linear ramps making it ideal for modulation sources (<a class="el" href="classLFO.html" title="Low-Frequency Oscillator with 18 waveform shapes and modulation features.">LFO</a> depth, filter cutoff, etc.) where linear response is often preferred.</p>
+<p>Key Features:</p><ul>
+<li>Linear attack, decay, and release stages</li>
+<li>Constant sustain level while note is held</li>
+<li>Per-sample or block processing</li>
+<li>State tracking for envelope phase</li>
+<li>Can fill buffer with envelope values</li>
+</ul>
+<p>Envelope Stages:</p><ul>
+<li>Attack: Linear rise from 0 to 1</li>
+<li>Decay: Linear fall from 1 to sustain level</li>
+<li>Sustain: Held at sustain level while note is on</li>
+<li>Release: Linear fall from current level to 0</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classADSR.html">ADSR</a> envelope;</div>
+<div class="line">envelope.<a class="code hl_function" href="classADSR.html#af6e69c2c20e619a9acf144ac8d24493d">setSampleRate</a>(44100.0);</div>
+<div class="line">envelope.<a class="code hl_function" href="classADSR.html#a94d90ba1cd4fc7e4cf5508e746a7e53e">setAttack</a>(0.01f);       <span class="comment">// 10ms attack</span></div>
+<div class="line">envelope.<a class="code hl_function" href="classADSR.html#adb8cfc9ecc4bcfa57dbdcb29dc94f57b">setDecay</a>(0.1f);         <span class="comment">// 100ms decay</span></div>
+<div class="line">envelope.<a class="code hl_function" href="classADSR.html#af9f4efe95e72ee6c0066a0249794f367">setSustainLevel</a>(0.7f);  <span class="comment">// 70% sustain</span></div>
+<div class="line">envelope.<a class="code hl_function" href="classADSR.html#aba5e155a2619b03292ac328732ac679d">setRelease</a>(0.5f);       <span class="comment">// 500ms release</span></div>
+<div class="line"> </div>
+<div class="line">envelope.<a class="code hl_function" href="classADSR.html#a9d5b7c8618c2c836be04e3549eb19d25">noteOn</a>();</div>
+<div class="line"><span class="keywordtype">float</span> modValue = envelope.<a class="code hl_function" href="classADSR.html#a3a1efe888ece1888c0ac82a3ebe18183">process</a>(blockSize);</div>
+<div class="line"><span class="comment">// ... later ...</span></div>
+<div class="line">envelope.<a class="code hl_function" href="classADSR.html#aa187e99749943e75013e40a4e6d4c07e">noteOff</a>();</div>
+<div class="ttc" id="aclassADSR_html"><div class="ttname"><a href="classADSR.html">ADSR</a></div><div class="ttdoc">Linear ADSR envelope generator optimized for modulation sources.</div><div class="ttdef"><b>Definition</b> gin_adsr.h:56</div></div>
+<div class="ttc" id="aclassADSR_html_a3a1efe888ece1888c0ac82a3ebe18183"><div class="ttname"><a href="classADSR.html#a3a1efe888ece1888c0ac82a3ebe18183">ADSR::process</a></div><div class="ttdeci">float process()</div></div>
+<div class="ttc" id="aclassADSR_html_a94d90ba1cd4fc7e4cf5508e746a7e53e"><div class="ttname"><a href="classADSR.html#a94d90ba1cd4fc7e4cf5508e746a7e53e">ADSR::setAttack</a></div><div class="ttdeci">void setAttack(float seconds)</div></div>
+<div class="ttc" id="aclassADSR_html_a9d5b7c8618c2c836be04e3549eb19d25"><div class="ttname"><a href="classADSR.html#a9d5b7c8618c2c836be04e3549eb19d25">ADSR::noteOn</a></div><div class="ttdeci">void noteOn()</div><div class="ttdef"><b>Definition</b> gin_adsr.h:104</div></div>
+<div class="ttc" id="aclassADSR_html_aa187e99749943e75013e40a4e6d4c07e"><div class="ttname"><a href="classADSR.html#aa187e99749943e75013e40a4e6d4c07e">ADSR::noteOff</a></div><div class="ttdeci">void noteOff()</div><div class="ttdef"><b>Definition</b> gin_adsr.h:105</div></div>
+<div class="ttc" id="aclassADSR_html_aba5e155a2619b03292ac328732ac679d"><div class="ttname"><a href="classADSR.html#aba5e155a2619b03292ac328732ac679d">ADSR::setRelease</a></div><div class="ttdeci">void setRelease(float seconds)</div></div>
+<div class="ttc" id="aclassADSR_html_adb8cfc9ecc4bcfa57dbdcb29dc94f57b"><div class="ttname"><a href="classADSR.html#adb8cfc9ecc4bcfa57dbdcb29dc94f57b">ADSR::setDecay</a></div><div class="ttdeci">void setDecay(float seconds)</div></div>
+<div class="ttc" id="aclassADSR_html_af6e69c2c20e619a9acf144ac8d24493d"><div class="ttname"><a href="classADSR.html#af6e69c2c20e619a9acf144ac8d24493d">ADSR::setSampleRate</a></div><div class="ttdeci">void setSampleRate(double sr)</div><div class="ttdef"><b>Definition</b> gin_adsr.h:71</div></div>
+<div class="ttc" id="aclassADSR_html_af9f4efe95e72ee6c0066a0249794f367"><div class="ttname"><a href="classADSR.html#af9f4efe95e72ee6c0066a0249794f367">ADSR::setSustainLevel</a></div><div class="ttdeci">void setSustainLevel(float level)</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classAnalogADSR.html" title="Analog-modeled ADSR envelope generator for smooth, musical envelopes.">AnalogADSR</a> </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="ab573baeeb4578e0a1e6e123452b8127a" name="ab573baeeb4578e0a1e6e123452b8127a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab573baeeb4578e0a1e6e123452b8127a">&#9670;&#160;</a></span>State</h2>
@@ -673,7 +707,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:10:22 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:23:29 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

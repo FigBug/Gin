@@ -79,7 +79,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classLFO.html" title="LFO with many shapes.">LFO</a> with many shapes.  
+<p>Low-Frequency Oscillator with 18 waveform shapes and modulation features.  
  <a href="classLFO.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_lfo.h&gt;</code></p>
@@ -145,7 +145,66 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:aa5d050d62b65336815b5c8b5bcba6fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classLFO.html" title="LFO with many shapes.">LFO</a> with many shapes. </p>
+<div class="textblock"><p>Low-Frequency Oscillator with 18 waveform shapes and modulation features. </p>
+<p><a class="el" href="classLFO.html" title="Low-Frequency Oscillator with 18 waveform shapes and modulation features.">LFO</a> provides a versatile modulation source with many waveforms, phase control, fade-in, delay, and depth/offset parameters. It supports both smooth waveforms (sine, triangle) and stepped waveforms (sample-and-hold, pyramids, steps).</p>
+<p>Key Features:</p><ul>
+<li>18 waveform shapes including classic and exotic types</li>
+<li>Phase offset control</li>
+<li>Delay before <a class="el" href="classLFO.html" title="Low-Frequency Oscillator with 18 waveform shapes and modulation features.">LFO</a> starts</li>
+<li>Fade-in over time</li>
+<li>Depth and offset controls</li>
+<li>Note-on retriggering with optional phase</li>
+<li>Sample-and-hold with interpolated noise</li>
+</ul>
+<p>Waveform Types:</p><ul>
+<li>Classic: sine, triangle, sawUp, sawDown, square</li>
+<li>Random: sampleAndHold (stepped), noise (interpolated)</li>
+<li>Stepped: stepUp/Down (3/4/8 steps)</li>
+<li>Pyramids: pyramid3/5/9 (symmetrical steps)</li>
+<li>Positive: squarePos (0 to 1 instead of -1 to 1)</li>
+</ul>
+<p><a class="el" href="structLFO_1_1Parameters.html">Parameters</a>:</p><ul>
+<li>waveShape: Which waveform to use</li>
+<li>frequency: <a class="el" href="classLFO.html" title="Low-Frequency Oscillator with 18 waveform shapes and modulation features.">LFO</a> rate in Hz</li>
+<li>phase: Phase offset (0 to 1)</li>
+<li>depth: Output scaling</li>
+<li>offset: DC offset added to output</li>
+<li>delay: Time before <a class="el" href="classLFO.html" title="Low-Frequency Oscillator with 18 waveform shapes and modulation features.">LFO</a> starts (seconds)</li>
+<li>fade: Fade-in time (seconds)</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classLFO.html">LFO</a> lfo;</div>
+<div class="line">lfo.<a class="code hl_function" href="classLFO.html#ac53ad3892743661db85583bcf3b4cbf2">setSampleRate</a>(44100.0);</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_struct" href="structLFO_1_1Parameters.html">LFO::Parameters</a> params;</div>
+<div class="line">params.<a class="code hl_variable" href="structLFO_1_1Parameters.html#a5128a3dd3bf6a99e901bff2e962bdc81">waveShape</a> = <a class="code hl_enumvalue" href="classLFO.html#a9377c9fb47d163e9343a11edd200da29a925212d1624625aed9491413b4b7be05">LFO::WaveShape::sine</a>;</div>
+<div class="line">params.<a class="code hl_variable" href="structLFO_1_1Parameters.html#a69abbc2714aacf8d32fc515b46c39c1e">frequency</a> = 2.0f;  <span class="comment">// 2 Hz</span></div>
+<div class="line">params.<a class="code hl_variable" href="structLFO_1_1Parameters.html#aa952c923e064d33a4061f6c3e49c3d7c">phase</a> = 0.0f;</div>
+<div class="line">params.<a class="code hl_variable" href="structLFO_1_1Parameters.html#aea5b1c1cd4fc3b68d3826fce64f6287a">depth</a> = 1.0f;</div>
+<div class="line">params.<a class="code hl_variable" href="structLFO_1_1Parameters.html#aa98b00b462d53ce4b331ed6b9c0d6dd9">offset</a> = 0.0f;</div>
+<div class="line">params.<a class="code hl_variable" href="structLFO_1_1Parameters.html#a9be35ed3aca74afab18de36202cdfd97">delay</a> = 0.0f;</div>
+<div class="line">params.<a class="code hl_variable" href="structLFO_1_1Parameters.html#a20d76d843455f85c2131d9ed77329499">fade</a> = 0.1f;  <span class="comment">// 100ms fade-in</span></div>
+<div class="line"> </div>
+<div class="line">lfo.<a class="code hl_function" href="classLFO.html#ab516f44f799e5a8a3c784621139003b7">setParameters</a>(params);</div>
+<div class="line">lfo.<a class="code hl_function" href="classLFO.html#a9cb9a6408aed9de07ccf2fdcf0d4eba3">noteOn</a>();</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">float</span> modValue = lfo.<a class="code hl_function" href="classLFO.html#aecd209c8d601e2b23aa9eaee2bb0f075">process</a>(blockSize);</div>
+<div class="line"><span class="keywordtype">float</span> output = lfo.<a class="code hl_function" href="classLFO.html#a87dce294e659cd21de22aaa2f7de6119">getOutput</a>(); <span class="comment">// Clamped to -1..1</span></div>
+<div class="ttc" id="aclassLFO_html"><div class="ttname"><a href="classLFO.html">LFO</a></div><div class="ttdoc">Low-Frequency Oscillator with 18 waveform shapes and modulation features.</div><div class="ttdef"><b>Definition</b> gin_lfo.h:73</div></div>
+<div class="ttc" id="aclassLFO_html_a87dce294e659cd21de22aaa2f7de6119"><div class="ttname"><a href="classLFO.html#a87dce294e659cd21de22aaa2f7de6119">LFO::getOutput</a></div><div class="ttdeci">float getOutput()</div><div class="ttdef"><b>Definition</b> gin_lfo.h:206</div></div>
+<div class="ttc" id="aclassLFO_html_a9377c9fb47d163e9343a11edd200da29a925212d1624625aed9491413b4b7be05"><div class="ttname"><a href="classLFO.html#a9377c9fb47d163e9343a11edd200da29a925212d1624625aed9491413b4b7be05">LFO::WaveShape::sine</a></div><div class="ttdeci">@ sine</div></div>
+<div class="ttc" id="aclassLFO_html_a9cb9a6408aed9de07ccf2fdcf0d4eba3"><div class="ttname"><a href="classLFO.html#a9cb9a6408aed9de07ccf2fdcf0d4eba3">LFO::noteOn</a></div><div class="ttdeci">void noteOn(float phase_=-1.0f)</div><div class="ttdef"><b>Definition</b> gin_lfo.h:141</div></div>
+<div class="ttc" id="aclassLFO_html_ab516f44f799e5a8a3c784621139003b7"><div class="ttname"><a href="classLFO.html#ab516f44f799e5a8a3c784621139003b7">LFO::setParameters</a></div><div class="ttdeci">void setParameters(Parameters p)</div><div class="ttdef"><b>Definition</b> gin_lfo.h:118</div></div>
+<div class="ttc" id="aclassLFO_html_ac53ad3892743661db85583bcf3b4cbf2"><div class="ttname"><a href="classLFO.html#ac53ad3892743661db85583bcf3b4cbf2">LFO::setSampleRate</a></div><div class="ttdeci">void setSampleRate(double sr)</div><div class="ttdef"><b>Definition</b> gin_lfo.h:117</div></div>
+<div class="ttc" id="aclassLFO_html_aecd209c8d601e2b23aa9eaee2bb0f075"><div class="ttname"><a href="classLFO.html#aecd209c8d601e2b23aa9eaee2bb0f075">LFO::process</a></div><div class="ttdeci">float process(int numSamples)</div><div class="ttdef"><b>Definition</b> gin_lfo.h:170</div></div>
+<div class="ttc" id="astructLFO_1_1Parameters_html"><div class="ttname"><a href="structLFO_1_1Parameters.html">LFO::Parameters</a></div><div class="ttdef"><b>Definition</b> gin_lfo.h:102</div></div>
+<div class="ttc" id="astructLFO_1_1Parameters_html_a20d76d843455f85c2131d9ed77329499"><div class="ttname"><a href="structLFO_1_1Parameters.html#a20d76d843455f85c2131d9ed77329499">LFO::Parameters::fade</a></div><div class="ttdeci">float fade</div><div class="ttdef"><b>Definition</b> gin_lfo.h:104</div></div>
+<div class="ttc" id="astructLFO_1_1Parameters_html_a5128a3dd3bf6a99e901bff2e962bdc81"><div class="ttname"><a href="structLFO_1_1Parameters.html#a5128a3dd3bf6a99e901bff2e962bdc81">LFO::Parameters::waveShape</a></div><div class="ttdeci">WaveShape waveShape</div><div class="ttdef"><b>Definition</b> gin_lfo.h:103</div></div>
+<div class="ttc" id="astructLFO_1_1Parameters_html_a69abbc2714aacf8d32fc515b46c39c1e"><div class="ttname"><a href="structLFO_1_1Parameters.html#a69abbc2714aacf8d32fc515b46c39c1e">LFO::Parameters::frequency</a></div><div class="ttdeci">float frequency</div><div class="ttdef"><b>Definition</b> gin_lfo.h:104</div></div>
+<div class="ttc" id="astructLFO_1_1Parameters_html_a9be35ed3aca74afab18de36202cdfd97"><div class="ttname"><a href="structLFO_1_1Parameters.html#a9be35ed3aca74afab18de36202cdfd97">LFO::Parameters::delay</a></div><div class="ttdeci">float delay</div><div class="ttdef"><b>Definition</b> gin_lfo.h:104</div></div>
+<div class="ttc" id="astructLFO_1_1Parameters_html_aa952c923e064d33a4061f6c3e49c3d7c"><div class="ttname"><a href="structLFO_1_1Parameters.html#aa952c923e064d33a4061f6c3e49c3d7c">LFO::Parameters::phase</a></div><div class="ttdeci">float phase</div><div class="ttdef"><b>Definition</b> gin_lfo.h:104</div></div>
+<div class="ttc" id="astructLFO_1_1Parameters_html_aa98b00b462d53ce4b331ed6b9c0d6dd9"><div class="ttname"><a href="structLFO_1_1Parameters.html#aa98b00b462d53ce4b331ed6b9c0d6dd9">LFO::Parameters::offset</a></div><div class="ttdeci">float offset</div><div class="ttdef"><b>Definition</b> gin_lfo.h:104</div></div>
+<div class="ttc" id="astructLFO_1_1Parameters_html_aea5b1c1cd4fc3b68d3826fce64f6287a"><div class="ttname"><a href="structLFO_1_1Parameters.html#aea5b1c1cd4fc3b68d3826fce64f6287a">LFO::Parameters::depth</a></div><div class="ttdeci">float depth</div><div class="ttdef"><b>Definition</b> gin_lfo.h:104</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classStepLFO.html" title="Step sequencer-style LFO with programmable values per step.">StepLFO</a>, <a class="el" href="classMSEG.html" title="Multi-Segment Envelope Generator (MSEG) for complex modulation curves.">MSEG</a> </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a9377c9fb47d163e9343a11edd200da29" name="a9377c9fb47d163e9343a11edd200da29"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9377c9fb47d163e9343a11edd200da29">&#9670;&#160;</a></span>WaveShape</h2>
@@ -391,7 +450,7 @@ Static Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:10:23 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:23:29 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
