@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Simple Reverb.  
+<p>Simple stereo reverb effect with room size and damping controls.  
  <a href="classSimpleVerb.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_simpleverb.h&gt;</code></p>
@@ -93,10 +93,46 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a69ee1d22a4025b221a5af157bdeca96d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Simple Reverb. </p>
+<div class="textblock"><p>Simple stereo reverb effect with room size and damping controls. </p>
+<p><a class="el" href="classSimpleVerb.html" title="Simple stereo reverb effect with room size and damping controls.">SimpleVerb</a> provides a high-quality algorithmic reverb using multiple comb filters and allpass filters for diffusion. It's designed for realistic room simulation with minimal CPU usage.</p>
 <p>Copyright (c) 2006-2008 and 2012, Michael "LOSER" Gruhn</p>
 <p>Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.</p>
-<p>THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE. </p>
+<p>THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.</p>
+<p>Key Features:</p><ul>
+<li>Multiple comb filters for dense reverberation</li>
+<li>Allpass filters for additional diffusion</li>
+<li>Pre-delay control</li>
+<li>Room size adjustment</li>
+<li>Damping (high-frequency absorption)</li>
+<li>Low-pass and high-pass filtering</li>
+<li>Independent wet/dry mix</li>
+</ul>
+<p>Parameters:</p><ul>
+<li>room: Room size (0.0 to 1.0)</li>
+<li>damp: High-frequency damping amount (0.0 to 1.0)</li>
+<li>preDelay: Initial delay before reverb (seconds)</li>
+<li>lpFader: Low-pass filter amount</li>
+<li>hpFader: High-pass filter amount</li>
+<li>wet: Wet signal level (0.0 to 1.0)</li>
+<li>dry: Dry signal level (0.0 to 1.0)</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classSimpleVerb.html">SimpleVerb</a> reverb;</div>
+<div class="line">reverb.<a class="code hl_function" href="classSimpleVerb.html#a3375884bdc9570f8d07f6f0575c90283">setSampleRate</a>(44100.0f);</div>
+<div class="line">reverb.<a class="code hl_function" href="classSimpleVerb.html#a69ee1d22a4025b221a5af157bdeca96d">setParameters</a>(</div>
+<div class="line">    0.7f,  <span class="comment">// room size</span></div>
+<div class="line">    0.5f,  <span class="comment">// damping</span></div>
+<div class="line">    0.02f, <span class="comment">// 20ms pre-delay</span></div>
+<div class="line">    0.8f,  <span class="comment">// low-pass</span></div>
+<div class="line">    0.2f,  <span class="comment">// high-pass</span></div>
+<div class="line">    0.3f,  <span class="comment">// wet</span></div>
+<div class="line">    0.7f   <span class="comment">// dry</span></div>
+<div class="line">);</div>
+<div class="line">reverb.<a class="code hl_function" href="classSimpleVerb.html#a2c675ca200b1eab943bac840224fde97">process</a>(audioBuffer);</div>
+<div class="ttc" id="aclassSimpleVerb_html"><div class="ttname"><a href="classSimpleVerb.html">SimpleVerb</a></div><div class="ttdoc">Simple stereo reverb effect with room size and damping controls.</div><div class="ttdef"><b>Definition</b> gin_simpleverb.h:77</div></div>
+<div class="ttc" id="aclassSimpleVerb_html_a2c675ca200b1eab943bac840224fde97"><div class="ttname"><a href="classSimpleVerb.html#a2c675ca200b1eab943bac840224fde97">SimpleVerb::process</a></div><div class="ttdeci">void process(juce::AudioSampleBuffer &amp;buffer)</div></div>
+<div class="ttc" id="aclassSimpleVerb_html_a3375884bdc9570f8d07f6f0575c90283"><div class="ttname"><a href="classSimpleVerb.html#a3375884bdc9570f8d07f6f0575c90283">SimpleVerb::setSampleRate</a></div><div class="ttdeci">void setSampleRate(float sr)</div></div>
+<div class="ttc" id="aclassSimpleVerb_html_a69ee1d22a4025b221a5af157bdeca96d"><div class="ttname"><a href="classSimpleVerb.html#a69ee1d22a4025b221a5af157bdeca96d">SimpleVerb::setParameters</a></div><div class="ttdeci">void setParameters(float roomIn, float dampIn, float preDelayIn, float lpFaderIn, float hpFaderIn, float wetIn, float dryIn)</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classPlateReverb.html" title="Plate reverb from Dattorro&#39;s paper.">PlateReverb</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1792ace0ad36c1f9f280096c4d6a1fe1" name="a1792ace0ad36c1f9f280096c4d6a1fe1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1792ace0ad36c1f9f280096c4d6a1fe1">&#9670;&#160;</a></span>SimpleVerb()</h2>
@@ -216,7 +252,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 17:18:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 19:06:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

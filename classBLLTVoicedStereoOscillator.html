@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Stereo Oscillator with multiple voices, pan, spread, detune, etc.  
+<p>Band-limited stereo oscillator with multiple voices for unison effects.  
  <a href="classBLLTVoicedStereoOscillator.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_oscillators.h&gt;</code></p>
@@ -111,7 +111,42 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a2b43a2c3228e8719d3d2a11d5d349b11 inherit pro_attribs_classVoicedStereoOscillator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Stereo Oscillator with multiple voices, pan, spread, detune, etc. </p>
+<div class="textblock"><p>Band-limited stereo oscillator with multiple voices for unison effects. </p>
+<p><a class="el" href="classBLLTVoicedStereoOscillator.html" title="Band-limited stereo oscillator with multiple voices for unison effects.">BLLTVoicedStereoOscillator</a> combines the band-limited <a class="el" href="classStereoOscillator.html" title="Virtual analog stereo oscillator with band-limited waveforms.">StereoOscillator</a> with the multi-voice capabilities of <a class="el" href="classVoicedStereoOscillator.html" title="Stereo oscillator with multiple voices for unison/detuning effects.">VoicedStereoOscillator</a>. It's ideal for creating rich, detuned analog-style sounds without aliasing.</p>
+<p>Key Features:</p><ul>
+<li>Multiple voices (configurable up to maxVoices)</li>
+<li>Band-limited waveforms (no aliasing)</li>
+<li>Classic analog waveforms (saw, square, triangle, etc.)</li>
+<li>Per-voice detuning and stereo spread</li>
+<li>Pulse width modulation</li>
+<li>Wavefolding and asymmetry effects</li>
+<li>Stereo panning</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classBandLimitedLookupTables.html">BandLimitedLookupTables</a> bllt;</div>
+<div class="line"><a class="code hl_class" href="classBLLTVoicedStereoOscillator.html">BLLTVoicedStereoOscillator</a> osc(bllt, 8); <span class="comment">// Up to 8 voices</span></div>
+<div class="line">osc.setSampleRate(44100.0);</div>
+<div class="line">osc.noteOn();</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_struct" href="structVoicedStereoOscillatorParams.html">VoicedStereoOscillatorParams</a> params;</div>
+<div class="line">params.<a class="code hl_variable" href="structVoicedStereoOscillatorParams.html#af62dd65ab7701539dcddbf46e87df9f7">wave</a> = <a class="code hl_enumvalue" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90acf87f9eb2bfacc5a0362031eba539290">Wave::sawUp</a>;</div>
+<div class="line">params.<a class="code hl_variable" href="structVoicedOscillatorParams.html#af8809e0628ba614f83f9bcc26940de5a">voices</a> = 5;</div>
+<div class="line">params.<a class="code hl_variable" href="structVoicedOscillatorParams.html#a18f197eff7f01c6fc532b01f11f634e4">detune</a> = 0.12f; <span class="comment">// Semitones</span></div>
+<div class="line">params.<a class="code hl_variable" href="structVoicedOscillatorParams.html#a070d5aad9f070816287802b7503d203f">spread</a> = 0.6f;  <span class="comment">// Stereo spread</span></div>
+<div class="line">params.<a class="code hl_variable" href="structVoicedStereoOscillatorParams.html#a224625483ee768c1e6e86bf6a999df9d">pw</a> = 0.5f;</div>
+<div class="line">params.<a class="code hl_variable" href="structVoicedStereoOscillatorParams.html#a970339414b84994c1fa585069e0d4862">fold</a> = 0.2f;</div>
+<div class="line"> </div>
+<div class="line">osc.process(60.0f, params, audioBuffer);</div>
+<div class="ttc" id="aclassBLLTVoicedStereoOscillator_html"><div class="ttname"><a href="classBLLTVoicedStereoOscillator.html">BLLTVoicedStereoOscillator</a></div><div class="ttdoc">Band-limited stereo oscillator with multiple voices for unison effects.</div><div class="ttdef"><b>Definition</b> gin_oscillators.h:320</div></div>
+<div class="ttc" id="aclassBandLimitedLookupTables_html"><div class="ttname"><a href="classBandLimitedLookupTables.html">BandLimitedLookupTables</a></div><div class="ttdoc">Generate and hold bandlimited lookup tables for all the common waveforms.</div><div class="ttdef"><b>Definition</b> gin_bandlimitedlookuptable.h:200</div></div>
+<div class="ttc" id="agroup__gin__dsp-dsp_html_ggadb931b2f752b7879df254a7fd9d17e90acf87f9eb2bfacc5a0362031eba539290"><div class="ttname"><a href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90acf87f9eb2bfacc5a0362031eba539290">Wave::sawUp</a></div><div class="ttdeci">@ sawUp</div></div>
+<div class="ttc" id="astructVoicedOscillatorParams_html_a070d5aad9f070816287802b7503d203f"><div class="ttname"><a href="structVoicedOscillatorParams.html#a070d5aad9f070816287802b7503d203f">VoicedOscillatorParams::spread</a></div><div class="ttdeci">float spread</div><div class="ttdoc">Stereo spread amount (0.0 = mono, 1.0 = full stereo)</div><div class="ttdef"><b>Definition</b> gin_oscillators.h:135</div></div>
+<div class="ttc" id="astructVoicedOscillatorParams_html_a18f197eff7f01c6fc532b01f11f634e4"><div class="ttname"><a href="structVoicedOscillatorParams.html#a18f197eff7f01c6fc532b01f11f634e4">VoicedOscillatorParams::detune</a></div><div class="ttdeci">float detune</div><div class="ttdoc">Detune amount between voices (in semitones or cents)</div><div class="ttdef"><b>Definition</b> gin_oscillators.h:136</div></div>
+<div class="ttc" id="astructVoicedOscillatorParams_html_af8809e0628ba614f83f9bcc26940de5a"><div class="ttname"><a href="structVoicedOscillatorParams.html#af8809e0628ba614f83f9bcc26940de5a">VoicedOscillatorParams::voices</a></div><div class="ttdeci">int voices</div><div class="ttdoc">Number of voices (1-N for unison)</div><div class="ttdef"><b>Definition</b> gin_oscillators.h:133</div></div>
+<div class="ttc" id="astructVoicedStereoOscillatorParams_html"><div class="ttname"><a href="structVoicedStereoOscillatorParams.html">VoicedStereoOscillatorParams</a></div><div class="ttdoc">Extended parameters for band-limited voiced stereo oscillator.</div><div class="ttdef"><b>Definition</b> gin_oscillators.h:267</div></div>
+<div class="ttc" id="astructVoicedStereoOscillatorParams_html_a224625483ee768c1e6e86bf6a999df9d"><div class="ttname"><a href="structVoicedStereoOscillatorParams.html#a224625483ee768c1e6e86bf6a999df9d">VoicedStereoOscillatorParams::pw</a></div><div class="ttdeci">float pw</div><div class="ttdef"><b>Definition</b> gin_oscillators.h:269</div></div>
+<div class="ttc" id="astructVoicedStereoOscillatorParams_html_a970339414b84994c1fa585069e0d4862"><div class="ttname"><a href="structVoicedStereoOscillatorParams.html#a970339414b84994c1fa585069e0d4862">VoicedStereoOscillatorParams::fold</a></div><div class="ttdeci">float fold</div><div class="ttdef"><b>Definition</b> gin_oscillators.h:270</div></div>
+<div class="ttc" id="astructVoicedStereoOscillatorParams_html_af62dd65ab7701539dcddbf46e87df9f7"><div class="ttname"><a href="structVoicedStereoOscillatorParams.html#af62dd65ab7701539dcddbf46e87df9f7">VoicedStereoOscillatorParams::wave</a></div><div class="ttdeci">Wave wave</div><div class="ttdef"><b>Definition</b> gin_oscillators.h:268</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classVoicedStereoOscillator.html" title="Stereo oscillator with multiple voices for unison/detuning effects.">VoicedStereoOscillator</a>, <a class="el" href="classStereoOscillator.html" title="Virtual analog stereo oscillator with band-limited waveforms.">StereoOscillator</a>, <a class="el" href="structVoicedStereoOscillatorParams.html" title="Extended parameters for band-limited voiced stereo oscillator.">VoicedStereoOscillatorParams</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a91580541e11d22946ec60278e65835ea" name="a91580541e11d22946ec60278e65835ea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a91580541e11d22946ec60278e65835ea">&#9670;&#160;</a></span>BLLTVoicedStereoOscillator()</h2>
@@ -149,7 +184,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 17:18:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 19:06:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

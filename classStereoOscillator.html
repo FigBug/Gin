@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Virtual Analog Stereo oscillator.  
+<p>Virtual analog stereo oscillator with band-limited waveforms.  
  <a href="classStereoOscillator.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_oscillators.h&gt;</code></p>
@@ -101,7 +101,42 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a228048d564aa720b8a0aee6a624c089c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Virtual Analog Stereo oscillator. </p>
+<div class="textblock"><p>Virtual analog stereo oscillator with band-limited waveforms. </p>
+<p><a class="el" href="classStereoOscillator.html" title="Virtual analog stereo oscillator with band-limited waveforms.">StereoOscillator</a> generates classic analog waveforms (saw, square, triangle, etc.) using band-limited lookup tables to avoid aliasing. It includes post-processing effects like wavefolding and asymmetry for additional timbral variation.</p>
+<p>Key Features:</p><ul>
+<li>Band-limited waveforms (no aliasing)</li>
+<li>Multiple classic waveforms (saw, square, triangle, sine, etc.)</li>
+<li>Pulse width modulation for square/pulse waves</li>
+<li>Wavefolding for harmonic distortion</li>
+<li>Asymmetry/waveshaping for timbral variation</li>
+<li>Independent left/right gain control</li>
+</ul>
+<p>Parameters (via <a class="el" href="structStereoOscillator_1_1Params.html">Params</a> struct):</p><ul>
+<li>wave: Waveform type (saw, square, triangle, etc.)</li>
+<li>leftGain/rightGain: Independent stereo output gains</li>
+<li>pw: Pulse width (0.0 to 1.0) for square/pulse waves</li>
+<li>fold: Wavefolding amount (0.0 to 1.0)</li>
+<li>asym: Asymmetry/waveshaping amount (0.0 to 1.0)</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classBandLimitedLookupTables.html">BandLimitedLookupTables</a> bllt;</div>
+<div class="line"><a class="code hl_class" href="classStereoOscillator.html">StereoOscillator</a> osc(bllt);</div>
+<div class="line">osc.setSampleRate(44100.0);</div>
+<div class="line">osc.noteOn(); <span class="comment">// Initialize phase</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_struct" href="structStereoOscillator_1_1Params.html">StereoOscillator::Params</a> params;</div>
+<div class="line">params.<a class="code hl_variable" href="structStereoOscillator_1_1Params.html#a20a0ac6dcf991d68183208a99d95ea02">wave</a> = <a class="code hl_enumvalue" href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90acf87f9eb2bfacc5a0362031eba539290">Wave::sawUp</a>;</div>
+<div class="line">params.<a class="code hl_variable" href="structStereoOscillator_1_1Params.html#aebc2ccd97a83304620840c479a8c782b">pw</a> = 0.5f;</div>
+<div class="line">params.<a class="code hl_variable" href="structStereoOscillator_1_1Params.html#a1993706dbe1812d29ee8deaf4e5aea6d">fold</a> = 0.3f;</div>
+<div class="line"> </div>
+<div class="line">osc.process(60.0f, params, audioBuffer); <span class="comment">// MIDI note 60 (C4)</span></div>
+<div class="ttc" id="aclassBandLimitedLookupTables_html"><div class="ttname"><a href="classBandLimitedLookupTables.html">BandLimitedLookupTables</a></div><div class="ttdoc">Generate and hold bandlimited lookup tables for all the common waveforms.</div><div class="ttdef"><b>Definition</b> gin_bandlimitedlookuptable.h:200</div></div>
+<div class="ttc" id="aclassStereoOscillator_html"><div class="ttname"><a href="classStereoOscillator.html">StereoOscillator</a></div><div class="ttdoc">Virtual analog stereo oscillator with band-limited waveforms.</div><div class="ttdef"><b>Definition</b> gin_oscillators.h:57</div></div>
+<div class="ttc" id="agroup__gin__dsp-dsp_html_ggadb931b2f752b7879df254a7fd9d17e90acf87f9eb2bfacc5a0362031eba539290"><div class="ttname"><a href="group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90acf87f9eb2bfacc5a0362031eba539290">Wave::sawUp</a></div><div class="ttdeci">@ sawUp</div></div>
+<div class="ttc" id="astructStereoOscillator_1_1Params_html"><div class="ttname"><a href="structStereoOscillator_1_1Params.html">StereoOscillator::Params</a></div><div class="ttdef"><b>Definition</b> gin_oscillators.h:62</div></div>
+<div class="ttc" id="astructStereoOscillator_1_1Params_html_a1993706dbe1812d29ee8deaf4e5aea6d"><div class="ttname"><a href="structStereoOscillator_1_1Params.html#a1993706dbe1812d29ee8deaf4e5aea6d">StereoOscillator::Params::fold</a></div><div class="ttdeci">float fold</div><div class="ttdef"><b>Definition</b> gin_oscillators.h:67</div></div>
+<div class="ttc" id="astructStereoOscillator_1_1Params_html_a20a0ac6dcf991d68183208a99d95ea02"><div class="ttname"><a href="structStereoOscillator_1_1Params.html#a20a0ac6dcf991d68183208a99d95ea02">StereoOscillator::Params::wave</a></div><div class="ttdeci">Wave wave</div><div class="ttdef"><b>Definition</b> gin_oscillators.h:63</div></div>
+<div class="ttc" id="astructStereoOscillator_1_1Params_html_aebc2ccd97a83304620840c479a8c782b"><div class="ttname"><a href="structStereoOscillator_1_1Params.html#aebc2ccd97a83304620840c479a8c782b">StereoOscillator::Params::pw</a></div><div class="ttdeci">float pw</div><div class="ttdef"><b>Definition</b> gin_oscillators.h:66</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classBandLimitedLookupTables.html" title="Generate and hold bandlimited lookup tables for all the common waveforms.">BandLimitedLookupTables</a>, <a class="el" href="classVoicedStereoOscillator.html" title="Stereo oscillator with multiple voices for unison/detuning effects.">VoicedStereoOscillator</a>, <a class="el" href="group__gin__dsp-dsp.html#gadb931b2f752b7879df254a7fd9d17e90">Wave</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abfa50f6bb465a3d7a29fac5e0bdbea68" name="abfa50f6bb465a3d7a29fac5e0bdbea68"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abfa50f6bb465a3d7a29fac5e0bdbea68">&#9670;&#160;</a></span>StereoOscillator()</h2>
@@ -238,7 +273,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 17:18:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 19:06:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

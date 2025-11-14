@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Stereo delay with feedback and cross feedback.  
+<p>Stereo delay effect with feedback, cross-feedback, and wet/dry mix.  
  <a href="classStereoDelay.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_stereodelay.h&gt;</code></p>
@@ -97,7 +97,32 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa3d97ad1b7370dc061d9f73daa574c2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Stereo delay with feedback and cross feedback. </p>
+<div class="textblock"><p>Stereo delay effect with feedback, cross-feedback, and wet/dry mix. </p>
+<p><a class="el" href="classStereoDelay.html" title="Stereo delay effect with feedback, cross-feedback, and wet/dry mix.">StereoDelay</a> provides a professional stereo delay effect with independent left/right delay lines, feedback control, and ping-pong capability via cross-feedback. Parameters are smoothed to avoid zipper noise.</p>
+<p>Key Features:</p><ul>
+<li>Independent stereo delay lines</li>
+<li>Feedback control (repeats)</li>
+<li>Cross-feedback (ping-pong delay effect)</li>
+<li>Wet/dry mix control</li>
+<li><a class="el" href="classParameter.html" title="A parameter with user values, real time safe callbacks, modulation, and all sorts of other fancy stuf...">Parameter</a> smoothing for artifact-free automation</li>
+<li>High-quality <a class="el" href="namespaceLagrange.html" title="Lagrange interpolation functions for obtaining smooth curves from discrete points.">Lagrange</a> interpolation</li>
+</ul>
+<p>Parameters:</p><ul>
+<li>delay: Delay time in seconds</li>
+<li>mix: Wet/dry mix (0.0 = dry, 1.0 = wet)</li>
+<li>feedback: Amount of delayed signal fed back (0.0 to 0.99)</li>
+<li>crossfeed: Amount of cross-channel feedback for ping-pong (0.0 to 0.99)</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classStereoDelay.html">StereoDelay</a> delay(5.0); <span class="comment">// Max 5 seconds delay</span></div>
+<div class="line">delay.setSampleRate(44100.0);</div>
+<div class="line">delay.setParams(0.5f, 0.5f, 0.6f, 0.3f);</div>
+<div class="line"><span class="comment">// delay=0.5s, mix=50%, feedback=60%, crossfeed=30%</span></div>
+<div class="line"> </div>
+<div class="line">delay.processSmoothed(audioBuffer); <span class="comment">// Smooth parameter changes</span></div>
+<div class="line"><span class="comment">// or</span></div>
+<div class="line">delay.process(audioBuffer); <span class="comment">// No smoothing (faster)</span></div>
+<div class="ttc" id="aclassStereoDelay_html"><div class="ttname"><a href="classStereoDelay.html">StereoDelay</a></div><div class="ttdoc">Stereo delay effect with feedback, cross-feedback, and wet/dry mix.</div><div class="ttdef"><b>Definition</b> gin_stereodelay.h:54</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classDelayLine.html" title="Multi-channel delay line with interpolated tap reading.">DelayLine</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3489a6b571a1083bb4b4ff8621e10993" name="a3489a6b571a1083bb4b4ff8621e10993"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3489a6b571a1083bb4b4ff8621e10993">&#9670;&#160;</a></span>StereoDelay()</h2>
@@ -249,7 +274,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 17:18:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 19:06:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

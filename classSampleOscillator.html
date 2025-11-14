@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Oscillator for playing samples.  
+<p>Sample-based oscillator with pitch tracking and looping capabilities.  
  <a href="classSampleOscillator.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_sampleoscillator.h&gt;</code></p>
@@ -114,7 +114,39 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa22fc5c8f2ec429eab3d42e6a6524923"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Oscillator for playing samples. </p>
+<div class="textblock"><p>Sample-based oscillator with pitch tracking and looping capabilities. </p>
+<p><a class="el" href="classSampleOscillator.html" title="Sample-based oscillator with pitch tracking and looping capabilities.">SampleOscillator</a> plays back audio samples at different pitches, similar to a sampler. It supports looping, bidirectional playback, sample range selection, and automatic resampling to match the target pitch.</p>
+<p>Key Features:</p><ul>
+<li>Pitch-shifted sample playback (follows MIDI note input)</li>
+<li>Loop modes: forward, backward, ping-pong</li>
+<li>Configurable loop points and sample range</li>
+<li>Automatic high-quality resampling</li>
+<li>Crossfade support for smooth loop transitions</li>
+<li>Note on/off triggering</li>
+</ul>
+<p>Direction Modes:</p><ul>
+<li>forwards: Normal forward playback</li>
+<li>backwards: Reverse playback</li>
+<li>pingpong: Alternates between forward and backward</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classSampleOscillator.html">SampleOscillator</a> osc;</div>
+<div class="line">osc.<a class="code hl_function" href="classSampleOscillator.html#a379a84c46a29392e94cc32d4a20b9a91">setSampleRateAndBlockSize</a>(44100.0, 512);</div>
+<div class="line">osc.<a class="code hl_function" href="classSampleOscillator.html#a806bd14975ddf68765f98f96a0a8ed2c">setSample</a>(&amp;mySample);</div>
+<div class="line">osc.<a class="code hl_function" href="classSampleOscillator.html#a6ad97b31d76399ec7140ba7db4bf0526">setLooping</a>(<span class="keyword">true</span>, 1000, 5000); <span class="comment">// Loop between samples 1000-5000</span></div>
+<div class="line">osc.<a class="code hl_function" href="classSampleOscillator.html#abf98cd2cb6802406945ba3fa505797a7">setDirection</a>(<a class="code hl_enumvalue" href="classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1a465c5f747934848fce35cebef03936e2">SampleOscillator::forwards</a>);</div>
+<div class="line">osc.<a class="code hl_function" href="classSampleOscillator.html#a6e4b9ad2169c8acc82089e89ec8b1012">noteOn</a>(); <span class="comment">// Trigger playback</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Pitch-shifted playback - plays at MIDI note 60 (C4)</span></div>
+<div class="line"><span class="keywordtype">bool</span> isStillPlaying = osc.<a class="code hl_function" href="classSampleOscillator.html#aa22fc5c8f2ec429eab3d42e6a6524923">read</a>(60.0, audioBuffer);</div>
+<div class="ttc" id="aclassSampleOscillator_html"><div class="ttname"><a href="classSampleOscillator.html">SampleOscillator</a></div><div class="ttdoc">Sample-based oscillator with pitch tracking and looping capabilities.</div><div class="ttdef"><b>Definition</b> gin_sampleoscillator.h:54</div></div>
+<div class="ttc" id="aclassSampleOscillator_html_a379a84c46a29392e94cc32d4a20b9a91"><div class="ttname"><a href="classSampleOscillator.html#a379a84c46a29392e94cc32d4a20b9a91">SampleOscillator::setSampleRateAndBlockSize</a></div><div class="ttdeci">void setSampleRateAndBlockSize(double sr, int bs)</div></div>
+<div class="ttc" id="aclassSampleOscillator_html_a64aa6cb05a5893d3a6e0220f61e6a6e1a465c5f747934848fce35cebef03936e2"><div class="ttname"><a href="classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1a465c5f747934848fce35cebef03936e2">SampleOscillator::forwards</a></div><div class="ttdeci">@ forwards</div><div class="ttdef"><b>Definition</b> gin_sampleoscillator.h:60</div></div>
+<div class="ttc" id="aclassSampleOscillator_html_a6ad97b31d76399ec7140ba7db4bf0526"><div class="ttname"><a href="classSampleOscillator.html#a6ad97b31d76399ec7140ba7db4bf0526">SampleOscillator::setLooping</a></div><div class="ttdeci">void setLooping(bool l, int s=0, int e=-1)</div></div>
+<div class="ttc" id="aclassSampleOscillator_html_a6e4b9ad2169c8acc82089e89ec8b1012"><div class="ttname"><a href="classSampleOscillator.html#a6e4b9ad2169c8acc82089e89ec8b1012">SampleOscillator::noteOn</a></div><div class="ttdeci">void noteOn()</div></div>
+<div class="ttc" id="aclassSampleOscillator_html_a806bd14975ddf68765f98f96a0a8ed2c"><div class="ttname"><a href="classSampleOscillator.html#a806bd14975ddf68765f98f96a0a8ed2c">SampleOscillator::setSample</a></div><div class="ttdeci">void setSample(Sample *)</div></div>
+<div class="ttc" id="aclassSampleOscillator_html_aa22fc5c8f2ec429eab3d42e6a6524923"><div class="ttname"><a href="classSampleOscillator.html#aa22fc5c8f2ec429eab3d42e6a6524923">SampleOscillator::read</a></div><div class="ttdeci">bool read(double note, juce::AudioSampleBuffer &amp;buffer, int start=0, int length=-1)</div></div>
+<div class="ttc" id="aclassSampleOscillator_html_abf98cd2cb6802406945ba3fa505797a7"><div class="ttname"><a href="classSampleOscillator.html#abf98cd2cb6802406945ba3fa505797a7">SampleOscillator::setDirection</a></div><div class="ttdeci">void setDirection(Direction d)</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classSample.html" title="Holds an audio sample.">Sample</a>, <a class="el" href="classResamplingFifo.html" title="ResamplingFifo - uses secret rabbit code.">ResamplingFifo</a> </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a64aa6cb05a5893d3a6e0220f61e6a6e1" name="a64aa6cb05a5893d3a6e0220f61e6a6e1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a64aa6cb05a5893d3a6e0220f61e6a6e1">&#9670;&#160;</a></span>Direction</h2>
@@ -386,7 +418,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 17:18:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 19:06:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

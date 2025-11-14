@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Audio Delay with linear interpolation.  
+<p>Multi-channel delay line with interpolated tap reading.  
  <a href="classDelayLine.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_delayline.h&gt;</code></p>
@@ -115,7 +115,32 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a277d65ab60f42d22f55d48596412c897"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Audio Delay with linear interpolation. </p>
+<div class="textblock"><p>Multi-channel delay line with interpolated tap reading. </p>
+<p><a class="el" href="classDelayLine.html" title="Multi-channel delay line with interpolated tap reading.">DelayLine</a> provides a circular buffer-based delay line that supports multiple channels and fractional delay times through interpolation. It's the building block for creating delay effects, choruses, flangers, and reverbs.</p>
+<p>Key Features:</p><ul>
+<li>Multi-channel support (configurable channel count)</li>
+<li>Linear and <a class="el" href="namespaceLagrange.html" title="Lagrange interpolation functions for obtaining smooth curves from discrete points.">Lagrange</a> interpolation for fractional delays</li>
+<li>Time-based or sample-based delay reading</li>
+<li>Efficient circular buffer implementation</li>
+<li>Per-channel independent delay taps</li>
+</ul>
+<p>Interpolation Methods:</p><ul>
+<li><a class="el" href="classDelayLine.html#a2d418fd7a015aa7518c3adf46e978d8e">readLinear()</a>: Fast linear interpolation (good for most uses)</li>
+<li><a class="el" href="classDelayLine.html#a02fd312c5f9a3a5aeb7aae8e7ab2d4c0">readLagrange()</a>: Higher quality 4-point <a class="el" href="namespaceLagrange.html" title="Lagrange interpolation functions for obtaining smooth curves from discrete points.">Lagrange</a> interpolation</li>
+<li><a class="el" href="classDelayLine.html#ad5ba8b3041d885a7cd2f7147b7e59fc6">readSample()</a>: No interpolation (integer sample delays only)</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classDelayLine.html">DelayLine</a> delay(2, 2.0, 44100.0); <span class="comment">// 2 channels, 2 seconds max, 44.1kHz</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Write samples</span></div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">int</span> ch = 0; ch &lt; 2; ch++)</div>
+<div class="line">    delay.write(ch, inputSample[ch]);</div>
+<div class="line">delay.writeFinished();</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Read with fractional delay (0.5 seconds)</span></div>
+<div class="line"><span class="keywordtype">float</span> delayedL = delay.readLinear(0, 0.5);</div>
+<div class="line"><span class="keywordtype">float</span> delayedR = delay.readLinear(1, 0.5);</div>
+<div class="ttc" id="aclassDelayLine_html"><div class="ttname"><a href="classDelayLine.html">DelayLine</a></div><div class="ttdoc">Multi-channel delay line with interpolated tap reading.</div><div class="ttdef"><b>Definition</b> gin_delayline.h:53</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classStereoDelay.html" title="Stereo delay effect with feedback, cross-feedback, and wet/dry mix.">StereoDelay</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad98998dd98c0f9d887c3bdd675dd6e3c" name="ad98998dd98c0f9d887c3bdd675dd6e3c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad98998dd98c0f9d887c3bdd675dd6e3c">&#9670;&#160;</a></span>DelayLine()</h2>
@@ -491,7 +516,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 17:18:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 19:06:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

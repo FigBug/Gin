@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>MPESynthesiser with better fast kill, mono and glide support.  
+<p>Advanced MPE-capable synthesizer with mono/poly modes, glide, and voice management.  
  <a href="classSynthesiser.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_synthesiser.h&gt;</code></p>
@@ -156,7 +156,54 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a11111b8660140c3d67efbd56cf1089fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>MPESynthesiser with better fast kill, mono and glide support. </p>
+<div class="textblock"><p>Advanced MPE-capable synthesizer with mono/poly modes, glide, and voice management. </p>
+<p><a class="el" href="classSynthesiser.html" title="Advanced MPE-capable synthesizer with mono/poly modes, glide, and voice management.">Synthesiser</a> extends JUCE's MPESynthesiser with professional features commonly needed in modern synthesizers:</p>
+<p>Key Features:</p><ul>
+<li>Monophonic and polyphonic modes</li>
+<li>Legato mode (retriggering without envelope restart)</li>
+<li>Portamento (smooth pitch glide) and glissando (stepped pitch glide)</li>
+<li>Configurable voice count with intelligent voice stealing</li>
+<li>Fast-kill voice stealing (immediate voice termination)</li>
+<li>MPE (MIDI Polyphonic Expression) support</li>
+<li>CPU usage monitoring</li>
+<li>Pitchbend range control</li>
+</ul>
+<p>Mono Mode: In monophonic mode, only one voice plays at a time. New notes either retrigger the envelope (non-legato) or smoothly transition pitch without retriggering (legato). Released notes in the note stack will cause the synth to jump back to the most recent held note.</p>
+<p>Voice Stealing: When voice limit is reached, the oldest voice is stolen. The fast-kill mechanism allows immediate voice termination rather than waiting for release envelope, preventing audio glitches.</p>
+<p>Glide Modes:</p><ul>
+<li>Portamento: Smooth exponential pitch glide between notes</li>
+<li>Glissando: Stepped pitch glide through semitones</li>
+<li>Rate: Glide time in milliseconds</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classSynthesiser.html">Synthesiser</a> synth;</div>
+<div class="line">synth.addVoice(<span class="keyword">new</span> MyVoice());</div>
+<div class="line">synth.setSampleRate(44100.0);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Configure mono mode with portamento</span></div>
+<div class="line">synth.<a class="code hl_function" href="classSynthesiser.html#a2da6967991a1afc0cb0efca3d1ba92f7">setMono</a>(<span class="keyword">true</span>);</div>
+<div class="line">synth.<a class="code hl_function" href="classSynthesiser.html#a1f66d6c7ec9c904dc22adca0d1df5c85">setLegato</a>(<span class="keyword">true</span>);</div>
+<div class="line">synth.<a class="code hl_function" href="classSynthesiser.html#ab6a82cda3e3f528112d665758efc21a3">setPortamento</a>(<span class="keyword">true</span>);</div>
+<div class="line">synth.<a class="code hl_function" href="classSynthesiser.html#a2e02ee6961b18517d08c8f249c02069e">setGlideRate</a>(250.0f); <span class="comment">// 250ms glide</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Or poly mode</span></div>
+<div class="line">synth.<a class="code hl_function" href="classSynthesiser.html#a2da6967991a1afc0cb0efca3d1ba92f7">setMono</a>(<span class="keyword">false</span>);</div>
+<div class="line">synth.<a class="code hl_function" href="classSynthesiser.html#a554b5cf0af6b3a40cdf60462ca34f425">setNumVoices</a>(8); <span class="comment">// Max 8 simultaneous voices</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// MPE mode</span></div>
+<div class="line">synth.<a class="code hl_function" href="classSynthesiser.html#a7f8f310291795baffdc5ba124dc17adf">setMPE</a>(<span class="keyword">true</span>);</div>
+<div class="line">synth.<a class="code hl_function" href="classSynthesiser.html#a27c386eb03f3ea6b1ec5fc24901a59ab">setPitchBendRange</a>(48); <span class="comment">// ±48 semitones</span></div>
+<div class="line"> </div>
+<div class="line">synth.<a class="code hl_function" href="classSynthesiser.html#a04c618669f417fb370f7d3866da5f141">renderNextBlock</a>(audioBuffer, midiBuffer, 0, numSamples);</div>
+<div class="ttc" id="aclassSynthesiser_html"><div class="ttname"><a href="classSynthesiser.html">Synthesiser</a></div><div class="ttdoc">Advanced MPE-capable synthesizer with mono/poly modes, glide, and voice management.</div><div class="ttdef"><b>Definition</b> gin_synthesiser.h:145</div></div>
+<div class="ttc" id="aclassSynthesiser_html_a04c618669f417fb370f7d3866da5f141"><div class="ttname"><a href="classSynthesiser.html#a04c618669f417fb370f7d3866da5f141">Synthesiser::renderNextBlock</a></div><div class="ttdeci">void renderNextBlock(juce::AudioBuffer&lt; floatType &gt; &amp;outputAudio, const juce::MidiBuffer &amp;inputMidi, int startSample, int numSamples)</div><div class="ttdef"><b>Definition</b> gin_synthesiser.h:532</div></div>
+<div class="ttc" id="aclassSynthesiser_html_a1f66d6c7ec9c904dc22adca0d1df5c85"><div class="ttname"><a href="classSynthesiser.html#a1f66d6c7ec9c904dc22adca0d1df5c85">Synthesiser::setLegato</a></div><div class="ttdeci">void setLegato(bool l)</div><div class="ttdef"><b>Definition</b> gin_synthesiser.h:155</div></div>
+<div class="ttc" id="aclassSynthesiser_html_a27c386eb03f3ea6b1ec5fc24901a59ab"><div class="ttname"><a href="classSynthesiser.html#a27c386eb03f3ea6b1ec5fc24901a59ab">Synthesiser::setPitchBendRange</a></div><div class="ttdeci">void setPitchBendRange(int newPB)</div><div class="ttdef"><b>Definition</b> gin_synthesiser.h:213</div></div>
+<div class="ttc" id="aclassSynthesiser_html_a2da6967991a1afc0cb0efca3d1ba92f7"><div class="ttname"><a href="classSynthesiser.html#a2da6967991a1afc0cb0efca3d1ba92f7">Synthesiser::setMono</a></div><div class="ttdeci">void setMono(bool m)</div><div class="ttdef"><b>Definition</b> gin_synthesiser.h:153</div></div>
+<div class="ttc" id="aclassSynthesiser_html_a2e02ee6961b18517d08c8f249c02069e"><div class="ttname"><a href="classSynthesiser.html#a2e02ee6961b18517d08c8f249c02069e">Synthesiser::setGlideRate</a></div><div class="ttdeci">void setGlideRate(float r)</div><div class="ttdef"><b>Definition</b> gin_synthesiser.h:158</div></div>
+<div class="ttc" id="aclassSynthesiser_html_a554b5cf0af6b3a40cdf60462ca34f425"><div class="ttname"><a href="classSynthesiser.html#a554b5cf0af6b3a40cdf60462ca34f425">Synthesiser::setNumVoices</a></div><div class="ttdeci">void setNumVoices(int v)</div><div class="ttdef"><b>Definition</b> gin_synthesiser.h:154</div></div>
+<div class="ttc" id="aclassSynthesiser_html_a7f8f310291795baffdc5ba124dc17adf"><div class="ttname"><a href="classSynthesiser.html#a7f8f310291795baffdc5ba124dc17adf">Synthesiser::setMPE</a></div><div class="ttdeci">void setMPE(bool newMPE)</div><div class="ttdef"><b>Definition</b> gin_synthesiser.h:168</div></div>
+<div class="ttc" id="aclassSynthesiser_html_ab6a82cda3e3f528112d665758efc21a3"><div class="ttname"><a href="classSynthesiser.html#ab6a82cda3e3f528112d665758efc21a3">Synthesiser::setPortamento</a></div><div class="ttdeci">void setPortamento(bool p)</div><div class="ttdef"><b>Definition</b> gin_synthesiser.h:157</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classSynthesiserVoice.html" title="Extended synthesizer voice with glide support and fast-kill capability.">SynthesiserVoice</a>, <a class="el" href="structGlideInfo.html" title="Configuration for pitch glide (portamento/glissando) between notes.">GlideInfo</a>, juce::MPESynthesiser </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8c313d6f1fa875790e5c79dc621ee437" name="a8c313d6f1fa875790e5c79dc621ee437"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8c313d6f1fa875790e5c79dc621ee437">&#9670;&#160;</a></span>Synthesiser()</h2>
@@ -895,7 +942,7 @@ template&lt;typename floatType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 17:18:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 19:06:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

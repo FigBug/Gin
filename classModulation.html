@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Audio modulation, for a chorus or phaser etc.  
+<p>Modulated delay effect for chorus, flanger, and phaser effects.  
  <a href="classModulation.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_modulation.h&gt;</code></p>
@@ -95,7 +95,42 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a03d5d4643831d6249d5caa051279d5d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Audio modulation, for a chorus or phaser etc. </p>
+<div class="textblock"><p>Modulated delay effect for chorus, flanger, and phaser effects. </p>
+<p><a class="el" href="classModulation.html" title="Modulated delay effect for chorus, flanger, and phaser effects.">Modulation</a> uses an <a class="el" href="classLFO.html" title="LFO with many shapes.">LFO</a> to modulate a delay line, creating time-varying delay effects. By adjusting delay time, modulation rate, depth, and stereo width, you can create chorus, flanger, and phaser-like effects.</p>
+<p>Key Features:</p><ul>
+<li>Sinusoidal <a class="el" href="classLFO.html" title="LFO with many shapes.">LFO</a> modulation</li>
+<li>Stereo width control (independent L/R modulation)</li>
+<li>Configurable delay time, rate, and depth</li>
+<li>Wet/dry mix control</li>
+<li>High-quality <a class="el" href="namespaceLagrange.html" title="Lagrange interpolation functions for obtaining smooth curves from discrete points.">Lagrange</a> interpolation</li>
+</ul>
+<p>Parameters:</p><ul>
+<li>delay: Base delay time in seconds (typically 10-30ms)</li>
+<li>rate: <a class="el" href="classLFO.html" title="LFO with many shapes.">LFO</a> frequency in Hz (typically 0.1-5 Hz)</li>
+<li>depth: <a class="el" href="classModulation.html" title="Modulated delay effect for chorus, flanger, and phaser effects.">Modulation</a> depth in seconds (how much delay varies)</li>
+<li>width: Stereo width (0.0 = mono, 1.0 = full stereo L/R phase offset)</li>
+<li>mix: Wet/dry mix (0.0 = dry, 1.0 = wet)</li>
+</ul>
+<p>Effect Types:</p><ul>
+<li>Chorus: delay ~20ms, rate ~0.5Hz, depth ~10ms, mix ~0.5</li>
+<li>Flanger: delay ~3ms, rate ~0.2Hz, depth ~5ms, mix ~0.5</li>
+<li>Vibrato: delay ~5ms, rate ~5Hz, depth ~2ms, mix ~1.0</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classModulation.html">Modulation</a> chorus(0.03f); <span class="comment">// 30ms max delay</span></div>
+<div class="line">chorus.setSampleRate(44100.0);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Create a chorus effect</span></div>
+<div class="line">chorus.setParams(</div>
+<div class="line">    0.020f,  <span class="comment">// 20ms base delay</span></div>
+<div class="line">    0.5f,    <span class="comment">// 0.5 Hz modulation</span></div>
+<div class="line">    0.010f,  <span class="comment">// 10ms depth</span></div>
+<div class="line">    0.5f,    <span class="comment">// 50% stereo width</span></div>
+<div class="line">    0.5f     <span class="comment">// 50% wet/dry mix</span></div>
+<div class="line">);</div>
+<div class="line"> </div>
+<div class="line">chorus.process(audioBuffer);</div>
+<div class="ttc" id="aclassModulation_html"><div class="ttname"><a href="classModulation.html">Modulation</a></div><div class="ttdoc">Modulated delay effect for chorus, flanger, and phaser effects.</div><div class="ttdef"><b>Definition</b> gin_dsp/dsp/gin_modulation.h:63</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classDelayLine.html" title="Multi-channel delay line with interpolated tap reading.">DelayLine</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad69ae957b7a70669951f70d3372ffb46" name="ad69ae957b7a70669951f70d3372ffb46"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad69ae957b7a70669951f70d3372ffb46">&#9670;&#160;</a></span>Modulation()</h2>
@@ -227,7 +262,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 17:18:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 19:06:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

@@ -79,7 +79,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Analog <a class="el" href="classADSR.html" title="Linear ADSR.">ADSR</a>.  
+<p>Analog-modeled <a class="el" href="classADSR.html" title="Linear ADSR.">ADSR</a> envelope generator for smooth, musical envelopes.  
  <a href="classAnalogADSR.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_analogadsr.h&gt;</code></p>
@@ -177,8 +177,45 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a15bcc5ef1223a2c4e9f8d3e143009370"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Analog <a class="el" href="classADSR.html" title="Linear ADSR.">ADSR</a>. </p>
-<p>Good for controlling audio levels. Based on the <a class="el" href="classADSR.html" title="Linear ADSR.">ADSR</a> from the Will Pirkle book </p>
+<div class="textblock"><p>Analog-modeled <a class="el" href="classADSR.html" title="Linear ADSR.">ADSR</a> envelope generator for smooth, musical envelopes. </p>
+<p><a class="el" href="classAnalogADSR.html" title="Analog-modeled ADSR envelope generator for smooth, musical envelopes.">AnalogADSR</a> provides an envelope generator that emulates the behavior of analog synthesizer envelopes with smooth, exponential curves. It's ideal for controlling audio levels (amplitude envelopes) and produces more natural-sounding results than linear envelopes.</p>
+<p>Based on the <a class="el" href="classADSR.html" title="Linear ADSR.">ADSR</a> implementation from Will Pirkle's book "Designing Software
+Synthesizer Plug-Ins in C++".</p>
+<p>Key Features:</p><ul>
+<li>Exponential attack, decay, and release curves (analog-like)</li>
+<li>Per-sample or block processing</li>
+<li>Can fill buffer with envelope values or multiply existing audio</li>
+<li>State tracking (idle, attack, decay, sustain, release)</li>
+<li>Reset capability for retriggering</li>
+</ul>
+<p>Envelope Stages:</p><ul>
+<li>Attack: Time to rise from 0 to peak (1.0)</li>
+<li>Decay: Time to fall from peak to sustain level</li>
+<li>Sustain: Held level while note is on (0.0 to 1.0)</li>
+<li>Release: Time to fall from current level to 0 after note off</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classAnalogADSR.html">AnalogADSR</a> envelope;</div>
+<div class="line">envelope.<a class="code hl_function" href="classAnalogADSR.html#ae1b202f50148cb7b95e02af59bc1622d">setSampleRate</a>(44100.0);</div>
+<div class="line">envelope.<a class="code hl_function" href="classAnalogADSR.html#a691f88735822877435feb3639b229c98">setAttack</a>(0.01f);   <span class="comment">// 10ms attack</span></div>
+<div class="line">envelope.<a class="code hl_function" href="classAnalogADSR.html#a2a31f6315bfa1309e75b189db74e317c">setDecay</a>(0.1f);     <span class="comment">// 100ms decay</span></div>
+<div class="line">envelope.<a class="code hl_function" href="classAnalogADSR.html#a9dc744987060e6db1c57cc35c81d5b0b">setSustainLevel</a>(0.7f); <span class="comment">// 70% sustain level</span></div>
+<div class="line">envelope.<a class="code hl_function" href="classAnalogADSR.html#ae5ddb6e815c4d8fb7864aa87468e5566">setRelease</a>(0.5f);   <span class="comment">// 500ms release</span></div>
+<div class="line"> </div>
+<div class="line">envelope.<a class="code hl_function" href="classAnalogADSR.html#ae25730d121f437a88107aec4b8954ced">noteOn</a>();</div>
+<div class="line"><span class="comment">// ... process audio ...</span></div>
+<div class="line">envelope.<a class="code hl_function" href="classAnalogADSR.html#a0fbc0634af4beb8f56840baae672f3ec">processMultiplying</a>(audioBuffer); <span class="comment">// Apply envelope to audio</span></div>
+<div class="line"><span class="comment">// ... later ...</span></div>
+<div class="line">envelope.<a class="code hl_function" href="classAnalogADSR.html#a68fa35850ca4f7d0d329079b990e8b04">noteOff</a>(); <span class="comment">// Begin release phase</span></div>
+<div class="ttc" id="aclassAnalogADSR_html"><div class="ttname"><a href="classAnalogADSR.html">AnalogADSR</a></div><div class="ttdoc">Analog-modeled ADSR envelope generator for smooth, musical envelopes.</div><div class="ttdef"><b>Definition</b> gin_analogadsr.h:59</div></div>
+<div class="ttc" id="aclassAnalogADSR_html_a0fbc0634af4beb8f56840baae672f3ec"><div class="ttname"><a href="classAnalogADSR.html#a0fbc0634af4beb8f56840baae672f3ec">AnalogADSR::processMultiplying</a></div><div class="ttdeci">void processMultiplying(juce::AudioSampleBuffer &amp;buffer)</div></div>
+<div class="ttc" id="aclassAnalogADSR_html_a2a31f6315bfa1309e75b189db74e317c"><div class="ttname"><a href="classAnalogADSR.html#a2a31f6315bfa1309e75b189db74e317c">AnalogADSR::setDecay</a></div><div class="ttdeci">void setDecay(float seconds)</div></div>
+<div class="ttc" id="aclassAnalogADSR_html_a68fa35850ca4f7d0d329079b990e8b04"><div class="ttname"><a href="classAnalogADSR.html#a68fa35850ca4f7d0d329079b990e8b04">AnalogADSR::noteOff</a></div><div class="ttdeci">void noteOff()</div></div>
+<div class="ttc" id="aclassAnalogADSR_html_a691f88735822877435feb3639b229c98"><div class="ttname"><a href="classAnalogADSR.html#a691f88735822877435feb3639b229c98">AnalogADSR::setAttack</a></div><div class="ttdeci">void setAttack(float seconds)</div></div>
+<div class="ttc" id="aclassAnalogADSR_html_a9dc744987060e6db1c57cc35c81d5b0b"><div class="ttname"><a href="classAnalogADSR.html#a9dc744987060e6db1c57cc35c81d5b0b">AnalogADSR::setSustainLevel</a></div><div class="ttdeci">void setSustainLevel(float level)</div></div>
+<div class="ttc" id="aclassAnalogADSR_html_ae1b202f50148cb7b95e02af59bc1622d"><div class="ttname"><a href="classAnalogADSR.html#ae1b202f50148cb7b95e02af59bc1622d">AnalogADSR::setSampleRate</a></div><div class="ttdeci">void setSampleRate(double sr)</div><div class="ttdef"><b>Definition</b> gin_analogadsr.h:73</div></div>
+<div class="ttc" id="aclassAnalogADSR_html_ae25730d121f437a88107aec4b8954ced"><div class="ttname"><a href="classAnalogADSR.html#ae25730d121f437a88107aec4b8954ced">AnalogADSR::noteOn</a></div><div class="ttdeci">void noteOn()</div></div>
+<div class="ttc" id="aclassAnalogADSR_html_ae5ddb6e815c4d8fb7864aa87468e5566"><div class="ttname"><a href="classAnalogADSR.html#ae5ddb6e815c4d8fb7864aa87468e5566">AnalogADSR::setRelease</a></div><div class="ttdeci">void setRelease(float seconds)</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classADSR.html" title="Linear ADSR.">ADSR</a> </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="aa8a2577abb5a28fc96d0fd60a3b7188e" name="aa8a2577abb5a28fc96d0fd60a3b7188e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa8a2577abb5a28fc96d0fd60a3b7188e">&#9670;&#160;</a></span>State</h2>
@@ -984,7 +1021,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 17:18:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 19:06:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

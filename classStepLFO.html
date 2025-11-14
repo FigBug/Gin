@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classLFO.html" title="LFO with many shapes.">LFO</a> with editable number of steps.  
+<p>Step sequencer-style <a class="el" href="classLFO.html" title="LFO with many shapes.">LFO</a> with programmable values per step.  
  <a href="classStepLFO.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_steplfo.h&gt;</code></p>
@@ -105,7 +105,42 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9199a834cb4ab60a2d8c85221699328f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classLFO.html" title="LFO with many shapes.">LFO</a> with editable number of steps. </p>
+<div class="textblock"><p>Step sequencer-style <a class="el" href="classLFO.html" title="LFO with many shapes.">LFO</a> with programmable values per step. </p>
+<p><a class="el" href="classStepLFO.html" title="Step sequencer-style LFO with programmable values per step.">StepLFO</a> provides a stepped low-frequency oscillator where each step can have an independently programmed value. Unlike smooth LFOs, this creates stepped/ quantized modulation patterns useful for rhythmic effects and sequenced modulation.</p>
+<p>Key Features:</p><ul>
+<li>Configurable number of steps</li>
+<li>Independent value per step (-1.0 to 1.0)</li>
+<li>Adjustable frequency (rate)</li>
+<li>Phase reset on note-on for tempo-synced patterns</li>
+<li>Constant output per step (no interpolation)</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classStepLFO.html">StepLFO</a> stepLFO;</div>
+<div class="line">stepLFO.<a class="code hl_function" href="classStepLFO.html#a3e1fa83dba7591409abbbabf92fca91b">setSampleRate</a>(44100.0);</div>
+<div class="line">stepLFO.<a class="code hl_function" href="classStepLFO.html#a1e44b3d5beb8294351f85e63c830e3c1">setNumPoints</a>(8); <span class="comment">// 8-step sequence</span></div>
+<div class="line">stepLFO.<a class="code hl_function" href="classStepLFO.html#aa4eb2d01feb657be92b0b1b652ccdb13">setFreq</a>(2.0f);   <span class="comment">// 2 Hz (complete cycle every 0.5 seconds)</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Program step values</span></div>
+<div class="line">stepLFO.<a class="code hl_function" href="classStepLFO.html#ae703cc83910512030357a78a65d532aa">setPoint</a>(0, 1.0f);   <span class="comment">// Step 1: max</span></div>
+<div class="line">stepLFO.<a class="code hl_function" href="classStepLFO.html#ae703cc83910512030357a78a65d532aa">setPoint</a>(1, 0.5f);   <span class="comment">// Step 2: half</span></div>
+<div class="line">stepLFO.<a class="code hl_function" href="classStepLFO.html#ae703cc83910512030357a78a65d532aa">setPoint</a>(2, 0.0f);   <span class="comment">// Step 3: center</span></div>
+<div class="line">stepLFO.<a class="code hl_function" href="classStepLFO.html#ae703cc83910512030357a78a65d532aa">setPoint</a>(3, -0.5f);  <span class="comment">// Step 4: negative</span></div>
+<div class="line">stepLFO.<a class="code hl_function" href="classStepLFO.html#ae703cc83910512030357a78a65d532aa">setPoint</a>(4, -1.0f);  <span class="comment">// Step 5: min</span></div>
+<div class="line">stepLFO.<a class="code hl_function" href="classStepLFO.html#ae703cc83910512030357a78a65d532aa">setPoint</a>(5, -0.5f);</div>
+<div class="line">stepLFO.<a class="code hl_function" href="classStepLFO.html#ae703cc83910512030357a78a65d532aa">setPoint</a>(6, 0.0f);</div>
+<div class="line">stepLFO.<a class="code hl_function" href="classStepLFO.html#ae703cc83910512030357a78a65d532aa">setPoint</a>(7, 0.5f);</div>
+<div class="line"> </div>
+<div class="line">stepLFO.<a class="code hl_function" href="classStepLFO.html#a3643003a3a8668f21a1c9944405c82b2">noteOn</a>(); <span class="comment">// Reset to beginning</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// In audio callback</span></div>
+<div class="line"><span class="keywordtype">float</span> modValue = stepLFO.<a class="code hl_function" href="classStepLFO.html#a7a85cf66615eda334a7ca3a71c3903b3">process</a>(numSamples);</div>
+<div class="ttc" id="aclassStepLFO_html"><div class="ttname"><a href="classStepLFO.html">StepLFO</a></div><div class="ttdoc">Step sequencer-style LFO with programmable values per step.</div><div class="ttdef"><b>Definition</b> gin_steplfo.h:57</div></div>
+<div class="ttc" id="aclassStepLFO_html_a1e44b3d5beb8294351f85e63c830e3c1"><div class="ttname"><a href="classStepLFO.html#a1e44b3d5beb8294351f85e63c830e3c1">StepLFO::setNumPoints</a></div><div class="ttdeci">void setNumPoints(int n)</div><div class="ttdef"><b>Definition</b> gin_steplfo.h:65</div></div>
+<div class="ttc" id="aclassStepLFO_html_a3643003a3a8668f21a1c9944405c82b2"><div class="ttname"><a href="classStepLFO.html#a3643003a3a8668f21a1c9944405c82b2">StepLFO::noteOn</a></div><div class="ttdeci">void noteOn(float phase_=-1.0f)</div><div class="ttdef"><b>Definition</b> gin_steplfo.h:74</div></div>
+<div class="ttc" id="aclassStepLFO_html_a3e1fa83dba7591409abbbabf92fca91b"><div class="ttname"><a href="classStepLFO.html#a3e1fa83dba7591409abbbabf92fca91b">StepLFO::setSampleRate</a></div><div class="ttdeci">void setSampleRate(double sr)</div><div class="ttdef"><b>Definition</b> gin_steplfo.h:63</div></div>
+<div class="ttc" id="aclassStepLFO_html_a7a85cf66615eda334a7ca3a71c3903b3"><div class="ttname"><a href="classStepLFO.html#a7a85cf66615eda334a7ca3a71c3903b3">StepLFO::process</a></div><div class="ttdeci">float process(int numSamples)</div><div class="ttdef"><b>Definition</b> gin_steplfo.h:80</div></div>
+<div class="ttc" id="aclassStepLFO_html_aa4eb2d01feb657be92b0b1b652ccdb13"><div class="ttname"><a href="classStepLFO.html#aa4eb2d01feb657be92b0b1b652ccdb13">StepLFO::setFreq</a></div><div class="ttdeci">void setFreq(float f)</div><div class="ttdef"><b>Definition</b> gin_steplfo.h:64</div></div>
+<div class="ttc" id="aclassStepLFO_html_ae703cc83910512030357a78a65d532aa"><div class="ttname"><a href="classStepLFO.html#ae703cc83910512030357a78a65d532aa">StepLFO::setPoint</a></div><div class="ttdeci">void setPoint(int n, float v)</div><div class="ttdef"><b>Definition</b> gin_steplfo.h:66</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classMSEG.html" title="Multi-Segment Envelope Generator (MSEG) for complex modulation curves.">MSEG</a>, <a class="el" href="classLFO.html" title="LFO with many shapes.">LFO</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3868a6372c5e5ea5c024815bda225197" name="a3868a6372c5e5ea5c024815bda225197"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3868a6372c5e5ea5c024815bda225197">&#9670;&#160;</a></span>StepLFO()</h2>
@@ -308,7 +343,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 17:18:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 19:06:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

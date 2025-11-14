@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Basic multi channel / multi band <a class="el" href="classEQ.html" title="Basic multi channel / multi band EQ.">EQ</a>.  
+<p>Multi-channel, multi-band equalizer with flexible filter types.  
  <a href="classEQ.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_eq.h&gt;</code></p>
@@ -111,7 +111,41 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae8e996d04aaebc129a1e66522ce5d379"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Basic multi channel / multi band <a class="el" href="classEQ.html" title="Basic multi channel / multi band EQ.">EQ</a>. </p>
+<div class="textblock"><p>Multi-channel, multi-band equalizer with flexible filter types. </p>
+<p><a class="el" href="classEQ.html" title="Multi-channel, multi-band equalizer with flexible filter types.">EQ</a> provides a professional multi-band equalizer supporting multiple filter types per band. Each band can be configured independently as a shelving filter, peak/notch filter, or high/low-pass filter. Supports any number of channels.</p>
+<p>Key Features:</p><ul>
+<li>Configurable number of bands</li>
+<li>Multiple filter types per band (lowshelf, highshelf, peak, highpass, lowpass)</li>
+<li>Multi-channel support</li>
+<li>Independent frequency, Q, and gain per band</li>
+<li>Based on high-quality biquad filters</li>
+</ul>
+<p><a class="el" href="classFilter.html" title="Basic multi channel filter.">Filter</a> Types:</p><ul>
+<li>lowshelf: Boost/cut low frequencies</li>
+<li>highshelf: Boost/cut high frequencies</li>
+<li>peak: Boost/cut at specific frequency (bell curve)</li>
+<li>highpass: Remove frequencies below cutoff</li>
+<li>lowpass: Remove frequencies above cutoff</li>
+</ul>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classEQ.html">EQ</a> equalizer(3); <span class="comment">// 3-band EQ</span></div>
+<div class="line">equalizer.setSampleRate(44100.0);</div>
+<div class="line">equalizer.setNumChannels(2); <span class="comment">// Stereo</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Low shelf: boost bass at 100Hz</span></div>
+<div class="line">equalizer.setParams(0, <a class="code hl_enumvalue" href="classEQ.html#afd7d7b03b08fd8ca89204c04ff847010ab5975e5df9ac7649fff9b46aa830aa46">EQ::lowshelf</a>, 100.0f, 0.7f, 3.0f);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Peak: cut at 1kHz</span></div>
+<div class="line">equalizer.setParams(1, <a class="code hl_enumvalue" href="classEQ.html#afd7d7b03b08fd8ca89204c04ff847010a63f376f9d83f0634b8a03016b8fef4c9">EQ::peak</a>, 1000.0f, 2.0f, -6.0f);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// High shelf: boost treble at 8kHz</span></div>
+<div class="line">equalizer.setParams(2, <a class="code hl_enumvalue" href="classEQ.html#afd7d7b03b08fd8ca89204c04ff847010af9006159cc7c1e1041c5206349d39c41">EQ::highshelf</a>, 8000.0f, 0.7f, 2.0f);</div>
+<div class="line"> </div>
+<div class="line">equalizer.process(audioBuffer);</div>
+<div class="ttc" id="aclassEQ_html"><div class="ttname"><a href="classEQ.html">EQ</a></div><div class="ttdoc">Multi-channel, multi-band equalizer with flexible filter types.</div><div class="ttdef"><b>Definition</b> gin_eq.h:59</div></div>
+<div class="ttc" id="aclassEQ_html_afd7d7b03b08fd8ca89204c04ff847010a63f376f9d83f0634b8a03016b8fef4c9"><div class="ttname"><a href="classEQ.html#afd7d7b03b08fd8ca89204c04ff847010a63f376f9d83f0634b8a03016b8fef4c9">EQ::peak</a></div><div class="ttdeci">@ peak</div><div class="ttdef"><b>Definition</b> gin_eq.h:65</div></div>
+<div class="ttc" id="aclassEQ_html_afd7d7b03b08fd8ca89204c04ff847010ab5975e5df9ac7649fff9b46aa830aa46"><div class="ttname"><a href="classEQ.html#afd7d7b03b08fd8ca89204c04ff847010ab5975e5df9ac7649fff9b46aa830aa46">EQ::lowshelf</a></div><div class="ttdeci">@ lowshelf</div><div class="ttdef"><b>Definition</b> gin_eq.h:63</div></div>
+<div class="ttc" id="aclassEQ_html_afd7d7b03b08fd8ca89204c04ff847010af9006159cc7c1e1041c5206349d39c41"><div class="ttname"><a href="classEQ.html#afd7d7b03b08fd8ca89204c04ff847010af9006159cc7c1e1041c5206349d39c41">EQ::highshelf</a></div><div class="ttdeci">@ highshelf</div><div class="ttdef"><b>Definition</b> gin_eq.h:64</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classFilter.html" title="Basic multi channel filter.">Filter</a> </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="afd7d7b03b08fd8ca89204c04ff847010" name="afd7d7b03b08fd8ca89204c04ff847010"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afd7d7b03b08fd8ca89204c04ff847010">&#9670;&#160;</a></span>Type</h2>
@@ -279,7 +313,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 17:18:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 19:06:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
