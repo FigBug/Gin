@@ -95,6 +95,7 @@ Public Types</h2></td></tr>
 , <a class="el" href="classModMatrix.html#a01ecaf32e75cdb11b6c803bc981a9533aadef79eee68fb992e86c97aa7ee9f6ff">bipolar</a>
 , <a class="el" href="classModMatrix.html#a01ecaf32e75cdb11b6c803bc981a9533ad0b8ff21af2594b553450b69775e96b1">sameAsSource</a>
  }</td></tr>
+<tr class="memdesc:a01ecaf32e75cdb11b6c803bc981a9533"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classModulation.html" title="Modulated delay effect for chorus, flanger, and phaser effects.">Modulation</a> polarity modes for source-to-destination mapping.  <a href="classModMatrix.html#a01ecaf32e75cdb11b6c803bc981a9533">More...</a><br /></td></tr>
 <tr class="separator:a01ecaf32e75cdb11b6c803bc981a9533"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add6fae194c9fe15e561181b21b6fc614" id="r_add6fae194c9fe15e561181b21b6fc614"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614">Function</a> { <br />
 &#160;&#160;<a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614acb06b3d520dd725b2238a449315b094d">linear</a>
@@ -123,6 +124,7 @@ Public Types</h2></td></tr>
 , <a class="el" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614aeabc2967673798438849bdddedf69785">invExponentialOut</a>
 <br />
  }</td></tr>
+<tr class="memdesc:add6fae194c9fe15e561181b21b6fc614"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classModulation.html" title="Modulated delay effect for chorus, flanger, and phaser effects.">Modulation</a> shaping functions for non-linear modulation curves.  <a href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614">More...</a><br /></td></tr>
 <tr class="separator:add6fae194c9fe15e561181b21b6fc614"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -248,10 +250,10 @@ Static Public Member Functions</h2></td></tr>
 <div class="line">modMatrix.<a class="code hl_function" href="classModMatrix.html#a223b6092cd0cae14bfd42e20935b3396">setPolyValue</a>(voice, env1, envelopeOutput);</div>
 <div class="line"><span class="keywordtype">float</span> cutoff = modMatrix.<a class="code hl_function" href="classModMatrix.html#a71167e0d0d7d731bc3b24134a3c8b222">getValue</a>(filterCutoff);</div>
 <div class="ttc" id="aclassModMatrix_html"><div class="ttname"><a href="classModMatrix.html">ModMatrix</a></div><div class="ttdoc">Modulation matrix system for routing multiple modulation sources to parameters.</div><div class="ttdef"><b>Definition</b> gin_modmatrix.h:142</div></div>
-<div class="ttc" id="aclassModMatrix_html_a059b88c04a7d524b96aa20034a943392"><div class="ttname"><a href="classModMatrix.html#a059b88c04a7d524b96aa20034a943392">ModMatrix::setMonoValue</a></div><div class="ttdeci">void setMonoValue(ModSrcId id, float value)</div><div class="ttdef"><b>Definition</b> gin_modmatrix.h:423</div></div>
-<div class="ttc" id="aclassModMatrix_html_a223b6092cd0cae14bfd42e20935b3396"><div class="ttname"><a href="classModMatrix.html#a223b6092cd0cae14bfd42e20935b3396">ModMatrix::setPolyValue</a></div><div class="ttdeci">void setPolyValue(ModVoice &amp;voice, ModSrcId id, float value)</div><div class="ttdef"><b>Definition</b> gin_modmatrix.h:431</div></div>
+<div class="ttc" id="aclassModMatrix_html_a059b88c04a7d524b96aa20034a943392"><div class="ttname"><a href="classModMatrix.html#a059b88c04a7d524b96aa20034a943392">ModMatrix::setMonoValue</a></div><div class="ttdeci">void setMonoValue(ModSrcId id, float value)</div><div class="ttdef"><b>Definition</b> gin_modmatrix.h:473</div></div>
+<div class="ttc" id="aclassModMatrix_html_a223b6092cd0cae14bfd42e20935b3396"><div class="ttname"><a href="classModMatrix.html#a223b6092cd0cae14bfd42e20935b3396">ModMatrix::setPolyValue</a></div><div class="ttdeci">void setPolyValue(ModVoice &amp;voice, ModSrcId id, float value)</div><div class="ttdef"><b>Definition</b> gin_modmatrix.h:481</div></div>
 <div class="ttc" id="aclassModMatrix_html_a66caa6c7b30ee5a492bde8c0d56c2520"><div class="ttname"><a href="classModMatrix.html#a66caa6c7b30ee5a492bde8c0d56c2520">ModMatrix::addPolyModSource</a></div><div class="ttdeci">ModSrcId addPolyModSource(const juce::String &amp;id, const juce::String &amp;name, bool bipolar)</div></div>
-<div class="ttc" id="aclassModMatrix_html_a71167e0d0d7d731bc3b24134a3c8b222"><div class="ttname"><a href="classModMatrix.html#a71167e0d0d7d731bc3b24134a3c8b222">ModMatrix::getValue</a></div><div class="ttdeci">float getValue(gin::Parameter *p, bool smoothed=true)</div><div class="ttdef"><b>Definition</b> gin_modmatrix.h:264</div></div>
+<div class="ttc" id="aclassModMatrix_html_a71167e0d0d7d731bc3b24134a3c8b222"><div class="ttname"><a href="classModMatrix.html#a71167e0d0d7d731bc3b24134a3c8b222">ModMatrix::getValue</a></div><div class="ttdeci">float getValue(gin::Parameter *p, bool smoothed=true)</div><div class="ttdef"><b>Definition</b> gin_modmatrix.h:314</div></div>
 <div class="ttc" id="aclassModMatrix_html_ad3fc6378eb99507135d11c01944575cd"><div class="ttname"><a href="classModMatrix.html#ad3fc6378eb99507135d11c01944575cd">ModMatrix::addMonoModSource</a></div><div class="ttdeci">ModSrcId addMonoModSource(const juce::String &amp;id, const juce::String &amp;name, bool bipolar)</div></div>
 <div class="ttc" id="aclassModMatrix_html_afc78f8a62425746860184ad318a6c57e"><div class="ttname"><a href="classModMatrix.html#afc78f8a62425746860184ad318a6c57e">ModMatrix::addParameter</a></div><div class="ttdeci">void addParameter(gin::Parameter *p, bool poly, float smoothingTime=0.02f)</div></div>
 </div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classModVoice.html" title="Make your synth voice inherit from this if it supports modulation.">ModVoice</a>, <a class="el" href="structModSrcId.html" title="Identifier for a modulation source in the ModMatrix system.">ModSrcId</a>, <a class="el" href="structModDstId.html" title="Identifier for a modulation destination in the ModMatrix system.">ModDstId</a> </dd></dl>
@@ -267,10 +269,22 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><a class="el" href="classModulation.html" title="Modulated delay effect for chorus, flanger, and phaser effects.">Modulation</a> polarity modes for source-to-destination mapping. </p>
+<p>PolarityMode determines how modulation values are interpreted when applied to parameters:</p><ul>
+<li>unipolar: <a class="el" href="classModulation.html" title="Modulated delay effect for chorus, flanger, and phaser effects.">Modulation</a> ranges from 0 to 1 (always positive)</li>
+<li>bipolar: <a class="el" href="classModulation.html" title="Modulated delay effect for chorus, flanger, and phaser effects.">Modulation</a> ranges from -1 to 1 (positive and negative)</li>
+<li>sameAsSource: Use the polarity of the modulation source</li>
+</ul>
+<p>This affects how modulation depth is applied and visualized in the UI.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classModMatrix.html" title="Modulation matrix system for routing multiple modulation sources to parameters.">ModMatrix</a>, <a class="el" href="structModSrcId.html" title="Identifier for a modulation source in the ModMatrix system.">ModSrcId</a>, <a class="el" href="structModDstId.html" title="Identifier for a modulation destination in the ModMatrix system.">ModDstId</a> </dd></dl>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a01ecaf32e75cdb11b6c803bc981a9533add374c07680cead3aed0a79509340941" name="a01ecaf32e75cdb11b6c803bc981a9533add374c07680cead3aed0a79509340941"></a>unipolar&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a01ecaf32e75cdb11b6c803bc981a9533aadef79eee68fb992e86c97aa7ee9f6ff" name="a01ecaf32e75cdb11b6c803bc981a9533aadef79eee68fb992e86c97aa7ee9f6ff"></a>bipolar&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a01ecaf32e75cdb11b6c803bc981a9533ad0b8ff21af2594b553450b69775e96b1" name="a01ecaf32e75cdb11b6c803bc981a9533ad0b8ff21af2594b553450b69775e96b1"></a>sameAsSource&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a01ecaf32e75cdb11b6c803bc981a9533add374c07680cead3aed0a79509340941" name="a01ecaf32e75cdb11b6c803bc981a9533add374c07680cead3aed0a79509340941"></a>unipolar&#160;</td><td class="fielddoc"><p>0 to 1 (positive only) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01ecaf32e75cdb11b6c803bc981a9533aadef79eee68fb992e86c97aa7ee9f6ff" name="a01ecaf32e75cdb11b6c803bc981a9533aadef79eee68fb992e86c97aa7ee9f6ff"></a>bipolar&#160;</td><td class="fielddoc"><p>-1 to 1 (positive and negative) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01ecaf32e75cdb11b6c803bc981a9533ad0b8ff21af2594b553450b69775e96b1" name="a01ecaf32e75cdb11b6c803bc981a9533ad0b8ff21af2594b553450b69775e96b1"></a>sameAsSource&#160;</td><td class="fielddoc"><p>Match source polarity. </p>
+</td></tr>
 </table>
 
 </div>
@@ -286,27 +300,75 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><a class="el" href="classModulation.html" title="Modulated delay effect for chorus, flanger, and phaser effects.">Modulation</a> shaping functions for non-linear modulation curves. </p>
+<p>Function provides various easing curves to shape modulation between source and destination. These allow creative control over how modulation values are mapped, enabling smooth fades, exponential responses, and inverted behaviors.</p>
+<p>Curve Types:</p><ul>
+<li>linear: Direct 1:1 mapping (no curve)</li>
+<li>quadratic: Smooth acceleration (parabolic)</li>
+<li>sine: Smooth S-curve using sine function</li>
+<li>exponential: Rapid acceleration (exponential)</li>
+<li>inv*: Inverted versions (1 - f(x))</li>
+</ul>
+<p>Curve Timing:</p><ul>
+<li>*In: Ease in (slow start, fast end)</li>
+<li>*Out: Ease out (fast start, slow end)</li>
+<li>*InOut: Ease in and out (smooth both ends)</li>
+</ul>
+<p>These functions are applied after the modulation source value is retrieved and before it's scaled by depth and applied to the destination.</p>
+<p>Usage Example: </p><div class="fragment"><div class="line"><span class="comment">// Create smooth fade-in modulation</span></div>
+<div class="line">modulation.setFunction(<a class="code hl_enumvalue" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a3d4b194fe7bab39d84b839fc12108932">ModMatrix::sineIn</a>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Create exponential response</span></div>
+<div class="line">modulation.setFunction(<a class="code hl_enumvalue" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a49c3644e18da03df8b393cf9471f6814">ModMatrix::exponentialOut</a>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Inverted linear for reverse modulation</span></div>
+<div class="line">modulation.setFunction(<a class="code hl_enumvalue" href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614ae5dc113cfd99be977319aafb69c5b4ac">ModMatrix::invLinear</a>);</div>
+<div class="ttc" id="aclassModMatrix_html_add6fae194c9fe15e561181b21b6fc614a3d4b194fe7bab39d84b839fc12108932"><div class="ttname"><a href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a3d4b194fe7bab39d84b839fc12108932">ModMatrix::sineIn</a></div><div class="ttdeci">@ sineIn</div><div class="ttdoc">Sine ease in.</div><div class="ttdef"><b>Definition</b> gin_modmatrix.h:218</div></div>
+<div class="ttc" id="aclassModMatrix_html_add6fae194c9fe15e561181b21b6fc614a49c3644e18da03df8b393cf9471f6814"><div class="ttname"><a href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a49c3644e18da03df8b393cf9471f6814">ModMatrix::exponentialOut</a></div><div class="ttdeci">@ exponentialOut</div><div class="ttdoc">Exponential ease out.</div><div class="ttdef"><b>Definition</b> gin_modmatrix.h:224</div></div>
+<div class="ttc" id="aclassModMatrix_html_add6fae194c9fe15e561181b21b6fc614ae5dc113cfd99be977319aafb69c5b4ac"><div class="ttname"><a href="classModMatrix.html#add6fae194c9fe15e561181b21b6fc614ae5dc113cfd99be977319aafb69c5b4ac">ModMatrix::invLinear</a></div><div class="ttdeci">@ invLinear</div><div class="ttdoc">Inverted linear.</div><div class="ttdef"><b>Definition</b> gin_modmatrix.h:226</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classModMatrix.html" title="Modulation matrix system for routing multiple modulation sources to parameters.">ModMatrix</a>, <a class="el" href="classModMatrix.html#ae7eab8f9eddb29cba7da3fc50602c514">shape()</a> </dd></dl>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614acb06b3d520dd725b2238a449315b094d" name="add6fae194c9fe15e561181b21b6fc614acb06b3d520dd725b2238a449315b094d"></a>linear&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614aec9f9bf92afa150948d808cfb47c73bd" name="add6fae194c9fe15e561181b21b6fc614aec9f9bf92afa150948d808cfb47c73bd"></a>quadraticIn&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614aca2bc4be3e70c0982876586e17860685" name="add6fae194c9fe15e561181b21b6fc614aca2bc4be3e70c0982876586e17860685"></a>quadraticInOut&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a6d181277db1246b900c193cd823ba21e" name="add6fae194c9fe15e561181b21b6fc614a6d181277db1246b900c193cd823ba21e"></a>quadraticOut&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a3d4b194fe7bab39d84b839fc12108932" name="add6fae194c9fe15e561181b21b6fc614a3d4b194fe7bab39d84b839fc12108932"></a>sineIn&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a6132e3681b97a2d682bad5ce802a29ca" name="add6fae194c9fe15e561181b21b6fc614a6132e3681b97a2d682bad5ce802a29ca"></a>sineInOut&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a030353ff9fd065b4116b16371ca4b124" name="add6fae194c9fe15e561181b21b6fc614a030353ff9fd065b4116b16371ca4b124"></a>sineOut&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a0077e21360a291be024c42766394775b" name="add6fae194c9fe15e561181b21b6fc614a0077e21360a291be024c42766394775b"></a>exponentialIn&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614ab5bdf8a6fe53581fe54a3709b55b36fe" name="add6fae194c9fe15e561181b21b6fc614ab5bdf8a6fe53581fe54a3709b55b36fe"></a>exponentialInOut&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a49c3644e18da03df8b393cf9471f6814" name="add6fae194c9fe15e561181b21b6fc614a49c3644e18da03df8b393cf9471f6814"></a>exponentialOut&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614ae5dc113cfd99be977319aafb69c5b4ac" name="add6fae194c9fe15e561181b21b6fc614ae5dc113cfd99be977319aafb69c5b4ac"></a>invLinear&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a05a36fca880332e4afaa4a5ac9ca5bf9" name="add6fae194c9fe15e561181b21b6fc614a05a36fca880332e4afaa4a5ac9ca5bf9"></a>invQuadraticIn&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614ab504d22925671ba6e253f0efdfeb779e" name="add6fae194c9fe15e561181b21b6fc614ab504d22925671ba6e253f0efdfeb779e"></a>invQuadraticInOut&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a819a9b2ceec509a5c04115a66c7fb4de" name="add6fae194c9fe15e561181b21b6fc614a819a9b2ceec509a5c04115a66c7fb4de"></a>invQuadraticOut&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a35931fd1e72cc0bf724f7092ccc65af1" name="add6fae194c9fe15e561181b21b6fc614a35931fd1e72cc0bf724f7092ccc65af1"></a>invSineIn&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614af866e4816f3d0a7aa46364164cf5a2d6" name="add6fae194c9fe15e561181b21b6fc614af866e4816f3d0a7aa46364164cf5a2d6"></a>invSineInOut&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a51a1e29d081d10f6528ed0fc5e509816" name="add6fae194c9fe15e561181b21b6fc614a51a1e29d081d10f6528ed0fc5e509816"></a>invSineOut&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a82390ea767ca6f0b8e39ea17a7e1202b" name="add6fae194c9fe15e561181b21b6fc614a82390ea767ca6f0b8e39ea17a7e1202b"></a>invExponentialIn&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a6e61e5ed0d9216ea3330a68c01d86591" name="add6fae194c9fe15e561181b21b6fc614a6e61e5ed0d9216ea3330a68c01d86591"></a>invExponentialInOut&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614aeabc2967673798438849bdddedf69785" name="add6fae194c9fe15e561181b21b6fc614aeabc2967673798438849bdddedf69785"></a>invExponentialOut&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614acb06b3d520dd725b2238a449315b094d" name="add6fae194c9fe15e561181b21b6fc614acb06b3d520dd725b2238a449315b094d"></a>linear&#160;</td><td class="fielddoc"><p>Linear (no shaping) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614aec9f9bf92afa150948d808cfb47c73bd" name="add6fae194c9fe15e561181b21b6fc614aec9f9bf92afa150948d808cfb47c73bd"></a>quadraticIn&#160;</td><td class="fielddoc"><p>Quadratic ease in. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614aca2bc4be3e70c0982876586e17860685" name="add6fae194c9fe15e561181b21b6fc614aca2bc4be3e70c0982876586e17860685"></a>quadraticInOut&#160;</td><td class="fielddoc"><p>Quadratic ease in and out. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a6d181277db1246b900c193cd823ba21e" name="add6fae194c9fe15e561181b21b6fc614a6d181277db1246b900c193cd823ba21e"></a>quadraticOut&#160;</td><td class="fielddoc"><p>Quadratic ease out. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a3d4b194fe7bab39d84b839fc12108932" name="add6fae194c9fe15e561181b21b6fc614a3d4b194fe7bab39d84b839fc12108932"></a>sineIn&#160;</td><td class="fielddoc"><p>Sine ease in. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a6132e3681b97a2d682bad5ce802a29ca" name="add6fae194c9fe15e561181b21b6fc614a6132e3681b97a2d682bad5ce802a29ca"></a>sineInOut&#160;</td><td class="fielddoc"><p>Sine ease in and out. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a030353ff9fd065b4116b16371ca4b124" name="add6fae194c9fe15e561181b21b6fc614a030353ff9fd065b4116b16371ca4b124"></a>sineOut&#160;</td><td class="fielddoc"><p>Sine ease out. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a0077e21360a291be024c42766394775b" name="add6fae194c9fe15e561181b21b6fc614a0077e21360a291be024c42766394775b"></a>exponentialIn&#160;</td><td class="fielddoc"><p>Exponential ease in. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614ab5bdf8a6fe53581fe54a3709b55b36fe" name="add6fae194c9fe15e561181b21b6fc614ab5bdf8a6fe53581fe54a3709b55b36fe"></a>exponentialInOut&#160;</td><td class="fielddoc"><p>Exponential ease in and out. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a49c3644e18da03df8b393cf9471f6814" name="add6fae194c9fe15e561181b21b6fc614a49c3644e18da03df8b393cf9471f6814"></a>exponentialOut&#160;</td><td class="fielddoc"><p>Exponential ease out. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614ae5dc113cfd99be977319aafb69c5b4ac" name="add6fae194c9fe15e561181b21b6fc614ae5dc113cfd99be977319aafb69c5b4ac"></a>invLinear&#160;</td><td class="fielddoc"><p>Inverted linear. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a05a36fca880332e4afaa4a5ac9ca5bf9" name="add6fae194c9fe15e561181b21b6fc614a05a36fca880332e4afaa4a5ac9ca5bf9"></a>invQuadraticIn&#160;</td><td class="fielddoc"><p>Inverted quadratic ease in. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614ab504d22925671ba6e253f0efdfeb779e" name="add6fae194c9fe15e561181b21b6fc614ab504d22925671ba6e253f0efdfeb779e"></a>invQuadraticInOut&#160;</td><td class="fielddoc"><p>Inverted quadratic ease in and out. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a819a9b2ceec509a5c04115a66c7fb4de" name="add6fae194c9fe15e561181b21b6fc614a819a9b2ceec509a5c04115a66c7fb4de"></a>invQuadraticOut&#160;</td><td class="fielddoc"><p>Inverted quadratic ease out. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a35931fd1e72cc0bf724f7092ccc65af1" name="add6fae194c9fe15e561181b21b6fc614a35931fd1e72cc0bf724f7092ccc65af1"></a>invSineIn&#160;</td><td class="fielddoc"><p>Inverted sine ease in. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614af866e4816f3d0a7aa46364164cf5a2d6" name="add6fae194c9fe15e561181b21b6fc614af866e4816f3d0a7aa46364164cf5a2d6"></a>invSineInOut&#160;</td><td class="fielddoc"><p>Inverted sine ease in and out. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a51a1e29d081d10f6528ed0fc5e509816" name="add6fae194c9fe15e561181b21b6fc614a51a1e29d081d10f6528ed0fc5e509816"></a>invSineOut&#160;</td><td class="fielddoc"><p>Inverted sine ease out. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a82390ea767ca6f0b8e39ea17a7e1202b" name="add6fae194c9fe15e561181b21b6fc614a82390ea767ca6f0b8e39ea17a7e1202b"></a>invExponentialIn&#160;</td><td class="fielddoc"><p>Inverted exponential ease in. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614a6e61e5ed0d9216ea3330a68c01d86591" name="add6fae194c9fe15e561181b21b6fc614a6e61e5ed0d9216ea3330a68c01d86591"></a>invExponentialInOut&#160;</td><td class="fielddoc"><p>Inverted exponential ease in and out. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add6fae194c9fe15e561181b21b6fc614aeabc2967673798438849bdddedf69785" name="add6fae194c9fe15e561181b21b6fc614aeabc2967673798438849bdddedf69785"></a>invExponentialOut&#160;</td><td class="fielddoc"><p>Inverted exponential ease out. </p>
+</td></tr>
 </table>
 
 </div>
@@ -1365,7 +1427,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:49:22 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:50:13 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
