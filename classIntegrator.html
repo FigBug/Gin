@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Calculates the integral of a function defined by a series of points.  
+<p>Numerical integration using the trapezoidal rule for discrete data points.  
  <a href="classIntegrator.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_integrator.h&gt;</code></p>
@@ -95,8 +95,35 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa32b905e14b6fd492b2d1c5dd33cb8f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Calculates the integral of a function defined by a series of points. </p>
-<p>Points must be added in increasing x order </p>
+<div class="textblock"><p>Numerical integration using the trapezoidal rule for discrete data points. </p>
+<p><a class="el" href="classIntegrator.html" title="Numerical integration using the trapezoidal rule for discrete data points.">Integrator</a> calculates the definite integral of a function represented by a series of (x, y) data points using the trapezoidal rule. This is useful for computing areas under curves, cumulative sums, or any integration task where you have discrete data points rather than a continuous function.</p>
+<p>The trapezoidal rule approximates the area between consecutive points as trapezoids, providing good accuracy for reasonably smooth data.</p>
+<p>Key Features:</p><ul>
+<li>Simple and efficient numerical integration</li>
+<li>Works with discrete data points</li>
+<li>Accumulates integral as points are added</li>
+<li>No memory overhead (streaming calculation)</li>
+</ul>
+<p>Important: Points must be added in increasing x order for correct results.</p>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classIntegrator.html">Integrator</a> integrator;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Add data points in increasing x order</span></div>
+<div class="line">integrator.<a class="code hl_function" href="classIntegrator.html#a9505d0e4528b35956870924bce7a8849">addPoint</a>(0.0, 0.0);</div>
+<div class="line">integrator.<a class="code hl_function" href="classIntegrator.html#a9505d0e4528b35956870924bce7a8849">addPoint</a>(1.0, 2.5);</div>
+<div class="line">integrator.<a class="code hl_function" href="classIntegrator.html#a9505d0e4528b35956870924bce7a8849">addPoint</a>(2.0, 4.0);</div>
+<div class="line">integrator.<a class="code hl_function" href="classIntegrator.html#a9505d0e4528b35956870924bce7a8849">addPoint</a>(3.0, 3.5);</div>
+<div class="line">integrator.<a class="code hl_function" href="classIntegrator.html#a9505d0e4528b35956870924bce7a8849">addPoint</a>(4.0, 1.0);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Get the accumulated integral</span></div>
+<div class="line"><span class="keywordtype">double</span> area = integrator.<a class="code hl_function" href="classIntegrator.html#a20e85f1f0f94fac676fcd91828223646">getIntegral</a>();</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Clear and start over</span></div>
+<div class="line">integrator.<a class="code hl_function" href="classIntegrator.html#aa0d9e23b5fb6adcd8f10d51fb4543bbf">clear</a>();</div>
+<div class="ttc" id="aclassIntegrator_html"><div class="ttname"><a href="classIntegrator.html">Integrator</a></div><div class="ttdoc">Numerical integration using the trapezoidal rule for discrete data points.</div><div class="ttdef"><b>Definition</b> gin_integrator.h:54</div></div>
+<div class="ttc" id="aclassIntegrator_html_a20e85f1f0f94fac676fcd91828223646"><div class="ttname"><a href="classIntegrator.html#a20e85f1f0f94fac676fcd91828223646">Integrator::getIntegral</a></div><div class="ttdeci">double getIntegral()</div></div>
+<div class="ttc" id="aclassIntegrator_html_a9505d0e4528b35956870924bce7a8849"><div class="ttname"><a href="classIntegrator.html#a9505d0e4528b35956870924bce7a8849">Integrator::addPoint</a></div><div class="ttdeci">void addPoint(double x, double y)</div></div>
+<div class="ttc" id="aclassIntegrator_html_aa0d9e23b5fb6adcd8f10d51fb4543bbf"><div class="ttname"><a href="classIntegrator.html#aa0d9e23b5fb6adcd8f10d51fb4543bbf">Integrator::clear</a></div><div class="ttdeci">void clear()</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classSpline.html" title="Cubic spline interpolation for smooth curves through discrete data points.">Spline</a>, <a class="el" href="classLeastSquaresRegression.html" title="Performs least squares regression to fit a quadratic curve to data points.">LeastSquaresRegression</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa0d9e23b5fb6adcd8f10d51fb4543bbf" name="aa0d9e23b5fb6adcd8f10d51fb4543bbf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa0d9e23b5fb6adcd8f10d51fb4543bbf">&#9670;&#160;</a></span>clear()</h2>
@@ -202,7 +229,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 19:17:25 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 19:21:09 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
