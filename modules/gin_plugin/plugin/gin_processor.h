@@ -96,7 +96,71 @@ public:
 };
 
 //==============================================================================
-/** A process with internal and external params
+/**
+    Advanced audio processor base class with parameter management and preset system.
+
+    Processor extends JUCE's AudioProcessor with a complete parameter management system,
+    preset/program handling, state management, and various conveniences for building
+    professional audio plugins.
+
+    Key Features:
+    - **Parameter Management**: Internal and external parameters with automatic host exposure
+    - **Preset System**: Full program/preset management with file watching
+    - **State Management**: ValueTree-based state with automatic parameter sync
+    - **Parameter Smoothing**: Built-in smoothing for audio-rate parameters
+    - **Settings**: Optional persistent settings via PropertiesFile
+    - **Modulation Support**: Integration with ModMatrix system
+    - **Update Checking**: Optional update and news checking
+
+    Parameter Types:
+    - **External Parameters**: Exposed to host, automatable, saved in presets
+    - **Internal Parameters**: Not exposed to host, for UI-only settings
+
+    Preset System:
+    Programs are automatically loaded from a directory and file-watched for changes.
+    Each program stores parameters and can include custom state data.
+
+    Usage:
+    @code
+    class MyProcessor : public gin::Processor
+    {
+    public:
+        MyProcessor() : Processor(false) // false = don't auto-init
+        {
+            // Add parameters
+            cutoff = addExtParam("cutoff", "Cutoff", "Cutoff", "Hz",
+                                 {20.0f, 20000.0f}, 1000.0f,
+                                 SmoothingType(0.05f));
+
+            resonance = addExtParam("resonance", "Resonance", "Res", "",
+                                    {0.0f, 1.0f}, 0.5f,
+                                    SmoothingType(0.05f));
+
+            init(); // Call after adding all parameters
+        }
+
+        void prepareToPlay(double sr, int block) override
+        {
+            Processor::prepareToPlay(sr, block);
+            filter.setSampleRate(sr);
+        }
+
+        void processBlock(AudioBuffer<float>& buffer, MidiBuffer& midi) override
+        {
+            // Parameters are automatically smoothed
+            filter.setCutoff(cutoff->getProcValue());
+            filter.setResonance(resonance->getProcValue());
+            filter.process(buffer);
+        }
+
+    private:
+        Parameter* cutoff;
+        Parameter* resonance;
+        MyFilter filter;
+    };
+    @endcode
+
+    @see Parameter, Program, ModMatrix
 */
 class Processor : public ProcessorBaseClass,
                   public juce::ChangeBroadcaster,

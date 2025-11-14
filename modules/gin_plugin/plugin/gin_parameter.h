@@ -4,22 +4,58 @@ class Processor;
 class ModMatrix;
 
 //==============================================================================
-/** A parameter with user values, real time safe callbacks, modulation, and
-    all sorts of other fancy stuff.
- 
-    A paramter return it's value in 3 formats:
-      value:        always 0..1
-      user value:   range as displayed to user
-      proc value:   range used for processing
- 
-      For example, a gain parameter may have a user range of -100 to +10 dB. The coresponding
-      proc range would be 0 to 3.1623. By default user value and proc value are the same.
-      To provide an alternate proc value, set conversionFunction
- 
-    Parameters can be either internal or external. External parameters are exposed to the host
-    and can be modulated. Internal parameters are for things that should not be modulated.
- 
-    Parameters can optionally be added to a modmatrix 
+/**
+    Advanced parameter class with modulation, real-time callbacks, and host automation.
+
+    Parameter provides a comprehensive plugin parameter implementation with features
+    needed for professional audio plugins. It extends JUCE's parameter system with
+    modulation support, user/processing value separation, and real-time safe callbacks.
+
+    Value Formats:
+    Parameter values are represented in three formats:
+    - **value**: Normalized 0..1 range (for host automation)
+    - **user value**: Range as displayed to user (e.g., -100 to +10 dB)
+    - **proc value**: Range used for DSP processing (e.g., 0 to 3.1623 for gain)
+
+    By default, user value and proc value are identical. To provide custom processing
+    values, set the conversionFunction (e.g., converting dB to linear gain).
+
+    Parameter Types:
+    - **External**: Exposed to host, can be automated and modulated
+    - **Internal**: Hidden from host, cannot be modulated (e.g., UI-only settings)
+
+    Key Features:
+    - Host automation support
+    - Modulation matrix integration
+    - Real-time safe value callbacks
+    - User action tracking (begin/end gestures)
+    - Custom text formatting
+    - Skewed parameter ranges
+    - Optional parameter smoothing
+    - Listener callbacks for UI updates
+
+    Usage:
+    @code
+    // Create a gain parameter with dB display but linear processing
+    auto* gain = new Parameter(processor,
+        "gain", "Gain", "Gain", "dB",
+        -100.0f, 10.0f,   // User range: -100 to +10 dB
+        0.1f,             // Step size
+        0.0f,             // Default value
+        1.0f);            // No skew
+
+    // Convert dB to linear for processing
+    gain->conversionFunction = [](float db) {
+        return juce::Decibels::decibelsToGain(db);
+    };
+
+    // In DSP code
+    float linearGain = gain->getProcValue();
+    // In UI
+    String displayText = gain->getUserValueText(); // "0.0 dB"
+    @endcode
+
+    @see Processor, ModMatrix, SmoothedParameter
 */
 class Parameter : public juce::AudioPluginInstance::HostedParameter,
                   public juce::AsyncUpdater,

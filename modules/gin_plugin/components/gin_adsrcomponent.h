@@ -1,7 +1,42 @@
 #pragma once
 
 //==============================================================================
-/** Component for adjuting ADSR curves
+/**
+    Interactive visual editor for ADSR envelope parameters.
+
+    ADSRComponent provides an intuitive graphical interface for editing ADSR
+    (Attack, Decay, Sustain, Release) envelope parameters. Users can drag handles
+    to adjust the envelope shape, with real-time visual feedback and optional
+    phase indication showing the current envelope position.
+
+    Key Features:
+    - Visual envelope curve display
+    - Draggable handles for Attack, Decay/Sustain, and Release
+    - Real-time parameter updates while dragging
+    - Optional phase indicators for showing active voices
+    - Mouse cursor changes to indicate draggable areas
+    - Bubble tooltips showing parameter values
+
+    The component requires four parameters (attack, decay, sustain, release) and
+    optionally accepts a callback to display current envelope phases for visual
+    feedback during playback.
+
+    Usage:
+    @code
+    ADSRComponent adsrEditor;
+    adsrEditor.setParams(attackParam, decayParam, sustainParam, releaseParam);
+    adsrEditor.setBounds(0, 0, 300, 150);
+
+    // Optional: Show current envelope phases
+    adsrEditor.phaseCallback = [this]() {
+        std::vector<std::pair<int, float>> phases;
+        for (auto* voice : activeVoices)
+            phases.push_back(voice->getEnvelopePhase());
+        return phases;
+    };
+    @endcode
+
+    @see Parameter, MultiParamComponent, AnalogADSR
 */
 class ADSRComponent : public MultiParamComponent
                     , private juce::Timer
