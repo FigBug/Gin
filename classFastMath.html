@@ -76,16 +76,45 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Fast approximations for trigonometric and hyperbolic functions.  
+ <a href="classFastMath.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_fastmath.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:afdad2de64a36f1743f44b2709b1b1942" id="r_afdad2de64a36f1743f44b2709b1b1942"><td class="memItemLeft" align="right" valign="top">static F&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFastMath.html#afdad2de64a36f1743f44b2709b1b1942">fastSin</a> (F x)</td></tr>
+<tr class="memdesc:afdad2de64a36f1743f44b2709b1b1942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fast sine wave approximation.  <br /></td></tr>
 <tr class="separator:afdad2de64a36f1743f44b2709b1b1942"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7dc4fb37da3e6c46c461336e3b36ad4" id="r_ab7dc4fb37da3e6c46c461336e3b36ad4"><td class="memItemLeft" align="right" valign="top">static F&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFastMath.html#ab7dc4fb37da3e6c46c461336e3b36ad4">fastTanh</a> (const F x)</td></tr>
+<tr class="memdesc:ab7dc4fb37da3e6c46c461336e3b36ad4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fast hyperbolic tangent approximation.  <br /></td></tr>
 <tr class="separator:ab7dc4fb37da3e6c46c461336e3b36ad4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;class F&gt;<br />
+class FastMath&lt; F &gt;</div><p>Fast approximations for trigonometric and hyperbolic functions. </p>
+<p><a class="el" href="classFastMath.html" title="Fast approximations for trigonometric and hyperbolic functions.">FastMath</a> provides optimized approximations of trigonometric and hyperbolic functions that trade accuracy for speed. These are useful in DSP applications where perceptual accuracy is more important than mathematical precision, such as waveshaping, modulation, and real-time synthesis.</p>
+<p>Key Features:</p><ul>
+<li>Fast sine approximation (valid range: -π to π)</li>
+<li>Fast hyperbolic tangent approximation</li>
+<li>Template class supports float or double</li>
+<li>Inline functions for maximum performance</li>
+<li>Suitable for audio-rate processing</li>
+</ul>
+<p>Accuracy vs Speed: These approximations are significantly faster than std:: equivalents but introduce small errors. For most audio applications, the errors are inaudible and the speed benefit is worthwhile.</p>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="comment">// Fast sine for LFO or modulation</span></div>
+<div class="line"><span class="keywordtype">float</span> phase = 0.5f; <span class="comment">// 0 to 1</span></div>
+<div class="line"><span class="keywordtype">float</span> x = (phase * 2.0f - 1.0f) * M_PI; <span class="comment">// Convert to -π to π</span></div>
+<div class="line"><span class="keywordtype">float</span> sineValue = <a class="code hl_function" href="classFastMath.html#afdad2de64a36f1743f44b2709b1b1942">FastMath&lt;float&gt;::fastSin</a>(x);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Fast tanh for waveshaping/saturation</span></div>
+<div class="line"><span class="keywordtype">float</span> input = audioSample * 3.0f;</div>
+<div class="line"><span class="keywordtype">float</span> shaped = <a class="code hl_function" href="classFastMath.html#ab7dc4fb37da3e6c46c461336e3b36ad4">FastMath&lt;float&gt;::fastTanh</a>(input);</div>
+<div class="ttc" id="aclassFastMath_html_ab7dc4fb37da3e6c46c461336e3b36ad4"><div class="ttname"><a href="classFastMath.html#ab7dc4fb37da3e6c46c461336e3b36ad4">FastMath::fastTanh</a></div><div class="ttdeci">static F fastTanh(const F x)</div><div class="ttdoc">Fast hyperbolic tangent approximation.</div><div class="ttdef"><b>Definition</b> gin_fastmath.h:124</div></div>
+<div class="ttc" id="aclassFastMath_html_afdad2de64a36f1743f44b2709b1b1942"><div class="ttname"><a href="classFastMath.html#afdad2de64a36f1743f44b2709b1b1942">FastMath::fastSin</a></div><div class="ttdeci">static F fastSin(F x)</div><div class="ttdoc">Fast sine wave approximation.</div><div class="ttdef"><b>Definition</b> gin_fastmath.h:89</div></div>
+</div><!-- fragment --><p>Credits: Based on algorithms by Mike Jarmy (MIT License)</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacemath.html" title="SIMD-accelerated math utilities for audio DSP.">math</a> namespace </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="afdad2de64a36f1743f44b2709b1b1942" name="afdad2de64a36f1743f44b2709b1b1942"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afdad2de64a36f1743f44b2709b1b1942">&#9670;&#160;</a></span>fastSin()</h2>
 
@@ -111,6 +140,24 @@ template&lt;class F &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Fast sine wave approximation. </p>
+<p>Computes an approximation of sin(x) using a polynomial approximation. Provides good accuracy with significantly better performance than std::sin.</p>
+<p>Valid Range: -π to π</p><ul>
+<li>Values outside this range will produce incorrect results</li>
+<li>For normalized phase (0 to 1), convert to radians first</li>
+</ul>
+<p>Algorithm: Based on parabolic approximation with extra precision term.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Angle in radians (must be in range [-π, π]) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Approximation of sin(x) in range [-1.0, 1.0]</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://web.archive.org/web/20100613230051/http://www.devmaster.net/forums/showthread.php?t=5784">https://web.archive.org/web/20100613230051/http://www.devmaster.net/forums/showthread.php?t=5784</a> </dd>
+<dd>
+<a href="https://www.desmos.com/calculator/f0eryaepsl">https://www.desmos.com/calculator/f0eryaepsl</a> </dd></dl>
 
 </div>
 </div>
@@ -140,6 +187,27 @@ template&lt;class F &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Fast hyperbolic tangent approximation. </p>
+<p>Computes an approximation of tanh(x) using a rational polynomial. Particularly useful for waveshaping and soft-clipping in audio applications.</p>
+<p>Characteristics:</p><ul>
+<li>Smooth S-curve from -1 to 1</li>
+<li>Asymptotically approaches ±1 for large |x|</li>
+<li>Good for soft saturation and distortion</li>
+<li>Much faster than std::tanh</li>
+<li>Valid for all input ranges</li>
+</ul>
+<p>Algorithm: Rational polynomial approximation optimized for audio.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Input value (any real number) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Approximation of tanh(x) in range [-1.0, 1.0]</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://www.kvraudio.com/forum/viewtopic.php?p=5447225#p5447225">https://www.kvraudio.com/forum/viewtopic.php?p=5447225#p5447225</a> </dd>
+<dd>
+<a href="https://www.desmos.com/calculator/bjc7zsl4ek">https://www.desmos.com/calculator/bjc7zsl4ek</a> </dd></dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -148,7 +216,7 @@ template&lt;class F &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 20:48:40 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 14 2025 20:49:22 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
