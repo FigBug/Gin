@@ -19191,6 +19191,7 @@
     <name>gin_graphics-images</name>
     <title>images</title>
     <filename>group__gin__graphics-images.html</filename>
+    <file>gin_imageeffects.h</file>
     <member kind="enumeration">
       <type></type>
       <name>ResizeAlgorirm</name>
@@ -19604,6 +19605,7 @@
     <name>gin-utilities</name>
     <title>utilities</title>
     <filename>group__gin-utilities.html</filename>
+    <file>gin_easing.h</file>
     <namespace>Diff</namespace>
     <namespace>Lagrange</namespace>
     <class kind="class">DownloadManager</class>

@@ -70,18 +70,25 @@ $(function() {
 
 <div class="header">
   <div class="summary">
+<a href="#files">Files</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">images<div class="ingroups"><a class="el" href="group__gin__graphics.html">gin_graphics</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:gin__imageeffects_8h" id="r_gin__imageeffects_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gin__imageeffects_8h.html">gin_imageeffects.h</a></td></tr>
+<tr class="memdesc:gin__imageeffects_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Image processing effects and filters. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:gaedc0b4c54cea2c3df1788ebf8ee9b07b" id="r_gaedc0b4c54cea2c3df1788ebf8ee9b07b"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#gaedc0b4c54cea2c3df1788ebf8ee9b07b">ResizeAlgorirm</a> { <a class="el" href="group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04">ResizeAlgorirm::avir</a>
 , <a class="el" href="group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07bacf842af094536ba42c3771077d483b19">ResizeAlgorirm::lanczos</a>
  }</td></tr>
-<tr class="memdesc:gaedc0b4c54cea2c3df1788ebf8ee9b07b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A very high quality image resize using a bank of sinc function-based fractional delay filters.  <a href="group__gin__graphics-images.html#gaedc0b4c54cea2c3df1788ebf8ee9b07b">More...</a><br /></td></tr>
+<tr class="memdesc:gaedc0b4c54cea2c3df1788ebf8ee9b07b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Image resize algorithms for high-quality scaling.  <a href="group__gin__graphics-images.html#gaedc0b4c54cea2c3df1788ebf8ee9b07b">More...</a><br /></td></tr>
 <tr class="separator:gaedc0b4c54cea2c3df1788ebf8ee9b07b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga30323fa90e24ca484998b9fba6c40e85" id="r_ga30323fa90e24ca484998b9fba6c40e85"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga30323fa90e24ca484998b9fba6c40e85">BlendMode</a> { <br />
 &#160;&#160;<a class="el" href="group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a5ecbcf0afce98b042f35ec71ba03fa4b">Normal</a>
@@ -117,60 +124,64 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a85c155bffb4118332192060f1a6db976">Phoenix</a>
 <br />
  }</td></tr>
-<tr class="memdesc:ga30323fa90e24ca484998b9fba6c40e85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blending modes for applyBlend.  <a href="group__gin__graphics-images.html#ga30323fa90e24ca484998b9fba6c40e85">More...</a><br /></td></tr>
+<tr class="memdesc:ga30323fa90e24ca484998b9fba6c40e85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blending modes for image compositing.  <a href="group__gin__graphics-images.html#ga30323fa90e24ca484998b9fba6c40e85">More...</a><br /></td></tr>
 <tr class="separator:ga30323fa90e24ca484998b9fba6c40e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga1023b87ad7bb7ca1e039ded54397ef90" id="r_ga1023b87ad7bb7ca1e039ded54397ef90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga1023b87ad7bb7ca1e039ded54397ef90">applyVignette</a> (juce::Image &amp;img, float amount, float radius, float falloff, juce::ThreadPool *threadPool=nullptr)</td></tr>
-<tr class="memdesc:ga1023b87ad7bb7ca1e039ded54397ef90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply vignette.  <br /></td></tr>
+<tr class="memdesc:ga1023b87ad7bb7ca1e039ded54397ef90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a vignette effect to an image.  <br /></td></tr>
 <tr class="separator:ga1023b87ad7bb7ca1e039ded54397ef90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaccaa511049769192c15aa13e0c2a40d1" id="r_gaccaa511049769192c15aa13e0c2a40d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#gaccaa511049769192c15aa13e0c2a40d1">applySepia</a> (juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</td></tr>
-<tr class="memdesc:gaccaa511049769192c15aa13e0c2a40d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make it look old.  <br /></td></tr>
+<tr class="memdesc:gaccaa511049769192c15aa13e0c2a40d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a sepia tone effect to an image.  <br /></td></tr>
 <tr class="separator:gaccaa511049769192c15aa13e0c2a40d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gadb285c05d7e81fbffe8b2ab5705b0783" id="r_gadb285c05d7e81fbffe8b2ab5705b0783"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#gadb285c05d7e81fbffe8b2ab5705b0783">applyGreyScale</a> (juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</td></tr>
-<tr class="memdesc:gadb285c05d7e81fbffe8b2ab5705b0783"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts image to B/W, heavier weighting towards greens.  <br /></td></tr>
+<tr class="memdesc:gadb285c05d7e81fbffe8b2ab5705b0783"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an image to greyscale.  <br /></td></tr>
 <tr class="separator:gadb285c05d7e81fbffe8b2ab5705b0783"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4cc9c0919994beeac34d088beb1991e2" id="r_ga4cc9c0919994beeac34d088beb1991e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga4cc9c0919994beeac34d088beb1991e2">applySoften</a> (juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</td></tr>
-<tr class="memdesc:ga4cc9c0919994beeac34d088beb1991e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Softens an image.  <br /></td></tr>
+<tr class="memdesc:ga4cc9c0919994beeac34d088beb1991e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Softens an image by reducing detail.  <br /></td></tr>
 <tr class="separator:ga4cc9c0919994beeac34d088beb1991e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac0b5514a6c74e31bd4e7a26898e45228" id="r_gac0b5514a6c74e31bd4e7a26898e45228"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#gac0b5514a6c74e31bd4e7a26898e45228">applySharpen</a> (juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</td></tr>
-<tr class="memdesc:gac0b5514a6c74e31bd4e7a26898e45228"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sharpens an image.  <br /></td></tr>
+<tr class="memdesc:gac0b5514a6c74e31bd4e7a26898e45228"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sharpens an image by enhancing edges.  <br /></td></tr>
 <tr class="separator:gac0b5514a6c74e31bd4e7a26898e45228"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2b20d743c3475fd86d18a8f2cb427b47" id="r_ga2b20d743c3475fd86d18a8f2cb427b47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga2b20d743c3475fd86d18a8f2cb427b47">applyGamma</a> (juce::Image &amp;img, float gamma, juce::ThreadPool *threadPool=nullptr)</td></tr>
+<tr class="memdesc:ga2b20d743c3475fd86d18a8f2cb427b47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies gamma correction to an image.  <br /></td></tr>
 <tr class="separator:ga2b20d743c3475fd86d18a8f2cb427b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6453f04ab3d2a6a345cd6b7f70711c04" id="r_ga6453f04ab3d2a6a345cd6b7f70711c04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga6453f04ab3d2a6a345cd6b7f70711c04">applyInvert</a> (juce::Image &amp;img, juce::ThreadPool *threadPool=nullptr)</td></tr>
-<tr class="memdesc:ga6453f04ab3d2a6a345cd6b7f70711c04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inverts colours of an image.  <br /></td></tr>
+<tr class="memdesc:ga6453f04ab3d2a6a345cd6b7f70711c04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inverts all colors in an image.  <br /></td></tr>
 <tr class="separator:ga6453f04ab3d2a6a345cd6b7f70711c04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga50c77bf67a02fbc002d1136fd64f2031" id="r_ga50c77bf67a02fbc002d1136fd64f2031"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga50c77bf67a02fbc002d1136fd64f2031">applyContrast</a> (juce::Image &amp;img, float contrast, juce::ThreadPool *threadPool=nullptr)</td></tr>
-<tr class="memdesc:ga50c77bf67a02fbc002d1136fd64f2031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjust contrast of an image.  <br /></td></tr>
+<tr class="memdesc:ga50c77bf67a02fbc002d1136fd64f2031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts the contrast of an image.  <br /></td></tr>
 <tr class="separator:ga50c77bf67a02fbc002d1136fd64f2031"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab3825059a9e75bfc8e78cf0106ddf78e" id="r_gab3825059a9e75bfc8e78cf0106ddf78e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#gab3825059a9e75bfc8e78cf0106ddf78e">applyBrightnessContrast</a> (juce::Image &amp;img, float brightness, float contrast, juce::ThreadPool *threadPool=nullptr)</td></tr>
-<tr class="memdesc:gab3825059a9e75bfc8e78cf0106ddf78e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjust brightness and contrast of an image.  <br /></td></tr>
+<tr class="memdesc:gab3825059a9e75bfc8e78cf0106ddf78e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts brightness and contrast of an image.  <br /></td></tr>
 <tr class="separator:gab3825059a9e75bfc8e78cf0106ddf78e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga25205b0926bfca178115404c6d9f45d9" id="r_ga25205b0926bfca178115404c6d9f45d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga25205b0926bfca178115404c6d9f45d9">applyHueSaturationLightness</a> (juce::Image &amp;img, float hue, float saturation, float lightness, juce::ThreadPool *threadPool=nullptr)</td></tr>
-<tr class="memdesc:ga25205b0926bfca178115404c6d9f45d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjust hue, saturation and lightness of an image.  <br /></td></tr>
+<tr class="memdesc:ga25205b0926bfca178115404c6d9f45d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts hue, saturation and lightness of an image.  <br /></td></tr>
 <tr class="separator:ga25205b0926bfca178115404c6d9f45d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5298c1220caef0f1d6d918c9ec15243d" id="r_ga5298c1220caef0f1d6d918c9ec15243d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga5298c1220caef0f1d6d918c9ec15243d">applyStackBlur</a> (juce::Image &amp;img, int radius)</td></tr>
-<tr class="memdesc:ga5298c1220caef0f1d6d918c9ec15243d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A very fast blur.  <br /></td></tr>
+<tr class="memdesc:ga5298c1220caef0f1d6d918c9ec15243d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a fast, high-quality blur to an image.  <br /></td></tr>
 <tr class="separator:ga5298c1220caef0f1d6d918c9ec15243d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3b48b2d9f0652cc609336b4ff5d1dd07" id="r_ga3b48b2d9f0652cc609336b4ff5d1dd07"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga3b48b2d9f0652cc609336b4ff5d1dd07">applyResize</a> (const juce::Image &amp;img, int width, int height, <a class="el" href="group__gin__graphics-images.html#gaedc0b4c54cea2c3df1788ebf8ee9b07b">ResizeAlgorirm</a> resizeAlgorirm=<a class="el" href="group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04">ResizeAlgorirm::avir</a>)</td></tr>
+<tr class="memdesc:ga3b48b2d9f0652cc609336b4ff5d1dd07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes an image to specific dimensions using high-quality algorithm.  <br /></td></tr>
 <tr class="separator:ga3b48b2d9f0652cc609336b4ff5d1dd07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4d96614cc76bccc3f72c891660c6efe5" id="r_ga4d96614cc76bccc3f72c891660c6efe5"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga4d96614cc76bccc3f72c891660c6efe5">applyResize</a> (const juce::Image &amp;img, float factor, <a class="el" href="group__gin__graphics-images.html#gaedc0b4c54cea2c3df1788ebf8ee9b07b">ResizeAlgorirm</a> resizeAlgorirm=<a class="el" href="group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04">ResizeAlgorirm::avir</a>)</td></tr>
+<tr class="memdesc:ga4d96614cc76bccc3f72c891660c6efe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes an image by a scaling factor.  <br /></td></tr>
 <tr class="separator:ga4d96614cc76bccc3f72c891660c6efe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2e91627e4ee0f9e1aeca78ca387a8c51" id="r_ga2e91627e4ee0f9e1aeca78ca387a8c51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga2e91627e4ee0f9e1aeca78ca387a8c51">applyGradientMap</a> (juce::Image &amp;img, const juce::ColourGradient &amp;gradient, juce::ThreadPool *threadPool=nullptr)</td></tr>
-<tr class="memdesc:ga2e91627e4ee0f9e1aeca78ca387a8c51"><td class="mdescLeft">&#160;</td><td class="mdescRight">GradientMap a image.  <br /></td></tr>
+<tr class="memdesc:ga2e91627e4ee0f9e1aeca78ca387a8c51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a gradient map to an image.  <br /></td></tr>
 <tr class="separator:ga2e91627e4ee0f9e1aeca78ca387a8c51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga48f6d1c24d18edd26e2d9da48e47dcf7" id="r_ga48f6d1c24d18edd26e2d9da48e47dcf7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga48f6d1c24d18edd26e2d9da48e47dcf7">applyGradientMap</a> (juce::Image &amp;img, const juce::Colour c1, const juce::Colour c2, juce::ThreadPool *threadPool=nullptr)</td></tr>
+<tr class="memdesc:ga48f6d1c24d18edd26e2d9da48e47dcf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a two-color gradient map to an image.  <br /></td></tr>
 <tr class="separator:ga48f6d1c24d18edd26e2d9da48e47dcf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae6d6ea52612fb4f6474b05a1063604db" id="r_gae6d6ea52612fb4f6474b05a1063604db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#gae6d6ea52612fb4f6474b05a1063604db">applyColour</a> (juce::Image &amp;img, juce::Colour c, juce::ThreadPool *threadPool=nullptr)</td></tr>
-<tr class="memdesc:gae6d6ea52612fb4f6474b05a1063604db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set an image to a solid colour.  <br /></td></tr>
+<tr class="memdesc:gae6d6ea52612fb4f6474b05a1063604db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all pixels in an image to a solid color.  <br /></td></tr>
 <tr class="separator:gae6d6ea52612fb4f6474b05a1063604db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6e16e6b71a97615070d0f5f6829f2b04" id="r_ga6e16e6b71a97615070d0f5f6829f2b04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga6e16e6b71a97615070d0f5f6829f2b04">applyBlend</a> (juce::Image &amp;dst, const juce::Image &amp;src, <a class="el" href="group__gin__graphics-images.html#ga30323fa90e24ca484998b9fba6c40e85">BlendMode</a> mode, float alpha=1.0f, juce::Point&lt; int &gt; position={}, juce::ThreadPool *threadPool=nullptr)</td></tr>
-<tr class="memdesc:ga6e16e6b71a97615070d0f5f6829f2b04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blend two images.  <br /></td></tr>
+<tr class="memdesc:ga6e16e6b71a97615070d0f5f6829f2b04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blends two images using the specified blend mode.  <br /></td></tr>
 <tr class="separator:ga6e16e6b71a97615070d0f5f6829f2b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga590207f6293f03a5a4e4e2a1d4f3db15" id="r_ga590207f6293f03a5a4e4e2a1d4f3db15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__graphics-images.html#ga590207f6293f03a5a4e4e2a1d4f3db15">applyBlend</a> (juce::Image &amp;dst, <a class="el" href="group__gin__graphics-images.html#ga30323fa90e24ca484998b9fba6c40e85">BlendMode</a> mode, juce::Colour c, juce::ThreadPool *threadPool=nullptr)</td></tr>
-<tr class="memdesc:ga590207f6293f03a5a4e4e2a1d4f3db15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blend two images.  <br /></td></tr>
+<tr class="memdesc:ga590207f6293f03a5a4e4e2a1d4f3db15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blends a solid color onto an image using the specified blend mode.  <br /></td></tr>
 <tr class="separator:ga590207f6293f03a5a4e4e2a1d4f3db15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -195,10 +206,14 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>A very high quality image resize using a bank of sinc function-based fractional delay filters. </p>
+<p>Image resize algorithms for high-quality scaling. </p>
+<p>Both algorithms provide superior quality compared to basic interpolation, using sinc function-based fractional delay filters.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__gin__graphics-images.html#ga3b48b2d9f0652cc609336b4ff5d1dd07" title="Resizes an image to specific dimensions using high-quality algorithm.">applyResize</a> </dd></dl>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04" name="ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04"></a>avir&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ggaedc0b4c54cea2c3df1788ebf8ee9b07bacf842af094536ba42c3771077d483b19" name="ggaedc0b4c54cea2c3df1788ebf8ee9b07bacf842af094536ba42c3771077d483b19"></a>lanczos&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04" name="ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04"></a>avir&#160;</td><td class="fielddoc"><p>AVIR algorithm - high quality, balanced speed/quality. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaedc0b4c54cea2c3df1788ebf8ee9b07bacf842af094536ba42c3771077d483b19" name="ggaedc0b4c54cea2c3df1788ebf8ee9b07bacf842af094536ba42c3771077d483b19"></a>lanczos&#160;</td><td class="fielddoc"><p>Lanczos algorithm - excellent quality, slightly slower. </p>
+</td></tr>
 </table>
 
 </div>
@@ -215,33 +230,67 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Blending modes for applyBlend. </p>
+<p>Blending modes for image compositing. </p>
+<p>Defines how two images are combined when using applyBlend. Each mode produces different visual effects based on how source and destination pixel values interact.</p>
+<p>Common modes:</p><ul>
+<li>Normal: Standard alpha compositing</li>
+<li>Multiply: Darkens image, useful for shadows</li>
+<li>Screen: Lightens image, useful for highlights</li>
+<li>Overlay: Combines Multiply and Screen based on luminance</li>
+<li>Add: Adds colors together, creates bright effects</li>
+</ul>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__gin__graphics-images.html#ga6e16e6b71a97615070d0f5f6829f2b04" title="Blends two images using the specified blend mode.">applyBlend</a> </dd></dl>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a5ecbcf0afce98b042f35ec71ba03fa4b" name="gga30323fa90e24ca484998b9fba6c40e85a5ecbcf0afce98b042f35ec71ba03fa4b"></a>Normal&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a0c4863f7d789ab70b21073bd94c9169d" name="gga30323fa90e24ca484998b9fba6c40e85a0c4863f7d789ab70b21073bd94c9169d"></a>Lighten&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a95ea73d8fed63115639319a67d596d49" name="gga30323fa90e24ca484998b9fba6c40e85a95ea73d8fed63115639319a67d596d49"></a>Darken&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85ade55cee401a6a53619b6ec469abf0810" name="gga30323fa90e24ca484998b9fba6c40e85ade55cee401a6a53619b6ec469abf0810"></a>Multiply&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f" name="gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f"></a>Average&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a0d592a4b562059bc283e00b3704865c9" name="gga30323fa90e24ca484998b9fba6c40e85a0d592a4b562059bc283e00b3704865c9"></a>Add&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85afa8a9720422ee254970b2ebe1435a917" name="gga30323fa90e24ca484998b9fba6c40e85afa8a9720422ee254970b2ebe1435a917"></a>Subtract&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a9cba343e00a6259dc83f7e4e7f447109" name="gga30323fa90e24ca484998b9fba6c40e85a9cba343e00a6259dc83f7e4e7f447109"></a>Difference&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85ab94b0efce58a77e1c8fa29e32536c728" name="gga30323fa90e24ca484998b9fba6c40e85ab94b0efce58a77e1c8fa29e32536c728"></a>Negation&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a2609fadb77bb3d98c615b41ac79a1d31" name="gga30323fa90e24ca484998b9fba6c40e85a2609fadb77bb3d98c615b41ac79a1d31"></a>Screen&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85ac200cda01c78d8dae2b11cf4ded47655" name="gga30323fa90e24ca484998b9fba6c40e85ac200cda01c78d8dae2b11cf4ded47655"></a>Exclusion&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a8b895d92539a718e6898ed6b053ce2ff" name="gga30323fa90e24ca484998b9fba6c40e85a8b895d92539a718e6898ed6b053ce2ff"></a>Overlay&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a967749a14f4bb7ffc6383997d97a6163" name="gga30323fa90e24ca484998b9fba6c40e85a967749a14f4bb7ffc6383997d97a6163"></a>SoftLight&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a7fc75582ae37ab60f5a1cc8e2acd7e24" name="gga30323fa90e24ca484998b9fba6c40e85a7fc75582ae37ab60f5a1cc8e2acd7e24"></a>HardLight&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a71b5386d914bd4101f3d086d8ce72161" name="gga30323fa90e24ca484998b9fba6c40e85a71b5386d914bd4101f3d086d8ce72161"></a>ColorDodge&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85adccc18afee7dc5a40147cab59118d583" name="gga30323fa90e24ca484998b9fba6c40e85adccc18afee7dc5a40147cab59118d583"></a>ColorBurn&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85afe7aab6a1580381724d2ebe724fbd065" name="gga30323fa90e24ca484998b9fba6c40e85afe7aab6a1580381724d2ebe724fbd065"></a>LinearDodge&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a4c41b912f1e9eca71a1a36fc8a1172d9" name="gga30323fa90e24ca484998b9fba6c40e85a4c41b912f1e9eca71a1a36fc8a1172d9"></a>LinearBurn&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85ae158a552ecb4c88077b7537e93a8df86" name="gga30323fa90e24ca484998b9fba6c40e85ae158a552ecb4c88077b7537e93a8df86"></a>LinearLight&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a87be187db30f3efdb79dde93f63e0430" name="gga30323fa90e24ca484998b9fba6c40e85a87be187db30f3efdb79dde93f63e0430"></a>VividLight&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a513bf9b05af260d001632c4fe6d345d5" name="gga30323fa90e24ca484998b9fba6c40e85a513bf9b05af260d001632c4fe6d345d5"></a>PinLight&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a76ee1ad58cc676f7994416354a4d7b59" name="gga30323fa90e24ca484998b9fba6c40e85a76ee1ad58cc676f7994416354a4d7b59"></a>HardMix&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a8898819fa0ebd77a64e192d47e7be553" name="gga30323fa90e24ca484998b9fba6c40e85a8898819fa0ebd77a64e192d47e7be553"></a>Reflect&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85ac7adb89e56ad4a2daef183d318110442" name="gga30323fa90e24ca484998b9fba6c40e85ac7adb89e56ad4a2daef183d318110442"></a>Glow&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a85c155bffb4118332192060f1a6db976" name="gga30323fa90e24ca484998b9fba6c40e85a85c155bffb4118332192060f1a6db976"></a>Phoenix&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a5ecbcf0afce98b042f35ec71ba03fa4b" name="gga30323fa90e24ca484998b9fba6c40e85a5ecbcf0afce98b042f35ec71ba03fa4b"></a>Normal&#160;</td><td class="fielddoc"><p>Standard alpha blending. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a0c4863f7d789ab70b21073bd94c9169d" name="gga30323fa90e24ca484998b9fba6c40e85a0c4863f7d789ab70b21073bd94c9169d"></a>Lighten&#160;</td><td class="fielddoc"><p>Selects lighter of source and destination. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a95ea73d8fed63115639319a67d596d49" name="gga30323fa90e24ca484998b9fba6c40e85a95ea73d8fed63115639319a67d596d49"></a>Darken&#160;</td><td class="fielddoc"><p>Selects darker of source and destination. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85ade55cee401a6a53619b6ec469abf0810" name="gga30323fa90e24ca484998b9fba6c40e85ade55cee401a6a53619b6ec469abf0810"></a>Multiply&#160;</td><td class="fielddoc"><p>Multiplies colors (darkens) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f" name="gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f"></a>Average&#160;</td><td class="fielddoc"><p>Averages source and destination. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a0d592a4b562059bc283e00b3704865c9" name="gga30323fa90e24ca484998b9fba6c40e85a0d592a4b562059bc283e00b3704865c9"></a>Add&#160;</td><td class="fielddoc"><p>Adds colors together (brightens) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85afa8a9720422ee254970b2ebe1435a917" name="gga30323fa90e24ca484998b9fba6c40e85afa8a9720422ee254970b2ebe1435a917"></a>Subtract&#160;</td><td class="fielddoc"><p>Subtracts source from destination. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a9cba343e00a6259dc83f7e4e7f447109" name="gga30323fa90e24ca484998b9fba6c40e85a9cba343e00a6259dc83f7e4e7f447109"></a>Difference&#160;</td><td class="fielddoc"><p>Absolute difference between colors. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85ab94b0efce58a77e1c8fa29e32536c728" name="gga30323fa90e24ca484998b9fba6c40e85ab94b0efce58a77e1c8fa29e32536c728"></a>Negation&#160;</td><td class="fielddoc"><p>Inverted difference. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a2609fadb77bb3d98c615b41ac79a1d31" name="gga30323fa90e24ca484998b9fba6c40e85a2609fadb77bb3d98c615b41ac79a1d31"></a>Screen&#160;</td><td class="fielddoc"><p>Inverse multiply (lightens) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85ac200cda01c78d8dae2b11cf4ded47655" name="gga30323fa90e24ca484998b9fba6c40e85ac200cda01c78d8dae2b11cf4ded47655"></a>Exclusion&#160;</td><td class="fielddoc"><p>Similar to Difference but lower contrast. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a8b895d92539a718e6898ed6b053ce2ff" name="gga30323fa90e24ca484998b9fba6c40e85a8b895d92539a718e6898ed6b053ce2ff"></a>Overlay&#160;</td><td class="fielddoc"><p>Combines Multiply and Screen based on destination. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a967749a14f4bb7ffc6383997d97a6163" name="gga30323fa90e24ca484998b9fba6c40e85a967749a14f4bb7ffc6383997d97a6163"></a>SoftLight&#160;</td><td class="fielddoc"><p>Subtle lighting effect. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a7fc75582ae37ab60f5a1cc8e2acd7e24" name="gga30323fa90e24ca484998b9fba6c40e85a7fc75582ae37ab60f5a1cc8e2acd7e24"></a>HardLight&#160;</td><td class="fielddoc"><p>Strong lighting effect. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a71b5386d914bd4101f3d086d8ce72161" name="gga30323fa90e24ca484998b9fba6c40e85a71b5386d914bd4101f3d086d8ce72161"></a>ColorDodge&#160;</td><td class="fielddoc"><p>Brightens based on source. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85adccc18afee7dc5a40147cab59118d583" name="gga30323fa90e24ca484998b9fba6c40e85adccc18afee7dc5a40147cab59118d583"></a>ColorBurn&#160;</td><td class="fielddoc"><p>Darkens based on source. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85afe7aab6a1580381724d2ebe724fbd065" name="gga30323fa90e24ca484998b9fba6c40e85afe7aab6a1580381724d2ebe724fbd065"></a>LinearDodge&#160;</td><td class="fielddoc"><p>Same as Add. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a4c41b912f1e9eca71a1a36fc8a1172d9" name="gga30323fa90e24ca484998b9fba6c40e85a4c41b912f1e9eca71a1a36fc8a1172d9"></a>LinearBurn&#160;</td><td class="fielddoc"><p>Linear burn effect. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85ae158a552ecb4c88077b7537e93a8df86" name="gga30323fa90e24ca484998b9fba6c40e85ae158a552ecb4c88077b7537e93a8df86"></a>LinearLight&#160;</td><td class="fielddoc"><p>Combination of LinearDodge and LinearBurn. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a87be187db30f3efdb79dde93f63e0430" name="gga30323fa90e24ca484998b9fba6c40e85a87be187db30f3efdb79dde93f63e0430"></a>VividLight&#160;</td><td class="fielddoc"><p>Combination of ColorDodge and ColorBurn. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a513bf9b05af260d001632c4fe6d345d5" name="gga30323fa90e24ca484998b9fba6c40e85a513bf9b05af260d001632c4fe6d345d5"></a>PinLight&#160;</td><td class="fielddoc"><p>Replaces colors based on blend color. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a76ee1ad58cc676f7994416354a4d7b59" name="gga30323fa90e24ca484998b9fba6c40e85a76ee1ad58cc676f7994416354a4d7b59"></a>HardMix&#160;</td><td class="fielddoc"><p>Posterizes to limited colors. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a8898819fa0ebd77a64e192d47e7be553" name="gga30323fa90e24ca484998b9fba6c40e85a8898819fa0ebd77a64e192d47e7be553"></a>Reflect&#160;</td><td class="fielddoc"><p>Brightening reflect effect. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85ac7adb89e56ad4a2daef183d318110442" name="gga30323fa90e24ca484998b9fba6c40e85ac7adb89e56ad4a2daef183d318110442"></a>Glow&#160;</td><td class="fielddoc"><p>Inverse reflect. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga30323fa90e24ca484998b9fba6c40e85a85c155bffb4118332192060f1a6db976" name="gga30323fa90e24ca484998b9fba6c40e85a85c155bffb4118332192060f1a6db976"></a>Phoenix&#160;</td><td class="fielddoc"><p>Similar to glow with different formula. </p>
+</td></tr>
 </table>
 
 </div>
@@ -291,12 +340,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Apply vignette. </p>
+<p>Applies a vignette effect to an image. </p>
+<p>Darkens the edges of the image, creating a focus effect towards the center. Commonly used for artistic photography effects.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">amount</td><td>Amount to darken outside of vignette. 0 no darkening. 1 is black. </td></tr>
-    <tr><td class="paramname">radius</td><td>Size of vignette. 1 size of image. 0 is 0 size. </td></tr>
-    <tr><td class="paramname">falloff</td><td>Relative size of inner boundry of vignette 0,1 </td></tr>
+    <tr><td class="paramname">img</td><td>The image to modify (modified in-place) </td></tr>
+    <tr><td class="paramname">amount</td><td>Darkness amount [0, 1]. 0 = no darkening, 1 = black edges </td></tr>
+    <tr><td class="paramname">radius</td><td>Vignette size [0, 1]. 1 = full image size, 0 = no vignette </td></tr>
+    <tr><td class="paramname">falloff</td><td>Transition size [0, 1]. Controls softness of vignette edge </td></tr>
+    <tr><td class="paramname">threadPool</td><td>Optional thread pool for parallel processing </td></tr>
   </table>
   </dd>
 </dl>
@@ -329,7 +381,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Make it look old. </p>
+<p>Applies a sepia tone effect to an image. </p>
+<p>Converts the image to warm brown tones, creating a vintage/aged photograph look.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">img</td><td>The image to modify (modified in-place) </td></tr>
+    <tr><td class="paramname">threadPool</td><td>Optional thread pool for parallel processing </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -359,7 +419,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Converts image to B/W, heavier weighting towards greens. </p>
+<p>Converts an image to greyscale. </p>
+<p>Uses weighted RGB conversion with heavier weighting towards green channel, which better matches human luminance perception.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">img</td><td>The image to modify (modified in-place) </td></tr>
+    <tr><td class="paramname">threadPool</td><td>Optional thread pool for parallel processing </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -389,7 +457,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Softens an image. </p>
+<p>Softens an image by reducing detail. </p>
+<p>Applies a subtle blur to reduce image sharpness and detail.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">img</td><td>The image to modify (modified in-place) </td></tr>
+    <tr><td class="paramname">threadPool</td><td>Optional thread pool for parallel processing </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -419,7 +495,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sharpens an image. </p>
+<p>Sharpens an image by enhancing edges. </p>
+<p>Increases image sharpness and edge definition using convolution.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">img</td><td>The image to modify (modified in-place) </td></tr>
+    <tr><td class="paramname">threadPool</td><td>Optional thread pool for parallel processing </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -455,6 +539,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Applies gamma correction to an image. </p>
+<p>Adjusts the brightness curve of the image non-linearly. Gamma &lt; 1 brightens, gamma &gt; 1 darkens.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">img</td><td>The image to modify (modified in-place) </td></tr>
+    <tr><td class="paramname">gamma</td><td>Gamma value (typically 0.1 to 10.0, 1.0 = no change) </td></tr>
+    <tr><td class="paramname">threadPool</td><td>Optional thread pool for parallel processing </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ga6453f04ab3d2a6a345cd6b7f70711c04" name="ga6453f04ab3d2a6a345cd6b7f70711c04"></a>
@@ -483,7 +578,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Inverts colours of an image. </p>
+<p>Inverts all colors in an image. </p>
+<p>Creates a negative/inverse effect by inverting RGB values.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">img</td><td>The image to modify (modified in-place) </td></tr>
+    <tr><td class="paramname">threadPool</td><td>Optional thread pool for parallel processing </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -519,10 +622,13 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adjust contrast of an image. </p>
+<p>Adjusts the contrast of an image. </p>
+<p>Modifies the difference between light and dark areas.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">contrast</td><td>Amount to adjust contrast. Negative values increase, positive values increase </td></tr>
+    <tr><td class="paramname">img</td><td>The image to modify (modified in-place) </td></tr>
+    <tr><td class="paramname">contrast</td><td>Contrast adjustment [-100, 100]. Negative = decrease, positive = increase </td></tr>
+    <tr><td class="paramname">threadPool</td><td>Optional thread pool for parallel processing </td></tr>
   </table>
   </dd>
 </dl>
@@ -567,11 +673,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adjust brightness and contrast of an image. </p>
+<p>Adjusts brightness and contrast of an image. </p>
+<p>Combines brightness and contrast adjustments in a single pass.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">brightness</td><td>Amount to adjust brightness -100,100 </td></tr>
-    <tr><td class="paramname">contrast</td><td>Amount to adjust contrast -100,100 </td></tr>
+    <tr><td class="paramname">img</td><td>The image to modify (modified in-place) </td></tr>
+    <tr><td class="paramname">brightness</td><td>Brightness adjustment [-100, 100]. Negative = darker, positive = brighter </td></tr>
+    <tr><td class="paramname">contrast</td><td>Contrast adjustment [-100, 100]. Negative = decrease, positive = increase </td></tr>
+    <tr><td class="paramname">threadPool</td><td>Optional thread pool for parallel processing </td></tr>
   </table>
   </dd>
 </dl>
@@ -622,12 +731,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adjust hue, saturation and lightness of an image. </p>
+<p>Adjusts hue, saturation and lightness of an image. </p>
+<p>Modifies color properties in HSL color space, allowing independent control of hue (color), saturation (intensity), and lightness (brightness).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">hue</td><td>Amount to adjust hue -180,180 </td></tr>
-    <tr><td class="paramname">saturation</td><td>Amount to adjust saturation 0,200 </td></tr>
-    <tr><td class="paramname">lightness</td><td>Amount to adjust lightness -100,100 </td></tr>
+    <tr><td class="paramname">img</td><td>The image to modify (modified in-place) </td></tr>
+    <tr><td class="paramname">hue</td><td>Hue shift [-180, 180] degrees. 0 = no change </td></tr>
+    <tr><td class="paramname">saturation</td><td>Saturation adjustment [0, 200]. 100 = no change, 0 = greyscale </td></tr>
+    <tr><td class="paramname">lightness</td><td>Lightness adjustment [-100, 100]. 0 = no change </td></tr>
+    <tr><td class="paramname">threadPool</td><td>Optional thread pool for parallel processing </td></tr>
   </table>
   </dd>
 </dl>
@@ -660,11 +772,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A very fast blur. </p>
-<p>This is a compromise between Gaussian Blur and Box blur. It creates much better looking blurs than Box Blur, but is 7x faster than some Gaussian Blur implementations.</p>
+<p>Applies a fast, high-quality blur to an image. </p>
+<p>Uses stack blur algorithm - a compromise between Gaussian blur quality and box blur speed. Produces much better results than box blur while being ~7x faster than traditional Gaussian blur implementations.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">radius</td><td>from 2 to 254 </td></tr>
+    <tr><td class="paramname">img</td><td>The image to modify (modified in-place) </td></tr>
+    <tr><td class="paramname">radius</td><td>Blur radius [2, 254]. Larger values = more blur </td></tr>
   </table>
   </dd>
 </dl>
@@ -709,6 +822,19 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Resizes an image to specific dimensions using high-quality algorithm. </p>
+<p>Uses sinc function-based fractional delay filters for superior quality compared to basic bilinear/bicubic interpolation.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">img</td><td>The source image (not modified) </td></tr>
+    <tr><td class="paramname">width</td><td>Target width in pixels </td></tr>
+    <tr><td class="paramname">height</td><td>Target height in pixels </td></tr>
+    <tr><td class="paramname">resizeAlgorirm</td><td>Algorithm to use (default: avir) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>New resized image </dd></dl>
+
 </div>
 </div>
 <a id="ga4d96614cc76bccc3f72c891660c6efe5" name="ga4d96614cc76bccc3f72c891660c6efe5"></a>
@@ -742,6 +868,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Resizes an image by a scaling factor. </p>
+<p>Convenience overload that scales proportionally by a factor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">img</td><td>The source image (not modified) </td></tr>
+    <tr><td class="paramname">factor</td><td>Scale factor (e.g., 0.5 = half size, 2.0 = double size) </td></tr>
+    <tr><td class="paramname">resizeAlgorirm</td><td>Algorithm to use (default: avir) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>New resized image </dd></dl>
 
 </div>
 </div>
@@ -777,8 +915,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>GradientMap a image. </p>
-<p>Brightness gets remapped to colour on a gradient. </p>
+<p>Applies a gradient map to an image. </p>
+<p>Remaps the brightness of each pixel to a color from the gradient. Black pixels map to the start of the gradient, white pixels to the end, with smooth interpolation between.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">img</td><td>The image to modify (modified in-place) </td></tr>
+    <tr><td class="paramname">gradient</td><td>The color gradient to map brightness values to </td></tr>
+    <tr><td class="paramname">threadPool</td><td>Optional thread pool for parallel processing </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -820,6 +966,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Applies a two-color gradient map to an image. </p>
+<p>Convenience overload that creates a linear gradient between two colors.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">img</td><td>The image to modify (modified in-place) </td></tr>
+    <tr><td class="paramname">c1</td><td>Color for black/dark pixels </td></tr>
+    <tr><td class="paramname">c2</td><td>Color for white/bright pixels </td></tr>
+    <tr><td class="paramname">threadPool</td><td>Optional thread pool for parallel processing </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="gae6d6ea52612fb4f6474b05a1063604db" name="gae6d6ea52612fb4f6474b05a1063604db"></a>
@@ -854,7 +1012,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set an image to a solid colour. </p>
+<p>Sets all pixels in an image to a solid color. </p>
+<p>Fills the entire image with the specified color, preserving alpha if present.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">img</td><td>The image to modify (modified in-place) </td></tr>
+    <tr><td class="paramname">c</td><td>The color to fill with </td></tr>
+    <tr><td class="paramname">threadPool</td><td>Optional thread pool for parallel processing </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -908,7 +1075,19 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Blend two images. </p>
+<p>Blends two images using the specified blend mode. </p>
+<p>Composites a source image onto a destination image using various blending algorithms. The destination image is modified in-place.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dst</td><td>Destination image (modified in-place) </td></tr>
+    <tr><td class="paramname">src</td><td>Source image to blend on top </td></tr>
+    <tr><td class="paramname">mode</td><td>Blending mode to use </td></tr>
+    <tr><td class="paramname">alpha</td><td>Opacity of the blend [0, 1]. 0 = invisible, 1 = fully opaque </td></tr>
+    <tr><td class="paramname">position</td><td>Position to place source image (default: 0,0) </td></tr>
+    <tr><td class="paramname">threadPool</td><td>Optional thread pool for parallel processing </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -950,14 +1129,24 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Blend two images. </p>
+<p>Blends a solid color onto an image using the specified blend mode. </p>
+<p>Applies a blend mode with a solid color across the entire image.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dst</td><td>Destination image (modified in-place) </td></tr>
+    <tr><td class="paramname">mode</td><td>Blending mode to use </td></tr>
+    <tr><td class="paramname">c</td><td>Color to blend with </td></tr>
+    <tr><td class="paramname">threadPool</td><td>Optional thread pool for parallel processing </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 14 2025 21:03:23 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sat Nov 15 2025 08:53:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
