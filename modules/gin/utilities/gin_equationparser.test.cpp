@@ -85,6 +85,7 @@ private:
 
         parser.clearConstants();
         parser.setEquation ("2 * pi");
+        parser.evaluate();
         expect (parser.hasError(), "Should error after clearing constants");
     }
 
@@ -125,6 +126,7 @@ private:
         beginTest ("Error Handling");
 
         EquationParser parser ("2 + * 3");
+        parser.evaluate();
         expect (parser.hasError(), "Should detect syntax error");
         expect (parser.getError().isNotEmpty(), "Should have error message");
 

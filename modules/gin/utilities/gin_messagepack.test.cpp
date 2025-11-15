@@ -135,7 +135,7 @@ private:
         expect (parsed3.toString() == v3.toString(), "Should handle longer string");
 
         // Unicode string
-        juce::var v4 = "Hello 世界 🌍";
+        juce::var v4 = juce::String::fromUTF8 ("Hello 世界 🌍");
         auto data4 = MessagePack::toMessagePack (v4);
         auto parsed4 = MessagePack::parse (data4);
         expect (parsed4.toString() == v4.toString(), "Should handle Unicode");

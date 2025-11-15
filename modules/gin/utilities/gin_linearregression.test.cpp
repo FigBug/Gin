@@ -43,7 +43,7 @@ private:
         expectWithinAbsoluteError (lr.getA(), 1.0, 0.001, "Intercept should be 1.0");
         expectWithinAbsoluteError (lr.getB(), 2.0, 0.001, "Slope should be 2.0");
         expectWithinAbsoluteError (lr.getCoefCorrel(), 1.0, 0.001, "Correlation should be perfect");
-        expectWithinAbsoluteError (lr.getCoefDeterm(), 1.0, 0.001, "R² should be 1.0");
+        expectWithinAbsoluteError (lr.getCoefDeterm(), 1.0, 0.001, "R^2 should be 1.0");
 
         // Test estimation
         expectWithinAbsoluteError (lr.estimateY (5.0), 11.0, 0.001, "Y(5) should be 11");

@@ -46,14 +46,14 @@ private:
         expectEquals (static_cast<int> (env.getState()), static_cast<int> (ADSR::State::attack), "Should be in attack state");
 
         // Process attack phase
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 101; i++)
             env.process();
 
         expectWithinAbsoluteError (env.getOutput(), 1.0f, 0.01f, "Should reach 1.0 after attack");
         expectEquals (static_cast<int> (env.getState()), static_cast<int> (ADSR::State::decay), "Should transition to decay");
 
         // Process decay phase
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 101; i++)
             env.process();
 
         expectWithinAbsoluteError (env.getOutput(), 0.5f, 0.01f, "Should reach sustain level");
@@ -63,7 +63,7 @@ private:
         env.noteOff();
         expectEquals (static_cast<int> (env.getState()), static_cast<int> (ADSR::State::release), "Should be in release state");
 
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 101; i++)
             env.process();
 
         expectWithinAbsoluteError (env.getOutput(), 0.0f, 0.01f, "Should reach 0 after release");

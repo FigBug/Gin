@@ -49,6 +49,7 @@
 class Integrator
 {
 public:
+    Integrator() = default;
     void clear();
 
     double getIntegral();

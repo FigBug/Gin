@@ -44,17 +44,20 @@ private:
         beginTest ("Basic RIFF Parsing");
 
         juce::MemoryBlock riffData;
-        juce::MemoryOutputStream stream (riffData, false);
 
-        // Write RIFF header
-        stream.writeInt (makeFourCC ("RIFF"));
-        stream.writeInt (12); // Size of rest of file
-        stream.writeInt (makeFourCC ("TEST"));
-
-        // Write a simple chunk
-        stream.writeInt (makeFourCC ("data"));
-        stream.writeInt (4); // Chunk size
-        stream.writeInt (0x12345678); // Chunk data
+        {
+            juce::MemoryOutputStream stream (riffData, false);
+            
+            // Write RIFF header
+            stream.writeInt (makeFourCC ("RIFF"));
+            stream.writeInt (12); // Size of rest of file
+            stream.writeInt (makeFourCC ("TEST"));
+            
+            // Write a simple chunk
+            stream.writeInt (makeFourCC ("data"));
+            stream.writeInt (4); // Chunk size
+            stream.writeInt (0x12345678); // Chunk data
+        }
 
         juce::Array<ChunkInfo> chunks;
 
@@ -76,23 +79,26 @@ private:
         beginTest ("Multiple Chunks");
 
         juce::MemoryBlock riffData;
-        juce::MemoryOutputStream stream (riffData, false);
 
-        // Write RIFF header
-        stream.writeInt (makeFourCC ("RIFF"));
-        stream.writeInt (32); // Size
-        stream.writeInt (makeFourCC ("TEST"));
+        {
+            juce::MemoryOutputStream stream (riffData, false);
 
-        // Write first chunk
-        stream.writeInt (makeFourCC ("fmt "));
-        stream.writeInt (4);
-        stream.writeInt (0xAAAAAAAA);
+            // Write RIFF header
+            stream.writeInt (makeFourCC ("RIFF"));
+            stream.writeInt (32); // Size
+            stream.writeInt (makeFourCC ("TEST"));
 
-        // Write second chunk
-        stream.writeInt (makeFourCC ("data"));
-        stream.writeInt (8);
-        stream.writeInt (0x11111111);
-        stream.writeInt (0x22222222);
+            // Write first chunk
+            stream.writeInt (makeFourCC ("fmt "));
+            stream.writeInt (4);
+            stream.writeInt (0xAAAAAAAA);
+
+            // Write second chunk
+            stream.writeInt (makeFourCC ("data"));
+            stream.writeInt (8);
+            stream.writeInt (0x11111111);
+            stream.writeInt (0x22222222);
+        }
 
         juce::Array<ChunkInfo> chunks;
 
@@ -116,22 +122,25 @@ private:
         beginTest ("LIST Chunks");
 
         juce::MemoryBlock riffData;
-        juce::MemoryOutputStream stream (riffData, false);
 
-        // Write RIFF header
-        stream.writeInt (makeFourCC ("RIFF"));
-        stream.writeInt (32); // Size
-        stream.writeInt (makeFourCC ("TEST"));
+        {
+            juce::MemoryOutputStream stream (riffData, false);
 
-        // Write LIST chunk
-        stream.writeInt (makeFourCC ("LIST"));
-        stream.writeInt (20); // LIST size (includes type + contained chunks)
-        stream.writeInt (makeFourCC ("INFO"));
+            // Write RIFF header
+            stream.writeInt (makeFourCC ("RIFF"));
+            stream.writeInt (28); // Size
+            stream.writeInt (makeFourCC ("TEST"));
 
-        // Write chunk inside LIST
-        stream.writeInt (makeFourCC ("INAM"));
-        stream.writeInt (4);
-        stream.writeInt (0xBBBBBBBB);
+            // Write LIST chunk
+            stream.writeInt (makeFourCC ("LIST"));
+            stream.writeInt (16); // LIST size (includes type + contained chunks)
+            stream.writeInt (makeFourCC ("INFO"));
+
+            // Write chunk inside LIST
+            stream.writeInt (makeFourCC ("INAM"));
+            stream.writeInt (4);
+            stream.writeInt (0xBBBBBBBB);
+        }
 
         juce::Array<ChunkInfo> chunks;
 
@@ -152,27 +161,30 @@ private:
         beginTest ("Nested LIST Chunks");
 
         juce::MemoryBlock riffData;
-        juce::MemoryOutputStream stream (riffData, false);
 
-        // Write RIFF header
-        stream.writeInt (makeFourCC ("RIFF"));
-        stream.writeInt (48); // Size
-        stream.writeInt (makeFourCC ("TEST"));
+        {
+            juce::MemoryOutputStream stream (riffData, false);
 
-        // Write outer LIST
-        stream.writeInt (makeFourCC ("LIST"));
-        stream.writeInt (36); // Outer LIST size
-        stream.writeInt (makeFourCC ("OUT1"));
+            // Write RIFF header
+            stream.writeInt (makeFourCC ("RIFF"));
+            stream.writeInt (40); // Size
+            stream.writeInt (makeFourCC ("TEST"));
 
-        // Write inner LIST
-        stream.writeInt (makeFourCC ("LIST"));
-        stream.writeInt (20); // Inner LIST size
-        stream.writeInt (makeFourCC ("IN01"));
+            // Write outer LIST
+            stream.writeInt (makeFourCC ("LIST"));
+            stream.writeInt (28); // Outer LIST size
+            stream.writeInt (makeFourCC ("OUT1"));
 
-        // Write chunk inside inner LIST
-        stream.writeInt (makeFourCC ("test"));
-        stream.writeInt (4);
-        stream.writeInt (0xCCCCCCCC);
+            // Write inner LIST
+            stream.writeInt (makeFourCC ("LIST"));
+            stream.writeInt (16); // Inner LIST size
+            stream.writeInt (makeFourCC ("IN01"));
+
+            // Write chunk inside inner LIST
+            stream.writeInt (makeFourCC ("test"));
+            stream.writeInt (4);
+            stream.writeInt (0xCCCCCCCC);
+        }
 
         juce::Array<ChunkInfo> chunks;
 
@@ -193,25 +205,28 @@ private:
         beginTest ("Odd-Sized Chunks with Padding");
 
         juce::MemoryBlock riffData;
-        juce::MemoryOutputStream stream (riffData, false);
 
-        // Write RIFF header
-        stream.writeInt (makeFourCC ("RIFF"));
-        stream.writeInt (26); // Size
-        stream.writeInt (makeFourCC ("TEST"));
+        {
+            juce::MemoryOutputStream stream (riffData, false);
 
-        // Write odd-sized chunk (3 bytes)
-        stream.writeInt (makeFourCC ("odd "));
-        stream.writeInt (3); // Odd size
-        stream.writeByte (0xAA);
-        stream.writeByte (0xBB);
-        stream.writeByte (0xCC);
-        stream.writeByte (0x00); // Padding byte
+            // Write RIFF header
+            stream.writeInt (makeFourCC ("RIFF"));
+            stream.writeInt (26); // Size
+            stream.writeInt (makeFourCC ("TEST"));
 
-        // Write another chunk after padding
-        stream.writeInt (makeFourCC ("next"));
-        stream.writeInt (2);
-        stream.writeShort (0x1234);
+            // Write odd-sized chunk (3 bytes)
+            stream.writeInt (makeFourCC ("odd "));
+            stream.writeInt (3); // Odd size
+            stream.writeByte (0xAA);
+            stream.writeByte (0xBB);
+            stream.writeByte (0xCC);
+            stream.writeByte (0x00); // Padding byte
+
+            // Write another chunk after padding
+            stream.writeInt (makeFourCC ("next"));
+            stream.writeInt (2);
+            stream.writeShort (0x1234);
+        }
 
         juce::Array<ChunkInfo> chunks;
 
@@ -234,12 +249,15 @@ private:
         beginTest ("Empty RIFF");
 
         juce::MemoryBlock riffData;
-        juce::MemoryOutputStream stream (riffData, false);
 
-        // Write RIFF header with no chunks
-        stream.writeInt (makeFourCC ("RIFF"));
-        stream.writeInt (4); // Just the type, no chunks
-        stream.writeInt (makeFourCC ("TEST"));
+        {
+            juce::MemoryOutputStream stream (riffData, false);
+            
+            // Write RIFF header with no chunks
+            stream.writeInt (makeFourCC ("RIFF"));
+            stream.writeInt (4); // Just the type, no chunks
+            stream.writeInt (makeFourCC ("TEST"));
+        }
 
         int callbackCount = 0;
 

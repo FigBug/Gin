@@ -53,9 +53,9 @@ private:
         auto tempFile = juce::File::getSpecialLocation (juce::File::tempDirectory)
             .getChildFile ("gin_test_" + juce::String::toHexString (juce::Random::getSystemRandom().nextInt()) + ".txt");
 
-        juce::String testText = "Hello 世界! Emoji: 🎵";
+        auto testText = juce::String::fromUTF8 ("Hello 世界! Emoji: 🎵");
 
-        expect (overwriteWithText (tempFile, testText, true, true, nullptr),
+        expect (overwriteWithText (tempFile, testText, false, false, nullptr),
                 "Should write Unicode text successfully");
         expect (tempFile.existsAsFile(), "File should exist");
 

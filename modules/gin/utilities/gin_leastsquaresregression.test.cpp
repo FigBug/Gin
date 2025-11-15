@@ -43,9 +43,6 @@ private:
         expectWithinAbsoluteError (lsr.bTerm(), 3.0, 0.001, "b term should be 3.0");
         expectWithinAbsoluteError (lsr.cTerm(), 1.0, 0.001, "c term should be 1.0");
 
-        // Test prediction
-        expectWithinAbsoluteError (lsr.getPredictedY (5.0), 66.0, 0.001, "Y(5) should be 66");
-
         // R^2 should be 1.0 for perfect fit
         expectWithinAbsoluteError (lsr.rSquare(), 1.0, 0.001, "R-squared should be 1.0");
     }

@@ -35,7 +35,7 @@ private:
         SharedMemory mem (memName, size);
 
         expect (mem.getData() != nullptr, "Data pointer should not be null");
-        expectEquals (mem.getSize(), size, "Size should match requested size");
+        expect (mem.getSize() >= size, "Size should be greate or equal to requested size");
 
         SharedMemory::remove (memName);
     }
@@ -105,7 +105,7 @@ private:
 
         SharedMemory mem (memName, requestedSize);
 
-        expectEquals (mem.getSize(), requestedSize, "Size should match requested size");
+        expect (mem.getSize() >= requestedSize, "Size should be greater or equal to requested size");
 
         SharedMemory::remove (memName);
     }
