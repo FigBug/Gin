@@ -1,6 +1,12 @@
-#include <JuceHeader.h>
+/*==============================================================================
 
-//==============================================================================
+ Copyright 2024 by Roland Rabien
+ For more information visit www.rabiensoftware.com
+
+ ==============================================================================*/
+
+#if JUCE_UNIT_TESTS
+
 class GinGeometryTests : public juce::UnitTest
 {
 public:
@@ -18,7 +24,7 @@ private:
     {
         beginTest ("Ellipse");
 
-        gin::Ellipse ellipse (juce::Point<float> (0, 0), 10.0f, 5.0f);
+        Ellipse ellipse (juce::Point<float> (0, 0), 10.0f, 5.0f);
 
         // Test center
         auto center = ellipse.getCentre();
@@ -47,7 +53,7 @@ private:
     {
         beginTest ("Polygon");
 
-        gin::Polygon polygon;
+        Polygon polygon;
 
         // Add triangle vertices
         polygon.addVertex (juce::Point<float> (0, 0));
@@ -79,30 +85,32 @@ private:
         beginTest ("Line Solving");
 
         // Test solving line from two points
-        auto line1 = gin::lineFrom2Points (juce::Point<float> (0, 0), juce::Point<float> (10, 10));
+        auto line1 = lineFrom2Points (juce::Point<float> (0, 0), juce::Point<float> (10, 10));
 
         // Line should be y = x, so slope = 1, intercept = 0
         expectWithinAbsoluteError (line1.getA(), 1.0f, 0.0001f, "Slope should be 1");
         expectWithinAbsoluteError (line1.getB(), 0.0f, 0.0001f, "Intercept should be 0");
 
         // Test horizontal line
-        auto hLine = gin::lineFrom2Points (juce::Point<float> (0, 5), juce::Point<float> (10, 5));
+        auto hLine = lineFrom2Points (juce::Point<float> (0, 5), juce::Point<float> (10, 5));
         expectWithinAbsoluteError (hLine.getA(), 0.0f, 0.0001f, "Horizontal line slope should be 0");
         expectWithinAbsoluteError (hLine.getB(), 5.0f, 0.0001f, "Horizontal line intercept should be 5");
 
         // Test line with slope 2, intercept 3
-        auto line2 = gin::lineFrom2Points (juce::Point<float> (0, 3), juce::Point<float> (1, 5));
+        auto line2 = lineFrom2Points (juce::Point<float> (0, 3), juce::Point<float> (1, 5));
         expectWithinAbsoluteError (line2.getA(), 2.0f, 0.0001f, "Slope should be 2");
         expectWithinAbsoluteError (line2.getB(), 3.0f, 0.0001f, "Intercept should be 3");
 
         // Test intersection of perpendicular lines
-        auto vLine = gin::lineFrom2Points (juce::Point<float> (5, 0), juce::Point<float> (5, 10));
-        auto hLine2 = gin::lineFrom2Points (juce::Point<float> (0, 7), juce::Point<float> (10, 7));
+        auto vLine = lineFrom2Points (juce::Point<float> (5, 0), juce::Point<float> (5, 10));
+        auto hLine2 = lineFrom2Points (juce::Point<float> (0, 7), juce::Point<float> (10, 7));
 
-        auto intersection = gin::lineIntersection (vLine, hLine2);
+        auto intersection = lineIntersection (vLine, hLine2);
         expectWithinAbsoluteError (intersection.x, 5.0f, 0.1f, "Intersection X should be 5");
         expectWithinAbsoluteError (intersection.y, 7.0f, 0.1f, "Intersection Y should be 7");
     }
 };
 
 static GinGeometryTests ginGeometryTests;
+
+#endif

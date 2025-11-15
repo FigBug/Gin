@@ -1,6 +1,12 @@
-#include <JuceHeader.h>
+/*==============================================================================
 
-//==============================================================================
+ Copyright 2024 by Roland Rabien
+ For more information visit www.rabiensoftware.com
+
+ ==============================================================================*/
+
+#if JUCE_UNIT_TESTS
+
 class GinEasingTests : public juce::UnitTest
 {
 public:
@@ -165,3 +171,5 @@ private:
 };
 
 static GinEasingTests ginEasingTests;
+
+#endif

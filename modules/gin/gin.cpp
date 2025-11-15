@@ -69,6 +69,11 @@ namespace gin
 #include "utilities/gin_valuetreeobject.cpp"
 #include "utilities/gin_valuetreeutilities.cpp"
 
+#if JUCE_UNIT_TESTS
+ #include "utilities/gin_easing.test.cpp"
+ #include "geometry/gin_geometry.test.cpp"
+#endif
+
 }
 
 #include "utilities/gin_equationparser.cpp"
