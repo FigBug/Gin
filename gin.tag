@@ -7339,6 +7339,13 @@
     <name>Integrator</name>
     <filename>classIntegrator.html</filename>
     <member kind="function">
+      <type></type>
+      <name>Integrator</name>
+      <anchorfile>classIntegrator.html</anchorfile>
+      <anchor>a484872309559a4c268f55f386ebeb016</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>clear</name>
       <anchorfile>classIntegrator.html</anchorfile>

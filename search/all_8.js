@@ -13,7 +13,7 @@ var searchData=
   ['inputfilter_10',['inputfilter',['../classSingleLineTextEditor_1_1InputFilter.html',1,'SingleLineTextEditor::InputFilter'],['../classSingleLineTextEditor_1_1InputFilter.html#a99b6d8607dd45a320cddd4b3bd18133b',1,'SingleLineTextEditor::InputFilter::InputFilter()']]],
   ['inserttextatcaret_11',['insertTextAtCaret',['../classSingleLineTextEditor.html#aaf4946076bc4ece47fabe839a1556694',1,'SingleLineTextEditor']]],
   ['inset_12',['inset',['../classSVGButton.html#ae66b6c13532b53657e2943467220ef61',1,'SVGButton::inset'],['../classProcessorEditorBase.html#aa1ef9037d52f21d67f16efa2f7b7bb1b',1,'ProcessorEditorBase::inset']]],
-  ['integrator_13',['Integrator',['../classIntegrator.html',1,'']]],
+  ['integrator_13',['integrator',['../classIntegrator.html#a484872309559a4c268f55f386ebeb016',1,'Integrator::Integrator()'],['../classIntegrator.html',1,'Integrator']]],
   ['internal_14',['internal',['../classParameter.html#a25165e96742e860d5ee0e8a6f70a69f5',1,'Parameter']]],
   ['internalparameters_15',['internalParameters',['../classProcessor.html#ac9d3cf083da1dba0b2612ce32ea7218d',1,'Processor']]],
   ['interpolate_16',['interpolate',['../classSpline.html#ac1f059b0c61e23b88d7939a27fd40b5c',1,'Spline::interpolate()'],['../namespaceLagrange.html#a6f338372cdf3563a209fe42fa92f8c13',1,'Lagrange::interpolate(const juce::Array&lt; Point&lt; T &gt; &gt; &amp;points, T x)'],['../namespaceLagrange.html#ab812f4c6079c4c45b43e56239c3634d4',1,'Lagrange::interpolate(T xArr[], T yArr[], int num, T x)']]],
