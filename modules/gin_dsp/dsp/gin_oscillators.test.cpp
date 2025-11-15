@@ -8,7 +8,7 @@
  */
 
 //==============================================================================
-#if JUCE_UNIT_TESTS
+#if GIN_UNIT_TESTS
 
 class OscillatorsTests : public juce::UnitTest
 {

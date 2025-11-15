@@ -1,5 +1,5 @@
 //==============================================================================
-#if JUCE_UNIT_TESTS
+#if GIN_UNIT_TESTS
 
 class MessagePackTests : public juce::UnitTest
 {

@@ -1,5 +1,5 @@
 //==============================================================================
-#if JUCE_UNIT_TESTS
+#if GIN_UNIT_TESTS
 
 class EquationParserTests : public juce::UnitTest
 {
