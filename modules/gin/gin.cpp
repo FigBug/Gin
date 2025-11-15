@@ -70,6 +70,7 @@ namespace gin
 #include "utilities/gin_valuetreeutilities.cpp"
 
 #if GIN_UNIT_TESTS
+ #include "utilities/gin_diff.test.cpp"
  #include "utilities/gin_easing.test.cpp"
  #include "utilities/gin_equationparser.test.cpp"
  #include "utilities/gin_fileutilities.test.cpp"
@@ -85,6 +86,7 @@ namespace gin
  #include "utilities/gin_spline.test.cpp"
  #include "utilities/gin_systemsemaphore.test.cpp"
  #include "utilities/gin_threading.test.cpp"
+ #include "utilities/gin_util.test.cpp"
  #include "utilities/gin_valuetreeobject.test.cpp"
  #include "geometry/gin_geometry.test.cpp"
 #endif
