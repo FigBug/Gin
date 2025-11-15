@@ -23,6 +23,7 @@ ignore:
   - "modules/gin_graphics/3rdparty/**/*"
   - "modules/gin_webp/3rdparty/**/*"
   - "modules/gin_dsp/3rdparty/**/*"
+  - "modules/gin_simd/mipp/**/*"
   - "juce/**/*"
   - "**/juce/**/*"
   - "examples/**/*"
