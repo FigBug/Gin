@@ -88,8 +88,12 @@ private:
         testFile.replaceWithText ("test content");
 
         // Wait for event to be processed
-        for (int i = 0; i < 200 && listener.fileChangedCount == 0; i++)
-            juce::Thread::sleep (10);
+        int timeout = 0;
+        while (listener.fileChangedCount == 0 && timeout < 2000)
+        {
+            juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
+            timeout++;
+        }
 
         expect (listener.fileChangedCount > 0, "Should detect file creation");
         expect (listener.folderChangedCount > 0, "Should detect folder change");
@@ -127,8 +131,12 @@ private:
         testFile.replaceWithText ("modified content");
 
         // Wait for event
-        for (int i = 0; i < 200 && listener.fileChangedCount == 0; i++)
-            juce::Thread::sleep (10);
+        int timeout = 0;
+        while (listener.fileChangedCount == 0 && timeout < 2000)
+        {
+            juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
+            timeout++;
+        }
 
         expect (listener.fileChangedCount > 0, "Should detect file modification");
 
@@ -164,8 +172,12 @@ private:
         testFile.deleteFile();
 
         // Wait for event
-        for (int i = 0; i < 200 && listener.fileChangedCount == 0; i++)
-            juce::Thread::sleep (10);
+        int timeout = 0;
+        while (listener.fileChangedCount == 0 && timeout < 2000)
+        {
+            juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
+            timeout++;
+        }
 
         expect (listener.fileChangedCount > 0, "Should detect file deletion");
 
@@ -192,8 +204,12 @@ private:
         testFile.replaceWithText ("trigger");
 
         // Wait for folder changed event
-        for (int i = 0; i < 200 && listener.folderChangedCount == 0; i++)
-            juce::Thread::sleep (10);
+        int timeout = 0;
+        while (listener.folderChangedCount == 0 && timeout < 2000)
+        {
+            juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
+            timeout++;
+        }
 
         expect (listener.folderChangedCount > 0, "Should call folderChanged callback");
 

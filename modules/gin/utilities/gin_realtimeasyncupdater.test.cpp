@@ -62,7 +62,7 @@ private:
         int timeout = 0;
         while (!updater.wasHandled && timeout < 1000)
         {
-            juce::Thread::sleep (10);
+            juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
             timeout++;
         }
 
@@ -85,7 +85,7 @@ private:
         int timeout = 0;
         while (!updater.wasHandled && timeout < 1000)
         {
-            juce::Thread::sleep (10);
+            juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
             timeout++;
         }
 
@@ -107,7 +107,7 @@ private:
         expect (!updater.isUpdatePending(), "Should not be pending after cancel");
 
         // Wait to ensure it doesn't get called
-        juce::Thread::sleep (100);
+        juce::MessageManager::getInstance()->runDispatchLoopUntil (100);
 
         expect (!updater.wasHandled, "Should not have been handled after cancel");
     }
@@ -127,7 +127,7 @@ private:
         int timeout = 0;
         while (updater.isUpdatePending() && timeout < 1000)
         {
-            juce::Thread::sleep (10);
+            juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
             timeout++;
         }
 
@@ -173,7 +173,7 @@ private:
         while ((!updater1.wasHandled || !updater2.wasHandled || !updater3.wasHandled) &&
                timeout < 1000)
         {
-            juce::Thread::sleep (10);
+            juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
             timeout++;
         }
 
@@ -217,7 +217,7 @@ private:
         int timeout = 0;
         while (order.size() < 3 && timeout < 1000)
         {
-            juce::Thread::sleep (10);
+            juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
             timeout++;
         }
 
