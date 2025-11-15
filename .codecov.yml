@@ -17,13 +17,17 @@ coverage:
         threshold: 0.5%
 
 ignore:
-  - "modules/*/3rdparty/**/*"
-  - "modules/gin_simd/mipp/**/*"
-  - "juce/**/*"
-  - "**/juce/**/*"
-  - "examples/**/*"
-  - "build/**/*"
-  - "**/build/**/*"
+  # 3rd party code
+  - "modules/gin/3rdparty/"
+  - "modules/gin_network/3rdparty/"
+  - "modules/gin_graphics/3rdparty/"
+  - "modules/gin_webp/3rdparty/"
+  - "modules/gin_dsp/3rdparty/"
+  - "modules/gin_simd/mipp/"
+  # JUCE framework
+  - "juce/"
+  # Examples and tests
+  - "examples/"
   - "**/*.test.cpp"
 
 comment:
