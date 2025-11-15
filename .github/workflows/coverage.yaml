@@ -74,13 +74,17 @@ jobs:
 
       - name: Generate coverage report
         run: |
-          lcov --capture --directory build --output-file coverage.info
+          lcov --capture --directory build --output-file coverage.info \
+            --ignore-errors gcov,source \
+            --rc geninfo_unexecuted_blocks=1
           lcov --remove coverage.info \
             '/usr/*' \
             '*/juce/*' \
             '*/3rdparty/*' \
             '*/examples/*' \
-            --output-file coverage.info
+            '*/build/*' \
+            --output-file coverage.info \
+            --ignore-errors unused
           lcov --list coverage.info
 
       - name: Upload coverage to Codecov
