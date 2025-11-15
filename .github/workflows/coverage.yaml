@@ -63,8 +63,14 @@ jobs:
 
       - name: Run tests
         run: |
-          cd build/examples/UnitTests
-          ./UnitTests
+          find build -name UnitTests -type f -executable
+          UNITTEST_BIN=$(find build -name UnitTests -type f -executable | head -n 1)
+          if [ -z "$UNITTEST_BIN" ]; then
+            echo "Error: UnitTests executable not found"
+            exit 1
+          fi
+          echo "Running: $UNITTEST_BIN"
+          $UNITTEST_BIN
 
       - name: Generate coverage report
         run: |
