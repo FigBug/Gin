@@ -94,4 +94,13 @@ namespace gin
 #include "components/gin_wavetablecomponent.cpp"
 #include "components/gin_xyscope.cpp"
 
+#if JUCE_UNIT_TESTS
+ #include "dsp/gin_analogadsr.test.cpp"
+ #include "dsp/gin_audioutil.test.cpp"
+ #include "dsp/gin_dynamics.test.cpp"
+ #include "dsp/gin_leveltracker.test.cpp"
+ #include "dsp/gin_oscillators.test.cpp"
+ #include "dsp/gin_scratchbuffer.test.cpp"
+#endif
+
 }

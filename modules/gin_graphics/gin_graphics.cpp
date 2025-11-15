@@ -42,4 +42,9 @@ namespace gin
 #include "images/gin_imageeffects.cpp"
 #include "images/gin_imageeffects_blending.cpp"
 #include "images/gin_imageeffects_stackblur.cpp"
+
+#if JUCE_UNIT_TESTS
+ #include "formats/gin_bmpimageformat.test.cpp"
+#endif
+
 }

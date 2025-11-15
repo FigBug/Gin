@@ -71,6 +71,17 @@ namespace gin
 
 #if JUCE_UNIT_TESTS
  #include "utilities/gin_easing.test.cpp"
+ #include "utilities/gin_equationparser.test.cpp"
+ #include "utilities/gin_fileutilities.test.cpp"
+ #include "utilities/gin_filesystemwatcher.test.cpp"
+ #include "utilities/gin_messagepack.test.cpp"
+ #include "utilities/gin_plist.test.cpp"
+ #include "utilities/gin_realtimeasyncupdater.test.cpp"
+ #include "utilities/gin_riffparser.test.cpp"
+ #include "utilities/gin_sharedmemory.test.cpp"
+ #include "utilities/gin_systemsemaphore.test.cpp"
+ #include "utilities/gin_threading.test.cpp"
+ #include "utilities/gin_valuetreeobject.test.cpp"
  #include "geometry/gin_geometry.test.cpp"
 #endif
 
