@@ -3,6 +3,7 @@
 ![Build Windows](https://github.com/FigBug/Gin/workflows/Build%20Windows/badge.svg "Build Windows")
 ![Build macOS](https://github.com/FigBug/Gin/workflows/Build%20macOS/badge.svg "Build macOS")
 ![Build Linux](https://github.com/FigBug/Gin/workflows/Build%20Linux/badge.svg "Build Linux")
+[![codecov](https://codecov.io/gh/FigBug/Gin/branch/master/graph/badge.svg)](https://codecov.io/gh/FigBug/Gin)
 
 A comprehensive collection of extra modules for [JUCE](https://juce.com/), providing professional-grade utilities, UI components, DSP processors, and more for audio plugin and application development.
 
