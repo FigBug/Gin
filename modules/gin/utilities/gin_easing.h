@@ -384,7 +384,7 @@ T easeExponentialInOut (T p)
 template<class T>
 T easeElasticIn (T p)
 {
-    return std::sin (13 * (juce::MathConstants<T>::pi / 2) * p) * std::pow (2, 10 * (p - 1));
+    return std::sin (13 * (juce::MathConstants<T>::pi / 2) * p) * static_cast<T> (std::pow (2, 10 * (p - 1)));
 }
 
 /** Elastic easing out - decelerating with oscillation.
@@ -399,7 +399,7 @@ T easeElasticIn (T p)
 template<class T>
 T easeElasticOut (T p)
 {
-    return std::sin (-13 * (juce::MathConstants<T>::pi / 2) * (p + 1)) * std::pow (2, -10 * p) + 1;
+    return std::sin (-13 * (juce::MathConstants<T>::pi / 2) * (p + 1)) * static_cast<T> (std::pow (2, -10 * p)) + 1;
 }
 
 /** Elastic easing in/out - acceleration and deceleration with oscillation.

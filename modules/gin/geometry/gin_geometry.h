@@ -90,19 +90,19 @@ public:
         T px = (a * b) / ::std::sqrt (square (b) + square (a) * square (::std::tan (angle)));
         T py = (a * b) / ::std::sqrt (square (a) + square (b) / square (::std::tan (angle)));
 
-        while (angle < 0) angle += juce::MathConstants<double>::pi * 2;
-        angle = ::std::fmod (angle, juce::MathConstants<double>::pi * 2);
+        while (angle < 0) angle += static_cast<T> (juce::MathConstants<double>::pi * 2);
+        angle = static_cast<T> (::std::fmod (angle, juce::MathConstants<double>::pi * 2));
 
-        if (angle >= juce::MathConstants<double>::pi / 2 * 3)
+        if (angle >= static_cast<T> (juce::MathConstants<double>::pi / 2 * 3))
         {
             py = -py;
         }
-        else if (angle >= juce::MathConstants<double>::pi)
+        else if (angle >= static_cast<T> (juce::MathConstants<double>::pi))
         {
             py = -py;
             px = -px;
         }
-        else if (angle >= juce::MathConstants<double>::pi / 2)
+        else if (angle >= static_cast<T> (juce::MathConstants<double>::pi / 2))
         {
             px = -px;
         }
