@@ -67,7 +67,7 @@ private:
         });
 
         expectEquals (chunks.size(), 1, "Should find one chunk");
-        expectEquals (chunks[0].fourCC, makeFourCC ("data"), "Chunk FourCC should match");
+        expectEquals ((int)chunks[0].fourCC, (int)makeFourCC ("data"), "Chunk FourCC should match");
         expectEquals ((int) chunks[0].data.getSize(), 4, "Chunk data size should match");
     }
 
@@ -105,8 +105,8 @@ private:
         });
 
         expectEquals (chunks.size(), 2, "Should find two chunks");
-        expectEquals (chunks[0].fourCC, makeFourCC ("fmt "), "First chunk FourCC should match");
-        expectEquals (chunks[1].fourCC, makeFourCC ("data"), "Second chunk FourCC should match");
+        expectEquals ((int)chunks[0].fourCC, (int)makeFourCC ("fmt "), "First chunk FourCC should match");
+        expectEquals ((int)chunks[1].fourCC, (int)makeFourCC ("data"), "Second chunk FourCC should match");
         expectEquals ((int) chunks[0].data.getSize(), 4, "First chunk size should match");
         expectEquals ((int) chunks[1].data.getSize(), 8, "Second chunk size should match");
     }
@@ -144,7 +144,7 @@ private:
         });
 
         expectEquals (chunks.size(), 1, "Should find one chunk inside LIST");
-        expectEquals (chunks[0].fourCC, makeFourCC ("INAM"), "Chunk FourCC should match");
+        expectEquals ((int)chunks[0].fourCC, (int)makeFourCC ("INAM"), "Chunk FourCC should match");
     }
 
     void testNestedLists()
@@ -185,7 +185,7 @@ private:
         });
 
         expectEquals (chunks.size(), 1, "Should find chunk in nested LIST");
-        expectEquals (chunks[0].fourCC, makeFourCC ("test"), "Nested chunk FourCC should match");
+        expectEquals ((int)chunks[0].fourCC, (int)makeFourCC ("test"), "Nested chunk FourCC should match");
     }
 
     void testOddSizedChunks()
@@ -224,9 +224,9 @@ private:
         });
 
         expectEquals (chunks.size(), 2, "Should find both chunks despite odd size");
-        expectEquals (chunks[0].fourCC, makeFourCC ("odd "), "First chunk FourCC should match");
+        expectEquals ((int)chunks[0].fourCC, (int)makeFourCC ("odd "), "First chunk FourCC should match");
         expectEquals ((int) chunks[0].data.getSize(), 3, "Odd chunk size should be 3");
-        expectEquals (chunks[1].fourCC, makeFourCC ("next"), "Second chunk should be parsed correctly");
+        expectEquals ((int)chunks[1].fourCC, (int)makeFourCC ("next"), "Second chunk should be parsed correctly");
     }
 
     void testEmptyRIFF()

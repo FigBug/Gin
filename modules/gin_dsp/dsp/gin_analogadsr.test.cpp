@@ -37,7 +37,7 @@ private:
         AnalogADSR adsr;
         adsr.setSampleRate (44100.0);
 
-        expectEquals (adsr.getState(), AnalogADSR::State::idle,
+        expectEquals ((int)adsr.getState(), (int)AnalogADSR::State::idle,
                      "Should start in idle state");
         expectEquals (adsr.getOutput(), 0.0f,
                      "Should start with zero output");
@@ -56,7 +56,7 @@ private:
         adsr.reset();
 
         adsr.noteOn();
-        expectEquals (adsr.getState(), AnalogADSR::State::attack,
+        expectEquals ((int)adsr.getState(), (int)AnalogADSR::State::attack,
                      "Should enter attack state on noteOn");
 
         // Process some samples during attack
@@ -93,7 +93,7 @@ private:
         adsr.noteOn();
 
         // Should go directly to decay since attack is 0
-        expectEquals (adsr.getState(), AnalogADSR::State::decay,
+        expectEquals ((int)adsr.getState(), (int)AnalogADSR::State::decay,
                      "Should enter decay with instant attack");
         expectWithinAbsoluteError (adsr.getOutput(), 1.0f, 0.01f,
                                   "Should start at peak");
@@ -111,7 +111,7 @@ private:
         for (int i = 0; i < 5000; i++)
             adsr.process();
 
-        expectEquals (adsr.getState(), AnalogADSR::State::sustain,
+        expectEquals ((int)adsr.getState(), (int)AnalogADSR::State::sustain,
                      "Should enter sustain after decay");
         expectWithinAbsoluteError (adsr.getOutput(), 0.5f, 0.01f,
                                   "Should reach sustain level");
@@ -135,7 +135,7 @@ private:
         for (int i = 0; i < 100; i++)
             adsr.process();
 
-        expectEquals (adsr.getState(), AnalogADSR::State::sustain,
+        expectEquals ((int)adsr.getState(), (int)AnalogADSR::State::sustain,
                      "Should be in sustain");
 
         // Sustain should hold level
@@ -164,7 +164,7 @@ private:
         adsr.process (100); // Get to sustain
 
         adsr.noteOff();
-        expectEquals (adsr.getState(), AnalogADSR::State::release,
+        expectEquals ((int)adsr.getState(), (int)AnalogADSR::State::release,
                      "Should enter release on noteOff");
 
         // Process during release
@@ -180,7 +180,7 @@ private:
         for (int i = 0; i < 6000; i++)
             adsr.process();
 
-        expectEquals (adsr.getState(), AnalogADSR::State::idle,
+        expectEquals ((int)adsr.getState(), (int)AnalogADSR::State::idle,
                      "Should return to idle after release");
         expectWithinAbsoluteError (adsr.getOutput(), 0.0f, 0.01f,
                                   "Should reach zero after release");
@@ -201,7 +201,7 @@ private:
         adsr.noteOn();
 
         // With instant attack, should go straight to decay
-        expectEquals (adsr.getState(), AnalogADSR::State::decay,
+        expectEquals ((int)adsr.getState(), (int)AnalogADSR::State::decay,
                      "Instant attack should skip to decay");
         expectWithinAbsoluteError (adsr.getOutput(), 1.0f, 0.01f,
                                   "Should immediately be at peak");
@@ -228,7 +228,7 @@ private:
         adsr.noteOff();
         adsr.process();
 
-        expectEquals (adsr.getState(), AnalogADSR::State::idle,
+        expectEquals ((int)adsr.getState(), (int)AnalogADSR::State::idle,
                      "Instant release should go to idle immediately");
         expectWithinAbsoluteError (adsr.getOutput(), 0.0f, 0.01f,
                                   "Should be at zero after instant release");
@@ -341,7 +341,7 @@ private:
         adsr.noteOn();
 
         // Should restart attack from current level or zero depending on implementation
-        expectEquals (adsr.getState(), AnalogADSR::State::attack,
+        expectEquals ((int)adsr.getState(), (int)AnalogADSR::State::attack,
                      "Should be in attack after retrigger");
 
         // Process and verify envelope continues

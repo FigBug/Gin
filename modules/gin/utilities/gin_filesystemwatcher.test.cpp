@@ -28,17 +28,15 @@ public:
 
 private:
 #if JUCE_MAC || JUCE_LINUX
-    class TestWatcher : public FileSystemWatcher
+    class TestListener : public FileSystemWatcher::Listener
     {
     public:
-        TestWatcher (const juce::File& folder) : FileSystemWatcher (folder) {}
-
         std::atomic<int> fileChangedCount {0};
         std::atomic<int> folderChangedCount {0};
-        FileSystemEvent lastEvent = FileSystemEvent::undefined;
+        FileSystemWatcher::FileSystemEvent lastEvent = FileSystemWatcher::FileSystemEvent::undefined;
         juce::File lastFile;
 
-        void fileChanged (const juce::File& f, FileSystemEvent fsEvent) override
+        void fileChanged (const juce::File& f, FileSystemWatcher::FileSystemEvent fsEvent) override
         {
             fileChangedCount++;
             lastFile = f;
@@ -60,7 +58,8 @@ private:
 
         testDir.createDirectory();
 
-        TestWatcher watcher (testDir);
+        FileSystemWatcher watcher;
+        watcher.addFolder (testDir);
 
         // Just verify it constructs without crashing
         expect (true, "Watcher constructed successfully");
@@ -77,23 +76,23 @@ private:
 
         testDir.createDirectory();
 
-        TestWatcher watcher (testDir);
+        FileSystemWatcher watcher;
+        TestListener listener;
+        watcher.addFolder (testDir);
+        watcher.addListener (&listener);
 
         // Create a file
         auto testFile = testDir.getChildFile ("test.txt");
         testFile.replaceWithText ("test content");
 
         // Wait for event to be processed
-        int timeout = 0;
-        while (watcher.fileChangedCount == 0 && timeout < 2000)
-        {
-            juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
-            timeout++;
-        }
+        for (int i = 0; i < 200 && listener.fileChangedCount == 0; i++)
+            juce::Thread::sleep (10);
 
-        expect (watcher.fileChangedCount > 0, "Should detect file creation");
-        expect (watcher.folderChangedCount > 0, "Should detect folder change");
+        expect (listener.fileChangedCount > 0, "Should detect file creation");
+        expect (listener.folderChangedCount > 0, "Should detect folder change");
 
+        watcher.removeListener (&listener);
         testDir.deleteRecursively();
     }
 
@@ -112,26 +111,26 @@ private:
         // Wait a bit to let initial creation settle
         juce::Thread::sleep (100);
 
-        TestWatcher watcher (testDir);
+        FileSystemWatcher watcher;
+        TestListener listener;
+        watcher.addFolder (testDir);
+        watcher.addListener (&listener);
 
         // Reset counters after construction
         juce::Thread::sleep (100);
-        watcher.fileChangedCount = 0;
-        watcher.folderChangedCount = 0;
+        listener.fileChangedCount = 0;
+        listener.folderChangedCount = 0;
 
         // Modify the file
         testFile.replaceWithText ("modified content");
 
         // Wait for event
-        int timeout = 0;
-        while (watcher.fileChangedCount == 0 && timeout < 2000)
-        {
-            juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
-            timeout++;
-        }
+        for (int i = 0; i < 200 && listener.fileChangedCount == 0; i++)
+            juce::Thread::sleep (10);
 
-        expect (watcher.fileChangedCount > 0, "Should detect file modification");
+        expect (listener.fileChangedCount > 0, "Should detect file modification");
 
+        watcher.removeListener (&listener);
         testDir.deleteRecursively();
     }
 
@@ -150,25 +149,25 @@ private:
         // Wait for initial creation to settle
         juce::Thread::sleep (100);
 
-        TestWatcher watcher (testDir);
+        FileSystemWatcher watcher;
+        TestListener listener;
+        watcher.addFolder (testDir);
+        watcher.addListener (&listener);
 
         // Reset counters
         juce::Thread::sleep (100);
-        watcher.fileChangedCount = 0;
+        listener.fileChangedCount = 0;
 
         // Delete the file
         testFile.deleteFile();
 
         // Wait for event
-        int timeout = 0;
-        while (watcher.fileChangedCount == 0 && timeout < 2000)
-        {
-            juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
-            timeout++;
-        }
+        for (int i = 0; i < 200 && listener.fileChangedCount == 0; i++)
+            juce::Thread::sleep (10);
 
-        expect (watcher.fileChangedCount > 0, "Should detect file deletion");
+        expect (listener.fileChangedCount > 0, "Should detect file deletion");
 
+        watcher.removeListener (&listener);
         testDir.deleteRecursively();
     }
 
@@ -181,22 +180,22 @@ private:
 
         testDir.createDirectory();
 
-        TestWatcher watcher (testDir);
+        FileSystemWatcher watcher;
+        TestListener listener;
+        watcher.addFolder (testDir);
+        watcher.addListener (&listener);
 
         // Create a file to trigger folder change
         auto testFile = testDir.getChildFile ("trigger.txt");
         testFile.replaceWithText ("trigger");
 
         // Wait for folder changed event
-        int timeout = 0;
-        while (watcher.folderChangedCount == 0 && timeout < 2000)
-        {
-            juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
-            timeout++;
-        }
+        for (int i = 0; i < 200 && listener.folderChangedCount == 0; i++)
+            juce::Thread::sleep (10);
 
-        expect (watcher.folderChangedCount > 0, "Should call folderChanged callback");
+        expect (listener.folderChangedCount > 0, "Should call folderChanged callback");
 
+        watcher.removeListener (&listener);
         testDir.deleteRecursively();
     }
 #endif
