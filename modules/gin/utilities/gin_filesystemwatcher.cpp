@@ -142,6 +142,7 @@ public:
         inotify_rm_watch (fd, wd);
         close (fd);
 
+        stopThread();
         waitForThreadToExit (1000);
     }
 
@@ -183,9 +184,8 @@ public:
             }
 
             juce::ScopedLock sl (lock);
-            if (!events.isEmpty()) {
+            if (! events.isEmpty())
                 triggerAsyncUpdate();
-            }
         }
     }
 
@@ -195,9 +195,8 @@ public:
 
         owner.folderChanged (folder);
 
-        for (const auto& e : events) {
+        for (const auto& e : events)
             owner.fileChanged (e.file, e.fsEvent);
-        }
 
         events.clear();
     }
