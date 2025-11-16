@@ -148,44 +148,51 @@ public:
 
     void run() override
     {
-        const inotify_event* iNotifyEvent;
-
-        while (! threadShouldExit())
+        try
         {
-            char buf[BUF_LEN];
-            const ssize_t numRead = read (fd, buf, BUF_LEN);
-
-            if (numRead <= 0 || threadShouldExit())
-                break;
-
-            for (const char* ptr = buf; ptr < buf + numRead; ptr += sizeof(struct inotify_event) + iNotifyEvent->len)
+            const inotify_event* iNotifyEvent;
+            
+            while (! threadShouldExit())
             {
-                iNotifyEvent = reinterpret_cast<const inotify_event*>(ptr);
-
-                FileSystemEvent eventType = undefined;
-                     if (iNotifyEvent->mask & IN_CREATE)      eventType = FileSystemEvent::fileCreated;
-                else if (iNotifyEvent->mask & IN_CLOSE_WRITE) eventType = FileSystemEvent::fileUpdated;
-                else if (iNotifyEvent->mask & IN_MODIFY)      eventType = FileSystemEvent::fileUpdated;
-                else if (iNotifyEvent->mask & IN_MOVED_FROM)  eventType = FileSystemEvent::fileRenamedOldName;
-                else if (iNotifyEvent->mask & IN_MOVED_TO)    eventType = FileSystemEvent::fileRenamedNewName;
-                else if (iNotifyEvent->mask & IN_DELETE)      eventType = FileSystemEvent::fileDeleted;
-
-                if (eventType == FileSystemEvent::undefined) {
-                    continue;
+                char buf[BUF_LEN];
+                const ssize_t numRead = read (fd, buf, BUF_LEN);
+                
+                if (numRead <= 0 || threadShouldExit())
+                    break;
+                
+                for (const char* ptr = buf; ptr < buf + numRead; ptr += sizeof(struct inotify_event) + iNotifyEvent->len)
+                {
+                    iNotifyEvent = reinterpret_cast<const inotify_event*>(ptr);
+                    
+                    FileSystemEvent eventType = undefined;
+                    if (iNotifyEvent->mask & IN_CREATE)      eventType = FileSystemEvent::fileCreated;
+                    else if (iNotifyEvent->mask & IN_CLOSE_WRITE) eventType = FileSystemEvent::fileUpdated;
+                    else if (iNotifyEvent->mask & IN_MODIFY)      eventType = FileSystemEvent::fileUpdated;
+                    else if (iNotifyEvent->mask & IN_MOVED_FROM)  eventType = FileSystemEvent::fileRenamedOldName;
+                    else if (iNotifyEvent->mask & IN_MOVED_TO)    eventType = FileSystemEvent::fileRenamedNewName;
+                    else if (iNotifyEvent->mask & IN_DELETE)      eventType = FileSystemEvent::fileDeleted;
+                    
+                    if (eventType == FileSystemEvent::undefined) {
+                        continue;
+                    }
+                    
+                    juce::ScopedLock sl (lock);
+                    Event e (folder.getFullPathName() + '/' + iNotifyEvent->name, eventType);
+                    if (std::ranges::none_of(events, [&](const auto& event) {
+                        return event == e;
+                    })) {
+                        events.add (std::move (e));
+                    }
                 }
-
+                
                 juce::ScopedLock sl (lock);
-                Event e (folder.getFullPathName() + '/' + iNotifyEvent->name, eventType);
-                if (std::ranges::none_of(events, [&](const auto& event) {
-                    return event == e;
-                })) {
-                    events.add (std::move (e));
-                }
+                if (! events.isEmpty())
+                    triggerAsyncUpdate();
             }
-
-            juce::ScopedLock sl (lock);
-            if (! events.isEmpty())
-                triggerAsyncUpdate();
+        }
+        catch (...)
+        {
+            
         }
     }
 
