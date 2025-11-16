@@ -18,8 +18,6 @@ public:
     void runTest() override
     {
 #if JUCE_MAC || JUCE_WINDOWS  // Only test on supported platforms
-        juce::ScopedJuceInitialiser_GUI initialiser;
-
         testBasicConstruction();
         testFileCreation();
         testFileModification();

@@ -17,8 +17,6 @@ public:
 
     void runTest() override
     {
-        juce::ScopedJuceInitialiser_GUI initialiser;
-        
         testBasicTriggering();
         testMultipleTriggers();
         testCancelPending();
