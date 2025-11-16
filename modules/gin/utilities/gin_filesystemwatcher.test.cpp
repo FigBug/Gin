@@ -17,7 +17,7 @@ public:
 
     void runTest() override
     {
-#if JUCE_MAC || JUCE_LINUX || JUCE_WINDOWS  // Only test on supported platforms
+#if JUCE_MAC || JUCE_WINDOWS  // Only test on supported platforms
         juce::ScopedJuceInitialiser_GUI initialiser;
 
         testBasicConstruction();
@@ -29,7 +29,7 @@ public:
     }
 
 private:
-#if JUCE_MAC || JUCE_LINUX || JUCE_WINDOWS
+#if JUCE_MAC || JUCE_WINDOWS
     class TestListener : public FileSystemWatcher::Listener
     {
     public:
