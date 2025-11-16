@@ -31,6 +31,7 @@ target_link_libraries (UnitTests PRIVATE
 						gin_metadata
 						gin_network
 						gin_simd
+						gin_graphics
 
 						juce::juce_cryptography
 						juce::juce_data_structures
