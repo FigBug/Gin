@@ -142,7 +142,7 @@ public:
         inotify_rm_watch (fd, wd);
         close (fd);
 
-        stopThread();
+        stopThread (1000);
         waitForThreadToExit (1000);
     }
 
