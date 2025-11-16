@@ -152,7 +152,7 @@ private:
         float result = env.process (0.5f);
 
         // In log mode, should return dB value
-        float expectedDb = juce::Decibels::gainToDecibels (0.5f);
+        //float expectedDb = juce::Decibels::gainToDecibels (0.5f);
         expect (result < 0.0f, "dB value for gain < 1 should be negative");
         // todo: fix
         //expectWithinAbsoluteError (result, expectedDb, 5.0f, "Should be in reasonable dB range");
