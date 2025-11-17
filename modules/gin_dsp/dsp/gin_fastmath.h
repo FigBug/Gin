@@ -121,11 +121,11 @@ public:
     {
         const F ax = std::abs(x);
         const F x2 = x * x;
-        const F z =
+        const F z = F (
             x * (0.773062670268356 + ax +
-                 (0.757118539838817 + 0.0139332362248817 * x2 * x2) * x2 * ax);
+                 (0.757118539838817 + 0.0139332362248817 * x2 * x2) * x2 * ax));
 
-        return z / (0.795956503022967 + std::abs(z));
+        return F (z / (0.795956503022967 + std::abs(z)));
     }
 
 private:

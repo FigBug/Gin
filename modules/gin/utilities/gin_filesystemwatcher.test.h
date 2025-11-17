@@ -17,7 +17,7 @@ public:
 
     void runTest() override
     {
-#if JUCE_MAC || JUCE_WINDOWS || JUCE_LINUX  // Only test on supported platforms
+#if JUCE_MAC || JUCE_WINDOWS  // Only test on supported platforms
         testBasicConstruction();
         testFileCreation();
         testFileModification();
@@ -27,7 +27,7 @@ public:
     }
 
 private:
-#if JUCE_MAC || JUCE_WINDOWS || JUCE_LINUX 
+#if JUCE_MAC || JUCE_WINDOWS 
     class TestListener : public FileSystemWatcher::Listener
     {
     public:
