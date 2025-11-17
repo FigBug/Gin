@@ -3,7 +3,8 @@
     "allow": [
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(find . -name \"*.test.cpp\" -exec sh -c 'mv \"\"$1\"\" \"\"${1%.cpp}.h\"\"' _ {} ;)"
     ],
     "deny": [],
     "ask": []

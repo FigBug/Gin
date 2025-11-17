@@ -69,7 +69,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   cmake --build --preset ninja-gcc --config Release
 
   cd "$ROOT/Builds/ninja-gcc/examples/UnitTests/UnitTests_artefacts/Release/Standalone"
-  ./UnitTests
+  xvfb-run -a ./UnitTests
 
 
 # Build Win version

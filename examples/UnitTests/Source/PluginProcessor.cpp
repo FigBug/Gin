@@ -1,6 +1,39 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+// Unit test includes
+using namespace gin;
+    
+#include "../../../modules/gin/geometry/gin_geometry.test.h"
+#include "../../../modules/gin/utilities/gin_diff.test.h"
+#include "../../../modules/gin/utilities/gin_easing.test.h"
+#include "../../../modules/gin/utilities/gin_equationparser.test.h"
+#include "../../../modules/gin/utilities/gin_filesystemwatcher.test.h"
+#include "../../../modules/gin/utilities/gin_fileutilities.test.h"
+#include "../../../modules/gin/utilities/gin_integrator.test.h"
+#include "../../../modules/gin/utilities/gin_leastsquaresregression.test.h"
+#include "../../../modules/gin/utilities/gin_linearregression.test.h"
+#include "../../../modules/gin/utilities/gin_messagepack.test.h"
+#include "../../../modules/gin/utilities/gin_plist.test.h"
+#include "../../../modules/gin/utilities/gin_realtimeasyncupdater.test.h"
+#include "../../../modules/gin/utilities/gin_riffparser.test.h"
+#include "../../../modules/gin/utilities/gin_sharedmemory.test.h"
+#include "../../../modules/gin/utilities/gin_spline.test.h"
+#include "../../../modules/gin/utilities/gin_systemsemaphore.test.h"
+#include "../../../modules/gin/utilities/gin_threading.test.h"
+#include "../../../modules/gin/utilities/gin_util.test.h"
+#include "../../../modules/gin/utilities/gin_valuetreeobject.test.h"
+#include "../../../modules/gin_dsp/dsp/gin_adsr.test.h"
+#include "../../../modules/gin_dsp/dsp/gin_analogadsr.test.h"
+#include "../../../modules/gin_dsp/dsp/gin_audioutil.test.h"
+#include "../../../modules/gin_dsp/dsp/gin_dynamics.test.h"
+#include "../../../modules/gin_dsp/dsp/gin_leveltracker.test.h"
+#include "../../../modules/gin_dsp/dsp/gin_lfo.test.h"
+#include "../../../modules/gin_dsp/dsp/gin_oscillators.test.h"
+#include "../../../modules/gin_dsp/dsp/gin_scratchbuffer.test.h"
+#include "../../../modules/gin_graphics/formats/gin_bmpimageformat.test.h"
+#include "../../../modules/gin_plugin/plugin/gin_noteduration.test.h"
+
 UnitTestsAudioProcessor::UnitTestsAudioProcessor()
     : AudioProcessor (BusesProperties()
                       .withInput  ("Input",  juce::AudioChannelSet::stereo(), true)

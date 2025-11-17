@@ -2,7 +2,7 @@
 #include "PluginEditor.h"
 
 UnitTestsAudioProcessorEditor::UnitTestsAudioProcessorEditor (UnitTestsAudioProcessor& p)
-    : AudioProcessorEditor (&p), audioProcessor (p)
+    : AudioProcessorEditor (&p)
 {
     setSize (800, 600);
 

@@ -26,7 +26,8 @@ if (APPLE)
 endif ()
 
 file (GLOB_RECURSE source_files CONFIGURE_DEPENDS
-    ${CMAKE_CURRENT_SOURCE_DIR}/Source/*.cpp)
+    ${CMAKE_CURRENT_SOURCE_DIR}/Source/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Source/*.h)
 
 target_sources (UnitTests PRIVATE ${source_files})
 source_group (TREE ${CMAKE_CURRENT_SOURCE_DIR}/Source PREFIX Source FILES ${source_files})

@@ -64,3 +64,117 @@ private:
     ScratchBuffer (BufferCacheItem&);
     BufferCacheItem& cache;
 };
+
+//==============================================================================
+/** @cond INTERNAL */
+class BufferCacheItem
+{
+public:
+    BufferCacheItem (int c = 2, int s = 44100) : data (c, s), chans (c), samps (s) {}
+
+    void resize (int c, int s)
+    {
+        chans = c;
+        samps = s;
+
+        data.setSize (c, s);
+    }
+
+    juce::AudioSampleBuffer data;
+    int refCount = 0;
+    int chans = 0, samps = 0;
+};
+
+//==============================================================================
+class BufferCache : private juce::DeletedAtShutdown
+{
+public:
+    BufferCache()
+    {
+        for (int i = 0; i < 10; i++)
+            cache.add (new BufferCacheItem());
+    }
+
+    ~BufferCache()
+    {
+        clearSingletonInstance();
+    }
+
+    BufferCacheItem* get (int channels, int samples)
+    {
+        if (auto i = find (channels, samples))
+        {
+            if (channels > i->data.getNumChannels() || samples > i->data.getNumChannels())
+                i->resize (channels, samples);
+
+            return i;
+        }
+
+        auto i = new BufferCacheItem (channels, samples);
+        i->refCount = 1;
+
+        juce::ScopedLock sl (lock);
+        cache.add (i);
+        return i;
+    }
+
+    void free (BufferCacheItem& i)
+    {
+        juce::ScopedLock sl (lock);
+        i.refCount--;
+    }
+
+    void incRef (BufferCacheItem& i)
+    {
+        juce::ScopedLock sl (lock);
+        i.refCount++;
+    }
+
+    int getUsedBuffers()
+    {
+        juce::ScopedLock sl (lock);
+
+        int count = 0;
+
+        for (auto itm : cache)
+            count += itm->refCount;
+
+        return count;
+    }
+
+    JUCE_DECLARE_SINGLETON(BufferCache, false)
+
+private:
+    BufferCacheItem* find (int channels, int samples)
+    {
+        juce::ScopedLock sl (lock);
+
+        // First look for one the correct size
+        for (auto i : cache)
+        {
+            if (i->refCount == 0 && channels <= i->data.getNumChannels() && samples <= i->data.getNumSamples())
+            {
+                i->refCount = 1;
+                i->chans = channels;
+                i->samps = samples;
+                return i;
+            }
+        }
+
+        // Then just find a free one
+        for (auto i : cache)
+        {
+            if (i->refCount == 0)
+            {
+                i->refCount = 1;
+                return i;
+            }
+        }
+
+        return {};
+    }
+
+    juce::CriticalSection lock;
+    juce::OwnedArray<BufferCacheItem> cache;
+};
+/** @endcond */

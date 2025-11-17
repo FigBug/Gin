@@ -17,8 +17,6 @@ private:
     void timerCallback() override;
     void runUnitTests();
 
-    UnitTestsAudioProcessor& audioProcessor;
-
     juce::TextEditor logTextEditor;
     int numFailures = 0;
 

@@ -40,8 +40,4 @@ namespace gin
 #include "lookandfeel/gin_copperlookandfeel.cpp"
 #include "lookandfeel/gin_resources.cpp"
 
-#if GIN_UNIT_TESTS
- #include "plugin/gin_noteduration.test.cpp"
-#endif
-
 }
