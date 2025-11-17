@@ -85,13 +85,13 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:acbc06ef71219995ce30ecb49cadb5a75" id="r_acbc06ef71219995ce30ecb49cadb5a75"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAirWindowsDistortion.html#acbc06ef71219995ce30ecb49cadb5a75">AirWindowsDistortion</a> ()</td></tr>
 <tr class="separator:acbc06ef71219995ce30ecb49cadb5a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e7b68d63e8e36b9e7a862c486cdd98a" id="r_a3e7b68d63e8e36b9e7a862c486cdd98a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAirWindowsDistortion.html#a3e7b68d63e8e36b9e7a862c486cdd98a">setSampleRate</a> (double sr)</td></tr>
+<tr class="memitem:a3e7b68d63e8e36b9e7a862c486cdd98a" id="r_a3e7b68d63e8e36b9e7a862c486cdd98a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAirWindowsDistortion.html#a3e7b68d63e8e36b9e7a862c486cdd98a">setSampleRate</a> (<a class="el" href="classPoint.html">double</a> <a class="el" href="classPoint.html">sr</a>)</td></tr>
 <tr class="separator:a3e7b68d63e8e36b9e7a862c486cdd98a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6652a9b67fbdf93b49b42cfd3fc34595" id="r_a6652a9b67fbdf93b49b42cfd3fc34595"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAirWindowsDistortion.html#a6652a9b67fbdf93b49b42cfd3fc34595">reset</a> ()</td></tr>
+<tr class="memitem:a6652a9b67fbdf93b49b42cfd3fc34595" id="r_a6652a9b67fbdf93b49b42cfd3fc34595"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAirWindowsDistortion.html#a6652a9b67fbdf93b49b42cfd3fc34595">reset</a> ()</td></tr>
 <tr class="separator:a6652a9b67fbdf93b49b42cfd3fc34595"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeed288adb8990fc00cf5193bfb51e1b3" id="r_aeed288adb8990fc00cf5193bfb51e1b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAirWindowsDistortion.html#aeed288adb8990fc00cf5193bfb51e1b3">setParams</a> (float density, float highpass, float output, float mix)</td></tr>
+<tr class="memitem:aeed288adb8990fc00cf5193bfb51e1b3" id="r_aeed288adb8990fc00cf5193bfb51e1b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAirWindowsDistortion.html#aeed288adb8990fc00cf5193bfb51e1b3">setParams</a> (<a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">density</a>, <a class="el" href="classPoint.html">float</a> highpass, <a class="el" href="classPoint.html">float</a> output, <a class="el" href="classPoint.html">float</a> mix)</td></tr>
 <tr class="separator:aeed288adb8990fc00cf5193bfb51e1b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a774f461ab66da2a485633242c4712c41" id="r_a774f461ab66da2a485633242c4712c41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAirWindowsDistortion.html#a774f461ab66da2a485633242c4712c41">process</a> (juce::AudioSampleBuffer &amp;buffer)</td></tr>
+<tr class="memitem:a774f461ab66da2a485633242c4712c41" id="r_a774f461ab66da2a485633242c4712c41"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAirWindowsDistortion.html#a774f461ab66da2a485633242c4712c41">process</a> (juce::AudioSampleBuffer &amp;buffer)</td></tr>
 <tr class="separator:a774f461ab66da2a485633242c4712c41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -107,37 +107,35 @@ Public Member Functions</h2></td></tr>
 <li>Output level scaling</li>
 </ul>
 <p>Parameters:</p><ul>
-<li>density: <a class="el" href="namespaceDistortion.html" title="Distortion.">Distortion</a> amount (-1.0 to 4.0)<ul>
+<li>density: <a class="el" href="namespaceDistortion.html" title="Distortion.">Distortion</a> amount (<a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">-1.0</a> to <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">4.0</a>)<ul>
 <li>Negative values: starved/compressed distortion</li>
 <li>Positive values: boosted/saturated distortion</li>
-<li>Values &gt; 1.0: multiple waveshaping passes</li>
+<li>Values &gt; <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">1.0</a>: multiple waveshaping passes</li>
 </ul>
 </li>
-<li>highpass: Highpass filter amount (0.0 to 1.0)</li>
-<li>output: Output level scaling (0.0 to 1.0+)</li>
-<li>mix: Dry/wet blend (0.0 = dry, 1.0 = wet)</li>
+<li>highpass: Highpass filter amount (<a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">0.0</a> to <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">1.0</a>)</li>
+<li>output: Output level scaling (<a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">0.0</a> to <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">1.0</a>+)</li>
+<li>mix: Dry/wet blend (<a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">0.0</a> = dry, <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">1.0</a> = wet)</li>
 </ul>
-<p>The density parameter uses sine waveshaping which produces odd harmonics, creating a warm, musical distortion character. Values above 1.0 apply multiple passes of waveshaping for increasingly aggressive distortion.</p>
-<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classAirWindowsDistortion.html">AirWindowsDistortion</a> distortion;</div>
-<div class="line">distortion.<a class="code hl_function" href="classAirWindowsDistortion.html#a3e7b68d63e8e36b9e7a862c486cdd98a">setSampleRate</a>(44100.0);</div>
+<p>The density parameter uses sine waveshaping which produces odd harmonics, creating a warm, musical distortion character. Values above <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">1.0</a> apply multiple passes of waveshaping for increasingly aggressive distortion.</p>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classAirWindowsDistortion.html">AirWindowsDistortion</a> <a class="code hl_class" href="classPoint.html">distortion</a>;</div>
+<div class="line"><a class="code hl_class" href="classPoint.html">distortion</a>.setSampleRate(44100.0);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Subtle saturation</span></div>
-<div class="line">distortion.<a class="code hl_function" href="classAirWindowsDistortion.html#aeed288adb8990fc00cf5193bfb51e1b3">setParams</a>(0.5f,  <span class="comment">// moderate density</span></div>
+<div class="line"><a class="code hl_class" href="classPoint.html">distortion</a>.setParams(0.5f,  <span class="comment">// moderate density</span></div>
 <div class="line">                    0.1f,  <span class="comment">// slight highpass</span></div>
 <div class="line">                    0.8f,  <span class="comment">// reduce output</span></div>
 <div class="line">                    0.7f); <span class="comment">// 70% wet</span></div>
 <div class="line"> </div>
-<div class="line">distortion.<a class="code hl_function" href="classAirWindowsDistortion.html#a774f461ab66da2a485633242c4712c41">process</a>(audioBuffer);</div>
+<div class="line"><a class="code hl_class" href="classPoint.html">distortion</a>.process(audioBuffer);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Aggressive clipping</span></div>
-<div class="line">distortion.<a class="code hl_function" href="classAirWindowsDistortion.html#aeed288adb8990fc00cf5193bfb51e1b3">setParams</a>(2.0f,  <span class="comment">// high density</span></div>
+<div class="line"><a class="code hl_class" href="classPoint.html">distortion</a>.setParams(2.0f,  <span class="comment">// high density</span></div>
 <div class="line">                    0.3f,  <span class="comment">// more highpass</span></div>
 <div class="line">                    0.6f,  <span class="comment">// compensate output</span></div>
 <div class="line">                    1.0f); <span class="comment">// fully wet</span></div>
 <div class="ttc" id="aclassAirWindowsDistortion_html"><div class="ttname"><a href="classAirWindowsDistortion.html">AirWindowsDistortion</a></div><div class="ttdoc">Sine-based waveshaping distortion effect based on AirWindows plugins.</div><div class="ttdef"><b>Definition</b> gin_distortion.h:94</div></div>
-<div class="ttc" id="aclassAirWindowsDistortion_html_a3e7b68d63e8e36b9e7a862c486cdd98a"><div class="ttname"><a href="classAirWindowsDistortion.html#a3e7b68d63e8e36b9e7a862c486cdd98a">AirWindowsDistortion::setSampleRate</a></div><div class="ttdeci">void setSampleRate(double sr)</div><div class="ttdef"><b>Definition</b> gin_distortion.h:101</div></div>
-<div class="ttc" id="aclassAirWindowsDistortion_html_a774f461ab66da2a485633242c4712c41"><div class="ttname"><a href="classAirWindowsDistortion.html#a774f461ab66da2a485633242c4712c41">AirWindowsDistortion::process</a></div><div class="ttdeci">void process(juce::AudioSampleBuffer &amp;buffer)</div><div class="ttdef"><b>Definition</b> gin_distortion.h:129</div></div>
-<div class="ttc" id="aclassAirWindowsDistortion_html_aeed288adb8990fc00cf5193bfb51e1b3"><div class="ttname"><a href="classAirWindowsDistortion.html#aeed288adb8990fc00cf5193bfb51e1b3">AirWindowsDistortion::setParams</a></div><div class="ttdeci">void setParams(float density, float highpass, float output, float mix)</div><div class="ttdef"><b>Definition</b> gin_distortion.h:121</div></div>
+<div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 </div><!-- fragment --><p>Credits: Based on AirWindows plugins by Chris Johnson (MIT License)</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classFilter.html" title="Multi-channel biquad filter with multiple types and slopes.">Filter</a>, WaveShaper </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -168,9 +166,9 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void AirWindowsDistortion::setSampleRate </td>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> AirWindowsDistortion::setSampleRate </td>
           <td>(</td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">double</a>&#160;</td>
           <td class="paramname"><em>sr</em></td><td>)</td>
           <td></td>
         </tr>
@@ -186,7 +184,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void AirWindowsDistortion::reset </td>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> AirWindowsDistortion::reset </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -205,27 +203,27 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void AirWindowsDistortion::setParams </td>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> AirWindowsDistortion::setParams </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
           <td class="paramname"><em>density</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
           <td class="paramname"><em>highpass</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
           <td class="paramname"><em>output</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
           <td class="paramname"><em>mix</em>&#160;</td>
         </tr>
         <tr>
@@ -245,7 +243,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void AirWindowsDistortion::process </td>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> AirWindowsDistortion::process </td>
           <td>(</td>
           <td class="paramtype">juce::AudioSampleBuffer &amp;&#160;</td>
           <td class="paramname"><em>buffer</em></td><td>)</td>
@@ -262,7 +260,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2025 13:53:40 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Nov 17 2025 14:30:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

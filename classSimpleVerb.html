@@ -85,11 +85,11 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1792ace0ad36c1f9f280096c4d6a1fe1" id="r_a1792ace0ad36c1f9f280096c4d6a1fe1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimpleVerb.html#a1792ace0ad36c1f9f280096c4d6a1fe1">SimpleVerb</a> ()</td></tr>
 <tr class="separator:a1792ace0ad36c1f9f280096c4d6a1fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3375884bdc9570f8d07f6f0575c90283" id="r_a3375884bdc9570f8d07f6f0575c90283"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimpleVerb.html#a3375884bdc9570f8d07f6f0575c90283">setSampleRate</a> (float sr)</td></tr>
+<tr class="memitem:a3375884bdc9570f8d07f6f0575c90283" id="r_a3375884bdc9570f8d07f6f0575c90283"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimpleVerb.html#a3375884bdc9570f8d07f6f0575c90283">setSampleRate</a> (<a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">sr</a>)</td></tr>
 <tr class="separator:a3375884bdc9570f8d07f6f0575c90283"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c675ca200b1eab943bac840224fde97" id="r_a2c675ca200b1eab943bac840224fde97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimpleVerb.html#a2c675ca200b1eab943bac840224fde97">process</a> (juce::AudioSampleBuffer &amp;buffer)</td></tr>
+<tr class="memitem:a2c675ca200b1eab943bac840224fde97" id="r_a2c675ca200b1eab943bac840224fde97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimpleVerb.html#a2c675ca200b1eab943bac840224fde97">process</a> (juce::AudioSampleBuffer &amp;buffer)</td></tr>
 <tr class="separator:a2c675ca200b1eab943bac840224fde97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69ee1d22a4025b221a5af157bdeca96d" id="r_a69ee1d22a4025b221a5af157bdeca96d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimpleVerb.html#a69ee1d22a4025b221a5af157bdeca96d">setParameters</a> (float roomIn, float dampIn, float preDelayIn, float lpFaderIn, float hpFaderIn, float wetIn, float dryIn)</td></tr>
+<tr class="memitem:a69ee1d22a4025b221a5af157bdeca96d" id="r_a69ee1d22a4025b221a5af157bdeca96d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimpleVerb.html#a69ee1d22a4025b221a5af157bdeca96d">setParameters</a> (<a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">roomIn</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">dampIn</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">preDelayIn</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">lpFaderIn</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">hpFaderIn</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">wetIn</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">dryIn</a>)</td></tr>
 <tr class="separator:a69ee1d22a4025b221a5af157bdeca96d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -108,13 +108,13 @@ Public Member Functions</h2></td></tr>
 <li>Independent wet/dry mix</li>
 </ul>
 <p>Parameters:</p><ul>
-<li>room: Room size (0.0 to 1.0)</li>
-<li>damp: High-frequency damping amount (0.0 to 1.0)</li>
+<li>room: Room size (<a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">0.0</a> to <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">1.0</a>)</li>
+<li>damp: High-frequency damping amount (<a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">0.0</a> to <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">1.0</a>)</li>
 <li>preDelay: Initial delay before reverb (seconds)</li>
 <li>lpFader: Low-pass filter amount</li>
 <li>hpFader: High-pass filter amount</li>
-<li>wet: Wet signal level (0.0 to 1.0)</li>
-<li>dry: Dry signal level (0.0 to 1.0)</li>
+<li>wet: Wet signal level (<a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">0.0</a> to <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">1.0</a>)</li>
+<li>dry: Dry signal level (<a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">0.0</a> to <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">1.0</a>)</li>
 </ul>
 <p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classSimpleVerb.html">SimpleVerb</a> reverb;</div>
 <div class="line">reverb.<a class="code hl_function" href="classSimpleVerb.html#a3375884bdc9570f8d07f6f0575c90283">setSampleRate</a>(44100.0f);</div>
@@ -159,9 +159,9 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SimpleVerb::setSampleRate </td>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> SimpleVerb::setSampleRate </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
           <td class="paramname"><em>sr</em></td><td>)</td>
           <td></td>
         </tr>
@@ -177,7 +177,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SimpleVerb::process </td>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> SimpleVerb::process </td>
           <td>(</td>
           <td class="paramtype">juce::AudioSampleBuffer &amp;&#160;</td>
           <td class="paramname"><em>buffer</em></td><td>)</td>
@@ -195,45 +195,45 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SimpleVerb::setParameters </td>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> SimpleVerb::setParameters </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
           <td class="paramname"><em>roomIn</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
           <td class="paramname"><em>dampIn</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
           <td class="paramname"><em>preDelayIn</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
           <td class="paramname"><em>lpFaderIn</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
           <td class="paramname"><em>hpFaderIn</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
           <td class="paramname"><em>wetIn</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
           <td class="paramname"><em>dryIn</em>&#160;</td>
         </tr>
         <tr>
@@ -252,7 +252,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2025 13:53:40 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Nov 17 2025 14:30:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

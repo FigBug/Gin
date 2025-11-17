@@ -92,12 +92,12 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9db5125701b5cafeee63f81f7550d320" id="r_a9db5125701b5cafeee63f81f7550d320"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSmoothingType.html#a9db5125701b5cafeee63f81f7550d320">SmoothingType</a> (float time_=0.1f, <a class="el" href="classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7c">Type</a> type_=<a class="el" href="classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7ca6f9f428f8d2b02f3abdd34b9c11f1f84">linear</a>)</td></tr>
+<tr class="memitem:a9db5125701b5cafeee63f81f7550d320" id="r_a9db5125701b5cafeee63f81f7550d320"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSmoothingType.html#a9db5125701b5cafeee63f81f7550d320">SmoothingType</a> (<a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">time_</a>=0.1f, <a class="el" href="classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7c">Type</a> <a class="el" href="classPoint.html">type_</a>=<a class="el" href="classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7ca6f9f428f8d2b02f3abdd34b9c11f1f84">linear</a>)</td></tr>
 <tr class="separator:a9db5125701b5cafeee63f81f7550d320"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:afa303f9e26f8612da8c4d27f9c0ba87a" id="r_afa303f9e26f8612da8c4d27f9c0ba87a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSmoothingType.html#afa303f9e26f8612da8c4d27f9c0ba87a">time</a></td></tr>
+<tr class="memitem:afa303f9e26f8612da8c4d27f9c0ba87a" id="r_afa303f9e26f8612da8c4d27f9c0ba87a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSmoothingType.html#afa303f9e26f8612da8c4d27f9c0ba87a">time</a></td></tr>
 <tr class="separator:afa303f9e26f8612da8c4d27f9c0ba87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0393375a369c88015c76fe37f4e50a1c" id="r_a0393375a369c88015c76fe37f4e50a1c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7c">Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSmoothingType.html#a0393375a369c88015c76fe37f4e50a1c">type</a></td></tr>
 <tr class="separator:a0393375a369c88015c76fe37f4e50a1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -109,18 +109,19 @@ Public Attributes</h2></td></tr>
 <li>linear: Simple linear interpolation (faster, good for most uses)</li>
 <li>eased: Exponential/eased interpolation (smoother, more natural)</li>
 </ul>
-<p>The time value specifies how long the parameter takes to reach its new value from the current value. Typical values are 0.02-0.2 seconds.</p>
+<p>The time value specifies how long the parameter takes to reach its new value from the current value. Typical values are <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">0.02</a><a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">-0.2</a> seconds.</p>
 <p>Usage: </p><div class="fragment"><div class="line"><span class="comment">// Fast linear smoothing for non-critical params</span></div>
-<div class="line"><a class="code hl_class" href="classSmoothingType.html">SmoothingType</a> fast(0.02f, <a class="code hl_enumvalue" href="classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7ca6f9f428f8d2b02f3abdd34b9c11f1f84">SmoothingType::linear</a>);</div>
+<div class="line"><a class="code hl_class" href="classSmoothingType.html">SmoothingType</a> <a class="code hl_class" href="classPoint.html">fast</a>(0.02f, <a class="code hl_enumvalue" href="classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7ca6f9f428f8d2b02f3abdd34b9c11f1f84">SmoothingType::linear</a>);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Slower eased smoothing for filter cutoff</span></div>
-<div class="line"><a class="code hl_class" href="classSmoothingType.html">SmoothingType</a> smooth(0.1f, <a class="code hl_enumvalue" href="classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7ca9ba4cec564f640dc7fef74aafe60e3df">SmoothingType::eased</a>);</div>
+<div class="line"><a class="code hl_class" href="classSmoothingType.html">SmoothingType</a> <a class="code hl_class" href="classPoint.html">smooth</a>(0.1f, <a class="code hl_enumvalue" href="classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7ca9ba4cec564f640dc7fef74aafe60e3df">SmoothingType::eased</a>);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Used when creating parameters</span></div>
 <div class="line"><span class="keyword">auto</span> cutoff = processor.addExtParam(<span class="stringliteral">&quot;cutoff&quot;</span>, <span class="stringliteral">&quot;Cutoff&quot;</span>, <span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;&quot;</span>,</div>
 <div class="line">                                   {20.0f, 20000.0f, 1.0f, 0.3f},</div>
 <div class="line">                                   1000.0f, 0.0f,</div>
 <div class="line">                                   <a class="code hl_class" href="classSmoothingType.html">SmoothingType</a>(0.05f, <a class="code hl_enumvalue" href="classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7ca9ba4cec564f640dc7fef74aafe60e3df">SmoothingType::eased</a>));</div>
+<div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 <div class="ttc" id="aclassSmoothingType_html"><div class="ttname"><a href="classSmoothingType.html">SmoothingType</a></div><div class="ttdoc">Parameter smoothing configuration for audio-rate interpolation.</div><div class="ttdef"><b>Definition</b> gin_processor.h:53</div></div>
 <div class="ttc" id="aclassSmoothingType_html_a3d81776be90ddd188fa74ae1b80fff7ca6f9f428f8d2b02f3abdd34b9c11f1f84"><div class="ttname"><a href="classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7ca6f9f428f8d2b02f3abdd34b9c11f1f84">SmoothingType::linear</a></div><div class="ttdeci">@ linear</div><div class="ttdef"><b>Definition</b> gin_processor.h:57</div></div>
 <div class="ttc" id="aclassSmoothingType_html_a3d81776be90ddd188fa74ae1b80fff7ca9ba4cec564f640dc7fef74aafe60e3df"><div class="ttname"><a href="classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7ca9ba4cec564f640dc7fef74aafe60e3df">SmoothingType::eased</a></div><div class="ttdeci">@ eased</div><div class="ttdef"><b>Definition</b> gin_processor.h:58</div></div>
@@ -133,7 +134,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7c">SmoothingType::Type</a></td>
+          <td class="memname"><a class="el" href="classPoint.html">enum</a> <a class="el" href="classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7c">SmoothingType::Type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -154,7 +155,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">SmoothingType::SmoothingType </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
           <td class="paramname"><em>time_</em> = <code>0.1f</code>, </td>
         </tr>
         <tr>
@@ -181,7 +182,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float SmoothingType::time</td>
+          <td class="memname"><a class="el" href="classPoint.html">float</a> SmoothingType::time</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -208,7 +209,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2025 13:53:40 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Nov 17 2025 14:30:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

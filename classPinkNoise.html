@@ -85,7 +85,7 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aaac894a16925eb95bc06434d5f37fff2" id="r_aaac894a16925eb95bc06434d5f37fff2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPinkNoise.html#aaac894a16925eb95bc06434d5f37fff2">PinkNoise</a> ()</td></tr>
 <tr class="separator:aaac894a16925eb95bc06434d5f37fff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbc5d70a4188d49b141e948e6cd50f7f" id="r_afbc5d70a4188d49b141e948e6cd50f7f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPinkNoise.html#afbc5d70a4188d49b141e948e6cd50f7f">nextSample</a> ()</td></tr>
+<tr class="memitem:afbc5d70a4188d49b141e948e6cd50f7f" id="r_afbc5d70a4188d49b141e948e6cd50f7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPinkNoise.html#afbc5d70a4188d49b141e948e6cd50f7f">nextSample</a> ()</td></tr>
 <tr class="separator:afbc5d70a4188d49b141e948e6cd50f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -106,13 +106,14 @@ Public Member Functions</h2></td></tr>
 <p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classPinkNoise.html">PinkNoise</a> noise;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// In audio processing loop</span></div>
-<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; numSamples; ++i)</div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code hl_class" href="classPoint.html">i</a> = 0; <a class="code hl_class" href="classPoint.html">i</a> &lt; <a class="code hl_class" href="classPoint.html">numSamples</a>; ++<a class="code hl_class" href="classPoint.html">i</a>)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordtype">float</span> sample = noise.<a class="code hl_function" href="classPinkNoise.html#afbc5d70a4188d49b141e948e6cd50f7f">nextSample</a>();</div>
-<div class="line">    audioBuffer[i] = sample;</div>
+<div class="line">    audioBuffer[<a class="code hl_class" href="classPoint.html">i</a>] = sample;</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassPinkNoise_html"><div class="ttname"><a href="classPinkNoise.html">PinkNoise</a></div><div class="ttdoc">Pink noise generator using the Voss-McCartney algorithm.</div><div class="ttdef"><b>Definition</b> gin_noise.h:125</div></div>
 <div class="ttc" id="aclassPinkNoise_html_afbc5d70a4188d49b141e948e6cd50f7f"><div class="ttname"><a href="classPinkNoise.html#afbc5d70a4188d49b141e948e6cd50f7f">PinkNoise::nextSample</a></div><div class="ttdeci">float nextSample()</div><div class="ttdef"><b>Definition</b> gin_noise.h:138</div></div>
+<div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 </div><!-- fragment --><p>LICENSE: Copyright 2020 Thomas Merchant</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
@@ -144,7 +145,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float PinkNoise::nextSample </td>
+          <td class="memname"><a class="el" href="classPoint.html">float</a> PinkNoise::nextSample </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -162,7 +163,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2025 13:53:40 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Nov 17 2025 14:30:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

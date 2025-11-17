@@ -119,7 +119,7 @@ Variables</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>SVG path data strings for common UI icons. </p>
-<p><a class="el" href="namespaceAssets.html" title="SVG path data strings for common UI icons.">Assets</a> namespace contains SVG path strings for standard UI icons used throughout the Gin plugin framework. These can be used with <a class="el" href="classSVGButton.html" title="Button that displays an SVG graphic instead of or alongside text.">SVGButton</a>, Path::parsePathString(), or DrawablePath to create scalable icons without requiring external image files.</p>
+<p><a class="el" href="namespaceAssets.html" title="SVG path data strings for common UI icons.">Assets</a> namespace contains SVG path strings for standard UI icons used throughout the Gin plugin framework. These can be used with <a class="el" href="classSVGButton.html" title="Button that displays an SVG graphic instead of or alongside text.">SVGButton</a>, <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">Path::parsePathString()</a>, or DrawablePath to create scalable icons without requiring external image files.</p>
 <p>Available Icons:</p><ul>
 <li>Navigation: next, prev, add, del, browse</li>
 <li>UI Controls: menu, info, caretDown</li>
@@ -132,13 +132,14 @@ Variables</h2></td></tr>
 <div class="line"><span class="keyword">auto</span> nextButton = <span class="keyword">new</span> <a class="code hl_class" href="classSVGButton.html">SVGButton</a>(<span class="stringliteral">&quot;Next&quot;</span>, <a class="code hl_variable" href="namespaceAssets.html#a7e39560cce3d5062215a8a94f967e741">Assets::next</a>);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Or use with Path</span></div>
-<div class="line">juce::Path iconPath;</div>
-<div class="line">iconPath.parsePathString(<a class="code hl_variable" href="namespaceAssets.html#a6d1564da75f002337b61a146aefd24a5">Assets::undo</a>);</div>
-<div class="line">g.fillPath(iconPath);</div>
+<div class="line">juce::Path <a class="code hl_class" href="classPoint.html">iconPath</a>;</div>
+<div class="line"><a class="code hl_class" href="classPoint.html">iconPath</a>.parsePathString(<a class="code hl_variable" href="namespaceAssets.html#a6d1564da75f002337b61a146aefd24a5">Assets::undo</a>);</div>
+<div class="line">g.fillPath(<a class="code hl_class" href="classPoint.html">iconPath</a>);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// With DrawablePath</span></div>
-<div class="line"><span class="keyword">auto</span> drawable = <span class="keyword">new</span> juce::DrawablePath();</div>
-<div class="line">drawable-&gt;setPath(juce::Drawable::parseSVGPath(<a class="code hl_variable" href="namespaceAssets.html#a1b0a8a5ee3663ec2443ce3ef8993b97a">Assets::menu</a>));</div>
+<div class="line"><span class="keyword">auto</span> <a class="code hl_class" href="classPoint.html">drawable</a> = <span class="keyword">new</span> juce::DrawablePath();</div>
+<div class="line"><a class="code hl_class" href="classPoint.html">drawable</a>-&gt;setPath(juce::Drawable::parseSVGPath(<a class="code hl_variable" href="namespaceAssets.html#a1b0a8a5ee3663ec2443ce3ef8993b97a">Assets::menu</a>));</div>
+<div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 <div class="ttc" id="aclassSVGButton_html"><div class="ttname"><a href="classSVGButton.html">SVGButton</a></div><div class="ttdoc">Button that displays an SVG graphic instead of or alongside text.</div><div class="ttdef"><b>Definition</b> gin_svgbutton.h:45</div></div>
 <div class="ttc" id="anamespaceAssets_html_a1b0a8a5ee3663ec2443ce3ef8993b97a"><div class="ttname"><a href="namespaceAssets.html#a1b0a8a5ee3663ec2443ce3ef8993b97a">Assets::menu</a></div><div class="ttdeci">juce::String menu</div></div>
 <div class="ttc" id="anamespaceAssets_html_a6d1564da75f002337b61a146aefd24a5"><div class="ttname"><a href="namespaceAssets.html#a6d1564da75f002337b61a146aefd24a5">Assets::undo</a></div><div class="ttdeci">juce::String undo</div></div>
@@ -546,7 +547,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2025 13:53:40 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Nov 17 2025 14:30:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

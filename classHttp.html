@@ -108,15 +108,16 @@ Public Member Functions</h2></td></tr>
 <li>Returns status code, headers, and response body</li>
 </ul>
 <p>Usage: Create an <a class="el" href="classHttp.html" title="Simple HTTP client for making GET requests.">Http</a> instance with a URL, then call <a class="el" href="classHttp.html#aa25b6e9f58fe6924809e801bc8eefe21" title="Performs a synchronous HTTP GET request.">get()</a> to perform the request. The method blocks until the response is received or an error occurs.</p>
-<div class="fragment"><div class="line"><a class="code hl_class" href="classHttp.html">Http</a> http(juce::URL(<span class="stringliteral">&quot;https://api.example.com/data&quot;</span>));</div>
-<div class="line"><span class="keyword">auto</span> result = http.get();</div>
+<div class="fragment"><div class="line"><a class="code hl_class" href="classHttp.html">Http</a> <a class="code hl_class" href="classPoint.html">http</a>(juce::URL(<span class="stringliteral">&quot;https://api.example.com/data&quot;</span>));</div>
+<div class="line"><span class="keyword">auto</span> result = <a class="code hl_class" href="classPoint.html">http</a>.get();</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordflow">if</span> (result.statusCode == 200)</div>
 <div class="line">{</div>
-<div class="line">    juce::String response = result.data.toString();</div>
-<div class="line">    DBG(<span class="stringliteral">&quot;Response: &quot;</span> + response);</div>
+<div class="line">    juce::String <a class="code hl_class" href="classPoint.html">response</a> = result.data.toString();</div>
+<div class="line">    <a class="code hl_class" href="classPoint.html">DBG</a>(<span class="stringliteral">&quot;Response: &quot;</span> + <a class="code hl_class" href="classPoint.html">response</a>);</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassHttp_html"><div class="ttname"><a href="classHttp.html">Http</a></div><div class="ttdoc">Simple HTTP client for making GET requests.</div><div class="ttdef"><b>Definition</b> gin_http.h:51</div></div>
+<div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 </div><!-- fragment --><p>Note: This is a synchronous (blocking) operation. For non-blocking HTTP requests, consider using juce::URL::createInputStream() with a background thread or JUCE's built-in WebInputStream.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classSecureStreamingSocket.html" title="Streaming socket with optional TLS/SSL encryption support.">SecureStreamingSocket</a>, <a class="el" href="classAsyncWebsocket.html" title="Asynchronous WebSocket client with non-blocking operations.">AsyncWebsocket</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -174,7 +175,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2025 13:53:40 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Nov 17 2025 14:30:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

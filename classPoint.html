@@ -84,10 +84,10 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae6a75fcca567819ab05482257ce36bdc" id="r_ae6a75fcca567819ab05482257ce36bdc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc">Point</a> ()=default</td></tr>
+<tr class="memitem:ae6a75fcca567819ab05482257ce36bdc" id="r_ae6a75fcca567819ab05482257ce36bdc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc">Point</a> ()=<a class="el" href="classPoint.html">default</a></td></tr>
 <tr class="memdesc:ae6a75fcca567819ab05482257ce36bdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a point at the origin (0, 0).  <br /></td></tr>
 <tr class="separator:ae6a75fcca567819ab05482257ce36bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9853b0631fc1e4c3ec3fab8ac26314a9" id="r_a9853b0631fc1e4c3ec3fab8ac26314a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoint.html#a9853b0631fc1e4c3ec3fab8ac26314a9">Point</a> (T x_, T y_)</td></tr>
+<tr class="memitem:a9853b0631fc1e4c3ec3fab8ac26314a9" id="r_a9853b0631fc1e4c3ec3fab8ac26314a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoint.html#a9853b0631fc1e4c3ec3fab8ac26314a9">Point</a> (T <a class="el" href="classPoint.html">x_</a>, T <a class="el" href="classPoint.html">y_</a>)</td></tr>
 <tr class="memdesc:a9853b0631fc1e4c3ec3fab8ac26314a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a point with the specified coordinates.  <br /></td></tr>
 <tr class="separator:a9853b0631fc1e4c3ec3fab8ac26314a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed1f0a89874a790ac96175180c934f43" id="r_aed1f0a89874a790ac96175180c934f43"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoint.html#aed1f0a89874a790ac96175180c934f43">getX</a> ()</td></tr>
@@ -110,7 +110,7 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
 class Point&lt; T &gt;</div><p>A lightweight 2D point class for projects that don't use juce_graphics. </p>
 <p>This class provides a simple coordinate pair with optional conversion to/from juce::Point when juce_graphics is available. It's useful for modules that need basic point functionality without depending on the full graphics module.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classPoint.html#aed1f0a89874a790ac96175180c934f43" title="Returns the x coordinate.">getX</a>, <a class="el" href="classPoint.html#af2d83c0f10795ba0393e7a8b86c0719a" title="Returns the y coordinate.">getY</a>, toJuce </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classPoint.html#aed1f0a89874a790ac96175180c934f43" title="Returns the x coordinate.">getX</a>, <a class="el" href="classPoint.html#af2d83c0f10795ba0393e7a8b86c0719a" title="Returns the y coordinate.">getY</a>, <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">toJuce</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae6a75fcca567819ab05482257ce36bdc" name="ae6a75fcca567819ab05482257ce36bdc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae6a75fcca567819ab05482257ce36bdc">&#9670;&#160;</a></span>Point() <span class="overload">[1/2]</span></h2>
@@ -118,7 +118,7 @@ class Point&lt; T &gt;</div><p>A lightweight 2D point class for projects that do
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;<a class="el" href="classPoint.html">typename</a> T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -139,6 +139,8 @@ template&lt;typename T &gt; </div>
 
 <p>Creates a point at the origin (0, 0). </p>
 
+<p class="reference">Referenced by <a class="el" href="classFilter.html#a4d6adbd022e252ff91acf393f2a6d543">Filter::getResponseMagnitude()</a>, <a class="el" href="classPoint.html#a9853b0631fc1e4c3ec3fab8ac26314a9">Point&lt; T &gt;::Point()</a>, <a class="el" href="classWTOscillator.html#ac40a5d31bfff126183557384f10c797d">WTOscillator::processAddingComplex()</a>, <a class="el" href="classWTOscillator.html#aa7ac32806c295682365a293212b7996a">WTOscillator::processAddingCrossfadeComplex()</a>, <a class="el" href="classWTOscillator.html#a964d75f365b9fe62c30e5735232d2cbb">WTOscillator::processAddingSimple()</a>, and <a class="el" href="classFilter.html#ab4826bc2ddff32cb9fcb052b9c3d0629">Filter::setNumChannels()</a>.</p>
+
 </div>
 </div>
 <a id="a9853b0631fc1e4c3ec3fab8ac26314a9" name="a9853b0631fc1e4c3ec3fab8ac26314a9"></a>
@@ -147,7 +149,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;<a class="el" href="classPoint.html">typename</a> T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classPoint.html">Point</a>&lt; T &gt;<a class="el" href="classPoint.html">::Point</a> </td>
@@ -178,7 +180,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="classPoint.html#a401d07562afaf0079121218025e66b76">Point&lt; T &gt;::x</a>, and <a class="el" href="classPoint.html#a65146418a33ebb2cd9acb85cade60ac9">Point&lt; T &gt;::y</a>.</p>
+<p class="reference">References <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc">Point&lt; T &gt;::Point()</a>, <a class="el" href="classPoint.html#a401d07562afaf0079121218025e66b76">Point&lt; T &gt;::x</a>, and <a class="el" href="classPoint.html#a65146418a33ebb2cd9acb85cade60ac9">Point&lt; T &gt;::y</a>.</p>
 
 </div>
 </div>
@@ -189,7 +191,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;<a class="el" href="classPoint.html">typename</a> T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">T <a class="el" href="classPoint.html">Point</a>&lt; T &gt;::getX </td>
@@ -205,7 +207,7 @@ template&lt;typename T &gt; </div>
 
 <p class="reference">References <a class="el" href="classPoint.html#a401d07562afaf0079121218025e66b76">Point&lt; T &gt;::x</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classEllipse.html#a671db8ce37e93c7f47d5bbf440393a51">Ellipse&lt; T &gt;::isPointInside()</a>, <a class="el" href="classEllipse.html#a899aa09f95707ef4d3982d9a3fbe800a">Ellipse&lt; T &gt;::isPointOn()</a>, and <a class="el" href="classEllipse.html#a7f3e736575ae9eab8c76664331b98d53">Ellipse&lt; T &gt;::isPointOutside()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="group__gin__plugin-components.html#gae617c6797d9252a57e49dc7bef2f487b">gradientRect()</a>, <a class="el" href="classEllipse.html#a671db8ce37e93c7f47d5bbf440393a51">Ellipse&lt; T &gt;::isPointInside()</a>, <a class="el" href="classEllipse.html#a899aa09f95707ef4d3982d9a3fbe800a">Ellipse&lt; T &gt;::isPointOn()</a>, <a class="el" href="classEllipse.html#a7f3e736575ae9eab8c76664331b98d53">Ellipse&lt; T &gt;::isPointOutside()</a>, and <a class="el" href="classModCurveButton.html#a250198dc867f1edcabae6c2d8a85eee4">ModCurveButton::paintButton()</a>.</p>
 
 </div>
 </div>
@@ -215,7 +217,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;<a class="el" href="classPoint.html">typename</a> T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">T <a class="el" href="classPoint.html">Point</a>&lt; T &gt;::getY </td>
@@ -231,7 +233,7 @@ template&lt;typename T &gt; </div>
 
 <p class="reference">References <a class="el" href="classPoint.html#a65146418a33ebb2cd9acb85cade60ac9">Point&lt; T &gt;::y</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classEllipse.html#a671db8ce37e93c7f47d5bbf440393a51">Ellipse&lt; T &gt;::isPointInside()</a>, <a class="el" href="classEllipse.html#a899aa09f95707ef4d3982d9a3fbe800a">Ellipse&lt; T &gt;::isPointOn()</a>, and <a class="el" href="classEllipse.html#a7f3e736575ae9eab8c76664331b98d53">Ellipse&lt; T &gt;::isPointOutside()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="group__gin__plugin-components.html#gae617c6797d9252a57e49dc7bef2f487b">gradientRect()</a>, <a class="el" href="classEllipse.html#a671db8ce37e93c7f47d5bbf440393a51">Ellipse&lt; T &gt;::isPointInside()</a>, <a class="el" href="classEllipse.html#a899aa09f95707ef4d3982d9a3fbe800a">Ellipse&lt; T &gt;::isPointOn()</a>, <a class="el" href="classEllipse.html#a7f3e736575ae9eab8c76664331b98d53">Ellipse&lt; T &gt;::isPointOutside()</a>, and <a class="el" href="classModCurveButton.html#a250198dc867f1edcabae6c2d8a85eee4">ModCurveButton::paintButton()</a>.</p>
 
 </div>
 </div>
@@ -242,7 +244,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;<a class="el" href="classPoint.html">typename</a> T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">T <a class="el" href="classPoint.html">Point</a>&lt; T &gt;::x = T (0)</td>
@@ -252,7 +254,7 @@ template&lt;typename T &gt; </div>
 
 <p>The x coordinate. </p>
 
-<p class="reference">Referenced by <a class="el" href="classPoint.html#aed1f0a89874a790ac96175180c934f43">Point&lt; T &gt;::getX()</a>, <a class="el" href="classEllipse.html#a671db8ce37e93c7f47d5bbf440393a51">Ellipse&lt; T &gt;::isPointInside()</a>, <a class="el" href="classEllipse.html#a899aa09f95707ef4d3982d9a3fbe800a">Ellipse&lt; T &gt;::isPointOn()</a>, <a class="el" href="classEllipse.html#a7f3e736575ae9eab8c76664331b98d53">Ellipse&lt; T &gt;::isPointOutside()</a>, and <a class="el" href="classPoint.html#a9853b0631fc1e4c3ec3fab8ac26314a9">Point&lt; T &gt;::Point()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classPoint.html#aed1f0a89874a790ac96175180c934f43">Point&lt; T &gt;::getX()</a>, <a class="el" href="classEllipse.html#a671db8ce37e93c7f47d5bbf440393a51">Ellipse&lt; T &gt;::isPointInside()</a>, <a class="el" href="classEllipse.html#a899aa09f95707ef4d3982d9a3fbe800a">Ellipse&lt; T &gt;::isPointOn()</a>, <a class="el" href="classEllipse.html#a7f3e736575ae9eab8c76664331b98d53">Ellipse&lt; T &gt;::isPointOutside()</a>, <a class="el" href="classSpline_1_1Element.html#a10d65f6538da41f43a1b7cd3e47d2a30">Spline::Element::operator&lt;()</a>, and <a class="el" href="classPoint.html#a9853b0631fc1e4c3ec3fab8ac26314a9">Point&lt; T &gt;::Point()</a>.</p>
 
 </div>
 </div>
@@ -262,7 +264,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;<a class="el" href="classPoint.html">typename</a> T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">T <a class="el" href="classPoint.html">Point</a>&lt; T &gt;::y = T (0)</td>
@@ -272,7 +274,7 @@ template&lt;typename T &gt; </div>
 
 <p>The y coordinate. </p>
 
-<p class="reference">Referenced by <a class="el" href="classPoint.html#af2d83c0f10795ba0393e7a8b86c0719a">Point&lt; T &gt;::getY()</a>, <a class="el" href="classEllipse.html#a671db8ce37e93c7f47d5bbf440393a51">Ellipse&lt; T &gt;::isPointInside()</a>, <a class="el" href="classEllipse.html#a899aa09f95707ef4d3982d9a3fbe800a">Ellipse&lt; T &gt;::isPointOn()</a>, <a class="el" href="classEllipse.html#a7f3e736575ae9eab8c76664331b98d53">Ellipse&lt; T &gt;::isPointOutside()</a>, and <a class="el" href="classPoint.html#a9853b0631fc1e4c3ec3fab8ac26314a9">Point&lt; T &gt;::Point()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classPoint.html#af2d83c0f10795ba0393e7a8b86c0719a">Point&lt; T &gt;::getY()</a>, <a class="el" href="namespaceLagrange.html#a6f338372cdf3563a209fe42fa92f8c13">Lagrange::interpolate()</a>, <a class="el" href="classEllipse.html#a671db8ce37e93c7f47d5bbf440393a51">Ellipse&lt; T &gt;::isPointInside()</a>, <a class="el" href="classEllipse.html#a899aa09f95707ef4d3982d9a3fbe800a">Ellipse&lt; T &gt;::isPointOn()</a>, <a class="el" href="classEllipse.html#a7f3e736575ae9eab8c76664331b98d53">Ellipse&lt; T &gt;::isPointOutside()</a>, and <a class="el" href="classPoint.html#a9853b0631fc1e4c3ec3fab8ac26314a9">Point&lt; T &gt;::Point()</a>.</p>
 
 </div>
 </div>
@@ -282,7 +284,7 @@ template&lt;typename T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2025 13:53:40 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Nov 17 2025 14:30:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

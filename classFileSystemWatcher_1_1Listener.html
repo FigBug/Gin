@@ -87,12 +87,12 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2f2bd934de14814b9cd28b4ea08278ad" id="r_a2f2bd934de14814b9cd28b4ea08278ad"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher_1_1Listener.html#a2f2bd934de14814b9cd28b4ea08278ad">~Listener</a> ()=default</td></tr>
+<tr class="memitem:a2f2bd934de14814b9cd28b4ea08278ad" id="r_a2f2bd934de14814b9cd28b4ea08278ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">virtual</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher_1_1Listener.html#a2f2bd934de14814b9cd28b4ea08278ad">~Listener</a> ()=<a class="el" href="classPoint.html">default</a></td></tr>
 <tr class="separator:a2f2bd934de14814b9cd28b4ea08278ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45bfc6e6c6c8597f8d2acb89dfbcf589" id="r_a45bfc6e6c6c8597f8d2acb89dfbcf589"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher_1_1Listener.html#a45bfc6e6c6c8597f8d2acb89dfbcf589">folderChanged</a> (const juce::File &amp;)</td></tr>
+<tr class="memitem:a45bfc6e6c6c8597f8d2acb89dfbcf589" id="r_a45bfc6e6c6c8597f8d2acb89dfbcf589"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">virtual</a> <a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher_1_1Listener.html#a45bfc6e6c6c8597f8d2acb89dfbcf589">folderChanged</a> (<a class="el" href="classPoint.html">const</a> juce::File &amp;)</td></tr>
 <tr class="memdesc:a45bfc6e6c6c8597f8d2acb89dfbcf589"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when any file in a watched folder changes.  <br /></td></tr>
 <tr class="separator:a45bfc6e6c6c8597f8d2acb89dfbcf589"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae380fea89b1c4b457493d922ec4a8a73" id="r_ae380fea89b1c4b457493d922ec4a8a73"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher_1_1Listener.html#ae380fea89b1c4b457493d922ec4a8a73">fileChanged</a> (const juce::File &amp;, <a class="el" href="classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7d">FileSystemEvent</a>)</td></tr>
+<tr class="memitem:ae380fea89b1c4b457493d922ec4a8a73" id="r_ae380fea89b1c4b457493d922ec4a8a73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">virtual</a> <a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileSystemWatcher_1_1Listener.html#ae380fea89b1c4b457493d922ec4a8a73">fileChanged</a> (<a class="el" href="classPoint.html">const</a> juce::File &amp;, <a class="el" href="classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7d">FileSystemEvent</a>)</td></tr>
 <tr class="memdesc:ae380fea89b1c4b457493d922ec4a8a73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called for each file that changed and how it changed.  <br /></td></tr>
 <tr class="separator:ae380fea89b1c4b457493d922ec4a8a73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -103,25 +103,26 @@ Public Member Functions</h2></td></tr>
 <li><a class="el" href="classFileSystemWatcher_1_1Listener.html#ae380fea89b1c4b457493d922ec4a8a73" title="Called for each file that changed and how it changed.">fileChanged()</a>: Called for each specific file change with event type</li>
 </ul>
 <p>Override the methods you need and add the listener to <a class="el" href="classFileSystemWatcher.html" title="Cross-platform file system watcher for monitoring folder changes.">FileSystemWatcher</a> to receive notifications on the message thread.</p>
-<p>Usage Example: </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyListener : <span class="keyword">public</span> <a class="code hl_class" href="classFileSystemWatcher_1_1Listener.html">FileSystemWatcher::Listener</a></div>
+<p>Usage Example: </p><div class="fragment"><div class="line"><span class="keyword">class </span><a class="code hl_class" href="classPoint.html">MyListener</a> : <span class="keyword">public</span> <a class="code hl_class" href="classFileSystemWatcher_1_1Listener.html">FileSystemWatcher::Listener</a></div>
 <div class="line">{</div>
-<div class="line">    <span class="keywordtype">void</span> folderChanged(<span class="keyword">const</span> File&amp; folder)<span class="keyword"> override</span></div>
+<div class="line">    <span class="keywordtype">void</span> folderChanged(<span class="keyword">const</span> <a class="code hl_class" href="classPoint.html">File</a>&amp; folder)<span class="keyword"> override</span></div>
 <div class="line"><span class="keyword">    </span>{</div>
 <div class="line">        <span class="comment">// Refresh UI for any changes in this folder</span></div>
-<div class="line">        DBG(<span class="stringliteral">&quot;Folder changed: &quot;</span> + folder.getFullPathName());</div>
+<div class="line">        <a class="code hl_class" href="classPoint.html">DBG</a>(<span class="stringliteral">&quot;Folder changed: &quot;</span> + folder.getFullPathName());</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> fileChanged(<span class="keyword">const</span> File&amp; file, <a class="code hl_enumeration" href="classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7d">FileSystemEvent</a> event)<span class="keyword"> override</span></div>
+<div class="line">    <span class="keywordtype">void</span> fileChanged(<span class="keyword">const</span> <a class="code hl_class" href="classPoint.html">File</a>&amp; file, <a class="code hl_enumeration" href="classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7d">FileSystemEvent</a> <a class="code hl_class" href="classPoint.html">event</a>)<span class="keyword"> override</span></div>
 <div class="line"><span class="keyword">    </span>{</div>
 <div class="line">        <span class="comment">// Handle specific file changes</span></div>
-<div class="line">        <span class="keywordflow">if</span> (event == fileUpdated)</div>
-<div class="line">            reloadFile(file);</div>
-<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (event == fileDeleted)</div>
-<div class="line">            removeFromCache(file);</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code hl_class" href="classPoint.html">event</a> == fileUpdated)</div>
+<div class="line">            <a class="code hl_class" href="classPoint.html">reloadFile</a>(file);</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_class" href="classPoint.html">event</a> == fileDeleted)</div>
+<div class="line">            <a class="code hl_class" href="classPoint.html">removeFromCache</a>(file);</div>
 <div class="line">    }</div>
 <div class="line">};</div>
 <div class="ttc" id="aclassFileSystemWatcher_1_1Listener_html"><div class="ttname"><a href="classFileSystemWatcher_1_1Listener.html">FileSystemWatcher::Listener</a></div><div class="ttdoc">Listener interface for receiving file system change notifications.</div><div class="ttdef"><b>Definition</b> gin_filesystemwatcher.h:167</div></div>
 <div class="ttc" id="aclassFileSystemWatcher_html_a05e51f587cf359c531e227451ad08f7d"><div class="ttname"><a href="classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7d">FileSystemWatcher::FileSystemEvent</a></div><div class="ttdeci">FileSystemEvent</div><div class="ttdoc">File system event types for change notifications.</div><div class="ttdef"><b>Definition</b> gin_filesystemwatcher.h:123</div></div>
+<div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 </div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classFileSystemWatcher.html" title="Cross-platform file system watcher for monitoring folder changes.">FileSystemWatcher</a>, <a class="el" href="classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7d" title="File system event types for change notifications.">FileSystemEvent</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2f2bd934de14814b9cd28b4ea08278ad" name="a2f2bd934de14814b9cd28b4ea08278ad"></a>
@@ -134,7 +135,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual FileSystemWatcher::Listener::~Listener </td>
+          <td class="memname"><a class="el" href="classPoint.html">virtual</a> FileSystemWatcher::Listener::~Listener </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -160,9 +161,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void FileSystemWatcher::Listener::folderChanged </td>
+          <td class="memname"><a class="el" href="classPoint.html">virtual</a> <a class="el" href="classPoint.html">void</a> FileSystemWatcher::Listener::folderChanged </td>
           <td>(</td>
-          <td class="paramtype">const juce::File &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::File &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -195,9 +196,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void FileSystemWatcher::Listener::fileChanged </td>
+          <td class="memname"><a class="el" href="classPoint.html">virtual</a> <a class="el" href="classPoint.html">void</a> FileSystemWatcher::Listener::fileChanged </td>
           <td>(</td>
-          <td class="paramtype">const juce::File &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::File &amp;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
@@ -237,7 +238,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2025 13:53:40 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Nov 17 2025 14:30:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

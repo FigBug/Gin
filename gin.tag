@@ -28,10 +28,20 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>gin_geometry.test.h</name>
+    <path>build/gin/geometry/</path>
+    <filename>gin__geometry_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_diff.h</name>
     <path>build/gin/utilities/</path>
     <filename>gin__diff_8h.html</filename>
     <namespace>Diff</namespace>
+  </compound>
+  <compound kind="file">
+    <name>gin_diff.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__diff_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_downloadmanager.h</name>
@@ -264,10 +274,20 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>gin_easing.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__easing_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_equationparser.h</name>
     <path>build/gin/utilities/</path>
     <filename>gin__equationparser_8h.html</filename>
     <class kind="class">EquationParser</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_equationparser.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__equationparser_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_filesystemwatcher.h</name>
@@ -275,6 +295,11 @@
     <filename>gin__filesystemwatcher_8h.html</filename>
     <class kind="class">FileSystemWatcher</class>
     <class kind="class">FileSystemWatcher::Listener</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_filesystemwatcher.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__filesystemwatcher_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_fileutilities.h</name>
@@ -303,10 +328,20 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>gin_fileutilities.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__fileutilities_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_integrator.h</name>
     <path>build/gin/utilities/</path>
     <filename>gin__integrator_8h.html</filename>
     <class kind="class">Integrator</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_integrator.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__integrator_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_lagrange.h</name>
@@ -321,16 +356,31 @@
     <class kind="class">LeastSquaresRegression</class>
   </compound>
   <compound kind="file">
+    <name>gin_leastsquaresregression.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__leastsquaresregression_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_linearregression.h</name>
     <path>build/gin/utilities/</path>
     <filename>gin__linearregression_8h.html</filename>
     <class kind="class">LinearRegression</class>
   </compound>
   <compound kind="file">
+    <name>gin_linearregression.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__linearregression_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_messagepack.h</name>
     <path>build/gin/utilities/</path>
     <filename>gin__messagepack_8h.html</filename>
     <class kind="class">MessagePack</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_messagepack.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__messagepack_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_plist.h</name>
@@ -359,6 +409,11 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>gin_plist.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__plist_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_point.h</name>
     <path>build/gin/utilities/</path>
     <filename>gin__point_8h.html</filename>
@@ -369,6 +424,11 @@
     <path>build/gin/utilities/</path>
     <filename>gin__realtimeasyncupdater_8h.html</filename>
     <class kind="class">RealtimeAsyncUpdater</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_realtimeasyncupdater.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__realtimeasyncupdater_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_riffparser.h</name>
@@ -391,10 +451,20 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>gin_riffparser.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__riffparser_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_sharedmemory.h</name>
     <path>build/gin/utilities/</path>
     <filename>gin__sharedmemory_8h.html</filename>
     <class kind="class">SharedMemory</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_sharedmemory.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__sharedmemory_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_spline.h</name>
@@ -404,10 +474,20 @@
     <class kind="class">Spline::Element</class>
   </compound>
   <compound kind="file">
+    <name>gin_spline.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__spline_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_systemsemaphore.h</name>
     <path>build/gin/utilities/</path>
     <filename>gin__systemsemaphore_8h.html</filename>
     <class kind="class">SystemSemaphore</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_systemsemaphore.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__systemsemaphore_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_texthistory.h</name>
@@ -435,10 +515,25 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>gin_threading.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__threading_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>gin_util.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__util_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_valuetreeobject.h</name>
     <path>build/gin/utilities/</path>
     <filename>gin__valuetreeobject_8h.html</filename>
     <class kind="class">ValueTreeObject</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_valuetreeobject.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__valuetreeobject_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_valuetreeutilities.h</name>
@@ -510,10 +605,20 @@
     <class kind="class">ADSR</class>
   </compound>
   <compound kind="file">
+    <name>gin_adsr.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__adsr_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_analogadsr.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__analogadsr_8h.html</filename>
     <class kind="class">AnalogADSR</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_analogadsr.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__analogadsr_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_audioequationparser.h</name>
@@ -651,6 +756,11 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>gin_audioutil.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__audioutil_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_bandlimitedlookuptable.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__bandlimitedlookuptable_8h.html</filename>
@@ -736,6 +846,11 @@
     <class kind="class">Dynamics</class>
   </compound>
   <compound kind="file">
+    <name>gin_dynamics.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__dynamics_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_easedvaluesmoother.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__easedvaluesmoother_8h.html</filename>
@@ -772,11 +887,21 @@
     <class kind="class">LevelTracker</class>
   </compound>
   <compound kind="file">
+    <name>gin_leveltracker.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__leveltracker_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_lfo.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__lfo_8h.html</filename>
     <class kind="class">LFO</class>
     <class kind="struct">LFO::Parameters</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_lfo.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__lfo_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_midififo.h</name>
@@ -830,6 +955,11 @@
     <class kind="class">BLLTVoicedStereoOscillator</class>
   </compound>
   <compound kind="file">
+    <name>gin_oscillators.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__oscillators_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_platereverb.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__platereverb_8h.html</filename>
@@ -866,6 +996,11 @@
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__scratchbuffer_8h.html</filename>
     <class kind="class">ScratchBuffer</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_scratchbuffer.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__scratchbuffer_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_simpleverb.h</name>
@@ -945,6 +1080,11 @@
     <path>build/gin_graphics/formats/</path>
     <filename>gin__bmpimageformat_8h.html</filename>
     <class kind="class">BMPImageFormat</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_bmpimageformat.test.h</name>
+    <path>build/gin_graphics/formats/</path>
+    <filename>gin__bmpimageformat_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_imageeffects.h</name>
@@ -1728,6 +1868,11 @@
     <path>build/gin_plugin/plugin/</path>
     <filename>gin__noteduration_8h.html</filename>
     <class kind="class">NoteDuration</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_noteduration.test.h</name>
+    <path>build/gin_plugin/plugin/</path>
+    <filename>gin__noteduration_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_parameter.h</name>

@@ -83,15 +83,15 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a93cad383f99aaaf001b0f9cc72903f19" id="r_a93cad383f99aaaf001b0f9cc72903f19"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiFifo.html#a93cad383f99aaaf001b0f9cc72903f19">MidiFifo</a> ()=default</td></tr>
+<tr class="memitem:a93cad383f99aaaf001b0f9cc72903f19" id="r_a93cad383f99aaaf001b0f9cc72903f19"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiFifo.html#a93cad383f99aaaf001b0f9cc72903f19">MidiFifo</a> ()=<a class="el" href="classPoint.html">default</a></td></tr>
 <tr class="separator:a93cad383f99aaaf001b0f9cc72903f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a331f9791daac503178a4d4ba41766837" id="r_a331f9791daac503178a4d4ba41766837"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiFifo.html#a331f9791daac503178a4d4ba41766837">clear</a> ()</td></tr>
+<tr class="memitem:a331f9791daac503178a4d4ba41766837" id="r_a331f9791daac503178a4d4ba41766837"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiFifo.html#a331f9791daac503178a4d4ba41766837">clear</a> ()</td></tr>
 <tr class="separator:a331f9791daac503178a4d4ba41766837"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a676220e418ef97d59568709ace608f99" id="r_a676220e418ef97d59568709ace608f99"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiFifo.html#a676220e418ef97d59568709ace608f99">getSamplesUsed</a> ()</td></tr>
+<tr class="memitem:a676220e418ef97d59568709ace608f99" id="r_a676220e418ef97d59568709ace608f99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiFifo.html#a676220e418ef97d59568709ace608f99">getSamplesUsed</a> ()</td></tr>
 <tr class="separator:a676220e418ef97d59568709ace608f99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90ece40a2c61b1bba7de907838fc7cf6" id="r_a90ece40a2c61b1bba7de907838fc7cf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiFifo.html#a90ece40a2c61b1bba7de907838fc7cf6">write</a> (const juce::MidiBuffer &amp;midiSrc, int numSamples)</td></tr>
+<tr class="memitem:a90ece40a2c61b1bba7de907838fc7cf6" id="r_a90ece40a2c61b1bba7de907838fc7cf6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiFifo.html#a90ece40a2c61b1bba7de907838fc7cf6">write</a> (<a class="el" href="classPoint.html">const</a> juce::MidiBuffer &amp;<a class="el" href="classPoint.html">midiSrc</a>, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numSamples</a>)</td></tr>
 <tr class="separator:a90ece40a2c61b1bba7de907838fc7cf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5502294f13bc7c5440cda2f0e7b2abf" id="r_aa5502294f13bc7c5440cda2f0e7b2abf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiFifo.html#aa5502294f13bc7c5440cda2f0e7b2abf">read</a> (juce::MidiBuffer &amp;midiDst, int numSamples)</td></tr>
+<tr class="memitem:aa5502294f13bc7c5440cda2f0e7b2abf" id="r_aa5502294f13bc7c5440cda2f0e7b2abf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiFifo.html#aa5502294f13bc7c5440cda2f0e7b2abf">read</a> (juce::MidiBuffer &amp;<a class="el" href="classPoint.html">midiDst</a>, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numSamples</a>)</td></tr>
 <tr class="separator:aa5502294f13bc7c5440cda2f0e7b2abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -109,19 +109,17 @@ Public Member Functions</h2></td></tr>
 <li>Use only within a single thread</li>
 <li>For multi-threaded use, consider other synchronization mechanisms</li>
 </ul>
-<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classMidiFifo.html">MidiFifo</a> midiFifo;</div>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classMidiFifo.html">MidiFifo</a> <a class="code hl_class" href="classPoint.html">midiFifo</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Accumulate MIDI in single thread</span></div>
-<div class="line">midiFifo.<a class="code hl_function" href="classMidiFifo.html#a90ece40a2c61b1bba7de907838fc7cf6">write</a>(incomingMidi, blockSize);</div>
+<div class="line"><a class="code hl_class" href="classPoint.html">midiFifo</a>.write(<a class="code hl_class" href="classPoint.html">incomingMidi</a>, blockSize);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Later in same thread</span></div>
-<div class="line">MidiBuffer outputMidi;</div>
-<div class="line"><span class="keywordflow">if</span> (midiFifo.<a class="code hl_function" href="classMidiFifo.html#a676220e418ef97d59568709ace608f99">getSamplesUsed</a>() &gt;= blockSize)</div>
-<div class="line">    midiFifo.<a class="code hl_function" href="classMidiFifo.html#aa5502294f13bc7c5440cda2f0e7b2abf">read</a>(outputMidi, blockSize);</div>
+<div class="line"><a class="code hl_class" href="classPoint.html">MidiBuffer</a> <a class="code hl_class" href="classPoint.html">outputMidi</a>;</div>
+<div class="line"><span class="keywordflow">if</span> (<a class="code hl_class" href="classPoint.html">midiFifo</a>.getSamplesUsed() &gt;= blockSize)</div>
+<div class="line">    <a class="code hl_class" href="classPoint.html">midiFifo</a>.read(<a class="code hl_class" href="classPoint.html">outputMidi</a>, blockSize);</div>
 <div class="ttc" id="aclassMidiFifo_html"><div class="ttname"><a href="classMidiFifo.html">MidiFifo</a></div><div class="ttdoc">Simple MIDI buffer for time-shifting MIDI events within a single thread.</div><div class="ttdef"><b>Definition</b> gin_midififo.h:57</div></div>
-<div class="ttc" id="aclassMidiFifo_html_a676220e418ef97d59568709ace608f99"><div class="ttname"><a href="classMidiFifo.html#a676220e418ef97d59568709ace608f99">MidiFifo::getSamplesUsed</a></div><div class="ttdeci">int getSamplesUsed()</div><div class="ttdef"><b>Definition</b> gin_midififo.h:67</div></div>
-<div class="ttc" id="aclassMidiFifo_html_a90ece40a2c61b1bba7de907838fc7cf6"><div class="ttname"><a href="classMidiFifo.html#a90ece40a2c61b1bba7de907838fc7cf6">MidiFifo::write</a></div><div class="ttdeci">void write(const juce::MidiBuffer &amp;midiSrc, int numSamples)</div><div class="ttdef"><b>Definition</b> gin_midififo.h:72</div></div>
-<div class="ttc" id="aclassMidiFifo_html_aa5502294f13bc7c5440cda2f0e7b2abf"><div class="ttname"><a href="classMidiFifo.html#aa5502294f13bc7c5440cda2f0e7b2abf">MidiFifo::read</a></div><div class="ttdeci">void read(juce::MidiBuffer &amp;midiDst, int numSamples)</div><div class="ttdef"><b>Definition</b> gin_midififo.h:78</div></div>
+<div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 </div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classAudioFifo.html" title="Lock-free audio FIFO buffer for single producer/consumer scenarios.">AudioFifo</a>, <a class="el" href="classAudioMidiFifo.html" title="Combined audio and MIDI buffer for synchronized processing within a single thread.">AudioMidiFifo</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a93cad383f99aaaf001b0f9cc72903f19" name="a93cad383f99aaaf001b0f9cc72903f19"></a>
@@ -157,7 +155,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void MidiFifo::clear </td>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> MidiFifo::clear </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -174,7 +172,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int MidiFifo::getSamplesUsed </td>
+          <td class="memname"><a class="el" href="classPoint.html">int</a> MidiFifo::getSamplesUsed </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -191,15 +189,15 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void MidiFifo::write </td>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> MidiFifo::write </td>
           <td>(</td>
-          <td class="paramtype">const juce::MidiBuffer &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::MidiBuffer &amp;&#160;</td>
           <td class="paramname"><em>midiSrc</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">int</a>&#160;</td>
           <td class="paramname"><em>numSamples</em>&#160;</td>
         </tr>
         <tr>
@@ -219,7 +217,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void MidiFifo::read </td>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> MidiFifo::read </td>
           <td>(</td>
           <td class="paramtype">juce::MidiBuffer &amp;&#160;</td>
           <td class="paramname"><em>midiDst</em>, </td>
@@ -227,7 +225,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">int</a>&#160;</td>
           <td class="paramname"><em>numSamples</em>&#160;</td>
         </tr>
         <tr>
@@ -246,7 +244,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2025 13:53:40 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Nov 17 2025 14:30:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
