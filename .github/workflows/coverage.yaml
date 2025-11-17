@@ -59,7 +59,7 @@ jobs:
             -G Ninja
 
       - name: Build UnitTests
-        run: cmake --build build --target UnitTests --config Debug
+        run: cmake --build build --target UnitTests_Standalone --config Debug
 
       - name: Run tests
         run: |
