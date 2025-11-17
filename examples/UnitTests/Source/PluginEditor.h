@@ -20,8 +20,6 @@ private:
     UnitTestsAudioProcessor& audioProcessor;
 
     juce::TextEditor logTextEditor;
-    bool testsStarted = false;
-    bool testsComplete = false;
     int numFailures = 0;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (UnitTestsAudioProcessorEditor)

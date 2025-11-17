@@ -89,7 +89,7 @@ private:
         int timeout = 0;
         while (listener.fileChangedCount == 0 && timeout < 2000)
         {
-            juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
+            juce::Thread::sleep (10);
             timeout++;
         }
 
@@ -132,7 +132,7 @@ private:
         int timeout = 0;
         while (listener.fileChangedCount == 0 && timeout < 2000)
         {
-            juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
+            juce::Thread::sleep (10);
             timeout++;
         }
 
@@ -173,7 +173,7 @@ private:
         int timeout = 0;
         while (listener.fileChangedCount == 0 && timeout < 2000)
         {
-            juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
+            juce::Thread::sleep (10);
             timeout++;
         }
 
@@ -205,7 +205,7 @@ private:
         int timeout = 0;
         while (listener.folderChangedCount == 0 && timeout < 2000)
         {
-            juce::MessageManager::getInstance()->runDispatchLoopUntil (10);
+            juce::Thread::sleep (10);
             timeout++;
         }
 

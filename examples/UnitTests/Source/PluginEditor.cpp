@@ -10,7 +10,9 @@ UnitTestsAudioProcessorEditor::UnitTestsAudioProcessorEditor (UnitTestsAudioProc
     logTextEditor.setReadOnly (true);
     logTextEditor.setScrollbarsShown (true);
     logTextEditor.setCaretVisible (false);
-    logTextEditor.setFont (juce::Font (juce::Font::getDefaultMonospacedFontName(), 14.0f, juce::Font::plain));
+    
+    juce::Font font (juce::FontOptions (juce::Font::getDefaultMonospacedFontName(), 14.0f, juce::Font::plain));
+    logTextEditor.setFont (font);
     addAndMakeVisible (logTextEditor);
 
     logTextEditor.setText ("Unit Tests - Standalone Plugin\n\nWaiting to start tests...\n");
@@ -27,19 +29,15 @@ UnitTestsAudioProcessorEditor::~UnitTestsAudioProcessorEditor()
 void UnitTestsAudioProcessorEditor::timerCallback()
 {
     stopTimer();
-
-    if (!testsStarted)
-    {
-        testsStarted = true;
-        runUnitTests();
-    }
+    
+    logTextEditor.moveCaretToEnd();
+    logTextEditor.insertTextAtCaret ("Starting unit tests...\n\n");
+    
+    juce::Thread::launch ([this] { runUnitTests(); });
 }
 
 void UnitTestsAudioProcessorEditor::runUnitTests()
 {
-    logTextEditor.moveCaretToEnd();
-    logTextEditor.insertTextAtCaret ("Starting unit tests...\n\n");
-
     class LoggingUnitTestRunner : public juce::UnitTestRunner
     {
     public:
@@ -47,12 +45,20 @@ void UnitTestsAudioProcessorEditor::runUnitTests()
 
         void logMessage (const juce::String& message) override
         {
-            juce::MessageManager::callAsync ([this, message]()
+            juce::WeakReference<LoggingUnitTestRunner> safeThis = this;
+            juce::MessageManager::callAsync ([this, safeThis, message]()
             {
-                textEditor.moveCaretToEnd();
-                textEditor.insertTextAtCaret (message + "\n");
+                if (safeThis)
+                {
+                    textEditor.moveCaretToEnd();
+                    textEditor.insertTextAtCaret (message + "\n");
+                    
+                    juce::Logger::outputDebugString (message);
+                }
             });
         }
+        
+        JUCE_DECLARE_WEAK_REFERENCEABLE(LoggingUnitTestRunner)
 
     private:
         juce::TextEditor& textEditor;
@@ -60,7 +66,7 @@ void UnitTestsAudioProcessorEditor::runUnitTests()
 
     auto runner = std::make_unique<LoggingUnitTestRunner> (logTextEditor);
 
-    logTextEditor.insertTextAtCaret ("Running all unit tests\n\n");
+    runner->logMessage ("Running all unit tests\n");
     runner->runAllTests();
 
     numFailures = 0;
@@ -70,16 +76,14 @@ void UnitTestsAudioProcessorEditor::runUnitTests()
             numFailures += res->failures;
     }
 
-    testsComplete = true;
-
     juce::String resultMessage = "\n========================================\n";
     resultMessage += "Unit tests complete: " + juce::String (numFailures) + " errors\n";
     resultMessage += "========================================\n";
 
-    logTextEditor.moveCaretToEnd();
-    logTextEditor.insertTextAtCaret (resultMessage);
-
-    repaint();
+    runner->logMessage (resultMessage);
+    
+    juce::JUCEApplication::getInstance()->setApplicationReturnValue (numFailures > 0 ? 1 : 0);
+    juce::JUCEApplication::quit ();
 }
 
 void UnitTestsAudioProcessorEditor::paint (juce::Graphics& g)

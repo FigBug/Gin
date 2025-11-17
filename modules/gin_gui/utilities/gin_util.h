@@ -68,6 +68,8 @@ public:
     int timeoutMS = 0;
     bool ok = false;
     juce::MemoryBlock data;
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AsyncDownload)
 };
 
 void asyncDownload (const juce::URL&, std::function<void (const juce::String&)>);

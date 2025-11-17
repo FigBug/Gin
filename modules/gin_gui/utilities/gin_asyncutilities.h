@@ -120,6 +120,8 @@ private:
         if (onAsyncUpdate)
             onAsyncUpdate();
     }
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (LambdaAsyncUpdater)
 };
 
 void callOnMainThreadBlocking (std::function<void ()> func);

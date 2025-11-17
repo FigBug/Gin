@@ -78,7 +78,6 @@ set (config_is_debug "$<IN_LIST:$<CONFIG>,${debug_configs}>")
 set (config_is_release "$<NOT:${config_is_debug}>")
 
 target_compile_definitions (UnitTests PRIVATE
-								JUCE_MODAL_LOOPS_PERMITTED=1
 								JUCE_WEB_BROWSER=0
 								JUCE_COREGRAPHICS_DRAW_ASYNC=1
 								GIN_UNIT_TESTS=1
