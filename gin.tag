@@ -7,6 +7,11 @@
     <class kind="class">Catenary</class>
   </compound>
   <compound kind="file">
+    <name>gin_catenary.test.h</name>
+    <path>build/gin/geometry/</path>
+    <filename>gin__catenary_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_geometry.h</name>
     <path>build/gin/geometry/</path>
     <filename>gin__geometry_8h.html</filename>
@@ -350,6 +355,11 @@
     <namespace>Lagrange</namespace>
   </compound>
   <compound kind="file">
+    <name>gin_lagrange.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__lagrange_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_leastsquaresregression.h</name>
     <path>build/gin/utilities/</path>
     <filename>gin__leastsquaresregression_8h.html</filename>
@@ -557,6 +567,11 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>gin_valuetreeutilities.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__valuetreeutilities_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_audiosamplerbuffercomponent.h</name>
     <path>build/gin_dsp/components/</path>
     <filename>gin__audiosamplerbuffercomponent_8h.html</filename>
@@ -631,6 +646,11 @@
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__audiofifo_8h.html</filename>
     <class kind="class">AudioFifo</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_audiofifo.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__audiofifo_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_audiofunctions.h</name>
@@ -833,10 +853,20 @@
     <class kind="class">DelayLine</class>
   </compound>
   <compound kind="file">
+    <name>gin_delayline.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__delayline_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_distortion.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__distortion_8h.html</filename>
     <class kind="class">AirWindowsDistortion</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_distortion.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__distortion_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_dynamics.h</name>
@@ -867,6 +897,11 @@
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__fastmath_8h.html</filename>
     <class kind="class">FastMath</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_fastmath.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__fastmath_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_filter.h</name>
@@ -910,6 +945,11 @@
     <class kind="class">MidiFifo</class>
   </compound>
   <compound kind="file">
+    <name>gin_midififo.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__midififo_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_dsp/dsp/gin_modulation.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__dsp_2dsp_2gin__modulation_8h.html</filename>
@@ -928,6 +968,11 @@
     <class kind="class">ModMatrixBox::Row::DepthSlider</class>
   </compound>
   <compound kind="file">
+    <name>gin_modulation.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__modulation_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_mseg.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__mseg_8h.html</filename>
@@ -942,6 +987,11 @@
     <filename>gin__noise_8h.html</filename>
     <class kind="class">WhiteNoise</class>
     <class kind="class">PinkNoise</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_noise.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__noise_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_oscillators.h</name>
