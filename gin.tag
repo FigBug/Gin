@@ -1727,11 +1727,6 @@
     <class kind="struct">Http::HttpResult</class>
   </compound>
   <compound kind="file">
-    <name>gin_oauth.h</name>
-    <path>build/gin_network/network/</path>
-    <filename>gin__oauth_8h.html</filename>
-  </compound>
-  <compound kind="file">
     <name>gin_securestreamingsocket.h</name>
     <path>build/gin_network/network/</path>
     <filename>gin__securestreamingsocket_8h.html</filename>
