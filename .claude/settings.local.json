@@ -1,10 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(git push:*)",
-      "Bash(find . -name \"*.test.cpp\" -exec sh -c 'mv \"\"$1\"\" \"\"${1%.cpp}.h\"\"' _ {} ;)"
+      "Bash(/tmp/gin_valuetreeutilities_fixed.cpp)",
+      "Bash(/tmp/gin_layout_fixed.cpp)",
+      "Bash(/tmp/gin_imageeffects_blending_fixed.cpp)",
+      "Bash(/tmp/gin_imageeffects_fixed.cpp)",
+      "Bash(/tmp/gin_audiofunctions_fixed.cpp)",
+      "Bash(git restore:*)"
     ],
     "deny": [],
     "ask": []

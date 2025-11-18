@@ -23,6 +23,7 @@ using namespace gin;
 #include "../../../modules/gin/utilities/gin_sharedmemory.test.h"
 #include "../../../modules/gin/utilities/gin_spline.test.h"
 #include "../../../modules/gin/utilities/gin_systemsemaphore.test.h"
+#include "../../../modules/gin/utilities/gin_texthistory.test.h"
 #include "../../../modules/gin/utilities/gin_threading.test.h"
 #include "../../../modules/gin/utilities/gin_util.test.h"
 #include "../../../modules/gin/utilities/gin_valuetreeobject.test.h"
@@ -30,6 +31,7 @@ using namespace gin;
 #include "../../../modules/gin_dsp/dsp/gin_adsr.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_analogadsr.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_audiofifo.test.h"
+#include "../../../modules/gin_dsp/dsp/gin_audiofunctions.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_audiomidififo.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_audioutil.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_delayline.test.h"
@@ -46,6 +48,9 @@ using namespace gin;
 #include "../../../modules/gin_dsp/dsp/gin_scratchbuffer.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_valuesmoother.test.h"
 #include "../../../modules/gin_graphics/formats/gin_bmpimageformat.test.h"
+#include "../../../modules/gin_graphics/images/gin_imageeffects.test.h"
+#include "../../../modules/gin_graphics/images/gin_imageeffects_blending.test.h"
+#include "../../../modules/gin_gui/utilities/gin_layout.test.h"
 #include "../../../modules/gin_plugin/plugin/gin_noteduration.test.h"
 
 UnitTestsAudioProcessor::UnitTestsAudioProcessor()

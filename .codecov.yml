@@ -29,6 +29,7 @@ ignore:
   # Examples and tests
   - "examples/"
   - "**/*.test.cpp"
+  - "**/*.test.h"
 
 comment:
   layout: "reach,diff,flags,files,footer"
