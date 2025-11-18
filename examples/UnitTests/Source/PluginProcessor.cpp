@@ -30,6 +30,7 @@ using namespace gin;
 #include "../../../modules/gin_dsp/dsp/gin_adsr.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_analogadsr.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_audiofifo.test.h"
+#include "../../../modules/gin_dsp/dsp/gin_audiomidififo.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_audioutil.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_delayline.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_distortion.test.h"

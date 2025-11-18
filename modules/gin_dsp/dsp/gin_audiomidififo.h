@@ -59,11 +59,20 @@
 class AudioMidiFifo
 {
 public:
+	/** Creates an AudioMidiFifo with the specified capacity.
+		@param channels Number of audio channels (default: 2)
+		@param maxSize Maximum number of audio samples the FIFO can hold (default: 1024)
+	*/
 	AudioMidiFifo (int channels = 2, int maxSize = 1024)
 	{
 		setSize (channels, maxSize);
 	}
 
+	/** Resizes the FIFO to a new capacity.
+		This clears any existing data in the FIFO.
+		@param channels New number of audio channels
+		@param maxSize New maximum number of audio samples
+	*/
 	void setSize (int channels, int maxSize)
 	{
 		fifo.setTotalSize (maxSize + 1);
@@ -72,6 +81,7 @@ public:
 		clear();
 	}
 
+	/** Clears all audio and MIDI data from the FIFO, resetting it to an empty state. */
 	void clear()
 	{
 		fifo.reset();
@@ -79,16 +89,26 @@ public:
 		midiBuffer.clear();
 	}
 
+	/** Returns the number of audio samples available to read.
+		@return The number of samples that can be read from the FIFO
+	*/
 	int getNumSamplesAvailable()
 	{
 		return fifo.getNumReady();
 	}
-	
+
+	/** Returns the number of audio samples that can be written before the FIFO is full.
+		@return The number of free sample slots
+	*/
 	int getNumSamplesFree()
 	{
 		return fifo.getFreeSpace();
 	}
 
+	/** Writes silence (zeros) to the audio portion of the FIFO.
+		No MIDI events are added.
+		@param numSamples Number of silent samples to write
+	*/
 	void writeSilence (int numSamples)
 	{
 		jassert (getNumSamplesFree() >= numSamples);
@@ -104,6 +124,12 @@ public:
 		fifo.finishedWrite (size1 + size2);
 	}
 
+	/** Writes audio and MIDI data to the FIFO.
+		MIDI event timestamps are automatically adjusted to maintain correct timing
+		within the FIFO's internal timeline.
+		@param audioSrc Source audio buffer to write
+		@param midiSrc Source MIDI buffer to write (timestamps relative to audioSrc)
+	*/
 	void write (const juce::AudioBuffer<float>& audioSrc, const juce::MidiBuffer& midiSrc)
 	{
 		jassert (getNumSamplesFree() >= audioSrc.getNumSamples());
@@ -126,6 +152,12 @@ public:
 		fifo.finishedWrite (size1 + size2);
 	}
 
+	/** Reads audio and MIDI data from the FIFO.
+		MIDI event timestamps are automatically adjusted to be relative to the start
+		of the destination audio buffer.
+		@param audioDst Destination audio buffer to read into
+		@param midiDst Destination MIDI buffer to read into (timestamps will be relative to audioDst)
+	*/
 	void read (juce::AudioBuffer<float>& audioDst, juce::MidiBuffer& midiDst)
 	{
 		jassert (getNumSamplesAvailable() >= audioDst.getNumSamples());
