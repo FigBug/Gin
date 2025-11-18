@@ -111,7 +111,7 @@ public:
     {
         Event () = default;
         Event (const juce::File& f, const FileSystemEvent e) : file(f), fsEvent(e) {}
-        Event (Event& other) = default;
+        Event (const Event& other) = default;
         Event (Event&& other) = default;
 
         juce::File file;
