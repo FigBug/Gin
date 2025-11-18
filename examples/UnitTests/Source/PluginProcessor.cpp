@@ -15,6 +15,7 @@ using namespace gin;
 #include "../../../modules/gin/utilities/gin_lagrange.test.h"
 #include "../../../modules/gin/utilities/gin_leastsquaresregression.test.h"
 #include "../../../modules/gin/utilities/gin_linearregression.test.h"
+#include "../../../modules/gin/utilities/gin_lockfreequeue.test.h"
 #include "../../../modules/gin/utilities/gin_messagepack.test.h"
 #include "../../../modules/gin/utilities/gin_plist.test.h"
 #include "../../../modules/gin/utilities/gin_realtimeasyncupdater.test.h"

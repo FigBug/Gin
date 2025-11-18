@@ -65,14 +65,13 @@ private:
 
         AudioFifo fifo (1, 256);
 
-        // Circular buffer holds capacity - 1 samples
-        expectEquals (fifo.getFreeSpace(), 255, "Initial free space should be buffer size - 1");
+        expectEquals (fifo.getFreeSpace(), 256, "Initial free space should be buffer size");
         expectEquals (fifo.getNumReady(), 0, "Initially should have no data ready");
 
         juce::AudioBuffer<float> buffer (1, 64);
         fifo.write (buffer);
 
-        expectEquals (fifo.getFreeSpace(), 191, "Free space should decrease");
+        expectEquals (fifo.getFreeSpace(), 192, "Free space should decrease");
         expectEquals (fifo.getNumReady(), 64, "Ready count should increase");
     }
 
@@ -153,16 +152,16 @@ private:
 
         AudioFifo fifo (1, 128);
 
-        // Fill most of the buffer (capacity is 127 due to circular buffer)
+        // Fill most of the buffer
         juce::AudioBuffer<float> buffer (1, 100);
         fifo.write (buffer);
 
-        expectEquals (fifo.getFreeSpace(), 27, "Should have 27 free");
+        expectEquals (fifo.getFreeSpace(), 28, "Should have 28 free");
 
         // Ensure we have 50 free - should discard oldest data
         fifo.ensureFreeSpace (50);
         expectEquals (fifo.getFreeSpace(), 50, "Should now have 50 free");
-        expectEquals (fifo.getNumReady(), 77, "Should have 77 ready");
+        expectEquals (fifo.getNumReady(), 78, "Should have 78 ready");
     }
 };
 
