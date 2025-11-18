@@ -146,11 +146,16 @@ public:
     ~Impl() override
     {
         signalThreadShouldExit();
+
+        // Cancel any pending async updates before shutting down
+        cancelPendingUpdate();
+
+        // Close fd to unblock the read() call in the thread
         inotify_rm_watch (fd, wd);
         close (fd);
 
+        // Wait for thread to exit
         stopThread (1000);
-        waitForThreadToExit (1000);
     }
 
     void run() override
@@ -360,6 +365,7 @@ FileSystemWatcher::FileSystemWatcher()
 
 FileSystemWatcher::~FileSystemWatcher()
 {
+    watched.clear();
 }
 
 void FileSystemWatcher::coalesceEvents (int windowMS)
