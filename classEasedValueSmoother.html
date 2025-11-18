@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Gin: EasedValueSmoother&lt; T &gt; Class Template Reference</title>
+<title>Gin: EasedValueSmoother&lt; T, EasingFunction &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -72,57 +72,74 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classEasedValueSmoother-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">EasedValueSmoother&lt; T &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__gin__dsp.html">gin_dsp</a> &raquo; <a class="el" href="group__gin__dsp-dsp.html">dsp</a></div></div></div>
+  <div class="headertitle"><div class="title">EasedValueSmoother&lt; T, EasingFunction &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__gin__dsp.html">gin_dsp</a> &raquo; <a class="el" href="group__gin__dsp-dsp.html">dsp</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Linearly smooths a value in a 0 to 1 range at a constant rate.  
+<p>Smooths a value using an easing function for natural-feeling transitions.  
  <a href="classEasedValueSmoother.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_easedvaluesmoother.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af3e8fdfbc38ae23ac474d8b6fae49035" id="r_af3e8fdfbc38ae23ac474d8b6fae49035"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#af3e8fdfbc38ae23ac474d8b6fae49035">setSampleRate</a> (<a class="el" href="classPoint.html">double</a> <a class="el" href="classPoint.html">sr</a>)</td></tr>
-<tr class="separator:af3e8fdfbc38ae23ac474d8b6fae49035"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af357f90cafbcd77ed26973f3cfe7a569" id="r_af357f90cafbcd77ed26973f3cfe7a569"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#af357f90cafbcd77ed26973f3cfe7a569">setTime</a> (<a class="el" href="classPoint.html">double</a> <a class="el" href="classPoint.html">t</a>)</td></tr>
-<tr class="separator:af357f90cafbcd77ed26973f3cfe7a569"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed083f859f945a33ca3398d5d651feb2" id="r_aed083f859f945a33ca3398d5d651feb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#aed083f859f945a33ca3398d5d651feb2">isSmoothing</a> ()</td></tr>
-<tr class="separator:aed083f859f945a33ca3398d5d651feb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a206d1556877ab9c11b43e17f5976e6ab" id="r_a206d1556877ab9c11b43e17f5976e6ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#a206d1556877ab9c11b43e17f5976e6ab">reset</a> ()</td></tr>
-<tr class="separator:a206d1556877ab9c11b43e17f5976e6ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73fa9f74e2e75fbd0d5fcf15d2cbef7d" id="r_a73fa9f74e2e75fbd0d5fcf15d2cbef7d"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#a73fa9f74e2e75fbd0d5fcf15d2cbef7d">getCurrentValue</a> ()</td></tr>
-<tr class="separator:a73fa9f74e2e75fbd0d5fcf15d2cbef7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4043a8366bba3571237bb3776fc70bce" id="r_a4043a8366bba3571237bb3776fc70bce"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#a4043a8366bba3571237bb3776fc70bce">getValuePtr</a> ()</td></tr>
-<tr class="separator:a4043a8366bba3571237bb3776fc70bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29a41dfa10ea500d9ed4f4e7b45a989f" id="r_a29a41dfa10ea500d9ed4f4e7b45a989f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#a29a41dfa10ea500d9ed4f4e7b45a989f">snapToValue</a> ()</td></tr>
-<tr class="separator:a29a41dfa10ea500d9ed4f4e7b45a989f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a411637268d7606fb829f3b579ddce53c" id="r_a411637268d7606fb829f3b579ddce53c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#a411637268d7606fb829f3b579ddce53c">process</a> (<a class="el" href="classPoint.html">int</a> n)</td></tr>
-<tr class="separator:a411637268d7606fb829f3b579ddce53c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26b174548959f6d55f52dd1bc9ff6afa" id="r_a26b174548959f6d55f52dd1bc9ff6afa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#a26b174548959f6d55f52dd1bc9ff6afa">setValue</a> (T <a class="el" href="classPoint.html">v</a>)</td></tr>
-<tr class="separator:a26b174548959f6d55f52dd1bc9ff6afa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a266f723fcb2c393fbdd93599d46abcce" id="r_a266f723fcb2c393fbdd93599d46abcce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#a266f723fcb2c393fbdd93599d46abcce">updateValue</a> ()</td></tr>
-<tr class="separator:a266f723fcb2c393fbdd93599d46abcce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbebcf9bc5851c6bde91969b87aafe7b" id="r_abbebcf9bc5851c6bde91969b87aafe7b"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#abbebcf9bc5851c6bde91969b87aafe7b">getNextValue</a> ()</td></tr>
-<tr class="separator:abbebcf9bc5851c6bde91969b87aafe7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5e2dc56a32512d27b6ac147ae12859f" id="r_ae5e2dc56a32512d27b6ac147ae12859f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#ae5e2dc56a32512d27b6ac147ae12859f">setValueUnsmoothed</a> (T <a class="el" href="classPoint.html">v</a>)</td></tr>
-<tr class="separator:ae5e2dc56a32512d27b6ac147ae12859f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ce5e13f891e611b07aed1748155ea59" id="r_a5ce5e13f891e611b07aed1748155ea59"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#a5ce5e13f891e611b07aed1748155ea59">setSampleRate</a> (<a class="el" href="classPoint.html">double</a> <a class="el" href="classPoint.html">sr</a>)</td></tr>
+<tr class="separator:a5ce5e13f891e611b07aed1748155ea59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad10d8146b7b4f22edf1cb6c6ee619f08" id="r_ad10d8146b7b4f22edf1cb6c6ee619f08"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#ad10d8146b7b4f22edf1cb6c6ee619f08">setTime</a> (<a class="el" href="classPoint.html">double</a> <a class="el" href="classPoint.html">t</a>)</td></tr>
+<tr class="separator:ad10d8146b7b4f22edf1cb6c6ee619f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33df5a30e9d9bcf903a77a616557bc18" id="r_a33df5a30e9d9bcf903a77a616557bc18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#a33df5a30e9d9bcf903a77a616557bc18">isSmoothing</a> ()</td></tr>
+<tr class="separator:a33df5a30e9d9bcf903a77a616557bc18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab128573be40bdd2b696ec5a654baeed4" id="r_ab128573be40bdd2b696ec5a654baeed4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#ab128573be40bdd2b696ec5a654baeed4">reset</a> ()</td></tr>
+<tr class="separator:ab128573be40bdd2b696ec5a654baeed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5733e3bf12223a3410bc0b00cc52fc47" id="r_a5733e3bf12223a3410bc0b00cc52fc47"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#a5733e3bf12223a3410bc0b00cc52fc47">getCurrentValue</a> ()</td></tr>
+<tr class="separator:a5733e3bf12223a3410bc0b00cc52fc47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cd16c500d2723e2c813ba100834d7c4" id="r_a0cd16c500d2723e2c813ba100834d7c4"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#a0cd16c500d2723e2c813ba100834d7c4">getValuePtr</a> ()</td></tr>
+<tr class="separator:a0cd16c500d2723e2c813ba100834d7c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a208ad5171222c29bc97e4048b85884b0" id="r_a208ad5171222c29bc97e4048b85884b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#a208ad5171222c29bc97e4048b85884b0">snapToValue</a> ()</td></tr>
+<tr class="separator:a208ad5171222c29bc97e4048b85884b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a516cef00c057871b6a8278a39691376f" id="r_a516cef00c057871b6a8278a39691376f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#a516cef00c057871b6a8278a39691376f">process</a> (<a class="el" href="classPoint.html">int</a> n)</td></tr>
+<tr class="separator:a516cef00c057871b6a8278a39691376f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af684c9cdb58aec77e60783376296d75e" id="r_af684c9cdb58aec77e60783376296d75e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#af684c9cdb58aec77e60783376296d75e">setValue</a> (T <a class="el" href="classPoint.html">v</a>)</td></tr>
+<tr class="separator:af684c9cdb58aec77e60783376296d75e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94ff44655523770e2ae83d29bf9338c6" id="r_a94ff44655523770e2ae83d29bf9338c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#a94ff44655523770e2ae83d29bf9338c6">updateValue</a> ()</td></tr>
+<tr class="separator:a94ff44655523770e2ae83d29bf9338c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad97a48bbc53aaf6302a4856bb5142690" id="r_ad97a48bbc53aaf6302a4856bb5142690"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#ad97a48bbc53aaf6302a4856bb5142690">getNextValue</a> ()</td></tr>
+<tr class="separator:ad97a48bbc53aaf6302a4856bb5142690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94bbbd5ef15c8fefa425499976d14c7f" id="r_a94bbbd5ef15c8fefa425499976d14c7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEasedValueSmoother.html#a94bbbd5ef15c8fefa425499976d14c7f">setValueUnsmoothed</a> (T <a class="el" href="classPoint.html">v</a>)</td></tr>
+<tr class="separator:a94bbbd5ef15c8fefa425499976d14c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="classPoint.html">class</a> T&gt;<br />
-class EasedValueSmoother&lt; T &gt;</div><p>Linearly smooths a value in a 0 to 1 range at a constant rate. </p>
-<p>Time is for from duration from min to max. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="af3e8fdfbc38ae23ac474d8b6fae49035" name="af3e8fdfbc38ae23ac474d8b6fae49035"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3e8fdfbc38ae23ac474d8b6fae49035">&#9670;&#160;</a></span>setSampleRate()</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="classPoint.html">class</a> T, <a class="el" href="classPoint.html">class</a> <a class="el" href="classPoint.html">EasingFunction</a> = QuadraticInOutEasing&gt;<br />
+class EasedValueSmoother&lt; T, EasingFunction &gt;</div><p>Smooths a value using an easing function for natural-feeling transitions. </p>
+<p><a class="el" href="classEasedValueSmoother.html" title="Smooths a value using an easing function for natural-feeling transitions.">EasedValueSmoother</a> provides smooth parameter transitions using easing curves instead of linear interpolation. This creates more natural, aesthetically pleasing animations and parameter changes.</p>
+<p>The easing function is specified as a template parameter, allowing for compile-time selection of the curve shape. Any of the easing function objects defined in this file can be used.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The numeric type for values (typically float or double) </td></tr>
+    <tr><td class="paramname">EasingFunction</td><td>Function object providing the easing curve (defaults to <a class="el" href="structQuadraticInOutEasing.html" title="Quadratic InOut easing function object.">QuadraticInOutEasing</a>)</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Example: </p><div class="fragment"><div class="line"><span class="comment">// Default quadratic in/out easing</span></div>
+<div class="line"><a class="code hl_class" href="classPoint.html">EasedValueSmoother&lt;float&gt;</a> <a class="code hl_class" href="classPoint.html">smoother1</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Elastic easing for bouncy effect</span></div>
+<div class="line"><a class="code hl_class" href="classPoint.html">EasedValueSmoother&lt;float, ElasticOutEasing&gt;</a> <a class="code hl_class" href="classPoint.html">smoother2</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Exponential easing for sharp transitions</span></div>
+<div class="line"><a class="code hl_class" href="classPoint.html">EasedValueSmoother&lt;float, ExponentialInOutEasing&gt;</a> <a class="code hl_class" href="classPoint.html">smoother3</a>;</div>
+<div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
+</div><!-- fragment --> </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5ce5e13f891e611b07aed1748155ea59" name="a5ce5e13f891e611b07aed1748155ea59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ce5e13f891e611b07aed1748155ea59">&#9670;&#160;</a></span>setSampleRate()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
+template&lt;<a class="el" href="classPoint.html">class</a> T , <a class="el" href="classPoint.html">class</a> <a class="el" href="classPoint.html">EasingFunction</a>  = QuadraticInOutEasing&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">void</a> <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T &gt;::setSampleRate </td>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T, <a class="el" href="classPoint.html">EasingFunction</a> &gt;::setSampleRate </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classPoint.html">double</a>&#160;</td>
           <td class="paramname"><em>sr</em></td><td>)</td>
@@ -131,20 +148,20 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classEasedValueSmoother.html#a206d1556877ab9c11b43e17f5976e6ab">EasedValueSmoother&lt; T &gt;::reset()</a>.</p>
+<p class="reference">References <a class="el" href="classEasedValueSmoother.html#ab128573be40bdd2b696ec5a654baeed4">EasedValueSmoother&lt; T, EasingFunction &gt;::reset()</a>.</p>
 
 </div>
 </div>
-<a id="af357f90cafbcd77ed26973f3cfe7a569" name="af357f90cafbcd77ed26973f3cfe7a569"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af357f90cafbcd77ed26973f3cfe7a569">&#9670;&#160;</a></span>setTime()</h2>
+<a id="ad10d8146b7b4f22edf1cb6c6ee619f08" name="ad10d8146b7b4f22edf1cb6c6ee619f08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad10d8146b7b4f22edf1cb6c6ee619f08">&#9670;&#160;</a></span>setTime()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
+template&lt;<a class="el" href="classPoint.html">class</a> T , <a class="el" href="classPoint.html">class</a> <a class="el" href="classPoint.html">EasingFunction</a>  = QuadraticInOutEasing&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">void</a> <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T &gt;::setTime </td>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T, <a class="el" href="classPoint.html">EasingFunction</a> &gt;::setTime </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classPoint.html">double</a>&#160;</td>
           <td class="paramname"><em>t</em></td><td>)</td>
@@ -153,20 +170,20 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classEasedValueSmoother.html#a206d1556877ab9c11b43e17f5976e6ab">EasedValueSmoother&lt; T &gt;::reset()</a>.</p>
+<p class="reference">References <a class="el" href="classEasedValueSmoother.html#ab128573be40bdd2b696ec5a654baeed4">EasedValueSmoother&lt; T, EasingFunction &gt;::reset()</a>.</p>
 
 </div>
 </div>
-<a id="aed083f859f945a33ca3398d5d651feb2" name="aed083f859f945a33ca3398d5d651feb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed083f859f945a33ca3398d5d651feb2">&#9670;&#160;</a></span>isSmoothing()</h2>
+<a id="a33df5a30e9d9bcf903a77a616557bc18" name="a33df5a30e9d9bcf903a77a616557bc18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33df5a30e9d9bcf903a77a616557bc18">&#9670;&#160;</a></span>isSmoothing()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
+template&lt;<a class="el" href="classPoint.html">class</a> T , <a class="el" href="classPoint.html">class</a> <a class="el" href="classPoint.html">EasingFunction</a>  = QuadraticInOutEasing&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">bool</a> <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T &gt;::isSmoothing </td>
+          <td class="memname"><a class="el" href="classPoint.html">bool</a> <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T, <a class="el" href="classPoint.html">EasingFunction</a> &gt;::isSmoothing </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -176,16 +193,16 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
 
 </div>
 </div>
-<a id="a206d1556877ab9c11b43e17f5976e6ab" name="a206d1556877ab9c11b43e17f5976e6ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a206d1556877ab9c11b43e17f5976e6ab">&#9670;&#160;</a></span>reset()</h2>
+<a id="ab128573be40bdd2b696ec5a654baeed4" name="ab128573be40bdd2b696ec5a654baeed4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab128573be40bdd2b696ec5a654baeed4">&#9670;&#160;</a></span>reset()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
+template&lt;<a class="el" href="classPoint.html">class</a> T , <a class="el" href="classPoint.html">class</a> <a class="el" href="classPoint.html">EasingFunction</a>  = QuadraticInOutEasing&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">void</a> <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T &gt;::reset </td>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T, <a class="el" href="classPoint.html">EasingFunction</a> &gt;::reset </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -193,39 +210,20 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classEasedValueSmoother.html#af3e8fdfbc38ae23ac474d8b6fae49035">EasedValueSmoother&lt; T &gt;::setSampleRate()</a>, and <a class="el" href="classEasedValueSmoother.html#af357f90cafbcd77ed26973f3cfe7a569">EasedValueSmoother&lt; T &gt;::setTime()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classEasedValueSmoother.html#a5ce5e13f891e611b07aed1748155ea59">EasedValueSmoother&lt; T, EasingFunction &gt;::setSampleRate()</a>, and <a class="el" href="classEasedValueSmoother.html#ad10d8146b7b4f22edf1cb6c6ee619f08">EasedValueSmoother&lt; T, EasingFunction &gt;::setTime()</a>.</p>
 
 </div>
 </div>
-<a id="a73fa9f74e2e75fbd0d5fcf15d2cbef7d" name="a73fa9f74e2e75fbd0d5fcf15d2cbef7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73fa9f74e2e75fbd0d5fcf15d2cbef7d">&#9670;&#160;</a></span>getCurrentValue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">T <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T &gt;::getCurrentValue </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4043a8366bba3571237bb3776fc70bce" name="a4043a8366bba3571237bb3776fc70bce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4043a8366bba3571237bb3776fc70bce">&#9670;&#160;</a></span>getValuePtr()</h2>
+<a id="a5733e3bf12223a3410bc0b00cc52fc47" name="a5733e3bf12223a3410bc0b00cc52fc47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5733e3bf12223a3410bc0b00cc52fc47">&#9670;&#160;</a></span>getCurrentValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
+template&lt;<a class="el" href="classPoint.html">class</a> T , <a class="el" href="classPoint.html">class</a> <a class="el" href="classPoint.html">EasingFunction</a>  = QuadraticInOutEasing&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">T * <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T &gt;::getValuePtr </td>
+          <td class="memname">T <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T, <a class="el" href="classPoint.html">EasingFunction</a> &gt;::getCurrentValue </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -235,16 +233,16 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
 
 </div>
 </div>
-<a id="a29a41dfa10ea500d9ed4f4e7b45a989f" name="a29a41dfa10ea500d9ed4f4e7b45a989f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29a41dfa10ea500d9ed4f4e7b45a989f">&#9670;&#160;</a></span>snapToValue()</h2>
+<a id="a0cd16c500d2723e2c813ba100834d7c4" name="a0cd16c500d2723e2c813ba100834d7c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cd16c500d2723e2c813ba100834d7c4">&#9670;&#160;</a></span>getValuePtr()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
+template&lt;<a class="el" href="classPoint.html">class</a> T , <a class="el" href="classPoint.html">class</a> <a class="el" href="classPoint.html">EasingFunction</a>  = QuadraticInOutEasing&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">void</a> <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T &gt;::snapToValue </td>
+          <td class="memname">T * <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T, <a class="el" href="classPoint.html">EasingFunction</a> &gt;::getValuePtr </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -254,16 +252,35 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
 
 </div>
 </div>
-<a id="a411637268d7606fb829f3b579ddce53c" name="a411637268d7606fb829f3b579ddce53c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a411637268d7606fb829f3b579ddce53c">&#9670;&#160;</a></span>process()</h2>
+<a id="a208ad5171222c29bc97e4048b85884b0" name="a208ad5171222c29bc97e4048b85884b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a208ad5171222c29bc97e4048b85884b0">&#9670;&#160;</a></span>snapToValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
+template&lt;<a class="el" href="classPoint.html">class</a> T , <a class="el" href="classPoint.html">class</a> <a class="el" href="classPoint.html">EasingFunction</a>  = QuadraticInOutEasing&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">void</a> <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T &gt;::process </td>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T, <a class="el" href="classPoint.html">EasingFunction</a> &gt;::snapToValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a516cef00c057871b6a8278a39691376f" name="a516cef00c057871b6a8278a39691376f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a516cef00c057871b6a8278a39691376f">&#9670;&#160;</a></span>process()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="classPoint.html">class</a> T , <a class="el" href="classPoint.html">class</a> <a class="el" href="classPoint.html">EasingFunction</a>  = QuadraticInOutEasing&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T, <a class="el" href="classPoint.html">EasingFunction</a> &gt;::process </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classPoint.html">int</a>&#160;</td>
           <td class="paramname"><em>n</em></td><td>)</td>
@@ -272,20 +289,20 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classEasedValueSmoother.html#a266f723fcb2c393fbdd93599d46abcce">EasedValueSmoother&lt; T &gt;::updateValue()</a>.</p>
+<p class="reference">References <a class="el" href="classEasedValueSmoother.html#a94ff44655523770e2ae83d29bf9338c6">EasedValueSmoother&lt; T, EasingFunction &gt;::updateValue()</a>.</p>
 
 </div>
 </div>
-<a id="a26b174548959f6d55f52dd1bc9ff6afa" name="a26b174548959f6d55f52dd1bc9ff6afa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26b174548959f6d55f52dd1bc9ff6afa">&#9670;&#160;</a></span>setValue()</h2>
+<a id="af684c9cdb58aec77e60783376296d75e" name="af684c9cdb58aec77e60783376296d75e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af684c9cdb58aec77e60783376296d75e">&#9670;&#160;</a></span>setValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
+template&lt;<a class="el" href="classPoint.html">class</a> T , <a class="el" href="classPoint.html">class</a> <a class="el" href="classPoint.html">EasingFunction</a>  = QuadraticInOutEasing&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">void</a> <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T &gt;::setValue </td>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T, <a class="el" href="classPoint.html">EasingFunction</a> &gt;::setValue </td>
           <td>(</td>
           <td class="paramtype">T&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
@@ -296,16 +313,16 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
 
 </div>
 </div>
-<a id="a266f723fcb2c393fbdd93599d46abcce" name="a266f723fcb2c393fbdd93599d46abcce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a266f723fcb2c393fbdd93599d46abcce">&#9670;&#160;</a></span>updateValue()</h2>
+<a id="a94ff44655523770e2ae83d29bf9338c6" name="a94ff44655523770e2ae83d29bf9338c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94ff44655523770e2ae83d29bf9338c6">&#9670;&#160;</a></span>updateValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
+template&lt;<a class="el" href="classPoint.html">class</a> T , <a class="el" href="classPoint.html">class</a> <a class="el" href="classPoint.html">EasingFunction</a>  = QuadraticInOutEasing&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">void</a> <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T &gt;::updateValue </td>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T, <a class="el" href="classPoint.html">EasingFunction</a> &gt;::updateValue </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -313,22 +330,20 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="group__gin-utilities.html#gabfebd9814de3e919edb3cd7516b9050d">easeQuadraticInOut()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="classEasedValueSmoother.html#abbebcf9bc5851c6bde91969b87aafe7b">EasedValueSmoother&lt; T &gt;::getNextValue()</a>, and <a class="el" href="classEasedValueSmoother.html#a411637268d7606fb829f3b579ddce53c">EasedValueSmoother&lt; T &gt;::process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classEasedValueSmoother.html#ad97a48bbc53aaf6302a4856bb5142690">EasedValueSmoother&lt; T, EasingFunction &gt;::getNextValue()</a>, and <a class="el" href="classEasedValueSmoother.html#a516cef00c057871b6a8278a39691376f">EasedValueSmoother&lt; T, EasingFunction &gt;::process()</a>.</p>
 
 </div>
 </div>
-<a id="abbebcf9bc5851c6bde91969b87aafe7b" name="abbebcf9bc5851c6bde91969b87aafe7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abbebcf9bc5851c6bde91969b87aafe7b">&#9670;&#160;</a></span>getNextValue()</h2>
+<a id="ad97a48bbc53aaf6302a4856bb5142690" name="ad97a48bbc53aaf6302a4856bb5142690"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad97a48bbc53aaf6302a4856bb5142690">&#9670;&#160;</a></span>getNextValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
+template&lt;<a class="el" href="classPoint.html">class</a> T , <a class="el" href="classPoint.html">class</a> <a class="el" href="classPoint.html">EasingFunction</a>  = QuadraticInOutEasing&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">T <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T &gt;::getNextValue </td>
+          <td class="memname">T <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T, <a class="el" href="classPoint.html">EasingFunction</a> &gt;::getNextValue </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -336,20 +351,20 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classEasedValueSmoother.html#a266f723fcb2c393fbdd93599d46abcce">EasedValueSmoother&lt; T &gt;::updateValue()</a>.</p>
+<p class="reference">References <a class="el" href="classEasedValueSmoother.html#a94ff44655523770e2ae83d29bf9338c6">EasedValueSmoother&lt; T, EasingFunction &gt;::updateValue()</a>.</p>
 
 </div>
 </div>
-<a id="ae5e2dc56a32512d27b6ac147ae12859f" name="ae5e2dc56a32512d27b6ac147ae12859f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5e2dc56a32512d27b6ac147ae12859f">&#9670;&#160;</a></span>setValueUnsmoothed()</h2>
+<a id="a94bbbd5ef15c8fefa425499976d14c7f" name="a94bbbd5ef15c8fefa425499976d14c7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94bbbd5ef15c8fefa425499976d14c7f">&#9670;&#160;</a></span>setValueUnsmoothed()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
+template&lt;<a class="el" href="classPoint.html">class</a> T , <a class="el" href="classPoint.html">class</a> <a class="el" href="classPoint.html">EasingFunction</a>  = QuadraticInOutEasing&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">void</a> <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T &gt;::setValueUnsmoothed </td>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> <a class="el" href="classEasedValueSmoother.html">EasedValueSmoother</a>&lt; T, <a class="el" href="classPoint.html">EasingFunction</a> &gt;::setValueUnsmoothed </td>
           <td>(</td>
           <td class="paramtype">T&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
@@ -366,7 +381,7 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 18 2025 14:51:05 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Tue Nov 18 2025 15:15:20 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

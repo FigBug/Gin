@@ -1,8 +1,12 @@
 var searchData=
 [
-  ['readout_0',['Readout',['../classReadout.html',1,'']]],
-  ['realtimeasyncupdater_1',['RealtimeAsyncUpdater',['../classRealtimeAsyncUpdater.html',1,'']]],
-  ['resamplingfifo_2',['ResamplingFifo',['../classResamplingFifo.html',1,'']]],
-  ['riffparser_3',['RIFFParser',['../classRIFFParser.html',1,'']]],
-  ['rollingaverage_4',['RollingAverage',['../classRollingAverage.html',1,'']]]
+  ['quadraticineasing_0',['QuadraticInEasing',['../structQuadraticInEasing.html',1,'']]],
+  ['quadraticinouteasing_1',['QuadraticInOutEasing',['../structQuadraticInOutEasing.html',1,'']]],
+  ['quadraticouteasing_2',['QuadraticOutEasing',['../structQuadraticOutEasing.html',1,'']]],
+  ['quarticineasing_3',['QuarticInEasing',['../structQuarticInEasing.html',1,'']]],
+  ['quarticinouteasing_4',['QuarticInOutEasing',['../structQuarticInOutEasing.html',1,'']]],
+  ['quarticouteasing_5',['QuarticOutEasing',['../structQuarticOutEasing.html',1,'']]],
+  ['quinticineasing_6',['QuinticInEasing',['../structQuinticInEasing.html',1,'']]],
+  ['quinticinouteasing_7',['QuinticInOutEasing',['../structQuinticInOutEasing.html',1,'']]],
+  ['quinticouteasing_8',['QuinticOutEasing',['../structQuinticOutEasing.html',1,'']]]
 ];

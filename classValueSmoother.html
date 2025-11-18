@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Linearly smooths a value in a 0 to 1 range at a constant rate.  
+<p>Linearly smooths parameter changes over time at a constant rate.  
  <a href="classValueSmoother.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_valuesmoother.h&gt;</code></p>
@@ -84,34 +84,77 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4c667c173bbe3cdc3cafa748464382e7" id="r_a4c667c173bbe3cdc3cafa748464382e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueSmoother.html#a4c667c173bbe3cdc3cafa748464382e7">setSampleRate</a> (<a class="el" href="classPoint.html">double</a> <a class="el" href="classPoint.html">sr</a>)</td></tr>
+<tr class="memdesc:a4c667c173bbe3cdc3cafa748464382e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the sample rate for smoothing calculations.  <br /></td></tr>
 <tr class="separator:a4c667c173bbe3cdc3cafa748464382e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fdfa7c891839b964c41d6d5660f9b0d" id="r_a2fdfa7c891839b964c41d6d5660f9b0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueSmoother.html#a2fdfa7c891839b964c41d6d5660f9b0d">setTime</a> (<a class="el" href="classPoint.html">double</a> <a class="el" href="classPoint.html">t</a>)</td></tr>
+<tr class="memdesc:a2fdfa7c891839b964c41d6d5660f9b0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the smoothing time - duration for a full 0 to 1 transition.  <br /></td></tr>
 <tr class="separator:a2fdfa7c891839b964c41d6d5660f9b0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab80e3fc29490fd570be2339494f5c7f" id="r_aab80e3fc29490fd570be2339494f5c7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueSmoother.html#aab80e3fc29490fd570be2339494f5c7f">isSmoothing</a> ()</td></tr>
+<tr class="memdesc:aab80e3fc29490fd570be2339494f5c7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the smoother is currently transitioning to the target value.  <br /></td></tr>
 <tr class="separator:aab80e3fc29490fd570be2339494f5c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c0b7e542ba5484825a54ea69612b8a7" id="r_a7c0b7e542ba5484825a54ea69612b8a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueSmoother.html#a7c0b7e542ba5484825a54ea69612b8a7">reset</a> ()</td></tr>
+<tr class="memdesc:a7c0b7e542ba5484825a54ea69612b8a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recalculates the delta value based on current sample rate and time.  <br /></td></tr>
 <tr class="separator:a7c0b7e542ba5484825a54ea69612b8a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a204256b57b1340450311edbf79386c27" id="r_a204256b57b1340450311edbf79386c27"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueSmoother.html#a204256b57b1340450311edbf79386c27">getCurrentValue</a> ()</td></tr>
+<tr class="memdesc:a204256b57b1340450311edbf79386c27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current smoothed value without advancing.  <br /></td></tr>
 <tr class="separator:a204256b57b1340450311edbf79386c27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60334ecd23715a3504a1ea75029b57b4" id="r_a60334ecd23715a3504a1ea75029b57b4"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueSmoother.html#a60334ecd23715a3504a1ea75029b57b4">getValuePtr</a> ()</td></tr>
+<tr class="memdesc:a60334ecd23715a3504a1ea75029b57b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the current value for direct access.  <br /></td></tr>
 <tr class="separator:a60334ecd23715a3504a1ea75029b57b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59b91b3e66200968b50d063c7ffe49d4" id="r_a59b91b3e66200968b50d063c7ffe49d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueSmoother.html#a59b91b3e66200968b50d063c7ffe49d4">setValue</a> (T <a class="el" href="classPoint.html">v</a>)</td></tr>
+<tr class="memdesc:a59b91b3e66200968b50d063c7ffe49d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the target value to smooth towards.  <br /></td></tr>
 <tr class="separator:a59b91b3e66200968b50d063c7ffe49d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae961540da25f03bde80e1251ae9160ef" id="r_ae961540da25f03bde80e1251ae9160ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueSmoother.html#ae961540da25f03bde80e1251ae9160ef">snapToValue</a> ()</td></tr>
+<tr class="memdesc:ae961540da25f03bde80e1251ae9160ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Immediately snaps the current value to the target value.  <br /></td></tr>
 <tr class="separator:ae961540da25f03bde80e1251ae9160ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98102883ab75aadce5dde661253fe0b2" id="r_a98102883ab75aadce5dde661253fe0b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueSmoother.html#a98102883ab75aadce5dde661253fe0b2">process</a> (<a class="el" href="classPoint.html">int</a> n)</td></tr>
+<tr class="memdesc:a98102883ab75aadce5dde661253fe0b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes multiple samples, advancing the smoother by n steps.  <br /></td></tr>
 <tr class="separator:a98102883ab75aadce5dde661253fe0b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a581f8cc773e4cc2bac2da53e6edfec85" id="r_a581f8cc773e4cc2bac2da53e6edfec85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueSmoother.html#a581f8cc773e4cc2bac2da53e6edfec85">updateValue</a> ()</td></tr>
+<tr class="memdesc:a581f8cc773e4cc2bac2da53e6edfec85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advances the current value one step toward the target.  <br /></td></tr>
 <tr class="separator:a581f8cc773e4cc2bac2da53e6edfec85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae344ea65895d160583cb8ad824521ced" id="r_ae344ea65895d160583cb8ad824521ced"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueSmoother.html#ae344ea65895d160583cb8ad824521ced">getNextValue</a> ()</td></tr>
+<tr class="memdesc:ae344ea65895d160583cb8ad824521ced"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advances the smoother by one sample and returns the new value.  <br /></td></tr>
 <tr class="separator:ae344ea65895d160583cb8ad824521ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac361c441cfa04dd63ef694eed574adc0" id="r_ac361c441cfa04dd63ef694eed574adc0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueSmoother.html#ac361c441cfa04dd63ef694eed574adc0">setValueUnsmoothed</a> (T <a class="el" href="classPoint.html">v</a>)</td></tr>
+<tr class="memdesc:ac361c441cfa04dd63ef694eed574adc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets both target and current value immediately without smoothing.  <br /></td></tr>
 <tr class="separator:ac361c441cfa04dd63ef694eed574adc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="classPoint.html">class</a> T&gt;<br />
-class ValueSmoother&lt; T &gt;</div><p>Linearly smooths a value in a 0 to 1 range at a constant rate. </p>
-<p>Time is for from duration from min to max. </p>
+class ValueSmoother&lt; T &gt;</div><p>Linearly smooths parameter changes over time at a constant rate. </p>
+<p><a class="el" href="classValueSmoother.html" title="Linearly smooths parameter changes over time at a constant rate.">ValueSmoother</a> provides linear interpolation between parameter values, smoothing transitions to prevent zipper noise and clicks in audio processing. It operates by moving the current value toward the target value at a constant rate per sample, defined by the smoothing time.</p>
+<p>The smoother is designed for normalized values (0 to 1 range) but can work with any numeric type. The time parameter specifies how long it takes to transition from 0 to 1 (or 1 to 0), regardless of the actual range used.</p>
+<p>Common Use Cases:</p><ul>
+<li>Smoothing parameter changes in audio effects</li>
+<li>Preventing zipper noise in gain controls</li>
+<li>Smoothing filter cutoff frequency changes</li>
+<li>Envelope-like parameter transitions</li>
+</ul>
+<p>Thread Safety:</p><ul>
+<li>NOT thread-safe</li>
+<li>Use within a single audio processing thread</li>
+</ul>
+<p>Example usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classPoint.html">ValueSmoother&lt;float&gt;</a> <a class="code hl_class" href="classPoint.html">gainSmoother</a>;</div>
+<div class="line"><a class="code hl_class" href="classPoint.html">gainSmoother</a>.setSampleRate (44100.0);</div>
+<div class="line"><a class="code hl_class" href="classPoint.html">gainSmoother</a>.setTime (0.05); <span class="comment">// 50ms smoothing time</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// In parameter change callback</span></div>
+<div class="line"><a class="code hl_class" href="classPoint.html">gainSmoother</a>.setValue (<a class="code hl_class" href="classPoint.html">newGainValue</a>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// In audio processing loop</span></div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code hl_class" href="classPoint.html">i</a> = 0; <a class="code hl_class" href="classPoint.html">i</a> &lt; <a class="code hl_class" href="classPoint.html">numSamples</a>; ++<a class="code hl_class" href="classPoint.html">i</a>)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">float</span> <a class="code hl_class" href="classPoint.html">smoothedGain</a> = <a class="code hl_class" href="classPoint.html">gainSmoother</a>.getNextValue();</div>
+<div class="line">    output[<a class="code hl_class" href="classPoint.html">i</a>] = <a class="code hl_class" href="classPoint.html">input</a>[<a class="code hl_class" href="classPoint.html">i</a>] * <a class="code hl_class" href="classPoint.html">smoothedGain</a>;</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
+</div><!-- fragment --><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The numeric type for values (typically float or double) </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a4c667c173bbe3cdc3cafa748464382e7" name="a4c667c173bbe3cdc3cafa748464382e7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4c667c173bbe3cdc3cafa748464382e7">&#9670;&#160;</a></span>setSampleRate()</h2>
@@ -130,6 +173,14 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the sample rate for smoothing calculations. </p>
+<p>This resets the smoother's delta value. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sr</td><td>The sample rate in Hz </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">References <a class="el" href="classValueSmoother.html#a7c0b7e542ba5484825a54ea69612b8a7">ValueSmoother&lt; T &gt;::reset()</a>.</p>
 
@@ -153,6 +204,14 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the smoothing time - duration for a full 0 to 1 transition. </p>
+<p>This resets the smoother's delta value. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>Smoothing time in seconds </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="reference">References <a class="el" href="classValueSmoother.html#a7c0b7e542ba5484825a54ea69612b8a7">ValueSmoother&lt; T &gt;::reset()</a>.</p>
 
 </div>
@@ -174,6 +233,9 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Checks if the smoother is currently transitioning to the target value. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if the current value hasn't reached the target yet </dd></dl>
+
 </div>
 </div>
 <a id="a7c0b7e542ba5484825a54ea69612b8a7" name="a7c0b7e542ba5484825a54ea69612b8a7"></a>
@@ -192,6 +254,9 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Recalculates the delta value based on current sample rate and time. </p>
+<p>Called automatically when sample rate or time changes. </p>
 
 <p class="reference">Referenced by <a class="el" href="classValueSmoother.html#a4c667c173bbe3cdc3cafa748464382e7">ValueSmoother&lt; T &gt;::setSampleRate()</a>, and <a class="el" href="classValueSmoother.html#a2fdfa7c891839b964c41d6d5660f9b0d">ValueSmoother&lt; T &gt;::setTime()</a>.</p>
 
@@ -214,6 +279,9 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the current smoothed value without advancing. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current value </dd></dl>
+
 </div>
 </div>
 <a id="a60334ecd23715a3504a1ea75029b57b4" name="a60334ecd23715a3504a1ea75029b57b4"></a>
@@ -232,6 +300,9 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a pointer to the current value for direct access. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the internal current value </dd></dl>
 
 </div>
 </div>
@@ -253,6 +324,14 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the target value to smooth towards. </p>
+<p>The current value will gradually move toward this target. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>The new target value </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ae961540da25f03bde80e1251ae9160ef" name="ae961540da25f03bde80e1251ae9160ef"></a>
@@ -271,6 +350,9 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Immediately snaps the current value to the target value. </p>
+<p>Useful for initializing or when you want to skip smoothing. </p>
 
 </div>
 </div>
@@ -291,6 +373,14 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Processes multiple samples, advancing the smoother by n steps. </p>
+<p>Updates the current value n times, moving it toward the target. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Number of samples to process </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">References <a class="el" href="classValueSmoother.html#a581f8cc773e4cc2bac2da53e6edfec85">ValueSmoother&lt; T &gt;::updateValue()</a>.</p>
 
@@ -313,6 +403,9 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Advances the current value one step toward the target. </p>
+<p>This is the core smoothing function, called internally by <a class="el" href="classValueSmoother.html#a98102883ab75aadce5dde661253fe0b2" title="Processes multiple samples, advancing the smoother by n steps.">process()</a> and <a class="el" href="classValueSmoother.html#ae344ea65895d160583cb8ad824521ced" title="Advances the smoother by one sample and returns the new value.">getNextValue()</a>. </p>
+
 <p class="reference">Referenced by <a class="el" href="classValueSmoother.html#a98102883ab75aadce5dde661253fe0b2">ValueSmoother&lt; T &gt;::process()</a>.</p>
 
 </div>
@@ -334,6 +427,9 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Advances the smoother by one sample and returns the new value. </p>
+<p>This is the typical method to call in per-sample audio processing. </p><dl class="section return"><dt>Returns</dt><dd>The next smoothed value </dd></dl>
+
 </div>
 </div>
 <a id="ac361c441cfa04dd63ef694eed574adc0" name="ac361c441cfa04dd63ef694eed574adc0"></a>
@@ -354,6 +450,14 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sets both target and current value immediately without smoothing. </p>
+<p>Useful for initialization or when you need to jump to a value instantly. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>The value to set immediately </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -362,7 +466,7 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 18 2025 14:51:05 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Tue Nov 18 2025 15:15:20 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

@@ -10,7 +10,7 @@ var searchData=
   ['updateparams_7',['updateParams',['../classProcessor.html#aa281d0334169311ca45ff34a4b993131',1,'Processor']]],
   ['updatestate_8',['updatestate',['../classModMatrix.html#a9d2727c3ffce6935f804eff00495e4f8',1,'ModMatrix::updateState()'],['../classProcessor.html#ab477f2a48ee23cb7d38dbecd87332fcd',1,'Processor::updateState()']]],
   ['updatetrackproperties_9',['updateTrackProperties',['../classAudioProcessorWrapper.html#a21f058ad47fb1d8c1194f1902fb22734',1,'AudioProcessorWrapper']]],
-  ['updatevalue_10',['updatevalue',['../classEasedValueSmoother.html#a266f723fcb2c393fbdd93599d46abcce',1,'EasedValueSmoother::updateValue()'],['../classValueSmoother.html#a581f8cc773e4cc2bac2da53e6edfec85',1,'ValueSmoother::updateValue()']]],
+  ['updatevalue_10',['updatevalue',['../classEasedValueSmoother.html#a94ff44655523770e2ae83d29bf9338c6',1,'EasedValueSmoother::updateValue()'],['../classValueSmoother.html#a581f8cc773e4cc2bac2da53e6edfec85',1,'ValueSmoother::updateValue()']]],
   ['uservaluetotext_11',['userValueToText',['../classParameter.html#af3960250a1c071e471daf16be484b656',1,'Parameter']]],
   ['usesfileextension_12',['usesfileextension',['../classBMPImageFormat.html#ac3aec001afc89383d536241e433cb8bf',1,'BMPImageFormat::usesFileExtension()'],['../classWEBPImageFormat.html#a1d875430f06a78fe547812ff5556bbc0',1,'WEBPImageFormat::usesFileExtension()']]]
 ];

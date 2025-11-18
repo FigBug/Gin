@@ -11,12 +11,13 @@ var searchData=
   ['leveltracker_8',['LevelTracker',['../classLevelTracker.html',1,'']]],
   ['lfo_9',['LFO',['../classLFO.html',1,'']]],
   ['lfocomponent_10',['LFOComponent',['../classLFOComponent.html',1,'']]],
-  ['linearregression_11',['LinearRegression',['../classLinearRegression.html',1,'']]],
-  ['listener_12',['listener',['../classFileSystemWatcher_1_1Listener.html',1,'FileSystemWatcher::Listener'],['../classLocationManager_1_1Listener.html',1,'LocationManager::Listener'],['../classModMatrix_1_1Listener.html',1,'ModMatrix::Listener'],['../classOpenStreetMaps_1_1Listener.html',1,'OpenStreetMaps::Listener'],['../classSingleLineTextEditor_1_1Listener.html',1,'SingleLineTextEditor::Listener']]],
-  ['location_13',['Location',['../structLocationManager_1_1Location.html',1,'LocationManager']]],
-  ['locationmanager_14',['LocationManager',['../classLocationManager.html',1,'']]],
-  ['lockfreequeue_15',['LockFreeQueue',['../classLockFreeQueue.html',1,'']]],
-  ['lookandfeelmethods_16',['LookAndFeelMethods',['../structSingleLineTextEditor_1_1LookAndFeelMethods.html',1,'SingleLineTextEditor']]],
-  ['lp12state_17',['LP12State',['../structLP12State.html',1,'']]],
-  ['lp24state_18',['LP24State',['../structLP24State.html',1,'']]]
+  ['lineareasing_11',['LinearEasing',['../structLinearEasing.html',1,'']]],
+  ['linearregression_12',['LinearRegression',['../classLinearRegression.html',1,'']]],
+  ['listener_13',['listener',['../classFileSystemWatcher_1_1Listener.html',1,'FileSystemWatcher::Listener'],['../classLocationManager_1_1Listener.html',1,'LocationManager::Listener'],['../classModMatrix_1_1Listener.html',1,'ModMatrix::Listener'],['../classOpenStreetMaps_1_1Listener.html',1,'OpenStreetMaps::Listener'],['../classSingleLineTextEditor_1_1Listener.html',1,'SingleLineTextEditor::Listener']]],
+  ['location_14',['Location',['../structLocationManager_1_1Location.html',1,'LocationManager']]],
+  ['locationmanager_15',['LocationManager',['../classLocationManager.html',1,'']]],
+  ['lockfreequeue_16',['LockFreeQueue',['../classLockFreeQueue.html',1,'']]],
+  ['lookandfeelmethods_17',['LookAndFeelMethods',['../structSingleLineTextEditor_1_1LookAndFeelMethods.html',1,'SingleLineTextEditor']]],
+  ['lp12state_18',['LP12State',['../structLP12State.html',1,'']]],
+  ['lp24state_19',['LP24State',['../structLP24State.html',1,'']]]
 ];

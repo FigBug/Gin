@@ -900,7 +900,43 @@
     <name>gin_easedvaluesmoother.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__easedvaluesmoother_8h.html</filename>
+    <class kind="struct">LinearEasing</class>
+    <class kind="struct">QuadraticInEasing</class>
+    <class kind="struct">QuadraticOutEasing</class>
+    <class kind="struct">QuadraticInOutEasing</class>
+    <class kind="struct">CubicInEasing</class>
+    <class kind="struct">CubicOutEasing</class>
+    <class kind="struct">CubicInOutEasing</class>
+    <class kind="struct">QuarticInEasing</class>
+    <class kind="struct">QuarticOutEasing</class>
+    <class kind="struct">QuarticInOutEasing</class>
+    <class kind="struct">QuinticInEasing</class>
+    <class kind="struct">QuinticOutEasing</class>
+    <class kind="struct">QuinticInOutEasing</class>
+    <class kind="struct">SineInEasing</class>
+    <class kind="struct">SineOutEasing</class>
+    <class kind="struct">SineInOutEasing</class>
+    <class kind="struct">CircularInEasing</class>
+    <class kind="struct">CircularOutEasing</class>
+    <class kind="struct">CircularInOutEasing</class>
+    <class kind="struct">ExponentialInEasing</class>
+    <class kind="struct">ExponentialOutEasing</class>
+    <class kind="struct">ExponentialInOutEasing</class>
+    <class kind="struct">ElasticInEasing</class>
+    <class kind="struct">ElasticOutEasing</class>
+    <class kind="struct">ElasticInOutEasing</class>
+    <class kind="struct">BackInEasing</class>
+    <class kind="struct">BackOutEasing</class>
+    <class kind="struct">BackInOutEasing</class>
+    <class kind="struct">BounceInEasing</class>
+    <class kind="struct">BounceOutEasing</class>
+    <class kind="struct">BounceInOutEasing</class>
     <class kind="class">EasedValueSmoother</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_easedvaluesmoother.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__easedvaluesmoother_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_eq.h</name>
@@ -1117,6 +1153,11 @@
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__valuesmoother_8h.html</filename>
     <class kind="class">ValueSmoother</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_valuesmoother.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__valuesmoother_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_wavetable.h</name>
@@ -3763,6 +3804,39 @@
       <arglist></arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>BackInEasing</name>
+    <filename>structBackInEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structBackInEasing.html</anchorfile>
+      <anchor>a0227215d03dec569192c2e83e1bf220c</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>BackInOutEasing</name>
+    <filename>structBackInOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structBackInOutEasing.html</anchorfile>
+      <anchor>a529d0507c8e08f070c7864bcad573f75</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>BackOutEasing</name>
+    <filename>structBackOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structBackOutEasing.html</anchorfile>
+      <anchor>a5ef7d42f4f558a2dfe799ec482c677ae</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>BandLimitedLookupTable</name>
     <filename>classBandLimitedLookupTable.html</filename>
@@ -3990,6 +4064,39 @@
       <arglist>(const juce::Image &amp;sourceImage, juce::OutputStream &amp;destStream) override</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>BounceInEasing</name>
+    <filename>structBounceInEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structBounceInEasing.html</anchorfile>
+      <anchor>adee504e37e2da8f430c749792ff140d1</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>BounceInOutEasing</name>
+    <filename>structBounceInOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structBounceInOutEasing.html</anchorfile>
+      <anchor>aaf57f64266649cd005be25b21c8e27f9</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>BounceOutEasing</name>
+    <filename>structBounceOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structBounceOutEasing.html</anchorfile>
+      <anchor>af70d7f3da58b0d2683a32cbc5460eabb</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>BoxArea</name>
     <filename>classBoxArea.html</filename>
@@ -4125,6 +4232,39 @@
       <anchorfile>classCatenary.html</anchorfile>
       <anchor>a7c19a9269b72f4b2555834c8be3e16d9</anchor>
       <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>CircularInEasing</name>
+    <filename>structCircularInEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structCircularInEasing.html</anchorfile>
+      <anchor>ad540143e5d79921b3897951faa764218</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>CircularInOutEasing</name>
+    <filename>structCircularInOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structCircularInOutEasing.html</anchorfile>
+      <anchor>a7fdd00585ddd6b9bacc6a4917456cb46</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>CircularOutEasing</name>
+    <filename>structCircularOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structCircularOutEasing.html</anchorfile>
+      <anchor>a73699b8cbb240e41019106c4a5e4a8a5</anchor>
+      <arglist>(T p)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -4621,6 +4761,39 @@
       <anchorfile>classCopperLookAndFeelWrapper.html</anchorfile>
       <anchor>af2da6ddd887a26c92e047e30d0f08c9a</anchor>
       <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>CubicInEasing</name>
+    <filename>structCubicInEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structCubicInEasing.html</anchorfile>
+      <anchor>ac099f19316abf6890430d4126293640d</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>CubicInOutEasing</name>
+    <filename>structCubicInOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structCubicInOutEasing.html</anchorfile>
+      <anchor>a8c5b457b544f7c72f0aa740bc4d212e2</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>CubicOutEasing</name>
+    <filename>structCubicOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structCubicOutEasing.html</anchorfile>
+      <anchor>a653ab7687c11f9cdcd76cf7ea0aefbba</anchor>
+      <arglist>(T p)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -5329,89 +5502,123 @@
     <name>EasedValueSmoother</name>
     <filename>classEasedValueSmoother.html</filename>
     <templarg>class T</templarg>
+    <templarg>class EasingFunction</templarg>
     <member kind="function">
       <type>void</type>
       <name>setSampleRate</name>
       <anchorfile>classEasedValueSmoother.html</anchorfile>
-      <anchor>af3e8fdfbc38ae23ac474d8b6fae49035</anchor>
+      <anchor>a5ce5e13f891e611b07aed1748155ea59</anchor>
       <arglist>(double sr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setTime</name>
       <anchorfile>classEasedValueSmoother.html</anchorfile>
-      <anchor>af357f90cafbcd77ed26973f3cfe7a569</anchor>
+      <anchor>ad10d8146b7b4f22edf1cb6c6ee619f08</anchor>
       <arglist>(double t)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isSmoothing</name>
       <anchorfile>classEasedValueSmoother.html</anchorfile>
-      <anchor>aed083f859f945a33ca3398d5d651feb2</anchor>
+      <anchor>a33df5a30e9d9bcf903a77a616557bc18</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>reset</name>
       <anchorfile>classEasedValueSmoother.html</anchorfile>
-      <anchor>a206d1556877ab9c11b43e17f5976e6ab</anchor>
+      <anchor>ab128573be40bdd2b696ec5a654baeed4</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>T</type>
       <name>getCurrentValue</name>
       <anchorfile>classEasedValueSmoother.html</anchorfile>
-      <anchor>a73fa9f74e2e75fbd0d5fcf15d2cbef7d</anchor>
+      <anchor>a5733e3bf12223a3410bc0b00cc52fc47</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>T *</type>
       <name>getValuePtr</name>
       <anchorfile>classEasedValueSmoother.html</anchorfile>
-      <anchor>a4043a8366bba3571237bb3776fc70bce</anchor>
+      <anchor>a0cd16c500d2723e2c813ba100834d7c4</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>snapToValue</name>
       <anchorfile>classEasedValueSmoother.html</anchorfile>
-      <anchor>a29a41dfa10ea500d9ed4f4e7b45a989f</anchor>
+      <anchor>a208ad5171222c29bc97e4048b85884b0</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>process</name>
       <anchorfile>classEasedValueSmoother.html</anchorfile>
-      <anchor>a411637268d7606fb829f3b579ddce53c</anchor>
+      <anchor>a516cef00c057871b6a8278a39691376f</anchor>
       <arglist>(int n)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setValue</name>
       <anchorfile>classEasedValueSmoother.html</anchorfile>
-      <anchor>a26b174548959f6d55f52dd1bc9ff6afa</anchor>
+      <anchor>af684c9cdb58aec77e60783376296d75e</anchor>
       <arglist>(T v)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>updateValue</name>
       <anchorfile>classEasedValueSmoother.html</anchorfile>
-      <anchor>a266f723fcb2c393fbdd93599d46abcce</anchor>
+      <anchor>a94ff44655523770e2ae83d29bf9338c6</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>T</type>
       <name>getNextValue</name>
       <anchorfile>classEasedValueSmoother.html</anchorfile>
-      <anchor>abbebcf9bc5851c6bde91969b87aafe7b</anchor>
+      <anchor>ad97a48bbc53aaf6302a4856bb5142690</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setValueUnsmoothed</name>
       <anchorfile>classEasedValueSmoother.html</anchorfile>
-      <anchor>ae5e2dc56a32512d27b6ac147ae12859f</anchor>
+      <anchor>a94bbbd5ef15c8fefa425499976d14c7f</anchor>
       <arglist>(T v)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>ElasticInEasing</name>
+    <filename>structElasticInEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structElasticInEasing.html</anchorfile>
+      <anchor>a8bc6ff95e6403a8d0a77f1fd907d86d8</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>ElasticInOutEasing</name>
+    <filename>structElasticInOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structElasticInOutEasing.html</anchorfile>
+      <anchor>a83b1f607025652f378efec0acebfac19</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>ElasticOutEasing</name>
+    <filename>structElasticOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structElasticOutEasing.html</anchorfile>
+      <anchor>acb904f7ff7c97ecbce778d3fb5f70453</anchor>
+      <arglist>(T p)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -6146,6 +6353,39 @@
       <anchorfile>classExifMetadata.html</anchorfile>
       <anchor>a3e92227b00faca02c46d331ea0c9e1f7</anchor>
       <arglist>(const juce::uint8 *data, int sz)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>ExponentialInEasing</name>
+    <filename>structExponentialInEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structExponentialInEasing.html</anchorfile>
+      <anchor>a0cb6f6382bc8b586f279df5c75598787</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>ExponentialInOutEasing</name>
+    <filename>structExponentialInOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structExponentialInOutEasing.html</anchorfile>
+      <anchor>a170a2396ff5665b93d93105cecca82be</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>ExponentialOutEasing</name>
+    <filename>structExponentialOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structExponentialOutEasing.html</anchorfile>
+      <anchor>abd2f33cc311d9f3cb00cc77e4d141801</anchor>
+      <arglist>(T p)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -8451,6 +8691,17 @@
       <anchorfile>classLFOComponent.html</anchorfile>
       <anchor>af927dbf7a1817df13058482decffee09</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>LinearEasing</name>
+    <filename>structLinearEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structLinearEasing.html</anchorfile>
+      <anchor>a50ce81ebf59f33a1e1dc370ebfca2e31</anchor>
+      <arglist>(T p)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -13887,6 +14138,105 @@
       <arglist></arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>QuadraticInEasing</name>
+    <filename>structQuadraticInEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structQuadraticInEasing.html</anchorfile>
+      <anchor>af8688d013f81449977b0b855c2c70ca8</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>QuadraticInOutEasing</name>
+    <filename>structQuadraticInOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structQuadraticInOutEasing.html</anchorfile>
+      <anchor>ae19108903abae970887c7ce4d796f6d8</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>QuadraticOutEasing</name>
+    <filename>structQuadraticOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structQuadraticOutEasing.html</anchorfile>
+      <anchor>ae608f38ee92c8a2c37b8a6453a695604</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>QuarticInEasing</name>
+    <filename>structQuarticInEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structQuarticInEasing.html</anchorfile>
+      <anchor>ac3c21152a9006e096e9140c14a20197b</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>QuarticInOutEasing</name>
+    <filename>structQuarticInOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structQuarticInOutEasing.html</anchorfile>
+      <anchor>a66562efc1c291a46f35311a5f044303c</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>QuarticOutEasing</name>
+    <filename>structQuarticOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structQuarticOutEasing.html</anchorfile>
+      <anchor>a9572b24f1457b2b56ade1bb251adf354</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>QuinticInEasing</name>
+    <filename>structQuinticInEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structQuinticInEasing.html</anchorfile>
+      <anchor>a8ec0e1edd5aa29513108f4699105cf3e</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>QuinticInOutEasing</name>
+    <filename>structQuinticInOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structQuinticInOutEasing.html</anchorfile>
+      <anchor>a43a227418ac7a1ce0b581276eabc0745</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>QuinticOutEasing</name>
+    <filename>structQuinticOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structQuinticOutEasing.html</anchorfile>
+      <anchor>a29c0183b8d90279aed4b0ae773d6c8dd</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>Readout</name>
     <filename>classReadout.html</filename>
@@ -14595,6 +14945,39 @@
       <anchorfile>classSimpleVerb.html</anchorfile>
       <anchor>a69ee1d22a4025b221a5af157bdeca96d</anchor>
       <arglist>(float roomIn, float dampIn, float preDelayIn, float lpFaderIn, float hpFaderIn, float wetIn, float dryIn)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>SineInEasing</name>
+    <filename>structSineInEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structSineInEasing.html</anchorfile>
+      <anchor>ad7284b8f15530d98801b353ce6b916bd</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>SineInOutEasing</name>
+    <filename>structSineInOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structSineInOutEasing.html</anchorfile>
+      <anchor>a5a054ca60634c96aa4c705da8c68728e</anchor>
+      <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>SineOutEasing</name>
+    <filename>structSineOutEasing.html</filename>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>ease</name>
+      <anchorfile>structSineOutEasing.html</anchorfile>
+      <anchor>ab8a859d0863465dda09dc40ba62f7a1f</anchor>
+      <arglist>(T p)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -19133,6 +19516,37 @@
     <class kind="class">AirWindowsDistortion</class>
     <class kind="class">EnvelopeDetector</class>
     <class kind="class">Dynamics</class>
+    <class kind="struct">LinearEasing</class>
+    <class kind="struct">QuadraticInEasing</class>
+    <class kind="struct">QuadraticOutEasing</class>
+    <class kind="struct">QuadraticInOutEasing</class>
+    <class kind="struct">CubicInEasing</class>
+    <class kind="struct">CubicOutEasing</class>
+    <class kind="struct">CubicInOutEasing</class>
+    <class kind="struct">QuarticInEasing</class>
+    <class kind="struct">QuarticOutEasing</class>
+    <class kind="struct">QuarticInOutEasing</class>
+    <class kind="struct">QuinticInEasing</class>
+    <class kind="struct">QuinticOutEasing</class>
+    <class kind="struct">QuinticInOutEasing</class>
+    <class kind="struct">SineInEasing</class>
+    <class kind="struct">SineOutEasing</class>
+    <class kind="struct">SineInOutEasing</class>
+    <class kind="struct">CircularInEasing</class>
+    <class kind="struct">CircularOutEasing</class>
+    <class kind="struct">CircularInOutEasing</class>
+    <class kind="struct">ExponentialInEasing</class>
+    <class kind="struct">ExponentialOutEasing</class>
+    <class kind="struct">ExponentialInOutEasing</class>
+    <class kind="struct">ElasticInEasing</class>
+    <class kind="struct">ElasticOutEasing</class>
+    <class kind="struct">ElasticInOutEasing</class>
+    <class kind="struct">BackInEasing</class>
+    <class kind="struct">BackOutEasing</class>
+    <class kind="struct">BackInOutEasing</class>
+    <class kind="struct">BounceInEasing</class>
+    <class kind="struct">BounceOutEasing</class>
+    <class kind="struct">BounceInOutEasing</class>
     <class kind="class">EasedValueSmoother</class>
     <class kind="class">EQ</class>
     <class kind="class">FastMath</class>
