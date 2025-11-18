@@ -177,11 +177,7 @@ public:
                     }
                     
                     Event e (folder.getFullPathName() + '/' + iNotifyEvent->name, eventType);
-                    if (std::ranges::none_of(events, [&](const auto& event) {
-                        return event == e;
-                    })) {
-                        events.write (e);
-                    }
+                    events.write (e);
                 }
                 
                 if (events.getNumReady() > 0)
