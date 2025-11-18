@@ -35,6 +35,7 @@ using namespace gin;
 #include "../../../modules/gin_dsp/dsp/gin_delayline.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_distortion.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_dynamics.test.h"
+#include "../../../modules/gin_dsp/dsp/gin_easedvaluesmoother.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_fastmath.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_leveltracker.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_lfo.test.h"
@@ -43,6 +44,7 @@ using namespace gin;
 #include "../../../modules/gin_dsp/dsp/gin_noise.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_oscillators.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_scratchbuffer.test.h"
+#include "../../../modules/gin_dsp/dsp/gin_valuesmoother.test.h"
 #include "../../../modules/gin_graphics/formats/gin_bmpimageformat.test.h"
 #include "../../../modules/gin_plugin/plugin/gin_noteduration.test.h"
 
