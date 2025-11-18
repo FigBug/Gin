@@ -21,6 +21,8 @@ public:
         testCalculateRMS();
         testCalculateMedian();
         testShuffleArray();
+        testRollingAverage();
+        testPerlinNoise();
     }
 
 private:
@@ -143,6 +145,92 @@ private:
         single.add (42);
         shuffleArray (rng, single);
         expectEquals (single[0], 42, "Single element array should remain unchanged");
+    }
+
+    void testRollingAverage()
+    {
+        beginTest ("RollingAverage");
+
+        RollingAverage<float> avg (4);
+
+        // Test initial state
+        expectWithinAbsoluteError (avg.getAverage(), 0.0f, 0.0001f, "Initial average should be 0");
+
+        // Add values
+        avg.add (1.0f);
+        expectWithinAbsoluteError (avg.getAverage(), 1.0f, 0.0001f, "Average of [1] should be 1");
+
+        avg.add (2.0f);
+        expectWithinAbsoluteError (avg.getAverage(), 1.5f, 0.0001f, "Average of [1,2] should be 1.5");
+
+        avg.add (3.0f);
+        expectWithinAbsoluteError (avg.getAverage(), 2.0f, 0.0001f, "Average of [1,2,3] should be 2");
+
+        avg.add (4.0f);
+        expectWithinAbsoluteError (avg.getAverage(), 2.5f, 0.0001f, "Average of [1,2,3,4] should be 2.5");
+
+        // Test rolling window
+        avg.add (5.0f);
+        expectWithinAbsoluteError (avg.getAverage(), 3.5f, 0.0001f, "Average of [2,3,4,5] should be 3.5");
+
+        // Test clear
+        avg.clear();
+        expectWithinAbsoluteError (avg.getAverage(), 0.0f, 0.0001f, "Average after clear should be 0");
+    }
+
+    void testPerlinNoise()
+    {
+        beginTest ("PerlinNoise");
+
+        PerlinNoise noise;
+
+        // Test that noise returns values in expected range [-1, 1]
+        for (int i = 0; i < 100; i++)
+        {
+            float x = float (i) * 0.1f;
+            float value = noise.noise (x);
+            expect (value >= -1.0f && value <= 1.0f, "Noise value should be in range [-1, 1]");
+        }
+
+        // Test 2D noise
+        for (int i = 0; i < 100; i++)
+        {
+            float x = float (i) * 0.1f;
+            float y = float (i) * 0.05f;
+            float value = noise.noise (x, y);
+            expect (value >= -1.0f && value <= 1.0f, "2D noise value should be in range [-1, 1]");
+        }
+
+        // Test 3D noise
+        for (int i = 0; i < 100; i++)
+        {
+            float x = float (i) * 0.1f;
+            float y = float (i) * 0.05f;
+            float z = float (i) * 0.02f;
+            float value = noise.noise (x, y, z);
+            expect (value >= -1.0f && value <= 1.0f, "3D noise value should be in range [-1, 1]");
+        }
+
+        // Test that different seeds produce different results
+        PerlinNoise noise1 (123);
+        PerlinNoise noise2 (456);
+
+        bool foundDifference = false;
+        for (int i = 0; i < 10; i++)
+        {
+            if (noise1.noise (float (i)) != noise2.noise (float (i)))
+            {
+                foundDifference = true;
+                break;
+            }
+        }
+        expect (foundDifference, "Different seeds should produce different noise patterns");
+
+        // Test consistency (same input should give same output)
+        float x = 3.14f;
+        float value1 = noise.noise (x);
+        float value2 = noise.noise (x);
+        expectWithinAbsoluteError (value1, value2, 0.0001f, "Same input should produce same output");
     }
 };
 

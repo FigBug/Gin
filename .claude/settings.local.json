@@ -6,7 +6,9 @@
       "Bash(/tmp/gin_imageeffects_blending_fixed.cpp)",
       "Bash(/tmp/gin_imageeffects_fixed.cpp)",
       "Bash(/tmp/gin_audiofunctions_fixed.cpp)",
-      "Bash(git restore:*)"
+      "Bash(git restore:*)",
+      "Bash(/tmp/gin_diff_fixed.cpp)",
+      "Bash(/tmp/gin_util_fixed.cpp)"
     ],
     "deny": [],
     "ask": []

@@ -19,8 +19,11 @@ public:
     {
         testIdenticalStrings();
         testSimpleChanges();
+        testSimplePatch();
         testCompletelyDifferent();
         testEmptyStrings();
+        testInsertionDeletion();
+        testRoundTrip();
         testLargeChanges();
     }
 
@@ -115,6 +118,62 @@ private:
 
         expectEquals (result, s2, "Patch should work with larger strings");
         expect (patch.size() > 0, "Patch size should be non-zero");
+    }
+
+    void testSimplePatch()
+    {
+        beginTest ("Simple Patch");
+
+        juce::String original = "Hello World";
+        juce::String modified = "Hello JUCE";
+
+        auto patch = Diff::bsDiff (original, modified);
+        expect (patch.size() > 0, "Patch should not be empty");
+
+        juce::String result = Diff::bsApplyPatch (original, patch);
+        expectEquals (result, modified, "Patched string should match modified string");
+    }
+
+    void testInsertionDeletion()
+    {
+        beginTest ("Insertion and Deletion");
+
+        // Test insertion
+        juce::String original = "Hello";
+        juce::String withInsertion = "Hello World!";
+
+        auto insertPatch = Diff::bsDiff (original, withInsertion);
+        juce::String insertResult = Diff::bsApplyPatch (original, insertPatch);
+        expectEquals (insertResult, withInsertion, "Should handle insertion");
+
+        // Test deletion
+        auto deletePatch = Diff::bsDiff (withInsertion, original);
+        juce::String deleteResult = Diff::bsApplyPatch (withInsertion, deletePatch);
+        expectEquals (deleteResult, original, "Should handle deletion");
+    }
+
+    void testRoundTrip()
+    {
+        beginTest ("Round Trip");
+
+        juce::String v1 = "Version 1";
+        juce::String v2 = "Version 2 with more text";
+        juce::String v3 = "Version 3";
+
+        // Create patches
+        auto patch1to2 = Diff::bsDiff (v1, v2);
+        auto patch2to3 = Diff::bsDiff (v2, v3);
+        auto patch3to1 = Diff::bsDiff (v3, v1);
+
+        // Apply patches
+        juce::String result1 = Diff::bsApplyPatch (v1, patch1to2);
+        expectEquals (result1, v2, "v1 -> v2 should work");
+
+        juce::String result2 = Diff::bsApplyPatch (result1, patch2to3);
+        expectEquals (result2, v3, "v2 -> v3 should work");
+
+        juce::String result3 = Diff::bsApplyPatch (result2, patch3to1);
+        expectEquals (result3, v1, "v3 -> v1 should complete the cycle");
     }
 };
 
