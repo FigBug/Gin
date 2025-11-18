@@ -117,6 +117,13 @@ public:
         juce::File file;
         FileSystemEvent fsEvent = undefined;
 
+        Event& operator= (const Event& other)
+        {
+            file = other.file;
+            fsEvent = other.fsEvent;
+            return *this;
+        }
+        
         bool operator== (const Event& other) const
         {
             return file == other.file && fsEvent == other.fsEvent;
