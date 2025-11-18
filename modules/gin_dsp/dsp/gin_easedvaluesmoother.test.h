@@ -90,8 +90,8 @@ private:
         // Linear should be around 0.1 (simple linear interpolation)
         expectWithinAbsoluteError (linearFirst, 0.1f, 0.02f, "Linear should be close to 0.1");
 
-        // Elastic can overshoot, so it may be different from linear
-        expect (elasticFirst != linearFirst, "Elastic should differ from linear");
+        // Elastic can overshoot or undershoot, should be noticeably different from linear
+        expect (std::abs (elasticFirst - linearFirst) > 0.001f, "Elastic should differ from linear");
 
         // Exponential should be much smaller initially
         expect (expFirst < linearFirst, "Exponential should start slower than linear");
