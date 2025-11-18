@@ -120,12 +120,12 @@ $(function() {
 <li>getFont()&#160;:&#160;<a class="el" href="classSingleLineTextEditor.html#a3169a60fbd51ef3ceb22e7b3570c0f17">SingleLineTextEditor</a></li>
 <li>getFormatName()&#160;:&#160;<a class="el" href="classBMPImageFormat.html#a2cdb5175be3bb6b90eeb3d6debcce4d1">BMPImageFormat</a>, <a class="el" href="classWEBPImageFormat.html#a512523a82459ad3a42a50c7ebd176d2b">WEBPImageFormat</a></li>
 <li>getFrame()&#160;:&#160;<a class="el" href="classParamBox.html#aa4cae3001b7dd64c5f319d68cd538d3d">ParamBox</a></li>
-<li>getFreeSpace()&#160;:&#160;<a class="el" href="classAudioFifo.html#af75865aa3db5a5fb798768c6c358d147">AudioFifo</a></li>
+<li>getFreeSpace()&#160;:&#160;<a class="el" href="classAudioFifo.html#af75865aa3db5a5fb798768c6c358d147">AudioFifo</a>, <a class="el" href="classLockFreeQueue.html#a25b60519d6f56e2d1d8c793071097797">LockFreeQueue&lt; T &gt;</a></li>
 <li>getFrequency()&#160;:&#160;<a class="el" href="classFilter.html#ab5da0bdb9d337ee58d0066fb0eff8f80">Filter</a></li>
 <li>getFromImage()&#160;:&#160;<a class="el" href="classImageMetadata.html#a2370391c426e1544b439a6b556f0109c">ImageMetadata</a></li>
 <li>getFullGridArea()&#160;:&#160;<a class="el" href="classProcessorEditorBase.html#ade640c5b6109fde15ea5ad6f42cb0c6f">ProcessorEditorBase</a></li>
 <li>getFuncParams()&#160;:&#160;<a class="el" href="classAudioFunctionHost.html#af51e6031c672f42919631e07fd9c2d79">AudioFunctionHost</a></li>
-<li>getGridArea()&#160;:&#160;<a class="el" href="classControlBox.html#ae7d0310e450985e713a73292b160d198">ControlBox</a>, <a class="el" href="classParamBox.html#ad6112fa8fa87e410be2902a4a3b7efcf">ParamBox</a>, <a class="el" href="classProcessorEditorBase.html#ab889f2767a37cf09c4c957d79c32da6c">ProcessorEditorBase</a></li>
+<li>getGridArea()&#160;:&#160;<a class="el" href="classControlBox.html#ae7d0310e450985e713a73292b160d198">ControlBox</a>, <a class="el" href="classParamBox.html#a69a5e11ad3f2877feb64fc376f1e3f27">ParamBox</a>, <a class="el" href="classProcessorEditorBase.html#ab889f2767a37cf09c4c957d79c32da6c">ProcessorEditorBase</a></li>
 <li>getGridHeight()&#160;:&#160;<a class="el" href="classProcessorEditorBase.html#a93c1337e016ea549c34bc7448370577b">ProcessorEditorBase</a></li>
 <li>getGridWidth()&#160;:&#160;<a class="el" href="classProcessorEditorBase.html#ae0f5b7056efe5b77a00484cad4d70462">ProcessorEditorBase</a></li>
 <li>getHeader()&#160;:&#160;<a class="el" href="classParamBox.html#a326648830452f5712017cc98387c315c">ParamBox</a></li>
@@ -176,7 +176,7 @@ $(function() {
 <li>getNumModSources()&#160;:&#160;<a class="el" href="classModMatrix.html#a773b5e3fa24cf0c1834c9202ebb28eb9">ModMatrix</a></li>
 <li>getNumOutputChannels()&#160;:&#160;<a class="el" href="classStandalonePluginHolder.html#a56e235289203dce0c662a19c8df914a4">StandalonePluginHolder</a></li>
 <li>getNumPrograms()&#160;:&#160;<a class="el" href="classAudioProcessorWrapper.html#ac2203b2fc9fa91c14f5eab3a701e0333">AudioProcessorWrapper</a>, <a class="el" href="classProcessor.html#aa9544d1b18b0bc03c32fa78532de316b">Processor</a></li>
-<li>getNumReady()&#160;:&#160;<a class="el" href="classAudioFifo.html#a716f99ce4611d9cdaa3f3b10e03dd4ce">AudioFifo</a></li>
+<li>getNumReady()&#160;:&#160;<a class="el" href="classAudioFifo.html#a716f99ce4611d9cdaa3f3b10e03dd4ce">AudioFifo</a>, <a class="el" href="classLockFreeQueue.html#a7db225cca7d2723ee4b9e6dfc2bdab44">LockFreeQueue&lt; T &gt;</a></li>
 <li>getNumRows()&#160;:&#160;<a class="el" href="classModSrcListBox.html#a88055a83ab5d13fac08c28d2348f2aae">ModSrcListBox</a>, <a class="el" href="structPatchBrowser_1_1AuthorsModel.html#a6f535e94dba0d2e1592f1bbc891fcacf">PatchBrowser::AuthorsModel</a>, <a class="el" href="structPatchBrowser_1_1PresetsModel.html#a44f9a1678a67661480ea71ab7a0a0d4d">PatchBrowser::PresetsModel</a>, <a class="el" href="structPatchBrowser_1_1TagsModel.html#a030fdf75922a8dbe6f420f9323f94072">PatchBrowser::TagsModel</a></li>
 <li>getNumSamplesAvailable()&#160;:&#160;<a class="el" href="classAudioMidiFifo.html#a32b8571dce1de4fc7d33afda3859f3fc">AudioMidiFifo</a></li>
 <li>getNumSamplesFree()&#160;:&#160;<a class="el" href="classAudioMidiFifo.html#a926aaa1d0479a79920cedce7f2998017">AudioMidiFifo</a></li>
@@ -279,7 +279,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2025 15:49:17 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Tue Nov 18 2025 14:51:05 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

@@ -25,7 +25,8 @@ var searchData=
   ['locationchanged_22',['locationChanged',['../classLocationManager_1_1Listener.html#ae62d44de083e85d30933c030945765cb',1,'LocationManager::Listener']]],
   ['locationmanager_23',['LocationManager',['../classLocationManager.html#a1c55344991005582a34274f18ce7c14b',1,'LocationManager']]],
   ['lock_24',['lock',['../classSystemSemaphore.html#a732fd5e497ace0769fce68aa9fe53764',1,'SystemSemaphore']]],
-  ['lookandfeelchanged_25',['lookAndFeelChanged',['../classSingleLineTextEditor.html#ac57e64a781fa1a545bb4fd14116828bb',1,'SingleLineTextEditor']]],
-  ['lp12state_26',['LP12State',['../structLP12State.html#a439292ecb27bfe33097d9ba0255c7a02',1,'LP12State']]],
-  ['lp24state_27',['LP24State',['../structLP24State.html#aa49c9ae5be422d7eb09fd3b37b552fec',1,'LP24State']]]
+  ['lockfreequeue_25',['LockFreeQueue',['../classLockFreeQueue.html#ac4fdd21aae93a42ddbfd725a22c8bb90',1,'LockFreeQueue']]],
+  ['lookandfeelchanged_26',['lookAndFeelChanged',['../classSingleLineTextEditor.html#ac57e64a781fa1a545bb4fd14116828bb',1,'SingleLineTextEditor']]],
+  ['lp12state_27',['LP12State',['../structLP12State.html#a439292ecb27bfe33097d9ba0255c7a02',1,'LP12State']]],
+  ['lp24state_28',['LP24State',['../structLP24State.html#aa49c9ae5be422d7eb09fd3b37b552fec',1,'LP24State']]]
 ];

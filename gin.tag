@@ -382,6 +382,17 @@
     <filename>gin__linearregression_8test_8h.html</filename>
   </compound>
   <compound kind="file">
+    <name>gin_lockfreequeue.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__lockfreequeue_8h.html</filename>
+    <class kind="class">LockFreeQueue</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_lockfreequeue.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__lockfreequeue_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_messagepack.h</name>
     <path>build/gin/utilities/</path>
     <filename>gin__messagepack_8h.html</filename>
@@ -674,6 +685,11 @@
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__audiomidififo_8h.html</filename>
     <class kind="class">AudioMidiFifo</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_audiomidififo.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__audiomidififo_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_audioutil.h</name>
@@ -8907,6 +8923,74 @@
       <anchorfile>classLocationManager.html</anchorfile>
       <anchor>af80c2bc011f936ad1e988e5f841307e5</anchor>
       <arglist>(Listener *)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>LockFreeQueue</name>
+    <filename>classLockFreeQueue.html</filename>
+    <templarg>typename T</templarg>
+    <member kind="function">
+      <type></type>
+      <name>LockFreeQueue</name>
+      <anchorfile>classLockFreeQueue.html</anchorfile>
+      <anchor>ac4fdd21aae93a42ddbfd725a22c8bb90</anchor>
+      <arglist>(int capacity=128)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSize</name>
+      <anchorfile>classLockFreeQueue.html</anchorfile>
+      <anchor>aacf338f8603107d670eba48aa8c1fee5</anchor>
+      <arglist>(int capacity)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getFreeSpace</name>
+      <anchorfile>classLockFreeQueue.html</anchorfile>
+      <anchor>a25b60519d6f56e2d1d8c793071097797</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumReady</name>
+      <anchorfile>classLockFreeQueue.html</anchorfile>
+      <anchor>a7db225cca7d2723ee4b9e6dfc2bdab44</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classLockFreeQueue.html</anchorfile>
+      <anchor>acd0943eca49e8caf8eb586b06cb90436</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>write</name>
+      <anchorfile>classLockFreeQueue.html</anchorfile>
+      <anchor>a84ebe3916f4da9c916e7ecb6a7cb4d19</anchor>
+      <arglist>(T item)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::optional&lt; T &gt;</type>
+      <name>peek</name>
+      <anchorfile>classLockFreeQueue.html</anchorfile>
+      <anchor>aad59e7bda5147c7078ae94e4430dcb8d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>std::optional&lt; T &gt;</type>
+      <name>read</name>
+      <anchorfile>classLockFreeQueue.html</anchorfile>
+      <anchor>aa2a28a6c43db8f57bdfd4178d18f78f4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>pop</name>
+      <anchorfile>classLockFreeQueue.html</anchorfile>
+      <anchor>a7f38b21941a29a7169e58c1311c9bba2</anchor>
+      <arglist>(int num)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -19813,6 +19897,7 @@
     <class kind="class">Integrator</class>
     <class kind="class">LeastSquaresRegression</class>
     <class kind="class">LinearRegression</class>
+    <class kind="class">LockFreeQueue</class>
     <class kind="class">MessagePack</class>
     <class kind="class">Point</class>
     <class kind="class">RealtimeAsyncUpdater</class>

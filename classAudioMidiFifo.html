@@ -84,20 +84,28 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5882245e1467bc8ab0ead4c353203ceb" id="r_a5882245e1467bc8ab0ead4c353203ceb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioMidiFifo.html#a5882245e1467bc8ab0ead4c353203ceb">AudioMidiFifo</a> (<a class="el" href="classPoint.html">int</a> channels=2, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">maxSize</a>=1024)</td></tr>
+<tr class="memdesc:a5882245e1467bc8ab0ead4c353203ceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an <a class="el" href="classAudioMidiFifo.html" title="Combined audio and MIDI buffer for synchronized processing within a single thread.">AudioMidiFifo</a> with the specified capacity.  <br /></td></tr>
 <tr class="separator:a5882245e1467bc8ab0ead4c353203ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e43f222ba902872bf3fa5aaa312b629" id="r_a8e43f222ba902872bf3fa5aaa312b629"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioMidiFifo.html#a8e43f222ba902872bf3fa5aaa312b629">setSize</a> (<a class="el" href="classPoint.html">int</a> channels, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">maxSize</a>)</td></tr>
+<tr class="memdesc:a8e43f222ba902872bf3fa5aaa312b629"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes the FIFO to a new capacity.  <br /></td></tr>
 <tr class="separator:a8e43f222ba902872bf3fa5aaa312b629"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a452cc6359fc38acb4b4ea1b06d73e7ee" id="r_a452cc6359fc38acb4b4ea1b06d73e7ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioMidiFifo.html#a452cc6359fc38acb4b4ea1b06d73e7ee">clear</a> ()</td></tr>
+<tr class="memdesc:a452cc6359fc38acb4b4ea1b06d73e7ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all audio and MIDI data from the FIFO, resetting it to an empty state.  <br /></td></tr>
 <tr class="separator:a452cc6359fc38acb4b4ea1b06d73e7ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32b8571dce1de4fc7d33afda3859f3fc" id="r_a32b8571dce1de4fc7d33afda3859f3fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioMidiFifo.html#a32b8571dce1de4fc7d33afda3859f3fc">getNumSamplesAvailable</a> ()</td></tr>
+<tr class="memdesc:a32b8571dce1de4fc7d33afda3859f3fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of audio samples available to read.  <br /></td></tr>
 <tr class="separator:a32b8571dce1de4fc7d33afda3859f3fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a926aaa1d0479a79920cedce7f2998017" id="r_a926aaa1d0479a79920cedce7f2998017"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioMidiFifo.html#a926aaa1d0479a79920cedce7f2998017">getNumSamplesFree</a> ()</td></tr>
+<tr class="memdesc:a926aaa1d0479a79920cedce7f2998017"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of audio samples that can be written before the FIFO is full.  <br /></td></tr>
 <tr class="separator:a926aaa1d0479a79920cedce7f2998017"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a042bc730af9185b582f4e73012188937" id="r_a042bc730af9185b582f4e73012188937"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioMidiFifo.html#a042bc730af9185b582f4e73012188937">writeSilence</a> (<a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numSamples</a>)</td></tr>
+<tr class="memdesc:a042bc730af9185b582f4e73012188937"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes silence (zeros) to the audio portion of the FIFO.  <br /></td></tr>
 <tr class="separator:a042bc730af9185b582f4e73012188937"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cf159e6dce04dbb5368021cf981f04c" id="r_a0cf159e6dce04dbb5368021cf981f04c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioMidiFifo.html#a0cf159e6dce04dbb5368021cf981f04c">write</a> (<a class="el" href="classPoint.html">const</a> juce::AudioBuffer&lt; <a class="el" href="classPoint.html">float</a> &gt; &amp;<a class="el" href="classPoint.html">audioSrc</a>, <a class="el" href="classPoint.html">const</a> juce::MidiBuffer &amp;<a class="el" href="classPoint.html">midiSrc</a>)</td></tr>
+<tr class="memdesc:a0cf159e6dce04dbb5368021cf981f04c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes audio and MIDI data to the FIFO.  <br /></td></tr>
 <tr class="separator:a0cf159e6dce04dbb5368021cf981f04c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab79a8f933234cb743fcd969b3786b579" id="r_ab79a8f933234cb743fcd969b3786b579"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioMidiFifo.html#ab79a8f933234cb743fcd969b3786b579">read</a> (juce::AudioBuffer&lt; <a class="el" href="classPoint.html">float</a> &gt; &amp;<a class="el" href="classPoint.html">audioDst</a>, juce::MidiBuffer &amp;<a class="el" href="classPoint.html">midiDst</a>)</td></tr>
+<tr class="memdesc:ab79a8f933234cb743fcd969b3786b579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads audio and MIDI data from the FIFO.  <br /></td></tr>
 <tr class="separator:ab79a8f933234cb743fcd969b3786b579"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -162,6 +170,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates an <a class="el" href="classAudioMidiFifo.html" title="Combined audio and MIDI buffer for synchronized processing within a single thread.">AudioMidiFifo</a> with the specified capacity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channels</td><td>Number of audio channels (default: 2) </td></tr>
+    <tr><td class="paramname">maxSize</td><td>Maximum number of audio samples the FIFO can hold (default: 1024) </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="reference">References <a class="el" href="classAudioMidiFifo.html#a8e43f222ba902872bf3fa5aaa312b629">setSize()</a>.</p>
 
 </div>
@@ -193,6 +210,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Resizes the FIFO to a new capacity. </p>
+<p>This clears any existing data in the FIFO. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channels</td><td>New number of audio channels </td></tr>
+    <tr><td class="paramname">maxSize</td><td>New maximum number of audio samples </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="reference">References <a class="el" href="classAudioMidiFifo.html#a452cc6359fc38acb4b4ea1b06d73e7ee">clear()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classAudioMidiFifo.html#a5882245e1467bc8ab0ead4c353203ceb">AudioMidiFifo()</a>.</p>
@@ -214,6 +240,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Clears all audio and MIDI data from the FIFO, resetting it to an empty state. </p>
+
 <p class="reference">Referenced by <a class="el" href="classAudioMidiFifo.html#a8e43f222ba902872bf3fa5aaa312b629">setSize()</a>.</p>
 
 </div>
@@ -232,6 +260,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the number of audio samples available to read. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of samples that can be read from the FIFO </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="classAudioMidiFifo.html#ab79a8f933234cb743fcd969b3786b579">read()</a>.</p>
 
@@ -252,6 +283,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the number of audio samples that can be written before the FIFO is full. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of free sample slots </dd></dl>
+
 <p class="reference">Referenced by <a class="el" href="classAudioMidiFifo.html#a0cf159e6dce04dbb5368021cf981f04c">write()</a>, and <a class="el" href="classAudioMidiFifo.html#a042bc730af9185b582f4e73012188937">writeSilence()</a>.</p>
 
 </div>
@@ -271,6 +305,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Writes silence (zeros) to the audio portion of the FIFO. </p>
+<p>No MIDI events are added. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numSamples</td><td>Number of silent samples to write </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">References <a class="el" href="classAudioMidiFifo.html#a926aaa1d0479a79920cedce7f2998017">getNumSamplesFree()</a>.</p>
 
@@ -302,6 +344,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Writes audio and MIDI data to the FIFO. </p>
+<p>MIDI event timestamps are automatically adjusted to maintain correct timing within the FIFO's internal timeline. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">audioSrc</td><td>Source audio buffer to write </td></tr>
+    <tr><td class="paramname">midiSrc</td><td>Source MIDI buffer to write (timestamps relative to audioSrc) </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="reference">References <a class="el" href="classAudioMidiFifo.html#a926aaa1d0479a79920cedce7f2998017">getNumSamplesFree()</a>.</p>
 
 </div>
@@ -332,6 +383,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Reads audio and MIDI data from the FIFO. </p>
+<p>MIDI event timestamps are automatically adjusted to be relative to the start of the destination audio buffer. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">audioDst</td><td>Destination audio buffer to read into </td></tr>
+    <tr><td class="paramname">midiDst</td><td>Destination MIDI buffer to read into (timestamps will be relative to audioDst) </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="reference">References <a class="el" href="classAudioMidiFifo.html#a32b8571dce1de4fc7d33afda3859f3fc">getNumSamplesAvailable()</a>.</p>
 
 </div>
@@ -342,7 +402,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2025 15:49:17 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Tue Nov 18 2025 14:51:05 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

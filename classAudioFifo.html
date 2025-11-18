@@ -84,44 +84,64 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a521bc70e223aabb88d2579d44d63d6ec" id="r_a521bc70e223aabb88d2579d44d63d6ec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a521bc70e223aabb88d2579d44d63d6ec">AudioFifo</a> (<a class="el" href="classPoint.html">int</a> channels=2, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numSamples</a>=128)</td></tr>
+<tr class="memdesc:a521bc70e223aabb88d2579d44d63d6ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an <a class="el" href="classAudioFifo.html" title="Lock-free audio FIFO buffer for single producer/consumer scenarios.">AudioFifo</a> with the specified number of channels and sample capacity.  <br /></td></tr>
 <tr class="separator:a521bc70e223aabb88d2579d44d63d6ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2bfc029b2b45ca5c33f329cc1c39646" id="r_af2bfc029b2b45ca5c33f329cc1c39646"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#af2bfc029b2b45ca5c33f329cc1c39646">setSize</a> (<a class="el" href="classPoint.html">int</a> numChannels, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numSamples</a>)</td></tr>
+<tr class="memdesc:af2bfc029b2b45ca5c33f329cc1c39646"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes the FIFO to a new capacity.  <br /></td></tr>
 <tr class="separator:af2bfc029b2b45ca5c33f329cc1c39646"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1785c13df07556b5d5e42176de6734af" id="r_a1785c13df07556b5d5e42176de6734af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a1785c13df07556b5d5e42176de6734af">getNumChannels</a> () <a class="el" href="classPoint.html">const</a> <a class="el" href="classPoint.html">noexcept</a></td></tr>
+<tr class="memdesc:a1785c13df07556b5d5e42176de6734af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of audio channels.  <br /></td></tr>
 <tr class="separator:a1785c13df07556b5d5e42176de6734af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af75865aa3db5a5fb798768c6c358d147" id="r_af75865aa3db5a5fb798768c6c358d147"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#af75865aa3db5a5fb798768c6c358d147">getFreeSpace</a> () <a class="el" href="classPoint.html">const</a> <a class="el" href="classPoint.html">noexcept</a></td></tr>
+<tr class="memdesc:af75865aa3db5a5fb798768c6c358d147"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of samples that can be written before the FIFO is full.  <br /></td></tr>
 <tr class="separator:af75865aa3db5a5fb798768c6c358d147"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a716f99ce4611d9cdaa3f3b10e03dd4ce" id="r_a716f99ce4611d9cdaa3f3b10e03dd4ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a716f99ce4611d9cdaa3f3b10e03dd4ce">getNumReady</a> () <a class="el" href="classPoint.html">const</a> <a class="el" href="classPoint.html">noexcept</a></td></tr>
+<tr class="memdesc:a716f99ce4611d9cdaa3f3b10e03dd4ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of samples available to read.  <br /></td></tr>
 <tr class="separator:a716f99ce4611d9cdaa3f3b10e03dd4ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a172d185b091450adae7f12069b8c8541" id="r_a172d185b091450adae7f12069b8c8541"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a172d185b091450adae7f12069b8c8541">reset</a> () <a class="el" href="classPoint.html">noexcept</a></td></tr>
+<tr class="memdesc:a172d185b091450adae7f12069b8c8541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the FIFO to an empty state.  <br /></td></tr>
 <tr class="separator:a172d185b091450adae7f12069b8c8541"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bad74d132c264adbda154425546944f" id="r_a5bad74d132c264adbda154425546944f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a5bad74d132c264adbda154425546944f">ensureFreeSpace</a> (<a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numSamples</a>)</td></tr>
+<tr class="memdesc:a5bad74d132c264adbda154425546944f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures at least the specified amount of free space by discarding oldest data if needed.  <br /></td></tr>
 <tr class="separator:a5bad74d132c264adbda154425546944f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a272a4efa8416e0c57905329552781855" id="r_a272a4efa8416e0c57905329552781855"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a272a4efa8416e0c57905329552781855">write</a> (<a class="el" href="classPoint.html">const</a> juce::AudioSampleBuffer &amp;src, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numSamples</a>=-1)</td></tr>
+<tr class="memdesc:a272a4efa8416e0c57905329552781855"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes audio data from an AudioSampleBuffer to the FIFO.  <br /></td></tr>
 <tr class="separator:a272a4efa8416e0c57905329552781855"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dbba1b96c2670e3e046f2ad83e3ed40" id="r_a7dbba1b96c2670e3e046f2ad83e3ed40"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a7dbba1b96c2670e3e046f2ad83e3ed40">write</a> (<a class="el" href="classPoint.html">const</a> <a class="el" href="classPoint.html">float</a> *<a class="el" href="classPoint.html">const</a> *data, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numSamples</a>)</td></tr>
+<tr class="memdesc:a7dbba1b96c2670e3e046f2ad83e3ed40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes audio data from a multi-channel array to the FIFO.  <br /></td></tr>
 <tr class="separator:a7dbba1b96c2670e3e046f2ad83e3ed40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1280066a5d0c95c67f62be10c25725cd" id="r_a1280066a5d0c95c67f62be10c25725cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a1280066a5d0c95c67f62be10c25725cd">writeSilence</a> (<a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numSamples</a>)</td></tr>
+<tr class="memdesc:a1280066a5d0c95c67f62be10c25725cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes silence (zeros) to the FIFO.  <br /></td></tr>
 <tr class="separator:a1280066a5d0c95c67f62be10c25725cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a2f35a383ee1e3074491dfc6f510e59" id="r_a8a2f35a383ee1e3074491dfc6f510e59"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a8a2f35a383ee1e3074491dfc6f510e59">writeMono</a> (<a class="el" href="classPoint.html">const</a> <a class="el" href="classPoint.html">float</a> *data, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numSamples</a>)</td></tr>
+<tr class="memdesc:a8a2f35a383ee1e3074491dfc6f510e59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes mono audio data to a single-channel FIFO.  <br /></td></tr>
 <tr class="separator:a8a2f35a383ee1e3074491dfc6f510e59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a947e965b80ae14db7e82c6ab93d2f3c9" id="r_a947e965b80ae14db7e82c6ab93d2f3c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a947e965b80ae14db7e82c6ab93d2f3c9">peek</a> (juce::AudioSampleBuffer &amp;<a class="el" href="classPoint.html">dest</a>)</td></tr>
+<tr class="memdesc:a947e965b80ae14db7e82c6ab93d2f3c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Peeks at (reads without consuming) audio data from the FIFO.  <br /></td></tr>
 <tr class="separator:a947e965b80ae14db7e82c6ab93d2f3c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b7cb38ccd71a06b3965c610e2a8b4d4" id="r_a0b7cb38ccd71a06b3965c610e2a8b4d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a0b7cb38ccd71a06b3965c610e2a8b4d4">peek</a> (juce::AudioSampleBuffer &amp;<a class="el" href="classPoint.html">dest</a>, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">startSampleInDestBuffer</a>, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numSamples</a>)</td></tr>
+<tr class="memdesc:a0b7cb38ccd71a06b3965c610e2a8b4d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Peeks at (reads without consuming) audio data from the FIFO.  <br /></td></tr>
 <tr class="separator:a0b7cb38ccd71a06b3965c610e2a8b4d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fc223faaa70ac537658e5b0c8f7cfd8" id="r_a1fc223faaa70ac537658e5b0c8f7cfd8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a1fc223faaa70ac537658e5b0c8f7cfd8">peekSample</a> (<a class="el" href="classPoint.html">int</a> channel, <a class="el" href="classPoint.html">int</a> sample)</td></tr>
+<tr class="memdesc:a1fc223faaa70ac537658e5b0c8f7cfd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Peeks at a single sample without consuming it.  <br /></td></tr>
 <tr class="separator:a1fc223faaa70ac537658e5b0c8f7cfd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a069465c3976a0dc32e785babe6532898" id="r_a069465c3976a0dc32e785babe6532898"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a069465c3976a0dc32e785babe6532898">read</a> (juce::AudioSampleBuffer &amp;<a class="el" href="classPoint.html">dest</a>)</td></tr>
+<tr class="memdesc:a069465c3976a0dc32e785babe6532898"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads and removes audio data from the FIFO.  <br /></td></tr>
 <tr class="separator:a069465c3976a0dc32e785babe6532898"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2430de299a81f6ac03cd0200590a455a" id="r_a2430de299a81f6ac03cd0200590a455a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a2430de299a81f6ac03cd0200590a455a">read</a> (juce::AudioSampleBuffer &amp;<a class="el" href="classPoint.html">dest</a>, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">startSampleInDestBuffer</a>, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numSamples</a>)</td></tr>
+<tr class="memdesc:a2430de299a81f6ac03cd0200590a455a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads and removes audio data from the FIFO.  <br /></td></tr>
 <tr class="separator:a2430de299a81f6ac03cd0200590a455a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fbc006a7362cca45d85fba09fd5969e" id="r_a8fbc006a7362cca45d85fba09fd5969e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a8fbc006a7362cca45d85fba09fd5969e">readMono</a> (<a class="el" href="classPoint.html">float</a> *data, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numSamples</a>)</td></tr>
+<tr class="memdesc:a8fbc006a7362cca45d85fba09fd5969e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads and removes mono audio data from a single-channel FIFO.  <br /></td></tr>
 <tr class="separator:a8fbc006a7362cca45d85fba09fd5969e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adba2109354e5ae31b9ea6214512623d1" id="r_adba2109354e5ae31b9ea6214512623d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#adba2109354e5ae31b9ea6214512623d1">readAdding</a> (juce::AudioSampleBuffer &amp;<a class="el" href="classPoint.html">dest</a>)</td></tr>
+<tr class="memdesc:adba2109354e5ae31b9ea6214512623d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads and removes audio data from the FIFO, adding it to the destination buffer.  <br /></td></tr>
 <tr class="separator:adba2109354e5ae31b9ea6214512623d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade7b74334094b86983e5deaf2dd11e47" id="r_ade7b74334094b86983e5deaf2dd11e47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#ade7b74334094b86983e5deaf2dd11e47">readAdding</a> (juce::AudioSampleBuffer &amp;<a class="el" href="classPoint.html">dest</a>, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">startSampleInDestBuffer</a>, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numSamples</a>)</td></tr>
+<tr class="memdesc:ade7b74334094b86983e5deaf2dd11e47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads and removes audio data from the FIFO, adding it to the destination buffer.  <br /></td></tr>
 <tr class="separator:ade7b74334094b86983e5deaf2dd11e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad739bd1e9287145381242caddbb2dfff" id="r_ad739bd1e9287145381242caddbb2dfff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#ad739bd1e9287145381242caddbb2dfff">pop</a> (<a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numSamples</a>)</td></tr>
+<tr class="memdesc:ad739bd1e9287145381242caddbb2dfff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes (discards) samples from the FIFO without reading them.  <br /></td></tr>
 <tr class="separator:ad739bd1e9287145381242caddbb2dfff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -190,6 +210,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates an <a class="el" href="classAudioFifo.html" title="Lock-free audio FIFO buffer for single producer/consumer scenarios.">AudioFifo</a> with the specified number of channels and sample capacity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channels</td><td>Number of audio channels (default: 2) </td></tr>
+    <tr><td class="paramname">numSamples</td><td>Maximum number of samples the FIFO can hold (default: 128) </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -219,6 +248,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Resizes the FIFO to a new capacity. </p>
+<p>Note: This is not thread-safe and should only be called when no other threads are accessing the FIFO. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numChannels</td><td>New number of audio channels </td></tr>
+    <tr><td class="paramname">numSamples</td><td>New maximum number of samples </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a1785c13df07556b5d5e42176de6734af" name="a1785c13df07556b5d5e42176de6734af"></a>
@@ -244,6 +282,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the number of audio channels. </p>
+
 </div>
 </div>
 <a id="af75865aa3db5a5fb798768c6c358d147" name="af75865aa3db5a5fb798768c6c358d147"></a>
@@ -268,6 +308,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the number of samples that can be written before the FIFO is full. </p>
 
 <p class="reference">Referenced by <a class="el" href="classAudioFifo.html#a5bad74d132c264adbda154425546944f">ensureFreeSpace()</a>, <a class="el" href="classAudioFifo.html#a7dbba1b96c2670e3e046f2ad83e3ed40">write()</a>, <a class="el" href="classAudioFifo.html#a8a2f35a383ee1e3074491dfc6f510e59">writeMono()</a>, and <a class="el" href="classAudioFifo.html#a1280066a5d0c95c67f62be10c25725cd">writeSilence()</a>.</p>
 
@@ -296,6 +338,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the number of samples available to read. </p>
+
 <p class="reference">Referenced by <a class="el" href="classAudioFifo.html#a5bad74d132c264adbda154425546944f">ensureFreeSpace()</a>, <a class="el" href="classAudioFifo.html#a0b7cb38ccd71a06b3965c610e2a8b4d4">peek()</a>, <a class="el" href="classAudioFifo.html#a1fc223faaa70ac537658e5b0c8f7cfd8">peekSample()</a>, <a class="el" href="classAudioFifo.html#ad739bd1e9287145381242caddbb2dfff">pop()</a>, <a class="el" href="classAudioFifo.html#a2430de299a81f6ac03cd0200590a455a">read()</a>, <a class="el" href="classAudioFifo.html#ade7b74334094b86983e5deaf2dd11e47">readAdding()</a>, <a class="el" href="classAudioFifo.html#a8fbc006a7362cca45d85fba09fd5969e">readMono()</a>, and <a class="el" href="classResamplingFifo.html#a932efb27236ccc341c04bd56193e283e">ResamplingFifo::samplesReady()</a>.</p>
 
 </div>
@@ -323,6 +367,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Resets the FIFO to an empty state. </p>
+<p>Note: This is not thread-safe and should only be called when no other threads are accessing the FIFO. </p>
+
 </div>
 </div>
 <a id="a5bad74d132c264adbda154425546944f" name="a5bad74d132c264adbda154425546944f"></a>
@@ -340,6 +387,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Ensures at least the specified amount of free space by discarding oldest data if needed. </p>
+<p>If the requested free space is greater than currently available, this will discard the oldest samples to make room. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numSamples</td><td>The minimum number of free samples required </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">References <a class="el" href="classAudioFifo.html#af75865aa3db5a5fb798768c6c358d147">getFreeSpace()</a>, and <a class="el" href="classAudioFifo.html#a716f99ce4611d9cdaa3f3b10e03dd4ce">getNumReady()</a>.</p>
 
@@ -370,6 +425,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Writes audio data from an AudioSampleBuffer to the FIFO. </p>
+<p>Should only be called from the producer thread. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>The source buffer to write from </td></tr>
+    <tr><td class="paramname">numSamples</td><td>Number of samples to write (default: -1 writes all samples from src) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false if there wasn't enough space </dd></dl>
 
 <p class="reference">References <a class="el" href="classAudioFifo.html#a272a4efa8416e0c57905329552781855">write()</a>.</p>
 
@@ -403,6 +468,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Writes audio data from a multi-channel array to the FIFO. </p>
+<p>Should only be called from the producer thread. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Array of channel pointers containing the audio data </td></tr>
+    <tr><td class="paramname">numSamples</td><td>Number of samples to write </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false if there wasn't enough space </dd></dl>
+
 <p class="reference">References <a class="el" href="classAudioFifo.html#af75865aa3db5a5fb798768c6c358d147">getFreeSpace()</a>.</p>
 
 </div>
@@ -422,6 +497,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Writes silence (zeros) to the FIFO. </p>
+<p>Should only be called from the producer thread. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numSamples</td><td>Number of silent samples to write </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false if there wasn't enough space </dd></dl>
 
 <p class="reference">References <a class="el" href="classAudioFifo.html#af75865aa3db5a5fb798768c6c358d147">getFreeSpace()</a>.</p>
 
@@ -453,6 +537,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Writes mono audio data to a single-channel FIFO. </p>
+<p>Should only be called from the producer thread. The FIFO must be configured for single-channel (mono) operation. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Pointer to the mono audio data </td></tr>
+    <tr><td class="paramname">numSamples</td><td>Number of samples to write </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false if there wasn't enough space </dd></dl>
+
 <p class="reference">References <a class="el" href="classAudioFifo.html#af75865aa3db5a5fb798768c6c358d147">getFreeSpace()</a>.</p>
 
 </div>
@@ -472,6 +566,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Peeks at (reads without consuming) audio data from the FIFO. </p>
+<p>The data remains in the FIFO and can be read again. Should only be called from the consumer thread. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>Destination buffer to copy the audio data into </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false if there weren't enough samples available </dd></dl>
 
 <p class="reference">References <a class="el" href="classAudioFifo.html#a947e965b80ae14db7e82c6ab93d2f3c9">peek()</a>.</p>
 
@@ -511,6 +614,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Peeks at (reads without consuming) audio data from the FIFO. </p>
+<p>The data remains in the FIFO and can be read again. Should only be called from the consumer thread. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>Destination buffer to copy the audio data into </td></tr>
+    <tr><td class="paramname">startSampleInDestBuffer</td><td>Starting position in the destination buffer </td></tr>
+    <tr><td class="paramname">numSamples</td><td>Number of samples to peek </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false if there weren't enough samples available </dd></dl>
+
 <p class="reference">References <a class="el" href="classAudioFifo.html#a716f99ce4611d9cdaa3f3b10e03dd4ce">getNumReady()</a>.</p>
 
 </div>
@@ -541,6 +655,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Peeks at a single sample without consuming it. </p>
+<p>Should only be called from the consumer thread. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>The channel to peek from </td></tr>
+    <tr><td class="paramname">sample</td><td>The sample index to peek (0 = first available sample) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The sample value at the specified position </dd></dl>
+
 <p class="reference">References <a class="el" href="classAudioFifo.html#a716f99ce4611d9cdaa3f3b10e03dd4ce">getNumReady()</a>.</p>
 
 </div>
@@ -560,6 +684,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Reads and removes audio data from the FIFO. </p>
+<p>Should only be called from the consumer thread. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>Destination buffer to copy the audio data into </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false if there weren't enough samples available </dd></dl>
 
 <p class="reference">References <a class="el" href="classAudioFifo.html#a069465c3976a0dc32e785babe6532898">read()</a>.</p>
 
@@ -599,6 +732,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Reads and removes audio data from the FIFO. </p>
+<p>Should only be called from the consumer thread. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>Destination buffer to copy the audio data into </td></tr>
+    <tr><td class="paramname">startSampleInDestBuffer</td><td>Starting position in the destination buffer </td></tr>
+    <tr><td class="paramname">numSamples</td><td>Number of samples to read </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false if there weren't enough samples available </dd></dl>
+
 <p class="reference">References <a class="el" href="classAudioFifo.html#a716f99ce4611d9cdaa3f3b10e03dd4ce">getNumReady()</a>.</p>
 
 </div>
@@ -629,6 +773,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Reads and removes mono audio data from a single-channel FIFO. </p>
+<p>Should only be called from the consumer thread. The FIFO must be configured for single-channel (mono) operation. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Pointer to the destination array for the audio data </td></tr>
+    <tr><td class="paramname">numSamples</td><td>Number of samples to read </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false if there weren't enough samples available </dd></dl>
+
 <p class="reference">References <a class="el" href="classAudioFifo.html#a716f99ce4611d9cdaa3f3b10e03dd4ce">getNumReady()</a>.</p>
 
 </div>
@@ -648,6 +802,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Reads and removes audio data from the FIFO, adding it to the destination buffer. </p>
+<p>Unlike <a class="el" href="classAudioFifo.html#a069465c3976a0dc32e785babe6532898" title="Reads and removes audio data from the FIFO.">read()</a>, this adds the FIFO data to the destination rather than replacing it. Should only be called from the consumer thread. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>Destination buffer to add the audio data to </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false if there weren't enough samples available </dd></dl>
 
 <p class="reference">References <a class="el" href="classAudioFifo.html#adba2109354e5ae31b9ea6214512623d1">readAdding()</a>.</p>
 
@@ -687,6 +850,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Reads and removes audio data from the FIFO, adding it to the destination buffer. </p>
+<p>Unlike <a class="el" href="classAudioFifo.html#a069465c3976a0dc32e785babe6532898" title="Reads and removes audio data from the FIFO.">read()</a>, this adds the FIFO data to the destination rather than replacing it. Should only be called from the consumer thread. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>Destination buffer to add the audio data to </td></tr>
+    <tr><td class="paramname">startSampleInDestBuffer</td><td>Starting position in the destination buffer </td></tr>
+    <tr><td class="paramname">numSamples</td><td>Number of samples to read </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false if there weren't enough samples available </dd></dl>
+
 <p class="reference">References <a class="el" href="classAudioFifo.html#a716f99ce4611d9cdaa3f3b10e03dd4ce">getNumReady()</a>.</p>
 
 </div>
@@ -707,6 +881,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Removes (discards) samples from the FIFO without reading them. </p>
+<p>This is useful after <a class="el" href="classAudioFifo.html#a947e965b80ae14db7e82c6ab93d2f3c9" title="Peeks at (reads without consuming) audio data from the FIFO.">peek()</a> operations when you want to consume the peeked data. Should only be called from the consumer thread. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numSamples</td><td>Number of samples to discard </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false if there weren't enough samples available </dd></dl>
+
 <p class="reference">References <a class="el" href="classAudioFifo.html#a716f99ce4611d9cdaa3f3b10e03dd4ce">getNumReady()</a>.</p>
 
 </div>
@@ -717,7 +900,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2025 15:49:17 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Tue Nov 18 2025 14:51:05 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
