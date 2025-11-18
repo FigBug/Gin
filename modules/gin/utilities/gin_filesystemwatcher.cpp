@@ -176,17 +176,15 @@ public:
                         continue;
                     }
                     
-                    juce::ScopedLock sl (lock);
                     Event e (folder.getFullPathName() + '/' + iNotifyEvent->name, eventType);
                     if (std::ranges::none_of(events, [&](const auto& event) {
                         return event == e;
                     })) {
-                        events.add (std::move (e));
+                        events.write (e);
                     }
                 }
                 
-                juce::ScopedLock sl (lock);
-                if (! events.isEmpty())
+                if (events.getNumReady() > 0)
                     triggerAsyncUpdate();
             }
         }
@@ -198,21 +196,16 @@ public:
 
     void handleAsyncUpdate() override
     {
-        juce::ScopedLock sl (lock);
-
         owner.folderChanged (folder);
 
-        for (const auto& e : events)
-            owner.fileChanged (e.file, e.fsEvent);
-
-        events.clear();
+        while (const auto e = events.read())
+            owner.fileChanged (e->file, e->fsEvent);
     }
 
     FileSystemWatcher& owner;
     juce::File folder;
 
-    juce::CriticalSection lock;
-    juce::Array<Event> events;
+    LockFreeQueue<Event> events { 100 };
 
     int fd;
     int wd;
