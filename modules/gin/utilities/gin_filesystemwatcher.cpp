@@ -101,6 +101,8 @@ public:
 
 //==============================================================================
 #ifdef JUCE_LINUX
+#include <poll.h>
+
 #define BUF_LEN (10 * (sizeof(struct inotify_event) + NAME_MAX + 1))
 
 class FileSystemWatcher::Impl final : public juce::Thread,
@@ -150,12 +152,12 @@ public:
         // Cancel any pending async updates before shutting down
         cancelPendingUpdate();
 
-        // Close fd to unblock the read() call in the thread
+        // Wait for thread to exit (poll() timeout will allow it to check threadShouldExit)
+        stopThread (1000);
+
+        // Clean up inotify resources
         inotify_rm_watch (fd, wd);
         close (fd);
-
-        // Wait for thread to exit
-        stopThread (1000);
     }
 
     void run() override
@@ -163,42 +165,70 @@ public:
         try
         {
             const inotify_event* iNotifyEvent;
-            
+
+            struct pollfd pfd;
+            pfd.fd = fd;
+            pfd.events = POLLIN;
+
             while (! threadShouldExit())
             {
-                char buf[BUF_LEN];
-                const ssize_t numRead = read (fd, buf, BUF_LEN);
-                
-                if (numRead <= 0 || threadShouldExit())
-                    break;
-                
-                for (const char* ptr = buf; ptr < buf + numRead; ptr += sizeof(struct inotify_event) + iNotifyEvent->len)
+                // Poll with timeout to allow checking threadShouldExit periodically
+                const int pollResult = poll (&pfd, 1, 100); // 100ms timeout
+
+                if (pollResult < 0)
                 {
-                    iNotifyEvent = reinterpret_cast<const inotify_event*>(ptr);
-                    
-                    FileSystemEvent eventType = undefined;
-                    if (iNotifyEvent->mask & IN_CREATE)      eventType = FileSystemEvent::fileCreated;
-                    else if (iNotifyEvent->mask & IN_CLOSE_WRITE) eventType = FileSystemEvent::fileUpdated;
-                    else if (iNotifyEvent->mask & IN_MODIFY)      eventType = FileSystemEvent::fileUpdated;
-                    else if (iNotifyEvent->mask & IN_MOVED_FROM)  eventType = FileSystemEvent::fileRenamedOldName;
-                    else if (iNotifyEvent->mask & IN_MOVED_TO)    eventType = FileSystemEvent::fileRenamedNewName;
-                    else if (iNotifyEvent->mask & IN_DELETE)      eventType = FileSystemEvent::fileDeleted;
-                    
-                    if (eventType == FileSystemEvent::undefined) {
-                        continue;
-                    }
-                    
-                    Event e (folder.getFullPathName() + '/' + iNotifyEvent->name, eventType);
-                    events.write (e);
+                    // Error occurred
+                    if (errno != EINTR) // Ignore interrupts
+                        break;
+                    continue;
                 }
-                
-                if (events.getNumReady() > 0)
-                    triggerAsyncUpdate();
+
+                if (pollResult == 0)
+                {
+                    // Timeout - no events available, loop back to check threadShouldExit
+                    continue;
+                }
+
+                // Data is available to read
+                if (pfd.revents & POLLIN)
+                {
+                    char buf[BUF_LEN];
+                    const ssize_t numRead = read (fd, buf, BUF_LEN);
+
+                    if (numRead <= 0)
+                        break;
+
+                    for (const char* ptr = buf; ptr < buf + numRead; ptr += sizeof(struct inotify_event) + iNotifyEvent->len)
+                    {
+                        iNotifyEvent = reinterpret_cast<const inotify_event*>(ptr);
+
+                        FileSystemEvent eventType = undefined;
+                        if (iNotifyEvent->mask & IN_CREATE)      eventType = FileSystemEvent::fileCreated;
+                        else if (iNotifyEvent->mask & IN_CLOSE_WRITE) eventType = FileSystemEvent::fileUpdated;
+                        else if (iNotifyEvent->mask & IN_MODIFY)      eventType = FileSystemEvent::fileUpdated;
+                        else if (iNotifyEvent->mask & IN_MOVED_FROM)  eventType = FileSystemEvent::fileRenamedOldName;
+                        else if (iNotifyEvent->mask & IN_MOVED_TO)    eventType = FileSystemEvent::fileRenamedNewName;
+                        else if (iNotifyEvent->mask & IN_DELETE)      eventType = FileSystemEvent::fileDeleted;
+
+                        if (eventType == FileSystemEvent::undefined)
+                            continue;
+
+                        Event e (folder.getFullPathName() + '/' + iNotifyEvent->name, eventType);
+                        events.write (e);
+                    }
+
+                    if (events.getNumReady() > 0)
+                        triggerAsyncUpdate();
+                }
+
+                // Check for errors or hangup
+                if (pfd.revents & (POLLERR | POLLHUP | POLLNVAL))
+                    break;
             }
         }
         catch (...)
         {
-            
+
         }
     }
 
