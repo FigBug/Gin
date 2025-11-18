@@ -29,34 +29,34 @@ private:
         beginTest ("Channel Blend Functions");
 
         // Test normal blend
-        expectEquals (channelBlendNormal (100, 200), 100, "Normal should return first value");
+        expectEquals ((int) channelBlendNormal (100, 200), 100, "Normal should return first value");
 
         // Test lighten
-        expectEquals (channelBlendLighten (100, 200), 200, "Lighten should return brighter value");
-        expectEquals (channelBlendLighten (200, 100), 200, "Lighten should return brighter value");
+        expectEquals ((int) channelBlendLighten (100, 200), 200, "Lighten should return brighter value");
+        expectEquals ((int) channelBlendLighten (200, 100), 200, "Lighten should return brighter value");
 
         // Test darken
-        expectEquals (channelBlendDarken (100, 200), 100, "Darken should return darker value");
-        expectEquals (channelBlendDarken (200, 100), 100, "Darken should return darker value");
+        expectEquals ((int) channelBlendDarken (100, 200), 100, "Darken should return darker value");
+        expectEquals ((int) channelBlendDarken (200, 100), 100, "Darken should return darker value");
 
         // Test multiply
         auto mul = channelBlendMultiply (128, 128);
         expect (mul < 128, "Multiply should darken mid-tones");
 
         // Test add
-        expectEquals (channelBlendAdd (100, 100), 200, "Add should sum values");
-        expectEquals (channelBlendAdd (200, 100), 255, "Add should clamp to 255");
+        expectEquals ((int) channelBlendAdd (100, 100), 200, "Add should sum values");
+        expectEquals ((int) channelBlendAdd (200, 100), 255, "Add should clamp to 255");
 
         // Test average
-        expectEquals (channelBlendAverage (100, 200), 150, "Average should be mean of values");
+        expectEquals ((int) channelBlendAverage (100, 200), 150, "Average should be mean of values");
 
         // Test screen (should lighten)
         auto screen = channelBlendScreen (128, 128);
         expect (screen > 128, "Screen should lighten mid-tones");
 
         // Test difference
-        expectEquals (channelBlendDifference (200, 150), 50, "Difference should be absolute difference");
-        expectEquals (channelBlendDifference (150, 200), 50, "Difference should be absolute difference");
+        expectEquals ((int) channelBlendDifference (200, 150), 50, "Difference should be absolute difference");
+        expectEquals ((int) channelBlendDifference (150, 200), 50, "Difference should be absolute difference");
     }
 
     void testBlendModes()

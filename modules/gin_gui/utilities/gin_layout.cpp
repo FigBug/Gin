@@ -1,5 +1,5 @@
 
-static juce::String getParentPath (juce::String in)
+juce::String Layout::getParentPath (juce::String in)
 {
     auto lastSlash = in.lastIndexOfChar ('/');
 
@@ -12,19 +12,19 @@ static juce::String getParentPath (juce::String in)
     return in;
 }
 
-static juce::String addTrailingSlash (const juce::String& path)
+juce::String Layout::addTrailingSlash (const juce::String& path)
 {
     return path.endsWithChar ('/') ? path : path + '/';
 }
 
-static bool isAbsolutePath (juce::StringRef path)
+bool Layout::isAbsolutePath (juce::StringRef path)
 {
     auto firstChar = *(path.text);
 
     return firstChar == '/' || firstChar == '~';
 }
 
-static juce::String getChildPath (juce::String fullPath, juce::StringRef relativePath)
+juce::String Layout::getChildPath (juce::String fullPath, juce::StringRef relativePath)
 {
     auto r = relativePath.text;
 
@@ -76,7 +76,7 @@ static juce::String getChildPath (juce::String fullPath, juce::StringRef relativ
     return path;
 }
 
-static juce::StringArray expandTokens (juce::StringArray in)
+juce::StringArray Layout::expandTokens (juce::StringArray in)
 {
     juce::StringArray out;
 
@@ -104,7 +104,7 @@ static juce::StringArray expandTokens (juce::StringArray in)
     return out;
 }
 
-static juce::String getComponentPath (juce::Component& parent, juce::Component& c)
+juce::String Layout::getComponentPath (juce::Component& parent, juce::Component& c)
 {
     juce::String path;
 

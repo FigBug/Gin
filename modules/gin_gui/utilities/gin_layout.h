@@ -162,6 +162,13 @@ public:
     */
     void setConstant (const juce::String& name, double val);
 
+    static juce::String getParentPath (juce::String in);
+    static juce::String addTrailingSlash (const juce::String& path);
+    static bool isAbsolutePath (juce::StringRef path);
+    static juce::String getChildPath (juce::String fullPath, juce::StringRef relativePath);
+    static juce::StringArray expandTokens (juce::StringArray in);
+    static juce::String getComponentPath (juce::Component& parent, juce::Component& c);
+
 private:
     void setupParser();
 

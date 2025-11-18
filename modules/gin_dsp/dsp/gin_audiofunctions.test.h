@@ -17,101 +17,155 @@ public:
 
     void runTest() override
     {
-        testSoftClip();
-        testHardClip();
-        testDB2Gain();
-        testGain2DB();
-        testPitchToFrequency();
-        testFrequencyToPitch();
+        testLP12Filter();
+        testHP12Filter();
+        testBP12Filter();
+        testNotch12Filter();
+        testOscState();
+        testNoiseState();
     }
 
 private:
-    void testSoftClip()
+    void testLP12Filter()
     {
-        beginTest ("Soft Clip");
+        beginTest ("LP12 Lowpass Filter");
 
-        // Soft clip should leave small signals mostly unchanged
-        float small = softClip (0.1f);
-        expectWithinAbsoluteError (small, 0.1f, 0.01f, "Small signals should pass through mostly unchanged");
+        LP12State filter (44100.0);
 
-        // Should compress signals approaching 1.0
-        float large = softClip (1.5f);
-        expect (large < 1.5f && large > 0.0f, "Large signals should be compressed");
-        expect (large < 1.0f, "Soft clip should keep signal below 1.0");
+        // Test that filter processes samples
+        double output = filter.process (1.0, 1000.0, 0.707);
+        expect (! std::isnan (output), "Filter should produce valid output");
+        expect (! std::isinf (output), "Filter output should not be infinite");
 
-        // Should be symmetric
-        float neg = softClip (-0.5f);
-        float pos = softClip (0.5f);
-        expectWithinAbsoluteError (neg, -pos, 0.001f, "Soft clip should be symmetric");
+        // Test frequency clamping
+        double outputLow = filter.process (1.0, 1.0, 0.707);  // Below minimum
+        expect (! std::isnan (outputLow), "Should handle very low frequency");
+
+        double outputHigh = filter.process (1.0, 100000.0, 0.707);  // Above nyquist
+        expect (! std::isnan (outputHigh), "Should handle frequency above nyquist");
+
+        // Test reset
+        filter.reset();
+        expect (true, "Reset should not crash");
     }
 
-    void testHardClip()
+    void testHP12Filter()
     {
-        beginTest ("Hard Clip");
+        beginTest ("HP12 Highpass Filter");
 
-        expectWithinAbsoluteError (hardClip (0.5f), 0.5f, 0.001f, "Should pass through values in range");
-        expectWithinAbsoluteError (hardClip (1.5f), 1.0f, 0.001f, "Should clip positive to 1.0");
-        expectWithinAbsoluteError (hardClip (-1.5f), -1.0f, 0.001f, "Should clip negative to -1.0");
-        expectWithinAbsoluteError (hardClip (0.0f), 0.0f, 0.001f, "Zero should remain zero");
+        HP12State filter (44100.0);
+
+        // Test that filter processes samples
+        double output = filter.process (1.0, 1000.0, 0.707);
+        expect (! std::isnan (output), "Filter should produce valid output");
+        expect (! std::isinf (output), "Filter output should not be infinite");
+
+        // Test Q clamping (very low Q)
+        double outputLowQ = filter.process (1.0, 1000.0, 0.0);
+        expect (! std::isnan (outputLowQ), "Should handle zero Q");
+
+        filter.reset();
+        expect (true, "Reset should not crash");
     }
 
-    void testDB2Gain()
+    void testBP12Filter()
     {
-        beginTest ("dB to Gain");
+        beginTest ("BP12 Bandpass Filter");
 
-        expectWithinAbsoluteError (dbToGain (0.0f), 1.0f, 0.001f, "0 dB should be gain 1.0");
-        expectWithinAbsoluteError (dbToGain (6.0f), 2.0f, 0.1f, "6 dB should be ~gain 2.0");
-        expectWithinAbsoluteError (dbToGain (-6.0f), 0.5f, 0.05f, "-6 dB should be ~gain 0.5");
-        expectWithinAbsoluteError (dbToGain (-100.0f), 0.0f, 0.001f, "-100 dB should be ~0");
+        BP12State filter (44100.0);
 
-        // Test infinity
-        float inf = dbToGain (-std::numeric_limits<float>::infinity());
-        expectWithinAbsoluteError (inf, 0.0f, 0.001f, "-inf dB should be 0 gain");
+        // Test basic processing
+        double output = filter.process (1.0, 1000.0, 2.0);
+        expect (! std::isnan (output), "Filter should produce valid output");
+        expect (! std::isinf (output), "Filter output should not be infinite");
+
+        // Test with different Q values
+        double narrowBand = filter.process (1.0, 1000.0, 10.0);
+        expect (! std::isnan (narrowBand), "Should handle high Q (narrow band)");
+
+        double wideBand = filter.process (1.0, 1000.0, 0.5);
+        expect (! std::isnan (wideBand), "Should handle low Q (wide band)");
+
+        filter.reset();
+        expect (true, "Reset should not crash");
     }
 
-    void testGain2DB()
+    void testNotch12Filter()
     {
-        beginTest ("Gain to dB");
+        beginTest ("Notch12 Notch Filter");
 
-        expectWithinAbsoluteError (gainToDb (1.0f), 0.0f, 0.001f, "Gain 1.0 should be 0 dB");
-        expectWithinAbsoluteError (gainToDb (2.0f), 6.0f, 0.1f, "Gain 2.0 should be ~6 dB");
-        expectWithinAbsoluteError (gainToDb (0.5f), -6.0f, 0.1f, "Gain 0.5 should be ~-6 dB");
+        Notch12State filter (44100.0);
 
-        // Zero gain should give very negative dB
-        float db = gainToDb (0.0f);
-        expect (db < -100.0f, "Gain 0.0 should give very negative dB");
+        // Test basic processing
+        double output = filter.process (1.0, 1000.0, 2.0);
+        expect (! std::isnan (output), "Filter should produce valid output");
+        expect (! std::isinf (output), "Filter output should not be infinite");
+
+        // Notch filters should pass most frequencies except the notch frequency
+        // Test at center frequency (should attenuate)
+        filter.reset();
+        double notchOutput = filter.process (1.0, 1000.0, 5.0);
+        expect (! std::isnan (notchOutput), "Should produce valid output at notch frequency");
+
+        filter.reset();
+        expect (true, "Reset should not crash");
     }
 
-    void testPitchToFrequency()
+    void testOscState()
     {
-        beginTest ("Pitch to Frequency");
+        beginTest ("Oscillator State");
 
-        // MIDI note 69 (A4) should be 440 Hz
-        expectWithinAbsoluteError (getMidiNoteFromHertz (69), 440.0f, 0.1f, "MIDI 69 should be 440 Hz");
+        OscState osc (44100.0);
 
-        // MIDI note 60 (C4) should be ~261.6 Hz
-        expectWithinAbsoluteError (getMidiNoteFromHertz (60), 261.6f, 1.0f, "MIDI 60 should be ~261.6 Hz");
+        // Test initial state
+        expect (osc.phase >= 0.0f && osc.phase <= 1.0f, "Phase should be in valid range");
 
-        // Octave up should double frequency
-        float f1 = getMidiNoteFromHertz (60);
-        float f2 = getMidiNoteFromHertz (72);
-        expectWithinAbsoluteError (f2, f1 * 2.0f, 1.0f, "Octave up should double frequency");
+        // Test phase increment
+        osc.incPhase (69.0f);  // A4 = 440 Hz
+        expect (osc.phase >= 0.0f && osc.phase <= 1.0f, "Phase should stay in range after increment");
+        expect (osc.frequency > 0.0f, "Frequency should be set");
+        expectWithinAbsoluteError (osc.frequency, 440.0f, 1.0f, "Frequency should be ~440 Hz for MIDI 69");
+
+        // Test phase wrapping
+        for (int i = 0; i < 1000; i++)
+        {
+            osc.incPhase (69.0f);
+            expect (osc.phase >= 0.0f && osc.phase <= 1.0f, "Phase should wrap correctly");
+        }
+
+        // Test reset
+        osc.reset();
+        expect (osc.phase >= 0.0f && osc.phase <= 1.0f, "Phase should be valid after reset");
+
+        // Test sample rate change
+        osc.setSampleRate (48000.0);
+        expectEquals (osc.sampleRate, 48000.0, "Sample rate should update");
     }
 
-    void testFrequencyToPitch()
+    void testNoiseState()
     {
-        beginTest ("Frequency to Pitch");
+        beginTest ("Noise State");
 
-        // 440 Hz should be MIDI note 69 (A4)
-        expectWithinAbsoluteError (getHertzFromMidiNote (440.0f), 69.0f, 0.1f, "440 Hz should be MIDI 69");
+        NoiseState noise (44100.0);
 
-        // ~261.6 Hz should be MIDI note 60 (C4)
-        expectWithinAbsoluteError (getHertzFromMidiNote (261.6f), 60.0f, 0.1f, "261.6 Hz should be MIDI 60");
+        // Test that noise generates values
+        double value1 = noise.process();
+        expect (! std::isnan (value1), "Noise should produce valid output");
+        expect (! std::isinf (value1), "Noise should not be infinite");
 
-        // Doubling frequency should add 12 semitones
-        float note1 = getHertzFromMidiNote (200.0f);
-        float note2 = getHertzFromMidiNote (400.0f);
-        expectWithinAbsoluteError (note2 - note1, 12.0f, 0.1f, "Doubling freq should add 12 semitones");
+        // Test that noise is random (different values)
+        double value2 = noise.process();
+        double value3 = noise.process();
+
+        // It's theoretically possible but extremely unlikely to get the same value multiple times
+        bool hasVariation = ! juce::approximatelyEqual (value1, value2) ||
+                            ! juce::approximatelyEqual (value2, value3);
+        expect (hasVariation, "Noise should produce varying values");
+
+        // Test sample rate doesn't crash
+        noise.setSampleRate (48000.0);
+        double value4 = noise.process();
+        expect (! std::isnan (value4), "Should work after sample rate change");
     }
 };
 

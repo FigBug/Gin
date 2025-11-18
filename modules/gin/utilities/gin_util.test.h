@@ -151,38 +151,42 @@ private:
     {
         beginTest ("RollingAverage");
 
-        RollingAverage<float> avg (4);
+        RollingAverage avg (4);
 
         // Test initial state
-        expectWithinAbsoluteError (avg.getAverage(), 0.0f, 0.0001f, "Initial average should be 0");
+        expectWithinAbsoluteError (avg.getAverage(), 0.0, 0.0001, "Initial average should be 0");
 
-        // Add values
-        avg.add (1.0f);
-        expectWithinAbsoluteError (avg.getAverage(), 1.0f, 0.0001f, "Average of [1] should be 1");
+        // Test weighted averaging: (nextValue + numVals * currAvg) / (numVals + 1)
+        // First value: (10 + 4*0) / 5 = 2.0
+        double result1 = avg.average (10.0);
+        expectWithinAbsoluteError (result1, 2.0, 0.0001, "First average should be 2.0");
+        expectWithinAbsoluteError (avg.getAverage(), 2.0, 0.0001, "Stored average should be 2.0");
 
-        avg.add (2.0f);
-        expectWithinAbsoluteError (avg.getAverage(), 1.5f, 0.0001f, "Average of [1,2] should be 1.5");
+        // Second value: (5 + 4*2) / 5 = 13/5 = 2.6
+        double result2 = avg.average (5.0);
+        expectWithinAbsoluteError (result2, 2.6, 0.0001, "Second average should be 2.6");
+        expectWithinAbsoluteError (avg.getAverage(), 2.6, 0.0001, "Stored average should be 2.6");
 
-        avg.add (3.0f);
-        expectWithinAbsoluteError (avg.getAverage(), 2.0f, 0.0001f, "Average of [1,2,3] should be 2");
+        // Test setAverage
+        avg.setAverage (10.0);
+        expectWithinAbsoluteError (avg.getAverage(), 10.0, 0.0001, "Average after setAverage should be 10.0");
 
-        avg.add (4.0f);
-        expectWithinAbsoluteError (avg.getAverage(), 2.5f, 0.0001f, "Average of [1,2,3,4] should be 2.5");
+        // Verify calculation continues correctly after setAverage
+        // (20 + 4*10) / 5 = 60/5 = 12.0
+        double result3 = avg.average (20.0);
+        expectWithinAbsoluteError (result3, 12.0, 0.0001, "Average after manual set should calculate correctly");
 
-        // Test rolling window
-        avg.add (5.0f);
-        expectWithinAbsoluteError (avg.getAverage(), 3.5f, 0.0001f, "Average of [2,3,4,5] should be 3.5");
-
-        // Test clear
-        avg.clear();
-        expectWithinAbsoluteError (avg.getAverage(), 0.0f, 0.0001f, "Average after clear should be 0");
+        // Test with different weighting factor
+        RollingAverage avg2 (1);
+        // (5 + 1*0) / 2 = 2.5
+        expectWithinAbsoluteError (avg2.average (5.0), 2.5, 0.0001, "Lower weight factor should give more weight to new value");
     }
 
     void testPerlinNoise()
     {
         beginTest ("PerlinNoise");
 
-        PerlinNoise noise;
+        PerlinNoise<float> noise;
 
         // Test that noise returns values in expected range [-1, 1]
         for (int i = 0; i < 100; i++)
@@ -212,13 +216,15 @@ private:
         }
 
         // Test that different seeds produce different results
-        PerlinNoise noise1 (123);
-        PerlinNoise noise2 (456);
+        PerlinNoise<float> noise1 (123);
+        PerlinNoise<float> noise2 (456);
 
         bool foundDifference = false;
         for (int i = 0; i < 10; i++)
         {
-            if (noise1.noise (float (i)) != noise2.noise (float (i)))
+            float val1 = noise1.noise (float (i));
+            float val2 = noise2.noise (float (i));
+            if (! juce::approximatelyEqual (val1, val2))
             {
                 foundDifference = true;
                 break;
