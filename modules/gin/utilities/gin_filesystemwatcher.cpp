@@ -109,7 +109,7 @@ class FileSystemWatcher::Impl final : public juce::Thread,
 public:
     struct Event
     {
-        Event () = delete;
+        Event () = default;
         Event (const juce::File& f, const FileSystemEvent e) : file(f), fsEvent(e) {}
         Event (Event& other) = default;
         Event (Event&& other) = default;
@@ -194,7 +194,7 @@ public:
     {
         owner.folderChanged (folder);
 
-        while (const auto e = events.read())
+        while (auto e = events.read())
             owner.fileChanged (e->file, e->fsEvent);
     }
 
