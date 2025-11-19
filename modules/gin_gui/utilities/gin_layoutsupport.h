@@ -156,15 +156,16 @@ private:
     - `mac`, `win`, `linux` - Platform flags (1.0 or 0.0)
     - `parX`, `parY`, `parW`, `parH`, `parR`, `parB` - Parent bounds
     - `prevX`, `prevY`, `prevW`, `prevH`, `prevR`, `prevB`, `prevCX`, `prevCY` - Previous component
-    - `i` - Current iteration index (when using multiple IDs or ranges)
+    - `i` - Current child index
+    - `idIdx` - Current iteration index (when using multiple IDs or ranges)
 
     Custom constants can be defined at top-level or per-component:
     @code{.json}
     {
-      "constants": {
-        "margin": 10,
-        "colors": { "red": 0xFF0000 }
-      },
+      "constants": [
+        { "margin": 10 },
+        { "buttonSize": { "w": 100, "h", 25 } }
+      ],
       "components": [
         { "id": "button", "x": "margin", "w": 100, "h": 30 }
       ]

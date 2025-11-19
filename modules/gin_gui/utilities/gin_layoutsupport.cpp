@@ -210,6 +210,9 @@ juce::String ComponentMap::getComponentPath (juce::Component& c)
 
 juce::Component* ComponentMap::findComponent (const juce::String& path)
 {
+    if (path == "")
+        return &parent;
+
     auto key = path.toLowerCase();
 
     if (componentMap.contains (key))
@@ -598,6 +601,7 @@ void LayoutSupport::setComponentsLayout (const juce::String& currentPath,
 
             for (auto idIdx = 0; auto& id : ids)
             {
+                constants.set ("idIdx", idIdx);
                 //
                 // Create component on demand
                 //
