@@ -70,6 +70,7 @@ $(function() {
 
 <div class="header">
   <div class="summary">
+<a href="#files">Files</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
@@ -77,6 +78,12 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:gin__varianthelpers_8h" id="r_gin__varianthelpers_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gin__varianthelpers_8h.html">gin_varianthelpers.h</a></td></tr>
+<tr class="memdesc:gin__varianthelpers_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility functions for working with JUCE var objects and their properties. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacemacOS" id="r_namespacemacOS"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemacOS.html">macOS</a></td></tr>
@@ -124,6 +131,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Async Download.  <a href="classAsyncDownload.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structProperty.html">Property</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple key-value pair structure for representing a property.  <a href="structProperty.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -142,8 +150,10 @@ Functions</h2></td></tr>
 <tr class="memitem:gad1ffdc179588a1832355270be9b5a516" id="r_gad1ffdc179588a1832355270be9b5a516"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__gui-utilities.html#gad1ffdc179588a1832355270be9b5a516">createSnapshotOfNativeWindow</a> (juce::Component &amp;c)</td></tr>
 <tr class="separator:gad1ffdc179588a1832355270be9b5a516"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4a0e5a7a42a4e9d41ecb0efc2dc979a5" id="r_ga4a0e5a7a42a4e9d41ecb0efc2dc979a5"><td class="memItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__gui-utilities.html#ga4a0e5a7a42a4e9d41ecb0efc2dc979a5">getPropertyWithDefault</a> (<a class="el" href="classPoint.html">const</a> juce::var &amp;<a class="el" href="classPoint.html">v</a>, <a class="el" href="classPoint.html">const</a> juce::Identifier &amp;<a class="el" href="classPoint.html">i</a>, <a class="el" href="classPoint.html">const</a> juce::var &amp;defaultValue)</td></tr>
+<tr class="memdesc:ga4a0e5a7a42a4e9d41ecb0efc2dc979a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a property value with a default fallback.  <br /></td></tr>
 <tr class="separator:ga4a0e5a7a42a4e9d41ecb0efc2dc979a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga50aa299c064e2ba23134d4271067f253" id="r_ga50aa299c064e2ba23134d4271067f253"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__gui-utilities.html#ga50aa299c064e2ba23134d4271067f253">setProperty</a> (juce::var &amp;<a class="el" href="classPoint.html">v</a>, <a class="el" href="classPoint.html">const</a> juce::Identifier &amp;<a class="el" href="classPoint.html">i</a>, <a class="el" href="classPoint.html">const</a> juce::var &amp;value)</td></tr>
+<tr class="memdesc:ga50aa299c064e2ba23134d4271067f253"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a property on a var object.  <br /></td></tr>
 <tr class="separator:ga50aa299c064e2ba23134d4271067f253"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -310,6 +320,25 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Get a property value with a default fallback. </p>
+<p>Returns the property value if it exists, otherwise returns the default value. This is a safer alternative to direct property access when the property might not exist.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>The var object to get the property from </td></tr>
+    <tr><td class="paramname">i</td><td><a class="el" href="structProperty.html" title="Simple key-value pair structure for representing a property.">Property</a> name identifier </td></tr>
+    <tr><td class="paramname">defaultValue</td><td>Value to return if property doesn't exist </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structProperty.html" title="Simple key-value pair structure for representing a property.">Property</a> value if it exists, otherwise defaultValue</dd></dl>
+<div class="fragment"><div class="line">juce::var <a class="code hl_class" href="classPoint.html">obj</a> = <span class="keyword">new</span> juce::DynamicObject();</div>
+<div class="line"><a class="code hl_class" href="classPoint.html">obj</a>.getDynamicObject()-&gt;setProperty (<span class="stringliteral">&quot;width&quot;</span>, 100);</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">auto</span> w = <a class="code hl_function" href="group__gin__gui-utilities.html#ga4a0e5a7a42a4e9d41ecb0efc2dc979a5">getPropertyWithDefault</a> (<a class="code hl_class" href="classPoint.html">obj</a>, <span class="stringliteral">&quot;width&quot;</span>, 50);   <span class="comment">// Returns 100</span></div>
+<div class="line"><span class="keyword">auto</span> h = <a class="code hl_function" href="group__gin__gui-utilities.html#ga4a0e5a7a42a4e9d41ecb0efc2dc979a5">getPropertyWithDefault</a> (<a class="code hl_class" href="classPoint.html">obj</a>, <span class="stringliteral">&quot;height&quot;</span>, 50);  <span class="comment">// Returns 50 (default)</span></div>
+<div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
+<div class="ttc" id="agroup__gin__gui-utilities_html_ga4a0e5a7a42a4e9d41ecb0efc2dc979a5"><div class="ttname"><a href="group__gin__gui-utilities.html#ga4a0e5a7a42a4e9d41ecb0efc2dc979a5">getPropertyWithDefault</a></div><div class="ttdeci">juce::var getPropertyWithDefault(const juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;defaultValue)</div><div class="ttdoc">Get a property value with a default fallback.</div><div class="ttdef"><b>Definition</b> gin_varianthelpers.h:156</div></div>
+</div><!-- fragment --> 
 </div>
 </div>
 <a id="ga50aa299c064e2ba23134d4271067f253" name="ga50aa299c064e2ba23134d4271067f253"></a>
@@ -344,12 +373,28 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Set a property on a var object. </p>
+<p>If the var contains a DynamicObject, sets the property on it. If the var is not a DynamicObject, this function does nothing.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>The var object to set the property on (passed by reference) </td></tr>
+    <tr><td class="paramname">i</td><td><a class="el" href="structProperty.html" title="Simple key-value pair structure for representing a property.">Property</a> name identifier </td></tr>
+    <tr><td class="paramname">value</td><td>Value to set for the property</td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line">juce::var <a class="code hl_class" href="classPoint.html">obj</a> = <span class="keyword">new</span> juce::DynamicObject();</div>
+<div class="line"><a class="code hl_function" href="group__gin__gui-utilities.html#ga50aa299c064e2ba23134d4271067f253">setProperty</a> (<a class="code hl_class" href="classPoint.html">obj</a>, <span class="stringliteral">&quot;width&quot;</span>, 100);</div>
+<div class="line"><a class="code hl_function" href="group__gin__gui-utilities.html#ga50aa299c064e2ba23134d4271067f253">setProperty</a> (<a class="code hl_class" href="classPoint.html">obj</a>, <span class="stringliteral">&quot;height&quot;</span>, 200);</div>
+<div class="line"><span class="comment">// obj now has properties: width=100, height=200</span></div>
+<div class="ttc" id="agroup__gin__gui-utilities_html_ga50aa299c064e2ba23134d4271067f253"><div class="ttname"><a href="group__gin__gui-utilities.html#ga50aa299c064e2ba23134d4271067f253">setProperty</a></div><div class="ttdeci">void setProperty(juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;value)</div><div class="ttdoc">Set a property on a var object.</div><div class="ttdef"><b>Definition</b> gin_varianthelpers.h:181</div></div>
+</div><!-- fragment --> 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 19 2025 23:11:46 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Nov 19 2025 23:25:13 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

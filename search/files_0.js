@@ -176,13 +176,14 @@ var searchData=
   ['gin_5fvaluetreeutilities_2eh_173',['gin_valuetreeutilities.h',['../gin__valuetreeutilities_8h.html',1,'']]],
   ['gin_5fvaluetreeutilities_2etest_2eh_174',['gin_valuetreeutilities.test.h',['../gin__valuetreeutilities_8test_8h.html',1,'']]],
   ['gin_5fvarianthelpers_2eh_175',['gin_varianthelpers.h',['../gin__varianthelpers_8h.html',1,'']]],
-  ['gin_5fwaveformcomponent_2eh_176',['gin_waveformcomponent.h',['../gin__waveformcomponent_8h.html',1,'']]],
-  ['gin_5fwavetable_2eh_177',['gin_wavetable.h',['../gin__wavetable_8h.html',1,'']]],
-  ['gin_5fwavetablecomponent_2eh_178',['gin_wavetablecomponent.h',['../gin__wavetablecomponent_8h.html',1,'']]],
-  ['gin_5fwebpimageformat_2eh_179',['gin_webpimageformat.h',['../gin__webpimageformat_8h.html',1,'']]],
-  ['gin_5fwebsocket_2eh_180',['gin_websocket.h',['../gin__websocket_8h.html',1,'']]],
-  ['gin_5fwtoscillators_2eh_181',['gin_wtoscillators.h',['../gin__wtoscillators_8h.html',1,'']]],
-  ['gin_5fxmpmetadata_2eh_182',['gin_xmpmetadata.h',['../gin__xmpmetadata_8h.html',1,'']]],
-  ['gin_5fxyscope_2eh_183',['gin_xyscope.h',['../gin__xyscope_8h.html',1,'']]],
-  ['gui_2futilities_2fgin_5futil_2eh_184',['gin_util.h',['../gui_2utilities_2gin__util_8h.html',1,'']]]
+  ['gin_5fvarianthelpers_2etest_2eh_176',['gin_varianthelpers.test.h',['../gin__varianthelpers_8test_8h.html',1,'']]],
+  ['gin_5fwaveformcomponent_2eh_177',['gin_waveformcomponent.h',['../gin__waveformcomponent_8h.html',1,'']]],
+  ['gin_5fwavetable_2eh_178',['gin_wavetable.h',['../gin__wavetable_8h.html',1,'']]],
+  ['gin_5fwavetablecomponent_2eh_179',['gin_wavetablecomponent.h',['../gin__wavetablecomponent_8h.html',1,'']]],
+  ['gin_5fwebpimageformat_2eh_180',['gin_webpimageformat.h',['../gin__webpimageformat_8h.html',1,'']]],
+  ['gin_5fwebsocket_2eh_181',['gin_websocket.h',['../gin__websocket_8h.html',1,'']]],
+  ['gin_5fwtoscillators_2eh_182',['gin_wtoscillators.h',['../gin__wtoscillators_8h.html',1,'']]],
+  ['gin_5fxmpmetadata_2eh_183',['gin_xmpmetadata.h',['../gin__xmpmetadata_8h.html',1,'']]],
+  ['gin_5fxyscope_2eh_184',['gin_xyscope.h',['../gin__xyscope_8h.html',1,'']]],
+  ['gui_2futilities_2fgin_5futil_2eh_185',['gin_util.h',['../gui_2utilities_2gin__util_8h.html',1,'']]]
 ];

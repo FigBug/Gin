@@ -1959,6 +1959,11 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>gin_varianthelpers.test.h</name>
+    <path>build/gin_gui/utilities/</path>
+    <filename>gin__varianthelpers_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_locationmananger.h</name>
     <path>build/gin_location/location/</path>
     <filename>gin__locationmananger_8h.html</filename>
@@ -21312,6 +21317,7 @@
     <name>gin_gui-utilities</name>
     <title>utilities</title>
     <filename>group__gin__gui-utilities.html</filename>
+    <file>gin_varianthelpers.h</file>
     <namespace>macOS</namespace>
     <class kind="class">LambdaTimer</class>
     <class kind="class">LambdaAsyncUpdater</class>
