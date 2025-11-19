@@ -1817,6 +1817,11 @@
     <class kind="class">LayoutSupport</class>
   </compound>
   <compound kind="file">
+    <name>gin_layoutsupport.test.h</name>
+    <path>build/gin_gui/utilities/</path>
+    <filename>gin__layoutsupport_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_openstreetmaps.h</name>
     <path>build/gin_gui/utilities/</path>
     <filename>gin__openstreetmaps_8h.html</filename>
