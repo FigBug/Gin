@@ -54,3 +54,6 @@ juce
 bin
 doxygen/doc
 doxygen/build
+
+# Claude Code
+.claude
