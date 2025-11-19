@@ -24,7 +24,7 @@ void Editor::resized()
 #if JUCE_DEBUG
     auto f = juce::File (__FILE__).getChildFile ("../../Resources/layout.json");
 
-    layout.setLayout ("layout.json", f);
+    layout.setLayout ({f});
 #else
     layout.setLayout ("layout.json");
 #endif

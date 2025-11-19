@@ -28,5 +28,5 @@ private:
 
     DelayBox delay { proc };
 
-    gin::Layout layout { *this };
+    gin::LayoutSupport layout { *this };
 };

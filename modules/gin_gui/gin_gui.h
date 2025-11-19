@@ -64,12 +64,13 @@
 
 namespace gin
 {
+#include "utilities/gin_varianthelpers.h"
 #include "utilities/gin_asyncutilities.h"
 #include "utilities/gin_coalescedtimer.h"
 #include "utilities/gin_util.h"
 #include "utilities/gin_openstreetmaps.h"
 #include "utilities/gin_elevatedfilecopy.h"
-#include "utilities/gin_layout.h"
+#include "utilities/gin_layoutsupport.h"
 #include "utilities/gin_systemclipboard.h"
 
 #include "images/gin_imageutilities.h"

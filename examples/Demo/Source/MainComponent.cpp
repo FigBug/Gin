@@ -1888,50 +1888,50 @@ struct EquationParserDemo : public juce::Component
 juce::String layoutTxt = R"~~~(
 {
    "id": "root",
-   "children": [
+   "components": [
        {
            "id": "a",
            "x": 0,
            "y": 0,
-           "w": "parW()",
-           "h": "parH() / 2 - 10",
-           "children": [
+           "w": "parW",
+           "h": "parH / 2 - 10",
+           "components": [
                {
                    "id": "e",
                    "x": 5,
                    "y": 5,
-                   "r": "parW() / 2 - 2",
-                   "b": "parH() - 5"
+                   "r": "parW / 2 - 2",
+                   "b": "parH - 5"
                },
                {
                    "id": "f",
-                   "x": "prevR() + 4",
+                   "x": "prevR + 4",
                    "y": 5,
-                   "r": "parW() - 5",
-                   "b": "parH() - 5"
+                   "r": "parW - 5",
+                   "b": "parH - 5"
                }
            ]
        },
        {
            "id": "b",
            "x": 0,
-           "y": "prevB() + 20",
-           "w": "parW()",
-           "b": "parH()",
-           "children": [
+           "y": "prevB + 20",
+           "w": "parW",
+           "b": "parH",
+           "components": [
                {
                    "id": "g",
                    "x": 5,
                    "y": 5,
-                   "r": "parW() / 2 - 2",
-                   "b": "parH() - 5"
+                   "r": "parW / 2 - 2",
+                   "b": "parH - 5"
                },
                {
                    "id": "h",
-                   "x": "prevR() + 4",
+                   "x": "prevR + 4",
                    "y": 5,
-                   "r": "parW() - 5",
-                   "b": "parH() - 5"
+                   "r": "parW - 5",
+                   "b": "parH - 5"
                }
            ]
        }
@@ -2005,7 +2005,7 @@ struct LayoutDemo : public juce::Component,
         rc.removeFromLeft (8);
         layoutRoot.setBounds (rc);
         
-        layout.parseLayout (doc.getAllContent());
+        layout.setLayout ("json", doc.getAllContent());
     }
 
     class ColouredComponent : public juce::Component
@@ -2035,8 +2035,8 @@ struct LayoutDemo : public juce::Component,
     juce::CodeEditorComponent layoutJson { doc, nullptr };
     ColouredComponent layoutRoot { "root", juce::Colours::blue };
     
-    gin::Layout layout { layoutRoot };
-    
+    gin::LayoutSupport layout { layoutRoot };
+
     juce::Label error;
 };
 
