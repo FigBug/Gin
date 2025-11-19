@@ -8621,9 +8621,16 @@
       <type>std::function&lt; void()&gt;</type>
       <name>layoutChanged</name>
       <anchorfile>classLayoutSupport.html</anchorfile>
-      <anchor>ac1ad5dec3d93e9f71f20b717c03c2cdd</anchor>
+      <anchor>ab81e49461b2cd7066b40017c67719197</anchor>
       <arglist></arglist>
     </member>
+    <docanchor file="classLayoutSupport.html" title="Basic Usage">usage</docanchor>
+    <docanchor file="classLayoutSupport.html" title="JSON Format">json</docanchor>
+    <docanchor file="classLayoutSupport.html" title="Component Properties">component_props</docanchor>
+    <docanchor file="classLayoutSupport.html" title="Constants">constants</docanchor>
+    <docanchor file="classLayoutSupport.html" title="Expressions">expressions</docanchor>
+    <docanchor file="classLayoutSupport.html" title="Macros">macros</docanchor>
+    <docanchor file="classLayoutSupport.html" title="Examples">examples</docanchor>
   </compound>
   <compound kind="class">
     <name>LeastSquaresRegression</name>

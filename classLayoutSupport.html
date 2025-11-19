@@ -78,6 +78,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>JSON-based layout system for JUCE components.  
+ <a href="classLayoutSupport.html#details">More...</a></p>
+
 <p><code>#include &lt;gin_layoutsupport.h&gt;</code></p>
 
 <p>Inherits gin::FileSystemWatcher::Listener.</p>
@@ -85,31 +88,185 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4066b322b51a4f22c5b3dc8da5a3de59" id="r_a4066b322b51a4f22c5b3dc8da5a3de59"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a4066b322b51a4f22c5b3dc8da5a3de59">LayoutSupport</a> (juce::Component &amp;<a class="el" href="classPoint.html">parent_</a>, std::function&lt; std::pair&lt; juce::Component *, <a class="el" href="classPoint.html">bool</a> &gt;(<a class="el" href="classPoint.html">const</a> juce::String &amp;)&gt; <a class="el" href="classPoint.html">factory_</a>=<a class="el" href="classPoint.html">nullptr</a>)</td></tr>
+<tr class="memdesc:a4066b322b51a4f22c5b3dc8da5a3de59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a <a class="el" href="classLayoutSupport.html" title="JSON-based layout system for JUCE components.">LayoutSupport</a> instance for the given parent component.  <br /></td></tr>
 <tr class="separator:a4066b322b51a4f22c5b3dc8da5a3de59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ab32dc3c6eb51e46a5a024b288b8cc3" id="r_a5ab32dc3c6eb51e46a5a024b288b8cc3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a5ab32dc3c6eb51e46a5a024b288b8cc3">~LayoutSupport</a> () <a class="el" href="classPoint.html">override</a></td></tr>
 <tr class="separator:a5ab32dc3c6eb51e46a5a024b288b8cc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a431510e2dfee54c09e96a3aefa9a242b" id="r_a431510e2dfee54c09e96a3aefa9a242b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a431510e2dfee54c09e96a3aefa9a242b">isLayoutSet</a> ()</td></tr>
+<tr class="memdesc:a431510e2dfee54c09e96a3aefa9a242b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if a layout has been set.  <br /></td></tr>
 <tr class="separator:a431510e2dfee54c09e96a3aefa9a242b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe06c419e3c5d8c4746afd747c628cc7" id="r_abe06c419e3c5d8c4746afd747c628cc7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#abe06c419e3c5d8c4746afd747c628cc7">setLayout</a> (<a class="el" href="classPoint.html">const</a> juce::Array&lt; juce::File &gt; &amp;<a class="el" href="classPoint.html">files</a>)</td></tr>
+<tr class="memdesc:abe06c419e3c5d8c4746afd747c628cc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load layout from JSON files.  <br /></td></tr>
 <tr class="separator:abe06c419e3c5d8c4746afd747c628cc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72e33b2997df874be82e9f4dbcb40418" id="r_a72e33b2997df874be82e9f4dbcb40418"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a72e33b2997df874be82e9f4dbcb40418">setLayout</a> (<a class="el" href="classPoint.html">const</a> juce::StringArray &amp;<a class="el" href="classPoint.html">resourceNames</a>)</td></tr>
+<tr class="memdesc:a72e33b2997df874be82e9f4dbcb40418"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load layout from binary resources (BinaryData).  <br /></td></tr>
 <tr class="separator:a72e33b2997df874be82e9f4dbcb40418"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b1e03defa98dd69165a22884eb4053a" id="r_a1b1e03defa98dd69165a22884eb4053a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a1b1e03defa98dd69165a22884eb4053a">setLayout</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">rawJson</a>)</td></tr>
+<tr class="memdesc:a1b1e03defa98dd69165a22884eb4053a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load layout from raw JSON string.  <br /></td></tr>
 <tr class="separator:a1b1e03defa98dd69165a22884eb4053a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8de7426be92c062971aad2008302073f" id="r_a8de7426be92c062971aad2008302073f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a8de7426be92c062971aad2008302073f">setConstant</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;name, <a class="el" href="classPoint.html">int</a> value)</td></tr>
+<tr class="memdesc:a8de7426be92c062971aad2008302073f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set or update a constant value.  <br /></td></tr>
 <tr class="separator:a8de7426be92c062971aad2008302073f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a9a8d967ecaf9f572ffba7e0b8342bdf4" id="r_a9a8d967ecaf9f572ffba7e0b8342bdf4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">static</a> <a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a9a8d967ecaf9f572ffba7e0b8342bdf4">dumpComponents</a> (juce::Component &amp;c)</td></tr>
+<tr class="memdesc:a9a8d967ecaf9f572ffba7e0b8342bdf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate JSON layout from existing component hierarchy.  <br /></td></tr>
 <tr class="separator:a9a8d967ecaf9f572ffba7e0b8342bdf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ac1ad5dec3d93e9f71f20b717c03c2cdd" id="r_ac1ad5dec3d93e9f71f20b717c03c2cdd"><td class="memItemLeft" align="right" valign="top">std::function&lt; <a class="el" href="classPoint.html">void</a>()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#ac1ad5dec3d93e9f71f20b717c03c2cdd">layoutChanged</a></td></tr>
-<tr class="separator:ac1ad5dec3d93e9f71f20b717c03c2cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab81e49461b2cd7066b40017c67719197" id="r_ab81e49461b2cd7066b40017c67719197"><td class="memItemLeft" align="right" valign="top">std::function&lt; <a class="el" href="classPoint.html">void</a>()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#ab81e49461b2cd7066b40017c67719197">layoutChanged</a></td></tr>
+<tr class="memdesc:ab81e49461b2cd7066b40017c67719197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback invoked when layout is loaded or reloaded.  <br /></td></tr>
+<tr class="separator:ab81e49461b2cd7066b40017c67719197"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>JSON-based layout system for JUCE components. </p>
+<p>Allows declarative component positioning with expressions, constants, macros, and live reloading.</p>
+<h1><a class="anchor" id="usage"></a>
+Basic Usage</h1>
+<div class="fragment"><div class="line"><span class="keyword">class </span><a class="code hl_class" href="classPoint.html">MyComponent</a> : <span class="keyword">public</span> juce::Component</div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <a class="code hl_class" href="classPoint.html">MyComponent</a>() : <a class="code hl_class" href="classPoint.html">layoutSupport</a> (*<a class="code hl_class" href="classPoint.html">this</a>)</div>
+<div class="line">    {</div>
+<div class="line">        <a class="code hl_function" href="group__gin__gui-components.html#ga66410efb088d24a02a86b4c6191e2866">addAndMakeVisible</a> (button);</div>
+<div class="line">        button.setComponentID (<span class="stringliteral">&quot;myButton&quot;</span>);</div>
+<div class="line">        <a class="code hl_class" href="classPoint.html">layoutSupport</a>.setLayout ({ juce::File (<span class="stringliteral">&quot;layout.json&quot;</span>) });</div>
+<div class="line">    }</div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">    <a class="code hl_class" href="classLayoutSupport.html">LayoutSupport</a> <a class="code hl_class" href="classPoint.html">layoutSupport</a>;</div>
+<div class="line">    juce::TextButton button;</div>
+<div class="line">};</div>
+<div class="ttc" id="aclassLayoutSupport_html"><div class="ttname"><a href="classLayoutSupport.html">LayoutSupport</a></div><div class="ttdoc">JSON-based layout system for JUCE components.</div><div class="ttdef"><b>Definition</b> gin_layoutsupport.h:250</div></div>
+<div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
+<div class="ttc" id="agroup__gin__gui-components_html_ga66410efb088d24a02a86b4c6191e2866"><div class="ttname"><a href="group__gin__gui-components.html#ga66410efb088d24a02a86b4c6191e2866">addAndMakeVisible</a></div><div class="ttdeci">void addAndMakeVisible(juce::Component &amp;parent, juce::Array&lt; juce::Component * &gt; children)</div><div class="ttdoc">Adds an Array of components to a parent Component.</div><div class="ttdef"><b>Definition</b> gin_componentutils.h:16</div></div>
+</div><!-- fragment --><h1><a class="anchor" id="json"></a>
+JSON Format</h1>
+<p>Top-level properties:</p><ul>
+<li><code>w</code>, <code>h</code> - Set parent component size</li>
+<li><code>constants</code> - Define reusable constant values</li>
+<li><code>macros</code> - Define reusable component templates</li>
+<li><code>components</code> - Array of component definitions</li>
+</ul>
+<h2><a class="anchor" id="component_props"></a>
+Component Properties</h2>
+<p>Identification:**</p><ul>
+<li><code>id</code> - Component identifier (supports comma-separated list or range syntax like "button[0..9]")</li>
+<li><code>factory</code> - Factory name to create component on demand</li>
+<li><code>optional</code> - Boolean, won't assert if component not found</li>
+<li><p class="startli"><code>if</code> - Conditional expression to include/exclude component</p>
+<p class="startli">Position (absolute):**</p>
+</li>
+<li><code>x</code>, <code>y</code> - Absolute position</li>
+<li><code>xy</code> - Comma-separated "x,y"</li>
+<li><code>r</code>, <code>b</code> - Right/bottom edges</li>
+<li><p class="startli"><code>cx</code>, <code>cy</code> - Center position (requires size)</p>
+<p class="startli">Position (relative):**</p>
+</li>
+<li><code>xd</code> - Horizontal delta from previous (or "delta,refID" for specific component)</li>
+<li><code>yd</code> - Vertical delta from previous (or "delta,refID")</li>
+<li><p class="startli"><code>cxd</code>, <code>cyd</code> - Center delta from previous</p>
+<p class="startli">Position (special):**</p>
+</li>
+<li><code>bounds</code> - "parent", "prev", "reduced,N", "reduced,H,V", "reduced,L,T,R,B", or "x,y,w,h"</li>
+<li><code>inset</code> - Component ID to inset from</li>
+<li><p class="startli"><code>border</code> - Border amount for inset (default 0)</p>
+<p class="startli">Size:**</p>
+</li>
+<li><code>w</code>, <code>h</code> - Width and height</li>
+<li><p class="startli"><code>size</code> - Reference to size constant (e.g., "buttonSize" references constants.buttonSize.w/h)</p>
+<p class="startli">Display:**</p>
+</li>
+<li><code>visible</code> - Boolean or expression</li>
+<li><p class="startli"><code>zorder</code> - Z-order index</p>
+<p class="startli">Accessibility:**</p>
+</li>
+<li><code>title</code> - Accessibility title</li>
+<li><p class="startli"><code>tip</code> - Tooltip text</p>
+<p class="startli">Focus:**</p>
+</li>
+<li><code>order</code> - Component focus order</li>
+<li><p class="startli"><code>parentOrder</code> - Parent component focus order</p>
+<p class="startli">Custom:**</p>
+</li>
+<li><code>properties</code> - Object with custom properties to set on component</li>
+<li><code>constants</code> - Local constants scoped to this component</li>
+<li><code>macro</code> - Macro name with parameters</li>
+<li><p class="startli"><code>components</code> - Nested child components</p>
+<p class="startli">Grid Layout:**</p>
+</li>
+<li><code>grid</code> - Component IDs for grid (supports range syntax)</li>
+<li><code>cols</code>, <code>rows</code> - Grid dimensions (default 1)</li>
+<li><code>colGap</code>, <code>rowGap</code> - Grid spacing (default 0)</li>
+</ul>
+<h2><a class="anchor" id="constants"></a>
+Constants</h2>
+<p>Built-in constants:</p><ul>
+<li><code>mac</code>, <code>win</code>, <code>linux</code> - Platform flags (<a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">1.0</a> or <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">0.0</a>)</li>
+<li><code>parX</code>, <code>parY</code>, <code>parW</code>, <code>parH</code>, <code>parR</code>, <code>parB</code> - Parent bounds</li>
+<li><code>prevX</code>, <code>prevY</code>, <code>prevW</code>, <code>prevH</code>, <code>prevR</code>, <code>prevB</code>, <code>prevCX</code>, <code>prevCY</code> - Previous component</li>
+<li><code>i</code> - Current iteration index (when using multiple IDs or ranges)</li>
+</ul>
+<p>Custom constants can be defined at top-level or per-component: </p><div class="fragment"><div class="line">{</div>
+<div class="line">  &quot;constants&quot;: {</div>
+<div class="line">    &quot;margin&quot;: 10,</div>
+<div class="line">    &quot;colors&quot;: { &quot;red&quot;: 0xFF0000 }</div>
+<div class="line">  },</div>
+<div class="line">  &quot;components&quot;: [</div>
+<div class="line">    { &quot;id&quot;: &quot;button&quot;, &quot;x&quot;: &quot;margin&quot;, &quot;w&quot;: 100, &quot;h&quot;: 30 }</div>
+<div class="line">  ]</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="expressions"></a>
+Expressions</h2>
+<p>All numeric properties support mathematical expressions:</p><ul>
+<li>Operators: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>(</code>, <code>)</code></li>
+<li>Constants: Any defined constant name</li>
+<li>Functions: <code>getX(id)</code>, <code>getY(id)</code>, <code>getW(id)</code>, <code>getH(id)</code>, <code>getR(id)</code>, <code>getB(id)</code>, <code>getCX(id)</code>, <code>getCY(id)</code></li>
+</ul>
+<p>Example: &lsquo;"x": "parW / 2 - getW('button&amp;rsquo;) / 2"`</p>
+<h2><a class="anchor" id="macros"></a>
+Macros</h2>
+<p>Reusable component templates with parameters: </p><div class="fragment"><div class="line">{</div>
+<div class="line">  &quot;macros&quot;: [</div>
+<div class="line">    { &quot;id&quot;: &quot;standardButton&quot;, &quot;w&quot;: 100, &quot;h&quot;: 30, &quot;tip&quot;: &quot;P1&quot; }</div>
+<div class="line">  ],</div>
+<div class="line">  &quot;components&quot;: [</div>
+<div class="line">    { &quot;id&quot;: &quot;saveBtn&quot;, &quot;macro&quot;: &quot;standardButton(&#39;Save&#39;)&quot;, &quot;x&quot;: 10, &quot;y&quot;: 10 }</div>
+<div class="line">  ]</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Parameters are referenced as P1, P2, P3, etc.</p>
+<h2><a class="anchor" id="examples"></a>
+Examples</h2>
+<p>Simple layout: </p><div class="fragment"><div class="line">{</div>
+<div class="line">  &quot;components&quot;: [</div>
+<div class="line">    { &quot;id&quot;: &quot;header&quot;, &quot;bounds&quot;: &quot;parent&quot; },</div>
+<div class="line">    { &quot;id&quot;: &quot;button&quot;, &quot;x&quot;: 10, &quot;y&quot;: 10, &quot;w&quot;: 100, &quot;h&quot;: 30 }</div>
+<div class="line">  ]</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Relative positioning: </p><div class="fragment"><div class="line">{</div>
+<div class="line">  &quot;components&quot;: [</div>
+<div class="line">    { &quot;id&quot;: &quot;button1&quot;, &quot;x&quot;: 10, &quot;y&quot;: 10, &quot;w&quot;: 100, &quot;h&quot;: 30 },</div>
+<div class="line">    { &quot;id&quot;: &quot;button2&quot;, &quot;xd&quot;: 10, &quot;y&quot;: 10 },</div>
+<div class="line">    { &quot;id&quot;: &quot;button3&quot;, &quot;xd&quot;: 10, &quot;y&quot;: 10 }</div>
+<div class="line">  ]</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Grid layout: </p><div class="fragment"><div class="line">{</div>
+<div class="line">  &quot;grid&quot;: &quot;cell[0..8]&quot;,</div>
+<div class="line">  &quot;bounds&quot;: &quot;10,10,300,300&quot;,</div>
+<div class="line">  &quot;cols&quot;: 3,</div>
+<div class="line">  &quot;rows&quot;: 3,</div>
+<div class="line">  &quot;colGap&quot;: 5,</div>
+<div class="line">  &quot;rowGap&quot;: 5</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Range syntax and expressions: </p><div class="fragment"><div class="line">{</div>
+<div class="line">  &quot;id&quot;: &quot;knob[0..7]&quot;,</div>
+<div class="line">  &quot;x&quot;: &quot;10 + i * 50&quot;,</div>
+<div class="line">  &quot;y&quot;: 10,</div>
+<div class="line">  &quot;w&quot;: 40,</div>
+<div class="line">  &quot;h&quot;: 40</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4066b322b51a4f22c5b3dc8da5a3de59" name="a4066b322b51a4f22c5b3dc8da5a3de59"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4066b322b51a4f22c5b3dc8da5a3de59">&#9670;&#160;</a></span>LayoutSupport()</h2>
 
@@ -135,6 +292,15 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Construct a <a class="el" href="classLayoutSupport.html" title="JSON-based layout system for JUCE components.">LayoutSupport</a> instance for the given parent component. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent_</td><td>The parent component whose children will be positioned </td></tr>
+    <tr><td class="paramname">factory_</td><td>Optional factory function to create components on demand. Function signature: (factoryName) -&gt; (Component*, sendToBack) Return nullptr if factory name not recognized. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -188,6 +354,15 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Generate JSON layout from existing component hierarchy. </p>
+<p>Outputs JSON to debug console and copies to clipboard. Useful for migrating existing layouts to JSON format.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>Root component to dump </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a431510e2dfee54c09e96a3aefa9a242b" name="a431510e2dfee54c09e96a3aefa9a242b"></a>
@@ -204,6 +379,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns true if a layout has been set. </p>
 
 </div>
 </div>
@@ -223,6 +400,15 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Load layout from JSON files. </p>
+<p>Watches files for changes and auto-reloads.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">files</td><td>Array of JSON files to load </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a72e33b2997df874be82e9f4dbcb40418" name="a72e33b2997df874be82e9f4dbcb40418"></a>
@@ -241,6 +427,14 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Load layout from binary resources (BinaryData). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">resourceNames</td><td>Array of resource names to load </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a1b1e03defa98dd69165a22884eb4053a" name="a1b1e03defa98dd69165a22884eb4053a"></a>
@@ -258,6 +452,14 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Load layout from raw JSON string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rawJson</td><td>JSON string containing layout definition </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -287,20 +489,31 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Set or update a constant value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Constant name </td></tr>
+    <tr><td class="paramname">value</td><td>Constant value </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac1ad5dec3d93e9f71f20b717c03c2cdd" name="ac1ad5dec3d93e9f71f20b717c03c2cdd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1ad5dec3d93e9f71f20b717c03c2cdd">&#9670;&#160;</a></span>layoutChanged</h2>
+<a id="ab81e49461b2cd7066b40017c67719197" name="ab81e49461b2cd7066b40017c67719197"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab81e49461b2cd7066b40017c67719197">&#9670;&#160;</a></span>layoutChanged</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::function&lt;<a class="el" href="classPoint.html">void</a> ()&gt; LayoutSupport::layoutChanged</td>
+          <td class="memname">std::function&lt;<a class="el" href="classPoint.html">void</a>()&gt; LayoutSupport::layoutChanged</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Callback invoked when layout is loaded or reloaded. </p>
 
 </div>
 </div>
@@ -310,7 +523,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 19 2025 21:49:17 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Nov 19 2025 22:11:18 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

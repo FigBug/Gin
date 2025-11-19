@@ -9,7 +9,7 @@ var searchData=
   ['lastron_6',['lastROn',['../classGateEffect.html#a22b6b9beb3b81d68b875d4a0e9daa035',1,'GateEffect']]],
   ['laststateload_7',['lastStateLoad',['../classProcessor.html#aff2c1655ec7bab3b2b2d19e77f7829fd',1,'Processor']]],
   ['latitude_8',['latitude',['../structLocationManager_1_1Location.html#a7432dea352228865b308d0f62337e3b2',1,'LocationManager::Location']]],
-  ['layoutchanged_9',['layoutChanged',['../classLayoutSupport.html#ac1ad5dec3d93e9f71f20b717c03c2cdd',1,'LayoutSupport']]],
+  ['layoutchanged_9',['layoutChanged',['../classLayoutSupport.html#ab81e49461b2cd7066b40017c67719197',1,'LayoutSupport']]],
   ['learning_10',['learning',['../classKnob.html#a4a082d2e230ead204360e25723f11549',1,'Knob']]],
   ['leftgain_11',['leftgain',['../structStereoOscillator_1_1Params.html#ab7814fe28bdb79772871cef3cf5f5679',1,'StereoOscillator::Params::leftGain'],['../structWTOscillator_1_1Params.html#abef23350d10d65198a293119ced8bb9d',1,'WTOscillator::Params::leftGain']]],
   ['lf_12',['lf',['../classProcessor.html#a7076bef74600565dd0d89a210baadcad',1,'Processor']]],
