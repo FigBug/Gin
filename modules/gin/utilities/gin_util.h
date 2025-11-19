@@ -227,7 +227,8 @@ public:
     */
     double average (double nextValue)
     {
-        return (nextValue + numVals * currAvg) / (double)(numVals + 1);
+        currAvg = (nextValue + numVals * currAvg) / (double)(numVals + 1);
+        return currAvg;
     }
 
     /** Returns the current rolling average value.

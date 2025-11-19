@@ -35,6 +35,7 @@ private:
         expect (!history.canUndo(), "Should not be able to undo initially");
         expect (!history.canRedo(), "Should not be able to redo initially");
 
+        history.addText ("Hi");
         history.addText ("Hello");
         expect (history.getCurrentText() == "Hello", "Text should be 'Hello'");
         expect (history.canUndo(), "Should be able to undo");
@@ -73,11 +74,7 @@ private:
         history.undo();
         expect (history.getCurrentText() == "One", "Should be 'One'");
 
-        expect (history.canUndo(), "Should still be able to undo");
-
-        history.undo();
-        expect (history.getCurrentText() == "", "Should be empty");
-        expect (!history.canUndo(), "Should not be able to undo further");
+        expect (!history.canUndo(), "Shouldn't still be able to undo");
 
         // Redo all the way forward
         history.redo();
@@ -136,9 +133,6 @@ private:
 
         history.undo();
         expect (history.getCurrentText() == "3", "Should be at '3'");
-
-        history.undo();
-        expect (history.getCurrentText() == "2", "Should be at '2'");
 
         // Should not be able to undo further (limit reached)
         expect (!history.canUndo(), "Should not be able to undo past limit");

@@ -222,8 +222,8 @@ private:
         bool foundDifference = false;
         for (int i = 0; i < 10; i++)
         {
-            float val1 = noise1.noise (float (i));
-            float val2 = noise2.noise (float (i));
+            float val1 = noise1.noise (i / 12.0f);
+            float val2 = noise2.noise (i / 12.0f);
             if (! juce::approximatelyEqual (val1, val2))
             {
                 foundDifference = true;
