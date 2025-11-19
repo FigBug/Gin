@@ -2005,7 +2005,7 @@ struct LayoutDemo : public juce::Component,
         rc.removeFromLeft (8);
         layoutRoot.setBounds (rc);
         
-        layout.setLayout ("json", doc.getAllContent());
+        layout.setLayout (doc.getAllContent());
     }
 
     class ColouredComponent : public juce::Component
