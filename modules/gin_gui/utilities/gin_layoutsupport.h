@@ -8,15 +8,15 @@ public:
     void addComponent (juce::Component&);
     juce::String getComponentPath (juce::Component& c);
     juce::Component* findComponent (const juce::String& path);
-    void clearMap ();
+    void clearMap();
 
     juce::StringArray dump();
 
 protected:
-    juce::Component&    parent;
+    juce::Component& parent;
 
 private:
-    std::unordered_map<juce::String, juce::Component*>   componentMap;
+    std::unordered_map<juce::String, juce::Component*> componentMap;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ComponentMap)
 };
@@ -34,13 +34,13 @@ public:
         {
         }
 
-        ~ScopedSave ()
+        ~ScopedSave()
         {
             owner.constants.resize (size);
         }
 
         ConstantsStack& owner;
-        size_t size { owner.constants.size () };
+        size_t size { owner.constants.size() };
     };
 
 private:
@@ -52,19 +52,19 @@ class Parser
 public:
     Parser (const juce::String equation);
 
-    double evaluate ();
+    double evaluate();
 
     // Need to be set before each evaluation
-    ComponentMap*       compMap = nullptr;
-    juce::Component*    curComponent = nullptr;
-    ConstantsStack*     constants = nullptr;
+    ComponentMap* compMap = nullptr;
+    juce::Component* curComponent = nullptr;
+    ConstantsStack* constants = nullptr;
 
 private:
     juce::Component* getComp (const juce::String& cid);
 
     std::vector<juce::String> usedConstants;
     size_t varStackPtr = 0;
-    double varStack[ 10 ];
+    double varStack[10];
 
     gin::EquationParser parser;
 };
@@ -72,12 +72,12 @@ private:
 class LayoutSupport : private gin::FileSystemWatcher::Listener
 {
 public:
-    LayoutSupport (juce::Component& parent_, std::function<std::pair<juce::Component*,bool>(const juce::String&)> factory_ = nullptr);
+    LayoutSupport (juce::Component& parent_, std::function<std::pair<juce::Component*, bool> (const juce::String&)> factory_ = nullptr);
 
-    ~LayoutSupport () override;
+    ~LayoutSupport() override;
     static void dumpComponents (juce::Component& c);
 
-    bool isLayoutSet ();
+    bool isLayoutSet();
 
     void setLayout (const juce::Array<juce::File>& files);
     void setLayout (const juce::StringArray& resourceNames);
@@ -85,13 +85,13 @@ public:
 
     void setConstant (const juce::String& name, int value);
 
-    std::function<void ()> layoutChanged;
+    std::function<void()> layoutChanged;
 
 private:
     juce::String findContent (const juce::String& name);
     juce::Component* getComp (const juce::String& cid);
 
-    juce::Component&    parent;
+    juce::Component& parent;
 
     struct Bounds
     {
@@ -121,30 +121,30 @@ private:
     Bounds getBounds (int idIdx, const juce::var& component);
 
     juce::Component* setPosition (const juce::String& currentPath,
-                                   const juce::String& id,
-                                   int idIdx,
-                                   const juce::var& component);
+                                  const juce::String& id,
+                                  int idIdx,
+                                  const juce::var& component);
 
     juce::var expandMacro (const juce::var& component);
 
     void setGridPositions (const juce::String& currentPath, const juce::var& component);
 
-    inline static int                       refCount = 0;
+    inline static int refCount = 0;
     inline static std::unique_ptr<FileSystemWatcher> watcher;
 
     // gin::FileSystemWatcher::Listener
     void fileChanged (const juce::File&, gin::FileSystemWatcher::FileSystemEvent) override;
 
-    ConstantsStack                          constants;
-    std::map<juce::String, juce::var>        macros;
+    ConstantsStack constants;
+    std::map<juce::String, juce::var> macros;
 
-    juce::Array<juce::File>                 layoutFiles;
-    bool                                    layoutSet = false;
+    juce::Array<juce::File> layoutFiles;
+    bool layoutSet = false;
 
-    juce::Component*                        curComponent = nullptr;
+    juce::Component* curComponent = nullptr;
 
-    juce::OwnedArray<juce::Component>       createdComponents;
+    juce::OwnedArray<juce::Component> createdComponents;
 
-    ComponentMap    compMap;
-    std::function<std::pair<juce::Component*,bool>(const juce::String&)> componentFactory;
+    ComponentMap compMap;
+    std::function<std::pair<juce::Component*, bool> (const juce::String&)> componentFactory;
 };
