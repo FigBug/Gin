@@ -517,6 +517,11 @@
     <class kind="class">TextHistory</class>
   </compound>
   <compound kind="file">
+    <name>gin_texthistory.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__texthistory_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_threading.h</name>
     <path>build/gin/utilities/</path>
     <filename>gin__threading_8h.html</filename>
@@ -679,6 +684,11 @@
     <class kind="struct">Notch12State</class>
     <class kind="struct">Notch24State</class>
     <class kind="class">AudioFunctionHost</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_audiofunctions.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__audiofunctions_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_audiomidififo.h</name>
@@ -1489,6 +1499,198 @@
       <anchor>ga590207f6293f03a5a4e4e2a1d4f3db15</anchor>
       <arglist>(juce::Image &amp;dst, BlendMode mode, juce::Colour c, juce::ThreadPool *threadPool=nullptr)</arglist>
     </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendNormal</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga5df60bffb135386b0fcb210a1053a70e</anchor>
+      <arglist>(int A, int)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendLighten</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gab42c7b790fa3569fbe7f63ef74e0fd1a</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendDarken</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga664e70d0530b1cbeaaad40ff12482a4b</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendMultiply</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga50f496a63995152fe14fddefde479c5f</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendAverage</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga6197eee6d971667fd20ac56922f841f0</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendAdd</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga8143a520db520b538450852859ac0826</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendSubtract</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga0d8c0e79c92ca65e156aae63e7db769d</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendDifference</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga9ecb7f2333a9fa700e18e96e1212c300</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendNegation</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga4570f840cd466fc2252ba422281e12a8</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendScreen</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga1fdbc7c46ee6ad43c3fce755c7cdc770</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendExclusion</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gac2362a72ad08c8a9a1ca2c5ed55d27a1</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendOverlay</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gabb8fa1eec405c7934369fcceabfdb317</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendSoftLight</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga816ef20ba201222ee36ae88759459f78</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendHardLight</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gae1ffd6c5f4fb46fa703116921789b2ab</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendColorDodge</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gaec96db4a9cbeadcec4310b5f9365b72f</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendColorBurn</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga977e3ee3b4de0a0c16b0a9ccfe39c102</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendLinearDodge</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga9d02a1d3c853eb24aace4928e9cff9e5</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendLinearBurn</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga1b1fcdf1c3489f81acc21cb22fc133a2</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendLinearLight</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga7410e6c5f1a2221730975e0d81a69917</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendVividLight</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gaa1902ca8a7156f1710bba8a03f36b6ed</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendPinLight</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gacbea98167275fa54b7cc6aab2660b33f</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendHardMix</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gaf9a1d592f0676ead8a1f66bf431103ab</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendReflect</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gaf244d0b40e5a7f83ca039868894b4140</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendGlow</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gac7cd86042e599d1c6308a7c9a588a075</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendPhoenix</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga33f5133880bec046ad012d0196814d55</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendAlpha</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga6ca2bcca3726d2fa3fc004a1e8bd7813</anchor>
+      <arglist>(uint8_t A, uint8_t B, float O)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_imageeffects.test.h</name>
+    <path>build/gin_graphics/images/</path>
+    <filename>gin__imageeffects_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>gin_imageeffects_blending.test.h</name>
+    <path>build/gin_graphics/images/</path>
+    <filename>gin__imageeffects__blending_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_componentgrid.h</name>
@@ -1609,6 +1811,11 @@
     <path>build/gin_gui/utilities/</path>
     <filename>gin__layout_8h.html</filename>
     <class kind="class">Layout</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_layout.test.h</name>
+    <path>build/gin_gui/utilities/</path>
+    <filename>gin__layout_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_openstreetmaps.h</name>
@@ -8290,6 +8497,48 @@
       <anchorfile>classLayout.html</anchorfile>
       <anchor>a2a152b945b2c1b21fa7b3a091916c44f</anchor>
       <arglist>(const juce::String &amp;name, double val)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getParentPath</name>
+      <anchorfile>classLayout.html</anchorfile>
+      <anchor>a6aba78b3f17d39a66d0c14b7f8efe5e0</anchor>
+      <arglist>(juce::String in)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>addTrailingSlash</name>
+      <anchorfile>classLayout.html</anchorfile>
+      <anchor>a5810228b96e6ec40783495c90fb20840</anchor>
+      <arglist>(const juce::String &amp;path)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>isAbsolutePath</name>
+      <anchorfile>classLayout.html</anchorfile>
+      <anchor>ac6ba5abda05720b3cccfc64db0e13b51</anchor>
+      <arglist>(juce::StringRef path)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getChildPath</name>
+      <anchorfile>classLayout.html</anchorfile>
+      <anchor>a9c74ac69b1135c59ad5684bd8ff84bb9</anchor>
+      <arglist>(juce::String fullPath, juce::StringRef relativePath)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::StringArray</type>
+      <name>expandTokens</name>
+      <anchorfile>classLayout.html</anchorfile>
+      <anchor>ab6912e5c4b2c402375913dd6ea8268b3</anchor>
+      <arglist>(juce::StringArray in)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getComponentPath</name>
+      <anchorfile>classLayout.html</anchorfile>
+      <anchor>ace98c78372fa808cdc83bdee52ec3274</anchor>
+      <arglist>(juce::Component &amp;parent, juce::Component &amp;c)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -20178,6 +20427,188 @@
       <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>ga590207f6293f03a5a4e4e2a1d4f3db15</anchor>
       <arglist>(juce::Image &amp;dst, BlendMode mode, juce::Colour c, juce::ThreadPool *threadPool=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendNormal</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga5df60bffb135386b0fcb210a1053a70e</anchor>
+      <arglist>(int A, int)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendLighten</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gab42c7b790fa3569fbe7f63ef74e0fd1a</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendDarken</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga664e70d0530b1cbeaaad40ff12482a4b</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendMultiply</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga50f496a63995152fe14fddefde479c5f</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendAverage</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga6197eee6d971667fd20ac56922f841f0</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendAdd</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga8143a520db520b538450852859ac0826</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendSubtract</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga0d8c0e79c92ca65e156aae63e7db769d</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendDifference</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga9ecb7f2333a9fa700e18e96e1212c300</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendNegation</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga4570f840cd466fc2252ba422281e12a8</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendScreen</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga1fdbc7c46ee6ad43c3fce755c7cdc770</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendExclusion</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gac2362a72ad08c8a9a1ca2c5ed55d27a1</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendOverlay</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gabb8fa1eec405c7934369fcceabfdb317</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendSoftLight</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga816ef20ba201222ee36ae88759459f78</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendHardLight</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gae1ffd6c5f4fb46fa703116921789b2ab</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendColorDodge</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gaec96db4a9cbeadcec4310b5f9365b72f</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendColorBurn</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga977e3ee3b4de0a0c16b0a9ccfe39c102</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendLinearDodge</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga9d02a1d3c853eb24aace4928e9cff9e5</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendLinearBurn</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga1b1fcdf1c3489f81acc21cb22fc133a2</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendLinearLight</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga7410e6c5f1a2221730975e0d81a69917</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendVividLight</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gaa1902ca8a7156f1710bba8a03f36b6ed</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendPinLight</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gacbea98167275fa54b7cc6aab2660b33f</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendHardMix</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gaf9a1d592f0676ead8a1f66bf431103ab</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendReflect</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gaf244d0b40e5a7f83ca039868894b4140</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendGlow</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gac7cd86042e599d1c6308a7c9a588a075</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendPhoenix</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga33f5133880bec046ad012d0196814d55</anchor>
+      <arglist>(int A, int B)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>channelBlendAlpha</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>ga6ca2bcca3726d2fa3fc004a1e8bd7813</anchor>
+      <arglist>(uint8_t A, uint8_t B, float O)</arglist>
     </member>
   </compound>
   <compound kind="group">
