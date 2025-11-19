@@ -4,7 +4,7 @@ var searchData=
   ['lambdamouselistener_1',['LambdaMouseListener',['../classLambdaMouseListener.html',1,'']]],
   ['lambdatimer_2',['LambdaTimer',['../classLambdaTimer.html',1,'']]],
   ['lambdavaluetreelistener_3',['LambdaValueTreeListener',['../classLambdaValueTreeListener.html',1,'']]],
-  ['layout_4',['Layout',['../classLayout.html',1,'']]],
+  ['layoutsupport_4',['LayoutSupport',['../classLayoutSupport.html',1,'']]],
   ['leastsquaresregression_5',['LeastSquaresRegression',['../classLeastSquaresRegression.html',1,'']]],
   ['lengthandcharacterrestriction_6',['LengthAndCharacterRestriction',['../classSingleLineTextEditor_1_1LengthAndCharacterRestriction.html',1,'SingleLineTextEditor']]],
   ['levelmeter_7',['LevelMeter',['../classLevelMeter.html',1,'']]],

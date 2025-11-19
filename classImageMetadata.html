@@ -128,8 +128,8 @@ Protected Attributes</h2></td></tr>
 <div class="line">    {</div>
 <div class="line">        <a class="code hl_class" href="classPoint.html">DBG</a>(<span class="stringliteral">&quot;Metadata type: &quot;</span> + <a class="code hl_class" href="classPoint.html">meta</a>-&gt;getType());</div>
 <div class="line">        <a class="code hl_class" href="classPoint.html">StringPairArray</a> data = <a class="code hl_class" href="classPoint.html">meta</a>-&gt;getAllMetadata();</div>
-<div class="line">        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; <a class="code hl_class" href="classPoint.html">key</a> : data.<a class="code hl_class" href="classPoint.html">getAllKeys</a>())</div>
-<div class="line">            <a class="code hl_class" href="classPoint.html">DBG</a>(<a class="code hl_class" href="classPoint.html">key</a> + <span class="stringliteral">&quot;: &quot;</span> + data[<a class="code hl_class" href="classPoint.html">key</a>]);</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; key : data.<a class="code hl_class" href="classPoint.html">getAllKeys</a>())</div>
+<div class="line">            <a class="code hl_class" href="classPoint.html">DBG</a>(key + <span class="stringliteral">&quot;: &quot;</span> + data[key]);</div>
 <div class="line">    }</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassImageMetadata_html_a2370391c426e1544b439a6b556f0109c"><div class="ttname"><a href="classImageMetadata.html#a2370391c426e1544b439a6b556f0109c">ImageMetadata::getFromImage</a></div><div class="ttdeci">static bool getFromImage(juce::InputStream &amp;is, juce::OwnedArray&lt; ImageMetadata &gt; &amp;metadata)</div></div>
@@ -293,7 +293,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 19 2025 19:09:56 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Nov 19 2025 21:49:17 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

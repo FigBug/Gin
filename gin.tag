@@ -1807,15 +1807,14 @@
     <class kind="class">ElevatedFileCopy</class>
   </compound>
   <compound kind="file">
-    <name>gin_layout.h</name>
+    <name>gin_layoutsupport.h</name>
     <path>build/gin_gui/utilities/</path>
-    <filename>gin__layout_8h.html</filename>
-    <class kind="class">Layout</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_layout.test.h</name>
-    <path>build/gin_gui/utilities/</path>
-    <filename>gin__layout_8test_8h.html</filename>
+    <filename>gin__layoutsupport_8h.html</filename>
+    <class kind="class">ComponentMap</class>
+    <class kind="class">ConstantsStack</class>
+    <class kind="class">ConstantsStack::ScopedSave</class>
+    <class kind="class">Parser</class>
+    <class kind="class">LayoutSupport</class>
   </compound>
   <compound kind="file">
     <name>gin_openstreetmaps.h</name>
@@ -1932,6 +1931,26 @@
       <anchorfile>group__gin__gui-utilities.html</anchorfile>
       <anchor>gad1ffdc179588a1832355270be9b5a516</anchor>
       <arglist>(juce::Component &amp;c)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_varianthelpers.h</name>
+    <path>build/gin_gui/utilities/</path>
+    <filename>gin__varianthelpers_8h.html</filename>
+    <class kind="struct">Property</class>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>getPropertyWithDefault</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4a0e5a7a42a4e9d41ecb0efc2dc979a5</anchor>
+      <arglist>(const juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;defaultValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setProperty</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga50aa299c064e2ba23134d4271067f253</anchor>
+      <arglist>(juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;value)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -4791,6 +4810,66 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>ComponentMap</name>
+    <filename>classComponentMap.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ComponentMap</name>
+      <anchorfile>classComponentMap.html</anchorfile>
+      <anchor>aacabfbab4ac5133982d9237b5b67ea15</anchor>
+      <arglist>(juce::Component &amp;parent_)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>createMap</name>
+      <anchorfile>classComponentMap.html</anchorfile>
+      <anchor>a962878a2c9834ebf7f79eab71af42788</anchor>
+      <arglist>(const std::function&lt; bool(juce::Component &amp;)&gt; &amp;checkChildren=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addComponent</name>
+      <anchorfile>classComponentMap.html</anchorfile>
+      <anchor>a6f89dfb31635660ef56b662da176bf0e</anchor>
+      <arglist>(juce::Component &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getComponentPath</name>
+      <anchorfile>classComponentMap.html</anchorfile>
+      <anchor>ab8f1eeee758a0fc13d0d89bbee29e5dd</anchor>
+      <arglist>(juce::Component &amp;c)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Component *</type>
+      <name>findComponent</name>
+      <anchorfile>classComponentMap.html</anchorfile>
+      <anchor>aefd7e660aa0fe49ea5372c158e54d369</anchor>
+      <arglist>(const juce::String &amp;path)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clearMap</name>
+      <anchorfile>classComponentMap.html</anchorfile>
+      <anchor>ac80ffc980db90cbc1f1a9efb282b79bc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::StringArray</type>
+      <name>dump</name>
+      <anchorfile>classComponentMap.html</anchorfile>
+      <anchor>add0016cb2ea88106534fd09e064aec33</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::Component &amp;</type>
+      <name>parent</name>
+      <anchorfile>classComponentMap.html</anchorfile>
+      <anchor>abf362b97e873e410fb6ce340af807980</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>ComponentViewer</name>
     <filename>classComponentViewer.html</filename>
     <member kind="function">
@@ -4813,6 +4892,25 @@
       <anchorfile>classComponentViewer.html</anchorfile>
       <anchor>a920864da69c29c1834621727758557c4</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>ConstantsStack</name>
+    <filename>classConstantsStack.html</filename>
+    <class kind="class">ConstantsStack::ScopedSave</class>
+    <member kind="function">
+      <type>void</type>
+      <name>set</name>
+      <anchorfile>classConstantsStack.html</anchorfile>
+      <anchor>a4840db3490f09e567123acd780c0d529</anchor>
+      <arglist>(const juce::String &amp;name, double value)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::optional&lt; double &gt;</type>
+      <name>get</name>
+      <anchorfile>classConstantsStack.html</anchorfile>
+      <anchor>a4fece72ca9e71e133b0e230d501a93ca</anchor>
+      <arglist>(const juce::String &amp;name)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -8461,84 +8559,70 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>Layout</name>
-    <filename>classLayout.html</filename>
+    <name>LayoutSupport</name>
+    <filename>classLayoutSupport.html</filename>
     <member kind="function">
       <type></type>
-      <name>Layout</name>
-      <anchorfile>classLayout.html</anchorfile>
-      <anchor>a8f18cc1ec63365c09c3a54412a0a98de</anchor>
-      <arglist>(juce::Component &amp;parent)</arglist>
+      <name>LayoutSupport</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a4066b322b51a4f22c5b3dc8da5a3de59</anchor>
+      <arglist>(juce::Component &amp;parent_, std::function&lt; std::pair&lt; juce::Component *, bool &gt;(const juce::String &amp;)&gt; factory_=nullptr)</arglist>
     </member>
     <member kind="function">
       <type></type>
-      <name>~Layout</name>
-      <anchorfile>classLayout.html</anchorfile>
-      <anchor>a9f53a76fe9a45d0f6325b42eadf51fa9</anchor>
+      <name>~LayoutSupport</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a5ab32dc3c6eb51e46a5a024b288b8cc3</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isLayoutSet</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a431510e2dfee54c09e96a3aefa9a242b</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setLayout</name>
-      <anchorfile>classLayout.html</anchorfile>
-      <anchor>a06258e0c1d8e8ddc9684787951b4201a</anchor>
-      <arglist>(const juce::String &amp;filename, const juce::File &amp;source={})</arglist>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>abe06c419e3c5d8c4746afd747c628cc7</anchor>
+      <arglist>(const juce::Array&lt; juce::File &gt; &amp;files)</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
-      <name>parseLayout</name>
-      <anchorfile>classLayout.html</anchorfile>
-      <anchor>a66dd59fbfee00f951cccceda0c7d4cf9</anchor>
-      <arglist>(const juce::String &amp;content)</arglist>
+      <type>void</type>
+      <name>setLayout</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a72e33b2997df874be82e9f4dbcb40418</anchor>
+      <arglist>(const juce::StringArray &amp;resourceNames)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setLayout</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a1b1e03defa98dd69165a22884eb4053a</anchor>
+      <arglist>(const juce::String &amp;rawJson)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setConstant</name>
-      <anchorfile>classLayout.html</anchorfile>
-      <anchor>a2a152b945b2c1b21fa7b3a091916c44f</anchor>
-      <arglist>(const juce::String &amp;name, double val)</arglist>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a8de7426be92c062971aad2008302073f</anchor>
+      <arglist>(const juce::String &amp;name, int value)</arglist>
     </member>
     <member kind="function" static="yes">
-      <type>static juce::String</type>
-      <name>getParentPath</name>
-      <anchorfile>classLayout.html</anchorfile>
-      <anchor>a6aba78b3f17d39a66d0c14b7f8efe5e0</anchor>
-      <arglist>(juce::String in)</arglist>
+      <type>static void</type>
+      <name>dumpComponents</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a9a8d967ecaf9f572ffba7e0b8342bdf4</anchor>
+      <arglist>(juce::Component &amp;c)</arglist>
     </member>
-    <member kind="function" static="yes">
-      <type>static juce::String</type>
-      <name>addTrailingSlash</name>
-      <anchorfile>classLayout.html</anchorfile>
-      <anchor>a5810228b96e6ec40783495c90fb20840</anchor>
-      <arglist>(const juce::String &amp;path)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static bool</type>
-      <name>isAbsolutePath</name>
-      <anchorfile>classLayout.html</anchorfile>
-      <anchor>ac6ba5abda05720b3cccfc64db0e13b51</anchor>
-      <arglist>(juce::StringRef path)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static juce::String</type>
-      <name>getChildPath</name>
-      <anchorfile>classLayout.html</anchorfile>
-      <anchor>a9c74ac69b1135c59ad5684bd8ff84bb9</anchor>
-      <arglist>(juce::String fullPath, juce::StringRef relativePath)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static juce::StringArray</type>
-      <name>expandTokens</name>
-      <anchorfile>classLayout.html</anchorfile>
-      <anchor>ab6912e5c4b2c402375913dd6ea8268b3</anchor>
-      <arglist>(juce::StringArray in)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static juce::String</type>
-      <name>getComponentPath</name>
-      <anchorfile>classLayout.html</anchorfile>
-      <anchor>ace98c78372fa808cdc83bdee52ec3274</anchor>
-      <arglist>(juce::Component &amp;parent, juce::Component &amp;c)</arglist>
+    <member kind="variable">
+      <type>std::function&lt; void()&gt;</type>
+      <name>layoutChanged</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>ac1ad5dec3d93e9f71f20b717c03c2cdd</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -12656,6 +12740,45 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>Parser</name>
+    <filename>classParser.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Parser</name>
+      <anchorfile>classParser.html</anchorfile>
+      <anchor>aba328097fe4370ffccb5e24e2f888c39</anchor>
+      <arglist>(const juce::String equation)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>evaluate</name>
+      <anchorfile>classParser.html</anchorfile>
+      <anchor>a547bfdb4221079e7c9afef926cb46bdd</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>ComponentMap *</type>
+      <name>compMap</name>
+      <anchorfile>classParser.html</anchorfile>
+      <anchor>a656b1601d2e19985a88a7c01f6bff472</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Component *</type>
+      <name>curComponent</name>
+      <anchorfile>classParser.html</anchorfile>
+      <anchor>aa6ab5ba9573a49ee91f4f7c83c3291dd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ConstantsStack *</type>
+      <name>constants</name>
+      <anchorfile>classParser.html</anchorfile>
+      <anchor>ab76e9b43d5f3a2489c0cb6d0cd1120ed</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>PatchBrowser</name>
     <filename>classPatchBrowser.html</filename>
     <class kind="struct">PatchBrowser::AuthorsModel</class>
@@ -14355,6 +14478,38 @@
       <arglist></arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>Property</name>
+    <filename>structProperty.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Property</name>
+      <anchorfile>structProperty.html</anchorfile>
+      <anchor>a9412f63da91a0a78713db5048973204b</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Property</name>
+      <anchorfile>structProperty.html</anchorfile>
+      <anchor>afb868a85098fecb91249b69f3e72b85e</anchor>
+      <arglist>(const juce::String &amp;k, const juce::var v)</arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>key</name>
+      <anchorfile>structProperty.html</anchorfile>
+      <anchor>a036d8f318fffa88cef21d494ed405443</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::var</type>
+      <name>value</name>
+      <anchorfile>structProperty.html</anchorfile>
+      <anchor>ad6cc4703b5f5315e1b4e7dc7266ecbad</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>PropertyComponentBase</name>
     <filename>classPropertyComponentBase.html</filename>
@@ -14937,6 +15092,38 @@
       <name>state</name>
       <anchorfile>classScaledPluginEditor.html</anchorfile>
       <anchor>a89a340337e0990d4300d47d0658eedc7</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>ConstantsStack::ScopedSave</name>
+    <filename>classConstantsStack_1_1ScopedSave.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ScopedSave</name>
+      <anchorfile>classConstantsStack_1_1ScopedSave.html</anchorfile>
+      <anchor>a81ce8241a737a554c2f308fc621f208e</anchor>
+      <arglist>(ConstantsStack &amp;o)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~ScopedSave</name>
+      <anchorfile>classConstantsStack_1_1ScopedSave.html</anchorfile>
+      <anchor>a684af89da99ce184c40027d92de5f5f5</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>ConstantsStack &amp;</type>
+      <name>owner</name>
+      <anchorfile>classConstantsStack_1_1ScopedSave.html</anchorfile>
+      <anchor>a855c86e2ff399fe72682d6ecbd783323</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>size_t</type>
+      <name>size</name>
+      <anchorfile>classConstantsStack_1_1ScopedSave.html</anchorfile>
+      <anchor>aeea19afd8ec5d0c8a41a0e4d36da0931</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -21119,11 +21306,16 @@
     <class kind="class">LambdaMouseListener</class>
     <class kind="class">CoalescedTimer</class>
     <class kind="class">ElevatedFileCopy</class>
-    <class kind="class">Layout</class>
+    <class kind="class">ComponentMap</class>
+    <class kind="class">ConstantsStack</class>
+    <class kind="class">ConstantsStack::ScopedSave</class>
+    <class kind="class">Parser</class>
+    <class kind="class">LayoutSupport</class>
     <class kind="class">OpenStreetMaps</class>
     <class kind="class">OpenStreetMaps::Listener</class>
     <class kind="class">SystemClipboard</class>
     <class kind="class">AsyncDownload</class>
+    <class kind="struct">Property</class>
     <member kind="function">
       <type>void</type>
       <name>callOnMainThreadBlocking</name>
@@ -21165,6 +21357,20 @@
       <anchorfile>group__gin__gui-utilities.html</anchorfile>
       <anchor>gad1ffdc179588a1832355270be9b5a516</anchor>
       <arglist>(juce::Component &amp;c)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>getPropertyWithDefault</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4a0e5a7a42a4e9d41ecb0efc2dc979a5</anchor>
+      <arglist>(const juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;defaultValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setProperty</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga50aa299c064e2ba23134d4271067f253</anchor>
+      <arglist>(juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;value)</arglist>
     </member>
   </compound>
 </tagfile>

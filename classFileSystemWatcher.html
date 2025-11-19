@@ -165,16 +165,19 @@ Public Member Functions</h2></td></tr>
 <div class="line">    }</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><a class="code hl_class" href="classFileSystemWatcher.html">FileSystemWatcher</a> <a class="code hl_class" href="classPoint.html">watcher</a>;</div>
-<div class="line"><a class="code hl_class" href="classPoint.html">watcher</a>.addFolder(<a class="code hl_class" href="classPoint.html">File</a>(<span class="stringliteral">&quot;/path/to/watch&quot;</span>));</div>
-<div class="line"><a class="code hl_class" href="classPoint.html">watcher</a>.coalesceEvents(100);  <span class="comment">// Coalesce events within 100ms</span></div>
+<div class="line"><a class="code hl_class" href="classFileSystemWatcher.html">FileSystemWatcher</a> watcher;</div>
+<div class="line">watcher.<a class="code hl_function" href="classFileSystemWatcher.html#a90c382d8d77550e122c03dff90a10c4e">addFolder</a>(<a class="code hl_class" href="classPoint.html">File</a>(<span class="stringliteral">&quot;/path/to/watch&quot;</span>));</div>
+<div class="line">watcher.<a class="code hl_function" href="classFileSystemWatcher.html#a35ba78e1d5295dfd3984bc9625b38687">coalesceEvents</a>(100);  <span class="comment">// Coalesce events within 100ms</span></div>
 <div class="line"> </div>
 <div class="line"><a class="code hl_class" href="classPoint.html">MyFileMonitor</a> <a class="code hl_class" href="classPoint.html">monitor</a>;</div>
-<div class="line"><a class="code hl_class" href="classPoint.html">watcher</a>.addListener(&amp;<a class="code hl_class" href="classPoint.html">monitor</a>);</div>
+<div class="line">watcher.<a class="code hl_function" href="classFileSystemWatcher.html#ad2486d627a8a5cc3512e4a47e7a5cdb0">addListener</a>(&amp;<a class="code hl_class" href="classPoint.html">monitor</a>);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Watcher runs in background, calling listener on message thread</span></div>
 <div class="ttc" id="aclassFileSystemWatcher_1_1Listener_html"><div class="ttname"><a href="classFileSystemWatcher_1_1Listener.html">FileSystemWatcher::Listener</a></div><div class="ttdoc">Listener interface for receiving file system change notifications.</div><div class="ttdef"><b>Definition</b> gin_filesystemwatcher.h:167</div></div>
 <div class="ttc" id="aclassFileSystemWatcher_html"><div class="ttname"><a href="classFileSystemWatcher.html">FileSystemWatcher</a></div><div class="ttdoc">Cross-platform file system watcher for monitoring folder changes.</div><div class="ttdef"><b>Definition</b> gin_filesystemwatcher.h:78</div></div>
+<div class="ttc" id="aclassFileSystemWatcher_html_a35ba78e1d5295dfd3984bc9625b38687"><div class="ttname"><a href="classFileSystemWatcher.html#a35ba78e1d5295dfd3984bc9625b38687">FileSystemWatcher::coalesceEvents</a></div><div class="ttdeci">void coalesceEvents(int windowMS)</div><div class="ttdoc">All events that arrive withing the time window for a particular file will be coalesced into one event...</div></div>
+<div class="ttc" id="aclassFileSystemWatcher_html_a90c382d8d77550e122c03dff90a10c4e"><div class="ttname"><a href="classFileSystemWatcher.html#a90c382d8d77550e122c03dff90a10c4e">FileSystemWatcher::addFolder</a></div><div class="ttdeci">void addFolder(const juce::File &amp;folder)</div><div class="ttdoc">Adds a folder to be watched.</div></div>
+<div class="ttc" id="aclassFileSystemWatcher_html_ad2486d627a8a5cc3512e4a47e7a5cdb0"><div class="ttname"><a href="classFileSystemWatcher.html#ad2486d627a8a5cc3512e4a47e7a5cdb0">FileSystemWatcher::addListener</a></div><div class="ttdeci">void addListener(Listener *newListener)</div><div class="ttdoc">Registers a listener to be told when things happen to the text.</div></div>
 <div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 </div><!-- fragment --><p>Thread Safety:</p><ul>
 <li>addFolder/removeFolder are thread-safe</li>
@@ -409,7 +412,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 19 2025 19:09:56 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Nov 19 2025 21:49:17 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

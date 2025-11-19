@@ -8,11 +8,13 @@ var searchData=
   ['colourpropertycomponent_5',['ColourPropertyComponent',['../classColourPropertyComponent.html',1,'']]],
   ['commentmetadata_6',['CommentMetadata',['../classCommentMetadata.html',1,'']]],
   ['componentgrid_7',['ComponentGrid',['../classComponentGrid.html',1,'']]],
-  ['componentviewer_8',['ComponentViewer',['../classComponentViewer.html',1,'']]],
-  ['controlbox_9',['ControlBox',['../classControlBox.html',1,'']]],
-  ['copperlookandfeel_10',['CopperLookAndFeel',['../classCopperLookAndFeel.html',1,'']]],
-  ['copperlookandfeelwrapper_11',['CopperLookAndFeelWrapper',['../classCopperLookAndFeelWrapper.html',1,'']]],
-  ['cubicineasing_12',['CubicInEasing',['../structCubicInEasing.html',1,'']]],
-  ['cubicinouteasing_13',['CubicInOutEasing',['../structCubicInOutEasing.html',1,'']]],
-  ['cubicouteasing_14',['CubicOutEasing',['../structCubicOutEasing.html',1,'']]]
+  ['componentmap_8',['ComponentMap',['../classComponentMap.html',1,'']]],
+  ['componentviewer_9',['ComponentViewer',['../classComponentViewer.html',1,'']]],
+  ['constantsstack_10',['ConstantsStack',['../classConstantsStack.html',1,'']]],
+  ['controlbox_11',['ControlBox',['../classControlBox.html',1,'']]],
+  ['copperlookandfeel_12',['CopperLookAndFeel',['../classCopperLookAndFeel.html',1,'']]],
+  ['copperlookandfeelwrapper_13',['CopperLookAndFeelWrapper',['../classCopperLookAndFeelWrapper.html',1,'']]],
+  ['cubicineasing_14',['CubicInEasing',['../structCubicInEasing.html',1,'']]],
+  ['cubicinouteasing_15',['CubicInOutEasing',['../structCubicInOutEasing.html',1,'']]],
+  ['cubicouteasing_16',['CubicOutEasing',['../structCubicOutEasing.html',1,'']]]
 ];

@@ -48,9 +48,8 @@ var searchData=
   ['escapepressed_45',['escapePressed',['../classSingleLineTextEditor.html#a68de7f5755634511183f84ebebab29a7',1,'SingleLineTextEditor']]],
   ['estimatey_46',['estimateY',['../classLinearRegression.html#a1321792d996e1d6b2b7c4b15e571d7d5',1,'LinearRegression']]],
   ['eval_47',['eval',['../classSpline_1_1Element.html#ab898da37ebf3cd04320cfb9c9266f72e',1,'Spline::Element']]],
-  ['evaluate_48',['evaluate',['../classEquationParser.html#a920e54171a2af2a10c15ea417250db3b',1,'EquationParser']]],
+  ['evaluate_48',['evaluate',['../classEquationParser.html#a920e54171a2af2a10c15ea417250db3b',1,'EquationParser::evaluate()'],['../classParser.html#a547bfdb4221079e7c9afef926cb46bdd',1,'Parser::evaluate()']]],
   ['execute_49',['execute',['../classElevatedFileCopy.html#ac6965dae9ef1cf89d3ebe038d32370e3',1,'ElevatedFileCopy']]],
   ['exifmetadata_50',['ExifMetadata',['../classExifMetadata.html#afa3a3cefbb26ea66f049bfc49456def9',1,'ExifMetadata']]],
-  ['expandtokens_51',['expandTokens',['../classLayout.html#ab6912e5c4b2c402375913dd6ea8268b3',1,'Layout']]],
-  ['extractprogram_52',['extractprogram',['../classProcessor.html#ad1fa6fe5fe5aa411ba0457273239a814',1,'Processor::extractProgram(const juce::String &amp;name, const void *data, int sz)'],['../classProcessor.html#afdf6943c2323aeedf39c18d7ec77ecbb',1,'Processor::extractProgram(const juce::String &amp;name, const juce::MemoryBlock &amp;data)']]]
+  ['extractprogram_51',['extractprogram',['../classProcessor.html#ad1fa6fe5fe5aa411ba0457273239a814',1,'Processor::extractProgram(const juce::String &amp;name, const void *data, int sz)'],['../classProcessor.html#afdf6943c2323aeedf39c18d7ec77ecbb',1,'Processor::extractProgram(const juce::String &amp;name, const juce::MemoryBlock &amp;data)']]]
 ];

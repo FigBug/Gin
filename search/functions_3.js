@@ -28,6 +28,8 @@ var searchData=
   ['drawrotaryslider_25',['drawrotaryslider',['../classGinLookAndFeel.html#abd86ed5df86e07320f192df0c1dc9288',1,'GinLookAndFeel::drawRotarySlider()'],['../classCopperLookAndFeel.html#a635b1059994a6c8bc912a25d4434a39a',1,'CopperLookAndFeel::drawRotarySlider()']]],
   ['drawsinglelinetexteditoroutline_26',['drawSingleLineTextEditorOutline',['../structSingleLineTextEditor_1_1LookAndFeelMethods.html#a5db78989d26586b1239a954964b455bd',1,'SingleLineTextEditor::LookAndFeelMethods']]],
   ['drawtexteditoroutline_27',['drawtexteditoroutline',['../classGinLookAndFeel.html#aa6bf04df21fad6a9fd1b01cf0d5c7658',1,'GinLookAndFeel::drawTextEditorOutline()'],['../classCopperLookAndFeel.html#a6f6210f9d52087f213b1234381c028e7',1,'CopperLookAndFeel::drawTextEditorOutline()']]],
-  ['dynamics_28',['Dynamics',['../classDynamics.html#a95fd017d51604db8690a4bbe8ec74f53',1,'Dynamics']]],
-  ['dynamicsmeter_29',['DynamicsMeter',['../classDynamicsMeter.html#a3a8565a9c8e14710fcd6ecfe2bcd10e5',1,'DynamicsMeter']]]
+  ['dump_28',['dump',['../classComponentMap.html#add0016cb2ea88106534fd09e064aec33',1,'ComponentMap']]],
+  ['dumpcomponents_29',['dumpComponents',['../classLayoutSupport.html#a9a8d967ecaf9f572ffba7e0b8342bdf4',1,'LayoutSupport']]],
+  ['dynamics_30',['Dynamics',['../classDynamics.html#a95fd017d51604db8690a4bbe8ec74f53',1,'Dynamics']]],
+  ['dynamicsmeter_31',['DynamicsMeter',['../classDynamicsMeter.html#a3a8565a9c8e14710fcd6ecfe2bcd10e5',1,'DynamicsMeter']]]
 ];
