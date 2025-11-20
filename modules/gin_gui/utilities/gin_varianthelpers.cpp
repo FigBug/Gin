@@ -123,6 +123,57 @@ juce::var getJSONPointer (const juce::var& v, juce::String pointer, const juce::
     return defaultValue;
 }
 
+bool hasJSONPointer (const juce::var& v, juce::String pointer)
+{
+    if (pointer.isEmpty())
+        return false;
+
+    if (! pointer.startsWith ("/"))
+    {
+        // This is not a well-formed JSON pointer
+        jassertfalse;
+        return false;
+    }
+
+    const auto findResult = pointer.indexOfChar (1, '/');
+    const auto pos = findResult < 0 ? pointer.length() : findResult;
+    const juce::String head (pointer.begin() + 1, pointer.begin() + pos);
+    const juce::String tail (pointer.begin() + pos, pointer.end());
+
+    const auto unescaped = head.replace ("~1", "/").replace ("~0", "~");
+
+    if (auto* object = v.getDynamicObject())
+    {
+        if (tail.isEmpty())
+            return object->hasProperty (unescaped);
+        else
+            return hasJSONPointer (object->getProperty (unescaped), tail);
+    }
+    else if (auto* array = v.getArray())
+    {
+        const auto index = [&]() -> size_t
+        {
+            if (unescaped == "-")
+                return (size_t) array->size();
+
+            if (unescaped == "0")
+                return 0;
+
+            if (! unescaped.startsWith ("0"))
+                return (size_t) unescaped.getLargeIntValue();
+
+            return std::numeric_limits<size_t>::max();
+        }();
+
+        if (tail.isEmpty())
+            return juce::isPositiveAndBelow (index, array->size());
+        else
+            return hasJSONPointer ((*array)[(int) index], tail);
+    }
+
+    return false;
+}
+
 juce::String removeJsonComments (const juce::String& input)
 {
     const auto text = input.toStdString();

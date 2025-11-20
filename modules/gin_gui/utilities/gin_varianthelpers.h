@@ -8,6 +8,22 @@
 */
 
 /**
+    Creates an empty json object that can be used as the root json object
+ */
+inline juce::var jsonObject()
+{
+    return juce::var (new juce::DynamicObject());
+}
+
+/**
+    Create a std::string from a juce::var
+ */
+inline std::string toStdString ( const juce::var& v )
+{
+    return v.toString ().toStdString ();
+}
+
+/**
     Get all property names from a var object.
 
     If the var contains a DynamicObject, this returns all property names.
@@ -192,7 +208,6 @@ inline void removeProperty ( juce::var& v, const juce::Identifier& i )
         obj->removeProperty ( i );
 }
 
-
 /** Given a JSON array/object 'v', a string representing a JSON pointer,
     and a new property value 'newValue', updates 'v' where the
     property or array index referenced by the pointer has been set to 'newValue'.
@@ -211,6 +226,15 @@ bool setJSONPointer (juce::var& v, juce::String pointer, const juce::var& newVal
     https://datatracker.ietf.org/doc/html/rfc6901
 */
 juce::var getJSONPointer (const juce::var& v, juce::String pointer, const juce::var& defaultValue);
+
+/** Given a JSON array/object 'v', a string representing a JSON pointer,
+    returns true if the value of the property or array index referenced by
+    the pointer exists. If the pointer cannot be followed, due to referencing
+    missing array indices or fields, then this returns false.
+    For more details, check the JSON Pointer RFC 6901:
+    https://datatracker.ietf.org/doc/html/rfc6901
+*/
+bool hasJSONPointer (const juce::var& v, juce::String pointer);
 
 /**
     Remove C-style and C++-style comments from a JSON string.
