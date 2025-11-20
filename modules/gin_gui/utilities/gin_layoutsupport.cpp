@@ -180,7 +180,7 @@ Parser::Parser (const juce::String equation)
 
     parser.clearVariables();
     parser.setVarFactory ([&] (const char* name) -> double*
-                          {
+    {
         jassert (constants != nullptr);
 
         auto val = constants->get (name);
@@ -192,7 +192,8 @@ Parser::Parser (const juce::String equation)
         }
 
         jassertfalse;
-        return nullptr; });
+        return nullptr;
+    });
 }
 
 double Parser::evaluate()
@@ -385,7 +386,10 @@ void LayoutSupport::setLayoutInternal (const juce::Array<JsonFile>& files)
     {
         try
         {
-            auto j = juce::JSON::parse (file.contents);
+            juce::var j;
+            auto res = juce::JSON::parse (removeJsonComments (file.contents), j);
+            if (! res.wasOk())
+                throw std::runtime_error (res.getErrorMessage().toStdString());
 
             //
             // Position all components
@@ -416,7 +420,7 @@ void LayoutSupport::setLayoutInternal (const juce::Array<JsonFile>& files)
         }
         catch (const std::exception& e)
         {
-            auto err = juce::String::fromUTF8 (e.what()).fromFirstOccurrenceOf ("] ", false, false);
+            auto err = juce::String::fromUTF8 (e.what());
 
             DBG ("json error: " << file.name << " " << err);
 

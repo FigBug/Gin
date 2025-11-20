@@ -282,7 +282,7 @@ public:
     /** Callback invoked when layout is loaded or reloaded */
     std::function<void()> layoutChanged;
 
-private:
+protected:
     juce::String findContent (const juce::String& name);
     juce::Component* getComp (const juce::String& cid);
 

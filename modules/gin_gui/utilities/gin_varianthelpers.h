@@ -199,6 +199,8 @@ bool setJSONPointer (juce::var& v, juce::String pointer, const juce::var& newVal
 */
 juce::var getJSONPointer (const juce::var& v, juce::String pointer, const juce::var& defaultValue);
 
+juce::String removeJsonComments (const juce::String& input);
+
 }  // namespace gin
 
 //==============================================================================

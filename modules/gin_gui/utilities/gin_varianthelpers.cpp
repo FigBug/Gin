@@ -117,6 +117,80 @@ juce::var getJSONPointer (const juce::var& v, juce::String pointer, const juce::
     return defaultValue;
 }
 
+juce::String removeJsonComments (const juce::String& input)
+{
+    const auto text = input.toStdString();
+    std::string out;
+    out.reserve(text.size());
+
+    enum class State {
+        Normal,
+        InString,
+        InLineComment,
+        InBlockComment
+    } state = State::Normal;
+
+    bool escape = false;
+
+    for (size_t i = 0; i < text.size(); ++i)
+    {
+        char c = text[i];
+        char next = (i + 1 < text.size() ? text[i + 1] : '\0');
+
+        switch (state)
+        {
+            case State::Normal:
+                if (c == '"' && !escape)
+                {
+                    state = State::InString;
+                    out += c;
+                }
+                else if (c == '/' && next == '/')  // start line comment
+                {
+                    state = State::InLineComment;
+                    ++i; // skip next
+                }
+                else if (c == '/' && next == '*') // start block comment
+                {
+                    state = State::InBlockComment;
+                    ++i; // skip next
+                }
+                else
+                {
+                    out += c;
+                }
+                break;
+
+            case State::InString:
+                out += c;
+                if (!escape && c == '"')
+                    state = State::Normal;
+
+                escape = (!escape && c == '\\'); // detect \"
+                break;
+
+            case State::InLineComment:
+                if (c == '\n')
+                {
+                    out += c; // keep the newline
+                    state = State::Normal;
+                }
+                break;
+
+            case State::InBlockComment:
+                if (c == '*' && next == '/')
+                {
+                    state = State::Normal;
+                    ++i; // skip '/'
+                }
+                break;
+        }
+    }
+
+    return juce::String(out);
+}
+
+
 }  // namespace gin
 
 //==============================================================================
