@@ -11,11 +11,12 @@ var searchData=
   ['titlebar_8',['TitleBar',['../classTitleBar.html#a0434adc0c1723f847d4ca08653c4e83a',1,'TitleBar']]],
   ['tomessagepack_9',['toMessagePack',['../classMessagePack.html#aee9464edf2e67d30bc42114eabf7e18c',1,'MessagePack']]],
   ['toseconds_10',['toseconds',['../classNoteDuration.html#a5b06f7ea0574bbaa7a7a37451dd9667d',1,'NoteDuration::toSeconds(float bpm) const'],['../classNoteDuration.html#ac5647e5458ecb9b2bd6504a355d202d7',1,'NoteDuration::toSeconds(juce::AudioPlayHead *playhead) const'],['../classNoteDuration.html#a7a6ae37d6dfab7e3f1ed779a024b7b18',1,'NoteDuration::toSeconds(juce::AudioPlayHead *playhead, float value)']]],
-  ['tovaluetree_11',['toValueTree',['../structMSEG_1_1Data.html#a372c6b2892f44d5d01b6ca256e099f60',1,'MSEG::Data']]],
-  ['trackbuffer_12',['trackbuffer',['../classLevelTracker.html#ae015d22dde9a4f1241fdcc062a58d1a8',1,'LevelTracker::trackBuffer(const float *buffer, int numSamples)'],['../classLevelTracker.html#a1fc8ce4c2c22346db754bb3f5a544bf2',1,'LevelTracker::trackBuffer(juce::AudioSampleBuffer &amp;buffer)']]],
-  ['tracksample_13',['trackSample',['../classLevelTracker.html#a94deea05c53ad4155870361ffc56b3be',1,'LevelTracker']]],
-  ['triangle_14',['triangle',['../group__gin__dsp-dsp.html#gac1ca4d0b776735a17f87d61c90741d45',1,'gin_bandlimitedlookuptable.h']]],
-  ['triggerasyncupdate_15',['triggerAsyncUpdate',['../classRealtimeAsyncUpdater.html#aee4e7bf67d31d0bb574132bfd102f57f',1,'RealtimeAsyncUpdater']]],
-  ['triggeredscope_16',['TriggeredScope',['../classTriggeredScope.html#a8ed01ea728d7ee2800bcfe0caef7516b',1,'TriggeredScope']]],
-  ['turnoffallvoices_17',['turnOffAllVoices',['../classSynthesiser.html#a98071b76981dcb6f125cf079595c8ede',1,'Synthesiser']]]
+  ['tostdstring_11',['toStdString',['../group__gin__gui-utilities.html#gad6aca58449544b3fdeb9d4c9f8560a90',1,'gin_varianthelpers.h']]],
+  ['tovaluetree_12',['toValueTree',['../structMSEG_1_1Data.html#a372c6b2892f44d5d01b6ca256e099f60',1,'MSEG::Data']]],
+  ['trackbuffer_13',['trackbuffer',['../classLevelTracker.html#ae015d22dde9a4f1241fdcc062a58d1a8',1,'LevelTracker::trackBuffer(const float *buffer, int numSamples)'],['../classLevelTracker.html#a1fc8ce4c2c22346db754bb3f5a544bf2',1,'LevelTracker::trackBuffer(juce::AudioSampleBuffer &amp;buffer)']]],
+  ['tracksample_14',['trackSample',['../classLevelTracker.html#a94deea05c53ad4155870361ffc56b3be',1,'LevelTracker']]],
+  ['triangle_15',['triangle',['../group__gin__dsp-dsp.html#gac1ca4d0b776735a17f87d61c90741d45',1,'gin_bandlimitedlookuptable.h']]],
+  ['triggerasyncupdate_16',['triggerAsyncUpdate',['../classRealtimeAsyncUpdater.html#aee4e7bf67d31d0bb574132bfd102f57f',1,'RealtimeAsyncUpdater']]],
+  ['triggeredscope_17',['TriggeredScope',['../classTriggeredScope.html#a8ed01ea728d7ee2800bcfe0caef7516b',1,'TriggeredScope']]],
+  ['turnoffallvoices_18',['turnOffAllVoices',['../classSynthesiser.html#a98071b76981dcb6f125cf079595c8ede',1,'Synthesiser']]]
 ];

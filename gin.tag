@@ -1987,6 +1987,20 @@
     <namespace>juce</namespace>
     <member kind="function">
       <type>juce::var</type>
+      <name>jsonObject</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga0b0991cd1a205f2dc8706dc91e0f3bdb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>std::string</type>
+      <name>toStdString</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad6aca58449544b3fdeb9d4c9f8560a90</anchor>
+      <arglist>(const juce::var &amp;v)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
       <name>getPropertyWithDefault</name>
       <anchorfile>group__gin__gui-utilities.html</anchorfile>
       <anchor>ga4a0e5a7a42a4e9d41ecb0efc2dc979a5</anchor>
@@ -2019,6 +2033,13 @@
       <anchorfile>group__gin__gui-utilities.html</anchorfile>
       <anchor>gad37d4944a1b5a94d959f2c74d9ca36ec</anchor>
       <arglist>(const juce::var &amp;v, juce::String pointer, const juce::var &amp;defaultValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hasJSONPointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2c46f3f0d1e3e9e734b529b8abcde6cf</anchor>
+      <arglist>(const juce::var &amp;v, juce::String pointer)</arglist>
     </member>
     <member kind="function">
       <type>juce::String</type>
@@ -21937,6 +21958,20 @@
       <arglist>(juce::Component &amp;c)</arglist>
     </member>
     <member kind="function">
+      <type>juce::var</type>
+      <name>jsonObject</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga0b0991cd1a205f2dc8706dc91e0f3bdb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>std::string</type>
+      <name>toStdString</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad6aca58449544b3fdeb9d4c9f8560a90</anchor>
+      <arglist>(const juce::var &amp;v)</arglist>
+    </member>
+    <member kind="function">
       <type></type>
       <name>Property::Property</name>
       <anchorfile>group__gin__gui-utilities.html</anchorfile>
@@ -21984,6 +22019,13 @@
       <anchorfile>group__gin__gui-utilities.html</anchorfile>
       <anchor>gad37d4944a1b5a94d959f2c74d9ca36ec</anchor>
       <arglist>(const juce::var &amp;v, juce::String pointer, const juce::var &amp;defaultValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hasJSONPointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2c46f3f0d1e3e9e734b529b8abcde6cf</anchor>
+      <arglist>(const juce::var &amp;v, juce::String pointer)</arglist>
     </member>
     <member kind="function">
       <type>juce::String</type>

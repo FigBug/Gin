@@ -175,6 +175,12 @@ Functions</h2></td></tr>
 <tr class="separator:gac2d2291dbc7913b65fd0e69e53873fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad1ffdc179588a1832355270be9b5a516" id="r_gad1ffdc179588a1832355270be9b5a516"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__gui-utilities.html#gad1ffdc179588a1832355270be9b5a516">createSnapshotOfNativeWindow</a> (juce::Component &amp;c)</td></tr>
 <tr class="separator:gad1ffdc179588a1832355270be9b5a516"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0b0991cd1a205f2dc8706dc91e0f3bdb" id="r_ga0b0991cd1a205f2dc8706dc91e0f3bdb"><td class="memItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__gui-utilities.html#ga0b0991cd1a205f2dc8706dc91e0f3bdb">jsonObject</a> ()</td></tr>
+<tr class="memdesc:ga0b0991cd1a205f2dc8706dc91e0f3bdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty json object that can be used as the root json object.  <br /></td></tr>
+<tr class="separator:ga0b0991cd1a205f2dc8706dc91e0f3bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad6aca58449544b3fdeb9d4c9f8560a90" id="r_gad6aca58449544b3fdeb9d4c9f8560a90"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__gui-utilities.html#gad6aca58449544b3fdeb9d4c9f8560a90">toStdString</a> (<a class="el" href="classPoint.html">const</a> juce::var &amp;v)</td></tr>
+<tr class="memdesc:gad6aca58449544b3fdeb9d4c9f8560a90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a std::string from a juce::var.  <br /></td></tr>
+<tr class="separator:gad6aca58449544b3fdeb9d4c9f8560a90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9412f63da91a0a78713db5048973204b" id="r_ga9412f63da91a0a78713db5048973204b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__gui-utilities.html#ga9412f63da91a0a78713db5048973204b">Property::Property</a> ()=<a class="el" href="classPoint.html">default</a></td></tr>
 <tr class="separator:ga9412f63da91a0a78713db5048973204b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafb868a85098fecb91249b69f3e72b85e" id="r_gafb868a85098fecb91249b69f3e72b85e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__gui-utilities.html#gafb868a85098fecb91249b69f3e72b85e">Property::Property</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">k</a>, <a class="el" href="classPoint.html">const</a> juce::var v)</td></tr>
@@ -195,6 +201,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gad37d4944a1b5a94d959f2c74d9ca36ec" id="r_gad37d4944a1b5a94d959f2c74d9ca36ec"><td class="memItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__gui-utilities.html#gad37d4944a1b5a94d959f2c74d9ca36ec">getJSONPointer</a> (<a class="el" href="classPoint.html">const</a> juce::var &amp;v, juce::String pointer, <a class="el" href="classPoint.html">const</a> juce::var &amp;defaultValue)</td></tr>
 <tr class="memdesc:gad37d4944a1b5a94d959f2c74d9ca36ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a JSON array/object 'v', a string representing a JSON pointer, returns the value of the property or array index referenced by the pointer If the pointer cannot be followed, due to referencing missing array indices or fields, then this returns defaultValue.  <br /></td></tr>
 <tr class="separator:gad37d4944a1b5a94d959f2c74d9ca36ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c46f3f0d1e3e9e734b529b8abcde6cf" id="r_ga2c46f3f0d1e3e9e734b529b8abcde6cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__gui-utilities.html#ga2c46f3f0d1e3e9e734b529b8abcde6cf">hasJSONPointer</a> (<a class="el" href="classPoint.html">const</a> juce::var &amp;v, juce::String pointer)</td></tr>
+<tr class="memdesc:ga2c46f3f0d1e3e9e734b529b8abcde6cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a JSON array/object 'v', a string representing a JSON pointer, returns true if the value of the property or array index referenced by the pointer exists.  <br /></td></tr>
+<tr class="separator:ga2c46f3f0d1e3e9e734b529b8abcde6cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8d83bb854851e5039749da191fc5765e" id="r_ga8d83bb854851e5039749da191fc5765e"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__gui-utilities.html#ga8d83bb854851e5039749da191fc5765e">removeJsonComments</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">input</a>)</td></tr>
 <tr class="memdesc:ga8d83bb854851e5039749da191fc5765e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove C-style and C++-style comments from a JSON string.  <br /></td></tr>
 <tr class="separator:ga8d83bb854851e5039749da191fc5765e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -429,6 +438,45 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="ga0b0991cd1a205f2dc8706dc91e0f3bdb" name="ga0b0991cd1a205f2dc8706dc91e0f3bdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0b0991cd1a205f2dc8706dc91e0f3bdb">&#9670;&#160;</a></span>jsonObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::var jsonObject </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates an empty json object that can be used as the root json object. </p>
+
+</div>
+</div>
+<a id="gad6aca58449544b3fdeb9d4c9f8560a90" name="gad6aca58449544b3fdeb9d4c9f8560a90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad6aca58449544b3fdeb9d4c9f8560a90">&#9670;&#160;</a></span>toStdString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string toStdString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::var &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a std::string from a juce::var. </p>
+
+</div>
+</div>
 <a id="ga9412f63da91a0a78713db5048973204b" name="ga9412f63da91a0a78713db5048973204b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga9412f63da91a0a78713db5048973204b">&#9670;&#160;</a></span>Property() <span class="overload">[1/2]</span></h2>
 
@@ -540,7 +588,7 @@ Variables</h2></td></tr>
 <div class="line"><span class="keyword">auto</span> w = <a class="code hl_function" href="group__gin__gui-utilities.html#ga4a0e5a7a42a4e9d41ecb0efc2dc979a5">getPropertyWithDefault</a> (<a class="code hl_class" href="classPoint.html">obj</a>, <span class="stringliteral">&quot;width&quot;</span>, 50);   <span class="comment">// Returns 100</span></div>
 <div class="line"><span class="keyword">auto</span> h = <a class="code hl_function" href="group__gin__gui-utilities.html#ga4a0e5a7a42a4e9d41ecb0efc2dc979a5">getPropertyWithDefault</a> (<a class="code hl_class" href="classPoint.html">obj</a>, <span class="stringliteral">&quot;height&quot;</span>, 50);  <span class="comment">// Returns 50 (default)</span></div>
 <div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
-<div class="ttc" id="agroup__gin__gui-utilities_html_ga4a0e5a7a42a4e9d41ecb0efc2dc979a5"><div class="ttname"><a href="group__gin__gui-utilities.html#ga4a0e5a7a42a4e9d41ecb0efc2dc979a5">getPropertyWithDefault</a></div><div class="ttdeci">juce::var getPropertyWithDefault(const juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;defaultValue)</div><div class="ttdoc">Get a property value with a default fallback.</div><div class="ttdef"><b>Definition</b> gin_varianthelpers.h:156</div></div>
+<div class="ttc" id="agroup__gin__gui-utilities_html_ga4a0e5a7a42a4e9d41ecb0efc2dc979a5"><div class="ttname"><a href="group__gin__gui-utilities.html#ga4a0e5a7a42a4e9d41ecb0efc2dc979a5">getPropertyWithDefault</a></div><div class="ttdeci">juce::var getPropertyWithDefault(const juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;defaultValue)</div><div class="ttdoc">Get a property value with a default fallback.</div><div class="ttdef"><b>Definition</b> gin_varianthelpers.h:172</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -590,7 +638,7 @@ Variables</h2></td></tr>
 <div class="line"><a class="code hl_function" href="group__gin__gui-utilities.html#ga50aa299c064e2ba23134d4271067f253">setProperty</a> (<a class="code hl_class" href="classPoint.html">obj</a>, <span class="stringliteral">&quot;width&quot;</span>, 100);</div>
 <div class="line"><a class="code hl_function" href="group__gin__gui-utilities.html#ga50aa299c064e2ba23134d4271067f253">setProperty</a> (<a class="code hl_class" href="classPoint.html">obj</a>, <span class="stringliteral">&quot;height&quot;</span>, 200);</div>
 <div class="line"><span class="comment">// obj now has properties: width=100, height=200</span></div>
-<div class="ttc" id="agroup__gin__gui-utilities_html_ga50aa299c064e2ba23134d4271067f253"><div class="ttname"><a href="group__gin__gui-utilities.html#ga50aa299c064e2ba23134d4271067f253">setProperty</a></div><div class="ttdeci">void setProperty(juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;value)</div><div class="ttdoc">Set a property on a var object.</div><div class="ttdef"><b>Definition</b> gin_varianthelpers.h:181</div></div>
+<div class="ttc" id="agroup__gin__gui-utilities_html_ga50aa299c064e2ba23134d4271067f253"><div class="ttname"><a href="group__gin__gui-utilities.html#ga50aa299c064e2ba23134d4271067f253">setProperty</a></div><div class="ttdeci">void setProperty(juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;value)</div><div class="ttdoc">Set a property on a var object.</div><div class="ttdef"><b>Definition</b> gin_varianthelpers.h:197</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -696,6 +744,37 @@ Variables</h2></td></tr>
 
 <p>Given a JSON array/object 'v', a string representing a JSON pointer, returns the value of the property or array index referenced by the pointer If the pointer cannot be followed, due to referencing missing array indices or fields, then this returns defaultValue. </p>
 <p>For more details, check the JSON Pointer RFC 6901: <a href="https://datatracker.ietf.org/doc/html/rfc6901">https://datatracker.ietf.org/doc/html/rfc6901</a> </p>
+
+</div>
+</div>
+<a id="ga2c46f3f0d1e3e9e734b529b8abcde6cf" name="ga2c46f3f0d1e3e9e734b529b8abcde6cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2c46f3f0d1e3e9e734b529b8abcde6cf">&#9670;&#160;</a></span>hasJSONPointer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">bool</a> hasJSONPointer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::var &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">juce::String&#160;</td>
+          <td class="paramname"><em>pointer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Given a JSON array/object 'v', a string representing a JSON pointer, returns true if the value of the property or array index referenced by the pointer exists. </p>
+<p>If the pointer cannot be followed, due to referencing missing array indices or fields, then this returns false. For more details, check the JSON Pointer RFC 6901: <a href="https://datatracker.ietf.org/doc/html/rfc6901">https://datatracker.ietf.org/doc/html/rfc6901</a> </p>
 
 </div>
 </div>
@@ -936,7 +1015,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 20 2025 19:42:47 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 20 2025 22:54:40 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
