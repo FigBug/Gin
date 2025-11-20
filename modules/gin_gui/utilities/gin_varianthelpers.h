@@ -180,6 +180,19 @@ inline void setProperty ( juce::var& v, const juce::Identifier& i, const juce::v
         obj->setProperty ( i, value);
 }
 
+/**
+    Removes a property from a var object.
+
+    If the var contains a DynamicObject, sets the property on it.
+    If the var is not a DynamicObject, this function does nothing.
+*/
+inline void removeProperty ( juce::var& v, const juce::Identifier& i )
+{
+    if (auto obj = v.getDynamicObject())
+        obj->removeProperty ( i );
+}
+
+
 /** Given a JSON array/object 'v', a string representing a JSON pointer,
     and a new property value 'newValue', updates 'v' where the
     property or array index referenced by the pointer has been set to 'newValue'.
