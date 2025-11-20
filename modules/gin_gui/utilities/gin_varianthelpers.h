@@ -199,6 +199,29 @@ bool setJSONPointer (juce::var& v, juce::String pointer, const juce::var& newVal
 */
 juce::var getJSONPointer (const juce::var& v, juce::String pointer, const juce::var& defaultValue);
 
+/**
+    Remove C-style and C++-style comments from a JSON string.
+
+    This function strips both line comments and block comments from JSON text,
+    allowing you to use commented JSON files. Comments within string literals are preserved.
+
+    Supported comment styles:
+    - Line comments (until end of line)
+    - Block comments (can span multiple lines)
+
+    String handling:
+    - Comments inside quoted strings are NOT removed
+    - Escaped quotes (\") are properly handled
+    - Backslashes within strings are preserved
+
+    @param input  The JSON string potentially containing comments
+    @return       The JSON string with all comments removed
+
+    @note This allows you to use more readable, documented JSON configuration files
+          while still being able to parse them with standard JSON parsers.
+
+    @see https://jsonc.org/ for more about JSON with Comments (JSONC) format
+*/
 juce::String removeJsonComments (const juce::String& input);
 
 }  // namespace gin

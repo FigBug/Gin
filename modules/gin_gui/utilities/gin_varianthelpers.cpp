@@ -121,16 +121,18 @@ juce::String removeJsonComments (const juce::String& input)
 {
     const auto text = input.toStdString();
     std::string out;
-    out.reserve(text.size());
+    out.reserve (text.size());  // Pre-allocate to avoid reallocations
 
-    enum class State {
-        Normal,
-        InString,
-        InLineComment,
-        InBlockComment
+    // State machine to track our position in the JSON text
+    enum class State
+    {
+        Normal,          // Normal JSON content
+        InString,        // Inside a quoted string literal
+        InLineComment,   // Inside a // line comment
+        InBlockComment   // Inside a /* block comment */
     } state = State::Normal;
 
-    bool escape = false;
+    bool escape = false;  // Track if we're on an escape character in a string
 
     for (size_t i = 0; i < text.size(); ++i)
     {
@@ -140,54 +142,67 @@ juce::String removeJsonComments (const juce::String& input)
         switch (state)
         {
             case State::Normal:
-                if (c == '"' && !escape)
+                // We're in normal JSON content (not in a string or comment)
+                if (c == '"' && ! escape)
                 {
+                    // Start of a string literal - preserve everything inside
                     state = State::InString;
                     out += c;
                 }
-                else if (c == '/' && next == '/')  // start line comment
+                else if (c == '/' && next == '/')
                 {
+                    // Start of line comment - skip it
                     state = State::InLineComment;
-                    ++i; // skip next
+                    ++i;  // Skip the second '/'
                 }
-                else if (c == '/' && next == '*') // start block comment
+                else if (c == '/' && next == '*')
                 {
+                    // Start of block comment - skip it
                     state = State::InBlockComment;
-                    ++i; // skip next
+                    ++i;  // Skip the '*'
                 }
                 else
                 {
+                    // Normal JSON content - keep it
                     out += c;
                 }
                 break;
 
             case State::InString:
+                // We're inside a string literal - preserve everything, including comment-like text
                 out += c;
-                if (!escape && c == '"')
+
+                // Check for end of string (unescaped quote)
+                if (! escape && c == '"')
                     state = State::Normal;
 
-                escape = (!escape && c == '\\'); // detect \"
+                // Track escape sequences (\" should not end the string)
+                escape = (! escape && c == '\\');
                 break;
 
             case State::InLineComment:
+                // We're in a line comment - skip everything until newline
                 if (c == '\n')
                 {
-                    out += c; // keep the newline
+                    out += c;  // Preserve the newline for formatting
                     state = State::Normal;
                 }
+                // All other characters in line comments are skipped
                 break;
 
             case State::InBlockComment:
+                // We're in a block comment - skip everything until */
                 if (c == '*' && next == '/')
                 {
                     state = State::Normal;
-                    ++i; // skip '/'
+                    ++i;  // Skip the '/'
                 }
+                // All characters in block comments are skipped (including newlines)
                 break;
         }
     }
 
-    return juce::String(out);
+    return juce::String (out);
 }
 
 

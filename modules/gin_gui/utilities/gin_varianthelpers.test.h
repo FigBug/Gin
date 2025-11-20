@@ -32,6 +32,14 @@ public:
         testVarIteratorObject();
         testVarIteratorArray();
         testVarIteratorEmpty();
+        testRemoveJsonCommentsLineComments();
+        testRemoveJsonCommentsBlockComments();
+        testRemoveJsonCommentsInStrings();
+        testRemoveJsonCommentsEscapedQuotes();
+        testRemoveJsonCommentsMixed();
+        testRemoveJsonCommentsMultiline();
+        testRemoveJsonCommentsEdgeCases();
+        testRemoveJsonCommentsRealWorld();
     }
 
 private:
@@ -609,6 +617,328 @@ private:
         }
 
         expectEquals (primCount, 0, "Should not iterate over primitive value");
+    }
+
+    void testRemoveJsonCommentsLineComments()
+    {
+        beginTest ("Remove JSON Comments - Line Comments");
+
+        // Single line comment
+        juce::String input = R"({
+            "width": 100, // This is a width
+            "height": 200
+        })";
+
+        auto result = removeJsonComments (input);
+        expect (! result.contains ("This is a width"), "Should remove line comment text");
+        expect (result.contains ("100"), "Should preserve value before comment");
+        expect (result.contains ("200"), "Should preserve value after comment");
+
+        // Line comment at end
+        input = R"({
+            "name": "test" // end comment
+        })";
+
+        result = removeJsonComments (input);
+        expect (! result.contains ("end comment"), "Should remove comment at end");
+        expect (result.contains ("test"), "Should preserve string value");
+
+        // Multiple line comments
+        input = R"({
+            // First comment
+            "a": 1, // Second comment
+            "b": 2  // Third comment
+        })";
+
+        result = removeJsonComments (input);
+        expect (! result.contains ("First comment"), "Should remove first comment");
+        expect (! result.contains ("Second comment"), "Should remove second comment");
+        expect (! result.contains ("Third comment"), "Should remove third comment");
+        expect (result.contains ("\"a\""), "Should preserve key a");
+        expect (result.contains ("\"b\""), "Should preserve key b");
+    }
+
+    void testRemoveJsonCommentsBlockComments()
+    {
+        beginTest ("Remove JSON Comments - Block Comments");
+
+        // Single block comment
+        juce::String input = R"({
+            "width": 100, /* this is width */
+            "height": 200
+        })";
+
+        auto result = removeJsonComments (input);
+        expect (! result.contains ("this is width"), "Should remove block comment");
+        expect (result.contains ("100"), "Should preserve value");
+        expect (result.contains ("200"), "Should preserve next value");
+
+        // Block comment at start
+        input = R"(/* Header comment */
+        {
+            "name": "test"
+        })";
+
+        result = removeJsonComments (input);
+        expect (! result.contains ("Header comment"), "Should remove header comment");
+        expect (result.contains ("test"), "Should preserve content");
+
+        // Multiple block comments
+        input = R"({
+            /* First */ "a": 1,
+            "b": /* Second */ 2
+        })";
+
+        result = removeJsonComments (input);
+        expect (! result.contains ("First"), "Should remove first block comment");
+        expect (! result.contains ("Second"), "Should remove second block comment");
+        expect (result.contains ("\"a\""), "Should preserve key");
+        expect (result.contains ("1"), "Should preserve value");
+    }
+
+    void testRemoveJsonCommentsInStrings()
+    {
+        beginTest ("Remove JSON Comments - Comments In Strings");
+
+        // Line comment syntax in string should be preserved
+        juce::String input = R"({
+            "url": "http://example.com",
+            "note": "Use // for comments"
+        })";
+
+        auto result = removeJsonComments (input);
+        expect (result.contains ("http://example.com"), "Should preserve // in URL");
+        expect (result.contains ("Use // for comments"), "Should preserve // in string");
+
+        // Block comment syntax in string should be preserved
+        input = R"({
+            "pattern": "/* wildcard */",
+            "text": "Use /* and */ for blocks"
+        })";
+
+        result = removeJsonComments (input);
+        expect (result.contains ("/* wildcard */"), "Should preserve /* */ in string");
+        expect (result.contains ("Use /* and */ for blocks"), "Should preserve block syntax in string");
+
+        // Mixed real comments and string content
+        input = R"({
+            "url": "http://test.com", // Real comment
+            "note": "Not a // comment"
+        })";
+
+        result = removeJsonComments (input);
+        expect (! result.contains ("Real comment"), "Should remove actual comment");
+        expect (result.contains ("Not a // comment"), "Should preserve comment-like text in string");
+    }
+
+    void testRemoveJsonCommentsEscapedQuotes()
+    {
+        beginTest ("Remove JSON Comments - Escaped Quotes");
+
+        // String with escaped quote
+        juce::String input = R"({
+            "text": "He said \"hello\"", // Comment here
+            "width": 100
+        })";
+
+        auto result = removeJsonComments (input);
+        expect (result.contains ("He said \\\"hello\\\""), "Should preserve escaped quotes");
+        expect (! result.contains ("Comment here"), "Should remove comment after string with escapes");
+        expect (result.contains ("100"), "Should preserve next value");
+
+        // Multiple escaped quotes
+        input = R"({
+            "quote": "\"First\" and \"Second\""
+        })";
+
+        result = removeJsonComments (input);
+        expect (result.contains ("\\\"First\\\""), "Should preserve first escaped quote");
+        expect (result.contains ("\\\"Second\\\""), "Should preserve second escaped quote");
+
+        // Escaped backslash before quote
+        input = R"({
+            "path": "C:\\Program Files\\Test" // Windows path
+        })";
+
+        result = removeJsonComments (input);
+        expect (result.contains ("C:\\\\Program Files\\\\Test"), "Should preserve escaped backslashes");
+        expect (! result.contains ("Windows path"), "Should remove comment");
+    }
+
+    void testRemoveJsonCommentsMixed()
+    {
+        beginTest ("Remove JSON Comments - Mixed Comments");
+
+        // Line and block comments together
+        juce::String input = R"({
+            /* Block comment */
+            "a": 1, // Line comment
+            /* Another block */ "b": 2 // Another line
+        })";
+
+        auto result = removeJsonComments (input);
+        expect (! result.contains ("Block comment"), "Should remove block comment");
+        expect (! result.contains ("Line comment"), "Should remove line comment");
+        expect (! result.contains ("Another block"), "Should remove second block comment");
+        expect (! result.contains ("Another line"), "Should remove second line comment");
+        expect (result.contains ("\"a\""), "Should preserve key a");
+        expect (result.contains ("\"b\""), "Should preserve key b");
+
+        // Comments and strings mixed
+        input = R"({
+            "url": "http://test.com", // Real comment
+            /* Block */ "note": "Not // comment" // End
+        })";
+
+        result = removeJsonComments (input);
+        expect (! result.contains ("Real comment"), "Should remove line comment");
+        expect (! result.contains ("Block"), "Should remove block comment");
+        expect (! result.contains ("End"), "Should remove end comment");
+        expect (result.contains ("http://test.com"), "Should preserve URL");
+        expect (result.contains ("Not // comment"), "Should preserve string with //");
+    }
+
+    void testRemoveJsonCommentsMultiline()
+    {
+        beginTest ("Remove JSON Comments - Multiline");
+
+        // Multiline block comment
+        juce::String input = R"({
+            /* This is a
+               multiline
+               comment */
+            "width": 100,
+            "height": 200
+        })";
+
+        auto result = removeJsonComments (input);
+        expect (! result.contains ("This is a"), "Should remove multiline comment line 1");
+        expect (! result.contains ("multiline"), "Should remove multiline comment line 2");
+        expect (! result.contains ("comment"), "Should remove multiline comment line 3");
+        expect (result.contains ("100"), "Should preserve value after multiline comment");
+
+        // Multiple line comments
+        input = R"({
+            // Comment 1
+            // Comment 2
+            // Comment 3
+            "value": 42
+        })";
+
+        result = removeJsonComments (input);
+        expect (! result.contains ("Comment 1"), "Should remove first line comment");
+        expect (! result.contains ("Comment 2"), "Should remove second line comment");
+        expect (! result.contains ("Comment 3"), "Should remove third line comment");
+        expect (result.contains ("42"), "Should preserve value");
+    }
+
+    void testRemoveJsonCommentsEdgeCases()
+    {
+        beginTest ("Remove JSON Comments - Edge Cases");
+
+        // Empty string
+        juce::String input = "";
+        auto result = removeJsonComments (input);
+        expectEquals (result, juce::String (""), "Empty string should remain empty");
+
+        // No comments
+        input = R"({"width": 100, "height": 200})";
+        result = removeJsonComments (input);
+        expect (result.contains ("100"), "Should preserve content without comments");
+        expect (result.contains ("200"), "Should preserve all content");
+
+        // Only comments
+        input = R"(// Just a comment
+        /* Block comment */)";
+        result = removeJsonComments (input);
+        expect (! result.contains ("Just a comment"), "Should remove line comment");
+        expect (! result.contains ("Block comment"), "Should remove block comment");
+
+        // Comment-like but not quite
+        input = R"({
+            "value": 100 / 2,
+            "star": "*"
+        })";
+        result = removeJsonComments (input);
+        expect (result.contains ("100 / 2"), "Should preserve division operator");
+        expect (result.contains ("*"), "Should preserve asterisk in string");
+
+        // Adjacent comment markers
+        input = R"({
+            "a": 1, //// Multiple slashes
+            "b": 2  /* Nested /* attempt */ value */
+        })";
+        result = removeJsonComments (input);
+        expect (! result.contains ("Multiple slashes"), "Should remove comment with multiple slashes");
+        expect (! result.contains ("Nested"), "Should remove block comment");
+        expect (! result.contains ("attempt"), "Should remove nested-like content");
+        expect (result.contains ("value"), "Should preserve content after first closing");
+
+        // Note: C-style comments don't actually nest, so /* /* */ */ closes at first */
+        input = R"({
+            "c": 3 /* outer /* inner */ still commenting */
+        })";
+        result = removeJsonComments (input);
+        expect (! result.contains ("outer"), "Should remove first part");
+        expect (! result.contains ("inner"), "Should remove inner part");
+        expect (result.contains ("still commenting"), "Content after first */ is not in comment");
+    }
+
+    void testRemoveJsonCommentsRealWorld()
+    {
+        beginTest ("Remove JSON Comments - Real World Example");
+
+        // Realistic configuration file with documentation
+        juce::String input = R"({
+            // Application Configuration
+            /*
+             * Window settings
+             */
+            "window": {
+                "width": 800,   // Default width
+                "height": 600,  // Default height
+                "title": "My App // Not a comment"
+            },
+            /* User preferences */
+            "preferences": {
+                "theme": "dark", // Can be "light" or "dark"
+                "language": "en" // ISO 639-1 code
+            },
+            // Feature flags
+            "features": {
+                "experimental": false  /* Set to true to enable */
+            }
+        })";
+
+        auto result = removeJsonComments (input);
+
+        // Verify comments are removed
+        expect (! result.contains ("Application Configuration"), "Should remove header comment");
+        expect (! result.contains ("Window settings"), "Should remove block comment");
+        expect (! result.contains ("Default width"), "Should remove inline comment");
+        expect (! result.contains ("User preferences"), "Should remove section comment");
+        expect (! result.contains ("Can be"), "Should remove explanation comment");
+        expect (! result.contains ("ISO 639-1"), "Should remove format comment");
+        expect (! result.contains ("Feature flags"), "Should remove feature comment");
+        expect (! result.contains ("Set to true"), "Should remove instruction comment");
+
+        // Verify content is preserved
+        expect (result.contains ("\"window\""), "Should preserve window key");
+        expect (result.contains ("800"), "Should preserve width value");
+        expect (result.contains ("600"), "Should preserve height value");
+        expect (result.contains ("My App // Not a comment"), "Should preserve comment-like text in string");
+        expect (result.contains ("\"theme\""), "Should preserve theme key");
+        expect (result.contains ("\"dark\""), "Should preserve theme value");
+        expect (result.contains ("\"language\""), "Should preserve language key");
+        expect (result.contains ("\"experimental\""), "Should preserve experimental key");
+        expect (result.contains ("false"), "Should preserve boolean value");
+
+        // Verify it can be parsed as valid JSON
+        auto parsed = juce::JSON::parse (result);
+        expect (! parsed.isVoid(), "Result should be valid JSON");
+        expect (parsed.hasProperty ("window"), "Should have window property");
+        expect (parsed["window"].hasProperty ("width"), "Should have nested width property");
+        expectEquals (int (parsed["window"]["width"]), 800, "Width should be 800");
     }
 };
 
