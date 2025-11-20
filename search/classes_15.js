@@ -1,14 +1,11 @@
 var searchData=
 [
-  ['waveformcomponent_0',['WaveformComponent',['../classWaveformComponent.html',1,'']]],
-  ['wavetable_1',['Wavetable',['../classWavetable.html',1,'']]],
-  ['wavetablecomponent_2',['WavetableComponent',['../classWavetableComponent.html',1,'']]],
-  ['webpimageformat_3',['WEBPImageFormat',['../classWEBPImageFormat.html',1,'']]],
-  ['websocket_4',['WebSocket',['../classWebSocket.html',1,'']]],
-  ['wetdrymix_5',['WetDryMix',['../classWetDryMix.html',1,'']]],
-  ['whitenoise_6',['WhiteNoise',['../classWhiteNoise.html',1,'']]],
-  ['wsheadertype_7',['WSHeaderType',['../structWSHeaderType.html',1,'']]],
-  ['wtoscillator_8',['WTOscillator',['../classWTOscillator.html',1,'']]],
-  ['wtvoicedstereooscillator_9',['WTVoicedStereoOscillator',['../classWTVoicedStereoOscillator.html',1,'']]],
-  ['wtvoicedstereooscillatorparams_10',['WTVoicedStereoOscillatorParams',['../structWTVoicedStereoOscillatorParams.html',1,'']]]
+  ['valuesmoother_0',['ValueSmoother',['../classValueSmoother.html',1,'']]],
+  ['valuetreeobject_1',['ValueTreeObject',['../classValueTreeObject.html',1,'']]],
+  ['variterator_2',['VarIterator',['../structjuce_1_1VarIterator.html',1,'juce']]],
+  ['voicedoscillatorparams_3',['VoicedOscillatorParams',['../structVoicedOscillatorParams.html',1,'']]],
+  ['voicedstereooscillator_4',['VoicedStereoOscillator',['../classVoicedStereoOscillator.html',1,'']]],
+  ['voicedstereooscillator_3c_20stereooscillator_2c_20voicedstereooscillatorparams_20_3e_5',['VoicedStereoOscillator&lt; StereoOscillator, VoicedStereoOscillatorParams &gt;',['../classVoicedStereoOscillator.html',1,'']]],
+  ['voicedstereooscillator_3c_20wtoscillator_2c_20wtvoicedstereooscillatorparams_20_3e_6',['VoicedStereoOscillator&lt; WTOscillator, WTVoicedStereoOscillatorParams &gt;',['../classVoicedStereoOscillator.html',1,'']]],
+  ['voicedstereooscillatorparams_7',['VoicedStereoOscillatorParams',['../structVoicedStereoOscillatorParams.html',1,'']]]
 ];

@@ -1826,6 +1826,8 @@
     <class kind="class">ConstantsStack::ScopedSave</class>
     <class kind="class">Parser</class>
     <class kind="class">LayoutSupport</class>
+    <class kind="struct">LayoutSupport::Bounds</class>
+    <class kind="struct">LayoutSupport::JsonFile</class>
   </compound>
   <compound kind="file">
     <name>gin_layoutsupport.test.h</name>
@@ -1984,6 +1986,13 @@
       <anchorfile>group__gin__gui-utilities.html</anchorfile>
       <anchor>gad37d4944a1b5a94d959f2c74d9ca36ec</anchor>
       <arglist>(const juce::var &amp;v, juce::String pointer, const juce::var &amp;defaultValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>removeJsonComments</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga8d83bb854851e5039749da191fc5765e</anchor>
+      <arglist>(const juce::String &amp;input)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -4359,6 +4368,52 @@
       <anchorfile>structBounceOutEasing.html</anchorfile>
       <anchor>af70d7f3da58b0d2683a32cbc5460eabb</anchor>
       <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>LayoutSupport::Bounds</name>
+    <filename>structLayoutSupport_1_1Bounds.html</filename>
+    <member kind="variable">
+      <type>int</type>
+      <name>x</name>
+      <anchorfile>structLayoutSupport_1_1Bounds.html</anchorfile>
+      <anchor>a7bc33c1ecd734bece78b041911e510d9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>y</name>
+      <anchorfile>structLayoutSupport_1_1Bounds.html</anchorfile>
+      <anchor>a21f613d66f807c52fb4145cf57cda57f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>w</name>
+      <anchorfile>structLayoutSupport_1_1Bounds.html</anchorfile>
+      <anchor>a137b329360667ae88f4de08d001621fc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>h</name>
+      <anchorfile>structLayoutSupport_1_1Bounds.html</anchorfile>
+      <anchor>a06336237476c1f81ca4bb07e1b99b5c6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>hasPosition</name>
+      <anchorfile>structLayoutSupport_1_1Bounds.html</anchorfile>
+      <anchor>a05a08da15a57663651fa198de5330b55</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>hasSize</name>
+      <anchorfile>structLayoutSupport_1_1Bounds.html</anchorfile>
+      <anchor>a328d894adce46024770de7f17ca0a90c</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -8205,6 +8260,24 @@
       <arglist>(const juce::uint8 *data, int sz)</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>LayoutSupport::JsonFile</name>
+    <filename>structLayoutSupport_1_1JsonFile.html</filename>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>name</name>
+      <anchorfile>structLayoutSupport_1_1JsonFile.html</anchorfile>
+      <anchor>a2b9f0063b43223b5b8af0cd698214f91</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>contents</name>
+      <anchorfile>structLayoutSupport_1_1JsonFile.html</anchorfile>
+      <anchor>af1489bbd2cb31e2b42330866f67c2e0f</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>Knob</name>
     <filename>classKnob.html</filename>
@@ -8601,6 +8674,8 @@
   <compound kind="class">
     <name>LayoutSupport</name>
     <filename>classLayoutSupport.html</filename>
+    <class kind="struct">LayoutSupport::Bounds</class>
+    <class kind="struct">LayoutSupport::JsonFile</class>
     <member kind="function">
       <type></type>
       <name>LayoutSupport</name>
@@ -8662,6 +8737,167 @@
       <name>layoutChanged</name>
       <anchorfile>classLayoutSupport.html</anchorfile>
       <anchor>ab81e49461b2cd7066b40017c67719197</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>juce::String</type>
+      <name>findContent</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>afa4fe5fbbe931c9e0a73eaf22c164422</anchor>
+      <arglist>(const juce::String &amp;name)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>juce::Component *</type>
+      <name>getComp</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a828da33d2a844f3de7a2781a99580ac8</anchor>
+      <arglist>(const juce::String &amp;cid)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setLayoutInternal</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a0f3b3d5d447354010bc79a3246735e26</anchor>
+      <arglist>(const juce::Array&lt; JsonFile &gt; &amp;files)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>int</type>
+      <name>parse</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>aa2f25132a75ff9286bf476426004b158</anchor>
+      <arglist>(const juce::var &amp;equation, int equationIndex)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setComponentsLayout</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>ad75415181dadb939baf4c416191b3238</anchor>
+      <arglist>(const juce::String &amp;currentPath, const juce::var &amp;components)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>loadConstants</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>accea154ba1b4f37425905f645e2c5563</anchor>
+      <arglist>(juce::var &amp;j)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>loadMacros</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a3cf4aa833c85066fdcb6a7bc9af9c19e</anchor>
+      <arglist>(juce::var &amp;j)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>Bounds</type>
+      <name>getBounds</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>ad8c2942b4a60fd2a26917fdc7955275a</anchor>
+      <arglist>(int idIdx, const juce::var &amp;component)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>juce::Component *</type>
+      <name>setPosition</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>ae38e9b01f2da7d82e13f95a65a5b304e</anchor>
+      <arglist>(const juce::String &amp;currentPath, const juce::String &amp;id, int idIdx, const juce::var &amp;component)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>juce::var</type>
+      <name>expandMacro</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a49a3022437111aa60c7a12c871f50e65</anchor>
+      <arglist>(const juce::var &amp;component)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setGridPositions</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>ae0253f632c43c3136067836da54cb4cd</anchor>
+      <arglist>(const juce::String &amp;currentPath, const juce::var &amp;component)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>fileChanged</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a6fb53448011058e19a05976e98bd6daf</anchor>
+      <arglist>(const juce::File &amp;, gin::FileSystemWatcher::FileSystemEvent) override</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::Component &amp;</type>
+      <name>parent</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a1733f41e211565425c60d427f0c8c284</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>ConstantsStack</type>
+      <name>constants</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a2d8324e2010a8e045c3de98cc9476899</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::map&lt; juce::String, juce::var &gt;</type>
+      <name>macros</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>aabcc9c3d106fe045b14ce359adb9b11d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::Array&lt; juce::File &gt;</type>
+      <name>layoutFiles</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a9ce034034572fb600bf8b57cd343d9a4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>layoutSet</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>ace2fa37ddd0a4a4d310b3588d59c7cc4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::Component *</type>
+      <name>curComponent</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>ac0cd7cddbeb01280cf14e2b5619e7adc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::OwnedArray&lt; juce::Component &gt;</type>
+      <name>createdComponents</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>ac700eaeaff3cbab809291a6933ea7cf7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>ComponentMap</type>
+      <name>compMap</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a64e4cec77592001d42f39fe9203c189b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::function&lt; std::pair&lt; juce::Component *, bool &gt;(const juce::String &amp;)&gt;</type>
+      <name>componentFactory</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>afa140cbacf0c2d87407af252e698085b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected" static="yes">
+      <type>static int</type>
+      <name>refCount</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a0fd08c232e0404a84efabbcfb460d88c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected" static="yes">
+      <type>static std::unique_ptr&lt; FileSystemWatcher &gt;</type>
+      <name>watcher</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a781d398d20f8a13e7eb01f4a2c00b466</anchor>
       <arglist></arglist>
     </member>
     <docanchor file="classLayoutSupport.html" title="JSON Format">json</docanchor>
@@ -21471,6 +21707,8 @@
     <class kind="class">ConstantsStack::ScopedSave</class>
     <class kind="class">Parser</class>
     <class kind="class">LayoutSupport</class>
+    <class kind="struct">LayoutSupport::Bounds</class>
+    <class kind="struct">LayoutSupport::JsonFile</class>
     <class kind="class">OpenStreetMaps</class>
     <class kind="class">OpenStreetMaps::Listener</class>
     <class kind="class">SystemClipboard</class>
@@ -21596,6 +21834,13 @@
       <anchorfile>group__gin__gui-utilities.html</anchorfile>
       <anchor>gad37d4944a1b5a94d959f2c74d9ca36ec</anchor>
       <arglist>(const juce::var &amp;v, juce::String pointer, const juce::var &amp;defaultValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>removeJsonComments</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga8d83bb854851e5039749da191fc5765e</anchor>
+      <arglist>(const juce::String &amp;input)</arglist>
     </member>
     <member kind="function">
       <type></type>

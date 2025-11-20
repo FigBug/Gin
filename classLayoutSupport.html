@@ -70,9 +70,13 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="classLayoutSupport-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">LayoutSupport Class Reference<div class="ingroups"><a class="el" href="group__gin__gui.html">gin_gui</a> &raquo; <a class="el" href="group__gin__gui-utilities.html">utilities</a></div></div></div>
 </div><!--header-->
@@ -85,6 +89,13 @@ $(function() {
 
 <p>Inherits gin::FileSystemWatcher::Listener.</p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLayoutSupport_1_1Bounds.html">Bounds</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLayoutSupport_1_1JsonFile.html">JsonFile</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4066b322b51a4f22c5b3dc8da5a3de59" id="r_a4066b322b51a4f22c5b3dc8da5a3de59"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a4066b322b51a4f22c5b3dc8da5a3de59">LayoutSupport</a> (juce::Component &amp;<a class="el" href="classPoint.html">parent_</a>, std::function&lt; std::pair&lt; juce::Component *, <a class="el" href="classPoint.html">bool</a> &gt;(<a class="el" href="classPoint.html">const</a> juce::String &amp;)&gt; <a class="el" href="classPoint.html">factory_</a>=<a class="el" href="classPoint.html">nullptr</a>)</td></tr>
@@ -119,6 +130,61 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ab81e49461b2cd7066b40017c67719197" id="r_ab81e49461b2cd7066b40017c67719197"><td class="memItemLeft" align="right" valign="top">std::function&lt; <a class="el" href="classPoint.html">void</a>()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#ab81e49461b2cd7066b40017c67719197">layoutChanged</a></td></tr>
 <tr class="memdesc:ab81e49461b2cd7066b40017c67719197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback invoked when layout is loaded or reloaded.  <br /></td></tr>
 <tr class="separator:ab81e49461b2cd7066b40017c67719197"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:afa4fe5fbbe931c9e0a73eaf22c164422" id="r_afa4fe5fbbe931c9e0a73eaf22c164422"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#afa4fe5fbbe931c9e0a73eaf22c164422">findContent</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;name)</td></tr>
+<tr class="separator:afa4fe5fbbe931c9e0a73eaf22c164422"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a828da33d2a844f3de7a2781a99580ac8" id="r_a828da33d2a844f3de7a2781a99580ac8"><td class="memItemLeft" align="right" valign="top">juce::Component *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a828da33d2a844f3de7a2781a99580ac8">getComp</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">cid</a>)</td></tr>
+<tr class="separator:a828da33d2a844f3de7a2781a99580ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f3b3d5d447354010bc79a3246735e26" id="r_a0f3b3d5d447354010bc79a3246735e26"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a0f3b3d5d447354010bc79a3246735e26">setLayoutInternal</a> (<a class="el" href="classPoint.html">const</a> juce::Array&lt; <a class="el" href="structLayoutSupport_1_1JsonFile.html">JsonFile</a> &gt; &amp;<a class="el" href="classPoint.html">files</a>)</td></tr>
+<tr class="separator:a0f3b3d5d447354010bc79a3246735e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2f25132a75ff9286bf476426004b158" id="r_aa2f25132a75ff9286bf476426004b158"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#aa2f25132a75ff9286bf476426004b158">parse</a> (<a class="el" href="classPoint.html">const</a> juce::var &amp;<a class="el" href="classPoint.html">equation</a>, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">equationIndex</a>)</td></tr>
+<tr class="separator:aa2f25132a75ff9286bf476426004b158"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad75415181dadb939baf4c416191b3238" id="r_ad75415181dadb939baf4c416191b3238"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#ad75415181dadb939baf4c416191b3238">setComponentsLayout</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">currentPath</a>, <a class="el" href="classPoint.html">const</a> juce::var &amp;<a class="el" href="classPoint.html">components</a>)</td></tr>
+<tr class="separator:ad75415181dadb939baf4c416191b3238"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accea154ba1b4f37425905f645e2c5563" id="r_accea154ba1b4f37425905f645e2c5563"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#accea154ba1b4f37425905f645e2c5563">loadConstants</a> (juce::var &amp;<a class="el" href="classPoint.html">j</a>)</td></tr>
+<tr class="separator:accea154ba1b4f37425905f645e2c5563"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cf4aa833c85066fdcb6a7bc9af9c19e" id="r_a3cf4aa833c85066fdcb6a7bc9af9c19e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a3cf4aa833c85066fdcb6a7bc9af9c19e">loadMacros</a> (juce::var &amp;<a class="el" href="classPoint.html">j</a>)</td></tr>
+<tr class="separator:a3cf4aa833c85066fdcb6a7bc9af9c19e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8c2942b4a60fd2a26917fdc7955275a" id="r_ad8c2942b4a60fd2a26917fdc7955275a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLayoutSupport_1_1Bounds.html">Bounds</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#ad8c2942b4a60fd2a26917fdc7955275a">getBounds</a> (<a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">idIdx</a>, <a class="el" href="classPoint.html">const</a> juce::var &amp;<a class="el" href="classPoint.html">component</a>)</td></tr>
+<tr class="separator:ad8c2942b4a60fd2a26917fdc7955275a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae38e9b01f2da7d82e13f95a65a5b304e" id="r_ae38e9b01f2da7d82e13f95a65a5b304e"><td class="memItemLeft" align="right" valign="top">juce::Component *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#ae38e9b01f2da7d82e13f95a65a5b304e">setPosition</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">currentPath</a>, <a class="el" href="classPoint.html">const</a> juce::String &amp;id, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">idIdx</a>, <a class="el" href="classPoint.html">const</a> juce::var &amp;<a class="el" href="classPoint.html">component</a>)</td></tr>
+<tr class="separator:ae38e9b01f2da7d82e13f95a65a5b304e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49a3022437111aa60c7a12c871f50e65" id="r_a49a3022437111aa60c7a12c871f50e65"><td class="memItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a49a3022437111aa60c7a12c871f50e65">expandMacro</a> (<a class="el" href="classPoint.html">const</a> juce::var &amp;<a class="el" href="classPoint.html">component</a>)</td></tr>
+<tr class="separator:a49a3022437111aa60c7a12c871f50e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0253f632c43c3136067836da54cb4cd" id="r_ae0253f632c43c3136067836da54cb4cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#ae0253f632c43c3136067836da54cb4cd">setGridPositions</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">currentPath</a>, <a class="el" href="classPoint.html">const</a> juce::var &amp;<a class="el" href="classPoint.html">component</a>)</td></tr>
+<tr class="separator:ae0253f632c43c3136067836da54cb4cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fb53448011058e19a05976e98bd6daf" id="r_a6fb53448011058e19a05976e98bd6daf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a6fb53448011058e19a05976e98bd6daf">fileChanged</a> (<a class="el" href="classPoint.html">const</a> juce::File &amp;, gin::FileSystemWatcher::FileSystemEvent) <a class="el" href="classPoint.html">override</a></td></tr>
+<tr class="separator:a6fb53448011058e19a05976e98bd6daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a1733f41e211565425c60d427f0c8c284" id="r_a1733f41e211565425c60d427f0c8c284"><td class="memItemLeft" align="right" valign="top">juce::Component &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a1733f41e211565425c60d427f0c8c284">parent</a></td></tr>
+<tr class="separator:a1733f41e211565425c60d427f0c8c284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d8324e2010a8e045c3de98cc9476899" id="r_a2d8324e2010a8e045c3de98cc9476899"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classConstantsStack.html">ConstantsStack</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a2d8324e2010a8e045c3de98cc9476899">constants</a></td></tr>
+<tr class="separator:a2d8324e2010a8e045c3de98cc9476899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabcc9c3d106fe045b14ce359adb9b11d" id="r_aabcc9c3d106fe045b14ce359adb9b11d"><td class="memItemLeft" align="right" valign="top">std::map&lt; juce::String, juce::var &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#aabcc9c3d106fe045b14ce359adb9b11d">macros</a></td></tr>
+<tr class="separator:aabcc9c3d106fe045b14ce359adb9b11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ce034034572fb600bf8b57cd343d9a4" id="r_a9ce034034572fb600bf8b57cd343d9a4"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; juce::File &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a9ce034034572fb600bf8b57cd343d9a4">layoutFiles</a></td></tr>
+<tr class="separator:a9ce034034572fb600bf8b57cd343d9a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace2fa37ddd0a4a4d310b3588d59c7cc4" id="r_ace2fa37ddd0a4a4d310b3588d59c7cc4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#ace2fa37ddd0a4a4d310b3588d59c7cc4">layoutSet</a> = <a class="el" href="classPoint.html">false</a></td></tr>
+<tr class="separator:ace2fa37ddd0a4a4d310b3588d59c7cc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0cd7cddbeb01280cf14e2b5619e7adc" id="r_ac0cd7cddbeb01280cf14e2b5619e7adc"><td class="memItemLeft" align="right" valign="top">juce::Component *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#ac0cd7cddbeb01280cf14e2b5619e7adc">curComponent</a> = <a class="el" href="classPoint.html">nullptr</a></td></tr>
+<tr class="separator:ac0cd7cddbeb01280cf14e2b5619e7adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac700eaeaff3cbab809291a6933ea7cf7" id="r_ac700eaeaff3cbab809291a6933ea7cf7"><td class="memItemLeft" align="right" valign="top">juce::OwnedArray&lt; juce::Component &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#ac700eaeaff3cbab809291a6933ea7cf7">createdComponents</a></td></tr>
+<tr class="separator:ac700eaeaff3cbab809291a6933ea7cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64e4cec77592001d42f39fe9203c189b" id="r_a64e4cec77592001d42f39fe9203c189b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classComponentMap.html">ComponentMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a64e4cec77592001d42f39fe9203c189b">compMap</a></td></tr>
+<tr class="separator:a64e4cec77592001d42f39fe9203c189b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa140cbacf0c2d87407af252e698085b" id="r_afa140cbacf0c2d87407af252e698085b"><td class="memItemLeft" align="right" valign="top">std::function&lt; std::pair&lt; juce::Component *, <a class="el" href="classPoint.html">bool</a> &gt;(<a class="el" href="classPoint.html">const</a> juce::String &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#afa140cbacf0c2d87407af252e698085b">componentFactory</a></td></tr>
+<tr class="separator:afa140cbacf0c2d87407af252e698085b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
+Static Protected Attributes</h2></td></tr>
+<tr class="memitem:a0fd08c232e0404a84efabbcfb460d88c" id="r_a0fd08c232e0404a84efabbcfb460d88c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">static</a> <a class="el" href="classPoint.html">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a0fd08c232e0404a84efabbcfb460d88c">refCount</a> = 0</td></tr>
+<tr class="separator:a0fd08c232e0404a84efabbcfb460d88c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a781d398d20f8a13e7eb01f4a2c00b466" id="r_a781d398d20f8a13e7eb01f4a2c00b466"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">static</a> std::unique_ptr&lt; <a class="el" href="classFileSystemWatcher.html">FileSystemWatcher</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a781d398d20f8a13e7eb01f4a2c00b466">watcher</a></td></tr>
+<tr class="separator:a781d398d20f8a13e7eb01f4a2c00b466"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>JSON-based layout system for JUCE components. </p>
@@ -501,6 +567,390 @@ Examples</h2>
 
 </div>
 </div>
+<a id="afa4fe5fbbe931c9e0a73eaf22c164422" name="afa4fe5fbbe931c9e0a73eaf22c164422"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa4fe5fbbe931c9e0a73eaf22c164422">&#9670;&#160;</a></span>findContent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::String LayoutSupport::findContent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::String &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a828da33d2a844f3de7a2781a99580ac8" name="a828da33d2a844f3de7a2781a99580ac8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a828da33d2a844f3de7a2781a99580ac8">&#9670;&#160;</a></span>getComp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Component * LayoutSupport::getComp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::String &amp;&#160;</td>
+          <td class="paramname"><em>cid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f3b3d5d447354010bc79a3246735e26" name="a0f3b3d5d447354010bc79a3246735e26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f3b3d5d447354010bc79a3246735e26">&#9670;&#160;</a></span>setLayoutInternal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> LayoutSupport::setLayoutInternal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::Array&lt; <a class="el" href="structLayoutSupport_1_1JsonFile.html">JsonFile</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>files</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa2f25132a75ff9286bf476426004b158" name="aa2f25132a75ff9286bf476426004b158"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2f25132a75ff9286bf476426004b158">&#9670;&#160;</a></span>parse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">int</a> LayoutSupport::parse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::var &amp;&#160;</td>
+          <td class="paramname"><em>equation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">int</a>&#160;</td>
+          <td class="paramname"><em>equationIndex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad75415181dadb939baf4c416191b3238" name="ad75415181dadb939baf4c416191b3238"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad75415181dadb939baf4c416191b3238">&#9670;&#160;</a></span>setComponentsLayout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> LayoutSupport::setComponentsLayout </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::String &amp;&#160;</td>
+          <td class="paramname"><em>currentPath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::var &amp;&#160;</td>
+          <td class="paramname"><em>components</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="accea154ba1b4f37425905f645e2c5563" name="accea154ba1b4f37425905f645e2c5563"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accea154ba1b4f37425905f645e2c5563">&#9670;&#160;</a></span>loadConstants()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> LayoutSupport::loadConstants </td>
+          <td>(</td>
+          <td class="paramtype">juce::var &amp;&#160;</td>
+          <td class="paramname"><em>j</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3cf4aa833c85066fdcb6a7bc9af9c19e" name="a3cf4aa833c85066fdcb6a7bc9af9c19e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cf4aa833c85066fdcb6a7bc9af9c19e">&#9670;&#160;</a></span>loadMacros()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> LayoutSupport::loadMacros </td>
+          <td>(</td>
+          <td class="paramtype">juce::var &amp;&#160;</td>
+          <td class="paramname"><em>j</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad8c2942b4a60fd2a26917fdc7955275a" name="ad8c2942b4a60fd2a26917fdc7955275a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8c2942b4a60fd2a26917fdc7955275a">&#9670;&#160;</a></span>getBounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structLayoutSupport_1_1Bounds.html">Bounds</a> LayoutSupport::getBounds </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">int</a>&#160;</td>
+          <td class="paramname"><em>idIdx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::var &amp;&#160;</td>
+          <td class="paramname"><em>component</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae38e9b01f2da7d82e13f95a65a5b304e" name="ae38e9b01f2da7d82e13f95a65a5b304e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae38e9b01f2da7d82e13f95a65a5b304e">&#9670;&#160;</a></span>setPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Component * LayoutSupport::setPosition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::String &amp;&#160;</td>
+          <td class="paramname"><em>currentPath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::String &amp;&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">int</a>&#160;</td>
+          <td class="paramname"><em>idIdx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::var &amp;&#160;</td>
+          <td class="paramname"><em>component</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a49a3022437111aa60c7a12c871f50e65" name="a49a3022437111aa60c7a12c871f50e65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49a3022437111aa60c7a12c871f50e65">&#9670;&#160;</a></span>expandMacro()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::var LayoutSupport::expandMacro </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::var &amp;&#160;</td>
+          <td class="paramname"><em>component</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae0253f632c43c3136067836da54cb4cd" name="ae0253f632c43c3136067836da54cb4cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0253f632c43c3136067836da54cb4cd">&#9670;&#160;</a></span>setGridPositions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> LayoutSupport::setGridPositions </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::String &amp;&#160;</td>
+          <td class="paramname"><em>currentPath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::var &amp;&#160;</td>
+          <td class="paramname"><em>component</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6fb53448011058e19a05976e98bd6daf" name="a6fb53448011058e19a05976e98bd6daf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fb53448011058e19a05976e98bd6daf">&#9670;&#160;</a></span>fileChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> LayoutSupport::fileChanged </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::File &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gin::FileSystemWatcher::FileSystemEvent&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="ab81e49461b2cd7066b40017c67719197" name="ab81e49461b2cd7066b40017c67719197"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab81e49461b2cd7066b40017c67719197">&#9670;&#160;</a></span>layoutChanged</h2>
@@ -518,13 +968,255 @@ Examples</h2>
 
 </div>
 </div>
+<a id="a1733f41e211565425c60d427f0c8c284" name="a1733f41e211565425c60d427f0c8c284"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1733f41e211565425c60d427f0c8c284">&#9670;&#160;</a></span>parent</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Component&amp; LayoutSupport::parent</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0fd08c232e0404a84efabbcfb460d88c" name="a0fd08c232e0404a84efabbcfb460d88c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fd08c232e0404a84efabbcfb460d88c">&#9670;&#160;</a></span>refCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">int</a> LayoutSupport::refCount = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a781d398d20f8a13e7eb01f4a2c00b466" name="a781d398d20f8a13e7eb01f4a2c00b466"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a781d398d20f8a13e7eb01f4a2c00b466">&#9670;&#160;</a></span>watcher</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classFileSystemWatcher.html">FileSystemWatcher</a>&gt; LayoutSupport::watcher</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2d8324e2010a8e045c3de98cc9476899" name="a2d8324e2010a8e045c3de98cc9476899"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d8324e2010a8e045c3de98cc9476899">&#9670;&#160;</a></span>constants</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classConstantsStack.html">ConstantsStack</a> LayoutSupport::constants</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aabcc9c3d106fe045b14ce359adb9b11d" name="aabcc9c3d106fe045b14ce359adb9b11d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabcc9c3d106fe045b14ce359adb9b11d">&#9670;&#160;</a></span>macros</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;juce::String, juce::var&gt; LayoutSupport::macros</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ce034034572fb600bf8b57cd343d9a4" name="a9ce034034572fb600bf8b57cd343d9a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ce034034572fb600bf8b57cd343d9a4">&#9670;&#160;</a></span>layoutFiles</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Array&lt;juce::File&gt; LayoutSupport::layoutFiles</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ace2fa37ddd0a4a4d310b3588d59c7cc4" name="ace2fa37ddd0a4a4d310b3588d59c7cc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace2fa37ddd0a4a4d310b3588d59c7cc4">&#9670;&#160;</a></span>layoutSet</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">bool</a> LayoutSupport::layoutSet = <a class="el" href="classPoint.html">false</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac0cd7cddbeb01280cf14e2b5619e7adc" name="ac0cd7cddbeb01280cf14e2b5619e7adc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0cd7cddbeb01280cf14e2b5619e7adc">&#9670;&#160;</a></span>curComponent</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Component* LayoutSupport::curComponent = <a class="el" href="classPoint.html">nullptr</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac700eaeaff3cbab809291a6933ea7cf7" name="ac700eaeaff3cbab809291a6933ea7cf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac700eaeaff3cbab809291a6933ea7cf7">&#9670;&#160;</a></span>createdComponents</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::OwnedArray&lt;juce::Component&gt; LayoutSupport::createdComponents</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a64e4cec77592001d42f39fe9203c189b" name="a64e4cec77592001d42f39fe9203c189b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64e4cec77592001d42f39fe9203c189b">&#9670;&#160;</a></span>compMap</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classComponentMap.html">ComponentMap</a> LayoutSupport::compMap</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afa140cbacf0c2d87407af252e698085b" name="afa140cbacf0c2d87407af252e698085b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa140cbacf0c2d87407af252e698085b">&#9670;&#160;</a></span>componentFactory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;std::pair&lt;juce::Component*, <a class="el" href="classPoint.html">bool</a>&gt;(<a class="el" href="classPoint.html">const</a> juce::String&amp;)&gt; LayoutSupport::componentFactory</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="gin__layoutsupport_8h.html">gin_layoutsupport.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 20 2025 00:18:22 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 20 2025 00:46:12 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

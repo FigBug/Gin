@@ -10,7 +10,8 @@ var searchData=
   ['bounceineasing_7',['BounceInEasing',['../structBounceInEasing.html',1,'']]],
   ['bounceinouteasing_8',['BounceInOutEasing',['../structBounceInOutEasing.html',1,'']]],
   ['bounceouteasing_9',['BounceOutEasing',['../structBounceOutEasing.html',1,'']]],
-  ['boxarea_10',['BoxArea',['../classBoxArea.html',1,'']]],
-  ['bp12state_11',['BP12State',['../structBP12State.html',1,'']]],
-  ['bp24state_12',['BP24State',['../structBP24State.html',1,'']]]
+  ['bounds_10',['Bounds',['../structLayoutSupport_1_1Bounds.html',1,'LayoutSupport']]],
+  ['boxarea_11',['BoxArea',['../classBoxArea.html',1,'']]],
+  ['bp12state_12',['BP12State',['../structBP12State.html',1,'']]],
+  ['bp24state_13',['BP24State',['../structBP24State.html',1,'']]]
 ];

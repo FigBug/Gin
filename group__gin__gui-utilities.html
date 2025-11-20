@@ -123,6 +123,10 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html">LayoutSupport</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSON-based layout system for JUCE components.  <a href="classLayoutSupport.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLayoutSupport_1_1Bounds.html">LayoutSupport::Bounds</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLayoutSupport_1_1JsonFile.html">LayoutSupport::JsonFile</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenStreetMaps.html">OpenStreetMaps</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches map files from OSM servers.  <a href="classOpenStreetMaps.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,6 +192,8 @@ Functions</h2></td></tr>
 <tr class="memitem:gad37d4944a1b5a94d959f2c74d9ca36ec" id="r_gad37d4944a1b5a94d959f2c74d9ca36ec"><td class="memItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__gui-utilities.html#gad37d4944a1b5a94d959f2c74d9ca36ec">getJSONPointer</a> (<a class="el" href="classPoint.html">const</a> juce::var &amp;v, juce::String pointer, <a class="el" href="classPoint.html">const</a> juce::var &amp;defaultValue)</td></tr>
 <tr class="memdesc:gad37d4944a1b5a94d959f2c74d9ca36ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a JSON array/object 'v', a string representing a JSON pointer, returns the value of the property or array index referenced by the pointer If the pointer cannot be followed, due to referencing missing array indices or fields, then this returns defaultValue.  <br /></td></tr>
 <tr class="separator:gad37d4944a1b5a94d959f2c74d9ca36ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8d83bb854851e5039749da191fc5765e" id="r_ga8d83bb854851e5039749da191fc5765e"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__gui-utilities.html#ga8d83bb854851e5039749da191fc5765e">removeJsonComments</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">input</a>)</td></tr>
+<tr class="separator:ga8d83bb854851e5039749da191fc5765e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga73804ae2be599cf5e40cf379ff99d04d" id="r_ga73804ae2be599cf5e40cf379ff99d04d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__gui-utilities.html#ga73804ae2be599cf5e40cf379ff99d04d">juce::VarIterator::VarIterator</a> (<a class="el" href="classPoint.html">const</a> juce::var &amp;, <a class="el" href="classPoint.html">bool</a> <a class="el" href="classPoint.html">isEnd</a>)</td></tr>
 <tr class="separator:ga73804ae2be599cf5e40cf379ff99d04d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gadaf3cbf9c09218e1220f273bc387a628" id="r_gadaf3cbf9c09218e1220f273bc387a628"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjuce_1_1VarIterator.html">VarIterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__gui-utilities.html#gadaf3cbf9c09218e1220f273bc387a628">juce::VarIterator::operator++</a> ()</td></tr>
@@ -658,6 +664,24 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="ga8d83bb854851e5039749da191fc5765e" name="ga8d83bb854851e5039749da191fc5765e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8d83bb854851e5039749da191fc5765e">&#9670;&#160;</a></span>removeJsonComments()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::String removeJsonComments </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::String &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ga73804ae2be599cf5e40cf379ff99d04d" name="ga73804ae2be599cf5e40cf379ff99d04d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga73804ae2be599cf5e40cf379ff99d04d">&#9670;&#160;</a></span>VarIterator()</h2>
 
@@ -856,7 +880,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 20 2025 00:18:22 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 20 2025 00:46:12 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
