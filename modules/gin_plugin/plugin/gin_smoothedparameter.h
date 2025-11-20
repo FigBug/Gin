@@ -16,6 +16,7 @@ public:
         : Parameter (p, uid_, name_, shortName_, label_, minValue_, maxValue_, intervalValue_, defaultValue_, skewFactor_, textFunction_)
     {
         smoother.setValue (range.convertTo0to1 (value.load (std::memory_order_relaxed)));
+        smoother.snapToValue();
     }
 
     SmoothedParameter (Processor& p, juce::String uid_, juce::String name_, juce::String shortName_, juce::String label_,
@@ -24,6 +25,7 @@ public:
         : Parameter (p, uid_, name_, shortName_, label_, range_, defaultValue_, textFunction_)
     {
         smoother.setValue (range.convertTo0to1 (value.load (std::memory_order_relaxed)));
+        smoother.snapToValue();
     }
     
     void prepareToPlay (double sampleRate, int /*samplesPerBlock*/) override
