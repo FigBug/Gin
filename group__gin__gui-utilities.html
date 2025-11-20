@@ -193,6 +193,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:gad37d4944a1b5a94d959f2c74d9ca36ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a JSON array/object 'v', a string representing a JSON pointer, returns the value of the property or array index referenced by the pointer If the pointer cannot be followed, due to referencing missing array indices or fields, then this returns defaultValue.  <br /></td></tr>
 <tr class="separator:gad37d4944a1b5a94d959f2c74d9ca36ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8d83bb854851e5039749da191fc5765e" id="r_ga8d83bb854851e5039749da191fc5765e"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__gui-utilities.html#ga8d83bb854851e5039749da191fc5765e">removeJsonComments</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">input</a>)</td></tr>
+<tr class="memdesc:ga8d83bb854851e5039749da191fc5765e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove C-style and C++-style comments from a JSON string.  <br /></td></tr>
 <tr class="separator:ga8d83bb854851e5039749da191fc5765e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga73804ae2be599cf5e40cf379ff99d04d" id="r_ga73804ae2be599cf5e40cf379ff99d04d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gin__gui-utilities.html#ga73804ae2be599cf5e40cf379ff99d04d">juce::VarIterator::VarIterator</a> (<a class="el" href="classPoint.html">const</a> juce::var &amp;, <a class="el" href="classPoint.html">bool</a> <a class="el" href="classPoint.html">isEnd</a>)</td></tr>
 <tr class="separator:ga73804ae2be599cf5e40cf379ff99d04d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -680,6 +681,27 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Remove C-style and C++-style comments from a JSON string. </p>
+<p>This function strips both line comments and block comments from JSON text, allowing you to use commented JSON files. Comments within string literals are preserved.</p>
+<p>Supported comment styles:</p><ul>
+<li>Line comments (until end of line)</li>
+<li>Block comments (can span multiple lines)</li>
+</ul>
+<p>String handling:</p><ul>
+<li>Comments inside quoted strings are NOT removed</li>
+<li>Escaped quotes (") are properly handled</li>
+<li>Backslashes within strings are preserved</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The JSON string potentially containing comments </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The JSON string with all comments removed</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This allows you to use more readable, documented JSON configuration files while still being able to parse them with standard JSON parsers.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://jsonc.org/">https://jsonc.org/</a> for more about JSON with Comments (JSONC) format </dd></dl>
+
 </div>
 </div>
 <a id="ga73804ae2be599cf5e40cf379ff99d04d" name="ga73804ae2be599cf5e40cf379ff99d04d"></a>
@@ -880,7 +902,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 20 2025 00:46:12 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 20 2025 01:03:14 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
