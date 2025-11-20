@@ -3538,6 +3538,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setRateAndBufferSizeDetails</name>
+      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
+      <anchor>a16bd311b01aec0adec4c4c4adb87b971</anchor>
+      <arglist>(double newSampleRate, int newBlockSize) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>prepareToPlay</name>
       <anchorfile>classAudioProcessorWrapper.html</anchorfile>
       <anchor>ad0973c9947f3ac244124f30f55f952ec</anchor>
@@ -13662,6 +13669,13 @@
       <anchor>a1ce29b3d4b58121fc1e915bfa4f8627c</anchor>
       <arglist>(juce::AudioBuffer&lt; float &gt; &amp;buffer, juce::MidiBuffer &amp;midiMessages) override</arglist>
     </member>
+    <member kind="variable">
+      <type>AudioFifo</type>
+      <name>scopeFifo</name>
+      <anchorfile>classPluginWrapper.html</anchorfile>
+      <anchor>a0abf8ab9af6ce0e8a05ac34254bd5e56</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="struct">
     <name>MSEG::Point</name>
@@ -15643,6 +15657,34 @@
       <anchor>af03a08e0fb0423c8ec1693a58ecdfe07</anchor>
       <arglist>() override</arglist>
     </member>
+    <member kind="variable">
+      <type>StandaloneFilterWindow &amp;</type>
+      <name>filterWindow</name>
+      <anchorfile>classSideBarComponent.html</anchorfile>
+      <anchor>a308b8bcb18ce47106ac727bc08646da9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>PluginWrapper &amp;</type>
+      <name>pluginWrapper</name>
+      <anchorfile>classSideBarComponent.html</anchorfile>
+      <anchor>ac84440b78d8242214ee48c6215af4131</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>CopperLookAndFeel</type>
+      <name>lf</name>
+      <anchorfile>classSideBarComponent.html</anchorfile>
+      <anchor>acd49c44c1ab7c4d7eb95160c612bc443</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>TriggeredScope</type>
+      <name>scope</name>
+      <anchorfile>classSideBarComponent.html</anchorfile>
+      <anchor>a876f620917f4e953d7a10948fb6c9ca9</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="variable" static="yes">
       <type>static constexpr int</type>
       <name>width</name>
@@ -16867,6 +16909,13 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
+      <type>juce::Value &amp;</type>
+      <name>getShowSidebarValue</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a983681297f0f3bbcac27e43f521eb673</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>valueChanged</name>
       <anchorfile>classStandalonePluginHolder.html</anchorfile>
@@ -17039,6 +17088,13 @@
       <name>shouldMuteInput</name>
       <anchorfile>classStandalonePluginHolder.html</anchorfile>
       <anchor>a0f0f2e7e20b4c356a06b9a3fb7ae3e51</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Value</type>
+      <name>shouldShowSidebar</name>
+      <anchorfile>classStandalonePluginHolder.html</anchorfile>
+      <anchor>a824f4fd01b8677895f85f6957b093f29</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">

@@ -14,7 +14,7 @@ var searchData=
   ['layoutset_11',['layoutSet',['../classLayoutSupport.html#ace2fa37ddd0a4a4d310b3588d59c7cc4',1,'LayoutSupport']]],
   ['learning_12',['learning',['../classKnob.html#a4a082d2e230ead204360e25723f11549',1,'Knob']]],
   ['leftgain_13',['leftgain',['../structStereoOscillator_1_1Params.html#ab7814fe28bdb79772871cef3cf5f5679',1,'StereoOscillator::Params::leftGain'],['../structWTOscillator_1_1Params.html#abef23350d10d65198a293119ced8bb9d',1,'WTOscillator::Params::leftGain']]],
-  ['lf_14',['lf',['../classProcessor.html#a7076bef74600565dd0d89a210baadcad',1,'Processor']]],
+  ['lf_14',['lf',['../classProcessor.html#a7076bef74600565dd0d89a210baadcad',1,'Processor::lf'],['../classSideBarComponent.html#acd49c44c1ab7c4d7eb95160c612bc443',1,'SideBarComponent::lf']]],
   ['listeners_15',['listeners',['../classParameter.html#a6ab022db2c42737bf0d3b1552f9b97a4',1,'Parameter']]],
   ['livevaluescallback_16',['liveValuesCallback',['../classKnob.html#ad99b0b0c9edd466e0119735365690e26',1,'Knob']]],
   ['loadingstate_17',['loadingState',['../classProcessor.html#ab4a632bd0b8edcb74957e4c6d7fd3207',1,'Processor']]],
