@@ -2000,6 +2000,13 @@
       <arglist>(juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;value)</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>removeProperty</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga8d3d517f8553687ae54a491635d3f3cf</anchor>
+      <arglist>(juce::var &amp;v, const juce::Identifier &amp;i)</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>setJSONPointer</name>
       <anchorfile>group__gin__gui-utilities.html</anchorfile>
@@ -21956,6 +21963,13 @@
       <anchorfile>group__gin__gui-utilities.html</anchorfile>
       <anchor>ga50aa299c064e2ba23134d4271067f253</anchor>
       <arglist>(juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;value)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeProperty</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga8d3d517f8553687ae54a491635d3f3cf</anchor>
+      <arglist>(juce::var &amp;v, const juce::Identifier &amp;i)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
