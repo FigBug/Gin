@@ -67,6 +67,7 @@ namespace gin
 #include "utilities/gin_varianthelpers.h"
 #include "utilities/gin_asyncutilities.h"
 #include "utilities/gin_coalescedtimer.h"
+#include "utilities/gin_componentmap.h"
 #include "utilities/gin_util.h"
 #include "utilities/gin_openstreetmaps.h"
 #include "utilities/gin_elevatedfilecopy.h"

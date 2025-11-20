@@ -81,7 +81,8 @@ void UnitTestsAudioProcessorEditor::runUnitTests()
     resultMessage += "========================================\n";
 
     runner->logMessage (resultMessage);
-    
+
+    juce::Thread::sleep (2000);
     juce::JUCEApplication::getInstance()->setApplicationReturnValue (numFailures > 0 ? 1 : 0);
     juce::JUCEApplication::quit ();
 }

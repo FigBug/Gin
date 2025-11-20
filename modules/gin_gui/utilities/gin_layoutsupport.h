@@ -1,26 +1,6 @@
 #pragma once
 
-/** Internal class for mapping component paths to component pointers */
-class ComponentMap
-{
-public:
-    ComponentMap (juce::Component& parent_);
-    void createMap (const std::function<bool (juce::Component&)>& checkChildren = nullptr);
-    void addComponent (juce::Component&);
-    juce::String getComponentPath (juce::Component& c);
-    juce::Component* findComponent (const juce::String& path);
-    void clearMap();
-
-    juce::StringArray dump();
-
-protected:
-    juce::Component& parent;
-
-private:
-    std::unordered_map<juce::String, juce::Component*> componentMap;
-
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ComponentMap)
-};
+#include "gin_componentmap.h"
 
 class ConstantsStack
 {

@@ -50,6 +50,7 @@ using namespace gin;
 #include "../../../modules/gin_graphics/formats/gin_bmpimageformat.test.h"
 #include "../../../modules/gin_graphics/images/gin_imageeffects.test.h"
 #include "../../../modules/gin_graphics/images/gin_imageeffects_blending.test.h"
+#include "../../../modules/gin_gui/utilities/gin_componentmap.test.h"
 #include "../../../modules/gin_gui/utilities/gin_layoutsupport.test.h"
 #include "../../../modules/gin_gui/utilities/gin_varianthelpers.test.h"
 #include "../../../modules/gin_plugin/plugin/gin_noteduration.test.h"

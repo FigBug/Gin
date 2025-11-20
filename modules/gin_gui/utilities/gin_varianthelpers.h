@@ -179,3 +179,67 @@ inline void setProperty ( juce::var& v, const juce::Identifier& i, const juce::v
     if (auto obj = v.getDynamicObject())
         obj->setProperty ( i, value);
 }
+
+/** Given a JSON array/object 'v', a string representing a JSON pointer,
+    and a new property value 'newValue', updates 'v' where the
+    property or array index referenced by the pointer has been set to 'newValue'.
+    If the pointer cannot be followed, due to referencing missing array indices
+    or fields, then this returns false.
+    For more details, check the JSON Pointer RFC 6901:
+    https://datatracker.ietf.org/doc/html/rfc6901
+*/
+bool setJSONPointer (juce::var& v, juce::String pointer, const juce::var& newValue);
+
+/** Given a JSON array/object 'v', a string representing a JSON pointer,
+    returns the value of the property or array index referenced by the pointer
+    If the pointer cannot be followed, due to referencing missing array indices
+    or fields, then this returns defaultValue.
+    For more details, check the JSON Pointer RFC 6901:
+    https://datatracker.ietf.org/doc/html/rfc6901
+*/
+juce::var getJSONPointer (const juce::var& v, juce::String pointer, const juce::var& defaultValue);
+
+}  // namespace gin
+
+//==============================================================================
+namespace juce
+{
+
+/** Iterator for a var.
+    You shouldn't ever need to use this class directly - it's used internally by begin()
+    and end() to allow range-based-for loops on a var.
+*/
+struct VarIterator
+{
+    struct NamedValue
+    {
+        juce::var name;
+        juce::var value;
+    };
+
+    VarIterator (const juce::var&, bool isEnd);
+    VarIterator& operator++();
+
+    bool operator== (const VarIterator&) const;
+    bool operator!= (const VarIterator&) const;
+    NamedValue operator*() const;
+
+    using difference_type    = std::ptrdiff_t;
+    using value_type         = NamedValue;
+    using reference          = NamedValue&;
+    using pointer            = NamedValue*;
+    using iterator_category  = std::forward_iterator_tag;
+
+private:
+    const juce::var& v;
+    int index = 0;
+    const void* itr = nullptr;
+};
+
+VarIterator begin (const juce::var&);
+VarIterator end (const juce::var&);
+
+}  // namespace juce
+
+namespace gin
+{
