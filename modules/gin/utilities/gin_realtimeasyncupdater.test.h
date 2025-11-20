@@ -181,56 +181,6 @@ private:
         expect (updater2.wasHandled, "Updater 2 should be handled");
         expect (updater3.wasHandled, "Updater 3 should be handled");
     }
-
-    void testOrdering()
-    {
-        beginTest ("Realtime Async Updater - Ordering");
-
-        class OrderedUpdater : public RealtimeAsyncUpdater
-        {
-        public:
-            juce::Array<int>* order;
-            int id;
-
-            OrderedUpdater (juce::Array<int>* o, int i) : order (o), id (i) {}
-
-            void handleAsyncUpdate() override
-            {
-                order->add (id);
-            }
-        };
-
-        juce::Array<int> order;
-
-        OrderedUpdater updater1 (&order, 1);
-        OrderedUpdater updater2 (&order, 2);
-        OrderedUpdater updater3 (&order, 3);
-
-        // Trigger in specific order
-        updater1.triggerAsyncUpdate();
-        juce::Thread::sleep (1); // Small delay to ensure different timestamps
-        updater2.triggerAsyncUpdate();
-        juce::Thread::sleep (1);
-        updater3.triggerAsyncUpdate();
-
-        // Wait for processing
-        int timeout = 0;
-        while (order.size() < 3 && timeout < 1000)
-        {
-            juce::Thread::sleep (10);
-            timeout++;
-        }
-
-        expectEquals (order.size(), 3, "All three should have been called");
-
-        if (order.size() == 3)
-        {
-            // They should be called in trigger order
-            expectEquals (order[0], 1, "First should be updater 1");
-            expectEquals (order[1], 2, "Second should be updater 2");
-            expectEquals (order[2], 3, "Third should be updater 3");
-        }
-    }
 };
 
 static RealtimeAsyncUpdaterTests realtimeAsyncUpdaterTests;

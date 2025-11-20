@@ -30,7 +30,7 @@ public:
 
     /** Triggers an asynchronous update.
 
-        Schedules handleAsyncUpdate() to be called on a background thread.
+        Schedules handleAsyncUpdate() to be called on the message thread.
         Multiple calls before the update executes are coalesced into a single callback.
         This method is thread-safe and can be called from any thread, including
         real-time audio threads.
@@ -71,7 +71,6 @@ private:
     juce::SharedResourcePointer<Impl> impl;
 
     std::atomic<bool> triggered;
-    std::atomic<uint32_t> order;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (RealtimeAsyncUpdater)
 };

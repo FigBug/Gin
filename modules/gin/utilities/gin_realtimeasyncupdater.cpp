@@ -12,7 +12,6 @@ public:
     Impl() : Thread ("RealtimeAsyncUpdater")
     {
         startThread();
-        next = 0;
     }
     
     ~Impl() override
@@ -34,26 +33,21 @@ public:
         updaters.removeFirstMatchingValue (ras);
     }
     
-    void signal (RealtimeAsyncUpdater& ras)
+    void signal()
     {
-        static juce::PerformanceCounter counter {"signal", 1000};
-        counter.start();
-        ras.order = ++next;
         event.signal();
-        counter.stop();
     }
     
 private:
     juce::CriticalSection lock;
     juce::Array<RealtimeAsyncUpdater*> updaters;
-    juce::WaitableEvent event;
-    juce::Atomic<uint32_t> next;
+    RealtimeEvent event;
     
     void run() override
     {
         while (true)
         {
-            event.wait (-1);
+            event.wait();
             
             if (threadShouldExit())
                 break;
@@ -68,24 +62,10 @@ private:
 
     void fireCallbacks()
     {
-        juce::Array<RealtimeAsyncUpdater*> dirtyUpdaters;
-        
         juce::ScopedLock sl (lock);
         for (auto au : updaters)
-            if (au->triggered.load())
-                dirtyUpdaters.add (au);
-        
-        std::sort (dirtyUpdaters.begin(), dirtyUpdaters.end(),
-                   [] (const RealtimeAsyncUpdater* a, const RealtimeAsyncUpdater* b) -> bool
-                   {
-                       return a->order.load() < b->order.load();
-                   });
-                
-        for (auto au : dirtyUpdaters)
-        {
-            au->triggered = false;
-            au->handleAsyncUpdate();
-        }
+            if (au->triggered.exchange (false, std::memory_order_relaxed))
+                au->handleAsyncUpdate();
     }
     
     JUCE_DECLARE_WEAK_REFERENCEABLE (Impl)
@@ -104,28 +84,22 @@ RealtimeAsyncUpdater::~RealtimeAsyncUpdater()
 
 void RealtimeAsyncUpdater::triggerAsyncUpdate()
 {
-    if (! triggered.load())
-    {
-        triggered = true;
-        impl->signal (*this);
-    }
+    if (! triggered.exchange (true, std::memory_order_relaxed))
+        impl->signal();
 }
 
 void RealtimeAsyncUpdater::cancelPendingUpdate() noexcept
 {
-    triggered = false;
+    triggered.store (false, std::memory_order_relaxed);
 }
 
 void RealtimeAsyncUpdater::handleUpdateNowIfNeeded()
 {
-    if (triggered.load())
-    {
-        triggered = false;
+    if (triggered.exchange (false, std::memory_order_relaxed))
         handleAsyncUpdate();
-    }
 }
 
 bool RealtimeAsyncUpdater::isUpdatePending() const noexcept
 {
-    return triggered.load();
+    return triggered.load (std::memory_order_relaxed);
 }

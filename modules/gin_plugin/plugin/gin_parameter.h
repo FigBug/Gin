@@ -58,7 +58,7 @@ class ModMatrix;
     @see Processor, ModMatrix, SmoothedParameter
 */
 class Parameter : public juce::AudioPluginInstance::HostedParameter,
-                  public juce::AsyncUpdater,
+                  public RealtimeAsyncUpdater,
                   protected juce::Timer
 {
 public:
