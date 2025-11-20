@@ -955,6 +955,11 @@
     <class kind="class">EQ</class>
   </compound>
   <compound kind="file">
+    <name>gin_eq.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__eq_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_fastmath.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__fastmath_8h.html</filename>
@@ -970,6 +975,11 @@
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__filter_8h.html</filename>
     <class kind="class">Filter</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_filter.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__filter_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_gateeffect.h</name>
@@ -1153,6 +1163,11 @@
     <class kind="class">Synthesiser</class>
   </compound>
   <compound kind="file">
+    <name>gin_synthesiser.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__synthesiser_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_textrenderer.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__textrenderer_8h.html</filename>
@@ -1174,6 +1189,11 @@
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__wavetable_8h.html</filename>
     <class kind="class">Wavetable</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_wavetable.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__wavetable_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_wtoscillators.h</name>
@@ -2239,6 +2259,11 @@
     <class kind="class">ModMatrix::Listener</class>
   </compound>
   <compound kind="file">
+    <name>gin_modmatrix.test.h</name>
+    <path>build/gin_plugin/plugin/</path>
+    <filename>gin__modmatrix_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_noteduration.h</name>
     <path>build/gin_plugin/plugin/</path>
     <filename>gin__noteduration_8h.html</filename>
@@ -2256,6 +2281,11 @@
     <class kind="class">Parameter</class>
     <class kind="class">Parameter::ParameterListener</class>
     <class kind="struct">Parameter::ParamState</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_parameter.test.h</name>
+    <path>build/gin_plugin/plugin/</path>
+    <filename>gin__parameter_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_processor.h</name>
@@ -2284,10 +2314,20 @@
     <class kind="class">Program</class>
   </compound>
   <compound kind="file">
+    <name>gin_program.test.h</name>
+    <path>build/gin_plugin/plugin/</path>
+    <filename>gin__program_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_smoothedparameter.h</name>
     <path>build/gin_plugin/plugin/</path>
     <filename>gin__smoothedparameter_8h.html</filename>
     <class kind="class">SmoothedParameter</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_smoothedparameter.test.h</name>
+    <path>build/gin_plugin/plugin/</path>
+    <filename>gin__smoothedparameter_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_math.h</name>
