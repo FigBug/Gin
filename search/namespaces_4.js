@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['resources_0',['Resources',['../namespaceResources.html',1,'']]]
+  ['macos_0',['macOS',['../namespacemacOS.html',1,'']]],
+  ['math_1',['math',['../namespacemath.html',1,'']]]
 ];

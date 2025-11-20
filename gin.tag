@@ -1801,6 +1801,17 @@
     <class kind="class">CoalescedTimer</class>
   </compound>
   <compound kind="file">
+    <name>gin_componentmap.h</name>
+    <path>build/gin_gui/utilities/</path>
+    <filename>gin__componentmap_8h.html</filename>
+    <class kind="class">ComponentMap</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_componentmap.test.h</name>
+    <path>build/gin_gui/utilities/</path>
+    <filename>gin__componentmap_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_elevatedfilecopy.h</name>
     <path>build/gin_gui/utilities/</path>
     <filename>gin__elevatedfilecopy_8h.html</filename>
@@ -1810,7 +1821,7 @@
     <name>gin_layoutsupport.h</name>
     <path>build/gin_gui/utilities/</path>
     <filename>gin__layoutsupport_8h.html</filename>
-    <class kind="class">ComponentMap</class>
+    <includes id="gin__componentmap_8h" name="gin_componentmap.h" local="yes" import="no" module="no" objc="no">gin_componentmap.h</includes>
     <class kind="class">ConstantsStack</class>
     <class kind="class">ConstantsStack::ScopedSave</class>
     <class kind="class">Parser</class>
@@ -1943,6 +1954,9 @@
     <path>build/gin_gui/utilities/</path>
     <filename>gin__varianthelpers_8h.html</filename>
     <class kind="struct">Property</class>
+    <class kind="struct">juce::VarIterator</class>
+    <class kind="struct">juce::VarIterator::NamedValue</class>
+    <namespace>juce</namespace>
     <member kind="function">
       <type>juce::var</type>
       <name>getPropertyWithDefault</name>
@@ -1956,6 +1970,20 @@
       <anchorfile>group__gin__gui-utilities.html</anchorfile>
       <anchor>ga50aa299c064e2ba23134d4271067f253</anchor>
       <arglist>(juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;value)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>setJSONPointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga50593c5a205f3ed201863222136cc007</anchor>
+      <arglist>(juce::var &amp;v, juce::String pointer, const juce::var &amp;newValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>getJSONPointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad37d4944a1b5a94d959f2c74d9ca36ec</anchor>
+      <arglist>(const juce::var &amp;v, juce::String pointer, const juce::var &amp;defaultValue)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -4840,8 +4868,8 @@
       <type>void</type>
       <name>addComponent</name>
       <anchorfile>classComponentMap.html</anchorfile>
-      <anchor>a6f89dfb31635660ef56b662da176bf0e</anchor>
-      <arglist>(juce::Component &amp;)</arglist>
+      <anchor>a257064b4cfaed848920c37d6a656dfed</anchor>
+      <arglist>(juce::Component &amp;c)</arglist>
     </member>
     <member kind="function">
       <type>juce::String</type>
@@ -4878,6 +4906,8 @@
       <anchor>abf362b97e873e410fb6ce340af807980</anchor>
       <arglist></arglist>
     </member>
+    <docanchor file="classComponentMap.html" title="Path Format">paths</docanchor>
+    <docanchor file="classLayoutSupport.html" title="Usage Example">usage</docanchor>
   </compound>
   <compound kind="class">
     <name>ComponentViewer</name>
@@ -8634,7 +8664,6 @@
       <anchor>ab81e49461b2cd7066b40017c67719197</anchor>
       <arglist></arglist>
     </member>
-    <docanchor file="classLayoutSupport.html" title="Basic Usage">usage</docanchor>
     <docanchor file="classLayoutSupport.html" title="JSON Format">json</docanchor>
     <docanchor file="classLayoutSupport.html" title="Component Properties">component_props</docanchor>
     <docanchor file="classLayoutSupport.html" title="Constants">constants</docanchor>
@@ -11248,6 +11277,24 @@
       <name>bubble</name>
       <anchorfile>classMultiParamComponent.html</anchorfile>
       <anchor>afed6013095e1e2ced271cda5ccecb7d2</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>juce::VarIterator::NamedValue</name>
+    <filename>structjuce_1_1VarIterator_1_1NamedValue.html</filename>
+    <member kind="variable">
+      <type>juce::var</type>
+      <name>name</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gab7f29046e16e28190c441e4b50e638d7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::var</type>
+      <name>value</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga3e76d00fc7f78298c56b3094edddd407</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -14501,29 +14548,29 @@
     <member kind="function">
       <type></type>
       <name>Property</name>
-      <anchorfile>structProperty.html</anchorfile>
-      <anchor>a9412f63da91a0a78713db5048973204b</anchor>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9412f63da91a0a78713db5048973204b</anchor>
       <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>Property</name>
-      <anchorfile>structProperty.html</anchorfile>
-      <anchor>afb868a85098fecb91249b69f3e72b85e</anchor>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gafb868a85098fecb91249b69f3e72b85e</anchor>
       <arglist>(const juce::String &amp;k, const juce::var v)</arglist>
     </member>
     <member kind="variable">
       <type>juce::String</type>
       <name>key</name>
-      <anchorfile>structProperty.html</anchorfile>
-      <anchor>a036d8f318fffa88cef21d494ed405443</anchor>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga036d8f318fffa88cef21d494ed405443</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>juce::var</type>
       <name>value</name>
-      <anchorfile>structProperty.html</anchorfile>
-      <anchor>ad6cc4703b5f5315e1b4e7dc7266ecbad</anchor>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad6cc4703b5f5315e1b4e7dc7266ecbad</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -18307,6 +18354,81 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>juce::VarIterator</name>
+    <filename>structjuce_1_1VarIterator.html</filename>
+    <class kind="struct">juce::VarIterator::NamedValue</class>
+    <member kind="typedef">
+      <type>std::ptrdiff_t</type>
+      <name>difference_type</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga388faf47e202486a153ded4732148bd3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>NamedValue</type>
+      <name>value_type</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2568e5c06333945b3b21bd06902e227f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>NamedValue &amp;</type>
+      <name>reference</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gabdc270513e2833318b2b5c6dd30f09bd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>NamedValue *</type>
+      <name>pointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gaa25ac98061cddab1f99f1a3b0e94ff9d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>std::forward_iterator_tag</type>
+      <name>iterator_category</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga3155c127a8ef5e383beab0b3cd65f98a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>VarIterator</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga73804ae2be599cf5e40cf379ff99d04d</anchor>
+      <arglist>(const juce::var &amp;, bool isEnd)</arglist>
+    </member>
+    <member kind="function">
+      <type>VarIterator &amp;</type>
+      <name>operator++</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gadaf3cbf9c09218e1220f273bc387a628</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gaf191a2ab9a88f5ff7c6063c488f10069</anchor>
+      <arglist>(const VarIterator &amp;) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator!=</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gacb05ca9805cc361ca4e7f92504022406</anchor>
+      <arglist>(const VarIterator &amp;) const</arglist>
+    </member>
+    <member kind="function">
+      <type>NamedValue</type>
+      <name>operator*</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga883e3ab914c93f262b6fa1bff971b8b1</anchor>
+      <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>VoicedOscillatorParams</name>
     <filename>structVoicedOscillatorParams.html</filename>
     <member kind="variable">
@@ -19692,6 +19814,25 @@
       <anchorfile>namespaceDistortion.html</anchorfile>
       <anchor>a1cbff571e105b4fc3335c9278d3f63fe</anchor>
       <arglist>(juce::AudioSampleBuffer &amp;buffer, float drive, float lowclip, float highclip)</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>juce</name>
+    <filename>namespacejuce.html</filename>
+    <class kind="struct">juce::VarIterator</class>
+    <member kind="function">
+      <type>VarIterator</type>
+      <name>begin</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga08585dbaa981f89e24e386653159db3f</anchor>
+      <arglist>(const juce::var &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>VarIterator</type>
+      <name>end</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga27df0f06f312d3eb5ddd40693a1941d9</anchor>
+      <arglist>(const juce::var &amp;)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -21319,12 +21460,13 @@
     <filename>group__gin__gui-utilities.html</filename>
     <file>gin_varianthelpers.h</file>
     <namespace>macOS</namespace>
+    <namespace>juce</namespace>
     <class kind="class">LambdaTimer</class>
     <class kind="class">LambdaAsyncUpdater</class>
     <class kind="class">LambdaMouseListener</class>
     <class kind="class">CoalescedTimer</class>
-    <class kind="class">ElevatedFileCopy</class>
     <class kind="class">ComponentMap</class>
+    <class kind="class">ElevatedFileCopy</class>
     <class kind="class">ConstantsStack</class>
     <class kind="class">ConstantsStack::ScopedSave</class>
     <class kind="class">Parser</class>
@@ -21334,6 +21476,43 @@
     <class kind="class">SystemClipboard</class>
     <class kind="class">AsyncDownload</class>
     <class kind="struct">Property</class>
+    <class kind="struct">juce::VarIterator</class>
+    <class kind="struct">juce::VarIterator::NamedValue</class>
+    <member kind="typedef">
+      <type>std::ptrdiff_t</type>
+      <name>juce::VarIterator::difference_type</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga388faf47e202486a153ded4732148bd3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>NamedValue</type>
+      <name>juce::VarIterator::value_type</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2568e5c06333945b3b21bd06902e227f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>NamedValue &amp;</type>
+      <name>juce::VarIterator::reference</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gabdc270513e2833318b2b5c6dd30f09bd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>NamedValue *</type>
+      <name>juce::VarIterator::pointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gaa25ac98061cddab1f99f1a3b0e94ff9d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>std::forward_iterator_tag</type>
+      <name>juce::VarIterator::iterator_category</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga3155c127a8ef5e383beab0b3cd65f98a</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type>void</type>
       <name>callOnMainThreadBlocking</name>
@@ -21377,6 +21556,20 @@
       <arglist>(juce::Component &amp;c)</arglist>
     </member>
     <member kind="function">
+      <type></type>
+      <name>Property::Property</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9412f63da91a0a78713db5048973204b</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Property::Property</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gafb868a85098fecb91249b69f3e72b85e</anchor>
+      <arglist>(const juce::String &amp;k, const juce::var v)</arglist>
+    </member>
+    <member kind="function">
       <type>juce::var</type>
       <name>getPropertyWithDefault</name>
       <anchorfile>group__gin__gui-utilities.html</anchorfile>
@@ -21389,6 +21582,97 @@
       <anchorfile>group__gin__gui-utilities.html</anchorfile>
       <anchor>ga50aa299c064e2ba23134d4271067f253</anchor>
       <arglist>(juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;value)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>setJSONPointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga50593c5a205f3ed201863222136cc007</anchor>
+      <arglist>(juce::var &amp;v, juce::String pointer, const juce::var &amp;newValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>getJSONPointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad37d4944a1b5a94d959f2c74d9ca36ec</anchor>
+      <arglist>(const juce::var &amp;v, juce::String pointer, const juce::var &amp;defaultValue)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>juce::VarIterator::VarIterator</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga73804ae2be599cf5e40cf379ff99d04d</anchor>
+      <arglist>(const juce::var &amp;, bool isEnd)</arglist>
+    </member>
+    <member kind="function">
+      <type>VarIterator &amp;</type>
+      <name>juce::VarIterator::operator++</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gadaf3cbf9c09218e1220f273bc387a628</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>juce::VarIterator::operator==</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gaf191a2ab9a88f5ff7c6063c488f10069</anchor>
+      <arglist>(const VarIterator &amp;) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>juce::VarIterator::operator!=</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gacb05ca9805cc361ca4e7f92504022406</anchor>
+      <arglist>(const VarIterator &amp;) const</arglist>
+    </member>
+    <member kind="function">
+      <type>NamedValue</type>
+      <name>juce::VarIterator::operator*</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga883e3ab914c93f262b6fa1bff971b8b1</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>VarIterator</type>
+      <name>juce::begin</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga08585dbaa981f89e24e386653159db3f</anchor>
+      <arglist>(const juce::var &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>VarIterator</type>
+      <name>juce::end</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga27df0f06f312d3eb5ddd40693a1941d9</anchor>
+      <arglist>(const juce::var &amp;)</arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>Property::key</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga036d8f318fffa88cef21d494ed405443</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::var</type>
+      <name>Property::value</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad6cc4703b5f5315e1b4e7dc7266ecbad</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::var</type>
+      <name>juce::VarIterator::NamedValue::name</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gab7f29046e16e28190c441e4b50e638d7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::var</type>
+      <name>juce::VarIterator::NamedValue::value</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga3e76d00fc7f78298c56b3094edddd407</anchor>
+      <arglist></arglist>
     </member>
   </compound>
 </tagfile>

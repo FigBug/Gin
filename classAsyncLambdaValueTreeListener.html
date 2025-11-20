@@ -119,7 +119,7 @@ Public Attributes</h2></td></tr>
 <p>Similar to <a class="el" href="classLambdaValueTreeListener.html" title="Listens to ValueTree changes using lambda functions instead of virtual methods.">LambdaValueTreeListener</a>, but all callbacks are executed asynchronously on the message thread using juce::MessageManager::callAsync(). This makes it safe to update UI components from the callbacks without worrying about thread safety.</p>
 <p>The callbacks receive const references to prevent accidental modification of the ValueTree from the async callbacks.</p>
 <p>Example usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classAsyncLambdaValueTreeListener.html">AsyncLambdaValueTreeListener</a> <a class="code hl_class" href="classPoint.html">listener</a> (<a class="code hl_class" href="classPoint.html">myValueTree</a>);</div>
-<div class="line"><a class="code hl_class" href="classPoint.html">listener</a>.onValueTreePropertyChanged = [<span class="keyword">this</span>] (<span class="keyword">const</span> juce::ValueTree&amp; <a class="code hl_class" href="classPoint.html">v</a>, <span class="keyword">const</span> juce::Identifier&amp; <a class="code hl_class" href="classPoint.html">prop</a>) {</div>
+<div class="line"><a class="code hl_class" href="classPoint.html">listener</a>.onValueTreePropertyChanged = [<span class="keyword">this</span>] (<span class="keyword">const</span> juce::ValueTree&amp; v, <span class="keyword">const</span> juce::Identifier&amp; <a class="code hl_class" href="classPoint.html">prop</a>) {</div>
 <div class="line">    <span class="comment">// This runs on the message thread, safe to update UI</span></div>
 <div class="line">    <a class="code hl_class" href="classPoint.html">someComponent</a>.repaint();</div>
 <div class="line">};</div>
@@ -290,7 +290,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 19 2025 23:44:53 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 20 2025 00:18:22 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

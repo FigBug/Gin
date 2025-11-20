@@ -77,7 +77,7 @@ var searchData=
   ['processtriangle_74',['processTriangle',['../classBandLimitedLookupTables.html#a64def1c60b877662f0046a0837d6543e',1,'BandLimitedLookupTables']]],
   ['producesmidi_75',['producesmidi',['../classProcessor.html#a849cf5d39d72d99ec8b962e237f363e2',1,'Processor::producesMidi()'],['../classAudioProcessorWrapper.html#ab7d78ef085a5f6e15685805a0679d6f4',1,'AudioProcessorWrapper::producesMidi()']]],
   ['program_76',['Program',['../classProgram.html#ac702b6b062bd2b1aa35003f76a34f2a5',1,'Program']]],
-  ['property_77',['property',['../structProperty.html#afb868a85098fecb91249b69f3e72b85e',1,'Property::Property(const juce::String &amp;k, const juce::var v)'],['../structProperty.html#a9412f63da91a0a78713db5048973204b',1,'Property::Property()=default']]],
+  ['property_77',['property',['../group__gin__gui-utilities.html#gafb868a85098fecb91249b69f3e72b85e',1,'Property::Property(const juce::String &amp;k, const juce::var v)'],['../group__gin__gui-utilities.html#ga9412f63da91a0a78713db5048973204b',1,'Property::Property()=default']]],
   ['propertycomponentbase_78',['PropertyComponentBase',['../classPropertyComponentBase.html#ae320b0e3de35b2ead852cbc5daa5d5f7',1,'PropertyComponentBase']]],
   ['pulse_79',['pulse',['../group__gin__dsp-dsp.html#ga1f59ed3e69fd50c828e608593c6f1501',1,'gin_bandlimitedlookuptable.h']]],
   ['pushaudiobuffer_80',['pushAudioBuffer',['../classResamplingFifo.html#aac26c115b05721bfae78db814aaa22cd',1,'ResamplingFifo']]]

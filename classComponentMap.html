@@ -80,23 +80,30 @@ $(function() {
 <p>Internal class for mapping component paths to component pointers.  
  <a href="classComponentMap.html#details">More...</a></p>
 
-<p><code>#include &lt;gin_layoutsupport.h&gt;</code></p>
+<p><code>#include &lt;gin_componentmap.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aacabfbab4ac5133982d9237b5b67ea15" id="r_aacabfbab4ac5133982d9237b5b67ea15"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentMap.html#aacabfbab4ac5133982d9237b5b67ea15">ComponentMap</a> (juce::Component &amp;<a class="el" href="classPoint.html">parent_</a>)</td></tr>
+<tr class="memdesc:aacabfbab4ac5133982d9237b5b67ea15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classComponentMap.html" title="Internal class for mapping component paths to component pointers.">ComponentMap</a> for the given parent component.  <br /></td></tr>
 <tr class="separator:aacabfbab4ac5133982d9237b5b67ea15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a962878a2c9834ebf7f79eab71af42788" id="r_a962878a2c9834ebf7f79eab71af42788"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentMap.html#a962878a2c9834ebf7f79eab71af42788">createMap</a> (<a class="el" href="classPoint.html">const</a> std::function&lt; <a class="el" href="classPoint.html">bool</a>(juce::Component &amp;)&gt; &amp;<a class="el" href="classPoint.html">checkChildren</a>=<a class="el" href="classPoint.html">nullptr</a>)</td></tr>
+<tr class="memdesc:a962878a2c9834ebf7f79eab71af42788"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the component map by traversing the component hierarchy.  <br /></td></tr>
 <tr class="separator:a962878a2c9834ebf7f79eab71af42788"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f89dfb31635660ef56b662da176bf0e" id="r_a6f89dfb31635660ef56b662da176bf0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentMap.html#a6f89dfb31635660ef56b662da176bf0e">addComponent</a> (juce::Component &amp;)</td></tr>
-<tr class="separator:a6f89dfb31635660ef56b662da176bf0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a257064b4cfaed848920c37d6a656dfed" id="r_a257064b4cfaed848920c37d6a656dfed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentMap.html#a257064b4cfaed848920c37d6a656dfed">addComponent</a> (juce::Component &amp;c)</td></tr>
+<tr class="memdesc:a257064b4cfaed848920c37d6a656dfed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a single component to the map.  <br /></td></tr>
+<tr class="separator:a257064b4cfaed848920c37d6a656dfed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8f1eeee758a0fc13d0d89bbee29e5dd" id="r_ab8f1eeee758a0fc13d0d89bbee29e5dd"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentMap.html#ab8f1eeee758a0fc13d0d89bbee29e5dd">getComponentPath</a> (juce::Component &amp;c)</td></tr>
+<tr class="memdesc:ab8f1eeee758a0fc13d0d89bbee29e5dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the hierarchical path for a given component.  <br /></td></tr>
 <tr class="separator:ab8f1eeee758a0fc13d0d89bbee29e5dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefd7e660aa0fe49ea5372c158e54d369" id="r_aefd7e660aa0fe49ea5372c158e54d369"><td class="memItemLeft" align="right" valign="top">juce::Component *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentMap.html#aefd7e660aa0fe49ea5372c158e54d369">findComponent</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;path)</td></tr>
+<tr class="memdesc:aefd7e660aa0fe49ea5372c158e54d369"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds a component by its path.  <br /></td></tr>
 <tr class="separator:aefd7e660aa0fe49ea5372c158e54d369"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac80ffc980db90cbc1f1a9efb282b79bc" id="r_ac80ffc980db90cbc1f1a9efb282b79bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentMap.html#ac80ffc980db90cbc1f1a9efb282b79bc">clearMap</a> ()</td></tr>
+<tr class="memdesc:ac80ffc980db90cbc1f1a9efb282b79bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all entries from the component map.  <br /></td></tr>
 <tr class="separator:ac80ffc980db90cbc1f1a9efb282b79bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add0016cb2ea88106534fd09e064aec33" id="r_add0016cb2ea88106534fd09e064aec33"><td class="memItemLeft" align="right" valign="top">juce::StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentMap.html#add0016cb2ea88106534fd09e064aec33">dump</a> ()</td></tr>
+<tr class="memdesc:add0016cb2ea88106534fd09e064aec33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all component paths in the map.  <br /></td></tr>
 <tr class="separator:add0016cb2ea88106534fd09e064aec33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
@@ -106,6 +113,36 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Internal class for mapping component paths to component pointers. </p>
+<p><a class="el" href="classComponentMap.html" title="Internal class for mapping component paths to component pointers.">ComponentMap</a> builds and maintains a hierarchical path-based lookup system for JUCE components. It traverses a component hierarchy and creates path strings like "/parent/child/grandchild" that map to component pointers for fast lookup.</p>
+<p>This is primarily used by <a class="el" href="classLayoutSupport.html" title="JSON-based layout system for JUCE components.">LayoutSupport</a> to resolve component references in JSON layout files, allowing expressions like "getX('button')" or inset operations to find components by their component ID.</p>
+<h1><a class="anchor" id="paths"></a>
+Path Format</h1>
+<p>Component paths follow a hierarchical slash-separated format:</p><ul>
+<li>Root component: ""</li>
+<li>Direct child: "/childID"</li>
+<li>Nested component: "/parentID/childID/grandchildID"</li>
+</ul>
+<p>Paths are case-insensitive and derived from:</p><ol type="1">
+<li>Component's "layoutID" property (if set)</li>
+<li>Component's componentID (if set)</li>
+<li>Component's name (as fallback)</li>
+</ol>
+<h1><a class="anchor" id="usage"></a>
+Usage Example</h1>
+<div class="fragment"><div class="line"><span class="comment">// Create map for a component hierarchy</span></div>
+<div class="line"><a class="code hl_class" href="classComponentMap.html">ComponentMap</a> map (<a class="code hl_class" href="classPoint.html">myParentComponent</a>);</div>
+<div class="line">map.createMap();</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Find a component by path</span></div>
+<div class="line"><span class="keywordflow">if</span> (<span class="keyword">auto</span>* button = map.findComponent (<span class="stringliteral">&quot;/dialog/buttons/okButton&quot;</span>))</div>
+<div class="line">    button-&gt;setBounds (x, y, w, h);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Get path of a component</span></div>
+<div class="line">juce::String path = map.getComponentPath (<a class="code hl_class" href="classPoint.html">someComponent</a>);</div>
+<div class="line"><span class="comment">// Returns something like &quot;/parent/child&quot;</span></div>
+<div class="ttc" id="aclassComponentMap_html"><div class="ttname"><a href="classComponentMap.html">ComponentMap</a></div><div class="ttdoc">Internal class for mapping component paths to component pointers.</div><div class="ttdef"><b>Definition</b> gin_componentmap.h:49</div></div>
+<div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classLayoutSupport.html" title="JSON-based layout system for JUCE components.">LayoutSupport</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aacabfbab4ac5133982d9237b5b67ea15" name="aacabfbab4ac5133982d9237b5b67ea15"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aacabfbab4ac5133982d9237b5b67ea15">&#9670;&#160;</a></span>ComponentMap()</h2>
@@ -122,6 +159,14 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="classComponentMap.html" title="Internal class for mapping component paths to component pointers.">ComponentMap</a> for the given parent component. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent_</td><td>The root component of the hierarchy to map </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -142,10 +187,19 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Builds the component map by traversing the component hierarchy. </p>
+<p>Recursively visits all child components and adds them to the internal map. Components without an ID (no componentID, name, or layoutID property) are skipped.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">checkChildren</td><td>Optional predicate to determine whether to recurse into a component's children. If null, all children are traversed. Return true to continue traversing children, false to skip. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a6f89dfb31635660ef56b662da176bf0e" name="a6f89dfb31635660ef56b662da176bf0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f89dfb31635660ef56b662da176bf0e">&#9670;&#160;</a></span>addComponent()</h2>
+<a id="a257064b4cfaed848920c37d6a656dfed" name="a257064b4cfaed848920c37d6a656dfed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a257064b4cfaed848920c37d6a656dfed">&#9670;&#160;</a></span>addComponent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,11 +208,20 @@ Protected Attributes</h2></td></tr>
           <td class="memname"><a class="el" href="classPoint.html">void</a> ComponentMap::addComponent </td>
           <td>(</td>
           <td class="paramtype">juce::Component &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Adds a single component to the map. </p>
+<p>Useful for adding components dynamically after the initial map creation. The component must have a valid ID (componentID, name, or layoutID property).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>The component to add to the map </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -178,6 +241,16 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Gets the hierarchical path for a given component. </p>
+<p>Walks up the parent chain to build the full path from root to the component. Paths are case-insensitive and follow the format "/parent/child/grandchild".</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>The component to get the path for </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The component's path string, or empty string if component has no ID </dd></dl>
+
 </div>
 </div>
 <a id="aefd7e660aa0fe49ea5372c158e54d369" name="aefd7e660aa0fe49ea5372c158e54d369"></a>
@@ -196,6 +269,15 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Finds a component by its path. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>The path to search for (case-insensitive). Empty string returns the root. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the component if found, nullptr otherwise </dd></dl>
+
 </div>
 </div>
 <a id="ac80ffc980db90cbc1f1a9efb282b79bc" name="ac80ffc980db90cbc1f1a9efb282b79bc"></a>
@@ -213,6 +295,9 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Clears all entries from the component map. </p>
+<p>Useful before rebuilding the map when the component hierarchy changes. </p>
+
 </div>
 </div>
 <a id="add0016cb2ea88106534fd09e064aec33" name="add0016cb2ea88106534fd09e064aec33"></a>
@@ -229,6 +314,10 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns all component paths in the map. </p>
+<p>Useful for debugging or inspecting the component hierarchy.</p>
+<dl class="section return"><dt>Returns</dt><dd>Array of all registered component paths </dd></dl>
 
 </div>
 </div>
@@ -256,12 +345,12 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="gin__layoutsupport_8h.html">gin_layoutsupport.h</a></li>
+<li><a class="el" href="gin__componentmap_8h.html">gin_componentmap.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 19 2025 23:44:53 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Nov 20 2025 00:18:22 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

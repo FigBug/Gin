@@ -67,5 +67,6 @@ var searchData=
   ['itemdragenter_64',['itemdragenter',['../classHeaderButton.html#aedec98155875d0d04d6d7c35d06f8d62',1,'HeaderButton::itemDragEnter()'],['../classKnob.html#a24fcca602fd32db821c09a7a594d8ec6',1,'Knob::itemDragEnter()']]],
   ['itemdragexit_65',['itemdragexit',['../classHeaderButton.html#a4cdfccf50bfd23b36267c47da83818ad',1,'HeaderButton::itemDragExit()'],['../classKnob.html#a112f86997590dd6c8c278c71fd6f1a7f',1,'Knob::itemDragExit()']]],
   ['itemdropped_66',['itemdropped',['../classHeaderButton.html#afb536a76946a1ee46623409f9e43beaf',1,'HeaderButton::itemDropped()'],['../classKnob.html#a81a61f483cc29ceecd07a4599ee5163c',1,'Knob::itemDropped()']]],
-  ['items_67',['items',['../classLinearRegression.html#ac40577bbf7fc49ffb578e0ed42f2c5f6',1,'LinearRegression']]]
+  ['items_67',['items',['../classLinearRegression.html#ac40577bbf7fc49ffb578e0ed42f2c5f6',1,'LinearRegression']]],
+  ['iterator_5fcategory_68',['iterator_category',['../group__gin__gui-utilities.html#ga3155c127a8ef5e383beab0b3cd65f98a',1,'juce::VarIterator']]]
 ];
