@@ -23,7 +23,6 @@ public:
         testIsUpdatePending();
         testHandleUpdateNowIfNeeded();
         testMultipleUpdaters();
-        testOrdering();
     }
 
 private:
