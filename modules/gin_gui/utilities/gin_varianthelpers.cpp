@@ -26,6 +26,12 @@ bool setJSONPointer (juce::var& v, juce::String pointer, const juce::var& newVal
         }
 
         auto p = object->getProperty (unescaped);
+        if (p.isVoid())
+        {
+            object->setProperty (unescaped, juce::var (new juce::DynamicObject()));
+            p = object->getProperty (unescaped);
+        }
+
         return setJSONPointer (p, tail, newValue);
     }
     else if (auto* array = v.getArray())
