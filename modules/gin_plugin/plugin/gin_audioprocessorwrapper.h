@@ -54,6 +54,12 @@ public:
 	juce::StringArray getAlternateDisplayNames() const override { return proc->getAlternateDisplayNames(); }
 
     //==============================================================================
+    void setRateAndBufferSizeDetails (double newSampleRate, int newBlockSize) noexcept
+    {
+        juce::AudioProcessor::setRateAndBufferSizeDetails (newSampleRate, newBlockSize);
+        proc->setRateAndBufferSizeDetails (newSampleRate, newBlockSize);
+    }
+
 	void prepareToPlay (double sampleRate, int maximumExpectedSamplesPerBlock) override
 	{
 		proc->prepareToPlay (sampleRate, maximumExpectedSamplesPerBlock);

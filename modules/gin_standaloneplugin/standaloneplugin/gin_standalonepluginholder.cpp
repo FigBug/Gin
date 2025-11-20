@@ -21,6 +21,8 @@ StandalonePluginHolder::StandalonePluginHolder (juce::PropertySet* settingsToUse
 	shouldMuteInput.addListener (this);
 	shouldMuteInput = ! isInterAppAudioConnected();
 
+    shouldShowSidebar.addListener (this);
+
 	handleCreatePlugin();
 
 	auto inChannels = (channelConfiguration.size() > 0 ? channelConfiguration[0].numIns
@@ -241,6 +243,7 @@ void StandalonePluginHolder::saveAudioDeviceState()
 
 	   #if ! (JUCE_IOS || JUCE_ANDROID)
 		settings->setValue ("shouldMuteInput", (bool) shouldMuteInput.getValue());
+        settings->setValue ("shouldShowSidebar", (bool) shouldShowSidebar.getValue());
 	   #endif
 	}
 }
@@ -257,6 +260,7 @@ void StandalonePluginHolder::reloadAudioDeviceState (bool enableAudioInput,
 
 	   #if ! (JUCE_IOS || JUCE_ANDROID)
 		shouldMuteInput.setValue (settings->getBoolValue ("shouldMuteInput", true));
+        shouldShowSidebar.setValue (settings->getBoolValue ("shouldShowSidebar", true));
 	   #endif
 	}
 

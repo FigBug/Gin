@@ -67,6 +67,7 @@ private:
 
     //==============================================================================
     void inputMutedChanged (bool newInputMutedValue);
+    void showSidebarChanged (bool newShowSidebar);
 
     void valueChanged (juce::Value& value) override;
     void buttonClicked (juce::Button*) override;
@@ -84,6 +85,7 @@ private:
     SideBarComponent sidebar { owner };
     std::unique_ptr<juce::AudioProcessorEditor> editor;
     juce::Value inputMutedValue;
+    juce::Value showSidebarValue;
     bool shouldShowNotification = false;
     bool shouldShowSidebar = true;
     bool preventResizingEditor = false;

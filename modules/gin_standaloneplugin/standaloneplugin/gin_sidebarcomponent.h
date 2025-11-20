@@ -12,4 +12,11 @@ public:
     void resized() override;
 
     static constexpr int width = 200;
+
+    StandaloneFilterWindow& filterWindow;
+    PluginWrapper&          pluginWrapper;
+
+    CopperLookAndFeel       lf;
+
+    TriggeredScope  scope { pluginWrapper.scopeFifo };
 };

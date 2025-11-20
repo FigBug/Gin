@@ -5,6 +5,7 @@ MainContentComponent::MainContentComponent (StandaloneFilterWindow& filterWindow
                                                      : new juce::GenericAudioProcessorEditor (*owner.getAudioProcessor()))
 {
     inputMutedValue.referTo (owner.pluginHolder->getMuteInputValue());
+    showSidebarValue.referTo (owner.pluginHolder->getShowSidebarValue());
 
     if (editor != nullptr)
     {
@@ -15,6 +16,7 @@ MainContentComponent::MainContentComponent (StandaloneFilterWindow& filterWindow
     }
 
     addChildComponent (notification);
+    addChildComponent (sidebar);
 
     if (owner.pluginHolder->getProcessorHasPotentialFeedbackLoop())
     {
@@ -22,7 +24,10 @@ MainContentComponent::MainContentComponent (StandaloneFilterWindow& filterWindow
         shouldShowNotification = inputMutedValue.getValue();
     }
 
+    showSidebarValue.addListener (this);
+
     inputMutedChanged (shouldShowNotification);
+    showSidebarChanged (shouldShowSidebar);
 }
 
 MainContentComponent::~MainContentComponent()
@@ -82,9 +87,31 @@ void MainContentComponent::inputMutedChanged (bool newInputMutedValue)
    #endif
 }
 
+void MainContentComponent::showSidebarChanged (bool newShowSidebar)
+{
+    shouldShowSidebar = newShowSidebar;
+    sidebar.setVisible (newShowSidebar);
+
+   #if JUCE_IOS || JUCE_ANDROID
+    handleResized();
+   #else
+    if (editor != nullptr)
+    {
+        const int extraHeight = shouldShowNotification ? NotificationArea::height : 0;
+        const int extraWidth = shouldShowSidebar ? SideBarComponent::width : 0;
+        const auto rect = getSizeToContainEditor();
+        setSize (rect.getWidth() + extraWidth, rect.getHeight() + extraHeight);
+    }
+   #endif
+}
+
 void MainContentComponent::valueChanged (juce::Value& value)
 {
-    inputMutedChanged (value.getValue());
+    if (value.refersToSameSourceAs (owner.pluginHolder->getMuteInputValue()))
+        inputMutedChanged (value.getValue());
+
+    if (value.refersToSameSourceAs (owner.pluginHolder->getShowSidebarValue()))
+        showSidebarChanged (value.getValue());
 }
 
 void MainContentComponent::buttonClicked (juce::Button*)

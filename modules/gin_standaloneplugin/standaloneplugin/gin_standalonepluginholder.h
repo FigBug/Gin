@@ -60,9 +60,16 @@ public:
 	static juce::String getFilePatterns (const juce::String& fileSuffix);
 
     //==============================================================================
-    juce::Value& getMuteInputValue()                     { return shouldMuteInput; }
-    bool getProcessorHasPotentialFeedbackLoop() const    { return processorHasPotentialFeedbackLoop; }
-    void valueChanged (juce::Value& value) override      { muteInput = (bool) value.getValue(); }
+    juce::Value& getMuteInputValue()                    { return shouldMuteInput; }
+    bool getProcessorHasPotentialFeedbackLoop() const   { return processorHasPotentialFeedbackLoop; }
+
+    juce::Value& getShowSidebarValue()                  { return shouldShowSidebar; }
+
+    void valueChanged (juce::Value& value) override
+    {
+        if (value.refersToSameSourceAs (shouldMuteInput))
+            muteInput = (bool) value.getValue();
+    }
 
     //==============================================================================
 	juce::File getLastFile() const;
@@ -110,6 +117,7 @@ public:
     bool processorHasPotentialFeedbackLoop = true;
     std::atomic<bool> muteInput { true };
     juce::Value shouldMuteInput;
+    juce::Value shouldShowSidebar;
     juce::AudioBuffer<float> emptyBuffer;
     bool autoOpenMidiDevices;
 

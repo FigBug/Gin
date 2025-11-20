@@ -176,9 +176,16 @@ void StandaloneFilterWindow::buttonClicked (juce::Button* button)
     }
 
     m.addSeparator();
+    m.addItem (TRANS("Close and reopen editor"), [this] { reopenEditor(); });
+    m.addItem (TRANS("Show sidebar"), true, bool (pluginHolder->getShowSidebarValue().getValue()), [this]
+    {
+        auto& v = pluginHolder->getShowSidebarValue();
+        v = ! bool (v.getValue());
+    });
+
+    m.addSeparator();
     m.addItem (TRANS("Reset to default state"), [this] { resetToDefaultState(); });
 
-    m.addItem (TRANS("Close and reopen editor"), [this] { reopenEditor(); });
 
     m.showMenuAsync (juce::PopupMenu::Options().withTargetComponent (button));
 }
