@@ -40,6 +40,11 @@ public:
         testRemoveJsonCommentsMultiline();
         testRemoveJsonCommentsEdgeCases();
         testRemoveJsonCommentsRealWorld();
+        testJsonObject();
+        testToStdString();
+        testRemoveProperty();
+        testSetJSONPointerAutoCreate();
+        testHasJSONPointer();
     }
 
 private:
@@ -385,10 +390,6 @@ private:
         // Empty pointer should fail
         bool result = setJSONPointer (obj, "", 200);
         expect (! result, "Empty pointer should fail");
-
-        // Non-existent nested path should fail
-        result = setJSONPointer (obj, "/user/name", "John");
-        expect (! result, "Setting non-existent nested path should fail");
 
         // Out of bounds array index should fail
         juce::var arr;
@@ -939,6 +940,201 @@ private:
         expect (parsed.hasProperty ("window"), "Should have window property");
         expect (parsed["window"].hasProperty ("width"), "Should have nested width property");
         expectEquals (int (parsed["window"]["width"]), 800, "Width should be 800");
+    }
+
+    void testJsonObject()
+    {
+        beginTest ("JSON Object Helper");
+
+        // Create empty object
+        auto obj = jsonObject();
+        expect (! obj.isVoid(), "Should not be void");
+        expect (obj.isObject(), "Should be an object");
+        expect (obj.getDynamicObject() != nullptr, "Should have DynamicObject");
+
+        // Should start empty
+        auto names = getAllPropertyNames (obj);
+        expectEquals (names.size(), 0, "Should start with no properties");
+
+        // Should be able to add properties
+        obj.getDynamicObject()->setProperty ("width", 100);
+        obj.getDynamicObject()->setProperty ("height", 200);
+
+        expectEquals (int (obj["width"]), 100, "Should have width property");
+        expectEquals (int (obj["height"]), 200, "Should have height property");
+
+        // Multiple objects should be independent
+        auto obj2 = jsonObject();
+        obj2.getDynamicObject()->setProperty ("name", "test");
+
+        expect (! obj.hasProperty ("name"), "First object should not have name");
+        expect (obj2.hasProperty ("name"), "Second object should have name");
+    }
+
+    void testToStdString()
+    {
+        beginTest ("To Std String");
+
+        // String conversion
+        juce::var str = "hello";
+        auto stdStr = toStdString (str);
+        expectEquals (stdStr, std::string ("hello"), "Should convert string");
+
+        // Number conversion
+        juce::var num = 42;
+        auto stdNum = toStdString (num);
+        expectEquals (stdNum, std::string ("42"), "Should convert number to string");
+
+        // Boolean conversion
+        juce::var boolTrue = true;
+        auto stdBool = toStdString (boolTrue);
+        expectEquals (stdBool, std::string ("1"), "Should convert true to '1'");
+
+        // Empty string
+        juce::var empty = "";
+        auto stdEmpty = toStdString (empty);
+        expectEquals (stdEmpty, std::string (""), "Should handle empty string");
+
+        // Object conversion
+        juce::var obj = new juce::DynamicObject();
+        auto stdObj = toStdString (obj);
+        expect (stdObj.length() > 0, "Should convert object to some string representation");
+    }
+
+    void testRemoveProperty()
+    {
+        beginTest ("Remove Property");
+
+        juce::var obj = new juce::DynamicObject();
+        obj.getDynamicObject()->setProperty ("width", 100);
+        obj.getDynamicObject()->setProperty ("height", 200);
+        obj.getDynamicObject()->setProperty ("name", "test");
+
+        // Verify properties exist
+        expect (obj.hasProperty ("width"), "Should have width initially");
+        expect (obj.hasProperty ("height"), "Should have height initially");
+        expect (obj.hasProperty ("name"), "Should have name initially");
+
+        // Remove one property
+        removeProperty (obj, "width");
+        expect (! obj.hasProperty ("width"), "Should not have width after removal");
+        expect (obj.hasProperty ("height"), "Should still have height");
+        expect (obj.hasProperty ("name"), "Should still have name");
+
+        // Remove another property
+        removeProperty (obj, "name");
+        expect (! obj.hasProperty ("name"), "Should not have name after removal");
+        expect (obj.hasProperty ("height"), "Should still have height");
+
+        // Remove last property
+        removeProperty (obj, "height");
+        expect (! obj.hasProperty ("height"), "Should not have height after removal");
+
+        auto names = getAllPropertyNames (obj);
+        expectEquals (names.size(), 0, "Should have no properties left");
+
+        // Removing non-existent property should not crash
+        removeProperty (obj, "nonexistent");
+        expectEquals (names.size(), 0, "Should still have no properties");
+
+        // Removing from non-object should not crash
+        juce::var primitive = 42;
+        removeProperty (primitive, "test");
+        expectEquals (int (primitive), 42, "Primitive should be unchanged");
+    }
+
+    void testSetJSONPointerAutoCreate()
+    {
+        beginTest ("Set JSON Pointer - Auto Create Objects");
+
+        juce::var obj = jsonObject();
+
+        // Setting a nested property should auto-create intermediate objects
+        bool result = setJSONPointer (obj, "/user/name", "John");
+        expect (result, "Should successfully set nested property");
+        expect (obj.hasProperty ("user"), "Should auto-create user object");
+        expect (obj["user"].isObject(), "User should be an object");
+        expect (obj["user"]["name"].toString() == juce::String ("John"), "Should set nested value");
+
+        // Setting deeply nested property should create multiple levels
+        result = setJSONPointer (obj, "/user/address/city", "London");
+        expect (result, "Should successfully set deeply nested property");
+        expect (obj["user"].hasProperty ("address"), "Should auto-create address object");
+        expect (obj["user"]["address"].isObject(), "Address should be an object");
+        expect (obj["user"]["address"]["city"].toString() == juce::String ("London"), "Should set deeply nested value");
+
+        // Original properties should be preserved
+        expect (obj["user"]["name"].toString() == juce::String ("John"), "Should preserve existing properties");
+
+        // Setting another branch
+        result = setJSONPointer (obj, "/config/width", 800);
+        expect (result, "Should create separate branch");
+        expect (obj.hasProperty ("config"), "Should have config object");
+        expectEquals (int (obj["config"]["width"]), 800, "Should set config value");
+
+        // Existing user branch should be unaffected
+        expect (obj.hasProperty ("user"), "User branch should still exist");
+        expect (obj["user"]["name"].toString() == juce::String ("John"), "User data should be preserved");
+    }
+
+    void testHasJSONPointer()
+    {
+        beginTest ("Has JSON Pointer");
+
+        juce::var obj = jsonObject();
+        obj.getDynamicObject()->setProperty ("width", 100);
+        obj.getDynamicObject()->setProperty ("height", 200);
+
+        // Test existing properties
+        expect (hasJSONPointer (obj, "/width"), "Should find existing width");
+        expect (hasJSONPointer (obj, "/height"), "Should find existing height");
+
+        // Test non-existent properties
+        expect (! hasJSONPointer (obj, "/depth"), "Should not find non-existent property");
+        expect (! hasJSONPointer (obj, "/name"), "Should not find non-existent name");
+
+        // Test nested properties
+        setJSONPointer (obj, "/user/name", "John");
+        setJSONPointer (obj, "/user/age", 30);
+
+        expect (hasJSONPointer (obj, "/user"), "Should find user object");
+        expect (hasJSONPointer (obj, "/user/name"), "Should find nested name");
+        expect (hasJSONPointer (obj, "/user/age"), "Should find nested age");
+        expect (! hasJSONPointer (obj, "/user/email"), "Should not find non-existent nested property");
+
+        // Test deeply nested
+        setJSONPointer (obj, "/user/address/city", "London");
+        expect (hasJSONPointer (obj, "/user/address"), "Should find address object");
+        expect (hasJSONPointer (obj, "/user/address/city"), "Should find deeply nested city");
+        expect (! hasJSONPointer (obj, "/user/address/country"), "Should not find non-existent deep property");
+
+        // Test arrays
+        juce::var arr;
+        arr.append (10);
+        arr.append (20);
+        arr.append (30);
+
+        expect (hasJSONPointer (arr, "/0"), "Should find first array element");
+        expect (hasJSONPointer (arr, "/1"), "Should find second array element");
+        expect (hasJSONPointer (arr, "/2"), "Should find third array element");
+        expect (! hasJSONPointer (arr, "/3"), "Should not find out of bounds element");
+        expect (! hasJSONPointer (arr, "/10"), "Should not find far out of bounds element");
+
+        // Test empty pointer
+        expect (! hasJSONPointer (obj, ""), "Empty pointer should return false");
+
+        // Test with null/void values
+        obj.getDynamicObject()->setProperty ("nullValue", juce::var());
+        expect (hasJSONPointer (obj, "/nullValue"), "Should find property even if value is void");
+
+        // Distinguish between "doesn't exist" and "exists but is null"
+        auto value = getJSONPointer (obj, "/nullValue", -999);
+        expect (value.isVoid(), "Null value should be void");
+        expect (hasJSONPointer (obj, "/nullValue"), "But pointer should exist");
+
+        auto missingValue = getJSONPointer (obj, "/missing", -999);
+        expectEquals (int (missingValue), -999, "Missing should return default");
+        expect (! hasJSONPointer (obj, "/missing"), "And pointer should not exist");
     }
 };
 

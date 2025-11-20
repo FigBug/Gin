@@ -8,19 +8,43 @@
 */
 
 /**
-    Creates an empty json object that can be used as the root json object
- */
+    Creates an empty JSON object (DynamicObject wrapped in a var).
+
+    This is a convenience function that's cleaner than writing
+    `juce::var (new juce::DynamicObject())` repeatedly.
+
+    @return  A new empty var containing a DynamicObject
+
+    @code
+    auto config = jsonObject();
+    config.getDynamicObject()->setProperty ("width", 800);
+    config.getDynamicObject()->setProperty ("height", 600);
+    @endcode
+*/
 inline juce::var jsonObject()
 {
     return juce::var (new juce::DynamicObject());
 }
 
 /**
-    Create a std::string from a juce::var
- */
-inline std::string toStdString ( const juce::var& v )
+    Convert a var to a std::string.
+
+    This is a convenience function equivalent to `v.toString().toStdString()`.
+
+    @param v  The var to convert
+    @return   The var's string representation as a std::string
+
+    @code
+    juce::var name = "John";
+    std::string stdName = toStdString (name);  // "John"
+
+    juce::var num = 42;
+    std::string stdNum = toStdString (num);    // "42"
+    @endcode
+*/
+inline std::string toStdString (const juce::var& v)
 {
-    return v.toString ().toStdString ();
+    return v.toString().toStdString();
 }
 
 /**
@@ -197,22 +221,56 @@ inline void setProperty ( juce::var& v, const juce::Identifier& i, const juce::v
 }
 
 /**
-    Removes a property from a var object.
+    Remove a property from a var object.
 
-    If the var contains a DynamicObject, sets the property on it.
+    If the var contains a DynamicObject, removes the specified property from it.
     If the var is not a DynamicObject, this function does nothing.
+
+    @param v  The var object to remove the property from (passed by reference)
+    @param i  Property name identifier to remove
+
+    @code
+    juce::var obj = new juce::DynamicObject();
+    obj.getDynamicObject()->setProperty ("width", 100);
+    obj.getDynamicObject()->setProperty ("height", 200);
+
+    removeProperty (obj, "width");
+    // obj now only has height property
+    @endcode
 */
-inline void removeProperty ( juce::var& v, const juce::Identifier& i )
+inline void removeProperty (juce::var& v, const juce::Identifier& i)
 {
     if (auto obj = v.getDynamicObject())
-        obj->removeProperty ( i );
+        obj->removeProperty (i);
 }
 
 /** Given a JSON array/object 'v', a string representing a JSON pointer,
     and a new property value 'newValue', updates 'v' where the
     property or array index referenced by the pointer has been set to 'newValue'.
-    If the pointer cannot be followed, due to referencing missing array indices
-    or fields, then this returns false.
+
+    If intermediate objects in the path don't exist, they will be automatically
+    created as empty DynamicObjects. However, intermediate arrays are NOT automatically
+    created - the array must already exist.
+
+    If the pointer cannot be followed due to referencing missing array indices,
+    this returns false.
+
+    @param v         The var object to modify (passed by reference)
+    @param pointer   JSON Pointer string (e.g., "/user/name")
+    @param newValue  The value to set at the pointer location
+    @return          true if successful, false if pointer path is invalid
+
+    @code
+    juce::var obj = jsonObject();
+
+    // Simple property
+    setJSONPointer (obj, "/name", "John");
+
+    // Nested - automatically creates "user" object if it doesn't exist
+    setJSONPointer (obj, "/user/age", 30);
+    setJSONPointer (obj, "/user/address/city", "London");  // Creates address too
+    @endcode
+
     For more details, check the JSON Pointer RFC 6901:
     https://datatracker.ietf.org/doc/html/rfc6901
 */
@@ -227,10 +285,31 @@ bool setJSONPointer (juce::var& v, juce::String pointer, const juce::var& newVal
 */
 juce::var getJSONPointer (const juce::var& v, juce::String pointer, const juce::var& defaultValue);
 
-/** Given a JSON array/object 'v', a string representing a JSON pointer,
-    returns true if the value of the property or array index referenced by
-    the pointer exists. If the pointer cannot be followed, due to referencing
-    missing array indices or fields, then this returns false.
+/** Check if a JSON Pointer path exists in a var.
+
+    Given a JSON array/object 'v' and a JSON pointer string, returns true if
+    the property or array index referenced by the pointer exists.
+
+    This is useful for checking existence before calling getJSONPointer to
+    distinguish between "property doesn't exist" and "property exists but is null/void".
+
+    @param v        The var object to check
+    @param pointer  JSON Pointer string (e.g., "/user/name")
+    @return         true if the pointer path exists, false otherwise
+
+    @code
+    juce::var obj = jsonObject();
+    obj.getDynamicObject()->setProperty ("width", 100);
+
+    hasJSONPointer (obj, "/width");   // true
+    hasJSONPointer (obj, "/height");  // false
+
+    // Check nested paths
+    setJSONPointer (obj, "/user/name", "John");
+    hasJSONPointer (obj, "/user/name");  // true
+    hasJSONPointer (obj, "/user/age");   // false
+    @endcode
+
     For more details, check the JSON Pointer RFC 6901:
     https://datatracker.ietf.org/doc/html/rfc6901
 */
