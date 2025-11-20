@@ -51,7 +51,7 @@ var searchData=
   ['operator_3d_3d_48',['operator==',['../structModSrcId.html#ae9a0aa774f9639b59f382127602af3eb',1,'ModSrcId::operator==()'],['../structModDstId.html#a63b8ebeaadf0a9c266a36d1a4c0e3e84',1,'ModDstId::operator==()'],['../group__gin__gui-utilities.html#gaf191a2ab9a88f5ff7c6063c488f10069',1,'juce::VarIterator::operator==()']]],
   ['operator_5b_5d_49',['operator[]',['../classSpline.html#a30255a2f77480c04928394262765df10',1,'Spline::operator[]()'],['../classWavetable.html#a274f6509b48a9d327fc397266b9fe94b',1,'Wavetable::operator[](int index)'],['../classWavetable.html#a31b6818c8ad7967b4557cdb05da22eb7',1,'Wavetable::operator[](int index) const']]],
   ['options_50',['options',['../classStandalonePluginHolder.html#ae1c5ad8ae43a0728c1992d925c0a9ac0',1,'StandalonePluginHolder']]],
-  ['orientation_51',['orientation',['../classComponentGrid.html#a597b44ee2489a3412932dac8ac90df99',1,'ComponentGrid::orientation'],['../classComponentGrid.html#a0d6a66510a6868e9be9f596867b85946',1,'ComponentGrid::Orientation']]],
+  ['orientation_51',['orientation',['../classComponentGrid.html#a0d6a66510a6868e9be9f596867b85946',1,'ComponentGrid::Orientation'],['../classComponentGrid.html#a597b44ee2489a3412932dac8ac90df99',1,'ComponentGrid::orientation']]],
   ['originalcomponent_52',['originalComponent',['../structComponentGrid_1_1DragInfo.html#abebf0aa1df0211e9af81bf6889e65921',1,'ComponentGrid::DragInfo']]],
   ['originalorder_53',['originalOrder',['../classComponentGrid.html#a4d8eff212a319a1de9ec54aedfddd340',1,'ComponentGrid']]],
   ['oscillators_54',['oscillators',['../classVoicedStereoOscillator.html#a2b43a2c3228e8719d3d2a11d5d349b11',1,'VoicedStereoOscillator']]],

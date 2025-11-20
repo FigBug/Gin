@@ -64,7 +64,7 @@ var searchData=
   ['pluginname_61',['pluginName',['../classProcessorOptions.html#a0b21261f8be769b37daac8f8ee3ac4a1',1,'ProcessorOptions']]],
   ['pluginslider_62',['pluginslider',['../classPluginSlider.html',1,'PluginSlider'],['../classPluginSlider.html#aa55574ec47ca63deb3b26a11d1eb8135',1,'PluginSlider::PluginSlider()']]],
   ['pluginversion_63',['pluginVersion',['../classProcessorOptions.html#a2ce7de7b0e1185e0512e7e4d4718e347',1,'ProcessorOptions']]],
-  ['pluginwrapper_64',['pluginwrapper',['../classPluginWrapper.html#af89447ed0c4ce28063402e98dfa88bb4',1,'PluginWrapper::PluginWrapper()'],['../classPluginWrapper.html',1,'PluginWrapper'],['../classSideBarComponent.html#ac84440b78d8242214ee48c6215af4131',1,'SideBarComponent::pluginWrapper']]],
+  ['pluginwrapper_64',['pluginwrapper',['../classSideBarComponent.html#ac84440b78d8242214ee48c6215af4131',1,'SideBarComponent::pluginWrapper'],['../classPluginWrapper.html',1,'PluginWrapper'],['../classPluginWrapper.html#af89447ed0c4ce28063402e98dfa88bb4',1,'PluginWrapper::PluginWrapper()']]],
   ['point_65',['point',['../structMSEG_1_1Point.html',1,'MSEG::Point'],['../classPoint.html#a9853b0631fc1e4c3ec3fab8ac26314a9',1,'Point::Point(T x_, T y_)'],['../classPoint.html#ae6a75fcca567819ab05482257ce36bdc',1,'Point::Point()=default'],['../classPoint.html',1,'Point&lt; T &gt;']]],
   ['pointatangle_66',['pointAtAngle',['../classEllipse.html#a90b05cb7088d88adba384c9aca614628',1,'Ellipse']]],
   ['pointer_67',['pointer',['../group__gin__gui-utilities.html#gaa25ac98061cddab1f99f1a3b0e94ff9d',1,'juce::VarIterator']]],
