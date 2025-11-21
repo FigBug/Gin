@@ -1887,51 +1887,50 @@ struct EquationParserDemo : public juce::Component
 //==============================================================================
 juce::String layoutTxt = R"~~~(
 {
-   "id": "root",
    "components": [
        {
            "id": "a",
-           "x": 0,
-           "y": 0,
-           "w": "parW",
-           "h": "parH / 2 - 10",
+           "x": 10,
+           "y": 10,
+           "w": "parW - 20",
+           "h": "parH / 2 - 15",
            "components": [
                {
                    "id": "e",
-                   "x": 5,
-                   "y": 5,
-                   "r": "parW / 2 - 2",
-                   "b": "parH - 5"
+                   "x": "10",
+                   "y": "10",
+                   "r": "parW - 10",
+                   "h": "100"
                },
                {
                    "id": "f",
-                   "x": "prevR + 4",
-                   "y": 5,
-                   "r": "parW - 5",
-                   "b": "parH - 5"
+                   "x": "10",
+                   "b": "parH - 10",
+                   "r": "parW - 10",
+                   "h": "100"
                }
            ]
        },
        {
            "id": "b",
-           "x": 0,
-           "y": "prevB + 20",
-           "w": "parW",
-           "b": "parH",
+           "x": 10,
+           "y": "prevB + 10",
+           "w": "parW - 20",
+           "b": "parH - 10",
            "components": [
                {
                    "id": "g",
-                   "x": 5,
-                   "y": 5,
-                   "r": "parW / 2 - 2",
-                   "b": "parH - 5"
+                   "x": 10,
+                   "y": 10,
+                   "w": 100,
+                   "b": "parH - 10"
                },
                {
                    "id": "h",
-                   "x": "prevR + 4",
-                   "y": 5,
-                   "r": "parW - 5",
-                   "b": "parH - 5"
+                   "r": "parW - 10",
+                   "y": 10,
+                   "w": 100,
+                   "b": "parH - 10"
                }
            ]
        }

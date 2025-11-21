@@ -45,6 +45,8 @@ private:
         testComponentFactory();
         testOptionalComponents();
         testInset();
+        testParentCenterConstants();
+        testParentHalfSizeConstants();
     }
 
     // Helper component class
@@ -743,6 +745,73 @@ private:
         expectEquals (comp.buttons[1]->getY(), 50, "Inset Y with default border should match container");
         expectEquals (comp.buttons[1]->getWidth(), 300, "Inset width with default border should match container");
         expectEquals (comp.buttons[1]->getHeight(), 200, "Inset height with default border should match container");
+    }
+
+    void testParentCenterConstants()
+    {
+        beginTest ("Parent Center Constants (parCX, parCY)");
+
+        TestComponent comp;
+        LayoutSupport layout (comp);
+
+        juce::String json = R"json({
+            "components": [
+                { "id": "button0", "x": "parCX", "y": "parCY", "w": 100, "h": 30 },
+                { "id": "button1", "cx": "parCX", "cy": "parCY", "w": 100, "h": 30 }
+            ]
+        })json";
+
+        layout.setLayout (json);
+
+        // comp is 800x600, so center is at (400, 300)
+        int expectedCX = 400;
+        int expectedCY = 300;
+
+        // button0: top-left at parent center
+        expectEquals (comp.buttons[0]->getX(), expectedCX, "parCX should be parent center X (400)");
+        expectEquals (comp.buttons[0]->getY(), expectedCY, "parCY should be parent center Y (300)");
+
+        // button1: centered at parent center
+        // x = cx - w/2 = 400 - 50 = 350
+        // y = cy - h/2 = 300 - 15 = 285
+        expectEquals (comp.buttons[1]->getX(), 350, "Component centered using parCX should be at 350");
+        expectEquals (comp.buttons[1]->getY(), 285, "Component centered using parCY should be at 285");
+    }
+
+    void testParentHalfSizeConstants()
+    {
+        beginTest ("Parent Half Size Constants (parW2, parH2)");
+
+        TestComponent comp;
+        LayoutSupport layout (comp);
+
+        juce::String json = R"json({
+            "components": [
+                { "id": "button0", "x": 0, "y": 0, "w": "parW2", "h": "parH2" },
+                { "id": "button1", "x": "parW2", "y": "parH2", "w": "parW2", "h": "parH2" },
+                { "id": "button2", "cx": "parW2", "cy": "parH2", "w": 100, "h": 30 }
+            ]
+        })json";
+
+        layout.setLayout (json);
+
+        // comp is 800x600, so parW2 = 400, parH2 = 300
+        int expectedW2 = 400;
+        int expectedH2 = 300;
+
+        // button0: top-left quadrant
+        expectEquals (comp.buttons[0]->getWidth(), expectedW2, "parW2 should be half parent width (400)");
+        expectEquals (comp.buttons[0]->getHeight(), expectedH2, "parH2 should be half parent height (300)");
+
+        // button1: bottom-right quadrant
+        expectEquals (comp.buttons[1]->getX(), expectedW2, "Should start at parW2");
+        expectEquals (comp.buttons[1]->getY(), expectedH2, "Should start at parH2");
+        expectEquals (comp.buttons[1]->getWidth(), expectedW2, "Should use parW2 for width");
+        expectEquals (comp.buttons[1]->getHeight(), expectedH2, "Should use parH2 for height");
+
+        // button2: centered at (parW2, parH2) which is parent center
+        expectEquals (comp.buttons[2]->getX(), 350, "Centered at parW2 should be at 350");
+        expectEquals (comp.buttons[2]->getY(), 285, "Centered at parH2 should be at 285");
     }
 };
 

@@ -144,6 +144,8 @@ private:
     Built-in constants:
     - `mac`, `win`, `linux` - Platform flags (1.0 or 0.0)
     - `parX`, `parY`, `parW`, `parH`, `parR`, `parB` - Parent bounds
+    - `parCX`, `parCY` - Parent center position
+    - `parW2`, `parH2` - Half of parent width and height
     - `prevX`, `prevY`, `prevW`, `prevH`, `prevR`, `prevB`, `prevCX`, `prevCY` - Previous component
     - `i` - Current child index
     - `idIdx` - Current iteration index (when using multiple IDs or ranges)
@@ -229,6 +231,17 @@ private:
       "y": 10,
       "w": 40,
       "h": 40
+    }
+    @endcode
+
+    Center positioning using parCX/parCY and sizing with parW2/parH2:
+    @code{.json}
+    {
+      "components": [
+        { "id": "header", "x": 0, "y": 0, "w": "parW", "h": "parH2" },
+        { "id": "footer", "x": 0, "y": "parH2", "w": "parW", "h": "parH2" },
+        { "id": "centerButton", "cx": "parW2", "cy": "parH2", "w": 100, "h": 30 }
+      ]
     }
     @endcode
 */
