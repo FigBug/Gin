@@ -396,8 +396,12 @@ void LayoutSupport::setLayoutInternal (const juce::Array<JsonFile>& files)
             //
             constants.set ("parX", parent.getX());
             constants.set ("parY", parent.getY());
+            constants.set ("parCX", parent.getBounds().getCentreX());
+            constants.set ("parCY", parent.getBounds().getCentreY());
             constants.set ("parW", parent.getWidth());
             constants.set ("parH", parent.getHeight());
+            constants.set ("parW2", parent.getWidth() / 2);
+            constants.set ("parH2", parent.getHeight() / 2);
             constants.set ("parR", parent.getRight());
             constants.set ("parB", parent.getBottom());
 
@@ -1000,8 +1004,12 @@ juce::Component* LayoutSupport::setPosition (const juce::String& currentPath,
 
             constants.set ("parX", foundComp->getX());
             constants.set ("parY", foundComp->getY());
+            constants.set ("parCX", foundComp->getBounds().getCentreX());
+            constants.set ("parCY", foundComp->getBounds().getCentreY());
             constants.set ("parW", foundComp->getWidth());
             constants.set ("parH", foundComp->getHeight());
+            constants.set ("parW2", foundComp->getWidth() / 2);
+            constants.set ("parH2", foundComp->getHeight() / 2);
             constants.set ("parR", foundComp->getRight());
             constants.set ("parB", foundComp->getBottom());
 
