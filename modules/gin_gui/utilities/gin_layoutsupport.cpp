@@ -394,15 +394,15 @@ void LayoutSupport::setLayoutInternal (const juce::Array<JsonFile>& files)
             //
             // Position all components
             //
-            loadConstants (j);
-            loadMacros (j);
-
             constants.set ("parX", parent.getX());
             constants.set ("parY", parent.getY());
             constants.set ("parW", parent.getWidth());
             constants.set ("parH", parent.getHeight());
             constants.set ("parR", parent.getRight());
             constants.set ("parB", parent.getBottom());
+
+            loadConstants (j);
+            loadMacros (j);
 
             if (j.hasProperty ("w") && j.hasProperty ("h"))
             {
@@ -998,8 +998,12 @@ juce::Component* LayoutSupport::setPosition (const juce::String& currentPath,
         {
             ConstantsStack::ScopedSave ssp (constants);
 
+            constants.set ("parX", foundComp->getX());
+            constants.set ("parY", foundComp->getY());
             constants.set ("parW", foundComp->getWidth());
             constants.set ("parH", foundComp->getHeight());
+            constants.set ("parR", foundComp->getRight());
+            constants.set ("parB", foundComp->getBottom());
 
             setComponentsLayout (path, component["components"]);
         }
