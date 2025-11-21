@@ -824,13 +824,26 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
         {
             auto tokens = juce::StringArray::fromTokens (str, ",", "");
 
-            x = parse (tokens[0], idIdx);
-            y = parse (tokens[1], idIdx);
-            w = parse (tokens[2], idIdx);
-            h = parse (tokens[3], idIdx);
+            if (tokens.size() == 4)
+            {
+                x = parse (tokens[0], idIdx);
+                y = parse (tokens[1], idIdx);
+                w = parse (tokens[2], idIdx);
+                h = parse (tokens[3], idIdx);
 
-            hasPosition = true;
-            hasSize = true;
+                hasPosition = true;
+                hasSize = true;
+            }
+            else if (tokens.size() == 2)
+            {
+                x = 0;
+                y = 0;
+                w = parse (tokens[0], idIdx);
+                h = parse (tokens[1], idIdx);
+
+                hasPosition = false;
+                hasSize = true;
+            }
         }
         else
         {
