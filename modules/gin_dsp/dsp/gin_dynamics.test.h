@@ -71,18 +71,18 @@ private:
         msEnv.reset();
         float msResult = msEnv.process (testSignal);
 
-        // RMS mode
+        // RMS mode - note: instantaneous RMS = |x|, same as peak
         EnvelopeDetector rmsEnv;
         rmsEnv.setSampleRate (44100.0);
         rmsEnv.setParams (0.0f, 0.0f, 0.0f, false, EnvelopeDetector::rms, false);
         rmsEnv.reset();
-        //float rmsResult = rmsEnv.process (testSignal);
+        float rmsResult = rmsEnv.process (testSignal);
 
         // Different modes should produce different results
         expectWithinAbsoluteError (peakResult, 0.5f, 0.01f, "Peak should be ~0.5");
         expectWithinAbsoluteError (msResult, 0.25f, 0.01f, "MS should be ~0.25 (0.5^2)");
-        //todo fix
-        //expect ((rmsResult > 0.0f && rmsResult < peakResult), "RMS should be between 0 and peak");
+        // Instantaneous RMS = sqrt(x^2) = |x|, so equals peak for single sample
+        expectWithinAbsoluteError (rmsResult, 0.5f, 0.01f, "RMS should be ~0.5 (sqrt(0.5^2))");
     }
 
     void testEnvelopeDetectorAttackRelease()
@@ -148,14 +148,15 @@ private:
         env.setParams (0.001f, 0.0f, 0.1f, false, EnvelopeDetector::peak, true);
         env.reset();
 
-        // Process a known amplitude
-        float result = env.process (0.5f);
+        // Process multiple samples to let envelope settle (1ms attack ≈ 100 samples to settle)
+        float result = 0.0f;
+        for (int i = 0; i < 200; i++)
+            result = env.process (0.5f);
 
-        // In log mode, should return dB value
-        //float expectedDb = juce::Decibels::gainToDecibels (0.5f);
+        // In log mode, should return dB value close to gainToDecibels(0.5) ≈ -6dB
+        float expectedDb = juce::Decibels::gainToDecibels (0.5f);
         expect (result < 0.0f, "dB value for gain < 1 should be negative");
-        // todo: fix
-        //expectWithinAbsoluteError (result, expectedDb, 5.0f, "Should be in reasonable dB range");
+        expectWithinAbsoluteError (result, expectedDb, 1.0f, "Should be close to expected dB");
 
         // Process zero, should return very low dB
         env.reset();
@@ -216,14 +217,14 @@ private:
 
         limiter.process (buffer);
 
-        // Limiter should strongly reduce peaks
+        // Limiter should strongly reduce peaks once envelope settles
+        // Skip first 200 samples to allow 1ms attack time to settle
         float peak = 0.0f;
         for (int c = 0; c < buffer.getNumChannels(); c++)
-            for (int s = 0; s < buffer.getNumSamples(); s++)
+            for (int s = 200; s < buffer.getNumSamples(); s++)
                 peak = std::max (peak, std::abs (buffer.getSample (c, s)));
 
-        // todo: fix
-        expect (peak < 0.8f + 100.0f, "Limiter should reduce peaks");
+        expect (peak < 0.8f, "Limiter should reduce peaks");
     }
 
     void testDynamicsExpander()

@@ -142,14 +142,15 @@ private:
         expectWithinAbsoluteError (heldLevel, peakLevel, 0.1f,
                                   "Level should be held initially");
 
-        // Wait a bit but still within hold time (50ms)
-        juce::Thread::sleep (25); // 25ms < 50ms hold time
+        // Push silence through - this won't update the peak but will consume
+        // some wall clock time. Level should remain held within the 50ms hold time.
+        for (int i = 0; i < 1000; ++i)
+            tracker.trackSample (0.0f);
 
-        // todo: fix
-        //float stillHeld = tracker.getLevel();
+        float stillHeld = tracker.getLevel();
 
-        //expectWithinAbsoluteError (stillHeld, peakLevel, 2.0f,
-        //                          "Level should still be held within hold time");
+        expectWithinAbsoluteError (stillHeld, peakLevel, 0.1f,
+                                  "Level should still be held within hold time");
     }
 
     void testNegativeDecay()
