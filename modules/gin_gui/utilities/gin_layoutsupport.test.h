@@ -25,10 +25,12 @@ private:
         testAbsolutePositioning();
         testRelativePositioning();
         testCenterPositioning();
+        testCenterDeltaPositioning();
         testEdgePositioning();
         testBoundsSpecialModes();
         testSizeProperties();
         testExpressions();
+        testGetFunctions();
         testConstants();
         testMacros();
         testGridLayout();
@@ -41,6 +43,8 @@ private:
         testCustomProperties();
         testLayoutChangedCallback();
         testComponentFactory();
+        testOptionalComponents();
+        testInset();
     }
 
     // Helper component class
@@ -622,6 +626,123 @@ private:
             expectEquals (found->getX(), 10, "Dynamic component should be positioned");
             expectEquals (found->getWidth(), 100, "Dynamic component should be sized");
         }
+    }
+
+    void testCenterDeltaPositioning()
+    {
+        beginTest ("Center Delta Positioning (cxd/cyd)");
+
+        TestComponent comp;
+        LayoutSupport layout (comp);
+
+        juce::String json = R"json({
+            "components": [
+                { "id": "button0", "x": 10, "y": 10, "w": 100, "h": 30 },
+                { "id": "button1", "cxd": 20 },
+                { "id": "button2", "cyd": 20 }
+            ]
+        })json";
+
+        layout.setLayout (json);
+
+        // All buttons are 100x30 (button1/button2 inherit from previous)
+        // button0 center X = 10 + 100/2 = 60
+        // button1 should have center at 60 + 20 = 80, so x = 80 - 100/2 = 30
+        int expectedX1 = (10 + 100 / 2) + 20 - 100 / 2;
+        expectEquals (comp.buttons[1]->getX(), expectedX1, "cxd should position relative to previous center X");
+
+        // button0 center Y = 10 + 30/2 = 25
+        // button2 should have center at 25 + 20 = 45, so y = 45 - 30/2 = 30
+        int expectedY2 = (10 + 30 / 2) + 20 - 30 / 2;
+        expectEquals (comp.buttons[2]->getY(), expectedY2, "cyd should position relative to previous center Y");
+    }
+
+    void testGetFunctions()
+    {
+        beginTest ("Get Functions (getX, getY, getW, getH, getR, getB, getCX, getCY)");
+
+        TestComponent comp;
+        LayoutSupport layout (comp);
+
+        juce::String json = R"json({
+            "components": [
+                { "id": "button0", "x": 50, "y": 100, "w": 200, "h": 60 },
+                { "id": "button1", "x": "getX('button0')", "y": "getY('button0') + getH('button0') + 10", "w": "getW('button0')", "h": 30 },
+                { "id": "button2", "x": "getR('button0') + 10", "y": "getB('button0') - 30", "w": 80, "h": 30 },
+                { "id": "button3", "cx": "getCX('button0')", "cy": "getCY('button0')", "w": 100, "h": 40 }
+            ]
+        })json";
+
+        layout.setLayout (json);
+
+        // button1: x = getX(button0) = 50, y = getY(button0) + getH(button0) + 10 = 100 + 60 + 10 = 170
+        expectEquals (comp.buttons[1]->getX(), 50, "getX should return component X");
+        expectEquals (comp.buttons[1]->getY(), 170, "getY + getH should work in expression");
+        expectEquals (comp.buttons[1]->getWidth(), 200, "getW should return component width");
+
+        // button2: x = getR(button0) + 10 = (50 + 200) + 10 = 260, y = getB(button0) - 30 = (100 + 60) - 30 = 130
+        expectEquals (comp.buttons[2]->getX(), 260, "getR should return right edge");
+        expectEquals (comp.buttons[2]->getY(), 130, "getB should return bottom edge");
+
+        // button3: centered on button0's center
+        // button0 center: (50 + 200/2, 100 + 60/2) = (150, 130)
+        // button3: cx=150, cy=130, w=100, h=40 -> x = 150-50 = 100, y = 130-20 = 110
+        expectEquals (comp.buttons[3]->getX(), 100, "getCX should return center X");
+        expectEquals (comp.buttons[3]->getY(), 110, "getCY should return center Y");
+    }
+
+    void testOptionalComponents()
+    {
+        beginTest ("Optional Components");
+
+        TestComponent comp;
+        LayoutSupport layout (comp);
+
+        // Reference a non-existent component with optional: true - should not assert
+        juce::String json = R"json({
+            "components": [
+                { "id": "nonExistentComponent", "optional": true, "x": 10, "y": 10, "w": 100, "h": 30 },
+                { "id": "button0", "x": 20, "y": 20, "w": 100, "h": 30 }
+            ]
+        })json";
+
+        layout.setLayout (json);
+
+        // button0 should still be positioned correctly even though nonExistentComponent wasn't found
+        expectEquals (comp.buttons[0]->getX(), 20, "Layout should continue after optional missing component");
+        expectEquals (comp.buttons[0]->getY(), 20, "Layout should continue after optional missing component");
+    }
+
+    void testInset()
+    {
+        beginTest ("Inset Positioning");
+
+        TestComponent comp;
+        LayoutSupport layout (comp);
+
+        juce::String json = R"json({
+            "components": [
+                { "id": "container", "x": 50, "y": 50, "w": 300, "h": 200 },
+                { "id": "button0", "inset": "container", "border": 10 },
+                { "id": "button1", "inset": "container" }
+            ]
+        })json";
+
+        layout.setLayout (json);
+
+        // button0 should be inset from container with 10px border
+        // container: (50, 50, 300, 200)
+        // button0: (50+10, 50+10, 300-20, 200-20) = (60, 60, 280, 180)
+        expectEquals (comp.buttons[0]->getX(), 60, "Inset X should include border");
+        expectEquals (comp.buttons[0]->getY(), 60, "Inset Y should include border");
+        expectEquals (comp.buttons[0]->getWidth(), 280, "Inset width should subtract border*2");
+        expectEquals (comp.buttons[0]->getHeight(), 180, "Inset height should subtract border*2");
+
+        // button1 should be inset with default border (0)
+        expectEquals (comp.buttons[1]->getX(), 50, "Inset X with default border should match container");
+        expectEquals (comp.buttons[1]->getY(), 50, "Inset Y with default border should match container");
+        expectEquals (comp.buttons[1]->getWidth(), 300, "Inset width with default border should match container");
+        expectEquals (comp.buttons[1]->getHeight(), 200, "Inset height with default border should match container");
     }
 };
 
