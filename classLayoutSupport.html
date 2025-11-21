@@ -204,7 +204,7 @@ Usage Example</h1>
 <div class="line">    <a class="code hl_class" href="classLayoutSupport.html">LayoutSupport</a> <a class="code hl_class" href="classPoint.html">layoutSupport</a>;</div>
 <div class="line">    juce::TextButton button;</div>
 <div class="line">};</div>
-<div class="ttc" id="aclassLayoutSupport_html"><div class="ttname"><a href="classLayoutSupport.html">LayoutSupport</a></div><div class="ttdoc">JSON-based layout system for JUCE components.</div><div class="ttdef"><b>Definition</b> gin_layoutsupport.h:240</div></div>
+<div class="ttc" id="aclassLayoutSupport_html"><div class="ttname"><a href="classLayoutSupport.html">LayoutSupport</a></div><div class="ttdoc">JSON-based layout system for JUCE components.</div><div class="ttdef"><b>Definition</b> gin_layoutsupport.h:253</div></div>
 <div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 <div class="ttc" id="agroup__gin__gui-components_html_ga66410efb088d24a02a86b4c6191e2866"><div class="ttname"><a href="group__gin__gui-components.html#ga66410efb088d24a02a86b4c6191e2866">addAndMakeVisible</a></div><div class="ttdeci">void addAndMakeVisible(juce::Component &amp;parent, juce::Array&lt; juce::Component * &gt; children)</div><div class="ttdoc">Adds an Array of components to a parent Component.</div><div class="ttdef"><b>Definition</b> gin_componentutils.h:16</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="json"></a>
@@ -271,6 +271,8 @@ Constants</h2>
 <p>Built-in constants:</p><ul>
 <li><code>mac</code>, <code>win</code>, <code>linux</code> - Platform flags (<a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">1.0</a> or <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">0.0</a>)</li>
 <li><code>parX</code>, <code>parY</code>, <code>parW</code>, <code>parH</code>, <code>parR</code>, <code>parB</code> - Parent bounds</li>
+<li><code>parCX</code>, <code>parCY</code> - Parent center position</li>
+<li><code>parW2</code>, <code>parH2</code> - Half of parent width and height</li>
 <li><code>prevX</code>, <code>prevY</code>, <code>prevW</code>, <code>prevH</code>, <code>prevR</code>, <code>prevB</code>, <code>prevCX</code>, <code>prevCY</code> - Previous component</li>
 <li><code>i</code> - Current child index</li>
 <li><code>idIdx</code> - Current iteration index (when using multiple IDs or ranges)</li>
@@ -332,6 +334,13 @@ Examples</h2>
 <div class="line">  &quot;y&quot;: 10,</div>
 <div class="line">  &quot;w&quot;: 40,</div>
 <div class="line">  &quot;h&quot;: 40</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Center positioning using parCX/parCY and sizing with parW2/parH2: </p><div class="fragment"><div class="line">{</div>
+<div class="line">  &quot;components&quot;: [</div>
+<div class="line">    { &quot;id&quot;: &quot;header&quot;, &quot;x&quot;: 0, &quot;y&quot;: 0, &quot;w&quot;: &quot;parW&quot;, &quot;h&quot;: &quot;parH2&quot; },</div>
+<div class="line">    { &quot;id&quot;: &quot;footer&quot;, &quot;x&quot;: 0, &quot;y&quot;: &quot;parH2&quot;, &quot;w&quot;: &quot;parW&quot;, &quot;h&quot;: &quot;parH2&quot; },</div>
+<div class="line">    { &quot;id&quot;: &quot;centerButton&quot;, &quot;cx&quot;: &quot;parW2&quot;, &quot;cy&quot;: &quot;parH2&quot;, &quot;w&quot;: 100, &quot;h&quot;: 30 }</div>
+<div class="line">  ]</div>
 <div class="line">}</div>
 </div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4066b322b51a4f22c5b3dc8da5a3de59" name="a4066b322b51a4f22c5b3dc8da5a3de59"></a>
@@ -1216,7 +1225,7 @@ Examples</h2>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 21 2025 19:21:33 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Nov 21 2025 19:31:51 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
