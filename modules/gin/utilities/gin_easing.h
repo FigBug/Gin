@@ -144,7 +144,7 @@ T easeCubicInOut (T p)
         return 4 * p * p * p;
 
     T f = ((2 * p) - 2);
-    return 0.5 * f * f * f + 1;
+    return T (0.5 * f * f * f + 1);
 }
 
 /** Quartic easing in - accelerating from zero velocity.
@@ -236,7 +236,7 @@ T easeQuinticInOut (T p)
         return 16 * p * p * p * p * p;
 
     T f = ((2 * p) - 2);
-    return  0.5 * f * f * f * f * f + 1;
+    return  T (0.5 * f * f * f * f * f + 1);
 }
 
 /** Sine easing in - accelerating from zero velocity.
@@ -319,9 +319,9 @@ template<class T>
 T easeCircularInOut (T p)
 {
     if (p < 0.5)
-        return 0.5 * (1 - std::sqrt (1 - 4 * (p * p)));
+        return T (0.5 * (1 - std::sqrt (1 - 4 * (p * p))));
     else
-        return 0.5 * (std::sqrt (-((2 * p) - 3) * ((2 * p) - 1)) + 1);
+        return T (0.5 * (std::sqrt (-((2 * p) - 3) * ((2 * p) - 1)) + 1));
 }
 
 /** Exponential easing in - accelerating from zero velocity.
@@ -415,9 +415,9 @@ template<class T>
 T easeElasticInOut (T p)
 {
     if (p < 0.5)
-        return 0.5 * std::sin (13 * (juce::MathConstants<T>::pi / 2) * (2 * p)) * std::pow (2, 10 * ((2 * p) - 1));
+        return T (0.5 * std::sin (13 * (juce::MathConstants<T>::pi / 2) * (2 * p)) * std::pow (2, 10 * ((2 * p) - 1)));
     else
-        return 0.5 * (std::sin (-13 * (juce::MathConstants<T>::pi / 2) * ((2 * p - 1) + 1)) * std::pow (2, -10 * (2 * p - 1)) + 2);
+        return T (0.5 * (std::sin (-13 * (juce::MathConstants<T>::pi / 2) * ((2 * p - 1) + 1)) * std::pow (2, -10 * (2 * p - 1)) + 2));
 }
 
 /** Back easing in - accelerating with slight overshoot.
@@ -464,12 +464,12 @@ T easeBackInOut (T p)
     if (p < 0.5)
     {
         T f = 2 * p;
-        return 0.5 * (f * f * f - f * std::sin (f * juce::MathConstants<T>::pi));
+        return T (0.5 * (f * f * f - f * std::sin (f * juce::MathConstants<T>::pi)));
     }
     else
     {
         T f = (1 - (2*p - 1));
-        return 0.5 * (1 - (f * f * f - f * std::sin (f * juce::MathConstants<T>::pi))) + 0.5;
+        return T (0.5 * (1 - (f * f * f - f * std::sin (f * juce::MathConstants<T>::pi))) + 0.5);
     }
 }
 
