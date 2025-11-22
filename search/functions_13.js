@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['undo_0',['undo',['../classSingleLineTextEditor.html#aa7dde1f6c14d55b60a7a3804983edbdd',1,'SingleLineTextEditor::undo()'],['../classTextHistory.html#a1bbead7a0a6a7675869847c38d9e1057',1,'TextHistory::undo()']]],
+  ['undo_0',['undo',['../classTextHistory.html#a1bbead7a0a6a7675869847c38d9e1057',1,'TextHistory']]],
   ['unlock_1',['unlock',['../classSystemSemaphore.html#afde687b04d0bb01cf629d037bf384ac0',1,'SystemSemaphore']]],
   ['unwatchparam_2',['unwatchParam',['../classMultiParamComponent.html#a7620038ca7508425d21d1138a0e9d45f',1,'MultiParamComponent']]],
   ['unwatchparams_3',['unwatchParams',['../classMultiParamComponent.html#ae7441578faba5891a7fc764da134f03c',1,'MultiParamComponent']]],

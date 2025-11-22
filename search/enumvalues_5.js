@@ -7,6 +7,5 @@ var searchData=
   ['filerenamedoldname_4',['fileRenamedOldName',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7da5a58eb5cd4c39c2655668fc1d3241955',1,'FileSystemWatcher']]],
   ['fileupdated_5',['fileUpdated',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7dabc075ff82423a1f48c1043f2e8383acf',1,'FileSystemWatcher']]],
   ['finished_6',['finished',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127aa4c8e84c9d5e8d4732e95215b44824622',1,'ADSR']]],
-  ['focusedoutlinecolourid_7',['focusedOutlineColourId',['../classSingleLineTextEditor.html#a580e95f56d303528b02f91143c72f13ca613b4466a2f85ed3a22af2012c77b720',1,'SingleLineTextEditor']]],
-  ['forwards_8',['forwards',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1a465c5f747934848fce35cebef03936e2',1,'SampleOscillator']]]
+  ['forwards_7',['forwards',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1a465c5f747934848fce35cebef03936e2',1,'SampleOscillator']]]
 ];
