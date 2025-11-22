@@ -16,7 +16,8 @@
     your controls and content.
 */
 class MainContentComponent : public juce::Component,
-public juce::ListBoxModel
+                             public juce::ListBoxModel,
+                             public juce::DragAndDropContainer
 {
 public:
     //==============================================================================
