@@ -69,6 +69,5 @@ namespace gin
 #include "components/gin_ginlookandfeel.cpp"
 #include "components/gin_mapviewer.cpp"
 #include "components/gin_propertycomponents.cpp"
-#include "components/gin_singlelinetexteditor.cpp"
 
 }
