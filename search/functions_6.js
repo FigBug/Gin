@@ -41,7 +41,7 @@ var searchData=
   ['getdata_38',['getData',['../classSharedMemory.html#a23466023400b347c88d497d8276ec06a',1,'SharedMemory']]],
   ['getdefaultvalue_39',['getDefaultValue',['../classParameter.html#a400ebf8ccc781cbdcfcbf305dcec5f92',1,'Parameter']]],
   ['getdevicemanager_40',['getDeviceManager',['../classStandaloneFilterWindow.html#add6442bd751c4bc31cbecf7380bcedda',1,'StandaloneFilterWindow']]],
-  ['getdragindex_41',['getDragIndex',['../classComponentGrid.html#a4ce5a0d3a6385d59827fb0e33479517d',1,'ComponentGrid']]],
+  ['getdragindex_41',['getDragIndex',['../classComponentGrid.html#abd1534806a2165fabfb22f4c8f837759',1,'ComponentGrid']]],
   ['geteditorconstrainer_42',['getEditorConstrainer',['../classMainContentComponent.html#a771499579a434d3944d9395f5b59c3ef',1,'MainContentComponent']]],
   ['geterror_43',['getError',['../classEquationParser.html#a452aa75e0f0229864c6a72e9c81410e4',1,'EquationParser']]],
   ['getfilepatterns_44',['getFilePatterns',['../classStandalonePluginHolder.html#a23326f4a766e1df15eae33b3dccc2b4f',1,'StandalonePluginHolder']]],

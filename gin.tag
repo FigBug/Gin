@@ -4822,6 +4822,27 @@
       <arglist>() override</arglist>
     </member>
     <member kind="function">
+      <type>bool</type>
+      <name>isDragInProgress</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>ae6652721465f908263c75503a5319de7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setGap</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>a753b6239c19683447b81279eca856114</anchor>
+      <arglist>(int gap)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setOrientation</name>
+      <anchorfile>classComponentGrid.html</anchorfile>
+      <anchor>a3cd9c2d0652215b61469a3e3af528d5f</anchor>
+      <arglist>(Orientation o)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>timerCallback</name>
       <anchorfile>classComponentGrid.html</anchorfile>
@@ -4856,40 +4877,19 @@
       <anchor>ae4d3d578ec0693a3825bf22ed2dfe3f8</anchor>
       <arglist>() override</arglist>
     </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isDragInProgress</name>
-      <anchorfile>classComponentGrid.html</anchorfile>
-      <anchor>ae6652721465f908263c75503a5319de7</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setGap</name>
-      <anchorfile>classComponentGrid.html</anchorfile>
-      <anchor>a98d67e4198b3dd7df55a705a58c31816</anchor>
-      <arglist>(int)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setOrientation</name>
-      <anchorfile>classComponentGrid.html</anchorfile>
-      <anchor>a813eb2148efe914f18850d94bd5d8f3e</anchor>
-      <arglist>(Orientation)</arglist>
-    </member>
     <member kind="function" static="yes">
       <type>static bool</type>
       <name>isGridDrag</name>
       <anchorfile>classComponentGrid.html</anchorfile>
-      <anchor>aff190abd616799c6d34ea7bc164c5261</anchor>
-      <arglist>(juce::var)</arglist>
+      <anchor>ad513ba946cf67081041d99e7b68d714a</anchor>
+      <arglist>(juce::var dragSourceDetails)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static int</type>
       <name>getDragIndex</name>
       <anchorfile>classComponentGrid.html</anchorfile>
-      <anchor>a4ce5a0d3a6385d59827fb0e33479517d</anchor>
-      <arglist>(juce::var)</arglist>
+      <anchor>abd1534806a2165fabfb22f4c8f837759</anchor>
+      <arglist>(juce::var dragSourceDetails)</arglist>
     </member>
     <member kind="variable">
       <type>std::function&lt; bool(const juce::MouseEvent &amp;)&gt;</type>

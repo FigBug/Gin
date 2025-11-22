@@ -36,7 +36,7 @@ var searchData=
   ['isdraginprogress_33',['isDragInProgress',['../classComponentGrid.html#ae6652721465f908263c75503a5319de7',1,'ComponentGrid']]],
   ['isempty_34',['isEmpty',['../classSingleLineTextEditor.html#a348819d1d31721f60cab4deedd423331',1,'SingleLineTextEditor']]],
   ['isfastkill_35',['isFastKill',['../classSynthesiserVoice.html#a4e34af2e0d789a4302de6de08052eb38',1,'SynthesiserVoice']]],
-  ['isgriddrag_36',['isGridDrag',['../classComponentGrid.html#aff190abd616799c6d34ea7bc164c5261',1,'ComponentGrid']]],
+  ['isgriddrag_36',['isGridDrag',['../classComponentGrid.html#ad513ba946cf67081041d99e7b68d714a',1,'ComponentGrid']]],
   ['isinterappaudioconnected_37',['isInterAppAudioConnected',['../classStandalonePluginHolder.html#aa5a16e61a7162f523e3a5ac0dc49b409',1,'StandalonePluginHolder']]],
   ['isinterestedindragsource_38',['isinterestedindragsource',['../classKnob.html#a15352bbb26e17a686d744e9954702ff7',1,'Knob::isInterestedInDragSource()'],['../classHeaderButton.html#a784b42e602689f5a283b96f793744b6a',1,'HeaderButton::isInterestedInDragSource()']]],
   ['isinterestedinfiledrag_39',['isInterestedInFileDrag',['../classWavetableComponent.html#aa28002f2a012b9b533ce0001b7cf23d8',1,'WavetableComponent']]],
