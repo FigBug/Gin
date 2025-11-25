@@ -176,9 +176,12 @@ bool hasJSONPointer (const juce::var& v, juce::String pointer)
 
 juce::String removeJsonComments (const juce::String& input)
 {
-    const auto text = input.toStdString();
-    std::string out;
-    out.reserve (text.size());  // Pre-allocate to avoid reallocations
+    // Early out if there are no forward slashes - no comments possible
+    if (! input.containsChar ('/'))
+        return input;
+
+    juce::String out;
+    out.preallocateBytes (input.length() * sizeof (juce::String::CharPointerType::CharType));
 
     // State machine to track our position in the JSON text
     enum class State
@@ -191,10 +194,12 @@ juce::String removeJsonComments (const juce::String& input)
 
     bool escape = false;  // Track if we're on an escape character in a string
 
-    for (size_t i = 0; i < text.size(); ++i)
+    auto ptr = input.getCharPointer();
+
+    while (! ptr.isEmpty())
     {
-        char c = text[i];
-        char next = (i + 1 < text.size() ? text[i + 1] : '\0');
+        juce::juce_wchar c = *ptr;
+        juce::juce_wchar next = ptr[1];
 
         switch (state)
         {
@@ -204,30 +209,30 @@ juce::String removeJsonComments (const juce::String& input)
                 {
                     // Start of a string literal - preserve everything inside
                     state = State::InString;
-                    out += c;
+                    out << c;
                 }
                 else if (c == '/' && next == '/')
                 {
                     // Start of line comment - skip it
                     state = State::InLineComment;
-                    ++i;  // Skip the second '/'
+                    ++ptr;  // Skip the second '/'
                 }
                 else if (c == '/' && next == '*')
                 {
                     // Start of block comment - skip it
                     state = State::InBlockComment;
-                    ++i;  // Skip the '*'
+                    ++ptr;  // Skip the '*'
                 }
                 else
                 {
                     // Normal JSON content - keep it
-                    out += c;
+                    out << c;
                 }
                 break;
 
             case State::InString:
                 // We're inside a string literal - preserve everything, including comment-like text
-                out += c;
+                out << c;
 
                 // Check for end of string (unescaped quote)
                 if (! escape && c == '"')
@@ -241,7 +246,7 @@ juce::String removeJsonComments (const juce::String& input)
                 // We're in a line comment - skip everything until newline
                 if (c == '\n')
                 {
-                    out += c;  // Preserve the newline for formatting
+                    out << c;  // Preserve the newline for formatting
                     state = State::Normal;
                 }
                 // All other characters in line comments are skipped
@@ -252,14 +257,16 @@ juce::String removeJsonComments (const juce::String& input)
                 if (c == '*' && next == '/')
                 {
                     state = State::Normal;
-                    ++i;  // Skip the '/'
+                    ++ptr;  // Skip the '/'
                 }
                 // All characters in block comments are skipped (including newlines)
                 break;
         }
+
+        ++ptr;
     }
 
-    return juce::String (out);
+    return out;
 }
 
 
