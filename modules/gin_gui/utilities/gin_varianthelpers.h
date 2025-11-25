@@ -17,8 +17,8 @@
 
     @code
     auto config = jsonObject();
-    config.getDynamicObject()->setProperty ("width", 800);
-    config.getDynamicObject()->setProperty ("height", 600);
+    setProperty (config, "width", 800);
+    setProperty (config, "height", 600);
     @endcode
 */
 inline juce::var jsonObject()
@@ -57,9 +57,9 @@ inline std::string toStdString (const juce::var& v)
     @return   Array of property name identifiers
 
     @code
-    juce::var obj = new juce::DynamicObject();
-    obj.getDynamicObject()->setProperty ("width", 100);
-    obj.getDynamicObject()->setProperty ("height", 200);
+    auto obj = jsonObject();
+    setProperty (obj, "width", 100);
+    setProperty (obj, "height", 200);
     auto names = getAllPropertyNames (obj);  // Returns ["width", "height"]
     @endcode
 */
@@ -88,9 +88,9 @@ inline static juce::Array<juce::Identifier> getAllPropertyNames (const juce::var
 
     @code
     // With DynamicObject:
-    juce::var obj = new juce::DynamicObject();
-    obj.getDynamicObject()->setProperty ("width", 100);
-    obj.getDynamicObject()->setProperty ("height", 200);
+    auto obj = jsonObject();
+    setProperty (obj, "width", 100);
+    setProperty (obj, "height", 200);
     auto values = getAllProperties (obj);  // Returns [100, 200]
 
     // With Array:
@@ -147,9 +147,9 @@ struct Property
     @return   Array of Property objects containing key-value pairs
 
     @code
-    juce::var obj = new juce::DynamicObject();
-    obj.getDynamicObject()->setProperty ("width", 100);
-    obj.getDynamicObject()->setProperty ("height", 200);
+    auto obj = jsonObject();
+    setProperty (obj, "width", 100);
+    setProperty (obj, "height", 200);
     auto props = getPropertySet (obj);
     // props[0].key = "width", props[0].value = 100
     // props[1].key = "height", props[1].value = 200
@@ -182,8 +182,8 @@ inline static juce::Array<Property> getPropertySet (const juce::var& v)
     @return              Property value if it exists, otherwise defaultValue
 
     @code
-    juce::var obj = new juce::DynamicObject();
-    obj.getDynamicObject()->setProperty ("width", 100);
+    auto obj = jsonObject();
+    setProperty (obj, "width", 100);
 
     auto w = getPropertyWithDefault (obj, "width", 50);   // Returns 100
     auto h = getPropertyWithDefault (obj, "height", 50);  // Returns 50 (default)
@@ -208,7 +208,7 @@ inline juce::var getPropertyWithDefault (const juce::var& v, const juce::Identif
     @param value  Value to set for the property
 
     @code
-    juce::var obj = new juce::DynamicObject();
+    auto obj = jsonObject();
     setProperty (obj, "width", 100);
     setProperty (obj, "height", 200);
     // obj now has properties: width=100, height=200
@@ -230,9 +230,9 @@ inline void setProperty ( juce::var& v, const juce::Identifier& i, const juce::v
     @param i  Property name identifier to remove
 
     @code
-    juce::var obj = new juce::DynamicObject();
-    obj.getDynamicObject()->setProperty ("width", 100);
-    obj.getDynamicObject()->setProperty ("height", 200);
+    auto obj = jsonObject();
+    setProperty (obj, "width", 100);
+    setProperty (obj, "height", 200);
 
     removeProperty (obj, "width");
     // obj now only has height property
@@ -298,8 +298,8 @@ juce::var getJSONPointer (const juce::var& v, juce::String pointer, const juce::
     @return         true if the pointer path exists, false otherwise
 
     @code
-    juce::var obj = jsonObject();
-    obj.getDynamicObject()->setProperty ("width", 100);
+    auto obj = jsonObject();
+    setProperty (obj, "width", 100);
 
     hasJSONPointer (obj, "/width");   // true
     hasJSONPointer (obj, "/height");  // false
