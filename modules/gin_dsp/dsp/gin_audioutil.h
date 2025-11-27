@@ -139,10 +139,19 @@ inline juce::AudioSampleBuffer sliceBuffer (juce::AudioSampleBuffer& input, int 
 inline ScratchBuffer monoBuffer (const juce::AudioSampleBuffer& input)
 {
     ScratchBuffer output (1, input.getNumSamples());
-    output.clear();
 
-    juce::FloatVectorOperations::addWithMultiply (output.getWritePointer (0), input.getReadPointer (0), 0.5f, input.getNumSamples());
-    juce::FloatVectorOperations::addWithMultiply (output.getWritePointer (0), input.getReadPointer (1), 0.5f, input.getNumSamples());
+    if (input.getNumChannels() == 1)
+    {
+        output.copyFrom (0, 0, input, 0, 0, input.getNumSamples());
+    }
+    else
+    {
+        output.clear();
+
+        const float gain = 1.0f / input.getNumChannels();
+        for (int ch = 0; ch < input.getNumChannels(); ch++)
+            juce::FloatVectorOperations::addWithMultiply (output.getWritePointer (0), input.getReadPointer (ch), gain, input.getNumSamples());
+    }
 
     return output;
 }

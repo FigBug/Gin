@@ -56,13 +56,31 @@ public:
             expect (BufferCache::getInstance()->getUsedBuffers() == 0);
         }
 
-        beginTest ("mono buffer");
+        beginTest ("mono buffer from stereo");
         {
             juce::AudioSampleBuffer source (2, 1024);
             {
                 auto mono = monoBuffer (source);
                 expect (mono.getNumChannels() == 1);
                 expect (BufferCache::getInstance()->getUsedBuffers() == 1);
+            }
+            expect (BufferCache::getInstance()->getUsedBuffers() == 0);
+        }
+
+        beginTest ("mono buffer from mono");
+        {
+            juce::AudioSampleBuffer source (1, 1024);
+            for (int i = 0; i < 1024; i++)
+                source.setSample (0, i, (float) i);
+
+            {
+                auto mono = monoBuffer (source);
+                expect (mono.getNumChannels() == 1);
+                expect (mono.getNumSamples() == 1024);
+                expect (BufferCache::getInstance()->getUsedBuffers() == 1);
+
+                for (int i = 0; i < 1024; i++)
+                    expect (mono.getSample (0, i) == (float) i);
             }
             expect (BufferCache::getInstance()->getUsedBuffers() == 0);
         }
