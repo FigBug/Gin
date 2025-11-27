@@ -80,7 +80,7 @@ public:
                 expect (BufferCache::getInstance()->getUsedBuffers() == 1);
 
                 for (int i = 0; i < 1024; i++)
-                    expect (mono.getSample (0, i) == (float) i);
+                    expect (juce::approximatelyEqual (mono.getSample (0, i), (float) i));
             }
             expect (BufferCache::getInstance()->getUsedBuffers() == 0);
         }
