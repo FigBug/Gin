@@ -1108,7 +1108,7 @@ void LayoutSupport::setGridPositions (const juce::String& currentPath, const juc
         grid.templateColumns.add (getTrackInfo (ids[i], 0));
 
     for (auto i = 0; i < rows; i++)
-        grid.templateRows.add (getTrackInfo (ids[cols * i], 0));
+        grid.templateRows.add (getTrackInfo (ids[cols * i], 1));
 
     for (auto id : ids)
     {
