@@ -34,6 +34,7 @@ private:
         testConstants();
         testMacros();
         testGridLayout();
+        testGridLayoutWithConstants();
         testNestedComponents();
         testMultipleIds();
         testRangeSyntax();
@@ -391,6 +392,41 @@ private:
         layout.setLayout (json);
 
         // Grid should position components in 2x2 layout with gaps
+        expect (comp.buttons[0]->getX() >= 0 && comp.buttons[0]->getX() < 200, "Button 0 should be in left column");
+        expect (comp.buttons[1]->getX() >= 200, "Button 1 should be in right column");
+        expect (comp.buttons[0]->getY() >= 0 && comp.buttons[0]->getY() < 100, "Button 0 should be in top row");
+        expect (comp.buttons[2]->getY() >= 100, "Button 2 should be in bottom row");
+    }
+
+    void testGridLayoutWithConstants()
+    {
+        beginTest ("Grid Layout With Constants");
+
+        TestComponent comp;
+        LayoutSupport layout (comp);
+
+        juce::String json = R"json({
+            "constants": [
+                { "gridCols": 2 },
+                { "gridRows": 2 },
+                { "gridColGap": 10 },
+                { "gridRowGap": 10 }
+            ],
+            "components": [
+                {
+                    "grid": "button0,button1,button2,button3",
+                    "bounds": "0,0,400,200",
+                    "cols": "gridCols",
+                    "rows": "gridRows",
+                    "colGap": "gridColGap",
+                    "rowGap": "gridRowGap"
+                }
+            ]
+        })json";
+
+        layout.setLayout (json);
+
+        // Grid should position components in 2x2 layout with gaps using constants
         expect (comp.buttons[0]->getX() >= 0 && comp.buttons[0]->getX() < 200, "Button 0 should be in left column");
         expect (comp.buttons[1]->getX() >= 200, "Button 1 should be in right column");
         expect (comp.buttons[0]->getY() >= 0 && comp.buttons[0]->getY() < 100, "Button 0 should be in top row");

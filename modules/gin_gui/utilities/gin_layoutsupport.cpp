@@ -1079,11 +1079,11 @@ void LayoutSupport::setGridPositions (const juce::String& currentPath, const juc
 
     juce::Grid grid;
 
-    auto cols = int (getPropertyWithDefault (component, "cols", 1));
-    auto rows = int (getPropertyWithDefault (component, "rows", 1));
+    auto cols = parse (getPropertyWithDefault (component, "cols", 1), 0);
+    auto rows = parse (getPropertyWithDefault (component, "rows", 1), 0);
 
-    grid.columnGap = juce::Grid::Px (int (getPropertyWithDefault (component, "colGap", 0)));
-    grid.rowGap = juce::Grid::Px (int (getPropertyWithDefault (component, "rowGap", 0)));
+    grid.columnGap  = juce::Grid::Px (parse (getPropertyWithDefault (component, "colGap", 0), 0));
+    grid.rowGap     = juce::Grid::Px (parse (getPropertyWithDefault (component, "rowGap", 0), 0));
 
     for (auto i = 0; i < cols; i++)
         grid.templateColumns.add (juce::Grid::TrackInfo (1_fr));
