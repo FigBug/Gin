@@ -564,7 +564,9 @@ void LayoutSupport::setComponentsLayout (const juce::String& currentPath,
         }
         else if (component.hasProperty ("grid"))
         {
-            setGridPositions (currentPath, component);
+            if (auto foundComp = compMap.findComponent (currentPath))
+                if (! foundComp->getBounds().isEmpty())
+                    setGridPositions (currentPath, component);
         }
         else
         {
@@ -1085,15 +1087,28 @@ void LayoutSupport::setGridPositions (const juce::String& currentPath, const juc
     grid.columnGap  = juce::Grid::Px (parse (getPropertyWithDefault (component, "colGap", 0), 0));
     grid.rowGap     = juce::Grid::Px (parse (getPropertyWithDefault (component, "rowGap", 0), 0));
 
+    auto getTrackInfo = [] (const juce::String& str, int idx)
+    {
+        auto token = juce::StringArray::fromTokens (str, "/", "")[idx + 1];
+
+        if (token.endsWith ("px"))
+            return juce::Grid::TrackInfo (juce::Grid::Px (token.retainCharacters ("0123456789").getIntValue()));
+
+        if (token.endsWith ("fr"))
+            return juce::Grid::TrackInfo (juce::Grid::Fr (token.retainCharacters ("0123456789").getIntValue()));
+
+        return juce::Grid::TrackInfo (1_fr);
+    };
+
     for (auto i = 0; i < cols; i++)
-        grid.templateColumns.add (juce::Grid::TrackInfo (1_fr));
+        grid.templateColumns.add (getTrackInfo (ids[i], 0));
 
     for (auto i = 0; i < rows; i++)
-        grid.templateRows.add (juce::Grid::TrackInfo (1_fr));
+        grid.templateRows.add (getTrackInfo (ids[cols * i], 0));
 
     for (auto id : ids)
     {
-        const auto path = juce::String (currentPath) + "/" + id;
+        const auto path = juce::String (currentPath) + "/" + id.upToFirstOccurrenceOf ("/", false, false);
 
         if (auto foundComp = compMap.findComponent (path))
             grid.items.add (juce::GridItem (foundComp));
