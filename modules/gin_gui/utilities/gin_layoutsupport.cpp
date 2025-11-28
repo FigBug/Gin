@@ -1068,6 +1068,8 @@ void LayoutSupport::setGridPositions (const juce::String& currentPath, const juc
     else
         ids = expandTokens ({ idString });
 
+    ids.trim ();
+
     auto bounds = getBounds (0, component);
 
     jassert (bounds.hasPosition && bounds.hasSize);
@@ -1089,7 +1091,9 @@ void LayoutSupport::setGridPositions (const juce::String& currentPath, const juc
 
     auto getTrackInfo = [] (const juce::String& str, int idx)
     {
-        auto token = juce::StringArray::fromTokens (str, "/", "")[idx + 1];
+        auto tokens = juce::StringArray::fromTokens (str, "/", "");
+        tokens.trim();
+        auto token = tokens[idx + 1];
 
         if (token.endsWith ("px"))
             return juce::Grid::TrackInfo (juce::Grid::Px (token.retainCharacters ("0123456789").getIntValue()));
