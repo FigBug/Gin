@@ -39,4 +39,48 @@ namespace Diff
         @returns      The resulting string after applying the patch
     */
     juce::String bsApplyPatch (const juce::String& s, const std::vector<uint8_t>& patch);
+
+    //==============================================================================
+    /** A compact text patch storing only the differences between two texts.
+
+        This stores only inserted and removed lines with their line numbers,
+        making it memory efficient while remaining human readable.
+    */
+    struct Patch
+    {
+        struct Hunk
+        {
+            int oldLine;         /**< Line number in old text (for removes) or -1 */
+            int newLine;         /**< Line number in new text (for inserts) or -1 */
+            bool isInsert;       /**< true = insert, false = remove */
+            juce::String text;   /**< The line content */
+        };
+
+        std::vector<Hunk> hunks;
+
+        /** Serializes the patch to a human-readable string. */
+        juce::String toString() const;
+
+        /** Parses a patch from its string representation. */
+        static Patch fromString (const juce::String& s);
+    };
+
+    /** Creates a compact patch that can transform newText back into oldText.
+
+        Uses the Myers diff algorithm to find the minimal differences.
+        Only stores the changes (inserts/removes), not unchanged lines.
+
+        @param oldText  The original text
+        @param newText  The modified text
+        @returns        A compact Patch containing only the differences
+    */
+    Patch createPatch (const juce::String& oldText, const juce::String& newText);
+
+    /** Applies a patch to transform text back to its original form.
+
+        @param newText  The modified text
+        @param patch    The patch created by createPatch()
+        @returns        The original text
+    */
+    juce::String applyPatch (const juce::String& newText, const Patch& patch);
 }

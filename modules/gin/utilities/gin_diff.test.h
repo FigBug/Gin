@@ -179,4 +179,204 @@ private:
 
 static DiffTests diffTests;
 
+//==============================================================================
+class MyersDiffTests : public juce::UnitTest
+{
+public:
+    MyersDiffTests() : juce::UnitTest ("Myers Diff", "gin") {}
+
+    void runTest() override
+    {
+        testIdenticalText();
+        testEmptyStrings();
+        testSimpleInsertion();
+        testSimpleDeletion();
+        testSimpleChange();
+        testMultipleChanges();
+        testPatchSerialization();
+        testRoundTrip();
+        testLargeFiles();
+    }
+
+private:
+    void testIdenticalText()
+    {
+        beginTest ("Identical Text");
+
+        juce::String text = "line1\nline2\nline3\n";
+        auto patch = Diff::createPatch (text, text);
+
+        expect (patch.hunks.empty(), "No hunks for identical text");
+        expectEquals (Diff::applyPatch (text, patch), text, "Applied patch should produce original text");
+    }
+
+    void testEmptyStrings()
+    {
+        beginTest ("Empty Strings");
+
+        // Empty to non-empty
+        {
+            juce::String empty = "";
+            juce::String text = "line1\nline2\n";
+            auto patch = Diff::createPatch (empty, text);
+
+            int inserts = 0;
+            for (const auto& hunk : patch.hunks)
+                if (hunk.isInsert) inserts++;
+
+            expect (inserts > 0, "Should have insertions when adding to empty");
+            expectEquals (Diff::applyPatch (text, patch), empty, "Should produce original empty text");
+        }
+
+        // Non-empty to empty
+        {
+            juce::String text = "line1\nline2\n";
+            juce::String empty = "";
+            auto patch = Diff::createPatch (text, empty);
+
+            int removes = 0;
+            for (const auto& hunk : patch.hunks)
+                if (! hunk.isInsert) removes++;
+
+            expect (removes > 0, "Should have removals when deleting to empty");
+            expectEquals (Diff::applyPatch (empty, patch), text, "Should produce original text");
+        }
+
+        // Empty to empty
+        {
+            auto patch = Diff::createPatch ("", "");
+            expect (patch.hunks.empty(), "No hunks for empty to empty");
+        }
+    }
+
+    void testSimpleInsertion()
+    {
+        beginTest ("Simple Insertion");
+
+        juce::String oldText = "line1\nline3\n";
+        juce::String newText = "line1\nline2\nline3\n";
+
+        auto patch = Diff::createPatch (oldText, newText);
+
+        int inserts = 0;
+        for (const auto& hunk : patch.hunks)
+            if (hunk.isInsert) inserts++;
+
+        expectEquals (inserts, 1, "Should have one insertion");
+        expectEquals (Diff::applyPatch (newText, patch), oldText, "Applied patch should recover old text");
+    }
+
+    void testSimpleDeletion()
+    {
+        beginTest ("Simple Deletion");
+
+        juce::String oldText = "line1\nline2\nline3\n";
+        juce::String newText = "line1\nline3\n";
+
+        auto patch = Diff::createPatch (oldText, newText);
+
+        int removes = 0;
+        for (const auto& hunk : patch.hunks)
+            if (! hunk.isInsert) removes++;
+
+        expectEquals (removes, 1, "Should have one removal");
+        expectEquals (Diff::applyPatch (newText, patch), oldText, "Applied patch should recover old text");
+    }
+
+    void testSimpleChange()
+    {
+        beginTest ("Simple Change");
+
+        juce::String oldText = "line1\nold line\nline3\n";
+        juce::String newText = "line1\nnew line\nline3\n";
+
+        auto patch = Diff::createPatch (oldText, newText);
+        expectEquals (Diff::applyPatch (newText, patch), oldText, "Applied patch should recover old text");
+
+        // A change is represented as remove + insert
+        int removes = 0, inserts = 0;
+        for (const auto& hunk : patch.hunks)
+        {
+            if (hunk.isInsert) inserts++;
+            else removes++;
+        }
+
+        expect (removes >= 1, "Should have at least one removal for a change");
+        expect (inserts >= 1, "Should have at least one insertion for a change");
+    }
+
+    void testMultipleChanges()
+    {
+        beginTest ("Multiple Changes");
+
+        juce::String oldText = "aaa\nbbb\nccc\nddd\neee\n";
+        juce::String newText = "aaa\nBBB\nccc\nDDD\neee\n";
+
+        auto patch = Diff::createPatch (oldText, newText);
+        expectEquals (Diff::applyPatch (newText, patch), oldText, "Applied patch should recover old text");
+    }
+
+    void testPatchSerialization()
+    {
+        beginTest ("Patch Serialization");
+
+        juce::String oldText = "line1\nold\nline3\n";
+        juce::String newText = "line1\nnew\nline3\n";
+
+        auto patch = Diff::createPatch (oldText, newText);
+        auto patchStr = patch.toString();
+
+        expect (patchStr.contains ("-"), "Should contain remove markers");
+        expect (patchStr.contains ("+"), "Should contain insert markers");
+
+        auto restored = Diff::Patch::fromString (patchStr);
+        expectEquals ((int) restored.hunks.size(), (int) patch.hunks.size(), "Restored patch should have same number of hunks");
+        expectEquals (Diff::applyPatch (newText, restored), oldText, "Restored patch should work");
+    }
+
+    void testRoundTrip()
+    {
+        beginTest ("Round Trip");
+
+        juce::String v1 = "int main() {\n    return 0;\n}\n";
+        juce::String v2 = "int main() {\n    printf(\"hello\");\n    return 0;\n}\n";
+        juce::String v3 = "int main() {\n    return 1;\n}\n";
+
+        auto patch1to2 = Diff::createPatch (v1, v2);
+        expectEquals (Diff::applyPatch (v2, patch1to2), v1, "v2 + patch -> v1 should work");
+
+        auto patch2to3 = Diff::createPatch (v2, v3);
+        expectEquals (Diff::applyPatch (v3, patch2to3), v2, "v3 + patch -> v2 should work");
+
+        auto patch3to1 = Diff::createPatch (v3, v1);
+        expectEquals (Diff::applyPatch (v1, patch3to1), v3, "v1 + patch -> v3 should work");
+    }
+
+    void testLargeFiles()
+    {
+        beginTest ("Large Files");
+
+        juce::String oldText, newText;
+        for (int i = 0; i < 500; i++)
+        {
+            oldText += "Line " + juce::String (i) + " original content\n";
+            if (i % 10 == 0)
+                newText += "Line " + juce::String (i) + " modified content\n";
+            else
+                newText += "Line " + juce::String (i) + " original content\n";
+        }
+
+        auto patch = Diff::createPatch (oldText, newText);
+        expectEquals (Diff::applyPatch (newText, patch), oldText, "Should recover original from large file");
+
+        expect (! patch.hunks.empty(), "Should have hunks for changed file");
+
+        // Check that patch is smaller than storing all lines
+        auto patchStr = patch.toString();
+        expect (patchStr.length() < oldText.length(), "Patch should be smaller than full text");
+    }
+};
+
+static MyersDiffTests myersDiffTests;
+
 #endif
