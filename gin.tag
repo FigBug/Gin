@@ -41,6 +41,8 @@
     <name>gin_diff.h</name>
     <path>build/gin/utilities/</path>
     <filename>gin__diff_8h.html</filename>
+    <class kind="struct">Diff::Patch</class>
+    <class kind="struct">Diff::Patch::Hunk</class>
     <namespace>Diff</namespace>
   </compound>
   <compound kind="file">
@@ -8149,6 +8151,38 @@
       <arglist></arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>Diff::Patch::Hunk</name>
+    <filename>structDiff_1_1Patch_1_1Hunk.html</filename>
+    <member kind="variable">
+      <type>int</type>
+      <name>oldLine</name>
+      <anchorfile>structDiff_1_1Patch_1_1Hunk.html</anchorfile>
+      <anchor>aa9ef6321c63c648c232b1db38da6ba5f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>newLine</name>
+      <anchorfile>structDiff_1_1Patch_1_1Hunk.html</anchorfile>
+      <anchor>ad178d76354944fcc6bef4e3417a30d7a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>isInsert</name>
+      <anchorfile>structDiff_1_1Patch_1_1Hunk.html</anchorfile>
+      <anchor>acc12c013ae75b9cab2c18b51cd42e240</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>text</name>
+      <anchorfile>structDiff_1_1Patch_1_1Hunk.html</anchorfile>
+      <anchor>a0442b79f6577c4fcf6b48d15df9a8aa0</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>ImageMetadata</name>
     <filename>classImageMetadata.html</filename>
@@ -13032,6 +13066,32 @@
       <name>constants</name>
       <anchorfile>classParser.html</anchorfile>
       <anchor>ab76e9b43d5f3a2489c0cb6d0cd1120ed</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>Diff::Patch</name>
+    <filename>structDiff_1_1Patch.html</filename>
+    <class kind="struct">Diff::Patch::Hunk</class>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>toString</name>
+      <anchorfile>structDiff_1_1Patch.html</anchorfile>
+      <anchor>a53bf5f68648947e3ef9a2b9b40efccf0</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Patch</type>
+      <name>fromString</name>
+      <anchorfile>structDiff_1_1Patch.html</anchorfile>
+      <anchor>a1111be66c1a1035a7db70c0ff46fe275</anchor>
+      <arglist>(const juce::String &amp;s)</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::vector&lt; Hunk &gt;</type>
+      <name>hunks</name>
+      <anchorfile>structDiff_1_1Patch.html</anchorfile>
+      <anchor>a7ebb2ada7a24bf8674dd4e026a9f8964</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -19314,6 +19374,7 @@
   <compound kind="namespace">
     <name>Diff</name>
     <filename>namespaceDiff.html</filename>
+    <class kind="struct">Diff::Patch</class>
     <member kind="function">
       <type>std::vector&lt; uint8_t &gt;</type>
       <name>bsDiff</name>
@@ -19327,6 +19388,20 @@
       <anchorfile>namespaceDiff.html</anchorfile>
       <anchor>a02f934e756b7ff02baaa06b4e7ceab55</anchor>
       <arglist>(const juce::String &amp;s, const std::vector&lt; uint8_t &gt; &amp;patch)</arglist>
+    </member>
+    <member kind="function">
+      <type>Patch</type>
+      <name>createPatch</name>
+      <anchorfile>namespaceDiff.html</anchorfile>
+      <anchor>a91806895484a0cd78a5cc5ef4e000c61</anchor>
+      <arglist>(const juce::String &amp;oldText, const juce::String &amp;newText)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>applyPatch</name>
+      <anchorfile>namespaceDiff.html</anchorfile>
+      <anchor>ac758dc3ff9d00d09f1b2f547ac07375a</anchor>
+      <arglist>(const juce::String &amp;newText, const Patch &amp;patch)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -20605,6 +20680,8 @@
     <file>gin_easing.h</file>
     <namespace>Diff</namespace>
     <namespace>Lagrange</namespace>
+    <class kind="struct">Diff::Patch</class>
+    <class kind="struct">Diff::Patch::Hunk</class>
     <class kind="class">DownloadManager</class>
     <class kind="struct">DownloadManager::DownloadResult</class>
     <class kind="class">EquationParser</class>

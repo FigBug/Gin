@@ -48,11 +48,12 @@ var searchData=
   ['frequency_45',['frequency',['../structMSEG_1_1Parameters.html#ac90ca6bc258763e10f03257fd5210e12',1,'MSEG::Parameters::frequency'],['../structLFO_1_1Parameters.html#a69abbc2714aacf8d32fc515b46c39c1e',1,'LFO::Parameters::frequency'],['../classGateEffect.html#ac66d3981997f43a37900bd2e549b083c',1,'GateEffect::frequency'],['../structOscState.html#ad30997798f5740bd5ae504cb75db1223',1,'OscState::frequency']]],
   ['fromfile_46',['fromFile',['../classSample.html#a412fc3b487c8b28588e001b573c8b87b',1,'Sample']]],
   ['fromnote_47',['fromNote',['../structGlideInfo.html#a9b96eb82d12baf5183ebebec63aa8512',1,'GlideInfo']]],
-  ['fromurl_48',['fromurl',['../classWebSocket.html#aa00f034f6c484f6e0127d6c1aeb781d5',1,'WebSocket::fromURL(const juce::String &amp;url, const juce::String &amp;origin={})'],['../classWebSocket.html#ad1af0dc8349aec4f15064fb0a643690c',1,'WebSocket::fromURL(const juce::String &amp;url, bool useMask, const juce::String &amp;origin)'],['../classWebSocket.html#a00ea29a76fd23095e29b6a227d26f055',1,'WebSocket::fromURL(const juce::String &amp;url, const juce::String &amp;origin, const juce::StringPairArray &amp;customHeaders)']]],
-  ['fromurlnomask_49',['fromURLNoMask',['../classWebSocket.html#a17bf6d89c2fd2a7ad524a580c5f308fc',1,'WebSocket']]],
-  ['fromvaluetree_50',['fromValueTree',['../structMSEG_1_1Data.html#a02c5a275bb5119153e075d03fc068606',1,'MSEG::Data']]],
-  ['fullyloaded_51',['fullyLoaded',['../classProgram.html#abda0ec5627c2cbeea0832de24dccf7f8',1,'Program']]],
-  ['funcstate_52',['funcstate',['../structFuncState.html#a1a37453451c69ef86bd1c1f07d970c81',1,'FuncState::FuncState()'],['../structFuncState.html',1,'FuncState']]],
-  ['funcstates_53',['funcStates',['../classAudioFunctionHost.html#aa8b5235e076cae5d2c28443fe8ba1ca5',1,'AudioFunctionHost']]],
-  ['function_54',['Function',['../classModMatrix.html#add6fae194c9fe15e561181b21b6fc614',1,'ModMatrix']]]
+  ['fromstring_48',['fromString',['../structDiff_1_1Patch.html#a1111be66c1a1035a7db70c0ff46fe275',1,'Diff::Patch']]],
+  ['fromurl_49',['fromurl',['../classWebSocket.html#aa00f034f6c484f6e0127d6c1aeb781d5',1,'WebSocket::fromURL(const juce::String &amp;url, const juce::String &amp;origin={})'],['../classWebSocket.html#ad1af0dc8349aec4f15064fb0a643690c',1,'WebSocket::fromURL(const juce::String &amp;url, bool useMask, const juce::String &amp;origin)'],['../classWebSocket.html#a00ea29a76fd23095e29b6a227d26f055',1,'WebSocket::fromURL(const juce::String &amp;url, const juce::String &amp;origin, const juce::StringPairArray &amp;customHeaders)']]],
+  ['fromurlnomask_50',['fromURLNoMask',['../classWebSocket.html#a17bf6d89c2fd2a7ad524a580c5f308fc',1,'WebSocket']]],
+  ['fromvaluetree_51',['fromValueTree',['../structMSEG_1_1Data.html#a02c5a275bb5119153e075d03fc068606',1,'MSEG::Data']]],
+  ['fullyloaded_52',['fullyLoaded',['../classProgram.html#abda0ec5627c2cbeea0832de24dccf7f8',1,'Program']]],
+  ['funcstate_53',['funcstate',['../structFuncState.html#a1a37453451c69ef86bd1c1f07d970c81',1,'FuncState::FuncState()'],['../structFuncState.html',1,'FuncState']]],
+  ['funcstates_54',['funcStates',['../classAudioFunctionHost.html#aa8b5235e076cae5d2c28443fe8ba1ca5',1,'AudioFunctionHost']]],
+  ['function_55',['Function',['../classModMatrix.html#add6fae194c9fe15e561181b21b6fc614',1,'ModMatrix']]]
 ];

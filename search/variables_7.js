@@ -14,5 +14,6 @@ var searchData=
   ['heading_11',['heading',['../structLocationManager_1_1Location.html#a1ad740d2665f0d04d6165f0ac8c8fd85',1,'LocationManager::Location']]],
   ['holdremaining_12',['holdRemaining',['../classEnvelopeDetector.html#a45d8c4b34051590225abaf3d766a4da1',1,'EnvelopeDetector']]],
   ['holdtime_13',['holdTime',['../classEnvelopeDetector.html#a92145a868d64b608b11903a79866ab8c',1,'EnvelopeDetector']]],
-  ['httpcode_14',['httpCode',['../structDownloadManager_1_1DownloadResult.html#a70931a9fd508ce4cc0344be6514aeffb',1,'DownloadManager::DownloadResult']]]
+  ['httpcode_14',['httpCode',['../structDownloadManager_1_1DownloadResult.html#a70931a9fd508ce4cc0344be6514aeffb',1,'DownloadManager::DownloadResult']]],
+  ['hunks_15',['hunks',['../structDiff_1_1Patch.html#a7ebb2ada7a24bf8674dd4e026a9f8964',1,'Diff::Patch']]]
 ];

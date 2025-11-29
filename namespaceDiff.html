@@ -70,6 +70,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Diff Namespace Reference<div class="ingroups"><a class="el" href="group__gin.html">gin</a> &raquo; <a class="el" href="group__gin-utilities.html">utilities</a></div></div></div>
 </div><!--header-->
@@ -78,6 +79,12 @@ $(function() {
 <p>Binary diff/patch utilities using the bsdiff algorithm.  
 <a href="namespaceDiff.html#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDiff_1_1Patch.html">Patch</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A compact text patch storing only the differences between two texts.  <a href="structDiff_1_1Patch.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a6316252e0766f32052b1de207d27203c" id="r_a6316252e0766f32052b1de207d27203c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classPoint.html">uint8_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDiff.html#a6316252e0766f32052b1de207d27203c">bsDiff</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">s1</a>, <a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">s2</a>)</td></tr>
@@ -86,6 +93,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a02f934e756b7ff02baaa06b4e7ceab55" id="r_a02f934e756b7ff02baaa06b4e7ceab55"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDiff.html#a02f934e756b7ff02baaa06b4e7ceab55">bsApplyPatch</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;s, <a class="el" href="classPoint.html">const</a> std::vector&lt; <a class="el" href="classPoint.html">uint8_t</a> &gt; &amp;<a class="el" href="classPoint.html">patch</a>)</td></tr>
 <tr class="memdesc:a02f934e756b7ff02baaa06b4e7ceab55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a binary patch to a string.  <br /></td></tr>
 <tr class="separator:a02f934e756b7ff02baaa06b4e7ceab55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91806895484a0cd78a5cc5ef4e000c61" id="r_a91806895484a0cd78a5cc5ef4e000c61"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structDiff_1_1Patch.html">Patch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDiff.html#a91806895484a0cd78a5cc5ef4e000c61">createPatch</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">oldText</a>, <a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">newText</a>)</td></tr>
+<tr class="memdesc:a91806895484a0cd78a5cc5ef4e000c61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a compact patch that can transform newText back into oldText.  <br /></td></tr>
+<tr class="separator:a91806895484a0cd78a5cc5ef4e000c61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac758dc3ff9d00d09f1b2f547ac07375a" id="r_ac758dc3ff9d00d09f1b2f547ac07375a"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDiff.html#ac758dc3ff9d00d09f1b2f547ac07375a">applyPatch</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">newText</a>, <a class="el" href="classPoint.html">const</a> <a class="el" href="structDiff_1_1Patch.html">Patch</a> &amp;<a class="el" href="classPoint.html">patch</a>)</td></tr>
+<tr class="memdesc:ac758dc3ff9d00d09f1b2f547ac07375a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a patch to transform text back to its original form.  <br /></td></tr>
+<tr class="separator:ac758dc3ff9d00d09f1b2f547ac07375a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Binary diff/patch utilities using the bsdiff algorithm. </p>
@@ -170,10 +183,87 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a91806895484a0cd78a5cc5ef4e000c61" name="a91806895484a0cd78a5cc5ef4e000c61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91806895484a0cd78a5cc5ef4e000c61">&#9670;&#160;</a></span>createPatch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structDiff_1_1Patch.html">Patch</a> Diff::createPatch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::String &amp;&#160;</td>
+          <td class="paramname"><em>oldText</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::String &amp;&#160;</td>
+          <td class="paramname"><em>newText</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a compact patch that can transform newText back into oldText. </p>
+<p>Uses the Myers diff algorithm to find the minimal differences. Only stores the changes (inserts/removes), not unchanged lines.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">oldText</td><td>The original text </td></tr>
+    <tr><td class="paramname">newText</td><td>The modified text </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A compact <a class="el" href="structDiff_1_1Patch.html" title="A compact text patch storing only the differences between two texts.">Patch</a> containing only the differences </dd></dl>
+
+</div>
+</div>
+<a id="ac758dc3ff9d00d09f1b2f547ac07375a" name="ac758dc3ff9d00d09f1b2f547ac07375a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac758dc3ff9d00d09f1b2f547ac07375a">&#9670;&#160;</a></span>applyPatch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::String Diff::applyPatch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::String &amp;&#160;</td>
+          <td class="paramname"><em>newText</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> <a class="el" href="structDiff_1_1Patch.html">Patch</a> &amp;&#160;</td>
+          <td class="paramname"><em>patch</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Applies a patch to transform text back to its original form. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newText</td><td>The modified text </td></tr>
+    <tr><td class="paramname">patch</td><td>The patch created by <a class="el" href="namespaceDiff.html#a91806895484a0cd78a5cc5ef4e000c61" title="Creates a compact patch that can transform newText back into oldText.">createPatch()</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The original text </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 29 2025 15:53:29 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sat Nov 29 2025 22:09:32 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

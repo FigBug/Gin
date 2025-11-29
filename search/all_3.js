@@ -46,7 +46,7 @@ var searchData=
   ['displaycolourid_43',['displayColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6aa7af29d3637768fbf97690f5a7d59e5c',1,'GinLookAndFeel']]],
   ['displaytocoordinate_44',['displayToCoordinate',['../classOpenStreetMaps.html#aa6a4660f87ad709ecdc187b60bc26d3f',1,'OpenStreetMaps']]],
   ['distortion_45',['Distortion',['../namespaceDistortion.html',1,'']]],
-  ['down_46',['down',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40a928f3c3101863b6dbc9c6d8fcb9ba9d3',1,'TriggeredScope::Down'],['../classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28ada605ba9914ec7b7d1599d21a70608b57e',1,'MSEGComponent::down']]],
+  ['down_46',['down',['../classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28ada605ba9914ec7b7d1599d21a70608b57e',1,'MSEGComponent::down'],['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40a928f3c3101863b6dbc9c6d8fcb9ba9d3',1,'TriggeredScope::Down']]],
   ['downloadid_47',['downloadId',['../structDownloadManager_1_1DownloadResult.html#ae4aee674b27ea37f9af6ccecf43a03a3',1,'DownloadManager::DownloadResult']]],
   ['downloadmanager_48',['downloadmanager',['../classDownloadManager.html#a39f2f1950cfb9d84da7f8c73e1207575',1,'DownloadManager::DownloadManager()'],['../classDownloadManager.html',1,'DownloadManager']]],
   ['downloadresult_49',['DownloadResult',['../structDownloadManager_1_1DownloadResult.html',1,'DownloadManager']]],

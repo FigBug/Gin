@@ -8,5 +8,6 @@ var searchData=
   ['internal_5',['internal',['../classParameter.html#a25165e96742e860d5ee0e8a6f70a69f5',1,'Parameter']]],
   ['internalparameters_6',['internalParameters',['../classProcessor.html#ac9d3cf083da1dba0b2612ce32ea7218d',1,'Processor']]],
   ['interregular_5fotf_7',['InterRegular_otf',['../namespaceResources.html#a821eb0a806b852016c53ab6151f00d3d',1,'Resources']]],
-  ['interregular_5fotfsize_8',['InterRegular_otfSize',['../namespaceResources.html#af4f0aa394cb30c14c4306162f0d5e6d4',1,'Resources']]]
+  ['interregular_5fotfsize_8',['InterRegular_otfSize',['../namespaceResources.html#af4f0aa394cb30c14c4306162f0d5e6d4',1,'Resources']]],
+  ['isinsert_9',['isInsert',['../structDiff_1_1Patch_1_1Hunk.html#acc12c013ae75b9cab2c18b51cd42e240',1,'Diff::Patch::Hunk']]]
 ];

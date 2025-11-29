@@ -9,13 +9,14 @@ var searchData=
   ['timercallback_6',['timercallback',['../classProcessor.html#a928e44121e096d11335f855fcc91fa22',1,'Processor::timerCallback()'],['../classParameter.html#a8d5e385c39a92ffcede0ce5476451e16',1,'Parameter::timerCallback()'],['../classSynthesiserUsage.html#a61174588450de0af35bf0d1a3866faba',1,'SynthesiserUsage::timerCallback()'],['../classHeaderButton.html#a9c09399c8e0d2ff4a05b3dff00be6794',1,'HeaderButton::timerCallback()'],['../classComponentGrid.html#a256ac8704b3910148bb14af741f9c65e',1,'ComponentGrid::timerCallback()'],['../classXYScope.html#a37d7c0b92a484c3c55dee8eb45fd2943',1,'XYScope::timerCallback()'],['../classTriggeredScope.html#ae048c8050cd95f65d336801b1bf341e2',1,'TriggeredScope::timerCallback()'],['../classDynamicsMeter.html#a26663940a83484b73a3aa0c6c436535e',1,'DynamicsMeter::timerCallback()'],['../classKnob.html#a6aaac98c6f6f39cdc0339d11dffbfd66',1,'Knob::timerCallback()']]],
   ['titlebar_7',['TitleBar',['../classTitleBar.html#a0434adc0c1723f847d4ca08653c4e83a',1,'TitleBar']]],
   ['tomessagepack_8',['toMessagePack',['../classMessagePack.html#aee9464edf2e67d30bc42114eabf7e18c',1,'MessagePack']]],
-  ['toseconds_9',['toseconds',['../classNoteDuration.html#a5b06f7ea0574bbaa7a7a37451dd9667d',1,'NoteDuration::toSeconds(float bpm) const'],['../classNoteDuration.html#ac5647e5458ecb9b2bd6504a355d202d7',1,'NoteDuration::toSeconds(juce::AudioPlayHead *playhead) const'],['../classNoteDuration.html#a7a6ae37d6dfab7e3f1ed779a024b7b18',1,'NoteDuration::toSeconds(juce::AudioPlayHead *playhead, float value)']]],
+  ['toseconds_9',['toseconds',['../classNoteDuration.html#a7a6ae37d6dfab7e3f1ed779a024b7b18',1,'NoteDuration::toSeconds(juce::AudioPlayHead *playhead, float value)'],['../classNoteDuration.html#ac5647e5458ecb9b2bd6504a355d202d7',1,'NoteDuration::toSeconds(juce::AudioPlayHead *playhead) const'],['../classNoteDuration.html#a5b06f7ea0574bbaa7a7a37451dd9667d',1,'NoteDuration::toSeconds(float bpm) const']]],
   ['tostdstring_10',['toStdString',['../group__gin__gui-utilities.html#gad6aca58449544b3fdeb9d4c9f8560a90',1,'gin_varianthelpers.h']]],
-  ['tovaluetree_11',['toValueTree',['../structMSEG_1_1Data.html#a372c6b2892f44d5d01b6ca256e099f60',1,'MSEG::Data']]],
-  ['trackbuffer_12',['trackbuffer',['../classLevelTracker.html#ae015d22dde9a4f1241fdcc062a58d1a8',1,'LevelTracker::trackBuffer(const float *buffer, int numSamples)'],['../classLevelTracker.html#a1fc8ce4c2c22346db754bb3f5a544bf2',1,'LevelTracker::trackBuffer(juce::AudioSampleBuffer &amp;buffer)']]],
-  ['tracksample_13',['trackSample',['../classLevelTracker.html#a94deea05c53ad4155870361ffc56b3be',1,'LevelTracker']]],
-  ['triangle_14',['triangle',['../group__gin__dsp-dsp.html#gac1ca4d0b776735a17f87d61c90741d45',1,'gin_bandlimitedlookuptable.h']]],
-  ['triggerasyncupdate_15',['triggerAsyncUpdate',['../classRealtimeAsyncUpdater.html#aee4e7bf67d31d0bb574132bfd102f57f',1,'RealtimeAsyncUpdater']]],
-  ['triggeredscope_16',['TriggeredScope',['../classTriggeredScope.html#a8ed01ea728d7ee2800bcfe0caef7516b',1,'TriggeredScope']]],
-  ['turnoffallvoices_17',['turnOffAllVoices',['../classSynthesiser.html#a98071b76981dcb6f125cf079595c8ede',1,'Synthesiser']]]
+  ['tostring_11',['toString',['../structDiff_1_1Patch.html#a53bf5f68648947e3ef9a2b9b40efccf0',1,'Diff::Patch']]],
+  ['tovaluetree_12',['toValueTree',['../structMSEG_1_1Data.html#a372c6b2892f44d5d01b6ca256e099f60',1,'MSEG::Data']]],
+  ['trackbuffer_13',['trackbuffer',['../classLevelTracker.html#ae015d22dde9a4f1241fdcc062a58d1a8',1,'LevelTracker::trackBuffer(const float *buffer, int numSamples)'],['../classLevelTracker.html#a1fc8ce4c2c22346db754bb3f5a544bf2',1,'LevelTracker::trackBuffer(juce::AudioSampleBuffer &amp;buffer)']]],
+  ['tracksample_14',['trackSample',['../classLevelTracker.html#a94deea05c53ad4155870361ffc56b3be',1,'LevelTracker']]],
+  ['triangle_15',['triangle',['../group__gin__dsp-dsp.html#gac1ca4d0b776735a17f87d61c90741d45',1,'gin_bandlimitedlookuptable.h']]],
+  ['triggerasyncupdate_16',['triggerAsyncUpdate',['../classRealtimeAsyncUpdater.html#aee4e7bf67d31d0bb574132bfd102f57f',1,'RealtimeAsyncUpdater']]],
+  ['triggeredscope_17',['TriggeredScope',['../classTriggeredScope.html#a8ed01ea728d7ee2800bcfe0caef7516b',1,'TriggeredScope']]],
+  ['turnoffallvoices_18',['turnOffAllVoices',['../classSynthesiser.html#a98071b76981dcb6f125cf079595c8ede',1,'Synthesiser']]]
 ];

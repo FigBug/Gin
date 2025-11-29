@@ -2,7 +2,7 @@ var searchData=
 [
   ['h_0',['h',['../structLayoutSupport_1_1Bounds.html#a06336237476c1f81ca4bb07e1b99b5c6',1,'LayoutSupport::Bounds']]],
   ['half_1',['half',['../classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28adaf4f3179b4821725fbe77e27ff34ccb46',1,'MSEGComponent']]],
-  ['handleasyncupdate_2',['handleasyncupdate',['../classRealtimeAsyncUpdater.html#a86dee41bf003fdbf125d0b3683acbaf0',1,'RealtimeAsyncUpdater::handleAsyncUpdate()'],['../classAsyncDownload.html#a17faaedc4393e528d302dc6073511c4f',1,'AsyncDownload::handleAsyncUpdate()'],['../classMultiParamComponent.html#af1f2a647d360783089b697dde0204e55',1,'MultiParamComponent::handleAsyncUpdate()'],['../classProcessorEditor.html#a9dbed1e83b2cb95e7f83167a96fda633',1,'ProcessorEditor::handleAsyncUpdate()'],['../classParameter.html#a8296a6e53d729655e66f2cce22dc7924',1,'Parameter::handleAsyncUpdate()']]],
+  ['handleasyncupdate_2',['handleasyncupdate',['../classParameter.html#a8296a6e53d729655e66f2cce22dc7924',1,'Parameter::handleAsyncUpdate()'],['../classRealtimeAsyncUpdater.html#a86dee41bf003fdbf125d0b3683acbaf0',1,'RealtimeAsyncUpdater::handleAsyncUpdate()'],['../classAsyncDownload.html#a17faaedc4393e528d302dc6073511c4f',1,'AsyncDownload::handleAsyncUpdate()'],['../classMultiParamComponent.html#af1f2a647d360783089b697dde0204e55',1,'MultiParamComponent::handleAsyncUpdate()'],['../classProcessorEditor.html#a9dbed1e83b2cb95e7f83167a96fda633',1,'ProcessorEditor::handleAsyncUpdate()']]],
   ['handlemidievent_3',['handleMidiEvent',['../classSynthesiser.html#a43f7146e8cf5f05e989ec838bd1c9e53',1,'Synthesiser']]],
   ['handleupdatenowifneeded_4',['handleUpdateNowIfNeeded',['../classRealtimeAsyncUpdater.html#accae6ff15d6eff08e6a3318263eb6574',1,'RealtimeAsyncUpdater']]],
   ['hardlight_5',['HardLight',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a7fc75582ae37ab60f5a1cc8e2acd7e24',1,'gin_imageeffects.h']]],
@@ -35,8 +35,10 @@ var searchData=
   ['horizontal_32',['horizontal',['../classComponentGrid.html#a0d6a66510a6868e9be9f596867b85946a7b5f66d1ab8c7823c0591de0e31ae891',1,'ComponentGrid']]],
   ['horizontalfader_33',['horizontalfader',['../classHorizontalFader.html#ad34bdd3d394ea50181cfb8a8e32a55bd',1,'HorizontalFader::HorizontalFader()'],['../classHorizontalFader.html',1,'HorizontalFader']]],
   ['hp12state_34',['hp12state',['../structHP12State.html',1,'HP12State'],['../structHP12State.html#a26cb6edccf0ef60fcd94b972c61a0491',1,'HP12State::HP12State()']]],
-  ['hp24state_35',['hp24state',['../structHP24State.html#a893b30c4df910670f54f57fdb8adc80d',1,'HP24State::HP24State()'],['../structHP24State.html',1,'HP24State']]],
+  ['hp24state_35',['hp24state',['../structHP24State.html',1,'HP24State'],['../structHP24State.html#a893b30c4df910670f54f57fdb8adc80d',1,'HP24State::HP24State()']]],
   ['http_36',['http',['../classHttp.html#ad057da75ec75c9a44f3b736ff19ccd9d',1,'Http::Http()'],['../classHttp.html',1,'Http']]],
   ['httpcode_37',['httpCode',['../structDownloadManager_1_1DownloadResult.html#a70931a9fd508ce4cc0344be6514aeffb',1,'DownloadManager::DownloadResult']]],
-  ['httpresult_38',['HttpResult',['../structHttp_1_1HttpResult.html',1,'Http']]]
+  ['httpresult_38',['HttpResult',['../structHttp_1_1HttpResult.html',1,'Http']]],
+  ['hunk_39',['Hunk',['../structDiff_1_1Patch_1_1Hunk.html',1,'Diff::Patch']]],
+  ['hunks_40',['hunks',['../structDiff_1_1Patch.html#a7ebb2ada7a24bf8674dd4e026a9f8964',1,'Diff::Patch']]]
 ];

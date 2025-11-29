@@ -74,12 +74,21 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">gin_diff.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDiff_1_1Patch.html">Diff::Patch</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A compact text patch storing only the differences between two texts.  <a href="structDiff_1_1Patch.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDiff_1_1Patch_1_1Hunk.html">Diff::Patch::Hunk</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceDiff" id="r_namespaceDiff"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDiff.html">Diff</a></td></tr>
@@ -94,11 +103,17 @@ Functions</h2></td></tr>
 <tr class="memitem:a02f934e756b7ff02baaa06b4e7ceab55" id="r_a02f934e756b7ff02baaa06b4e7ceab55"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDiff.html#a02f934e756b7ff02baaa06b4e7ceab55">Diff::bsApplyPatch</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;s, <a class="el" href="classPoint.html">const</a> std::vector&lt; <a class="el" href="classPoint.html">uint8_t</a> &gt; &amp;<a class="el" href="classPoint.html">patch</a>)</td></tr>
 <tr class="memdesc:a02f934e756b7ff02baaa06b4e7ceab55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a binary patch to a string.  <br /></td></tr>
 <tr class="separator:a02f934e756b7ff02baaa06b4e7ceab55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91806895484a0cd78a5cc5ef4e000c61" id="r_a91806895484a0cd78a5cc5ef4e000c61"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structDiff_1_1Patch.html">Patch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDiff.html#a91806895484a0cd78a5cc5ef4e000c61">Diff::createPatch</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">oldText</a>, <a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">newText</a>)</td></tr>
+<tr class="memdesc:a91806895484a0cd78a5cc5ef4e000c61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a compact patch that can transform newText back into oldText.  <br /></td></tr>
+<tr class="separator:a91806895484a0cd78a5cc5ef4e000c61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac758dc3ff9d00d09f1b2f547ac07375a" id="r_ac758dc3ff9d00d09f1b2f547ac07375a"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDiff.html#ac758dc3ff9d00d09f1b2f547ac07375a">Diff::applyPatch</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">newText</a>, <a class="el" href="classPoint.html">const</a> <a class="el" href="structDiff_1_1Patch.html">Patch</a> &amp;<a class="el" href="classPoint.html">patch</a>)</td></tr>
+<tr class="memdesc:ac758dc3ff9d00d09f1b2f547ac07375a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a patch to transform text back to its original form.  <br /></td></tr>
+<tr class="separator:ac758dc3ff9d00d09f1b2f547ac07375a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 29 2025 15:53:29 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sat Nov 29 2025 22:09:32 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

@@ -21,8 +21,9 @@ var searchData=
   ['folderchanged_18',['folderChanged',['../classFileSystemWatcher_1_1Listener.html#a45bfc6e6c6c8597f8d2acb89dfbcf589',1,'FileSystemWatcher::Listener']]],
   ['formatnumber_19',['formatNumber',['../group__gin-utilities.html#gaebf910d77d287573a8f98f51c67f8d48',1,'gin_util.h']]],
   ['fromfile_20',['fromFile',['../classSample.html#a412fc3b487c8b28588e001b573c8b87b',1,'Sample']]],
-  ['fromurl_21',['fromurl',['../classWebSocket.html#aa00f034f6c484f6e0127d6c1aeb781d5',1,'WebSocket::fromURL(const juce::String &amp;url, const juce::String &amp;origin={})'],['../classWebSocket.html#ad1af0dc8349aec4f15064fb0a643690c',1,'WebSocket::fromURL(const juce::String &amp;url, bool useMask, const juce::String &amp;origin)'],['../classWebSocket.html#a00ea29a76fd23095e29b6a227d26f055',1,'WebSocket::fromURL(const juce::String &amp;url, const juce::String &amp;origin, const juce::StringPairArray &amp;customHeaders)']]],
-  ['fromurlnomask_22',['fromURLNoMask',['../classWebSocket.html#a17bf6d89c2fd2a7ad524a580c5f308fc',1,'WebSocket']]],
-  ['fromvaluetree_23',['fromValueTree',['../structMSEG_1_1Data.html#a02c5a275bb5119153e075d03fc068606',1,'MSEG::Data']]],
-  ['funcstate_24',['FuncState',['../structFuncState.html#a1a37453451c69ef86bd1c1f07d970c81',1,'FuncState']]]
+  ['fromstring_21',['fromString',['../structDiff_1_1Patch.html#a1111be66c1a1035a7db70c0ff46fe275',1,'Diff::Patch']]],
+  ['fromurl_22',['fromurl',['../classWebSocket.html#aa00f034f6c484f6e0127d6c1aeb781d5',1,'WebSocket::fromURL(const juce::String &amp;url, const juce::String &amp;origin={})'],['../classWebSocket.html#ad1af0dc8349aec4f15064fb0a643690c',1,'WebSocket::fromURL(const juce::String &amp;url, bool useMask, const juce::String &amp;origin)'],['../classWebSocket.html#a00ea29a76fd23095e29b6a227d26f055',1,'WebSocket::fromURL(const juce::String &amp;url, const juce::String &amp;origin, const juce::StringPairArray &amp;customHeaders)']]],
+  ['fromurlnomask_23',['fromURLNoMask',['../classWebSocket.html#a17bf6d89c2fd2a7ad524a580c5f308fc',1,'WebSocket']]],
+  ['fromvaluetree_24',['fromValueTree',['../structMSEG_1_1Data.html#a02c5a275bb5119153e075d03fc068606',1,'MSEG::Data']]],
+  ['funcstate_25',['FuncState',['../structFuncState.html#a1a37453451c69ef86bd1c1f07d970c81',1,'FuncState']]]
 ];
