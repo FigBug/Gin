@@ -11,7 +11,7 @@
 /** Parses an Apple Property List (plist) file and returns its contents as a juce::var.
 
     Plist files are commonly used on macOS and iOS for storing application preferences
-    and configuration data. This function supports both XML and binary plist formats.
+    and configuration data. Only XML plist format is supported; binary plists are not supported.
 
     @param f  The plist file to parse
     @returns  A juce::var containing the parsed data structure (typically a DynamicObject)
