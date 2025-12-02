@@ -12,3 +12,4 @@
 #include "3rdparty/webp/dec/quant_dec.c"
 #include "3rdparty/webp/enc/frame_enc.c"
 #include "3rdparty/webp/sharpyuv/sharpyuv_csp.c"
+#include "3rdparty/webp/dsp/lossless_avx2.c"

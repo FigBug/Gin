@@ -11,17 +11,17 @@
 //
 // Author: Vincent Rabaud (vrabaud@google.com)
 
-#include "src/dsp/dsp.h"
+#include "../dsp/dsp.h"
 
 #if defined(WEBP_USE_AVX2)
 
 #include <immintrin.h>
 #include <stddef.h>
 
-#include "src/dsp/cpu.h"
-#include "src/dsp/lossless.h"
-#include "src/webp/format_constants.h"
-#include "src/webp/types.h"
+#include "../dsp/cpu.h"
+#include "../dsp/lossless.h"
+#include "../webp/format_constants.h"
+#include "../webp/types.h"
 
 //------------------------------------------------------------------------------
 // Predictor Transform

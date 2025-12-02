@@ -11,7 +11,7 @@
 //
 // Author: Vincent Rabaud (vrabaud@google.com)
 
-#include "src/dsp/dsp.h"
+#include "../dsp/dsp.h"
 
 #if defined(WEBP_USE_AVX2)
 #include <assert.h>
@@ -19,12 +19,12 @@
 #include <immintrin.h>
 #include <stddef.h>
 
-#include "src/dsp/cpu.h"
-#include "src/dsp/lossless.h"
-#include "src/dsp/lossless_common.h"
-#include "src/utils/utils.h"
-#include "src/webp/format_constants.h"
-#include "src/webp/types.h"
+#include "../dsp/cpu.h"
+#include "../dsp/lossless.h"
+#include "../dsp/lossless_common.h"
+#include "../utils/utils.h"
+#include "../webp/format_constants.h"
+#include "../webp/types.h"
 
 //------------------------------------------------------------------------------
 // Subtract-Green Transform
