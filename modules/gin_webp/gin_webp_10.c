@@ -8,3 +8,4 @@
 #include "webp_warnings.h"
 
 #include "3rdparty/webp/enc/quant_enc.c"
+#include "3rdparty/webp/sharpyuv/sharpyuv_sse2.c"
