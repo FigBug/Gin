@@ -1,5 +1,7 @@
 set_property (DIRECTORY APPEND PROPERTY LABELS UnitTests)
 
+add_subdirectory (Resources)
+
 juce_add_plugin (UnitTests
 				  	  PRODUCT_NAME UnitTests
 				  	  VERSION 1.0.0
@@ -15,11 +17,11 @@ juce_add_plugin (UnitTests
 				  	  EDITOR_WANTS_KEYBOARD_FOCUS FALSE)
 
 if (APPLE)
-	target_compile_options(UnitTests PRIVATE 
-			-Wall -Wstrict-aliasing -Wunused-parameter -Wconditional-uninitialized -Woverloaded-virtual -Wreorder -Wconstant-conversion -Wbool-conversion -Wextra-semi 
-			-Wunreachable-code -Winconsistent-missing-destructor-override -Wshift-sign-overflow -Wnullable-to-nonnull-conversion -Wuninitialized -Wno-missing-field-initializers 
-			-Wno-ignored-qualifiers -Wno-missing-braces -Wno-char-subscripts -Wno-unused-private-field -fno-aligned-allocation -Wunused-private-field -Wunreachable-code 
-			-Wenum-compare -Wshadow -Wfloat-conversion -Wshadow-uncaptured-local -Wshadow-field -Wsign-compare -Wdeprecated-this-capture -Wimplicit-float-conversion 
+	target_compile_options(UnitTests PRIVATE
+			-Wall -Wstrict-aliasing -Wunused-parameter -Wconditional-uninitialized -Woverloaded-virtual -Wreorder -Wconstant-conversion -Wbool-conversion -Wextra-semi
+			-Wunreachable-code -Winconsistent-missing-destructor-override -Wshift-sign-overflow -Wnullable-to-nonnull-conversion -Wuninitialized -Wno-missing-field-initializers
+			-Wno-ignored-qualifiers -Wno-missing-braces -Wno-char-subscripts -Wno-unused-private-field -fno-aligned-allocation -Wunused-private-field -Wunreachable-code
+			-Wenum-compare -Wshadow -Wfloat-conversion -Wshadow-uncaptured-local -Wshadow-field -Wsign-compare -Wdeprecated-this-capture -Wimplicit-float-conversion
 			-ffast-math -fno-finite-math-only -Wfloat-equal -Wpedantic -Wmissing-field-initializers -Wdeprecated -Wcast-align
 			"$<$<CONFIG:RELEASE>:-Werror>"
 		)
@@ -33,6 +35,7 @@ target_sources (UnitTests PRIVATE ${source_files})
 source_group (TREE ${CMAKE_CURRENT_SOURCE_DIR}/Source PREFIX Source FILES ${source_files})
 
 target_link_libraries (UnitTests PRIVATE
+						UnitTestAssets
 
 						gin
 						gin_dsp

@@ -1,24 +1,79 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
+#include "BinaryData.h"
+
+// Demo includes
+#include "../../Demo/Source/Demos.h"
 
 UnitTestsAudioProcessorEditor::UnitTestsAudioProcessorEditor (UnitTestsAudioProcessor& p)
     : AudioProcessorEditor (&p)
 {
     setSize (800, 600);
 
+    // Setup log text editor
     logTextEditor.setMultiLine (true);
     logTextEditor.setReadOnly (true);
     logTextEditor.setScrollbarsShown (true);
     logTextEditor.setCaretVisible (false);
-    
+
     juce::Font font (juce::FontOptions (juce::Font::getDefaultMonospacedFontName(), 14.0f, juce::Font::plain));
     logTextEditor.setFont (font);
     addAndMakeVisible (logTextEditor);
 
     logTextEditor.setText ("Unit Tests - Standalone Plugin\n\nWaiting to start tests...\n");
 
-    // Start timer to run tests after 1 second
-    startTimer (1000);
+    // Add all demos
+    demoComponents.add (new LayoutDemo());
+    demoComponents.add (new EquationParserDemo());
+    demoComponents.add (new ComponentGridDemo());
+    demoComponents.add (new EasingDemo());
+    demoComponents.add (new BLLTDemo());
+    demoComponents.add (new WavetableDemo());
+    demoComponents.add (new CatenaryDemo());
+    demoComponents.add (new EllipseDemo());
+    demoComponents.add (new PerlinNoiseDemo());
+    demoComponents.add (new TextRenderDemo());
+    demoComponents.add (new AsyncUpdateDemo());
+    demoComponents.add (new ValueTreeJsonDemo());
+    demoComponents.add (new MessagePackDemo());
+    demoComponents.add (new SVGDemo());
+    demoComponents.add (new WebsocketDemo());
+    demoComponents.add (new SolidBlendingDemo());
+    demoComponents.add (new BlendingDemo());
+    demoComponents.add (new GradientMapDemo());
+    demoComponents.add (new ImageResizeDemo());
+   #if defined JUCE_MAC || defined JUCE_WINDOWS
+    demoComponents.add (new ElevatedFileCopyDemo());
+   #endif
+    demoComponents.add (new DownloadManagerDemo());
+    demoComponents.add (new DownloadManagerToSaveToFileDemo());
+    demoComponents.add (new ImageEffectsDemo());
+    demoComponents.add (new BoxBlurDemo());
+   #if defined JUCE_MAC || defined JUCE_WINDOWS || defined JUCE_LINUX
+    demoComponents.add (new FileSystemWatcherDemo());
+   #endif
+    demoComponents.add (new MetadataDemo());
+    demoComponents.add (new BmpImageDemo());
+    demoComponents.add (new WebpImageDemo());
+    demoComponents.add (new MapDemo());
+    demoComponents.add (new SharedMemoryDemo());
+    demoComponents.add (new LeastSquaresDemo());
+    demoComponents.add (new LinearDemo());
+    demoComponents.add (new SplineDemo());
+    demoComponents.add (new LagrangeDemo());
+
+    // Add all demos as child components
+    for (auto* demo : demoComponents)
+        addChildComponent (demo);
+
+    // Show first demo
+    if (demoComponents.size() > 0)
+        demoComponents[currentDemoIndex]->setVisible (true);
+
+    resized();
+
+    // Start timer at 100ms - will switch demos and check for unit test start
+    startTimer (100);
 }
 
 UnitTestsAudioProcessorEditor::~UnitTestsAudioProcessorEditor()
@@ -28,12 +83,32 @@ UnitTestsAudioProcessorEditor::~UnitTestsAudioProcessorEditor()
 
 void UnitTestsAudioProcessorEditor::timerCallback()
 {
-    stopTimer();
-    
-    logTextEditor.moveCaretToEnd();
-    logTextEditor.insertTextAtCaret ("Starting unit tests...\n\n");
-    
-    juce::Thread::launch ([this] { runUnitTests(); });
+    timerCount++;
+
+    // Start unit tests after 1 second (10 ticks at 100ms)
+    if (!unitTestsStarted && timerCount >= 10)
+    {
+        unitTestsStarted = true;
+
+        logTextEditor.moveCaretToEnd();
+        logTextEditor.insertTextAtCaret ("Starting unit tests...\n\n");
+
+        juce::Thread::launch ([this] { runUnitTests(); });
+    }
+
+    // Switch demos every 100ms
+    if (demoComponents.size() > 0)
+    {
+        // Hide current demo
+        demoComponents[currentDemoIndex]->setVisible (false);
+
+        // Move to next demo
+        currentDemoIndex = (currentDemoIndex + 1) % demoComponents.size();
+
+        // Show next demo
+        demoComponents[currentDemoIndex]->setVisible (true);
+        resized();
+    }
 }
 
 void UnitTestsAudioProcessorEditor::runUnitTests()
@@ -94,5 +169,13 @@ void UnitTestsAudioProcessorEditor::paint (juce::Graphics& g)
 
 void UnitTestsAudioProcessorEditor::resized()
 {
-    logTextEditor.setBounds (getLocalBounds().reduced (10));
+    auto bounds = getLocalBounds();
+
+    // Bottom 1/4 for unit test log
+    auto logBounds = bounds.removeFromBottom (getHeight() / 4);
+    logTextEditor.setBounds (logBounds.reduced (10));
+
+    // Top 3/4 for demos
+    for (auto* demo : demoComponents)
+        demo->setBounds (bounds);
 }

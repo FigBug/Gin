@@ -77,11 +77,12 @@ endif ()
 set (config_is_debug "$<IN_LIST:$<CONFIG>,${debug_configs}>")
 set (config_is_release "$<NOT:${config_is_debug}>")
 
-target_compile_definitions (Demo PRIVATE 
+target_compile_definitions (Demo PRIVATE
 								JUCE_MODAL_LOOPS_PERMITTED=0
 								JUCE_WEB_BROWSER=0
 								JUCE_SILENCE_XCODE_15_LINKER_WARNING=1
 								JUCE_COREGRAPHICS_DRAW_ASYNC=1
+								DONT_SET_USING_JUCE_NAMESPACE=1
 							)
 
 if (APPLE)
