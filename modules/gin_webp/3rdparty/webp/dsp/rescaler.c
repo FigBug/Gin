@@ -12,9 +12,12 @@
 // Author: Skal (pascal.massimino@gmail.com)
 
 #include <assert.h>
+#include <stddef.h>
 
+#include "../dsp/cpu.h"
 #include "../dsp/dsp.h"
 #include "../utils/rescaler_utils.h"
+#include "../webp/types.h"
 
 //------------------------------------------------------------------------------
 // Implementations of critical functions ImportRow / ExportRow
@@ -26,8 +29,8 @@
 //------------------------------------------------------------------------------
 // Row import
 
-void WebPRescalerImportRowExpand_C(WebPRescaler* const wrk,
-                                   const uint8_t* src) {
+void WebPRescalerImportRowExpand_C(WebPRescaler* WEBP_RESTRICT const wrk,
+                                   const uint8_t* WEBP_RESTRICT src) {
   const int x_stride = wrk->num_channels;
   const int x_out_max = wrk->dst_width * wrk->num_channels;
   int channel;
@@ -59,8 +62,8 @@ void WebPRescalerImportRowExpand_C(WebPRescaler* const wrk,
   }
 }
 
-void WebPRescalerImportRowShrink_C(WebPRescaler* const wrk,
-                                   const uint8_t* src) {
+void WebPRescalerImportRowShrink_C(WebPRescaler* WEBP_RESTRICT const wrk,
+                                   const uint8_t* WEBP_RESTRICT src) {
   const int x_stride = wrk->num_channels;
   const int x_out_max = wrk->dst_width * wrk->num_channels;
   int channel;
@@ -81,7 +84,7 @@ void WebPRescalerImportRowShrink_C(WebPRescaler* const wrk,
         sum += base;
         x_in += x_stride;
       }
-      {        // Emit next horizontal pixel.
+      {  // Emit next horizontal pixel.
         const rescaler_t frac = base * (-accum);
         wrk->frow[x_out] = sum * wrk->x_sub - frac;
         // fresh fractional start for next pixel
@@ -116,8 +119,7 @@ void WebPRescalerExportRowExpand_C(WebPRescaler* const wrk) {
     const uint32_t B = WEBP_RESCALER_FRAC(-wrk->y_accum, wrk->y_sub);
     const uint32_t A = (uint32_t)(WEBP_RESCALER_ONE - B);
     for (x_out = 0; x_out < x_out_max; ++x_out) {
-      const uint64_t I = (uint64_t)A * frow[x_out]
-                       + (uint64_t)B * irow[x_out];
+      const uint64_t I = (uint64_t)A * frow[x_out] + (uint64_t)B * irow[x_out];
       const uint32_t J = (uint32_t)((I + ROUNDER) >> WEBP_RESCALER_RFIX);
       const int v = (int)MULT_FIX(J, wrk->fy_scale);
       dst[x_out] = (v > 255) ? 255u : (uint8_t)v;
@@ -140,7 +142,7 @@ void WebPRescalerExportRowShrink_C(WebPRescaler* const wrk) {
       const uint32_t frac = (uint32_t)MULT_FIX_FLOOR(frow[x_out], yscale);
       const int v = (int)MULT_FIX(irow[x_out] - frac, wrk->fxy_scale);
       dst[x_out] = (v > 255) ? 255u : (uint8_t)v;
-      irow[x_out] = frac;   // new fractional start
+      irow[x_out] = frac;  // new fractional start
     }
   } else {
     for (x_out = 0; x_out < x_out_max; ++x_out) {
@@ -158,7 +160,8 @@ void WebPRescalerExportRowShrink_C(WebPRescaler* const wrk) {
 //------------------------------------------------------------------------------
 // Main entry calls
 
-void WebPRescalerImportRow(WebPRescaler* const wrk, const uint8_t* src) {
+void WebPRescalerImportRow(WebPRescaler* WEBP_RESTRICT const wrk,
+                           const uint8_t* WEBP_RESTRICT src) {
   assert(!WebPRescalerInputDone(wrk));
   if (!wrk->x_expand) {
     WebPRescalerImportRowShrink(wrk, src);
@@ -197,6 +200,7 @@ WebPRescalerImportRowFunc WebPRescalerImportRowShrink;
 WebPRescalerExportRowFunc WebPRescalerExportRowExpand;
 WebPRescalerExportRowFunc WebPRescalerExportRowShrink;
 
+extern VP8CPUInfo VP8GetCPUInfo;
 extern void WebPRescalerDspInitSSE2(void);
 extern void WebPRescalerDspInitMIPS32(void);
 extern void WebPRescalerDspInitMIPSdspR2(void);
@@ -247,5 +251,5 @@ WEBP_DSP_INIT_FUNC(WebPRescalerDspInit) {
   assert(WebPRescalerExportRowShrink != NULL);
   assert(WebPRescalerImportRowExpand != NULL);
   assert(WebPRescalerImportRowShrink != NULL);
-#endif   // WEBP_REDUCE_SIZE
+#endif  // WEBP_REDUCE_SIZE
 }

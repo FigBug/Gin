@@ -22,8 +22,8 @@
 #include "3rdparty/webp/enc/picture_enc.c"
 #include "3rdparty/webp/mux/muxedit.c"
 #include "3rdparty/webp/dsp/ssim_sse2.c"
-#include "3rdparty/webp/enc/picture_csp_enc.c"
 #include "3rdparty/webp/dsp/upsampling_sse2.c"
 #if defined (HAS_SSE41)
 #include "3rdparty/webp/dsp/dec_sse41.c"
 #endif
+

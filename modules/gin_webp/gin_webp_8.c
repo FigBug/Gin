@@ -12,5 +12,3 @@
 #include "3rdparty/webp/dec/quant_dec.c"
 #include "3rdparty/webp/enc/frame_enc.c"
 #include "3rdparty/webp/sharpyuv/sharpyuv_csp.c"
-#include "3rdparty/webp/sharpyuv/sharpyuv_neon.c"
-#include "3rdparty/webp/sharpyuv/sharpyuv_sse2.c"

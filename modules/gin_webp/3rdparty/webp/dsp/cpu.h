@@ -14,6 +14,8 @@
 #ifndef WEBP_DSP_CPU_H_
 #define WEBP_DSP_CPU_H_
 
+#include <stddef.h>
+
 #ifdef HAVE_CONFIG_H
 #include "../webp/config.h"
 #endif
@@ -41,19 +43,23 @@
 #define __has_builtin(x) 0
 #endif
 
+//------------------------------------------------------------------------------
+// x86 defines.
+
 #if !defined(HAVE_CONFIG_H)
-#ifndef __clang__
 #if defined(_MSC_VER) && _MSC_VER > 1310 && \
     (defined(_M_X64) || defined(_M_IX86))
 #define WEBP_MSC_SSE2  // Visual C++ SSE2 targets
 #endif
-#endif
 
-#ifndef __clang__
 #if defined(_MSC_VER) && _MSC_VER >= 1500 && \
     (defined(_M_X64) || defined(_M_IX86))
 #define WEBP_MSC_SSE41  // Visual C++ SSE4.1 targets
 #endif
+
+#if defined(_MSC_VER) && _MSC_VER >= 1700 && \
+    (defined(_M_X64) || defined(_M_IX86))
+#define WEBP_MSC_AVX2  // Visual C++ AVX2 targets
 #endif
 #endif
 
@@ -79,8 +85,21 @@
 #define WEBP_HAVE_SSE41
 #endif
 
+#if (defined(__AVX2__) || defined(WEBP_MSC_AVX2)) && \
+    (!defined(HAVE_CONFIG_H) || defined(WEBP_HAVE_AVX2))
+#define WEBP_USE_AVX2
+#endif
+
+#if defined(WEBP_USE_AVX2) && !defined(WEBP_HAVE_AVX2)
+#define WEBP_HAVE_AVX2
+#endif
+
+#undef WEBP_MSC_AVX2
 #undef WEBP_MSC_SSE41
 #undef WEBP_MSC_SSE2
+
+//------------------------------------------------------------------------------
+// Arm defines.
 
 // The intrinsics currently cause compiler errors with arm-nacl-gcc and the
 // inline assembly would need to be modified for use with Native Client.
@@ -100,15 +119,25 @@
 // inclusion of arm64_neon.h; Visual Studio 2019 includes this file in
 // arm_neon.h. Compile errors were seen with Visual Studio 2019 16.4 with
 // vtbl4_u8(); a fix was made in 16.6.
-#if defined(_MSC_VER) && ((_MSC_VER >= 1700 && defined(_M_ARM)) || \
-                          (_MSC_VER >= 1926 && defined(_M_ARM64)))
+#if defined(_MSC_VER) &&                      \
+    ((_MSC_VER >= 1700 && defined(_M_ARM)) || \
+     (_MSC_VER >= 1926 && (defined(_M_ARM64) || defined(_M_ARM64EC))))
 #define WEBP_USE_NEON
 #define WEBP_USE_INTRINSICS
+#endif
+
+#if defined(__aarch64__) || defined(_M_ARM64) || defined(_M_ARM64EC)
+#define WEBP_AARCH64 1
+#else
+#define WEBP_AARCH64 0
 #endif
 
 #if defined(WEBP_USE_NEON) && !defined(WEBP_HAVE_NEON)
 #define WEBP_HAVE_NEON
 #endif
+
+//------------------------------------------------------------------------------
+// MIPS defines.
 
 #if defined(__mips__) && !defined(__mips64) && defined(__mips_isa_rev) && \
     (__mips_isa_rev >= 1) && (__mips_isa_rev < 6)
@@ -125,6 +154,8 @@
 #define WEBP_USE_MSA
 #endif
 
+//------------------------------------------------------------------------------
+
 #ifndef WEBP_DSP_OMIT_C_CODE
 #define WEBP_DSP_OMIT_C_CODE 1
 #endif
@@ -135,12 +166,13 @@
 #define WEBP_NEON_OMIT_C_CODE 0
 #endif
 
-#if !(LOCAL_CLANG_PREREQ(3, 8) || LOCAL_GCC_PREREQ(4, 8) || \
-      defined(__aarch64__))
+#if !(LOCAL_CLANG_PREREQ(3, 8) || LOCAL_GCC_PREREQ(4, 8) || WEBP_AARCH64)
 #define WEBP_NEON_WORK_AROUND_GCC 1
 #else
 #define WEBP_NEON_WORK_AROUND_GCC 0
 #endif
+
+//------------------------------------------------------------------------------
 
 // This macro prevents thread_sanitizer from reporting known concurrent writes.
 #define WEBP_TSAN_IGNORE_FUNCTION
@@ -152,34 +184,63 @@
 #endif
 
 #if defined(__has_feature)
-#if __has_feature(memory_sanitizer)
+// Clang 21 should have all the MSAN fixes needed for WebP.
+#if __has_feature(memory_sanitizer) && !LOCAL_CLANG_PREREQ(21, 0)
 #define WEBP_MSAN
 #endif
 #endif
 
-#if defined(WEBP_USE_THREAD) && !defined(_WIN32)
-#include <pthread.h>  // NOLINT
+#if defined(WEBP_USE_THREAD)
+#if defined(_WIN32)
+#include <windows.h>
 
-#define WEBP_DSP_INIT(func)                                         \
-  do {                                                              \
-    static volatile VP8CPUInfo func##_last_cpuinfo_used =           \
-        (VP8CPUInfo)&func##_last_cpuinfo_used;                      \
-    static pthread_mutex_t func##_lock = PTHREAD_MUTEX_INITIALIZER; \
-    if (pthread_mutex_lock(&func##_lock)) break;                    \
-    if (func##_last_cpuinfo_used != VP8GetCPUInfo) func();          \
-    func##_last_cpuinfo_used = VP8GetCPUInfo;                       \
-    (void)pthread_mutex_unlock(&func##_lock);                       \
+#if _WIN32_WINNT < 0x0600
+#error _WIN32_WINNT must target Windows Vista / Server 2008 or newer.
+#endif
+// clang-format off
+#define WEBP_DSP_INIT_VARS(func)               \
+  static VP8CPUInfo func##_last_cpuinfo_used = \
+      (VP8CPUInfo)&func##_last_cpuinfo_used;   \
+  static SRWLOCK func##_lock = SRWLOCK_INIT
+#define WEBP_DSP_INIT(func)                                \
+  do {                                                     \
+    AcquireSRWLockExclusive(&func##_lock);                 \
+    if (func##_last_cpuinfo_used != VP8GetCPUInfo) func(); \
+    func##_last_cpuinfo_used = VP8GetCPUInfo;              \
+    ReleaseSRWLockExclusive(&func##_lock);                 \
   } while (0)
-#else  // !(defined(WEBP_USE_THREAD) && !defined(_WIN32))
+// clang-format on
+#else  // !defined(_WIN32)
+// NOLINTNEXTLINE
+#include <pthread.h>
+
+// clang-format off
+#define WEBP_DSP_INIT_VARS(func)               \
+  static VP8CPUInfo func##_last_cpuinfo_used = \
+      (VP8CPUInfo)&func##_last_cpuinfo_used;   \
+  static pthread_mutex_t func##_lock = PTHREAD_MUTEX_INITIALIZER
+#define WEBP_DSP_INIT(func)                                \
+  do {                                                     \
+    if (pthread_mutex_lock(&func##_lock)) break;           \
+    if (func##_last_cpuinfo_used != VP8GetCPUInfo) func(); \
+    func##_last_cpuinfo_used = VP8GetCPUInfo;              \
+    (void)pthread_mutex_unlock(&func##_lock);              \
+  } while (0)
+// clang-format on
+#endif  // defined(_WIN32)
+#else   // !defined(WEBP_USE_THREAD)
+// clang-format off
+#define WEBP_DSP_INIT_VARS(func)                        \
+  static volatile VP8CPUInfo func##_last_cpuinfo_used = \
+      (VP8CPUInfo)&func##_last_cpuinfo_used
 #define WEBP_DSP_INIT(func)                               \
   do {                                                    \
-    static volatile VP8CPUInfo func##_last_cpuinfo_used = \
-        (VP8CPUInfo)&func##_last_cpuinfo_used;            \
     if (func##_last_cpuinfo_used == VP8GetCPUInfo) break; \
     func();                                               \
     func##_last_cpuinfo_used = VP8GetCPUInfo;             \
   } while (0)
-#endif  // defined(WEBP_USE_THREAD) && !defined(_WIN32)
+// clang-format on
+#endif  // defined(WEBP_USE_THREAD)
 
 // Defines an Init + helper function that control multiple initialization of
 // function pointers / tables.
@@ -189,6 +250,7 @@
    }
 */
 #define WEBP_DSP_INIT_FUNC(name)                                            \
+  WEBP_DSP_INIT_VARS(name##_body);                                          \
   static WEBP_TSAN_IGNORE_FUNCTION void name##_body(void);                  \
   WEBP_TSAN_IGNORE_FUNCTION void name(void) { WEBP_DSP_INIT(name##_body); } \
   static WEBP_TSAN_IGNORE_FUNCTION void name##_body(void)
@@ -243,16 +305,7 @@ typedef enum {
   kMSA
 } CPUFeature;
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 // returns true if the CPU supports the feature.
 typedef int (*VP8CPUInfo)(CPUFeature feature);
-WEBP_EXTERN VP8CPUInfo VP8GetCPUInfo;
-
-#ifdef __cplusplus
-}    // extern "C"
-#endif
 
 #endif  // WEBP_DSP_CPU_H_

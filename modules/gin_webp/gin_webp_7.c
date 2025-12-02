@@ -15,4 +15,5 @@
 #include "3rdparty/webp/dsp/upsampling_sse41.c"
 #include "3rdparty/webp/enc/tree_enc.c"
 #include "3rdparty/webp/dsp/cost_neon.c"
-#include "3rdparty/webp/sharpyuv/sharpyuv_gamma.c"
+#include "3rdparty/webp/sharpyuv/sharpyuv.c"
+#include "3rdparty/webp/sharpyuv/sharpyuv_neon.c"

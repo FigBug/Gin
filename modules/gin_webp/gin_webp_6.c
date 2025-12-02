@@ -31,4 +31,3 @@
 #include "3rdparty/webp/utils/quant_levels_utils.c"
 #include "3rdparty/webp/enc/iterator_enc.c"
 #include "3rdparty/webp/enc/alpha_enc.c"
-#include "3rdparty/webp/sharpyuv/sharpyuv_dsp.c"

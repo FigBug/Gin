@@ -8,3 +8,7 @@
 #include "webp_warnings.h"
 
 #include "3rdparty/webp/dsp/dec_neon.c"
+#include "3rdparty/webp/enc/picture_csp_enc.c"
+#include "3rdparty/webp/utils/palette.c"
+#include "3rdparty/webp/sharpyuv/sharpyuv_gamma.c"
+#include "3rdparty/webp/sharpyuv/sharpyuv_cpu.c"

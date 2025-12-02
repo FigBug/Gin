@@ -14,7 +14,10 @@
 #ifndef WEBP_UTILS_QUANT_LEVELS_DEC_UTILS_H_
 #define WEBP_UTILS_QUANT_LEVELS_DEC_UTILS_H_
 
+#include "../utils/bounds_safety.h"
 #include "../webp/types.h"
+
+WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 
 #ifdef __cplusplus
 extern "C" {
@@ -25,11 +28,12 @@ extern "C" {
 // Strength is in [0..100] and controls the amount of dithering applied.
 // Returns false in case of error (data is NULL, invalid parameters,
 // malloc failure, ...).
-int WebPDequantizeLevels(uint8_t* const data, int width, int height, int stride,
-                         int strength);
+int WebPDequantizeLevels(uint8_t* WEBP_SIZED_BY((size_t)stride* height)
+                             const data,
+                         int width, int height, int stride, int strength);
 
 #ifdef __cplusplus
-}    // extern "C"
+}  // extern "C"
 #endif
 
 #endif  // WEBP_UTILS_QUANT_LEVELS_DEC_UTILS_H_

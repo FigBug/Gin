@@ -24,4 +24,3 @@
 #include "3rdparty/webp/dsp/lossless_sse41.c"
 #endif
 #include "3rdparty/webp/demux/anim_decode.c"
-#include "3rdparty/webp/sharpyuv/sharpyuv.c"
