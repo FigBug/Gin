@@ -25,16 +25,63 @@ SOFTWARE.
 #pragma once
 
 //------------------------------------------------------------------------------
-// FastMath contains some fast approximations for trigonometric functions.
-//------------------------------------------------------------------------------
+/**
+    Fast approximations for trigonometric and hyperbolic functions.
 
+    FastMath provides optimized approximations of trigonometric and hyperbolic
+    functions that trade accuracy for speed. These are useful in DSP applications
+    where perceptual accuracy is more important than mathematical precision,
+    such as waveshaping, modulation, and real-time synthesis.
+
+    Key Features:
+    - Fast sine approximation (valid range: -π to π)
+    - Fast hyperbolic tangent approximation
+    - Template class supports float or double
+    - Inline functions for maximum performance
+    - Suitable for audio-rate processing
+
+    Accuracy vs Speed:
+    These approximations are significantly faster than std:: equivalents but
+    introduce small errors. For most audio applications, the errors are
+    inaudible and the speed benefit is worthwhile.
+
+    Usage:
+    @code
+    // Fast sine for LFO or modulation
+    float phase = 0.5f; // 0 to 1
+    float x = (phase * 2.0f - 1.0f) * M_PI; // Convert to -π to π
+    float sineValue = FastMath<float>::fastSin(x);
+
+    // Fast tanh for waveshaping/saturation
+    float input = audioSample * 3.0f;
+    float shaped = FastMath<float>::fastTanh(input);
+    @endcode
+
+    Credits: Based on algorithms by Mike Jarmy (MIT License)
+
+    @see math namespace
+*/
 template <class F> class FastMath
 {
 public:
-    // Sine approximation. Range is [-pi, pi].
-    //
-    // https://web.archive.org/web/20100613230051/http://www.devmaster.net/forums/showthread.php?t=5784
-    // https://www.desmos.com/calculator/f0eryaepsl
+    /**
+        Fast sine wave approximation.
+
+        Computes an approximation of sin(x) using a polynomial approximation.
+        Provides good accuracy with significantly better performance than std::sin.
+
+        Valid Range: -π to π
+        - Values outside this range will produce incorrect results
+        - For normalized phase (0 to 1), convert to radians first
+
+        Algorithm: Based on parabolic approximation with extra precision term.
+
+        @param x Angle in radians (must be in range [-π, π])
+        @return Approximation of sin(x) in range [-1.0, 1.0]
+
+        @see https://web.archive.org/web/20100613230051/http://www.devmaster.net/forums/showthread.php?t=5784
+        @see https://www.desmos.com/calculator/f0eryaepsl
+    */
     static inline F fastSin (F x)
     {
         static constexpr F B = F (4 / juce::MathConstants<double>::pi);
@@ -49,19 +96,36 @@ public:
         return y;
     }
 
-    // Hyperbolic tangent approximation.
-    //
-    // https://www.kvraudio.com/forum/viewtopic.php?p=5447225#p5447225
-    // https://www.desmos.com/calculator/bjc7zsl4ek
+    /**
+        Fast hyperbolic tangent approximation.
+
+        Computes an approximation of tanh(x) using a rational polynomial.
+        Particularly useful for waveshaping and soft-clipping in audio applications.
+
+        Characteristics:
+        - Smooth S-curve from -1 to 1
+        - Asymptotically approaches ±1 for large |x|
+        - Good for soft saturation and distortion
+        - Much faster than std::tanh
+        - Valid for all input ranges
+
+        Algorithm: Rational polynomial approximation optimized for audio.
+
+        @param x Input value (any real number)
+        @return Approximation of tanh(x) in range [-1.0, 1.0]
+
+        @see https://www.kvraudio.com/forum/viewtopic.php?p=5447225#p5447225
+        @see https://www.desmos.com/calculator/bjc7zsl4ek
+    */
     static inline F fastTanh (const F x)
     {
         const F ax = std::abs(x);
         const F x2 = x * x;
-        const F z =
+        const F z = F (
             x * (0.773062670268356 + ax +
-                 (0.757118539838817 + 0.0139332362248817 * x2 * x2) * x2 * ax);
+                 (0.757118539838817 + 0.0139332362248817 * x2 * x2) * x2 * ax));
 
-        return z / (0.795956503022967 + std::abs(z));
+        return F (z / (0.795956503022967 + std::abs(z)));
     }
 
 private:

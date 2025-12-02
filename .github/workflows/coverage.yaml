@@ -1,0 +1,96 @@
+name: Code Coverage
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  coverage:
+    name: Code Coverage
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            clang \
+            git \
+            ninja-build \
+            ladspa-sdk \
+            libgtk-3-dev \
+            freeglut3-dev \
+            g++ \
+            libasound2-dev \
+            libcurl4-openssl-dev \
+            libfreetype6-dev \
+            libjack-jackd2-dev \
+            libx11-dev \
+            libxcomposite-dev \
+            libxcursor-dev \
+            libxinerama-dev \
+            libxrandr-dev \
+            mesa-common-dev \
+            webkit2gtk-4.0 \
+            juce-tools \
+            xvfb \
+            lcov
+
+      - name: Get JUCE
+        run: |
+          if [ ! -d "juce" ]; then
+            git clone https://github.com/WeAreROLI/JUCE.git --branch develop --single-branch --depth 1 juce
+          fi
+
+      - name: Configure CMake with coverage
+        run: |
+          cmake -B build -S . \
+            -DCMAKE_BUILD_TYPE=Debug \
+            -DCMAKE_CXX_FLAGS="--coverage -fprofile-arcs -ftest-coverage -fprofile-update=atomic" \
+            -DCMAKE_C_FLAGS="--coverage -fprofile-arcs -ftest-coverage -fprofile-update=atomic" \
+            -DCMAKE_EXE_LINKER_FLAGS="--coverage" \
+            -G Ninja
+
+      - name: Build UnitTests
+        run: cmake --build build --target UnitTests_Standalone --config Debug
+
+      - name: Run tests
+        run: |
+          UNITTEST_BIN="build/examples/UnitTests/UnitTests_artefacts/Debug/Standalone/UnitTests"
+          if [ ! -f "$UNITTEST_BIN" ]; then
+            echo "Error: UnitTests executable not found at $UNITTEST_BIN"
+            find build -name UnitTests -type f 2>/dev/null || true
+            exit 1
+          fi
+          echo "Running: $UNITTEST_BIN"
+          xvfb-run -a $UNITTEST_BIN
+
+      - name: Generate coverage report
+        run: |
+          lcov --capture --directory build --output-file coverage.info \
+            --ignore-errors gcov,source \
+            --rc geninfo_unexecuted_blocks=1
+          lcov --remove coverage.info \
+            '/usr/*' \
+            '*/juce/*' \
+            '*/3rdparty/*' \
+            '*/examples/*' \
+            '*/build/*' \
+            --output-file coverage.info \
+            --ignore-errors unused
+          lcov --list coverage.info
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage.info
+          fail_ci_if_error: false
+          verbose: true

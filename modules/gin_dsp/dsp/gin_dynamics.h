@@ -9,7 +9,27 @@ Copyright (c) 2019 - Roland Rabien.
 
 #pragma once
 //================================================================================
-/** EnvelopeDetector for Dynamics
+/**
+    Envelope follower for dynamics processing.
+
+    EnvelopeDetector tracks the amplitude envelope of an audio signal using
+    configurable attack, hold, and release times. It supports multiple detection
+    modes (peak, mean-square, RMS) and can use analog-style or digital time
+    constants for natural or precise envelope following.
+
+    Key Features:
+    - Three detection modes: peak, MS, RMS
+    - Attack, hold, and release time controls
+    - Analog or digital time constants
+    - Optional logarithmic detector for dB domain
+    - Sample-by-sample processing
+    - Used by compressors, gates, expanders, limiters
+
+    The envelope detector is the core component for gain reduction calculations
+    in dynamics processors, providing a smooth representation of signal level
+    over time.
+
+    @see Dynamics, LevelTracker
 */
 class EnvelopeDetector
 {
@@ -17,11 +37,19 @@ public:
     EnvelopeDetector() = default;
     ~EnvelopeDetector() = default;
 
+    /**
+        Envelope detection modes.
+
+        Determines how the input signal is converted to an envelope value:
+        - peak: Track the absolute peak value
+        - ms: Mean square (squared values, more sensitive to transients)
+        - rms: Root mean square (true RMS level detection)
+    */
     enum Mode
     {
-        peak,
-        ms,
-        rms
+        peak,  ///< Peak detection (absolute value)
+        ms,    ///< Mean square detection
+        rms    ///< RMS (root mean square) detection
     };
 
     void setSampleRate (double f)           { sampleRate = f;       }
@@ -45,22 +73,73 @@ protected:
 
 //================================================================================
 /**
- Compressor / Gate / Expander / Limiter based on algorithm from
- Designing Audio Effect Plug-ins in C++ by Will Pirkle
+    Dynamics processor supporting compression, limiting, expansion, and gating.
 
- */
+    Dynamics provides a versatile dynamics processing engine that can function as
+    a compressor, limiter, expander, or gate. Based on algorithms from "Designing
+    Audio Effect Plug-ins in C++" by Will Pirkle, it features attack/hold/release
+    envelope detection, adjustable ratio and threshold, soft knee, and optional
+    channel linking for stereo operation.
+
+    Key Features:
+    - Four processing types: compressor, limiter, expander, gate
+    - Configurable attack, hold, release times
+    - Adjustable threshold and ratio
+    - Soft knee for smooth compression
+    - Independent input/output gain
+    - Stereo linking (process based on max of both channels)
+    - Optional envelope output for visualization
+    - Level tracking for input/output metering
+
+    Usage:
+    @code
+    Dynamics comp;
+    comp.setSampleRate(44100.0);
+    comp.setNumChannels(2);
+    comp.setMode(Dynamics::compressor);
+    comp.setLinked(true); // Link stereo channels
+
+    // Set compression parameters
+    comp.setParams(0.01f,   // 10ms attack
+                   0.0f,     // no hold
+                   0.1f,     // 100ms release
+                   -20.0f,   // -20dB threshold
+                   4.0f,     // 4:1 ratio
+                   6.0f);    // 6dB soft knee
+
+    comp.setInputGain(0.0f);   // 0dB input
+    comp.setOutputGain(3.0f);  // +3dB makeup gain
+
+    comp.process(audioBuffer);
+
+    // Get metering
+    float inputLevel = comp.getInputTracker().getLevel();
+    float outputLevel = comp.getOutputTracker().getLevel();
+    @endcode
+
+    @see EnvelopeDetector, LevelTracker
+*/
 class Dynamics
 {
 public:
     Dynamics() = default;
     ~Dynamics() = default;
 
+    /**
+        Dynamics processing types.
+
+        Determines the type of dynamics processing applied:
+        - compressor: Reduces gain above threshold (ratio > 1:1)
+        - limiter: Hard limiting (very high ratio, fast attack)
+        - expander: Increases dynamic range (reduces gain below threshold)
+        - gate: Attenuates signals below threshold (extreme expansion)
+    */
     enum Type
     {
-        compressor,
-        limiter,
-        expander,
-        gate,
+        compressor,  ///< Compression (reduce loud signals)
+        limiter,     ///< Limiting (prevent peaks above threshold)
+        expander,    ///< Expansion (increase dynamic range)
+        gate,        ///< Gate (cut quiet signals)
     };
 
     void setSampleRate (double sampleRate);

@@ -10,7 +10,44 @@
 
 #pragma once
 
-/** Gate effect
+/**
+    Rhythmic gate effect with programmable step sequencing.
+
+    GateEffect creates rhythmic gating patterns by turning audio on/off in a
+    programmable sequence. Each step can be independently set for left and right
+    channels, allowing for complex rhythmic patterns and stereo effects.
+
+    Key Features:
+    - Programmable step sequencer (configurable length)
+    - Independent left/right channel patterns
+    - Configurable gate frequency (tempo)
+    - Attack and release envelope for smooth gating
+    - Wet/dry mix control
+    - Synced to note on/off events
+
+    Usage:
+    @code
+    GateEffect gate;
+    gate.setSampleRate(44100.0);
+    gate.setLength(16); // 16-step sequence
+
+    // Create a pattern (1=on, 0=off)
+    gate.setStep(0, true, true);   // Both channels on
+    gate.setStep(1, false, false); // Both off
+    gate.setStep(2, true, false);  // Left only
+    gate.setStep(3, false, true);  // Right only
+    // ... set remaining steps
+
+    gate.setFrequency(8.0f);  // 8 steps per second
+    gate.setAttack(0.001f);   // 1ms attack
+    gate.setRelease(0.05f);   // 50ms release
+    gate.setMix(1.0f);        // 100% wet
+
+    // In audio callback
+    gate.process(audioBuffer, noteOnSamplePos, noteOffSamplePos);
+    @endcode
+
+    @see AnalogADSR
 */
 class GateEffect
 {

@@ -46,6 +46,7 @@ Release
 
 xcuserdata
 Builds
+build
 cmake-build-debug
 cmake-build-release
 JuceLibraryCode
@@ -53,3 +54,6 @@ juce
 bin
 doxygen/doc
 doxygen/build
+
+# Claude Code
+.claude

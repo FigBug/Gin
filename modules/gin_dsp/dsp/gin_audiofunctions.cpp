@@ -13,6 +13,12 @@ void AudioFunctionHost::setSampleRate (double sr)
     funcStates.clear();
 }
 
+void AudioFunctionHost::reset()
+{
+	for (auto& itr : funcStates)
+		itr.second->reset();
+}
+
 void AudioFunctionHost::addUtilities (gin::EquationParser& parser)
 {
     parser.addFunction ("midiToHz", [] (int, double noteNumber)
@@ -28,6 +34,15 @@ void AudioFunctionHost::addConstants (gin::EquationParser& parser)
     parser.addConstant ("_deltaS", 2.41421356237); // silver ratio
     parser.addConstant ("_rho", 1.324717957244746025960908854); // plastic number
     parser.addConstant ("_q", 0.70710678118655); // default q
+
+    parser.addConstant ("pi", 3.141592653589793238462643); // pi
+    parser.addConstant ("tau", 3.141592653589793238462643 * 2); // pi
+    parser.addConstant ("e", 2.718281828459045235360287); // e
+    parser.addConstant ("phi", 1.61803398875); // golden ratio
+    parser.addConstant ("PHI", 0.6180339887); // golden ratio conjugate
+    parser.addConstant ("deltaS", 2.41421356237); // silver ratio
+    parser.addConstant ("rho", 1.324717957244746025960908854); // plastic number
+    parser.addConstant ("q", 0.70710678118655); // default q
 }
 
 void AudioFunctionHost::addOscillatorFunctions (gin::EquationParser& parser)

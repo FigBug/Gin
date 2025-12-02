@@ -90,6 +90,7 @@ namespace gin
 #include "dsp/gin_analogadsr.h"
 #include "dsp/gin_audiofifo.h"
 #include "dsp/gin_bandlimitedlookuptable.h"
+#include "dsp/gin_wavetable.h"
 #include "dsp/gin_distortion.h"
 #include "dsp/gin_delayline.h"
 #include "dsp/gin_dynamics.h"

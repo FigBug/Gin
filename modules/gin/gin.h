@@ -63,6 +63,7 @@
 
 #include <algorithm>
 #include <map>
+#include <set>
 #include <cmath>
 
 
@@ -81,9 +82,11 @@ namespace gin
 #include "utilities/gin_lagrange.h"
 #include "utilities/gin_leastsquaresregression.h"
 #include "utilities/gin_linearregression.h"
+#include "utilities/gin_lockfreequeue.h"
 #include "utilities/gin_messagepack.h"
 #include "utilities/gin_plist.h"
 #include "utilities/gin_realtimeasyncupdater.h"
+#include "utilities/gin_realtimeevent.h"
 #include "utilities/gin_riffparser.h"
 #ifndef JUCE_ANDROID
  #include "utilities/gin_sharedmemory.h"

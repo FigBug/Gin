@@ -10,22 +10,63 @@
 
 #pragma once
 
-/**  Simple Reverb
+/**
+    Simple stereo reverb effect with room size and damping controls.
 
-     Copyright (c) 2006-2008 and 2012, Michael "LOSER" Gruhn
+    SimpleVerb provides a high-quality algorithmic reverb using multiple comb
+    filters and allpass filters for diffusion. It's designed for realistic room
+    simulation with minimal CPU usage.
 
-     Permission to use, copy, modify, and/or distribute this software for any
-     purpose with or without fee is hereby granted, provided that the above
-     copyright notice and this permission notice appear in all copies.
+    Copyright (c) 2006-2008 and 2012, Michael "LOSER" Gruhn
 
-     THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-     WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-     MERCHANTABILITY, FITNESS AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-     AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL
-     DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR
-     PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS
-     ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
-     THIS SOFTWARE.
+    Permission to use, copy, modify, and/or distribute this software for any
+    purpose with or without fee is hereby granted, provided that the above
+    copyright notice and this permission notice appear in all copies.
+
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+    WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+    MERCHANTABILITY, FITNESS AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL
+    DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR
+    PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS
+    ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+    THIS SOFTWARE.
+
+    Key Features:
+    - Multiple comb filters for dense reverberation
+    - Allpass filters for additional diffusion
+    - Pre-delay control
+    - Room size adjustment
+    - Damping (high-frequency absorption)
+    - Low-pass and high-pass filtering
+    - Independent wet/dry mix
+
+    Parameters:
+    - room: Room size (0.0 to 1.0)
+    - damp: High-frequency damping amount (0.0 to 1.0)
+    - preDelay: Initial delay before reverb (seconds)
+    - lpFader: Low-pass filter amount
+    - hpFader: High-pass filter amount
+    - wet: Wet signal level (0.0 to 1.0)
+    - dry: Dry signal level (0.0 to 1.0)
+
+    Usage:
+    @code
+    SimpleVerb reverb;
+    reverb.setSampleRate(44100.0f);
+    reverb.setParameters(
+        0.7f,  // room size
+        0.5f,  // damping
+        0.02f, // 20ms pre-delay
+        0.8f,  // low-pass
+        0.2f,  // high-pass
+        0.3f,  // wet
+        0.7f   // dry
+    );
+    reverb.process(audioBuffer);
+    @endcode
+
+    @see PlateReverb
 */
 
 class SimpleVerb

@@ -1,5 +1,18 @@
 //==============================================================================
-/** Info on how the voice should glide
+/**
+    Configuration for pitch glide (portamento/glissando) between notes.
+
+    GlideInfo defines how a synthesizer voice should transition in pitch from
+    one note to another. This is used for implementing portamento (smooth glide)
+    and glissando (stepped glide through semitones).
+
+    Fields:
+    - fromNote: The starting MIDI note number (-1 if no glide)
+    - glissando: If true, glide in semitone steps; if false, smooth glide
+    - portamento: If true, enable pitch glide
+    - rate: Glide time in milliseconds
+
+    @see SynthesiserVoice, Synthesiser
 */
 struct GlideInfo
 {
@@ -10,7 +23,43 @@ struct GlideInfo
 };
 
 //==============================================================================
-/** A voice with glide info and fast kill support
+/**
+    Extended synthesizer voice with glide support and fast-kill capability.
+
+    SynthesiserVoice extends JUCE's MPESynthesiserVoice with additional features
+    needed for professional synthesizer implementations:
+    - Pitch glide (portamento/glissando)
+    - Fast kill for voice stealing (bypass release envelope)
+    - Note retriggering support for monophonic/legato playing
+
+    When implementing a voice, override:
+    - getCurrentNote(): Return the current MIDI note being played
+    - noteRetriggered(): Handle retriggering when in legato/mono mode
+    - renderNextBlock(): Generate audio (inherited from MPESynthesiserVoice)
+
+    Fast Kill:
+    When a voice needs to be stolen while still in release phase, setFastKill()
+    allows immediate termination without waiting for the release envelope to finish.
+
+    Usage:
+    @code
+    class MyVoice : public SynthesiserVoice
+    {
+        void renderNextBlock(AudioBuffer<float>& buffer, int start, int num) override
+        {
+            if (isFastKill())
+            {
+                // Quick fade out instead of full release
+            }
+            // ... render audio
+        }
+
+        float getCurrentNote() override { return currentNote; }
+        void noteRetriggered() override { // Handle legato retrigger }
+    };
+    @endcode
+
+    @see Synthesiser, GlideInfo
 */
 class SynthesiserVoice : public juce::MPESynthesiserVoice
 {
@@ -31,7 +80,62 @@ protected:
 };
 
 //==============================================================================
-/** MPESynthesiser with better fast kill, mono and glide support
+/**
+    Advanced MPE-capable synthesizer with mono/poly modes, glide, and voice management.
+
+    Synthesiser extends JUCE's MPESynthesiser with professional features commonly
+    needed in modern synthesizers:
+
+    Key Features:
+    - Monophonic and polyphonic modes
+    - Legato mode (retriggering without envelope restart)
+    - Portamento (smooth pitch glide) and glissando (stepped pitch glide)
+    - Configurable voice count with intelligent voice stealing
+    - Fast-kill voice stealing (immediate voice termination)
+    - MPE (MIDI Polyphonic Expression) support
+    - CPU usage monitoring
+    - Pitchbend range control
+
+    Mono Mode:
+    In monophonic mode, only one voice plays at a time. New notes either retrigger
+    the envelope (non-legato) or smoothly transition pitch without retriggering (legato).
+    Released notes in the note stack will cause the synth to jump back to the most
+    recent held note.
+
+    Voice Stealing:
+    When voice limit is reached, the oldest voice is stolen. The fast-kill mechanism
+    allows immediate voice termination rather than waiting for release envelope,
+    preventing audio glitches.
+
+    Glide Modes:
+    - Portamento: Smooth exponential pitch glide between notes
+    - Glissando: Stepped pitch glide through semitones
+    - Rate: Glide time in milliseconds
+
+    Usage:
+    @code
+    Synthesiser synth;
+    synth.addVoice(new MyVoice());
+    synth.setSampleRate(44100.0);
+
+    // Configure mono mode with portamento
+    synth.setMono(true);
+    synth.setLegato(true);
+    synth.setPortamento(true);
+    synth.setGlideRate(250.0f); // 250ms glide
+
+    // Or poly mode
+    synth.setMono(false);
+    synth.setNumVoices(8); // Max 8 simultaneous voices
+
+    // MPE mode
+    synth.setMPE(true);
+    synth.setPitchBendRange(48); // ±48 semitones
+
+    synth.renderNextBlock(audioBuffer, midiBuffer, 0, numSamples);
+    @endcode
+
+    @see SynthesiserVoice, GlideInfo, juce::MPESynthesiser
 */
 class Synthesiser : public juce::MPESynthesiser
 {

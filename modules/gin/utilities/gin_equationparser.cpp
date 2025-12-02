@@ -168,6 +168,25 @@ void EquationParser::setVarFactory (std::function<double* (const char*)> fun)
     varFactory.reset (cb);
 }
 
+juce::StringArray EquationParser::getUsedVariables ()
+{
+    juce::StringArray vars;
+
+    try
+    {
+        errorMessage = {};
+
+        for ( auto& itr : impl->parser.GetUsedVar () )
+            vars.add ( itr.first );
+    }
+    catch (mu::Parser::exception_type& e)
+    {
+        errorMessage = juce::String (e.GetMsg());
+    }
+
+    return vars;
+}
+
 void EquationParser::addFunction (const juce::String& name, std::function<double (int id, const juce::String&)> fun)
 {
     try
@@ -285,14 +304,15 @@ double EquationParser::evaluate()
     return 0;
 }
 
-bool EquationParser::hasError()
+bool EquationParser::hasError() const
 {
     return errorMessage.isNotEmpty();
 }
 
-juce::String EquationParser::getError()
+juce::String EquationParser::getError() const
 {
     return errorMessage;
 }
 
 }
+

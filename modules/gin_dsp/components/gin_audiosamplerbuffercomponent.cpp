@@ -160,6 +160,12 @@ void AudioSamplerBufferComponent::updatePixelCache()
             auto currentMin = minMax.getStart();
             auto currentMax = minMax.getEnd();
 
+            if (std::isinf (currentMin) || std::isnan (currentMin))
+                currentMin = 0.0f;
+
+            if (std::isinf (currentMax) || std::isnan (currentMax))
+                currentMax = 0.0f;
+
             // If min/max are of the same sign, force one of them to be zero
             if (currentMin > 0.0f)
                 currentMin = 0.0f;

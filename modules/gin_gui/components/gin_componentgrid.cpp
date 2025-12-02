@@ -167,6 +167,10 @@ void ComponentGrid::mouseDrag (const juce::MouseEvent& e)
             }
         }
     }
+    else
+    {
+        jassertfalse; // your top level component must be a DragAndDropContainer
+    }
 }
 
 

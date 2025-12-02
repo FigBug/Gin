@@ -133,8 +133,8 @@ public:
     int getGridWidth()  { return cx; }
     int getGridHeight() { return cy; }
 
-    bool getUseIncreasedKeyboardAccessibility();
-    void setUseIncreasedKeyboardAccessibility (bool accessible);
+    virtual bool getUseIncreasedKeyboardAccessibility();
+    virtual void setUseIncreasedKeyboardAccessibility (bool accessible);
 
     juce::ComponentBoundsConstrainer resizeLimits;
 
@@ -214,7 +214,52 @@ public:
 };
 
 //==============================================================================
-/** Plugin editor
+/**
+    Main plugin editor component for Gin-based audio plugins.
+
+    ProcessorEditor provides the primary user interface for audio plugins built
+    with the Gin framework. It extends ProcessorEditorBase with integrated support
+    for preset management, patch browsing, and plugin menu systems.
+
+    Key Features:
+    - Integrated title bar with preset management UI
+    - Patch browser for navigating and managing presets
+    - Automatic program list synchronization
+    - Customizable menu system via addMenuItems()
+    - About/info display functionality
+    - Grid-based control layout inherited from ProcessorEditorBase
+
+    The editor automatically manages:
+    - Preset browser visibility and state
+    - Program list updates
+    - Async UI updates for thread-safe operations
+    - Title bar with preset controls
+
+    Usage:
+    Inherit from ProcessorEditor in your plugin and implement your UI layout
+    in the constructor. Override addMenuItems() to add custom menu options
+    and showAboutInfo() to customize the about dialog.
+
+    @code
+    class MyPluginEditor : public ProcessorEditor
+    {
+    public:
+        MyPluginEditor(MyProcessor& p)
+            : ProcessorEditor(p, 4, 6) // 4x6 grid
+        {
+            // Add your controls using addControl()
+            addControl(filterKnob, 0, 0);
+            addControl(resonanceKnob, 1, 0);
+        }
+
+        void addMenuItems(juce::PopupMenu& menu) override
+        {
+            menu.addItem("Custom Action", [] { });
+        }
+    };
+    @endcode
+
+    @see ProcessorEditorBase, TitleBar, PatchBrowser, Processor
 */
 class ProcessorEditor : public ProcessorEditorBase,
                         protected juce::AsyncUpdater

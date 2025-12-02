@@ -1,70 +1,171 @@
 # Gin
-A few useful extra classes for [JUCE](https://juce.com/) that I've come up with over the years.
-
-## Help & Documentation:
-
-* [Discord](https://discord.gg/zvpyqsBjc3)
-* [Blog](https://rabiensoftware.com/index.php/category/gin/)
-* [DOxygen Documentation](https://figbug.github.io/Gin/annotated.html)
-
-## Automated Builds:
 
 ![Build Windows](https://github.com/FigBug/Gin/workflows/Build%20Windows/badge.svg "Build Windows")
 ![Build macOS](https://github.com/FigBug/Gin/workflows/Build%20macOS/badge.svg "Build macOS")
 ![Build Linux](https://github.com/FigBug/Gin/workflows/Build%20Linux/badge.svg "Build Linux")
+[![codecov](https://codecov.io/gh/FigBug/Gin/branch/master/graph/badge.svg)](https://codecov.io/gh/FigBug/Gin)
 
-## What's included:
+A comprehensive collection of extra modules for [JUCE](https://juce.com/), providing professional-grade utilities, UI components, DSP processors, and more for audio plugin and application development.
 
-* BMPImageFormat - Load and Save Windows Bitmaps
-* ColourPropertyComponent - Colour picker for PropertyComponent
-* DownloadManager - Async downloads with 0 delay on main thread
-* Ellipse - Determine if point is on ellipse. Find point at angle on ellipse.
-* FilePropertyComponent - File chooser for PropertyComponent
-* FileSystemWatcher - Get notified when files in directory change
-* ImageEffects - Sepia, Vignette, Soften, Sharpen, Invert, Contrast, Hue, Saturation, Stack Blur etc
-* ImageMetadata - Load metadata from jpeg & png
-* Integrator - Calculate integrals
-* LeastSquaresRegression - Fits a curve to data points
-* LinearRegression - Fits a line to data points
-* MapViewer - Displays a map
-* OpenStreetMaps - Fetch tiles from various OSM servers
-* SecureStreamingSocket - Streaming socket the supports SSL
-* SharedMemory - Share a memory block between processes
-* Spline - A smooth curve from a set of discrete points
-* PerlinNoise - Natural looking noise
-* Websocket - Websocket client
-* DSP: Compressor, wavetable oscillator, reverb, ADSR
-* Synth: LFO, mod matrix, UI components
+## Table of Contents
 
-## Credits:
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Modules](#modules)
+- [Features](#features)
+- [Examples](#examples)
+- [Help & Documentation](#help--documentation)
+- [Credits](#credits)
 
-Stack Blur:  Mario Klingemann
-http://incubator.quasimondo.com/processing/fast_blur_deluxe.php
+## Prerequisites
 
-Least Squares Regression
-https://www.codeproject.com/Articles/63170/Least-Squares-Regression-for-Quadratic-Curve-Fitti
+- **JUCE 7.0+** (included as submodule)
+- **CMake 3.15+**
+- **C++20** compatible compiler
+- **Supported Platforms:** Windows, macOS (10.13+), Linux
 
-muParser: Ingo Berg
-http://beltoforion.de/article.php?a=muparser
+## Installation
 
-Spline: Devin Lane
-https://shiftedbits.org/2011/01/30/cubic-spline-interpolation/
+### Adding Gin to Your CMake Project
 
-JUCE: Roli
-www.juce.com
+1. Add Gin as a submodule or clone into your project:
+```bash
+git submodule add https://github.com/FigBug/Gin.git libs/Gin
+```
 
-AVIR: Aleksey Vaneev
-https://github.com/avaneev/avir
+2. In your `CMakeLists.txt`:
+```cmake
+add_subdirectory(libs/Gin/modules)
 
-easywsclient
-https://github.com/dhbaird/easywsclient
+target_link_libraries(YourTarget PRIVATE
+    gin
+    gin_plugin      # For audio plugins
+    gin_dsp         # For DSP components
+    gin_gui         # For UI components
+    # ... other gin modules as needed
+)
+```
 
-mbed TLS
-https://tls.mbed.org/
+3. Include Gin modules in your code:
+```cpp
+#include <gin/gin.h>
+#include <gin_plugin/gin_plugin.h>
+```
 
-liboauthcpp
-https://github.com/sirikata/liboauthcpp
+## Modules
 
-## Special Thanks to:
+Gin is organized into focused modules that can be included independently:
 
-reFX Audio Software Inc.
+| Module | Description |
+|--------|-------------|
+| **gin** | Core utilities, file system watching, download manager, math utilities |
+| **gin_dsp** | Audio DSP components: oscillators, filters, effects, modulation |
+| **gin_graphics** | Image processing, effects, metadata, BMP format support |
+| **gin_gui** | UI components, property editors, layout system |
+| **gin_metadata** | Image metadata reading from JPEG, GIF, and PNG files |
+| **gin_network** | WebSocket, secure sockets |
+| **gin_plugin** | Audio plugin utilities and common functionality |
+| **gin_simd** | SIMD-optimized operations |
+| **gin_webp** | WebP image format support |
+
+## Features
+
+### Core Utilities (gin)
+- **DownloadManager** - Asynchronous downloads with zero main thread delay
+- **FileSystemWatcher** - Real-time notifications when files change
+- **SharedMemory** - Inter-process memory sharing
+- **Ellipse** - Geometric calculations for ellipses
+- **LeastSquaresRegression** - Curve fitting to data points
+- **LinearRegression** - Line fitting to data points
+- **Spline** - Smooth cubic spline interpolation
+- **Integrator** - Numerical integration
+
+### Graphics & Images (gin_graphics)
+- **ImageEffects** - Sepia, vignette, soften, sharpen, invert, contrast, hue, saturation, stack blur
+- **ImageMetadata** - Read/write JPEG and PNG metadata
+- **BMPImageFormat** - Windows Bitmap support
+
+### DSP & Audio (gin_dsp)
+- **Oscillators** - Wavetable oscillator with multiple waveforms
+- **Effects** - Compressor, reverb, filters
+- **Envelopes** - ADSR envelope generator
+- **PerlinNoise** - Natural-sounding noise generation
+- **Modulation** - LFO and modulation matrix
+
+### GUI Components (gin_gui)
+- **Property Components** - File chooser, color picker
+- **Layout System** - JSON-based flexible layouts
+- **Synth UI** - Ready-to-use synthesizer interface components
+- **Map Components** - OpenStreetMap integration and tile rendering
+
+### Network (gin_network)
+- **WebSocket** - Full-featured WebSocket client
+- **SecureStreamingSocket** - SSL/TLS socket support
+- **OpenStreetMaps** - Tile fetching from OSM servers
+
+## Examples
+
+The repository includes several complete example projects:
+
+- **Demo** - Comprehensive demonstration of all Gin features
+- **Synth** - Complete synthesizer plugin example
+- **Effect** - Audio effect plugin example
+- **UnitTests** - Test suite for Gin components
+
+### Building the Examples
+
+```bash
+cd Gin
+cmake -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+```
+
+The built applications will be in `build/examples/`.
+
+### Quick Start Example
+
+```cpp
+#include <gin/gin.h>
+
+// Use the download manager
+gin::DownloadManager dm;
+dm.downloadAsync(juce::URL("https://example.com/file.zip"),
+                 [](juce::InputStream* stream) {
+    // Process downloaded data
+});
+
+// Watch a directory for changes
+gin::FileSystemWatcher watcher;
+watcher.addFolder(juce::File::getSpecialLocation(
+    juce::File::userDocumentsDirectory));
+watcher.addListener(this);
+
+// Use a spline for smooth interpolation
+gin::Spline spline;
+spline.addPoint({0.0f, 0.0f});
+spline.addPoint({1.0f, 1.0f});
+float interpolated = spline.get(0.5f);
+```
+
+## Help & Documentation
+
+- **[Discord Community](https://discord.gg/zvpyqsBjc3)** - Get help and discuss Gin
+- **[Developer Blog](https://rabiensoftware.com/index.php/category/gin/)** - Tutorials and articles
+- **[Doxygen API Documentation](https://figbug.github.io/Gin/annotated.html)** - Complete API reference
+
+## Credits
+
+Gin incorporates and builds upon several excellent open-source libraries and algorithms:
+
+- **[JUCE](https://juce.com/)** by Roli - The foundational framework
+- **[Stack Blur](http://incubator.quasimondo.com/processing/fast_blur_deluxe.php)** by Mario Klingemann - Fast blur algorithm
+- **[muParser](http://beltoforion.de/article.php?a=muparser)** by Ingo Berg - Mathematical expression parser
+- **[Spline](https://shiftedbits.org/2011/01/30/cubic-spline-interpolation/)** by Devin Lane - Cubic spline interpolation
+- **[AVIR](https://github.com/avaneev/avir)** by Aleksey Vaneev - Image resizing
+- **[easywsclient](https://github.com/dhbaird/easywsclient)** - WebSocket client implementation
+- **[mbed TLS](https://tls.mbed.org/)** - SSL/TLS library
+- **[Least Squares Regression](https://www.codeproject.com/Articles/63170/Least-Squares-Regression-for-Quadratic-Curve-Fitti)** - Curve fitting algorithms
+
+### Special Thanks
+
+**reFX Audio Software Inc.** for supporting the development of Gin.

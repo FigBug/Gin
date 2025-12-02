@@ -65,7 +65,9 @@ void RIFFParser::parse (const void* data, size_t size)
     if (! RIFFAtoms::isTag (&riff.dwRIFF, "RIFF"))
         return;
 
-    while (d < (uint8_t*)data + size)
+    auto dataEnd = (const uint8_t*)data + 8 + riff.dwSize;
+
+    while (d + sizeof (RIFFAtoms::CHUNK) <= dataEnd)
     {
         RIFFAtoms::CHUNK chunk;
         std::memcpy (&chunk, d, sizeof (chunk));
@@ -95,6 +97,9 @@ void RIFFParser::handleList (const uint8_t *&d)
         else
             handleChunk (d);
     }
+
+     if (list.dwSize % 2 == 1)
+         d += 1;
 }
 
 void RIFFParser::handleChunk (const uint8_t*& d)

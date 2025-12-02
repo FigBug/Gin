@@ -1681,7 +1681,7 @@ struct WavetableDemo : public juce::Component
                 buffer.setSize (1, int (reader->lengthInSamples));
                 reader->read (&buffer, 0, int (reader->lengthInSamples), 0, true, false);
 
-                loadWavetables (bllt, reader->sampleRate, buffer, reader->sampleRate, size);
+                gin::loadWavetables (bllt, reader->sampleRate, buffer, reader->sampleRate, size);
 
                 osc = std::make_unique<gin::WTOscillator> ();
                 osc->setWavetable (&bllt);
@@ -1729,7 +1729,7 @@ struct WavetableDemo : public juce::Component
         }
     }
 
-    juce::OwnedArray<gin::BandLimitedLookupTable> bllt;
+    gin::Wavetable bllt;
     std::unique_ptr<gin::WTOscillator> osc;
 };
 
@@ -1844,6 +1844,232 @@ struct BLLTDemo : public juce::Component
 };
 
 //==============================================================================
+struct ComponentGridDemo : public juce::Component
+{
+    ComponentGridDemo()
+        : horizontalGrid ("HorizontalGrid", gin::ComponentGrid::horizontal),
+          verticalGrid ("VerticalGrid", gin::ComponentGrid::vertical)
+    {
+        setName ("Component Grid");
+
+        // Setup horizontal grid
+        horizontalGrid.setGap (8);
+        addAndMakeVisible (horizontalGrid);
+
+        // Add colorful buttons to horizontal grid
+        for (int i = 0; i < 8; i++)
+        {
+            auto* btn = new juce::TextButton (juce::String (i + 1));
+            btn->setSize (60, 40);
+            btn->setColour (juce::TextButton::buttonColourId, juce::Colour::fromHSV (i / 8.0f, 0.7f, 0.8f, 1.0f));
+            horizontalGrid.addAndMakeVisible (btn);
+            horizontalButtons.add (btn);
+        }
+
+        // Setup vertical grid
+        verticalGrid.setGap (8);
+        addAndMakeVisible (verticalGrid);
+
+        // Add colorful buttons to vertical grid
+        for (int i = 0; i < 6; i++)
+        {
+            auto* btn = new juce::TextButton (juce::String::charToString ('A' + i));
+            btn->setSize (80, 35);
+            btn->setColour (juce::TextButton::buttonColourId, juce::Colour::fromHSV ((i + 4) / 10.0f, 0.6f, 0.9f, 1.0f));
+            verticalGrid.addAndMakeVisible (btn);
+            verticalButtons.add (btn);
+        }
+
+        // Add instruction label
+        addAndMakeVisible (instructionLabel);
+        instructionLabel.setText ("Drag and drop items to reorder them", juce::dontSendNotification);
+        instructionLabel.setJustificationType (juce::Justification::centred);
+        instructionLabel.setColour (juce::Label::textColourId, juce::Colours::white);
+
+        // Add section labels
+        addAndMakeVisible (horizontalLabel);
+        horizontalLabel.setText ("Horizontal Grid:", juce::dontSendNotification);
+        horizontalLabel.setColour (juce::Label::textColourId, juce::Colours::white);
+
+        addAndMakeVisible (verticalLabel);
+        verticalLabel.setText ("Vertical Grid:", juce::dontSendNotification);
+        verticalLabel.setColour (juce::Label::textColourId, juce::Colours::white);
+
+        // Setup callbacks
+        horizontalGrid.onOrderChanged = [] (int oldIndex, int newIndex)
+        {
+            juce::ignoreUnused (oldIndex, newIndex);
+            DBG ("Horizontal grid: moved item from " << oldIndex << " to " << newIndex);
+        };
+
+        verticalGrid.onOrderChanged = [] (int oldIndex, int newIndex)
+        {
+            juce::ignoreUnused (oldIndex, newIndex);
+            DBG ("Vertical grid: moved item from " << oldIndex << " to " << newIndex);
+        };
+    }
+
+    ~ComponentGridDemo() override
+    {
+        horizontalButtons.clear (true);
+        verticalButtons.clear (true);
+    }
+
+    void resized() override
+    {
+        auto bounds = getLocalBounds().reduced (20);
+
+        // Instruction at top
+        instructionLabel.setBounds (bounds.removeFromTop (25));
+        bounds.removeFromTop (10);
+
+        // Horizontal section
+        horizontalLabel.setBounds (bounds.removeFromTop (20));
+        bounds.removeFromTop (5);
+        horizontalGrid.setBounds (bounds.removeFromTop (60));
+        bounds.removeFromTop (30);
+
+        // Vertical section
+        verticalLabel.setBounds (bounds.removeFromTop (20));
+        bounds.removeFromTop (5);
+        verticalGrid.setBounds (bounds.removeFromLeft (100));
+    }
+
+    void paint (juce::Graphics& g) override
+    {
+        g.fillAll (juce::Colours::black);
+    }
+
+    gin::ComponentGrid horizontalGrid;
+    gin::ComponentGrid verticalGrid;
+    juce::OwnedArray<juce::TextButton> horizontalButtons;
+    juce::OwnedArray<juce::TextButton> verticalButtons;
+    juce::Label instructionLabel;
+    juce::Label horizontalLabel;
+    juce::Label verticalLabel;
+};
+
+//==============================================================================
+struct EasingDemo : public juce::Component
+{
+    EasingDemo()
+    {
+        setName ("Easing");
+    }
+
+    void paint (juce::Graphics& g) override
+    {
+        g.fillAll (juce::Colours::black);
+
+        // Create a list of all easing functions with their names
+        struct EasingFunction
+        {
+            juce::String name;
+            std::function<float(float)> func;
+        };
+
+        std::vector<EasingFunction> easingFunctions = {
+            {"Linear", [](float p) { return gin::easeLinear(p); }},
+            {"QuadIn", [](float p) { return gin::easeQuadraticIn(p); }},
+            {"QuadOut", [](float p) { return gin::easeQuadraticOut(p); }},
+            {"QuadInOut", [](float p) { return gin::easeQuadraticInOut(p); }},
+            {"CubicIn", [](float p) { return gin::easeCubicIn(p); }},
+            {"CubicOut", [](float p) { return gin::easeCubicOut(p); }},
+            {"CubicInOut", [](float p) { return gin::easeCubicInOut(p); }},
+            {"QuartIn", [](float p) { return gin::easeQuarticIn(p); }},
+            {"QuartOut", [](float p) { return gin::easeQuarticOut(p); }},
+            {"QuartInOut", [](float p) { return gin::easeQuarticInOut(p); }},
+            {"QuintIn", [](float p) { return gin::easeQuinticIn(p); }},
+            {"QuintOut", [](float p) { return gin::easeQuinticOut(p); }},
+            {"QuintInOut", [](float p) { return gin::easeQuinticInOut(p); }},
+            {"SineIn", [](float p) { return gin::easeSineIn(p); }},
+            {"SineOut", [](float p) { return gin::easeSineOut(p); }},
+            {"SineInOut", [](float p) { return gin::easeSineInOut(p); }},
+            {"CircIn", [](float p) { return gin::easeCircularIn(p); }},
+            {"CircOut", [](float p) { return gin::easeCircularOut(p); }},
+            {"CircInOut", [](float p) { return gin::easeCircularInOut(p); }},
+            {"ExpoIn", [](float p) { return gin::easeExponentialIn(p); }},
+            {"ExpoOut", [](float p) { return gin::easeExponentialOut(p); }},
+            {"ExpoInOut", [](float p) { return gin::easeExponentialInOut(p); }},
+            {"ElasticIn", [](float p) { return gin::easeElasticIn(p); }},
+            {"ElasticOut", [](float p) { return gin::easeElasticOut(p); }},
+            {"ElasticInOut", [](float p) { return gin::easeElasticInOut(p); }},
+            {"BackIn", [](float p) { return gin::easeBackIn(p); }},
+            {"BackOut", [](float p) { return gin::easeBackOut(p); }},
+            {"BackInOut", [](float p) { return gin::easeBackInOut(p); }},
+            {"BounceIn", [](float p) { return gin::easeBounceIn(p); }},
+            {"BounceOut", [](float p) { return gin::easeBounceOut(p); }},
+            {"BounceInOut", [](float p) { return gin::easeBounceInOut(p); }}
+        };
+
+        // Calculate grid layout
+        const int cols = 6;
+        const int rows = (int(easingFunctions.size()) + cols - 1) / cols;
+
+        const int cellWidth = getWidth() / cols;
+        const int cellHeight = getHeight() / rows;
+        const int padding = 10;
+        const int textHeight = 15;
+
+        // Draw each easing function
+        for (size_t i = 0; i < easingFunctions.size(); i++)
+        {
+            int col = int(i) % cols;
+            int row = int(i) / cols;
+
+            juce::Rectangle<int> cell (col * cellWidth, row * cellHeight, cellWidth, cellHeight);
+            juce::Rectangle<int> graphArea = cell.reduced (padding).withTrimmedBottom (textHeight);
+
+            // Draw a subtle box around each cell
+            g.setColour (juce::Colours::grey.withAlpha (0.3f));
+            g.drawRect (cell.reduced (2));
+
+            // Draw the easing curve
+            juce::Path path;
+            const int steps = 100;
+
+            // First, build the path in normalized coordinates
+            for (int step = 0; step <= steps; step++)
+            {
+                float t = step / float(steps);
+                float easedValue = easingFunctions[i].func (t);
+
+                if (step == 0)
+                    path.startNewSubPath (t, easedValue);
+                else
+                    path.lineTo (t, easedValue);
+            }
+
+            // Get the actual bounds of the path (handles overshoot)
+            auto pathBounds = path.getBounds();
+
+            // Create transform to fit path into graphArea
+            // Flip Y axis since screen coordinates go top-down
+            auto transform = juce::AffineTransform()
+                .translated (-pathBounds.getX(), -pathBounds.getY())  // Move to origin
+                .scaled (graphArea.getWidth() / pathBounds.getWidth(),
+                        -graphArea.getHeight() / pathBounds.getHeight())  // Scale and flip Y
+                .translated (graphArea.getX(), graphArea.getBottom());  // Move to position
+
+            path.applyTransform (transform);
+
+            g.setColour (juce::Colours::cyan);
+            g.strokePath (path, juce::PathStrokeType (2.0f));
+
+            // Draw reference axes
+            g.setColour (juce::Colours::grey.withAlpha (0.5f));
+            g.drawRect (graphArea);
+
+            // Draw label
+            g.setColour (juce::Colours::white);
+            g.setFont (12.0f);
+            juce::Rectangle<int> textArea = cell.removeFromBottom (textHeight);
+            g.drawText (easingFunctions[i].name, textArea, juce::Justification::centred);
+        }
+    }
+};
+
+//==============================================================================
 struct EquationParserDemo : public juce::Component
 {
     EquationParserDemo()
@@ -1887,51 +2113,67 @@ struct EquationParserDemo : public juce::Component
 //==============================================================================
 juce::String layoutTxt = R"~~~(
 {
-   "id": "root",
-   "children": [
+   "components": [
        {
            "id": "a",
-           "x": 0,
-           "y": 0,
-           "w": "parW()",
-           "h": "parH() / 2 - 10",
-           "children": [
+           "x": 10,
+           "y": 10,
+           "w": "parW - 20",
+           "h": "(parH - 40) / 3",
+           "components": [
                {
                    "id": "e",
-                   "x": 5,
-                   "y": 5,
-                   "r": "parW() / 2 - 2",
-                   "b": "parH() - 5"
+                   "x": "10",
+                   "y": "10",
+                   "r": "parW - 10",
+                   "h": "parH / 3"
                },
                {
                    "id": "f",
-                   "x": "prevR() + 4",
-                   "y": 5,
-                   "r": "parW() - 5",
-                   "b": "parH() - 5"
+                   "x": "10",
+                   "b": "parH - 10",
+                   "r": "parW - 10",
+                   "h": "parH / 3"
                }
            ]
        },
        {
            "id": "b",
-           "x": 0,
-           "y": "prevB() + 20",
-           "w": "parW()",
-           "b": "parH()",
-           "children": [
+           "x": 10,
+           "y": "prevB + 10",
+           "w": "parW - 20",
+           "h": "(parH - 40) / 3",
+           "components": [
                {
                    "id": "g",
-                   "x": 5,
-                   "y": 5,
-                   "r": "parW() / 2 - 2",
-                   "b": "parH() - 5"
+                   "x": 10,
+                   "y": 10,
+                   "w": "parW / 3",
+                   "b": "parH - 10"
                },
                {
                    "id": "h",
-                   "x": "prevR() + 4",
-                   "y": 5,
-                   "r": "parW() - 5",
-                   "b": "parH() - 5"
+                   "r": "parW - 10",
+                   "y": 10,
+                   "w": "parW / 3",
+                   "b": "parH - 10"
+               }
+           ]
+       },
+       {
+           "id": "c",
+           "x": 10,
+           "y": "prevB + 10",
+           "r": "parW - 10",
+           "h": "(parH - 40) / 3",
+           "components": [
+               {
+                   "grid": "c0/1fr,c1/3fr,c2/50px,c3/25px",
+                   "bounds": "10,10,parW-20,parH-20",
+                   "cols": 4,
+                   "rows": 1,
+                   "colGap": 1,
+                   "rowGap": 0
                }
            ]
        }
@@ -1946,23 +2188,29 @@ struct LayoutDemo : public juce::Component,
     {
         doc.addListener (this);
         setName ("Layout");
-        
+
         auto a = new ColouredComponent ("a", juce::Colours::green);
         auto b = new ColouredComponent ("b", juce::Colours::green);
-        
+        auto c = new ColouredComponent ("c", juce::Colours::green);
+
         a->addAndMakeVisible (new ColouredComponent ("e", juce::Colours::yellow));
         a->addAndMakeVisible (new ColouredComponent ("f", juce::Colours::yellow));
         b->addAndMakeVisible (new ColouredComponent ("g", juce::Colours::yellow));
         b->addAndMakeVisible (new ColouredComponent ("h", juce::Colours::yellow));
-        
+        c->addAndMakeVisible (new ColouredComponent ("c0", juce::Colours::orange));
+        c->addAndMakeVisible (new ColouredComponent ("c1", juce::Colours::cyan));
+        c->addAndMakeVisible (new ColouredComponent ("c2", juce::Colours::magenta));
+        c->addAndMakeVisible (new ColouredComponent ("c3", juce::Colours::red));
+
         layoutRoot.addAndMakeVisible (a);
         layoutRoot.addAndMakeVisible (b);
+        layoutRoot.addAndMakeVisible (c);
 
         layoutJson.loadContent (layoutTxt);
         addAndMakeVisible (layoutJson);
         addAndMakeVisible (layoutRoot);
         addAndMakeVisible (error);
-        
+
         error.setInterceptsMouseClicks (false, false);
         error.setJustificationType (juce::Justification::bottomLeft);
         error.setColour (juce::Label::textColourId, juce::Colours::red);
@@ -2005,7 +2253,7 @@ struct LayoutDemo : public juce::Component,
         rc.removeFromLeft (8);
         layoutRoot.setBounds (rc);
         
-        layout.parseLayout (doc.getAllContent());
+        layout.setLayout (doc.getAllContent());
     }
 
     class ColouredComponent : public juce::Component
@@ -2035,8 +2283,8 @@ struct LayoutDemo : public juce::Component,
     juce::CodeEditorComponent layoutJson { doc, nullptr };
     ColouredComponent layoutRoot { "root", juce::Colours::blue };
     
-    gin::Layout layout { layoutRoot };
-    
+    gin::LayoutSupport layout { layoutRoot };
+
     juce::Label error;
 };
 
@@ -2045,6 +2293,8 @@ MainContentComponent::MainContentComponent()
 {
     demoComponents.add (new LayoutDemo());
     demoComponents.add (new EquationParserDemo());
+    demoComponents.add (new ComponentGridDemo());
+    demoComponents.add (new EasingDemo());
     demoComponents.add (new BLLTDemo());
     demoComponents.add (new WavetableDemo());
     demoComponents.add (new CatenaryDemo());

@@ -8,6 +8,33 @@
  */
 
 
+/**
+    DC blocking filter (high-pass filter) to remove DC offset.
+
+    DCBlocker implements a simple first-order high-pass filter to remove DC
+    offset from audio signals. This is useful after certain DSP operations
+    (like waveshaping or oscillators) that may introduce DC bias.
+
+    Key Features:
+    - Configurable cutoff frequency (default 10 Hz)
+    - First-order IIR filter
+    - Very low CPU usage
+    - Reset for clearing filter state
+
+    Usage:
+    @code
+    DCBlocker blocker;
+    blocker.setSampleRate(44100.0f);
+    blocker.setCutoff(10.0f); // Block below 10 Hz
+
+    // Per-sample processing
+    float output = blocker.process(input);
+    @endcode
+
+    Note: This is a per-sample filter. For stereo, use two instances.
+
+    @see WTOscillator
+*/
 class DCBlocker
 {
 public:
@@ -55,7 +82,46 @@ private:
 };
 
 //==============================================================================
-/** WT Oscillator.
+/**
+    Wavetable oscillator with interpolation and shaping options.
+
+    WTOscillator provides high-quality wavetable synthesis with support for
+    table morphing, formant shifting, phase distortion (bend), and post-processing
+    effects like asymmetry and wavefolding. It uses band-limited wavetables to
+    avoid aliasing.
+
+    Key Features:
+    - Wavetable synthesis with linear interpolation
+    - Table position morphing for timbral variation
+    - Formant shifting (pitch-independent spectral shift)
+    - Phase distortion (bend parameter)
+    - Wavefolding and asymmetry effects
+    - Optional DC blocking
+    - SIMD optimization where available
+
+    Parameters (via Params struct):
+    - position: Wavetable position (0.0 to 1.0)
+    - bend: Phase distortion amount
+    - formant: Formant shift (pitch-independent frequency shift)
+    - asym: Asymmetry/waveshaping amount
+    - fold: Wavefolding amount
+    - leftGain/rightGain: Stereo output gains
+
+    Usage:
+    @code
+    WTOscillator osc;
+    osc.setSampleRate(44100.0);
+    osc.setWaveTable(&myBandLimitedTables);
+    osc.noteOn(); // Initialize phase
+
+    WTOscillator::Params params;
+    params.position = 0.3f;
+    params.fold = 0.2f;
+
+    osc.process(60.0f, params, audioBuffer); // MIDI note 60 (C4)
+    @endcode
+
+    @see BandLimitedLookupTable, DCBlocker
 */
 class WTOscillator
 {
@@ -341,7 +407,7 @@ public:
         }
     }
 
-    void setWavetable (juce::OwnedArray<BandLimitedLookupTable>* table);
+    void setWavetable (Wavetable* table);
 
     void setBlockDC (bool b) { blockDC = b; }
 
@@ -383,7 +449,7 @@ private:
         return phaseIn;
     }
 
-    juce::OwnedArray<BandLimitedLookupTable>* bllt = nullptr;
+    Wavetable* bllt = nullptr;
     double sampleRate = 44100.0;
     float phase = 0.0f;
     int tableIndex = 0;
@@ -398,6 +464,21 @@ private:
     static constexpr float almostOne = { 1.0f - std::numeric_limits<float>::epsilon() };
 };
 
+/**
+    Extended parameters for wavetable voiced stereo oscillator.
+
+    Extends VoicedOscillatorParams with wavetable-specific parameters including
+    table position morphing, phase distortion, formant shifting, and waveshaping.
+
+    Additional Parameters:
+    - position: Wavetable position (0.0 to 1.0) for morphing between tables
+    - bend: Phase distortion amount (0.0 to 1.0)
+    - formant: Formant shift - pitch-independent spectral shifting
+    - asym: Asymmetry/waveshaping amount (0.0 to 1.0)
+    - fold: Wavefolding amount (0.0 to 1.0)
+
+    @see VoicedOscillatorParams, WTVoicedStereoOscillator
+*/
 struct WTVoicedStereoOscillatorParams : public VoicedOscillatorParams
 {
     float position  = 0.5;
@@ -417,8 +498,43 @@ struct WTVoicedStereoOscillatorParams : public VoicedOscillatorParams
 };
 
 //==============================================================================
-/** Stereo Wavetable Oscillator with multiples voices, pan, spread, detune, etc
- */
+/**
+    Stereo wavetable oscillator with multiple voices for unison/detuning effects.
+
+    WTVoicedStereoOscillator provides a complete wavetable-based virtual analog
+    oscillator with support for multiple voices (unison), stereo spread, detuning,
+    and wavetable-specific features like morphing, formant shifting, and phase
+    distortion.
+
+    Key Features:
+    - Multiple voices for thick unison sounds
+    - Per-voice detuning with spread
+    - Stereo panning and spread
+    - Wavetable position morphing
+    - Formant shifting (pitch-independent)
+    - Phase distortion (bend)
+    - Wavefolding and asymmetry
+    - Band-limited to avoid aliasing
+
+    Usage:
+    @code
+    WTVoicedStereoOscillator osc(8); // Up to 8 voices
+    osc.setSampleRate(44100.0);
+    osc.setWavetable(&myWavetables);
+    osc.noteOn(); // Initialize all voices
+
+    WTVoicedStereoOscillatorParams params;
+    params.voices = 4;
+    params.detune = 0.1f;
+    params.spread = 0.5f;
+    params.position = 0.3f;
+    params.fold = 0.2f;
+
+    osc.process(60.0f, params, audioBuffer); // MIDI note 60 (C4)
+    @endcode
+
+    @see WTOscillator, VoicedStereoOscillator, WTVoicedStereoOscillatorParams
+*/
 class WTVoicedStereoOscillator : public VoicedStereoOscillator<WTOscillator, WTVoicedStereoOscillatorParams>
 {
 public:
@@ -428,11 +544,11 @@ public:
             oscillators.add (new WTOscillator());
     }
 
-    void setWavetable (juce::OwnedArray<BandLimitedLookupTable>* table)
+    void setWavetable (Wavetable* table)
     {
         for (auto o : oscillators)
             o->setWavetable (table);
     }
 };
 
-bool loadWavetables (juce::OwnedArray<BandLimitedLookupTable>& bllt, double playbackSampleRate, juce::AudioSampleBuffer& buffer, double fileSampleRate, int tableSize);
+bool loadWavetables (Wavetable& bllt, double playbackSampleRate, juce::AudioSampleBuffer& buffer, double fileSampleRate, int tableSize);

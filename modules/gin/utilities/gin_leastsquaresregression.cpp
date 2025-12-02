@@ -264,3 +264,4 @@ double LeastSquaresRegression::getPredictedY (double x)
     //returns value of y predicted by the equation for a given value of x
     return aTerm() * std::pow(x, 2) + bTerm() * x + cTerm();
 }
+

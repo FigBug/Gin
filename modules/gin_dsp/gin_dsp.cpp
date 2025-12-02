@@ -69,6 +69,7 @@ namespace gin
 #include "dsp/gin_audioequationparser.cpp"
 #include "dsp/gin_audioutil.cpp"
 #include "dsp/gin_bandlimitedlookuptable.cpp"
+#include "dsp/gin_wavetable.cpp"
 #include "dsp/gin_dynamics.cpp"
 #include "dsp/gin_filter.cpp"
 #include "dsp/gin_lfo.cpp"

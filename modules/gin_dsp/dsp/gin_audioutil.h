@@ -50,6 +50,37 @@ void applyGain (juce::AudioSampleBuffer& buffer, int channel, juce::LinearSmooth
 
 void clip (juce::AudioSampleBuffer& buffer, float low = -1.0f, float high = 1.0f);
 
+/**
+    Simple gain processor with ramping to avoid discontinuities.
+
+    GainProcessor applies gain to an audio buffer with automatic ramping between
+    gain values to prevent clicks and pops. It maintains the previous gain value
+    and applies a linear ramp when the gain changes.
+
+    Key Features:
+    - Automatic gain ramping (click-free)
+    - Lightweight and efficient
+    - Stateful (remembers last gain)
+    - Reset method for voice restarts
+
+    Usage:
+    @code
+    GainProcessor gainProc;
+    gainProc.setGain(0.5f); // Set to 50% volume
+
+    // In audio callback
+    gainProc.process(audioBuffer); // Applies gain with ramping
+
+    // When starting a new voice/note
+    gainProc.reset(); // Snap to current gain without ramping
+    @endcode
+
+    Note: Gain ramping occurs over the entire buffer length. For longer buffers,
+    this provides smoother transitions. For per-sample control, consider
+    juce::LinearSmoothedValue instead.
+
+    @see juce::LinearSmoothedValue, applyGain
+*/
 class GainProcessor
 {
 public:
@@ -108,10 +139,19 @@ inline juce::AudioSampleBuffer sliceBuffer (juce::AudioSampleBuffer& input, int 
 inline ScratchBuffer monoBuffer (const juce::AudioSampleBuffer& input)
 {
     ScratchBuffer output (1, input.getNumSamples());
-    output.clear();
 
-    juce::FloatVectorOperations::addWithMultiply (output.getWritePointer (0), input.getReadPointer (0), 0.5f, input.getNumSamples());
-    juce::FloatVectorOperations::addWithMultiply (output.getWritePointer (0), input.getReadPointer (1), 0.5f, input.getNumSamples());
+    if (input.getNumChannels() == 1)
+    {
+        output.copyFrom (0, 0, input, 0, 0, input.getNumSamples());
+    }
+    else
+    {
+        output.clear();
+
+        const float gain = 1.0f / input.getNumChannels();
+        for (int ch = 0; ch < input.getNumChannels(); ch++)
+            juce::FloatVectorOperations::addWithMultiply (output.getWritePointer (0), input.getReadPointer (ch), gain, input.getNumSamples());
+    }
 
     return output;
 }

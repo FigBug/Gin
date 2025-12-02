@@ -35,6 +35,8 @@ public:
     }
 
     std::function<void (void)> function;
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (BackgroundCaller)
 };
 
 void callInBackground (std::function<void (void)> function)

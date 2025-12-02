@@ -13,7 +13,37 @@
 #endif
 
 //==============================================================================
-/** How do you want you params smoothed?
+/**
+    Parameter smoothing configuration for audio-rate interpolation.
+
+    SmoothingType specifies how parameter changes should be smoothed when applied
+    to audio processing. This prevents zipper noise and clicks when parameters
+    change, particularly important for frequency, gain, and other audio-critical
+    parameters.
+
+    Smoothing Types:
+    - linear: Simple linear interpolation (faster, good for most uses)
+    - eased: Exponential/eased interpolation (smoother, more natural)
+
+    The time value specifies how long the parameter takes to reach its new
+    value from the current value. Typical values are 0.02-0.2 seconds.
+
+    Usage:
+    @code
+    // Fast linear smoothing for non-critical params
+    SmoothingType fast(0.02f, SmoothingType::linear);
+
+    // Slower eased smoothing for filter cutoff
+    SmoothingType smooth(0.1f, SmoothingType::eased);
+
+    // Used when creating parameters
+    auto cutoff = processor.addExtParam("cutoff", "Cutoff", "", "",
+                                       {20.0f, 20000.0f, 1.0f, 0.3f},
+                                       1000.0f, 0.0f,
+                                       SmoothingType(0.05f, SmoothingType::eased));
+    @endcode
+
+    @see Parameter, Processor
 */
 class SmoothingType
 {
@@ -34,12 +64,54 @@ public:
 };
 
 //==============================================================================
-/** Use this class to customize your plugin. If you are using a JUCE plugin
-    project, these will automatically be set to sensible default. If you are including
-    a gin::Processor within another plugin or standalone application, then you
-    will need to customize this. The default constructor depends on juce defines
-    only found in plugin projects.
- */
+/**
+    Plugin metadata and configuration options for Processor.
+
+    ProcessorOptions provides configuration and metadata for a Gin-based plugin,
+    including plugin identity (name, version, developer), capabilities (MIDI I/O),
+    and optional features (update checker, news checker). When using a standard
+    JUCE plugin project, the default constructor automatically fills these from
+    JucePlugin_* preprocessor defines. For custom applications, you can manually
+    configure all options.
+
+    Configuration Categories:
+    - Identity: pluginName, developer, devId, pluginVersion
+    - URLs: updatesURL, url, urlTitle (for help/website links)
+    - MIDI: wantsMidi, makesMidi flags
+    - Features: useUpdateChecker, useNewsChecker toggles
+    - Credits: programmingCredits array
+
+    The class provides builder-style methods for common customizations:
+    - withAdditionalCredits(): Add more credits while keeping defaults
+    - withoutUpdateChecker(): Disable automatic update checking
+    - withoutNewsChecker(): Disable news feed checking
+
+    Usage:
+    @code
+    // Standard plugin (auto-configured from JucePlugin_* defines)
+    ProcessorOptions opts;
+
+    // Custom configuration
+    ProcessorOptions customOpts;
+    customOpts.pluginName = "My Synth";
+    customOpts.developer = "My Company";
+    customOpts.devId = "MYCO";
+    customOpts.pluginVersion = "1.0.0";
+    customOpts.wantsMidi = true;
+    customOpts.makesMidi = false;
+
+    // Builder pattern
+    auto opts = ProcessorOptions()
+        .withAdditionalCredits({"Jane Smith", "Additional DSP"})
+        .withoutUpdateChecker()
+        .withoutNewsChecker();
+
+    // Pass to Processor
+    MyProcessor processor(opts);
+    @endcode
+
+    @see Processor
+*/
 class ProcessorOptions
 {
 public:
@@ -96,7 +168,71 @@ public:
 };
 
 //==============================================================================
-/** A process with internal and external params
+/**
+    Advanced audio processor base class with parameter management and preset system.
+
+    Processor extends JUCE's AudioProcessor with a complete parameter management system,
+    preset/program handling, state management, and various conveniences for building
+    professional audio plugins.
+
+    Key Features:
+    - **Parameter Management**: Internal and external parameters with automatic host exposure
+    - **Preset System**: Full program/preset management with file watching
+    - **State Management**: ValueTree-based state with automatic parameter sync
+    - **Parameter Smoothing**: Built-in smoothing for audio-rate parameters
+    - **Settings**: Optional persistent settings via PropertiesFile
+    - **Modulation Support**: Integration with ModMatrix system
+    - **Update Checking**: Optional update and news checking
+
+    Parameter Types:
+    - **External Parameters**: Exposed to host, automatable, saved in presets
+    - **Internal Parameters**: Not exposed to host, for UI-only settings
+
+    Preset System:
+    Programs are automatically loaded from a directory and file-watched for changes.
+    Each program stores parameters and can include custom state data.
+
+    Usage:
+    @code
+    class MyProcessor : public gin::Processor
+    {
+    public:
+        MyProcessor() : Processor(false) // false = don't auto-init
+        {
+            // Add parameters
+            cutoff = addExtParam("cutoff", "Cutoff", "Cutoff", "Hz",
+                                 {20.0f, 20000.0f}, 1000.0f,
+                                 SmoothingType(0.05f));
+
+            resonance = addExtParam("resonance", "Resonance", "Res", "",
+                                    {0.0f, 1.0f}, 0.5f,
+                                    SmoothingType(0.05f));
+
+            init(); // Call after adding all parameters
+        }
+
+        void prepareToPlay(double sr, int block) override
+        {
+            Processor::prepareToPlay(sr, block);
+            filter.setSampleRate(sr);
+        }
+
+        void processBlock(AudioBuffer<float>& buffer, MidiBuffer& midi) override
+        {
+            // Parameters are automatically smoothed
+            filter.setCutoff(cutoff->getProcValue());
+            filter.setResonance(resonance->getProcValue());
+            filter.process(buffer);
+        }
+
+    private:
+        Parameter* cutoff;
+        Parameter* resonance;
+        MyFilter filter;
+    };
+    @endcode
+
+    @see Parameter, Program, ModMatrix
 */
 class Processor : public ProcessorBaseClass,
                   public juce::ChangeBroadcaster,

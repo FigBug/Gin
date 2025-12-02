@@ -9,33 +9,8 @@
 
 SimpleVerb::SimpleVerb()
 {
-    roomSizeFader = 0.5;
-    roomSize = 55;
-
-    preDelayFader = 0;
-
-    preDelayLength = 0;
-    preDelayPos = 0;
-
-    dampFader = 0.5;
-    damp = 0.25;
-
-    freqLPFader = 1;
-    freqHPFader = 0;
-
-    freqLP = 24000;
-    freqHP = 0;
-
-    b1LP = -std::exp (-2.0f * juce::MathConstants<float>::pi * freqLP / sampleRate); // 100Hz
-    a0LP = 1.0f + b1LP;
-
-    b1HP = -std::exp (-2.0f * juce::MathConstants<float>::pi * freqHP / sampleRate); // 100Hz
-    a0HP = 1.0f + b1HP;
-
-    dry = 1;
-    wet = 0.5;
-    
     setSampleRate (44100);
+    setParameters (0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.5f, 1.0f);
 }
 
 void SimpleVerb::setSampleRate (float sr)

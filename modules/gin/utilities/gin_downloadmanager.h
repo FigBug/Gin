@@ -10,13 +10,66 @@ For more information visit www.rabiensoftware.com
 #include "gin_util.h"
 
 /**
+    Asynchronous HTTP download manager with queue and progress tracking.
 
-  Downloads files to a memory block and then calls a lambda
-  on the message thread with the results. Does not block the
-  message thread while establishing the HTTP connect like
-  URL::downloadToFile
+    DownloadManager provides a robust system for downloading files without blocking
+    the message thread. Unlike juce::URL::downloadToFile which blocks during HTTP
+    connection establishment, DownloadManager performs all network operations on
+    background threads and delivers results via callbacks on the message thread.
 
- */
+    Key Features:
+    - Non-blocking HTTP downloads
+    - Concurrent download queue with limit control
+    - Automatic retry on failure with configurable delays
+    - Progress tracking with adjustable callback intervals
+    - Download pause/resume support
+    - GZIP compression support
+    - Thread priority control
+    - Blocking and async download modes
+    - Safe cancellation of in-progress downloads
+
+    The manager maintains a queue of downloads, executes them on background threads,
+    and calls completion callbacks on the message thread. This ensures UI remains
+    responsive during large downloads or slow connections.
+
+    Usage:
+    @code
+    DownloadManager manager;
+    manager.setConnectTimeout(10000);  // 10 second timeout
+    manager.setRetryLimit(3);          // Retry up to 3 times
+    manager.setConcurrentDownloadLimit(2);  // Max 2 at once
+
+    // Start async download with progress
+    int downloadId = manager.startAsyncDownload(
+        "https://example.com/file.zip",
+        "",  // No POST data
+        [](DownloadManager::DownloadResult result) {
+            if (result.ok)
+                result.saveToFile(File("downloaded.zip"));
+            else
+                DBG("Download failed: " + String(result.httpCode));
+        },
+        [](int64 current, int64 total, int64 delta) {
+            DBG("Progress: " + String(current) + " / " + String(total));
+        }
+    );
+
+    // Cancel if needed
+    manager.cancelDownload(downloadId);
+
+    // Or block until complete
+    auto result = manager.blockingDownload("https://example.com/data.json");
+    if (result.ok)
+        processJSON(result.data.toString());
+    @endcode
+
+    Thread Safety:
+    - All public methods are thread-safe
+    - Callbacks are always executed on the message thread
+    - Safe to cancel downloads from any thread
+
+    @see DownloadResult, juce::URL
+*/
 class DownloadManager
 {
 public:
@@ -70,18 +123,38 @@ public:
     void pauseDownloads (bool);
 
     //==============================================================================
+    /**
+        Result of a completed or failed download.
+
+        DownloadResult contains all information about a download attempt including
+        the downloaded data, HTTP status, response headers, and success/failure state.
+
+        Members:
+        - url: The URL that was downloaded
+        - downloadId: Unique ID assigned by DownloadManager
+        - attempts: Number of attempts made (including retries)
+        - data: Downloaded content as MemoryBlock
+        - ok: true if download succeeded, false otherwise
+        - httpCode: HTTP response code (200 = success, 404 = not found, etc.)
+        - responseHeaders: HTTP response headers from server
+
+        The result is passed to completion callbacks on the message thread.
+
+        @see DownloadManager
+    */
     struct DownloadResult
     {
-        juce::URL url;
-        int downloadId = 0;
-        int attempts = 0;
+        juce::URL url;                          ///< URL that was downloaded
+        int downloadId = 0;                     ///< Unique download ID
+        int attempts = 0;                       ///< Number of attempts made
 
-        juce::MemoryBlock data;
+        juce::MemoryBlock data;                 ///< Downloaded data
 
-        bool ok = false;
-        int httpCode = 0;
-        juce::StringPairArray responseHeaders;
-        
+        bool ok = false;                        ///< true if download succeeded
+        int httpCode = 0;                       ///< HTTP response code
+        juce::StringPairArray responseHeaders;  ///< HTTP response headers
+
+        /** Saves downloaded data to a file. Returns true if successful. */
         bool saveToFile (const juce::File& file, bool overwrite = true);
     };
 
@@ -115,7 +188,15 @@ public:
 
 private:
     //==============================================================================
-    /** Manages a download on a background thread */
+    /**
+        Internal class managing a single download on a background thread.
+
+        Download handles the actual HTTP request, progress tracking, retry logic,
+        and callback execution for a single download task. Each download runs on
+        its own thread managed by the DownloadManager.
+
+        @see DownloadManager, DownloadResult
+    */
     struct Download : public juce::Thread
     {
         Download (DownloadManager& o) : Thread ("DownloadManager::Download"), owner (o) {}

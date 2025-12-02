@@ -43,3 +43,4 @@ void Integrator::addPoints (juce::Array<Point<double>> points)
     for (auto point : points)
         addPoint (point.getX(), point.getY());
 }
+

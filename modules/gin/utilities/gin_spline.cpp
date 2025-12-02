@@ -76,3 +76,4 @@ double Spline::interpolate (double x) const
 
     return elements[i].eval (x);
 }
+

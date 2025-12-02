@@ -10,7 +10,40 @@
 
 #pragma once
 
-/** Audio Delay with linear interpolation
+/**
+    Multi-channel delay line with interpolated tap reading.
+
+    DelayLine provides a circular buffer-based delay line that supports multiple
+    channels and fractional delay times through interpolation. It's the building
+    block for creating delay effects, choruses, flangers, and reverbs.
+
+    Key Features:
+    - Multi-channel support (configurable channel count)
+    - Linear and Lagrange interpolation for fractional delays
+    - Time-based or sample-based delay reading
+    - Efficient circular buffer implementation
+    - Per-channel independent delay taps
+
+    Interpolation Methods:
+    - readLinear(): Fast linear interpolation (good for most uses)
+    - readLagrange(): Higher quality 4-point Lagrange interpolation
+    - readSample(): No interpolation (integer sample delays only)
+
+    Usage:
+    @code
+    DelayLine delay(2, 2.0, 44100.0); // 2 channels, 2 seconds max, 44.1kHz
+
+    // Write samples
+    for (int ch = 0; ch < 2; ch++)
+        delay.write(ch, inputSample[ch]);
+    delay.writeFinished();
+
+    // Read with fractional delay (0.5 seconds)
+    float delayedL = delay.readLinear(0, 0.5);
+    float delayedR = delay.readLinear(1, 0.5);
+    @endcode
+
+    @see StereoDelay
 */
 class DelayLine
 {

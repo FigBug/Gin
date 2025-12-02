@@ -1,0 +1,37 @@
+codecov:
+  require_ci_to_pass: yes
+
+coverage:
+  precision: 2
+  round: down
+  range: "70...100"
+
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 0.5%
+    patch:
+      default:
+        target: auto
+        threshold: 0.5%
+
+ignore:
+  # 3rd party code
+  - "modules/gin/3rdparty/"
+  - "modules/gin_network/3rdparty/"
+  - "modules/gin_graphics/3rdparty/"
+  - "modules/gin_webp/3rdparty/"
+  - "modules/gin_dsp/3rdparty/"
+  - "modules/gin_simd/mipp/"
+  # JUCE framework
+  - "juce/"
+  # Examples and tests
+  - "examples/"
+  - "**/*.test.cpp"
+  - "**/*.test.h"
+
+comment:
+  layout: "reach,diff,flags,files,footer"
+  behavior: default
+  require_changes: false

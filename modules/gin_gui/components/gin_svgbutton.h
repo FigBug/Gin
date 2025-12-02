@@ -7,9 +7,35 @@
 
 #pragma once
 
-//==============================================================================*/
+//==============================================================================
 /**
-    Button that draws an SVG
+    Button that displays an SVG graphic instead of or alongside text.
+
+    SVGButton extends TextButton to support rendering SVG graphics. The SVG
+    is stored as raw XML text and can be drawn by a custom LookAndFeel.
+    The button provides an inset parameter to control padding around the SVG.
+
+    Note: The actual SVG rendering must be implemented in your LookAndFeel's
+    drawButtonBackground() or drawButtonText() methods. This class only stores
+    the SVG data and inset value.
+
+    Usage:
+    @code
+    String svgXml = "<svg>...</svg>";
+    SVGButton button("IconButton", svgXml, 4); // 4 pixel inset
+
+    // In your LookAndFeel:
+    void drawButtonBackground(Graphics& g, Button& btn, ...) override
+    {
+        if (auto* svg = dynamic_cast<SVGButton*>(&btn))
+        {
+            auto drawable = Drawable::createFromSVG(*XmlDocument::parse(svg->rawSVG));
+            drawable->drawWithin(g, btn.getLocalBounds().reduced(svg->inset).toFloat(), ...);
+        }
+    }
+    @endcode
+
+    @see juce::TextButton, juce::Drawable
 */
 class SVGButton : public juce::TextButton
 {

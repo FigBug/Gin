@@ -33,16 +33,52 @@
 #pragma once
 
 //==============================================================================
-/** A catenary is the shape a wire, cable, rope etc. makes when it hangs. Useful for drawing modular synths.
- */
+/** Calculates the curve of a hanging cable (catenary).
+
+    A catenary is the natural curve formed by a cable, rope, or chain hanging between
+    two points under its own weight. This class calculates the mathematical catenary
+    curve and provides methods to query points along it.
+
+    Common uses:
+    - Drawing realistic cable connections in modular synthesizer UIs
+    - Visualizing hanging wires, chains, or ropes
+    - Creating natural-looking curves between two points
+
+    The curve is defined by two endpoints and the additional length of cable beyond
+    the straight-line distance between the points.
+
+    @see calculate, calcY, getVertex
+*/
 class Catenary
 {
 public:
+    /** Creates a catenary curve between two points.
+
+        @param x0             X coordinate of the first endpoint
+        @param y0             Y coordinate of the first endpoint
+        @param x1             X coordinate of the second endpoint
+        @param y1             Y coordinate of the second endpoint
+        @param addLength      Additional cable length beyond the straight-line distance
+        @param numIterations  Number of Newton-Raphson iterations for precision (default: 1)
+    */
     Catenary (float x0, float y0, float x1, float y1, float addLength, int numIterations = 1)
     {
         calculate (x0, y0, x1, y1, addLength, numIterations);
     }
 
+    /** Calculates or recalculates the catenary curve between two points.
+
+        The addLength parameter determines how much "slack" the cable has. A value of 0
+        would be a straight line (impossible for a real cable). Larger values create
+        more pronounced sag.
+
+        @param x0             X coordinate of the first endpoint
+        @param y0             Y coordinate of the first endpoint
+        @param x1             X coordinate of the second endpoint
+        @param y1             Y coordinate of the second endpoint
+        @param addLength      Additional cable length beyond the straight-line distance (must be > 0)
+        @param numIterations  Number of Newton-Raphson iterations for precision (default: 1)
+    */
     void calculate (float x0, float y0, float x1, float y1, float addLength, int numIterations = 1)
     {
         jassert (! juce::exactlyEqual (x0, x1));
@@ -94,22 +130,31 @@ public:
         c = y0 - (a * std::cosh ((x0 - b) * inva));
     }
 
-    /// determine the y pos for a given x.
+    /** Calculates the y coordinate for a given x position on the catenary curve.
+
+        Use this to sample points along the curve for drawing.
+
+        @param x  The x coordinate
+        @returns  The y coordinate at that x position
+    */
     float calcY (float x) const
     {
         auto y = a * std::cosh ((x - b) * inva) + c;
         return y;
     }
 
-    /// get curve vertex = lowest point
+    /** Returns the vertex (lowest point) of the catenary curve.
+
+        @returns  A pair containing (x, y) coordinates of the vertex
+    */
     std::pair<float, float> getVertex() const
     {
         return {b, a + c};
     }
 
 private:
-    float a; // curvature = radius of the circle fitting inside the curve at the vertex
-    float inva; // inverse of a to avoid a division per point
-    float b; // x offset. xpos of the vertex
-    float c; // y offset. note that cosh(0) = 1
+    float a;     // Curvature parameter = radius of the osculating circle at the vertex
+    float inva;  // Inverse of a (cached to avoid division per point)
+    float b;     // X offset (x position of the vertex)
+    float c;     // Y offset (note that cosh(0) = 1)
 };

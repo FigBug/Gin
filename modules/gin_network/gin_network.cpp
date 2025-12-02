@@ -9,8 +9,6 @@
 
 #include "gin_network.h"
 
-#include "network/gin_oauth.cpp"
-
 #ifdef _WIN32
     #define NOMINMAX
     #if defined(_MSC_VER) && !defined(_CRT_SECURE_NO_WARNINGS)

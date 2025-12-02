@@ -66,3 +66,4 @@ void LinearRegression::calculate()
         }
     }
 }
+

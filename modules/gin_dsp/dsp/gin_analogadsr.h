@@ -9,8 +9,47 @@
 
 #pragma once
 
-/** Analog ADSR. Good for controlling audio levels.
-    Based on the ADSR from the Will Pirkle book
+/**
+    Analog-modeled ADSR envelope generator for smooth, musical envelopes.
+
+    AnalogADSR provides an envelope generator that emulates the behavior of
+    analog synthesizer envelopes with smooth, exponential curves. It's ideal
+    for controlling audio levels (amplitude envelopes) and produces more
+    natural-sounding results than linear envelopes.
+
+    Based on the ADSR implementation from Will Pirkle's book "Designing Software
+    Synthesizer Plug-Ins in C++".
+
+    Key Features:
+    - Exponential attack, decay, and release curves (analog-like)
+    - Per-sample or block processing
+    - Can fill buffer with envelope values or multiply existing audio
+    - State tracking (idle, attack, decay, sustain, release)
+    - Reset capability for retriggering
+
+    Envelope Stages:
+    - Attack: Time to rise from 0 to peak (1.0)
+    - Decay: Time to fall from peak to sustain level
+    - Sustain: Held level while note is on (0.0 to 1.0)
+    - Release: Time to fall from current level to 0 after note off
+
+    Usage:
+    @code
+    AnalogADSR envelope;
+    envelope.setSampleRate(44100.0);
+    envelope.setAttack(0.01f);   // 10ms attack
+    envelope.setDecay(0.1f);     // 100ms decay
+    envelope.setSustainLevel(0.7f); // 70% sustain level
+    envelope.setRelease(0.5f);   // 500ms release
+
+    envelope.noteOn();
+    // ... process audio ...
+    envelope.processMultiplying(audioBuffer); // Apply envelope to audio
+    // ... later ...
+    envelope.noteOff(); // Begin release phase
+    @endcode
+
+    @see ADSR
 */
 class AnalogADSR
 {

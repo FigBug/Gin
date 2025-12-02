@@ -37,8 +37,8 @@ if [ "$(uname)" == "Darwin" ]; then
   cmake --preset xcode
   cmake --build --preset xcode --config Release
 
-  cd "$ROOT/Builds/xcode/examples/UnitTests/UnitTests_artefacts/Release"
-  ./UnitTests
+  cd "$ROOT/Builds/xcode/examples/UnitTests/UnitTests_artefacts/Release/Standalone"
+  ./UnitTests.app/Contents/MacOS/UnitTests
 
   cp -R "$ROOT/Builds/xcode/examples/Demo/Demo_artefacts/Release/Demo.app" "$ROOT/bin"
   cp -R "$ROOT/Builds/xcode/examples/Synth/Synth_artefacts/Release/VST3/Synth.vst3" "$ROOT/bin"
@@ -68,8 +68,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   cmake --preset ninja-gcc
   cmake --build --preset ninja-gcc --config Release
 
-  cd "$ROOT/Builds/ninja-gcc/examples/UnitTests/UnitTests_artefacts/Release"
-  ./UnitTests
+  cd "$ROOT/Builds/ninja-gcc/examples/UnitTests/UnitTests_artefacts/Release/Standalone"
+  xvfb-run -a ./UnitTests
 
 
 # Build Win version
@@ -78,7 +78,7 @@ elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
   cmake --preset vs
   cmake --build --preset vs --config Release
 
-  cd "$ROOT/Builds/vs/examples/UnitTests/UnitTests_artefacts/Release"
+  cd "$ROOT/Builds/vs/examples/UnitTests/UnitTests_artefacts/Release/Standalone"
   ./UnitTests.exe
 
   cp -R "$ROOT/Builds/vs/examples/Demo/Demo_artefacts/Release/Demo.exe" $ROOT/bin

@@ -11,10 +11,44 @@
 #pragma once
 
 //==============================================================================
-/** FIFO - stuff midi in one end and it pops out the other.
-*/
+/**
+    Simple MIDI buffer for time-shifting MIDI events within a single thread.
 
-//================================================================================================
+    MidiFifo provides a simple buffer for storing and retrieving MIDI messages
+    with automatic time offset adjustment. This is NOT thread-safe and should
+    only be used within a single thread for buffering MIDI events across
+    processing boundaries.
+
+    Unlike AudioFifo, this is a simple time-shifted buffer that shifts MIDI
+    event timestamps as data is written and read. It's useful for delaying
+    MIDI events or accumulating MIDI across multiple processing blocks.
+
+    Key Features:
+    - Buffers MIDI messages with timing information
+    - Automatic time offset adjustment
+    - Simple read/write interface
+    - Clear operation for reset
+
+    Thread Safety:
+    - NOT thread-safe
+    - Use only within a single thread
+    - For multi-threaded use, consider other synchronization mechanisms
+
+    Usage:
+    @code
+    MidiFifo midiFifo;
+
+    // Accumulate MIDI in single thread
+    midiFifo.write(incomingMidi, blockSize);
+
+    // Later in same thread
+    MidiBuffer outputMidi;
+    if (midiFifo.getSamplesUsed() >= blockSize)
+        midiFifo.read(outputMidi, blockSize);
+    @endcode
+
+    @see AudioFifo, AudioMidiFifo
+*/
 class MidiFifo
 {
 public:

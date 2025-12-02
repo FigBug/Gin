@@ -56,7 +56,9 @@ namespace gin
 #include "utilities/gin_asyncutilities.cpp"
 #include "utilities/gin_openstreetmaps.cpp"
 #include "utilities/gin_elevatedfilecopy.cpp"
-#include "utilities/gin_layout.cpp"
+#include "utilities/gin_componentmap.cpp"
+#include "utilities/gin_varianthelpers.cpp"
+#include "utilities/gin_layoutsupport.cpp"
 #include "utilities/gin_platform.cpp"
 #include "utilities/gin_systemclipboard.cpp"
 
@@ -67,6 +69,5 @@ namespace gin
 #include "components/gin_ginlookandfeel.cpp"
 #include "components/gin_mapviewer.cpp"
 #include "components/gin_propertycomponents.cpp"
-#include "components/gin_singlelinetexteditor.cpp"
 
 }

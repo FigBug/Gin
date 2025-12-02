@@ -57,6 +57,7 @@ namespace gin
 #include "utilities/gin_linearregression.cpp"
 #include "utilities/gin_messagepack.cpp"
 #include "utilities/gin_realtimeasyncupdater.cpp"
+#include "utilities/gin_realtimeevent.cpp"
 #include "utilities/gin_riffparser.cpp"
 #include "utilities/gin_plist.cpp"
 #ifndef JUCE_ANDROID

@@ -1,7 +1,50 @@
 #pragma once
 
 //==============================================================================
-/** Slider + editable text for showing a param
+/**
+    Complete parameter control combining rotary slider, value readout, and modulation.
+
+    Knob provides a full-featured parameter UI component that combines a rotary slider
+    (PluginSlider), a text value display (Readout), and visual modulation feedback.
+    It supports drag-and-drop modulation assignment, modulation depth adjustment, and
+    real-time display of modulation values.
+
+    Key Features:
+    - Rotary slider control with mouse interaction
+    - Editable text value readout
+    - Visual modulation depth indicator
+    - Drag-and-drop modulation source assignment
+    - Live modulation value display
+    - Modulation learning mode
+    - Optional bipolar (from-centre) display
+    - Customizable display name
+    - Integration with ModMatrix
+
+    Interaction:
+    - Drag slider to adjust parameter value
+    - Click readout to type exact value
+    - Drag-and-drop mod source to assign modulation
+    - Right-click for modulation menu
+    - Shift-drag to adjust modulation depth
+
+    The knob automatically connects to the ModMatrix to display active modulations
+    and allows users to assign, adjust, and remove modulation sources visually.
+
+    Usage:
+    @code
+    auto* cutoffParam = processor.getParameter("cutoff");
+    auto* knob = new Knob(cutoffParam);
+    knob->setDisplayName("Cutoff");
+
+    // Enable live modulation display
+    knob->setLiveValuesCallback([this]() {
+        return getCurrentModulationValues();
+    });
+
+    addAndMakeVisible(knob);
+    @endcode
+
+    @see Parameter, ModMatrix, PluginSlider, Readout
 */
 class Knob : public ParamComponent,
              public juce::DragAndDropTarget,

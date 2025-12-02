@@ -12,11 +12,83 @@
 #include "gin_noise.h"
 
 //==============================================================================
+/**
+    Band-limited sine wave generator.
+
+    Generates a pure sine wave at the given phase. No band-limiting is needed
+    for sine waves as they contain only the fundamental frequency.
+
+    @param phase Phase position (0.0 to 1.0)
+    @param unused1 Unused parameter for API consistency
+    @param unused2 Unused parameter for API consistency
+    @return Sample value (-1.0 to 1.0)
+*/
 float sine (float phase, float unused1 = 0, float unused2 = 0);
+
+/**
+    Band-limited triangle wave generator.
+
+    Generates an anti-aliased triangle wave using pre-computed band-limited
+    wavetables based on the fundamental frequency.
+
+    @param phase Phase position (0.0 to 1.0)
+    @param freq Fundamental frequency in Hz
+    @param sampleRate Current sample rate
+    @return Sample value (-1.0 to 1.0)
+*/
 float triangle (float phase, float freq, float sampleRate);
+
+/**
+    Band-limited upward sawtooth wave generator.
+
+    Generates an anti-aliased sawtooth wave that rises from -1 to 1 using
+    pre-computed band-limited wavetables.
+
+    @param phase Phase position (0.0 to 1.0)
+    @param freq Fundamental frequency in Hz
+    @param sampleRate Current sample rate
+    @return Sample value (-1.0 to 1.0)
+*/
 float sawUp (float phase, float freq, float sampleRate);
+
+/**
+    Band-limited downward sawtooth wave generator.
+
+    Generates an anti-aliased sawtooth wave that falls from 1 to -1 using
+    pre-computed band-limited wavetables.
+
+    @param phase Phase position (0.0 to 1.0)
+    @param freq Fundamental frequency in Hz
+    @param sampleRate Current sample rate
+    @return Sample value (-1.0 to 1.0)
+*/
 float sawDown (float phase, float freq, float sampleRate);
+
+/**
+    Band-limited pulse wave generator with variable pulse width.
+
+    Generates an anti-aliased pulse wave with adjustable pulse width (duty cycle).
+    Uses pre-computed band-limited wavetables for alias-free waveforms.
+
+    @param phase Phase position (0.0 to 1.0)
+    @param pw Pulse width / duty cycle (0.0 to 1.0, 0.5 = square wave)
+    @param freq Fundamental frequency in Hz
+    @param sampleRate Current sample rate
+    @return Sample value (-1.0 to 1.0)
+*/
 float pulse (float phase, float pw, float freq, float sampleRate);
+
+/**
+    Band-limited square wave generator (50% duty cycle pulse).
+
+    Generates an anti-aliased square wave using pre-computed band-limited
+    wavetables. Equivalent to pulse() with pw = 0.5.
+
+    @param phase Phase position (0.0 to 1.0)
+    @param freq Fundamental frequency in Hz
+    @param sampleRate Current sample rate
+    @return Sample value (-1.0 to 1.0)
+*/
 float squareWave (float phase, float freq, float sampleRate);
 
 //==============================================================================
@@ -176,17 +248,37 @@ public:
 };
 
 //==============================================================================
+/**
+    Waveform types for band-limited oscillators.
+
+    Wave enum defines the available waveform shapes for oscillators using
+    band-limited lookup tables. Each waveform (except noise types) is
+    pre-computed with appropriate band-limiting to prevent aliasing.
+
+    Available Waveforms:
+    - silence: No output (0.0)
+    - sine: Pure sine wave (fundamental only, no harmonics)
+    - triangle: Triangle wave with soft harmonics
+    - sawUp: Upward sawtooth (ramp up from -1 to 1)
+    - sawDown: Downward sawtooth (ramp down from 1 to -1)
+    - pulse: Variable pulse width waveform
+    - square: Square wave (50% duty cycle pulse)
+    - whiteNoise: White noise (equal energy across all frequencies)
+    - pinkNoise: Pink noise (equal energy per octave, -3dB/octave)
+
+    @see BandLimitedLookupTables, BandLimitedLookupTable
+*/
 enum class Wave
 {
-    silence     = 0,
-    sine        = 1,
-    triangle    = 2,
-    sawUp       = 3,
-    sawDown     = 4,
-    pulse       = 5,
-    square      = 6,
-    whiteNoise  = 7,
-    pinkNoise   = 8,
+    silence     = 0,  ///< Silence (outputs 0.0)
+    sine        = 1,  ///< Sine wave
+    triangle    = 2,  ///< Triangle wave
+    sawUp       = 3,  ///< Upward sawtooth
+    sawDown     = 4,  ///< Downward sawtooth
+    pulse       = 5,  ///< Pulse wave (variable width)
+    square      = 6,  ///< Square wave (50% pulse)
+    whiteNoise  = 7,  ///< White noise
+    pinkNoise   = 8,  ///< Pink noise
 };
 
 //==============================================================================

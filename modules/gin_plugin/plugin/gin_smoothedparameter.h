@@ -15,7 +15,8 @@ public:
                        std::function<juce::String (const gin::Parameter&, float)> textFunction_ = nullptr)
         : Parameter (p, uid_, name_, shortName_, label_, minValue_, maxValue_, intervalValue_, defaultValue_, skewFactor_, textFunction_)
     {
-        smoother.setValue (range.convertTo0to1 (value));
+        smoother.setValue (range.convertTo0to1 (value.load (std::memory_order_relaxed)));
+        smoother.snapToValue();
     }
 
     SmoothedParameter (Processor& p, juce::String uid_, juce::String name_, juce::String shortName_, juce::String label_,
@@ -23,7 +24,8 @@ public:
                        std::function<juce::String (const gin::Parameter&, float)> textFunction_ = nullptr)
         : Parameter (p, uid_, name_, shortName_, label_, range_, defaultValue_, textFunction_)
     {
-        smoother.setValue (range.convertTo0to1 (value));
+        smoother.setValue (range.convertTo0to1 (value.load (std::memory_order_relaxed)));
+        smoother.snapToValue();
     }
     
     void prepareToPlay (double sampleRate, int /*samplesPerBlock*/) override
@@ -40,10 +42,10 @@ public:
     void setUserValue (float v) override
     {
         v = juce::jlimit(range.start, range.end, range.snapToLegalValue (v));
-        if (! juce::approximatelyEqual (value, v))
+        if (! juce::approximatelyEqual (value.load (std::memory_order_relaxed), v))
         {
-            value = v;
-            smoother.setValue (range.convertTo0to1 (value));
+            value.store (v, std::memory_order_relaxed);
+            smoother.setValue (range.convertTo0to1 (value.load (std::memory_order_relaxed)));
 
             triggerAsyncUpdate();
         }
@@ -52,11 +54,11 @@ public:
     void setUserValueNotifingHost (float v) override
     {
         v = juce::jlimit (range.start, range.end, range.snapToLegalValue (v));
-        if (! juce::approximatelyEqual (value, v))
+        if (! juce::approximatelyEqual (value.load (std::memory_order_relaxed), v))
         {
-            value = v;
-            smoother.setValue (range.convertTo0to1 (value));
-            
+            value.store (v, std::memory_order_relaxed);
+            smoother.setValue (range.convertTo0to1 (value.load (std::memory_order_relaxed)));
+
             setValueNotifyingHost (getValue());
 
             triggerAsyncUpdate();
@@ -68,11 +70,11 @@ public:
         valueIn = juce::jlimit (0.0f, 1.0f, valueIn);
         float newValue = range.snapToLegalValue (range.convertFrom0to1 (valueIn));
 
-        if (! juce::approximatelyEqual (value, newValue))
+        if (! juce::approximatelyEqual (value.load (std::memory_order_relaxed), newValue))
         {
-            value = newValue;
-            smoother.setValue (range.convertTo0to1 (value));
-            
+            value.store (newValue, std::memory_order_relaxed);
+            smoother.setValue (range.convertTo0to1 (value.load (std::memory_order_relaxed)));
+
             triggerAsyncUpdate();
         }
     }

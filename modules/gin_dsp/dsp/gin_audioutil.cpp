@@ -64,7 +64,6 @@ juce::String getMidiMessageType (const juce::MidiMessage& msg)
     if (msg.isPitchWheel()) return "Pitch Wheel";
     if (msg.isAftertouch()) return "Aftertouch";
     if (msg.isChannelPressure()) return "Channel Pressure";
-    if (msg.isController()) return "Controller";
     if (msg.isAllNotesOff()) return "All Notes Off";
     if (msg.isAllSoundOff()) return "All Sound Off";
     if (msg.isMetaEvent()) return "Meta";
@@ -84,6 +83,7 @@ juce::String getMidiMessageType (const juce::MidiMessage& msg)
     if (msg.isQuarterFrame()) return "Quarter Frame";
     if (msg.isFullFrame()) return "Full Frame";
     if (msg.isMidiMachineControlMessage()) return "MMC";
+    if (msg.isController()) return "Controller";
 
     return "Unknown";
 }

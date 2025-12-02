@@ -168,3 +168,4 @@ void ADSR::reset()
     state = idle;
     output = 0.0f;
 }
+

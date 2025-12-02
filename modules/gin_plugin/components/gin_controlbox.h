@@ -1,7 +1,38 @@
 #pragma once
 
 //==============================================================================
-/** A box for holding controls on a grid
+/**
+    Container for organizing plugin controls on a grid layout with page support.
+
+    ControlBox provides a simple grid-based layout system for organizing multiple
+    parameter controls (knobs, sliders, buttons) in a plugin UI. It supports
+    multi-page layouts where controls can be shown/hidden based on the current page.
+
+    Key Features:
+    - Grid-based positioning tied to ProcessorEditor grid dimensions
+    - Multi-page support for organizing controls
+    - Automatic visibility management per page
+    - Extends MultiParamComponent for parameter control
+
+    Usage:
+    @code
+    ControlBox box(myEditor);
+
+    // Add controls to default page (0)
+    auto* knob1 = new Knob(param1);
+    knob1->setBounds(box.getGridArea(0, 0)); // Grid position (0,0)
+    box.add(knob1);
+
+    // Add control to page 1
+    auto* knob2 = new Knob(param2);
+    knob2->setBounds(box.getGridArea(1, 0)); // Grid position (1,0)
+    box.add(1, knob2); // Add to page 1
+
+    // Switch pages
+    box.setPage(1); // Show page 1 controls, hide others
+    @endcode
+
+    @see PagedControlBox, MultiParamComponent, ProcessorEditor
 */
 class ControlBox : public MultiParamComponent
 {
@@ -51,8 +82,38 @@ private:
 };
 
 //==============================================================================
-/** A control for holding pags of controls on a grid
-    Pages slide over top of each other to make room
+/**
+    Advanced container with sliding page transitions for organizing controls.
+
+    PagedControlBox extends ControlBox with animated page transitions. Pages slide
+    over each other with smooth animations, providing a polished UI for plugins
+    with many parameters organized into logical groups.
+
+    Key Features:
+    - Multiple pages with smooth sliding animations
+    - Grid-based layout per page
+    - Automatic page positioning and sizing
+    - Cover overlay for visual polish
+    - Page open/close animation tracking
+
+    Usage:
+    @code
+    PagedControlBox pagedBox(myEditor);
+
+    // Add pages with specified dimensions
+    pagedBox.addPage("Oscillator", 4, 6); // 4 rows, 6 columns
+    pagedBox.addPage("Filter", 3, 4);
+    pagedBox.addPage("Effects", 5, 5);
+
+    // Add controls to specific pages
+    pagedBox.addControl(0, 0, 0, knob1); // Page 0, grid (0,0)
+    pagedBox.addControl(1, 1, 2, slider1); // Page 1, grid (1,2)
+
+    // Animate to a page
+    pagedBox.goToPage(1); // Slide to page 1
+    @endcode
+
+    @see ControlBox, MultiParamComponent
 */
 class PagedControlBox : public MultiParamComponent
 {

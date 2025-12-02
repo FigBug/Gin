@@ -90,4 +90,6 @@ protected:
     juce::Array<Parameter*> params;
 
     std::unique_ptr<juce::BubbleMessageComponent> bubble;
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MultiParamComponent)
 };

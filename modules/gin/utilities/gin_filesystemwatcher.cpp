@@ -101,6 +101,8 @@ public:
 
 //==============================================================================
 #ifdef JUCE_LINUX
+#include <poll.h>
+
 #define BUF_LEN (10 * (sizeof(struct inotify_event) + NAME_MAX + 1))
 
 class FileSystemWatcher::Impl final : public juce::Thread,
@@ -109,14 +111,21 @@ class FileSystemWatcher::Impl final : public juce::Thread,
 public:
     struct Event
     {
-        Event () = delete;
+        Event () = default;
         Event (const juce::File& f, const FileSystemEvent e) : file(f), fsEvent(e) {}
-        Event (Event& other) = default;
+        Event (const Event& other) = default;
         Event (Event&& other) = default;
 
         juce::File file;
         FileSystemEvent fsEvent = undefined;
 
+        Event& operator= (const Event& other)
+        {
+            file = other.file;
+            fsEvent = other.fsEvent;
+            return *this;
+        }
+        
         bool operator== (const Event& other) const
         {
             return file == other.file && fsEvent == other.fsEvent;
@@ -139,74 +148,102 @@ public:
     ~Impl() override
     {
         signalThreadShouldExit();
+
+        // Cancel any pending async updates before shutting down
+        cancelPendingUpdate();
+
+        // Wait for thread to exit (poll() timeout will allow it to check threadShouldExit)
+        stopThread (1000);
+
+        // Clean up inotify resources
         inotify_rm_watch (fd, wd);
         close (fd);
-
-        waitForThreadToExit (1000);
     }
 
     void run() override
     {
-        const inotify_event* iNotifyEvent;
-
-        while (! threadShouldExit())
+        try
         {
-            char buf[BUF_LEN];
-            const ssize_t numRead = read (fd, buf, BUF_LEN);
+            const inotify_event* iNotifyEvent;
 
-            if (numRead <= 0 || threadShouldExit())
-                break;
+            struct pollfd pfd;
+            pfd.fd = fd;
+            pfd.events = POLLIN;
 
-            for (const char* ptr = buf; ptr < buf + numRead; ptr += sizeof(struct inotify_event) + iNotifyEvent->len)
+            while (! threadShouldExit())
             {
-                iNotifyEvent = reinterpret_cast<const inotify_event*>(ptr);
+                // Poll with timeout to allow checking threadShouldExit periodically
+                const int pollResult = poll (&pfd, 1, 100); // 100ms timeout
 
-                FileSystemEvent eventType = undefined;
-                     if (iNotifyEvent->mask & IN_CREATE)      eventType = FileSystemEvent::fileCreated;
-                else if (iNotifyEvent->mask & IN_CLOSE_WRITE) eventType = FileSystemEvent::fileUpdated;
-                else if (iNotifyEvent->mask & IN_MODIFY)      eventType = FileSystemEvent::fileUpdated;
-                else if (iNotifyEvent->mask & IN_MOVED_FROM)  eventType = FileSystemEvent::fileRenamedOldName;
-                else if (iNotifyEvent->mask & IN_MOVED_TO)    eventType = FileSystemEvent::fileRenamedNewName;
-                else if (iNotifyEvent->mask & IN_DELETE)      eventType = FileSystemEvent::fileDeleted;
-
-                if (eventType == FileSystemEvent::undefined) {
+                if (pollResult < 0)
+                {
+                    // Error occurred
+                    if (errno != EINTR) // Ignore interrupts
+                        break;
                     continue;
                 }
 
-                juce::ScopedLock sl (lock);
-                Event e (folder.getFullPathName() + '/' + iNotifyEvent->name, eventType);
-                if (std::ranges::none_of(events, [&](const auto& event) {
-                    return event == e;
-                })) {
-                    events.add (std::move (e));
+                if (pollResult == 0)
+                {
+                    // Timeout - no events available, loop back to check threadShouldExit
+                    continue;
                 }
-            }
 
-            juce::ScopedLock sl (lock);
-            if (!events.isEmpty()) {
-                triggerAsyncUpdate();
+                // Data is available to read
+                if (pfd.revents & POLLIN)
+                {
+                    char buf[BUF_LEN];
+                    const ssize_t numRead = read (fd, buf, BUF_LEN);
+
+                    if (numRead <= 0)
+                        break;
+
+                    for (const char* ptr = buf; ptr < buf + numRead; ptr += sizeof(struct inotify_event) + iNotifyEvent->len)
+                    {
+                        iNotifyEvent = reinterpret_cast<const inotify_event*>(ptr);
+
+                        FileSystemEvent eventType = undefined;
+                        if (iNotifyEvent->mask & IN_CREATE)      eventType = FileSystemEvent::fileCreated;
+                        else if (iNotifyEvent->mask & IN_CLOSE_WRITE) eventType = FileSystemEvent::fileUpdated;
+                        else if (iNotifyEvent->mask & IN_MODIFY)      eventType = FileSystemEvent::fileUpdated;
+                        else if (iNotifyEvent->mask & IN_MOVED_FROM)  eventType = FileSystemEvent::fileRenamedOldName;
+                        else if (iNotifyEvent->mask & IN_MOVED_TO)    eventType = FileSystemEvent::fileRenamedNewName;
+                        else if (iNotifyEvent->mask & IN_DELETE)      eventType = FileSystemEvent::fileDeleted;
+
+                        if (eventType == FileSystemEvent::undefined)
+                            continue;
+
+                        Event e (folder.getFullPathName() + '/' + iNotifyEvent->name, eventType);
+                        events.write (e);
+                    }
+
+                    if (events.getNumReady() > 0)
+                        triggerAsyncUpdate();
+                }
+
+                // Check for errors or hangup
+                if (pfd.revents & (POLLERR | POLLHUP | POLLNVAL))
+                    break;
             }
+        }
+        catch (...)
+        {
+
         }
     }
 
     void handleAsyncUpdate() override
     {
-        juce::ScopedLock sl (lock);
-
         owner.folderChanged (folder);
 
-        for (const auto& e : events) {
-            owner.fileChanged (e.file, e.fsEvent);
-        }
-
-        events.clear();
+        while (auto e = events.read())
+            owner.fileChanged (e->file, e->fsEvent);
     }
 
     FileSystemWatcher& owner;
     juce::File folder;
 
-    juce::CriticalSection lock;
-    juce::Array<Event> events;
+    LockFreeQueue<Event> events { 100 };
 
     int fd;
     int wd;
@@ -358,6 +395,7 @@ FileSystemWatcher::FileSystemWatcher()
 
 FileSystemWatcher::~FileSystemWatcher()
 {
+    watched.clear();
 }
 
 void FileSystemWatcher::coalesceEvents (int windowMS)
@@ -370,8 +408,16 @@ void FileSystemWatcher::addFolder (const juce::File& folder)
     // You can only listen to folders that exist
     jassert (folder.isDirectory());
 
+#if JUCE_LINUX
     if ( ! getWatchedFolders().contains (folder))
         watched.add (new Impl (*this, folder));
+#else
+    for (auto parent : getWatchedFolders())
+        if (folder == parent || folder.isAChildOf (parent))
+            return;
+
+    watched.add (new Impl (*this, folder));
+#endif
 }
 
 void FileSystemWatcher::removeFolder (const juce::File& folder)

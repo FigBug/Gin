@@ -10,7 +10,44 @@
 #pragma once
 
 //==============================================================================
-/** LFO with editable number of steps
+/**
+    Step sequencer-style LFO with programmable values per step.
+
+    StepLFO provides a stepped low-frequency oscillator where each step can have
+    an independently programmed value. Unlike smooth LFOs, this creates stepped/
+    quantized modulation patterns useful for rhythmic effects and sequenced modulation.
+
+    Key Features:
+    - Configurable number of steps
+    - Independent value per step (-1.0 to 1.0)
+    - Adjustable frequency (rate)
+    - Phase reset on note-on for tempo-synced patterns
+    - Constant output per step (no interpolation)
+
+    Usage:
+    @code
+    StepLFO stepLFO;
+    stepLFO.setSampleRate(44100.0);
+    stepLFO.setNumPoints(8); // 8-step sequence
+    stepLFO.setFreq(2.0f);   // 2 Hz (complete cycle every 0.5 seconds)
+
+    // Program step values
+    stepLFO.setPoint(0, 1.0f);   // Step 1: max
+    stepLFO.setPoint(1, 0.5f);   // Step 2: half
+    stepLFO.setPoint(2, 0.0f);   // Step 3: center
+    stepLFO.setPoint(3, -0.5f);  // Step 4: negative
+    stepLFO.setPoint(4, -1.0f);  // Step 5: min
+    stepLFO.setPoint(5, -0.5f);
+    stepLFO.setPoint(6, 0.0f);
+    stepLFO.setPoint(7, 0.5f);
+
+    stepLFO.noteOn(); // Reset to beginning
+
+    // In audio callback
+    float modValue = stepLFO.process(numSamples);
+    @endcode
+
+    @see MSEG, LFO
 */
 class StepLFO
 {

@@ -7,13 +7,29 @@
 
 #pragma once
 
-/** Lagrange interpolation is a simple way to obtain a smooth curve from a set of
-    discrete points.
+/** Lagrange interpolation functions for obtaining smooth curves from discrete points.
+
+    Lagrange interpolation creates a polynomial that passes through all given points.
+    Unlike splines, it uses a single polynomial rather than piecewise functions.
+    Note that for large numbers of points, the resulting polynomial can oscillate
+    significantly (Runge's phenomenon).
+
+    @see interpolate
 */
 
 namespace Lagrange
 {
 
+/** Interpolates a value at coordinate x using Lagrange polynomial interpolation.
+
+    Creates a polynomial that passes through all the given points and evaluates it
+    at the specified x coordinate. The resulting polynomial has degree n-1 where n
+    is the number of points.
+
+    @param points  An array of Point<T> defining the interpolation curve
+    @param x       The x coordinate at which to evaluate the interpolated value
+    @returns       The interpolated y value at coordinate x
+*/
 template <typename T>
 T interpolate (const juce::Array<Point<T>>& points, T x)
 {
@@ -41,6 +57,18 @@ T interpolate (const juce::Array<Point<T>>& points, T x)
     return res;
 }
 
+/** Interpolates a value at coordinate x using Lagrange polynomial interpolation.
+
+    This overload accepts separate arrays for x and y coordinates rather than
+    an array of points. Creates a polynomial that passes through all the given
+    points and evaluates it at the specified x coordinate.
+
+    @param xArr  Array of x coordinates
+    @param yArr  Array of y coordinates (must be same length as xArr)
+    @param num   Number of points in the arrays
+    @param x     The x coordinate at which to evaluate the interpolated value
+    @returns     The interpolated y value at coordinate x
+*/
 template <typename T>
 T interpolate (T xArr[], T yArr[], int num, T x)
 {

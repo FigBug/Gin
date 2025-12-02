@@ -10,7 +10,63 @@
 #pragma once
 
 //==============================================================================
-/** MSEG LFO
+/**
+    Multi-Segment Envelope Generator (MSEG) for complex modulation curves.
+
+    MSEG provides a sophisticated LFO/envelope generator with multiple breakpoints
+    and adjustable curves between them. Each segment can have independent curve
+    shaping, allowing for complex modulation patterns beyond simple LFO waveforms.
+
+    Key Features:
+    - Configurable breakpoints (up to maxPoints, default 200)
+    - Curve shaping between points (exponential/logarithmic)
+    - Loop mode with definable start/end points
+    - Delay and fade-in on note-on
+    - Depth and offset controls
+    - Phase control for starting position
+    - ValueTree serialization for preset saving
+
+    Each Point has:
+    - time: Position in the cycle (0.0 to 1.0)
+    - value: Output value at this point (-inf to +inf, typically -1 to 1)
+    - curve: Curve shape (-inf to +inf, 0=linear, positive=exponential, negative=logarithmic)
+
+    Parameters:
+    - frequency: Rate in Hz (for looping mode)
+    - phase: Starting phase (0.0 to 1.0)
+    - offset: DC offset added to output
+    - depth: Output scaling factor
+    - delay: Initial delay before envelope starts (seconds)
+    - fade: Fade-in time (seconds)
+    - loop: Enable looping between start/end points
+
+    Usage:
+    @code
+    MSEG::Data msegData;
+    MSEG mseg(msegData);
+    mseg.setSampleRate(44100.0);
+
+    // Define envelope shape
+    msegData.points[0] = {0.0f, 0.0f, 0.0f};   // Start at 0
+    msegData.points[1] = {0.2f, 1.0f, 2.0f};   // Rise with curve
+    msegData.points[2] = {0.8f, 0.5f, -1.0f};  // Decay with curve
+    msegData.points[3] = {1.0f, 0.0f, 0.0f};   // Return to 0
+    msegData.numPoints = 4;
+    msegData.startIndex = 0;
+    msegData.endIndex = 3;
+
+    MSEG::Parameters params;
+    params.frequency = 2.0f;  // 2 Hz
+    params.loop = true;
+    params.depth = 1.0f;
+    params.offset = 0.0f;
+    mseg.setParameters(params);
+
+    mseg.noteOn();
+    float modValue = mseg.process(numSamples);
+    @endcode
+
+    @see StepLFO, LFO, AnalogADSR
 */
 class MSEG
 {

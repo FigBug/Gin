@@ -53,7 +53,7 @@ static void toData (juce::OutputStream& os, const juce::var& obj)
         {
             if (v >= -7)
             {
-                os.writeByte (char (0xe0 | - char (-v)));
+                os.writeByte (char (0xe0 | char (-v)));
             }
             else if (v >= -128)
             {
@@ -343,6 +343,22 @@ static juce::var fromData (juce::InputStream& is)
     else if (d == 0xcf)
     {
         return int (uint64_t (is.readInt64BigEndian()));
+    }
+    else if (d == 0xd0)
+    {
+        return int (int8_t (is.readByte()));
+    }
+    else if (d == 0xd1)
+    {
+        return int (int16_t (is.readShortBigEndian()));
+    }
+    else if (d == 0xd2)
+    {
+        return int (int32_t (is.readIntBigEndian()));
+    }
+    else if (d == 0xd3)
+    {
+        return int (int64_t (is.readInt64BigEndian()));
     }
     else if (d == 0xd4)
     {

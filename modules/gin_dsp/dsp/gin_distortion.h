@@ -32,7 +32,59 @@
 #pragma once
 
 //==============================================================================
-/** Distortion based on AirWindows plugins
+/**
+    Sine-based waveshaping distortion effect based on AirWindows plugins.
+
+    AirWindowsDistortion provides musical distortion using sine waveshaping with
+    density control that can produce both soft saturation and aggressive clipping.
+    Based on Chris Johnson's AirWindows plugins, it features integrated highpass
+    filtering, automatic denormalization prevention, and 32-bit dithering.
+
+    Key Features:
+    - Sine-based waveshaping for musical harmonics
+    - Density control from subtle to extreme (-1 to 4)
+    - Integrated highpass filter
+    - Denormalization prevention for CPU efficiency
+    - 32-bit dithering for low-level detail
+    - Dry/wet mix control
+    - Output level scaling
+
+    Parameters:
+    - density: Distortion amount (-1.0 to 4.0)
+      - Negative values: starved/compressed distortion
+      - Positive values: boosted/saturated distortion
+      - Values > 1.0: multiple waveshaping passes
+    - highpass: Highpass filter amount (0.0 to 1.0)
+    - output: Output level scaling (0.0 to 1.0+)
+    - mix: Dry/wet blend (0.0 = dry, 1.0 = wet)
+
+    The density parameter uses sine waveshaping which produces odd harmonics,
+    creating a warm, musical distortion character. Values above 1.0 apply
+    multiple passes of waveshaping for increasingly aggressive distortion.
+
+    Usage:
+    @code
+    AirWindowsDistortion distortion;
+    distortion.setSampleRate(44100.0);
+
+    // Subtle saturation
+    distortion.setParams(0.5f,  // moderate density
+                        0.1f,  // slight highpass
+                        0.8f,  // reduce output
+                        0.7f); // 70% wet
+
+    distortion.process(audioBuffer);
+
+    // Aggressive clipping
+    distortion.setParams(2.0f,  // high density
+                        0.3f,  // more highpass
+                        0.6f,  // compensate output
+                        1.0f); // fully wet
+    @endcode
+
+    Credits: Based on AirWindows plugins by Chris Johnson (MIT License)
+
+    @see Filter, WaveShaper
 */
 class AirWindowsDistortion
 {
