@@ -16,6 +16,7 @@
 #include "3rdparty/webp/dsp/lossless_enc_sse2.c"
 #include "3rdparty/webp/dsp/cost.c"
 #include "3rdparty/webp/dsp/upsampling_neon.c"
+#include "3rdparty/webp/sharpyuv/sharpyuv_dsp.c"
 
 #if defined (HAS_SSE41)
 #include "3rdparty/webp/dsp/yuv_sse41.c"

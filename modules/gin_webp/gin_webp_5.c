@@ -23,4 +23,3 @@
 #include "3rdparty/webp/mux/anim_encode.c"
 #include "3rdparty/webp/enc/picture_tools_enc.c"
 #include "3rdparty/webp/dsp/lossless_neon.c"
-#include "3rdparty/webp/sharpyuv/sharpyuv_dsp.c"
