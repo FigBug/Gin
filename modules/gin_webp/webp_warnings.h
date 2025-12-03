@@ -5,9 +5,6 @@
 
  ==============================================================================*/
 
-#define GIN_WEBP_NO_SSE41 1
-#define GIN_WEBP_NO_AVX2 1
-
 #if defined (__clang__)
  #pragma clang diagnostic push
  #pragma clang diagnostic ignored "-Wconversion"
