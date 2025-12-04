@@ -8,6 +8,8 @@
 UnitTestsAudioProcessorEditor::UnitTestsAudioProcessorEditor (UnitTestsAudioProcessor& p)
     : AudioProcessorEditor (&p)
 {
+    juce::Logger::setCurrentLogger (&logger);
+
     setSize (800, 600);
 
     // Setup log text editor
@@ -73,11 +75,13 @@ UnitTestsAudioProcessorEditor::UnitTestsAudioProcessorEditor (UnitTestsAudioProc
     resized();
 
     // Start timer at 100ms - will switch demos and check for unit test start
-    startTimer (100);
+    startTimer (500);
 }
 
 UnitTestsAudioProcessorEditor::~UnitTestsAudioProcessorEditor()
 {
+    juce::Logger::setCurrentLogger (nullptr);
+
     stopTimer();
 }
 
@@ -85,8 +89,8 @@ void UnitTestsAudioProcessorEditor::timerCallback()
 {
     timerCount++;
 
-    // Start unit tests after 1 second (10 ticks at 100ms)
-    if (!unitTestsStarted && timerCount >= 10)
+    // Start unit tests after 1 second (2 ticks at 500ms)
+    if (!unitTestsStarted && timerCount >= 2)
     {
         unitTestsStarted = true;
 
@@ -128,7 +132,7 @@ void UnitTestsAudioProcessorEditor::runUnitTests()
                     textEditor.moveCaretToEnd();
                     textEditor.insertTextAtCaret (message + "\n");
                     
-                    juce::Logger::outputDebugString (message);
+                    printf ("%s\n", message.toRawUTF8());
                 }
             });
         }

@@ -3,6 +3,19 @@
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
 
+class PrintfLogger : public juce::Logger
+{
+public:
+    void logMessage (const juce::String& message) override
+    {
+        printf ("%s\n", message.toRawUTF8());
+
+        #if JUCE_WINDOWS
+        outputDebugString (message);
+        #endif
+    }
+};
+
 class UnitTestsAudioProcessorEditor : public juce::AudioProcessorEditor,
                                       private juce::Timer
 {
@@ -16,6 +29,8 @@ public:
 private:
     void timerCallback() override;
     void runUnitTests();
+
+    PrintfLogger logger;
 
     juce::TextEditor logTextEditor;
     int numFailures = 0;

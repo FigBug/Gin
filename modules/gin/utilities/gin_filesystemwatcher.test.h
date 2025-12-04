@@ -58,13 +58,16 @@ private:
 
         testDir.createDirectory();
 
-        FileSystemWatcher watcher;
-        watcher.addFolder (testDir);
+        auto watcher = std::make_unique<FileSystemWatcher>();
+        watcher->addFolder (testDir);
 
         // Just verify it constructs without crashing
         expect (true, "Watcher constructed successfully");
 
         testDir.deleteRecursively();
+
+        juce::MessageManagerLock mmLock;
+        watcher = nullptr;
     }
 
     void testFileCreation()
@@ -76,12 +79,13 @@ private:
 
         testDir.createDirectory();
 
-        FileSystemWatcher watcher;
+        auto watcher = std::make_unique<FileSystemWatcher>();
         TestListener listener;
-        watcher.addFolder (testDir);
-        watcher.addListener (&listener);
+        watcher->addFolder (testDir);
+        watcher->addListener (&listener);
 
         // Create a file
+        juce::Thread::sleep (500);
         auto testFile = testDir.getChildFile ("test.txt");
         testFile.replaceWithText ("test content");
 
@@ -89,15 +93,18 @@ private:
         int timeout = 0;
         while (listener.fileChangedCount == 0 && timeout < 2000)
         {
-            juce::Thread::sleep (10);
+            juce::Thread::sleep (100);
             timeout++;
         }
 
         expect (listener.fileChangedCount > 0, "Should detect file creation");
         expect (listener.folderChangedCount > 0, "Should detect folder change");
 
-        watcher.removeListener (&listener);
+        watcher->removeListener (&listener);
         testDir.deleteRecursively();
+
+        juce::MessageManagerLock mmLock;
+        watcher = nullptr;
     }
 
     void testFileModification()
@@ -115,31 +122,30 @@ private:
         // Wait a bit to let initial creation settle
         juce::Thread::sleep (100);
 
-        FileSystemWatcher watcher;
+        auto watcher = std::make_unique<FileSystemWatcher>();
         TestListener listener;
-        watcher.addFolder (testDir);
-        watcher.addListener (&listener);
-
-        // Reset counters after construction
-        juce::Thread::sleep (100);
-        listener.fileChangedCount = 0;
-        listener.folderChangedCount = 0;
+        watcher->addFolder (testDir);
+        watcher->addListener (&listener);
 
         // Modify the file
+        juce::Thread::sleep (500);
         testFile.replaceWithText ("modified content");
 
         // Wait for event
         int timeout = 0;
         while (listener.fileChangedCount == 0 && timeout < 2000)
         {
-            juce::Thread::sleep (10);
+            juce::Thread::sleep (100);
             timeout++;
         }
 
         expect (listener.fileChangedCount > 0, "Should detect file modification");
 
-        watcher.removeListener (&listener);
+        watcher->removeListener (&listener);
         testDir.deleteRecursively();
+
+        juce::MessageManagerLock mmLock;
+        watcher = nullptr;
     }
 
     void testFileDeletion()
@@ -157,30 +163,30 @@ private:
         // Wait for initial creation to settle
         juce::Thread::sleep (100);
 
-        FileSystemWatcher watcher;
+        auto watcher = std::make_unique<FileSystemWatcher>();
         TestListener listener;
-        watcher.addFolder (testDir);
-        watcher.addListener (&listener);
-
-        // Reset counters
-        juce::Thread::sleep (100);
-        listener.fileChangedCount = 0;
+        watcher->addFolder (testDir);
+        watcher->addListener (&listener);
 
         // Delete the file
+        juce::Thread::sleep (500);
         testFile.deleteFile();
 
         // Wait for event
         int timeout = 0;
         while (listener.fileChangedCount == 0 && timeout < 2000)
         {
-            juce::Thread::sleep (10);
+            juce::Thread::sleep (100);
             timeout++;
         }
 
         expect (listener.fileChangedCount > 0, "Should detect file deletion");
 
-        watcher.removeListener (&listener);
+        watcher->removeListener (&listener);
         testDir.deleteRecursively();
+
+        juce::MessageManagerLock mmLock;
+        watcher = nullptr;
     }
 
     void testFolderChanged()
@@ -192,12 +198,13 @@ private:
 
         testDir.createDirectory();
 
-        FileSystemWatcher watcher;
+        auto watcher = std::make_unique<FileSystemWatcher>();
         TestListener listener;
-        watcher.addFolder (testDir);
-        watcher.addListener (&listener);
+        watcher->addFolder (testDir);
+        watcher->addListener (&listener);
 
         // Create a file to trigger folder change
+        juce::Thread::sleep (500);
         auto testFile = testDir.getChildFile ("trigger.txt");
         testFile.replaceWithText ("trigger");
 
@@ -205,14 +212,17 @@ private:
         int timeout = 0;
         while (listener.folderChangedCount == 0 && timeout < 2000)
         {
-            juce::Thread::sleep (10);
+            juce::Thread::sleep (100);
             timeout++;
         }
 
         expect (listener.folderChangedCount > 0, "Should call folderChanged callback");
 
-        watcher.removeListener (&listener);
+        watcher->removeListener (&listener);
         testDir.deleteRecursively();
+
+        juce::MessageManagerLock mmLock;
+        watcher = nullptr;
     }
 #endif
 };

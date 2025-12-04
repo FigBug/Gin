@@ -339,7 +339,7 @@ extern "C"
 
 #if JUCE_MSVC
 #pragma warning (push)
-#pragma warning (disable: 4365)
+#pragma warning (disable: 4365 5033)
 #endif
 
 #define DONT_USE_EXTERN_C 1
