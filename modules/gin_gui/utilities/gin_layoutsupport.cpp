@@ -1,4 +1,72 @@
 
+// String constants
+static const juce::String kMac          { "mac" };
+static const juce::String kWin          { "win" };
+static const juce::String kLinux        { "linux" };
+static const juce::String kParX         { "parX" };
+static const juce::String kParY         { "parY" };
+static const juce::String kParCX        { "parCX" };
+static const juce::String kParCY        { "parCY" };
+static const juce::String kParW         { "parW" };
+static const juce::String kParH         { "parH" };
+static const juce::String kParW2        { "parW2" };
+static const juce::String kParH2        { "parH2" };
+static const juce::String kParR         { "parR" };
+static const juce::String kParB         { "parB" };
+static const juce::String kPrevX        { "prevX" };
+static const juce::String kPrevY        { "prevY" };
+static const juce::String kPrevCX       { "prevCX" };
+static const juce::String kPrevCY       { "prevCY" };
+static const juce::String kPrevW        { "prevW" };
+static const juce::String kPrevH        { "prevH" };
+static const juce::String kPrevR        { "prevR" };
+static const juce::String kPrevB        { "prevB" };
+static const juce::String kI            { "i" };
+static const juce::String kIdIdx        { "idIdx" };
+static const juce::String kParent       { "parent" };
+static const juce::String kPrev         { "prev" };
+
+static const juce::Identifier kConstants    { "constants" };
+static const juce::Identifier kMacros       { "macros" };
+static const juce::Identifier kComponents   { "components" };
+static const juce::Identifier kId           { "id" };
+static const juce::Identifier kFactory      { "factory" };
+static const juce::Identifier kMacro        { "macro" };
+static const juce::Identifier kOrder        { "order" };
+static const juce::Identifier kParentOrder  { "parentOrder" };
+static const juce::Identifier kGrid         { "grid" };
+static const juce::Identifier kIf           { "if" };
+static const juce::Identifier kTitle        { "title" };
+static const juce::Identifier kTip          { "tip" };
+static const juce::Identifier kProperties   { "properties" };
+static const juce::Identifier kVisible      { "visible" };
+static const juce::Identifier kZorder       { "zorder" };
+static const juce::Identifier kOptional     { "optional" };
+static const juce::Identifier kW            { "w" };
+static const juce::Identifier kH            { "h" };
+static const juce::Identifier kX            { "x" };
+static const juce::Identifier kY            { "y" };
+static const juce::Identifier kR            { "r" };
+static const juce::Identifier kB            { "b" };
+static const juce::Identifier kCx           { "cx" };
+static const juce::Identifier kCy           { "cy" };
+static const juce::Identifier kXy           { "xy" };
+static const juce::Identifier kXd           { "xd" };
+static const juce::Identifier kCxd          { "cxd" };
+static const juce::Identifier kYd           { "yd" };
+static const juce::Identifier kCyd          { "cyd" };
+static const juce::Identifier kSize         { "size" };
+static const juce::Identifier kInset        { "inset" };
+static const juce::Identifier kBorder       { "border" };
+static const juce::Identifier kBounds       { "bounds" };
+static const juce::Identifier kReduced      { "reduced" };
+static const juce::Identifier kCols         { "cols" };
+static const juce::Identifier kRows         { "rows" };
+static const juce::Identifier kColGap       { "colGap" };
+static const juce::Identifier kRowGap       { "rowGap" };
+static const juce::Identifier kUsesLayoutSupport { "usesLayoutSupport" };
+static const juce::Identifier kPrefixPrev   { "prev" };
+static const juce::Identifier kPrefixGet    { "get" };
 
 class ParserCache : public juce::DeletedAtShutdown
 {
@@ -234,20 +302,20 @@ LayoutSupport::LayoutSupport (juce::Component& parent_, std::function<std::pair<
     : parent (parent_), compMap (parent_), componentFactory (factory_)
 {
 #if JUCE_MAC
-    constants.set ("mac", 1.0);
-    constants.set ("win", 0.0);
-    constants.set ("linux", 0.0);
+    constants.set (kMac, 1.0);
+    constants.set (kWin, 0.0);
+    constants.set (kLinux, 0.0);
 #elif JUCE_WINDOWS
-    constants.set ("mac", 0.0);
-    constants.set ("win", 1.0);
-    constants.set ("linux", 0.0);
+    constants.set (kMac, 0.0);
+    constants.set (kWin, 1.0);
+    constants.set (kLinux, 0.0);
 #elif JUCE_LINUX
-    constants.set ("mac", 0.0);
-    constants.set ("win", 0.0);
-    constants.set ("linux", 1.0);
+    constants.set (kMac, 0.0);
+    constants.set (kWin, 0.0);
+    constants.set (kLinux, 1.0);
 #endif
 
-    parent.getProperties().set ("usesLayoutSupport", true);
+    parent.getProperties().set (kUsesLayoutSupport, true);
 
     if (refCount == 0)
     {
@@ -279,9 +347,9 @@ void LayoutSupport::loadConstants (juce::var& j)
     //
     // Find all the base level constants
     //
-    if (j.hasProperty ("constants"))
+    if (j.hasProperty (kConstants))
     {
-        for (auto& c : getAllProperties (j["constants"]))
+        for (auto& c : getAllProperties (j[kConstants]))
         {
             for (auto& itm : getPropertySet (c))
             {
@@ -306,11 +374,11 @@ void LayoutSupport::loadMacros (juce::var& j)
     //
     // Find all the base level constants
     //
-    if (j.hasProperty ("macros"))
+    if (j.hasProperty (kMacros))
     {
-        for (auto& c : getAllProperties (j["macros"]))
+        for (auto& c : getAllProperties (j[kMacros]))
         {
-            auto id = c["id"].toString();
+            auto id = c[kId].toString();
             macros[id] = c;
         }
     }
@@ -378,7 +446,7 @@ void LayoutSupport::setLayoutInternal (const juce::Array<JsonFile>& files)
     // Find all the base level constants
     //
     compMap.createMap ([] (juce::Component& c)
-                       { return ! c.getProperties().getWithDefault ("usesLayoutSupport", false); });
+                       { return ! c.getProperties().getWithDefault (kUsesLayoutSupport, false); });
 
     ConstantsStack::ScopedSave ssp (constants);
 
@@ -394,31 +462,31 @@ void LayoutSupport::setLayoutInternal (const juce::Array<JsonFile>& files)
             //
             // Position all components
             //
-            constants.set ("parX", parent.getX());
-            constants.set ("parY", parent.getY());
-            constants.set ("parCX", parent.getBounds().getCentreX());
-            constants.set ("parCY", parent.getBounds().getCentreY());
-            constants.set ("parW", parent.getWidth());
-            constants.set ("parH", parent.getHeight());
-            constants.set ("parW2", parent.getWidth() / 2);
-            constants.set ("parH2", parent.getHeight() / 2);
-            constants.set ("parR", parent.getRight());
-            constants.set ("parB", parent.getBottom());
+            constants.set (kParX, parent.getX());
+            constants.set (kParY, parent.getY());
+            constants.set (kParCX, parent.getBounds().getCentreX());
+            constants.set (kParCY, parent.getBounds().getCentreY());
+            constants.set (kParW, parent.getWidth());
+            constants.set (kParH, parent.getHeight());
+            constants.set (kParW2, parent.getWidth() / 2);
+            constants.set (kParH2, parent.getHeight() / 2);
+            constants.set (kParR, parent.getRight());
+            constants.set (kParB, parent.getBottom());
 
             loadConstants (j);
             loadMacros (j);
 
-            if (j.hasProperty ("w") && j.hasProperty ("h"))
+            if (j.hasProperty (kW) && j.hasProperty (kH))
             {
-                auto w = parse (j["w"], 0);
-                auto h = parse (j["h"], 0);
+                auto w = parse (j[kW], 0);
+                auto h = parse (j[kH], 0);
 
                 parent.setSize (w, h);
             }
 
-            if (j.hasProperty ("components"))
+            if (j.hasProperty (kComponents))
             {
-                auto components = j["components"];
+                auto components = j[kComponents];
                 setComponentsLayout ({}, components);
             }
         }
@@ -455,48 +523,48 @@ void LayoutSupport::setComponentsLayout (const juce::String& currentPath,
         //
         ConstantsStack::ScopedSave ssp (constants);
 
-        constants.set ("i", i);
+        constants.set (kI, i);
 
         auto updatePrevious = [&]
         {
             //
             // Previous component constants
             //
-            constants.set ("prevX", prevComponent != nullptr ? prevComponent->getX() : 0);
-            constants.set ("prevY", prevComponent != nullptr ? prevComponent->getY() : 0);
-            constants.set ("prevCX", prevComponent != nullptr ? prevComponent->getBounds().getCentreX() : 0);
-            constants.set ("prevCY", prevComponent != nullptr ? prevComponent->getBounds().getCentreY() : 0);
-            constants.set ("prevW", prevComponent != nullptr ? prevComponent->getWidth() : 0);
-            constants.set ("prevH", prevComponent != nullptr ? prevComponent->getHeight() : 0);
-            constants.set ("prevR", prevComponent != nullptr ? prevComponent->getRight() : 0);
-            constants.set ("prevB", prevComponent != nullptr ? prevComponent->getBottom() : 0);
+            constants.set (kPrevX, prevComponent != nullptr ? prevComponent->getX() : 0);
+            constants.set (kPrevY, prevComponent != nullptr ? prevComponent->getY() : 0);
+            constants.set (kPrevCX, prevComponent != nullptr ? prevComponent->getBounds().getCentreX() : 0);
+            constants.set (kPrevCY, prevComponent != nullptr ? prevComponent->getBounds().getCentreY() : 0);
+            constants.set (kPrevW, prevComponent != nullptr ? prevComponent->getWidth() : 0);
+            constants.set (kPrevH, prevComponent != nullptr ? prevComponent->getHeight() : 0);
+            constants.set (kPrevR, prevComponent != nullptr ? prevComponent->getRight() : 0);
+            constants.set (kPrevB, prevComponent != nullptr ? prevComponent->getBottom() : 0);
         };
 
         updatePrevious();
 
-        if (component.hasProperty ("constants"))
-            for (auto& c : getAllProperties (component["constants"]))
+        if (component.hasProperty (kConstants))
+            for (auto& c : getAllProperties (component[kConstants]))
                 for (auto& itm : getPropertySet (c))
                     constants.set (itm.key.toStdString(), parse (itm.value, 0));
 
         //
         // Ignore some commands
         //
-        if (component.hasProperty ("if"))
-            if (parse (component["if"], 0) == 0)
+        if (component.hasProperty (kIf))
+            if (parse (component[kIf], 0) == 0)
                 continue;
 
         //
         // If there is an id, position this component. If no id, then
         // its bounds are set in C++.
         //
-        if (component.hasProperty ("id"))
+        if (component.hasProperty (kId))
         {
             //
             // Size and position component
             //
 
-            juce::String idString = component["id"].toString();
+            juce::String idString = component[kId].toString();
             juce::StringArray ids;
 
             if (idString.contains (","))
@@ -506,17 +574,17 @@ void LayoutSupport::setComponentsLayout (const juce::String& currentPath,
 
             for (auto idIdx = 0; auto& id : ids)
             {
-                constants.set ("idIdx", idIdx);
+                constants.set (kIdIdx, idIdx);
                 //
                 // Create component on demand
                 //
-                if (component.hasProperty ("factory") && compMap.findComponent (currentPath + "/" + id) == nullptr)
+                if (component.hasProperty (kFactory) && compMap.findComponent (currentPath + "/" + id) == nullptr)
                 {
                     if (componentFactory)
                     {
                         if (auto par = compMap.findComponent (currentPath))
                         {
-                            if (auto [comp, _toBack] = componentFactory (component["factory"]); comp != nullptr)
+                            if (auto [comp, _toBack] = componentFactory (component[kFactory]); comp != nullptr)
                             {
                                 createdComponents.add (comp);
                                 par->addAndMakeVisible (comp);
@@ -536,7 +604,7 @@ void LayoutSupport::setComponentsLayout (const juce::String& currentPath,
                     }
                 }
 
-                if (component.hasProperty ("macro"))
+                if (component.hasProperty (kMacro))
                     prevComponent = setPosition (currentPath, id, idIdx++, expandMacro (component));
                 else
                     prevComponent = setPosition (currentPath, id, idIdx++, component);
@@ -546,14 +614,14 @@ void LayoutSupport::setComponentsLayout (const juce::String& currentPath,
                     //
                     // Handle tab order
                     //
-                    if (component.hasProperty ("order"))
-                        prevComponent->setExplicitFocusOrder (int (component["order"]) + 1);
+                    if (component.hasProperty (kOrder))
+                        prevComponent->setExplicitFocusOrder (int (component[kOrder]) + 1);
                     else
                         prevComponent->setExplicitFocusOrder (i + 1);
 
-                    if (component.hasProperty ("parentOrder"))
+                    if (component.hasProperty (kParentOrder))
                         if (auto p = curComponent->getParentComponent())
-                            p->setExplicitFocusOrder (int (component["parentOrder"]) + 1);
+                            p->setExplicitFocusOrder (int (component[kParentOrder]) + 1);
                 }
 
                 if (ids.size() > 0)
@@ -562,7 +630,7 @@ void LayoutSupport::setComponentsLayout (const juce::String& currentPath,
                 ++i;
             }
         }
-        else if (component.hasProperty ("grid"))
+        else if (component.hasProperty (kGrid))
         {
             if (auto foundComp = compMap.findComponent (currentPath))
                 if (! foundComp->getBounds().isEmpty())
@@ -573,8 +641,8 @@ void LayoutSupport::setComponentsLayout (const juce::String& currentPath,
             //
             // Handle sub components
             //
-            if (component.hasProperty ("components"))
-                setComponentsLayout (currentPath, component["components"]);
+            if (component.hasProperty (kComponents))
+                setComponentsLayout (currentPath, component[kComponents]);
         }
     }
 }
@@ -584,11 +652,11 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
     //
     // Set position and size
     //
-    auto hasX = component.hasProperty ("r") || component.hasProperty ("x") || component.hasProperty ("cx");
-    auto hasY = component.hasProperty ("b") || component.hasProperty ("y") || component.hasProperty ("cy");
-    auto hasPosition = (hasX && hasY) || component.hasProperty ("xy");
-    auto hasW = component.hasProperty ("w") || component.hasProperty ("size") || (component.hasProperty ("r") && component.hasProperty ("x"));
-    auto hasH = component.hasProperty ("h") || component.hasProperty ("size") || (component.hasProperty ("y") && component.hasProperty ("b"));
+    auto hasX = component.hasProperty (kR) || component.hasProperty (kX) || component.hasProperty (kCx);
+    auto hasY = component.hasProperty (kB) || component.hasProperty (kY) || component.hasProperty (kCy);
+    auto hasPosition = (hasX && hasY) || component.hasProperty (kXy);
+    auto hasW = component.hasProperty (kW) || component.hasProperty (kSize) || (component.hasProperty (kR) && component.hasProperty (kX));
+    auto hasH = component.hasProperty (kH) || component.hasProperty (kSize) || (component.hasProperty (kY) && component.hasProperty (kB));
     auto hasSize = hasW && hasH;
 
     auto x = 0;
@@ -596,31 +664,31 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
     auto w = 0;
     auto h = 0;
 
-    if (component.hasProperty ("r") && component.hasProperty ("x"))
-        w = parse (component["r"], idIdx) - parse (component["x"], idIdx);
+    if (component.hasProperty (kR) && component.hasProperty (kX))
+        w = parse (component[kR], idIdx) - parse (component[kX], idIdx);
 
-    if (component.hasProperty ("y") && component.hasProperty ("b"))
-        h = parse (component["b"], idIdx) - parse (component["y"], idIdx);
+    if (component.hasProperty (kY) && component.hasProperty (kB))
+        h = parse (component[kB], idIdx) - parse (component[kY], idIdx);
 
-    if (component.hasProperty ("xd"))
+    if (component.hasProperty (kXd))
     {
         int delta;
-        auto prefix = juce::String ("prev");
+        auto prefix = kPrefixPrev;
         auto reference = juce::String();
 
-        if (component["xd"].isString() && component["xd"].toString().contains (","))
+        if (component[kXd].isString() && component[kXd].toString().contains (","))
         {
-            auto tokens = juce::StringArray::fromTokens (component["xd"].toString(), ",", "");
+            auto tokens = juce::StringArray::fromTokens (component[kXd].toString(), ",", "");
             tokens.trim();
 
             delta = parse (tokens[0], idIdx);
 
             reference = "('" + tokens[1] + "')";
-            prefix = "get";
+            prefix = kPrefixGet;
         }
         else
         {
-            delta = parse (component["xd"], idIdx);
+            delta = parse (component[kXd], idIdx);
         }
 
         w = parse (prefix + "W" + reference, idIdx);
@@ -636,25 +704,25 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
         hasSize = true;
     }
 
-    if (component.hasProperty ("cxd"))
+    if (component.hasProperty (kCxd))
     {
         int delta;
-        auto prefix = juce::String ("prev");
+        auto prefix = kPrefixPrev;
         auto reference = juce::String();
 
-        if (component["cxd"].isString() && component["cxd"].toString().contains (","))
+        if (component[kCxd].isString() && component[kCxd].toString().contains (","))
         {
-            auto tokens = juce::StringArray::fromTokens (component["cxd"].toString(), ",", "");
+            auto tokens = juce::StringArray::fromTokens (component[kCxd].toString(), ",", "");
             tokens.trim();
 
             delta = parse (tokens[0], idIdx);
 
             reference = "('" + tokens[1] + "')";
-            prefix = "get";
+            prefix = kPrefixGet;
         }
         else
         {
-            delta = parse (component["cxd"], idIdx);
+            delta = parse (component[kCxd], idIdx);
         }
 
         w = parse (prefix + "W" + reference, idIdx);
@@ -670,25 +738,25 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
         hasSize = true;
     }
 
-    if (component.hasProperty ("yd"))
+    if (component.hasProperty (kYd))
     {
         int delta;
-        auto prefix = juce::String ("prev");
+        auto prefix = kPrefixPrev;
         auto reference = juce::String();
 
-        if (component["yd"].isString() && component["yd"].toString().contains (","))
+        if (component[kYd].isString() && component[kYd].toString().contains (","))
         {
-            auto tokens = juce::StringArray::fromTokens (component["yd"].toString(), ",", "");
+            auto tokens = juce::StringArray::fromTokens (component[kYd].toString(), ",", "");
             tokens.trim();
 
             delta = parse (tokens[0], idIdx);
 
             reference = "('" + tokens[1] + "')";
-            prefix = "get";
+            prefix = kPrefixGet;
         }
         else
         {
-            delta = parse (component["yd"], idIdx);
+            delta = parse (component[kYd], idIdx);
         }
 
         w = parse (prefix + "W" + reference, idIdx);
@@ -704,25 +772,25 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
         hasSize = true;
     }
 
-    if (component.hasProperty ("cyd"))
+    if (component.hasProperty (kCyd))
     {
         int delta;
-        auto prefix = juce::String ("prev");
+        auto prefix = kPrefixPrev;
         auto reference = juce::String();
 
-        if (component["cyd"].isString() && component["cyd"].toString().contains (","))
+        if (component[kCyd].isString() && component[kCyd].toString().contains (","))
         {
-            auto tokens = juce::StringArray::fromTokens (component["cyd"].toString(), ",", "");
+            auto tokens = juce::StringArray::fromTokens (component[kCyd].toString(), ",", "");
             tokens.trim();
 
             delta = parse (tokens[0], idIdx);
 
             reference = "('" + tokens[1] + "')";
-            prefix = "get";
+            prefix = kPrefixGet;
         }
         else
         {
-            delta = parse (component["cyd"], idIdx);
+            delta = parse (component[kCyd], idIdx);
         }
 
         w = parse (prefix + "W" + reference, idIdx);
@@ -738,25 +806,25 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
         hasSize = true;
     }
 
-    if (component.hasProperty ("x"))
-        x = parse (component["x"], idIdx);
-    if (component.hasProperty ("y"))
-        y = parse (component["y"], idIdx);
+    if (component.hasProperty (kX))
+        x = parse (component[kX], idIdx);
+    if (component.hasProperty (kY))
+        y = parse (component[kY], idIdx);
 
-    if (component.hasProperty ("xy"))
+    if (component.hasProperty (kXy))
     {
-        auto str = component["xy"].toString();
+        auto str = component[kXy].toString();
         auto tokens = juce::StringArray::fromTokens (str, ",", "");
 
         x = parse (tokens[0], idIdx);
         y = parse (tokens[1], idIdx);
     }
 
-    if (component.hasProperty ("inset") && component["inset"].isString())
+    if (component.hasProperty (kInset) && component[kInset].isString())
     {
-        if (auto c = getComp (component["inset"].toString()))
+        if (auto c = getComp (component[kInset].toString()))
         {
-            auto r = c->getBounds().reduced (component.hasProperty ("border") ? int (component["border"]) : 0);
+            auto r = c->getBounds().reduced (component.hasProperty (kBorder) ? int (component[kBorder]) : 0);
             x = r.getX();
             y = r.getY();
             w = r.getWidth();
@@ -766,36 +834,36 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
             hasSize = true;
         }
     }
-    if (component.hasProperty ("bounds"))
+    if (component.hasProperty (kBounds))
     {
-        if (component["bounds"] == "parent")
+        if (component[kBounds] == kParent)
         {
             x = 0;
             y = 0;
-            w = juce::roundToInt (*constants.get ("parW"));
-            h = juce::roundToInt (*constants.get ("parH"));
+            w = juce::roundToInt (*constants.get (kParW));
+            h = juce::roundToInt (*constants.get (kParH));
 
             hasPosition = true;
             hasSize = true;
         }
-        else if (component["bounds"] == "prev")
+        else if (component[kBounds] == kPrev)
         {
-            x = parse ("prevX", idIdx);
-            y = parse ("prevY", idIdx);
-            w = parse ("prevW", idIdx);
-            h = parse ("prevH", idIdx);
+            x = parse (kPrevX, idIdx);
+            y = parse (kPrevY, idIdx);
+            w = parse (kPrevW, idIdx);
+            h = parse (kPrevH, idIdx);
 
             hasPosition = true;
             hasSize = true;
         }
-        else if (auto reduced = component["bounds"].toString(); reduced.contains ("reduced"))
+        else if (auto reduced = component[kBounds].toString(); reduced.contains (kReduced))
         {
             auto tokens = juce::StringArray::fromTokens (reduced, ",", "");
 
             x = 0;
             y = 0;
-            w = juce::roundToInt (*constants.get ("parW"));
-            h = juce::roundToInt (*constants.get ("parH"));
+            w = juce::roundToInt (*constants.get (kParW));
+            h = juce::roundToInt (*constants.get (kParH));
 
             if (tokens.size() == 2)
             {
@@ -822,7 +890,7 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
             hasPosition = true;
             hasSize = true;
         }
-        else if (auto str = component["bounds"].toString(); str.contains (","))
+        else if (auto str = component[kBounds].toString(); str.contains (","))
         {
             auto tokens = juce::StringArray::fromTokens (str, ",", "");
 
@@ -852,26 +920,26 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
             jassertfalse;
         }
     }
-    else if (component.hasProperty ("size"))
+    else if (component.hasProperty (kSize))
     {
-        auto sizeId = component["size"].toString();
+        auto sizeId = component[kSize].toString();
 
         w = parse (sizeId + ".w", 0);
         h = parse (sizeId + ".h", 0);
     }
 
-    if (component.hasProperty ("w"))
-        w = parse (component["w"], idIdx);
-    if (component.hasProperty ("h"))
-        h = parse (component["h"], idIdx);
-    if (hasSize && component.hasProperty ("cx"))
-        x = parse (component["cx"], idIdx) - w / 2;
-    if (hasSize && component.hasProperty ("cy"))
-        y = parse (component["cy"], idIdx) - h / 2;
-    if (hasSize && component.hasProperty ("r"))
-        x = parse (component["r"], idIdx) - w;
-    if (hasSize && component.hasProperty ("b"))
-        y = parse (component["b"], idIdx) - h;
+    if (component.hasProperty (kW))
+        w = parse (component[kW], idIdx);
+    if (component.hasProperty (kH))
+        h = parse (component[kH], idIdx);
+    if (hasSize && component.hasProperty (kCx))
+        x = parse (component[kCx], idIdx) - w / 2;
+    if (hasSize && component.hasProperty (kCy))
+        y = parse (component[kCy], idIdx) - h / 2;
+    if (hasSize && component.hasProperty (kR))
+        x = parse (component[kR], idIdx) - w;
+    if (hasSize && component.hasProperty (kB))
+        y = parse (component[kB], idIdx) - h;
 
     LayoutSupport::Bounds res;
     res.x = x;
@@ -888,7 +956,7 @@ juce::var LayoutSupport::expandMacro (const juce::var& component_)
 {
     auto component = component_;
 
-    juce::String str = component["macro"].toString();
+    juce::String str = component[kMacro].toString();
 
     auto function = str.upToFirstOccurrenceOf ("(", false, false).trim();
 
@@ -906,7 +974,7 @@ juce::var LayoutSupport::expandMacro (const juce::var& component_)
         auto key = itm.key;
         auto val = itm.value;
 
-        if (key == "id")
+        if (key == kId.toString())
             continue;
 
         if (val.isString())
@@ -941,8 +1009,8 @@ juce::Component* LayoutSupport::setPosition (const juce::String& currentPath,
         //
         // Set accessibility title
         //
-        if (component.hasProperty ("title"))
-            curComponent->setTitle (component["title"].toString());
+        if (component.hasProperty (kTitle))
+            curComponent->setTitle (component[kTitle].toString());
 
         if (curComponent->getTitle().isEmpty())
         {
@@ -956,16 +1024,16 @@ juce::Component* LayoutSupport::setPosition (const juce::String& currentPath,
         //
         // Tooltip
         //
-        if (component.hasProperty ("tip"))
+        if (component.hasProperty (kTip))
             if (auto ttc = dynamic_cast<juce::SettableTooltipClient*> (curComponent))
-                ttc->setTooltip (component["tip"].toString());
+                ttc->setTooltip (component[kTip].toString());
 
         //
         // Handle properties
         //
-        if (component.hasProperty ("properties"))
+        if (component.hasProperty (kProperties))
         {
-            auto p = component["properties"];
+            auto p = component[kProperties];
             for (auto& itm : getPropertySet (p))
             {
                 auto name = itm.key;
@@ -986,7 +1054,7 @@ juce::Component* LayoutSupport::setPosition (const juce::String& currentPath,
             curComponent->repaint();
         }
 
-        auto hasVisible = component.hasProperty ("visible");
+        auto hasVisible = component.hasProperty (kVisible);
         auto bounds = getBounds (idIdx, component);
 
         if (bounds.hasPosition)
@@ -994,10 +1062,10 @@ juce::Component* LayoutSupport::setPosition (const juce::String& currentPath,
         if (bounds.hasSize)
             curComponent->setSize (bounds.w, bounds.h);
 
-        if (component.hasProperty ("zorder"))
+        if (component.hasProperty (kZorder))
         {
             auto p = curComponent->getParentComponent();
-            int zorder = component["zorder"];
+            int zorder = component[kZorder];
             if (p->getChildComponent (zorder) != curComponent)
             {
                 p->removeChildComponent (curComponent);
@@ -1005,30 +1073,30 @@ juce::Component* LayoutSupport::setPosition (const juce::String& currentPath,
             }
         }
 
-        if (hasVisible && component["visible"].isBool())
-            curComponent->setVisible (bool (component["visible"]));
-        else if (hasVisible && component["visible"].isString())
-            curComponent->setVisible (parse (component["visible"], idIdx) != 0);
+        if (hasVisible && component[kVisible].isBool())
+            curComponent->setVisible (bool (component[kVisible]));
+        else if (hasVisible && component[kVisible].isString())
+            curComponent->setVisible (parse (component[kVisible], idIdx) != 0);
 
         //
         // Handle sub components
         //
-        if (component.hasProperty ("components"))
+        if (component.hasProperty (kComponents))
         {
             ConstantsStack::ScopedSave ssp (constants);
 
-            constants.set ("parX", foundComp->getX());
-            constants.set ("parY", foundComp->getY());
-            constants.set ("parCX", foundComp->getBounds().getCentreX());
-            constants.set ("parCY", foundComp->getBounds().getCentreY());
-            constants.set ("parW", foundComp->getWidth());
-            constants.set ("parH", foundComp->getHeight());
-            constants.set ("parW2", foundComp->getWidth() / 2);
-            constants.set ("parH2", foundComp->getHeight() / 2);
-            constants.set ("parR", foundComp->getRight());
-            constants.set ("parB", foundComp->getBottom());
+            constants.set (kParX, foundComp->getX());
+            constants.set (kParY, foundComp->getY());
+            constants.set (kParCX, foundComp->getBounds().getCentreX());
+            constants.set (kParCY, foundComp->getBounds().getCentreY());
+            constants.set (kParW, foundComp->getWidth());
+            constants.set (kParH, foundComp->getHeight());
+            constants.set (kParW2, foundComp->getWidth() / 2);
+            constants.set (kParH2, foundComp->getHeight() / 2);
+            constants.set (kParR, foundComp->getRight());
+            constants.set (kParB, foundComp->getBottom());
 
-            setComponentsLayout (path, component["components"]);
+            setComponentsLayout (path, component[kComponents]);
         }
 
         return curComponent;
@@ -1036,8 +1104,8 @@ juce::Component* LayoutSupport::setPosition (const juce::String& currentPath,
     else
     {
         bool optional = false;
-        if (component.hasProperty ("optional"))
-            optional = component["optional"];
+        if (component.hasProperty (kOptional))
+            optional = component[kOptional];
 
         if (! optional)
         {
@@ -1060,7 +1128,7 @@ void LayoutSupport::setGridPositions (const juce::String& currentPath, const juc
     //
     // get ids
     //
-    juce::String idString = component["grid"].toString();
+    juce::String idString = component[kGrid].toString();
     juce::StringArray ids;
 
     if (idString.contains (","))
@@ -1083,11 +1151,11 @@ void LayoutSupport::setGridPositions (const juce::String& currentPath, const juc
 
     juce::Grid grid;
 
-    auto cols = parse (getPropertyWithDefault (component, "cols", 1), 0);
-    auto rows = parse (getPropertyWithDefault (component, "rows", 1), 0);
+    auto cols = parse (getPropertyWithDefault (component, kCols, 1), 0);
+    auto rows = parse (getPropertyWithDefault (component, kRows, 1), 0);
 
-    grid.columnGap  = juce::Grid::Px (parse (getPropertyWithDefault (component, "colGap", 0), 0));
-    grid.rowGap     = juce::Grid::Px (parse (getPropertyWithDefault (component, "rowGap", 0), 0));
+    grid.columnGap  = juce::Grid::Px (parse (getPropertyWithDefault (component, kColGap, 0), 0));
+    grid.rowGap     = juce::Grid::Px (parse (getPropertyWithDefault (component, kRowGap, 0), 0));
 
     auto getTrackInfo = [] (const juce::String& str, int idx)
     {
@@ -1219,7 +1287,7 @@ void LayoutSupport::dumpComponents (juce::Component& root)
 {
     auto worthAdding = [] (juce::var v)
     {
-        return juce::JSON::toString (v).contains ("id");
+        return juce::JSON::toString (v).contains (kId);
     };
 
     std::function<void (juce::Component&, juce::DynamicObject&)> populate = [&] (juce::Component& c, juce::DynamicObject& o)
@@ -1232,11 +1300,11 @@ void LayoutSupport::dumpComponents (juce::Component& root)
 
             if (name != "")
             {
-                o.setProperty ("id", juce::String (name));
-                o.setProperty ("x", r.getX());
-                o.setProperty ("y", r.getY());
-                o.setProperty ("w", r.getWidth());
-                o.setProperty ("h", r.getHeight());
+                o.setProperty (kId, juce::String (name));
+                o.setProperty (kX, r.getX());
+                o.setProperty (kY, r.getY());
+                o.setProperty (kW, r.getWidth());
+                o.setProperty (kH, r.getHeight());
             }
 
             juce::Array<juce::var> childrenArr;
@@ -1252,7 +1320,7 @@ void LayoutSupport::dumpComponents (juce::Component& root)
             }
 
             if (childrenArr.size() > 0)
-                o.setProperty ("components", childrenArr);
+                o.setProperty (kComponents, childrenArr);
         }
         else
         {
