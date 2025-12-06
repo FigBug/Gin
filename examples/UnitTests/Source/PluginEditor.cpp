@@ -63,6 +63,8 @@ UnitTestsAudioProcessorEditor::UnitTestsAudioProcessorEditor (UnitTestsAudioProc
     demoComponents.add (new LinearDemo());
     demoComponents.add (new SplineDemo());
     demoComponents.add (new LagrangeDemo());
+    demoComponents.add (new Wireframe3DDemo());
+    demoComponents.add (new Wavetable3DDemo());
 
     // Add all demos as child components
     for (auto* demo : demoComponents)

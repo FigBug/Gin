@@ -36,6 +36,7 @@ target_link_libraries (Demo PRIVATE
 						DemoAssets
 
 						gin
+						gin_3d
 						gin_graphics
 						gin_gui
 						gin_webp

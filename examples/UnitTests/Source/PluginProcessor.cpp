@@ -62,6 +62,11 @@ using namespace gin;
 #include "../../../modules/gin_dsp/dsp/gin_eq.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_synthesiser.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_wavetable.test.h"
+#include "../../../modules/gin_3d/3d/gin_vec3.test.h"
+#include "../../../modules/gin_3d/3d/gin_mat4.test.h"
+#include "../../../modules/gin_3d/3d/gin_camera3d.test.h"
+#include "../../../modules/gin_3d/3d/gin_scene3d.test.h"
+#include "../../../modules/gin_3d/3d/gin_renderer3d.test.h"
 
 UnitTestsAudioProcessor::UnitTestsAudioProcessor()
     : AudioProcessor (BusesProperties()

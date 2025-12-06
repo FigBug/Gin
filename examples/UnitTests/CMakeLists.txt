@@ -38,6 +38,7 @@ target_link_libraries (UnitTests PRIVATE
 						UnitTestAssets
 
 						gin
+						gin_3d
 						gin_dsp
 						gin_graphics
 						gin_gui
