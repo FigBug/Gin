@@ -157,6 +157,13 @@ public:
     void setInputGain (float g)             { inputGain = g;    }
     void setOutputGain (float g)            { outputGain = g;   }
 
+    /** Enables automatic makeup gain for compressor/limiter modes.
+        When enabled, gain is automatically applied to compensate for
+        the gain reduction, bringing peaks back to 0dB.
+        @param enabled  True to enable auto makeup gain
+    */
+    void setAutoMakeupGain (bool enabled)   { autoMakeupGain = enabled; }
+
     void reset();
     void process (juce::AudioSampleBuffer& buffer, juce::AudioSampleBuffer* envelopeOut = nullptr);
 
@@ -175,6 +182,7 @@ private:
 
     int channels = 0;
     bool channelsLinked = true;
+    bool autoMakeupGain = false;
     float inputGain = 1.0f, outputGain = 1.0f;
     float threshold = 0.0f, ratio = 0.0f, kneeWidth = 0.0f;
 };
