@@ -2,7 +2,7 @@
 
 /*==============================================================================
 
- Copyright 2023 by Roland Rabien
+ Copyright 2018 - 2025 by Roland Rabien
  For more information visit www.rabiensoftware.com
 
  ==============================================================================*/
