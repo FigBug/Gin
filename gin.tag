@@ -6061,6 +6061,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setAutoMakeupGain</name>
+      <anchorfile>classDynamics.html</anchorfile>
+      <anchor>a13dd302330a0bdc594ef7bb512ae22a6</anchor>
+      <arglist>(bool enabled)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>reset</name>
       <anchorfile>classDynamics.html</anchorfile>
       <anchor>a63d8f557fa562613747ca4eb5ed2e8fd</anchor>

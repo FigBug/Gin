@@ -116,6 +116,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8b5e1b91c220eb50e4e68fc6c83282df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7ad148c7049b91f76262e901f10a31a" id="r_ae7ad148c7049b91f76262e901f10a31a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#ae7ad148c7049b91f76262e901f10a31a">setOutputGain</a> (<a class="el" href="classPoint.html">float</a> g)</td></tr>
 <tr class="separator:ae7ad148c7049b91f76262e901f10a31a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13dd302330a0bdc594ef7bb512ae22a6" id="r_a13dd302330a0bdc594ef7bb512ae22a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#a13dd302330a0bdc594ef7bb512ae22a6">setAutoMakeupGain</a> (<a class="el" href="classPoint.html">bool</a> enabled)</td></tr>
+<tr class="memdesc:a13dd302330a0bdc594ef7bb512ae22a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables automatic makeup gain for compressor/limiter modes.  <br /></td></tr>
+<tr class="separator:a13dd302330a0bdc594ef7bb512ae22a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63d8f557fa562613747ca4eb5ed2e8fd" id="r_a63d8f557fa562613747ca4eb5ed2e8fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#a63d8f557fa562613747ca4eb5ed2e8fd">reset</a> ()</td></tr>
 <tr class="separator:a63d8f557fa562613747ca4eb5ed2e8fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10395d0e46c4387190b783c0090545c2" id="r_a10395d0e46c4387190b783c0090545c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#a10395d0e46c4387190b783c0090545c2">process</a> (juce::AudioSampleBuffer &amp;buffer, juce::AudioSampleBuffer *<a class="el" href="classPoint.html">envelopeOut</a>=<a class="el" href="classPoint.html">nullptr</a>)</td></tr>
@@ -418,6 +421,32 @@ Audio Effect Plug-ins in C++" by Will Pirkle, it features attack/hold/release en
 
 </div>
 </div>
+<a id="a13dd302330a0bdc594ef7bb512ae22a6" name="a13dd302330a0bdc594ef7bb512ae22a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13dd302330a0bdc594ef7bb512ae22a6">&#9670;&#160;</a></span>setAutoMakeupGain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> Dynamics::setAutoMakeupGain </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">bool</a>&#160;</td>
+          <td class="paramname"><em>enabled</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enables automatic makeup gain for compressor/limiter modes. </p>
+<p>When enabled, gain is automatically applied to compensate for the gain reduction, bringing peaks back to 0dB. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enabled</td><td>True to enable auto makeup gain </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a63d8f557fa562613747ca4eb5ed2e8fd" name="a63d8f557fa562613747ca4eb5ed2e8fd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a63d8f557fa562613747ca4eb5ed2e8fd">&#9670;&#160;</a></span>reset()</h2>
 
@@ -538,7 +567,7 @@ Audio Effect Plug-ins in C++" by Will Pirkle, it features attack/hold/release en
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 6 2025 14:34:19 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sat Dec 6 2025 17:23:11 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
