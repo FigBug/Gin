@@ -233,6 +233,24 @@ float Dynamics::calcCurve (float dbIn)
 
         return dbOut;
     }
+    else if (type == compexp)
+    {
+        float dbOut = dbIn;
+        float expThreshold = -100.0f - threshold;
+
+        // Compressor: above threshold
+        if (kneeWidth > 0 && dbIn >= (threshold - kneeWidth / 2.0f) && dbIn <= threshold + kneeWidth / 2.0f)
+            dbOut = dbIn + ((1.0f / ratio - 1.0f) * std::pow (dbIn - threshold + kneeWidth / 2.0f, 2.0f) / (2.0f * kneeWidth));
+        else if (dbIn > threshold + kneeWidth / 2.0f)
+            dbOut = threshold + (dbIn - threshold) / ratio;
+        // Expander: below inverse threshold
+        else if (kneeWidth > 0 && dbIn >= (expThreshold - kneeWidth / 2.0f) && dbIn <= expThreshold + kneeWidth / 2.0f)
+            dbOut = dbIn - ((ratio - 1.0f) * std::pow ((dbIn - expThreshold - (kneeWidth / 2.0f)), 2.0f)) / (2.0f * kneeWidth);
+        else if (dbIn < expThreshold - kneeWidth / 2.0f)
+            dbOut = expThreshold + (dbIn - expThreshold) * ratio;
+
+        return dbOut;
+    }
 
     jassertfalse;
     return dbIn;

@@ -81,8 +81,11 @@ protected:
     envelope detection, adjustable ratio and threshold, soft knee, and optional
     channel linking for stereo operation.
 
+    The compexp mode combines downward compression (above threshold) with upward
+    compression (below the inverted threshold), using the same ratio for both.
+
     Key Features:
-    - Four processing types: compressor, limiter, expander, gate
+    - Five processing types: compressor, limiter, expander, gate, compexp
     - Configurable attack, hold, release times
     - Adjustable threshold and ratio
     - Soft knee for smooth compression
@@ -133,6 +136,7 @@ public:
         - limiter: Hard limiting (very high ratio, fast attack)
         - expander: Increases dynamic range (reduces gain below threshold)
         - gate: Attenuates signals below threshold (extreme expansion)
+        - compexp: Combined compressor + expander (expander threshold is inverse of compressor threshold)
     */
     enum Type
     {
@@ -140,6 +144,7 @@ public:
         limiter,     ///< Limiting (prevent peaks above threshold)
         expander,    ///< Expansion (increase dynamic range)
         gate,        ///< Gate (cut quiet signals)
+        compexp,     ///< Combined compressor and expander (expander uses inverse threshold)
     };
 
     void setSampleRate (double sampleRate);
