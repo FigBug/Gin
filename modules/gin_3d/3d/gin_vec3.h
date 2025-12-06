@@ -28,7 +28,7 @@ struct Vec3
 
     Vec3 operator-() const { return { -x, -y, -z }; }
 
-    bool operator== (const Vec3& other) const { return x == other.x && y == other.y && z == other.z; }
+    bool operator== (const Vec3& other) const { return juce::exactlyEqual (x, other.x) && juce::exactlyEqual (y, other.y) && juce::exactlyEqual (z, other.z); }
     bool operator!= (const Vec3& other) const { return !(*this == other); }
 
     T dot (const Vec3& other) const { return x * other.x + y * other.y + z * other.z; }
