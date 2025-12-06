@@ -596,6 +596,91 @@
     <filename>gin__valuetreeutilities_8test_8h.html</filename>
   </compound>
   <compound kind="file">
+    <name>gin_camera3d.h</name>
+    <path>build/gin_3d/3d/</path>
+    <filename>gin__camera3d_8h.html</filename>
+    <class kind="class">Camera3D</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_camera3d.test.h</name>
+    <path>build/gin_3d/3d/</path>
+    <filename>gin__camera3d_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>gin_mat4.h</name>
+    <path>build/gin_3d/3d/</path>
+    <filename>gin__mat4_8h.html</filename>
+    <class kind="struct">Mat4</class>
+    <member kind="typedef">
+      <type>Mat4&lt; float &gt;</type>
+      <name>Mat4f</name>
+      <anchorfile>group__gin__3d-3d.html</anchorfile>
+      <anchor>gad277b4ffd0896d88a9f60d4d765f3cc5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>Mat4&lt; double &gt;</type>
+      <name>Mat4d</name>
+      <anchorfile>group__gin__3d-3d.html</anchorfile>
+      <anchor>gabaf7f913bf1752b9157259ffa32704ca</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_mat4.test.h</name>
+    <path>build/gin_3d/3d/</path>
+    <filename>gin__mat4_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>gin_renderer3d.h</name>
+    <path>build/gin_3d/3d/</path>
+    <filename>gin__renderer3d_8h.html</filename>
+    <class kind="class">Renderer3D</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_renderer3d.test.h</name>
+    <path>build/gin_3d/3d/</path>
+    <filename>gin__renderer3d_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>gin_scene3d.h</name>
+    <path>build/gin_3d/3d/</path>
+    <filename>gin__scene3d_8h.html</filename>
+    <class kind="struct">LineSegment3D</class>
+    <class kind="class">Object3D</class>
+    <class kind="class">Scene3D</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_scene3d.test.h</name>
+    <path>build/gin_3d/3d/</path>
+    <filename>gin__scene3d_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>gin_vec3.h</name>
+    <path>build/gin_3d/3d/</path>
+    <filename>gin__vec3_8h.html</filename>
+    <class kind="struct">Vec3</class>
+    <member kind="typedef">
+      <type>Vec3&lt; float &gt;</type>
+      <name>Vec3f</name>
+      <anchorfile>group__gin__3d-3d.html</anchorfile>
+      <anchor>ga40b8356e33151c22cb4d1adaf2b762a8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>Vec3&lt; double &gt;</type>
+      <name>Vec3d</name>
+      <anchorfile>group__gin__3d-3d.html</anchorfile>
+      <anchor>ga98d94999010cb92dfb5f652c353d1d82</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_vec3.test.h</name>
+    <path>build/gin_3d/3d/</path>
+    <filename>gin__vec3_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_audiosamplerbuffercomponent.h</name>
     <path>build/gin_dsp/components/</path>
     <filename>gin__audiosamplerbuffercomponent_8h.html</filename>
@@ -4592,6 +4677,122 @@
       <anchorfile>structBP24State.html</anchorfile>
       <anchor>a02c9da59417956981fef2420eafcdd7a</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Camera3D</name>
+    <filename>classCamera3D.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Camera3D</name>
+      <anchorfile>classCamera3D.html</anchorfile>
+      <anchor>a91ac13957b6da2588366c76767daabe4</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPosition</name>
+      <anchorfile>classCamera3D.html</anchorfile>
+      <anchor>a7e09846ee92115182072e0dff618af36</anchor>
+      <arglist>(const Vec3f &amp;pos)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPosition</name>
+      <anchorfile>classCamera3D.html</anchorfile>
+      <anchor>ab86986ac208c8abef9ee4e4a95d15f8d</anchor>
+      <arglist>(float x, float y, float z)</arglist>
+    </member>
+    <member kind="function">
+      <type>Vec3f</type>
+      <name>getPosition</name>
+      <anchorfile>classCamera3D.html</anchorfile>
+      <anchor>ab694e3aea20c8faa68d4c5b86b15a1a8</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setTarget</name>
+      <anchorfile>classCamera3D.html</anchorfile>
+      <anchor>aa2db3b0e9fd553089eb9de5a6a1f0a41</anchor>
+      <arglist>(const Vec3f &amp;t)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setTarget</name>
+      <anchorfile>classCamera3D.html</anchorfile>
+      <anchor>a77856be748fb71f8d336f3c1687dddbc</anchor>
+      <arglist>(float x, float y, float z)</arglist>
+    </member>
+    <member kind="function">
+      <type>Vec3f</type>
+      <name>getTarget</name>
+      <anchorfile>classCamera3D.html</anchorfile>
+      <anchor>ae01d0c0dbcefe944b652c0c599b67462</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setUpVector</name>
+      <anchorfile>classCamera3D.html</anchorfile>
+      <anchor>aa34e90c86c4a05260abbeb56a04261b8</anchor>
+      <arglist>(const Vec3f &amp;u)</arglist>
+    </member>
+    <member kind="function">
+      <type>Vec3f</type>
+      <name>getUpVector</name>
+      <anchorfile>classCamera3D.html</anchorfile>
+      <anchor>a6b4c3d219ec44a48fec8c626387deb79</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPerspective</name>
+      <anchorfile>classCamera3D.html</anchorfile>
+      <anchor>a8bdae9fc877611ed6286fabd28300b9c</anchor>
+      <arglist>(float fovYDegrees, float aspectRatio, float nearPlane, float farPlane)</arglist>
+    </member>
+    <member kind="function">
+      <type>const Mat4f &amp;</type>
+      <name>getViewMatrix</name>
+      <anchorfile>classCamera3D.html</anchorfile>
+      <anchor>a320db195bc4033e33c70dfd0bf4505a3</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>const Mat4f &amp;</type>
+      <name>getProjectionMatrix</name>
+      <anchorfile>classCamera3D.html</anchorfile>
+      <anchor>ac07559419b5c8a9d529db229841ef0d5</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Mat4f</type>
+      <name>getViewProjectionMatrix</name>
+      <anchorfile>classCamera3D.html</anchorfile>
+      <anchor>a7e621fb43edceb5263b420920f4f2195</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>orbit</name>
+      <anchorfile>classCamera3D.html</anchorfile>
+      <anchor>af33b432b6bcf40142929f5c8427fa99d</anchor>
+      <arglist>(float deltaYaw, float deltaPitch)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>zoom</name>
+      <anchorfile>classCamera3D.html</anchorfile>
+      <anchor>a7383b34882eafc91cf934745be5d92cd</anchor>
+      <arglist>(float delta)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>pan</name>
+      <anchorfile>classCamera3D.html</anchorfile>
+      <anchor>a4b99abce0441966bc069dafd87579f2e</anchor>
+      <arglist>(float deltaX, float deltaY)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -9552,6 +9753,52 @@
       <arglist></arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>LineSegment3D</name>
+    <filename>structLineSegment3D.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>LineSegment3D</name>
+      <anchorfile>structLineSegment3D.html</anchorfile>
+      <anchor>ac145860963bab3fe894527671618931d</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>LineSegment3D</name>
+      <anchorfile>structLineSegment3D.html</anchorfile>
+      <anchor>a97fe404460508fc18ad4153bd4459bee</anchor>
+      <arglist>(const Vec3f &amp;s, const Vec3f &amp;e, juce::Colour c=juce::Colours::white)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>LineSegment3D</name>
+      <anchorfile>structLineSegment3D.html</anchorfile>
+      <anchor>af4bb995a551a129ebc571118b3a91d81</anchor>
+      <arglist>(float x1, float y1, float z1, float x2, float y2, float z2, juce::Colour c=juce::Colours::white)</arglist>
+    </member>
+    <member kind="variable">
+      <type>Vec3f</type>
+      <name>start</name>
+      <anchorfile>structLineSegment3D.html</anchorfile>
+      <anchor>a62a590cabeabf1cc380c0a74bc2dcab2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Vec3f</type>
+      <name>end</name>
+      <anchorfile>structLineSegment3D.html</anchorfile>
+      <anchor>ab4a7dd23ccdfa372984235124a8363e1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>colour</name>
+      <anchorfile>structLineSegment3D.html</anchorfile>
+      <anchor>a4a7256090d6ba4b9eafade13082d853c</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>FileSystemWatcher::Listener</name>
     <filename>classFileSystemWatcher_1_1Listener.html</filename>
@@ -10094,6 +10341,130 @@
       <anchorfile>classMapViewer.html</anchorfile>
       <anchor>a92969f79ce00707cf7e9b13e004b8bed</anchor>
       <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>Mat4</name>
+    <filename>structMat4.html</filename>
+    <templarg>typename T</templarg>
+    <member kind="function">
+      <type></type>
+      <name>Mat4</name>
+      <anchorfile>structMat4.html</anchorfile>
+      <anchor>a9540a9e2587c101e343c8446bb93e7fa</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Mat4</type>
+      <name>operator*</name>
+      <anchorfile>structMat4.html</anchorfile>
+      <anchor>a926a4f9f135c3995c0dfe1b9b048070f</anchor>
+      <arglist>(const Mat4 &amp;other) const</arglist>
+    </member>
+    <member kind="function">
+      <type>Vec3&lt; T &gt;</type>
+      <name>transformPoint</name>
+      <anchorfile>structMat4.html</anchorfile>
+      <anchor>ad231ce737fd22385cc1ce7a1b999a09b</anchor>
+      <arglist>(const Vec3&lt; T &gt; &amp;v) const</arglist>
+    </member>
+    <member kind="function">
+      <type>Vec3&lt; T &gt;</type>
+      <name>transformVector</name>
+      <anchorfile>structMat4.html</anchorfile>
+      <anchor>a3dccd4a15a3d8a43e75a1c06472665ae</anchor>
+      <arglist>(const Vec3&lt; T &gt; &amp;v) const</arglist>
+    </member>
+    <member kind="function">
+      <type>std::array&lt; T, 4 &gt;</type>
+      <name>project</name>
+      <anchorfile>structMat4.html</anchorfile>
+      <anchor>af715dc9d8b80e8cb769cf99f794d851f</anchor>
+      <arglist>(const Vec3&lt; T &gt; &amp;v) const</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Mat4</type>
+      <name>identity</name>
+      <anchorfile>structMat4.html</anchorfile>
+      <anchor>a818df893c1d7a6567497cb8e6e01cdf7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Mat4</type>
+      <name>translation</name>
+      <anchorfile>structMat4.html</anchorfile>
+      <anchor>a1845d784f12c10846b59a92cadc6a445</anchor>
+      <arglist>(T x, T y, T z)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Mat4</type>
+      <name>translation</name>
+      <anchorfile>structMat4.html</anchorfile>
+      <anchor>a8ef5a568b592aa1145bbae3219d2992b</anchor>
+      <arglist>(const Vec3&lt; T &gt; &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Mat4</type>
+      <name>scale</name>
+      <anchorfile>structMat4.html</anchorfile>
+      <anchor>a4ad32104506a44841d40343b01063c3a</anchor>
+      <arglist>(T x, T y, T z)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Mat4</type>
+      <name>scale</name>
+      <anchorfile>structMat4.html</anchorfile>
+      <anchor>a051263663efa0b85d43f1783bb059297</anchor>
+      <arglist>(T s)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Mat4</type>
+      <name>rotationX</name>
+      <anchorfile>structMat4.html</anchorfile>
+      <anchor>a8853940c7bf73d25464c8850faaa4c24</anchor>
+      <arglist>(T angle)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Mat4</type>
+      <name>rotationY</name>
+      <anchorfile>structMat4.html</anchorfile>
+      <anchor>aabd95874fa8963e7167ce2845afd0243</anchor>
+      <arglist>(T angle)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Mat4</type>
+      <name>rotationZ</name>
+      <anchorfile>structMat4.html</anchorfile>
+      <anchor>a8bccee0c1b4fcce82c5f5128ff8a6428</anchor>
+      <arglist>(T angle)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Mat4</type>
+      <name>perspective</name>
+      <anchorfile>structMat4.html</anchorfile>
+      <anchor>a2b606a50775fd8da6d35709190c65c65</anchor>
+      <arglist>(T fovY, T aspect, T nearZ, T farZ)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Mat4</type>
+      <name>orthographic</name>
+      <anchorfile>structMat4.html</anchorfile>
+      <anchor>a304609c756c9ab8f901995b43287e6b1</anchor>
+      <arglist>(T left, T right, T bottom, T top, T nearZ, T farZ)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Mat4</type>
+      <name>lookAt</name>
+      <anchorfile>structMat4.html</anchorfile>
+      <anchor>a26cd9eb7affcb0df62569adad34bcacf</anchor>
+      <arglist>(const Vec3&lt; T &gt; &amp;eye, const Vec3&lt; T &gt; &amp;target, const Vec3&lt; T &gt; &amp;up)</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::array&lt; std::array&lt; T, 4 &gt;, 4 &gt;</type>
+      <name>m</name>
+      <anchorfile>structMat4.html</anchorfile>
+      <anchor>a6848717338afc18e97dbd4ee018c233c</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -11713,6 +12084,129 @@
       <anchorfile>classNoteDuration.html</anchorfile>
       <anchor>a7a6ae37d6dfab7e3f1ed779a024b7b18</anchor>
       <arglist>(juce::AudioPlayHead *playhead, float value)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Object3D</name>
+    <filename>classObject3D.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Object3D</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>adc6b545f27a3636b3dcf45e1e5ae554a</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clear</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>a62601ddda22b7cdc74f777b4a3c9c19f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addLine</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>a4a5fdc2008b3b36ad1043b5bd628e0f4</anchor>
+      <arglist>(const LineSegment3D &amp;line)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addLine</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>ae74d3eaee19b8658c917ef11af9658fa</anchor>
+      <arglist>(const Vec3f &amp;start, const Vec3f &amp;end, juce::Colour colour=juce::Colours::white)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addTriangle</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>a37bbc52ccff5e35760fd4e3156eec56d</anchor>
+      <arglist>(const Vec3f &amp;a, const Vec3f &amp;b, const Vec3f &amp;c, juce::Colour colour=juce::Colours::white)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addBox</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>a662a1f503954950e485934c057ef731b</anchor>
+      <arglist>(const Vec3f &amp;min, const Vec3f &amp;max, juce::Colour colour=juce::Colours::white)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addGrid</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>a20fdf8193cd14818c2b2b9b8bd14595a</anchor>
+      <arglist>(float size, int divisions, juce::Colour colour=juce::Colours::grey)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addAxes</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>ac509ae6625c03045b1f63401a9fa864b</anchor>
+      <arglist>(float length, float thickness=1.0f)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setTransform</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>a134daa9f20dbc31ab4864f7336b1aa98</anchor>
+      <arglist>(const Mat4f &amp;t)</arglist>
+    </member>
+    <member kind="function">
+      <type>const Mat4f &amp;</type>
+      <name>getTransform</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>a84912fcad99eba2242f1eb3debc99498</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPosition</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>ac359621327513c9d572a3c1a00094484</anchor>
+      <arglist>(const Vec3f &amp;pos)</arglist>
+    </member>
+    <member kind="function">
+      <type>Vec3f</type>
+      <name>getPosition</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>a176c8865af0fb2d119c5c6ee0609130c</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>const std::vector&lt; LineSegment3D &gt; &amp;</type>
+      <name>getLines</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>a6be7cd792a8983ca2866ddb5db347b30</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>size_t</type>
+      <name>getNumLines</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>ac601bd5fd6cf61c0c02ccb386edbd416</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setColour</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>ad2144b628a849a71207d893f1f94653f</anchor>
+      <arglist>(juce::Colour c)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setVisible</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>acaca49c3e8bd815284f6c8c569ba47b9</anchor>
+      <arglist>(bool v)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isVisible</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>abaa0d30b4a47aea16646a0202586b1e4</anchor>
+      <arglist>() const</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -15077,6 +15571,59 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>Renderer3D</name>
+    <filename>classRenderer3D.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Renderer3D</name>
+      <anchorfile>classRenderer3D.html</anchorfile>
+      <anchor>a1a05952417f58a6688be0748229f421c</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>render</name>
+      <anchorfile>classRenderer3D.html</anchorfile>
+      <anchor>aea196e65a471e4caebf434f6de394fc1</anchor>
+      <arglist>(juce::Graphics &amp;g, const Scene3D &amp;scene, juce::Rectangle&lt; int &gt; bounds)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>render</name>
+      <anchorfile>classRenderer3D.html</anchorfile>
+      <anchor>a2bfaee7d76676d2d5a5d33a74c618130</anchor>
+      <arglist>(juce::Graphics &amp;g, const Scene3D &amp;scene, juce::Rectangle&lt; float &gt; bounds)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setLineThickness</name>
+      <anchorfile>classRenderer3D.html</anchorfile>
+      <anchor>af16df7f1dde91a89d9fa2a13477901b5</anchor>
+      <arglist>(float thickness)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getLineThickness</name>
+      <anchorfile>classRenderer3D.html</anchorfile>
+      <anchor>aa7dfd564937f9563855ce4d5fb88fdc6</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDepthCueing</name>
+      <anchorfile>classRenderer3D.html</anchorfile>
+      <anchor>addd5b324fcbfde107cfa1bed6a98c67d</anchor>
+      <arglist>(bool enabled)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>getDepthCueing</name>
+      <anchorfile>classRenderer3D.html</anchorfile>
+      <anchor>a3b1bd7d4725d4691e24000de318ff077</anchor>
+      <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>ResamplingFifo</name>
     <filename>classResamplingFifo.html</filename>
     <member kind="function">
@@ -15449,6 +15996,73 @@
       <anchorfile>classScaledPluginEditor.html</anchorfile>
       <anchor>a89a340337e0990d4300d47d0658eedc7</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Scene3D</name>
+    <filename>classScene3D.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Scene3D</name>
+      <anchorfile>classScene3D.html</anchorfile>
+      <anchor>acf088830f0231dc2445e53d282fc0cf4</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clear</name>
+      <anchorfile>classScene3D.html</anchorfile>
+      <anchor>aa9774f346672afe984f5103cdf5ac8bf</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Object3D *</type>
+      <name>addObject</name>
+      <anchorfile>classScene3D.html</anchorfile>
+      <anchor>a0c536c411ecd8a94f0b3a59e44f7516f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Object3D *</type>
+      <name>getObject</name>
+      <anchorfile>classScene3D.html</anchorfile>
+      <anchor>a2ad4cfb0920f6df8dfd75a100fe6e80c</anchor>
+      <arglist>(size_t index)</arglist>
+    </member>
+    <member kind="function">
+      <type>size_t</type>
+      <name>getNumObjects</name>
+      <anchorfile>classScene3D.html</anchorfile>
+      <anchor>af99d784982a62a887f6e49d200cda8ed</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeObject</name>
+      <anchorfile>classScene3D.html</anchorfile>
+      <anchor>a8736cd40a439685b2c8f5e532d63e4cb</anchor>
+      <arglist>(size_t index)</arglist>
+    </member>
+    <member kind="function">
+      <type>Camera3D &amp;</type>
+      <name>getCamera</name>
+      <anchorfile>classScene3D.html</anchorfile>
+      <anchor>a093ff75dd3ef8b39b132a2998f25cb6b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>const Camera3D &amp;</type>
+      <name>getCamera</name>
+      <anchorfile>classScene3D.html</anchorfile>
+      <anchor>aaccc13e43f739c6ef978f520b94854cb</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>const std::vector&lt; std::unique_ptr&lt; Object3D &gt; &gt; &amp;</type>
+      <name>getObjects</name>
+      <anchorfile>classScene3D.html</anchorfile>
+      <anchor>a8b7c499cba8a1cb7439c44292d4f2478</anchor>
+      <arglist>() const</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -18020,6 +18634,172 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>Vec3</name>
+    <filename>structVec3.html</filename>
+    <templarg>typename T</templarg>
+    <member kind="function">
+      <type></type>
+      <name>Vec3</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>a050a094a45ca19dccc170642c8b74afb</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Vec3</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>a878efffc26ead487ded582f9bf8509d7</anchor>
+      <arglist>(T x_, T y_, T z_)</arglist>
+    </member>
+    <member kind="function">
+      <type>Vec3</type>
+      <name>operator+</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>a3248d7a5a4128139a1e5cecfaf41ab04</anchor>
+      <arglist>(const Vec3 &amp;other) const</arglist>
+    </member>
+    <member kind="function">
+      <type>Vec3</type>
+      <name>operator-</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>a1d317fa4f76add58e72a791e496b34cb</anchor>
+      <arglist>(const Vec3 &amp;other) const</arglist>
+    </member>
+    <member kind="function">
+      <type>Vec3</type>
+      <name>operator*</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>aebdae0652d59ea750a073866294c873f</anchor>
+      <arglist>(T scalar) const</arglist>
+    </member>
+    <member kind="function">
+      <type>Vec3</type>
+      <name>operator/</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>ad32ac4fb49e309c797cde813c5a3fd23</anchor>
+      <arglist>(T scalar) const</arglist>
+    </member>
+    <member kind="function">
+      <type>Vec3 &amp;</type>
+      <name>operator+=</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>a6e539c644cc271a9d309416b9992688d</anchor>
+      <arglist>(const Vec3 &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type>Vec3 &amp;</type>
+      <name>operator-=</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>a7ff8b87018ae0b9ddc15967cceb5b3e0</anchor>
+      <arglist>(const Vec3 &amp;other)</arglist>
+    </member>
+    <member kind="function">
+      <type>Vec3 &amp;</type>
+      <name>operator*=</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>a39961ad41d72d84f6af2359080a2e98d</anchor>
+      <arglist>(T scalar)</arglist>
+    </member>
+    <member kind="function">
+      <type>Vec3 &amp;</type>
+      <name>operator/=</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>adc1be7f78607bc4da2f3b6eb52994597</anchor>
+      <arglist>(T scalar)</arglist>
+    </member>
+    <member kind="function">
+      <type>Vec3</type>
+      <name>operator-</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>a46d16893dac4c8623dd2b29c53ac9ac0</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>a8e6b74ff1174d4555e3bfd70ce7ee82f</anchor>
+      <arglist>(const Vec3 &amp;other) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator!=</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>aa1d0e00ba61e664bcd0afa35855521f3</anchor>
+      <arglist>(const Vec3 &amp;other) const</arglist>
+    </member>
+    <member kind="function">
+      <type>T</type>
+      <name>dot</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>a374177f932dc7ac195ba3aec6b46cc71</anchor>
+      <arglist>(const Vec3 &amp;other) const</arglist>
+    </member>
+    <member kind="function">
+      <type>Vec3</type>
+      <name>cross</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>a8cdc8a4ccd7702aaaf1cb3079672a473</anchor>
+      <arglist>(const Vec3 &amp;other) const</arglist>
+    </member>
+    <member kind="function">
+      <type>T</type>
+      <name>length</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>a129e719058dc74a0eec615d6090f1256</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>T</type>
+      <name>lengthSquared</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>aab401b0f78370c440f39ab13d69efd87</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Vec3</type>
+      <name>normalized</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>a8745ac5cf285c9210f47ce2e134ad1e8</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>normalize</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>aaa52699051347366ad9836673b688c0f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Vec3</type>
+      <name>lerp</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>a55768552839840bea9555024a4d620ee</anchor>
+      <arglist>(const Vec3 &amp;other, T t) const</arglist>
+    </member>
+    <member kind="variable">
+      <type>T</type>
+      <name>x</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>aeba95c52e15a5a7476550c1798210db2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>T</type>
+      <name>y</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>a76f06eaf078504ac1d09c910ddb24696</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>T</type>
+      <name>z</name>
+      <anchorfile>structVec3.html</anchorfile>
+      <anchor>a0f694311f956380952aee054cbabb8b6</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>VoicedOscillatorParams</name>
     <filename>structVoicedOscillatorParams.html</filename>
     <member kind="variable">
@@ -19584,6 +20364,46 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_3d-3d</name>
+    <title>3d</title>
+    <filename>group__gin__3d-3d.html</filename>
+    <class kind="class">Camera3D</class>
+    <class kind="struct">Mat4</class>
+    <class kind="class">Renderer3D</class>
+    <class kind="struct">LineSegment3D</class>
+    <class kind="class">Object3D</class>
+    <class kind="class">Scene3D</class>
+    <class kind="struct">Vec3</class>
+    <member kind="typedef">
+      <type>Mat4&lt; float &gt;</type>
+      <name>Mat4f</name>
+      <anchorfile>group__gin__3d-3d.html</anchorfile>
+      <anchor>gad277b4ffd0896d88a9f60d4d765f3cc5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>Mat4&lt; double &gt;</type>
+      <name>Mat4d</name>
+      <anchorfile>group__gin__3d-3d.html</anchorfile>
+      <anchor>gabaf7f913bf1752b9157259ffa32704ca</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>Vec3&lt; float &gt;</type>
+      <name>Vec3f</name>
+      <anchorfile>group__gin__3d-3d.html</anchorfile>
+      <anchor>ga40b8356e33151c22cb4d1adaf2b762a8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>Vec3&lt; double &gt;</type>
+      <name>Vec3d</name>
+      <anchorfile>group__gin__3d-3d.html</anchorfile>
+      <anchor>ga98d94999010cb92dfb5f652c353d1d82</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="group">
     <name>gin_plugin-components</name>
     <title>components</title>
     <filename>group__gin__plugin-components.html</filename>
@@ -19989,6 +20809,12 @@
     <filename>group__gin.html</filename>
     <subgroup>gin-geometry</subgroup>
     <subgroup>gin-utilities</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>gin_3d</name>
+    <title>gin_3d</title>
+    <filename>group__gin__3d.html</filename>
+    <subgroup>gin_3d-3d</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_dsp</name>

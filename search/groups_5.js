@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['location_0',['location',['../group__gin__location-location.html',1,'']]],
-  ['lookandfeel_1',['lookandfeel',['../group__gin__plugin-lookandfeel.html',1,'']]]
+  ['images_0',['images',['../group__gin__gui-images.html',1,'images'],['../group__gin__graphics-images.html',1,'images']]]
 ];

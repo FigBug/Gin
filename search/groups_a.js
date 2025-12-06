@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['standaloneplugin_0',['standaloneplugin',['../group__gin__standaloneplugin-standaloneplugin.html',1,'']]]
+  ['resources_0',['resources',['../group__gin__plugin-resources.html',1,'']]]
 ];

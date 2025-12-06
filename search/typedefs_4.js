@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['value_5ftype_0',['value_type',['../group__gin__gui-utilities.html#ga2568e5c06333945b3b21bd06902e227f',1,'juce::VarIterator']]]
+  ['reference_0',['reference',['../group__gin__gui-utilities.html#gabdc270513e2833318b2b5c6dd30f09bd',1,'juce::VarIterator']]]
 ];

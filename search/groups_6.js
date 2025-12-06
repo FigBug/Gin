@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['math_0',['math',['../group__gin__simd-math.html',1,'']]],
-  ['metadata_1',['metadata',['../group__gin__metadata-metadata.html',1,'']]],
-  ['mipp_2',['mipp',['../group__gin__simd-mipp.html',1,'']]]
+  ['location_0',['location',['../group__gin__location-location.html',1,'']]],
+  ['lookandfeel_1',['lookandfeel',['../group__gin__plugin-lookandfeel.html',1,'']]]
 ];
