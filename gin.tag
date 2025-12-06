@@ -5961,6 +5961,12 @@
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
+      <name>compexp</name>
+      <anchorfile>classDynamics.html</anchorfile>
+      <anchor>a6b3502e2f88d8fd32b07239376f19576acd547d0fc32c5792a30cadcbc4105c57</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
       <name>compressor</name>
       <anchorfile>classDynamics.html</anchorfile>
       <anchor>a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b</anchor>
@@ -5982,6 +5988,12 @@
       <name>gate</name>
       <anchorfile>classDynamics.html</anchorfile>
       <anchor>a6b3502e2f88d8fd32b07239376f19576a5cddded513bf6aca23ba76ef7d2e537f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>compexp</name>
+      <anchorfile>classDynamics.html</anchorfile>
+      <anchor>a6b3502e2f88d8fd32b07239376f19576acd547d0fc32c5792a30cadcbc4105c57</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">

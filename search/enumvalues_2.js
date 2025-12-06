@@ -12,6 +12,7 @@ var searchData=
   ['colourid3_9',['colourId3',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a1212637a22b754b7a391ce9b21038ebe',1,'GinLookAndFeel']]],
   ['colourid4_10',['colourId4',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6ab03087831525f839f19c44a9d79d20df',1,'GinLookAndFeel']]],
   ['colourid5_11',['colourId5',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a068da01ec533d85f1b2f098c7b4b2040',1,'GinLookAndFeel']]],
-  ['compressor_12',['compressor',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b',1,'Dynamics']]],
-  ['continuation_13',['CONTINUATION',['../structWSHeaderType.html#ac1906191ac337fdbecbe643184fbd3b3a281dd9cfd2da201efff9e0e33950c593',1,'WSHeaderType']]]
+  ['compexp_12',['compexp',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576acd547d0fc32c5792a30cadcbc4105c57',1,'Dynamics']]],
+  ['compressor_13',['compressor',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b',1,'Dynamics']]],
+  ['continuation_14',['CONTINUATION',['../structWSHeaderType.html#ac1906191ac337fdbecbe643184fbd3b3a281dd9cfd2da201efff9e0e33950c593',1,'WSHeaderType']]]
 ];

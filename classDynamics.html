@@ -84,10 +84,14 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a6b3502e2f88d8fd32b07239376f19576" id="r_a6b3502e2f88d8fd32b07239376f19576"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576">Type</a> { <a class="el" href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b">compressor</a>
+<tr class="memitem:a6b3502e2f88d8fd32b07239376f19576" id="r_a6b3502e2f88d8fd32b07239376f19576"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576">Type</a> { <br />
+&#160;&#160;<a class="el" href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b">compressor</a>
 , <a class="el" href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576af7eeb3fb00381e25b0040685eb2a5174">limiter</a>
 , <a class="el" href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a86eafff6a891eb381e162e7adc73ff7e">expander</a>
 , <a class="el" href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a5cddded513bf6aca23ba76ef7d2e537f">gate</a>
+, <br />
+&#160;&#160;<a class="el" href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576acd547d0fc32c5792a30cadcbc4105c57">compexp</a>
+<br />
  }</td></tr>
 <tr class="memdesc:a6b3502e2f88d8fd32b07239376f19576"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classDynamics.html" title="Dynamics processor supporting compression, limiting, expansion, and gating.">Dynamics</a> processing types.  <a href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576">More...</a><br /></td></tr>
 <tr class="separator:a6b3502e2f88d8fd32b07239376f19576"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,8 +133,9 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p><a class="el" href="classDynamics.html" title="Dynamics processor supporting compression, limiting, expansion, and gating.">Dynamics</a> processor supporting compression, limiting, expansion, and gating. </p>
 <p><a class="el" href="classDynamics.html" title="Dynamics processor supporting compression, limiting, expansion, and gating.">Dynamics</a> provides a versatile dynamics processing engine that can function as a compressor, limiter, expander, or gate. Based on algorithms from "Designing
 Audio Effect Plug-ins in C++" by Will Pirkle, it features attack/hold/release envelope detection, adjustable ratio and threshold, soft knee, and optional channel linking for stereo operation.</p>
+<p>The compexp mode combines downward compression (above threshold) with upward compression (below the inverted threshold), using the same ratio for both.</p>
 <p>Key Features:</p><ul>
-<li>Four processing types: compressor, limiter, expander, gate</li>
+<li>Five processing types: compressor, limiter, expander, gate, compexp</li>
 <li>Configurable attack, hold, release times</li>
 <li>Adjustable threshold and ratio</li>
 <li>Soft knee for smooth compression</li>
@@ -161,8 +166,8 @@ Audio Effect Plug-ins in C++" by Will Pirkle, it features attack/hold/release en
 <div class="line"><span class="comment">// Get metering</span></div>
 <div class="line"><span class="keywordtype">float</span> <a class="code hl_class" href="classPoint.html">inputLevel</a> = <a class="code hl_class" href="classPoint.html">comp</a>.getInputTracker().getLevel();</div>
 <div class="line"><span class="keywordtype">float</span> <a class="code hl_class" href="classPoint.html">outputLevel</a> = <a class="code hl_class" href="classPoint.html">comp</a>.getOutputTracker().getLevel();</div>
-<div class="ttc" id="aclassDynamics_html"><div class="ttname"><a href="classDynamics.html">Dynamics</a></div><div class="ttdoc">Dynamics processor supporting compression, limiting, expansion, and gating.</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:127</div></div>
-<div class="ttc" id="aclassDynamics_html_a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b"><div class="ttname"><a href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b">Dynamics::compressor</a></div><div class="ttdeci">@ compressor</div><div class="ttdoc">Compression (reduce loud signals)</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:143</div></div>
+<div class="ttc" id="aclassDynamics_html"><div class="ttname"><a href="classDynamics.html">Dynamics</a></div><div class="ttdoc">Dynamics processor supporting compression, limiting, expansion, and gating.</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:130</div></div>
+<div class="ttc" id="aclassDynamics_html_a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b"><div class="ttname"><a href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b">Dynamics::compressor</a></div><div class="ttdeci">@ compressor</div><div class="ttdoc">Compression (reduce loud signals)</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:147</div></div>
 <div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 </div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classEnvelopeDetector.html" title="Envelope follower for dynamics processing.">EnvelopeDetector</a>, <a class="el" href="classLevelTracker.html" title="Track audio levels with decay in dB.">LevelTracker</a> </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
@@ -183,7 +188,8 @@ Audio Effect Plug-ins in C++" by Will Pirkle, it features attack/hold/release en
 <li>compressor: Reduces gain above threshold (ratio &gt; 1:1)</li>
 <li>limiter: Hard limiting (very high ratio, fast attack)</li>
 <li>expander: Increases dynamic range (reduces gain below threshold)</li>
-<li>gate: Attenuates signals below threshold (extreme expansion) </li>
+<li>gate: Attenuates signals below threshold (extreme expansion)</li>
+<li>compexp: Combined compressor + expander (expander threshold is inverse of compressor threshold) </li>
 </ul>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b" name="a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b"></a>compressor&#160;</td><td class="fielddoc"><p>Compression (reduce loud signals) </p>
@@ -193,6 +199,8 @@ Audio Effect Plug-ins in C++" by Will Pirkle, it features attack/hold/release en
 <tr><td class="fieldname"><a id="a6b3502e2f88d8fd32b07239376f19576a86eafff6a891eb381e162e7adc73ff7e" name="a6b3502e2f88d8fd32b07239376f19576a86eafff6a891eb381e162e7adc73ff7e"></a>expander&#160;</td><td class="fielddoc"><p>Expansion (increase dynamic range) </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a6b3502e2f88d8fd32b07239376f19576a5cddded513bf6aca23ba76ef7d2e537f" name="a6b3502e2f88d8fd32b07239376f19576a5cddded513bf6aca23ba76ef7d2e537f"></a>gate&#160;</td><td class="fielddoc"><p>Gate (cut quiet signals) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6b3502e2f88d8fd32b07239376f19576acd547d0fc32c5792a30cadcbc4105c57" name="a6b3502e2f88d8fd32b07239376f19576acd547d0fc32c5792a30cadcbc4105c57"></a>compexp&#160;</td><td class="fielddoc"><p>Combined compressor and expander (expander uses inverse threshold) </p>
 </td></tr>
 </table>
 
@@ -530,7 +538,7 @@ Audio Effect Plug-ins in C++" by Will Pirkle, it features attack/hold/release en
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 6 2025 14:12:12 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sat Dec 6 2025 14:34:19 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
