@@ -192,14 +192,14 @@ private:
         params.pw = 0.25f;
         osc.noteOn (0.0f);
         osc.process (60.0f, params, buffer);
-        float sample25 = buffer.getSample (0, 500);
+        float rms25 = buffer.getRMSLevel (0, 0, 500);
 
         params.pw = 0.75f;
         osc.noteOn (0.0f);
         osc.process (60.0f, params, buffer);
-        float sample75 = buffer.getSample (0, 500);
+        float rms75 = buffer.getRMSLevel (0, 0, 500);
 
-        expect (std::abs (sample25 - sample75) > 0.1f,
+        expect (std::abs (rms25 - rms75) > 0.1f,
                "Different pulse widths should produce different output");
     }
 
