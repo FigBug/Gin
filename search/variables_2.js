@@ -4,7 +4,7 @@ var searchData=
   ['caretdown_1',['caretDown',['../namespaceAssets.html#a7b3064ecec3c09aeec566d9b496920e0',1,'Assets']]],
   ['cb_2',['cb',['../classAsyncDownload.html#a917bd54326382853cc85d86d4b94e963',1,'AsyncDownload']]],
   ['channelconfiguration_3',['channelConfiguration',['../classStandalonePluginHolder.html#a78516abee2da430183ab0f75c2eea150',1,'StandalonePluginHolder']]],
-  ['clip_4',['clip',['../classLevelTracker.html#a5702532186fb2626960f2e4a00f17a38',1,'LevelTracker']]],
+  ['clip_4',['clip',['../classLevelTracker.html#a26766995b2012da8ba9494a8480de068',1,'LevelTracker']]],
   ['coefc_5',['coefC',['../classLinearRegression.html#afdc67d71c93cea69b0a66693fa5cb276',1,'LinearRegression']]],
   ['coefd_6',['coefD',['../classLinearRegression.html#a0f3377c655ca712c3e2c3d4e2125441c',1,'LinearRegression']]],
   ['colour_7',['colour',['../structLineSegment3D.html#a4a7256090d6ba4b9eafade13082d853c',1,'LineSegment3D']]],

@@ -9421,31 +9421,31 @@
       <arglist>()</arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>float</type>
+      <type>std::atomic&lt; float &gt;</type>
       <name>peakTime</name>
       <anchorfile>classLevelTracker.html</anchorfile>
-      <anchor>a88d4d7383672bfbf10826e954d9cf408</anchor>
+      <anchor>a138f87e03d25238edba107d351fefc63</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>float</type>
+      <type>std::atomic&lt; float &gt;</type>
       <name>peakLevel</name>
       <anchorfile>classLevelTracker.html</anchorfile>
-      <anchor>ae36cb9c622a3230e0a7f24a5c9b621ac</anchor>
+      <anchor>a0a183c3b64e3d6911814b08770b359f9</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>float</type>
+      <type>const float</type>
       <name>decayRate</name>
       <anchorfile>classLevelTracker.html</anchorfile>
-      <anchor>a796f0f65de9c1017f59fa6dc0247ca83</anchor>
+      <anchor>a194ee79cddf26af81577ba106877ff6a</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>bool</type>
+      <type>std::atomic&lt; bool &gt;</type>
       <name>clip</name>
       <anchorfile>classLevelTracker.html</anchorfile>
-      <anchor>a5702532186fb2626960f2e4a00f17a38</anchor>
+      <anchor>a26766995b2012da8ba9494a8480de068</anchor>
       <arglist></arglist>
     </member>
   </compound>

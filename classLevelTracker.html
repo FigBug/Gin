@@ -101,14 +101,14 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a88d4d7383672bfbf10826e954d9cf408" id="r_a88d4d7383672bfbf10826e954d9cf408"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevelTracker.html#a88d4d7383672bfbf10826e954d9cf408">peakTime</a> = 0.0f</td></tr>
-<tr class="separator:a88d4d7383672bfbf10826e954d9cf408"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae36cb9c622a3230e0a7f24a5c9b621ac" id="r_ae36cb9c622a3230e0a7f24a5c9b621ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevelTracker.html#ae36cb9c622a3230e0a7f24a5c9b621ac">peakLevel</a> = -100.0f</td></tr>
-<tr class="separator:ae36cb9c622a3230e0a7f24a5c9b621ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a796f0f65de9c1017f59fa6dc0247ca83" id="r_a796f0f65de9c1017f59fa6dc0247ca83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevelTracker.html#a796f0f65de9c1017f59fa6dc0247ca83">decayRate</a> = 0.0f</td></tr>
-<tr class="separator:a796f0f65de9c1017f59fa6dc0247ca83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5702532186fb2626960f2e4a00f17a38" id="r_a5702532186fb2626960f2e4a00f17a38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevelTracker.html#a5702532186fb2626960f2e4a00f17a38">clip</a> = <a class="el" href="classPoint.html">false</a></td></tr>
-<tr class="separator:a5702532186fb2626960f2e4a00f17a38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a138f87e03d25238edba107d351fefc63" id="r_a138f87e03d25238edba107d351fefc63"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; <a class="el" href="classPoint.html">float</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevelTracker.html#a138f87e03d25238edba107d351fefc63">peakTime</a> { 0.0f }</td></tr>
+<tr class="separator:a138f87e03d25238edba107d351fefc63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a183c3b64e3d6911814b08770b359f9" id="r_a0a183c3b64e3d6911814b08770b359f9"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; <a class="el" href="classPoint.html">float</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevelTracker.html#a0a183c3b64e3d6911814b08770b359f9">peakLevel</a> { -100.0f }</td></tr>
+<tr class="separator:a0a183c3b64e3d6911814b08770b359f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a194ee79cddf26af81577ba106877ff6a" id="r_a194ee79cddf26af81577ba106877ff6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">const</a> <a class="el" href="classPoint.html">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevelTracker.html#a194ee79cddf26af81577ba106877ff6a">decayRate</a> = 0.0f</td></tr>
+<tr class="separator:a194ee79cddf26af81577ba106877ff6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26766995b2012da8ba9494a8480de068" id="r_a26766995b2012da8ba9494a8480de068"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; <a class="el" href="classPoint.html">bool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevelTracker.html#a26766995b2012da8ba9494a8480de068">clip</a> { <a class="el" href="classPoint.html">false</a> }</td></tr>
+<tr class="separator:a26766995b2012da8ba9494a8480de068"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Track audio levels with decay in dB. </p>
@@ -228,7 +228,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classLevelTracker.html#a5702532186fb2626960f2e4a00f17a38">clip</a>.</p>
+<p class="reference">References <a class="el" href="classLevelTracker.html#a26766995b2012da8ba9494a8480de068">clip</a>.</p>
 
 </div>
 </div>
@@ -247,13 +247,13 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classLevelTracker.html#a5702532186fb2626960f2e4a00f17a38">clip</a>.</p>
+<p class="reference">References <a class="el" href="classLevelTracker.html#a26766995b2012da8ba9494a8480de068">clip</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a88d4d7383672bfbf10826e954d9cf408" name="a88d4d7383672bfbf10826e954d9cf408"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88d4d7383672bfbf10826e954d9cf408">&#9670;&#160;</a></span>peakTime</h2>
+<a id="a138f87e03d25238edba107d351fefc63" name="a138f87e03d25238edba107d351fefc63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a138f87e03d25238edba107d351fefc63">&#9670;&#160;</a></span>peakTime</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -262,7 +262,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">float</a> LevelTracker::peakTime = 0.0f</td>
+          <td class="memname">std::atomic&lt;<a class="el" href="classPoint.html">float</a>&gt; LevelTracker::peakTime { 0.0f }</td>
         </tr>
       </table>
   </td>
@@ -274,8 +274,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ae36cb9c622a3230e0a7f24a5c9b621ac" name="ae36cb9c622a3230e0a7f24a5c9b621ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae36cb9c622a3230e0a7f24a5c9b621ac">&#9670;&#160;</a></span>peakLevel</h2>
+<a id="a0a183c3b64e3d6911814b08770b359f9" name="a0a183c3b64e3d6911814b08770b359f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a183c3b64e3d6911814b08770b359f9">&#9670;&#160;</a></span>peakLevel</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -284,7 +284,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">float</a> LevelTracker::peakLevel = -100.0f</td>
+          <td class="memname">std::atomic&lt;<a class="el" href="classPoint.html">float</a>&gt; LevelTracker::peakLevel { -100.0f }</td>
         </tr>
       </table>
   </td>
@@ -296,8 +296,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a796f0f65de9c1017f59fa6dc0247ca83" name="a796f0f65de9c1017f59fa6dc0247ca83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a796f0f65de9c1017f59fa6dc0247ca83">&#9670;&#160;</a></span>decayRate</h2>
+<a id="a194ee79cddf26af81577ba106877ff6a" name="a194ee79cddf26af81577ba106877ff6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a194ee79cddf26af81577ba106877ff6a">&#9670;&#160;</a></span>decayRate</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -306,7 +306,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">float</a> LevelTracker::decayRate = 0.0f</td>
+          <td class="memname"><a class="el" href="classPoint.html">const</a> <a class="el" href="classPoint.html">float</a> LevelTracker::decayRate = 0.0f</td>
         </tr>
       </table>
   </td>
@@ -318,8 +318,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a5702532186fb2626960f2e4a00f17a38" name="a5702532186fb2626960f2e4a00f17a38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5702532186fb2626960f2e4a00f17a38">&#9670;&#160;</a></span>clip</h2>
+<a id="a26766995b2012da8ba9494a8480de068" name="a26766995b2012da8ba9494a8480de068"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26766995b2012da8ba9494a8480de068">&#9670;&#160;</a></span>clip</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -328,7 +328,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">bool</a> LevelTracker::clip = <a class="el" href="classPoint.html">false</a></td>
+          <td class="memname">std::atomic&lt;<a class="el" href="classPoint.html">bool</a>&gt; LevelTracker::clip { <a class="el" href="classPoint.html">false</a> }</td>
         </tr>
       </table>
   </td>
@@ -348,7 +348,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 6 2025 17:23:11 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sun Dec 7 2025 05:51:49 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

@@ -10,7 +10,7 @@ var searchData=
   ['decaycoeff_7',['decayCoeff',['../classAnalogADSR.html#a579f3a723cf158c51e851339ab151a43',1,'AnalogADSR']]],
   ['decaydelta_8',['decayDelta',['../classADSR.html#a7fe4cf55dca362fd768e8763e1207721',1,'ADSR']]],
   ['decayoffset_9',['decayOffset',['../classAnalogADSR.html#af483c3fd72c3c558c140032492ce60cb',1,'AnalogADSR']]],
-  ['decayrate_10',['decayRate',['../classLevelTracker.html#a796f0f65de9c1017f59fa6dc0247ca83',1,'LevelTracker']]],
+  ['decayrate_10',['decayRate',['../classLevelTracker.html#a194ee79cddf26af81577ba106877ff6a',1,'LevelTracker']]],
   ['decodeimage_11',['decodeimage',['../classBMPImageFormat.html#a2594f1a9444754276035be54722c59f2',1,'BMPImageFormat::decodeImage()'],['../classWEBPImageFormat.html#a9ec17db624e1ed9512371a55b1ac52d9',1,'WEBPImageFormat::decodeImage()']]],
   ['defaultcolour_12',['defaultColour',['../classGinLookAndFeel.html#a13e4ce006239d68f35c217261a9ed907',1,'GinLookAndFeel']]],
   ['defaultvalue_13',['defaultValue',['../classParameter.html#ac93066e3c3535f0075d344e501923f7c',1,'Parameter']]],

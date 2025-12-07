@@ -67,7 +67,7 @@ var searchData=
   ['clearqueue_64',['clearQueue',['../classOpenStreetMaps.html#a4f3e70e9d0b31ca0d7c0669016da2f4f',1,'OpenStreetMaps']]],
   ['clearvariables_65',['clearVariables',['../classEquationParser.html#ac5e970f7cce272259c829ba072b74962',1,'EquationParser']]],
   ['clicked_66',['clicked',['../classSVGPluginButton.html#a6a64fe25e21b00cf6f25ec4eabbdb8e8',1,'SVGPluginButton::clicked()'],['../classPluginButton.html#a5a8bc6d21639253463b285091b3ff1e3',1,'PluginButton::clicked()']]],
-  ['clip_67',['clip',['../classLevelTracker.html#a5702532186fb2626960f2e4a00f17a38',1,'LevelTracker::clip'],['../group__gin__dsp-dsp.html#ga80d41603f74938619f0af6e8007f5944',1,'clip():&#160;gin_audioutil.h']]],
+  ['clip_67',['clip',['../classLevelTracker.html#a26766995b2012da8ba9494a8480de068',1,'LevelTracker::clip'],['../group__gin__dsp-dsp.html#ga80d41603f74938619f0af6e8007f5944',1,'clip():&#160;gin_audioutil.h']]],
   ['clipcolourid_68',['clipColourId',['../classLevelMeter.html#aebb71a7df2ebf267fa0326a95142cfa3ad844a359347bafb53048b50aad7ec396',1,'LevelMeter']]],
   ['close_69',['close',['../structWSHeaderType.html#ac1906191ac337fdbecbe643184fbd3b3a595b1cfbd1c8acb916bf1bb6dcb8de9c',1,'WSHeaderType::CLOSE'],['../classWebSocket.html#abef10acf60b4d5b87399e6f9c5ad808d',1,'WebSocket::close()'],['../classSecureStreamingSocket.html#ae57da84b07292822018a7a3e1f3dd903',1,'SecureStreamingSocket::close()']]],
   ['closebuttonpressed_70',['closeButtonPressed',['../classStandaloneFilterWindow.html#a0ecb7e5d6264a99e213987021ae863a9',1,'StandaloneFilterWindow']]],
