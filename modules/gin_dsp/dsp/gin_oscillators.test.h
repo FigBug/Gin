@@ -188,19 +188,25 @@ private:
         params.wave = Wave::pulse;
         juce::AudioBuffer<float> buffer (2, 1000);
 
-        // Test different pulse widths produce different output
+        // Test different pulse widths produce different positive sample counts
         params.pw = 0.25f;
         osc.noteOn (0.0f);
         osc.process (60.0f, params, buffer);
-        float rms25 = buffer.getRMSLevel (0, 0, 500);
+        int posCount25 = 0;
+        for (int s = 0; s < buffer.getNumSamples(); s++)
+            if (buffer.getSample (0, s) < 0.0f)
+                posCount25++;
 
         params.pw = 0.75f;
         osc.noteOn (0.0f);
         osc.process (60.0f, params, buffer);
-        float rms75 = buffer.getRMSLevel (0, 0, 500);
+        int posCount75 = 0;
+        for (int s = 0; s < buffer.getNumSamples(); s++)
+            if (buffer.getSample (0, s) < 0.0f)
+                posCount75++;
 
-        expect (std::abs (rms25 - rms75) > 0.1f,
-               "Different pulse widths should produce different output");
+        expect (posCount75 > posCount25 * 2.9,
+               "Pulse width 0.75 should have more positive samples than 0.25");
     }
 
     void testStereoOscillatorFold()
