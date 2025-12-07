@@ -40,6 +40,30 @@ public:
 
             Mat4f modelViewProj = viewProj * obj->getTransform();
 
+            // Render points
+            for (const auto& point : obj->getPoints())
+            {
+                auto clipPos = modelViewProj.project (point.position);
+
+                // Skip if behind the camera
+                if (clipPos[3] <= 0)
+                    continue;
+
+                // Perspective divide
+                float x = clipPos[0] / clipPos[3];
+                float y = clipPos[1] / clipPos[3];
+
+                // Convert to screen coordinates
+                float screenX = centreX + x * halfWidth;
+                float screenY = centreY - y * halfHeight;
+
+                // Draw the point as a filled ellipse
+                g.setColour (point.colour);
+                float halfSize = point.size / 2.0f;
+                g.fillEllipse (screenX - halfSize, screenY - halfSize, point.size, point.size);
+            }
+
+            // Render lines
             for (const auto& line : obj->getLines())
             {
                 // Transform vertices to clip space

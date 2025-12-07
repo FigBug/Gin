@@ -14,14 +14,56 @@ public:
 
     void runTest() override
     {
+        testPoint3D();
         testLineSegment();
         testObject3D();
+        testObject3DPoints();
         testObject3DShapes();
         testObject3DTransform();
         testScene3D();
     }
 
 private:
+    void testPoint3D()
+    {
+        beginTest ("Point3D");
+
+        // Default constructor
+        Point3D defaultPoint;
+        expectWithinAbsoluteError (defaultPoint.position.x, 0.0f, 0.0001f, "Default position x");
+        expectWithinAbsoluteError (defaultPoint.position.y, 0.0f, 0.0001f, "Default position y");
+        expectWithinAbsoluteError (defaultPoint.position.z, 0.0f, 0.0001f, "Default position z");
+        expectWithinAbsoluteError (defaultPoint.size, 1.0f, 0.0001f, "Default size");
+        expect (defaultPoint.colour == juce::Colours::white, "Default colour is white");
+
+        // Vec3f constructor
+        Point3D pointVec (Vec3f (1.0f, 2.0f, 3.0f), 5.0f, juce::Colours::red);
+        expectWithinAbsoluteError (pointVec.position.x, 1.0f, 0.0001f, "Vec3 constructor x");
+        expectWithinAbsoluteError (pointVec.position.y, 2.0f, 0.0001f, "Vec3 constructor y");
+        expectWithinAbsoluteError (pointVec.position.z, 3.0f, 0.0001f, "Vec3 constructor z");
+        expectWithinAbsoluteError (pointVec.size, 5.0f, 0.0001f, "Vec3 constructor size");
+        expect (pointVec.colour == juce::Colours::red, "Vec3 constructor colour");
+
+        // Vec3f constructor with defaults
+        Point3D pointVecDefaults (Vec3f (4.0f, 5.0f, 6.0f));
+        expectWithinAbsoluteError (pointVecDefaults.position.x, 4.0f, 0.0001f, "Vec3 defaults x");
+        expectWithinAbsoluteError (pointVecDefaults.size, 1.0f, 0.0001f, "Vec3 defaults size");
+        expect (pointVecDefaults.colour == juce::Colours::white, "Vec3 defaults colour");
+
+        // Coordinate constructor
+        Point3D pointCoords (7.0f, 8.0f, 9.0f, 10.0f, juce::Colours::blue);
+        expectWithinAbsoluteError (pointCoords.position.x, 7.0f, 0.0001f, "Coords constructor x");
+        expectWithinAbsoluteError (pointCoords.position.y, 8.0f, 0.0001f, "Coords constructor y");
+        expectWithinAbsoluteError (pointCoords.position.z, 9.0f, 0.0001f, "Coords constructor z");
+        expectWithinAbsoluteError (pointCoords.size, 10.0f, 0.0001f, "Coords constructor size");
+        expect (pointCoords.colour == juce::Colours::blue, "Coords constructor colour");
+
+        // Coordinate constructor with defaults
+        Point3D pointCoordsDefaults (1.0f, 2.0f, 3.0f);
+        expectWithinAbsoluteError (pointCoordsDefaults.size, 1.0f, 0.0001f, "Coords defaults size");
+        expect (pointCoordsDefaults.colour == juce::Colours::white, "Coords defaults colour");
+    }
+
     void testLineSegment()
     {
         beginTest ("LineSegment3D");
@@ -68,6 +110,51 @@ private:
 
         obj.setVisible (true);
         expect (obj.isVisible(), "Object can be made visible again");
+    }
+
+    void testObject3DPoints()
+    {
+        beginTest ("Object3D Points");
+
+        Object3D obj;
+
+        // Initially no points
+        expectEquals ((int) obj.getNumPoints(), 0, "Empty object has no points");
+
+        // Add point with Vec3f
+        obj.addPoint (Vec3f (1.0f, 2.0f, 3.0f), 5.0f, juce::Colours::red);
+        expectEquals ((int) obj.getNumPoints(), 1, "One point after addPoint");
+
+        // Add point with Point3D struct
+        Point3D pt (Vec3f (4.0f, 5.0f, 6.0f), 10.0f, juce::Colours::green);
+        obj.addPoint (pt);
+        expectEquals ((int) obj.getNumPoints(), 2, "Two points after adding Point3D");
+
+        // Check point data
+        const auto& points = obj.getPoints();
+        expectEquals ((int) points.size(), 2, "getPoints returns correct size");
+
+        expectWithinAbsoluteError (points[0].position.x, 1.0f, 0.0001f, "First point x");
+        expectWithinAbsoluteError (points[0].size, 5.0f, 0.0001f, "First point size");
+        expect (points[0].colour == juce::Colours::red, "First point colour");
+
+        expectWithinAbsoluteError (points[1].position.y, 5.0f, 0.0001f, "Second point y");
+        expectWithinAbsoluteError (points[1].size, 10.0f, 0.0001f, "Second point size");
+        expect (points[1].colour == juce::Colours::green, "Second point colour");
+
+        // Add a line to verify clear removes both
+        obj.addLine (Vec3f (0.0f, 0.0f, 0.0f), Vec3f (1.0f, 0.0f, 0.0f));
+        expectEquals ((int) obj.getNumLines(), 1, "One line added");
+
+        obj.clear();
+        expectEquals ((int) obj.getNumPoints(), 0, "Clear removes all points");
+        expectEquals ((int) obj.getNumLines(), 0, "Clear removes all lines");
+
+        // Test default parameters
+        obj.addPoint (Vec3f (0.0f, 0.0f, 0.0f));
+        const auto& defaultPoints = obj.getPoints();
+        expectWithinAbsoluteError (defaultPoints[0].size, 1.0f, 0.0001f, "Default point size");
+        expect (defaultPoints[0].colour == juce::Colours::white, "Default point colour");
     }
 
     void testObject3DShapes()

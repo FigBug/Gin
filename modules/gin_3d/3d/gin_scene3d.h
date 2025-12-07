@@ -7,6 +7,20 @@
 
 #pragma once
 
+/** Represents a point in 3D space. */
+struct Point3D
+{
+    Vec3f position;
+    float size { 1.0f };
+    juce::Colour colour { juce::Colours::white };
+
+    Point3D() = default;
+    Point3D (const Vec3f& pos, float sz = 1.0f, juce::Colour c = juce::Colours::white)
+        : position (pos), size (sz), colour (c) {}
+    Point3D (float x, float y, float z, float sz = 1.0f, juce::Colour c = juce::Colours::white)
+        : position (x, y, z), size (sz), colour (c) {}
+};
+
 /** Represents a line segment in 3D space. */
 struct LineSegment3D
 {
@@ -21,14 +35,21 @@ struct LineSegment3D
         : start (x1, y1, z1), end (x2, y2, z2), colour (c) {}
 };
 
-/** A 3D object that contains a collection of line segments with a transform. */
+/** A 3D object that contains a collection of points and line segments with a transform. */
 class Object3D
 {
 public:
     Object3D() = default;
 
-    /** Clears all line segments. */
-    void clear() { lines.clear(); }
+    /** Clears all points and line segments. */
+    void clear() { points.clear(); lines.clear(); }
+
+    /** Adds a point. */
+    void addPoint (const Point3D& point) { points.push_back (point); }
+    void addPoint (const Vec3f& position, float size = 1.0f, juce::Colour colour = juce::Colours::white)
+    {
+        points.emplace_back (position, size, colour);
+    }
 
     /** Adds a line segment. */
     void addLine (const LineSegment3D& line) { lines.push_back (line); }
@@ -121,6 +142,12 @@ public:
         return { transform.m[3][0], transform.m[3][1], transform.m[3][2] };
     }
 
+    /** Gets all points. */
+    const std::vector<Point3D>& getPoints() const { return points; }
+
+    /** Gets the number of points. */
+    size_t getNumPoints() const { return points.size(); }
+
     /** Gets all line segments. */
     const std::vector<LineSegment3D>& getLines() const { return lines; }
 
@@ -135,6 +162,7 @@ public:
     bool isVisible() const { return visible; }
 
 private:
+    std::vector<Point3D> points;
     std::vector<LineSegment3D> lines;
     Mat4f transform;
     juce::Colour defaultColour { juce::Colours::white };

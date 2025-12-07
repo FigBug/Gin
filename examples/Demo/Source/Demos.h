@@ -2623,11 +2623,7 @@ struct Wavetable3DDemo : public juce::Component,
     {
         gin::BandLimitedLookupTables tables { 44100, 12, 2048 };
 
-        const int numTables = 64;
-        const int samplesPerTable = 128;
         const float tableSpacing = 0.035f;
-        const float waveHeight = 0.4f;
-        const float waveWidth = 2.0f;
 
         juce::Colour colour = juce::Colours::green.withAlpha (0.6f);
 
@@ -2638,8 +2634,7 @@ struct Wavetable3DDemo : public juce::Component,
             float zPos = (float (t) - float (numTables) / 2.0f) * tableSpacing;
 
             // Generate points for this wavetable by interpolating sine and square
-            std::vector<gin::Vec3f> points;
-            points.reserve (samplesPerTable);
+            wavetablePoints[t].reserve (samplesPerTable);
 
             for (int i = 0; i < samplesPerTable; ++i)
             {
@@ -2651,13 +2646,17 @@ struct Wavetable3DDemo : public juce::Component,
                 float squareVal = tables.processSquare (60.0f, phase);  // Use middle note
                 float yVal = (sineVal * (1.0f - morph) + squareVal * morph) * waveHeight;
 
-                points.push_back ({ xPos, yVal, zPos });
+                wavetablePoints[t].push_back ({ xPos, yVal, zPos });
             }
 
             // Connect points with lines (don't close the loop)
             for (int i = 0; i < samplesPerTable - 1; ++i)
-                obj->addLine (points[size_t (i)], points[size_t (i + 1)], colour);
+                obj->addLine (wavetablePoints[t][size_t (i)], wavetablePoints[t][size_t (i + 1)], colour);
         }
+
+        // Create the tracing point object
+        tracingPointObj = scene.addObject();
+        tracingPointObj->addPoint ({ 0, 0, 0 }, 8.0f, juce::Colours::yellow);
     }
 
     void paint (juce::Graphics& g) override
@@ -2675,6 +2674,40 @@ struct Wavetable3DDemo : public juce::Component,
 
     void timerCallback() override
     {
+        // Update tracing point position (0.25 Hz per table)
+        const float cyclesPerSecond = 0.25f;
+        const float secondsPerTable = 1.0f / cyclesPerSecond;
+        const float totalCycleTime = secondsPerTable * numTables;
+
+        traceTime += 1.0f / 60.0f;  // Timer runs at 60 Hz
+        if (traceTime >= totalCycleTime)
+            traceTime -= totalCycleTime;
+
+        // Calculate which table and which sample we're on
+        float tableProgress = traceTime / secondsPerTable;
+        int currentTable = int (tableProgress) % numTables;
+        float sampleProgress = (tableProgress - float (currentTable)) * samplesPerTable;
+        int sampleIndex = int (sampleProgress) % samplesPerTable;
+
+        // Update the tracing point position and highlight current table
+        if (tracingPointObj != nullptr && currentTable < numTables)
+        {
+            tracingPointObj->clear();
+            tracingPointObj->addPoint (wavetablePoints[currentTable][size_t (sampleIndex)], 4.0f, juce::Colours::yellow);
+
+            // Highlight the current wavetable in yellow
+            if (currentTable != lastHighlightedTable)
+            {
+                // Reset previous table to green
+                if (lastHighlightedTable >= 0)
+                    updateTableColour (lastHighlightedTable, juce::Colours::green.withAlpha (0.6f));
+
+                // Set current table to yellow
+                updateTableColour (currentTable, juce::Colours::yellow);
+                lastHighlightedTable = currentTable;
+            }
+        }
+
         if (! isDragging)
         {
             rotation += 0.005f;
@@ -2682,9 +2715,20 @@ struct Wavetable3DDemo : public juce::Component,
             // Rotate all wavetable objects around Y axis
             for (size_t i = 0; i < scene.getNumObjects(); ++i)
                 scene.getObject (i)->setTransform (gin::Mat4f::rotationY (rotation));
-
-            repaint();
         }
+
+        repaint();
+    }
+
+    void updateTableColour (int tableIndex, juce::Colour colour)
+    {
+        auto* obj = scene.getObject (size_t (tableIndex));
+        if (obj == nullptr)
+            return;
+
+        obj->clear();
+        for (int i = 0; i < samplesPerTable - 1; ++i)
+            obj->addLine (wavetablePoints[tableIndex][size_t (i)], wavetablePoints[tableIndex][size_t (i + 1)], colour);
     }
 
     void mouseDown (const juce::MouseEvent& e) override
@@ -2717,9 +2761,18 @@ struct Wavetable3DDemo : public juce::Component,
         repaint();
     }
 
+    static constexpr int numTables = 64;
+    static constexpr int samplesPerTable = 128;
+    static constexpr float waveHeight = 0.4f;
+    static constexpr float waveWidth = 2.0f;
+
     gin::Scene3D scene;
     gin::Renderer3D renderer;
+    gin::Object3D* tracingPointObj = nullptr;
+    std::array<std::vector<gin::Vec3f>, numTables> wavetablePoints;
     float rotation = 0.0f;
+    float traceTime = 0.0f;
+    int lastHighlightedTable = -1;
     juce::Point<float> lastMousePos;
     bool isDragging = false;
 };
