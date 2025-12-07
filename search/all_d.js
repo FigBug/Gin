@@ -47,7 +47,7 @@ var searchData=
   ['moddstid_44',['moddstid',['../structModDstId.html',1,'ModDstId'],['../structModDstId.html#a5c07798cf7ac3ad89cf18d8956bf78d3',1,'ModDstId::ModDstId()=default'],['../structModDstId.html#a1cd816f0e6701f16922f19f3b5e64ccb',1,'ModDstId::ModDstId(int id_)'],['../structModDstId.html#aa3f249a7a06342976e5740e09d281a9e',1,'ModDstId::ModDstId(const ModDstId &amp;other)']]],
   ['mode_45',['mode',['../classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4',1,'EnvelopeDetector::Mode'],['../classEnvelopeDetector.html#a1804f11c1918ee0aeee94093a3057415',1,'EnvelopeDetector::mode']]],
   ['modindex_46',['modIndex',['../classParameter.html#a7310a6224d36ab27a14237aab7d8fadd',1,'Parameter']]],
-  ['modmatrix_47',['modmatrix',['../classModMatrix.html',1,'ModMatrix'],['../classParameter.html#a30f079fa8ecf5c5cd5735777e1ba74c8',1,'Parameter::modMatrix'],['../classModMatrix.html#a923354065c39928704876d0b29e568c9',1,'ModMatrix::ModMatrix()']]],
+  ['modmatrix_47',['modmatrix',['../classModMatrix.html',1,'ModMatrix'],['../classModMatrix.html#a923354065c39928704876d0b29e568c9',1,'ModMatrix::ModMatrix()'],['../classParameter.html#a30f079fa8ecf5c5cd5735777e1ba74c8',1,'Parameter::modMatrix']]],
   ['modmatrixbox_48',['modmatrixbox',['../classModMatrixBox.html#aa1d0054cb9a5a3c5abbcd1e7b3e84b71',1,'ModMatrixBox::ModMatrixBox()'],['../classModMatrixBox.html',1,'ModMatrixBox']]],
   ['modmatrixchanged_49',['modmatrixchanged',['../classKnob.html#acb56b6928ff9dd975f80aee0ce6840c9',1,'Knob::modMatrixChanged()'],['../classModMatrix_1_1Listener.html#a6d4c1fcaddd8a3f77a0b25813919eae3',1,'ModMatrix::Listener::modMatrixChanged()']]],
   ['modsources_50',['modSources',['../classParamBox.html#a0d36e4e64d989106ec37b22c0e2b4e3f',1,'ParamBox']]],

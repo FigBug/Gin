@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A 3D object that contains a collection of line segments with a transform.  
+<p>A 3D object that contains a collection of points and line segments with a transform.  
  <a href="classObject3D.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_scene3d.h&gt;</code></p>
@@ -86,8 +86,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adc6b545f27a3636b3dcf45e1e5ae554a" id="r_adc6b545f27a3636b3dcf45e1e5ae554a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject3D.html#adc6b545f27a3636b3dcf45e1e5ae554a">Object3D</a> ()=<a class="el" href="classPoint.html">default</a></td></tr>
 <tr class="separator:adc6b545f27a3636b3dcf45e1e5ae554a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62601ddda22b7cdc74f777b4a3c9c19f" id="r_a62601ddda22b7cdc74f777b4a3c9c19f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject3D.html#a62601ddda22b7cdc74f777b4a3c9c19f">clear</a> ()</td></tr>
-<tr class="memdesc:a62601ddda22b7cdc74f777b4a3c9c19f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all line segments.  <br /></td></tr>
+<tr class="memdesc:a62601ddda22b7cdc74f777b4a3c9c19f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all points and line segments.  <br /></td></tr>
 <tr class="separator:a62601ddda22b7cdc74f777b4a3c9c19f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13495ae15f49d16b775883af4dac48c1" id="r_a13495ae15f49d16b775883af4dac48c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject3D.html#a13495ae15f49d16b775883af4dac48c1">addPoint</a> (<a class="el" href="classPoint.html">const</a> <a class="el" href="structPoint3D.html">Point3D</a> &amp;<a class="el" href="classPoint.html">point</a>)</td></tr>
+<tr class="memdesc:a13495ae15f49d16b775883af4dac48c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a point.  <br /></td></tr>
+<tr class="separator:a13495ae15f49d16b775883af4dac48c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fec3828c7af9082de42fd9d1dc83377" id="r_a0fec3828c7af9082de42fd9d1dc83377"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject3D.html#a0fec3828c7af9082de42fd9d1dc83377">addPoint</a> (<a class="el" href="classPoint.html">const</a> <a class="el" href="group__gin__3d-3d.html#ga40b8356e33151c22cb4d1adaf2b762a8">Vec3f</a> &amp;position, <a class="el" href="classPoint.html">float</a> size=1.0f, juce::Colour colour=juce::Colours::white)</td></tr>
+<tr class="separator:a0fec3828c7af9082de42fd9d1dc83377"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a5fdc2008b3b36ad1043b5bd628e0f4" id="r_a4a5fdc2008b3b36ad1043b5bd628e0f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject3D.html#a4a5fdc2008b3b36ad1043b5bd628e0f4">addLine</a> (<a class="el" href="classPoint.html">const</a> <a class="el" href="structLineSegment3D.html">LineSegment3D</a> &amp;<a class="el" href="classPoint.html">line</a>)</td></tr>
 <tr class="memdesc:a4a5fdc2008b3b36ad1043b5bd628e0f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a line segment.  <br /></td></tr>
 <tr class="separator:a4a5fdc2008b3b36ad1043b5bd628e0f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,6 +122,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a176c8865af0fb2d119c5c6ee0609130c" id="r_a176c8865af0fb2d119c5c6ee0609130c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__gin__3d-3d.html#ga40b8356e33151c22cb4d1adaf2b762a8">Vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject3D.html#a176c8865af0fb2d119c5c6ee0609130c">getPosition</a> () <a class="el" href="classPoint.html">const</a></td></tr>
 <tr class="memdesc:a176c8865af0fb2d119c5c6ee0609130c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the object's position.  <br /></td></tr>
 <tr class="separator:a176c8865af0fb2d119c5c6ee0609130c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0c293d70d66cbf300cdf81c2d254078" id="r_ac0c293d70d66cbf300cdf81c2d254078"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">const</a> std::vector&lt; <a class="el" href="structPoint3D.html">Point3D</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject3D.html#ac0c293d70d66cbf300cdf81c2d254078">getPoints</a> () <a class="el" href="classPoint.html">const</a></td></tr>
+<tr class="memdesc:ac0c293d70d66cbf300cdf81c2d254078"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets all points.  <br /></td></tr>
+<tr class="separator:ac0c293d70d66cbf300cdf81c2d254078"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac799e34d24c09648c164e9f35053327e" id="r_ac799e34d24c09648c164e9f35053327e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject3D.html#ac799e34d24c09648c164e9f35053327e">getNumPoints</a> () <a class="el" href="classPoint.html">const</a></td></tr>
+<tr class="memdesc:ac799e34d24c09648c164e9f35053327e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of points.  <br /></td></tr>
+<tr class="separator:ac799e34d24c09648c164e9f35053327e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6be7cd792a8983ca2866ddb5db347b30" id="r_a6be7cd792a8983ca2866ddb5db347b30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">const</a> std::vector&lt; <a class="el" href="structLineSegment3D.html">LineSegment3D</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject3D.html#a6be7cd792a8983ca2866ddb5db347b30">getLines</a> () <a class="el" href="classPoint.html">const</a></td></tr>
 <tr class="memdesc:a6be7cd792a8983ca2866ddb5db347b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets all line segments.  <br /></td></tr>
 <tr class="separator:a6be7cd792a8983ca2866ddb5db347b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,7 +144,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abaa0d30b4a47aea16646a0202586b1e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A 3D object that contains a collection of line segments with a transform. </p>
+<div class="textblock"><p>A 3D object that contains a collection of points and line segments with a transform. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="adc6b545f27a3636b3dcf45e1e5ae554a" name="adc6b545f27a3636b3dcf45e1e5ae554a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adc6b545f27a3636b3dcf45e1e5ae554a">&#9670;&#160;</a></span>Object3D()</h2>
@@ -176,7 +187,61 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Clears all line segments. </p>
+<p>Clears all points and line segments. </p>
+
+</div>
+</div>
+<a id="a13495ae15f49d16b775883af4dac48c1" name="a13495ae15f49d16b775883af4dac48c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13495ae15f49d16b775883af4dac48c1">&#9670;&#160;</a></span>addPoint() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> Object3D::addPoint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> <a class="el" href="structPoint3D.html">Point3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a point. </p>
+
+</div>
+</div>
+<a id="a0fec3828c7af9082de42fd9d1dc83377" name="a0fec3828c7af9082de42fd9d1dc83377"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fec3828c7af9082de42fd9d1dc83377">&#9670;&#160;</a></span>addPoint() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> Object3D::addPoint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> <a class="el" href="group__gin__3d-3d.html#ga40b8356e33151c22cb4d1adaf2b762a8">Vec3f</a> &amp;&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
+          <td class="paramname"><em>size</em> = <code>1.0f</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">juce::Colour&#160;</td>
+          <td class="paramname"><em>colour</em> = <code>juce::Colours::white</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -470,6 +535,44 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ac0c293d70d66cbf300cdf81c2d254078" name="ac0c293d70d66cbf300cdf81c2d254078"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0c293d70d66cbf300cdf81c2d254078">&#9670;&#160;</a></span>getPoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">const</a> std::vector&lt; <a class="el" href="structPoint3D.html">Point3D</a> &gt; &amp; Object3D::getPoints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets all points. </p>
+
+</div>
+</div>
+<a id="ac799e34d24c09648c164e9f35053327e" name="ac799e34d24c09648c164e9f35053327e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac799e34d24c09648c164e9f35053327e">&#9670;&#160;</a></span>getNumPoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">size_t</a> Object3D::getNumPoints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the number of points. </p>
+
+</div>
+</div>
 <a id="a6be7cd792a8983ca2866ddb5db347b30" name="a6be7cd792a8983ca2866ddb5db347b30"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6be7cd792a8983ca2866ddb5db347b30">&#9670;&#160;</a></span>getLines()</h2>
 
@@ -571,7 +674,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 7 2025 15:22:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sun Dec 7 2025 16:57:35 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

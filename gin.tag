@@ -646,6 +646,7 @@
     <name>gin_scene3d.h</name>
     <path>build/gin_3d/3d/</path>
     <filename>gin__scene3d_8h.html</filename>
+    <class kind="struct">Point3D</class>
     <class kind="struct">LineSegment3D</class>
     <class kind="class">Object3D</class>
     <class kind="class">Scene3D</class>
@@ -12124,6 +12125,20 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>addPoint</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>a13495ae15f49d16b775883af4dac48c1</anchor>
+      <arglist>(const Point3D &amp;point)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addPoint</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>a0fec3828c7af9082de42fd9d1dc83377</anchor>
+      <arglist>(const Vec3f &amp;position, float size=1.0f, juce::Colour colour=juce::Colours::white)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>addLine</name>
       <anchorfile>classObject3D.html</anchorfile>
       <anchor>a4a5fdc2008b3b36ad1043b5bd628e0f4</anchor>
@@ -12190,6 +12205,20 @@
       <name>getPosition</name>
       <anchorfile>classObject3D.html</anchorfile>
       <anchor>a176c8865af0fb2d119c5c6ee0609130c</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>const std::vector&lt; Point3D &gt; &amp;</type>
+      <name>getPoints</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>ac0c293d70d66cbf300cdf81c2d254078</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>size_t</type>
+      <name>getNumPoints</name>
+      <anchorfile>classObject3D.html</anchorfile>
+      <anchor>ac799e34d24c09648c164e9f35053327e</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -14269,6 +14298,52 @@
       <name>y</name>
       <anchorfile>classPoint.html</anchorfile>
       <anchor>a65146418a33ebb2cd9acb85cade60ac9</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>Point3D</name>
+    <filename>structPoint3D.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Point3D</name>
+      <anchorfile>structPoint3D.html</anchorfile>
+      <anchor>aef22b75214da0b53ebfe5476d226d507</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Point3D</name>
+      <anchorfile>structPoint3D.html</anchorfile>
+      <anchor>a72f3967b146c5785744bd66e1cbea0f9</anchor>
+      <arglist>(const Vec3f &amp;pos, float sz=1.0f, juce::Colour c=juce::Colours::white)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Point3D</name>
+      <anchorfile>structPoint3D.html</anchorfile>
+      <anchor>a1df8497dce8e5a817f3cb84d471f35cd</anchor>
+      <arglist>(float x, float y, float z, float sz=1.0f, juce::Colour c=juce::Colours::white)</arglist>
+    </member>
+    <member kind="variable">
+      <type>Vec3f</type>
+      <name>position</name>
+      <anchorfile>structPoint3D.html</anchorfile>
+      <anchor>ac19940bc63e2c9d70a3dad83495bd9dd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>size</name>
+      <anchorfile>structPoint3D.html</anchorfile>
+      <anchor>a88716f06a6da2cab8d3bf6d0b7ff0cad</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>colour</name>
+      <anchorfile>structPoint3D.html</anchorfile>
+      <anchor>a394a82d42a3c5a2c211034e4b3ea8db3</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -20389,6 +20464,7 @@
     <class kind="class">Camera3D</class>
     <class kind="struct">Mat4</class>
     <class kind="class">Renderer3D</class>
+    <class kind="struct">Point3D</class>
     <class kind="struct">LineSegment3D</class>
     <class kind="class">Object3D</class>
     <class kind="class">Scene3D</class>

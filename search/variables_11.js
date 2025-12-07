@@ -11,7 +11,7 @@ var searchData=
   ['shouldmuteinput_8',['shouldMuteInput',['../classStandalonePluginHolder.html#a0f0f2e7e20b4c356a06b9a3fb7ae3e51',1,'StandalonePluginHolder']]],
   ['shouldshowsidebar_9',['shouldShowSidebar',['../classStandalonePluginHolder.html#a824f4fd01b8677895f85f6957b093f29',1,'StandalonePluginHolder']]],
   ['showname_10',['showName',['../classSelect.html#aef337a5f41361db7b4dac795bb32d1db',1,'Select']]],
-  ['size_11',['size',['../classConstantsStack_1_1ScopedSave.html#aeea19afd8ec5d0c8a41a0e4d36da0931',1,'ConstantsStack::ScopedSave']]],
+  ['size_11',['size',['../structPoint3D.html#a88716f06a6da2cab8d3bf6d0b7ff0cad',1,'Point3D::size'],['../classConstantsStack_1_1ScopedSave.html#aeea19afd8ec5d0c8a41a0e4d36da0931',1,'ConstantsStack::ScopedSave::size']]],
   ['slproc_12',['slproc',['../classTitleBar.html#afd45058b0880e55b0da0aebf57b1f286',1,'TitleBar::slProc'],['../classProcessorEditor.html#a8f4bf0f17d18d56fe21c845a41e1cb7e',1,'ProcessorEditor::slProc']]],
   ['smoother_13',['smoother',['../classSmoothedParameter.html#a21d20d9d589e79580860eb8d21b7e53e',1,'SmoothedParameter']]],
   ['speed_14',['speed',['../structLocationManager_1_1Location.html#af0477c8d1494e8a66138b43c60c5c8ea',1,'LocationManager::Location']]],

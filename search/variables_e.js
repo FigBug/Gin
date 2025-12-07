@@ -21,7 +21,7 @@ var searchData=
   ['points_18',['points',['../classPolygon.html#ae10c579f16c4ed1397f7d547165d3005',1,'Polygon::points'],['../structMSEG_1_1Data.html#a699072e1cf50fbbfbdf7ed24a5e8d716',1,'MSEG::Data::points']]],
   ['polypath_19',['polyPath',['../classImages.html#a256e9bfb3e202edc5d3a1496b139a259',1,'Images']]],
   ['portamento_20',['portamento',['../structGlideInfo.html#a1e24c72c427d5a6c428e263fd51bc774',1,'GlideInfo']]],
-  ['position_21',['position',['../structWTOscillator_1_1Params.html#a89fbc9fd3f3cb250637b1be8d45f4d87',1,'WTOscillator::Params::position'],['../structWTVoicedStereoOscillatorParams.html#a39af915c5c194fc5a27dc4367757c0f9',1,'WTVoicedStereoOscillatorParams::position']]],
+  ['position_21',['position',['../structPoint3D.html#ac19940bc63e2c9d70a3dad83495bd9dd',1,'Point3D::position'],['../structWTOscillator_1_1Params.html#a89fbc9fd3f3cb250637b1be8d45f4d87',1,'WTOscillator::Params::position'],['../structWTVoicedStereoOscillatorParams.html#a39af915c5c194fc5a27dc4367757c0f9',1,'WTVoicedStereoOscillatorParams::position']]],
   ['power_22',['power',['../namespaceAssets.html#ad53d4c201ef739ea70be0f9b9b427de9',1,'Assets']]],
   ['powerpath_23',['powerPath',['../classImages.html#acd6375f27acc618531676b5529792e28',1,'Images']]],
   ['presets_24',['presets',['../classPatchBrowser.html#a2fde0c9a4e9504c0feb276e93250ea12',1,'PatchBrowser']]],
