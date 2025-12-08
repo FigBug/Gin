@@ -14424,15 +14424,15 @@
       <type></type>
       <name>Processor</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>ab81effca8d8388ffd63819b3ea77acec</anchor>
-      <arglist>(bool init=true, ProcessorOptions={})</arglist>
+      <anchor>a9f764cc8b466f8fa4e01d0eaf4c75fd1</anchor>
+      <arglist>(bool init=true, ProcessorOptions &amp;&amp;={})</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>Processor</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>abbd92baa2a9369039be64b45dc8cca5b</anchor>
-      <arglist>(const BusesProperties &amp;ioLayouts, bool init=true, ProcessorOptions={})</arglist>
+      <anchor>a3782c2b7c49a2fd3fd6d2b1f8d537129</anchor>
+      <arglist>(const BusesProperties &amp;ioLayouts, bool init=true, ProcessorOptions &amp;&amp;={})</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -14701,10 +14701,10 @@
       <arglist>(const void *data, int sizeInBytes) override</arglist>
     </member>
     <member kind="variable">
-      <type>const ProcessorOptions</type>
+      <type>ProcessorOptions</type>
       <name>processorOptions</name>
       <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a592c5f29254f169e4e1f5ce692707032</anchor>
+      <anchor>aab54c3897d3d927560852e3ced17d2a5</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -14712,13 +14712,6 @@
       <name>loadingState</name>
       <anchorfile>classProcessor.html</anchorfile>
       <anchor>ab4a632bd0b8edcb74957e4c6d7fd3207</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>std::unique_ptr&lt; juce::LookAndFeel &gt;</type>
-      <name>lf</name>
-      <anchorfile>classProcessor.html</anchorfile>
-      <anchor>a7076bef74600565dd0d89a210baadcad</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -15179,22 +15172,22 @@
       <type>ProcessorOptions</type>
       <name>withAdditionalCredits</name>
       <anchorfile>classProcessorOptions.html</anchorfile>
-      <anchor>a0db6fc2981e1e882526b44adab862a5e</anchor>
-      <arglist>(juce::StringArray names) const</arglist>
+      <anchor>a93ada3ba9e28f10a7c15bf1baf9d00c5</anchor>
+      <arglist>(juce::StringArray names) &amp;&amp;</arglist>
     </member>
     <member kind="function">
       <type>ProcessorOptions</type>
       <name>withoutUpdateChecker</name>
       <anchorfile>classProcessorOptions.html</anchorfile>
-      <anchor>a725a6c47b2760a05214157bed059b157</anchor>
-      <arglist>() const</arglist>
+      <anchor>ae3442b8c51ea0d8dc68683de38f83451</anchor>
+      <arglist>() &amp;&amp;</arglist>
     </member>
     <member kind="function">
       <type>ProcessorOptions</type>
       <name>withoutNewsChecker</name>
       <anchorfile>classProcessorOptions.html</anchorfile>
-      <anchor>a2b71715ff959b8271eb2baeab802737d</anchor>
-      <arglist>() const</arglist>
+      <anchor>a8fa62952828b42c7e931f6a0eb61ce7d</anchor>
+      <arglist>() &amp;&amp;</arglist>
     </member>
     <member kind="variable">
       <type>juce::String</type>
@@ -15278,6 +15271,13 @@
       <name>programmingCredits</name>
       <anchorfile>classProcessorOptions.html</anchorfile>
       <anchor>a936b930e9a3271ae6d4e6f3201226635</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::unique_ptr&lt; juce::LookAndFeel &gt;</type>
+      <name>lookAndFeel</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>a8d7a9b34d0ef590a2ca4a5a6cb160bd0</anchor>
       <arglist></arglist>
     </member>
   </compound>

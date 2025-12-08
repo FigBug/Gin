@@ -15,7 +15,7 @@ var searchData=
   ['readsample_12',['readSample',['../classDelayLine.html#ad5ba8b3041d885a7cd2f7147b7e59fc6',1,'DelayLine']]],
   ['readsamplelagrange_13',['readSampleLagrange',['../classDelayLine.html#aa34d1e8071d58e27e2b98c5ffc2563cc',1,'DelayLine']]],
   ['readsamplesat_14',['readSamplesAt',['../classSample.html#a0bece656bf856bb465ab23995a7dc608',1,'Sample']]],
-  ['readystatevalues_15',['readystatevalues',['../classWebSocket.html#a752b8c43bb821039435c92823261bd6d',1,'WebSocket::readyStateValues'],['../classWebSocket.html#a452bcfacd2ce0567751e44f891dd1489',1,'WebSocket::ReadyStateValues']]],
+  ['readystatevalues_15',['readystatevalues',['../classWebSocket.html#a452bcfacd2ce0567751e44f891dd1489',1,'WebSocket::ReadyStateValues'],['../classWebSocket.html#a752b8c43bb821039435c92823261bd6d',1,'WebSocket::readyStateValues']]],
   ['realtimeasyncupdater_16',['realtimeasyncupdater',['../classRealtimeAsyncUpdater.html#a8cba7dff87861e17966355aeb266514f',1,'RealtimeAsyncUpdater::RealtimeAsyncUpdater()'],['../classRealtimeAsyncUpdater.html',1,'RealtimeAsyncUpdater']]],
   ['realtimeevent_17',['realtimeevent',['../classRealtimeEvent.html',1,'RealtimeEvent'],['../classRealtimeEvent.html#a0878e152a86c871fe96b8806fb4ac0b6',1,'RealtimeEvent::RealtimeEvent()']]],
   ['redo_18',['redo',['../namespaceAssets.html#a579f83336c0f63d31cc457061a8395c0',1,'Assets::redo'],['../classTextHistory.html#a22776577a2573f6c64a5346dcef7b71c',1,'TextHistory::redo()']]],

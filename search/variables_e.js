@@ -31,7 +31,7 @@ var searchData=
   ['proc_28',['proc',['../classAudioProcessorWrapper.html#a02be7e377e14091bb79d12a54790299f',1,'AudioProcessorWrapper::proc'],['../classPatchBrowser.html#ace4451a4ee2e4ea777e795e8913ae29b',1,'PatchBrowser::proc']]],
   ['processor_29',['processor',['../classStandalonePluginHolder.html#a67c933d4eb0e541ab29bd55eb581b35f',1,'StandalonePluginHolder::processor'],['../classParameter.html#aff54b112e093cf966a1bec5bf5a934dd',1,'Parameter::processor']]],
   ['processorhaspotentialfeedbackloop_30',['processorHasPotentialFeedbackLoop',['../classStandalonePluginHolder.html#a4519d0e13026290888f3ec59e73fdf41',1,'StandalonePluginHolder']]],
-  ['processoroptions_31',['processorOptions',['../classProcessor.html#a592c5f29254f169e4e1f5ce692707032',1,'Processor']]],
+  ['processoroptions_31',['processorOptions',['../classProcessor.html#aab54c3897d3d927560852e3ced17d2a5',1,'Processor']]],
   ['programmingcredits_32',['programmingCredits',['../classProcessorOptions.html#a936b930e9a3271ae6d4e6f3201226635',1,'ProcessorOptions']]],
   ['programname_33',['programName',['../classTitleBar.html#afdea029778d56d40cea99ad8b53a6f2a',1,'TitleBar']]],
   ['programs_34',['programs',['../classTitleBar.html#aadc7b06a48172e5cc2a50d09a433fa77',1,'TitleBar::programs'],['../classProcessor.html#a6e52d116c070e29f20cd7060784aab05',1,'Processor::programs']]],
