@@ -223,7 +223,7 @@ void PatchBrowser::editPreset (int row)
             {
                 auto wc = std::make_shared<gin::PluginAlertWindow> ("Preset name '" + txt + "' already in use.", "", juce::AlertWindow::NoIcon, this);
                 wc->addButton ("OK", 1, juce::KeyPress (juce::KeyPress::returnKey));
-                wc->setLookAndFeel (proc.lf.get());
+                wc->setLookAndFeel (proc.processorOptions.lookAndFeel.get());
 
                 wc->runAsync (*ed, [wc] (int)
                 {

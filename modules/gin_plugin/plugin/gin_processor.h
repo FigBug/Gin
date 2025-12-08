@@ -136,35 +136,25 @@ public:
         "RAW Material Software JUCE Framework"
     };
 
-    ProcessorOptions withAdditionalCredits (juce::StringArray names) const
+    ProcessorOptions withAdditionalCredits (juce::StringArray names) &&
     {
-        auto self = *this;
-
-        self.programmingCredits.addArray (names);
-
-        return self;
+        programmingCredits.addArray (names);
+        return std::move (*this);
     }
 
-    ProcessorOptions withoutUpdateChecker() const
+    ProcessorOptions withoutUpdateChecker() &&
     {
-        auto self = *this;
-
-        self.useUpdateChecker = false;
-
-        return self;
-
+        useUpdateChecker = false;
+        return std::move (*this);
     }
 
-    ProcessorOptions withoutNewsChecker() const
+    ProcessorOptions withoutNewsChecker() &&
     {
-        auto self = *this;
-
-        self.useNewsChecker = false;
-
-        return self;
-
+        useNewsChecker = false;
+        return std::move (*this);
     }
-    
+
+    std::unique_ptr<juce::LookAndFeel> lookAndFeel;
 };
 
 //==============================================================================
@@ -249,8 +239,8 @@ public:
      override any functions, then it's safe to pass true to the constructor and
      you don't need to call init.
      */
-    Processor (bool init = true, ProcessorOptions = {});
-    Processor (const BusesProperties& ioLayouts, bool init = true, ProcessorOptions = {});
+    Processor (bool init = true, ProcessorOptions&& = {});
+    Processor (const BusesProperties& ioLayouts, bool init = true, ProcessorOptions&& = {});
     ~Processor() override;
 
     virtual void init();
@@ -324,11 +314,9 @@ public:
 
     //==============================================================================
 
-    const ProcessorOptions processorOptions;
-    bool loadingState = false;
-
 public:
-    std::unique_ptr<juce::LookAndFeel> lf;
+    ProcessorOptions processorOptions;
+    bool loadingState = false;
 
     std::map<juce::String, gin::Parameter*> parameterMap;
     juce::OwnedArray<gin::Parameter> internalParameters;

@@ -33,19 +33,22 @@ ProcessorOptions::ProcessorOptions()
 }
 
 //==============================================================================
-Processor::Processor (bool init_, ProcessorOptions po)
-    : processorOptions (po)
+Processor::Processor (bool init_, ProcessorOptions&& po)
+    : processorOptions (std::move (po))
 {
-    lf = std::make_unique<gin::CopperLookAndFeel>();
+    if (processorOptions.lookAndFeel == nullptr)
+        processorOptions.lookAndFeel = std::make_unique<gin::CopperLookAndFeel>();
 
     if (init_)
         init();
 }
 
-Processor::Processor (const BusesProperties& ioLayouts, bool init_, ProcessorOptions po)
-    : ProcessorBaseClass (ioLayouts), processorOptions (po)
+Processor::Processor (const BusesProperties& ioLayouts, bool init_, ProcessorOptions&& po)
+    : ProcessorBaseClass (ioLayouts),
+      processorOptions (std::move (po))
 {
-    lf = std::make_unique<gin::CopperLookAndFeel>();
+    if (processorOptions.lookAndFeel == nullptr)
+        processorOptions.lookAndFeel = std::make_unique<gin::CopperLookAndFeel>();
 
     if (init_)
         init();
