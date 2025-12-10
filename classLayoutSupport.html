@@ -204,7 +204,7 @@ Usage Example</h1>
 <div class="line">    <a class="code hl_class" href="classLayoutSupport.html">LayoutSupport</a> <a class="code hl_class" href="classPoint.html">layoutSupport</a>;</div>
 <div class="line">    juce::TextButton button;</div>
 <div class="line">};</div>
-<div class="ttc" id="aclassLayoutSupport_html"><div class="ttname"><a href="classLayoutSupport.html">LayoutSupport</a></div><div class="ttdoc">JSON-based layout system for JUCE components.</div><div class="ttdef"><b>Definition</b> gin_layoutsupport.h:253</div></div>
+<div class="ttc" id="aclassLayoutSupport_html"><div class="ttname"><a href="classLayoutSupport.html">LayoutSupport</a></div><div class="ttdoc">JSON-based layout system for JUCE components.</div><div class="ttdef"><b>Definition</b> gin_layoutsupport.h:272</div></div>
 <div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 <div class="ttc" id="agroup__gin__gui-components_html_ga66410efb088d24a02a86b4c6191e2866"><div class="ttname"><a href="group__gin__gui-components.html#ga66410efb088d24a02a86b4c6191e2866">addAndMakeVisible</a></div><div class="ttdeci">void addAndMakeVisible(juce::Component &amp;parent, juce::Array&lt; juce::Component * &gt; children)</div><div class="ttdoc">Adds an Array of components to a parent Component.</div><div class="ttdef"><b>Definition</b> gin_componentutils.h:16</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="json"></a>
@@ -241,7 +241,8 @@ Component Properties</h2>
 <p class="startli">Size:**</p>
 </li>
 <li><code>w</code>, <code>h</code> - Width and height</li>
-<li><p class="startli"><code>size</code> - Reference to size constant (e.g., "buttonSize" references constants.buttonSize.w/h)</p>
+<li><code>size</code> - Reference to size constant (e.g., "buttonSize" references constants.buttonSize.w/h)</li>
+<li><p class="startli"><code>pW</code>, <code>pH</code> - Post-layout width and height (evaluated after child components are laid out)</p>
 <p class="startli">Display:**</p>
 </li>
 <li><code>visible</code> - Boolean or expression</li>
@@ -276,6 +277,7 @@ Constants</h2>
 <li><code>prevX</code>, <code>prevY</code>, <code>prevW</code>, <code>prevH</code>, <code>prevR</code>, <code>prevB</code>, <code>prevCX</code>, <code>prevCY</code> - Previous component</li>
 <li><code>i</code> - Current child index</li>
 <li><code>idIdx</code> - Current iteration index (when using multiple IDs or ranges)</li>
+<li><code>minX</code>, <code>minY</code>, <code>maxX</code>, <code>maxY</code> - Child bounds (only available in pW/pH expressions)</li>
 </ul>
 <p>Custom constants can be defined at top-level or per-component: </p><div class="fragment"><div class="line">{</div>
 <div class="line">  &quot;constants&quot;: [</div>
@@ -334,6 +336,19 @@ Examples</h2>
 <div class="line">  &quot;y&quot;: 10,</div>
 <div class="line">  &quot;w&quot;: 40,</div>
 <div class="line">  &quot;h&quot;: 40</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Auto-sizing container based on children (pW/pH): </p><div class="fragment"><div class="line">{</div>
+<div class="line">  &quot;id&quot;: &quot;container&quot;,</div>
+<div class="line">  &quot;x&quot;: 10,</div>
+<div class="line">  &quot;y&quot;: 10,</div>
+<div class="line">  &quot;w&quot;: 500,</div>
+<div class="line">  &quot;h&quot;: 500,</div>
+<div class="line">  &quot;pW&quot;: &quot;maxX + 20&quot;,</div>
+<div class="line">  &quot;pH&quot;: &quot;maxY + 20&quot;,</div>
+<div class="line">  &quot;components&quot;: [</div>
+<div class="line">    { &quot;id&quot;: &quot;child1&quot;, &quot;x&quot;: 10, &quot;y&quot;: 10, &quot;w&quot;: 100, &quot;h&quot;: 50 },</div>
+<div class="line">    { &quot;id&quot;: &quot;child2&quot;, &quot;x&quot;: 120, &quot;y&quot;: 10, &quot;w&quot;: 80, &quot;h&quot;: 50 }</div>
+<div class="line">  ]</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>Center positioning using parCX/parCY and sizing with parW2/parH2: </p><div class="fragment"><div class="line">{</div>
 <div class="line">  &quot;components&quot;: [</div>
@@ -1225,7 +1240,7 @@ Examples</h2>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 8 2025 15:43:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Dec 10 2025 22:09:47 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

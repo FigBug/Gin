@@ -4574,6 +4574,20 @@
       <anchor>a328d894adce46024770de7f17ca0a90c</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable">
+      <type>std::optional&lt; juce::String &gt;</type>
+      <name>postWidth</name>
+      <anchorfile>structLayoutSupport_1_1Bounds.html</anchorfile>
+      <anchor>a994f4db6945f545a89f3bf69425abd26</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::optional&lt; juce::String &gt;</type>
+      <name>postHeight</name>
+      <anchorfile>structLayoutSupport_1_1Bounds.html</anchorfile>
+      <anchor>aa694311d0ee7189067a2a33b7395f0bb</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>BoxArea</name>
