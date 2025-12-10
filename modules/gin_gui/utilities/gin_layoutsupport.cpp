@@ -25,6 +25,10 @@ static const juce::String kI            { "i" };
 static const juce::String kIdIdx        { "idIdx" };
 static const juce::String kParent       { "parent" };
 static const juce::String kPrev         { "prev" };
+static const juce::String kMinX         { "minX" };
+static const juce::String kMinY         { "minY" };
+static const juce::String kMaxX         { "maxX" };
+static const juce::String kMaxY         { "maxY" };
 
 static const juce::Identifier kConstants    { "constants" };
 static const juce::Identifier kMacros       { "macros" };
@@ -44,6 +48,8 @@ static const juce::Identifier kZorder       { "zorder" };
 static const juce::Identifier kOptional     { "optional" };
 static const juce::Identifier kW            { "w" };
 static const juce::Identifier kH            { "h" };
+static const juce::Identifier kPW           { "pW" };
+static const juce::Identifier kPH           { "pH" };
 static const juce::Identifier kX            { "x" };
 static const juce::Identifier kY            { "y" };
 static const juce::Identifier kR            { "r" };
@@ -949,6 +955,12 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
     res.hasSize = hasSize;
     res.hasPosition = hasPosition;
 
+    if (component.hasProperty (kPW))
+        res.postWidth = component[kPW].toString();
+
+    if (component.hasProperty (kPH))
+        res.postHeight = component[kPH].toString();
+
     return res;
 }
 
@@ -1097,6 +1109,51 @@ juce::Component* LayoutSupport::setPosition (const juce::String& currentPath,
             constants.set (kParB, foundComp->getBottom());
 
             setComponentsLayout (path, component[kComponents]);
+        }
+
+        if (bounds.postWidth.has_value() || bounds.postHeight.has_value())
+        {
+            ConstantsStack::ScopedSave ssp (constants);
+
+            auto getChildBounds = [](const juce::Component& p)
+            {
+                if (p.getNumChildComponents() == 0)
+                    return std::make_tuple (0, 0, 0, 0);
+
+                auto minX = std::numeric_limits<int>::max();
+                auto minY = std::numeric_limits<int>::max();
+                auto maxX = std::numeric_limits<int>::min();
+                auto maxY = std::numeric_limits<int>::min();
+
+                for (int i = 0; i < p.getNumChildComponents(); ++i)
+                {
+                    auto b = p.getChildComponent (i)->getBounds();
+
+                    minX = std::min (minX, b.getX());
+                    minY = std::min (minY, b.getY());
+                    maxX = std::max (maxX, b.getRight());
+                    maxY = std::max (maxY, b.getBottom());
+                }
+
+                return std::make_tuple (minX, minY, maxX, maxY);
+            };
+
+            auto [minX, minY, maxX, maxY] = getChildBounds (*curComponent);
+
+            constants.set (kMinX, minX);
+            constants.set (kMinY, minY);
+            constants.set (kMaxX, maxX);
+            constants.set (kMaxY, maxY);
+
+            auto w = curComponent->getWidth();
+            auto h = curComponent->getHeight();
+
+            if (bounds.postWidth.has_value())
+                w = parse (*bounds.postWidth, 0);
+            if (bounds.postHeight.has_value())
+                h = parse (*bounds.postHeight, 0);
+
+            curComponent->setSize (w, h);
         }
 
         return curComponent;

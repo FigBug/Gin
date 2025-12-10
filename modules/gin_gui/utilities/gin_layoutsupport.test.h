@@ -48,6 +48,10 @@ private:
         testInset();
         testParentCenterConstants();
         testParentHalfSizeConstants();
+        testPostWidthHeight();
+        testPostWidthHeightWithMinMax();
+        testPostWidthOnly();
+        testPostHeightOnly();
     }
 
     // Helper component class
@@ -848,6 +852,175 @@ private:
         // button2: centered at (parW2, parH2) which is parent center
         expectEquals (comp.buttons[2]->getX(), 350, "Centered at parW2 should be at 350");
         expectEquals (comp.buttons[2]->getY(), 285, "Centered at parH2 should be at 285");
+    }
+
+    void testPostWidthHeight()
+    {
+        beginTest ("Post Width and Height (pW, pH)");
+
+        TestComponent comp;
+        LayoutSupport layout (comp);
+
+        // Add children to container
+        juce::Component child1, child2, child3;
+        child1.setComponentID ("child1");
+        child2.setComponentID ("child2");
+        child3.setComponentID ("child3");
+        comp.container.addAndMakeVisible (child1);
+        comp.container.addAndMakeVisible (child2);
+        comp.container.addAndMakeVisible (child3);
+
+        juce::String json = R"json({
+            "components": [
+                {
+                    "id": "container",
+                    "x": 10,
+                    "y": 10,
+                    "w": 500,
+                    "h": 400,
+                    "pW": "maxX + 20",
+                    "pH": "maxY + 20",
+                    "components": [
+                        { "id": "child1", "x": 10, "y": 10, "w": 100, "h": 50 },
+                        { "id": "child2", "x": 120, "y": 10, "w": 100, "h": 50 },
+                        { "id": "child3", "x": 10, "y": 70, "w": 150, "h": 80 }
+                    ]
+                }
+            ]
+        })json";
+
+        layout.setLayout (json);
+
+        // Children bounds:
+        // child1: (10, 10, 100, 50) -> right=110, bottom=60
+        // child2: (120, 10, 100, 50) -> right=220, bottom=60
+        // child3: (10, 70, 150, 80) -> right=160, bottom=150
+        // maxX = 220, maxY = 150
+        // pW = maxX + 20 = 240
+        // pH = maxY + 20 = 170
+
+        expectEquals (comp.container.getWidth(), 240, "Container width should be maxX + 20");
+        expectEquals (comp.container.getHeight(), 170, "Container height should be maxY + 20");
+    }
+
+    void testPostWidthHeightWithMinMax()
+    {
+        beginTest ("Post Width/Height with minX, minY, maxX, maxY constants");
+
+        TestComponent comp;
+        LayoutSupport layout (comp);
+
+        // Add children to container
+        juce::Component child1, child2;
+        child1.setComponentID ("child1");
+        child2.setComponentID ("child2");
+        comp.container.addAndMakeVisible (child1);
+        comp.container.addAndMakeVisible (child2);
+
+        juce::String json = R"json({
+            "components": [
+                {
+                    "id": "container",
+                    "x": 0,
+                    "y": 0,
+                    "w": 1000,
+                    "h": 1000,
+                    "pW": "maxX - minX + 40",
+                    "pH": "maxY - minY + 40",
+                    "components": [
+                        { "id": "child1", "x": 20, "y": 30, "w": 100, "h": 50 },
+                        { "id": "child2", "x": 50, "y": 100, "w": 200, "h": 60 }
+                    ]
+                }
+            ]
+        })json";
+
+        layout.setLayout (json);
+
+        // Children bounds:
+        // child1: (20, 30, 100, 50) -> right=120, bottom=80
+        // child2: (50, 100, 200, 60) -> right=250, bottom=160
+        // minX = 20, minY = 30
+        // maxX = 250, maxY = 160
+        // pW = maxX - minX + 40 = 250 - 20 + 40 = 270
+        // pH = maxY - minY + 40 = 160 - 30 + 40 = 170
+
+        expectEquals (comp.container.getWidth(), 270, "Container width should be maxX - minX + 40");
+        expectEquals (comp.container.getHeight(), 170, "Container height should be maxY - minY + 40");
+    }
+
+    void testPostWidthOnly()
+    {
+        beginTest ("Post Width Only (pW without pH)");
+
+        TestComponent comp;
+        LayoutSupport layout (comp);
+
+        juce::Component child1;
+        child1.setComponentID ("child1");
+        comp.container.addAndMakeVisible (child1);
+
+        juce::String json = R"json({
+            "components": [
+                {
+                    "id": "container",
+                    "x": 0,
+                    "y": 0,
+                    "w": 500,
+                    "h": 300,
+                    "pW": "maxX + 10",
+                    "components": [
+                        { "id": "child1", "x": 10, "y": 10, "w": 200, "h": 100 }
+                    ]
+                }
+            ]
+        })json";
+
+        layout.setLayout (json);
+
+        // child1: right = 210
+        // pW = maxX + 10 = 210 + 10 = 220
+        // pH not specified, so height remains 300
+
+        expectEquals (comp.container.getWidth(), 220, "Container width should be adjusted by pW");
+        expectEquals (comp.container.getHeight(), 300, "Container height should remain unchanged");
+    }
+
+    void testPostHeightOnly()
+    {
+        beginTest ("Post Height Only (pH without pW)");
+
+        TestComponent comp;
+        LayoutSupport layout (comp);
+
+        juce::Component child1;
+        child1.setComponentID ("child1");
+        comp.container.addAndMakeVisible (child1);
+
+        juce::String json = R"json({
+            "components": [
+                {
+                    "id": "container",
+                    "x": 0,
+                    "y": 0,
+                    "w": 500,
+                    "h": 300,
+                    "pH": "maxY + 15",
+                    "components": [
+                        { "id": "child1", "x": 10, "y": 10, "w": 200, "h": 180 }
+                    ]
+                }
+            ]
+        })json";
+
+        layout.setLayout (json);
+
+        // child1: bottom = 190
+        // pH = maxY + 15 = 190 + 15 = 205
+        // pW not specified, so width remains 500
+
+        expectEquals (comp.container.getWidth(), 500, "Container width should remain unchanged");
+        expectEquals (comp.container.getHeight(), 205, "Container height should be adjusted by pH");
     }
 };
 
