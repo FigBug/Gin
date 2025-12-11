@@ -28,6 +28,7 @@ void ComponentMap::createMap (const std::function<bool (juce::Component&)>& chec
         for (auto c : p.getChildren())
         {
             auto name = getComponentID (*c);
+            jassert (name == name.trim()); // don't start / end you component ids with spaces, you'll get confused why your paths aren't working
             if (name != "")
             {
                 auto path = getComponentPath (*c);
