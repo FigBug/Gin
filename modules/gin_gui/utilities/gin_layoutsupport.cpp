@@ -1074,6 +1074,9 @@ juce::Component* LayoutSupport::setPosition (const juce::String& currentPath,
         if (bounds.hasSize)
             curComponent->setSize (bounds.w, bounds.h);
 
+        if ((bounds.postWidth.has_value() != bounds.postHeight.has_value()) && (bounds.w >= 0 || bounds.h >= 0))
+            curComponent->setSize (bounds.w, bounds.h);
+
         if (component.hasProperty (kZorder))
         {
             auto p = curComponent->getParentComponent();
