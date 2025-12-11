@@ -1145,8 +1145,8 @@ juce::Component* LayoutSupport::setPosition (const juce::String& currentPath,
             constants.set (kMaxX, maxX);
             constants.set (kMaxY, maxY);
 
-            auto w = curComponent->getWidth();
-            auto h = curComponent->getHeight();
+            auto w = bounds.w;
+            auto h = bounds.h;
 
             if (bounds.postWidth.has_value())
                 w = parse (*bounds.postWidth, 0);
