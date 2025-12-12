@@ -4561,20 +4561,6 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>bool</type>
-      <name>hasPosition</name>
-      <anchorfile>structLayoutSupport_1_1Bounds.html</anchorfile>
-      <anchor>a05a08da15a57663651fa198de5330b55</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>bool</type>
-      <name>hasSize</name>
-      <anchorfile>structLayoutSupport_1_1Bounds.html</anchorfile>
-      <anchor>a328d894adce46024770de7f17ca0a90c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
       <type>std::optional&lt; juce::String &gt;</type>
       <name>postWidth</name>
       <anchorfile>structLayoutSupport_1_1Bounds.html</anchorfile>
