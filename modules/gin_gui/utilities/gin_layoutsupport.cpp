@@ -660,15 +660,13 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
     //
     auto hasX = component.hasProperty (kR) || component.hasProperty (kX) || component.hasProperty (kCx);
     auto hasY = component.hasProperty (kB) || component.hasProperty (kY) || component.hasProperty (kCy);
-    auto hasPosition = (hasX && hasY) || component.hasProperty (kXy);
     auto hasW = component.hasProperty (kW) || component.hasProperty (kSize) || (component.hasProperty (kR) && component.hasProperty (kX));
     auto hasH = component.hasProperty (kH) || component.hasProperty (kSize) || (component.hasProperty (kY) && component.hasProperty (kB));
-    auto hasSize = hasW && hasH;
 
-    auto x = 0;
-    auto y = 0;
-    auto w = 0;
-    auto h = 0;
+    auto x = curComponent->getX ();
+    auto y = curComponent->getY ();
+    auto w = curComponent->getWidth ();
+    auto h = curComponent->getHeight ();
 
     if (component.hasProperty (kR) && component.hasProperty (kX))
         w = parse (component[kR], idIdx) - parse (component[kX], idIdx);
@@ -705,9 +703,6 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
             x = parse (prefix + "X" + reference, idIdx) - w + delta;
         else
             x = parse (prefix + "R" + reference, idIdx) + delta;
-
-        hasPosition = true;
-        hasSize = true;
     }
 
     if (component.hasProperty (kCxd))
@@ -739,9 +734,6 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
             x = parse (prefix + "CX" + reference, idIdx) - delta - w / 2;
         else
             x = parse (prefix + "CX" + reference, idIdx) + delta - w / 2;
-
-        hasPosition = true;
-        hasSize = true;
     }
 
     if (component.hasProperty (kYd))
@@ -773,9 +765,6 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
             y = parse (prefix + "Y" + reference, idIdx) - h + delta;
         else
             y = parse (prefix + "B" + reference, idIdx) + delta;
-
-        hasPosition = true;
-        hasSize = true;
     }
 
     if (component.hasProperty (kCyd))
@@ -807,9 +796,6 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
             y = parse (prefix + "CY" + reference, idIdx) - delta - h / 2;
         else
             y = parse (prefix + "CY" + reference, idIdx) + delta - h / 2;
-
-        hasPosition = true;
-        hasSize = true;
     }
 
     if (component.hasProperty (kX))
@@ -835,9 +821,6 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
             y = r.getY();
             w = r.getWidth();
             h = r.getHeight();
-
-            hasPosition = true;
-            hasSize = true;
         }
     }
     if (component.hasProperty (kBounds))
@@ -848,9 +831,6 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
             y = 0;
             w = juce::roundToInt (*constants.get (kParW));
             h = juce::roundToInt (*constants.get (kParH));
-
-            hasPosition = true;
-            hasSize = true;
         }
         else if (component[kBounds] == kPrev)
         {
@@ -858,9 +838,6 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
             y = parse (kPrevY, idIdx);
             w = parse (kPrevW, idIdx);
             h = parse (kPrevH, idIdx);
-
-            hasPosition = true;
-            hasSize = true;
         }
         else if (auto reduced = component[kBounds].toString(); reduced.contains (kReduced))
         {
@@ -892,9 +869,6 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
                 w -= tokens[1].getIntValue() + tokens[3].getIntValue();
                 h -= tokens[2].getIntValue() + tokens[4].getIntValue();
             }
-
-            hasPosition = true;
-            hasSize = true;
         }
         else if (auto str = component[kBounds].toString(); str.contains (","))
         {
@@ -906,9 +880,6 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
                 y = parse (tokens[1], idIdx);
                 w = parse (tokens[2], idIdx);
                 h = parse (tokens[3], idIdx);
-
-                hasPosition = true;
-                hasSize = true;
             }
             else if (tokens.size() == 2)
             {
@@ -916,9 +887,6 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
                 y = 0;
                 w = parse (tokens[0], idIdx);
                 h = parse (tokens[1], idIdx);
-
-                hasPosition = false;
-                hasSize = true;
             }
         }
         else
@@ -938,13 +906,13 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
         w = parse (component[kW], idIdx);
     if (component.hasProperty (kH))
         h = parse (component[kH], idIdx);
-    if (hasSize && component.hasProperty (kCx))
+    if (component.hasProperty (kCx))
         x = parse (component[kCx], idIdx) - w / 2;
-    if (hasSize && component.hasProperty (kCy))
+    if (component.hasProperty (kCy))
         y = parse (component[kCy], idIdx) - h / 2;
-    if (hasSize && component.hasProperty (kR))
+    if (component.hasProperty (kR))
         x = parse (component[kR], idIdx) - w;
-    if (hasSize && component.hasProperty (kB))
+    if (component.hasProperty (kB))
         y = parse (component[kB], idIdx) - h;
 
     LayoutSupport::Bounds res;
@@ -952,8 +920,6 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
     res.y = y;
     res.h = h;
     res.w = w;
-    res.hasSize = hasSize;
-    res.hasPosition = hasPosition;
 
     if (component.hasProperty (kPW))
         res.postWidth = component[kPW].toString();
@@ -1069,10 +1035,8 @@ juce::Component* LayoutSupport::setPosition (const juce::String& currentPath,
         auto hasVisible = component.hasProperty (kVisible);
         auto bounds = getBounds (idIdx, component);
 
-        if (bounds.hasPosition)
-            curComponent->setTopLeftPosition (bounds.x, bounds.y);
-        if (bounds.hasSize)
-            curComponent->setSize (bounds.w, bounds.h);
+        curComponent->setTopLeftPosition (bounds.x, bounds.y);
+        curComponent->setSize (bounds.w, bounds.h);
 
         if ((bounds.postWidth.has_value() != bounds.postHeight.has_value()) && (bounds.w >= 0 || bounds.h >= 0))
             curComponent->setSize (bounds.w, bounds.h);
@@ -1199,10 +1163,6 @@ void LayoutSupport::setGridPositions (const juce::String& currentPath, const juc
     ids.trim ();
 
     auto bounds = getBounds (0, component);
-
-    jassert (bounds.hasPosition && bounds.hasSize);
-    if (! bounds.hasPosition || ! bounds.hasSize)
-        return;
 
     juce::Rectangle<int> rc (bounds.x, bounds.y, bounds.w, bounds.h);
 

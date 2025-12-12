@@ -335,8 +335,6 @@ protected:
         int y;
         int w;
         int h;
-        bool hasPosition = false;
-        bool hasSize = false;
 
         std::optional<juce::String>  postWidth;
         std::optional<juce::String>  postHeight;
