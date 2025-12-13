@@ -658,15 +658,10 @@ LayoutSupport::Bounds LayoutSupport::getBounds (int idIdx, const juce::var& comp
     //
     // Set position and size
     //
-    auto hasX = component.hasProperty (kR) || component.hasProperty (kX) || component.hasProperty (kCx);
-    auto hasY = component.hasProperty (kB) || component.hasProperty (kY) || component.hasProperty (kCy);
-    auto hasW = component.hasProperty (kW) || component.hasProperty (kSize) || (component.hasProperty (kR) && component.hasProperty (kX));
-    auto hasH = component.hasProperty (kH) || component.hasProperty (kSize) || (component.hasProperty (kY) && component.hasProperty (kB));
-
-    auto x = curComponent->getX ();
-    auto y = curComponent->getY ();
-    auto w = curComponent->getWidth ();
-    auto h = curComponent->getHeight ();
+    auto x = curComponent ? curComponent->getX () : 0;
+    auto y = curComponent ? curComponent->getY () : 0;
+    auto w = curComponent ? curComponent->getWidth () : 0;
+    auto h = curComponent ? curComponent->getHeight () : 0;
 
     if (component.hasProperty (kR) && component.hasProperty (kX))
         w = parse (component[kR], idIdx) - parse (component[kX], idIdx);
@@ -1161,54 +1156,59 @@ void LayoutSupport::setGridPositions (const juce::String& currentPath, const juc
         ids = expandTokens ({ idString });
 
     ids.trim ();
-
-    auto bounds = getBounds (0, component);
-
-    juce::Rectangle<int> rc (bounds.x, bounds.y, bounds.w, bounds.h);
-
-    using juce::operator""_px;
-    using juce::operator""_fr;
-
-    juce::Grid grid;
-
-    auto cols = parse (getPropertyWithDefault (component, kCols, 1), 0);
-    auto rows = parse (getPropertyWithDefault (component, kRows, 1), 0);
-
-    grid.columnGap  = juce::Grid::Px (parse (getPropertyWithDefault (component, kColGap, 0), 0));
-    grid.rowGap     = juce::Grid::Px (parse (getPropertyWithDefault (component, kRowGap, 0), 0));
-
-    auto getTrackInfo = [] (const juce::String& str, int idx)
+    
+    if (auto foundComp = compMap.findComponent (currentPath))
     {
-        auto tokens = juce::StringArray::fromTokens (str, "/", "");
-        tokens.trim();
-        auto token = tokens[idx + 1];
-
-        if (token.endsWith ("px"))
-            return juce::Grid::TrackInfo (juce::Grid::Px (token.retainCharacters ("0123456789").getIntValue()));
-
-        if (token.endsWith ("fr"))
-            return juce::Grid::TrackInfo (juce::Grid::Fr (token.retainCharacters ("0123456789").getIntValue()));
-
-        return juce::Grid::TrackInfo (1_fr);
-    };
-
-    for (auto i = 0; i < cols; i++)
-        grid.templateColumns.add (getTrackInfo (ids[i], 0));
-
-    for (auto i = 0; i < rows; i++)
-        grid.templateRows.add (getTrackInfo (ids[cols * i], 1));
-
-    for (auto id : ids)
-    {
-        const auto path = juce::String (currentPath) + "/" + id.upToFirstOccurrenceOf ("/", false, false).trim();
-
-        if (auto foundComp = compMap.findComponent (path))
-            grid.items.add (juce::GridItem (foundComp));
-        else
-            grid.items.add (juce::GridItem());
+        juce::ScopedValueSetter<juce::Component*> svs (curComponent, foundComp);
+        
+        auto bounds = getBounds (0, component);
+        
+        juce::Rectangle<int> rc (bounds.x, bounds.y, bounds.w, bounds.h);
+        
+        using juce::operator""_px;
+        using juce::operator""_fr;
+        
+        juce::Grid grid;
+        
+        auto cols = parse (getPropertyWithDefault (component, kCols, 1), 0);
+        auto rows = parse (getPropertyWithDefault (component, kRows, 1), 0);
+        
+        grid.columnGap  = juce::Grid::Px (parse (getPropertyWithDefault (component, kColGap, 0), 0));
+        grid.rowGap     = juce::Grid::Px (parse (getPropertyWithDefault (component, kRowGap, 0), 0));
+        
+        auto getTrackInfo = [] (const juce::String& str, int idx)
+        {
+            auto tokens = juce::StringArray::fromTokens (str, "/", "");
+            tokens.trim();
+            auto token = tokens[idx + 1];
+            
+            if (token.endsWith ("px"))
+                return juce::Grid::TrackInfo (juce::Grid::Px (token.retainCharacters ("0123456789").getIntValue()));
+            
+            if (token.endsWith ("fr"))
+                return juce::Grid::TrackInfo (juce::Grid::Fr (token.retainCharacters ("0123456789").getIntValue()));
+            
+            return juce::Grid::TrackInfo (1_fr);
+        };
+        
+        for (auto i = 0; i < cols; i++)
+            grid.templateColumns.add (getTrackInfo (ids[i], 0));
+        
+        for (auto i = 0; i < rows; i++)
+            grid.templateRows.add (getTrackInfo (ids[cols * i], 1));
+        
+        for (auto id : ids)
+        {
+            const auto path = juce::String (currentPath) + "/" + id.upToFirstOccurrenceOf ("/", false, false).trim();
+            
+            if (auto foundComp = compMap.findComponent (path))
+                grid.items.add (juce::GridItem (foundComp));
+            else
+                grid.items.add (juce::GridItem());
+        }
+        
+        grid.performLayout (rc);
     }
-
-    grid.performLayout (rc);
 }
 
 void LayoutSupport::fileChanged (const juce::File& f, gin::FileSystemWatcher::FileSystemEvent)
