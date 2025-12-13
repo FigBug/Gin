@@ -6,7 +6,7 @@
 #include "../../Demo/Source/Demos.h"
 
 UnitTestsAudioProcessorEditor::UnitTestsAudioProcessorEditor (UnitTestsAudioProcessor& p)
-    : AudioProcessorEditor (&p)
+    : gin::ProcessorEditor (p)
 {
     juce::Logger::setCurrentLogger (&logger);
 

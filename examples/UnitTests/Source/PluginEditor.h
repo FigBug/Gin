@@ -16,7 +16,7 @@ public:
     }
 };
 
-class UnitTestsAudioProcessorEditor : public juce::AudioProcessorEditor,
+class UnitTestsAudioProcessorEditor : public gin::ProcessorEditor,
                                       private juce::Timer
 {
 public:
