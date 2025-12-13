@@ -1201,8 +1201,8 @@ void LayoutSupport::setGridPositions (const juce::String& currentPath, const juc
         {
             const auto path = juce::String (currentPath) + "/" + id.upToFirstOccurrenceOf ("/", false, false).trim();
             
-            if (auto foundComp = compMap.findComponent (path))
-                grid.items.add (juce::GridItem (foundComp));
+            if (auto foundChildComp = compMap.findComponent (path))
+                grid.items.add (juce::GridItem (foundChildComp));
             else
                 grid.items.add (juce::GridItem());
         }
