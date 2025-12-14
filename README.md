@@ -59,13 +59,16 @@ Gin is organized into focused modules that can be included independently:
 | Module | Description |
 |--------|-------------|
 | **gin** | Core utilities, file system watching, download manager, math utilities |
+| **gin_3d** | Basic wireframe 3D rendering engine |
 | **gin_dsp** | Audio DSP components: oscillators, filters, effects, modulation |
 | **gin_graphics** | Image processing, effects, metadata, BMP format support |
-| **gin_gui** | UI components, property editors, layout system |
+| **gin_gui** | UI components, property editors, layout system, OpenStreetMap integration |
+| **gin_location** | GPS location services (macOS CoreLocation) |
 | **gin_metadata** | Image metadata reading from JPEG, GIF, and PNG files |
 | **gin_network** | WebSocket, secure sockets |
 | **gin_plugin** | Audio plugin utilities and common functionality |
 | **gin_simd** | SIMD-optimized operations |
+| **gin_standaloneplugin** | Standalone audio plugin application wrapper |
 | **gin_webp** | WebP image format support |
 
 ## Features
@@ -101,7 +104,36 @@ Gin is organized into focused modules that can be included independently:
 ### Network (gin_network)
 - **WebSocket** - Full-featured WebSocket client
 - **SecureStreamingSocket** - SSL/TLS socket support
-- **OpenStreetMaps** - Tile fetching from OSM servers
+
+### Plugin Utilities (gin_plugin)
+- **Processor** - Extended audio processor with parameter management
+- **Parameter** - Smart parameters with modulation support
+- **ModMatrix** - Flexible modulation matrix system
+- **Plugin Components** - Knobs, ADSR, LFO, and MSEG UI components
+- **Patch Browser** - Preset management and browsing
+
+### Image Metadata (gin_metadata)
+- **EXIF** - Read EXIF metadata from images
+- **IPTC** - Read IPTC metadata from images
+- **XMP** - Read XMP metadata from images
+
+### SIMD Helpers (gin_simd)
+- **MIPP Integration** - Cross-platform SIMD abstraction (SSE/NEON)
+- **Optimized Math** - SIMD-accelerated math operations
+
+### WebP Support (gin_webp)
+- **WebPImageFormat** - Read and write WebP images
+
+### 3D Wireframe Engine (gin_3d)
+- **Vec3/Mat4** - 3D vector and matrix math
+- **Camera3D** - 3D camera with projection
+- **Scene3D** - Scene graph for 3D objects
+- **Renderer3D** - Wireframe rendering to 2D
+
+### Standalone Plugin (gin_standaloneplugin)
+- **StandaloneApp** - Application wrapper for running plugins standalone
+- **StandaloneFilterWindow** - Window hosting the plugin UI
+- **SidebarComponent** - Audio analysis display
 
 ## Examples
 
