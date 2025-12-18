@@ -7,8 +7,9 @@ var searchData=
   ['barlowthin_5fttfsize_4',['BarlowThin_ttfSize',['../namespaceResources.html#ae17a5aae2e3106082be4c8b5d3e61bf9',1,'Resources']]],
   ['bend_5',['bend',['../structWTOscillator_1_1Params.html#a1bb44ee47a18bb34bb4158461bf2889d',1,'WTOscillator::Params::bend'],['../structWTVoicedStereoOscillatorParams.html#a22356727c51d1694705bd8e9f4714a29',1,'WTVoicedStereoOscillatorParams::bend']]],
   ['bipolar_6',['bipolar',['../namespaceAssets.html#ac3468e24409dbe47e8293799e3727311',1,'Assets']]],
-  ['browse_7',['browse',['../namespaceAssets.html#a971712f6dd2c7de1171c8139a852a38d',1,'Assets']]],
-  ['browsebutton_8',['browseButton',['../classTitleBar.html#ad008b68a5bcd5442577468bf031c596b',1,'TitleBar']]],
-  ['bubble_9',['bubble',['../classMultiParamComponent.html#afed6013095e1e2ced271cda5ccecb7d2',1,'MultiParamComponent']]],
-  ['buffer_10',['buffer',['../classDelayLine.html#a93574b33770845363b409a6578919369',1,'DelayLine']]]
+  ['blocksize_7',['blockSize',['../classAudioProcessorPlayer.html#ab69404d0d35facc981eb313b223c590c',1,'AudioProcessorPlayer']]],
+  ['browse_8',['browse',['../namespaceAssets.html#a971712f6dd2c7de1171c8139a852a38d',1,'Assets']]],
+  ['browsebutton_9',['browseButton',['../classTitleBar.html#ad008b68a5bcd5442577468bf031c596b',1,'TitleBar']]],
+  ['bubble_10',['bubble',['../classMultiParamComponent.html#afed6013095e1e2ced271cda5ccecb7d2',1,'MultiParamComponent']]],
+  ['buffer_11',['buffer',['../classDelayLine.html#a93574b33770845363b409a6578919369',1,'DelayLine']]]
 ];

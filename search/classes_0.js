@@ -11,7 +11,7 @@ var searchData=
   ['audiofifo_8',['AudioFifo',['../classAudioFifo.html',1,'']]],
   ['audiofunctionhost_9',['AudioFunctionHost',['../classAudioFunctionHost.html',1,'']]],
   ['audiomidififo_10',['AudioMidiFifo',['../classAudioMidiFifo.html',1,'']]],
-  ['audioprocessorwrapper_11',['AudioProcessorWrapper',['../classAudioProcessorWrapper.html',1,'']]],
+  ['audioprocessorplayer_11',['AudioProcessorPlayer',['../classAudioProcessorPlayer.html',1,'']]],
   ['audiosamplerbuffercomponent_12',['AudioSamplerBufferComponent',['../classAudioSamplerBufferComponent.html',1,'']]],
   ['authorsmodel_13',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser']]]
 ];

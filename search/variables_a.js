@@ -18,10 +18,11 @@ var searchData=
   ['listeners_15',['listeners',['../classParameter.html#a6ab022db2c42737bf0d3b1552f9b97a4',1,'Parameter']]],
   ['livevaluescallback_16',['liveValuesCallback',['../classKnob.html#ad99b0b0c9edd466e0119735365690e26',1,'Knob']]],
   ['loadingstate_17',['loadingState',['../classProcessor.html#ab4a632bd0b8edcb74957e4c6d7fd3207',1,'Processor']]],
-  ['logdetector_18',['logDetector',['../classEnvelopeDetector.html#a9b42cde52cbdcb05cbc85a65ba6a017f',1,'EnvelopeDetector']]],
-  ['longitude_19',['longitude',['../structLocationManager_1_1Location.html#a484c41f04e208931333ece623fd56633',1,'LocationManager::Location']]],
-  ['lookandfeel_20',['lookAndFeel',['../classProcessorOptions.html#a8d7a9b34d0ef590a2ca4a5a6cb160bd0',1,'ProcessorOptions']]],
-  ['lookuptables_21',['lookupTables',['../classAudioFunctionHost.html#ac3f36a29508908517af32e673583014e',1,'AudioFunctionHost']]],
-  ['loop_22',['loop',['../structMSEG_1_1Parameters.html#a41b8c9e91dd2740c89c139764a92076d',1,'MSEG::Parameters']]],
-  ['loseless_23',['loseless',['../classWEBPImageFormat.html#a603e71ad278603009686b3290f8abcc1',1,'WEBPImageFormat']]]
+  ['lock_18',['lock',['../classAudioProcessorPlayer.html#ab2c0b97acbefb8b52c2d3e2a8e137840',1,'AudioProcessorPlayer']]],
+  ['logdetector_19',['logDetector',['../classEnvelopeDetector.html#a9b42cde52cbdcb05cbc85a65ba6a017f',1,'EnvelopeDetector']]],
+  ['longitude_20',['longitude',['../structLocationManager_1_1Location.html#a484c41f04e208931333ece623fd56633',1,'LocationManager::Location']]],
+  ['lookandfeel_21',['lookAndFeel',['../classProcessorOptions.html#a8d7a9b34d0ef590a2ca4a5a6cb160bd0',1,'ProcessorOptions']]],
+  ['lookuptables_22',['lookupTables',['../classAudioFunctionHost.html#ac3f36a29508908517af32e673583014e',1,'AudioFunctionHost']]],
+  ['loop_23',['loop',['../structMSEG_1_1Parameters.html#a41b8c9e91dd2740c89c139764a92076d',1,'MSEG::Parameters']]],
+  ['loseless_24',['loseless',['../classWEBPImageFormat.html#a603e71ad278603009686b3290f8abcc1',1,'WEBPImageFormat']]]
 ];

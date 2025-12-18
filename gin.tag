@@ -700,6 +700,12 @@
     <class kind="class">LevelMeter</class>
   </compound>
   <compound kind="file">
+    <name>gin_spectrumanalyzer.h</name>
+    <path>build/gin_dsp/components/</path>
+    <filename>gin__spectrumanalyzer_8h.html</filename>
+    <class kind="class">SpectrumAnalyzer</class>
+  </compound>
+  <compound kind="file">
     <name>gin_triggeredscope.h</name>
     <path>build/gin_dsp/components/</path>
     <filename>gin__triggeredscope_8h.html</filename>
@@ -2355,12 +2361,6 @@
     <namespace>Resources</namespace>
   </compound>
   <compound kind="file">
-    <name>gin_audioprocessorwrapper.h</name>
-    <path>build/gin_plugin/plugin/</path>
-    <filename>gin__audioprocessorwrapper_8h.html</filename>
-    <class kind="class">AudioProcessorWrapper</class>
-  </compound>
-  <compound kind="file">
     <name>gin_modmatrix.h</name>
     <path>build/gin_plugin/plugin/</path>
     <filename>gin__modmatrix_8h.html</filename>
@@ -2448,16 +2448,17 @@
     <namespace>math</namespace>
   </compound>
   <compound kind="file">
+    <name>gin_audioprocessorplayer.h</name>
+    <path>build/gin_standaloneplugin/standaloneplugin/</path>
+    <filename>gin__audioprocessorplayer_8h.html</filename>
+    <class kind="class">AudioProcessorPlayer</class>
+    <class kind="struct">AudioProcessorPlayer::NumChannels</class>
+  </compound>
+  <compound kind="file">
     <name>gin_maincontentcomponent.h</name>
     <path>build/gin_standaloneplugin/standaloneplugin/</path>
     <filename>gin__maincontentcomponent_8h.html</filename>
     <class kind="class">MainContentComponent</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_pluginwrapper.h</name>
-    <path>build/gin_standaloneplugin/standaloneplugin/</path>
-    <filename>gin__pluginwrapper_8h.html</filename>
-    <class kind="class">PluginWrapper</class>
   </compound>
   <compound kind="file">
     <name>gin_sidebarcomponent.h</name>
@@ -2477,6 +2478,12 @@
       <anchor>ga9cc46542bd33facf4b0be95fd5d8e6ff</anchor>
       <arglist>()</arglist>
     </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_standaloneaudioprocessorplayer.h</name>
+    <path>build/gin_standaloneplugin/standaloneplugin/</path>
+    <filename>gin__standaloneaudioprocessorplayer_8h.html</filename>
+    <class kind="class">StandaloneAudioProcessorPlayer</class>
   </compound>
   <compound kind="file">
     <name>gin_standalonefilterwindow.h</name>
@@ -3658,335 +3665,259 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>AudioProcessorWrapper</name>
-    <filename>classAudioProcessorWrapper.html</filename>
+    <name>AudioProcessorPlayer</name>
+    <filename>classAudioProcessorPlayer.html</filename>
+    <class kind="struct">AudioProcessorPlayer::NumChannels</class>
     <member kind="function">
       <type></type>
-      <name>AudioProcessorWrapper</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>ac8cf88976ad70f42ca64a5c548227a91</anchor>
-      <arglist>(std::unique_ptr&lt; juce::AudioProcessor &gt; p)</arglist>
+      <name>AudioProcessorPlayer</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>a80c93a5ac051d18a62a1865da54cf56e</anchor>
+      <arglist>(bool doDoublePrecisionProcessing=false)</arglist>
     </member>
     <member kind="function">
       <type></type>
-      <name>~AudioProcessorWrapper</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a3ccdea6f80361291e9ff30eb495b0cd1</anchor>
+      <name>~AudioProcessorPlayer</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>ad4988b7f380db5a92f97e59c49a567e5</anchor>
       <arglist>() override</arglist>
     </member>
-    <member kind="function">
-      <type>const juce::String</type>
-      <name>getName</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a14e596e72a3698ad179ac172eaa7e342</anchor>
-      <arglist>() const override</arglist>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>setProcessor</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>a8ca1fd71e1dddec163b02927c3d1abc4</anchor>
+      <arglist>(juce::AudioProcessor *processorToPlay)</arglist>
     </member>
     <member kind="function">
-      <type>juce::StringArray</type>
-      <name>getAlternateDisplayNames</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a4b722bbeaa8309bbd78c07e90d3bd7ba</anchor>
-      <arglist>() const override</arglist>
+      <type>juce::AudioProcessor *</type>
+      <name>getCurrentProcessor</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>a87e20cf01bb1e2bf691e9046d61c7c8e</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
-      <name>setRateAndBufferSizeDetails</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a16bd311b01aec0adec4c4c4adb87b971</anchor>
-      <arglist>(double newSampleRate, int newBlockSize) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepareToPlay</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>ad0973c9947f3ac244124f30f55f952ec</anchor>
-      <arglist>(double sampleRate, int maximumExpectedSamplesPerBlock) override</arglist>
+      <type>juce::MidiMessageCollector &amp;</type>
+      <name>getMidiMessageCollector</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>ae740c702942ff51c10faa70ddd2b2797</anchor>
+      <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
       <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a03566b7304663f3224b9a5a1ff6a2cf1</anchor>
-      <arglist>() override</arglist>
+      <name>setMidiOutput</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>a02d3fdee05a314c9a452744855b09f62</anchor>
+      <arglist>(juce::MidiOutput *midiOutputToUse)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
-      <name>memoryWarningReceived</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>ad8a04c16346f6fae65a8d686d6f963fc</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processBlock</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>ac49da4b45dbdcf10becb5529e5356067</anchor>
-      <arglist>(juce::AudioBuffer&lt; float &gt; &amp;buffer, juce::MidiBuffer &amp;midiMessages) override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processBlock</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a90d24aacdf3c26003a209d4c37f73700</anchor>
-      <arglist>(juce::AudioBuffer&lt; double &gt; &amp;buffer, juce::MidiBuffer &amp;midiMessages) override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processBlockBypassed</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>aa0ec2fb0c503a18c6c5bb1840c938988</anchor>
-      <arglist>(juce::AudioBuffer&lt; float &gt; &amp;buffer, juce::MidiBuffer &amp;midiMessages) override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processBlockBypassed</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a862fe3372581a14ec71454b96909f649</anchor>
-      <arglist>(juce::AudioBuffer&lt; double &gt; &amp;buffer, juce::MidiBuffer &amp;midiMessages) override</arglist>
+      <name>setDoublePrecisionProcessing</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>a7d49f631fc1c0aac6f432fe4b524ff1d</anchor>
+      <arglist>(bool doublePrecision)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
-      <name>canAddBus</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>adc8390083d2d37053e762576e39b89b3</anchor>
-      <arglist>(bool isInput) const override</arglist>
+      <name>getDoublePrecisionProcessing</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>aab453796aff8eba0ca2abde731746ba7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>preProcessBlock</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>a8ed25a75f37e97a55a210751d717ebb0</anchor>
+      <arglist>(juce::AudioBuffer&lt; float &gt; &amp;, juce::MidiBuffer &amp;)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>postProcessBlock</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>a6a1e4d37cbc21208cce9ffc7a7d8adde</anchor>
+      <arglist>(juce::AudioBuffer&lt; float &gt; &amp;, juce::MidiBuffer &amp;)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>preProcessBlock</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>ab5a9297fdd4972bc9f27069dafa9a3fe</anchor>
+      <arglist>(juce::AudioBuffer&lt; double &gt; &amp;, juce::MidiBuffer &amp;)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>postProcessBlock</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>ac4c2eacef3e9dc1659b2fbf3a7ecda15</anchor>
+      <arglist>(juce::AudioBuffer&lt; double &gt; &amp;, juce::MidiBuffer &amp;)</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
-      <name>canRemoveBus</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a53e88c43ade7237ea6d8c034f55cb262</anchor>
-      <arglist>(bool isInput) const override</arglist>
+      <type>void</type>
+      <name>audioDeviceIOCallbackWithContext</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>a26da50e22e38bed0160dc4b204a49941</anchor>
+      <arglist>(const float *const *, int, float *const *, int, int, const juce::AudioIODeviceCallbackContext &amp;) override</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
-      <name>supportsDoublePrecisionProcessing</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a10c2779c908e188956243e116905eb71</anchor>
-      <arglist>() const override</arglist>
+      <type>void</type>
+      <name>audioDeviceAboutToStart</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>a4f780c119d9909db33c56e6b2d1ac9c4</anchor>
+      <arglist>(juce::AudioIODevice *) override</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>audioDeviceStopped</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>ab7ce7ac03e058c2fe908b98f2889c65b</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>handleIncomingMidiMessage</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>aa6b1b753a36569a92ce33c8153c46e73</anchor>
+      <arglist>(juce::MidiInput *, const juce::MidiMessage &amp;) override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>NumChannels</type>
+      <name>findMostSuitableLayout</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>aff94625644f839979f098e17ab2fd20f</anchor>
+      <arglist>(const juce::AudioProcessor &amp;) const</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>resizeChannels</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>a2b21ce03a2d671dad98d8656fce23421</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::AudioProcessor *</type>
+      <name>processor</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>ac99c216ebcf4a35758f0d6f3479b0fd1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::CriticalSection</type>
+      <name>lock</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>ab2c0b97acbefb8b52c2d3e2a8e137840</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
       <type>double</type>
-      <name>getTailLengthSeconds</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>aba94435057e28635ccf7e27f0b81b4db</anchor>
-      <arglist>() const override</arglist>
+      <name>sampleRate</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>a57453bda6409d28d9c8e6de3e0553cc9</anchor>
+      <arglist></arglist>
     </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>acceptsMidi</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a5e126dc32c71c66e823a3c2d1f2f1282</anchor>
-      <arglist>() const override</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>producesMidi</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>ab7d78ef085a5f6e15685805a0679d6f4</anchor>
-      <arglist>() const override</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>supportsMPE</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>aae604e94614f8956f0e0b69dcce154fc</anchor>
-      <arglist>() const override</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isMidiEffect</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a711d950edb8ec80dc7c13d6d8f6b2a46</anchor>
-      <arglist>() const override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reset</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a6a60320dfe1f8e9a73a11f50505b488b</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::AudioProcessorParameter *</type>
-      <name>getBypassParameter</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a18651c194a1e5456a6885458d5670de9</anchor>
-      <arglist>() const override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setNonRealtime</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a652f4c0bcf70b4ece018ec87b01eb9e7</anchor>
-      <arglist>(bool isNonRealtime) noexcept override</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::AudioProcessorEditor *</type>
-      <name>createEditor</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a7f7bf28a49bd65154caf1594cb0212f4</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>hasEditor</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a7875830cb6d0f8d6d405ea6e38868cbb</anchor>
-      <arglist>() const override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>refreshParameterList</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a2aa05d41a5c41da3b8b904396d2d1b8d</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
+    <member kind="variable" protection="protected">
       <type>int</type>
-      <name>getNumPrograms</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>ac2203b2fc9fa91c14f5eab3a701e0333</anchor>
-      <arglist>() override</arglist>
+      <name>blockSize</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>ab69404d0d35facc981eb313b223c590c</anchor>
+      <arglist></arglist>
     </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getCurrentProgram</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a0563fcb1dc6592ab72af7c52fa08dbcd</anchor>
-      <arglist>() override</arglist>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>isPrepared</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>a0d1f31a71a74dd148b3c0dbd1e0ce04a</anchor>
+      <arglist></arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setCurrentProgram</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a29513098742f18fdcd2ee6838571888b</anchor>
-      <arglist>(int index) override</arglist>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>isDoublePrecision</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>ab629fa4a5811f9aa68f3f9f6a541ceca</anchor>
+      <arglist></arglist>
     </member>
-    <member kind="function">
-      <type>const juce::String</type>
-      <name>getProgramName</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a56e27fef3c57451a6d15ba01af342819</anchor>
-      <arglist>(int index) override</arglist>
+    <member kind="variable" protection="protected">
+      <type>NumChannels</type>
+      <name>deviceChannels</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>a37fe9d0a2e9f44640d2870c19753ba10</anchor>
+      <arglist></arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>changeProgramName</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a5659be19c791b184790add53aaf10e6d</anchor>
-      <arglist>(int index, const juce::String &amp;newName) override</arglist>
+    <member kind="variable" protection="protected">
+      <type>NumChannels</type>
+      <name>defaultProcessorChannels</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>a9e2dbb07340d8eb308554afc4c8d6410</anchor>
+      <arglist></arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>getStateInformation</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a8ab47c2271c8c9a0d41ea3423051adff</anchor>
-      <arglist>(juce::MemoryBlock &amp;destData) override</arglist>
+    <member kind="variable" protection="protected">
+      <type>NumChannels</type>
+      <name>actualProcessorChannels</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>a84628d62bbeeadf4ff77e143de301bc0</anchor>
+      <arglist></arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>getCurrentProgramStateInformation</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a682996852712765d0130d9ef3125cf13</anchor>
-      <arglist>(juce::MemoryBlock &amp;destData) override</arglist>
+    <member kind="variable" protection="protected">
+      <type>std::vector&lt; float * &gt;</type>
+      <name>channels</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>abeb7e0ca9a68896f24842674bb8af550</anchor>
+      <arglist></arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setStateInformation</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>acfc70bb47c958d797458a5f2b15eca0d</anchor>
-      <arglist>(const void *data, int sizeInBytes) override</arglist>
+    <member kind="variable" protection="protected">
+      <type>juce::AudioBuffer&lt; float &gt;</type>
+      <name>tempBuffer</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>aed8721997bdad5d85e77b940ef6bce6b</anchor>
+      <arglist></arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setCurrentProgramStateInformation</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a0f93b2f27a47c5cab12b6e96562fcf37</anchor>
-      <arglist>(const void *data, int sizeInBytes) override</arglist>
+    <member kind="variable" protection="protected">
+      <type>juce::AudioBuffer&lt; double &gt;</type>
+      <name>conversionBuffer</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>aa66db193fb2f94a1545f2b6a75349e26</anchor>
+      <arglist></arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>numChannelsChanged</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a21b5613a6aff43a01b483cfb51358964</anchor>
-      <arglist>() override</arglist>
+    <member kind="variable" protection="protected">
+      <type>juce::MidiBuffer</type>
+      <name>incomingMidi</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>ae8315f0e2659458599790fdc5eff6e23</anchor>
+      <arglist></arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>numBusesChanged</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a4bc77510ead083a942b56759ea77dcff</anchor>
-      <arglist>() override</arglist>
+    <member kind="variable" protection="protected">
+      <type>juce::MidiMessageCollector</type>
+      <name>messageCollector</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>a7275e8d656a3383f587f07f12546d0fd</anchor>
+      <arglist></arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processorLayoutsChanged</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>ac4184f8e6e96d72a4ae65a29325a6ce0</anchor>
-      <arglist>() override</arglist>
+    <member kind="variable" protection="protected">
+      <type>juce::MidiOutput *</type>
+      <name>midiOutput</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>afb91702d6581aff4ff1b954da09cf353</anchor>
+      <arglist></arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addListener</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a89bf9172da70262cd83b0e6f9b1c4c2a</anchor>
-      <arglist>(juce::AudioProcessorListener *newListener) override</arglist>
+    <member kind="variable" protection="protected">
+      <type>uint64_t</type>
+      <name>sampleCount</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>a5dca97aa8f298c4befcfab9c0b4e6d9f</anchor>
+      <arglist></arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>removeListener</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>ac8f257a2cf15e7212188e054a9da6c6d</anchor>
-      <arglist>(juce::AudioProcessorListener *listenerToRemove) override</arglist>
+    <member kind="variable" protection="protected">
+      <type>juce::AudioIODevice *</type>
+      <name>currentDevice</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>ae1fdd0a5c24df64a861d273a29e481fc</anchor>
+      <arglist></arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setPlayHead</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a6517263b46faf1c82e056fdb8a0e391a</anchor>
-      <arglist>(juce::AudioPlayHead *newPlayHead) override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>audioWorkgroupContextChanged</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a53a5d02e6acf05b36034bdf07808fd61</anchor>
-      <arglist>(const juce::AudioWorkgroup &amp;workgroup) override</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::VST2ClientExtensions *</type>
-      <name>getVST2ClientExtensions</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a44fd9b886395b488b22b32c130167ac4</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::VST3ClientExtensions *</type>
-      <name>getVST3ClientExtensions</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>abd70687459a75f272b362dd3d1faad29</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>CurveData</type>
-      <name>getResponseCurve</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>af2a6b1d901fcc8d4e78649f424685b43</anchor>
-      <arglist>(CurveData::Type curveType) const override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>updateTrackProperties</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a21f058ad47fb1d8c1194f1902fb22734</anchor>
-      <arglist>(const TrackProperties &amp;properties) override</arglist>
-    </member>
-    <member kind="variable">
-      <type>std::unique_ptr&lt; juce::AudioProcessor &gt;</type>
-      <name>proc</name>
-      <anchorfile>classAudioProcessorWrapper.html</anchorfile>
-      <anchor>a02be7e377e14091bb79d12a54790299f</anchor>
+    <member kind="variable" protection="protected">
+      <type>juce::AudioWorkgroup</type>
+      <name>currentWorkgroup</name>
+      <anchorfile>classAudioProcessorPlayer.html</anchorfile>
+      <anchor>a5419561db6919c902a25f1f964c6c341</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -12106,6 +12037,52 @@
       <arglist>(juce::AudioPlayHead *playhead, float value)</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>AudioProcessorPlayer::NumChannels</name>
+    <filename>structAudioProcessorPlayer_1_1NumChannels.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>NumChannels</name>
+      <anchorfile>structAudioProcessorPlayer_1_1NumChannels.html</anchorfile>
+      <anchor>ac86fef4347a2aaa500f08b04583f4448</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>NumChannels</name>
+      <anchorfile>structAudioProcessorPlayer_1_1NumChannels.html</anchorfile>
+      <anchor>a5e0880ee8a074d4784e8b4e51dfd61d1</anchor>
+      <arglist>(int numIns, int numOuts)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>NumChannels</name>
+      <anchorfile>structAudioProcessorPlayer_1_1NumChannels.html</anchorfile>
+      <anchor>a2afe27ce65b2292803d7c479d1c41731</anchor>
+      <arglist>(const juce::AudioProcessor::BusesLayout &amp;layout)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::AudioProcessor::BusesLayout</type>
+      <name>toLayout</name>
+      <anchorfile>structAudioProcessorPlayer_1_1NumChannels.html</anchorfile>
+      <anchor>ac4fd7ad01ed2fbbf3f2b5f77a1aa91a0</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>ins</name>
+      <anchorfile>structAudioProcessorPlayer_1_1NumChannels.html</anchorfile>
+      <anchor>ae5563227949eead02264b1fc93b5a25f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>outs</name>
+      <anchorfile>structAudioProcessorPlayer_1_1NumChannels.html</anchorfile>
+      <anchor>a62d24b08157d8b462698b2f4289f06fa</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>Object3D</name>
     <filename>classObject3D.html</filename>
@@ -14194,39 +14171,6 @@
       <anchorfile>classPluginSlider.html</anchorfile>
       <anchor>a85064398e0b6fb0387554a4c5877fa67</anchor>
       <arglist>() override</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>PluginWrapper</name>
-    <filename>classPluginWrapper.html</filename>
-    <base>AudioProcessorWrapper</base>
-    <member kind="function">
-      <type></type>
-      <name>PluginWrapper</name>
-      <anchorfile>classPluginWrapper.html</anchorfile>
-      <anchor>af89447ed0c4ce28063402e98dfa88bb4</anchor>
-      <arglist>(std::unique_ptr&lt; juce::AudioProcessor &gt; p)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepareToPlay</name>
-      <anchorfile>classPluginWrapper.html</anchorfile>
-      <anchor>a287bb5bcb8fcebe71b510050f1a93010</anchor>
-      <arglist>(double sampleRate, int maximumExpectedSamplesPerBlock) override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processBlock</name>
-      <anchorfile>classPluginWrapper.html</anchorfile>
-      <anchor>a1ce29b3d4b58121fc1e915bfa4f8627c</anchor>
-      <arglist>(juce::AudioBuffer&lt; float &gt; &amp;buffer, juce::MidiBuffer &amp;midiMessages) override</arglist>
-    </member>
-    <member kind="variable">
-      <type>AudioFifo</type>
-      <name>scopeFifo</name>
-      <anchorfile>classPluginWrapper.html</anchorfile>
-      <anchor>a0abf8ab9af6ce0e8a05ac34254bd5e56</anchor>
-      <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -16407,6 +16351,13 @@
       <anchor>af03a08e0fb0423c8ec1693a58ecdfe07</anchor>
       <arglist>() override</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paint</name>
+      <anchorfile>classSideBarComponent.html</anchorfile>
+      <anchor>a9070371d1c1da8eafb8395945a7dfe9e</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
+    </member>
     <member kind="variable">
       <type>StandaloneFilterWindow &amp;</type>
       <name>filterWindow</name>
@@ -16415,10 +16366,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>PluginWrapper &amp;</type>
-      <name>pluginWrapper</name>
+      <type>StandaloneAudioProcessorPlayer &amp;</type>
+      <name>player</name>
       <anchorfile>classSideBarComponent.html</anchorfile>
-      <anchor>ac84440b78d8242214ee48c6215af4131</anchor>
+      <anchor>af20dec7727ef44f2b8af7dabb58fc0ae</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -16433,6 +16384,13 @@
       <name>scope</name>
       <anchorfile>classSideBarComponent.html</anchorfile>
       <anchor>a876f620917f4e953d7a10948fb6c9ca9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>SpectrumAnalyzer</type>
+      <name>spectrum</name>
+      <anchorfile>classSideBarComponent.html</anchorfile>
+      <anchor>aebe5a0d28b2b5d0c7be835e683901a79</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
@@ -16647,6 +16605,128 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>SpectrumAnalyzer</name>
+    <filename>classSpectrumAnalyzer.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>ColourIds</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>a544037e48573aa27a58d3ebfadfe16fc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>lineColourId</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>a544037e48573aa27a58d3ebfadfe16fca897546a6575db6418f7c69eba965f5a1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>backgroundColourId</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>a544037e48573aa27a58d3ebfadfe16fcaebfe2883ec83803beea47cc8d41e2e54</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>traceColourId</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>a544037e48573aa27a58d3ebfadfe16fca158109e96f9b8711a03de3589b710548</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>envelopeColourId</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>a544037e48573aa27a58d3ebfadfe16fca3e235c1d28415226b375b369637e123f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>lineColourId</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>a544037e48573aa27a58d3ebfadfe16fca897546a6575db6418f7c69eba965f5a1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>backgroundColourId</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>a544037e48573aa27a58d3ebfadfe16fcaebfe2883ec83803beea47cc8d41e2e54</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>traceColourId</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>a544037e48573aa27a58d3ebfadfe16fca158109e96f9b8711a03de3589b710548</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>envelopeColourId</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>a544037e48573aa27a58d3ebfadfe16fca3e235c1d28415226b375b369637e123f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>SpectrumAnalyzer</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>a83cd2c329ad86d4e7378b978873043ab</anchor>
+      <arglist>(AudioFifo &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~SpectrumAnalyzer</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>af3a4ee6ce1e2e05b19f58cc69bd1cf63</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setNumChannels</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>a0a9e0b7cdfd0a75dd36875303ea728ea</anchor>
+      <arglist>(int num)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFrequencyRange</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>a5d8a011eb7466943e413470c4c9815d0</anchor>
+      <arglist>(float minFreq, float maxFreq)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDbRange</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>a1c715511d7ebac967900469fde107ecc</anchor>
+      <arglist>(float minDb, float maxDb)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>acf3c16fe01c188c55ec9ab55a53ba25d</anchor>
+      <arglist>(double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSmoothing</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>a8c634a301ae12f33a974d1dcf714153b</anchor>
+      <arglist>(float smoothing)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paint</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>a8d10cc9db7739720094175772847cc0e</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>timerCallback</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>a8248be6a0f4c820c33a3ac8a6dfb607a</anchor>
+      <arglist>() override</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>Spline</name>
     <filename>classSpline.html</filename>
     <class kind="class">Spline::Element</class>
@@ -16670,6 +16750,38 @@
       <anchorfile>classSpline.html</anchorfile>
       <anchor>ac1f059b0c61e23b88d7939a27fd40b5c</anchor>
       <arglist>(double x) const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>StandaloneAudioProcessorPlayer</name>
+    <filename>classStandaloneAudioProcessorPlayer.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>StandaloneAudioProcessorPlayer</name>
+      <anchorfile>classStandaloneAudioProcessorPlayer.html</anchorfile>
+      <anchor>aef4664be93a5047353646237d0156d5a</anchor>
+      <arglist>(bool doDoublePrecisionProcessing=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>postProcessBlock</name>
+      <anchorfile>classStandaloneAudioProcessorPlayer.html</anchorfile>
+      <anchor>aea57e9306ee879a358783acc09f3ce71</anchor>
+      <arglist>(juce::AudioBuffer&lt; float &gt; &amp;buffer, juce::MidiBuffer &amp;) override</arglist>
+    </member>
+    <member kind="variable">
+      <type>AudioFifo</type>
+      <name>scopeFifo</name>
+      <anchorfile>classStandaloneAudioProcessorPlayer.html</anchorfile>
+      <anchor>ac28e2446ded1075a51199ef2eb61b585</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>AudioFifo</type>
+      <name>spectrumFifo</name>
+      <anchorfile>classStandaloneAudioProcessorPlayer.html</anchorfile>
+      <anchor>a3541de51ac5e5cd7c688d7ed765e484e</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -16792,10 +16904,10 @@
       <arglist>() override</arglist>
     </member>
     <member kind="function">
-      <type>PluginWrapper *</type>
+      <type>juce::AudioProcessor *</type>
       <name>getAudioProcessor</name>
       <anchorfile>classStandaloneFilterWindow.html</anchorfile>
-      <anchor>af166a004431438c238d2571260a0c2ff</anchor>
+      <anchor>a23736eafa8be840ce20ea32f2dde21a3</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
@@ -17049,10 +17161,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>std::unique_ptr&lt; PluginWrapper &gt;</type>
+      <type>std::unique_ptr&lt; juce::AudioProcessor &gt;</type>
       <name>processor</name>
       <anchorfile>classStandalonePluginHolder.html</anchorfile>
-      <anchor>a67c933d4eb0e541ab29bd55eb581b35f</anchor>
+      <anchor>a7c279a9b715b597f9dae716fcc7620ce</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -17063,10 +17175,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>juce::AudioProcessorPlayer</type>
+      <type>gin::StandaloneAudioProcessorPlayer</type>
       <name>player</name>
       <anchorfile>classStandalonePluginHolder.html</anchorfile>
-      <anchor>a28ccb3e03dffa0538046ffb433f5a9fd</anchor>
+      <anchor>add740632fadc235250cbd4bb07eb5380</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -20563,6 +20675,7 @@
     <class kind="class">AudioSamplerBufferComponent</class>
     <class kind="class">DynamicsMeter</class>
     <class kind="class">LevelMeter</class>
+    <class kind="class">SpectrumAnalyzer</class>
     <class kind="class">TriggeredScope</class>
     <class kind="class">WaveformComponent</class>
     <class kind="class">WavetableComponent</class>
@@ -21533,7 +21646,6 @@
     <name>gin_plugin-plugin</name>
     <title>plugin</title>
     <filename>group__gin__plugin-plugin.html</filename>
-    <class kind="class">AudioProcessorWrapper</class>
     <class kind="struct">ModSrcId</class>
     <class kind="struct">ModDstId</class>
     <class kind="class">ModVoice</class>
@@ -21579,10 +21691,12 @@
     <name>gin_standaloneplugin-standaloneplugin</name>
     <title>standaloneplugin</title>
     <filename>group__gin__standaloneplugin-standaloneplugin.html</filename>
+    <class kind="class">AudioProcessorPlayer</class>
+    <class kind="struct">AudioProcessorPlayer::NumChannels</class>
     <class kind="class">MainContentComponent</class>
-    <class kind="class">PluginWrapper</class>
     <class kind="class">SideBarComponent</class>
     <class kind="class">StandaloneFilterApp</class>
+    <class kind="class">StandaloneAudioProcessorPlayer</class>
     <class kind="class">StandaloneFilterWindow</class>
     <class kind="class">StandalonePluginHolder</class>
     <class kind="struct">StandalonePluginHolder::PluginInOuts</class>

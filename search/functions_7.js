@@ -1,9 +1,9 @@
 var searchData=
 [
   ['handleasyncupdate_0',['handleasyncupdate',['../classAsyncDownload.html#a17faaedc4393e528d302dc6073511c4f',1,'AsyncDownload::handleAsyncUpdate()'],['../classMultiParamComponent.html#af1f2a647d360783089b697dde0204e55',1,'MultiParamComponent::handleAsyncUpdate()'],['../classProcessorEditor.html#a9dbed1e83b2cb95e7f83167a96fda633',1,'ProcessorEditor::handleAsyncUpdate()'],['../classParameter.html#a8296a6e53d729655e66f2cce22dc7924',1,'Parameter::handleAsyncUpdate()'],['../classRealtimeAsyncUpdater.html#a86dee41bf003fdbf125d0b3683acbaf0',1,'RealtimeAsyncUpdater::handleAsyncUpdate()']]],
-  ['handlemidievent_1',['handleMidiEvent',['../classSynthesiser.html#a43f7146e8cf5f05e989ec838bd1c9e53',1,'Synthesiser']]],
-  ['handleupdatenowifneeded_2',['handleUpdateNowIfNeeded',['../classRealtimeAsyncUpdater.html#accae6ff15d6eff08e6a3318263eb6574',1,'RealtimeAsyncUpdater']]],
-  ['haseditor_3',['hasEditor',['../classAudioProcessorWrapper.html#a7875830cb6d0f8d6d405ea6e38868cbb',1,'AudioProcessorWrapper']]],
+  ['handleincomingmidimessage_1',['handleIncomingMidiMessage',['../classAudioProcessorPlayer.html#aa6b1b753a36569a92ce33c8153c46e73',1,'AudioProcessorPlayer']]],
+  ['handlemidievent_2',['handleMidiEvent',['../classSynthesiser.html#a43f7146e8cf5f05e989ec838bd1c9e53',1,'Synthesiser']]],
+  ['handleupdatenowifneeded_3',['handleUpdateNowIfNeeded',['../classRealtimeAsyncUpdater.html#accae6ff15d6eff08e6a3318263eb6574',1,'RealtimeAsyncUpdater']]],
   ['haserror_4',['hasError',['../classEquationParser.html#ace4d2936c6d08b428ea832cdad75d779',1,'EquationParser']]],
   ['hasjsonpointer_5',['hasJSONPointer',['../group__gin__gui-utilities.html#ga2c46f3f0d1e3e9e734b529b8abcde6cf',1,'gin_varianthelpers.h']]],
   ['hasprogram_6',['hasProgram',['../classProcessor.html#ad78ac9883a5b0ccabf449861aa86c071',1,'Processor']]],

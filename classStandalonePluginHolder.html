@@ -160,12 +160,12 @@ Static Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a0fa5cc892100ec91c4a1b65404b4355d" id="r_a0fa5cc892100ec91c4a1b65404b4355d"><td class="memItemLeft" align="right" valign="top">juce::OptionalScopedPointer&lt; juce::PropertySet &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStandalonePluginHolder.html#a0fa5cc892100ec91c4a1b65404b4355d">settings</a></td></tr>
 <tr class="separator:a0fa5cc892100ec91c4a1b65404b4355d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67c933d4eb0e541ab29bd55eb581b35f" id="r_a67c933d4eb0e541ab29bd55eb581b35f"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classPluginWrapper.html">PluginWrapper</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStandalonePluginHolder.html#a67c933d4eb0e541ab29bd55eb581b35f">processor</a></td></tr>
-<tr class="separator:a67c933d4eb0e541ab29bd55eb581b35f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c279a9b715b597f9dae716fcc7620ce" id="r_a7c279a9b715b597f9dae716fcc7620ce"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; juce::AudioProcessor &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStandalonePluginHolder.html#a7c279a9b715b597f9dae716fcc7620ce">processor</a></td></tr>
+<tr class="separator:a7c279a9b715b597f9dae716fcc7620ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f87c6ffe76f92284587c692666645d4" id="r_a7f87c6ffe76f92284587c692666645d4"><td class="memItemLeft" align="right" valign="top">juce::AudioDeviceManager&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStandalonePluginHolder.html#a7f87c6ffe76f92284587c692666645d4">deviceManager</a></td></tr>
 <tr class="separator:a7f87c6ffe76f92284587c692666645d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28ccb3e03dffa0538046ffb433f5a9fd" id="r_a28ccb3e03dffa0538046ffb433f5a9fd"><td class="memItemLeft" align="right" valign="top">juce::AudioProcessorPlayer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStandalonePluginHolder.html#a28ccb3e03dffa0538046ffb433f5a9fd">player</a></td></tr>
-<tr class="separator:a28ccb3e03dffa0538046ffb433f5a9fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add740632fadc235250cbd4bb07eb5380" id="r_add740632fadc235250cbd4bb07eb5380"><td class="memItemLeft" align="right" valign="top">gin::StandaloneAudioProcessorPlayer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStandalonePluginHolder.html#add740632fadc235250cbd4bb07eb5380">player</a></td></tr>
+<tr class="separator:add740632fadc235250cbd4bb07eb5380"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78516abee2da430183ab0f75c2eea150" id="r_a78516abee2da430183ab0f75c2eea150"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; <a class="el" href="structStandalonePluginHolder_1_1PluginInOuts.html">PluginInOuts</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStandalonePluginHolder.html#a78516abee2da430183ab0f75c2eea150">channelConfiguration</a></td></tr>
 <tr class="separator:a78516abee2da430183ab0f75c2eea150"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4519d0e13026290888f3ec59e73fdf41" id="r_a4519d0e13026290888f3ec59e73fdf41"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStandalonePluginHolder.html#a4519d0e13026290888f3ec59e73fdf41">processorHasPotentialFeedbackLoop</a> = <a class="el" href="classPoint.html">true</a></td></tr>
@@ -191,7 +191,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An object that creates and plays a standalone instance of an AudioProcessor. </p>
-<p>The object will create your processor using the same createPluginFilter() function that the other plugin wrappers use, and will run it through the computer's audio/MIDI devices using AudioDeviceManager and AudioProcessorPlayer. </p>
+<p>The object will create your processor using the same createPluginFilter() function that the other plugin wrappers use, and will run it through the computer's audio/MIDI devices using AudioDeviceManager and <a class="el" href="classAudioProcessorPlayer.html" title="An AudioIODeviceCallback object which streams audio through an AudioProcessor.">AudioProcessorPlayer</a>. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2561be6be403480e86cdf44ea8dbeac1" name="a2561be6be403480e86cdf44ea8dbeac1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2561be6be403480e86cdf44ea8dbeac1">&#9670;&#160;</a></span>StandalonePluginHolder()</h2>
@@ -789,14 +789,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a67c933d4eb0e541ab29bd55eb581b35f" name="a67c933d4eb0e541ab29bd55eb581b35f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67c933d4eb0e541ab29bd55eb581b35f">&#9670;&#160;</a></span>processor</h2>
+<a id="a7c279a9b715b597f9dae716fcc7620ce" name="a7c279a9b715b597f9dae716fcc7620ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c279a9b715b597f9dae716fcc7620ce">&#9670;&#160;</a></span>processor</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="classPluginWrapper.html">PluginWrapper</a>&gt; StandalonePluginHolder::processor</td>
+          <td class="memname">std::unique_ptr&lt;juce::AudioProcessor&gt; StandalonePluginHolder::processor</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -817,14 +817,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a28ccb3e03dffa0538046ffb433f5a9fd" name="a28ccb3e03dffa0538046ffb433f5a9fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28ccb3e03dffa0538046ffb433f5a9fd">&#9670;&#160;</a></span>player</h2>
+<a id="add740632fadc235250cbd4bb07eb5380" name="add740632fadc235250cbd4bb07eb5380"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add740632fadc235250cbd4bb07eb5380">&#9670;&#160;</a></span>player</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">juce::AudioProcessorPlayer StandalonePluginHolder::player</td>
+          <td class="memname">gin::StandaloneAudioProcessorPlayer StandalonePluginHolder::player</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -999,7 +999,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 14 2025 16:08:10 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Dec 18 2025 19:10:35 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
