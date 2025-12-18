@@ -49,7 +49,7 @@ var searchData=
   ['displaytocoordinate_46',['displayToCoordinate',['../classOpenStreetMaps.html#aa6a4660f87ad709ecdc187b60bc26d3f',1,'OpenStreetMaps']]],
   ['distortion_47',['Distortion',['../namespaceDistortion.html',1,'']]],
   ['dot_48',['dot',['../structVec3.html#a374177f932dc7ac195ba3aec6b46cc71',1,'Vec3']]],
-  ['down_49',['down',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40a928f3c3101863b6dbc9c6d8fcb9ba9d3',1,'TriggeredScope::Down'],['../classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28ada605ba9914ec7b7d1599d21a70608b57e',1,'MSEGComponent::down']]],
+  ['down_49',['down',['../classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28ada605ba9914ec7b7d1599d21a70608b57e',1,'MSEGComponent::down'],['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40a928f3c3101863b6dbc9c6d8fcb9ba9d3',1,'TriggeredScope::Down']]],
   ['downloadid_50',['downloadId',['../structDownloadManager_1_1DownloadResult.html#ae4aee674b27ea37f9af6ccecf43a03a3',1,'DownloadManager::DownloadResult']]],
   ['downloadmanager_51',['downloadmanager',['../classDownloadManager.html#a39f2f1950cfb9d84da7f8c73e1207575',1,'DownloadManager::DownloadManager()'],['../classDownloadManager.html',1,'DownloadManager']]],
   ['downloadresult_52',['DownloadResult',['../structDownloadManager_1_1DownloadResult.html',1,'DownloadManager']]],
@@ -66,10 +66,11 @@ var searchData=
   ['drawmode_63',['DrawMode',['../classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28ad',1,'MSEGComponent']]],
   ['drawrotaryslider_64',['drawrotaryslider',['../classGinLookAndFeel.html#abd86ed5df86e07320f192df0c1dc9288',1,'GinLookAndFeel::drawRotarySlider()'],['../classCopperLookAndFeel.html#a635b1059994a6c8bc912a25d4434a39a',1,'CopperLookAndFeel::drawRotarySlider()']]],
   ['drawtexteditoroutline_65',['drawtexteditoroutline',['../classGinLookAndFeel.html#aa6bf04df21fad6a9fd1b01cf0d5c7658',1,'GinLookAndFeel::drawTextEditorOutline()'],['../classCopperLookAndFeel.html#a6f6210f9d52087f213b1234381c028e7',1,'CopperLookAndFeel::drawTextEditorOutline()']]],
-  ['drygain_66',['dryGain',['../classWetDryMix.html#a56424d33affe35b8fda304af339ed787',1,'WetDryMix']]],
-  ['dsp_67',['dsp',['../group__gin__dsp-dsp.html',1,'']]],
-  ['dump_68',['dump',['../classComponentMap.html#add0016cb2ea88106534fd09e064aec33',1,'ComponentMap']]],
-  ['dumpcomponents_69',['dumpComponents',['../classLayoutSupport.html#a9a8d967ecaf9f572ffba7e0b8342bdf4',1,'LayoutSupport']]],
-  ['dynamics_70',['dynamics',['../classDynamics.html#a95fd017d51604db8690a4bbe8ec74f53',1,'Dynamics::Dynamics()'],['../classDynamics.html',1,'Dynamics']]],
-  ['dynamicsmeter_71',['dynamicsmeter',['../classDynamicsMeter.html#a3a8565a9c8e14710fcd6ecfe2bcd10e5',1,'DynamicsMeter::DynamicsMeter()'],['../classDynamicsMeter.html',1,'DynamicsMeter']]]
+  ['drophighlightcolourid_66',['dropHighlightColourId',['../classMidiFileComponent.html#adc83f09d9e0ace77adee9e9f560e7cbdaf66744da8167f16a719a3d160da70211',1,'MidiFileComponent']]],
+  ['drygain_67',['dryGain',['../classWetDryMix.html#a56424d33affe35b8fda304af339ed787',1,'WetDryMix']]],
+  ['dsp_68',['dsp',['../group__gin__dsp-dsp.html',1,'']]],
+  ['dump_69',['dump',['../classComponentMap.html#add0016cb2ea88106534fd09e064aec33',1,'ComponentMap']]],
+  ['dumpcomponents_70',['dumpComponents',['../classLayoutSupport.html#a9a8d967ecaf9f572ffba7e0b8342bdf4',1,'LayoutSupport']]],
+  ['dynamics_71',['dynamics',['../classDynamics.html#a95fd017d51604db8690a4bbe8ec74f53',1,'Dynamics::Dynamics()'],['../classDynamics.html',1,'Dynamics']]],
+  ['dynamicsmeter_72',['dynamicsmeter',['../classDynamicsMeter.html#a3a8565a9c8e14710fcd6ecfe2bcd10e5',1,'DynamicsMeter::DynamicsMeter()'],['../classDynamicsMeter.html',1,'DynamicsMeter']]]
 ];

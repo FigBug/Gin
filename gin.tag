@@ -700,6 +700,12 @@
     <class kind="class">LevelMeter</class>
   </compound>
   <compound kind="file">
+    <name>gin_midifilecomponent.h</name>
+    <path>build/gin_dsp/components/</path>
+    <filename>gin__midifilecomponent_8h.html</filename>
+    <class kind="class">MidiFileComponent</class>
+  </compound>
+  <compound kind="file">
     <name>gin_spectrumanalyzer.h</name>
     <path>build/gin_dsp/components/</path>
     <filename>gin__spectrumanalyzer_8h.html</filename>
@@ -1120,6 +1126,12 @@
     <name>gin_midififo.test.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__midififo_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>gin_midifileplayer.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__midifileplayer_8h.html</filename>
+    <class kind="class">MidiFilePlayer</class>
   </compound>
   <compound kind="file">
     <name>gin_dsp/dsp/gin_modulation.h</name>
@@ -10476,6 +10488,270 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>MidiFileComponent</name>
+    <filename>classMidiFileComponent.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>ColourIds</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>adc83f09d9e0ace77adee9e9f560e7cbd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>backgroundColourId</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>adc83f09d9e0ace77adee9e9f560e7cbdaabd8e64f4ff18dc3fb875ba1a52be343</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>noteColourId</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>adc83f09d9e0ace77adee9e9f560e7cbda00690fadbe3dce287af0e4f85a35b491</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>playheadColourId</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>adc83f09d9e0ace77adee9e9f560e7cbdadab1d29e077c7e5af20f9b710814bd3b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>outlineColourId</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>adc83f09d9e0ace77adee9e9f560e7cbda88be4d88c242d1d3d73227fdcbf6e2b5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>dropHighlightColourId</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>adc83f09d9e0ace77adee9e9f560e7cbdaf66744da8167f16a719a3d160da70211</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>backgroundColourId</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>adc83f09d9e0ace77adee9e9f560e7cbdaabd8e64f4ff18dc3fb875ba1a52be343</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>noteColourId</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>adc83f09d9e0ace77adee9e9f560e7cbda00690fadbe3dce287af0e4f85a35b491</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>playheadColourId</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>adc83f09d9e0ace77adee9e9f560e7cbdadab1d29e077c7e5af20f9b710814bd3b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>outlineColourId</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>adc83f09d9e0ace77adee9e9f560e7cbda88be4d88c242d1d3d73227fdcbf6e2b5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>dropHighlightColourId</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>adc83f09d9e0ace77adee9e9f560e7cbdaf66744da8167f16a719a3d160da70211</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>MidiFileComponent</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>af9b02b9cb076dfc43028032808a17601</anchor>
+      <arglist>(MidiFilePlayer &amp;player)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~MidiFileComponent</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>a673722620ab939dc900b56f658f112b5</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paint</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>a6590f93a11407ab893cc4ad87589062b</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>timerCallback</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>a5cf5bd652fff6bb3a8823b80beda0881</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isInterestedInFileDrag</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>a62cffbbc8090ffb660141d6f97f7c0bc</anchor>
+      <arglist>(const juce::StringArray &amp;files) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>fileDragEnter</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>a9eb62b30d2e5ff6e59ad04afb35753fb</anchor>
+      <arglist>(const juce::StringArray &amp;files, int x, int y) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>fileDragExit</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>a8e2f093c71b31e877d2967c0239d70c8</anchor>
+      <arglist>(const juce::StringArray &amp;files) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>filesDropped</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>af12fea36126ea4db5c732b471b84eaf1</anchor>
+      <arglist>(const juce::StringArray &amp;files, int x, int y) override</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; void()&gt;</type>
+      <name>onFileDropped</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>ad0214f0ad83ed04aa48bcd53c04a39c0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; void()&gt;</type>
+      <name>onPlaybackStateChanged</name>
+      <anchorfile>classMidiFileComponent.html</anchorfile>
+      <anchor>ac2d2b7d0088d36bb3f93f471406e0869</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>MidiFilePlayer</name>
+    <filename>classMidiFilePlayer.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>MidiFilePlayer</name>
+      <anchorfile>classMidiFilePlayer.html</anchorfile>
+      <anchor>ad4c6338671f1d1b086a531c9f509b77b</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>load</name>
+      <anchorfile>classMidiFilePlayer.html</anchorfile>
+      <anchor>a88fce7d3026ec58de1ec9e5475256b86</anchor>
+      <arglist>(const juce::File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classMidiFilePlayer.html</anchorfile>
+      <anchor>a084b994e61932810b11c45826f357e73</anchor>
+      <arglist>(double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setBpm</name>
+      <anchorfile>classMidiFilePlayer.html</anchorfile>
+      <anchor>ab58a8cdbc314205bd17c061cdf9e0a51</anchor>
+      <arglist>(double bpm)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>play</name>
+      <anchorfile>classMidiFilePlayer.html</anchorfile>
+      <anchor>a8668c94431e8ef473fcf5d56faf2830a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>stop</name>
+      <anchorfile>classMidiFilePlayer.html</anchorfile>
+      <anchor>a0e3692eb4078dd05890e5149344b28e9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isPlaying</name>
+      <anchorfile>classMidiFilePlayer.html</anchorfile>
+      <anchor>a0b7009609b4bf9f8e8c9a12edfa01320</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getPlayheadPosition</name>
+      <anchorfile>classMidiFilePlayer.html</anchorfile>
+      <anchor>a99d1de4fbcb85f9e9269c5b3433c840d</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPlayheadPosition</name>
+      <anchorfile>classMidiFilePlayer.html</anchorfile>
+      <anchor>aea9c53e3693a01fe7bf7615734802a74</anchor>
+      <arglist>(double positionInSeconds)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>processBlock</name>
+      <anchorfile>classMidiFilePlayer.html</anchorfile>
+      <anchor>a01798f3003456655d6a5a1e718edf7f8</anchor>
+      <arglist>(int numSamples, juce::MidiBuffer &amp;midiBuffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getLengthInSeconds</name>
+      <anchorfile>classMidiFilePlayer.html</anchorfile>
+      <anchor>a5496c1b4128c1a55756e106c559a86e5</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setLooping</name>
+      <anchorfile>classMidiFilePlayer.html</anchorfile>
+      <anchor>a75da78454e1436aad06396499e5dcd02</anchor>
+      <arglist>(bool shouldLoop)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isLooping</name>
+      <anchorfile>classMidiFilePlayer.html</anchorfile>
+      <anchor>a2980feb0f43c57e9fd61a09b34738fb6</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce::MidiMessageSequence &amp;</type>
+      <name>getSequence</name>
+      <anchorfile>classMidiFilePlayer.html</anchorfile>
+      <anchor>a8329d550e7e6a3226e1db9d567fbcb73</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getLengthInTicks</name>
+      <anchorfile>classMidiFilePlayer.html</anchorfile>
+      <anchor>a0bfd9df5b2fc6174b5f16ee03f012cc9</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hasFileLoaded</name>
+      <anchorfile>classMidiFilePlayer.html</anchorfile>
+      <anchor>aed4fd9f75bc2438470963e37c2c83b7f</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::File</type>
+      <name>getLoadedFile</name>
+      <anchorfile>classMidiFilePlayer.html</anchorfile>
+      <anchor>ac1949a35c2aa188bd48fa097758e2c1e</anchor>
+      <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>ModCurveButton</name>
     <filename>classModCurveButton.html</filename>
     <member kind="function">
@@ -16358,41 +16634,6 @@
       <anchor>a9070371d1c1da8eafb8395945a7dfe9e</anchor>
       <arglist>(juce::Graphics &amp;g) override</arglist>
     </member>
-    <member kind="variable">
-      <type>StandaloneFilterWindow &amp;</type>
-      <name>filterWindow</name>
-      <anchorfile>classSideBarComponent.html</anchorfile>
-      <anchor>a308b8bcb18ce47106ac727bc08646da9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>StandaloneAudioProcessorPlayer &amp;</type>
-      <name>player</name>
-      <anchorfile>classSideBarComponent.html</anchorfile>
-      <anchor>af20dec7727ef44f2b8af7dabb58fc0ae</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>CopperLookAndFeel</type>
-      <name>lf</name>
-      <anchorfile>classSideBarComponent.html</anchorfile>
-      <anchor>acd49c44c1ab7c4d7eb95160c612bc443</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>TriggeredScope</type>
-      <name>scope</name>
-      <anchorfile>classSideBarComponent.html</anchorfile>
-      <anchor>a876f620917f4e953d7a10948fb6c9ca9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>SpectrumAnalyzer</type>
-      <name>spectrum</name>
-      <anchorfile>classSideBarComponent.html</anchorfile>
-      <anchor>aebe5a0d28b2b5d0c7be835e683901a79</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="variable" static="yes">
       <type>static constexpr int</type>
       <name>width</name>
@@ -16764,6 +17005,20 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>audioDeviceAboutToStart</name>
+      <anchorfile>classStandaloneAudioProcessorPlayer.html</anchorfile>
+      <anchor>a57ac8c84af0d04cad585be1c7881e359</anchor>
+      <arglist>(juce::AudioIODevice *ioDevice) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>preProcessBlock</name>
+      <anchorfile>classStandaloneAudioProcessorPlayer.html</anchorfile>
+      <anchor>a76371234c69c14a8fe275789ba4075f6</anchor>
+      <arglist>(juce::AudioBuffer&lt; float &gt; &amp;buffer, juce::MidiBuffer &amp;midi) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>postProcessBlock</name>
       <anchorfile>classStandaloneAudioProcessorPlayer.html</anchorfile>
       <anchor>aea57e9306ee879a358783acc09f3ce71</anchor>
@@ -16781,6 +17036,13 @@
       <name>spectrumFifo</name>
       <anchorfile>classStandaloneAudioProcessorPlayer.html</anchorfile>
       <anchor>a3541de51ac5e5cd7c688d7ed765e484e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>MidiFilePlayer</type>
+      <name>midiPlayer</name>
+      <anchorfile>classStandaloneAudioProcessorPlayer.html</anchorfile>
+      <anchor>a3192c19c158e931e36465dd1b1013832</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -20675,6 +20937,7 @@
     <class kind="class">AudioSamplerBufferComponent</class>
     <class kind="class">DynamicsMeter</class>
     <class kind="class">LevelMeter</class>
+    <class kind="class">MidiFileComponent</class>
     <class kind="class">SpectrumAnalyzer</class>
     <class kind="class">TriggeredScope</class>
     <class kind="class">WaveformComponent</class>
@@ -20779,6 +21042,7 @@
     <class kind="class">LFO</class>
     <class kind="struct">LFO::Parameters</class>
     <class kind="class">MidiFifo</class>
+    <class kind="class">MidiFilePlayer</class>
     <class kind="class">Modulation</class>
     <class kind="class">MSEG</class>
     <class kind="struct">MSEG::Parameters</class>

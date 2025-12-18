@@ -7,9 +7,10 @@ var searchData=
   ['pingpong_4',['pingpong',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1adc80e6dce6b6fd92663fdd3c14ea4a6b',1,'SampleOscillator']]],
   ['pinknoise_5',['pinkNoise',['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a921d187c7e16d85201bfa3b9c47e1f77',1,'gin_bandlimitedlookuptable.h']]],
   ['pinlight_6',['PinLight',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a513bf9b05af260d001632c4fe6d345d5',1,'gin_imageeffects.h']]],
-  ['pong_7',['PONG',['../structWSHeaderType.html#ac1906191ac337fdbecbe643184fbd3b3a90905d922e4dcd25b14950537e85e311',1,'WSHeaderType']]],
-  ['pulse_8',['pulse',['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a02a8dc4cf01fed584c6423f577c0b0d7',1,'gin_bandlimitedlookuptable.h']]],
-  ['pyramid3_9',['pyramid3',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29ad5e3304893d6f84f5210fe5ccd2f7888',1,'LFO']]],
-  ['pyramid5_10',['pyramid5',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a3d7573264eadab6786ec51508c56ca27',1,'LFO']]],
-  ['pyramid9_11',['pyramid9',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a17429d7baab06afa5e9bb17e8d474c51',1,'LFO']]]
+  ['playheadcolourid_7',['playheadColourId',['../classMidiFileComponent.html#adc83f09d9e0ace77adee9e9f560e7cbdadab1d29e077c7e5af20f9b710814bd3b',1,'MidiFileComponent']]],
+  ['pong_8',['PONG',['../structWSHeaderType.html#ac1906191ac337fdbecbe643184fbd3b3a90905d922e4dcd25b14950537e85e311',1,'WSHeaderType']]],
+  ['pulse_9',['pulse',['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a02a8dc4cf01fed584c6423f577c0b0d7',1,'gin_bandlimitedlookuptable.h']]],
+  ['pyramid3_10',['pyramid3',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29ad5e3304893d6f84f5210fe5ccd2f7888',1,'LFO']]],
+  ['pyramid5_11',['pyramid5',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a3d7573264eadab6786ec51508c56ca27',1,'LFO']]],
+  ['pyramid9_12',['pyramid9',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a17429d7baab06afa5e9bb17e8d474c51',1,'LFO']]]
 ];

@@ -85,6 +85,10 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aef4664be93a5047353646237d0156d5a" id="r_aef4664be93a5047353646237d0156d5a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStandaloneAudioProcessorPlayer.html#aef4664be93a5047353646237d0156d5a">StandaloneAudioProcessorPlayer</a> (<a class="el" href="classPoint.html">bool</a> <a class="el" href="classPoint.html">doDoublePrecisionProcessing</a>=<a class="el" href="classPoint.html">false</a>)</td></tr>
 <tr class="separator:aef4664be93a5047353646237d0156d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57ac8c84af0d04cad585be1c7881e359" id="r_a57ac8c84af0d04cad585be1c7881e359"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStandaloneAudioProcessorPlayer.html#a57ac8c84af0d04cad585be1c7881e359">audioDeviceAboutToStart</a> (juce::AudioIODevice *<a class="el" href="classPoint.html">ioDevice</a>) <a class="el" href="classPoint.html">override</a></td></tr>
+<tr class="separator:a57ac8c84af0d04cad585be1c7881e359"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76371234c69c14a8fe275789ba4075f6" id="r_a76371234c69c14a8fe275789ba4075f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStandaloneAudioProcessorPlayer.html#a76371234c69c14a8fe275789ba4075f6">preProcessBlock</a> (juce::AudioBuffer&lt; <a class="el" href="classPoint.html">float</a> &gt; &amp;buffer, juce::MidiBuffer &amp;midi) <a class="el" href="classPoint.html">override</a></td></tr>
+<tr class="separator:a76371234c69c14a8fe275789ba4075f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea57e9306ee879a358783acc09f3ce71" id="r_aea57e9306ee879a358783acc09f3ce71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStandaloneAudioProcessorPlayer.html#aea57e9306ee879a358783acc09f3ce71">postProcessBlock</a> (juce::AudioBuffer&lt; <a class="el" href="classPoint.html">float</a> &gt; &amp;buffer, juce::MidiBuffer &amp;) <a class="el" href="classPoint.html">override</a></td></tr>
 <tr class="separator:aea57e9306ee879a358783acc09f3ce71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -94,6 +98,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ac28e2446ded1075a51199ef2eb61b585"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3541de51ac5e5cd7c688d7ed765e484e" id="r_a3541de51ac5e5cd7c688d7ed765e484e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAudioFifo.html">AudioFifo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStandaloneAudioProcessorPlayer.html#a3541de51ac5e5cd7c688d7ed765e484e">spectrumFifo</a></td></tr>
 <tr class="separator:a3541de51ac5e5cd7c688d7ed765e484e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3192c19c158e931e36465dd1b1013832" id="r_a3192c19c158e931e36465dd1b1013832"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMidiFilePlayer.html">MidiFilePlayer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStandaloneAudioProcessorPlayer.html#a3192c19c158e931e36465dd1b1013832">midiPlayer</a></td></tr>
+<tr class="separator:a3192c19c158e931e36465dd1b1013832"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aef4664be93a5047353646237d0156d5a" name="aef4664be93a5047353646237d0156d5a"></a>
@@ -112,11 +118,77 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classStandaloneAudioProcessorPlayer.html#ac28e2446ded1075a51199ef2eb61b585">scopeFifo</a>, <a class="el" href="classAudioFifo.html#af2bfc029b2b45ca5c33f329cc1c39646">AudioFifo::setSize()</a>, and <a class="el" href="classStandaloneAudioProcessorPlayer.html#a3541de51ac5e5cd7c688d7ed765e484e">spectrumFifo</a>.</p>
+<p class="reference">References <a class="el" href="classStandaloneAudioProcessorPlayer.html#a3192c19c158e931e36465dd1b1013832">midiPlayer</a>, <a class="el" href="classStandaloneAudioProcessorPlayer.html#ac28e2446ded1075a51199ef2eb61b585">scopeFifo</a>, <a class="el" href="classMidiFilePlayer.html#ab58a8cdbc314205bd17c061cdf9e0a51">MidiFilePlayer::setBpm()</a>, <a class="el" href="classMidiFilePlayer.html#a75da78454e1436aad06396499e5dcd02">MidiFilePlayer::setLooping()</a>, <a class="el" href="classAudioFifo.html#af2bfc029b2b45ca5c33f329cc1c39646">AudioFifo::setSize()</a>, and <a class="el" href="classStandaloneAudioProcessorPlayer.html#a3541de51ac5e5cd7c688d7ed765e484e">spectrumFifo</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a57ac8c84af0d04cad585be1c7881e359" name="a57ac8c84af0d04cad585be1c7881e359"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57ac8c84af0d04cad585be1c7881e359">&#9670;&#160;</a></span>audioDeviceAboutToStart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> StandaloneAudioProcessorPlayer::audioDeviceAboutToStart </td>
+          <td>(</td>
+          <td class="paramtype">juce::AudioIODevice *&#160;</td>
+          <td class="paramname"><em>ioDevice</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classStandaloneAudioProcessorPlayer.html#a3192c19c158e931e36465dd1b1013832">midiPlayer</a>, and <a class="el" href="classMidiFilePlayer.html#a084b994e61932810b11c45826f357e73">MidiFilePlayer::setSampleRate()</a>.</p>
+
+</div>
+</div>
+<a id="a76371234c69c14a8fe275789ba4075f6" name="a76371234c69c14a8fe275789ba4075f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76371234c69c14a8fe275789ba4075f6">&#9670;&#160;</a></span>preProcessBlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> StandaloneAudioProcessorPlayer::preProcessBlock </td>
+          <td>(</td>
+          <td class="paramtype">juce::AudioBuffer&lt; <a class="el" href="classPoint.html">float</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">juce::MidiBuffer &amp;&#160;</td>
+          <td class="paramname"><em>midi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classStandaloneAudioProcessorPlayer.html#a3192c19c158e931e36465dd1b1013832">midiPlayer</a>, and <a class="el" href="classMidiFilePlayer.html#a01798f3003456655d6a5a1e718edf7f8">MidiFilePlayer::processBlock()</a>.</p>
+
+</div>
+</div>
 <a id="aea57e9306ee879a358783acc09f3ce71" name="aea57e9306ee879a358783acc09f3ce71"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea57e9306ee879a358783acc09f3ce71">&#9670;&#160;</a></span>postProcessBlock()</h2>
 
@@ -188,13 +260,29 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a3192c19c158e931e36465dd1b1013832" name="a3192c19c158e931e36465dd1b1013832"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3192c19c158e931e36465dd1b1013832">&#9670;&#160;</a></span>midiPlayer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMidiFilePlayer.html">MidiFilePlayer</a> StandaloneAudioProcessorPlayer::midiPlayer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classStandaloneAudioProcessorPlayer.html#a57ac8c84af0d04cad585be1c7881e359">audioDeviceAboutToStart()</a>, <a class="el" href="classStandaloneAudioProcessorPlayer.html#a76371234c69c14a8fe275789ba4075f6">preProcessBlock()</a>, and <a class="el" href="classStandaloneAudioProcessorPlayer.html#aef4664be93a5047353646237d0156d5a">StandaloneAudioProcessorPlayer()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="gin__standaloneaudioprocessorplayer_8h.html">gin_standaloneaudioprocessorplayer.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 18 2025 19:10:35 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Dec 18 2025 20:47:51 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
