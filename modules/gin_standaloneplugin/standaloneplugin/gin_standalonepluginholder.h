@@ -108,9 +108,9 @@ public:
 
     //==============================================================================
     juce::OptionalScopedPointer<juce::PropertySet> settings;
-    std::unique_ptr<PluginWrapper> processor;
+    std::unique_ptr<juce::AudioProcessor> processor;
     juce::AudioDeviceManager deviceManager;
-    juce::AudioProcessorPlayer player;
+    gin::StandaloneAudioProcessorPlayer player;
     juce::Array<PluginInOuts> channelConfiguration;
 
     // avoid feedback loop by default

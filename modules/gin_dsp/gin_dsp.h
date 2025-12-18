@@ -125,6 +125,7 @@ namespace gin
 #include "components/gin_audiosamplerbuffercomponent.h"
 #include "components/gin_dynamicsmeter.h"
 #include "components/gin_levelmeter.h"
+#include "components/gin_spectrumanalyzer.h"
 #include "components/gin_triggeredscope.h"
 #include "components/gin_waveformcomponent.h"
 #include "components/gin_wavetablecomponent.h"

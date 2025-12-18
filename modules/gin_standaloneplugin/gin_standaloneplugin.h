@@ -66,7 +66,8 @@
 
 namespace gin
 {
-#include "standaloneplugin/gin_pluginwrapper.h"
+#include "standaloneplugin/gin_audioprocessorplayer.h"
+#include "standaloneplugin/gin_standaloneaudioprocessorplayer.h"
 #include "standaloneplugin/gin_sidebarcomponent.h"
 #include "standaloneplugin/gin_maincontentcomponent.h"
 #include "standaloneplugin/gin_standalonepluginholder.h"

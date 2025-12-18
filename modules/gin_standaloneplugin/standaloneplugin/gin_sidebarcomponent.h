@@ -10,13 +10,15 @@ public:
     ~SideBarComponent() override;
 
     void resized() override;
+    void paint (juce::Graphics& g) override;
 
     static constexpr int width = 200;
 
-    StandaloneFilterWindow& filterWindow;
-    PluginWrapper&          pluginWrapper;
+    StandaloneFilterWindow&         filterWindow;
+    StandaloneAudioProcessorPlayer& player;
 
-    CopperLookAndFeel       lf;
+    CopperLookAndFeel   lf;
 
-    TriggeredScope  scope { pluginWrapper.scopeFifo };
+    TriggeredScope      scope { player.scopeFifo };
+    SpectrumAnalyzer    spectrum { player.spectrumFifo };
 };
