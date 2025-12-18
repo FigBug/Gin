@@ -8,7 +8,22 @@ public:
 	{
         scopeFifo.setSize (2, 44100);
         spectrumFifo.setSize (2, 44100);
+
+        midiPlayer.setBpm (120.0);
+        midiPlayer.setLooping (true);
 	}
+
+    void audioDeviceAboutToStart (juce::AudioIODevice* ioDevice) override
+    {
+        gin::AudioProcessorPlayer::audioDeviceAboutToStart (ioDevice);
+
+        midiPlayer.setSampleRate (ioDevice->getCurrentSampleRate());
+    }
+
+    void preProcessBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midi) override
+    {
+        midiPlayer.processBlock (buffer.getNumSamples(), midi);
+    }
 
     void postProcessBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer&) override
 	{
@@ -29,6 +44,7 @@ public:
         }
 	}
 
-    AudioFifo   scopeFifo;
-    AudioFifo   spectrumFifo;
+    AudioFifo       scopeFifo;
+    AudioFifo       spectrumFifo;
+    MidiFilePlayer  midiPlayer;
 };

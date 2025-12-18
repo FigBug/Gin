@@ -25,7 +25,7 @@ juce::Image rasterizeSVG (juce::String svgText, int w, int h)
     return img;
 }
 
-juce::Path parseSVGPath ( const juce::String& text )
+juce::Path parseSVGPath (const juce::String& text)
 {
     auto pathFromPoints = [] (juce::String pointsText) -> juce::Path
     {

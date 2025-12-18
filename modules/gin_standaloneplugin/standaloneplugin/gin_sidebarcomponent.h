@@ -14,11 +14,19 @@ public:
 
     static constexpr int width = 200;
 
+private:
+    void updatePlayStopButtons();
+    void saveMidiFilePath();
+    void restoreMidiFilePath();
+
     StandaloneFilterWindow&         filterWindow;
     StandaloneAudioProcessorPlayer& player;
 
     CopperLookAndFeel   lf;
 
+    MidiFileComponent   midi { player.midiPlayer };
+    SVGButton           midiPlay;
+    SVGButton           midiStop;
     TriggeredScope      scope { player.scopeFifo };
     SpectrumAnalyzer    spectrum { player.spectrumFifo };
 };
