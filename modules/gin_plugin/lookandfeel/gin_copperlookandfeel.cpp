@@ -219,10 +219,18 @@ void CopperLookAndFeel::drawButtonText (juce::Graphics& g, juce::TextButton& b, 
     if (b.isMouseOver() && b.isEnabled())
         c = c.brighter();
 
-    g.setColour (c);
-
     if (auto svg = dynamic_cast<SVGButton*> (&b))
     {
+        // Use SVGButton's custom colour if set, otherwise use default button text colour
+        if (auto customColour = svg->getColour())
+        {
+            c = customColour->withMultipliedAlpha (b.isEnabled() ? 1.0f : 0.5f);
+            if (b.isMouseOver() && b.isEnabled())
+                c = c.brighter();
+        }
+
+        g.setColour (c);
+
         auto createPath = [&]()
         {
             if (svg->rawSVG.startsWith ("<svg"))
@@ -243,6 +251,7 @@ void CopperLookAndFeel::drawButtonText (juce::Graphics& g, juce::TextButton& b, 
     }
     else
     {
+        g.setColour (c);
         g.setFont (getTextButtonFont (b, b.getHeight()));
         g.drawText (b.getButtonText(), b.getLocalBounds(), juce::Justification::centred);
     }

@@ -105,6 +105,26 @@ void MidiFilePlayer::setBpm (double newBpm)
     }
 }
 
+void MidiFilePlayer::clear()
+{
+    playing.store (false);
+    pendingStop.store (true);
+
+    {
+        const juce::SpinLock::ScopedLockType sl (lock);
+
+        loadedFilePath = juce::File();
+        midiFile = juce::MidiFile();
+        sequence.clear();
+        fileLoaded.store (false);
+        lengthInSeconds.store (0.0);
+        lengthInTicks.store (0.0);
+        currentEventIndex.store (0);
+        playheadSeconds.store (0.0);
+        activeNotes.clear();
+    }
+}
+
 void MidiFilePlayer::play()
 {
     playing.store (true);

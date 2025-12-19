@@ -121,9 +121,12 @@ void TriggeredScope::paint (juce::Graphics& g)
 
 void TriggeredScope::timerCallback()
 {
+    if (fifo.getNumChannels() != channels.size())
+        setNumChannels (fifo.getNumChannels());
+
     while (fifo.getNumReady() > 0)
     {
-        ScratchBuffer buffer (channels.size(), std::min (512, fifo.getNumReady()));
+        ScratchBuffer buffer (fifo.getNumChannels(), std::min (512, fifo.getNumReady()));
 
         fifo.read (buffer);
         addSamples (buffer);

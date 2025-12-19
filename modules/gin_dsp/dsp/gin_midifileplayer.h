@@ -115,6 +115,9 @@ public:
     /** Returns the path of the currently loaded file, or empty if none. */
     juce::File getLoadedFile() const { return loadedFilePath; }
 
+    /** Clears the currently loaded file. */
+    void clear();
+
 private:
     void buildSequence();
     void performSeek (double positionInSeconds, juce::MidiBuffer& midiBuffer);

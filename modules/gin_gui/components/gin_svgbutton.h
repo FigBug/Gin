@@ -45,8 +45,26 @@ public:
     {
     }
 
+    void setColour (juce::Colour c)
+    {
+        colour = c;
+        repaint();
+    }
+
+    void clearColour()
+    {
+        colour.reset();
+        repaint();
+    }
+
+    std::optional<juce::Colour> getColour() const
+    {
+        return colour;
+    }
+
     // Handle the drawing in your look and feel
 
     juce::String rawSVG;
     int inset = 0;
+    std::optional<juce::Colour> colour;
 };

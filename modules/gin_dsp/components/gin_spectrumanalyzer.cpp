@@ -57,6 +57,9 @@ void SpectrumAnalyzer::setSmoothing (float smoothing)
 
 void SpectrumAnalyzer::timerCallback()
 {
+    if (fifo.getNumChannels() != channels.size())
+        setNumChannels (fifo.getNumChannels());
+
     bool hasNewData = false;
 
     while (fifo.getNumReady() > 0)

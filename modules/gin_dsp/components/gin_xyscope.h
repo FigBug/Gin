@@ -1,6 +1,6 @@
 #pragma once
 
-/** Draws an XY Scope
+/** Draws an XY Scope with history-based fading
 */
 class XYScope : public juce::Component,
                 public juce::Timer
@@ -15,14 +15,14 @@ public:
 
     /** Destructor. */
     ~XYScope() override;
-    
+
     enum ColourIds
     {
         lineColourId             = 0x1291e10,
         backgroundColourId       = 0x1291e11,
         traceColourId            = 0x1291e12
     };
-    
+
     //==============================================================================
     /** Sets the number of samples represented by each pixel on the scope.
         Setting this to a low number will give a very zoomed in display, a high
@@ -30,8 +30,14 @@ public:
      */
     void setNumSamplesPerPixel (float newNumSamplesPerPixel);
 
-    /** Sets the vertical zoom factor of the display. */
+    /** Sets the zoom factor of the display. */
     void setZoomFactor (float newZoomFactor);
+
+    /** Sets the number of history frames to display with fading. */
+    void setHistorySize (int numFrames);
+
+    /** Sets the number of points per frame. */
+    void setBlockSize (int size);
 
     //==============================================================================
     void paint (juce::Graphics& g) override;
@@ -42,7 +48,13 @@ private:
     AudioFifo& fifo;
     float numSamplesPerPixel = 4.0f;
     float zoomFactor = 1.0f;
-    
+    int historySize = 32;
+    int blockSize = 32;
+
+    // History of point arrays for fading effect
+    std::vector<std::vector<juce::Point<float>>> history;
+    int currentHistoryIndex = 0;
+
     struct Channel
     {
         Channel() :
@@ -55,7 +67,7 @@ private:
           currentY (0.0f),
           samplesToProcess (2, 32768)
         {}
-        
+
         int numAveraged = 0;
         float numLeftToAverage;
         int bufferSize, bufferWritePos;
@@ -64,18 +76,18 @@ private:
 
         float currentX, currentY;
         AudioFifo samplesToProcess;
-        juce::HeapBlock<float> tempProcessingBlock;
     };
-    
+
     Channel channel;
-    
+
     bool needToUpdate = false;
 
     //==============================================================================
     void addSamples (const juce::AudioSampleBuffer& buffer);
     void processPendingSamples();
     void render (juce::Graphics& g);
-  
+    void buildCurrentFrame();
+
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (XYScope)
 };
