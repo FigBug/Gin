@@ -55,6 +55,7 @@ MainContentComponent::MainContentComponent()
     demoComponents.add (new Wavetable3DDemo());
     demoComponents.add (new SamplePlayerDemo());
     demoComponents.add (new MidiFilePlayerDemo());
+    demoComponents.add (new XYScopeDemo());
 
     std::sort (demoComponents.begin(), demoComponents.end(), [] (DemoComponent* a, DemoComponent* b)
     {

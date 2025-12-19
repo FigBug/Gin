@@ -67,6 +67,7 @@ UnitTestsAudioProcessorEditor::UnitTestsAudioProcessorEditor (UnitTestsAudioProc
     demoComponents.add (new Wavetable3DDemo());
     demoComponents.add (new SamplePlayerDemo());
     demoComponents.add (new MidiFilePlayerDemo());
+    demoComponents.add (new XYScopeDemo());
 
     // Prepare audio for all demos
     for (auto* demo : demoComponents)

@@ -182,13 +182,23 @@ void XYScope::render (juce::Graphics& g)
 
         juce::Path p;
 
-        for (int j = 0; j < blockSize; ++j)
+        // Start from the last point of the previous frame to connect frames
+        if (i > 0)
         {
-            if (j == 0)
-                p.startNewSubPath (frame[(size_t) j]);
+            int prevFrameIndex = (currentHistoryIndex + i - 1) % historySize;
+            const auto& prevFrame = history[(size_t) prevFrameIndex];
+            if (! prevFrame.empty())
+                p.startNewSubPath (prevFrame[(size_t) (blockSize - 1)]);
             else
-                p.lineTo (frame[(size_t) j]);
+                p.startNewSubPath (frame[0]);
         }
+        else
+        {
+            p.startNewSubPath (frame[0]);
+        }
+
+        for (int j = 0; j < blockSize; ++j)
+            p.lineTo (frame[(size_t) j]);
 
         g.strokePath (p.createPathWithRoundedCorners (3.0f), juce::PathStrokeType (lineWidth));
     }

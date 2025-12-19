@@ -50,3 +50,4 @@
 #include "Demos/Wavetable3DDemo.h"
 #include "Demos/SamplePlayerDemo.h"
 #include "Demos/MidiFilePlayerDemo.h"
+#include "Demos/XYScopeDemo.h"
