@@ -2824,15 +2824,19 @@ struct SamplePlayerDemo : public juce::Component,
         };
 
         addAndMakeVisible (scope);
+        scope.setColour (gin::TriggeredScope::backgroundColourId, juce::Colours::black);
         scope.setColour (gin::TriggeredScope::lineColourId, juce::Colours::grey);
         scope.setColour (gin::TriggeredScope::traceColourId, juce::Colours::cyan);
         scope.setColour (gin::TriggeredScope::envelopeColourId, juce::Colours::cyan.withAlpha (0.5f));
 
         addAndMakeVisible (spectrum);
+        spectrum.setColour (gin::SpectrumAnalyzer::backgroundColourId, juce::Colours::black);
         spectrum.setColour (gin::SpectrumAnalyzer::lineColourId, juce::Colours::grey);
         spectrum.setColour (gin::SpectrumAnalyzer::traceColourId, juce::Colours::orange);
+        spectrum.setColour (gin::SpectrumAnalyzer::envelopeColourId, juce::Colours::orange.withAlpha (0.5f));
 
         addAndMakeVisible (xyScope);
+        xyScope.setColour (gin::XYScope::backgroundColourId, juce::Colours::black);
         xyScope.setColour (gin::XYScope::lineColourId, juce::Colours::grey);
         xyScope.setColour (gin::XYScope::traceColourId, juce::Colours::limegreen);
 
