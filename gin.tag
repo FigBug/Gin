@@ -20974,13 +20974,6 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>setNumSamplesPerPixel</name>
-      <anchorfile>classXYScope.html</anchorfile>
-      <anchor>ab0e51490e9997247e0df9d78f938fb2f</anchor>
-      <arglist>(float newNumSamplesPerPixel)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
       <name>setZoomFactor</name>
       <anchorfile>classXYScope.html</anchorfile>
       <anchor>af4c855839113e54dd65e51bf2b063ca8</anchor>
