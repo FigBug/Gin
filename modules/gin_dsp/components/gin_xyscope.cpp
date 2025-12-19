@@ -16,11 +16,6 @@ XYScope::~XYScope()
     stopTimer();
 }
 
-void XYScope::setNumSamplesPerPixel (const float newNumSamplesPerPixel)
-{
-    numSamplesPerPixel = newNumSamplesPerPixel;
-}
-
 void XYScope::setZoomFactor (const float newZoomFactor)
 {
     zoomFactor = newZoomFactor;
@@ -66,7 +61,6 @@ void XYScope::paint (juce::Graphics& g)
     {
         needToUpdate = false;
         processPendingSamples();
-        buildCurrentFrame();
     }
 
     render (g);
@@ -100,24 +94,17 @@ void XYScope::processPendingSamples()
 
     while (--numSamples >= 0)
     {
-        const float currentSampleL = *samplesL++;
-        const float currentSampleR = *samplesR++;
+        channel.xBuffer[channel.bufferWritePos] = *samplesL++;
+        channel.yBuffer[channel.bufferWritePos] = *samplesR++;
 
-        channel.currentX += currentSampleL;
-        channel.currentY += currentSampleR;
-        channel.numAveraged++;
+        ++channel.bufferWritePos %= channel.bufferSize;
+        ++samplessinceLastFrame;
 
-        if (--channel.numLeftToAverage <= 0)
+        // Build a new frame each time we have blockSize new samples
+        if (samplessinceLastFrame >= blockSize)
         {
-            channel.xBuffer[channel.bufferWritePos] = channel.currentX / float (channel.numAveraged);
-            channel.yBuffer[channel.bufferWritePos] = channel.currentY / float (channel.numAveraged);
-
-            channel.numAveraged = 0;
-            channel.currentX = 0.0;
-            channel.currentY = 0.0;
-
-            ++channel.bufferWritePos %= channel.bufferSize;
-            channel.numLeftToAverage += std::max (1.0f, numSamplesPerPixel);
+            samplessinceLastFrame = 0;
+            buildCurrentFrame();
         }
     }
 }
@@ -137,12 +124,24 @@ void XYScope::buildCurrentFrame()
 
     auto& currentFrame = history[(size_t) currentHistoryIndex];
 
+    // 45 degree rotation constants (sin and cos of 45°)
+    constexpr float sn = 0.7071067811865476f;
+    constexpr float cs = 0.7071067811865476f;
+
+    const float cx = w * 0.5f;
+    const float cy = h * 0.5f;
+    const float scale = std::min (cx, cy) * zoomFactor;
+
     for (int i = 0; i < blockSize; ++i)
     {
         int pos = (bufferReadPos + i) % channel.bufferSize;
 
-        const float x = (0.5f + 0.5f * zoomFactor * channel.xBuffer[pos]) * w;
-        const float y = (0.5f - 0.5f * zoomFactor * channel.yBuffer[pos]) * h;
+        const float l = channel.xBuffer[pos] * scale;
+        const float r = channel.yBuffer[pos] * scale;
+
+        // Apply 45° rotation: mono (L==R) becomes vertical, stereo width becomes horizontal
+        const float x = (l * cs - r * sn) + cx;
+        const float y = cy - (l * sn + r * cs);
 
         currentFrame[(size_t) i] = { x, y };
     }
@@ -191,6 +190,6 @@ void XYScope::render (juce::Graphics& g)
                 p.lineTo (frame[(size_t) j]);
         }
 
-        g.strokePath (p, juce::PathStrokeType (lineWidth));
+        g.strokePath (p.createPathWithRoundedCorners (3.0f), juce::PathStrokeType (lineWidth));
     }
 }

@@ -35,6 +35,7 @@ MainContentComponent::~MainContentComponent()
     if (editor != nullptr)
     {
         editor->removeComponentListener (this);
+        owner.getAudioProcessor()->editorBeingDeleted (editor.get());
         editor = nullptr;
     }
 }

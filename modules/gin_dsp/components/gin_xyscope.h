@@ -24,12 +24,6 @@ public:
     };
 
     //==============================================================================
-    /** Sets the number of samples represented by each pixel on the scope.
-        Setting this to a low number will give a very zoomed in display, a high
-        number zoom out.
-     */
-    void setNumSamplesPerPixel (float newNumSamplesPerPixel);
-
     /** Sets the zoom factor of the display. */
     void setZoomFactor (float newZoomFactor);
 
@@ -46,7 +40,6 @@ public:
 private:
     //==============================================================================
     AudioFifo& fifo;
-    float numSamplesPerPixel = 4.0f;
     float zoomFactor = 1.0f;
     int historySize = 32;
     int blockSize = 32;
@@ -58,29 +51,24 @@ private:
     struct Channel
     {
         Channel() :
-          numLeftToAverage (4.0f),
           bufferSize (4096),
           bufferWritePos (0),
           xBuffer ((size_t) bufferSize),
           yBuffer ((size_t) bufferSize),
-          currentX (0.0f),
-          currentY (0.0f),
           samplesToProcess (2, 32768)
         {}
 
-        int numAveraged = 0;
-        float numLeftToAverage;
         int bufferSize, bufferWritePos;
 
         juce::HeapBlock<float> xBuffer, yBuffer;
 
-        float currentX, currentY;
         AudioFifo samplesToProcess;
     };
 
     Channel channel;
 
     bool needToUpdate = false;
+    int samplessinceLastFrame = 0;
 
     //==============================================================================
     void addSamples (const juce::AudioSampleBuffer& buffer);
