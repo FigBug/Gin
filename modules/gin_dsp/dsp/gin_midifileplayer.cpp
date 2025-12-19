@@ -93,7 +93,7 @@ void MidiFilePlayer::setSampleRate (double sr)
 
 void MidiFilePlayer::setBpm (double newBpm)
 {
-    if (bpm.load() != newBpm)
+    if (! juce::approximatelyEqual (bpm.load(), newBpm))
     {
         const juce::SpinLock::ScopedLockType sl (lock);
 

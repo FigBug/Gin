@@ -172,7 +172,7 @@ void StandaloneFilterWindow::buttonClicked (juce::Button* button)
     if (auto settings = pluginHolder->settings.get())
     {
         bool autoLoadSave = settings->getBoolValue ("autoLoadSave", true);
-        m.addItem (TRANS("Automtically load and save state"), true, autoLoadSave, [settings, autoLoadSave] { settings->setValue ("autoLoadSave", ! autoLoadSave); });
+        m.addItem (TRANS("Automatically load and save state"), true, autoLoadSave, [settings, autoLoadSave] { settings->setValue ("autoLoadSave", ! autoLoadSave); });
     }
 
     m.addSeparator();

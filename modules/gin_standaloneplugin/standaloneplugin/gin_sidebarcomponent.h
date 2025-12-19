@@ -189,11 +189,15 @@ private:
     void saveMidiFilePath();
     void restoreMidiFilePath();
     void showMidiMenu();
+    void addToMidiMRU (const juce::File& file);
+    juce::StringArray getMidiMRU();
 
     void updateSamplePlayStopButtons();
     void saveSampleFilePath();
     void restoreSampleFilePath();
     void showSampleMenu();
+    void addToSampleMRU (const juce::File& file);
+    juce::StringArray getSampleMRU();
 
     void updateRecordButtons();
     void updateRecordButtonColours();

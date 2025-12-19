@@ -39,6 +39,7 @@ SideBarComponent::SideBarComponent (StandaloneFilterWindow& f)
 
         midi.onFileDropped = [this]
         {
+            addToMidiMRU (player.midiPlayer.getLoadedFile());
             updatePlayStopButtons();
             saveMidiFilePath();
         };
@@ -86,6 +87,7 @@ SideBarComponent::SideBarComponent (StandaloneFilterWindow& f)
 
         sample.onFileDropped = [this]
         {
+            addToSampleMRU (player.samplePlayer.getLoadedFile());
             updateSamplePlayStopButtons();
             saveSampleFilePath();
         };
@@ -281,6 +283,39 @@ void SideBarComponent::restoreMidiFilePath()
     }
 }
 
+void SideBarComponent::addToMidiMRU (const juce::File& file)
+{
+    if (auto* props = filterWindow.pluginHolder->settings.get())
+    {
+        juce::StringArray mru;
+        mru.addTokens (props->getValue ("midiMRU", ""), "|", "");
+        mru.removeEmptyStrings();
+
+        // Remove if already exists
+        mru.removeString (file.getFullPathName());
+
+        // Add to front
+        mru.insert (0, file.getFullPathName());
+
+        // Keep only 10
+        while (mru.size() > 10)
+            mru.remove (mru.size() - 1);
+
+        props->setValue ("midiMRU", mru.joinIntoString ("|"));
+    }
+}
+
+juce::StringArray SideBarComponent::getMidiMRU()
+{
+    juce::StringArray mru;
+    if (auto* props = filterWindow.pluginHolder->settings.get())
+    {
+        mru.addTokens (props->getValue ("midiMRU", ""), "|", "");
+        mru.removeEmptyStrings();
+    }
+    return mru;
+}
+
 void SideBarComponent::showMidiMenu()
 {
     juce::PopupMenu menu;
@@ -307,6 +342,7 @@ void SideBarComponent::showMidiMenu()
             auto file = fc->getResult();
             if (file.existsAsFile() && player.midiPlayer.load (file))
             {
+                addToMidiMRU (file);
                 saveMidiFilePath();
                 updatePlayStopButtons();
                 midi.repaint();
@@ -324,6 +360,31 @@ void SideBarComponent::showMidiMenu()
         updatePlayStopButtons();
         midi.repaint();
     });
+
+    // Add MRU list
+    auto mru = getMidiMRU();
+    if (mru.size() > 0)
+    {
+        menu.addSeparator();
+
+        for (int i = 0; i < mru.size(); ++i)
+        {
+            juce::File file (mru[i]);
+            if (file.existsAsFile())
+            {
+                menu.addItem (file.getFileName(), [this, file]
+                {
+                    if (player.midiPlayer.load (file))
+                    {
+                        addToMidiMRU (file);
+                        saveMidiFilePath();
+                        updatePlayStopButtons();
+                        midi.repaint();
+                    }
+                });
+            }
+        }
+    }
 
     menu.showMenuAsync (juce::PopupMenu::Options().withTargetComponent (midiMenu));
 }
@@ -362,6 +423,39 @@ void SideBarComponent::restoreSampleFilePath()
     }
 }
 
+void SideBarComponent::addToSampleMRU (const juce::File& file)
+{
+    if (auto* props = filterWindow.pluginHolder->settings.get())
+    {
+        juce::StringArray mru;
+        mru.addTokens (props->getValue ("sampleMRU", ""), "|", "");
+        mru.removeEmptyStrings();
+
+        // Remove if already exists
+        mru.removeString (file.getFullPathName());
+
+        // Add to front
+        mru.insert (0, file.getFullPathName());
+
+        // Keep only 10
+        while (mru.size() > 10)
+            mru.remove (mru.size() - 1);
+
+        props->setValue ("sampleMRU", mru.joinIntoString ("|"));
+    }
+}
+
+juce::StringArray SideBarComponent::getSampleMRU()
+{
+    juce::StringArray mru;
+    if (auto* props = filterWindow.pluginHolder->settings.get())
+    {
+        mru.addTokens (props->getValue ("sampleMRU", ""), "|", "");
+        mru.removeEmptyStrings();
+    }
+    return mru;
+}
+
 void SideBarComponent::showSampleMenu()
 {
     juce::PopupMenu menu;
@@ -390,6 +484,7 @@ void SideBarComponent::showSampleMenu()
             {
                 player.samplePlayer.load (file);
                 sample.setBuffer (player.samplePlayer.getBuffer());
+                addToSampleMRU (file);
                 saveSampleFilePath();
                 updateSamplePlayStopButtons();
                 sample.repaint();
@@ -408,6 +503,30 @@ void SideBarComponent::showSampleMenu()
         updateSamplePlayStopButtons();
         sample.repaint();
     });
+
+    // Add MRU list
+    auto mru = getSampleMRU();
+    if (mru.size() > 0)
+    {
+        menu.addSeparator();
+
+        for (int i = 0; i < mru.size(); ++i)
+        {
+            juce::File file (mru[i]);
+            if (file.existsAsFile())
+            {
+                menu.addItem (file.getFileName(), [this, file]
+                {
+                    player.samplePlayer.load (file);
+                    sample.setBuffer (player.samplePlayer.getBuffer());
+                    addToSampleMRU (file);
+                    saveSampleFilePath();
+                    updateSamplePlayStopButtons();
+                    sample.repaint();
+                });
+            }
+        }
+    }
 
     menu.showMenuAsync (juce::PopupMenu::Options().withTargetComponent (sampleMenu));
 }

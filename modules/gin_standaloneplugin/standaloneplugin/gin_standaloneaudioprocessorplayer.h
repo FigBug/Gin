@@ -165,6 +165,29 @@ public:
                     if (maxLevel >= triggerThreshold)
                     {
                         createNewFile();
+
+                        // Write pre-roll from retrospective buffer (0.1 seconds before trigger)
+                        {
+                            const juce::SpinLock::ScopedLockType sl (retroLock);
+
+                            const int availableSamples = retrospectiveBuffer.getNumReady();
+
+                            if (availableSamples > 0)
+                            {
+                                // Peek entire buffer
+                                ScratchBuffer fullBuffer (retrospectiveBuffer.getNumChannels(), availableSamples);
+                                retrospectiveBuffer.peek (fullBuffer);
+
+                                // Only write the last 0.1 seconds
+                                const int preRollSamples = std::min (int (sampleRate * 0.1), availableSamples);
+                                const int startSample = availableSamples - preRollSamples;
+
+                                const juce::ScopedLock wl (writerLock);
+                                if (writer != nullptr)
+                                    writer->writeFromAudioSampleBuffer (fullBuffer, startSample, preRollSamples);
+                            }
+                        }
+
                         recordMode.store (RecordMode::triggered);
                         mode = RecordMode::triggered;
 
