@@ -14,6 +14,22 @@
 static juce::ThreadPool pool (juce::SystemStats::getNumCpus());
 
 //==============================================================================
+// Shared audio device manager for demos that need audio output
+inline juce::AudioDeviceManager& getSharedAudioDeviceManager()
+{
+    static juce::AudioDeviceManager deviceManager;
+    static bool initialised = false;
+
+    if (! initialised)
+    {
+        initialised = true;
+        deviceManager.initialiseWithDefaultDevices (0, 2);
+    }
+
+    return deviceManager;
+}
+
+//==============================================================================
 struct PerlinNoiseDemo : public juce::Component
 {
 public:
@@ -2775,4 +2791,229 @@ struct Wavetable3DDemo : public juce::Component,
     int lastHighlightedTable = -1;
     juce::Point<float> lastMousePos;
     bool isDragging = false;
+};
+
+//==============================================================================
+struct SamplePlayerDemo : public juce::Component,
+                          public juce::FileDragAndDropTarget,
+                          public juce::AudioSource,
+                          public juce::Timer
+{
+    SamplePlayerDemo()
+    {
+        setName ("Sample Player");
+
+        addAndMakeVisible (waveform);
+        waveform.setBackgroundColour (juce::Colours::black);
+        waveform.setLineColour (juce::Colours::cyan);
+
+        addAndMakeVisible (playButton);
+        addAndMakeVisible (stopButton);
+
+        playButton.onClick = [this]
+        {
+            samplePlayer.play();
+            updateButtons();
+        };
+
+        stopButton.onClick = [this]
+        {
+            samplePlayer.stop();
+            samplePlayer.setPosition (0.0);
+            updateButtons();
+        };
+
+        addAndMakeVisible (scope);
+        scope.setColour (gin::TriggeredScope::lineColourId, juce::Colours::grey);
+        scope.setColour (gin::TriggeredScope::traceColourId, juce::Colours::cyan);
+        scope.setColour (gin::TriggeredScope::envelopeColourId, juce::Colours::cyan.withAlpha (0.5f));
+
+        addAndMakeVisible (spectrum);
+        spectrum.setColour (gin::SpectrumAnalyzer::lineColourId, juce::Colours::grey);
+        spectrum.setColour (gin::SpectrumAnalyzer::traceColourId, juce::Colours::orange);
+
+        addAndMakeVisible (xyScope);
+        xyScope.setColour (gin::XYScope::lineColourId, juce::Colours::grey);
+        xyScope.setColour (gin::XYScope::traceColourId, juce::Colours::limegreen);
+
+        addAndMakeVisible (dropLabel);
+        dropLabel.setText ("Drop audio file here", juce::dontSendNotification);
+        dropLabel.setJustificationType (juce::Justification::centred);
+        dropLabel.setColour (juce::Label::textColourId, juce::Colours::grey);
+
+        scopeFifo.setSize (2, 44100);
+        spectrumFifo.setSize (2, 44100);
+        xyFifo.setSize (2, 44100);
+
+        samplePlayer.setLooping (true);
+
+        getSharedAudioDeviceManager().addAudioCallback (&audioSourcePlayer);
+        audioSourcePlayer.setSource (this);
+
+        startTimerHz (30);
+        updateButtons();
+    }
+
+    ~SamplePlayerDemo() override
+    {
+        stopTimer();
+        audioSourcePlayer.setSource (nullptr);
+        getSharedAudioDeviceManager().removeAudioCallback (&audioSourcePlayer);
+    }
+
+    void timerCallback() override
+    {
+        if (wasPlaying && ! samplePlayer.isPlaying())
+            updateButtons();
+
+        wasPlaying = samplePlayer.isPlaying();
+
+        if (samplePlayer.hasFileLoaded())
+            waveform.setPlayheads ({ static_cast<int> (samplePlayer.getPosition()) });
+    }
+
+    void updateButtons()
+    {
+        playButton.setEnabled (samplePlayer.hasFileLoaded() && ! samplePlayer.isPlaying());
+        stopButton.setEnabled (samplePlayer.isPlaying() || samplePlayer.getPosition() > 0.0);
+        dropLabel.setVisible (! samplePlayer.hasFileLoaded());
+    }
+
+    // AudioSource
+    void prepareToPlay (int samplesPerBlockExpected, double sampleRate) override
+    {
+        juce::ignoreUnused (samplesPerBlockExpected);
+        samplePlayer.setPlaybackSampleRate (sampleRate);
+        spectrum.setSampleRate (sampleRate);
+
+        scopeFifo.setSize (2, int (sampleRate));
+        spectrumFifo.setSize (2, int (sampleRate));
+        xyFifo.setSize (2, int (sampleRate));
+    }
+
+    void releaseResources() override {}
+
+    void getNextAudioBlock (const juce::AudioSourceChannelInfo& bufferToFill) override
+    {
+        bufferToFill.clearActiveBufferRegion();
+
+        samplePlayer.processBlock (*bufferToFill.buffer);
+
+        // Feed visualizers
+        if (scopeFifo.getFreeSpace() >= bufferToFill.numSamples)
+            scopeFifo.write (*bufferToFill.buffer);
+
+        if (spectrumFifo.getFreeSpace() >= bufferToFill.numSamples)
+            spectrumFifo.write (*bufferToFill.buffer);
+
+        if (bufferToFill.buffer->getNumChannels() >= 2 && xyFifo.getFreeSpace() >= bufferToFill.numSamples)
+            xyFifo.write (*bufferToFill.buffer);
+    }
+
+    // FileDragAndDropTarget
+    bool isInterestedInFileDrag (const juce::StringArray& files) override
+    {
+        juce::AudioFormatManager mgr;
+        mgr.registerBasicFormats();
+
+        for (const auto& file : files)
+            if (mgr.findFormatForFileExtension (juce::File (file).getFileExtension()) != nullptr)
+                return true;
+
+        return false;
+    }
+
+    void fileDragEnter (const juce::StringArray&, int, int) override
+    {
+        isDragOver = true;
+        repaint();
+    }
+
+    void fileDragExit (const juce::StringArray&) override
+    {
+        isDragOver = false;
+        repaint();
+    }
+
+    void filesDropped (const juce::StringArray& files, int, int) override
+    {
+        isDragOver = false;
+
+        juce::AudioFormatManager mgr;
+        mgr.registerBasicFormats();
+
+        for (const auto& file : files)
+        {
+            juce::File f (file);
+            if (mgr.findFormatForFileExtension (f.getFileExtension()) != nullptr)
+            {
+                samplePlayer.load (f);
+                waveform.setBuffer (samplePlayer.getBuffer());
+                updateButtons();
+                break;
+            }
+        }
+
+        repaint();
+    }
+
+    void paint (juce::Graphics& g) override
+    {
+        g.fillAll (juce::Colours::black.brighter (0.1f));
+
+        if (isDragOver)
+        {
+            g.setColour (juce::Colours::cyan.withAlpha (0.2f));
+            g.fillRect (waveform.getBounds());
+        }
+    }
+
+    void resized() override
+    {
+        auto rc = getLocalBounds().reduced (8);
+
+        auto topRow = rc.removeFromTop (80);
+        waveform.setBounds (topRow);
+        dropLabel.setBounds (topRow);
+
+        rc.removeFromTop (8);
+
+        auto buttonRow = rc.removeFromTop (24);
+        playButton.setBounds (buttonRow.removeFromLeft (60));
+        buttonRow.removeFromLeft (8);
+        stopButton.setBounds (buttonRow.removeFromLeft (60));
+
+        rc.removeFromTop (8);
+
+        auto visRow = rc;
+        int visWidth = (visRow.getWidth() - 16) / 3;
+
+        scope.setBounds (visRow.removeFromLeft (visWidth));
+        visRow.removeFromLeft (8);
+        spectrum.setBounds (visRow.removeFromLeft (visWidth));
+        visRow.removeFromLeft (8);
+
+        // XY scope should be square
+        int xySize = std::min (visRow.getWidth(), visRow.getHeight());
+        xyScope.setBounds (visRow.removeFromLeft (xySize).withHeight (xySize));
+    }
+
+    gin::SamplePlayer samplePlayer;
+    gin::AudioSamplerBufferComponent waveform;
+    juce::TextButton playButton { "Play" };
+    juce::TextButton stopButton { "Stop" };
+    juce::Label dropLabel;
+
+    gin::AudioFifo scopeFifo { 2, 44100 };
+    gin::AudioFifo spectrumFifo { 2, 44100 };
+    gin::AudioFifo xyFifo { 2, 44100 };
+
+    gin::TriggeredScope scope { scopeFifo };
+    gin::SpectrumAnalyzer spectrum { spectrumFifo };
+    gin::XYScope xyScope { xyFifo };
+
+    juce::AudioSourcePlayer audioSourcePlayer;
+
+    bool isDragOver = false;
+    bool wasPlaying = false;
 };

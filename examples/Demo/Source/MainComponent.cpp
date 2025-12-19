@@ -53,6 +53,7 @@ MainContentComponent::MainContentComponent()
     demoComponents.add (new LagrangeDemo());
     demoComponents.add (new Wireframe3DDemo());
     demoComponents.add (new Wavetable3DDemo());
+    demoComponents.add (new SamplePlayerDemo());
 
     std::sort (demoComponents.begin(), demoComponents.end(), [] (juce::Component* a, juce::Component* b)
     {
