@@ -18,7 +18,9 @@ bool MidiFilePlayer::load (const juce::File& file)
     if (! newMidiFile.readFrom (stream))
         return false;
 
-    // Stop playback and prepare new data
+    // Stop playback - pendingStop will send note-offs in the next processBlock
+    // before activeNotes is accessed, since we use ScopedTryLock in processBlock
+    pendingStop.store (true);
     playing.store (false);
 
     {
@@ -83,7 +85,8 @@ void MidiFilePlayer::buildSequence()
     lengthInTicks.store (newLengthTicks);
     currentEventIndex.store (0);
     playheadSeconds.store (0.0);
-    activeNotes.clear();
+    // Don't clear activeNotes here - pendingStop will handle sending note-offs
+    // and clearing activeNotes in processBlock
 }
 
 void MidiFilePlayer::setSampleRate (double sr)

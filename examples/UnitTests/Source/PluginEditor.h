@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
+#include "../../Demo/Source/Demos/DemosCommon.h"
 
 class PrintfLogger : public juce::Logger
 {
@@ -35,11 +36,12 @@ private:
     juce::TextEditor logTextEditor;
     int numFailures = 0;
 
-    juce::OwnedArray<juce::Component> demoComponents;
+    juce::OwnedArray<DemoComponent> demoComponents;
     int currentDemoIndex = 0;
 
     int timerCount = 0;
     bool unitTestsStarted = false;
+    bool audioPrepared = false;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (UnitTestsAudioProcessorEditor)
 };

@@ -2,8 +2,8 @@ SpectrumAnalyzer::Channel::Channel()
 {
     inputBuffer.resize (fftSize, 0.0f);
     fftData.resize (fftSize * 2, 0.0f);
-    bins.resize (fftSize / 2, 0.0f);
-    smoothedBins.resize (fftSize / 2, 0.0f);
+    bins.resize (fftSize / 2, -100.0f);
+    smoothedBins.resize (fftSize / 2, -100.0f);
 }
 
 SpectrumAnalyzer::SpectrumAnalyzer (AudioFifo& f)

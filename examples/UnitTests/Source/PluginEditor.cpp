@@ -65,6 +65,14 @@ UnitTestsAudioProcessorEditor::UnitTestsAudioProcessorEditor (UnitTestsAudioProc
     demoComponents.add (new LagrangeDemo());
     demoComponents.add (new Wireframe3DDemo());
     demoComponents.add (new Wavetable3DDemo());
+    demoComponents.add (new SamplePlayerDemo());
+    demoComponents.add (new MidiFilePlayerDemo());
+
+    // Prepare audio for all demos
+    for (auto* demo : demoComponents)
+        demo->prepareToPlay (44100.0, 512);
+
+    audioPrepared = true;
 
     // Add all demos as child components
     for (auto* demo : demoComponents)
@@ -85,11 +93,23 @@ UnitTestsAudioProcessorEditor::~UnitTestsAudioProcessorEditor()
     juce::Logger::setCurrentLogger (nullptr);
 
     stopTimer();
+
+    // Release audio resources for all demos
+    for (auto* demo : demoComponents)
+        demo->releaseResources();
 }
 
 void UnitTestsAudioProcessorEditor::timerCallback()
 {
     timerCount++;
+
+    // Call processBlock on the current demo with a dummy buffer
+    if (audioPrepared && demoComponents.size() > 0)
+    {
+        juce::AudioBuffer<float> buffer (2, 512);
+        buffer.clear();
+        demoComponents[currentDemoIndex]->processBlock (buffer);
+    }
 
     // Start unit tests after 1 second (2 ticks at 500ms)
     if (!unitTestsStarted && timerCount >= 2)
@@ -102,7 +122,7 @@ void UnitTestsAudioProcessorEditor::timerCallback()
         juce::Thread::launch ([this] { runUnitTests(); });
     }
 
-    // Switch demos every 100ms
+    // Switch demos every 500ms
     if (demoComponents.size() > 0)
     {
         // Hide current demo

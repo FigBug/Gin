@@ -54,8 +54,9 @@ MainContentComponent::MainContentComponent()
     demoComponents.add (new Wireframe3DDemo());
     demoComponents.add (new Wavetable3DDemo());
     demoComponents.add (new SamplePlayerDemo());
+    demoComponents.add (new MidiFilePlayerDemo());
 
-    std::sort (demoComponents.begin(), demoComponents.end(), [] (juce::Component* a, juce::Component* b)
+    std::sort (demoComponents.begin(), demoComponents.end(), [] (DemoComponent* a, DemoComponent* b)
     {
         return a->getName() < b->getName();
     });
@@ -78,10 +79,48 @@ MainContentComponent::MainContentComponent()
         else
             delete componentViewer.getComponent();
     };
+
+    // Initialize audio
+    audioDeviceManager.initialiseWithDefaultDevices (0, 2);
+    audioDeviceManager.addAudioCallback (&audioSourcePlayer);
+    audioSourcePlayer.setSource (this);
 }
 
 MainContentComponent::~MainContentComponent()
 {
+    audioSourcePlayer.setSource (nullptr);
+    audioDeviceManager.removeAudioCallback (&audioSourcePlayer);
+}
+
+void MainContentComponent::prepareToPlay (int samplesPerBlockExpected, double sampleRate)
+{
+    currentSampleRate = sampleRate;
+    currentBlockSize = samplesPerBlockExpected;
+
+    for (auto* demo : demoComponents)
+        demo->prepareToPlay (sampleRate, samplesPerBlockExpected);
+}
+
+void MainContentComponent::releaseResources()
+{
+    for (auto* demo : demoComponents)
+        demo->releaseResources();
+}
+
+void MainContentComponent::getNextAudioBlock (const juce::AudioSourceChannelInfo& bufferToFill)
+{
+    bufferToFill.clearActiveBufferRegion();
+
+    if (auto* activeDemo = getActiveDemo())
+        activeDemo->processBlock (*bufferToFill.buffer);
+}
+
+DemoComponent* MainContentComponent::getActiveDemo()
+{
+    int selectedRow = demoList.getSelectedRow();
+    if (selectedRow >= 0 && selectedRow < demoComponents.size())
+        return demoComponents[selectedRow];
+    return nullptr;
 }
 
 void MainContentComponent::paint (juce::Graphics& g)
