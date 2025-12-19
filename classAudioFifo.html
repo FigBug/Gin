@@ -257,7 +257,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="reference">Referenced by <a class="el" href="classStandaloneAudioProcessorPlayer.html#aea57e9306ee879a358783acc09f3ce71">StandaloneAudioProcessorPlayer::postProcessBlock()</a>, and <a class="el" href="classStandaloneAudioProcessorPlayer.html#aef4664be93a5047353646237d0156d5a">StandaloneAudioProcessorPlayer::StandaloneAudioProcessorPlayer()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classStandaloneAudioProcessorPlayer.html#a57ac8c84af0d04cad585be1c7881e359">StandaloneAudioProcessorPlayer::audioDeviceAboutToStart()</a>, <a class="el" href="classAudioRecorder.html#a572546417d68a6b5769d9910387cedcd">AudioRecorder::setSampleRate()</a>, and <a class="el" href="classStandaloneAudioProcessorPlayer.html#aef4664be93a5047353646237d0156d5a">StandaloneAudioProcessorPlayer::StandaloneAudioProcessorPlayer()</a>.</p>
 
 </div>
 </div>
@@ -286,7 +286,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns the number of audio channels. </p>
 
-<p class="reference">Referenced by <a class="el" href="classStandaloneAudioProcessorPlayer.html#aea57e9306ee879a358783acc09f3ce71">StandaloneAudioProcessorPlayer::postProcessBlock()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classAudioRecorder.html#ae2e030528d6455536cdff846197aec4b">AudioRecorder::getRetrospectiveNumChannels()</a>, <a class="el" href="classAudioRecorder.html#a28a8ca00fd119ff8080293239a868bcf">AudioRecorder::run()</a>, <a class="el" href="classAudioRecorder.html#ab85cda7dc8ebd261eb662d91c3d102f6">AudioRecorder::saveRetrospective()</a>, and <a class="el" href="classAudioRecorder.html#a572546417d68a6b5769d9910387cedcd">AudioRecorder::setSampleRate()</a>.</p>
 
 </div>
 </div>
@@ -344,7 +344,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns the number of samples available to read. </p>
 
-<p class="reference">Referenced by <a class="el" href="classAudioFifo.html#a5bad74d132c264adbda154425546944f">ensureFreeSpace()</a>, <a class="el" href="classAudioFifo.html#a0b7cb38ccd71a06b3965c610e2a8b4d4">peek()</a>, <a class="el" href="classAudioFifo.html#a1fc223faaa70ac537658e5b0c8f7cfd8">peekSample()</a>, <a class="el" href="classAudioFifo.html#ad739bd1e9287145381242caddbb2dfff">pop()</a>, <a class="el" href="classAudioFifo.html#a2430de299a81f6ac03cd0200590a455a">read()</a>, <a class="el" href="classAudioFifo.html#ade7b74334094b86983e5deaf2dd11e47">readAdding()</a>, <a class="el" href="classAudioFifo.html#a8fbc006a7362cca45d85fba09fd5969e">readMono()</a>, and <a class="el" href="classResamplingFifo.html#a932efb27236ccc341c04bd56193e283e">ResamplingFifo::samplesReady()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classAudioFifo.html#a5bad74d132c264adbda154425546944f">ensureFreeSpace()</a>, <a class="el" href="classAudioRecorder.html#af3c180e86cb88946e24990fd17482869">AudioRecorder::getRetrospectiveNumReady()</a>, <a class="el" href="classAudioFifo.html#a0b7cb38ccd71a06b3965c610e2a8b4d4">peek()</a>, <a class="el" href="classAudioFifo.html#a1fc223faaa70ac537658e5b0c8f7cfd8">peekSample()</a>, <a class="el" href="classAudioFifo.html#ad739bd1e9287145381242caddbb2dfff">pop()</a>, <a class="el" href="classAudioFifo.html#a2430de299a81f6ac03cd0200590a455a">read()</a>, <a class="el" href="classAudioFifo.html#ade7b74334094b86983e5deaf2dd11e47">readAdding()</a>, <a class="el" href="classAudioFifo.html#a8fbc006a7362cca45d85fba09fd5969e">readMono()</a>, <a class="el" href="classAudioRecorder.html#a28a8ca00fd119ff8080293239a868bcf">AudioRecorder::run()</a>, <a class="el" href="classResamplingFifo.html#a932efb27236ccc341c04bd56193e283e">ResamplingFifo::samplesReady()</a>, and <a class="el" href="classAudioRecorder.html#ab85cda7dc8ebd261eb662d91c3d102f6">AudioRecorder::saveRetrospective()</a>.</p>
 
 </div>
 </div>
@@ -374,6 +374,8 @@ Public Member Functions</h2></td></tr>
 <p>Resets the FIFO to an empty state. </p>
 <p>Note: This is not thread-safe and should only be called when no other threads are accessing the FIFO. </p>
 
+<p class="reference">Referenced by <a class="el" href="classAudioRecorder.html#ad8921de8de7c06bd67c16bdc84b85bd8">AudioRecorder::clearRetrospective()</a>.</p>
+
 </div>
 </div>
 <a id="a5bad74d132c264adbda154425546944f" name="a5bad74d132c264adbda154425546944f"></a>
@@ -401,6 +403,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 
 <p class="reference">References <a class="el" href="classAudioFifo.html#af75865aa3db5a5fb798768c6c358d147">getFreeSpace()</a>, and <a class="el" href="classAudioFifo.html#a716f99ce4611d9cdaa3f3b10e03dd4ce">getNumReady()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classAudioRecorder.html#a28a8ca00fd119ff8080293239a868bcf">AudioRecorder::run()</a>.</p>
 
 </div>
 </div>
@@ -442,7 +446,7 @@ Public Member Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="classAudioFifo.html#a272a4efa8416e0c57905329552781855">write()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classStandaloneAudioProcessorPlayer.html#aea57e9306ee879a358783acc09f3ce71">StandaloneAudioProcessorPlayer::postProcessBlock()</a>, and <a class="el" href="classAudioFifo.html#a272a4efa8416e0c57905329552781855">write()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classStandaloneAudioProcessorPlayer.html#aea57e9306ee879a358783acc09f3ce71">StandaloneAudioProcessorPlayer::postProcessBlock()</a>, <a class="el" href="classAudioRecorder.html#a28a8ca00fd119ff8080293239a868bcf">AudioRecorder::run()</a>, and <a class="el" href="classAudioFifo.html#a272a4efa8416e0c57905329552781855">write()</a>.</p>
 
 </div>
 </div>
@@ -582,7 +586,7 @@ Public Member Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="classAudioFifo.html#a947e965b80ae14db7e82c6ab93d2f3c9">peek()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classAudioFifo.html#a947e965b80ae14db7e82c6ab93d2f3c9">peek()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classAudioFifo.html#a947e965b80ae14db7e82c6ab93d2f3c9">peek()</a>, <a class="el" href="classAudioRecorder.html#abf2fc1756dba47637d7ff7b0460bda3b">AudioRecorder::peekRetrospective()</a>, and <a class="el" href="classAudioRecorder.html#ab85cda7dc8ebd261eb662d91c3d102f6">AudioRecorder::saveRetrospective()</a>.</p>
 
 </div>
 </div>
@@ -700,7 +704,7 @@ Public Member Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="classAudioFifo.html#a069465c3976a0dc32e785babe6532898">read()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classAudioFifo.html#a069465c3976a0dc32e785babe6532898">read()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classAudioFifo.html#a069465c3976a0dc32e785babe6532898">read()</a>, and <a class="el" href="classAudioRecorder.html#a28a8ca00fd119ff8080293239a868bcf">AudioRecorder::run()</a>.</p>
 
 </div>
 </div>
@@ -904,7 +908,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 18 2025 20:47:51 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Dec 19 2025 00:12:12 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

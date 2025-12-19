@@ -1,0 +1,7 @@
+<map id="AudioSamplerBufferComponent" name="AudioSamplerBufferComponent">
+<area shape="rect" id="Node000001" title="Draws an AudioSampleBuffer thumbnail." alt="" coords="116,5,343,31"/>
+<area shape="rect" id="Node000002" href="$classRetrospectiveBufferComponent.html" title=" " alt="" coords="5,79,232,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,40,138,81,135,76,199,36"/>
+<area shape="rect" id="Node000003" href="$classSampleFileComponent.html" title=" " alt="" coords="257,79,426,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="261,36,324,76,322,81,258,40"/>
+</map>

@@ -1226,6 +1226,12 @@
     <class kind="class">SampleOscillator</class>
   </compound>
   <compound kind="file">
+    <name>gin_sampleplayer.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__sampleplayer_8h.html</filename>
+    <class kind="class">SamplePlayer</class>
+  </compound>
+  <compound kind="file">
     <name>gin_scratchbuffer.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__scratchbuffer_8h.html</filename>
@@ -2476,6 +2482,9 @@
     <name>gin_sidebarcomponent.h</name>
     <path>build/gin_standaloneplugin/standaloneplugin/</path>
     <filename>gin__sidebarcomponent_8h.html</filename>
+    <class kind="class">HeaderComponent</class>
+    <class kind="class">SampleFileComponent</class>
+    <class kind="class">RetrospectiveBufferComponent</class>
     <class kind="class">SideBarComponent</class>
   </compound>
   <compound kind="file">
@@ -2495,6 +2504,7 @@
     <name>gin_standaloneaudioprocessorplayer.h</name>
     <path>build/gin_standaloneplugin/standaloneplugin/</path>
     <filename>gin__standaloneaudioprocessorplayer_8h.html</filename>
+    <class kind="class">AudioRecorder</class>
     <class kind="class">StandaloneAudioProcessorPlayer</class>
   </compound>
   <compound kind="file">
@@ -3930,6 +3940,154 @@
       <name>currentWorkgroup</name>
       <anchorfile>classAudioProcessorPlayer.html</anchorfile>
       <anchor>a5419561db6919c902a25f1f964c6c341</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>AudioRecorder</name>
+    <filename>classAudioRecorder.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>RecordMode</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>a9884aa523051c23ae78f5e9e4c86b449</anchor>
+      <arglist></arglist>
+      <enumvalue file="classAudioRecorder.html" anchor="a9884aa523051c23ae78f5e9e4c86b449aec2f993aec2c27fc750119ab17b16cdb">idle</enumvalue>
+      <enumvalue file="classAudioRecorder.html" anchor="a9884aa523051c23ae78f5e9e4c86b449afea087517c26fadd409bd4b9dc642555">normal</enumvalue>
+      <enumvalue file="classAudioRecorder.html" anchor="a9884aa523051c23ae78f5e9e4c86b449a7c1bdcf7e82a67d7b3f778af4288bc57">triggered</enumvalue>
+      <enumvalue file="classAudioRecorder.html" anchor="a9884aa523051c23ae78f5e9e4c86b449a8cb6d467854edb7bceeff22127b4a7d8">waitingForTrigger</enumvalue>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>AudioRecorder</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>a74b906351ac8809c33e352cf395fb16f</anchor>
+      <arglist>(AudioFifo &amp;f)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~AudioRecorder</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>a34699a180f2b79ea98352de7bbd5523c</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>a572546417d68a6b5769d9910387cedcd</anchor>
+      <arglist>(double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDestFolder</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>ac6291e20a932263a452f0c8f120f25c1</anchor>
+      <arglist>(const juce::File &amp;folder)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::File</type>
+      <name>getDestFolder</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>a1c91595957053e113e9d6fd9a12bd0b1</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>startRecording</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>a6b227538e834634146d877a937940e81</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>startTriggeredRecording</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>af8649e854db8091effe7d29b2b349bcb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>stopRecording</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>a51832d8932daa76e8b742606106f5872</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isRecording</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>a500dcd627ad37c80fd3584903e7ad262</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isWaitingForTrigger</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>a2e53c7886c0b6b37c63a5ee144994b57</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>RecordMode</type>
+      <name>getRecordMode</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>aba8feec9d73b2bd34f89538eb7f56789</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>saveRetrospective</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>ab85cda7dc8ebd261eb662d91c3d102f6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getRetrospectiveNumReady</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>af3c180e86cb88946e24990fd17482869</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getRetrospectiveNumChannels</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>ae2e030528d6455536cdff846197aec4b</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>peekRetrospective</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>abf2fc1756dba47637d7ff7b0460bda3b</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;dest)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clearRetrospective</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>ad8921de8de7c06bd67c16bdc84b85bd8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>run</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>a28a8ca00fd119ff8080293239a868bcf</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; void()&gt;</type>
+      <name>onRecordingStarted</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>a22f31b79d753963f67aac8d9f13312dc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; void()&gt;</type>
+      <name>onRecordingStopped</name>
+      <anchorfile>classAudioRecorder.html</anchorfile>
+      <anchor>aeac0ce1c8392f4d23858b17aeb524ee7</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -8102,6 +8260,24 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>HeaderComponent</name>
+    <filename>classHeaderComponent.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>HeaderComponent</name>
+      <anchorfile>classHeaderComponent.html</anchorfile>
+      <anchor>ab0123dcc8ca3c749548b048bb0b968e6</anchor>
+      <arglist>(const juce::String &amp;text)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paint</name>
+      <anchorfile>classHeaderComponent.html</anchorfile>
+      <anchor>a5c30ca111535d4ae4662b1866d618f1e</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>HeaderItem</name>
     <filename>classHeaderItem.html</filename>
     <member kind="function">
@@ -10749,6 +10925,13 @@
       <anchorfile>classMidiFilePlayer.html</anchorfile>
       <anchor>ac1949a35c2aa188bd48fa097758e2c1e</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clear</name>
+      <anchorfile>classMidiFilePlayer.html</anchorfile>
+      <anchor>a715960ccd00b4fca820673229b197bb1</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -16026,6 +16209,39 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>RetrospectiveBufferComponent</name>
+    <filename>classRetrospectiveBufferComponent.html</filename>
+    <base>AudioSamplerBufferComponent</base>
+    <member kind="function">
+      <type></type>
+      <name>RetrospectiveBufferComponent</name>
+      <anchorfile>classRetrospectiveBufferComponent.html</anchorfile>
+      <anchor>ad5b3c902432d28f9ae1eaecd8abf69c1</anchor>
+      <arglist>(AudioRecorder &amp;recorder)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~RetrospectiveBufferComponent</name>
+      <anchorfile>classRetrospectiveBufferComponent.html</anchorfile>
+      <anchor>a5030e1773120ebf8c08f1d5da894d75d</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>timerCallback</name>
+      <anchorfile>classRetrospectiveBufferComponent.html</anchorfile>
+      <anchor>afaafacff4efaa26818f5613d461a6a5e</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paint</name>
+      <anchorfile>classRetrospectiveBufferComponent.html</anchorfile>
+      <anchor>ae39dcdb484f27763a6cf797de61f7785</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>RIFFParser</name>
     <filename>classRIFFParser.html</filename>
     <member kind="function">
@@ -16126,6 +16342,81 @@
       <anchorfile>classSample.html</anchorfile>
       <anchor>a412fc3b487c8b28588e001b573c8b87b</anchor>
       <arglist>(const juce::File &amp;f)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>SampleFileComponent</name>
+    <filename>classSampleFileComponent.html</filename>
+    <base>AudioSamplerBufferComponent</base>
+    <member kind="function">
+      <type></type>
+      <name>SampleFileComponent</name>
+      <anchorfile>classSampleFileComponent.html</anchorfile>
+      <anchor>a893458034abc4925331ae20515a3ea0a</anchor>
+      <arglist>(SamplePlayer &amp;player)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~SampleFileComponent</name>
+      <anchorfile>classSampleFileComponent.html</anchorfile>
+      <anchor>a81a74874f8133106fb37a93de5c5e44c</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>timerCallback</name>
+      <anchorfile>classSampleFileComponent.html</anchorfile>
+      <anchor>a452d72d778facea253ac02e8a2ca3d97</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isInterestedInFileDrag</name>
+      <anchorfile>classSampleFileComponent.html</anchorfile>
+      <anchor>ae684b6c4b20f3bbb7a29dd5f141c78ee</anchor>
+      <arglist>(const juce::StringArray &amp;files) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>fileDragEnter</name>
+      <anchorfile>classSampleFileComponent.html</anchorfile>
+      <anchor>a10f6671ffe8e1daf4b7c94c7789b6cd9</anchor>
+      <arglist>(const juce::StringArray &amp;, int, int) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>fileDragExit</name>
+      <anchorfile>classSampleFileComponent.html</anchorfile>
+      <anchor>ad2e580168aad69bf342db7d052876659</anchor>
+      <arglist>(const juce::StringArray &amp;) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>filesDropped</name>
+      <anchorfile>classSampleFileComponent.html</anchorfile>
+      <anchor>a803aeb0e9162c53a5c5305e5c242d3ea</anchor>
+      <arglist>(const juce::StringArray &amp;files, int, int) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paint</name>
+      <anchorfile>classSampleFileComponent.html</anchorfile>
+      <anchor>ada442feeeea0be628ae09e0677274b03</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; void()&gt;</type>
+      <name>onFileDropped</name>
+      <anchorfile>classSampleFileComponent.html</anchorfile>
+      <anchor>a7f768767bb4db0c4c5666c987355651f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; void()&gt;</type>
+      <name>onPlaybackStateChanged</name>
+      <anchorfile>classSampleFileComponent.html</anchorfile>
+      <anchor>a329d37ddf24ead58e0533c61cd5b3e32</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -16243,6 +16534,164 @@
       <anchorfile>classSampleOscillator.html</anchorfile>
       <anchor>aa22fc5c8f2ec429eab3d42e6a6524923</anchor>
       <arglist>(double note, juce::AudioSampleBuffer &amp;buffer, int start=0, int length=-1)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>SamplePlayer</name>
+    <filename>classSamplePlayer.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>SamplePlayer</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>a8b3e72b2c75d3b866fe756ae5bf37413</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>SamplePlayer</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>a920e17930b0dd21602d6a05ca8e079f1</anchor>
+      <arglist>(const char *data, int dataLen)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>SamplePlayer</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>aeb3f93680d286d7022978be2928e449a</anchor>
+      <arglist>(const juce::File &amp;f)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>load</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>a3889e31c880b2af1cd43e2a2720ffa11</anchor>
+      <arglist>(const char *data, int dataLen)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>load</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>ab568d20845815b51d0e2e01b1ea0a4b8</anchor>
+      <arglist>(const juce::File &amp;f)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setBuffer</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>abb98d16996dded192dca523fcde70da2</anchor>
+      <arglist>(const juce::AudioSampleBuffer &amp;newBuffer, double sampleRate)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPlaybackSampleRate</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>af8b435ded2e5cd48efe5632587233bc7</anchor>
+      <arglist>(double sampleRate)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>a3a6b7ac95e0f12cc009fb835026a436d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCrossfadeSamples</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>abb98cb11629cff8f08de6521d2dd46be</anchor>
+      <arglist>(int samples)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>play</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>a4c4affd4b46c93c6d3e177ffbbe49ea3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>stop</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>acd7b310907726fb02575aea95ed9e5f4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isPlaying</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>ada17031fdd098e7c4b72aca13ae03698</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setLooping</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>a8ccaf37a0772bb33bdddbfdc331d7f14</anchor>
+      <arglist>(bool shouldLoop)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isLooping</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>a8f152b747751501076c22181a246e34a</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>processBlock</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>af4e93567c05b978558a37931dbc78197</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;output)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getPosition</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>a894590d6d37ec49f788e57083545afa8</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPosition</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>aa603a0b21e7d1f634944c83d7ea5f7a5</anchor>
+      <arglist>(double newPosition)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hasFileLoaded</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>ae7057da720689476ea78e4724ac6ff78</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::File</type>
+      <name>getLoadedFile</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>a8ec76b130d0c50d20ae31385778fd9b7</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce::AudioSampleBuffer &amp;</type>
+      <name>getBuffer</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>a1c9fa8f8036ee2ca28b58531166afc69</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getSourceSampleRate</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>a207ce7687b7acb6b83595d1422abbb53</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clear</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>a4749cf3c360ced8477880c938398dab1</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -16633,6 +17082,13 @@
       <anchorfile>classSideBarComponent.html</anchorfile>
       <anchor>a9070371d1c1da8eafb8395945a7dfe9e</anchor>
       <arglist>(juce::Graphics &amp;g) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>timerCallback</name>
+      <anchorfile>classSideBarComponent.html</anchorfile>
+      <anchor>a42f3ca7c69438c6d827c7d335c12ec2c</anchor>
+      <arglist>() override</arglist>
     </member>
     <member kind="variable" static="yes">
       <type>static constexpr int</type>
@@ -17039,10 +17495,38 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
+      <type>AudioFifo</type>
+      <name>xyFifo</name>
+      <anchorfile>classStandaloneAudioProcessorPlayer.html</anchorfile>
+      <anchor>a7e7e72ec02393a6a99386e305c5c4692</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>AudioFifo</type>
+      <name>recordFifo</name>
+      <anchorfile>classStandaloneAudioProcessorPlayer.html</anchorfile>
+      <anchor>a56894c0b24958ac2826444affdff405f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
       <type>MidiFilePlayer</type>
       <name>midiPlayer</name>
       <anchorfile>classStandaloneAudioProcessorPlayer.html</anchorfile>
       <anchor>a3192c19c158e931e36465dd1b1013832</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>SamplePlayer</type>
+      <name>samplePlayer</name>
+      <anchorfile>classStandaloneAudioProcessorPlayer.html</anchorfile>
+      <anchor>a58dc661e8994c9ce638fffb4c07240e8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>AudioRecorder</type>
+      <name>audioRecorder</name>
+      <anchorfile>classStandaloneAudioProcessorPlayer.html</anchorfile>
+      <anchor>a457c57be009dd596a250ed34220d85d6</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -17781,6 +18265,27 @@
       <anchor>ab806ddd7a689e4f585f660292b01ca9a</anchor>
       <arglist>(const juce::String &amp;name, const juce::String &amp;rawSVG_, int inset_=0)</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setColour</name>
+      <anchorfile>classSVGButton.html</anchorfile>
+      <anchor>aeb83575d8036eb4e2bc154f6d47d6917</anchor>
+      <arglist>(juce::Colour c)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clearColour</name>
+      <anchorfile>classSVGButton.html</anchorfile>
+      <anchor>a5d8890a7d47e318db07520fe5bf4dfdf</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>std::optional&lt; juce::Colour &gt;</type>
+      <name>getColour</name>
+      <anchorfile>classSVGButton.html</anchorfile>
+      <anchor>ab61c6cbdd7ce4ac7e3ab10780a7c141a</anchor>
+      <arglist>() const</arglist>
+    </member>
     <member kind="variable">
       <type>juce::String</type>
       <name>rawSVG</name>
@@ -17793,6 +18298,13 @@
       <name>inset</name>
       <anchorfile>classSVGButton.html</anchorfile>
       <anchor>ae66b6c13532b53657e2943467220ef61</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::optional&lt; juce::Colour &gt;</type>
+      <name>colour</name>
+      <anchorfile>classSVGButton.html</anchorfile>
+      <anchor>abe874485feaaf54a10d9246fad6faa5f</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -20476,6 +20988,20 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setHistorySize</name>
+      <anchorfile>classXYScope.html</anchorfile>
+      <anchor>acd0c36b6042bc6d559f451f1ea566843</anchor>
+      <arglist>(int numFrames)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setBlockSize</name>
+      <anchorfile>classXYScope.html</anchorfile>
+      <anchor>a3b24c5a21a4f9ced38da14e0503311c2</anchor>
+      <arglist>(int size)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>paint</name>
       <anchorfile>classXYScope.html</anchorfile>
       <anchor>abb9b5a73646c70d9e823a7a4676aa3fa</anchor>
@@ -21060,6 +21586,7 @@
     <class kind="class">ResamplingFifo</class>
     <class kind="class">Sample</class>
     <class kind="class">SampleOscillator</class>
+    <class kind="class">SamplePlayer</class>
     <class kind="class">ScratchBuffer</class>
     <class kind="class">SimpleVerb</class>
     <class kind="class">StepLFO</class>
@@ -21958,8 +22485,12 @@
     <class kind="class">AudioProcessorPlayer</class>
     <class kind="struct">AudioProcessorPlayer::NumChannels</class>
     <class kind="class">MainContentComponent</class>
+    <class kind="class">HeaderComponent</class>
+    <class kind="class">SampleFileComponent</class>
+    <class kind="class">RetrospectiveBufferComponent</class>
     <class kind="class">SideBarComponent</class>
     <class kind="class">StandaloneFilterApp</class>
+    <class kind="class">AudioRecorder</class>
     <class kind="class">StandaloneAudioProcessorPlayer</class>
     <class kind="class">StandaloneFilterWindow</class>
     <class kind="class">StandalonePluginHolder</class>

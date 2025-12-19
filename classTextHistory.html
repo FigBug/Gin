@@ -115,34 +115,42 @@ Public Attributes</h2></td></tr>
 <li>Linear history (no branching)</li>
 </ul>
 <p>The implementation uses binary diff patches (forward and backward) to efficiently store changes, making it suitable for large documents or long editing sessions.</p>
-<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classTextHistory.html">TextHistory</a> <a class="code hl_class" href="classPoint.html">history</a>;</div>
-<div class="line"><a class="code hl_class" href="classPoint.html">history</a>.setHistoryLimit(100); <span class="comment">// Keep last 100 changes</span></div>
+<p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classTextHistory.html">TextHistory</a> history;</div>
+<div class="line">history.<a class="code hl_function" href="classTextHistory.html#a859da59a1f4a7057a917a2b23f4e674e">setHistoryLimit</a>(100); <span class="comment">// Keep last 100 changes</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Register for state changes</span></div>
-<div class="line"><a class="code hl_class" href="classPoint.html">history</a>.onStateChanged = []() {</div>
+<div class="line">history.<a class="code hl_variable" href="classTextHistory.html#a1ca05b44dd6daf91540feca47ad7a0ab">onStateChanged</a> = []() {</div>
 <div class="line">    <a class="code hl_class" href="classPoint.html">DBG</a>(<span class="stringliteral">&quot;History state changed&quot;</span>);</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Add text changes</span></div>
-<div class="line"><a class="code hl_class" href="classPoint.html">history</a>.addText(<span class="stringliteral">&quot;Initial text&quot;</span>);</div>
-<div class="line"><a class="code hl_class" href="classPoint.html">history</a>.addText(<span class="stringliteral">&quot;Modified text&quot;</span>);</div>
-<div class="line"><a class="code hl_class" href="classPoint.html">history</a>.addText(<span class="stringliteral">&quot;Final text&quot;</span>);</div>
+<div class="line">history.<a class="code hl_function" href="classTextHistory.html#a6aef5aedda0928adb21b751feee86046">addText</a>(<span class="stringliteral">&quot;Initial text&quot;</span>);</div>
+<div class="line">history.<a class="code hl_function" href="classTextHistory.html#a6aef5aedda0928adb21b751feee86046">addText</a>(<span class="stringliteral">&quot;Modified text&quot;</span>);</div>
+<div class="line">history.<a class="code hl_function" href="classTextHistory.html#a6aef5aedda0928adb21b751feee86046">addText</a>(<span class="stringliteral">&quot;Final text&quot;</span>);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Undo changes</span></div>
-<div class="line"><span class="keywordflow">if</span> (<a class="code hl_class" href="classPoint.html">history</a>.canUndo())</div>
+<div class="line"><span class="keywordflow">if</span> (history.<a class="code hl_function" href="classTextHistory.html#aefe466fda780c009f2437908c9599ca4">canUndo</a>())</div>
 <div class="line">{</div>
-<div class="line">    <a class="code hl_class" href="classPoint.html">history</a>.undo();</div>
-<div class="line">    juce::String text = <a class="code hl_class" href="classPoint.html">history</a>.getCurrentText(); <span class="comment">// Returns &quot;Modified text&quot;</span></div>
+<div class="line">    history.<a class="code hl_function" href="classTextHistory.html#a1bbead7a0a6a7675869847c38d9e1057">undo</a>();</div>
+<div class="line">    juce::String text = history.<a class="code hl_function" href="classTextHistory.html#a859be9528d850f55459ca1eefb9cae34">getCurrentText</a>(); <span class="comment">// Returns &quot;Modified text&quot;</span></div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Redo changes</span></div>
-<div class="line"><span class="keywordflow">if</span> (<a class="code hl_class" href="classPoint.html">history</a>.canRedo())</div>
+<div class="line"><span class="keywordflow">if</span> (history.<a class="code hl_function" href="classTextHistory.html#a2eff6adbb470b9cde7e7d7f378103e86">canRedo</a>())</div>
 <div class="line">{</div>
-<div class="line">    <a class="code hl_class" href="classPoint.html">history</a>.redo();</div>
-<div class="line">    juce::String text = <a class="code hl_class" href="classPoint.html">history</a>.getCurrentText(); <span class="comment">// Returns &quot;Final text&quot;</span></div>
+<div class="line">    history.<a class="code hl_function" href="classTextHistory.html#a22776577a2573f6c64a5346dcef7b71c">redo</a>();</div>
+<div class="line">    juce::String text = history.<a class="code hl_function" href="classTextHistory.html#a859be9528d850f55459ca1eefb9cae34">getCurrentText</a>(); <span class="comment">// Returns &quot;Final text&quot;</span></div>
 <div class="line">}</div>
 <div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 <div class="ttc" id="aclassTextHistory_html"><div class="ttname"><a href="classTextHistory.html">TextHistory</a></div><div class="ttdoc">Undo/redo history management for text editing with efficient diff-based storage.</div><div class="ttdef"><b>Definition</b> gin_texthistory.h:65</div></div>
+<div class="ttc" id="aclassTextHistory_html_a1bbead7a0a6a7675869847c38d9e1057"><div class="ttname"><a href="classTextHistory.html#a1bbead7a0a6a7675869847c38d9e1057">TextHistory::undo</a></div><div class="ttdeci">void undo()</div></div>
+<div class="ttc" id="aclassTextHistory_html_a1ca05b44dd6daf91540feca47ad7a0ab"><div class="ttname"><a href="classTextHistory.html#a1ca05b44dd6daf91540feca47ad7a0ab">TextHistory::onStateChanged</a></div><div class="ttdeci">std::function&lt; void()&gt; onStateChanged</div><div class="ttdef"><b>Definition</b> gin_texthistory.h:77</div></div>
+<div class="ttc" id="aclassTextHistory_html_a22776577a2573f6c64a5346dcef7b71c"><div class="ttname"><a href="classTextHistory.html#a22776577a2573f6c64a5346dcef7b71c">TextHistory::redo</a></div><div class="ttdeci">void redo()</div></div>
+<div class="ttc" id="aclassTextHistory_html_a2eff6adbb470b9cde7e7d7f378103e86"><div class="ttname"><a href="classTextHistory.html#a2eff6adbb470b9cde7e7d7f378103e86">TextHistory::canRedo</a></div><div class="ttdeci">bool canRedo()</div></div>
+<div class="ttc" id="aclassTextHistory_html_a6aef5aedda0928adb21b751feee86046"><div class="ttname"><a href="classTextHistory.html#a6aef5aedda0928adb21b751feee86046">TextHistory::addText</a></div><div class="ttdeci">bool addText(const juce::String &amp;)</div></div>
+<div class="ttc" id="aclassTextHistory_html_a859be9528d850f55459ca1eefb9cae34"><div class="ttname"><a href="classTextHistory.html#a859be9528d850f55459ca1eefb9cae34">TextHistory::getCurrentText</a></div><div class="ttdeci">const juce::String &amp; getCurrentText()</div></div>
+<div class="ttc" id="aclassTextHistory_html_a859da59a1f4a7057a917a2b23f4e674e"><div class="ttname"><a href="classTextHistory.html#a859da59a1f4a7057a917a2b23f4e674e">TextHistory::setHistoryLimit</a></div><div class="ttdeci">void setHistoryLimit(int numItems)</div></div>
+<div class="ttc" id="aclassTextHistory_html_aefe466fda780c009f2437908c9599ca4"><div class="ttname"><a href="classTextHistory.html#aefe466fda780c009f2437908c9599ca4">TextHistory::canUndo</a></div><div class="ttdeci">bool canUndo()</div></div>
 </div><!-- fragment --><p>Implementation Details:</p><ul>
 <li>Uses binary diff algorithm for patch generation</li>
 <li>Maintains stack of forward/backward patches</li>
@@ -293,7 +301,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 18 2025 20:47:51 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Dec 19 2025 00:12:12 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

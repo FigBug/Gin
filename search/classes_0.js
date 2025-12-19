@@ -12,6 +12,7 @@ var searchData=
   ['audiofunctionhost_9',['AudioFunctionHost',['../classAudioFunctionHost.html',1,'']]],
   ['audiomidififo_10',['AudioMidiFifo',['../classAudioMidiFifo.html',1,'']]],
   ['audioprocessorplayer_11',['AudioProcessorPlayer',['../classAudioProcessorPlayer.html',1,'']]],
-  ['audiosamplerbuffercomponent_12',['AudioSamplerBufferComponent',['../classAudioSamplerBufferComponent.html',1,'']]],
-  ['authorsmodel_13',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser']]]
+  ['audiorecorder_12',['AudioRecorder',['../classAudioRecorder.html',1,'']]],
+  ['audiosamplerbuffercomponent_13',['AudioSamplerBufferComponent',['../classAudioSamplerBufferComponent.html',1,'']]],
+  ['authorsmodel_14',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser']]]
 ];

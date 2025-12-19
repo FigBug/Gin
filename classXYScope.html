@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Draws an XY Scope.  
+<p>Draws an XY Scope with history-based fading.  
  <a href="classXYScope.html#details">More...</a></p>
 
 <p><code>#include &lt;gin_xyscope.h&gt;</code></p>
@@ -104,15 +104,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab0e51490e9997247e0df9d78f938fb2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of samples represented by each pixel on the scope.  <br /></td></tr>
 <tr class="separator:ab0e51490e9997247e0df9d78f938fb2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4c855839113e54dd65e51bf2b063ca8" id="r_af4c855839113e54dd65e51bf2b063ca8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXYScope.html#af4c855839113e54dd65e51bf2b063ca8">setZoomFactor</a> (<a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">newZoomFactor</a>)</td></tr>
-<tr class="memdesc:af4c855839113e54dd65e51bf2b063ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the vertical zoom factor of the display.  <br /></td></tr>
+<tr class="memdesc:af4c855839113e54dd65e51bf2b063ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the zoom factor of the display.  <br /></td></tr>
 <tr class="separator:af4c855839113e54dd65e51bf2b063ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd0c36b6042bc6d559f451f1ea566843" id="r_acd0c36b6042bc6d559f451f1ea566843"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXYScope.html#acd0c36b6042bc6d559f451f1ea566843">setHistorySize</a> (<a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numFrames</a>)</td></tr>
+<tr class="memdesc:acd0c36b6042bc6d559f451f1ea566843"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of history frames to display with fading.  <br /></td></tr>
+<tr class="separator:acd0c36b6042bc6d559f451f1ea566843"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b24c5a21a4f9ced38da14e0503311c2" id="r_a3b24c5a21a4f9ced38da14e0503311c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXYScope.html#a3b24c5a21a4f9ced38da14e0503311c2">setBlockSize</a> (<a class="el" href="classPoint.html">int</a> size)</td></tr>
+<tr class="memdesc:a3b24c5a21a4f9ced38da14e0503311c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of points per frame.  <br /></td></tr>
+<tr class="separator:a3b24c5a21a4f9ced38da14e0503311c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb9b5a73646c70d9e823a7a4676aa3fa" id="r_abb9b5a73646c70d9e823a7a4676aa3fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXYScope.html#abb9b5a73646c70d9e823a7a4676aa3fa">paint</a> (juce::Graphics &amp;g) <a class="el" href="classPoint.html">override</a></td></tr>
 <tr class="separator:abb9b5a73646c70d9e823a7a4676aa3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37d7c0b92a484c3c55dee8eb45fd2943" id="r_a37d7c0b92a484c3c55dee8eb45fd2943"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXYScope.html#a37d7c0b92a484c3c55dee8eb45fd2943">timerCallback</a> () <a class="el" href="classPoint.html">override</a></td></tr>
 <tr class="separator:a37d7c0b92a484c3c55dee8eb45fd2943"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Draws an XY Scope. </p>
+<div class="textblock"><p>Draws an XY Scope with history-based fading. </p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a8c9be5fbb6205a1a9920d2068ca13b22" name="a8c9be5fbb6205a1a9920d2068ca13b22"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8c9be5fbb6205a1a9920d2068ca13b22">&#9670;&#160;</a></span>ColourIds</h2>
@@ -220,7 +226,47 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the vertical zoom factor of the display. </p>
+<p>Sets the zoom factor of the display. </p>
+
+</div>
+</div>
+<a id="acd0c36b6042bc6d559f451f1ea566843" name="acd0c36b6042bc6d559f451f1ea566843"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd0c36b6042bc6d559f451f1ea566843">&#9670;&#160;</a></span>setHistorySize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> XYScope::setHistorySize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">int</a>&#160;</td>
+          <td class="paramname"><em>numFrames</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the number of history frames to display with fading. </p>
+
+</div>
+</div>
+<a id="a3b24c5a21a4f9ced38da14e0503311c2" name="a3b24c5a21a4f9ced38da14e0503311c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b24c5a21a4f9ced38da14e0503311c2">&#9670;&#160;</a></span>setBlockSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> XYScope::setBlockSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">int</a>&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the number of points per frame. </p>
 
 </div>
 </div>
@@ -281,7 +327,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 18 2025 20:47:51 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Dec 19 2025 00:12:12 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

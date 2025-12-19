@@ -8,7 +8,7 @@ var searchData=
   ['clip_5',['clip',['../classLevelTracker.html#a26766995b2012da8ba9494a8480de068',1,'LevelTracker']]],
   ['coefc_6',['coefC',['../classLinearRegression.html#afdc67d71c93cea69b0a66693fa5cb276',1,'LinearRegression']]],
   ['coefd_7',['coefD',['../classLinearRegression.html#a0f3377c655ca712c3e2c3d4e2125441c',1,'LinearRegression']]],
-  ['colour_8',['colour',['../structPoint3D.html#a394a82d42a3c5a2c211034e4b3ea8db3',1,'Point3D::colour'],['../structLineSegment3D.html#a4a7256090d6ba4b9eafade13082d853c',1,'LineSegment3D::colour']]],
+  ['colour_8',['colour',['../structPoint3D.html#a394a82d42a3c5a2c211034e4b3ea8db3',1,'Point3D::colour'],['../structLineSegment3D.html#a4a7256090d6ba4b9eafade13082d853c',1,'LineSegment3D::colour'],['../classSVGButton.html#abe874485feaaf54a10d9246fad6faa5f',1,'SVGButton::colour']]],
   ['cols_9',['cols',['../classProcessorEditorBase.html#a69d51f7716435429bfdcd1547105fa2a',1,'ProcessorEditorBase']]],
   ['combobox_10',['comboBox',['../classSelect.html#ae4c36d9f29cde76f2dadd791c8c3ed05',1,'Select']]],
   ['compmap_11',['compmap',['../classParser.html#a656b1601d2e19985a88a7c01f6bff472',1,'Parser::compMap'],['../classLayoutSupport.html#a64e4cec77592001d42f39fe9203c189b',1,'LayoutSupport::compMap']]],

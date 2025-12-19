@@ -19,8 +19,9 @@ var searchData=
   ['attackoffset_16',['attackOffset',['../classAnalogADSR.html#aee1d18ded5252ac1a9ae7b3009bc21e6',1,'AnalogADSR']]],
   ['attacktime_17',['attackTime',['../classEnvelopeDetector.html#a0e02ce9c360c18f16f656dd5ff8a0f9d',1,'EnvelopeDetector']]],
   ['attempts_18',['attempts',['../structDownloadManager_1_1DownloadResult.html#a639a9c5b7e7f3b4889a5f53b23e8bc9c',1,'DownloadManager::DownloadResult']]],
-  ['author_19',['author',['../classProgram.html#a98dafb9ef18422b1a03261697b874194',1,'Program']]],
-  ['authors_20',['authors',['../classPatchBrowser.html#a1becbf2ecebca6e5a2ba2533b619b952',1,'PatchBrowser']]],
-  ['authorsmodel_21',['authorsModel',['../classPatchBrowser.html#a62a7cf5ab56615e84109ced00beb6dcb',1,'PatchBrowser']]],
-  ['autoopenmididevices_22',['autoOpenMidiDevices',['../classStandalonePluginHolder.html#ab167cba8a89e4a376c360b624ff6a70a',1,'StandalonePluginHolder']]]
+  ['audiorecorder_19',['audioRecorder',['../classStandaloneAudioProcessorPlayer.html#a457c57be009dd596a250ed34220d85d6',1,'StandaloneAudioProcessorPlayer']]],
+  ['author_20',['author',['../classProgram.html#a98dafb9ef18422b1a03261697b874194',1,'Program']]],
+  ['authors_21',['authors',['../classPatchBrowser.html#a1becbf2ecebca6e5a2ba2533b619b952',1,'PatchBrowser']]],
+  ['authorsmodel_22',['authorsModel',['../classPatchBrowser.html#a62a7cf5ab56615e84109ced00beb6dcb',1,'PatchBrowser']]],
+  ['autoopenmididevices_23',['autoOpenMidiDevices',['../classStandalonePluginHolder.html#ab167cba8a89e4a376c360b624ff6a70a',1,'StandalonePluginHolder']]]
 ];

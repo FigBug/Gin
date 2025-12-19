@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['idle_0',['idle',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127aa5ee791507471a07b686dd1b63486b0e7',1,'ADSR::idle'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188eaec2f993aec2c27fc750119ab17b16cdb',1,'AnalogADSR::idle']]],
+  ['idle_0',['idle',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127aa5ee791507471a07b686dd1b63486b0e7',1,'ADSR::idle'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188eaec2f993aec2c27fc750119ab17b16cdb',1,'AnalogADSR::idle'],['../classAudioRecorder.html#a9884aa523051c23ae78f5e9e4c86b449aec2f993aec2c27fc750119ab17b16cdb',1,'AudioRecorder::idle']]],
   ['invexponentialin_1',['invExponentialIn',['../classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a82390ea767ca6f0b8e39ea17a7e1202b',1,'ModMatrix']]],
   ['invexponentialinout_2',['invExponentialInOut',['../classModMatrix.html#add6fae194c9fe15e561181b21b6fc614a6e61e5ed0d9216ea3330a68c01d86591',1,'ModMatrix']]],
   ['invexponentialout_3',['invExponentialOut',['../classModMatrix.html#add6fae194c9fe15e561181b21b6fc614aeabc2967673798438849bdddedf69785',1,'ModMatrix']]],
