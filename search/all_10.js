@@ -29,7 +29,7 @@ var searchData=
   ['parser_26',['parser',['../classParser.html',1,'Parser'],['../classParser.html#aba328097fe4370ffccb5e24e2f888c39',1,'Parser::Parser()']]],
   ['parsesvgpath_27',['parseSVGPath',['../group__gin__gui-images.html#ga781250a0ec9422dc8c7365cf6b9935ee',1,'gin_imageutilities.h']]],
   ['patch_28',['Patch',['../structDiff_1_1Patch.html',1,'Diff']]],
-  ['patchbrowser_29',['patchbrowser',['../classProcessorEditor.html#a6f7f6e1a092dff5bccece83325514c77',1,'ProcessorEditor::patchBrowser'],['../classTitleBar.html#a1f3dbe458a85abe07c28ce9bc963436c',1,'TitleBar::patchBrowser'],['../classPatchBrowser.html#a4beb28a79d33b3385cd036e78166443c',1,'PatchBrowser::PatchBrowser()'],['../classPatchBrowser.html',1,'PatchBrowser']]],
+  ['patchbrowser_29',['patchbrowser',['../classPatchBrowser.html#a4beb28a79d33b3385cd036e78166443c',1,'PatchBrowser::PatchBrowser()'],['../classProcessorEditor.html#a6f7f6e1a092dff5bccece83325514c77',1,'ProcessorEditor::patchBrowser'],['../classTitleBar.html#a1f3dbe458a85abe07c28ce9bc963436c',1,'TitleBar::patchBrowser'],['../classPatchBrowser.html',1,'PatchBrowser']]],
   ['path_20format_30',['Path Format',['../classComponentMap.html#paths',1,'']]],
   ['pausedownloads_31',['pauseDownloads',['../classDownloadManager.html#a736bec2349be86541095fe82a1916dbe',1,'DownloadManager']]],
   ['peak_32',['peak',['../classFilter.html#a8f99602312ccfbe9e1598532158726c0ad58dea6810feaf18fe38771eae09e203',1,'Filter::peak'],['../classEQ.html#afd7d7b03b08fd8ca89204c04ff847010a63f376f9d83f0634b8a03016b8fef4c9',1,'EQ::peak'],['../classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4ab6748369a0be703f089ba6dc60b0e91b',1,'EnvelopeDetector::peak']]],

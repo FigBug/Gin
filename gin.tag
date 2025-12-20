@@ -10830,9 +10830,9 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>setBpm</name>
+      <name>setFallbackBpm</name>
       <anchorfile>classMidiFilePlayer.html</anchorfile>
-      <anchor>ab58a8cdbc314205bd17c061cdf9e0a51</anchor>
+      <anchor>a4408e1240eeecf9aaacd294184368f76</anchor>
       <arglist>(double bpm)</arglist>
     </member>
     <member kind="function">

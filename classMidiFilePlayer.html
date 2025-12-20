@@ -91,9 +91,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a084b994e61932810b11c45826f357e73" id="r_a084b994e61932810b11c45826f357e73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiFilePlayer.html#a084b994e61932810b11c45826f357e73">setSampleRate</a> (<a class="el" href="classPoint.html">double</a> <a class="el" href="classPoint.html">sr</a>)</td></tr>
 <tr class="memdesc:a084b994e61932810b11c45826f357e73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the sample rate for playback timing.  <br /></td></tr>
 <tr class="separator:a084b994e61932810b11c45826f357e73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab58a8cdbc314205bd17c061cdf9e0a51" id="r_ab58a8cdbc314205bd17c061cdf9e0a51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiFilePlayer.html#ab58a8cdbc314205bd17c061cdf9e0a51">setBpm</a> (<a class="el" href="classPoint.html">double</a> bpm)</td></tr>
-<tr class="memdesc:ab58a8cdbc314205bd17c061cdf9e0a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the playback tempo.  <br /></td></tr>
-<tr class="separator:ab58a8cdbc314205bd17c061cdf9e0a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4408e1240eeecf9aaacd294184368f76" id="r_a4408e1240eeecf9aaacd294184368f76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiFilePlayer.html#a4408e1240eeecf9aaacd294184368f76">setFallbackBpm</a> (<a class="el" href="classPoint.html">double</a> <a class="el" href="classPoint.html">bpm</a>)</td></tr>
+<tr class="memdesc:a4408e1240eeecf9aaacd294184368f76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the fallback tempo to use when the MIDI file contains no tempo events.  <br /></td></tr>
+<tr class="separator:a4408e1240eeecf9aaacd294184368f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8668c94431e8ef473fcf5d56faf2830a" id="r_a8668c94431e8ef473fcf5d56faf2830a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiFilePlayer.html#a8668c94431e8ef473fcf5d56faf2830a">play</a> ()</td></tr>
 <tr class="memdesc:a8668c94431e8ef473fcf5d56faf2830a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts playback from the current position.  <br /></td></tr>
 <tr class="separator:a8668c94431e8ef473fcf5d56faf2830a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,14 +141,14 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Plays back MIDI files with configurable tempo. </p>
 <p><a class="el" href="classMidiFilePlayer.html" title="Plays back MIDI files with configurable tempo.">MidiFilePlayer</a> loads a standard MIDI file and plays it back through processBlock calls, filling a MidiBuffer with the appropriate events for each audio block based on the current playhead position.</p>
 <p>Thread Safety:</p><ul>
-<li><a class="el" href="classMidiFilePlayer.html#a88fce7d3026ec58de1ec9e5475256b86" title="Loads a MIDI file for playback.">load()</a>, <a class="el" href="classMidiFilePlayer.html#ab58a8cdbc314205bd17c061cdf9e0a51" title="Sets the playback tempo.">setBpm()</a> should be called from the message thread</li>
+<li><a class="el" href="classMidiFilePlayer.html#a88fce7d3026ec58de1ec9e5475256b86" title="Loads a MIDI file for playback.">load()</a>, <a class="el" href="classMidiFilePlayer.html#a4408e1240eeecf9aaacd294184368f76" title="Sets the fallback tempo to use when the MIDI file contains no tempo events.">setFallbackBpm()</a> should be called from the message thread</li>
 <li><a class="el" href="classMidiFilePlayer.html#a01798f3003456655d6a5a1e718edf7f8" title="Processes a block, filling the buffer with MIDI events.">processBlock()</a> is called from the audio thread</li>
 <li><a class="el" href="classMidiFilePlayer.html#a8668c94431e8ef473fcf5d56faf2830a" title="Starts playback from the current position.">play()</a>, <a class="el" href="classMidiFilePlayer.html#a0e3692eb4078dd05890e5149344b28e9" title="Stops playback and sends note-off messages for any playing notes.">stop()</a>, <a class="el" href="classMidiFilePlayer.html#aea9c53e3693a01fe7bf7615734802a74" title="Sets the playhead position in seconds.">setPlayheadPosition()</a> can be called from either thread</li>
 <li>Getters are safe to call from any thread</li>
 </ul>
 <p>Key Features:</p><ul>
 <li>Load MIDI files from juce::File</li>
-<li>Configurable BPM (tempo)</li>
+<li>Respects MIDI file tempo events, with configurable fallback BPM</li>
 <li>Sample-accurate playback</li>
 <li>Play/stop controls with proper note-off handling</li>
 <li>Playhead position tracking</li>
@@ -156,7 +156,7 @@ Public Member Functions</h2></td></tr>
 <p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classMidiFilePlayer.html">MidiFilePlayer</a> player;</div>
 <div class="line">player.<a class="code hl_function" href="classMidiFilePlayer.html#a88fce7d3026ec58de1ec9e5475256b86">load</a>(midiFile);</div>
 <div class="line">player.<a class="code hl_function" href="classMidiFilePlayer.html#a084b994e61932810b11c45826f357e73">setSampleRate</a>(44100.0);</div>
-<div class="line">player.<a class="code hl_function" href="classMidiFilePlayer.html#ab58a8cdbc314205bd17c061cdf9e0a51">setBpm</a>(120.0);</div>
+<div class="line">player.<a class="code hl_function" href="classMidiFilePlayer.html#a4408e1240eeecf9aaacd294184368f76">setFallbackBpm</a>(120.0);  <span class="comment">// Optional: only used if file has no tempo events</span></div>
 <div class="line">player.<a class="code hl_function" href="classMidiFilePlayer.html#a8668c94431e8ef473fcf5d56faf2830a">play</a>();</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// In audio callback</span></div>
@@ -165,9 +165,9 @@ Public Member Functions</h2></td></tr>
 <div class="ttc" id="aclassMidiFilePlayer_html"><div class="ttname"><a href="classMidiFilePlayer.html">MidiFilePlayer</a></div><div class="ttdoc">Plays back MIDI files with configurable tempo.</div><div class="ttdef"><b>Definition</b> gin_midifileplayer.h:53</div></div>
 <div class="ttc" id="aclassMidiFilePlayer_html_a01798f3003456655d6a5a1e718edf7f8"><div class="ttname"><a href="classMidiFilePlayer.html#a01798f3003456655d6a5a1e718edf7f8">MidiFilePlayer::processBlock</a></div><div class="ttdeci">void processBlock(int numSamples, juce::MidiBuffer &amp;midiBuffer)</div><div class="ttdoc">Processes a block, filling the buffer with MIDI events.</div></div>
 <div class="ttc" id="aclassMidiFilePlayer_html_a084b994e61932810b11c45826f357e73"><div class="ttname"><a href="classMidiFilePlayer.html#a084b994e61932810b11c45826f357e73">MidiFilePlayer::setSampleRate</a></div><div class="ttdeci">void setSampleRate(double sr)</div><div class="ttdoc">Sets the sample rate for playback timing.</div></div>
+<div class="ttc" id="aclassMidiFilePlayer_html_a4408e1240eeecf9aaacd294184368f76"><div class="ttname"><a href="classMidiFilePlayer.html#a4408e1240eeecf9aaacd294184368f76">MidiFilePlayer::setFallbackBpm</a></div><div class="ttdeci">void setFallbackBpm(double bpm)</div><div class="ttdoc">Sets the fallback tempo to use when the MIDI file contains no tempo events.</div></div>
 <div class="ttc" id="aclassMidiFilePlayer_html_a8668c94431e8ef473fcf5d56faf2830a"><div class="ttname"><a href="classMidiFilePlayer.html#a8668c94431e8ef473fcf5d56faf2830a">MidiFilePlayer::play</a></div><div class="ttdeci">void play()</div><div class="ttdoc">Starts playback from the current position.</div></div>
 <div class="ttc" id="aclassMidiFilePlayer_html_a88fce7d3026ec58de1ec9e5475256b86"><div class="ttname"><a href="classMidiFilePlayer.html#a88fce7d3026ec58de1ec9e5475256b86">MidiFilePlayer::load</a></div><div class="ttdeci">bool load(const juce::File &amp;file)</div><div class="ttdoc">Loads a MIDI file for playback.</div></div>
-<div class="ttc" id="aclassMidiFilePlayer_html_ab58a8cdbc314205bd17c061cdf9e0a51"><div class="ttname"><a href="classMidiFilePlayer.html#ab58a8cdbc314205bd17c061cdf9e0a51">MidiFilePlayer::setBpm</a></div><div class="ttdeci">void setBpm(double bpm)</div><div class="ttdoc">Sets the playback tempo.</div></div>
 <div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 </div><!-- fragment --><dl class="section see"><dt>See also</dt><dd>juce::MidiFile, juce::MidiBuffer </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -252,14 +252,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab58a8cdbc314205bd17c061cdf9e0a51" name="ab58a8cdbc314205bd17c061cdf9e0a51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab58a8cdbc314205bd17c061cdf9e0a51">&#9670;&#160;</a></span>setBpm()</h2>
+<a id="a4408e1240eeecf9aaacd294184368f76" name="a4408e1240eeecf9aaacd294184368f76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4408e1240eeecf9aaacd294184368f76">&#9670;&#160;</a></span>setFallbackBpm()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">void</a> MidiFilePlayer::setBpm </td>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> MidiFilePlayer::setFallbackBpm </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classPoint.html">double</a>&#160;</td>
           <td class="paramname"><em>bpm</em></td><td>)</td>
@@ -268,15 +268,13 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the playback tempo. </p>
+<p>Sets the fallback tempo to use when the MIDI file contains no tempo events. </p>
 <p>Call from the message thread only. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bpm</td><td>The tempo in beats per minute </td></tr>
+    <tr><td class="paramname">bpm</td><td>The fallback tempo in beats per minute (default: 120) </td></tr>
   </table>
   </dd>
 </dl>
-
-<p class="reference">Referenced by <a class="el" href="classStandaloneAudioProcessorPlayer.html#aef4664be93a5047353646237d0156d5a">StandaloneAudioProcessorPlayer::StandaloneAudioProcessorPlayer()</a>.</p>
 
 </div>
 </div>
@@ -583,7 +581,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 19 2025 03:00:49 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sat Dec 20 2025 16:13:38 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
