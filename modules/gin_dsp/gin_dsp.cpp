@@ -87,6 +87,7 @@ namespace gin
 #include "dsp/gin_textrenderer.cpp"
 #include "dsp/gin_wtoscillators.cpp"
 #include "dsp/gin_midifileplayer.cpp"
+#include "dsp/gin_audiometadata.cpp"
 
 #include "components/gin_audiosamplerbuffercomponent.cpp"
 #include "components/gin_dynamicsmeter.cpp"

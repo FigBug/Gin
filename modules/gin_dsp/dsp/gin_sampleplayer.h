@@ -32,6 +32,12 @@ public:
     double getSourceSampleRate() const { return sourceSampleRate; }
     void clear();
 
+    /** Returns position info for use with an AudioPlayHead.
+        Call from the audio thread before processing.
+        @return PositionInfo populated with current playback state
+    */
+    juce::AudioPlayHead::PositionInfo populatePositionInfo();
+
 private:
     float interpolateSampleWithCrossfade (int channel, double pos);
     float interpolateSample (int channel, double samplePosition);
@@ -46,4 +52,7 @@ private:
     std::atomic<bool> playing { false };
     std::atomic<bool> looping { true };
     std::atomic<bool> fileLoaded { false };
+    double bpm { 120.0 };
+    int timeSigNumerator { 4 };
+    int timeSigDenominator { 4 };
 };

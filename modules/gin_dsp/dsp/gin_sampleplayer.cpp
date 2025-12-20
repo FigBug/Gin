@@ -45,10 +45,19 @@ void SamplePlayer::load (const juce::File& f)
         newBuffer.setSize (reader->numChannels, int (reader->lengthInSamples));
         reader->read (&newBuffer, 0, newBuffer.getNumSamples(), 0, true, true);
 
+        // Extract metadata if available
+        AudioMetadata metadata (f, mgr);
+        double fileBpm = metadata.bpm.value_or (120.0);
+        int fileNumerator = metadata.numerator.value_or (4);
+        int fileDenominator = metadata.denominator.value_or (4);
+
         const juce::SpinLock::ScopedLockType sl (lock);
         loadedFilePath = f;
         buffer = std::move (newBuffer);
         sourceSampleRate = reader->sampleRate;
+        bpm = fileBpm;
+        timeSigNumerator = fileNumerator;
+        timeSigDenominator = fileDenominator;
         position.store (0.0);
         fileLoaded.store (true);
     }
@@ -216,4 +225,48 @@ float SamplePlayer::interpolateSample (int channel, double samplePosition)
     const float c3 = -y0 / 6.0f + y1 / 2.0f - y2 / 2.0f + y3 / 6.0f;
 
     return ((c3 * frac + c2) * frac + c1) * frac + c0;
+}
+
+juce::AudioPlayHead::PositionInfo SamplePlayer::populatePositionInfo()
+{
+    juce::AudioPlayHead::PositionInfo info;
+
+    info.setIsPlaying (playing.load());
+    info.setIsRecording (false);
+    info.setIsLooping (looping.load());
+
+    const double pos = position.load();
+    const double positionSeconds = pos / sourceSampleRate;
+
+    info.setTimeInSeconds (positionSeconds);
+    info.setTimeInSamples (static_cast<int64_t> (pos * playbackSampleRate / sourceSampleRate));
+
+    info.setBpm (bpm);
+
+    // Calculate PPQ position (quarter notes from start)
+    const double beatsPerSecond = bpm / 60.0;
+    const double ppq = positionSeconds * beatsPerSecond;
+    info.setPpqPosition (ppq);
+
+    // Calculate bar start position using actual time signature
+    const double beatsPerBar = static_cast<double> (timeSigNumerator);
+    const double barNumber = std::floor (ppq / beatsPerBar);
+    info.setPpqPositionOfLastBarStart (barNumber * beatsPerBar);
+
+    // Set time signature from file metadata
+    info.setTimeSignature (juce::AudioPlayHead::TimeSignature { timeSigNumerator, timeSigDenominator });
+
+    if (looping.load())
+    {
+        const int numSamples = buffer.getNumSamples();
+        const double lengthSeconds = static_cast<double> (numSamples) / sourceSampleRate;
+        const double lengthPpq = lengthSeconds * beatsPerSecond;
+
+        juce::AudioPlayHead::LoopPoints loopPoints;
+        loopPoints.ppqStart = 0.0;
+        loopPoints.ppqEnd = lengthPpq;
+        info.setLoopPoints (loopPoints);
+    }
+
+    return info;
 }

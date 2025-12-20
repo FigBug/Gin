@@ -1,5 +1,36 @@
 #pragma once
 
+/** A concrete implementation of AudioPlayHead for standalone plugin use.
+    Allows external code to set the position info which is then returned
+    when the processor queries the playhead.
+*/
+class StandalonePlayhead : public juce::AudioPlayHead
+{
+public:
+    StandalonePlayhead() = default;
+
+    /** Returns the current position info.
+        Called by the AudioProcessor during processBlock.
+    */
+    juce::Optional<PositionInfo> getPosition() const
+    {
+        return positionInfo;
+    }
+
+    /** Sets the position info to be returned by getPosition().
+        Call this before the processor's processBlock to provide timing info.
+    */
+    void setPositionInfo (const PositionInfo& info)
+    {
+        positionInfo = info;
+    }
+
+private:
+    PositionInfo positionInfo;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (StandalonePlayhead)
+};
+
 class AudioRecorder : public juce::Thread
 {
 public:
@@ -278,7 +309,18 @@ public:
 
     void preProcessBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midi) override
     {
+        if (midiPlayer.hasFileLoaded())
+        {
+            playhead.setPositionInfo (midiPlayer.populatePositionInfo());
+            processor->setPlayHead (&playhead);
+        }
         midiPlayer.processBlock (buffer.getNumSamples(), midi);
+
+        if (samplePlayer.hasFileLoaded())
+        {
+            playhead.setPositionInfo (samplePlayer.populatePositionInfo());
+            processor->setPlayHead (&playhead);
+        }
         samplePlayer.processBlock (buffer);
     }
 
@@ -301,13 +343,16 @@ public:
 
         if (recordFifo.getFreeSpace() >= buffer.getNumSamples())
             recordFifo.write (buffer);
+
+        processor->setPlayHead (nullptr);
 	}
 
-    AudioFifo       scopeFifo;
-    AudioFifo       spectrumFifo;
-    AudioFifo       xyFifo;
-    AudioFifo       recordFifo;
-    MidiFilePlayer  midiPlayer;
-    SamplePlayer    samplePlayer;
-    AudioRecorder   audioRecorder { recordFifo };
+    AudioFifo           scopeFifo;
+    AudioFifo           spectrumFifo;
+    AudioFifo           xyFifo;
+    AudioFifo           recordFifo;
+    MidiFilePlayer      midiPlayer;
+    SamplePlayer        samplePlayer;
+    AudioRecorder       audioRecorder { recordFifo };
+    StandalonePlayhead  playhead;
 };

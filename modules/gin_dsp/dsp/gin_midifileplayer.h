@@ -118,6 +118,12 @@ public:
     /** Clears the currently loaded file. */
     void clear();
 
+    /** Returns position info for use with an AudioPlayHead.
+        Call from the audio thread before processing.
+        @return PositionInfo populated with current playback state
+    */
+    juce::AudioPlayHead::PositionInfo populatePositionInfo();
+
 private:
     void buildSequence();
     void buildTempoMap();

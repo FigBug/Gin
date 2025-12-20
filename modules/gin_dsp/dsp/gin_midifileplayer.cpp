@@ -326,6 +326,80 @@ void MidiFilePlayer::sendAllNotesOff (juce::MidiBuffer& midiBuffer, int samplePo
     activeNotes.clear();
 }
 
+juce::AudioPlayHead::PositionInfo MidiFilePlayer::populatePositionInfo()
+{
+    juce::AudioPlayHead::PositionInfo info;
+
+    info.setIsPlaying (playing.load());
+    info.setIsRecording (false);
+    info.setIsLooping (looping.load());
+
+    const double positionSeconds = playheadSeconds.load();
+    info.setTimeInSeconds (positionSeconds);
+
+    const double sr = sampleRate.load();
+    info.setTimeInSamples (static_cast<int64_t> (positionSeconds * sr));
+
+    // Get BPM from tempo map at current position
+    double bpm = fallbackBpm.load();
+    if (fileLoaded.load())
+    {
+        const juce::SpinLock::ScopedTryLockType sl (lock);
+        if (sl.isLocked() && ! tempoMap.empty())
+        {
+            const double currentTicks = secondsToTicks (positionSeconds);
+
+            // Find the tempo event that applies to our current position
+            for (size_t i = tempoMap.size(); i > 0; --i)
+            {
+                if (tempoMap[i - 1].tickPosition <= currentTicks)
+                {
+                    double microsecondsPerQuarterNote = tempoMap[i - 1].microsecondsPerQuarterNote;
+                    bpm = 60000000.0 / microsecondsPerQuarterNote;
+                    break;
+                }
+            }
+        }
+    }
+    info.setBpm (bpm);
+
+    // Calculate PPQ position (quarter notes from start)
+    const short timeFormat = midiFile.getTimeFormat();
+    if (timeFormat > 0 && fileLoaded.load())
+    {
+        const juce::SpinLock::ScopedTryLockType sl (lock);
+        if (sl.isLocked())
+        {
+            const double ticks = secondsToTicks (positionSeconds);
+            const double ppq = ticks / static_cast<double> (timeFormat);
+            info.setPpqPosition (ppq);
+
+            // Calculate bar start position (assuming 4/4 time signature)
+            const double beatsPerBar = 4.0;
+            const double barNumber = std::floor (ppq / beatsPerBar);
+            info.setPpqPositionOfLastBarStart (barNumber * beatsPerBar);
+        }
+    }
+
+    // Set time signature (default 4/4 - MIDI files may have time sig events but we use default)
+    info.setTimeSignature (juce::AudioPlayHead::TimeSignature { 4, 4 });
+
+    if (looping.load())
+    {
+        juce::AudioPlayHead::LoopPoints loopPoints;
+        loopPoints.ppqStart = 0.0;
+
+        if (timeFormat > 0)
+            loopPoints.ppqEnd = lengthInTicks.load() / static_cast<double> (timeFormat);
+        else
+            loopPoints.ppqEnd = lengthInSeconds.load() * (bpm / 60.0);
+
+        info.setLoopPoints (loopPoints);
+    }
+
+    return info;
+}
+
 void MidiFilePlayer::processBlock (int numSamples, juce::MidiBuffer& midiBuffer)
 {
     if (numSamples <= 0)
