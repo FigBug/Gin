@@ -253,7 +253,7 @@ public:
         xyFifo.setSize (2, 44100);
         recordFifo.setSize (2, 44100);
 
-        midiPlayer.setBpm (120.0);
+        midiPlayer.setFallbackBpm (120.0);
         midiPlayer.setLooping (true);
 	}
 

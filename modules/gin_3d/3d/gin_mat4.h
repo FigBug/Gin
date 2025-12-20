@@ -21,7 +21,7 @@ struct Mat4
         // Initialize to identity matrix
         for (int i = 0; i < 4; ++i)
             for (int j = 0; j < 4; ++j)
-                m[i][j] = (i == j) ? T (1) : T (0);
+                m[size_t (i)][size_t (j)] = (i == j) ? T (1) : T (0);
     }
 
     /** Creates an identity matrix. */
@@ -165,9 +165,9 @@ struct Mat4
         {
             for (int row = 0; row < 4; ++row)
             {
-                result.m[col][row] = T (0);
+                result.m[size_t (col)][size_t (row)] = T (0);
                 for (int k = 0; k < 4; ++k)
-                    result.m[col][row] += m[k][row] * other.m[col][k];
+                    result.m[size_t (col)][size_t (row)] += m[size_t (k)][size_t (row)] * other.m[size_t (col)][size_t (k)];
             }
         }
         return result;
