@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 
 juce_add_module(gin)
+juce_add_module(gin_3d)
 juce_add_module(gin_dsp)
 juce_add_module(gin_graphics)
 juce_add_module(gin_gui)

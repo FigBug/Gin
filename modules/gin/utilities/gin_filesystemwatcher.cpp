@@ -1,6 +1,6 @@
 /*==============================================================================
 
-Copyright 2018 by Roland Rabien
+Copyright 2018 - 2025 by Roland Rabien
 For more information visit www.rabiensoftware.com
 
 ==============================================================================*/
@@ -252,24 +252,9 @@ public:
 
 //==============================================================================
 #ifdef JUCE_WINDOWS
-class FileSystemWatcher::Impl : private juce::AsyncUpdater,
-                                private juce::Thread
+class FileSystemWatcher::Impl : private juce::Thread
 {
 public:
-    struct Event
-    {
-        Event() = delete;
-        Event(const juce::File& f, FileSystemEvent event) : file(f), fsEvent(event) {}
-
-        juce::File file;
-        FileSystemEvent fsEvent = FileSystemEvent::undefined;
-
-        bool operator== (const Event& other) const
-        {
-            return file == other.file && fsEvent == other.fsEvent;
-        }
-    };
-
     Impl (FileSystemWatcher& o, juce::File f)
       : Thread ("FileSystemWatcher::Impl"), owner (o), folder (std::move(f))
     {
@@ -313,8 +298,6 @@ public:
 
             if (success && bytesOut > 0)
             {
-                juce::ScopedLock sl (lock);
-
                 uint8_t* rawData = buffer;
                 while (true)
                 {
@@ -342,16 +325,19 @@ public:
                             break;
                     }
 
-                    if (eventType == undefined) {
-                        continue;
-                    }
+                    auto safeOwner = juce::WeakReference<FileSystemWatcher> (&owner);
+                    auto path = folder.getChildFile (juce::String (fni->FileName, fni->FileNameLength / sizeof(wchar_t)));
 
-                    Event e { folder.getChildFile (juce::String (fni->FileName, fni->FileNameLength / sizeof(wchar_t))), eventType };
-
-                    if (std::ranges::none_of(events, [&](const auto& event) {
-                        return event == e;
-                    })) {
-                        events.add (std::move (e));
+                    if (eventType != FileSystemEvent::undefined)
+                    {
+                        juce::MessageManager::callAsync ([safeOwner, path, eventType, f = folder]
+                        {
+                            if (safeOwner)
+                            {
+                                safeOwner->folderChanged (f);
+                                safeOwner->fileChanged (path, eventType);
+                            }
+                        });
                     }
 
                     if (fni->NextEntryOffset > 0)
@@ -359,30 +345,12 @@ public:
                     else
                         break;
                 }
-
-                if (!events.isEmpty())
-                    triggerAsyncUpdate();
             }
         }
     }
 
-    void handleAsyncUpdate() override
-    {
-        juce::ScopedLock sl (lock);
-
-        owner.folderChanged (folder);
-
-        for (const auto& e : events)
-            owner.fileChanged (e.file, e.fsEvent);
-
-        events.clear();
-    }
-
     FileSystemWatcher& owner;
     const juce::File folder;
-
-    juce::CriticalSection lock;
-    juce::Array<Event> events;
 
     HANDLE folderHandle;
 };

@@ -333,8 +333,10 @@ public:
 
     inline float processPulse (float note, float phase, float pw)
     {
-        float phaseUp   = phase + 0.5f * pw;
-        float phaseDown = phase - 0.5f * pw;
+        pw = std::clamp (pw, 0.01f, 0.99f);
+        
+        auto phaseUp   = phase + 0.5f * pw;
+        auto phaseDown = phase - 0.5f * pw;
 
         if (phaseUp   >= 1.0f) phaseUp   -= 1.0f;
         if (phaseDown <  0.0f) phaseDown += 1.0f;
@@ -342,10 +344,11 @@ public:
         auto count = std::min (sawDownTable.tables.size(), sawDownTable.tables.size());
         int tableIndex = juce::jlimit (0, int (count - 1), int ((note - 0.5) / count));
 
+        auto dc = 2.0f * pw - 1.0f;
         auto s1 = sawDownTable.getLinear (tableIndex, phaseDown);
         auto s2 = sawUpTable.getLinear (tableIndex, phaseUp);
 
-        return s1 + s2;
+        return -dc + s1 + s2;
     }
 
     inline float process (Wave wave, float note, float phase, float pw)

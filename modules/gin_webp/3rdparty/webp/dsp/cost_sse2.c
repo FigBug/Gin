@@ -14,16 +14,19 @@
 #include "../dsp/dsp.h"
 
 #if defined(WEBP_USE_SSE2)
+#include <assert.h>
 #include <emmintrin.h>
 
+#include "../dsp/cpu.h"
 #include "../enc/cost_enc.h"
 #include "../enc/vp8i_enc.h"
 #include "../utils/utils.h"
+#include "../webp/types.h"
 
 //------------------------------------------------------------------------------
 
-static void SetResidualCoeffs_SSE2(const int16_t* const coeffs,
-                                   VP8Residual* const res) {
+static void SetResidualCoeffs_SSE2(const int16_t* WEBP_RESTRICT const coeffs,
+                                   VP8Residual* WEBP_RESTRICT const res) {
   const __m128i c0 = _mm_loadu_si128((const __m128i*)(coeffs + 0));
   const __m128i c1 = _mm_loadu_si128((const __m128i*)(coeffs + 8));
   // Use SSE2 to compare 16 values with a single instruction.
@@ -59,7 +62,7 @@ static int GetResidualCost_SSE2(int ctx0, const VP8Residual* const res) {
     return VP8BitCost(0, p0);
   }
 
-  {   // precompute clamped levels and contexts, packed to 8b.
+  {  // precompute clamped levels and contexts, packed to 8b.
     const __m128i zero = _mm_setzero_si128();
     const __m128i kCst2 = _mm_set1_epi8(2);
     const __m128i kCst67 = _mm_set1_epi8(MAX_VARIABLE_LEVEL);
@@ -67,11 +70,11 @@ static int GetResidualCost_SSE2(int ctx0, const VP8Residual* const res) {
     const __m128i c1 = _mm_loadu_si128((const __m128i*)&res->coeffs[8]);
     const __m128i D0 = _mm_sub_epi16(zero, c0);
     const __m128i D1 = _mm_sub_epi16(zero, c1);
-    const __m128i E0 = _mm_max_epi16(c0, D0);   // abs(v), 16b
+    const __m128i E0 = _mm_max_epi16(c0, D0);  // abs(v), 16b
     const __m128i E1 = _mm_max_epi16(c1, D1);
     const __m128i F = _mm_packs_epi16(E0, E1);
-    const __m128i G = _mm_min_epu8(F, kCst2);    // context = 0,1,2
-    const __m128i H = _mm_min_epu8(F, kCst67);   // clamp_level in [0..67]
+    const __m128i G = _mm_min_epu8(F, kCst2);   // context = 0,1,2
+    const __m128i H = _mm_min_epu8(F, kCst67);  // clamp_level in [0..67]
 
     _mm_storeu_si128((__m128i*)&ctxs[0], G);
     _mm_storeu_si128((__m128i*)&levels[0], H);
@@ -82,7 +85,7 @@ static int GetResidualCost_SSE2(int ctx0, const VP8Residual* const res) {
   for (; n < res->last; ++n) {
     const int ctx = ctxs[n];
     const int level = levels[n];
-    const int flevel = abs_levels[n];   // full level
+    const int flevel = abs_levels[n];               // full level
     cost += VP8LevelFixedCosts[flevel] + t[level];  // simplified VP8LevelCost()
     t = costs[n + 1][ctx];
   }

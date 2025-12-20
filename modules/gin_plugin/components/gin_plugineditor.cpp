@@ -276,7 +276,7 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p, PatchBrowser& pb)
             prog = slProc.getPrograms()[progIdx];
         
         auto w = std::make_shared<gin::PluginAlertWindow> ("Create preset:", "", juce::AlertWindow::NoIcon, getParentComponent());
-        w->setLookAndFeel (slProc.lf.get());
+        w->setLookAndFeel (slProc.processorOptions.lookAndFeel.get());
         w->addTextEditor ("name", prog != nullptr ? prog->name : juce::String(), "Name:");
 
         if (hasBrowser)
@@ -302,7 +302,7 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p, PatchBrowser& pb)
                     auto wc = std::make_shared<gin::PluginAlertWindow> ("Overwrite preset '" + txt + "'?", "", juce::AlertWindow::NoIcon, this);
                     wc->addButton ("Yes", 1, juce::KeyPress (juce::KeyPress::returnKey));
                     wc->addButton ("No", 0, juce::KeyPress (juce::KeyPress::escapeKey));
-                    wc->setLookAndFeel (slProc.lf.get());
+                    wc->setLookAndFeel (slProc.processorOptions.lookAndFeel.get());
 
                     wc->runAsync (*getParentComponent(), [this, aut, tag, txt, wc] (int r)
                     {
@@ -327,7 +327,7 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p, PatchBrowser& pb)
         auto w = std::make_shared<gin::PluginAlertWindow> ("Delete preset '" + slProc.getProgramName (programs.getSelectedItemIndex()) + "'?", "", juce::AlertWindow::NoIcon, getParentComponent());
         w->addButton ("Yes", 1, juce::KeyPress (juce::KeyPress::returnKey));
         w->addButton ("No", 0, juce::KeyPress (juce::KeyPress::escapeKey));
-        w->setLookAndFeel (slProc.lf.get());
+        w->setLookAndFeel (slProc.processorOptions.lookAndFeel.get());
 
         w->runAsync (*getParentComponent(), [this, w] (int r)
         {
@@ -638,7 +638,7 @@ bool wantsAccessibleKeyboard (juce::Component& c)
 ProcessorEditor::ProcessorEditor (Processor& p) noexcept
   : ProcessorEditorBase (p, 56, 70), slProc (p)
 {
-    setLookAndFeel (slProc.lf.get());
+    setLookAndFeel (slProc.processorOptions.lookAndFeel.get());
 
     tooltipWindow.setMillisecondsBeforeTipAppears (2000);
 
@@ -653,7 +653,7 @@ ProcessorEditor::ProcessorEditor (Processor& p) noexcept
 ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_) noexcept
     : ProcessorEditorBase (p, cx_, cy_), slProc (p)
 {
-    setLookAndFeel (slProc.lf.get());
+    setLookAndFeel (slProc.processorOptions.lookAndFeel.get());
 
     tooltipWindow.setMillisecondsBeforeTipAppears (2000);
 
@@ -733,7 +733,7 @@ void ProcessorEditor::showAboutInfo()
 
     auto w = std::make_shared<gin::PluginAlertWindow> ("---- About ----", msg, juce::AlertWindow::NoIcon, this);
     w->addButton ("OK", 1, juce::KeyPress (juce::KeyPress::returnKey));
-    w->setLookAndFeel (slProc.lf.get());
+    w->setLookAndFeel (slProc.processorOptions.lookAndFeel.get());
 
     w->runAsync (*this, [w] (int)
     {

@@ -1,6 +1,6 @@
 /*==============================================================================
 
- Copyright 2018 by Roland Rabien
+ Copyright 2018 - 2025 by Roland Rabien
  For more information visit www.rabiensoftware.com
 
  ==============================================================================*/
@@ -101,6 +101,7 @@ namespace gin
 #include "dsp/gin_gateeffect.h"
 #include "dsp/gin_lfo.h"
 #include "dsp/gin_midififo.h"
+#include "dsp/gin_midifileplayer.h"
 #include "dsp/gin_audiomidififo.h"
 #include "dsp/gin_modulation.h"
 #include "dsp/gin_mseg.h"
@@ -110,6 +111,7 @@ namespace gin
 #include "dsp/gin_resamplingfifo.h"
 #include "dsp/gin_sample.h"
 #include "dsp/gin_sampleoscillator.h"
+#include "dsp/gin_sampleplayer.h"
 #include "dsp/gin_simpleverb.h"
 #include "dsp/gin_steplfo.h"
 #include "dsp/gin_stereodelay.h"
@@ -125,6 +127,8 @@ namespace gin
 #include "components/gin_audiosamplerbuffercomponent.h"
 #include "components/gin_dynamicsmeter.h"
 #include "components/gin_levelmeter.h"
+#include "components/gin_midifilecomponent.h"
+#include "components/gin_spectrumanalyzer.h"
 #include "components/gin_triggeredscope.h"
 #include "components/gin_waveformcomponent.h"
 #include "components/gin_wavetablecomponent.h"

@@ -16,38 +16,41 @@
 #if defined(WEBP_USE_MSA)
 
 #include <stdlib.h>
+
 #include "../dsp/msa_macro.h"
 #include "../enc/vp8i_enc.h"
 
 //------------------------------------------------------------------------------
 // Transforms
 
-#define IDCT_1D_W(in0, in1, in2, in3, out0, out1, out2, out3) do {  \
-  v4i32 a1_m, b1_m, c1_m, d1_m;                                     \
-  const v4i32 cospi8sqrt2minus1 = __msa_fill_w(20091);              \
-  const v4i32 sinpi8sqrt2 = __msa_fill_w(35468);                    \
-  v4i32 c_tmp1_m = in1 * sinpi8sqrt2;                               \
-  v4i32 c_tmp2_m = in3 * cospi8sqrt2minus1;                         \
-  v4i32 d_tmp1_m = in1 * cospi8sqrt2minus1;                         \
-  v4i32 d_tmp2_m = in3 * sinpi8sqrt2;                               \
-                                                                    \
-  ADDSUB2(in0, in2, a1_m, b1_m);                                    \
-  SRAI_W2_SW(c_tmp1_m, c_tmp2_m, 16);                               \
-  c_tmp2_m = c_tmp2_m + in3;                                        \
-  c1_m = c_tmp1_m - c_tmp2_m;                                       \
-  SRAI_W2_SW(d_tmp1_m, d_tmp2_m, 16);                               \
-  d_tmp1_m = d_tmp1_m + in1;                                        \
-  d1_m = d_tmp1_m + d_tmp2_m;                                       \
-  BUTTERFLY_4(a1_m, b1_m, c1_m, d1_m, out0, out1, out2, out3);      \
-} while (0)
+#define IDCT_1D_W(in0, in1, in2, in3, out0, out1, out2, out3)    \
+  do {                                                           \
+    v4i32 a1_m, b1_m, c1_m, d1_m;                                \
+    const v4i32 cospi8sqrt2minus1 = __msa_fill_w(20091);         \
+    const v4i32 sinpi8sqrt2 = __msa_fill_w(35468);               \
+    v4i32 c_tmp1_m = in1 * sinpi8sqrt2;                          \
+    v4i32 c_tmp2_m = in3 * cospi8sqrt2minus1;                    \
+    v4i32 d_tmp1_m = in1 * cospi8sqrt2minus1;                    \
+    v4i32 d_tmp2_m = in3 * sinpi8sqrt2;                          \
+                                                                 \
+    ADDSUB2(in0, in2, a1_m, b1_m);                               \
+    SRAI_W2_SW(c_tmp1_m, c_tmp2_m, 16);                          \
+    c_tmp2_m = c_tmp2_m + in3;                                   \
+    c1_m = c_tmp1_m - c_tmp2_m;                                  \
+    SRAI_W2_SW(d_tmp1_m, d_tmp2_m, 16);                          \
+    d_tmp1_m = d_tmp1_m + in1;                                   \
+    d1_m = d_tmp1_m + d_tmp2_m;                                  \
+    BUTTERFLY_4(a1_m, b1_m, c1_m, d1_m, out0, out1, out2, out3); \
+  } while (0)
 
-static WEBP_INLINE void ITransformOne(const uint8_t* ref, const int16_t* in,
-                                      uint8_t* dst) {
+static WEBP_INLINE void ITransformOne(const uint8_t* WEBP_RESTRICT ref,
+                                      const int16_t* WEBP_RESTRICT in,
+                                      uint8_t* WEBP_RESTRICT dst) {
   v8i16 input0, input1;
   v4i32 in0, in1, in2, in3, hz0, hz1, hz2, hz3, vt0, vt1, vt2, vt3;
   v4i32 res0, res1, res2, res3;
   v16i8 dest0, dest1, dest2, dest3;
-  const v16i8 zero = { 0 };
+  const v16i8 zero = {0};
 
   LD_SH2(in, 8, input0, input1);
   UNPCK_SH_SW(input0, in0, in1);
@@ -58,10 +61,10 @@ static WEBP_INLINE void ITransformOne(const uint8_t* ref, const int16_t* in,
   SRARI_W4_SW(vt0, vt1, vt2, vt3, 3);
   TRANSPOSE4x4_SW_SW(vt0, vt1, vt2, vt3, vt0, vt1, vt2, vt3);
   LD_SB4(ref, BPS, dest0, dest1, dest2, dest3);
-  ILVR_B4_SW(zero, dest0, zero, dest1, zero, dest2, zero, dest3,
-             res0, res1, res2, res3);
-  ILVR_H4_SW(zero, res0, zero, res1, zero, res2, zero, res3,
-             res0, res1, res2, res3);
+  ILVR_B4_SW(zero, dest0, zero, dest1, zero, dest2, zero, dest3, res0, res1,
+             res2, res3);
+  ILVR_H4_SW(zero, res0, zero, res1, zero, res2, zero, res3, res0, res1, res2,
+             res3);
   ADD4(res0, vt0, res1, vt1, res2, vt2, res3, vt3, res0, res1, res2, res3);
   CLIP_SW4_0_255(res0, res1, res2, res3);
   PCKEV_B2_SW(res0, res1, res2, res3, vt0, vt1);
@@ -69,27 +72,29 @@ static WEBP_INLINE void ITransformOne(const uint8_t* ref, const int16_t* in,
   ST4x4_UB(res0, res0, 3, 2, 1, 0, dst, BPS);
 }
 
-static void ITransform_MSA(const uint8_t* ref, const int16_t* in, uint8_t* dst,
-                           int do_two) {
+static void ITransform_MSA(const uint8_t* WEBP_RESTRICT ref,
+                           const int16_t* WEBP_RESTRICT in,
+                           uint8_t* WEBP_RESTRICT dst, int do_two) {
   ITransformOne(ref, in, dst);
   if (do_two) {
     ITransformOne(ref + 4, in + 16, dst + 4);
   }
 }
 
-static void FTransform_MSA(const uint8_t* src, const uint8_t* ref,
-                           int16_t* out) {
+static void FTransform_MSA(const uint8_t* WEBP_RESTRICT src,
+                           const uint8_t* WEBP_RESTRICT ref,
+                           int16_t* WEBP_RESTRICT out) {
   uint64_t out0, out1, out2, out3;
   uint32_t in0, in1, in2, in3;
   v4i32 tmp0, tmp1, tmp2, tmp3, tmp4, tmp5;
   v8i16 t0, t1, t2, t3;
-  v16u8 srcl0, srcl1, src0 = { 0 }, src1 = { 0 };
-  const v8i16 mask0 = { 0, 4, 8, 12, 1, 5, 9, 13 };
-  const v8i16 mask1 = { 3, 7, 11, 15, 2, 6, 10, 14 };
-  const v8i16 mask2 = { 4, 0, 5, 1, 6, 2, 7, 3 };
-  const v8i16 mask3 = { 0, 4, 1, 5, 2, 6, 3, 7 };
-  const v8i16 cnst0 = { 2217, -5352, 2217, -5352, 2217, -5352, 2217, -5352 };
-  const v8i16 cnst1 = { 5352, 2217, 5352, 2217, 5352, 2217, 5352, 2217 };
+  v16u8 srcl0, srcl1, src0 = {0}, src1 = {0};
+  const v8i16 mask0 = {0, 4, 8, 12, 1, 5, 9, 13};
+  const v8i16 mask1 = {3, 7, 11, 15, 2, 6, 10, 14};
+  const v8i16 mask2 = {4, 0, 5, 1, 6, 2, 7, 3};
+  const v8i16 mask3 = {0, 4, 1, 5, 2, 6, 3, 7};
+  const v8i16 cnst0 = {2217, -5352, 2217, -5352, 2217, -5352, 2217, -5352};
+  const v8i16 cnst1 = {5352, 2217, 5352, 2217, 5352, 2217, 5352, 2217};
 
   LW4(src, BPS, in0, in1, in2, in3);
   INSERT_W4_UB(in0, in1, in2, in3, src0);
@@ -131,30 +136,31 @@ static void FTransform_MSA(const uint8_t* src, const uint8_t* ref,
   SD4(out0, out1, out2, out3, out, 8);
 }
 
-static void FTransformWHT_MSA(const int16_t* in, int16_t* out) {
-  v8i16 in0 = { 0 };
-  v8i16 in1 = { 0 };
+static void FTransformWHT_MSA(const int16_t* WEBP_RESTRICT in,
+                              int16_t* WEBP_RESTRICT out) {
+  v8i16 in0 = {0};
+  v8i16 in1 = {0};
   v8i16 tmp0, tmp1, tmp2, tmp3;
   v8i16 out0, out1;
-  const v8i16 mask0 = { 0, 1, 2, 3, 8, 9, 10, 11 };
-  const v8i16 mask1 = { 4, 5, 6, 7, 12, 13, 14, 15 };
-  const v8i16 mask2 = { 0, 4, 8, 12, 1, 5, 9, 13 };
-  const v8i16 mask3 = { 3, 7, 11, 15, 2, 6, 10, 14 };
+  const v8i16 mask0 = {0, 1, 2, 3, 8, 9, 10, 11};
+  const v8i16 mask1 = {4, 5, 6, 7, 12, 13, 14, 15};
+  const v8i16 mask2 = {0, 4, 8, 12, 1, 5, 9, 13};
+  const v8i16 mask3 = {3, 7, 11, 15, 2, 6, 10, 14};
 
-  in0 = __msa_insert_h(in0, 0, in[  0]);
-  in0 = __msa_insert_h(in0, 1, in[ 64]);
+  in0 = __msa_insert_h(in0, 0, in[0]);
+  in0 = __msa_insert_h(in0, 1, in[64]);
   in0 = __msa_insert_h(in0, 2, in[128]);
   in0 = __msa_insert_h(in0, 3, in[192]);
-  in0 = __msa_insert_h(in0, 4, in[ 16]);
-  in0 = __msa_insert_h(in0, 5, in[ 80]);
+  in0 = __msa_insert_h(in0, 4, in[16]);
+  in0 = __msa_insert_h(in0, 5, in[80]);
   in0 = __msa_insert_h(in0, 6, in[144]);
   in0 = __msa_insert_h(in0, 7, in[208]);
-  in1 = __msa_insert_h(in1, 0, in[ 48]);
+  in1 = __msa_insert_h(in1, 0, in[48]);
   in1 = __msa_insert_h(in1, 1, in[112]);
   in1 = __msa_insert_h(in1, 2, in[176]);
   in1 = __msa_insert_h(in1, 3, in[240]);
-  in1 = __msa_insert_h(in1, 4, in[ 32]);
-  in1 = __msa_insert_h(in1, 5, in[ 96]);
+  in1 = __msa_insert_h(in1, 4, in[32]);
+  in1 = __msa_insert_h(in1, 5, in[96]);
   in1 = __msa_insert_h(in1, 6, in[160]);
   in1 = __msa_insert_h(in1, 7, in[224]);
   ADDSUB2(in0, in1, tmp0, tmp1);
@@ -168,17 +174,18 @@ static void FTransformWHT_MSA(const int16_t* in, int16_t* out) {
   ST_SH2(out0, out1, out, 8);
 }
 
-static int TTransform_MSA(const uint8_t* in, const uint16_t* w) {
+static int TTransform_MSA(const uint8_t* WEBP_RESTRICT in,
+                          const uint16_t* WEBP_RESTRICT w) {
   int sum;
   uint32_t in0_m, in1_m, in2_m, in3_m;
-  v16i8 src0 = { 0 };
+  v16i8 src0 = {0};
   v8i16 in0, in1, tmp0, tmp1, tmp2, tmp3;
   v4i32 dst0, dst1;
-  const v16i8 zero = { 0 };
-  const v8i16 mask0 = { 0, 1, 2, 3, 8, 9, 10, 11 };
-  const v8i16 mask1 = { 4, 5, 6, 7, 12, 13, 14, 15 };
-  const v8i16 mask2 = { 0, 4, 8, 12, 1, 5, 9, 13 };
-  const v8i16 mask3 = { 3, 7, 11, 15, 2, 6, 10, 14 };
+  const v16i8 zero = {0};
+  const v8i16 mask0 = {0, 1, 2, 3, 8, 9, 10, 11};
+  const v8i16 mask1 = {4, 5, 6, 7, 12, 13, 14, 15};
+  const v8i16 mask2 = {0, 4, 8, 12, 1, 5, 9, 13};
+  const v8i16 mask3 = {3, 7, 11, 15, 2, 6, 10, 14};
 
   LW4(in, BPS, in0_m, in1_m, in2_m, in3_m);
   INSERT_W4_SB(in0_m, in1_m, in2_m, in3_m, src0);
@@ -200,15 +207,17 @@ static int TTransform_MSA(const uint8_t* in, const uint16_t* w) {
   return sum;
 }
 
-static int Disto4x4_MSA(const uint8_t* const a, const uint8_t* const b,
-                        const uint16_t* const w) {
+static int Disto4x4_MSA(const uint8_t* WEBP_RESTRICT const a,
+                        const uint8_t* WEBP_RESTRICT const b,
+                        const uint16_t* WEBP_RESTRICT const w) {
   const int sum1 = TTransform_MSA(a, w);
   const int sum2 = TTransform_MSA(b, w);
   return abs(sum2 - sum1) >> 5;
 }
 
-static int Disto16x16_MSA(const uint8_t* const a, const uint8_t* const b,
-                          const uint16_t* const w) {
+static int Disto16x16_MSA(const uint8_t* WEBP_RESTRICT const a,
+                          const uint8_t* WEBP_RESTRICT const b,
+                          const uint16_t* WEBP_RESTRICT const w) {
   int D = 0;
   int x, y;
   for (y = 0; y < 16 * BPS; y += 4 * BPS) {
@@ -226,14 +235,14 @@ static void CollectHistogram_MSA(const uint8_t* ref, const uint8_t* pred,
                                  int start_block, int end_block,
                                  VP8Histogram* const histo) {
   int j;
-  int distribution[MAX_COEFF_THRESH + 1] = { 0 };
+  int distribution[MAX_COEFF_THRESH + 1] = {0};
   for (j = start_block; j < end_block; ++j) {
     int16_t out[16];
     VP8FTransform(ref + VP8DspScan[j], pred + VP8DspScan[j], out);
     {
       int k;
       v8i16 coeff0, coeff1;
-      const v8i16 zero = { 0 };
+      const v8i16 zero = {0};
       const v8i16 max_coeff_thr = __msa_ldi_h(MAX_COEFF_THRESH);
       LD_SH2(&out[0], 8, coeff0, coeff1);
       coeff0 = __msa_add_a_h(coeff0, zero);
@@ -259,8 +268,10 @@ static void CollectHistogram_MSA(const uint8_t* ref, const uint8_t* pred,
 #define AVG3(a, b, c) (((a) + 2 * (b) + (c) + 2) >> 2)
 #define AVG2(a, b) (((a) + (b) + 1) >> 1)
 
-static WEBP_INLINE void VE4(uint8_t* dst, const uint8_t* top) {    // vertical
-  const v16u8 A1 = { 0 };
+// vertical
+static WEBP_INLINE void VE4(uint8_t* WEBP_RESTRICT dst,
+                            const uint8_t* WEBP_RESTRICT top) {
+  const v16u8 A1 = {0};
   const uint64_t val_m = LD(top - 1);
   const v16u8 A = (v16u8)__msa_insert_d((v2i64)A1, 0, val_m);
   const v16u8 B = SLDI_UB(A, A, 1);
@@ -272,7 +283,9 @@ static WEBP_INLINE void VE4(uint8_t* dst, const uint8_t* top) {    // vertical
   SW4(out, out, out, out, dst, BPS);
 }
 
-static WEBP_INLINE void HE4(uint8_t* dst, const uint8_t* top) {    // horizontal
+// horizontal
+static WEBP_INLINE void HE4(uint8_t* WEBP_RESTRICT dst,
+                            const uint8_t* WEBP_RESTRICT top) {
   const int X = top[-1];
   const int I = top[-2];
   const int J = top[-3];
@@ -284,7 +297,8 @@ static WEBP_INLINE void HE4(uint8_t* dst, const uint8_t* top) {    // horizontal
   WebPUint32ToMem(dst + 3 * BPS, 0x01010101U * AVG3(K, L, L));
 }
 
-static WEBP_INLINE void DC4(uint8_t* dst, const uint8_t* top) {
+static WEBP_INLINE void DC4(uint8_t* WEBP_RESTRICT dst,
+                            const uint8_t* WEBP_RESTRICT top) {
   uint32_t dc = 4;
   int i;
   for (i = 0; i < 4; ++i) dc += top[i] + top[-5 + i];
@@ -293,8 +307,9 @@ static WEBP_INLINE void DC4(uint8_t* dst, const uint8_t* top) {
   SW4(dc, dc, dc, dc, dst, BPS);
 }
 
-static WEBP_INLINE void RD4(uint8_t* dst, const uint8_t* top) {
-  const v16u8 A2 = { 0 };
+static WEBP_INLINE void RD4(uint8_t* WEBP_RESTRICT dst,
+                            const uint8_t* WEBP_RESTRICT top) {
+  const v16u8 A2 = {0};
   const uint64_t val_m = LD(top - 5);
   const v16u8 A1 = (v16u8)__msa_insert_d((v2i64)A2, 0, val_m);
   const v16u8 A = (v16u8)__msa_insert_b((v16i8)A1, 8, top[3]);
@@ -313,8 +328,9 @@ static WEBP_INLINE void RD4(uint8_t* dst, const uint8_t* top) {
   SW4(val3, val2, val1, val0, dst, BPS);
 }
 
-static WEBP_INLINE void LD4(uint8_t* dst, const uint8_t* top) {
-  const v16u8 A1 = { 0 };
+static WEBP_INLINE void LD4(uint8_t* WEBP_RESTRICT dst,
+                            const uint8_t* WEBP_RESTRICT top) {
+  const v16u8 A1 = {0};
   const uint64_t val_m = LD(top);
   const v16u8 A = (v16u8)__msa_insert_d((v2i64)A1, 0, val_m);
   const v16u8 B = SLDI_UB(A, A, 1);
@@ -333,7 +349,8 @@ static WEBP_INLINE void LD4(uint8_t* dst, const uint8_t* top) {
   SW4(val0, val1, val2, val3, dst, BPS);
 }
 
-static WEBP_INLINE void VR4(uint8_t* dst, const uint8_t* top) {
+static WEBP_INLINE void VR4(uint8_t* WEBP_RESTRICT dst,
+                            const uint8_t* WEBP_RESTRICT top) {
   const int X = top[-1];
   const int I = top[-2];
   const int J = top[-3];
@@ -345,16 +362,17 @@ static WEBP_INLINE void VR4(uint8_t* dst, const uint8_t* top) {
   DST(0, 0) = DST(1, 2) = AVG2(X, A);
   DST(1, 0) = DST(2, 2) = AVG2(A, B);
   DST(2, 0) = DST(3, 2) = AVG2(B, C);
-  DST(3, 0)             = AVG2(C, D);
-  DST(0, 3) =             AVG3(K, J, I);
-  DST(0, 2) =             AVG3(J, I, X);
+  DST(3, 0) = AVG2(C, D);
+  DST(0, 3) = AVG3(K, J, I);
+  DST(0, 2) = AVG3(J, I, X);
   DST(0, 1) = DST(1, 3) = AVG3(I, X, A);
   DST(1, 1) = DST(2, 3) = AVG3(X, A, B);
   DST(2, 1) = DST(3, 3) = AVG3(A, B, C);
-  DST(3, 1) =             AVG3(B, C, D);
+  DST(3, 1) = AVG3(B, C, D);
 }
 
-static WEBP_INLINE void VL4(uint8_t* dst, const uint8_t* top) {
+static WEBP_INLINE void VL4(uint8_t* WEBP_RESTRICT dst,
+                            const uint8_t* WEBP_RESTRICT top) {
   const int A = top[0];
   const int B = top[1];
   const int C = top[2];
@@ -363,34 +381,35 @@ static WEBP_INLINE void VL4(uint8_t* dst, const uint8_t* top) {
   const int F = top[5];
   const int G = top[6];
   const int H = top[7];
-  DST(0, 0) =             AVG2(A, B);
+  DST(0, 0) = AVG2(A, B);
   DST(1, 0) = DST(0, 2) = AVG2(B, C);
   DST(2, 0) = DST(1, 2) = AVG2(C, D);
   DST(3, 0) = DST(2, 2) = AVG2(D, E);
-  DST(0, 1) =             AVG3(A, B, C);
+  DST(0, 1) = AVG3(A, B, C);
   DST(1, 1) = DST(0, 3) = AVG3(B, C, D);
   DST(2, 1) = DST(1, 3) = AVG3(C, D, E);
   DST(3, 1) = DST(2, 3) = AVG3(D, E, F);
-              DST(3, 2) = AVG3(E, F, G);
-              DST(3, 3) = AVG3(F, G, H);
+  DST(3, 2) = AVG3(E, F, G);
+  DST(3, 3) = AVG3(F, G, H);
 }
 
-static WEBP_INLINE void HU4(uint8_t* dst, const uint8_t* top) {
+static WEBP_INLINE void HU4(uint8_t* WEBP_RESTRICT dst,
+                            const uint8_t* WEBP_RESTRICT top) {
   const int I = top[-2];
   const int J = top[-3];
   const int K = top[-4];
   const int L = top[-5];
-  DST(0, 0) =             AVG2(I, J);
+  DST(0, 0) = AVG2(I, J);
   DST(2, 0) = DST(0, 1) = AVG2(J, K);
   DST(2, 1) = DST(0, 2) = AVG2(K, L);
-  DST(1, 0) =             AVG3(I, J, K);
+  DST(1, 0) = AVG3(I, J, K);
   DST(3, 0) = DST(1, 1) = AVG3(J, K, L);
   DST(3, 1) = DST(1, 2) = AVG3(K, L, L);
-  DST(3, 2) = DST(2, 2) =
-  DST(0, 3) = DST(1, 3) = DST(2, 3) = DST(3, 3) = L;
+  DST(3, 2) = DST(2, 2) = DST(0, 3) = DST(1, 3) = DST(2, 3) = DST(3, 3) = L;
 }
 
-static WEBP_INLINE void HD4(uint8_t* dst, const uint8_t* top) {
+static WEBP_INLINE void HD4(uint8_t* WEBP_RESTRICT dst,
+                            const uint8_t* WEBP_RESTRICT top) {
   const int X = top[-1];
   const int I = top[-2];
   const int J = top[-3];
@@ -402,24 +421,25 @@ static WEBP_INLINE void HD4(uint8_t* dst, const uint8_t* top) {
   DST(0, 0) = DST(2, 1) = AVG2(I, X);
   DST(0, 1) = DST(2, 2) = AVG2(J, I);
   DST(0, 2) = DST(2, 3) = AVG2(K, J);
-  DST(0, 3)             = AVG2(L, K);
-  DST(3, 0)             = AVG3(A, B, C);
-  DST(2, 0)             = AVG3(X, A, B);
+  DST(0, 3) = AVG2(L, K);
+  DST(3, 0) = AVG3(A, B, C);
+  DST(2, 0) = AVG3(X, A, B);
   DST(1, 0) = DST(3, 1) = AVG3(I, X, A);
   DST(1, 1) = DST(3, 2) = AVG3(J, I, X);
   DST(1, 2) = DST(3, 3) = AVG3(K, J, I);
-  DST(1, 3)             = AVG3(L, K, J);
+  DST(1, 3) = AVG3(L, K, J);
 }
 
-static WEBP_INLINE void TM4(uint8_t* dst, const uint8_t* top) {
-  const v16i8 zero = { 0 };
+static WEBP_INLINE void TM4(uint8_t* WEBP_RESTRICT dst,
+                            const uint8_t* WEBP_RESTRICT top) {
+  const v16i8 zero = {0};
   const v8i16 TL = (v8i16)__msa_fill_h(top[-1]);
   const v8i16 L0 = (v8i16)__msa_fill_h(top[-2]);
   const v8i16 L1 = (v8i16)__msa_fill_h(top[-3]);
   const v8i16 L2 = (v8i16)__msa_fill_h(top[-4]);
   const v8i16 L3 = (v8i16)__msa_fill_h(top[-5]);
   const v16u8 T1 = LD_UB(top);
-  const v8i16 T  = (v8i16)__msa_ilvr_b(zero, (v16i8)T1);
+  const v8i16 T = (v8i16)__msa_ilvr_b(zero, (v16i8)T1);
   const v8i16 d = T - TL;
   v8i16 r0, r1, r2, r3;
   ADD4(d, L0, d, L1, d, L2, d, L3, r0, r1, r2, r3);
@@ -431,7 +451,8 @@ static WEBP_INLINE void TM4(uint8_t* dst, const uint8_t* top) {
 #undef AVG3
 #undef AVG2
 
-static void Intra4Preds_MSA(uint8_t* dst, const uint8_t* top) {
+static void Intra4Preds_MSA(uint8_t* WEBP_RESTRICT dst,
+                            const uint8_t* WEBP_RESTRICT top) {
   DC4(I4DC4 + dst, top);
   TM4(I4TM4 + dst, top);
   VE4(I4VE4 + dst, top);
@@ -446,12 +467,14 @@ static void Intra4Preds_MSA(uint8_t* dst, const uint8_t* top) {
 
 // luma 16x16 prediction
 
-#define STORE16x16(out, dst) do {                                        \
-    ST_UB8(out, out, out, out, out, out, out, out, dst + 0 * BPS, BPS);  \
-    ST_UB8(out, out, out, out, out, out, out, out, dst + 8 * BPS, BPS);  \
-} while (0)
+#define STORE16x16(out, dst)                                            \
+  do {                                                                  \
+    ST_UB8(out, out, out, out, out, out, out, out, dst + 0 * BPS, BPS); \
+    ST_UB8(out, out, out, out, out, out, out, out, dst + 8 * BPS, BPS); \
+  } while (0)
 
-static WEBP_INLINE void VerticalPred16x16(uint8_t* dst, const uint8_t* top) {
+static WEBP_INLINE void VerticalPred16x16(uint8_t* WEBP_RESTRICT dst,
+                                          const uint8_t* WEBP_RESTRICT top) {
   if (top != NULL) {
     const v16u8 out = LD_UB(top);
     STORE16x16(out, dst);
@@ -461,8 +484,8 @@ static WEBP_INLINE void VerticalPred16x16(uint8_t* dst, const uint8_t* top) {
   }
 }
 
-static WEBP_INLINE void HorizontalPred16x16(uint8_t* dst,
-                                            const uint8_t* left) {
+static WEBP_INLINE void HorizontalPred16x16(uint8_t* WEBP_RESTRICT dst,
+                                            const uint8_t* WEBP_RESTRICT left) {
   if (left != NULL) {
     int j;
     for (j = 0; j < 16; j += 4) {
@@ -480,13 +503,14 @@ static WEBP_INLINE void HorizontalPred16x16(uint8_t* dst,
   }
 }
 
-static WEBP_INLINE void TrueMotion16x16(uint8_t* dst, const uint8_t* left,
-                                        const uint8_t* top) {
+static WEBP_INLINE void TrueMotion16x16(uint8_t* WEBP_RESTRICT dst,
+                                        const uint8_t* WEBP_RESTRICT left,
+                                        const uint8_t* WEBP_RESTRICT top) {
   if (left != NULL) {
     if (top != NULL) {
       int j;
       v8i16 d1, d2;
-      const v16i8 zero = { 0 };
+      const v16i8 zero = {0};
       const v8i16 TL = (v8i16)__msa_fill_h(left[-1]);
       const v16u8 T = LD_UB(top);
       ILVRL_B2_SH(zero, T, d1, d2);
@@ -519,8 +543,9 @@ static WEBP_INLINE void TrueMotion16x16(uint8_t* dst, const uint8_t* left,
   }
 }
 
-static WEBP_INLINE void DCMode16x16(uint8_t* dst, const uint8_t* left,
-                                    const uint8_t* top) {
+static WEBP_INLINE void DCMode16x16(uint8_t* WEBP_RESTRICT dst,
+                                    const uint8_t* WEBP_RESTRICT left,
+                                    const uint8_t* WEBP_RESTRICT top) {
   int DC;
   v16u8 out;
   if (top != NULL && left != NULL) {
@@ -531,25 +556,26 @@ static WEBP_INLINE void DCMode16x16(uint8_t* dst, const uint8_t* left,
     const v8u16 dctemp = dctop + dcleft;
     DC = HADD_UH_U32(dctemp);
     DC = (DC + 16) >> 5;
-  } else if (left != NULL) {   // left but no top
+  } else if (left != NULL) {  // left but no top
     const v16u8 rleft = LD_UB(left);
     const v8u16 dcleft = __msa_hadd_u_h(rleft, rleft);
     DC = HADD_UH_U32(dcleft);
     DC = (DC + DC + 16) >> 5;
-  } else if (top != NULL) {   // top but no left
+  } else if (top != NULL) {  // top but no left
     const v16u8 rtop = LD_UB(top);
     const v8u16 dctop = __msa_hadd_u_h(rtop, rtop);
     DC = HADD_UH_U32(dctop);
     DC = (DC + DC + 16) >> 5;
-  } else {   // no top, no left, nothing.
+  } else {  // no top, no left, nothing.
     DC = 0x80;
   }
   out = (v16u8)__msa_fill_b(DC);
   STORE16x16(out, dst);
 }
 
-static void Intra16Preds_MSA(uint8_t* dst,
-                             const uint8_t* left, const uint8_t* top) {
+static void Intra16Preds_MSA(uint8_t* WEBP_RESTRICT dst,
+                             const uint8_t* WEBP_RESTRICT left,
+                             const uint8_t* WEBP_RESTRICT top) {
   DCMode16x16(I16DC16 + dst, left, top);
   VerticalPred16x16(I16VE16 + dst, top);
   HorizontalPred16x16(I16HE16 + dst, left);
@@ -558,23 +584,26 @@ static void Intra16Preds_MSA(uint8_t* dst,
 
 // Chroma 8x8 prediction
 
-#define CALC_DC8(in, out) do {                              \
-  const v8u16 temp0 = __msa_hadd_u_h(in, in);               \
-  const v4u32 temp1 = __msa_hadd_u_w(temp0, temp0);         \
-  const v2i64 temp2 = (v2i64)__msa_hadd_u_d(temp1, temp1);  \
-  const v2i64 temp3 = __msa_splati_d(temp2, 1);             \
-  const v2i64 temp4 = temp3 + temp2;                        \
-  const v16i8 temp5 = (v16i8)__msa_srari_d(temp4, 4);       \
-  const v2i64 temp6 = (v2i64)__msa_splati_b(temp5, 0);      \
-  out = __msa_copy_s_d(temp6, 0);                           \
-} while (0)
+#define CALC_DC8(in, out)                                    \
+  do {                                                       \
+    const v8u16 temp0 = __msa_hadd_u_h(in, in);              \
+    const v4u32 temp1 = __msa_hadd_u_w(temp0, temp0);        \
+    const v2i64 temp2 = (v2i64)__msa_hadd_u_d(temp1, temp1); \
+    const v2i64 temp3 = __msa_splati_d(temp2, 1);            \
+    const v2i64 temp4 = temp3 + temp2;                       \
+    const v16i8 temp5 = (v16i8)__msa_srari_d(temp4, 4);      \
+    const v2i64 temp6 = (v2i64)__msa_splati_b(temp5, 0);     \
+    out = __msa_copy_s_d(temp6, 0);                          \
+  } while (0)
 
-#define STORE8x8(out, dst) do {                 \
-  SD4(out, out, out, out, dst + 0 * BPS, BPS);  \
-  SD4(out, out, out, out, dst + 4 * BPS, BPS);  \
-} while (0)
+#define STORE8x8(out, dst)                       \
+  do {                                           \
+    SD4(out, out, out, out, dst + 0 * BPS, BPS); \
+    SD4(out, out, out, out, dst + 4 * BPS, BPS); \
+  } while (0)
 
-static WEBP_INLINE void VerticalPred8x8(uint8_t* dst, const uint8_t* top) {
+static WEBP_INLINE void VerticalPred8x8(uint8_t* WEBP_RESTRICT dst,
+                                        const uint8_t* WEBP_RESTRICT top) {
   if (top != NULL) {
     const uint64_t out = LD(top);
     STORE8x8(out, dst);
@@ -584,7 +613,8 @@ static WEBP_INLINE void VerticalPred8x8(uint8_t* dst, const uint8_t* top) {
   }
 }
 
-static WEBP_INLINE void HorizontalPred8x8(uint8_t* dst, const uint8_t* left) {
+static WEBP_INLINE void HorizontalPred8x8(uint8_t* WEBP_RESTRICT dst,
+                                          const uint8_t* WEBP_RESTRICT left) {
   if (left != NULL) {
     int j;
     for (j = 0; j < 8; j += 4) {
@@ -606,15 +636,16 @@ static WEBP_INLINE void HorizontalPred8x8(uint8_t* dst, const uint8_t* left) {
   }
 }
 
-static WEBP_INLINE void TrueMotion8x8(uint8_t* dst, const uint8_t* left,
-                                      const uint8_t* top) {
+static WEBP_INLINE void TrueMotion8x8(uint8_t* WEBP_RESTRICT dst,
+                                      const uint8_t* WEBP_RESTRICT left,
+                                      const uint8_t* WEBP_RESTRICT top) {
   if (left != NULL) {
     if (top != NULL) {
       int j;
       const v8i16 TL = (v8i16)__msa_fill_h(left[-1]);
       const v16u8 T1 = LD_UB(top);
-      const v16i8 zero = { 0 };
-      const v8i16 T  = (v8i16)__msa_ilvr_b(zero, (v16i8)T1);
+      const v16i8 zero = {0};
+      const v8i16 T = (v8i16)__msa_ilvr_b(zero, (v16i8)T1);
       const v8i16 d = T - TL;
       for (j = 0; j < 8; j += 4) {
         uint64_t out0, out1, out2, out3;
@@ -646,32 +677,34 @@ static WEBP_INLINE void TrueMotion8x8(uint8_t* dst, const uint8_t* left,
   }
 }
 
-static WEBP_INLINE void DCMode8x8(uint8_t* dst, const uint8_t* left,
-                                  const uint8_t* top) {
+static WEBP_INLINE void DCMode8x8(uint8_t* WEBP_RESTRICT dst,
+                                  const uint8_t* WEBP_RESTRICT left,
+                                  const uint8_t* WEBP_RESTRICT top) {
   uint64_t out;
-  v16u8 src = { 0 };
+  v16u8 src = {0};
   if (top != NULL && left != NULL) {
     const uint64_t left_m = LD(left);
     const uint64_t top_m = LD(top);
     INSERT_D2_UB(left_m, top_m, src);
     CALC_DC8(src, out);
-  } else if (left != NULL) {   // left but no top
+  } else if (left != NULL) {  // left but no top
     const uint64_t left_m = LD(left);
     INSERT_D2_UB(left_m, left_m, src);
     CALC_DC8(src, out);
-  } else if (top != NULL) {   // top but no left
+  } else if (top != NULL) {  // top but no left
     const uint64_t top_m = LD(top);
     INSERT_D2_UB(top_m, top_m, src);
     CALC_DC8(src, out);
-  } else {   // no top, no left, nothing.
+  } else {  // no top, no left, nothing.
     src = (v16u8)__msa_fill_b(0x80);
     out = __msa_copy_s_d((v2i64)src, 0);
   }
   STORE8x8(out, dst);
 }
 
-static void IntraChromaPreds_MSA(uint8_t* dst, const uint8_t* left,
-                                 const uint8_t* top) {
+static void IntraChromaPreds_MSA(uint8_t* WEBP_RESTRICT dst,
+                                 const uint8_t* WEBP_RESTRICT left,
+                                 const uint8_t* WEBP_RESTRICT top) {
   // U block
   DCMode8x8(C8DC8 + dst, left, top);
   VerticalPred8x8(C8VE8 + dst, top);
@@ -690,29 +723,32 @@ static void IntraChromaPreds_MSA(uint8_t* dst, const uint8_t* left,
 //------------------------------------------------------------------------------
 // Metric
 
-#define PACK_DOTP_UB4_SW(in0, in1, in2, in3, out0, out1, out2, out3) do {  \
-  v16u8 tmp0, tmp1;                                                        \
-  v8i16 tmp2, tmp3;                                                        \
-  ILVRL_B2_UB(in0, in1, tmp0, tmp1);                                       \
-  HSUB_UB2_SH(tmp0, tmp1, tmp2, tmp3);                                     \
-  DOTP_SH2_SW(tmp2, tmp3, tmp2, tmp3, out0, out1);                         \
-  ILVRL_B2_UB(in2, in3, tmp0, tmp1);                                       \
-  HSUB_UB2_SH(tmp0, tmp1, tmp2, tmp3);                                     \
-  DOTP_SH2_SW(tmp2, tmp3, tmp2, tmp3, out2, out3);                         \
-} while (0)
+#define PACK_DOTP_UB4_SW(in0, in1, in2, in3, out0, out1, out2, out3) \
+  do {                                                               \
+    v16u8 tmp0, tmp1;                                                \
+    v8i16 tmp2, tmp3;                                                \
+    ILVRL_B2_UB(in0, in1, tmp0, tmp1);                               \
+    HSUB_UB2_SH(tmp0, tmp1, tmp2, tmp3);                             \
+    DOTP_SH2_SW(tmp2, tmp3, tmp2, tmp3, out0, out1);                 \
+    ILVRL_B2_UB(in2, in3, tmp0, tmp1);                               \
+    HSUB_UB2_SH(tmp0, tmp1, tmp2, tmp3);                             \
+    DOTP_SH2_SW(tmp2, tmp3, tmp2, tmp3, out2, out3);                 \
+  } while (0)
 
-#define PACK_DPADD_UB4_SW(in0, in1, in2, in3, out0, out1, out2, out3) do {  \
-  v16u8 tmp0, tmp1;                                                         \
-  v8i16 tmp2, tmp3;                                                         \
-  ILVRL_B2_UB(in0, in1, tmp0, tmp1);                                        \
-  HSUB_UB2_SH(tmp0, tmp1, tmp2, tmp3);                                      \
-  DPADD_SH2_SW(tmp2, tmp3, tmp2, tmp3, out0, out1);                         \
-  ILVRL_B2_UB(in2, in3, tmp0, tmp1);                                        \
-  HSUB_UB2_SH(tmp0, tmp1, tmp2, tmp3);                                      \
-  DPADD_SH2_SW(tmp2, tmp3, tmp2, tmp3, out2, out3);                         \
-} while (0)
+#define PACK_DPADD_UB4_SW(in0, in1, in2, in3, out0, out1, out2, out3) \
+  do {                                                                \
+    v16u8 tmp0, tmp1;                                                 \
+    v8i16 tmp2, tmp3;                                                 \
+    ILVRL_B2_UB(in0, in1, tmp0, tmp1);                                \
+    HSUB_UB2_SH(tmp0, tmp1, tmp2, tmp3);                              \
+    DPADD_SH2_SW(tmp2, tmp3, tmp2, tmp3, out0, out1);                 \
+    ILVRL_B2_UB(in2, in3, tmp0, tmp1);                                \
+    HSUB_UB2_SH(tmp0, tmp1, tmp2, tmp3);                              \
+    DPADD_SH2_SW(tmp2, tmp3, tmp2, tmp3, out2, out3);                 \
+  } while (0)
 
-static int SSE16x16_MSA(const uint8_t* a, const uint8_t* b) {
+static int SSE16x16_MSA(const uint8_t* WEBP_RESTRICT a,
+                        const uint8_t* WEBP_RESTRICT b) {
   uint32_t sum;
   v16u8 src0, src1, src2, src3, src4, src5, src6, src7;
   v16u8 ref0, ref1, ref2, ref3, ref4, ref5, ref6, ref7;
@@ -739,7 +775,8 @@ static int SSE16x16_MSA(const uint8_t* a, const uint8_t* b) {
   return sum;
 }
 
-static int SSE16x8_MSA(const uint8_t* a, const uint8_t* b) {
+static int SSE16x8_MSA(const uint8_t* WEBP_RESTRICT a,
+                       const uint8_t* WEBP_RESTRICT b) {
   uint32_t sum;
   v16u8 src0, src1, src2, src3, src4, src5, src6, src7;
   v16u8 ref0, ref1, ref2, ref3, ref4, ref5, ref6, ref7;
@@ -758,7 +795,8 @@ static int SSE16x8_MSA(const uint8_t* a, const uint8_t* b) {
   return sum;
 }
 
-static int SSE8x8_MSA(const uint8_t* a, const uint8_t* b) {
+static int SSE8x8_MSA(const uint8_t* WEBP_RESTRICT a,
+                      const uint8_t* WEBP_RESTRICT b) {
   uint32_t sum;
   v16u8 src0, src1, src2, src3, src4, src5, src6, src7;
   v16u8 ref0, ref1, ref2, ref3, ref4, ref5, ref6, ref7;
@@ -778,10 +816,11 @@ static int SSE8x8_MSA(const uint8_t* a, const uint8_t* b) {
   return sum;
 }
 
-static int SSE4x4_MSA(const uint8_t* a, const uint8_t* b) {
+static int SSE4x4_MSA(const uint8_t* WEBP_RESTRICT a,
+                      const uint8_t* WEBP_RESTRICT b) {
   uint32_t sum = 0;
   uint32_t src0, src1, src2, src3, ref0, ref1, ref2, ref3;
-  v16u8 src = { 0 }, ref = { 0 }, tmp0, tmp1;
+  v16u8 src = {0}, ref = {0}, tmp0, tmp1;
   v8i16 diff0, diff1;
   v4i32 out0, out1;
 
@@ -801,29 +840,29 @@ static int SSE4x4_MSA(const uint8_t* a, const uint8_t* b) {
 // Quantization
 
 static int QuantizeBlock_MSA(int16_t in[16], int16_t out[16],
-                             const VP8Matrix* const mtx) {
+                             const VP8Matrix* WEBP_RESTRICT const mtx) {
   int sum;
   v8i16 in0, in1, sh0, sh1, out0, out1;
   v8i16 tmp0, tmp1, tmp2, tmp3, tmp4, tmp5, sign0, sign1;
   v4i32 s0, s1, s2, s3, b0, b1, b2, b3, t0, t1, t2, t3;
-  const v8i16 zero = { 0 };
-  const v8i16 zigzag0 = { 0, 1, 4, 8, 5, 2, 3, 6 };
-  const v8i16 zigzag1 = { 9, 12, 13, 10, 7, 11, 14, 15 };
+  const v8i16 zero = {0};
+  const v8i16 zigzag0 = {0, 1, 4, 8, 5, 2, 3, 6};
+  const v8i16 zigzag1 = {9, 12, 13, 10, 7, 11, 14, 15};
   const v8i16 maxlevel = __msa_fill_h(MAX_LEVEL);
 
   LD_SH2(&in[0], 8, in0, in1);
-  LD_SH2(&mtx->sharpen_[0], 8, sh0, sh1);
+  LD_SH2(&mtx->sharpen[0], 8, sh0, sh1);
   tmp4 = __msa_add_a_h(in0, zero);
   tmp5 = __msa_add_a_h(in1, zero);
   ILVRL_H2_SH(sh0, tmp4, tmp0, tmp1);
   ILVRL_H2_SH(sh1, tmp5, tmp2, tmp3);
   HADD_SH4_SW(tmp0, tmp1, tmp2, tmp3, s0, s1, s2, s3);
   sign0 = (in0 < zero);
-  sign1 = (in1 < zero);                           // sign
-  LD_SH2(&mtx->iq_[0], 8, tmp0, tmp1);            // iq
+  sign1 = (in1 < zero);                // sign
+  LD_SH2(&mtx->iq[0], 8, tmp0, tmp1);  // iq
   ILVRL_H2_SW(zero, tmp0, t0, t1);
   ILVRL_H2_SW(zero, tmp1, t2, t3);
-  LD_SW4(&mtx->bias_[0], 4, b0, b1, b2, b3);      // bias
+  LD_SW4(&mtx->bias[0], 4, b0, b1, b2, b3);  // bias
   MUL4(t0, s0, t1, s1, t2, s2, t3, s3, t0, t1, t2, t3);
   ADD4(b0, t0, b1, t1, b2, t2, b3, t3, b0, b1, b2, b3);
   SRAI_W4_SW(b0, b1, b2, b3, 17);
@@ -835,7 +874,7 @@ static int QuantizeBlock_MSA(int16_t in[16], int16_t out[16],
   SUB2(zero, tmp2, zero, tmp3, tmp0, tmp1);
   tmp2 = (v8i16)__msa_bmnz_v((v16u8)tmp2, (v16u8)tmp0, (v16u8)sign0);
   tmp3 = (v8i16)__msa_bmnz_v((v16u8)tmp3, (v16u8)tmp1, (v16u8)sign1);
-  LD_SW4(&mtx->zthresh_[0], 4, t0, t1, t2, t3);   // zthresh
+  LD_SW4(&mtx->zthresh[0], 4, t0, t1, t2, t3);  // zthresh
   t0 = (s0 > t0);
   t1 = (s1 > t1);
   t2 = (s2 > t2);
@@ -843,7 +882,7 @@ static int QuantizeBlock_MSA(int16_t in[16], int16_t out[16],
   PCKEV_H2_SH(t1, t0, t3, t2, tmp0, tmp1);
   tmp4 = (v8i16)__msa_bmnz_v((v16u8)zero, (v16u8)tmp2, (v16u8)tmp0);
   tmp5 = (v8i16)__msa_bmnz_v((v16u8)zero, (v16u8)tmp3, (v16u8)tmp1);
-  LD_SH2(&mtx->q_[0], 8, tmp0, tmp1);
+  LD_SH2(&mtx->q[0], 8, tmp0, tmp1);
   MUL2(tmp4, tmp0, tmp5, tmp1, in0, in1);
   VSHF_H2_SH(tmp4, tmp5, tmp4, tmp5, zigzag0, zigzag1, out0, out1);
   ST_SH2(in0, in1, &in[0], 8);
@@ -854,9 +893,9 @@ static int QuantizeBlock_MSA(int16_t in[16], int16_t out[16],
 }
 
 static int Quantize2Blocks_MSA(int16_t in[32], int16_t out[32],
-                               const VP8Matrix* const mtx) {
+                               const VP8Matrix* WEBP_RESTRICT const mtx) {
   int nz;
-  nz  = VP8EncQuantizeBlock(in + 0 * 16, out + 0 * 16, mtx) << 0;
+  nz = VP8EncQuantizeBlock(in + 0 * 16, out + 0 * 16, mtx) << 0;
   nz |= VP8EncQuantizeBlock(in + 1 * 16, out + 1 * 16, mtx) << 1;
   return nz;
 }

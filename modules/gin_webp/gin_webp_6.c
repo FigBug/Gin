@@ -1,6 +1,6 @@
 /*==============================================================================
 
- Copyright 2018 by Roland Rabien
+ Copyright 2018 - 2025 by Roland Rabien
  For more information visit www.rabiensoftware.com
 
  ==============================================================================*/
@@ -31,4 +31,3 @@
 #include "3rdparty/webp/utils/quant_levels_utils.c"
 #include "3rdparty/webp/enc/iterator_enc.c"
 #include "3rdparty/webp/enc/alpha_enc.c"
-#include "3rdparty/webp/sharpyuv/sharpyuv_dsp.c"

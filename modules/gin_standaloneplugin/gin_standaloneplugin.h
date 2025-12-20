@@ -1,6 +1,6 @@
 /*==============================================================================
 
- Copyright 2025 by Roland Rabien
+ Copyright 2018 - 2025 by Roland Rabien
  For more information visit www.rabiensoftware.com
 
  ==============================================================================*/
@@ -66,7 +66,8 @@
 
 namespace gin
 {
-#include "standaloneplugin/gin_pluginwrapper.h"
+#include "standaloneplugin/gin_audioprocessorplayer.h"
+#include "standaloneplugin/gin_standaloneaudioprocessorplayer.h"
 #include "standaloneplugin/gin_sidebarcomponent.h"
 #include "standaloneplugin/gin_maincontentcomponent.h"
 #include "standaloneplugin/gin_standalonepluginholder.h"

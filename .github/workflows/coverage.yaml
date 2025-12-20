@@ -75,7 +75,7 @@ jobs:
       - name: Generate coverage report
         run: |
           lcov --capture --directory build --output-file coverage.info \
-            --ignore-errors gcov,source \
+            --ignore-errors gcov,source,mismatch \
             --rc geninfo_unexecuted_blocks=1
           lcov --remove coverage.info \
             '/usr/*' \

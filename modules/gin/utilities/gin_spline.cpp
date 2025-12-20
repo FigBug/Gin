@@ -1,6 +1,6 @@
 /*==============================================================================
 
- Copyright 2018 by Roland Rabien, Devin Lane
+ Copyright 2018 - 2025 by Roland Rabien, Devin Lane
  For more information visit www.rabiensoftware.com
 
  ==============================================================================*/

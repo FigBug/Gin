@@ -23,6 +23,7 @@
 // O1[31..16 | 15..0] = I0[31..16 | 15..0] - I1[31..16 | 15..0]
 // O - output
 // I - input (macro doesn't change it)
+// clang-format off
 #define ADD_SUB_HALVES(O0, O1,                                                 \
                        I0, I1)                                                 \
   "addq.ph          %[" #O0 "],   %[" #I0 "],  %[" #I1 "]           \n\t"      \
@@ -45,28 +46,38 @@
   "ulw    %[" #O2 "],    " #I3 "+" XSTR(I9) "*" #I7 "(%[" #I0 "])       \n\t"  \
   "ulw    %[" #O3 "],    " #I4 "+" XSTR(I9) "*" #I8 "(%[" #I0 "])       \n\t"
 
+
+// O - output
+// I - input (macro doesn't change it so it should be different from I)
+#define MUL_SHIFT_C1(O, I)                                                     \
+  "mul              %[" #O "],    %[" #I "],    %[kC1]        \n\t"            \
+  "sra              %[" #O "],    %[" #O "],    16            \n\t"            \
+  "addu             %[" #O "],    %[" #O "],    %[" #I "]     \n\t"
+#define MUL_SHIFT_C2(O, I) \
+  "mul              %[" #O "],    %[" #I "],    %[kC2]        \n\t"            \
+  "sra              %[" #O "],    %[" #O "],    16            \n\t"
+
+// Same as #define MUL_SHIFT_C1 but I and O are the same. It stores the
+// intermediary result in TMP.
+#define MUL_SHIFT_C1_IO(IO, TMP)                                               \
+  "mul              %[" #TMP "],  %[" #IO  "], %[kC1]     \n\t"                \
+  "sra              %[" #TMP "],  %[" #TMP "], 16         \n\t"                \
+  "addu             %[" #IO  "],  %[" #TMP "], %[" #IO "] \n\t"
+
 // O - output
 // IO - input/output
 // I - input (macro doesn't change it)
 #define MUL_SHIFT_SUM(O0, O1, O2, O3, O4, O5, O6, O7,                          \
                       IO0, IO1, IO2, IO3,                                      \
                       I0, I1, I2, I3, I4, I5, I6, I7)                          \
-  "mul              %[" #O0 "],   %[" #I0 "],   %[kC2]        \n\t"            \
-  "mul              %[" #O1 "],   %[" #I0 "],   %[kC1]        \n\t"            \
-  "mul              %[" #O2 "],   %[" #I1 "],   %[kC2]        \n\t"            \
-  "mul              %[" #O3 "],   %[" #I1 "],   %[kC1]        \n\t"            \
-  "mul              %[" #O4 "],   %[" #I2 "],   %[kC2]        \n\t"            \
-  "mul              %[" #O5 "],   %[" #I2 "],   %[kC1]        \n\t"            \
-  "mul              %[" #O6 "],   %[" #I3 "],   %[kC2]        \n\t"            \
-  "mul              %[" #O7 "],   %[" #I3 "],   %[kC1]        \n\t"            \
-  "sra              %[" #O0 "],   %[" #O0 "],   16            \n\t"            \
-  "sra              %[" #O1 "],   %[" #O1 "],   16            \n\t"            \
-  "sra              %[" #O2 "],   %[" #O2 "],   16            \n\t"            \
-  "sra              %[" #O3 "],   %[" #O3 "],   16            \n\t"            \
-  "sra              %[" #O4 "],   %[" #O4 "],   16            \n\t"            \
-  "sra              %[" #O5 "],   %[" #O5 "],   16            \n\t"            \
-  "sra              %[" #O6 "],   %[" #O6 "],   16            \n\t"            \
-  "sra              %[" #O7 "],   %[" #O7 "],   16            \n\t"            \
+  MUL_SHIFT_C2(O0, I0)                                                         \
+  MUL_SHIFT_C1(O1, I0)                                                         \
+  MUL_SHIFT_C2(O2, I1)                                                         \
+  MUL_SHIFT_C1(O3, I1)                                                         \
+  MUL_SHIFT_C2(O4, I2)                                                         \
+  MUL_SHIFT_C1(O5, I2)                                                         \
+  MUL_SHIFT_C2(O6, I3)                                                         \
+  MUL_SHIFT_C1(O7, I3)                                                         \
   "addu             %[" #IO0 "],  %[" #IO0 "],  %[" #I4 "]    \n\t"            \
   "addu             %[" #IO1 "],  %[" #IO1 "],  %[" #I5 "]    \n\t"            \
   "subu             %[" #IO2 "],  %[" #IO2 "],  %[" #I6 "]    \n\t"            \
@@ -196,5 +207,6 @@
   [temp11]"=&r"(temp11), [temp12]"=&r"(temp12), [temp13]"=&r"(temp13),         \
   [temp14]"=&r"(temp14), [temp15]"=&r"(temp15), [temp16]"=&r"(temp16),         \
   [temp17]"=&r"(temp17), [temp18]"=&r"(temp18)
+// clang-format on
 
 #endif  // WEBP_DSP_MIPS_MACRO_H_

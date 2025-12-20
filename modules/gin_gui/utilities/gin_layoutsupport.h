@@ -1,6 +1,6 @@
 /*==============================================================================
 
- Copyright 2025 by Roland Rabien
+ Copyright 2018 - 2025 by Roland Rabien
  For more information visit www.rabiensoftware.com
 
  Graciously donated to Gin by reFX Audio Software Inc.
@@ -115,6 +115,7 @@ private:
     **Size:**
     - `w`, `h` - Width and height
     - `size` - Reference to size constant (e.g., "buttonSize" references constants.buttonSize.w/h)
+    - `pW`, `pH` - Post-layout width and height (evaluated after child components are laid out)
 
     **Display:**
     - `visible` - Boolean or expression
@@ -149,6 +150,7 @@ private:
     - `prevX`, `prevY`, `prevW`, `prevH`, `prevR`, `prevB`, `prevCX`, `prevCY` - Previous component
     - `i` - Current child index
     - `idIdx` - Current iteration index (when using multiple IDs or ranges)
+    - `minX`, `minY`, `maxX`, `maxY` - Child bounds (only available in pW/pH expressions)
 
     Custom constants can be defined at top-level or per-component:
     @code{.json}
@@ -234,6 +236,23 @@ private:
     }
     @endcode
 
+    Auto-sizing container based on children (pW/pH):
+    @code{.json}
+    {
+      "id": "container",
+      "x": 10,
+      "y": 10,
+      "w": 500,
+      "h": 500,
+      "pW": "maxX + 20",
+      "pH": "maxY + 20",
+      "components": [
+        { "id": "child1", "x": 10, "y": 10, "w": 100, "h": 50 },
+        { "id": "child2", "x": 120, "y": 10, "w": 80, "h": 50 }
+      ]
+    }
+    @endcode
+
     Center positioning using parCX/parCY and sizing with parW2/parH2:
     @code{.json}
     {
@@ -316,8 +335,9 @@ protected:
         int y;
         int w;
         int h;
-        bool hasPosition = false;
-        bool hasSize = false;
+
+        std::optional<juce::String>  postWidth;
+        std::optional<juce::String>  postHeight;
     };
 
     struct JsonFile

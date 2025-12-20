@@ -23,12 +23,12 @@ public:
     void trackSample (float f);
 
     float getLevel() const;
-    bool getClip() const    { return clip;  }
-    void clearClip()        { clip = false; }
+    bool getClip() const    { return clip.load (std::memory_order_relaxed);  }
+    void clearClip()        { clip.store (false, std::memory_order_relaxed); }
 
 protected:
-    float peakTime  = 0.0f;
-    float peakLevel = -100.0f;
-    float decayRate = 0.0f;
-    bool clip       = false;
+    std::atomic<float> peakTime  { 0.0f };
+    std::atomic<float> peakLevel { -100.0f };
+    const float decayRate        = 0.0f;
+    std::atomic<bool> clip       { false };
 };

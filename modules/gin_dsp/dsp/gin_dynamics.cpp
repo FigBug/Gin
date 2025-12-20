@@ -134,6 +134,21 @@ void Dynamics::process (juce::AudioSampleBuffer& buffer, juce::AudioSampleBuffer
     auto output = buffer.getArrayOfWritePointers();
     auto env    = envelopeOut != nullptr ? envelopeOut->getArrayOfWritePointers() : nullptr;
 
+    // Calculate auto makeup gain for compressor/limiter modes
+    // Formula: makeup (dB) = -threshold * (1 - 1/ratio)
+    // For limiter (infinite ratio): makeup = -threshold
+    float autoMakeup = 1.0f;
+    if (autoMakeupGain && (type == compressor || type == limiter))
+    {
+        float makeupDb = 0.0f;
+        if (type == limiter)
+            makeupDb = -threshold;
+        else if (ratio > 1.0f)
+            makeupDb = -threshold * (1.0f - 1.0f / ratio);
+
+        autoMakeup = juce::Decibels::decibelsToGain (makeupDb);
+    }
+
     float peakReduction = 1.0f;
 
     for (int i = 0; i < numSamples; i++)
@@ -161,7 +176,7 @@ void Dynamics::process (juce::AudioSampleBuffer& buffer, juce::AudioSampleBuffer
             peakReduction = std::min (peakReduction, gain);
 
             for (int c = 0; c < channels; c++)
-                output[c][i] = inputGain * gain * input[c][i] * outputGain;
+                output[c][i] = inputGain * gain * input[c][i] * outputGain * autoMakeup;
         }
         else
         {
@@ -177,7 +192,7 @@ void Dynamics::process (juce::AudioSampleBuffer& buffer, juce::AudioSampleBuffer
                 auto gain = juce::Decibels::decibelsToGain (calcCurve (in) - in);
                 peakReduction = std::min (peakReduction, gain);
 
-                output[c][i] = inputGain * gain * input[c][i] * outputGain;
+                output[c][i] = inputGain * gain * input[c][i] * outputGain * autoMakeup;
             }
         }
     }
@@ -230,6 +245,24 @@ float Dynamics::calcCurve (float dbIn)
             dbOut = dbIn - ((100.0f - 1.0f) * std::pow ((dbIn - threshold - (kneeWidth / 2.0f)), 2.0f)) / (2.0f * kneeWidth);
         else if (dbIn < threshold - kneeWidth / 2.0f)
             dbOut = -1000.0f;
+
+        return dbOut;
+    }
+    else if (type == compexp)
+    {
+        float dbOut = dbIn;
+        float expThreshold = -100.0f - threshold;
+
+        // Compressor: above threshold
+        if (kneeWidth > 0 && dbIn >= (threshold - kneeWidth / 2.0f) && dbIn <= threshold + kneeWidth / 2.0f)
+            dbOut = dbIn + ((1.0f / ratio - 1.0f) * std::pow (dbIn - threshold + kneeWidth / 2.0f, 2.0f) / (2.0f * kneeWidth));
+        else if (dbIn > threshold + kneeWidth / 2.0f)
+            dbOut = threshold + (dbIn - threshold) / ratio;
+        // Expander: below inverse threshold
+        else if (kneeWidth > 0 && dbIn >= (expThreshold - kneeWidth / 2.0f) && dbIn <= expThreshold + kneeWidth / 2.0f)
+            dbOut = dbIn - ((ratio - 1.0f) * std::pow ((dbIn - expThreshold - (kneeWidth / 2.0f)), 2.0f)) / (2.0f * kneeWidth);
+        else if (dbIn < expThreshold - kneeWidth / 2.0f)
+            dbOut = expThreshold + (dbIn - expThreshold) * ratio;
 
         return dbOut;
     }

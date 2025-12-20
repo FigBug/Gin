@@ -14,14 +14,9 @@
 #include "../sharpyuv/sharpyuv_dsp.h"
 
 #if defined(WEBP_USE_NEON)
+#include <arm_neon.h>
 #include <assert.h>
 #include <stdlib.h>
-#include <arm_neon.h>
-#endif
-
-extern void InitSharpYuvNEON(void);
-
-#if defined(WEBP_USE_NEON)
 
 static uint16_t clip_NEON(int v, int max) {
   return (v < 0) ? 0 : (v > max) ? max : (uint16_t)v;
@@ -40,11 +35,11 @@ static uint64_t SharpYuvUpdateY_NEON(const uint16_t* ref, const uint16_t* src,
     const int16x8_t A = vreinterpretq_s16_u16(vld1q_u16(ref + i));
     const int16x8_t B = vreinterpretq_s16_u16(vld1q_u16(src + i));
     const int16x8_t C = vreinterpretq_s16_u16(vld1q_u16(dst + i));
-    const int16x8_t D = vsubq_s16(A, B);       // diff_y
-    const int16x8_t F = vaddq_s16(C, D);       // new_y
+    const int16x8_t D = vsubq_s16(A, B);  // diff_y
+    const int16x8_t F = vaddq_s16(C, D);  // new_y
     const uint16x8_t H =
         vreinterpretq_u16_s16(vmaxq_s16(vminq_s16(F, max), zero));
-    const int16x8_t I = vabsq_s16(D);          // abs(diff_y)
+    const int16x8_t I = vabsq_s16(D);  // abs(diff_y)
     vst1q_u16(dst + i, H);
     sum = vpadalq_u32(sum, vpaddlq_u16(vreinterpretq_u16_s16(I)));
   }
@@ -65,8 +60,8 @@ static void SharpYuvUpdateRGB_NEON(const int16_t* ref, const int16_t* src,
     const int16x8_t A = vld1q_s16(ref + i);
     const int16x8_t B = vld1q_s16(src + i);
     const int16x8_t C = vld1q_s16(dst + i);
-    const int16x8_t D = vsubq_s16(A, B);   // diff_uv
-    const int16x8_t E = vaddq_s16(C, D);   // new_uv
+    const int16x8_t D = vsubq_s16(A, B);  // diff_uv
+    const int16x8_t E = vaddq_s16(C, D);  // new_uv
     vst1q_s16(dst + i, E);
   }
   for (; i < len; ++i) {
@@ -169,6 +164,8 @@ static void SharpYuvFilterRow_NEON(const int16_t* A, const int16_t* B, int len,
 
 //------------------------------------------------------------------------------
 
+extern void InitSharpYuvNEON(void);
+
 WEBP_TSAN_IGNORE_FUNCTION void InitSharpYuvNEON(void) {
   SharpYuvUpdateY = SharpYuvUpdateY_NEON;
   SharpYuvUpdateRGB = SharpYuvUpdateRGB_NEON;
@@ -176,6 +173,8 @@ WEBP_TSAN_IGNORE_FUNCTION void InitSharpYuvNEON(void) {
 }
 
 #else  // !WEBP_USE_NEON
+
+extern void InitSharpYuvNEON(void);
 
 void InitSharpYuvNEON(void) {}
 

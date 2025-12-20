@@ -1,6 +1,6 @@
 /*==============================================================================
 
- Copyright 2018 by Roland Rabien
+ Copyright 2018 - 2025 by Roland Rabien
  For more information visit www.rabiensoftware.com
 
  ==============================================================================*/
@@ -88,7 +88,6 @@ bool wantsAccessibleKeyboard (juce::Component&);
 #include "plugin/gin_parameter.h"
 #include "plugin/gin_smoothedparameter.h"
 #include "plugin/gin_modmatrix.h"
-#include "plugin/gin_audioprocessorwrapper.h"
 
 #include "components/gin_assets.h"
 #include "components/gin_pluginalertwindow.h"

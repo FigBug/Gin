@@ -14,7 +14,10 @@
 #ifndef WEBP_UTILS_HUFFMAN_ENCODE_UTILS_H_
 #define WEBP_UTILS_HUFFMAN_ENCODE_UTILS_H_
 
+#include "../utils/bounds_safety.h"
 #include "../webp/types.h"
+
+WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 
 #ifdef __cplusplus
 extern "C" {
@@ -22,29 +25,32 @@ extern "C" {
 
 // Struct for holding the tree header in coded form.
 typedef struct {
-  uint8_t code;         // value (0..15) or escape code (16,17,18)
-  uint8_t extra_bits;   // extra bits for escape codes
+  uint8_t code;        // value (0..15) or escape code (16,17,18)
+  uint8_t extra_bits;  // extra bits for escape codes
 } HuffmanTreeToken;
 
 // Struct to represent the tree codes (depth and bits array).
 typedef struct {
-  int       num_symbols;   // Number of symbols.
-  uint8_t*  code_lengths;  // Code lengths of the symbols.
-  uint16_t* codes;         // Symbol Codes.
+  int num_symbols;  // Number of symbols.
+  // Code lengths of the symbols.
+  uint8_t* WEBP_COUNTED_BY(num_symbols) code_lengths;
+  // Symbol Codes.
+  uint16_t* WEBP_COUNTED_BY(num_symbols) codes;
 } HuffmanTreeCode;
 
 // Struct to represent the Huffman tree.
 typedef struct {
-  uint32_t total_count_;   // Symbol frequency.
-  int value_;              // Symbol value.
-  int pool_index_left_;    // Index for the left sub-tree.
-  int pool_index_right_;   // Index for the right sub-tree.
+  uint32_t total_count;  // Symbol frequency.
+  int value;             // Symbol value.
+  int pool_index_left;   // Index for the left sub-tree.
+  int pool_index_right;  // Index for the right sub-tree.
 } HuffmanTree;
 
 // Turn the Huffman tree into a token sequence.
 // Returns the number of tokens used.
-int VP8LCreateCompressedHuffmanTree(const HuffmanTreeCode* const tree,
-                                    HuffmanTreeToken* tokens, int max_tokens);
+int VP8LCreateCompressedHuffmanTree(
+    const HuffmanTreeCode* const tree,
+    HuffmanTreeToken* WEBP_COUNTED_BY(max_tokens) tokens, int max_tokens);
 
 // Create an optimized tree, and tokenize it.
 // 'buf_rle' and 'huff_tree' are pre-allocated and the 'tree' is the constructed

@@ -28,7 +28,7 @@ void LevelTracker::trackBuffer (const float* buffer, int numSamples)
     float peakDB = juce::Decibels::gainToDecibels (juce::jmax (v1, v2));
 
     if (peakDB > 0)
-        clip = true;
+        clip.store (true, std::memory_order_relaxed);
 
     if (decayRate < 0)
     {
@@ -36,8 +36,8 @@ void LevelTracker::trackBuffer (const float* buffer, int numSamples)
         {
             const float time = float (juce::Time::getMillisecondCounterHiRes() / 1000.0f);
 
-            peakLevel = peakDB;
-            peakTime = time;
+            peakLevel.store (peakDB, std::memory_order_relaxed);
+            peakTime.store (time, std::memory_order_relaxed);
         }
     }
     else
@@ -46,8 +46,8 @@ void LevelTracker::trackBuffer (const float* buffer, int numSamples)
         {
             const float time = float (juce::Time::getMillisecondCounterHiRes() / 1000.0f);
 
-            peakLevel = peakDB;
-            peakTime = time;
+            peakLevel.store (peakDB, std::memory_order_relaxed);
+            peakTime.store (time, std::memory_order_relaxed);
         }
     }
 }
@@ -57,7 +57,7 @@ void LevelTracker::trackSample (float f)
     float peakDB = juce::Decibels::gainToDecibels (std::abs (f));
 
     if (peakDB > 0)
-        clip = true;
+        clip.store (true, std::memory_order_relaxed);
 
     if (decayRate < 0)
     {
@@ -65,8 +65,8 @@ void LevelTracker::trackSample (float f)
         {
             const float time = float (juce::Time::getMillisecondCounterHiRes() / 1000.0f);
 
-            peakLevel = peakDB;
-            peakTime = time;
+            peakLevel.store (peakDB, std::memory_order_relaxed);
+            peakTime.store (time, std::memory_order_relaxed);
         }
     }
     else
@@ -75,8 +75,8 @@ void LevelTracker::trackSample (float f)
         {
             const float time = float (juce::Time::getMillisecondCounterHiRes() / 1000.0f);
 
-            peakLevel = peakDB;
-            peakTime = time;
+            peakLevel.store (peakDB, std::memory_order_relaxed);
+            peakTime.store (time, std::memory_order_relaxed);
         }
     }
 }
@@ -85,10 +85,10 @@ float LevelTracker::getLevel() const
 {
     const float hold = 50.0f / 1000.0f;
 
-    const float elapsed = float (juce::Time::getMillisecondCounterHiRes() / 1000.0f) - peakTime;
+    const float elapsed = float (juce::Time::getMillisecondCounterHiRes() / 1000.0f) - peakTime.load (std::memory_order_relaxed);
 
     if (elapsed < hold)
-        return peakLevel;
+        return peakLevel.load (std::memory_order_relaxed);
 
-    return peakLevel - (decayRate * (elapsed - hold));
+    return peakLevel.load (std::memory_order_relaxed) - (decayRate * (elapsed - hold));
 }

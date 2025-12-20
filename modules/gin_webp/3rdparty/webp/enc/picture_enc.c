@@ -12,11 +12,14 @@
 // Author: Skal (pascal.massimino@gmail.com)
 
 #include <assert.h>
+#include <limits.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "../enc/vp8i_enc.h"
-#include "../dsp/dsp.h"
 #include "../utils/utils.h"
+#include "../webp/encode.h"
+#include "../webp/types.h"
 
 //------------------------------------------------------------------------------
 // WebPPicture
@@ -33,7 +36,7 @@ static int DummyWriter(const uint8_t* data, size_t data_size,
 
 int WebPPictureInitInternal(WebPPicture* picture, int version) {
   if (WEBP_ABI_IS_INCOMPATIBLE(version, WEBP_ENCODER_ABI_VERSION)) {
-    return 0;   // caller/system version mismatch!
+    return 0;  // caller/system version mismatch!
   }
   if (picture != NULL) {
     memset(picture, 0, sizeof(*picture));
@@ -47,11 +50,8 @@ int WebPPictureInitInternal(WebPPicture* picture, int version) {
 
 int WebPValidatePicture(const WebPPicture* const picture) {
   if (picture == NULL) return 0;
-  if (picture->width <= 0 || picture->height <= 0) {
-    return WebPEncodingSetError(picture, VP8_ENC_ERROR_BAD_DIMENSION);
-  }
-  if (picture->width <= 0 || picture->width / 4 > INT_MAX / 4 ||
-      picture->height <= 0 || picture->height / 4 > INT_MAX / 4) {
+  if (picture->width <= 0 || picture->width > INT_MAX / 4 ||
+      picture->height <= 0 || picture->height > INT_MAX / 4) {
     return WebPEncodingSetError(picture, VP8_ENC_ERROR_BAD_DIMENSION);
   }
   if (picture->colorspace != WEBP_YUV420 &&
@@ -123,13 +123,13 @@ int WebPPictureAllocYUVA(WebPPicture* const picture) {
   a_stride = a_width;
   y_size = (uint64_t)y_stride * height;
   uv_size = (uint64_t)uv_stride * uv_height;
-  a_size =  (uint64_t)a_stride * height;
+  a_size = (uint64_t)a_stride * height;
 
   total_size = y_size + a_size + 2 * uv_size;
 
   // Security and validation checks
-  if (width <= 0 || height <= 0 ||           // luma/alpha param error
-      uv_width <= 0 || uv_height <= 0) {     // u/v param error
+  if (width <= 0 || height <= 0 ||        // luma/alpha param error
+      uv_width <= 0 || uv_height <= 0) {  // u/v param error
     return WebPEncodingSetError(picture, VP8_ENC_ERROR_BAD_DIMENSION);
   }
   // allocate a new buffer.
@@ -140,9 +140,9 @@ int WebPPictureAllocYUVA(WebPPicture* const picture) {
 
   // From now on, we're in the clear, we can no longer fail...
   picture->memory_ = (void*)mem;
-  picture->y_stride  = y_stride;
+  picture->y_stride = y_stride;
   picture->uv_stride = uv_stride;
-  picture->a_stride  = a_stride;
+  picture->a_stride = a_stride;
 
   // TODO(skal): we could align the y/u/v planes and adjust stride.
   picture->y = mem;
@@ -163,7 +163,7 @@ int WebPPictureAllocYUVA(WebPPicture* const picture) {
 
 int WebPPictureAlloc(WebPPicture* picture) {
   if (picture != NULL) {
-    WebPPictureFree(picture);   // erase previous buffer
+    WebPPictureFree(picture);  // erase previous buffer
 
     if (!picture->use_argb) {
       return WebPPictureAllocYUVA(picture);
@@ -226,9 +226,7 @@ int WebPMemoryWrite(const uint8_t* data, size_t data_size,
 void WebPMemoryWriterClear(WebPMemoryWriter* writer) {
   if (writer != NULL) {
     WebPSafeFree(writer->mem);
-    writer->mem = NULL;
-    writer->size = 0;
-    writer->max_size = 0;
+    WebPMemoryWriterInit(writer);
   }
 }
 
@@ -271,11 +269,11 @@ static size_t Encode(const uint8_t* rgba, int width, int height, int stride,
   return wrt.size;
 }
 
-#define ENCODE_FUNC(NAME, IMPORTER)                                     \
-size_t NAME(const uint8_t* in, int w, int h, int bps, float q,          \
-            uint8_t** out) {                                            \
-  return Encode(in, w, h, bps, IMPORTER, q, 0, out);                    \
-}
+#define ENCODE_FUNC(NAME, IMPORTER)                              \
+  size_t NAME(const uint8_t* in, int w, int h, int bps, float q, \
+              uint8_t** out) {                                   \
+    return Encode(in, w, h, bps, IMPORTER, q, 0, out);           \
+  }
 
 ENCODE_FUNC(WebPEncodeRGB, WebPPictureImportRGB)
 ENCODE_FUNC(WebPEncodeRGBA, WebPPictureImportRGBA)
@@ -287,10 +285,10 @@ ENCODE_FUNC(WebPEncodeBGRA, WebPPictureImportBGRA)
 #undef ENCODE_FUNC
 
 #define LOSSLESS_DEFAULT_QUALITY 70.
-#define LOSSLESS_ENCODE_FUNC(NAME, IMPORTER)                                 \
-size_t NAME(const uint8_t* in, int w, int h, int bps, uint8_t** out) {       \
-  return Encode(in, w, h, bps, IMPORTER, LOSSLESS_DEFAULT_QUALITY, 1, out);  \
-}
+#define LOSSLESS_ENCODE_FUNC(NAME, IMPORTER)                                  \
+  size_t NAME(const uint8_t* in, int w, int h, int bps, uint8_t** out) {      \
+    return Encode(in, w, h, bps, IMPORTER, LOSSLESS_DEFAULT_QUALITY, 1, out); \
+  }
 
 LOSSLESS_ENCODE_FUNC(WebPEncodeLosslessRGB, WebPPictureImportRGB)
 LOSSLESS_ENCODE_FUNC(WebPEncodeLosslessRGBA, WebPPictureImportRGBA)

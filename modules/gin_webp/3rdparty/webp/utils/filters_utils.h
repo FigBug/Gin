@@ -14,19 +14,23 @@
 #ifndef WEBP_UTILS_FILTERS_UTILS_H_
 #define WEBP_UTILS_FILTERS_UTILS_H_
 
-#include "../webp/types.h"
 #include "../dsp/dsp.h"
+#include "../utils/bounds_safety.h"
+#include "../webp/types.h"
+
+WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 // Fast estimate of a potentially good filter.
-WEBP_FILTER_TYPE WebPEstimateBestFilter(const uint8_t* data,
-                                        int width, int height, int stride);
+WEBP_FILTER_TYPE WebPEstimateBestFilter(
+    const uint8_t* WEBP_COUNTED_BY((size_t)width* height) data, int width,
+    int height);
 
 #ifdef __cplusplus
-}    // extern "C"
+}  // extern "C"
 #endif
 
 #endif  // WEBP_UTILS_FILTERS_UTILS_H_

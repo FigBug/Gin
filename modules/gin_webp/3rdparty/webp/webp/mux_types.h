@@ -15,6 +15,7 @@
 #define WEBP_WEBP_MUX_TYPES_H_
 
 #include <string.h>  // memset()
+
 #include "./types.h"
 
 #ifdef __cplusplus
@@ -30,11 +31,11 @@ typedef struct WebPData WebPData;
 
 // VP8X Feature Flags.
 typedef enum WebPFeatureFlags {
-  ANIMATION_FLAG  = 0x00000002,
-  XMP_FLAG        = 0x00000004,
-  EXIF_FLAG       = 0x00000008,
-  ALPHA_FLAG      = 0x00000010,
-  ICCP_FLAG       = 0x00000020,
+  ANIMATION_FLAG = 0x00000002,
+  XMP_FLAG = 0x00000004,
+  EXIF_FLAG = 0x00000008,
+  ALPHA_FLAG = 0x00000010,
+  ICCP_FLAG = 0x00000020,
 
   ALL_VALID_FLAGS = 0x0000003e
 } WebPFeatureFlags;
@@ -49,8 +50,8 @@ typedef enum WebPMuxAnimDispose {
 // Blend operation (animation only). Indicates how transparent pixels of the
 // current frame are blended with those of the previous canvas.
 typedef enum WebPMuxAnimBlend {
-  WEBP_MUX_BLEND,              // Blend.
-  WEBP_MUX_NO_BLEND            // Do not blend.
+  WEBP_MUX_BLEND,    // Blend.
+  WEBP_MUX_NO_BLEND  // Do not blend.
 } WebPMuxAnimBlend;
 
 // Data type used to describe 'raw' data, e.g., chunk data
@@ -64,7 +65,7 @@ struct WebPData {
 // Initializes the contents of the 'webp_data' object with default values.
 static WEBP_INLINE void WebPDataInit(WebPData* webp_data) {
   if (webp_data != NULL) {
-    memset(webp_data, 0, sizeof(*webp_data));
+    WEBP_UNSAFE_MEMSET(webp_data, 0, sizeof(*webp_data));
   }
 }
 
@@ -79,20 +80,21 @@ static WEBP_INLINE void WebPDataClear(WebPData* webp_data) {
 
 // Allocates necessary storage for 'dst' and copies the contents of 'src'.
 // Returns true on success.
-static WEBP_INLINE int WebPDataCopy(const WebPData* src, WebPData* dst) {
+WEBP_NODISCARD static WEBP_INLINE int WebPDataCopy(const WebPData* src,
+                                                   WebPData* dst) {
   if (src == NULL || dst == NULL) return 0;
   WebPDataInit(dst);
   if (src->bytes != NULL && src->size != 0) {
     dst->bytes = (uint8_t*)WebPMalloc(src->size);
     if (dst->bytes == NULL) return 0;
-    memcpy((void*)dst->bytes, src->bytes, src->size);
+    WEBP_UNSAFE_MEMCPY((void*)dst->bytes, src->bytes, src->size);
     dst->size = src->size;
   }
   return 1;
 }
 
 #ifdef __cplusplus
-}    // extern "C"
+}  // extern "C"
 #endif
 
 #endif  // WEBP_WEBP_MUX_TYPES_H_

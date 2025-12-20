@@ -16,29 +16,33 @@
 
 #if defined(WEBP_USE_MIPS_DSP_R2)
 
-#include "../dsp/dsp.h"
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
 
+#include "../dsp/dsp.h"
+
 //------------------------------------------------------------------------------
 // Helpful macro.
 
-# define SANITY_CHECK(in, out)                                                 \
-  assert(in != NULL);                                                          \
-  assert(out != NULL);                                                         \
-  assert(width > 0);                                                           \
-  assert(height > 0);                                                          \
-  assert(stride >= width);                                                     \
-  assert(row >= 0 && num_rows > 0 && row + num_rows <= height);                \
-  (void)height;  // Silence unused warning.
+#define DCHECK(in, out)      \
+  do {                       \
+    assert((in) != NULL);    \
+    assert((out) != NULL);   \
+    assert((in) != (out));   \
+    assert(width > 0);       \
+    assert(height > 0);      \
+    assert(stride >= width); \
+  } while (0)
 
-#define DO_PREDICT_LINE(SRC, DST, LENGTH, INVERSE) do {                        \
+// clang-format off
+#define DO_PREDICT_LINE(SRC, DST, LENGTH, INVERSE)                             \
+  do {                                                                         \
     const uint8_t* psrc = (uint8_t*)(SRC);                                     \
     uint8_t* pdst = (uint8_t*)(DST);                                           \
     const int ilength = (int)(LENGTH);                                         \
     int temp0, temp1, temp2, temp3, temp4, temp5, temp6;                       \
-    __asm__ volatile (                                                         \
+    __asm__ volatile(                                                          \
       ".set      push                                   \n\t"                  \
       ".set      noreorder                              \n\t"                  \
       "srl       %[temp0],    %[length],    2           \n\t"                  \
@@ -100,19 +104,23 @@
       : "memory"                                                               \
     );                                                                         \
   } while (0)
+// clang-format on
 
-static WEBP_INLINE void PredictLine_MIPSdspR2(const uint8_t* src, uint8_t* dst,
+static WEBP_INLINE void PredictLine_MIPSdspR2(const uint8_t* WEBP_RESTRICT src,
+                                              uint8_t* WEBP_RESTRICT dst,
                                               int length) {
   DO_PREDICT_LINE(src, dst, length, 0);
 }
 
-#define DO_PREDICT_LINE_VERTICAL(SRC, PRED, DST, LENGTH, INVERSE) do {         \
+// clang-format off
+#define DO_PREDICT_LINE_VERTICAL(SRC, PRED, DST, LENGTH, INVERSE)              \
+  do {                                                                         \
     const uint8_t* psrc = (uint8_t*)(SRC);                                     \
     const uint8_t* ppred = (uint8_t*)(PRED);                                   \
     uint8_t* pdst = (uint8_t*)(DST);                                           \
     const int ilength = (int)(LENGTH);                                         \
     int temp0, temp1, temp2, temp3, temp4, temp5, temp6, temp7;                \
-    __asm__ volatile (                                                         \
+    __asm__ volatile(                                                          \
       ".set      push                                   \n\t"                  \
       ".set      noreorder                              \n\t"                  \
       "srl       %[temp0],    %[length],    0x3         \n\t"                  \
@@ -165,9 +173,10 @@ static WEBP_INLINE void PredictLine_MIPSdspR2(const uint8_t* src, uint8_t* dst,
     );                                                                         \
   } while (0)
 
-#define PREDICT_LINE_ONE_PASS(SRC, PRED, DST) do {                             \
+#define PREDICT_LINE_ONE_PASS(SRC, PRED, DST)                                  \
+  do {                                                                         \
     int temp1, temp2, temp3;                                                   \
-    __asm__ volatile (                                                         \
+    __asm__ volatile(                                                          \
       "lbu       %[temp1],   0(%[src])               \n\t"                     \
       "lbu       %[temp2],   0(%[pred])              \n\t"                     \
       "subu      %[temp3],   %[temp1],   %[temp2]    \n\t"                     \
@@ -177,104 +186,83 @@ static WEBP_INLINE void PredictLine_MIPSdspR2(const uint8_t* src, uint8_t* dst,
       : "memory"                                                               \
     );                                                                         \
   } while (0)
+// clang-format on
 
 //------------------------------------------------------------------------------
 // Horizontal filter.
 
-#define FILTER_LINE_BY_LINE do {                                               \
-    while (row < last_row) {                                                   \
-      PREDICT_LINE_ONE_PASS(in, preds - stride, out);                          \
-      DO_PREDICT_LINE(in + 1, out + 1, width - 1, 0);                          \
-      ++row;                                                                   \
-      preds += stride;                                                         \
-      in += stride;                                                            \
-      out += stride;                                                           \
-    }                                                                          \
+#define FILTER_LINE_BY_LINE                           \
+  do {                                                \
+    for (row = 1; row < height; ++row) {              \
+      PREDICT_LINE_ONE_PASS(in, preds - stride, out); \
+      DO_PREDICT_LINE(in + 1, out + 1, width - 1, 0); \
+      preds += stride;                                \
+      in += stride;                                   \
+      out += stride;                                  \
+    }                                                 \
   } while (0)
 
-static WEBP_INLINE void DoHorizontalFilter_MIPSdspR2(const uint8_t* in,
-                                                     int width, int height,
-                                                     int stride,
-                                                     int row, int num_rows,
-                                                     uint8_t* out) {
-  const uint8_t* preds;
-  const size_t start_offset = row * stride;
-  const int last_row = row + num_rows;
-  SANITY_CHECK(in, out);
-  in += start_offset;
-  out += start_offset;
-  preds = in;
+static WEBP_INLINE void DoHorizontalFilter_MIPSdspR2(
+    const uint8_t* WEBP_RESTRICT in, int width, int height, int stride,
+    uint8_t* WEBP_RESTRICT out) {
+  const uint8_t* preds = in;
+  int row;
+  DCHECK(in, out);
 
-  if (row == 0) {
-    // Leftmost pixel is the same as input for topmost scanline.
-    out[0] = in[0];
-    PredictLine_MIPSdspR2(in + 1, out + 1, width - 1);
-    row = 1;
-    preds += stride;
-    in += stride;
-    out += stride;
-  }
+  // Leftmost pixel is the same as input for topmost scanline.
+  out[0] = in[0];
+  PredictLine_MIPSdspR2(in + 1, out + 1, width - 1);
+  preds += stride;
+  in += stride;
+  out += stride;
 
   // Filter line-by-line.
   FILTER_LINE_BY_LINE;
 }
 #undef FILTER_LINE_BY_LINE
 
-static void HorizontalFilter_MIPSdspR2(const uint8_t* data,
-                                       int width, int height,
-                                       int stride, uint8_t* filtered_data) {
-  DoHorizontalFilter_MIPSdspR2(data, width, height, stride, 0, height,
-                               filtered_data);
+static void HorizontalFilter_MIPSdspR2(const uint8_t* WEBP_RESTRICT data,
+                                       int width, int height, int stride,
+                                       uint8_t* WEBP_RESTRICT filtered_data) {
+  DoHorizontalFilter_MIPSdspR2(data, width, height, stride, filtered_data);
 }
 
 //------------------------------------------------------------------------------
 // Vertical filter.
 
-#define FILTER_LINE_BY_LINE do {                                               \
-    while (row < last_row) {                                                   \
-      DO_PREDICT_LINE_VERTICAL(in, preds, out, width, 0);                      \
-      ++row;                                                                   \
-      preds += stride;                                                         \
-      in += stride;                                                            \
-      out += stride;                                                           \
-    }                                                                          \
+#define FILTER_LINE_BY_LINE                               \
+  do {                                                    \
+    for (row = 1; row < height; ++row) {                  \
+      DO_PREDICT_LINE_VERTICAL(in, preds, out, width, 0); \
+      preds += stride;                                    \
+      in += stride;                                       \
+      out += stride;                                      \
+    }                                                     \
   } while (0)
 
-static WEBP_INLINE void DoVerticalFilter_MIPSdspR2(const uint8_t* in,
-                                                   int width, int height,
-                                                   int stride,
-                                                   int row, int num_rows,
-                                                   uint8_t* out) {
-  const uint8_t* preds;
-  const size_t start_offset = row * stride;
-  const int last_row = row + num_rows;
-  SANITY_CHECK(in, out);
-  in += start_offset;
-  out += start_offset;
-  preds = in;
+static WEBP_INLINE void DoVerticalFilter_MIPSdspR2(
+    const uint8_t* WEBP_RESTRICT in, int width, int height, int stride,
+    uint8_t* WEBP_RESTRICT out) {
+  const uint8_t* preds = in;
+  int row;
+  DCHECK(in, out);
 
-  if (row == 0) {
-    // Very first top-left pixel is copied.
-    out[0] = in[0];
-    // Rest of top scan-line is left-predicted.
-    PredictLine_MIPSdspR2(in + 1, out + 1, width - 1);
-    row = 1;
-    in += stride;
-    out += stride;
-  } else {
-    // We are starting from in-between. Make sure 'preds' points to prev row.
-    preds -= stride;
-  }
+  // Very first top-left pixel is copied.
+  out[0] = in[0];
+  // Rest of top scan-line is left-predicted.
+  PredictLine_MIPSdspR2(in + 1, out + 1, width - 1);
+  in += stride;
+  out += stride;
 
   // Filter line-by-line.
   FILTER_LINE_BY_LINE;
 }
 #undef FILTER_LINE_BY_LINE
 
-static void VerticalFilter_MIPSdspR2(const uint8_t* data, int width, int height,
-                                     int stride, uint8_t* filtered_data) {
-  DoVerticalFilter_MIPSdspR2(data, width, height, stride, 0, height,
-                             filtered_data);
+static void VerticalFilter_MIPSdspR2(const uint8_t* WEBP_RESTRICT data,
+                                     int width, int height, int stride,
+                                     uint8_t* WEBP_RESTRICT filtered_data) {
+  DoVerticalFilter_MIPSdspR2(data, width, height, stride, filtered_data);
 }
 
 //------------------------------------------------------------------------------
@@ -282,72 +270,63 @@ static void VerticalFilter_MIPSdspR2(const uint8_t* data, int width, int height,
 
 static int GradientPredictor_MIPSdspR2(uint8_t a, uint8_t b, uint8_t c) {
   int temp0;
-  __asm__ volatile (
-    "addu             %[temp0],   %[a],       %[b]        \n\t"
-    "subu             %[temp0],   %[temp0],   %[c]        \n\t"
-    "shll_s.w         %[temp0],   %[temp0],   23          \n\t"
-    "precrqu_s.qb.ph  %[temp0],   %[temp0],   $zero       \n\t"
-    "srl              %[temp0],   %[temp0],   24          \n\t"
-    : [temp0]"=&r"(temp0)
-    : [a]"r"(a),[b]"r"(b),[c]"r"(c)
-  );
+  __asm__ volatile(
+      "addu             %[temp0],   %[a],       %[b]        \n\t"
+      "subu             %[temp0],   %[temp0],   %[c]        \n\t"
+      "shll_s.w         %[temp0],   %[temp0],   23          \n\t"
+      "precrqu_s.qb.ph  %[temp0],   %[temp0],   $zero       \n\t"
+      "srl              %[temp0],   %[temp0],   24          \n\t"
+      : [temp0] "=&r"(temp0)
+      : [a] "r"(a), [b] "r"(b), [c] "r"(c));
   return temp0;
 }
 
-#define FILTER_LINE_BY_LINE(PREDS, OPERATION) do {                             \
-    while (row < last_row) {                                                   \
-      int w;                                                                   \
-      PREDICT_LINE_ONE_PASS(in, PREDS - stride, out);                          \
-      for (w = 1; w < width; ++w) {                                            \
-        const int pred = GradientPredictor_MIPSdspR2(PREDS[w - 1],             \
-                                                     PREDS[w - stride],        \
-                                                     PREDS[w - stride - 1]);   \
-        out[w] = in[w] OPERATION pred;                                         \
-      }                                                                        \
-      ++row;                                                                   \
-      in += stride;                                                            \
-      out += stride;                                                           \
-    }                                                                          \
+#define FILTER_LINE_BY_LINE(PREDS, OPERATION)                        \
+  do {                                                               \
+    for (row = 1; row < height; ++row) {                             \
+      int w;                                                         \
+      PREDICT_LINE_ONE_PASS(in, PREDS - stride, out);                \
+      for (w = 1; w < width; ++w) {                                  \
+        const int pred = GradientPredictor_MIPSdspR2(                \
+            PREDS[w - 1], PREDS[w - stride], PREDS[w - stride - 1]); \
+        out[w] = in[w] OPERATION pred;                               \
+      }                                                              \
+      in += stride;                                                  \
+      out += stride;                                                 \
+    }                                                                \
   } while (0)
 
-static void DoGradientFilter_MIPSdspR2(const uint8_t* in,
+static void DoGradientFilter_MIPSdspR2(const uint8_t* WEBP_RESTRICT in,
                                        int width, int height, int stride,
-                                       int row, int num_rows, uint8_t* out) {
-  const uint8_t* preds;
-  const size_t start_offset = row * stride;
-  const int last_row = row + num_rows;
-  SANITY_CHECK(in, out);
-  in += start_offset;
-  out += start_offset;
-  preds = in;
+                                       uint8_t* WEBP_RESTRICT out) {
+  const uint8_t* preds = in;
+  int row;
+  DCHECK(in, out);
 
   // left prediction for top scan-line
-  if (row == 0) {
-    out[0] = in[0];
-    PredictLine_MIPSdspR2(in + 1, out + 1, width - 1);
-    row = 1;
-    preds += stride;
-    in += stride;
-    out += stride;
-  }
+  out[0] = in[0];
+  PredictLine_MIPSdspR2(in + 1, out + 1, width - 1);
+  preds += stride;
+  in += stride;
+  out += stride;
 
   // Filter line-by-line.
   FILTER_LINE_BY_LINE(in, -);
 }
 #undef FILTER_LINE_BY_LINE
 
-static void GradientFilter_MIPSdspR2(const uint8_t* data, int width, int height,
-                                     int stride, uint8_t* filtered_data) {
-  DoGradientFilter_MIPSdspR2(data, width, height, stride, 0, height,
-                             filtered_data);
+static void GradientFilter_MIPSdspR2(const uint8_t* WEBP_RESTRICT data,
+                                     int width, int height, int stride,
+                                     uint8_t* WEBP_RESTRICT filtered_data) {
+  DoGradientFilter_MIPSdspR2(data, width, height, stride, filtered_data);
 }
 
 //------------------------------------------------------------------------------
 
 static void HorizontalUnfilter_MIPSdspR2(const uint8_t* prev, const uint8_t* in,
                                          uint8_t* out, int width) {
- out[0] = in[0] + (prev == NULL ? 0 : prev[0]);
- DO_PREDICT_LINE(in + 1, out + 1, width - 1, 1);
+  out[0] = in[0] + (prev == NULL ? 0 : prev[0]);
+  DO_PREDICT_LINE(in + 1, out + 1, width - 1, 1);
 }
 
 static void VerticalUnfilter_MIPSdspR2(const uint8_t* prev, const uint8_t* in,
@@ -378,7 +357,7 @@ static void GradientUnfilter_MIPSdspR2(const uint8_t* prev, const uint8_t* in,
 #undef DO_PREDICT_LINE_VERTICAL
 #undef PREDICT_LINE_ONE_PASS
 #undef DO_PREDICT_LINE
-#undef SANITY_CHECK
+#undef DCHECK
 
 //------------------------------------------------------------------------------
 // Entry point

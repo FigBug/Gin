@@ -1,6 +1,6 @@
 /*==============================================================================
 
- Copyright 2019 by Roland Rabien
+ Copyright 2018 - 2025 by Roland Rabien
  For more information visit www.rabiensoftware.com
 
  ==============================================================================*/
@@ -25,7 +25,7 @@ juce::Image rasterizeSVG (juce::String svgText, int w, int h)
     return img;
 }
 
-juce::Path parseSVGPath ( const juce::String& text )
+juce::Path parseSVGPath (const juce::String& text)
 {
     auto pathFromPoints = [] (juce::String pointsText) -> juce::Path
     {

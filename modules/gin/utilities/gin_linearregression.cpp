@@ -1,6 +1,6 @@
 /*==============================================================================
 
- Copyright 2018 by Roland Rabien, 1998 David C. Swaim
+ Copyright 2018 - 2025 by Roland Rabien, 1998 David C. Swaim
  For more information visit www.rabiensoftware.com
 
  ==============================================================================*/

@@ -13,13 +13,18 @@
 
 #include <assert.h>
 #include <stdlib.h>
+#include <string.h>
 
-#include "../enc/vp8i_enc.h"
 #include "../dsp/dsp.h"
+#include "../enc/vp8i_enc.h"
+#include "../utils/bit_writer_utils.h"
 #include "../utils/filters_utils.h"
 #include "../utils/quant_levels_utils.h"
+#include "../utils/thread_utils.h"
 #include "../utils/utils.h"
+#include "../webp/encode.h"
 #include "../webp/format_constants.h"
+#include "../webp/types.h"
 
 // -----------------------------------------------------------------------------
 // Encodes the given alpha data via specified compression method 'method'.
@@ -54,7 +59,7 @@ static int EncodeLossless(const uint8_t* const data, int width, int height,
   WebPConfig config;
   WebPPicture picture;
 
-  WebPPictureInit(&picture);
+  if (!WebPPictureInit(&picture)) return 0;
   picture.width = width;
   picture.height = height;
   picture.use_argb = 1;
@@ -65,7 +70,7 @@ static int EncodeLossless(const uint8_t* const data, int width, int height,
   WebPDispatchAlphaToGreen(data, width, picture.width, picture.height,
                            picture.argb, picture.argb_stride);
 
-  WebPConfigInit(&config);
+  if (!WebPConfigInit(&config)) return 0;
   config.lossless = 1;
   // Enable exact, or it would alter RGB values of transparent alpha, which is
   // normally OK but not here since we are not encoding the input image but  an
@@ -82,13 +87,9 @@ static int EncodeLossless(const uint8_t* const data, int width, int height,
       (use_quality_100 && effort_level == 6) ? 100 : 8.f * effort_level;
   assert(config.quality >= 0 && config.quality <= 100.f);
 
-  // TODO(urvang): Temporary fix to avoid generating images that trigger
-  // a decoder bug related to alpha with color cache.
-  // See: https://code.google.com/p/webp/issues/detail?id=239
-  // Need to re-enable this later.
-  ok = VP8LEncodeStream(&config, &picture, bw, /*use_cache=*/0);
+  ok = VP8LEncodeStream(&config, &picture, bw);
   WebPPictureFree(&picture);
-  ok = ok && !bw->error_;
+  ok = ok && !bw->error;
   if (!ok) {
     VP8LBitWriterWipeOut(bw);
     return 0;
@@ -109,8 +110,7 @@ typedef struct {
 static int EncodeAlphaInternal(const uint8_t* const data, int width, int height,
                                int method, int filter, int reduce_levels,
                                int effort_level,  // in [0..6] range
-                               uint8_t* const tmp_alpha,
-                               FilterTrial* result) {
+                               uint8_t* const tmp_alpha, FilterTrial* result) {
   int ok = 0;
   const uint8_t* alpha_src;
   WebPFilterFunc filter_func;
@@ -130,7 +130,7 @@ static int EncodeAlphaInternal(const uint8_t* const data, int width, int height,
   if (filter_func != NULL) {
     filter_func(data, width, height, width, tmp_alpha);
     alpha_src = tmp_alpha;
-  }  else {
+  } else {
     alpha_src = data;
   }
 
@@ -140,6 +140,11 @@ static int EncodeAlphaInternal(const uint8_t* const data, int width, int height,
                               !reduce_levels, &tmp_bw, &result->stats);
     if (ok) {
       output = VP8LBitWriterFinish(&tmp_bw);
+      if (tmp_bw.error) {
+        VP8LBitWriterWipeOut(&tmp_bw);
+        memset(&result->bw, 0, sizeof(result->bw));
+        return 0;
+      }
       output_size = VP8LBitWriterNumBytes(&tmp_bw);
       if (output_size > data_size) {
         // compressed size is larger than source! Revert to uncompressed mode.
@@ -148,6 +153,7 @@ static int EncodeAlphaInternal(const uint8_t* const data, int width, int height,
       }
     } else {
       VP8LBitWriterWipeOut(&tmp_bw);
+      memset(&result->bw, 0, sizeof(result->bw));
       return 0;
     }
   }
@@ -162,14 +168,14 @@ static int EncodeAlphaInternal(const uint8_t* const data, int width, int height,
   header = method | (filter << 2);
   if (reduce_levels) header |= ALPHA_PREPROCESSED_LEVELS << 4;
 
-  VP8BitWriterInit(&result->bw, ALPHA_HEADER_LEN + output_size);
+  if (!VP8BitWriterInit(&result->bw, ALPHA_HEADER_LEN + output_size)) ok = 0;
   ok = ok && VP8BitWriterAppend(&result->bw, &header, ALPHA_HEADER_LEN);
   ok = ok && VP8BitWriterAppend(&result->bw, output, output_size);
 
   if (method != ALPHA_NO_COMPRESSION) {
     VP8LBitWriterWipeOut(&tmp_bw);
   }
-  ok = ok && !result->bw.error_;
+  ok = ok && !result->bw.error;
   result->score = VP8BitWriterSize(&result->bw);
   return ok;
 }
@@ -180,7 +186,7 @@ static int GetNumColors(const uint8_t* data, int width, int height,
                         int stride) {
   int j;
   int colors = 0;
-  uint8_t color[256] = { 0 };
+  uint8_t color[256] = {0};
 
   for (j = 0; j < height; ++j) {
     int i;
@@ -210,8 +216,8 @@ static uint32_t GetFilterMap(const uint8_t* alpha, int width, int height,
     const int num_colors = GetNumColors(alpha, width, height, width);
     // For low number of colors, NONE yields better compression.
     filter = (num_colors <= kMinColorsForFilterNone)
-        ? WEBP_FILTER_NONE
-        : WebPEstimateBestFilter(alpha, width, height, width);
+                 ? WEBP_FILTER_NONE
+                 : WebPEstimateBestFilter(alpha, width, height);
     bit_map |= 1 << filter;
     // For large number of colors, try FILTER_NONE in addition to the best
     // filter as well.
@@ -239,12 +245,11 @@ static int ApplyFiltersAndEncode(const uint8_t* alpha, int width, int height,
                                  WebPAuxStats* const stats) {
   int ok = 1;
   FilterTrial best;
-  uint32_t try_map =
-      GetFilterMap(alpha, width, height, filter, effort_level);
+  uint32_t try_map = GetFilterMap(alpha, width, height, filter, effort_level);
   InitFilterTrial(&best);
 
   if (try_map != FILTER_TRY_NONE) {
-    uint8_t* filtered_alpha =  (uint8_t*)WebPSafeMalloc(1ULL, data_size);
+    uint8_t* filtered_alpha = (uint8_t*)WebPSafeMalloc(1ULL, data_size);
     if (filtered_alpha == NULL) return 0;
 
     for (filter = WEBP_FILTER_NONE; ok && try_map; ++filter, try_map >>= 1) {
@@ -272,6 +277,7 @@ static int ApplyFiltersAndEncode(const uint8_t* alpha, int width, int height,
       stats->lossless_features = best.stats.lossless_features;
       stats->histogram_bits = best.stats.histogram_bits;
       stats->transform_bits = best.stats.transform_bits;
+      stats->cross_color_transform_bits = best.stats.cross_color_transform_bits;
       stats->cache_bits = best.stats.cache_bits;
       stats->palette_size = best.stats.palette_size;
       stats->lossless_size = best.stats.lossless_size;
@@ -289,11 +295,10 @@ static int ApplyFiltersAndEncode(const uint8_t* alpha, int width, int height,
   return ok;
 }
 
-static int EncodeAlpha(VP8Encoder* const enc,
-                       int quality, int method, int filter,
-                       int effort_level,
-                       uint8_t** const output, size_t* const output_size) {
-  const WebPPicture* const pic = enc->pic_;
+static int EncodeAlpha(VP8Encoder* const enc, int quality, int method,
+                       int filter, int effort_level, uint8_t** const output,
+                       size_t* const output_size) {
+  const WebPPicture* const pic = enc->pic;
   const int width = pic->width;
   const int height = pic->height;
 
@@ -312,11 +317,11 @@ static int EncodeAlpha(VP8Encoder* const enc,
   assert(filter >= WEBP_FILTER_NONE && filter <= WEBP_FILTER_FAST);
 
   if (quality < 0 || quality > 100) {
-    return 0;
+    return WebPEncodingSetError(pic, VP8_ENC_ERROR_INVALID_CONFIGURATION);
   }
 
   if (method < ALPHA_NO_COMPRESSION || method > ALPHA_LOSSLESS_COMPRESSION) {
-    return 0;
+    return WebPEncodingSetError(pic, VP8_ENC_ERROR_INVALID_CONFIGURATION);
   }
 
   if (method == ALPHA_NO_COMPRESSION) {
@@ -326,7 +331,7 @@ static int EncodeAlpha(VP8Encoder* const enc,
 
   quant_alpha = (uint8_t*)WebPSafeMalloc(1ULL, data_size);
   if (quant_alpha == NULL) {
-    return 0;
+    return WebPEncodingSetError(pic, VP8_ENC_ERROR_OUT_OF_MEMORY);
   }
 
   // Extract alpha data (width x height) from raw_data (stride x height).
@@ -336,8 +341,8 @@ static int EncodeAlpha(VP8Encoder* const enc,
     // 16 alpha levels gives quite a low MSE w.r.t original alpha plane hence
     // mapped to moderate quality 70. Hence Quality:[0, 70] -> Levels:[2, 16]
     // and Quality:]70, 100] -> Levels:]16, 256].
-    const int alpha_levels = (quality <= 70) ? (2 + quality / 5)
-                                             : (16 + (quality - 70) * 8);
+    const int alpha_levels =
+        (quality <= 70) ? (2 + quality / 5) : (16 + (quality - 70) * 8);
     ok = QuantizeLevels(quant_alpha, width, height, alpha_levels, &sse);
   }
 
@@ -346,10 +351,13 @@ static int EncodeAlpha(VP8Encoder* const enc,
     ok = ApplyFiltersAndEncode(quant_alpha, width, height, data_size, method,
                                filter, reduce_levels, effort_level, output,
                                output_size, pic->stats);
+    if (!ok) {
+      WebPEncodingSetError(pic, VP8_ENC_ERROR_OUT_OF_MEMORY);  // imprecise
+    }
 #if !defined(WEBP_DISABLE_STATS)
     if (pic->stats != NULL) {  // need stats?
       pic->stats->coded_size += (int)(*output_size);
-      enc->sse_[3] = sse;
+      enc->sse[3] = sse;
     }
 #endif
   }
@@ -363,14 +371,14 @@ static int EncodeAlpha(VP8Encoder* const enc,
 
 static int CompressAlphaJob(void* arg1, void* unused) {
   VP8Encoder* const enc = (VP8Encoder*)arg1;
-  const WebPConfig* config = enc->config_;
+  const WebPConfig* config = enc->config;
   uint8_t* alpha_data = NULL;
   size_t alpha_size = 0;
   const int effort_level = config->method;  // maps to [0..6]
   const WEBP_FILTER_TYPE filter =
-      (config->alpha_filtering == 0) ? WEBP_FILTER_NONE :
-      (config->alpha_filtering == 1) ? WEBP_FILTER_FAST :
-                                       WEBP_FILTER_BEST;
+      (config->alpha_filtering == 0)   ? WEBP_FILTER_NONE
+      : (config->alpha_filtering == 1) ? WEBP_FILTER_FAST
+                                       : WEBP_FILTER_BEST;
   if (!EncodeAlpha(enc, config->alpha_quality, config->alpha_compression,
                    filter, effort_level, &alpha_data, &alpha_size)) {
     return 0;
@@ -379,19 +387,19 @@ static int CompressAlphaJob(void* arg1, void* unused) {
     WebPSafeFree(alpha_data);
     return 0;
   }
-  enc->alpha_data_size_ = (uint32_t)alpha_size;
-  enc->alpha_data_ = alpha_data;
+  enc->alpha_data_size = (uint32_t)alpha_size;
+  enc->alpha_data = alpha_data;
   (void)unused;
   return 1;
 }
 
 void VP8EncInitAlpha(VP8Encoder* const enc) {
   WebPInitAlphaProcessing();
-  enc->has_alpha_ = WebPPictureHasTransparency(enc->pic_);
-  enc->alpha_data_ = NULL;
-  enc->alpha_data_size_ = 0;
-  if (enc->thread_level_ > 0) {
-    WebPWorker* const worker = &enc->alpha_worker_;
+  enc->has_alpha = WebPPictureHasTransparency(enc->pic);
+  enc->alpha_data = NULL;
+  enc->alpha_data_size = 0;
+  if (enc->thread_level > 0) {
+    WebPWorker* const worker = &enc->alpha_worker;
     WebPGetWorkerInterface()->Init(worker);
     worker->data1 = enc;
     worker->data2 = NULL;
@@ -400,44 +408,44 @@ void VP8EncInitAlpha(VP8Encoder* const enc) {
 }
 
 int VP8EncStartAlpha(VP8Encoder* const enc) {
-  if (enc->has_alpha_) {
-    if (enc->thread_level_ > 0) {
-      WebPWorker* const worker = &enc->alpha_worker_;
+  if (enc->has_alpha) {
+    if (enc->thread_level > 0) {
+      WebPWorker* const worker = &enc->alpha_worker;
       // Makes sure worker is good to go.
       if (!WebPGetWorkerInterface()->Reset(worker)) {
-        return 0;
+        return WebPEncodingSetError(enc->pic, VP8_ENC_ERROR_OUT_OF_MEMORY);
       }
       WebPGetWorkerInterface()->Launch(worker);
       return 1;
     } else {
-      return CompressAlphaJob(enc, NULL);   // just do the job right away
+      return CompressAlphaJob(enc, NULL);  // just do the job right away
     }
   }
   return 1;
 }
 
 int VP8EncFinishAlpha(VP8Encoder* const enc) {
-  if (enc->has_alpha_) {
-    if (enc->thread_level_ > 0) {
-      WebPWorker* const worker = &enc->alpha_worker_;
+  if (enc->has_alpha) {
+    if (enc->thread_level > 0) {
+      WebPWorker* const worker = &enc->alpha_worker;
       if (!WebPGetWorkerInterface()->Sync(worker)) return 0;  // error
     }
   }
-  return WebPReportProgress(enc->pic_, enc->percent_ + 20, &enc->percent_);
+  return WebPReportProgress(enc->pic, enc->percent + 20, &enc->percent);
 }
 
 int VP8EncDeleteAlpha(VP8Encoder* const enc) {
   int ok = 1;
-  if (enc->thread_level_ > 0) {
-    WebPWorker* const worker = &enc->alpha_worker_;
+  if (enc->thread_level > 0) {
+    WebPWorker* const worker = &enc->alpha_worker;
     // finish anything left in flight
     ok = WebPGetWorkerInterface()->Sync(worker);
     // still need to end the worker, even if !ok
     WebPGetWorkerInterface()->End(worker);
   }
-  WebPSafeFree(enc->alpha_data_);
-  enc->alpha_data_ = NULL;
-  enc->alpha_data_size_ = 0;
-  enc->has_alpha_ = 0;
+  WebPSafeFree(enc->alpha_data);
+  enc->alpha_data = NULL;
+  enc->alpha_data_size = 0;
+  enc->has_alpha = 0;
   return ok;
 }

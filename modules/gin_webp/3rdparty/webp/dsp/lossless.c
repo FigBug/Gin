@@ -13,15 +13,21 @@
 //          Jyrki Alakuijala (jyrki@google.com)
 //          Urvang Joshi (urvang@google.com)
 
-#include "../dsp/dsp.h"
+#include "../dsp/lossless.h"
 
 #include <assert.h>
-#include <math.h>
 #include <stdlib.h>
+#include <string.h>
+
 #include "../dec/vp8li_dec.h"
-#include "../utils/endian_inl_utils.h"
-#include "../dsp/lossless.h"
+#include "../dsp/cpu.h"
+#include "../dsp/dsp.h"
 #include "../dsp/lossless_common.h"
+#include "../utils/endian_inl_utils.h"
+#include "../utils/utils.h"
+#include "../webp/decode.h"
+#include "../webp/format_constants.h"
+#include "../webp/types.h"
 
 //------------------------------------------------------------------------------
 // Image transforms.
@@ -34,8 +40,8 @@ static WEBP_INLINE uint32_t Average3(uint32_t a0, uint32_t a1, uint32_t a2) {
   return Average2(Average2(a0, a2), a1);
 }
 
-static WEBP_INLINE uint32_t Average4(uint32_t a0, uint32_t a1,
-                                     uint32_t a2, uint32_t a3) {
+static WEBP_INLINE uint32_t Average4(uint32_t a0, uint32_t a1, uint32_t a2,
+                                     uint32_t a3) {
   return Average2(Average2(a0, a1), Average2(a2, a3));
 }
 
@@ -49,24 +55,22 @@ static WEBP_INLINE uint32_t Clip255(uint32_t a) {
 }
 
 static WEBP_INLINE int AddSubtractComponentFull(int a, int b, int c) {
-  return Clip255(a + b - c);
+  return Clip255((uint32_t)(a + b - c));
 }
 
 static WEBP_INLINE uint32_t ClampedAddSubtractFull(uint32_t c0, uint32_t c1,
                                                    uint32_t c2) {
   const int a = AddSubtractComponentFull(c0 >> 24, c1 >> 24, c2 >> 24);
-  const int r = AddSubtractComponentFull((c0 >> 16) & 0xff,
-                                         (c1 >> 16) & 0xff,
+  const int r = AddSubtractComponentFull((c0 >> 16) & 0xff, (c1 >> 16) & 0xff,
                                          (c2 >> 16) & 0xff);
-  const int g = AddSubtractComponentFull((c0 >> 8) & 0xff,
-                                         (c1 >> 8) & 0xff,
+  const int g = AddSubtractComponentFull((c0 >> 8) & 0xff, (c1 >> 8) & 0xff,
                                          (c2 >> 8) & 0xff);
   const int b = AddSubtractComponentFull(c0 & 0xff, c1 & 0xff, c2 & 0xff);
   return ((uint32_t)a << 24) | (r << 16) | (g << 8) | b;
 }
 
 static WEBP_INLINE int AddSubtractComponentHalf(int a, int b) {
-  return Clip255(a + (a - b) / 2);
+  return Clip255((uint32_t)(a + (a - b) / 2));
 }
 
 static WEBP_INLINE uint32_t ClampedAddSubtractHalf(uint32_t c0, uint32_t c1,
@@ -82,9 +86,9 @@ static WEBP_INLINE uint32_t ClampedAddSubtractHalf(uint32_t c0, uint32_t c1,
 // gcc <= 4.9 on ARM generates incorrect code in Select() when Sub3() is
 // inlined.
 #if defined(__arm__) && defined(__GNUC__) && LOCAL_GCC_VERSION <= 0x409
-# define LOCAL_INLINE __attribute__ ((noinline))
+#define LOCAL_INLINE __attribute__((noinline))
 #else
-# define LOCAL_INLINE WEBP_INLINE
+#define LOCAL_INLINE WEBP_INLINE
 #endif
 
 static LOCAL_INLINE int Sub3(int a, int b, int c) {
@@ -97,24 +101,24 @@ static LOCAL_INLINE int Sub3(int a, int b, int c) {
 
 static WEBP_INLINE uint32_t Select(uint32_t a, uint32_t b, uint32_t c) {
   const int pa_minus_pb =
-      Sub3((a >> 24)       , (b >> 24)       , (c >> 24)       ) +
+      Sub3((a >> 24), (b >> 24), (c >> 24)) +
       Sub3((a >> 16) & 0xff, (b >> 16) & 0xff, (c >> 16) & 0xff) +
-      Sub3((a >>  8) & 0xff, (b >>  8) & 0xff, (c >>  8) & 0xff) +
-      Sub3((a      ) & 0xff, (b      ) & 0xff, (c      ) & 0xff);
+      Sub3((a >> 8) & 0xff, (b >> 8) & 0xff, (c >> 8) & 0xff) +
+      Sub3((a) & 0xff, (b) & 0xff, (c) & 0xff);
   return (pa_minus_pb <= 0) ? a : b;
 }
 
 //------------------------------------------------------------------------------
 // Predictors
 
-uint32_t VP8LPredictor0_C(const uint32_t* const left,
-                          const uint32_t* const top) {
+static uint32_t VP8LPredictor0_C(const uint32_t* const left,
+                                 const uint32_t* const top) {
   (void)top;
   (void)left;
   return ARGB_BLACK;
 }
-uint32_t VP8LPredictor1_C(const uint32_t* const left,
-                          const uint32_t* const top) {
+static uint32_t VP8LPredictor1_C(const uint32_t* const left,
+                                 const uint32_t* const top) {
   (void)top;
   return *left;
 }
@@ -182,13 +186,13 @@ uint32_t VP8LPredictor13_C(const uint32_t* const left,
 }
 
 static void PredictorAdd0_C(const uint32_t* in, const uint32_t* upper,
-                            int num_pixels, uint32_t* out) {
+                            int num_pixels, uint32_t* WEBP_RESTRICT out) {
   int x;
   (void)upper;
   for (x = 0; x < num_pixels; ++x) out[x] = VP8LAddPixels(in[x], ARGB_BLACK);
 }
 static void PredictorAdd1_C(const uint32_t* in, const uint32_t* upper,
-                            int num_pixels, uint32_t* out) {
+                            int num_pixels, uint32_t* WEBP_RESTRICT out) {
   int i;
   uint32_t left = out[-1];
   (void)upper;
@@ -215,7 +219,7 @@ GENERATE_PREDICTOR_ADD(VP8LPredictor13_C, PredictorAdd13_C)
 static void PredictorInverseTransform_C(const VP8LTransform* const transform,
                                         int y_start, int y_end,
                                         const uint32_t* in, uint32_t* out) {
-  const int width = transform->xsize_;
+  const int width = transform->xsize;
   if (y_start == 0) {  // First Row follows the L (mode=1) mode.
     PredictorAdd0_C(in, NULL, 1, out);
     PredictorAdd1_C(in + 1, NULL, width - 1, out + 1);
@@ -226,11 +230,11 @@ static void PredictorInverseTransform_C(const VP8LTransform* const transform,
 
   {
     int y = y_start;
-    const int tile_width = 1 << transform->bits_;
+    const int tile_width = 1 << transform->bits;
     const int mask = tile_width - 1;
-    const int tiles_per_row = VP8LSubSampleSize(width, transform->bits_);
+    const int tiles_per_row = VP8LSubSampleSize(width, transform->bits);
     const uint32_t* pred_mode_base =
-        transform->data_ + (y >> transform->bits_) * tiles_per_row;
+        transform->data + (y >> transform->bits) * tiles_per_row;
 
     while (y < y_end) {
       const uint32_t* pred_mode_src = pred_mode_base;
@@ -249,7 +253,7 @@ static void PredictorInverseTransform_C(const VP8LTransform* const transform,
       in += width;
       out += width;
       ++y;
-      if ((y & mask) == 0) {   // Use the same mask, since tiles are squares.
+      if ((y & mask) == 0) {  // Use the same mask, since tiles are squares.
         pred_mode_base += tiles_per_row;
       }
     }
@@ -271,16 +275,15 @@ void VP8LAddGreenToBlueAndRed_C(const uint32_t* src, int num_pixels,
   }
 }
 
-static WEBP_INLINE int ColorTransformDelta(int8_t color_pred,
-                                           int8_t color) {
+static WEBP_INLINE int ColorTransformDelta(int8_t color_pred, int8_t color) {
   return ((int)color_pred * color) >> 5;
 }
 
 static WEBP_INLINE void ColorCodeToMultipliers(uint32_t color_code,
                                                VP8LMultipliers* const m) {
-  m->green_to_red_  = (color_code >>  0) & 0xff;
-  m->green_to_blue_ = (color_code >>  8) & 0xff;
-  m->red_to_blue_   = (color_code >> 16) & 0xff;
+  m->green_to_red = (color_code >> 0) & 0xff;
+  m->green_to_blue = (color_code >> 8) & 0xff;
+  m->red_to_blue = (color_code >> 16) & 0xff;
 }
 
 void VP8LTransformColorInverse_C(const VP8LMultipliers* const m,
@@ -293,10 +296,10 @@ void VP8LTransformColorInverse_C(const VP8LMultipliers* const m,
     const uint32_t red = argb >> 16;
     int new_red = red & 0xff;
     int new_blue = argb & 0xff;
-    new_red += ColorTransformDelta(m->green_to_red_, green);
+    new_red += ColorTransformDelta((int8_t)m->green_to_red, green);
     new_red &= 0xff;
-    new_blue += ColorTransformDelta(m->green_to_blue_, green);
-    new_blue += ColorTransformDelta(m->red_to_blue_, (int8_t)new_red);
+    new_blue += ColorTransformDelta((int8_t)m->green_to_blue, green);
+    new_blue += ColorTransformDelta((int8_t)m->red_to_blue, (int8_t)new_red);
     new_blue &= 0xff;
     dst[i] = (argb & 0xff00ff00u) | (new_red << 16) | (new_blue);
   }
@@ -306,19 +309,19 @@ void VP8LTransformColorInverse_C(const VP8LMultipliers* const m,
 static void ColorSpaceInverseTransform_C(const VP8LTransform* const transform,
                                          int y_start, int y_end,
                                          const uint32_t* src, uint32_t* dst) {
-  const int width = transform->xsize_;
-  const int tile_width = 1 << transform->bits_;
+  const int width = transform->xsize;
+  const int tile_width = 1 << transform->bits;
   const int mask = tile_width - 1;
   const int safe_width = width & ~mask;
   const int remaining_width = width - safe_width;
-  const int tiles_per_row = VP8LSubSampleSize(width, transform->bits_);
+  const int tiles_per_row = VP8LSubSampleSize(width, transform->bits);
   int y = y_start;
   const uint32_t* pred_row =
-      transform->data_ + (y >> transform->bits_) * tiles_per_row;
+      transform->data + (y >> transform->bits) * tiles_per_row;
 
   while (y < y_end) {
     const uint32_t* pred = pred_row;
-    VP8LMultipliers m = { 0, 0, 0 };
+    VP8LMultipliers m = {0, 0, 0};
     const uint32_t* const src_safe_end = src + safe_width;
     const uint32_t* const src_end = src + width;
     while (src < src_safe_end) {
@@ -340,6 +343,7 @@ static void ColorSpaceInverseTransform_C(const VP8LTransform* const transform,
 
 // Separate out pixels packed together using pixel-bundling.
 // We define two methods for ARGB data (uint32_t) and alpha-only data (uint8_t).
+// clang-format off
 #define COLOR_INDEX_INVERSE(FUNC_NAME, F_NAME, STATIC_DECL, TYPE, BIT_SUFFIX,  \
                             GET_INDEX, GET_VALUE)                              \
 static void F_NAME(const TYPE* src, const uint32_t* const color_map,           \
@@ -356,11 +360,11 @@ STATIC_DECL void FUNC_NAME(const VP8LTransform* const transform,               \
                            int y_start, int y_end, const TYPE* src,            \
                            TYPE* dst) {                                        \
   int y;                                                                       \
-  const int bits_per_pixel = 8 >> transform->bits_;                            \
-  const int width = transform->xsize_;                                         \
-  const uint32_t* const color_map = transform->data_;                          \
+  const int bits_per_pixel = 8 >> transform->bits;                             \
+  const int width = transform->xsize;                                          \
+  const uint32_t* const color_map = transform->data;                           \
   if (bits_per_pixel < 8) {                                                    \
-    const int pixels_per_byte = 1 << transform->bits_;                         \
+    const int pixels_per_byte = 1 << transform->bits;                          \
     const int count_mask = pixels_per_byte - 1;                                \
     const uint32_t bit_mask = (1 << bits_per_pixel) - 1;                       \
     for (y = y_start; y < y_end; ++y) {                                        \
@@ -380,27 +384,28 @@ STATIC_DECL void FUNC_NAME(const VP8LTransform* const transform,               \
     VP8LMapColor##BIT_SUFFIX(src, color_map, dst, y_start, y_end, width);      \
   }                                                                            \
 }
+// clang-format on
 
-COLOR_INDEX_INVERSE(ColorIndexInverseTransform_C, MapARGB_C, static,
-                    uint32_t, 32b, VP8GetARGBIndex, VP8GetARGBValue)
-COLOR_INDEX_INVERSE(VP8LColorIndexInverseTransformAlpha, MapAlpha_C, ,
-                    uint8_t, 8b, VP8GetAlphaIndex, VP8GetAlphaValue)
+COLOR_INDEX_INVERSE(ColorIndexInverseTransform_C, MapARGB_C, static, uint32_t,
+                    32b, VP8GetARGBIndex, VP8GetARGBValue)
+COLOR_INDEX_INVERSE(VP8LColorIndexInverseTransformAlpha, MapAlpha_C, , uint8_t,
+                    8b, VP8GetAlphaIndex, VP8GetAlphaValue)
 
 #undef COLOR_INDEX_INVERSE
 
-void VP8LInverseTransform(const VP8LTransform* const transform,
-                          int row_start, int row_end,
-                          const uint32_t* const in, uint32_t* const out) {
-  const int width = transform->xsize_;
+void VP8LInverseTransform(const VP8LTransform* const transform, int row_start,
+                          int row_end, const uint32_t* const in,
+                          uint32_t* const out) {
+  const int width = transform->xsize;
   assert(row_start < row_end);
-  assert(row_end <= transform->ysize_);
-  switch (transform->type_) {
-    case SUBTRACT_GREEN:
+  assert(row_end <= transform->ysize);
+  switch (transform->type) {
+    case SUBTRACT_GREEN_TRANSFORM:
       VP8LAddGreenToBlueAndRed(in, (row_end - row_start) * width, out);
       break;
     case PREDICTOR_TRANSFORM:
       PredictorInverseTransform_C(transform, row_start, row_end, in, out);
-      if (row_end != transform->ysize_) {
+      if (row_end != transform->ysize) {
         // The last predicted row in this iteration will be the top-pred row
         // for the first row in next iteration.
         memcpy(out - width, out + (row_end - row_start - 1) * width,
@@ -411,15 +416,16 @@ void VP8LInverseTransform(const VP8LTransform* const transform,
       ColorSpaceInverseTransform_C(transform, row_start, row_end, in, out);
       break;
     case COLOR_INDEXING_TRANSFORM:
-      if (in == out && transform->bits_ > 0) {
+      if (in == out && transform->bits > 0) {
         // Move packed pixels to the end of unpacked region, so that unpacking
         // can occur seamlessly.
         // Also, note that this is the only transform that applies on
-        // the effective width of VP8LSubSampleSize(xsize_, bits_). All other
-        // transforms work on effective width of xsize_.
+        // the effective width of VP8LSubSampleSize(xsize, bits). All other
+        // transforms work on effective width of 'xsize'.
         const int out_stride = (row_end - row_start) * width;
-        const int in_stride = (row_end - row_start) *
-            VP8LSubSampleSize(transform->xsize_, transform->bits_);
+        const int in_stride =
+            (row_end - row_start) *
+            VP8LSubSampleSize(transform->xsize, transform->bits);
         uint32_t* const src = out + out_stride - in_stride;
         memmove(src, out, in_stride * sizeof(*src));
         ColorIndexInverseTransform_C(transform, row_start, row_end, src, out);
@@ -437,40 +443,40 @@ static int is_big_endian(void) {
   static const union {
     uint16_t w;
     uint8_t b[2];
-  } tmp = { 1 };
+  } tmp = {1};
   return (tmp.b[0] != 1);
 }
 
-void VP8LConvertBGRAToRGB_C(const uint32_t* src,
-                            int num_pixels, uint8_t* dst) {
+void VP8LConvertBGRAToRGB_C(const uint32_t* WEBP_RESTRICT src, int num_pixels,
+                            uint8_t* WEBP_RESTRICT dst) {
   const uint32_t* const src_end = src + num_pixels;
   while (src < src_end) {
     const uint32_t argb = *src++;
     *dst++ = (argb >> 16) & 0xff;
-    *dst++ = (argb >>  8) & 0xff;
-    *dst++ = (argb >>  0) & 0xff;
+    *dst++ = (argb >> 8) & 0xff;
+    *dst++ = (argb >> 0) & 0xff;
   }
 }
 
-void VP8LConvertBGRAToRGBA_C(const uint32_t* src,
-                             int num_pixels, uint8_t* dst) {
+void VP8LConvertBGRAToRGBA_C(const uint32_t* WEBP_RESTRICT src, int num_pixels,
+                             uint8_t* WEBP_RESTRICT dst) {
   const uint32_t* const src_end = src + num_pixels;
   while (src < src_end) {
     const uint32_t argb = *src++;
     *dst++ = (argb >> 16) & 0xff;
-    *dst++ = (argb >>  8) & 0xff;
-    *dst++ = (argb >>  0) & 0xff;
+    *dst++ = (argb >> 8) & 0xff;
+    *dst++ = (argb >> 0) & 0xff;
     *dst++ = (argb >> 24) & 0xff;
   }
 }
 
-void VP8LConvertBGRAToRGBA4444_C(const uint32_t* src,
-                                 int num_pixels, uint8_t* dst) {
+void VP8LConvertBGRAToRGBA4444_C(const uint32_t* WEBP_RESTRICT src,
+                                 int num_pixels, uint8_t* WEBP_RESTRICT dst) {
   const uint32_t* const src_end = src + num_pixels;
   while (src < src_end) {
     const uint32_t argb = *src++;
     const uint8_t rg = ((argb >> 16) & 0xf0) | ((argb >> 12) & 0xf);
-    const uint8_t ba = ((argb >>  0) & 0xf0) | ((argb >> 28) & 0xf);
+    const uint8_t ba = ((argb >> 0) & 0xf0) | ((argb >> 28) & 0xf);
 #if (WEBP_SWAP_16BIT_CSP == 1)
     *dst++ = ba;
     *dst++ = rg;
@@ -481,13 +487,13 @@ void VP8LConvertBGRAToRGBA4444_C(const uint32_t* src,
   }
 }
 
-void VP8LConvertBGRAToRGB565_C(const uint32_t* src,
-                               int num_pixels, uint8_t* dst) {
+void VP8LConvertBGRAToRGB565_C(const uint32_t* WEBP_RESTRICT src,
+                               int num_pixels, uint8_t* WEBP_RESTRICT dst) {
   const uint32_t* const src_end = src + num_pixels;
   while (src < src_end) {
     const uint32_t argb = *src++;
     const uint8_t rg = ((argb >> 16) & 0xf8) | ((argb >> 13) & 0x7);
-    const uint8_t gb = ((argb >>  5) & 0xe0) | ((argb >>  3) & 0x1f);
+    const uint8_t gb = ((argb >> 5) & 0xe0) | ((argb >> 3) & 0x1f);
 #if (WEBP_SWAP_16BIT_CSP == 1)
     *dst++ = gb;
     *dst++ = rg;
@@ -498,19 +504,19 @@ void VP8LConvertBGRAToRGB565_C(const uint32_t* src,
   }
 }
 
-void VP8LConvertBGRAToBGR_C(const uint32_t* src,
-                            int num_pixels, uint8_t* dst) {
+void VP8LConvertBGRAToBGR_C(const uint32_t* WEBP_RESTRICT src, int num_pixels,
+                            uint8_t* WEBP_RESTRICT dst) {
   const uint32_t* const src_end = src + num_pixels;
   while (src < src_end) {
     const uint32_t argb = *src++;
-    *dst++ = (argb >>  0) & 0xff;
-    *dst++ = (argb >>  8) & 0xff;
+    *dst++ = (argb >> 0) & 0xff;
+    *dst++ = (argb >> 8) & 0xff;
     *dst++ = (argb >> 16) & 0xff;
   }
 }
 
-static void CopyOrSwap(const uint32_t* src, int num_pixels, uint8_t* dst,
-                       int swap_on_big_endian) {
+static void CopyOrSwap(const uint32_t* WEBP_RESTRICT src, int num_pixels,
+                       uint8_t* WEBP_RESTRICT dst, int swap_on_big_endian) {
   if (is_big_endian() == swap_on_big_endian) {
     const uint32_t* const src_end = src + num_pixels;
     while (src < src_end) {
@@ -564,23 +570,28 @@ void VP8LConvertFromBGRA(const uint32_t* const in_data, int num_pixels,
       VP8LConvertBGRAToRGB565(in_data, num_pixels, rgba);
       break;
     default:
-      assert(0);          // Code flow should not reach here.
+      assert(0);  // Code flow should not reach here.
   }
 }
 
 //------------------------------------------------------------------------------
 
 VP8LProcessDecBlueAndRedFunc VP8LAddGreenToBlueAndRed;
+VP8LProcessDecBlueAndRedFunc VP8LAddGreenToBlueAndRed_SSE;
 VP8LPredictorAddSubFunc VP8LPredictorsAdd[16];
+VP8LPredictorAddSubFunc VP8LPredictorsAdd_SSE[16];
 VP8LPredictorFunc VP8LPredictors[16];
 
 // exposed plain-C implementations
 VP8LPredictorAddSubFunc VP8LPredictorsAdd_C[16];
 
 VP8LTransformColorInverseFunc VP8LTransformColorInverse;
+VP8LTransformColorInverseFunc VP8LTransformColorInverse_SSE;
 
 VP8LConvertFunc VP8LConvertBGRAToRGB;
+VP8LConvertFunc VP8LConvertBGRAToRGB_SSE;
 VP8LConvertFunc VP8LConvertBGRAToRGBA;
+VP8LConvertFunc VP8LConvertBGRAToRGBA_SSE;
 VP8LConvertFunc VP8LConvertBGRAToRGBA4444;
 VP8LConvertFunc VP8LConvertBGRAToRGB565;
 VP8LConvertFunc VP8LConvertBGRAToBGR;
@@ -588,30 +599,33 @@ VP8LConvertFunc VP8LConvertBGRAToBGR;
 VP8LMapARGBFunc VP8LMapColor32b;
 VP8LMapAlphaFunc VP8LMapColor8b;
 
+extern VP8CPUInfo VP8GetCPUInfo;
 extern void VP8LDspInitSSE2(void);
 extern void VP8LDspInitSSE41(void);
+extern void VP8LDspInitAVX2(void);
 extern void VP8LDspInitNEON(void);
 extern void VP8LDspInitMIPSdspR2(void);
 extern void VP8LDspInitMSA(void);
 
-#define COPY_PREDICTOR_ARRAY(IN, OUT) do {                \
-  (OUT)[0] = IN##0_C;                                     \
-  (OUT)[1] = IN##1_C;                                     \
-  (OUT)[2] = IN##2_C;                                     \
-  (OUT)[3] = IN##3_C;                                     \
-  (OUT)[4] = IN##4_C;                                     \
-  (OUT)[5] = IN##5_C;                                     \
-  (OUT)[6] = IN##6_C;                                     \
-  (OUT)[7] = IN##7_C;                                     \
-  (OUT)[8] = IN##8_C;                                     \
-  (OUT)[9] = IN##9_C;                                     \
-  (OUT)[10] = IN##10_C;                                   \
-  (OUT)[11] = IN##11_C;                                   \
-  (OUT)[12] = IN##12_C;                                   \
-  (OUT)[13] = IN##13_C;                                   \
-  (OUT)[14] = IN##0_C; /* <- padding security sentinels*/ \
-  (OUT)[15] = IN##0_C;                                    \
-} while (0);
+#define COPY_PREDICTOR_ARRAY(IN, OUT)                       \
+  do {                                                      \
+    (OUT)[0] = IN##0_C;                                     \
+    (OUT)[1] = IN##1_C;                                     \
+    (OUT)[2] = IN##2_C;                                     \
+    (OUT)[3] = IN##3_C;                                     \
+    (OUT)[4] = IN##4_C;                                     \
+    (OUT)[5] = IN##5_C;                                     \
+    (OUT)[6] = IN##6_C;                                     \
+    (OUT)[7] = IN##7_C;                                     \
+    (OUT)[8] = IN##8_C;                                     \
+    (OUT)[9] = IN##9_C;                                     \
+    (OUT)[10] = IN##10_C;                                   \
+    (OUT)[11] = IN##11_C;                                   \
+    (OUT)[12] = IN##12_C;                                   \
+    (OUT)[13] = IN##13_C;                                   \
+    (OUT)[14] = IN##0_C; /* <- padding security sentinels*/ \
+    (OUT)[15] = IN##0_C;                                    \
+  } while (0);
 
 WEBP_DSP_INIT_FUNC(VP8LDspInit) {
   COPY_PREDICTOR_ARRAY(VP8LPredictor, VP8LPredictors)
@@ -642,6 +656,11 @@ WEBP_DSP_INIT_FUNC(VP8LDspInit) {
 #if defined(WEBP_HAVE_SSE41)
       if (VP8GetCPUInfo(kSSE4_1)) {
         VP8LDspInitSSE41();
+#if defined(WEBP_HAVE_AVX2)
+        if (VP8GetCPUInfo(kAVX2)) {
+          VP8LDspInitAVX2();
+        }
+#endif
       }
 #endif
     }
