@@ -108,6 +108,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a58dc661e8994c9ce638fffb4c07240e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a457c57be009dd596a250ed34220d85d6" id="r_a457c57be009dd596a250ed34220d85d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAudioRecorder.html">AudioRecorder</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStandaloneAudioProcessorPlayer.html#a457c57be009dd596a250ed34220d85d6">audioRecorder</a> { <a class="el" href="classStandaloneAudioProcessorPlayer.html#a56894c0b24958ac2826444affdff405f">recordFifo</a> }</td></tr>
 <tr class="separator:a457c57be009dd596a250ed34220d85d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f6057d0c466bbaadaacc385e109d1ff" id="r_a8f6057d0c466bbaadaacc385e109d1ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classStandalonePlayhead.html">StandalonePlayhead</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStandaloneAudioProcessorPlayer.html#a8f6057d0c466bbaadaacc385e109d1ff">playhead</a></td></tr>
+<tr class="separator:a8f6057d0c466bbaadaacc385e109d1ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aef4664be93a5047353646237d0156d5a" name="aef4664be93a5047353646237d0156d5a"></a>
@@ -193,7 +195,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classStandaloneAudioProcessorPlayer.html#a3192c19c158e931e36465dd1b1013832">midiPlayer</a>, <a class="el" href="classMidiFilePlayer.html#a01798f3003456655d6a5a1e718edf7f8">MidiFilePlayer::processBlock()</a>, <a class="el" href="classSamplePlayer.html#af4e93567c05b978558a37931dbc78197">SamplePlayer::processBlock()</a>, and <a class="el" href="classStandaloneAudioProcessorPlayer.html#a58dc661e8994c9ce638fffb4c07240e8">samplePlayer</a>.</p>
+<p class="reference">References <a class="el" href="classMidiFilePlayer.html#aed4fd9f75bc2438470963e37c2c83b7f">MidiFilePlayer::hasFileLoaded()</a>, <a class="el" href="classSamplePlayer.html#ae7057da720689476ea78e4724ac6ff78">SamplePlayer::hasFileLoaded()</a>, <a class="el" href="classStandaloneAudioProcessorPlayer.html#a3192c19c158e931e36465dd1b1013832">midiPlayer</a>, <a class="el" href="classStandaloneAudioProcessorPlayer.html#a8f6057d0c466bbaadaacc385e109d1ff">playhead</a>, <a class="el" href="classMidiFilePlayer.html#a2998aabd73e7e1bcd0f886bea0ef0d5f">MidiFilePlayer::populatePositionInfo()</a>, <a class="el" href="classSamplePlayer.html#a2e77d95141a6390d5fb1b0ff7ce26dce">SamplePlayer::populatePositionInfo()</a>, <a class="el" href="classMidiFilePlayer.html#a01798f3003456655d6a5a1e718edf7f8">MidiFilePlayer::processBlock()</a>, <a class="el" href="classSamplePlayer.html#af4e93567c05b978558a37931dbc78197">SamplePlayer::processBlock()</a>, <a class="el" href="classStandaloneAudioProcessorPlayer.html#a58dc661e8994c9ce638fffb4c07240e8">samplePlayer</a>, and <a class="el" href="classStandalonePlayhead.html#a41618a0661fa6474b5824226a989a87a">StandalonePlayhead::setPositionInfo()</a>.</p>
 
 </div>
 </div>
@@ -348,13 +350,29 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a8f6057d0c466bbaadaacc385e109d1ff" name="a8f6057d0c466bbaadaacc385e109d1ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f6057d0c466bbaadaacc385e109d1ff">&#9670;&#160;</a></span>playhead</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classStandalonePlayhead.html">StandalonePlayhead</a> StandaloneAudioProcessorPlayer::playhead</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classStandaloneAudioProcessorPlayer.html#a76371234c69c14a8fe275789ba4075f6">preProcessBlock()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="gin__standaloneaudioprocessorplayer_8h.html">gin_standaloneaudioprocessorplayer.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 20 2025 17:08:36 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sat Dec 20 2025 18:05:07 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

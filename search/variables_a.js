@@ -23,5 +23,7 @@ var searchData=
   ['lookandfeel_20',['lookAndFeel',['../classProcessorOptions.html#a8d7a9b34d0ef590a2ca4a5a6cb160bd0',1,'ProcessorOptions']]],
   ['lookuptables_21',['lookupTables',['../classAudioFunctionHost.html#ac3f36a29508908517af32e673583014e',1,'AudioFunctionHost']]],
   ['loop_22',['loop',['../structMSEG_1_1Parameters.html#a41b8c9e91dd2740c89c139764a92076d',1,'MSEG::Parameters']]],
-  ['loseless_23',['loseless',['../classWEBPImageFormat.html#a603e71ad278603009686b3290f8abcc1',1,'WEBPImageFormat']]]
+  ['loopend_23',['loopEnd',['../classAudioMetadata.html#a4190fd04cea945aa2c915124b4f5b2c9',1,'AudioMetadata']]],
+  ['loopstart_24',['loopStart',['../classAudioMetadata.html#aba22ddbdae4879626a8cfe02dc6c1d3d',1,'AudioMetadata']]],
+  ['loseless_25',['loseless',['../classWEBPImageFormat.html#a603e71ad278603009686b3290f8abcc1',1,'WEBPImageFormat']]]
 ];

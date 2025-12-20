@@ -56,7 +56,7 @@ var searchData=
   ['applyhuesaturationlightness_53',['applyHueSaturationLightness',['../group__gin__graphics-images.html#ga25205b0926bfca178115404c6d9f45d9',1,'gin_imageeffects.h']]],
   ['applyinvert_54',['applyInvert',['../group__gin__graphics-images.html#ga6453f04ab3d2a6a345cd6b7f70711c04',1,'gin_imageeffects.h']]],
   ['applypatch_55',['applyPatch',['../namespaceDiff.html#ac758dc3ff9d00d09f1b2f547ac07375a',1,'Diff']]],
-  ['applyresize_56',['applyresize',['../group__gin__graphics-images.html#ga3b48b2d9f0652cc609336b4ff5d1dd07',1,'applyResize(const juce::Image &amp;img, int width, int height, ResizeAlgorirm resizeAlgorirm=ResizeAlgorirm::avir):&#160;gin_imageeffects.h'],['../group__gin__graphics-images.html#ga4d96614cc76bccc3f72c891660c6efe5',1,'applyResize(const juce::Image &amp;img, float factor, ResizeAlgorirm resizeAlgorirm=ResizeAlgorirm::avir):&#160;gin_imageeffects.h']]],
+  ['applyresize_56',['applyresize',['../group__gin__graphics-images.html#ga4d96614cc76bccc3f72c891660c6efe5',1,'applyResize(const juce::Image &amp;img, float factor, ResizeAlgorirm resizeAlgorirm=ResizeAlgorirm::avir):&#160;gin_imageeffects.h'],['../group__gin__graphics-images.html#ga3b48b2d9f0652cc609336b4ff5d1dd07',1,'applyResize(const juce::Image &amp;img, int width, int height, ResizeAlgorirm resizeAlgorirm=ResizeAlgorirm::avir):&#160;gin_imageeffects.h']]],
   ['applysepia_57',['applySepia',['../group__gin__graphics-images.html#gaccaa511049769192c15aa13e0c2a40d1',1,'gin_imageeffects.h']]],
   ['applysharpen_58',['applySharpen',['../group__gin__graphics-images.html#gac0b5514a6c74e31bd4e7a26898e45228',1,'gin_imageeffects.h']]],
   ['applysoften_59',['applySoften',['../group__gin__graphics-images.html#ga4cc9c0919994beeac34d088beb1991e2',1,'gin_imageeffects.h']]],
@@ -73,10 +73,11 @@ var searchData=
   ['audiodevicestopped_70',['audioDeviceStopped',['../classAudioProcessorPlayer.html#ab7ce7ac03e058c2fe908b98f2889c65b',1,'AudioProcessorPlayer']]],
   ['audioequationparser_71',['AudioEquationParser',['../classAudioEquationParser.html#ad4901750930743500c83acf90d83a7a0',1,'AudioEquationParser']]],
   ['audiofifo_72',['AudioFifo',['../classAudioFifo.html#a521bc70e223aabb88d2579d44d63d6ec',1,'AudioFifo']]],
-  ['audiomidififo_73',['AudioMidiFifo',['../classAudioMidiFifo.html#a5882245e1467bc8ab0ead4c353203ceb',1,'AudioMidiFifo']]],
-  ['audioprocessorplayer_74',['AudioProcessorPlayer',['../classAudioProcessorPlayer.html#a80c93a5ac051d18a62a1865da54cf56e',1,'AudioProcessorPlayer']]],
-  ['audiorecorder_75',['AudioRecorder',['../classAudioRecorder.html#a74b906351ac8809c33e352cf395fb16f',1,'AudioRecorder']]],
-  ['audiosamplerbuffercomponent_76',['AudioSamplerBufferComponent',['../classAudioSamplerBufferComponent.html#a93a3af8753d117994fe28b588d6c9932',1,'AudioSamplerBufferComponent']]],
-  ['authorsmodel_77',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html#a5b1e9a0aee87d3623f78db4126fcab3e',1,'PatchBrowser::AuthorsModel']]],
-  ['average_78',['average',['../classRollingAverage.html#a941797e5f59cbdfce52faa655bd1b7f3',1,'RollingAverage']]]
+  ['audiometadata_73',['AudioMetadata',['../classAudioMetadata.html#a34673f83e09af02ca23de59357120d96',1,'AudioMetadata']]],
+  ['audiomidififo_74',['AudioMidiFifo',['../classAudioMidiFifo.html#a5882245e1467bc8ab0ead4c353203ceb',1,'AudioMidiFifo']]],
+  ['audioprocessorplayer_75',['AudioProcessorPlayer',['../classAudioProcessorPlayer.html#a80c93a5ac051d18a62a1865da54cf56e',1,'AudioProcessorPlayer']]],
+  ['audiorecorder_76',['AudioRecorder',['../classAudioRecorder.html#a74b906351ac8809c33e352cf395fb16f',1,'AudioRecorder']]],
+  ['audiosamplerbuffercomponent_77',['AudioSamplerBufferComponent',['../classAudioSamplerBufferComponent.html#a93a3af8753d117994fe28b588d6c9932',1,'AudioSamplerBufferComponent']]],
+  ['authorsmodel_78',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html#a5b1e9a0aee87d3623f78db4126fcab3e',1,'PatchBrowser::AuthorsModel']]],
+  ['average_79',['average',['../classRollingAverage.html#a941797e5f59cbdfce52faa655bd1b7f3',1,'RollingAverage']]]
 ];

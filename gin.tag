@@ -797,6 +797,12 @@
     <filename>gin__audiofunctions_8test_8h.html</filename>
   </compound>
   <compound kind="file">
+    <name>gin_audiometadata.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__audiometadata_8h.html</filename>
+    <class kind="class">AudioMetadata</class>
+  </compound>
+  <compound kind="file">
     <name>gin_audiomidififo.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__audiomidififo_8h.html</filename>
@@ -2504,6 +2510,7 @@
     <name>gin_standaloneaudioprocessorplayer.h</name>
     <path>build/gin_standaloneplugin/standaloneplugin/</path>
     <filename>gin__standaloneaudioprocessorplayer_8h.html</filename>
+    <class kind="class">StandalonePlayhead</class>
     <class kind="class">AudioRecorder</class>
     <class kind="class">StandaloneAudioProcessorPlayer</class>
   </compound>
@@ -3623,6 +3630,59 @@
       <name>sampleRate</name>
       <anchorfile>classAudioFunctionHost.html</anchorfile>
       <anchor>a3647d97cb87c9029d48846985dcfe39a</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>AudioMetadata</name>
+    <filename>classAudioMetadata.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>AudioMetadata</name>
+      <anchorfile>classAudioMetadata.html</anchorfile>
+      <anchor>a34673f83e09af02ca23de59357120d96</anchor>
+      <arglist>(const juce::File &amp;f, juce::AudioFormatManager &amp;mgr)</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::optional&lt; int &gt;</type>
+      <name>root</name>
+      <anchorfile>classAudioMetadata.html</anchorfile>
+      <anchor>a28daea78e7e93c00662855f0ad851b00</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::optional&lt; float &gt;</type>
+      <name>bpm</name>
+      <anchorfile>classAudioMetadata.html</anchorfile>
+      <anchor>ae597120a0754b3c655623c33779a4aed</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::optional&lt; int &gt;</type>
+      <name>numerator</name>
+      <anchorfile>classAudioMetadata.html</anchorfile>
+      <anchor>a58358a2c2f1cda302296bc1610218d18</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::optional&lt; int &gt;</type>
+      <name>denominator</name>
+      <anchorfile>classAudioMetadata.html</anchorfile>
+      <anchor>a9f84aff055371a6d53809117f4cda13c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::optional&lt; int64_t &gt;</type>
+      <name>loopStart</name>
+      <anchorfile>classAudioMetadata.html</anchorfile>
+      <anchor>aba22ddbdae4879626a8cfe02dc6c1d3d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::optional&lt; int64_t &gt;</type>
+      <name>loopEnd</name>
+      <anchorfile>classAudioMetadata.html</anchorfile>
+      <anchor>a4190fd04cea945aa2c915124b4f5b2c9</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -10933,6 +10993,13 @@
       <anchor>a715960ccd00b4fca820673229b197bb1</anchor>
       <arglist>()</arglist>
     </member>
+    <member kind="function">
+      <type>juce::AudioPlayHead::PositionInfo</type>
+      <name>populatePositionInfo</name>
+      <anchorfile>classMidiFilePlayer.html</anchorfile>
+      <anchor>a2998aabd73e7e1bcd0f886bea0ef0d5f</anchor>
+      <arglist>()</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>ModCurveButton</name>
@@ -16693,6 +16760,13 @@
       <anchor>a4749cf3c360ced8477880c938398dab1</anchor>
       <arglist>()</arglist>
     </member>
+    <member kind="function">
+      <type>juce::AudioPlayHead::PositionInfo</type>
+      <name>populatePositionInfo</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>a2e77d95141a6390d5fb1b0ff7ce26dce</anchor>
+      <arglist>()</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>ScaledPluginEditor</name>
@@ -17529,6 +17603,13 @@
       <anchor>a457c57be009dd596a250ed34220d85d6</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable">
+      <type>StandalonePlayhead</type>
+      <name>playhead</name>
+      <anchorfile>classStandaloneAudioProcessorPlayer.html</anchorfile>
+      <anchor>a8f6057d0c466bbaadaacc385e109d1ff</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>StandaloneFilterApp</name>
@@ -17704,6 +17785,31 @@
       <anchorfile>classStandaloneFilterWindow.html</anchorfile>
       <anchor>abf3538ee5a7bd69830df1e538bc84df7</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>StandalonePlayhead</name>
+    <filename>classStandalonePlayhead.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>StandalonePlayhead</name>
+      <anchorfile>classStandalonePlayhead.html</anchorfile>
+      <anchor>af4fdb37f17545d83e58b7e8501288da7</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Optional&lt; PositionInfo &gt;</type>
+      <name>getPosition</name>
+      <anchorfile>classStandalonePlayhead.html</anchorfile>
+      <anchor>a0340b5dc6a724c0ba6d9c1d195f45c06</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPositionInfo</name>
+      <anchorfile>classStandalonePlayhead.html</anchorfile>
+      <anchor>a41618a0661fa6474b5824226a989a87a</anchor>
+      <arglist>(const PositionInfo &amp;info)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -21512,6 +21618,7 @@
     <class kind="struct">Notch12State</class>
     <class kind="struct">Notch24State</class>
     <class kind="class">AudioFunctionHost</class>
+    <class kind="class">AudioMetadata</class>
     <class kind="class">AudioMidiFifo</class>
     <class kind="class">GainProcessor</class>
     <class kind="class">WetDryMix</class>
@@ -22483,6 +22590,7 @@
     <class kind="class">RetrospectiveBufferComponent</class>
     <class kind="class">SideBarComponent</class>
     <class kind="class">StandaloneFilterApp</class>
+    <class kind="class">StandalonePlayhead</class>
     <class kind="class">AudioRecorder</class>
     <class kind="class">StandaloneAudioProcessorPlayer</class>
     <class kind="class">StandaloneFilterWindow</class>

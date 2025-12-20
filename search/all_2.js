@@ -1,7 +1,7 @@
 var searchData=
 [
   ['b_0',['b',['../classWavetableComponent.html#a217cee3a7a95cda05f8962f9ce8c25f8a0eb82d746541abfd15656ab980ab5cc2',1,'WavetableComponent::b'],['../classSpline_1_1Element.html#aa17608c49869d7129452fd777f39ee5c',1,'Spline::Element::b'],['../classLinearRegression.html#aa258a2c864179aaff99098dea9abf1cb',1,'LinearRegression::b'],['../classEllipse.html#a9b90b5b9f70e55aed03184d13cdea464',1,'Ellipse::b']]],
-  ['backgroundcolourid_1',['backgroundcolourid',['../classWavetableComponent.html#ac7bd2c73ff86cfd3dc26d2c607eb87e5aec89b078eb7103c48cbbbee9ba3374d9',1,'WavetableComponent::backgroundColourId'],['../classMidiFileComponent.html#adc83f09d9e0ace77adee9e9f560e7cbdaabd8e64f4ff18dc3fb875ba1a52be343',1,'MidiFileComponent::backgroundColourId'],['../classLevelMeter.html#aebb71a7df2ebf267fa0326a95142cfa3aab214772ec0e99e6b061e5d8facc2893',1,'LevelMeter::backgroundColourId'],['../classDynamicsMeter.html#a3f0cee797b7626c9c6486190b95adb5daf1d34747a651ddb124b66daf13337b62',1,'DynamicsMeter::backgroundColourId'],['../classSpectrumAnalyzer.html#a544037e48573aa27a58d3ebfadfe16fcaebfe2883ec83803beea47cc8d41e2e54',1,'SpectrumAnalyzer::backgroundColourId'],['../classTriggeredScope.html#ac8e18f9a32051394436ce1959334ac52abf8044b50950cbbf3641b221473b3f58',1,'TriggeredScope::backgroundColourId'],['../classWaveformComponent.html#a45b49a62cd0812131e81de9e1715fd01ac7b94091fb6ee7e449758a8eee28014d',1,'WaveformComponent::backgroundColourId'],['../classXYScope.html#a8c9be5fbb6205a1a9920d2068ca13b22aa920a9d6adc56714a5b62c9f25eb4c4f',1,'XYScope::backgroundColourId'],['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6aa4bd0ee587cfbfef51b3b25d622b8a48',1,'GinLookAndFeel::backgroundColourId']]],
+  ['backgroundcolourid_1',['backgroundcolourid',['../classXYScope.html#a8c9be5fbb6205a1a9920d2068ca13b22aa920a9d6adc56714a5b62c9f25eb4c4f',1,'XYScope::backgroundColourId'],['../classTriggeredScope.html#ac8e18f9a32051394436ce1959334ac52abf8044b50950cbbf3641b221473b3f58',1,'TriggeredScope::backgroundColourId'],['../classSpectrumAnalyzer.html#a544037e48573aa27a58d3ebfadfe16fcaebfe2883ec83803beea47cc8d41e2e54',1,'SpectrumAnalyzer::backgroundColourId'],['../classMidiFileComponent.html#adc83f09d9e0ace77adee9e9f560e7cbdaabd8e64f4ff18dc3fb875ba1a52be343',1,'MidiFileComponent::backgroundColourId'],['../classLevelMeter.html#aebb71a7df2ebf267fa0326a95142cfa3aab214772ec0e99e6b061e5d8facc2893',1,'LevelMeter::backgroundColourId'],['../classDynamicsMeter.html#a3f0cee797b7626c9c6486190b95adb5daf1d34747a651ddb124b66daf13337b62',1,'DynamicsMeter::backgroundColourId'],['../classWaveformComponent.html#a45b49a62cd0812131e81de9e1715fd01ac7b94091fb6ee7e449758a8eee28014d',1,'WaveformComponent::backgroundColourId'],['../classWavetableComponent.html#ac7bd2c73ff86cfd3dc26d2c607eb87e5aec89b078eb7103c48cbbbee9ba3374d9',1,'WavetableComponent::backgroundColourId'],['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6aa4bd0ee587cfbfef51b3b25d622b8a48',1,'GinLookAndFeel::backgroundColourId']]],
   ['backineasing_2',['BackInEasing',['../structBackInEasing.html',1,'']]],
   ['backinouteasing_3',['BackInOutEasing',['../structBackInOutEasing.html',1,'']]],
   ['backouteasing_4',['BackOutEasing',['../structBackOutEasing.html',1,'']]],
@@ -32,12 +32,13 @@ var searchData=
   ['boxarea_29',['boxarea',['../classBoxArea.html#a00b02a91aded6fc3ead888c1b092a9eb',1,'BoxArea::BoxArea()'],['../classBoxArea.html',1,'BoxArea']]],
   ['bp12state_30',['bp12state',['../structBP12State.html',1,'BP12State'],['../structBP12State.html#a117eb714a9f055d4ca05d80c28c10553',1,'BP12State::BP12State()']]],
   ['bp24state_31',['bp24state',['../structBP24State.html#a321d2cbd60a9aeba2ffdb2d54e12c5ea',1,'BP24State::BP24State()'],['../structBP24State.html',1,'BP24State']]],
-  ['browse_32',['browse',['../namespaceAssets.html#a971712f6dd2c7de1171c8139a852a38d',1,'Assets']]],
-  ['browsebutton_33',['browseButton',['../classTitleBar.html#ad008b68a5bcd5442577468bf031c596b',1,'TitleBar']]],
-  ['bsapplypatch_34',['bsApplyPatch',['../namespaceDiff.html#a02f934e756b7ff02baaa06b4e7ceab55',1,'Diff']]],
-  ['bsdiff_35',['bsDiff',['../namespaceDiff.html#a6316252e0766f32052b1de207d27203c',1,'Diff']]],
-  ['bterm_36',['bTerm',['../classLeastSquaresRegression.html#af8a14f97edfe06e9237df6cbf5a54330',1,'LeastSquaresRegression']]],
-  ['bubble_37',['bubble',['../classMultiParamComponent.html#afed6013095e1e2ced271cda5ccecb7d2',1,'MultiParamComponent']]],
-  ['buffer_38',['buffer',['../classDelayLine.html#a93574b33770845363b409a6578919369',1,'DelayLine']]],
-  ['build_39',['build',['../classModMatrix.html#a34daa946cb85440762ff041e995e670c',1,'ModMatrix']]]
+  ['bpm_32',['bpm',['../classAudioMetadata.html#ae597120a0754b3c655623c33779a4aed',1,'AudioMetadata']]],
+  ['browse_33',['browse',['../namespaceAssets.html#a971712f6dd2c7de1171c8139a852a38d',1,'Assets']]],
+  ['browsebutton_34',['browseButton',['../classTitleBar.html#ad008b68a5bcd5442577468bf031c596b',1,'TitleBar']]],
+  ['bsapplypatch_35',['bsApplyPatch',['../namespaceDiff.html#a02f934e756b7ff02baaa06b4e7ceab55',1,'Diff']]],
+  ['bsdiff_36',['bsDiff',['../namespaceDiff.html#a6316252e0766f32052b1de207d27203c',1,'Diff']]],
+  ['bterm_37',['bTerm',['../classLeastSquaresRegression.html#af8a14f97edfe06e9237df6cbf5a54330',1,'LeastSquaresRegression']]],
+  ['bubble_38',['bubble',['../classMultiParamComponent.html#afed6013095e1e2ced271cda5ccecb7d2',1,'MultiParamComponent']]],
+  ['buffer_39',['buffer',['../classDelayLine.html#a93574b33770845363b409a6578919369',1,'DelayLine']]],
+  ['build_40',['build',['../classModMatrix.html#a34daa946cb85440762ff041e995e670c',1,'ModMatrix']]]
 ];

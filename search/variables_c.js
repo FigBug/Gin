@@ -11,7 +11,8 @@ var searchData=
   ['noteoffindex_8',['noteOffIndex',['../classSynthesiser.html#a11111b8660140c3d67efbd56cf1089fc',1,'Synthesiser']]],
   ['noteonindex_9',['noteOnIndex',['../classSynthesiser.html#aa5ba2f02b20bcad66e99e471aa934793',1,'Synthesiser']]],
   ['notespertable_10',['notesPerTable',['../classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220',1,'BandLimitedLookupTable']]],
-  ['numins_11',['numIns',['../structStandalonePluginHolder_1_1PluginInOuts.html#a2c18cb6876bc952ba5df80df92500c34',1,'StandalonePluginHolder::PluginInOuts']]],
-  ['numouts_12',['numOuts',['../structStandalonePluginHolder_1_1PluginInOuts.html#ae8defe449815bf6e651a92944240f6c0',1,'StandalonePluginHolder::PluginInOuts']]],
-  ['numpoints_13',['numPoints',['../structMSEG_1_1Data.html#a346affc8c6dea61cc798b9fda79e7248',1,'MSEG::Data']]]
+  ['numerator_11',['numerator',['../classAudioMetadata.html#a58358a2c2f1cda302296bc1610218d18',1,'AudioMetadata']]],
+  ['numins_12',['numIns',['../structStandalonePluginHolder_1_1PluginInOuts.html#a2c18cb6876bc952ba5df80df92500c34',1,'StandalonePluginHolder::PluginInOuts']]],
+  ['numouts_13',['numOuts',['../structStandalonePluginHolder_1_1PluginInOuts.html#ae8defe449815bf6e651a92944240f6c0',1,'StandalonePluginHolder::PluginInOuts']]],
+  ['numpoints_14',['numPoints',['../structMSEG_1_1Data.html#a346affc8c6dea61cc798b9fda79e7248',1,'MSEG::Data']]]
 ];

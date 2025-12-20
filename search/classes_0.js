@@ -10,9 +10,10 @@ var searchData=
   ['audioequationparser_7',['AudioEquationParser',['../classAudioEquationParser.html',1,'']]],
   ['audiofifo_8',['AudioFifo',['../classAudioFifo.html',1,'']]],
   ['audiofunctionhost_9',['AudioFunctionHost',['../classAudioFunctionHost.html',1,'']]],
-  ['audiomidififo_10',['AudioMidiFifo',['../classAudioMidiFifo.html',1,'']]],
-  ['audioprocessorplayer_11',['AudioProcessorPlayer',['../classAudioProcessorPlayer.html',1,'']]],
-  ['audiorecorder_12',['AudioRecorder',['../classAudioRecorder.html',1,'']]],
-  ['audiosamplerbuffercomponent_13',['AudioSamplerBufferComponent',['../classAudioSamplerBufferComponent.html',1,'']]],
-  ['authorsmodel_14',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser']]]
+  ['audiometadata_10',['AudioMetadata',['../classAudioMetadata.html',1,'']]],
+  ['audiomidififo_11',['AudioMidiFifo',['../classAudioMidiFifo.html',1,'']]],
+  ['audioprocessorplayer_12',['AudioProcessorPlayer',['../classAudioProcessorPlayer.html',1,'']]],
+  ['audiorecorder_13',['AudioRecorder',['../classAudioRecorder.html',1,'']]],
+  ['audiosamplerbuffercomponent_14',['AudioSamplerBufferComponent',['../classAudioSamplerBufferComponent.html',1,'']]],
+  ['authorsmodel_15',['AuthorsModel',['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser']]]
 ];
