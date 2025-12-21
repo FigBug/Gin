@@ -117,6 +117,111 @@ void TriggeredScope::paint (juce::Graphics& g)
         g.drawHorizontalLine (juce::roundToInt (y), 0.0f, float (w));
         g.drawVerticalLine (juce::roundToInt (float ( w ) * triggerPos), 0.0f, float (h));
     }
+
+    // Draw cursor info
+    if (drawCursorInfo && mousePos.has_value() && channels.size() > 0)
+    {
+        const int w = getWidth();
+        const int h = getHeight();
+
+        auto* refChannel = channels.getFirst();
+        int bufferReadPos = getTriggerPos().first;
+        bufferReadPos -= juce::roundToInt (float (w) * triggerPos);
+        if (bufferReadPos < 0)
+            bufferReadPos += refChannel->bufferSize;
+
+        // Calculate buffer position from mouse X
+        int sampleOffset;
+        if (numSamplesPerPixel < 1.0f)
+            sampleOffset = juce::roundToInt (float (mousePos->x) * numSamplesPerPixel);
+        else
+            sampleOffset = mousePos->x;
+
+        int pos = (bufferReadPos + sampleOffset + 1) % refChannel->bufferSize;
+
+        // Find the channel whose waveform is closest to the mouse Y position
+        int closestChannel = 0;
+        float closestDistance = std::numeric_limits<float>::max();
+
+        for (int chIdx = 0; chIdx < channels.size(); chIdx++)
+        {
+            float chOffset = chIdx < verticalZoomOffset.size() ? verticalZoomOffset[chIdx] : 0.0f;
+            float chValue = channels[chIdx]->posBuffer[pos];
+            float chY = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (chOffset + chValue)))) * float (h);
+            float distance = std::abs (chY - float (mousePos->y));
+
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestChannel = chIdx;
+            }
+        }
+
+        // Get sample value from closest channel
+        float sampleValue = channels[closestChannel]->posBuffer[pos];
+
+        // Calculate Y position on screen
+        float offset = closestChannel < verticalZoomOffset.size() ? verticalZoomOffset[closestChannel] : 0.0f;
+        const float dotY = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (offset + sampleValue)))) * float (h);
+
+        // Calculate dot X position
+        float dotX;
+        if (numSamplesPerPixel < 1.0f)
+            dotX = float (sampleOffset) / numSamplesPerPixel;
+        else
+            dotX = float (mousePos->x);
+
+        // Draw crosshair
+        g.setColour (juce::Colours::lightgrey.withAlpha (0.5f));
+        g.drawVerticalLine (juce::roundToInt (dotX), 0.0f, float (h));
+        g.drawHorizontalLine (juce::roundToInt (dotY), 0.0f, float (w));
+
+        // Draw dot in same colour as the trace
+        g.setColour (findColour (traceColourId + closestChannel));
+        g.fillEllipse (dotX - 4.0f, dotY - 4.0f, 8.0f, 8.0f);
+
+        // Calculate time in samples from trigger position
+        double timeInSamples = double (sampleOffset) * std::max (1.0f, numSamplesPerPixel);
+        double timeInMs = (timeInSamples / sampleRate) * 1000.0;
+
+        // Calculate level in dB
+        float absValue = std::abs (sampleValue);
+        float dB = absValue > 0.0f ? 20.0f * std::log10 (absValue) : -100.0f;
+
+        // Format text
+        juce::String text;
+        if (timeInMs < 1.0)
+            text = juce::String (timeInMs * 1000.0, 1) + " us, ";
+        else
+            text = juce::String (timeInMs, 2) + " ms, ";
+        text += juce::String (dB, 1) + " dB";
+
+        // Draw text in upper right
+        auto font = g.getCurrentFont();
+        float textWidth = font.getStringWidthFloat (text) + 12.0f;
+        float textX = float (w) - textWidth - 4.0f;
+        float textY = 4.0f;
+
+        g.setColour (juce::Colours::black.withAlpha (0.7f));
+        g.fillRoundedRectangle (textX, textY, textWidth, 16.0f, 3.0f);
+        g.setColour (juce::Colours::white);
+        g.drawText (text, juce::Rectangle<float> (textX, textY, textWidth, 16.0f), juce::Justification::centred);
+    }
+}
+
+void TriggeredScope::mouseMove (const juce::MouseEvent& e)
+{
+    if (drawCursorInfo)
+    {
+        mousePos = e.getPosition();
+        repaint();
+    }
+}
+
+void TriggeredScope::mouseExit (const juce::MouseEvent&)
+{
+    mousePos.reset();
+    repaint();
 }
 
 void TriggeredScope::timerCallback()
@@ -131,6 +236,62 @@ void TriggeredScope::timerCallback()
         fifo.read (buffer);
         addSamples (buffer);
         repaint();
+    }
+
+    // Update playhead from source if available
+    if (playheadSource && beatSyncBeats > 0)
+    {
+        auto [ppq, bpm, playing] = playheadSource();
+        updatePlayhead (ppq, bpm, playing);
+    }
+}
+
+void TriggeredScope::updatePlayhead (double ppqPosition, double bpm, bool isPlaying)
+{
+    currentBpm.store (bpm);
+
+    bool wasPlaying = hostIsPlaying.exchange (isPlaying);
+
+    if (beatSyncBeats > 0 && isPlaying && channels.size() > 0)
+    {
+        int displayWidth = getWidth();
+        if (displayWidth <= 0)
+            displayWidth = 800; // fallback
+
+        // Calculate raw samples for the beat cycle
+        double rawSamplesPerBeat = (sampleRate * 60.0) / bpm;
+        double totalRawSamples = double (beatSyncBeats) * rawSamplesPerBeat;
+
+        // Calculate SPP so that the beat cycle maps to the display width
+        // We want: totalRawSamples / spp == displayWidth
+        float beatSpp = float (totalRawSamples / double (displayWidth));
+        beatSpp = std::max (1.0f, beatSpp);
+
+        beatSyncSamplesPerPixel.store (beatSpp);
+
+        // The number of buffer samples for the full cycle equals display width
+        beatSyncTotalSamples.store (displayWidth);
+
+        // Detect beat cycle boundaries
+        int currentCycle = int (std::floor (ppqPosition / double (beatSyncBeats)));
+
+        if (currentCycle != lastBeatCycle)
+        {
+            lastBeatCycle = currentCycle;
+            // Record the buffer position where this cycle starts
+            if (channels.size() > 0)
+                beatSyncCycleStartPos.store (channels[0]->bufferWritePos);
+        }
+    }
+    else
+    {
+        beatSyncCycleStartPos.store (-1);
+    }
+
+    if (! isPlaying && wasPlaying)
+    {
+        beatSyncCycleStartPos.store (-1);
+        lastBeatCycle = -1;
     }
 }
 
@@ -157,6 +318,13 @@ void TriggeredScope::processPendingSamples()
             maxProcess = c.bufferSize / 4 - samplesSinceTrigger;
         }
     }
+
+    // In beat sync mode, use the auto-calculated SPP; otherwise use user setting
+    float effectiveSpp = numSamplesPerPixel;
+    if (beatSyncBeats > 0 && hostIsPlaying.load())
+        effectiveSpp = beatSyncSamplesPerPixel.load();
+
+    effectiveSpp = std::max (1.0f, effectiveSpp);
 
     for (auto c : channels)
     {
@@ -188,7 +356,7 @@ void TriggeredScope::processPendingSamples()
                 c->currentAve = 0.0;
 
                 ++c->bufferWritePos %= c->bufferSize;
-                c->numLeftToAverage += int (std::max (1.0f, numSamplesPerPixel));
+                c->numLeftToAverage += int (effectiveSpp);
                 c->numAveraged = 0;
 
                 if (triggered)
@@ -251,7 +419,12 @@ std::pair<int, bool> TriggeredScope::getTriggerPos()
         if (bufferReadPos < 0 )
             bufferReadPos += c->bufferSize;
 
-        if (triggerMode != None)
+        if (triggerMode == Auto)
+        {
+            updateAutoTrigger();
+            return { autoTriggerPos, true };
+        }
+        else if (triggerMode != None)
         {
             int posToTest = bufferReadPos;
             int numToSearch = c->bufferSize;
@@ -295,6 +468,156 @@ void TriggeredScope::render (juce::Graphics& g)
     const int w = getWidth();
     const int h = getHeight();
 
+    // Beat sync mode
+    if (beatSyncBeats > 0 && hostIsPlaying.load() && channels.size() > 0)
+    {
+        int cycleStartPos = beatSyncCycleStartPos.load();
+        int totalBufferSamples = beatSyncTotalSamples.load();
+        int bufferSize = channels[0]->bufferSize;
+
+        if (cycleStartPos < 0 || totalBufferSamples <= 0)
+            return;
+
+        // Calculate how many samples have been written since cycle started
+        int currentWritePos = channels[0]->bufferWritePos;
+        int samplesWritten = currentWritePos - cycleStartPos;
+        if (samplesWritten < 0)
+            samplesWritten += bufferSize;
+
+        // Clamp to cycle length
+        if (samplesWritten > totalBufferSamples)
+            samplesWritten = totalBufferSamples;
+
+        if (samplesWritten <= 0)
+            return;
+
+        // Map buffer samples to screen width - beat cycle fills the display
+        float pixelsPerBufferSample = float (w) / float (totalBufferSamples);
+
+        // Start reading from the cycle start position
+        int startPos = cycleStartPos;
+
+        int ch = 0;
+        for (auto c : channels)
+        {
+            auto traceColour = findColour (traceColourId + ch);
+            auto envelopeColour = findColour (envelopeColourId + ch);
+
+            bool drawTrace = ! traceColour.isTransparent();
+            bool drawEnvelope = ! envelopeColour.isTransparent();
+
+            juce::Path p;
+            g.setColour (envelopeColour);
+
+            // Start from the fixed beat boundary position
+            int pos = startPos;
+            if (pos < 0) pos += c->bufferSize;
+
+            float chOffset = ch < verticalZoomOffset.size() ? verticalZoomOffset[ch] : 0.0f;
+
+            if (pixelsPerBufferSample >= 1.0f)
+            {
+                // Each buffer sample gets one or more pixels
+                float currentX = 0.0f;
+                bool firstPoint = true;
+
+                for (int sampleIdx = 0; sampleIdx < samplesWritten; sampleIdx++)
+                {
+                    float val = c->posBuffer[pos];
+                    if (std::isnan (val)) val = 0.0f;
+
+                    const float mid = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (chOffset + val)))) * float (h);
+
+                    if (drawTrace)
+                    {
+                        if (firstPoint)
+                        {
+                            p.startNewSubPath (currentX, mid);
+                            firstPoint = false;
+                        }
+                        else
+                        {
+                            p.lineTo (currentX, mid);
+                        }
+                    }
+
+                    ++pos;
+                    if (pos >= c->bufferSize)
+                        pos = 0;
+
+                    currentX += pixelsPerBufferSample;
+                }
+            }
+            else
+            {
+                // Multiple buffer samples per pixel
+                int samplesPerPixel = juce::roundToInt (1.0f / pixelsPerBufferSample);
+                if (samplesPerPixel < 1) samplesPerPixel = 1;
+
+                int currentX = 0;
+                int maxX = juce::roundToInt (float (samplesWritten) * pixelsPerBufferSample);
+                maxX = std::min (maxX, w);
+                int samplesRemaining = samplesWritten;
+
+                while (currentX < maxX && samplesRemaining > 0)
+                {
+                    float minVal = 1.0f, maxVal = -1.0f, sum = 0.0f;
+                    int samplesToRead = std::min (samplesPerPixel, samplesRemaining);
+                    int validSamples = 0;
+
+                    for (int i = 0; i < samplesToRead; i++)
+                    {
+                        float val = c->posBuffer[pos];
+                        if (! std::isnan (val))
+                        {
+                            minVal = std::min (minVal, val);
+                            maxVal = std::max (maxVal, val);
+                            sum += val;
+                            validSamples++;
+                        }
+
+                        ++pos;
+                        if (pos >= c->bufferSize)
+                            pos = 0;
+                    }
+
+                    samplesRemaining -= samplesToRead;
+
+                    if (validSamples > 0)
+                    {
+                        const float top = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (chOffset + maxVal)))) * float (h);
+                        const float bottom = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (chOffset + minVal)))) * float (h);
+                        const float mid = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (chOffset + sum / float (validSamples))))) * float (h);
+
+                        if (drawEnvelope && bottom - top > 2)
+                            g.drawVerticalLine (currentX, top, bottom);
+
+                        if (drawTrace)
+                        {
+                            if (currentX == 0)
+                                p.startNewSubPath (float (currentX), mid);
+                            else
+                                p.lineTo (float (currentX), mid);
+                        }
+                    }
+
+                    currentX++;
+                }
+            }
+
+            if (drawTrace)
+            {
+                g.setColour (traceColour);
+                g.strokePath (p, juce::PathStrokeType (1.5f));
+            }
+
+            ch++;
+        }
+
+        return;
+    }
+
+    // Normal trigger modes
     int bufferReadPos = getTriggerPos().first;
 
     bufferReadPos -= juce::roundToInt ( float ( w ) * triggerPos);
@@ -312,33 +635,69 @@ void TriggeredScope::render (juce::Graphics& g)
 
         juce::Path p;
 
-        int pos = bufferReadPos;
-        int currentX = 0;
-
         g.setColour (envelopeColour);
 
-        while (currentX < w)
+        if (numSamplesPerPixel < 1.0f)
         {
-            ++pos;
-            if (pos == c->bufferSize)
-                pos = 0;
+            // Zoomed in: each sample spans multiple pixels
+            const float pixelsPerSample = 1.0f / numSamplesPerPixel;
+            int pos = bufferReadPos;
+            float currentX = 0.0f;
+            bool firstPoint = true;
 
-            const float top = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + c->maxBuffer[pos])))) * float ( h );
-            const float bottom = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + c->minBuffer[pos])))) * float ( h );
-            const float mid = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + c->posBuffer[pos])))) * float ( h );
-
-            if (drawEnvelope && bottom - top > 2)
-                g.drawVerticalLine (currentX, top, bottom);
-
-            if (drawTrace)
+            while (currentX <= float (w) + pixelsPerSample)
             {
-                if (currentX == 0)
-                    p.startNewSubPath ( float ( currentX ), mid);
-                else
-                    p.lineTo ( float ( currentX ), mid);
-            }
+                ++pos;
+                if (pos >= c->bufferSize)
+                    pos = 0;
 
-            currentX++;
+                const float mid = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + c->posBuffer[pos])))) * float (h);
+
+                if (drawTrace)
+                {
+                    if (firstPoint)
+                    {
+                        p.startNewSubPath (currentX, mid);
+                        firstPoint = false;
+                    }
+                    else
+                    {
+                        p.lineTo (currentX, mid);
+                    }
+                }
+
+                currentX += pixelsPerSample;
+            }
+        }
+        else
+        {
+            // Normal mode: one or more samples per pixel
+            int pos = bufferReadPos;
+            int currentX = 0;
+
+            while (currentX < w)
+            {
+                ++pos;
+                if (pos >= c->bufferSize)
+                    pos = 0;
+
+                const float top = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + c->maxBuffer[pos])))) * float (h);
+                const float bottom = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + c->minBuffer[pos])))) * float (h);
+                const float mid = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (verticalZoomOffset[ch] + c->posBuffer[pos])))) * float (h);
+
+                if (drawEnvelope && bottom - top > 2)
+                    g.drawVerticalLine (currentX, top, bottom);
+
+                if (drawTrace)
+                {
+                    if (currentX == 0)
+                        p.startNewSubPath (float (currentX), mid);
+                    else
+                        p.lineTo (float (currentX), mid);
+                }
+
+                currentX++;
+            }
         }
 
         if (drawTrace)
@@ -361,5 +720,106 @@ void TriggeredScope::resetTrigger()
         c->posBuffer.clear ((size_t) c->bufferSize);
         c->minBuffer.clear ((size_t) c->bufferSize);
         c->maxBuffer.clear ((size_t) c->bufferSize);
+    }
+}
+
+void TriggeredScope::updateAutoTrigger()
+{
+    if (channels.size() == 0)
+        return;
+
+    auto* refChannel = channels.getFirst();
+    if (refChannel == nullptr)
+        return;
+
+    const int windowSize = getWidth();
+    if (windowSize <= 0)
+        return;
+
+    // We look back 2 windows worth of data to find the best match
+    const int searchSize = windowSize;
+    const int bufferSize = refChannel->bufferSize;
+    const int bufferWritePos = refChannel->bufferWritePos;
+
+    auto peekBuffer = [&] (int idx) -> float
+    {
+        int wrappedIdx = ((bufferWritePos - windowSize * 2 + idx) % bufferSize + bufferSize) % bufferSize;
+        if (triggerChannel == -1)
+        {
+            float sum = 0;
+            for (auto ch : channels)
+                sum += ch->posBuffer[wrappedIdx];
+            return sum / float (channels.size());
+        }
+        return channels[triggerChannel]->posBuffer[wrappedIdx];
+    };
+
+    auto peekMask = [&] (int idx) -> uint8_t
+    {
+        return peekBuffer (idx) > 0 ? 1 : 0;
+    };
+
+    // Ensure lastMatchMask is sized correctly
+    if (lastMatchMask.size() != size_t (windowSize))
+    {
+        lastMatchMask.resize (size_t (windowSize));
+        for (int i = 0; i < windowSize; i++)
+            lastMatchMask[size_t (i)] = peekMask (i);
+    }
+
+    // collect all positive zero-crossings in the search window
+    autoCandidates.clear();
+
+    for (int i = 1; i < searchSize; i++)
+        if (peekBuffer (i - 1) <= 0 && peekBuffer (i) > 0)
+            autoCandidates.push_back (i);
+
+    // calculate correlations with last match
+    autoRatings.clear();
+
+    for (auto start : autoCandidates)
+    {
+        int rating = 0;
+
+        for (int offset = 0; offset < windowSize; offset++)
+        {
+            uint8_t value1 = lastMatchMask[size_t (offset)];
+            uint8_t value2 = peekMask (start + offset);
+            rating += (value1 & value2);
+        }
+
+        autoRatings.push_back (rating);
+    }
+
+    // no zero-crossings at all? maybe special case for low frequencies
+    if (autoCandidates.empty())
+    {
+        if (lowFreqDelay > 0)
+        {
+            lowFreqDelay--;
+        }
+        else
+        {
+            autoCandidates.push_back (0);
+            autoRatings.push_back (0);
+        }
+    }
+    else if (int (autoCandidates.size()) < s_lowFreqThreshold)
+    {
+        lowFreqDelay = s_maxLowFreqDelay;
+    }
+
+    // copy match with best correlation and store trigger position
+    if (! autoCandidates.empty())
+    {
+        auto it = std::max_element (autoRatings.begin(), autoRatings.end());
+        auto index = int (it - autoRatings.begin());
+        int bestStart = autoCandidates[size_t (index)];
+
+        for (int offset = 0; offset < windowSize; offset++)
+            lastMatchMask[size_t (offset)] = peekMask (bestStart + offset);
+
+        // Store the absolute buffer position for this trigger point
+        autoTriggerPos = ((bufferWritePos - windowSize * 2 + bestStart) % bufferSize + bufferSize) % bufferSize;
     }
 }
