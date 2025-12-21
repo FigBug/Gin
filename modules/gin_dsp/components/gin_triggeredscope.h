@@ -173,6 +173,8 @@ private:
     void addSamples (const juce::AudioSampleBuffer& buffer);
     void processPendingSamples();
     void render (juce::Graphics& g);
+    void renderBeatSync (juce::Graphics& g);
+    void renderTrigger (juce::Graphics& g);
     std::pair<int, bool> getTriggerPos();
     void updateAutoTrigger();
 

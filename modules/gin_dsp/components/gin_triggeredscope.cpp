@@ -125,87 +125,137 @@ void TriggeredScope::paint (juce::Graphics& g)
         const int h = getHeight();
 
         auto* refChannel = channels.getFirst();
-        int bufferReadPos = getTriggerPos().first;
-        bufferReadPos -= juce::roundToInt (float (w) * triggerPos);
-        if (bufferReadPos < 0)
-            bufferReadPos += refChannel->bufferSize;
+        int pos = 0;
+        float dotX = float (mousePos->x);
+        double timeInSamples = 0.0;
+        bool validPosition = true;
 
-        // Calculate buffer position from mouse X
-        int sampleOffset;
-        if (numSamplesPerPixel < 1.0f)
-            sampleOffset = juce::roundToInt (float (mousePos->x) * numSamplesPerPixel);
-        else
-            sampleOffset = mousePos->x;
-
-        int pos = (bufferReadPos + sampleOffset + 1) % refChannel->bufferSize;
-
-        // Find the channel whose waveform is closest to the mouse Y position
-        int closestChannel = 0;
-        float closestDistance = std::numeric_limits<float>::max();
-
-        for (int chIdx = 0; chIdx < channels.size(); chIdx++)
+        if (beatSyncBeats > 0 && hostIsPlaying.load())
         {
-            float chOffset = chIdx < verticalZoomOffset.size() ? verticalZoomOffset[chIdx] : 0.0f;
-            float chValue = channels[chIdx]->posBuffer[pos];
-            float chY = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (chOffset + chValue)))) * float (h);
-            float distance = std::abs (chY - float (mousePos->y));
+            // Beat sync mode
+            int cycleStartPos = beatSyncCycleStartPos.load();
+            int totalBufferSamples = beatSyncTotalSamples.load();
 
-            if (distance < closestDistance)
+            if (cycleStartPos < 0 || totalBufferSamples <= 0)
             {
-                closestDistance = distance;
-                closestChannel = chIdx;
+                validPosition = false;
+            }
+            else
+            {
+                // Calculate how far into the cycle we've written
+                int currentWritePos = refChannel->bufferWritePos;
+                int samplesWritten = currentWritePos - cycleStartPos;
+                if (samplesWritten < 0)
+                    samplesWritten += refChannel->bufferSize;
+                if (samplesWritten > totalBufferSamples)
+                    samplesWritten = totalBufferSamples;
+
+                // Map mouse X to buffer position
+                float pixelsPerBufferSample = float (w) / float (totalBufferSamples);
+                int sampleOffset = juce::roundToInt (float (mousePos->x) / pixelsPerBufferSample);
+
+                // Check if mouse is in the "future" (beyond what's been written)
+                if (sampleOffset >= samplesWritten)
+                {
+                    validPosition = false;
+                }
+                else
+                {
+                    pos = (cycleStartPos + sampleOffset) % refChannel->bufferSize;
+                    if (pos < 0) pos += refChannel->bufferSize;
+
+                    // Calculate time based on beat position
+                    double beatsPerPixel = double (beatSyncBeats) / double (w);
+                    double beatPosition = double (mousePos->x) * beatsPerPixel;
+                    double bpm = currentBpm.load();
+                    timeInSamples = (beatPosition / bpm) * 60.0 * sampleRate;
+                }
             }
         }
-
-        // Get sample value from closest channel
-        float sampleValue = channels[closestChannel]->posBuffer[pos];
-
-        // Calculate Y position on screen
-        float offset = closestChannel < verticalZoomOffset.size() ? verticalZoomOffset[closestChannel] : 0.0f;
-        const float dotY = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (offset + sampleValue)))) * float (h);
-
-        // Calculate dot X position
-        float dotX;
-        if (numSamplesPerPixel < 1.0f)
-            dotX = float (sampleOffset) / numSamplesPerPixel;
         else
-            dotX = float (mousePos->x);
+        {
+            // Normal trigger mode - use same position calculation as render
+            int bufferReadPos = getTriggerPos().first;
+            bufferReadPos -= juce::roundToInt (float (w) * triggerPos);
+            if (bufferReadPos < 0)
+                bufferReadPos += refChannel->bufferSize;
 
-        // Draw crosshair
-        g.setColour (juce::Colours::lightgrey.withAlpha (0.5f));
-        g.drawVerticalLine (juce::roundToInt (dotX), 0.0f, float (h));
-        g.drawHorizontalLine (juce::roundToInt (dotY), 0.0f, float (w));
+            int sampleOffset;
+            if (numSamplesPerPixel < 1.0f)
+                sampleOffset = juce::roundToInt (float (mousePos->x) * numSamplesPerPixel);
+            else
+                sampleOffset = mousePos->x;
 
-        // Draw dot in same colour as the trace
-        g.setColour (findColour (traceColourId + closestChannel));
-        g.fillEllipse (dotX - 4.0f, dotY - 4.0f, 8.0f, 8.0f);
+            pos = (bufferReadPos + sampleOffset + 1) % refChannel->bufferSize;
 
-        // Calculate time in samples from trigger position
-        double timeInSamples = double (sampleOffset) * std::max (1.0f, numSamplesPerPixel);
-        double timeInMs = (timeInSamples / sampleRate) * 1000.0;
+            if (numSamplesPerPixel < 1.0f)
+                dotX = float (sampleOffset) / numSamplesPerPixel;
 
-        // Calculate level in dB
-        float absValue = std::abs (sampleValue);
-        float dB = absValue > 0.0f ? 20.0f * std::log10 (absValue) : -100.0f;
+            timeInSamples = double (sampleOffset) * std::max (1.0f, numSamplesPerPixel);
+        }
 
-        // Format text
-        juce::String text;
-        if (timeInMs < 1.0)
-            text = juce::String (timeInMs * 1000.0, 1) + " us, ";
-        else
-            text = juce::String (timeInMs, 2) + " ms, ";
-        text += juce::String (dB, 1) + " dB";
+        if (validPosition)
+        {
+            // Find the channel whose waveform is closest to the mouse Y position
+            int closestChannel = 0;
+            float closestDistance = std::numeric_limits<float>::max();
 
-        // Draw text in upper right
-        auto font = g.getCurrentFont();
-        float textWidth = font.getStringWidthFloat (text) + 12.0f;
-        float textX = float (w) - textWidth - 4.0f;
-        float textY = 4.0f;
+            for (int chIdx = 0; chIdx < channels.size(); chIdx++)
+            {
+                float chOffset = chIdx < verticalZoomOffset.size() ? verticalZoomOffset[chIdx] : 0.0f;
+                float chValue = channels[chIdx]->posBuffer[pos];
+                float chY = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (chOffset + chValue)))) * float (h);
+                float distance = std::abs (chY - float (mousePos->y));
 
-        g.setColour (juce::Colours::black.withAlpha (0.7f));
-        g.fillRoundedRectangle (textX, textY, textWidth, 16.0f, 3.0f);
-        g.setColour (juce::Colours::white);
-        g.drawText (text, juce::Rectangle<float> (textX, textY, textWidth, 16.0f), juce::Justification::centred);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestChannel = chIdx;
+                }
+            }
+
+            // Get sample value from closest channel
+            float sampleValue = channels[closestChannel]->posBuffer[pos];
+
+            // Calculate Y position on screen
+            float offset = closestChannel < verticalZoomOffset.size() ? verticalZoomOffset[closestChannel] : 0.0f;
+            const float dotY = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (offset + sampleValue)))) * float (h);
+
+            // Draw crosshair
+            g.setColour (juce::Colours::lightgrey.withAlpha (0.5f));
+            g.drawVerticalLine (juce::roundToInt (dotX), 0.0f, float (h));
+            g.drawHorizontalLine (juce::roundToInt (dotY), 0.0f, float (w));
+
+            // Draw dot in same colour as the trace
+            g.setColour (findColour (traceColourId + closestChannel));
+            g.fillEllipse (dotX - 4.0f, dotY - 4.0f, 8.0f, 8.0f);
+
+            // Calculate time
+            double timeInMs = (timeInSamples / sampleRate) * 1000.0;
+
+            // Calculate level in dB
+            float absValue = std::abs (sampleValue);
+            float dB = absValue > 0.0f ? 20.0f * std::log10 (absValue) : -100.0f;
+
+            // Format text
+            juce::String text;
+            if (timeInMs < 1.0)
+                text = juce::String (timeInMs * 1000.0, 1) + " us, ";
+            else
+                text = juce::String (timeInMs, 2) + " ms, ";
+            text += juce::String (dB, 1) + " dB";
+
+            // Draw text in upper right
+            auto font = g.getCurrentFont();
+            float textWidth = font.getStringWidthFloat (text) + 12.0f;
+            float textX = float (w) - textWidth - 4.0f;
+            float textY = 4.0f;
+
+            g.setColour (juce::Colours::black.withAlpha (0.7f));
+            g.fillRoundedRectangle (textX, textY, textWidth, 16.0f, 3.0f);
+            g.setColour (juce::Colours::white);
+            g.drawText (text, juce::Rectangle<float> (textX, textY, textWidth, 16.0f), juce::Justification::centred);
+        }
     }
 }
 
@@ -465,163 +515,191 @@ std::pair<int, bool> TriggeredScope::getTriggerPos()
 
 void TriggeredScope::render (juce::Graphics& g)
 {
+    if (beatSyncBeats > 0 && hostIsPlaying.load() && channels.size() > 0)
+        renderBeatSync (g);
+    else
+        renderTrigger (g);
+}
+
+void TriggeredScope::renderBeatSync (juce::Graphics& g)
+{
     const int w = getWidth();
     const int h = getHeight();
 
-    // Beat sync mode
-    if (beatSyncBeats > 0 && hostIsPlaying.load() && channels.size() > 0)
+    int cycleStartPos = beatSyncCycleStartPos.load();
+    int totalBufferSamples = beatSyncTotalSamples.load();
+    int bufferSize = channels[0]->bufferSize;
+
+    if (cycleStartPos < 0 || totalBufferSamples <= 0)
+        return;
+
+    // Calculate how many samples have been written since cycle started
+    int currentWritePos = channels[0]->bufferWritePos;
+    int samplesWritten = currentWritePos - cycleStartPos;
+    if (samplesWritten < 0)
+        samplesWritten += bufferSize;
+
+    // Clamp to cycle length
+    if (samplesWritten > totalBufferSamples)
+        samplesWritten = totalBufferSamples;
+
+    if (samplesWritten <= 0)
+        return;
+
+    // Map buffer samples to screen width - beat cycle fills the display
+    float pixelsPerBufferSample = float (w) / float (totalBufferSamples);
+
+    // Start reading from the cycle start position
+    int startPos = cycleStartPos;
+
+    int ch = 0;
+    for (auto c : channels)
     {
-        int cycleStartPos = beatSyncCycleStartPos.load();
-        int totalBufferSamples = beatSyncTotalSamples.load();
-        int bufferSize = channels[0]->bufferSize;
+        auto traceColour = findColour (traceColourId + ch);
+        auto envelopeColour = findColour (envelopeColourId + ch);
 
-        if (cycleStartPos < 0 || totalBufferSamples <= 0)
-            return;
+        bool drawTrace = ! traceColour.isTransparent();
+        bool drawEnvelope = ! envelopeColour.isTransparent();
 
-        // Calculate how many samples have been written since cycle started
-        int currentWritePos = channels[0]->bufferWritePos;
-        int samplesWritten = currentWritePos - cycleStartPos;
-        if (samplesWritten < 0)
-            samplesWritten += bufferSize;
+        juce::Path p;
+        g.setColour (envelopeColour);
 
-        // Clamp to cycle length
-        if (samplesWritten > totalBufferSamples)
-            samplesWritten = totalBufferSamples;
+        // Start from the fixed beat boundary position
+        int pos = startPos;
+        if (pos < 0) pos += c->bufferSize;
 
-        if (samplesWritten <= 0)
-            return;
+        float chOffset = ch < verticalZoomOffset.size() ? verticalZoomOffset[ch] : 0.0f;
 
-        // Map buffer samples to screen width - beat cycle fills the display
-        float pixelsPerBufferSample = float (w) / float (totalBufferSamples);
-
-        // Start reading from the cycle start position
-        int startPos = cycleStartPos;
-
-        int ch = 0;
-        for (auto c : channels)
+        if (pixelsPerBufferSample >= 1.0f)
         {
-            auto traceColour = findColour (traceColourId + ch);
-            auto envelopeColour = findColour (envelopeColourId + ch);
+            // Each buffer sample gets one or more pixels
+            float currentX = 0.0f;
+            bool firstPoint = true;
 
-            bool drawTrace = ! traceColour.isTransparent();
-            bool drawEnvelope = ! envelopeColour.isTransparent();
-
-            juce::Path p;
-            g.setColour (envelopeColour);
-
-            // Start from the fixed beat boundary position
-            int pos = startPos;
-            if (pos < 0) pos += c->bufferSize;
-
-            float chOffset = ch < verticalZoomOffset.size() ? verticalZoomOffset[ch] : 0.0f;
-
-            if (pixelsPerBufferSample >= 1.0f)
+            for (int sampleIdx = 0; sampleIdx < samplesWritten; sampleIdx++)
             {
-                // Each buffer sample gets one or more pixels
-                float currentX = 0.0f;
-                bool firstPoint = true;
+                float val = c->posBuffer[pos];
+                if (std::isnan (val)) val = 0.0f;
 
-                for (int sampleIdx = 0; sampleIdx < samplesWritten; sampleIdx++)
+                const float mid = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (chOffset + val)))) * float (h);
+
+                if (drawTrace)
+                {
+                    if (firstPoint)
+                    {
+                        p.startNewSubPath (currentX, mid);
+                        firstPoint = false;
+                    }
+                    else
+                    {
+                        p.lineTo (currentX, mid);
+                    }
+                }
+
+                ++pos;
+                if (pos >= c->bufferSize)
+                    pos = 0;
+
+                currentX += pixelsPerBufferSample;
+            }
+        }
+        else
+        {
+            // Multiple buffer samples per pixel
+            int samplesPerPixel = juce::roundToInt (1.0f / pixelsPerBufferSample);
+            if (samplesPerPixel < 1) samplesPerPixel = 1;
+
+            int currentX = 0;
+            int maxX = juce::roundToInt (float (samplesWritten) * pixelsPerBufferSample);
+            maxX = std::min (maxX, w);
+            int samplesRemaining = samplesWritten;
+
+            while (currentX < maxX && samplesRemaining > 0)
+            {
+                float minVal = 1.0f, maxVal = -1.0f, sum = 0.0f;
+                int samplesToRead = std::min (samplesPerPixel, samplesRemaining);
+                int validSamples = 0;
+
+                for (int i = 0; i < samplesToRead; i++)
                 {
                     float val = c->posBuffer[pos];
-                    if (std::isnan (val)) val = 0.0f;
-
-                    const float mid = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (chOffset + val)))) * float (h);
-
-                    if (drawTrace)
+                    if (! std::isnan (val))
                     {
-                        if (firstPoint)
-                        {
-                            p.startNewSubPath (currentX, mid);
-                            firstPoint = false;
-                        }
-                        else
-                        {
-                            p.lineTo (currentX, mid);
-                        }
+                        minVal = std::min (minVal, val);
+                        maxVal = std::max (maxVal, val);
+                        sum += val;
+                        validSamples++;
                     }
 
                     ++pos;
                     if (pos >= c->bufferSize)
                         pos = 0;
-
-                    currentX += pixelsPerBufferSample;
                 }
-            }
-            else
-            {
-                // Multiple buffer samples per pixel
-                int samplesPerPixel = juce::roundToInt (1.0f / pixelsPerBufferSample);
-                if (samplesPerPixel < 1) samplesPerPixel = 1;
 
-                int currentX = 0;
-                int maxX = juce::roundToInt (float (samplesWritten) * pixelsPerBufferSample);
-                maxX = std::min (maxX, w);
-                int samplesRemaining = samplesWritten;
+                samplesRemaining -= samplesToRead;
 
-                while (currentX < maxX && samplesRemaining > 0)
+                if (validSamples > 0)
                 {
-                    float minVal = 1.0f, maxVal = -1.0f, sum = 0.0f;
-                    int samplesToRead = std::min (samplesPerPixel, samplesRemaining);
-                    int validSamples = 0;
+                    const float top = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (chOffset + maxVal)))) * float (h);
+                    const float bottom = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (chOffset + minVal)))) * float (h);
+                    const float mid = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (chOffset + sum / float (validSamples))))) * float (h);
 
-                    for (int i = 0; i < samplesToRead; i++)
+                    if (drawEnvelope && bottom - top > 2)
+                        g.drawVerticalLine (currentX, top, bottom);
+
+                    if (drawTrace)
                     {
-                        float val = c->posBuffer[pos];
-                        if (! std::isnan (val))
-                        {
-                            minVal = std::min (minVal, val);
-                            maxVal = std::max (maxVal, val);
-                            sum += val;
-                            validSamples++;
-                        }
-
-                        ++pos;
-                        if (pos >= c->bufferSize)
-                            pos = 0;
+                        if (currentX == 0)
+                            p.startNewSubPath (float (currentX), mid);
+                        else
+                            p.lineTo (float (currentX), mid);
                     }
-
-                    samplesRemaining -= samplesToRead;
-
-                    if (validSamples > 0)
-                    {
-                        const float top = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (chOffset + maxVal)))) * float (h);
-                        const float bottom = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (chOffset + minVal)))) * float (h);
-                        const float mid = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (chOffset + sum / float (validSamples))))) * float (h);
-
-                        if (drawEnvelope && bottom - top > 2)
-                            g.drawVerticalLine (currentX, top, bottom);
-
-                        if (drawTrace)
-                        {
-                            if (currentX == 0)
-                                p.startNewSubPath (float (currentX), mid);
-                            else
-                                p.lineTo (float (currentX), mid);
-                        }
-                    }
-
-                    currentX++;
                 }
-            }
 
-            if (drawTrace)
-            {
-                g.setColour (traceColour);
-                g.strokePath (p, juce::PathStrokeType (1.5f));
+                currentX++;
             }
-
-            ch++;
         }
 
-        return;
+        if (drawTrace)
+        {
+            g.setColour (traceColour);
+            g.strokePath (p, juce::PathStrokeType (1.5f));
+        }
+
+        ch++;
     }
 
-    // Normal trigger modes
+    // Draw beat lines
+    float pixelsPerBeat = float (w) / float (beatSyncBeats);
+    auto lineColour = findColour (lineColourId);
+
+    for (int beat = 0; beat <= beatSyncBeats; beat++)
+    {
+        float x = float (beat) * pixelsPerBeat;
+        bool isBarStart = (beat % 4) == 0;
+
+        if (isBarStart)
+        {
+            g.setColour (lineColour);
+            g.drawVerticalLine (juce::roundToInt (x), 0.0f, float (h));
+        }
+        else
+        {
+            g.setColour (lineColour.withMultipliedAlpha (0.5f));
+            g.drawLine (x, 0.0f, x, float (h), 0.5f);
+        }
+    }
+}
+
+void TriggeredScope::renderTrigger (juce::Graphics& g)
+{
+    const int w = getWidth();
+    const int h = getHeight();
+
     int bufferReadPos = getTriggerPos().first;
 
-    bufferReadPos -= juce::roundToInt ( float ( w ) * triggerPos);
-    if (bufferReadPos < 0 )
+    bufferReadPos -= juce::roundToInt (float (w) * triggerPos);
+    if (bufferReadPos < 0)
         bufferReadPos += channels[0]->bufferSize;
 
     int ch = 0;
@@ -630,8 +708,8 @@ void TriggeredScope::render (juce::Graphics& g)
         auto traceColour = findColour (traceColourId + ch);
         auto envelopeColour = findColour (envelopeColourId + ch);
 
-        bool drawTrace = ! traceColour.isTransparent ();
-        bool drawEnvelope = ! envelopeColour.isTransparent ();
+        bool drawTrace = ! traceColour.isTransparent();
+        bool drawEnvelope = ! envelopeColour.isTransparent();
 
         juce::Path p;
 
