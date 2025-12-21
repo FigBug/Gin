@@ -75,7 +75,7 @@ void SpectrumAnalyzer::timerCallback()
 
             for (int i = 0; i < numToRead; ++i)
             {
-                channel->inputBuffer[channel->inputBufferPos] = buffer.getSample (ch, i);
+                channel->inputBuffer[size_t (channel->inputBufferPos)] = buffer.getSample (ch, i);
                 channel->inputBufferPos++;
 
                 if (channel->inputBufferPos >= fftSize)
@@ -113,13 +113,13 @@ void SpectrumAnalyzer::processFFT (Channel* channel)
 
     for (int i = 0; i < numBins; ++i)
     {
-        const float magnitude = channel->fftData[i] * normFactor;
+        const float magnitude = channel->fftData[size_t (i)] * normFactor;
         const float db = juce::Decibels::gainToDecibels (magnitude, minDecibels);
-        channel->bins[i] = db;
+        channel->bins[size_t (i)] = db;
 
         // Apply smoothing
-        channel->smoothedBins[i] = channel->smoothedBins[i] * smoothingFactor
-                                 + channel->bins[i] * (1.0f - smoothingFactor);
+        channel->smoothedBins[size_t (i)] = channel->smoothedBins[size_t (i)] * smoothingFactor
+                                          + channel->bins[size_t (i)] * (1.0f - smoothingFactor);
     }
 }
 
@@ -162,7 +162,7 @@ void SpectrumAnalyzer::updatePaths()
             const float x = normX * w;
 
             // Map dB to y position
-            const float db = channel->smoothedBins[bin];
+            const float db = channel->smoothedBins[size_t (bin)];
             const float clampedDb = juce::jlimit (minDecibels, maxDecibels, db);
             const float normDb = (clampedDb - minDecibels) / (maxDecibels - minDecibels);
             const float y = h - (normDb * h);

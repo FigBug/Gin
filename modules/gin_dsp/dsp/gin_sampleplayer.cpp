@@ -22,7 +22,7 @@ void SamplePlayer::load (const char* data, int dataLen)
     if (auto reader = std::unique_ptr<juce::AudioFormatReader> (mgr.createReaderFor (std::make_unique<juce::MemoryInputStream> (data, dataLen, false))))
     {
         juce::AudioSampleBuffer newBuffer;
-        newBuffer.setSize (reader->numChannels, int (reader->lengthInSamples));
+        newBuffer.setSize (int (reader->numChannels), int (reader->lengthInSamples));
         reader->read (&newBuffer, 0, newBuffer.getNumSamples(), 0, true, true);
 
         const juce::SpinLock::ScopedLockType sl (lock);
@@ -42,7 +42,7 @@ void SamplePlayer::load (const juce::File& f)
     if (auto reader = std::unique_ptr<juce::AudioFormatReader> (mgr.createReaderFor (f)))
     {
         juce::AudioSampleBuffer newBuffer;
-        newBuffer.setSize (reader->numChannels, int (reader->lengthInSamples));
+        newBuffer.setSize (int (reader->numChannels), int (reader->lengthInSamples));
         reader->read (&newBuffer, 0, newBuffer.getNumSamples(), 0, true, true);
 
         // Extract metadata if available

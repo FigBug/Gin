@@ -181,7 +181,7 @@ juce::String removeJsonComments (const juce::String& input)
         return input;
 
     juce::String out;
-    out.preallocateBytes (input.length() * sizeof (juce::String::CharPointerType::CharType));
+    out.preallocateBytes (size_t (input.length()) * sizeof (juce::String::CharPointerType::CharType));
 
     // State machine to track our position in the JSON text
     enum class State

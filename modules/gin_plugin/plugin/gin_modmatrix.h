@@ -241,6 +241,17 @@ public:
 
         switch (f)
         {
+            case linear:
+            case quadraticIn:
+            case quadraticInOut:
+            case quadraticOut:
+            case sineIn:
+            case sineInOut:
+            case sineOut:
+            case exponentialIn:
+            case exponentialInOut:
+            case exponentialOut:
+                break;
             case invLinear:
             case invQuadraticIn:
             case invQuadraticInOut:
