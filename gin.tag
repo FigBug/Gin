@@ -19455,6 +19455,13 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>bool</type>
+      <name>hasTriggered</name>
+      <anchorfile>classTriggeredScope.html</anchorfile>
+      <anchor>a877a30035e2a4a2a94d42a5590f29b18</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>setPaused</name>
       <anchorfile>classTriggeredScope.html</anchorfile>
