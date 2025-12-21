@@ -19456,6 +19456,20 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setPaused</name>
+      <anchorfile>classTriggeredScope.html</anchorfile>
+      <anchor>aa035ee8ac38e4572c26378dde112f81f</anchor>
+      <arglist>(bool shouldBePaused)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isPaused</name>
+      <anchorfile>classTriggeredScope.html</anchorfile>
+      <anchor>abcd7e73427ef2daf201ab3d15120fa49</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>setTriggerMode</name>
       <anchorfile>classTriggeredScope.html</anchorfile>
       <anchor>aaae16520ddd08161c2242bd061df640f</anchor>
@@ -19543,6 +19557,27 @@
       <name>mouseMove</name>
       <anchorfile>classTriggeredScope.html</anchorfile>
       <anchor>a91dd2852cb4d5dfc5dc10847073c9239</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mouseDown</name>
+      <anchorfile>classTriggeredScope.html</anchorfile>
+      <anchor>a3b4980be9fb58f63ae049756b64703c9</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mouseDrag</name>
+      <anchorfile>classTriggeredScope.html</anchorfile>
+      <anchor>a3a2e0faf726714e0a3584715c94bcb5d</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mouseUp</name>
+      <anchorfile>classTriggeredScope.html</anchorfile>
+      <anchor>a393fa47d65044fd19d6de3bba5c3cdd8</anchor>
       <arglist>(const juce::MouseEvent &amp;e) override</arglist>
     </member>
     <member kind="function">
