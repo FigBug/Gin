@@ -24,7 +24,10 @@ public:
     void processBlock (juce::AudioSampleBuffer& output);
 
     double getPosition() const;
+    double getPositionInSeconds() const;
     void setPosition (double newPosition);
+
+    double getLengthInSeconds() const;
 
     bool hasFileLoaded() const { return fileLoaded.load(); }
     juce::File getLoadedFile() const { return loadedFilePath; }

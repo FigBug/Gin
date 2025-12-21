@@ -61,9 +61,13 @@ void AudioSamplerBufferComponent::paint (juce::Graphics& g)
     for (auto p : playheads)
     {
         const auto x = sampleToX (p);
+        const auto h = static_cast<float> (getHeight());
 
-        g.setColour (lineColour);
-        g.fillRect (float (x), 0.0f, 1.5f, float (getHeight()));
+        g.setColour (juce::Colours::black.withAlpha (0.5f));
+        g.fillRect (x - 0.5f, 0.0f, 3.0f, h);
+
+        g.setColour (lineColour.brighter());
+        g.fillRect (x, 0.0f, 2.0f, h);
     }
 }
 

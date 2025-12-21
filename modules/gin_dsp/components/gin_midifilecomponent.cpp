@@ -146,8 +146,11 @@ void MidiFileComponent::paint (juce::Graphics& g)
         {
             const float playheadX = static_cast<float> (midiPlayer.getPlayheadPosition() / lengthInSeconds) * w;
 
-            g.setColour (findColour (playheadColourId));
-            g.drawVerticalLine (static_cast<int> (playheadX), 0.0f, h);
+            g.setColour (juce::Colours::black.withAlpha (0.5f));
+            g.fillRect (playheadX - 0.5f, 0.0f, 3.0f, h);
+
+            g.setColour (findColour (playheadColourId).brighter());
+            g.fillRect (playheadX, 0.0f, 2.0f, h);
         }
     }
     else

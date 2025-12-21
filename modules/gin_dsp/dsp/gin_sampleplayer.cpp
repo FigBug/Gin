@@ -172,6 +172,16 @@ double SamplePlayer::getPosition() const
     return position.load();
 }
 
+double SamplePlayer::getPositionInSeconds() const
+{
+    return position.load() / sourceSampleRate;
+}
+
+double SamplePlayer::getLengthInSeconds() const
+{
+    return static_cast<double> (buffer.getNumSamples()) / sourceSampleRate;
+}
+
 void SamplePlayer::setPosition (double newPosition)
 {
     const int numSamples = buffer.getNumSamples();
