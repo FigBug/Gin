@@ -8,6 +8,7 @@ var searchData=
   ['attack_5',['attack',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127aaa7f97349a3590aa462a5edadb7180126',1,'ADSR::attack'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188eafc7e987f23de5bd6562b7c0063cad659',1,'AnalogADSR::attack']]],
   ['authorizedalways_6',['authorizedAlways',['../classLocationManager.html#a518acec298306066ae3cccc6eb335bdcaadc75e653e86065ca5448be342c23053',1,'LocationManager']]],
   ['authorizedwheninuse_7',['authorizedWhenInUse',['../classLocationManager.html#a518acec298306066ae3cccc6eb335bdca91e8720f10faeaee578f776e7d95b9d1',1,'LocationManager']]],
-  ['average_8',['Average',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f',1,'gin_imageeffects.h']]],
-  ['avir_9',['avir',['../group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04',1,'gin_imageeffects.h']]]
+  ['auto_8',['Auto',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40a078b078518863df95cf2cf34aa99022c',1,'TriggeredScope']]],
+  ['average_9',['Average',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f',1,'gin_imageeffects.h']]],
+  ['avir_10',['avir',['../group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04',1,'gin_imageeffects.h']]]
 ];

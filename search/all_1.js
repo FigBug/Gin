@@ -63,7 +63,7 @@ var searchData=
   ['applycontrast_60',['applyContrast',['../group__gin__graphics-images.html#ga50c77bf67a02fbc002d1136fd64f2031',1,'gin_imageeffects.h']]],
   ['applygain_61',['applygain',['../group__gin__dsp-dsp.html#ga23129d8a0f12afa042d9788afa21b90f',1,'applyGain(juce::AudioSampleBuffer &amp;buffer, int channel, juce::LinearSmoothedValue&lt; float &gt; &amp;gain):&#160;gin_audioutil.h'],['../group__gin__dsp-dsp.html#gaea524d06c0f9a97e215fafc7e997cc0b',1,'applyGain(juce::AudioSampleBuffer &amp;buffer, juce::LinearSmoothedValue&lt; float &gt; &amp;gain):&#160;gin_audioutil.h']]],
   ['applygamma_62',['applyGamma',['../group__gin__graphics-images.html#ga2b20d743c3475fd86d18a8f2cb427b47',1,'gin_imageeffects.h']]],
-  ['applygradientmap_63',['applygradientmap',['../group__gin__graphics-images.html#ga48f6d1c24d18edd26e2d9da48e47dcf7',1,'applyGradientMap(juce::Image &amp;img, const juce::Colour c1, const juce::Colour c2, juce::ThreadPool *threadPool=nullptr):&#160;gin_imageeffects.h'],['../group__gin__graphics-images.html#ga2e91627e4ee0f9e1aeca78ca387a8c51',1,'applyGradientMap(juce::Image &amp;img, const juce::ColourGradient &amp;gradient, juce::ThreadPool *threadPool=nullptr):&#160;gin_imageeffects.h']]],
+  ['applygradientmap_63',['applygradientmap',['../group__gin__graphics-images.html#ga2e91627e4ee0f9e1aeca78ca387a8c51',1,'applyGradientMap(juce::Image &amp;img, const juce::ColourGradient &amp;gradient, juce::ThreadPool *threadPool=nullptr):&#160;gin_imageeffects.h'],['../group__gin__graphics-images.html#ga48f6d1c24d18edd26e2d9da48e47dcf7',1,'applyGradientMap(juce::Image &amp;img, const juce::Colour c1, const juce::Colour c2, juce::ThreadPool *threadPool=nullptr):&#160;gin_imageeffects.h']]],
   ['applygreyscale_64',['applyGreyScale',['../group__gin__graphics-images.html#gadb285c05d7e81fbffe8b2ab5705b0783',1,'gin_imageeffects.h']]],
   ['applyhuesaturationlightness_65',['applyHueSaturationLightness',['../group__gin__graphics-images.html#ga25205b0926bfca178115404c6d9f45d9',1,'gin_imageeffects.h']]],
   ['applyinvert_66',['applyInvert',['../group__gin__graphics-images.html#ga6453f04ab3d2a6a345cd6b7f70711c04',1,'gin_imageeffects.h']]],
@@ -107,7 +107,8 @@ var searchData=
   ['authorizedwheninuse_104',['authorizedWhenInUse',['../classLocationManager.html#a518acec298306066ae3cccc6eb335bdca91e8720f10faeaee578f776e7d95b9d1',1,'LocationManager']]],
   ['authors_105',['authors',['../classPatchBrowser.html#a1becbf2ecebca6e5a2ba2533b619b952',1,'PatchBrowser']]],
   ['authorsmodel_106',['authorsmodel',['../structPatchBrowser_1_1AuthorsModel.html',1,'PatchBrowser::AuthorsModel'],['../classPatchBrowser.html#a62a7cf5ab56615e84109ced00beb6dcb',1,'PatchBrowser::authorsModel'],['../structPatchBrowser_1_1AuthorsModel.html#a5b1e9a0aee87d3623f78db4126fcab3e',1,'PatchBrowser::AuthorsModel::AuthorsModel()']]],
-  ['autoopenmididevices_107',['autoOpenMidiDevices',['../classStandalonePluginHolder.html#ab167cba8a89e4a376c360b624ff6a70a',1,'StandalonePluginHolder']]],
-  ['average_108',['average',['../classRollingAverage.html#a941797e5f59cbdfce52faa655bd1b7f3',1,'RollingAverage::average()'],['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f',1,'Average:&#160;gin_imageeffects.h']]],
-  ['avir_109',['avir',['../group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04',1,'gin_imageeffects.h']]]
+  ['auto_107',['Auto',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40a078b078518863df95cf2cf34aa99022c',1,'TriggeredScope']]],
+  ['autoopenmididevices_108',['autoOpenMidiDevices',['../classStandalonePluginHolder.html#ab167cba8a89e4a376c360b624ff6a70a',1,'StandalonePluginHolder']]],
+  ['average_109',['average',['../classRollingAverage.html#a941797e5f59cbdfce52faa655bd1b7f3',1,'RollingAverage::average()'],['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab3c87ec2c47256239220b24e46acda7f',1,'Average:&#160;gin_imageeffects.h']]],
+  ['avir_110',['avir',['../group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07baaae7bcc17abf4bc918dff20738003b04',1,'gin_imageeffects.h']]]
 ];

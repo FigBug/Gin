@@ -19345,6 +19345,12 @@
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
+      <name>Auto</name>
+      <anchorfile>classTriggeredScope.html</anchorfile>
+      <anchor>a4a36f94df329bf1351904f51ff1aac40a078b078518863df95cf2cf34aa99022c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
       <name>lineColourId</name>
       <anchorfile>classTriggeredScope.html</anchorfile>
       <anchor>ac8e18f9a32051394436ce1959334ac52ad98484fb436778a1891eb5b93e9c369e</anchor>
@@ -19384,6 +19390,12 @@
       <name>Down</name>
       <anchorfile>classTriggeredScope.html</anchorfile>
       <anchor>a4a36f94df329bf1351904f51ff1aac40a928f3c3101863b6dbc9c6d8fcb9ba9d3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Auto</name>
+      <anchorfile>classTriggeredScope.html</anchorfile>
+      <anchor>a4a36f94df329bf1351904f51ff1aac40a078b078518863df95cf2cf34aa99022c</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -19479,6 +19491,41 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setDrawCursorInfo</name>
+      <anchorfile>classTriggeredScope.html</anchorfile>
+      <anchor>ac4afe5a1196bffc2bf17d1b998ffbb5d</anchor>
+      <arglist>(bool d)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classTriggeredScope.html</anchorfile>
+      <anchor>a6e1b0587ca88a4bd9f406ab73a317e15</anchor>
+      <arglist>(double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setBeatSync</name>
+      <anchorfile>classTriggeredScope.html</anchorfile>
+      <anchor>af98da39de6f41bafb275c585cd1521c5</anchor>
+      <arglist>(int beats)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPlayheadSource</name>
+      <anchorfile>classTriggeredScope.html</anchorfile>
+      <anchor>a6dc27d766e55ee36c2d16d40941327e5</anchor>
+      <arglist>(std::function&lt; std::tuple&lt; double, double, bool &gt;()&gt; source)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updatePlayhead</name>
+      <anchorfile>classTriggeredScope.html</anchorfile>
+      <anchor>a9c5440d1e3e65ac1ea4cb2986bcb7052</anchor>
+      <arglist>(double ppqPosition, double bpm, bool isPlaying)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>paint</name>
       <anchorfile>classTriggeredScope.html</anchorfile>
       <anchor>ab4ea2e794f499a46a73adad7ed66c46f</anchor>
@@ -19490,6 +19537,20 @@
       <anchorfile>classTriggeredScope.html</anchorfile>
       <anchor>ae048c8050cd95f65d336801b1bf341e2</anchor>
       <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mouseMove</name>
+      <anchorfile>classTriggeredScope.html</anchorfile>
+      <anchor>a91dd2852cb4d5dfc5dc10847073c9239</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mouseExit</name>
+      <anchorfile>classTriggeredScope.html</anchorfile>
+      <anchor>a76ffd0dc42bc553e3d711b20b3eded1a</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
     </member>
   </compound>
   <compound kind="class">

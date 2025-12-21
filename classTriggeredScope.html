@@ -95,6 +95,7 @@ Public Types</h2></td></tr>
 <tr class="memitem:a4a36f94df329bf1351904f51ff1aac40" id="r_a4a36f94df329bf1351904f51ff1aac40"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40">TriggerMode</a> { <a class="el" href="classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40ae7f5e1acdd8d7e12e9a4e84ada96839e">None</a> = 0
 , <a class="el" href="classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40a7f9a9c97a4c7f8e2424ec0827d879c71">Up</a>
 , <a class="el" href="classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40a928f3c3101863b6dbc9c6d8fcb9ba9d3">Down</a>
+, <a class="el" href="classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40a078b078518863df95cf2cf34aa99022c">Auto</a>
  }</td></tr>
 <tr class="memdesc:a4a36f94df329bf1351904f51ff1aac40"><td class="mdescLeft">&#160;</td><td class="mdescRight">The enum to use when setting the trace trigger mode.  <a href="classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40">More...</a><br /></td></tr>
 <tr class="separator:a4a36f94df329bf1351904f51ff1aac40"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,10 +138,29 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a28b7ad8c19d534150667d3e9cafe1f37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad268f7c432368a7dd0721fd6f5889b3a" id="r_ad268f7c432368a7dd0721fd6f5889b3a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTriggeredScope.html#ad268f7c432368a7dd0721fd6f5889b3a">setDrawTriggerPos</a> (<a class="el" href="classPoint.html">bool</a> d)</td></tr>
 <tr class="separator:ad268f7c432368a7dd0721fd6f5889b3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4afe5a1196bffc2bf17d1b998ffbb5d" id="r_ac4afe5a1196bffc2bf17d1b998ffbb5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTriggeredScope.html#ac4afe5a1196bffc2bf17d1b998ffbb5d">setDrawCursorInfo</a> (<a class="el" href="classPoint.html">bool</a> d)</td></tr>
+<tr class="memdesc:ac4afe5a1196bffc2bf17d1b998ffbb5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable/disable cursor readout showing level and time at mouse position.  <br /></td></tr>
+<tr class="separator:ac4afe5a1196bffc2bf17d1b998ffbb5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e1b0587ca88a4bd9f406ab73a317e15" id="r_a6e1b0587ca88a4bd9f406ab73a317e15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTriggeredScope.html#a6e1b0587ca88a4bd9f406ab73a317e15">setSampleRate</a> (<a class="el" href="classPoint.html">double</a> <a class="el" href="classPoint.html">sr</a>)</td></tr>
+<tr class="memdesc:a6e1b0587ca88a4bd9f406ab73a317e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set sample rate for time display.  <br /></td></tr>
+<tr class="separator:a6e1b0587ca88a4bd9f406ab73a317e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af98da39de6f41bafb275c585cd1521c5" id="r_af98da39de6f41bafb275c585cd1521c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTriggeredScope.html#af98da39de6f41bafb275c585cd1521c5">setBeatSync</a> (<a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">beats</a>)</td></tr>
+<tr class="memdesc:af98da39de6f41bafb275c585cd1521c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set beat sync mode - 0 = off, otherwise number of beats to sync to.  <br /></td></tr>
+<tr class="separator:af98da39de6f41bafb275c585cd1521c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dc27d766e55ee36c2d16d40941327e5" id="r_a6dc27d766e55ee36c2d16d40941327e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTriggeredScope.html#a6dc27d766e55ee36c2d16d40941327e5">setPlayheadSource</a> (std::function&lt; std::tuple&lt; <a class="el" href="classPoint.html">double</a>, <a class="el" href="classPoint.html">double</a>, <a class="el" href="classPoint.html">bool</a> &gt;()&gt; source)</td></tr>
+<tr class="memdesc:a6dc27d766e55ee36c2d16d40941327e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a function to retrieve playhead info - called from timer.  <br /></td></tr>
+<tr class="separator:a6dc27d766e55ee36c2d16d40941327e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c5440d1e3e65ac1ea4cb2986bcb7052" id="r_a9c5440d1e3e65ac1ea4cb2986bcb7052"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTriggeredScope.html#a9c5440d1e3e65ac1ea4cb2986bcb7052">updatePlayhead</a> (<a class="el" href="classPoint.html">double</a> <a class="el" href="classPoint.html">ppqPosition</a>, <a class="el" href="classPoint.html">double</a> bpm, <a class="el" href="classPoint.html">bool</a> isPlaying)</td></tr>
+<tr class="memdesc:a9c5440d1e3e65ac1ea4cb2986bcb7052"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this from processBlock to update playhead position.  <br /></td></tr>
+<tr class="separator:a9c5440d1e3e65ac1ea4cb2986bcb7052"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4ea2e794f499a46a73adad7ed66c46f" id="r_ab4ea2e794f499a46a73adad7ed66c46f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTriggeredScope.html#ab4ea2e794f499a46a73adad7ed66c46f">paint</a> (juce::Graphics &amp;g) <a class="el" href="classPoint.html">override</a></td></tr>
 <tr class="separator:ab4ea2e794f499a46a73adad7ed66c46f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae048c8050cd95f65d336801b1bf341e2" id="r_ae048c8050cd95f65d336801b1bf341e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTriggeredScope.html#ae048c8050cd95f65d336801b1bf341e2">timerCallback</a> () <a class="el" href="classPoint.html">override</a></td></tr>
 <tr class="separator:ae048c8050cd95f65d336801b1bf341e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91dd2852cb4d5dfc5dc10847073c9239" id="r_a91dd2852cb4d5dfc5dc10847073c9239"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTriggeredScope.html#a91dd2852cb4d5dfc5dc10847073c9239">mouseMove</a> (<a class="el" href="classPoint.html">const</a> juce::MouseEvent &amp;<a class="el" href="classPoint.html">e</a>) <a class="el" href="classPoint.html">override</a></td></tr>
+<tr class="separator:a91dd2852cb4d5dfc5dc10847073c9239"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76ffd0dc42bc553e3d711b20b3eded1a" id="r_a76ffd0dc42bc553e3d711b20b3eded1a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTriggeredScope.html#a76ffd0dc42bc553e3d711b20b3eded1a">mouseExit</a> (<a class="el" href="classPoint.html">const</a> juce::MouseEvent &amp;<a class="el" href="classPoint.html">e</a>) <a class="el" href="classPoint.html">override</a></td></tr>
+<tr class="separator:a76ffd0dc42bc553e3d711b20b3eded1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Triggered Scope that it can be set to start on a rising or falling signal. </p>
@@ -183,6 +203,7 @@ Public Member Functions</h2></td></tr>
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4a36f94df329bf1351904f51ff1aac40ae7f5e1acdd8d7e12e9a4e84ada96839e" name="a4a36f94df329bf1351904f51ff1aac40ae7f5e1acdd8d7e12e9a4e84ada96839e"></a>None&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a4a36f94df329bf1351904f51ff1aac40a7f9a9c97a4c7f8e2424ec0827d879c71" name="a4a36f94df329bf1351904f51ff1aac40a7f9a9c97a4c7f8e2424ec0827d879c71"></a>Up&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a4a36f94df329bf1351904f51ff1aac40a928f3c3101863b6dbc9c6d8fcb9ba9d3" name="a4a36f94df329bf1351904f51ff1aac40a928f3c3101863b6dbc9c6d8fcb9ba9d3"></a>Down&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a36f94df329bf1351904f51ff1aac40a078b078518863df95cf2cf34aa99022c" name="a4a36f94df329bf1351904f51ff1aac40a078b078518863df95cf2cf34aa99022c"></a>Auto&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -461,6 +482,122 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ac4afe5a1196bffc2bf17d1b998ffbb5d" name="ac4afe5a1196bffc2bf17d1b998ffbb5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4afe5a1196bffc2bf17d1b998ffbb5d">&#9670;&#160;</a></span>setDrawCursorInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> TriggeredScope::setDrawCursorInfo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">bool</a>&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable/disable cursor readout showing level and time at mouse position. </p>
+
+</div>
+</div>
+<a id="a6e1b0587ca88a4bd9f406ab73a317e15" name="a6e1b0587ca88a4bd9f406ab73a317e15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e1b0587ca88a4bd9f406ab73a317e15">&#9670;&#160;</a></span>setSampleRate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> TriggeredScope::setSampleRate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">double</a>&#160;</td>
+          <td class="paramname"><em>sr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set sample rate for time display. </p>
+
+</div>
+</div>
+<a id="af98da39de6f41bafb275c585cd1521c5" name="af98da39de6f41bafb275c585cd1521c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af98da39de6f41bafb275c585cd1521c5">&#9670;&#160;</a></span>setBeatSync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> TriggeredScope::setBeatSync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">int</a>&#160;</td>
+          <td class="paramname"><em>beats</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set beat sync mode - 0 = off, otherwise number of beats to sync to. </p>
+
+</div>
+</div>
+<a id="a6dc27d766e55ee36c2d16d40941327e5" name="a6dc27d766e55ee36c2d16d40941327e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dc27d766e55ee36c2d16d40941327e5">&#9670;&#160;</a></span>setPlayheadSource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> TriggeredScope::setPlayheadSource </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; std::tuple&lt; <a class="el" href="classPoint.html">double</a>, <a class="el" href="classPoint.html">double</a>, <a class="el" href="classPoint.html">bool</a> &gt;()&gt;&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set a function to retrieve playhead info - called from timer. </p>
+
+</div>
+</div>
+<a id="a9c5440d1e3e65ac1ea4cb2986bcb7052" name="a9c5440d1e3e65ac1ea4cb2986bcb7052"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c5440d1e3e65ac1ea4cb2986bcb7052">&#9670;&#160;</a></span>updatePlayhead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> TriggeredScope::updatePlayhead </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">double</a>&#160;</td>
+          <td class="paramname"><em>ppqPosition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">double</a>&#160;</td>
+          <td class="paramname"><em>bpm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">bool</a>&#160;</td>
+          <td class="paramname"><em>isPlaying</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Call this from processBlock to update playhead position. </p>
+
+</div>
+</div>
 <a id="ab4ea2e794f499a46a73adad7ed66c46f" name="ab4ea2e794f499a46a73adad7ed66c46f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab4ea2e794f499a46a73adad7ed66c46f">&#9670;&#160;</a></span>paint()</h2>
 
@@ -512,13 +649,65 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a91dd2852cb4d5dfc5dc10847073c9239" name="a91dd2852cb4d5dfc5dc10847073c9239"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91dd2852cb4d5dfc5dc10847073c9239">&#9670;&#160;</a></span>mouseMove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> TriggeredScope::mouseMove </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::MouseEvent &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a76ffd0dc42bc553e3d711b20b3eded1a" name="a76ffd0dc42bc553e3d711b20b3eded1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76ffd0dc42bc553e3d711b20b3eded1a">&#9670;&#160;</a></span>mouseExit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> TriggeredScope::mouseExit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::MouseEvent &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="gin__triggeredscope_8h.html">gin_triggeredscope.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 21 2025 14:58:44 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sun Dec 21 2025 20:13:40 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
