@@ -803,6 +803,11 @@
     <class kind="class">AudioMetadata</class>
   </compound>
   <compound kind="file">
+    <name>gin_audiometadata.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__audiometadata_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_audiomidififo.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__audiomidififo_8h.html</filename>
@@ -1140,6 +1145,11 @@
     <class kind="class">MidiFilePlayer</class>
   </compound>
   <compound kind="file">
+    <name>gin_midifileplayer.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__midifileplayer_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_dsp/dsp/gin_modulation.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__dsp_2dsp_2gin__modulation_8h.html</filename>
@@ -1236,6 +1246,11 @@
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__sampleplayer_8h.html</filename>
     <class kind="class">SamplePlayer</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_sampleplayer.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__sampleplayer_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_scratchbuffer.h</name>
