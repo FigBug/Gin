@@ -53,11 +53,13 @@ void TriggeredScope::setNumChannels (int num)
 void TriggeredScope::setNumSamplesPerPixel (const float newNumSamplesPerPixel)
 {
     numSamplesPerPixel = newNumSamplesPerPixel;
+    repaint();
 }
 
 void TriggeredScope::setVerticalZoomFactor (const float newVerticalZoomFactor)
 {
     verticalZoomFactor = newVerticalZoomFactor;
+    repaint();
 }
 
 void TriggeredScope::setVerticalZoomOffset (float newVerticalZoomOffset, int ch)
@@ -66,6 +68,7 @@ void TriggeredScope::setVerticalZoomOffset (float newVerticalZoomOffset, int ch)
         verticalZoomOffset.resize (ch + 1);
 
     verticalZoomOffset.set (ch, newVerticalZoomOffset);
+    repaint();
 }
 
 void TriggeredScope::setTriggerMode (const TriggerMode newTriggerMode)
@@ -285,11 +288,27 @@ void TriggeredScope::paint (juce::Graphics& g)
                     {
                         double freqHz = 1000.0 / deltaTime;
                         if (freqHz >= 20.0 && freqHz <= 20000.0)
-                            text += " (" + juce::String (freqHz, 1) + " Hz)";
+                        {
+                            text += " (" + juce::String (freqHz, 1) + " Hz, ";
+
+                            // Calculate MIDI note and cents
+                            float exactNote = 12.0f * std::log2 (float (freqHz) / 440.0f) + 69.0f;
+                            int midiNote = juce::roundToInt (exactNote);
+                            int cents = juce::roundToInt ((exactNote - float (midiNote)) * 100.0f);
+
+                            static const char* noteNames[] = { "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
+                            int octave = (midiNote / 12) - 1;
+                            int noteIndex = midiNote % 12;
+                            if (noteIndex < 0) noteIndex += 12;
+
+                            text += juce::String (noteNames[noteIndex]) + juce::String (octave);
+                            text += juce::String (" ") + (cents >= 0 ? "+" : "") + juce::String (cents) + ")";
+                        }
                     }
 
-                    auto font = g.getCurrentFont();
-                    float textWidth = font.getStringWidthFloat (text) + 12.0f;
+                    juce::GlyphArrangement glyphs;
+                    glyphs.addLineOfText (g.getCurrentFont(), text, 0.0f, 0.0f);
+                    float textWidth = glyphs.getBoundingBox (0, -1, true).getWidth() + 12.0f;
                     float textX = float (w) - textWidth - 4.0f;
                     float textY = 4.0f;
 
@@ -311,8 +330,9 @@ void TriggeredScope::paint (juce::Graphics& g)
                     text = juce::String (timeInMs1, 2) + " ms, ";
                 text += juce::String (dB1, 1) + " dB";
 
-                auto font = g.getCurrentFont();
-                float textWidth = font.getStringWidthFloat (text) + 12.0f;
+                juce::GlyphArrangement glyphs;
+                glyphs.addLineOfText (g.getCurrentFont(), text, 0.0f, 0.0f);
+                float textWidth = glyphs.getBoundingBox (0, -1, true).getWidth() + 12.0f;
                 float textX = float (w) - textWidth - 4.0f;
                 float textY = 4.0f;
 
@@ -458,6 +478,41 @@ void TriggeredScope::processPendingSamples()
         if (triggerPoint >= 0)
         {
             triggered = true;
+        }
+        else if (triggerMode == Auto)
+        {
+            // For Auto mode, check if we have actual signal (zero crossings above trigger level)
+            auto* refChannel = channels.getFirst();
+            if (refChannel != nullptr)
+            {
+                const int windowSize = getWidth();
+                const int bufferSize = refChannel->bufferSize;
+                const int bufferWritePos = refChannel->bufferWritePos;
+
+                // Check for zero crossings that exceed trigger level
+                bool hasSignal = false;
+                float effectiveTriggerLevel = std::max (std::abs (triggerLevel), 0.01f);
+
+                for (int i = 1; i < windowSize && !hasSignal; i++)
+                {
+                    int idx = ((bufferWritePos - windowSize + i) % bufferSize + bufferSize) % bufferSize;
+                    int prevIdx = ((bufferWritePos - windowSize + i - 1) % bufferSize + bufferSize) % bufferSize;
+
+                    float val = refChannel->posBuffer[idx];
+                    float prevVal = refChannel->posBuffer[prevIdx];
+
+                    // Check for upward zero crossing with signal above trigger level
+                    if (prevVal <= 0 && val > 0 && val > effectiveTriggerLevel)
+                        hasSignal = true;
+                }
+
+                if (hasSignal)
+                {
+                    updateAutoTrigger();
+                    triggerPoint = autoTriggerPos;
+                    triggered = true;
+                }
+            }
         }
         else if (getTriggerPos().second)
         {
@@ -895,6 +950,7 @@ void TriggeredScope::resetTrigger()
 {
     triggerPoint = -1;
     samplesSinceTrigger = 0;
+    singleTriggerWaitCount = 3; // Wait a few frames for Auto mode to stabilize
 
     for (auto c : channels)
     {

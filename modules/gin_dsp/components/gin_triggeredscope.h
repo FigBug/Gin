@@ -57,6 +57,9 @@ public:
     /** Start running again once triggered */
     void resetTrigger();
 
+    /** Check if single trigger mode has triggered (frozen) */
+    bool hasTriggered() const { return triggerPoint >= 0; }
+
     /** Pause/unpause the scope display */
     void setPaused (bool shouldBePaused) { paused = shouldBePaused; }
 
@@ -125,6 +128,7 @@ private:
     bool paused = false;
     int triggerPoint = -1;
     int samplesSinceTrigger = 0;
+    int singleTriggerWaitCount = 0;
 
     struct Channel
     {
