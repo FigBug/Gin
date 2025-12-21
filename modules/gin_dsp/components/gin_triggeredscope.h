@@ -57,6 +57,12 @@ public:
     /** Start running again once triggered */
     void resetTrigger();
 
+    /** Pause/unpause the scope display */
+    void setPaused (bool shouldBePaused) { paused = shouldBePaused; }
+
+    /** Check if scope is paused */
+    bool isPaused() const { return paused; }
+
     //==============================================================================
     /** The enum to use when setting the trace trigger mode. */
     enum TriggerMode
@@ -99,6 +105,9 @@ public:
     void paint (juce::Graphics& g) override;
     void timerCallback() override;
     void mouseMove (const juce::MouseEvent& e) override;
+    void mouseDown (const juce::MouseEvent& e) override;
+    void mouseDrag (const juce::MouseEvent& e) override;
+    void mouseUp (const juce::MouseEvent& e) override;
     void mouseExit (const juce::MouseEvent& e) override;
 
 private:
@@ -113,6 +122,7 @@ private:
     int triggerChannel = -1;
     bool drawTriggerPos = false;
     bool singleTrigger = false;
+    bool paused = false;
     int triggerPoint = -1;
     int samplesSinceTrigger = 0;
 
@@ -149,6 +159,8 @@ private:
     bool drawCursorInfo = false;
     double sampleRate = 44100.0;
     std::optional<juce::Point<int>> mousePos;
+    std::optional<juce::Point<int>> anchorPos;  // Locked position when dragging
+    bool isDragging = false;
 
     // Beat sync state
     int beatSyncBeats = 0;

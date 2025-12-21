@@ -125,145 +125,241 @@ void TriggeredScope::paint (juce::Graphics& g)
         const int h = getHeight();
 
         auto* refChannel = channels.getFirst();
-        int pos = 0;
-        float dotX = float (mousePos->x);
-        double timeInSamples = 0.0;
-        bool validPosition = true;
 
-        if (beatSyncBeats > 0 && hostIsPlaying.load())
+        // Lambda to calculate cursor info for a given screen position
+        auto getCursorInfo = [&] (juce::Point<int> screenPos) -> std::tuple<bool, int, float, double, int>
         {
-            // Beat sync mode
-            int cycleStartPos = beatSyncCycleStartPos.load();
-            int totalBufferSamples = beatSyncTotalSamples.load();
+            // Returns: valid, bufferPos, dotX, timeInSamples, closestChannel
+            int pos = 0;
+            float dotX = float (screenPos.x);
+            double timeInSamples = 0.0;
+            bool validPosition = true;
 
-            if (cycleStartPos < 0 || totalBufferSamples <= 0)
+            if (beatSyncBeats > 0 && hostIsPlaying.load())
             {
-                validPosition = false;
-            }
-            else
-            {
-                // Calculate how far into the cycle we've written
-                int currentWritePos = refChannel->bufferWritePos;
-                int samplesWritten = currentWritePos - cycleStartPos;
-                if (samplesWritten < 0)
-                    samplesWritten += refChannel->bufferSize;
-                if (samplesWritten > totalBufferSamples)
-                    samplesWritten = totalBufferSamples;
+                int cycleStartPos = beatSyncCycleStartPos.load();
+                int totalBufferSamples = beatSyncTotalSamples.load();
 
-                // Map mouse X to buffer position
-                float pixelsPerBufferSample = float (w) / float (totalBufferSamples);
-                int sampleOffset = juce::roundToInt (float (mousePos->x) / pixelsPerBufferSample);
-
-                // Check if mouse is in the "future" (beyond what's been written)
-                if (sampleOffset >= samplesWritten)
+                if (cycleStartPos < 0 || totalBufferSamples <= 0)
                 {
                     validPosition = false;
                 }
                 else
                 {
-                    pos = (cycleStartPos + sampleOffset) % refChannel->bufferSize;
-                    if (pos < 0) pos += refChannel->bufferSize;
+                    int currentWritePos = refChannel->bufferWritePos;
+                    int samplesWritten = currentWritePos - cycleStartPos;
+                    if (samplesWritten < 0)
+                        samplesWritten += refChannel->bufferSize;
+                    if (samplesWritten > totalBufferSamples)
+                        samplesWritten = totalBufferSamples;
 
-                    // Calculate time based on beat position
-                    double beatsPerPixel = double (beatSyncBeats) / double (w);
-                    double beatPosition = double (mousePos->x) * beatsPerPixel;
-                    double bpm = currentBpm.load();
-                    timeInSamples = (beatPosition / bpm) * 60.0 * sampleRate;
+                    float pixelsPerBufferSample = float (w) / float (totalBufferSamples);
+                    int sampleOffset = juce::roundToInt (float (screenPos.x) / pixelsPerBufferSample);
+
+                    if (sampleOffset >= samplesWritten)
+                    {
+                        validPosition = false;
+                    }
+                    else
+                    {
+                        pos = (cycleStartPos + sampleOffset) % refChannel->bufferSize;
+                        if (pos < 0) pos += refChannel->bufferSize;
+
+                        double beatsPerPixel = double (beatSyncBeats) / double (w);
+                        double beatPosition = double (screenPos.x) * beatsPerPixel;
+                        double bpm = currentBpm.load();
+                        timeInSamples = (beatPosition / bpm) * 60.0 * sampleRate;
+                    }
                 }
             }
-        }
-        else
-        {
-            // Normal trigger mode - use same position calculation as render
-            int bufferReadPos = getTriggerPos().first;
-            bufferReadPos -= juce::roundToInt (float (w) * triggerPos);
-            if (bufferReadPos < 0)
-                bufferReadPos += refChannel->bufferSize;
-
-            int sampleOffset;
-            if (numSamplesPerPixel < 1.0f)
-                sampleOffset = juce::roundToInt (float (mousePos->x) * numSamplesPerPixel);
             else
-                sampleOffset = mousePos->x;
-
-            pos = (bufferReadPos + sampleOffset + 1) % refChannel->bufferSize;
-
-            if (numSamplesPerPixel < 1.0f)
-                dotX = float (sampleOffset) / numSamplesPerPixel;
-
-            timeInSamples = double (sampleOffset) * std::max (1.0f, numSamplesPerPixel);
-        }
-
-        if (validPosition)
-        {
-            // Find the channel whose waveform is closest to the mouse Y position
-            int closestChannel = 0;
-            float closestDistance = std::numeric_limits<float>::max();
-
-            for (int chIdx = 0; chIdx < channels.size(); chIdx++)
             {
-                float chOffset = chIdx < verticalZoomOffset.size() ? verticalZoomOffset[chIdx] : 0.0f;
-                float chValue = channels[chIdx]->posBuffer[pos];
-                float chY = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (chOffset + chValue)))) * float (h);
-                float distance = std::abs (chY - float (mousePos->y));
+                int bufferReadPos = getTriggerPos().first;
+                bufferReadPos -= juce::roundToInt (float (w) * triggerPos);
+                if (bufferReadPos < 0)
+                    bufferReadPos += refChannel->bufferSize;
 
-                if (distance < closestDistance)
+                int sampleOffset;
+                if (numSamplesPerPixel < 1.0f)
+                    sampleOffset = juce::roundToInt (float (screenPos.x) * numSamplesPerPixel);
+                else
+                    sampleOffset = screenPos.x;
+
+                pos = (bufferReadPos + sampleOffset + 1) % refChannel->bufferSize;
+
+                if (numSamplesPerPixel < 1.0f)
+                    dotX = float (sampleOffset) / numSamplesPerPixel;
+
+                timeInSamples = double (sampleOffset) * std::max (1.0f, numSamplesPerPixel);
+            }
+
+            // Find closest channel
+            int closestChannel = 0;
+            if (validPosition)
+            {
+                float closestDistance = std::numeric_limits<float>::max();
+                for (int chIdx = 0; chIdx < channels.size(); chIdx++)
                 {
-                    closestDistance = distance;
-                    closestChannel = chIdx;
+                    float chOffset = chIdx < verticalZoomOffset.size() ? verticalZoomOffset[chIdx] : 0.0f;
+                    float chValue = channels[chIdx]->posBuffer[pos];
+                    float chY = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (chOffset + chValue)))) * float (h);
+                    float distance = std::abs (chY - float (screenPos.y));
+
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestChannel = chIdx;
+                    }
                 }
             }
 
-            // Get sample value from closest channel
-            float sampleValue = channels[closestChannel]->posBuffer[pos];
+            return { validPosition, pos, dotX, timeInSamples, closestChannel };
+        };
 
-            // Calculate Y position on screen
-            float offset = closestChannel < verticalZoomOffset.size() ? verticalZoomOffset[closestChannel] : 0.0f;
-            const float dotY = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (offset + sampleValue)))) * float (h);
+        // Lambda to draw a cursor dot
+        auto drawCursor = [&] (int bufferPos, float dotX, int channel, juce::Colour colour)
+        {
+            float sampleValue = channels[channel]->posBuffer[bufferPos];
+            float offset = channel < verticalZoomOffset.size() ? verticalZoomOffset[channel] : 0.0f;
+            float dotY = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (offset + sampleValue)))) * float (h);
 
-            // Draw crosshair
             g.setColour (juce::Colours::lightgrey.withAlpha (0.5f));
             g.drawVerticalLine (juce::roundToInt (dotX), 0.0f, float (h));
             g.drawHorizontalLine (juce::roundToInt (dotY), 0.0f, float (w));
 
-            // Draw dot in same colour as the trace
-            g.setColour (findColour (traceColourId + closestChannel));
+            g.setColour (colour);
             g.fillEllipse (dotX - 4.0f, dotY - 4.0f, 8.0f, 8.0f);
+        };
 
-            // Calculate time
-            double timeInMs = (timeInSamples / sampleRate) * 1000.0;
+        // Get current cursor info
+        auto [valid1, pos1, dotX1, time1, ch1] = getCursorInfo (*mousePos);
 
-            // Calculate level in dB
-            float absValue = std::abs (sampleValue);
-            float dB = absValue > 0.0f ? 20.0f * std::log10 (absValue) : -100.0f;
+        if (valid1)
+        {
+            float sampleValue1 = channels[ch1]->posBuffer[pos1];
+            float absValue1 = std::abs (sampleValue1);
+            float dB1 = absValue1 > 0.0f ? 20.0f * std::log10 (absValue1) : -100.0f;
+            double timeInMs1 = (time1 / sampleRate) * 1000.0;
 
-            // Format text
-            juce::String text;
-            if (timeInMs < 1.0)
-                text = juce::String (timeInMs * 1000.0, 1) + " us, ";
+            // Check if we're in drag mode with an anchor
+            if (isDragging && anchorPos.has_value())
+            {
+                auto [valid2, pos2, dotX2, time2, ch2] = getCursorInfo (*anchorPos);
+
+                if (valid2)
+                {
+                    float sampleValue2 = channels[ch2]->posBuffer[pos2];
+                    float absValue2 = std::abs (sampleValue2);
+                    float dB2 = absValue2 > 0.0f ? 20.0f * std::log10 (absValue2) : -100.0f;
+                    double timeInMs2 = (time2 / sampleRate) * 1000.0;
+
+                    // Draw anchor cursor (dimmer)
+                    drawCursor (pos2, dotX2, ch2, findColour (traceColourId + ch2).withAlpha (0.6f));
+
+                    // Draw current cursor
+                    drawCursor (pos1, dotX1, ch1, findColour (traceColourId + ch1));
+
+                    // Draw line between dots
+                    float offset1 = ch1 < verticalZoomOffset.size() ? verticalZoomOffset[ch1] : 0.0f;
+                    float dotY1 = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (offset1 + sampleValue1)))) * float (h);
+                    float offset2 = ch2 < verticalZoomOffset.size() ? verticalZoomOffset[ch2] : 0.0f;
+                    float dotY2 = (1.0f - (0.5f + (0.5f * verticalZoomFactor * (offset2 + sampleValue2)))) * float (h);
+
+                    g.setColour (juce::Colours::white.withAlpha (0.5f));
+                    g.drawLine (dotX1, dotY1, dotX2, dotY2, 1.0f);
+
+                    // Calculate deltas
+                    double deltaTime = std::abs (timeInMs1 - timeInMs2);
+                    float deltadB = dB1 - dB2;
+
+                    // Format delta text
+                    juce::String text = "delta: ";
+                    if (deltaTime < 1.0)
+                        text += juce::String (deltaTime * 1000.0, 1) + " us, ";
+                    else
+                        text += juce::String (deltaTime, 2) + " ms, ";
+                    text += juce::String (deltadB, 1) + " dB";
+
+                    // Calculate frequency from time delta
+                    if (deltaTime > 0.0)
+                    {
+                        double freqHz = 1000.0 / deltaTime;
+                        if (freqHz >= 20.0 && freqHz <= 20000.0)
+                            text += " (" + juce::String (freqHz, 1) + " Hz)";
+                    }
+
+                    auto font = g.getCurrentFont();
+                    float textWidth = font.getStringWidthFloat (text) + 12.0f;
+                    float textX = float (w) - textWidth - 4.0f;
+                    float textY = 4.0f;
+
+                    g.setColour (juce::Colours::black.withAlpha (0.7f));
+                    g.fillRoundedRectangle (textX, textY, textWidth, 16.0f, 3.0f);
+                    g.setColour (juce::Colours::white);
+                    g.drawText (text, juce::Rectangle<float> (textX, textY, textWidth, 16.0f), juce::Justification::centred);
+                }
+            }
             else
-                text = juce::String (timeInMs, 2) + " ms, ";
-            text += juce::String (dB, 1) + " dB";
+            {
+                // Single cursor mode
+                drawCursor (pos1, dotX1, ch1, findColour (traceColourId + ch1));
 
-            // Draw text in upper right
-            auto font = g.getCurrentFont();
-            float textWidth = font.getStringWidthFloat (text) + 12.0f;
-            float textX = float (w) - textWidth - 4.0f;
-            float textY = 4.0f;
+                juce::String text;
+                if (timeInMs1 < 1.0)
+                    text = juce::String (timeInMs1 * 1000.0, 1) + " us, ";
+                else
+                    text = juce::String (timeInMs1, 2) + " ms, ";
+                text += juce::String (dB1, 1) + " dB";
 
-            g.setColour (juce::Colours::black.withAlpha (0.7f));
-            g.fillRoundedRectangle (textX, textY, textWidth, 16.0f, 3.0f);
-            g.setColour (juce::Colours::white);
-            g.drawText (text, juce::Rectangle<float> (textX, textY, textWidth, 16.0f), juce::Justification::centred);
+                auto font = g.getCurrentFont();
+                float textWidth = font.getStringWidthFloat (text) + 12.0f;
+                float textX = float (w) - textWidth - 4.0f;
+                float textY = 4.0f;
+
+                g.setColour (juce::Colours::black.withAlpha (0.7f));
+                g.fillRoundedRectangle (textX, textY, textWidth, 16.0f, 3.0f);
+                g.setColour (juce::Colours::white);
+                g.drawText (text, juce::Rectangle<float> (textX, textY, textWidth, 16.0f), juce::Justification::centred);
+            }
         }
     }
 }
 
 void TriggeredScope::mouseMove (const juce::MouseEvent& e)
 {
-    if (drawCursorInfo)
+    if (drawCursorInfo && ! isDragging)
     {
         mousePos = e.getPosition();
+        repaint();
+    }
+}
+
+void TriggeredScope::mouseDown (const juce::MouseEvent& e)
+{
+    if (drawCursorInfo)
+    {
+        anchorPos = e.getPosition();
+        mousePos = e.getPosition();
+        isDragging = true;
+        repaint();
+    }
+}
+
+void TriggeredScope::mouseDrag (const juce::MouseEvent& e)
+{
+    if (drawCursorInfo && isDragging)
+    {
+        mousePos = e.getPosition();
+        repaint();
+    }
+}
+
+void TriggeredScope::mouseUp (const juce::MouseEvent&)
+{
+    if (isDragging)
+    {
+        isDragging = false;
+        anchorPos.reset();
         repaint();
     }
 }
@@ -271,6 +367,8 @@ void TriggeredScope::mouseMove (const juce::MouseEvent& e)
 void TriggeredScope::mouseExit (const juce::MouseEvent&)
 {
     mousePos.reset();
+    anchorPos.reset();
+    isDragging = false;
     repaint();
 }
 
@@ -284,8 +382,13 @@ void TriggeredScope::timerCallback()
         ScratchBuffer buffer (fifo.getNumChannels(), std::min (512, fifo.getNumReady()));
 
         fifo.read (buffer);
-        addSamples (buffer);
-        repaint();
+
+        // When paused, still read from fifo to prevent overflow, but don't process
+        if (! paused)
+        {
+            addSamples (buffer);
+            repaint();
+        }
     }
 
     // Update playhead from source if available
