@@ -16719,11 +16719,25 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
+      <type>double</type>
+      <name>getPositionInSeconds</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>a849c4f6a5cfcf3eb1733e0673db617ce</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>setPosition</name>
       <anchorfile>classSamplePlayer.html</anchorfile>
       <anchor>aa603a0b21e7d1f634944c83d7ea5f7a5</anchor>
       <arglist>(double newPosition)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getLengthInSeconds</name>
+      <anchorfile>classSamplePlayer.html</anchorfile>
+      <anchor>ad95f55eaebdb08853359a5f370a8ff93</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
