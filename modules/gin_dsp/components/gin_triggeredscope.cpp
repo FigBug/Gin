@@ -493,7 +493,9 @@ int TriggeredScope::findTriggerPoint()
     }
 
     // Calculate samples needed to fill the screen
-    int screenSamples = juce::roundToInt (float (getWidth()) * numSamplesPerPixel);
+    // Use the same rounding as the render loop to avoid reading past writePos
+    int samplesPerPixel = juce::jmax (1, juce::roundToInt (numSamplesPerPixel));
+    int screenSamples = getWidth() * samplesPerPixel;
 
     // Start searching from one screenful back from writePos to ensure we have data to display
     int searchStart = writePos - screenSamples;
