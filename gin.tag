@@ -17583,6 +17583,20 @@
       <anchor>aea57e9306ee879a358783acc09f3ce71</anchor>
       <arglist>(juce::AudioBuffer&lt; float &gt; &amp;buffer, juce::MidiBuffer &amp;) override</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setOutputGain</name>
+      <anchorfile>classStandaloneAudioProcessorPlayer.html</anchorfile>
+      <anchor>a4539f1ec3a9d1b633f182073afc820fe</anchor>
+      <arglist>(float gain)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getOutputGain</name>
+      <anchorfile>classStandaloneAudioProcessorPlayer.html</anchorfile>
+      <anchor>abf08198b7db8732ee1b7becd99074e2f</anchor>
+      <arglist>() const</arglist>
+    </member>
     <member kind="variable">
       <type>AudioFifo</type>
       <name>scopeFifo</name>
@@ -19448,13 +19462,6 @@
       <arglist>(bool singleTrigger_)</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
-      <name>resetTrigger</name>
-      <anchorfile>classTriggeredScope.html</anchorfile>
-      <anchor>a591d6ef5a24faafa899825294c6c77a5</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
       <type>bool</type>
       <name>hasTriggered</name>
       <anchorfile>classTriggeredScope.html</anchorfile>
@@ -19467,6 +19474,20 @@
       <anchorfile>classTriggeredScope.html</anchorfile>
       <anchor>aa035ee8ac38e4572c26378dde112f81f</anchor>
       <arglist>(bool shouldBePaused)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPaused</name>
+      <anchorfile>classTriggeredScope.html</anchorfile>
+      <anchor>a4689b5f22ae5cc5c8006454cfbf6e131</anchor>
+      <arglist>(bool shouldBePaused, int lockTriggerPoint)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetTrigger</name>
+      <anchorfile>classTriggeredScope.html</anchorfile>
+      <anchor>a591d6ef5a24faafa899825294c6c77a5</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
