@@ -51,17 +51,18 @@ public:
     /** Sets the vertical zoom offset of the display. */
     void setVerticalZoomOffset (float newVerticalZoomOffset, int ch);
 
-    /** Freeze scope once triggered */
+    /** Enable single trigger mode - will pause when trigger is found */
     void setSingleTrigger (bool singleTrigger_) { singleTrigger = singleTrigger_; }
 
-    /** Start running again once triggered */
-    void resetTrigger();
-
-    /** Check if single trigger mode has triggered (frozen) */
-    bool hasTriggered() const { return triggerPoint >= 0; }
+    /** Check if single trigger mode has triggered (and is now paused) */
+    bool hasTriggered() const { return singleTrigger && paused && triggerPoint >= 0; }
 
     /** Pause/unpause the scope display */
-    void setPaused (bool shouldBePaused) { paused = shouldBePaused; }
+    void setPaused (bool shouldBePaused);
+    void setPaused (bool shouldBePaused, int lockTriggerPoint);
+
+    /** Reset/unpause after single trigger */
+    void resetTrigger();
 
     /** Check if scope is paused */
     bool isPaused() const { return paused; }
@@ -127,39 +128,13 @@ private:
     bool singleTrigger = false;
     bool paused = false;
     int triggerPoint = -1;
-    int samplesSinceTrigger = 0;
-    int singleTriggerWaitCount = 0;
+    bool dataDiscardedWhilePaused = false;
 
-    struct Channel
-    {
-        Channel() :
-          numLeftToAverage (4),
-          bufferSize (4096),
-          bufferWritePos (0),
-          numAveraged (0),
-          posBuffer ((size_t) bufferSize),
-          minBuffer ((size_t) bufferSize),
-          maxBuffer ((size_t) bufferSize),
-          currentAve (0.0f),
-          currentMax (-1.0f),
-          currentMin (1.0f),
-          samplesToProcess (1, 32768),
-          tempProcessingBlock (32768)
-        {}
+    // Raw sample circular buffer - 32 beats at 60 BPM at 48kHz = ~1.6M samples
+    static constexpr int bufferSize = 1572864;
+    juce::AudioSampleBuffer circularBuffer { 2, bufferSize };
+    int writePos = 0;
 
-        int numLeftToAverage;
-        int bufferSize, bufferWritePos, numAveraged;
-
-        juce::HeapBlock<float> posBuffer, minBuffer, maxBuffer;
-
-        float currentAve, currentMax, currentMin;
-        AudioFifo samplesToProcess;
-        juce::HeapBlock<float> tempProcessingBlock;
-    };
-
-    juce::OwnedArray<Channel> channels;
-
-    bool needToUpdate = false;
     bool drawCursorInfo = false;
     double sampleRate = 44100.0;
     std::optional<juce::Point<int>> mousePos;
@@ -169,10 +144,10 @@ private:
     // Beat sync state
     int beatSyncBeats = 0;
     std::atomic<double> currentBpm { 120.0 };
+    std::atomic<double> currentPpq { 0.0 };
     std::atomic<bool> hostIsPlaying { false };
     std::atomic<int> beatSyncCycleStartPos { -1 };  // Buffer position where current cycle started
-    std::atomic<int> beatSyncTotalSamples { 0 };    // Total buffer samples in one cycle
-    std::atomic<float> beatSyncSamplesPerPixel { 1.0f };
+    std::atomic<double> beatSyncCycleStartPpq { 0.0 };  // PPQ position where current cycle started
     int lastBeatCycle { -1 };
     std::function<std::tuple<double, double, bool>()> playheadSource;
 
@@ -187,12 +162,16 @@ private:
 
     //==============================================================================
     void addSamples (const juce::AudioSampleBuffer& buffer);
-    void processPendingSamples();
     void render (juce::Graphics& g);
     void renderBeatSync (juce::Graphics& g);
     void renderTrigger (juce::Graphics& g);
-    std::pair<int, bool> getTriggerPos();
+    int findTriggerPoint();
     void updateAutoTrigger();
+
+    // Helper to read from circular buffer with wrapping
+    float getSample (int channel, int pos) const;
+    float getAverageSample (int pos) const;
+    int getNumChannels() const { return circularBuffer.getNumChannels(); }
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TriggeredScope)
