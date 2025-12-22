@@ -393,7 +393,44 @@ void TriggeredScope::timerCallback()
         }
         else if (! paused)
         {
+            // Remember where new samples start
+            int newSamplesStart = writePos;
+            int numNewSamples = buffer.getNumSamples();
+
             addSamples (buffer);
+
+            // Single trigger mode: check if new samples contain a trigger crossing
+            if (singleTrigger && triggerMode != None)
+            {
+                auto getTriggerSample = [&] (int pos) -> float
+                {
+                    if (triggerChannel == -1)
+                        return getAverageSample (pos);
+                    return getSample (triggerChannel, pos);
+                };
+
+                // Search through the new samples for a trigger crossing
+                for (int i = 0; i < numNewSamples; i++)
+                {
+                    int pos = (newSamplesStart + i) % bufferSize;
+                    int prevPos = (pos - 1 + bufferSize) % bufferSize;
+
+                    float prevVal = getTriggerSample (prevPos);
+                    float curVal = getTriggerSample (pos);
+
+                    bool triggered = false;
+                    if (triggerMode == Up || triggerMode == Auto)
+                        triggered = prevVal < curVal && prevVal <= triggerLevel && curVal > triggerLevel;
+                    else if (triggerMode == Down)
+                        triggered = prevVal > curVal && prevVal >= triggerLevel && curVal < triggerLevel;
+
+                    if (triggered)
+                    {
+                        setPaused (true, pos);
+                        break;
+                    }
+                }
+            }
         }
         // else: paused but no trigger point yet, just discard
     }
@@ -487,12 +524,12 @@ int TriggeredScope::findTriggerPoint()
 
         if (triggerMode == Up)
         {
-            if (prevVal <= triggerLevel && curVal > triggerLevel)
+            if (prevVal < curVal && prevVal <= triggerLevel && curVal > triggerLevel)
                 return pos;
         }
         else if (triggerMode == Down)
         {
-            if (prevVal > triggerLevel && curVal <= triggerLevel)
+            if (prevVal > curVal && prevVal >= triggerLevel && curVal < triggerLevel)
                 return pos;
         }
 
@@ -647,35 +684,6 @@ void TriggeredScope::renderTrigger (juce::Graphics& g)
     // Offset by trigger position (where on screen the trigger point appears)
     // triggerPos=0 means trigger at left, triggerPos=1 means trigger at right
     int startSamplePos = triggerSamplePos - juce::roundToInt (float (w) * triggerPos * numSamplesPerPixel);
-
-    // Single trigger mode: check if we should pause
-    // Only trigger if there's actual signal that crosses the trigger level
-    int screenSamples = juce::roundToInt (float (w) * numSamplesPerPixel);
-
-    if (singleTrigger && ! paused && triggerMode != None)
-    {
-        bool hasSignal = false;
-
-        // Use minimum threshold if trigger level is near zero
-        float effectiveLevel = triggerLevel;
-        if (std::abs (triggerLevel) < 0.01f)
-            effectiveLevel = triggerLevel >= 0 ? 0.01f : -0.01f;
-
-        for (int i = 0; i < screenSamples && ! hasSignal; i++)
-        {
-            float val = triggerChannel == -1 ? getAverageSample (startSamplePos + i) : getSample (triggerChannel, startSamplePos + i);
-
-            // Positive trigger level: signal needs to be above
-            // Negative trigger level: signal needs to be below
-            if (effectiveLevel >= 0)
-                hasSignal = val > effectiveLevel;
-            else
-                hasSignal = val < effectiveLevel;
-        }
-
-        if (hasSignal)
-            setPaused (true, triggerSamplePos);
-    }
 
     for (int ch = 0; ch < circularBuffer.getNumChannels(); ch++)
     {
