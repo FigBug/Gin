@@ -600,8 +600,11 @@ void TriggeredScope::renderBeatSync (juce::Graphics& g)
 
         while (currentX < w && sampleIdx < sampleOffsetInCycle)
         {
-            int samplesToRead = juce::roundToInt (spp);
+            int samplesToRead = juce::jmax (1, juce::roundToInt (spp));
             samplesToRead = juce::jmin (samplesToRead, sampleOffsetInCycle - sampleIdx);
+
+            if (samplesToRead <= 0)
+                break;
 
             float minVal = 1.0f, maxVal = -1.0f, sum = 0.0f;
             int validSamples = 0;
