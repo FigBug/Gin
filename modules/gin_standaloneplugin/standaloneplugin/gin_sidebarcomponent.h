@@ -229,6 +229,9 @@ private:
     SVGButton                     recordMenu;
     bool                          flashState = false;
 
+    HeaderComponent     outputHeader { "Output" };
+    juce::Slider        outputGain;
+
     HeaderComponent     scopeHeader { "Scope" };
     TriggeredScope      scope { player.scopeFifo };
 

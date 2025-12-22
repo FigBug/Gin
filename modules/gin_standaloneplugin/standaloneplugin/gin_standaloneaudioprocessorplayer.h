@@ -344,8 +344,16 @@ public:
         if (recordFifo.getFreeSpace() >= buffer.getNumSamples())
             recordFifo.write (buffer);
 
+        // Apply output gain last - only affects audio output, not visualizations
+        float gain = outputGain.load();
+        if (gain != 1.0f)
+            buffer.applyGain (gain);
+
         processor->setPlayHead (nullptr);
 	}
+
+    void setOutputGain (float gain) { outputGain.store (gain); }
+    float getOutputGain() const { return outputGain.load(); }
 
     AudioFifo           scopeFifo;
     AudioFifo           spectrumFifo;
@@ -355,4 +363,7 @@ public:
     SamplePlayer        samplePlayer;
     AudioRecorder       audioRecorder { recordFifo };
     StandalonePlayhead  playhead;
+
+private:
+    std::atomic<float>  outputGain { 1.0f };
 };

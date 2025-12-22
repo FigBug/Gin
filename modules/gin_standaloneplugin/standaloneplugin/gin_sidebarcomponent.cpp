@@ -239,6 +239,36 @@ SideBarComponent::SideBarComponent (StandaloneFilterWindow& f)
 
         updateRecordButtons();
     }
+
+    {
+        addAndMakeVisible (outputHeader);
+
+        outputGain.setSliderStyle (juce::Slider::LinearHorizontal);
+        outputGain.setTextBoxStyle (juce::Slider::TextBoxRight, false, 60, 20);
+        outputGain.setRange (-60.0, 12.0, 0.1);
+        outputGain.setValue (0.0);
+        outputGain.setTextValueSuffix (" dB");
+        outputGain.setDoubleClickReturnValue (true, 0.0);
+        outputGain.setTooltip ("Output gain");
+        outputGain.onValueChange = [this]
+        {
+            auto dB = outputGain.getValue();
+            auto gain = juce::Decibels::decibelsToGain (float (dB));
+            player.setOutputGain (gain);
+
+            if (auto* props = filterWindow.pluginHolder->settings.get())
+                props->setValue ("outputGain", dB);
+        };
+        addAndMakeVisible (outputGain);
+
+        // Restore output gain
+        if (auto* props = filterWindow.pluginHolder->settings.get())
+        {
+            auto dB = props->getDoubleValue ("outputGain", 0.0);
+            outputGain.setValue (dB, juce::dontSendNotification);
+            player.setOutputGain (float (juce::Decibels::decibelsToGain (dB)));
+        }
+    }
 }
 
 SideBarComponent::~SideBarComponent()
@@ -681,6 +711,21 @@ void SideBarComponent::resized()
             sampleStop.setBounds ({});
             sampleMenu.setBounds ({});
         }
+    }
+
+    const int outputSectionHeight = 46;    // slider (20) + gap (2) + header (16) + gap (8)
+
+    if (rc.getHeight() >= outputSectionHeight)
+    {
+        outputGain.setBounds (rc.removeFromBottom (20));
+        rc.removeFromBottom (2);
+        outputHeader.setBounds (rc.removeFromBottom (16));
+        rc.removeFromBottom (8);
+    }
+    else
+    {
+        outputHeader.setBounds ({});
+        outputGain.setBounds ({});
     }
 
     if (rc.getHeight() >= recordSectionHeight)
