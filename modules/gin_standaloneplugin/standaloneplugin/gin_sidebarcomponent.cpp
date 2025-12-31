@@ -269,12 +269,54 @@ SideBarComponent::SideBarComponent (StandaloneFilterWindow& f)
             player.setOutputGain (float (juce::Decibels::decibelsToGain (dB)));
         }
     }
+
+    // Track initial channel counts
+    lastInputChannels = filterWindow.pluginHolder->processor->getTotalNumInputChannels();
+    lastOutputChannels = filterWindow.pluginHolder->processor->getTotalNumOutputChannels();
+
+    // Listen for audio device changes
+    filterWindow.getDeviceManager().addChangeListener (this);
 }
 
 SideBarComponent::~SideBarComponent()
 {
+    filterWindow.getDeviceManager().removeChangeListener (this);
+
     stopTimer();
     setLookAndFeel (nullptr);
+}
+
+void SideBarComponent::changeListenerCallback (juce::ChangeBroadcaster*)
+{
+    updateComponentVisibility();
+}
+
+void SideBarComponent::updateComponentVisibility()
+{
+    auto* processor = filterWindow.pluginHolder->processor.get();
+    int inputChannels = processor->getTotalNumInputChannels();
+    int outputChannels = processor->getTotalNumOutputChannels();
+
+    if (inputChannels == lastInputChannels && outputChannels == lastOutputChannels)
+        return;
+
+    lastInputChannels = inputChannels;
+    lastOutputChannels = outputChannels;
+
+    // Update sample section visibility based on input channels
+    bool showSample = inputChannels > 0 && processor->acceptsMidi() == false;
+    sampleHeader.setVisible (showSample);
+    sample.setVisible (showSample);
+    samplePlay.setVisible (showSample);
+    sampleStop.setVisible (showSample);
+    sampleMenu.setVisible (showSample);
+
+    // Update XY scope visibility based on output channels
+    bool showXY = outputChannels >= 2;
+    xyHeader.setVisible (showXY);
+    xyScope.setVisible (showXY);
+
+    resized();
 }
 
 void SideBarComponent::timerCallback()

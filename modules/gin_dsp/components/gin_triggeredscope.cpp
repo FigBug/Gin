@@ -120,7 +120,7 @@ void TriggeredScope::paint (juce::Graphics& g)
     // Draw trigger level indicator
     if (triggerMode != None && drawTriggerPos)
     {
-        g.setColour (findColour (lineColourId).withMultipliedAlpha (0.5f));
+        g.setColour (findColour (lineColourId).withMultipliedAlpha (0.7f));
         const int w = getWidth();
         const int h = getHeight();
 
