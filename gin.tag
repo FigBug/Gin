@@ -17193,6 +17193,20 @@
       <anchor>a42f3ca7c69438c6d827c7d335c12ec2c</anchor>
       <arglist>() override</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>changeListenerCallback</name>
+      <anchorfile>classSideBarComponent.html</anchorfile>
+      <anchor>a5a995982fd9b69407f63814a2bc80ce4</anchor>
+      <arglist>(juce::ChangeBroadcaster *source) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateComponentVisibility</name>
+      <anchorfile>classSideBarComponent.html</anchorfile>
+      <anchor>a74c895098ecb476d9e795867caa9d345</anchor>
+      <arglist>()</arglist>
+    </member>
     <member kind="variable" static="yes">
       <type>static constexpr int</type>
       <name>width</name>
