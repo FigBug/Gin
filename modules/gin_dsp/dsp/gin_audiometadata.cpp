@@ -55,7 +55,7 @@ std::optional<float> getCueTempo (const juce::StringPairArray& metadata)
 std::optional<float> deduceTempo (const juce::File& file, const juce::AudioFormatReader& afr)
 {
     auto len = afr.lengthInSamples / afr.sampleRate;
-    if (len <= 1.0 && len > 60.0)
+    if (len <= 1.0 || len > 60.0)
         return {};
 
     auto fn = file.getFileNameWithoutExtension();
