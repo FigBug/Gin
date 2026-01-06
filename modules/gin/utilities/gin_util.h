@@ -340,3 +340,56 @@ juce::String formatNumber (T v)
 
     return juce::String (v, dec);
 }
+
+/** A utility class that adapts an ActionBroadcaster to use a lambda callback.
+
+    This class provides a convenient way to listen to ActionBroadcaster messages
+    using a lambda or std::function instead of implementing the ActionListener
+    interface directly.
+
+    The listener is automatically registered on construction and unregistered
+    on destruction.
+
+    Example usage:
+    @code
+    juce::ActionBroadcaster broadcaster;
+
+    ActionMessageLambda listener (broadcaster, [] (const juce::String& message)
+    {
+        DBG ("Received: " + message);
+    });
+
+    broadcaster.sendActionMessage ("Hello");  // Lambda will be called
+    @endcode
+
+    @see juce::ActionBroadcaster, juce::ActionListener
+*/
+class ActionMessageLambda : private juce::ActionListener
+{
+public:
+    /** Creates an ActionMessageLambda that listens to the given broadcaster.
+
+        @param src_      The ActionBroadcaster to listen to. Must remain valid
+                         for the lifetime of this object.
+        @param handler_  A function to call when an action message is received.
+                         The function receives the message string as its parameter.
+    */
+    ActionMessageLambda (juce::ActionBroadcaster& src_, std::function<void(juce::String)> handler_)
+        : src (src_), handler (handler_)
+    {
+        src.addActionListener (this);
+    }
+
+    ~ActionMessageLambda() override
+    {
+        src.removeActionListener (this);
+    }
+
+    void actionListenerCallback (const juce::String& message) override
+    {
+        handler (message);
+    }
+
+    juce::ActionBroadcaster&            src;
+    std::function<void(juce::String)>   handler;
+};
