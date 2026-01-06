@@ -2009,6 +2009,7 @@
     <class kind="class">PerlinNoise</class>
     <class kind="class">RollingAverage</class>
     <class kind="class">TimeProfiler</class>
+    <class kind="class">ActionMessageLambda</class>
     <member kind="function">
       <type>bool</type>
       <name>compareAndReset</name>
@@ -2547,6 +2548,45 @@
     <path>build/gin_webp/formats/</path>
     <filename>gin__webpimageformat_8h.html</filename>
     <class kind="class">WEBPImageFormat</class>
+  </compound>
+  <compound kind="class">
+    <name>ActionMessageLambda</name>
+    <filename>classActionMessageLambda.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ActionMessageLambda</name>
+      <anchorfile>classActionMessageLambda.html</anchorfile>
+      <anchor>af5de1388124000a3aa3f5c5f87972e41</anchor>
+      <arglist>(juce::ActionBroadcaster &amp;src_, std::function&lt; void(juce::String)&gt; handler_)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~ActionMessageLambda</name>
+      <anchorfile>classActionMessageLambda.html</anchorfile>
+      <anchor>a3ccb2de3f52b02fe39b0d4fe2826acb8</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>actionListenerCallback</name>
+      <anchorfile>classActionMessageLambda.html</anchorfile>
+      <anchor>a84378a9169666fdd719a795d67587045</anchor>
+      <arglist>(const juce::String &amp;message) override</arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::ActionBroadcaster &amp;</type>
+      <name>src</name>
+      <anchorfile>classActionMessageLambda.html</anchorfile>
+      <anchor>a2a11939cc9f307560d79fab7b73a4f52</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; void(juce::String)&gt;</type>
+      <name>handler</name>
+      <anchorfile>classActionMessageLambda.html</anchorfile>
+      <anchor>a270e159da600889ed34d8e701134a592</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>ADSR</name>
@@ -22802,6 +22842,7 @@
     <class kind="class">PerlinNoise</class>
     <class kind="class">RollingAverage</class>
     <class kind="class">TimeProfiler</class>
+    <class kind="class">ActionMessageLambda</class>
     <class kind="class">ValueTreeObject</class>
     <class kind="class">LambdaValueTreeListener</class>
     <class kind="class">AsyncLambdaValueTreeListener</class>
