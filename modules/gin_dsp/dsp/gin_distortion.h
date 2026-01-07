@@ -89,7 +89,7 @@
 class AirWindowsDistortion
 {
 public:
-    AirWindowsDistortion ()
+    AirWindowsDistortion()
     {
         reset();
     }
@@ -121,7 +121,7 @@ public:
         C = output;
         D = mix;
     }
-    
+
     void process (juce::AudioSampleBuffer& buffer)
     {
         float* l = buffer.getWritePointer (0);
@@ -132,14 +132,14 @@ public:
         double overallscale = 1.0;
         overallscale /= 44100.0;
         overallscale *= sampleRate;
-        double density = (A*5.0)-1.0;
-        double iirAmount = pow(B,3)/overallscale;
+        double density = (A * 5.0) - 1.0;
+        double iirAmount = pow (B, 3) / overallscale;
         double output = C;
         double wet = D;
-        double dry = 1.0-wet;
+        double dry = 1.0 - wet;
         double bridgerectifier;
-        double out = fabs(density);
-        density = density * fabs(density);
+        double out = std::abs (density);
+        density = density * std::abs (density);
         double count;
 
         long double inputSampleL;
@@ -151,33 +151,45 @@ public:
         {
             inputSampleL = *l;
             inputSampleR = *r;
-            if (inputSampleL<1.2e-38 && -inputSampleL<1.2e-38) {
+            if (inputSampleL < 1.2e-38 && -inputSampleL < 1.2e-38)
+            {
                 static int noisesource = 0;
                 //this declares a variable before anything else is compiled. It won't keep assigning
                 //it to 0 for every sample, it's as if the declaration doesn't exist in this context,
                 //but it lets me add this denormalization fix in a single place rather than updating
                 //it in three different locations. The variable isn't thread-safe but this is only
                 //a random seed and we can share it with whatever.
-                noisesource = noisesource % 1700021; noisesource++;
+                noisesource = noisesource % 1700021;
+                noisesource++;
                 int residue = noisesource * noisesource;
-                residue = residue % 170003; residue *= residue;
-                residue = residue % 17011; residue *= residue;
-                residue = residue % 1709; residue *= residue;
-                residue = residue % 173; residue *= residue;
+                residue = residue % 170003;
+                residue *= residue;
+                residue = residue % 17011;
+                residue *= residue;
+                residue = residue % 1709;
+                residue *= residue;
+                residue = residue % 173;
+                residue *= residue;
                 residue = residue % 17;
                 double applyresidue = residue;
                 applyresidue *= 0.00000001;
                 applyresidue *= 0.00000001;
                 inputSampleL = applyresidue;
             }
-            if (inputSampleR<1.2e-38 && -inputSampleR<1.2e-38) {
+            if (inputSampleR < 1.2e-38 && -inputSampleR < 1.2e-38)
+            {
                 static int noisesource = 0;
-                noisesource = noisesource % 1700021; noisesource++;
+                noisesource = noisesource % 1700021;
+                noisesource++;
                 int residue = noisesource * noisesource;
-                residue = residue % 170003; residue *= residue;
-                residue = residue % 17011; residue *= residue;
-                residue = residue % 1709; residue *= residue;
-                residue = residue % 173; residue *= residue;
+                residue = residue % 170003;
+                residue *= residue;
+                residue = residue % 17011;
+                residue *= residue;
+                residue = residue % 1709;
+                residue *= residue;
+                residue = residue % 173;
+                residue *= residue;
                 residue = residue % 17;
                 double applyresidue = residue;
                 applyresidue *= 0.00000001;
@@ -207,69 +219,91 @@ public:
                 inputSampleR -= iirSampleBR;
             }
             //highpass section
-            fpFlip = !fpFlip;
+            fpFlip = ! fpFlip;
 
             count = density;
             while (count > 1.0)
             {
-                bridgerectifier = double (fabs(inputSampleL)*1.57079633);
-                if (bridgerectifier > 1.57079633) bridgerectifier = 1.57079633;
+                bridgerectifier = double (std::abs (inputSampleL) * 1.57079633);
+                if (bridgerectifier > 1.57079633)
+                    bridgerectifier = 1.57079633;
                 //max value for sine function
-                bridgerectifier = sin(bridgerectifier);
-                if (inputSampleL > 0.0) inputSampleL = bridgerectifier;
-                else inputSampleL = -bridgerectifier;
+                bridgerectifier = std::sin (bridgerectifier);
+                if (inputSampleL > 0.0)
+                    inputSampleL = bridgerectifier;
+                else
+                    inputSampleL = -bridgerectifier;
 
-                bridgerectifier = double (fabs(inputSampleR)*1.57079633);
-                if (bridgerectifier > 1.57079633) bridgerectifier = 1.57079633;
+                bridgerectifier = double (std::abs (inputSampleR) * 1.57079633);
+                if (bridgerectifier > 1.57079633)
+                    bridgerectifier = 1.57079633;
                 //max value for sine function
-                bridgerectifier = sin(bridgerectifier);
-                if (inputSampleR > 0.0) inputSampleR = bridgerectifier;
-                else inputSampleR = -bridgerectifier;
+                bridgerectifier = std::sin (bridgerectifier);
+                if (inputSampleR > 0.0)
+                    inputSampleR = bridgerectifier;
+                else
+                    inputSampleR = -bridgerectifier;
 
                 count = count - 1.0;
             }
             //we have now accounted for any really high density settings.
 
-            while (out > 1.0) out = out - 1.0;
+            while (out > 1.0)
+                out = out - 1.0;
 
-            bridgerectifier = double (fabs(inputSampleL)*1.57079633);
-            if (bridgerectifier > 1.57079633) bridgerectifier = 1.57079633;
+            bridgerectifier = double (std::abs (inputSampleL) * 1.57079633);
+            if (bridgerectifier > 1.57079633)
+                bridgerectifier = 1.57079633;
             //max value for sine function
-            if (density > 0) bridgerectifier = sin(bridgerectifier);
-            else bridgerectifier = 1-cos(bridgerectifier);
+            if (density > 0)
+                bridgerectifier = std::sin (bridgerectifier);
+            else
+                bridgerectifier = 1 - cos (bridgerectifier);
             //produce either boosted or starved version
-            if (inputSampleL > 0) inputSampleL = (inputSampleL*(1-out))+(bridgerectifier*out);
-            else inputSampleL = (inputSampleL*(1-out))-(bridgerectifier*out);
+            if (inputSampleL > 0)
+                inputSampleL = (inputSampleL * (1 - out)) + (bridgerectifier * out);
+            else
+                inputSampleL = (inputSampleL * (1 - out)) - (bridgerectifier * out);
             //blend according to density control
 
-            bridgerectifier = double (fabs(inputSampleR)*1.57079633);
-            if (bridgerectifier > 1.57079633) bridgerectifier = 1.57079633;
+            bridgerectifier = double (std::abs (inputSampleR) * 1.57079633);
+            if (bridgerectifier > 1.57079633)
+                bridgerectifier = 1.57079633;
             //max value for sine function
-            if (density > 0) bridgerectifier = sin(bridgerectifier);
-            else bridgerectifier = 1-cos(bridgerectifier);
+            if (density > 0)
+                bridgerectifier = std::sin (bridgerectifier);
+            else
+                bridgerectifier = 1 - cos (bridgerectifier);
             //produce either boosted or starved version
-            if (inputSampleR > 0) inputSampleR = (inputSampleR*(1.0-out))+(bridgerectifier*out);
-            else inputSampleR = (inputSampleR*(1.0-out))-(bridgerectifier*out);
+            if (inputSampleR > 0)
+                inputSampleR = (inputSampleR * (1.0 - out)) + (bridgerectifier * out);
+            else
+                inputSampleR = (inputSampleR * (1.0 - out)) - (bridgerectifier * out);
             //blend according to density control
 
-            if (output < 1.0) {
+            if (output < 1.0)
+            {
                 inputSampleL *= output;
                 inputSampleR *= output;
             }
-            if (wet < 1.0) {
-                inputSampleL = (drySampleL * dry)+(inputSampleL * wet);
-                inputSampleR = (drySampleR * dry)+(inputSampleR * wet);
+            if (wet < 1.0)
+            {
+                inputSampleL = (drySampleL * dry) + (inputSampleL * wet);
+                inputSampleR = (drySampleR * dry) + (inputSampleR * wet);
             }
             //nice little output stage template: if we have another scale of floating point
             //number, we really don't want to meaninglessly multiply that by 1.0.
 
             //stereo 32 bit dither, made small and tidy.
-            int expon; frexpf((float)inputSampleL, &expon);
-            long double dither = (rand()/(RAND_MAX*7.737125245533627e+25))*pow(2,expon+62);
-            inputSampleL += (dither-fpNShapeL); fpNShapeL = dither;
-            frexpf((float)inputSampleR, &expon);
-            dither = (rand()/(RAND_MAX*7.737125245533627e+25))*pow(2,expon+62);
-            inputSampleR += (dither-fpNShapeR); fpNShapeR = dither;
+            int expon;
+            frexpf ((float) inputSampleL, &expon);
+            long double dither = (rand() / (RAND_MAX * 7.737125245533627e+25)) * pow (2, expon + 62);
+            inputSampleL += (dither - fpNShapeL);
+            fpNShapeL = dither;
+            frexpf ((float) inputSampleR, &expon);
+            dither = (rand() / (RAND_MAX * 7.737125245533627e+25)) * pow (2, expon + 62);
+            inputSampleR += (dither - fpNShapeR);
+            fpNShapeR = dither;
             //end 32 bit dither
 
             *l = float (inputSampleL);
