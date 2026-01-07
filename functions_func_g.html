@@ -74,7 +74,7 @@ $(function() {
 <h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
 <li>GateEffect()&#160;:&#160;<a class="el" href="classGateEffect.html#a30931317a7688adf95aa1246b65d2bec">GateEffect</a></li>
 <li>GateEffectComponent()&#160;:&#160;<a class="el" href="classGateEffectComponent.html#a5257a9e40e7a80c377dec5ff3e963579">GateEffectComponent</a></li>
-<li>get()&#160;:&#160;<a class="el" href="classBandLimitedLookupTable.html#a8e9f62e700e4c7baa578386a28a700bc">BandLimitedLookupTable</a>, <a class="el" href="classConstantsStack.html#a4fece72ca9e71e133b0e230d501a93ca">ConstantsStack</a>, <a class="el" href="classHttp.html#aa25b6e9f58fe6924809e801bc8eefe21">Http</a></li>
+<li>get()&#160;:&#160;<a class="el" href="classBandLimitedLookupTable.html#a8e9f62e700e4c7baa578386a28a700bc">BandLimitedLookupTable</a>, <a class="el" href="classConstantsStack.html#a4fece72ca9e71e133b0e230d501a93ca">ConstantsStack</a>, <a class="el" href="classHttp.html#aa25b6e9f58fe6924809e801bc8eefe21">Http</a>, <a class="el" href="classLRUCache.html#aa0c9b6244fcf272adef97c5411d78b00">LRUCache&lt; Key, Value, MaxSize &gt;</a></li>
 <li>getA()&#160;:&#160;<a class="el" href="classLinearRegression.html#a89e9199f1e6e28c47151c7dc97c358da">LinearRegression</a></li>
 <li>getActiveVoices()&#160;:&#160;<a class="el" href="classSynthesiser.html#a38d7ab09f969ac44830204c29e5b0bd9">Synthesiser</a></li>
 <li>getAge()&#160;:&#160;<a class="el" href="classModVoice.html#a32fc0a65169eb9b73ebf39e97da8714a">ModVoice</a></li>
@@ -192,6 +192,7 @@ $(function() {
 <li>getOldestVoice()&#160;:&#160;<a class="el" href="classSynthesiser.html#aaf33c3468d1d4e635f03db59b78df7e5">Synthesiser</a></li>
 <li>getOpenStreetMaps()&#160;:&#160;<a class="el" href="classMapViewer.html#a993e763396e235d4f9dede6adcee307e">MapViewer</a></li>
 <li>getOptionsForComboBoxPopupMenu()&#160;:&#160;<a class="el" href="classCopperLookAndFeel.html#af423d163ab73fe036783734cbc88e9ae">CopperLookAndFeel</a></li>
+<li>getOrCreate()&#160;:&#160;<a class="el" href="classLRUCache.html#ac5525ff63916f520423ed2ba227b854f">LRUCache&lt; Key, Value, MaxSize &gt;</a></li>
 <li>getOutput()&#160;:&#160;<a class="el" href="classADSR.html#aad2376dfb5d854dd0250e2a6bde52cb2">ADSR</a>, <a class="el" href="classAnalogADSR.html#a0fdf4b32574c7a2e276ee6e2d2a7b6d1">AnalogADSR</a>, <a class="el" href="classLFO.html#a87dce294e659cd21de22aaa2f7de6119">LFO</a>, <a class="el" href="classMSEG.html#a5925938ab7ccbed218ad1cfe7127a782">MSEG</a>, <a class="el" href="classStepLFO.html#abfcd3d3a5e7d82c4f30da1534e8c39bc">StepLFO</a></li>
 <li>getOutputGain()&#160;:&#160;<a class="el" href="classStandaloneAudioProcessorPlayer.html#abf08198b7db8732ee1b7becd99074e2f">StandaloneAudioProcessorPlayer</a></li>
 <li>getOutputTracker()&#160;:&#160;<a class="el" href="classDynamics.html#aa6c180ee20a71be691f519d9cd3bec92">Dynamics</a></li>
@@ -249,7 +250,7 @@ $(function() {
 <li>getType()&#160;:&#160;<a class="el" href="classImageMetadata.html#ab2d57b041126841465ef5e702000015b">ImageMetadata</a></li>
 <li>getTypefaceForFont()&#160;:&#160;<a class="el" href="classCopperLookAndFeel.html#a6916406a6f2f350f6d7b348d4e936dbd">CopperLookAndFeel</a>, <a class="el" href="classPluginLookAndFeel.html#a2039e6dc6cf25994545f54527cddc9cc">PluginLookAndFeel</a></li>
 <li>getUid()&#160;:&#160;<a class="el" href="classParamComponent.html#a62626a60b4e5e2bf86e52fa7a2362646">ParamComponent</a>, <a class="el" href="classParameter.html#a1cc5a8decbb78d9ebcbb25e5a03433f9">Parameter</a></li>
-<li>getUnchecked()&#160;:&#160;<a class="el" href="classWavetable.html#a3ed8105a08f4fc25281b42d1ef7ec250">Wavetable</a></li>
+<li>getUnchecked()&#160;:&#160;<a class="el" href="classWavetable.html#abeb25058fda1e8951d5c4e99cad2c5d2">Wavetable</a></li>
 <li>getUpdateUrl()&#160;:&#160;<a class="el" href="classUpdateChecker.html#aad9e2e37b99c599bda845795dbebe07f">UpdateChecker</a></li>
 <li>getUpVector()&#160;:&#160;<a class="el" href="classCamera3D.html#a6b4c3d219ec44a48fec8c626387deb79">Camera3D</a></li>
 <li>getUsedVariables()&#160;:&#160;<a class="el" href="classEquationParser.html#ab0ea630c8df4112a8be42266b8cba56b">EquationParser</a></li>
@@ -282,7 +283,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 7 2026 00:05:16 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Jan 7 2026 00:33:03 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

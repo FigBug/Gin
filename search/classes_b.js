@@ -18,5 +18,6 @@ var searchData=
   ['locationmanager_15',['LocationManager',['../classLocationManager.html',1,'']]],
   ['lockfreequeue_16',['LockFreeQueue',['../classLockFreeQueue.html',1,'']]],
   ['lp12state_17',['LP12State',['../structLP12State.html',1,'']]],
-  ['lp24state_18',['LP24State',['../structLP24State.html',1,'']]]
+  ['lp24state_18',['LP24State',['../structLP24State.html',1,'']]],
+  ['lrucache_19',['LRUCache',['../classLRUCache.html',1,'']]]
 ];

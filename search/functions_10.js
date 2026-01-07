@@ -23,7 +23,7 @@ var searchData=
   ['releaseresources_20',['releaseResources',['../classProcessor.html#a48a76aafcc56d51606af0ae5bbe4fdf5',1,'Processor']]],
   ['reloadaudiodevicestate_21',['reloadAudioDeviceState',['../classStandalonePluginHolder.html#abf2bf01bcc90ac38d797a729c79b78e4',1,'StandalonePluginHolder']]],
   ['reloadpluginstate_22',['reloadPluginState',['../classStandalonePluginHolder.html#adfdf093b9b5ab101d2f76d5fa957c6eb',1,'StandalonePluginHolder']]],
-  ['remove_23',['remove',['../classSharedMemory.html#a19714c21ee5c98faff8a1e77e79532a7',1,'SharedMemory']]],
+  ['remove_23',['remove',['../classLRUCache.html#a48037e2bdda78c461f3a61f14262ef74',1,'LRUCache::remove()'],['../classSharedMemory.html#a19714c21ee5c98faff8a1e77e79532a7',1,'SharedMemory::remove()']]],
   ['removeallfolders_24',['removeAllFolders',['../classFileSystemWatcher.html#a0ad340eac72f4f3c62a6f3b38e231109',1,'FileSystemWatcher']]],
   ['removefolder_25',['removeFolder',['../classFileSystemWatcher.html#a4a00ea52d73e860fa8396e98b60157f4',1,'FileSystemWatcher']]],
   ['removejsoncomments_26',['removeJsonComments',['../group__gin__gui-utilities.html#ga8d83bb854851e5039749da191fc5765e',1,'gin_varianthelpers.h']]],

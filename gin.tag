@@ -395,6 +395,17 @@
     <filename>gin__lockfreequeue_8test_8h.html</filename>
   </compound>
   <compound kind="file">
+    <name>gin_lrucache.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__lrucache_8h.html</filename>
+    <class kind="class">LRUCache</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_lrucache.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__lrucache_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_messagepack.h</name>
     <path>build/gin/utilities/</path>
     <filename>gin__messagepack_8h.html</filename>
@@ -10453,6 +10464,90 @@
       <anchorfile>structLP24State.html</anchorfile>
       <anchor>abc4ac3ff59b983b6cfaae11af5cc584f</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>LRUCache</name>
+    <filename>classLRUCache.html</filename>
+    <templarg>typename Key</templarg>
+    <templarg>typename Value</templarg>
+    <templarg>size_t MaxSize</templarg>
+    <member kind="function">
+      <type></type>
+      <name>LRUCache</name>
+      <anchorfile>classLRUCache.html</anchorfile>
+      <anchor>a54bfc6417964bd4b2f5a988b9989d00d</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>Value *</type>
+      <name>get</name>
+      <anchorfile>classLRUCache.html</anchorfile>
+      <anchor>a3343d9a6ca6239b7f49c6689ec457b91</anchor>
+      <arglist>(const Key &amp;key)</arglist>
+    </member>
+    <member kind="function">
+      <type>const Value *</type>
+      <name>get</name>
+      <anchorfile>classLRUCache.html</anchorfile>
+      <anchor>aa0c9b6244fcf272adef97c5411d78b00</anchor>
+      <arglist>(const Key &amp;key) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>put</name>
+      <anchorfile>classLRUCache.html</anchorfile>
+      <anchor>a933ddead04070428b6a1dbb1cbd672e1</anchor>
+      <arglist>(const Key &amp;key, Value value)</arglist>
+    </member>
+    <member kind="function">
+      <type>Value &amp;</type>
+      <name>getOrCreate</name>
+      <anchorfile>classLRUCache.html</anchorfile>
+      <anchor>ac5525ff63916f520423ed2ba227b854f</anchor>
+      <arglist>(const Key &amp;key, Factory &amp;&amp;factory)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>remove</name>
+      <anchorfile>classLRUCache.html</anchorfile>
+      <anchor>a48037e2bdda78c461f3a61f14262ef74</anchor>
+      <arglist>(const Key &amp;key)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>contains</name>
+      <anchorfile>classLRUCache.html</anchorfile>
+      <anchor>a2a0c93554db09d15b18c6b58c3494a32</anchor>
+      <arglist>(const Key &amp;key) const</arglist>
+    </member>
+    <member kind="function">
+      <type>size_t</type>
+      <name>size</name>
+      <anchorfile>classLRUCache.html</anchorfile>
+      <anchor>acf3feee4ba0a4c2cf82d491b8962bd74</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>empty</name>
+      <anchorfile>classLRUCache.html</anchorfile>
+      <anchor>af29c651c36b7a4f96dbf4733aa8b199f</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clear</name>
+      <anchorfile>classLRUCache.html</anchorfile>
+      <anchor>aac22e7aa6edc9c560f443470bfb7ef46</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static constexpr size_t</type>
+      <name>maxSize</name>
+      <anchorfile>classLRUCache.html</anchorfile>
+      <anchor>a104295ac4657f4bf89a92315044484d8</anchor>
+      <arglist>() noexcept</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -22829,6 +22924,7 @@
     <class kind="class">LeastSquaresRegression</class>
     <class kind="class">LinearRegression</class>
     <class kind="class">LockFreeQueue</class>
+    <class kind="class">LRUCache</class>
     <class kind="class">MessagePack</class>
     <class kind="class">Point</class>
     <class kind="class">RealtimeAsyncUpdater</class>
