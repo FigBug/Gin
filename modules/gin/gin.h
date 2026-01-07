@@ -83,6 +83,7 @@ namespace gin
 #include "utilities/gin_leastsquaresregression.h"
 #include "utilities/gin_linearregression.h"
 #include "utilities/gin_lockfreequeue.h"
+#include "utilities/gin_lrucache.h"
 #include "utilities/gin_messagepack.h"
 #include "utilities/gin_plist.h"
 #include "utilities/gin_realtimeasyncupdater.h"
