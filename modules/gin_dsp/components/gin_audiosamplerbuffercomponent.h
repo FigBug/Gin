@@ -46,6 +46,11 @@ public:
     void mouseDrag (const juce::MouseEvent& e) override;
     void mouseUp (const juce::MouseEvent& e) override;
 
+protected:
+    void paintBackground (juce::Graphics& g);
+    void paintPlayheads (juce::Graphics& g);
+    void paintChannelData (juce::Graphics& g, int channel, const juce::Rectangle<float>& r);
+
 private:
     struct Channel
     {
