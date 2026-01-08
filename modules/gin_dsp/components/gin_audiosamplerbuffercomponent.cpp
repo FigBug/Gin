@@ -87,7 +87,6 @@ void AudioSamplerBufferComponent::paintWaveform (juce::Graphics& g)
     {
         auto r = rc.removeFromTop (float (getHeight()) / float (channels.size()));
         paintChannelData (g, ch, r);
-        ++ch;
     }
 }
 
