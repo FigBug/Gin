@@ -71,6 +71,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classAudioSamplerBufferComponent-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">AudioSamplerBufferComponent Class Reference<div class="ingroups"><a class="el" href="group__gin__dsp.html">gin_dsp</a> &raquo; <a class="el" href="group__gin__dsp-components.html">components</a></div></div></div>
 </div><!--header-->
@@ -146,6 +147,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac2679884e39be6efce6ccd48872fbbd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6818de517beb62b15d4087cf69f8f2d" id="r_ab6818de517beb62b15d4087cf69f8f2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioSamplerBufferComponent.html#ab6818de517beb62b15d4087cf69f8f2d">mouseUp</a> (<a class="el" href="classPoint.html">const</a> juce::MouseEvent &amp;<a class="el" href="classPoint.html">e</a>) <a class="el" href="classPoint.html">override</a></td></tr>
 <tr class="separator:ab6818de517beb62b15d4087cf69f8f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:accef8b745eaa5e68580ebae30658779b" id="r_accef8b745eaa5e68580ebae30658779b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioSamplerBufferComponent.html#accef8b745eaa5e68580ebae30658779b">paintBackground</a> (juce::Graphics &amp;g)</td></tr>
+<tr class="separator:accef8b745eaa5e68580ebae30658779b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79e531e8c2c2483a4dcb578177b6ede0" id="r_a79e531e8c2c2483a4dcb578177b6ede0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioSamplerBufferComponent.html#a79e531e8c2c2483a4dcb578177b6ede0">paintPlayheads</a> (juce::Graphics &amp;g)</td></tr>
+<tr class="separator:a79e531e8c2c2483a4dcb578177b6ede0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7cfadaec0e11c40fc8232bc1eb1f508" id="r_af7cfadaec0e11c40fc8232bc1eb1f508"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioSamplerBufferComponent.html#af7cfadaec0e11c40fc8232bc1eb1f508">paintChannelData</a> (juce::Graphics &amp;g, <a class="el" href="classPoint.html">int</a> channel, <a class="el" href="classPoint.html">const</a> juce::Rectangle&lt; <a class="el" href="classPoint.html">float</a> &gt; &amp;r)</td></tr>
+<tr class="separator:af7cfadaec0e11c40fc8232bc1eb1f508"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Draws an AudioSampleBuffer thumbnail. </p>
@@ -763,13 +773,107 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="accef8b745eaa5e68580ebae30658779b" name="accef8b745eaa5e68580ebae30658779b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accef8b745eaa5e68580ebae30658779b">&#9670;&#160;</a></span>paintBackground()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> AudioSamplerBufferComponent::paintBackground </td>
+          <td>(</td>
+          <td class="paramtype">juce::Graphics &amp;&#160;</td>
+          <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a79e531e8c2c2483a4dcb578177b6ede0" name="a79e531e8c2c2483a4dcb578177b6ede0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79e531e8c2c2483a4dcb578177b6ede0">&#9670;&#160;</a></span>paintPlayheads()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> AudioSamplerBufferComponent::paintPlayheads </td>
+          <td>(</td>
+          <td class="paramtype">juce::Graphics &amp;&#160;</td>
+          <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af7cfadaec0e11c40fc8232bc1eb1f508" name="af7cfadaec0e11c40fc8232bc1eb1f508"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7cfadaec0e11c40fc8232bc1eb1f508">&#9670;&#160;</a></span>paintChannelData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> AudioSamplerBufferComponent::paintChannelData </td>
+          <td>(</td>
+          <td class="paramtype">juce::Graphics &amp;&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">int</a>&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::Rectangle&lt; <a class="el" href="classPoint.html">float</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="gin__audiosamplerbuffercomponent_8h.html">gin_audiosamplerbuffercomponent.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 7 2026 22:38:06 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Jan 8 2026 22:33:29 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

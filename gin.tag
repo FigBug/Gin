@@ -4423,6 +4423,27 @@
       <anchor>ab6818de517beb62b15d4087cf69f8f2d</anchor>
       <arglist>(const juce::MouseEvent &amp;e) override</arglist>
     </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>paintBackground</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>accef8b745eaa5e68580ebae30658779b</anchor>
+      <arglist>(juce::Graphics &amp;g)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>paintPlayheads</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>a79e531e8c2c2483a4dcb578177b6ede0</anchor>
+      <arglist>(juce::Graphics &amp;g)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>paintChannelData</name>
+      <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
+      <anchor>af7cfadaec0e11c40fc8232bc1eb1f508</anchor>
+      <arglist>(juce::Graphics &amp;g, int channel, const juce::Rectangle&lt; float &gt; &amp;r)</arglist>
+    </member>
   </compound>
   <compound kind="struct">
     <name>PatchBrowser::AuthorsModel</name>

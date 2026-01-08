@@ -70,7 +70,7 @@ var searchData=
   ['clicked_67',['clicked',['../classPluginButton.html#a5a8bc6d21639253463b285091b3ff1e3',1,'PluginButton::clicked()'],['../classSVGPluginButton.html#a6a64fe25e21b00cf6f25ec4eabbdb8e8',1,'SVGPluginButton::clicked()']]],
   ['clip_68',['clip',['../classLevelTracker.html#a26766995b2012da8ba9494a8480de068',1,'LevelTracker::clip'],['../group__gin__dsp-dsp.html#ga80d41603f74938619f0af6e8007f5944',1,'clip():&#160;gin_audioutil.h']]],
   ['clipcolourid_69',['clipColourId',['../classLevelMeter.html#aebb71a7df2ebf267fa0326a95142cfa3ad844a359347bafb53048b50aad7ec396',1,'LevelMeter']]],
-  ['close_70',['close',['../classSecureStreamingSocket.html#ae57da84b07292822018a7a3e1f3dd903',1,'SecureStreamingSocket::close()'],['../classWebSocket.html#abef10acf60b4d5b87399e6f9c5ad808d',1,'WebSocket::close()'],['../structWSHeaderType.html#ac1906191ac337fdbecbe643184fbd3b3a595b1cfbd1c8acb916bf1bb6dcb8de9c',1,'WSHeaderType::CLOSE']]],
+  ['close_70',['close',['../structWSHeaderType.html#ac1906191ac337fdbecbe643184fbd3b3a595b1cfbd1c8acb916bf1bb6dcb8de9c',1,'WSHeaderType::CLOSE'],['../classSecureStreamingSocket.html#ae57da84b07292822018a7a3e1f3dd903',1,'SecureStreamingSocket::close()'],['../classWebSocket.html#abef10acf60b4d5b87399e6f9c5ad808d',1,'WebSocket::close()']]],
   ['closebuttonpressed_71',['closeButtonPressed',['../classStandaloneFilterWindow.html#a0ecb7e5d6264a99e213987021ae863a9',1,'StandaloneFilterWindow']]],
   ['closed_72',['CLOSED',['../classWebSocket.html#a452bcfacd2ce0567751e44f891dd1489adc1345c2f003ed355a242dd7079e674e',1,'WebSocket']]],
   ['closing_73',['CLOSING',['../classWebSocket.html#a452bcfacd2ce0567751e44f891dd1489a33e319b209babd422a32b44460e161f4',1,'WebSocket']]],
