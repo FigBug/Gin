@@ -1,6 +1,6 @@
 /*==============================================================================
 
- Copyright 2018 - 2025 by Roland Rabien, 2010 by Alex Etchells
+ Copyright (c) 2018 - 2026 by Roland Rabien, 2010 by Alex Etchells
  For more information visit www.rabiensoftware.com
 
  ==============================================================================*/
