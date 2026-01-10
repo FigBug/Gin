@@ -14,7 +14,8 @@ juce_add_plugin (UnitTests
 				  	  NEEDS_MIDI_INPUT FALSE
 				  	  NEEDS_MIDI_OUTPUT FALSE
 				  	  IS_SYNTH FALSE
-				  	  EDITOR_WANTS_KEYBOARD_FOCUS FALSE)
+				  	  EDITOR_WANTS_KEYBOARD_FOCUS FALSE
+				  	  COPY_PLUGIN_AFTER_BUILD FALSE)
 
 if (APPLE)
 	target_compile_options(UnitTests PRIVATE

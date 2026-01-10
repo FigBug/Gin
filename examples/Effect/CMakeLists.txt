@@ -17,6 +17,7 @@ juce_add_plugin (Effect
 				 VST2_CATEGORY "kPlugCategEffect"
 				 VST3_CATEGORIES Fx
 				 LV2URI "https://rabien.com/effect/"
+				 COPY_PLUGIN_AFTER_BUILD FALSE
 			   )
 
 if (APPLE)
