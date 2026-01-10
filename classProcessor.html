@@ -184,6 +184,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aecd42420782c38cad73bf06fb0f195db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09c3b671e19fb6ba690ace06cca55aa9" id="r_a09c3b671e19fb6ba690ace06cca55aa9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a09c3b671e19fb6ba690ace06cca55aa9">versionHint</a> = 1</td></tr>
 <tr class="separator:a09c3b671e19fb6ba690ace06cca55aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bb54bfcd02cdc7e6c2097c63de7c6b5" id="r_a8bb54bfcd02cdc7e6c2097c63de7c6b5"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classMidiLearn.html">MidiLearn</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a8bb54bfcd02cdc7e6c2097c63de7c6b5">midiLearn</a></td></tr>
+<tr class="separator:a8bb54bfcd02cdc7e6c2097c63de7c6b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -272,9 +274,9 @@ Protected Attributes</h2></td></tr>
 <div class="line">    <a class="code hl_class" href="classParameter.html">Parameter</a>* <a class="code hl_class" href="classPoint.html">resonance</a>;</div>
 <div class="line">    <a class="code hl_class" href="classPoint.html">MyFilter</a> filter;</div>
 <div class="line">};</div>
-<div class="ttc" id="aclassParameter_html"><div class="ttname"><a href="classParameter.html">Parameter</a></div><div class="ttdoc">Advanced parameter class with modulation, real-time callbacks, and host automation.</div><div class="ttdef"><b>Definition</b> gin_parameter.h:67</div></div>
+<div class="ttc" id="aclassParameter_html"><div class="ttname"><a href="classParameter.html">Parameter</a></div><div class="ttdoc">Advanced parameter class with modulation, real-time callbacks, and host automation.</div><div class="ttdef"><b>Definition</b> gin_parameter.h:68</div></div>
 <div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
-<div class="ttc" id="aclassProcessor_html"><div class="ttname"><a href="classProcessor.html">Processor</a></div><div class="ttdoc">Advanced audio processor base class with parameter management and preset system.</div><div class="ttdef"><b>Definition</b> gin_processor.h:237</div></div>
+<div class="ttc" id="aclassProcessor_html"><div class="ttname"><a href="classProcessor.html">Processor</a></div><div class="ttdoc">Advanced audio processor base class with parameter management and preset system.</div><div class="ttdef"><b>Definition</b> gin_processor.h:238</div></div>
 <div class="ttc" id="aclassProcessor_html_a91501bb29c8b65f444460ed1abc22824"><div class="ttname"><a href="classProcessor.html#a91501bb29c8b65f444460ed1abc22824">Processor::prepareToPlay</a></div><div class="ttdeci">void prepareToPlay(double sampleRate, int samplesPerBlock) override</div></div>
 <div class="ttc" id="aclassSmoothingType_html"><div class="ttname"><a href="classSmoothingType.html">SmoothingType</a></div><div class="ttdoc">Parameter smoothing configuration for audio-rate interpolation.</div><div class="ttdef"><b>Definition</b> gin_processor.h:53</div></div>
 <div class="ttc" id="anamespaceDistortion_html_a1cbff571e105b4fc3335c9278d3f63fe"><div class="ttname"><a href="namespaceDistortion.html#a1cbff571e105b4fc3335c9278d3f63fe">Distortion::processBlock</a></div><div class="ttdeci">void processBlock(juce::AudioSampleBuffer &amp;buffer, float drive, float lowclip, float highclip)</div><div class="ttdef"><b>Definition</b> gin_audioutil.h:187</div></div>
@@ -1657,6 +1659,20 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a8bb54bfcd02cdc7e6c2097c63de7c6b5" name="a8bb54bfcd02cdc7e6c2097c63de7c6b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bb54bfcd02cdc7e6c2097c63de7c6b5">&#9670;&#160;</a></span>midiLearn</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classMidiLearn.html">MidiLearn</a>&gt; Processor::midiLearn</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a90d893be2965a456b240e62585bf8bbb" name="a90d893be2965a456b240e62585bf8bbb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a90d893be2965a456b240e62585bf8bbb">&#9670;&#160;</a></span>settings</h2>
 
@@ -1819,7 +1835,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jan 10 2026 15:41:24 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sat Jan 10 2026 21:48:30 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

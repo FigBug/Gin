@@ -2,7 +2,7 @@ var searchData=
 [
   ['pan_0',['pan',['../structVoicedOscillatorParams.html#a599d25b143ff563d7e68c3c122900da2',1,'VoicedOscillatorParams']]],
   ['panic_1',['panic',['../classSynthesiserUsage.html#a3e09f76bc17f6f9c1430400e3d65d8b6',1,'SynthesiserUsage::panic'],['../namespaceAssets.html#ae4486cb0a48cf541282b09f07bdcc1d0',1,'Assets::panic']]],
-  ['parameter_2',['parameter',['../classPluginComboBox.html#a3bbf40da531c73ccefc9374433ae9d88',1,'PluginComboBox::parameter'],['../classParamComponent.html#a2e99545e9d83f8e9f2ce0c8ca31e05bd',1,'ParamComponent::parameter'],['../classPluginButton.html#ae383af96f9f3e0cf932e0eb63116257a',1,'PluginButton::parameter'],['../classSVGPluginButton.html#abf31e8c8878cceb12838f10441c198ce',1,'SVGPluginButton::parameter']]],
+  ['parameter_2',['parameter',['../classSVGPluginButton.html#abf31e8c8878cceb12838f10441c198ce',1,'SVGPluginButton::parameter'],['../classPluginComboBox.html#a3bbf40da531c73ccefc9374433ae9d88',1,'PluginComboBox::parameter'],['../classParamComponent.html#a2e99545e9d83f8e9f2ce0c8ca31e05bd',1,'ParamComponent::parameter'],['../classPluginButton.html#ae383af96f9f3e0cf932e0eb63116257a',1,'PluginButton::parameter']]],
   ['parametermap_3',['parameterMap',['../classProcessor.html#a0eed0ccb9cccd2bc8a0d218fc42488b5',1,'Processor']]],
   ['parameters_4',['parameters',['../classProgram.html#abb4790e98826e67f934f28258083a13e',1,'Program']]],
   ['params_5',['params',['../classMultiParamComponent.html#a36bd41a594c81661474e30ee35c0eca5',1,'MultiParamComponent']]],

@@ -117,6 +117,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a1cae47f2ecd1a86e02549cf5b47fd4d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a050f3bfa588e3045b3a914715c961bc3" id="r_a050f3bfa588e3045b3a914715c961bc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessorOptions.html#a050f3bfa588e3045b3a914715c961bc3">useNewsChecker</a> = <a class="el" href="classPoint.html">true</a></td></tr>
 <tr class="separator:a050f3bfa588e3045b3a914715c961bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0841fe0d051987f7b671a0e26ca699a3" id="r_a0841fe0d051987f7b671a0e26ca699a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessorOptions.html#a0841fe0d051987f7b671a0e26ca699a3">hasMidiLearn</a> = <a class="el" href="classPoint.html">false</a></td></tr>
+<tr class="separator:a0841fe0d051987f7b671a0e26ca699a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a936b930e9a3271ae6d4e6f3201226635" id="r_a936b930e9a3271ae6d4e6f3201226635"><td class="memItemLeft" align="right" valign="top">juce::StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessorOptions.html#a936b930e9a3271ae6d4e6f3201226635">programmingCredits</a></td></tr>
 <tr class="separator:a936b930e9a3271ae6d4e6f3201226635"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d7a9b34d0ef590a2ca4a5a6cb160bd0" id="r_a8d7a9b34d0ef590a2ca4a5a6cb160bd0"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; juce::LookAndFeel &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessorOptions.html#a8d7a9b34d0ef590a2ca4a5a6cb160bd0">lookAndFeel</a></td></tr>
@@ -160,8 +162,8 @@ Public Attributes</h2></td></tr>
 <div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 <div class="ttc" id="aclassProcessorOptions_html"><div class="ttname"><a href="classProcessorOptions.html">ProcessorOptions</a></div><div class="ttdoc">Plugin metadata and configuration options for Processor.</div><div class="ttdef"><b>Definition</b> gin_processor.h:120</div></div>
 <div class="ttc" id="aclassProcessorOptions_html_a32bb47a9aa2cb95cd9766cc23b004c10"><div class="ttname"><a href="classProcessorOptions.html#a32bb47a9aa2cb95cd9766cc23b004c10">ProcessorOptions::ProcessorOptions</a></div><div class="ttdeci">ProcessorOptions()</div></div>
-<div class="ttc" id="aclassProcessorOptions_html_a8fa62952828b42c7e931f6a0eb61ce7d"><div class="ttname"><a href="classProcessorOptions.html#a8fa62952828b42c7e931f6a0eb61ce7d">ProcessorOptions::withoutNewsChecker</a></div><div class="ttdeci">ProcessorOptions withoutNewsChecker() &amp;&amp;</div><div class="ttdef"><b>Definition</b> gin_processor.h:155</div></div>
-<div class="ttc" id="aclassProcessorOptions_html_ae3442b8c51ea0d8dc68683de38f83451"><div class="ttname"><a href="classProcessorOptions.html#ae3442b8c51ea0d8dc68683de38f83451">ProcessorOptions::withoutUpdateChecker</a></div><div class="ttdeci">ProcessorOptions withoutUpdateChecker() &amp;&amp;</div><div class="ttdef"><b>Definition</b> gin_processor.h:149</div></div>
+<div class="ttc" id="aclassProcessorOptions_html_a8fa62952828b42c7e931f6a0eb61ce7d"><div class="ttname"><a href="classProcessorOptions.html#a8fa62952828b42c7e931f6a0eb61ce7d">ProcessorOptions::withoutNewsChecker</a></div><div class="ttdeci">ProcessorOptions withoutNewsChecker() &amp;&amp;</div><div class="ttdef"><b>Definition</b> gin_processor.h:156</div></div>
+<div class="ttc" id="aclassProcessorOptions_html_ae3442b8c51ea0d8dc68683de38f83451"><div class="ttname"><a href="classProcessorOptions.html#ae3442b8c51ea0d8dc68683de38f83451">ProcessorOptions::withoutUpdateChecker</a></div><div class="ttdeci">ProcessorOptions withoutUpdateChecker() &amp;&amp;</div><div class="ttdef"><b>Definition</b> gin_processor.h:150</div></div>
 </div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classProcessor.html" title="Advanced audio processor base class with parameter management and preset system.">Processor</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a32bb47a9aa2cb95cd9766cc23b004c10" name="a32bb47a9aa2cb95cd9766cc23b004c10"></a>
@@ -399,6 +401,20 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a0841fe0d051987f7b671a0e26ca699a3" name="a0841fe0d051987f7b671a0e26ca699a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0841fe0d051987f7b671a0e26ca699a3">&#9670;&#160;</a></span>hasMidiLearn</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">bool</a> ProcessorOptions::hasMidiLearn = <a class="el" href="classPoint.html">false</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a936b930e9a3271ae6d4e6f3201226635" name="a936b930e9a3271ae6d4e6f3201226635"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a936b930e9a3271ae6d4e6f3201226635">&#9670;&#160;</a></span>programmingCredits</h2>
 
@@ -440,7 +456,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jan 10 2026 15:41:24 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sat Jan 10 2026 21:48:30 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

@@ -2302,6 +2302,12 @@
     <class kind="class">HeaderRow</class>
   </compound>
   <compound kind="file">
+    <name>gin_horizontalfader.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__horizontalfader_8h.html</filename>
+    <class kind="class">HorizontalFader</class>
+  </compound>
+  <compound kind="file">
     <name>gin_knob.h</name>
     <path>build/gin_plugin/components/</path>
     <filename>gin__knob_8h.html</filename>
@@ -2312,6 +2318,12 @@
     <path>build/gin_plugin/components/</path>
     <filename>gin__lfocomponent_8h.html</filename>
     <class kind="class">LFOComponent</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_midilearnoverlay.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__midilearnoverlay_8h.html</filename>
+    <class kind="class">MidiLearnOverlay</class>
   </compound>
   <compound kind="file">
     <name>gin_msegcomponent.h</name>
@@ -2343,6 +2355,12 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>gin_paramcomponent.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__paramcomponent_8h.html</filename>
+    <class kind="class">ParamComponent</class>
+  </compound>
+  <compound kind="file">
     <name>gin_patchbrowser.h</name>
     <path>build/gin_plugin/components/</path>
     <filename>gin__patchbrowser_8h.html</filename>
@@ -2358,20 +2376,18 @@
     <class kind="class">PluginAlertWindow</class>
   </compound>
   <compound kind="file">
-    <name>gin_plugincomponents.h</name>
+    <name>gin_pluginbutton.h</name>
     <path>build/gin_plugin/components/</path>
-    <filename>gin__plugincomponents_8h.html</filename>
+    <filename>gin__pluginbutton_8h.html</filename>
     <class kind="class">PluginButton</class>
     <class kind="class">SVGPluginButton</class>
     <class kind="class">PowerButton</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_plugincombobox.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__plugincombobox_8h.html</filename>
     <class kind="class">PluginComboBox</class>
-    <class kind="class">PluginSlider</class>
-    <class kind="class">Readout</class>
-    <class kind="class">ParamComponent</class>
-    <class kind="class">HorizontalFader</class>
-    <class kind="class">Switch</class>
-    <class kind="class">Select</class>
-    <class kind="class">SynthesiserUsage</class>
   </compound>
   <compound kind="file">
     <name>gin_plugineditor.h</name>
@@ -2384,16 +2400,46 @@
     <class kind="class">ProcessorEditor</class>
   </compound>
   <compound kind="file">
+    <name>gin_pluginslider.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__pluginslider_8h.html</filename>
+    <class kind="class">PluginSlider</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_readout.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__readout_8h.html</filename>
+    <class kind="class">Readout</class>
+  </compound>
+  <compound kind="file">
     <name>gin_scaledplugineditor.h</name>
     <path>build/gin_plugin/components/</path>
     <filename>gin__scaledplugineditor_8h.html</filename>
     <class kind="class">ScaledPluginEditor</class>
   </compound>
   <compound kind="file">
+    <name>gin_select.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__select_8h.html</filename>
+    <class kind="class">Select</class>
+  </compound>
+  <compound kind="file">
     <name>gin_steplfocomponent.h</name>
     <path>build/gin_plugin/components/</path>
     <filename>gin__steplfocomponent_8h.html</filename>
     <class kind="class">StepLFOComponent</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_switch.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__switch_8h.html</filename>
+    <class kind="class">Switch</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_synthesiserusage.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__synthesiserusage_8h.html</filename>
+    <class kind="class">SynthesiserUsage</class>
   </compound>
   <compound kind="file">
     <name>gin_copperlookandfeel.h</name>
@@ -2421,6 +2467,12 @@
     <path>build/gin_plugin/lookandfeel/</path>
     <filename>gin__resources_8h.html</filename>
     <namespace>Resources</namespace>
+  </compound>
+  <compound kind="file">
+    <name>gin_midilearn.h</name>
+    <path>build/gin_plugin/plugin/</path>
+    <filename>gin__midilearn_8h.html</filename>
+    <class kind="class">MidiLearn</class>
   </compound>
   <compound kind="file">
     <name>gin_modmatrix.h</name>
@@ -11360,6 +11412,154 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>MidiLearn</name>
+    <filename>classMidiLearn.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>MidiLearn</name>
+      <anchorfile>classMidiLearn.html</anchorfile>
+      <anchor>a25883e10f2c69262c0d682ac2172dff4</anchor>
+      <arglist>(gin::Processor &amp;p)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~MidiLearn</name>
+      <anchorfile>classMidiLearn.html</anchorfile>
+      <anchor>a079e3ca406effab455f563b762a653bf</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classMidiLearn.html</anchorfile>
+      <anchor>a6f9ea32f8ff71bfeadb923736f3799e5</anchor>
+      <arglist>(double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setMapping</name>
+      <anchorfile>classMidiLearn.html</anchorfile>
+      <anchor>ad69b940a5b969b009d7b35ba2213bb22</anchor>
+      <arglist>(int ccNumber, gin::Parameter *param)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clearMapping</name>
+      <anchorfile>classMidiLearn.html</anchorfile>
+      <anchor>ad851e08d4f14711650ab3f12aaedf8cd</anchor>
+      <arglist>(int ccNumber)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clearMapping</name>
+      <anchorfile>classMidiLearn.html</anchorfile>
+      <anchor>af6c449a098fdd401fa886e0559b8885d</anchor>
+      <arglist>(gin::Parameter *param)</arglist>
+    </member>
+    <member kind="function">
+      <type>gin::Parameter *</type>
+      <name>getMapping</name>
+      <anchorfile>classMidiLearn.html</anchorfile>
+      <anchor>ae2fef8ccddcf962463eee1a657ece4ea</anchor>
+      <arglist>(int ccNumber) const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getMappedCC</name>
+      <anchorfile>classMidiLearn.html</anchorfile>
+      <anchor>a2a3c226ead68264204137d33ab0a41d7</anchor>
+      <arglist>(gin::Parameter *param) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>startLearning</name>
+      <anchorfile>classMidiLearn.html</anchorfile>
+      <anchor>af55190873048941146ad2582bb1bc50c</anchor>
+      <arglist>(gin::Parameter *param)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>cancelLearning</name>
+      <anchorfile>classMidiLearn.html</anchorfile>
+      <anchor>a6da33c3a699287babe55dcae4786f09d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isLearning</name>
+      <anchorfile>classMidiLearn.html</anchorfile>
+      <anchor>a6cea916e4a2cfa2b2c71b50923515fa7</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>gin::Parameter *</type>
+      <name>getLearningParameter</name>
+      <anchorfile>classMidiLearn.html</anchorfile>
+      <anchor>a6be2616d8cdc2ef5d58a08c0b435745c</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>processBlock</name>
+      <anchorfile>classMidiLearn.html</anchorfile>
+      <anchor>a7de3a766a34c843603ad3a19cb091a4a</anchor>
+      <arglist>(juce::MidiBuffer &amp;midi, int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>loadState</name>
+      <anchorfile>classMidiLearn.html</anchorfile>
+      <anchor>ab0a1a22f8ae3e6c4de964ab24fac687c</anchor>
+      <arglist>(const juce::ValueTree &amp;vt)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>saveState</name>
+      <anchorfile>classMidiLearn.html</anchorfile>
+      <anchor>a5f7f3287f632054c5dfe53475a396860</anchor>
+      <arglist>(juce::ValueTree &amp;vt)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>isValidCC</name>
+      <anchorfile>classMidiLearn.html</anchorfile>
+      <anchor>a2b3401ccee226118e384c38428cd3ed6</anchor>
+      <arglist>(int ccNumber)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>MidiLearnOverlay</name>
+    <filename>classMidiLearnOverlay.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>MidiLearnOverlay</name>
+      <anchorfile>classMidiLearnOverlay.html</anchorfile>
+      <anchor>a239ff9216d85f56375a79ae6b2605064</anchor>
+      <arglist>(MidiLearn &amp;ml)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~MidiLearnOverlay</name>
+      <anchorfile>classMidiLearnOverlay.html</anchorfile>
+      <anchor>aea0c40c12ab565f775efbc5a42e33202</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paint</name>
+      <anchorfile>classMidiLearnOverlay.html</anchorfile>
+      <anchor>a107977ae1009350d6b41f4650c4acb88</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hitTest</name>
+      <anchorfile>classMidiLearnOverlay.html</anchorfile>
+      <anchor>a3b7e150751ff377b84ff22a7fa6b9326</anchor>
+      <arglist>(int x, int y) override</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>ModCurveButton</name>
     <filename>classModCurveButton.html</filename>
     <member kind="function">
@@ -13656,6 +13856,13 @@
       <arglist>(Parameter *parameter)</arglist>
     </member>
     <member kind="function">
+      <type></type>
+      <name>~ParamComponent</name>
+      <anchorfile>classParamComponent.html</anchorfile>
+      <anchor>a7ce52df526dce7a8886f409c35c9fb9b</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
       <type>juce::String</type>
       <name>getUid</name>
       <anchorfile>classParamComponent.html</anchorfile>
@@ -13751,6 +13958,20 @@
       <name>getModMatrix</name>
       <anchorfile>classParameter.html</anchorfile>
       <anchor>a03214a30df7502114df477b14dda12e3</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setMidiLearn</name>
+      <anchorfile>classParameter.html</anchorfile>
+      <anchor>a2418b183a8238db7e812fe1507d08158</anchor>
+      <arglist>(MidiLearn *m)</arglist>
+    </member>
+    <member kind="function">
+      <type>MidiLearn *</type>
+      <name>getMidiLearn</name>
+      <anchorfile>classParameter.html</anchorfile>
+      <anchor>ac4ca5df086c42218ea62a1880e97f78d</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function" virtualness="virtual">
@@ -14101,6 +14322,13 @@
       <name>modMatrix</name>
       <anchorfile>classParameter.html</anchorfile>
       <anchor>a30f079fa8ecf5c5cd5735777e1ba74c8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>MidiLearn *</type>
+      <name>midiLearn</name>
+      <anchorfile>classParameter.html</anchorfile>
+      <anchor>a74dc877bc25d373c704486b30e586a78</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -15570,6 +15798,13 @@
       <anchor>a09c3b671e19fb6ba690ace06cca55aa9</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable">
+      <type>std::unique_ptr&lt; MidiLearn &gt;</type>
+      <name>midiLearn</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a8bb54bfcd02cdc7e6c2097c63de7c6b5</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected" virtualness="virtual">
       <type>virtual void</type>
       <name>stateUpdated</name>
@@ -15769,6 +16004,13 @@
       <name>titleBar</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
       <anchor>a765fed46b8f886ab4e6306124110ed68</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::unique_ptr&lt; MidiLearnOverlay &gt;</type>
+      <name>midiLearnOverlay</name>
+      <anchorfile>classProcessorEditor.html</anchorfile>
+      <anchor>aff2e47042ee4f7765655e9eb9b6d077b</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -16092,6 +16334,13 @@
       <name>useNewsChecker</name>
       <anchorfile>classProcessorOptions.html</anchorfile>
       <anchor>a050f3bfa588e3045b3a914715c961bc3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>hasMidiLearn</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>a0841fe0d051987f7b671a0e26ca699a3</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -22018,8 +22267,10 @@
     <class kind="class">GateEffectComponent</class>
     <class kind="class">HeaderItem</class>
     <class kind="class">HeaderRow</class>
+    <class kind="class">HorizontalFader</class>
     <class kind="class">Knob</class>
     <class kind="class">LFOComponent</class>
+    <class kind="class">MidiLearnOverlay</class>
     <class kind="class">ModulationSourceButton</class>
     <class kind="class">ModulationDepthSlider</class>
     <class kind="class">ModulationOverview</class>
@@ -22034,6 +22285,7 @@
     <class kind="class">ParamBox</class>
     <class kind="class">ParamArea</class>
     <class kind="class">BoxArea</class>
+    <class kind="class">ParamComponent</class>
     <class kind="class">PatchBrowser</class>
     <class kind="struct">PatchBrowser::AuthorsModel</class>
     <class kind="struct">PatchBrowser::TagsModel</class>
@@ -22043,20 +22295,18 @@
     <class kind="class">SVGPluginButton</class>
     <class kind="class">PowerButton</class>
     <class kind="class">PluginComboBox</class>
-    <class kind="class">PluginSlider</class>
-    <class kind="class">Readout</class>
-    <class kind="class">ParamComponent</class>
-    <class kind="class">HorizontalFader</class>
-    <class kind="class">Switch</class>
-    <class kind="class">Select</class>
-    <class kind="class">SynthesiserUsage</class>
     <class kind="class">UpdateChecker</class>
     <class kind="class">NewsChecker</class>
     <class kind="class">ProcessorEditorBase</class>
     <class kind="class">TitleBar</class>
     <class kind="class">ProcessorEditor</class>
+    <class kind="class">PluginSlider</class>
+    <class kind="class">Readout</class>
     <class kind="class">ScaledPluginEditor</class>
+    <class kind="class">Select</class>
     <class kind="class">StepLFOComponent</class>
+    <class kind="class">Switch</class>
+    <class kind="class">SynthesiserUsage</class>
     <member kind="function">
       <type>void</type>
       <name>gradientRect</name>
@@ -23048,6 +23298,7 @@
     <name>gin_plugin-plugin</name>
     <title>plugin</title>
     <filename>group__gin__plugin-plugin.html</filename>
+    <class kind="class">MidiLearn</class>
     <class kind="struct">ModSrcId</class>
     <class kind="struct">ModDstId</class>
     <class kind="class">ModVoice</class>

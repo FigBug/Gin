@@ -26,13 +26,14 @@ var searchData=
   ['loadfromfile_23',['loadFromFile',['../classProgram.html#a57fe788b51aeada66d4cfc8a927be78b',1,'Program']]],
   ['loadmacros_24',['loadMacros',['../classLayoutSupport.html#a3cf4aa833c85066fdcb6a7bc9af9c19e',1,'LayoutSupport']]],
   ['loadprocessor_25',['loadProcessor',['../classProgram.html#a8ece34e8c3ec235007a4dfe53178207c',1,'Program']]],
-  ['loadwavetables_26',['loadWavetables',['../group__gin__dsp-dsp.html#ga076fc8240a1dea59019d4bdb2a3ee49d',1,'gin_wtoscillators.h']]],
-  ['locationchanged_27',['locationChanged',['../classLocationManager_1_1Listener.html#ae62d44de083e85d30933c030945765cb',1,'LocationManager::Listener']]],
-  ['locationmanager_28',['LocationManager',['../classLocationManager.html#a1c55344991005582a34274f18ce7c14b',1,'LocationManager']]],
-  ['lock_29',['lock',['../classSystemSemaphore.html#a732fd5e497ace0769fce68aa9fe53764',1,'SystemSemaphore']]],
-  ['lockfreequeue_30',['LockFreeQueue',['../classLockFreeQueue.html#ac4fdd21aae93a42ddbfd725a22c8bb90',1,'LockFreeQueue']]],
-  ['lookat_31',['lookAt',['../structMat4.html#a26cd9eb7affcb0df62569adad34bcacf',1,'Mat4']]],
-  ['lp12state_32',['LP12State',['../structLP12State.html#a439292ecb27bfe33097d9ba0255c7a02',1,'LP12State']]],
-  ['lp24state_33',['LP24State',['../structLP24State.html#aa49c9ae5be422d7eb09fd3b37b552fec',1,'LP24State']]],
-  ['lrucache_34',['LRUCache',['../classLRUCache.html#a54bfc6417964bd4b2f5a988b9989d00d',1,'LRUCache']]]
+  ['loadstate_26',['loadState',['../classMidiLearn.html#ab0a1a22f8ae3e6c4de964ab24fac687c',1,'MidiLearn']]],
+  ['loadwavetables_27',['loadWavetables',['../group__gin__dsp-dsp.html#ga076fc8240a1dea59019d4bdb2a3ee49d',1,'gin_wtoscillators.h']]],
+  ['locationchanged_28',['locationChanged',['../classLocationManager_1_1Listener.html#ae62d44de083e85d30933c030945765cb',1,'LocationManager::Listener']]],
+  ['locationmanager_29',['LocationManager',['../classLocationManager.html#a1c55344991005582a34274f18ce7c14b',1,'LocationManager']]],
+  ['lock_30',['lock',['../classSystemSemaphore.html#a732fd5e497ace0769fce68aa9fe53764',1,'SystemSemaphore']]],
+  ['lockfreequeue_31',['LockFreeQueue',['../classLockFreeQueue.html#ac4fdd21aae93a42ddbfd725a22c8bb90',1,'LockFreeQueue']]],
+  ['lookat_32',['lookAt',['../structMat4.html#a26cd9eb7affcb0df62569adad34bcacf',1,'Mat4']]],
+  ['lp12state_33',['LP12State',['../structLP12State.html#a439292ecb27bfe33097d9ba0255c7a02',1,'LP12State']]],
+  ['lp24state_34',['LP24State',['../structLP24State.html#aa49c9ae5be422d7eb09fd3b37b552fec',1,'LP24State']]],
+  ['lrucache_35',['LRUCache',['../classLRUCache.html#a54bfc6417964bd4b2f5a988b9989d00d',1,'LRUCache']]]
 ];
