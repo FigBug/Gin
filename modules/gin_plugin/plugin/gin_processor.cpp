@@ -56,6 +56,8 @@ Processor::Processor (const BusesProperties& ioLayouts, bool init_, ProcessorOpt
 
 Processor::~Processor()
 {
+    // make sure midi learn is destroyed before any of the parameters
+    midiLearn = nullptr;
 }
 
 void Processor::init()
