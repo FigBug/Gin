@@ -1,19 +1,19 @@
 var searchData=
 [
-  ['n_0',['n',['../classLinearRegression.html#a2538a18e56f7da311ae94edbb903e1bd',1,'LinearRegression::n'],['../structWSHeaderType.html#a280de6932d75f1d0b3f5687f839d4e92',1,'WSHeaderType::N']]],
+  ['n_0',['n',['../structWSHeaderType.html#a280de6932d75f1d0b3f5687f839d4e92',1,'WSHeaderType::N'],['../classLinearRegression.html#a2538a18e56f7da311ae94edbb903e1bd',1,'LinearRegression::n']]],
   ['n0_1',['N0',['../structWSHeaderType.html#a6c084039602e19593f16e198194258ea',1,'WSHeaderType']]],
   ['name_2',['name',['../classProgram.html#ab960dff0d490441b19a47c7788ef5308',1,'Program::name'],['../classParameter.html#af3f67d57880c012b966413174dff2e75',1,'Parameter::name'],['../classSelect.html#a68477089c5c406d199fe071d09080be4',1,'Select::name'],['../classHorizontalFader.html#ab70425a9c8226dd53432dde0222dba8f',1,'HorizontalFader::name'],['../classKnob.html#a4cf5ed46637f0b10594b6d43b2f4067b',1,'Knob::name'],['../group__gin__gui-utilities.html#gab7f29046e16e28190c441e4b50e638d7',1,'juce::VarIterator::NamedValue::name'],['../structLayoutSupport_1_1JsonFile.html#a2b9f0063b43223b5b8af0cd698214f91',1,'LayoutSupport::JsonFile::name']]],
   ['namedvalue_3',['NamedValue',['../structjuce_1_1VarIterator_1_1NamedValue.html',1,'juce::VarIterator']]],
   ['negation_4',['Negation',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab94b0efce58a77e1c8fa29e32536c728',1,'gin_imageeffects.h']]],
   ['network_5',['network',['../group__gin__network-network.html',1,'']]],
   ['newline_6',['newLine',['../structDiff_1_1Patch_1_1Hunk.html#ad178d76354944fcc6bef4e3417a30d7a',1,'Diff::Patch::Hunk']]],
-  ['newschecker_7',['newschecker',['../classTitleBar.html#ab00ac1e8d688d411c19dc7ee9e3feac7',1,'TitleBar::newsChecker'],['../classNewsChecker.html#a519004dfd3ae54255b2eff7a132e0a00',1,'NewsChecker::NewsChecker()'],['../classNewsChecker.html',1,'NewsChecker']]],
+  ['newschecker_7',['newschecker',['../classNewsChecker.html#a519004dfd3ae54255b2eff7a132e0a00',1,'NewsChecker::NewsChecker()'],['../classTitleBar.html#ab00ac1e8d688d411c19dc7ee9e3feac7',1,'TitleBar::newsChecker'],['../classNewsChecker.html',1,'NewsChecker']]],
   ['next_8',['next',['../namespaceAssets.html#a7e39560cce3d5062215a8a94f967e741',1,'Assets::next'],['../classPatchBrowser.html#acca4a794212c331878636360a8650723',1,'PatchBrowser::next()']]],
   ['nextbutton_9',['nextButton',['../classTitleBar.html#adbdac6bcc1d15a4b014231dc9a799a6e',1,'TitleBar']]],
   ['nextsample_10',['nextsample',['../classWhiteNoise.html#a861fbf92d0f2d6aa523c15204bcf1aec',1,'WhiteNoise::nextSample()'],['../classPinkNoise.html#afbc5d70a4188d49b141e948e6cd50f7f',1,'PinkNoise::nextSample()']]],
   ['noise_11',['noise',['../structNoiseState.html#aefe7592305be8b255c28fa2f48a16843',1,'NoiseState::noise'],['../classPerlinNoise.html#a3aa782c396ab798493ad7529960c5a9a',1,'PerlinNoise::noise()'],['../classLFO.html#a9377c9fb47d163e9343a11edd200da29aaaddc3454ccbefbb2d8d8461f8f7f481',1,'LFO::noise']]],
   ['noisestate_12',['noisestate',['../structNoiseState.html',1,'NoiseState'],['../structNoiseState.html#aa06fa66ee55cd4475d56218b94c96112',1,'NoiseState::NoiseState()']]],
-  ['none_13',['none',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40ae7f5e1acdd8d7e12e9a4e84ada96839e',1,'TriggeredScope::None'],['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a334c4a4c42fdb79d7ebc3e73b517e6f8',1,'LFO::none'],['../classFilter.html#a8f99602312ccfbe9e1598532158726c0ae6e303ddb4b9092543178146dfe3c9dd',1,'Filter::none']]],
+  ['none_13',['none',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a334c4a4c42fdb79d7ebc3e73b517e6f8',1,'LFO::none'],['../classFilter.html#a8f99602312ccfbe9e1598532158726c0ae6e303ddb4b9092543178146dfe3c9dd',1,'Filter::none'],['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40ae7f5e1acdd8d7e12e9a4e84ada96839e',1,'TriggeredScope::None']]],
   ['nopermissions_14',['nopermissions',['../classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30fabe61a1bc08244491bfbe19296953ddb1',1,'ElevatedFileCopy']]],
   ['normal_15',['normal',['../classAudioRecorder.html#a9884aa523051c23ae78f5e9e4c86b449afea087517c26fadd409bd4b9dc642555',1,'AudioRecorder::normal'],['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a5ecbcf0afce98b042f35ec71ba03fa4b',1,'Normal:&#160;gin_imageeffects.h']]],
   ['normalize_16',['normalize',['../structVec3.html#aaa52699051347366ad9836673b688c0f',1,'Vec3']]],
@@ -35,9 +35,10 @@ var searchData=
   ['noteretriggered_32',['noteRetriggered',['../classSynthesiserVoice.html#a3d50ddac2700fd39a6a00f865de211ad',1,'SynthesiserVoice']]],
   ['notespertable_33',['notesPerTable',['../classBandLimitedLookupTable.html#a16759d173143073a70627173a7b45220',1,'BandLimitedLookupTable']]],
   ['nsimagetoimage_34',['nsImageToImage',['../namespacemacOS.html#aa16780bbaa0ee9db90a45b1ac772cd41',1,'macOS']]],
-  ['numchannels_35',['numchannels',['../structAudioProcessorPlayer_1_1NumChannels.html#a5e0880ee8a074d4784e8b4e51dfd61d1',1,'AudioProcessorPlayer::NumChannels::NumChannels(int numIns, int numOuts)'],['../structAudioProcessorPlayer_1_1NumChannels.html#a2afe27ce65b2292803d7c479d1c41731',1,'AudioProcessorPlayer::NumChannels::NumChannels(const juce::AudioProcessor::BusesLayout &amp;layout)'],['../structAudioProcessorPlayer_1_1NumChannels.html#ac86fef4347a2aaa500f08b04583f4448',1,'AudioProcessorPlayer::NumChannels::NumChannels()=default'],['../structAudioProcessorPlayer_1_1NumChannels.html',1,'AudioProcessorPlayer::NumChannels']]],
-  ['numerator_36',['numerator',['../classAudioMetadata.html#a58358a2c2f1cda302296bc1610218d18',1,'AudioMetadata']]],
-  ['numins_37',['numIns',['../structStandalonePluginHolder_1_1PluginInOuts.html#a2c18cb6876bc952ba5df80df92500c34',1,'StandalonePluginHolder::PluginInOuts']]],
-  ['numouts_38',['numOuts',['../structStandalonePluginHolder_1_1PluginInOuts.html#ae8defe449815bf6e651a92944240f6c0',1,'StandalonePluginHolder::PluginInOuts']]],
-  ['numpoints_39',['numPoints',['../structMSEG_1_1Data.html#a346affc8c6dea61cc798b9fda79e7248',1,'MSEG::Data']]]
+  ['numbands_35',['NumBands',['../classGraphicEQ.html#a6d636078e63f2e681ecb6c82a700ab4a',1,'GraphicEQ']]],
+  ['numchannels_36',['numchannels',['../structAudioProcessorPlayer_1_1NumChannels.html#ac86fef4347a2aaa500f08b04583f4448',1,'AudioProcessorPlayer::NumChannels::NumChannels()=default'],['../structAudioProcessorPlayer_1_1NumChannels.html#a5e0880ee8a074d4784e8b4e51dfd61d1',1,'AudioProcessorPlayer::NumChannels::NumChannels(int numIns, int numOuts)'],['../structAudioProcessorPlayer_1_1NumChannels.html#a2afe27ce65b2292803d7c479d1c41731',1,'AudioProcessorPlayer::NumChannels::NumChannels(const juce::AudioProcessor::BusesLayout &amp;layout)'],['../structAudioProcessorPlayer_1_1NumChannels.html',1,'AudioProcessorPlayer::NumChannels']]],
+  ['numerator_37',['numerator',['../classAudioMetadata.html#a58358a2c2f1cda302296bc1610218d18',1,'AudioMetadata']]],
+  ['numins_38',['numIns',['../structStandalonePluginHolder_1_1PluginInOuts.html#a2c18cb6876bc952ba5df80df92500c34',1,'StandalonePluginHolder::PluginInOuts']]],
+  ['numouts_39',['numOuts',['../structStandalonePluginHolder_1_1PluginInOuts.html#ae8defe449815bf6e651a92944240f6c0',1,'StandalonePluginHolder::PluginInOuts']]],
+  ['numpoints_40',['numPoints',['../structMSEG_1_1Data.html#a346affc8c6dea61cc798b9fda79e7248',1,'MSEG::Data']]]
 ];

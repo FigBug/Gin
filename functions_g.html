@@ -89,6 +89,8 @@ $(function() {
 <li>getAuthorization()&#160;:&#160;<a class="el" href="classLocationManager.html#a20f737d3ec8df3c623ecd83170721961">LocationManager</a></li>
 <li>getAverage()&#160;:&#160;<a class="el" href="classRollingAverage.html#a6dd6f624ec61f187cbe4c46810fa03e4">RollingAverage</a></li>
 <li>getB()&#160;:&#160;<a class="el" href="classLinearRegression.html#ac1ca4812272ecf0dca2cc80854adddb4">LinearRegression</a></li>
+<li>getBandFrequency()&#160;:&#160;<a class="el" href="classGraphicEQ.html#afc6301ea34724df0c92d63f0c760d67a">GraphicEQ</a></li>
+<li>getBandGain()&#160;:&#160;<a class="el" href="classGraphicEQ.html#a2d072deb9cfc7dabd2b4615b3f197840">GraphicEQ</a></li>
 <li>getBars()&#160;:&#160;<a class="el" href="classNoteDuration.html#aeca9cc925bdc103efd673e5955936dec">NoteDuration</a></li>
 <li>getBeats()&#160;:&#160;<a class="el" href="classNoteDuration.html#ad6fb063dabea938c93ddf887227c71ac">NoteDuration</a></li>
 <li>getBoolValue()&#160;:&#160;<a class="el" href="classParameter.html#a9bc8e183ac8f271dbc8c4ee0aff647e5">Parameter</a></li>
@@ -125,6 +127,8 @@ $(function() {
 <li>getFrame()&#160;:&#160;<a class="el" href="classParamBox.html#aa4cae3001b7dd64c5f319d68cd538d3d">ParamBox</a></li>
 <li>getFreeSpace()&#160;:&#160;<a class="el" href="classAudioFifo.html#af75865aa3db5a5fb798768c6c358d147">AudioFifo</a>, <a class="el" href="classLockFreeQueue.html#a25b60519d6f56e2d1d8c793071097797">LockFreeQueue&lt; T &gt;</a></li>
 <li>getFrequency()&#160;:&#160;<a class="el" href="classFilter.html#ab5da0bdb9d337ee58d0066fb0eff8f80">Filter</a></li>
+<li>getFrequencyResponse()&#160;:&#160;<a class="el" href="classGraphicEQ.html#a16e6c7cf1720c638bd5fc18eb788f299">GraphicEQ</a></li>
+<li>getFrequencyResponseDb()&#160;:&#160;<a class="el" href="classGraphicEQ.html#a6243cc785fb5c60d755ccd0cbf03533c">GraphicEQ</a></li>
 <li>getFromImage()&#160;:&#160;<a class="el" href="classImageMetadata.html#a2370391c426e1544b439a6b556f0109c">ImageMetadata</a></li>
 <li>getFullGridArea()&#160;:&#160;<a class="el" href="classProcessorEditorBase.html#ade640c5b6109fde15ea5ad6f42cb0c6f">ProcessorEditorBase</a></li>
 <li>getFuncParams()&#160;:&#160;<a class="el" href="classAudioFunctionHost.html#af51e6031c672f42919631e07fd9c2d79">AudioFunctionHost</a></li>
@@ -174,8 +178,9 @@ $(function() {
 <li>getNextValue()&#160;:&#160;<a class="el" href="classEasedValueSmoother.html#ad97a48bbc53aaf6302a4856bb5142690">EasedValueSmoother&lt; T, EasingFunction &gt;</a>, <a class="el" href="classValueSmoother.html#ae344ea65895d160583cb8ad824521ced">ValueSmoother&lt; T &gt;</a></li>
 <li>getNoteDurations()&#160;:&#160;<a class="el" href="classNoteDuration.html#a4637eefaa74fb2e3002d9717b5d0697a">NoteDuration</a></li>
 <li>getNumActiveVoices()&#160;:&#160;<a class="el" href="classSynthesiser.html#a281b865ea89afe1dab3fda4b266e5b66">Synthesiser</a></li>
+<li>getNumBands()&#160;:&#160;<a class="el" href="classGraphicEQ.html#a54bda930dad240db666ec2d85e8681ed">GraphicEQ</a></li>
 <li>getNumberOfDownloads()&#160;:&#160;<a class="el" href="classDownloadManager.html#af9024fa154ed3cab25a9f720a0f16bc7">DownloadManager</a></li>
-<li>getNumChannels()&#160;:&#160;<a class="el" href="classAudioFifo.html#a1785c13df07556b5d5e42176de6734af">AudioFifo</a></li>
+<li>getNumChannels()&#160;:&#160;<a class="el" href="classAudioFifo.html#a1785c13df07556b5d5e42176de6734af">AudioFifo</a>, <a class="el" href="classGraphicEQ.html#a0c35a208137b65327ca809829db37698">GraphicEQ</a></li>
 <li>getNumDownloadsInQueue()&#160;:&#160;<a class="el" href="classDownloadManager.html#a9f504d3d1f26d2c4d390178b04db4d87">DownloadManager</a></li>
 <li>getNumInputChannels()&#160;:&#160;<a class="el" href="classStandalonePluginHolder.html#a573ad18adc8ffcd6b3ee85753f816edb">StandalonePluginHolder</a></li>
 <li>getNumLines()&#160;:&#160;<a class="el" href="classObject3D.html#ac601bd5fd6cf61c0c02ccb386edbd416">Object3D</a></li>
@@ -287,6 +292,7 @@ $(function() {
 <li>glideInfo&#160;:&#160;<a class="el" href="classSynthesiserVoice.html#a0b618c0309abdbff794b2c082dbaa993">SynthesiserVoice</a></li>
 <li>glissando&#160;:&#160;<a class="el" href="structGlideInfo.html#a9d07e5c884046e64cf09d6b24a26b69e">GlideInfo</a></li>
 <li>globalFocusChanged()&#160;:&#160;<a class="el" href="classProcessorEditorBase.html#a534df390c7aa61933255e6397546234e">ProcessorEditorBase</a></li>
+<li>GraphicEQ()&#160;:&#160;<a class="el" href="classGraphicEQ.html#a05533020e1be064c0c410e933f229170">GraphicEQ</a></li>
 <li>grey30ColourId&#160;:&#160;<a class="el" href="classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a8836ddb4187fd9683c6952817859a255">GinLookAndFeel</a></li>
 <li>grey45ColourId&#160;:&#160;<a class="el" href="classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a66a982d75840d72c1c9ef4eb0a302fd6">GinLookAndFeel</a></li>
 <li>grey60ColourId&#160;:&#160;<a class="el" href="classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a87882c3f6219ea41cd1e0522707f4aa5">GinLookAndFeel</a></li>
@@ -297,7 +303,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jan 10 2026 01:05:49 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sat Jan 10 2026 15:27:17 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

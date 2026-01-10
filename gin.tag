@@ -1116,6 +1116,17 @@
     <class kind="class">GateEffect</class>
   </compound>
   <compound kind="file">
+    <name>gin_graphiceq.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__graphiceq_8h.html</filename>
+    <class kind="class">GraphicEQ</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_graphiceq.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__graphiceq_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_leveltracker.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__leveltracker_8h.html</filename>
@@ -8358,6 +8369,182 @@
       <anchorfile>structGlideInfo.html</anchorfile>
       <anchor>add32d1f350249b4c824f299cb58efa8e</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>GraphicEQ</name>
+    <filename>classGraphicEQ.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>NumBands</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a6d636078e63f2e681ecb6c82a700ab4a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Bands5</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a6d636078e63f2e681ecb6c82a700ab4aab800b9324c8e3416c77744dee4ea46b0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Bands7</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a6d636078e63f2e681ecb6c82a700ab4aa033ae5e38c9e88cc42dce62c1d0c1c82</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Bands10</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a6d636078e63f2e681ecb6c82a700ab4aa56e3eb6f2656d5609ccf4ad9cef774d2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Bands15</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a6d636078e63f2e681ecb6c82a700ab4aa2a1740878e5c784d34e1c64fe44fb893</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Bands31</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a6d636078e63f2e681ecb6c82a700ab4aa4462f09d8f0d3a18766170ca4f962eca</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Bands5</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a6d636078e63f2e681ecb6c82a700ab4aab800b9324c8e3416c77744dee4ea46b0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Bands7</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a6d636078e63f2e681ecb6c82a700ab4aa033ae5e38c9e88cc42dce62c1d0c1c82</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Bands10</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a6d636078e63f2e681ecb6c82a700ab4aa56e3eb6f2656d5609ccf4ad9cef774d2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Bands15</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a6d636078e63f2e681ecb6c82a700ab4aa2a1740878e5c784d34e1c64fe44fb893</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Bands31</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a6d636078e63f2e681ecb6c82a700ab4aa4462f09d8f0d3a18766170ca4f962eca</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>GraphicEQ</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a05533020e1be064c0c410e933f229170</anchor>
+      <arglist>(NumBands bands=Bands31)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a41f6507620c79ec6031ff01c23ce2874</anchor>
+      <arglist>(double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setNumChannels</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a0e5c4eaec309380415698e85d0b71598</anchor>
+      <arglist>(int ch)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumBands</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a54bda930dad240db666ec2d85e8681ed</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumChannels</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a0c35a208137b65327ca809829db37698</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a90df6fe304bd92b8527a892ff3fea527</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setBandGain</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a43079e689277bc34a00613df6ff2802c</anchor>
+      <arglist>(int channel, int band, float gainDb)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getBandGain</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a2d072deb9cfc7dabd2b4615b3f197840</anchor>
+      <arglist>(int channel, int band) const</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getBandFrequency</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>afc6301ea34724df0c92d63f0c760d67a</anchor>
+      <arglist>(int band) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAllBandGains</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>ae0bdd5a520bf67e048f235aa41b98aa4</anchor>
+      <arglist>(int channel, const float *gains)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>flatten</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>ad09addf8ea9d34112291bb8786fbe07a</anchor>
+      <arglist>(int channel)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>flattenAll</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a6a335368a2d9c43ce45d8d15f0d3e4b1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getFrequencyResponse</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a16e6c7cf1720c638bd5fc18eb788f299</anchor>
+      <arglist>(int channel, float frequency) const</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getFrequencyResponseDb</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a6243cc785fb5c60d755ccd0cbf03533c</anchor>
+      <arglist>(int channel, float frequency) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a28934c6b3e288a0f6963fea7ef72b62a</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -21987,6 +22174,7 @@
     <class kind="class">FastMath</class>
     <class kind="class">Filter</class>
     <class kind="class">GateEffect</class>
+    <class kind="class">GraphicEQ</class>
     <class kind="class">LevelTracker</class>
     <class kind="class">LFO</class>
     <class kind="struct">LFO::Parameters</class>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['tilesource_0',['TileSource',['../classOpenStreetMaps.html#ad685bb52fa0d8ea27d8fd8a152958020',1,'OpenStreetMaps']]],
-  ['triggermode_1',['TriggerMode',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40',1,'TriggeredScope']]],
-  ['type_2',['type',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576',1,'Dynamics::Type'],['../classEQ.html#afd7d7b03b08fd8ca89204c04ff847010',1,'EQ::Type'],['../classFilter.html#a8f99602312ccfbe9e1598532158726c0',1,'Filter::Type'],['../classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7c',1,'SmoothingType::Type']]]
+  ['slope_0',['Slope',['../classFilter.html#a5ef1acf81c79c0c8a0ecd8a52e38d4f2',1,'Filter']]],
+  ['state_1',['state',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127a',1,'ADSR::State'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188e',1,'AnalogADSR::State']]],
+  ['style_2',['Style',['../classWavetableComponent.html#a217cee3a7a95cda05f8962f9ce8c25f8',1,'WavetableComponent']]]
 ];
