@@ -64,6 +64,7 @@ using namespace gin;
 #include "../../../modules/gin_plugin/plugin/gin_smoothedparameter.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_filter.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_eq.test.h"
+#include "../../../modules/gin_dsp/dsp/gin_graphiceq.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_synthesiser.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_wavetable.test.h"
 #include "../../../modules/gin_3d/3d/gin_vec3.test.h"

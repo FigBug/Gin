@@ -98,6 +98,7 @@ namespace gin
 #include "dsp/gin_fastmath.h"
 #include "dsp/gin_filter.h"
 #include "dsp/gin_eq.h"
+#include "dsp/gin_graphiceq.h"
 #include "dsp/gin_gateeffect.h"
 #include "dsp/gin_lfo.h"
 #include "dsp/gin_midififo.h"
