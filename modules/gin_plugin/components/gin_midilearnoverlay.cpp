@@ -111,7 +111,6 @@ void MidiLearnOverlay::paint (juce::Graphics& g)
     const auto stateCol = successPhase > 0.0f ? juce::Colours::limegreen : juce::Colours::gold;
 
     const auto thickness = juce::jmap (correctedPhase, 0.0f, 9.0f);
-    const auto expansion = 14.0f - thickness / 2.0f;
 
     const auto bckBright = std::clamp (findColour (GinLookAndFeel::backgroundColourId).getPerceivedBrightness() - 0.25f, 0.0f, 1.0f);
     const auto bckCol = juce::Colours::black.withAlpha (bckBright * newAlpha);
