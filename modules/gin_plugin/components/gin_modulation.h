@@ -526,6 +526,7 @@ private:
                     };
 
                     juce::PopupMenu m;
+                    m.setLookAndFeel (&getLookAndFeel());
 
                     m.addItem ("Linear", true, f == ModMatrix::Function::linear, [set] { set (ModMatrix::Function::linear); });
                     m.addItem ("Quadratic In", true, f == ModMatrix::Function::quadraticIn, [set] { set (ModMatrix::Function::quadraticIn); });

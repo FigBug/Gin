@@ -2,6 +2,7 @@
 
 class Processor;
 class ModMatrix;
+class MidiLearn;
 
 //==============================================================================
 /**
@@ -80,6 +81,8 @@ public:
     int getModIndex() const             { return modIndex;  }
     void setModMatrix (ModMatrix* m)    { modMatrix = m;    }
     ModMatrix* getModMatrix() const     { return modMatrix; }
+    void setMidiLearn (MidiLearn* m)    { midiLearn = m;    }
+    MidiLearn* getMidiLearn() const     { return midiLearn; }
 
     virtual void prepareToPlay (double /*sampleRate*/, int /*samplesPerBlock*/)    {}
     virtual void reset()                                                           {}
@@ -186,6 +189,7 @@ protected:
 
     bool internal = false;
     ModMatrix* modMatrix = nullptr;
+    MidiLearn* midiLearn = nullptr;
     int modIndex = -1;
 
     std::atomic<float> value {0.0f};

@@ -532,7 +532,48 @@ void TitleBar::showMenu()
     {
         editor.setUseIncreasedKeyboardAccessibility (! editor.getUseIncreasedKeyboardAccessibility());
     });
-    
+
+    m.addSeparator();
+    if (slProc.midiLearn != nullptr)
+    {
+        m.addItem ("Load MIDI Map...", [this]
+        {
+            auto chooser = std::make_shared<juce::FileChooser> ("Load MIDI Map", juce::File(), "*.midimap");
+            chooser->launchAsync (juce::FileBrowserComponent::openMode | juce::FileBrowserComponent::canSelectFiles,
+                [this, chooser] (const juce::FileChooser&)
+                {
+                    auto file = chooser->getResult();
+                    if (file.existsAsFile())
+                    {
+                        if (auto xml = juce::XmlDocument::parse (file))
+                        {
+                            auto vt = juce::ValueTree::fromXml (*xml);
+                            if (vt.isValid())
+                                slProc.midiLearn->loadState (vt);
+                        }
+                    }
+                });
+        });
+
+        m.addItem ("Save MIDI Map...", [this]
+        {
+            auto chooser = std::make_shared<juce::FileChooser> ("Save MIDI Map", juce::File(), "*.midimap");
+            chooser->launchAsync (juce::FileBrowserComponent::saveMode | juce::FileBrowserComponent::canSelectFiles,
+                [this, chooser] (const juce::FileChooser&)
+                {
+                    auto file = chooser->getResult();
+                    if (file != juce::File())
+                    {
+                        juce::ValueTree vt ("MIDIMAP");
+                        slProc.midiLearn->saveState (vt);
+
+                        if (auto xml = vt.createXml())
+                            xml->writeTo (file.withFileExtension ("midimap"));
+                    }
+                });
+        });
+    }
+
     editor.addMenuItems (m);
 
     m.setLookAndFeel ( &getLookAndFeel());
@@ -645,6 +686,12 @@ ProcessorEditor::ProcessorEditor (Processor& p) noexcept
     addAndMakeVisible (titleBar);
     addChildComponent (patchBrowser);
 
+    if (slProc.midiLearn != nullptr)
+    {
+        midiLearnOverlay = std::make_unique<MidiLearnOverlay> (*slProc.midiLearn);
+        addAndMakeVisible (*midiLearnOverlay);
+    }
+
     titleBar.refreshPrograms();
 
     triggerAsyncUpdate();
@@ -659,6 +706,12 @@ ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_) noexcept
 
     addAndMakeVisible (titleBar);
     addChildComponent (patchBrowser);
+
+    if (slProc.midiLearn != nullptr)
+    {
+        midiLearnOverlay = std::make_unique<MidiLearnOverlay> (*slProc.midiLearn);
+        addAndMakeVisible (*midiLearnOverlay);
+    }
 
     titleBar.refreshPrograms();
 
@@ -710,6 +763,9 @@ void ProcessorEditor::resized()
     titleBar.setBounds (rc.removeFromTop (headerHeight - 1));
 
     patchBrowser.setBounds (getFullGridArea());
+
+    if (midiLearnOverlay != nullptr)
+        midiLearnOverlay->setBounds (getLocalBounds());
 }
 
 void ProcessorEditor::showAboutInfo()

@@ -1,0 +1,248 @@
+//==============================================================================
+MidiLearn::MidiLearn (gin::Processor& p)
+    : processor (p)
+{
+    for (auto param : processor.getPluginParameters())
+        param->setMidiLearn (this);
+
+    loadFromSettings();
+}
+
+MidiLearn::~MidiLearn()
+{
+    for (auto param : processor.getPluginParameters())
+        param->setMidiLearn (nullptr);
+}
+
+//==============================================================================
+void MidiLearn::setMapping (int ccNumber, gin::Parameter* param)
+{
+    jassert (ccNumber >= 0 && ccNumber < 128);
+    items[(size_t) ccNumber].parameter = param;
+}
+
+void MidiLearn::clearMapping (int ccNumber)
+{
+    jassert (ccNumber >= 0 && ccNumber < 128);
+    items[(size_t) ccNumber].parameter = nullptr;
+    saveToSettings();
+}
+
+void MidiLearn::clearMapping (gin::Parameter* param)
+{
+    for (auto& item : items)
+        if (item.parameter == param)
+            item.parameter = nullptr;
+
+    saveToSettings();
+}
+
+gin::Parameter* MidiLearn::getMapping (int ccNumber) const
+{
+    jassert (ccNumber >= 0 && ccNumber < 128);
+    return items[(size_t) ccNumber].parameter;
+}
+
+int MidiLearn::getMappedCC (gin::Parameter* param) const
+{
+    for (int i = 0; i < 128; i++)
+        if (items[(size_t) i].parameter == param)
+            return i;
+
+    return -1;
+}
+
+void MidiLearn::startLearning (gin::Parameter* param)
+{
+    learnParameter = param;
+    learnStartCCValues = currentCCValues;
+}
+
+void MidiLearn::cancelLearning()
+{
+    learnParameter = nullptr;
+}
+
+bool MidiLearn::isValidCC (int ccNumber)
+{
+    // Exclude Bank Select MSB/LSB and Channel Mode Messages (120-127)
+    if (ccNumber == 0 || ccNumber == 32 || ccNumber >= 120)
+        return false;
+
+    return true;
+}
+
+void MidiLearn::processBlock (juce::MidiBuffer& midi, int numSamples)
+{
+    // Decrement all active countdowns
+    for (auto& item : items)
+    {
+        if (item.active)
+        {
+            item.countdown -= numSamples;
+
+            if (item.countdown <= 0)
+            {
+                item.active = false;
+                item.countdown = 0;
+
+                if (item.parameter != nullptr)
+                    item.parameter->endUserAction();
+            }
+        }
+    }
+
+    // Process incoming MIDI CC messages
+    for (const auto metadata : midi)
+    {
+        const auto msg = metadata.getMessage();
+
+        if (msg.isController())
+        {
+            const int ccNumber = msg.getControllerNumber();
+            const int ccValue = msg.getControllerValue();
+
+            // Track current CC values
+            currentCCValues[(size_t) ccNumber] = ccValue;
+
+            // Handle learn mode - only for valid CCs that have changed enough
+            if (learnParameter != nullptr && isValidCC (ccNumber))
+            {
+                const int delta = std::abs (ccValue - learnStartCCValues[(size_t) ccNumber]);
+                if (delta >= learnThreshold)
+                {
+                    // Clear any existing mapping for this parameter (without saving yet)
+                    for (auto& item : items)
+                        if (item.parameter == learnParameter)
+                            item.parameter = nullptr;
+
+                    // Set the new mapping
+                    items[(size_t) ccNumber].parameter = learnParameter;
+                    learnParameter = nullptr;
+
+                    saveToSettings();
+                }
+            }
+
+            auto& item = items[(size_t) ccNumber];
+
+            if (item.parameter != nullptr)
+            {
+                // Calculate normalized value (0.0 to 1.0)
+                const float normalizedValue = ccValue / 127.0f;
+
+                // Convert to user value range
+                const auto range = item.parameter->getUserRange();
+                const float userValue = range.convertFrom0to1 (normalizedValue);
+
+                // Begin gesture if not already active
+                if (! item.active)
+                {
+                    item.parameter->beginUserAction();
+                    item.active = true;
+                }
+
+                // Set the parameter value
+                item.parameter->setUserValueNotifingHost (userValue);
+
+                // Reset countdown to timeout duration
+                item.countdown = static_cast<int> (timeoutSeconds * sampleRate);
+            }
+        }
+    }
+}
+
+void MidiLearn::loadState (const juce::ValueTree& vt)
+{
+    // Clear existing mappings
+    for (auto& item : items)
+        item.parameter = nullptr;
+
+    auto ml = vt.getChildWithName ("MIDILEARN");
+    if (ml.isValid())
+    {
+        for (auto c : ml)
+        {
+            if (! c.hasType ("MAPPING")) continue;
+
+            const int ccNumber = c.getProperty ("cc", -1);
+            const juce::String paramUid = c.getProperty ("param").toString();
+
+            if (ccNumber >= 0 && ccNumber < 128 && isValidCC (ccNumber) && paramUid.isNotEmpty())
+            {
+                if (auto param = processor.getParameter (paramUid))
+                    items[(size_t) ccNumber].parameter = param;
+            }
+        }
+    }
+
+    saveToSettings();
+}
+
+void MidiLearn::saveState (juce::ValueTree& vt)
+{
+    auto ml = vt.getOrCreateChildWithName ("MIDILEARN", nullptr);
+    ml.removeAllChildren (nullptr);
+
+    for (int i = 0; i < 128; i++)
+    {
+        if (items[(size_t) i].parameter != nullptr)
+        {
+            auto c = juce::ValueTree ("MAPPING");
+            c.setProperty ("cc", i, nullptr);
+            c.setProperty ("param", items[(size_t) i].parameter->getUid(), nullptr);
+            ml.addChild (c, -1, nullptr);
+        }
+    }
+}
+
+void MidiLearn::loadFromSettings()
+{
+    if (auto props = processor.getSettings())
+    {
+        auto xmlString = props->getValue ("midiMap");
+        if (xmlString.isNotEmpty())
+        {
+            if (auto xml = juce::XmlDocument::parse (xmlString))
+            {
+                auto vt = juce::ValueTree::fromXml (*xml);
+                if (vt.isValid())
+                {
+                    // Load without triggering another save
+                    for (auto& item : items)
+                        item.parameter = nullptr;
+
+                    auto ml = vt.getChildWithName ("MIDILEARN");
+                    if (ml.isValid())
+                    {
+                        for (auto c : ml)
+                        {
+                            if (! c.hasType ("MAPPING")) continue;
+
+                            const int ccNumber = c.getProperty ("cc", -1);
+                            const juce::String paramUid = c.getProperty ("param").toString();
+
+                            if (ccNumber >= 0 && ccNumber < 128 && isValidCC (ccNumber) && paramUid.isNotEmpty())
+                            {
+                                if (auto param = processor.getParameter (paramUid))
+                                    items[(size_t) ccNumber].parameter = param;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+void MidiLearn::saveToSettings()
+{
+    if (auto props = processor.getSettings())
+    {
+        juce::ValueTree vt ("MIDIMAP");
+        saveState (vt);
+
+        if (auto xml = vt.createXml())
+            props->setValue ("midiMap", xml->toString());
+    }
+}

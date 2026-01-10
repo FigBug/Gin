@@ -129,6 +129,7 @@ public:
     bool makesMidi          = false;
     bool useUpdateChecker   = true;
     bool useNewsChecker     = true;
+    bool hasMidiLearn       = false;
 
     juce::StringArray programmingCredits =
     {
@@ -323,6 +324,8 @@ public:
 
     juce::ValueTree state;
     int versionHint = 1;
+
+    std::unique_ptr<MidiLearn> midiLearn;
 
 protected:
     /* If you plugin has more state than just parameters you need to implement these two functions

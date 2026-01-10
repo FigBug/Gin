@@ -391,6 +391,7 @@ juce::StringArray SideBarComponent::getMidiMRU()
 void SideBarComponent::showMidiMenu()
 {
     juce::PopupMenu menu;
+    menu.setLookAndFeel (&getLookAndFeel());
 
     const bool isLooping = player.midiPlayer.isLooping();
     menu.addItem ("Loop", true, isLooping, [this, isLooping]
@@ -531,6 +532,7 @@ juce::StringArray SideBarComponent::getSampleMRU()
 void SideBarComponent::showSampleMenu()
 {
     juce::PopupMenu menu;
+    menu.setLookAndFeel (&getLookAndFeel());
 
     const bool isLooping = player.samplePlayer.isLooping();
     menu.addItem ("Loop", true, isLooping, [this, isLooping]
@@ -642,6 +644,7 @@ void SideBarComponent::updateRecordButtonColours()
 void SideBarComponent::showRecordMenu()
 {
     juce::PopupMenu menu;
+    menu.setLookAndFeel (&getLookAndFeel());
 
     menu.addItem ("Set Destination Folder...", [this]
     {

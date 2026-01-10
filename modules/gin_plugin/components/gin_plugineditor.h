@@ -286,4 +286,5 @@ protected:
 
     PatchBrowser patchBrowser { slProc };
     TitleBar titleBar { *this, slProc, patchBrowser };
+    std::unique_ptr<MidiLearnOverlay> midiLearnOverlay;
 };
