@@ -391,7 +391,7 @@ float AudioSamplerBufferComponent::getNumSamplesPerPixel()
     return float (viewWidth / getWidth());
 }
 
-float AudioSamplerBufferComponent::sampleToX (int sample)
+float AudioSamplerBufferComponent::sampleToX (float sample)
 {
     return (sample - viewLeft) / (viewWidth / getWidth());
 }

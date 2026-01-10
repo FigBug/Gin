@@ -31,7 +31,7 @@ public:
     void setPlayheads (const std::vector<int>& playheads);
 
     float xToSample (float x);
-    float sampleToX (int sample);
+    float sampleToX (float sample);
     int lengthInSamples()                           { return buffer.getNumSamples ();   }
 
     void setLineColour (juce::Colour c)             { lineColour = c;   }
