@@ -4350,8 +4350,8 @@
       <type>float</type>
       <name>sampleToX</name>
       <anchorfile>classAudioSamplerBufferComponent.html</anchorfile>
-      <anchor>a278898a7f85b56449cc469a6d843671a</anchor>
-      <arglist>(int sample)</arglist>
+      <anchor>a3f1e51cb1d51aefdb11e47ebdcd2f4bd</anchor>
+      <arglist>(float sample)</arglist>
     </member>
     <member kind="function">
       <type>int</type>

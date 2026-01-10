@@ -4,7 +4,7 @@ var searchData=
   ['sampleoscillator_1',['SampleOscillator',['../classSampleOscillator.html#a74f851f7bdfe25d92a5982162a9f8abc',1,'SampleOscillator']]],
   ['sampleplayer_2',['sampleplayer',['../classSamplePlayer.html#a8b3e72b2c75d3b866fe756ae5bf37413',1,'SamplePlayer::SamplePlayer()'],['../classSamplePlayer.html#a920e17930b0dd21602d6a05ca8e079f1',1,'SamplePlayer::SamplePlayer(const char *data, int dataLen)'],['../classSamplePlayer.html#aeb3f93680d286d7022978be2928e449a',1,'SamplePlayer::SamplePlayer(const juce::File &amp;f)']]],
   ['samplesready_3',['samplesReady',['../classResamplingFifo.html#a932efb27236ccc341c04bd56193e283e',1,'ResamplingFifo']]],
-  ['sampletox_4',['sampleToX',['../classAudioSamplerBufferComponent.html#a278898a7f85b56449cc469a6d843671a',1,'AudioSamplerBufferComponent']]],
+  ['sampletox_4',['sampleToX',['../classAudioSamplerBufferComponent.html#a3f1e51cb1d51aefdb11e47ebdcd2f4bd',1,'AudioSamplerBufferComponent']]],
   ['saturate_5',['saturate',['../namespaceDistortion.html#a0d468da1bba442ec6f02dfd0f159f883',1,'Distortion']]],
   ['saveaudiodevicestate_6',['saveAudioDeviceState',['../classStandalonePluginHolder.html#a3591021b8495b1d2dddb6ff9a2405209',1,'StandalonePluginHolder']]],
   ['savepluginstate_7',['savePluginState',['../classStandalonePluginHolder.html#a9319c6c7e9368f0d2fb1d31b0f2b2816',1,'StandalonePluginHolder']]],
