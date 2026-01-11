@@ -40,6 +40,7 @@ namespace gin
 #include "components/gin_select.cpp"
 #include "components/gin_midilearnoverlay.cpp"
 #include "components/gin_knob.cpp"
+#include "components/gin_modoverlay.cpp"
 
 #include "lookandfeel/gin_images.cpp"
 #include "lookandfeel/gin_pluginlookandfeel.cpp"
