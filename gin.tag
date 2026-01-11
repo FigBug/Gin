@@ -18157,6 +18157,12 @@
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
+      <name>gridColourId</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>a544037e48573aa27a58d3ebfadfe16fcad4eea70ad67692b7a32817d83eae1361</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
       <name>lineColourId</name>
       <anchorfile>classSpectrumAnalyzer.html</anchorfile>
       <anchor>a544037e48573aa27a58d3ebfadfe16fca897546a6575db6418f7c69eba965f5a1</anchor>
@@ -18178,6 +18184,12 @@
       <name>envelopeColourId</name>
       <anchorfile>classSpectrumAnalyzer.html</anchorfile>
       <anchor>a544037e48573aa27a58d3ebfadfe16fca3e235c1d28415226b375b369637e123f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>gridColourId</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>a544037e48573aa27a58d3ebfadfe16fcad4eea70ad67692b7a32817d83eae1361</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -18228,6 +18240,13 @@
       <anchorfile>classSpectrumAnalyzer.html</anchorfile>
       <anchor>a8c634a301ae12f33a974d1dcf714153b</anchor>
       <arglist>(float smoothing)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDrawGrid</name>
+      <anchorfile>classSpectrumAnalyzer.html</anchorfile>
+      <anchor>ae52ea088d96dd010924a25e265b5fcaa</anchor>
+      <arglist>(bool on)</arglist>
     </member>
     <member kind="function">
       <type>void</type>

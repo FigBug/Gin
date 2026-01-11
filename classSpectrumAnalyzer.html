@@ -83,10 +83,14 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a544037e48573aa27a58d3ebfadfe16fc" id="r_a544037e48573aa27a58d3ebfadfe16fc"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpectrumAnalyzer.html#a544037e48573aa27a58d3ebfadfe16fc">ColourIds</a> { <a class="el" href="classSpectrumAnalyzer.html#a544037e48573aa27a58d3ebfadfe16fca897546a6575db6418f7c69eba965f5a1">lineColourId</a> = 0x1291e10
+<tr class="memitem:a544037e48573aa27a58d3ebfadfe16fc" id="r_a544037e48573aa27a58d3ebfadfe16fc"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpectrumAnalyzer.html#a544037e48573aa27a58d3ebfadfe16fc">ColourIds</a> { <br />
+&#160;&#160;<a class="el" href="classSpectrumAnalyzer.html#a544037e48573aa27a58d3ebfadfe16fca897546a6575db6418f7c69eba965f5a1">lineColourId</a> = 0x1291e10
 , <a class="el" href="classSpectrumAnalyzer.html#a544037e48573aa27a58d3ebfadfe16fcaebfe2883ec83803beea47cc8d41e2e54">backgroundColourId</a> = 0x1291e11
 , <a class="el" href="classSpectrumAnalyzer.html#a544037e48573aa27a58d3ebfadfe16fca158109e96f9b8711a03de3589b710548">traceColourId</a> = 0x1291e12
 , <a class="el" href="classSpectrumAnalyzer.html#a544037e48573aa27a58d3ebfadfe16fca3e235c1d28415226b375b369637e123f">envelopeColourId</a> = 0x1291f13
+, <br />
+&#160;&#160;<a class="el" href="classSpectrumAnalyzer.html#a544037e48573aa27a58d3ebfadfe16fcad4eea70ad67692b7a32817d83eae1361">gridColourId</a> = 0x1291e14
+<br />
  }</td></tr>
 <tr class="separator:a544037e48573aa27a58d3ebfadfe16fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -112,6 +116,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8c634a301ae12f33a974d1dcf714153b" id="r_a8c634a301ae12f33a974d1dcf714153b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpectrumAnalyzer.html#a8c634a301ae12f33a974d1dcf714153b">setSmoothing</a> (<a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">smoothing</a>)</td></tr>
 <tr class="memdesc:a8c634a301ae12f33a974d1dcf714153b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set smoothing factor for the display (0-1, higher = smoother)  <br /></td></tr>
 <tr class="separator:a8c634a301ae12f33a974d1dcf714153b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae52ea088d96dd010924a25e265b5fcaa" id="r_ae52ea088d96dd010924a25e265b5fcaa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpectrumAnalyzer.html#ae52ea088d96dd010924a25e265b5fcaa">setDrawGrid</a> (<a class="el" href="classPoint.html">bool</a> <a class="el" href="classPoint.html">on</a>)</td></tr>
+<tr class="memdesc:ae52ea088d96dd010924a25e265b5fcaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable grid drawing.  <br /></td></tr>
+<tr class="separator:ae52ea088d96dd010924a25e265b5fcaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d10cc9db7739720094175772847cc0e" id="r_a8d10cc9db7739720094175772847cc0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpectrumAnalyzer.html#a8d10cc9db7739720094175772847cc0e">paint</a> (juce::Graphics &amp;g) <a class="el" href="classPoint.html">override</a></td></tr>
 <tr class="separator:a8d10cc9db7739720094175772847cc0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8248be6a0f4c820c33a3ac8a6dfb607a" id="r_a8248be6a0f4c820c33a3ac8a6dfb607a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpectrumAnalyzer.html#a8248be6a0f4c820c33a3ac8a6dfb607a">timerCallback</a> () <a class="el" href="classPoint.html">override</a></td></tr>
@@ -134,6 +141,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a544037e48573aa27a58d3ebfadfe16fcaebfe2883ec83803beea47cc8d41e2e54" name="a544037e48573aa27a58d3ebfadfe16fcaebfe2883ec83803beea47cc8d41e2e54"></a>backgroundColourId&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a544037e48573aa27a58d3ebfadfe16fca158109e96f9b8711a03de3589b710548" name="a544037e48573aa27a58d3ebfadfe16fca158109e96f9b8711a03de3589b710548"></a>traceColourId&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a544037e48573aa27a58d3ebfadfe16fca3e235c1d28415226b375b369637e123f" name="a544037e48573aa27a58d3ebfadfe16fca3e235c1d28415226b375b369637e123f"></a>envelopeColourId&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a544037e48573aa27a58d3ebfadfe16fcad4eea70ad67692b7a32817d83eae1361" name="a544037e48573aa27a58d3ebfadfe16fcad4eea70ad67692b7a32817d83eae1361"></a>gridColourId&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -306,6 +314,26 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ae52ea088d96dd010924a25e265b5fcaa" name="ae52ea088d96dd010924a25e265b5fcaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae52ea088d96dd010924a25e265b5fcaa">&#9670;&#160;</a></span>setDrawGrid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> SpectrumAnalyzer::setDrawGrid </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">bool</a>&#160;</td>
+          <td class="paramname"><em>on</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable or disable grid drawing. </p>
+
+</div>
+</div>
 <a id="a8d10cc9db7739720094175772847cc0e" name="a8d10cc9db7739720094175772847cc0e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8d10cc9db7739720094175772847cc0e">&#9670;&#160;</a></span>paint()</h2>
 
@@ -363,7 +391,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 11 2026 15:03:32 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sun Jan 11 2026 16:31:42 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

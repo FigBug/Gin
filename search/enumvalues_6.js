@@ -8,5 +8,6 @@ var searchData=
   ['grey45colourid_5',['grey45ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a66a982d75840d72c1c9ef4eb0a302fd6',1,'GinLookAndFeel']]],
   ['grey60colourid_6',['grey60ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a87882c3f6219ea41cd1e0522707f4aa5',1,'GinLookAndFeel']]],
   ['grey90colourid_7',['grey90ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a7b989dd098f7a0747c523071621e4766',1,'GinLookAndFeel']]],
-  ['groupcolourid_8',['groupColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6ab08bc4b9b520e583faed901e1e76e59e',1,'GinLookAndFeel']]]
+  ['gridcolourid_8',['gridColourId',['../classSpectrumAnalyzer.html#a544037e48573aa27a58d3ebfadfe16fcad4eea70ad67692b7a32817d83eae1361',1,'SpectrumAnalyzer']]],
+  ['groupcolourid_9',['groupColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6ab08bc4b9b520e583faed901e1e76e59e',1,'GinLookAndFeel']]]
 ];
