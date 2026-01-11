@@ -170,7 +170,7 @@ void CopperLookAndFeel::drawRotarySlider (juce::Graphics& g, int x, int y, int w
         auto depth = (float)slider.getProperties()["modDepth"];
         bool bipolar = (bool)slider.getProperties()["modBipolar"];
 
-        g.setColour (findColour (GinLookAndFeel::whiteColourId).withAlpha (0.9f));
+        g.setColour (findColour (GinLookAndFeel::whiteColourId, true).withAlpha (0.9f));
 
         juce::Path filledArc;
         if (bipolar)
@@ -190,7 +190,7 @@ void CopperLookAndFeel::drawRotarySlider (juce::Graphics& g, int x, int y, int w
 
     if (slider.getProperties().contains ("modValues") && slider.isEnabled())
     {
-        g.setColour (findColour (GinLookAndFeel::whiteColourId).withAlpha (0.9f));
+        g.setColour (findColour (GinLookAndFeel::whiteColourId, true).withAlpha (0.9f));
 
         auto varArray = slider.getProperties()["modValues"];
         if (varArray.isArray())
@@ -214,7 +214,7 @@ void CopperLookAndFeel::drawButtonBackground (juce::Graphics&, juce::Button&, co
 
 void CopperLookAndFeel::drawButtonText (juce::Graphics& g, juce::TextButton& b, bool, bool)
 {
-    auto c = b.findColour (b.getToggleState() ? juce::TextButton::textColourOnId : juce::TextButton::textColourOffId).withMultipliedAlpha (b.isEnabled() ? 1.0f : 0.5f);
+    auto c = b.findColour (b.getToggleState() ? juce::TextButton::textColourOnId : juce::TextButton::textColourOffId, true).withMultipliedAlpha (b.isEnabled() ? 1.0f : 0.5f);
 
     if (b.isMouseOver() && b.isEnabled())
         c = c.brighter();
@@ -263,8 +263,8 @@ void CopperLookAndFeel::drawComboBox (juce::Graphics& g, int width, int height, 
 {
     const juce::Rectangle<int> boxBounds (0, 0, width, height);
 
-    juce::ColourGradient grad (findColour (PluginLookAndFeel::glass1ColourId), 0, 0,
-                               findColour (PluginLookAndFeel::glass2ColourId), 0, float (height), false);
+    juce::ColourGradient grad (findColour (PluginLookAndFeel::glass1ColourId, true), 0, 0,
+                               findColour (PluginLookAndFeel::glass2ColourId, true), 0, float (height), false);
     g.setGradientFill (grad);
     g.fillRoundedRectangle (boxBounds.toFloat(), boxBounds.getHeight() / 2.0f);
 
