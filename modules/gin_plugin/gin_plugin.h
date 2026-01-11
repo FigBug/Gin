@@ -107,6 +107,7 @@ bool wantsAccessibleKeyboard (juce::Component&);
 #include "components/gin_pluginbutton.h"
 #include "components/gin_plugincombobox.h"
 #include "components/gin_pluginslider.h"
+#include "components/gin_faderslider.h"
 #include "components/gin_readout.h"
 #include "components/gin_paramcomponent.h"
 #include "components/gin_horizontalfader.h"
@@ -115,6 +116,7 @@ bool wantsAccessibleKeyboard (juce::Component&);
 #include "components/gin_synthesiserusage.h"
 #include "components/gin_midilearnoverlay.h"
 #include "components/gin_knob.h"
+#include "components/gin_fader.h"
 #include "components/gin_modoverlay.h"
 
 #include "lookandfeel/gin_images.h"
