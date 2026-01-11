@@ -18,21 +18,21 @@ MidiLearn::~MidiLearn()
 void MidiLearn::setMapping (int ccNumber, gin::Parameter* param)
 {
     jassert (ccNumber >= 0 && ccNumber < 128);
-    items[(size_t) ccNumber].parameter = param;
+    items[(size_t) ccNumber].parameter.store (param);
 }
 
 void MidiLearn::clearMapping (int ccNumber)
 {
     jassert (ccNumber >= 0 && ccNumber < 128);
-    items[(size_t) ccNumber].parameter = nullptr;
+    items[(size_t) ccNumber].parameter.store (nullptr);
     saveToSettings();
 }
 
 void MidiLearn::clearMapping (gin::Parameter* param)
 {
     for (auto& item : items)
-        if (item.parameter == param)
-            item.parameter = nullptr;
+        if (item.parameter.load() == param)
+            item.parameter.store (nullptr);
 
     saveToSettings();
 }
@@ -40,13 +40,13 @@ void MidiLearn::clearMapping (gin::Parameter* param)
 gin::Parameter* MidiLearn::getMapping (int ccNumber) const
 {
     jassert (ccNumber >= 0 && ccNumber < 128);
-    return items[(size_t) ccNumber].parameter;
+    return items[(size_t) ccNumber].parameter.load();
 }
 
 int MidiLearn::getMappedCC (gin::Parameter* param) const
 {
     for (int i = 0; i < 128; i++)
-        if (items[(size_t) i].parameter == param)
+        if (items[(size_t) i].parameter.load() == param)
             return i;
 
     return -1;
@@ -86,8 +86,8 @@ void MidiLearn::processBlock (juce::MidiBuffer& midi, int numSamples)
                 item.active = false;
                 item.countdown = 0;
 
-                if (item.parameter != nullptr)
-                    item.parameter->endUserAction();
+                if (auto param = item.parameter.load())
+                    param->endUserAction();
             }
         }
     }
@@ -106,19 +106,19 @@ void MidiLearn::processBlock (juce::MidiBuffer& midi, int numSamples)
             currentCCValues[(size_t) ccNumber] = ccValue;
 
             // Handle learn mode - only for valid CCs that have changed enough
-            if (learnParameter != nullptr && isValidCC (ccNumber))
+            if (auto learning = learnParameter.load(); learning != nullptr && isValidCC (ccNumber))
             {
                 const int delta = std::abs (ccValue - learnStartCCValues[(size_t) ccNumber]);
                 if (delta >= learnThreshold)
                 {
                     // Clear any existing mapping for this parameter (without saving yet)
                     for (auto& item : items)
-                        if (item.parameter == learnParameter)
-                            item.parameter = nullptr;
+                        if (item.parameter.load() == learning)
+                            item.parameter.store (nullptr);
 
                     // Set the new mapping
-                    items[(size_t) ccNumber].parameter = learnParameter;
-                    learnParameter = nullptr;
+                    items[(size_t) ccNumber].parameter.store (learning);
+                    learnParameter.store (nullptr);
 
                     saveToSettings();
                 }
@@ -126,24 +126,17 @@ void MidiLearn::processBlock (juce::MidiBuffer& midi, int numSamples)
 
             auto& item = items[(size_t) ccNumber];
 
-            if (item.parameter != nullptr)
+            if (auto param = item.parameter.load())
             {
-                // Calculate normalized value (0.0 to 1.0)
-                const float normalizedValue = ccValue / 127.0f;
-
-                // Convert to user value range
-                const auto range = item.parameter->getUserRange();
-                const float userValue = range.convertFrom0to1 (normalizedValue);
-
                 // Begin gesture if not already active
                 if (! item.active)
                 {
-                    item.parameter->beginUserAction();
+                    param->beginUserAction();
                     item.active = true;
                 }
 
                 // Set the parameter value
-                item.parameter->setUserValueNotifingHost (userValue);
+                param->setValueNotifyingHost (ccValue / 127.0f);
 
                 // Reset countdown to timeout duration
                 item.countdown = static_cast<int> (timeoutSeconds * sampleRate);
@@ -156,7 +149,7 @@ void MidiLearn::loadState (const juce::ValueTree& vt)
 {
     // Clear existing mappings
     for (auto& item : items)
-        item.parameter = nullptr;
+        item.parameter.store (nullptr);
 
     auto ml = vt.getChildWithName ("MIDILEARN");
     if (ml.isValid())
@@ -171,7 +164,7 @@ void MidiLearn::loadState (const juce::ValueTree& vt)
             if (ccNumber >= 0 && ccNumber < 128 && isValidCC (ccNumber) && paramUid.isNotEmpty())
             {
                 if (auto param = processor.getParameter (paramUid))
-                    items[(size_t) ccNumber].parameter = param;
+                    items[(size_t) ccNumber].parameter.store (param);
             }
         }
     }
@@ -186,11 +179,11 @@ void MidiLearn::saveState (juce::ValueTree& vt)
 
     for (int i = 0; i < 128; i++)
     {
-        if (items[(size_t) i].parameter != nullptr)
+        if (auto param = items[(size_t) i].parameter.load())
         {
             auto c = juce::ValueTree ("MAPPING");
             c.setProperty ("cc", i, nullptr);
-            c.setProperty ("param", items[(size_t) i].parameter->getUid(), nullptr);
+            c.setProperty ("param", param->getUid(), nullptr);
             ml.addChild (c, -1, nullptr);
         }
     }
@@ -210,7 +203,7 @@ void MidiLearn::loadFromSettings()
                 {
                     // Load without triggering another save
                     for (auto& item : items)
-                        item.parameter = nullptr;
+                        item.parameter.store (nullptr);
 
                     auto ml = vt.getChildWithName ("MIDILEARN");
                     if (ml.isValid())
@@ -225,7 +218,7 @@ void MidiLearn::loadFromSettings()
                             if (ccNumber >= 0 && ccNumber < 128 && isValidCC (ccNumber) && paramUid.isNotEmpty())
                             {
                                 if (auto param = processor.getParameter (paramUid))
-                                    items[(size_t) ccNumber].parameter = param;
+                                    items[(size_t) ccNumber].parameter.store (param);
                             }
                         }
                     }

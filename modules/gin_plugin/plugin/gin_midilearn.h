@@ -65,7 +65,7 @@ public:
 private:
     struct Item
     {
-        gin::Parameter* parameter = nullptr;
+        std::atomic<gin::Parameter*> parameter { nullptr };
         bool active = false;
         int countdown = 0;
     };
@@ -74,7 +74,7 @@ private:
     std::array<Item, 128> items;
     std::array<int, 128> currentCCValues {};
     std::array<int, 128> learnStartCCValues {};
-    gin::Parameter* learnParameter = nullptr;
+    std::atomic<gin::Parameter*> learnParameter = nullptr;
     double sampleRate = 44100.0;
 
     static constexpr float timeoutSeconds = 0.333f;
