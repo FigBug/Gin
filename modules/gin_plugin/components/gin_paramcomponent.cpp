@@ -20,7 +20,7 @@ void ParamComponent::mouseUp (const juce::MouseEvent& e)
 
     lastMouseUpTime = now;
 
-    if (e.mods.isPopupMenu())
+    if (e.mods.isPopupMenu() && ! allowClicksOn (*e.originalComponent))
         showMidiLearnMenu (e.eventComponent);
 }
 

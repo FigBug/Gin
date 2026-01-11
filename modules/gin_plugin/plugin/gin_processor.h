@@ -155,6 +155,12 @@ public:
         return std::move (*this);
     }
 
+    ProcessorOptions withMidiLearn() &&
+    {
+        hasMidiLearn = true;
+        return std::move (*this);
+    }
+
     std::unique_ptr<juce::LookAndFeel> lookAndFeel;
 };
 

@@ -79,6 +79,8 @@ public:
     void itemDragExit (const SourceDetails& dragSourceDetails) override;
     void itemDropped (const SourceDetails& dragSourceDetails) override;
 
+    bool allowClicksOn (const juce::Component& c) override { return &c == &modDepthSlider; }
+
 protected:
     void timerCallback() override;
 

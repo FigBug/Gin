@@ -23,6 +23,8 @@ public:
                 stc->setTooltip (newTooltip);
     }
 
+    virtual bool allowClicksOn (const juce::Component&) { return false; }
+
 protected:
     Parameter* parameter = nullptr;
 
