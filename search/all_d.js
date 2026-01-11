@@ -52,7 +52,7 @@ var searchData=
   ['moddepth_49',['modDepth',['../classKnob.html#adca81fbd2a79c38da94f19c3302e5466',1,'Knob']]],
   ['moddepthslider_50',['modDepthSlider',['../classKnob.html#a1fb268057573e63ab18fa6db15546dff',1,'Knob']]],
   ['moddstid_51',['moddstid',['../structModDstId.html',1,'ModDstId'],['../structModDstId.html#aa3f249a7a06342976e5740e09d281a9e',1,'ModDstId::ModDstId(const ModDstId &amp;other)'],['../structModDstId.html#a1cd816f0e6701f16922f19f3b5e64ccb',1,'ModDstId::ModDstId(int id_)'],['../structModDstId.html#a5c07798cf7ac3ad89cf18d8956bf78d3',1,'ModDstId::ModDstId()=default']]],
-  ['mode_52',['mode',['../classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4',1,'EnvelopeDetector::Mode'],['../classEnvelopeDetector.html#a1804f11c1918ee0aeee94093a3057415',1,'EnvelopeDetector::mode']]],
+  ['mode_52',['mode',['../classEnvelopeDetector.html#a1804f11c1918ee0aeee94093a3057415',1,'EnvelopeDetector::mode'],['../classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4',1,'EnvelopeDetector::Mode']]],
   ['modindex_53',['modIndex',['../classParameter.html#a7310a6224d36ab27a14237aab7d8fadd',1,'Parameter']]],
   ['modmatrix_54',['modmatrix',['../classModMatrix.html',1,'ModMatrix'],['../classParameter.html#a30f079fa8ecf5c5cd5735777e1ba74c8',1,'Parameter::modMatrix'],['../classModMatrix.html#a923354065c39928704876d0b29e568c9',1,'ModMatrix::ModMatrix()']]],
   ['modmatrixbox_55',['modmatrixbox',['../classModMatrixBox.html#aa1d0054cb9a5a3c5abbcd1e7b3e84b71',1,'ModMatrixBox::ModMatrixBox()'],['../classModMatrixBox.html',1,'ModMatrixBox']]],

@@ -122,6 +122,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a112f86997590dd6c8c278c71fd6f1a7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81a61f483cc29ceecd07a4599ee5163c" id="r_a81a61f483cc29ceecd07a4599ee5163c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKnob.html#a81a61f483cc29ceecd07a4599ee5163c">itemDropped</a> (<a class="el" href="classPoint.html">const</a> <a class="el" href="classPoint.html">SourceDetails</a> &amp;<a class="el" href="classPoint.html">dragSourceDetails</a>) <a class="el" href="classPoint.html">override</a></td></tr>
 <tr class="separator:a81a61f483cc29ceecd07a4599ee5163c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a472714f116792dfe539f5256a7b284b1" id="r_a472714f116792dfe539f5256a7b284b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKnob.html#a472714f116792dfe539f5256a7b284b1">allowClicksOn</a> (<a class="el" href="classPoint.html">const</a> juce::Component &amp;c) <a class="el" href="classPoint.html">override</a></td></tr>
+<tr class="separator:a472714f116792dfe539f5256a7b284b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classParamComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classParamComponent')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classParamComponent.html">ParamComponent</a></td></tr>
 <tr class="memitem:a3c30a6a6391fa369bfd88533a6872ce7 inherit pub_methods_classParamComponent" id="r_a3c30a6a6391fa369bfd88533a6872ce7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamComponent.html#a3c30a6a6391fa369bfd88533a6872ce7">ParamComponent</a> (<a class="el" href="classParameter.html">Parameter</a> *<a class="el" href="classParamComponent.html#a2e99545e9d83f8e9f2ce0c8ca31e05bd">parameter</a>)</td></tr>
 <tr class="separator:a3c30a6a6391fa369bfd88533a6872ce7 inherit pub_methods_classParamComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -210,7 +212,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"> </div>
 <div class="line"><a class="code hl_function" href="group__gin__gui-components.html#ga66410efb088d24a02a86b4c6191e2866">addAndMakeVisible</a>(<a class="code hl_variable" href="classKnob.html#aba03ce7e1fcb470c38a05363cd55c7ce">knob</a>);</div>
 <div class="ttc" id="aclassKnob_html"><div class="ttname"><a href="classKnob.html">Knob</a></div><div class="ttdoc">Complete parameter control combining rotary slider, value readout, and modulation.</div><div class="ttdef"><b>Definition</b> gin_knob.h:57</div></div>
-<div class="ttc" id="aclassKnob_html_aba03ce7e1fcb470c38a05363cd55c7ce"><div class="ttname"><a href="classKnob.html#aba03ce7e1fcb470c38a05363cd55c7ce">Knob::knob</a></div><div class="ttdeci">PluginSlider knob</div><div class="ttdef"><b>Definition</b> gin_knob.h:96</div></div>
+<div class="ttc" id="aclassKnob_html_aba03ce7e1fcb470c38a05363cd55c7ce"><div class="ttname"><a href="classKnob.html#aba03ce7e1fcb470c38a05363cd55c7ce">Knob::knob</a></div><div class="ttdeci">PluginSlider knob</div><div class="ttdef"><b>Definition</b> gin_knob.h:98</div></div>
 <div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 <div class="ttc" id="agroup__gin__gui-components_html_ga66410efb088d24a02a86b4c6191e2866"><div class="ttname"><a href="group__gin__gui-components.html#ga66410efb088d24a02a86b4c6191e2866">addAndMakeVisible</a></div><div class="ttdeci">void addAndMakeVisible(juce::Component &amp;parent, juce::Array&lt; juce::Component * &gt; children)</div><div class="ttdoc">Adds an Array of components to a parent Component.</div><div class="ttdef"><b>Definition</b> gin_componentutils.h:16</div></div>
 </div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classParameter.html" title="Advanced parameter class with modulation, real-time callbacks, and host automation.">Parameter</a>, <a class="el" href="classModMatrix.html" title="Modulation matrix system for routing multiple modulation sources to parameters.">ModMatrix</a>, <a class="el" href="classPluginSlider.html" title="A slider for controlling a parameter.">PluginSlider</a>, <a class="el" href="classReadout.html" title="A control for displaying a parameter.">Readout</a> </dd></dl>
@@ -603,6 +605,36 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a472714f116792dfe539f5256a7b284b1" name="a472714f116792dfe539f5256a7b284b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a472714f116792dfe539f5256a7b284b1">&#9670;&#160;</a></span>allowClicksOn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">bool</a> Knob::allowClicksOn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::Component &amp;&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classParamComponent.html#a863c8dec1681b3846db75e66f3b80949">ParamComponent</a>.</p>
+
+<p class="reference">References <a class="el" href="classKnob.html#a1fb268057573e63ab18fa6db15546dff">modDepthSlider</a>.</p>
+
+</div>
+</div>
 <a id="a6aaac98c6f6f39cdc0339d11dffbfd66" name="a6aaac98c6f6f39cdc0339d11dffbfd66"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6aaac98c6f6f39cdc0339d11dffbfd66">&#9670;&#160;</a></span>timerCallback()</h2>
 
@@ -957,6 +989,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="reference">Referenced by <a class="el" href="classKnob.html#a472714f116792dfe539f5256a7b284b1">allowClicksOn()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -965,7 +999,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jan 10 2026 22:28:26 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sun Jan 11 2026 00:22:08 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

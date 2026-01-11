@@ -9201,6 +9201,13 @@
       <anchor>a81a61f483cc29ceecd07a4599ee5163c</anchor>
       <arglist>(const SourceDetails &amp;dragSourceDetails) override</arglist>
     </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>allowClicksOn</name>
+      <anchorfile>classKnob.html</anchorfile>
+      <anchor>a472714f116792dfe539f5256a7b284b1</anchor>
+      <arglist>(const juce::Component &amp;c) override</arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>timerCallback</name>
@@ -13876,6 +13883,13 @@
       <anchor>a1e7f1920fda098d8556ab3262b6bfa8e</anchor>
       <arglist>(const juce::String &amp;newTooltip) override</arglist>
     </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>allowClicksOn</name>
+      <anchorfile>classParamComponent.html</anchorfile>
+      <anchor>a863c8dec1681b3846db75e66f3b80949</anchor>
+      <arglist>(const juce::Component &amp;)</arglist>
+    </member>
     <member kind="variable" protection="protected">
       <type>Parameter *</type>
       <name>parameter</name>
@@ -16257,6 +16271,13 @@
       <name>withoutNewsChecker</name>
       <anchorfile>classProcessorOptions.html</anchorfile>
       <anchor>a8fa62952828b42c7e931f6a0eb61ce7d</anchor>
+      <arglist>() &amp;&amp;</arglist>
+    </member>
+    <member kind="function">
+      <type>ProcessorOptions</type>
+      <name>withMidiLearn</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>a898de378f73c72866d7578cf18016a34</anchor>
       <arglist>() &amp;&amp;</arglist>
     </member>
     <member kind="variable">
