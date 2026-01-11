@@ -104,6 +104,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a41f6507620c79ec6031ff01c23ce2874" id="r_a41f6507620c79ec6031ff01c23ce2874"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraphicEQ.html#a41f6507620c79ec6031ff01c23ce2874">setSampleRate</a> (<a class="el" href="classPoint.html">double</a> <a class="el" href="classPoint.html">sr</a>)</td></tr>
 <tr class="memdesc:a41f6507620c79ec6031ff01c23ce2874"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the sample rate for processing.  <br /></td></tr>
 <tr class="separator:a41f6507620c79ec6031ff01c23ce2874"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a375250b31db13e58eb5382ce5776d0c2" id="r_a375250b31db13e58eb5382ce5776d0c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraphicEQ.html#a375250b31db13e58eb5382ce5776d0c2">setBlockSize</a> (<a class="el" href="classPoint.html">int</a> blockSize)</td></tr>
+<tr class="memdesc:a375250b31db13e58eb5382ce5776d0c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the maximum block size for processing.  <br /></td></tr>
+<tr class="separator:a375250b31db13e58eb5382ce5776d0c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e5c4eaec309380415698e85d0b71598" id="r_a0e5c4eaec309380415698e85d0b71598"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraphicEQ.html#a0e5c4eaec309380415698e85d0b71598">setNumChannels</a> (<a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">ch</a>)</td></tr>
 <tr class="memdesc:a0e5c4eaec309380415698e85d0b71598"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of audio channels.  <br /></td></tr>
 <tr class="separator:a0e5c4eaec309380415698e85d0b71598"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -254,6 +257,32 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a375250b31db13e58eb5382ce5776d0c2" name="a375250b31db13e58eb5382ce5776d0c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a375250b31db13e58eb5382ce5776d0c2">&#9670;&#160;</a></span>setBlockSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> GraphicEQ::setBlockSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">int</a>&#160;</td>
+          <td class="paramname"><em>blockSize</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the maximum block size for processing. </p>
+<p>Call this before processing to allocate working buffers. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">blockSize</td><td>Maximum number of samples per block </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a0e5c4eaec309380415698e85d0b71598" name="a0e5c4eaec309380415698e85d0b71598"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0e5c4eaec309380415698e85d0b71598">&#9670;&#160;</a></span>setNumChannels()</h2>
 
@@ -278,7 +307,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="classFilter.html#a5ef1acf81c79c0c8a0ecd8a52e38d4f2a2c5e517e0cff208de5a5b332964c98c7">Filter::db12</a>, and <a class="el" href="classFilter.html#a8f99602312ccfbe9e1598532158726c0ad58dea6810feaf18fe38771eae09e203">Filter::peak</a>.</p>
+<p class="reference">References <a class="el" href="classFilter.html#a8f99602312ccfbe9e1598532158726c0a586918b0c5057db76bb06d493a4870d1">Filter::bandpass</a>, and <a class="el" href="classFilter.html#a5ef1acf81c79c0c8a0ecd8a52e38d4f2a2c5e517e0cff208de5a5b332964c98c7">Filter::db12</a>.</p>
 
 </div>
 </div>
@@ -572,8 +601,6 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Response magnitude (linear scale, <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">1.0</a> = unity gain) </dd></dl>
 
-<p class="reference">References <a class="el" href="classFilter.html#a4d6adbd022e252ff91acf393f2a6d543">Filter::getResponseMagnitude()</a>.</p>
-
 <p class="reference">Referenced by <a class="el" href="classGraphicEQ.html#a6243cc785fb5c60d755ccd0cbf03533c">getFrequencyResponseDb()</a>.</p>
 
 </div>
@@ -642,10 +669,6 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="classGraphicEQ.html#a28934c6b3e288a0f6963fea7ef72b62a">process()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="classGraphicEQ.html#a28934c6b3e288a0f6963fea7ef72b62a">process()</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -654,7 +677,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 11 2026 01:44:06 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sun Jan 11 2026 15:03:32 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

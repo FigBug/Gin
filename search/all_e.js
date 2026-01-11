@@ -7,7 +7,7 @@ var searchData=
   ['negation_4',['Negation',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab94b0efce58a77e1c8fa29e32536c728',1,'gin_imageeffects.h']]],
   ['network_5',['network',['../group__gin__network-network.html',1,'']]],
   ['newline_6',['newLine',['../structDiff_1_1Patch_1_1Hunk.html#ad178d76354944fcc6bef4e3417a30d7a',1,'Diff::Patch::Hunk']]],
-  ['newschecker_7',['newschecker',['../classNewsChecker.html#a519004dfd3ae54255b2eff7a132e0a00',1,'NewsChecker::NewsChecker()'],['../classTitleBar.html#ab00ac1e8d688d411c19dc7ee9e3feac7',1,'TitleBar::newsChecker'],['../classNewsChecker.html',1,'NewsChecker']]],
+  ['newschecker_7',['newschecker',['../classTitleBar.html#ab00ac1e8d688d411c19dc7ee9e3feac7',1,'TitleBar::newsChecker'],['../classNewsChecker.html#a519004dfd3ae54255b2eff7a132e0a00',1,'NewsChecker::NewsChecker()'],['../classNewsChecker.html',1,'NewsChecker']]],
   ['next_8',['next',['../namespaceAssets.html#a7e39560cce3d5062215a8a94f967e741',1,'Assets::next'],['../classPatchBrowser.html#acca4a794212c331878636360a8650723',1,'PatchBrowser::next()']]],
   ['nextbutton_9',['nextButton',['../classTitleBar.html#adbdac6bcc1d15a4b014231dc9a799a6e',1,'TitleBar']]],
   ['nextsample_10',['nextsample',['../classWhiteNoise.html#a861fbf92d0f2d6aa523c15204bcf1aec',1,'WhiteNoise::nextSample()'],['../classPinkNoise.html#afbc5d70a4188d49b141e948e6cd50f7f',1,'PinkNoise::nextSample()']]],

@@ -8540,6 +8540,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setBlockSize</name>
+      <anchorfile>classGraphicEQ.html</anchorfile>
+      <anchor>a375250b31db13e58eb5382ce5776d0c2</anchor>
+      <arglist>(int blockSize)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>setNumChannels</name>
       <anchorfile>classGraphicEQ.html</anchorfile>
       <anchor>a0e5c4eaec309380415698e85d0b71598</anchor>
