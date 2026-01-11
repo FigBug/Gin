@@ -2277,6 +2277,18 @@
     <class kind="class">PagedControlBox</class>
   </compound>
   <compound kind="file">
+    <name>gin_fader.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__fader_8h.html</filename>
+    <class kind="class">Fader</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_faderslider.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__faderslider_8h.html</filename>
+    <class kind="class">FaderSlider</class>
+  </compound>
+  <compound kind="file">
     <name>gin_gateeffectcomponent.h</name>
     <path>build/gin_plugin/components/</path>
     <filename>gin__gateeffectcomponent_8h.html</filename>
@@ -7422,6 +7434,72 @@
       <anchorfile>structExponentialOutEasing.html</anchorfile>
       <anchor>abd2f33cc311d9f3cb00cc77e4d141801</anchor>
       <arglist>(T p)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Fader</name>
+    <filename>classFader.html</filename>
+    <base>ParamComponent</base>
+    <member kind="function">
+      <type></type>
+      <name>Fader</name>
+      <anchorfile>classFader.html</anchorfile>
+      <anchor>a5f45283b1a19da5bda23b91cbd74703f</anchor>
+      <arglist>(Parameter *parameter)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDisplayName</name>
+      <anchorfile>classFader.html</anchorfile>
+      <anchor>a3852242dab1889bc20525f3d954ce6e9</anchor>
+      <arglist>(const juce::String &amp;name)</arglist>
+    </member>
+    <member kind="function">
+      <type>FaderSlider &amp;</type>
+      <name>getSlider</name>
+      <anchorfile>classFader.html</anchorfile>
+      <anchor>a68a58ea9034c9fead1b0da8dd74c5d93</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Readout &amp;</type>
+      <name>getReadout</name>
+      <anchorfile>classFader.html</anchorfile>
+      <anchor>aa581d3056bd3f5041ccff44abc245365</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resized</name>
+      <anchorfile>classFader.html</anchorfile>
+      <anchor>a4e4adfe35518c2e3883d8c2103c20ea9</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>parentHierarchyChanged</name>
+      <anchorfile>classFader.html</anchorfile>
+      <anchor>ab023c4fa77338201aaee6c50fcddec6d</anchor>
+      <arglist>() override</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>FaderSlider</name>
+    <filename>classFaderSlider.html</filename>
+    <base>PluginSlider</base>
+    <member kind="function">
+      <type></type>
+      <name>FaderSlider</name>
+      <anchorfile>classFaderSlider.html</anchorfile>
+      <anchor>a200bc9377973cef5b6449b476ae7d4ed</anchor>
+      <arglist>(Parameter *parameter_)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paint</name>
+      <anchorfile>classFaderSlider.html</anchorfile>
+      <anchor>a7ea580c1a5c4ce2691c3390eab944236</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -22395,6 +22473,8 @@
     <class kind="class">ADSRComponent</class>
     <class kind="class">ControlBox</class>
     <class kind="class">PagedControlBox</class>
+    <class kind="class">Fader</class>
+    <class kind="class">FaderSlider</class>
     <class kind="class">GateEffectComponent</class>
     <class kind="class">HeaderItem</class>
     <class kind="class">HeaderRow</class>

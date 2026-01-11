@@ -1,11 +1,13 @@
 <map id="ParamComponent" name="ParamComponent">
-<area shape="rect" id="Node000001" title="Base class for a control showing a parameter with label." alt="" coords="153,5,291,31"/>
-<area shape="rect" id="Node000002" href="$classHorizontalFader.html" title="Horizontal slider wth text for controlling a param." alt="" coords="5,79,129,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,39,94,81,92,76,184,34"/>
-<area shape="rect" id="Node000003" href="$classKnob.html" title="Complete parameter control combining rotary slider, value readout, and modulation." alt="" coords="153,79,208,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="211,44,190,80,185,77,206,41"/>
-<area shape="rect" id="Node000004" href="$classSelect.html" title="Control for picking param value with label." alt="" coords="232,79,295,104"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="238,41,259,77,254,80,233,44"/>
-<area shape="rect" id="Node000005" href="$classSwitch.html" title="Control for toggling param with label." alt="" coords="319,79,384,104"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="256,35,331,76,329,81,254,40"/>
+<area shape="rect" id="Node000001" title="Base class for a control showing a parameter with label." alt="" coords="193,5,331,31"/>
+<area shape="rect" id="Node000002" href="$classFader.html" title="Vertical fader with label for controlling a parameter." alt="" coords="5,79,63,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,37,64,84,62,78,212,32"/>
+<area shape="rect" id="Node000003" href="$classHorizontalFader.html" title="Horizontal slider wth text for controlling a param." alt="" coords="87,79,211,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="233,40,169,81,166,76,230,36"/>
+<area shape="rect" id="Node000004" href="$classKnob.html" title="Complete parameter control combining rotary slider, value readout, and modulation." alt="" coords="235,79,289,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="265,44,265,79,259,79,259,44"/>
+<area shape="rect" id="Node000005" href="$classSelect.html" title="Control for picking param value with label." alt="" coords="313,79,376,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="287,38,333,76,329,80,284,42"/>
+<area shape="rect" id="Node000006" href="$classSwitch.html" title="Control for toggling param with label." alt="" coords="400,79,465,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="303,33,406,76,404,81,301,38"/>
 </map>

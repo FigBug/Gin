@@ -1,5 +1,7 @@
 <map id="PluginSlider" name="PluginSlider">
 <area shape="rect" id="Node000001" title="A slider for controlling a parameter." alt="" coords="64,79,163,104"/>
+<area shape="rect" id="Node000003" href="$classFaderSlider.html" title="A vertical fader slider for controlling a parameter with custom drawing." alt="" coords="66,152,161,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="116,118,116,152,111,152,111,118"/>
 <area shape="rect" id="Node000002" href="$classParameter_1_1ParameterListener.html" title=" " alt="" coords="5,5,221,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,44,116,79,111,79,111,44"/>
 </map>

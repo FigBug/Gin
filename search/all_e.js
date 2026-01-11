@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['n_0',['n',['../structWSHeaderType.html#a280de6932d75f1d0b3f5687f839d4e92',1,'WSHeaderType::N'],['../classLinearRegression.html#a2538a18e56f7da311ae94edbb903e1bd',1,'LinearRegression::n']]],
+  ['n_0',['n',['../classLinearRegression.html#a2538a18e56f7da311ae94edbb903e1bd',1,'LinearRegression::n'],['../structWSHeaderType.html#a280de6932d75f1d0b3f5687f839d4e92',1,'WSHeaderType::N']]],
   ['n0_1',['N0',['../structWSHeaderType.html#a6c084039602e19593f16e198194258ea',1,'WSHeaderType']]],
   ['name_2',['name',['../classProgram.html#ab960dff0d490441b19a47c7788ef5308',1,'Program::name'],['../classParameter.html#af3f67d57880c012b966413174dff2e75',1,'Parameter::name'],['../classSelect.html#a68477089c5c406d199fe071d09080be4',1,'Select::name'],['../classKnob.html#a4cf5ed46637f0b10594b6d43b2f4067b',1,'Knob::name'],['../classHorizontalFader.html#ab70425a9c8226dd53432dde0222dba8f',1,'HorizontalFader::name'],['../group__gin__gui-utilities.html#gab7f29046e16e28190c441e4b50e638d7',1,'juce::VarIterator::NamedValue::name'],['../structLayoutSupport_1_1JsonFile.html#a2b9f0063b43223b5b8af0cd698214f91',1,'LayoutSupport::JsonFile::name']]],
   ['namedvalue_3',['NamedValue',['../structjuce_1_1VarIterator_1_1NamedValue.html',1,'juce::VarIterator']]],
@@ -13,7 +13,7 @@ var searchData=
   ['nextsample_10',['nextsample',['../classWhiteNoise.html#a861fbf92d0f2d6aa523c15204bcf1aec',1,'WhiteNoise::nextSample()'],['../classPinkNoise.html#afbc5d70a4188d49b141e948e6cd50f7f',1,'PinkNoise::nextSample()']]],
   ['noise_11',['noise',['../structNoiseState.html#aefe7592305be8b255c28fa2f48a16843',1,'NoiseState::noise'],['../classPerlinNoise.html#a3aa782c396ab798493ad7529960c5a9a',1,'PerlinNoise::noise()'],['../classLFO.html#a9377c9fb47d163e9343a11edd200da29aaaddc3454ccbefbb2d8d8461f8f7f481',1,'LFO::noise']]],
   ['noisestate_12',['noisestate',['../structNoiseState.html',1,'NoiseState'],['../structNoiseState.html#aa06fa66ee55cd4475d56218b94c96112',1,'NoiseState::NoiseState()']]],
-  ['none_13',['none',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40ae7f5e1acdd8d7e12e9a4e84ada96839e',1,'TriggeredScope::None'],['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a334c4a4c42fdb79d7ebc3e73b517e6f8',1,'LFO::none'],['../classFilter.html#a8f99602312ccfbe9e1598532158726c0ae6e303ddb4b9092543178146dfe3c9dd',1,'Filter::none']]],
+  ['none_13',['none',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a334c4a4c42fdb79d7ebc3e73b517e6f8',1,'LFO::none'],['../classFilter.html#a8f99602312ccfbe9e1598532158726c0ae6e303ddb4b9092543178146dfe3c9dd',1,'Filter::none'],['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40ae7f5e1acdd8d7e12e9a4e84ada96839e',1,'TriggeredScope::None']]],
   ['nopermissions_14',['nopermissions',['../classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30fabe61a1bc08244491bfbe19296953ddb1',1,'ElevatedFileCopy']]],
   ['normal_15',['normal',['../classAudioRecorder.html#a9884aa523051c23ae78f5e9e4c86b449afea087517c26fadd409bd4b9dc642555',1,'AudioRecorder::normal'],['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a5ecbcf0afce98b042f35ec71ba03fa4b',1,'Normal:&#160;gin_imageeffects.h']]],
   ['normalize_16',['normalize',['../structVec3.html#aaa52699051347366ad9836673b688c0f',1,'Vec3']]],
