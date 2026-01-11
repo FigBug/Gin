@@ -1,6 +1,5 @@
 //==============================================================================
-ModOverlay::ModOverlay (ModMatrix& mm)
-    : modMatrix (mm)
+ModOverlay::ModOverlay ()
 {
     setInterceptsMouseClicks (false, false);
     setAlwaysOnTop (true);

@@ -9,7 +9,7 @@ class ModOverlay : public juce::Component,
                    private juce::Timer
 {
 public:
-    ModOverlay (ModMatrix& mm);
+    ModOverlay();
     ~ModOverlay() override;
 
     void paint (juce::Graphics& g) override;
@@ -21,7 +21,6 @@ private:
     juce::Component* findActiveSourceButton();
     bool isOverValidDestination();
 
-    ModMatrix& modMatrix;
     juce::Point<float> sourcePoint;
     juce::Point<float> mousePoint;
     bool isDragging = false;
