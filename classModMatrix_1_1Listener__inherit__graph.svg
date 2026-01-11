@@ -38,7 +38,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="classModMatrixBox.html" target="_top" xlink:title="A list box of all assigned.">
+<g id="a_Node000003"><a xlink:href="classModMatrixBox.html" target="_top" xlink:title="A list box of all assigned modulations.">
 <polygon fill="white" stroke="#666666" points="147.5,-19 59.5,-19 59.5,0 147.5,0 147.5,-19"/>
 <text text-anchor="middle" x="103.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">ModMatrixBox</text>
 </a>

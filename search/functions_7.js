@@ -16,7 +16,7 @@ var searchData=
   ['headerrow_13',['HeaderRow',['../classHeaderRow.html#a964daf8517b543beb3e4592436f3138c',1,'HeaderRow']]],
   ['hidebubble_14',['hideBubble',['../classMultiParamComponent.html#a0f9a0c20b7c3dd25f063ca40dc421c20',1,'MultiParamComponent']]],
   ['hidephase_15',['hidePhase',['../classWavetableComponent.html#abf7eef26023392714ce5859e920bfb27',1,'WavetableComponent']]],
-  ['hittest_16',['hitTest',['../classMidiLearnOverlay.html#a3b7e150751ff377b84ff22a7fa6b9326',1,'MidiLearnOverlay']]],
+  ['hittest_16',['hittest',['../classMidiLearnOverlay.html#a3b7e150751ff377b84ff22a7fa6b9326',1,'MidiLearnOverlay::hitTest()'],['../classModOverlay.html#a1efadc5853ff4bf3b0203b75c618dddb',1,'ModOverlay::hitTest()']]],
   ['horizontalfader_17',['HorizontalFader',['../classHorizontalFader.html#ad34bdd3d394ea50181cfb8a8e32a55bd',1,'HorizontalFader']]],
   ['hp12state_18',['HP12State',['../structHP12State.html#a26cb6edccf0ef60fcd94b972c61a0491',1,'HP12State']]],
   ['hp24state_19',['HP24State',['../structHP24State.html#a893b30c4df910670f54f57fdb8adc80d',1,'HP24State']]],

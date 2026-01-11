@@ -1172,22 +1172,10 @@
     <filename>gin__midifileplayer_8test_8h.html</filename>
   </compound>
   <compound kind="file">
-    <name>gin_dsp/dsp/gin_modulation.h</name>
+    <name>gin_modulation.h</name>
     <path>build/gin_dsp/dsp/</path>
-    <filename>gin__dsp_2dsp_2gin__modulation_8h.html</filename>
+    <filename>gin__modulation_8h.html</filename>
     <class kind="class">Modulation</class>
-  </compound>
-  <compound kind="file">
-    <name>gin_plugin/components/gin_modulation.h</name>
-    <path>build/gin_plugin/components/</path>
-    <filename>gin__plugin_2components_2gin__modulation_8h.html</filename>
-    <class kind="class">ModulationSourceButton</class>
-    <class kind="class">ModulationDepthSlider</class>
-    <class kind="class">ModulationOverview</class>
-    <class kind="class">ModSrcListBox</class>
-    <class kind="class">ModCurveButton</class>
-    <class kind="class">ModMatrixBox</class>
-    <class kind="class">ModMatrixBox::Row::DepthSlider</class>
   </compound>
   <compound kind="file">
     <name>gin_modulation.test.h</name>
@@ -2324,6 +2312,49 @@
     <path>build/gin_plugin/components/</path>
     <filename>gin__midilearnoverlay_8h.html</filename>
     <class kind="class">MidiLearnOverlay</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_modcurvebutton.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__modcurvebutton_8h.html</filename>
+    <class kind="class">ModCurveButton</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_modmatrixbox.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__modmatrixbox_8h.html</filename>
+    <class kind="class">ModMatrixBox</class>
+    <class kind="class">ModMatrixBox::Row::DepthSlider</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_modoverlay.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__modoverlay_8h.html</filename>
+    <class kind="class">ModOverlay</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_modsrclistbox.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__modsrclistbox_8h.html</filename>
+    <class kind="class">ModSrcListBox</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_modulationdepthslider.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__modulationdepthslider_8h.html</filename>
+    <class kind="class">ModulationDepthSlider</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_modulationoverview.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__modulationoverview_8h.html</filename>
+    <class kind="class">ModulationOverview</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_modulationsourcebutton.h</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>gin__modulationsourcebutton_8h.html</filename>
+    <class kind="class">ModulationSourceButton</class>
   </compound>
   <compound kind="file">
     <name>gin_msegcomponent.h</name>
@@ -5114,8 +5145,8 @@
       <type></type>
       <name>Catenary</name>
       <anchorfile>classCatenary.html</anchorfile>
-      <anchor>a28b6ec8aaf6dfdf75837416a83f42a51</anchor>
-      <arglist>(float x0, float y0, float x1, float y1, float addLength, int numIterations=1)</arglist>
+      <anchor>ae0cd3500d6612d5fd27f696a272f3ce3</anchor>
+      <arglist>(float x0, float y0, float x1, float y1, float addLength, int numIterations=1, bool screenCoords=false)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -12259,6 +12290,38 @@
       <arglist>() override</arglist>
     </member>
   </compound>
+  <compound kind="class">
+    <name>ModOverlay</name>
+    <filename>classModOverlay.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ModOverlay</name>
+      <anchorfile>classModOverlay.html</anchorfile>
+      <anchor>ac25a2d1504fbbf49d1061bcb436d9793</anchor>
+      <arglist>(ModMatrix &amp;mm)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~ModOverlay</name>
+      <anchorfile>classModOverlay.html</anchorfile>
+      <anchor>a36a00b692901d611dad3d0eec103468e</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>paint</name>
+      <anchorfile>classModOverlay.html</anchorfile>
+      <anchor>a4e710992ae3573c19ef828479f4bc7f9</anchor>
+      <arglist>(juce::Graphics &amp;g) override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hitTest</name>
+      <anchorfile>classModOverlay.html</anchorfile>
+      <anchor>a1efadc5853ff4bf3b0203b75c618dddb</anchor>
+      <arglist>(int x, int y) override</arglist>
+    </member>
+  </compound>
   <compound kind="struct">
     <name>ModSrcId</name>
     <filename>structModSrcId.html</filename>
@@ -12482,10 +12545,31 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>mouseUp</name>
+      <anchorfile>classModulationSourceButton.html</anchorfile>
+      <anchor>a5045f460277ec0e6683d0ce83a5ddbbc</anchor>
+      <arglist>(const juce::MouseEvent &amp;) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>setSource</name>
       <anchorfile>classModulationSourceButton.html</anchorfile>
       <anchor>a94555224817c529b26e4821706c97fcd</anchor>
       <arglist>(ModSrcId src, bool p)</arglist>
+    </member>
+    <member kind="function">
+      <type>ModSrcId</type>
+      <name>getSource</name>
+      <anchorfile>classModulationSourceButton.html</anchorfile>
+      <anchor>ae97d6793e2fc77db49acfa8e48745f9e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isDragging</name>
+      <anchorfile>classModulationSourceButton.html</anchorfile>
+      <anchor>ac45f47b9bbd564c658ae011f70fdc2fd</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -22292,13 +22376,14 @@
     <class kind="class">Knob</class>
     <class kind="class">LFOComponent</class>
     <class kind="class">MidiLearnOverlay</class>
-    <class kind="class">ModulationSourceButton</class>
-    <class kind="class">ModulationDepthSlider</class>
-    <class kind="class">ModulationOverview</class>
-    <class kind="class">ModSrcListBox</class>
     <class kind="class">ModCurveButton</class>
     <class kind="class">ModMatrixBox</class>
     <class kind="class">ModMatrixBox::Row::DepthSlider</class>
+    <class kind="class">ModOverlay</class>
+    <class kind="class">ModSrcListBox</class>
+    <class kind="class">ModulationDepthSlider</class>
+    <class kind="class">ModulationOverview</class>
+    <class kind="class">ModulationSourceButton</class>
     <class kind="class">MSEGComponent</class>
     <class kind="class">MultiParamComponent</class>
     <class kind="class">ParamHeader</class>

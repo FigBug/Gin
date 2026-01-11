@@ -33,7 +33,7 @@ var searchData=
   ['onsave_30',['onSave',['../classMSEGComponent.html#a11aeba0d1955afa5cedc7dd3b79597fb',1,'MSEGComponent']]],
   ['onstatechanged_31',['onStateChanged',['../classTextHistory.html#a1ca05b44dd6daf91540feca47ad7a0ab',1,'TextHistory']]],
   ['ontext_32',['onText',['../classAsyncWebsocket.html#aa13c72a5601e9d9d23afb0ff7802ae94',1,'AsyncWebsocket']]],
-  ['ontextfromvalue_33',['ontextfromvalue',['../classModulationDepthSlider.html#a53d08280e35e02133438ad8b0db58af8',1,'ModulationDepthSlider::onTextFromValue'],['../classModMatrixBox_1_1Row_1_1DepthSlider.html#ad47dff66e13d3d90a6f2bc1ee7f7bf3b',1,'ModMatrixBox::Row::DepthSlider::onTextFromValue']]],
+  ['ontextfromvalue_33',['ontextfromvalue',['../classModMatrixBox_1_1Row_1_1DepthSlider.html#ad47dff66e13d3d90a6f2bc1ee7f7bf3b',1,'ModMatrixBox::Row::DepthSlider::onTextFromValue'],['../classModulationDepthSlider.html#a53d08280e35e02133438ad8b0db58af8',1,'ModulationDepthSlider::onTextFromValue']]],
   ['ontimer_34',['ontimer',['../classLambdaTimer.html#a36a3d43e53e8d19d84262b31f7869977',1,'LambdaTimer::onTimer'],['../classCoalescedTimer.html#afc1e468122b95ea1abf0604c9cf5bfec',1,'CoalescedTimer::onTimer']]],
   ['onupdate_35',['onUpdate',['../classUpdateChecker.html#a2e082ff0c64af56dea0d00fbfd939e63',1,'UpdateChecker']]],
   ['onvaluetreechildadded_36',['onvaluetreechildadded',['../classAsyncLambdaValueTreeListener.html#a49509f3a601c013ed216d83901e5d5b6',1,'AsyncLambdaValueTreeListener::onValueTreeChildAdded'],['../classLambdaValueTreeListener.html#a8ae2510546ac5459bb59c883e699d7f9',1,'LambdaValueTreeListener::onValueTreeChildAdded']]],

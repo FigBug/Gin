@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="A list box of all assigned.">
+<g id="a_Node000001"><a xlink:title="A list box of all assigned modulations.">
 <polygon fill="#999999" stroke="#666666" points="101,-19 13,-19 13,0 101,0 101,-19"/>
 <text text-anchor="middle" x="57" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">ModMatrixBox</text>
 </a>

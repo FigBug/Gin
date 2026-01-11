@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['n_0',['n',['../structWSHeaderType.html#a280de6932d75f1d0b3f5687f839d4e92',1,'WSHeaderType::N'],['../classLinearRegression.html#a2538a18e56f7da311ae94edbb903e1bd',1,'LinearRegression::n']]],
+  ['n_0',['n',['../classLinearRegression.html#a2538a18e56f7da311ae94edbb903e1bd',1,'LinearRegression::n'],['../structWSHeaderType.html#a280de6932d75f1d0b3f5687f839d4e92',1,'WSHeaderType::N']]],
   ['n0_1',['N0',['../structWSHeaderType.html#a6c084039602e19593f16e198194258ea',1,'WSHeaderType']]],
   ['name_2',['name',['../structLayoutSupport_1_1JsonFile.html#a2b9f0063b43223b5b8af0cd698214f91',1,'LayoutSupport::JsonFile::name'],['../group__gin__gui-utilities.html#gab7f29046e16e28190c441e4b50e638d7',1,'juce::VarIterator::NamedValue::name'],['../classHorizontalFader.html#ab70425a9c8226dd53432dde0222dba8f',1,'HorizontalFader::name'],['../classKnob.html#a4cf5ed46637f0b10594b6d43b2f4067b',1,'Knob::name'],['../classSelect.html#a68477089c5c406d199fe071d09080be4',1,'Select::name'],['../classParameter.html#af3f67d57880c012b966413174dff2e75',1,'Parameter::name'],['../classProgram.html#ab960dff0d490441b19a47c7788ef5308',1,'Program::name']]],
   ['newline_3',['newLine',['../structDiff_1_1Patch_1_1Hunk.html#ad178d76354944fcc6bef4e3417a30d7a',1,'Diff::Patch::Hunk']]],

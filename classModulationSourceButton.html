@@ -79,7 +79,7 @@ $(function() {
 <p>A button for enabling modulation learn.  
  <a href="classModulationSourceButton.html#details">More...</a></p>
 
-<p><code>#include &lt;gin_modulation.h&gt;</code></p>
+<p><code>#include &lt;gin_modulationsourcebutton.h&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ModulationSourceButton:</div>
 <div class="dyncontent">
@@ -98,8 +98,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5dc4d504ea2a1c094af98a41fe6725c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a785b59e979786082a147664abc4145ae" id="r_a785b59e979786082a147664abc4145ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModulationSourceButton.html#a785b59e979786082a147664abc4145ae">mouseDrag</a> (<a class="el" href="classPoint.html">const</a> juce::MouseEvent &amp;<a class="el" href="classPoint.html">e</a>) <a class="el" href="classPoint.html">override</a></td></tr>
 <tr class="separator:a785b59e979786082a147664abc4145ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5045f460277ec0e6683d0ce83a5ddbbc" id="r_a5045f460277ec0e6683d0ce83a5ddbbc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModulationSourceButton.html#a5045f460277ec0e6683d0ce83a5ddbbc">mouseUp</a> (<a class="el" href="classPoint.html">const</a> juce::MouseEvent &amp;) <a class="el" href="classPoint.html">override</a></td></tr>
+<tr class="separator:a5045f460277ec0e6683d0ce83a5ddbbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94555224817c529b26e4821706c97fcd" id="r_a94555224817c529b26e4821706c97fcd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModulationSourceButton.html#a94555224817c529b26e4821706c97fcd">setSource</a> (<a class="el" href="structModSrcId.html">ModSrcId</a> src, <a class="el" href="classPoint.html">bool</a> p)</td></tr>
 <tr class="separator:a94555224817c529b26e4821706c97fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae97d6793e2fc77db49acfa8e48745f9e" id="r_ae97d6793e2fc77db49acfa8e48745f9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structModSrcId.html">ModSrcId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModulationSourceButton.html#ae97d6793e2fc77db49acfa8e48745f9e">getSource</a> ()</td></tr>
+<tr class="separator:ae97d6793e2fc77db49acfa8e48745f9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac45f47b9bbd564c658ae011f70fdc2fd" id="r_ac45f47b9bbd564c658ae011f70fdc2fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModulationSourceButton.html#ac45f47b9bbd564c658ae011f70fdc2fd">isDragging</a> ()</td></tr>
+<tr class="separator:ac45f47b9bbd564c658ae011f70fdc2fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A button for enabling modulation learn. </p>
@@ -260,6 +266,32 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a5045f460277ec0e6683d0ce83a5ddbbc" name="a5045f460277ec0e6683d0ce83a5ddbbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5045f460277ec0e6683d0ce83a5ddbbc">&#9670;&#160;</a></span>mouseUp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> ModulationSourceButton::mouseUp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::MouseEvent &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a94555224817c529b26e4821706c97fcd" name="a94555224817c529b26e4821706c97fcd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a94555224817c529b26e4821706c97fcd">&#9670;&#160;</a></span>setSource()</h2>
 
@@ -288,13 +320,47 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ae97d6793e2fc77db49acfa8e48745f9e" name="ae97d6793e2fc77db49acfa8e48745f9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae97d6793e2fc77db49acfa8e48745f9e">&#9670;&#160;</a></span>getSource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structModSrcId.html">ModSrcId</a> ModulationSourceButton::getSource </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac45f47b9bbd564c658ae011f70fdc2fd" name="ac45f47b9bbd564c658ae011f70fdc2fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac45f47b9bbd564c658ae011f70fdc2fd">&#9670;&#160;</a></span>isDragging()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">bool</a> ModulationSourceButton::isDragging </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="gin__plugin_2components_2gin__modulation_8h.html">gin_plugin/components/gin_modulation.h</a></li>
+<li><a class="el" href="gin__modulationsourcebutton_8h.html">gin_modulationsourcebutton.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 11 2026 00:22:08 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sun Jan 11 2026 01:06:59 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
