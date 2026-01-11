@@ -12297,8 +12297,8 @@
       <type></type>
       <name>ModOverlay</name>
       <anchorfile>classModOverlay.html</anchorfile>
-      <anchor>ac25a2d1504fbbf49d1061bcb436d9793</anchor>
-      <arglist>(ModMatrix &amp;mm)</arglist>
+      <anchor>aa8ce76759f51abe5a9f3ce3e220c1232</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type></type>

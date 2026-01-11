@@ -22,7 +22,7 @@ var searchData=
   ['modmatrix_19',['ModMatrix',['../classModMatrix.html#a923354065c39928704876d0b29e568c9',1,'ModMatrix']]],
   ['modmatrixbox_20',['ModMatrixBox',['../classModMatrixBox.html#aa1d0054cb9a5a3c5abbcd1e7b3e84b71',1,'ModMatrixBox']]],
   ['modmatrixchanged_21',['modmatrixchanged',['../classKnob.html#acb56b6928ff9dd975f80aee0ce6840c9',1,'Knob::modMatrixChanged()'],['../classModMatrix_1_1Listener.html#a6d4c1fcaddd8a3f77a0b25813919eae3',1,'ModMatrix::Listener::modMatrixChanged()']]],
-  ['modoverlay_22',['ModOverlay',['../classModOverlay.html#ac25a2d1504fbbf49d1061bcb436d9793',1,'ModOverlay']]],
+  ['modoverlay_22',['ModOverlay',['../classModOverlay.html#aa8ce76759f51abe5a9f3ce3e220c1232',1,'ModOverlay']]],
   ['modsrcid_23',['modsrcid',['../structModSrcId.html#a4648ac76f10dd3a15792224ef7727526',1,'ModSrcId::ModSrcId(int id_)'],['../structModSrcId.html#a9998764b350a96cb887a65424ec17d72',1,'ModSrcId::ModSrcId(const ModSrcId &amp;other)'],['../structModSrcId.html#afd814dca3ee595f427b4e869f249f594',1,'ModSrcId::ModSrcId()=default']]],
   ['modsrclistbox_24',['ModSrcListBox',['../classModSrcListBox.html#a5c4217751fb20f7a41b4734d179d85b3',1,'ModSrcListBox']]],
   ['modulation_25',['Modulation',['../classModulation.html#ad69ae957b7a70669951f70d3372ffb46',1,'Modulation']]],
