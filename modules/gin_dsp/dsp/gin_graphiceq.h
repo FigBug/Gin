@@ -150,7 +150,7 @@ public:
         jassert (band >= 0 && band < numBands);
 
         bandGains[static_cast<size_t> (channel)][static_cast<size_t> (band)] = gainDb;
-        updateBand (channel, band);
+        // No need to call updateBand - gain is applied in process(), not in filter coefficients
     }
 
     /** Gets the gain for a specific band on a specific channel.
@@ -260,13 +260,13 @@ public:
         for (int c = 0; c < channelsToProcess; ++c)
         {
             float* channelData = buffer.getWritePointer (c);
-            accumulator.clear();
+            juce::FloatVectorOperations::clear (accumulator.getWritePointer (0), numSamples);
 
             // For each band: y_i = bandpass_i(x), y += gain_i * y_i
             for (int b = 0; b < numBands; ++b)
             {
                 // Copy original input to temp buffer
-                tempBuffer.copyFrom (0, 0, channelData, numSamples);
+                juce::FloatVectorOperations::copy (tempBuffer.getWritePointer (0), channelData, numSamples);
 
                 // Filter the original input through this band's bandpass
                 float* tempData = tempBuffer.getWritePointer (0);
@@ -275,13 +275,12 @@ public:
 
                 // Accumulate: y += (linearGain - 1) * filtered
                 // Using (linearGain - 1) so that 0dB gain contributes nothing
-                float linearGain = juce::Decibels::decibelsToGain (
-                    bandGains[static_cast<size_t> (c)][static_cast<size_t> (b)]);
-                accumulator.addFrom (0, 0, tempBuffer, 0, 0, numSamples, linearGain - 1.0f);
+                float linearGain = juce::Decibels::decibelsToGain (bandGains[static_cast<size_t> (c)][static_cast<size_t> (b)]);
+                juce::FloatVectorOperations::addWithMultiply (accumulator.getWritePointer (0), tempBuffer.getReadPointer (0), linearGain - 1.0f, numSamples);
             }
 
             // output = x + y
-            buffer.addFrom (c, 0, accumulator, 0, 0, numSamples);
+            juce::FloatVectorOperations::add (channelData, accumulator.getReadPointer (0), numSamples);
         }
     }
 
