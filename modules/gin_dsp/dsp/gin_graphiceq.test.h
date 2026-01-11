@@ -152,6 +152,7 @@ private:
         gin::GraphicEQ eq (gin::GraphicEQ::Bands10);
         eq.setNumChannels (1);
         eq.setSampleRate (44100.0);
+        eq.setBlockSize (512);
 
         // Boost all bands by 6dB
         for (int i = 0; i < eq.getNumBands(); ++i)
@@ -205,6 +206,7 @@ private:
         gin::GraphicEQ eq (gin::GraphicEQ::Bands10);
         eq.setNumChannels (4);
         eq.setSampleRate (44100.0);
+        eq.setBlockSize (512);
 
         // Set different gains per channel at 1kHz band
         eq.setBandGain (0, 5, 6.0f);
@@ -244,6 +246,7 @@ private:
         gin::GraphicEQ eq (gin::GraphicEQ::Bands10);
         eq.setNumChannels (1);
         eq.setSampleRate (44100.0);
+        eq.setBlockSize (512);
 
         eq.setBandGain (0, 5, 6.0f);
 

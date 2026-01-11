@@ -82,6 +82,16 @@ public:
                 filter.setSampleRate (sr);
     }
 
+    /** Sets the maximum block size for processing.
+        Call this before processing to allocate working buffers.
+        @param blockSize  Maximum number of samples per block
+    */
+    void setBlockSize (int blockSize)
+    {
+        tempBuffer.setSize (1, blockSize);
+        accumulator.setSize (1, blockSize);
+    }
+
     /** Sets the number of audio channels.
         @param ch  Number of channels
     */
@@ -104,7 +114,7 @@ public:
                 auto& filter = filters[static_cast<size_t> (c)][static_cast<size_t> (b)];
                 filter.setSampleRate (sampleRate);
                 filter.setNumChannels (1);
-                filter.setType (Filter::peak);
+                filter.setType (Filter::bandpass);
                 filter.setSlope (Filter::db12);
                 updateBand (c, b);
             }
@@ -211,10 +221,17 @@ public:
     {
         jassert (channel >= 0 && channel < numChannels);
 
+        // For parallel filters: response = 1 + sum((gain - 1) * H_bandpass(f))
         float response = 1.0f;
 
         for (int b = 0; b < numBands; ++b)
-            response *= const_cast<Filter&> (filters[static_cast<size_t> (channel)][static_cast<size_t> (b)]).getResponseMagnitude (frequency);
+        {
+            float linearGain = juce::Decibels::decibelsToGain (
+                bandGains[static_cast<size_t> (channel)][static_cast<size_t> (b)]);
+            float bandResponse = const_cast<Filter&> (
+                filters[static_cast<size_t> (channel)][static_cast<size_t> (b)]).getResponseMagnitude (frequency);
+            response += (linearGain - 1.0f) * bandResponse;
+        }
 
         return response;
     }
@@ -236,15 +253,35 @@ public:
     {
         const int bufferChannels = buffer.getNumChannels();
         const int channelsToProcess = std::min (bufferChannels, numChannels);
+        const int numSamples = buffer.getNumSamples();
+
+        jassert (tempBuffer.getNumSamples() >= numSamples);
 
         for (int c = 0; c < channelsToProcess; ++c)
         {
-            // Create a single-channel buffer view for this channel
             float* channelData = buffer.getWritePointer (c);
-            juce::AudioSampleBuffer channelBuffer (&channelData, 1, buffer.getNumSamples());
+            accumulator.clear();
 
+            // For each band: y_i = bandpass_i(x), y += gain_i * y_i
             for (int b = 0; b < numBands; ++b)
-                filters[static_cast<size_t> (c)][static_cast<size_t> (b)].process (channelBuffer);
+            {
+                // Copy original input to temp buffer
+                tempBuffer.copyFrom (0, 0, channelData, numSamples);
+
+                // Filter the original input through this band's bandpass
+                float* tempData = tempBuffer.getWritePointer (0);
+                juce::AudioSampleBuffer tempView (&tempData, 1, numSamples);
+                filters[static_cast<size_t> (c)][static_cast<size_t> (b)].process (tempView);
+
+                // Accumulate: y += (linearGain - 1) * filtered
+                // Using (linearGain - 1) so that 0dB gain contributes nothing
+                float linearGain = juce::Decibels::decibelsToGain (
+                    bandGains[static_cast<size_t> (c)][static_cast<size_t> (b)]);
+                accumulator.addFrom (0, 0, tempBuffer, 0, 0, numSamples, linearGain - 1.0f);
+            }
+
+            // output = x + y
+            buffer.addFrom (c, 0, accumulator, 0, 0, numSamples);
         }
     }
 
@@ -293,11 +330,9 @@ private:
         if (channel >= numChannels || band >= numBands)
             return;
 
-        float gainDb = bandGains[static_cast<size_t> (channel)][static_cast<size_t> (band)];
-        float linearGain = juce::Decibels::decibelsToGain (gainDb);
-
+        // Use unity gain in the filter - actual gain is applied in process()
         filters[static_cast<size_t> (channel)][static_cast<size_t> (band)].setParams (
-            bandFrequencies[static_cast<size_t> (band)], bandQ, linearGain);
+            bandFrequencies[static_cast<size_t> (band)], bandQ, 1.0f);
     }
 
     int numBands = 31;
@@ -308,4 +343,8 @@ private:
     std::vector<float> bandFrequencies;
     std::vector<std::vector<float>> bandGains;           // [channel][band]
     std::vector<std::vector<Filter>> filters;            // [channel][band]
+
+    // Working buffers for parallel processing
+    juce::AudioSampleBuffer tempBuffer;
+    juce::AudioSampleBuffer accumulator;
 };
