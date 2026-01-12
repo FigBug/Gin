@@ -84,11 +84,11 @@ void CopperLookAndFeel::drawLinearSlider (juce::Graphics& g, int x, int y, int w
     auto rc = juce::Rectangle<int> (x, y, width, height);
     rc = rc.withSizeKeepingCentre (width, juce::jmin (height, 4));
 
-    g.setColour (slider.findColour (juce::Slider::trackColourId).withAlpha (0.1f));
+    g.setColour (slider.findColour (juce::Slider::trackColourId, true).withAlpha (0.1f));
     g.fillRect (rc);
 
     if (slider.isEnabled())
-        g.setColour (slider.findColour (juce::Slider::thumbColourId).withAlpha (isMouseOver ? 0.95f : 0.85f));
+        g.setColour (slider.findColour (juce::Slider::thumbColourId, true).withAlpha (isMouseOver ? 0.95f : 0.85f));
 
     if (slider.isHorizontal())
     {
@@ -129,7 +129,7 @@ void CopperLookAndFeel::drawRotarySlider (juce::Graphics& g, int x, int y, int w
 
     const float thickness = (radius - 1) / radius;
 
-    g.setColour (slider.findColour (juce::Slider::trackColourId).withMultipliedAlpha (slider.isEnabled() ? 1.0f : 0.5f));
+    g.setColour (slider.findColour (juce::Slider::trackColourId, true).withMultipliedAlpha (slider.isEnabled() ? 1.0f : 0.5f));
 
     // Draw knob
     {
@@ -153,7 +153,7 @@ void CopperLookAndFeel::drawRotarySlider (juce::Graphics& g, int x, int y, int w
     }
 
     if (slider.isEnabled())
-        g.setColour (slider.findColour (juce::Slider::rotarySliderFillColourId).withAlpha (isMouseOver ? 0.95f : 0.85f));
+        g.setColour (slider.findColour (juce::Slider::rotarySliderFillColourId, true).withAlpha (isMouseOver ? 0.95f : 0.85f));
 
     auto fillStartAngle = rotaryStartAngle;
     if (slider.getProperties().contains ("fromCentre"))
@@ -170,7 +170,7 @@ void CopperLookAndFeel::drawRotarySlider (juce::Graphics& g, int x, int y, int w
         auto depth = (float)slider.getProperties()["modDepth"];
         bool bipolar = (bool)slider.getProperties()["modBipolar"];
 
-        g.setColour (findColour (GinLookAndFeel::whiteColourId, true).withAlpha (0.9f));
+        g.setColour (slider.findColour (GinLookAndFeel::whiteColourId, true).withAlpha (0.9f));
 
         juce::Path filledArc;
         if (bipolar)
@@ -190,7 +190,7 @@ void CopperLookAndFeel::drawRotarySlider (juce::Graphics& g, int x, int y, int w
 
     if (slider.getProperties().contains ("modValues") && slider.isEnabled())
     {
-        g.setColour (findColour (GinLookAndFeel::whiteColourId, true).withAlpha (0.9f));
+        g.setColour (slider.findColour (GinLookAndFeel::whiteColourId, true).withAlpha (0.9f));
 
         auto varArray = slider.getProperties()["modValues"];
         if (varArray.isArray())
@@ -263,12 +263,12 @@ void CopperLookAndFeel::drawComboBox (juce::Graphics& g, int width, int height, 
 {
     const juce::Rectangle<int> boxBounds (0, 0, width, height);
 
-    juce::ColourGradient grad (findColour (PluginLookAndFeel::glass1ColourId, true), 0, 0,
-                               findColour (PluginLookAndFeel::glass2ColourId, true), 0, float (height), false);
+    juce::ColourGradient grad (box.findColour (PluginLookAndFeel::glass1ColourId, true), 0, 0,
+                               box.findColour (PluginLookAndFeel::glass2ColourId, true), 0, float (height), false);
     g.setGradientFill (grad);
     g.fillRoundedRectangle (boxBounds.toFloat(), boxBounds.getHeight() / 2.0f);
 
-    g.setColour (box.findColour (juce::ComboBox::outlineColourId));
+    g.setColour (box.findColour (juce::ComboBox::outlineColourId, true));
     g.drawRoundedRectangle (boxBounds.toFloat(), boxBounds.getHeight() / 2.0f, 1.0f);
 }
 
@@ -287,12 +287,12 @@ void CopperLookAndFeel::drawTextEditorOutline (juce::Graphics& g, int width, int
         {
             if (textEditor.hasKeyboardFocus (true) && ! textEditor.isReadOnly())
             {
-                g.setColour (textEditor.findColour (juce::TextEditor::focusedOutlineColourId));
+                g.setColour (textEditor.findColour (juce::TextEditor::focusedOutlineColourId, true));
                 g.drawRect (0, 0, width, height, 2);
             }
             else
             {
-                g.setColour (textEditor.findColour (juce::TextEditor::outlineColourId));
+                g.setColour (textEditor.findColour (juce::TextEditor::outlineColourId, true));
                 g.drawRect (0, 0, width, height);
             }
         }
