@@ -28,7 +28,7 @@ A comprehensive collection of extra modules for [JUCE](https://juce.com/), provi
 
 ### Adding Gin to Your CMake Project
 
-1. Add Gin as a submodule or clone into your project:
+1. Add Gin as a submodule:
 ```bash
 git submodule add https://github.com/FigBug/Gin.git modules/gin
 ```
