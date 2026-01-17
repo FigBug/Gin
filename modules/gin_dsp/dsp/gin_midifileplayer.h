@@ -2,7 +2,7 @@
  ==============================================================================
 
  This file is part of the GIN library.
- Copyright (c) 2025 - Roland Rabien.
+ Copyright (c) 2018 - 2026 by Roland Rabien.
 
  ==============================================================================
  */
@@ -18,14 +18,14 @@
     for each audio block based on the current playhead position.
 
     Thread Safety:
-    - load(), setBpm() should be called from the message thread
+    - load(), setFallbackBpm() should be called from the message thread
     - processBlock() is called from the audio thread
     - play(), stop(), setPlayheadPosition() can be called from either thread
     - Getters are safe to call from any thread
 
     Key Features:
     - Load MIDI files from juce::File
-    - Configurable BPM (tempo)
+    - Respects MIDI file tempo events, with configurable fallback BPM
     - Sample-accurate playback
     - Play/stop controls with proper note-off handling
     - Playhead position tracking
@@ -35,7 +35,7 @@
     MidiFilePlayer player;
     player.load(midiFile);
     player.setSampleRate(44100.0);
-    player.setBpm(120.0);
+    player.setFallbackBpm(120.0);  // Optional: only used if file has no tempo events
     player.play();
 
     // In audio callback
@@ -62,11 +62,11 @@ public:
     */
     void setSampleRate (double sr);
 
-    /** Sets the playback tempo.
+    /** Sets the fallback tempo to use when the MIDI file contains no tempo events.
         Call from the message thread only.
-        @param bpm The tempo in beats per minute
+        @param bpm The fallback tempo in beats per minute (default: 120)
     */
-    void setBpm (double bpm);
+    void setFallbackBpm (double bpm);
 
     /** Starts playback from the current position. */
     void play();
@@ -118,10 +118,27 @@ public:
     /** Clears the currently loaded file. */
     void clear();
 
+    /** Returns position info for use with an AudioPlayHead.
+        Call from the audio thread before processing.
+        @return PositionInfo populated with current playback state
+    */
+    juce::AudioPlayHead::PositionInfo populatePositionInfo();
+
 private:
     void buildSequence();
+    void buildTempoMap();
+    double ticksToSeconds (double ticks) const;
+    double secondsToTicks (double seconds) const;
     void performSeek (double positionInSeconds, juce::MidiBuffer& midiBuffer);
     void sendAllNotesOff (juce::MidiBuffer& midiBuffer, int samplePosition);
+
+    // Tempo map entry: tick position and microseconds per quarter note
+    struct TempoEvent
+    {
+        double tickPosition;
+        double microsecondsPerQuarterNote;
+    };
+    std::vector<TempoEvent> tempoMap;
 
     juce::SpinLock lock;
 
@@ -130,7 +147,7 @@ private:
     juce::MidiMessageSequence sequence;
 
     std::atomic<double> sampleRate { 44100.0 };
-    std::atomic<double> bpm { 120.0 };
+    std::atomic<double> fallbackBpm { 120.0 };
     std::atomic<double> playheadSeconds { 0.0 };
     std::atomic<double> lengthInSeconds { 0.0 };
     std::atomic<double> lengthInTicks { 0.0 };

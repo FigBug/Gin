@@ -16,6 +16,7 @@ juce_add_plugin (Synth
 				 AU_MAIN_TYPE "kAudioUnitType_MusicDevice"
 				 VST2_CATEGORY "kPlugCategSynth"
 				 LV2URI "https://rabien.com/synth/"
+				 COPY_PLUGIN_AFTER_BUILD FALSE
 			   )
 
 if (APPLE)

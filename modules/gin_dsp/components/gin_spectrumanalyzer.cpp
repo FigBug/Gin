@@ -17,6 +17,8 @@ SpectrumAnalyzer::SpectrumAnalyzer (AudioFifo& f)
     for (int i = 0; i < 32; i++)
         setColour (envelopeColourId + i, juce::Colours::white.withAlpha (0.5f));
 
+    setColour (gridColourId, juce::Colours::white.withAlpha (0.3f));
+
     startTimerHz (30);
 }
 
@@ -55,6 +57,12 @@ void SpectrumAnalyzer::setSmoothing (float smoothing)
     smoothingFactor = juce::jlimit (0.0f, 0.99f, smoothing);
 }
 
+void SpectrumAnalyzer::setDrawGrid (bool on)
+{
+    drawGrid = on;
+    repaint();
+}
+
 void SpectrumAnalyzer::timerCallback()
 {
     if (fifo.getNumChannels() != channels.size())
@@ -75,7 +83,7 @@ void SpectrumAnalyzer::timerCallback()
 
             for (int i = 0; i < numToRead; ++i)
             {
-                channel->inputBuffer[channel->inputBufferPos] = buffer.getSample (ch, i);
+                channel->inputBuffer[size_t (channel->inputBufferPos)] = buffer.getSample (ch, i);
                 channel->inputBufferPos++;
 
                 if (channel->inputBufferPos >= fftSize)
@@ -113,13 +121,13 @@ void SpectrumAnalyzer::processFFT (Channel* channel)
 
     for (int i = 0; i < numBins; ++i)
     {
-        const float magnitude = channel->fftData[i] * normFactor;
+        const float magnitude = channel->fftData[size_t (i)] * normFactor;
         const float db = juce::Decibels::gainToDecibels (magnitude, minDecibels);
-        channel->bins[i] = db;
+        channel->bins[size_t (i)] = db;
 
         // Apply smoothing
-        channel->smoothedBins[i] = channel->smoothedBins[i] * smoothingFactor
-                                 + channel->bins[i] * (1.0f - smoothingFactor);
+        channel->smoothedBins[size_t (i)] = channel->smoothedBins[size_t (i)] * smoothingFactor
+                                          + channel->bins[size_t (i)] * (1.0f - smoothingFactor);
     }
 }
 
@@ -162,7 +170,7 @@ void SpectrumAnalyzer::updatePaths()
             const float x = normX * w;
 
             // Map dB to y position
-            const float db = channel->smoothedBins[bin];
+            const float db = channel->smoothedBins[size_t (bin)];
             const float clampedDb = juce::jlimit (minDecibels, maxDecibels, db);
             const float normDb = (clampedDb - minDecibels) / (maxDecibels - minDecibels);
             const float y = h - (normDb * h);
@@ -189,6 +197,46 @@ void SpectrumAnalyzer::updatePaths()
 void SpectrumAnalyzer::paint (juce::Graphics& g)
 {
     g.fillAll (findColour (backgroundColourId));
+
+    if (drawGrid)
+    {
+        const float w = static_cast<float> (getWidth());
+        const float h = static_cast<float> (getHeight());
+
+        if (w > 0 && h > 0)
+        {
+            g.setColour (findColour (gridColourId));
+
+            const float logMinFreq = std::log10 (minFrequency);
+            const float logMaxFreq = std::log10 (maxFrequency);
+            const float logFreqRange = logMaxFreq - logMinFreq;
+
+            // Draw frequency grid lines
+            const float freqLines[] = { 10.0f, 20.0f, 30.0f, 40.0f, 50.0f, 60.0f, 70.0f, 80.0f, 90.0f,
+                                        100.0f, 200.0f, 300.0f, 400.0f, 500.0f, 600.0f, 700.0f, 800.0f, 900.0f,
+                                        1000.0f, 2000.0f, 3000.0f, 4000.0f, 5000.0f, 6000.0f, 7000.0f, 8000.0f, 9000.0f,
+                                        10000.0f, 20000.0f };
+            for (auto freq : freqLines)
+            {
+                if (freq >= minFrequency && freq <= maxFrequency)
+                {
+                    const float logFreq = std::log10 (freq);
+                    const float normX = (logFreq - logMinFreq) / logFreqRange;
+                    const float x = normX * w;
+                    g.drawVerticalLine (static_cast<int> (x), 0.0f, h);
+                }
+            }
+
+            // Draw dB grid lines at 12 dB intervals
+            const float dbRange = maxDecibels - minDecibels;
+            for (float db = maxDecibels - 12.0f; db > minDecibels; db -= 12.0f)
+            {
+                const float normDb = (db - minDecibels) / dbRange;
+                const float y = h - (normDb * h);
+                g.drawHorizontalLine (static_cast<int> (y), 0.0f, w);
+            }
+        }
+    }
 
     if (needToUpdate)
     {

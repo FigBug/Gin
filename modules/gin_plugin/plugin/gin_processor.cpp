@@ -56,6 +56,8 @@ Processor::Processor (const BusesProperties& ioLayouts, bool init_, ProcessorOpt
 
 Processor::~Processor()
 {
+    // make sure midi learn is destroyed before any of the parameters
+    midiLearn = nullptr;
 }
 
 void Processor::init()
@@ -65,6 +67,9 @@ void Processor::init()
         state = juce::ValueTree (juce::Identifier ("state"));
         state.getOrCreateChildWithName ("instance", nullptr);
     }
+
+    if (processorOptions.hasMidiLearn)
+        midiLearn = std::make_unique<MidiLearn> (*this);
 
     loadAllPrograms();
 
@@ -79,7 +84,7 @@ juce::PropertiesFile* Processor::getSettings()
     if (settings == nullptr)
     {
        #if JUCE_MAC
-        auto dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile ("Preferences").getChildFile (processorOptions.developer);
+        auto dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile ("Application Support").getChildFile (processorOptions.developer);
        #else
         auto dir = juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory).getChildFile (processorOptions.developer);
        #endif
@@ -87,7 +92,7 @@ juce::PropertiesFile* Processor::getSettings()
 
         juce::PropertiesFile::Options options;
 
-        settings = std::make_unique<juce::PropertiesFile> (dir.getChildFile ("plugin_settings.xml"), options);
+        settings = std::make_unique<juce::PropertiesFile> (dir.getChildFile (processorOptions.pluginName + ".xml"), options);
     }
     return settings.get();
 }
@@ -125,6 +130,9 @@ void Processor::addPluginParameter (gin::Parameter* p)
     allParameters.add (p);
 
     parameterMap[p->getUid()] = p;
+
+    if (midiLearn != nullptr)
+        p->setMidiLearn (midiLearn.get());
 }
 
 std::unique_ptr<gin::Parameter> Processor::createParam (juce::String uid, juce::String name, juce::String shortName, juce::String label,
@@ -171,6 +179,10 @@ gin::Parameter* Processor::addIntParam (juce::String uid, juce::String name, juc
         p->setInternal (true);
         allParameters.add (rawPtr);
         parameterMap[p->getUid()] = rawPtr;
+
+        if (midiLearn != nullptr)
+            rawPtr->setMidiLearn (midiLearn.get());
+
         internalParameters.add (p.release());
         return rawPtr;
     }
@@ -189,6 +201,10 @@ gin::Parameter* Processor::addExtParam (juce::String uid, juce::String name, juc
         auto rawPtr = p.get();
         allParameters.add (rawPtr);
         parameterMap[p->getUid()] = rawPtr;
+
+        if (midiLearn != nullptr)
+            rawPtr->setMidiLearn (midiLearn.get());
+
        #if BUILD_INTERNAL_PLUGINS
         addHostedParameter (std::move (p));
        #else
@@ -512,6 +528,12 @@ juce::String Processor::getStateXml()
 {
     updateState();
 
+    if (midiLearn != nullptr)
+    {
+        auto inst = state.getOrCreateChildWithName ("instance", nullptr);
+        midiLearn->saveState (inst);
+    }
+
     std::unique_ptr<juce::XmlElement> rootE (new juce::XmlElement ("state"));
 
     if (state.isValid())
@@ -619,6 +641,9 @@ void Processor::setStateXml (const juce::String& text)
         if (juce::MessageManager::getInstance()->isThisTheMessageThread())
             for (auto pp : getPluginParameters())
                 pp->handleUpdateNowIfNeeded();
+
+        if (midiLearn != nullptr)
+            midiLearn->loadState (state.getChildWithName ("instance"));
     }
     stateUpdated();
     sendChangeMessage();

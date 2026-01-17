@@ -162,6 +162,7 @@ void StandaloneFilterWindow::updateContent()
 void StandaloneFilterWindow::buttonClicked (juce::Button* button)
 {
     juce::PopupMenu m;
+    m.setLookAndFeel (&getLookAndFeel());
 
     m.addItem (TRANS("Audio/MIDI Settings..."), [this] { pluginHolder->showAudioSettingsDialog(); });
     m.addSeparator();

@@ -1,6 +1,6 @@
 /*==============================================================================
 
- Copyright 2018 - 2025 by Roland Rabien
+ Copyright (c) 2018 - 2026 by Roland Rabien.
  For more information visit www.rabiensoftware.com
 
  ==============================================================================*/
@@ -87,6 +87,7 @@ namespace gin
 #include "dsp/gin_textrenderer.cpp"
 #include "dsp/gin_wtoscillators.cpp"
 #include "dsp/gin_midifileplayer.cpp"
+#include "dsp/gin_audiometadata.cpp"
 
 #include "components/gin_audiosamplerbuffercomponent.cpp"
 #include "components/gin_dynamicsmeter.cpp"

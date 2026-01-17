@@ -20,6 +20,7 @@ public:
         backgroundColourId       = 0x1291e11,
         traceColourId            = 0x1291e12,
         envelopeColourId         = 0x1291f13,
+        gridColourId             = 0x1291e14,
     };
 
     void setNumChannels (int num);
@@ -35,6 +36,9 @@ public:
 
     /** Set smoothing factor for the display (0-1, higher = smoother) */
     void setSmoothing (float smoothing);
+
+    /** Enable or disable grid drawing */
+    void setDrawGrid (bool on);
 
     //==============================================================================
     void paint (juce::Graphics& g) override;
@@ -70,6 +74,7 @@ private:
     float maxDecibels = 0.0f;
     double sampleRate = 44100.0;
     float smoothingFactor = 0.8f;
+    bool drawGrid = false;
 
     bool needToUpdate = false;
 

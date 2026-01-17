@@ -2,7 +2,7 @@
  ==============================================================================
 
  This file is part of the GIN library.
- Copyright (c) 2025 - Roland Rabien.
+ Copyright (c) 2018 - 2026 by Roland Rabien.
 
  ==============================================================================
  */
@@ -53,6 +53,9 @@ void MidiFilePlayer::buildSequence()
     sequence.sort();
     sequence.updateMatchedPairs();
 
+    // Build tempo map from the merged sequence
+    buildTempoMap();
+
     // Calculate length - find the last event timestamp
     double newLength = 0.0;
     double newLengthTicks = 0.0;
@@ -67,11 +70,8 @@ void MidiFilePlayer::buildSequence()
 
             if (timeFormat > 0)
             {
-                // Ticks per beat (quarter note)
-                const double ticksPerBeat = static_cast<double> (timeFormat);
-                const double beatsPerSecond = bpm.load() / 60.0;
-                const double ticksPerSecond = ticksPerBeat * beatsPerSecond;
-                newLength = newLengthTicks / ticksPerSecond;
+                // Use tempo map for accurate conversion
+                newLength = ticksToSeconds (newLengthTicks);
             }
             else
             {
@@ -89,21 +89,123 @@ void MidiFilePlayer::buildSequence()
     // and clearing activeNotes in processBlock
 }
 
+void MidiFilePlayer::buildTempoMap()
+{
+    // Called with lock held
+    tempoMap.clear();
+
+    // Extract tempo events from the sequence
+    for (int i = 0; i < sequence.getNumEvents(); ++i)
+    {
+        auto* event = sequence.getEventPointer (i);
+        if (event != nullptr && event->message.isTempoMetaEvent())
+        {
+            double tickPos = event->message.getTimeStamp();
+            double microsecondsPerQuarterNote = event->message.getTempoSecondsPerQuarterNote() * 1000000.0;
+            tempoMap.push_back ({ tickPos, microsecondsPerQuarterNote });
+        }
+    }
+
+    // If no tempo events found, use the fallback BPM
+    if (tempoMap.empty())
+    {
+        double microsecondsPerQuarterNote = 60000000.0 / fallbackBpm.load();
+        tempoMap.push_back ({ 0.0, microsecondsPerQuarterNote });
+    }
+}
+
+double MidiFilePlayer::ticksToSeconds (double ticks) const
+{
+    // Called with lock held (or during initialization)
+    const short timeFormat = midiFile.getTimeFormat();
+    if (timeFormat <= 0)
+        return ticks;  // SMPTE format, ticks are already time-based
+
+    const double ticksPerQuarterNote = static_cast<double> (timeFormat);
+    double seconds = 0.0;
+    double lastTick = 0.0;
+
+    for (size_t i = 0; i < tempoMap.size(); ++i)
+    {
+        double tempoStartTick = tempoMap[i].tickPosition;
+        double microsecondsPerQuarterNote = tempoMap[i].microsecondsPerQuarterNote;
+
+        // Find where this tempo region ends
+        double tempoEndTick = (i + 1 < tempoMap.size()) ? tempoMap[i + 1].tickPosition : ticks;
+        if (tempoEndTick > ticks)
+            tempoEndTick = ticks;
+
+        if (tempoEndTick <= lastTick)
+            continue;
+
+        // Calculate time for the portion of this tempo region up to our target
+        double regionStartTick = std::max (lastTick, tempoStartTick);
+        double ticksInRegion = tempoEndTick - regionStartTick;
+
+        double secondsPerTick = (microsecondsPerQuarterNote / 1000000.0) / ticksPerQuarterNote;
+        seconds += ticksInRegion * secondsPerTick;
+
+        lastTick = tempoEndTick;
+
+        if (lastTick >= ticks)
+            break;
+    }
+
+    return seconds;
+}
+
+double MidiFilePlayer::secondsToTicks (double seconds) const
+{
+    // Called with lock held
+    const short timeFormat = midiFile.getTimeFormat();
+    if (timeFormat <= 0)
+        return seconds;  // SMPTE format, ticks are already time-based
+
+    const double ticksPerQuarterNote = static_cast<double> (timeFormat);
+    double ticks = 0.0;
+    double accumulatedSeconds = 0.0;
+
+    for (size_t i = 0; i < tempoMap.size(); ++i)
+    {
+        double tempoStartTick = tempoMap[i].tickPosition;
+        double microsecondsPerQuarterNote = tempoMap[i].microsecondsPerQuarterNote;
+        double secondsPerTick = (microsecondsPerQuarterNote / 1000000.0) / ticksPerQuarterNote;
+
+        // Calculate seconds at start of next tempo region (or end of file)
+        double nextTempoTick = (i + 1 < tempoMap.size()) ? tempoMap[i + 1].tickPosition : std::numeric_limits<double>::max();
+        double ticksInRegion = nextTempoTick - tempoStartTick;
+        double secondsInRegion = ticksInRegion * secondsPerTick;
+
+        if (accumulatedSeconds + secondsInRegion >= seconds)
+        {
+            // Target is in this region
+            double secondsIntoRegion = seconds - accumulatedSeconds;
+            ticks = tempoStartTick + (secondsIntoRegion / secondsPerTick);
+            return ticks;
+        }
+
+        accumulatedSeconds += secondsInRegion;
+        ticks = nextTempoTick;
+    }
+
+    return ticks;
+}
+
 void MidiFilePlayer::setSampleRate (double sr)
 {
     sampleRate.store (sr);
 }
 
-void MidiFilePlayer::setBpm (double newBpm)
+void MidiFilePlayer::setFallbackBpm (double newBpm)
 {
-    if (! juce::approximatelyEqual (bpm.load(), newBpm))
+    if (! juce::approximatelyEqual (fallbackBpm.load(), newBpm))
     {
         const juce::SpinLock::ScopedLockType sl (lock);
 
-        bpm.store (newBpm);
+        fallbackBpm.store (newBpm);
 
-        // Recalculate length with new tempo
-        if (fileLoaded.load())
+        // Recalculate tempo map and length if no tempo events in file
+        if (fileLoaded.load() && tempoMap.empty())
             buildSequence();
     }
 }
@@ -119,6 +221,7 @@ void MidiFilePlayer::clear()
         loadedFilePath = juce::File();
         midiFile = juce::MidiFile();
         sequence.clear();
+        tempoMap.clear();
         fileLoaded.store (false);
         lengthInSeconds.store (0.0);
         lengthInTicks.store (0.0);
@@ -170,10 +273,8 @@ void MidiFilePlayer::performSeek (double positionInSeconds, juce::MidiBuffer& mi
         return;
     }
 
-    const double ticksPerBeat = static_cast<double> (timeFormat);
-    const double beatsPerSecond = bpm.load() / 60.0;
-    const double ticksPerSecond = ticksPerBeat * beatsPerSecond;
-    const double targetTicks = positionInSeconds * ticksPerSecond;
+    // Use tempo map for accurate conversion
+    const double targetTicks = secondsToTicks (positionInSeconds);
 
     for (int i = 0; i < sequence.getNumEvents(); ++i)
     {
@@ -225,6 +326,80 @@ void MidiFilePlayer::sendAllNotesOff (juce::MidiBuffer& midiBuffer, int samplePo
     activeNotes.clear();
 }
 
+juce::AudioPlayHead::PositionInfo MidiFilePlayer::populatePositionInfo()
+{
+    juce::AudioPlayHead::PositionInfo info;
+
+    info.setIsPlaying (playing.load());
+    info.setIsRecording (false);
+    info.setIsLooping (looping.load());
+
+    const double positionSeconds = playheadSeconds.load();
+    info.setTimeInSeconds (positionSeconds);
+
+    const double sr = sampleRate.load();
+    info.setTimeInSamples (static_cast<int64_t> (positionSeconds * sr));
+
+    // Get BPM from tempo map at current position
+    double bpm = fallbackBpm.load();
+    if (fileLoaded.load())
+    {
+        const juce::SpinLock::ScopedTryLockType sl (lock);
+        if (sl.isLocked() && ! tempoMap.empty())
+        {
+            const double currentTicks = secondsToTicks (positionSeconds);
+
+            // Find the tempo event that applies to our current position
+            for (size_t i = tempoMap.size(); i > 0; --i)
+            {
+                if (tempoMap[i - 1].tickPosition <= currentTicks)
+                {
+                    double microsecondsPerQuarterNote = tempoMap[i - 1].microsecondsPerQuarterNote;
+                    bpm = 60000000.0 / microsecondsPerQuarterNote;
+                    break;
+                }
+            }
+        }
+    }
+    info.setBpm (bpm);
+
+    // Calculate PPQ position (quarter notes from start)
+    const short timeFormat = midiFile.getTimeFormat();
+    if (timeFormat > 0 && fileLoaded.load())
+    {
+        const juce::SpinLock::ScopedTryLockType sl (lock);
+        if (sl.isLocked())
+        {
+            const double ticks = secondsToTicks (positionSeconds);
+            const double ppq = ticks / static_cast<double> (timeFormat);
+            info.setPpqPosition (ppq);
+
+            // Calculate bar start position (assuming 4/4 time signature)
+            const double beatsPerBar = 4.0;
+            const double barNumber = std::floor (ppq / beatsPerBar);
+            info.setPpqPositionOfLastBarStart (barNumber * beatsPerBar);
+        }
+    }
+
+    // Set time signature (default 4/4 - MIDI files may have time sig events but we use default)
+    info.setTimeSignature (juce::AudioPlayHead::TimeSignature { 4, 4 });
+
+    if (looping.load())
+    {
+        juce::AudioPlayHead::LoopPoints loopPoints;
+        loopPoints.ppqStart = 0.0;
+
+        if (timeFormat > 0)
+            loopPoints.ppqEnd = lengthInTicks.load() / static_cast<double> (timeFormat);
+        else
+            loopPoints.ppqEnd = lengthInSeconds.load() * (bpm / 60.0);
+
+        info.setLoopPoints (loopPoints);
+    }
+
+    return info;
+}
+
 void MidiFilePlayer::processBlock (int numSamples, juce::MidiBuffer& midiBuffer)
 {
     if (numSamples <= 0)
@@ -249,18 +424,15 @@ void MidiFilePlayer::processBlock (int numSamples, juce::MidiBuffer& midiBuffer)
     if (timeFormat <= 0)
         return;
 
-    const double currentBpm = bpm.load();
     const double currentSampleRate = sampleRate.load();
-    const double ticksPerBeat = static_cast<double> (timeFormat);
-    const double beatsPerSecond = currentBpm / 60.0;
-    const double ticksPerSecond = ticksPerBeat * beatsPerSecond;
     const double secondsPerSample = 1.0 / currentSampleRate;
 
     const double blockStartSeconds = playheadSeconds.load();
     const double blockEndSeconds = blockStartSeconds + (numSamples * secondsPerSample);
 
-    const double blockStartTicks = blockStartSeconds * ticksPerSecond;
-    const double blockEndTicks = blockEndSeconds * ticksPerSecond;
+    // Convert to ticks using tempo map
+    const double blockStartTicks = secondsToTicks (blockStartSeconds);
+    const double blockEndTicks = secondsToTicks (blockEndSeconds);
 
     int eventIndex = currentEventIndex.load();
 
@@ -278,8 +450,8 @@ void MidiFilePlayer::processBlock (int numSamples, juce::MidiBuffer& midiBuffer)
 
         if (eventTicks >= blockStartTicks)
         {
-            // Calculate sample position within this block
-            const double eventSeconds = eventTicks / ticksPerSecond;
+            // Calculate sample position within this block using tempo map
+            const double eventSeconds = ticksToSeconds (eventTicks);
             const double offsetSeconds = eventSeconds - blockStartSeconds;
             const int samplePos = std::max (0, std::min (numSamples - 1,
                 static_cast<int> (offsetSeconds * currentSampleRate)));

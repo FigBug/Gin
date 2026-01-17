@@ -368,6 +368,8 @@ void MSEGComponent::mouseUp (const juce::MouseEvent& e)
     if (e.mods.isPopupMenu() && (! editable || (draggingPoint == -1 && draggingCurve == -1)))
     {
         juce::PopupMenu m;
+        m.setLookAndFeel (&getLookAndFeel());
+
         if (onLoad) m.addItem ("Load...", [this] { onLoad(); });
         if (onSave) m.addItem ("Save...", [this] { onSave(); });
         m.addSeparator();
@@ -394,6 +396,8 @@ void MSEGComponent::mouseUp (const juce::MouseEvent& e)
         if (draggingPoint >= 0 && loop->getUserValueInt() == 1)
         {
             juce::PopupMenu m;
+            m.setLookAndFeel (&getLookAndFeel());
+            
             m.addItem ("Set Loop Start", draggingPoint < data.numPoints - 1, false, [this, dp = draggingPoint]
             {
                 data.startIndex = dp;

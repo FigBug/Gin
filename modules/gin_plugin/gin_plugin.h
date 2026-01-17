@@ -1,6 +1,6 @@
 /*==============================================================================
 
- Copyright 2018 - 2025 by Roland Rabien
+ Copyright (c) 2018 - 2026 by Roland Rabien.
  For more information visit www.rabiensoftware.com
 
  ==============================================================================*/
@@ -88,18 +88,36 @@ bool wantsAccessibleKeyboard (juce::Component&);
 #include "plugin/gin_parameter.h"
 #include "plugin/gin_smoothedparameter.h"
 #include "plugin/gin_modmatrix.h"
+#include "plugin/gin_midilearn.h"
 
 #include "components/gin_assets.h"
 #include "components/gin_pluginalertwindow.h"
 #include "components/gin_multiparamcomponent.h"
-#include "components/gin_modulation.h"
+#include "components/gin_modulationsourcebutton.h"
+#include "components/gin_modulationdepthslider.h"
+#include "components/gin_modulationoverview.h"
+#include "components/gin_modsrclistbox.h"
+#include "components/gin_modcurvebutton.h"
+#include "components/gin_modmatrixbox.h"
 #include "components/gin_adsrcomponent.h"
 #include "components/gin_gateeffectcomponent.h"
 #include "components/gin_lfocomponent.h"
 #include "components/gin_msegcomponent.h"
 #include "components/gin_steplfocomponent.h"
-#include "components/gin_plugincomponents.h"
+#include "components/gin_pluginbutton.h"
+#include "components/gin_plugincombobox.h"
+#include "components/gin_pluginslider.h"
+#include "components/gin_faderslider.h"
+#include "components/gin_readout.h"
+#include "components/gin_paramcomponent.h"
+#include "components/gin_horizontalfader.h"
+#include "components/gin_switch.h"
+#include "components/gin_select.h"
+#include "components/gin_synthesiserusage.h"
+#include "components/gin_midilearnoverlay.h"
 #include "components/gin_knob.h"
+#include "components/gin_fader.h"
+#include "components/gin_modoverlay.h"
 
 #include "lookandfeel/gin_images.h"
 #include "lookandfeel/gin_copperlookandfeel.h"

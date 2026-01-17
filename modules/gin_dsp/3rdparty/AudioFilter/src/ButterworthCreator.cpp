@@ -12,7 +12,7 @@ namespace AudioFilter
 namespace QBasedButterworth
 {
 
-double getButterworthQ(int index, int order)
+static double getButterworthQ(int index, int order)
 {
     return -0.5 / std::cos(juce::MathConstants<double>::pi * (2 * index + order + 1) / (2 * order));
 }
@@ -253,6 +253,7 @@ void ButterworthCreator::add(BiquadParamCascade& params, ButterworthType type, d
         addBandStop(params, freq, Q, order, sampleRate);
         break;
     case bwAllPass:
+    case bwNumTypes:
     default:
         assert(false); // Should be a type suppotered by this class.
         break;
@@ -315,6 +316,7 @@ void ButterworthCreator::create(BiquadParamCascade& params, ButterworthType type
         createBandStop(params, freq, Q, order, sampleRate);
         break;
     case bwAllPass:
+    case bwNumTypes:
     default:
         assert(false); // Should be a type suppotered by this class.
         break;

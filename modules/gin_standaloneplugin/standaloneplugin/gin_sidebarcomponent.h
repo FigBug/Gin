@@ -172,7 +172,8 @@ private:
 
 //==============================================================================
 class SideBarComponent : public juce::Component,
-                         public juce::Timer
+                         public juce::Timer,
+                         public juce::ChangeListener
 {
 public:
     SideBarComponent (StandaloneFilterWindow& filterWindow);
@@ -181,6 +182,9 @@ public:
     void resized() override;
     void paint (juce::Graphics& g) override;
     void timerCallback() override;
+    void changeListenerCallback (juce::ChangeBroadcaster* source) override;
+
+    void updateComponentVisibility();
 
     static constexpr int width = 200;
 
@@ -229,6 +233,9 @@ private:
     SVGButton                     recordMenu;
     bool                          flashState = false;
 
+    HeaderComponent     outputHeader { "Output" };
+    juce::Slider        outputGain;
+
     HeaderComponent     scopeHeader { "Scope" };
     TriggeredScope      scope { player.scopeFifo };
 
@@ -237,4 +244,7 @@ private:
 
     HeaderComponent     xyHeader { "XY" };
     XYScope             xyScope { player.xyFifo };
+
+    int lastInputChannels = 0;
+    int lastOutputChannels = 0;
 };

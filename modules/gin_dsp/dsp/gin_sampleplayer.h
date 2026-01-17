@@ -24,13 +24,22 @@ public:
     void processBlock (juce::AudioSampleBuffer& output);
 
     double getPosition() const;
+    double getPositionInSeconds() const;
     void setPosition (double newPosition);
+
+    double getLengthInSeconds() const;
 
     bool hasFileLoaded() const { return fileLoaded.load(); }
     juce::File getLoadedFile() const { return loadedFilePath; }
     const juce::AudioSampleBuffer& getBuffer() const { return buffer; }
     double getSourceSampleRate() const { return sourceSampleRate; }
     void clear();
+
+    /** Returns position info for use with an AudioPlayHead.
+        Call from the audio thread before processing.
+        @return PositionInfo populated with current playback state
+    */
+    juce::AudioPlayHead::PositionInfo populatePositionInfo();
 
 private:
     float interpolateSampleWithCrossfade (int channel, double pos);
@@ -46,4 +55,7 @@ private:
     std::atomic<bool> playing { false };
     std::atomic<bool> looping { true };
     std::atomic<bool> fileLoaded { false };
+    double bpm { 120.0 };
+    int timeSigNumerator { 4 };
+    int timeSigDenominator { 4 };
 };

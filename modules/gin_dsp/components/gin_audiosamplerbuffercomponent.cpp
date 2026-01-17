@@ -39,7 +39,7 @@ void AudioSamplerBufferComponent::mouseUp (const juce::MouseEvent&)
     dragScrolling = false;
 }
 
-void AudioSamplerBufferComponent::paint (juce::Graphics& g)
+void AudioSamplerBufferComponent::paintBackground (juce::Graphics& g)
 {
     g.fillAll (bkColour);
 
@@ -55,58 +55,74 @@ void AudioSamplerBufferComponent::paint (juce::Graphics& g)
 
         pixelCacheDirty = false;
     }
+}
 
-    paintWaveform (g);
-
+void AudioSamplerBufferComponent::paintPlayheads (juce::Graphics& g)
+{
     for (auto p : playheads)
     {
         const auto x = sampleToX (p);
+        const auto h = static_cast<float> (getHeight());
 
-        g.setColour (lineColour);
-        g.fillRect (float (x), 0.0f, 1.5f, float (getHeight()));
+        g.setColour (juce::Colours::black.withAlpha (0.5f));
+        g.fillRect (x - 0.5f, 0.0f, 3.0f, h);
+
+        g.setColour (lineColour.brighter());
+        g.fillRect (x, 0.0f, 2.0f, h);
     }
+}
+
+void AudioSamplerBufferComponent::paint (juce::Graphics& g)
+{
+    paintBackground (g);
+    paintWaveform (g);
+    paintPlayheads (g);
 }
 
 void AudioSamplerBufferComponent::paintWaveform (juce::Graphics& g)
 {
     auto rc = getLocalBounds().toFloat ();
 
-    for (auto ch = 0; const auto& c : channels)
+    for (auto ch = 0; ch < channels.size(); ch++)
     {
         auto r = rc.removeFromTop (float (getHeight()) / float (channels.size()));
-
-        g.setColour (lineColour);
-
-        if (hiRes())
-            g.strokePath (c->path, juce::PathStrokeType (2.0f), juce::AffineTransform::scale (1.0f, -(r.getHeight() / 2.0f)).translated (0.0f, r.getCentreY()));
-        else
-            g.fillPath (c->path, juce::AffineTransform::scale (1.0f, -(r.getHeight () / 2.0f)).translated (0.0f, r.getCentreY()));
-
-        if (auto spp = getNumSamplesPerPixel (); spp < 1.0f)
-        {
-            g.setColour (lineColour.withAlpha (juce::jmap (std::max (spp, 0.05f), 0.05f, 1.0f, 1.0f, 0.0f)));
-
-            auto v = 0.0f;
-            auto dx = 3.0f;
-
-            auto samples = buffer.getReadPointer (ch);
-
-            for (auto samp = int (viewLeft) - 1; samp <= std::min (getViewRight () + 1.0f, buffer.getNumSamples() - 1.0f); samp++)
-            {
-                v = samples[samp];
-                auto x = sampleToX (samp);
-
-                auto y = juce::jmap (v, -1.0f, 1.0f, r.getBottom(), r.getY());
-
-                g.fillEllipse (float (x - dx / 2.0f), float (y - dx / 2.0f), dx, dx);
-            }
-        }
-
-        g.setColour (lineColour.withMultipliedAlpha (0.7f));
-        g.fillRect (r.withY (r.getCentreY()).withHeight (0.0f).expanded (0.0f, 0.5f));
-
-        ++ch;
+        paintChannelData (g, ch, r);
     }
+}
+
+void AudioSamplerBufferComponent::paintChannelData (juce::Graphics& g, int ch, const juce::Rectangle<float>& r)
+{
+    const auto& c = channels[ch];
+
+    g.setColour (lineColour);
+
+    if (hiRes())
+        g.strokePath (c->path, juce::PathStrokeType (2.0f), juce::AffineTransform::scale (1.0f, -(r.getHeight() / 2.0f)).translated (0.0f, r.getCentreY()));
+    else
+        g.fillPath (c->path, juce::AffineTransform::scale (1.0f, -(r.getHeight () / 2.0f)).translated (0.0f, r.getCentreY()));
+
+    if (auto spp = getNumSamplesPerPixel (); spp < 1.0f)
+    {
+        g.setColour (lineColour.withAlpha (juce::jmap (std::max (spp, 0.05f), 0.05f, 1.0f, 1.0f, 0.0f)));
+
+        auto v = 0.0f;
+        auto dx = 3.0f;
+
+        auto samples = buffer.getReadPointer (ch);
+
+        for (auto samp = int (viewLeft) - 1; samp <= std::min (getViewRight () + 1.0f, buffer.getNumSamples() - 1.0f); samp++)
+        {
+            v = samples[samp];
+            auto x = sampleToX (samp);
+
+            auto y = juce::jmap (v, -1.0f, 1.0f, r.getBottom(), r.getY());
+
+            g.fillEllipse (float (x - dx / 2.0f), float (y - dx / 2.0f), dx, dx);
+        }
+    }
+
+    g.setColour (lineColour.withMultipliedAlpha (0.7f));
+    g.fillRect (r.withY (r.getCentreY()).withHeight (0.0f).expanded (0.0f, 0.5f));
 }
 
 void AudioSamplerBufferComponent::setPlayheads (const std::vector<int>& playheads_)
@@ -375,7 +391,7 @@ float AudioSamplerBufferComponent::getNumSamplesPerPixel()
     return float (viewWidth / getWidth());
 }
 
-float AudioSamplerBufferComponent::sampleToX (int sample)
+float AudioSamplerBufferComponent::sampleToX (float sample)
 {
     return (sample - viewLeft) / (viewWidth / getWidth());
 }

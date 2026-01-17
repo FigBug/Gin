@@ -31,7 +31,7 @@ public:
     void setPlayheads (const std::vector<int>& playheads);
 
     float xToSample (float x);
-    float sampleToX (int sample);
+    float sampleToX (float sample);
     int lengthInSamples()                           { return buffer.getNumSamples ();   }
 
     void setLineColour (juce::Colour c)             { lineColour = c;   }
@@ -45,6 +45,11 @@ public:
     void mouseDown (const juce::MouseEvent& e) override;
     void mouseDrag (const juce::MouseEvent& e) override;
     void mouseUp (const juce::MouseEvent& e) override;
+
+protected:
+    void paintBackground (juce::Graphics& g);
+    void paintPlayheads (juce::Graphics& g);
+    void paintChannelData (juce::Graphics& g, int channel, const juce::Rectangle<float>& r);
 
 private:
     struct Channel

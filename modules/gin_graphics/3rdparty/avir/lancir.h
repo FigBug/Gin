@@ -190,11 +190,11 @@ private:
 
 public:
     CLancIR()
-        : FltBuf0( NULL )
+        : FltBuf0( nullptr )
         , FltBuf0Len( 0 )
-        , spv0( NULL )
+        , spv0( nullptr )
         , spv0len( 0 )
-        , spv( NULL )
+        , spv( nullptr )
     {
     }
 
@@ -234,17 +234,17 @@ public:
     int resizeImage( const Tin* const SrcBuf, const int SrcWidth,
         const int SrcHeight, Tout* const NewBuf, const int NewWidth,
         const int NewHeight, const int ElCount,
-        const CLancIRParams* const aParams = NULL )
+        const CLancIRParams* const aParams = nullptr )
     {
         if(( SrcWidth < 0 ) | ( SrcHeight < 0 ) | ( NewWidth <= 0 ) |
-            ( NewHeight <= 0 ) | ( SrcBuf == NULL ) | ( NewBuf == NULL ) |
+            ( NewHeight <= 0 ) | ( SrcBuf == nullptr ) | ( NewBuf == nullptr ) |
             ( (const void*) SrcBuf == (const void*) NewBuf ))
         {
             return( 0 );
         }
 
         static const CLancIRParams DefParams;
-        const CLancIRParams& Params = ( aParams != NULL ?
+        const CLancIRParams& Params = ( aParams != nullptr ?
             *aParams : DefParams );
 
         if( Params.la < 2.0 )
@@ -446,7 +446,7 @@ public:
                 for( i = 0; i < SrcWidth; i++ )
                 {
                     copyScanline1v( ip, SrcScanlineSize, sp, cc, rl, rr );
-                    resize1< false >( NULL, op, FltWidthE, rpv, kl, bc );
+                    resize1< false >( nullptr, op, FltWidthE, rpv, kl, bc );
                     ip += 1;
                     op += 1;
                 }
@@ -457,7 +457,7 @@ public:
                 for( i = 0; i < SrcWidth; i++ )
                 {
                     copyScanline2v( ip, SrcScanlineSize, sp, cc, rl, rr );
-                    resize2< false >( NULL, op, FltWidthE, rpv, kl, bc );
+                    resize2< false >( nullptr, op, FltWidthE, rpv, kl, bc );
                     ip += 2;
                     op += 2;
                 }
@@ -468,7 +468,7 @@ public:
                 for( i = 0; i < SrcWidth; i++ )
                 {
                     copyScanline3v( ip, SrcScanlineSize, sp, cc, rl, rr );
-                    resize3< false >( NULL, op, FltWidthE, rpv, kl, bc );
+                    resize3< false >( nullptr, op, FltWidthE, rpv, kl, bc );
                     ip += 3;
                     op += 3;
                 }
@@ -478,7 +478,7 @@ public:
                 for( i = 0; i < SrcWidth; i++ )
                 {
                     copyScanline4v( ip, SrcScanlineSize, sp, cc, rl, rr );
-                    resize4< false >( NULL, op, FltWidthE, rpv, kl, bc );
+                    resize4< false >( nullptr, op, FltWidthE, rpv, kl, bc );
                     ip += 4;
                     op += 4;
                 }
@@ -623,10 +623,10 @@ protected:
 
         if( newlen > len )
         {
-            if( buf0 != NULL )
+            if( buf0 != nullptr )
             {
                 delete[] buf0;
-                buf0 = NULL;
+                buf0 = nullptr;
                 len = 0;
             }
 
@@ -654,10 +654,10 @@ protected:
     {
         if( newlen > len )
         {
-            if( buf != NULL )
+            if( buf != nullptr )
             {
                 delete[] buf;
-                buf = NULL;
+                buf = nullptr;
                 len = 0;
             }
 
@@ -682,7 +682,7 @@ protected:
             ///< should not be lesser than 4.
 
         CResizeFilters()
-            : Filters( NULL )
+            : Filters( nullptr )
             , FiltersLen( 0 )
             , la( 0.0 )
         {
@@ -774,7 +774,7 @@ protected:
             const int Frac = (int) ( x * FracCount + 0.5 );
             float* flt = Filters[ Frac ];
 
-            if( flt != NULL )
+            if( flt != nullptr )
             {
                 return( flt );
             }
@@ -1080,7 +1080,7 @@ protected:
             ///<
 
         CResizeScanline()
-            : pos( NULL )
+            : pos( nullptr )
             , poslen( 0 )
             , SrcLen( 0 )
         {
@@ -1116,7 +1116,7 @@ protected:
          */
 
         void update( const int SrcLen0, const int DstLen0, const double o0,
-            CResizeFilters& rf, float* const sp = NULL )
+            CResizeFilters& rf, float* const sp = nullptr )
         {
             if( SrcLen0 == SrcLen && DstLen0 == DstLen && o0 == o )
             {

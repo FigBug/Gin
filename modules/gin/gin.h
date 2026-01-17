@@ -1,6 +1,6 @@
 /*==============================================================================
 
- Copyright 2018 - 2025 by Roland Rabien
+ Copyright (c) 2018 - 2026 by Roland Rabien.
  For more information visit www.rabiensoftware.com
 
  ==============================================================================*/
@@ -83,6 +83,7 @@ namespace gin
 #include "utilities/gin_leastsquaresregression.h"
 #include "utilities/gin_linearregression.h"
 #include "utilities/gin_lockfreequeue.h"
+#include "utilities/gin_lrucache.h"
 #include "utilities/gin_messagepack.h"
 #include "utilities/gin_plist.h"
 #include "utilities/gin_realtimeasyncupdater.h"

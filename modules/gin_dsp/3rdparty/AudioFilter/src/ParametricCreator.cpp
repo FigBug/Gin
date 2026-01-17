@@ -11,7 +11,7 @@ namespace ParametricCreator
 {
 
 //==============================================================================
-void getAnalog(BiquadParam& biquad, double Q, double gain, FilterType filterType)
+static void getAnalog(BiquadParam& biquad, double Q, double gain, FilterType filterType)
 {
     const auto A = std::pow(10., 0.025 * gain);
 
@@ -117,6 +117,7 @@ void getAnalog(BiquadParam& biquad, double Q, double gain, FilterType filterType
         biquad.a1 = 1 / Q;
         biquad.a2 = 1;
         break;
+    case afNumTypes:
     default:
         biquad.b0 = 1;
         biquad.b1 = 0;
@@ -127,7 +128,7 @@ void getAnalog(BiquadParam& biquad, double Q, double gain, FilterType filterType
     }
 }
 
-void getMztTransform(BiquadParam& analog, BiquadParam& digital, double freq, double sampleRate)
+static void getMztTransform(BiquadParam& analog, BiquadParam& digital, double freq, double sampleRate)
 {
     // Matched Z-transform
     if (analog.b2 == 0)
@@ -215,7 +216,7 @@ void getMztTransform(BiquadParam& analog, BiquadParam& digital, double freq, dou
     }
 }
 
-void getCorrection(BiquadParam& digital, const BiquadParam& analog, double freq, double sampleRate)
+static void getCorrection(BiquadParam& digital, const BiquadParam& analog, double freq, double sampleRate)
 {
     double freqs[3];
     freqs[0] = sampleRate / 44100.;
@@ -430,6 +431,7 @@ void createBLTStage(BiquadParam& param, double freq, double gain, double Q, Filt
         param.b2 = (A * ((A + 1) + (A - 1)*cos(w0) - 2 * sqrt(A)*alpha)) / a0;
         param.a1 = (2 * ((A - 1) - (A + 1)*cos(w0))) / a0;
         param.a2 = ((A + 1) - (A - 1)*cos(w0) - 2 * sqrt(A)*alpha) / a0;
+    case afNumTypes:
     default:
         break;
     }

@@ -237,6 +237,7 @@ public:
 
         switch (newType)
         {
+        case bwNumTypes:
         default:
             assert(false);
             break;

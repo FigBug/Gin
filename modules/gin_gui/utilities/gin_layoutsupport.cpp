@@ -216,8 +216,8 @@ void ConstantsStack::set (const juce::String& name, double value)
 std::optional<double> ConstantsStack::get (const juce::String& name)
 {
     for (auto i = int (constants.size()); --i >= 0;)
-        if (constants[i].first == name)
-            return constants[i].second;
+        if (constants[size_t (i)].first == name)
+            return constants[size_t (i)].second;
 
     return {};
 }

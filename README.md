@@ -28,14 +28,14 @@ A comprehensive collection of extra modules for [JUCE](https://juce.com/), provi
 
 ### Adding Gin to Your CMake Project
 
-1. Add Gin as a submodule or clone into your project:
+1. Add Gin as a submodule:
 ```bash
-git submodule add https://github.com/FigBug/Gin.git libs/Gin
+git submodule add https://github.com/FigBug/Gin.git modules/gin
 ```
 
 2. In your `CMakeLists.txt`:
 ```cmake
-add_subdirectory(libs/Gin/modules)
+add_subdirectory(modules/gin/modules)
 
 target_link_libraries(YourTarget PRIVATE
     gin
@@ -46,10 +46,9 @@ target_link_libraries(YourTarget PRIVATE
 )
 ```
 
-3. Include Gin modules in your code:
+3. Gin is automatically in the JUCE Header:
 ```cpp
-#include <gin/gin.h>
-#include <gin_plugin/gin_plugin.h>
+#include <JuceHeader.h>
 ```
 
 ## Modules

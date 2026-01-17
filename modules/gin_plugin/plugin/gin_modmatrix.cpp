@@ -1,5 +1,5 @@
 //==============================================================================
-ModMatrix::Function strToFunc (const juce::String& str)
+static ModMatrix::Function strToFunc (const juce::String& str)
 {
     if (str == "linear") return ModMatrix::linear;
     if (str == "quadraticIn") return ModMatrix::quadraticIn;
@@ -25,7 +25,7 @@ ModMatrix::Function strToFunc (const juce::String& str)
     return ModMatrix::linear;
 }
 
-juce::String funcToStr (ModMatrix::Function f)
+static juce::String funcToStr (ModMatrix::Function f)
 {
     if (f == ModMatrix::linear) return "linear";
     if (f == ModMatrix::quadraticIn) return "quadraticIn";

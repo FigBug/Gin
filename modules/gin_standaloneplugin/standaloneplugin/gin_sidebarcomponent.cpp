@@ -239,12 +239,84 @@ SideBarComponent::SideBarComponent (StandaloneFilterWindow& f)
 
         updateRecordButtons();
     }
+
+    {
+        addAndMakeVisible (outputHeader);
+
+        outputGain.setSliderStyle (juce::Slider::LinearHorizontal);
+        outputGain.setTextBoxStyle (juce::Slider::TextBoxRight, false, 60, 20);
+        outputGain.setRange (-60.0, 12.0, 0.1);
+        outputGain.setValue (0.0);
+        outputGain.setTextValueSuffix (" dB");
+        outputGain.setDoubleClickReturnValue (true, 0.0);
+        outputGain.setTooltip ("Output gain");
+        outputGain.onValueChange = [this]
+        {
+            auto dB = outputGain.getValue();
+            auto gain = juce::Decibels::decibelsToGain (float (dB));
+            player.setOutputGain (gain);
+
+            if (auto* props = filterWindow.pluginHolder->settings.get())
+                props->setValue ("outputGain", dB);
+        };
+        addAndMakeVisible (outputGain);
+
+        // Restore output gain
+        if (auto* props = filterWindow.pluginHolder->settings.get())
+        {
+            auto dB = props->getDoubleValue ("outputGain", 0.0);
+            outputGain.setValue (dB, juce::dontSendNotification);
+            player.setOutputGain (float (juce::Decibels::decibelsToGain (dB)));
+        }
+    }
+
+    // Track initial channel counts
+    lastInputChannels = filterWindow.pluginHolder->processor->getTotalNumInputChannels();
+    lastOutputChannels = filterWindow.pluginHolder->processor->getTotalNumOutputChannels();
+
+    // Listen for audio device changes
+    filterWindow.getDeviceManager().addChangeListener (this);
 }
 
 SideBarComponent::~SideBarComponent()
 {
+    filterWindow.getDeviceManager().removeChangeListener (this);
+
     stopTimer();
     setLookAndFeel (nullptr);
+}
+
+void SideBarComponent::changeListenerCallback (juce::ChangeBroadcaster*)
+{
+    updateComponentVisibility();
+}
+
+void SideBarComponent::updateComponentVisibility()
+{
+    auto* processor = filterWindow.pluginHolder->processor.get();
+    int inputChannels = processor->getTotalNumInputChannels();
+    int outputChannels = processor->getTotalNumOutputChannels();
+
+    if (inputChannels == lastInputChannels && outputChannels == lastOutputChannels)
+        return;
+
+    lastInputChannels = inputChannels;
+    lastOutputChannels = outputChannels;
+
+    // Update sample section visibility based on input channels
+    bool showSample = inputChannels > 0 && processor->acceptsMidi() == false;
+    sampleHeader.setVisible (showSample);
+    sample.setVisible (showSample);
+    samplePlay.setVisible (showSample);
+    sampleStop.setVisible (showSample);
+    sampleMenu.setVisible (showSample);
+
+    // Update XY scope visibility based on output channels
+    bool showXY = outputChannels >= 2;
+    xyHeader.setVisible (showXY);
+    xyScope.setVisible (showXY);
+
+    resized();
 }
 
 void SideBarComponent::timerCallback()
@@ -319,6 +391,7 @@ juce::StringArray SideBarComponent::getMidiMRU()
 void SideBarComponent::showMidiMenu()
 {
     juce::PopupMenu menu;
+    menu.setLookAndFeel (&getLookAndFeel());
 
     const bool isLooping = player.midiPlayer.isLooping();
     menu.addItem ("Loop", true, isLooping, [this, isLooping]
@@ -459,6 +532,7 @@ juce::StringArray SideBarComponent::getSampleMRU()
 void SideBarComponent::showSampleMenu()
 {
     juce::PopupMenu menu;
+    menu.setLookAndFeel (&getLookAndFeel());
 
     const bool isLooping = player.samplePlayer.isLooping();
     menu.addItem ("Loop", true, isLooping, [this, isLooping]
@@ -570,6 +644,7 @@ void SideBarComponent::updateRecordButtonColours()
 void SideBarComponent::showRecordMenu()
 {
     juce::PopupMenu menu;
+    menu.setLookAndFeel (&getLookAndFeel());
 
     menu.addItem ("Set Destination Folder...", [this]
     {
@@ -681,6 +756,21 @@ void SideBarComponent::resized()
             sampleStop.setBounds ({});
             sampleMenu.setBounds ({});
         }
+    }
+
+    const int outputSectionHeight = 46;    // slider (20) + gap (2) + header (16) + gap (8)
+
+    if (rc.getHeight() >= outputSectionHeight)
+    {
+        outputGain.setBounds (rc.removeFromBottom (20));
+        rc.removeFromBottom (2);
+        outputHeader.setBounds (rc.removeFromBottom (16));
+        rc.removeFromBottom (8);
+    }
+    else
+    {
+        outputHeader.setBounds ({});
+        outputGain.setBounds ({});
     }
 
     if (rc.getHeight() >= recordSectionHeight)

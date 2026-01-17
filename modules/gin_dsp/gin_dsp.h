@@ -1,6 +1,6 @@
 /*==============================================================================
 
- Copyright 2018 - 2025 by Roland Rabien
+ Copyright (c) 2018 - 2026 by Roland Rabien.
  For more information visit www.rabiensoftware.com
 
  ==============================================================================*/
@@ -98,6 +98,7 @@ namespace gin
 #include "dsp/gin_fastmath.h"
 #include "dsp/gin_filter.h"
 #include "dsp/gin_eq.h"
+#include "dsp/gin_graphiceq.h"
 #include "dsp/gin_gateeffect.h"
 #include "dsp/gin_lfo.h"
 #include "dsp/gin_midififo.h"
@@ -123,6 +124,7 @@ namespace gin
 #include "dsp/gin_audiofunctions.h"
 #include "dsp/gin_textrenderer.h"
 #include "dsp/gin_audioequationparser.h"
+#include "dsp/gin_audiometadata.h"
 
 #include "components/gin_audiosamplerbuffercomponent.h"
 #include "components/gin_dynamicsmeter.h"

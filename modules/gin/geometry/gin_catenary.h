@@ -60,8 +60,11 @@ public:
         @param y1             Y coordinate of the second endpoint
         @param addLength      Additional cable length beyond the straight-line distance
         @param numIterations  Number of Newton-Raphson iterations for precision (default: 1)
+        @param screenCoords   If true, uses screen coordinates (Y increases downward, 0,0 at top-left).
+                              If false (default), uses math coordinates (Y increases upward).
     */
-    Catenary (float x0, float y0, float x1, float y1, float addLength, int numIterations = 1)
+    Catenary (float x0, float y0, float x1, float y1, float addLength, int numIterations = 1, bool screenCoords = false)
+        : useScreenCoords (screenCoords)
     {
         calculate (x0, y0, x1, y1, addLength, numIterations);
     }
@@ -83,6 +86,13 @@ public:
     {
         jassert (! juce::exactlyEqual (x0, x1));
         jassert (addLength > 0.0f);
+
+        // For screen coordinates, flip Y to work in math space, then flip back in calcY
+        if (useScreenCoords)
+        {
+            y0 = -y0;
+            y1 = -y1;
+        }
 
         // make sure x1 is right
         if (x0 > x1)
@@ -140,16 +150,20 @@ public:
     float calcY (float x) const
     {
         auto y = a * std::cosh ((x - b) * inva) + c;
-        return y;
+        return useScreenCoords ? -y : y;
     }
 
-    /** Returns the vertex (lowest point) of the catenary curve.
+    /** Returns the vertex (lowest/highest point) of the catenary curve.
+
+        In math coordinates, this is the lowest point. In screen coordinates,
+        this is the highest point visually (largest Y value).
 
         @returns  A pair containing (x, y) coordinates of the vertex
     */
     std::pair<float, float> getVertex() const
     {
-        return {b, a + c};
+        auto y = a + c;
+        return {b, useScreenCoords ? -y : y};
     }
 
 private:
@@ -157,4 +171,5 @@ private:
     float inva;  // Inverse of a (cached to avoid division per point)
     float b;     // X offset (x position of the vertex)
     float c;     // Y offset (note that cosh(0) = 1)
+    bool useScreenCoords = false;  // If true, Y axis is flipped for screen coordinates
 };
