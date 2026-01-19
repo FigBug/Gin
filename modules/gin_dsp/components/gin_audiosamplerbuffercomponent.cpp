@@ -4,6 +4,23 @@ namespace
 constexpr auto minZoom = 10;
 }
 
+AudioSamplerBufferComponent::ScopedViewState::ScopedViewState (AudioSamplerBufferComponent& o)
+    : owner (o),
+    numSamples (owner.buffer.getNumSamples()),
+    viewLeft (owner.viewLeft),
+    viewWidth (owner.viewWidth)
+{
+}
+
+AudioSamplerBufferComponent::ScopedViewState::~ScopedViewState ()
+{
+    if (numSamples == owner.buffer.getNumSamples())
+    {
+        owner.viewLeft  = viewLeft;
+        owner.viewWidth = viewWidth;
+    }
+}
+
 AudioSamplerBufferComponent::AudioSamplerBufferComponent()
 {
 }
