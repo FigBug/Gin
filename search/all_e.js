@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['n_0',['n',['../classLinearRegression.html#a2538a18e56f7da311ae94edbb903e1bd',1,'LinearRegression::n'],['../structWSHeaderType.html#a280de6932d75f1d0b3f5687f839d4e92',1,'WSHeaderType::N']]],
+  ['n_0',['n',['../structWSHeaderType.html#a280de6932d75f1d0b3f5687f839d4e92',1,'WSHeaderType::N'],['../classLinearRegression.html#a2538a18e56f7da311ae94edbb903e1bd',1,'LinearRegression::n']]],
   ['n0_1',['N0',['../structWSHeaderType.html#a6c084039602e19593f16e198194258ea',1,'WSHeaderType']]],
   ['name_2',['name',['../classProgram.html#ab960dff0d490441b19a47c7788ef5308',1,'Program::name'],['../classParameter.html#af3f67d57880c012b966413174dff2e75',1,'Parameter::name'],['../classSelect.html#a68477089c5c406d199fe071d09080be4',1,'Select::name'],['../classKnob.html#a4cf5ed46637f0b10594b6d43b2f4067b',1,'Knob::name'],['../classHorizontalFader.html#ab70425a9c8226dd53432dde0222dba8f',1,'HorizontalFader::name'],['../group__gin__gui-utilities.html#gab7f29046e16e28190c441e4b50e638d7',1,'juce::VarIterator::NamedValue::name'],['../structLayoutSupport_1_1JsonFile.html#a2b9f0063b43223b5b8af0cd698214f91',1,'LayoutSupport::JsonFile::name']]],
   ['namedvalue_3',['NamedValue',['../structjuce_1_1VarIterator_1_1NamedValue.html',1,'juce::VarIterator']]],
   ['negation_4',['Negation',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab94b0efce58a77e1c8fa29e32536c728',1,'gin_imageeffects.h']]],
   ['network_5',['network',['../group__gin__network-network.html',1,'']]],
   ['newline_6',['newLine',['../structDiff_1_1Patch_1_1Hunk.html#ad178d76354944fcc6bef4e3417a30d7a',1,'Diff::Patch::Hunk']]],
-  ['newschecker_7',['newschecker',['../classTitleBar.html#ab00ac1e8d688d411c19dc7ee9e3feac7',1,'TitleBar::newsChecker'],['../classNewsChecker.html#a519004dfd3ae54255b2eff7a132e0a00',1,'NewsChecker::NewsChecker()'],['../classNewsChecker.html',1,'NewsChecker']]],
+  ['newschecker_7',['newschecker',['../classNewsChecker.html#a519004dfd3ae54255b2eff7a132e0a00',1,'NewsChecker::NewsChecker()'],['../classTitleBar.html#ab00ac1e8d688d411c19dc7ee9e3feac7',1,'TitleBar::newsChecker'],['../classNewsChecker.html',1,'NewsChecker']]],
   ['next_8',['next',['../namespaceAssets.html#a7e39560cce3d5062215a8a94f967e741',1,'Assets::next'],['../classPatchBrowser.html#acca4a794212c331878636360a8650723',1,'PatchBrowser::next()']]],
   ['nextbutton_9',['nextButton',['../classTitleBar.html#adbdac6bcc1d15a4b014231dc9a799a6e',1,'TitleBar']]],
   ['nextsample_10',['nextsample',['../classWhiteNoise.html#a861fbf92d0f2d6aa523c15204bcf1aec',1,'WhiteNoise::nextSample()'],['../classPinkNoise.html#afbc5d70a4188d49b141e948e6cd50f7f',1,'PinkNoise::nextSample()']]],

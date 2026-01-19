@@ -141,7 +141,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a81eab186d5ec05f6c0312f1e41bdbc8a" id="r_a81eab186d5ec05f6c0312f1e41bdbc8a"><td class="memItemLeft" align="right" valign="top">juce::MPESynthesiserVoice *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSynthesiser.html#a81eab186d5ec05f6c0312f1e41bdbc8a">findVoiceToSteal</a> (juce::MPENote <a class="el" href="classPoint.html">noteToStealVoiceFor</a>=juce::MPENote()) <a class="el" href="classPoint.html">const</a> <a class="el" href="classPoint.html">override</a></td></tr>
 <tr class="separator:a81eab186d5ec05f6c0312f1e41bdbc8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04c618669f417fb370f7d3866da5f141" id="r_a04c618669f417fb370f7d3866da5f141"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="classPoint.html">typename</a> <a class="el" href="classPoint.html">floatType</a> &gt; </td></tr>
-<tr class="memitem:a04c618669f417fb370f7d3866da5f141"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classSynthesiser.html#a04c618669f417fb370f7d3866da5f141">renderNextBlock</a> (juce::AudioBuffer&lt; <a class="el" href="classPoint.html">floatType</a> &gt; &amp;<a class="el" href="classPoint.html">outputAudio</a>, <a class="el" href="classPoint.html">const</a> juce::MidiBuffer &amp;<a class="el" href="classPoint.html">inputMidi</a>, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">startSample</a>, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">numSamples</a>)</td></tr>
+<tr class="memitem:a04c618669f417fb370f7d3866da5f141"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classSynthesiser.html#a04c618669f417fb370f7d3866da5f141">renderNextBlock</a> (juce::AudioBuffer&lt; <a class="el" href="classPoint.html">floatType</a> &gt; &amp;<a class="el" href="classPoint.html">outputAudio</a>, <a class="el" href="classPoint.html">const</a> juce::MidiBuffer &amp;<a class="el" href="classPoint.html">inputMidi</a>, <a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">startSample</a>, <a class="el" href="classPoint.html">int</a> numSamples)</td></tr>
 <tr class="separator:a04c618669f417fb370f7d3866da5f141"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf33c3468d1d4e635f03db59b78df7e5" id="r_aaf33c3468d1d4e635f03db59b78df7e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSynthesiserVoice.html">SynthesiserVoice</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSynthesiser.html#aaf33c3468d1d4e635f03db59b78df7e5">getOldestVoice</a> ()</td></tr>
 <tr class="separator:aaf33c3468d1d4e635f03db59b78df7e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -193,7 +193,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><a class="code hl_class" href="classPoint.html">synth</a>.setMPE(<span class="keyword">true</span>);</div>
 <div class="line"><a class="code hl_class" href="classPoint.html">synth</a>.setPitchBendRange(48); <span class="comment">// ±48 semitones</span></div>
 <div class="line"> </div>
-<div class="line"><a class="code hl_class" href="classPoint.html">synth</a>.renderNextBlock(audioBuffer, midiBuffer, 0, <a class="code hl_class" href="classPoint.html">numSamples</a>);</div>
+<div class="line"><a class="code hl_class" href="classPoint.html">synth</a>.renderNextBlock(audioBuffer, midiBuffer, 0, numSamples);</div>
 <div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 <div class="ttc" id="aclassSynthesiser_html"><div class="ttname"><a href="classSynthesiser.html">Synthesiser</a></div><div class="ttdoc">Advanced MPE-capable synthesizer with mono/poly modes, glide, and voice management.</div><div class="ttdef"><b>Definition</b> gin_synthesiser.h:145</div></div>
 </div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classSynthesiserVoice.html" title="Extended synthesizer voice with glide support and fast-kill capability.">SynthesiserVoice</a>, <a class="el" href="structGlideInfo.html" title="Configuration for pitch glide (portamento/glissando) between notes.">GlideInfo</a>, juce::MPESynthesiser </dd></dl>
@@ -933,7 +933,7 @@ template&lt;<a class="el" href="classPoint.html">typename</a> <a class="el" href
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 13 2026 23:48:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Jan 19 2026 04:19:21 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

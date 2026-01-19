@@ -697,6 +697,7 @@
     <path>build/gin_dsp/components/</path>
     <filename>gin__audiosamplerbuffercomponent_8h.html</filename>
     <class kind="class">AudioSamplerBufferComponent</class>
+    <class kind="class">AudioSamplerBufferComponent::ScopedViewState</class>
   </compound>
   <compound kind="file">
     <name>gin_dynamicsmeter.h</name>
@@ -4326,6 +4327,7 @@
   <compound kind="class">
     <name>AudioSamplerBufferComponent</name>
     <filename>classAudioSamplerBufferComponent.html</filename>
+    <class kind="class">AudioSamplerBufferComponent::ScopedViewState</class>
     <member kind="function">
       <type></type>
       <name>AudioSamplerBufferComponent</name>
@@ -17746,6 +17748,24 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>AudioSamplerBufferComponent::ScopedViewState</name>
+    <filename>classAudioSamplerBufferComponent_1_1ScopedViewState.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ScopedViewState</name>
+      <anchorfile>classAudioSamplerBufferComponent_1_1ScopedViewState.html</anchorfile>
+      <anchor>a03827ebf600f6e2203169cf8c8ff8325</anchor>
+      <arglist>(AudioSamplerBufferComponent &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~ScopedViewState</name>
+      <anchorfile>classAudioSamplerBufferComponent_1_1ScopedViewState.html</anchorfile>
+      <anchor>a3194c85f01d8a49d88c54902af1c0878</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>ScratchBuffer</name>
     <filename>classScratchBuffer.html</filename>
     <member kind="function">
@@ -22532,6 +22552,7 @@
     <title>components</title>
     <filename>group__gin__dsp-components.html</filename>
     <class kind="class">AudioSamplerBufferComponent</class>
+    <class kind="class">AudioSamplerBufferComponent::ScopedViewState</class>
     <class kind="class">DynamicsMeter</class>
     <class kind="class">LevelMeter</class>
     <class kind="class">MidiFileComponent</class>

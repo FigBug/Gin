@@ -143,7 +143,7 @@ class ValueSmoother&lt; T &gt;</div><p>Linearly smooths parameter changes over t
 <div class="line"><a class="code hl_class" href="classPoint.html">gainSmoother</a>.setValue (<a class="code hl_class" href="classPoint.html">newGainValue</a>);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// In audio processing loop</span></div>
-<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code hl_class" href="classPoint.html">i</a> = 0; <a class="code hl_class" href="classPoint.html">i</a> &lt; <a class="code hl_class" href="classPoint.html">numSamples</a>; ++<a class="code hl_class" href="classPoint.html">i</a>)</div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code hl_class" href="classPoint.html">i</a> = 0; <a class="code hl_class" href="classPoint.html">i</a> &lt; numSamples; ++<a class="code hl_class" href="classPoint.html">i</a>)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordtype">float</span> <a class="code hl_class" href="classPoint.html">smoothedGain</a> = <a class="code hl_class" href="classPoint.html">gainSmoother</a>.getNextValue();</div>
 <div class="line">    output[<a class="code hl_class" href="classPoint.html">i</a>] = <a class="code hl_class" href="classPoint.html">input</a>[<a class="code hl_class" href="classPoint.html">i</a>] * <a class="code hl_class" href="classPoint.html">smoothedGain</a>;</div>
@@ -466,7 +466,7 @@ template&lt;<a class="el" href="classPoint.html">class</a> T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 13 2026 23:48:55 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Jan 19 2026 04:19:21 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
