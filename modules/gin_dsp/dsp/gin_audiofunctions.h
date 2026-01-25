@@ -26,9 +26,9 @@
 */
 struct FuncState
 {
-    FuncState (double sr) : sampleRate (sr) {}
+    FuncState (double sr) : sampleRate (sr) { jassert (sampleRate > 0); }
     virtual ~FuncState() = default;
-    virtual void setSampleRate (double sr) { sampleRate = sr; }
+    virtual void setSampleRate (double sr) { if (sampleRate > 0) sampleRate = sr; }
     virtual void reset() {}
     double sampleRate = 44100.0;
 };
@@ -73,6 +73,14 @@ struct OscState : public FuncState
     void reset() override
     {
         phase = juce::Random::getSystemRandom().nextFloat();
+    }
+
+    void setPhase (float p)
+    {
+        if (p < 0)
+            phase = juce::Random::getSystemRandom().nextFloat();
+        else
+            phase = p;
     }
 
     float lastNote = -1.0f, frequency = -1.0f, delta = -1.0f;
@@ -407,6 +415,7 @@ public:
     void setSampleRate (double sr);
     double getSampleRate()  { return sampleRate; }
     void reset();
+    void setPhase (float p);
 
     void addConstants (gin::EquationParser&);
     void addUtilities (gin::EquationParser&);
