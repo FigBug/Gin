@@ -1,7 +1,7 @@
 <map id="Knob" name="Knob">
-<area shape="rect" id="Node000001" title="Complete parameter control combining rotary slider, value readout, and modulation." alt="" coords="131,79,186,104"/>
+<area shape="rect" id="Node000001" title="Complete parameter control combining rotary slider, value readout, and modulation." alt="" coords="133,79,187,104"/>
 <area shape="rect" id="Node000002" href="$classParamComponent.html" title="Base class for a control showing a parameter with label." alt="" coords="5,5,144,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,38,147,76,143,80,97,42"/>
-<area shape="rect" id="Node000003" href="$classModMatrix_1_1Listener.html" title=" " alt="" coords="168,5,320,31"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="222,41,174,80,171,76,218,37"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,37,148,76,144,80,97,41"/>
+<area shape="rect" id="Node000003" href="$classIModMatrix_1_1Listener.html" title="Listener interface for modulation matrix changes." alt="" coords="169,5,325,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="224,41,176,81,172,76,221,37"/>
 </map>

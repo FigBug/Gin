@@ -37,7 +37,7 @@ var searchData=
   ['ellipse_34',['ellipse',['../classEllipse.html#ae3280925b24d4858639a7ede8007150f',1,'Ellipse::Ellipse(T a_, T b_)'],['../classEllipse.html#ab390a7033ed59a859d16bc208460870f',1,'Ellipse::Ellipse(T x_, T y_, T a_, T b_)']]],
   ['empty_35',['empty',['../classLRUCache.html#af29c651c36b7a4f96dbf4733aa8b199f',1,'LRUCache']]],
   ['enablegzipdeflate_36',['enableGzipDeflate',['../classDownloadManager.html#a000ad4728048d97e648423b89447f18e',1,'DownloadManager']]],
-  ['enablelearn_37',['enableLearn',['../classModMatrix.html#a7503eb612eccc0a07bafd3ba5c0c66b8',1,'ModMatrix']]],
+  ['enablelearn_37',['enablelearn',['../classModMatrix.html#a5a9db78dea10ea97af8a98849c41d9cf',1,'ModMatrix::enableLearn()'],['../classIModMatrix.html#affb93d9d39db94b2f84586c6f03093bd',1,'IModMatrix::enableLearn()']]],
   ['enablementchanged_38',['enablementChanged',['../classMultiParamComponent.html#ae564f36608f33269bc246aad3df26478',1,'MultiParamComponent']]],
   ['end_39',['end',['../group__gin__gui-utilities.html#ga27df0f06f312d3eb5ddd40693a1941d9',1,'juce']]],
   ['endblock_40',['endBlock',['../classSynthesiser.html#ab07522f14e94e187a83e7c0b0eca2ffb',1,'Synthesiser']]],

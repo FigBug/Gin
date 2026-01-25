@@ -1,0 +1,5 @@
+<map id="ModMatrix" name="ModMatrix">
+<area shape="rect" id="Node000001" title="Modulation matrix system for routing multiple modulation sources to parameters." alt="" coords="7,79,99,104"/>
+<area shape="rect" id="Node000002" href="$classIModMatrix.html" title="Interface for modulation matrix systems." alt="" coords="5,5,101,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="56,44,56,79,51,79,51,44"/>
+</map>

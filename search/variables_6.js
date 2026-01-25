@@ -5,5 +5,6 @@ var searchData=
   ['ginprocessor_2',['ginProcessor',['../classProcessorEditorBase.html#abea55336b0e8f3fe0a6392e288ea27bf',1,'ProcessorEditorBase']]],
   ['glideinfo_3',['glideInfo',['../classSynthesiserVoice.html#a0b618c0309abdbff794b2c082dbaa993',1,'SynthesiserVoice']]],
   ['glissando_4',['glissando',['../structGlideInfo.html#a9d07e5c884046e64cf09d6b24a26b69e',1,'GlideInfo']]],
-  ['grid_5',['grid',['../structComponentGrid_1_1DragInfo.html#a256ad021146d9dd9c9f4fe89b9d1f99d',1,'ComponentGrid::DragInfo']]]
+  ['grid_5',['grid',['../structComponentGrid_1_1DragInfo.html#a256ad021146d9dd9c9f4fe89b9d1f99d',1,'ComponentGrid::DragInfo']]],
+  ['groupedparameters_6',['groupedParameters',['../classProcessor.html#aacf6f23acfd4b53beef59b58dbd93d6c',1,'Processor']]]
 ];

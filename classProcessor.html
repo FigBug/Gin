@@ -109,6 +109,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0d20c1352ba9d6ea81e7c09193442339"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b2ed4cc27b858a3aac157c05e7b273e" id="r_a4b2ed4cc27b858a3aac157c05e7b273e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a4b2ed4cc27b858a3aac157c05e7b273e">addPluginParameter</a> (gin::Parameter *parameter)</td></tr>
 <tr class="separator:a4b2ed4cc27b858a3aac157c05e7b273e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78d285701444d196c0d6413e00f70e8c" id="r_a78d285701444d196c0d6413e00f70e8c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a78d285701444d196c0d6413e00f70e8c">setUseParamGroups</a> (<a class="el" href="classPoint.html">bool</a> b)</td></tr>
+<tr class="separator:a78d285701444d196c0d6413e00f70e8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d7aefafe57071324f0471c86ca789f5" id="r_a3d7aefafe57071324f0471c86ca789f5"><td class="memItemLeft" align="right" valign="top">gin::Parameter *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a3d7aefafe57071324f0471c86ca789f5">addExtParam</a> (juce::String uid, juce::String name, juce::String shortName, juce::String label, juce::NormalisableRange&lt; <a class="el" href="classPoint.html">float</a> &gt; range, <a class="el" href="classPoint.html">float</a> defaultValue, <a class="el" href="classSmoothingType.html">SmoothingType</a> <a class="el" href="classPoint.html">st</a>, std::function&lt; juce::String(<a class="el" href="classPoint.html">const</a> gin::Parameter &amp;, <a class="el" href="classPoint.html">float</a>)&gt; textFunction=<a class="el" href="classPoint.html">nullptr</a>)</td></tr>
 <tr class="separator:a3d7aefafe57071324f0471c86ca789f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d8b32d76cf12edefb418978e43a3837" id="r_a3d8b32d76cf12edefb418978e43a3837"><td class="memItemLeft" align="right" valign="top">gin::Parameter *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a3d8b32d76cf12edefb418978e43a3837">addIntParam</a> (juce::String uid, juce::String name, juce::String shortName, juce::String label, juce::NormalisableRange&lt; <a class="el" href="classPoint.html">float</a> &gt; range, <a class="el" href="classPoint.html">float</a> defaultValue, <a class="el" href="classSmoothingType.html">SmoothingType</a> <a class="el" href="classPoint.html">st</a>, std::function&lt; juce::String(<a class="el" href="classPoint.html">const</a> gin::Parameter &amp;, <a class="el" href="classPoint.html">float</a>)&gt; textFunction=<a class="el" href="classPoint.html">nullptr</a>)</td></tr>
@@ -220,6 +222,10 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:aff2c1655ec7bab3b2b2d19e77f7829fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a417faac3223fdc4a83f0793e82509d7c" id="r_a417faac3223fdc4a83f0793e82509d7c"><td class="memItemLeft" align="right" valign="top">juce::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a417faac3223fdc4a83f0793e82509d7c">lastProgramsUpdated</a></td></tr>
 <tr class="separator:a417faac3223fdc4a83f0793e82509d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ed04ab62f18482bdf72920c75ffa7b9" id="r_a7ed04ab62f18482bdf72920c75ffa7b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a7ed04ab62f18482bdf72920c75ffa7b9">useParamGroups</a> = <a class="el" href="classPoint.html">false</a></td></tr>
+<tr class="separator:a7ed04ab62f18482bdf72920c75ffa7b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacf6f23acfd4b53beef59b58dbd93d6c" id="r_aacf6f23acfd4b53beef59b58dbd93d6c"><td class="memItemLeft" align="right" valign="top">juce::OwnedArray&lt; gin::Parameter &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#aacf6f23acfd4b53beef59b58dbd93d6c">groupedParameters</a></td></tr>
+<tr class="separator:aacf6f23acfd4b53beef59b58dbd93d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Advanced audio processor base class with parameter management and preset system. </p>
@@ -545,6 +551,24 @@ Protected Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">gin::Parameter *&#160;</td>
           <td class="paramname"><em>parameter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a78d285701444d196c0d6413e00f70e8c" name="a78d285701444d196c0d6413e00f70e8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78d285701444d196c0d6413e00f70e8c">&#9670;&#160;</a></span>setUseParamGroups()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> Processor::setUseParamGroups </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">bool</a>&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1829,13 +1853,57 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a7ed04ab62f18482bdf72920c75ffa7b9" name="a7ed04ab62f18482bdf72920c75ffa7b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ed04ab62f18482bdf72920c75ffa7b9">&#9670;&#160;</a></span>useParamGroups</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">bool</a> Processor::useParamGroups = <a class="el" href="classPoint.html">false</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aacf6f23acfd4b53beef59b58dbd93d6c" name="aacf6f23acfd4b53beef59b58dbd93d6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacf6f23acfd4b53beef59b58dbd93d6c">&#9670;&#160;</a></span>groupedParameters</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::OwnedArray&lt;gin::Parameter&gt; Processor::groupedParameters</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="gin__processor_8h.html">gin_processor.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 25 2026 04:57:07 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sun Jan 25 2026 16:42:25 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

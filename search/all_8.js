@@ -24,7 +24,7 @@ var searchData=
   ['headercomponent_21',['headercomponent',['../classHeaderComponent.html',1,'HeaderComponent'],['../classHeaderComponent.html#ab0123dcc8ca3c749548b048bb0b968e6',1,'HeaderComponent::HeaderComponent()']]],
   ['headerheight_22',['headerHeight',['../classProcessorEditorBase.html#abc8ed784a5fcb7e1efe3f1dc63348f82',1,'ProcessorEditorBase']]],
   ['headerindex_23',['headerIndex',['../classParamBox.html#a2ad72ecbea743787f083529d59178061',1,'ParamBox']]],
-  ['headeritem_24',['headeritem',['../classHeaderItem.html',1,'HeaderItem'],['../classHeaderItem.html#ac6986963c5c20c0df2a1d82795579440',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable, ModMatrix &amp;mm, ModSrcId monoSrc={}, ModSrcId polySrc={})'],['../classHeaderItem.html#a1d107c83356c617db19288db61f6aedd',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable=nullptr)']]],
+  ['headeritem_24',['headeritem',['../classHeaderItem.html',1,'HeaderItem'],['../classHeaderItem.html#a38347e109e4cbccb6677498cba9a1ac1',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable, IModMatrix &amp;mm, ModSrcId monoSrc={}, ModSrcId polySrc={})'],['../classHeaderItem.html#a1d107c83356c617db19288db61f6aedd',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable=nullptr)']]],
   ['headerparam_25',['headerParam',['../classParamBox.html#aca00c0c37aa7703a1e00df68c0c302a2',1,'ParamBox']]],
   ['headerrow_26',['headerrow',['../classHeaderRow.html',1,'HeaderRow'],['../classHeaderRow.html#a964daf8517b543beb3e4592436f3138c',1,'HeaderRow::HeaderRow()']]],
   ['headers_27',['headers',['../structHttp_1_1HttpResult.html#a663dee713583fca5be89fab8eddd3293',1,'Http::HttpResult::headers'],['../classParamBox.html#adcabcd820f49f5fef2d666675b3b204c',1,'ParamBox::headers']]],

@@ -6,7 +6,7 @@ var searchData=
   ['lambdavaluetreelistener_3',['LambdaValueTreeListener',['../classLambdaValueTreeListener.html#a3f00b5e3ee4c167e8c7c61c29fdcf354',1,'LambdaValueTreeListener']]],
   ['layoutanimated_4',['layoutAnimated',['../classComponentGrid.html#abeff71fe97fc2cd1c0ee175999082958',1,'ComponentGrid']]],
   ['layoutsupport_5',['LayoutSupport',['../classLayoutSupport.html#a4066b322b51a4f22c5b3dc8da5a3de59',1,'LayoutSupport']]],
-  ['learnsourcechanged_6',['learnsourcechanged',['../classKnob.html#a4221c0f616c0f80c4f99f49a739a34f6',1,'Knob::learnSourceChanged()'],['../classModMatrix_1_1Listener.html#a98f0bf4eb29994c864db47a9461dbc24',1,'ModMatrix::Listener::learnSourceChanged()']]],
+  ['learnsourcechanged_6',['learnsourcechanged',['../classKnob.html#a4221c0f616c0f80c4f99f49a739a34f6',1,'Knob::learnSourceChanged()'],['../classIModMatrix_1_1Listener.html#ab1787ae0c3e97d633746002e54c45cc1',1,'IModMatrix::Listener::learnSourceChanged()']]],
   ['leastsquaresregression_7',['LeastSquaresRegression',['../classLeastSquaresRegression.html#a853a9218262dfc2f4d2d99dc014ef15b',1,'LeastSquaresRegression']]],
   ['length_8',['length',['../structVec3.html#a129e719058dc74a0eec615d6090f1256',1,'Vec3']]],
   ['lengthinsamples_9',['lengthInSamples',['../classAudioSamplerBufferComponent.html#a05d31a78099c14ac50938b56ac7e5ef8',1,'AudioSamplerBufferComponent']]],

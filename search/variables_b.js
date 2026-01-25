@@ -23,7 +23,7 @@ var searchData=
   ['moddepthslider_20',['modDepthSlider',['../classKnob.html#a1fb268057573e63ab18fa6db15546dff',1,'Knob']]],
   ['mode_21',['mode',['../classEnvelopeDetector.html#a1804f11c1918ee0aeee94093a3057415',1,'EnvelopeDetector']]],
   ['modindex_22',['modIndex',['../classParameter.html#a7310a6224d36ab27a14237aab7d8fadd',1,'Parameter']]],
-  ['modmatrix_23',['modMatrix',['../classParameter.html#a30f079fa8ecf5c5cd5735777e1ba74c8',1,'Parameter']]],
+  ['modmatrix_23',['modMatrix',['../classParameter.html#a7e184289e8217f43915cda95865a809d',1,'Parameter']]],
   ['modsources_24',['modSources',['../classParamBox.html#a0d36e4e64d989106ec37b22c0e2b4e3f',1,'ParamBox']]],
   ['modtimer_25',['modTimer',['../classKnob.html#ac1582b5904a8f5011e4d4bd41eb293d9',1,'Knob']]],
   ['modvalues_26',['modValues',['../classKnob.html#a44b7951579437bf8cec95f140efcffdc',1,'Knob']]],

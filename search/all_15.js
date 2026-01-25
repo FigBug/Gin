@@ -9,7 +9,7 @@ var searchData=
   ['unwatchparam_6',['unwatchParam',['../classMultiParamComponent.html#a7620038ca7508425d21d1138a0e9d45f',1,'MultiParamComponent']]],
   ['unwatchparams_7',['unwatchParams',['../classMultiParamComponent.html#ae7441578faba5891a7fc764da134f03c',1,'MultiParamComponent']]],
   ['up_8',['up',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40a7f9a9c97a4c7f8e2424ec0827d879c71',1,'TriggeredScope::Up'],['../classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28adad326c6c196a5b26cb69b871c57480c9a',1,'MSEGComponent::up']]],
-  ['updatechecker_9',['updatechecker',['../classUpdateChecker.html',1,'UpdateChecker'],['../classTitleBar.html#a592d0a4299aa23c9b323205d76f19742',1,'TitleBar::updateChecker'],['../classUpdateChecker.html#a991c35a0e515fa13cb9186936a00cb8f',1,'UpdateChecker::UpdateChecker()']]],
+  ['updatechecker_9',['updatechecker',['../classUpdateChecker.html',1,'UpdateChecker'],['../classUpdateChecker.html#a991c35a0e515fa13cb9186936a00cb8f',1,'UpdateChecker::UpdateChecker()'],['../classTitleBar.html#a592d0a4299aa23c9b323205d76f19742',1,'TitleBar::updateChecker']]],
   ['updatecomponentvisibility_10',['updateComponentVisibility',['../classSideBarComponent.html#a74c895098ecb476d9e795867caa9d345',1,'SideBarComponent']]],
   ['updateglide_11',['updateGlide',['../classSynthesiser.html#a1825c3a26987dc66cbaf5f1447ddd510',1,'Synthesiser']]],
   ['updatemap_12',['updateMap',['../classMapViewer.html#a723ad37abb7af9ecac0bdd68dd628e46',1,'MapViewer']]],
@@ -23,10 +23,11 @@ var searchData=
   ['urltitle_20',['urlTitle',['../classProcessorOptions.html#a16bdfa5c4620c1082e654e0ed60bdb1a',1,'ProcessorOptions']]],
   ['usage_20example_21',['Usage Example',['../classLayoutSupport.html#usage',1,'']]],
   ['usenewschecker_22',['useNewsChecker',['../classProcessorOptions.html#a050f3bfa588e3045b3a914715c961bc3',1,'ProcessorOptions']]],
-  ['useractioncount_23',['userActionCount',['../classParameter.html#a9a2d682ac453e9b019ceb12986b8e5fd',1,'Parameter']]],
-  ['uservaluetotext_24',['userValueToText',['../classParameter.html#af3960250a1c071e471daf16be484b656',1,'Parameter']]],
-  ['usesfileextension_25',['usesfileextension',['../classBMPImageFormat.html#ac3aec001afc89383d536241e433cb8bf',1,'BMPImageFormat::usesFileExtension()'],['../classWEBPImageFormat.html#a1d875430f06a78fe547812ff5556bbc0',1,'WEBPImageFormat::usesFileExtension()']]],
-  ['useupdatechecker_26',['useUpdateChecker',['../classProcessorOptions.html#a1cae47f2ecd1a86e02549cf5b47fd4d0',1,'ProcessorOptions']]],
-  ['utilities_27',['utilities',['../group__gin-utilities.html',1,'utilities'],['../group__gin__gui-utilities.html',1,'utilities']]],
-  ['utilities_2fgin_5futil_2eh_28',['gin_util.h',['../utilities_2gin__util_8h.html',1,'']]]
+  ['useparamgroups_23',['useParamGroups',['../classProcessor.html#a7ed04ab62f18482bdf72920c75ffa7b9',1,'Processor']]],
+  ['useractioncount_24',['userActionCount',['../classParameter.html#a9a2d682ac453e9b019ceb12986b8e5fd',1,'Parameter']]],
+  ['uservaluetotext_25',['userValueToText',['../classParameter.html#af3960250a1c071e471daf16be484b656',1,'Parameter']]],
+  ['usesfileextension_26',['usesfileextension',['../classBMPImageFormat.html#ac3aec001afc89383d536241e433cb8bf',1,'BMPImageFormat::usesFileExtension()'],['../classWEBPImageFormat.html#a1d875430f06a78fe547812ff5556bbc0',1,'WEBPImageFormat::usesFileExtension()']]],
+  ['useupdatechecker_27',['useUpdateChecker',['../classProcessorOptions.html#a1cae47f2ecd1a86e02549cf5b47fd4d0',1,'ProcessorOptions']]],
+  ['utilities_28',['utilities',['../group__gin-utilities.html',1,'utilities'],['../group__gin__gui-utilities.html',1,'utilities']]],
+  ['utilities_2fgin_5futil_2eh_29',['gin_util.h',['../utilities_2gin__util_8h.html',1,'']]]
 ];

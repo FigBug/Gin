@@ -20,9 +20,9 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classModMatrix_1_1Listener.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="125.5,-74 11.5,-74 11.5,-55 125.5,-55 125.5,-74"/>
-<text text-anchor="middle" x="68.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">ModMatrix::Listener</text>
+<g id="a_Node000002"><a xlink:href="classIModMatrix_1_1Listener.html" target="_top" xlink:title="Listener interface for modulation matrix changes.">
+<polygon fill="white" stroke="#666666" points="127,-74 10,-74 10,-55 127,-55 127,-74"/>
+<text text-anchor="middle" x="68.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">IModMatrix::Listener</text>
 </a>
 </g>
 </g>

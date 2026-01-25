@@ -2513,6 +2513,42 @@
     <namespace>Resources</namespace>
   </compound>
   <compound kind="file">
+    <name>gin_imodmatrix.h</name>
+    <path>build/gin_plugin/plugin/</path>
+    <filename>gin__imodmatrix_8h.html</filename>
+    <class kind="struct">ModSrcId</class>
+    <class kind="struct">ModDstId</class>
+    <class kind="class">IModMatrix</class>
+    <class kind="class">IModMatrix::Listener</class>
+    <member kind="enumeration">
+      <type></type>
+      <name>ModFunction</name>
+      <anchorfile>group__gin__plugin-plugin.html</anchorfile>
+      <anchor>gaf6305b7a895acc484a8df21f83bff9f4</anchor>
+      <arglist></arglist>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a9a932b3cb396238423eb2f33ec17d6aa">linear</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4ad125fbc288b97bfad6168dae1a4a7018">quadraticIn</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a2b8c6fd3ef1ccd5231fd3012ee3fde81">quadraticInOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4aa46e58be4512e53d983e55f27fd80c97">quadraticOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4abc396790d78711dd11ed61891aff35e5">sineIn</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a85d9740356353988da7f561fde00dc7e">sineInOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a72ff796cb569d8a5580940ebedadc846">sineOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4ab229cec2cd3ccaf65c84062f4af9dc62">exponentialIn</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a4b06f4375ed1fa7c5c3587539ae78676">exponentialInOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a58e39b829564c28c8e6e3c673c93dd5f">exponentialOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4adaac6eb49aa63dd8c30cb86255f9dbc8">invLinear</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a4b3532f72ec3368dca9f024f3dbd89cd">invQuadraticIn</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a162def1969792a2ce9558fc8944bc826">invQuadraticInOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4afd3767ebb092277cbbf99b8856699844">invQuadraticOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a24b731e7911be4ed7b08651e58391d0e">invSineIn</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4ac5934635b2e75315147a92a0ed693617">invSineInOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a43cd7922f3dd54d47008086815d356d2">invSineOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a7986929315ec8da3cfe60e9380d99b38">invExponentialIn</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a4d8db3e9f1a57b8d18a66cb8280592ff">invExponentialInOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a5b6cd563f6f1dbbc68b523e3e018dd37">invExponentialOut</enumvalue>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>gin_midilearn.h</name>
     <path>build/gin_plugin/plugin/</path>
     <filename>gin__midilearn_8h.html</filename>
@@ -2522,11 +2558,8 @@
     <name>gin_modmatrix.h</name>
     <path>build/gin_plugin/plugin/</path>
     <filename>gin__modmatrix_8h.html</filename>
-    <class kind="struct">ModSrcId</class>
-    <class kind="struct">ModDstId</class>
     <class kind="class">ModVoice</class>
     <class kind="class">ModMatrix</class>
-    <class kind="class">ModMatrix::Listener</class>
   </compound>
   <compound kind="file">
     <name>gin_modmatrix.test.h</name>
@@ -8795,8 +8828,8 @@
       <type></type>
       <name>HeaderItem</name>
       <anchorfile>classHeaderItem.html</anchorfile>
-      <anchor>ac6986963c5c20c0df2a1d82795579440</anchor>
-      <arglist>(juce::String name_, Parameter *enable, ModMatrix &amp;mm, ModSrcId monoSrc={}, ModSrcId polySrc={})</arglist>
+      <anchor>a38347e109e4cbccb6677498cba9a1ac1</anchor>
+      <arglist>(juce::String name_, Parameter *enable, IModMatrix &amp;mm, ModSrcId monoSrc={}, ModSrcId polySrc={})</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -9113,6 +9146,200 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>IModMatrix</name>
+    <filename>classIModMatrix.html</filename>
+    <class kind="class">IModMatrix::Listener</class>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~IModMatrix</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>ab37cb910a463d8a66c1a4a1acd935510</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>addListener</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>a0fcfd2d0711da5a742a1d7fd1ee974e0</anchor>
+      <arglist>(Listener *l)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>removeListener</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>a07f1402c3871611e1190457652e1d572</anchor>
+      <arglist>(Listener *l)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual int</type>
+      <name>getNumModSources</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>af15824075a5cf5ebc1ea47feff2d0e99</anchor>
+      <arglist>()=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual juce::String</type>
+      <name>getModSrcName</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>a68a26420b4d341af932475ce414ab96e</anchor>
+      <arglist>(ModSrcId src)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
+      <name>getModSrcPoly</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>afe9e2a12947d0877e960723ea2af640a</anchor>
+      <arglist>(ModSrcId src)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
+      <name>getModSrcBipolar</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>ac91d0e32edaff89017ba9569e4a0266e</anchor>
+      <arglist>(ModSrcId src)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual juce::String</type>
+      <name>getModDstName</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>a0d0eabfeb166e182f6c116d581d57ef3</anchor>
+      <arglist>(ModDstId dst)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual Parameter *</type>
+      <name>getParameter</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>ad1c4682151d458098036405dbdd8f77c</anchor>
+      <arglist>(ModDstId d)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>enableLearn</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>affb93d9d39db94b2f84586c6f03093bd</anchor>
+      <arglist>(ModSrcId source)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>disableLearn</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>a649e270846fa06a248a709645e389dfc</anchor>
+      <arglist>()=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual ModSrcId</type>
+      <name>getLearn</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>af455a82a7358cf54a0fa0631a9956872</anchor>
+      <arglist>()=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
+      <name>isModulated</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>a581411cb2bf15463cb0310029f99ba72</anchor>
+      <arglist>(ModDstId param)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual juce::Array&lt; ModSrcId &gt;</type>
+      <name>getModSources</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>affc74b3498d777de93c8726f22b86ade</anchor>
+      <arglist>(gin::Parameter *p)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual float</type>
+      <name>getModDepth</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>a57bb2951472268a355bbed09052f4195</anchor>
+      <arglist>(ModSrcId src, ModDstId param)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual std::vector&lt; std::pair&lt; ModDstId, float &gt; &gt;</type>
+      <name>getModDepths</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>ae96bd41cd623186fd13d645f13042863</anchor>
+      <arglist>(ModSrcId src)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual std::vector&lt; std::pair&lt; ModSrcId, float &gt; &gt;</type>
+      <name>getModDepths</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>a41450b8a54192314c5537bdfae591a93</anchor>
+      <arglist>(ModDstId param)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>setModDepth</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>a43a4f2eebe086716b43ea3ecb02c4051</anchor>
+      <arglist>(ModSrcId src, ModDstId param, float f)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>clearModDepth</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>a773e064be3bcfadb08238569b5f98f42</anchor>
+      <arglist>(ModSrcId src, ModDstId param)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual ModFunction</type>
+      <name>getModFunction</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>a842669f9e66fc68dfbc2247e0081ad97</anchor>
+      <arglist>(ModSrcId src, ModDstId param)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>setModFunction</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>a4c123cc332fde4ccef556640c2e83223</anchor>
+      <arglist>(ModSrcId src, ModDstId param, ModFunction f)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
+      <name>getModEnable</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>abe803d71fd10b9b741010875622f0c52</anchor>
+      <arglist>(ModSrcId src, ModDstId param)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>setModEnable</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>a8645bcde19985ae22414c1c1d211c431</anchor>
+      <arglist>(ModSrcId src, ModDstId param, bool b)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
+      <name>getModBipolarMapping</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>a95cd133a963e9a14de1eb719a91b7608</anchor>
+      <arglist>(ModSrcId src, ModDstId param)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>setModBipolarMapping</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>a8539aa106ed6bd899fd60d4120842791</anchor>
+      <arglist>(ModSrcId src, ModDstId param, bool b)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
+      <name>shouldShowLiveModValues</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>a02ccdeb3be94ab6d4409beaa069d9fb8</anchor>
+      <arglist>()=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual juce::Array&lt; float &gt;</type>
+      <name>getLiveValues</name>
+      <anchorfile>classIModMatrix.html</anchorfile>
+      <anchor>ab9bc9a05369c4d08e2547cbc969db07a</anchor>
+      <arglist>(gin::Parameter *p)=0</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>Integrator</name>
     <filename>classIntegrator.html</filename>
     <member kind="function">
@@ -9213,7 +9440,7 @@
     <name>Knob</name>
     <filename>classKnob.html</filename>
     <base>ParamComponent</base>
-    <base protection="private">ModMatrix::Listener</base>
+    <base protection="private">IModMatrix::Listener</base>
     <member kind="function">
       <type></type>
       <name>Knob</name>
@@ -10482,6 +10709,31 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>IModMatrix::Listener</name>
+    <filename>classIModMatrix_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classIModMatrix_1_1Listener.html</anchorfile>
+      <anchor>ae2d98961a0a2b74179c5c78e79593f3f</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>modMatrixChanged</name>
+      <anchorfile>classIModMatrix_1_1Listener.html</anchorfile>
+      <anchor>a97c03785445facab7ea3ae81784f4e43</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>learnSourceChanged</name>
+      <anchorfile>classIModMatrix_1_1Listener.html</anchorfile>
+      <anchor>ab1787ae0c3e97d633746002e54c45cc1</anchor>
+      <arglist>(ModSrcId)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>LocationManager::Listener</name>
     <filename>classLocationManager_1_1Listener.html</filename>
     <member kind="function" virtualness="virtual">
@@ -10497,31 +10749,6 @@
       <anchorfile>classLocationManager_1_1Listener.html</anchorfile>
       <anchor>ae62d44de083e85d30933c030945765cb</anchor>
       <arglist>(const Location &amp;)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>ModMatrix::Listener</name>
-    <filename>classModMatrix_1_1Listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
-      <anchor>a09cc42d56d116a600586a874bbe348a7</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>modMatrixChanged</name>
-      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
-      <anchor>a6d4c1fcaddd8a3f77a0b25813919eae3</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>learnSourceChanged</name>
-      <anchorfile>classModMatrix_1_1Listener.html</anchorfile>
-      <anchor>a98f0bf4eb29994c864db47a9461dbc24</anchor>
-      <arglist>(ModSrcId)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -11705,8 +11932,8 @@
       <type>void</type>
       <name>setCurve</name>
       <anchorfile>classModCurveButton.html</anchorfile>
-      <anchor>a6814797089bd7dcbba378ae45af60e4b</anchor>
-      <arglist>(ModMatrix::Function c)</arglist>
+      <anchor>af03333f4d89bb49d54e3d332ef2ac6cb</anchor>
+      <arglist>(ModFunction c)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -11772,7 +11999,7 @@
   <compound kind="class">
     <name>ModMatrix</name>
     <filename>classModMatrix.html</filename>
-    <class kind="class">ModMatrix::Listener</class>
+    <base>IModMatrix</base>
     <member kind="enumeration">
       <type></type>
       <name>PolarityMode</name>
@@ -11798,131 +12025,11 @@
       <anchor>a01ecaf32e75cdb11b6c803bc981a9533ad0b8ff21af2594b553450b69775e96b1</anchor>
       <arglist></arglist>
     </member>
-    <member kind="enumeration">
-      <type></type>
+    <member kind="typedef">
+      <type>ModFunction</type>
       <name>Function</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>linear</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614acb06b3d520dd725b2238a449315b094d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>quadraticIn</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614aec9f9bf92afa150948d808cfb47c73bd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>quadraticInOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614aca2bc4be3e70c0982876586e17860685</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>quadraticOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a6d181277db1246b900c193cd823ba21e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>sineIn</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a3d4b194fe7bab39d84b839fc12108932</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>sineInOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a6132e3681b97a2d682bad5ce802a29ca</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>sineOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a030353ff9fd065b4116b16371ca4b124</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>exponentialIn</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a0077e21360a291be024c42766394775b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>exponentialInOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614ab5bdf8a6fe53581fe54a3709b55b36fe</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>exponentialOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a49c3644e18da03df8b393cf9471f6814</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invLinear</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614ae5dc113cfd99be977319aafb69c5b4ac</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invQuadraticIn</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a05a36fca880332e4afaa4a5ac9ca5bf9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invQuadraticInOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614ab504d22925671ba6e253f0efdfeb779e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invQuadraticOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a819a9b2ceec509a5c04115a66c7fb4de</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invSineIn</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a35931fd1e72cc0bf724f7092ccc65af1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invSineInOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614af866e4816f3d0a7aa46364164cf5a2d6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invSineOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a51a1e29d081d10f6528ed0fc5e509816</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invExponentialIn</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a82390ea767ca6f0b8e39ea17a7e1202b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invExponentialInOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a6e61e5ed0d9216ea3330a68c01d86591</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invExponentialOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614aeabc2967673798438849bdddedf69785</anchor>
+      <anchor>a4ac1ccb0df0925217e14a4458923a86d</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
@@ -11943,132 +12050,19 @@
       <anchor>a01ecaf32e75cdb11b6c803bc981a9533ad0b8ff21af2594b553450b69775e96b1</anchor>
       <arglist></arglist>
     </member>
-    <member kind="enumvalue">
-      <name>linear</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614acb06b3d520dd725b2238a449315b094d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>quadraticIn</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614aec9f9bf92afa150948d808cfb47c73bd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>quadraticInOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614aca2bc4be3e70c0982876586e17860685</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>quadraticOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a6d181277db1246b900c193cd823ba21e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>sineIn</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a3d4b194fe7bab39d84b839fc12108932</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>sineInOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a6132e3681b97a2d682bad5ce802a29ca</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>sineOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a030353ff9fd065b4116b16371ca4b124</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>exponentialIn</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a0077e21360a291be024c42766394775b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>exponentialInOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614ab5bdf8a6fe53581fe54a3709b55b36fe</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>exponentialOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a49c3644e18da03df8b393cf9471f6814</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invLinear</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614ae5dc113cfd99be977319aafb69c5b4ac</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invQuadraticIn</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a05a36fca880332e4afaa4a5ac9ca5bf9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invQuadraticInOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614ab504d22925671ba6e253f0efdfeb779e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invQuadraticOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a819a9b2ceec509a5c04115a66c7fb4de</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invSineIn</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a35931fd1e72cc0bf724f7092ccc65af1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invSineInOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614af866e4816f3d0a7aa46364164cf5a2d6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invSineOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a51a1e29d081d10f6528ed0fc5e509816</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invExponentialIn</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a82390ea767ca6f0b8e39ea17a7e1202b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invExponentialInOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614a6e61e5ed0d9216ea3330a68c01d86591</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>invExponentialOut</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>add6fae194c9fe15e561181b21b6fc614aeabc2967673798438849bdddedf69785</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="function">
       <type></type>
       <name>ModMatrix</name>
       <anchorfile>classModMatrix.html</anchorfile>
       <anchor>a923354065c39928704876d0b29e568c9</anchor>
       <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~ModMatrix</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a1228d780ee9e6d431354b2e9716b040f</anchor>
+      <arglist>() override=default</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -12104,13 +12098,6 @@
       <anchorfile>classModMatrix.html</anchorfile>
       <anchor>a77e64ba8bf9f3ead0ea391ec4cc3aff5</anchor>
       <arglist>(ModVoice &amp;voice, gin::Parameter *p, bool smoothed=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Array&lt; float &gt;</type>
-      <name>getLiveValues</name>
-      <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>af2bd87ed0b0a9d925b38c195d8ec8498</anchor>
-      <arglist>(gin::Parameter *p)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -12179,162 +12166,169 @@
       <type>void</type>
       <name>enableLearn</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a7503eb612eccc0a07bafd3ba5c0c66b8</anchor>
-      <arglist>(ModSrcId source)</arglist>
+      <anchor>a5a9db78dea10ea97af8a98849c41d9cf</anchor>
+      <arglist>(ModSrcId source) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>disableLearn</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a43c4fb3d9ece3cd9b2af6495379dc2f6</anchor>
-      <arglist>()</arglist>
+      <anchor>a5ef6a89936c6de80b5a3726fc00f9c39</anchor>
+      <arglist>() override</arglist>
     </member>
     <member kind="function">
       <type>ModSrcId</type>
       <name>getLearn</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a97578cacf24fc1ca6145f7692338812f</anchor>
-      <arglist>()</arglist>
+      <anchor>a98383ddb9f76f288150e0a897fe43ba3</anchor>
+      <arglist>() override</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>getNumModSources</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a773b5e3fa24cf0c1834c9202ebb28eb9</anchor>
-      <arglist>()</arglist>
+      <anchor>a3418f99ecd0afd5d197049e17e8eb26c</anchor>
+      <arglist>() override</arglist>
     </member>
     <member kind="function">
       <type>juce::String</type>
       <name>getModSrcName</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a515297946b470b05c45f22dce83b6506</anchor>
-      <arglist>(ModSrcId src)</arglist>
+      <anchor>a5b3267c5b980b9142e10e25290fb0205</anchor>
+      <arglist>(ModSrcId src) override</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>getModSrcPoly</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>af53ec21a1331b38eeba0156effebf7dc</anchor>
-      <arglist>(ModSrcId src)</arglist>
+      <anchor>ae41b68b077846c678d0da06ead84b9fa</anchor>
+      <arglist>(ModSrcId src) override</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>getModSrcBipolar</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>ad2b193fcf8ef2790b41bc3bb2f4b0bf5</anchor>
-      <arglist>(ModSrcId src)</arglist>
+      <anchor>a3b00ed18564a23991864492873247645</anchor>
+      <arglist>(ModSrcId src) override</arglist>
     </member>
     <member kind="function">
       <type>juce::String</type>
       <name>getModDstName</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>aa1e5b737aa3c05bdcc350d72950d572d</anchor>
-      <arglist>(ModDstId dst)</arglist>
+      <anchor>a130f32732fb0181c09efa44f13972c5f</anchor>
+      <arglist>(ModDstId dst) override</arglist>
     </member>
     <member kind="function">
       <type>juce::Array&lt; ModSrcId &gt;</type>
       <name>getModSources</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a06398873a68da00c098a1cab2e3f95ce</anchor>
-      <arglist>(gin::Parameter *)</arglist>
+      <anchor>a235992bc2155de2cb3158b6ff137471c</anchor>
+      <arglist>(gin::Parameter *) override</arglist>
     </member>
     <member kind="function">
       <type>Parameter *</type>
       <name>getParameter</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a04dbb67bb5096e2d85e6dcd94addc9b1</anchor>
-      <arglist>(ModDstId d)</arglist>
+      <anchor>ad7a82f7b2deb5b1af6112f43dbe4123a</anchor>
+      <arglist>(ModDstId d) override</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isModulated</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a85b92c5372a70175db5bc73486b371a1</anchor>
-      <arglist>(ModDstId param)</arglist>
+      <anchor>a1f6e927dd39d2f1094a16760888d3aa7</anchor>
+      <arglist>(ModDstId param) override</arglist>
     </member>
     <member kind="function">
       <type>float</type>
       <name>getModDepth</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>ac09e09e0d0db90228b5b71013472efcb</anchor>
-      <arglist>(ModSrcId src, ModDstId param)</arglist>
+      <anchor>a7852e7f870cb3468b69b2b8f9d3f68ae</anchor>
+      <arglist>(ModSrcId src, ModDstId param) override</arglist>
     </member>
     <member kind="function">
       <type>std::vector&lt; std::pair&lt; ModDstId, float &gt; &gt;</type>
       <name>getModDepths</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>aaa700c09a72de00dfdd2299a5f8d4340</anchor>
-      <arglist>(ModSrcId param)</arglist>
+      <anchor>ad4078bcc4344e557b552facc49e70acb</anchor>
+      <arglist>(ModSrcId src) override</arglist>
     </member>
     <member kind="function">
       <type>std::vector&lt; std::pair&lt; ModSrcId, float &gt; &gt;</type>
       <name>getModDepths</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a6b7406436d179d4a255bc8e611c9a35d</anchor>
-      <arglist>(ModDstId param)</arglist>
+      <anchor>ab62e8355b838bb5e512ac912bc6648f8</anchor>
+      <arglist>(ModDstId param) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setModDepth</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>ace5b6d8daf94ac3a9f13d61a322c2008</anchor>
-      <arglist>(ModSrcId src, ModDstId param, float f)</arglist>
+      <anchor>a1cc2515071c4d69d56d8000c6676ccd6</anchor>
+      <arglist>(ModSrcId src, ModDstId param, float f) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>clearModDepth</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>ab974f4fdc82957f79b98ae8f151baec7</anchor>
-      <arglist>(ModSrcId src, ModDstId param)</arglist>
+      <anchor>a710b5a053f4e9a59036ae80a82a364d5</anchor>
+      <arglist>(ModSrcId src, ModDstId param) override</arglist>
     </member>
     <member kind="function">
-      <type>Function</type>
+      <type>ModFunction</type>
       <name>getModFunction</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>acc189ee7cea2a20e63b473d2858fd15a</anchor>
-      <arglist>(ModSrcId src, ModDstId param)</arglist>
+      <anchor>a8887c86d4f6a07604b6201c8b6c4c5f7</anchor>
+      <arglist>(ModSrcId src, ModDstId param) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setModFunction</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a11861e509cb3daf56094e64e74925e90</anchor>
-      <arglist>(ModSrcId src, ModDstId param, Function f)</arglist>
+      <anchor>ac79d844e17d252ab1c10cded06a18605</anchor>
+      <arglist>(ModSrcId src, ModDstId param, ModFunction f) override</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>getModEnable</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>afb6eebe8bde9b5998ecbc41e4defcf11</anchor>
-      <arglist>(ModSrcId src, ModDstId param)</arglist>
+      <anchor>a5745f1cab733d84314dda9e304e1cbdd</anchor>
+      <arglist>(ModSrcId src, ModDstId param) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setModEnable</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a6927231033b7126e0147f7601b6b40c8</anchor>
-      <arglist>(ModSrcId src, ModDstId param, bool b)</arglist>
+      <anchor>a9f20f7f68aa6fcba216b4deef86adde3</anchor>
+      <arglist>(ModSrcId src, ModDstId param, bool b) override</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>getModBipolarMapping</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a80c5d765e13b9c89ec522a57ae3e9133</anchor>
-      <arglist>(ModSrcId src, ModDstId param)</arglist>
+      <anchor>af7ec850ad29b333475be41d2c8f5bb63</anchor>
+      <arglist>(ModSrcId src, ModDstId param) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setModBipolarMapping</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>aaf6762ef0ac232dc6dc0c896eeccd07c</anchor>
-      <arglist>(ModSrcId src, ModDstId param, bool b)</arglist>
+      <anchor>a305ccbe9dc464edea9399602cbcbf00c</anchor>
+      <arglist>(ModSrcId src, ModDstId param, bool b) override</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>shouldShowLiveModValues</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>af003c85e1553776030a64ce71c642cc3</anchor>
-      <arglist>()</arglist>
+      <anchor>a1c00ae1372cc5e3eea51d3de17a2be05</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Array&lt; float &gt;</type>
+      <name>getLiveValues</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>ac6cf29d3e94ab08162b9ed68d2430b86</anchor>
+      <arglist>(gin::Parameter *p) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -12347,34 +12341,174 @@
       <type>void</type>
       <name>addListener</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>a0b42fc976f683b259c00bdb2e636c6f2</anchor>
-      <arglist>(Listener *l)</arglist>
+      <anchor>a8b326c4486ea46434da8a51a50109b41</anchor>
+      <arglist>(Listener *l) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>removeListener</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>adeaa67481f092f988ea3df3936909940</anchor>
-      <arglist>(Listener *l)</arglist>
+      <anchor>a26bb96a14ac4e74c8fdbbbd83e472eab</anchor>
+      <arglist>(Listener *l) override</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static float</type>
       <name>shape</name>
       <anchorfile>classModMatrix.html</anchorfile>
-      <anchor>ae7eab8f9eddb29cba7da3fc50602c514</anchor>
-      <arglist>(float v, Function f, bool biPolarSrc, bool biPolarDst)</arglist>
+      <anchor>af17f71ecf2a0130ddab01dc8f25c2229</anchor>
+      <arglist>(float v, ModFunction f, bool biPolarSrc, bool biPolarDst)</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>linear</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a239aa9b232ef528491f2e8bf00d8c872</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>quadraticIn</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a08e06567bcd0c7411f1cc7c10064c42b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>quadraticInOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>ad07d6d293cac54f3d153382084faff1f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>quadraticOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a97511d5d61aac8a2d3fada31a25f0987</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>sineIn</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>ae55fa0cdc6197e4d8e48ec55ac1c6ef9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>sineInOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a7a1d62c4c90deb8168cc5d50d18e4582</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>sineOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>accf77e4434c85e928d1032efb314d6ed</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>exponentialIn</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a6c4b56ab9df814f6a8712da0e0f7138b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>exponentialInOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a7248f24c80933d8ebe5038eb6db48087</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>exponentialOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a8849b556076e1d1b6fef5159faa9d3cb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>invLinear</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>ab23f4fce955290e1b1e952567424faf7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>invQuadraticIn</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a2721c8892568fd5d3aa78721f13867aa</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>invQuadraticInOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a34bc9476b5373f6112e49aa8e46188ef</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>invQuadraticOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>ab425db1d05818e291d9c4a163fb913f3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>invSineIn</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a8e68472c06217c224e294a9ec2ee36a5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>invSineInOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>ac0ff2fac5b8e05338e9fd37700045c6e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>invSineOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a320561a4a3eeadb0315f589d80ebe040</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>invExponentialIn</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a5f8affd6fd91f192642003e6c50e5aa6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>invExponentialInOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a1b999aa316824fdba123b6bf05e22184</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr ModFunction</type>
+      <name>invExponentialOut</name>
+      <anchorfile>classModMatrix.html</anchorfile>
+      <anchor>a699f0f6855b8e0eaa89aac834925e2c6</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>ModMatrixBox</name>
     <filename>classModMatrixBox.html</filename>
-    <base protection="private">ModMatrix::Listener</base>
+    <base protection="private">IModMatrix::Listener</base>
     <member kind="function">
       <type></type>
       <name>ModMatrixBox</name>
       <anchorfile>classModMatrixBox.html</anchorfile>
-      <anchor>aa1d0054cb9a5a3c5abbcd1e7b3e84b71</anchor>
-      <arglist>(gin::Processor &amp;p, ModMatrix &amp;m, int dw=50)</arglist>
+      <anchor>a8fa735d73b25ad181c5837d747729de7</anchor>
+      <arglist>(gin::Processor &amp;p, IModMatrix &amp;m, int dw=50)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -12476,8 +12610,8 @@
       <type></type>
       <name>ModSrcListBox</name>
       <anchorfile>classModSrcListBox.html</anchorfile>
-      <anchor>a5c4217751fb20f7a41b4734d179d85b3</anchor>
-      <arglist>(ModMatrix &amp;m)</arglist>
+      <anchor>ad9ee26eb282e70c6c6d4aaff230521c3</anchor>
+      <arglist>(IModMatrix &amp;m)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -12582,13 +12716,13 @@
   <compound kind="class">
     <name>ModulationOverview</name>
     <filename>classModulationOverview.html</filename>
-    <base protection="private">ModMatrix::Listener</base>
+    <base protection="private">IModMatrix::Listener</base>
     <member kind="function">
       <type></type>
       <name>ModulationOverview</name>
       <anchorfile>classModulationOverview.html</anchorfile>
-      <anchor>a53905073cc95d9c56b70c931d0654a77</anchor>
-      <arglist>(ModMatrix &amp;mm)</arglist>
+      <anchor>a9c7eedee6d4a51446a5fef027a369413</anchor>
+      <arglist>(IModMatrix &amp;mm)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -12601,20 +12735,20 @@
   <compound kind="class">
     <name>ModulationSourceButton</name>
     <filename>classModulationSourceButton.html</filename>
-    <base protection="private">ModMatrix::Listener</base>
+    <base protection="private">IModMatrix::Listener</base>
     <member kind="function">
       <type></type>
       <name>ModulationSourceButton</name>
       <anchorfile>classModulationSourceButton.html</anchorfile>
-      <anchor>ae528e6ef08597a5535ec9b71b8478819</anchor>
-      <arglist>(ModMatrix &amp;mm, ModSrcId src={}, bool poly_=false)</arglist>
+      <anchor>ab07b676db2bab649f693023bf4240ec3</anchor>
+      <arglist>(IModMatrix &amp;mm, ModSrcId src={}, bool poly_=false)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>ModulationSourceButton</name>
       <anchorfile>classModulationSourceButton.html</anchorfile>
-      <anchor>a09f917bf8545a7e0831848278623e0b4</anchor>
-      <arglist>(const juce::String &amp;name, ModMatrix &amp;mm, ModSrcId src={}, bool poly_=false)</arglist>
+      <anchor>a8d54dc5fb9cdefa5659d7bd66aedec09</anchor>
+      <arglist>(const juce::String &amp;name, IModMatrix &amp;mm, ModSrcId src={}, bool poly_=false)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -14149,14 +14283,14 @@
       <type>void</type>
       <name>setModMatrix</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a88158bf1dd98daead5fc2215e17c4d3d</anchor>
-      <arglist>(ModMatrix *m)</arglist>
+      <anchor>ae277a4b5b6e745307e5b80fff56b4f41</anchor>
+      <arglist>(IModMatrix *m)</arglist>
     </member>
     <member kind="function">
-      <type>ModMatrix *</type>
+      <type>IModMatrix *</type>
       <name>getModMatrix</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a03214a30df7502114df477b14dda12e3</anchor>
+      <anchor>a8b6033de617ef5d0783a0b8d8ce15df1</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -14517,10 +14651,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>ModMatrix *</type>
+      <type>IModMatrix *</type>
       <name>modMatrix</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a30f079fa8ecf5c5cd5735777e1ba74c8</anchor>
+      <anchor>a7e184289e8217f43915cda95865a809d</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -15746,6 +15880,13 @@
       <arglist>(gin::Parameter *parameter)</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>setUseParamGroups</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a78d285701444d196c0d6413e00f70e8c</anchor>
+      <arglist>(bool b)</arglist>
+    </member>
+    <member kind="function">
       <type>gin::Parameter *</type>
       <name>addExtParam</name>
       <anchorfile>classProcessor.html</anchorfile>
@@ -16100,6 +16241,20 @@
       <name>lastProgramsUpdated</name>
       <anchorfile>classProcessor.html</anchorfile>
       <anchor>a417faac3223fdc4a83f0793e82509d7c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>useParamGroups</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a7ed04ab62f18482bdf72920c75ffa7b9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::OwnedArray&lt; gin::Parameter &gt;</type>
+      <name>groupedParameters</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>aacf6f23acfd4b53beef59b58dbd93d6c</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -23545,12 +23700,13 @@
     <name>gin_plugin-plugin</name>
     <title>plugin</title>
     <filename>group__gin__plugin-plugin.html</filename>
-    <class kind="class">MidiLearn</class>
     <class kind="struct">ModSrcId</class>
     <class kind="struct">ModDstId</class>
+    <class kind="class">IModMatrix</class>
+    <class kind="class">IModMatrix::Listener</class>
+    <class kind="class">MidiLearn</class>
     <class kind="class">ModVoice</class>
     <class kind="class">ModMatrix</class>
-    <class kind="class">ModMatrix::Listener</class>
     <class kind="class">NoteDuration</class>
     <class kind="class">Parameter</class>
     <class kind="class">Parameter::ParameterListener</class>
@@ -23566,6 +23722,33 @@
       <anchorfile>group__gin__plugin-plugin.html</anchorfile>
       <anchor>ga9ccf6c679c1fdf1c1414992a17202f5a</anchor>
       <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>ModFunction</name>
+      <anchorfile>group__gin__plugin-plugin.html</anchorfile>
+      <anchor>gaf6305b7a895acc484a8df21f83bff9f4</anchor>
+      <arglist></arglist>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a9a932b3cb396238423eb2f33ec17d6aa">linear</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4ad125fbc288b97bfad6168dae1a4a7018">quadraticIn</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a2b8c6fd3ef1ccd5231fd3012ee3fde81">quadraticInOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4aa46e58be4512e53d983e55f27fd80c97">quadraticOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4abc396790d78711dd11ed61891aff35e5">sineIn</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a85d9740356353988da7f561fde00dc7e">sineInOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a72ff796cb569d8a5580940ebedadc846">sineOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4ab229cec2cd3ccaf65c84062f4af9dc62">exponentialIn</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a4b06f4375ed1fa7c5c3587539ae78676">exponentialInOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a58e39b829564c28c8e6e3c673c93dd5f">exponentialOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4adaac6eb49aa63dd8c30cb86255f9dbc8">invLinear</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a4b3532f72ec3368dca9f024f3dbd89cd">invQuadraticIn</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a162def1969792a2ce9558fc8944bc826">invQuadraticInOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4afd3767ebb092277cbbf99b8856699844">invQuadraticOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a24b731e7911be4ed7b08651e58391d0e">invSineIn</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4ac5934635b2e75315147a92a0ed693617">invSineInOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a43cd7922f3dd54d47008086815d356d2">invSineOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a7986929315ec8da3cfe60e9380d99b38">invExponentialIn</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a4d8db3e9f1a57b8d18a66cb8280592ff">invExponentialInOut</enumvalue>
+      <enumvalue file="group__gin__plugin-plugin.html" anchor="ggaf6305b7a895acc484a8df21f83bff9f4a5b6cd563f6f1dbbc68b523e3e018dd37">invExponentialOut</enumvalue>
     </member>
     <member kind="function">
       <type>float</type>

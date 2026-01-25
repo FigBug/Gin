@@ -41,7 +41,7 @@ var searchData=
   ['difference_5ftype_38',['difference_type',['../group__gin__gui-utilities.html#ga388faf47e202486a153ded4732148bd3',1,'juce::VarIterator']]],
   ['dimifneeded_39',['dimIfNeeded',['../classMultiParamComponent.html#a4e53eb6db28b3d331879b79d8f8e1207',1,'MultiParamComponent']]],
   ['direction_40',['Direction',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1',1,'SampleOscillator']]],
-  ['disablelearn_41',['disableLearn',['../classModMatrix.html#a43c4fb3d9ece3cd9b2af6495379dc2f6',1,'ModMatrix']]],
+  ['disablelearn_41',['disablelearn',['../classIModMatrix.html#a649e270846fa06a248a709645e389dfc',1,'IModMatrix::disableLearn()'],['../classModMatrix.html#a5ef6a89936c6de80b5a3726fc00f9c39',1,'ModMatrix::disableLearn()']]],
   ['disablesmoothing_42',['disableSmoothing',['../classModVoice.html#acc4675a7c50824248d15d4a416f5401b',1,'ModVoice']]],
   ['disconnect_43',['disconnect',['../classAsyncWebsocket.html#a6cff60be7eb74cdf9dcc03b488ca0558',1,'AsyncWebsocket']]],
   ['disk_44',['disk',['../namespaceAssets.html#a0cb9da58717b61750b505a0a19b4b3e2',1,'Assets']]],

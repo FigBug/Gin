@@ -2,7 +2,7 @@ var searchData=
 [
   ['factory_0',['factory',['../classValueTreeObject.html#a50b525ebb88fd07644ddbb78bb6ce11f',1,'ValueTreeObject']]],
   ['fade_1',['fade',['../structMSEG_1_1Parameters.html#ae32002c1a62e1164a4fd5e0cf106a409',1,'MSEG::Parameters::fade'],['../structLFO_1_1Parameters.html#a20d76d843455f85c2131d9ed77329499',1,'LFO::Parameters::fade']]],
-  ['fader_2',['fader',['../classFader.html',1,'Fader'],['../classHorizontalFader.html#a877a5f6ba55a7c5e054655a78b6565b8',1,'HorizontalFader::fader'],['../classFader.html#a5f45283b1a19da5bda23b91cbd74703f',1,'Fader::Fader()']]],
+  ['fader_2',['fader',['../classFader.html',1,'Fader'],['../classFader.html#a5f45283b1a19da5bda23b91cbd74703f',1,'Fader::Fader()'],['../classHorizontalFader.html#a877a5f6ba55a7c5e054655a78b6565b8',1,'HorizontalFader::fader']]],
   ['faderslider_3',['faderslider',['../classFaderSlider.html',1,'FaderSlider'],['../classFaderSlider.html#a200bc9377973cef5b6449b476ae7d4ed',1,'FaderSlider::FaderSlider()']]],
   ['failed_4',['failed',['../classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30fa765c9be4013c90f5b9658ce40d293c4c',1,'ElevatedFileCopy']]],
   ['fastkill_5',['fastKill',['../classSynthesiserVoice.html#aee3b10413c4c0203d9e8f26bb97cefaa',1,'SynthesiserVoice']]],
@@ -23,7 +23,7 @@ var searchData=
   ['filesystemevent_20',['FileSystemEvent',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7d',1,'FileSystemWatcher']]],
   ['filesystemwatcher_21',['filesystemwatcher',['../classFileSystemWatcher.html',1,'FileSystemWatcher'],['../classFileSystemWatcher.html#a588829cfbf7981cbd745fc1db5244d86',1,'FileSystemWatcher::FileSystemWatcher()']]],
   ['fileupdated_22',['fileUpdated',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7dabc075ff82423a1f48c1043f2e8383acf',1,'FileSystemWatcher']]],
-  ['filter_23',['filter',['../classFilter.html',1,'Filter'],['../structBP12State.html#a8ba2d9b2b1c8d1fc290894fd796504f7',1,'BP12State::filter'],['../structLP12State.html#a580c0bf2f2bbb272aec09a28fe98f23a',1,'LP12State::filter'],['../structNotch12State.html#a4ef2c646735b609a86004dd45130f6ff',1,'Notch12State::filter'],['../structHP12State.html#a006d9aa1837a5c2b25d70cbd303c021b',1,'HP12State::filter'],['../classFilter.html#afffdca3e4f07216e45707ed6d3e543d5',1,'Filter::Filter()']]],
+  ['filter_23',['filter',['../classFilter.html',1,'Filter'],['../structLP12State.html#a580c0bf2f2bbb272aec09a28fe98f23a',1,'LP12State::filter'],['../structNotch12State.html#a4ef2c646735b609a86004dd45130f6ff',1,'Notch12State::filter'],['../classFilter.html#afffdca3e4f07216e45707ed6d3e543d5',1,'Filter::Filter()'],['../structBP12State.html#a8ba2d9b2b1c8d1fc290894fd796504f7',1,'BP12State::filter'],['../structHP12State.html#a006d9aa1837a5c2b25d70cbd303c021b',1,'HP12State::filter']]],
   ['filter1_24',['filter1',['../structHP24State.html#a155f66fcce4f834299723b0e17f45a08',1,'HP24State::filter1'],['../structBP24State.html#a7a1b21ac3db5d5807079ffe80ae60c24',1,'BP24State::filter1'],['../structLP24State.html#a8aaae7ba5553a0bc1880ea6fe340f1b7',1,'LP24State::filter1'],['../structNotch24State.html#a83e85d85ead1d78d699c64f2f6afd4ec',1,'Notch24State::filter1']]],
   ['filter2_25',['filter2',['../structNotch24State.html#a26f1a87b361e824a526ddc3be30e7523',1,'Notch24State::filter2'],['../structLP24State.html#abc4ac3ff59b983b6cfaae11af5cc584f',1,'LP24State::filter2'],['../structBP24State.html#a02c9da59417956981fef2420eafcdd7a',1,'BP24State::filter2'],['../structHP24State.html#a50cf6b5b1abc8cde792a5ef60de47bd3',1,'HP24State::filter2']]],
   ['filterprogramname_26',['filterProgramName',['../classTitleBar.html#a6a27e5958f4ece16e3117d1c6cf52d86',1,'TitleBar']]],
@@ -58,5 +58,5 @@ var searchData=
   ['fullyloaded_55',['fullyLoaded',['../classProgram.html#abda0ec5627c2cbeea0832de24dccf7f8',1,'Program']]],
   ['funcstate_56',['funcstate',['../structFuncState.html',1,'FuncState'],['../structFuncState.html#a1a37453451c69ef86bd1c1f07d970c81',1,'FuncState::FuncState()']]],
   ['funcstates_57',['funcStates',['../classAudioFunctionHost.html#aa8b5235e076cae5d2c28443fe8ba1ca5',1,'AudioFunctionHost']]],
-  ['function_58',['Function',['../classModMatrix.html#add6fae194c9fe15e561181b21b6fc614',1,'ModMatrix']]]
+  ['function_58',['Function',['../classModMatrix.html#a4ac1ccb0df0925217e14a4458923a86d',1,'ModMatrix']]]
 ];

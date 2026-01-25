@@ -8,6 +8,7 @@ var searchData=
   ['url_5',['url',['../structDownloadManager_1_1DownloadResult.html#a700f6508383b439c9f700ee6a2193545',1,'DownloadManager::DownloadResult::url'],['../classAsyncDownload.html#aef49e36d34014f5e3d77c044fd1b47d3',1,'AsyncDownload::url'],['../classProcessorOptions.html#a14ec635629b9b04b406d9e2cccdc654c',1,'ProcessorOptions::url']]],
   ['urltitle_6',['urlTitle',['../classProcessorOptions.html#a16bdfa5c4620c1082e654e0ed60bdb1a',1,'ProcessorOptions']]],
   ['usenewschecker_7',['useNewsChecker',['../classProcessorOptions.html#a050f3bfa588e3045b3a914715c961bc3',1,'ProcessorOptions']]],
-  ['useractioncount_8',['userActionCount',['../classParameter.html#a9a2d682ac453e9b019ceb12986b8e5fd',1,'Parameter']]],
-  ['useupdatechecker_9',['useUpdateChecker',['../classProcessorOptions.html#a1cae47f2ecd1a86e02549cf5b47fd4d0',1,'ProcessorOptions']]]
+  ['useparamgroups_8',['useParamGroups',['../classProcessor.html#a7ed04ab62f18482bdf72920c75ffa7b9',1,'Processor']]],
+  ['useractioncount_9',['userActionCount',['../classParameter.html#a9a2d682ac453e9b019ceb12986b8e5fd',1,'Parameter']]],
+  ['useupdatechecker_10',['useUpdateChecker',['../classProcessorOptions.html#a1cae47f2ecd1a86e02549cf5b47fd4d0',1,'ProcessorOptions']]]
 ];

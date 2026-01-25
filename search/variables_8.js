@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['id_0',['id',['../structModSrcId.html#ae8410470ac2d16b3d27179b6633efc65',1,'ModSrcId::id'],['../structModDstId.html#a113d55c0da8df5a57180514adc99492c',1,'ModDstId::id']]],
+  ['id_0',['id',['../structModDstId.html#a113d55c0da8df5a57180514adc99492c',1,'ModDstId::id'],['../structModSrcId.html#ae8410470ac2d16b3d27179b6633efc65',1,'ModSrcId::id']]],
   ['images_1',['images',['../classCopperLookAndFeel.html#a1515b1d303c786c5721d72b2d25e942d',1,'CopperLookAndFeel']]],
   ['incomingmidi_2',['incomingMidi',['../classAudioProcessorPlayer.html#ae8315f0e2659458599790fdc5eff6e23',1,'AudioProcessorPlayer']]],
   ['info_3',['info',['../namespaceAssets.html#a0d8779fd5e3c309da5cef6baaa1b3c1e',1,'Assets']]],
@@ -11,7 +11,17 @@ var searchData=
   ['internalparameters_8',['internalParameters',['../classProcessor.html#ac9d3cf083da1dba0b2612ce32ea7218d',1,'Processor']]],
   ['interregular_5fotf_9',['InterRegular_otf',['../namespaceResources.html#a821eb0a806b852016c53ab6151f00d3d',1,'Resources']]],
   ['interregular_5fotfsize_10',['InterRegular_otfSize',['../namespaceResources.html#af4f0aa394cb30c14c4306162f0d5e6d4',1,'Resources']]],
-  ['isdoubleprecision_11',['isDoublePrecision',['../classAudioProcessorPlayer.html#ab629fa4a5811f9aa68f3f9f6a541ceca',1,'AudioProcessorPlayer']]],
-  ['isinsert_12',['isInsert',['../structDiff_1_1Patch_1_1Hunk.html#acc12c013ae75b9cab2c18b51cd42e240',1,'Diff::Patch::Hunk']]],
-  ['isprepared_13',['isPrepared',['../classAudioProcessorPlayer.html#a0d1f31a71a74dd148b3c0dbd1e0ce04a',1,'AudioProcessorPlayer']]]
+  ['invexponentialin_11',['invExponentialIn',['../classModMatrix.html#a5f8affd6fd91f192642003e6c50e5aa6',1,'ModMatrix']]],
+  ['invexponentialinout_12',['invExponentialInOut',['../classModMatrix.html#a1b999aa316824fdba123b6bf05e22184',1,'ModMatrix']]],
+  ['invexponentialout_13',['invExponentialOut',['../classModMatrix.html#a699f0f6855b8e0eaa89aac834925e2c6',1,'ModMatrix']]],
+  ['invlinear_14',['invLinear',['../classModMatrix.html#ab23f4fce955290e1b1e952567424faf7',1,'ModMatrix']]],
+  ['invquadraticin_15',['invQuadraticIn',['../classModMatrix.html#a2721c8892568fd5d3aa78721f13867aa',1,'ModMatrix']]],
+  ['invquadraticinout_16',['invQuadraticInOut',['../classModMatrix.html#a34bc9476b5373f6112e49aa8e46188ef',1,'ModMatrix']]],
+  ['invquadraticout_17',['invQuadraticOut',['../classModMatrix.html#ab425db1d05818e291d9c4a163fb913f3',1,'ModMatrix']]],
+  ['invsinein_18',['invSineIn',['../classModMatrix.html#a8e68472c06217c224e294a9ec2ee36a5',1,'ModMatrix']]],
+  ['invsineinout_19',['invSineInOut',['../classModMatrix.html#ac0ff2fac5b8e05338e9fd37700045c6e',1,'ModMatrix']]],
+  ['invsineout_20',['invSineOut',['../classModMatrix.html#a320561a4a3eeadb0315f589d80ebe040',1,'ModMatrix']]],
+  ['isdoubleprecision_21',['isDoublePrecision',['../classAudioProcessorPlayer.html#ab629fa4a5811f9aa68f3f9f6a541ceca',1,'AudioProcessorPlayer']]],
+  ['isinsert_22',['isInsert',['../structDiff_1_1Patch_1_1Hunk.html#acc12c013ae75b9cab2c18b51cd42e240',1,'Diff::Patch::Hunk']]],
+  ['isprepared_23',['isPrepared',['../classAudioProcessorPlayer.html#a0d1f31a71a74dd148b3c0dbd1e0ce04a',1,'AudioProcessorPlayer']]]
 ];

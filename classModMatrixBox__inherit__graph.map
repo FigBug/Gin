@@ -1,5 +1,5 @@
 <map id="ModMatrixBox" name="ModMatrixBox">
-<area shape="rect" id="Node000001" title="A list box of all assigned modulations." alt="" coords="23,79,140,104"/>
-<area shape="rect" id="Node000002" href="$classModMatrix_1_1Listener.html" title=" " alt="" coords="5,5,157,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,44,84,79,79,79,79,44"/>
+<area shape="rect" id="Node000001" title="A list box of all assigned modulations." alt="" coords="25,79,142,104"/>
+<area shape="rect" id="Node000002" href="$classIModMatrix_1_1Listener.html" title="Listener interface for modulation matrix changes." alt="" coords="5,5,161,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,44,86,79,81,79,81,44"/>
 </map>

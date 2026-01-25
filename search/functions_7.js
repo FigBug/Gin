@@ -12,7 +12,7 @@ var searchData=
   ['havedata_9',['haveData',['../classLinearRegression.html#ab0d8b0bd896a4ac1a6d0fad86d5de10b',1,'LinearRegression']]],
   ['headerbutton_10',['HeaderButton',['../classHeaderButton.html#a6c478335d9b0fda55032fcb99df2a802',1,'HeaderButton']]],
   ['headercomponent_11',['HeaderComponent',['../classHeaderComponent.html#ab0123dcc8ca3c749548b048bb0b968e6',1,'HeaderComponent']]],
-  ['headeritem_12',['headeritem',['../classHeaderItem.html#ac6986963c5c20c0df2a1d82795579440',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable, ModMatrix &amp;mm, ModSrcId monoSrc={}, ModSrcId polySrc={})'],['../classHeaderItem.html#a1d107c83356c617db19288db61f6aedd',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable=nullptr)']]],
+  ['headeritem_12',['headeritem',['../classHeaderItem.html#a38347e109e4cbccb6677498cba9a1ac1',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable, IModMatrix &amp;mm, ModSrcId monoSrc={}, ModSrcId polySrc={})'],['../classHeaderItem.html#a1d107c83356c617db19288db61f6aedd',1,'HeaderItem::HeaderItem(juce::String name_, Parameter *enable=nullptr)']]],
   ['headerrow_13',['HeaderRow',['../classHeaderRow.html#a964daf8517b543beb3e4592436f3138c',1,'HeaderRow']]],
   ['hidebubble_14',['hideBubble',['../classMultiParamComponent.html#a0f9a0c20b7c3dd25f063ca40dc421c20',1,'MultiParamComponent']]],
   ['hidephase_15',['hidePhase',['../classWavetableComponent.html#abf7eef26023392714ce5859e920bfb27',1,'WavetableComponent']]],
