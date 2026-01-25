@@ -64,7 +64,7 @@ struct OscState : public FuncState
             jassert (delta > 0);
         }
         phase += delta;
-        if (phase > 1.0f)
+        if (phase >= 1.0f)
             phase -= 1.0f;
 
         jassert (! std::isinf (phase));
