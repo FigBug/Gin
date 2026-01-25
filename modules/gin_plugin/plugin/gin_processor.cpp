@@ -212,7 +212,8 @@ gin::Parameter* Processor::addExtParam (juce::String uid, juce::String name, juc
 
         if (useParamGroups)
         {
-            groupedParameters.add (p.release());
+            // Caller is responsible for adding to a group which will take ownership
+            p.release();
         }
         else
         {
