@@ -3744,6 +3744,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setPhase</name>
+      <anchorfile>classAudioFunctionHost.html</anchorfile>
+      <anchor>a0c22ee450648a6bccfc322bd2f8d691c</anchor>
+      <arglist>(float p)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>addConstants</name>
       <anchorfile>classAudioFunctionHost.html</anchorfile>
       <anchor>a19418afc0b68f06e24d664895ddc4749</anchor>
@@ -13726,6 +13733,13 @@
       <anchorfile>structOscState.html</anchorfile>
       <anchor>a10d53e86ac2a1192b79f2441dff5d2ef</anchor>
       <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPhase</name>
+      <anchorfile>structOscState.html</anchorfile>
+      <anchor>ae45ec6ee6d35a08f592299580f0e3402</anchor>
+      <arglist>(float p)</arglist>
     </member>
     <member kind="variable">
       <type>float</type>
