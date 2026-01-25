@@ -1,53 +1,53 @@
 //==============================================================================
-static ModMatrix::Function strToFunc (const juce::String& str)
+static ModFunction strToFunc (const juce::String& str)
 {
-    if (str == "linear") return ModMatrix::linear;
-    if (str == "quadraticIn") return ModMatrix::quadraticIn;
-    if (str == "quadraticInOut") return ModMatrix::quadraticInOut;
-    if (str == "quadraticOut") return ModMatrix::quadraticOut;
-    if (str == "sineIn") return ModMatrix::sineIn;
-    if (str == "sineInOut") return ModMatrix::sineInOut;
-    if (str == "sineOut") return ModMatrix::sineOut;
-    if (str == "exponentialIn") return ModMatrix::exponentialIn;
-    if (str == "exponentialInOut") return ModMatrix::exponentialInOut;
-    if (str == "exponentialOut") return ModMatrix::exponentialOut;
-    if (str == "invLinear") return ModMatrix::invLinear;
-    if (str == "invQuadraticIn") return ModMatrix::invQuadraticIn;
-    if (str == "invQuadraticInOut") return ModMatrix::invQuadraticInOut;
-    if (str == "invQuadraticOut") return ModMatrix::invQuadraticOut;
-    if (str == "invSineIn") return ModMatrix::invSineIn;
-    if (str == "invSineInOut") return ModMatrix::invSineInOut;
-    if (str == "invSineOut") return ModMatrix::invSineOut;
-    if (str == "invExponentialIn") return ModMatrix::invExponentialIn;
-    if (str == "invExponentialInOut") return ModMatrix::invExponentialInOut;
-    if (str == "invExponentialOut") return ModMatrix::invExponentialOut;
-    
-    return ModMatrix::linear;
+    if (str == "linear") return ModFunction::linear;
+    if (str == "quadraticIn") return ModFunction::quadraticIn;
+    if (str == "quadraticInOut") return ModFunction::quadraticInOut;
+    if (str == "quadraticOut") return ModFunction::quadraticOut;
+    if (str == "sineIn") return ModFunction::sineIn;
+    if (str == "sineInOut") return ModFunction::sineInOut;
+    if (str == "sineOut") return ModFunction::sineOut;
+    if (str == "exponentialIn") return ModFunction::exponentialIn;
+    if (str == "exponentialInOut") return ModFunction::exponentialInOut;
+    if (str == "exponentialOut") return ModFunction::exponentialOut;
+    if (str == "invLinear") return ModFunction::invLinear;
+    if (str == "invQuadraticIn") return ModFunction::invQuadraticIn;
+    if (str == "invQuadraticInOut") return ModFunction::invQuadraticInOut;
+    if (str == "invQuadraticOut") return ModFunction::invQuadraticOut;
+    if (str == "invSineIn") return ModFunction::invSineIn;
+    if (str == "invSineInOut") return ModFunction::invSineInOut;
+    if (str == "invSineOut") return ModFunction::invSineOut;
+    if (str == "invExponentialIn") return ModFunction::invExponentialIn;
+    if (str == "invExponentialInOut") return ModFunction::invExponentialInOut;
+    if (str == "invExponentialOut") return ModFunction::invExponentialOut;
+
+    return ModFunction::linear;
 }
 
-static juce::String funcToStr (ModMatrix::Function f)
+static juce::String funcToStr (ModFunction f)
 {
-    if (f == ModMatrix::linear) return "linear";
-    if (f == ModMatrix::quadraticIn) return "quadraticIn";
-    if (f == ModMatrix::quadraticInOut) return "quadraticInOut";
-    if (f == ModMatrix::quadraticOut) return "quadraticOut";
-    if (f == ModMatrix::sineIn) return "sineIn";
-    if (f == ModMatrix::sineInOut) return "sineInOut";
-    if (f == ModMatrix::sineOut) return "sineOut";
-    if (f == ModMatrix::exponentialIn) return "exponentialIn";
-    if (f == ModMatrix::exponentialInOut) return "exponentialInOut";
-    if (f == ModMatrix::exponentialOut) return "exponentialOut";
-    if (f == ModMatrix::invLinear) return "invLinear";
-    if (f == ModMatrix::invQuadraticIn) return "invQuadraticIn";
-    if (f == ModMatrix::invQuadraticInOut) return "invQuadraticInOut";
-    if (f == ModMatrix::invQuadraticOut) return "invQuadraticOut";
-    if (f == ModMatrix::invSineIn) return "invSineIn";
-    if (f == ModMatrix::invSineInOut) return "invSineInOut";
-    if (f == ModMatrix::invSineOut) return "invSineOut";
-    if (f == ModMatrix::invExponentialIn) return "invExponentialIn";
-    if (f == ModMatrix::invExponentialInOut) return "invExponentialInOut";
-    if (f == ModMatrix::invExponentialOut) return "invExponentialOut";
-    
+    if (f == ModFunction::linear) return "linear";
+    if (f == ModFunction::quadraticIn) return "quadraticIn";
+    if (f == ModFunction::quadraticInOut) return "quadraticInOut";
+    if (f == ModFunction::quadraticOut) return "quadraticOut";
+    if (f == ModFunction::sineIn) return "sineIn";
+    if (f == ModFunction::sineInOut) return "sineInOut";
+    if (f == ModFunction::sineOut) return "sineOut";
+    if (f == ModFunction::exponentialIn) return "exponentialIn";
+    if (f == ModFunction::exponentialInOut) return "exponentialInOut";
+    if (f == ModFunction::exponentialOut) return "exponentialOut";
+    if (f == ModFunction::invLinear) return "invLinear";
+    if (f == ModFunction::invQuadraticIn) return "invQuadraticIn";
+    if (f == ModFunction::invQuadraticInOut) return "invQuadraticInOut";
+    if (f == ModFunction::invQuadraticOut) return "invQuadraticOut";
+    if (f == ModFunction::invSineIn) return "invSineIn";
+    if (f == ModFunction::invSineInOut) return "invSineInOut";
+    if (f == ModFunction::invSineOut) return "invSineOut";
+    if (f == ModFunction::invExponentialIn) return "invExponentialIn";
+    if (f == ModFunction::invExponentialInOut) return "invExponentialInOut";
+    if (f == ModFunction::invExponentialOut) return "invExponentialOut";
+
     return "linear";
 }
 
@@ -312,14 +312,14 @@ float ModMatrix::getModDepth (ModSrcId src, ModDstId param)
     return 0;
 }
 
-ModMatrix::Function ModMatrix::getModFunction (ModSrcId src, ModDstId param)
+ModFunction ModMatrix::getModFunction (ModSrcId src, ModDstId param)
 {
     auto& pi = parameters.getReference (param.id);
     for (auto& si : pi.sources)
         if (si.id == src)
             return si.function;
 
-    return Function::linear;
+    return ModFunction::linear;
 }
 
 std::vector<std::pair<ModSrcId, float>> ModMatrix::getModDepths (ModDstId param)
@@ -380,7 +380,7 @@ void ModMatrix::setModDepth (ModSrcId src, ModDstId param, float f)
     listeners.call ([&] (Listener& l) { l.modMatrixChanged(); });
 }
 
-void ModMatrix::setModFunction (ModSrcId src, ModDstId param, Function f)
+void ModMatrix::setModFunction (ModSrcId src, ModDstId param, ModFunction f)
 {
     auto& pi = parameters.getReference (param.id);
     for (auto& si : pi.sources)
@@ -480,4 +480,98 @@ Parameter* ModMatrix::getParameter (ModDstId d)
             return info.parameter;
 
     return nullptr;
+}
+
+juce::Array<float> ModMatrix::getLiveValues (gin::Parameter* p)
+{
+    juce::Array<float> liveValues;
+
+    const int paramId = p->getModIndex();
+    auto& pi = parameters.getReference (paramId);
+
+    auto& info = parameters.getReference (paramId);
+
+    if (pi.poly)
+    {
+        for (auto v : voices)
+        {
+            if (v->isVoiceActive())
+            {
+                bool ok = false;
+                float base = p->getValue();
+
+                for (auto& src : info.sources)
+                {
+                    if (src.enabled)
+                    {
+                        if (src.poly)
+                            base += shape (v->values[src.id.id], src.function, sources[src.id.id].bipolar, src.biPolarMapping) * src.depth;
+                        else
+                            base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar, src.biPolarMapping) * src.depth;
+                        ok = true;
+                    }
+                }
+
+                if (ok)
+                {
+                    base = juce::jlimit (0.0f, 1.0f, base);
+                    liveValues.add (base);
+                }
+            }
+        }
+
+        if (liveValues.size() == 0)
+        {
+            float base = p->getValue();
+            bool ok = false;
+
+            for (auto& src : info.sources)
+            {
+                if (src.enabled && ! src.poly)
+                {
+                    base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar, src.biPolarMapping) * src.depth;
+                    ok = true;
+                }
+            }
+
+            if (ok)
+            {
+                base = juce::jlimit (0.0f, 1.0f, base);
+                liveValues.add (base);
+            }
+        }
+
+    }
+    else
+    {
+        bool ok = false;
+        auto v = activeVoice;
+
+        float base = p->getValue();
+
+        for (auto& src : info.sources)
+        {
+            if (src.enabled)
+            {
+                if (src.poly && v != nullptr)
+                {
+                    ok = true;
+                    base += shape (v->values[src.id.id], src.function, sources[src.id.id].bipolar, src.biPolarMapping) * src.depth;
+                }
+                else if (! src.poly)
+                {
+                    ok = true;
+                    base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar, src.biPolarMapping) * src.depth;
+                }
+            }
+        }
+
+        if (ok)
+        {
+            base = juce::jlimit (0.0f, 1.0f, base);
+            liveValues.add (base);
+        }
+    }
+
+    return liveValues;
 }

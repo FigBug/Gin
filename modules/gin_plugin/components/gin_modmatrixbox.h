@@ -5,10 +5,10 @@
 */
 class ModMatrixBox : public juce::ListBox,
                      private juce::ListBoxModel,
-                     private ModMatrix::Listener
+                     private IModMatrix::Listener
 {
 public:
-    ModMatrixBox (gin::Processor& p, ModMatrix& m, int dw = 50)
+    ModMatrixBox (gin::Processor& p, IModMatrix& m, int dw = 50)
         : proc (p), modMatrix (m), depthWidth (dw)
     {
         setName ("matrix");
@@ -156,7 +156,7 @@ private:
                     auto& a = owner.assignments.getReference (row);
                     auto f = owner.modMatrix.getModFunction (a.src, ModDstId (a.dst->getModIndex()));
 
-                    auto set = [this] (ModMatrix::Function func)
+                    auto set = [this] (ModFunction func)
                     {
                         auto& aa = owner.assignments.getReference (row);
                         owner.modMatrix.setModFunction (aa.src, ModDstId (aa.dst->getModIndex()), func);
@@ -165,27 +165,27 @@ private:
                     juce::PopupMenu m;
                     m.setLookAndFeel (&getLookAndFeel());
 
-                    m.addItem ("Linear", true, f == ModMatrix::Function::linear, [set] { set (ModMatrix::Function::linear); });
-                    m.addItem ("Quadratic In", true, f == ModMatrix::Function::quadraticIn, [set] { set (ModMatrix::Function::quadraticIn); });
-                    m.addItem ("Quadratic In/Out", true, f == ModMatrix::Function::quadraticInOut, [set] { set (ModMatrix::Function::quadraticInOut); });
-                    m.addItem ("Quadratic Out", true, f == ModMatrix::Function::quadraticOut, [set] { set (ModMatrix::Function::quadraticOut); });
-                    m.addItem ("Sine In", true, f == ModMatrix::Function::sineIn, [set] { set (ModMatrix::Function::sineIn); });
-                    m.addItem ("Sine In Out", true, f == ModMatrix::Function::sineInOut, [set] { set (ModMatrix::Function::sineInOut); });
-                    m.addItem ("Sine Out", true, f == ModMatrix::Function::sineOut, [set] { set (ModMatrix::Function::sineOut); });
-                    m.addItem ("Exponential In", true, f == ModMatrix::Function::exponentialIn, [set] { set (ModMatrix::Function::exponentialIn); });
-                    m.addItem ("Exponential In/Out", true, f == ModMatrix::Function::exponentialInOut, [set] { set (ModMatrix::Function::exponentialInOut); });
-                    m.addItem ("Exponential Out", true, f == ModMatrix::Function::exponentialOut, [set] { set (ModMatrix::Function::exponentialOut); });
+                    m.addItem ("Linear", true, f == ModFunction::linear, [set] { set (ModFunction::linear); });
+                    m.addItem ("Quadratic In", true, f == ModFunction::quadraticIn, [set] { set (ModFunction::quadraticIn); });
+                    m.addItem ("Quadratic In/Out", true, f == ModFunction::quadraticInOut, [set] { set (ModFunction::quadraticInOut); });
+                    m.addItem ("Quadratic Out", true, f == ModFunction::quadraticOut, [set] { set (ModFunction::quadraticOut); });
+                    m.addItem ("Sine In", true, f == ModFunction::sineIn, [set] { set (ModFunction::sineIn); });
+                    m.addItem ("Sine In Out", true, f == ModFunction::sineInOut, [set] { set (ModFunction::sineInOut); });
+                    m.addItem ("Sine Out", true, f == ModFunction::sineOut, [set] { set (ModFunction::sineOut); });
+                    m.addItem ("Exponential In", true, f == ModFunction::exponentialIn, [set] { set (ModFunction::exponentialIn); });
+                    m.addItem ("Exponential In/Out", true, f == ModFunction::exponentialInOut, [set] { set (ModFunction::exponentialInOut); });
+                    m.addItem ("Exponential Out", true, f == ModFunction::exponentialOut, [set] { set (ModFunction::exponentialOut); });
                     m.addSeparator();
-                    m.addItem ("Inv Linear", true, f == ModMatrix::Function::invLinear, [set] { set (ModMatrix::Function::invLinear); });
-                    m.addItem ("Inv Quadratic In", true, f == ModMatrix::Function::invQuadraticIn, [set] { set (ModMatrix::Function::invQuadraticIn); });
-                    m.addItem ("Inv Quadratic In/Out", true, f == ModMatrix::Function::invQuadraticInOut, [set] { set (ModMatrix::Function::invQuadraticInOut); });
-                    m.addItem ("Inv Quadratic Out", true, f == ModMatrix::Function::invQuadraticOut, [set] { set (ModMatrix::Function::invQuadraticOut); });
-                    m.addItem ("Inv Sine In", true, f == ModMatrix::Function::invSineIn, [set] { set (ModMatrix::Function::invSineIn); });
-                    m.addItem ("Inv Sine In/Out", true, f == ModMatrix::Function::invSineInOut, [set] { set (ModMatrix::Function::invSineInOut); });
-                    m.addItem ("Inv Sine Out", true, f == ModMatrix::Function::invSineOut, [set] { set (ModMatrix::Function::invSineOut); });
-                    m.addItem ("Inv Exponential In", true, f == ModMatrix::Function::invExponentialIn, [set] { set (ModMatrix::Function::invExponentialIn); });
-                    m.addItem ("Inv Exponential In/Out", true, f == ModMatrix::Function::invExponentialInOut, [set] { set (ModMatrix::Function::invExponentialInOut); });
-                    m.addItem ("Inv Exponential Out", true, f == ModMatrix::Function::invExponentialOut, [set] { set (ModMatrix::Function::invExponentialOut); });
+                    m.addItem ("Inv Linear", true, f == ModFunction::invLinear, [set] { set (ModFunction::invLinear); });
+                    m.addItem ("Inv Quadratic In", true, f == ModFunction::invQuadraticIn, [set] { set (ModFunction::invQuadraticIn); });
+                    m.addItem ("Inv Quadratic In/Out", true, f == ModFunction::invQuadraticInOut, [set] { set (ModFunction::invQuadraticInOut); });
+                    m.addItem ("Inv Quadratic Out", true, f == ModFunction::invQuadraticOut, [set] { set (ModFunction::invQuadraticOut); });
+                    m.addItem ("Inv Sine In", true, f == ModFunction::invSineIn, [set] { set (ModFunction::invSineIn); });
+                    m.addItem ("Inv Sine In/Out", true, f == ModFunction::invSineInOut, [set] { set (ModFunction::invSineInOut); });
+                    m.addItem ("Inv Sine Out", true, f == ModFunction::invSineOut, [set] { set (ModFunction::invSineOut); });
+                    m.addItem ("Inv Exponential In", true, f == ModFunction::invExponentialIn, [set] { set (ModFunction::invExponentialIn); });
+                    m.addItem ("Inv Exponential In/Out", true, f == ModFunction::invExponentialInOut, [set] { set (ModFunction::invExponentialInOut); });
+                    m.addItem ("Inv Exponential Out", true, f == ModFunction::invExponentialOut, [set] { set (ModFunction::invExponentialOut); });
 
                     m.showMenuAsync ({});
                 }
@@ -224,7 +224,7 @@ private:
             {
                 src.setText ("", juce::dontSendNotification);
                 dst.setText ("", juce::dontSendNotification);
-                curveButton.setCurve (ModMatrix::Function::linear);
+                curveButton.setCurve (ModFunction::linear);
             }
         }
 
@@ -289,7 +289,7 @@ private:
     };
 
     gin::Processor& proc;
-    gin::ModMatrix& modMatrix;
+    gin::IModMatrix& modMatrix;
     juce::Array<Assignment> assignments;
     int depthWidth = 50;
 };

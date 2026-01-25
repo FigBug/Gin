@@ -189,6 +189,11 @@ gin::Parameter* Processor::addIntParam (juce::String uid, juce::String name, juc
     return nullptr;
 }
 
+void Processor::setUseParamGroups (bool b)
+{
+    useParamGroups = b;
+}
+
 gin::Parameter* Processor::addExtParam (juce::String uid, juce::String name, juce::String shortName, juce::String label,
                                         juce::NormalisableRange<float> range, float defaultValue,
                                         SmoothingType st,
@@ -205,11 +210,18 @@ gin::Parameter* Processor::addExtParam (juce::String uid, juce::String name, juc
         if (midiLearn != nullptr)
             rawPtr->setMidiLearn (midiLearn.get());
 
-       #if BUILD_INTERNAL_PLUGINS
-        addHostedParameter (std::move (p));
-       #else
-        addParameter (p.release());
-       #endif
+        if (useParamGroups)
+        {
+            groupedParameters.add (p.release());
+        }
+        else
+        {
+           #if BUILD_INTERNAL_PLUGINS
+            addHostedParameter (std::move (p));
+           #else
+            addParameter (p.release());
+           #endif
+        }
         return rawPtr;
     }
     return nullptr;

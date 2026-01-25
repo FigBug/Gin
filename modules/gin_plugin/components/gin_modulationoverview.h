@@ -4,11 +4,11 @@
 /** A button and text readout that shows the current modulation source
 */
 class ModulationOverview : public juce::Component,
-                           private ModMatrix::Listener,
+                           private IModMatrix::Listener,
                            private juce::Timer
 {
 public:
-    ModulationOverview (ModMatrix& mm)
+    ModulationOverview (IModMatrix& mm)
         : modMatrix (mm)
     {
         modMatrix.addListener (this);
@@ -79,7 +79,7 @@ private:
             name.setText ({}, juce::dontSendNotification);
     }
 
-    ModMatrix& modMatrix;
+    IModMatrix& modMatrix;
 
     ModulationSourceButton button { modMatrix, {} };
     juce::Label name;

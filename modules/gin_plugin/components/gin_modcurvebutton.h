@@ -10,7 +10,7 @@ public:
     {
     }
 
-    void setCurve (ModMatrix::Function c)
+    void setCurve (ModFunction c)
     {
         curve = c;
         repaint();
@@ -29,7 +29,7 @@ public:
         juce::Path p;
         for (auto x = 0.0f; x <= rc.getWidth(); x += 0.5f)
         {
-            auto y = (1.0f - ModMatrix::shape (x / rc.getWidth(), curve, false, false)) * rc.getHeight();
+            auto y = (1.0f - gin::ModMatrix::shape (x / rc.getWidth(), curve, false, false)) * rc.getHeight();
 
             if (x == 0.0f)
                 p.startNewSubPath (rc.getX() + x, rc.getY() + y);
@@ -41,5 +41,5 @@ public:
     }
 
 private:
-    ModMatrix::Function curve;
+    ModFunction curve = ModFunction::linear;
 };

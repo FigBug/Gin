@@ -268,6 +268,8 @@ public:
 
     void addPluginParameter (gin::Parameter* parameter);
 
+    void setUseParamGroups (bool b);
+
     gin::Parameter* addExtParam (juce::String uid, juce::String name, juce::String shortName, juce::String label,
                                  juce::NormalisableRange<float> range, float defaultValue,
                                  SmoothingType st,
@@ -369,6 +371,9 @@ protected:
 
     juce::Time lastStateLoad;
     juce::Time lastProgramsUpdated;
+
+    bool useParamGroups = false;
+    juce::OwnedArray<gin::Parameter> groupedParameters;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Processor)

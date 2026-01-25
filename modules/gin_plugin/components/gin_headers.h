@@ -5,7 +5,7 @@
  class HeaderItem : public juce::Component
 {
 public:
-    HeaderItem (juce::String name_, Parameter* enable, ModMatrix& mm, ModSrcId monoSrc = {}, ModSrcId polySrc = {})
+    HeaderItem (juce::String name_, Parameter* enable, IModMatrix& mm, ModSrcId monoSrc = {}, ModSrcId polySrc = {})
         : name (name_)
     {
         if (enable)
