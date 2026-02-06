@@ -135,6 +135,20 @@ inline juce::AudioSampleBuffer sliceBuffer (juce::AudioSampleBuffer& input, int 
 }
 
 //==============================================================================
+/** Get a section of a MIDI buffer with timestamps adjusted to start from 0 */
+inline juce::MidiBuffer sliceMidiBuffer (const juce::MidiBuffer& input, int start, int length)
+{
+    juce::MidiBuffer output;
+    for (const auto metadata : input)
+    {
+        const int timestamp = metadata.samplePosition;
+        if (timestamp >= start && timestamp < start + length)
+            output.addEvent (metadata.getMessage(), timestamp - start);
+    }
+    return output;
+}
+
+//==============================================================================
 /** Get a buffer but mono */
 inline ScratchBuffer monoBuffer (const juce::AudioSampleBuffer& input)
 {
