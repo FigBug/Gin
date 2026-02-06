@@ -902,6 +902,13 @@
       <arglist>(juce::AudioSampleBuffer &amp;input, int start, int length)</arglist>
     </member>
     <member kind="function">
+      <type>juce::MidiBuffer</type>
+      <name>sliceMidiBuffer</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>gac582349c78754fb668bdf4bb350bb7a3</anchor>
+      <arglist>(const juce::MidiBuffer &amp;input, int start, int length)</arglist>
+    </member>
+    <member kind="function">
       <type>ScratchBuffer</type>
       <name>monoBuffer</name>
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
@@ -22945,6 +22952,13 @@
       <anchorfile>group__gin__dsp-dsp.html</anchorfile>
       <anchor>ga1f707ada89f48bb4f68c4890ba90c27b</anchor>
       <arglist>(juce::AudioSampleBuffer &amp;input, int start, int length)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::MidiBuffer</type>
+      <name>sliceMidiBuffer</name>
+      <anchorfile>group__gin__dsp-dsp.html</anchorfile>
+      <anchor>gac582349c78754fb668bdf4bb350bb7a3</anchor>
+      <arglist>(const juce::MidiBuffer &amp;input, int start, int length)</arglist>
     </member>
     <member kind="function">
       <type>ScratchBuffer</type>
