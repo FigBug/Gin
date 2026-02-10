@@ -66,7 +66,7 @@ static void applyStackBlurBW (juce::Image& img, unsigned int radius)
 
     unsigned int wm = w - 1;
     unsigned int hm = h - 1;
-    unsigned int w1 = (unsigned int) data.lineStride;
+    int w1 = data.lineStride;
     unsigned int div = (unsigned int) (radius * 2) + 1;
     unsigned int mul_sum = stackblur_mul[radius];
     unsigned char shr_sum = stackblur_shr[radius];
@@ -235,7 +235,7 @@ static void applyStackBlurRGB (juce::Image& img, unsigned int radius)
 
     unsigned int wm = w - 1;
     unsigned int hm = h - 1;
-    unsigned int w3 = (unsigned int) data.lineStride;
+    int w3 = data.lineStride;
     unsigned int div = (unsigned int)(radius * 2) + 1;
     unsigned int mul_sum = stackblur_mul[radius];
     unsigned char shr_sum = stackblur_shr[radius];
@@ -464,7 +464,7 @@ static void applyStackBlurARGB (juce::Image& img, unsigned int radius)
 
     unsigned int wm = w - 1;
     unsigned int hm = h - 1;
-    unsigned int w4 = (unsigned int) data.lineStride;
+    int w4 = data.lineStride;
     unsigned int div = (unsigned int)(radius * 2) + 1;
     unsigned int mul_sum = stackblur_mul[radius];
     unsigned char shr_sum = stackblur_shr[radius];
