@@ -40,8 +40,13 @@ public:
             auto root = c->getTopLevelComponent();
             auto rootPos = root->getLocalPoint (c, pos);
 
+           #if JUCE_MAJOR_VERSION >= 8 && JUCE_MINOR_VERSION >= 0 && JUCE_BUILDNUMBER >= 12
+            if (auto disp = juce::Desktop::getInstance().getDisplays().getDisplayForPoint (c->localPointToGlobal (pos).toFloat()))
+                scale = float (disp->scale);
+           #else
             if (auto disp = juce::Desktop::getInstance().getDisplays().getDisplayForPoint (c->localPointToGlobal (pos)))
                 scale = float (disp->scale);
+           #endif
 
             image = root->createComponentSnapshot ({rootPos.getX() - w / 2, rootPos.getY() - h / 2, w, h}, false, scale);
             image = image.rescaled (w * zoom, h * zoom, juce::Graphics::lowResamplingQuality);
