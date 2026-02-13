@@ -186,8 +186,11 @@ void UnitTestsAudioProcessorEditor::runUnitTests()
     runner->logMessage (resultMessage);
 
     juce::Thread::sleep (2000);
-    juce::JUCEApplication::getInstance()->setApplicationReturnValue (numFailures > 0 ? 1 : 0);
-    juce::JUCEApplication::quit ();
+    int returnValue = numFailures > 0 ? 1 : 0;
+    juce::MessageManager::callAsync ([returnValue]() {
+        juce::JUCEApplication::getInstance()->setApplicationReturnValue (returnValue);
+        juce::JUCEApplication::quit ();
+    });
 }
 
 void UnitTestsAudioProcessorEditor::paint (juce::Graphics& g)
