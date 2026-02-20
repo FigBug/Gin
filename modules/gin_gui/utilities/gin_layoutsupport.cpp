@@ -265,6 +265,7 @@ Parser::Parser (const juce::String equation)
             return &varStack[ varStackPtr++ ];
         }
 
+        DBG("var not found: " + juce::String ( name ));
         jassertfalse;
         return nullptr;
     });
