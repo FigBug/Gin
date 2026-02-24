@@ -115,9 +115,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1b1e03defa98dd69165a22884eb4053a" id="r_a1b1e03defa98dd69165a22884eb4053a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a1b1e03defa98dd69165a22884eb4053a">setLayout</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">rawJson</a>)</td></tr>
 <tr class="memdesc:a1b1e03defa98dd69165a22884eb4053a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load layout from raw JSON string.  <br /></td></tr>
 <tr class="separator:a1b1e03defa98dd69165a22884eb4053a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab449d2cd65951c88c71a0cce6c9cad9a" id="r_ab449d2cd65951c88c71a0cce6c9cad9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#ab449d2cd65951c88c71a0cce6c9cad9a">setLayouts</a> (<a class="el" href="classPoint.html">const</a> juce::StringArray &amp;<a class="el" href="classPoint.html">rawJson</a>)</td></tr>
+<tr class="memdesc:ab449d2cd65951c88c71a0cce6c9cad9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load layout from several raw JSON string.  <br /></td></tr>
+<tr class="separator:ab449d2cd65951c88c71a0cce6c9cad9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8de7426be92c062971aad2008302073f" id="r_a8de7426be92c062971aad2008302073f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a8de7426be92c062971aad2008302073f">setConstant</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;name, <a class="el" href="classPoint.html">int</a> value)</td></tr>
 <tr class="memdesc:a8de7426be92c062971aad2008302073f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set or update a constant value.  <br /></td></tr>
 <tr class="separator:a8de7426be92c062971aad2008302073f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa4fe5fbbe931c9e0a73eaf22c164422" id="r_afa4fe5fbbe931c9e0a73eaf22c164422"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#afa4fe5fbbe931c9e0a73eaf22c164422">findContent</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;name)</td></tr>
+<tr class="memdesc:afa4fe5fbbe931c9e0a73eaf22c164422"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a resource by name.  <br /></td></tr>
+<tr class="separator:afa4fe5fbbe931c9e0a73eaf22c164422"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -133,8 +139,6 @@ Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:afa4fe5fbbe931c9e0a73eaf22c164422" id="r_afa4fe5fbbe931c9e0a73eaf22c164422"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#afa4fe5fbbe931c9e0a73eaf22c164422">findContent</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;name)</td></tr>
-<tr class="separator:afa4fe5fbbe931c9e0a73eaf22c164422"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a828da33d2a844f3de7a2781a99580ac8" id="r_a828da33d2a844f3de7a2781a99580ac8"><td class="memItemLeft" align="right" valign="top">juce::Component *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a828da33d2a844f3de7a2781a99580ac8">getComp</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">cid</a>)</td></tr>
 <tr class="separator:a828da33d2a844f3de7a2781a99580ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f3b3d5d447354010bc79a3246735e26" id="r_a0f3b3d5d447354010bc79a3246735e26"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a0f3b3d5d447354010bc79a3246735e26">setLayoutInternal</a> (<a class="el" href="classPoint.html">const</a> juce::Array&lt; <a class="el" href="structLayoutSupport_1_1JsonFile.html">JsonFile</a> &gt; &amp;<a class="el" href="classPoint.html">files</a>)</td></tr>
@@ -554,6 +558,32 @@ Examples</h2>
 
 </div>
 </div>
+<a id="ab449d2cd65951c88c71a0cce6c9cad9a" name="ab449d2cd65951c88c71a0cce6c9cad9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab449d2cd65951c88c71a0cce6c9cad9a">&#9670;&#160;</a></span>setLayouts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> LayoutSupport::setLayouts </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::StringArray &amp;&#160;</td>
+          <td class="paramname"><em>rawJson</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Load layout from several raw JSON string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rawJson</td><td>JSON strings containing layout definition </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a8de7426be92c062971aad2008302073f" name="a8de7426be92c062971aad2008302073f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8de7426be92c062971aad2008302073f">&#9670;&#160;</a></span>setConstant()</h2>
 
@@ -596,9 +626,6 @@ Examples</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">juce::String LayoutSupport::findContent </td>
@@ -608,12 +635,9 @@ Examples</h2>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Find a resource by name. </p>
 
 </div>
 </div>
@@ -1240,7 +1264,7 @@ Examples</h2>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 22 2026 17:26:07 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Tue Feb 24 2026 17:37:32 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
