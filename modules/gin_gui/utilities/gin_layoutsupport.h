@@ -313,6 +313,14 @@ public:
     void setLayout (const juce::String& rawJson);
 
     /**
+        Load layout from several raw JSON string.
+
+        @param rawJson  JSON strings containing layout definition
+    */
+    void setLayouts (const juce::StringArray& rawJson);
+
+
+    /**
         Set or update a constant value.
 
         @param name   Constant name
@@ -320,11 +328,16 @@ public:
     */
     void setConstant (const juce::String& name, int value);
 
+    /**
+        Find a resource by name
+
+     */
+    juce::String findContent (const juce::String& name);
+
     /** Callback invoked when layout is loaded or reloaded */
     std::function<void()> layoutChanged;
 
 protected:
-    juce::String findContent (const juce::String& name);
     juce::Component* getComp (const juce::String& cid);
 
     juce::Component& parent;
