@@ -104,7 +104,7 @@ var searchData=
   ['componentgrid_101',['componentgrid',['../classComponentGrid.html#ac2058b5985bd9494da3e197db02bc5a9',1,'ComponentGrid::ComponentGrid()'],['../classComponentGrid.html',1,'ComponentGrid']]],
   ['componentindex_102',['componentIndex',['../classComponentGrid.html#a3caf7f9c7ba9f265a39ddceeebdc7371',1,'ComponentGrid']]],
   ['componentmap_103',['componentmap',['../classComponentMap.html#aacabfbab4ac5133982d9237b5b67ea15',1,'ComponentMap::ComponentMap()'],['../classComponentMap.html',1,'ComponentMap']]],
-  ['components_104',['components',['../group__gin__plugin-components.html',1,'components'],['../group__gin__dsp-components.html',1,'components'],['../group__gin__gui-components.html',1,'components']]],
+  ['components_104',['components',['../group__gin__dsp-components.html',1,'components'],['../group__gin__plugin-components.html',1,'components'],['../group__gin__gui-components.html',1,'components']]],
   ['componentviewer_105',['componentviewer',['../classComponentViewer.html',1,'ComponentViewer'],['../classComponentViewer.html#ad2606c2be76e8a56bb98d57ce57c0b6f',1,'ComponentViewer::ComponentViewer()']]],
   ['compressor_106',['compressor',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b',1,'Dynamics']]],
   ['computeborder_107',['computeBorder',['../classMainContentComponent.html#a807049485e5bdbe5fabd289ec4bb9f40',1,'MainContentComponent']]],
