@@ -5,6 +5,25 @@
 
  ==============================================================================*/
 
+// SFINAE helpers for getDisplayForPoint — newer JUCE versions changed the
+// parameter from Point<int> to Point<float>. Rather than relying on version
+// macros (which didn't line up with the actual API change), we let the
+// compiler pick whichever overload is valid. The int vs ... parameter gives
+// priority to the Point<float> (newer) version when both would compile.
+template <typename Displays, typename Point>
+auto getDisplayForPoint (const Displays& d, Point p, int)
+    -> decltype (d.getDisplayForPoint (p.toFloat()))
+{
+    return d.getDisplayForPoint (p.toFloat());
+}
+
+template <typename Displays, typename Point>
+auto getDisplayForPoint (const Displays& d, Point p, ...)
+    -> decltype (d.getDisplayForPoint (p))
+{
+    return d.getDisplayForPoint (p);
+}
+
 static juce::String getClassName (juce::Component* c)
 {
     // clang on windows uses msvc name mangling for compatibility
@@ -40,13 +59,8 @@ public:
             auto root = c->getTopLevelComponent();
             auto rootPos = root->getLocalPoint (c, pos);
 
-           #if JUCE_MAJOR_VERSION >= 8 && JUCE_MINOR_VERSION >= 0 && JUCE_BUILDNUMBER >= 12
-            if (auto disp = juce::Desktop::getInstance().getDisplays().getDisplayForPoint (c->localPointToGlobal (pos).toFloat()))
+            if (auto disp = getDisplayForPoint (juce::Desktop::getInstance().getDisplays(), c->localPointToGlobal (pos), 0))
                 scale = float (disp->scale);
-           #else
-            if (auto disp = juce::Desktop::getInstance().getDisplays().getDisplayForPoint (c->localPointToGlobal (pos)))
-                scale = float (disp->scale);
-           #endif
 
             image = root->createComponentSnapshot ({rootPos.getX() - w / 2, rootPos.getY() - h / 2, w, h}, false, scale);
             image = image.rescaled (w * zoom, h * zoom, juce::Graphics::lowResamplingQuality);
