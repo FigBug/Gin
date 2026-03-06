@@ -43,6 +43,7 @@ struct AsyncUpdateDemo : public DemoComponent,
         {
             count += 1;
             triggerAsyncUpdate();
+            sleep (1);
         }
     }
 

@@ -52,14 +52,14 @@ jobs:
       - name: Configure CMake with coverage
         run: |
           cmake -B build -S . \
-            -DCMAKE_BUILD_TYPE=Debug \
+            -DCMAKE_BUILD_TYPE=RelWithDebInfo \
             -DCMAKE_CXX_FLAGS="--coverage -fprofile-arcs -ftest-coverage -fprofile-update=atomic" \
             -DCMAKE_C_FLAGS="--coverage -fprofile-arcs -ftest-coverage -fprofile-update=atomic" \
             -DCMAKE_EXE_LINKER_FLAGS="--coverage" \
             -G Ninja
 
       - name: Build UnitTests
-        run: cmake --build build --target UnitTests_Standalone --config Debug
+        run: cmake --build build --target UnitTests_Standalone --config RelWithDebInfo
 
       - name: Run tests
         run: |
