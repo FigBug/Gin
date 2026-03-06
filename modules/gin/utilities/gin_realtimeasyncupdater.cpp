@@ -18,7 +18,7 @@ public:
     {
         signalThreadShouldExit ();
         event.signal();
-        stopThread (1000);
+        stopThread (5000);
     }
     
     void registerUpdater (RealtimeAsyncUpdater* ras)
