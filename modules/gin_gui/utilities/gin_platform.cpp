@@ -34,7 +34,7 @@ NSImage* imageToNSImage (const juce::Image& image)
     using ImagePtr          = juce::CFUniquePtr<CGImageRef>;
 
     NSImage* im = [[NSImage alloc] init];
-    auto requiredSize = NSMakeSize (image.getWidth() / scaleFactor, image.getHeight() / scaleFactor);
+    auto requiredSize = NSMakeSize ( ( float ) image.getWidth() / scaleFactor, ( float ) image.getHeight() / scaleFactor);
 
     [im setSize: requiredSize];
     ColorSpacePtr colourSpace { CGColorSpaceCreateWithName (kCGColorSpaceSRGB) };
