@@ -196,18 +196,18 @@ void GinLookAndFeel::drawCornerResizer (juce::Graphics& g, int w, int h, bool /*
     {
         g.setColour (juce::Colours::lightgrey);
 
-        g.drawLine ((float) w + w * i,
-                    (float) h + h + 1.0f,
-                    (float) w + w + 1.0f,
-                    (float) h + h * i,
+        g.drawLine ( float ( w + w * i ),
+                     float ( h + h + 1.0f ),
+                     float ( w + w + 1.0f ),
+                     float ( h + h * i ),
                     lineThickness);
 
         g.setColour (juce::Colours::darkgrey);
 
-        g.drawLine ((float) w + w * i + lineThickness,
-                    (float) h + h + 1.0f,
-                    (float) w + w + 1.0f,
-                    (float) h + h * i + lineThickness,
+        g.drawLine (float ( w + w * i + lineThickness ),
+                    float ( h + h + 1.0f ),
+                    float ( w + w + 1.0f ),
+                    float ( h + h * i + lineThickness ),
                     lineThickness);
     }
 }
