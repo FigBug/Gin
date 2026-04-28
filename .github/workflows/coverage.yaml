@@ -63,7 +63,7 @@ jobs:
 
       - name: Run tests
         run: |
-          UNITTEST_BIN="build/examples/UnitTests/UnitTests_artefacts/Debug/Standalone/UnitTests"
+          UNITTEST_BIN="build/examples/UnitTests/UnitTests_artefacts/RelWithDebInfo/Standalone/UnitTests"
           if [ ! -f "$UNITTEST_BIN" ]; then
             echo "Error: UnitTests executable not found at $UNITTEST_BIN"
             find build -name UnitTests -type f 2>/dev/null || true
