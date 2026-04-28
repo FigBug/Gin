@@ -45,7 +45,7 @@ var searchData=
   ['formant_42',['formant',['../structWTOscillator_1_1Params.html#af6b36b4d5dd74c8bc17ca0c8671d42f2',1,'WTOscillator::Params::formant'],['../structWTVoicedStereoOscillatorParams.html#abc3280093425299b75691776a088fb3c',1,'WTVoicedStereoOscillatorParams::formant']]],
   ['format_43',['format',['../classLayoutSupport.html#json',1,'JSON Format'],['../classComponentMap.html#paths',1,'Path Format']]],
   ['formatnumber_44',['formatNumber',['../group__gin-utilities.html#gaebf910d77d287573a8f98f51c67f8d48',1,'gin_util.h']]],
-  ['formats_45',['formats',['../group__gin__webp-formats.html',1,'formats'],['../group__gin__graphics-formats.html',1,'formats']]],
+  ['formats_45',['formats',['../group__gin__graphics-formats.html',1,'formats'],['../group__gin__webp-formats.html',1,'formats']]],
   ['forwards_46',['forwards',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1a465c5f747934848fce35cebef03936e2',1,'SampleOscillator']]],
   ['frame_47',['frame',['../classParamBox.html#af715eab1cc1d6a7f9afe250aa6cf8c73',1,'ParamBox::frame'],['../classScaledPluginEditor.html#a1851b46857396b6d45316e173c47d31a',1,'ScaledPluginEditor::frame']]],
   ['frequency_48',['frequency',['../structOscState.html#ad30997798f5740bd5ae504cb75db1223',1,'OscState::frequency'],['../structMSEG_1_1Parameters.html#ac90ca6bc258763e10f03257fd5210e12',1,'MSEG::Parameters::frequency'],['../structLFO_1_1Parameters.html#a69abbc2714aacf8d32fc515b46c39c1e',1,'LFO::Parameters::frequency'],['../classGateEffect.html#ac66d3981997f43a37900bd2e549b083c',1,'GateEffect::frequency']]],

@@ -565,6 +565,105 @@
     <filename>gin__threading_8test_8h.html</filename>
   </compound>
   <compound kind="file">
+    <name>utilities/gin_util.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>utilities_2gin__util_8h.html</filename>
+    <class kind="class">PerlinNoise</class>
+    <class kind="class">RollingAverage</class>
+    <class kind="class">TimeProfiler</class>
+    <class kind="class">ActionMessageLambda</class>
+    <member kind="function">
+      <type>bool</type>
+      <name>compareAndReset</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga1ebc11c7a7ef780026ec5a519893895e</anchor>
+      <arglist>(bool &amp;flag)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>calculateRMS</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga458ba95824635202e48f00c71ced463d</anchor>
+      <arglist>(const float *values, int n)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>calculateMedian</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga823d49b3f21b97485eed223caec940c6</anchor>
+      <arglist>(const float *values, int n)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>shuffleArray</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga2b12545cc67dbe67062cc1ae6299546f</anchor>
+      <arglist>(juce::Random &amp;r, T &amp;array)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>versionStringToInt</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga9861500c17d0717e211dc67c84ccc261</anchor>
+      <arglist>(const juce::String &amp;versionString)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>delayedLambda</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>gaa8e8a032e70b00eb8b977cadd0fb09a8</anchor>
+      <arglist>(std::function&lt; void()&gt; callback, int delayMS)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>formatNumber</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>gaebf910d77d287573a8f98f51c67f8d48</anchor>
+      <arglist>(T v)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gui/utilities/gin_util.h</name>
+    <path>build/gin_gui/utilities/</path>
+    <filename>gui_2utilities_2gin__util_8h.html</filename>
+    <class kind="class">AsyncDownload</class>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>createDesktopSnapshot</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gac2d2291dbc7913b65fd0e69e53873fa3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>createSnapshotOfNativeWindow</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad1ffdc179588a1832355270be9b5a516</anchor>
+      <arglist>(juce::Component &amp;c)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>gin_util.test.h</name>
     <path>build/gin/utilities/</path>
     <filename>gin__util_8test_8h.html</filename>
@@ -2024,105 +2123,6 @@
     <path>build/gin_gui/utilities/</path>
     <filename>gin__systemclipboard_8h.html</filename>
     <class kind="class">SystemClipboard</class>
-  </compound>
-  <compound kind="file">
-    <name>utilities/gin_util.h</name>
-    <path>build/gin/utilities/</path>
-    <filename>utilities_2gin__util_8h.html</filename>
-    <class kind="class">PerlinNoise</class>
-    <class kind="class">RollingAverage</class>
-    <class kind="class">TimeProfiler</class>
-    <class kind="class">ActionMessageLambda</class>
-    <member kind="function">
-      <type>bool</type>
-      <name>compareAndReset</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga1ebc11c7a7ef780026ec5a519893895e</anchor>
-      <arglist>(bool &amp;flag)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>calculateRMS</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga458ba95824635202e48f00c71ced463d</anchor>
-      <arglist>(const float *values, int n)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>calculateMedian</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga823d49b3f21b97485eed223caec940c6</anchor>
-      <arglist>(const float *values, int n)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>shuffleArray</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga2b12545cc67dbe67062cc1ae6299546f</anchor>
-      <arglist>(juce::Random &amp;r, T &amp;array)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>versionStringToInt</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga9861500c17d0717e211dc67c84ccc261</anchor>
-      <arglist>(const juce::String &amp;versionString)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>delayedLambda</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>gaa8e8a032e70b00eb8b977cadd0fb09a8</anchor>
-      <arglist>(std::function&lt; void()&gt; callback, int delayMS)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::String</type>
-      <name>formatNumber</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>gaebf910d77d287573a8f98f51c67f8d48</anchor>
-      <arglist>(T v)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>gui/utilities/gin_util.h</name>
-    <path>build/gin_gui/utilities/</path>
-    <filename>gui_2utilities_2gin__util_8h.html</filename>
-    <class kind="class">AsyncDownload</class>
-    <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>createDesktopSnapshot</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gac2d2291dbc7913b65fd0e69e53873fa3</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>createSnapshotOfNativeWindow</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gad1ffdc179588a1832355270be9b5a516</anchor>
-      <arglist>(juce::Component &amp;c)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>gin_varianthelpers.h</name>
@@ -23058,16 +23058,16 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_graphics-formats</name>
-    <title>formats</title>
-    <filename>group__gin__graphics-formats.html</filename>
-    <class kind="class">BMPImageFormat</class>
-  </compound>
-  <compound kind="group">
     <name>gin_webp-formats</name>
     <title>formats</title>
     <filename>group__gin__webp-formats.html</filename>
     <class kind="class">WEBPImageFormat</class>
+  </compound>
+  <compound kind="group">
+    <name>gin_graphics-formats</name>
+    <title>formats</title>
+    <filename>group__gin__graphics-formats.html</filename>
+    <class kind="class">BMPImageFormat</class>
   </compound>
   <compound kind="group">
     <name>gin-geometry</name>
@@ -23823,6 +23823,264 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_gui-utilities</name>
+    <title>utilities</title>
+    <filename>group__gin__gui-utilities.html</filename>
+    <file>gin_varianthelpers.h</file>
+    <namespace>macOS</namespace>
+    <namespace>juce</namespace>
+    <class kind="class">LambdaTimer</class>
+    <class kind="class">LambdaAsyncUpdater</class>
+    <class kind="class">LambdaMouseListener</class>
+    <class kind="class">CoalescedTimer</class>
+    <class kind="class">ComponentMap</class>
+    <class kind="class">ElevatedFileCopy</class>
+    <class kind="class">ConstantsStack</class>
+    <class kind="class">ConstantsStack::ScopedSave</class>
+    <class kind="class">Parser</class>
+    <class kind="class">LayoutSupport</class>
+    <class kind="struct">LayoutSupport::Bounds</class>
+    <class kind="struct">LayoutSupport::JsonFile</class>
+    <class kind="class">OpenStreetMaps</class>
+    <class kind="class">OpenStreetMaps::Listener</class>
+    <class kind="class">SystemClipboard</class>
+    <class kind="class">AsyncDownload</class>
+    <class kind="struct">Property</class>
+    <class kind="struct">juce::VarIterator</class>
+    <class kind="struct">juce::VarIterator::NamedValue</class>
+    <member kind="typedef">
+      <type>std::ptrdiff_t</type>
+      <name>juce::VarIterator::difference_type</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga388faf47e202486a153ded4732148bd3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>NamedValue</type>
+      <name>juce::VarIterator::value_type</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2568e5c06333945b3b21bd06902e227f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>NamedValue &amp;</type>
+      <name>juce::VarIterator::reference</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gabdc270513e2833318b2b5c6dd30f09bd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>NamedValue *</type>
+      <name>juce::VarIterator::pointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gaa25ac98061cddab1f99f1a3b0e94ff9d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>std::forward_iterator_tag</type>
+      <name>juce::VarIterator::iterator_category</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga3155c127a8ef5e383beab0b3cd65f98a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>callOnMainThreadBlocking</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
+      <arglist>(std::function&lt; void()&gt; func)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>createDesktopSnapshot</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gac2d2291dbc7913b65fd0e69e53873fa3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>createSnapshotOfNativeWindow</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad1ffdc179588a1832355270be9b5a516</anchor>
+      <arglist>(juce::Component &amp;c)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>jsonObject</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga0b0991cd1a205f2dc8706dc91e0f3bdb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>std::string</type>
+      <name>toStdString</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad6aca58449544b3fdeb9d4c9f8560a90</anchor>
+      <arglist>(const juce::var &amp;v)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Property::Property</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9412f63da91a0a78713db5048973204b</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Property::Property</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gafb868a85098fecb91249b69f3e72b85e</anchor>
+      <arglist>(const juce::String &amp;k, const juce::var v)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>getPropertyWithDefault</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4a0e5a7a42a4e9d41ecb0efc2dc979a5</anchor>
+      <arglist>(const juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;defaultValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setProperty</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga50aa299c064e2ba23134d4271067f253</anchor>
+      <arglist>(juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;value)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeProperty</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga8d3d517f8553687ae54a491635d3f3cf</anchor>
+      <arglist>(juce::var &amp;v, const juce::Identifier &amp;i)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>setJSONPointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga50593c5a205f3ed201863222136cc007</anchor>
+      <arglist>(juce::var &amp;v, juce::String pointer, const juce::var &amp;newValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>getJSONPointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad37d4944a1b5a94d959f2c74d9ca36ec</anchor>
+      <arglist>(const juce::var &amp;v, juce::String pointer, const juce::var &amp;defaultValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hasJSONPointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2c46f3f0d1e3e9e734b529b8abcde6cf</anchor>
+      <arglist>(const juce::var &amp;v, juce::String pointer)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>removeJsonComments</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga8d83bb854851e5039749da191fc5765e</anchor>
+      <arglist>(const juce::String &amp;input)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>juce::VarIterator::VarIterator</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga73804ae2be599cf5e40cf379ff99d04d</anchor>
+      <arglist>(const juce::var &amp;, bool isEnd)</arglist>
+    </member>
+    <member kind="function">
+      <type>VarIterator &amp;</type>
+      <name>juce::VarIterator::operator++</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gadaf3cbf9c09218e1220f273bc387a628</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>juce::VarIterator::operator==</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gaf191a2ab9a88f5ff7c6063c488f10069</anchor>
+      <arglist>(const VarIterator &amp;) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>juce::VarIterator::operator!=</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gacb05ca9805cc361ca4e7f92504022406</anchor>
+      <arglist>(const VarIterator &amp;) const</arglist>
+    </member>
+    <member kind="function">
+      <type>NamedValue</type>
+      <name>juce::VarIterator::operator*</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga883e3ab914c93f262b6fa1bff971b8b1</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>VarIterator</type>
+      <name>juce::begin</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga08585dbaa981f89e24e386653159db3f</anchor>
+      <arglist>(const juce::var &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>VarIterator</type>
+      <name>juce::end</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga27df0f06f312d3eb5ddd40693a1941d9</anchor>
+      <arglist>(const juce::var &amp;)</arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>Property::key</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga036d8f318fffa88cef21d494ed405443</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::var</type>
+      <name>Property::value</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad6cc4703b5f5315e1b4e7dc7266ecbad</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::var</type>
+      <name>juce::VarIterator::NamedValue::name</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gab7f29046e16e28190c441e4b50e638d7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::var</type>
+      <name>juce::VarIterator::NamedValue::value</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga3e76d00fc7f78298c56b3094edddd407</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="group">
     <name>gin-utilities</name>
     <title>utilities</title>
     <filename>group__gin-utilities.html</filename>
@@ -24207,264 +24465,6 @@
       <anchorfile>group__gin-utilities.html</anchorfile>
       <anchor>ga88f482bf81fb3e423fa1e3926dfaa9a6</anchor>
       <arglist>(const juce::String &amp;jsonText)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-utilities</name>
-    <title>utilities</title>
-    <filename>group__gin__gui-utilities.html</filename>
-    <file>gin_varianthelpers.h</file>
-    <namespace>macOS</namespace>
-    <namespace>juce</namespace>
-    <class kind="class">LambdaTimer</class>
-    <class kind="class">LambdaAsyncUpdater</class>
-    <class kind="class">LambdaMouseListener</class>
-    <class kind="class">CoalescedTimer</class>
-    <class kind="class">ComponentMap</class>
-    <class kind="class">ElevatedFileCopy</class>
-    <class kind="class">ConstantsStack</class>
-    <class kind="class">ConstantsStack::ScopedSave</class>
-    <class kind="class">Parser</class>
-    <class kind="class">LayoutSupport</class>
-    <class kind="struct">LayoutSupport::Bounds</class>
-    <class kind="struct">LayoutSupport::JsonFile</class>
-    <class kind="class">OpenStreetMaps</class>
-    <class kind="class">OpenStreetMaps::Listener</class>
-    <class kind="class">SystemClipboard</class>
-    <class kind="class">AsyncDownload</class>
-    <class kind="struct">Property</class>
-    <class kind="struct">juce::VarIterator</class>
-    <class kind="struct">juce::VarIterator::NamedValue</class>
-    <member kind="typedef">
-      <type>std::ptrdiff_t</type>
-      <name>juce::VarIterator::difference_type</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga388faf47e202486a153ded4732148bd3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>NamedValue</type>
-      <name>juce::VarIterator::value_type</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga2568e5c06333945b3b21bd06902e227f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>NamedValue &amp;</type>
-      <name>juce::VarIterator::reference</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gabdc270513e2833318b2b5c6dd30f09bd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>NamedValue *</type>
-      <name>juce::VarIterator::pointer</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gaa25ac98061cddab1f99f1a3b0e94ff9d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>std::forward_iterator_tag</type>
-      <name>juce::VarIterator::iterator_category</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga3155c127a8ef5e383beab0b3cd65f98a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>callOnMainThreadBlocking</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
-      <arglist>(std::function&lt; void()&gt; func)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>createDesktopSnapshot</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gac2d2291dbc7913b65fd0e69e53873fa3</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>createSnapshotOfNativeWindow</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gad1ffdc179588a1832355270be9b5a516</anchor>
-      <arglist>(juce::Component &amp;c)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>jsonObject</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga0b0991cd1a205f2dc8706dc91e0f3bdb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>std::string</type>
-      <name>toStdString</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gad6aca58449544b3fdeb9d4c9f8560a90</anchor>
-      <arglist>(const juce::var &amp;v)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Property::Property</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga9412f63da91a0a78713db5048973204b</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Property::Property</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gafb868a85098fecb91249b69f3e72b85e</anchor>
-      <arglist>(const juce::String &amp;k, const juce::var v)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>getPropertyWithDefault</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga4a0e5a7a42a4e9d41ecb0efc2dc979a5</anchor>
-      <arglist>(const juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;defaultValue)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setProperty</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga50aa299c064e2ba23134d4271067f253</anchor>
-      <arglist>(juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;value)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>removeProperty</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga8d3d517f8553687ae54a491635d3f3cf</anchor>
-      <arglist>(juce::var &amp;v, const juce::Identifier &amp;i)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>setJSONPointer</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga50593c5a205f3ed201863222136cc007</anchor>
-      <arglist>(juce::var &amp;v, juce::String pointer, const juce::var &amp;newValue)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>getJSONPointer</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gad37d4944a1b5a94d959f2c74d9ca36ec</anchor>
-      <arglist>(const juce::var &amp;v, juce::String pointer, const juce::var &amp;defaultValue)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>hasJSONPointer</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga2c46f3f0d1e3e9e734b529b8abcde6cf</anchor>
-      <arglist>(const juce::var &amp;v, juce::String pointer)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::String</type>
-      <name>removeJsonComments</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga8d83bb854851e5039749da191fc5765e</anchor>
-      <arglist>(const juce::String &amp;input)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>juce::VarIterator::VarIterator</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga73804ae2be599cf5e40cf379ff99d04d</anchor>
-      <arglist>(const juce::var &amp;, bool isEnd)</arglist>
-    </member>
-    <member kind="function">
-      <type>VarIterator &amp;</type>
-      <name>juce::VarIterator::operator++</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gadaf3cbf9c09218e1220f273bc387a628</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>juce::VarIterator::operator==</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gaf191a2ab9a88f5ff7c6063c488f10069</anchor>
-      <arglist>(const VarIterator &amp;) const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>juce::VarIterator::operator!=</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gacb05ca9805cc361ca4e7f92504022406</anchor>
-      <arglist>(const VarIterator &amp;) const</arglist>
-    </member>
-    <member kind="function">
-      <type>NamedValue</type>
-      <name>juce::VarIterator::operator*</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga883e3ab914c93f262b6fa1bff971b8b1</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>VarIterator</type>
-      <name>juce::begin</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga08585dbaa981f89e24e386653159db3f</anchor>
-      <arglist>(const juce::var &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>VarIterator</type>
-      <name>juce::end</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga27df0f06f312d3eb5ddd40693a1941d9</anchor>
-      <arglist>(const juce::var &amp;)</arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>Property::key</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga036d8f318fffa88cef21d494ed405443</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::var</type>
-      <name>Property::value</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gad6cc4703b5f5315e1b4e7dc7266ecbad</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::var</type>
-      <name>juce::VarIterator::NamedValue::name</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gab7f29046e16e28190c441e4b50e638d7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::var</type>
-      <name>juce::VarIterator::NamedValue::value</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga3e76d00fc7f78298c56b3094edddd407</anchor>
-      <arglist></arglist>
     </member>
   </compound>
 </tagfile>
