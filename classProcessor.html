@@ -131,6 +131,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7dda8d30bf76495afa34583671302f78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36394e5ceac103d0f3f7852091aad91e" id="r_a36394e5ceac103d0f3f7852091aad91e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">virtual</a> juce::File&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a36394e5ceac103d0f3f7852091aad91e">getProgramDirectory</a> ()</td></tr>
 <tr class="separator:a36394e5ceac103d0f3f7852091aad91e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a051a03cab34d6379bb3146fc13e01731" id="r_a051a03cab34d6379bb3146fc13e01731"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">virtual</a> juce::Array&lt; juce::File &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a051a03cab34d6379bb3146fc13e01731">getFactoryProgramDirectories</a> ()</td></tr>
+<tr class="memdesc:a051a03cab34d6379bb3146fc13e01731"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional read-only factory preset directories scanned in addition to the user program directory.  <br /></td></tr>
+<tr class="separator:a051a03cab34d6379bb3146fc13e01731"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adde1ecc658aa6760b55e340ebbaa9fee" id="r_adde1ecc658aa6760b55e340ebbaa9fee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">virtual</a> <a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#adde1ecc658aa6760b55e340ebbaa9fee">loadAllPrograms</a> ()</td></tr>
 <tr class="separator:adde1ecc658aa6760b55e340ebbaa9fee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39f7bb4cef80c8e49f3220605f4cc455" id="r_a39f7bb4cef80c8e49f3220605f4cc455"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">const</a> juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a39f7bb4cef80c8e49f3220605f4cc455">getName</a> () <a class="el" href="classPoint.html">const</a> <a class="el" href="classPoint.html">override</a></td></tr>
@@ -858,6 +861,34 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a051a03cab34d6379bb3146fc13e01731" name="a051a03cab34d6379bb3146fc13e01731"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a051a03cab34d6379bb3146fc13e01731">&#9670;&#160;</a></span>getFactoryProgramDirectories()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">virtual</a> juce::Array&lt; juce::File &gt; Processor::getFactoryProgramDirectories </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Optional read-only factory preset directories scanned in addition to the user program directory. </p>
+<p>Returns an empty array by default so existing behaviour is unchanged. Subclasses may override to point at bundled / system-wide preset locations; programs loaded from these directories are flagged read-only. If a factory program shares a name with a user program, the user copy wins. </p>
 
 </div>
 </div>
@@ -1903,7 +1934,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 28 2026 19:09:36 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Tue Apr 28 2026 21:41:12 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

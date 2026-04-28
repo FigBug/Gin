@@ -23,5 +23,6 @@ var searchData=
   ['invsineout_20',['invSineOut',['../classModMatrix.html#a320561a4a3eeadb0315f589d80ebe040',1,'ModMatrix']]],
   ['isdoubleprecision_21',['isDoublePrecision',['../classAudioProcessorPlayer.html#ab629fa4a5811f9aa68f3f9f6a541ceca',1,'AudioProcessorPlayer']]],
   ['isinsert_22',['isInsert',['../structDiff_1_1Patch_1_1Hunk.html#acc12c013ae75b9cab2c18b51cd42e240',1,'Diff::Patch::Hunk']]],
-  ['isprepared_23',['isPrepared',['../classAudioProcessorPlayer.html#a0d1f31a71a74dd148b3c0dbd1e0ce04a',1,'AudioProcessorPlayer']]]
+  ['isprepared_23',['isPrepared',['../classAudioProcessorPlayer.html#a0d1f31a71a74dd148b3c0dbd1e0ce04a',1,'AudioProcessorPlayer']]],
+  ['isreadonly_24',['isReadOnly',['../classProgram.html#a4d3b0c8978182716291207edf4a75de0',1,'Program']]]
 ];

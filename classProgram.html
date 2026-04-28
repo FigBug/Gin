@@ -111,6 +111,9 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a98dafb9ef18422b1a03261697b874194"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acddd8235091f27410c05cf4b7694b62a" id="r_acddd8235091f27410c05cf4b7694b62a"><td class="memItemLeft" align="right" valign="top">juce::StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgram.html#acddd8235091f27410c05cf4b7694b62a">tags</a></td></tr>
 <tr class="separator:acddd8235091f27410c05cf4b7694b62a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d3b0c8978182716291207edf4a75de0" id="r_a4d3b0c8978182716291207edf4a75de0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgram.html#a4d3b0c8978182716291207edf4a75de0">isReadOnly</a> = <a class="el" href="classPoint.html">false</a></td></tr>
+<tr class="memdesc:a4d3b0c8978182716291207edf4a75de0"><td class="mdescLeft">&#160;</td><td class="mdescRight">When true, this program was loaded from a factory directory and the <a class="el" href="classProcessor.html" title="Advanced audio processor base class with parameter management and preset system.">Processor</a> will refuse to overwrite, rename, or delete its file.  <br /></td></tr>
+<tr class="separator:a4d3b0c8978182716291207edf4a75de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abda0ec5627c2cbeea0832de24dccf7f8" id="r_abda0ec5627c2cbeea0832de24dccf7f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgram.html#abda0ec5627c2cbeea0832de24dccf7f8">fullyLoaded</a> = <a class="el" href="classPoint.html">false</a></td></tr>
 <tr class="separator:abda0ec5627c2cbeea0832de24dccf7f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada231f5b769b187f0368b1013f128b98" id="r_ada231f5b769b187f0368b1013f128b98"><td class="memItemLeft" align="right" valign="top">juce::ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgram.html#ada231f5b769b187f0368b1013f128b98">state</a></td></tr>
@@ -421,6 +424,23 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a4d3b0c8978182716291207edf4a75de0" name="a4d3b0c8978182716291207edf4a75de0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d3b0c8978182716291207edf4a75de0">&#9670;&#160;</a></span>isReadOnly</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">bool</a> Program::isReadOnly = <a class="el" href="classPoint.html">false</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>When true, this program was loaded from a factory directory and the <a class="el" href="classProcessor.html" title="Advanced audio processor base class with parameter management and preset system.">Processor</a> will refuse to overwrite, rename, or delete its file. </p>
+<p>The in-memory entry can still be removed (e.g. when saving over it with a user copy); the next directory scan will simply reload it. Defaults to false to preserve legacy behaviour. </p>
+
+</div>
+</div>
 <a id="abda0ec5627c2cbeea0832de24dccf7f8" name="abda0ec5627c2cbeea0832de24dccf7f8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abda0ec5627c2cbeea0832de24dccf7f8">&#9670;&#160;</a></span>fullyLoaded</h2>
 
@@ -469,7 +489,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 28 2026 19:09:36 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Tue Apr 28 2026 21:41:12 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
