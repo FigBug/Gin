@@ -405,6 +405,9 @@ void Processor::timerCallback()
 
 void Processor::changeProgramName (int index, const juce::String& newName)
 {
+    if (programs[index]->isReadOnly)
+        return;
+
     lastProgramsUpdated = juce::Time::getCurrentTime();
 
     programs[index]->deleteFromDir (getProgramDirectory());
@@ -423,21 +426,49 @@ void Processor::loadAllPrograms()
 
     programs.clear();
 
-    // load programs from disk
-    juce::File dir = getProgramDirectory();
-
-    juce::Array<juce::File> programFiles;
-    dir.findChildFiles (programFiles, juce::File::findFiles, false, "*.xml");
-
-    for (auto f : programFiles)
+    auto loadDirectory = [this] (const juce::File& dir, bool readOnly)
     {
-        auto program = createProgram();
-        program->loadFromFile (f, false);
-        programs.add (program);
-    }
-    
+        if (! dir.isDirectory())
+            return;
+
+        juce::Array<juce::File> programFiles;
+        dir.findChildFiles (programFiles, juce::File::findFiles, false, "*.xml");
+
+        for (auto f : programFiles)
+        {
+            auto program = createProgram();
+            program->loadFromFile (f, false);
+
+            // User programs take precedence over factory ones with the same name.
+            bool dupe = false;
+            for (auto existing : programs)
+            {
+                if (existing->name.compareIgnoreCase (program->name) == 0)
+                {
+                    dupe = true;
+                    break;
+                }
+            }
+
+            if (dupe)
+            {
+                delete program;
+                continue;
+            }
+
+            program->isReadOnly = readOnly;
+            programs.add (program);
+        }
+    };
+
+    // User directory first so its names win over any factory clashes.
+    loadDirectory (getProgramDirectory(), false);
+
+    for (auto& factoryDir : getFactoryProgramDirectories())
+        loadDirectory (factoryDir, true);
+
     std::sort (programs.begin(), programs.end(), [](const auto& a, const auto& b) { return a->name.compareIgnoreCase (b->name) < 0; });
-    
+
     // create the default program
     auto defaultProgram = createProgram();
     defaultProgram->name = "Default";
@@ -533,6 +564,11 @@ juce::File Processor::getProgramDirectory()
         dir.createDirectory();
 
     return dir;
+}
+
+juce::Array<juce::File> Processor::getFactoryProgramDirectories()
+{
+    return {};
 }
 
 //==============================================================================

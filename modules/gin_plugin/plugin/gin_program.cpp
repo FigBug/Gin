@@ -111,6 +111,9 @@ void Program::loadFromFile (juce::File f, bool loadFully)
 
 void Program::saveToDir (juce::File f)
 {
+    if (isReadOnly)
+        return;
+
     jassert(fullyLoaded);
     if (! fullyLoaded)
         return;
@@ -140,6 +143,9 @@ void Program::saveToDir (juce::File f)
 
 void Program::deleteFromDir (juce::File f)
 {
+    if (isReadOnly)
+        return;
+
     getPresetFile (f).deleteFile();
     file = juce::File();
 }

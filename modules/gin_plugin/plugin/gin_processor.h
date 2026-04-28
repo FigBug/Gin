@@ -292,6 +292,15 @@ public:
     virtual bool isParamLocked (gin::Parameter*) { return false; }
 
     virtual juce::File getProgramDirectory();
+
+    /** Optional read-only factory preset directories scanned in addition to
+        the user program directory. Returns an empty array by default so
+        existing behaviour is unchanged. Subclasses may override to point at
+        bundled / system-wide preset locations; programs loaded from these
+        directories are flagged read-only. If a factory program shares a
+        name with a user program, the user copy wins. */
+    virtual juce::Array<juce::File> getFactoryProgramDirectories();
+
     virtual void loadAllPrograms();
 
     //==============================================================================

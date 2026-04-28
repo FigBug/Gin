@@ -61,6 +61,13 @@ public:
     juce::String author;
     juce::StringArray tags;
 
+    /** When true, this program was loaded from a factory directory and the
+        Processor will refuse to overwrite, rename, or delete its file. The
+        in-memory entry can still be removed (e.g. when saving over it with
+        a user copy); the next directory scan will simply reload it. Defaults
+        to false to preserve legacy behaviour. */
+    bool isReadOnly = false;
+
     bool fullyLoaded = false;
     juce::ValueTree state;
 
