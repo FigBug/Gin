@@ -13,7 +13,7 @@ class BackgroundCaller : private juce::Thread,
 {
 public:
     BackgroundCaller (std::function<void (void)> func)
-        : Thread ("BackgroundCaller"), function (func)
+        : Thread ("BgCaller"), function (func)
     {
         startThread();
     }

@@ -133,7 +133,7 @@ public:
     };
 
     Impl (FileSystemWatcher& o, juce::File f)
-      : juce::Thread ("FileSystemWatcher::Impl"), owner (o), folder (std::move(f))
+      : juce::Thread ("FSWatcher"), owner (o), folder (std::move(f))
     {
         fd = inotify_init();
 
@@ -256,7 +256,7 @@ class FileSystemWatcher::Impl : private juce::Thread
 {
 public:
     Impl (FileSystemWatcher& o, juce::File f)
-      : Thread ("FileSystemWatcher::Impl"), owner (o), folder (std::move(f))
+      : Thread ("FSWatcher"), owner (o), folder (std::move(f))
     {
         WCHAR path[_MAX_PATH] = {0};
         wcsncpy_s (path, folder.getFullPathName().toWideCharPointer(), _MAX_PATH - 1);

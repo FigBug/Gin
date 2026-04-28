@@ -9,7 +9,7 @@
 class RealtimeAsyncUpdater::Impl : public juce::Thread
 {
 public:
-    Impl() : Thread ("RealtimeAsyncUpdater")
+    Impl() : Thread ("RtAsyncUpdater")
     {
         startThread();
     }
@@ -45,18 +45,21 @@ private:
     
     void run() override
     {
-        while (true)
+        while (! threadShouldExit())
         {
             event.wait();
-            
+
             if (threadShouldExit())
                 break;
-            
-            juce::WeakReference<Impl> weakSelf = this;
-            juce::MessageManager::getInstance()->callAsync ([this, weakSelf] {
-                if (weakSelf != nullptr)
-                    fireCallbacks();
-            });
+
+            if (auto* mm = juce::MessageManager::getInstanceWithoutCreating())
+            {
+                juce::WeakReference<Impl> weakSelf = this;
+                mm->callAsync ([this, weakSelf] {
+                    if (weakSelf != nullptr)
+                        fireCallbacks();
+                });
+            }
         }
     }
 

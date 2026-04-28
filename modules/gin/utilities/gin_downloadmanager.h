@@ -199,7 +199,7 @@ private:
     */
     struct Download : public juce::Thread
     {
-        Download (DownloadManager& o) : Thread ("DownloadManager::Download"), owner (o) {}
+        Download (DownloadManager& o) : Thread ("DLDownload"), owner (o) {}
         ~Download() override;
 
         void run() override;
