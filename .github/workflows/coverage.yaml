@@ -46,7 +46,7 @@ jobs:
       - name: Get JUCE
         run: |
           if [ ! -d "juce" ]; then
-            git clone https://github.com/WeAreROLI/JUCE.git --branch develop --single-branch --depth 1 juce
+            git clone https://github.com/FigBug/JUCE.git --branch gin-patches --single-branch --depth 1 juce
           fi
 
       - name: Configure CMake with coverage

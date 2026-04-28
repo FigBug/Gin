@@ -5,7 +5,7 @@ cd "$ROOT"
 
 # Get juce
 if [ ! -d "juce" ]; then
-  git clone https://github.com/WeAreROLI/JUCE.git --branch develop --single-branch juce
+  git clone https://github.com/FigBug/JUCE.git --branch gin-patches --single-branch juce
 fi
 
 if [ "$(uname)" == "Darwin" ]; then
