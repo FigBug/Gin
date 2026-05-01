@@ -1,4 +1,9 @@
 
+// FAKE: force the update/news indicators on for visual testing. Set to false to disable.
+static constexpr bool kFakeAlerts = false;
+static const juce::String kFakeUpdateUrl = "https://socalabs.com/";
+static const juce::String kFakeNewsUrl   = "https://socalabs.com/";
+
 //==============================================================================
 UpdateChecker::UpdateChecker (gin::Processor& slProc_)
   : Thread ("Update"), slProc (slProc_)
@@ -193,13 +198,28 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p, PatchBrowser& pb)
     if (slProc.processorOptions.useUpdateChecker)
     {
         updateChecker = std::make_unique<UpdateChecker> (slProc);
-        updateChecker->onUpdate = [](juce::String) {};
+        updateChecker->onUpdate = [this] (juce::String url)
+        {
+            updateAvailable = url.isNotEmpty();
+            updatePulse();
+        };
     }
 
     if (slProc.processorOptions.useNewsChecker)
     {
         newsChecker = std::make_unique<NewsChecker> (slProc);
-        newsChecker->onNewsUpdate = [](juce::String) {};
+        newsChecker->onNewsUpdate = [this] (juce::String url)
+        {
+            newsAvailable = url.isNotEmpty();
+            updatePulse();
+        };
+    }
+
+    if (kFakeAlerts)
+    {
+        updateAvailable = true;
+        newsAvailable = true;
+        updatePulse();
     }
     
     programName.addMouseListener (&labelListener, false);
@@ -379,6 +399,33 @@ void TitleBar::paint (juce::Graphics& g)
     g.fillAll();
 }
 
+void TitleBar::timerCallback()
+{
+    pulsePhase += 0.12f;
+    if (pulsePhase > juce::MathConstants<float>::twoPi)
+        pulsePhase -= juce::MathConstants<float>::twoPi;
+
+    const float t = 0.5f + 0.5f * std::sin (pulsePhase);
+    auto base   = menuButton.findColour (juce::TextButton::textColourOffId, true);
+    auto accent = findColour (PluginLookAndFeel::accentColourId, true);
+    menuButton.setColour (base.interpolatedWith (accent, t));
+}
+
+void TitleBar::updatePulse()
+{
+    if (updateAvailable || newsAvailable)
+    {
+        if (! isTimerRunning())
+            startTimerHz (30);
+    }
+    else
+    {
+        stopTimer();
+        pulsePhase = 0.0f;
+        menuButton.clearColour();
+    }
+}
+
 void TitleBar::setShowBrowser (bool s)
 {
     hasBrowser = s;
@@ -496,22 +543,46 @@ void TitleBar::showMenu()
 
     m.addSeparator();
 
+    auto accent = findColour (PluginLookAndFeel::accentColourId, true);
+
     if (updateChecker)
     {
         auto updateUrl = updateChecker->getUpdateUrl();
-        m.addItem ("Get update", updateUrl.isNotEmpty(), false, [this, updateUrl]
+        if (kFakeAlerts && updateUrl.isEmpty())
+            updateUrl = kFakeUpdateUrl;
+        const bool active = updateUrl.isNotEmpty();
+
+        juce::PopupMenu::Item item ("Get update");
+        item.itemID = -1;
+        item.isEnabled = active;
+        if (active)
+            item.colour = accent;
+        item.action = [this, updateUrl]
         {
             juce::URL (updateUrl).launchInDefaultBrowser();
 
             if (auto props = slProc.getSettings())
                 props->setValue (slProc.processorOptions.pluginName + "_updateUrl", "");
-        });
+
+            updateAvailable = false;
+            updatePulse();
+        };
+        m.addItem (std::move (item));
     }
 
     if (newsChecker)
     {
         auto newsUrl = newsChecker->getNewsUrl();
-        m.addItem ("Read news", newsUrl.isNotEmpty(), false, [this, newsUrl]
+        if (kFakeAlerts && newsUrl.isEmpty())
+            newsUrl = kFakeNewsUrl;
+        const bool active = newsUrl.isNotEmpty();
+
+        juce::PopupMenu::Item item ("Read news");
+        item.itemID = -1;
+        item.isEnabled = active;
+        if (active)
+            item.colour = accent;
+        item.action = [this, newsUrl]
         {
             juce::URL (newsUrl).launchInDefaultBrowser();
 
@@ -523,7 +594,11 @@ void TitleBar::showMenu()
                 readNews.add (newsUrl);
                 props->setValue ("readNews", readNews.joinIntoString ("|"));
             }
-        });
+
+            newsAvailable = false;
+            updatePulse();
+        };
+        m.addItem (std::move (item));
     }
 
     m.addSeparator();
