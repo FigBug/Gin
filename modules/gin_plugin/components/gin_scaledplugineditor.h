@@ -24,11 +24,19 @@ public:
 
         setLookAndFeel (&editor->getLookAndFeel());
 
+        float scale = 0.0f;
+
+        if (auto* ginProc = dynamic_cast<Processor*> (&processor))
+            if (auto* settings = ginProc->getSettings())
+                scale = (float) settings->getDoubleValue ("editorScale", 0.0);
+
         if (state_.isValid())
             if (auto instance = state_.getChildWithName ("instance"); instance.isValid())
                 if (instance.hasProperty ("editorScale"))
-                    if (auto scale = (float)instance.getProperty ("editorScale"); scale > 0.0f)
-                        setSize (int (w * scale), int (h * scale));
+                    scale = (float) instance.getProperty ("editorScale");
+
+        if (scale > 0.0f)
+            setSize (int (w * scale), int (h * scale));
 
         state = state_;
     }
@@ -59,6 +67,10 @@ public:
 
         if (state.isValid())
             state.getOrCreateChildWithName ("instance", nullptr).setProperty ("editorScale", scale, nullptr);
+
+        if (auto* ginProc = dynamic_cast<Processor*> (&processor))
+            if (auto* settings = ginProc->getSettings())
+                settings->setValue ("editorScale", scale);
     }
 
     juce::Component frame;
