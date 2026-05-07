@@ -16,5 +16,10 @@ juce_add_binary_data (UnitTestAssets SOURCES
 						${DEMO_RESOURCES_DIR}/mountain.jpg
 						${DEMO_RESOURCES_DIR}/pencils.jpeg
 						${DEMO_RESOURCES_DIR}/SVG_example_markup_grid.svg
+						${DEMO_RESOURCES_DIR}/svg_test_basic.svg
+						${DEMO_RESOURCES_DIR}/svg_test_gradients.svg
+						${DEMO_RESOURCES_DIR}/svg_test_paths.svg
+						${DEMO_RESOURCES_DIR}/svg_test_strokes.svg
+						${DEMO_RESOURCES_DIR}/svg_test_opacity.svg
 						${DEMO_RESOURCES_DIR}/Analog_PWM_Saw_01.wav
 					)
