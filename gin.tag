@@ -22689,8 +22689,8 @@
       <type>juce::Path</type>
       <name>renderToPath</name>
       <anchorfile>namespaceSVG.html</anchorfile>
-      <anchor>afa08d0f73bd4dd33e11ac353db930712</anchor>
-      <arglist>(const juce::String &amp;svgText, juce::Rectangle&lt; float &gt; targetBounds)</arglist>
+      <anchor>a6a358c4add91ec1135992f540af6152d</anchor>
+      <arglist>(const juce::String &amp;svgText, juce::Rectangle&lt; float &gt; targetBounds, juce::RectanglePlacement placement=juce::RectanglePlacement::centred)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
