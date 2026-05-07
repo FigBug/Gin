@@ -26,6 +26,7 @@ MainContentComponent::MainContentComponent()
     demoComponents.add (new ValueTreeJsonDemo());
     demoComponents.add (new MessagePackDemo());
     demoComponents.add (new SVGDemo());
+    demoComponents.add (new NanoSVGDemo());
     demoComponents.add (new WebsocketDemo());
     demoComponents.add (new SolidBlendingDemo());
     demoComponents.add (new BlendingDemo());

@@ -17,6 +17,7 @@
 #include "Demos/ValueTreeJsonDemo.h"
 #include "Demos/MessagePackDemo.h"
 #include "Demos/SVGDemo.h"
+#include "Demos/NanoSVGDemo.h"
 #include "Demos/WebsocketDemo.h"
 #include "Demos/SolidBlendingDemo.h"
 #include "Demos/BlendingDemo.h"

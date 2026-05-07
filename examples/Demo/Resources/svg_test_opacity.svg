@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Background -->
+  <rect width="200" height="200" fill="#ECF0F1"/>
+  <!-- Group with translate -->
+  <g transform="translate(50, 30)" opacity="0.8">
+    <rect x="0" y="0" width="50" height="50" fill="#E74C3C"/>
+    <rect x="20" y="20" width="50" height="50" fill="#3498DB" opacity="0.6"/>
+  </g>
+  <!-- Nested groups with rotation -->
+  <g transform="translate(150, 60)" opacity="0.9">
+    <g transform="rotate(30)">
+      <rect x="-20" y="-20" width="40" height="40" fill="#2ECC71"/>
+      <rect x="-10" y="-10" width="20" height="20" fill="#F1C40F" opacity="0.7"/>
+    </g>
+  </g>
+  <!-- Scaled group -->
+  <g transform="translate(50, 140) scale(0.8)">
+    <circle cx="0" cy="0" r="30" fill="#9B59B6" opacity="0.5"/>
+    <circle cx="15" cy="-10" r="20" fill="#E67E22" opacity="0.6"/>
+    <circle cx="-10" cy="15" r="15" fill="#1ABC9C" opacity="0.7"/>
+  </g>
+  <!-- Combined transforms with deep nesting -->
+  <g transform="translate(145, 145)" opacity="0.75">
+    <g transform="rotate(-20) scale(1.2)">
+      <polygon points="0,-25 7,-8 24,-8 11,3 16,20 0,11 -16,20 -11,3 -24,-8 -7,-8"
+               fill="#F39C12"/>
+      <g transform="scale(0.5)" opacity="0.5">
+        <polygon points="0,-25 7,-8 24,-8 11,3 16,20 0,11 -16,20 -11,3 -24,-8 -7,-8"
+                 fill="#E74C3C"/>
+      </g>
+    </g>
+  </g>
+  <!-- Overlapping semi-transparent circles -->
+  <circle cx="100" cy="100" r="15" fill="#E74C3C" opacity="0.4"/>
+  <circle cx="112" cy="100" r="15" fill="#3498DB" opacity="0.4"/>
+  <circle cx="106" cy="89" r="15" fill="#2ECC71" opacity="0.4"/>
+</svg>
