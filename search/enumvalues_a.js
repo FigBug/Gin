@@ -1,11 +1,14 @@
 var searchData=
 [
-  ['mapquestopenaerial_0',['MapQuestOpenAerial',['../classOpenStreetMaps.html#ad685bb52fa0d8ea27d8fd8a152958020a59cb2d7d5a15e8ae207d490a2589842b',1,'OpenStreetMaps']]],
-  ['mapquestopenstreetmap_1',['MapQuestOpenStreetMap',['../classOpenStreetMaps.html#ad685bb52fa0d8ea27d8fd8a152958020a01a650758ee32401cb56e722caa14522',1,'OpenStreetMaps']]],
-  ['mapquestosm_2',['MapQuestOSM',['../classOpenStreetMaps.html#ad685bb52fa0d8ea27d8fd8a152958020afcab96e000f92a339384ab2a936db4c3',1,'OpenStreetMaps']]],
-  ['matte1colourid_3',['matte1ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a9574cb8d76e0b587045e42ba6f560e3e',1,'GinLookAndFeel']]],
-  ['matte2colourid_4',['matte2ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a92300711403ae30883fac16299863490',1,'GinLookAndFeel']]],
-  ['metercolourid_5',['metercolourid',['../classDynamicsMeter.html#a3f0cee797b7626c9c6486190b95adb5da3910c97ce05f1f60c867d0253d5784ba',1,'DynamicsMeter::meterColourId'],['../classLevelMeter.html#aebb71a7df2ebf267fa0326a95142cfa3ab7530e0b591c2a089549783c99bb942e',1,'LevelMeter::meterColourId']]],
-  ['ms_6',['ms',['../classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4a9d8d4339f5a98d805053183b2c70896f',1,'EnvelopeDetector']]],
-  ['multiply_7',['Multiply',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ade55cee401a6a53619b6ec469abf0810',1,'gin_imageeffects.h']]]
+  ['lanczos_0',['lanczos',['../group__gin__graphics-images.html#ggaedc0b4c54cea2c3df1788ebf8ee9b07bacf842af094536ba42c3771077d483b19',1,'gin_imageeffects.h']]],
+  ['lighten_1',['Lighten',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a0c4863f7d789ab70b21073bd94c9169d',1,'gin_imageeffects.h']]],
+  ['lightgroupcolourid_2',['lightGroupColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a2864996ef37b5bf663448c3f8ae6f6a7',1,'GinLookAndFeel']]],
+  ['limiter_3',['limiter',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576af7eeb3fb00381e25b0040685eb2a5174',1,'Dynamics']]],
+  ['linear_4',['linear',['../classSmoothingType.html#a3d81776be90ddd188fa74ae1b80fff7ca6f9f428f8d2b02f3abdd34b9c11f1f84',1,'SmoothingType::linear'],['../group__gin__plugin-plugin.html#ggaf6305b7a895acc484a8df21f83bff9f4a9a932b3cb396238423eb2f33ec17d6aa',1,'linear:&#160;gin_imodmatrix.h']]],
+  ['linearburn_5',['LinearBurn',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a4c41b912f1e9eca71a1a36fc8a1172d9',1,'gin_imageeffects.h']]],
+  ['lineardodge_6',['LinearDodge',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85afe7aab6a1580381724d2ebe724fbd065',1,'gin_imageeffects.h']]],
+  ['linearlight_7',['LinearLight',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ae158a552ecb4c88077b7537e93a8df86',1,'gin_imageeffects.h']]],
+  ['linecolourid_8',['linecolourid',['../classXYScope.html#a8c9be5fbb6205a1a9920d2068ca13b22af5d0d044e9ac695a2ee35d1365a93a47',1,'XYScope::lineColourId'],['../classWavetableComponent.html#ac7bd2c73ff86cfd3dc26d2c607eb87e5a988c44521e03d2091d813c18ca158032',1,'WavetableComponent::lineColourId'],['../classWaveformComponent.html#a45b49a62cd0812131e81de9e1715fd01a11782bc8650b22ee24fa433d8d973b05',1,'WaveformComponent::lineColourId'],['../classTriggeredScope.html#ac8e18f9a32051394436ce1959334ac52ad98484fb436778a1891eb5b93e9c369e',1,'TriggeredScope::lineColourId'],['../classSpectrumAnalyzer.html#a544037e48573aa27a58d3ebfadfe16fca897546a6575db6418f7c69eba965f5a1',1,'SpectrumAnalyzer::lineColourId'],['../classLevelMeter.html#aebb71a7df2ebf267fa0326a95142cfa3a28b27caf96c83d8b60fa1e616e9bacaa',1,'LevelMeter::lineColourId'],['../classDynamicsMeter.html#a3f0cee797b7626c9c6486190b95adb5da6744a81ab6cbfffbff00d1ce68a85534',1,'DynamicsMeter::lineColourId']]],
+  ['lowpass_9',['lowpass',['../classEQ.html#afd7d7b03b08fd8ca89204c04ff847010ad16f43133a0cb59a064462db9f52c68b',1,'EQ::lowpass'],['../classFilter.html#a8f99602312ccfbe9e1598532158726c0a3bc93a4b236649ec0f71b600fd7c3d5f',1,'Filter::lowpass']]],
+  ['lowshelf_10',['lowshelf',['../classEQ.html#afd7d7b03b08fd8ca89204c04ff847010ab5975e5df9ac7649fff9b46aa830aa46',1,'EQ::lowshelf'],['../classFilter.html#a8f99602312ccfbe9e1598532158726c0aa16a5d1831ce8ad6cbfe8178c5700d23',1,'Filter::lowshelf']]]
 ];

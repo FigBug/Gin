@@ -12,5 +12,6 @@ var searchData=
   ['gin_5fplugin_9',['gin_plugin',['../group__gin__plugin.html',1,'']]],
   ['gin_5fsimd_10',['gin_simd',['../group__gin__simd.html',1,'']]],
   ['gin_5fstandaloneplugin_11',['gin_standaloneplugin',['../group__gin__standaloneplugin.html',1,'']]],
-  ['gin_5fwebp_12',['gin_webp',['../group__gin__webp.html',1,'']]]
+  ['gin_5fsvg_12',['gin_svg',['../group__gin__svg.html',1,'']]],
+  ['gin_5fwebp_13',['gin_webp',['../group__gin__webp.html',1,'']]]
 ];

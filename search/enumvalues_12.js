@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['undefined_0',['undefined',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7dab46eb4658534cd006045de1bd3416342',1,'FileSystemWatcher']]],
-  ['unipolar_1',['unipolar',['../classModMatrix.html#a01ecaf32e75cdb11b6c803bc981a9533add374c07680cead3aed0a79509340941',1,'ModMatrix']]],
-  ['unknown_2',['unknown',['../classLocationManager.html#a518acec298306066ae3cccc6eb335bdcad0e85e63c60b028c9b8e673630e46a4e',1,'LocationManager']]],
-  ['up_3',['up',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40a7f9a9c97a4c7f8e2424ec0827d879c71',1,'TriggeredScope::Up'],['../classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28adad326c6c196a5b26cb69b871c57480c9a',1,'MSEGComponent::up']]]
+  ['text_5fframe_0',['TEXT_FRAME',['../structWSHeaderType.html#ac1906191ac337fdbecbe643184fbd3b3a44b257e3d1f0e6e8ee821d8ce460cea2',1,'WSHeaderType']]],
+  ['title1colourid_1',['title1ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a48e1027db85fa69981be45218bd7e6d9',1,'GinLookAndFeel']]],
+  ['title2colourid_2',['title2ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a539354805ecf1dd789adb31680e32326',1,'GinLookAndFeel']]],
+  ['tracecolourid_3',['tracecolourid',['../classSpectrumAnalyzer.html#a544037e48573aa27a58d3ebfadfe16fca158109e96f9b8711a03de3589b710548',1,'SpectrumAnalyzer::traceColourId'],['../classTriggeredScope.html#ac8e18f9a32051394436ce1959334ac52a589de8d7a323fdf9be76f7ad5df7c2c5',1,'TriggeredScope::traceColourId'],['../classWaveformComponent.html#a45b49a62cd0812131e81de9e1715fd01ae41bbfdc8560f893683785e89ef15dc9',1,'WaveformComponent::traceColourId'],['../classXYScope.html#a8c9be5fbb6205a1a9920d2068ca13b22ab74a667b5c450498ad536a857e77d35a',1,'XYScope::traceColourId']]],
+  ['tri_4',['tri',['../classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28ada104f21463efaee64202fcb5f8d79834b',1,'MSEGComponent']]],
+  ['triangle_5',['triangle',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29acef44b46f16ae8ecf664df4266ffdbf9',1,'LFO::triangle'],['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90acef44b46f16ae8ecf664df4266ffdbf9',1,'triangle:&#160;gin_bandlimitedlookuptable.h']]],
+  ['triggered_6',['triggered',['../classAudioRecorder.html#a9884aa523051c23ae78f5e9e4c86b449a7c1bdcf7e82a67d7b3f778af4288bc57',1,'AudioRecorder']]]
 ];

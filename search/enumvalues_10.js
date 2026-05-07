@@ -1,27 +1,7 @@
 var searchData=
 [
-  ['sameassource_0',['sameAsSource',['../classModMatrix.html#a01ecaf32e75cdb11b6c803bc981a9533ad0b8ff21af2594b553450b69775e96b1',1,'ModMatrix']]],
-  ['sampleandhold_1',['sampleAndHold',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29ad674bb86b600f7194b224cfdddb926be',1,'LFO']]],
-  ['sawdown_2',['sawdown',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a3593df94728cd88f078bbc6c41df9876',1,'LFO::sawDown'],['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a3593df94728cd88f078bbc6c41df9876',1,'sawDown:&#160;gin_bandlimitedlookuptable.h']]],
-  ['sawup_3',['sawup',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29acf87f9eb2bfacc5a0362031eba539290',1,'LFO::sawUp'],['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90acf87f9eb2bfacc5a0362031eba539290',1,'sawUp:&#160;gin_bandlimitedlookuptable.h']]],
-  ['screen_4',['Screen',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a2609fadb77bb3d98c615b41ac79a1d31',1,'gin_imageeffects.h']]],
-  ['silence_5',['silence',['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a0e82533c37fced763be34a5c21d720c9',1,'gin_bandlimitedlookuptable.h']]],
-  ['sine_6',['sine',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a925212d1624625aed9491413b4b7be05',1,'LFO::sine'],['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a925212d1624625aed9491413b4b7be05',1,'sine:&#160;gin_bandlimitedlookuptable.h']]],
-  ['sinein_7',['sineIn',['../group__gin__plugin-plugin.html#ggaf6305b7a895acc484a8df21f83bff9f4abc396790d78711dd11ed61891aff35e5',1,'gin_imodmatrix.h']]],
-  ['sineinout_8',['sineInOut',['../group__gin__plugin-plugin.html#ggaf6305b7a895acc484a8df21f83bff9f4a85d9740356353988da7f561fde00dc7e',1,'gin_imodmatrix.h']]],
-  ['sineout_9',['sineOut',['../group__gin__plugin-plugin.html#ggaf6305b7a895acc484a8df21f83bff9f4a72ff796cb569d8a5580940ebedadc846',1,'gin_imodmatrix.h']]],
-  ['softlight_10',['SoftLight',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a967749a14f4bb7ffc6383997d97a6163',1,'gin_imageeffects.h']]],
-  ['square_11',['square',['../group__gin__dsp-dsp.html#ggadb931b2f752b7879df254a7fd9d17e90a2fc01ec765ec0cb3dcc559126de20b30',1,'square:&#160;gin_bandlimitedlookuptable.h'],['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a2fc01ec765ec0cb3dcc559126de20b30',1,'LFO::square']]],
-  ['squarepos_12',['squarePos',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a8b70dd8f1d0ecc516d51a67b21488158',1,'LFO']]],
-  ['stamenterrain_13',['StamenTerrain',['../classOpenStreetMaps.html#ad685bb52fa0d8ea27d8fd8a152958020ad344502fa93ab8fc298bc4dbccae4c01',1,'OpenStreetMaps']]],
-  ['step_14',['step',['../classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28adae79405683cadb7c4c98fd15cae698942',1,'MSEGComponent']]],
-  ['stepdown3_15',['stepDown3',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29aaa3d13ace9a6e4045e504d765616f1c8',1,'LFO']]],
-  ['stepdown4_16',['stepDown4',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29aea3c4dcae408cbe4ca833cc5deab05a8',1,'LFO']]],
-  ['stepdown8_17',['stepDown8',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a60e4b0ffa818d9dfcae5f4f8e163c7de',1,'LFO']]],
-  ['stepup3_18',['stepUp3',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a47a947491015719eaaa2e001e86eea54',1,'LFO']]],
-  ['stepup4_19',['stepUp4',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29af71d95a4c6af33601854ca4ebe2a5adc',1,'LFO']]],
-  ['stepup8_20',['stepup8',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a528e39dd5263c6b717cdab4896b12f43',1,'LFO']]],
-  ['subtract_21',['Subtract',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85afa8a9720422ee254970b2ebe1435a917',1,'gin_imageeffects.h']]],
-  ['success_22',['success',['../classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30fac98012252d82fd16e8993a48798082da',1,'ElevatedFileCopy']]],
-  ['sustain_23',['sustain',['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188ea02bc1150d41a4dfdc324849c25dce148',1,'AnalogADSR::sustain'],['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127aa48dd9dd380d2a499ad6f7ae967010835',1,'ADSR::sustain']]]
+  ['reflect_0',['Reflect',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a8898819fa0ebd77a64e192d47e7be553',1,'gin_imageeffects.h']]],
+  ['release_1',['release',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127aac3273f5775dd2ec96038b66c3909d0a1',1,'ADSR::release'],['../classAnalogADSR.html#aa8a2577abb5a28fc96d0fd60a3b7188ea123fead50246387983ee340507115ef4',1,'AnalogADSR::release']]],
+  ['restricted_2',['restricted',['../classLocationManager.html#a518acec298306066ae3cccc6eb335bdcad331d118edc7e3ab997994cf3182e0d4',1,'LocationManager']]],
+  ['rms_3',['rms',['../classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4aa63705cf10474e3baa09f52c7f5bf5e6',1,'EnvelopeDetector']]]
 ];

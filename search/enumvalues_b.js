@@ -1,10 +1,11 @@
 var searchData=
 [
-  ['negation_0',['Negation',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab94b0efce58a77e1c8fa29e32536c728',1,'gin_imageeffects.h']]],
-  ['noise_1',['noise',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29aaaddc3454ccbefbb2d8d8461f8f7f481',1,'LFO']]],
-  ['none_2',['none',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40ae7f5e1acdd8d7e12e9a4e84ada96839e',1,'TriggeredScope::None'],['../classFilter.html#a8f99602312ccfbe9e1598532158726c0ae6e303ddb4b9092543178146dfe3c9dd',1,'Filter::none'],['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a334c4a4c42fdb79d7ebc3e73b517e6f8',1,'LFO::none']]],
-  ['nopermissions_3',['nopermissions',['../classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30fabe61a1bc08244491bfbe19296953ddb1',1,'ElevatedFileCopy']]],
-  ['normal_4',['normal',['../classAudioRecorder.html#a9884aa523051c23ae78f5e9e4c86b449afea087517c26fadd409bd4b9dc642555',1,'AudioRecorder::normal'],['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a5ecbcf0afce98b042f35ec71ba03fa4b',1,'Normal:&#160;gin_imageeffects.h']]],
-  ['notch_5',['notch',['../classFilter.html#a8f99602312ccfbe9e1598532158726c0a0a3bfe9ecaa7b5164c16cbb43457a778',1,'Filter']]],
-  ['notecolourid_6',['noteColourId',['../classMidiFileComponent.html#adc83f09d9e0ace77adee9e9f560e7cbda00690fadbe3dce287af0e4f85a35b491',1,'MidiFileComponent']]]
+  ['mapquestopenaerial_0',['MapQuestOpenAerial',['../classOpenStreetMaps.html#ad685bb52fa0d8ea27d8fd8a152958020a59cb2d7d5a15e8ae207d490a2589842b',1,'OpenStreetMaps']]],
+  ['mapquestopenstreetmap_1',['MapQuestOpenStreetMap',['../classOpenStreetMaps.html#ad685bb52fa0d8ea27d8fd8a152958020a01a650758ee32401cb56e722caa14522',1,'OpenStreetMaps']]],
+  ['mapquestosm_2',['MapQuestOSM',['../classOpenStreetMaps.html#ad685bb52fa0d8ea27d8fd8a152958020afcab96e000f92a339384ab2a936db4c3',1,'OpenStreetMaps']]],
+  ['matte1colourid_3',['matte1ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a9574cb8d76e0b587045e42ba6f560e3e',1,'GinLookAndFeel']]],
+  ['matte2colourid_4',['matte2ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a92300711403ae30883fac16299863490',1,'GinLookAndFeel']]],
+  ['metercolourid_5',['metercolourid',['../classDynamicsMeter.html#a3f0cee797b7626c9c6486190b95adb5da3910c97ce05f1f60c867d0253d5784ba',1,'DynamicsMeter::meterColourId'],['../classLevelMeter.html#aebb71a7df2ebf267fa0326a95142cfa3ab7530e0b591c2a089549783c99bb942e',1,'LevelMeter::meterColourId']]],
+  ['ms_6',['ms',['../classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4a9d8d4339f5a98d805053183b2c70896f',1,'EnvelopeDetector']]],
+  ['multiply_7',['Multiply',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ade55cee401a6a53619b6ec469abf0810',1,'gin_imageeffects.h']]]
 ];
