@@ -328,7 +328,8 @@ juce::Path SVG::renderToPath (const juce::String& svgText)
     return result;
 }
 
-juce::Path SVG::renderToPath (const juce::String& svgText, juce::Rectangle<float> targetBounds)
+juce::Path SVG::renderToPath (const juce::String& svgText, juce::Rectangle<float> targetBounds,
+                              juce::RectanglePlacement placement)
 {
     ParsedSVG svg (svgText);
     if (! svg.isValid())
@@ -338,7 +339,8 @@ juce::Path SVG::renderToPath (const juce::String& svgText, juce::Rectangle<float
     if (path.isEmpty())
         return path;
 
-    path.applyTransform (fitTransform (svg, targetBounds));
+    auto svgBounds = juce::Rectangle<float> (0.0f, 0.0f, svg.image->width, svg.image->height);
+    path.applyTransform (placement.getTransformToFit (svgBounds, targetBounds));
     return path;
 }
 

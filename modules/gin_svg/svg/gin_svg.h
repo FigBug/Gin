@@ -21,7 +21,8 @@ namespace SVG
                                juce::Colour backgroundColour, Engine engine = Engine::juce);
 
     juce::Path renderToPath (const juce::String& svgText);
-    juce::Path renderToPath (const juce::String& svgText, juce::Rectangle<float> targetBounds);
+    juce::Path renderToPath (const juce::String& svgText, juce::Rectangle<float> targetBounds,
+                             juce::RectanglePlacement placement = juce::RectanglePlacement::centred);
 
     void render (const juce::String& svgText, juce::Graphics& g,
                  juce::Rectangle<float> targetBounds, Engine engine = Engine::juce);
