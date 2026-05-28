@@ -30,4 +30,8 @@
 
 #include "3rdparty/mbedtls/library/camellia.c"
 #include "3rdparty/mbedtls/library/chachapoly.c"
+#include "3rdparty/mbedtls/library/psa_crypto_aead.c"
+#include "3rdparty/mbedtls/library/psa_crypto_cipher.c"
+#include "3rdparty/mbedtls/library/psa_crypto_client.c"
+#include "3rdparty/mbedtls/library/psa_crypto_driver_wrappers_no_static.c"
 #include "3rdparty/mbedtls/library/sha512.c"

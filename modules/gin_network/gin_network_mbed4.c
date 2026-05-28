@@ -28,5 +28,6 @@
 #endif
 
 #include "3rdparty/mbedtls/library/poly1305.c"
-#include "3rdparty/mbedtls/library/ssl_srv.c"
+#include "3rdparty/mbedtls/library/ssl_tls12_server.c"
+#include "3rdparty/mbedtls/library/ssl_tls13_keys.c"
 #include "3rdparty/mbedtls/library/sha256.c"

@@ -30,8 +30,13 @@
 
 #include "3rdparty/mbedtls/library/constant_time.c"
 #include "3rdparty/mbedtls/library/net_sockets.c"
+#include "3rdparty/mbedtls/library/psa_crypto_slot_management.c"
+#include "3rdparty/mbedtls/library/psa_crypto_storage.c"
+#include "3rdparty/mbedtls/library/psa_its_file.c"
 #include "3rdparty/mbedtls/library/ssl_cookie.c"
 #include "3rdparty/mbedtls/library/ssl_msg.c"
+#include "3rdparty/mbedtls/library/ssl_tls13_generic.c"
+#include "3rdparty/mbedtls/library/ssl_tls13_server.c"
 #include "3rdparty/mbedtls/library/sha1.c"
 #include "3rdparty/mbedtls/library/rsa_alt_helpers.c"
 

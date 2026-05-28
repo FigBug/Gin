@@ -29,5 +29,9 @@
 #endif
 
 #include "3rdparty/mbedtls/library/md5.c"
+#include "3rdparty/mbedtls/library/psa_crypto_pake.c"
+#include "3rdparty/mbedtls/library/psa_crypto_random.c"
+#include "3rdparty/mbedtls/library/psa_crypto_rsa.c"
+#include "3rdparty/mbedtls/library/psa_crypto_se.c"
 #include "3rdparty/mbedtls/library/x509_csr.c"
 

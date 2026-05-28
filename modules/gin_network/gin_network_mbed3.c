@@ -30,3 +30,4 @@
 
 #include "3rdparty/mbedtls/library/gcm.c"
 #include "3rdparty/mbedtls/library/hmac_drbg.c"
+#include "3rdparty/mbedtls/library/psa_crypto.c"

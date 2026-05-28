@@ -28,7 +28,12 @@
  #endif
 #endif
 
+#include "3rdparty/mbedtls/library/psa_crypto_ecp.c"
+#include "3rdparty/mbedtls/library/psa_crypto_ffdh.c"
+#include "3rdparty/mbedtls/library/psa_crypto_hash.c"
+#include "3rdparty/mbedtls/library/psa_crypto_mac.c"
 #include "3rdparty/mbedtls/library/ssl_ciphersuites.c"
-#include "3rdparty/mbedtls/library/ssl_cli.c"
+#include "3rdparty/mbedtls/library/ssl_client.c"
+#include "3rdparty/mbedtls/library/ssl_tls12_client.c"
 #include "3rdparty/mbedtls/library/ripemd160.c"
 #include "3rdparty/mbedtls/library/x509.c"

@@ -5,19 +5,7 @@
  */
 /*
  *  Copyright The Mbed TLS Contributors
- *  SPDX-License-Identifier: Apache-2.0
- *
- *  Licensed under the Apache License, Version 2.0 (the "License"); you may
- *  not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ *  SPDX-License-Identifier: Apache-2.0 OR GPL-2.0-or-later
  */
 
 /* System support */
@@ -25,7 +13,7 @@
 #define MBEDTLS_HAVE_TIME
 #define MBEDTLS_HAVE_TIME_DATE
 
-/* Mbed Crypto feature support */
+/* Mbed TLS feature support */
 #define MBEDTLS_CIPHER_MODE_CBC
 #define MBEDTLS_CIPHER_MODE_CFB
 #define MBEDTLS_CIPHER_MODE_CTR
@@ -42,7 +30,7 @@
 #define MBEDTLS_USE_PSA_CRYPTO
 #define MBEDTLS_VERSION_FEATURES
 
-/* Mbed Crypto modules */
+/* Mbed TLS modules */
 #define MBEDTLS_AES_C
 #define MBEDTLS_ASN1_PARSE_C
 #define MBEDTLS_ASN1_WRITE_C
@@ -77,13 +65,11 @@
 #define MBEDTLS_PSA_ITS_FILE_C
 #define MBEDTLS_RIPEMD160_C
 #define MBEDTLS_SHA1_C
-/* The library does not currently support enabling SHA-224 without SHA-256.
- * A future version of the library will have this option disabled
- * by default. */
 #define MBEDTLS_SHA224_C
 #define MBEDTLS_SHA256_C
 #define MBEDTLS_SHA384_C
 #define MBEDTLS_SHA512_C
+#define MBEDTLS_SHA3_C
 //#define MBEDTLS_THREADING_C
 #define MBEDTLS_TIMING_C
 #define MBEDTLS_VERSION_C
