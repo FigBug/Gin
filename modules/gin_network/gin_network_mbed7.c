@@ -16,6 +16,8 @@
  #pragma clang diagnostic ignored "-Wunused-variable"
  #pragma clang diagnostic ignored "-Wswitch-enum"
  #pragma clang diagnostic ignored "-Wsign-conversion"
+ #pragma clang diagnostic ignored "-Wconditional-uninitialized"
+ #pragma clang diagnostic ignored "-Wmacro-redefined"
  #if __has_warning("-Wzero-as-null-pointer-constant")
   #pragma clang diagnostic ignored "-Wzero-as-null-pointer-constant"
  #endif
@@ -29,4 +31,5 @@
 #endif
 
 #include "3rdparty/mbedtls/library/ssl_cache.c"
+#include "3rdparty/mbedtls/library/ssl_tls13_client.c"
 #include "3rdparty/mbedtls/library/x509_crt.c"

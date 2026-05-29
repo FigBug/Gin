@@ -3,19 +3,7 @@
  */
 /*
  *  Copyright The Mbed TLS Contributors
- *  SPDX-License-Identifier: Apache-2.0
- *
- *  Licensed under the Apache License, Version 2.0 (the "License"); you may
- *  not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ *  SPDX-License-Identifier: Apache-2.0 OR GPL-2.0-or-later
  */
 
 #ifndef PSA_CRYPTO_RSA_H
@@ -34,10 +22,10 @@
  *                          contents of the context and the context itself
  *                          when done.
  */
-psa_status_t mbedtls_psa_rsa_load_representation( psa_key_type_t type,
-                                                  const uint8_t *data,
-                                                  size_t data_length,
-                                                  mbedtls_rsa_context **p_rsa );
+psa_status_t mbedtls_psa_rsa_load_representation(psa_key_type_t type,
+                                                 const uint8_t *data,
+                                                 size_t data_length,
+                                                 mbedtls_rsa_context **p_rsa);
 
 /** Import an RSA key in binary format.
  *
@@ -61,15 +49,15 @@ psa_status_t mbedtls_psa_rsa_load_representation( psa_key_type_t type,
  * \retval #PSA_SUCCESS  The RSA key was imported successfully.
  * \retval #PSA_ERROR_INVALID_ARGUMENT
  *         The key data is not correctly formatted.
- * \retval #PSA_ERROR_NOT_SUPPORTED
- * \retval #PSA_ERROR_INSUFFICIENT_MEMORY
- * \retval #PSA_ERROR_CORRUPTION_DETECTED
+ * \retval #PSA_ERROR_NOT_SUPPORTED \emptydescription
+ * \retval #PSA_ERROR_INSUFFICIENT_MEMORY \emptydescription
+ * \retval #PSA_ERROR_CORRUPTION_DETECTED \emptydescription
  */
 psa_status_t mbedtls_psa_rsa_import_key(
     const psa_key_attributes_t *attributes,
     const uint8_t *data, size_t data_length,
     uint8_t *key_buffer, size_t key_buffer_size,
-    size_t *key_buffer_length, size_t *bits );
+    size_t *key_buffer_length, size_t *bits);
 
 /** Export an RSA key to export representation
  *
@@ -79,11 +67,11 @@ psa_status_t mbedtls_psa_rsa_import_key(
  * \param[in] data_size     The length of the buffer to export to
  * \param[out] data_length  The amount of bytes written to \p data
  */
-psa_status_t mbedtls_psa_rsa_export_key( psa_key_type_t type,
-                                         mbedtls_rsa_context *rsa,
-                                         uint8_t *data,
-                                         size_t data_size,
-                                         size_t *data_length );
+psa_status_t mbedtls_psa_rsa_export_key(psa_key_type_t type,
+                                        mbedtls_rsa_context *rsa,
+                                        uint8_t *data,
+                                        size_t data_size,
+                                        size_t *data_length);
 
 /** Export a public RSA key or the public part of an RSA key pair in binary
  *  format.
@@ -102,25 +90,28 @@ psa_status_t mbedtls_psa_rsa_export_key( psa_key_type_t type,
  *                              \p data.
  *
  * \retval #PSA_SUCCESS  The RSA public key was exported successfully.
- * \retval #PSA_ERROR_NOT_SUPPORTED
- * \retval #PSA_ERROR_COMMUNICATION_FAILURE
- * \retval #PSA_ERROR_HARDWARE_FAILURE
- * \retval #PSA_ERROR_CORRUPTION_DETECTED
- * \retval #PSA_ERROR_STORAGE_FAILURE
- * \retval #PSA_ERROR_INSUFFICIENT_MEMORY
+ * \retval #PSA_ERROR_NOT_SUPPORTED \emptydescription
+ * \retval #PSA_ERROR_COMMUNICATION_FAILURE \emptydescription
+ * \retval #PSA_ERROR_HARDWARE_FAILURE \emptydescription
+ * \retval #PSA_ERROR_CORRUPTION_DETECTED \emptydescription
+ * \retval #PSA_ERROR_STORAGE_FAILURE \emptydescription
+ * \retval #PSA_ERROR_INSUFFICIENT_MEMORY \emptydescription
  */
 psa_status_t mbedtls_psa_rsa_export_public_key(
     const psa_key_attributes_t *attributes,
     const uint8_t *key_buffer, size_t key_buffer_size,
-    uint8_t *data, size_t data_size, size_t *data_length );
+    uint8_t *data, size_t data_size, size_t *data_length);
 
 /**
  * \brief Generate an RSA key.
  *
- * \note The signature of the function is that of a PSA driver generate_key
- *       entry point.
- *
  * \param[in]  attributes         The attributes for the RSA key to generate.
+ * \param[in]  custom_data        The public exponent to use.
+ *                                This can be a null pointer if
+ *                                \c params_data_length is 0.
+ * \param custom_data_length      Length of \p custom_data in bytes.
+ *                                This can be 0, in which case the
+ *                                public exponent will be 65537.
  * \param[out] key_buffer         Buffer where the key data is to be written.
  * \param[in]  key_buffer_size    Size of \p key_buffer in bytes.
  * \param[out] key_buffer_length  On success, the number of bytes written in
@@ -135,7 +126,8 @@ psa_status_t mbedtls_psa_rsa_export_public_key(
  */
 psa_status_t mbedtls_psa_rsa_generate_key(
     const psa_key_attributes_t *attributes,
-    uint8_t *key_buffer, size_t key_buffer_size, size_t *key_buffer_length );
+    const uint8_t *custom_data, size_t custom_data_length,
+    uint8_t *key_buffer, size_t key_buffer_size, size_t *key_buffer_length);
 
 /** Sign an already-calculated hash with an RSA private key.
  *
@@ -158,23 +150,23 @@ psa_status_t mbedtls_psa_rsa_generate_key(
  * \param[out] signature_length On success, the number of bytes
  *                              that make up the returned signature value.
  *
- * \retval #PSA_SUCCESS
+ * \retval #PSA_SUCCESS \emptydescription
  * \retval #PSA_ERROR_BUFFER_TOO_SMALL
  *         The size of the \p signature buffer is too small. You can
  *         determine a sufficient buffer size by calling
  *         #PSA_SIGN_OUTPUT_SIZE(\c PSA_KEY_TYPE_RSA_KEY_PAIR, \c key_bits,
  *         \p alg) where \c key_bits is the bit-size of the RSA key.
- * \retval #PSA_ERROR_NOT_SUPPORTED
- * \retval #PSA_ERROR_INVALID_ARGUMENT
- * \retval #PSA_ERROR_INSUFFICIENT_MEMORY
- * \retval #PSA_ERROR_CORRUPTION_DETECTED
- * \retval #PSA_ERROR_INSUFFICIENT_ENTROPY
+ * \retval #PSA_ERROR_NOT_SUPPORTED \emptydescription
+ * \retval #PSA_ERROR_INVALID_ARGUMENT \emptydescription
+ * \retval #PSA_ERROR_INSUFFICIENT_MEMORY \emptydescription
+ * \retval #PSA_ERROR_CORRUPTION_DETECTED \emptydescription
+ * \retval #PSA_ERROR_INSUFFICIENT_ENTROPY \emptydescription
  */
 psa_status_t mbedtls_psa_rsa_sign_hash(
     const psa_key_attributes_t *attributes,
     const uint8_t *key_buffer, size_t key_buffer_size,
     psa_algorithm_t alg, const uint8_t *hash, size_t hash_length,
-    uint8_t *signature, size_t signature_size, size_t *signature_length );
+    uint8_t *signature, size_t signature_size, size_t *signature_length);
 
 /**
  * \brief Verify the signature a hash or short message using a public RSA key.
@@ -202,49 +194,128 @@ psa_status_t mbedtls_psa_rsa_sign_hash(
  * \retval #PSA_ERROR_INVALID_SIGNATURE
  *         The calculation was performed successfully, but the passed
  *         signature is not a valid signature.
- * \retval #PSA_ERROR_NOT_SUPPORTED
- * \retval #PSA_ERROR_INVALID_ARGUMENT
- * \retval #PSA_ERROR_INSUFFICIENT_MEMORY
+ * \retval #PSA_ERROR_NOT_SUPPORTED \emptydescription
+ * \retval #PSA_ERROR_INVALID_ARGUMENT \emptydescription
+ * \retval #PSA_ERROR_INSUFFICIENT_MEMORY \emptydescription
  */
 psa_status_t mbedtls_psa_rsa_verify_hash(
     const psa_key_attributes_t *attributes,
     const uint8_t *key_buffer, size_t key_buffer_size,
     psa_algorithm_t alg, const uint8_t *hash, size_t hash_length,
-    const uint8_t *signature, size_t signature_length );
+    const uint8_t *signature, size_t signature_length);
 
-/*
- * BEYOND THIS POINT, TEST DRIVER ENTRY POINTS ONLY.
+/**
+ * \brief Encrypt a short message with a public key.
+ *
+ * \param attributes            The attributes for the key to import.
+ * \param key_buffer            Buffer where the key data is to be written.
+ * \param key_buffer_size       Size of the \p key_buffer buffer in bytes.
+ * \param input_length          Size of the \p input buffer in bytes.
+ * \param[in] salt              A salt or label, if supported by the
+ *                              encryption algorithm.
+ *                              If the algorithm does not support a
+ *                              salt, pass \c NULL.
+ *                              If the algorithm supports an optional
+ *                              salt and you do not want to pass a salt,
+ *                              pass \c NULL.
+ *
+ *                              - For #PSA_ALG_RSA_PKCS1V15_CRYPT, no salt is
+ *                                supported.
+ * \param salt_length           Size of the \p salt buffer in bytes.
+ *                              If \p salt is \c NULL, pass 0.
+ * \param[out] output           Buffer where the encrypted message is to
+ *                              be written.
+ * \param output_size           Size of the \p output buffer in bytes.
+ * \param[out] output_length    On success, the number of bytes
+ *                              that make up the returned output.
+ *
+ * \retval #PSA_SUCCESS \emptydescription
+ * \retval #PSA_ERROR_BUFFER_TOO_SMALL
+ *         The size of the \p output buffer is too small. You can
+ *         determine a sufficient buffer size by calling
+ *         #PSA_ASYMMETRIC_ENCRYPT_OUTPUT_SIZE(\c key_type, \c key_bits, \p alg)
+ *         where \c key_type and \c key_bits are the type and bit-size
+ *         respectively of \p key.
+ * \retval #PSA_ERROR_NOT_SUPPORTED \emptydescription
+ * \retval #PSA_ERROR_INVALID_ARGUMENT \emptydescription
+ * \retval #PSA_ERROR_INSUFFICIENT_MEMORY \emptydescription
+ * \retval #PSA_ERROR_COMMUNICATION_FAILURE \emptydescription
+ * \retval #PSA_ERROR_HARDWARE_FAILURE \emptydescription
+ * \retval #PSA_ERROR_CORRUPTION_DETECTED \emptydescription
+ * \retval #PSA_ERROR_INSUFFICIENT_ENTROPY \emptydescription
+ * \retval #PSA_ERROR_BAD_STATE
+ *         The library has not been previously initialized by psa_crypto_init().
+ *         It is implementation-dependent whether a failure to initialize
+ *         results in this error code.
  */
+psa_status_t mbedtls_psa_asymmetric_encrypt(const psa_key_attributes_t *attributes,
+                                            const uint8_t *key_buffer,
+                                            size_t key_buffer_size,
+                                            psa_algorithm_t alg,
+                                            const uint8_t *input,
+                                            size_t input_length,
+                                            const uint8_t *salt,
+                                            size_t salt_length,
+                                            uint8_t *output,
+                                            size_t output_size,
+                                            size_t *output_length);
 
-#if defined(PSA_CRYPTO_DRIVER_TEST)
-
-psa_status_t mbedtls_test_driver_rsa_import_key(
-    const psa_key_attributes_t *attributes,
-    const uint8_t *data, size_t data_length,
-    uint8_t *key_buffer, size_t key_buffer_size,
-    size_t *key_buffer_length, size_t *bits );
-
-psa_status_t mbedtls_test_driver_rsa_export_public_key(
-    const psa_key_attributes_t *attributes,
-    const uint8_t *key_buffer, size_t key_buffer_size,
-    uint8_t *data, size_t data_size, size_t *data_length );
-
-psa_status_t mbedtls_transparent_test_driver_rsa_generate_key(
-    const psa_key_attributes_t *attributes,
-    uint8_t *key, size_t key_size, size_t *key_length );
-
-psa_status_t mbedtls_transparent_test_driver_rsa_sign_hash(
-    const psa_key_attributes_t *attributes,
-    const uint8_t *key_buffer, size_t key_buffer_size,
-    psa_algorithm_t alg, const uint8_t *hash, size_t hash_length,
-    uint8_t *signature, size_t signature_size, size_t *signature_length );
-
-psa_status_t mbedtls_transparent_test_driver_rsa_verify_hash(
-    const psa_key_attributes_t *attributes,
-    const uint8_t *key_buffer, size_t key_buffer_size,
-    psa_algorithm_t alg, const uint8_t *hash, size_t hash_length,
-    const uint8_t *signature, size_t signature_length );
-
-#endif /* PSA_CRYPTO_DRIVER_TEST */
+/**
+ * \brief Decrypt a short message with a private key.
+ *
+ * \param attributes            The attributes for the key to import.
+ * \param key_buffer            Buffer where the key data is to be written.
+ * \param key_buffer_size       Size of the \p key_buffer buffer in bytes.
+ * \param[in] input             The message to decrypt.
+ * \param input_length          Size of the \p input buffer in bytes.
+ * \param[in] salt              A salt or label, if supported by the
+ *                              encryption algorithm.
+ *                              If the algorithm does not support a
+ *                              salt, pass \c NULL.
+ *                              If the algorithm supports an optional
+ *                              salt and you do not want to pass a salt,
+ *                              pass \c NULL.
+ *
+ *                              - For #PSA_ALG_RSA_PKCS1V15_CRYPT, no salt is
+ *                                supported.
+ * \param salt_length           Size of the \p salt buffer in bytes.
+ *                              If \p salt is \c NULL, pass 0.
+ * \param[out] output           Buffer where the decrypted message is to
+ *                              be written.
+ * \param output_size           Size of the \c output buffer in bytes.
+ * \param[out] output_length    On success, the number of bytes
+ *                              that make up the returned output.
+ *
+ * \retval #PSA_SUCCESS \emptydescription
+ * \retval #PSA_ERROR_BUFFER_TOO_SMALL
+ *         The size of the \p output buffer is too small. You can
+ *         determine a sufficient buffer size by calling
+ *         #PSA_ASYMMETRIC_DECRYPT_OUTPUT_SIZE(\c key_type, \c key_bits, \p alg)
+ *         where \c key_type and \c key_bits are the type and bit-size
+ *         respectively of \p key.
+ * \retval #PSA_ERROR_NOT_SUPPORTED \emptydescription
+ * \retval #PSA_ERROR_INVALID_ARGUMENT \emptydescription
+ * \retval #PSA_ERROR_INSUFFICIENT_MEMORY \emptydescription
+ * \retval #PSA_ERROR_COMMUNICATION_FAILURE \emptydescription
+ * \retval #PSA_ERROR_HARDWARE_FAILURE \emptydescription
+ * \retval #PSA_ERROR_CORRUPTION_DETECTED \emptydescription
+ * \retval #PSA_ERROR_INSUFFICIENT_ENTROPY \emptydescription
+ * \retval #PSA_ERROR_INVALID_PADDING \emptydescription
+ * \retval #PSA_ERROR_BAD_STATE
+ *         The library has not been previously initialized by psa_crypto_init().
+ *         It is implementation-dependent whether a failure to initialize
+ *         results in this error code.
+ */
+psa_status_t mbedtls_psa_asymmetric_decrypt(const psa_key_attributes_t *attributes,
+                                            const uint8_t *key_buffer,
+                                            size_t key_buffer_size,
+                                            psa_algorithm_t alg,
+                                            const uint8_t *input,
+                                            size_t input_length,
+                                            const uint8_t *salt,
+                                            size_t salt_length,
+                                            uint8_t *output,
+                                            size_t output_size,
+                                            size_t *output_length);
 
 #endif /* PSA_CRYPTO_RSA_H */
