@@ -488,7 +488,7 @@ var searchData=
   ['glow_485',['Glow',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ac7adb89e56ad4a2daef183d318110442',1,'gin_imageeffects.h']]],
   ['goldenratiocolor_486',['goldenRatioColor',['../group__gin__gui-utilities.html#ga345f5b8f3ffdd680b206fe42f25be481',1,'gin_util.h']]],
   ['gradientrect_487',['gradientRect',['../group__gin__plugin-components.html#gae617c6797d9252a57e49dc7bef2f487b',1,'gin_parambox.h']]],
-  ['graphiceq_488',['graphiceq',['../classGraphicEQ.html',1,'GraphicEQ'],['../classGraphicEQ.html#a05533020e1be064c0c410e933f229170',1,'GraphicEQ::GraphicEQ()']]],
+  ['graphiceq_488',['graphiceq',['../classGraphicEQ.html#a05533020e1be064c0c410e933f229170',1,'GraphicEQ::GraphicEQ()'],['../classGraphicEQ.html',1,'GraphicEQ']]],
   ['grey30colourid_489',['grey30ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a8836ddb4187fd9683c6952817859a255',1,'GinLookAndFeel']]],
   ['grey45colourid_490',['grey45ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a66a982d75840d72c1c9ef4eb0a302fd6',1,'GinLookAndFeel']]],
   ['grey60colourid_491',['grey60ColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6a87882c3f6219ea41cd1e0522707f4aa5',1,'GinLookAndFeel']]],
