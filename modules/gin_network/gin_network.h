@@ -26,6 +26,7 @@
 
   dependencies:         gin juce_core juce_events
   searchpaths:          3rdparty/mbedtls/include
+  windowsLibs:          bcrypt
 
  END_JUCE_MODULE_DECLARATION
 
