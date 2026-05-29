@@ -10,5 +10,5 @@
 //==============================================================================
 void StereoOscillator::noteOn (float p)
 {
-    p >= 0 ? phase = p : juce::Random::getSystemRandom().nextFloat();
+    phase = p >= 0 ? p : juce::Random::getSystemRandom().nextFloat();
 }
