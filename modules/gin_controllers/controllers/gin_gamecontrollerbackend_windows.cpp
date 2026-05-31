@@ -5,8 +5,8 @@
 
  ==============================================================================*/
 
-#include <windows.h>
-#include <Xinput.h>
+// <windows.h> and <Xinput.h> are hoisted at global scope from
+// gin_controllers.cpp before this file is included inside namespace gin.
 
 #pragma comment (lib, "xinput.lib")
 
@@ -19,12 +19,6 @@ namespace
         if (v >  dz) return float (v - dz) / float (32767 - dz);
         if (v < -dz) return float (v + dz) / float (32768 - dz);
         return 0.0f;
-    }
-
-    juce::String wideToJuce (const wchar_t* s)
-    {
-        if (s == nullptr) return {};
-        return juce::String (juce::CharPointer_UTF16 ((const juce::juce_wchar*) s));
     }
 }
 

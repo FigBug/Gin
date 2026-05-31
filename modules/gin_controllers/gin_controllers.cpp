@@ -24,6 +24,23 @@
  #pragma warning (pop)
 #endif
 
+// Hoist platform system headers to global scope before we open `namespace gin`
+// — otherwise glibc / Win32 / SDK headers and their free functions (`::open`,
+// `XInputGetState`, ...) end up inside the namespace, which the backends
+// reference via the global scope. macOS's `GameController/GameController.h`
+// is hoisted from gin_controllers.mm instead.
+#if JUCE_WINDOWS
+ #include <windows.h>
+ #include <Xinput.h>
+#elif JUCE_LINUX || JUCE_BSD
+ #include <fcntl.h>
+ #include <unistd.h>
+ #include <sys/ioctl.h>
+ #include <linux/joystick.h>
+ #include <errno.h>
+ #include <string.h>
+#endif
+
 namespace gin
 {
 

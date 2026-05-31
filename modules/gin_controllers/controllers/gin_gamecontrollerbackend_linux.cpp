@@ -5,12 +5,10 @@
 
  ==============================================================================*/
 
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/ioctl.h>
-#include <linux/joystick.h>
-#include <errno.h>
-#include <string.h>
+// System headers (fcntl.h, unistd.h, linux/joystick.h, etc.) are hoisted
+// at global scope from gin_controllers.cpp before this file is included
+// inside namespace gin — including them here would put `::open`, `::close`,
+// `::ioctl` into `gin::` and break the calls below.
 
 namespace
 {
