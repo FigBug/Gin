@@ -8,5 +8,9 @@ var searchData=
   ['difference_5',['Difference',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a9cba343e00a6259dc83f7e4e7f447109',1,'gin_imageeffects.h']]],
   ['displaycolourid_6',['displayColourId',['../classGinLookAndFeel.html#a3444b16d6592301f4a2179bb650885c6aa7af29d3637768fbf97690f5a7d59e5c',1,'GinLookAndFeel']]],
   ['down_7',['down',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40a928f3c3101863b6dbc9c6d8fcb9ba9d3',1,'TriggeredScope::Down'],['../classMSEGComponent.html#afad4878b3d3d828c5f4640776dea28ada605ba9914ec7b7d1599d21a70608b57e',1,'MSEGComponent::down']]],
-  ['drophighlightcolourid_8',['dropHighlightColourId',['../classMidiFileComponent.html#adc83f09d9e0ace77adee9e9f560e7cbdaf66744da8167f16a719a3d160da70211',1,'MidiFileComponent']]]
+  ['dpaddown_8',['dpadDown',['../classGameController.html#a6d925e0cc0db2aa51ad31f13fc4de069aad4b3927d9f1901ebb543a8184412c86',1,'GameController']]],
+  ['dpadleft_9',['dpadLeft',['../classGameController.html#a6d925e0cc0db2aa51ad31f13fc4de069ab753abfae79ef5a45b2a06b952d66b47',1,'GameController']]],
+  ['dpadright_10',['dpadRight',['../classGameController.html#a6d925e0cc0db2aa51ad31f13fc4de069a35017cc87768f6947e89fb5d68a69f9c',1,'GameController']]],
+  ['dpadup_11',['dpadUp',['../classGameController.html#a6d925e0cc0db2aa51ad31f13fc4de069abfeeb9bc1c0b504cd2b37936f2ec118a',1,'GameController']]],
+  ['drophighlightcolourid_12',['dropHighlightColourId',['../classMidiFileComponent.html#adc83f09d9e0ace77adee9e9f560e7cbdaf66744da8167f16a719a3d160da70211',1,'MidiFileComponent']]]
 ];

@@ -3,9 +3,11 @@ var searchData=
   ['nanosvg_0',['nanosvg',['../namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41a8f20242f8e03c63d62da1afa962881e8',1,'SVG']]],
   ['negation_1',['Negation',['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85ab94b0efce58a77e1c8fa29e32536c728',1,'gin_imageeffects.h']]],
   ['noise_2',['noise',['../classLFO.html#a9377c9fb47d163e9343a11edd200da29aaaddc3454ccbefbb2d8d8461f8f7f481',1,'LFO']]],
-  ['none_3',['none',['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40ae7f5e1acdd8d7e12e9a4e84ada96839e',1,'TriggeredScope::None'],['../classFilter.html#a8f99602312ccfbe9e1598532158726c0ae6e303ddb4b9092543178146dfe3c9dd',1,'Filter::none'],['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a334c4a4c42fdb79d7ebc3e73b517e6f8',1,'LFO::none']]],
+  ['none_3',['none',['../classFilter.html#a8f99602312ccfbe9e1598532158726c0ae6e303ddb4b9092543178146dfe3c9dd',1,'Filter::none'],['../classLFO.html#a9377c9fb47d163e9343a11edd200da29a334c4a4c42fdb79d7ebc3e73b517e6f8',1,'LFO::none'],['../classTriggeredScope.html#a4a36f94df329bf1351904f51ff1aac40ae7f5e1acdd8d7e12e9a4e84ada96839e',1,'TriggeredScope::None']]],
   ['nopermissions_4',['nopermissions',['../classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30fabe61a1bc08244491bfbe19296953ddb1',1,'ElevatedFileCopy']]],
   ['normal_5',['normal',['../classAudioRecorder.html#a9884aa523051c23ae78f5e9e4c86b449afea087517c26fadd409bd4b9dc642555',1,'AudioRecorder::normal'],['../group__gin__graphics-images.html#gga30323fa90e24ca484998b9fba6c40e85a5ecbcf0afce98b042f35ec71ba03fa4b',1,'Normal:&#160;gin_imageeffects.h']]],
   ['notch_6',['notch',['../classFilter.html#a8f99602312ccfbe9e1598532158726c0a0a3bfe9ecaa7b5164c16cbb43457a778',1,'Filter']]],
-  ['notecolourid_7',['noteColourId',['../classMidiFileComponent.html#adc83f09d9e0ace77adee9e9f560e7cbda00690fadbe3dce287af0e4f85a35b491',1,'MidiFileComponent']]]
+  ['notecolourid_7',['noteColourId',['../classMidiFileComponent.html#adc83f09d9e0ace77adee9e9f560e7cbda00690fadbe3dce287af0e4f85a35b491',1,'MidiFileComponent']]],
+  ['numaxes_8',['numAxes',['../classGameController.html#a9b9aaaaf38aa420262c310a5dc0a6f31a2e3dcfcd9d54cb9a3a39f6e0b480de42',1,'GameController']]],
+  ['numbuttons_9',['numButtons',['../classGameController.html#a6d925e0cc0db2aa51ad31f13fc4de069a94b9ecda0258e26aabae0220388be429',1,'GameController']]]
 ];

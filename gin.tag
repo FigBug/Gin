@@ -792,6 +792,21 @@
     <filename>gin__vec3_8test_8h.html</filename>
   </compound>
   <compound kind="file">
+    <name>gin_gamecontroller.h</name>
+    <path>build/gin_controllers/controllers/</path>
+    <filename>gin__gamecontroller_8h.html</filename>
+    <class kind="class">GameController</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_gamecontrollermanager.h</name>
+    <path>build/gin_controllers/controllers/</path>
+    <filename>gin__gamecontrollermanager_8h.html</filename>
+    <class kind="class">GameControllerManager</class>
+    <class kind="class">GameControllerManager::Listener</class>
+    <class kind="struct">GameControllerManager::PollState</class>
+    <class kind="class">GameControllerManager::Backend</class>
+  </compound>
+  <compound kind="file">
     <name>gin_audiosamplerbuffercomponent.h</name>
     <path>build/gin_dsp/components/</path>
     <filename>gin__audiosamplerbuffercomponent_8h.html</filename>
@@ -4650,6 +4665,24 @@
       <arglist></arglist>
     </member>
   </compound>
+  <compound kind="class">
+    <name>GameControllerManager::Backend</name>
+    <filename>classGameControllerManager_1_1Backend.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Backend</name>
+      <anchorfile>classGameControllerManager_1_1Backend.html</anchorfile>
+      <anchor>accfcf5593efc64bb727c1dcfabbc4e45</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>poll</name>
+      <anchorfile>classGameControllerManager_1_1Backend.html</anchorfile>
+      <anchor>ac2c66d8f77d04d25bb37fe0d9ca91545</anchor>
+      <arglist>(int port, PollState &amp;out)=0</arglist>
+    </member>
+  </compound>
   <compound kind="struct">
     <name>BackInEasing</name>
     <filename>structBackInEasing.html</filename>
@@ -8032,6 +8065,162 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>GameController</name>
+    <filename>classGameController.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>Button</name>
+      <anchorfile>classGameController.html</anchorfile>
+      <anchor>a6d925e0cc0db2aa51ad31f13fc4de069</anchor>
+      <arglist></arglist>
+      <enumvalue file="classGameController.html" anchor="a6d925e0cc0db2aa51ad31f13fc4de069aad921d60486366258809553a3db49a4a">unknown</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a6d925e0cc0db2aa51ad31f13fc4de069abfeeb9bc1c0b504cd2b37936f2ec118a">dpadUp</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a6d925e0cc0db2aa51ad31f13fc4de069a35017cc87768f6947e89fb5d68a69f9c">dpadRight</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a6d925e0cc0db2aa51ad31f13fc4de069aad4b3927d9f1901ebb543a8184412c86">dpadDown</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a6d925e0cc0db2aa51ad31f13fc4de069ab753abfae79ef5a45b2a06b952d66b47">dpadLeft</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a6d925e0cc0db2aa51ad31f13fc4de069a0ef368f8785b1e5e90ab58b6d1009ebc">faceDown</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a6d925e0cc0db2aa51ad31f13fc4de069a9a656f7fed9c19c4bd9178fa06914995">faceRight</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a6d925e0cc0db2aa51ad31f13fc4de069a54f04f4d5cab1141076f63b4d568060d">faceUp</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a6d925e0cc0db2aa51ad31f13fc4de069aa1ede3fd1949f75d26ba40c5537a6314">faceLeft</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a6d925e0cc0db2aa51ad31f13fc4de069ab8f9c6900242812c7d580dc263668de8">leftShoulder</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a6d925e0cc0db2aa51ad31f13fc4de069abdd85db15fdf2c36160b1452bce28730">rightShoulder</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a6d925e0cc0db2aa51ad31f13fc4de069ac843b67df863b66eaabe63e698ad0304">leftTrigger</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a6d925e0cc0db2aa51ad31f13fc4de069afe8de8812758de942af9ab1c71cc3c2a">rightTrigger</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a6d925e0cc0db2aa51ad31f13fc4de069a99938282f04071859941e18f16efcf42">select</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a6d925e0cc0db2aa51ad31f13fc4de069a106a6c241b8797f52e1e77317b96a201">home</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a6d925e0cc0db2aa51ad31f13fc4de069aea2b2676c28c0db26d39331a336c6b92">start</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a6d925e0cc0db2aa51ad31f13fc4de069a343f174ab29aa5b252231fa9bf88d2eb">leftStick</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a6d925e0cc0db2aa51ad31f13fc4de069a7c8298b3f1e6c45b75a276fbc54650ce">rightStick</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a6d925e0cc0db2aa51ad31f13fc4de069a94b9ecda0258e26aabae0220388be429">numButtons</enumvalue>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>Axis</name>
+      <anchorfile>classGameController.html</anchorfile>
+      <anchor>a9b9aaaaf38aa420262c310a5dc0a6f31</anchor>
+      <arglist></arglist>
+      <enumvalue file="classGameController.html" anchor="a9b9aaaaf38aa420262c310a5dc0a6f31a997e1d811ca293735c9a6d41c9f4e161">leftX</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a9b9aaaaf38aa420262c310a5dc0a6f31a37239bd194b054def4a166c505e86ca0">leftY</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a9b9aaaaf38aa420262c310a5dc0a6f31a94088c1fced51079ed44e8ba1dcc75f3">rightX</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a9b9aaaaf38aa420262c310a5dc0a6f31ac20bbbc67cdeace3cad45d4afd635695">rightY</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a9b9aaaaf38aa420262c310a5dc0a6f31ac843b67df863b66eaabe63e698ad0304">leftTrigger</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a9b9aaaaf38aa420262c310a5dc0a6f31afe8de8812758de942af9ab1c71cc3c2a">rightTrigger</enumvalue>
+      <enumvalue file="classGameController.html" anchor="a9b9aaaaf38aa420262c310a5dc0a6f31a2e3dcfcd9d54cb9a3a39f6e0b480de42">numAxes</enumvalue>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getIndex</name>
+      <anchorfile>classGameController.html</anchorfile>
+      <anchor>a0a44c0b5233fb77a47ce805d011b4c9b</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce::String &amp;</type>
+      <name>getName</name>
+      <anchorfile>classGameController.html</anchorfile>
+      <anchor>a2209f1078b4dfc4f2b4d8552f2d25c31</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isConnected</name>
+      <anchorfile>classGameController.html</anchorfile>
+      <anchor>a89828b0c6f7bc06893c80e8984a87619</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isButtonDown</name>
+      <anchorfile>classGameController.html</anchorfile>
+      <anchor>a79cf44698a14265a8a2e884cc9f6d63a</anchor>
+      <arglist>(Button b) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getAxis</name>
+      <anchorfile>classGameController.html</anchorfile>
+      <anchor>ad42a54acd06e15a68df338c20fe1c8d9</anchor>
+      <arglist>(Axis a) const noexcept</arglist>
+    </member>
+    <member kind="friend" protection="private">
+      <type>friend class</type>
+      <name>GameControllerManager</name>
+      <anchorfile>classGameController.html</anchorfile>
+      <anchor>a7b9bbe8577ee8adac067ec55ab96f6f5</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>GameControllerManager</name>
+    <filename>classGameControllerManager.html</filename>
+    <class kind="class">GameControllerManager::Backend</class>
+    <class kind="class">GameControllerManager::Listener</class>
+    <class kind="struct">GameControllerManager::PollState</class>
+    <member kind="function">
+      <type></type>
+      <name>GameControllerManager</name>
+      <anchorfile>classGameControllerManager.html</anchorfile>
+      <anchor>af7e49510afa1a427ef571176b704bb49</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~GameControllerManager</name>
+      <anchorfile>classGameControllerManager.html</anchorfile>
+      <anchor>ad50de6646ad2b709135e9b06ee3a7ac3</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>GameController *</type>
+      <name>getController</name>
+      <anchorfile>classGameControllerManager.html</anchorfile>
+      <anchor>af180f4c608a0ab75f63c2f835c1bbdde</anchor>
+      <arglist>(int index) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumConnectedControllers</name>
+      <anchorfile>classGameControllerManager.html</anchorfile>
+      <anchor>aa4c0d59a38d1efae93c322ea7fbd489d</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setTriggerThreshold</name>
+      <anchorfile>classGameControllerManager.html</anchorfile>
+      <anchor>a818a07a689e44a3502d49da13bdbc72b</anchor>
+      <arglist>(float threshold) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPollIntervalHz</name>
+      <anchorfile>classGameControllerManager.html</anchorfile>
+      <anchor>af5fb8aec4ed39ba5bd8c8d25efe7e9eb</anchor>
+      <arglist>(int hz)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addListener</name>
+      <anchorfile>classGameControllerManager.html</anchorfile>
+      <anchor>a45b469bb036481dc914b23a0ffe366f2</anchor>
+      <arglist>(Listener *l)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeListener</name>
+      <anchorfile>classGameControllerManager.html</anchorfile>
+      <anchor>aeebd508f1b0504d403fd89a85504370b</anchor>
+      <arglist>(Listener *l)</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>maxControllers</name>
+      <anchorfile>classGameControllerManager.html</anchorfile>
+      <anchor>ab7b0d64ba52a5cadf73331964be517f4</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>GateEffect</name>
     <filename>classGateEffect.html</filename>
     <member kind="function">
@@ -10731,6 +10920,52 @@
       <anchorfile>classFileSystemWatcher_1_1Listener.html</anchorfile>
       <anchor>ae380fea89b1c4b457493d922ec4a8a73</anchor>
       <arglist>(const juce::File &amp;, FileSystemEvent)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>GameControllerManager::Listener</name>
+    <filename>classGameControllerManager_1_1Listener.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>classGameControllerManager_1_1Listener.html</anchorfile>
+      <anchor>af3c52efe2b3fad7e6e34ff5e59955d38</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>controllerConnected</name>
+      <anchorfile>classGameControllerManager_1_1Listener.html</anchorfile>
+      <anchor>a43ece6f0424cd409d2d8f88ecd162398</anchor>
+      <arglist>(GameController &amp;)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>controllerDisconnected</name>
+      <anchorfile>classGameControllerManager_1_1Listener.html</anchorfile>
+      <anchor>a5e6c9d28a712ee985c7fcf38f2ddff60</anchor>
+      <arglist>(GameController &amp;)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>controllerButtonPressed</name>
+      <anchorfile>classGameControllerManager_1_1Listener.html</anchorfile>
+      <anchor>a354d728defbd140b84c50e8279a6750b</anchor>
+      <arglist>(GameController &amp;, GameController::Button)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>controllerButtonReleased</name>
+      <anchorfile>classGameControllerManager_1_1Listener.html</anchorfile>
+      <anchor>a984cd77807cbf7a6cf7354433c8d5c14</anchor>
+      <arglist>(GameController &amp;, GameController::Button)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>controllerAxisMoved</name>
+      <anchorfile>classGameControllerManager_1_1Listener.html</anchorfile>
+      <anchor>a15dbec8ec52639d40538e13381d90ab8</anchor>
+      <arglist>(GameController &amp;, GameController::Axis, float value)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -15758,6 +15993,38 @@
       <name>colour</name>
       <anchorfile>structPoint3D.html</anchorfile>
       <anchor>a394a82d42a3c5a2c211034e4b3ea8db3</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>GameControllerManager::PollState</name>
+    <filename>structGameControllerManager_1_1PollState.html</filename>
+    <member kind="variable">
+      <type>bool</type>
+      <name>connected</name>
+      <anchorfile>structGameControllerManager_1_1PollState.html</anchorfile>
+      <anchor>acfdb157eccc53e0de66e85dfa0af59b5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>name</name>
+      <anchorfile>structGameControllerManager_1_1PollState.html</anchorfile>
+      <anchor>a8bc7b5e9dc2b15501ea4e231e36428cd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::array&lt; bool,(size_t) GameController::Button::numButtons &gt;</type>
+      <name>buttons</name>
+      <anchorfile>structGameControllerManager_1_1PollState.html</anchorfile>
+      <anchor>af3d7cc422ae9943f0dda4c5af8f4dc5e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::array&lt; float,(size_t) GameController::Axis::numAxes &gt;</type>
+      <name>axes</name>
+      <anchorfile>structGameControllerManager_1_1PollState.html</anchorfile>
+      <anchor>a929a6845b39f6ba3ec95dc7bc39ecb1c</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -22742,6 +23009,21 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
+    <class kind="class">AudioSamplerBufferComponent</class>
+    <class kind="class">AudioSamplerBufferComponent::ScopedViewState</class>
+    <class kind="class">DynamicsMeter</class>
+    <class kind="class">LevelMeter</class>
+    <class kind="class">MidiFileComponent</class>
+    <class kind="class">SpectrumAnalyzer</class>
+    <class kind="class">TriggeredScope</class>
+    <class kind="class">WaveformComponent</class>
+    <class kind="class">WavetableComponent</class>
+    <class kind="class">XYScope</class>
+  </compound>
+  <compound kind="group">
     <name>gin_gui-components</name>
     <title>components</title>
     <filename>group__gin__gui-components.html</filename>
@@ -22768,21 +23050,6 @@
       <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
       <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
     </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-    <class kind="class">AudioSamplerBufferComponent</class>
-    <class kind="class">AudioSamplerBufferComponent::ScopedViewState</class>
-    <class kind="class">DynamicsMeter</class>
-    <class kind="class">LevelMeter</class>
-    <class kind="class">MidiFileComponent</class>
-    <class kind="class">SpectrumAnalyzer</class>
-    <class kind="class">TriggeredScope</class>
-    <class kind="class">WaveformComponent</class>
-    <class kind="class">WavetableComponent</class>
-    <class kind="class">XYScope</class>
   </compound>
   <compound kind="group">
     <name>gin_plugin-components</name>
@@ -22845,6 +23112,16 @@
       <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
       <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
     </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_controllers-controllers</name>
+    <title>controllers</title>
+    <filename>group__gin__controllers-controllers.html</filename>
+    <class kind="class">GameController</class>
+    <class kind="class">GameControllerManager</class>
+    <class kind="class">GameControllerManager::Listener</class>
+    <class kind="struct">GameControllerManager::PollState</class>
+    <class kind="class">GameControllerManager::Backend</class>
   </compound>
   <compound kind="group">
     <name>gin_dsp-dsp</name>
@@ -23126,16 +23403,16 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_webp-formats</name>
-    <title>formats</title>
-    <filename>group__gin__webp-formats.html</filename>
-    <class kind="class">WEBPImageFormat</class>
-  </compound>
-  <compound kind="group">
     <name>gin_graphics-formats</name>
     <title>formats</title>
     <filename>group__gin__graphics-formats.html</filename>
     <class kind="class">BMPImageFormat</class>
+  </compound>
+  <compound kind="group">
+    <name>gin_webp-formats</name>
+    <title>formats</title>
+    <filename>group__gin__webp-formats.html</filename>
+    <class kind="class">WEBPImageFormat</class>
   </compound>
   <compound kind="group">
     <name>gin-geometry</name>
@@ -23171,6 +23448,12 @@
     <title>gin_3d</title>
     <filename>group__gin__3d.html</filename>
     <subgroup>gin_3d-3d</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>gin_controllers</name>
+    <title>gin_controllers</title>
+    <filename>group__gin__controllers.html</filename>
+    <subgroup>gin_controllers-controllers</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_dsp</name>

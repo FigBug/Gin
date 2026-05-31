@@ -23,5 +23,6 @@ var searchData=
   ['author_20',['author',['../classProgram.html#a98dafb9ef18422b1a03261697b874194',1,'Program']]],
   ['authors_21',['authors',['../classPatchBrowser.html#a1becbf2ecebca6e5a2ba2533b619b952',1,'PatchBrowser']]],
   ['authorsmodel_22',['authorsModel',['../classPatchBrowser.html#a62a7cf5ab56615e84109ced00beb6dcb',1,'PatchBrowser']]],
-  ['autoopenmididevices_23',['autoOpenMidiDevices',['../classStandalonePluginHolder.html#ab167cba8a89e4a376c360b624ff6a70a',1,'StandalonePluginHolder']]]
+  ['autoopenmididevices_23',['autoOpenMidiDevices',['../classStandalonePluginHolder.html#ab167cba8a89e4a376c360b624ff6a70a',1,'StandalonePluginHolder']]],
+  ['axes_24',['axes',['../structGameControllerManager_1_1PollState.html#a929a6845b39f6ba3ec95dc7bc39ecb1c',1,'GameControllerManager::PollState']]]
 ];
