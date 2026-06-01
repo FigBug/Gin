@@ -10964,8 +10964,8 @@
       <type>virtual void</type>
       <name>controllerAxisMoved</name>
       <anchorfile>classGameControllerManager_1_1Listener.html</anchorfile>
-      <anchor>a15dbec8ec52639d40538e13381d90ab8</anchor>
-      <arglist>(GameController &amp;, GameController::Axis, float value)</arglist>
+      <anchor>a9c4e888ce8b022141b3f30236a8077ef</anchor>
+      <arglist>(GameController &amp;, GameController::Axis, float)</arglist>
     </member>
   </compound>
   <compound kind="class">

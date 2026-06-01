@@ -80,7 +80,7 @@ var searchData=
   ['connect_77',['connect',['../classAsyncWebsocket.html#ac4a1d21499ab2ebc02483485eb0c62b5',1,'AsyncWebsocket::connect()'],['../classSecureStreamingSocket.html#aea1e67df0bbf6e3f7cd82e7b6419c1e8',1,'SecureStreamingSocket::connect()']]],
   ['contains_78',['contains',['../classLRUCache.html#a2a0c93554db09d15b18c6b58c3494a32',1,'LRUCache']]],
   ['controlbox_79',['ControlBox',['../classControlBox.html#ad4f9fd1d3bd2be33f40ed7bdf1b166c7',1,'ControlBox']]],
-  ['controlleraxismoved_80',['controllerAxisMoved',['../classGameControllerManager_1_1Listener.html#a15dbec8ec52639d40538e13381d90ab8',1,'GameControllerManager::Listener']]],
+  ['controlleraxismoved_80',['controllerAxisMoved',['../classGameControllerManager_1_1Listener.html#a9c4e888ce8b022141b3f30236a8077ef',1,'GameControllerManager::Listener']]],
   ['controllerbuttonpressed_81',['controllerButtonPressed',['../classGameControllerManager_1_1Listener.html#a354d728defbd140b84c50e8279a6750b',1,'GameControllerManager::Listener']]],
   ['controllerbuttonreleased_82',['controllerButtonReleased',['../classGameControllerManager_1_1Listener.html#a984cd77807cbf7a6cf7354433c8d5c14',1,'GameControllerManager::Listener']]],
   ['controllerconnected_83',['controllerConnected',['../classGameControllerManager_1_1Listener.html#a43ece6f0424cd409d2d8f88ecd162398',1,'GameControllerManager::Listener']]],
