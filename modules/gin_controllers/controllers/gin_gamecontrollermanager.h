@@ -74,7 +74,7 @@ public:
         virtual void controllerDisconnected   (GameController&) {}
         virtual void controllerButtonPressed  (GameController&, GameController::Button) {}
         virtual void controllerButtonReleased (GameController&, GameController::Button) {}
-        virtual void controllerAxisMoved      (GameController&, GameController::Axis, float value) {}
+        virtual void controllerAxisMoved      (GameController&, GameController::Axis, float /*value*/) {}
     };
 
     void addListener    (Listener* l)  { listeners.add (l); }
