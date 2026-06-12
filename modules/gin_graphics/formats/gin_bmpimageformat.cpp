@@ -85,7 +85,7 @@ juce::Image BMPImageFormat::decodeImage (juce::InputStream& input)
     bool bottomUp = hdr.height < 0;
     hdr.height = std::abs (hdr.height);
 
-    juce::Image img (juce::Image::ARGB, int (hdr.width), int (hdr.height), true);
+    juce::Image img (juce::Image::ARGB, int (hdr.width), int (hdr.height), true, juce::SoftwareImageType());
     juce::Image::BitmapData data (img, juce::Image::BitmapData::writeOnly);
 
     input.setPosition (hdr.dataOffset);
