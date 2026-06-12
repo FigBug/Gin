@@ -7,7 +7,7 @@
 
 juce::Image rasterizeSVG (juce::String svgText, int w, int h)
 {
-    juce::Image img (juce::Image::ARGB, w, h, true);
+    juce::Image img (juce::Image::ARGB, w, h, true, juce::SoftwareImageType());
 
     if (auto svg = juce::XmlDocument::parse (svgText))
     {
