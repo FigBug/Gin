@@ -9,14 +9,17 @@ juce::Image rasterizeSVG (juce::String svgText, int w, int h)
 {
     juce::Image img (juce::Image::ARGB, w, h, true, juce::SoftwareImageType());
 
-    if (auto svg = juce::XmlDocument::parse (svgText))
+    const juce::MessageManagerLock mmLock ( juce::Thread::getCurrentThread () );
+
+    if ( mmLock.lockWasGained () )
     {
-        const juce::MessageManagerLock mmLock ( juce::Thread::getCurrentThread () );
-
-        if ( mmLock.lockWasGained () )
+       #if JUCE_MAJOR_VERSION >= 9
+        if (auto drawable = juce::Drawable::createFromSVGString (svgText))
+       #else
+        auto svg = juce::XmlDocument::parse (svgText);
+        if (auto drawable = svg != nullptr ? juce::Drawable::createFromSVG (*svg) : nullptr)
+       #endif
         {
-            auto drawable = juce::Drawable::createFromSVG (*svg);
-
             juce::Graphics g (img);
             drawable->drawWithin (g, juce::Rectangle<float>(float (w), float (h)), 0, 1.0f);
         }

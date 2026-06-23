@@ -128,9 +128,13 @@ struct NanoSVGDemo : public DemoComponent,
     {
         juce::Image img (juce::Image::ARGB, w, h, true);
 
-        if (auto xml = juce::XmlDocument::parse (svgText))
+       #if JUCE_MAJOR_VERSION >= 9
+        if (auto drawable = juce::Drawable::createFromSVGString (svgText))
+       #else
+        auto xml = juce::XmlDocument::parse (svgText);
+        if (auto drawable = xml != nullptr ? juce::Drawable::createFromSVG (*xml) : nullptr)
+       #endif
         {
-            auto drawable = juce::Drawable::createFromSVG (*xml);
             juce::Graphics g (img);
             drawable->drawWithin (g, juce::Rectangle<float> (float (w), float (h)),
                                  juce::RectanglePlacement::centred, 1.0f);
