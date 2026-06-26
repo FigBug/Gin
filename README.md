@@ -59,6 +59,7 @@ Gin is organized into focused modules that can be included independently:
 |--------|-------------|
 | **gin** | Core utilities, file system watching, download manager, math utilities |
 | **gin_3d** | Basic wireframe 3D rendering engine |
+| **gin_controllers** | Cross-platform game controller support (XInput / GameController / joydev) |
 | **gin_dsp** | Audio DSP components: oscillators, filters, effects, modulation |
 | **gin_graphics** | Image processing, effects, metadata, BMP format support |
 | **gin_gui** | UI components, property editors, layout system, OpenStreetMap integration |
@@ -68,6 +69,7 @@ Gin is organized into focused modules that can be included independently:
 | **gin_plugin** | Audio plugin utilities and common functionality |
 | **gin_simd** | SIMD-optimized operations |
 | **gin_standaloneplugin** | Standalone audio plugin application wrapper |
+| **gin_svg** | SVG parsing and rendering using NanoSVG |
 | **gin_webp** | WebP image format support |
 
 ## Features
@@ -104,6 +106,11 @@ Gin is organized into focused modules that can be included independently:
 - **WebSocket** - Full-featured WebSocket client
 - **SecureStreamingSocket** - SSL/TLS socket support
 
+### Game Controllers (gin_controllers)
+- **GameControllerManager** - Cross-platform manager polling up to 8 controllers
+- **GameController** - Unified button and axis state with listener callbacks
+- **Platform backends** - XInput on Windows, GameController framework on macOS, joydev on Linux
+
 ### Plugin Utilities (gin_plugin)
 - **Processor** - Extended audio processor with parameter management
 - **Parameter** - Smart parameters with modulation support
@@ -122,6 +129,9 @@ Gin is organized into focused modules that can be included independently:
 
 ### WebP Support (gin_webp)
 - **WebPImageFormat** - Read and write WebP images
+
+### SVG Support (gin_svg)
+- **SVG parsing and rendering** - Powered by NanoSVG
 
 ### 3D Wireframe Engine (gin_3d)
 - **Vec3/Mat4** - 3D vector and matrix math
