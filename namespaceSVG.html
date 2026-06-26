@@ -75,28 +75,40 @@ $(function() {
   <div class="headertitle"><div class="title">SVG Namespace Reference<div class="ingroups"><a class="el" href="group__gin__svg.html">gin_svg</a> &raquo; <a class="el" href="group__gin__svg-svg.html">svg</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="namespaceSVG.html" title="SVG parsing and rendering helpers built on NanoSVG.">SVG</a> parsing and rendering helpers built on NanoSVG.  
+<a href="namespaceSVG.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:afb2276b612dda43cefaf0c4bf8ec0f41" id="r_afb2276b612dda43cefaf0c4bf8ec0f41"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41">Engine</a> { <a class="el" href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41a8f20242f8e03c63d62da1afa962881e8">nanosvg</a>
 , <a class="el" href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41a05c86d0c77c9f9e6c9aea997831f644b">juce</a>
  }</td></tr>
+<tr class="memdesc:afb2276b612dda43cefaf0c4bf8ec0f41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rendering backend.  <a href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41">More...</a><br /></td></tr>
 <tr class="separator:afb2276b612dda43cefaf0c4bf8ec0f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:abb77fe74a8f7807ee8768c02770715a3" id="r_abb77fe74a8f7807ee8768c02770715a3"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceSVG.html#abb77fe74a8f7807ee8768c02770715a3">renderToImage</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">svgText</a>, <a class="el" href="classPoint.html">int</a> width, <a class="el" href="classPoint.html">int</a> height, <a class="el" href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41">Engine</a> <a class="el" href="classPoint.html">engine</a>=<a class="el" href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41a05c86d0c77c9f9e6c9aea997831f644b">Engine::juce</a>)</td></tr>
+<tr class="memdesc:abb77fe74a8f7807ee8768c02770715a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders svgText into a width x height ARGB image with a transparent background.  <br /></td></tr>
 <tr class="separator:abb77fe74a8f7807ee8768c02770715a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2f2dfe67913dcd208a5b06a83ea5c39" id="r_ae2f2dfe67913dcd208a5b06a83ea5c39"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceSVG.html#ae2f2dfe67913dcd208a5b06a83ea5c39">renderToImage</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">svgText</a>, <a class="el" href="classPoint.html">int</a> width, <a class="el" href="classPoint.html">int</a> height, juce::Colour <a class="el" href="classPoint.html">backgroundColour</a>, <a class="el" href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41">Engine</a> <a class="el" href="classPoint.html">engine</a>=<a class="el" href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41a05c86d0c77c9f9e6c9aea997831f644b">Engine::juce</a>)</td></tr>
+<tr class="memdesc:ae2f2dfe67913dcd208a5b06a83ea5c39"><td class="mdescLeft">&#160;</td><td class="mdescRight">As above, but fills the image with backgroundColour before drawing.  <br /></td></tr>
 <tr class="separator:ae2f2dfe67913dcd208a5b06a83ea5c39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a566399c1dee6ae0be6948616610e658e" id="r_a566399c1dee6ae0be6948616610e658e"><td class="memItemLeft" align="right" valign="top">juce::Path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceSVG.html#a566399c1dee6ae0be6948616610e658e">renderToPath</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">svgText</a>)</td></tr>
+<tr class="memdesc:a566399c1dee6ae0be6948616610e658e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all visible shapes flattened into a single juce::Path in the <a class="el" href="namespaceSVG.html" title="SVG parsing and rendering helpers built on NanoSVG.">SVG</a>'s own coordinate space.  <br /></td></tr>
 <tr class="separator:a566399c1dee6ae0be6948616610e658e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a358c4add91ec1135992f540af6152d" id="r_a6a358c4add91ec1135992f540af6152d"><td class="memItemLeft" align="right" valign="top">juce::Path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceSVG.html#a6a358c4add91ec1135992f540af6152d">renderToPath</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">svgText</a>, juce::Rectangle&lt; <a class="el" href="classPoint.html">float</a> &gt; <a class="el" href="classPoint.html">targetBounds</a>, juce::RectanglePlacement <a class="el" href="classPoint.html">placement</a>=juce::RectanglePlacement::centred)</td></tr>
+<tr class="memdesc:a6a358c4add91ec1135992f540af6152d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="namespaceSVG.html" title="SVG parsing and rendering helpers built on NanoSVG.">SVG</a> as a juce::Path fitted into targetBounds.  <br /></td></tr>
 <tr class="separator:a6a358c4add91ec1135992f540af6152d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aceebf5e07f894bef0e278439899892ba" id="r_aceebf5e07f894bef0e278439899892ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceSVG.html#aceebf5e07f894bef0e278439899892ba">render</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">svgText</a>, juce::Graphics &amp;g, juce::Rectangle&lt; <a class="el" href="classPoint.html">float</a> &gt; <a class="el" href="classPoint.html">targetBounds</a>, <a class="el" href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41">Engine</a> <a class="el" href="classPoint.html">engine</a>=<a class="el" href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41a05c86d0c77c9f9e6c9aea997831f644b">Engine::juce</a>)</td></tr>
+<tr class="memdesc:aceebf5e07f894bef0e278439899892ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws svgText into targetBounds on the given Graphics context.  <br /></td></tr>
 <tr class="separator:aceebf5e07f894bef0e278439899892ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="namespaceSVG.html" title="SVG parsing and rendering helpers built on NanoSVG.">SVG</a> parsing and rendering helpers built on NanoSVG. </p>
+<p>Why use these instead of JUCE's built-in <a class="el" href="namespaceSVG.html" title="SVG parsing and rendering helpers built on NanoSVG.">SVG</a> support? These helpers honour the source <a class="el" href="namespaceSVG.html" title="SVG parsing and rendering helpers built on NanoSVG.">SVG</a>'s view box (width/height) when fitting into a target rectangle, preserving aspect ratio. JUCE's <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">Drawable::createFromSVG</a> and <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">Path::createPathFromString</a> collapse shapes into the path's own bounding box, which loses the view box and distorts artwork that has padding or off-centre content. </p>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="afb2276b612dda43cefaf0c4bf8ec0f41" name="afb2276b612dda43cefaf0c4bf8ec0f41"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afb2276b612dda43cefaf0c4bf8ec0f41">&#9670;&#160;</a></span>Engine</h2>
 
@@ -116,6 +128,12 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Rendering backend. </p>
+<ul>
+<li>juce: rasterises by replaying shapes through juce::Graphics (vector — scales cleanly, respects host transforms).</li>
+<li>nanosvg: rasterises with NanoSVG's built-in rasteriser into a bitmap (typically faster, but pixel-bound). </li>
+</ul>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afb2276b612dda43cefaf0c4bf8ec0f41a8f20242f8e03c63d62da1afa962881e8" name="afb2276b612dda43cefaf0c4bf8ec0f41a8f20242f8e03c63d62da1afa962881e8"></a>nanosvg&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="afb2276b612dda43cefaf0c4bf8ec0f41a05c86d0c77c9f9e6c9aea997831f644b" name="afb2276b612dda43cefaf0c4bf8ec0f41a05c86d0c77c9f9e6c9aea997831f644b"></a>juce&#160;</td><td class="fielddoc"></td></tr>
@@ -161,6 +179,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Renders svgText into a width x height ARGB image with a transparent background. </p>
+<p>The <a class="el" href="namespaceSVG.html" title="SVG parsing and rendering helpers built on NanoSVG.">SVG</a> is scaled uniformly to fit and centred — its view box aspect ratio is preserved. </p>
 
 </div>
 </div>
@@ -208,6 +229,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>As above, but fills the image with backgroundColour before drawing. </p>
+
 </div>
 </div>
 <a id="a566399c1dee6ae0be6948616610e658e" name="a566399c1dee6ae0be6948616610e658e"></a>
@@ -225,6 +248,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns all visible shapes flattened into a single juce::Path in the <a class="el" href="namespaceSVG.html" title="SVG parsing and rendering helpers built on NanoSVG.">SVG</a>'s own coordinate space. </p>
+<p>Note: the resulting path's bounding box is the union of its shapes, NOT the <a class="el" href="namespaceSVG.html" title="SVG parsing and rendering helpers built on NanoSVG.">SVG</a> view box, so transforming it directly will not preserve the view box — use the targetBounds overload below if you need that. </p>
 
 </div>
 </div>
@@ -259,6 +285,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the <a class="el" href="namespaceSVG.html" title="SVG parsing and rendering helpers built on NanoSVG.">SVG</a> as a juce::Path fitted into targetBounds. </p>
+<p>Unlike the single-argument overload, this version uses the view box for the fit, so padding and off-centre content are preserved. </p>
 
 </div>
 </div>
@@ -300,12 +329,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Draws svgText into targetBounds on the given Graphics context. </p>
+<p>The view box is preserved via a centred uniform scale. </p>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 26 2026 13:16:23 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Jun 26 2026 13:25:17 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

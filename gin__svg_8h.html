@@ -84,6 +84,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceSVG" id="r_namespaceSVG"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceSVG.html">SVG</a></td></tr>
+<tr class="memdesc:namespaceSVG"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceSVG.html" title="SVG parsing and rendering helpers built on NanoSVG.">SVG</a> parsing and rendering helpers built on NanoSVG. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
@@ -91,25 +92,31 @@ Enumerations</h2></td></tr>
 <tr class="memitem:afb2276b612dda43cefaf0c4bf8ec0f41" id="r_afb2276b612dda43cefaf0c4bf8ec0f41"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41">SVG::Engine</a> { <a class="el" href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41a8f20242f8e03c63d62da1afa962881e8">SVG::nanosvg</a>
 , <a class="el" href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41a05c86d0c77c9f9e6c9aea997831f644b">SVG::juce</a>
  }</td></tr>
+<tr class="memdesc:afb2276b612dda43cefaf0c4bf8ec0f41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rendering backend.  <a href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41">More...</a><br /></td></tr>
 <tr class="separator:afb2276b612dda43cefaf0c4bf8ec0f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:abb77fe74a8f7807ee8768c02770715a3" id="r_abb77fe74a8f7807ee8768c02770715a3"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceSVG.html#abb77fe74a8f7807ee8768c02770715a3">SVG::renderToImage</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">svgText</a>, <a class="el" href="classPoint.html">int</a> width, <a class="el" href="classPoint.html">int</a> height, <a class="el" href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41">Engine</a> <a class="el" href="classPoint.html">engine</a>=<a class="el" href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41a05c86d0c77c9f9e6c9aea997831f644b">Engine::juce</a>)</td></tr>
+<tr class="memdesc:abb77fe74a8f7807ee8768c02770715a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders svgText into a width x height ARGB image with a transparent background.  <br /></td></tr>
 <tr class="separator:abb77fe74a8f7807ee8768c02770715a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2f2dfe67913dcd208a5b06a83ea5c39" id="r_ae2f2dfe67913dcd208a5b06a83ea5c39"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceSVG.html#ae2f2dfe67913dcd208a5b06a83ea5c39">SVG::renderToImage</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">svgText</a>, <a class="el" href="classPoint.html">int</a> width, <a class="el" href="classPoint.html">int</a> height, juce::Colour <a class="el" href="classPoint.html">backgroundColour</a>, <a class="el" href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41">Engine</a> <a class="el" href="classPoint.html">engine</a>=<a class="el" href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41a05c86d0c77c9f9e6c9aea997831f644b">Engine::juce</a>)</td></tr>
+<tr class="memdesc:ae2f2dfe67913dcd208a5b06a83ea5c39"><td class="mdescLeft">&#160;</td><td class="mdescRight">As above, but fills the image with backgroundColour before drawing.  <br /></td></tr>
 <tr class="separator:ae2f2dfe67913dcd208a5b06a83ea5c39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a566399c1dee6ae0be6948616610e658e" id="r_a566399c1dee6ae0be6948616610e658e"><td class="memItemLeft" align="right" valign="top">juce::Path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceSVG.html#a566399c1dee6ae0be6948616610e658e">SVG::renderToPath</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">svgText</a>)</td></tr>
+<tr class="memdesc:a566399c1dee6ae0be6948616610e658e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all visible shapes flattened into a single juce::Path in the <a class="el" href="namespaceSVG.html" title="SVG parsing and rendering helpers built on NanoSVG.">SVG</a>'s own coordinate space.  <br /></td></tr>
 <tr class="separator:a566399c1dee6ae0be6948616610e658e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a358c4add91ec1135992f540af6152d" id="r_a6a358c4add91ec1135992f540af6152d"><td class="memItemLeft" align="right" valign="top">juce::Path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceSVG.html#a6a358c4add91ec1135992f540af6152d">SVG::renderToPath</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">svgText</a>, juce::Rectangle&lt; <a class="el" href="classPoint.html">float</a> &gt; <a class="el" href="classPoint.html">targetBounds</a>, juce::RectanglePlacement <a class="el" href="classPoint.html">placement</a>=juce::RectanglePlacement::centred)</td></tr>
+<tr class="memdesc:a6a358c4add91ec1135992f540af6152d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="namespaceSVG.html" title="SVG parsing and rendering helpers built on NanoSVG.">SVG</a> as a juce::Path fitted into targetBounds.  <br /></td></tr>
 <tr class="separator:a6a358c4add91ec1135992f540af6152d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aceebf5e07f894bef0e278439899892ba" id="r_aceebf5e07f894bef0e278439899892ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceSVG.html#aceebf5e07f894bef0e278439899892ba">SVG::render</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;<a class="el" href="classPoint.html">svgText</a>, juce::Graphics &amp;g, juce::Rectangle&lt; <a class="el" href="classPoint.html">float</a> &gt; <a class="el" href="classPoint.html">targetBounds</a>, <a class="el" href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41">Engine</a> <a class="el" href="classPoint.html">engine</a>=<a class="el" href="namespaceSVG.html#afb2276b612dda43cefaf0c4bf8ec0f41a05c86d0c77c9f9e6c9aea997831f644b">Engine::juce</a>)</td></tr>
+<tr class="memdesc:aceebf5e07f894bef0e278439899892ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws svgText into targetBounds on the given Graphics context.  <br /></td></tr>
 <tr class="separator:aceebf5e07f894bef0e278439899892ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 26 2026 13:16:23 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Jun 26 2026 13:25:16 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
