@@ -54,8 +54,20 @@ std::unique_ptr<StandalonePluginHolder> StandaloneFilterApp::createPluginHolder(
 													 autoOpenMidiDevices);
 }
 
-void StandaloneFilterApp::initialise (const juce::String&)
+void StandaloneFilterApp::initialise (const juce::String& commandLineParameters)
 {
+	if (commandLineParameters.contains ("--smoketest"))
+	{
+		auto args = juce::StringArray::fromTokens (commandLineParameters, " ", "\"");
+		auto idx = args.indexOf ("--smoketest");
+		auto presetDir = (idx + 1 < args.size()) ? args[idx + 1] : juce::String();
+
+		bool ok = runSmokeTest (presetDir);
+		setApplicationReturnValue (ok ? 0 : 1);
+		quit();
+		return;
+	}
+
 	mainWindow = rawToUniquePtr (createWindow());
 
 	if (mainWindow != nullptr)
@@ -70,6 +82,95 @@ void StandaloneFilterApp::initialise (const juce::String&)
 	{
 		pluginHolder = createPluginHolder();
 	}
+}
+
+bool StandaloneFilterApp::runSmokeTest (const juce::String& presetDir)
+{
+	auto dir = juce::File (presetDir);
+	if (! dir.isDirectory())
+	{
+		fprintf (stderr, "Smoketest: preset directory not found: %s\n", presetDir.toRawUTF8());
+		return false;
+	}
+
+	auto presets = dir.findChildFiles (juce::File::findFiles, false, "*.xml");
+	presets.sort();
+
+	if (presets.isEmpty())
+	{
+		fprintf (stderr, "Smoketest: no .xml presets found in %s\n", presetDir.toRawUTF8());
+		return false;
+	}
+
+	constexpr double sampleRate = 44100.0;
+	constexpr int blockSize = 512;
+	constexpr int totalSamples = int (sampleRate * 10);
+	constexpr int midiNote = 60;
+
+	int passed = 0;
+	int failed = 0;
+
+	for (auto& presetFile : presets)
+	{
+		auto xml = presetFile.loadFileAsString();
+		if (xml.isEmpty())
+		{
+			fprintf (stderr, "  FAIL (empty file): %s\n", presetFile.getFileName().toRawUTF8());
+			failed++;
+			continue;
+		}
+
+		auto processor = createPluginFilterOfType (juce::AudioProcessor::wrapperType_Standalone);
+		processor->setPlayConfigDetails (0, 2, sampleRate, blockSize);
+		processor->prepareToPlay (sampleRate, blockSize);
+
+		if (auto* p = dynamic_cast<Processor*> (processor.get()))
+			p->setStateXml (xml);
+
+		juce::AudioBuffer<float> buffer (2, blockSize);
+		juce::MidiBuffer midi;
+
+		float peakLevel = 0.0f;
+
+		int noteOnSample = int (sampleRate * 0.05);
+		int noteOffSample = int (sampleRate * 8.0);
+
+		for (int pos = 0; pos < totalSamples; pos += blockSize)
+		{
+			buffer.clear();
+			midi.clear();
+
+			int samplesThisBlock = std::min (blockSize, totalSamples - pos);
+
+			if (noteOnSample >= pos && noteOnSample < pos + samplesThisBlock)
+				midi.addEvent (juce::MidiMessage::noteOn (1, midiNote, 0.8f), noteOnSample - pos);
+
+			if (noteOffSample >= pos && noteOffSample < pos + samplesThisBlock)
+				midi.addEvent (juce::MidiMessage::noteOff (1, midiNote, 0.0f), noteOffSample - pos);
+
+			processor->processBlock (buffer, midi);
+
+			peakLevel = std::max (peakLevel, buffer.getMagnitude (0, samplesThisBlock));
+		}
+
+		processor->releaseResources();
+
+		bool hasAudio = peakLevel > 0.01f;
+
+		if (hasAudio)
+		{
+			fprintf (stdout, "  PASS: %s (peak: %.6f)\n", presetFile.getFileName().toRawUTF8(), peakLevel);
+			passed++;
+		}
+		else
+		{
+			fprintf (stderr, "  FAIL (silent): %s\n", presetFile.getFileName().toRawUTF8());
+			failed++;
+		}
+	}
+
+	fprintf (stdout, "\nSmoketest results: %d passed, %d failed out of %d presets.\n", passed, failed, presets.size());
+	return failed == 0;
 }
 
 void StandaloneFilterApp::shutdown()
