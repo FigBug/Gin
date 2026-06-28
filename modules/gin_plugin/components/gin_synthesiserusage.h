@@ -40,7 +40,7 @@ public:
         g.drawText (juce::String (voices), rc.removeFromLeft (int (h * 1.5)), juce::Justification::centred);
 
         g.fillPath (cpuPath, cpuPath.getTransformToScaleToFit (rc.removeFromLeft (h).toFloat(), true));
-        g.drawText (juce::String (cpu) +"%", rc.removeFromLeft (int (h * 1.5)), juce::Justification::centred);
+        g.drawText (juce::String (cpu) +"%", rc.removeFromLeft (int (h * 2.5)), juce::Justification::centred);
     }
 
     void resized() override
@@ -51,7 +51,7 @@ public:
         rc.removeFromLeft (int (h));
         rc.removeFromLeft (int (h * 1.5));
         rc.removeFromLeft (int (h));
-        rc.removeFromLeft (int (h * 1.5));
+        rc.removeFromLeft (int (h * 2.5));
 
         panic.setBounds (rc.removeFromLeft (int (h * 1.5)));
     }
