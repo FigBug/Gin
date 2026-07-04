@@ -265,6 +265,7 @@ Parser::Parser (const juce::String equation)
             return &varStack[ varStackPtr++ ];
         }
 
+        DBG("var not found: " + juce::String ( name ));
         jassertfalse;
         return nullptr;
     });
@@ -440,6 +441,16 @@ void LayoutSupport::setLayout (const juce::String& rawJson)
 {
     juce::Array<JsonFile> files;
     files.add ({ "rawData", rawJson });
+
+    setLayoutInternal (files);
+}
+
+void LayoutSupport::setLayouts (const juce::StringArray& rawJson)
+{
+    juce::Array<JsonFile> files;
+
+    for (auto [n, j] : juce::enumerate (rawJson))
+        files.add ({ juce::String::formatted ("raw%d", int (n)), j });
 
     setLayoutInternal (files);
 }

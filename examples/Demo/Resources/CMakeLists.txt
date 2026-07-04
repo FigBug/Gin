@@ -14,6 +14,11 @@ juce_add_binary_data (DemoAssets SOURCES
 						mountain.jpg
 						pencils.jpeg
 						SVG_example_markup_grid.svg
+						svg_test_basic.svg
+						svg_test_gradients.svg
+						svg_test_paths.svg
+						svg_test_strokes.svg
+						svg_test_opacity.svg
 						Analog_PWM_Saw_01.wav
 					)
 

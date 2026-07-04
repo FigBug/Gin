@@ -1,50 +1,6 @@
 #pragma once
 
 //==============================================================================
-/**
-    Identifier for a modulation source in the ModMatrix system.
-
-    Wraps an integer ID with type safety to distinguish modulation sources
-    from other identifiers in the system. Use isValid() to check if the ID
-    represents a valid modulation source.
-
-    @see ModMatrix, ModDstId
-*/
-struct ModSrcId
-{
-    ModSrcId () = default;
-    explicit ModSrcId (int id_) : id (id_) {}
-    ModSrcId (const ModSrcId& other) { id = other.id; }
-    ModSrcId& operator= (const ModSrcId& other) { id = other.id; return *this; }
-    bool operator== (const ModSrcId& other) const { return other.id == id; }
-    bool isValid() const { return id >= 0; }
-
-    int id = -1;
-};
-
-//==============================================================================
-/**
-    Identifier for a modulation destination in the ModMatrix system.
-
-    Wraps an integer ID with type safety to distinguish modulation destinations
-    (parameters that can be modulated) from other identifiers. Use isValid() to
-    check if the ID represents a valid modulation destination.
-
-    @see ModMatrix, ModSrcId
-*/
-struct ModDstId
-{
-    ModDstId () = default;
-    explicit ModDstId (int id_) : id (id_)  {}
-    ModDstId (const ModDstId& other) { id = other.id; }
-    ModDstId& operator= (const ModDstId& other) { id = other.id; return *this; }
-    bool operator== (const ModDstId& other) const { return other.id == id; }
-    bool isValid() const { return id >= 0; }
-
-    int id = -1;
-};
-
-//==============================================================================
 class ModMatrix;
 
 /** Make your synth voice inherit from this if it supports modulation
@@ -132,12 +88,13 @@ private:
     float cutoff = modMatrix.getValue(filterCutoff);
     @endcode
 
-    @see ModVoice, ModSrcId, ModDstId
+    @see ModVoice, ModSrcId, ModDstId, IModMatrix
 */
-class ModMatrix
+class ModMatrix : public IModMatrix
 {
 public:
     ModMatrix() = default;
+    ~ModMatrix() override = default;
 
     /**
         Modulation polarity modes for source-to-destination mapping.
@@ -166,147 +123,102 @@ public:
     void updateState (juce::ValueTree& vt);
     
     //==============================================================================
-    /**
-        Modulation shaping functions for non-linear modulation curves.
+    /** Backwards-compatible alias for ModFunction */
+    using Function = ModFunction;
 
-        Function provides various easing curves to shape modulation between
-        source and destination. These allow creative control over how modulation
-        values are mapped, enabling smooth fades, exponential responses, and
-        inverted behaviors.
+    // Static constants for backwards compatibility with ModMatrix::Function::xxx usage
+    static constexpr ModFunction linear = ModFunction::linear;
+    static constexpr ModFunction quadraticIn = ModFunction::quadraticIn;
+    static constexpr ModFunction quadraticInOut = ModFunction::quadraticInOut;
+    static constexpr ModFunction quadraticOut = ModFunction::quadraticOut;
+    static constexpr ModFunction sineIn = ModFunction::sineIn;
+    static constexpr ModFunction sineInOut = ModFunction::sineInOut;
+    static constexpr ModFunction sineOut = ModFunction::sineOut;
+    static constexpr ModFunction exponentialIn = ModFunction::exponentialIn;
+    static constexpr ModFunction exponentialInOut = ModFunction::exponentialInOut;
+    static constexpr ModFunction exponentialOut = ModFunction::exponentialOut;
+    static constexpr ModFunction invLinear = ModFunction::invLinear;
+    static constexpr ModFunction invQuadraticIn = ModFunction::invQuadraticIn;
+    static constexpr ModFunction invQuadraticInOut = ModFunction::invQuadraticInOut;
+    static constexpr ModFunction invQuadraticOut = ModFunction::invQuadraticOut;
+    static constexpr ModFunction invSineIn = ModFunction::invSineIn;
+    static constexpr ModFunction invSineInOut = ModFunction::invSineInOut;
+    static constexpr ModFunction invSineOut = ModFunction::invSineOut;
+    static constexpr ModFunction invExponentialIn = ModFunction::invExponentialIn;
+    static constexpr ModFunction invExponentialInOut = ModFunction::invExponentialInOut;
+    static constexpr ModFunction invExponentialOut = ModFunction::invExponentialOut;
 
-        Curve Types:
-        - linear: Direct 1:1 mapping (no curve)
-        - quadratic: Smooth acceleration (parabolic)
-        - sine: Smooth S-curve using sine function
-        - exponential: Rapid acceleration (exponential)
-        - inv*: Inverted versions (1 - f(x))
-
-        Curve Timing:
-        - *In: Ease in (slow start, fast end)
-        - *Out: Ease out (fast start, slow end)
-        - *InOut: Ease in and out (smooth both ends)
-
-        These functions are applied after the modulation source value is
-        retrieved and before it's scaled by depth and applied to the destination.
-
-        Usage Example:
-        @code
-        // Create smooth fade-in modulation
-        modulation.setFunction(ModMatrix::sineIn);
-
-        // Create exponential response
-        modulation.setFunction(ModMatrix::exponentialOut);
-
-        // Inverted linear for reverse modulation
-        modulation.setFunction(ModMatrix::invLinear);
-        @endcode
-
-        @see ModMatrix, shape()
-    */
-    enum Function
-    {
-        linear,            ///< Linear (no shaping)
-
-        quadraticIn,       ///< Quadratic ease in
-        quadraticInOut,    ///< Quadratic ease in and out
-        quadraticOut,      ///< Quadratic ease out
-
-        sineIn,            ///< Sine ease in
-        sineInOut,         ///< Sine ease in and out
-        sineOut,           ///< Sine ease out
-
-        exponentialIn,     ///< Exponential ease in
-        exponentialInOut,  ///< Exponential ease in and out
-        exponentialOut,    ///< Exponential ease out
-
-        invLinear,         ///< Inverted linear
-
-        invQuadraticIn,    ///< Inverted quadratic ease in
-        invQuadraticInOut, ///< Inverted quadratic ease in and out
-        invQuadraticOut,   ///< Inverted quadratic ease out
-
-        invSineIn,         ///< Inverted sine ease in
-        invSineInOut,      ///< Inverted sine ease in and out
-        invSineOut,        ///< Inverted sine ease out
-
-        invExponentialIn,  ///< Inverted exponential ease in
-        invExponentialInOut, ///< Inverted exponential ease in and out
-        invExponentialOut,   ///< Inverted exponential ease out
-    };
-    
-    static float shape (float v, Function f, bool biPolarSrc, bool biPolarDst)
+    static float shape (float v, ModFunction f, bool biPolarSrc, bool biPolarDst)
     {
         if (biPolarSrc)
             v = juce::jmap (v, -1.0f, 1.0f, 0.0f, 1.0f);
 
         switch (f)
         {
-            case linear:
-            case quadraticIn:
-            case quadraticInOut:
-            case quadraticOut:
-            case sineIn:
-            case sineInOut:
-            case sineOut:
-            case exponentialIn:
-            case exponentialInOut:
-            case exponentialOut:
+            case ModFunction::linear:
+            case ModFunction::quadraticIn:
+            case ModFunction::quadraticInOut:
+            case ModFunction::quadraticOut:
+            case ModFunction::sineIn:
+            case ModFunction::sineInOut:
+            case ModFunction::sineOut:
+            case ModFunction::exponentialIn:
+            case ModFunction::exponentialInOut:
+            case ModFunction::exponentialOut:
                 break;
-            case invLinear:
-            case invQuadraticIn:
-            case invQuadraticInOut:
-            case invQuadraticOut:
-            case invSineIn:
-            case invSineInOut:
-            case invSineOut:
-            case invExponentialIn:
-            case invExponentialInOut:
-            case invExponentialOut:
+            case ModFunction::invLinear:
+            case ModFunction::invQuadraticIn:
+            case ModFunction::invQuadraticInOut:
+            case ModFunction::invQuadraticOut:
+            case ModFunction::invSineIn:
+            case ModFunction::invSineInOut:
+            case ModFunction::invSineOut:
+            case ModFunction::invExponentialIn:
+            case ModFunction::invExponentialInOut:
+            case ModFunction::invExponentialOut:
                 v = 1.0f - v;
                 break;
-            default:
-                break;
         }
-        
+
         switch (f)
         {
-            case linear:
-            case invLinear:
+            case ModFunction::linear:
+            case ModFunction::invLinear:
                 break;
-            case quadraticIn:
-            case invQuadraticIn:
+            case ModFunction::quadraticIn:
+            case ModFunction::invQuadraticIn:
                 v = easeQuadraticIn (v);
                 break;
-            case quadraticInOut:
-            case invQuadraticInOut:
+            case ModFunction::quadraticInOut:
+            case ModFunction::invQuadraticInOut:
                 v = easeQuadraticInOut (v);
                 break;
-            case quadraticOut:
-            case invQuadraticOut:
+            case ModFunction::quadraticOut:
+            case ModFunction::invQuadraticOut:
                 v = easeQuadraticOut (v);
                 break;
-            case sineIn:
-            case invSineIn:
+            case ModFunction::sineIn:
+            case ModFunction::invSineIn:
                 v = easeSineIn (v);
                 break;
-            case sineInOut:
-            case invSineInOut:
+            case ModFunction::sineInOut:
+            case ModFunction::invSineInOut:
                 v = easeSineInOut (v);
                 break;
-            case sineOut:
-            case invSineOut:
+            case ModFunction::sineOut:
+            case ModFunction::invSineOut:
                 v = easeSineOut (v);
                 break;
-            case exponentialIn:
-            case invExponentialIn:
+            case ModFunction::exponentialIn:
+            case ModFunction::invExponentialIn:
                 v = easeExponentialIn (v);
                 break;
-            case exponentialInOut:
-            case invExponentialInOut:
+            case ModFunction::exponentialInOut:
+            case ModFunction::invExponentialInOut:
                 v = easeExponentialInOut (v);
                 break;
-            case exponentialOut:
-            case invExponentialOut:
+            case ModFunction::exponentialOut:
+            case ModFunction::invExponentialOut:
                 v = easeExponentialOut (v);
                 break;
         }
@@ -383,100 +295,6 @@ public:
         return v;
     }
 
-    juce::Array<float> getLiveValues (gin::Parameter* p)
-    {
-        juce::Array<float> liveValues;
-
-        const int paramId = p->getModIndex();
-        auto& pi = parameters.getReference (paramId);
-
-        auto& info = parameters.getReference (paramId);
-
-        if (pi.poly)
-        {
-            for (auto v : voices)
-            {
-                if (v->isVoiceActive())
-                {
-                    bool ok = false;
-                    float base = p->getValue();
-
-                    for (auto& src : info.sources)
-                    {
-                        if (src.enabled)
-                        {
-                            if (src.poly)
-                                base += shape (v->values[src.id.id], src.function, sources[src.id.id].bipolar, src.biPolarMapping) * src.depth;
-                            else
-                                base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar, src.biPolarMapping) * src.depth;
-                            ok = true;
-                        }
-                    }
-
-                    if (ok)
-                    {
-                        base = juce::jlimit (0.0f, 1.0f, base);
-                        liveValues.add (base);
-                    }
-                }
-            }
-
-            if (liveValues.size() == 0)
-            {
-                float base = p->getValue();
-                bool ok = false;
-
-                for (auto& src : info.sources)
-                {
-                    if (src.enabled && ! src.poly)
-                    {
-                        base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar, src.biPolarMapping) * src.depth;
-                        ok = true;
-                    }
-                }
-
-                if (ok)
-                {
-                    base = juce::jlimit (0.0f, 1.0f, base);
-                    liveValues.add (base);
-                }
-            }
-
-        }
-        else
-        {
-            bool ok = false;
-            auto v = activeVoice;
-
-            float base = p->getValue();
-
-            for (auto& src : info.sources)
-            {
-                if (src.enabled)
-                {
-                    if (src.poly && v != nullptr)
-                    {
-                        ok = true;
-                        base += shape (v->values[src.id.id], src.function, sources[src.id.id].bipolar, src.biPolarMapping) * src.depth;
-                    }
-                    else if (! src.poly)
-                    {
-                        ok = true;
-                        base += shape (sources[src.id.id].monoValue, src.function, sources[src.id.id].bipolar, src.biPolarMapping) * src.depth;
-                    }
-                }
-            }
-
-            if (ok)
-            {
-                base = juce::jlimit (0.0f, 1.0f, base);
-                liveValues.add (base);
-            }
-        }
-
-        return liveValues;
-    }
-
     void setMonoValue (ModSrcId id, float value)
     {
         auto& info = sources.getReference (id.id);
@@ -507,41 +325,42 @@ public:
     void build();
 
     //==============================================================================
-    void enableLearn (ModSrcId source);
-    void disableLearn();
-    ModSrcId getLearn()                         { return learnSource;               }
+    // IModMatrix interface implementation
+    void enableLearn (ModSrcId source) override;
+    void disableLearn() override;
+    ModSrcId getLearn() override                        { return learnSource;               }
 
     //==============================================================================
-    int getNumModSources()                      { return sources.size();            }
-    juce::String getModSrcName (ModSrcId src)   { return sources[src.id].name;      }
-    bool getModSrcPoly (ModSrcId src)           { return sources[src.id].poly;      }
-    bool getModSrcBipolar (ModSrcId src)        { return sources[src.id].bipolar;   }
+    int getNumModSources() override                     { return sources.size();            }
+    juce::String getModSrcName (ModSrcId src) override  { return sources[src.id].name;      }
+    bool getModSrcPoly (ModSrcId src) override          { return sources[src.id].poly;      }
+    bool getModSrcBipolar (ModSrcId src) override       { return sources[src.id].bipolar;   }
 
-    juce::String getModDstName (ModDstId dst);
+    juce::String getModDstName (ModDstId dst) override;
 
-    juce::Array<ModSrcId> getModSources (gin::Parameter*);
+    juce::Array<ModSrcId> getModSources (gin::Parameter*) override;
 
-    Parameter* getParameter (ModDstId d);
+    Parameter* getParameter (ModDstId d) override;
 
-    bool isModulated (ModDstId param);
+    bool isModulated (ModDstId param) override;
 
-    float getModDepth (ModSrcId src, ModDstId param);
-    std::vector<std::pair<ModDstId, float>> getModDepths (ModSrcId param);
-    std::vector<std::pair<ModSrcId, float>> getModDepths (ModDstId param);
-    void setModDepth (ModSrcId src, ModDstId param, float f);
-    void clearModDepth (ModSrcId src, ModDstId param);
-    
-    Function getModFunction (ModSrcId src, ModDstId param);
-    void setModFunction (ModSrcId src, ModDstId param, Function f);
-    
-    bool getModEnable (ModSrcId src, ModDstId param);
-    void setModEnable (ModSrcId src, ModDstId param, bool b);
-    
-    bool getModBipolarMapping (ModSrcId src, ModDstId param);
-    void setModBipolarMapping (ModSrcId src, ModDstId param, bool b);
+    float getModDepth (ModSrcId src, ModDstId param) override;
+    std::vector<std::pair<ModDstId, float>> getModDepths (ModSrcId src) override;
+    std::vector<std::pair<ModSrcId, float>> getModDepths (ModDstId param) override;
+    void setModDepth (ModSrcId src, ModDstId param, float f) override;
+    void clearModDepth (ModSrcId src, ModDstId param) override;
+
+    ModFunction getModFunction (ModSrcId src, ModDstId param) override;
+    void setModFunction (ModSrcId src, ModDstId param, ModFunction f) override;
+
+    bool getModEnable (ModSrcId src, ModDstId param) override;
+    void setModEnable (ModSrcId src, ModDstId param, bool b) override;
+
+    bool getModBipolarMapping (ModSrcId src, ModDstId param) override;
+    void setModBipolarMapping (ModSrcId src, ModDstId param, bool b) override;
 
     //==============================================================================
-    bool shouldShowLiveModValues()
+    bool shouldShowLiveModValues() override
     {
         if (onlyShowModWhenVoiceActive)
         {
@@ -555,22 +374,16 @@ public:
         return true;
     }
 
+    juce::Array<float> getLiveValues (gin::Parameter* p) override;
+
     void setOnlyShowModWhenVoiceActive (bool b)
     {
         onlyShowModWhenVoiceActive = b;
     }
 
     //==============================================================================
-    class Listener
-    {
-    public:
-        virtual ~Listener() = default;
-        virtual void modMatrixChanged()             {}
-        virtual void learnSourceChanged (ModSrcId)  {}
-    };
-
-    void addListener (Listener* l)      { listeners.add (l);            }
-    void removeListener (Listener* l)   { listeners.remove (l);         }
+    void addListener (Listener* l) override     { listeners.add (l);            }
+    void removeListener (Listener* l) override  { listeners.remove (l);         }
 
 private:
     friend ModVoice;
@@ -597,7 +410,7 @@ private:
         bool enabled = true;
         float depth = 0.0f;
         bool biPolarMapping = false;
-        Function function = ModMatrix::Function::linear;
+        ModFunction function = ModFunction::linear;
     };
 
     struct ParamInfo

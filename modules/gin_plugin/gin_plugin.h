@@ -87,6 +87,7 @@ bool wantsAccessibleKeyboard (juce::Component&);
 #include "plugin/gin_program.h"
 #include "plugin/gin_parameter.h"
 #include "plugin/gin_smoothedparameter.h"
+#include "plugin/gin_imodmatrix.h"
 #include "plugin/gin_modmatrix.h"
 #include "plugin/gin_midilearn.h"
 

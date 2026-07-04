@@ -52,7 +52,7 @@
 class GateEffect
 {
 public:
-    GateEffect ()
+    GateEffect()
     {
         adsrL.setDecay (0.0f);
         adsrR.setDecay (0.0f);
@@ -85,6 +85,9 @@ public:
 
         int numSamples = buffer.getNumSamples();
         int steps = stepsL.size();
+
+        if (steps == 0)
+            return;
 
         float step = 0.0f;
         if (frequency > 0.0001f)

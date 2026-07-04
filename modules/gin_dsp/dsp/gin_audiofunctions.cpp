@@ -9,14 +9,25 @@
 
 void AudioFunctionHost::setSampleRate (double sr)
 {
-    sampleRate = sr;
-    funcStates.clear();
+    jassert (sr > 0);
+    if (sr > 0)
+    {
+        sampleRate = sr;
+        funcStates.clear();
+    }
 }
 
 void AudioFunctionHost::reset()
 {
 	for (auto& itr : funcStates)
 		itr.second->reset();
+}
+
+void AudioFunctionHost::setPhase (float p)
+{
+    for (auto& itr : funcStates)
+        if (auto os = dynamic_cast<OscState*> (itr.second.get()))
+            os->setPhase (p);
 }
 
 void AudioFunctionHost::addUtilities (gin::EquationParser& parser)

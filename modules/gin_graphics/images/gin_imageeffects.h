@@ -292,7 +292,7 @@ inline uint8_t channelBlendNegation (int A, int B)      { return ((uint8_t)(255 
 inline uint8_t channelBlendScreen (int A, int B)        { return ((uint8_t)(255 - (((255 - A) * (255 - B)) >> 8))); }
 inline uint8_t channelBlendExclusion (int A, int B)     { return ((uint8_t)(A + B - 2 * A * B / 255)); }
 inline uint8_t channelBlendOverlay (int A, int B)       { return ((uint8_t)((B < 128) ? (2 * A * B / 255) : (255 - 2 * (255 - A) * (255 - B) / 255))); }
-inline uint8_t channelBlendSoftLight (int A, int B)     { return ((uint8_t)((B < 128) ? (2 * ((A >> 1) + 64)) * ((float)B / 255) : (255 - (2 * (255 - ((A >> 1) + 64)) * (float)(255 - B) / 255)))); }
+inline uint8_t channelBlendSoftLight (int A, int B)     { return ((uint8_t)((B < 128) ? (float)(2 * ((A >> 1) + 64)) * ((float)B / 255) : (255 - (float)(2 * (255 - ((A >> 1) + 64))) * (float)(255 - B) / 255))); }
 inline uint8_t channelBlendHardLight (int A, int B)     { return (channelBlendOverlay (B,A)); }
 inline uint8_t channelBlendColorDodge (int A, int B)    { return ((uint8_t)((B == 255) ? B : juce::jmin (255, ((A << 8 ) / (255 - B))))); }
 inline uint8_t channelBlendColorBurn (int A, int B)     { return ((uint8_t)((B == 0) ? B : juce::jmax (0, (255 - ((255 - A) << 8 ) / B)))); }

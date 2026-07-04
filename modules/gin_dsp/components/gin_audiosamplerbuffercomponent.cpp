@@ -4,6 +4,23 @@ namespace
 constexpr auto minZoom = 10;
 }
 
+AudioSamplerBufferComponent::ScopedViewState::ScopedViewState (AudioSamplerBufferComponent& o)
+    : owner (o),
+    numSamples (owner.buffer.getNumSamples()),
+    viewLeft (owner.viewLeft),
+    viewWidth (owner.viewWidth)
+{
+}
+
+AudioSamplerBufferComponent::ScopedViewState::~ScopedViewState ()
+{
+    if (numSamples == owner.buffer.getNumSamples())
+    {
+        owner.viewLeft  = viewLeft;
+        owner.viewWidth = viewWidth;
+    }
+}
+
 AudioSamplerBufferComponent::AudioSamplerBufferComponent()
 {
 }
@@ -61,7 +78,7 @@ void AudioSamplerBufferComponent::paintPlayheads (juce::Graphics& g)
 {
     for (auto p : playheads)
     {
-        const auto x = sampleToX (p);
+        const auto x = sampleToX (static_cast<float> (p));
         const auto h = static_cast<float> (getHeight());
 
         g.setColour (juce::Colours::black.withAlpha (0.5f));
@@ -113,7 +130,7 @@ void AudioSamplerBufferComponent::paintChannelData (juce::Graphics& g, int ch, c
         for (auto samp = int (viewLeft) - 1; samp <= std::min (getViewRight () + 1.0f, buffer.getNumSamples() - 1.0f); samp++)
         {
             v = samples[samp];
-            auto x = sampleToX (samp);
+            auto x = sampleToX (static_cast<float> (samp));
 
             auto y = juce::jmap (v, -1.0f, 1.0f, r.getBottom(), r.getY());
 
@@ -251,7 +268,7 @@ void AudioSamplerBufferComponent::updatePixelCacheHiRes()
         for (auto samp = int (viewLeft) - 1; samp <= std::min (getViewRight () + 1.0f, buffer.getNumSamples() - 1.0f); samp++)
         {
             v = ( samp >= 0 && samp < buffer.getNumSamples () ) ? samples[samp] : 0.0f;
-            auto x = sampleToX (samp);
+            auto x = sampleToX (static_cast<float> (samp));
             if (samp == int (viewLeft) - 1)
             {
                 p.lineTo (-1, v);

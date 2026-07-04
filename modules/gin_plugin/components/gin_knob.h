@@ -49,7 +49,7 @@
 class Knob : public ParamComponent,
              public juce::DragAndDropTarget,
              private juce::Timer,
-             private ModMatrix::Listener
+             private IModMatrix::Listener
 {
 public:
     Knob (Parameter* parameter, bool fromCentre = false);

@@ -1,7 +1,7 @@
 #pragma once
 
 class Processor;
-class ModMatrix;
+class IModMatrix;
 class MidiLearn;
 
 //==============================================================================
@@ -79,8 +79,8 @@ public:
     bool isInternal() const             { return internal;  }
     void setModIndex (int i)            { modIndex = i;     }
     int getModIndex() const             { return modIndex;  }
-    void setModMatrix (ModMatrix* m)    { modMatrix = m;    }
-    ModMatrix* getModMatrix() const     { return modMatrix; }
+    void setModMatrix (IModMatrix* m)   { modMatrix = m;    }
+    IModMatrix* getModMatrix() const    { return modMatrix; }
     void setMidiLearn (MidiLearn* m)    { midiLearn = m;    }
     MidiLearn* getMidiLearn() const     { return midiLearn; }
 
@@ -188,7 +188,7 @@ protected:
     const juce::NormalisableRange<float> range;
 
     bool internal = false;
-    ModMatrix* modMatrix = nullptr;
+    IModMatrix* modMatrix = nullptr;
     MidiLearn* midiLearn = nullptr;
     int modIndex = -1;
 

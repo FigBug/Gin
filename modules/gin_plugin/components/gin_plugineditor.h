@@ -164,7 +164,8 @@ protected:
 class ProcessorEditor;
 class TitleBar : public juce::Component,
                  protected juce::ComboBox::Listener,
-                 protected juce::ChangeListener
+                 protected juce::ChangeListener,
+                 private juce::Timer
 {
 public:
     TitleBar (ProcessorEditor&, Processor&, PatchBrowser&);
@@ -185,6 +186,16 @@ public:
     void comboBoxChanged (juce::ComboBox* c) override;
     void changeListenerCallback (juce::ChangeBroadcaster*) override;
     void parentHierarchyChanged() override;
+
+private:
+    void timerCallback() override;
+    void updatePulse();
+
+    bool updateAvailable = false;
+    bool newsAvailable   = false;
+    float pulsePhase     = 0.0f;
+
+public:
     
     ProcessorEditor& editor;
     Processor& slProc;

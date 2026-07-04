@@ -235,7 +235,11 @@ void CopperLookAndFeel::drawButtonText (juce::Graphics& g, juce::TextButton& b, 
         {
             if (svg->rawSVG.startsWith ("<svg"))
             {
+               #if JUCE_MAJOR_VERSION >= 9
+                auto drawable = juce::Drawable::createFromSVGString (svg->rawSVG);
+               #else
                 auto drawable = juce::Drawable::createFromSVG (*juce::XmlDocument::parse (svg->rawSVG));
+               #endif
                 return drawable->getOutlineAsPath();
             }
             return parseSVGPath (svg->rawSVG);

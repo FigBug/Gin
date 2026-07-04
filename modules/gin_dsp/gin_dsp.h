@@ -120,6 +120,7 @@ namespace gin
 #include "dsp/gin_stereoprocessor.h"
 #include "dsp/gin_synthesiser.h"
 #include "dsp/gin_valuesmoother.h"
+#include "dsp/gin_dcblocker.h"
 #include "dsp/gin_wtoscillators.h"
 #include "dsp/gin_audiofunctions.h"
 #include "dsp/gin_textrenderer.h"

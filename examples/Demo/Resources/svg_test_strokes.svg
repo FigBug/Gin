@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Butt line cap -->
+  <line x1="20" y1="20" x2="180" y2="20"
+        stroke="#E74C3C" stroke-width="8" stroke-linecap="butt"/>
+  <!-- Round line cap -->
+  <line x1="20" y1="40" x2="180" y2="40"
+        stroke="#3498DB" stroke-width="8" stroke-linecap="round"/>
+  <!-- Square line cap -->
+  <line x1="20" y1="60" x2="180" y2="60"
+        stroke="#2ECC71" stroke-width="8" stroke-linecap="square"/>
+  <!-- Dash array - even -->
+  <line x1="20" y1="80" x2="180" y2="80"
+        stroke="#F39C12" stroke-width="3" stroke-dasharray="10,5"/>
+  <!-- Dash array - complex pattern -->
+  <line x1="20" y1="95" x2="180" y2="95"
+        stroke="#8E44AD" stroke-width="3" stroke-dasharray="15,5,5,5"/>
+  <!-- Dotted line -->
+  <line x1="20" y1="110" x2="180" y2="110"
+        stroke="#1ABC9C" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.1,10"/>
+  <!-- Miter join -->
+  <polyline points="20,145 60,125 100,145"
+            fill="none" stroke="#E74C3C" stroke-width="5" stroke-linejoin="miter"/>
+  <!-- Round join -->
+  <polyline points="60,145 100,125 140,145"
+            fill="none" stroke="#3498DB" stroke-width="5" stroke-linejoin="round"/>
+  <!-- Bevel join -->
+  <polyline points="100,145 140,125 180,145"
+            fill="none" stroke="#2ECC71" stroke-width="5" stroke-linejoin="bevel"/>
+  <!-- Varying widths -->
+  <path d="M20,170 Q60,155 100,170 Q140,185 180,170"
+        fill="none" stroke="#9B59B6" stroke-width="1"/>
+  <path d="M20,180 Q60,165 100,180 Q140,195 180,180"
+        fill="none" stroke="#E67E22" stroke-width="4"/>
+  <!-- Dashed rect -->
+  <rect x="15" y="12" width="170" height="183" rx="5"
+        fill="none" stroke="#7F8C8D" stroke-width="1" stroke-dasharray="8,4"/>
+</svg>

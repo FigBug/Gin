@@ -46,6 +46,20 @@ public:
     void mouseDrag (const juce::MouseEvent& e) override;
     void mouseUp (const juce::MouseEvent& e) override;
 
+    class ScopedViewState
+    {
+    public:
+        ScopedViewState (AudioSamplerBufferComponent&);
+        ~ScopedViewState ();
+
+    private:
+        AudioSamplerBufferComponent&    owner;
+
+        int numSamples;
+        float viewLeft  = 0.0f;
+        float viewWidth = 0.0f;
+    };
+
 protected:
     void paintBackground (juce::Graphics& g);
     void paintPlayheads (juce::Graphics& g);

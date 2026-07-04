@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Rectangle -->
+  <rect x="10" y="10" width="60" height="40" fill="#4A90D9" rx="5" ry="5"/>
+  <!-- Circle -->
+  <circle cx="150" cy="35" r="25" fill="#E74C3C"/>
+  <!-- Ellipse -->
+  <ellipse cx="60" cy="100" rx="40" ry="20" fill="#2ECC71"/>
+  <!-- Line -->
+  <line x1="10" y1="140" x2="190" y2="140" stroke="#8E44AD" stroke-width="3"/>
+  <!-- Polyline -->
+  <polyline points="10,190 40,160 70,180 100,155 130,175 160,150 190,170"
+            fill="none" stroke="#F39C12" stroke-width="2.5"/>
+  <!-- Polygon (star) -->
+  <polygon points="150,75 158,95 180,95 163,108 169,130 150,117 131,130 137,108 120,95 142,95"
+           fill="#E67E22" stroke="#D35400" stroke-width="1"/>
+  <!-- Small filled rects for variety -->
+  <rect x="10" y="70" width="15" height="15" fill="#1ABC9C"/>
+  <rect x="10" y="90" width="15" height="15" fill="#9B59B6"/>
+  <rect x="10" y="110" width="15" height="15" fill="#34495E"/>
+</svg>

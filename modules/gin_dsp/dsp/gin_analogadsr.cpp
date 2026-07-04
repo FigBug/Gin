@@ -26,12 +26,16 @@ void AnalogADSR::noteOn()
     auto origState = state;
 
     if (attack == 0.0f)
+    {
         state = State::decay;
+        output = 1.0f;
+    }
     else
+    {
         state = State::attack;
-
-    if (origState == State::idle)
-        output = (attack == 0.0f) ? 1.0f : 0.0f;
+        if (origState == State::idle)
+            output = 0.0f;
+    }
 }
 
 void AnalogADSR::noteOff()

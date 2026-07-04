@@ -125,18 +125,22 @@ void ComponentGrid::mouseDrag (const juce::MouseEvent& e)
             auto indexOver = -1;
             auto rects = getComponentRects();
 
+            // Use midpoint crossing to determine swap target.
+            // Only swap when cursor passes the center of the target slot,
+            // which prevents jitter when items have different sizes.
             for (auto i = 0; i < rects.size(); i++)
             {
-                auto srcRect = rects[info->currentIndex];
-                auto destRect = rects[i];
+                if (i == info->currentIndex)
+                    continue;
 
-                destRect = destRect.withSize (std::min (srcRect.getWidth(), destRect.getWidth()), std::min (srcRect.getHeight(), destRect.getHeight()));
+                auto isVert = orientation == vertical;
+                auto mid = isVert ? rects[i].getCentreY() : rects[i].getCentreX();
+                auto pos = isVert ? pt.y : pt.x;
 
-                if (destRect.contains (pt.x, pt.y))
-                {
+                if (i < info->currentIndex && pos < mid)
+                    indexOver = (indexOver == -1) ? i : std::min (indexOver, i);
+                else if (i > info->currentIndex && pos > mid)
                     indexOver = i;
-                    break;
-                }
             }
 
             if (! getLocalBounds().contains (pt))

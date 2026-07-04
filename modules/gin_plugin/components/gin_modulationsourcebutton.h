@@ -4,10 +4,10 @@
 /** A button for enabling modulation learn
 */
 class ModulationSourceButton : public juce::Button,
-                               private ModMatrix::Listener
+                               private IModMatrix::Listener
 {
 public:
-    ModulationSourceButton (ModMatrix& mm, ModSrcId src = {}, bool poly_ = false)
+    ModulationSourceButton (IModMatrix& mm, ModSrcId src = {}, bool poly_ = false)
         : Button (""), modMatrix (mm), source (src), poly (poly_)
     {
         setName ("modSrc");
@@ -15,7 +15,7 @@ public:
         update();
     }
 
-    ModulationSourceButton (const juce::String& name, ModMatrix& mm, ModSrcId src = {}, bool poly_ = false)
+    ModulationSourceButton (const juce::String& name, IModMatrix& mm, ModSrcId src = {}, bool poly_ = false)
         : Button (""), modMatrix (mm), source (src), poly (poly_)
     {
         setName (name);
@@ -120,7 +120,7 @@ private:
         return images->polyPath;
     }
 
-    ModMatrix& modMatrix;
+    IModMatrix& modMatrix;
     ModSrcId source = {};
     bool poly = false;
     bool dragging = false;

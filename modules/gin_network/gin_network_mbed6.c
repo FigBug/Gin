@@ -16,6 +16,8 @@
  #pragma clang diagnostic ignored "-Wunused-variable"
  #pragma clang diagnostic ignored "-Wswitch-enum"
  #pragma clang diagnostic ignored "-Wsign-conversion"
+ #pragma clang diagnostic ignored "-Wconditional-uninitialized"
+ #pragma clang diagnostic ignored "-Wmacro-redefined"
  #if __has_warning("-Wzero-as-null-pointer-constant")
   #pragma clang diagnostic ignored "-Wzero-as-null-pointer-constant"
  #endif
@@ -29,5 +31,9 @@
 #endif
 
 #include "3rdparty/mbedtls/library/md5.c"
+#include "3rdparty/mbedtls/library/psa_crypto_pake.c"
+#include "3rdparty/mbedtls/library/psa_crypto_random.c"
+#include "3rdparty/mbedtls/library/psa_crypto_rsa.c"
+#include "3rdparty/mbedtls/library/psa_crypto_se.c"
 #include "3rdparty/mbedtls/library/x509_csr.c"
 

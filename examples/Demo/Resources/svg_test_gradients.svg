@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <!-- Horizontal linear gradient -->
+    <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E74C3C"/>
+      <stop offset="50%" stop-color="#F39C12"/>
+      <stop offset="100%" stop-color="#2ECC71"/>
+    </linearGradient>
+    <!-- Diagonal linear gradient -->
+    <linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3498DB"/>
+      <stop offset="100%" stop-color="#8E44AD"/>
+    </linearGradient>
+    <!-- Radial gradient centered -->
+    <radialGradient id="rg1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F1C40F"/>
+      <stop offset="70%" stop-color="#E67E22"/>
+      <stop offset="100%" stop-color="#C0392B"/>
+    </radialGradient>
+    <!-- Off-center radial gradient -->
+    <radialGradient id="rg2" cx="30%" cy="30%" r="60%" fx="30%" fy="30%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#2980B9"/>
+    </radialGradient>
+  </defs>
+  <!-- Rectangle with horizontal gradient -->
+  <rect x="10" y="10" width="85" height="50" rx="8" fill="url(#lg1)"/>
+  <!-- Rectangle with diagonal gradient -->
+  <rect x="105" y="10" width="85" height="50" rx="8" fill="url(#lg2)"/>
+  <!-- Circle with radial gradient -->
+  <circle cx="55" cy="120" r="45" fill="url(#rg1)"/>
+  <!-- Circle with off-center radial (sphere effect) -->
+  <circle cx="150" cy="120" r="45" fill="url(#rg2)"/>
+  <!-- Ellipse with gradient + stroke -->
+  <ellipse cx="100" cy="185" rx="80" ry="12" fill="url(#lg1)" opacity="0.5"/>
+</svg>

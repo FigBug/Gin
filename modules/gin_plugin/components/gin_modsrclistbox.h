@@ -7,7 +7,7 @@ class ModSrcListBox : public juce::ListBox,
                       private juce::ListBoxModel
 {
 public:
-    ModSrcListBox (ModMatrix& m)
+    ModSrcListBox (IModMatrix& m)
         : modMatrix (m)
     {
         setName ("modlist");
@@ -37,7 +37,7 @@ private:
     class Row : public Component
     {
     public:
-        Row (ModMatrix& m)
+        Row (IModMatrix& m)
             : modMatrix (m)
         {
             addAndMakeVisible (text);
@@ -58,11 +58,11 @@ private:
             text.setBounds (rc);
         }
 
-        ModMatrix& modMatrix;
+        IModMatrix& modMatrix;
 
         juce::Label text;
         ModulationSourceButton src { modMatrix };
     };
 
-    ModMatrix& modMatrix;
+    IModMatrix& modMatrix;
 };

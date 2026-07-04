@@ -23,12 +23,19 @@
  #pragma clang diagnostic ignored "-Wunused-variable"
  #pragma clang diagnostic ignored "-Wswitch-enum"
  #pragma clang diagnostic ignored "-Wsign-conversion"
+ #pragma clang diagnostic ignored "-Wconditional-uninitialized"
+ #pragma clang diagnostic ignored "-Wmacro-redefined"
  #if __has_warning("-Wzero-as-null-pointer-constant")
   #pragma clang diagnostic ignored "-Wzero-as-null-pointer-constant"
  #endif
 #endif
 
+#include "3rdparty/mbedtls/library/psa_crypto_ecp.c"
+#include "3rdparty/mbedtls/library/psa_crypto_ffdh.c"
+#include "3rdparty/mbedtls/library/psa_crypto_hash.c"
+#include "3rdparty/mbedtls/library/psa_crypto_mac.c"
 #include "3rdparty/mbedtls/library/ssl_ciphersuites.c"
-#include "3rdparty/mbedtls/library/ssl_cli.c"
+#include "3rdparty/mbedtls/library/ssl_client.c"
+#include "3rdparty/mbedtls/library/ssl_tls12_client.c"
 #include "3rdparty/mbedtls/library/ripemd160.c"
 #include "3rdparty/mbedtls/library/x509.c"

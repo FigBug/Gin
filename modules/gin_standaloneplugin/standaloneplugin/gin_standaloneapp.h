@@ -29,6 +29,8 @@ protected:
 
 private:
 	std::unique_ptr<StandalonePluginHolder> pluginHolder;
+
+	bool runSmokeTest (const juce::String& presetDir);
 };
 
 juce::JUCEApplicationBase* juce_CreateApplication();

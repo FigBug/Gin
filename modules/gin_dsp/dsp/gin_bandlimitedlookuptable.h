@@ -340,6 +340,7 @@ public:
 
         if (phaseUp   >= 1.0f) phaseUp   -= 1.0f;
         if (phaseDown <  0.0f) phaseDown += 1.0f;
+        if (phaseDown >= 1.0f) phaseDown -= 1.0f;
 
         auto count = std::min (sawDownTable.tables.size(), sawDownTable.tables.size());
         int tableIndex = juce::jlimit (0, int (count - 1), int ((note - 0.5) / count));
