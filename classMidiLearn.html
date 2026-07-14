@@ -128,6 +128,7 @@ Static Public Member Functions</h2></td></tr>
 <li>Maps 128 MIDI CC controllers to parameters</li>
 <li>Automatic host notification for parameter changes</li>
 <li>Gesture timeout (333ms) for grouping rapid CC changes</li>
+<li>Auto-detects relative (two's-complement) delta encoders during learn, applying increments instead of absolute values. Existing maps without the flag load as absolute.</li>
 <li>State persistence via ValueTree</li>
 </ul>
 <p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classMidiLearn.html">MidiLearn</a> midiLearn(processor);</div>
@@ -142,7 +143,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="line"><span class="comment">// Save/load state</span></div>
 <div class="line">midiLearn.saveState(state);</div>
 <div class="line">midiLearn.loadState(state);</div>
-<div class="ttc" id="aclassMidiLearn_html"><div class="ttname"><a href="classMidiLearn.html">MidiLearn</a></div><div class="ttdoc">MIDI Learn system for mapping MIDI CC messages to plugin parameters.</div><div class="ttdef"><b>Definition</b> gin_midilearn.h:41</div></div>
+<div class="ttc" id="aclassMidiLearn_html"><div class="ttname"><a href="classMidiLearn.html">MidiLearn</a></div><div class="ttdoc">MIDI Learn system for mapping MIDI CC messages to plugin parameters.</div><div class="ttdef"><b>Definition</b> gin_midilearn.h:44</div></div>
 <div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 </div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classParameter.html" title="Advanced parameter class with modulation, real-time callbacks, and host automation.">Parameter</a>, <a class="el" href="classProcessor.html" title="Advanced audio processor base class with parameter management and preset system.">Processor</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -468,7 +469,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 28 2026 00:01:09 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Tue Jul 14 2026 16:54:23 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
