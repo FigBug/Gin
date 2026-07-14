@@ -13,6 +13,9 @@
     - Maps 128 MIDI CC controllers to parameters
     - Automatic host notification for parameter changes
     - Gesture timeout (333ms) for grouping rapid CC changes
+    - Auto-detects relative (two's-complement) delta encoders during learn,
+      applying increments instead of absolute values. Existing maps without the
+      flag load as absolute.
     - State persistence via ValueTree
 
     Usage:
@@ -66,6 +69,7 @@ private:
     struct Item
     {
         std::atomic<gin::Parameter*> parameter { nullptr };
+        std::atomic<bool> relative { false }; // two's-complement delta encoder
         bool active = false;
         int countdown = 0;
     };
@@ -77,9 +81,20 @@ private:
     std::atomic<gin::Parameter*> learnParameter = nullptr;
     double sampleRate = 44100.0;
 
+    // Per-CC learn-time tracking, used to auto-detect relative (delta) encoders.
+    std::array<int, 128>  learnLastVal {};
+    std::array<int, 128>  learnRepeat {};
+    std::array<bool, 128> learnSawLow {};
+    std::array<bool, 128> learnSawHigh {};
+    std::array<bool, 128> learnSawMid {};
+
     static constexpr float timeoutSeconds = 0.333f;
     static constexpr int learnThreshold = 5;
 
+    // Normalized parameter change per relative-encoder tick (~128 ticks full range).
+    static constexpr float relativeStep = 1.0f / 128.0f;
+
+    void resetLearnTracking();
     void loadFromSettings();
     void saveToSettings();
 
