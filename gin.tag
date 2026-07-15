@@ -16919,6 +16919,13 @@
       <anchor>a898de378f73c72866d7578cf18016a34</anchor>
       <arglist>() &amp;&amp;</arglist>
     </member>
+    <member kind="function">
+      <type>ProcessorOptions</type>
+      <name>withPresetMetadata</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>a5be791ee1666620fd50e42bdd38df252</anchor>
+      <arglist>() &amp;&amp;</arglist>
+    </member>
     <member kind="variable">
       <type>juce::String</type>
       <name>pluginName</name>
@@ -17001,6 +17008,13 @@
       <name>hasMidiLearn</name>
       <anchorfile>classProcessorOptions.html</anchorfile>
       <anchor>a0841fe0d051987f7b671a0e26ca699a3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>usePresetMetadata</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>ae3998274b8d855632a7d2f2d4b13b96b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -23403,16 +23417,16 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_graphics-formats</name>
-    <title>formats</title>
-    <filename>group__gin__graphics-formats.html</filename>
-    <class kind="class">BMPImageFormat</class>
-  </compound>
-  <compound kind="group">
     <name>gin_webp-formats</name>
     <title>formats</title>
     <filename>group__gin__webp-formats.html</filename>
     <class kind="class">WEBPImageFormat</class>
+  </compound>
+  <compound kind="group">
+    <name>gin_graphics-formats</name>
+    <title>formats</title>
+    <filename>group__gin__graphics-formats.html</filename>
+    <class kind="class">BMPImageFormat</class>
   </compound>
   <compound kind="group">
     <name>gin-geometry</name>
