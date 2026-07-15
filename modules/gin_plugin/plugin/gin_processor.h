@@ -130,6 +130,7 @@ public:
     bool useUpdateChecker   = true;
     bool useNewsChecker     = true;
     bool hasMidiLearn       = false;
+    bool usePresetMetadata  = false;
 
     juce::StringArray programmingCredits =
     {
@@ -158,6 +159,12 @@ public:
     ProcessorOptions withMidiLearn() &&
     {
         hasMidiLearn = true;
+        return std::move (*this);
+    }
+
+    ProcessorOptions withPresetMetadata() &&
+    {
+        usePresetMetadata = true;
         return std::move (*this);
     }
 

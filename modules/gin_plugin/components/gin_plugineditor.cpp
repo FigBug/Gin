@@ -299,7 +299,9 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p, PatchBrowser& pb)
         w->setLookAndFeel (slProc.processorOptions.lookAndFeel.get());
         w->addTextEditor ("name", prog != nullptr ? prog->name : juce::String(), "Name:");
 
-        if (hasBrowser)
+        bool wantsMetadata = hasBrowser || slProc.processorOptions.usePresetMetadata;
+
+        if (wantsMetadata)
         {
             w->addTextEditor ("author", prog != nullptr ? prog->author : juce::String(), "Author:");
             w->addTextEditor ("tags", prog != nullptr ? juce::StringArray (prog->tags).joinIntoString (" ") : juce::String(), "Tags:");
@@ -308,14 +310,14 @@ TitleBar::TitleBar (ProcessorEditor& e, Processor& p, PatchBrowser& pb)
         w->addButton ("OK", 1, juce::KeyPress (juce::KeyPress::returnKey));
         w->addButton ("Cancel", 0, juce::KeyPress (juce::KeyPress::escapeKey));
 
-        w->runAsync (*getParentComponent(), [this, w] (int ret)
+        w->runAsync (*getParentComponent(), [this, w, wantsMetadata] (int ret)
         {
             w->setVisible (false);
             if (ret == 1)
             {
                 auto txt = juce::File::createLegalFileName (w->getTextEditor ("name")->getText()).trim();
-                auto aut = (hasBrowser) ? juce::File::createLegalFileName (w->getTextEditor ("author")->getText()).trim() : juce::String();
-                auto tag = (hasBrowser) ? juce::File::createLegalFileName (w->getTextEditor ("tags")->getText()).trim() : juce::String();
+                auto aut = wantsMetadata ? juce::File::createLegalFileName (w->getTextEditor ("author")->getText()).trim() : juce::String();
+                auto tag = wantsMetadata ? juce::File::createLegalFileName (w->getTextEditor ("tags")->getText()).trim() : juce::String();
 
                 if (slProc.hasProgram (txt))
                 {
