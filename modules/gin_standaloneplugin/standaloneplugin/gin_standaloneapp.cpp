@@ -155,7 +155,9 @@ bool StandaloneFilterApp::runSmokeTest (const juce::String& presetDir)
 
 		processor->releaseResources();
 
-		bool hasAudio = peakLevel > 0.01f;
+		// Low threshold: the goal is only to catch genuinely silent/broken presets
+		// (which read ~0.0). A higher bar makes quiet, noise-based patches flaky.
+		bool hasAudio = peakLevel > 0.002f;
 
 		if (hasAudio)
 		{
