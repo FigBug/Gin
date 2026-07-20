@@ -229,7 +229,7 @@ static int bsdiff_internal(const struct bsdiff_request req)
     uint8_t *buffer;
     uint8_t buf[8 * 3];
 
-    if((V=req.stream->malloc((req.oldsize+1)*sizeof(int64_t)))==NULL) return -1;
+    if((V=(int64_t*)req.stream->malloc((req.oldsize+1)*sizeof(int64_t)))==NULL) return -1;
     I = req.I;
 
     qsufsort(I,V,req.old,req.oldsize);
@@ -326,10 +326,10 @@ int bsdiff(const uint8_t* old, int64_t oldsize, const uint8_t* new, int64_t news
     int result;
     struct bsdiff_request req;
 
-    if((req.I=stream->malloc((oldsize+1)*sizeof(int64_t)))==NULL)
+    if((req.I=(int64_t*)stream->malloc((oldsize+1)*sizeof(int64_t)))==NULL)
         return -1;
 
-    if((req.buffer=stream->malloc(newsize+1))==NULL)
+    if((req.buffer=(uint8_t*)stream->malloc(newsize+1))==NULL)
     {
         stream->free(req.I);
         return -1;
