@@ -37,47 +37,91 @@ namespace
         juce::String text;
     };
 
-    // Simple diff using dynamic programming to find LCS, then derive edits
+    // Myers O(ND) diff: greedy search for the shortest edit script, keeping a
+    // trace of the furthest-reaching x on each diagonal per step, then
+    // backtracking through the trace to recover the edits
     std::vector<Edit> computeDiff (const juce::StringArray& oldLines, const juce::StringArray& newLines)
     {
-        int n = oldLines.size();
-        int m = newLines.size();
+        const int n = oldLines.size();
+        const int m = newLines.size();
+        const int maxD = n + m;
 
-        // Build LCS table
-        std::vector<std::vector<int>> dp ((size_t) (n + 1), std::vector<int> ((size_t) (m + 1), 0));
+        if (maxD == 0)
+            return {};
 
-        for (int i = 1; i <= n; i++)
+        // v[k + offset] = furthest x reached on diagonal k (where k = x - y)
+        const int offset = maxD;
+        std::vector<int> v ((size_t) (2 * maxD + 1), 0);
+        std::vector<std::vector<int>> trace;
+
+        int foundD = -1;
+
+        for (int d = 0; d <= maxD && foundD < 0; d++)
         {
-            for (int j = 1; j <= m; j++)
+            trace.push_back (v);
+
+            for (int k = -d; k <= d; k += 2)
             {
-                if (oldLines[i - 1] == newLines[j - 1])
-                    dp[(size_t) i][(size_t) j] = dp[(size_t) (i - 1)][(size_t) (j - 1)] + 1;
+                int x;
+                if (k == -d || (k != d && v[(size_t) (k - 1 + offset)] < v[(size_t) (k + 1 + offset)]))
+                    x = v[(size_t) (k + 1 + offset)];
                 else
-                    dp[(size_t) i][(size_t) j] = std::max (dp[(size_t) (i - 1)][(size_t) j], dp[(size_t) i][(size_t) (j - 1)]);
+                    x = v[(size_t) (k - 1 + offset)] + 1;
+
+                int y = x - k;
+
+                while (x < n && y < m && oldLines[x] == newLines[y])
+                {
+                    x++;
+                    y++;
+                }
+
+                v[(size_t) (k + offset)] = x;
+
+                if (x >= n && y >= m)
+                {
+                    foundD = d;
+                    break;
+                }
             }
         }
 
-        // Backtrack to find edits
-        std::vector<Edit> edits;
-        int i = n, j = m;
+        jassert (foundD >= 0);
 
-        while (i > 0 || j > 0)
+        // Backtrack from (n, m) to (0, 0), emitting edits in reverse
+        std::vector<Edit> edits;
+        int x = n, y = m;
+
+        for (int d = foundD; d >= 0; d--)
         {
-            if (i > 0 && j > 0 && oldLines[i - 1] == newLines[j - 1])
-            {
-                edits.push_back ({ Edit::Type::equal, i - 1, j - 1, oldLines[i - 1] });
-                i--;
-                j--;
-            }
-            else if (j > 0 && (i == 0 || dp[(size_t) i][(size_t) (j - 1)] >= dp[(size_t) (i - 1)][(size_t) j]))
-            {
-                edits.push_back ({ Edit::Type::insert, -1, j - 1, newLines[j - 1] });
-                j--;
-            }
+            const auto& vd = trace[(size_t) d];
+            const int k = x - y;
+
+            int prevK;
+            if (k == -d || (k != d && vd[(size_t) (k - 1 + offset)] < vd[(size_t) (k + 1 + offset)]))
+                prevK = k + 1;
             else
+                prevK = k - 1;
+
+            const int prevX = vd[(size_t) (prevK + offset)];
+            const int prevY = prevX - prevK;
+
+            while (x > prevX && y > prevY)
             {
-                edits.push_back ({ Edit::Type::remove, i - 1, -1, oldLines[i - 1] });
-                i--;
+                edits.push_back ({ Edit::Type::equal, x - 1, y - 1, oldLines[x - 1] });
+                x--;
+                y--;
+            }
+
+            if (d > 0)
+            {
+                if (x == prevX)
+                    edits.push_back ({ Edit::Type::insert, -1, prevY, newLines[prevY] });
+                else
+                    edits.push_back ({ Edit::Type::remove, prevX, -1, oldLines[prevX] });
+
+                x = prevX;
+                y = prevY;
             }
         }
 
