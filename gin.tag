@@ -2243,6 +2243,11 @@
     <class kind="class">ImageMetadata</class>
   </compound>
   <compound kind="file">
+    <name>gin_imagemetadata.test.h</name>
+    <path>build/gin_metadata/metadata/</path>
+    <filename>gin__imagemetadata_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_iptcmetadata.h</name>
     <path>build/gin_metadata/metadata/</path>
     <filename>gin__iptcmetadata_8h.html</filename>
