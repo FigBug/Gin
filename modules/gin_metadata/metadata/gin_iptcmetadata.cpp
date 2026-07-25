@@ -86,9 +86,8 @@ IptcMetadata* IptcMetadata::create (const juce::uint8* data, int sz)
 {
     juce::MemoryInputStream is (data, size_t (sz), false);
 
-    char header[14];
-    is.read (header, 14);
-    if (memcmp ("Photoshop 3.0", header, 14) != 0)
+    char header[14] = {};
+    if (is.read (header, 14) != 14 || memcmp ("Photoshop 3.0", header, 14) != 0)
         return nullptr;
 
     IptcMetadata* md = new IptcMetadata();
@@ -96,9 +95,8 @@ IptcMetadata* IptcMetadata::create (const juce::uint8* data, int sz)
     bool foundIptc = false;
     while (! is.isExhausted())
     {
-        char bim[4];
-        is.read(bim, 4);
-        if (memcmp (bim, "8BIM", 4) != 0)
+        char bim[4] = {};
+        if (is.read (bim, 4) != 4 || memcmp (bim, "8BIM", 4) != 0)
             break;
 
         short type = is.readShort();
@@ -110,29 +108,32 @@ IptcMetadata* IptcMetadata::create (const juce::uint8* data, int sz)
 
         int size = (juce::uint8 (is.readByte()) << 8) + juce::uint8 (is.readByte());
 
-        juce::int64 start = is.getPosition();
         if (type == 0x0404)
         {
-            while (is.getPosition() < start + size)
+            // the block can claim to be bigger than the data that is actually present
+            const juce::int64 end = juce::jmin (is.getPosition() + size, is.getTotalLength());
+
+            // each record is a 5 byte header followed by its data
+            while (is.getPosition() + 5 <= end)
             {
                 auto marker = (juce::uint8) is.readByte();
-                jassert (marker == 0x1C);
-                juce::ignoreUnused (marker);
+                if (marker != 0x1C)
+                    break;
 
                 int cat  = juce::uint8 (is.readByte());
                 int kind = int (is.readByte());
                 int szz  = int (juce::uint8 (is.readByte()) << 8) + juce::uint8 (is.readByte());
 
-                char* newData = new char[size_t (size)];
-                is.read (newData, size);
+                const int avail = int (juce::jmin ((juce::int64) szz, end - is.getPosition()));
+
+                juce::HeapBlock<char> newData (size_t (avail) + 1, true);
+                is.read (newData, avail);
 
                 MetadataItem* itm = new MetadataItem();
                 itm->cat  = cat;
                 itm->type = kind;
-                itm->data = juce::String (newData, size_t (szz));
+                itm->data = juce::String::fromUTF8 (newData, avail);
                 md->items.add (itm);
-
-                delete[] newData;
             }
             foundIptc = true;
         }

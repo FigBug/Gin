@@ -13,9 +13,8 @@ XmpMetadata* XmpMetadata::createFromJpg (const juce::uint8* data, int sz)
 {
     juce::MemoryInputStream is (data, size_t (sz), false);
 
-    char header[29];
-    is.read (header, 29);
-    if (memcmp ("http://ns.adobe.com/xap/1.0/", header, 29) != 0)
+    char header[29] = {};
+    if (is.read (header, 29) != 29 || memcmp ("http://ns.adobe.com/xap/1.0/", header, 29) != 0)
         return nullptr;
 
     XmpMetadata* md = new XmpMetadata();

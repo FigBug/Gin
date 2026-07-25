@@ -22,6 +22,9 @@ public:
         testPngCompressedText();
         testPngExif();
         testNoMetadata();
+        testIptcRecords();
+        testMalformedExif();
+        testMalformedIptc();
     }
 
 private:
@@ -276,6 +279,102 @@ private:
             juce::OwnedArray<ImageMetadata> metadata;
             expect (! ImageMetadata::getFromImage (is, metadata), "Garbage is not an image");
         }
+    }
+    void testIptcRecords()
+    {
+        beginTest ("IPTC multiple records");
+
+        juce::MemoryOutputStream iptc;
+        iptc.write ("Photoshop 3.0\0", 14);
+        iptc.write ("8BIM", 4);
+        iptc.writeShort (0x0404);
+        iptc.writeByte (0); iptc.writeByte (0);
+        iptc.writeIntBigEndian (5 + 5 + 5 + 4);
+        iptc.writeByte (0x1c); iptc.writeByte (2); iptc.writeByte (120);
+        iptc.writeShortBigEndian (5);
+        iptc.write ("Hello", 5);
+        iptc.writeByte (0x1c); iptc.writeByte (2); iptc.writeByte (80);
+        iptc.writeShortBigEndian (4);
+        iptc.write ("John", 4);
+
+        auto md = std::unique_ptr<IptcMetadata> (IptcMetadata::create ((const juce::uint8*) iptc.getData(), int (iptc.getDataSize())));
+        if (md != nullptr)
+        {
+            expectEquals (md->getAllMetadata()["Caption/Abstract"], juce::String ("Hello"));
+            expectEquals (md->getAllMetadata()["By-line"], juce::String ("John"));
+        }
+        else
+        {
+            expect (false, "No iptc metadata");
+        }
+    }
+
+    void testMalformedExif()
+    {
+        beginTest ("Malformed EXIF");
+
+        juce::MemoryOutputStream tiff;
+        tiff.write ("Exif\0\0", 6);
+        tiff.write ("II", 2);
+        tiff.writeShort (42);
+        tiff.writeInt (8);              // IFD0 at 8
+        tiff.writeShort (6);            // 6 entries
+        tiff.writeShort (0x010f);       // Make: ascii with no null terminator
+        tiff.writeShort (2);
+        tiff.writeInt (4);
+        tiff.write ("ABCD", 4);
+        tiff.writeShort (0x0110);       // Model: count that overflows count * sizeof
+        tiff.writeShort (4);
+        tiff.writeInt (0x40000001);
+        tiff.writeInt (0);
+        tiff.writeShort (0x0132);       // DateTime: data offset past the end
+        tiff.writeShort (2);
+        tiff.writeInt (32);
+        tiff.writeInt (10000);
+        tiff.writeShort (513);          // thumbnail offset: huge
+        tiff.writeShort (4);
+        tiff.writeInt (1);
+        tiff.writeInt (0x7fffffff);
+        tiff.writeShort (514);          // thumbnail size: huge
+        tiff.writeShort (4);
+        tiff.writeInt (1);
+        tiff.writeInt (0x7fffffff);
+        tiff.writeShort (0x8769);       // sub IFD pointing back at IFD0
+        tiff.writeShort (4);
+        tiff.writeInt (1);
+        tiff.writeInt (8);
+        tiff.writeInt (8);              // next IFD: cycle back to IFD0
+
+        auto md = std::unique_ptr<ExifMetadata> (ExifMetadata::create ((const juce::uint8*) tiff.getData(), int (tiff.getDataSize())));
+        if (md != nullptr)
+        {
+            auto all = md->getAllMetadata();
+            expectEquals (all["Make"], juce::String ("ABCD"), "Unterminated ascii should be bounded");
+            expect (! all.containsKey ("Model"), "Overflowing count should be rejected");
+            expect (! all.containsKey ("Date Time"), "Out of bounds data should be rejected");
+            expect (md->getThumbnailImage().isNull(), "Bogus thumbnail should be rejected");
+        }
+        else
+        {
+            expect (false, "No exif metadata");
+        }
+    }
+
+    void testMalformedIptc()
+    {
+        beginTest ("Malformed IPTC");
+
+        // block claims 0xffff bytes but the data ends after one record header
+        juce::MemoryOutputStream iptc;
+        iptc.write ("Photoshop 3.0\0", 14);
+        iptc.write ("8BIM", 4);
+        iptc.writeShort (0x0404);
+        iptc.writeByte (0); iptc.writeByte (0);
+        iptc.writeIntBigEndian (0xffff);
+        iptc.writeByte (0x1c); iptc.writeByte (2); iptc.writeByte (120);
+
+        auto md = std::unique_ptr<IptcMetadata> (IptcMetadata::create ((const juce::uint8*) iptc.getData(), int (iptc.getDataSize())));
+        expect (md == nullptr || md->getAllMetadata().size() == 0, "Truncated IPTC should parse to nothing");
     }
 };
 

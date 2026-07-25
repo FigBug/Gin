@@ -161,7 +161,8 @@ juce::String ExifMetadata::MetadataItem::getValue() const
     }
     else if (type == 2)
     {
-        return juce::String ((char*)data);
+        // the data isn't guaranteed to contain a null terminator
+        return juce::String::fromUTF8 ((const char*)data, count);
     }
     else if (type == 3)
     {
@@ -276,37 +277,44 @@ ExifMetadata* ExifMetadata::create (const juce::uint8* data, int sz)
         return nullptr;
 
     juce::MemoryInputStream is (data + 6, size_t (sz - 6), false);
+    const juce::int64 streamLen = is.getTotalLength();
 
-    char endianTag[2];
-    is.read (endianTag, 2);
+    char endianTag[2] = {};
+    if (is.read (endianTag, 2) != 2)
+        return nullptr;
 
-    ExifMetadata* md = new ExifMetadata();
-
-    bool bigEndian = memcmp (endianTag, "MM", 2) == 0;
+    const bool bigEndian = memcmp (endianTag, "MM", 2) == 0;
 
     is.skipNextBytes (2);
 
-    int offset = bigEndian ? is.readIntBigEndian() : is.readInt();
-    if (offset == 0)
-    {
-        delete md;
+    const int offset = bigEndian ? is.readIntBigEndian() : is.readInt();
+    if (offset <= 0 || offset >= streamLen)
         return nullptr;
-    }
+
+    auto md = std::make_unique<ExifMetadata>();
+
+    // All counts and offsets come from the file, so a malicious file can't be
+    // allowed to cause runaway loops or huge allocations
+    constexpr int maxSections = 64;
+    constexpr int maxItems    = 1000;
 
     juce::OwnedArray<MetadataSection> ifd;
+    juce::SortedSet<int> visited;
     ifd.add (new MetadataSection (0, offset));
+    visited.add (offset);
 
+    int sections    = 0;
     int thumbOffset = 0;
-    int thumbSize    = 0;
-    while (ifd.size() > 0)
+    int thumbSize   = 0;
+    while (ifd.size() > 0 && ++sections <= maxSections)
     {
         MetadataSection* ms = ifd.getFirst();
         is.setPosition (ms->offset);
 
-        int records = bigEndian ? is.readShortBigEndian() : is.readShort();
-        for (int i = 0; i < records; i++)
+        const int records = bigEndian ? is.readShortBigEndian() : is.readShort();
+        for (int i = 0; i < records && md->items.size() < maxItems; i++)
         {
-            auto itm = new MetadataItem();
+            auto itm = std::make_unique<MetadataItem>();
 
             itm->tag       = juce::uint16 (bigEndian ? is.readShortBigEndian() : is.readShort());
             itm->type      = juce::uint16 (bigEndian ? is.readShortBigEndian() : is.readShort());
@@ -316,57 +324,67 @@ ExifMetadata* ExifMetadata::create (const juce::uint8* data, int sz)
 
             int offsetData = is.readInt();
 
-            int off       = int (bigEndian ? juce::ByteOrder::bigEndianInt (&offsetData) : juce::ByteOrder::littleEndianInt (&offsetData));
-            int dataBytes = itm->count * sizeofType (itm->type);
-
-            itm->data = ::operator new (size_t (dataBytes));
-            if (dataBytes <= 4)
-            {
-                memcpy (itm->data, &offsetData, size_t (dataBytes));
-            }
-            else
-            {
-                juce::int64 curPos = is.getPosition();
-                is.setPosition (off);
-                is.read (itm->data, dataBytes);
-                is.setPosition (curPos);
-            }
+            const int off = int (bigEndian ? juce::ByteOrder::bigEndianInt (&offsetData) : juce::ByteOrder::littleEndianInt (&offsetData));
 
             if (itm->tag == 513)
             {
                 thumbOffset = off;
-                delete itm;
             }
             else if (itm->tag == 514)
             {
                 thumbSize = off;
-                delete itm;
             }
             else if (itm->tag == 0x8769 ||
                      itm->tag == 0x8825 ||
                      itm->tag == 0xA005)
             {
-                ifd.add (new MetadataSection (itm->tag, off));
-                delete itm;
+                if (off > 0 && off < streamLen && ! visited.contains (off))
+                {
+                    ifd.add (new MetadataSection (itm->tag, off));
+                    visited.add (off);
+                }
             }
             else if (itm->tag == 37500)
             {
                 // handle maker note
-                delete itm;
             }
             else
             {
-                md->items.add (itm);
+                const juce::int64 dataBytes = juce::int64 (itm->count) * sizeofType (itm->type);
+                if (dataBytes <= 0)
+                    continue;
+
+                // out of line data must actually be in the stream
+                if (dataBytes > 4 && (off < 0 || dataBytes > streamLen - off))
+                    continue;
+
+                itm->data = ::operator new (size_t (dataBytes));
+                if (dataBytes <= 4)
+                {
+                    memcpy (itm->data, &offsetData, size_t (dataBytes));
+                }
+                else
+                {
+                    const juce::int64 curPos = is.getPosition();
+                    is.setPosition (off);
+                    is.read (itm->data, int (dataBytes));
+                    is.setPosition (curPos);
+                }
+
+                md->items.add (itm.release());
             }
         }
-        int off = bigEndian ? is.readIntBigEndian() : is.readInt();
-        if (off)
+        const int off = bigEndian ? is.readIntBigEndian() : is.readInt();
+        if (off > 0 && off < streamLen && ! visited.contains (off))
+        {
             ifd.add (new MetadataSection (0, off));
+            visited.add (off);
+        }
 
         ifd.remove (0);
     }
 
-    if (thumbOffset && thumbSize)
+    if (thumbOffset > 0 && thumbSize > 0 && thumbSize <= streamLen - thumbOffset)
     {
         md->thumbImg = new char[size_t (thumbSize)];
         is.setPosition (thumbOffset);
@@ -374,7 +392,7 @@ ExifMetadata* ExifMetadata::create (const juce::uint8* data, int sz)
         md->thumbNumBytes = thumbSize;
     }
 
-    return md;
+    return md.release();
 }
 
 ExifMetadata::~ExifMetadata()
