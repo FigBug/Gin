@@ -16,17 +16,9 @@
 
 //==============================================================================
 
-#if __clang__
- #pragma clang diagnostic push
- #if __has_warning("-Wnull-pointer-subtraction")
-  #pragma clang diagnostic ignored "-Wnull-pointer-subtraction"
- #endif
-#endif
-
 namespace gin
 {
 
-#include "metadata/gin_libjpegpng.cpp"
 #include "metadata/gin_commentmetadata.cpp"
 #include "metadata/gin_exifmetadata.cpp"
 #include "metadata/gin_imagemetadata.cpp"
@@ -34,7 +26,3 @@ namespace gin
 #include "metadata/gin_xmpmetadata.cpp"
 
 }
-
-#if __clang__
- #pragma clang diagnostic pop
-#endif

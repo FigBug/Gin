@@ -52,6 +52,7 @@ using namespace gin;
 #include "../../../modules/gin_dsp/dsp/gin_scratchbuffer.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_valuesmoother.test.h"
 #include "../../../modules/gin_graphics/formats/gin_bmpimageformat.test.h"
+#include "../../../modules/gin_metadata/metadata/gin_imagemetadata.test.h"
 #include "../../../modules/gin_graphics/images/gin_imageeffects.test.h"
 #include "../../../modules/gin_graphics/images/gin_imageeffects_blending.test.h"
 #include "../../../modules/gin_gui/utilities/gin_componentmap.test.h"

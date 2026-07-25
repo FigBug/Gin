@@ -4,141 +4,167 @@
  For more information visit www.rabiensoftware.com
 
  ==============================================================================*/
-using namespace ginJpeglibNamespace;
-using namespace ginPnglibNamespace;
 
 //==============================================================================
-#define JPEG_RST0    0xD0    /* RST0 marker code */
-#define JPEG_EOI     0xD9    /* EOI marker code */
-#define JPEG_APP0    0xE0    /* APP0 marker code */
-#define JPEG_COM     0xFE    /* COM marker code */
-
-static void dummyCallback1 (j_decompress_ptr) {}
-
-static void jpegSkip (j_decompress_ptr decompStruct, long num)
+// JPEG is a sequence of marker segments: 0xFF, marker id, then (for most
+// markers) a 16 bit big endian length that includes the length bytes
+// themselves. All the metadata lives in segments before the image data, so
+// walk the segments and stop at SOS/EOI.
+static bool loadJPEGMetadata (juce::OwnedArray<ImageMetadata>& metadata, const juce::uint8* data, size_t size)
 {
-    decompStruct->src->next_input_byte += num;
+    constexpr juce::uint8 markerTEM   = 0x01;
+    constexpr juce::uint8 markerRST0  = 0xd0;
+    constexpr juce::uint8 markerSOI   = 0xd8;
+    constexpr juce::uint8 markerEOI   = 0xd9;
+    constexpr juce::uint8 markerSOS   = 0xda;
+    constexpr juce::uint8 markerAPP1  = 0xe1;
+    constexpr juce::uint8 markerAPP13 = 0xed;
+    constexpr juce::uint8 markerCOM   = 0xfe;
 
-    num = juce::jmin (num, (long) decompStruct->src->bytes_in_buffer);
-    decompStruct->src->bytes_in_buffer -= (size_t) num;
-}
-
-static boolean jpegFill (j_decompress_ptr)
-{
-    return 0;
-}
-
-static void fatalErrorHandler (j_common_ptr p)          { *((bool*) (p->client_data)) = true; }
-static void silentErrorCallback1 (j_common_ptr)         {}
-static void silentErrorCallback2 (j_common_ptr, int)    {}
-static void silentErrorCallback3 (j_common_ptr, char*)  {}
-
-static void setupSilentErrorHandler (struct jpeg_error_mgr& err)
-{
-    juce::zerostruct (err);
-
-    err.error_exit      = fatalErrorHandler;
-    err.emit_message    = silentErrorCallback2;
-    err.output_message  = silentErrorCallback1;
-    err.format_message  = silentErrorCallback3;
-    err.reset_error_mgr = silentErrorCallback1;
-}
-
-static bool loadJPEGMetadataFromStream (juce::OwnedArray<ImageMetadata>& metadata, juce::InputStream& input)
-{
-    juce::MemoryBlock mb;
-    input.readIntoMemoryBlock (mb);
-
-    if (mb.getSize() > 16)
+    size_t pos = 2;
+    while (pos + 2 <= size)
     {
-        struct jpeg_decompress_struct jpegDecompStruct;
+        if (data[pos] != 0xff)
+            break;
 
-        struct jpeg_error_mgr jerr;
-        setupSilentErrorHandler (jerr);
-        jpegDecompStruct.err = &jerr;
+        const auto marker = data[pos + 1];
 
-        jpeg_create_decompress (&jpegDecompStruct);
-
-        jpeg_save_markers (&jpegDecompStruct, JPEG_COM, 0xFFFF);
-        for (int m = 0; m < 16; m++)
-            jpeg_save_markers (&jpegDecompStruct, JPEG_APP0 + m, 0xFFFF);
-
-        jpegDecompStruct.src = (jpeg_source_mgr*)(jpegDecompStruct.mem->alloc_small)((j_common_ptr)(&jpegDecompStruct), JPOOL_PERMANENT, sizeof (jpeg_source_mgr));
-
-        jpegDecompStruct.src->init_source       = dummyCallback1;
-        jpegDecompStruct.src->fill_input_buffer = jpegFill;
-        jpegDecompStruct.src->skip_input_data   = jpegSkip;
-        jpegDecompStruct.src->resync_to_restart = jpeg_resync_to_restart;
-        jpegDecompStruct.src->term_source       = dummyCallback1;
-
-        jpegDecompStruct.src->next_input_byte   = (const unsigned char*) mb.getData();
-        jpegDecompStruct.src->bytes_in_buffer   = mb.getSize();
-
-        jpeg_read_header (&jpegDecompStruct, TRUE);
-
-        jpeg_saved_marker_ptr marker = jpegDecompStruct.marker_list;
-        while (marker)
+        if (marker == 0xff) // padding
         {
-            ImageMetadata* md;
-            if (marker->marker == JPEG_COM && (md = CommentMetadata::create (marker->data, int (marker->data_length))) != nullptr)
-                metadata.add (md);
-            if (marker->marker == JPEG_APP0 + 1 && (md = ExifMetadata::create (marker->data, int (marker->data_length))) != nullptr)
-                metadata.add (md);
-            if (marker->marker == JPEG_APP0 + 1 && (md = XmpMetadata::createFromJpg (marker->data, int (marker->data_length))) != nullptr)
-                metadata.add (md);
-            if (marker->marker == JPEG_APP0 + 13 && (md = IptcMetadata::create (marker->data, int (marker->data_length))) != nullptr)
-                metadata.add (md);
-
-            marker = marker->next;
+            pos++;
+            continue;
         }
-        jpeg_destroy_decompress(&jpegDecompStruct);
+
+        pos += 2;
+
+        if (marker == markerTEM || marker == markerSOI || (marker >= markerRST0 && marker < markerEOI))
+            continue; // standalone markers with no length
+
+        if (marker == markerEOI || marker == markerSOS)
+            break;
+
+        if (pos + 2 > size)
+            break;
+
+        const size_t len = juce::uint16 (juce::ByteOrder::bigEndianShort (data + pos));
+        if (len < 2 || len > size - pos)
+            break;
+
+        auto payload    = data + pos + 2;
+        auto payloadLen = int (len - 2);
+        pos += len;
+
+        ImageMetadata* md;
+        if (marker == markerCOM   && (md = CommentMetadata::create (payload, payloadLen)) != nullptr)
+            metadata.add (md);
+        if (marker == markerAPP1  && (md = ExifMetadata::create (payload, payloadLen)) != nullptr)
+            metadata.add (md);
+        if (marker == markerAPP1  && (md = XmpMetadata::createFromJpg (payload, payloadLen)) != nullptr)
+            metadata.add (md);
+        if (marker == markerAPP13 && (md = IptcMetadata::create (payload, payloadLen)) != nullptr)
+            metadata.add (md);
     }
+
     return metadata.size() > 0;
 }
 
 //==============================================================================
-static void pngReadCallback (png_structp pngReadStruct, png_bytep data, png_size_t length)
+static juce::MemoryBlock inflateZlib (const juce::uint8* data, size_t size)
 {
-    juce::InputStream* const in = (juce::InputStream*) png_get_io_ptr (pngReadStruct);
-    in->read (data, (int) length);
+    juce::MemoryInputStream in (data, size, false);
+    juce::GZIPDecompressorInputStream zlib (&in, false, juce::GZIPDecompressorInputStream::zlibFormat);
+
+    juce::MemoryOutputStream out;
+    out.writeFromInputStream (zlib, 16 * 1024 * 1024);
+    return out.getMemoryBlock();
 }
 
-//==============================================================================
-static bool loadPNGMetadataFromStream (juce::OwnedArray<ImageMetadata>& metadata, juce::InputStream& in)
+// PNG text chunks start with a 1-79 byte keyword followed by a null
+static int findKeywordEnd (const juce::uint8* data, size_t size)
 {
-    juce::Image* image = nullptr;
+    for (size_t i = 1; i < std::min (size, size_t (80)); i++)
+        if (data[i] == 0)
+            return int (i);
 
-    png_structp pngReadStruct;
-    png_infop pngInfoStruct;
+    return -1;
+}
 
-    pngReadStruct = png_create_read_struct (PNG_LIBPNG_VER_STRING, nullptr, nullptr, nullptr);
+// PNG is an 8 byte signature followed by chunks: 32 bit big endian length,
+// 4 byte type, data, 32 bit crc. XMP lives in a text chunk with the keyword
+// XML:com.adobe.xmp, exif in an eXIf chunk.
+static bool loadPNGMetadata (juce::OwnedArray<ImageMetadata>& metadata, const juce::uint8* data, size_t size)
+{
+    const juce::String xmpKeyword ("XML:com.adobe.xmp");
 
-    if (pngReadStruct != nullptr)
+    size_t pos = 8;
+    while (pos + 12 <= size)
     {
-        pngInfoStruct = png_create_info_struct (pngReadStruct);
+        const size_t len = juce::uint32 (juce::ByteOrder::bigEndianInt (data + pos));
+        if (len > size - pos - 12)
+            break;
 
-        if (pngInfoStruct == nullptr)
+        const char* type = (const char*) data + pos + 4;
+        auto chunk = data + pos + 8;
+        pos += len + 12;
+
+        if (memcmp (type, "IEND", 4) == 0)
+            break;
+
+        if (memcmp (type, "tEXt", 4) == 0 || memcmp (type, "zTXt", 4) == 0 || memcmp (type, "iTXt", 4) == 0)
         {
-            png_destroy_read_struct (&pngReadStruct, nullptr, nullptr);
-            return 0;
-        }
+            const int keywordEnd = findKeywordEnd (chunk, len);
+            if (keywordEnd < 0 || juce::String::fromUTF8 ((const char*) chunk, keywordEnd) != xmpKeyword)
+                continue;
 
-        // read the header..
-        png_set_read_fn (pngReadStruct, &in, pngReadCallback);
-        png_read_info (pngReadStruct, pngInfoStruct);
+            juce::MemoryBlock text;
 
-        for (int i = 0; i < pngInfoStruct->num_text; i++)
-        {
-            if (! strcmp (pngInfoStruct->text[i].key, "XML:com.adobe.xmp"))
+            if (type[0] == 't') // tEXt: keyword \0 text
             {
-                ImageMetadata* md = XmpMetadata::createFromPng (pngInfoStruct->text[i].text, std::max ((int)pngInfoStruct->text[i].text_length, (int)pngInfoStruct->text[i].itxt_length));
-                metadata.add (md);
+                text.append (chunk + keywordEnd + 1, len - size_t (keywordEnd) - 1);
             }
+            else if (type[0] == 'z') // zTXt: keyword \0 method text
+            {
+                if (size_t (keywordEnd) + 2 > len || chunk[keywordEnd + 1] != 0)
+                    continue;
+
+                text = inflateZlib (chunk + keywordEnd + 2, len - size_t (keywordEnd) - 2);
+            }
+            else // iTXt: keyword \0 compressed? method language \0 translated \0 text
+            {
+                if (size_t (keywordEnd) + 3 > len)
+                    continue;
+
+                size_t p = size_t (keywordEnd) + 3;
+                const bool compressed = chunk[keywordEnd + 1] != 0;
+
+                for (int nulls = 0; p < len && nulls < 2;)
+                    if (chunk[p++] == 0)
+                        nulls++;
+
+                if (p >= len)
+                    continue;
+
+                if (compressed)
+                    text = inflateZlib (chunk + p, len - p);
+                else
+                    text.append (chunk + p, len - p);
+            }
+
+            if (text.getSize() > 0)
+                metadata.add (XmpMetadata::createFromPng ((const char*) text.getData(), int (text.getSize())));
         }
-        png_destroy_read_struct (&pngReadStruct, &pngInfoStruct, nullptr);
+        else if (memcmp (type, "eXIf", 4) == 0)
+        {
+            // The chunk holds raw TIFF data, ExifMetadata expects it with the JPEG APP1 header
+            juce::MemoryBlock exif ("Exif\0\0", 6);
+            exif.append (chunk, len);
+
+            if (auto md = ExifMetadata::create ((const juce::uint8*) exif.getData(), int (exif.getSize())))
+                metadata.add (md);
+        }
     }
 
-    return image;
+    return metadata.size() > 0;
 }
 
 //==============================================================================
@@ -152,22 +178,20 @@ ImageMetadata::~ImageMetadata()
 
 bool ImageMetadata::getFromImage (juce::InputStream& is, juce::OwnedArray<ImageMetadata>& metadata)
 {
-    juce::JPEGImageFormat jpeg;
-    juce::PNGImageFormat png;
-
+    juce::MemoryBlock mb;
     is.setPosition (0);
-    if (jpeg.canUnderstand (is))
-    {
-        is.setPosition (0);
-        return loadJPEGMetadataFromStream (metadata, is);
-    }
+    is.readIntoMemoryBlock (mb);
 
-    is.setPosition (0);
-    if (png.canUnderstand (is))
-    {
-        is.setPosition (0);
-        return loadPNGMetadataFromStream (metadata, is);
-    }
+    auto data = (const juce::uint8*) mb.getData();
+    auto size = mb.getSize();
+
+    static const juce::uint8 pngSig[] = { 0x89, 'P', 'N', 'G', 0x0d, 0x0a, 0x1a, 0x0a };
+
+    if (size > 16 && data[0] == 0xff && data[1] == 0xd8 && data[2] == 0xff)
+        return loadJPEGMetadata (metadata, data, size);
+
+    if (size > 16 && memcmp (data, pngSig, 8) == 0)
+        return loadPNGMetadata (metadata, data, size);
 
     return false;
 }
