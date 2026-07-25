@@ -21,12 +21,12 @@ public:
         context.release         = nil;
         context.copyDescription = nil;
 
-        dispatch_queue_t queue = dispatch_queue_create("com.gin.filesystemwatcher", DISPATCH_QUEUE_SERIAL);
+        queue = dispatch_queue_create ("com.gin.filesystemwatcher", DISPATCH_QUEUE_SERIAL);
         stream = FSEventStreamCreate (kCFAllocatorDefault, callback, &context, (CFArrayRef)paths, kFSEventStreamEventIdSinceNow, 0.05,
                                       kFSEventStreamCreateFlagNoDefer | kFSEventStreamCreateFlagFileEvents);
         if (stream)
         {
-            FSEventStreamSetDispatchQueue(stream, queue);
+            FSEventStreamSetDispatchQueue (stream, queue);
             FSEventStreamStart (stream);
         }
 
@@ -37,10 +37,16 @@ public:
         if (stream)
         {
             FSEventStreamStop (stream);
-            FSEventStreamSetDispatchQueue(stream, nullptr);
             FSEventStreamInvalidate (stream);
             FSEventStreamRelease (stream);
         }
+
+        // Invalidate doesn't wait for a callback that is already running on the
+        // queue, so drain it before this object is destroyed
+        dispatch_sync (queue, ^{});
+        dispatch_release (queue);
+
+        [paths release];
     }
 
     static void callback (ConstFSEventStreamRef streamRef, void* clientCallBackInfo, size_t numEvents, void* eventPaths,
@@ -94,6 +100,7 @@ public:
     const juce::File folder;
 
     NSArray* paths;
+    dispatch_queue_t queue = nullptr;
     FSEventStreamRef stream;
     struct FSEventStreamContext context;
 };
