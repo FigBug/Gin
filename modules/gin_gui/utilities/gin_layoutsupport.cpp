@@ -1249,7 +1249,29 @@ int LayoutSupport::parse (const juce::var& equation, int equationIndex)
             auto equationText =  equation.toString().replace ("'", "\"");
             if (equationText.contains (","))
             {
-                auto tokens = juce::StringArray::fromTokens (equationText, ",", "");
+                // Only top-level commas separate values; a comma inside parentheses
+                // belongs to a function call like min (a, b)
+                juce::StringArray tokens;
+
+                int depth = 0;
+                int start = 0;
+
+                for (int i = 0; i < equationText.length(); i++)
+                {
+                    auto c = equationText[i];
+
+                    if (c == '(')
+                        depth++;
+                    else if (c == ')')
+                        depth--;
+                    else if (c == ',' && depth == 0)
+                    {
+                        tokens.add (equationText.substring (start, i));
+                        start = i + 1;
+                    }
+                }
+                tokens.add (equationText.substring (start));
+
                 equationText = tokens[std::min (equationIndex, tokens.size() - 1)];
             }
 
