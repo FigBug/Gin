@@ -550,8 +550,9 @@ void TitleBar::showMenu()
     if (updateChecker)
     {
         auto updateUrl = updateChecker->getUpdateUrl();
-        if (kFakeAlerts && updateUrl.isEmpty())
-            updateUrl = kFakeUpdateUrl;
+        if constexpr (kFakeAlerts)
+            if (updateUrl.isEmpty())
+                updateUrl = kFakeUpdateUrl;
         const bool active = updateUrl.isNotEmpty();
 
         juce::PopupMenu::Item item ("Get update");
@@ -575,8 +576,9 @@ void TitleBar::showMenu()
     if (newsChecker)
     {
         auto newsUrl = newsChecker->getNewsUrl();
-        if (kFakeAlerts && newsUrl.isEmpty())
-            newsUrl = kFakeNewsUrl;
+        if constexpr (kFakeAlerts)
+            if (newsUrl.isEmpty())
+                newsUrl = kFakeNewsUrl;
         const bool active = newsUrl.isNotEmpty();
 
         juce::PopupMenu::Item item ("Read news");
