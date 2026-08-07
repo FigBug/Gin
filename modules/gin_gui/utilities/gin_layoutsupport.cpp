@@ -362,14 +362,20 @@ void LayoutSupport::loadConstants (juce::var& j)
             {
                 auto val = itm.value;
 
+                auto setTopLevel = [this] (const juce::String& name, double value)
+                {
+                    constants.set (name, value);
+                    topLevelConstants[name] = value;
+                };
+
                 if (val.isObject())
                 {
                     for (auto& it : getPropertySet (val))
-                        constants.set ((itm.key + "." + it.key).toStdString(), parse (it.value, 0));
+                        setTopLevel (itm.key + "." + it.key, parse (it.value, 0));
                 }
                 else
                 {
-                    constants.set (itm.key.toStdString(), parse (val, 0));
+                    setTopLevel (itm.key, parse (val, 0));
                 }
             }
         }
@@ -458,6 +464,7 @@ void LayoutSupport::setLayouts (const juce::StringArray& rawJson)
 void LayoutSupport::setLayoutInternal (const juce::Array<JsonFile>& files)
 {
     layoutSet = true;
+    topLevelConstants.clear();
 
     //
     // Find all the base level constants
@@ -526,6 +533,14 @@ void LayoutSupport::setLayoutInternal (const juce::Array<JsonFile>& files)
 void LayoutSupport::setConstant (const juce::String& name, int value)
 {
     constants.set (name, value);
+}
+
+double LayoutSupport::getConstant (const juce::String& name, double defaultValue) const
+{
+    if (auto itr = topLevelConstants.find (name); itr != topLevelConstants.end())
+        return itr->second;
+
+    return defaultValue;
 }
 
 void LayoutSupport::setComponentsLayout (const juce::String& currentPath,

@@ -329,6 +329,16 @@ public:
     void setConstant (const juce::String& name, int value);
 
     /**
+        Get a top-level constant from the loaded layout files, merged in load
+        order. Holds the values of the most recent layout pass, so it is only
+        meaningful after a layout has been set.
+
+        @param name          Constant name
+        @param defaultValue  Value returned when the constant doesn't exist
+    */
+    double getConstant (const juce::String& name, double defaultValue) const;
+
+    /**
         Find a resource by name
 
      */
@@ -386,6 +396,7 @@ protected:
     void fileChanged (const juce::File&, gin::FileSystemWatcher::FileSystemEvent) override;
 
     ConstantsStack constants;
+    std::map<juce::String, double> topLevelConstants;
     std::map<juce::String, juce::var> macros;
 
     juce::Array<juce::File> layoutFiles;
