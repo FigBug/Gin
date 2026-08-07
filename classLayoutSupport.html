@@ -121,6 +121,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8de7426be92c062971aad2008302073f" id="r_a8de7426be92c062971aad2008302073f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a8de7426be92c062971aad2008302073f">setConstant</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;name, <a class="el" href="classPoint.html">int</a> value)</td></tr>
 <tr class="memdesc:a8de7426be92c062971aad2008302073f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set or update a constant value.  <br /></td></tr>
 <tr class="separator:a8de7426be92c062971aad2008302073f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cff5e53130297d3ec4490e0296938a5" id="r_a4cff5e53130297d3ec4490e0296938a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a4cff5e53130297d3ec4490e0296938a5">getConstant</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;name, <a class="el" href="classPoint.html">double</a> defaultValue) <a class="el" href="classPoint.html">const</a></td></tr>
+<tr class="memdesc:a4cff5e53130297d3ec4490e0296938a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a top-level constant from the loaded layout files, merged in load order.  <br /></td></tr>
+<tr class="separator:a4cff5e53130297d3ec4490e0296938a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa4fe5fbbe931c9e0a73eaf22c164422" id="r_afa4fe5fbbe931c9e0a73eaf22c164422"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#afa4fe5fbbe931c9e0a73eaf22c164422">findContent</a> (<a class="el" href="classPoint.html">const</a> juce::String &amp;name)</td></tr>
 <tr class="memdesc:afa4fe5fbbe931c9e0a73eaf22c164422"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a resource by name.  <br /></td></tr>
 <tr class="separator:afa4fe5fbbe931c9e0a73eaf22c164422"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -168,6 +171,8 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a1733f41e211565425c60d427f0c8c284"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d8324e2010a8e045c3de98cc9476899" id="r_a2d8324e2010a8e045c3de98cc9476899"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classConstantsStack.html">ConstantsStack</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a2d8324e2010a8e045c3de98cc9476899">constants</a></td></tr>
 <tr class="separator:a2d8324e2010a8e045c3de98cc9476899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab04e5babb7567072c7d529edeb046188" id="r_ab04e5babb7567072c7d529edeb046188"><td class="memItemLeft" align="right" valign="top">std::map&lt; juce::String, <a class="el" href="classPoint.html">double</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#ab04e5babb7567072c7d529edeb046188">topLevelConstants</a></td></tr>
+<tr class="separator:ab04e5babb7567072c7d529edeb046188"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabcc9c3d106fe045b14ce359adb9b11d" id="r_aabcc9c3d106fe045b14ce359adb9b11d"><td class="memItemLeft" align="right" valign="top">std::map&lt; juce::String, juce::var &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#aabcc9c3d106fe045b14ce359adb9b11d">macros</a></td></tr>
 <tr class="separator:aabcc9c3d106fe045b14ce359adb9b11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ce034034572fb600bf8b57cd343d9a4" id="r_a9ce034034572fb600bf8b57cd343d9a4"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; juce::File &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLayoutSupport.html#a9ce034034572fb600bf8b57cd343d9a4">layoutFiles</a></td></tr>
@@ -615,6 +620,44 @@ Examples</h2>
   <table class="params">
     <tr><td class="paramname">name</td><td>Constant name </td></tr>
     <tr><td class="paramname">value</td><td>Constant value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4cff5e53130297d3ec4490e0296938a5" name="a4cff5e53130297d3ec4490e0296938a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cff5e53130297d3ec4490e0296938a5">&#9670;&#160;</a></span>getConstant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">double</a> LayoutSupport::getConstant </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::String &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">double</a>&#160;</td>
+          <td class="paramname"><em>defaultValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get a top-level constant from the loaded layout files, merged in load order. </p>
+<p>Holds the values of the most recent layout pass, so it is only meaningful after a layout has been set.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Constant name </td></tr>
+    <tr><td class="paramname">defaultValue</td><td>Value returned when the constant doesn't exist </td></tr>
   </table>
   </dd>
 </dl>
@@ -1104,6 +1147,28 @@ Examples</h2>
 
 </div>
 </div>
+<a id="ab04e5babb7567072c7d529edeb046188" name="ab04e5babb7567072c7d529edeb046188"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab04e5babb7567072c7d529edeb046188">&#9670;&#160;</a></span>topLevelConstants</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;juce::String, <a class="el" href="classPoint.html">double</a>&gt; LayoutSupport::topLevelConstants</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aabcc9c3d106fe045b14ce359adb9b11d" name="aabcc9c3d106fe045b14ce359adb9b11d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aabcc9c3d106fe045b14ce359adb9b11d">&#9670;&#160;</a></span>macros</h2>
 
@@ -1264,7 +1329,7 @@ Examples</h2>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 28 2026 21:34:11 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Aug 7 2026 17:25:14 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

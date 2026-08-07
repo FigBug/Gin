@@ -10110,6 +10110,13 @@
       <arglist>(const juce::String &amp;name, int value)</arglist>
     </member>
     <member kind="function">
+      <type>double</type>
+      <name>getConstant</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a4cff5e53130297d3ec4490e0296938a5</anchor>
+      <arglist>(const juce::String &amp;name, double defaultValue) const</arglist>
+    </member>
+    <member kind="function">
       <type>juce::String</type>
       <name>findContent</name>
       <anchorfile>classLayoutSupport.html</anchorfile>
@@ -10219,6 +10226,13 @@
       <name>constants</name>
       <anchorfile>classLayoutSupport.html</anchorfile>
       <anchor>a2d8324e2010a8e045c3de98cc9476899</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::map&lt; juce::String, double &gt;</type>
+      <name>topLevelConstants</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>ab04e5babb7567072c7d529edeb046188</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
