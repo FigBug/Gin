@@ -80,15 +80,19 @@ public:
 
         setDropShadowEnabled (false);
 
-        enterModalState (true, new Callback ([this, callback, originalSize, &parent] (int ret)
+        enterModalState (true, new Callback ([self = juce::Component::SafePointer<PluginAlertWindow> (this), callback, originalSize, safeParent = juce::Component::SafePointer<juce::Component> (&parent)] (int ret)
         {
-            blur->removeChildComponent (blur.get());
-            blur = nullptr;
+            // The editor may have been deleted while the alert was showing
+            if (self == nullptr || safeParent == nullptr)
+                return;
 
-            setVisible (false);
-            
+            self->blur->removeChildComponent (self->blur.get());
+            self->blur = nullptr;
+
+            self->setVisible (false);
+
             if (originalSize.has_value())
-                parent.setSize (originalSize->getWidth(), originalSize->getHeight());
+                safeParent->setSize (originalSize->getWidth(), originalSize->getHeight());
 
             callback (ret);
         }));
