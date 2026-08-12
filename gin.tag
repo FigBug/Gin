@@ -1024,6 +1024,17 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>gin_bitcrusher.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__bitcrusher_8h.html</filename>
+    <class kind="class">BitCrusher</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_bitcrusher.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__bitcrusher_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_dcblocker.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__dcblocker_8h.html</filename>
@@ -4895,6 +4906,52 @@
       <anchorfile>classBandLimitedLookupTables.html</anchorfile>
       <anchor>a82d39f6516c342b2ff3e5f08c7be21c3</anchor>
       <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>BitCrusher</name>
+    <filename>classBitCrusher.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>BitCrusher</name>
+      <anchorfile>classBitCrusher.html</anchorfile>
+      <anchor>afc9fcb19710947af7090846e312251e4</anchor>
+      <arglist>(int maxChannels_=2, int maxBlockSize_=4096)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classBitCrusher.html</anchorfile>
+      <anchor>a5382626ff139cace3acf01dde5f37540</anchor>
+      <arglist>(double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setParams</name>
+      <anchorfile>classBitCrusher.html</anchorfile>
+      <anchor>a8cdee2d1ebdd12d292bb32182b265d4c</anchor>
+      <arglist>(float bitDepth, float rateHz, bool dirtyMode)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classBitCrusher.html</anchorfile>
+      <anchor>a6551786123158d080de63536cbf6b4f7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getLatencySamples</name>
+      <anchorfile>classBitCrusher.html</anchorfile>
+      <anchor>af38d34a081d9a63ace0fd280efa9e158</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classBitCrusher.html</anchorfile>
+      <anchor>a996de4db903aee3f3a9c05bfee4eeccb</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -23183,6 +23240,7 @@
     <class kind="class">WetDryMix</class>
     <class kind="class">BandLimitedLookupTable</class>
     <class kind="class">BandLimitedLookupTables</class>
+    <class kind="class">BitCrusher</class>
     <class kind="class">DCBlocker</class>
     <class kind="class">DelayLine</class>
     <class kind="class">AirWindowsDistortion</class>

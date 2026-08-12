@@ -6,13 +6,14 @@ var searchData=
   ['backouteasing_3',['BackOutEasing',['../structBackOutEasing.html',1,'']]],
   ['bandlimitedlookuptable_4',['BandLimitedLookupTable',['../classBandLimitedLookupTable.html',1,'']]],
   ['bandlimitedlookuptables_5',['BandLimitedLookupTables',['../classBandLimitedLookupTables.html',1,'']]],
-  ['blltvoicedstereooscillator_6',['BLLTVoicedStereoOscillator',['../classBLLTVoicedStereoOscillator.html',1,'']]],
-  ['bmpimageformat_7',['BMPImageFormat',['../classBMPImageFormat.html',1,'']]],
-  ['bounceineasing_8',['BounceInEasing',['../structBounceInEasing.html',1,'']]],
-  ['bounceinouteasing_9',['BounceInOutEasing',['../structBounceInOutEasing.html',1,'']]],
-  ['bounceouteasing_10',['BounceOutEasing',['../structBounceOutEasing.html',1,'']]],
-  ['bounds_11',['Bounds',['../structLayoutSupport_1_1Bounds.html',1,'LayoutSupport']]],
-  ['boxarea_12',['BoxArea',['../classBoxArea.html',1,'']]],
-  ['bp12state_13',['BP12State',['../structBP12State.html',1,'']]],
-  ['bp24state_14',['BP24State',['../structBP24State.html',1,'']]]
+  ['bitcrusher_6',['BitCrusher',['../classBitCrusher.html',1,'']]],
+  ['blltvoicedstereooscillator_7',['BLLTVoicedStereoOscillator',['../classBLLTVoicedStereoOscillator.html',1,'']]],
+  ['bmpimageformat_8',['BMPImageFormat',['../classBMPImageFormat.html',1,'']]],
+  ['bounceineasing_9',['BounceInEasing',['../structBounceInEasing.html',1,'']]],
+  ['bounceinouteasing_10',['BounceInOutEasing',['../structBounceInOutEasing.html',1,'']]],
+  ['bounceouteasing_11',['BounceOutEasing',['../structBounceOutEasing.html',1,'']]],
+  ['bounds_12',['Bounds',['../structLayoutSupport_1_1Bounds.html',1,'LayoutSupport']]],
+  ['boxarea_13',['BoxArea',['../classBoxArea.html',1,'']]],
+  ['bp12state_14',['BP12State',['../structBP12State.html',1,'']]],
+  ['bp24state_15',['BP24State',['../structBP24State.html',1,'']]]
 ];
