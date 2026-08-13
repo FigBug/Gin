@@ -126,6 +126,16 @@ void Dynamics::reset()
 
 void Dynamics::process (juce::AudioSampleBuffer& buffer, juce::AudioSampleBuffer* envelopeOut)
 {
+    processInternal (buffer, nullptr, envelopeOut);
+}
+
+void Dynamics::process (juce::AudioSampleBuffer& buffer, const juce::AudioSampleBuffer& sidechain, juce::AudioSampleBuffer* envelopeOut)
+{
+    processInternal (buffer, &sidechain, envelopeOut);
+}
+
+void Dynamics::processInternal (juce::AudioSampleBuffer& buffer, const juce::AudioSampleBuffer* sidechain, juce::AudioSampleBuffer* envelopeOut)
+{
     inputTracker.trackBuffer (buffer);
 
     int numSamples = buffer.getNumSamples();
@@ -133,6 +143,24 @@ void Dynamics::process (juce::AudioSampleBuffer& buffer, juce::AudioSampleBuffer
     auto input  = buffer.getArrayOfReadPointers();
     auto output = buffer.getArrayOfWritePointers();
     auto env    = envelopeOut != nullptr ? envelopeOut->getArrayOfWritePointers() : nullptr;
+
+    jassert (sidechain == nullptr || sidechain->getNumChannels() > 0);
+    jassert (sidechain == nullptr || sidechain->getNumSamples() >= numSamples);
+
+    // A side chain that cannot cover the buffer is dropped rather than read
+    // off the end of: keying off the signal is always a defensible fallback,
+    // and the asserts above say so in a debug build.
+    if (sidechain != nullptr && (sidechain->getNumChannels() <= 0 || sidechain->getNumSamples() < numSamples))
+        sidechain = nullptr;
+
+    // What the detector follows: the side chain if there is one, otherwise
+    // the signal itself. The gain still lands on the signal either way.
+    auto detect         = sidechain != nullptr ? sidechain->getArrayOfReadPointers() : input;
+    auto detectChannels = sidechain != nullptr ? sidechain->getNumChannels() : channels;
+
+    // Fewer key channels than the processor has: the last one drives the
+    // rest, so a mono side chain is a valid thing to be handed.
+    auto keyOf = [&] (int c, int i) { return detect[std::min (c, detectChannels - 1)][i]; };
 
     // Calculate auto makeup gain for compressor/limiter modes
     // Formula: makeup (dB) = -threshold * (1 - 1/ratio)
@@ -158,7 +186,7 @@ void Dynamics::process (juce::AudioSampleBuffer& buffer, juce::AudioSampleBuffer
             float linked = 0.0f;
             for (int c = 0; c < channels; c++)
             {
-                float in = inputGain * input[c][i];
+                float in = inputGain * keyOf (c, i);
 
                 in = envelopes[c]->process (in);
 
@@ -182,7 +210,7 @@ void Dynamics::process (juce::AudioSampleBuffer& buffer, juce::AudioSampleBuffer
         {
             for (int c = 0; c < channels; c++)
             {
-                float in = inputGain * input[c][i];
+                float in = inputGain * keyOf (c, i);
 
                 in = envelopes[c]->process (in);
 

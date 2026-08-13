@@ -91,6 +91,7 @@ protected:
     - Soft knee for smooth compression
     - Independent input/output gain
     - Stereo linking (process based on max of both channels)
+    - Side chain input for ducking, de-essing and source keyed gating
     - Optional envelope output for visualization
     - Level tracking for input/output metering
 
@@ -114,6 +115,9 @@ protected:
     comp.setOutputGain(3.0f);  // +3dB makeup gain
 
     comp.process(audioBuffer);
+
+    // keyed off something else: duck the music under the voiceover
+    comp.process(musicBuffer, voiceBuffer);
 
     // Get metering
     float inputLevel = comp.getInputTracker().getLevel();
@@ -165,7 +169,35 @@ public:
     void setAutoMakeupGain (bool enabled)   { autoMakeupGain = enabled; }
 
     void reset();
+
+    /** Processes a buffer, with the detector following that same buffer.
+
+        @param buffer       audio to process, in place
+        @param envelopeOut  optional detector envelope, as a linear level.
+                            Written to channel 0 when linked and to every
+                            channel otherwise, so it needs as many channels
+                            as the processor has.
+    */
     void process (juce::AudioSampleBuffer& buffer, juce::AudioSampleBuffer* envelopeOut = nullptr);
+
+    /** Processes a buffer, with the detector following a separate side chain.
+
+        The gain is worked out from `sidechain` and applied to `buffer`:
+        ducking, de-essing, and gating something on a source other than
+        itself. A gated reverb is the case that shows why it matters - keyed
+        off its own output, a gate can only chase an envelope the reverb has
+        already smeared, so it opens softly instead of on the transient and
+        its timing shifts whenever the decay does.
+
+        @param buffer       audio to process, in place
+        @param sidechain    what the detector follows. Needs at least as many
+                            samples as `buffer`; fewer channels is fine, the
+                            last one is reused, so a mono key drives them all.
+                            Input gain scales what the detector sees here just
+                            as it does without a side chain.
+        @param envelopeOut  optional detector envelope, as above
+    */
+    void process (juce::AudioSampleBuffer& buffer, const juce::AudioSampleBuffer& sidechain, juce::AudioSampleBuffer* envelopeOut = nullptr);
 
     const LevelTracker& getInputTracker()       { return inputTracker;      }
     const LevelTracker& getOutputTracker()      { return outputTracker;     }
@@ -174,6 +206,8 @@ public:
     float calcCurve (float detectorValue);
 
 private:
+    void processInternal (juce::AudioSampleBuffer& buffer, const juce::AudioSampleBuffer* sidechain, juce::AudioSampleBuffer* envelopeOut);
+
     juce::OwnedArray<EnvelopeDetector> envelopes;
     LevelTracker inputTracker, outputTracker, reductionTracker {-30.0f};
 
