@@ -122,7 +122,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a63d8f557fa562613747ca4eb5ed2e8fd" id="r_a63d8f557fa562613747ca4eb5ed2e8fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#a63d8f557fa562613747ca4eb5ed2e8fd">reset</a> ()</td></tr>
 <tr class="separator:a63d8f557fa562613747ca4eb5ed2e8fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10395d0e46c4387190b783c0090545c2" id="r_a10395d0e46c4387190b783c0090545c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#a10395d0e46c4387190b783c0090545c2">process</a> (juce::AudioSampleBuffer &amp;buffer, juce::AudioSampleBuffer *<a class="el" href="classPoint.html">envelopeOut</a>=<a class="el" href="classPoint.html">nullptr</a>)</td></tr>
+<tr class="memdesc:a10395d0e46c4387190b783c0090545c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a buffer, with the detector following that same buffer.  <br /></td></tr>
 <tr class="separator:a10395d0e46c4387190b783c0090545c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf0a890841ff6f09dfd47f2083ad6890" id="r_abf0a890841ff6f09dfd47f2083ad6890"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#abf0a890841ff6f09dfd47f2083ad6890">process</a> (juce::AudioSampleBuffer &amp;buffer, <a class="el" href="classPoint.html">const</a> juce::AudioSampleBuffer &amp;<a class="el" href="classPoint.html">sidechain</a>, juce::AudioSampleBuffer *<a class="el" href="classPoint.html">envelopeOut</a>=<a class="el" href="classPoint.html">nullptr</a>)</td></tr>
+<tr class="memdesc:abf0a890841ff6f09dfd47f2083ad6890"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a buffer, with the detector following a separate side chain.  <br /></td></tr>
+<tr class="separator:abf0a890841ff6f09dfd47f2083ad6890"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90d55eb8b02098c1eb1c86493cf8f6dd" id="r_a90d55eb8b02098c1eb1c86493cf8f6dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">const</a> <a class="el" href="classLevelTracker.html">LevelTracker</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#a90d55eb8b02098c1eb1c86493cf8f6dd">getInputTracker</a> ()</td></tr>
 <tr class="separator:a90d55eb8b02098c1eb1c86493cf8f6dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6c180ee20a71be691f519d9cd3bec92" id="r_aa6c180ee20a71be691f519d9cd3bec92"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">const</a> <a class="el" href="classLevelTracker.html">LevelTracker</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#aa6c180ee20a71be691f519d9cd3bec92">getOutputTracker</a> ()</td></tr>
@@ -144,6 +148,7 @@ Audio Effect Plug-ins in C++" by Will Pirkle, it features attack/hold/release en
 <li>Soft knee for smooth compression</li>
 <li>Independent input/output gain</li>
 <li>Stereo linking (process based on max of both channels)</li>
+<li>Side chain input for ducking, de-essing and source keyed gating</li>
 <li>Optional envelope output for visualization</li>
 <li>Level tracking for input/output metering</li>
 </ul>
@@ -166,11 +171,14 @@ Audio Effect Plug-ins in C++" by Will Pirkle, it features attack/hold/release en
 <div class="line"> </div>
 <div class="line"><a class="code hl_class" href="classPoint.html">comp</a>.process(audioBuffer);</div>
 <div class="line"> </div>
+<div class="line"><span class="comment">// keyed off something else: duck the music under the voiceover</span></div>
+<div class="line"><a class="code hl_class" href="classPoint.html">comp</a>.process(<a class="code hl_class" href="classPoint.html">musicBuffer</a>, <a class="code hl_class" href="classPoint.html">voiceBuffer</a>);</div>
+<div class="line"> </div>
 <div class="line"><span class="comment">// Get metering</span></div>
 <div class="line"><span class="keywordtype">float</span> <a class="code hl_class" href="classPoint.html">inputLevel</a> = <a class="code hl_class" href="classPoint.html">comp</a>.getInputTracker().getLevel();</div>
 <div class="line"><span class="keywordtype">float</span> <a class="code hl_class" href="classPoint.html">outputLevel</a> = <a class="code hl_class" href="classPoint.html">comp</a>.getOutputTracker().getLevel();</div>
-<div class="ttc" id="aclassDynamics_html"><div class="ttname"><a href="classDynamics.html">Dynamics</a></div><div class="ttdoc">Dynamics processor supporting compression, limiting, expansion, and gating.</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:130</div></div>
-<div class="ttc" id="aclassDynamics_html_a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b"><div class="ttname"><a href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b">Dynamics::compressor</a></div><div class="ttdeci">@ compressor</div><div class="ttdoc">Compression (reduce loud signals)</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:147</div></div>
+<div class="ttc" id="aclassDynamics_html"><div class="ttname"><a href="classDynamics.html">Dynamics</a></div><div class="ttdoc">Dynamics processor supporting compression, limiting, expansion, and gating.</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:134</div></div>
+<div class="ttc" id="aclassDynamics_html_a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b"><div class="ttname"><a href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b">Dynamics::compressor</a></div><div class="ttdeci">@ compressor</div><div class="ttdoc">Compression (reduce loud signals)</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:151</div></div>
 <div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 </div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classEnvelopeDetector.html" title="Envelope follower for dynamics processing.">EnvelopeDetector</a>, <a class="el" href="classLevelTracker.html" title="Track audio levels with decay in dB.">LevelTracker</a> </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
@@ -465,7 +473,7 @@ Audio Effect Plug-ins in C++" by Will Pirkle, it features attack/hold/release en
 </div>
 </div>
 <a id="a10395d0e46c4387190b783c0090545c2" name="a10395d0e46c4387190b783c0090545c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10395d0e46c4387190b783c0090545c2">&#9670;&#160;</a></span>process()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a10395d0e46c4387190b783c0090545c2">&#9670;&#160;</a></span>process() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -489,6 +497,60 @@ Audio Effect Plug-ins in C++" by Will Pirkle, it features attack/hold/release en
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Processes a buffer, with the detector following that same buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>audio to process, in place </td></tr>
+    <tr><td class="paramname">envelopeOut</td><td>optional detector envelope, as a linear level. Written to channel 0 when linked and to every channel otherwise, so it needs as many channels as the processor has. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abf0a890841ff6f09dfd47f2083ad6890" name="abf0a890841ff6f09dfd47f2083ad6890"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf0a890841ff6f09dfd47f2083ad6890">&#9670;&#160;</a></span>process() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> Dynamics::process </td>
+          <td>(</td>
+          <td class="paramtype">juce::AudioSampleBuffer &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::AudioSampleBuffer &amp;&#160;</td>
+          <td class="paramname"><em>sidechain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">juce::AudioSampleBuffer *&#160;</td>
+          <td class="paramname"><em>envelopeOut</em> = <code><a class="el" href="classPoint.html">nullptr</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Processes a buffer, with the detector following a separate side chain. </p>
+<p>The gain is worked out from <code>sidechain</code> and applied to <code>buffer</code>: ducking, de-essing, and gating something on a source other than itself. A gated reverb is the case that shows why it matters - keyed off its own output, a gate can only chase an envelope the reverb has already smeared, so it opens softly instead of on the transient and its timing shifts whenever the decay does.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>audio to process, in place </td></tr>
+    <tr><td class="paramname">sidechain</td><td>what the detector follows. Needs at least as many samples as <code>buffer</code>; fewer channels is fine, the last one is reused, so a mono key drives them all. Input gain scales what the detector sees here just as it does without a side chain. </td></tr>
+    <tr><td class="paramname">envelopeOut</td><td>optional detector envelope, as above </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -567,7 +629,7 @@ Audio Effect Plug-ins in C++" by Will Pirkle, it features attack/hold/release en
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 12 2026 17:13:54 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Aug 13 2026 13:41:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

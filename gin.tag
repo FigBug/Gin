@@ -6591,6 +6591,13 @@
       <arglist>(juce::AudioSampleBuffer &amp;buffer, juce::AudioSampleBuffer *envelopeOut=nullptr)</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classDynamics.html</anchorfile>
+      <anchor>abf0a890841ff6f09dfd47f2083ad6890</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, const juce::AudioSampleBuffer &amp;sidechain, juce::AudioSampleBuffer *envelopeOut=nullptr)</arglist>
+    </member>
+    <member kind="function">
       <type>const LevelTracker &amp;</type>
       <name>getInputTracker</name>
       <anchorfile>classDynamics.html</anchorfile>
