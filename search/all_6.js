@@ -6,7 +6,7 @@ var searchData=
   ['faceup_3',['faceUp',['../classGameController.html#a6d925e0cc0db2aa51ad31f13fc4de069a54f04f4d5cab1141076f63b4d568060d',1,'GameController']]],
   ['factory_4',['factory',['../classValueTreeObject.html#a50b525ebb88fd07644ddbb78bb6ce11f',1,'ValueTreeObject']]],
   ['fade_5',['fade',['../structMSEG_1_1Parameters.html#ae32002c1a62e1164a4fd5e0cf106a409',1,'MSEG::Parameters::fade'],['../structLFO_1_1Parameters.html#a20d76d843455f85c2131d9ed77329499',1,'LFO::Parameters::fade']]],
-  ['fader_6',['fader',['../classFader.html#a5f45283b1a19da5bda23b91cbd74703f',1,'Fader::Fader()'],['../classHorizontalFader.html#a877a5f6ba55a7c5e054655a78b6565b8',1,'HorizontalFader::fader'],['../classFader.html',1,'Fader']]],
+  ['fader_6',['fader',['../classHorizontalFader.html#a877a5f6ba55a7c5e054655a78b6565b8',1,'HorizontalFader::fader'],['../classFader.html#a5f45283b1a19da5bda23b91cbd74703f',1,'Fader::Fader()'],['../classFader.html',1,'Fader']]],
   ['faderslider_7',['faderslider',['../classFaderSlider.html',1,'FaderSlider'],['../classFaderSlider.html#a200bc9377973cef5b6449b476ae7d4ed',1,'FaderSlider::FaderSlider()']]],
   ['failed_8',['failed',['../classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30fa765c9be4013c90f5b9658ce40d293c4c',1,'ElevatedFileCopy']]],
   ['fastkill_9',['fastKill',['../classSynthesiserVoice.html#aee3b10413c4c0203d9e8f26bb97cefaa',1,'SynthesiserVoice']]],

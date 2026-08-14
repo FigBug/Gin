@@ -16736,10 +16736,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>TitleBar</type>
+      <type>std::unique_ptr&lt; TitleBar &gt;</type>
       <name>titleBar</name>
       <anchorfile>classProcessorEditor.html</anchorfile>
-      <anchor>a765fed46b8f886ab4e6306124110ed68</anchor>
+      <anchor>ac12a4cb6f3c3b36b137360fc690f71b6</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -16997,6 +16997,13 @@
     </member>
     <member kind="function">
       <type>ProcessorOptions</type>
+      <name>withoutTitleBar</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>a1c35bd335794025146788b8c975d59d9</anchor>
+      <arglist>() &amp;&amp;</arglist>
+    </member>
+    <member kind="function">
+      <type>ProcessorOptions</type>
       <name>withMidiLearn</name>
       <anchorfile>classProcessorOptions.html</anchorfile>
       <anchor>a898de378f73c72866d7578cf18016a34</anchor>
@@ -17042,6 +17049,13 @@
       <name>updatesURL</name>
       <anchorfile>classProcessorOptions.html</anchorfile>
       <anchor>a71da3924118b341db1586b4b4526f7d8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>newsURL</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>a82b35bdac7c91ea475eddd8880e19560</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -17098,6 +17112,13 @@
       <name>usePresetMetadata</name>
       <anchorfile>classProcessorOptions.html</anchorfile>
       <anchor>ae3998274b8d855632a7d2f2d4b13b96b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>useTitleBar</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>ab724916c3c24f21111cd7950ab459fcd</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -23106,21 +23127,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-    <class kind="class">AudioSamplerBufferComponent</class>
-    <class kind="class">AudioSamplerBufferComponent::ScopedViewState</class>
-    <class kind="class">DynamicsMeter</class>
-    <class kind="class">LevelMeter</class>
-    <class kind="class">MidiFileComponent</class>
-    <class kind="class">SpectrumAnalyzer</class>
-    <class kind="class">TriggeredScope</class>
-    <class kind="class">WaveformComponent</class>
-    <class kind="class">WavetableComponent</class>
-    <class kind="class">XYScope</class>
-  </compound>
-  <compound kind="group">
     <name>gin_plugin-components</name>
     <title>components</title>
     <filename>group__gin__plugin-components.html</filename>
@@ -23181,6 +23187,21 @@
       <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
       <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
     </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
+    <class kind="class">AudioSamplerBufferComponent</class>
+    <class kind="class">AudioSamplerBufferComponent::ScopedViewState</class>
+    <class kind="class">DynamicsMeter</class>
+    <class kind="class">LevelMeter</class>
+    <class kind="class">MidiFileComponent</class>
+    <class kind="class">SpectrumAnalyzer</class>
+    <class kind="class">TriggeredScope</class>
+    <class kind="class">WaveformComponent</class>
+    <class kind="class">WavetableComponent</class>
+    <class kind="class">XYScope</class>
   </compound>
   <compound kind="group">
     <name>gin_gui-components</name>

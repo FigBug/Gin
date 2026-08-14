@@ -165,8 +165,9 @@ Protected Member Functions</h2></td></tr>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a6f7f6e1a092dff5bccece83325514c77" id="r_a6f7f6e1a092dff5bccece83325514c77"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPatchBrowser.html">PatchBrowser</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessorEditor.html#a6f7f6e1a092dff5bccece83325514c77">patchBrowser</a> { <a class="el" href="classProcessorEditor.html#a8f4bf0f17d18d56fe21c845a41e1cb7e">slProc</a> }</td></tr>
 <tr class="separator:a6f7f6e1a092dff5bccece83325514c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a765fed46b8f886ab4e6306124110ed68" id="r_a765fed46b8f886ab4e6306124110ed68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTitleBar.html">TitleBar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessorEditor.html#a765fed46b8f886ab4e6306124110ed68">titleBar</a> { *<a class="el" href="classPoint.html">this</a>, <a class="el" href="classProcessorEditor.html#a8f4bf0f17d18d56fe21c845a41e1cb7e">slProc</a>, <a class="el" href="classProcessorEditor.html#a6f7f6e1a092dff5bccece83325514c77">patchBrowser</a> }</td></tr>
-<tr class="separator:a765fed46b8f886ab4e6306124110ed68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac12a4cb6f3c3b36b137360fc690f71b6" id="r_ac12a4cb6f3c3b36b137360fc690f71b6"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classTitleBar.html">TitleBar</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessorEditor.html#ac12a4cb6f3c3b36b137360fc690f71b6">titleBar</a></td></tr>
+<tr class="memdesc:ac12a4cb6f3c3b36b137360fc690f71b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Null when <a class="el" href="classProcessorOptions.html#ab724916c3c24f21111cd7950ab459fcd" title="Whether ProcessorEditor builds its own TitleBar.">ProcessorOptions::useTitleBar</a> is false - a plugin supplying its own header wants the stock one absent rather than hidden, so that it is not paying for a second update and news checker.  <br /></td></tr>
+<tr class="separator:ac12a4cb6f3c3b36b137360fc690f71b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff2e47042ee4f7765655e9eb9b6d077b" id="r_aff2e47042ee4f7765655e9eb9b6d077b"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classMidiLearnOverlay.html">MidiLearnOverlay</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessorEditor.html#aff2e47042ee4f7765655e9eb9b6d077b">midiLearnOverlay</a></td></tr>
 <tr class="separator:aff2e47042ee4f7765655e9eb9b6d077b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classProcessorEditorBase"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classProcessorEditorBase')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classProcessorEditorBase.html">ProcessorEditorBase</a></td></tr>
@@ -543,8 +544,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a765fed46b8f886ab4e6306124110ed68" name="a765fed46b8f886ab4e6306124110ed68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a765fed46b8f886ab4e6306124110ed68">&#9670;&#160;</a></span>titleBar</h2>
+<a id="ac12a4cb6f3c3b36b137360fc690f71b6" name="ac12a4cb6f3c3b36b137360fc690f71b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac12a4cb6f3c3b36b137360fc690f71b6">&#9670;&#160;</a></span>titleBar</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -553,7 +554,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classTitleBar.html">TitleBar</a> ProcessorEditor::titleBar { *<a class="el" href="classPoint.html">this</a>, <a class="el" href="classProcessorEditor.html#a8f4bf0f17d18d56fe21c845a41e1cb7e">slProc</a>, <a class="el" href="classProcessorEditor.html#a6f7f6e1a092dff5bccece83325514c77">patchBrowser</a> }</td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classTitleBar.html">TitleBar</a>&gt; ProcessorEditor::titleBar</td>
         </tr>
       </table>
   </td>
@@ -562,6 +563,8 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Null when <a class="el" href="classProcessorOptions.html#ab724916c3c24f21111cd7950ab459fcd" title="Whether ProcessorEditor builds its own TitleBar.">ProcessorOptions::useTitleBar</a> is false - a plugin supplying its own header wants the stock one absent rather than hidden, so that it is not paying for a second update and news checker. </p>
 
 </div>
 </div>
@@ -593,7 +596,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 13 2026 13:41:00 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Aug 14 2026 20:38:53 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

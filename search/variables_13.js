@@ -11,5 +11,6 @@ var searchData=
   ['useparamgroups_8',['useParamGroups',['../classProcessor.html#a7ed04ab62f18482bdf72920c75ffa7b9',1,'Processor']]],
   ['usepresetmetadata_9',['usePresetMetadata',['../classProcessorOptions.html#ae3998274b8d855632a7d2f2d4b13b96b',1,'ProcessorOptions']]],
   ['useractioncount_10',['userActionCount',['../classParameter.html#a9a2d682ac453e9b019ceb12986b8e5fd',1,'Parameter']]],
-  ['useupdatechecker_11',['useUpdateChecker',['../classProcessorOptions.html#a1cae47f2ecd1a86e02549cf5b47fd4d0',1,'ProcessorOptions']]]
+  ['usetitlebar_11',['useTitleBar',['../classProcessorOptions.html#ab724916c3c24f21111cd7950ab459fcd',1,'ProcessorOptions']]],
+  ['useupdatechecker_12',['useUpdateChecker',['../classProcessorOptions.html#a1cae47f2ecd1a86e02549cf5b47fd4d0',1,'ProcessorOptions']]]
 ];
