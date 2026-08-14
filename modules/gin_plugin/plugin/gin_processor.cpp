@@ -21,6 +21,7 @@ ProcessorOptions::ProcessorOptions()
     url = JucePlugin_ManufacturerWebsite;
     urlTitle = juce::String ("Visit ") + url;
     updatesURL = juce::String (JucePlugin_ManufacturerWebsite) + "updates.xml";
+    newsURL    = juce::String (JucePlugin_ManufacturerWebsite) + "feed/";
    #endif
 
    #if JucePlugin_WantsMidiInput

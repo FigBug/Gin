@@ -122,6 +122,11 @@ public:
     juce::String    developer;
     juce::String    pluginVersion;
     juce::String    updatesURL;
+
+    /** Feed the news checker reads, derived from the developer's own site the
+        same way updatesURL is. It used to be hard coded, which meant every
+        plugin built on gin fetched socalabs' blog whoever had written it. */
+    juce::String    newsURL;
     juce::String    url;
     juce::String    urlTitle;
 

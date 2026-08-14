@@ -1,8 +1,9 @@
 
 // FAKE: force the update/news indicators on for visual testing. Set to false to disable.
 static constexpr bool kFakeAlerts = false;
-static const juce::String kFakeUpdateUrl = "https://socalabs.com/";
-static const juce::String kFakeNewsUrl   = "https://socalabs.com/";
+// Whatever the plugin's own site is - a fake alert only needs somewhere to
+// point, and hard coding one developer's domain into every plugin built on
+// gin is how the news feed ended up wrong in the first place.
 
 //==============================================================================
 UpdateChecker::UpdateChecker (gin::Processor& slProc_)
@@ -111,7 +112,10 @@ void NewsChecker::timerCallback()
 void NewsChecker::run()
 {
     #if ! JUCE_IOS && ! JUCE_ANDROID
-    juce::XmlDocument doc (juce::URL ("https://socalabs.com/feed/").readEntireTextStream());
+    if (slProc.processorOptions.newsURL.isEmpty())
+        return;
+
+    juce::XmlDocument doc (juce::URL (slProc.processorOptions.newsURL).readEntireTextStream());
     if (std::unique_ptr<juce::XmlElement> root = doc.getDocumentElement())
     {
         if (auto props = slProc.getSettings())
@@ -552,7 +556,7 @@ void TitleBar::showMenu()
         auto updateUrl = updateChecker->getUpdateUrl();
         if constexpr (kFakeAlerts)
             if (updateUrl.isEmpty())
-                updateUrl = kFakeUpdateUrl;
+                updateUrl = slProc.processorOptions.url;
         const bool active = updateUrl.isNotEmpty();
 
         juce::PopupMenu::Item item ("Get update");
@@ -578,7 +582,7 @@ void TitleBar::showMenu()
         auto newsUrl = newsChecker->getNewsUrl();
         if constexpr (kFakeAlerts)
             if (newsUrl.isEmpty())
-                newsUrl = kFakeNewsUrl;
+                newsUrl = slProc.processorOptions.url;
         const bool active = newsUrl.isNotEmpty();
 
         juce::PopupMenu::Item item ("Read news");
