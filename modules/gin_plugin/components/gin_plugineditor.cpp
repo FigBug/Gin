@@ -762,7 +762,12 @@ ProcessorEditor::ProcessorEditor (Processor& p) noexcept
 
     tooltipWindow.setMillisecondsBeforeTipAppears (2000);
 
-    addAndMakeVisible (titleBar);
+    if (slProc.processorOptions.useTitleBar)
+    {
+        titleBar = std::make_unique<TitleBar> (*this, slProc, patchBrowser);
+        addAndMakeVisible (*titleBar);
+    }
+
     addChildComponent (patchBrowser);
 
     if (slProc.midiLearn != nullptr)
@@ -771,7 +776,8 @@ ProcessorEditor::ProcessorEditor (Processor& p) noexcept
         addAndMakeVisible (*midiLearnOverlay);
     }
 
-    titleBar.refreshPrograms();
+    if (titleBar != nullptr)
+        titleBar->refreshPrograms();
 
     triggerAsyncUpdate();
 }
@@ -783,7 +789,12 @@ ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_) noexcept
 
     tooltipWindow.setMillisecondsBeforeTipAppears (2000);
 
-    addAndMakeVisible (titleBar);
+    if (slProc.processorOptions.useTitleBar)
+    {
+        titleBar = std::make_unique<TitleBar> (*this, slProc, patchBrowser);
+        addAndMakeVisible (*titleBar);
+    }
+
     addChildComponent (patchBrowser);
 
     if (slProc.midiLearn != nullptr)
@@ -792,7 +803,8 @@ ProcessorEditor::ProcessorEditor (Processor& p, int cx_, int cy_) noexcept
         addAndMakeVisible (*midiLearnOverlay);
     }
 
-    titleBar.refreshPrograms();
+    if (titleBar != nullptr)
+        titleBar->refreshPrograms();
 
     triggerAsyncUpdate();
 }
@@ -806,7 +818,9 @@ void ProcessorEditor::handleAsyncUpdate()
 {
     if (ginProcessor.state.getChildWithName ("instance").getProperty ("browserOpen", false))
     {
-        titleBar.setBrowseButtonState (true);
+        if (titleBar != nullptr)
+            titleBar->setBrowseButtonState (true);
+
         showPatchBrowser (true);
     }
 }
@@ -839,7 +853,8 @@ void ProcessorEditor::resized()
 
     auto rc = getLocalBounds ().reduced (1);
 
-    titleBar.setBounds (rc.removeFromTop (headerHeight - 1));
+    if (titleBar != nullptr)
+        titleBar->setBounds (rc.removeFromTop (headerHeight - 1));
 
     patchBrowser.setBounds (getFullGridArea());
 
@@ -878,7 +893,8 @@ void ProcessorEditor::showAboutInfo()
 
 void ProcessorEditor::refreshProgramsList()
 {
-    titleBar.refreshPrograms();
+    if (titleBar != nullptr)
+        titleBar->refreshPrograms();
 }
 
 void ProcessorEditor::refreshPatchBrowser()

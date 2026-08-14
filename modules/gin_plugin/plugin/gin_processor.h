@@ -132,6 +132,12 @@ public:
     bool hasMidiLearn       = false;
     bool usePresetMetadata  = false;
 
+    /** Whether ProcessorEditor builds its own TitleBar. Turn it off in a plugin
+        that supplies its own header: the stock bar is not just hidden but never
+        constructed, so it does not also stand up an update and a news checker
+        behind the one you replaced it with. */
+    bool useTitleBar        = true;
+
     juce::StringArray programmingCredits =
     {
         "Roland Rabien",
@@ -153,6 +159,12 @@ public:
     ProcessorOptions withoutNewsChecker() &&
     {
         useNewsChecker = false;
+        return std::move (*this);
+    }
+
+    ProcessorOptions withoutTitleBar() &&
+    {
+        useTitleBar = false;
         return std::move (*this);
     }
 

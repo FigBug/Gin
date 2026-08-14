@@ -296,6 +296,11 @@ protected:
     void resized() override;
 
     PatchBrowser patchBrowser { slProc };
-    TitleBar titleBar { *this, slProc, patchBrowser };
+
+    /** Null when ProcessorOptions::useTitleBar is false - a plugin supplying
+        its own header wants the stock one absent rather than hidden, so that
+        it is not paying for a second update and news checker. */
+    std::unique_ptr<TitleBar> titleBar;
+
     std::unique_ptr<MidiLearnOverlay> midiLearnOverlay;
 };
