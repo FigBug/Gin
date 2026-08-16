@@ -2779,6 +2779,11 @@
     <namespace>SVG</namespace>
   </compound>
   <compound kind="file">
+    <name>gin_svg.test.h</name>
+    <path>build/gin_svg/svg/</path>
+    <filename>gin__svg_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_webpimageformat.h</name>
     <path>build/gin_webp/formats/</path>
     <filename>gin__webpimageformat_8h.html</filename>
