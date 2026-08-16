@@ -70,6 +70,7 @@ using namespace gin;
 #include "../../../modules/gin_dsp/dsp/gin_graphiceq.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_synthesiser.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_wavetable.test.h"
+#include "../../../modules/gin_dsp/dsp/gin_dcblocker.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_steplfo.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_stereodelay.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_gateeffect.test.h"
