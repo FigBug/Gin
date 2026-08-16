@@ -9,15 +9,17 @@
 
 
 /**
-    DC blocking filter (high-pass filter) to remove DC offset.
+    Estimates the DC (very low frequency) content of a signal so it can be
+    removed to form a DC blocker.
 
-    DCBlocker implements a simple first-order high-pass filter to remove DC
-    offset from audio signals. This is useful after certain DSP operations
-    (like waveshaping or oscillators) that may introduce DC bias.
+    process() returns a first-order low-pass estimate of the input's DC bias.
+    To block DC, subtract that estimate from the input: the difference is the
+    high-passed signal. This is useful after certain DSP operations (like
+    waveshaping or oscillators) that may introduce DC bias.
 
     Key Features:
     - Configurable cutoff frequency (default 10 Hz)
-    - First-order IIR filter
+    - First-order IIR low-pass estimator
     - Very low CPU usage
     - Reset for clearing filter state
 
@@ -25,10 +27,10 @@
     @code
     DCBlocker blocker;
     blocker.setSampleRate(44100.0f);
-    blocker.setCutoff(10.0f); // Block below 10 Hz
+    blocker.setCutoff(10.0f); // Treat content below 10 Hz as DC
 
-    // Per-sample processing
-    float output = blocker.process(input);
+    // Per-sample processing: subtract the DC estimate to block DC
+    float output = input - blocker.process(input);
     @endcode
 
     Note: This is a per-sample filter. For stereo, use two instances.
@@ -53,6 +55,7 @@ public:
         recalc();
     }
 
+    /** Returns the low-pass (DC) estimate of x. Subtract this from x to block DC. */
     float process (float x)
     {
         z = x * a + z * b;
