@@ -1051,6 +1051,11 @@
     <class kind="class">DCBlocker</class>
   </compound>
   <compound kind="file">
+    <name>gin_dcblocker.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__dcblocker_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_delayline.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__delayline_8h.html</filename>
