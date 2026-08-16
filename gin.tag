@@ -454,6 +454,11 @@
     <class kind="class">Point</class>
   </compound>
   <compound kind="file">
+    <name>gin_point.test.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>gin__point_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_realtimeasyncupdater.h</name>
     <path>build/gin/utilities/</path>
     <filename>gin__realtimeasyncupdater_8h.html</filename>
@@ -1024,6 +1029,11 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>gin_bandlimitedlookuptable.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__bandlimitedlookuptable_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_bitcrusher.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__bitcrusher_8h.html</filename>
@@ -1154,6 +1164,11 @@
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__gateeffect_8h.html</filename>
     <class kind="class">GateEffect</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_gateeffect.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__gateeffect_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_graphiceq.h</name>
@@ -1326,10 +1341,20 @@
     <class kind="class">StepLFO</class>
   </compound>
   <compound kind="file">
+    <name>gin_steplfo.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__steplfo_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_stereodelay.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__stereodelay_8h.html</filename>
     <class kind="class">StereoDelay</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_stereodelay.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__stereodelay_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_stereoenhancer.h</name>
@@ -1342,6 +1367,11 @@
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__stereoprocessor_8h.html</filename>
     <class kind="class">StereoProcessor</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_stereoprocessor.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__stereoprocessor_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_synthesiser.h</name>
