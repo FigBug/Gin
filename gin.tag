@@ -1034,6 +1034,12 @@
     <filename>gin__bandlimitedlookuptable_8test_8h.html</filename>
   </compound>
   <compound kind="file">
+    <name>gin_biquad.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__biquad_8h.html</filename>
+    <class kind="struct">Biquad</class>
+  </compound>
+  <compound kind="file">
     <name>gin_bitcrusher.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__bitcrusher_8h.html</filename>
@@ -1076,6 +1082,17 @@
     <name>gin_distortion.test.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__distortion_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>gin_dither.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__dither_8h.html</filename>
+    <class kind="class">Dither</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_dither.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__dither_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_dynamics.h</name>
@@ -1143,6 +1160,17 @@
     <filename>gin__eq_8test_8h.html</filename>
   </compound>
   <compound kind="file">
+    <name>gin_exciter.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__exciter_8h.html</filename>
+    <class kind="class">Exciter</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_exciter.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__exciter_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_fastmath.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__fastmath_8h.html</filename>
@@ -1187,6 +1215,17 @@
     <filename>gin__graphiceq_8test_8h.html</filename>
   </compound>
   <compound kind="file">
+    <name>gin_kicksynth.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__kicksynth_8h.html</filename>
+    <class kind="class">KickSynth</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_kicksynth.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__kicksynth_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_leveltracker.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__leveltracker_8h.html</filename>
@@ -1208,6 +1247,17 @@
     <name>gin_lfo.test.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__lfo_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>gin_maximizer.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__maximizer_8h.html</filename>
+    <class kind="class">Maximizer</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_maximizer.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__maximizer_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_midififo.h</name>
@@ -1340,6 +1390,17 @@
     <class kind="class">SimpleVerb</class>
   </compound>
   <compound kind="file">
+    <name>gin_softclipper.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__softclipper_8h.html</filename>
+    <class kind="class">SoftClipper</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_softclipper.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__softclipper_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_steplfo.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__steplfo_8h.html</filename>
@@ -1396,6 +1457,17 @@
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__textrenderer_8h.html</filename>
     <class kind="class">TextRenderer</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_transientshaper.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__transientshaper_8h.html</filename>
+    <class kind="class">TransientShaper</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_transientshaper.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__transientshaper_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_valuesmoother.h</name>
@@ -4948,6 +5020,122 @@
       <arglist>()</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>Biquad</name>
+    <filename>structBiquad.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>setLowpass</name>
+      <anchorfile>structBiquad.html</anchorfile>
+      <anchor>a2004d79358f513589fec5598ed84a089</anchor>
+      <arglist>(double freq, double q, double sampleRate)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setHighpass</name>
+      <anchorfile>structBiquad.html</anchorfile>
+      <anchor>a9d0f17362fe162cd398fe75562d7290e</anchor>
+      <arglist>(double freq, double q, double sampleRate)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setBandpass</name>
+      <anchorfile>structBiquad.html</anchorfile>
+      <anchor>a9b195a0fcca82c254f6bff5e5400ad05</anchor>
+      <arglist>(double freq, double q, double sampleRate)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPeak</name>
+      <anchorfile>structBiquad.html</anchorfile>
+      <anchor>a1f55c3c7159b1c4c9f8f3dde8e19e52c</anchor>
+      <arglist>(double freq, double q, double gainDb, double sampleRate)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setBypass</name>
+      <anchorfile>structBiquad.html</anchorfile>
+      <anchor>a32f47cb6e311a0e82fd2a7efc4dc4aa1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>process</name>
+      <anchorfile>structBiquad.html</anchorfile>
+      <anchor>a27c1b4a11e5f3af94b4e51976b3939da</anchor>
+      <arglist>(float x)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>structBiquad.html</anchorfile>
+      <anchor>ab669e4eb86b9c4e8b0dcb03539ba08c1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>b0</name>
+      <anchorfile>structBiquad.html</anchorfile>
+      <anchor>a0e93302dc1e1e2b092aba811b21e6de1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>b1</name>
+      <anchorfile>structBiquad.html</anchorfile>
+      <anchor>a14e44bc8dbf9add3d8dba4d707ecd642</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>b2</name>
+      <anchorfile>structBiquad.html</anchorfile>
+      <anchor>a365da3ef2da6d9a992f81ad5fc970659</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>a1</name>
+      <anchorfile>structBiquad.html</anchorfile>
+      <anchor>a8298f5e0871449dc6bd6741231c1d3fb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>a2</name>
+      <anchorfile>structBiquad.html</anchorfile>
+      <anchor>ae7beb3858e3230b81fc9aff882f04431</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>x1</name>
+      <anchorfile>structBiquad.html</anchorfile>
+      <anchor>a8ba16fa71181f77940583b87109d69e5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>x2</name>
+      <anchorfile>structBiquad.html</anchorfile>
+      <anchor>a10558bcfcc431201c6d2e036e0357049</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>y1</name>
+      <anchorfile>structBiquad.html</anchorfile>
+      <anchor>a0b4fb0d9a0f180e2832824627baeec3a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>y2</name>
+      <anchorfile>structBiquad.html</anchorfile>
+      <anchor>a2196e0f209eee7fda6c3020944ebbb9a</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>BitCrusher</name>
     <filename>classBitCrusher.html</filename>
@@ -6247,6 +6435,159 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>Dither</name>
+    <filename>classDither.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>NoiseType</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a4290e426b76162b78fc415a37529d098</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>none</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a4290e426b76162b78fc415a37529d098ab2f6eaa06d9f79958f282ba62ea96847</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>rectangular</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a4290e426b76162b78fc415a37529d098ad3715e86e5dd5ad5de912df01a2d0881</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>triangular</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a4290e426b76162b78fc415a37529d098a91ff0ba08980d2a0edfa6664aea561f7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>gaussian</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a4290e426b76162b78fc415a37529d098a1e081ad5c5b789647307654ec949612a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>Shaping</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a9bd9a414a13312dfa5c6a27fdcde83fa</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>flat</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a9bd9a414a13312dfa5c6a27fdcde83faac0303a09a85195667dbab496def6d9ab</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>highpass</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a9bd9a414a13312dfa5c6a27fdcde83faa04e4bd62e96ac37299888ac3edccad54</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>none</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a4290e426b76162b78fc415a37529d098ab2f6eaa06d9f79958f282ba62ea96847</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>rectangular</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a4290e426b76162b78fc415a37529d098ad3715e86e5dd5ad5de912df01a2d0881</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>triangular</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a4290e426b76162b78fc415a37529d098a91ff0ba08980d2a0edfa6664aea561f7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>gaussian</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a4290e426b76162b78fc415a37529d098a1e081ad5c5b789647307654ec949612a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>flat</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a9bd9a414a13312dfa5c6a27fdcde83faac0303a09a85195667dbab496def6d9ab</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>highpass</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a9bd9a414a13312dfa5c6a27fdcde83faa04e4bd62e96ac37299888ac3edccad54</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Dither</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>ac3cb48cbdbecdc27a9eca99d22197f64</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~Dither</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a47f47239e07deb9339e4596e0cdde375</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setBitDepth</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a5f8328a785d90f1670e7ffe151d43731</anchor>
+      <arglist>(int bits)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setNoiseType</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a50b683ca6009a3418db9dff01aad6536</anchor>
+      <arglist>(NoiseType t)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setShaping</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a785a64aebfc0b6af2517d2c3210270d3</anchor>
+      <arglist>(Shaping s)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAmount</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>afe11919c49a8751c9ebab740c21f0300</anchor>
+      <arglist>(float lsbs)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setNoiseShaping</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a6dc8b76c94587c75d9564436c821e7f1</anchor>
+      <arglist>(float ns)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a8a0deaf9aa8cd7f284bb56620b3aa13b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classDither.html</anchorfile>
+      <anchor>a1293cb4c52490ad03dddd125483e518d</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>DownloadManager</name>
     <filename>classDownloadManager.html</filename>
     <class kind="struct">DownloadManager::DownloadResult</class>
@@ -6608,6 +6949,55 @@
       <anchorfile>classDynamics.html</anchorfile>
       <anchor>ae7ad148c7049b91f76262e901f10a31a</anchor>
       <arglist>(float g)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDetectorMode</name>
+      <anchorfile>classDynamics.html</anchorfile>
+      <anchor>a6ab0db602eddc7ccacebfe410e0ba807</anchor>
+      <arglist>(EnvelopeDetector::Mode m)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setRMSWindow</name>
+      <anchorfile>classDynamics.html</anchorfile>
+      <anchor>af08552d9ea628d335ca0cae0ee6719e3</anchor>
+      <arglist>(float seconds)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAnalogTC</name>
+      <anchorfile>classDynamics.html</anchorfile>
+      <anchor>aeec4bfee8f394e8ccee886de83682b89</anchor>
+      <arglist>(bool analog)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setLookahead</name>
+      <anchorfile>classDynamics.html</anchorfile>
+      <anchor>aa742f452a680a4863220261aa6296777</anchor>
+      <arglist>(float seconds)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getLatencySamples</name>
+      <anchorfile>classDynamics.html</anchorfile>
+      <anchor>a33d171e9ae6837ffb5a4cff6927d1ce6</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSidechainFilter</name>
+      <anchorfile>classDynamics.html</anchorfile>
+      <anchor>a684f768c547feffceb897c114995644c</anchor>
+      <arglist>(float highpassHz, float lowpassHz)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDetectorPeak</name>
+      <anchorfile>classDynamics.html</anchorfile>
+      <anchor>a55b4558e42243c8fc3f0b8948e12b193</anchor>
+      <arglist>(float freqHz, float q, float gainDb)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -7211,6 +7601,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setRMSWindow</name>
+      <anchorfile>classEnvelopeDetector.html</anchorfile>
+      <anchor>af6dfd09960d664d0b1dd58dec9d6834e</anchor>
+      <arglist>(float seconds)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>reset</name>
       <anchorfile>classEnvelopeDetector.html</anchorfile>
       <anchor>a21c729fbcbdac9e36b47144fada3cdda</anchor>
@@ -7305,6 +7702,34 @@
       <name>logDetector</name>
       <anchorfile>classEnvelopeDetector.html</anchorfile>
       <anchor>a9b42cde52cbdcb05cbc85a65ba6a017f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>float</type>
+      <name>rmsWindow</name>
+      <anchorfile>classEnvelopeDetector.html</anchorfile>
+      <anchor>a2931ae941b3d9b9ce85c7bc8608535ff</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>float</type>
+      <name>rmsA</name>
+      <anchorfile>classEnvelopeDetector.html</anchorfile>
+      <anchor>a8ff01b5410c21a5b5f1252d23439201f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>float</type>
+      <name>rmsB</name>
+      <anchorfile>classEnvelopeDetector.html</anchorfile>
+      <anchor>a935a60cb1df0ada819f16e5499eae261</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>float</type>
+      <name>rmsState</name>
+      <anchorfile>classEnvelopeDetector.html</anchorfile>
+      <anchor>a69301c163b8bf296622b9d54f0535ef2</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -7563,6 +7988,73 @@
       <anchorfile>classEquationParser.html</anchorfile>
       <anchor>a452aa75e0f0229864c6a72e9c81410e4</anchor>
       <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Exciter</name>
+    <filename>classExciter.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Exciter</name>
+      <anchorfile>classExciter.html</anchorfile>
+      <anchor>a3671e5ce26f020f4b8ffae2b9590e36f</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~Exciter</name>
+      <anchorfile>classExciter.html</anchorfile>
+      <anchor>af86e7c95d5e4b3b240074bb680ca086c</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classExciter.html</anchorfile>
+      <anchor>ac25e72da907e1db74af4ed14d2a396b8</anchor>
+      <arglist>(double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFrequency</name>
+      <anchorfile>classExciter.html</anchorfile>
+      <anchor>a31874a280462c42b550e0ef7ae42b270</anchor>
+      <arglist>(float hz)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDrive</name>
+      <anchorfile>classExciter.html</anchorfile>
+      <anchor>a45c74f349c57e8d8eb96015c1d26ad64</anchor>
+      <arglist>(float d)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setHarmonics</name>
+      <anchorfile>classExciter.html</anchorfile>
+      <anchor>a45c0f158345c6eb2acb77b54b5d6f0ad</anchor>
+      <arglist>(float h)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setMix</name>
+      <anchorfile>classExciter.html</anchorfile>
+      <anchor>aa9863816997f126e84ec39ee20571e9c</anchor>
+      <arglist>(float m)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classExciter.html</anchorfile>
+      <anchor>ad15bffc76fe7b37b9678a839e12470cc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classExciter.html</anchorfile>
+      <anchor>ac914093ed00ff27d13f2128065f54ca0</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -9753,6 +10245,87 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>KickSynth</name>
+    <filename>classKickSynth.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>KickSynth</name>
+      <anchorfile>classKickSynth.html</anchorfile>
+      <anchor>a20b32e48b387eaba8dbec42d8b3245ab</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~KickSynth</name>
+      <anchorfile>classKickSynth.html</anchorfile>
+      <anchor>acefbf29ab8ff17e93594dc6873d2a414</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classKickSynth.html</anchorfile>
+      <anchor>adacd9c777ffceab3e82dd25b32c8cd8a</anchor>
+      <arglist>(double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDetectorFrequency</name>
+      <anchorfile>classKickSynth.html</anchorfile>
+      <anchor>a58b3808e6e2c2d805f5dce9bb6fa1b4b</anchor>
+      <arglist>(float hz)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFrequency</name>
+      <anchorfile>classKickSynth.html</anchorfile>
+      <anchor>a5c031a36ca5a597f9bee88227d75eb71</anchor>
+      <arglist>(float hz)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setLength</name>
+      <anchorfile>classKickSynth.html</anchorfile>
+      <anchor>ac5dabcdd88d2e8ffdc9467a7c6258b4c</anchor>
+      <arglist>(float l)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setWet</name>
+      <anchorfile>classKickSynth.html</anchorfile>
+      <anchor>af441885b3bb4e4ba80aa6bc0c7e71905</anchor>
+      <arglist>(float w)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDry</name>
+      <anchorfile>classKickSynth.html</anchorfile>
+      <anchor>a60dbcfa6a6fabb6f656d0439d75be242</anchor>
+      <arglist>(float d)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classKickSynth.html</anchorfile>
+      <anchor>afe9130400279bc0f353096aae35c4684</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classKickSynth.html</anchorfile>
+      <anchor>a9d18b7b5af66dc36fee8613154b955cf</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classKickSynth.html</anchorfile>
+      <anchor>a83764390834ac471fcf7134e8e505332</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer, const juce::AudioSampleBuffer &amp;sidechain)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>Knob</name>
     <filename>classKnob.html</filename>
     <base>ParamComponent</base>
@@ -11816,6 +12389,87 @@
       <anchorfile>structMat4.html</anchorfile>
       <anchor>a6848717338afc18e97dbd4ee018c233c</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Maximizer</name>
+    <filename>classMaximizer.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Maximizer</name>
+      <anchorfile>classMaximizer.html</anchorfile>
+      <anchor>a59c5e4f72bfa29c34bd5671bc36eb47a</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~Maximizer</name>
+      <anchorfile>classMaximizer.html</anchorfile>
+      <anchor>ad121dffa78290d078c3f650e16980d36</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classMaximizer.html</anchorfile>
+      <anchor>adfaa7dc1e304deb23ff98cf4d12b78d3</anchor>
+      <arglist>(double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setNumChannels</name>
+      <anchorfile>classMaximizer.html</anchorfile>
+      <anchor>ab35fb2ccecba6299abc4fc0fb9b69e36</anchor>
+      <arglist>(int ch)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setThreshold</name>
+      <anchorfile>classMaximizer.html</anchorfile>
+      <anchor>ab25e9778aa80ba57c9b912dadc672872</anchor>
+      <arglist>(float db)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCeiling</name>
+      <anchorfile>classMaximizer.html</anchorfile>
+      <anchor>a63b53db92ce6e7c4c86a0f05da9b15d8</anchor>
+      <arglist>(float db)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setRelease</name>
+      <anchorfile>classMaximizer.html</anchorfile>
+      <anchor>a64c0b3552ed656dc2596264eb5923df9</anchor>
+      <arglist>(float seconds)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setMaxCycleLength</name>
+      <anchorfile>classMaximizer.html</anchorfile>
+      <anchor>a93a22d83a083b0f13afb8c860538dea1</anchor>
+      <arglist>(float seconds)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getLatencySamples</name>
+      <anchorfile>classMaximizer.html</anchorfile>
+      <anchor>aefae6c7718675988d1ec83a07d17deb1</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classMaximizer.html</anchorfile>
+      <anchor>a2a521d00576909b3da0859229be6f549</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classMaximizer.html</anchorfile>
+      <anchor>ad515de9f966ca0cf2c55ee245a611f9a</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -18854,6 +19508,59 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>SoftClipper</name>
+    <filename>classSoftClipper.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>SoftClipper</name>
+      <anchorfile>classSoftClipper.html</anchorfile>
+      <anchor>a334a6e864830090aa814e06acd389506</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~SoftClipper</name>
+      <anchorfile>classSoftClipper.html</anchorfile>
+      <anchor>a8684729008bd56aac89f4f7cb37032a6</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDrive</name>
+      <anchorfile>classSoftClipper.html</anchorfile>
+      <anchor>a9db242d75a6f13aa3a43fed3922644bb</anchor>
+      <arglist>(float db)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setKnee</name>
+      <anchorfile>classSoftClipper.html</anchorfile>
+      <anchor>a98eabbd8fc277df1d26cc58a55022a36</anchor>
+      <arglist>(float k)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCeiling</name>
+      <anchorfile>classSoftClipper.html</anchorfile>
+      <anchor>af60d63ffa5be6482a8942e1d5a4dcdf7</anchor>
+      <arglist>(float db)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>processSample</name>
+      <anchorfile>classSoftClipper.html</anchorfile>
+      <anchor>a86a9d1fcfd36fafe80372b1c5f703b0f</anchor>
+      <arglist>(float x) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classSoftClipper.html</anchorfile>
+      <anchor>ac03ca8bbc52e78bde05371b80225088a</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer) const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>SpectrumAnalyzer</name>
     <filename>classSpectrumAnalyzer.html</filename>
     <member kind="enumeration">
@@ -20765,6 +21472,94 @@
       <anchorfile>classTitleBar.html</anchorfile>
       <anchor>a6a27e5958f4ece16e3117d1c6cf52d86</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>TransientShaper</name>
+    <filename>classTransientShaper.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>TransientShaper</name>
+      <anchorfile>classTransientShaper.html</anchorfile>
+      <anchor>a10908c0d26b98024db3f864fdeb5d8e8</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~TransientShaper</name>
+      <anchorfile>classTransientShaper.html</anchorfile>
+      <anchor>a5672214747e9199ff29072f5eae53fb0</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSampleRate</name>
+      <anchorfile>classTransientShaper.html</anchorfile>
+      <anchor>a26015f98b565acc3e2ac376f5ebfaa84</anchor>
+      <arglist>(double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAttack</name>
+      <anchorfile>classTransientShaper.html</anchorfile>
+      <anchor>a53129dc7e1c324745d0e6b03a8cba5bb</anchor>
+      <arglist>(float a)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSustain</name>
+      <anchorfile>classTransientShaper.html</anchorfile>
+      <anchor>a0ccfa0f3400e694e974ccd9723126812</anchor>
+      <arglist>(float s)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDetectorBalance</name>
+      <anchorfile>classTransientShaper.html</anchorfile>
+      <anchor>ac65a66e69e70f2bd93af9801537ed6b3</anchor>
+      <arglist>(float b)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setProcessBalance</name>
+      <anchorfile>classTransientShaper.html</anchorfile>
+      <anchor>a3b9fe590afbc79b1a9cd49b3686f62b3</anchor>
+      <arglist>(float b)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setBand</name>
+      <anchorfile>classTransientShaper.html</anchorfile>
+      <anchor>abd37dd15b75d36f698fc34924cb8ddf9</anchor>
+      <arglist>(float lowCutHz, float highCutHz)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSmoothing</name>
+      <anchorfile>classTransientShaper.html</anchorfile>
+      <anchor>a3d7bd6f9b21427e46d41215cbccb631f</anchor>
+      <arglist>(float s)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setOutputGain</name>
+      <anchorfile>classTransientShaper.html</anchorfile>
+      <anchor>a5cf37229bbe123ae21f232d6cea985aa</anchor>
+      <arglist>(float db)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classTransientShaper.html</anchorfile>
+      <anchor>a2cd4c8194f7b4c0c089d05caf53ba523</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classTransientShaper.html</anchorfile>
+      <anchor>acfd951d09c85c118c74811a08fae48df</anchor>
+      <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -23308,10 +24103,12 @@
     <class kind="class">WetDryMix</class>
     <class kind="class">BandLimitedLookupTable</class>
     <class kind="class">BandLimitedLookupTables</class>
+    <class kind="struct">Biquad</class>
     <class kind="class">BitCrusher</class>
     <class kind="class">DCBlocker</class>
     <class kind="class">DelayLine</class>
     <class kind="class">AirWindowsDistortion</class>
+    <class kind="class">Dither</class>
     <class kind="class">EnvelopeDetector</class>
     <class kind="class">Dynamics</class>
     <class kind="struct">LinearEasing</class>
@@ -23347,13 +24144,16 @@
     <class kind="struct">BounceInOutEasing</class>
     <class kind="class">EasedValueSmoother</class>
     <class kind="class">EQ</class>
+    <class kind="class">Exciter</class>
     <class kind="class">FastMath</class>
     <class kind="class">Filter</class>
     <class kind="class">GateEffect</class>
     <class kind="class">GraphicEQ</class>
+    <class kind="class">KickSynth</class>
     <class kind="class">LevelTracker</class>
     <class kind="class">LFO</class>
     <class kind="struct">LFO::Parameters</class>
+    <class kind="class">Maximizer</class>
     <class kind="class">MidiFifo</class>
     <class kind="class">MidiFilePlayer</class>
     <class kind="class">Modulation</class>
@@ -23376,6 +24176,7 @@
     <class kind="class">SamplePlayer</class>
     <class kind="class">ScratchBuffer</class>
     <class kind="class">SimpleVerb</class>
+    <class kind="class">SoftClipper</class>
     <class kind="class">StepLFO</class>
     <class kind="class">StereoDelay</class>
     <class kind="class">StereoEnhancer</class>
@@ -23384,6 +24185,7 @@
     <class kind="class">SynthesiserVoice</class>
     <class kind="class">Synthesiser</class>
     <class kind="class">TextRenderer</class>
+    <class kind="class">TransientShaper</class>
     <class kind="class">ValueSmoother</class>
     <class kind="class">Wavetable</class>
     <class kind="class">WTOscillator</class>

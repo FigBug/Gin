@@ -17,6 +17,10 @@ var searchData=
   ['responseheaders_14',['responseHeaders',['../structDownloadManager_1_1DownloadResult.html#a48b192b45df8e978f398483f24e38fa2',1,'DownloadManager::DownloadResult']]],
   ['retrigger_15',['retrigger',['../namespaceAssets.html#a0ab2fc968026d93758fb668685da9d78',1,'Assets']]],
   ['rightgain_16',['rightgain',['../structStereoOscillator_1_1Params.html#a5c18505090d6b512295acdb7aa2ae707',1,'StereoOscillator::Params::rightGain'],['../structWTOscillator_1_1Params.html#a432702cbb02f4013a3915a03ca672c39',1,'WTOscillator::Params::rightGain']]],
-  ['root_17',['root',['../classAudioMetadata.html#a28daea78e7e93c00662855f0ad851b00',1,'AudioMetadata']]],
-  ['rows_18',['rows',['../classProcessorEditorBase.html#a0d3a93feb2d42d9424386d5e21660b1a',1,'ProcessorEditorBase']]]
+  ['rmsa_17',['rmsA',['../classEnvelopeDetector.html#a8ff01b5410c21a5b5f1252d23439201f',1,'EnvelopeDetector']]],
+  ['rmsb_18',['rmsB',['../classEnvelopeDetector.html#a935a60cb1df0ada819f16e5499eae261',1,'EnvelopeDetector']]],
+  ['rmsstate_19',['rmsState',['../classEnvelopeDetector.html#a69301c163b8bf296622b9d54f0535ef2',1,'EnvelopeDetector']]],
+  ['rmswindow_20',['rmsWindow',['../classEnvelopeDetector.html#a2931ae941b3d9b9ce85c7bc8608535ff',1,'EnvelopeDetector']]],
+  ['root_21',['root',['../classAudioMetadata.html#a28daea78e7e93c00662855f0ad851b00',1,'AudioMetadata']]],
+  ['rows_22',['rows',['../classProcessorEditorBase.html#a0d3a93feb2d42d9424386d5e21660b1a',1,'ProcessorEditorBase']]]
 ];

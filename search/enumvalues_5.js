@@ -11,5 +11,6 @@ var searchData=
   ['filerenamedoldname_8',['fileRenamedOldName',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7da5a58eb5cd4c39c2655668fc1d3241955',1,'FileSystemWatcher']]],
   ['fileupdated_9',['fileUpdated',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7dabc075ff82423a1f48c1043f2e8383acf',1,'FileSystemWatcher']]],
   ['finished_10',['finished',['../classADSR.html#ab573baeeb4578e0a1e6e123452b8127aa4c8e84c9d5e8d4732e95215b44824622',1,'ADSR']]],
-  ['forwards_11',['forwards',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1a465c5f747934848fce35cebef03936e2',1,'SampleOscillator']]]
+  ['flat_11',['flat',['../classDither.html#a9bd9a414a13312dfa5c6a27fdcde83faac0303a09a85195667dbab496def6d9ab',1,'Dither']]],
+  ['forwards_12',['forwards',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1a465c5f747934848fce35cebef03936e2',1,'SampleOscillator']]]
 ];

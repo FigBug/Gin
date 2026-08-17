@@ -103,6 +103,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2c151e5f1f29e3d901fb9f2dc28a6002"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a983d59fabbec5a3ebb64e98be0610520" id="r_a983d59fabbec5a3ebb64e98be0610520"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a983d59fabbec5a3ebb64e98be0610520">setParams</a> (<a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">attackS</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">holdS</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">releaseS</a>, <a class="el" href="classPoint.html">bool</a> <a class="el" href="classEnvelopeDetector.html#aef1cbe13f909298336ff3e307e6b252c">analogTC</a>, <a class="el" href="classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4">Mode</a> <a class="el" href="classPoint.html">detect</a>, <a class="el" href="classPoint.html">bool</a> <a class="el" href="classEnvelopeDetector.html#a9b42cde52cbdcb05cbc85a65ba6a017f">logDetector</a>)</td></tr>
 <tr class="separator:a983d59fabbec5a3ebb64e98be0610520"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6dfd09960d664d0b1dd58dec9d6834e" id="r_af6dfd09960d664d0b1dd58dec9d6834e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#af6dfd09960d664d0b1dd58dec9d6834e">setRMSWindow</a> (<a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">seconds</a>)</td></tr>
+<tr class="memdesc:af6dfd09960d664d0b1dd58dec9d6834e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Averaging window for the ms and rms modes, in seconds.  <br /></td></tr>
+<tr class="separator:af6dfd09960d664d0b1dd58dec9d6834e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21c729fbcbdac9e36b47144fada3cdda" id="r_a21c729fbcbdac9e36b47144fada3cdda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a21c729fbcbdac9e36b47144fada3cdda">reset</a> ()</td></tr>
 <tr class="separator:a21c729fbcbdac9e36b47144fada3cdda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7baa6c81b6b27cc74dba98a16232a021" id="r_a7baa6c81b6b27cc74dba98a16232a021"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a7baa6c81b6b27cc74dba98a16232a021">process</a> (<a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">input</a>)</td></tr>
@@ -137,6 +140,14 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:aef1cbe13f909298336ff3e307e6b252c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b42cde52cbdcb05cbc85a65ba6a017f" id="r_a9b42cde52cbdcb05cbc85a65ba6a017f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a9b42cde52cbdcb05cbc85a65ba6a017f">logDetector</a> = <a class="el" href="classPoint.html">false</a></td></tr>
 <tr class="separator:a9b42cde52cbdcb05cbc85a65ba6a017f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2931ae941b3d9b9ce85c7bc8608535ff" id="r_a2931ae941b3d9b9ce85c7bc8608535ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a2931ae941b3d9b9ce85c7bc8608535ff">rmsWindow</a> = 0.010f</td></tr>
+<tr class="separator:a2931ae941b3d9b9ce85c7bc8608535ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ff01b5410c21a5b5f1252d23439201f" id="r_a8ff01b5410c21a5b5f1252d23439201f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a8ff01b5410c21a5b5f1252d23439201f">rmsA</a> = 1.0f</td></tr>
+<tr class="separator:a8ff01b5410c21a5b5f1252d23439201f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a935a60cb1df0ada819f16e5499eae261" id="r_a935a60cb1df0ada819f16e5499eae261"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a935a60cb1df0ada819f16e5499eae261">rmsB</a> = 0.0f</td></tr>
+<tr class="separator:a935a60cb1df0ada819f16e5499eae261"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69301c163b8bf296622b9d54f0535ef2" id="r_a69301c163b8bf296622b9d54f0535ef2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelopeDetector.html#a69301c163b8bf296622b9d54f0535ef2">rmsState</a> = 0.0f</td></tr>
+<tr class="separator:a69301c163b8bf296622b9d54f0535ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Envelope follower for dynamics processing. </p>
@@ -249,7 +260,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classEnvelopeDetector.html#abe9c3bdb279f4724032f4785b5c77d74">sampleRate</a>.</p>
+<p class="reference">References <a class="el" href="classEnvelopeDetector.html#a2931ae941b3d9b9ce85c7bc8608535ff">rmsWindow</a>, <a class="el" href="classEnvelopeDetector.html#abe9c3bdb279f4724032f4785b5c77d74">sampleRate</a>, and <a class="el" href="classEnvelopeDetector.html#af6dfd09960d664d0b1dd58dec9d6834e">setRMSWindow()</a>.</p>
 
 </div>
 </div>
@@ -302,6 +313,30 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="af6dfd09960d664d0b1dd58dec9d6834e" name="af6dfd09960d664d0b1dd58dec9d6834e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6dfd09960d664d0b1dd58dec9d6834e">&#9670;&#160;</a></span>setRMSWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> EnvelopeDetector::setRMSWindow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
+          <td class="paramname"><em>seconds</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Averaging window for the ms and rms modes, in seconds. </p>
+<p>This is what makes RMS detection mean anything: the squared input is averaged over the window before the attack and release stages see it, so the detector responds to how much energy is in the signal rather than to individual samples. Short windows (1 ms) approach peak detection, long ones (50 ms+) ignore transients almost entirely, which is the loudness-following behaviour a bus compressor wants.</p>
+<p>Has no effect in peak mode. </p>
+
+<p class="reference">Referenced by <a class="el" href="classEnvelopeDetector.html#a2c151e5f1f29e3d901fb9f2dc28a6002">setSampleRate()</a>.</p>
 
 </div>
 </div>
@@ -619,13 +654,103 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a2931ae941b3d9b9ce85c7bc8608535ff" name="a2931ae941b3d9b9ce85c7bc8608535ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2931ae941b3d9b9ce85c7bc8608535ff">&#9670;&#160;</a></span>rmsWindow</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">float</a> EnvelopeDetector::rmsWindow = 0.010f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classEnvelopeDetector.html#a2c151e5f1f29e3d901fb9f2dc28a6002">setSampleRate()</a>.</p>
+
+</div>
+</div>
+<a id="a8ff01b5410c21a5b5f1252d23439201f" name="a8ff01b5410c21a5b5f1252d23439201f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ff01b5410c21a5b5f1252d23439201f">&#9670;&#160;</a></span>rmsA</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">float</a> EnvelopeDetector::rmsA = 1.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a935a60cb1df0ada819f16e5499eae261" name="a935a60cb1df0ada819f16e5499eae261"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a935a60cb1df0ada819f16e5499eae261">&#9670;&#160;</a></span>rmsB</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">float</a> EnvelopeDetector::rmsB = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a69301c163b8bf296622b9d54f0535ef2" name="a69301c163b8bf296622b9d54f0535ef2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69301c163b8bf296622b9d54f0535ef2">&#9670;&#160;</a></span>rmsState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">float</a> EnvelopeDetector::rmsState = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="gin__dynamics_8h.html">gin_dynamics.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 17 2026 01:37:33 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Aug 17 2026 22:22:59 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

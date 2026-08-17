@@ -10,8 +10,9 @@ var searchData=
   ['envelopedetector_7',['EnvelopeDetector',['../classEnvelopeDetector.html',1,'']]],
   ['eq_8',['EQ',['../classEQ.html',1,'']]],
   ['equationparser_9',['EquationParser',['../classEquationParser.html',1,'']]],
-  ['exifmetadata_10',['ExifMetadata',['../classExifMetadata.html',1,'']]],
-  ['exponentialineasing_11',['ExponentialInEasing',['../structExponentialInEasing.html',1,'']]],
-  ['exponentialinouteasing_12',['ExponentialInOutEasing',['../structExponentialInOutEasing.html',1,'']]],
-  ['exponentialouteasing_13',['ExponentialOutEasing',['../structExponentialOutEasing.html',1,'']]]
+  ['exciter_10',['Exciter',['../classExciter.html',1,'']]],
+  ['exifmetadata_11',['ExifMetadata',['../classExifMetadata.html',1,'']]],
+  ['exponentialineasing_12',['ExponentialInEasing',['../structExponentialInEasing.html',1,'']]],
+  ['exponentialinouteasing_13',['ExponentialInOutEasing',['../structExponentialInOutEasing.html',1,'']]],
+  ['exponentialouteasing_14',['ExponentialOutEasing',['../structExponentialOutEasing.html',1,'']]]
 ];

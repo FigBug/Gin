@@ -116,6 +116,27 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8b5e1b91c220eb50e4e68fc6c83282df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7ad148c7049b91f76262e901f10a31a" id="r_ae7ad148c7049b91f76262e901f10a31a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#ae7ad148c7049b91f76262e901f10a31a">setOutputGain</a> (<a class="el" href="classPoint.html">float</a> g)</td></tr>
 <tr class="separator:ae7ad148c7049b91f76262e901f10a31a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ab0db602eddc7ccacebfe410e0ba807" id="r_a6ab0db602eddc7ccacebfe410e0ba807"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#a6ab0db602eddc7ccacebfe410e0ba807">setDetectorMode</a> (<a class="el" href="classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4">EnvelopeDetector::Mode</a> m)</td></tr>
+<tr class="memdesc:a6ab0db602eddc7ccacebfe410e0ba807"><td class="mdescLeft">&#160;</td><td class="mdescRight">How the detector measures level: peak, mean square or RMS.  <br /></td></tr>
+<tr class="separator:a6ab0db602eddc7ccacebfe410e0ba807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af08552d9ea628d335ca0cae0ee6719e3" id="r_af08552d9ea628d335ca0cae0ee6719e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#af08552d9ea628d335ca0cae0ee6719e3">setRMSWindow</a> (<a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">seconds</a>)</td></tr>
+<tr class="memdesc:af08552d9ea628d335ca0cae0ee6719e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Averaging window for the ms and rms detector modes, in seconds.  <br /></td></tr>
+<tr class="separator:af08552d9ea628d335ca0cae0ee6719e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeec4bfee8f394e8ccee886de83682b89" id="r_aeec4bfee8f394e8ccee886de83682b89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#aeec4bfee8f394e8ccee886de83682b89">setAnalogTC</a> (<a class="el" href="classPoint.html">bool</a> <a class="el" href="classPoint.html">analog</a>)</td></tr>
+<tr class="memdesc:aeec4bfee8f394e8ccee886de83682b89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analog rather than digital time constants.  <br /></td></tr>
+<tr class="separator:aeec4bfee8f394e8ccee886de83682b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa742f452a680a4863220261aa6296777" id="r_aa742f452a680a4863220261aa6296777"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#aa742f452a680a4863220261aa6296777">setLookahead</a> (<a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">seconds</a>)</td></tr>
+<tr class="memdesc:aa742f452a680a4863220261aa6296777"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays the audio so the detector sees each transient before the gain does, in seconds.  <br /></td></tr>
+<tr class="separator:aa742f452a680a4863220261aa6296777"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33d171e9ae6837ffb5a4cff6927d1ce6" id="r_a33d171e9ae6837ffb5a4cff6927d1ce6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#a33d171e9ae6837ffb5a4cff6927d1ce6">getLatencySamples</a> () <a class="el" href="classPoint.html">const</a></td></tr>
+<tr class="memdesc:a33d171e9ae6837ffb5a4cff6927d1ce6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lookahead delay in samples, for <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">AudioProcessor::setLatencySamples()</a>.  <br /></td></tr>
+<tr class="separator:a33d171e9ae6837ffb5a4cff6927d1ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a684f768c547feffceb897c114995644c" id="r_a684f768c547feffceb897c114995644c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#a684f768c547feffceb897c114995644c">setSidechainFilter</a> (<a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">highpassHz</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">lowpassHz</a>)</td></tr>
+<tr class="memdesc:a684f768c547feffceb897c114995644c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters the detector's view of the signal without touching what is heard.  <br /></td></tr>
+<tr class="separator:a684f768c547feffceb897c114995644c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55b4558e42243c8fc3f0b8948e12b193" id="r_a55b4558e42243c8fc3f0b8948e12b193"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#a55b4558e42243c8fc3f0b8948e12b193">setDetectorPeak</a> (<a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">freqHz</a>, <a class="el" href="classPoint.html">float</a> q, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">gainDb</a>)</td></tr>
+<tr class="memdesc:a55b4558e42243c8fc3f0b8948e12b193"><td class="mdescLeft">&#160;</td><td class="mdescRight">A peak in the detector path, again heard only through what it makes the gain do.  <br /></td></tr>
+<tr class="separator:a55b4558e42243c8fc3f0b8948e12b193"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13dd302330a0bdc594ef7bb512ae22a6" id="r_a13dd302330a0bdc594ef7bb512ae22a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamics.html#a13dd302330a0bdc594ef7bb512ae22a6">setAutoMakeupGain</a> (<a class="el" href="classPoint.html">bool</a> enabled)</td></tr>
 <tr class="memdesc:a13dd302330a0bdc594ef7bb512ae22a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables automatic makeup gain for compressor/limiter modes.  <br /></td></tr>
 <tr class="separator:a13dd302330a0bdc594ef7bb512ae22a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,8 +198,8 @@ Audio Effect Plug-ins in C++" by Will Pirkle, it features attack/hold/release en
 <div class="line"><span class="comment">// Get metering</span></div>
 <div class="line"><span class="keywordtype">float</span> <a class="code hl_class" href="classPoint.html">inputLevel</a> = <a class="code hl_class" href="classPoint.html">comp</a>.getInputTracker().getLevel();</div>
 <div class="line"><span class="keywordtype">float</span> <a class="code hl_class" href="classPoint.html">outputLevel</a> = <a class="code hl_class" href="classPoint.html">comp</a>.getOutputTracker().getLevel();</div>
-<div class="ttc" id="aclassDynamics_html"><div class="ttname"><a href="classDynamics.html">Dynamics</a></div><div class="ttdoc">Dynamics processor supporting compression, limiting, expansion, and gating.</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:134</div></div>
-<div class="ttc" id="aclassDynamics_html_a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b"><div class="ttname"><a href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b">Dynamics::compressor</a></div><div class="ttdeci">@ compressor</div><div class="ttdoc">Compression (reduce loud signals)</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:151</div></div>
+<div class="ttc" id="aclassDynamics_html"><div class="ttname"><a href="classDynamics.html">Dynamics</a></div><div class="ttdoc">Dynamics processor supporting compression, limiting, expansion, and gating.</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:148</div></div>
+<div class="ttc" id="aclassDynamics_html_a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b"><div class="ttname"><a href="classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b">Dynamics::compressor</a></div><div class="ttdeci">@ compressor</div><div class="ttdoc">Compression (reduce loud signals)</div><div class="ttdef"><b>Definition</b> gin_dynamics.h:165</div></div>
 <div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 </div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classEnvelopeDetector.html" title="Envelope follower for dynamics processing.">EnvelopeDetector</a>, <a class="el" href="classLevelTracker.html" title="Track audio levels with decay in dB.">LevelTracker</a> </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
@@ -429,6 +450,193 @@ Audio Effect Plug-ins in C++" by Will Pirkle, it features attack/hold/release en
 
 </div>
 </div>
+<a id="a6ab0db602eddc7ccacebfe410e0ba807" name="a6ab0db602eddc7ccacebfe410e0ba807"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ab0db602eddc7ccacebfe410e0ba807">&#9670;&#160;</a></span>setDetectorMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> Dynamics::setDetectorMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4">EnvelopeDetector::Mode</a>&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>How the detector measures level: peak, mean square or RMS. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4" title="Envelope detection modes.">EnvelopeDetector::Mode</a>, <a class="el" href="classDynamics.html#af08552d9ea628d335ca0cae0ee6719e3" title="Averaging window for the ms and rms detector modes, in seconds.">setRMSWindow</a> </dd></dl>
+
+</div>
+</div>
+<a id="af08552d9ea628d335ca0cae0ee6719e3" name="af08552d9ea628d335ca0cae0ee6719e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af08552d9ea628d335ca0cae0ee6719e3">&#9670;&#160;</a></span>setRMSWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> Dynamics::setRMSWindow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
+          <td class="paramname"><em>seconds</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Averaging window for the ms and rms detector modes, in seconds. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classEnvelopeDetector.html#af6dfd09960d664d0b1dd58dec9d6834e" title="Averaging window for the ms and rms modes, in seconds.">EnvelopeDetector::setRMSWindow</a> </dd></dl>
+
+</div>
+</div>
+<a id="aeec4bfee8f394e8ccee886de83682b89" name="aeec4bfee8f394e8ccee886de83682b89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeec4bfee8f394e8ccee886de83682b89">&#9670;&#160;</a></span>setAnalogTC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> Dynamics::setAnalogTC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">bool</a>&#160;</td>
+          <td class="paramname"><em>analog</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Analog rather than digital time constants. </p>
+<p>Digital constants reach 99% of the target in the time you asked for, analog ones 63% - the same curve a real capacitor charging through a resistor follows. Analog is slower to arrive and sounds gentler on the attack; digital does what the number says. </p>
+
+</div>
+</div>
+<a id="aa742f452a680a4863220261aa6296777" name="aa742f452a680a4863220261aa6296777"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa742f452a680a4863220261aa6296777">&#9670;&#160;</a></span>setLookahead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> Dynamics::setLookahead </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
+          <td class="paramname"><em>seconds</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Delays the audio so the detector sees each transient before the gain does, in seconds. </p>
+<p>Without it, an attack fast enough to catch a peak has already let the front of that peak through.</p>
+<p>Costs latency, which the host has to be told about - see <a class="el" href="classDynamics.html#a33d171e9ae6837ffb5a4cff6927d1ce6" title="Lookahead delay in samples, for AudioProcessor::setLatencySamples().">getLatencySamples()</a>. 5 ms is plenty for most material. </p>
+
+</div>
+</div>
+<a id="a33d171e9ae6837ffb5a4cff6927d1ce6" name="a33d171e9ae6837ffb5a4cff6927d1ce6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33d171e9ae6837ffb5a4cff6927d1ce6">&#9670;&#160;</a></span>getLatencySamples()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">int</a> Dynamics::getLatencySamples </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lookahead delay in samples, for <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">AudioProcessor::setLatencySamples()</a>. </p>
+
+</div>
+</div>
+<a id="a684f768c547feffceb897c114995644c" name="a684f768c547feffceb897c114995644c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a684f768c547feffceb897c114995644c">&#9670;&#160;</a></span>setSidechainFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> Dynamics::setSidechainFilter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
+          <td class="paramname"><em>highpassHz</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
+          <td class="paramname"><em>lowpassHz</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Filters the detector's view of the signal without touching what is heard. </p>
+<p>A high pass stops kick drums pumping the whole mix; a low pass stops cymbals doing the same.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">highpassHz</td><td>detector high pass, 0 for none </td></tr>
+    <tr><td class="paramname">lowpassHz</td><td>detector low pass, 0 for none </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a55b4558e42243c8fc3f0b8948e12b193" name="a55b4558e42243c8fc3f0b8948e12b193"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55b4558e42243c8fc3f0b8948e12b193">&#9670;&#160;</a></span>setDetectorPeak()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> Dynamics::setDetectorPeak </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
+          <td class="paramname"><em>freqHz</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
+          <td class="paramname"><em>q</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">float</a>&#160;</td>
+          <td class="paramname"><em>gainDb</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A peak in the detector path, again heard only through what it makes the gain do. </p>
+<p>Boost around 6 kHz and the compressor turns into a de-esser; boost the low mids and it leans on boxiness.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">freqHz</td><td>centre frequency </td></tr>
+    <tr><td class="paramname">q</td><td>width </td></tr>
+    <tr><td class="paramname">gainDb</td><td>boost or cut, 0 disables the filter </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a13dd302330a0bdc594ef7bb512ae22a6" name="a13dd302330a0bdc594ef7bb512ae22a6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a13dd302330a0bdc594ef7bb512ae22a6">&#9670;&#160;</a></span>setAutoMakeupGain()</h2>
 
@@ -629,7 +837,7 @@ Audio Effect Plug-ins in C++" by Will Pirkle, it features attack/hold/release en
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 17 2026 01:37:33 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Aug 17 2026 22:22:59 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

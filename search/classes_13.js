@@ -5,5 +5,6 @@ var searchData=
   ['textrenderer_2',['TextRenderer',['../classTextRenderer.html',1,'']]],
   ['timeprofiler_3',['TimeProfiler',['../classTimeProfiler.html',1,'']]],
   ['titlebar_4',['TitleBar',['../classTitleBar.html',1,'']]],
-  ['triggeredscope_5',['TriggeredScope',['../classTriggeredScope.html',1,'']]]
+  ['transientshaper_5',['TransientShaper',['../classTransientShaper.html',1,'']]],
+  ['triggeredscope_6',['TriggeredScope',['../classTriggeredScope.html',1,'']]]
 ];
