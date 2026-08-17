@@ -6,10 +6,54 @@ static constexpr bool kFakeAlerts = false;
 // gin is how the news feed ended up wrong in the first place.
 
 //==============================================================================
+#if JUCE_LINUX || JUCE_BSD
+/** The distro name and version, e.g. "Ubuntu 24.04.1 LTS".
+
+    SystemStats::getOperatingSystemName() only ever says "Linux", which doesn't
+    tell us anything useful about what people are running. os-release is the
+    standard every distro fills in - /etc under systemd, /usr/lib on the
+    handful that ship it read-only. Empty if neither is readable.
+*/
+static juce::String getDistroName()
+{
+    for (auto* path : { "/etc/os-release", "/usr/lib/os-release" })
+    {
+        juce::File f (path);
+        if (! f.existsAsFile())
+            continue;
+
+        juce::String name, versionId;
+
+        for (auto line : juce::StringArray::fromLines (f.loadFileAsString()))
+        {
+            auto value = [&] { return line.fromFirstOccurrenceOf ("=", false, false).unquoted().trim(); };
+
+            if (line.startsWith ("PRETTY_NAME="))
+                return value();
+            if (line.startsWith ("NAME="))
+                name = value();
+            else if (line.startsWith ("VERSION_ID="))
+                versionId = value();
+        }
+
+        // No PRETTY_NAME (rare, but allowed) - build something from the parts
+        if (name.isNotEmpty())
+            return versionId.isNotEmpty() ? name + " " + versionId : name;
+    }
+
+    return {};
+}
+#endif
+
+//==============================================================================
 UpdateChecker::UpdateChecker (gin::Processor& slProc_)
   : Thread ("Update"), slProc (slProc_)
 {
     platform = juce::SystemStats::getOperatingSystemName();
+
+  #if JUCE_LINUX || JUCE_BSD
+    distro = getDistroName();
+  #endif
 
     // The architecture of this binary, not of the machine - on a universal
     // build or under Rosetta that's what tells us which slice is running.
@@ -75,6 +119,9 @@ void UpdateChecker::run()
                               .withParameter ("platform", platform)
                               .withParameter ("arch", arch)
                               .withParameter ("daw", daw);
+
+    if (distro.isNotEmpty())
+        versionsUrl = versionsUrl.withParameter ("distro", distro);
 
     juce::XmlDocument doc (versionsUrl.readEntireTextStream());
     if (std::unique_ptr<juce::XmlElement> root = doc.getDocumentElement())
