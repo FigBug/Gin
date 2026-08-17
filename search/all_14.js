@@ -5,7 +5,7 @@ var searchData=
   ['tables_2',['tables',['../classBandLimitedLookupTable.html#a92fea974cc537d42d2a3191bd69d32fa',1,'BandLimitedLookupTable']]],
   ['tablesize_3',['tableSize',['../classBandLimitedLookupTable.html#af5afe68886b99ea23b06cc7f1f591b94',1,'BandLimitedLookupTable']]],
   ['tags_4',['tags',['../classPatchBrowser.html#aa7bac749585a5be93c25474dae4542e8',1,'PatchBrowser::tags'],['../classProgram.html#acddd8235091f27410c05cf4b7694b62a',1,'Program::tags']]],
-  ['tagsmodel_5',['tagsmodel',['../structPatchBrowser_1_1TagsModel.html',1,'PatchBrowser::TagsModel'],['../structPatchBrowser_1_1TagsModel.html#aa09938757cd8d6bf62458de6297aa5cb',1,'PatchBrowser::TagsModel::TagsModel()'],['../classPatchBrowser.html#a2b1148951ac60c4b47c4b1f6af16d144',1,'PatchBrowser::tagsModel']]],
+  ['tagsmodel_5',['tagsmodel',['../structPatchBrowser_1_1TagsModel.html',1,'PatchBrowser::TagsModel'],['../classPatchBrowser.html#a2b1148951ac60c4b47c4b1f6af16d144',1,'PatchBrowser::tagsModel'],['../structPatchBrowser_1_1TagsModel.html#aa09938757cd8d6bf62458de6297aa5cb',1,'PatchBrowser::TagsModel::TagsModel()']]],
   ['tempbuffer_6',['tempBuffer',['../classAudioProcessorPlayer.html#aed8721997bdad5d85e77b940ef6bce6b',1,'AudioProcessorPlayer']]],
   ['text_7',['text',['../structDiff_1_1Patch_1_1Hunk.html#a0442b79f6577c4fcf6b48d15df9a8aa0',1,'Diff::Patch::Hunk']]],
   ['text_5fframe_8',['TEXT_FRAME',['../structWSHeaderType.html#ac1906191ac337fdbecbe643184fbd3b3a44b257e3d1f0e6e8ee821d8ce460cea2',1,'WSHeaderType']]],
