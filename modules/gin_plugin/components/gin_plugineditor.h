@@ -25,6 +25,9 @@ private:
     Processor& slProc;
     juce::String updateUrl;
 
+    // Gathered on the message thread at construction, sent with the version query
+    juce::String platform, arch, daw;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(UpdateChecker)
 };
 

@@ -9,6 +9,34 @@ static constexpr bool kFakeAlerts = false;
 UpdateChecker::UpdateChecker (gin::Processor& slProc_)
   : Thread ("Update"), slProc (slProc_)
 {
+    platform = juce::SystemStats::getOperatingSystemName();
+
+    // The architecture of this binary, not of the machine - on a universal
+    // build or under Rosetta that's what tells us which slice is running.
+   #if JUCE_ARM
+    arch = "arm";
+   #elif JUCE_64BIT
+    arch = "x86_64";
+   #else
+    arch = "x86";
+   #endif
+
+    if (slProc.wrapperType == juce::AudioProcessor::wrapperType_Standalone)
+    {
+        daw = "Standalone";
+    }
+    else
+    {
+        juce::PluginHostType host;
+        daw = host.getHostDescription();
+
+        // JUCE only knows the hosts it knows - for anything else the exe name
+        // is more use than "Unknown". Name only, never the full path.
+        if (host.type == juce::PluginHostType::UnknownHost)
+            if (auto path = juce::PluginHostType::getHostPath(); path.isNotEmpty())
+                daw = juce::File (path).getFileNameWithoutExtension();
+    }
+
     if (auto props = slProc.getSettings())
     {
         juce::String url = props->getValue (slProc.processorOptions.pluginName + "_updateUrl");
@@ -41,7 +69,13 @@ void UpdateChecker::timerCallback()
 void UpdateChecker::run()
 {
   #if ! JUCE_IOS && ! JUCE_ANDROID
-    juce::URL versionsUrl = juce::URL (slProc.processorOptions.updatesURL).withParameter ("plugin", slProc.processorOptions.pluginName).withParameter ("version", slProc.processorOptions.pluginVersion);
+    juce::URL versionsUrl = juce::URL (slProc.processorOptions.updatesURL)
+                              .withParameter ("plugin", slProc.processorOptions.pluginName)
+                              .withParameter ("version", slProc.processorOptions.pluginVersion)
+                              .withParameter ("platform", platform)
+                              .withParameter ("arch", arch)
+                              .withParameter ("daw", daw);
+
     juce::XmlDocument doc (versionsUrl.readEntireTextStream());
     if (std::unique_ptr<juce::XmlElement> root = doc.getDocumentElement())
     {
