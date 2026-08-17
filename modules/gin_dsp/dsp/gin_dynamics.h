@@ -52,9 +52,22 @@ public:
         rms    ///< RMS (root mean square) detection
     };
 
-    void setSampleRate (double f)           { sampleRate = f;       }
+    void setSampleRate (double f)           { sampleRate = f; setRMSWindow (rmsWindow); }
 
     void setParams (float attackS, float holdS, float releaseS, bool analogTC, Mode detect, bool logDetector);
+
+    /** Averaging window for the ms and rms modes, in seconds.
+
+        This is what makes RMS detection mean anything: the squared input is
+        averaged over the window before the attack and release stages see it,
+        so the detector responds to how much energy is in the signal rather
+        than to individual samples. Short windows (1 ms) approach peak
+        detection, long ones (50 ms+) ignore transients almost entirely, which
+        is the loudness-following behaviour a bus compressor wants.
+
+        Has no effect in peak mode.
+    */
+    void setRMSWindow (float seconds);
 
     void reset();
     float process (float input);
@@ -69,6 +82,7 @@ protected:
     float attackTime = 0.0f, releaseTime = 0.0f, envelope = 0.0;
     float holdTime = 0.0f, holdRemaining = 0.0f;
     bool analogTC = false, logDetector = false;
+    float rmsWindow = 0.010f, rmsA = 1.0f, rmsB = 0.0f, rmsState = 0.0f;
 };
 
 //================================================================================
@@ -161,6 +175,56 @@ public:
     void setInputGain (float g)             { inputGain = g;    }
     void setOutputGain (float g)            { outputGain = g;   }
 
+    /** How the detector measures level: peak, mean square or RMS.
+        @see EnvelopeDetector::Mode, setRMSWindow
+    */
+    void setDetectorMode (EnvelopeDetector::Mode m);
+
+    /** Averaging window for the ms and rms detector modes, in seconds.
+        @see EnvelopeDetector::setRMSWindow
+    */
+    void setRMSWindow (float seconds);
+
+    /** Analog rather than digital time constants.
+
+        Digital constants reach 99% of the target in the time you asked for,
+        analog ones 63% - the same curve a real capacitor charging through a
+        resistor follows. Analog is slower to arrive and sounds gentler on the
+        attack; digital does what the number says.
+    */
+    void setAnalogTC (bool analog);
+
+    /** Delays the audio so the detector sees each transient before the gain
+        does, in seconds. Without it, an attack fast enough to catch a peak
+        has already let the front of that peak through.
+
+        Costs latency, which the host has to be told about - see
+        getLatencySamples(). 5 ms is plenty for most material.
+    */
+    void setLookahead (float seconds);
+
+    /** Lookahead delay in samples, for AudioProcessor::setLatencySamples(). */
+    int getLatencySamples() const           { return lookaheadSamples; }
+
+    /** Filters the detector's view of the signal without touching what is
+        heard. A high pass stops kick drums pumping the whole mix; a low pass
+        stops cymbals doing the same.
+
+        @param highpassHz   detector high pass, 0 for none
+        @param lowpassHz    detector low pass, 0 for none
+    */
+    void setSidechainFilter (float highpassHz, float lowpassHz);
+
+    /** A peak in the detector path, again heard only through what it makes
+        the gain do. Boost around 6 kHz and the compressor turns into a
+        de-esser; boost the low mids and it leans on boxiness.
+
+        @param freqHz   centre frequency
+        @param q        width
+        @param gainDb   boost or cut, 0 disables the filter
+    */
+    void setDetectorPeak (float freqHz, float q, float gainDb);
+
     /** Enables automatic makeup gain for compressor/limiter modes.
         When enabled, gain is automatically applied to compensate for
         the gain reduction, bringing peaks back to 0dB.
@@ -208,6 +272,16 @@ public:
 private:
     void processInternal (juce::AudioSampleBuffer& buffer, const juce::AudioSampleBuffer* sidechain, juce::AudioSampleBuffer* envelopeOut);
 
+    void updateDetectorParams();
+    void updateDetectorFilters (int numChannels);
+    void updateLookahead();
+
+    /** The detector's filters, one set per channel it has to key from. */
+    struct DetectorFilters
+    {
+        Biquad highpass, lowpass, peak;
+    };
+
     juce::OwnedArray<EnvelopeDetector> envelopes;
     LevelTracker inputTracker, outputTracker, reductionTracker {-30.0f};
 
@@ -219,4 +293,18 @@ private:
     bool autoMakeupGain = false;
     float inputGain = 1.0f, outputGain = 1.0f;
     float threshold = 0.0f, ratio = 0.0f, kneeWidth = 0.0f;
+
+    float attackSeconds = 0.0f, holdSeconds = 0.0f, releaseSeconds = 0.0f;
+    EnvelopeDetector::Mode detectorMode = EnvelopeDetector::peak;
+    float rmsWindow = 0.010f;
+    bool analogTC = false;
+
+    float lookaheadSeconds = 0.0f;
+    int lookaheadSamples = 0, lookaheadPos = 0;
+    std::vector<std::vector<float>> lookaheadBuffers;
+
+    float sidechainHighpass = 0.0f, sidechainLowpass = 0.0f;
+    float detectorPeakFreq = 1000.0f, detectorPeakQ = 1.0f, detectorPeakGain = 0.0f;
+    bool detectorFilterActive = false;
+    std::vector<DetectorFilters> detectorFilters;
 };

@@ -7,6 +7,24 @@ const float ANALOG_TC = -0.43533393574791066201247090699309f; // (log(36.7%)
 void EnvelopeDetector::reset()
 {
     envelope = 0.0;
+    rmsState = 0.0f;
+}
+
+void EnvelopeDetector::setRMSWindow (float seconds)
+{
+    rmsWindow = seconds;
+
+    if (seconds <= 0.0f)
+    {
+        // No window: the average is the sample, which is the old behaviour
+        rmsA = 1.0f;
+        rmsB = 0.0f;
+    }
+    else
+    {
+        rmsB = float (std::exp (-1.0 / (seconds * sampleRate)));
+        rmsA = 1.0f - rmsB;
+    }
 }
 
 void EnvelopeDetector::setParams (float attackS_, float holdS_, float releaseS_, bool analogTC_, Mode detect_, bool logDetector_)
@@ -49,10 +67,13 @@ float EnvelopeDetector::process (float input)
             input = std::fabs (input);
             break;
         case ms:
-            input = std::fabs (input) * std::fabs (input);
+            // Mean square: average the squares over the window
+            rmsState = rmsA * (input * input) + rmsB * rmsState;
+            input = rmsState;
             break;
         case rms:
-            input = std::pow (std::fabs (input) * std::fabs (input), 0.5f);
+            rmsState = rmsA * (input * input) + rmsB * rmsState;
+            input = std::sqrt (rmsState);
             break;
     }
 
@@ -91,6 +112,10 @@ void Dynamics::setSampleRate (double sampleRate_)
     for (auto e : envelopes)
         e->setSampleRate (sampleRate);
 
+    updateDetectorParams();
+    updateLookahead();
+    updateDetectorFilters (int (detectorFilters.size()));
+
     reset();
 }
 
@@ -106,22 +131,130 @@ void Dynamics::setNumChannels (int ch)
     }
     while (envelopes.size() > channels)
         envelopes.removeLast();
+
+    updateDetectorParams();
+    updateLookahead();
 }
 
 void Dynamics::setParams (float attackS, float holdS, float releaseS, float threshold_, float ratio_, float kneeWidth_)
 {
-    for (auto e : envelopes)
-        e->setParams (attackS, holdS, releaseS, false, EnvelopeDetector::peak, true);
+    attackSeconds = attackS;
+    holdSeconds = holdS;
+    releaseSeconds = releaseS;
+
+    updateDetectorParams();
 
     threshold = threshold_;
     ratio = ratio_;
     kneeWidth = kneeWidth_;
 }
 
+void Dynamics::setDetectorMode (EnvelopeDetector::Mode m)
+{
+    detectorMode = m;
+    updateDetectorParams();
+}
+
+void Dynamics::setRMSWindow (float seconds)
+{
+    rmsWindow = seconds;
+    updateDetectorParams();
+}
+
+void Dynamics::setAnalogTC (bool analog)
+{
+    analogTC = analog;
+    updateDetectorParams();
+}
+
+void Dynamics::updateDetectorParams()
+{
+    for (auto e : envelopes)
+    {
+        e->setRMSWindow (rmsWindow);
+        e->setParams (attackSeconds, holdSeconds, releaseSeconds, analogTC, detectorMode, true);
+    }
+}
+
+void Dynamics::setLookahead (float seconds)
+{
+    lookaheadSeconds = std::max (0.0f, seconds);
+    updateLookahead();
+}
+
+void Dynamics::updateLookahead()
+{
+    auto wanted = int (lookaheadSeconds * sampleRate);
+
+    if (wanted != lookaheadSamples || int (lookaheadBuffers.size()) != channels)
+    {
+        lookaheadSamples = wanted;
+        lookaheadBuffers.assign (size_t (std::max (0, channels)),
+                                 std::vector<float> (size_t (std::max (1, lookaheadSamples)), 0.0f));
+        lookaheadPos = 0;
+    }
+}
+
+void Dynamics::setSidechainFilter (float highpassHz, float lowpassHz)
+{
+    sidechainHighpass = highpassHz;
+    sidechainLowpass = lowpassHz;
+    updateDetectorFilters (int (detectorFilters.size()));
+}
+
+void Dynamics::setDetectorPeak (float freqHz, float q, float gainDb)
+{
+    detectorPeakFreq = freqHz;
+    detectorPeakQ = q;
+    detectorPeakGain = gainDb;
+    updateDetectorFilters (int (detectorFilters.size()));
+}
+
+void Dynamics::updateDetectorFilters (int numChannels)
+{
+    auto nyquist = float (sampleRate / 2.1);
+
+    auto hpOn   = sidechainHighpass > 0.0f && sidechainHighpass < nyquist;
+    auto lpOn   = sidechainLowpass  > 0.0f && sidechainLowpass  < nyquist;
+    auto peakOn = detectorPeakGain != 0.0f && detectorPeakFreq > 0.0f && detectorPeakFreq < nyquist;
+
+    detectorFilterActive = hpOn || lpOn || peakOn;
+
+    if (numChannels <= 0)
+        return;
+
+    if (int (detectorFilters.size()) != numChannels)
+        detectorFilters.resize (size_t (numChannels));
+
+    for (auto& f : detectorFilters)
+    {
+        if (hpOn)   f.highpass.setHighpass (sidechainHighpass, juce::MathConstants<double>::sqrt2 / 2.0, sampleRate);
+        else        f.highpass.setBypass();
+
+        if (lpOn)   f.lowpass.setLowpass (sidechainLowpass, juce::MathConstants<double>::sqrt2 / 2.0, sampleRate);
+        else        f.lowpass.setBypass();
+
+        if (peakOn) f.peak.setPeak (detectorPeakFreq, detectorPeakQ, detectorPeakGain, sampleRate);
+        else        f.peak.setBypass();
+    }
+}
+
 void Dynamics::reset()
 {
     for (auto e : envelopes)
         e->reset();
+
+    for (auto& b : lookaheadBuffers)
+        std::fill (b.begin(), b.end(), 0.0f);
+
+    lookaheadPos = 0;
+
+    for (auto& f : detectorFilters)
+    {
+        f.highpass.reset();
+        f.lowpass.reset();
+        f.peak.reset();
+    }
 }
 
 void Dynamics::process (juce::AudioSampleBuffer& buffer, juce::AudioSampleBuffer* envelopeOut)
@@ -158,6 +291,33 @@ void Dynamics::processInternal (juce::AudioSampleBuffer& buffer, const juce::Aud
     auto detect         = sidechain != nullptr ? sidechain->getArrayOfReadPointers() : input;
     auto detectChannels = sidechain != nullptr ? sidechain->getNumChannels() : channels;
 
+    // Side chain and detector filters shape what the detector hears, so they
+    // have to run on a copy - the whole point is that none of it is audible.
+    // One pass here rather than inside the sample loop, because a key channel
+    // can be read by several output channels and its filter state must only
+    // advance once per sample.
+    ScratchBuffer filtered (detectorFilterActive ? detectChannels : 0,
+                            detectorFilterActive ? numSamples : 0);
+
+    if (detectorFilterActive && detectChannels > 0)
+    {
+        if (int (detectorFilters.size()) != detectChannels)
+            updateDetectorFilters (detectChannels);
+
+        for (int c = 0; c < detectChannels; c++)
+        {
+            auto& f = detectorFilters[size_t (c)];
+            auto* d = filtered.getWritePointer (c);
+
+            juce::FloatVectorOperations::copy (d, detect[c], numSamples);
+
+            for (int i = 0; i < numSamples; i++)
+                d[i] = f.peak.process (f.lowpass.process (f.highpass.process (d[i])));
+        }
+
+        detect = filtered.getArrayOfReadPointers();
+    }
+
     // Fewer key channels than the processor has: the last one drives the
     // rest, so a mono side chain is a valid thing to be handed.
     auto keyOf = [&] (int c, int i) { return detect[std::min (c, detectChannels - 1)][i]; };
@@ -178,6 +338,22 @@ void Dynamics::processInternal (juce::AudioSampleBuffer& buffer, const juce::Aud
     }
 
     float peakReduction = 1.0f;
+
+    const bool lookingAhead = lookaheadSamples > 0 && int (lookaheadBuffers.size()) >= channels;
+
+    // Reads the sample the gain should land on: with lookahead that is one
+    // delay line behind what the detector just measured, which is what lets
+    // the gain already be moving when the transient arrives.
+    auto delayed = [&] (int c, float in) -> float
+    {
+        if (! lookingAhead)
+            return in;
+
+        auto& ring = lookaheadBuffers[size_t (c)];
+        auto out = ring[size_t (lookaheadPos)];
+        ring[size_t (lookaheadPos)] = in;
+        return out;
+    };
 
     for (int i = 0; i < numSamples; i++)
     {
@@ -204,7 +380,7 @@ void Dynamics::processInternal (juce::AudioSampleBuffer& buffer, const juce::Aud
             peakReduction = std::min (peakReduction, gain);
 
             for (int c = 0; c < channels; c++)
-                output[c][i] = inputGain * gain * input[c][i] * outputGain * autoMakeup;
+                output[c][i] = inputGain * gain * delayed (c, input[c][i]) * outputGain * autoMakeup;
         }
         else
         {
@@ -220,9 +396,12 @@ void Dynamics::processInternal (juce::AudioSampleBuffer& buffer, const juce::Aud
                 auto gain = juce::Decibels::decibelsToGain (calcCurve (in) - in);
                 peakReduction = std::min (peakReduction, gain);
 
-                output[c][i] = inputGain * gain * input[c][i] * outputGain * autoMakeup;
+                output[c][i] = inputGain * gain * delayed (c, input[c][i]) * outputGain * autoMakeup;
             }
         }
+
+        if (lookingAhead && ++lookaheadPos >= lookaheadSamples)
+            lookaheadPos = 0;
     }
 
     reductionTracker.trackSample (peakReduction);
