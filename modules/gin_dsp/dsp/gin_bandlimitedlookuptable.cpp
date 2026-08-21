@@ -223,6 +223,9 @@ BandLimitedLookupTables::BandLimitedLookupTables (double sampleRate_, int notesP
 
 void BandLimitedLookupTables::reset (double sampleRate_, int notesPerTable_, int tableSize_)
 {
+    if (sampleRate == sampleRate_ && notesPerTable == notesPerTable_ && tableSize == tableSize_)
+        return;
+
     sampleRate = sampleRate_;
     notesPerTable = notesPerTable_;
     tableSize = tableSize_;
