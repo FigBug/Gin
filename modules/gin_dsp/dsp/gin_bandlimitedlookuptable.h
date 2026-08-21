@@ -321,8 +321,8 @@ public:
         if (phaseUp   >= 1.0f) phaseUp   -= 1.0f;
         if (phaseDown <  0.0f) phaseDown += 1.0f;
 
-        auto count = std::min (sawDownTable.tables.size(), sawDownTable.tables.size());
-        int tableIndex = juce::jlimit (0, int (count - 1), int ((note - 0.5) / count));
+        auto count = std::min (sawDownTable.tables.size(), sawUpTable.tables.size());
+        int tableIndex = juce::jlimit (0, int (count - 1), int ((note - 0.5f) / sawUpTable.notesPerTable));
 
         auto s1 = sawDownTable.getLinear (tableIndex, phaseDown);
         auto s2 = sawUpTable.getLinear (tableIndex, phaseUp);
@@ -340,8 +340,8 @@ public:
         if (phaseUp   >= 1.0f) phaseUp   -= 1.0f;
         if (phaseDown <  0.0f) phaseDown += 1.0f;
 
-        auto count = std::min (sawDownTable.tables.size(), sawDownTable.tables.size());
-        int tableIndex = juce::jlimit (0, int (count - 1), int ((note - 0.5) / count));
+        auto count = std::min (sawDownTable.tables.size(), sawUpTable.tables.size());
+        int tableIndex = juce::jlimit (0, int (count - 1), int ((note - 0.5f) / sawUpTable.notesPerTable));
 
         auto dc = 2.0f * pw - 1.0f;
         auto s1 = sawDownTable.getLinear (tableIndex, phaseDown);
