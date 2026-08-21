@@ -124,16 +124,19 @@ public:
         if (numSamples == -1)
             numSamples = src.getNumSamples();
 
-        return write (src.getArrayOfReadPointers(), numSamples);
+        return write (src.getArrayOfReadPointers(), numSamples, src.getNumChannels());
     }
 
     /** Writes audio data from a multi-channel array to the FIFO.
         Should only be called from the producer thread.
         @param data Array of channel pointers containing the audio data
         @param numSamples Number of samples to write
+        @param numChannels Number of valid channel pointers in data, or -1 if it
+               matches the FIFO's channel count. If fewer than the FIFO's channel
+               count, the extra FIFO channels are filled with silence.
         @return true if successful, false if there wasn't enough space
     */
-    bool write (const float* const* data, int numSamples)
+    bool write (const float* const* data, int numSamples, int numChannels = -1)
     {
         if (numSamples <= 0)
             return true;
@@ -146,10 +149,21 @@ public:
         if (size1 + size2 < numSamples)
             return false;
 
+        const int channelsToCopy = numChannels < 0 ? buffer.getNumChannels()
+                                                   : std::min (numChannels, buffer.getNumChannels());
+
         for (int i = buffer.getNumChannels(); --i >= 0;)
         {
-            buffer.copyFrom (i, start1, data[i], size1);
-            buffer.copyFrom (i, start2, data[i] + size1, size2);
+            if (i < channelsToCopy)
+            {
+                buffer.copyFrom (i, start1, data[i], size1);
+                buffer.copyFrom (i, start2, data[i] + size1, size2);
+            }
+            else
+            {
+                buffer.clear (i, start1, size1);
+                buffer.clear (i, start2, size2);
+            }
         }
 
         fifo.finishedWrite (size1 + size2);
@@ -238,7 +252,7 @@ public:
 		if ((size1 + size2) < numSamples)
 			return false;
 
-		for (int i = buffer.getNumChannels(); --i >= 0;)
+		for (int i = std::min (buffer.getNumChannels(), dest.getNumChannels()); --i >= 0;)
 		{
 			dest.copyFrom (i, startSampleInDestBuffer, buffer, i, start1, size1);
 			dest.copyFrom (i, startSampleInDestBuffer + size1, buffer, i, start2, size2);
@@ -293,7 +307,7 @@ public:
         if ((size1 + size2) < numSamples)
             return false;
 
-        for (int i = buffer.getNumChannels(); --i >= 0;)
+        for (int i = std::min (buffer.getNumChannels(), dest.getNumChannels()); --i >= 0;)
         {
             dest.copyFrom (i, startSampleInDestBuffer, buffer, i, start1, size1);
             dest.copyFrom (i, startSampleInDestBuffer + size1, buffer, i, start2, size2);
@@ -361,7 +375,7 @@ public:
         if ((size1 + size2) < numSamples)
             return false;
 
-        for (int i = buffer.getNumChannels(); --i >= 0;)
+        for (int i = std::min (buffer.getNumChannels(), dest.getNumChannels()); --i >= 0;)
         {
             dest.addFrom (i, startSampleInDestBuffer, buffer, i, start1, size1);
             dest.addFrom (i, startSampleInDestBuffer + size1, buffer, i, start2, size2);
