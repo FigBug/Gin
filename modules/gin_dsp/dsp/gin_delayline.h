@@ -55,15 +55,19 @@ public:
 
     void setSize (int channels, double maximumDelay, double sr)
     {
-        sampleRate = sr;
+        sampleRate = sr > 0.0 ? sr : 44100.0;
 
-        buffer.setSize (channels, (int) std::ceil (maximumDelay * sampleRate));
+        // a zero channel / zero sample buffer would make every read and write
+        // out of bounds, and % numSamples a divide by zero
+        buffer.setSize (std::max (1, channels), std::max (1, (int) std::ceil (maximumDelay * sampleRate)));
         buffer.clear();
 
         data = buffer.getArrayOfWritePointers();
 
         writePos = 0;
     }
+
+    int getNumChannels() const      { return buffer.getNumChannels(); }
 
     void clear()
     {
@@ -76,6 +80,7 @@ public:
         int numSamples = buffer.getNumSamples();
 
         jassert (t >= 0.0f && t < (numSamples / sampleRate));
+        t = std::clamp (t, 0.0, (numSamples - 1) / sampleRate);
 
         float readPos = std::fmod (float (writePos - 1 + numSamples - (t * sampleRate)), float (numSamples));
 
@@ -98,6 +103,7 @@ public:
         int numSamples = buffer.getNumSamples();
 
         jassert (t >= 0.0f && t < (numSamples / sampleRate));
+        t = std::clamp (t, 0.0, (numSamples - 1) / sampleRate);
 
         float readPos = std::fmod (float (writePos - 1 + numSamples - (t * sampleRate)), float (numSamples));
         int prev = int (std::floor (readPos));
@@ -116,6 +122,7 @@ public:
         int numSamples = buffer.getNumSamples();
 
         jassert (samplePos >= 0 && samplePos < numSamples);
+        samplePos = std::clamp (samplePos, 0, numSamples - 1);
 
         auto readPos = (writePos - 1 + numSamples - samplePos) % numSamples;
         jassert (readPos >= 0 && readPos < numSamples);
@@ -125,6 +132,9 @@ public:
     inline float readSampleLagrange (int ch, float samplePos)
     {
         int numSamples = buffer.getNumSamples();
+
+        jassert (samplePos >= 0 && samplePos < float (numSamples));
+        samplePos = std::clamp (samplePos, 0.0f, float (numSamples - 1));
 
         float readPos = std::fmod (float (writePos - 1 + numSamples - samplePos), float (numSamples));
 
