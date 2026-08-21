@@ -291,6 +291,8 @@ public:
 
     void setSampleRate (double sampleRate);
 
+    void reset (double sampleRate = 44100, int notesPerTable = 3, int tableSize = 2048);
+
     inline float processSine (float phase)
     {
         return sineTable.getLinear (0, phase);
