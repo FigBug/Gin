@@ -4964,6 +4964,13 @@
       <arglist>(double sampleRate)</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classBandLimitedLookupTables.html</anchorfile>
+      <anchor>af700b997de6544227bf524b468deeded</anchor>
+      <arglist>(double sampleRate=44100, int notesPerTable=3, int tableSize=2048)</arglist>
+    </member>
+    <member kind="function">
       <type>float</type>
       <name>processSine</name>
       <anchorfile>classBandLimitedLookupTables.html</anchorfile>
