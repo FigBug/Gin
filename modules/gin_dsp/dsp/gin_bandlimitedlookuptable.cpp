@@ -224,6 +224,21 @@ BandLimitedLookupTables::BandLimitedLookupTables (double sampleRate_, int notesP
 
 }
 
+void BandLimitedLookupTables::reset (double sampleRate_, int notesPerTable_, int tableSize_)
+{
+    if (sampleRate == sampleRate_ && notesPerTable == notesPerTable_ && tableSize == tableSize_)
+        return;
+
+    sampleRate = sampleRate_;
+    notesPerTable = notesPerTable_;
+    tableSize = tableSize_;
+
+    sineTable.reset (sine, float (sampleRate), 64, tableSize);
+    sawUpTable.reset (sawUp, float (sampleRate), notesPerTable, tableSize);
+    sawDownTable.reset (sawDown, float (sampleRate), notesPerTable, tableSize);
+    triangleTable.reset (triangle, float (sampleRate), notesPerTable, tableSize);
+}
+
 void BandLimitedLookupTables::setSampleRate (double sampleRate_)
 {
     if (! juce::approximatelyEqual (sampleRate, sampleRate_))
