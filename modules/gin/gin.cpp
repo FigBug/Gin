@@ -34,6 +34,7 @@
 
 #include <cfloat>
 #include <cmath>
+#include <cstdlib>
 
 #include "gin.h"
 

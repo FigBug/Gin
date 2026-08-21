@@ -11,6 +11,16 @@ class RealtimeAsyncUpdater::Impl : public juce::Thread
 public:
     Impl() : Thread ("RtAsyncUpdater")
     {
+        // Some hosts (e.g. FL Studio) call exit() with plugins still loaded. Static
+        // destruction then races this thread's message queue posts, which aborts.
+        // atexit handlers run before those destructors, so use one to stop posting.
+        static const bool atExitRegistered = []
+        {
+            std::atexit ([] { processIsExiting().store (true, std::memory_order_release); });
+            return true;
+        }();
+        juce::ignoreUnused (atExitRegistered);
+
         startThread();
     }
     
@@ -43,13 +53,19 @@ private:
     juce::Array<RealtimeAsyncUpdater*> updaters;
     RealtimeEvent event;
     
+    static std::atomic<bool>& processIsExiting()
+    {
+        static std::atomic<bool> exiting { false };
+        return exiting;
+    }
+
     void run() override
     {
         while (! threadShouldExit())
         {
             event.wait();
 
-            if (threadShouldExit())
+            if (threadShouldExit() || processIsExiting().load (std::memory_order_acquire))
                 break;
 
             if (auto* mm = juce::MessageManager::getInstanceWithoutCreating())
