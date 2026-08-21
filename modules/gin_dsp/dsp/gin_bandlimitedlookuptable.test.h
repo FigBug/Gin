@@ -27,6 +27,7 @@ public:
         testMipMapSelection();
         testSquareNotAliased();
         testFFTLoadKeepsAmplitude();
+        testCheapInitAndReset();
     }
 
 private:
@@ -171,6 +172,25 @@ private:
             peak = std::max (peak, std::abs (v));
 
         expectWithinAbsoluteError (peak, 1.0f, 0.1f, "filtered table keeps full amplitude");
+    }
+
+    void testCheapInitAndReset()
+    {
+        beginTest ("Cheap Init And Reset");
+
+        // deferred initialization: tiny tables at construction, real ones built on reset
+        BandLimitedLookupTables tables (44100.0, 127, 1);
+
+        // must be usable (if degraded) before the real reset arrives
+        for (float p = 0.0f; p < 1.0f; p += 0.1f)
+            expect (std::abs (tables.processSquare (60.0f, p)) < 1.5f, "usable before reset");
+
+        tables.reset (48000.0, 3, 2048);
+        expectWithinAbsoluteError (tables.processSine (0.25f), 1.0f, 1.0e-4f, "full quality after reset");
+
+        // sample rate only reset keeps notesPerTable / tableSize
+        tables.reset (44100.0);
+        expectWithinAbsoluteError (tables.processSine (0.25f), 1.0f, 1.0e-4f, "reset keeps table settings");
     }
 };
 

@@ -124,7 +124,8 @@ void BandLimitedLookupTable::loadFromBuffer (std::unique_ptr<juce::dsp::FFT>& ff
 
     fft->perform (time.data(), freq.data(), false);
 
-    for (float note = notesPerTable + 0.5f; note < 127.0f; note += notesPerTable)
+    // clamp the first note so a large notesPerTable still produces one table rather than none
+    for (float note = std::min (notesPerTable + 0.5f, 126.5f); note < 127.0f; note += notesPerTable)
     {
         auto noteFreq = getMidiNoteInHertz (note);
         if (noteFreq < baseFreq)
@@ -174,7 +175,8 @@ void BandLimitedLookupTable::loadFromBuffer (float playbackSampleRate, juce::Aud
     tableSize = sz;
     notesPerTable = notesPerTable_;
 
-    for (float note = notesPerTable + 0.5f; note < 127.0f; note += notesPerTable)
+    // clamp the first note so a large notesPerTable still produces one table rather than none
+    for (float note = std::min (notesPerTable + 0.5f, 126.5f); note < 127.0f; note += notesPerTable)
     {
         auto noteFreq = getMidiNoteInHertz (note);
         auto ratio = noteFreq / baseFreq * fileSampleRate / playbackSampleRate;
@@ -213,20 +215,16 @@ void BandLimitedLookupTable::loadFromBuffer (float playbackSampleRate, juce::Aud
 
 //==============================================================================
 BandLimitedLookupTables::BandLimitedLookupTables (double sampleRate_, int notesPerTable_, int tableSize_)
-  : sampleRate (sampleRate_),
-    notesPerTable (notesPerTable_),
-    tableSize (tableSize_),
-    sineTable (sine, float (sampleRate), 64, tableSize),
-    sawUpTable (sawUp, float (sampleRate), notesPerTable, tableSize),
-    sawDownTable (sawDown, float (sampleRate), notesPerTable, tableSize),
-    triangleTable (triangle, float (sampleRate), notesPerTable, tableSize)
 {
-
+    reset (sampleRate_, notesPerTable_, tableSize_);
 }
 
 void BandLimitedLookupTables::reset (double sampleRate_, int notesPerTable_, int tableSize_)
 {
-    if (sampleRate == sampleRate_ && notesPerTable == notesPerTable_ && tableSize == tableSize_)
+    if (notesPerTable_ <= 0) notesPerTable_ = notesPerTable;
+    if (tableSize_ <= 0)     tableSize_     = tableSize;
+
+    if (juce::approximatelyEqual (sampleRate, sampleRate_) && notesPerTable == notesPerTable_ && tableSize == tableSize_)
         return;
 
     sampleRate = sampleRate_;
@@ -241,12 +239,5 @@ void BandLimitedLookupTables::reset (double sampleRate_, int notesPerTable_, int
 
 void BandLimitedLookupTables::setSampleRate (double sampleRate_)
 {
-    if (! juce::approximatelyEqual (sampleRate, sampleRate_))
-    {
-        sampleRate = sampleRate_;
-        sineTable.reset (sine, float (sampleRate), 64, tableSize);
-        sawUpTable.reset (sawUp, float (sampleRate), notesPerTable, tableSize);
-        sawDownTable.reset (sawDown, float (sampleRate), notesPerTable, tableSize);
-        triangleTable.reset (triangle, float (sampleRate), notesPerTable, tableSize);
-    }
+    reset (sampleRate_);
 }

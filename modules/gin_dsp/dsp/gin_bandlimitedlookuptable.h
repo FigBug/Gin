@@ -113,7 +113,8 @@ public:
         tableSize = tableSize_;
         notesPerTable = notesPerTable_;
 
-        for (float note = notesPerTable + 0.5f; note < 127.0f; note += notesPerTable)
+        // clamp the first note so a large notesPerTable still produces one table rather than none
+        for (float note = std::min (notesPerTable + 0.5f, 126.5f); note < 127.0f; note += notesPerTable)
         {
             auto freq = getMidiNoteInHertz (note);
 
@@ -298,7 +299,13 @@ public:
 
     void setSampleRate (double sampleRate);
 
-    void reset (double sampleRate = 44100, int notesPerTable = 3, int tableSize = 2048);
+    /** Rebuild the tables. Does nothing if the parameters are unchanged, so it is safe to call
+        from prepareToPlay. Pass -1 for notesPerTable or tableSize to keep the current value.
+
+        Building the tables is expensive; to defer the cost until the real sample rate is known,
+        construct with a tiny table (e.g. notesPerTable 127, tableSize 1) then call reset later.
+    */
+    void reset (double sampleRate, int notesPerTable = -1, int tableSize = -1);
 
     inline float processSine (float phase)
     {
