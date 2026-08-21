@@ -27,6 +27,7 @@ public:
         testMipMapSelection();
         testSquareNotAliased();
         testFFTLoadKeepsAmplitude();
+        testFFTLoadReproducesSource();
         testCheapInitAndReset();
     }
 
@@ -191,6 +192,48 @@ private:
         // sample rate only reset keeps notesPerTable / tableSize
         tables.reset (44100.0);
         expectWithinAbsoluteError (tables.processSine (0.25f), 1.0f, 1.0e-4f, "reset keeps table settings");
+    }
+
+    void testFFTLoadReproducesSource()
+    {
+        beginTest ("FFT Load Reproduces Source");
+
+        // when no harmonics need removing, the band-limited table must match the source
+        // exactly - level, harmonics and DC offset
+        constexpr int sz = 2048;
+        juce::AudioSampleBuffer buffer (1, sz);
+        for (int i = 0; i < sz; i++)
+        {
+            auto ph = float (i) / float (sz);
+            auto v = 0.25f;
+            for (int h = 1; h <= 8; h++)
+                v += std::sin (2.0f * juce::MathConstants<float>::pi * float (h) * ph) / float (h);
+            buffer.setSample (0, i, v);
+        }
+
+        std::unique_ptr<juce::dsp::FFT> fft;
+        BandLimitedLookupTable table;
+        table.loadFromBuffer (fft, 44100.0f, buffer, 44100.0f, 12);
+
+        auto stats = [] (auto&& get)
+        {
+            double mean = 0, sum = 0;
+            for (int i = 0; i < sz; i++)
+                mean += get (i);
+            mean /= sz;
+            for (int i = 0; i < sz; i++)
+            {
+                auto v = get (i) - mean;
+                sum += v * v;
+            }
+            return std::pair (float (std::sqrt (sum / sz)), float (mean));
+        };
+
+        auto [srcRms, srcDc] = stats ([&] (int i) { return buffer.getSample (0, i); });
+        auto [tabRms, tabDc] = stats ([&] (int i) { return table.processLinear (60.0f, float (i) / float (sz)); });
+
+        expectWithinAbsoluteError (tabRms, srcRms, 1.0e-3f, "AC level preserved");
+        expectWithinAbsoluteError (tabDc, srcDc, 1.0e-3f, "DC offset preserved");
     }
 };
 
