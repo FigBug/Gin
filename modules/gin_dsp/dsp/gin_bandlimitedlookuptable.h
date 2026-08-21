@@ -130,6 +130,8 @@ public:
     
     inline int tableIndexForNote (float note)
     {
+        jassert (! tables.empty()); // must call reset() or loadFromBuffer() first
+
         return juce::jlimit (0, int (tables.size() - 1), int ((note - 0.5) / notesPerTable));
     }
     
@@ -140,21 +142,23 @@ public:
 
     inline float process (float note, float phase)
     {
+        // a wrapped phase can land exactly on 1.0f due to float rounding, which is valid thanks to the wrap sample
         auto& table = tableForNote (note);
-        auto pos = int (phase * tableSize);
+        auto pos = std::min (int (phase * tableSize), tableSize);
 
-        jassert (pos >= 0 && pos < tableSize);
+        jassert (pos >= 0);
 
         return table[size_t (pos)];
     }
-    
+
     inline float processLinear (float note, float phase)
     {
+        // a wrapped phase can land exactly on 1.0f due to float rounding; clamp so pos + 1 stays on the wrap sample
         auto& table = tableForNote (note);
-        auto pos = int (phase * tableSize);
+        auto pos = std::min (int (phase * tableSize), tableSize - 1);
         auto frac = (phase * tableSize) - pos;
-        
-        jassert (pos >= 0 && pos + 1 < int (table.size()));
+
+        jassert (pos >= 0);
         return (table[size_t (pos)] * (1.0f - frac)) + (table[size_t (pos + 1)] * (frac));
     }
     
@@ -198,10 +202,10 @@ public:
         float f[4];
         frac.store (f);
 
-        jassert (pos[0] >= 0 && pos[0] + 1 < table.size());
-        jassert (pos[1] >= 0 && pos[1] + 1 < table.size());
-        jassert (pos[2] >= 0 && pos[2] + 1 < table.size());
-        jassert (pos[3] >= 0 && pos[3] + 1 < table.size());
+        jassert (p[0] >= 0 && p[0] + 1 < table.size());
+        jassert (p[1] >= 0 && p[1] + 1 < table.size());
+        jassert (p[2] >= 0 && p[2] + 1 < table.size());
+        jassert (p[3] >= 0 && p[3] + 1 < table.size());
 
         mipp::Reg<float> res =
         {
@@ -216,18 +220,22 @@ public:
 
     inline float get (int tableIndex, float phase)
     {
-        auto pos = int (phase * tableSize);
+        // a wrapped phase can land exactly on 1.0f due to float rounding, which is valid thanks to the wrap sample
+        auto pos = std::min (int (phase * tableSize), tableSize);
 
-        jassert (pos >= 0 && pos < tableSize);
+        jassert (pos >= 0);
 
         return tables[size_t (tableIndex)][size_t (pos)];
     }
-    
+
     inline float getLinear (int tableIndex, float phase)
     {
-        auto pos = int (phase * tableSize);
+        // a wrapped phase can land exactly on 1.0f due to float rounding; clamp so pos + 1 stays on the wrap sample
+        auto pos = std::min (int (phase * tableSize), tableSize - 1);
         auto frac = (phase * tableSize) - pos;
-        
+
+        jassert (pos >= 0);
+
         return (tables[size_t (tableIndex)][size_t (pos)] * (1.0f - frac)) +
                (tables[size_t (tableIndex)][size_t (pos + 1)] * (frac));
     }

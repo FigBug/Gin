@@ -139,7 +139,10 @@ void BandLimitedLookupTable::loadFromBuffer (std::unique_ptr<juce::dsp::FFT>& ff
         {
             auto index2Freq = [&] (int i)
             {
-                return float (i * (fileSampleRate / sz));
+                // bins above sz / 2 are negative frequencies; fold them so conjugate pairs are
+                // zeroed together, keeping the spectrum symmetric and the inverse FFT real
+                auto bin = std::min (i, sz - i);
+                return float (bin * (fileSampleRate / sz));
             };
 
             auto ratio = noteFreq / baseFreq;
