@@ -15,6 +15,7 @@ A comprehensive collection of extra modules for [JUCE](https://juce.com/), provi
 - [Features](#features)
 - [Examples](#examples)
 - [Help & Documentation](#help--documentation)
+- [Breaking Changes](#breaking-changes)
 - [Credits](#credits)
 
 ## Prerequisites
@@ -193,6 +194,11 @@ float interpolated = spline.get(0.5f);
 - **[Discord Community](https://discord.gg/zvpyqsBjc3)** - Get help and discuss Gin
 - **[Developer Blog](https://rabiensoftware.com/index.php/category/gin/)** - Tutorials and articles
 - **[Doxygen API Documentation](https://figbug.github.io/Gin/annotated.html)** - Complete API reference
+
+## Breaking Changes
+
+Bug fixes occasionally change audible behavior or APIs. See [BREAKING_CHANGES.md](BREAKING_CHANGES.md)
+before updating Gin in an existing plugin.
 
 ## Credits
 
