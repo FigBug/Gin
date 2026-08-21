@@ -107,9 +107,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a272a4efa8416e0c57905329552781855" id="r_a272a4efa8416e0c57905329552781855"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a272a4efa8416e0c57905329552781855">write</a> (<a class="el" href="classPoint.html">const</a> juce::AudioSampleBuffer &amp;src, <a class="el" href="classPoint.html">int</a> numSamples=-1)</td></tr>
 <tr class="memdesc:a272a4efa8416e0c57905329552781855"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes audio data from an AudioSampleBuffer to the FIFO.  <br /></td></tr>
 <tr class="separator:a272a4efa8416e0c57905329552781855"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dbba1b96c2670e3e046f2ad83e3ed40" id="r_a7dbba1b96c2670e3e046f2ad83e3ed40"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a7dbba1b96c2670e3e046f2ad83e3ed40">write</a> (<a class="el" href="classPoint.html">const</a> <a class="el" href="classPoint.html">float</a> *<a class="el" href="classPoint.html">const</a> *data, <a class="el" href="classPoint.html">int</a> numSamples)</td></tr>
-<tr class="memdesc:a7dbba1b96c2670e3e046f2ad83e3ed40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes audio data from a multi-channel array to the FIFO.  <br /></td></tr>
-<tr class="separator:a7dbba1b96c2670e3e046f2ad83e3ed40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a055c33e83006de01d622a0b340be6e7e" id="r_a055c33e83006de01d622a0b340be6e7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a055c33e83006de01d622a0b340be6e7e">write</a> (<a class="el" href="classPoint.html">const</a> <a class="el" href="classPoint.html">float</a> *<a class="el" href="classPoint.html">const</a> *data, <a class="el" href="classPoint.html">int</a> numSamples, <a class="el" href="classPoint.html">int</a> numChannels=-1)</td></tr>
+<tr class="memdesc:a055c33e83006de01d622a0b340be6e7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes audio data from a multi-channel array to the FIFO.  <br /></td></tr>
+<tr class="separator:a055c33e83006de01d622a0b340be6e7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1280066a5d0c95c67f62be10c25725cd" id="r_a1280066a5d0c95c67f62be10c25725cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioFifo.html#a1280066a5d0c95c67f62be10c25725cd">writeSilence</a> (<a class="el" href="classPoint.html">int</a> numSamples)</td></tr>
 <tr class="memdesc:a1280066a5d0c95c67f62be10c25725cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes silence (zeros) to the FIFO.  <br /></td></tr>
 <tr class="separator:a1280066a5d0c95c67f62be10c25725cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -315,7 +315,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns the number of samples that can be written before the FIFO is full. </p>
 
-<p class="reference">Referenced by <a class="el" href="classAudioFifo.html#a5bad74d132c264adbda154425546944f">ensureFreeSpace()</a>, <a class="el" href="classStandaloneAudioProcessorPlayer.html#aea57e9306ee879a358783acc09f3ce71">StandaloneAudioProcessorPlayer::postProcessBlock()</a>, <a class="el" href="classAudioFifo.html#a7dbba1b96c2670e3e046f2ad83e3ed40">write()</a>, <a class="el" href="classAudioFifo.html#a8a2f35a383ee1e3074491dfc6f510e59">writeMono()</a>, and <a class="el" href="classAudioFifo.html#a1280066a5d0c95c67f62be10c25725cd">writeSilence()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classAudioFifo.html#a5bad74d132c264adbda154425546944f">ensureFreeSpace()</a>, <a class="el" href="classStandaloneAudioProcessorPlayer.html#aea57e9306ee879a358783acc09f3ce71">StandaloneAudioProcessorPlayer::postProcessBlock()</a>, <a class="el" href="classAudioFifo.html#a055c33e83006de01d622a0b340be6e7e">write()</a>, <a class="el" href="classAudioFifo.html#a8a2f35a383ee1e3074491dfc6f510e59">writeMono()</a>, and <a class="el" href="classAudioFifo.html#a1280066a5d0c95c67f62be10c25725cd">writeSilence()</a>.</p>
 
 </div>
 </div>
@@ -450,8 +450,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7dbba1b96c2670e3e046f2ad83e3ed40" name="a7dbba1b96c2670e3e046f2ad83e3ed40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7dbba1b96c2670e3e046f2ad83e3ed40">&#9670;&#160;</a></span>write() <span class="overload">[2/2]</span></h2>
+<a id="a055c33e83006de01d622a0b340be6e7e" name="a055c33e83006de01d622a0b340be6e7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a055c33e83006de01d622a0b340be6e7e">&#9670;&#160;</a></span>write() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -466,7 +466,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classPoint.html">int</a>&#160;</td>
-          <td class="paramname"><em>numSamples</em>&#160;</td>
+          <td class="paramname"><em>numSamples</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPoint.html">int</a>&#160;</td>
+          <td class="paramname"><em>numChannels</em> = <code>-1</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -481,6 +487,7 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">data</td><td>Array of channel pointers containing the audio data </td></tr>
     <tr><td class="paramname">numSamples</td><td>Number of samples to write </td></tr>
+    <tr><td class="paramname">numChannels</td><td>Number of valid channel pointers in data, or -1 if it matches the FIFO's channel count. If fewer than the FIFO's channel count, the extra FIFO channels are filled with silence. </td></tr>
   </table>
   </dd>
 </dl>
@@ -908,7 +915,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 21 2026 17:38:10 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Aug 21 2026 18:00:53 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

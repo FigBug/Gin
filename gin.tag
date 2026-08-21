@@ -3831,8 +3831,8 @@
       <type>bool</type>
       <name>write</name>
       <anchorfile>classAudioFifo.html</anchorfile>
-      <anchor>a7dbba1b96c2670e3e046f2ad83e3ed40</anchor>
-      <arglist>(const float *const *data, int numSamples)</arglist>
+      <anchor>a055c33e83006de01d622a0b340be6e7e</anchor>
+      <arglist>(const float *const *data, int numSamples, int numChannels=-1)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -6337,6 +6337,13 @@
       <anchorfile>classDelayLine.html</anchorfile>
       <anchor>ae151b754e94c4ff1a0d1affabce89eeb</anchor>
       <arglist>(int channels, double maximumDelay, double sr)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumChannels</name>
+      <anchorfile>classDelayLine.html</anchorfile>
+      <anchor>a23f4afff610c093427dd738c3e27861e</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
