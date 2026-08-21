@@ -122,8 +122,7 @@ public:
 
             for (auto i = 0; i < tableSize; i++)
             {
-                auto v = juce::jmap (float (i), 0.0f, tableSize - 1.0f, 0.0f, 1.0f);
-                t[size_t (i)] = function (v, freq, sampleRate);
+                t[size_t (i)] = function (i / (float) tableSize, freq, sampleRate);
             }
             t.push_back (t[0]); // let the table wrap so we can interpolate without doing a mod
         }
