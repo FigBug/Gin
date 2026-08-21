@@ -4967,8 +4967,8 @@
       <type>void</type>
       <name>reset</name>
       <anchorfile>classBandLimitedLookupTables.html</anchorfile>
-      <anchor>af700b997de6544227bf524b468deeded</anchor>
-      <arglist>(double sampleRate=44100, int notesPerTable=3, int tableSize=2048)</arglist>
+      <anchor>a2ca3b175f2ee791d4b4f0ee4a926102b</anchor>
+      <arglist>(double sampleRate, int notesPerTable=-1, int tableSize=-1)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
