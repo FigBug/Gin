@@ -81,12 +81,14 @@ $(function() {
   <tr class="odd"><td class="entry"><a class="el" href="classMidiLearn.html#a6be2616d8cdc2ef5d58a08c0b435745c">getLearningParameter</a>() const</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classMidiLearn.html#a2a3c226ead68264204137d33ab0a41d7">getMappedCC</a>(gin::Parameter *param) const</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classMidiLearn.html#ae2fef8ccddcf962463eee1a657ece4ea">getMapping</a>(int ccNumber) const</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classMidiLearn.html#a6cea916e4a2cfa2b2c71b50923515fa7">isLearning</a>() const</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classMidiLearn.html#a2b3401ccee226118e384c38428cd3ed6">isValidCC</a>(int ccNumber)</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classMidiLearn.html#ab0a1a22f8ae3e6c4de964ab24fac687c">loadState</a>(const juce::ValueTree &amp;vt)</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classMidiLearn.html#a25883e10f2c69262c0d682ac2172dff4">MidiLearn</a>(gin::Processor &amp;p)</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classMidiLearn.html#a7de3a766a34c843603ad3a19cb091a4a">processBlock</a>(juce::MidiBuffer &amp;midi, int numSamples)</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classMidiLearn.html#a5f7f3287f632054c5dfe53475a396860">saveState</a>(juce::ValueTree &amp;vt)</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMidiLearn.html#ab0e679f0b6519ee61b68e2e0a0667cce">isIgnoredCC</a>(int ccNumber) const</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classMidiLearn.html#a6cea916e4a2cfa2b2c71b50923515fa7">isLearning</a>() const</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMidiLearn.html#a2b3401ccee226118e384c38428cd3ed6">isValidCC</a>(int ccNumber)</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classMidiLearn.html#ab0a1a22f8ae3e6c4de964ab24fac687c">loadState</a>(const juce::ValueTree &amp;vt)</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMidiLearn.html#a25883e10f2c69262c0d682ac2172dff4">MidiLearn</a>(gin::Processor &amp;p)</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classMidiLearn.html#a7de3a766a34c843603ad3a19cb091a4a">processBlock</a>(juce::MidiBuffer &amp;midi, int numSamples)</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMidiLearn.html#a5f7f3287f632054c5dfe53475a396860">saveState</a>(juce::ValueTree &amp;vt)</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classMidiLearn.html#a4ee3c41e62da3ea4aef65a99a03cbe81">setIgnoredCCs</a>(const juce::Array&lt; int &gt; &amp;ccNumbers)</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classMidiLearn.html#ad69b940a5b969b009d7b35ba2213bb22">setMapping</a>(int ccNumber, gin::Parameter *param)</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classMidiLearn.html#a6f9ea32f8ff71bfeadb923736f3799e5">setSampleRate</a>(double sr)</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classMidiLearn.html#af55190873048941146ad2582bb1bc50c">startLearning</a>(gin::Parameter *param)</td><td class="entry"><a class="el" href="classMidiLearn.html">MidiLearn</a></td><td class="entry"></td></tr>
@@ -94,7 +96,7 @@ $(function() {
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 23 2026 16:21:24 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sun Aug 23 2026 21:53:37 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

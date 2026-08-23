@@ -2705,6 +2705,11 @@
     <class kind="class">MidiLearn</class>
   </compound>
   <compound kind="file">
+    <name>gin_midilearn.test.h</name>
+    <path>build/gin_plugin/plugin/</path>
+    <filename>gin__midilearn_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_modmatrix.h</name>
     <path>build/gin_plugin/plugin/</path>
     <filename>gin__modmatrix_8h.html</filename>
@@ -12847,6 +12852,20 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setIgnoredCCs</name>
+      <anchorfile>classMidiLearn.html</anchorfile>
+      <anchor>a4ee3c41e62da3ea4aef65a99a03cbe81</anchor>
+      <arglist>(const juce::Array&lt; int &gt; &amp;ccNumbers)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isIgnoredCC</name>
+      <anchorfile>classMidiLearn.html</anchorfile>
+      <anchor>ab0e679f0b6519ee61b68e2e0a0667cce</anchor>
+      <arglist>(int ccNumber) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>setMapping</name>
       <anchorfile>classMidiLearn.html</anchorfile>
       <anchor>ad69b940a5b969b009d7b35ba2213bb22</anchor>
@@ -17761,6 +17780,13 @@
     </member>
     <member kind="function">
       <type>ProcessorOptions</type>
+      <name>withMidiLearn</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>ac267f666edfd138277ef72f1ea7ef0c8</anchor>
+      <arglist>(juce::Array&lt; int &gt; ccsToIgnore) &amp;&amp;</arglist>
+    </member>
+    <member kind="function">
+      <type>ProcessorOptions</type>
       <name>withPresetMetadata</name>
       <anchorfile>classProcessorOptions.html</anchorfile>
       <anchor>a5be791ee1666620fd50e42bdd38df252</anchor>
@@ -17862,6 +17888,13 @@
       <name>usePresetMetadata</name>
       <anchorfile>classProcessorOptions.html</anchorfile>
       <anchor>ae3998274b8d855632a7d2f2d4b13b96b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Array&lt; int &gt;</type>
+      <name>midiLearnIgnoredCCs</name>
+      <anchorfile>classProcessorOptions.html</anchorfile>
+      <anchor>ad7fad2a13a5401a16f485a23a6fe260c</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">

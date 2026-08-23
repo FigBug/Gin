@@ -90,6 +90,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a079e3ca406effab455f563b762a653bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f9ea32f8ff71bfeadb923736f3799e5" id="r_a6f9ea32f8ff71bfeadb923736f3799e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiLearn.html#a6f9ea32f8ff71bfeadb923736f3799e5">setSampleRate</a> (<a class="el" href="classPoint.html">double</a> <a class="el" href="classPoint.html">sr</a>)</td></tr>
 <tr class="separator:a6f9ea32f8ff71bfeadb923736f3799e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ee3c41e62da3ea4aef65a99a03cbe81" id="r_a4ee3c41e62da3ea4aef65a99a03cbe81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiLearn.html#a4ee3c41e62da3ea4aef65a99a03cbe81">setIgnoredCCs</a> (<a class="el" href="classPoint.html">const</a> juce::Array&lt; <a class="el" href="classPoint.html">int</a> &gt; &amp;<a class="el" href="classPoint.html">ccNumbers</a>)</td></tr>
+<tr class="memdesc:a4ee3c41e62da3ea4aef65a99a03cbe81"><td class="mdescLeft">&#160;</td><td class="mdescRight">CCs the plugin handles itself (sustain pedal, mod wheel, etc).  <br /></td></tr>
+<tr class="separator:a4ee3c41e62da3ea4aef65a99a03cbe81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0e679f0b6519ee61b68e2e0a0667cce" id="r_ab0e679f0b6519ee61b68e2e0a0667cce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiLearn.html#ab0e679f0b6519ee61b68e2e0a0667cce">isIgnoredCC</a> (<a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">ccNumber</a>) <a class="el" href="classPoint.html">const</a></td></tr>
+<tr class="separator:ab0e679f0b6519ee61b68e2e0a0667cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad69b940a5b969b009d7b35ba2213bb22" id="r_ad69b940a5b969b009d7b35ba2213bb22"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiLearn.html#ad69b940a5b969b009d7b35ba2213bb22">setMapping</a> (<a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">ccNumber</a>, gin::Parameter *<a class="el" href="classPoint.html">param</a>)</td></tr>
 <tr class="separator:ad69b940a5b969b009d7b35ba2213bb22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad851e08d4f14711650ab3f12aaedf8cd" id="r_ad851e08d4f14711650ab3f12aaedf8cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiLearn.html#ad851e08d4f14711650ab3f12aaedf8cd">clearMapping</a> (<a class="el" href="classPoint.html">int</a> <a class="el" href="classPoint.html">ccNumber</a>)</td></tr>
@@ -129,6 +134,7 @@ Static Public Member Functions</h2></td></tr>
 <li>Automatic host notification for parameter changes</li>
 <li>Gesture timeout (333ms) for grouping rapid CC changes</li>
 <li>Auto-detects relative (two's-complement) delta encoders during learn, applying increments instead of absolute values. Existing maps without the flag load as absolute.</li>
+<li>CCs the plugin handles itself (e.g. sustain pedal) can be excluded via setIgnoredCCs / <a class="el" href="classProcessorOptions.html#a898de378f73c72866d7578cf18016a34">ProcessorOptions::withMidiLearn</a></li>
 <li>State persistence via ValueTree</li>
 </ul>
 <p>Usage: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classMidiLearn.html">MidiLearn</a> midiLearn(processor);</div>
@@ -143,7 +149,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="line"><span class="comment">// Save/load state</span></div>
 <div class="line">midiLearn.saveState(state);</div>
 <div class="line">midiLearn.loadState(state);</div>
-<div class="ttc" id="aclassMidiLearn_html"><div class="ttname"><a href="classMidiLearn.html">MidiLearn</a></div><div class="ttdoc">MIDI Learn system for mapping MIDI CC messages to plugin parameters.</div><div class="ttdef"><b>Definition</b> gin_midilearn.h:44</div></div>
+<div class="ttc" id="aclassMidiLearn_html"><div class="ttname"><a href="classMidiLearn.html">MidiLearn</a></div><div class="ttdoc">MIDI Learn system for mapping MIDI CC messages to plugin parameters.</div><div class="ttdef"><b>Definition</b> gin_midilearn.h:46</div></div>
 <div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 </div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classParameter.html" title="Advanced parameter class with modulation, real-time callbacks, and host automation.">Parameter</a>, <a class="el" href="classProcessor.html" title="Advanced audio processor base class with parameter management and preset system.">Processor</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -195,6 +201,45 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramtype"><a class="el" href="classPoint.html">double</a>&#160;</td>
           <td class="paramname"><em>sr</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ee3c41e62da3ea4aef65a99a03cbe81" name="a4ee3c41e62da3ea4aef65a99a03cbe81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ee3c41e62da3ea4aef65a99a03cbe81">&#9670;&#160;</a></span>setIgnoredCCs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">void</a> MidiLearn::setIgnoredCCs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">const</a> juce::Array&lt; <a class="el" href="classPoint.html">int</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ccNumbers</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>CCs the plugin handles itself (sustain pedal, mod wheel, etc). </p>
+<p>Ignored CCs are never learned, never applied, and mappings saved for them are dropped on load. </p>
+
+</div>
+</div>
+<a id="ab0e679f0b6519ee61b68e2e0a0667cce" name="ab0e679f0b6519ee61b68e2e0a0667cce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0e679f0b6519ee61b68e2e0a0667cce">&#9670;&#160;</a></span>isIgnoredCC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">bool</a> MidiLearn::isIgnoredCC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPoint.html">int</a>&#160;</td>
+          <td class="paramname"><em>ccNumber</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -469,7 +514,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 23 2026 16:21:24 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sun Aug 23 2026 21:53:37 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
