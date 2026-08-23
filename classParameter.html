@@ -102,13 +102,16 @@ Classes</h2></td></tr>
 Public Types</h2></td></tr>
 <tr class="memitem:a8fcb9478cf19509ef836db884323e5a5" id="r_a8fcb9478cf19509ef836db884323e5a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#a8fcb9478cf19509ef836db884323e5a5">Ptr</a> = <a class="el" href="classParameter.html">Parameter</a> *</td></tr>
 <tr class="separator:a8fcb9478cf19509ef836db884323e5a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a917c9410ac24520d49d322a5ec8ba19b" id="r_a917c9410ac24520d49d322a5ec8ba19b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#a917c9410ac24520d49d322a5ec8ba19b">ConversionFunction</a> = std::function&lt; std::variant&lt; <a class="el" href="classPoint.html">float</a>, juce::String &gt;(<a class="el" href="classPoint.html">const</a> <a class="el" href="classParameter.html">Parameter</a> &amp;, <a class="el" href="classPoint.html">const</a> std::variant&lt; <a class="el" href="classPoint.html">float</a>, juce::String &gt; &amp;)&gt;</td></tr>
+<tr class="memdesc:a917c9410ac24520d49d322a5ec8ba19b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bidirectional user value &lt;-&gt; text conversion.  <br /></td></tr>
+<tr class="separator:a917c9410ac24520d49d322a5ec8ba19b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae2a7ee825de84811081f393b36a5155f" id="r_ae2a7ee825de84811081f393b36a5155f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#ae2a7ee825de84811081f393b36a5155f">Parameter</a> (<a class="el" href="classProcessor.html">Processor</a> &amp;, juce::String <a class="el" href="classParameter.html#a1571028fd5d3168846eda018188cc0d6">uid</a>, juce::String <a class="el" href="classParameter.html#af3f67d57880c012b966413174dff2e75">name</a>, juce::String <a class="el" href="classParameter.html#a529d110ee3b33716b9ab8e6cd7ff2676">shortName</a>, juce::String <a class="el" href="classParameter.html#a922af3f31de45cf8fc8e91f4d65b3c4d">label</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">minValue</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">maxValue</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">intervalValue</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classParameter.html#ac93066e3c3535f0075d344e501923f7c">defaultValue</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">skewFactor</a>=1.0f, std::function&lt; juce::String(<a class="el" href="classPoint.html">const</a> <a class="el" href="classParameter.html">Parameter</a> &amp;, <a class="el" href="classPoint.html">float</a>)&gt; <a class="el" href="classParameter.html#a0da310b57818200fb6432e4a4edde235">textFunction</a>=<a class="el" href="classPoint.html">nullptr</a>)</td></tr>
-<tr class="separator:ae2a7ee825de84811081f393b36a5155f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a449298cb4d50aa06746579e6035d1c" id="r_a4a449298cb4d50aa06746579e6035d1c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#a4a449298cb4d50aa06746579e6035d1c">Parameter</a> (<a class="el" href="classProcessor.html">Processor</a> &amp;, juce::String <a class="el" href="classParameter.html#a1571028fd5d3168846eda018188cc0d6">uid</a>, juce::String <a class="el" href="classParameter.html#af3f67d57880c012b966413174dff2e75">name</a>, juce::String <a class="el" href="classParameter.html#a529d110ee3b33716b9ab8e6cd7ff2676">shortName</a>, juce::String <a class="el" href="classParameter.html#a922af3f31de45cf8fc8e91f4d65b3c4d">label</a>, juce::NormalisableRange&lt; <a class="el" href="classPoint.html">float</a> &gt; <a class="el" href="classParameter.html#a6afd3eca5d3726a6ecb7ab2343392e95">range</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classParameter.html#ac93066e3c3535f0075d344e501923f7c">defaultValue</a>, std::function&lt; juce::String(<a class="el" href="classPoint.html">const</a> <a class="el" href="classParameter.html">Parameter</a> &amp;, <a class="el" href="classPoint.html">float</a>)&gt; <a class="el" href="classParameter.html#a0da310b57818200fb6432e4a4edde235">textFunction</a>=<a class="el" href="classPoint.html">nullptr</a>)</td></tr>
-<tr class="separator:a4a449298cb4d50aa06746579e6035d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a301fa10430376ef3e6514426384abe8c" id="r_a301fa10430376ef3e6514426384abe8c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#a301fa10430376ef3e6514426384abe8c">Parameter</a> (<a class="el" href="classProcessor.html">Processor</a> &amp;, juce::String <a class="el" href="classParameter.html#a1571028fd5d3168846eda018188cc0d6">uid</a>, juce::String <a class="el" href="classParameter.html#af3f67d57880c012b966413174dff2e75">name</a>, juce::String <a class="el" href="classParameter.html#a529d110ee3b33716b9ab8e6cd7ff2676">shortName</a>, juce::String <a class="el" href="classParameter.html#a922af3f31de45cf8fc8e91f4d65b3c4d">label</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">minValue</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">maxValue</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">intervalValue</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classParameter.html#ac93066e3c3535f0075d344e501923f7c">defaultValue</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classPoint.html">skewFactor</a>=1.0f, <a class="el" href="classParameter.html#a917c9410ac24520d49d322a5ec8ba19b">ConversionFunction</a> <a class="el" href="classParameter.html#aec8da4e81f800c8e35e40a6700474c10">conversionFunction</a>=<a class="el" href="classPoint.html">nullptr</a>)</td></tr>
+<tr class="separator:a301fa10430376ef3e6514426384abe8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ee237a2f792b8c0a30b7b1dfebd4c1a" id="r_a1ee237a2f792b8c0a30b7b1dfebd4c1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#a1ee237a2f792b8c0a30b7b1dfebd4c1a">Parameter</a> (<a class="el" href="classProcessor.html">Processor</a> &amp;, juce::String <a class="el" href="classParameter.html#a1571028fd5d3168846eda018188cc0d6">uid</a>, juce::String <a class="el" href="classParameter.html#af3f67d57880c012b966413174dff2e75">name</a>, juce::String <a class="el" href="classParameter.html#a529d110ee3b33716b9ab8e6cd7ff2676">shortName</a>, juce::String <a class="el" href="classParameter.html#a922af3f31de45cf8fc8e91f4d65b3c4d">label</a>, juce::NormalisableRange&lt; <a class="el" href="classPoint.html">float</a> &gt; <a class="el" href="classParameter.html#a6afd3eca5d3726a6ecb7ab2343392e95">range</a>, <a class="el" href="classPoint.html">float</a> <a class="el" href="classParameter.html#ac93066e3c3535f0075d344e501923f7c">defaultValue</a>, <a class="el" href="classParameter.html#a917c9410ac24520d49d322a5ec8ba19b">ConversionFunction</a> <a class="el" href="classParameter.html#aec8da4e81f800c8e35e40a6700474c10">conversionFunction</a>=<a class="el" href="classPoint.html">nullptr</a>)</td></tr>
+<tr class="separator:a1ee237a2f792b8c0a30b7b1dfebd4c1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cc5a8decbb78d9ebcbb25e5a03433f9" id="r_a1cc5a8decbb78d9ebcbb25e5a03433f9"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#a1cc5a8decbb78d9ebcbb25e5a03433f9">getUid</a> () <a class="el" href="classPoint.html">const</a></td></tr>
 <tr class="separator:a1cc5a8decbb78d9ebcbb25e5a03433f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad521876299da1e44dfb839ebb13040c3" id="r_ad521876299da1e44dfb839ebb13040c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#ad521876299da1e44dfb839ebb13040c3">setInternal</a> (<a class="el" href="classPoint.html">bool</a> <a class="el" href="classPoint.html">i</a>)</td></tr>
@@ -272,8 +275,8 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a529d110ee3b33716b9ab8e6cd7ff2676"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a922af3f31de45cf8fc8e91f4d65b3c4d" id="r_a922af3f31de45cf8fc8e91f4d65b3c4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">const</a> juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#a922af3f31de45cf8fc8e91f4d65b3c4d">label</a></td></tr>
 <tr class="separator:a922af3f31de45cf8fc8e91f4d65b3c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0da310b57818200fb6432e4a4edde235" id="r_a0da310b57818200fb6432e4a4edde235"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">const</a> std::function&lt; juce::String(<a class="el" href="classPoint.html">const</a> <a class="el" href="classParameter.html">Parameter</a> &amp;, <a class="el" href="classPoint.html">float</a>)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#a0da310b57818200fb6432e4a4edde235">textFunction</a></td></tr>
-<tr class="separator:a0da310b57818200fb6432e4a4edde235"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a0badc3847c9c7da57b21f38bea71c9" id="r_a7a0badc3847c9c7da57b21f38bea71c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">const</a> <a class="el" href="classParameter.html#a917c9410ac24520d49d322a5ec8ba19b">ConversionFunction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#a7a0badc3847c9c7da57b21f38bea71c9">textConversionFunction</a></td></tr>
+<tr class="separator:a7a0badc3847c9c7da57b21f38bea71c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a2d682ac453e9b019ceb12986b8e5fd" id="r_a9a2d682ac453e9b019ceb12986b8e5fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#a9a2d682ac453e9b019ceb12986b8e5fd">userActionCount</a> = 0</td></tr>
 <tr class="separator:a9a2d682ac453e9b019ceb12986b8e5fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ab022db2c42737bf0d3b1552f9b97a4" id="r_a6ab022db2c42737bf0d3b1552f9b97a4"><td class="memItemLeft" align="right" valign="top">juce::ListenerList&lt; <a class="el" href="classParameter_1_1ParameterListener.html">ParameterListener</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParameter.html#a6ab022db2c42737bf0d3b1552f9b97a4">listeners</a></td></tr>
@@ -320,7 +323,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="comment">// In UI</span></div>
 <div class="line"><a class="code hl_class" href="classPoint.html">String</a> <a class="code hl_class" href="classPoint.html">displayText</a> = gain-&gt;getUserValueText(); <span class="comment">// &quot;0.0 dB&quot;</span></div>
 <div class="ttc" id="aclassParameter_html"><div class="ttname"><a href="classParameter.html">Parameter</a></div><div class="ttdoc">Advanced parameter class with modulation, real-time callbacks, and host automation.</div><div class="ttdef"><b>Definition</b> gin_parameter.h:68</div></div>
-<div class="ttc" id="aclassParameter_html_aff54b112e093cf966a1bec5bf5a934dd"><div class="ttname"><a href="classParameter.html#aff54b112e093cf966a1bec5bf5a934dd">Parameter::processor</a></div><div class="ttdeci">Processor &amp; processor</div><div class="ttdef"><b>Definition</b> gin_parameter.h:184</div></div>
+<div class="ttc" id="aclassParameter_html_aff54b112e093cf966a1bec5bf5a934dd"><div class="ttname"><a href="classParameter.html#aff54b112e093cf966a1bec5bf5a934dd">Parameter::processor</a></div><div class="ttdeci">Processor &amp; processor</div><div class="ttdef"><b>Definition</b> gin_parameter.h:189</div></div>
 <div class="ttc" id="aclassPoint_html"><div class="ttname"><a href="classPoint.html">Point</a></div><div class="ttdoc">A lightweight 2D point class for projects that don't use juce_graphics.</div><div class="ttdef"><b>Definition</b> gin_point.h:25</div></div>
 </div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classProcessor.html" title="Advanced audio processor base class with parameter management and preset system.">Processor</a>, <a class="el" href="classModMatrix.html" title="Modulation matrix system for routing multiple modulation sources to parameters.">ModMatrix</a>, <a class="el" href="classSmoothedParameter.html" title="A silky smooth parameter.">SmoothedParameter</a> </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
@@ -338,9 +341,26 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a917c9410ac24520d49d322a5ec8ba19b" name="a917c9410ac24520d49d322a5ec8ba19b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a917c9410ac24520d49d322a5ec8ba19b">&#9670;&#160;</a></span>ConversionFunction</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint.html">using</a> <a class="el" href="classParameter.html#a917c9410ac24520d49d322a5ec8ba19b">Parameter::ConversionFunction</a> =  std::function&lt;std::variant&lt;<a class="el" href="classPoint.html">float</a>, juce::String&gt; (<a class="el" href="classPoint.html">const</a> <a class="el" href="classParameter.html">Parameter</a>&amp;, <a class="el" href="classPoint.html">const</a> std::variant&lt;<a class="el" href="classPoint.html">float</a>, juce::String&gt;&amp;)&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bidirectional user value &lt;-&gt; text conversion. </p>
+<p>Called with a float it returns the display text for that user value; called with a juce::String it returns the user value for that text. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae2a7ee825de84811081f393b36a5155f" name="ae2a7ee825de84811081f393b36a5155f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2a7ee825de84811081f393b36a5155f">&#9670;&#160;</a></span>Parameter() <span class="overload">[1/2]</span></h2>
+<a id="a301fa10430376ef3e6514426384abe8c" name="a301fa10430376ef3e6514426384abe8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a301fa10430376ef3e6514426384abe8c">&#9670;&#160;</a></span>Parameter() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -408,8 +428,8 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; juce::String(<a class="el" href="classPoint.html">const</a> <a class="el" href="classParameter.html">Parameter</a> &amp;, <a class="el" href="classPoint.html">float</a>)&gt;&#160;</td>
-          <td class="paramname"><em>textFunction</em> = <code><a class="el" href="classPoint.html">nullptr</a></code>&#160;</td>
+          <td class="paramtype"><a class="el" href="classParameter.html#a917c9410ac24520d49d322a5ec8ba19b">ConversionFunction</a>&#160;</td>
+          <td class="paramname"><em>conversionFunction</em> = <code><a class="el" href="classPoint.html">nullptr</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -421,8 +441,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a4a449298cb4d50aa06746579e6035d1c" name="a4a449298cb4d50aa06746579e6035d1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a449298cb4d50aa06746579e6035d1c">&#9670;&#160;</a></span>Parameter() <span class="overload">[2/2]</span></h2>
+<a id="a1ee237a2f792b8c0a30b7b1dfebd4c1a" name="a1ee237a2f792b8c0a30b7b1dfebd4c1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ee237a2f792b8c0a30b7b1dfebd4c1a">&#9670;&#160;</a></span>Parameter() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -472,8 +492,8 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; juce::String(<a class="el" href="classPoint.html">const</a> <a class="el" href="classParameter.html">Parameter</a> &amp;, <a class="el" href="classPoint.html">float</a>)&gt;&#160;</td>
-          <td class="paramname"><em>textFunction</em> = <code><a class="el" href="classPoint.html">nullptr</a></code>&#160;</td>
+          <td class="paramtype"><a class="el" href="classParameter.html#a917c9410ac24520d49d322a5ec8ba19b">ConversionFunction</a>&#160;</td>
+          <td class="paramname"><em>conversionFunction</em> = <code><a class="el" href="classPoint.html">nullptr</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1321,7 +1341,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classSmoothedParameter.html#afc3e5428bf61be1df757d73102703a0e">SmoothedParameter&lt; T &gt;::SmoothedParameter()</a>, and <a class="el" href="classSmoothedParameter.html#ab8311605dca336ed94b4f0497a2649fb">SmoothedParameter&lt; T &gt;::SmoothedParameter()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classSmoothedParameter.html#ac4b7c0a2358dca0ca5cab042a33e064e">SmoothedParameter&lt; T &gt;::SmoothedParameter()</a>, and <a class="el" href="classSmoothedParameter.html#a11bb8342e0a594fdae7c635f18ebe141">SmoothedParameter&lt; T &gt;::SmoothedParameter()</a>.</p>
 
 </div>
 </div>
@@ -2009,8 +2029,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a0da310b57818200fb6432e4a4edde235" name="a0da310b57818200fb6432e4a4edde235"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0da310b57818200fb6432e4a4edde235">&#9670;&#160;</a></span>textFunction</h2>
+<a id="a7a0badc3847c9c7da57b21f38bea71c9" name="a7a0badc3847c9c7da57b21f38bea71c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a0badc3847c9c7da57b21f38bea71c9">&#9670;&#160;</a></span>textConversionFunction</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2019,7 +2039,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPoint.html">const</a> std::function&lt;juce::String (<a class="el" href="classPoint.html">const</a> <a class="el" href="classParameter.html">Parameter</a>&amp;, <a class="el" href="classPoint.html">float</a>)&gt; Parameter::textFunction</td>
+          <td class="memname"><a class="el" href="classPoint.html">const</a> <a class="el" href="classParameter.html#a917c9410ac24520d49d322a5ec8ba19b">ConversionFunction</a> Parameter::textConversionFunction</td>
         </tr>
       </table>
   </td>
@@ -2081,7 +2101,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 21 2026 18:00:53 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sun Aug 23 2026 16:21:24 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

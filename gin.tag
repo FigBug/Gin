@@ -15281,19 +15281,26 @@
       <anchor>a8fcb9478cf19509ef836db884323e5a5</anchor>
       <arglist></arglist>
     </member>
-    <member kind="function">
-      <type></type>
-      <name>Parameter</name>
+    <member kind="typedef">
+      <type>std::function&lt; std::variant&lt; float, juce::String &gt;(const Parameter &amp;, const std::variant&lt; float, juce::String &gt; &amp;)&gt;</type>
+      <name>ConversionFunction</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>ae2a7ee825de84811081f393b36a5155f</anchor>
-      <arglist>(Processor &amp;, juce::String uid, juce::String name, juce::String shortName, juce::String label, float minValue, float maxValue, float intervalValue, float defaultValue, float skewFactor=1.0f, std::function&lt; juce::String(const Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
+      <anchor>a917c9410ac24520d49d322a5ec8ba19b</anchor>
+      <arglist></arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>Parameter</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a4a449298cb4d50aa06746579e6035d1c</anchor>
-      <arglist>(Processor &amp;, juce::String uid, juce::String name, juce::String shortName, juce::String label, juce::NormalisableRange&lt; float &gt; range, float defaultValue, std::function&lt; juce::String(const Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
+      <anchor>a301fa10430376ef3e6514426384abe8c</anchor>
+      <arglist>(Processor &amp;, juce::String uid, juce::String name, juce::String shortName, juce::String label, float minValue, float maxValue, float intervalValue, float defaultValue, float skewFactor=1.0f, ConversionFunction conversionFunction=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Parameter</name>
+      <anchorfile>classParameter.html</anchorfile>
+      <anchor>a1ee237a2f792b8c0a30b7b1dfebd4c1a</anchor>
+      <arglist>(Processor &amp;, juce::String uid, juce::String name, juce::String shortName, juce::String label, juce::NormalisableRange&lt; float &gt; range, float defaultValue, ConversionFunction conversionFunction=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>juce::String</type>
@@ -15765,10 +15772,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>const std::function&lt; juce::String(const Parameter &amp;, float)&gt;</type>
-      <name>textFunction</name>
+      <type>const ConversionFunction</type>
+      <name>textConversionFunction</name>
       <anchorfile>classParameter.html</anchorfile>
-      <anchor>a0da310b57818200fb6432e4a4edde235</anchor>
+      <anchor>a7a0badc3847c9c7da57b21f38bea71c9</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -16978,10 +16985,24 @@
     </member>
     <member kind="function">
       <type>gin::Parameter *</type>
+      <name>addExtParam</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a8e1af18bc64d453244cba676582ad531</anchor>
+      <arglist>(juce::String uid, juce::String name, juce::String shortName, juce::String label, juce::NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, gin::Parameter::ConversionFunction conversionFunction)</arglist>
+    </member>
+    <member kind="function">
+      <type>gin::Parameter *</type>
       <name>addIntParam</name>
       <anchorfile>classProcessor.html</anchorfile>
       <anchor>a3d8b32d76cf12edefb418978e43a3837</anchor>
       <arglist>(juce::String uid, juce::String name, juce::String shortName, juce::String label, juce::NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, std::function&lt; juce::String(const gin::Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>gin::Parameter *</type>
+      <name>addIntParam</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a6dffc5413e8c85e2b158d5e8e2c675f7</anchor>
+      <arglist>(juce::String uid, juce::String name, juce::String shortName, juce::String label, juce::NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, gin::Parameter::ConversionFunction conversionFunction)</arglist>
     </member>
     <member kind="function">
       <type>gin::Parameter *</type>
@@ -17276,6 +17297,27 @@
       <anchorfile>classProcessor.html</anchorfile>
       <anchor>aa0677b65e8afa6fceaed5412ed52dad4</anchor>
       <arglist>(juce::String uid, juce::String name, juce::String shortName, juce::String label, juce::NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, std::function&lt; juce::String(const gin::Parameter &amp;, float)&gt; textFunction=nullptr)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>std::unique_ptr&lt; gin::Parameter &gt;</type>
+      <name>createParam</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>abf1a392accaafaf05137386bf5486de2</anchor>
+      <arglist>(juce::String uid, juce::String name, juce::String shortName, juce::String label, juce::NormalisableRange&lt; float &gt; range, float defaultValue, SmoothingType st, gin::Parameter::ConversionFunction conversionFunction)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>gin::Parameter *</type>
+      <name>registerExtParam</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>ac8ee37131347a7aa2f97a75f8b7edda9</anchor>
+      <arglist>(std::unique_ptr&lt; gin::Parameter &gt; p)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>gin::Parameter *</type>
+      <name>registerIntParam</name>
+      <anchorfile>classProcessor.html</anchorfile>
+      <anchor>a28cc26418412e021057e969005a0b81a</anchor>
+      <arglist>(std::unique_ptr&lt; gin::Parameter &gt; p)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -19391,15 +19433,15 @@
       <type></type>
       <name>SmoothedParameter</name>
       <anchorfile>classSmoothedParameter.html</anchorfile>
-      <anchor>afc3e5428bf61be1df757d73102703a0e</anchor>
-      <arglist>(Processor &amp;p, juce::String uid_, juce::String name_, juce::String shortName_, juce::String label_, float minValue_, float maxValue_, float intervalValue_, float defaultValue_, float skewFactor_=1.0f, std::function&lt; juce::String(const gin::Parameter &amp;, float)&gt; textFunction_=nullptr)</arglist>
+      <anchor>ac4b7c0a2358dca0ca5cab042a33e064e</anchor>
+      <arglist>(Processor &amp;p, juce::String uid_, juce::String name_, juce::String shortName_, juce::String label_, float minValue_, float maxValue_, float intervalValue_, float defaultValue_, float skewFactor_=1.0f, gin::Parameter::ConversionFunction conversionFunction_=nullptr)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>SmoothedParameter</name>
       <anchorfile>classSmoothedParameter.html</anchorfile>
-      <anchor>ab8311605dca336ed94b4f0497a2649fb</anchor>
-      <arglist>(Processor &amp;p, juce::String uid_, juce::String name_, juce::String shortName_, juce::String label_, juce::NormalisableRange&lt; float &gt; range_, float defaultValue_, std::function&lt; juce::String(const gin::Parameter &amp;, float)&gt; textFunction_=nullptr)</arglist>
+      <anchor>a11bb8342e0a594fdae7c635f18ebe141</anchor>
+      <arglist>(Processor &amp;p, juce::String uid_, juce::String name_, juce::String shortName_, juce::String label_, juce::NormalisableRange&lt; float &gt; range_, float defaultValue_, gin::Parameter::ConversionFunction conversionFunction_=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>

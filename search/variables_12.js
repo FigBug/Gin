@@ -6,7 +6,7 @@ var searchData=
   ['tagsmodel_3',['tagsModel',['../classPatchBrowser.html#a2b1148951ac60c4b47c4b1f6af16d144',1,'PatchBrowser']]],
   ['tempbuffer_4',['tempBuffer',['../classAudioProcessorPlayer.html#aed8721997bdad5d85e77b940ef6bce6b',1,'AudioProcessorPlayer']]],
   ['text_5',['text',['../structDiff_1_1Patch_1_1Hunk.html#a0442b79f6577c4fcf6b48d15df9a8aa0',1,'Diff::Patch::Hunk']]],
-  ['textfunction_6',['textFunction',['../classParameter.html#a0da310b57818200fb6432e4a4edde235',1,'Parameter']]],
+  ['textconversionfunction_6',['textConversionFunction',['../classParameter.html#a7a0badc3847c9c7da57b21f38bea71c9',1,'Parameter']]],
   ['time_7',['time',['../structLocationManager_1_1Location.html#aa04ec39371eae7524055d122a6ef5a30',1,'LocationManager::Location::time'],['../classSmoothingType.html#afa303f9e26f8612da8c4d27f9c0ba87a',1,'SmoothingType::time'],['../structMSEG_1_1Point.html#accff1a07fa1ff760eddba4f49109487d',1,'MSEG::Point::time']]],
   ['timeoutms_8',['timeoutMS',['../classAsyncDownload.html#a3ec126400198a9fd05346471d00b93d6',1,'AsyncDownload']]],
   ['titlebar_9',['titleBar',['../classProcessorEditor.html#ac12a4cb6f3c3b36b137360fc690f71b6',1,'ProcessorEditor']]],

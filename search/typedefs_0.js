@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['difference_5ftype_0',['difference_type',['../group__gin__gui-utilities.html#ga388faf47e202486a153ded4732148bd3',1,'juce::VarIterator']]]
+  ['conversionfunction_0',['ConversionFunction',['../classParameter.html#a917c9410ac24520d49d322a5ec8ba19b',1,'Parameter']]]
 ];
