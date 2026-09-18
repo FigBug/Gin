@@ -6,7 +6,14 @@ set (CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 project(Gin VERSION 1.0.0)
 
-set (CMAKE_OSX_DEPLOYMENT_TARGET 10.13)
+if (APPLE)
+	execute_process (COMMAND xcodebuild -version OUTPUT_VARIABLE xcodebuild_version_output ERROR_QUIET)
+	if (xcodebuild_version_output MATCHES "Xcode ([0-9]+)" AND CMAKE_MATCH_1 GREATER_EQUAL 27)
+		set (CMAKE_OSX_DEPLOYMENT_TARGET 12.0)
+	else()
+		set (CMAKE_OSX_DEPLOYMENT_TARGET 10.13)
+	endif()
+endif()
 
 add_subdirectory(juce)
 
