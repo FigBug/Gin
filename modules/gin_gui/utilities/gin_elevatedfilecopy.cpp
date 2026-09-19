@@ -66,13 +66,11 @@ ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (juce::File 
     return runWithPermissions ("/bin/sh", { script.getFullPathName() });
 }
 
-juce::File ElevatedFileCopy::createScript (const juce::Array<juce::File>& toDelete,
-                                           const juce::Array<juce::File>& dirsThatNeedAdminAccess,
-                                           const juce::Array<ElevatedFileCopy::FileItem>& filesToCopyThatNeedAdminAccess,
-                                           const juce::Array<ElevatedFileCopy::FileItem>& filesToMoveThatNeedAdminAccess)
+juce::String ElevatedFileCopy::createScriptText (const juce::Array<juce::File>& toDelete,
+                                                 const juce::Array<juce::File>& dirsThatNeedAdminAccess,
+                                                 const juce::Array<ElevatedFileCopy::FileItem>& filesToCopyThatNeedAdminAccess,
+                                                 const juce::Array<ElevatedFileCopy::FileItem>& filesToMoveThatNeedAdminAccess)
 {
-    auto script = juce::File::getSpecialLocation (juce::File::tempDirectory).getNonexistentChildFile ("copy", ".sh", false);
-
     juce::String scriptText;
 
     scriptText += "#!/bin/sh\n";
@@ -107,9 +105,147 @@ juce::File ElevatedFileCopy::createScript (const juce::Array<juce::File>& toDele
     for (auto f : filesToMoveThatNeedAdminAccess)
         scriptText += "mv -p " + escape (f.src.getFullPathName()) + " " + escape (f.dst.getFullPathName()) + " || exit 1\n";
 
-    script.replaceWithText (scriptText, false, false, "\n");
+    return scriptText;
+}
+
+juce::File ElevatedFileCopy::createScript (const juce::Array<juce::File>& toDelete,
+                                           const juce::Array<juce::File>& dirsThatNeedAdminAccess,
+                                           const juce::Array<ElevatedFileCopy::FileItem>& filesToCopyThatNeedAdminAccess,
+                                           const juce::Array<ElevatedFileCopy::FileItem>& filesToMoveThatNeedAdminAccess)
+{
+    auto script = juce::File::getSpecialLocation (juce::File::tempDirectory).getNonexistentChildFile ("copy", ".sh", false);
+
+    script.replaceWithText (createScriptText (toDelete, dirsThatNeedAdminAccess, filesToCopyThatNeedAdminAccess, filesToMoveThatNeedAdminAccess), false, false, "\n");
 
     return script;
+}
+
+//==============================================================================
+
+ElevatedFileCopy::Result ElevatedSession::startInternal()
+{
+    if (workerPipe != nullptr)
+        return ElevatedFileCopy::success;
+
+    // A dead worker must not take the app down with it on the next write
+    ::signal (SIGPIPE, SIG_IGN);
+
+    auto path = "/bin/sh";
+
+    AuthorizationRef authorizationRef;
+    AuthorizationItem item = { kAuthorizationRightExecute, strlen (path), &path, 0 };
+    AuthorizationRights rights = { 1, &item };
+    AuthorizationFlags flags = kAuthorizationFlagDefaults | kAuthorizationFlagInteractionAllowed | kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights;
+
+    auto err = AuthorizationCreate (nullptr, kAuthorizationEmptyEnvironment, kAuthorizationFlagDefaults, &authorizationRef);
+    if (err != errAuthorizationSuccess)
+        return ElevatedFileCopy::failed;
+
+    err = AuthorizationCopyRights (authorizationRef, &rights, kAuthorizationEmptyEnvironment, flags, nullptr);
+    if (err == errAuthorizationCanceled)
+    {
+        AuthorizationFree (authorizationRef, kAuthorizationFlagDefaults);
+        return ElevatedFileCopy::cancelled;
+    }
+
+    if (err != errAuthorizationSuccess)
+    {
+        AuthorizationFree (authorizationRef, kAuthorizationFlagDefaults);
+        return ElevatedFileCopy::nopermissions;
+    }
+
+    // A command loop that stays resident as root. Scripts arrive base64
+    // encoded so they can never contain a newline, and run with their output
+    // silenced so the pipe stays a clean protocol channel. mktemp creates the
+    // script 0600 root-owned, so unlike a script in /tmp nothing else can
+    // swap its contents between write and execute. EOF on stdin means this
+    // process is gone, so the loop just ends.
+    auto loop =
+        "while IFS= read -r line; do "
+            "case \"$line\" in "
+                "RUN\\ *) t=$(/usr/bin/mktemp /tmp/elevated_session.XXXXXX 2>/dev/null) || { echo DONE 126; continue; }; "
+                    "printf %s \"${line#RUN }\" | /usr/bin/base64 -D > \"$t\" 2>/dev/null; "
+                    "/bin/sh \"$t\" > /dev/null 2>&1; c=$?; "
+                    "/bin/rm -f \"$t\"; "
+                    "echo DONE $c;; "
+                "EXIT*) exit 0;; "
+            "esac; "
+        "done";
+
+    const char* args[] = { "-c", loop, nullptr };
+
+    FILE* io = nullptr;
+
+   #pragma clang diagnostic push
+   #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    err = AuthorizationExecuteWithPrivileges (authorizationRef, path, kAuthorizationFlagDefaults, (char* const*) args, &io);
+   #pragma clang diagnostic pop
+
+    if (err != noErr || io == nullptr)
+    {
+        AuthorizationFree (authorizationRef, kAuthorizationFlagDefaults);
+        return ElevatedFileCopy::nopermissions;
+    }
+
+    setvbuf (io, nullptr, _IONBF, 0);
+
+    authRef = authorizationRef;
+    workerPipe = io;
+
+    return ElevatedFileCopy::success;
+}
+
+bool ElevatedSession::writeLine (const juce::String& line)
+{
+    if (workerPipe == nullptr)
+        return false;
+
+    if (fputs ((line + "\n").toRawUTF8(), workerPipe) < 0)
+        return false;
+
+    fflush (workerPipe);
+    return true;
+}
+
+juce::String ElevatedSession::readLine (int timeoutMs)
+{
+    juce::ignoreUnused (timeoutMs);
+
+    if (workerPipe == nullptr)
+        return {};
+
+    juce::MemoryOutputStream out;
+
+    for (;;)
+    {
+        auto c = fgetc (workerPipe);
+
+        if (c == EOF)
+            return {};
+
+        if (c == '\n')
+            break;
+
+        out.writeByte (char (c));
+    }
+
+    return out.toUTF8().trim();
+}
+
+void ElevatedSession::stopInternal()
+{
+    if (workerPipe != nullptr)
+    {
+        writeLine ("EXIT");
+        fclose (workerPipe);
+        workerPipe = nullptr;
+    }
+
+    if (authRef != nullptr)
+    {
+        AuthorizationFree ((AuthorizationRef) authRef, kAuthorizationFlagDefaults);
+        authRef = nullptr;
+    }
 }
 
 #endif
@@ -176,13 +312,11 @@ ElevatedFileCopy::Result ElevatedFileCopy::runScriptWithAdminAccess (juce::File 
     }
 }
 
-juce::File ElevatedFileCopy::createScript (const juce::Array<juce::File>& toDelete,
-                                           const juce::Array<juce::File>& dirsThatNeedAdminAccess,
-                                           const juce::Array<ElevatedFileCopy::FileItem>& filesToCopyThatNeedAdminAccess,
-                                           const juce::Array<ElevatedFileCopy::FileItem>& filesToMoveThatNeedAdminAccess)
+juce::String ElevatedFileCopy::createScriptText (const juce::Array<juce::File>& toDelete,
+                                                 const juce::Array<juce::File>& dirsThatNeedAdminAccess,
+                                                 const juce::Array<ElevatedFileCopy::FileItem>& filesToCopyThatNeedAdminAccess,
+                                                 const juce::Array<ElevatedFileCopy::FileItem>& filesToMoveThatNeedAdminAccess)
 {
-    auto script = juce::File::getSpecialLocation (juce::File::tempDirectory).getNonexistentChildFile ("copy", ".bat", false);
-
     juce::String scriptText;
 
     juce::Array<juce::File> dirs;
@@ -229,9 +363,204 @@ juce::File ElevatedFileCopy::createScript (const juce::Array<juce::File>& toDele
     scriptText += ":error\r\n";
     scriptText += "exit /b 1\r\n";
 
-    script.replaceWithText (scriptText);
+    return scriptText;
+}
+
+juce::File ElevatedFileCopy::createScript (const juce::Array<juce::File>& toDelete,
+                                           const juce::Array<juce::File>& dirsThatNeedAdminAccess,
+                                           const juce::Array<ElevatedFileCopy::FileItem>& filesToCopyThatNeedAdminAccess,
+                                           const juce::Array<ElevatedFileCopy::FileItem>& filesToMoveThatNeedAdminAccess)
+{
+    auto script = juce::File::getSpecialLocation (juce::File::tempDirectory).getNonexistentChildFile ("copy", ".bat", false);
+
+    script.replaceWithText (createScriptText (toDelete, dirsThatNeedAdminAccess, filesToCopyThatNeedAdminAccess, filesToMoveThatNeedAdminAccess));
 
     return script;
+}
+
+//==============================================================================
+
+ElevatedFileCopy::Result ElevatedSession::startInternal()
+{
+    if (workerPipe != nullptr)
+    {
+        DWORD code = 0;
+        if (workerProcess != nullptr && GetExitCodeProcess ((HANDLE) workerProcess, &code) && code == STILL_ACTIVE)
+            return ElevatedFileCopy::success;
+
+        // worker died, start over
+        stopInternal();
+    }
+
+    auto pipeName = "elevated_session_" + juce::Uuid().toString();
+    auto token = juce::Uuid().toString();
+
+    auto p = std::make_unique<juce::NamedPipe>();
+    if (! p->createNewPipe (pipeName, true))
+        return ElevatedFileCopy::failed;
+
+    auto app = juce::File::getSpecialLocation (juce::File::currentExecutableFile).getFullPathName();
+    auto params = "--elevatedsession " + pipeName + " " + token;
+
+    auto wideApp = toWideString (app.toRawUTF8());
+    auto wideParams = toWideString (params.toRawUTF8());
+
+    SHELLEXECUTEINFOW info;
+    memset (&info, 0, sizeof (info));
+    info.cbSize = sizeof (info);
+    info.fMask = SEE_MASK_NOCLOSEPROCESS;
+    info.lpVerb = L"runas";
+    info.lpFile = wideApp.c_str();
+    info.lpParameters = wideParams.c_str();
+    info.nShow = SW_HIDE;
+
+    if (! ShellExecuteExW (&info))
+    {
+        if (GetLastError() == ERROR_CANCELLED)
+            return ElevatedFileCopy::cancelled;
+
+        return ElevatedFileCopy::nopermissions;
+    }
+
+    workerPipe = std::move (p);
+    workerProcess = info.hProcess;
+    readBuffer.clear();
+
+    // The worker proves it's the process we launched before anything is sent
+    // to it, since the pipe name is visible to other processes but the token
+    // only travelled through the elevated command line
+    if (readLine (30 * 1000) != "HELLO " + token)
+    {
+        stopInternal();
+        return ElevatedFileCopy::failed;
+    }
+
+    return ElevatedFileCopy::success;
+}
+
+bool ElevatedSession::writeLine (const juce::String& line)
+{
+    if (workerPipe == nullptr)
+        return false;
+
+    juce::String withNewline = line + "\n";
+    auto utf8 = withNewline.toRawUTF8();
+    auto len = (int) strlen (utf8);
+
+    return workerPipe->write (utf8, len, 10 * 1000) == len;
+}
+
+juce::String ElevatedSession::readLine (int timeoutMs)
+{
+    if (workerPipe == nullptr)
+        return {};
+
+    for (;;)
+    {
+        if (auto nl = readBuffer.find ('\n'); nl != std::string::npos)
+        {
+            auto line = juce::String::fromUTF8 (readBuffer.c_str(), (int) nl).trim();
+            readBuffer.erase (0, nl + 1);
+            return line;
+        }
+
+        char buf[512];
+        auto n = workerPipe->read (buf, sizeof (buf), timeoutMs);
+
+        if (n <= 0)
+            return {};
+
+        readBuffer.append (buf, (size_t) n);
+    }
+}
+
+void ElevatedSession::stopInternal()
+{
+    if (workerPipe != nullptr)
+    {
+        writeLine ("EXIT");
+        workerPipe->close();
+        workerPipe = nullptr;
+    }
+
+    if (workerProcess != nullptr)
+    {
+        WaitForSingleObject ((HANDLE) workerProcess, 2000);
+        CloseHandle ((HANDLE) workerProcess);
+        workerProcess = nullptr;
+    }
+
+    readBuffer.clear();
+}
+
+/** The read side of the session, running in the elevated instance of the app */
+static void elevatedSessionWorkerLoop (const juce::String& pipeName, const juce::String& token)
+{
+    juce::NamedPipe pipe;
+    if (! pipe.openExisting (pipeName))
+        return;
+
+    auto writeLine = [&] (const juce::String& line)
+    {
+        juce::String withNewline = line + "\n";
+        auto utf8 = withNewline.toRawUTF8();
+        pipe.write (utf8, (int) strlen (utf8), 10 * 1000);
+    };
+
+    std::string pending;
+    auto readLine = [&]() -> juce::String
+    {
+        for (;;)
+        {
+            if (auto nl = pending.find ('\n'); nl != std::string::npos)
+            {
+                auto line = juce::String::fromUTF8 (pending.c_str(), (int) nl).trim();
+                pending.erase (0, nl + 1);
+                return line;
+            }
+
+            char buf[4096];
+            auto n = pipe.read (buf, sizeof (buf), -1);
+
+            if (n <= 0)
+                return {};
+
+            pending.append (buf, (size_t) n);
+        }
+    };
+
+    writeLine ("HELLO " + token);
+
+    for (;;)
+    {
+        auto line = readLine();
+
+        if (! line.startsWith ("RUN "))
+            break;      // EXIT, or the app went away and took the pipe with it
+
+        int code = 1;
+
+        juce::MemoryOutputStream decoded;
+        if (juce::Base64::convertFromBase64 (decoded, line.substring (4)))
+        {
+            // this temp dir belongs to the elevated user, unlike the app's own
+            auto script = juce::File::getSpecialLocation (juce::File::tempDirectory).getNonexistentChildFile ("elevated_session", ".bat", false);
+
+            if (script.replaceWithData (decoded.getData(), decoded.getDataSize()))
+            {
+                juce::ChildProcess cp;
+                if (cp.start (juce::StringArray { "cmd.exe", "/c", script.getFullPathName() }))
+                {
+                    cp.waitForProcessToFinish (-1);
+                    code = (int) cp.getExitCode();
+                }
+
+                script.deleteFile();
+            }
+        }
+
+        writeLine ("DONE " + juce::String (code));
+    }
 }
 #endif
 
@@ -257,13 +586,11 @@ void ElevatedFileCopy::deleteFile (const juce::File& f)
     filesToDelete.add (f);
 }
 
-ElevatedFileCopy::Result ElevatedFileCopy::execute (bool launchSelf)
+bool ElevatedFileCopy::classifyWork (juce::Array<juce::File>& filesToDeleteThatNeedAdminAccess,
+                                     juce::Array<juce::File>& dirsThatNeedAdminAccess,
+                                     juce::Array<FileItem>& filesToCopyThatNeedAdminAccess,
+                                     juce::Array<FileItem>& filesToMoveThatNeedAdminAccess)
 {
-    juce::Array<juce::File> filesToDeleteThatNeedAdminAccess;
-    juce::Array<juce::File> dirsThatNeedAdminAccess;
-    juce::Array<FileItem> filesToCopyThatNeedAdminAccess;
-    juce::Array<FileItem> filesToMoveThatNeedAdminAccess;
-
     for (auto f : filesToDelete)
     {
         if (f.existsAsFile())
@@ -319,8 +646,17 @@ ElevatedFileCopy::Result ElevatedFileCopy::execute (bool launchSelf)
             filesToMoveThatNeedAdminAccess.add (f);
     }
 
+    return filesToDeleteThatNeedAdminAccess.size() > 0 || dirsThatNeedAdminAccess.size() > 0 || filesToCopyThatNeedAdminAccess.size() > 0 || filesToMoveThatNeedAdminAccess.size() > 0;
+}
 
-    if (filesToDeleteThatNeedAdminAccess.size() > 0 || dirsThatNeedAdminAccess.size() > 0 || filesToCopyThatNeedAdminAccess.size() > 0 || filesToMoveThatNeedAdminAccess.size() > 0)
+ElevatedFileCopy::Result ElevatedFileCopy::execute (bool launchSelf)
+{
+    juce::Array<juce::File> filesToDeleteThatNeedAdminAccess;
+    juce::Array<juce::File> dirsThatNeedAdminAccess;
+    juce::Array<FileItem> filesToCopyThatNeedAdminAccess;
+    juce::Array<FileItem> filesToMoveThatNeedAdminAccess;
+
+    if (classifyWork (filesToDeleteThatNeedAdminAccess, dirsThatNeedAdminAccess, filesToCopyThatNeedAdminAccess, filesToMoveThatNeedAdminAccess))
     {
         juce::File script = createScript (filesToDeleteThatNeedAdminAccess, dirsThatNeedAdminAccess, filesToCopyThatNeedAdminAccess, filesToMoveThatNeedAdminAccess);
         auto res = runScriptWithAdminAccess (script, launchSelf);
@@ -328,6 +664,19 @@ ElevatedFileCopy::Result ElevatedFileCopy::execute (bool launchSelf)
 
         return res;
     }
+
+    return success;
+}
+
+ElevatedFileCopy::Result ElevatedFileCopy::execute (ElevatedSession& session)
+{
+    juce::Array<juce::File> filesToDeleteThatNeedAdminAccess;
+    juce::Array<juce::File> dirsThatNeedAdminAccess;
+    juce::Array<FileItem> filesToCopyThatNeedAdminAccess;
+    juce::Array<FileItem> filesToMoveThatNeedAdminAccess;
+
+    if (classifyWork (filesToDeleteThatNeedAdminAccess, dirsThatNeedAdminAccess, filesToCopyThatNeedAdminAccess, filesToMoveThatNeedAdminAccess))
+        return session.runScript (createScriptText (filesToDeleteThatNeedAdminAccess, dirsThatNeedAdminAccess, filesToCopyThatNeedAdminAccess, filesToMoveThatNeedAdminAccess));
 
     return success;
 }
@@ -386,6 +735,84 @@ void ElevatedFileCopy::clear()
     filesToCopy.clear();
     filesToDelete.clear();
     dirsToCreate.clear();
+}
+
+//==============================================================================
+
+ElevatedSession::~ElevatedSession()
+{
+    stop();
+}
+
+ElevatedFileCopy::Result ElevatedSession::start()
+{
+    juce::ScopedLock sl (sessionLock);
+    return startInternal();
+}
+
+bool ElevatedSession::isRunning()
+{
+    juce::ScopedLock sl (sessionLock);
+    return workerPipe != nullptr;
+}
+
+ElevatedFileCopy::Result ElevatedSession::runScript (const juce::String& contents)
+{
+    juce::ScopedLock sl (sessionLock);
+    return runScriptInternal (contents);
+}
+
+ElevatedFileCopy::Result ElevatedSession::runScriptInternal (const juce::String& contents)
+{
+    if (auto res = startInternal(); res != ElevatedFileCopy::success)
+        return res;
+
+    if (! writeLine ("RUN " + juce::Base64::toBase64 (contents)))
+    {
+        stopInternal();
+        return ElevatedFileCopy::failed;
+    }
+
+    for (;;)
+    {
+        auto line = readLine();
+
+        if (line.isEmpty())
+        {
+            // the worker died mid script
+            stopInternal();
+            return ElevatedFileCopy::failed;
+        }
+
+        if (line.startsWith ("DONE"))
+            return line.substring (4).trim().getIntValue() == 0 ? ElevatedFileCopy::success : ElevatedFileCopy::failed;
+    }
+}
+
+void ElevatedSession::stop()
+{
+    juce::ScopedLock sl (sessionLock);
+    stopInternal();
+}
+
+bool ElevatedSession::processCommandLine (juce::String commandLine)
+{
+   #if JUCE_WINDOWS
+    if (! commandLine.contains ("--elevatedsession"))
+        return false;
+
+    auto args = juce::StringArray::fromTokens (commandLine.fromFirstOccurrenceOf ("--elevatedsession", false, false), " ", "\"");
+    args.removeEmptyStrings();
+
+    if (args.size() >= 2)
+        elevatedSessionWorkerLoop (args[0], args[1]);
+
+    juce::JUCEApplication::quit();
+    return true;
+   #else
+    ignoreUnused (commandLine);
+    return false;
+   #endif
 }
 
 #endif
