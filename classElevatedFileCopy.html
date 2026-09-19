@@ -109,6 +109,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac6965dae9ef1cf89d3ebe038d32370e3" id="r_ac6965dae9ef1cf89d3ebe038d32370e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30f">Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElevatedFileCopy.html#ac6965dae9ef1cf89d3ebe038d32370e3">execute</a> (<a class="el" href="classPoint.html">bool</a> <a class="el" href="classPoint.html">launchSelf</a>=<a class="el" href="classPoint.html">false</a>)</td></tr>
 <tr class="memdesc:ac6965dae9ef1cf89d3ebe038d32370e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform the copy.  <br /></td></tr>
 <tr class="separator:ac6965dae9ef1cf89d3ebe038d32370e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea945d022accde8e89d6f2c860fc727a" id="r_aea945d022accde8e89d6f2c860fc727a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30f">Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElevatedFileCopy.html#aea945d022accde8e89d6f2c860fc727a">execute</a> (<a class="el" href="classElevatedSession.html">ElevatedSession</a> &amp;<a class="el" href="classPoint.html">session</a>)</td></tr>
+<tr class="memdesc:aea945d022accde8e89d6f2c860fc727a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform the copy via a shared elevated session, so admin access is prompted for at most once per session rather than once per call.  <br /></td></tr>
+<tr class="separator:aea945d022accde8e89d6f2c860fc727a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b6d64bc3b7847628f35c14b9e3c58a8" id="r_a1b6d64bc3b7847628f35c14b9e3c58a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPoint.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classElevatedFileCopy.html#a1b6d64bc3b7847628f35c14b9e3c58a8">clear</a> ()</td></tr>
 <tr class="memdesc:a1b6d64bc3b7847628f35c14b9e3c58a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear all files to be copied.  <br /></td></tr>
 <tr class="separator:a1b6d64bc3b7847628f35c14b9e3c58a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -249,7 +252,7 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="ac6965dae9ef1cf89d3ebe038d32370e3" name="ac6965dae9ef1cf89d3ebe038d32370e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6965dae9ef1cf89d3ebe038d32370e3">&#9670;&#160;</a></span>execute()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6965dae9ef1cf89d3ebe038d32370e3">&#9670;&#160;</a></span>execute() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -266,6 +269,26 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Perform the copy. </p>
 <p>If launchSelf is false, then on Windows <a class="el" href="classPoint.html#ae6a75fcca567819ab05482257ce36bdc" title="Creates a point at the origin (0, 0).">cmd.exe</a> will be executed with admin permissions to copy the files. This looks odd to the user since Windows Command <a class="el" href="classProcessor.html" title="Advanced audio processor base class with parameter management and preset system.">Processor</a> will ask for permissions to make changes rather than your app. Pass true to make your app get launched with admin permissions instead. In this case, you must call processCommandLine from yours apps initialise instead, and if it returns true, return from initialise asap and your app will quit as it's just a temporary process. </p>
+
+</div>
+</div>
+<a id="aea945d022accde8e89d6f2c860fc727a" name="aea945d022accde8e89d6f2c860fc727a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea945d022accde8e89d6f2c860fc727a">&#9670;&#160;</a></span>execute() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30f">Result</a> ElevatedFileCopy::execute </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classElevatedSession.html">ElevatedSession</a> &amp;&#160;</td>
+          <td class="paramname"><em>session</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform the copy via a shared elevated session, so admin access is prompted for at most once per session rather than once per call. </p>
 
 </div>
 </div>
@@ -361,7 +384,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 18 2026 22:20:13 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sat Sep 19 2026 05:33:11 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

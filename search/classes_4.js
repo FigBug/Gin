@@ -6,13 +6,14 @@ var searchData=
   ['elasticouteasing_3',['ElasticOutEasing',['../structElasticOutEasing.html',1,'']]],
   ['element_4',['Element',['../classSpline_1_1Element.html',1,'Spline']]],
   ['elevatedfilecopy_5',['ElevatedFileCopy',['../classElevatedFileCopy.html',1,'']]],
-  ['ellipse_6',['Ellipse',['../classEllipse.html',1,'']]],
-  ['envelopedetector_7',['EnvelopeDetector',['../classEnvelopeDetector.html',1,'']]],
-  ['eq_8',['EQ',['../classEQ.html',1,'']]],
-  ['equationparser_9',['EquationParser',['../classEquationParser.html',1,'']]],
-  ['exciter_10',['Exciter',['../classExciter.html',1,'']]],
-  ['exifmetadata_11',['ExifMetadata',['../classExifMetadata.html',1,'']]],
-  ['exponentialineasing_12',['ExponentialInEasing',['../structExponentialInEasing.html',1,'']]],
-  ['exponentialinouteasing_13',['ExponentialInOutEasing',['../structExponentialInOutEasing.html',1,'']]],
-  ['exponentialouteasing_14',['ExponentialOutEasing',['../structExponentialOutEasing.html',1,'']]]
+  ['elevatedsession_6',['ElevatedSession',['../classElevatedSession.html',1,'']]],
+  ['ellipse_7',['Ellipse',['../classEllipse.html',1,'']]],
+  ['envelopedetector_8',['EnvelopeDetector',['../classEnvelopeDetector.html',1,'']]],
+  ['eq_9',['EQ',['../classEQ.html',1,'']]],
+  ['equationparser_10',['EquationParser',['../classEquationParser.html',1,'']]],
+  ['exciter_11',['Exciter',['../classExciter.html',1,'']]],
+  ['exifmetadata_12',['ExifMetadata',['../classExifMetadata.html',1,'']]],
+  ['exponentialineasing_13',['ExponentialInEasing',['../structExponentialInEasing.html',1,'']]],
+  ['exponentialinouteasing_14',['ExponentialInOutEasing',['../structExponentialInOutEasing.html',1,'']]],
+  ['exponentialouteasing_15',['ExponentialOutEasing',['../structExponentialOutEasing.html',1,'']]]
 ];

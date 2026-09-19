@@ -15,7 +15,7 @@ var searchData=
   ['readsample_12',['readSample',['../classDelayLine.html#ad5ba8b3041d885a7cd2f7147b7e59fc6',1,'DelayLine']]],
   ['readsamplelagrange_13',['readSampleLagrange',['../classDelayLine.html#aa34d1e8071d58e27e2b98c5ffc2563cc',1,'DelayLine']]],
   ['readsamplesat_14',['readSamplesAt',['../classSample.html#a0bece656bf856bb465ab23995a7dc608',1,'Sample']]],
-  ['readystatevalues_15',['readystatevalues',['../classWebSocket.html#a752b8c43bb821039435c92823261bd6d',1,'WebSocket::readyStateValues'],['../classWebSocket.html#a452bcfacd2ce0567751e44f891dd1489',1,'WebSocket::ReadyStateValues']]],
+  ['readystatevalues_15',['readystatevalues',['../classWebSocket.html#a452bcfacd2ce0567751e44f891dd1489',1,'WebSocket::ReadyStateValues'],['../classWebSocket.html#a752b8c43bb821039435c92823261bd6d',1,'WebSocket::readyStateValues']]],
   ['realtimeasyncupdater_16',['realtimeasyncupdater',['../classRealtimeAsyncUpdater.html#a8cba7dff87861e17966355aeb266514f',1,'RealtimeAsyncUpdater::RealtimeAsyncUpdater()'],['../classRealtimeAsyncUpdater.html',1,'RealtimeAsyncUpdater']]],
   ['realtimeevent_17',['realtimeevent',['../classRealtimeEvent.html',1,'RealtimeEvent'],['../classRealtimeEvent.html#a0878e152a86c871fe96b8806fb4ac0b6',1,'RealtimeEvent::RealtimeEvent()']]],
   ['recordfifo_18',['recordFifo',['../classStandaloneAudioProcessorPlayer.html#a56894c0b24958ac2826444affdff405f',1,'StandaloneAudioProcessorPlayer']]],
@@ -94,5 +94,6 @@ var searchData=
   ['run_91',['run',['../classAudioRecorder.html#a28a8ca00fd119ff8080293239a868bcf',1,'AudioRecorder::run()'],['../classAsyncDownload.html#a12f678abf96e0c0a0f988baa076ec253',1,'AsyncDownload::run()']]],
   ['runasync_92',['runAsync',['../classPluginAlertWindow.html#a9f9d741c6e49fed9f97044e9a6e80040',1,'PluginAlertWindow']]],
   ['runmodalloop_93',['runModalLoop',['../classPluginAlertWindow.html#a00cbb453069bef78d5c77acbbe75370c',1,'PluginAlertWindow']]],
-  ['runscriptwithadminaccess_94',['runScriptWithAdminAccess',['../classElevatedFileCopy.html#a38602e1c7ac1fa9d1c57ac467b8fe7bb',1,'ElevatedFileCopy']]]
+  ['runscript_94',['runScript',['../classElevatedSession.html#a907e956be6a14d21c5cd98ae4cc709a4',1,'ElevatedSession']]],
+  ['runscriptwithadminaccess_95',['runScriptWithAdminAccess',['../classElevatedFileCopy.html#a38602e1c7ac1fa9d1c57ac467b8fe7bb',1,'ElevatedFileCopy']]]
 ];

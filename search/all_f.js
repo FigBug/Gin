@@ -65,7 +65,7 @@ var searchData=
   ['operator_5b_5d_62',['operator[]',['../classSpline.html#a30255a2f77480c04928394262765df10',1,'Spline::operator[]()'],['../classWavetable.html#a31b6818c8ad7967b4557cdb05da22eb7',1,'Wavetable::operator[](int index) const'],['../classWavetable.html#a274f6509b48a9d327fc397266b9fe94b',1,'Wavetable::operator[](int index)']]],
   ['options_63',['options',['../classStandalonePluginHolder.html#ae1c5ad8ae43a0728c1992d925c0a9ac0',1,'StandalonePluginHolder']]],
   ['orbit_64',['orbit',['../classCamera3D.html#af33b432b6bcf40142929f5c8427fa99d',1,'Camera3D']]],
-  ['orientation_65',['orientation',['../classComponentGrid.html#a597b44ee2489a3412932dac8ac90df99',1,'ComponentGrid::orientation'],['../classComponentGrid.html#a0d6a66510a6868e9be9f596867b85946',1,'ComponentGrid::Orientation']]],
+  ['orientation_65',['orientation',['../classComponentGrid.html#a0d6a66510a6868e9be9f596867b85946',1,'ComponentGrid::Orientation'],['../classComponentGrid.html#a597b44ee2489a3412932dac8ac90df99',1,'ComponentGrid::orientation']]],
   ['originalcomponent_66',['originalComponent',['../structComponentGrid_1_1DragInfo.html#abebf0aa1df0211e9af81bf6889e65921',1,'ComponentGrid::DragInfo']]],
   ['originalorder_67',['originalOrder',['../classComponentGrid.html#a4d8eff212a319a1de9ec54aedfddd340',1,'ComponentGrid']]],
   ['orthographic_68',['orthographic',['../structMat4.html#a304609c756c9ab8f901995b43287e6b1',1,'Mat4']]],

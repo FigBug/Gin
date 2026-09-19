@@ -2121,6 +2121,7 @@
     <path>build/gin_gui/utilities/</path>
     <filename>gin__elevatedfilecopy_8h.html</filename>
     <class kind="class">ElevatedFileCopy</class>
+    <class kind="class">ElevatedSession</class>
   </compound>
   <compound kind="file">
     <name>gin_layoutsupport.h</name>
@@ -7448,6 +7449,13 @@
       <arglist>(bool launchSelf=false)</arglist>
     </member>
     <member kind="function">
+      <type>Result</type>
+      <name>execute</name>
+      <anchorfile>classElevatedFileCopy.html</anchorfile>
+      <anchor>aea945d022accde8e89d6f2c860fc727a</anchor>
+      <arglist>(ElevatedSession &amp;session)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>clear</name>
       <anchorfile>classElevatedFileCopy.html</anchorfile>
@@ -7467,6 +7475,66 @@
       <anchorfile>classElevatedFileCopy.html</anchorfile>
       <anchor>a38602e1c7ac1fa9d1c57ac467b8fe7bb</anchor>
       <arglist>(juce::File script, bool launchSelf)</arglist>
+    </member>
+    <member kind="friend" protection="private">
+      <type>friend class</type>
+      <name>ElevatedSession</name>
+      <anchorfile>classElevatedFileCopy.html</anchorfile>
+      <anchor>a47a92420559bd7475ca1c81d431b35b7</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>ElevatedSession</name>
+    <filename>classElevatedSession.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ElevatedSession</name>
+      <anchorfile>classElevatedSession.html</anchorfile>
+      <anchor>a26ad84e1584e42f8d8b2cb32bcc24c49</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~ElevatedSession</name>
+      <anchorfile>classElevatedSession.html</anchorfile>
+      <anchor>ad2a2c9c3c5155ac3b87ba3dd3fbbbd03</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>ElevatedFileCopy::Result</type>
+      <name>start</name>
+      <anchorfile>classElevatedSession.html</anchorfile>
+      <anchor>a0f987314a316f8013e20401fc548e5ec</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isRunning</name>
+      <anchorfile>classElevatedSession.html</anchorfile>
+      <anchor>ab89c78a83022b72d1911068d1715d50e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>ElevatedFileCopy::Result</type>
+      <name>runScript</name>
+      <anchorfile>classElevatedSession.html</anchorfile>
+      <anchor>a907e956be6a14d21c5cd98ae4cc709a4</anchor>
+      <arglist>(const juce::String &amp;contents)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>stop</name>
+      <anchorfile>classElevatedSession.html</anchorfile>
+      <anchor>aa897b4818ba69b2e69ba7806c9e71c83</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>processCommandLine</name>
+      <anchorfile>classElevatedSession.html</anchorfile>
+      <anchor>a3a23613d8e4e475eaddf032bf22c995a</anchor>
+      <arglist>(juce::String commandLine)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -25635,6 +25703,7 @@
     <class kind="class">CoalescedTimer</class>
     <class kind="class">ComponentMap</class>
     <class kind="class">ElevatedFileCopy</class>
+    <class kind="class">ElevatedSession</class>
     <class kind="class">ConstantsStack</class>
     <class kind="class">ConstantsStack::ScopedSave</class>
     <class kind="class">Parser</class>
