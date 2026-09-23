@@ -61,6 +61,11 @@
 
 #include <juce_core/juce_core.h>
 #include <juce_graphics/juce_graphics.h>
+
+#if JUCE_USE_WEBP
+ #error "gin_webp bundles its own libwebp, which conflicts with the copy in JUCE. Define JUCE_USE_WEBP=0 in your project (done automatically when linking gin_webp via CMake)."
+#endif
+
 #include <gin/gin.h>
 
 namespace gin

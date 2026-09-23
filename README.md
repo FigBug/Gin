@@ -130,6 +130,7 @@ Gin is organized into focused modules that can be included independently:
 
 ### WebP Support (gin_webp)
 - **WebPImageFormat** - Read and write WebP images
+- Bundles its own libwebp, so JUCE's built-in WebP support must be disabled with `JUCE_USE_WEBP=0`. The CMake target sets this automatically; Projucer users need to add it to their preprocessor definitions.
 
 ### SVG Support (gin_svg)
 - **SVG parsing and rendering** - Powered by NanoSVG
