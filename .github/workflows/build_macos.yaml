@@ -20,4 +20,5 @@ jobs:
         with:
           name: Mac
           path: bin
+          retention-days: 3
 

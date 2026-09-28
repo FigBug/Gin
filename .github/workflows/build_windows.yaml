@@ -15,3 +15,4 @@ jobs:
         with:
           name: Windows
           path: bin
+          retention-days: 3

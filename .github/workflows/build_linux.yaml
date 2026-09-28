@@ -15,4 +15,5 @@ jobs:
         with:
           name: Linux
           path: bin
+          retention-days: 3
 
