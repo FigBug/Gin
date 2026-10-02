@@ -328,6 +328,16 @@ def cli(argv):
 
     sub.add_parser("mcp", help="run as an MCP server on stdio")
 
+    # anything that isn't a built in subcommand is sent to the server as is,
+    # so product specific commands work without the raw prefix: gin_remote.py loadPreset '{"preset":"x"}'
+    known = set(sub.choices.keys()) | {"-h", "--help"}
+    for i, tok in enumerate(argv):
+        if tok.startswith("-"):
+            continue
+        if tok not in known:
+            argv = argv[:i] + ["raw"] + argv[i:]
+        break
+
     a = p.parse_args(argv)
     if a.command is None:
         p.print_help()

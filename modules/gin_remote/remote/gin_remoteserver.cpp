@@ -235,6 +235,45 @@ void RemoteServer::run()
     }
 }
 
+// A non blocking read (which is what we use so the thread can exit) leaves the socket
+// non blocking, so a big response fills the kernel buffer and send() fails with EAGAIN.
+// Wait for space and carry on rather than truncating the reply.
+bool RemoteServer::writeAll (juce::StreamingSocket& socket, const juce::String& text)
+{
+    auto utf8 = text.toRawUTF8();
+    auto len = int (strlen (utf8));
+    int written = 0;
+    int idleMs = 0;
+
+    while (written < len && socket.isConnected() && ! threadShouldExit())
+    {
+        auto ready = socket.waitUntilReady (false, 100);
+        if (ready < 0)
+            return false;
+
+        if (ready == 0)
+        {
+            idleMs += 100;
+            if (idleMs > 30000)
+                return false; // client stopped reading
+            continue;
+        }
+
+        auto w = socket.write (utf8 + written, len - written);
+        if (w > 0)
+        {
+            written += w;
+            idleMs = 0;
+        }
+        else if (w < 0 && errno != EAGAIN && errno != EWOULDBLOCK && errno != EINTR)
+        {
+            return false;
+        }
+    }
+
+    return written == len;
+}
+
 void RemoteServer::handleClient (juce::StreamingSocket& socket)
 {
     juce::MemoryBlock pending;
@@ -270,17 +309,8 @@ void RemoteServer::handleClient (juce::StreamingSocket& socket)
                 continue;
 
             auto response = processRequest (line) + "\n";
-            auto utf8 = response.toRawUTF8();
-            auto len = int (strlen (utf8));
-            int written = 0;
-
-            while (written < len && socket.isConnected() && ! threadShouldExit())
-            {
-                auto w = socket.write (utf8 + written, len - written);
-                if (w <= 0)
-                    break;
-                written += w;
-            }
+            if (! writeAll (socket, response))
+                return;
         }
     }
 }
@@ -402,21 +432,40 @@ juce::var RemoteServer::getArg (const juce::var& args, const char* name, const j
 
 juce::String RemoteServer::getClassName (juce::Component& c)
 {
+    // demangling is slow enough to matter on a tree with thousands of components, so cache per type
+    static juce::CriticalSection lock;
+    static std::unordered_map<std::type_index, juce::String> cache;
+
+    const std::type_index key (typeid (c));
+
+    {
+        juce::ScopedLock sl (lock);
+        if (auto itr = cache.find (key); itr != cache.end())
+            return itr->second;
+    }
+
+    juce::String res;
+
    #if ! JUCE_WINDOWS
     int status = 0;
     if (char* demangled = abi::__cxa_demangle (typeid (c).name(), nullptr, nullptr, &status))
     {
-        auto res = juce::String (demangled);
+        res = juce::String (demangled);
         free (demangled);
-        return res;
     }
-    return typeid (c).name();
+    else
+    {
+        res = typeid (c).name();
+    }
    #else
-    juce::String res = typeid (c).name();
+    res = typeid (c).name();
     if (res.startsWith ("class ")) res = res.substring (6);
     if (res.startsWith ("struct ")) res = res.substring (7);
-    return res;
    #endif
+
+    juce::ScopedLock sl (lock);
+    cache[key] = res;
+    return res;
 }
 
 juce::String RemoteServer::getComponentPath (juce::Component& c)
@@ -474,10 +523,8 @@ juce::var RemoteServer::getComponentValue (juce::Component& c)
     if (auto t = dynamic_cast<juce::TextEditor*> (&c))    return t->getText();
     if (auto l = dynamic_cast<juce::Label*> (&c))         return l->getText();
 
-    if (auto handler = c.getAccessibilityHandler())
-        if (auto vi = handler->getValueInterface())
-            return vi->getCurrentValueAsString();
-
+    // Accessibility value interfaces are deliberately not consulted here: creating handlers
+    // for every component makes a big tree very slow. describe (full) reports them.
     return {};
 }
 

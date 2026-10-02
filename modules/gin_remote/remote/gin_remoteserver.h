@@ -223,6 +223,7 @@ private:
 
     void run() override;
     void handleClient (juce::StreamingSocket&);
+    bool writeAll (juce::StreamingSocket&, const juce::String&);
     juce::String processRequest (const juce::String& line);
     CommandResult runCommand (const juce::String& name, const juce::var& args);
 

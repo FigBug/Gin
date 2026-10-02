@@ -63,9 +63,13 @@
 #endif
 
 #include <atomic>
+#include <cerrno>
+#include <cmath>
 #include <functional>
 #include <map>
 #include <memory>
+#include <typeindex>
+#include <unordered_map>
 #include <vector>
 
 namespace gin

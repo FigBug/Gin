@@ -168,16 +168,14 @@ namespace remote_detail
 
         if (step.startsWith ("~"))
         {
-            auto needle = step.substring (1).toLowerCase();
+            auto needle = step.substring (1).unquoted().toLowerCase();
             return c.getName().toLowerCase().contains (needle)
                 || c.getComponentID().toLowerCase().contains (needle)
                 || RemoteServer::getComponentText (c).toLowerCase().contains (needle)
                 || c.getTitle().toLowerCase().contains (needle);
         }
 
-        auto text = step;
-        if ((text.startsWithChar ('\'') && text.endsWithChar ('\'')) || (text.startsWithChar ('"') && text.endsWithChar ('"')))
-            text = text.substring (1, text.length() - 1);
+        auto text = step.unquoted();
 
         return c.getName() == text || RemoteServer::getComponentText (c) == text || c.getTitle() == text;
     }
@@ -255,6 +253,40 @@ namespace remote_detail
         return steps;
     }
 
+    // Component properties can hold methods, binary blobs and NaNs, none of which survive JSON::toString
+    inline juce::var sanitiseForJson (const juce::var& v, int depth = 0)
+    {
+        if (v.isVoid() || v.isBool() || v.isInt() || v.isInt64() || v.isString())
+            return v;
+
+        if (v.isDouble())
+            return std::isfinite (double (v)) ? v : juce::var();
+
+        if (depth > 8)
+            return "<nested>";
+
+        if (v.isArray())
+        {
+            juce::Array<juce::var> out;
+            for (auto& item : *v.getArray())
+                out.add (sanitiseForJson (item, depth + 1));
+            return out;
+        }
+
+        if (auto obj = v.getDynamicObject())
+        {
+            auto out = new juce::DynamicObject();
+            for (auto& prop : obj->getProperties())
+                out->setProperty (prop.name, sanitiseForJson (prop.value, depth + 1));
+            return juce::var (out);
+        }
+
+        if (v.isMethod())       return "<method>";
+        if (v.isBinaryData())   return "<binary " + juce::String (v.getBinaryData()->getSize()) + " bytes>";
+        if (v.isObject())       return "<object>";
+        return v.toString();
+    }
+
     inline void drawHighlight (juce::Graphics& g, juce::Rectangle<float> r, const juce::String& label, juce::Colour colour)
     {
         g.setColour (colour);
@@ -291,8 +323,16 @@ juce::Array<juce::Component*> RemoteServer::findComponents (const juce::String& 
 
     // "Component Viewer" is more likely one button than a Component containing a Viewer,
     // so if the chained reading finds nothing, try the whole thing as a single name
-    if (matches.isEmpty() && steps.size() > 1 && ! selector.containsAnyOf ("#.@/~[]*\"'"))
-        matches = findComponents (juce::StringArray (selector.trim()), visibleOnly, root);
+    if (matches.isEmpty() && steps.size() > 1 && ! selector.containsAnyOf ("@/[]*\"'"))
+    {
+        bool laterStepsArePlain = true;
+        for (int i = 1; i < steps.size(); i++)
+            if (steps[i].startsWithChar ('#') || steps[i].startsWithChar ('.') || steps[i].startsWithChar ('~'))
+                laterStepsArePlain = false;
+
+        if (laterStepsArePlain)
+            matches = findComponents (juce::StringArray (selector.trim()), visibleOnly, root);
+    }
 
     return matches;
 }
@@ -468,7 +508,7 @@ juce::var RemoteServer::describeComponent (juce::Component& c, bool full)
         {
             auto props = new juce::DynamicObject();
             for (int i = 0; i < c.getProperties().size(); i++)
-                props->setProperty (c.getProperties().getName (i), c.getProperties().getValueAt (i));
+                props->setProperty (c.getProperties().getName (i), sanitiseForJson (c.getProperties().getValueAt (i)));
             obj->setProperty ("properties", juce::var (props));
         }
 
