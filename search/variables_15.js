@@ -7,5 +7,6 @@ var searchData=
   ['waveshape_4',['waveShape',['../structLFO_1_1Parameters.html#a5128a3dd3bf6a99e901bff2e962bdc81',1,'LFO::Parameters']]],
   ['wetgain_5',['wetGain',['../classWetDryMix.html#ab3f2edb9437368c6f3d87e51a64a3f2d',1,'WetDryMix']]],
   ['width_6',['width',['../classSideBarComponent.html#a48c1efb8a5ec2068a2049c81fbc8a5c6',1,'SideBarComponent']]],
-  ['writepos_7',['writePos',['../classDelayLine.html#a277d65ab60f42d22f55d48596412c897',1,'DelayLine']]]
+  ['writediscoveryfile_7',['writeDiscoveryFile',['../structRemoteServer_1_1Options.html#a1dc62b2bb1e72d2eb5f5a3b5df0a0020',1,'RemoteServer::Options']]],
+  ['writepos_8',['writePos',['../classDelayLine.html#a277d65ab60f42d22f55d48596412c897',1,'DelayLine']]]
 ];

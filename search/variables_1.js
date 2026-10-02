@@ -9,12 +9,13 @@ var searchData=
   ['barlowthin_5fttf_6',['BarlowThin_ttf',['../namespaceResources.html#ae4ad6d277ad33de26e02e1572510d8dc',1,'Resources']]],
   ['barlowthin_5fttfsize_7',['BarlowThin_ttfSize',['../namespaceResources.html#ae17a5aae2e3106082be4c8b5d3e61bf9',1,'Resources']]],
   ['bend_8',['bend',['../structWTOscillator_1_1Params.html#a1bb44ee47a18bb34bb4158461bf2889d',1,'WTOscillator::Params::bend'],['../structWTVoicedStereoOscillatorParams.html#a22356727c51d1694705bd8e9f4714a29',1,'WTVoicedStereoOscillatorParams::bend']]],
-  ['bipolar_9',['bipolar',['../namespaceAssets.html#ac3468e24409dbe47e8293799e3727311',1,'Assets']]],
-  ['blocksize_10',['blockSize',['../classAudioProcessorPlayer.html#ab69404d0d35facc981eb313b223c590c',1,'AudioProcessorPlayer']]],
-  ['bpm_11',['bpm',['../classAudioMetadata.html#ae597120a0754b3c655623c33779a4aed',1,'AudioMetadata']]],
-  ['browse_12',['browse',['../namespaceAssets.html#a971712f6dd2c7de1171c8139a852a38d',1,'Assets']]],
-  ['browsebutton_13',['browseButton',['../classTitleBar.html#ad008b68a5bcd5442577468bf031c596b',1,'TitleBar']]],
-  ['bubble_14',['bubble',['../classMultiParamComponent.html#afed6013095e1e2ced271cda5ccecb7d2',1,'MultiParamComponent']]],
-  ['buffer_15',['buffer',['../classDelayLine.html#a93574b33770845363b409a6578919369',1,'DelayLine']]],
-  ['buttons_16',['buttons',['../structGameControllerManager_1_1PollState.html#af3d7cc422ae9943f0dda4c5af8f4dc5e',1,'GameControllerManager::PollState']]]
+  ['bindaddress_9',['bindAddress',['../structRemoteServer_1_1Options.html#aa6bdc4e3c5db5041c8cbc68ff2a9cc2f',1,'RemoteServer::Options']]],
+  ['bipolar_10',['bipolar',['../namespaceAssets.html#ac3468e24409dbe47e8293799e3727311',1,'Assets']]],
+  ['blocksize_11',['blockSize',['../classAudioProcessorPlayer.html#ab69404d0d35facc981eb313b223c590c',1,'AudioProcessorPlayer']]],
+  ['bpm_12',['bpm',['../classAudioMetadata.html#ae597120a0754b3c655623c33779a4aed',1,'AudioMetadata']]],
+  ['browse_13',['browse',['../namespaceAssets.html#a971712f6dd2c7de1171c8139a852a38d',1,'Assets']]],
+  ['browsebutton_14',['browseButton',['../classTitleBar.html#ad008b68a5bcd5442577468bf031c596b',1,'TitleBar']]],
+  ['bubble_15',['bubble',['../classMultiParamComponent.html#afed6013095e1e2ced271cda5ccecb7d2',1,'MultiParamComponent']]],
+  ['buffer_16',['buffer',['../classDelayLine.html#a93574b33770845363b409a6578919369',1,'DelayLine']]],
+  ['buttons_17',['buttons',['../structGameControllerManager_1_1PollState.html#af3d7cc422ae9943f0dda4c5af8f4dc5e',1,'GameControllerManager::PollState']]]
 ];

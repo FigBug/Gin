@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['difference_5ftype_0',['difference_type',['../group__gin__gui-utilities.html#ga388faf47e202486a153ded4732148bd3',1,'juce::VarIterator']]]
+  ['commandhandler_0',['CommandHandler',['../classRemoteServer.html#a75d98d2a485dc1b23bf073c35d016c40',1,'RemoteServer']]],
+  ['componentinfoprovider_1',['ComponentInfoProvider',['../classRemoteServer.html#ab7feebdd8543990dea8940a9251607e1',1,'RemoteServer']]],
+  ['conversionfunction_2',['ConversionFunction',['../classParameter.html#a917c9410ac24520d49d322a5ec8ba19b',1,'Parameter']]]
 ];

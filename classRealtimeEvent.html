@@ -108,7 +108,7 @@ Public Member Functions</h2></td></tr>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Non-realtime thread</span></div>
 <div class="line">std::thread <a class="code hl_class" href="classPoint.html">worker</a>([&amp;<a class="code hl_class" href="classPoint.html">event</a>]() {</div>
-<div class="line">    <span class="keywordflow">while</span> (<a class="code hl_class" href="classPoint.html">running</a>) {</div>
+<div class="line">    <span class="keywordflow">while</span> (running) {</div>
 <div class="line">        <span class="keyword">event</span>.wait();  <span class="comment">// Block until signaled</span></div>
 <div class="line">        <span class="comment">// ... do work ...</span></div>
 <div class="line">    }</div>
@@ -209,7 +209,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Sep 23 2026 15:00:16 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Oct 2 2026 19:32:47 for Gin by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

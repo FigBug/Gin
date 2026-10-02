@@ -11,8 +11,9 @@ var searchData=
   ['gin_5fmetadata_8',['gin_metadata',['../group__gin__metadata.html',1,'']]],
   ['gin_5fnetwork_9',['gin_network',['../group__gin__network.html',1,'']]],
   ['gin_5fplugin_10',['gin_plugin',['../group__gin__plugin.html',1,'']]],
-  ['gin_5fsimd_11',['gin_simd',['../group__gin__simd.html',1,'']]],
-  ['gin_5fstandaloneplugin_12',['gin_standaloneplugin',['../group__gin__standaloneplugin.html',1,'']]],
-  ['gin_5fsvg_13',['gin_svg',['../group__gin__svg.html',1,'']]],
-  ['gin_5fwebp_14',['gin_webp',['../group__gin__webp.html',1,'']]]
+  ['gin_5fremote_11',['gin_remote',['../group__gin__remote.html',1,'']]],
+  ['gin_5fsimd_12',['gin_simd',['../group__gin__simd.html',1,'']]],
+  ['gin_5fstandaloneplugin_13',['gin_standaloneplugin',['../group__gin__standaloneplugin.html',1,'']]],
+  ['gin_5fsvg_14',['gin_svg',['../group__gin__svg.html',1,'']]],
+  ['gin_5fwebp_15',['gin_webp',['../group__gin__webp.html',1,'']]]
 ];

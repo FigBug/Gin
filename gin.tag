@@ -570,6 +570,105 @@
     <filename>gin__threading_8test_8h.html</filename>
   </compound>
   <compound kind="file">
+    <name>utilities/gin_util.h</name>
+    <path>build/gin/utilities/</path>
+    <filename>utilities_2gin__util_8h.html</filename>
+    <class kind="class">PerlinNoise</class>
+    <class kind="class">RollingAverage</class>
+    <class kind="class">TimeProfiler</class>
+    <class kind="class">ActionMessageLambda</class>
+    <member kind="function">
+      <type>bool</type>
+      <name>compareAndReset</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga1ebc11c7a7ef780026ec5a519893895e</anchor>
+      <arglist>(bool &amp;flag)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>calculateRMS</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga458ba95824635202e48f00c71ced463d</anchor>
+      <arglist>(const float *values, int n)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>calculateMedian</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga823d49b3f21b97485eed223caec940c6</anchor>
+      <arglist>(const float *values, int n)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>shuffleArray</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga2b12545cc67dbe67062cc1ae6299546f</anchor>
+      <arglist>(juce::Random &amp;r, T &amp;array)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>versionStringToInt</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>ga9861500c17d0717e211dc67c84ccc261</anchor>
+      <arglist>(const juce::String &amp;versionString)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>delayedLambda</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>gaa8e8a032e70b00eb8b977cadd0fb09a8</anchor>
+      <arglist>(std::function&lt; void()&gt; callback, int delayMS)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>formatNumber</name>
+      <anchorfile>group__gin-utilities.html</anchorfile>
+      <anchor>gaebf910d77d287573a8f98f51c67f8d48</anchor>
+      <arglist>(T v)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gui/utilities/gin_util.h</name>
+    <path>build/gin_gui/utilities/</path>
+    <filename>gui_2utilities_2gin__util_8h.html</filename>
+    <class kind="class">AsyncDownload</class>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>createDesktopSnapshot</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gac2d2291dbc7913b65fd0e69e53873fa3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>createSnapshotOfNativeWindow</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad1ffdc179588a1832355270be9b5a516</anchor>
+      <arglist>(juce::Component &amp;c)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>gin_util.test.h</name>
     <path>build/gin/utilities/</path>
     <filename>gin__util_8test_8h.html</filename>
@@ -2160,105 +2259,6 @@
     <class kind="class">SystemClipboard</class>
   </compound>
   <compound kind="file">
-    <name>utilities/gin_util.h</name>
-    <path>build/gin/utilities/</path>
-    <filename>utilities_2gin__util_8h.html</filename>
-    <class kind="class">PerlinNoise</class>
-    <class kind="class">RollingAverage</class>
-    <class kind="class">TimeProfiler</class>
-    <class kind="class">ActionMessageLambda</class>
-    <member kind="function">
-      <type>bool</type>
-      <name>compareAndReset</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga1ebc11c7a7ef780026ec5a519893895e</anchor>
-      <arglist>(bool &amp;flag)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>calculateRMS</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga458ba95824635202e48f00c71ced463d</anchor>
-      <arglist>(const float *values, int n)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>calculateMedian</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga823d49b3f21b97485eed223caec940c6</anchor>
-      <arglist>(const float *values, int n)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>shuffleArray</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga2b12545cc67dbe67062cc1ae6299546f</anchor>
-      <arglist>(juce::Random &amp;r, T &amp;array)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>versionStringToInt</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>ga9861500c17d0717e211dc67c84ccc261</anchor>
-      <arglist>(const juce::String &amp;versionString)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>delayedLambda</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>gaa8e8a032e70b00eb8b977cadd0fb09a8</anchor>
-      <arglist>(std::function&lt; void()&gt; callback, int delayMS)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::String</type>
-      <name>formatNumber</name>
-      <anchorfile>group__gin-utilities.html</anchorfile>
-      <anchor>gaebf910d77d287573a8f98f51c67f8d48</anchor>
-      <arglist>(T v)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>gui/utilities/gin_util.h</name>
-    <path>build/gin_gui/utilities/</path>
-    <filename>gui_2utilities_2gin__util_8h.html</filename>
-    <class kind="class">AsyncDownload</class>
-    <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>createDesktopSnapshot</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gac2d2291dbc7913b65fd0e69e53873fa3</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>createSnapshotOfNativeWindow</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gad1ffdc179588a1832355270be9b5a516</anchor>
-      <arglist>(juce::Component &amp;c)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
     <name>gin_varianthelpers.h</name>
     <path>build/gin_gui/utilities/</path>
     <filename>gin__varianthelpers_8h.html</filename>
@@ -2787,6 +2787,27 @@
     <name>gin_smoothedparameter.test.h</name>
     <path>build/gin_plugin/plugin/</path>
     <filename>gin__smoothedparameter_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>gin_remoteaudioprocessor.h</name>
+    <path>build/gin_remote/remote/</path>
+    <filename>gin__remoteaudioprocessor_8h.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>addAudioProcessorCommands</name>
+      <anchorfile>group__gin__remote-remote.html</anchorfile>
+      <anchor>gace665ed34665f59679575fa9ed70ba0d</anchor>
+      <arglist>(RemoteServer &amp;server, juce::AudioProcessor &amp;processor)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_remoteserver.h</name>
+    <path>build/gin_remote/remote/</path>
+    <filename>gin__remoteserver_8h.html</filename>
+    <class kind="class">RemoteServer</class>
+    <class kind="struct">RemoteServer::Options</class>
+    <class kind="struct">RemoteServer::CommandResult</class>
+    <class kind="class">RemoteServer::Context</class>
   </compound>
   <compound kind="file">
     <name>gin_math.h</name>
@@ -5683,6 +5704,52 @@
       <arglist>(juce::Graphics &amp;g) override</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>RemoteServer::CommandResult</name>
+    <filename>structRemoteServer_1_1CommandResult.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>CommandResult</name>
+      <anchorfile>structRemoteServer_1_1CommandResult.html</anchorfile>
+      <anchor>ac48ceb575a56ae984ea48db2f29c200e</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>CommandResult</name>
+      <anchorfile>structRemoteServer_1_1CommandResult.html</anchorfile>
+      <anchor>a26fbb60401a1f8ac440b6d8bc0fa803d</anchor>
+      <arglist>(const juce::var &amp;v)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>ok</name>
+      <anchorfile>structRemoteServer_1_1CommandResult.html</anchorfile>
+      <anchor>aea8616ce524d1a37ca2077a13d12e3f2</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static CommandResult</type>
+      <name>fail</name>
+      <anchorfile>structRemoteServer_1_1CommandResult.html</anchorfile>
+      <anchor>acd2e83a1101d249b614920ab940b46a3</anchor>
+      <arglist>(const juce::String &amp;message)</arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::var</type>
+      <name>value</name>
+      <anchorfile>structRemoteServer_1_1CommandResult.html</anchorfile>
+      <anchor>a0371656d1d262f216d8a85ab9539a826</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>error</name>
+      <anchorfile>structRemoteServer_1_1CommandResult.html</anchorfile>
+      <anchor>a2d5999215e302378d4afa12501c6f9f9</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>CommentMetadata</name>
     <filename>classCommentMetadata.html</filename>
@@ -6031,6 +6098,38 @@
       <anchorfile>classConstantsStack.html</anchorfile>
       <anchor>a4fece72ca9e71e133b0e230d501a93ca</anchor>
       <arglist>(const juce::String &amp;name)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RemoteServer::Context</name>
+    <filename>classRemoteServer_1_1Context.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Context</name>
+      <anchorfile>classRemoteServer_1_1Context.html</anchorfile>
+      <anchor>a2eccfc40a0005f4bef33910a12df14f7</anchor>
+      <arglist>(RemoteServer &amp;s)</arglist>
+    </member>
+    <member kind="function">
+      <type>CommandResult</type>
+      <name>runOnMessageThread</name>
+      <anchorfile>classRemoteServer_1_1Context.html</anchorfile>
+      <anchor>ae05a9a7db4e2ae222d02878d7ac969e9</anchor>
+      <arglist>(std::function&lt; CommandResult()&gt; fn)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>sleep</name>
+      <anchorfile>classRemoteServer_1_1Context.html</anchorfile>
+      <anchor>a4d4cc51ab0d402c26d38db7073233799</anchor>
+      <arglist>(int ms)</arglist>
+    </member>
+    <member kind="variable">
+      <type>RemoteServer &amp;</type>
+      <name>server</name>
+      <anchorfile>classRemoteServer_1_1Context.html</anchorfile>
+      <anchor>a8039a19e750772a9d1139e24712c446e</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -14982,6 +15081,66 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>RemoteServer::Options</name>
+    <filename>structRemoteServer_1_1Options.html</filename>
+    <member kind="variable">
+      <type>int</type>
+      <name>port</name>
+      <anchorfile>structRemoteServer_1_1Options.html</anchorfile>
+      <anchor>a64c33f2cef921fdd551cff3f3aaec1ed</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>portRange</name>
+      <anchorfile>structRemoteServer_1_1Options.html</anchorfile>
+      <anchor>a7bcb9686b970d657384ce7630409b035</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>bindAddress</name>
+      <anchorfile>structRemoteServer_1_1Options.html</anchorfile>
+      <anchor>aa6bdc4e3c5db5041c8cbc68ff2a9cc2f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>messageThreadTimeoutMs</name>
+      <anchorfile>structRemoteServer_1_1Options.html</anchorfile>
+      <anchor>a75dcf59d1373b5f7057c3cfcfdf7dda4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>appName</name>
+      <anchorfile>structRemoteServer_1_1Options.html</anchorfile>
+      <anchor>ac1682c1324af08b5fb9f03f68094dcf7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>writeDiscoveryFile</name>
+      <anchorfile>structRemoteServer_1_1Options.html</anchorfile>
+      <anchor>a1dc62b2bb1e72d2eb5f5a3b5df0a0020</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>captureLogger</name>
+      <anchorfile>structRemoteServer_1_1Options.html</anchorfile>
+      <anchor>a85693aeebbc20b4377b4a823518660f7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>moveRealCursor</name>
+      <anchorfile>structRemoteServer_1_1Options.html</anchorfile>
+      <anchor>aebaf26ba39f74aa3c72085164b2c01e2</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>OscState</name>
     <filename>structOscState.html</filename>
     <base>FuncState</base>
@@ -18375,6 +18534,251 @@
       <anchorfile>classRealtimeEvent.html</anchorfile>
       <anchor>ab35f4c31917cf2e6e7af90902c65d910</anchor>
       <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RemoteServer</name>
+    <filename>classRemoteServer.html</filename>
+    <class kind="struct">RemoteServer::CommandResult</class>
+    <class kind="class">RemoteServer::Context</class>
+    <class kind="struct">RemoteServer::Options</class>
+    <member kind="typedef">
+      <type>std::function&lt; CommandResult(const juce::var &amp;args)&gt;</type>
+      <name>CommandHandler</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>a75d98d2a485dc1b23bf073c35d016c40</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>std::function&lt; CommandResult(Context &amp;, const juce::var &amp;args)&gt;</type>
+      <name>AsyncCommandHandler</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>ab64b8c1c5219b5058638f3e1597f217f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>std::function&lt; void(juce::Component &amp;, juce::DynamicObject &amp;info)&gt;</type>
+      <name>ComponentInfoProvider</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>ab7feebdd8543990dea8940a9251607e1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>RemoteServer</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>aa0d67864354502d28601f396d16dca0c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>RemoteServer</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>a5284648b04bbb0789c32b6fdc38bfe3f</anchor>
+      <arglist>(const Options &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~RemoteServer</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>af14ad17c8deb4fb4fc11c5dcdc95b49b</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>start</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>ad40690c8f9fd88ea22eaa3b1767f77bf</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>stop</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>a4bfeda15bfdf4b9fa25ec8c37374c2c1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isRunning</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>a101400cdb554b221762b2559a8f67b85</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getPort</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>ad62df01fb46f403e8d2d406541c1e009</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>const Options &amp;</type>
+      <name>getOptions</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>a2788c55013e7792d3a154c6291609cbf</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addCommand</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>a0a1edc5ea360b40fc7856aae996fcb1c</anchor>
+      <arglist>(const juce::String &amp;name, const juce::String &amp;description, const juce::String &amp;argsSpec, CommandHandler handler)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addAsyncCommand</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>ac4acfcef8a18e3567747744b5e6b495d</anchor>
+      <arglist>(const juce::String &amp;name, const juce::String &amp;description, const juce::String &amp;argsSpec, AsyncCommandHandler handler)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeCommand</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>ae1d72278c1c57253ee5ee335cca2854c</anchor>
+      <arglist>(const juce::String &amp;name)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addComponentInfoProvider</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>ad7194996a495af2825f260b177cf7aec</anchor>
+      <arglist>(ComponentInfoProvider)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>log</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>ad3045abfa97533bb7d8b6af871389721</anchor>
+      <arglist>(const juce::String &amp;line)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>describeComponent</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>a801b10c673accad6c4ed44b339ae621c</anchor>
+      <arglist>(juce::Component &amp;, bool full=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>describeTree</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>a0ccf21fb80fd2f82b72d36239934536d</anchor>
+      <arglist>(juce::Component &amp;, int depth=-1, bool visibleOnly=true, int maxNodes=5000)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::Array&lt; juce::Component * &gt;</type>
+      <name>findComponents</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>a789448bbff8a6fac1ff4ad6a63c340a4</anchor>
+      <arglist>(const juce::String &amp;selector, bool visibleOnly=true, juce::Component *root=nullptr)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::Component *</type>
+      <name>findComponent</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>a15c67e005c956e8832d9caf34236b787</anchor>
+      <arglist>(const juce::String &amp;selector, bool visibleOnly=true, juce::Component *root=nullptr)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getClassName</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>afe151d2efa7f96e6880d9872f5ad67d3</anchor>
+      <arglist>(juce::Component &amp;)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getComponentPath</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>aacacd2228b000373920ace79eebd4911</anchor>
+      <arglist>(juce::Component &amp;)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getComponentText</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>a318f0c589bf6b3ff110eb173d7d8d7ff</anchor>
+      <arglist>(juce::Component &amp;)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::var</type>
+      <name>getComponentValue</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>adc9e8b374c67486f2873142b2ca43a82</anchor>
+      <arglist>(juce::Component &amp;)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>setComponentValue</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>ae1e22460146e1c4c04a43c4009cfa382</anchor>
+      <arglist>(juce::Component &amp;, const juce::var &amp;value)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::var</type>
+      <name>getArg</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>aa75d258a052ccff480644cab888e3471</anchor>
+      <arglist>(const juce::var &amp;args, const char *name, const juce::var &amp;defaultValue={})</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>injectMouse</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>a94adaf027ddb6fa6838b821bb74605b6</anchor>
+      <arglist>(juce::Point&lt; float &gt; screenPos, juce::ModifierKeys mods, juce::Component *target=nullptr)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>injectWheel</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>a22557e62c163a01a93ff3ceebc671d3e</anchor>
+      <arglist>(juce::Point&lt; float &gt; screenPos, float deltaX, float deltaY, juce::ModifierKeys mods, juce::Component *target=nullptr)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>injectKey</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>a16a66faea7e5f61615b7f9c9c666bb68</anchor>
+      <arglist>(const juce::KeyPress &amp;, juce::Component *target=nullptr)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::Component *</type>
+      <name>getComponentAt</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>a6f66a85e2415da9c7a4c284025fcc290</anchor>
+      <arglist>(juce::Point&lt; int &gt; screenPos)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::ComponentPeer *</type>
+      <name>getPeerAt</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>a35e482a889500f7547bf7ce84a57d786</anchor>
+      <arglist>(juce::Point&lt; int &gt; screenPos)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::ComponentPeer *</type>
+      <name>getFocusedPeer</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>a17a989c23c918fe7687e1d3a3adbdc77</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>setMoveRealCursor</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>a5ecc5dde3b220edd1366fb86e53a673c</anchor>
+      <arglist>(bool shouldMove) noexcept</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>getMoveRealCursor</name>
+      <anchorfile>classRemoteServer.html</anchorfile>
+      <anchor>a3778fbe00f6368f9d7468fa0f426bccb</anchor>
+      <arglist>() noexcept</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -24119,6 +24523,49 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_gui-components</name>
+    <title>components</title>
+    <filename>group__gin__gui-components.html</filename>
+    <class kind="class">ComponentGrid</class>
+    <class kind="struct">ComponentGrid::DragInfo</class>
+    <class kind="class">ComponentViewer</class>
+    <class kind="class">GinLookAndFeel</class>
+    <class kind="class">MapViewer</class>
+    <class kind="class">PropertyComponentBase</class>
+    <class kind="class">FilePropertyComponent</class>
+    <class kind="class">ColourPropertyComponent</class>
+    <class kind="class">SVGButton</class>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin__gui-components.html</anchorfile>
+      <anchor>ga66410efb088d24a02a86b4c6191e2866</anchor>
+      <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component * &gt; children)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin__gui-components.html</anchorfile>
+      <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
+      <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
+    <class kind="class">AudioSamplerBufferComponent</class>
+    <class kind="class">AudioSamplerBufferComponent::ScopedViewState</class>
+    <class kind="class">DynamicsMeter</class>
+    <class kind="class">LevelMeter</class>
+    <class kind="class">MidiFileComponent</class>
+    <class kind="class">SpectrumAnalyzer</class>
+    <class kind="class">TriggeredScope</class>
+    <class kind="class">WaveformComponent</class>
+    <class kind="class">WavetableComponent</class>
+    <class kind="class">XYScope</class>
+  </compound>
+  <compound kind="group">
     <name>gin_plugin-components</name>
     <title>components</title>
     <filename>group__gin__plugin-components.html</filename>
@@ -24178,49 +24625,6 @@
       <anchorfile>group__gin__plugin-components.html</anchorfile>
       <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
       <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-    <class kind="class">AudioSamplerBufferComponent</class>
-    <class kind="class">AudioSamplerBufferComponent::ScopedViewState</class>
-    <class kind="class">DynamicsMeter</class>
-    <class kind="class">LevelMeter</class>
-    <class kind="class">MidiFileComponent</class>
-    <class kind="class">SpectrumAnalyzer</class>
-    <class kind="class">TriggeredScope</class>
-    <class kind="class">WaveformComponent</class>
-    <class kind="class">WavetableComponent</class>
-    <class kind="class">XYScope</class>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-components</name>
-    <title>components</title>
-    <filename>group__gin__gui-components.html</filename>
-    <class kind="class">ComponentGrid</class>
-    <class kind="struct">ComponentGrid::DragInfo</class>
-    <class kind="class">ComponentViewer</class>
-    <class kind="class">GinLookAndFeel</class>
-    <class kind="class">MapViewer</class>
-    <class kind="class">PropertyComponentBase</class>
-    <class kind="class">FilePropertyComponent</class>
-    <class kind="class">ColourPropertyComponent</class>
-    <class kind="class">SVGButton</class>
-    <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin__gui-components.html</anchorfile>
-      <anchor>ga66410efb088d24a02a86b4c6191e2866</anchor>
-      <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component * &gt; children)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin__gui-components.html</anchorfile>
-      <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
-      <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
     </member>
   </compound>
   <compound kind="group">
@@ -24521,16 +24925,16 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_webp-formats</name>
-    <title>formats</title>
-    <filename>group__gin__webp-formats.html</filename>
-    <class kind="class">WEBPImageFormat</class>
-  </compound>
-  <compound kind="group">
     <name>gin_graphics-formats</name>
     <title>formats</title>
     <filename>group__gin__graphics-formats.html</filename>
     <class kind="class">BMPImageFormat</class>
+  </compound>
+  <compound kind="group">
+    <name>gin_webp-formats</name>
+    <title>formats</title>
+    <filename>group__gin__webp-formats.html</filename>
+    <class kind="class">WEBPImageFormat</class>
   </compound>
   <compound kind="group">
     <name>gin-geometry</name>
@@ -24623,6 +25027,12 @@
     <subgroup>gin_plugin-resources</subgroup>
   </compound>
   <compound kind="group">
+    <name>gin_remote</name>
+    <title>gin_remote</title>
+    <filename>group__gin__remote.html</filename>
+    <subgroup>gin_remote-remote</subgroup>
+  </compound>
+  <compound kind="group">
     <name>gin_simd</name>
     <title>gin_simd</title>
     <filename>group__gin__simd.html</filename>
@@ -24646,6 +25056,25 @@
     <title>gin_webp</title>
     <filename>group__gin__webp.html</filename>
     <subgroup>gin_webp-formats</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>gin_gui-images</name>
+    <title>images</title>
+    <filename>group__gin__gui-images.html</filename>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>rasterizeSVG</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
+      <arglist>(juce::String svgText, int w, int h)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Path</type>
+      <name>parseSVGPath</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
+      <arglist>(const juce::String &amp;txt)</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>gin_graphics-images</name>
@@ -25128,25 +25557,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_gui-images</name>
-    <title>images</title>
-    <filename>group__gin__gui-images.html</filename>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>rasterizeSVG</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
-      <arglist>(juce::String svgText, int w, int h)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Path</type>
-      <name>parseSVGPath</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
-      <arglist>(const juce::String &amp;txt)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
     <name>gin_location-location</name>
     <title>location</title>
     <filename>group__gin__location-location.html</filename>
@@ -25267,6 +25677,22 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_remote-remote</name>
+    <title>remote</title>
+    <filename>group__gin__remote-remote.html</filename>
+    <class kind="class">RemoteServer</class>
+    <class kind="struct">RemoteServer::Options</class>
+    <class kind="struct">RemoteServer::CommandResult</class>
+    <class kind="class">RemoteServer::Context</class>
+    <member kind="function">
+      <type>void</type>
+      <name>addAudioProcessorCommands</name>
+      <anchorfile>group__gin__remote-remote.html</anchorfile>
+      <anchor>gace665ed34665f59679575fa9ed70ba0d</anchor>
+      <arglist>(RemoteServer &amp;server, juce::AudioProcessor &amp;processor)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
     <name>gin_plugin-resources</name>
     <title>resources</title>
     <filename>group__gin__plugin-resources.html</filename>
@@ -25302,6 +25728,265 @@
     <title>svg</title>
     <filename>group__gin__svg-svg.html</filename>
     <namespace>SVG</namespace>
+  </compound>
+  <compound kind="group">
+    <name>gin_gui-utilities</name>
+    <title>utilities</title>
+    <filename>group__gin__gui-utilities.html</filename>
+    <file>gin_varianthelpers.h</file>
+    <namespace>macOS</namespace>
+    <namespace>juce</namespace>
+    <class kind="class">LambdaTimer</class>
+    <class kind="class">LambdaAsyncUpdater</class>
+    <class kind="class">LambdaMouseListener</class>
+    <class kind="class">CoalescedTimer</class>
+    <class kind="class">ComponentMap</class>
+    <class kind="class">ElevatedFileCopy</class>
+    <class kind="class">ElevatedSession</class>
+    <class kind="class">ConstantsStack</class>
+    <class kind="class">ConstantsStack::ScopedSave</class>
+    <class kind="class">Parser</class>
+    <class kind="class">LayoutSupport</class>
+    <class kind="struct">LayoutSupport::Bounds</class>
+    <class kind="struct">LayoutSupport::JsonFile</class>
+    <class kind="class">OpenStreetMaps</class>
+    <class kind="class">OpenStreetMaps::Listener</class>
+    <class kind="class">SystemClipboard</class>
+    <class kind="class">AsyncDownload</class>
+    <class kind="struct">Property</class>
+    <class kind="struct">juce::VarIterator</class>
+    <class kind="struct">juce::VarIterator::NamedValue</class>
+    <member kind="typedef">
+      <type>std::ptrdiff_t</type>
+      <name>juce::VarIterator::difference_type</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga388faf47e202486a153ded4732148bd3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>NamedValue</type>
+      <name>juce::VarIterator::value_type</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2568e5c06333945b3b21bd06902e227f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>NamedValue &amp;</type>
+      <name>juce::VarIterator::reference</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gabdc270513e2833318b2b5c6dd30f09bd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>NamedValue *</type>
+      <name>juce::VarIterator::pointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gaa25ac98061cddab1f99f1a3b0e94ff9d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>std::forward_iterator_tag</type>
+      <name>juce::VarIterator::iterator_category</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga3155c127a8ef5e383beab0b3cd65f98a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>callOnMainThreadBlocking</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
+      <arglist>(std::function&lt; void()&gt; func)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>createDesktopSnapshot</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gac2d2291dbc7913b65fd0e69e53873fa3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>createSnapshotOfNativeWindow</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad1ffdc179588a1832355270be9b5a516</anchor>
+      <arglist>(juce::Component &amp;c)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>jsonObject</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga0b0991cd1a205f2dc8706dc91e0f3bdb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>std::string</type>
+      <name>toStdString</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad6aca58449544b3fdeb9d4c9f8560a90</anchor>
+      <arglist>(const juce::var &amp;v)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Property::Property</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9412f63da91a0a78713db5048973204b</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Property::Property</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gafb868a85098fecb91249b69f3e72b85e</anchor>
+      <arglist>(const juce::String &amp;k, const juce::var v)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>getPropertyWithDefault</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4a0e5a7a42a4e9d41ecb0efc2dc979a5</anchor>
+      <arglist>(const juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;defaultValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setProperty</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga50aa299c064e2ba23134d4271067f253</anchor>
+      <arglist>(juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;value)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeProperty</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga8d3d517f8553687ae54a491635d3f3cf</anchor>
+      <arglist>(juce::var &amp;v, const juce::Identifier &amp;i)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>setJSONPointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga50593c5a205f3ed201863222136cc007</anchor>
+      <arglist>(juce::var &amp;v, juce::String pointer, const juce::var &amp;newValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>getJSONPointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad37d4944a1b5a94d959f2c74d9ca36ec</anchor>
+      <arglist>(const juce::var &amp;v, juce::String pointer, const juce::var &amp;defaultValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hasJSONPointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2c46f3f0d1e3e9e734b529b8abcde6cf</anchor>
+      <arglist>(const juce::var &amp;v, juce::String pointer)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>removeJsonComments</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga8d83bb854851e5039749da191fc5765e</anchor>
+      <arglist>(const juce::String &amp;input)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>juce::VarIterator::VarIterator</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga73804ae2be599cf5e40cf379ff99d04d</anchor>
+      <arglist>(const juce::var &amp;, bool isEnd)</arglist>
+    </member>
+    <member kind="function">
+      <type>VarIterator &amp;</type>
+      <name>juce::VarIterator::operator++</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gadaf3cbf9c09218e1220f273bc387a628</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>juce::VarIterator::operator==</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gaf191a2ab9a88f5ff7c6063c488f10069</anchor>
+      <arglist>(const VarIterator &amp;) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>juce::VarIterator::operator!=</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gacb05ca9805cc361ca4e7f92504022406</anchor>
+      <arglist>(const VarIterator &amp;) const</arglist>
+    </member>
+    <member kind="function">
+      <type>NamedValue</type>
+      <name>juce::VarIterator::operator*</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga883e3ab914c93f262b6fa1bff971b8b1</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>VarIterator</type>
+      <name>juce::begin</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga08585dbaa981f89e24e386653159db3f</anchor>
+      <arglist>(const juce::var &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>VarIterator</type>
+      <name>juce::end</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga27df0f06f312d3eb5ddd40693a1941d9</anchor>
+      <arglist>(const juce::var &amp;)</arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>Property::key</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga036d8f318fffa88cef21d494ed405443</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::var</type>
+      <name>Property::value</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad6cc4703b5f5315e1b4e7dc7266ecbad</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::var</type>
+      <name>juce::VarIterator::NamedValue::name</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gab7f29046e16e28190c441e4b50e638d7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::var</type>
+      <name>juce::VarIterator::NamedValue::value</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga3e76d00fc7f78298c56b3094edddd407</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>gin-utilities</name>
@@ -25688,265 +26373,6 @@
       <anchorfile>group__gin-utilities.html</anchorfile>
       <anchor>ga88f482bf81fb3e423fa1e3926dfaa9a6</anchor>
       <arglist>(const juce::String &amp;jsonText)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-utilities</name>
-    <title>utilities</title>
-    <filename>group__gin__gui-utilities.html</filename>
-    <file>gin_varianthelpers.h</file>
-    <namespace>macOS</namespace>
-    <namespace>juce</namespace>
-    <class kind="class">LambdaTimer</class>
-    <class kind="class">LambdaAsyncUpdater</class>
-    <class kind="class">LambdaMouseListener</class>
-    <class kind="class">CoalescedTimer</class>
-    <class kind="class">ComponentMap</class>
-    <class kind="class">ElevatedFileCopy</class>
-    <class kind="class">ElevatedSession</class>
-    <class kind="class">ConstantsStack</class>
-    <class kind="class">ConstantsStack::ScopedSave</class>
-    <class kind="class">Parser</class>
-    <class kind="class">LayoutSupport</class>
-    <class kind="struct">LayoutSupport::Bounds</class>
-    <class kind="struct">LayoutSupport::JsonFile</class>
-    <class kind="class">OpenStreetMaps</class>
-    <class kind="class">OpenStreetMaps::Listener</class>
-    <class kind="class">SystemClipboard</class>
-    <class kind="class">AsyncDownload</class>
-    <class kind="struct">Property</class>
-    <class kind="struct">juce::VarIterator</class>
-    <class kind="struct">juce::VarIterator::NamedValue</class>
-    <member kind="typedef">
-      <type>std::ptrdiff_t</type>
-      <name>juce::VarIterator::difference_type</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga388faf47e202486a153ded4732148bd3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>NamedValue</type>
-      <name>juce::VarIterator::value_type</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga2568e5c06333945b3b21bd06902e227f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>NamedValue &amp;</type>
-      <name>juce::VarIterator::reference</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gabdc270513e2833318b2b5c6dd30f09bd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>NamedValue *</type>
-      <name>juce::VarIterator::pointer</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gaa25ac98061cddab1f99f1a3b0e94ff9d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>std::forward_iterator_tag</type>
-      <name>juce::VarIterator::iterator_category</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga3155c127a8ef5e383beab0b3cd65f98a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>callOnMainThreadBlocking</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
-      <arglist>(std::function&lt; void()&gt; func)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>createDesktopSnapshot</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gac2d2291dbc7913b65fd0e69e53873fa3</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>createSnapshotOfNativeWindow</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gad1ffdc179588a1832355270be9b5a516</anchor>
-      <arglist>(juce::Component &amp;c)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>jsonObject</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga0b0991cd1a205f2dc8706dc91e0f3bdb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>std::string</type>
-      <name>toStdString</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gad6aca58449544b3fdeb9d4c9f8560a90</anchor>
-      <arglist>(const juce::var &amp;v)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Property::Property</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga9412f63da91a0a78713db5048973204b</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Property::Property</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gafb868a85098fecb91249b69f3e72b85e</anchor>
-      <arglist>(const juce::String &amp;k, const juce::var v)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>getPropertyWithDefault</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga4a0e5a7a42a4e9d41ecb0efc2dc979a5</anchor>
-      <arglist>(const juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;defaultValue)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setProperty</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga50aa299c064e2ba23134d4271067f253</anchor>
-      <arglist>(juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;value)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>removeProperty</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga8d3d517f8553687ae54a491635d3f3cf</anchor>
-      <arglist>(juce::var &amp;v, const juce::Identifier &amp;i)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>setJSONPointer</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga50593c5a205f3ed201863222136cc007</anchor>
-      <arglist>(juce::var &amp;v, juce::String pointer, const juce::var &amp;newValue)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>getJSONPointer</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gad37d4944a1b5a94d959f2c74d9ca36ec</anchor>
-      <arglist>(const juce::var &amp;v, juce::String pointer, const juce::var &amp;defaultValue)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>hasJSONPointer</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga2c46f3f0d1e3e9e734b529b8abcde6cf</anchor>
-      <arglist>(const juce::var &amp;v, juce::String pointer)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::String</type>
-      <name>removeJsonComments</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga8d83bb854851e5039749da191fc5765e</anchor>
-      <arglist>(const juce::String &amp;input)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>juce::VarIterator::VarIterator</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga73804ae2be599cf5e40cf379ff99d04d</anchor>
-      <arglist>(const juce::var &amp;, bool isEnd)</arglist>
-    </member>
-    <member kind="function">
-      <type>VarIterator &amp;</type>
-      <name>juce::VarIterator::operator++</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gadaf3cbf9c09218e1220f273bc387a628</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>juce::VarIterator::operator==</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gaf191a2ab9a88f5ff7c6063c488f10069</anchor>
-      <arglist>(const VarIterator &amp;) const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>juce::VarIterator::operator!=</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gacb05ca9805cc361ca4e7f92504022406</anchor>
-      <arglist>(const VarIterator &amp;) const</arglist>
-    </member>
-    <member kind="function">
-      <type>NamedValue</type>
-      <name>juce::VarIterator::operator*</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga883e3ab914c93f262b6fa1bff971b8b1</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>VarIterator</type>
-      <name>juce::begin</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga08585dbaa981f89e24e386653159db3f</anchor>
-      <arglist>(const juce::var &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>VarIterator</type>
-      <name>juce::end</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga27df0f06f312d3eb5ddd40693a1941d9</anchor>
-      <arglist>(const juce::var &amp;)</arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>Property::key</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga036d8f318fffa88cef21d494ed405443</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::var</type>
-      <name>Property::value</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gad6cc4703b5f5315e1b4e7dc7266ecbad</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::var</type>
-      <name>juce::VarIterator::NamedValue::name</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gab7f29046e16e28190c441e4b50e638d7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::var</type>
-      <name>juce::VarIterator::NamedValue::value</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga3e76d00fc7f78298c56b3094edddd407</anchor>
-      <arglist></arglist>
     </member>
   </compound>
 </tagfile>
