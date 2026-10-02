@@ -333,8 +333,15 @@ def cli(argv):
     # anything that isn't a built in subcommand is sent to the server as is,
     # so product specific commands work without the raw prefix: gin_remote.py loadPreset '{"preset":"x"}'
     known = set(sub.choices.keys()) | {"-h", "--help"}
-    for i, tok in enumerate(argv):
+    takes_value = {"--port", "--app", "--host"}
+    i = 0
+    while i < len(argv):
+        tok = argv[i]
+        if tok in takes_value:
+            i += 2
+            continue
         if tok.startswith("-"):
+            i += 1
             continue
         if tok not in known:
             argv = argv[:i] + ["raw"] + argv[i:]
