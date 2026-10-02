@@ -32,10 +32,23 @@ public:
        #endif
 
         mainWindow = std::make_unique<MainWindow> (getApplicationName());
+
+        // Remote control for tools/gin_remote: gin_remote.py tree, click, screenshot etc.
+        remote = std::make_unique<gin::RemoteServer>();
+        remote->addCommand ("demoInfo", "Example of a product specific command", R"({"shout":"bool: upper case the answer"})",
+                            [] (const juce::var& args)
+                            {
+                                juce::String s = "Hello from the Gin demo";
+                                if (bool (gin::RemoteServer::getArg (args, "shout", false)))
+                                    s = s.toUpperCase();
+                                return gin::RemoteServer::CommandResult (juce::var (s));
+                            });
+        remote->start();
     }
 
     void shutdown() override
     {
+        remote = nullptr;
         mainWindow = nullptr;
     }
 
@@ -81,6 +94,7 @@ public:
 
 private:
     std::unique_ptr<MainWindow> mainWindow;
+    std::unique_ptr<gin::RemoteServer> remote;
 };
 
 //==============================================================================
