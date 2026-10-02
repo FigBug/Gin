@@ -11,8 +11,9 @@
  #include <unistd.h>
 #endif
 
-// clang on windows uses msvc name mangling for compatibility
-#if !JUCE_WINDOWS
+// clang on windows uses msvc name mangling for compatibility. JUCE_WINDOWS isn't
+// defined until the JUCE headers below are included, so test the compiler macro here
+#ifndef _WIN32
  #include <cxxabi.h>
 #endif
 
