@@ -10,6 +10,7 @@ juce_add_module(gin_location)
 juce_add_module(gin_metadata)
 juce_add_module(gin_network)
 juce_add_module(gin_plugin)
+juce_add_module(gin_remote)
 juce_add_module(gin_svg)
 juce_add_module(gin_webp)
 

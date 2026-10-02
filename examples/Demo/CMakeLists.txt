@@ -43,6 +43,7 @@ target_link_libraries (Demo PRIVATE
 						gin_dsp
 						gin_metadata
 						gin_network
+						gin_remote
 						gin_svg
 						gin_simd
 
