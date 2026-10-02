@@ -14012,8 +14012,8 @@
       <type>void</type>
       <name>mouseUp</name>
       <anchorfile>classModulationSourceButton.html</anchorfile>
-      <anchor>a5045f460277ec0e6683d0ce83a5ddbbc</anchor>
-      <arglist>(const juce::MouseEvent &amp;) override</arglist>
+      <anchor>aa4d296c82472778c559f657634a32f70</anchor>
+      <arglist>(const juce::MouseEvent &amp;e) override</arglist>
     </member>
     <member kind="function">
       <type>void</type>
