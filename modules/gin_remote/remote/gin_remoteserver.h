@@ -81,6 +81,10 @@ public:
         bool writeDiscoveryFile = true;
         /** Route juce::Logger output into the log command's buffer. */
         bool captureLogger = true;
+        /** Move the real cursor to the point being clicked. JUCE reports the OS cursor position for
+            MouseInputSource::getScreenPosition(), so code that asks what is under the mouse only agrees
+            with injected events if the cursor is actually there. Costs you your cursor while a client drives the UI. */
+        bool moveRealCursor = true;
     };
 
     //==============================================================================
@@ -210,6 +214,10 @@ public:
     /** The focused peer, falling back to the first one. */
     static juce::ComponentPeer* getFocusedPeer();
 
+    /** See Options::moveRealCursor. Applies to every server in the process. */
+    static void setMoveRealCursor (bool shouldMove) noexcept    { moveRealCursor = shouldMove; }
+    static bool getMoveRealCursor() noexcept                     { return moveRealCursor; }
+
 private:
     //==============================================================================
     struct Command
@@ -255,6 +263,8 @@ private:
     std::unique_ptr<CapturingLogger> capturingLogger;
 
     int screenshotCounter = 0;
+
+    static inline std::atomic<bool> moveRealCursor { true };
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (RemoteServer)
 };

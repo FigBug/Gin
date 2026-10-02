@@ -72,6 +72,7 @@ RemoteServer::RemoteServer() : RemoteServer (Options()) {}
 RemoteServer::RemoteServer (const Options& o)
     : juce::Thread ("gin::RemoteServer"), options (o)
 {
+    moveRealCursor = options.moveRealCursor;
     addBuiltInCommands();
 }
 
@@ -698,6 +699,9 @@ bool RemoteServer::injectMouse (juce::Point<float> screenPos, juce::ModifierKeys
     if (peer == nullptr)
         return false;
 
+    if (moveRealCursor)
+        juce::Desktop::setMousePosition (screenPos.toInt());
+
     // If the window had to be raised, JUCE has no idea what is under the mouse yet. A plain
     // move fixes that, otherwise a press that arrives first would be dropped.
     if (ensurePeerIsHittable (*peer, screenPos))
@@ -722,6 +726,9 @@ bool RemoteServer::injectWheel (juce::Point<float> screenPos, float deltaX, floa
     auto peer = resolvePeer (screenPos, target);
     if (peer == nullptr)
         return false;
+
+    if (moveRealCursor)
+        juce::Desktop::setMousePosition (screenPos.toInt());
 
     ensurePeerIsHittable (*peer, screenPos);
 

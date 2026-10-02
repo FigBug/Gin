@@ -326,7 +326,9 @@ def cli(argv):
     s.add_argument("cmd")
     s.add_argument("args", nargs="?", default="{}")
 
-    sub.add_parser("mcp", help="run as an MCP server on stdio")
+    s = sub.add_parser("mcp", help="run as an MCP server on stdio")
+    s.add_argument("--port", type=int, dest="mcp_port")
+    s.add_argument("--app", dest="mcp_app")
 
     # anything that isn't a built in subcommand is sent to the server as is,
     # so product specific commands work without the raw prefix: gin_remote.py loadPreset '{"preset":"x"}'
@@ -352,7 +354,7 @@ def cli(argv):
         return 0
 
     if a.command == "mcp":
-        return mcp_main(port=a.port, app=a.app, host=a.host)
+        return mcp_main(port=a.port or a.mcp_port, app=a.app or a.mcp_app, host=a.host)
 
     c = pick_server(a.port, a.app, a.host)
     try:

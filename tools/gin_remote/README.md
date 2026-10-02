@@ -122,6 +122,10 @@ returned as inline images so the agent sees them without any copy and paste. `tr
 - JUCE drops mouse events for a window that another application covers at that point. The
   server raises the window before injecting if that is the case, so your app will pop in
   front of the terminal on the first click.
+- The real cursor is moved to each click or drag point by default (`Options::moveRealCursor`).
+  JUCE reports the OS cursor for `MouseInputSource::getScreenPosition()`, so without this any
+  code that asks what is under the mouse disagrees with the injected events. Expect to lose
+  your cursor while a client is driving the UI.
 - Keys go to the focused component in the target's window. Use `focus` first if another
   window has focus.
 - `log` returns `juce::Logger` output. `DBG` on macOS and Windows writes straight to the
