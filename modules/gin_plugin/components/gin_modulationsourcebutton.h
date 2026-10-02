@@ -46,8 +46,9 @@ public:
         }
     }
 
-    void mouseUp (const juce::MouseEvent&) override
+    void mouseUp (const juce::MouseEvent& e) override
     {
+        juce::Button::mouseUp (e);
         dragging = false;
     }
 
