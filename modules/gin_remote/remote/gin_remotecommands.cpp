@@ -674,6 +674,18 @@ void RemoteServer::addBuiltInCommands()
         return Result (juce::var (obj));
     });
 
+    addCommand ("config", "Read or change server behaviour at runtime",
+                R"({"moveRealCursor":"bool: warp the OS cursor to injected mouse positions"})",
+                [] (const juce::var& args)
+    {
+        if (args.hasProperty ("moveRealCursor"))
+            setMoveRealCursor (bool (args["moveRealCursor"]));
+
+        auto obj = new juce::DynamicObject();
+        obj->setProperty ("moveRealCursor", getMoveRealCursor());
+        return Result (juce::var (obj));
+    });
+
     addCommand ("commands", "List available commands", "{}", [this] (const juce::var&)
     {
         juce::Array<juce::var> list;
@@ -906,9 +918,11 @@ void RemoteServer::addBuiltInCommands()
         if (! res.ok())
             return res;
 
+        // let any real mouse moved event caused by warping the cursor drain before pressing
+        ctx.sleep (getMoveRealCursor() ? 60 : 10);
+
         for (int i = 0; i < count; i++)
         {
-            ctx.sleep (10);
             res = ctx.runOnMessageThread ([&] { return Result (injectMouse (pos, mods.withFlags (buttonMod), nullptr)); });
             ctx.sleep (20);
             res = ctx.runOnMessageThread ([&] { return Result (injectMouse (pos, mods, nullptr)); });
@@ -949,7 +963,7 @@ void RemoteServer::addBuiltInCommands()
         if (! res.ok())
             return res;
 
-        ctx.sleep (10);
+        ctx.sleep (getMoveRealCursor() ? 60 : 10);
         ctx.runOnMessageThread ([&] { return Result (injectMouse (start, mods.withFlags (buttonMod), nullptr)); });
 
         for (int i = 1; i <= steps; i++)
@@ -969,7 +983,7 @@ void RemoteServer::addBuiltInCommands()
     });
 
     addAsyncCommand ("mouse", "Low level mouse control: move, down or up",
-                     R"({"action":"string!: move|down|up","target":"string: selector","x":"number: screen x, or offset within target","y":"number: screen y, or offset within target","button":"string: left|right|middle","mods":"array: shift|ctrl|alt|cmd"})",
+                     R"({"action":"string!: move|down|up","target":"string: selector","x":"number: screen x, or offset within target","y":"number: screen y, or offset within target","button":"string: left|right|middle","held":"bool: keep the button pressed during a move","mods":"array: shift|ctrl|alt|cmd"})",
                      [resolvePoint] (Context& ctx, const juce::var& args)
     {
         auto action = getArg (args, "action", "move").toString().toLowerCase();
@@ -983,10 +997,12 @@ void RemoteServer::addBuiltInCommands()
             if (auto err = resolvePoint (args, comp, pos); err.isNotEmpty())
                 return Result::fail (err);
 
+            bool held = bool (getArg (args, "held", false));
+
             bool ok = false;
             if (action == "down")       ok = injectMouse (pos, mods.withFlags (buttonMod), comp);
             else if (action == "up")    ok = injectMouse (pos, mods, comp);
-            else                        ok = injectMouse (pos, mods, comp);
+            else                        ok = injectMouse (pos, held ? mods.withFlags (buttonMod) : mods, comp);
 
             return ok ? Result (pointToVar (pos.toInt())) : Result::fail ("No window at " + pos.toString());
         });

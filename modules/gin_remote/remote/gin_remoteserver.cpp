@@ -685,7 +685,10 @@ static bool ensurePeerIsHittable (juce::ComponentPeer& peer, juce::Point<float> 
     if (peer.contains (local, true) || ! peer.getBounds().contains (screenPos.toInt()))
         return false;
 
-    peer.toFront (false);
+    // Ordering the window to the front is not enough when another application is active,
+    // so make this the foreground process too. That is what a user clicking it would do.
+    juce::Process::makeForegroundProcess();
+    peer.toFront (true);
 
     for (int i = 0; i < 200 && ! peer.contains (local, true); i++)
         juce::Thread::sleep (5);
@@ -699,7 +702,9 @@ bool RemoteServer::injectMouse (juce::Point<float> screenPos, juce::ModifierKeys
     if (peer == nullptr)
         return false;
 
-    if (moveRealCursor)
+    // Only warp while no button is held: the warp posts a real mouse moved event, and one
+    // of those arriving mid press (with no button in its modifiers) reads as a release.
+    if (moveRealCursor && ! mods.isAnyMouseButtonDown() && juce::Desktop::getMousePosition().getDistanceFrom (screenPos.toInt()) > 1)
         juce::Desktop::setMousePosition (screenPos.toInt());
 
     // If the window had to be raised, JUCE has no idea what is under the mouse yet. A plain
@@ -727,7 +732,7 @@ bool RemoteServer::injectWheel (juce::Point<float> screenPos, float deltaX, floa
     if (peer == nullptr)
         return false;
 
-    if (moveRealCursor)
+    if (moveRealCursor && ! mods.isAnyMouseButtonDown() && juce::Desktop::getMousePosition().getDistanceFrom (screenPos.toInt()) > 1)
         juce::Desktop::setMousePosition (screenPos.toInt());
 
     ensurePeerIsHittable (*peer, screenPos);
