@@ -73,6 +73,12 @@ public:
         blockerR.setSampleRate (float (sr));
         blockerL.setCutoff (10.0f);
         blockerR.setCutoff (10.0f);
+
+        if (sampleRate > 0)
+        {
+            leftGain.reset(sampleRate, 0.05);
+            rightGain.reset(sampleRate, 0.05);
+        }
     }
 
     void noteOn (float p = -1);
@@ -131,6 +137,9 @@ public:
             auto todo = std::min (samps, int ((1.0f - phase) / delta) + 1);
             samps -= todo;
 
+            leftGain.setTargetValue(params.leftGain);
+            rightGain.setTargetValue(params.rightGain);
+
            #if GIN_HAS_SIMD
             for (; todo >= 4; todo -= 4)
             {
@@ -156,8 +165,8 @@ public:
                 auto s = table->processLinear (note, std::min (almostOne, phase));
                 postProcess (params, s);
 
-                *l++ += s * params.leftGain;
-                *r++ += s * params.rightGain;
+                *l++ += s * leftGain.getNextValue();
+                *r++ += s * rightGain.getNextValue();
 
                 phase += delta;
             }
@@ -192,6 +201,9 @@ public:
         {
             auto todo = std::min (samps, int ((1.0f - phase) / delta) + 1);
             samps -= todo;
+            
+            leftGain.setTargetValue(params.leftGain);
+            rightGain.setTargetValue(params.rightGain);
 
            #if GIN_HAS_SIMD
             for (; todo >= 4; todo -= 4)
@@ -205,7 +217,7 @@ public:
 
                 lVec += s * params.leftGain;
                 rVec += s * params.rightGain;
-
+                
                 lVec.store (l); l += 4;
                 rVec.store (r); r += 4;
 
@@ -218,8 +230,8 @@ public:
                 auto s = table->processLinear (note, phaseDistortion (std::min (almostOne, phase), params.bend, params.formant));
                 postProcess (params, s);
 
-                *l++ += s * params.leftGain;
-                *r++ += s * params.rightGain;
+                *l++ += s * leftGain.getNextValue();
+                *r++ += s * rightGain.getNextValue();
 
                 phase += delta;
             }
@@ -258,6 +270,9 @@ public:
         {
             auto todo = std::min (samps, int ((1.0f - phase) / delta) + 1);
             samps -= todo;
+            
+            leftGain.setTargetValue(params.leftGain);
+            rightGain.setTargetValue(params.rightGain);
 
            #if GIN_HAS_SIMD
             for (; todo >= 4; todo -= 4)
@@ -290,8 +305,8 @@ public:
                 auto s = s1 * phase + s2 * (1.0f - phase);
                 postProcess (params, s);
 
-                *l++ += s * params.leftGain;
-                *r++ += s * params.rightGain;
+                *l++ += s * leftGain.getNextValue();
+                *r++ += s * rightGain.getNextValue();
 
                 phase += delta;
             }
@@ -370,6 +385,8 @@ private:
 
     DCBlocker blockerL;
     DCBlocker blockerR;
+
+    juce::SmoothedValue<float, juce::ValueSmoothingTypes::Linear> leftGain, rightGain;
 
     static constexpr float almostOne = { 1.0f - std::numeric_limits<float>::epsilon() };
 };
