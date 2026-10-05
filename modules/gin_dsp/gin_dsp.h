@@ -84,6 +84,10 @@ namespace gin
 
 #include "dsp/gin_audioutil.h"
 #include "dsp/gin_leveltracker.h"
+#include "dsp/gin_loudnessmeter.h"
+#include "dsp/gin_truepeakmeter.h"
+#include "dsp/gin_rmsmeter.h"
+#include "dsp/gin_correlationmeter.h"
 #include "dsp/gin_scratchbuffer.h"
 
 #include "dsp/gin_adsr.h"
