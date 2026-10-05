@@ -1,8 +1,8 @@
 var searchData=
 [
   ['a_0',['a',['../classLinearRegression.html#a9afb5e0ec8d6cbb6ac46e5915afc57ec',1,'LinearRegression::a'],['../classSpline_1_1Element.html#aa20a7343d5bfabf930f48bd5e88d9916',1,'Spline::Element::a'],['../classEllipse.html#a5fb56e7b1960b8e127deccbc91f3aa8d',1,'Ellipse::a']]],
-  ['a1_1',['a1',['../structBiquad.html#a8298f5e0871449dc6bd6741231c1d3fb',1,'Biquad']]],
-  ['a2_2',['a2',['../structBiquad.html#ae7beb3858e3230b81fc9aff882f04431',1,'Biquad']]],
+  ['a1_1',['a1',['../structBiquad.html#a8298f5e0871449dc6bd6741231c1d3fb',1,'Biquad::a1'],['../structKWeightingFilter_1_1Coefficients.html#abda4401dddfcee03888add413ad60368',1,'KWeightingFilter::Coefficients::a1']]],
+  ['a2_2',['a2',['../structBiquad.html#ae7beb3858e3230b81fc9aff882f04431',1,'Biquad::a2'],['../structKWeightingFilter_1_1Coefficients.html#ac345fc2bef165ecda83bd2fa574bb637',1,'KWeightingFilter::Coefficients::a2']]],
   ['actualprocessorchannels_3',['actualProcessorChannels',['../classAudioProcessorPlayer.html#a84628d62bbeeadf4ff77e143de301bc0',1,'AudioProcessorPlayer']]],
   ['add_4',['add',['../namespaceAssets.html#a29d2500065afcb02888418ee638563d8',1,'Assets']]],
   ['addbutton_5',['addButton',['../classTitleBar.html#acce8ac24446a1dbc0fb3fb0e11c9f84d',1,'TitleBar']]],

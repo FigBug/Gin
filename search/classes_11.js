@@ -8,5 +8,6 @@ var searchData=
   ['resamplingfifo_5',['ResamplingFifo',['../classResamplingFifo.html',1,'']]],
   ['retrospectivebuffercomponent_6',['RetrospectiveBufferComponent',['../classRetrospectiveBufferComponent.html',1,'']]],
   ['riffparser_7',['RIFFParser',['../classRIFFParser.html',1,'']]],
-  ['rollingaverage_8',['RollingAverage',['../classRollingAverage.html',1,'']]]
+  ['rmsmeter_8',['RMSMeter',['../classRMSMeter.html',1,'']]],
+  ['rollingaverage_9',['RollingAverage',['../classRollingAverage.html',1,'']]]
 ];

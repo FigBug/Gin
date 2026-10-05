@@ -23,5 +23,6 @@ var searchData=
   ['triangle_20',['triangle',['../group__gin__dsp-dsp.html#gac1ca4d0b776735a17f87d61c90741d45',1,'gin_bandlimitedlookuptable.h']]],
   ['triggerasyncupdate_21',['triggerAsyncUpdate',['../classRealtimeAsyncUpdater.html#aee4e7bf67d31d0bb574132bfd102f57f',1,'RealtimeAsyncUpdater']]],
   ['triggeredscope_22',['TriggeredScope',['../classTriggeredScope.html#a8ed01ea728d7ee2800bcfe0caef7516b',1,'TriggeredScope']]],
-  ['turnoffallvoices_23',['turnOffAllVoices',['../classSynthesiser.html#a98071b76981dcb6f125cf079595c8ede',1,'Synthesiser']]]
+  ['truepeakmeter_23',['TruePeakMeter',['../classTruePeakMeter.html#a327b178ed9c60bbfd5ea3c272049dd1a',1,'TruePeakMeter']]],
+  ['turnoffallvoices_24',['turnOffAllVoices',['../classSynthesiser.html#a98071b76981dcb6f125cf079595c8ede',1,'Synthesiser']]]
 ];

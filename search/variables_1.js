@@ -1,14 +1,14 @@
 var searchData=
 [
   ['b_0',['b',['../classLinearRegression.html#aa258a2c864179aaff99098dea9abf1cb',1,'LinearRegression::b'],['../classSpline_1_1Element.html#aa17608c49869d7129452fd777f39ee5c',1,'Spline::Element::b'],['../classEllipse.html#a9b90b5b9f70e55aed03184d13cdea464',1,'Ellipse::b']]],
-  ['b0_1',['b0',['../structBiquad.html#a0e93302dc1e1e2b092aba811b21e6de1',1,'Biquad']]],
-  ['b1_2',['b1',['../structBiquad.html#a14e44bc8dbf9add3d8dba4d707ecd642',1,'Biquad']]],
-  ['b2_3',['b2',['../structBiquad.html#a365da3ef2da6d9a992f81ad5fc970659',1,'Biquad']]],
+  ['b0_1',['b0',['../structBiquad.html#a0e93302dc1e1e2b092aba811b21e6de1',1,'Biquad::b0'],['../structKWeightingFilter_1_1Coefficients.html#ac44a421ad590751f18a351e0cc503287',1,'KWeightingFilter::Coefficients::b0']]],
+  ['b1_2',['b1',['../structBiquad.html#a14e44bc8dbf9add3d8dba4d707ecd642',1,'Biquad::b1'],['../structKWeightingFilter_1_1Coefficients.html#a492f33ff66e5b968c2cd87e259748e9a',1,'KWeightingFilter::Coefficients::b1']]],
+  ['b2_3',['b2',['../structBiquad.html#a365da3ef2da6d9a992f81ad5fc970659',1,'Biquad::b2'],['../structKWeightingFilter_1_1Coefficients.html#a5115f385b46138cf53468b850f7b069b',1,'KWeightingFilter::Coefficients::b2']]],
   ['barlowregular_5fttf_4',['BarlowRegular_ttf',['../namespaceResources.html#abbddb191fa7624c2d2127ce3b537b898',1,'Resources']]],
   ['barlowregular_5fttfsize_5',['BarlowRegular_ttfSize',['../namespaceResources.html#ab6e0bb1c70ec3ed211118f968880cd2f',1,'Resources']]],
   ['barlowthin_5fttf_6',['BarlowThin_ttf',['../namespaceResources.html#ae4ad6d277ad33de26e02e1572510d8dc',1,'Resources']]],
   ['barlowthin_5fttfsize_7',['BarlowThin_ttfSize',['../namespaceResources.html#ae17a5aae2e3106082be4c8b5d3e61bf9',1,'Resources']]],
-  ['bend_8',['bend',['../structWTOscillator_1_1Params.html#a1bb44ee47a18bb34bb4158461bf2889d',1,'WTOscillator::Params::bend'],['../structWTVoicedStereoOscillatorParams.html#a22356727c51d1694705bd8e9f4714a29',1,'WTVoicedStereoOscillatorParams::bend']]],
+  ['bend_8',['bend',['../structWTVoicedStereoOscillatorParams.html#a22356727c51d1694705bd8e9f4714a29',1,'WTVoicedStereoOscillatorParams::bend'],['../structWTOscillator_1_1Params.html#a1bb44ee47a18bb34bb4158461bf2889d',1,'WTOscillator::Params::bend']]],
   ['bindaddress_9',['bindAddress',['../structRemoteServer_1_1Options.html#aa6bdc4e3c5db5041c8cbc68ff2a9cc2f',1,'RemoteServer::Options']]],
   ['bipolar_10',['bipolar',['../namespaceAssets.html#ac3468e24409dbe47e8293799e3727311',1,'Assets']]],
   ['blocksize_11',['blockSize',['../classAudioProcessorPlayer.html#ab69404d0d35facc981eb313b223c590c',1,'AudioProcessorPlayer']]],

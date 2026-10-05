@@ -1150,6 +1150,17 @@
     <filename>gin__bitcrusher_8test_8h.html</filename>
   </compound>
   <compound kind="file">
+    <name>gin_correlationmeter.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__correlationmeter_8h.html</filename>
+    <class kind="class">CorrelationMeter</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_correlationmeter.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__correlationmeter_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_dcblocker.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__dcblocker_8h.html</filename>
@@ -1348,6 +1359,19 @@
     <filename>gin__lfo_8test_8h.html</filename>
   </compound>
   <compound kind="file">
+    <name>gin_loudnessmeter.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__loudnessmeter_8h.html</filename>
+    <class kind="class">KWeightingFilter</class>
+    <class kind="struct">KWeightingFilter::Coefficients</class>
+    <class kind="class">LoudnessMeter</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_loudnessmeter.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__loudnessmeter_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_maximizer.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__maximizer_8h.html</filename>
@@ -1447,6 +1471,17 @@
       <anchor>gab5a7527e2a9a380fa37f2e207243da82</anchor>
       <arglist>(juce::AudioSampleBuffer &amp;, double inputRate, double outputRate, int quality=4)</arglist>
     </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_rmsmeter.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__rmsmeter_8h.html</filename>
+    <class kind="class">RMSMeter</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_rmsmeter.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__rmsmeter_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_sample.h</name>
@@ -1567,6 +1602,17 @@
     <name>gin_transientshaper.test.h</name>
     <path>build/gin_dsp/dsp/</path>
     <filename>gin__transientshaper_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>gin_truepeakmeter.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__truepeakmeter_8h.html</filename>
+    <class kind="class">TruePeakMeter</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_truepeakmeter.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__truepeakmeter_8test_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>gin_valuesmoother.h</name>
@@ -5678,6 +5724,45 @@
       <arglist></arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>KWeightingFilter::Coefficients</name>
+    <filename>structKWeightingFilter_1_1Coefficients.html</filename>
+    <member kind="variable">
+      <type>double</type>
+      <name>b0</name>
+      <anchorfile>structKWeightingFilter_1_1Coefficients.html</anchorfile>
+      <anchor>ac44a421ad590751f18a351e0cc503287</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>b1</name>
+      <anchorfile>structKWeightingFilter_1_1Coefficients.html</anchorfile>
+      <anchor>a492f33ff66e5b968c2cd87e259748e9a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>b2</name>
+      <anchorfile>structKWeightingFilter_1_1Coefficients.html</anchorfile>
+      <anchor>a5115f385b46138cf53468b850f7b069b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>a1</name>
+      <anchorfile>structKWeightingFilter_1_1Coefficients.html</anchorfile>
+      <anchor>abda4401dddfcee03888add413ad60368</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>a2</name>
+      <anchorfile>structKWeightingFilter_1_1Coefficients.html</anchorfile>
+      <anchor>ac345fc2bef165ecda83bd2fa574bb637</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>ColourPropertyComponent</name>
     <filename>classColourPropertyComponent.html</filename>
@@ -6285,6 +6370,73 @@
       <anchorfile>classCopperLookAndFeelWrapper.html</anchorfile>
       <anchor>af2da6ddd887a26c92e047e30d0f08c9a</anchor>
       <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>CorrelationMeter</name>
+    <filename>classCorrelationMeter.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>CorrelationMeter</name>
+      <anchorfile>classCorrelationMeter.html</anchorfile>
+      <anchor>acb2469ccb9b4ad2612813816d4f40b22</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>prepare</name>
+      <anchorfile>classCorrelationMeter.html</anchorfile>
+      <anchor>abeb5fc2821154f21499db264db0f549f</anchor>
+      <arglist>(double sampleRate, double windowSeconds=0.3)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setWindow</name>
+      <anchorfile>classCorrelationMeter.html</anchorfile>
+      <anchor>aae18576d930a97faf1b55ed84aea18a4</anchor>
+      <arglist>(double windowSeconds)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getWindowSeconds</name>
+      <anchorfile>classCorrelationMeter.html</anchorfile>
+      <anchor>a217747b7454321de0cb3d87c1367fd31</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classCorrelationMeter.html</anchorfile>
+      <anchor>a8201dd53c4e86096acebdce888a99270</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classCorrelationMeter.html</anchorfile>
+      <anchor>a9c9e893856258596cb5486ddf96bbeaa</anchor>
+      <arglist>(const float *left, const float *right, int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classCorrelationMeter.html</anchorfile>
+      <anchor>a0adce520dbfab6556f7f41709f0a489d</anchor>
+      <arglist>(const juce::AudioBuffer&lt; float &gt; &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getCorrelation</name>
+      <anchorfile>classCorrelationMeter.html</anchorfile>
+      <anchor>a2f3e294bac75142a05440bd2728fed1d</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getBalance</name>
+      <anchorfile>classCorrelationMeter.html</anchorfile>
+      <anchor>a58d97680630141a6f55cc92c9124cba7</anchor>
+      <arglist>() const</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -10742,6 +10894,60 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>KWeightingFilter</name>
+    <filename>classKWeightingFilter.html</filename>
+    <class kind="struct">KWeightingFilter::Coefficients</class>
+    <member kind="function">
+      <type>void</type>
+      <name>prepare</name>
+      <anchorfile>classKWeightingFilter.html</anchorfile>
+      <anchor>a26027ad5ff6c57af4b1182227106d76e</anchor>
+      <arglist>(double sampleRate, int numChannels)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classKWeightingFilter.html</anchorfile>
+      <anchor>a0e3db85dde7a32cdc486bb68e7677dd8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classKWeightingFilter.html</anchorfile>
+      <anchor>af5436555ff4f1321f6513b77be4afd3a</anchor>
+      <arglist>(juce::AudioBuffer&lt; float &gt; &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classKWeightingFilter.html</anchorfile>
+      <anchor>a32e52a4d1b7c669205926cdd5e10f569</anchor>
+      <arglist>(float *samples, int numSamples, int channel)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumChannels</name>
+      <anchorfile>classKWeightingFilter.html</anchorfile>
+      <anchor>a226ac7cc5ce8f60bdf01fb4db6946264</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Coefficients</type>
+      <name>stage1Coefficients</name>
+      <anchorfile>classKWeightingFilter.html</anchorfile>
+      <anchor>ac212a934c6039332516707e9de9a9ff2</anchor>
+      <arglist>(double sampleRate)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Coefficients</type>
+      <name>stage2Coefficients</name>
+      <anchorfile>classKWeightingFilter.html</anchorfile>
+      <anchor>a3c378a8282a5340d625cfd8ba5bff832</anchor>
+      <arglist>(double sampleRate)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>LambdaAsyncUpdater</name>
     <filename>classLambdaAsyncUpdater.html</filename>
     <member kind="function">
@@ -12152,6 +12358,115 @@
       <anchorfile>classLockFreeQueue.html</anchorfile>
       <anchor>a7f38b21941a29a7169e58c1311c9bba2</anchor>
       <arglist>(int num)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>LoudnessMeter</name>
+    <filename>classLoudnessMeter.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>LoudnessMeter</name>
+      <anchorfile>classLoudnessMeter.html</anchorfile>
+      <anchor>ae4589b183f32e5af6d6790ced014e656</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>prepare</name>
+      <anchorfile>classLoudnessMeter.html</anchorfile>
+      <anchor>a9e0c6ac7c5a1fd4f40d868ee0edf888f</anchor>
+      <arglist>(double sampleRate, int numChannels, double maxHistorySeconds=24.0 *60.0 *60.0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classLoudnessMeter.html</anchorfile>
+      <anchor>a0c805bd36e3fe97252cfcbf5f0d6b873</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classLoudnessMeter.html</anchorfile>
+      <anchor>a27e4b28dbf13600579a10f6b6ecbf749</anchor>
+      <arglist>(const juce::AudioBuffer&lt; float &gt; &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getMomentary</name>
+      <anchorfile>classLoudnessMeter.html</anchorfile>
+      <anchor>a871124430b706629661b246cd10ad99d</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getShortTerm</name>
+      <anchorfile>classLoudnessMeter.html</anchorfile>
+      <anchor>ab40dc4d9213a6cdf51d139ea3a6cf8c6</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getMaxMomentary</name>
+      <anchorfile>classLoudnessMeter.html</anchorfile>
+      <anchor>a8ad4e6b6495fa96ea6c4d5777e742efa</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getMaxShortTerm</name>
+      <anchorfile>classLoudnessMeter.html</anchorfile>
+      <anchor>a2c9b75f0e564643ad9e452591ae44e4f</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getIntegrated</name>
+      <anchorfile>classLoudnessMeter.html</anchorfile>
+      <anchor>ad109e6685ff2849361460ea390a3bbe2</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getLoudnessRange</name>
+      <anchorfile>classLoudnessMeter.html</anchorfile>
+      <anchor>a9775891231ae6491a9c4870bc15d1cb5</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getElapsedSeconds</name>
+      <anchorfile>classLoudnessMeter.html</anchorfile>
+      <anchor>a609b4ef61903f0cd5f2e7398e781759d</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setChannelWeight</name>
+      <anchorfile>classLoudnessMeter.html</anchorfile>
+      <anchor>a202ec1c2e504e32cc4961d36bf9b855c</anchor>
+      <arglist>(int channel, float weight)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static float</type>
+      <name>powerToLoudness</name>
+      <anchorfile>classLoudnessMeter.html</anchorfile>
+      <anchor>a24a267ed0d4f67b5d95dcb63da072453</anchor>
+      <arglist>(double power)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static double</type>
+      <name>loudnessToPower</name>
+      <anchorfile>classLoudnessMeter.html</anchorfile>
+      <anchor>a68c52cd6f1c2973e59691a92167e20a3</anchor>
+      <arglist>(float loudness)</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr float</type>
+      <name>silence</name>
+      <anchorfile>classLoudnessMeter.html</anchorfile>
+      <anchor>a109f5cb5353fe01dc827144a061a1db7</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -18974,6 +19289,73 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>RMSMeter</name>
+    <filename>classRMSMeter.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>RMSMeter</name>
+      <anchorfile>classRMSMeter.html</anchorfile>
+      <anchor>a1bcc78bd4adf23bdbe49da48d2e3beb8</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>prepare</name>
+      <anchorfile>classRMSMeter.html</anchorfile>
+      <anchor>ad95291a042902a6ddd5602db292155e0</anchor>
+      <arglist>(double sampleRate, int numChannels, double windowSeconds=0.3)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classRMSMeter.html</anchorfile>
+      <anchor>ab23d010be3a5dcb81897e9315f2ea659</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classRMSMeter.html</anchorfile>
+      <anchor>ae1f56945be266fc99d7d560203a1ffeb</anchor>
+      <arglist>(const juce::AudioBuffer&lt; float &gt; &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getRMS</name>
+      <anchorfile>classRMSMeter.html</anchorfile>
+      <anchor>ae7da0e590577fdb88872827f765a270d</anchor>
+      <arglist>(int channel) const</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getRMSLinear</name>
+      <anchorfile>classRMSMeter.html</anchorfile>
+      <anchor>aea27de8456214b71440a250bfb4ddaff</anchor>
+      <arglist>(int channel) const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumChannels</name>
+      <anchorfile>classRMSMeter.html</anchorfile>
+      <anchor>a99aff5c9762bca4c3f8b8d01a7596f22</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getWindowSeconds</name>
+      <anchorfile>classRMSMeter.html</anchorfile>
+      <anchor>a40ae4b7d1d1df233783ce16b1581e91e</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr float</type>
+      <name>silence</name>
+      <anchorfile>classRMSMeter.html</anchorfile>
+      <anchor>af1d8dfaad6523177b6bd20b408a1ba0b</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>RollingAverage</name>
     <filename>classRollingAverage.html</filename>
     <member kind="function">
@@ -22441,6 +22823,80 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>TruePeakMeter</name>
+    <filename>classTruePeakMeter.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>TruePeakMeter</name>
+      <anchorfile>classTruePeakMeter.html</anchorfile>
+      <anchor>a327b178ed9c60bbfd5ea3c272049dd1a</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>prepare</name>
+      <anchorfile>classTruePeakMeter.html</anchorfile>
+      <anchor>a24d3fc43d7c0787f40a004c36dcd8bfd</anchor>
+      <arglist>(double sampleRate, int numChannels, int maxBlockSize)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classTruePeakMeter.html</anchorfile>
+      <anchor>aaf225df7ad187f8a31eddab8b3e696d1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classTruePeakMeter.html</anchorfile>
+      <anchor>ae82cb0465c85c1bfb7eb64f2127de99b</anchor>
+      <arglist>(const juce::AudioBuffer&lt; float &gt; &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getTruePeak</name>
+      <anchorfile>classTruePeakMeter.html</anchorfile>
+      <anchor>a8b4f800754cfbe1ba6160c9f9caaf9c9</anchor>
+      <arglist>(int channel) const</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getMaxTruePeak</name>
+      <anchorfile>classTruePeakMeter.html</anchorfile>
+      <anchor>a89afbd3b5e5c7d8c1815e5eead9cf0e9</anchor>
+      <arglist>(int channel) const</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getMaxTruePeak</name>
+      <anchorfile>classTruePeakMeter.html</anchorfile>
+      <anchor>ad01fe5628af8a3b97174bafb2b11823e</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumChannels</name>
+      <anchorfile>classTruePeakMeter.html</anchorfile>
+      <anchor>a0413f530737ad3047cafbbc48921c27e</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getOversamplingFactor</name>
+      <anchorfile>classTruePeakMeter.html</anchorfile>
+      <anchor>a3595c5925e8d4db61531d0d0471a4400</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr float</type>
+      <name>silence</name>
+      <anchorfile>classTruePeakMeter.html</anchorfile>
+      <anchor>a94fa18626259aa1a719a385c856f4943</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>UpdateChecker</name>
     <filename>classUpdateChecker.html</filename>
     <member kind="function">
@@ -24666,6 +25122,7 @@
     <class kind="class">BandLimitedLookupTables</class>
     <class kind="struct">Biquad</class>
     <class kind="class">BitCrusher</class>
+    <class kind="class">CorrelationMeter</class>
     <class kind="class">DCBlocker</class>
     <class kind="class">DelayLine</class>
     <class kind="class">AirWindowsDistortion</class>
@@ -24714,6 +25171,9 @@
     <class kind="class">LevelTracker</class>
     <class kind="class">LFO</class>
     <class kind="struct">LFO::Parameters</class>
+    <class kind="class">KWeightingFilter</class>
+    <class kind="struct">KWeightingFilter::Coefficients</class>
+    <class kind="class">LoudnessMeter</class>
     <class kind="class">Maximizer</class>
     <class kind="class">MidiFifo</class>
     <class kind="class">MidiFilePlayer</class>
@@ -24732,6 +25192,7 @@
     <class kind="class">BLLTVoicedStereoOscillator</class>
     <class kind="class">PlateReverb</class>
     <class kind="class">ResamplingFifo</class>
+    <class kind="class">RMSMeter</class>
     <class kind="class">Sample</class>
     <class kind="class">SampleOscillator</class>
     <class kind="class">SamplePlayer</class>
@@ -24747,6 +25208,7 @@
     <class kind="class">Synthesiser</class>
     <class kind="class">TextRenderer</class>
     <class kind="class">TransientShaper</class>
+    <class kind="class">TruePeakMeter</class>
     <class kind="class">ValueSmoother</class>
     <class kind="class">Wavetable</class>
     <class kind="class">WTOscillator</class>

@@ -17,7 +17,8 @@ var searchData=
   ['location_14',['Location',['../structLocationManager_1_1Location.html',1,'LocationManager']]],
   ['locationmanager_15',['LocationManager',['../classLocationManager.html',1,'']]],
   ['lockfreequeue_16',['LockFreeQueue',['../classLockFreeQueue.html',1,'']]],
-  ['lp12state_17',['LP12State',['../structLP12State.html',1,'']]],
-  ['lp24state_18',['LP24State',['../structLP24State.html',1,'']]],
-  ['lrucache_19',['LRUCache',['../classLRUCache.html',1,'']]]
+  ['loudnessmeter_17',['LoudnessMeter',['../classLoudnessMeter.html',1,'']]],
+  ['lp12state_18',['LP12State',['../structLP12State.html',1,'']]],
+  ['lp24state_19',['LP24State',['../structLP24State.html',1,'']]],
+  ['lrucache_20',['LRUCache',['../classLRUCache.html',1,'']]]
 ];

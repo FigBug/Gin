@@ -19,7 +19,7 @@ var searchData=
   ['linearregression_16',['linearregression',['../classLinearRegression.html#afeb4c101e4e8b20a75db3d4ce3f1cbc6',1,'LinearRegression::LinearRegression()'],['../classLinearRegression.html#a411a12fb25e338f4bb5a27bb6fce200e',1,'LinearRegression::LinearRegression(juce::Array&lt; Point&lt; double &gt; &gt; points)']]],
   ['linesegment3d_17',['linesegment3d',['../structLineSegment3D.html#ac145860963bab3fe894527671618931d',1,'LineSegment3D::LineSegment3D()=default'],['../structLineSegment3D.html#a97fe404460508fc18ad4153bd4459bee',1,'LineSegment3D::LineSegment3D(const Vec3f &amp;s, const Vec3f &amp;e, juce::Colour c=juce::Colours::white)'],['../structLineSegment3D.html#af4bb995a551a129ebc571118b3a91d81',1,'LineSegment3D::LineSegment3D(float x1, float y1, float z1, float x2, float y2, float z2, juce::Colour c=juce::Colours::white)']]],
   ['listboxitemclicked_18',['listBoxItemClicked',['../structPatchBrowser_1_1PresetsModel.html#a8b42d0749419eaf3e8086db1a4b4cc01',1,'PatchBrowser::PresetsModel']]],
-  ['load_19',['load',['../classMidiFilePlayer.html#a88fce7d3026ec58de1ec9e5475256b86',1,'MidiFilePlayer::load()'],['../classSamplePlayer.html#a3889e31c880b2af1cd43e2a2720ffa11',1,'SamplePlayer::load(const char *data, int dataLen)'],['../classSamplePlayer.html#ab568d20845815b51d0e2e01b1ea0a4b8',1,'SamplePlayer::load(const juce::File &amp;f)']]],
+  ['load_19',['load',['../classSamplePlayer.html#a3889e31c880b2af1cd43e2a2720ffa11',1,'SamplePlayer::load()'],['../classMidiFilePlayer.html#a88fce7d3026ec58de1ec9e5475256b86',1,'MidiFilePlayer::load()'],['../classSamplePlayer.html#ab568d20845815b51d0e2e01b1ea0a4b8',1,'SamplePlayer::load()']]],
   ['loadallprograms_20',['loadAllPrograms',['../classProcessor.html#adde1ecc658aa6760b55e340ebbaa9fee',1,'Processor']]],
   ['loadconstants_21',['loadConstants',['../classLayoutSupport.html#accea154ba1b4f37425905f645e2c5563',1,'LayoutSupport']]],
   ['loadfrombuffer_22',['loadfrombuffer',['../classBandLimitedLookupTable.html#a4b8fa24e3f5588a10420bf0ea6f8b027',1,'BandLimitedLookupTable::loadFromBuffer(std::unique_ptr&lt; juce::dsp::FFT &gt; &amp;fft, float playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, float fileSampleRate, int notesPerTable)'],['../classBandLimitedLookupTable.html#a8a2c7f4a6c07f1ffcdb115d223854d9a',1,'BandLimitedLookupTable::loadFromBuffer(float playbackSampleRate, juce::AudioSampleBuffer &amp;buffer, float fileSampleRate, float fileFreq, int notesPerTable)']]],
@@ -34,7 +34,9 @@ var searchData=
   ['lockfreequeue_31',['LockFreeQueue',['../classLockFreeQueue.html#ac4fdd21aae93a42ddbfd725a22c8bb90',1,'LockFreeQueue']]],
   ['log_32',['log',['../classRemoteServer.html#ad3045abfa97533bb7d8b6af871389721',1,'RemoteServer']]],
   ['lookat_33',['lookAt',['../structMat4.html#a26cd9eb7affcb0df62569adad34bcacf',1,'Mat4']]],
-  ['lp12state_34',['LP12State',['../structLP12State.html#a439292ecb27bfe33097d9ba0255c7a02',1,'LP12State']]],
-  ['lp24state_35',['LP24State',['../structLP24State.html#aa49c9ae5be422d7eb09fd3b37b552fec',1,'LP24State']]],
-  ['lrucache_36',['LRUCache',['../classLRUCache.html#a54bfc6417964bd4b2f5a988b9989d00d',1,'LRUCache']]]
+  ['loudnessmeter_34',['LoudnessMeter',['../classLoudnessMeter.html#ae4589b183f32e5af6d6790ced014e656',1,'LoudnessMeter']]],
+  ['loudnesstopower_35',['loudnessToPower',['../classLoudnessMeter.html#a68c52cd6f1c2973e59691a92167e20a3',1,'LoudnessMeter']]],
+  ['lp12state_36',['LP12State',['../structLP12State.html#a439292ecb27bfe33097d9ba0255c7a02',1,'LP12State']]],
+  ['lp24state_37',['LP24State',['../structLP24State.html#aa49c9ae5be422d7eb09fd3b37b552fec',1,'LP24State']]],
+  ['lrucache_38',['LRUCache',['../classLRUCache.html#a54bfc6417964bd4b2f5a988b9989d00d',1,'LRUCache']]]
 ];
