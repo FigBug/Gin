@@ -353,10 +353,13 @@ public:
 
     int getCpuUsage()
     {
-        int cpu = int (timeUsed / timeAvailable * 100);
+        // No blocks since the last call means 0/0 here. That is a NaN, and hosts
+        // that enable floating point exceptions (FL Studio's bridge) raise
+        // EXCEPTION_FLT_INVALID_OPERATION on it, so guard the division.
+        int cpu = timeAvailable > 0.0 ? int (timeUsed / timeAvailable * 100) : 0;
         timeUsed = 0.0;
         timeAvailable = 0.0;
-        return std::min (99, cpu);
+        return std::clamp (cpu, 0, 99);
     }
 
     void startBlock()
