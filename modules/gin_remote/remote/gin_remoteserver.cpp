@@ -707,6 +707,11 @@ bool RemoteServer::injectMouse (juce::Point<float> screenPos, juce::ModifierKeys
     if (moveRealCursor && ! mods.isAnyMouseButtonDown() && juce::Desktop::getMousePosition().getDistanceFrom (screenPos.toInt()) > 1)
         juce::Desktop::setMousePosition (screenPos.toInt());
 
+    // Some of JUCE reads the global modifier state rather than the event's: PopupMenu decides
+    // whether a release may trigger an item from ModifierKeys::getCurrentModifiers(). The
+    // native peers update it from real events, so mirror the injected state into it too.
+    juce::ModifierKeys::currentModifiers = mods;
+
     // If the window had to be raised, JUCE has no idea what is under the mouse yet. A plain
     // move fixes that, otherwise a press that arrives first would be dropped.
     if (ensurePeerIsHittable (*peer, screenPos))
@@ -734,6 +739,8 @@ bool RemoteServer::injectWheel (juce::Point<float> screenPos, float deltaX, floa
 
     if (moveRealCursor && ! mods.isAnyMouseButtonDown() && juce::Desktop::getMousePosition().getDistanceFrom (screenPos.toInt()) > 1)
         juce::Desktop::setMousePosition (screenPos.toInt());
+
+    juce::ModifierKeys::currentModifiers = mods;
 
     ensurePeerIsHittable (*peer, screenPos);
 
