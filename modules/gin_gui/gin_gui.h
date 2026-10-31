@@ -24,7 +24,7 @@
   license:              BSD
   minimumCppStandard:   20
 
-  dependencies:         juce_core juce_graphics juce_events juce_gui_basics juce_gui_extra gin
+  dependencies:         juce_core juce_graphics juce_events juce_gui_basics juce_gui_extra gin gin_graphics
   OSXFrameworks:        Security
 
  END_JUCE_MODULE_DECLARATION
@@ -58,6 +58,22 @@
 #include <juce_gui_basics/juce_gui_basics.h>
 #include <juce_gui_extra/juce_gui_extra.h>
 #include <gin/gin.h>
+#include <gin_graphics/gin_graphics.h>
+
+//==============================================================================
+/** Config: GIN_TRANSITIONS_ENABLED_BY_DEFAULT
+    Whether transitions (Animated, Crossfade, the layout's "transition" entries, States,
+    box shadows) animate from the start; Transition::setGlobalEnabled() changes it at
+    runtime. Off by default on Linux, where JUCE only has its software renderer and every
+    animated frame repaints on the CPU; on elsewhere.
+*/
+#ifndef GIN_TRANSITIONS_ENABLED_BY_DEFAULT
+ #if JUCE_LINUX
+  #define GIN_TRANSITIONS_ENABLED_BY_DEFAULT 0
+ #else
+  #define GIN_TRANSITIONS_ENABLED_BY_DEFAULT 1
+ #endif
+#endif
 
 #include <map>
 #include <optional>
@@ -71,6 +87,9 @@ namespace gin
 #include "utilities/gin_util.h"
 #include "utilities/gin_openstreetmaps.h"
 #include "utilities/gin_elevatedfilecopy.h"
+#include "utilities/gin_animated.h"
+#include "utilities/gin_shadows.h"
+#include "utilities/gin_states.h"
 #include "utilities/gin_layoutsupport.h"
 #include "utilities/gin_systemclipboard.h"
 

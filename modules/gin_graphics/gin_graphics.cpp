@@ -7,6 +7,7 @@
 
 //==============================================================================
 
+#include <bit>
 #include <memory>
 #include <cmath>
 
@@ -42,5 +43,6 @@ namespace gin
 #include "images/gin_imageeffects.cpp"
 #include "images/gin_imageeffects_blending.cpp"
 #include "images/gin_imageeffects_stackblur.cpp"
+#include "images/gin_mipmap.cpp"
 
 }

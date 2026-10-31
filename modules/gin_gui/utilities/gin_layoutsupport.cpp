@@ -74,6 +74,16 @@ static const juce::Identifier kRows         { "rows" };
 static const juce::Identifier kColGap       { "colGap" };
 static const juce::Identifier kRowGap       { "rowGap" };
 static const juce::Identifier kUsesLayoutSupport { "usesLayoutSupport" };
+static const juce::Identifier kTransitions  { "transitions" };
+static const juce::Identifier kTransition   { "transition" };
+static const juce::Identifier kLaidOut      { "layoutPlaced" };
+static const juce::Identifier kAlpha        { "alpha" };
+static const juce::Identifier kScale        { "scale" };
+static const juce::Identifier kOrigin       { "origin" };
+static const juce::Identifier kStates       { "states" };
+static const juce::Identifier kBoxShadow    { "boxShadow" };
+static const juce::Identifier kBorderRadius { "borderRadius" };
+static const juce::Identifier kChildren     { "children" };
 static const juce::Identifier kPrefixPrev   { "prev" };
 static const juce::Identifier kPrefixGet    { "get" };
 
@@ -340,6 +350,12 @@ LayoutSupport::LayoutSupport (juce::Component& parent_, std::function<std::pair<
 
 LayoutSupport::~LayoutSupport()
 {
+    // The components keep their animated values, without this layout's step callback
+    for (auto& c : animatedComponents)
+        if (c != nullptr)
+            if (auto p = AnimatedProperties::find (*c))
+                p->onStep = nullptr;
+
     watcher->removeListener (this);
 
     refCount--;
@@ -400,6 +416,142 @@ void LayoutSupport::loadMacros (juce::var& j)
     }
 }
 
+void LayoutSupport::loadTransitions (juce::var& j)
+{
+    if (j.hasProperty (kTransitions))
+    {
+        for (auto& itm : getPropertySet (j[kTransitions]))
+            setProperty (transitionPresets, itm.key, itm.value.toString());
+
+        Transition::setPresets (parent, transitionPresets);
+    }
+}
+
+void LayoutSupport::recordBounds (juce::Component& c)
+{
+    boundsBeforeLayout.try_emplace (&c, juce::Component::SafePointer<juce::Component> (&c), c.getBounds());
+}
+
+void LayoutSupport::animateLayoutChanges (const BoundsRecords& changes)
+{
+    for (auto itr = boundsAnimations.begin(); itr != boundsAnimations.end();)
+        itr = itr->second->getOwner() == nullptr ? boundsAnimations.erase (itr) : std::next (itr);
+
+    for (auto& [ptr, before] : changes)
+    {
+        auto c = before.first.getComponent();
+        if (c == nullptr)
+            continue;
+
+        const auto oldBounds = before.second;
+        const auto newBounds = c->getBounds();
+
+        auto& props = c->getProperties();
+        const auto laidOut = bool (props.getWithDefault (kLaidOut, false));
+        props.set (kLaidOut, true);
+
+        const auto transition = laidOut ? Transition::forProperty (*c, kBounds.toString()) : Transition();
+        auto itr = boundsAnimations.find (c);
+
+        if (transition.isInstant())
+        {
+            if (itr != boundsAnimations.end())
+                boundsAnimations.erase (itr);
+
+            continue;
+        }
+
+        if (newBounds == oldBounds && itr == boundsAnimations.end())
+            continue;
+
+        if (itr == boundsAnimations.end())
+        {
+            auto a = std::make_unique<Animated<juce::Rectangle<int>>> (*c, kBounds.toString(), oldBounds);
+            a->onChange = [this, a = a.get()]
+            {
+                if (auto o = a->getOwner())
+                {
+                    o->setBounds (a->get());
+
+                    if (transitionStep)
+                        transitionStep (*o);
+                }
+            };
+
+            itr = boundsAnimations.emplace (c, std::move (a)).first;
+        }
+
+        auto& anim = *itr->second;
+
+        c->setBounds (oldBounds);
+
+        if (! anim.isAnimating())
+            anim.setValue (oldBounds);
+
+        anim.setTarget (newBounds, transition);
+    }
+}
+
+AnimatedProperties& LayoutSupport::animatedProperties (juce::Component& c)
+{
+    auto& props = AnimatedProperties::get (c);
+
+    props.onStep = [this] (juce::Component& o)
+    {
+        if (transitionStep)
+            transitionStep (o);
+    };
+
+    if (std::find (animatedComponents.begin(), animatedComponents.end(), &c) == animatedComponents.end())
+        animatedComponents.push_back (&c);
+
+    return props;
+}
+
+void LayoutSupport::setAlpha (juce::Component& c, float alpha)
+{
+    const auto laidOut = bool (c.getProperties().getWithDefault (kLaidOut, false));
+
+    animatedProperties (c).setBaseAlpha (alpha, laidOut);
+}
+
+void LayoutSupport::setShadow (juce::Component& c, const juce::var& shadow)
+{
+    auto parsed = BoxShadow::parse (shadow);
+
+    if (! parsed)
+    {
+        DBG ("Invalid box shadow: " + shadow.toString());
+        jassertfalse;
+    }
+
+    const auto laidOut = bool (c.getProperties().getWithDefault (kLaidOut, false));
+
+    animatedProperties (c).setBaseShadow (parsed.value_or (ShadowList()), laidOut);
+}
+
+void LayoutSupport::setScale (juce::Component& c, float scale, const juce::var& origin)
+{
+    auto relativeOrigin = juce::Point<float> (0.5f, 0.5f);
+
+    if (! origin.isVoid())
+    {
+        if (auto o = parseTransformOrigin (origin.toString()))
+        {
+            relativeOrigin = *o;
+        }
+        else
+        {
+            DBG ("Invalid origin: " + origin.toString());
+            jassertfalse;
+        }
+    }
+
+    const auto laidOut = bool (c.getProperties().getWithDefault (kLaidOut, false));
+
+    animatedProperties (c).setBaseScale (scale, relativeOrigin, laidOut);
+}
+
 juce::String LayoutSupport::findContent ([[maybe_unused]] const juce::String& name)
 {
 #if __has_include("BinaryData.h")
@@ -427,7 +579,7 @@ void LayoutSupport::setLayout (const juce::Array<juce::File>& files)
 
     for (auto& f : files)
     {
-        layoutFiles.add (f);
+        layoutFiles.addIfNotAlreadyThere (f);
         contents.add ({ f.getFileName(), f.loadFileAsString() });
 
         watcher->addFolder (f.getParentDirectory());
@@ -469,6 +621,10 @@ void LayoutSupport::setLayoutInternal (const juce::Array<JsonFile>& files)
     layoutSet = true;
     topLevelConstants.clear();
 
+    transitionPresets = jsonObject();
+    Transition::setPresets (parent, {});
+    boundsBeforeLayout.clear();
+
     //
     // Find all the base level constants
     //
@@ -502,6 +658,7 @@ void LayoutSupport::setLayoutInternal (const juce::Array<JsonFile>& files)
 
             loadConstants (j);
             loadMacros (j);
+            loadTransitions (j);
 
             if (j.hasProperty (kW) && j.hasProperty (kH))
             {
@@ -527,8 +684,13 @@ void LayoutSupport::setLayoutInternal (const juce::Array<JsonFile>& files)
         }
     }
 
+    // layoutChanged sees the final bounds; it may run a nested pass (e.g. by resizing the parent)
+    auto changes = std::exchange (boundsBeforeLayout, {});
+
     if (layoutChanged)
         layoutChanged();
+
+    animateLayoutChanges (changes);
 
     compMap.clearMap();
 }
@@ -1074,6 +1236,13 @@ juce::Component* LayoutSupport::setPosition (const juce::String& currentPath,
             curComponent->repaint();
         }
 
+        //
+        // Transitions
+        //
+        Transition::set (*curComponent, component.hasProperty (kTransition) ? component[kTransition] : juce::var());
+
+        recordBounds (*curComponent);
+
         auto hasVisible = component.hasProperty (kVisible);
         auto bounds = getBounds (idIdx, component);
 
@@ -1098,6 +1267,21 @@ juce::Component* LayoutSupport::setPosition (const juce::String& currentPath,
             curComponent->setVisible (bool (component[kVisible]));
         else if (hasVisible && component[kVisible].isString())
             curComponent->setVisible (parse (component[kVisible], idIdx) != 0);
+
+        if (component.hasProperty (kAlpha))
+            setAlpha (*curComponent, juce::jlimit (0.0f, 1.0f, float (parseDouble (component[kAlpha], idIdx))));
+
+        if (component.hasProperty (kScale))
+            setScale (*curComponent, float (parseDouble (component[kScale], idIdx)), component[kOrigin]);
+
+        if (component.hasProperty (kBorderRadius))
+            BoxShadow::setRadius (*curComponent, float (parseDouble (component[kBorderRadius], idIdx)));
+
+        if (component.hasProperty (kBoxShadow) || AnimatedProperties::find (*curComponent) != nullptr)
+            setShadow (*curComponent, component[kBoxShadow]);
+
+        States::set (*curComponent, component.hasProperty (kStates) ? component[kStates] : juce::var());
+        States::setForChildren (*curComponent, component.hasProperty (kChildren) ? component[kChildren][kStates] : juce::var());
 
         //
         // Handle sub components
@@ -1136,6 +1320,9 @@ juce::Component* LayoutSupport::setPosition (const juce::String& currentPath,
 
                 for (int i = 0; i < p.getNumChildComponents(); ++i)
                 {
+                    if (p.getChildComponent (i)->getProperties()[excludeFromLayout])
+                        continue;
+
                     auto b = p.getChildComponent (i)->getBounds();
 
                     minX = std::min (minX, b.getX());
@@ -1143,6 +1330,9 @@ juce::Component* LayoutSupport::setPosition (const juce::String& currentPath,
                     maxX = std::max (maxX, b.getRight());
                     maxY = std::max (maxY, b.getBottom());
                 }
+
+                if (minX > maxX)
+                    return std::make_tuple (0, 0, 0, 0);
 
                 return std::make_tuple (minX, minY, maxX, maxY);
             };
@@ -1249,7 +1439,10 @@ void LayoutSupport::setGridPositions (const juce::String& currentPath, const juc
             const auto path = juce::String (currentPath) + "/" + id.upToFirstOccurrenceOf ("/", false, false).trim();
             
             if (auto foundChildComp = compMap.findComponent (path))
+            {
+                recordBounds (*foundChildComp);
                 grid.items.add (juce::GridItem (foundChildComp));
+            }
             else
                 grid.items.add (juce::GridItem());
         }
@@ -1277,6 +1470,14 @@ void LayoutSupport::fileChanged (const juce::File& f, gin::FileSystemWatcher::Fi
 }
 
 int LayoutSupport::parse (const juce::var& equation, int equationIndex)
+{
+    if (equation.isString())
+        return juce::roundToInt (parseDouble (equation, equationIndex));
+
+    return equation;
+}
+
+double LayoutSupport::parseDouble (const juce::var& equation, int equationIndex)
 {
     try
     {
@@ -1321,6 +1522,11 @@ int LayoutSupport::parse (const juce::var& equation, int equationIndex)
                 return equationText.getIntValue();
             }
 
+            if (equationText.containsOnly ("0123456789."))
+            {
+                return equationText.getDoubleValue();
+            }
+
             //
             // If the equation is just a simple variable, we don't need to parse, just return value
             //
@@ -1328,7 +1534,7 @@ int LayoutSupport::parse (const juce::var& equation, int equationIndex)
             {
                 auto val = constants.get (equationText.toRawUTF8());
                 if (val.has_value())
-                    return juce::roundToInt (*val);
+                    return *val;
             }
 
             //
@@ -1340,10 +1546,10 @@ int LayoutSupport::parse (const juce::var& equation, int equationIndex)
             parser->curComponent = curComponent;
             parser->constants = &constants;
 
-            return juce::roundToInt (parser->evaluate());
+            return parser->evaluate();
         }
 
-        return equation;
+        return double (equation);
     }
     catch (...)
     {

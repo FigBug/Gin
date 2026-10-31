@@ -47,6 +47,7 @@
 #include "Demos/EasingDemo.h"
 #include "Demos/EquationParserDemo.h"
 #include "Demos/LayoutDemo.h"
+#include "Demos/TransitionsDemo.h"
 #include "Demos/Wireframe3DDemo.h"
 #include "Demos/Wavetable3DDemo.h"
 #include "Demos/SamplePlayerDemo.h"

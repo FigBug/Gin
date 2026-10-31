@@ -13,6 +13,7 @@
 MainContentComponent::MainContentComponent()
 {
     demoComponents.add (new LayoutDemo());
+    demoComponents.add (new TransitionsDemo());
     demoComponents.add (new EquationParserDemo());
     demoComponents.add (new ComponentGridDemo());
     demoComponents.add (new EasingDemo());

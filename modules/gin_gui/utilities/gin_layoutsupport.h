@@ -86,6 +86,7 @@ private:
     - `w`, `h` - Set parent component size
     - `constants` - Define reusable constant values
     - `macros` - Define reusable component templates
+    - `transitions` - Named transition presets, "<ms> <easing>" (see Transition)
     - `components` - Array of component definitions
 
     @subsection component_props Component Properties
@@ -120,6 +121,22 @@ private:
     **Display:**
     - `visible` - Boolean or expression
     - `zorder` - Z-order index
+    - `alpha` - Opacity 0..1, number or expression. Alpha 0 hides the component (setVisible (false)),
+                above 0 shows it. With an "alpha" transition it fades: a fade out hides the component
+                when it ends, a fade in shows it first and starts from 0 if it was hidden
+
+    - `scale` - Zoom factor, number or expression, 1 = none (see Transitions below)
+    - `origin` - The scale's pivot: "center" (default), "top left", "0.5 0", "25% 100%"...
+
+    - `boxShadow` - CSS-style shadow layers "x y blur opacity [spread] [colour], ...", painted by the parent (see BoxShadow)
+    - `borderRadius` - The corner radius of the outline the shadow follows
+    - `states` - Values while hovered, pressed or disabled, e.g. { "hover": { "scale": 1.03 } } (see States)
+    - `children` - { "states": ... } for each direct child, also ones added later (see States)
+
+    **Animation:**
+    - `transition` - Preset name, inline spec or "none" for all animated properties, or an object
+                     per property, e.g. { "bounds": "glide", "alpha": "quick" }. Inherited by the
+                     descendants (see Transition)
 
     **Accessibility:**
     - `title` - Accessibility title
@@ -192,6 +209,55 @@ private:
     @endcode
 
     Parameters are referenced as P1, P2, P3, etc.
+
+    @subsection transitions Transitions
+
+    Top-level "transitions" names presets, a component's "transition" picks one per
+    property; see Transition for the spec syntax ("<ms> <easing>"), the easing names, the
+    string vs per-property object forms, "none" and how entries inherit down the tree.
+
+    Three properties are animated by the layout itself:
+    - "bounds": a component whose "bounds" transition isn't instant moves and resizes to its
+      new bounds over the transition instead of jumping. The layout pass itself is
+      unchanged, so prev / parent / maxY expressions see the final bounds; afterwards those
+      components go back to their old bounds and animate. Re-running the layout mid-flight
+      continues from where the component is.
+    - "alpha": the "alpha" entry (0..1) fades with the "alpha" transition. A fade that ends
+      at 0 hides the component (setVisible (false)) when it ends and takes no mouse clicks
+      while it fades (setInterceptsMouseClicks (false, false), the previous flags come back
+      when it is shown again); a fade from 0 or from hidden shows it first. Without a
+      transition, 0 hides at once. No "visible" entry needed.
+    - "scale": the "scale" entry (1 = none, number or expression) zooms the component with
+      juce::Component::setTransform about its "origin" ("center" by default; CSS
+      transform-origin style, e.g. "top left", "right", "0.5 0", "25% 100%", see
+      parseTransformOrigin), following its bounds during a "bounds" transition. It replaces
+      any transform of the component's own (see AnimatedScale).
+
+    "states" and "children" switch "alpha", "scale" and the "imageFilter" of images drawn
+    through AnimatedImageFilter while the mouse is over or presses a component, with the
+    same transitions (see States).
+
+    The first layout of a component, components that aren't showing and instant
+    transitions never animate. Without a "default" preset and "transition" entries
+    nothing animates. Hot reloaded json takes effect on the next pass. Animated and
+    Crossfade values in code use the same presets and entries.
+
+    Drive a state change through constants and re-run the layout:
+
+    @code{.json}
+    {
+      "transitions": { "quick": "150 outQuad", "glide": "650 inOutCubic" },
+      "components": [
+        { "id": "drawer", "x": "open * 200 - 200", "y": 0, "w": 200, "h": "parH", "transition": "glide" },
+        { "id": "hint", "x": 10, "y": 10, "w": 150, "h": 20, "alpha": "1 - open", "transition": { "alpha": "quick" } }
+      ]
+    }
+    @endcode
+
+    @code
+    layout.setConstant ("open", 1);
+    resized();      // calls layout.setLayout (...): the drawer glides in, the hint fades out and hides
+    @endcode
 
     @subsection examples Examples
 
@@ -347,8 +413,23 @@ public:
      */
     juce::String findContent (const juce::String& name);
 
-    /** Callback invoked when layout is loaded or reloaded */
+    /** A component property: true leaves the child out of the parent's maxX / maxY
+        (pW / pH), like the shadow layer BoxShadow adds
+    */
+    inline static const juce::Identifier excludeFromLayout { "excludeFromLayout" };
+
+    /** Callback invoked when layout is loaded or reloaded. Every component is at its final
+        bounds here, before "bounds" transitions move them back and start animating, so it
+        may size the parent from them; a layout pass it triggers (e.g. through resized())
+        doesn't cancel the transitions.
+    */
     std::function<void()> layoutChanged;
+
+    /** Callback invoked on every step of a layout driven transition ("bounds", "alpha", "scale"),
+        with the component that moved or faded. For anything painted outside that component
+        that follows it, like a drop shadow or a glow the parent paints.
+    */
+    std::function<void (juce::Component&)> transitionStep;
 
 protected:
     juce::Component* getComp (const juce::String& cid);
@@ -375,11 +456,23 @@ protected:
     void setLayoutInternal (const juce::Array<JsonFile>& files);
 
     int parse (const juce::var& equation, int equationIndex);
+    double parseDouble (const juce::var& equation, int equationIndex);
 
     void setComponentsLayout (const juce::String& currentPath, const juce::var& components);
 
     void loadConstants (juce::var& j);
     void loadMacros (juce::var& j);
+    void loadTransitions (juce::var& j);
+
+    using BoundsRecords = std::map<juce::Component*, std::pair<juce::Component::SafePointer<juce::Component>, juce::Rectangle<int>>>;
+
+    AnimatedProperties& animatedProperties (juce::Component& c);
+
+    void recordBounds (juce::Component& c);
+    void animateLayoutChanges (const BoundsRecords& changes);
+    void setAlpha (juce::Component& c, float alpha);
+    void setScale (juce::Component& c, float scale, const juce::var& origin);
+    void setShadow (juce::Component& c, const juce::var& shadow);
 
     Bounds getBounds (int idIdx, const juce::var& component);
 
@@ -401,6 +494,11 @@ protected:
     ConstantsStack constants;
     std::map<juce::String, double> topLevelConstants;
     std::map<juce::String, juce::var> macros;
+
+    juce::var transitionPresets;
+    BoundsRecords boundsBeforeLayout;
+    std::map<juce::Component*, std::unique_ptr<Animated<juce::Rectangle<int>>>> boundsAnimations;
+    std::vector<juce::Component::SafePointer<juce::Component>> animatedComponents;
 
     juce::Array<juce::File> layoutFiles;
     bool layoutSet = false;
