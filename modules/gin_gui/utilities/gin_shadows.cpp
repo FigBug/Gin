@@ -49,9 +49,10 @@ public:
         if (container.getProperties()[kShadowLayer].getObject() != nullptr)
             return;
 
+        // Stored first: adding the layer re-enters ensure through the container's child states
         auto holder = new Holder();
-        holder->layer = std::make_unique<ShadowLayer> (container);
         container.getProperties().set (kShadowLayer, juce::var (holder));
+        holder->layer = std::make_unique<ShadowLayer> (container);
     }
 
     static ShadowLayer* find (const juce::Component& container)
