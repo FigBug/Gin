@@ -19,7 +19,8 @@ var searchData=
   ['copperlookandfeel_16',['CopperLookAndFeel',['../classCopperLookAndFeel.html',1,'']]],
   ['copperlookandfeelwrapper_17',['CopperLookAndFeelWrapper',['../classCopperLookAndFeelWrapper.html',1,'']]],
   ['correlationmeter_18',['CorrelationMeter',['../classCorrelationMeter.html',1,'']]],
-  ['cubicineasing_19',['CubicInEasing',['../structCubicInEasing.html',1,'']]],
-  ['cubicinouteasing_20',['CubicInOutEasing',['../structCubicInOutEasing.html',1,'']]],
-  ['cubicouteasing_21',['CubicOutEasing',['../structCubicOutEasing.html',1,'']]]
+  ['crossfade_19',['Crossfade',['../classCrossfade.html',1,'']]],
+  ['cubicineasing_20',['CubicInEasing',['../structCubicInEasing.html',1,'']]],
+  ['cubicinouteasing_21',['CubicInOutEasing',['../structCubicInOutEasing.html',1,'']]],
+  ['cubicouteasing_22',['CubicOutEasing',['../structCubicOutEasing.html',1,'']]]
 ];

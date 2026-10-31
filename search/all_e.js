@@ -48,6 +48,7 @@ var searchData=
   ['numchannels_45',['NumChannels',['../structAudioProcessorPlayer_1_1NumChannels.html',1,'AudioProcessorPlayer::NumChannels'],['../structAudioProcessorPlayer_1_1NumChannels.html#ac86fef4347a2aaa500f08b04583f4448',1,'AudioProcessorPlayer::NumChannels::NumChannels()=default'],['../structAudioProcessorPlayer_1_1NumChannels.html#a5e0880ee8a074d4784e8b4e51dfd61d1',1,'AudioProcessorPlayer::NumChannels::NumChannels(int numIns, int numOuts)'],['../structAudioProcessorPlayer_1_1NumChannels.html#a2afe27ce65b2292803d7c479d1c41731',1,'AudioProcessorPlayer::NumChannels::NumChannels(const juce::AudioProcessor::BusesLayout &amp;layout)']]],
   ['numerator_46',['numerator',['../classAudioMetadata.html#a58358a2c2f1cda302296bc1610218d18',1,'AudioMetadata']]],
   ['numins_47',['numIns',['../structStandalonePluginHolder_1_1PluginInOuts.html#a2c18cb6876bc952ba5df80df92500c34',1,'StandalonePluginHolder::PluginInOuts']]],
-  ['numouts_48',['numOuts',['../structStandalonePluginHolder_1_1PluginInOuts.html#ae8defe449815bf6e651a92944240f6c0',1,'StandalonePluginHolder::PluginInOuts']]],
-  ['numpoints_49',['numPoints',['../structMSEG_1_1Data.html#a346affc8c6dea61cc798b9fda79e7248',1,'MSEG::Data']]]
+  ['nummipmaps_48',['numMipMaps',['../classMipMap.html#af34875fc0d343b8338b0367938d29252',1,'MipMap']]],
+  ['numouts_49',['numOuts',['../structStandalonePluginHolder_1_1PluginInOuts.html#ae8defe449815bf6e651a92944240f6c0',1,'StandalonePluginHolder::PluginInOuts']]],
+  ['numpoints_50',['numPoints',['../structMSEG_1_1Data.html#a346affc8c6dea61cc798b9fda79e7248',1,'MSEG::Data']]]
 ];

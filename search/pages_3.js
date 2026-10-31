@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['json_20format_0',['JSON Format',['../classLayoutSupport.html#json',1,'']]]
+  ['inheritance_0',['Inheritance',['../classTransition.html#inheritance',1,'']]]
 ];

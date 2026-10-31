@@ -12,10 +12,13 @@ var searchData=
   ['bindaddress_9',['bindAddress',['../structRemoteServer_1_1Options.html#aa6bdc4e3c5db5041c8cbc68ff2a9cc2f',1,'RemoteServer::Options']]],
   ['bipolar_10',['bipolar',['../namespaceAssets.html#ac3468e24409dbe47e8293799e3727311',1,'Assets']]],
   ['blocksize_11',['blockSize',['../classAudioProcessorPlayer.html#ab69404d0d35facc981eb313b223c590c',1,'AudioProcessorPlayer']]],
-  ['bpm_12',['bpm',['../classAudioMetadata.html#ae597120a0754b3c655623c33779a4aed',1,'AudioMetadata']]],
-  ['browse_13',['browse',['../namespaceAssets.html#a971712f6dd2c7de1171c8139a852a38d',1,'Assets']]],
-  ['browsebutton_14',['browseButton',['../classTitleBar.html#ad008b68a5bcd5442577468bf031c596b',1,'TitleBar']]],
-  ['bubble_15',['bubble',['../classMultiParamComponent.html#afed6013095e1e2ced271cda5ccecb7d2',1,'MultiParamComponent']]],
-  ['buffer_16',['buffer',['../classDelayLine.html#a93574b33770845363b409a6578919369',1,'DelayLine']]],
-  ['buttons_17',['buttons',['../structGameControllerManager_1_1PollState.html#af3d7cc422ae9943f0dda4c5af8f4dc5e',1,'GameControllerManager::PollState']]]
+  ['blur_12',['blur',['../structShadowSpec.html#a72e513ec9d1226055af7508adf0b2d41',1,'ShadowSpec']]],
+  ['boundsanimations_13',['boundsAnimations',['../classLayoutSupport.html#a2662afafb01417cee644d5dfa8c16d6b',1,'LayoutSupport']]],
+  ['boundsbeforelayout_14',['boundsBeforeLayout',['../classLayoutSupport.html#a9559b86ad29435b475ecc3c67eec71ba',1,'LayoutSupport']]],
+  ['bpm_15',['bpm',['../classAudioMetadata.html#ae597120a0754b3c655623c33779a4aed',1,'AudioMetadata']]],
+  ['browse_16',['browse',['../namespaceAssets.html#a971712f6dd2c7de1171c8139a852a38d',1,'Assets']]],
+  ['browsebutton_17',['browseButton',['../classTitleBar.html#ad008b68a5bcd5442577468bf031c596b',1,'TitleBar']]],
+  ['bubble_18',['bubble',['../classMultiParamComponent.html#afed6013095e1e2ced271cda5ccecb7d2',1,'MultiParamComponent']]],
+  ['buffer_19',['buffer',['../classDelayLine.html#a93574b33770845363b409a6578919369',1,'DelayLine']]],
+  ['buttons_20',['buttons',['../structGameControllerManager_1_1PollState.html#af3d7cc422ae9943f0dda4c5af8f4dc5e',1,'GameControllerManager::PollState']]]
 ];

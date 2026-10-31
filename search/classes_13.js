@@ -6,6 +6,7 @@ var searchData=
   ['timeprofiler_3',['TimeProfiler',['../classTimeProfiler.html',1,'']]],
   ['titlebar_4',['TitleBar',['../classTitleBar.html',1,'']]],
   ['transientshaper_5',['TransientShaper',['../classTransientShaper.html',1,'']]],
-  ['triggeredscope_6',['TriggeredScope',['../classTriggeredScope.html',1,'']]],
-  ['truepeakmeter_7',['TruePeakMeter',['../classTruePeakMeter.html',1,'']]]
+  ['transition_6',['Transition',['../classTransition.html',1,'']]],
+  ['triggeredscope_7',['TriggeredScope',['../classTriggeredScope.html',1,'']]],
+  ['truepeakmeter_8',['TruePeakMeter',['../classTruePeakMeter.html',1,'']]]
 ];

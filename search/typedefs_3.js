@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['function_0',['Function',['../classModMatrix.html#a4ac1ccb0df0925217e14a4458923a86d',1,'ModMatrix']]]
+  ['difference_5ftype_0',['difference_type',['../group__gin__gui-utilities.html#ga388faf47e202486a153ded4732148bd3',1,'juce::VarIterator']]]
 ];

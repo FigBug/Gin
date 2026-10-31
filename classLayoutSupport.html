@@ -76,6 +76,8 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pro-types">Protected Types</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
@@ -127,15 +129,34 @@ Static Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ab81e49461b2cd7066b40017c67719197" id="r_ab81e49461b2cd7066b40017c67719197"><td class="memItemLeft" align="right" valign="top">std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab81e49461b2cd7066b40017c67719197">layoutChanged</a></td></tr>
 <tr class="memdesc:ab81e49461b2cd7066b40017c67719197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback invoked when layout is loaded or reloaded.  <br /></td></tr>
+<tr class="memitem:a547099642a77adb630974c59ef7de249" id="r_a547099642a77adb630974c59ef7de249"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(juce::Component &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a547099642a77adb630974c59ef7de249">transitionStep</a></td></tr>
+<tr class="memdesc:a547099642a77adb630974c59ef7de249"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback invoked on every step of a layout driven transition ("bounds", "alpha", "scale"), with the component that moved or faded.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ac3efc7747d07b05ee879ba0792f1b457" id="r_ac3efc7747d07b05ee879ba0792f1b457"><td class="memItemLeft" align="right" valign="top">static const juce::Identifier&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3efc7747d07b05ee879ba0792f1b457">excludeFromLayout</a> { &quot;excludeFromLayout&quot; }</td></tr>
+<tr class="memdesc:ac3efc7747d07b05ee879ba0792f1b457"><td class="mdescLeft">&#160;</td><td class="mdescRight">A component property: true leaves the child out of the parent's maxX / maxY (pW / pH), like the shadow layer <a class="el" href="classBoxShadow.html" title="CSS-style box shadows, painted by the PARENT under its children, because a shadow lies outside the co...">BoxShadow</a> adds.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-types" class="groupheader"><a id="pro-types" name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:aa8637805eef830a88f1177fe33053870" id="r_aa8637805eef830a88f1177fe33053870"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8637805eef830a88f1177fe33053870">BoundsRecords</a> = std::map&lt;juce::Component*, std::pair&lt;juce::Component::SafePointer&lt;juce::Component&gt;, juce::Rectangle&lt;int&gt;&gt;&gt;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a828da33d2a844f3de7a2781a99580ac8" id="r_a828da33d2a844f3de7a2781a99580ac8"><td class="memItemLeft" align="right" valign="top">juce::Component *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a828da33d2a844f3de7a2781a99580ac8">getComp</a> (const juce::String &amp;cid)</td></tr>
 <tr class="memitem:a0f3b3d5d447354010bc79a3246735e26" id="r_a0f3b3d5d447354010bc79a3246735e26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f3b3d5d447354010bc79a3246735e26">setLayoutInternal</a> (const juce::Array&lt; <a class="el" href="structLayoutSupport_1_1JsonFile.html">JsonFile</a> &gt; &amp;files)</td></tr>
 <tr class="memitem:aa2f25132a75ff9286bf476426004b158" id="r_aa2f25132a75ff9286bf476426004b158"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2f25132a75ff9286bf476426004b158">parse</a> (const juce::var &amp;equation, int equationIndex)</td></tr>
+<tr class="memitem:ac1dfae66441e315353939650be48146c" id="r_ac1dfae66441e315353939650be48146c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1dfae66441e315353939650be48146c">parseDouble</a> (const juce::var &amp;equation, int equationIndex)</td></tr>
 <tr class="memitem:ad75415181dadb939baf4c416191b3238" id="r_ad75415181dadb939baf4c416191b3238"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad75415181dadb939baf4c416191b3238">setComponentsLayout</a> (const juce::String &amp;currentPath, const juce::var &amp;components)</td></tr>
 <tr class="memitem:accea154ba1b4f37425905f645e2c5563" id="r_accea154ba1b4f37425905f645e2c5563"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accea154ba1b4f37425905f645e2c5563">loadConstants</a> (juce::var &amp;j)</td></tr>
 <tr class="memitem:a3cf4aa833c85066fdcb6a7bc9af9c19e" id="r_a3cf4aa833c85066fdcb6a7bc9af9c19e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cf4aa833c85066fdcb6a7bc9af9c19e">loadMacros</a> (juce::var &amp;j)</td></tr>
+<tr class="memitem:ab245ed590164a3321198fc7e361c076e" id="r_ab245ed590164a3321198fc7e361c076e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab245ed590164a3321198fc7e361c076e">loadTransitions</a> (juce::var &amp;j)</td></tr>
+<tr class="memitem:a693ed6463a8390fb7da6ff8fe1cc7d81" id="r_a693ed6463a8390fb7da6ff8fe1cc7d81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAnimatedProperties.html">AnimatedProperties</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a693ed6463a8390fb7da6ff8fe1cc7d81">animatedProperties</a> (juce::Component &amp;c)</td></tr>
+<tr class="memitem:a18a79e955277716f6735867f33f1f699" id="r_a18a79e955277716f6735867f33f1f699"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18a79e955277716f6735867f33f1f699">recordBounds</a> (juce::Component &amp;c)</td></tr>
+<tr class="memitem:a6f19c107d0b338698ad2eaa57b52282c" id="r_a6f19c107d0b338698ad2eaa57b52282c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f19c107d0b338698ad2eaa57b52282c">animateLayoutChanges</a> (const <a class="el" href="#aa8637805eef830a88f1177fe33053870">BoundsRecords</a> &amp;changes)</td></tr>
+<tr class="memitem:af9fe48725a60688868b2a8ced3cf3e0f" id="r_af9fe48725a60688868b2a8ced3cf3e0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9fe48725a60688868b2a8ced3cf3e0f">setAlpha</a> (juce::Component &amp;c, float alpha)</td></tr>
+<tr class="memitem:abc782f56cdf49e0d5d177fef8c00e4cf" id="r_abc782f56cdf49e0d5d177fef8c00e4cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc782f56cdf49e0d5d177fef8c00e4cf">setScale</a> (juce::Component &amp;c, float scale, const juce::var &amp;origin)</td></tr>
+<tr class="memitem:a25d3403dc9b6af2a1b04475ee36d6cf7" id="r_a25d3403dc9b6af2a1b04475ee36d6cf7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25d3403dc9b6af2a1b04475ee36d6cf7">setShadow</a> (juce::Component &amp;c, const juce::var &amp;shadow)</td></tr>
 <tr class="memitem:ad8c2942b4a60fd2a26917fdc7955275a" id="r_ad8c2942b4a60fd2a26917fdc7955275a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLayoutSupport_1_1Bounds.html">Bounds</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8c2942b4a60fd2a26917fdc7955275a">getBounds</a> (int idIdx, const juce::var &amp;component)</td></tr>
 <tr class="memitem:ae38e9b01f2da7d82e13f95a65a5b304e" id="r_ae38e9b01f2da7d82e13f95a65a5b304e"><td class="memItemLeft" align="right" valign="top">juce::Component *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae38e9b01f2da7d82e13f95a65a5b304e">setPosition</a> (const juce::String &amp;currentPath, const juce::String &amp;id, int idIdx, const juce::var &amp;component)</td></tr>
 <tr class="memitem:a49a3022437111aa60c7a12c871f50e65" id="r_a49a3022437111aa60c7a12c871f50e65"><td class="memItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49a3022437111aa60c7a12c871f50e65">expandMacro</a> (const juce::var &amp;component)</td></tr>
@@ -148,6 +169,10 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a2d8324e2010a8e045c3de98cc9476899" id="r_a2d8324e2010a8e045c3de98cc9476899"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classConstantsStack.html">ConstantsStack</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d8324e2010a8e045c3de98cc9476899">constants</a></td></tr>
 <tr class="memitem:ab04e5babb7567072c7d529edeb046188" id="r_ab04e5babb7567072c7d529edeb046188"><td class="memItemLeft" align="right" valign="top">std::map&lt; juce::String, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab04e5babb7567072c7d529edeb046188">topLevelConstants</a></td></tr>
 <tr class="memitem:aabcc9c3d106fe045b14ce359adb9b11d" id="r_aabcc9c3d106fe045b14ce359adb9b11d"><td class="memItemLeft" align="right" valign="top">std::map&lt; juce::String, juce::var &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabcc9c3d106fe045b14ce359adb9b11d">macros</a></td></tr>
+<tr class="memitem:a769bbb2bb2c98b056f49d0d54663d119" id="r_a769bbb2bb2c98b056f49d0d54663d119"><td class="memItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a769bbb2bb2c98b056f49d0d54663d119">transitionPresets</a></td></tr>
+<tr class="memitem:a9559b86ad29435b475ecc3c67eec71ba" id="r_a9559b86ad29435b475ecc3c67eec71ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#aa8637805eef830a88f1177fe33053870">BoundsRecords</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9559b86ad29435b475ecc3c67eec71ba">boundsBeforeLayout</a></td></tr>
+<tr class="memitem:a2662afafb01417cee644d5dfa8c16d6b" id="r_a2662afafb01417cee644d5dfa8c16d6b"><td class="memItemLeft" align="right" valign="top">std::map&lt; juce::Component *, std::unique_ptr&lt; <a class="el" href="classAnimated.html">Animated</a>&lt; juce::Rectangle&lt; int &gt; &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2662afafb01417cee644d5dfa8c16d6b">boundsAnimations</a></td></tr>
+<tr class="memitem:a27514a0a9281b421ec9054392252a953" id="r_a27514a0a9281b421ec9054392252a953"><td class="memItemLeft" align="right" valign="top">std::vector&lt; juce::Component::SafePointer&lt; juce::Component &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27514a0a9281b421ec9054392252a953">animatedComponents</a></td></tr>
 <tr class="memitem:a9ce034034572fb600bf8b57cd343d9a4" id="r_a9ce034034572fb600bf8b57cd343d9a4"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; juce::File &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ce034034572fb600bf8b57cd343d9a4">layoutFiles</a></td></tr>
 <tr class="memitem:ace2fa37ddd0a4a4d310b3588d59c7cc4" id="r_ace2fa37ddd0a4a4d310b3588d59c7cc4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace2fa37ddd0a4a4d310b3588d59c7cc4">layoutSet</a> = false</td></tr>
 <tr class="memitem:ac0cd7cddbeb01280cf14e2b5619e7adc" id="r_ac0cd7cddbeb01280cf14e2b5619e7adc"><td class="memItemLeft" align="right" valign="top">juce::Component *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0cd7cddbeb01280cf14e2b5619e7adc">curComponent</a> = nullptr</td></tr>
@@ -185,6 +210,7 @@ JSON Format</h1>
 <li><span class="tt">w</span>, <span class="tt">h</span> - Set parent component size</li>
 <li><span class="tt"><a class="el" href="#a2d8324e2010a8e045c3de98cc9476899">constants</a></span> - Define reusable constant values</li>
 <li><span class="tt"><a class="el" href="#aabcc9c3d106fe045b14ce359adb9b11d">macros</a></span> - Define reusable component templates</li>
+<li><span class="tt">transitions</span> - Named transition presets, "&lt;ms&gt; &lt;easing&gt;" (see <a class="el" href="classTransition.html" title="Duration and easing of an animated change, CSS transition style.">Transition</a>)</li>
 <li><span class="tt">components</span> - Array of component definitions</li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="component_props"></a>
@@ -218,7 +244,17 @@ Component Properties</h2>
 <p class="startli">Display:**</p>
 </li>
 <li><span class="tt">visible</span> - Boolean or expression</li>
-<li><p class="startli"><span class="tt">zorder</span> - Z-order index</p>
+<li><span class="tt">zorder</span> - Z-order index</li>
+<li><span class="tt">alpha</span> - Opacity 0..1, number or expression. Alpha 0 hides the component (setVisible (false)), above 0 shows it. With an "alpha" transition it fades: a fade out hides the component when it ends, a fade in shows it first and starts from 0 if it was hidden</li>
+<li><span class="tt">scale</span> - Zoom factor, number or expression, 1 = none (see Transitions below)</li>
+<li><span class="tt">origin</span> - The scale's pivot: "center" (default), "top left", "0.5 0", "25% 100%"...</li>
+<li><span class="tt">boxShadow</span> - CSS-style shadow layers "x y blur opacity [spread] [colour], ...", painted by the parent (see <a class="el" href="classBoxShadow.html" title="CSS-style box shadows, painted by the PARENT under its children, because a shadow lies outside the co...">BoxShadow</a>)</li>
+<li><span class="tt">borderRadius</span> - The corner radius of the outline the shadow follows</li>
+<li><span class="tt">states</span> - Values while hovered, pressed or disabled, e.g. { "hover": { "scale": 1.03 } } (see <a class="el" href="classStates.html" title="Declarative states, like CSS pseudo-classes: values a component takes while the mouse is over it or p...">States</a>)</li>
+<li><p class="startli"><span class="tt">children</span> - { "states": ... } for each direct child, also ones added later (see <a class="el" href="classStates.html" title="Declarative states, like CSS pseudo-classes: values a component takes while the mouse is over it or p...">States</a>)</p>
+<p class="startli">Animation:**</p>
+</li>
+<li><p class="startli"><span class="tt">transition</span> - Preset name, inline spec or "none" for all animated properties, or an object per property, e.g. { "bounds": "glide", "alpha": "quick" }. Inherited by the descendants (see <a class="el" href="classTransition.html" title="Duration and easing of an animated change, CSS transition style.">Transition</a>)</p>
 <p class="startli">Accessibility:**</p>
 </li>
 <li><span class="tt">title</span> - Accessibility title</li>
@@ -282,7 +318,27 @@ Macros</h2>
 <div class="line">  ]</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>Parameters are referenced as P1, P2, P3, etc.</p>
-<h2 class="doxsection"><a class="anchor" id="examples"></a>
+<h2 class="doxsection"><a class="anchor" id="transitions"></a>
+Transitions</h2>
+<p>Top-level "transitions" names presets, a component's "transition" picks one per property; see <a class="el" href="classTransition.html" title="Duration and easing of an animated change, CSS transition style.">Transition</a> for the spec syntax ("&lt;ms&gt; &lt;easing&gt;"), the easing names, the string vs per-property object forms, "none" and how entries inherit down the tree.</p>
+<p>Three properties are animated by the layout itself:</p><ul>
+<li>"bounds": a component whose "bounds" transition isn't instant moves and resizes to its new bounds over the transition instead of jumping. The layout pass itself is unchanged, so prev / parent / maxY expressions see the final bounds; afterwards those components go back to their old bounds and animate. Re-running the layout mid-flight continues from where the component is.</li>
+<li>"alpha": the "alpha" entry (0..1) fades with the "alpha" transition. A fade that ends at 0 hides the component (setVisible (false)) when it ends and takes no mouse clicks while it fades (setInterceptsMouseClicks (false, false), the previous flags come back when it is shown again); a fade from 0 or from hidden shows it first. Without a transition, 0 hides at once. No "visible" entry needed.</li>
+<li>"scale": the "scale" entry (1 = none, number or expression) zooms the component with juce::Component::setTransform about its "origin" ("center" by default; CSS transform-origin style, e.g. "top left", "right", "0.5 0", "25% 100%", see parseTransformOrigin), following its bounds during a "bounds" transition. It replaces any transform of the component's own (see <a class="el" href="classAnimatedScale.html" title="An Animated&lt;float&gt; scale applied to its owner with juce::Component::setTransform, about an origin rel...">AnimatedScale</a>).</li>
+</ul>
+<p>"states" and "children" switch "alpha", "scale" and the "imageFilter" of images drawn through <a class="el" href="classAnimatedImageFilter.html" title="An image and an ImageFilter version of it, blended by an Animated&lt;float&gt; amount: 0 shows the image,...">AnimatedImageFilter</a> while the mouse is over or presses a component, with the same transitions (see <a class="el" href="classStates.html" title="Declarative states, like CSS pseudo-classes: values a component takes while the mouse is over it or p...">States</a>).</p>
+<p>The first layout of a component, components that aren't showing and instant transitions never animate. Without a "default" preset and "transition" entries nothing animates. Hot reloaded json takes effect on the next pass. <a class="el" href="classAnimated.html" title="A value that eases to a new target over a Transition and repaints its owner on every step.">Animated</a> and <a class="el" href="classCrossfade.html" title="A discrete value that can&#39;t blend, like a text or an icon: on a change the previous value fades out w...">Crossfade</a> values in code use the same presets and entries.</p>
+<p>Drive a state change through constants and re-run the layout:</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">  &quot;transitions&quot;: { &quot;quick&quot;: &quot;150 outQuad&quot;, &quot;glide&quot;: &quot;650 inOutCubic&quot; },</div>
+<div class="line">  &quot;components&quot;: [</div>
+<div class="line">    { &quot;id&quot;: &quot;drawer&quot;, &quot;x&quot;: &quot;open * 200 - 200&quot;, &quot;y&quot;: 0, &quot;w&quot;: 200, &quot;h&quot;: &quot;parH&quot;, &quot;transition&quot;: &quot;glide&quot; },</div>
+<div class="line">    { &quot;id&quot;: &quot;hint&quot;, &quot;x&quot;: 10, &quot;y&quot;: 10, &quot;w&quot;: 150, &quot;h&quot;: 20, &quot;alpha&quot;: &quot;1 - open&quot;, &quot;transition&quot;: { &quot;alpha&quot;: &quot;quick&quot; } }</div>
+<div class="line">  ]</div>
+<div class="line">}</div>
+</div><!-- fragment --><div class="fragment"><div class="line">layout.setConstant (<span class="stringliteral">&quot;open&quot;</span>, 1);</div>
+<div class="line">resized();      <span class="comment">// calls layout.setLayout (...): the drawer glides in, the hint fades out and hides</span></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="examples"></a>
 Examples</h2>
 <p>Simple layout: </p><div class="fragment"><div class="line">{</div>
 <div class="line">  &quot;components&quot;: [</div>
@@ -332,7 +388,30 @@ Examples</h2>
 <div class="line">    { &quot;id&quot;: &quot;centerButton&quot;, &quot;cx&quot;: &quot;parW2&quot;, &quot;cy&quot;: &quot;parH2&quot;, &quot;w&quot;: 100, &quot;h&quot;: 30 }</div>
 <div class="line">  ]</div>
 <div class="line">}</div>
-</div><!-- fragment --> </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+</div><!-- fragment --> </div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="aa8637805eef830a88f1177fe33053870" name="aa8637805eef830a88f1177fe33053870"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8637805eef830a88f1177fe33053870">&#9670;&#160;</a></span>BoundsRecords</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#aa8637805eef830a88f1177fe33053870">LayoutSupport::BoundsRecords</a> = std::map&lt;juce::Component*, std::pair&lt;juce::Component::SafePointer&lt;juce::Component&gt;, juce::Rectangle&lt;int&gt;&gt;&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4066b322b51a4f22c5b3dc8da5a3de59" name="a4066b322b51a4f22c5b3dc8da5a3de59"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4066b322b51a4f22c5b3dc8da5a3de59">&#9670;&#160;</a></span>LayoutSupport()</h2>
 
@@ -702,6 +781,35 @@ Examples</h2>
 
 </div>
 </div>
+<a id="ac1dfae66441e315353939650be48146c" name="ac1dfae66441e315353939650be48146c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1dfae66441e315353939650be48146c">&#9670;&#160;</a></span>parseDouble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LayoutSupport::parseDouble </td>
+          <td>(</td>
+          <td class="paramtype">const juce::var &amp;</td>          <td class="paramname"><span class="paramname"><em>equation</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>equationIndex</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ad75415181dadb939baf4c416191b3238" name="ad75415181dadb939baf4c416191b3238"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad75415181dadb939baf4c416191b3238">&#9670;&#160;</a></span>setComponentsLayout()</h2>
 
@@ -770,6 +878,198 @@ Examples</h2>
           <td>(</td>
           <td class="paramtype">juce::var &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab245ed590164a3321198fc7e361c076e" name="ab245ed590164a3321198fc7e361c076e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab245ed590164a3321198fc7e361c076e">&#9670;&#160;</a></span>loadTransitions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LayoutSupport::loadTransitions </td>
+          <td>(</td>
+          <td class="paramtype">juce::var &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a693ed6463a8390fb7da6ff8fe1cc7d81" name="a693ed6463a8390fb7da6ff8fe1cc7d81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a693ed6463a8390fb7da6ff8fe1cc7d81">&#9670;&#160;</a></span>animatedProperties()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classAnimatedProperties.html">AnimatedProperties</a> &amp; LayoutSupport::animatedProperties </td>
+          <td>(</td>
+          <td class="paramtype">juce::Component &amp;</td>          <td class="paramname"><span class="paramname"><em>c</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a18a79e955277716f6735867f33f1f699" name="a18a79e955277716f6735867f33f1f699"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18a79e955277716f6735867f33f1f699">&#9670;&#160;</a></span>recordBounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LayoutSupport::recordBounds </td>
+          <td>(</td>
+          <td class="paramtype">juce::Component &amp;</td>          <td class="paramname"><span class="paramname"><em>c</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6f19c107d0b338698ad2eaa57b52282c" name="a6f19c107d0b338698ad2eaa57b52282c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f19c107d0b338698ad2eaa57b52282c">&#9670;&#160;</a></span>animateLayoutChanges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LayoutSupport::animateLayoutChanges </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#aa8637805eef830a88f1177fe33053870">BoundsRecords</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>changes</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af9fe48725a60688868b2a8ced3cf3e0f" name="af9fe48725a60688868b2a8ced3cf3e0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9fe48725a60688868b2a8ced3cf3e0f">&#9670;&#160;</a></span>setAlpha()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LayoutSupport::setAlpha </td>
+          <td>(</td>
+          <td class="paramtype">juce::Component &amp;</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>alpha</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc782f56cdf49e0d5d177fef8c00e4cf" name="abc782f56cdf49e0d5d177fef8c00e4cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc782f56cdf49e0d5d177fef8c00e4cf">&#9670;&#160;</a></span>setScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LayoutSupport::setScale </td>
+          <td>(</td>
+          <td class="paramtype">juce::Component &amp;</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>scale</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const juce::var &amp;</td>          <td class="paramname"><span class="paramname"><em>origin</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a25d3403dc9b6af2a1b04475ee36d6cf7" name="a25d3403dc9b6af2a1b04475ee36d6cf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25d3403dc9b6af2a1b04475ee36d6cf7">&#9670;&#160;</a></span>setShadow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LayoutSupport::setShadow </td>
+          <td>(</td>
+          <td class="paramtype">juce::Component &amp;</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const juce::var &amp;</td>          <td class="paramname"><span class="paramname"><em>shadow</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -933,6 +1233,30 @@ Examples</h2>
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="ac3efc7747d07b05ee879ba0792f1b457" name="ac3efc7747d07b05ee879ba0792f1b457"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3efc7747d07b05ee879ba0792f1b457">&#9670;&#160;</a></span>excludeFromLayout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const juce::Identifier LayoutSupport::excludeFromLayout { &quot;excludeFromLayout&quot; }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A component property: true leaves the child out of the parent's maxX / maxY (pW / pH), like the shadow layer <a class="el" href="classBoxShadow.html" title="CSS-style box shadows, painted by the PARENT under its children, because a shadow lies outside the co...">BoxShadow</a> adds. </p>
+
+</div>
+</div>
 <a id="ab81e49461b2cd7066b40017c67719197" name="ab81e49461b2cd7066b40017c67719197"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab81e49461b2cd7066b40017c67719197">&#9670;&#160;</a></span>layoutChanged</h2>
 
@@ -946,6 +1270,24 @@ Examples</h2>
 </div><div class="memdoc">
 
 <p>Callback invoked when layout is loaded or reloaded. </p>
+<p>Every component is at its final bounds here, before "bounds" transitions move them back and start animating, so it may size the parent from them; a layout pass it triggers (e.g. through resized()) doesn't cancel the transitions. </p>
+
+</div>
+</div>
+<a id="a547099642a77adb630974c59ef7de249" name="a547099642a77adb630974c59ef7de249"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a547099642a77adb630974c59ef7de249">&#9670;&#160;</a></span>transitionStep</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;void (juce::Component&amp;)&gt; LayoutSupport::transitionStep</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Callback invoked on every step of a layout driven transition ("bounds", "alpha", "scale"), with the component that moved or faded. </p>
+<p>For anything painted outside that component that follows it, like a drop shadow or a glow the parent paints. </p>
 
 </div>
 </div>
@@ -1070,6 +1412,94 @@ Examples</h2>
       <table class="memname">
         <tr>
           <td class="memname">std::map&lt;juce::String, juce::var&gt; LayoutSupport::macros</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a769bbb2bb2c98b056f49d0d54663d119" name="a769bbb2bb2c98b056f49d0d54663d119"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a769bbb2bb2c98b056f49d0d54663d119">&#9670;&#160;</a></span>transitionPresets</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::var LayoutSupport::transitionPresets</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9559b86ad29435b475ecc3c67eec71ba" name="a9559b86ad29435b475ecc3c67eec71ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9559b86ad29435b475ecc3c67eec71ba">&#9670;&#160;</a></span>boundsBeforeLayout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#aa8637805eef830a88f1177fe33053870">BoundsRecords</a> LayoutSupport::boundsBeforeLayout</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2662afafb01417cee644d5dfa8c16d6b" name="a2662afafb01417cee644d5dfa8c16d6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2662afafb01417cee644d5dfa8c16d6b">&#9670;&#160;</a></span>boundsAnimations</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;juce::Component*, std::unique_ptr&lt;<a class="el" href="classAnimated.html">Animated</a>&lt;juce::Rectangle&lt;int&gt; &gt; &gt; &gt; LayoutSupport::boundsAnimations</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a27514a0a9281b421ec9054392252a953" name="a27514a0a9281b421ec9054392252a953"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27514a0a9281b421ec9054392252a953">&#9670;&#160;</a></span>animatedComponents</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;juce::Component::SafePointer&lt;juce::Component&gt; &gt; LayoutSupport::animatedComponents</td>
         </tr>
       </table>
   </td>

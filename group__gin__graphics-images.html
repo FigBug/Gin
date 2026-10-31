@@ -73,6 +73,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#files">Files</a> &#124;
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">images <div class="ingroups"><a class="el" href="group__gin__graphics.html">gin_graphics</a></div></div></div>
@@ -83,6 +84,13 @@ $(function() {
 Files</h2></td></tr>
 <tr class="memitem:gin_5Fimageeffects_2Eh" id="r_gin_5Fimageeffects_2Eh"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gin__imageeffects_8h.html">gin_imageeffects.h</a></td></tr>
 <tr class="memdesc:gin__imageeffects_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Image processing effects and filters. <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:MipMapEnhance" id="r_MipMapEnhance"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMipMapEnhance.html">MipMapEnhance</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Post-processing of a <a class="el" href="classMipMap.html" title="An image with its halved levels down to 16 px, each halving a rounded 2x2 box average,...">MipMap</a>'s reduced levels, off by default.  <a href="structMipMapEnhance.html#details">More...</a><br /></td></tr>
+<tr class="memitem:MipMap" id="r_MipMap"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMipMap.html">MipMap</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An image with its halved levels down to 16 px, each halving a rounded 2x2 box average, so drawing it smaller picks the nearest larger level and stays sharp without aliasing.  <a href="classMipMap.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -190,6 +198,8 @@ Functions</h2></td></tr>
 <tr class="memitem:gac7cd86042e599d1c6308a7c9a588a075" id="r_gac7cd86042e599d1c6308a7c9a588a075"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac7cd86042e599d1c6308a7c9a588a075">channelBlendGlow</a> (int A, int B)</td></tr>
 <tr class="memitem:ga33f5133880bec046ad012d0196814d55" id="r_ga33f5133880bec046ad012d0196814d55"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga33f5133880bec046ad012d0196814d55">channelBlendPhoenix</a> (int A, int B)</td></tr>
 <tr class="memitem:ga6ca2bcca3726d2fa3fc004a1e8bd7813" id="r_ga6ca2bcca3726d2fa3fc004a1e8bd7813"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6ca2bcca3726d2fa3fc004a1e8bd7813">channelBlendAlpha</a> (uint8_t A, uint8_t B, float O)</td></tr>
+<tr class="memitem:gade632fa476cead60f9f86c202404e4be" id="r_gade632fa476cead60f9f86c202404e4be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gade632fa476cead60f9f86c202404e4be">drawBlend</a> (juce::Graphics &amp;g, const <a class="el" href="classMipMap.html">MipMap</a> &amp;a, const <a class="el" href="classMipMap.html">MipMap</a> &amp;b, float progress, juce::Rectangle&lt; float &gt; rc, juce::RectanglePlacement placement=0)</td></tr>
+<tr class="memdesc:gade632fa476cead60f9f86c202404e4be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a blend of two MipMaps in the same rectangle, each through <a class="el" href="classMipMap.html#a31b718dddc55c8f2cd5f34d12593d6b9" title="Draws the level that fits rc at the context&#39;s physical pixel scale.">MipMap::draw</a>: a at full opacity, then b on top at progress.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
@@ -344,7 +354,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">img</td><td>The image to modify (modified in-place) </td></tr>
     <tr><td class="paramname">amount</td><td>Darkness amount [0, 1]. 0 = no darkening, 1 = black edges </td></tr>
     <tr><td class="paramname">radius</td><td>Vignette size [0, 1]. 1 = full image size, 0 = no vignette </td></tr>
-    <tr><td class="paramname">falloff</td><td>Transition size [0, 1]. Controls softness of vignette edge </td></tr>
+    <tr><td class="paramname">falloff</td><td><a class="el" href="classTransition.html" title="Duration and easing of an animated change, CSS transition style.">Transition</a> size [0, 1]. Controls softness of vignette edge </td></tr>
     <tr><td class="paramname">threadPool</td><td>Optional thread pool for parallel processing </td></tr>
   </table>
   </dd>
@@ -1591,6 +1601,50 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="gade632fa476cead60f9f86c202404e4be" name="gade632fa476cead60f9f86c202404e4be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gade632fa476cead60f9f86c202404e4be">&#9670;&#160;</a></span>drawBlend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drawBlend </td>
+          <td>(</td>
+          <td class="paramtype">juce::Graphics &amp;</td>          <td class="paramname"><span class="paramname"><em>g</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classMipMap.html">MipMap</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classMipMap.html">MipMap</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>progress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">juce::Rectangle&lt; float &gt;</td>          <td class="paramname"><span class="paramname"><em>rc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">juce::RectanglePlacement</td>          <td class="paramname"><span class="paramname"><em>placement</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws a blend of two MipMaps in the same rectangle, each through <a class="el" href="classMipMap.html#a31b718dddc55c8f2cd5f34d12593d6b9" title="Draws the level that fits rc at the context&#39;s physical pixel scale.">MipMap::draw</a>: a at full opacity, then b on top at progress. </p>
+<p>0 draws only a, 1 only b. An empty side is skipped. </p>
 
 </div>
 </div>

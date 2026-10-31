@@ -2153,6 +2153,25 @@
     <filename>gin__imageeffects__blending_8test_8h.html</filename>
   </compound>
   <compound kind="file">
+    <name>gin_mipmap.h</name>
+    <path>build/gin_graphics/images/</path>
+    <filename>gin__mipmap_8h.html</filename>
+    <class kind="struct">MipMapEnhance</class>
+    <class kind="class">MipMap</class>
+    <member kind="function">
+      <type>void</type>
+      <name>drawBlend</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gade632fa476cead60f9f86c202404e4be</anchor>
+      <arglist>(juce::Graphics &amp;g, const MipMap &amp;a, const MipMap &amp;b, float progress, juce::Rectangle&lt; float &gt; rc, juce::RectanglePlacement placement=0)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_mipmap.test.h</name>
+    <path>build/gin_graphics/images/</path>
+    <filename>gin__mipmap_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_componentgrid.h</name>
     <path>build/gin_gui/components/</path>
     <filename>gin__componentgrid_8h.html</filename>
@@ -2230,6 +2249,110 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>gin_animated.h</name>
+    <path>build/gin_gui/utilities/</path>
+    <filename>gin__animated_8h.html</filename>
+    <class kind="class">Transition</class>
+    <class kind="struct">Interpolator</class>
+    <class kind="struct">Interpolator&lt; float &gt;</class>
+    <class kind="struct">Interpolator&lt; juce::Colour &gt;</class>
+    <class kind="struct">Interpolator&lt; juce::Rectangle&lt; float &gt; &gt;</class>
+    <class kind="struct">Interpolator&lt; juce::Rectangle&lt; int &gt; &gt;</class>
+    <class kind="struct">Interpolator&lt; juce::Font &gt;</class>
+    <class kind="struct">Interpolator&lt; juce::ColourGradient &gt;</class>
+    <class kind="class">AnimationDriver</class>
+    <class kind="class">AnimatedBase</class>
+    <class kind="class">Animated</class>
+    <class kind="class">AnimatedScale</class>
+    <class kind="class">Crossfade</class>
+    <class kind="class">ImageFilter</class>
+    <class kind="class">AnimatedImageFilter</class>
+    <member kind="function">
+      <type>std::optional&lt; juce::Point&lt; float &gt; &gt;</type>
+      <name>parseTransformOrigin</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gac900dd33ea50f296cc4203a8d0d62134</anchor>
+      <arglist>(const juce::String &amp;origin)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::AffineTransform</type>
+      <name>scaleTransform</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga19e8ebeb89c756ce6e2b7ec549394629</anchor>
+      <arglist>(juce::Rectangle&lt; int &gt; bounds, float s, juce::Point&lt; float &gt; origin={ 0.5f, 0.5f })</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>fillGradient</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad82448710baf93f538c87dc3035ec0db</anchor>
+      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; float &gt; area, float cornerRadius, const juce::ColourGradient &amp;relativeGradient)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawText</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga03d1f32d7e50cd42e34a29e844bddc83</anchor>
+      <arglist>(juce::Graphics &amp;g, const Crossfade&lt; juce::String &gt; &amp;text, juce::Rectangle&lt; float &gt; area, const juce::Font &amp;font, juce::Colour colour, juce::Justification justification)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawIcon</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga47080f18ebe7dfc4d08e43cd3a96aad6</anchor>
+      <arglist>(juce::Graphics &amp;g, const juce::Path &amp;relativePath, juce::Rectangle&lt; float &gt; area, juce::Colour colour)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawIcon</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga553ff8ef83089e832cbb0607906b11ef</anchor>
+      <arglist>(juce::Graphics &amp;g, const Crossfade&lt; juce::Path &gt; &amp;icon, juce::Rectangle&lt; float &gt; area, juce::Colour colour)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawImage</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga32a60ed5aae23e090ac4076000c13234</anchor>
+      <arglist>(juce::Graphics &amp;g, const Crossfade&lt; MipMap &gt; &amp;image, juce::Rectangle&lt; float &gt; area, juce::RectanglePlacement placement=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>fillGradient</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad82448710baf93f538c87dc3035ec0db</anchor>
+      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; float &gt; area, float cornerRadius, const juce::ColourGradient &amp;relativeGradient)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawText</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga03d1f32d7e50cd42e34a29e844bddc83</anchor>
+      <arglist>(juce::Graphics &amp;g, const Crossfade&lt; juce::String &gt; &amp;text, juce::Rectangle&lt; float &gt; area, const juce::Font &amp;font, juce::Colour colour, juce::Justification justification)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawIcon</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga47080f18ebe7dfc4d08e43cd3a96aad6</anchor>
+      <arglist>(juce::Graphics &amp;g, const juce::Path &amp;relativePath, juce::Rectangle&lt; float &gt; area, juce::Colour colour)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawIcon</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga553ff8ef83089e832cbb0607906b11ef</anchor>
+      <arglist>(juce::Graphics &amp;g, const Crossfade&lt; juce::Path &gt; &amp;icon, juce::Rectangle&lt; float &gt; area, juce::Colour colour)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawImage</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga32a60ed5aae23e090ac4076000c13234</anchor>
+      <arglist>(juce::Graphics &amp;g, const Crossfade&lt; MipMap &gt; &amp;image, juce::Rectangle&lt; float &gt; area, juce::RectanglePlacement placement=0)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>gin_asyncutilities.h</name>
     <path>build/gin_gui/utilities/</path>
     <filename>gin__asyncutilities_8h.html</filename>
@@ -2297,6 +2420,28 @@
     <path>build/gin_gui/utilities/</path>
     <filename>gin__platform_8h.html</filename>
     <namespace>macOS</namespace>
+  </compound>
+  <compound kind="file">
+    <name>gin_shadows.h</name>
+    <path>build/gin_gui/utilities/</path>
+    <filename>gin__shadows_8h.html</filename>
+    <class kind="struct">ShadowSpec</class>
+    <class kind="struct">Interpolator&lt; ShadowList &gt;</class>
+    <class kind="class">BoxShadow</class>
+    <member kind="typedef">
+      <type>std::vector&lt; ShadowSpec &gt;</type>
+      <name>ShadowList</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga52a9fcc4d7245c1abf76653980dcddf4</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>gin_states.h</name>
+    <path>build/gin_gui/utilities/</path>
+    <filename>gin__states_8h.html</filename>
+    <class kind="class">AnimatedProperties</class>
+    <class kind="class">States</class>
   </compound>
   <compound kind="file">
     <name>gin_systemclipboard.h</name>
@@ -3555,6 +3700,439 @@
       <anchorfile>classAnalogADSR.html</anchorfile>
       <anchor>a15bcc5ef1223a2c4e9f8d3e143009370</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Animated</name>
+    <filename>classAnimated.html</filename>
+    <templarg>typename T</templarg>
+    <base>AnimatedBase</base>
+    <member kind="function">
+      <type></type>
+      <name>Animated</name>
+      <anchorfile>classAnimated.html</anchorfile>
+      <anchor>ad6b83759bbde01f26423e6d457e7e8ee</anchor>
+      <arglist>(juce::Component &amp;owner, const juce::String &amp;property={}, T initial=T())</arglist>
+    </member>
+    <member kind="function">
+      <type>const T &amp;</type>
+      <name>get</name>
+      <anchorfile>classAnimated.html</anchorfile>
+      <anchor>a3907bc098cf55d3bbbc3636094e0a548</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>operator const T &amp;</name>
+      <anchorfile>classAnimated.html</anchorfile>
+      <anchor>a334e076251ddfecfcac28964d3472eb9</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>const T &amp;</type>
+      <name>getTarget</name>
+      <anchorfile>classAnimated.html</anchorfile>
+      <anchor>a73a5f3d40f82d77a43384ff65879bdf7</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setValue</name>
+      <anchorfile>classAnimated.html</anchorfile>
+      <anchor>a3c73c56f16d6d64f1133aeb0fdc3e88f</anchor>
+      <arglist>(T newValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setTarget</name>
+      <anchorfile>classAnimated.html</anchorfile>
+      <anchor>a1eb6cec5b63f6cc8965a32eb1256705f</anchor>
+      <arglist>(T newTarget)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setTarget</name>
+      <anchorfile>classAnimated.html</anchorfile>
+      <anchor>af0ed799273c4306405074b4d2cddcf98</anchor>
+      <arglist>(T newTarget, const juce::String &amp;nameOrSpec)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setTarget</name>
+      <anchorfile>classAnimated.html</anchorfile>
+      <anchor>a732ce01c6465d404a6453e469510807e</anchor>
+      <arglist>(T newTarget, const Transition &amp;t)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateTarget</name>
+      <anchorfile>classAnimated.html</anchorfile>
+      <anchor>a86be9cdb4ff32ad8db2750c9a98283a3</anchor>
+      <arglist>(T newTarget)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>followTarget</name>
+      <anchorfile>classAnimated.html</anchorfile>
+      <anchor>a5cf3da86d68f24127515488d181608f5</anchor>
+      <arglist>(T newTarget)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>followTarget</name>
+      <anchorfile>classAnimated.html</anchorfile>
+      <anchor>a6f904a94e0e1617b09fc786afd10f9ac</anchor>
+      <arglist>(T newTarget, const juce::String &amp;nameOrSpec)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>followTarget</name>
+      <anchorfile>classAnimated.html</anchorfile>
+      <anchor>aed25d45715ea15ce28b965485cd6ab6b</anchor>
+      <arglist>(T newTarget, const Transition &amp;t)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>AnimatedBase</name>
+    <filename>classAnimatedBase.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>AnimatedBase</name>
+      <anchorfile>classAnimatedBase.html</anchorfile>
+      <anchor>ad01635c98658830ec562d61cb4b10ce2</anchor>
+      <arglist>(juce::Component &amp;owner, const juce::String &amp;property)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~AnimatedBase</name>
+      <anchorfile>classAnimatedBase.html</anchorfile>
+      <anchor>a94087bb6c279088c14e44be8a6c48062</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isAnimating</name>
+      <anchorfile>classAnimatedBase.html</anchorfile>
+      <anchor>a37857f1fdf9f680b90e76e709351a4d4</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Component *</type>
+      <name>getOwner</name>
+      <anchorfile>classAnimatedBase.html</anchorfile>
+      <anchor>a1cab6bd4adf0d7c24b8fa7fc781e7e6f</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce::String &amp;</type>
+      <name>getProperty</name>
+      <anchorfile>classAnimatedBase.html</anchorfile>
+      <anchor>a61c58ef5309599fae3f7d577cc0088d3</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Transition</type>
+      <name>getTransition</name>
+      <anchorfile>classAnimatedBase.html</anchorfile>
+      <anchor>a8b4d94a084f8a2587e000430e97ecb31</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; void()&gt;</type>
+      <name>onChange</name>
+      <anchorfile>classAnimatedBase.html</anchorfile>
+      <anchor>aafc7d1f2eacd9b804f3c99bdc1579a94</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>start</name>
+      <anchorfile>classAnimatedBase.html</anchorfile>
+      <anchor>a0e6e118783275ed05e00315dd54a15d5</anchor>
+      <arglist>(const Transition &amp;t)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>stop</name>
+      <anchorfile>classAnimatedBase.html</anchorfile>
+      <anchor>a9bc9b2b7c7cc396b25ab88a5b5bbaad6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>changed</name>
+      <anchorfile>classAnimatedBase.html</anchorfile>
+      <anchor>afa5446dd5733bcd41d0372d11f627de3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="pure">
+      <type>virtual void</type>
+      <name>update</name>
+      <anchorfile>classAnimatedBase.html</anchorfile>
+      <anchor>a41f152611d500b3dff17393db8919f22</anchor>
+      <arglist>(float progress)=0</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>valueChanged</name>
+      <anchorfile>classAnimatedBase.html</anchorfile>
+      <anchor>ad16cabaf7dd50271c30bc2a2f0efa758</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>float</type>
+      <name>getLastProgress</name>
+      <anchorfile>classAnimatedBase.html</anchorfile>
+      <anchor>a30e24a905d3dcf0a29eb73f86250c66b</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="friend" protection="private">
+      <type>friend class</type>
+      <name>AnimationDriver</name>
+      <anchorfile>classAnimatedBase.html</anchorfile>
+      <anchor>ac9079d89ba531f7713fd013b73af496b</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>AnimatedImageFilter</name>
+    <filename>classAnimatedImageFilter.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>AnimatedImageFilter</name>
+      <anchorfile>classAnimatedImageFilter.html</anchorfile>
+      <anchor>a64553c0820ce854012522b92068897cd</anchor>
+      <arglist>(juce::Component &amp;owner, const juce::String &amp;property=&quot;imageFilter&quot;)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~AnimatedImageFilter</name>
+      <anchorfile>classAnimatedImageFilter.html</anchorfile>
+      <anchor>a0cda903d43ca3b946003e8f9fb665ffd</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setImage</name>
+      <anchorfile>classAnimatedImageFilter.html</anchorfile>
+      <anchor>add00d0e4f2813b58864f6731ada9bb8e</anchor>
+      <arglist>(const MipMap &amp;image)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFilter</name>
+      <anchorfile>classAnimatedImageFilter.html</anchorfile>
+      <anchor>a3d465d787a9175c7f05c2e4f55868ff0</anchor>
+      <arglist>(const ImageFilter &amp;filter)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFilter</name>
+      <anchorfile>classAnimatedImageFilter.html</anchorfile>
+      <anchor>a927d18c871f708774c2199dde47db3b0</anchor>
+      <arglist>(const juce::String &amp;spec)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>draw</name>
+      <anchorfile>classAnimatedImageFilter.html</anchorfile>
+      <anchor>a20b82819d55e54e5ab9ab1ae8c5b8863</anchor>
+      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; float &gt; area, juce::RectanglePlacement placement=0) const</arglist>
+    </member>
+    <member kind="function">
+      <type>const MipMap &amp;</type>
+      <name>getImage</name>
+      <anchorfile>classAnimatedImageFilter.html</anchorfile>
+      <anchor>af28fa90fb91c8cba0ec8f50b04bf1405</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>const MipMap &amp;</type>
+      <name>getFilteredImage</name>
+      <anchorfile>classAnimatedImageFilter.html</anchorfile>
+      <anchor>ae9738279492db2d5ff9b94eb2d58a261</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="variable">
+      <type>Animated&lt; float &gt;</type>
+      <name>amount</name>
+      <anchorfile>classAnimatedImageFilter.html</anchorfile>
+      <anchor>ad64d036a0b6869b8cc6dfa8d1857d9f0</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>AnimatedProperties</name>
+    <filename>classAnimatedProperties.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>~AnimatedProperties</name>
+      <anchorfile>classAnimatedProperties.html</anchorfile>
+      <anchor>a9ccabe414a3a8af955bbbea912a5ac82</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setBaseAlpha</name>
+      <anchorfile>classAnimatedProperties.html</anchorfile>
+      <anchor>a101e876f37edaffe55406312fc1fdeb9</anchor>
+      <arglist>(float alpha, bool animate)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setBaseScale</name>
+      <anchorfile>classAnimatedProperties.html</anchorfile>
+      <anchor>a1c344d904e4af4d5870d2cae70776943</anchor>
+      <arglist>(float scale, juce::Point&lt; float &gt; origin, bool animate)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setStateValues</name>
+      <anchorfile>classAnimatedProperties.html</anchorfile>
+      <anchor>ab4fdcaba28a0fbefa20981ef582a7996</anchor>
+      <arglist>(const juce::var &amp;values)</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce::var &amp;</type>
+      <name>getStateValues</name>
+      <anchorfile>classAnimatedProperties.html</anchorfile>
+      <anchor>ab37436ec781adab7cc8927f8a758bf2c</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addImageFilter</name>
+      <anchorfile>classAnimatedProperties.html</anchorfile>
+      <anchor>aeffbbdb4a5a1402a4d65d7ddb7db2938</anchor>
+      <arglist>(AnimatedImageFilter &amp;f)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeImageFilter</name>
+      <anchorfile>classAnimatedProperties.html</anchorfile>
+      <anchor>a76902fc177aef7d6a29544a9c1cb8ece</anchor>
+      <arglist>(AnimatedImageFilter &amp;f)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setBaseShadow</name>
+      <anchorfile>classAnimatedProperties.html</anchorfile>
+      <anchor>a9afe682d81aacf84d678d5c0fe5ac77e</anchor>
+      <arglist>(const ShadowList &amp;shadow, bool animate)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setShadowRadius</name>
+      <anchorfile>classAnimatedProperties.html</anchorfile>
+      <anchor>af6bab5f412da0b23b1a3a56a4b9900c5</anchor>
+      <arglist>(float radius)</arglist>
+    </member>
+    <member kind="function">
+      <type>const ShadowList &amp;</type>
+      <name>getShadow</name>
+      <anchorfile>classAnimatedProperties.html</anchorfile>
+      <anchor>a842644bd2897fac9d2218c3791689e71</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getShadowRadius</name>
+      <anchorfile>classAnimatedProperties.html</anchorfile>
+      <anchor>a2e1c591bf57e8d9a0e6d45f2dde468a9</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static AnimatedProperties &amp;</type>
+      <name>get</name>
+      <anchorfile>classAnimatedProperties.html</anchorfile>
+      <anchor>a755a158c46f618db33d093686d1c5392</anchor>
+      <arglist>(juce::Component &amp;c)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static AnimatedProperties *</type>
+      <name>find</name>
+      <anchorfile>classAnimatedProperties.html</anchorfile>
+      <anchor>abfe522e314aa7f4fb3f7680a54063316</anchor>
+      <arglist>(const juce::Component &amp;c)</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; void(juce::Component &amp;)&gt;</type>
+      <name>onStep</name>
+      <anchorfile>classAnimatedProperties.html</anchorfile>
+      <anchor>af7a312a9a62e92a607b5fe184a592881</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>AnimatedScale</name>
+    <filename>classAnimatedScale.html</filename>
+    <base>Animated&lt; float &gt;</base>
+    <member kind="function">
+      <type></type>
+      <name>AnimatedScale</name>
+      <anchorfile>classAnimatedScale.html</anchorfile>
+      <anchor>aad165b786e2f5f7f19d0d9b8f27a3c7c</anchor>
+      <arglist>(juce::Component &amp;owner, const juce::String &amp;property=&quot;scale&quot;, float initial=1.0f)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~AnimatedScale</name>
+      <anchorfile>classAnimatedScale.html</anchorfile>
+      <anchor>a32ed60acff0287eebec1ac548fdbc5ba</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setOrigin</name>
+      <anchorfile>classAnimatedScale.html</anchorfile>
+      <anchor>ae3299cfe54cded8f86cdb08a0d88f189</anchor>
+      <arglist>(juce::Point&lt; float &gt; relativeOrigin)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Point&lt; float &gt;</type>
+      <name>getOrigin</name>
+      <anchorfile>classAnimatedScale.html</anchorfile>
+      <anchor>a02baeb550ad94009a9386dc0300bc0b4</anchor>
+      <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>AnimationDriver</name>
+    <filename>classAnimationDriver.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>AnimationDriver</name>
+      <anchorfile>classAnimationDriver.html</anchorfile>
+      <anchor>ae63a10b54be94ab609da9ac3bc58ecba</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~AnimationDriver</name>
+      <anchorfile>classAnimationDriver.html</anchorfile>
+      <anchor>ad5279a14c7093a3dcadb9722b0e415c3</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>add</name>
+      <anchorfile>classAnimationDriver.html</anchorfile>
+      <anchor>a61549abf8ee7df960922009746c8143b</anchor>
+      <arglist>(AnimatedBase &amp;a)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>remove</name>
+      <anchorfile>classAnimationDriver.html</anchorfile>
+      <anchor>a948a3acdbd70fd283fa169e6a3fed1e1</anchor>
+      <arglist>(AnimatedBase &amp;a)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>finishAll</name>
+      <anchorfile>classAnimationDriver.html</anchorfile>
+      <anchor>a9ba0be955818a2b4d73fdf7e81f73b3c</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -5424,6 +6002,62 @@
       <arglist>(int page)</arglist>
     </member>
   </compound>
+  <compound kind="class">
+    <name>BoxShadow</name>
+    <filename>classBoxShadow.html</filename>
+    <member kind="typedef">
+      <type>std::function&lt; void(juce::Graphics &amp;, const juce::Path &amp;outline, const ShadowSpec &amp;)&gt;</type>
+      <name>Renderer</name>
+      <anchorfile>classBoxShadow.html</anchorfile>
+      <anchor>a6d29a183600d21b419a2098eb3f46cae</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static std::optional&lt; ShadowList &gt;</type>
+      <name>parse</name>
+      <anchorfile>classBoxShadow.html</anchorfile>
+      <anchor>a539c8ce13cd2d76a52d79471ea2f4ccf</anchor>
+      <arglist>(const juce::var &amp;shadow)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>setRenderer</name>
+      <anchorfile>classBoxShadow.html</anchorfile>
+      <anchor>a50b83691632517c2691fc236b41ea61a</anchor>
+      <arglist>(Renderer renderer)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>setRenderer</name>
+      <anchorfile>classBoxShadow.html</anchorfile>
+      <anchor>ace784d2fa67ac633828240762d9ed4e8</anchor>
+      <arglist>(juce::Component &amp;container, Renderer renderer)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>set</name>
+      <anchorfile>classBoxShadow.html</anchorfile>
+      <anchor>a8a46442242c0c9e92d86030f353ab2dd</anchor>
+      <arglist>(juce::Component &amp;c, const juce::var &amp;shadow)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>setRadius</name>
+      <anchorfile>classBoxShadow.html</anchorfile>
+      <anchor>abf75e256fedfe26a741ae5e8da5e9ffc</anchor>
+      <arglist>(juce::Component &amp;c, float radius)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>paintChildShadows</name>
+      <anchorfile>classBoxShadow.html</anchorfile>
+      <anchor>a78dbfb3d38a8ea57ef1cb964ce524b47</anchor>
+      <arglist>(juce::Graphics &amp;g, juce::Component &amp;container)</arglist>
+    </member>
+    <docanchor file="classBoxShadow.html" title="Painting">painting</docanchor>
+    <docanchor file="classBoxShadow.html" title="Renderer">renderer</docanchor>
+    <docanchor file="classStates.html" title="Code">code</docanchor>
+  </compound>
   <compound kind="struct">
     <name>BP12State</name>
     <filename>structBP12State.html</filename>
@@ -6437,6 +7071,82 @@
       <anchorfile>classCorrelationMeter.html</anchorfile>
       <anchor>a58d97680630141a6f55cc92c9124cba7</anchor>
       <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Crossfade</name>
+    <filename>classCrossfade.html</filename>
+    <templarg>typename T</templarg>
+    <base>AnimatedBase</base>
+    <member kind="function">
+      <type></type>
+      <name>Crossfade</name>
+      <anchorfile>classCrossfade.html</anchorfile>
+      <anchor>a6d28b389ae965380d09513fcedb5ee1b</anchor>
+      <arglist>(juce::Component &amp;owner, const juce::String &amp;property={}, T initial=T())</arglist>
+    </member>
+    <member kind="function">
+      <type>const T &amp;</type>
+      <name>getCurrent</name>
+      <anchorfile>classCrossfade.html</anchorfile>
+      <anchor>a3ba7a42c6ad1b6156022906a82b75d7c</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>const T &amp;</type>
+      <name>getPrevious</name>
+      <anchorfile>classCrossfade.html</anchorfile>
+      <anchor>a73ade78745e9e1b774bb32e418f52542</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getProgress</name>
+      <anchorfile>classCrossfade.html</anchorfile>
+      <anchor>a66dd40356149519aca98eb915e1c1ff7</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>draw</name>
+      <anchorfile>classCrossfade.html</anchorfile>
+      <anchor>a29b9d9167fd6fe9644a1cb5f0f3e14de</anchor>
+      <arglist>(PaintFn &amp;&amp;paintOne) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setValue</name>
+      <anchorfile>classCrossfade.html</anchorfile>
+      <anchor>a38e2b94edd151a11bfcae8f09b42af9d</anchor>
+      <arglist>(T newValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateTarget</name>
+      <anchorfile>classCrossfade.html</anchorfile>
+      <anchor>a4d6cf2e80efd980863f682659dbf29ec</anchor>
+      <arglist>(T newValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setTarget</name>
+      <anchorfile>classCrossfade.html</anchorfile>
+      <anchor>ae16be9fe367afe46ceb7e15a939c4603</anchor>
+      <arglist>(T newTarget)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setTarget</name>
+      <anchorfile>classCrossfade.html</anchorfile>
+      <anchor>ae92010b64f565e4c2e67e6f3089ea65f</anchor>
+      <arglist>(T newTarget, const juce::String &amp;nameOrSpec)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setTarget</name>
+      <anchorfile>classCrossfade.html</anchorfile>
+      <anchor>ae769ab50dec86607e7c16176d11987f4</anchor>
+      <arglist>(T newTarget, const Transition &amp;t)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -10214,6 +10924,45 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>ImageFilter</name>
+    <filename>classImageFilter.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ImageFilter</name>
+      <anchorfile>classImageFilter.html</anchorfile>
+      <anchor>a723d8ed3b0d943d7c8a2687ef742c245</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>apply</name>
+      <anchorfile>classImageFilter.html</anchorfile>
+      <anchor>a594918dedbb29c5bab23aa8e835ff73f</anchor>
+      <arglist>(juce::Image &amp;img) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isEmpty</name>
+      <anchorfile>classImageFilter.html</anchorfile>
+      <anchor>acf142b02b2d92a74cdfb9914c9d28682</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>classImageFilter.html</anchorfile>
+      <anchor>a51154e943df5752c48fc4d04bad1def3</anchor>
+      <arglist>(const ImageFilter &amp;other) const</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static std::optional&lt; ImageFilter &gt;</type>
+      <name>fromSpec</name>
+      <anchorfile>classImageFilter.html</anchorfile>
+      <anchor>a414d2bd79893d2ac42925851a588d229</anchor>
+      <arglist>(const juce::String &amp;spec)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>ImageMetadata</name>
     <filename>classImageMetadata.html</filename>
     <member kind="function">
@@ -10529,6 +11278,151 @@
       <anchorfile>classIntegrator.html</anchorfile>
       <anchor>aa32b905e14b6fd492b2d1c5dd33cb8f8</anchor>
       <arglist>(juce::Array&lt; Point&lt; double &gt; &gt; points)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>Interpolator</name>
+    <filename>structInterpolator.html</filename>
+    <templarg>typename T</templarg>
+    <member kind="function" static="yes">
+      <type>static T</type>
+      <name>blend</name>
+      <anchorfile>structInterpolator.html</anchorfile>
+      <anchor>a0748e5559102c8fb79c67078efd74d4a</anchor>
+      <arglist>(const T &amp;a, const T &amp;b, float p)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>same</name>
+      <anchorfile>structInterpolator.html</anchorfile>
+      <anchor>ab27d4e3310b8706a2b8f25931b815093</anchor>
+      <arglist>(const T &amp;a, const T &amp;b)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>Interpolator&lt; float &gt;</name>
+    <filename>structInterpolator_3_01float_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static float</type>
+      <name>blend</name>
+      <anchorfile>structInterpolator_3_01float_01_4.html</anchorfile>
+      <anchor>af17295f1f60026d5c8bdb1103944e0fb</anchor>
+      <arglist>(float a, float b, float p)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>same</name>
+      <anchorfile>structInterpolator_3_01float_01_4.html</anchorfile>
+      <anchor>a8c818fa528f964d837770ecae46770fb</anchor>
+      <arglist>(float a, float b)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>Interpolator&lt; juce::Colour &gt;</name>
+    <filename>structInterpolator_3_01juce_1_1Colour_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static juce::Colour</type>
+      <name>blend</name>
+      <anchorfile>structInterpolator_3_01juce_1_1Colour_01_4.html</anchorfile>
+      <anchor>a75836be1bde825436c29017de988d3eb</anchor>
+      <arglist>(juce::Colour a, juce::Colour b, float p)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>same</name>
+      <anchorfile>structInterpolator_3_01juce_1_1Colour_01_4.html</anchorfile>
+      <anchor>ac8d5d613f425716854a0a9206d467323</anchor>
+      <arglist>(juce::Colour a, juce::Colour b)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>Interpolator&lt; juce::ColourGradient &gt;</name>
+    <filename>structInterpolator_3_01juce_1_1ColourGradient_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static juce::ColourGradient</type>
+      <name>blend</name>
+      <anchorfile>structInterpolator_3_01juce_1_1ColourGradient_01_4.html</anchorfile>
+      <anchor>a73d70af44e9f76ed80e2334c3d7c7aba</anchor>
+      <arglist>(const juce::ColourGradient &amp;a, const juce::ColourGradient &amp;b, float p)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>same</name>
+      <anchorfile>structInterpolator_3_01juce_1_1ColourGradient_01_4.html</anchorfile>
+      <anchor>abc98e1b1a4121074a539404d41a1d494</anchor>
+      <arglist>(const juce::ColourGradient &amp;a, const juce::ColourGradient &amp;b)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>Interpolator&lt; juce::Font &gt;</name>
+    <filename>structInterpolator_3_01juce_1_1Font_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static juce::Font</type>
+      <name>blend</name>
+      <anchorfile>structInterpolator_3_01juce_1_1Font_01_4.html</anchorfile>
+      <anchor>a090c7361858497a35a0f6b3d9f1dc6a3</anchor>
+      <arglist>(const juce::Font &amp;a, const juce::Font &amp;b, float p)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>same</name>
+      <anchorfile>structInterpolator_3_01juce_1_1Font_01_4.html</anchorfile>
+      <anchor>a84545bd831d9a502c1d3ecb1dbd9aec4</anchor>
+      <arglist>(const juce::Font &amp;a, const juce::Font &amp;b)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>Interpolator&lt; juce::Rectangle&lt; float &gt; &gt;</name>
+    <filename>structInterpolator_3_01juce_1_1Rectangle_3_01float_01_4_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static juce::Rectangle&lt; float &gt;</type>
+      <name>blend</name>
+      <anchorfile>structInterpolator_3_01juce_1_1Rectangle_3_01float_01_4_01_4.html</anchorfile>
+      <anchor>ad19fb409286071097a25a1f7eac73cfe</anchor>
+      <arglist>(juce::Rectangle&lt; float &gt; a, juce::Rectangle&lt; float &gt; b, float p)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>same</name>
+      <anchorfile>structInterpolator_3_01juce_1_1Rectangle_3_01float_01_4_01_4.html</anchorfile>
+      <anchor>ae1038f26dccbaa25af3cfdf87b9955ae</anchor>
+      <arglist>(juce::Rectangle&lt; float &gt; a, juce::Rectangle&lt; float &gt; b)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>Interpolator&lt; juce::Rectangle&lt; int &gt; &gt;</name>
+    <filename>structInterpolator_3_01juce_1_1Rectangle_3_01int_01_4_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static juce::Rectangle&lt; int &gt;</type>
+      <name>blend</name>
+      <anchorfile>structInterpolator_3_01juce_1_1Rectangle_3_01int_01_4_01_4.html</anchorfile>
+      <anchor>afe3a253ead7c60d9d364601db23decea</anchor>
+      <arglist>(juce::Rectangle&lt; int &gt; a, juce::Rectangle&lt; int &gt; b, float p)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>same</name>
+      <anchorfile>structInterpolator_3_01juce_1_1Rectangle_3_01int_01_4_01_4.html</anchorfile>
+      <anchor>a363d356c0e1e1a091f354ac903766689</anchor>
+      <arglist>(juce::Rectangle&lt; int &gt; a, juce::Rectangle&lt; int &gt; b)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>Interpolator&lt; ShadowList &gt;</name>
+    <filename>structInterpolator_3_01ShadowList_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static ShadowList</type>
+      <name>blend</name>
+      <anchorfile>structInterpolator_3_01ShadowList_01_4.html</anchorfile>
+      <anchor>a3da860b041da225d98bf7c8090283cdb</anchor>
+      <arglist>(const ShadowList &amp;a, const ShadowList &amp;b, float p)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>same</name>
+      <anchorfile>structInterpolator_3_01ShadowList_01_4.html</anchorfile>
+      <anchor>a8edfad9f004e268e9ba6f59dbd6eda49</anchor>
+      <arglist>(const ShadowList &amp;a, const ShadowList &amp;b)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -11206,6 +12100,27 @@
       <anchor>ab81e49461b2cd7066b40017c67719197</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable">
+      <type>std::function&lt; void(juce::Component &amp;)&gt;</type>
+      <name>transitionStep</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a547099642a77adb630974c59ef7de249</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const juce::Identifier</type>
+      <name>excludeFromLayout</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>ac3efc7747d07b05ee879ba0792f1b457</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef" protection="protected">
+      <type>std::map&lt; juce::Component *, std::pair&lt; juce::Component::SafePointer&lt; juce::Component &gt;, juce::Rectangle&lt; int &gt; &gt; &gt;</type>
+      <name>BoundsRecords</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>aa8637805eef830a88f1177fe33053870</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>juce::Component *</type>
       <name>getComp</name>
@@ -11228,6 +12143,13 @@
       <arglist>(const juce::var &amp;equation, int equationIndex)</arglist>
     </member>
     <member kind="function" protection="protected">
+      <type>double</type>
+      <name>parseDouble</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>ac1dfae66441e315353939650be48146c</anchor>
+      <arglist>(const juce::var &amp;equation, int equationIndex)</arglist>
+    </member>
+    <member kind="function" protection="protected">
       <type>void</type>
       <name>setComponentsLayout</name>
       <anchorfile>classLayoutSupport.html</anchorfile>
@@ -11247,6 +12169,55 @@
       <anchorfile>classLayoutSupport.html</anchorfile>
       <anchor>a3cf4aa833c85066fdcb6a7bc9af9c19e</anchor>
       <arglist>(juce::var &amp;j)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>loadTransitions</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>ab245ed590164a3321198fc7e361c076e</anchor>
+      <arglist>(juce::var &amp;j)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>AnimatedProperties &amp;</type>
+      <name>animatedProperties</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a693ed6463a8390fb7da6ff8fe1cc7d81</anchor>
+      <arglist>(juce::Component &amp;c)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>recordBounds</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a18a79e955277716f6735867f33f1f699</anchor>
+      <arglist>(juce::Component &amp;c)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>animateLayoutChanges</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a6f19c107d0b338698ad2eaa57b52282c</anchor>
+      <arglist>(const BoundsRecords &amp;changes)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setAlpha</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>af9fe48725a60688868b2a8ced3cf3e0f</anchor>
+      <arglist>(juce::Component &amp;c, float alpha)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setScale</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>abc782f56cdf49e0d5d177fef8c00e4cf</anchor>
+      <arglist>(juce::Component &amp;c, float scale, const juce::var &amp;origin)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setShadow</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a25d3403dc9b6af2a1b04475ee36d6cf7</anchor>
+      <arglist>(juce::Component &amp;c, const juce::var &amp;shadow)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>Bounds</type>
@@ -11312,6 +12283,34 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
+      <type>juce::var</type>
+      <name>transitionPresets</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a769bbb2bb2c98b056f49d0d54663d119</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>BoundsRecords</type>
+      <name>boundsBeforeLayout</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a9559b86ad29435b475ecc3c67eec71ba</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::map&lt; juce::Component *, std::unique_ptr&lt; Animated&lt; juce::Rectangle&lt; int &gt; &gt; &gt; &gt;</type>
+      <name>boundsAnimations</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a2662afafb01417cee644d5dfa8c16d6b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::vector&lt; juce::Component::SafePointer&lt; juce::Component &gt; &gt;</type>
+      <name>animatedComponents</name>
+      <anchorfile>classLayoutSupport.html</anchorfile>
+      <anchor>a27514a0a9281b421ec9054392252a953</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
       <type>juce::Array&lt; juce::File &gt;</type>
       <name>layoutFiles</name>
       <anchorfile>classLayoutSupport.html</anchorfile>
@@ -11367,11 +12366,12 @@
       <anchor>a781d398d20f8a13e7eb01f4a2c00b466</anchor>
       <arglist></arglist>
     </member>
-    <docanchor file="classLayoutSupport.html" title="JSON Format">json</docanchor>
+    <docanchor file="classStates.html" title="JSON Format">json</docanchor>
     <docanchor file="classLayoutSupport.html" title="Component Properties">component_props</docanchor>
     <docanchor file="classLayoutSupport.html" title="Constants">constants</docanchor>
     <docanchor file="classLayoutSupport.html" title="Expressions">expressions</docanchor>
     <docanchor file="classLayoutSupport.html" title="Macros">macros</docanchor>
+    <docanchor file="classLayoutSupport.html" title="Transitions">transitions</docanchor>
     <docanchor file="classLayoutSupport.html" title="Examples">examples</docanchor>
   </compound>
   <compound kind="class">
@@ -13468,6 +14468,161 @@
       <anchorfile>classMidiLearnOverlay.html</anchorfile>
       <anchor>a3b7e150751ff377b84ff22a7fa6b9326</anchor>
       <arglist>(int x, int y) override</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>MipMap</name>
+    <filename>classMipMap.html</filename>
+    <member kind="typedef">
+      <type>MipMapEnhance</type>
+      <name>Enhance</name>
+      <anchorfile>classMipMap.html</anchorfile>
+      <anchor>aa3a729320192a67648c2c2fbf89b688f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>MipMap</name>
+      <anchorfile>classMipMap.html</anchorfile>
+      <anchor>a5d4e32afdd17b851f2b43b6d3d8bd21d</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>MipMap</name>
+      <anchorfile>classMipMap.html</anchorfile>
+      <anchor>a859290fa37f3f16947936c930309fc0d</anchor>
+      <arglist>(const juce::Image &amp;src, const Enhance &amp;enhance={})</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setImage</name>
+      <anchorfile>classMipMap.html</anchorfile>
+      <anchor>a950a1bbb6b63b53e62ff54928b20bfe9</anchor>
+      <arglist>(const juce::Image &amp;src, const Enhance &amp;enhance={})</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setImage</name>
+      <anchorfile>classMipMap.html</anchorfile>
+      <anchor>a0ac98cb824dc69ad45ea99fe85bf49a8</anchor>
+      <arglist>(const juce::File &amp;f, const Enhance &amp;enhance={})</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setImage</name>
+      <anchorfile>classMipMap.html</anchorfile>
+      <anchor>ab3d5add7acae08ff291700fae5716603</anchor>
+      <arglist>(const void *rawData, size_t numBytesOfData, const Enhance &amp;enhance={})</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>draw</name>
+      <anchorfile>classMipMap.html</anchorfile>
+      <anchor>a31b718dddc55c8f2cd5f34d12593d6b9</anchor>
+      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; float &gt; rc, juce::RectanglePlacement placement=0) const</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>getImageFor</name>
+      <anchorfile>classMipMap.html</anchorfile>
+      <anchor>aa75d47aad28f77f528716aa993cf9ec6</anchor>
+      <arglist>(const int width, const int height) const</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>getImage</name>
+      <anchorfile>classMipMap.html</anchorfile>
+      <anchor>aec9b2c699b9816d33092c7fc9a40cf4a</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Rectangle&lt; int &gt;</type>
+      <name>getBounds</name>
+      <anchorfile>classMipMap.html</anchorfile>
+      <anchor>a495094a7d92697a3bb75d00618688215</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>numMipMaps</name>
+      <anchorfile>classMipMap.html</anchorfile>
+      <anchor>af34875fc0d343b8338b0367938d29252</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isValid</name>
+      <anchorfile>classMipMap.html</anchorfile>
+      <anchor>a0b8358b7b3e39a2adbc454cc04619574</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isNull</name>
+      <anchorfile>classMipMap.html</anchorfile>
+      <anchor>ae9788236b2efee78af2ba46d80f994dd</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getWidth</name>
+      <anchorfile>classMipMap.html</anchorfile>
+      <anchor>a9d2a798efb82ffe671172fe545f36f81</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getHeight</name>
+      <anchorfile>classMipMap.html</anchorfile>
+      <anchor>a26186fad8c5959c176069db9675a711e</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumBytesOfData</name>
+      <anchorfile>classMipMap.html</anchorfile>
+      <anchor>a39ab7c95c3130e13ce4d6a2e0a8d6bc3</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>const Enhance &amp;</type>
+      <name>getEnhance</name>
+      <anchorfile>classMipMap.html</anchorfile>
+      <anchor>a9ebf04f922290f24afe5ab636c5763a3</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>classMipMap.html</anchorfile>
+      <anchor>a74a52d092b086c8cc6af87cc22421777</anchor>
+      <arglist>(const MipMap &amp;other) const</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>MipMapEnhance</name>
+    <filename>structMipMapEnhance.html</filename>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>structMipMapEnhance.html</anchorfile>
+      <anchor>a87d3d5f0d93ce84d9afb717f59a1d36f</anchor>
+      <arglist>(const MipMapEnhance &amp;) const =default</arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>sharpen</name>
+      <anchorfile>structMipMapEnhance.html</anchorfile>
+      <anchor>aec517bdce0caca213c766dc59d45bf88</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>saturation</name>
+      <anchorfile>structMipMapEnhance.html</anchorfile>
+      <anchor>ac51115ec39e464f774bfcfee347ef9ef</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -20148,6 +21303,45 @@
       <arglist></arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>ShadowSpec</name>
+    <filename>structShadowSpec.html</filename>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>structShadowSpec.html</anchorfile>
+      <anchor>a734775901cabc070d70d70c33a2067e5</anchor>
+      <arglist>(const ShadowSpec &amp;) const =default</arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Point&lt; float &gt;</type>
+      <name>offset</name>
+      <anchorfile>structShadowSpec.html</anchorfile>
+      <anchor>a9a5c06705483decabd4f8daa7ea51b2b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>blur</name>
+      <anchorfile>structShadowSpec.html</anchorfile>
+      <anchor>a72e513ec9d1226055af7508adf0b2d41</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>spread</name>
+      <anchorfile>structShadowSpec.html</anchorfile>
+      <anchor>acc09625ab43ca5b372d2add1084dbfd2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>colour</name>
+      <anchorfile>structShadowSpec.html</anchorfile>
+      <anchor>adabb0a84f14c51421f3095f047265bc7</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>SharedMemory</name>
     <filename>classSharedMemory.html</filename>
@@ -21270,6 +22464,45 @@
       <anchorfile>classStandalonePluginHolder.html</anchorfile>
       <anchor>a4e9dc443415ba2651b5507685a37a4fc</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>States</name>
+    <filename>classStates.html</filename>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>set</name>
+      <anchorfile>classStates.html</anchorfile>
+      <anchor>aa78bf280a486a72d0c9fc6da188aee9c</anchor>
+      <arglist>(juce::Component &amp;c, const juce::var &amp;states)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::var</type>
+      <name>get</name>
+      <anchorfile>classStates.html</anchorfile>
+      <anchor>a55ddc325dbce36f952ba9c777605ab5b</anchor>
+      <arglist>(const juce::Component &amp;c)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>setForChildren</name>
+      <anchorfile>classStates.html</anchorfile>
+      <anchor>ad0f43ef962598464e6da0f9edc4c06c7</anchor>
+      <arglist>(juce::Component &amp;container, const juce::var &amp;states)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::var</type>
+      <name>getForChildren</name>
+      <anchorfile>classStates.html</anchorfile>
+      <anchor>a303ded6625c9de1762c39eb288900bb0</anchor>
+      <arglist>(const juce::Component &amp;container)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::var</type>
+      <name>merge</name>
+      <anchorfile>classStates.html</anchorfile>
+      <anchor>a75fc69f8b3ae1fed2f75dc6ed94aa635</anchor>
+      <arglist>(const juce::var &amp;states, bool hovered, bool pressed, bool disabled)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -22504,6 +23737,147 @@
       <anchor>acfd951d09c85c118c74811a08fae48df</anchor>
       <arglist>(juce::AudioSampleBuffer &amp;buffer)</arglist>
     </member>
+  </compound>
+  <compound kind="class">
+    <name>Transition</name>
+    <filename>classTransition.html</filename>
+    <member kind="typedef">
+      <type>float(*)(float)</type>
+      <name>Easing</name>
+      <anchorfile>classTransition.html</anchorfile>
+      <anchor>a2a72df7ec3cebbb5a52557b985af09cd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Transition</name>
+      <anchorfile>classTransition.html</anchorfile>
+      <anchor>ab34e061640134781d5f522ec54bb75cd</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Transition</name>
+      <anchorfile>classTransition.html</anchorfile>
+      <anchor>ad3e755d4ba35237333deea9e7934ebdf</anchor>
+      <arglist>(double durationMs, Easing easing)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isInstant</name>
+      <anchorfile>classTransition.html</anchorfile>
+      <anchor>a6bba3685a5cbc3205d6b48817dea2eae</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getProgress</name>
+      <anchorfile>classTransition.html</anchorfile>
+      <anchor>a3dde6e836f253f189410d6c5674c0b28</anchor>
+      <arglist>(double elapsedMs) const</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static std::optional&lt; Transition &gt;</type>
+      <name>fromSpec</name>
+      <anchorfile>classTransition.html</anchorfile>
+      <anchor>a7e5d2f5aaf27cfe8604c4397440cbc58</anchor>
+      <arglist>(const juce::String &amp;spec)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Easing</type>
+      <name>findEasing</name>
+      <anchorfile>classTransition.html</anchorfile>
+      <anchor>aafdeb27093f832cdd6bc1c0347d0b6b7</anchor>
+      <arglist>(const juce::String &amp;name)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Transition</type>
+      <name>resolve</name>
+      <anchorfile>classTransition.html</anchorfile>
+      <anchor>a3db847ef34bf048a6e75095245279f57</anchor>
+      <arglist>(const juce::Component &amp;c, const juce::String &amp;nameOrSpec)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Transition</type>
+      <name>forProperty</name>
+      <anchorfile>classTransition.html</anchorfile>
+      <anchor>a1fb86e92c580f731f8cebf79190140f0</anchor>
+      <arglist>(const juce::Component &amp;c, const juce::String &amp;property)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>setPresets</name>
+      <anchorfile>classTransition.html</anchorfile>
+      <anchor>ab160df311685cd43c681284ae5f72fd5</anchor>
+      <arglist>(juce::Component &amp;c, const juce::var &amp;presets)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::var</type>
+      <name>getPresets</name>
+      <anchorfile>classTransition.html</anchorfile>
+      <anchor>a28a91a577eb98ed86df4c3905745834c</anchor>
+      <arglist>(const juce::Component &amp;c)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>set</name>
+      <anchorfile>classTransition.html</anchorfile>
+      <anchor>a664e612e90bd608552fa235c29c211a4</anchor>
+      <arglist>(juce::Component &amp;c, const juce::var &amp;transition)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::var</type>
+      <name>get</name>
+      <anchorfile>classTransition.html</anchorfile>
+      <anchor>a1b50adf31f2ab6d10bb3ae108e2d0e4a</anchor>
+      <arglist>(const juce::Component &amp;c)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>setGlobalEnabled</name>
+      <anchorfile>classTransition.html</anchorfile>
+      <anchor>a1750499227d664a379807434049aa15a</anchor>
+      <arglist>(bool enabled)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>isGlobalEnabled</name>
+      <anchorfile>classTransition.html</anchorfile>
+      <anchor>a472923ba86b40ac2ef022f42317767dd</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>durationMs</name>
+      <anchorfile>classTransition.html</anchorfile>
+      <anchor>a9afdee162d0cd42741d91ddc6e60b0f6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Easing</type>
+      <name>easing</name>
+      <anchorfile>classTransition.html</anchorfile>
+      <anchor>a46fba0f0957425db62de0cd662f2e91a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const juce::Identifier</type>
+      <name>componentProperty</name>
+      <anchorfile>classTransition.html</anchorfile>
+      <anchor>afc32d9003bba5fa90f48383d40df46dc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const juce::Identifier</type>
+      <name>presetsProperty</name>
+      <anchorfile>classTransition.html</anchorfile>
+      <anchor>a74802e264f01fe97ecac1e36c5917bfe</anchor>
+      <arglist></arglist>
+    </member>
+    <docanchor file="classTransition.html" title="Spec strings">spec</docanchor>
+    <docanchor file="classTransition.html" title="Presets">presets</docanchor>
+    <docanchor file="classTransition.html" title="Per component &quot;transition&quot;">entries</docanchor>
+    <docanchor file="classTransition.html" title="Inheritance">inheritance</docanchor>
   </compound>
   <compound kind="class">
     <name>TriggeredScope</name>
@@ -25524,6 +26898,8 @@
     <title>images</title>
     <filename>group__gin__graphics-images.html</filename>
     <file>gin_imageeffects.h</file>
+    <class kind="struct">MipMapEnhance</class>
+    <class kind="class">MipMap</class>
     <member kind="enumeration">
       <type></type>
       <name>ResizeAlgorirm</name>
@@ -25997,6 +27373,13 @@
       <anchorfile>group__gin__graphics-images.html</anchorfile>
       <anchor>ga6ca2bcca3726d2fa3fc004a1e8bd7813</anchor>
       <arglist>(uint8_t A, uint8_t B, float O)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawBlend</name>
+      <anchorfile>group__gin__graphics-images.html</anchorfile>
+      <anchor>gade632fa476cead60f9f86c202404e4be</anchor>
+      <arglist>(juce::Graphics &amp;g, const MipMap &amp;a, const MipMap &amp;b, float progress, juce::Rectangle&lt; float &gt; rc, juce::RectanglePlacement placement=0)</arglist>
     </member>
   </compound>
   <compound kind="group">
@@ -26585,6 +27968,21 @@
     <file>gin_varianthelpers.h</file>
     <namespace>macOS</namespace>
     <namespace>juce</namespace>
+    <class kind="class">Transition</class>
+    <class kind="struct">Interpolator</class>
+    <class kind="struct">Interpolator&lt; float &gt;</class>
+    <class kind="struct">Interpolator&lt; juce::Colour &gt;</class>
+    <class kind="struct">Interpolator&lt; juce::Rectangle&lt; float &gt; &gt;</class>
+    <class kind="struct">Interpolator&lt; juce::Rectangle&lt; int &gt; &gt;</class>
+    <class kind="struct">Interpolator&lt; juce::Font &gt;</class>
+    <class kind="struct">Interpolator&lt; juce::ColourGradient &gt;</class>
+    <class kind="class">AnimationDriver</class>
+    <class kind="class">AnimatedBase</class>
+    <class kind="class">Animated</class>
+    <class kind="class">AnimatedScale</class>
+    <class kind="class">Crossfade</class>
+    <class kind="class">ImageFilter</class>
+    <class kind="class">AnimatedImageFilter</class>
     <class kind="class">LambdaTimer</class>
     <class kind="class">LambdaAsyncUpdater</class>
     <class kind="class">LambdaMouseListener</class>
@@ -26600,11 +27998,23 @@
     <class kind="struct">LayoutSupport::JsonFile</class>
     <class kind="class">OpenStreetMaps</class>
     <class kind="class">OpenStreetMaps::Listener</class>
+    <class kind="struct">ShadowSpec</class>
+    <class kind="struct">Interpolator&lt; ShadowList &gt;</class>
+    <class kind="class">BoxShadow</class>
+    <class kind="class">AnimatedProperties</class>
+    <class kind="class">States</class>
     <class kind="class">SystemClipboard</class>
     <class kind="class">AsyncDownload</class>
     <class kind="struct">Property</class>
     <class kind="struct">juce::VarIterator</class>
     <class kind="struct">juce::VarIterator::NamedValue</class>
+    <member kind="typedef">
+      <type>std::vector&lt; ShadowSpec &gt;</type>
+      <name>ShadowList</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga52a9fcc4d7245c1abf76653980dcddf4</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="typedef">
       <type>std::ptrdiff_t</type>
       <name>juce::VarIterator::difference_type</name>
@@ -26639,6 +28049,20 @@
       <anchorfile>group__gin__gui-utilities.html</anchorfile>
       <anchor>ga3155c127a8ef5e383beab0b3cd65f98a</anchor>
       <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>std::optional&lt; juce::Point&lt; float &gt; &gt;</type>
+      <name>parseTransformOrigin</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gac900dd33ea50f296cc4203a8d0d62134</anchor>
+      <arglist>(const juce::String &amp;origin)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::AffineTransform</type>
+      <name>scaleTransform</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga19e8ebeb89c756ce6e2b7ec549394629</anchor>
+      <arglist>(juce::Rectangle&lt; int &gt; bounds, float s, juce::Point&lt; float &gt; origin={ 0.5f, 0.5f })</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -26835,6 +28259,41 @@
       <anchorfile>group__gin__gui-utilities.html</anchorfile>
       <anchor>ga3e76d00fc7f78298c56b3094edddd407</anchor>
       <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>fillGradient</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad82448710baf93f538c87dc3035ec0db</anchor>
+      <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; float &gt; area, float cornerRadius, const juce::ColourGradient &amp;relativeGradient)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawText</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga03d1f32d7e50cd42e34a29e844bddc83</anchor>
+      <arglist>(juce::Graphics &amp;g, const Crossfade&lt; juce::String &gt; &amp;text, juce::Rectangle&lt; float &gt; area, const juce::Font &amp;font, juce::Colour colour, juce::Justification justification)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawIcon</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga47080f18ebe7dfc4d08e43cd3a96aad6</anchor>
+      <arglist>(juce::Graphics &amp;g, const juce::Path &amp;relativePath, juce::Rectangle&lt; float &gt; area, juce::Colour colour)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawIcon</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga553ff8ef83089e832cbb0607906b11ef</anchor>
+      <arglist>(juce::Graphics &amp;g, const Crossfade&lt; juce::Path &gt; &amp;icon, juce::Rectangle&lt; float &gt; area, juce::Colour colour)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>drawImage</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga32a60ed5aae23e090ac4076000c13234</anchor>
+      <arglist>(juce::Graphics &amp;g, const Crossfade&lt; MipMap &gt; &amp;image, juce::Rectangle&lt; float &gt; area, juce::RectanglePlacement placement=0)</arglist>
     </member>
   </compound>
   <compound kind="dir">
@@ -27174,6 +28633,8 @@
     <file>gin_imageeffects.h</file>
     <file>gin_imageeffects.test.h</file>
     <file>gin_imageeffects_blending.test.h</file>
+    <file>gin_mipmap.h</file>
+    <file>gin_mipmap.test.h</file>
   </compound>
   <compound kind="dir">
     <name>images</name>
@@ -27326,6 +28787,7 @@
     <name>utilities</name>
     <path>build/gin_gui/utilities/</path>
     <filename>dir_11b2414d5400ab8f81edb1914ff6ac11.html</filename>
+    <file>gin_animated.h</file>
     <file>gin_asyncutilities.h</file>
     <file>gin_coalescedtimer.h</file>
     <file>gin_componentmap.h</file>
@@ -27335,6 +28797,8 @@
     <file>gin_layoutsupport.test.h</file>
     <file>gin_openstreetmaps.h</file>
     <file>gin_platform.h</file>
+    <file>gin_shadows.h</file>
+    <file>gin_states.h</file>
     <file>gin_systemclipboard.h</file>
     <file>gui/utilities/gin_util.h</file>
     <file>gin_varianthelpers.h</file>

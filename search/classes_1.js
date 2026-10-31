@@ -15,6 +15,7 @@ var searchData=
   ['bounceouteasing_12',['BounceOutEasing',['../structBounceOutEasing.html',1,'']]],
   ['bounds_13',['Bounds',['../structLayoutSupport_1_1Bounds.html',1,'LayoutSupport']]],
   ['boxarea_14',['BoxArea',['../classBoxArea.html',1,'']]],
-  ['bp12state_15',['BP12State',['../structBP12State.html',1,'']]],
-  ['bp24state_16',['BP24State',['../structBP24State.html',1,'']]]
+  ['boxshadow_15',['BoxShadow',['../classBoxShadow.html',1,'']]],
+  ['bp12state_16',['BP12State',['../structBP12State.html',1,'']]],
+  ['bp24state_17',['BP24State',['../structBP24State.html',1,'']]]
 ];

@@ -1,0 +1,15 @@
+<map id="AnimatedBase" name="AnimatedBase">
+<area shape="rect" id="Node000001" title="The non&#45;template part of Animated and Crossfade: the owner, the property name, the running transition..." alt="" coords="5,117,122,145"/>
+<area shape="rect" id="Node000002" href="$classAnimated.html" title=" " alt="" coords="198,5,341,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,105,124,73,168,43,202,32,198,35,171,48,127,77,91,108"/>
+<area shape="rect" id="Node000004" href="$classAnimated.html" title=" " alt="" coords="175,57,364,85"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="120,109,169,94,211,84,207,87,170,99,122,114"/>
+<area shape="rect" id="Node000005" href="$classAnimated.html" title=" " alt="" coords="170,109,369,154"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="136,129,172,130,167,132,138,134"/>
+<area shape="rect" id="Node000006" href="$classAnimated.html" title="A value that eases to a new target over a Transition and repaints its owner on every step." alt="" coords="208,177,330,205"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="121,148,170,163,212,176,206,177,169,168,121,153"/>
+<area shape="rect" id="Node000007" href="$classCrossfade.html" title="A discrete value that can&#39;t blend, like a text or an icon: on a change the previous value fades out w..." alt="" coords="207,229,332,257"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="90,153,127,185,171,214,209,231,204,231,168,219,124,190,88,158"/>
+<area shape="rect" id="Node000003" href="$classAnimatedScale.html" title="An Animated&lt;float&gt; scale applied to its owner with juce::Component::setTransform, about an origin rel..." alt="" coords="417,5,536,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="355,17,420,18,414,20,356,22"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Crossfade&lt; T &gt;" name="Crossfade&lt; T &gt;">
+<area shape="rect" id="Node000001" title="A discrete value that can&#39;t blend, like a text or an icon: on a change the previous value fades out w..." alt="" coords="5,81,130,109"/>
+<area shape="rect" id="Node000002" href="$classAnimatedBase.html" title="The non&#45;template part of Animated and Crossfade: the owner, the property name, the running transition..." alt="" coords="9,5,126,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="69,47,70,81,65,80,66,51"/>
+</map>

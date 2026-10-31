@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['value_5ftype_0',['value_type',['../group__gin__gui-utilities.html#ga2568e5c06333945b3b21bd06902e227f',1,'juce::VarIterator']]],
-  ['vec3d_1',['Vec3d',['../group__gin__3d-3d.html#ga98d94999010cb92dfb5f652c353d1d82',1,'gin_vec3.h']]],
-  ['vec3f_2',['Vec3f',['../group__gin__3d-3d.html#ga40b8356e33151c22cb4d1adaf2b762a8',1,'gin_vec3.h']]]
+  ['paramcomponentptr_0',['ParamComponentPtr',['../classPagedControlBox.html#afe4dfce29f71cde992d7d9449a39f269',1,'PagedControlBox']]],
+  ['plugininouts_1',['PluginInOuts',['../classStandaloneFilterWindow.html#a6c10ebbc7b2013247891e3c37a641f87',1,'StandaloneFilterWindow']]],
+  ['pointer_2',['pointer',['../group__gin__gui-utilities.html#gaa25ac98061cddab1f99f1a3b0e94ff9d',1,'juce::VarIterator']]],
+  ['ptr_3',['Ptr',['../classParamComponent.html#abe902bb7596fe1d6794047772f6f937e',1,'ParamComponent::Ptr'],['../classParameter.html#a8fcb9478cf19509ef836db884323e5a5',1,'Parameter::Ptr']]]
 ];

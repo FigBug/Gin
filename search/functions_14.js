@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['valuechanged_0',['valueChanged',['../classPropertyComponentBase.html#af34efe7a5ff3eb5199e3f06fce52b6ff',1,'PropertyComponentBase::valueChanged()'],['../classStandalonePluginHolder.html#ae32dbcb03aab84bb602af0148457f7b4',1,'StandalonePluginHolder::valueChanged()']]],
+  ['valuechanged_0',['valueChanged',['../classPropertyComponentBase.html#af34efe7a5ff3eb5199e3f06fce52b6ff',1,'PropertyComponentBase::valueChanged()'],['../classAnimatedBase.html#ad16cabaf7dd50271c30bc2a2f0efa758',1,'AnimatedBase::valueChanged()'],['../classStandalonePluginHolder.html#ae32dbcb03aab84bb602af0148457f7b4',1,'StandalonePluginHolder::valueChanged()']]],
   ['valuetreefromjson_1',['valueTreeFromJSON',['../group__gin-utilities.html#ga88f482bf81fb3e423fa1e3926dfaa9a6',1,'gin_valuetreeutilities.h']]],
   ['valuetreeobject_2',['ValueTreeObject',['../classValueTreeObject.html#a50b6f4eead4ccc3a50257763f178eb47',1,'ValueTreeObject']]],
   ['valuetreetojson_3',['valueTreeToJSON',['../group__gin-utilities.html#gac8809f5a07d326dc76f18d09bd99db9d',1,'gin_valuetreeutilities.h']]],

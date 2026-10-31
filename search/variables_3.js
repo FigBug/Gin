@@ -27,5 +27,6 @@ var searchData=
   ['dragout_24',['dragOut',['../classComponentGrid.html#ac8d5ca3fdf2af199d1d8738752893843',1,'ComponentGrid']]],
   ['dragover_25',['dragOver',['../classKnob.html#af5bb6966195529a8e1871f74eb4db3ba',1,'Knob']]],
   ['dragstarted_26',['dragStarted',['../classComponentGrid.html#a8c5d394771c011655731dd6dd42bd27d',1,'ComponentGrid']]],
-  ['drygain_27',['dryGain',['../classWetDryMix.html#a56424d33affe35b8fda304af339ed787',1,'WetDryMix']]]
+  ['drygain_27',['dryGain',['../classWetDryMix.html#a56424d33affe35b8fda304af339ed787',1,'WetDryMix']]],
+  ['durationms_28',['durationMs',['../classTransition.html#a9afdee162d0cd42741d91ddc6e60b0f6',1,'Transition']]]
 ];

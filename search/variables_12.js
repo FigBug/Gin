@@ -12,6 +12,8 @@ var searchData=
   ['titlebar_9',['titleBar',['../classProcessorEditor.html#ac12a4cb6f3c3b36b137360fc690f71b6',1,'ProcessorEditor']]],
   ['tooltipwindow_10',['tooltipWindow',['../classProcessorEditorBase.html#aef611bd53bf795b5e0e9b204febd4070',1,'ProcessorEditorBase']]],
   ['toplevelconstants_11',['topLevelConstants',['../classLayoutSupport.html#ab04e5babb7567072c7d529edeb046188',1,'LayoutSupport']]],
-  ['triggered_12',['triggered',['../classGateEffect.html#a10a311a7ed46c3c2e20a243a359b6da3',1,'GateEffect']]],
-  ['type_13',['type',['../classImageMetadata.html#a34bb47451a46175f4f65173cc8d6b3c8',1,'ImageMetadata::type'],['../classSmoothingType.html#a0393375a369c88015c76fe37f4e50a1c',1,'SmoothingType::type']]]
+  ['transitionpresets_12',['transitionPresets',['../classLayoutSupport.html#a769bbb2bb2c98b056f49d0d54663d119',1,'LayoutSupport']]],
+  ['transitionstep_13',['transitionStep',['../classLayoutSupport.html#a547099642a77adb630974c59ef7de249',1,'LayoutSupport']]],
+  ['triggered_14',['triggered',['../classGateEffect.html#a10a311a7ed46c3c2e20a243a359b6da3',1,'GateEffect']]],
+  ['type_15',['type',['../classImageMetadata.html#a34bb47451a46175f4f65173cc8d6b3c8',1,'ImageMetadata::type'],['../classSmoothingType.html#a0393375a369c88015c76fe37f4e50a1c',1,'SmoothingType::type']]]
 ];

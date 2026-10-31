@@ -19,10 +19,11 @@ var searchData=
   ['transformpoint_16',['transformPoint',['../structMat4.html#ad231ce737fd22385cc1ce7a1b999a09b',1,'Mat4']]],
   ['transformvector_17',['transformVector',['../structMat4.html#a3dccd4a15a3d8a43e75a1c06472665ae',1,'Mat4']]],
   ['transientshaper_18',['TransientShaper',['../classTransientShaper.html#a10908c0d26b98024db3f864fdeb5d8e8',1,'TransientShaper']]],
-  ['translation_19',['translation',['../structMat4.html#a1845d784f12c10846b59a92cadc6a445',1,'Mat4::translation(T x, T y, T z)'],['../structMat4.html#a8ef5a568b592aa1145bbae3219d2992b',1,'Mat4::translation(const Vec3&lt; T &gt; &amp;v)']]],
-  ['triangle_20',['triangle',['../group__gin__dsp-dsp.html#gac1ca4d0b776735a17f87d61c90741d45',1,'gin_bandlimitedlookuptable.h']]],
-  ['triggerasyncupdate_21',['triggerAsyncUpdate',['../classRealtimeAsyncUpdater.html#aee4e7bf67d31d0bb574132bfd102f57f',1,'RealtimeAsyncUpdater']]],
-  ['triggeredscope_22',['TriggeredScope',['../classTriggeredScope.html#a8ed01ea728d7ee2800bcfe0caef7516b',1,'TriggeredScope']]],
-  ['truepeakmeter_23',['TruePeakMeter',['../classTruePeakMeter.html#a327b178ed9c60bbfd5ea3c272049dd1a',1,'TruePeakMeter']]],
-  ['turnoffallvoices_24',['turnOffAllVoices',['../classSynthesiser.html#a98071b76981dcb6f125cf079595c8ede',1,'Synthesiser']]]
+  ['transition_19',['Transition',['../classTransition.html#ab34e061640134781d5f522ec54bb75cd',1,'Transition::Transition()=default'],['../classTransition.html#ad3e755d4ba35237333deea9e7934ebdf',1,'Transition::Transition(double durationMs, Easing easing)']]],
+  ['translation_20',['translation',['../structMat4.html#a1845d784f12c10846b59a92cadc6a445',1,'Mat4::translation(T x, T y, T z)'],['../structMat4.html#a8ef5a568b592aa1145bbae3219d2992b',1,'Mat4::translation(const Vec3&lt; T &gt; &amp;v)']]],
+  ['triangle_21',['triangle',['../group__gin__dsp-dsp.html#gac1ca4d0b776735a17f87d61c90741d45',1,'gin_bandlimitedlookuptable.h']]],
+  ['triggerasyncupdate_22',['triggerAsyncUpdate',['../classRealtimeAsyncUpdater.html#aee4e7bf67d31d0bb574132bfd102f57f',1,'RealtimeAsyncUpdater']]],
+  ['triggeredscope_23',['TriggeredScope',['../classTriggeredScope.html#a8ed01ea728d7ee2800bcfe0caef7516b',1,'TriggeredScope']]],
+  ['truepeakmeter_24',['TruePeakMeter',['../classTruePeakMeter.html#a327b178ed9c60bbfd5ea3c272049dd1a',1,'TruePeakMeter']]],
+  ['turnoffallvoices_25',['turnOffAllVoices',['../classSynthesiser.html#a98071b76981dcb6f125cf079595c8ede',1,'Synthesiser']]]
 ];

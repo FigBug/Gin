@@ -21,7 +21,7 @@ var searchData=
   ['catenary_18',['Catenary',['../classCatenary.html#ae0cd3500d6612d5fd27f696a272f3ce3',1,'Catenary']]],
   ['centeron_19',['centerOn',['../classMapViewer.html#a77a364ca834883bbc75428ba81e92f79',1,'MapViewer']]],
   ['centerunderpt_20',['centerUnderPt',['../classMapViewer.html#a78d97113c9fff03aa70d4f334bf0a125',1,'MapViewer']]],
-  ['changed_21',['changed',['../classParameter.html#a5ddd8918e54589b570925d7530fd2943',1,'Parameter']]],
+  ['changed_21',['changed',['../classAnimatedBase.html#afa5446dd5733bcd41d0372d11f627de3',1,'AnimatedBase::changed()'],['../classParameter.html#a5ddd8918e54589b570925d7530fd2943',1,'Parameter::changed()']]],
   ['changelistenercallback_22',['changeListenerCallback',['../classTitleBar.html#a33bfbb4b2223e0401bf883fbb8403991',1,'TitleBar::changeListenerCallback()'],['../classSideBarComponent.html#a5a995982fd9b69407f63814a2bc80ce4',1,'SideBarComponent::changeListenerCallback()']]],
   ['changeprogramname_23',['changeProgramName',['../classProcessor.html#a912ce9ee0afb3cc9b48804cd5566f1ea',1,'Processor']]],
   ['channelblendadd_24',['channelBlendAdd',['../group__gin__graphics-images.html#ga8143a520db520b538450852859ac0826',1,'gin_imageeffects.h']]],
@@ -108,5 +108,6 @@ var searchData=
   ['createsnapshotofnativewindow_105',['createSnapshotOfNativeWindow',['../group__gin__gui-utilities.html#gad1ffdc179588a1832355270be9b5a516',1,'gin_util.h']]],
   ['createwindow_106',['createWindow',['../classStandaloneFilterApp.html#a8ca1f8aad8184ba289a56261591c2726',1,'StandaloneFilterApp']]],
   ['cross_107',['cross',['../structVec3.html#a8cdc8a4ccd7702aaaf1cb3079672a473',1,'Vec3']]],
-  ['cterm_108',['cTerm',['../classLeastSquaresRegression.html#aea2509a184bc43dc3bfcf114b4a80da7',1,'LeastSquaresRegression']]]
+  ['crossfade_108',['Crossfade',['../classCrossfade.html#a6d28b389ae965380d09513fcedb5ee1b',1,'Crossfade']]],
+  ['cterm_109',['cTerm',['../classLeastSquaresRegression.html#aea2509a184bc43dc3bfcf114b4a80da7',1,'LeastSquaresRegression']]]
 ];
