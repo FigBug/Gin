@@ -9,9 +9,6 @@
 //
 // Heavily refactored to become gin::Websocket
 
-#include <string>
-#include <vector>
-
 /**
     WebSocket frame header structure.
 

@@ -1,14 +1,4 @@
 //==============================================================================
-#if JUCE_WINDOWS
- #include <windows.h>
-#elif JUCE_MAC || JUCE_IOS
- #include <dispatch/dispatch.h>
-#else
- #include <semaphore.h>
- #include <errno.h>
-#endif
-
-//==============================================================================
 struct RealtimeEvent::Impl
 {
    #if JUCE_WINDOWS

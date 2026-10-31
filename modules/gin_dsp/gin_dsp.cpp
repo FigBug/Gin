@@ -32,6 +32,13 @@
 #define ENABLE_SINC_MEDIUM_CONVERTER    1
 #define ENABLE_SINC_FAST_CONVERTER      1
 
+#include <assert.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 namespace gin
 {
     namespace SRC

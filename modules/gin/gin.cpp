@@ -15,6 +15,7 @@
  #include <sys/stat.h>
  #include <fcntl.h>
  #include <semaphore.h>
+ #include <errno.h>
  #include <ctime>
 #endif
 
@@ -24,12 +25,14 @@
  #include <unistd.h>
  #include <sys/stat.h>
  #include <sys/time.h>
+ #include <poll.h>
 #endif
 
 #ifdef __APPLE__
  #import <Foundation/Foundation.h>
  #include <sys/stat.h>
  #include <sys/time.h>
+ #include <dispatch/dispatch.h>
 #endif
 
 #include <cfloat>

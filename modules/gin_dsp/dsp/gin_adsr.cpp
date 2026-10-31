@@ -7,9 +7,6 @@
  ==============================================================================
  */
 
-
-#include <cmath>
-
 void ADSR::setAttack (float seconds)
 {
     if (seconds > 0.0f)

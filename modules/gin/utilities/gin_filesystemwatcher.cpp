@@ -108,8 +108,6 @@ public:
 
 //==============================================================================
 #ifdef JUCE_LINUX
-#include <poll.h>
-
 #define BUF_LEN (10 * (sizeof(struct inotify_event) + NAME_MAX + 1))
 
 class FileSystemWatcher::Impl final : public juce::Thread,

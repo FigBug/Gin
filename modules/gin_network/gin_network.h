@@ -59,6 +59,8 @@
 #include <juce_events/juce_events.h>
 
 #include <map>
+#include <string>
+#include <vector>
 
 namespace gin
 {
