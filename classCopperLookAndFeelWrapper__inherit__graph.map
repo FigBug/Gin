@@ -1,9 +1,9 @@
 <map id="CopperLookAndFeelWrapper" name="CopperLookAndFeelWrapper">
-<area shape="rect" id="Node000001" title="Auto sets and clears CopperLookAndFeel as default." alt="" coords="5,225,212,251"/>
-<area shape="rect" id="Node000002" href="$classCopperLookAndFeel.html" title="Plugin specific addition to GinLookAndFeel Still black and white." alt="" coords="33,152,184,177"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,191,111,225,106,225,106,191"/>
-<area shape="rect" id="Node000003" href="$classPluginLookAndFeel.html" title="Plugin specific addition to GinLookAndFeel Still black and white." alt="" coords="36,79,181,104"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="111,118,111,152,106,152,106,118"/>
-<area shape="rect" id="Node000004" href="$classGinLookAndFeel.html" title="Minimalist dark look and feel with black background and white controls." alt="" coords="45,5,172,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="111,44,111,79,106,79,106,44"/>
+<area shape="rect" id="Node000001" title="Auto sets and clears CopperLookAndFeel as default." alt="" coords="5,232,211,260"/>
+<area shape="rect" id="Node000002" href="$classCopperLookAndFeel.html" title="Plugin specific addition to GinLookAndFeel Still black and white." alt="" coords="33,157,183,184"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,198,110,233,106,231,106,202"/>
+<area shape="rect" id="Node000003" href="$classPluginLookAndFeel.html" title="Plugin specific addition to GinLookAndFeel Still black and white." alt="" coords="36,81,180,109"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="109,122,111,157,105,156,107,127"/>
+<area shape="rect" id="Node000004" href="$classGinLookAndFeel.html" title="Minimalist dark look and feel with black background and white controls." alt="" coords="45,5,171,33"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="109,46,111,81,105,80,107,51"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="Notch12State" name="Notch12State">
-<area shape="rect" id="Node000001" title="State storage for 12dB/octave notch filter in AudioEquationParser." alt="" coords="5,79,116,104"/>
-<area shape="rect" id="Node000002" href="$structFuncState.html" title="Base class for storing state in audio functions." alt="" coords="17,5,104,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,44,63,79,58,79,58,44"/>
+<area shape="rect" id="Node000001" title="State storage for 12dB/octave notch filter in AudioEquationParser." alt="" coords="5,81,115,109"/>
+<area shape="rect" id="Node000002" href="$structFuncState.html" title="Base class for storing state in audio functions." alt="" coords="17,5,103,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="62,47,63,81,57,80,58,51"/>
 </map>

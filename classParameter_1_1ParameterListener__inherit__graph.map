@@ -1,37 +1,37 @@
 <map id="Parameter::ParameterListener" name="Parameter::ParameterListener">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,499,221,524"/>
-<area shape="rect" id="Node000002" href="$classMultiParamComponent.html" title="A base component for controlling multiple parameters at once." alt="" coords="269,228,440,253"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,487,340,252,344,255,137,490"/>
-<area shape="rect" id="Node000012" href="$classPluginButton.html" title="Button for toggling a parameter." alt="" coords="302,424,407,449"/>
-<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="164,492,269,458,307,447,308,452,270,463,166,497"/>
-<area shape="rect" id="Node000014" href="$classPluginComboBox.html" title="A control for selecting param values from a dropbox." alt="" coords="288,473,421,499"/>
-<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="234,496,287,490,288,496,235,501"/>
-<area shape="rect" id="Node000015" href="$classPluginSlider.html" title="A slider for controlling a parameter." alt="" coords="305,523,404,548"/>
-<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="235,521,305,528,305,533,235,526"/>
-<area shape="rect" id="Node000017" href="$classReadout.html" title="A control for displaying a parameter." alt="" coords="317,572,393,597"/>
-<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="167,526,270,558,317,572,316,577,269,563,165,531"/>
-<area shape="rect" id="Node000018" href="$classSVGPluginButton.html" title="Button for toggling a parameter." alt="" coords="289,621,421,647"/>
-<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="144,530,201,569,270,608,301,619,299,624,268,612,198,574,141,535"/>
-<area shape="rect" id="Node000003" href="$classADSRComponent.html" title="Interactive visual editor for ADSR envelope parameters." alt="" coords="504,5,637,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="364,214,382,175,408,128,443,81,486,40,507,28,510,33,490,44,447,84,413,131,386,178,368,216"/>
-<area shape="rect" id="Node000004" href="$classControlBox.html" title="Container for organizing plugin controls on a grid layout with page support." alt="" coords="523,55,618,80"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="369,215,416,152,449,118,487,89,522,74,524,79,489,94,453,122,420,156,373,218"/>
-<area shape="rect" id="Node000005" href="$classGateEffectComponent.html" title="An editor for the gate effect pattern." alt="" coords="488,104,653,129"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="378,217,426,177,487,138,515,127,517,132,489,143,429,181,381,221"/>
-<area shape="rect" id="Node000006" href="$classLFOComponent.html" title="Visual display of LFO waveform with animated phase indicators." alt="" coords="509,153,632,179"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="399,220,487,187,523,176,525,181,489,193,401,225"/>
-<area shape="rect" id="Node000007" href="$classMSEGComponent.html" title="Draws an MSEG LFO curve and shows a little dot moving long." alt="" coords="503,203,638,228"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="453,226,502,221,503,226,454,232"/>
-<area shape="rect" id="Node000008" href="$classPagedControlBox.html" title="Advanced container with sliding page transitions for organizing controls." alt="" coords="504,252,637,277"/>
-<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="454,249,504,255,503,260,453,254"/>
-<area shape="rect" id="Node000009" href="$classParamArea.html" title="A box for graphs without a header." alt="" coords="524,301,617,327"/>
-<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="403,255,489,286,528,299,526,304,487,291,401,261"/>
-<area shape="rect" id="Node000010" href="$classParamBox.html" title="A box for knobs with a header." alt="" coords="527,351,615,376"/>
-<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="382,260,430,298,489,336,527,350,526,355,487,340,427,303,378,264"/>
-<area shape="rect" id="Node000011" href="$classStepLFOComponent.html" title="Draws a step LFO curve and shows a little dot moving long." alt="" coords="495,400,646,425"/>
-<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="374,263,421,324,453,357,489,385,515,398,513,402,487,390,450,361,417,328,369,266"/>
-<area shape="rect" id="Node000013" href="$classPowerButton.html" title="Button for toggling a parameter, drawn as a power button." alt="" coords="518,449,623,475"/>
-<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="421,442,518,453,517,459,421,447"/>
-<area shape="rect" id="Node000016" href="$classFaderSlider.html" title="A vertical fader slider for controlling a parameter with custom drawing." alt="" coords="523,523,618,548"/>
-<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="418,533,523,533,523,538,418,538"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,525,221,553"/>
+<area shape="rect" id="Node000002" href="$classMultiParamComponent.html" title="A base component for controlling multiple parameters at once." alt="" coords="269,240,439,268"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,512,339,266,343,270,138,515"/>
+<area shape="rect" id="Node000012" href="$classPluginButton.html" title="Button for toggling a parameter." alt="" coords="302,447,406,474"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="169,518,268,485,309,474,304,476,269,490,171,522"/>
+<area shape="rect" id="Node000014" href="$classPluginComboBox.html" title="A control for selecting param values from a dropbox." alt="" coords="288,499,420,526"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="235,523,290,519,285,521,237,528"/>
+<area shape="rect" id="Node000015" href="$classPluginSlider.html" title="A slider for controlling a parameter." alt="" coords="305,551,403,578"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="236,549,307,559,301,560,236,555"/>
+<area shape="rect" id="Node000017" href="$classReadout.html" title="A control for displaying a parameter." alt="" coords="316,603,392,630"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="173,556,269,587,318,605,313,605,268,592,172,561"/>
+<area shape="rect" id="Node000018" href="$classSVGPluginButton.html" title="Button for toggling a parameter." alt="" coords="288,655,420,682"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="145,560,202,600,270,639,302,654,297,654,268,644,199,605,144,565"/>
+<area shape="rect" id="Node000003" href="$classADSRComponent.html" title="Interactive visual editor for ADSR envelope parameters." alt="" coords="503,5,635,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="363,225,381,185,407,136,442,87,485,44,510,32,506,35,489,48,446,90,412,139,386,187,368,227"/>
+<area shape="rect" id="Node000004" href="$classControlBox.html" title="Container for organizing plugin controls on a grid layout with page support." alt="" coords="522,57,616,85"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="369,225,416,161,449,126,486,96,524,80,520,83,488,100,452,130,420,164,373,228"/>
+<area shape="rect" id="Node000005" href="$classGateEffectComponent.html" title="An editor for the gate effect pattern." alt="" coords="487,109,651,137"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="379,227,427,187,486,147,517,136,513,139,488,152,430,191,383,231"/>
+<area shape="rect" id="Node000006" href="$classLFOComponent.html" title="Visual display of LFO waveform with animated phase indicators." alt="" coords="508,161,630,189"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="403,231,486,199,525,188,520,191,488,204,406,236"/>
+<area shape="rect" id="Node000007" href="$classMSEGComponent.html" title="Draws an MSEG LFO curve and shows a little dot moving long." alt="" coords="502,213,636,241"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="453,239,504,234,499,237,455,244"/>
+<area shape="rect" id="Node000008" href="$classPagedControlBox.html" title="Advanced container with sliding page transitions for organizing controls." alt="" coords="503,265,635,293"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="454,263,505,271,500,272,455,268"/>
+<area shape="rect" id="Node000009" href="$classParamArea.html" title="A box for graphs without a header." alt="" coords="523,317,615,345"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="405,271,488,302,525,316,520,317,486,307,406,276"/>
+<area shape="rect" id="Node000010" href="$classParamBox.html" title="A box for knobs with a header." alt="" coords="526,369,613,397"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="381,276,430,316,488,354,528,372,523,372,486,359,427,320,381,281"/>
+<area shape="rect" id="Node000011" href="$classStepLFOComponent.html" title="Draws a step LFO curve and shows a little dot moving long." alt="" coords="494,421,644,449"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="372,278,420,343,452,377,488,406,513,421,508,421,486,411,449,381,416,346,371,283"/>
+<area shape="rect" id="Node000013" href="$classPowerButton.html" title="Button for toggling a parameter, drawn as a power button." alt="" coords="517,473,621,501"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="421,466,519,480,514,481,422,471"/>
+<area shape="rect" id="Node000016" href="$classFaderSlider.html" title="A vertical fader slider for controlling a parameter with custom drawing." alt="" coords="522,551,616,578"/>
+<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="418,562,525,564,519,565,419,567"/>
 </map>

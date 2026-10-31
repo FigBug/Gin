@@ -6,7 +6,7 @@ var searchData=
   ['restricted_3',['restricted',['../classLocationManager.html#a518acec298306066ae3cccc6eb335bdcad331d118edc7e3ab997994cf3182e0d4',1,'LocationManager']]],
   ['rightshoulder_4',['rightShoulder',['../classGameController.html#a6d925e0cc0db2aa51ad31f13fc4de069abdd85db15fdf2c36160b1452bce28730',1,'GameController']]],
   ['rightstick_5',['rightStick',['../classGameController.html#a6d925e0cc0db2aa51ad31f13fc4de069a7c8298b3f1e6c45b75a276fbc54650ce',1,'GameController']]],
-  ['righttrigger_6',['righttrigger',['../classGameController.html#a6d925e0cc0db2aa51ad31f13fc4de069afe8de8812758de942af9ab1c71cc3c2a',1,'GameController::rightTrigger'],['../classGameController.html#a9b9aaaaf38aa420262c310a5dc0a6f31afe8de8812758de942af9ab1c71cc3c2a',1,'GameController::rightTrigger']]],
+  ['righttrigger_6',['rightTrigger',['../classGameController.html#a6d925e0cc0db2aa51ad31f13fc4de069afe8de8812758de942af9ab1c71cc3c2a',1,'GameController::rightTrigger'],['../classGameController.html#a9b9aaaaf38aa420262c310a5dc0a6f31afe8de8812758de942af9ab1c71cc3c2a',1,'GameController::rightTrigger']]],
   ['rightx_7',['rightX',['../classGameController.html#a9b9aaaaf38aa420262c310a5dc0a6f31a94088c1fced51079ed44e8ba1dcc75f3',1,'GameController']]],
   ['righty_8',['rightY',['../classGameController.html#a9b9aaaaf38aa420262c310a5dc0a6f31ac20bbbc67cdeace3cad45d4afd635695',1,'GameController']]],
   ['rms_9',['rms',['../classEnvelopeDetector.html#aed1a748db06a14d27716c88b0fa1bdb4aa63705cf10474e3baa09f52c7f5bf5e6',1,'EnvelopeDetector']]]

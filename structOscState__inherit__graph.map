@@ -1,5 +1,5 @@
 <map id="OscState" name="OscState">
-<area shape="rect" id="Node000001" title="State storage for oscillator functions in AudioEquationParser." alt="" coords="9,79,89,104"/>
-<area shape="rect" id="Node000002" href="$structFuncState.html" title="Base class for storing state in audio functions." alt="" coords="5,5,92,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,44,51,79,46,79,46,44"/>
+<area shape="rect" id="Node000001" title="State storage for oscillator functions in AudioEquationParser." alt="" coords="8,81,88,109"/>
+<area shape="rect" id="Node000002" href="$structFuncState.html" title="Base class for storing state in audio functions." alt="" coords="5,5,91,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="50,47,51,81,45,80,46,51"/>
 </map>

@@ -1,11 +1,11 @@
 <map id="GinLookAndFeel" name="GinLookAndFeel">
-<area shape="rect" id="Node000001" title="Minimalist dark look and feel with black background and white controls." alt="" coords="145,5,272,31"/>
-<area shape="rect" id="Node000002" href="$classPluginLookAndFeel.html" title="Plugin specific addition to GinLookAndFeel Still black and white." alt="" coords="136,79,281,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,44,211,79,206,79,206,44"/>
-<area shape="rect" id="Node000003" href="$classCopperLookAndFeel.html" title="Plugin specific addition to GinLookAndFeel Still black and white." alt="" coords="33,152,184,177"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="183,114,127,154,123,150,180,110"/>
-<area shape="rect" id="Node000005" href="$classPluginLookAndFeelWrapper.html" title="Auto sets and clears PluginLookAndFeel as default." alt="" coords="209,152,409,177"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="237,110,294,150,291,154,234,114"/>
-<area shape="rect" id="Node000004" href="$classCopperLookAndFeelWrapper.html" title="Auto sets and clears CopperLookAndFeel as default." alt="" coords="5,225,212,251"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="111,191,111,225,106,225,106,191"/>
+<area shape="rect" id="Node000001" title="Minimalist dark look and feel with black background and white controls." alt="" coords="144,5,270,33"/>
+<area shape="rect" id="Node000002" href="$classPluginLookAndFeel.html" title="Plugin specific addition to GinLookAndFeel Still black and white." alt="" coords="134,81,279,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,46,209,81,204,80,205,51"/>
+<area shape="rect" id="Node000003" href="$classCopperLookAndFeel.html" title="Plugin specific addition to GinLookAndFeel Still black and white." alt="" coords="33,157,183,184"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="175,120,127,158,124,154,179,116"/>
+<area shape="rect" id="Node000005" href="$classPluginLookAndFeelWrapper.html" title="Auto sets and clears PluginLookAndFeel as default." alt="" coords="207,157,406,184"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="237,115,292,156,286,156,236,121"/>
+<area shape="rect" id="Node000004" href="$classCopperLookAndFeelWrapper.html" title="Auto sets and clears CopperLookAndFeel as default." alt="" coords="5,232,211,260"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="110,198,110,233,106,231,106,202"/>
 </map>

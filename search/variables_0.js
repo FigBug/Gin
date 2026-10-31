@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['a_0',['a',['../classLinearRegression.html#a9afb5e0ec8d6cbb6ac46e5915afc57ec',1,'LinearRegression::a'],['../classSpline_1_1Element.html#aa20a7343d5bfabf930f48bd5e88d9916',1,'Spline::Element::a'],['../classEllipse.html#a5fb56e7b1960b8e127deccbc91f3aa8d',1,'Ellipse::a']]],
+  ['a_0',['a',['../classEllipse.html#a5fb56e7b1960b8e127deccbc91f3aa8d',1,'Ellipse::a'],['../classLinearRegression.html#a9afb5e0ec8d6cbb6ac46e5915afc57ec',1,'LinearRegression::a'],['../classSpline_1_1Element.html#aa20a7343d5bfabf930f48bd5e88d9916',1,'Spline::Element::a']]],
   ['a1_1',['a1',['../structBiquad.html#a8298f5e0871449dc6bd6741231c1d3fb',1,'Biquad::a1'],['../structKWeightingFilter_1_1Coefficients.html#abda4401dddfcee03888add413ad60368',1,'KWeightingFilter::Coefficients::a1']]],
   ['a2_2',['a2',['../structBiquad.html#ae7beb3858e3230b81fc9aff882f04431',1,'Biquad::a2'],['../structKWeightingFilter_1_1Coefficients.html#ac345fc2bef165ecda83bd2fa574bb637',1,'KWeightingFilter::Coefficients::a2']]],
   ['actualprocessorchannels_3',['actualProcessorChannels',['../classAudioProcessorPlayer.html#a84628d62bbeeadf4ff77e143de301bc0',1,'AudioProcessorPlayer']]],
@@ -15,7 +15,7 @@ var searchData=
   ['applyvalue_12',['applyValue',['../classReadout.html#a2e4ef7703342093ccf13750f43fcf4a1',1,'Readout']]],
   ['appname_13',['appName',['../structRemoteServer_1_1Options.html#ac1682c1324af08b5fb9f03f68094dcf7',1,'RemoteServer::Options']]],
   ['appproperties_14',['appProperties',['../classStandaloneFilterApp.html#ae66549dfa84369ba354387376b80dc44',1,'StandaloneFilterApp']]],
-  ['asym_15',['asym',['../structVoicedStereoOscillatorParams.html#aa49c83fd8aec6b4e6896926cb426ed31',1,'VoicedStereoOscillatorParams::asym'],['../structWTVoicedStereoOscillatorParams.html#aa6c2c1b833cfc3ff943f2385505b479b',1,'WTVoicedStereoOscillatorParams::asym'],['../structWTOscillator_1_1Params.html#aa86914604683e0a51991496154ac31fa',1,'WTOscillator::Params::asym'],['../structStereoOscillator_1_1Params.html#a57c058339a79c6f782a634b35808faf1',1,'StereoOscillator::Params::asym']]],
+  ['asym_15',['asym',['../structStereoOscillator_1_1Params.html#a57c058339a79c6f782a634b35808faf1',1,'StereoOscillator::Params::asym'],['../structVoicedStereoOscillatorParams.html#aa49c83fd8aec6b4e6896926cb426ed31',1,'VoicedStereoOscillatorParams::asym'],['../structWTOscillator_1_1Params.html#aa86914604683e0a51991496154ac31fa',1,'WTOscillator::Params::asym'],['../structWTVoicedStereoOscillatorParams.html#aa6c2c1b833cfc3ff943f2385505b479b',1,'WTVoicedStereoOscillatorParams::asym']]],
   ['attack_16',['attack',['../classAnalogADSR.html#ad78b0e1a8896f9d2c021832fa7517982',1,'AnalogADSR']]],
   ['attackcoeff_17',['attackCoeff',['../classAnalogADSR.html#a2586227ebaf1e5741159415ada492a6f',1,'AnalogADSR']]],
   ['attackdelta_18',['attackDelta',['../classADSR.html#ae3003291adf6ae972e1ef26ec5f39ad1',1,'ADSR']]],

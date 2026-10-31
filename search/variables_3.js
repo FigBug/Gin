@@ -14,7 +14,7 @@ var searchData=
   ['deletebutton_11',['deleteButton',['../classTitleBar.html#a63cc841bf24e40e9e5537ec398b99bdd',1,'TitleBar']]],
   ['delta_12',['delta',['../structOscState.html#a3659847d96492e7df6bb1987b7991415',1,'OscState']]],
   ['denominator_13',['denominator',['../classAudioMetadata.html#a9f84aff055371a6d53809117f4cda13c',1,'AudioMetadata']]],
-  ['depth_14',['depth',['../structMSEG_1_1Parameters.html#a7b3246f9a150ccd8cfa42f6c4a29452e',1,'MSEG::Parameters::depth'],['../structLFO_1_1Parameters.html#aea5b1c1cd4fc3b68d3826fce64f6287a',1,'LFO::Parameters::depth']]],
+  ['depth_14',['depth',['../structLFO_1_1Parameters.html#aea5b1c1cd4fc3b68d3826fce64f6287a',1,'LFO::Parameters::depth'],['../structMSEG_1_1Parameters.html#a7b3246f9a150ccd8cfa42f6c4a29452e',1,'MSEG::Parameters::depth']]],
   ['detune_15',['detune',['../structVoicedOscillatorParams.html#a18f197eff7f01c6fc532b01f11f634e4',1,'VoicedOscillatorParams']]],
   ['developer_16',['developer',['../classProcessorOptions.html#ad31c3c7b9ae9afc3d52725097d0a4527',1,'ProcessorOptions']]],
   ['devicechannels_17',['deviceChannels',['../classAudioProcessorPlayer.html#a37fe9d0a2e9f44640d2870c19753ba10',1,'AudioProcessorPlayer']]],

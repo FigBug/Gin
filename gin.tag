@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
-<tagfile doxygen_version="1.9.8">
+<tagfile doxygen_version="1.15.0">
   <compound kind="file">
     <name>gin_catenary.h</name>
     <path>build/gin/geometry/</path>
@@ -9092,9 +9092,9 @@
   <compound kind="class">
     <name>GameControllerManager</name>
     <filename>classGameControllerManager.html</filename>
-    <class kind="class">GameControllerManager::Backend</class>
     <class kind="class">GameControllerManager::Listener</class>
     <class kind="struct">GameControllerManager::PollState</class>
+    <class kind="class">GameControllerManager::Backend</class>
     <member kind="function">
       <type></type>
       <name>GameControllerManager</name>
@@ -12166,8 +12166,8 @@
   <compound kind="class">
     <name>LocationManager</name>
     <filename>classLocationManager.html</filename>
-    <class kind="class">LocationManager::Listener</class>
     <class kind="struct">LocationManager::Location</class>
+    <class kind="class">LocationManager::Listener</class>
     <member kind="enumeration">
       <type></type>
       <name>Authorization</name>
@@ -14436,9 +14436,9 @@
   <compound kind="class">
     <name>MSEG</name>
     <filename>classMSEG.html</filename>
-    <class kind="struct">MSEG::Data</class>
     <class kind="struct">MSEG::Parameters</class>
     <class kind="struct">MSEG::Point</class>
+    <class kind="struct">MSEG::Data</class>
     <member kind="function">
       <type></type>
       <name>MSEG</name>
@@ -16682,8 +16682,8 @@
     <name>PatchBrowser</name>
     <filename>classPatchBrowser.html</filename>
     <class kind="struct">PatchBrowser::AuthorsModel</class>
-    <class kind="struct">PatchBrowser::PresetsModel</class>
     <class kind="struct">PatchBrowser::TagsModel</class>
+    <class kind="struct">PatchBrowser::PresetsModel</class>
     <member kind="function">
       <type></type>
       <name>PatchBrowser</name>
@@ -18854,9 +18854,9 @@
   <compound kind="class">
     <name>RemoteServer</name>
     <filename>classRemoteServer.html</filename>
+    <class kind="struct">RemoteServer::Options</class>
     <class kind="struct">RemoteServer::CommandResult</class>
     <class kind="class">RemoteServer::Context</class>
-    <class kind="struct">RemoteServer::Options</class>
     <member kind="typedef">
       <type>std::function&lt; CommandResult(const juce::var &amp;args)&gt;</type>
       <name>CommandHandler</name>
@@ -24979,34 +24979,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_gui-components</name>
-    <title>components</title>
-    <filename>group__gin__gui-components.html</filename>
-    <class kind="class">ComponentGrid</class>
-    <class kind="struct">ComponentGrid::DragInfo</class>
-    <class kind="class">ComponentViewer</class>
-    <class kind="class">GinLookAndFeel</class>
-    <class kind="class">MapViewer</class>
-    <class kind="class">PropertyComponentBase</class>
-    <class kind="class">FilePropertyComponent</class>
-    <class kind="class">ColourPropertyComponent</class>
-    <class kind="class">SVGButton</class>
-    <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin__gui-components.html</anchorfile>
-      <anchor>ga66410efb088d24a02a86b4c6191e2866</anchor>
-      <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component * &gt; children)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>group__gin__gui-components.html</anchorfile>
-      <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
-      <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
-    </member>
-  </compound>
-  <compound kind="group">
     <name>gin_dsp-components</name>
     <title>components</title>
     <filename>group__gin__dsp-components.html</filename>
@@ -25081,6 +25053,34 @@
       <anchorfile>group__gin__plugin-components.html</anchorfile>
       <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
       <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_gui-components</name>
+    <title>components</title>
+    <filename>group__gin__gui-components.html</filename>
+    <class kind="class">ComponentGrid</class>
+    <class kind="struct">ComponentGrid::DragInfo</class>
+    <class kind="class">ComponentViewer</class>
+    <class kind="class">GinLookAndFeel</class>
+    <class kind="class">MapViewer</class>
+    <class kind="class">PropertyComponentBase</class>
+    <class kind="class">FilePropertyComponent</class>
+    <class kind="class">ColourPropertyComponent</class>
+    <class kind="class">SVGButton</class>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin__gui-components.html</anchorfile>
+      <anchor>ga66410efb088d24a02a86b4c6191e2866</anchor>
+      <arglist>(juce::Component &amp;parent, juce::Array&lt; juce::Component * &gt; children)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>group__gin__gui-components.html</anchorfile>
+      <anchor>gaa5dca7c16023c4ec901f0db44aaf89de</anchor>
+      <arglist>(juce::Component &amp;parent, std::initializer_list&lt; juce::Component * &gt; children)</arglist>
     </member>
   </compound>
   <compound kind="group">
@@ -25387,16 +25387,16 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_graphics-formats</name>
-    <title>formats</title>
-    <filename>group__gin__graphics-formats.html</filename>
-    <class kind="class">BMPImageFormat</class>
-  </compound>
-  <compound kind="group">
     <name>gin_webp-formats</name>
     <title>formats</title>
     <filename>group__gin__webp-formats.html</filename>
     <class kind="class">WEBPImageFormat</class>
+  </compound>
+  <compound kind="group">
+    <name>gin_graphics-formats</name>
+    <title>formats</title>
+    <filename>group__gin__graphics-formats.html</filename>
+    <class kind="class">BMPImageFormat</class>
   </compound>
   <compound kind="group">
     <name>gin-geometry</name>
@@ -25424,8 +25424,8 @@
     <name>gin</name>
     <title>gin</title>
     <filename>group__gin.html</filename>
-    <subgroup>gin-geometry</subgroup>
     <subgroup>gin-utilities</subgroup>
+    <subgroup>gin-geometry</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_3d</name>
@@ -25443,8 +25443,8 @@
     <name>gin_dsp</name>
     <title>gin_dsp</title>
     <filename>group__gin__dsp.html</filename>
-    <subgroup>gin_dsp-components</subgroup>
     <subgroup>gin_dsp-dsp</subgroup>
+    <subgroup>gin_dsp-components</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_graphics</name>
@@ -25458,8 +25458,8 @@
     <title>gin_gui</title>
     <filename>group__gin__gui.html</filename>
     <subgroup>gin_gui-components</subgroup>
-    <subgroup>gin_gui-images</subgroup>
     <subgroup>gin_gui-utilities</subgroup>
+    <subgroup>gin_gui-images</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_location</name>
@@ -25483,10 +25483,10 @@
     <name>gin_plugin</name>
     <title>gin_plugin</title>
     <filename>group__gin__plugin.html</filename>
+    <subgroup>gin_plugin-resources</subgroup>
     <subgroup>gin_plugin-components</subgroup>
     <subgroup>gin_plugin-lookandfeel</subgroup>
     <subgroup>gin_plugin-plugin</subgroup>
-    <subgroup>gin_plugin-resources</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_remote</name>
@@ -25498,8 +25498,8 @@
     <name>gin_simd</name>
     <title>gin_simd</title>
     <filename>group__gin__simd.html</filename>
-    <subgroup>gin_simd-math</subgroup>
     <subgroup>gin_simd-mipp</subgroup>
+    <subgroup>gin_simd-math</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_standaloneplugin</name>
@@ -25518,25 +25518,6 @@
     <title>gin_webp</title>
     <filename>group__gin__webp.html</filename>
     <subgroup>gin_webp-formats</subgroup>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-images</name>
-    <title>images</title>
-    <filename>group__gin__gui-images.html</filename>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>rasterizeSVG</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
-      <arglist>(juce::String svgText, int w, int h)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Path</type>
-      <name>parseSVGPath</name>
-      <anchorfile>group__gin__gui-images.html</anchorfile>
-      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
-      <arglist>(const juce::String &amp;txt)</arglist>
-    </member>
   </compound>
   <compound kind="group">
     <name>gin_graphics-images</name>
@@ -26019,6 +26000,25 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_gui-images</name>
+    <title>images</title>
+    <filename>group__gin__gui-images.html</filename>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>rasterizeSVG</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>gaad1e06e3c606f89456dac559e0d417a7</anchor>
+      <arglist>(juce::String svgText, int w, int h)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Path</type>
+      <name>parseSVGPath</name>
+      <anchorfile>group__gin__gui-images.html</anchorfile>
+      <anchor>ga781250a0ec9422dc8c7365cf6b9935ee</anchor>
+      <arglist>(const juce::String &amp;txt)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
     <name>gin_location-location</name>
     <title>location</title>
     <filename>group__gin__location-location.html</filename>
@@ -26190,265 +26190,6 @@
     <title>svg</title>
     <filename>group__gin__svg-svg.html</filename>
     <namespace>SVG</namespace>
-  </compound>
-  <compound kind="group">
-    <name>gin_gui-utilities</name>
-    <title>utilities</title>
-    <filename>group__gin__gui-utilities.html</filename>
-    <file>gin_varianthelpers.h</file>
-    <namespace>macOS</namespace>
-    <namespace>juce</namespace>
-    <class kind="class">LambdaTimer</class>
-    <class kind="class">LambdaAsyncUpdater</class>
-    <class kind="class">LambdaMouseListener</class>
-    <class kind="class">CoalescedTimer</class>
-    <class kind="class">ComponentMap</class>
-    <class kind="class">ElevatedFileCopy</class>
-    <class kind="class">ElevatedSession</class>
-    <class kind="class">ConstantsStack</class>
-    <class kind="class">ConstantsStack::ScopedSave</class>
-    <class kind="class">Parser</class>
-    <class kind="class">LayoutSupport</class>
-    <class kind="struct">LayoutSupport::Bounds</class>
-    <class kind="struct">LayoutSupport::JsonFile</class>
-    <class kind="class">OpenStreetMaps</class>
-    <class kind="class">OpenStreetMaps::Listener</class>
-    <class kind="class">SystemClipboard</class>
-    <class kind="class">AsyncDownload</class>
-    <class kind="struct">Property</class>
-    <class kind="struct">juce::VarIterator</class>
-    <class kind="struct">juce::VarIterator::NamedValue</class>
-    <member kind="typedef">
-      <type>std::ptrdiff_t</type>
-      <name>juce::VarIterator::difference_type</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga388faf47e202486a153ded4732148bd3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>NamedValue</type>
-      <name>juce::VarIterator::value_type</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga2568e5c06333945b3b21bd06902e227f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>NamedValue &amp;</type>
-      <name>juce::VarIterator::reference</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gabdc270513e2833318b2b5c6dd30f09bd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>NamedValue *</type>
-      <name>juce::VarIterator::pointer</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gaa25ac98061cddab1f99f1a3b0e94ff9d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>std::forward_iterator_tag</type>
-      <name>juce::VarIterator::iterator_category</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga3155c127a8ef5e383beab0b3cd65f98a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>callOnMainThreadBlocking</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
-      <arglist>(std::function&lt; void()&gt; func)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Colour</type>
-      <name>goldenRatioColor</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
-      <arglist>(int idx)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>asyncDownload</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
-      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>createDesktopSnapshot</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gac2d2291dbc7913b65fd0e69e53873fa3</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Image</type>
-      <name>createSnapshotOfNativeWindow</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gad1ffdc179588a1832355270be9b5a516</anchor>
-      <arglist>(juce::Component &amp;c)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>jsonObject</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga0b0991cd1a205f2dc8706dc91e0f3bdb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>std::string</type>
-      <name>toStdString</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gad6aca58449544b3fdeb9d4c9f8560a90</anchor>
-      <arglist>(const juce::var &amp;v)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Property::Property</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga9412f63da91a0a78713db5048973204b</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Property::Property</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gafb868a85098fecb91249b69f3e72b85e</anchor>
-      <arglist>(const juce::String &amp;k, const juce::var v)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>getPropertyWithDefault</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga4a0e5a7a42a4e9d41ecb0efc2dc979a5</anchor>
-      <arglist>(const juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;defaultValue)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setProperty</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga50aa299c064e2ba23134d4271067f253</anchor>
-      <arglist>(juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;value)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>removeProperty</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga8d3d517f8553687ae54a491635d3f3cf</anchor>
-      <arglist>(juce::var &amp;v, const juce::Identifier &amp;i)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>setJSONPointer</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga50593c5a205f3ed201863222136cc007</anchor>
-      <arglist>(juce::var &amp;v, juce::String pointer, const juce::var &amp;newValue)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>getJSONPointer</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gad37d4944a1b5a94d959f2c74d9ca36ec</anchor>
-      <arglist>(const juce::var &amp;v, juce::String pointer, const juce::var &amp;defaultValue)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>hasJSONPointer</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga2c46f3f0d1e3e9e734b529b8abcde6cf</anchor>
-      <arglist>(const juce::var &amp;v, juce::String pointer)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::String</type>
-      <name>removeJsonComments</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga8d83bb854851e5039749da191fc5765e</anchor>
-      <arglist>(const juce::String &amp;input)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>juce::VarIterator::VarIterator</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga73804ae2be599cf5e40cf379ff99d04d</anchor>
-      <arglist>(const juce::var &amp;, bool isEnd)</arglist>
-    </member>
-    <member kind="function">
-      <type>VarIterator &amp;</type>
-      <name>juce::VarIterator::operator++</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gadaf3cbf9c09218e1220f273bc387a628</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>juce::VarIterator::operator==</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gaf191a2ab9a88f5ff7c6063c488f10069</anchor>
-      <arglist>(const VarIterator &amp;) const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>juce::VarIterator::operator!=</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gacb05ca9805cc361ca4e7f92504022406</anchor>
-      <arglist>(const VarIterator &amp;) const</arglist>
-    </member>
-    <member kind="function">
-      <type>NamedValue</type>
-      <name>juce::VarIterator::operator*</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga883e3ab914c93f262b6fa1bff971b8b1</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>VarIterator</type>
-      <name>juce::begin</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga08585dbaa981f89e24e386653159db3f</anchor>
-      <arglist>(const juce::var &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>VarIterator</type>
-      <name>juce::end</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga27df0f06f312d3eb5ddd40693a1941d9</anchor>
-      <arglist>(const juce::var &amp;)</arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::String</type>
-      <name>Property::key</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga036d8f318fffa88cef21d494ed405443</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::var</type>
-      <name>Property::value</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gad6cc4703b5f5315e1b4e7dc7266ecbad</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::var</type>
-      <name>juce::VarIterator::NamedValue::name</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>gab7f29046e16e28190c441e4b50e638d7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::var</type>
-      <name>juce::VarIterator::NamedValue::value</name>
-      <anchorfile>group__gin__gui-utilities.html</anchorfile>
-      <anchor>ga3e76d00fc7f78298c56b3094edddd407</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="group">
     <name>gin-utilities</name>
@@ -26836,5 +26577,767 @@
       <anchor>ga88f482bf81fb3e423fa1e3926dfaa9a6</anchor>
       <arglist>(const juce::String &amp;jsonText)</arglist>
     </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_gui-utilities</name>
+    <title>utilities</title>
+    <filename>group__gin__gui-utilities.html</filename>
+    <file>gin_varianthelpers.h</file>
+    <namespace>macOS</namespace>
+    <namespace>juce</namespace>
+    <class kind="class">LambdaTimer</class>
+    <class kind="class">LambdaAsyncUpdater</class>
+    <class kind="class">LambdaMouseListener</class>
+    <class kind="class">CoalescedTimer</class>
+    <class kind="class">ComponentMap</class>
+    <class kind="class">ElevatedFileCopy</class>
+    <class kind="class">ElevatedSession</class>
+    <class kind="class">ConstantsStack</class>
+    <class kind="class">ConstantsStack::ScopedSave</class>
+    <class kind="class">Parser</class>
+    <class kind="class">LayoutSupport</class>
+    <class kind="struct">LayoutSupport::Bounds</class>
+    <class kind="struct">LayoutSupport::JsonFile</class>
+    <class kind="class">OpenStreetMaps</class>
+    <class kind="class">OpenStreetMaps::Listener</class>
+    <class kind="class">SystemClipboard</class>
+    <class kind="class">AsyncDownload</class>
+    <class kind="struct">Property</class>
+    <class kind="struct">juce::VarIterator</class>
+    <class kind="struct">juce::VarIterator::NamedValue</class>
+    <member kind="typedef">
+      <type>std::ptrdiff_t</type>
+      <name>juce::VarIterator::difference_type</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga388faf47e202486a153ded4732148bd3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>NamedValue</type>
+      <name>juce::VarIterator::value_type</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2568e5c06333945b3b21bd06902e227f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>NamedValue &amp;</type>
+      <name>juce::VarIterator::reference</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gabdc270513e2833318b2b5c6dd30f09bd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>NamedValue *</type>
+      <name>juce::VarIterator::pointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gaa25ac98061cddab1f99f1a3b0e94ff9d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>std::forward_iterator_tag</type>
+      <name>juce::VarIterator::iterator_category</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga3155c127a8ef5e383beab0b3cd65f98a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>callOnMainThreadBlocking</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9fefd2dceb6369dbeac0b093b14c72fa</anchor>
+      <arglist>(std::function&lt; void()&gt; func)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Colour</type>
+      <name>goldenRatioColor</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga345f5b8f3ffdd680b206fe42f25be481</anchor>
+      <arglist>(int idx)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2f25631e62f6a7377cf49e3f74f7e849</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::String &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>asyncDownload</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4694a471c36c4bdc368319e512a906d7</anchor>
+      <arglist>(const juce::URL &amp;, std::function&lt; void(const juce::MemoryBlock &amp;)&gt;)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>createDesktopSnapshot</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gac2d2291dbc7913b65fd0e69e53873fa3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>createSnapshotOfNativeWindow</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad1ffdc179588a1832355270be9b5a516</anchor>
+      <arglist>(juce::Component &amp;c)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>jsonObject</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga0b0991cd1a205f2dc8706dc91e0f3bdb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>std::string</type>
+      <name>toStdString</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad6aca58449544b3fdeb9d4c9f8560a90</anchor>
+      <arglist>(const juce::var &amp;v)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Property::Property</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga9412f63da91a0a78713db5048973204b</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Property::Property</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gafb868a85098fecb91249b69f3e72b85e</anchor>
+      <arglist>(const juce::String &amp;k, const juce::var v)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>getPropertyWithDefault</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga4a0e5a7a42a4e9d41ecb0efc2dc979a5</anchor>
+      <arglist>(const juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;defaultValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setProperty</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga50aa299c064e2ba23134d4271067f253</anchor>
+      <arglist>(juce::var &amp;v, const juce::Identifier &amp;i, const juce::var &amp;value)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeProperty</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga8d3d517f8553687ae54a491635d3f3cf</anchor>
+      <arglist>(juce::var &amp;v, const juce::Identifier &amp;i)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>setJSONPointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga50593c5a205f3ed201863222136cc007</anchor>
+      <arglist>(juce::var &amp;v, juce::String pointer, const juce::var &amp;newValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>getJSONPointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad37d4944a1b5a94d959f2c74d9ca36ec</anchor>
+      <arglist>(const juce::var &amp;v, juce::String pointer, const juce::var &amp;defaultValue)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hasJSONPointer</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga2c46f3f0d1e3e9e734b529b8abcde6cf</anchor>
+      <arglist>(const juce::var &amp;v, juce::String pointer)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>removeJsonComments</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga8d83bb854851e5039749da191fc5765e</anchor>
+      <arglist>(const juce::String &amp;input)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>juce::VarIterator::VarIterator</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga73804ae2be599cf5e40cf379ff99d04d</anchor>
+      <arglist>(const juce::var &amp;, bool isEnd)</arglist>
+    </member>
+    <member kind="function">
+      <type>VarIterator &amp;</type>
+      <name>juce::VarIterator::operator++</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gadaf3cbf9c09218e1220f273bc387a628</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>juce::VarIterator::operator==</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gaf191a2ab9a88f5ff7c6063c488f10069</anchor>
+      <arglist>(const VarIterator &amp;) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>juce::VarIterator::operator!=</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gacb05ca9805cc361ca4e7f92504022406</anchor>
+      <arglist>(const VarIterator &amp;) const</arglist>
+    </member>
+    <member kind="function">
+      <type>NamedValue</type>
+      <name>juce::VarIterator::operator*</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga883e3ab914c93f262b6fa1bff971b8b1</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>VarIterator</type>
+      <name>juce::begin</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga08585dbaa981f89e24e386653159db3f</anchor>
+      <arglist>(const juce::var &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>VarIterator</type>
+      <name>juce::end</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga27df0f06f312d3eb5ddd40693a1941d9</anchor>
+      <arglist>(const juce::var &amp;)</arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::String</type>
+      <name>Property::key</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga036d8f318fffa88cef21d494ed405443</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::var</type>
+      <name>Property::value</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gad6cc4703b5f5315e1b4e7dc7266ecbad</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::var</type>
+      <name>juce::VarIterator::NamedValue::name</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>gab7f29046e16e28190c441e4b50e638d7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::var</type>
+      <name>juce::VarIterator::NamedValue::value</name>
+      <anchorfile>group__gin__gui-utilities.html</anchorfile>
+      <anchor>ga3e76d00fc7f78298c56b3094edddd407</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="dir">
+    <name>3d</name>
+    <path>build/gin_3d/3d/</path>
+    <filename>dir_b98a62f0714b4b1feb69e4416cb75815.html</filename>
+    <file>gin_camera3d.h</file>
+    <file>gin_camera3d.test.h</file>
+    <file>gin_mat4.h</file>
+    <file>gin_mat4.test.h</file>
+    <file>gin_renderer3d.h</file>
+    <file>gin_renderer3d.test.h</file>
+    <file>gin_scene3d.h</file>
+    <file>gin_scene3d.test.h</file>
+    <file>gin_vec3.h</file>
+    <file>gin_vec3.test.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>build</name>
+    <path>build/</path>
+    <filename>dir_4fef79e7177ba769987a8da36c892c5f.html</filename>
+    <dir>gin</dir>
+    <dir>gin_3d</dir>
+    <dir>gin_controllers</dir>
+    <dir>gin_dsp</dir>
+    <dir>gin_graphics</dir>
+    <dir>gin_gui</dir>
+    <dir>gin_location</dir>
+    <dir>gin_metadata</dir>
+    <dir>gin_network</dir>
+    <dir>gin_plugin</dir>
+    <dir>gin_remote</dir>
+    <dir>gin_simd</dir>
+    <dir>gin_standaloneplugin</dir>
+    <dir>gin_svg</dir>
+    <dir>gin_webp</dir>
+  </compound>
+  <compound kind="dir">
+    <name>components</name>
+    <path>build/gin_dsp/components/</path>
+    <filename>dir_3c7c213905a9cf0e5217665ef789515b.html</filename>
+    <file>gin_audiosamplerbuffercomponent.h</file>
+    <file>gin_dynamicsmeter.h</file>
+    <file>gin_levelmeter.h</file>
+    <file>gin_midifilecomponent.h</file>
+    <file>gin_spectrumanalyzer.h</file>
+    <file>gin_triggeredscope.h</file>
+    <file>gin_waveformcomponent.h</file>
+    <file>gin_wavetablecomponent.h</file>
+    <file>gin_xyscope.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>components</name>
+    <path>build/gin_gui/components/</path>
+    <filename>dir_6cdc297a3925a59c437fc0571c26a6a8.html</filename>
+    <file>gin_componentgrid.h</file>
+    <file>gin_componentutils.h</file>
+    <file>gin_componentviewer.h</file>
+    <file>gin_ginlookandfeel.h</file>
+    <file>gin_mapviewer.h</file>
+    <file>gin_propertycomponents.h</file>
+    <file>gin_svgbutton.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>components</name>
+    <path>build/gin_plugin/components/</path>
+    <filename>dir_e8b04c5562204efb9aa772937a21a191.html</filename>
+    <file>gin_adsrcomponent.h</file>
+    <file>gin_assets.h</file>
+    <file>gin_controlbox.h</file>
+    <file>gin_fader.h</file>
+    <file>gin_faderslider.h</file>
+    <file>gin_gateeffectcomponent.h</file>
+    <file>gin_headers.h</file>
+    <file>gin_horizontalfader.h</file>
+    <file>gin_knob.h</file>
+    <file>gin_lfocomponent.h</file>
+    <file>gin_midilearnoverlay.h</file>
+    <file>gin_modcurvebutton.h</file>
+    <file>gin_modmatrixbox.h</file>
+    <file>gin_modoverlay.h</file>
+    <file>gin_modsrclistbox.h</file>
+    <file>gin_modulationdepthslider.h</file>
+    <file>gin_modulationoverview.h</file>
+    <file>gin_modulationsourcebutton.h</file>
+    <file>gin_msegcomponent.h</file>
+    <file>gin_multiparamcomponent.h</file>
+    <file>gin_parambox.h</file>
+    <file>gin_paramcomponent.h</file>
+    <file>gin_patchbrowser.h</file>
+    <file>gin_pluginalertwindow.h</file>
+    <file>gin_pluginbutton.h</file>
+    <file>gin_plugincombobox.h</file>
+    <file>gin_plugineditor.h</file>
+    <file>gin_pluginslider.h</file>
+    <file>gin_readout.h</file>
+    <file>gin_scaledplugineditor.h</file>
+    <file>gin_select.h</file>
+    <file>gin_steplfocomponent.h</file>
+    <file>gin_switch.h</file>
+    <file>gin_synthesiserusage.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>controllers</name>
+    <path>build/gin_controllers/controllers/</path>
+    <filename>dir_f2e8f0d793a8afc969f6f5103c7bc423.html</filename>
+    <file>gin_gamecontroller.h</file>
+    <file>gin_gamecontrollermanager.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>dsp</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>dir_2a37e19b34c2d8d19aa71128ed037e26.html</filename>
+    <file>gin_adsr.h</file>
+    <file>gin_adsr.test.h</file>
+    <file>gin_analogadsr.h</file>
+    <file>gin_analogadsr.test.h</file>
+    <file>gin_audioequationparser.h</file>
+    <file>gin_audiofifo.h</file>
+    <file>gin_audiofifo.test.h</file>
+    <file>gin_audiofunctions.h</file>
+    <file>gin_audiofunctions.test.h</file>
+    <file>gin_audiometadata.h</file>
+    <file>gin_audiometadata.test.h</file>
+    <file>gin_audiomidififo.h</file>
+    <file>gin_audiomidififo.test.h</file>
+    <file>gin_audioutil.h</file>
+    <file>gin_audioutil.test.h</file>
+    <file>gin_bandlimitedlookuptable.h</file>
+    <file>gin_bandlimitedlookuptable.test.h</file>
+    <file>gin_biquad.h</file>
+    <file>gin_bitcrusher.h</file>
+    <file>gin_bitcrusher.test.h</file>
+    <file>gin_correlationmeter.h</file>
+    <file>gin_correlationmeter.test.h</file>
+    <file>gin_dcblocker.h</file>
+    <file>gin_dcblocker.test.h</file>
+    <file>gin_delayline.h</file>
+    <file>gin_delayline.test.h</file>
+    <file>gin_distortion.h</file>
+    <file>gin_distortion.test.h</file>
+    <file>gin_dither.h</file>
+    <file>gin_dither.test.h</file>
+    <file>gin_dynamics.h</file>
+    <file>gin_dynamics.test.h</file>
+    <file>gin_easedvaluesmoother.h</file>
+    <file>gin_easedvaluesmoother.test.h</file>
+    <file>gin_eq.h</file>
+    <file>gin_eq.test.h</file>
+    <file>gin_exciter.h</file>
+    <file>gin_exciter.test.h</file>
+    <file>gin_fastmath.h</file>
+    <file>gin_fastmath.test.h</file>
+    <file>gin_filter.h</file>
+    <file>gin_filter.test.h</file>
+    <file>gin_gateeffect.h</file>
+    <file>gin_gateeffect.test.h</file>
+    <file>gin_graphiceq.h</file>
+    <file>gin_graphiceq.test.h</file>
+    <file>gin_kicksynth.h</file>
+    <file>gin_kicksynth.test.h</file>
+    <file>gin_leveltracker.h</file>
+    <file>gin_leveltracker.test.h</file>
+    <file>gin_lfo.h</file>
+    <file>gin_lfo.test.h</file>
+    <file>gin_loudnessmeter.h</file>
+    <file>gin_loudnessmeter.test.h</file>
+    <file>gin_maximizer.h</file>
+    <file>gin_maximizer.test.h</file>
+    <file>gin_midififo.h</file>
+    <file>gin_midififo.test.h</file>
+    <file>gin_midifileplayer.h</file>
+    <file>gin_midifileplayer.test.h</file>
+    <file>gin_modulation.h</file>
+    <file>gin_modulation.test.h</file>
+    <file>gin_mseg.h</file>
+    <file>gin_noise.h</file>
+    <file>gin_noise.test.h</file>
+    <file>gin_oscillators.h</file>
+    <file>gin_oscillators.test.h</file>
+    <file>gin_platereverb.h</file>
+    <file>gin_resamplingfifo.h</file>
+    <file>gin_rmsmeter.h</file>
+    <file>gin_rmsmeter.test.h</file>
+    <file>gin_sample.h</file>
+    <file>gin_sampleoscillator.h</file>
+    <file>gin_sampleplayer.h</file>
+    <file>gin_sampleplayer.test.h</file>
+    <file>gin_scratchbuffer.h</file>
+    <file>gin_scratchbuffer.test.h</file>
+    <file>gin_simpleverb.h</file>
+    <file>gin_softclipper.h</file>
+    <file>gin_softclipper.test.h</file>
+    <file>gin_steplfo.h</file>
+    <file>gin_steplfo.test.h</file>
+    <file>gin_stereodelay.h</file>
+    <file>gin_stereodelay.test.h</file>
+    <file>gin_stereoenhancer.h</file>
+    <file>gin_stereoprocessor.h</file>
+    <file>gin_stereoprocessor.test.h</file>
+    <file>gin_synthesiser.h</file>
+    <file>gin_synthesiser.test.h</file>
+    <file>gin_textrenderer.h</file>
+    <file>gin_transientshaper.h</file>
+    <file>gin_transientshaper.test.h</file>
+    <file>gin_truepeakmeter.h</file>
+    <file>gin_truepeakmeter.test.h</file>
+    <file>gin_valuesmoother.h</file>
+    <file>gin_valuesmoother.test.h</file>
+    <file>gin_wavetable.h</file>
+    <file>gin_wavetable.test.h</file>
+    <file>gin_wtoscillators.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>formats</name>
+    <path>build/gin_graphics/formats/</path>
+    <filename>dir_1f0d774b582b33004e75e46a7635d92c.html</filename>
+    <file>gin_bmpimageformat.h</file>
+    <file>gin_bmpimageformat.test.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>formats</name>
+    <path>build/gin_webp/formats/</path>
+    <filename>dir_44bceb007533fefe6bccb4368e1850f2.html</filename>
+    <file>gin_webpimageformat.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>geometry</name>
+    <path>build/gin/geometry/</path>
+    <filename>dir_b32d8b92d7f3f82c2e0f1d96126a7e78.html</filename>
+    <file>gin_catenary.h</file>
+    <file>gin_catenary.test.h</file>
+    <file>gin_geometry.h</file>
+    <file>gin_geometry.test.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>gin</name>
+    <path>build/gin/</path>
+    <filename>dir_b91e61067da068a8c024f3a7bfd69aa7.html</filename>
+    <dir>geometry</dir>
+    <dir>utilities</dir>
+  </compound>
+  <compound kind="dir">
+    <name>gin_3d</name>
+    <path>build/gin_3d/</path>
+    <filename>dir_ded0285a43b1c76ea46c46229470759f.html</filename>
+    <dir>3d</dir>
+  </compound>
+  <compound kind="dir">
+    <name>gin_controllers</name>
+    <path>build/gin_controllers/</path>
+    <filename>dir_93d3dadac2ce3eedc1596fedf9861ce1.html</filename>
+    <dir>controllers</dir>
+  </compound>
+  <compound kind="dir">
+    <name>gin_dsp</name>
+    <path>build/gin_dsp/</path>
+    <filename>dir_65a6615da2a25cbba05c676ce8bce9bf.html</filename>
+    <dir>components</dir>
+    <dir>dsp</dir>
+  </compound>
+  <compound kind="dir">
+    <name>gin_graphics</name>
+    <path>build/gin_graphics/</path>
+    <filename>dir_12d303961cf1607c42a7e1e9d490133e.html</filename>
+    <dir>formats</dir>
+    <dir>images</dir>
+  </compound>
+  <compound kind="dir">
+    <name>gin_gui</name>
+    <path>build/gin_gui/</path>
+    <filename>dir_b380c26039a2b09f4cbcef40565da8d4.html</filename>
+    <dir>components</dir>
+    <dir>images</dir>
+    <dir>utilities</dir>
+  </compound>
+  <compound kind="dir">
+    <name>gin_location</name>
+    <path>build/gin_location/</path>
+    <filename>dir_a63a210d687f6afa5449f566867685d3.html</filename>
+    <dir>location</dir>
+  </compound>
+  <compound kind="dir">
+    <name>gin_metadata</name>
+    <path>build/gin_metadata/</path>
+    <filename>dir_cc16773246cc5dd5c1829ec4f49ee143.html</filename>
+    <dir>metadata</dir>
+  </compound>
+  <compound kind="dir">
+    <name>gin_network</name>
+    <path>build/gin_network/</path>
+    <filename>dir_0d63342d48a237e7a65a977b58dac824.html</filename>
+    <dir>network</dir>
+  </compound>
+  <compound kind="dir">
+    <name>gin_plugin</name>
+    <path>build/gin_plugin/</path>
+    <filename>dir_99bec088e49ebc68a9ae78858cadb75e.html</filename>
+    <dir>components</dir>
+    <dir>lookandfeel</dir>
+    <dir>plugin</dir>
+  </compound>
+  <compound kind="dir">
+    <name>gin_remote</name>
+    <path>build/gin_remote/</path>
+    <filename>dir_785febda2a943c4dc89e60bc10c7cd05.html</filename>
+    <dir>remote</dir>
+  </compound>
+  <compound kind="dir">
+    <name>gin_simd</name>
+    <path>build/gin_simd/</path>
+    <filename>dir_54f6d60d727d4c5faafbe49c845423ab.html</filename>
+    <dir>math</dir>
+  </compound>
+  <compound kind="dir">
+    <name>gin_standaloneplugin</name>
+    <path>build/gin_standaloneplugin/</path>
+    <filename>dir_f307e0a3283841b1a278de9f8c003307.html</filename>
+    <dir>standaloneplugin</dir>
+  </compound>
+  <compound kind="dir">
+    <name>gin_svg</name>
+    <path>build/gin_svg/</path>
+    <filename>dir_5229d2b448237620e0a8eca481d09857.html</filename>
+    <dir>svg</dir>
+  </compound>
+  <compound kind="dir">
+    <name>gin_webp</name>
+    <path>build/gin_webp/</path>
+    <filename>dir_e965e1a4a1c06520379e585859e1efda.html</filename>
+    <dir>formats</dir>
+  </compound>
+  <compound kind="dir">
+    <name>images</name>
+    <path>build/gin_graphics/images/</path>
+    <filename>dir_7194ce5151655cd890e641230ba047e5.html</filename>
+    <file>gin_imageeffects.h</file>
+    <file>gin_imageeffects.test.h</file>
+    <file>gin_imageeffects_blending.test.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>images</name>
+    <path>build/gin_gui/images/</path>
+    <filename>dir_9038570577bbd85b9c6bbc272a4eb1d7.html</filename>
+    <file>gin_imageutilities.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>location</name>
+    <path>build/gin_location/location/</path>
+    <filename>dir_2152ce32ebcc5c9bb656e1230c21c277.html</filename>
+    <file>gin_locationmananger.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>lookandfeel</name>
+    <path>build/gin_plugin/lookandfeel/</path>
+    <filename>dir_384dc78f6bce2ce6f9ae34c134df1688.html</filename>
+    <file>gin_copperlookandfeel.h</file>
+    <file>gin_images.h</file>
+    <file>gin_pluginlookandfeel.h</file>
+    <file>gin_resources.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>math</name>
+    <path>build/gin_simd/math/</path>
+    <filename>dir_1f92b6e36d991ae74d12c462e52f12ef.html</filename>
+    <file>gin_math.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>metadata</name>
+    <path>build/gin_metadata/metadata/</path>
+    <filename>dir_cacfd86765a21ad70dd29902180bb7bb.html</filename>
+    <file>gin_commentmetadata.h</file>
+    <file>gin_exifmetadata.h</file>
+    <file>gin_imagemetadata.h</file>
+    <file>gin_imagemetadata.test.h</file>
+    <file>gin_iptcmetadata.h</file>
+    <file>gin_xmpmetadata.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>network</name>
+    <path>build/gin_network/network/</path>
+    <filename>dir_4f22f8be3cf29626f9da21f587dd6097.html</filename>
+    <file>gin_asyncwebsocket.h</file>
+    <file>gin_http.h</file>
+    <file>gin_securestreamingsocket.h</file>
+    <file>gin_websocket.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>plugin</name>
+    <path>build/gin_plugin/plugin/</path>
+    <filename>dir_24895662c8df92d9ee3000c4c8f36390.html</filename>
+    <file>gin_imodmatrix.h</file>
+    <file>gin_midilearn.h</file>
+    <file>gin_midilearn.test.h</file>
+    <file>gin_modmatrix.h</file>
+    <file>gin_modmatrix.test.h</file>
+    <file>gin_noteduration.h</file>
+    <file>gin_noteduration.test.h</file>
+    <file>gin_parameter.h</file>
+    <file>gin_parameter.test.h</file>
+    <file>gin_processor.h</file>
+    <file>gin_program.h</file>
+    <file>gin_program.test.h</file>
+    <file>gin_smoothedparameter.h</file>
+    <file>gin_smoothedparameter.test.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>remote</name>
+    <path>build/gin_remote/remote/</path>
+    <filename>dir_f59a6edac2e5b2f919ceaf4732fec982.html</filename>
+    <file>gin_remoteaudioprocessor.h</file>
+    <file>gin_remoteserver.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>standaloneplugin</name>
+    <path>build/gin_standaloneplugin/standaloneplugin/</path>
+    <filename>dir_5f97548c2d1fb571d1b10371b9c6170e.html</filename>
+    <file>gin_audioprocessorplayer.h</file>
+    <file>gin_maincontentcomponent.h</file>
+    <file>gin_sidebarcomponent.h</file>
+    <file>gin_standaloneapp.h</file>
+    <file>gin_standaloneaudioprocessorplayer.h</file>
+    <file>gin_standalonefilterwindow.h</file>
+    <file>gin_standalonepluginholder.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>svg</name>
+    <path>build/gin_svg/svg/</path>
+    <filename>dir_0c33fa4651c48d1e0df2ef7a0933b102.html</filename>
+    <file>gin_svg.h</file>
+    <file>gin_svg.test.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>utilities</name>
+    <path>build/gin/utilities/</path>
+    <filename>dir_d95e534d47be2e81e1feb2799d80d0c0.html</filename>
+    <file>gin_diff.h</file>
+    <file>gin_diff.test.h</file>
+    <file>gin_downloadmanager.h</file>
+    <file>gin_easing.h</file>
+    <file>gin_easing.test.h</file>
+    <file>gin_equationparser.h</file>
+    <file>gin_equationparser.test.h</file>
+    <file>gin_filesystemwatcher.h</file>
+    <file>gin_filesystemwatcher.test.h</file>
+    <file>gin_fileutilities.h</file>
+    <file>gin_fileutilities.test.h</file>
+    <file>gin_integrator.h</file>
+    <file>gin_integrator.test.h</file>
+    <file>gin_lagrange.h</file>
+    <file>gin_lagrange.test.h</file>
+    <file>gin_leastsquaresregression.h</file>
+    <file>gin_leastsquaresregression.test.h</file>
+    <file>gin_linearregression.h</file>
+    <file>gin_linearregression.test.h</file>
+    <file>gin_lockfreequeue.h</file>
+    <file>gin_lockfreequeue.test.h</file>
+    <file>gin_lrucache.h</file>
+    <file>gin_lrucache.test.h</file>
+    <file>gin_messagepack.h</file>
+    <file>gin_messagepack.test.h</file>
+    <file>gin_plist.h</file>
+    <file>gin_plist.test.h</file>
+    <file>gin_point.h</file>
+    <file>gin_point.test.h</file>
+    <file>gin_realtimeasyncupdater.h</file>
+    <file>gin_realtimeasyncupdater.test.h</file>
+    <file>gin_realtimeevent.h</file>
+    <file>gin_riffparser.h</file>
+    <file>gin_riffparser.test.h</file>
+    <file>gin_sharedmemory.h</file>
+    <file>gin_sharedmemory.test.h</file>
+    <file>gin_spline.h</file>
+    <file>gin_spline.test.h</file>
+    <file>gin_systemsemaphore.h</file>
+    <file>gin_systemsemaphore.test.h</file>
+    <file>gin_texthistory.h</file>
+    <file>gin_texthistory.test.h</file>
+    <file>gin_threading.h</file>
+    <file>gin_threading.test.h</file>
+    <file>utilities/gin_util.h</file>
+    <file>gin_util.test.h</file>
+    <file>gin_valuetreeobject.h</file>
+    <file>gin_valuetreeobject.test.h</file>
+    <file>gin_valuetreeutilities.h</file>
+    <file>gin_valuetreeutilities.test.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>utilities</name>
+    <path>build/gin_gui/utilities/</path>
+    <filename>dir_11b2414d5400ab8f81edb1914ff6ac11.html</filename>
+    <file>gin_asyncutilities.h</file>
+    <file>gin_coalescedtimer.h</file>
+    <file>gin_componentmap.h</file>
+    <file>gin_componentmap.test.h</file>
+    <file>gin_elevatedfilecopy.h</file>
+    <file>gin_layoutsupport.h</file>
+    <file>gin_layoutsupport.test.h</file>
+    <file>gin_openstreetmaps.h</file>
+    <file>gin_platform.h</file>
+    <file>gin_systemclipboard.h</file>
+    <file>gui/utilities/gin_util.h</file>
+    <file>gin_varianthelpers.h</file>
+    <file>gin_varianthelpers.test.h</file>
   </compound>
 </tagfile>

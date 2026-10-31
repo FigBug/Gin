@@ -16,7 +16,7 @@ var searchData=
   ['messagebox_13',['messageBox',['../classStandalonePluginHolder.html#a4e9dc443415ba2651b5507685a37a4fc',1,'StandalonePluginHolder']]],
   ['messagecollector_14',['messageCollector',['../classAudioProcessorPlayer.html#a7275e8d656a3383f587f07f12546d0fd',1,'AudioProcessorPlayer']]],
   ['messagethreadtimeoutms_15',['messageThreadTimeoutMs',['../structRemoteServer_1_1Options.html#a75dcf59d1373b5f7057c3cfcfdf7dda4',1,'RemoteServer::Options']]],
-  ['midilearn_16',['midilearn',['../classParameter.html#a74dc877bc25d373c704486b30e586a78',1,'Parameter::midiLearn'],['../classProcessor.html#a8bb54bfcd02cdc7e6c2097c63de7c6b5',1,'Processor::midiLearn']]],
+  ['midilearn_16',['midiLearn',['../classParameter.html#a74dc877bc25d373c704486b30e586a78',1,'Parameter::midiLearn'],['../classProcessor.html#a8bb54bfcd02cdc7e6c2097c63de7c6b5',1,'Processor::midiLearn']]],
   ['midilearnignoredccs_17',['midiLearnIgnoredCCs',['../classProcessorOptions.html#ad7fad2a13a5401a16f485a23a6fe260c',1,'ProcessorOptions']]],
   ['midilearnoverlay_18',['midiLearnOverlay',['../classProcessorEditor.html#aff2e47042ee4f7765655e9eb9b6d077b',1,'ProcessorEditor']]],
   ['midioutput_19',['midiOutput',['../classAudioProcessorPlayer.html#afb91702d6581aff4ff1b954da09cf353',1,'AudioProcessorPlayer']]],
