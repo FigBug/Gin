@@ -84,8 +84,8 @@ jobs:
             '*/examples/*' \
             '*/build/*' \
             --output-file coverage.info \
-            --ignore-errors unused
-          lcov --list coverage.info
+            --ignore-errors unused,inconsistent
+          lcov --list coverage.info --ignore-errors inconsistent
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
