@@ -24,6 +24,7 @@ public:
         testGamma();
         testVignette();
         testSolidColor();
+        testTransparencyPreserved();
     }
 
 private:
@@ -185,6 +186,84 @@ private:
             }
         }
     }
+
+    //==============================================================================
+    /** An ARGB image's components are premultiplied, so a stored component may never exceed
+        the pixel's alpha, and a fully transparent pixel has to stay fully transparent. An
+        effect that reads, changes and writes the components without accounting for that
+        leaves colour behind in pixels meant to be invisible, which the compositor then adds:
+        the halo of https://github.com/FigBug/Gin/issues/24
+    */
+    void testTransparencyPreserved()
+    {
+        beginTest ("Transparency Preserved");
+
+        struct Effect { const char* name; std::function<void (juce::Image&)> apply; };
+
+        juce::ColourGradient grad (juce::Colours::red, 0, 0, juce::Colours::blue, 16, 0, false);
+
+        const std::vector<Effect> effects
+        {
+            { "applyGreyScale",              [] (juce::Image& i) { applyGreyScale (i); } },
+            { "applyInvert",                 [] (juce::Image& i) { applyInvert (i); } },
+            { "applySepia",                  [] (juce::Image& i) { applySepia (i); } },
+            { "applyGamma",                  [] (juce::Image& i) { applyGamma (i, 2.0f); } },
+            { "applyContrast",               [] (juce::Image& i) { applyContrast (i, 50.0f); } },
+            { "applyBrightnessContrast",     [] (juce::Image& i) { applyBrightnessContrast (i, 50.0f, 0.0f); } },
+            { "applyHueSaturationLightness", [] (juce::Image& i) { applyHueSaturationLightness (i, 30.0f, 20.0f, 20.0f); } },
+            { "applyVignette",               [] (juce::Image& i) { applyVignette (i, 0.5f, 0.5f, 0.5f); } },
+            { "applySharpen",                [] (juce::Image& i) { applySharpen (i); } },
+            { "applyGradientMap",            [&] (juce::Image& i) { applyGradientMap (i, grad); } },
+            { "applyColour",                 [] (juce::Image& i) { applyColour (i, juce::Colours::white.withAlpha (0.25f)); } },
+        };
+
+        for (auto& e : effects)
+        {
+            // A fully transparent left half and an opaque right half, so the effect has colour
+            // next to nothing and either can bleed into the other
+            juce::Image img (juce::Image::ARGB, 16, 4, true);
+
+            {
+                juce::Graphics g (img);
+                g.setColour (juce::Colours::orange);
+                g.fillRect (8, 0, 8, 4);
+            }
+
+            e.apply (img);
+
+            auto transparentStayed = true;
+            auto premultipliedValid = true;
+            auto opaqueHalfHasColour = false;
+
+            juce::Image::BitmapData data (img, juce::Image::BitmapData::readOnly);
+
+            for (int y = 0; y < img.getHeight(); y++)
+            {
+                for (int x = 0; x < img.getWidth(); x++)
+                {
+                    auto* px = (juce::PixelARGB*) data.getPixelPointer (x, y);
+
+                    const auto a = int (px->getAlpha());
+                    const auto hi = std::max ({ int (px->getRed()), int (px->getGreen()), int (px->getBlue()) });
+
+                    if (hi > a)
+                        premultipliedValid = false;
+
+                    // applyColour fills the whole image by design, alpha included
+                    if (x < 8 && std::string (e.name) != "applyColour" && (a != 0 || hi != 0))
+                        transparentStayed = false;
+
+                    if (x >= 8 && hi > 0)
+                        opaqueHalfHasColour = true;
+                }
+            }
+
+            expect (premultipliedValid, juce::String (e.name) + " leaves no component above its pixel's alpha");
+            expect (transparentStayed, juce::String (e.name) + " leaves fully transparent pixels transparent");
+            expect (opaqueHalfHasColour, juce::String (e.name) + " still did something to the opaque half");
+        }
+    }
+
 };
 
 static ImageEffectsTests imageEffectsTests;
