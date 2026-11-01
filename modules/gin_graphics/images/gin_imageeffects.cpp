@@ -230,8 +230,12 @@ void applySoften (juce::Image& img, juce::ThreadPool* threadPool)
     {
         for (int x = 0; x < w; x++)
         {
+            // A premultiplied component is already its colour times its alpha, so these sums
+            // are the neighbours' colours weighted by how present each one is. Dividing by
+            // the alpha they carry rather than by their number softens the colour without
+            // letting invisible neighbours darken it, and leaves the mask alone
             int ro = 0, go = 0, bo = 0;
-            uint8_t a = 0;
+            int alpha = 0;
 
             for (int m = -1; m <= 1; m++)
             {
@@ -245,15 +249,22 @@ void applySoften (juce::Image& img, juce::ThreadPool* threadPool)
                     ro += s->getRed();
                     go += s->getGreen();
                     bo += s->getBlue();
+                    alpha += s->getAlpha();
                 }
             }
 
             T* s = (T*) srcData.getPixelPointer (x, y);
-            a = s->getAlpha();
+            const uint8_t a = s->getAlpha();
 
             T* d = (T*) dstData.getPixelPointer (x, y);
 
-            d->setARGB (a, toByte (ro / 9), toByte (go / 9), toByte (bo / 9));
+            if (alpha > 0)
+                d->setARGB (a, toByte (ro * 255 / alpha), toByte (go * 255 / alpha), toByte (bo * 255 / alpha));
+            else
+                d->setARGB (a, 0, 0, 0);
+
+            // The softened colour is straight, and what is stored is premultiplied
+            d->premultiply();
         }
     });
     img = dst;
