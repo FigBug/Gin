@@ -132,11 +132,17 @@ public:
             samps -= todo;
 
            #if GIN_HAS_SIMD
-            for (; todo >= 4; todo -= 4)
+            // A register holds mipp::N<float>() samples, which is four under SSE and NEON but
+            // eight under AVX, so the stride and the phase ramp follow the lane count
+            constexpr auto lanes = mipp::N<float>();
+
+            for (; todo >= lanes; todo -= lanes)
             {
-                mipp::Reg<float> phaseVec = {phase, phase + delta, phase + 2 * delta, phase + 3 * delta};
-                mipp::Reg<float> lVec { l };
-                mipp::Reg<float> rVec { r };
+                const auto phaseVec = phaseRamp (phase, delta);
+
+                // The buffer's pointers carry no alignment a register can rely on
+                auto lVec = mipp::oloadu (l);
+                auto rVec = mipp::oloadu (r);
 
                 auto s = table->processLinear (note, math::min (almostOne, phaseVec));
                 postProcess (params, s);
@@ -144,10 +150,10 @@ public:
                 lVec += s * params.leftGain;
                 rVec += s * params.rightGain;
 
-                lVec.store (l); l += 4;
-                rVec.store (r); r += 4;
+                lVec.storeu (l); l += lanes;
+                rVec.storeu (r); r += lanes;
 
-                phase += delta * 4;
+                phase += delta * float (lanes);
             }
            #endif
 
@@ -194,11 +200,14 @@ public:
             samps -= todo;
 
            #if GIN_HAS_SIMD
-            for (; todo >= 4; todo -= 4)
+            constexpr auto lanes = mipp::N<float>();
+
+            for (; todo >= lanes; todo -= lanes)
             {
-                mipp::Reg<float> phaseVec = {phase, phase + delta, phase + 2 * delta, phase + 3 * delta};
-                mipp::Reg<float> lVec { l };
-                mipp::Reg<float> rVec { r };
+                const auto phaseVec = phaseRamp (phase, delta);
+
+                auto lVec = mipp::oloadu (l);
+                auto rVec = mipp::oloadu (r);
 
                 auto s = table->processLinear (note, phaseDistortion (math::min (almostOne, phaseVec), params.bend, params.formant));
                 postProcess (params, s);
@@ -206,10 +215,10 @@ public:
                 lVec += s * params.leftGain;
                 rVec += s * params.rightGain;
 
-                lVec.store (l); l += 4;
-                rVec.store (r); r += 4;
+                lVec.storeu (l); l += lanes;
+                rVec.storeu (r); r += lanes;
 
-                phase += delta * 4;
+                phase += delta * float (lanes);
             }
            #endif
 
@@ -260,25 +269,29 @@ public:
             samps -= todo;
 
            #if GIN_HAS_SIMD
-            for (; todo >= 4; todo -= 4)
+            constexpr auto lanes = mipp::N<float>();
+
+            for (; todo >= lanes; todo -= lanes)
             {
-                mipp::Reg<float> phaseVec = {phase, phase + delta, phase + 2 * delta, phase + 3 * delta};
-                mipp::Reg<float> lVec { l };
-                mipp::Reg<float> rVec { r };
+                const auto phaseVec = phaseRamp (phase, delta);
+
+                auto lVec = mipp::oloadu (l);
+                auto rVec = mipp::oloadu (r);
 
                 auto s1 = table1->processLinear (note, phaseDistortion (math::min (almostOne, phaseVec), params.bend, params.formant));
                 auto s2 = table2->processLinear (note, phaseDistortion (math::min (almostOne, phaseVec), params.bend, params.formant));
 
-                auto s = s1 * phase + s2 * (1.0f - phase);
+                // The crossfade runs on the phase, which is per sample and not per register
+                auto s = s1 * phaseVec + s2 * (mipp::Reg<float> (1.0f) - phaseVec);
                 postProcess (params, s);
 
                 lVec += s * params.leftGain;
                 rVec += s * params.rightGain;
 
-                lVec.store (l); l += 4;
-                rVec.store (r); r += 4;
+                lVec.storeu (l); l += lanes;
+                rVec.storeu (r); r += lanes;
 
-                phase += delta * 4;
+                phase += delta * float (lanes);
             }
            #endif
 
@@ -324,6 +337,21 @@ public:
     void setBlockDC (bool b) { blockDC = b; }
 
 private:
+   #if GIN_HAS_SIMD
+    /** A register's worth of consecutive phases, the first of them phase */
+    static mipp::Reg<float> phaseRamp (float phase, float delta)
+    {
+        constexpr auto lanes = mipp::N<float>();
+
+        alignas (mipp::RequiredAlignment) float phases[lanes];
+
+        for (int i = 0; i < lanes; i++)
+            phases[i] = phase + float (i) * delta;
+
+        return mipp::Reg<float> (phases);
+    }
+   #endif
+
     template<typename T>
     T bendDistortion (T phaseIn, float bend)
     {

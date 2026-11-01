@@ -89,6 +89,7 @@ using namespace gin;
 #include "../../../modules/gin_dsp/dsp/gin_kicksynth.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_stereoprocessor.test.h"
 #include "../../../modules/gin_dsp/dsp/gin_bandlimitedlookuptable.test.h"
+#include "../../../modules/gin_dsp/dsp/gin_wtoscillators.test.h"
 #include "../../../modules/gin_3d/3d/gin_vec3.test.h"
 #include "../../../modules/gin_3d/3d/gin_mat4.test.h"
 #include "../../../modules/gin_3d/3d/gin_camera3d.test.h"
