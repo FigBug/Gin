@@ -86,7 +86,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a87d3d5f0d93ce84d9afb717f59a1d36f" id="r_a87d3d5f0d93ce84d9afb717f59a1d36f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87d3d5f0d93ce84d9afb717f59a1d36f">operator==</a> (const <a class="el" href="structMipMapEnhance.html">MipMapEnhance</a> &amp;) const =default</td></tr>
+<tr class="memitem:ad8086282045203b0180f6ea006940a58" id="r_ad8086282045203b0180f6ea006940a58"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8086282045203b0180f6ea006940a58">operator==</a> (const <a class="el" href="structMipMapEnhance.html">MipMapEnhance</a> &amp;other) const</td></tr>
+<tr class="memitem:a331408b28febbbf394d616a1873d1fb0" id="r_a331408b28febbbf394d616a1873d1fb0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a331408b28febbbf394d616a1873d1fb0">operator!=</a> (const <a class="el" href="structMipMapEnhance.html">MipMapEnhance</a> &amp;other) const</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -99,28 +100,43 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p>Post-processing of a <a class="el" href="classMipMap.html" title="An image with its halved levels down to 16 px, each halving a rounded 2x2 box average,...">MipMap</a>'s reduced levels, off by default. </p>
 <p>1.0 is the strength tuned for small pixel-art thumbnails, higher values are allowed. Lives outside the class so it is complete when <a class="el" href="classMipMap.html" title="An image with its halved levels down to 16 px, each halving a rounded 2x2 box average,...">MipMap</a>'s default arguments need it. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a87d3d5f0d93ce84d9afb717f59a1d36f" name="a87d3d5f0d93ce84d9afb717f59a1d36f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87d3d5f0d93ce84d9afb717f59a1d36f">&#9670;&#160;</a></span>operator==()</h2>
+<a id="ad8086282045203b0180f6ea006940a58" name="ad8086282045203b0180f6ea006940a58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8086282045203b0180f6ea006940a58">&#9670;&#160;</a></span>operator==()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool MipMapEnhance::operator== </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structMipMapEnhance.html">MipMapEnhance</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structMipMapEnhance.html">MipMapEnhance</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="#ac51115ec39e464f774bfcfee347ef9ef">saturation</a>, and <a class="el" href="#aec517bdce0caca213c766dc59d45bf88">sharpen</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="#a331408b28febbbf394d616a1873d1fb0">operator!=()</a>.</p>
+
+</div>
+</div>
+<a id="a331408b28febbbf394d616a1873d1fb0" name="a331408b28febbbf394d616a1873d1fb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a331408b28febbbf394d616a1873d1fb0">&#9670;&#160;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MipMapEnhance::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structMipMapEnhance.html">MipMapEnhance</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="#ad8086282045203b0180f6ea006940a58">operator==()</a>.</p>
 
 </div>
 </div>
@@ -139,6 +155,8 @@ Public Attributes</h2></td></tr>
 
 <p>Sharpens the levels of 128 px and below, which the box filter softens. </p>
 
+<p class="reference">Referenced by <a class="el" href="#ad8086282045203b0180f6ea006940a58">operator==()</a>.</p>
+
 </div>
 </div>
 <a id="ac51115ec39e464f774bfcfee347ef9ef" name="ac51115ec39e464f774bfcfee347ef9ef"></a>
@@ -154,6 +172,8 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Lifts the saturation of every level from the second halving on, against the grey that averaging dithered colours gives. </p>
+
+<p class="reference">Referenced by <a class="el" href="#ad8086282045203b0180f6ea006940a58">operator==()</a>.</p>
 
 </div>
 </div>

@@ -14607,8 +14607,15 @@
       <type>bool</type>
       <name>operator==</name>
       <anchorfile>structMipMapEnhance.html</anchorfile>
-      <anchor>a87d3d5f0d93ce84d9afb717f59a1d36f</anchor>
-      <arglist>(const MipMapEnhance &amp;) const =default</arglist>
+      <anchor>ad8086282045203b0180f6ea006940a58</anchor>
+      <arglist>(const MipMapEnhance &amp;other) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator!=</name>
+      <anchorfile>structMipMapEnhance.html</anchorfile>
+      <anchor>a331408b28febbbf394d616a1873d1fb0</anchor>
+      <arglist>(const MipMapEnhance &amp;other) const</arglist>
     </member>
     <member kind="variable">
       <type>float</type>
@@ -21310,8 +21317,15 @@
       <type>bool</type>
       <name>operator==</name>
       <anchorfile>structShadowSpec.html</anchorfile>
-      <anchor>a734775901cabc070d70d70c33a2067e5</anchor>
-      <arglist>(const ShadowSpec &amp;) const =default</arglist>
+      <anchor>a76d64b3e14016191e8fba5d05673695e</anchor>
+      <arglist>(const ShadowSpec &amp;other) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator!=</name>
+      <anchorfile>structShadowSpec.html</anchorfile>
+      <anchor>abf5e177123f06e8664135ed7420d539c</anchor>
+      <arglist>(const ShadowSpec &amp;other) const</arglist>
     </member>
     <member kind="variable">
       <type>juce::Point&lt; float &gt;</type>
