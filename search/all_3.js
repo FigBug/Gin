@@ -18,7 +18,7 @@ var searchData=
   ['cancelled_15',['cancelled',['../classElevatedFileCopy.html#a32c2bb5b993a24db8a21295cf2ceb30faa6801c470e393663100fb049d6b195e8',1,'ElevatedFileCopy']]],
   ['cancelpendingupdate_16',['cancelPendingUpdate',['../classRealtimeAsyncUpdater.html#a925b9c4623b6c0c9652484e64677502b',1,'RealtimeAsyncUpdater']]],
   ['canredo_17',['canRedo',['../classTextHistory.html#a2eff6adbb470b9cde7e7d7f378103e86',1,'TextHistory']]],
-  ['canunderstand_18',['canUnderstand',['../classBMPImageFormat.html#acad298b2621ad5fbd10b53c3cf85ad84',1,'BMPImageFormat::canUnderstand()'],['../classWEBPImageFormat.html#a1625a869b3485ebde4cbca83ee5076a7',1,'WEBPImageFormat::canUnderstand()']]],
+  ['canunderstand_18',['canUnderstand',['../classBMPImageFormat.html#acad298b2621ad5fbd10b53c3cf85ad84',1,'BMPImageFormat::canUnderstand()'],['../classPCXImageFormat.html#a73bded6fac0ce04f554a9fae91216adf',1,'PCXImageFormat::canUnderstand()'],['../classTGAImageFormat.html#a6c2ad46ac05a9af2674d6d19fcb6f8b2',1,'TGAImageFormat::canUnderstand()'],['../classWEBPImageFormat.html#a1625a869b3485ebde4cbca83ee5076a7',1,'WEBPImageFormat::canUnderstand()']]],
   ['canundo_19',['canUndo',['../classTextHistory.html#aefe466fda780c009f2437908c9599ca4',1,'TextHistory']]],
   ['capturelogger_20',['captureLogger',['../structRemoteServer_1_1Options.html#a85693aeebbc20b4377b4a823518660f7',1,'RemoteServer::Options']]],
   ['caretdown_21',['caretDown',['../namespaceAssets.html#a7b3064ecec3c09aeec566d9b496920e0',1,'Assets']]],

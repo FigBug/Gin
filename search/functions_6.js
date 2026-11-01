@@ -66,7 +66,7 @@ var searchData=
   ['getfilteredimage_63',['getFilteredImage',['../classAnimatedImageFilter.html#ae9738279492db2d5ff9b94eb2d58a261',1,'AnimatedImageFilter']]],
   ['getfocusedpeer_64',['getFocusedPeer',['../classRemoteServer.html#a17a989c23c918fe7687e1d3a3adbdc77',1,'RemoteServer']]],
   ['getforchildren_65',['getForChildren',['../classStates.html#a303ded6625c9de1762c39eb288900bb0',1,'States']]],
-  ['getformatname_66',['getFormatName',['../classBMPImageFormat.html#a2cdb5175be3bb6b90eeb3d6debcce4d1',1,'BMPImageFormat::getFormatName()'],['../classWEBPImageFormat.html#a512523a82459ad3a42a50c7ebd176d2b',1,'WEBPImageFormat::getFormatName()']]],
+  ['getformatname_66',['getFormatName',['../classBMPImageFormat.html#a2cdb5175be3bb6b90eeb3d6debcce4d1',1,'BMPImageFormat::getFormatName()'],['../classPCXImageFormat.html#aa6f621c1bda40d561a9cf3ed62f5932b',1,'PCXImageFormat::getFormatName()'],['../classTGAImageFormat.html#a1df41e461a4a70090a9a223e39af2b8b',1,'TGAImageFormat::getFormatName()'],['../classWEBPImageFormat.html#a512523a82459ad3a42a50c7ebd176d2b',1,'WEBPImageFormat::getFormatName()']]],
   ['getframe_67',['getFrame',['../classParamBox.html#aa4cae3001b7dd64c5f319d68cd538d3d',1,'ParamBox']]],
   ['getfreespace_68',['getFreeSpace',['../classLockFreeQueue.html#a25b60519d6f56e2d1d8c793071097797',1,'LockFreeQueue::getFreeSpace()'],['../classAudioFifo.html#af75865aa3db5a5fb798768c6c358d147',1,'AudioFifo::getFreeSpace()']]],
   ['getfrequency_69',['getFrequency',['../classFilter.html#ab5da0bdb9d337ee58d0066fb0eff8f80',1,'Filter']]],

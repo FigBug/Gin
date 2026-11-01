@@ -12,7 +12,7 @@ var searchData=
   ['decaydelta_9',['decayDelta',['../classADSR.html#a7fe4cf55dca362fd768e8763e1207721',1,'ADSR']]],
   ['decayoffset_10',['decayOffset',['../classAnalogADSR.html#af483c3fd72c3c558c140032492ce60cb',1,'AnalogADSR']]],
   ['decayrate_11',['decayRate',['../classLevelTracker.html#a194ee79cddf26af81577ba106877ff6a',1,'LevelTracker']]],
-  ['decodeimage_12',['decodeImage',['../classBMPImageFormat.html#a2594f1a9444754276035be54722c59f2',1,'BMPImageFormat::decodeImage()'],['../classWEBPImageFormat.html#a9ec17db624e1ed9512371a55b1ac52d9',1,'WEBPImageFormat::decodeImage()']]],
+  ['decodeimage_12',['decodeImage',['../classBMPImageFormat.html#a2594f1a9444754276035be54722c59f2',1,'BMPImageFormat::decodeImage()'],['../classPCXImageFormat.html#a598d4e0b7fae4e256a4084d4cc7a76e9',1,'PCXImageFormat::decodeImage()'],['../classTGAImageFormat.html#aa270a5107faf4666cfb237923d8074c3',1,'TGAImageFormat::decodeImage()'],['../classWEBPImageFormat.html#a9ec17db624e1ed9512371a55b1ac52d9',1,'WEBPImageFormat::decodeImage()']]],
   ['defaultcolour_13',['defaultColour',['../classGinLookAndFeel.html#a13e4ce006239d68f35c217261a9ed907',1,'GinLookAndFeel']]],
   ['defaultprocessorchannels_14',['defaultProcessorChannels',['../classAudioProcessorPlayer.html#a9e2dbb07340d8eb308554afc4c8d6410',1,'AudioProcessorPlayer']]],
   ['defaultvalue_15',['defaultValue',['../classParameter.html#ac93066e3c3535f0075d344e501923f7c',1,'Parameter']]],

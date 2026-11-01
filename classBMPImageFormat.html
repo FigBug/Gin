@@ -95,7 +95,8 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Support for reading and writing Windows Bitmap files. </p>
-<p>Supports uncompressed 8, 24 and 32 bit images. Always writes 32 bit images. That should be enough to cover 99.9% of BMP files. Does not support 1, 4, 16 bit colour images or images with RLE compression. </p>
+<p>Reads 1, 4, 8, 16, 24 and 32 bits per pixel, uncompressed or RLE4 or RLE8, with the channels laid out either the usual way or by the masks of a BI_BITFIELDS image, and rows running either way up. The OS/2 header and every version of the Windows one are understood. A BMP holding a whole JPEG or PNG is not.</p>
+<p>Always writes 32 bit uncompressed images. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a2cdb5175be3bb6b90eeb3d6debcce4d1" name="a2cdb5175be3bb6b90eeb3d6debcce4d1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2cdb5175be3bb6b90eeb3d6debcce4d1">&#9670;&#160;</a></span>getFormatName()</h2>

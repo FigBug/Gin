@@ -1,7 +1,7 @@
 var searchData=
 [
   ['dcblocker_0',['DCBlocker',['../classDCBlocker.html#a1521bfdb75baad91183650113e9e7d9e',1,'DCBlocker']]],
-  ['decodeimage_1',['decodeImage',['../classBMPImageFormat.html#a2594f1a9444754276035be54722c59f2',1,'BMPImageFormat::decodeImage()'],['../classWEBPImageFormat.html#a9ec17db624e1ed9512371a55b1ac52d9',1,'WEBPImageFormat::decodeImage()']]],
+  ['decodeimage_1',['decodeImage',['../classBMPImageFormat.html#a2594f1a9444754276035be54722c59f2',1,'BMPImageFormat::decodeImage()'],['../classPCXImageFormat.html#a598d4e0b7fae4e256a4084d4cc7a76e9',1,'PCXImageFormat::decodeImage()'],['../classTGAImageFormat.html#aa270a5107faf4666cfb237923d8074c3',1,'TGAImageFormat::decodeImage()'],['../classWEBPImageFormat.html#a9ec17db624e1ed9512371a55b1ac52d9',1,'WEBPImageFormat::decodeImage()']]],
   ['defaultcolour_2',['defaultColour',['../classGinLookAndFeel.html#a13e4ce006239d68f35c217261a9ed907',1,'GinLookAndFeel']]],
   ['definenamechars_3',['defineNameChars',['../classEquationParser.html#ad6a312d13baee260b55e3f5263e61648',1,'EquationParser']]],
   ['delayedlambda_4',['delayedLambda',['../group__gin-utilities.html#gaa8e8a032e70b00eb8b977cadd0fb09a8',1,'gin_util.h']]],

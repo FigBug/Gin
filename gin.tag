@@ -1669,6 +1669,28 @@
     <filename>gin__bmpimageformat_8test_8h.html</filename>
   </compound>
   <compound kind="file">
+    <name>gin_pcximageformat.h</name>
+    <path>build/gin_graphics/formats/</path>
+    <filename>gin__pcximageformat_8h.html</filename>
+    <class kind="class">PCXImageFormat</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_pcximageformat.test.h</name>
+    <path>build/gin_graphics/formats/</path>
+    <filename>gin__pcximageformat_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>gin_tgaimageformat.h</name>
+    <path>build/gin_graphics/formats/</path>
+    <filename>gin__tgaimageformat_8h.html</filename>
+    <class kind="class">TGAImageFormat</class>
+  </compound>
+  <compound kind="file">
+    <name>gin_tgaimageformat.test.h</name>
+    <path>build/gin_graphics/formats/</path>
+    <filename>gin__tgaimageformat_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_imageeffects.h</name>
     <path>build/gin_graphics/images/</path>
     <filename>gin__imageeffects_8h.html</filename>
@@ -18007,6 +18029,45 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>PCXImageFormat</name>
+    <filename>classPCXImageFormat.html</filename>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getFormatName</name>
+      <anchorfile>classPCXImageFormat.html</anchorfile>
+      <anchor>aa6f621c1bda40d561a9cf3ed62f5932b</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>canUnderstand</name>
+      <anchorfile>classPCXImageFormat.html</anchorfile>
+      <anchor>a73bded6fac0ce04f554a9fae91216adf</anchor>
+      <arglist>(juce::InputStream &amp;input) override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>usesFileExtension</name>
+      <anchorfile>classPCXImageFormat.html</anchorfile>
+      <anchor>acc76d6f8f7a2fd585971080ad43e37be</anchor>
+      <arglist>(const juce::File &amp;possibleFile) override</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>decodeImage</name>
+      <anchorfile>classPCXImageFormat.html</anchorfile>
+      <anchor>a598d4e0b7fae4e256a4084d4cc7a76e9</anchor>
+      <arglist>(juce::InputStream &amp;input) override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>writeImageToStream</name>
+      <anchorfile>classPCXImageFormat.html</anchorfile>
+      <anchor>a1c0a945af4a4100003cf94b00f757047</anchor>
+      <arglist>(const juce::Image &amp;sourceImage, juce::OutputStream &amp;destStream) override</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>PerlinNoise</name>
     <filename>classPerlinNoise.html</filename>
     <templarg>class T</templarg>
@@ -23417,6 +23478,45 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>TGAImageFormat</name>
+    <filename>classTGAImageFormat.html</filename>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getFormatName</name>
+      <anchorfile>classTGAImageFormat.html</anchorfile>
+      <anchor>a1df41e461a4a70090a9a223e39af2b8b</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>canUnderstand</name>
+      <anchorfile>classTGAImageFormat.html</anchorfile>
+      <anchor>a6c2ad46ac05a9af2674d6d19fcb6f8b2</anchor>
+      <arglist>(juce::InputStream &amp;input) override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>usesFileExtension</name>
+      <anchorfile>classTGAImageFormat.html</anchorfile>
+      <anchor>af1d53e08209a33dfabd0c4bfc368fe05</anchor>
+      <arglist>(const juce::File &amp;possibleFile) override</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Image</type>
+      <name>decodeImage</name>
+      <anchorfile>classTGAImageFormat.html</anchorfile>
+      <anchor>aa270a5107faf4666cfb237923d8074c3</anchor>
+      <arglist>(juce::InputStream &amp;input) override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>writeImageToStream</name>
+      <anchorfile>classTGAImageFormat.html</anchorfile>
+      <anchor>a0b0c1a167bc77dd60c9d8a76eb1c716d</anchor>
+      <arglist>(const juce::Image &amp;sourceImage, juce::OutputStream &amp;destStream) override</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>TimeProfiler</name>
     <filename>classTimeProfiler.html</filename>
     <member kind="function">
@@ -26790,6 +26890,8 @@
     <title>formats</title>
     <filename>group__gin__graphics-formats.html</filename>
     <class kind="class">BMPImageFormat</class>
+    <class kind="class">PCXImageFormat</class>
+    <class kind="class">TGAImageFormat</class>
   </compound>
   <compound kind="group">
     <name>gin-geometry</name>
@@ -28533,6 +28635,10 @@
     <filename>dir_1f0d774b582b33004e75e46a7635d92c.html</filename>
     <file>gin_bmpimageformat.h</file>
     <file>gin_bmpimageformat.test.h</file>
+    <file>gin_pcximageformat.h</file>
+    <file>gin_pcximageformat.test.h</file>
+    <file>gin_tgaimageformat.h</file>
+    <file>gin_tgaimageformat.test.h</file>
   </compound>
   <compound kind="dir">
     <name>formats</name>

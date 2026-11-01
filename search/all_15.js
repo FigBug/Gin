@@ -31,7 +31,7 @@ var searchData=
   ['usepresetmetadata_28',['usePresetMetadata',['../classProcessorOptions.html#ae3998274b8d855632a7d2f2d4b13b96b',1,'ProcessorOptions']]],
   ['useractioncount_29',['userActionCount',['../classParameter.html#a9a2d682ac453e9b019ceb12986b8e5fd',1,'Parameter']]],
   ['uservaluetotext_30',['userValueToText',['../classParameter.html#af3960250a1c071e471daf16be484b656',1,'Parameter']]],
-  ['usesfileextension_31',['usesFileExtension',['../classBMPImageFormat.html#ac3aec001afc89383d536241e433cb8bf',1,'BMPImageFormat::usesFileExtension()'],['../classWEBPImageFormat.html#a1d875430f06a78fe547812ff5556bbc0',1,'WEBPImageFormat::usesFileExtension()']]],
+  ['usesfileextension_31',['usesFileExtension',['../classBMPImageFormat.html#ac3aec001afc89383d536241e433cb8bf',1,'BMPImageFormat::usesFileExtension()'],['../classPCXImageFormat.html#acc76d6f8f7a2fd585971080ad43e37be',1,'PCXImageFormat::usesFileExtension()'],['../classTGAImageFormat.html#af1d53e08209a33dfabd0c4bfc368fe05',1,'TGAImageFormat::usesFileExtension()'],['../classWEBPImageFormat.html#a1d875430f06a78fe547812ff5556bbc0',1,'WEBPImageFormat::usesFileExtension()']]],
   ['usetitlebar_32',['useTitleBar',['../classProcessorOptions.html#ab724916c3c24f21111cd7950ab459fcd',1,'ProcessorOptions']]],
   ['useupdatechecker_33',['useUpdateChecker',['../classProcessorOptions.html#a1cae47f2ecd1a86e02549cf5b47fd4d0',1,'ProcessorOptions']]],
   ['utilities_34',['utilities',['../group__gin-utilities.html',1,'utilities'],['../group__gin__gui-utilities.html',1,'utilities']]],

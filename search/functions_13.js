@@ -15,5 +15,5 @@ var searchData=
   ['updatetarget_12',['updateTarget',['../classAnimated.html#a86be9cdb4ff32ad8db2750c9a98283a3',1,'Animated::updateTarget()'],['../classCrossfade.html#a4d6cf2e80efd980863f682659dbf29ec',1,'Crossfade::updateTarget()']]],
   ['updatevalue_13',['updateValue',['../classEasedValueSmoother.html#a94ff44655523770e2ae83d29bf9338c6',1,'EasedValueSmoother::updateValue()'],['../classValueSmoother.html#a581f8cc773e4cc2bac2da53e6edfec85',1,'ValueSmoother::updateValue()']]],
   ['uservaluetotext_14',['userValueToText',['../classParameter.html#af3960250a1c071e471daf16be484b656',1,'Parameter']]],
-  ['usesfileextension_15',['usesFileExtension',['../classBMPImageFormat.html#ac3aec001afc89383d536241e433cb8bf',1,'BMPImageFormat::usesFileExtension()'],['../classWEBPImageFormat.html#a1d875430f06a78fe547812ff5556bbc0',1,'WEBPImageFormat::usesFileExtension()']]]
+  ['usesfileextension_15',['usesFileExtension',['../classBMPImageFormat.html#ac3aec001afc89383d536241e433cb8bf',1,'BMPImageFormat::usesFileExtension()'],['../classPCXImageFormat.html#acc76d6f8f7a2fd585971080ad43e37be',1,'PCXImageFormat::usesFileExtension()'],['../classTGAImageFormat.html#af1d53e08209a33dfabd0c4bfc368fe05',1,'TGAImageFormat::usesFileExtension()'],['../classWEBPImageFormat.html#a1d875430f06a78fe547812ff5556bbc0',1,'WEBPImageFormat::usesFileExtension()']]]
 ];
