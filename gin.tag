@@ -1653,6 +1653,11 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>gin_wtoscillators.test.h</name>
+    <path>build/gin_dsp/dsp/</path>
+    <filename>gin__wtoscillators_8test_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>gin_bmpimageformat.h</name>
     <path>build/gin_graphics/formats/</path>
     <filename>gin__bmpimageformat_8h.html</filename>
@@ -28520,6 +28525,7 @@
     <file>gin_wavetable.h</file>
     <file>gin_wavetable.test.h</file>
     <file>gin_wtoscillators.h</file>
+    <file>gin_wtoscillators.test.h</file>
   </compound>
   <compound kind="dir">
     <name>formats</name>

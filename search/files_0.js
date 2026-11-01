@@ -278,7 +278,8 @@ var searchData=
   ['gin_5fwebpimageformat_2eh_275',['gin_webpimageformat.h',['../gin__webpimageformat_8h.html',1,'']]],
   ['gin_5fwebsocket_2eh_276',['gin_websocket.h',['../gin__websocket_8h.html',1,'']]],
   ['gin_5fwtoscillators_2eh_277',['gin_wtoscillators.h',['../gin__wtoscillators_8h.html',1,'']]],
-  ['gin_5fxmpmetadata_2eh_278',['gin_xmpmetadata.h',['../gin__xmpmetadata_8h.html',1,'']]],
-  ['gin_5fxyscope_2eh_279',['gin_xyscope.h',['../gin__xyscope_8h.html',1,'']]],
-  ['gui_2futilities_2fgin_5futil_2eh_280',['gin_util.h',['../gui_2utilities_2gin__util_8h.html',1,'']]]
+  ['gin_5fwtoscillators_2etest_2eh_278',['gin_wtoscillators.test.h',['../gin__wtoscillators_8test_8h.html',1,'']]],
+  ['gin_5fxmpmetadata_2eh_279',['gin_xmpmetadata.h',['../gin__xmpmetadata_8h.html',1,'']]],
+  ['gin_5fxyscope_2eh_280',['gin_xyscope.h',['../gin__xyscope_8h.html',1,'']]],
+  ['gui_2futilities_2fgin_5futil_2eh_281',['gin_util.h',['../gui_2utilities_2gin__util_8h.html',1,'']]]
 ];
