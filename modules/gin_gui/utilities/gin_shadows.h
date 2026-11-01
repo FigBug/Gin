@@ -17,7 +17,16 @@ struct ShadowSpec
     float spread = 0.0f;
     juce::Colour colour { juce::Colours::black };
 
-    bool operator== (const ShadowSpec&) const = default;
+    // an exact comparison of the float members is what is wanted here
+    bool operator== (const ShadowSpec& other) const
+    {
+        return offset == other.offset
+            && juce::exactlyEqual (blur, other.blur)
+            && juce::exactlyEqual (spread, other.spread)
+            && colour == other.colour;
+    }
+
+    bool operator!= (const ShadowSpec& other) const  { return ! operator== (other); }
 };
 
 /** A box shadow's layers, painted in order */

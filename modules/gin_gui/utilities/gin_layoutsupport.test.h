@@ -1729,7 +1729,16 @@ private:
         const auto wasEnabled = Transition::isGlobalEnabled();
         Transition::setGlobalEnabled (true);
 
-        // A component on screen, so transitions really run
+        // The rest needs a component on screen, so transitions really run, and a desktop
+        // window belongs to the message thread, not to a thread holding its lock: macOS
+        // throws outright when one is made anywhere else
+        if (! juce::MessageManager::existsAndIsCurrentThread())
+        {
+            logMessage ("Not the message thread, skipped");
+            Transition::setGlobalEnabled (wasEnabled);
+            return;
+        }
+
         juce::Component window;
         window.setBounds (0, 0, 50, 50);
         window.addToDesktop (0);
