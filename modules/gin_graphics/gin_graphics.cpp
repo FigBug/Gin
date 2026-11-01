@@ -39,6 +39,8 @@ JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE("-Wconversion", "-Wshadow", "-Wunused-parame
 namespace gin
 {
 #include "formats/gin_bmpimageformat.cpp"
+#include "formats/gin_tgaimageformat.cpp"
+#include "formats/gin_pcximageformat.cpp"
 
 #include "images/gin_imageeffects.cpp"
 #include "images/gin_imageeffects_blending.cpp"

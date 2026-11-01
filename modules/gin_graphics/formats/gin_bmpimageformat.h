@@ -8,10 +8,14 @@
 #pragma once
 
 /**
-    Support for reading and writing Windows Bitmap files. Supports uncompressed
-    8, 24 and 32 bit images. Always writes 32 bit images. That should be enough
-    to cover 99.9% of BMP files. Does not support 1, 4, 16 bit colour images or
-    images with RLE compression.
+    Support for reading and writing Windows Bitmap files.
+
+    Reads 1, 4, 8, 16, 24 and 32 bits per pixel, uncompressed or RLE4 or RLE8, with
+    the channels laid out either the usual way or by the masks of a BI_BITFIELDS
+    image, and rows running either way up. The OS/2 header and every version of the
+    Windows one are understood. A BMP holding a whole JPEG or PNG is not.
+
+    Always writes 32 bit uncompressed images.
  */
 class BMPImageFormat : public juce::ImageFileFormat
 {
