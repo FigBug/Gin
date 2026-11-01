@@ -12,6 +12,7 @@ public:
         testComplex();
         testCrossfade();
         testRaggedBlocks();
+        testNoteOnPhase();
     }
 
 private:
@@ -162,6 +163,48 @@ private:
 
         expectWideMatchesScalar (note, { { 1, 1500, before }, { 1, 200, after }, { wideBlock, wideBlock * 4, after } },
                                  arm, arm + wideBlock * 4, "Crossfade");
+    }
+
+    void testNoteOnPhase()
+    {
+        beginTest ("Note On Phase");
+
+        gin::Wavetable wt;
+        fillWavetable (wt);
+
+        gin::WTOscillator::Params params;
+        params.position = 0.0f;   // the sine table
+
+        // One sample with no DC blocking is the table read straight out, so where the phase
+        // started is visible in it
+        const auto firstSample = [&] (float startPhase)
+        {
+            gin::WTOscillator osc;
+            osc.setSampleRate (sampleRate);
+            osc.setWavetable (&wt);
+            osc.setBlockDC (false);
+
+            startPhase >= 0.0f ? osc.noteOn (startPhase) : osc.noteOn();
+
+            juce::AudioSampleBuffer one (2, 1);
+            osc.process (69.0f, params, one);
+
+            return one.getSample (0, 0);
+        };
+
+        expectWithinAbsoluteError (firstSample (0.0f),   0.0f, 0.05f, "A phase of zero starts the sine at zero");
+        expectWithinAbsoluteError (firstSample (0.25f),  1.0f, 0.05f, "A quarter turn starts it at the peak");
+        expectWithinAbsoluteError (firstSample (0.5f),   0.0f, 0.05f, "A half turn starts it back at zero");
+        expectWithinAbsoluteError (firstSample (0.75f), -1.0f, 0.05f, "Three quarters starts it at the trough");
+
+        // Asking for no particular phase randomises it, so voices don't all start together
+        const auto first = firstSample (-1.0f);
+        auto distinct = false;
+
+        for (int i = 0; i < 8 && ! distinct; i++)
+            distinct = std::abs (firstSample (-1.0f) - first) > 1.0e-6f;
+
+        expect (distinct, "No phase given starts somewhere random");
     }
 
     void testRaggedBlocks()
