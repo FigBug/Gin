@@ -16,7 +16,7 @@ var searchData=
   ['fastsin_13',['fastSin',['../classFastMath.html#afdad2de64a36f1743f44b2709b1b1942',1,'FastMath']]],
   ['fasttanh_14',['fastTanh',['../classFastMath.html#ab7dc4fb37da3e6c46c461336e3b36ad4',1,'FastMath']]],
   ['fetchtile_15',['fetchTile',['../classOpenStreetMaps.html#a70fadcfedbacac26ed401bbb727a1280',1,'OpenStreetMaps']]],
-  ['file_16',['file',['../classProgram.html#acc5beeacfca3e3a1ea622eb741ac8fab',1,'Program']]],
+  ['file_16',['file',['../structDownloadManager_1_1DownloadResult.html#a73ba5423c9cf7ca5c1fb90a3cd9bb271',1,'DownloadManager::DownloadResult::file'],['../classProgram.html#acc5beeacfca3e3a1ea622eb741ac8fab',1,'Program::file']]],
   ['filechanged_17',['fileChanged',['../classFileSystemWatcher_1_1Listener.html#ae380fea89b1c4b457493d922ec4a8a73',1,'FileSystemWatcher::Listener::fileChanged()'],['../classLayoutSupport.html#a6fb53448011058e19a05976e98bd6daf',1,'LayoutSupport::fileChanged()']]],
   ['filecreated_18',['fileCreated',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7da8935e36db30f2b16435fe603320a241b',1,'FileSystemWatcher']]],
   ['filedeleted_19',['fileDeleted',['../classFileSystemWatcher.html#a05e51f587cf359c531e227451ad08f7da429bef88054b2dd0618102e1abf4f150',1,'FileSystemWatcher']]],

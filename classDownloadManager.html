@@ -119,6 +119,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5f28dbb10b11644ea9033f2c4fb2b6ca" id="r_a5f28dbb10b11644ea9033f2c4fb2b6ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f28dbb10b11644ea9033f2c4fb2b6ca">startAsyncDownload</a> (juce::String url, juce::String postData, std::function&lt; void(<a class="el" href="structDownloadManager_1_1DownloadResult.html">DownloadResult</a>)&gt; completionCallback, std::function&lt; void(juce::int64, juce::int64, juce::int64)&gt; progressCallback=nullptr, juce::String extraHeaders={})</td></tr>
 <tr class="memdesc:a5f28dbb10b11644ea9033f2c4fb2b6ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a download and returns the download id which can be used to cancel the download.  <br /></td></tr>
 <tr class="memitem:a6010c1da81e49143c4f97a923d056ecb" id="r_a6010c1da81e49143c4f97a923d056ecb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6010c1da81e49143c4f97a923d056ecb">startAsyncDownload</a> (juce::URL url, std::function&lt; void(<a class="el" href="structDownloadManager_1_1DownloadResult.html">DownloadResult</a>)&gt; completionCallback, std::function&lt; void(juce::int64, juce::int64, juce::int64)&gt; progressCallback=nullptr, juce::String extraHeaders={})</td></tr>
+<tr class="memitem:adb6a0edaf644bba1d0ca36a8c5b45add" id="r_adb6a0edaf644bba1d0ca36a8c5b45add"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb6a0edaf644bba1d0ca36a8c5b45add">startAsyncDownload</a> (juce::URL url, juce::File target, std::function&lt; void(<a class="el" href="structDownloadManager_1_1DownloadResult.html">DownloadResult</a>)&gt; completionCallback, std::function&lt; void(juce::int64, juce::int64, juce::int64)&gt; progressCallback=nullptr, juce::String extraHeaders={})</td></tr>
+<tr class="memdesc:adb6a0edaf644bba1d0ca36a8c5b45add"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a download straight into a file, written block by block as it arrives, so its size is not limited by memory.  <br /></td></tr>
 <tr class="memitem:aecbecc0c8aa4113566906e816eeca7c3" id="r_aecbecc0c8aa4113566906e816eeca7c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecbecc0c8aa4113566906e816eeca7c3">cancelAllDownloads</a> ()</td></tr>
 <tr class="memdesc:aecbecc0c8aa4113566906e816eeca7c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancels all downloads.  <br /></td></tr>
 <tr class="memitem:ab1740214c8eb0c508f4e3a48ba394a1c" id="r_ab1740214c8eb0c508f4e3a48ba394a1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1740214c8eb0c508f4e3a48ba394a1c">cancelDownload</a> (int downloadId)</td></tr>
@@ -176,10 +178,10 @@ Public Member Functions</h2></td></tr>
 <div class="ttc" id="aclassDownloadManager_html_a7e17fbae40ab73beed856f7a28bb2726"><div class="ttname"><a href="#a7e17fbae40ab73beed856f7a28bb2726">DownloadManager::setRetryLimit</a></div><div class="ttdeci">void setRetryLimit(int limit)</div><div class="ttdoc">If a download fails, how long many times it should retry.</div><div class="ttdef"><b>Definition</b> gin_downloadmanager.h:94</div></div>
 <div class="ttc" id="aclassDownloadManager_html_ab1740214c8eb0c508f4e3a48ba394a1c"><div class="ttname"><a href="#ab1740214c8eb0c508f4e3a48ba394a1c">DownloadManager::cancelDownload</a></div><div class="ttdeci">void cancelDownload(int downloadId)</div><div class="ttdoc">Cancels a download with a given id.</div></div>
 <div class="ttc" id="astructDownloadManager_1_1DownloadResult_html"><div class="ttname"><a href="structDownloadManager_1_1DownloadResult.html">DownloadManager::DownloadResult</a></div><div class="ttdoc">Result of a completed or failed download.</div><div class="ttdef"><b>Definition</b> gin_downloadmanager.h:150</div></div>
-<div class="ttc" id="astructDownloadManager_1_1DownloadResult_html_a13fd2f0e9b09ade1a1b2ccf97c920bf5"><div class="ttname"><a href="structDownloadManager_1_1DownloadResult.html#a13fd2f0e9b09ade1a1b2ccf97c920bf5">DownloadManager::DownloadResult::data</a></div><div class="ttdeci">juce::MemoryBlock data</div><div class="ttdoc">Downloaded data.</div><div class="ttdef"><b>Definition</b> gin_downloadmanager.h:155</div></div>
-<div class="ttc" id="astructDownloadManager_1_1DownloadResult_html_a70931a9fd508ce4cc0344be6514aeffb"><div class="ttname"><a href="structDownloadManager_1_1DownloadResult.html#a70931a9fd508ce4cc0344be6514aeffb">DownloadManager::DownloadResult::httpCode</a></div><div class="ttdeci">int httpCode</div><div class="ttdoc">HTTP response code.</div><div class="ttdef"><b>Definition</b> gin_downloadmanager.h:158</div></div>
+<div class="ttc" id="astructDownloadManager_1_1DownloadResult_html_a13fd2f0e9b09ade1a1b2ccf97c920bf5"><div class="ttname"><a href="structDownloadManager_1_1DownloadResult.html#a13fd2f0e9b09ade1a1b2ccf97c920bf5">DownloadManager::DownloadResult::data</a></div><div class="ttdeci">juce::MemoryBlock data</div><div class="ttdoc">Downloaded data; empty for a download to a file.</div><div class="ttdef"><b>Definition</b> gin_downloadmanager.h:155</div></div>
+<div class="ttc" id="astructDownloadManager_1_1DownloadResult_html_a70931a9fd508ce4cc0344be6514aeffb"><div class="ttname"><a href="structDownloadManager_1_1DownloadResult.html#a70931a9fd508ce4cc0344be6514aeffb">DownloadManager::DownloadResult::httpCode</a></div><div class="ttdeci">int httpCode</div><div class="ttdoc">HTTP response code.</div><div class="ttdef"><b>Definition</b> gin_downloadmanager.h:159</div></div>
 <div class="ttc" id="astructDownloadManager_1_1DownloadResult_html_addd2bcdfcf44b5d58f9d5ee8bd148fe7"><div class="ttname"><a href="structDownloadManager_1_1DownloadResult.html#addd2bcdfcf44b5d58f9d5ee8bd148fe7">DownloadManager::DownloadResult::saveToFile</a></div><div class="ttdeci">bool saveToFile(const juce::File &amp;file, bool overwrite=true)</div><div class="ttdoc">Saves downloaded data to a file.</div></div>
-<div class="ttc" id="astructDownloadManager_1_1DownloadResult_html_ae2a74f1ceab5b5728458b39f09d27a27"><div class="ttname"><a href="structDownloadManager_1_1DownloadResult.html#ae2a74f1ceab5b5728458b39f09d27a27">DownloadManager::DownloadResult::ok</a></div><div class="ttdeci">bool ok</div><div class="ttdoc">true if download succeeded</div><div class="ttdef"><b>Definition</b> gin_downloadmanager.h:157</div></div>
+<div class="ttc" id="astructDownloadManager_1_1DownloadResult_html_ae2a74f1ceab5b5728458b39f09d27a27"><div class="ttname"><a href="structDownloadManager_1_1DownloadResult.html#ae2a74f1ceab5b5728458b39f09d27a27">DownloadManager::DownloadResult::ok</a></div><div class="ttdeci">bool ok</div><div class="ttdoc">true if download succeeded</div><div class="ttdef"><b>Definition</b> gin_downloadmanager.h:158</div></div>
 </div><!-- fragment --><p>Thread Safety:</p><ul>
 <li>All public methods are thread-safe</li>
 <li>Callbacks are always executed on the message thread</li>
@@ -457,7 +459,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a5f28dbb10b11644ea9033f2c4fb2b6ca" name="a5f28dbb10b11644ea9033f2c4fb2b6ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f28dbb10b11644ea9033f2c4fb2b6ca">&#9670;&#160;</a></span>startAsyncDownload() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f28dbb10b11644ea9033f2c4fb2b6ca">&#9670;&#160;</a></span>startAsyncDownload() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -496,7 +498,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a6010c1da81e49143c4f97a923d056ecb" name="a6010c1da81e49143c4f97a923d056ecb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6010c1da81e49143c4f97a923d056ecb">&#9670;&#160;</a></span>startAsyncDownload() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6010c1da81e49143c4f97a923d056ecb">&#9670;&#160;</a></span>startAsyncDownload() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -523,6 +525,45 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="adb6a0edaf644bba1d0ca36a8c5b45add" name="adb6a0edaf644bba1d0ca36a8c5b45add"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb6a0edaf644bba1d0ca36a8c5b45add">&#9670;&#160;</a></span>startAsyncDownload() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DownloadManager::startAsyncDownload </td>
+          <td>(</td>
+          <td class="paramtype">juce::URL</td>          <td class="paramname"><span class="paramname"><em>url</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">juce::File</td>          <td class="paramname"><span class="paramname"><em>target</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(<a class="el" href="structDownloadManager_1_1DownloadResult.html">DownloadResult</a>)&gt;</td>          <td class="paramname"><span class="paramname"><em>completionCallback</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(juce::int64, juce::int64, juce::int64)&gt;</td>          <td class="paramname"><span class="paramname"><em>progressCallback</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">juce::String</td>          <td class="paramname"><span class="paramname"><em>extraHeaders</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Starts a download straight into a file, written block by block as it arrives, so its size is not limited by memory. </p>
+<p>The file is replaced; it is deleted again when the download fails or is cancelled. The result's data stays empty, result.file names the file. </p>
 
 </div>
 </div>

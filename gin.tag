@@ -7712,6 +7712,13 @@
       <arglist>(juce::URL url, std::function&lt; void(DownloadResult)&gt; completionCallback, std::function&lt; void(juce::int64, juce::int64, juce::int64)&gt; progressCallback=nullptr, juce::String extraHeaders={})</arglist>
     </member>
     <member kind="function">
+      <type>int</type>
+      <name>startAsyncDownload</name>
+      <anchorfile>classDownloadManager.html</anchorfile>
+      <anchor>adb6a0edaf644bba1d0ca36a8c5b45add</anchor>
+      <arglist>(juce::URL url, juce::File target, std::function&lt; void(DownloadResult)&gt; completionCallback, std::function&lt; void(juce::int64, juce::int64, juce::int64)&gt; progressCallback=nullptr, juce::String extraHeaders={})</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>cancelAllDownloads</name>
       <anchorfile>classDownloadManager.html</anchorfile>
@@ -7776,6 +7783,13 @@
       <name>data</name>
       <anchorfile>structDownloadManager_1_1DownloadResult.html</anchorfile>
       <anchor>a13fd2f0e9b09ade1a1b2ccf97c920bf5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::File</type>
+      <name>file</name>
+      <anchorfile>structDownloadManager_1_1DownloadResult.html</anchorfile>
+      <anchor>a73ba5423c9cf7ca5c1fb90a3cd9bb271</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">

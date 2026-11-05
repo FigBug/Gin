@@ -90,7 +90,7 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:addd2bcdfcf44b5d58f9d5ee8bd148fe7" id="r_addd2bcdfcf44b5d58f9d5ee8bd148fe7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addd2bcdfcf44b5d58f9d5ee8bd148fe7">saveToFile</a> (const juce::File &amp;file, bool overwrite=true)</td></tr>
+<tr class="memitem:addd2bcdfcf44b5d58f9d5ee8bd148fe7" id="r_addd2bcdfcf44b5d58f9d5ee8bd148fe7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addd2bcdfcf44b5d58f9d5ee8bd148fe7">saveToFile</a> (const juce::File &amp;<a class="el" href="#a73ba5423c9cf7ca5c1fb90a3cd9bb271">file</a>, bool overwrite=true)</td></tr>
 <tr class="memdesc:addd2bcdfcf44b5d58f9d5ee8bd148fe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves downloaded data to a file.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -102,7 +102,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a639a9c5b7e7f3b4889a5f53b23e8bc9c" id="r_a639a9c5b7e7f3b4889a5f53b23e8bc9c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a639a9c5b7e7f3b4889a5f53b23e8bc9c">attempts</a> = 0</td></tr>
 <tr class="memdesc:a639a9c5b7e7f3b4889a5f53b23e8bc9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of attempts made.  <br /></td></tr>
 <tr class="memitem:a13fd2f0e9b09ade1a1b2ccf97c920bf5" id="r_a13fd2f0e9b09ade1a1b2ccf97c920bf5"><td class="memItemLeft" align="right" valign="top">juce::MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13fd2f0e9b09ade1a1b2ccf97c920bf5">data</a></td></tr>
-<tr class="memdesc:a13fd2f0e9b09ade1a1b2ccf97c920bf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Downloaded data.  <br /></td></tr>
+<tr class="memdesc:a13fd2f0e9b09ade1a1b2ccf97c920bf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Downloaded data; empty for a download to a file.  <br /></td></tr>
+<tr class="memitem:a73ba5423c9cf7ca5c1fb90a3cd9bb271" id="r_a73ba5423c9cf7ca5c1fb90a3cd9bb271"><td class="memItemLeft" align="right" valign="top">juce::File&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73ba5423c9cf7ca5c1fb90a3cd9bb271">file</a></td></tr>
+<tr class="memdesc:a73ba5423c9cf7ca5c1fb90a3cd9bb271"><td class="mdescLeft">&#160;</td><td class="mdescRight">Where a download to a file went; deleted unless ok.  <br /></td></tr>
 <tr class="memitem:ae2a74f1ceab5b5728458b39f09d27a27" id="r_ae2a74f1ceab5b5728458b39f09d27a27"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2a74f1ceab5b5728458b39f09d27a27">ok</a> = false</td></tr>
 <tr class="memdesc:ae2a74f1ceab5b5728458b39f09d27a27"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if download succeeded  <br /></td></tr>
 <tr class="memitem:a70931a9fd508ce4cc0344be6514aeffb" id="r_a70931a9fd508ce4cc0344be6514aeffb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70931a9fd508ce4cc0344be6514aeffb">httpCode</a> = 0</td></tr>
@@ -146,6 +148,8 @@ Public Attributes</h2></td></tr>
 
 <p>Saves downloaded data to a file. </p>
 <p>Returns true if successful. </p>
+
+<p class="reference">References <a class="el" href="#a73ba5423c9cf7ca5c1fb90a3cd9bb271">file</a>.</p>
 
 </div>
 </div>
@@ -210,7 +214,25 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Downloaded data. </p>
+<p>Downloaded data; empty for a download to a file. </p>
+
+</div>
+</div>
+<a id="a73ba5423c9cf7ca5c1fb90a3cd9bb271" name="a73ba5423c9cf7ca5c1fb90a3cd9bb271"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73ba5423c9cf7ca5c1fb90a3cd9bb271">&#9670;&#160;</a></span>file</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::File DownloadManager::DownloadResult::file</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Where a download to a file went; deleted unless ok. </p>
+
+<p class="reference">Referenced by <a class="el" href="#addd2bcdfcf44b5d58f9d5ee8bd148fe7">saveToFile()</a>.</p>
 
 </div>
 </div>
