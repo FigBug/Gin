@@ -116,6 +116,27 @@ int DownloadManager::startAsyncDownload (juce::URL url,
     return download->result.downloadId;
 }
 
+int DownloadManager::startAsyncDownload (juce::URL url, juce::File target,
+                                         std::function<void (DownloadResult)> completionCallback,
+                                         std::function<void (juce::int64, juce::int64, juce::int64)> progressCallback,
+                                         juce::String extraHeaders)
+{
+    // No gzip request: the data goes to the file as it arrives
+    auto download = new Download (*this);
+    download->result.url = url;
+    download->result.file = target;
+    download->headers = extraHeaders;
+    download->result.downloadId = ++nextId;
+    download->completionCallback = completionCallback;
+    download->progressCallback = progressCallback;
+
+    downloads.add (download);
+
+    triggerNextDownload();
+
+    return download->result.downloadId;
+}
+
 void DownloadManager::cancelAllDownloads()
 {
     runningDownloads = 0;
@@ -169,6 +190,10 @@ DownloadManager::Download::~Download()
     // connect. Unlikely but possible.
     if (async)
         stopThread (owner.shutdownTimeout);
+
+    // A cancelled or failed download to a file leaves nothing behind
+    if (result.file != juce::File() && ! result.ok)
+        result.file.deleteFile();
 }
 
 void DownloadManager::Download::run()
@@ -223,7 +248,25 @@ bool DownloadManager::Download::tryDownload()
             auto keys = result.responseHeaders.getAllKeys();
             auto vals = result.responseHeaders.getAllValues();
 
-            juce::MemoryOutputStream os (result.data, false);
+            // A download to a file starts it afresh on every attempt
+            std::unique_ptr<juce::OutputStream> fileStream;
+
+            if (result.file != juce::File())
+            {
+                result.file.deleteFile();
+                auto fos = std::make_unique<juce::FileOutputStream> (result.file);
+
+                if (! fos->openedOk())
+                {
+                    result.ok = false;
+                    return false;
+                }
+
+                fileStream = std::move (fos);
+            }
+
+            juce::MemoryOutputStream memoryStream (result.data, false);
+            juce::OutputStream& os = fileStream != nullptr ? *fileStream : static_cast<juce::OutputStream&> (memoryStream);
 
             lastBytesSent = 0;
             lastProgress = juce::Time::getMillisecondCounter();
@@ -249,7 +292,12 @@ bool DownloadManager::Download::tryDownload()
                 }
                 else if (read > 0)
                 {
-                    os.write (buffer, size_t (read));
+                    if (! os.write (buffer, size_t (read)))
+                    {
+                        result.ok = false;
+                        break;
+                    }
+
                     downloaded += read;
                     result.ok = (is->isExhausted() || downloaded == totalLength) && result.httpCode == 200;
 
@@ -273,12 +321,17 @@ bool DownloadManager::Download::tryDownload()
             }
 
             updateProgress (downloaded, totalLength, true);
+
+            os.flush();
         }
     }
 
+    if (result.file != juce::File() && ! result.ok)
+        result.file.deleteFile();
+
    #if JUCE_WINDOWS
     // Decompress the gzip encoded data. This happens automatically on macOS
-    if (result.ok && result.responseHeaders["Content-Encoding"] == "gzip")
+    if (result.ok && result.file == juce::File() && result.responseHeaders["Content-Encoding"] == "gzip")
     {
         juce::MemoryInputStream mis (result.data, true);
         juce::GZIPDecompressorInputStream gis (&mis, false, juce::GZIPDecompressorInputStream::gzipFormat);

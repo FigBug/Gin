@@ -148,7 +148,8 @@ public:
         int downloadId = 0;                     ///< Unique download ID
         int attempts = 0;                       ///< Number of attempts made
 
-        juce::MemoryBlock data;                 ///< Downloaded data
+        juce::MemoryBlock data;                 ///< Downloaded data; empty for a download to a file
+        juce::File file;                        ///< Where a download to a file went; deleted unless ok
 
         bool ok = false;                        ///< true if download succeeded
         int httpCode = 0;                       ///< HTTP response code
@@ -171,6 +172,15 @@ public:
                             juce::String extraHeaders = {});
 
     int startAsyncDownload (juce::URL url,
+                            std::function<void (DownloadResult)> completionCallback,
+                            std::function<void (juce::int64, juce::int64, juce::int64)> progressCallback = nullptr,
+                            juce::String extraHeaders = {});
+
+    /** Starts a download straight into a file, written block by block as it arrives, so its size
+        is not limited by memory. The file is replaced; it is deleted again when the download fails
+        or is cancelled. The result's data stays empty, result.file names the file.
+      */
+    int startAsyncDownload (juce::URL url, juce::File target,
                             std::function<void (DownloadResult)> completionCallback,
                             std::function<void (juce::int64, juce::int64, juce::int64)> progressCallback = nullptr,
                             juce::String extraHeaders = {});
