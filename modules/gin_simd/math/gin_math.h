@@ -110,16 +110,14 @@ inline float minVal (float a) { return a; }
 /**
     Extracts the minimum value from a SIMD register.
 
-    Finds the smallest of the 4 floats in the SIMD register.
+    Finds the smallest of the register's floats, however many lanes it holds.
 
-    @param a SIMD register containing 4 floats
-    @return The minimum of the 4 values
+    @param a SIMD register
+    @return The minimum of its values
 */
 inline float minVal (mipp::Reg<float> a)
 {
-    float vals[4];
-    a.store (vals);
-    return std::min ({vals[0], vals[1], vals[2], vals[3]});
+    return a.hmin();
 }
 #endif
 
@@ -135,16 +133,14 @@ inline float maxVal (float a) { return a; }
 /**
     Extracts the maximum value from a SIMD register.
 
-    Finds the largest of the 4 floats in the SIMD register.
+    Finds the largest of the register's floats, however many lanes it holds.
 
-    @param a SIMD register containing 4 floats
-    @return The maximum of the 4 values
+    @param a SIMD register
+    @return The maximum of its values
 */
 inline float maxVal (mipp::Reg<float> a)
 {
-    float vals[4];
-    a.store (vals);
-    return std::max ({vals[0], vals[1], vals[2], vals[3]});
+    return a.hmax();
 }
 #endif
 

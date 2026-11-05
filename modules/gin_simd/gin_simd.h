@@ -88,6 +88,10 @@ JUCE_BEGIN_IGNORE_WARNINGS_GCC_LIKE("-Wimplicit-float-conversion",
 
 #if GIN_HAS_SIMD
  #include "mipp/mipp.h"
+
+ /* Code written against mipp::N<float>() loops over the lanes, so a zero lane count has to
+    be a build failure rather than a loop that never advances */
+ static_assert (mipp::N<float>() > 0, "GIN_HAS_SIMD is set but mipp found no SIMD registers");
 #endif
 
 JUCE_END_IGNORE_WARNINGS_GCC_LIKE

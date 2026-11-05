@@ -166,56 +166,48 @@ public:
    #if GIN_HAS_SIMD
     inline mipp::Reg<float> process (float note, mipp::Reg<float> phase)
     {
-        static_assert (mipp::N<float>() == 4);
+        constexpr auto n = mipp::N<float>();
 
         auto& table = tableForNote (note);
         phase *= float (tableSize);
-        
-        float pos[4];
+
+        alignas (mipp::RequiredAlignment) float pos[n];
         phase.store (pos);
 
-        jassert (pos[0] >= 0 && pos[0] < table.size());
-        jassert (pos[1] >= 0 && pos[1] < table.size());
-        jassert (pos[2] >= 0 && pos[2] < table.size());
-        jassert (pos[3] >= 0 && pos[3] < table.size());
+        alignas (mipp::RequiredAlignment) float res[n];
 
-        mipp::Reg<float> res =
+        for (int i = 0; i < n; i++)
         {
-            table[size_t (pos[0])],
-            table[size_t (pos[1])],
-            table[size_t (pos[2])],
-            table[size_t (pos[3])],
-        };
-        return res;
+            jassert (pos[i] >= 0 && pos[i] < table.size());
+            res[i] = table[size_t (pos[i])];
+        }
+
+        return mipp::Reg<float> (res);
     }
     
     inline mipp::Reg<float> processLinear (float note, mipp::Reg<float> phase)
     {
-        static_assert (mipp::N<float>() == 4);
+        constexpr auto n = mipp::N<float>();
 
         auto& table = tableForNote (note);
         auto pos = mipp::trunc (phase * float (tableSize));
         auto frac = (phase * float (tableSize)) - pos;
-        
-        float p[4];
+
+        alignas (mipp::RequiredAlignment) float p[n];
         pos.store (p);
 
-        float f[4];
+        alignas (mipp::RequiredAlignment) float f[n];
         frac.store (f);
 
-        jassert (p[0] >= 0 && p[0] + 1 < table.size());
-        jassert (p[1] >= 0 && p[1] + 1 < table.size());
-        jassert (p[2] >= 0 && p[2] + 1 < table.size());
-        jassert (p[3] >= 0 && p[3] + 1 < table.size());
+        alignas (mipp::RequiredAlignment) float res[n];
 
-        mipp::Reg<float> res =
+        for (int i = 0; i < n; i++)
         {
-            (table[size_t (p[0])] * (1.0f - f[0])) + (table[size_t (p[0] + 1)] * (f[0])),
-            (table[size_t (p[1])] * (1.0f - f[1])) + (table[size_t (p[1] + 1)] * (f[1])),
-            (table[size_t (p[2])] * (1.0f - f[2])) + (table[size_t (p[2] + 1)] * (f[2])),
-            (table[size_t (p[3])] * (1.0f - f[3])) + (table[size_t (p[3] + 1)] * (f[3])),
-        };
-        return res;
+            jassert (p[i] >= 0 && p[i] + 1 < table.size());
+            res[i] = (table[size_t (p[i])] * (1.0f - f[i])) + (table[size_t (p[i] + 1)] * f[i]);
+        }
+
+        return mipp::Reg<float> (res);
     }
    #endif
 

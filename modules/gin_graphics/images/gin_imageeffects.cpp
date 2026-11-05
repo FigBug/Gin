@@ -230,8 +230,12 @@ void applySoften (juce::Image& img, juce::ThreadPool* threadPool)
     {
         for (int x = 0; x < w; x++)
         {
+            // A premultiplied component is already its colour times its alpha, so these sums
+            // are the neighbours' colours weighted by how present each one is. Dividing by
+            // the alpha they carry rather than by their number softens the colour without
+            // letting invisible neighbours darken it, and leaves the mask alone
             int ro = 0, go = 0, bo = 0;
-            uint8_t a = 0;
+            int alpha = 0;
 
             for (int m = -1; m <= 1; m++)
             {
@@ -245,15 +249,22 @@ void applySoften (juce::Image& img, juce::ThreadPool* threadPool)
                     ro += s->getRed();
                     go += s->getGreen();
                     bo += s->getBlue();
+                    alpha += s->getAlpha();
                 }
             }
 
             T* s = (T*) srcData.getPixelPointer (x, y);
-            a = s->getAlpha();
+            const uint8_t a = s->getAlpha();
 
             T* d = (T*) dstData.getPixelPointer (x, y);
 
-            d->setARGB (a, toByte (ro / 9), toByte (go / 9), toByte (bo / 9));
+            if (alpha > 0)
+                d->setARGB (a, toByte (ro * 255 / alpha), toByte (go * 255 / alpha), toByte (bo * 255 / alpha));
+            else
+                d->setARGB (a, 0, 0, 0);
+
+            // The softened colour is straight, and what is stored is premultiplied
+            d->premultiply();
         }
     });
     img = dst;
@@ -392,6 +403,11 @@ void applyInvert (juce::Image& img, juce::ThreadPool* threadPool)
         {
             T* s = (T*)p;
 
+            // The components of an ARGB pixel are premultiplied, so the colour has to come
+            // out of the alpha before it is touched and go back in afterwards: inverting a
+            // premultiplied zero gives a bright pixel that an invisible one then leaks
+            s->unpremultiply();
+
             uint8_t r = s->getRed();
             uint8_t g = s->getGreen();
             uint8_t b = s->getBlue();
@@ -402,6 +418,7 @@ void applyInvert (juce::Image& img, juce::ThreadPool* threadPool)
             uint8_t bo = 255 - b;
 
             s->setARGB (a, ro, go, bo);
+            s->premultiply();
 
             p += data.pixelStride;
         }
@@ -551,6 +568,11 @@ void applyBrightnessContrast (juce::Image& img, float brightness, float contrast
         {
             T* s = (T*)p;
 
+            // Premultiplied components would carry the alpha into the intensity and into the
+            // brightened result, which leaves colour behind in pixels that are meant to be
+            // invisible
+            s->unpremultiply();
+
             uint8_t r = s->getRed();
             uint8_t g = s->getGreen();
             uint8_t b = s->getBlue();
@@ -578,6 +600,8 @@ void applyBrightnessContrast (juce::Image& img, float brightness, float contrast
 
                 s->setARGB (a, ro, go, bo);
             }
+
+            s->premultiply();
 
             p += data.pixelStride;
         }
@@ -749,6 +773,11 @@ void applyGradientMap (juce::Image& img, const juce::ColourGradient& gradient, j
                                {
                                    T* s = (T*)p;
 
+                                   // The gradient's colour is not premultiplied, and neither
+                                   // should the intensity picking it be, so the pixel comes out
+                                   // of its alpha for both and goes back in after
+                                   s->unpremultiply();
+
                                    uint8_t r = s->getRed();
                                    uint8_t g = s->getGreen();
                                    uint8_t b = s->getBlue();
@@ -766,6 +795,8 @@ void applyGradientMap (juce::Image& img, const juce::ColourGradient& gradient, j
                                                c.getRed(),
                                                c.getGreen(),
                                                c.getBlue());
+
+                                   s->premultiply();
 
                                    p += data.pixelStride;
                                }
@@ -795,10 +826,11 @@ void applyColour (juce::Image& img, juce::Colour c, juce::ThreadPool* threadPool
     const int h = img.getHeight();
     threadPool = (w >= 256 || h >= 256) ? threadPool : nullptr;
 
-    uint8_t r = c.getRed();
-    uint8_t g = c.getGreen();
-    uint8_t b = c.getBlue();
-    uint8_t a = c.getAlpha();
+    // The stored components are premultiplied, so the colour is scaled by its own alpha once
+    // here: a translucent fill written straight in reads back far brighter than it should
+    T fill;
+    fill.setARGB (c.getAlpha(), c.getRed(), c.getGreen(), c.getBlue());
+    fill.premultiply();
 
     juce::Image::BitmapData data (img, juce::Image::BitmapData::readWrite);
 
@@ -809,7 +841,7 @@ void applyColour (juce::Image& img, juce::Colour c, juce::ThreadPool* threadPool
                                for (int x = 0; x < w; x++)
                                {
                                    T* s = (T*)p;
-                                   s->setARGB (a, r, g, b);
+                                   *s = fill;
                                    p += data.pixelStride;
                                }
                            });

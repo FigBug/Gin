@@ -75,17 +75,21 @@ jobs:
       - name: Generate coverage report
         run: |
           lcov --capture --directory build --output-file coverage.info \
-            --ignore-errors gcov,source,mismatch \
+            --ignore-errors gcov,source,mismatch,inconsistent \
             --rc geninfo_unexecuted_blocks=1
+          # The same set .codecov.yml ignores, so the total printed here is the one
+          # Codecov reports rather than a different, flattering number
           lcov --remove coverage.info \
             '/usr/*' \
             '*/juce/*' \
             '*/3rdparty/*' \
+            '*/mipp/*' \
             '*/examples/*' \
             '*/build/*' \
+            '*.test.h' \
             --output-file coverage.info \
-            --ignore-errors unused
-          lcov --list coverage.info
+            --ignore-errors unused,inconsistent
+          lcov --list coverage.info --ignore-errors inconsistent
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4

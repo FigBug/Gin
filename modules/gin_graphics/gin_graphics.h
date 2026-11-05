@@ -66,6 +66,8 @@
 namespace gin
 {
 #include "formats/gin_bmpimageformat.h"
+#include "formats/gin_tgaimageformat.h"
+#include "formats/gin_pcximageformat.h"
 #include "images/gin_imageeffects.h"
 #include "images/gin_mipmap.h"
 }

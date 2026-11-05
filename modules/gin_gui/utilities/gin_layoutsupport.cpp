@@ -467,11 +467,11 @@ void LayoutSupport::animateLayoutChanges (const BoundsRecords& changes)
         if (itr == boundsAnimations.end())
         {
             auto a = std::make_unique<Animated<juce::Rectangle<int>>> (*c, kBounds.toString(), oldBounds);
-            a->onChange = [this, a = a.get()]
+            a->onChange = [this, anim = a.get()]
             {
-                if (auto o = a->getOwner())
+                if (auto o = anim->getOwner())
                 {
-                    o->setBounds (a->get());
+                    o->setBounds (anim->get());
 
                     if (transitionStep)
                         transitionStep (*o);

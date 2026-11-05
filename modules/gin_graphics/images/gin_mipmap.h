@@ -21,7 +21,14 @@ struct MipMapEnhance
     */
     float saturation = 0.0f;
 
-    bool operator== (const MipMapEnhance&) const = default;
+    // an exact comparison of the float members is what is wanted here
+    bool operator== (const MipMapEnhance& other) const
+    {
+        return juce::exactlyEqual (sharpen, other.sharpen)
+            && juce::exactlyEqual (saturation, other.saturation);
+    }
+
+    bool operator!= (const MipMapEnhance& other) const  { return ! operator== (other); }
 };
 
 //==============================================================================
