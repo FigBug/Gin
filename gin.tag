@@ -7754,8 +7754,8 @@
       <type>bool</type>
       <name>saveToFile</name>
       <anchorfile>structDownloadManager_1_1DownloadResult.html</anchorfile>
-      <anchor>addd2bcdfcf44b5d58f9d5ee8bd148fe7</anchor>
-      <arglist>(const juce::File &amp;file, bool overwrite=true)</arglist>
+      <anchor>a839eed30ba2ca49dda098817cdf3b5c3</anchor>
+      <arglist>(const juce::File &amp;targetFile, bool overwrite=true)</arglist>
     </member>
     <member kind="variable">
       <type>juce::URL</type>
@@ -26486,21 +26486,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-    <class kind="class">AudioSamplerBufferComponent</class>
-    <class kind="class">AudioSamplerBufferComponent::ScopedViewState</class>
-    <class kind="class">DynamicsMeter</class>
-    <class kind="class">LevelMeter</class>
-    <class kind="class">MidiFileComponent</class>
-    <class kind="class">SpectrumAnalyzer</class>
-    <class kind="class">TriggeredScope</class>
-    <class kind="class">WaveformComponent</class>
-    <class kind="class">WavetableComponent</class>
-    <class kind="class">XYScope</class>
-  </compound>
-  <compound kind="group">
     <name>gin_plugin-components</name>
     <title>components</title>
     <filename>group__gin__plugin-components.html</filename>
@@ -26561,6 +26546,21 @@
       <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
       <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
     </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
+    <class kind="class">AudioSamplerBufferComponent</class>
+    <class kind="class">AudioSamplerBufferComponent::ScopedViewState</class>
+    <class kind="class">DynamicsMeter</class>
+    <class kind="class">LevelMeter</class>
+    <class kind="class">MidiFileComponent</class>
+    <class kind="class">SpectrumAnalyzer</class>
+    <class kind="class">TriggeredScope</class>
+    <class kind="class">WaveformComponent</class>
+    <class kind="class">WavetableComponent</class>
+    <class kind="class">XYScope</class>
   </compound>
   <compound kind="group">
     <name>gin_gui-components</name>
@@ -26894,18 +26894,18 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_webp-formats</name>
-    <title>formats</title>
-    <filename>group__gin__webp-formats.html</filename>
-    <class kind="class">WEBPImageFormat</class>
-  </compound>
-  <compound kind="group">
     <name>gin_graphics-formats</name>
     <title>formats</title>
     <filename>group__gin__graphics-formats.html</filename>
     <class kind="class">BMPImageFormat</class>
     <class kind="class">PCXImageFormat</class>
     <class kind="class">TGAImageFormat</class>
+  </compound>
+  <compound kind="group">
+    <name>gin_webp-formats</name>
+    <title>formats</title>
+    <filename>group__gin__webp-formats.html</filename>
+    <class kind="class">WEBPImageFormat</class>
   </compound>
   <compound kind="group">
     <name>gin-geometry</name>
@@ -26933,8 +26933,8 @@
     <name>gin</name>
     <title>gin</title>
     <filename>group__gin.html</filename>
-    <subgroup>gin-utilities</subgroup>
     <subgroup>gin-geometry</subgroup>
+    <subgroup>gin-utilities</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_3d</name>
@@ -26959,16 +26959,16 @@
     <name>gin_graphics</name>
     <title>gin_graphics</title>
     <filename>group__gin__graphics.html</filename>
-    <subgroup>gin_graphics-formats</subgroup>
     <subgroup>gin_graphics-images</subgroup>
+    <subgroup>gin_graphics-formats</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_gui</name>
     <title>gin_gui</title>
     <filename>group__gin__gui.html</filename>
-    <subgroup>gin_gui-components</subgroup>
     <subgroup>gin_gui-utilities</subgroup>
     <subgroup>gin_gui-images</subgroup>
+    <subgroup>gin_gui-components</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_location</name>
@@ -26992,10 +26992,10 @@
     <name>gin_plugin</name>
     <title>gin_plugin</title>
     <filename>group__gin__plugin.html</filename>
-    <subgroup>gin_plugin-resources</subgroup>
-    <subgroup>gin_plugin-components</subgroup>
-    <subgroup>gin_plugin-lookandfeel</subgroup>
     <subgroup>gin_plugin-plugin</subgroup>
+    <subgroup>gin_plugin-resources</subgroup>
+    <subgroup>gin_plugin-lookandfeel</subgroup>
+    <subgroup>gin_plugin-components</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_remote</name>

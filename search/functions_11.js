@@ -14,7 +14,7 @@ var searchData=
   ['saveretrospective_11',['saveRetrospective',['../classAudioRecorder.html#ab85cda7dc8ebd261eb662d91c3d102f6',1,'AudioRecorder']]],
   ['savestate_12',['saveState',['../classMidiLearn.html#a5f7f3287f632054c5dfe53475a396860',1,'MidiLearn']]],
   ['savetodir_13',['saveToDir',['../classProgram.html#abffced88d0b2832fab9a070e0edc870b',1,'Program']]],
-  ['savetofile_14',['saveToFile',['../structDownloadManager_1_1DownloadResult.html#addd2bcdfcf44b5d58f9d5ee8bd148fe7',1,'DownloadManager::DownloadResult']]],
+  ['savetofile_14',['saveToFile',['../structDownloadManager_1_1DownloadResult.html#a839eed30ba2ca49dda098817cdf3b5c3',1,'DownloadManager::DownloadResult']]],
   ['sawdown_15',['sawDown',['../group__gin__dsp-dsp.html#ga7dcecee55962cc044ac3af15464b19a8',1,'gin_bandlimitedlookuptable.h']]],
   ['sawup_16',['sawUp',['../group__gin__dsp-dsp.html#gaee1da7519de4693416c7eb52acae0e97',1,'gin_bandlimitedlookuptable.h']]],
   ['scale_17',['scale',['../structMat4.html#a4ad32104506a44841d40343b01063c3a',1,'Mat4::scale(T x, T y, T z)'],['../structMat4.html#a051263663efa0b85d43f1783bb059297',1,'Mat4::scale(T s)']]],
