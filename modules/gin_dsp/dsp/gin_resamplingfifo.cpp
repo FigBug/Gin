@@ -26,10 +26,14 @@ ResamplingFifo::~ResamplingFifo ()
 
 void ResamplingFifo::setQuality (int q)
 {
-    quality = q;
-
     int error = 0;
-    impl->state = SRC::src_new (getQuality (quality), numChannels, &error);
+    auto* newState = SRC::src_new (getQuality (q), numChannels, &error);
+    if (newState == nullptr)
+        return;
+
+    SRC::src_delete (impl->state);
+    impl->state = newState;
+    quality = q;
 }
 
 int ResamplingFifo::getQuality (int q)
