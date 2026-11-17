@@ -34,6 +34,6 @@ var searchData=
   ['usesfileextension_31',['usesFileExtension',['../classBMPImageFormat.html#ac3aec001afc89383d536241e433cb8bf',1,'BMPImageFormat::usesFileExtension()'],['../classPCXImageFormat.html#acc76d6f8f7a2fd585971080ad43e37be',1,'PCXImageFormat::usesFileExtension()'],['../classTGAImageFormat.html#af1d53e08209a33dfabd0c4bfc368fe05',1,'TGAImageFormat::usesFileExtension()'],['../classWEBPImageFormat.html#a1d875430f06a78fe547812ff5556bbc0',1,'WEBPImageFormat::usesFileExtension()']]],
   ['usetitlebar_32',['useTitleBar',['../classProcessorOptions.html#ab724916c3c24f21111cd7950ab459fcd',1,'ProcessorOptions']]],
   ['useupdatechecker_33',['useUpdateChecker',['../classProcessorOptions.html#a1cae47f2ecd1a86e02549cf5b47fd4d0',1,'ProcessorOptions']]],
-  ['utilities_34',['utilities',['../group__gin-utilities.html',1,'utilities'],['../group__gin__gui-utilities.html',1,'utilities']]],
+  ['utilities_34',['utilities',['../group__gin__gui-utilities.html',1,'utilities'],['../group__gin-utilities.html',1,'utilities']]],
   ['utilities_2fgin_5futil_2eh_35',['gin_util.h',['../utilities_2gin__util_8h.html',1,'']]]
 ];

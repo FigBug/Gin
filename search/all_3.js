@@ -113,7 +113,7 @@ var searchData=
   ['componentinfoprovider_110',['ComponentInfoProvider',['../classRemoteServer.html#ab7feebdd8543990dea8940a9251607e1',1,'RemoteServer']]],
   ['componentmap_111',['ComponentMap',['../classComponentMap.html',1,'ComponentMap'],['../classComponentMap.html#aacabfbab4ac5133982d9237b5b67ea15',1,'ComponentMap::ComponentMap()']]],
   ['componentproperty_112',['componentProperty',['../classTransition.html#afc32d9003bba5fa90f48383d40df46dc',1,'Transition']]],
-  ['components_113',['components',['../group__gin__plugin-components.html',1,'components'],['../group__gin__dsp-components.html',1,'components'],['../group__gin__gui-components.html',1,'components']]],
+  ['components_113',['components',['../group__gin__dsp-components.html',1,'components'],['../group__gin__gui-components.html',1,'components'],['../group__gin__plugin-components.html',1,'components']]],
   ['componentviewer_114',['ComponentViewer',['../classComponentViewer.html',1,'ComponentViewer'],['../classComponentViewer.html#ad2606c2be76e8a56bb98d57ce57c0b6f',1,'ComponentViewer::ComponentViewer()']]],
   ['compressor_115',['compressor',['../classDynamics.html#a6b3502e2f88d8fd32b07239376f19576a05d3a93d33e9c50855b28f21a5e3dd4b',1,'Dynamics']]],
   ['computeborder_116',['computeBorder',['../classMainContentComponent.html#a807049485e5bdbe5fabd289ec4bb9f40',1,'MainContentComponent']]],

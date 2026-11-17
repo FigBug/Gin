@@ -6,7 +6,7 @@ var searchData=
   ['imagefilter_3',['ImageFilter',['../classImageFilter.html',1,'ImageFilter'],['../classImageFilter.html#a723d8ed3b0d943d7c8a2687ef742c245',1,'ImageFilter::ImageFilter()']]],
   ['imagemetadata_4',['ImageMetadata',['../classImageMetadata.html',1,'ImageMetadata'],['../classImageMetadata.html#a1dfe334219bb1df21a42d95653dd326c',1,'ImageMetadata::ImageMetadata()']]],
   ['images_5',['Images',['../classImages.html',1,'Images'],['../classImages.html#a3c31a7052197172e2bfb26efe796d32f',1,'Images::Images()']]],
-  ['images_6',['images',['../classCopperLookAndFeel.html#a1515b1d303c786c5721d72b2d25e942d',1,'CopperLookAndFeel::images'],['../group__gin__graphics-images.html',1,'images'],['../group__gin__gui-images.html',1,'images']]],
+  ['images_6',['images',['../classCopperLookAndFeel.html#a1515b1d303c786c5721d72b2d25e942d',1,'CopperLookAndFeel::images'],['../group__gin__gui-images.html',1,'images'],['../group__gin__graphics-images.html',1,'images']]],
   ['imagetonsimage_7',['imageToNSImage',['../namespacemacOS.html#aab8a769f8109ca623c481f67ff80b048',1,'macOS']]],
   ['imodmatrix_8',['IModMatrix',['../classIModMatrix.html',1,'']]],
   ['incomingmidi_9',['incomingMidi',['../classAudioProcessorPlayer.html#ae8315f0e2659458599790fdc5eff6e23',1,'AudioProcessorPlayer']]],
