@@ -93,7 +93,7 @@ void SynthVoice::notePressureChanged()
 void SynthVoice::noteTimbreChanged()
 {
     auto note = getCurrentlyPlayingNote();
-    proc.modMatrix.setPolyValue (*this, proc.modSrcTimbre, note.initialTimbre.asUnsignedFloat());
+    proc.modMatrix.setPolyValue (*this, proc.modSrcTimbre, note.timbre.asUnsignedFloat());
 }
 
 void SynthVoice::setCurrentSampleRate (double newRate)
