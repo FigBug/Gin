@@ -16,12 +16,19 @@ public:
         setRowHeight (16);
     }
 
+    /** Shades every other row, matching the PatchBrowser lists. Off by default. */
+    void setDrawAlternateRows (bool b)  { drawAlternateRows = b; repaint(); }
+
     int getNumRows() override
     {
         return modMatrix.getNumModSources();
     }
 
-    void paintListBoxItem (int, juce::Graphics&, int, int, bool) override {}
+    void paintListBoxItem (int row, juce::Graphics& g, int, int, bool) override
+    {
+        if (drawAlternateRows && row % 2 == 1)
+            g.fillAll (juce::Colours::white.withAlpha (0.02f));
+    }
 
     Component* refreshComponentForRow (int row, bool, Component* c) override
     {
@@ -65,4 +72,5 @@ private:
     };
 
     IModMatrix& modMatrix;
+    bool drawAlternateRows = false;
 };
