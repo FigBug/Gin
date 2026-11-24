@@ -15272,6 +15272,13 @@
       <anchor>a7513883f426c4df209ed3c5b78b99bd7</anchor>
       <arglist>() override</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDrawAlternateRows</name>
+      <anchorfile>classModMatrixBox.html</anchorfile>
+      <anchor>a3947bba110c661f1529ab98bcd12f02f</anchor>
+      <arglist>(bool b)</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>ModOverlay</name>
@@ -15369,6 +15376,13 @@
       <arglist>(IModMatrix &amp;m)</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>setDrawAlternateRows</name>
+      <anchorfile>classModSrcListBox.html</anchorfile>
+      <anchor>a59ab3e794b3d852692424471da7e5ff0</anchor>
+      <arglist>(bool b)</arglist>
+    </member>
+    <member kind="function">
       <type>int</type>
       <name>getNumRows</name>
       <anchorfile>classModSrcListBox.html</anchorfile>
@@ -15379,8 +15393,8 @@
       <type>void</type>
       <name>paintListBoxItem</name>
       <anchorfile>classModSrcListBox.html</anchorfile>
-      <anchor>af84a66b3d2128b5c42b04a976e022adf</anchor>
-      <arglist>(int, juce::Graphics &amp;, int, int, bool) override</arglist>
+      <anchor>adf605b49eea590f0b2cb153d88a613f4</anchor>
+      <arglist>(int row, juce::Graphics &amp;g, int, int, bool) override</arglist>
     </member>
     <member kind="function">
       <type>Component *</type>
