@@ -24,6 +24,9 @@ public:
         modMatrix.removeListener (this);
     }
 
+    /** Shades every other row, matching the PatchBrowser lists. Off by default. */
+    void setDrawAlternateRows (bool b)  { drawAlternateRows = b; repaint(); }
+
 private:
     void refresh()
     {
@@ -43,7 +46,11 @@ private:
         return assignments.size();
     }
 
-    void paintListBoxItem (int, juce::Graphics&, int, int, bool) override {}
+    void paintListBoxItem (int row, juce::Graphics& g, int, int, bool) override
+    {
+        if (drawAlternateRows && row % 2 == 1)
+            g.fillAll (juce::Colours::white.withAlpha (0.02f));
+    }
 
     juce::Component* refreshComponentForRow (int row, bool, juce::Component* c) override
     {
@@ -292,4 +299,5 @@ private:
     gin::IModMatrix& modMatrix;
     juce::Array<Assignment> assignments;
     int depthWidth = 50;
+    bool drawAlternateRows = false;
 };
