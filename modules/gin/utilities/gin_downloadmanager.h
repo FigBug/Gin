@@ -156,7 +156,7 @@ public:
         juce::StringPairArray responseHeaders;  ///< HTTP response headers
 
         /** Saves downloaded data to a file. Returns true if successful. */
-        bool saveToFile (const juce::File& file, bool overwrite = true);
+        bool saveToFile (const juce::File& targetFile, bool overwrite = true);
     };
 
     //==============================================================================

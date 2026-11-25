@@ -174,8 +174,10 @@ public:
         : gin::ParamBox (name), proc (proc_)
     {
         setName ("mod");
-        
-        addControl (new gin::ModSrcListBox (proc.modMatrix), 0, 0, 3, 2);
+
+        auto srcListBox = new gin::ModSrcListBox (proc.modMatrix);
+        srcListBox->setDrawAlternateRows (true); // turn on alternate row shading
+        addControl (srcListBox, 0, 0, 3, 2);
     }
 
     SynthAudioProcessor& proc;
@@ -190,7 +192,9 @@ public:
     {
         setName ("mtx");
 
-        addControl (new gin::ModMatrixBox (proc, proc.modMatrix), 0, 0, 3, 2);
+        auto matrixBox = new gin::ModMatrixBox (proc, proc.modMatrix);
+        matrixBox->setDrawAlternateRows (true); // turn on alternate row shading
+        addControl (matrixBox, 0, 0, 3, 2);
     }
 
     SynthAudioProcessor& proc;
@@ -257,4 +261,3 @@ public:
     SynthAudioProcessor& proc;
     gin::ParamComponent::Ptr t, b;
 };
-

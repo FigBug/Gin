@@ -61,18 +61,18 @@ DownloadManager::DownloadResult DownloadManager::blockingDownload (juce::URL url
     return download.result;
 }
 
-bool DownloadManager::DownloadResult::saveToFile (const juce::File& file, bool overwrite)
+bool DownloadManager::DownloadResult::saveToFile (const juce::File& targetFile, bool overwrite)
 {
     // Bail if the DownloadResult failed or is empty
     if (!ok || data.getSize() == 0) return false;
     // Bail if the file exists and cannot overwrite
-    if (!overwrite && file.existsAsFile()) return false;
+    if (!overwrite && targetFile.existsAsFile()) return false;
     // Delete the existing file (if any), bail on error
-    if (!file.deleteFile()) return false;
+    if (!targetFile.deleteFile()) return false;
     // Bail if the file cannot be created
-    if (file.create().failed()) return false;
+    if (targetFile.create().failed()) return false;
     // Write the MemoryBlock to the file
-    juce::FileOutputStream outputStream (file);
+    juce::FileOutputStream outputStream (targetFile);
     bool success = outputStream.write (data.getData(), data.getSize());
     if (success) outputStream.flush();
     // Return the write operation success
