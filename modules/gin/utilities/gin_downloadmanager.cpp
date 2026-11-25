@@ -299,7 +299,7 @@ bool DownloadManager::Download::tryDownload()
                     }
 
                     downloaded += read;
-                    result.ok = (is->isExhausted() || downloaded == totalLength) && result.httpCode == 200;
+                    result.ok = (is->isExhausted() || downloaded == totalLength) && result.httpCode / 100 == 2;
 
                     updateProgress (downloaded, totalLength, false);
                 }
@@ -307,9 +307,9 @@ bool DownloadManager::Download::tryDownload()
                 {
                     // For chunked encoding, assume we have it all, otherwise check the length
                     if (totalLength < std::numeric_limits<juce::int64>::max())
-                        result.ok = (totalLength == downloaded) && result.httpCode == 200;
+                        result.ok = (totalLength == downloaded) && result.httpCode / 100 == 2;
                     else
-                        result.ok = result.httpCode == 200;
+                        result.ok = result.httpCode / 100 == 2;
 
                     break;
                 }

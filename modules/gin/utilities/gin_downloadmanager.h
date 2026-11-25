@@ -213,8 +213,7 @@ private:
         ~Download() override;
 
         void run() override;
-        bool tryDownload();
-        void updateProgress (juce::int64 current, juce::int64 total, bool );
+        bool tryDownload();        void updateProgress (juce::int64 current, juce::int64 total, bool );
 
         //==============================================================================
         DownloadResult result;
