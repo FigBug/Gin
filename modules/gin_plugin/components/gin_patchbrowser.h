@@ -65,6 +65,7 @@ public:
         int getNumRows() override;
         void selectedRowsChanged (int) override;
         void paintListBoxItem (int row, juce::Graphics& g, int w, int h, bool selected) override;
+        juce::String getNameForRow (int row) override;
 
         PatchBrowser& owner;
     };
@@ -76,6 +77,7 @@ public:
         int getNumRows() override;
         void selectedRowsChanged (int) override;
         void paintListBoxItem (int row, juce::Graphics& g, int w, int h, bool selected) override;
+        juce::String getNameForRow (int row) override;
         
         PatchBrowser& owner;
     };
@@ -87,7 +89,9 @@ public:
         int getNumRows() override;
         void selectedRowsChanged (int) override;
         void paintListBoxItem (int row, juce::Graphics& g, int w, int h, bool selected) override;
+        juce::String getNameForRow (int row) override;
         void listBoxItemClicked (int row, const juce::MouseEvent& e) override;
+        void returnKeyPressed (int row) override;
 
         PatchBrowser& owner;
     };

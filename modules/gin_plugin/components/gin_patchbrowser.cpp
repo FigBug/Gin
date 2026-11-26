@@ -13,6 +13,10 @@ PatchBrowser::PatchBrowser (Processor& p) : proc (p)
     tags.setOutlineThickness (1);
     presets.setOutlineThickness (1);
 
+    authors.setTitle ("Authors");
+    tags.setTitle ("Tags");
+    presets.setTitle ("Presets");
+
     authors.setMultipleSelectionEnabled (true);
     tags.setMultipleSelectionEnabled (true);
 
@@ -284,6 +288,11 @@ void PatchBrowser::AuthorsModel::paintListBoxItem (int row, juce::Graphics& g, i
     g.drawText (owner.currentAuthors[row], rc.reduced (4, 0), juce::Justification::centredLeft);
 }
 
+juce::String PatchBrowser::AuthorsModel::getNameForRow (int row)
+{
+    return row == 0 ? "All Authors" : owner.currentAuthors[row];
+}
+
 PatchBrowser::TagsModel::TagsModel (PatchBrowser& o)
     : owner (o)
 {
@@ -322,6 +331,11 @@ void PatchBrowser::TagsModel::paintListBoxItem (int row, juce::Graphics& g, int 
     g.drawText (owner.currentTags[row], rc.reduced (4, 0), juce::Justification::centredLeft);
 }
 
+juce::String PatchBrowser::TagsModel::getNameForRow (int row)
+{
+    return row == 0 ? "All Tags" : owner.currentTags[row];
+}
+
 PatchBrowser::PresetsModel::PresetsModel (PatchBrowser& o)
     : owner (o)
 {
@@ -357,6 +371,16 @@ void PatchBrowser::PresetsModel::paintListBoxItem (int row, juce::Graphics& g, i
     g.setFont (juce::Font (14));
    #endif
     g.drawText (owner.currentPresets[row], rc.reduced (4, 0), juce::Justification::centredLeft);
+}
+
+juce::String PatchBrowser::PresetsModel::getNameForRow (int row)
+{
+    return owner.currentPresets[row];
+}
+
+void PatchBrowser::PresetsModel::returnKeyPressed (int row)
+{
+    owner.proc.setCurrentProgram (owner.currentPresets[row]);
 }
 
 void PatchBrowser::PresetsModel::listBoxItemClicked (int row, const juce::MouseEvent& e)
