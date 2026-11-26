@@ -26500,6 +26500,21 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
+    <class kind="class">AudioSamplerBufferComponent</class>
+    <class kind="class">AudioSamplerBufferComponent::ScopedViewState</class>
+    <class kind="class">DynamicsMeter</class>
+    <class kind="class">LevelMeter</class>
+    <class kind="class">MidiFileComponent</class>
+    <class kind="class">SpectrumAnalyzer</class>
+    <class kind="class">TriggeredScope</class>
+    <class kind="class">WaveformComponent</class>
+    <class kind="class">WavetableComponent</class>
+    <class kind="class">XYScope</class>
+  </compound>
+  <compound kind="group">
     <name>gin_plugin-components</name>
     <title>components</title>
     <filename>group__gin__plugin-components.html</filename>
@@ -26560,21 +26575,6 @@
       <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
       <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
     </member>
-  </compound>
-  <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-    <class kind="class">AudioSamplerBufferComponent</class>
-    <class kind="class">AudioSamplerBufferComponent::ScopedViewState</class>
-    <class kind="class">DynamicsMeter</class>
-    <class kind="class">LevelMeter</class>
-    <class kind="class">MidiFileComponent</class>
-    <class kind="class">SpectrumAnalyzer</class>
-    <class kind="class">TriggeredScope</class>
-    <class kind="class">WaveformComponent</class>
-    <class kind="class">WavetableComponent</class>
-    <class kind="class">XYScope</class>
   </compound>
   <compound kind="group">
     <name>gin_gui-components</name>
@@ -26908,18 +26908,18 @@
     </member>
   </compound>
   <compound kind="group">
+    <name>gin_webp-formats</name>
+    <title>formats</title>
+    <filename>group__gin__webp-formats.html</filename>
+    <class kind="class">WEBPImageFormat</class>
+  </compound>
+  <compound kind="group">
     <name>gin_graphics-formats</name>
     <title>formats</title>
     <filename>group__gin__graphics-formats.html</filename>
     <class kind="class">BMPImageFormat</class>
     <class kind="class">PCXImageFormat</class>
     <class kind="class">TGAImageFormat</class>
-  </compound>
-  <compound kind="group">
-    <name>gin_webp-formats</name>
-    <title>formats</title>
-    <filename>group__gin__webp-formats.html</filename>
-    <class kind="class">WEBPImageFormat</class>
   </compound>
   <compound kind="group">
     <name>gin-geometry</name>
@@ -26966,8 +26966,8 @@
     <name>gin_dsp</name>
     <title>gin_dsp</title>
     <filename>group__gin__dsp.html</filename>
-    <subgroup>gin_dsp-dsp</subgroup>
     <subgroup>gin_dsp-components</subgroup>
+    <subgroup>gin_dsp-dsp</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_graphics</name>
@@ -27008,8 +27008,8 @@
     <filename>group__gin__plugin.html</filename>
     <subgroup>gin_plugin-resources</subgroup>
     <subgroup>gin_plugin-plugin</subgroup>
-    <subgroup>gin_plugin-lookandfeel</subgroup>
     <subgroup>gin_plugin-components</subgroup>
+    <subgroup>gin_plugin-lookandfeel</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_remote</name>
@@ -27021,8 +27021,8 @@
     <name>gin_simd</name>
     <title>gin_simd</title>
     <filename>group__gin__simd.html</filename>
-    <subgroup>gin_simd-mipp</subgroup>
     <subgroup>gin_simd-math</subgroup>
+    <subgroup>gin_simd-mipp</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_standaloneplugin</name>

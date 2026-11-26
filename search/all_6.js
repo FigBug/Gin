@@ -59,7 +59,7 @@ var searchData=
   ['formant_56',['formant',['../structWTOscillator_1_1Params.html#af6b36b4d5dd74c8bc17ca0c8671d42f2',1,'WTOscillator::Params::formant'],['../structWTVoicedStereoOscillatorParams.html#abc3280093425299b75691776a088fb3c',1,'WTVoicedStereoOscillatorParams::formant']]],
   ['format_57',['Format',['../classStates.html#json',1,'JSON Format'],['../classComponentMap.html#paths',1,'Path Format']]],
   ['formatnumber_58',['formatNumber',['../group__gin-utilities.html#gaebf910d77d287573a8f98f51c67f8d48',1,'gin_util.h']]],
-  ['formats_59',['formats',['../group__gin__graphics-formats.html',1,'formats'],['../group__gin__webp-formats.html',1,'formats']]],
+  ['formats_59',['formats',['../group__gin__webp-formats.html',1,'formats'],['../group__gin__graphics-formats.html',1,'formats']]],
   ['forproperty_60',['forProperty',['../classTransition.html#a1fb86e92c580f731f8cebf79190140f0',1,'Transition']]],
   ['forwards_61',['forwards',['../classSampleOscillator.html#a64aa6cb05a5893d3a6e0220f61e6a6e1a465c5f747934848fce35cebef03936e2',1,'SampleOscillator']]],
   ['frame_62',['frame',['../classParamBox.html#af715eab1cc1d6a7f9afe250aa6cf8c73',1,'ParamBox::frame'],['../classScaledPluginEditor.html#a1851b46857396b6d45316e173c47d31a',1,'ScaledPluginEditor::frame']]],
