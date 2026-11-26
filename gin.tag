@@ -15404,6 +15404,13 @@
       <arglist>(int row, juce::Graphics &amp;g, int, int, bool) override</arglist>
     </member>
     <member kind="function">
+      <type>juce::String</type>
+      <name>getNameForRow</name>
+      <anchorfile>classModSrcListBox.html</anchorfile>
+      <anchor>a519fa5cbd1f924c8248b0bd430c65cc0</anchor>
+      <arglist>(int row) override</arglist>
+    </member>
+    <member kind="function">
       <type>Component *</type>
       <name>refreshComponentForRow</name>
       <anchorfile>classModSrcListBox.html</anchorfile>
