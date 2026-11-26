@@ -11,6 +11,7 @@ public:
         : modMatrix (m)
     {
         setName ("modlist");
+        setTitle ("Mod Sources");
         setModel (this);
         updateContent();
         setRowHeight (16);
@@ -28,6 +29,14 @@ public:
     {
         if (drawAlternateRows && row % 2 == 1)
             g.fillAll (juce::Colours::white.withAlpha (0.02f));
+    }
+
+    juce::String getNameForRow (int row) override
+    {
+        auto name = modMatrix.getModSrcName (ModSrcId (row));
+        if (modMatrix.getLearn() == ModSrcId (row))
+            name += ", learning";
+        return name;
     }
 
     Component* refreshComponentForRow (int row, bool, Component* c) override

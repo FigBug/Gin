@@ -11,6 +11,7 @@ public:
         : Button (""), modMatrix (mm), source (src), poly (poly_)
     {
         setName ("modSrc");
+        setToggleable (true);
         modMatrix.addListener (this);
         update();
     }
@@ -19,6 +20,7 @@ public:
         : Button (""), modMatrix (mm), source (src), poly (poly_)
     {
         setName (name);
+        setToggleable (true);
         modMatrix.addListener (this);
         update();
     }
@@ -73,9 +75,15 @@ private:
     void update()
     {
         if (source.isValid())
+        {
+            setTitle (modMatrix.getModSrcName (source));
             setTooltip ("Mod Source: " + modMatrix.getModSrcName (source));
+        }
         else
+        {
+            setTitle ({});
             setTooltip ({});
+        }
 
         learnSourceChanged (modMatrix.getLearn());
     }
