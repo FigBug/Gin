@@ -5463,6 +5463,13 @@
       <anchor>a8b7bedbb029b3ba34b13c34a48626eed</anchor>
       <arglist>(int row, juce::Graphics &amp;g, int w, int h, bool selected) override</arglist>
     </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getNameForRow</name>
+      <anchorfile>structPatchBrowser_1_1AuthorsModel.html</anchorfile>
+      <anchor>ac5679eeddc4ba46aee55b094f3421c95</anchor>
+      <arglist>(int row) override</arglist>
+    </member>
     <member kind="variable">
       <type>PatchBrowser &amp;</type>
       <name>owner</name>
@@ -18699,11 +18706,25 @@
       <arglist>(int row, juce::Graphics &amp;g, int w, int h, bool selected) override</arglist>
     </member>
     <member kind="function">
+      <type>juce::String</type>
+      <name>getNameForRow</name>
+      <anchorfile>structPatchBrowser_1_1PresetsModel.html</anchorfile>
+      <anchor>a9179434e24e5ca487fa178d19b4f40d4</anchor>
+      <arglist>(int row) override</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>listBoxItemClicked</name>
       <anchorfile>structPatchBrowser_1_1PresetsModel.html</anchorfile>
       <anchor>a8b42d0749419eaf3e8086db1a4b4cc01</anchor>
       <arglist>(int row, const juce::MouseEvent &amp;e) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>returnKeyPressed</name>
+      <anchorfile>structPatchBrowser_1_1PresetsModel.html</anchorfile>
+      <anchor>a18a39933c4732331ff986622e1e78746</anchor>
+      <arglist>(int row) override</arglist>
     </member>
     <member kind="variable">
       <type>PatchBrowser &amp;</type>
@@ -23426,6 +23447,13 @@
       <anchor>a6886ee4878b6e1127523ad086cc4ad45</anchor>
       <arglist>(int row, juce::Graphics &amp;g, int w, int h, bool selected) override</arglist>
     </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getNameForRow</name>
+      <anchorfile>structPatchBrowser_1_1TagsModel.html</anchorfile>
+      <anchor>a1cb03585d2179e919030021f82adb21b</anchor>
+      <arglist>(int row) override</arglist>
+    </member>
     <member kind="variable">
       <type>PatchBrowser &amp;</type>
       <name>owner</name>
@@ -26500,21 +26528,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_dsp-components</name>
-    <title>components</title>
-    <filename>group__gin__dsp-components.html</filename>
-    <class kind="class">AudioSamplerBufferComponent</class>
-    <class kind="class">AudioSamplerBufferComponent::ScopedViewState</class>
-    <class kind="class">DynamicsMeter</class>
-    <class kind="class">LevelMeter</class>
-    <class kind="class">MidiFileComponent</class>
-    <class kind="class">SpectrumAnalyzer</class>
-    <class kind="class">TriggeredScope</class>
-    <class kind="class">WaveformComponent</class>
-    <class kind="class">WavetableComponent</class>
-    <class kind="class">XYScope</class>
-  </compound>
-  <compound kind="group">
     <name>gin_plugin-components</name>
     <title>components</title>
     <filename>group__gin__plugin-components.html</filename>
@@ -26575,6 +26588,21 @@
       <anchor>gae617c6797d9252a57e49dc7bef2f487b</anchor>
       <arglist>(juce::Graphics &amp;g, juce::Rectangle&lt; int &gt; rc, juce::Colour c1, juce::Colour c2)</arglist>
     </member>
+  </compound>
+  <compound kind="group">
+    <name>gin_dsp-components</name>
+    <title>components</title>
+    <filename>group__gin__dsp-components.html</filename>
+    <class kind="class">AudioSamplerBufferComponent</class>
+    <class kind="class">AudioSamplerBufferComponent::ScopedViewState</class>
+    <class kind="class">DynamicsMeter</class>
+    <class kind="class">LevelMeter</class>
+    <class kind="class">MidiFileComponent</class>
+    <class kind="class">SpectrumAnalyzer</class>
+    <class kind="class">TriggeredScope</class>
+    <class kind="class">WaveformComponent</class>
+    <class kind="class">WavetableComponent</class>
+    <class kind="class">XYScope</class>
   </compound>
   <compound kind="group">
     <name>gin_gui-components</name>
@@ -26908,18 +26936,18 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>gin_webp-formats</name>
-    <title>formats</title>
-    <filename>group__gin__webp-formats.html</filename>
-    <class kind="class">WEBPImageFormat</class>
-  </compound>
-  <compound kind="group">
     <name>gin_graphics-formats</name>
     <title>formats</title>
     <filename>group__gin__graphics-formats.html</filename>
     <class kind="class">BMPImageFormat</class>
     <class kind="class">PCXImageFormat</class>
     <class kind="class">TGAImageFormat</class>
+  </compound>
+  <compound kind="group">
+    <name>gin_webp-formats</name>
+    <title>formats</title>
+    <filename>group__gin__webp-formats.html</filename>
+    <class kind="class">WEBPImageFormat</class>
   </compound>
   <compound kind="group">
     <name>gin-geometry</name>
@@ -26966,8 +26994,8 @@
     <name>gin_dsp</name>
     <title>gin_dsp</title>
     <filename>group__gin__dsp.html</filename>
-    <subgroup>gin_dsp-components</subgroup>
     <subgroup>gin_dsp-dsp</subgroup>
+    <subgroup>gin_dsp-components</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_graphics</name>
@@ -27008,8 +27036,8 @@
     <filename>group__gin__plugin.html</filename>
     <subgroup>gin_plugin-resources</subgroup>
     <subgroup>gin_plugin-plugin</subgroup>
-    <subgroup>gin_plugin-components</subgroup>
     <subgroup>gin_plugin-lookandfeel</subgroup>
+    <subgroup>gin_plugin-components</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_remote</name>
@@ -27021,8 +27049,8 @@
     <name>gin_simd</name>
     <title>gin_simd</title>
     <filename>group__gin__simd.html</filename>
-    <subgroup>gin_simd-math</subgroup>
     <subgroup>gin_simd-mipp</subgroup>
+    <subgroup>gin_simd-math</subgroup>
   </compound>
   <compound kind="group">
     <name>gin_standaloneplugin</name>
