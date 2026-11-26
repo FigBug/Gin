@@ -12,6 +12,7 @@ public:
         : proc (p), modMatrix (m), depthWidth (dw)
     {
         setName ("matrix");
+        setTitle ("Mod Matrix");
         setModel (this);
         setRowHeight (16);
         refresh();
@@ -52,6 +53,59 @@ private:
             g.fillAll (juce::Colours::white.withAlpha (0.02f));
     }
 
+    juce::String getNameForRow (int row) override
+    {
+        if (row < 0 || row >= assignments.size())
+            return {};
+
+        auto& a = assignments.getReference (row);
+        auto dst = ModDstId (a.dst->getModIndex());
+
+        auto d = juce::roundToInt (modMatrix.getModDepth (a.src, dst) * 100.0f);
+
+        auto name = modMatrix.getModSrcName (a.src) + " to " + a.dst->getName (100);
+        name += ", depth " + juce::String (d > 0 ? "+" : "") + juce::String (d) + "%";
+        name += modMatrix.getModBipolarMapping (a.src, dst) ? ", bipolar" : ", unipolar";
+        name += ", curve " + getCurveName (modMatrix.getModFunction (a.src, dst));
+        if (! modMatrix.getModEnable (a.src, dst))
+            name += ", off";
+
+        return name;
+    }
+
+    static juce::String getCurveName (ModFunction f)
+    {
+        for (auto& c : curveNames)
+            if (c.first == f)
+                return c.second;
+
+        return {};
+    }
+
+    static constexpr std::pair<ModFunction, const char*> curveNames[] =
+    {
+        { ModFunction::linear,              "Linear" },
+        { ModFunction::quadraticIn,         "Quadratic In" },
+        { ModFunction::quadraticInOut,      "Quadratic In/Out" },
+        { ModFunction::quadraticOut,        "Quadratic Out" },
+        { ModFunction::sineIn,              "Sine In" },
+        { ModFunction::sineInOut,           "Sine In Out" },
+        { ModFunction::sineOut,             "Sine Out" },
+        { ModFunction::exponentialIn,       "Exponential In" },
+        { ModFunction::exponentialInOut,    "Exponential In/Out" },
+        { ModFunction::exponentialOut,      "Exponential Out" },
+        { ModFunction::invLinear,           "Inv Linear" },
+        { ModFunction::invQuadraticIn,      "Inv Quadratic In" },
+        { ModFunction::invQuadraticInOut,   "Inv Quadratic In/Out" },
+        { ModFunction::invQuadraticOut,     "Inv Quadratic Out" },
+        { ModFunction::invSineIn,           "Inv Sine In" },
+        { ModFunction::invSineInOut,        "Inv Sine In/Out" },
+        { ModFunction::invSineOut,          "Inv Sine Out" },
+        { ModFunction::invExponentialIn,    "Inv Exponential In" },
+        { ModFunction::invExponentialInOut, "Inv Exponential In/Out" },
+        { ModFunction::invExponentialOut,   "Inv Exponential Out" },
+    };
+
     juce::Component* refreshComponentForRow (int row, bool, juce::Component* c) override
     {
         auto rowComponent = dynamic_cast<Row*>(c);
@@ -81,6 +135,13 @@ private:
             addAndMakeVisible (depth);
             addAndMakeVisible (src);
             addAndMakeVisible (dst);
+
+            enableButton.setTitle ("Enable");
+            enableButton.setToggleable (true);
+            deleteButton.setTitle ("Delete");
+            biPolarButton.setTitle ("Bipolar");
+            biPolarButton.setToggleable (true);
+            depth.setTitle ("Depth");
 
             depth.setRange (-1.0, 1.0);
             depth.getProperties().set ("fromCentre", true);
@@ -172,27 +233,14 @@ private:
                     juce::PopupMenu m;
                     m.setLookAndFeel (&getLookAndFeel());
 
-                    m.addItem ("Linear", true, f == ModFunction::linear, [set] { set (ModFunction::linear); });
-                    m.addItem ("Quadratic In", true, f == ModFunction::quadraticIn, [set] { set (ModFunction::quadraticIn); });
-                    m.addItem ("Quadratic In/Out", true, f == ModFunction::quadraticInOut, [set] { set (ModFunction::quadraticInOut); });
-                    m.addItem ("Quadratic Out", true, f == ModFunction::quadraticOut, [set] { set (ModFunction::quadraticOut); });
-                    m.addItem ("Sine In", true, f == ModFunction::sineIn, [set] { set (ModFunction::sineIn); });
-                    m.addItem ("Sine In Out", true, f == ModFunction::sineInOut, [set] { set (ModFunction::sineInOut); });
-                    m.addItem ("Sine Out", true, f == ModFunction::sineOut, [set] { set (ModFunction::sineOut); });
-                    m.addItem ("Exponential In", true, f == ModFunction::exponentialIn, [set] { set (ModFunction::exponentialIn); });
-                    m.addItem ("Exponential In/Out", true, f == ModFunction::exponentialInOut, [set] { set (ModFunction::exponentialInOut); });
-                    m.addItem ("Exponential Out", true, f == ModFunction::exponentialOut, [set] { set (ModFunction::exponentialOut); });
-                    m.addSeparator();
-                    m.addItem ("Inv Linear", true, f == ModFunction::invLinear, [set] { set (ModFunction::invLinear); });
-                    m.addItem ("Inv Quadratic In", true, f == ModFunction::invQuadraticIn, [set] { set (ModFunction::invQuadraticIn); });
-                    m.addItem ("Inv Quadratic In/Out", true, f == ModFunction::invQuadraticInOut, [set] { set (ModFunction::invQuadraticInOut); });
-                    m.addItem ("Inv Quadratic Out", true, f == ModFunction::invQuadraticOut, [set] { set (ModFunction::invQuadraticOut); });
-                    m.addItem ("Inv Sine In", true, f == ModFunction::invSineIn, [set] { set (ModFunction::invSineIn); });
-                    m.addItem ("Inv Sine In/Out", true, f == ModFunction::invSineInOut, [set] { set (ModFunction::invSineInOut); });
-                    m.addItem ("Inv Sine Out", true, f == ModFunction::invSineOut, [set] { set (ModFunction::invSineOut); });
-                    m.addItem ("Inv Exponential In", true, f == ModFunction::invExponentialIn, [set] { set (ModFunction::invExponentialIn); });
-                    m.addItem ("Inv Exponential In/Out", true, f == ModFunction::invExponentialInOut, [set] { set (ModFunction::invExponentialInOut); });
-                    m.addItem ("Inv Exponential Out", true, f == ModFunction::invExponentialOut, [set] { set (ModFunction::invExponentialOut); });
+                    for (auto& c : curveNames)
+                    {
+                        if (c.first == ModFunction::invLinear)
+                            m.addSeparator();
+
+                        auto func = c.first;
+                        m.addItem (c.second, true, f == func, [set, func] { set (func); });
+                    }
 
                     m.showMenuAsync ({});
                 }
@@ -226,12 +274,14 @@ private:
 
                 depth.setValue (owner.modMatrix.getModDepth (a.src, ModDstId (a.dst->getModIndex())), juce::dontSendNotification);
                 curveButton.setCurve (owner.modMatrix.getModFunction (a.src, ModDstId (a.dst->getModIndex())));
+                curveButton.setTitle ("Curve: " + getCurveName (owner.modMatrix.getModFunction (a.src, ModDstId (a.dst->getModIndex()))));
             }
             else
             {
                 src.setText ("", juce::dontSendNotification);
                 dst.setText ("", juce::dontSendNotification);
                 curveButton.setCurve (ModFunction::linear);
+                curveButton.setTitle ({});
             }
         }
 
